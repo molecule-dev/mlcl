@@ -1,10 +1,21 @@
 /**
- * FeedbackLayout — the app shell for every non-auth page.
+ * FeedbackLayout — the app shell for every non-auth page, composed from the
+ * shared `ResponsiveAppShell` (@molecule/app-ui-react).
  *
- * Top header (brand + Boards / Roadmap / Changelog nav + theme toggle +
- * auth state), centered content column, footer. The public feedback face
- * (boards, roadmap, changelog) and the signed-in surfaces share this shell:
- * a feedback portal is one product, not a marketing site plus a hidden app.
+ * Desktop (≥768px): a brand row + Boards / Roadmap / Changelog sidebar (plus
+ * Dashboard / Manage posts for admins) with the auth actions in the sidebar
+ * footer. Mobile (<768px): a top bar (brand + auth actions) whose menu
+ * trigger opens the shared nav drawer — full APG dialog contract (focus
+ * trap, Escape/backdrop close, scroll lock, auto-close on navigation).
+ *
+ * The SAME nav element feeds `.Sidebar` and `.Drawer`, so only the mounted
+ * breakpoint instantiates it and the links never duplicate in the DOM or
+ * the a11y tree. `aria-current="page"` marks the current route; page
+ * padding lives on the content column, not in the pages.
+ *
+ * The public feedback face (boards, roadmap, changelog) and the signed-in
+ * surfaces share this shell: a feedback portal is one product, not a
+ * marketing site plus a hidden app.
  *
  * Admin nav (Dashboard / Posts) appears only when the signed-in user's
  * role is admin, read from /api/users/me on mount.
@@ -15,6 +26,7 @@ import { Link, Outlet, useLocation } from 'react-router'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { Footer } from './Footer.js'
 
@@ -69,18 +81,24 @@ export function FeedbackLayout() {
     pathname === item.to ||
     (item.matchPrefix !== undefined && pathname.startsWith(item.matchPrefix))
 
-  const renderNavItem = (item: NavItem, mobile = false) => (
+  // One nav element for both breakpoints — the shell wraps it in its
+  // `<nav aria-label>` landmark and mounts only the breakpoint's copy, so
+  // the `nav-…` data-mol-ids are never duplicated in the DOM.
+  const renderNavItem = (item: NavItem) => (
     <Link
       key={item.to}
       to={item.to}
-      data-mol-id={`nav-${item.to.replaceAll('/', '-')}${mobile ? '-mobile' : ''}`}
+      data-mol-id={`nav-${item.to.replaceAll('/', '-')}`}
+      aria-current={isActive(item) ? 'page' : undefined}
       className={cm.cn(
+        cm.flex({ align: 'center' }),
+        cm.sp('px', 3),
+        cm.sp('py', 2),
         cm.fontWeight('semibold'),
         cm.textSize('sm'),
-        'whitespace-nowrap',
-        // The mobile row is the row's own tap surface — pad it so the
-        // links clear the ~28px minimum target, unlike the desktop labels.
-        mobile ? 'py-1.5' : '',
+        // Rows are their own tap surface — pad them so the links clear the
+        // ~44px minimum target on every breakpoint.
+        'min-h-[44px] rounded-md whitespace-nowrap transition-colors',
         isActive(item)
           ? 'text-primary'
           : 'text-on-surface-variant hover:text-primary transition-colors',
@@ -90,113 +108,108 @@ export function FeedbackLayout() {
     </Link>
   )
 
-  // Mobile nav — the desktop links are `hidden md:flex`, so without this row
-  // a phone user has no way at all to reach Boards / Roadmap / Changelog
-  // (or the admin surfaces) from any app page. Scrollable chip row pinned
-  // under the brand row, inside the same sticky header.
-  const renderMobileNav = () => (
-    <nav
-      data-mol-id="nav-mobile"
-      aria-label={t('layout.mobileNav', {}, { defaultValue: 'Primary' })}
-      className={cm.cn(
-        cm.flex({ align: 'center', gap: 'md' }),
-        '-mx-6 px-6 overflow-x-auto md:hidden',
-        '[scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
-      )}
-    >
-      {PUBLIC_NAV.map((item) => renderNavItem(item, true))}
-      {isAdmin && ADMIN_NAV.map((item) => renderNavItem(item, true))}
-    </nav>
+  const navItems = (
+    <>
+      {PUBLIC_NAV.map((item) => renderNavItem(item))}
+      {isAdmin && ADMIN_NAV.map((item) => renderNavItem(item))}
+    </>
   )
 
-  return (
-    <div className={cm.cn(cm.flex({ direction: 'col' }), cm.minH('screen'), 'bg-background')}>
-      <header
-        className={cm.cn(
-          cm.flex({ direction: 'col', gap: 'xs' }),
-          cm.sp('px', 6),
-          cm.sp('py', 3),
-          'sticky top-0 z-40 border-b border-outline-variant/30 bg-surface/95 backdrop-blur',
-        )}
+  // Brand row — the mobile TopBar's brand and the desktop sidebar lead ride
+  // on the same element; only the mounted breakpoint instantiates it.
+  const brand = (
+    <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+      <img src="/logo.svg" alt="" className={cm.cn(cm.w(8), cm.h(8))} aria-hidden="true" />
+      <span
+        className={cm.cn(cm.fontWeight('bold'), 'text-xl tracking-tight')}
+        style={{ color: 'var(--color-primary)' }}
       >
-        <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'md' }))}>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
-            <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-              <img src="/logo.svg" alt="" className={cm.cn(cm.w(8), cm.h(8))} aria-hidden="true" />
-              <span
-                className={cm.cn(cm.fontWeight('bold'), 'text-xl tracking-tight')}
-                style={{ color: 'var(--color-primary)' }}
-              >
-                SignalLoop
-              </span>
-            </Link>
-            <nav
-              aria-label={t('layout.primaryNav', {}, { defaultValue: 'Primary' })}
-              className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'hidden md:flex')}
-            >
-              {PUBLIC_NAV.map((item) => renderNavItem(item))}
-              {isAdmin && ADMIN_NAV.map((item) => renderNavItem(item))}
-            </nav>
-          </div>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            {isAuthenticated ? (
-              <Link
-                to="/submit"
-                data-mol-id="nav-submit"
-                className={cm.cn(
-                  cm.flex({ align: 'center', gap: 'xs' }),
-                  cm.fontWeight('bold'),
-                  cm.textSize('sm'),
-                  cm.sp('px', 4),
-                  cm.sp('py', 2),
-                  'rounded-full bg-primary text-on-primary hover:bg-primary-active transition-colors',
-                )}
-              >
-                <span className="material-symbols-outlined text-base" aria-hidden="true">
-                  add
-                </span>
-                {t('layout.submit', {}, { defaultValue: 'Submit feedback' })}
-              </Link>
-            ) : (
-              <>
-                <Link
-                  to="/login"
-                  className={cm.cn(
-                    cm.fontWeight('semibold'),
-                    cm.textSize('sm'),
-                    'text-on-surface-variant hover:text-primary transition-colors',
-                  )}
-                >
-                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                </Link>
-                <Link
-                  to="/signup"
-                  data-mol-id="nav-signup"
-                  className={cm.cn(
-                    cm.fontWeight('bold'),
-                    cm.textSize('sm'),
-                    cm.sp('px', 4),
-                    cm.sp('py', 2),
-                    'rounded-full bg-primary text-on-primary hover:bg-primary-active transition-colors',
-                  )}
-                >
-                  {t('layout.signUp', {}, { defaultValue: 'Sign up' })}
-                </Link>
-              </>
-            )}
-          </div>
-        </div>
-        {renderMobileNav()}
-      </header>
+        SignalLoop
+      </span>
+    </Link>
+  )
 
-      <main className={cm.cn(cm.flex1, cm.sp('px', 6), cm.sp('py', 8))}>
+  // Auth actions — the mobile TopBar and the desktop sidebar footer share
+  // one element (mutually exclusive mounts, so ids never duplicate).
+  const authActions = (
+    <>
+      {isAuthenticated ? (
+        <Link
+          to="/submit"
+          data-mol-id="nav-submit"
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.fontWeight('bold'),
+            cm.textSize('sm'),
+            cm.sp('px', 4),
+            cm.sp('py', 2),
+            'rounded-full bg-primary text-on-primary hover:bg-primary-active transition-colors',
+          )}
+        >
+          <span className="material-symbols-outlined text-base" aria-hidden="true">
+            add
+          </span>
+          {t('layout.submit', {}, { defaultValue: 'Submit feedback' })}
+        </Link>
+      ) : (
+        <>
+          <Link
+            to="/login"
+            className={cm.cn(
+              cm.fontWeight('semibold'),
+              cm.textSize('sm'),
+              'text-on-surface-variant hover:text-primary transition-colors',
+            )}
+          >
+            {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+          </Link>
+          <Link
+            to="/signup"
+            data-mol-id="nav-signup"
+            className={cm.cn(
+              cm.fontWeight('bold'),
+              cm.textSize('sm'),
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              'rounded-full bg-primary text-on-primary hover:bg-primary-active transition-colors',
+            )}
+          >
+            {t('layout.signUp', {}, { defaultValue: 'Sign up' })}
+          </Link>
+        </>
+      )}
+    </>
+  )
+
+  const navLabel = t('layout.primaryNav', {}, { defaultValue: 'Primary' })
+
+  return (
+    <ResponsiveAppShell sidebarWidth="md">
+      {/* Mobile top bar (<768px): the shell renders the menu trigger itself
+          next to the brand; the desktop shell carries no top bar. */}
+      <ResponsiveAppShell.TopBar mobileOnly brand={brand} actions={authActions} />
+      {/* Desktop sidebar (≥768px): brand leads the nav column; auth actions
+          sit in the bordered footer row, outside the nav landmark. */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        footer={authActions}
+        className={cm.sp('p', 4)}
+      >
+        <div className={cm.cn(cm.sp('mb', 4))}>{brand}</div>
+        {navItems}
+      </ResponsiveAppShell.Sidebar>
+      {/* Mobile drawer (<768px): the same nav element behind the full dialog
+          contract; it auto-closes on navigation and on desktop-crossing. */}
+      <ResponsiveAppShell.Drawer navLabel={navLabel} className={cm.sp('p', 4)}>
+        {navItems}
+      </ResponsiveAppShell.Drawer>
+      <ResponsiveAppShell.Content className={cm.cn(cm.sp('px', 6), cm.sp('py', 8))}>
         <div className="mx-auto max-w-[1040px]">
           <Outlet />
         </div>
-      </main>
-
-      <Footer />
-    </div>
+        <Footer />
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
 
