@@ -23,7 +23,8 @@ function isLocalEnv(): boolean {
   return process.env.MOLECULE_ENV === 'local'
 }
 
-function apiBase(): string {
+/** The molecule.dev API base (MOLECULE_API_URL, or the local/prod default). */
+export function apiBase(): string {
   if (isLocalEnv()) return process.env.MOLECULE_API_URL ?? 'http://localhost:4000/api'
   return process.env.MOLECULE_API_URL ?? DEFAULT_API
 }
@@ -37,6 +38,11 @@ export interface StoredCredentials {
   token: string
   email?: string
   savedAt: string
+}
+
+/** The session token: MOLECULE_TOKEN, else the stored credentials file. */
+export function sessionToken(): string | undefined {
+  return process.env.MOLECULE_TOKEN ?? readCredentials()?.token
 }
 
 export function readCredentials(): StoredCredentials | null {

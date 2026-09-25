@@ -75,6 +75,9 @@ registry listings (one-click), and for Claude Code the full plugin —
 | `agent_init`           | Write the molecule conventions into this project's agent files        |
 | `login` / `login_poll` | Browser device-code login (same token as the CLI — see below)         |
 | `whoami` / `logout`    | Login status / clear the token                                        |
+| `list_projects`        | Your molecule.dev projects (ids for `create_api_key`)                 |
+| `create_api_key`       | Mint a project API key into the project `.env` (never shown in chat)  |
+| `embed_text`           | Embeddings on molecule.dev, billed to the project — no OpenAI account |
 
 Plus the `molecule://conventions` resource — the molecule doctrine
 (packages before hand-rolled code, bonds for providers, ClassMap, i18n) that
@@ -106,6 +109,23 @@ your agent can read as context.
 // agent_init — make the current project molecule-aware (idempotent)
 { "directory": "/abs/my-project" }
 ```
+
+## Hosted services
+
+molecule.dev runs some capabilities for you, so neither your app nor your
+agent needs its own vendor account. Each call is metered and billed to one
+project, through that project's API key:
+
+1. `login`, then `list_projects` to find the project id.
+2. `create_api_key` with `env_file` pointing at the project's `.env`. The
+   key is written there as `MOLECULE_API_KEY` (file mode 0600) and is not
+   returned to the agent. Check that the file is gitignored.
+3. Service tools (`embed_text`) read the key from that `.env` (pass
+   `directory`) or from `MOLECULE_API_KEY` in this server's environment.
+
+The same HTTP API (`POST https://api.molecule.dev/api/v1/services/<service>/<operation>`,
+catalog at `GET …/v1/services`) backs the `@molecule/*-molecule` bonds, so
+app code reaches the same service through a normal, swappable bond.
 
 ## Two modes: local (stdio) and hosted (HTTP)
 

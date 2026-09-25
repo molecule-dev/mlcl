@@ -27,6 +27,12 @@ import {
   startLogin,
   whoami,
 } from './auth.js'
+import {
+  callHostedService,
+  createApiKeyIntoEnv,
+  listProjects,
+  ServiceCallError,
+} from './services.js'
 import { tracked } from './telemetry.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { execa } from 'execa'
@@ -375,6 +381,110 @@ server.registerTool(
     await revokeDevice(deviceId)
     return text(`Revoked ${deviceId}. Tokens bound to it die within ~10s.`)
   }),
+)
+
+// ── molecule.dev hosted services ─────────────────────────────────────────────
+// The session token manages the account; a PROJECT API key (mk_…) pays for
+// service calls. create_api_key writes that key into the project's .env so it
+// never passes through the transcript, and the service tools read it from there
+// (or MOLECULE_API_KEY). Every call is metered and billed to that project.
+
+/** Turn a ServiceCallError into a readable tool error; rethrow anything else. */
+async function serviceResult(run: () => Promise<string>) {
+  try {
+    return text(await run())
+  } catch (error) {
+    if (error instanceof ServiceCallError) {
+      return { content: [{ type: 'text' as const, text: error.message }], isError: true }
+    }
+    throw error
+  }
+}
+
+server.registerTool(
+  'list_projects',
+  {
+    title: 'List molecule.dev projects',
+    description:
+      "List the logged-in account's molecule.dev projects (id, name, role). Use the id with create_api_key. Requires login.",
+    inputSchema: {},
+  },
+  tracked('list_projects', async () =>
+    serviceResult(async () => JSON.stringify(await listProjects(), null, 2)),
+  ),
+)
+
+server.registerTool(
+  'create_api_key',
+  {
+    title: 'Create a molecule.dev project API key',
+    description:
+      "Mint a project API key (mk_…) and write it as MOLECULE_API_KEY into the given .env file — the key is NOT returned, so it stays out of the chat. Apps (through @molecule/*-molecule bonds) and this server's service tools read it from there; usage bills to that project. Returns the masked key and whether the file looks gitignored. Requires login.",
+    inputSchema: {
+      project_id: z.string().describe('Project id from list_projects'),
+      env_file: z
+        .string()
+        .describe(
+          'Path of the dotenv file to write, e.g. /path/to/app/api/.env (named .env or .env.<x>)',
+        ),
+      name: z.string().optional().describe('Label for the key (default mcp)'),
+      scopes: z
+        .array(z.string())
+        .optional()
+        .describe('Limit the key, e.g. [broker:embeddings]. Default: every hosted service.'),
+    },
+  },
+  tracked('create_api_key', async ({ project_id, env_file, name, scopes }) =>
+    serviceResult(async () =>
+      JSON.stringify(
+        await createApiKeyIntoEnv(project_id, name ?? 'mcp', env_file, scopes),
+        null,
+        2,
+      ),
+    ),
+  ),
+)
+
+server.registerTool(
+  'embed_text',
+  {
+    title: 'Embed text with molecule.dev',
+    description:
+      'Turn text into embedding vectors on molecule.dev (no OpenAI account needed; metered to the project whose MOLECULE_API_KEY is used). Returns model, token usage and the vectors (or only their length with summary_only). The same service backs @molecule/api-ai-embeddings-molecule in app code.',
+    inputSchema: {
+      input: z.union([z.string(), z.array(z.string())]).describe('Text or list of texts'),
+      model: z.enum(['text-embedding-3-small', 'text-embedding-3-large']).optional(),
+      dimensions: z.number().int().min(1).max(3072).optional(),
+      summary_only: z
+        .boolean()
+        .optional()
+        .describe('Return only counts and usage, not the vectors (vectors are long)'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('embed_text', async ({ input, model, dimensions, summary_only, directory }) =>
+    serviceResult(async () => {
+      const result = (await callHostedService(
+        'embeddings',
+        'embed',
+        { input, ...(model ? { model } : {}), ...(dimensions ? { dimensions } : {}) },
+        directory,
+      )) as { embeddings: number[][]; model: string; usage: unknown }
+      return JSON.stringify(
+        summary_only
+          ? {
+              model: result.model,
+              usage: result.usage,
+              vectors: result.embeddings.length,
+              dimensions: result.embeddings[0]?.length ?? 0,
+            }
+          : result,
+      )
+    }),
+  ),
 )
 
 /** The configured server — exported so tests can link an in-memory client to it. */
