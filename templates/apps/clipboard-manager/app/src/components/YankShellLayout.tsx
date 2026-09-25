@@ -1,9 +1,10 @@
+import { Link, Outlet, useLocation } from 'react-router'
+
 import { useTranslation } from '@molecule/app-react'
-import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
+import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
-import { useIsMobile } from '../lib/use-is-mobile.js'
-import { MobileNavShell } from './MobileNavShell.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -22,37 +23,126 @@ const NAV_KEYS = [
 ] as const
 
 /**
- * Signed-in shell for Yank — periwinkle wordmark up top, vertical nav,
- * UserMenu pinned to the bottom. Wraps `@molecule/app-sidebar-layout-react`
- * on md+ screens; below md (768px) the shared rail would crush a phone's
- * content column, so a template-local MobileNavShell (sticky top bar +
- * slide-in drawer) takes over — conditionally rendered, never CSS-hidden,
- * so nav `data-mol-id`s stay unique in the DOM.
+ * Signed-in shell for Yank — periwinkle wordmark, vertical nav, UserMenu
+ * pinned to the bottom — built on the shared `ResponsiveAppShell`.
+ *
+ * The shell owns the breakpoint split: the Sidebar mounts only ≥768px (the
+ * brand row leads the nav column, UserMenu in the footer, the same geometry
+ * `SidebarLayout` rendered), while the mobile-only TopBar and the dialog
+ * Drawer take over below it — the TopBar renders the menu trigger itself and
+ * the Drawer carries the full APG contract (focus trap, Escape, backdrop,
+ * scroll lock, auto-close on navigation). The former template-local
+ * MobileNavShell (hamburger, drawer open state, escape/backdrop handlers)
+ * and the `useIsMobile` shell gate are deleted.
  */
 export function YankShellLayout() {
+  const cm = getClassMap()
   const { t } = useTranslation()
-  const isMobile = useIsMobile()
-  const navItems = NAV_KEYS.map((item) => ({
-    to: item.to,
-    key: item.key,
-    icon: item.icon,
-    label: t(`yankShellLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
-  }))
-  if (isMobile) {
-    return <MobileNavShell logoTo="/clips" navItems={navItems} />
-  }
+  const { pathname } = useLocation()
+
+  const navLabel = t('yankShellLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
+
+  // ONE nav element for both breakpoints — the Sidebar and the Drawer receive
+  // the same element, and only the mounted breakpoint instantiates it, so the
+  // `nav-*` data-mol-ids are never duplicated in the DOM. The drawer closes
+  // itself on navigation (shell-owned), so links carry no onClick close.
+  const nav = (
+    <>
+      {NAV_KEYS.map((item) => {
+        const isActive = pathname === item.to || pathname.startsWith(`${item.to}/`)
+        return (
+          <Link
+            key={item.to}
+            to={item.to}
+            data-mol-id={`nav-${item.key}`}
+            aria-current={isActive ? 'page' : undefined}
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              cm.sp('px', 3),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('medium'),
+              cm.roundedFull,
+              isActive
+                ? // The container pair, NOT bgPrimarySubtle + textPrimary —
+                  // the brand colour on a 10% tint of itself measures under
+                  // the 4.5 AA floor on light brands (see SidebarLayout).
+                  cm.cn(cm.bgPrimaryContainer, cm.textOnPrimaryContainer)
+                : cm.cn(cm.textMuted, cm.link),
+            )}
+          >
+            <span className="material-symbols-outlined" aria-hidden="true">
+              {item.icon}
+            </span>
+            <span>
+              {t(`yankShellLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel })}
+            </span>
+          </Link>
+        )
+      })}
+    </>
+  )
+
   return (
-    <SidebarLayout
-      appName={APP_NAME}
-      logoTo="/clips"
-      navItems={navItems}
-      userMenu={<UserMenu />}
-      navAriaLabel={t(
-        'yankShellLayout.primaryNavLabel',
-        {},
-        { defaultValue: 'Primary navigation' },
-      )}
-    />
+    <ResponsiveAppShell sidebarWidth="md">
+      {/* Mobile top bar (<768px) — wordmark + UserMenu + the shell's own
+          menu trigger. Renders nothing on desktop. */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={
+          <Link
+            to="/clips"
+            className={cm.cn(cm.textSize('lg'), cm.fontWeight('extrabold'), 'tracking-tight')}
+          >
+            {APP_NAME}
+          </Link>
+        }
+        actions={<UserMenu />}
+      />
+
+      {/*
+        Desktop sidebar (≥768px). The brand row leads the nav column and the
+        UserMenu is pinned to the footer — the same shape `SidebarLayout`
+        rendered, so pages keep their padding and scroll behaviour.
+      */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        className={cm.sp('p', 4)}
+        footer={<UserMenu />}
+      >
+        <Link
+          to="/clips"
+          className={cm.cn(
+            cm.textSize('xl'),
+            cm.fontWeight('bold'),
+            cm.sp('mb', 6),
+            cm.displayBlock,
+          )}
+        >
+          {APP_NAME}
+        </Link>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+
+      {/*
+        Mobile drawer (<768px): a full dialog panel (focus trap, Escape,
+        backdrop click, body-scroll lock) over the SAME nav element, with the
+        wordmark in the header and the UserMenu in the footer.
+      */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navLabel}
+        header={
+          <span className={cm.cn(cm.textSize('2xl'), cm.fontWeight('extrabold'))}>{APP_NAME}</span>
+        }
+        footer={<UserMenu />}
+      >
+        {nav}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content>
+        <Outlet />
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
 
