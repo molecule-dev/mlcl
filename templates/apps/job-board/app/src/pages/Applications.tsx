@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import type { TranslateFunction } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import type { ApplicationStatus } from '../components/ApplicationStatusPill.js'
 import { ApplicationStatusPill } from '../components/ApplicationStatusPill.js'
@@ -236,28 +237,16 @@ export function Applications() {
             {t('applications.loading', {}, { defaultValue: 'Loading\u2026' })}
           </p>
         ) : loadError ? (
-          <div className={cm.cn(cm.sp('py', 12), cm.textCenter, cm.textSize('sm'), cm.stack(3))}>
-            <p className={cm.cn('text-on-surface-variant')}>
-              {t(
-                'applications.loadError',
-                {},
-                { defaultValue: 'Applications could not be loaded \u2014 check your connection.' },
-              )}
-            </p>
-            <button
-              type="button"
-              onClick={() => setReloadKey((k) => k + 1)}
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                cm.fontWeight('bold'),
-                cm.textSize('sm'),
-                'min-h-[40px] rounded-full bg-primary text-on-primary hover:opacity-90 transition-opacity',
-              )}
-            >
-              {t('common.retry', {}, { defaultValue: 'Retry' })}
-            </button>
-          </div>
+          <LoadErrorBanner
+            message={t(
+              'applications.loadError',
+              {},
+              { defaultValue: 'Applications could not be loaded \u2014 check your connection.' },
+            )}
+            onRetry={() => {
+              setReloadKey((k) => k + 1)
+            }}
+          />
         ) : apps.length === 0 ? (
           <div className={cm.cn(cm.sp('py', 12), cm.textCenter, cm.textSize('sm'), cm.stack(3))}>
             <p className={cm.cn('text-on-surface-variant')}>

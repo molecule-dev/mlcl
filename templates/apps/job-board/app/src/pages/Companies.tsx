@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import type { CompanyProfile } from '../components/CompanyProfileCard.js'
@@ -136,35 +137,16 @@ export function Companies() {
           {t('companies.loading', {}, { defaultValue: 'Loading\u2026' })}
         </p>
       ) : loadError ? (
-        <div
-          className={cm.cn(
-            cm.sp('py', 12),
-            cm.textCenter,
-            cm.stack(3),
-            'rounded-2xl bg-surface-container-lowest border border-dashed border-outline-variant/30 text-on-surface-variant',
+        <LoadErrorBanner
+          message={t(
+            'companies.loadError',
+            {},
+            { defaultValue: 'Companies could not be loaded \u2014 check your connection.' },
           )}
-        >
-          <p>
-            {t(
-              'companies.loadError',
-              {},
-              { defaultValue: 'Companies could not be loaded \u2014 check your connection.' },
-            )}
-          </p>
-          <button
-            type="button"
-            onClick={() => setReloadKey((k) => k + 1)}
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.fontWeight('bold'),
-              cm.textSize('sm'),
-              'min-h-[40px] rounded-full bg-primary text-on-primary hover:opacity-90 transition-opacity',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-        </div>
+          onRetry={() => {
+            setReloadKey((k) => k + 1)
+          }}
+        />
       ) : filtered.length === 0 ? (
         <p
           className={cm.cn(
