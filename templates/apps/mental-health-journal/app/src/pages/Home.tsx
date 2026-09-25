@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { JournalEntryCard } from '../components/JournalEntryCard.js'
 import { MoodHeroCard, type MoodLevel } from '../components/MoodHeroCard.js'
@@ -136,22 +137,11 @@ export function Home() {
           {loading ? (
             t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })
           ) : (
-            <div className={cm.cn(cm.textCenter, 'space-y-3')}>
-              <p>{t('home.loadError', {}, { defaultValue: 'Failed to load journal data.' })}</p>{' '}
-              <button
-                type="button"
-                onClick={() => setReload((r) => r + 1)}
-                className={cm.cn(
-                  cm.sp('px', 5),
-                  cm.sp('py', 2),
-                  cm.fontWeight('bold'),
-                  cm.textSize('sm'),
-                  'rounded-full border-2 border-outline-variant hover:border-primary text-on-surface transition-colors',
-                )}
-              >
-                {t('common.tryAgain', {}, { defaultValue: 'Try again' })}
-              </button>
-            </div>
+            <LoadErrorBanner
+              message={t('home.loadError', {}, { defaultValue: 'Failed to load journal data.' })}
+              retryLabel={t('common.tryAgain', {}, { defaultValue: 'Try again' })}
+              onRetry={() => setReload((r) => r + 1)}
+            />
           )}
         </div>
       )}
@@ -190,24 +180,13 @@ export function Home() {
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </p>
         ) : error ? (
-          <div className={cm.cn(cm.sp('py', 8), cm.textCenter, 'space-y-3')}>
-            <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
-              {error}
-            </p>
-            <button
-              type="button"
-              onClick={() => setReload((r) => r + 1)}
-              className={cm.cn(
-                cm.sp('px', 5),
-                cm.sp('py', 2),
-                cm.fontWeight('bold'),
-                cm.textSize('sm'),
-                'rounded-full border-2 border-outline-variant hover:border-primary text-on-surface transition-colors',
-              )}
-            >
-              {t('common.tryAgain', {}, { defaultValue: 'Try again' })}
-            </button>
-          </div>
+          <LoadErrorBanner
+            // The old block rendered the boolean `error` here (invisible in
+            // JSX); the banner restores the intended home.loadError message.
+            message={t('home.loadError', {}, { defaultValue: 'Failed to load journal data.' })}
+            retryLabel={t('common.tryAgain', {}, { defaultValue: 'Try again' })}
+            onRetry={() => setReload((r) => r + 1)}
+          />
         ) : recent.length === 0 ? (
           <div
             className={cm.cn(

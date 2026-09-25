@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -127,24 +128,11 @@ export function Profile() {
           {t('profile.loading', {}, { defaultValue: 'Refreshing your stats…' })}
         </p>
       ) : error && !stats ? (
-        <div className={cm.cn(cm.sp('py', 12), cm.textCenter, 'space-y-3')}>
-          <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
-            {t('profile.loadError', {}, { defaultValue: 'Failed to load stats.' })}
-          </p>
-          <button
-            type="button"
-            onClick={() => setReload((r) => r + 1)}
-            className={cm.cn(
-              cm.sp('px', 5),
-              cm.sp('py', 2),
-              cm.fontWeight('bold'),
-              cm.textSize('sm'),
-              'rounded-full border-2 border-outline-variant hover:border-primary text-on-surface transition-colors',
-            )}
-          >
-            {t('common.tryAgain', {}, { defaultValue: 'Try again' })}
-          </button>
-        </div>
+        <LoadErrorBanner
+          message={t('profile.loadError', {}, { defaultValue: 'Failed to load stats.' })}
+          retryLabel={t('common.tryAgain', {}, { defaultValue: 'Try again' })}
+          onRetry={() => setReload((r) => r + 1)}
+        />
       ) : stats ? (
         <>
           <section className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-3')}>

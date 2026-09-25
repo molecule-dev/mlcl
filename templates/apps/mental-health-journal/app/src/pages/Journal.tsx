@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { JournalEntryCard } from '../components/JournalEntryCard.js'
 import type { MoodLevel } from '../components/MoodHeroCard.js'
@@ -206,24 +207,11 @@ export function Journal() {
           {t('journal.loading', {}, { defaultValue: 'Loading entries…' })}
         </p>
       ) : error ? (
-        <div className={cm.cn(cm.sp('py', 12), cm.textCenter, 'space-y-3')}>
-          <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
-            {t('journal.loadError', {}, { defaultValue: 'Failed to load entries.' })}
-          </p>
-          <button
-            type="button"
-            onClick={() => setReload((r) => r + 1)}
-            className={cm.cn(
-              cm.sp('px', 5),
-              cm.sp('py', 2),
-              cm.fontWeight('bold'),
-              cm.textSize('sm'),
-              'rounded-full border-2 border-outline-variant hover:border-primary text-on-surface transition-colors',
-            )}
-          >
-            {t('common.tryAgain', {}, { defaultValue: 'Try again' })}
-          </button>
-        </div>
+        <LoadErrorBanner
+          message={t('journal.loadError', {}, { defaultValue: 'Failed to load entries.' })}
+          retryLabel={t('common.tryAgain', {}, { defaultValue: 'Try again' })}
+          onRetry={() => setReload((r) => r + 1)}
+        />
       ) : filtered.length === 0 ? (
         <div
           className={cm.cn(

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import type { MoodLevel } from '../components/MoodHeroCard.js'
 import { unwrapList } from '../lib/unwrap.js'
@@ -185,24 +186,11 @@ export function Calendar() {
       </header>
 
       {error ? (
-        <div className={cm.cn(cm.sp('py', 6), cm.textCenter, 'space-y-3')}>
-          <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
-            {t('calendar.loadError', {}, { defaultValue: 'Could not load calendar.' })}
-          </p>
-          <button
-            type="button"
-            onClick={() => setReload((r) => r + 1)}
-            className={cm.cn(
-              cm.sp('px', 5),
-              cm.sp('py', 2),
-              cm.fontWeight('bold'),
-              cm.textSize('sm'),
-              'rounded-full border-2 border-outline-variant hover:border-primary text-on-surface transition-colors',
-            )}
-          >
-            {t('common.tryAgain', {}, { defaultValue: 'Try again' })}
-          </button>
-        </div>
+        <LoadErrorBanner
+          message={t('calendar.loadError', {}, { defaultValue: 'Could not load calendar.' })}
+          retryLabel={t('common.tryAgain', {}, { defaultValue: 'Try again' })}
+          onRetry={() => setReload((r) => r + 1)}
+        />
       ) : null}
 
       <div
