@@ -179,14 +179,3 @@
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
 }
 /* polish-v2:stitch-styles:end */
-
-/* ResponsiveAppShell drawer stacking fix (consumer-side; see SiftLayout).
-   The shell renders the drawer as: overlay (fixed, z-40) + a wrapper
-   (fixed inset-0) holding the dialog panel. A fixed-position wrapper is
-   its OWN stacking context, so the panel's inline z-index can never lift
-   it above the sibling overlay — the backdrop then paints over (and
-   swallows clicks meant for) the open drawer. Raise the WRAPPER above the
-   overlay; :has() keys it to the drawer panel so nothing else matches. */
-body > div.fixed.inset-0:has(> [data-mol-id='shell-drawer']) {
-  z-index: 50;
-}

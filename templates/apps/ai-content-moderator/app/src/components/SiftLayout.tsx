@@ -49,16 +49,9 @@ export function SiftLayout({ children, crumbs, actions, hideSearch }: SiftLayout
   )
 
   return (
-    <ResponsiveAppShell
-      sidebarWidth={260}
-      // The shell root is a flex ROW (top bar, sidebar and main are direct
-      // siblings), so the bar has to wrap onto its own full-width row or it
-      // renders as a squeezed column beside the sidebar — `flex-wrap` on the
-      // root + `w-full` on the TopBar is the consumer-level geometry fix.
-      className="flex-wrap bg-background text-on-surface antialiased"
-    >
+    <ResponsiveAppShell sidebarWidth={260} className="bg-background text-on-surface antialiased">
       <ResponsiveAppShell.TopBar
-        className="w-full h-16 bg-surface/80 backdrop-blur-xl border-b border-surface-container shadow-sm shadow-slate-200/40 md:px-8"
+        className="h-16 bg-surface/80 backdrop-blur-xl border-b border-surface-container shadow-sm shadow-slate-200/40 md:px-8"
         brand={<SiftCrumbs crumbs={crumbs} />}
         actions={<SiftTopBarActions showSearch={!hideSearch} actions={actions} />}
       />
@@ -66,17 +59,7 @@ export function SiftLayout({ children, crumbs, actions, hideSearch }: SiftLayout
         <SiftSidebarBrand />
         {nav}
       </ResponsiveAppShell.Sidebar>
-      <ResponsiveAppShell.Drawer
-        header={drawerBrand}
-        footer={footer}
-        // The shell's drawer panel is `position: static` while carrying an
-        // inline `zIndex: 40` — a dead combination that leaves the z-40
-        // overlay painting (and intercepting clicks) ABOVE the panel.
-        // `relative` makes the panel's own z-index apply so it sits above
-        // the backdrop. Fix the panel positioning in the shell itself when
-        // @molecule/app-ui-react can be touched.
-        className="relative"
-      >
+      <ResponsiveAppShell.Drawer header={drawerBrand} footer={footer}>
         {nav}
       </ResponsiveAppShell.Drawer>
       <ResponsiveAppShell.Content
