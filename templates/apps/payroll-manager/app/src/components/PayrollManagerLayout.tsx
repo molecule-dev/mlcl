@@ -1,23 +1,25 @@
-import { Link, NavLink, Outlet } from 'react-router'
+import { Link, NavLink, Outlet, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
-import { PayrollMobileNav } from './PayrollMobileNav.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
- * Stipend shell — deep-navy brand-anchored sidebar (per DESIGN.md) +
- * full-bleed content. Mirrors the SidebarLayout pattern used by
- * banking-dashboard's MeridianLayout, but inlines the chrome so the
- * sidebar can apply the brand's `#0c1f2e` navy across both themes.
+ * Stipend shell — deep-navy brand-anchored sidebar (per DESIGN.md) around
+ * the shared `ResponsiveAppShell`: a mobile-only top bar (brand + user menu
+ * + the shell's own menu trigger), a ≥md sidebar with the brand row leading
+ * the nav and the user menu in its footer, a <md dialog drawer carrying the
+ * SAME nav (only the mounted breakpoint instantiates it), and one
+ * `<Outlet />` so pages mount exactly once at any width.
  *
- * Below 768px the sidebar is hidden and the fleet-standard mobile shell
- * takes over: a sticky top bar (brand + user menu) and a fixed bottom
- * tab bar (PayrollMobileNav) so every destination stays reachable.
- *
- * Translated from banking-dashboard's MeridianLayout treatment.
+ * The shell owns the breakpoint, the drawer open state, focus/Escape/
+ * backdrop handling, root direction, and the auto-close-on-navigation; this
+ * component only supplies nav + brand. The navy sidebar treatment is kept
+ * via a background class on the shell's sidebar/drawer/top-bar (the same
+ * mechanism the fleet uses for tinted shells).
  */
 
 interface NavItem {
@@ -51,175 +53,161 @@ const NAV_KEYS: ReadonlyArray<NavItem> = [
   { to: '/settings', key: 'settings', defaultLabel: 'Settings', icon: 'settings' },
 ]
 
+/** Navy brand row — icon roundel + app name, links to the dashboard. */
+function BrandRow({ size }: { size: 'sidebar' | 'drawer' }) {
+  const cm = getClassMap()
+  return (
+    <Link
+      to="/dashboard"
+      className={cm.cn(
+        cm.flex({ align: 'center', gap: 'sm' }),
+        cm.sp('px', 2),
+        size === 'sidebar' ? cm.sp('py', 3) : 'py-2',
+        'text-white',
+      )}
+    >
+      <span
+        className={cm.cn(
+          size === 'sidebar' ? cm.w(8) : cm.w(7),
+          size === 'sidebar' ? cm.h(8) : cm.h(7),
+          cm.roundedFull,
+          cm.flex({ align: 'center', justify: 'center' }),
+          'bg-gradient-to-br from-primary to-secondary text-white shadow-lg',
+        )}
+        aria-hidden="true"
+      >
+        <span
+          className={cm.cn(
+            size === 'sidebar'
+              ? 'material-symbols-outlined text-lg'
+              : 'material-symbols-outlined text-base',
+          )}
+          style={{ fontVariationSettings: "'FILL' 1" }}
+        >
+          receipt_long
+        </span>
+      </span>
+      {/* Brand names are never translated — render APP_NAME directly.
+          (The old t('nav.primaryNavigation') key resolved to the common
+          locales' "Primary navigation" string, replacing the brand.) */}
+      <span
+        className={cm.cn(
+          size === 'sidebar' ? cm.textSize('xl') : cm.textSize('base'),
+          'font-extrabold tracking-tight',
+        )}
+      >
+        {APP_NAME}
+      </span>
+    </Link>
+  )
+}
+
 export function PayrollManagerLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const { pathname } = useLocation()
 
-  return (
-    <div
-      className={cm.cn(
-        cm.minH('screen'),
-        cm.flex({ direction: 'row' }),
-        'bg-background text-on-surface antialiased',
-      )}
-    >
-      <aside
+  // Single-active-item resolution: highlight the nav item whose `to` is the
+  // longest prefix-match of the current pathname (the old CSS-hidden shell
+  // pair used NavLink's prefix matching per copy; the shared element needs
+  // one resolved `aria-current` for both breakpoints).
+  const activeKey = NAV_KEYS.reduce<string | null>((bestKey, item) => {
+    const isMatch = pathname === item.to || pathname.startsWith(`${item.to}/`)
+    if (!isMatch) return bestKey
+    if (bestKey === null) return item.key
+    const best = NAV_KEYS.find((i) => i.key === bestKey)
+    return best && item.to.length > best.to.length ? item.key : bestKey
+  }, null)
+
+  const navLabel = t(
+    'payrollManagerLayout.primaryNavLabel',
+    {},
+    { defaultValue: 'Primary navigation' },
+  )
+
+  // ONE nav element for both breakpoints — the Sidebar and the Drawer receive
+  // the same array, and only the mounted breakpoint instantiates it. The
+  // drawer closes itself on navigation (shell-owned), so links carry no
+  // onClick close.
+  const navItems = NAV_KEYS.map((item) => {
+    const isActive = item.key === activeKey
+    return (
+      <NavLink
+        key={item.key}
+        to={item.to}
+        aria-current={isActive ? 'page' : undefined}
         className={cm.cn(
-          cm.shrink0,
-          cm.flex({ direction: 'col' }),
-          cm.sp('p', 4),
-          'w-64 hidden md:flex',
+          cm.flex({ align: 'center', gap: 'sm' }),
+          cm.sp('px', 3),
+          cm.sp('py', 2),
+          cm.textSize('sm'),
+          'rounded-lg transition-all duration-150',
+          isActive ? 'font-bold text-white' : 'font-medium text-slate-400 hover:text-white',
         )}
-        style={{ backgroundColor: 'var(--color-sidebar)' }}
+        style={{ backgroundColor: isActive ? 'var(--color-sidebar-active)' : 'transparent' }}
       >
-        <Link
-          to="/dashboard"
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'sm' }),
-            cm.sp('px', 2),
-            cm.sp('py', 3),
-            cm.sp('mb', 4),
-            'text-white',
-          )}
-        >
+        <span className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')} aria-hidden="true">
+          {item.icon}
+        </span>
+        <span>
+          {t(`payrollManagerLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel })}
+        </span>
+        {item.accent ? (
           <span
             className={cm.cn(
-              cm.w(8),
-              cm.h(8),
-              cm.roundedFull,
-              cm.flex({ align: 'center', justify: 'center' }),
-              'bg-gradient-to-br from-primary to-secondary text-white shadow-lg',
+              cm.sp('px', 2),
+              cm.fontWeight('bold'),
+              'ml-auto rounded-full text-[9px] uppercase tracking-widest',
             )}
-            aria-hidden="true"
+            style={{
+              backgroundColor: 'var(--mol-color-secondary-dark)',
+              color: 'var(--color-sidebar-text-active)',
+            }}
           >
-            <span
-              className={cm.cn(`material-symbols-outlined text-lg`)}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              receipt_long
-            </span>
+            {t('payrollManagerLayout.runBadge', {}, { defaultValue: 'Now' })}
           </span>
-          {/* Brand names are never translated — render APP_NAME directly.
-              (The old t('nav.primaryNavigation') key resolved to the common
-              locales' "Primary navigation" string, replacing the brand.) */}
-          <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
-            {APP_NAME}
-          </span>
-        </Link>
+        ) : null}
+      </NavLink>
+    )
+  })
 
-        <nav
-          className={cm.cn(cm.flex1, cm.stack(1))}
-          aria-label={t(
-            'payrollManagerLayout.primaryNavLabel',
-            {},
-            { defaultValue: 'Primary navigation' },
-          )}
-        >
-          {NAV_KEYS.map((item) => (
-            <NavLink
-              key={item.key}
-              to={item.to}
-              end={item.to === '/dashboard'}
-              className={({ isActive }) =>
-                cm.cn(
-                  cm.flex({ align: 'center', gap: 'sm' }),
-                  cm.sp('px', 3),
-                  cm.sp('py', 2),
-                  cm.textSize('sm'),
-                  'rounded-lg transition-all duration-150',
-                  isActive ? 'font-bold text-white' : 'font-medium text-slate-400 hover:text-white',
-                )
-              }
-              style={({ isActive }) => ({
-                backgroundColor: isActive ? 'var(--color-sidebar-active)' : 'transparent',
-              })}
-            >
-              <span
-                className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}
-                aria-hidden="true"
-              >
-                {item.icon}
-              </span>
-              <span>
-                {t(`payrollManagerLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel })}
-              </span>
-              {item.accent ? (
-                <span
-                  className={cm.cn(
-                    cm.sp('px', 2),
-                    cm.fontWeight('bold'),
-                    'ml-auto rounded-full text-[9px] uppercase tracking-widest',
-                  )}
-                  style={{
-                    backgroundColor: 'var(--mol-color-secondary-dark)',
-                    color: 'var(--color-sidebar-text-active)',
-                  }}
-                >
-                  {t('payrollManagerLayout.runBadge', {}, { defaultValue: 'Now' })}
-                </span>
-              ) : null}
-            </NavLink>
-          ))}
-        </nav>
+  return (
+    <ResponsiveAppShell sidebarWidth="md">
+      {/* Mobile top bar (< md) — the sidebar's brand + user menu, sticky. The
+          shell renders the menu trigger itself. */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        className="bg-[var(--color-sidebar)] border-outline-variant/40"
+        brand={<BrandRow size="drawer" />}
+        actions={<UserMenu />}
+      />
 
-        <div className={cm.cn(cm.sp('pt', 4), cm.sp('mt', 4), 'border-t border-surface/5')}>
-          <UserMenu />
-        </div>
-      </aside>
-
-      <div
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          cm.flex1,
-          'min-w-0 min-h-screen md:h-screen',
-        )}
+      {/* Desktop sidebar (>= md) — brand row leads the nav column (the shared
+          Sidebar has no header slot, so it rides inside children). */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        className={cm.cn(cm.sp('p', 4), 'bg-[var(--color-sidebar)]')}
       >
-        {/* Mobile top bar — the sidebar's brand + user menu, sticky. */}
-        <header
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
-            cm.sp('px', 4),
-            cm.sp('py', 2),
-            'sticky top-0 z-30 md:hidden border-b border-outline-variant/40',
-          )}
-          style={{ backgroundColor: 'var(--color-sidebar)' }}
-        >
-          <Link
-            to="/dashboard"
-            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'text-white py-2')}
-          >
-            <span
-              className={cm.cn(
-                cm.w(7),
-                cm.h(7),
-                cm.roundedFull,
-                cm.flex({ align: 'center', justify: 'center' }),
-                'bg-gradient-to-br from-primary to-secondary text-white shadow-lg',
-              )}
-              aria-hidden="true"
-            >
-              <span
-                className={cm.cn(`material-symbols-outlined text-base`)}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                receipt_long
-              </span>
-            </span>
-            <span className={cm.cn(cm.textSize('base'), 'font-extrabold tracking-tight')}>
-              {APP_NAME}
-            </span>
-          </Link>
-          <UserMenu />
-        </header>
+        <div className={cm.cn(cm.sp('mb', 4))}>
+          <BrandRow size="sidebar" />
+        </div>
+        {navItems}
+      </ResponsiveAppShell.Sidebar>
 
-        <main className={cm.cn(cm.flex1, 'min-w-0 md:overflow-y-auto')}>
-          <Outlet />
-        </main>
-        {/* Clear the fixed mobile bottom nav (hidden at md where the
-            sidebar takes over). */}
-        <div className={cm.cn('h-16 md:hidden')} aria-hidden="true" />
-      </div>
-      <PayrollMobileNav />
-    </div>
+      {/* Mobile drawer (< md) — the same nav over the navy brand, with the
+          user menu in the footer so every destination stays reachable. */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navLabel}
+        className="h-full bg-[var(--color-sidebar)]"
+        header={<BrandRow size="drawer" />}
+        footer={<UserMenu />}
+      >
+        {navItems}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content>
+        <Outlet />
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
