@@ -7,13 +7,18 @@ import { getClassMap } from '@molecule/app-ui'
 import { APP_NAME } from '../branding.js'
 
 /**
- * Persistent left-rail page tree — the spine of every authenticated
- * Cairn screen per DESIGN.md "Page tree sidebar is persistent on
- * desktop". Top section: workspace switcher + new-page CTA. Middle:
- * top-level navigation (Home / Search / Spaces / Templates /
- * Notifications / Comments / Trash). Bottom: recent pages with
- * collapsible nesting per "Page Tree Item" spec (32px row,
- * 16px-per-level indent, hover + active backgrounds).
+ * Page-tree sidebar CONTENT — the spine of every authenticated Cairn
+ * screen per DESIGN.md "Page tree sidebar is persistent on desktop".
+ * Top section: workspace switcher + new-page CTA. Middle: top-level
+ * navigation (Home / Search / Spaces / Templates / Notifications /
+ * Comments / Trash). Bottom: recent pages with collapsible nesting per
+ * "Page Tree Item" spec (32px row, 16px-per-level indent, hover +
+ * active backgrounds).
+ *
+ * Renders inner content only — the shared `ResponsiveAppShell` owns the
+ * `<aside>`/`<nav>` landmarks, the geometry and the breakpoint split, so
+ * the SAME element mounts in the desktop Sidebar (≥768px) and the mobile
+ * Drawer (<768px) with only the mounted copy instantiated.
  *
  * Translated from blog/SideNavBar.tsx + helpdesk-ticketing sidebar —
  * same anatomy (vertical stack, section headings in 10px tracking-widest,
@@ -33,12 +38,6 @@ export interface PageTreeSidebarProps {
   tree?: PageTreeNode[]
   /** Workspace name shown in the top switcher. */
   workspaceName?: string
-  /**
-   * 'rail' (default): persistent desktop sidebar, hidden below md (the
-   * mobile drawer hosts a 'drawer' copy instead). 'drawer': always
-   * visible, rendered inside WikiLayout's slide-in mobile panel.
-   */
-  variant?: 'rail' | 'drawer'
 }
 
 const NAV_ITEMS: Array<{ key: string; href: string; icon: string; defaultLabel: string }> = [
@@ -101,7 +100,11 @@ function TreeRow({
         ) : (
           <span className={cm.cn('inline-block w-[14px]')} aria-hidden="true" />
         )}
-        <Link to={href} className={cm.cn('flex min-w-0 flex-1 items-center gap-2')}>
+        <Link
+          to={href}
+          aria-current={active ? 'page' : undefined}
+          className={cm.cn('flex min-w-0 flex-1 items-center gap-2')}
+        >
           <span
             className={cm.cn('material-symbols-outlined text-[16px] opacity-70')}
             aria-hidden="true"
@@ -122,26 +125,13 @@ function TreeRow({
   )
 }
 
-export function PageTreeSidebar({
-  recentPages,
-  tree,
-  workspaceName,
-  variant = 'rail',
-}: PageTreeSidebarProps) {
+export function PageTreeSidebar({ recentPages, tree, workspaceName }: PageTreeSidebarProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { pathname } = useLocation()
 
   return (
-    <aside
-      className={cm.cn(
-        cm.flex({ direction: 'col' }),
-        // Desktop-only rail; below md the same component renders inside
-        // WikiLayout's mobile drawer ('drawer' variant stays visible there).
-        variant === 'rail' ? 'hidden md:flex' : 'flex',
-        'w-[280px] shrink-0 h-screen sticky top-0 border-r border-outline-variant/40 bg-surface-container-lowest',
-      )}
-    >
+    <>
       <div className={cm.cn(cm.sp('p', 4), 'border-b border-outline-variant/40')}>
         <Link to="/home" className={cm.flex({ align: 'center', gap: 'sm' })}>
           <span
@@ -178,7 +168,7 @@ export function PageTreeSidebar({
         </Link>
       </div>
 
-      <nav className={cm.cn(cm.sp('p', 2), 'flex-1 overflow-y-auto')}>
+      <div className={cm.cn(cm.sp('p', 2), cm.flex1)}>
         <ul className={cm.cn(cm.stack(0))}>
           {NAV_ITEMS.map((item) => {
             const active = pathname === item.href
@@ -186,6 +176,7 @@ export function PageTreeSidebar({
               <li key={item.key}>
                 <Link
                   to={item.href}
+                  aria-current={active ? 'page' : undefined}
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 'sm' }),
                     cm.sp('px', 3),
@@ -246,6 +237,7 @@ export function PageTreeSidebar({
                   <li key={p.id}>
                     <Link
                       to={href}
+                      aria-current={active ? 'page' : undefined}
                       className={cm.cn(
                         cm.flex({ align: 'center', gap: 'sm' }),
                         cm.sp('px', 3),
@@ -269,7 +261,7 @@ export function PageTreeSidebar({
             </ul>
           </div>
         ) : null}
-      </nav>
-    </aside>
+      </div>
+    </>
   )
 }

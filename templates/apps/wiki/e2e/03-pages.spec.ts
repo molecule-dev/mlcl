@@ -60,7 +60,19 @@ test.describe('pages CRUD + persistence', () => {
 
     await page.getByTestId('page-editor-title').fill('Edited title')
     await page.getByTestId('page-editor-body').fill('# Edited\n\nv2 body — updated.')
+
+    // Arm the PUT wait BEFORE the click: the "Saved …" pill also renders at
+    // mount (from the page's last updated_at), so waiting on it alone races
+    // the save round-trip and the readback below can see v1.
+    const saveResponse = page.waitForResponse(
+      (r) =>
+        r.url().includes(`/api/pages/${created.id}`) &&
+        r.request().method() === 'PUT' &&
+        r.status() < 400,
+      { timeout: 10_000 },
+    )
     await page.getByTestId('page-editor-save').click()
+    await saveResponse
 
     // Wait for "Saved …" pill to appear.
     await expect(page.getByTestId('page-editor-saved-at')).toBeVisible({ timeout: 10_000 })

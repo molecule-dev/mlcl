@@ -20,6 +20,13 @@ test.describe('auth', () => {
     const password = 'CairnTestPass2026!'
     await signup(page, email, password)
 
+    // The shell's sidebar fetch (spaces/pages) may still be in flight when we
+    // clear the session below; its 401 is the EXPECTED result of that wipe.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
+
     // Logout via clearing localStorage so we exercise the login form, not just the persisted session
     await page.evaluate(() => window.localStorage.clear())
     await page.context().clearCookies()
@@ -37,9 +44,15 @@ test.describe('auth', () => {
     await page.goto(APP_BASE + '/login')
     // The server correctly rejects the bad password with 403 — that resource
     // load error in the browser console is EXPECTED, so allow it explicitly.
+    // The in-flight sidebar fetch (spaces/pages) 401s for the same reason: we
+    // wiped the session above while the shell was fetching.
     test.info().annotations.push({
       type: 'allow-console-error',
       description: 'status of 403',
+    })
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
     })
     await page.getByPlaceholder('you@team.com').fill(email)
     await page.getByPlaceholder('••••••••').fill('WrongPass!2026000')

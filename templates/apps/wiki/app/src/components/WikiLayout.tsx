@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Outlet, useLocation, useNavigate } from 'react-router'
+import { Outlet, useNavigate } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { type PageTreeNode, PageTreeSidebar } from './PageTreeSidebar.js'
@@ -28,43 +29,33 @@ interface ApiMe {
 }
 
 /**
- * Authenticated app shell — persistent left rail (PageTreeSidebar) +
- * thin breadcrumb header + content slot. Matches DESIGN.md hard
- * constraint: "Every authenticated screen renders inside the shared
- * shell — never full-bleed."
- *
- * Translated from helpdesk-ticketing/AppShell + crm/AppShellLayout —
- * same anatomy (sticky sidebar, top-bar with breadcrumb + user menu,
- * scrolling main) tuned to Cairn's calm/editorial mood.
+ * Authenticated app shell — the shared `ResponsiveAppShell` around one
+ * content region: a desktop sidebar (≥768px, the PageTreeSidebar with brand +
+ * nav + page tree + theme/user footer) and a mobile dialog drawer (<768px,
+ * full APG contract) fed the SAME sidebar element — the shell instantiates
+ * only the mounted breakpoint's copy, renders the menu trigger itself and
+ * owns the drawer open state, Escape/backdrop handling and
+ * auto-close-on-navigate. The TopBar is mobile-only (trigger + search +
+ * theme + user); on desktop the sidebar carries the chrome, so the shell row
+ * is exactly sidebar + full-width content. Matches DESIGN.md hard
+ * constraint: "Every authenticated screen renders inside the shared shell —
+ * never full-bleed."
  */
 
 export function WikiLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const location = useLocation()
   const http = useHttpClient()
+  const isAuthenticated = useIsAuthenticated()
   const [tree, setTree] = useState<PageTreeNode[]>([])
   const [recent, setRecent] = useState<{ id: string; title: string }[]>([])
   const [workspaceName, setWorkspaceName] = useState<string>(APP_NAME)
-  const [drawerOpen, setDrawerOpen] = useState(false)
-
-  // Close the mobile drawer on any navigation — it overlays the page it links to.
-  useEffect(() => {
-    setDrawerOpen(false)
-  }, [location.pathname])
-
-  // Escape closes the drawer.
-  useEffect(() => {
-    if (!drawerOpen) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setDrawerOpen(false)
-    }
-    document.addEventListener('keydown', onKey)
-    return () => document.removeEventListener('keydown', onKey)
-  }, [drawerOpen])
 
   useEffect(() => {
+    // Only load once authenticated — a mid-session auth transition (logout,
+    // cleared session) must not fire unauthenticated /spaces + /pages fetches.
+    if (!isAuthenticated) return undefined
     let cancelled = false
     const load = async () => {
       try {
@@ -101,107 +92,53 @@ export function WikiLayout() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, isAuthenticated])
+
+  // The SAME nav element for both breakpoints — only the mounted
+  // breakpoint's copy instantiates, so its links stay unique in the DOM.
+  const sidebar = <PageTreeSidebar tree={tree} recentPages={recent} workspaceName={workspaceName} />
+
+  // Chrome shared across breakpoints — only one side ever mounts it (the
+  // TopBar renders <768px, the sidebar footer ≥768px).
+  const userRow = (
+    <>
+      <ThemeToggle />
+      <UserMenu />
+    </>
+  )
 
   return (
-    <div className={cm.cn(cm.flex({}), 'min-h-screen bg-surface-container-lowest/50')}>
-      <PageTreeSidebar tree={tree} recentPages={recent} workspaceName={workspaceName} />
-      <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-0 flex-1')}>
-        <header
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
-            'h-14 px-3 sm:px-8 border-b border-outline-variant/40 bg-surface-container-lowest/80 backdrop-blur sticky top-0 z-30',
-          )}
-        >
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0 flex-1')}>
-            {/* Mobile-only hamburger — opens the page-tree drawer (below md). */}
-            <button
-              type="button"
-              onClick={() => setDrawerOpen(true)}
-              aria-label={t('wikiLayout.openMenu', {}, { defaultValue: 'Open navigation' })}
-              aria-expanded={drawerOpen}
-              aria-controls="wiki-mobile-nav-panel"
-              data-mol-id="mobile-nav-trigger"
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'h-10 w-10 shrink-0 rounded-md text-on-surface-variant hover:bg-surface-container-high transition-colors md:hidden',
-              )}
-            >
-              <span className={cm.cn('material-symbols-outlined text-[22px]')} aria-hidden="true">
-                menu
-              </span>
-            </button>
+    <ResponsiveAppShell sidebarWidth="md">
+      {/* Mobile only — on desktop the sidebar carries the brand + user row. */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        actions={
+          <>
             <button
               type="button"
               onClick={() => navigate('/search')}
               aria-label={t('common.search', {}, { defaultValue: 'Search' })}
               data-mol-id="search-trigger"
               className={cm.cn(
-                cm.flex({ align: 'center', gap: 'sm' }),
-                'h-9 w-10 sm:w-72 sm:px-3 rounded-md bg-surface-container-high text-sm text-on-surface-variant hover:bg-surface-container-highest transition-colors justify-center sm:justify-start min-w-0',
+                cm.flex({ align: 'center', justify: 'center' }),
+                'h-10 w-10 rounded-md bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors',
               )}
             >
               <span className={cm.cn('material-symbols-outlined text-[16px]')} aria-hidden="true">
                 search
               </span>
-              <span className={cm.cn('hidden sm:inline truncate')}>
-                {t(
-                  'wikiLayout.searchPlaceholder',
-                  { appName: APP_NAME },
-                  { defaultValue: 'Search {{appName}} — pages, comments…' },
-                )}
-              </span>
-              <span
-                className={cm.cn(
-                  cm.sp('px', 1),
-                  'hidden md:inline ml-auto rounded text-[10px] font-mono bg-surface-container-lowest border border-outline-variant/60',
-                )}
-                aria-hidden="true"
-              >
-                ⌘K
-              </span>
             </button>
-          </div>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'shrink-0')}>
-            <ThemeToggle />
-            <UserMenu />
-          </div>
-        </header>
-        <main className={cm.cn('px-4 sm:px-10', cm.sp('py', 10), 'py-6 sm:py-10 flex-1')}>
-          <div className={cm.cn('mx-auto max-w-6xl')}>
-            <Outlet />
-          </div>
-        </main>
-      </div>
-
-      {/* Mobile nav drawer (below md): hosts the SAME PageTreeSidebar the
-          desktop rail renders, in a slide-in panel over a backdrop. */}
-      {drawerOpen ? (
-        <div className={cm.cn('md:hidden')} data-mol-id="mobile-nav-root">
-          <button
-            type="button"
-            aria-label={t('wikiLayout.closeMenu', {}, { defaultValue: 'Close navigation' })}
-            className={cm.cn('fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm')}
-            onClick={() => setDrawerOpen(false)}
-          />
-          <aside
-            id="wiki-mobile-nav-panel"
-            role="dialog"
-            aria-modal="true"
-            aria-label={t('wikiLayout.menu', {}, { defaultValue: 'Navigation' })}
-            className={cm.cn(
-              'fixed inset-y-0 left-0 z-[61] w-[280px] max-w-[85vw] shadow-xl overflow-y-auto',
-            )}
-          >
-            <PageTreeSidebar
-              variant="drawer"
-              tree={tree}
-              recentPages={recent}
-              workspaceName={workspaceName}
-            />
-          </aside>
+            {userRow}
+          </>
+        }
+      />
+      <ResponsiveAppShell.Sidebar footer={userRow}>{sidebar}</ResponsiveAppShell.Sidebar>
+      <ResponsiveAppShell.Drawer>{sidebar}</ResponsiveAppShell.Drawer>
+      <ResponsiveAppShell.Content className="px-4 py-6 sm:px-10 sm:py-10">
+        <div className={cm.cn('mx-auto max-w-6xl')}>
+          <Outlet />
         </div>
-      ) : null}
-    </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
