@@ -776,49 +776,6 @@
         "huggingface.co"
       ]
     },
-    "@molecule/api-ai-embeddings-openai": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "provider",
-      "category": "ai-embeddings",
-      "label": "Ai Embeddings",
-      "description": "OpenAI embeddings provider for molecule.dev — text-embedding-3-small/large",
-      "stack": "api",
-      "implements": "@molecule/api-ai-embeddings",
-      "exports": [
-        "provider",
-        "createProvider",
-        "aiEmbeddingsOpenaiSecretDefinitions",
-        "OpenaiEmbeddingsConfig"
-      ],
-      "secrets": [
-        {
-          "name": "OPENAI_API_KEY",
-          "required": true,
-          "label": "OpenAI API key",
-          "setupUrl": "https://platform.openai.com/api-keys",
-          "instructions": "Create a secret key on the OpenAI platform (API keys page).",
-          "example": "sk-proj-..."
-        }
-      ],
-      "runtimeDependencies": [
-        "@molecule/api-ai-embeddings",
-        "@molecule/api-secrets"
-      ],
-      "moleculePeers": [
-        "@molecule/api-ai-embeddings",
-        "@molecule/api-secrets"
-      ],
-      "path": "packages/api/bonds/ai-embeddings/openai",
-      "intentHints": [
-        "openai embeddings",
-        "text embeddings",
-        "vector embeddings"
-      ],
-      "egressHosts": [
-        "api.openai.com"
-      ]
-    },
     "@molecule/api-ai-embeddings-molecule": {
       "language": "typescript",
       "runtime": "node",
@@ -866,6 +823,49 @@
       ],
       "egressHosts": [
         "api.molecule.dev"
+      ]
+    },
+    "@molecule/api-ai-embeddings-openai": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-embeddings",
+      "label": "Ai Embeddings",
+      "description": "OpenAI embeddings provider for molecule.dev — text-embedding-3-small/large",
+      "stack": "api",
+      "implements": "@molecule/api-ai-embeddings",
+      "exports": [
+        "provider",
+        "createProvider",
+        "aiEmbeddingsOpenaiSecretDefinitions",
+        "OpenaiEmbeddingsConfig"
+      ],
+      "secrets": [
+        {
+          "name": "OPENAI_API_KEY",
+          "required": true,
+          "label": "OpenAI API key",
+          "setupUrl": "https://platform.openai.com/api-keys",
+          "instructions": "Create a secret key on the OpenAI platform (API keys page).",
+          "example": "sk-proj-..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-embeddings",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-embeddings",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-embeddings/openai",
+      "intentHints": [
+        "openai embeddings",
+        "text embeddings",
+        "vector embeddings"
+      ],
+      "egressHosts": [
+        "api.openai.com"
       ]
     },
     "@molecule/api-ai-google": {
@@ -1975,6 +1975,50 @@
         "ai translation",
         "translate with ai model",
         "self-hosted translation"
+      ]
+    },
+    "@molecule/api-ai-translation-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-translation",
+      "label": "Ai Translation",
+      "description": "molecule.dev hosted translation provider — translate through molecule.dev with a project API key, no translation-vendor account",
+      "stack": "api",
+      "implements": "@molecule/api-ai-translation",
+      "exports": [
+        "createProvider",
+        "provider",
+        "aiTranslationMoleculeSecretDefinitions",
+        "MoleculeTranslationConfig"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-translation",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-translation",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-translation/molecule",
+      "intentHints": [
+        "molecule translation",
+        "hosted translation",
+        "translate without api key",
+        "molecule.dev translation"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
       ]
     },
     "@molecule/api-ai-vector-store": {
