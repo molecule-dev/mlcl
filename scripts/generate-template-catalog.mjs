@@ -321,6 +321,7 @@ async function emit(path, content) {
 }
 
 let written = 0
+let listed = 0
 const indexByCluster = new Map()
 
 for (const slug of slugs.sort()) {
@@ -333,6 +334,12 @@ for (const slug of slugs.sort()) {
   await emit(join(appDir, 'CATALOG.md'), renderCatalog(slug, entry, appDir))
   written++
 
+  // `"unlisted": true` in template.json: reachable by name only (a project's
+  // settings choose it), so it is never offered in the index selection reads.
+  const templateJson = JSON.parse(readFileSync(join(appDir, 'template.json'), 'utf8'))
+  if (templateJson.unlisted === true) continue
+  listed++
+
   const cluster = entry.cluster ?? 'uncategorized'
   if (!indexByCluster.has(cluster)) indexByCluster.set(cluster, [])
   indexByCluster
@@ -343,7 +350,7 @@ for (const slug of slugs.sort()) {
 const idx = [
   '# Flagship template index',
   '',
-  `${written} templates, grouped by cluster. Use \`inspect_template(slug)\` to read a template's full CATALOG.md.`,
+  `${listed} templates, grouped by cluster. Use \`inspect_template(slug)\` to read a template's full CATALOG.md.`,
   '',
 ]
 for (const cluster of [...indexByCluster.keys()].sort()) {

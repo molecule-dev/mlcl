@@ -133,6 +133,22 @@ const BRANDING_HEADER = `/* ====================================================
 `
 
 /**
+ * The branding header for an app whose pages are all written by its own build
+ * (no `app/index.html` — the static-site-thin template): there is no copy to
+ * keep in sync, because every title, meta tag and feed reads this file each
+ * time the site is built.
+ */
+const BUILD_TIME_BRANDING_HEADER = `/* =============================================================================
+ * SITE BRANDING — the single source of truth for this site's identity.
+ *
+ * APP_NAME / APP_DESCRIPTION / BRAND_COLOR are read by the build every time it
+ * runs: page titles, the header, meta tags, the feeds, the sitemap and llms.txt
+ * all come from here. Change a value and the next build (the dev server's
+ * included) uses it everywhere — do not repeat these values in other files.
+ * ============================================================================= */
+`
+
+/**
  * Prepend a header to a file's content if not already present (idempotent).
  * @param content - The original file content.
  * @param header - The header block to prepend.
@@ -2116,11 +2132,16 @@ export async function copyTemplateInstance(
   // Stamp the branding self-doc header so the executor opening branding.ts to
   // rename/rebrand learns it's the single source (title/meta/package.json/icons
   // all derive from it). Same reliable in-file channel as the theme headers above.
+  // An app with no app/index.html writes every page from its build, so nothing
+  // copies these values: it gets the header that says so.
   const tplBrandingPath = join(destDir, 'app', 'src', 'branding.ts')
   if (existsSync(tplBrandingPath)) {
+    const brandingHeader = existsSync(join(destDir, 'app', 'index.html'))
+      ? BRANDING_HEADER
+      : BUILD_TIME_BRANDING_HEADER
     await writeFile(
       tplBrandingPath,
-      withHeader(await readFile(tplBrandingPath, 'utf-8'), BRANDING_HEADER),
+      withHeader(await readFile(tplBrandingPath, 'utf-8'), brandingHeader),
     )
   }
   // Say, beside the template's placeholder posts / fixtures / seed rows, that

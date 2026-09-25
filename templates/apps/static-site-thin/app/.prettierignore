@@ -1,0 +1,7 @@
+dist/
+.site-dev/
+node_modules/
+*.md
+coverage/
+test-results/
+playwright-report/

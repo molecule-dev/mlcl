@@ -1,0 +1,53 @@
+{
+  "app": "static-site-thin",
+  "screens": [
+    {
+      "name": "Home",
+      "templateFile": "app/pages.ts",
+      "components": ["indexPage", "layout"],
+      "route": "/",
+      "auth": false,
+      "type": "custom"
+    },
+    {
+      "name": "Post",
+      "templateFile": "app/pages.ts",
+      "components": ["postPage", "layout"],
+      "route": "/:slug/",
+      "auth": false,
+      "type": "custom"
+    },
+    {
+      "name": "Tags",
+      "templateFile": "app/pages.ts",
+      "components": ["tagsPage", "layout"],
+      "route": "/tags/",
+      "auth": false,
+      "type": "custom"
+    },
+    {
+      "name": "Tag",
+      "templateFile": "app/pages.ts",
+      "components": ["tagPage", "layout"],
+      "route": "/tags/:tag/",
+      "auth": false,
+      "type": "custom"
+    },
+    {
+      "name": "About",
+      "templateFile": "app/pages.ts",
+      "components": ["aboutPage", "layout"],
+      "route": "/about/",
+      "auth": false,
+      "type": "custom"
+    },
+    {
+      "name": "NotFound",
+      "templateFile": "app/pages.ts",
+      "components": ["notFoundPage", "layout"],
+      "route": "*",
+      "auth": false,
+      "type": "custom"
+    }
+  ]
+}

@@ -7306,6 +7306,50 @@
         "i18n"
       ]
     },
+    "static-site-thin": {
+      "label": "Static Site / Markdown Blog (plain Node build)",
+      "description": "A static site of markdown posts built by one Node script — pages are HTML string templates, no framework, no hydration: paginated index, post pages, tag pages, RSS + Atom feeds, sitemap, llms.txt, raw markdown per post, drafts, and per-post AI provenance from agent transcripts. `npm run build` writes dist/ for any static host",
+      "cluster": "content-social",
+      "type": "static",
+      "framework": "none",
+      "unlisted": true,
+      "packages": [
+        "@molecule/api-agent-transcript",
+        "@molecule/api-agent-transcript-autodetect",
+        "@molecule/api-content",
+        "@molecule/api-content-markdown",
+        "@molecule/api-feed-rss",
+        "@molecule/api-sitemap-xml",
+        "@molecule/api-text-provenance",
+        "@molecule/api-text-provenance-overlap",
+        "@molecule/app-markdown-marked"
+      ],
+      "env": {
+        "SITE_URL": {
+          "description": "Public origin of the site, for absolute URLs in feeds, sitemap and llms.txt",
+          "default": "http://localhost:3000"
+        },
+        "BASE_PATH": {
+          "description": "Sub-path the site is served from (build-time; `BASE_PATH=/my-site npm run build`)",
+          "default": "/"
+        }
+      },
+      "layout": "content",
+      "features": [
+        "markdown",
+        "front-matter",
+        "static-html",
+        "pagination",
+        "tags",
+        "rss",
+        "atom",
+        "sitemap",
+        "llms-txt",
+        "drafts",
+        "provenance",
+        "seo"
+      ]
+    },
     "status-page": {
       "label": "Status Page",
       "description": "Statuspage-like with incidents, component monitoring, uptime history, and subscriber notifications",
