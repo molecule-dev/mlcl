@@ -6,20 +6,22 @@ import { getClassMap } from '@molecule/app-ui'
 import { APP_NAME } from '../branding.js'
 
 /**
- * Branded sidebar navigation for Dendrite — gradient logo tile + nav links
- * with active-state border accent + "New map" CTA pinned to the bottom.
+ * Branded navigation pieces for Dendrite — nav links with active-state border
+ * accent, the brand tile + wordmark, and the "New map" CTA.
+ *
+ * Consumed by the shared `ResponsiveAppShell` (see {@link MindMappingLayout}):
+ * the SAME `<DendriteNavLinks />` element goes to both `.Sidebar` (≥768px) and
+ * `.Drawer` (<768px) so the two navigations cannot drift — only the mounted
+ * breakpoint instantiates it. The shell renders the `<nav>` landmark itself,
+ * so the links are a bare block (no wrapper landmark here). The shell also
+ * closes the drawer on navigation, so links carry no onClick close.
  *
  * Translated from project-management's DashboardSideNavBar.tsx (sidebar
  * pattern with logo, nav links, active accent, and primary CTA).
- *
- * MOBILE: the fixed sidebar is desktop-only (`hidden md:flex`); below the md
- * breakpoint MindMappingLayout renders this component's nav links inside a
- * slide-in drawer behind the sticky top bar — both share {@link DendriteNavLinks}
- * so the two can never drift.
  */
 
 /** Shared nav-item list used by BOTH the desktop sidebar and the mobile drawer. */
-export function DendriteNavLinks({ onNavigate }: { onNavigate?: () => void }) {
+export function DendriteNavLinks() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const location = useLocation()
@@ -54,14 +56,13 @@ export function DendriteNavLinks({ onNavigate }: { onNavigate?: () => void }) {
     location.pathname === to || (to !== '/dashboard' && location.pathname.startsWith(to))
 
   return (
-    <nav className={cm.cn(cm.flex1, cm.sp('px', 3), cm.stack(1))}>
+    <div className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }), cm.sp('px', 3), cm.stack(1))}>
       {navItems.map((item) => {
         const active = isActive(item.to)
         return (
           <Link
             key={item.to}
             to={item.to}
-            onClick={onNavigate}
             aria-current={active ? 'page' : undefined}
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'sm' }),
@@ -85,7 +86,7 @@ export function DendriteNavLinks({ onNavigate }: { onNavigate?: () => void }) {
           </Link>
         )
       })}
-    </nav>
+    </div>
   )
 }
 
@@ -132,44 +133,30 @@ export function DendriteBrand({ compact = false }: { compact?: boolean }) {
   )
 }
 
-export function DendriteSideNav() {
+/** Primary CTA — pinned to the sidebar footer / drawer footer by the shell. */
+export function DendriteNewMapButton() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
 
   return (
-    <aside
+    <button
+      type="button"
       className={cm.cn(
-        cm.flex({ direction: 'col' }),
-        cm.h('screen'),
-        "hidden md:flex w-[240px] sticky top-0 left-0 bg-surface-container-lowest border-r border-outline-variant/30 font-['Inter'] antialiased",
+        cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
+        cm.w('full'),
+        cm.sp('py', 3),
+        cm.fontWeight('bold'),
+        'bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-xl shadow-lg active:scale-[0.98] transition-transform',
       )}
+      onClick={() => navigate('/maps?new=1')}
     >
-      <DendriteBrand />
-      <DendriteNavLinks />
-      <div className={cm.cn(cm.sp('p', 4), 'mt-auto')}>
-        <button
-          type="button"
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
-            cm.w('full'),
-            cm.sp('py', 3),
-            cm.fontWeight('bold'),
-            'bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-xl shadow-lg active:scale-[0.98] transition-transform',
-          )}
-          onClick={() => navigate('/maps?new=1')}
-        >
-          <span
-            className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}
-            aria-hidden="true"
-          >
-            add
-          </span>
-          {t('nav.newMap', {}, { defaultValue: 'New map' })}
-        </button>
-      </div>
-    </aside>
+      <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')} aria-hidden="true">
+        add
+      </span>
+      {t('nav.newMap', {}, { defaultValue: 'New map' })}
+    </button>
   )
 }
 
-export default DendriteSideNav
+export default DendriteNewMapButton
