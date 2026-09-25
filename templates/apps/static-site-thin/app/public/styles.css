@@ -309,3 +309,30 @@ td {
     font-size: 1.6rem;
   }
 }
+
+/* Post pages with margin notes (@molecule/app-margin-notes-html). The layout's
+   own stylesheet is appended to this file by the build; here only the
+   site-specific bits: its colours from this site's tokens, a wider shell for
+   the prose + notes pair, and the header's AI-share line. */
+:root {
+  --mn-surface: var(--bg);
+  --mn-accent-1: var(--accent);
+  --mn-prose-size: 1.25rem;
+  --mn-measure: 36rem;
+}
+.site:has([data-mn-has-notes]) {
+  max-width: calc(
+    var(--mn-measure) + var(--mn-gap, 2.5rem) + var(--mn-gutter, 18rem) + 2 * var(--gutter)
+  );
+}
+.post-header {
+  text-align: center;
+}
+.post-header .tags {
+  justify-content: center;
+}
+.ai-share {
+  margin: 0.5rem 0 0;
+  font: 0.9rem/1.5 var(--font-ui);
+  color: var(--muted);
+}

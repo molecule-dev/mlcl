@@ -8,8 +8,8 @@
  * writes `dist/<slug>/provenance.json`: each top-level block of the post as
  * `human` or `ai`, with the prompt (as the person typed it) and the model
  * behind every `ai` block, plus the post's AI word share. A post without a
- * transcripts folder gets no file; files in the folder that are not
- * transcripts are skipped.
+ * transcripts folder gets one too, every block `human` (`humanProvenance`);
+ * files in the folder that are not transcripts are skipped.
  *
  * The attribution is `@molecule/api-text-provenance` with its word-overlap bond;
  * the transcripts are read by `@molecule/api-agent-transcript-autodetect`. To
@@ -108,4 +108,16 @@ export function postProvenance(markdown: string, transcriptDir: string): Provena
         : { text, origin: 'human' }
     }),
   }
+}
+
+/**
+ * The provenance of a post with no transcripts: every block written by a person.
+ *
+ * @param markdown - The post file's text.
+ * @returns The post's provenance, AI share 0.
+ */
+export function humanProvenance(markdown: string): Provenance {
+  const spans = markdownBlocks(markdown).map((text): ProvenanceSpan => ({ text, origin: 'human' }))
+  const words = spans.reduce((n, s) => n + (s.text.match(/\S+/g)?.length ?? 0), 0)
+  return { aiShare: 0, words, aiWords: 0, prompts: [], spans }
 }

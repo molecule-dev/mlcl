@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -130,7 +130,7 @@ describe('provenance', () => {
     expect(blocks).toEqual(['One.', '```\na\n\nb\n```', '## Two'])
   })
 
-  it('writes provenance.json only for a post with a transcripts folder', async () => {
+  it('writes provenance.json for every post — all human without transcripts', async () => {
     const aiParagraph =
       'Reading logs first saves you from overthinking. You will not waste time tracing through conditional branches the code never hit, or wondering about race conditions that did not occur.'
     const humanParagraph = 'I wrote this closing line myself, after a long walk around the lake.'
@@ -154,7 +154,12 @@ describe('provenance', () => {
     )
     const outDir = mkdtempSync(join(tmpdir(), 'thin-dist-'))
     await buildSite({ root, outDir })
-    expect(existsSync(join(outDir, 'plain', 'provenance.json'))).toBe(false)
+    const plain = JSON.parse(readFileSync(join(outDir, 'plain', 'provenance.json'), 'utf8'))
+    expect(plain.aiShare).toBe(0)
+    expect(plain.spans.every((s: { origin: string }) => s.origin === 'human')).toBe(true)
+    expect(readFileSync(join(outDir, 'plain', 'index.html'), 'utf8')).toContain(
+      'Every word of this post was written by a person.',
+    )
     const provenance = JSON.parse(readFileSync(join(outDir, 'logs', 'provenance.json'), 'utf8'))
     expect(provenance.spans).toHaveLength(2)
     expect(provenance.spans[0].origin).toBe('ai')

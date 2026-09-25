@@ -11,11 +11,14 @@ import {
   existsSync,
   mkdirSync,
   readdirSync,
+  readFileSync,
   renameSync,
   rmSync,
   writeFileSync,
 } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
+
+import { marginNotesCss } from '@molecule/app-margin-notes-html'
 
 import {
   ABOUT_PATH,
@@ -32,7 +35,7 @@ import {
 } from './content.js'
 import { siteFiles } from './files.js'
 import { aboutPage, indexPage, notFoundPage, postPage, tagPage, tagsPage } from './pages.js'
-import { postProvenance } from './provenance.js'
+import { humanProvenance, postProvenance, type Provenance } from './provenance.js'
 import { createSite, type Site } from './site.js'
 
 /** One HTML page the build writes. */
@@ -50,7 +53,21 @@ export interface SitePage {
  * @param posts - Every published post, newest first.
  * @returns The pages, in sitemap order.
  */
-export function sitePages(site: Site, posts: Post[]): SitePage[] {
+export function sitePages(
+  site: Site,
+  posts: Post[],
+  extras: {
+    /** Provenance per post slug (posts with transcripts). */
+    provenance?: Map<string, Provenance>
+    /**
+     * TL;DR per section per post slug, keyed by section start index
+     * (`sectionStarts` in src/pages.ts). Fill it in `buildSite` from a summarizer,
+     * e.g. `summarizeCached` from `@molecule/api-ai-summarization-llm` with
+     * `{ format: 'tldr', maxWords: 25 }` — it enforces the cap and caches by content.
+     */
+    summaries?: Map<string, Record<number, string>>
+  } = {},
+): SitePage[] {
   const pages = pageCount(posts)
   const tags = tagCounts(posts)
   return [
@@ -58,7 +75,16 @@ export function sitePages(site: Site, posts: Post[]): SitePage[] {
       path: pagePath(i + 1),
       render: () => indexPage({ site, posts: postsOnPage(posts, i + 1), page: i + 1, pages }),
     })),
-    ...posts.map((post) => ({ path: postPath(post.slug), render: () => postPage({ site, post }) })),
+    ...posts.map((post) => ({
+      path: postPath(post.slug),
+      render: () =>
+        postPage({
+          site,
+          post,
+          provenance: extras.provenance?.get(post.slug),
+          summaries: extras.summaries?.get(post.slug),
+        }),
+    })),
     { path: TAGS_PATH, render: () => tagsPage({ site, tags }) },
     ...tags.map(({ tag }) => ({
       path: tagPath(tag),
@@ -101,6 +127,7 @@ export interface BuildResult {
  * @param options.outDir - Where to write; replaced whole once the build succeeds.
  * @param options.basePath - Defaults to BASE_PATH from the environment.
  * @param options.siteUrl - Defaults to SITE_URL from the environment.
+ * @param options.summaries - TL;DR per section per post slug (see `sitePages`).
  * @returns Every file written, the posts and the URL helpers used.
  */
 export async function buildSite(options: {
@@ -108,11 +135,24 @@ export async function buildSite(options: {
   outDir: string
   basePath?: string
   siteUrl?: string
+  summaries?: Map<string, Record<number, string>>
 }): Promise<BuildResult> {
   const { root, outDir } = options
   const site = createSite({ basePath: options.basePath, siteUrl: options.siteUrl })
   const posts = await loadPosts(root)
-  const pages = sitePages(site, posts)
+  // Provenance first: the post pages show it, and provenance.json publishes it —
+  // for every post; one without transcripts is all human.
+  const provenance = new Map<string, Provenance>()
+  for (const post of posts) {
+    const transcripts = join(root, TRANSCRIPTS_DIR, post.slug)
+    provenance.set(
+      post.slug,
+      existsSync(transcripts)
+        ? postProvenance(post.markdown, transcripts)
+        : humanProvenance(post.markdown),
+    )
+  }
+  const pages = sitePages(site, posts, { provenance, summaries: options.summaries })
 
   // Write into a sibling directory and swap it in only when everything was
   // written: a build that fails halfway leaves the previous output intact (the
@@ -134,12 +174,12 @@ export async function buildSite(options: {
     for (const file of await siteFiles({ site, posts, pagePaths: pages.map((p) => p.path) })) {
       write(outputFileOf(file.path), file.content)
     }
-    for (const post of posts) {
-      const transcripts = join(root, TRANSCRIPTS_DIR, post.slug)
-      if (!existsSync(transcripts)) continue
-      const provenance = postProvenance(post.markdown, transcripts)
-      write(`${post.slug}/provenance.json`, JSON.stringify(provenance, null, 2) + '\n')
+    for (const [slug, p] of provenance) {
+      write(`${slug}/provenance.json`, JSON.stringify(p, null, 2) + '\n')
     }
+    // The margin-notes layout's stylesheet (post pages with notes), after the site's own.
+    const styles = join(staging, 'styles.css')
+    writeFileSync(styles, (existsSync(styles) ? readFileSync(styles, 'utf8') : '') + marginNotesCss)
   } catch (error) {
     rmSync(staging, { recursive: true, force: true })
     throw error
