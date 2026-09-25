@@ -1665,6 +1665,54 @@
         "api.openai.com"
       ]
     },
+    "@molecule/api-ai-speech-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-speech",
+      "label": "Ai Speech",
+      "description": "molecule.dev hosted speech provider — text-to-speech and transcription billed to your molecule project, no vendor account",
+      "stack": "api",
+      "implements": "@molecule/api-ai-speech",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "SPEECH_SERVICE_LIMITS",
+        "MoleculeServiceError",
+        "MoleculeSpeechProvider",
+        "createProvider",
+        "aiSpeechMoleculeSecretDefinitions",
+        "MoleculeSpeechConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-speech",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-speech",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-speech/molecule",
+      "intentHints": [
+        "hosted text to speech",
+        "transcription without an openai key",
+        "molecule speech"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
+      ]
+    },
     "@molecule/api-ai-summarization": {
       "language": "typescript",
       "runtime": "node",
