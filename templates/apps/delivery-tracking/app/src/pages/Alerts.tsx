@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -152,33 +153,24 @@ export function Alerts() {
       </nav>
 
       {error ? (
-        <div className={cm.cn(cm.sp('py', 16), cm.textCenter, 'space-y-3')}>
-          <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{error}</p>
-          <button
-            type="button"
-            data-mol-id="button-retry-alerts"
-            onClick={() => {
-              setError(null)
-              setLoading(true)
-              http
-                .get('/api/alerts')
-                .then((res) => setList(unwrapList<Alert>(res)))
-                .catch(() =>
-                  setError(t('alerts.loadError', {}, { defaultValue: 'Failed to load alerts.' })),
-                )
-                .finally(() => setLoading(false))
-            }}
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.textSize('sm'),
-              cm.fontWeight('semibold'),
-              'border border-outline-variant rounded-md inline-flex items-center justify-center min-h-10',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-        </div>
+        <LoadErrorBanner
+          message={error}
+          retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+          retryMolId="button-retry-alerts"
+          onRetry={() => {
+            setLoading(true)
+            return http
+              .get('/api/alerts')
+              .then((res) => {
+                setList(unwrapList<Alert>(res))
+                setError(null)
+              })
+              .catch(() =>
+                setError(t('alerts.loadError', {}, { defaultValue: 'Failed to load alerts.' })),
+              )
+              .finally(() => setLoading(false))
+          }}
+        />
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('alerts.loading', {}, { defaultValue: 'Loading…' })}

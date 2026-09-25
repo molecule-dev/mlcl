@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { getRealtimeConnection } from '../lib/realtime.js'
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
@@ -142,38 +143,30 @@ export function ShipmentDetail() {
 
   if (error)
     return (
-      <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 16), cm.textCenter, 'space-y-4')}>
-        <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{error}</p>
-        <div className={cm.cn(cm.flex({ justify: 'center', gap: 'sm' }))}>
-          <button
-            type="button"
-            data-mol-id="button-retry-shipment"
-            onClick={() => {
-              setError(null)
-              setRefreshKey((k) => k + 1)
-            }}
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.textSize('sm'),
-              cm.fontWeight('semibold'),
-              'border border-outline-variant rounded-md inline-flex items-center justify-center min-h-10',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-          <Link
-            to="/shipments"
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.textSize('sm'),
-              'border border-outline-variant rounded-md inline-flex items-center justify-center min-h-10',
-            )}
-          >
-            {t('shipmentDetail.backLink', {}, { defaultValue: 'All shipments' })}
-          </Link>
-        </div>
+      <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 16))}>
+        <LoadErrorBanner
+          message={error}
+          retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+          retryMolId="button-retry-shipment"
+          onRetry={() => {
+            setError(null)
+            setRefreshKey((k) => k + 1)
+          }}
+        >
+          <div className={cm.flex({ justify: 'center' })}>
+            <Link
+              to="/shipments"
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                'border border-outline-variant rounded-md inline-flex items-center justify-center min-h-10',
+              )}
+            >
+              {t('shipmentDetail.backLink', {}, { defaultValue: 'All shipments' })}
+            </Link>
+          </div>
+        </LoadErrorBanner>
       </div>
     )
   if (loading)

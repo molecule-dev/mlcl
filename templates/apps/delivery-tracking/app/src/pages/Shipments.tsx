@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -71,7 +72,10 @@ export function Shipments() {
     setLoading(true)
     return http
       .get('/api/shipments')
-      .then((res) => setList(unwrapList<Shipment>(res)))
+      .then((res) => {
+        setList(unwrapList<Shipment>(res))
+        setError(null)
+      })
       .catch(() =>
         setError(t('shipments.loadError', {}, { defaultValue: 'Failed to load shipments.' })),
       )
@@ -415,26 +419,12 @@ export function Shipments() {
       </div>
 
       {error ? (
-        <div className={cm.cn(cm.sp('py', 16), cm.textCenter, 'space-y-3')}>
-          <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{error}</p>
-          <button
-            type="button"
-            data-mol-id="button-retry-shipments"
-            onClick={() => {
-              setError(null)
-              void refresh()
-            }}
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.textSize('sm'),
-              cm.fontWeight('semibold'),
-              'border border-outline-variant rounded-md inline-flex items-center justify-center min-h-10',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-        </div>
+        <LoadErrorBanner
+          message={error}
+          retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+          retryMolId="button-retry-shipments"
+          onRetry={refresh}
+        />
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('shipments.loading', {}, { defaultValue: 'Loading…' })}
