@@ -1,34 +1,53 @@
 import { Outlet } from 'react-router'
 
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { NoshMobileNav } from './NoshMobileNav.js'
-import { NoshSidebar } from './NoshSidebar.js'
+import { NoshBrand, NoshNav, NoshNavFooter } from './NoshSidebar.js'
 
 /**
- * Layout wrapper for Nosh's signed-in routes.
+ * Layout wrapper for Nosh's signed-in routes — the shared `ResponsiveAppShell`.
  *
- * Renders the brand sidebar on the left and an offset main canvas on the
- * right (Outlet); below md the sidebar is replaced by a fixed bottom tab
- * bar (NoshMobileNav), so the canvas reserves bottom padding for it on
- * phones. Pages render their own NoshTopBar inside the canvas so each
- * screen controls its own title/actions.
+ * Desktop (≥768px): brand in the sidebar (teal rail, 240px) with the primary
+ * nav and a Settings footer; pages render their own NoshTopBar inside the
+ * canvas so each screen controls its own title/actions. Below the breakpoint
+ * the same nav element mounts inside the drawer (full dialog contract — focus
+ * trap, Escape/backdrop close, auto-close on navigation), opened by the
+ * trigger the mobile-only top bar renders. The shell owns the breakpoint
+ * split, drawer stacking and trigger size — no app-side responsive shims.
  */
 export function NoshAppShell() {
   const cm = getClassMap()
+  // One element per slot — the shell mounts exactly the breakpoint's copy.
+  const nav = <NoshNav />
+  const footer = <NoshNavFooter />
+
   return (
-    <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
-      <NoshSidebar />
-      <main
+    <ResponsiveAppShell sidebarWidth="md" className="text-on-surface antialiased">
+      <ResponsiveAppShell.TopBar mobileOnly brand={<NoshBrand showTagline={false} />} />
+      <ResponsiveAppShell.Sidebar
+        className="bg-surface-secondary border-primary-container"
+        footer={footer}
+      >
+        <NoshBrand className={cm.sp('mb', 6)} />
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+      <ResponsiveAppShell.Drawer
+        className="bg-surface-secondary"
+        header={<NoshBrand showTagline={false} />}
+        footer={footer}
+      >
+        {nav}
+      </ResponsiveAppShell.Drawer>
+      <ResponsiveAppShell.Content
         className={cm.cn(
           cm.flex({ direction: 'col', gap: 'lg' }),
           cm.sp('p', 4),
-          'md:ml-[240px] md:p-8 min-h-screen tabular-nums pb-24 md:pb-8',
+          'md:p-8 min-h-screen tabular-nums',
         )}
       >
         <Outlet />
-      </main>
-      <NoshMobileNav />
-    </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
