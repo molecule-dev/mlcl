@@ -39,6 +39,9 @@ test.describe('reset password page', () => {
     await page.locator('input').nth(1).fill('NewPass!1234')
     // Arm the wait BEFORE the click that triggers the POST so we don't race it.
     // Endpoint is /api/users/reset-password (see authConfig.resetPasswordEndpoint).
+    // The fake token is rejected 401 by design ("server may reject") — the
+    // browser logs that status as a console error; allow it explicitly.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     const postPromise = page.waitForResponse(
       (resp) =>
         resp.request().method() === 'POST' && /\/api\/users\/reset-password/.test(resp.url()),

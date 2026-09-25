@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -128,29 +129,11 @@ export function Accounts() {
       </div>
 
       {error ? (
-        <div
-          role="alert"
-          className={cm.cn(
-            cm.sp('py', 10),
-            cm.textCenter,
-            cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
-          )}
-        >
-          <p className="text-error">{error}</p>
-          <button
-            type="button"
-            onClick={retry}
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.fontWeight('semibold'),
-              cm.textSize('sm'),
-              'min-h-[44px] rounded-md border border-outline-variant text-on-surface-variant hover:bg-surface-container transition-colors',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-        </div>
+        <LoadErrorBanner
+          message={error}
+          retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+          onRetry={retry}
+        />
       ) : loading ? (
         <div className={cm.cn('space-y-3')} aria-busy="true">
           {[0, 1, 2].map((i) => (
