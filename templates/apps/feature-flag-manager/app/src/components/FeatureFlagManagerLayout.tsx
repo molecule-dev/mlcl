@@ -3,16 +3,25 @@ import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { PennantBrandMark } from './PennantBrandMark.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
  * Top nav + sidebar + main shell shared by every authenticated Pennant
- * page. Mirrors database-admin's DatabaseAdminLayout terminal-aesthetic
- * shape (dark sidebar with mono nav links + active emerald accent +
- * top action / search bar) recoloured to Pennant emerald per
- * DESIGN.md "Side Navigation".
+ * page — the shared `ResponsiveAppShell` composed the fleet-canonical way:
+ * the brand leads the desktop Sidebar, the mobile-only TopBar carries the
+ * small brand + the drawer menu trigger (rendered by the shell), and the
+ * SAME nav element is passed to `.Sidebar` and `.Drawer` so only the
+ * mounted breakpoint's copy ever instantiates (no duplicate `nav-*`
+ * data-mol-ids or landmarks). The drawer is the shell's full APG dialog
+ * (focus trap, Escape/backdrop close, scroll lock, auto-close on
+ * navigation) — the former hand-rolled mobile chip-row nav is deleted with
+ * it. Pennant's darker rail is preserved through the sanctioned
+ * tailwind-merge className extension point; the desktop search header
+ * stays as content-column chrome (`hidden md:flex` — the drawer carries
+ * search on mobile, a non-duplicating surface swap).
  */
 
 interface NavItem {
@@ -72,6 +81,9 @@ interface LayoutProps {
   /** Optional override for the inline route content (defaults to <Outlet />). */
   children?: ReactNode
 }
+
+/** Pennant's sidebar rail — one step lighter than the page canvas. */
+const RAIL_BG = 'bg-[var(--color-background-secondary)]'
 
 export function FeatureFlagManagerLayout({ children }: LayoutProps) {
   const cm = getClassMap()
@@ -144,258 +156,318 @@ export function FeatureFlagManagerLayout({ children }: LayoutProps) {
 
   const userEmail = user?.email ?? user?.name ?? 'admin@acme.com'
 
-  return (
-    <div
-      data-mol-id="feature-flag-manager-layout"
-      className={cm.cn('flex min-h-screen antialiased font-body')}
-      style={{ backgroundColor: 'var(--color-background)', color: 'var(--color-text-code)' }}
+  const navLabel = t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })
+
+  // ONE nav element for both breakpoints — the Sidebar (≥768px) and the
+  // Drawer (<768px) each render it, but only the mounted breakpoint's copy
+  // instantiates. The drawer closes itself on navigation (shell-owned), so
+  // links carry no onClick close.
+  const nav = (
+    <div className={cm.cn('flex flex-col gap-0.5 py-4')}>
+      {NAV_ITEMS.map((item) => {
+        const active = item.match(pathname)
+        return (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            className={cm.cn(
+              'mx-3 flex min-h-[44px] items-center gap-3 rounded-md px-3 py-2 font-mono text-xs uppercase tracking-widest transition-colors',
+              active
+                ? 'font-bold'
+                : 'text-on-surface-variant hover:bg-surface/5 hover:text-on-surface',
+            )}
+            style={
+              active
+                ? {
+                    backgroundColor: 'var(--color-emerald-chip-bg)',
+                    color: 'var(--color-env-filter-active-text)',
+                  }
+                : undefined
+            }
+            aria-current={active ? 'page' : undefined}
+            data-mol-id={`nav-${item.to.slice(1).replace(/\//g, '-')}`}
+          >
+            <span className={cm.cn('material-symbols-outlined text-[18px]')} aria-hidden="true">
+              {item.icon}
+            </span>
+            {t(`layout.${item.labelKey}`, {}, { defaultValue: item.defaultLabel })}
+          </NavLink>
+        )
+      })}
+    </div>
+  )
+
+  // Brand — the bordered wordmark leads the desktop Sidebar and rides the
+  // Drawer header; the compact mark lives in the mobile-only TopBar.
+  // Breakpoint-exclusive mounts, so never duplicated.
+  const sidebarBrand = (
+    <Link
+      to="/dashboard"
+      className={cm.cn('flex items-center gap-2 px-5 py-5 border-b')}
+      style={{ borderColor: 'rgba(30, 41, 59, 0.7)' }}
     >
-      {/* Sidebar */}
-      <aside
-        className={cm.cn('hidden md:flex flex-col shrink-0 sticky top-0 h-screen')}
-        style={{
-          width: 260,
-          backgroundColor: 'var(--color-background-secondary)',
-          borderRight: '1px solid rgba(30, 41, 59, 0.7)',
-        }}
-      >
-        <Link
-          to="/dashboard"
-          className={cm.cn('flex items-center gap-2 px-5 py-5 border-b')}
-          style={{ borderColor: 'rgba(30, 41, 59, 0.7)' }}
-        >
-          <PennantBrandMark size="md" showPulse />
-        </Link>
+      <PennantBrandMark size="md" showPulse />
+    </Link>
+  )
 
-        <nav
-          className={cm.cn('flex flex-col py-4 gap-0.5')}
-          aria-label={t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })}
-        >
-          {NAV_ITEMS.map((item) => {
-            const active = item.match(pathname)
-            return (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                className={cm.cn(
-                  'mx-3 flex items-center gap-3 rounded-md px-3 py-2 font-mono text-xs uppercase tracking-widest transition-colors',
-                  active
-                    ? 'font-bold'
-                    : 'text-on-surface-variant hover:bg-surface/5 hover:text-on-surface',
-                )}
-                style={
-                  active
-                    ? {
-                        backgroundColor: 'var(--color-emerald-chip-bg)',
-                        color: 'var(--color-env-filter-active-text)',
-                      }
-                    : undefined
-                }
-                data-mol-id={`nav-${item.to.slice(1).replace(/\//g, '-')}`}
-              >
-                <span className={cm.cn('material-symbols-outlined text-[18px]')} aria-hidden="true">
-                  {item.icon}
-                </span>
-                {t(`layout.${item.labelKey}`, {}, { defaultValue: item.defaultLabel })}
-              </NavLink>
-            )
-          })}
-        </nav>
+  const mobileBrand = (
+    <Link to="/dashboard" className={cm.cn('flex items-center')}>
+      <PennantBrandMark size="sm" />
+    </Link>
+  )
 
-        <div className={cm.cn('flex-1')} />
-
-        {/* Pinned recent flags — sourced from live /api/flags so links never 404. */}
-        {pinnedFlags.length > 0 && (
-          <div
-            className={cm.cn('px-5 py-4 border-t')}
-            style={{ borderColor: 'rgba(30, 41, 59, 0.7)' }}
-          >
-            <p
-              className={cm.cn(
-                'text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2',
-              )}
-            >
-              {t('layout.pinned', {}, { defaultValue: 'Pinned' })}
-            </p>
-            <ul className={cm.cn('space-y-1.5')}>
-              {pinnedFlags.map((flag) => (
-                <li key={flag}>
-                  <Link
-                    to={`/flags/${flag}`}
-                    className={cm.cn(
-                      'flex min-h-[28px] items-center gap-2 font-mono text-xs text-on-surface hover:text-primary transition-colors min-w-0',
-                    )}
-                  >
-                    <span
-                      className={cm.cn('h-1.5 w-1.5 rounded-full shrink-0')}
-                      style={{
-                        backgroundColor: 'var(--color-primary)',
-                        boxShadow: '0 0 8px rgba(16, 185, 129, 0.6)',
-                      }}
-                      aria-hidden="true"
-                    />
-                    <span className={cm.cn('truncate')}>{flag}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+  // Search — the desktop header carries the field (the `/` hotkey targets
+  // it); the drawer renders its own drawer-only form, so exactly one search
+  // input is visible per width and the ref never has two owners.
+  const searchField = (
+    <div className={cm.cn('relative w-full')}>
+      <span
+        className={cm.cn(
+          'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-base',
         )}
+        aria-hidden="true"
+      >
+        search
+      </span>
+      <input
+        ref={searchInputRef}
+        type="search"
+        placeholder={t(
+          'layout.searchPlaceholder',
+          {},
+          { defaultValue: 'Search flags by key or name...' },
+        )}
+        className={cm.cn('h-8 w-full rounded-md pl-9 pr-12 font-mono text-sm transition-colors')}
+        style={{
+          backgroundColor: 'var(--color-background-tertiary)',
+          border: '1px solid rgba(30, 41, 59, 0.8)',
+          color: 'var(--color-text-code)',
+        }}
+        aria-label={t('layout.searchAria', {}, { defaultValue: 'Search flags' })}
+        data-mol-id="layout-search"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault()
+            submitSearch(searchQuery)
+          } else if (e.key === 'Escape') {
+            setSearchQuery('')
+            ;(e.target as HTMLInputElement).blur()
+          }
+        }}
+      />
+      <span
+        className={cm.cn(
+          'absolute right-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center rounded px-1.5 py-0.5 font-mono text-[10px] font-bold',
+        )}
+        style={{
+          backgroundColor: 'rgba(30, 41, 59, 0.9)',
+          color: 'var(--color-text-secondary)',
+        }}
+        aria-hidden="true"
+      >
+        /
+      </span>
+    </div>
+  )
 
-        <div
-          className={cm.cn('flex items-center gap-3 px-5 py-4 border-t')}
-          style={{ borderColor: 'rgba(30, 41, 59, 0.7)' }}
-        >
-          <span
-            className={cm.cn(
-              'inline-flex h-8 w-8 items-center justify-center rounded-full font-mono text-sm font-bold shrink-0',
-            )}
-            style={{
-              backgroundColor: 'var(--color-env-filter-active-bg)',
-              color: 'var(--color-primary-hover)',
-            }}
-            aria-hidden="true"
-          >
-            {userEmail.charAt(0).toUpperCase()}
-          </span>
-          <div className={cm.cn('min-w-0 flex-1')}>
-            <span className={cm.cn('block text-sm font-medium truncate')}>{userEmail}</span>
-            <span className={cm.cn('font-mono text-[10px] text-on-surface-variant')}>
-              {t('layout.adminRole', {}, { defaultValue: 'Admin · acme' })}
-            </span>
-          </div>
-          <UserMenu />
-        </div>
-      </aside>
+  // Drawer-only search — the drawer mounts only while open (<768px), where
+  // the desktop header field is display:none, so the two never compete.
+  const drawerSearch = (
+    <form
+      role="search"
+      onSubmit={(e) => {
+        e.preventDefault()
+        submitSearch(searchQuery)
+      }}
+      className={cm.cn('mx-3 mb-3 flex items-center gap-2 rounded-md px-3')}
+      style={{
+        backgroundColor: 'var(--color-background-tertiary)',
+        border: '1px solid rgba(30, 41, 59, 0.8)',
+      }}
+    >
+      <span
+        className={cm.cn('material-symbols-outlined text-base text-on-surface-variant')}
+        aria-hidden="true"
+      >
+        search
+      </span>
+      <input
+        type="search"
+        placeholder={t(
+          'layout.searchPlaceholder',
+          {},
+          { defaultValue: 'Search flags by key or name...' },
+        )}
+        className={cm.cn('h-10 w-full bg-transparent font-mono text-sm outline-none')}
+        aria-label={t('layout.searchAria', {}, { defaultValue: 'Search flags' })}
+        data-mol-id="drawer-search"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+    </form>
+  )
 
-      {/* Main column */}
-      <div className={cm.cn('flex flex-1 flex-col min-w-0')}>
-        <header
-          className={cm.cn('sticky top-0 z-10 flex h-12 items-center gap-3 px-5 backdrop-blur-md')}
-          style={{
-            backgroundColor: 'rgba(17, 24, 39, 0.85)',
-            borderBottom: '1px solid rgba(30, 41, 59, 0.7)',
-          }}
-        >
-          <div className={cm.cn('md:hidden')}>
-            <PennantBrandMark size="sm" />
-          </div>{' '}
-          <div className={cm.cn('relative flex-1 max-w-xl')}>
-            <span
-              className={cm.cn(
-                'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-base',
-              )}
-              aria-hidden="true"
-            >
-              search
-            </span>
-            <input
-              ref={searchInputRef}
-              type="search"
-              placeholder={t(
-                'layout.searchPlaceholder',
-                {},
-                { defaultValue: 'Search flags by key or name...' },
-              )}
-              className={cm.cn(
-                'h-8 w-full rounded-md pl-9 pr-12 font-mono text-sm transition-colors',
-              )}
-              style={{
-                backgroundColor: 'var(--color-background-tertiary)',
-                border: '1px solid rgba(30, 41, 59, 0.8)',
-                color: 'var(--color-text-code)',
-              }}
-              aria-label={t('layout.searchAria', {}, { defaultValue: 'Search flags' })}
-              data-mol-id="layout-search"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  e.preventDefault()
-                  submitSearch(searchQuery)
-                } else if (e.key === 'Escape') {
-                  setSearchQuery('')
-                  ;(e.target as HTMLInputElement).blur()
-                }
-              }}
-            />
-            <span
-              className={cm.cn(
-                'absolute right-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center rounded font-mono text-[10px] font-bold px-1.5 py-0.5',
-              )}
-              style={{
-                backgroundColor: 'rgba(30, 41, 59, 0.9)',
-                color: 'var(--color-text-secondary)',
-              }}
-              aria-hidden="true"
-            >
-              /
-            </span>
-          </div>
-          <Link
-            to="/flags/new"
-            className={cm.cn(
-              'hidden sm:inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 font-mono text-xs font-bold transition-colors',
-            )}
-            style={{
-              backgroundColor: 'var(--color-primary)',
-              color: 'var(--color-on-primary-cta)',
-            }}
-          >
-            <span className={cm.cn('material-symbols-outlined text-[14px]')} aria-hidden="true">
-              add
-            </span>
-            {t('layout.newFlag', {}, { defaultValue: 'New flag' })}
-          </Link>
-        </header>
+  const newFlagLink = (
+    <Link
+      to="/flags/new"
+      className={cm.cn(
+        'hidden items-center gap-1.5 rounded-md px-3 py-1.5 font-mono text-xs font-bold transition-colors sm:inline-flex',
+      )}
+      style={{
+        backgroundColor: 'var(--color-primary)',
+        color: 'var(--color-on-primary-cta)',
+      }}
+      data-mol-id="layout-new-flag"
+    >
+      <span className={cm.cn('material-symbols-outlined text-[14px]')} aria-hidden="true">
+        add
+      </span>
+      {t('layout.newFlag', {}, { defaultValue: 'New flag' })}
+    </Link>
+  )
 
-        {/* Mobile nav — the sidebar is hidden below md, so the primary
-            navigation renders as a horizontally scrollable chip row pinned
-            under the sticky top bar (fleet mobile-shell pattern). */}
-        <nav
-          aria-label={t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })}
+  // Pinned recent flags — sourced from live /api/flags so links never 404.
+  // Desktop-only (Sidebar footer); the pre-migration mobile shell never
+  // carried it either.
+  const pinnedSection =
+    pinnedFlags.length > 0 ? (
+      <div className={cm.cn('mb-2')}>
+        <p
           className={cm.cn(
-            'sticky top-12 z-10 flex items-center gap-1.5 overflow-x-auto px-4 py-2 md:hidden',
+            'mb-2 text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+          )}
+        >
+          {t('layout.pinned', {}, { defaultValue: 'Pinned' })}
+        </p>
+        <ul className={cm.cn('space-y-1.5')}>
+          {pinnedFlags.map((flag) => (
+            <li key={flag}>
+              <Link
+                to={`/flags/${flag}`}
+                className={cm.cn(
+                  'flex min-h-[28px] items-center gap-2 font-mono text-xs text-on-surface hover:text-primary transition-colors min-w-0',
+                )}
+              >
+                <span
+                  className={cm.cn('h-1.5 w-1.5 rounded-full shrink-0')}
+                  style={{
+                    backgroundColor: 'var(--color-primary)',
+                    boxShadow: '0 0 8px rgba(16, 185, 129, 0.6)',
+                  }}
+                  aria-hidden="true"
+                />
+                <span className={cm.cn('truncate')}>{flag}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ) : null
+
+  const userCard = (
+    <div className={cm.cn('flex items-center gap-3')}>
+      <span
+        className={cm.cn(
+          'inline-flex h-8 w-8 items-center justify-center rounded-full font-mono text-sm font-bold shrink-0',
+        )}
+        style={{
+          backgroundColor: 'var(--color-env-filter-active-bg)',
+          color: 'var(--color-primary-hover)',
+        }}
+        aria-hidden="true"
+      >
+        {userEmail.charAt(0).toUpperCase()}
+      </span>
+      <div className={cm.cn('min-w-0 flex-1')}>
+        <span className={cm.cn('block truncate text-sm font-medium')}>{userEmail}</span>
+        <span className={cm.cn('font-mono text-[10px] text-on-surface-variant')}>
+          {t('layout.adminRole', {}, { defaultValue: 'Admin · acme' })}
+        </span>
+      </div>
+      <UserMenu />
+    </div>
+  )
+
+  return (
+    <ResponsiveAppShell
+      sidebarWidth={260}
+      dataMolId="feature-flag-manager-layout"
+      className={cm.cn('antialiased font-body')}
+    >
+      {/*
+        Mobile top bar (<768px): the shell renders the 44px menu trigger
+        itself; brand + New-flag CTA keep their pre-migration slots. On
+        desktop this bar does not mount — the sidebar carries the chrome.
+      */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        className={cm.cn(RAIL_BG)}
+        brand={mobileBrand}
+        actions={newFlagLink}
+      />
+
+      {/*
+        Desktop sidebar (≥768px): the bordered brand row leads the nav column
+        (the shared Sidebar has no header slot, so it rides inside `children`),
+        with pinned flags + the user card in the bordered footer row.
+      */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        className={cm.cn(RAIL_BG)}
+        footer={
+          <>
+            {pinnedSection}
+            {userCard}
+          </>
+        }
+      >
+        {sidebarBrand}
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+
+      {/*
+        Mobile drawer (<768px): the full dialog panel (focus trap, Escape,
+        backdrop click, body-scroll lock) over the same nav, with the search
+        above it and the user affordances in the footer.
+      */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navLabel}
+        className={cm.cn(RAIL_BG)}
+        header={mobileBrand}
+        footer={
+          <span className={cm.cn('inline-flex [&_button]:min-h-[44px] [&_button]:min-w-[44px]')}>
+            {userCard}
+          </span>
+        }
+      >
+        <div className={cm.cn('pt-3')}>{drawerSearch}</div>
+        {nav}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content>
+        {/*
+          Desktop search header — content-column chrome the drawer replaces
+          on mobile (non-duplicating CSS swap: exactly one search field is
+          visible per width).
+        */}
+        <header
+          className={cm.cn(
+            'sticky top-0 z-10 hidden h-12 items-center gap-3 px-5 backdrop-blur-md md:flex',
           )}
           style={{
             backgroundColor: 'rgba(17, 24, 39, 0.85)',
             borderBottom: '1px solid rgba(30, 41, 59, 0.7)',
-            backdropFilter: 'blur(8px)',
           }}
-          data-mol-id="mobile-nav"
         >
-          {NAV_ITEMS.map((item) => {
-            const active = item.match(pathname)
-            return (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                className={cm.cn(
-                  'inline-flex shrink-0 items-center gap-1.5 rounded-md px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-widest whitespace-nowrap transition-colors',
-                  active ? 'font-bold' : 'text-on-surface-variant',
-                )}
-                style={
-                  active
-                    ? {
-                        backgroundColor: 'var(--color-emerald-chip-bg)',
-                        color: 'var(--color-env-filter-active-text)',
-                      }
-                    : { backgroundColor: 'rgba(30, 41, 59, 0.7)' }
-                }
-                aria-current={active ? 'page' : undefined}
-                data-mol-id={`mobile-nav-${item.to.slice(1).replace(/\//g, '-')}`}
-              >
-                <span className={cm.cn('material-symbols-outlined text-[16px]')} aria-hidden="true">
-                  {item.icon}
-                </span>
-                {t(`layout.${item.labelKey}`, {}, { defaultValue: item.defaultLabel })}
-              </NavLink>
-            )
-          })}
-        </nav>
+          <div className={cm.cn('max-w-xl flex-1')}>{searchField}</div>
+          {newFlagLink}
+        </header>
 
-        <main className={cm.cn('flex-1 px-5 py-6 md:px-8 md:py-8')}>{children ?? <Outlet />}</main>
-      </div>
-    </div>
+        {/* Page padding wraps the routed content — `.Content` stays a bare <main>. */}
+        <div className={cm.cn('px-5 py-6 md:px-8 md:py-8')}>{children ?? <Outlet />}</div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
