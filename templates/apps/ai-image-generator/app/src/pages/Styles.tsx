@@ -78,7 +78,7 @@ export function Styles() {
           { defaultValue: 'Curated visual presets crafted by the {{appName}} studio team' },
         )}
       />
-      <main className={cm.cn(cm.sp('p', 8), cm.flex({ direction: 'col', gap: 'lg' }))}>
+      <div className={cm.cn(cm.sp('p', 8), cm.flex({ direction: 'col', gap: 'lg' }))}>
         <section
           className={cm.cn(
             cm.flex({ direction: 'col', gap: 'sm' }),
@@ -141,7 +141,7 @@ export function Styles() {
             ))}
           </div>
         )}
-      </main>
+      </div>
     </AiImageGeneratorLayout>
   )
 }

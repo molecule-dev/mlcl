@@ -3,9 +3,9 @@ import { Link, useParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { LeaderboardRow } from '../components/LeaderboardRow.js'
-import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { QuizStatsRow } from '../components/QuizStatsRow.js'
 
 interface QuestionRow {
@@ -108,7 +108,7 @@ export function QuizDetail() {
     return (
       <div className={cm.cn(cm.stack(4), cm.sp('py', 12))}>
         <LoadErrorBanner
-          onRetry={() => void refresh()}
+          onRetry={refresh}
           message={t('quizDetail.loadError', {}, { defaultValue: 'Could not load this quiz.' })}
         />
       </div>

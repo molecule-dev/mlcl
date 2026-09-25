@@ -53,11 +53,11 @@ export function Profile() {
           title={t('nav.loadingProfile', {}, { defaultValue: 'Loading profile…' })}
           subtitle=""
         />
-        <main className={cm.cn(cm.sp('p', 8))}>
+        <div className={cm.cn(cm.sp('p', 8))}>
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </p>
-        </main>
+        </div>
       </AiImageGeneratorLayout>
     )
   }
@@ -70,9 +70,9 @@ export function Profile() {
           title={t('profile.notFoundTitle', {}, { defaultValue: 'Profile unavailable' })}
           subtitle=""
         />
-        <main className={cm.cn(cm.sp('p', 8))}>
+        <div className={cm.cn(cm.sp('p', 8))}>
           <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{profileState.error}</p>
-        </main>
+        </div>
       </AiImageGeneratorLayout>
     )
   }
@@ -138,7 +138,7 @@ export function Profile() {
         }
       />
 
-      <main className={cm.cn(cm.sp('p', 8), cm.flex({ direction: 'col', gap: 'lg' }))}>
+      <div className={cm.cn(cm.sp('p', 8), cm.flex({ direction: 'col', gap: 'lg' }))}>
         <section
           className={cm.cn(
             cm.flex({ direction: 'col', gap: 'md' }),
@@ -237,7 +237,7 @@ export function Profile() {
             </div>
           )}
         </section>
-      </main>
+      </div>
     </AiImageGeneratorLayout>
   )
 }

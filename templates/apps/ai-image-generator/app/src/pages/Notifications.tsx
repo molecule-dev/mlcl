@@ -91,7 +91,7 @@ export function Notifications() {
         }
       />
 
-      <main className={cm.cn(cm.sp('p', 8))}>
+      <div className={cm.cn(cm.sp('p', 8))}>
         {activityState.loading ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('nav.loadingActivity', {}, { defaultValue: 'Loading activity…' })}
@@ -182,7 +182,7 @@ export function Notifications() {
             ))}
           </div>
         )}
-      </main>
+      </div>
     </AiImageGeneratorLayout>
   )
 }

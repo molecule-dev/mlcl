@@ -54,7 +54,7 @@ export function Prompts() {
         )}
       />
 
-      <main className={cm.cn(cm.sp('p', 8), cm.flex({ direction: 'col', gap: 'lg' }))}>
+      <div className={cm.cn(cm.sp('p', 8), cm.flex({ direction: 'col', gap: 'lg' }))}>
         <div
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'sm' }),
@@ -183,7 +183,7 @@ export function Prompts() {
             ))}
           </ul>
         )}
-      </main>
+      </div>
     </AiImageGeneratorLayout>
   )
 }

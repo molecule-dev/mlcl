@@ -1,10 +1,10 @@
-import { type ReactNode, useCallback, useMemo, useState } from 'react'
+import type { ReactNode } from 'react'
 import { Outlet } from 'react-router'
 
-import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { AiImageGeneratorMobileNav, AiImageGeneratorSidebar } from './AiImageGeneratorSidebar.js'
-import { MobileNavContext } from './mobile-nav-context.js'
+import { useAiImageGeneratorNav } from './AiImageGeneratorSidebar.js'
+import { BrandLogo } from './BrandLogo.js'
 
 export interface AiImageGeneratorLayoutProps {
   /** Optional override for content; if omitted the router `<Outlet>` is rendered. */
@@ -12,29 +12,35 @@ export interface AiImageGeneratorLayoutProps {
 }
 
 /**
- * Signed-in shell — sidebar + scrollable content column on md+; below the
- * `md` breakpoint the rail is hidden and the sticky top bar's hamburger
- * opens the navigation drawer (fleet mobile-shell pattern). Pages render
- * their own `AiImageGeneratorTopBar` so each route controls its title,
- * subtitle and actions independently.
+ * Signed-in shell — the shared `ResponsiveAppShell`: brand top bar with the
+ * mobile menu trigger, a desktop sidebar (≥768px), a dialog drawer (<768px)
+ * and one content column. Pages render their own `AiImageGeneratorTopBar` so
+ * each route controls its title, subtitle and actions independently; the
+ * drawer auto-closes on navigation, Escape and backdrop tap inside the shell.
  */
 export function AiImageGeneratorLayout({ children }: AiImageGeneratorLayoutProps) {
-  const cm = getClassMap()
-  const [navOpen, setNavOpen] = useState(false)
-  const closeNav = useCallback(() => setNavOpen(false), [])
-  const mobileNav = useMemo(() => ({ openMobileNav: () => setNavOpen(true) }), [])
+  const { nav, footer } = useAiImageGeneratorNav()
 
   return (
-    <MobileNavContext.Provider value={mobileNav}>
-      <div
-        className={cm.cn(cm.flex({}), cm.minH('screen'), 'bg-surface text-on-surface antialiased')}
+    <ResponsiveAppShell sidebarWidth="lg" className="bg-surface text-on-surface antialiased">
+      <ResponsiveAppShell.TopBar mobileOnly brand={<BrandLogo showTagline={false} />} />
+      <ResponsiveAppShell.Sidebar className="bg-surface-container-low" footer={footer}>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+      <ResponsiveAppShell.Drawer
+        // Stacking: the shared drawer renders its panel inside a fixed
+        // wrapper at z-index:auto while the backdrop sibling is z-40, so the
+        // backdrop covers the panel and swallows every tap (the panel's own
+        // inline z-index is scoped INSIDE the wrapper's stacking context and
+        // cannot win). index.css raises the wrapper above the backdrop until
+        // the shared component fixes its stacking.
+        className="bg-surface-container-low shadow-2xl"
+        header={<BrandLogo showTagline={false} />}
+        footer={footer}
       >
-        <AiImageGeneratorSidebar />
-        <AiImageGeneratorMobileNav open={navOpen} onClose={closeNav} />
-        <div className={cm.cn(cm.flex({ direction: 'col' }), 'flex-1 md:ml-64 min-w-0')}>
-          {children ?? <Outlet />}
-        </div>
-      </div>
-    </MobileNavContext.Provider>
+        {nav}
+      </ResponsiveAppShell.Drawer>
+      <ResponsiveAppShell.Content>{children ?? <Outlet />}</ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }

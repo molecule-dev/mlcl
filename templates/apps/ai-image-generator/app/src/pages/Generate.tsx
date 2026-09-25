@@ -137,7 +137,7 @@ export function Generate() {
         )}
       />
 
-      <main className={cm.cn(cm.sp('p', 8), 'grid gap-6 lg:grid-cols-12')}>
+      <div className={cm.cn(cm.sp('p', 8), 'grid gap-6 lg:grid-cols-12')}>
         {submitError && (
           <div
             role="alert"
@@ -508,7 +508,7 @@ export function Generate() {
             </fieldset>
           </article>
         </aside>
-      </main>
+      </div>
     </AiImageGeneratorLayout>
   )
 }

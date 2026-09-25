@@ -54,7 +54,7 @@ export function Models() {
         )}
       />
 
-      <main className={cm.cn(cm.sp('p', 8), cm.flex({ direction: 'col', gap: 'lg' }))}>
+      <div className={cm.cn(cm.sp('p', 8), cm.flex({ direction: 'col', gap: 'lg' }))}>
         {modelsState.loading ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('models.loading', {}, { defaultValue: 'Loading models…' })}
@@ -170,7 +170,7 @@ export function Models() {
             })}
           </div>
         )}
-      </main>
+      </div>
     </AiImageGeneratorLayout>
   )
 }

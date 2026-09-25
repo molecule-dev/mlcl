@@ -120,7 +120,7 @@ export function Dashboard() {
         credits={creditsState.data?.balance ?? 0}
       />
 
-      <main className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), cm.sp('p', 8))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), cm.sp('p', 8))}>
         <section className={cm.cn('grid gap-6 lg:grid-cols-12')}>
           <div className={cm.cn('lg:col-span-7')}>
             <CreditsHeroCard
@@ -390,7 +390,7 @@ export function Dashboard() {
             </ol>
           )}
         </section>
-      </main>
+      </div>
     </AiImageGeneratorLayout>
   )
 }

@@ -67,11 +67,11 @@ export function Editor() {
           title={t('editor.loading', {}, { defaultValue: 'Loading editor…' })}
           subtitle=""
         />
-        <main className={cm.cn(cm.sp('p', 8))}>
+        <div className={cm.cn(cm.sp('p', 8))}>
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </p>
-        </main>
+        </div>
       </AiImageGeneratorLayout>
     )
   }
@@ -87,9 +87,9 @@ export function Editor() {
             { defaultValue: 'This image could not be loaded.' },
           )}
         />
-        <main className={cm.cn(cm.sp('p', 8))}>
+        <div className={cm.cn(cm.sp('p', 8))}>
           <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{imageState.error}</p>
-        </main>
+        </div>
       </AiImageGeneratorLayout>
     )
   }
@@ -127,7 +127,7 @@ export function Editor() {
         }
       />
 
-      <main className={cm.cn(cm.sp('p', 8), 'grid gap-6 lg:grid-cols-12 min-h-[640px]')}>
+      <div className={cm.cn(cm.sp('p', 8), 'grid gap-6 lg:grid-cols-12 min-h-[640px]')}>
         <section className={cm.cn('lg:col-span-9 flex flex-col gap-4')}>
           <div
             className={cm.cn(
@@ -273,7 +273,7 @@ export function Editor() {
             </ol>
           </article>
         </aside>
-      </main>
+      </div>
     </AiImageGeneratorLayout>
   )
 }

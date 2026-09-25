@@ -4,8 +4,8 @@ import { Link, useNavigate } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
-import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { QuizCard, type QuizCardProps } from '../components/QuizCard.js'
 
 interface QuizRow {
@@ -224,7 +224,14 @@ export function MyQuizzes() {
           {t('myQuizzes.loading', {}, { defaultValue: 'Loading…' })}
         </p>
       ) : error && list.length === 0 ? (
-        <LoadErrorBanner onRetry={() => void refresh()} />
+        <LoadErrorBanner
+          onRetry={refresh}
+          message={t(
+            'common.loadError',
+            {},
+            { defaultValue: 'Something went wrong loading this content.' },
+          )}
+        />
       ) : list.length === 0 ? (
         <div
           className={cm.cn(

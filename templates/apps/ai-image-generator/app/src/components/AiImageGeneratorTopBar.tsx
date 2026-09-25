@@ -3,7 +3,6 @@ import type { ReactNode } from 'react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { useMobileNav } from './mobile-nav-context.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -18,9 +17,12 @@ export interface AiImageGeneratorTopBarProps {
 }
 
 /**
- * Sticky top bar paired with the sidebar layout — title + breadcrumb on the
- * left, credits pill, theme toggle and user menu on the right. Glass-tint
- * background blends with the dreamy gradient surface.
+ * Sticky page title bar paired with the sidebar layout — title + breadcrumb on
+ * the left, credits pill, theme toggle and user menu on the right. The mobile
+ * menu trigger lives in the shared `ResponsiveAppShell`'s own top bar, so this
+ * bar sticks just below it below the `md` breakpoint (`top-14`) and flush with
+ * the viewport edge from `md` up. Glass-tint background blends with the dreamy
+ * gradient surface.
  */
 export function AiImageGeneratorTopBar({
   title,
@@ -30,7 +32,6 @@ export function AiImageGeneratorTopBar({
 }: AiImageGeneratorTopBarProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const { openMobileNav } = useMobileNav()
 
   return (
     <header
@@ -39,25 +40,10 @@ export function AiImageGeneratorTopBar({
         cm.sp('px', 4),
         'md:px-8',
         cm.sp('py', 4),
-        'sticky top-0 z-30 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10 min-w-0',
+        'sticky top-14 md:top-0 z-30 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10 min-w-0',
       )}
     >
       <div className={cm.flex({ align: 'center', gap: 'sm' }) + ' min-w-0 flex-1'}>
-        {/* Hamburger — opens the navigation drawer below the md breakpoint. */}
-        <button
-          type="button"
-          onClick={openMobileNav}
-          aria-label={t('common.openMenu', {}, { defaultValue: 'Open navigation menu' })}
-          aria-haspopup="dialog"
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            'h-11 w-11 shrink-0 rounded-xl text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-colors md:hidden',
-          )}
-        >
-          <span className="material-symbols-outlined" aria-hidden="true">
-            menu
-          </span>
-        </button>
         <div className={cm.flex({ direction: 'col' }) + ' min-w-0'}>
           <h1
             className={cm.cn(

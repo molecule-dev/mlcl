@@ -99,7 +99,7 @@ export function Gallery() {
         }
       />
 
-      <main className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), cm.sp('p', 8))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), cm.sp('p', 8))}>
         <nav
           className={cm.cn(cm.flex({ gap: 'xs' }), 'flex-wrap')}
           aria-label={t('gallery.filters', {}, { defaultValue: 'Status filters' })}
@@ -153,7 +153,7 @@ export function Gallery() {
             ))}
           </div>
         )}
-      </main>
+      </div>
     </AiImageGeneratorLayout>
   )
 }

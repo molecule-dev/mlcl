@@ -75,11 +75,11 @@ export function CollectionDetail() {
           title={t('collectionDetail.loading', {}, { defaultValue: 'Loading collection…' })}
           subtitle=""
         />
-        <main className={cm.cn(cm.sp('p', 8))}>
+        <div className={cm.cn(cm.sp('p', 8))}>
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </p>
-        </main>
+        </div>
       </AiImageGeneratorLayout>
     )
   }
@@ -99,7 +99,7 @@ export function CollectionDetail() {
             { defaultValue: 'This collection has been removed or is private.' },
           )}
         />
-        <main className={cm.cn(cm.sp('p', 8))}>
+        <div className={cm.cn(cm.sp('p', 8))}>
           <Link
             to="/collections"
             className={cm.cn(
@@ -114,7 +114,7 @@ export function CollectionDetail() {
             </span>
             {t('collectionDetail.backCta', {}, { defaultValue: 'Back to collections' })}
           </Link>
-        </main>
+        </div>
       </AiImageGeneratorLayout>
     )
   }
@@ -170,7 +170,7 @@ export function CollectionDetail() {
         }
       />
 
-      <main className={cm.cn(cm.sp('p', 8), cm.flex({ direction: 'col', gap: 'lg' }))}>
+      <div className={cm.cn(cm.sp('p', 8), cm.flex({ direction: 'col', gap: 'lg' }))}>
         {editName !== null && (
           <form
             className={cm.cn(
@@ -292,7 +292,7 @@ export function CollectionDetail() {
             ))}
           </div>
         )}
-      </main>
+      </div>
     </AiImageGeneratorLayout>
   )
 }

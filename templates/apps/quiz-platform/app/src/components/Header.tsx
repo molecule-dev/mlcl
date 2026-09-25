@@ -11,7 +11,7 @@ export function Header() {
       appName={APP_NAME}
       logoSize={LOGO_SIZE}
       themeToggle={<ThemeToggle />}
-      extraActions={<MainNavLinks variant="inline" />}
+      extraActions={<MainNavLinks />}
       userMenu={<UserMenu />}
     />
   )

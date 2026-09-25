@@ -26,6 +26,22 @@
 
 @import '@molecule/app-ui-tailwind/base.css';
 
+/*
+ * ResponsiveAppShell drawer stacking fix.
+ *
+ * The shared drawer renders its dialog panel INSIDE a `position: fixed`
+ * wrapper that carries no z-index, while its backdrop sibling is z-40. A
+ * fixed wrapper is its own stacking context, so the panel's inline z-index
+ * only counts inside it — the whole drawer stacks below the backdrop and the
+ * backdrop intercepts every tap on the nav. Raise the wrapper one level above
+ * the backdrop; the panel (and its focus trap) then sits above the dimmed
+ * page, and taps outside the panel still reach the wrapper's click-to-close.
+ * Remove once the shared component stacks its own wrapper.
+ */
+body > div:has(> [data-mol-id='shell-drawer']) {
+  z-index: 41;
+}
+
 /* Global defaults — inside /* polish-v2:theme:start */
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {

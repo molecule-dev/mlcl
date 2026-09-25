@@ -3,8 +3,8 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
-import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { QuizCard, type QuizCardProps } from '../components/QuizCard.js'
 
 const CATEGORIES = [
@@ -237,7 +237,14 @@ export function Discover() {
             {t('discover.loading', {}, { defaultValue: 'Loading…' })}
           </p>
         ) : error ? (
-          <LoadErrorBanner onRetry={() => void refresh()} />
+          <LoadErrorBanner
+            onRetry={refresh}
+            message={t(
+              'common.loadError',
+              {},
+              { defaultValue: 'Something went wrong loading this content.' },
+            )}
+          />
         ) : filtered.length === 0 ? (
           <div
             className={cm.cn(

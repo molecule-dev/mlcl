@@ -3,8 +3,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-
-import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 interface NotificationRow {
   id: string
@@ -187,7 +186,14 @@ export function Notifications() {
             </li>
           ) : error ? (
             <li className={cm.cn(cm.sp('p', 5))}>
-              <LoadErrorBanner onRetry={() => void refresh()} />
+              <LoadErrorBanner
+                onRetry={refresh}
+                message={t(
+                  'common.loadError',
+                  {},
+                  { defaultValue: 'Something went wrong loading this content.' },
+                )}
+              />
             </li>
           ) : visible.length === 0 ? (
             <li className={cm.cn(cm.sp('p', 12), cm.textCenter, 'text-on-surface-variant')}>

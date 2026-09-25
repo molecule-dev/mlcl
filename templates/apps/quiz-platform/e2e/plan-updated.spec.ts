@@ -61,6 +61,14 @@ test.describe('/plan-updated', () => {
 
 test.describe('/plan-updated — checkout return', () => {
   test('confirms the purchase when the provider returns with a payment id', async ({ page }) => {
+    // The dev API never mounts verify-payment, so the page's POST with the
+    // fake cs_test_e2e session id 404s into the console guard — a pre-existing
+    // coin-flip race (blog hit the identical one). The test asserts the page
+    // ATTEMPTS the call. Annotate before the request fires.
+    await test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     const confirmed = page
       .waitForResponse((r) => /\/verify-payment\//.test(r.url()), { timeout: 20_000 })

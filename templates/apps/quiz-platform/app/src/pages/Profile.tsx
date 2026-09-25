@@ -3,9 +3,9 @@ import { Link, useParams } from 'react-router'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
-import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { QuizCard, type QuizCardProps } from '../components/QuizCard.js'
 import { QuizStatsRow } from '../components/QuizStatsRow.js'
 
@@ -236,7 +236,14 @@ export function Profile() {
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </p>
         ) : error ? (
-          <LoadErrorBanner onRetry={() => void refresh()} />
+          <LoadErrorBanner
+            onRetry={refresh}
+            message={t(
+              'common.loadError',
+              {},
+              { defaultValue: 'Something went wrong loading this content.' },
+            )}
+          />
         ) : quizzes.length === 0 ? (
           <div
             className={cm.cn(

@@ -126,11 +126,11 @@ export function ImageDetail() {
           title={t('imageDetail.loading', {}, { defaultValue: 'Loading image…' })}
           subtitle=""
         />
-        <main className={cm.cn(cm.sp('p', 8))}>
+        <div className={cm.cn(cm.sp('p', 8))}>
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </p>
-        </main>
+        </div>
       </AiImageGeneratorLayout>
     )
   }
@@ -146,9 +146,9 @@ export function ImageDetail() {
             { defaultValue: 'This image could not be loaded.' },
           )}
         />
-        <main className={cm.cn(cm.sp('p', 8))}>
+        <div className={cm.cn(cm.sp('p', 8))}>
           <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{imageState.error}</p>
-        </main>
+        </div>
       </AiImageGeneratorLayout>
     )
   }
@@ -181,7 +181,7 @@ export function ImageDetail() {
         }
       />
 
-      <main className={cm.cn(cm.sp('p', 8), 'grid gap-6 lg:grid-cols-12')}>
+      <div className={cm.cn(cm.sp('p', 8), 'grid gap-6 lg:grid-cols-12')}>
         <section className={cm.cn('lg:col-span-8 flex flex-col gap-6')}>
           <div
             className={cm.cn(
@@ -397,7 +397,7 @@ export function ImageDetail() {
             </ul>
           </article>
         </aside>
-      </main>
+      </div>
     </AiImageGeneratorLayout>
   )
 }

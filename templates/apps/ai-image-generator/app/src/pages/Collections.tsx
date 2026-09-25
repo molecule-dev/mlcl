@@ -79,7 +79,7 @@ export function Collections() {
         }
       />
 
-      <main className={cm.cn(cm.sp('p', 8))}>
+      <div className={cm.cn(cm.sp('p', 8))}>
         {collectionsState.loading ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('collections.loading', {}, { defaultValue: 'Loading collections…' })}
@@ -174,7 +174,7 @@ export function Collections() {
             ))}
           </div>
         )}
-      </main>
+      </div>
     </AiImageGeneratorLayout>
   )
 }
