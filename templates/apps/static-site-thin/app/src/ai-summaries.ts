@@ -7,8 +7,8 @@
  * (at most 25 words) written from that section's own text, so a summary can
  * only tell a reader what the section already says.
  *
- * How it works: the AI chat bond is the project's Anthropic key
- * (`ANTHROPIC_API_KEY`, server-side only — this runs in the build, never in the
+ * How it works: the AI chat bond is the project's DeepSeek key
+ * (`DEEPSEEK_API_KEY`, server-side only — this runs in the build, never in the
  * browser), and `@molecule/api-ai-summarization-llm` composes it into a
  * summarizer that enforces the word cap in code rather than trusting the model
  * to obey it. `summarizeCached` keeps every answer in `.cache/summaries.json`,
@@ -22,7 +22,7 @@
  */
 import { join } from 'node:path'
 
-import { provider as anthropic } from '@molecule/api-ai-anthropic'
+import { provider as deepseek } from '@molecule/api-ai-deepseek'
 import { setProvider as setSummarizer } from '@molecule/api-ai-summarization'
 import {
   countWords,
@@ -37,10 +37,10 @@ const MIN_WORDS = 80
 
 /**
  * The model that writes the summaries. A TL;DR of a paragraph needs no frontier
- * model: Haiku costs an eighth of the Anthropic bond's default (Opus), and a
- * build summarizes every long section of every post.
+ * model, and a build summarizes every long section of every post, so the
+ * cheapest capable one: DeepSeek V4.1 Flash.
  */
-const MODEL = 'claude-haiku-4-5'
+const MODEL = 'deepseek-flash'
 
 /** The hard cap on a summary, in words: one complete sentence. */
 const MAX_WORDS = 25
@@ -56,7 +56,7 @@ let ready = false
  */
 function bondSummarizer(): void {
   if (ready) return
-  bond('ai', 'anthropic', anthropic)
+  bond('ai', 'deepseek', deepseek)
   setSummarizer(summarizer)
   ready = true
 }
@@ -83,7 +83,7 @@ export async function sectionSummaries(
   if (wanted.length === 0) return {}
   // No key, no model: the site builds without summaries (the posts and every
   // page still work). Checked here so a keyless build or test never dials out.
-  if (!process.env.ANTHROPIC_API_KEY) return {}
+  if (!process.env.DEEPSEEK_API_KEY) return {}
   const summaries: Record<number, string> = {}
   try {
     bondSummarizer()
