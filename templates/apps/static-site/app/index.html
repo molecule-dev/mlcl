@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta name="generator" content="Molecule (https://molecule.dev)" />
+    <meta name="generator" content="molecule.dev" />
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -558,7 +558,7 @@
           if (!window.parent || window.parent === window) return
           // Resolve the app's render root LAZILY on every check: this script may run
           // (injected in <head>
-      <meta name="generator" content="Molecule (https://molecule.dev)">) before the content exists, and imported / SSR apps
+      <meta name="generator" content="molecule.dev">) before the content exists, and imported / SSR apps
           // often render straight into <body> with no #root/#app wrapper. Falling back
           // to <body> — instead of capturing #root once and bailing when it is absent —
           // is what lets molecule:ready fire for those apps (otherwise the IDE loading
@@ -1147,7 +1147,7 @@
           var uiSeen = {},
             uiResults = {}
           // When THIS document loaded. The script is injected in <head>
-      <meta name="generator" content="Molecule (https://molecule.dev)">, so it is the page's
+      <meta name="generator" content="molecule.dev">, so it is the page's
           // own age — and the paint gate below is measured from it, NOT from when a command
           // arrives. That distinction is the whole difference between "wait, it is still
           // starting up" and "wait forever on a page that is simply blank": budgeted from the
@@ -1327,7 +1327,7 @@
             // snapshot — read_preview_ui, AND the reply the host enqueues for navigate_preview.
             // It used to answer SYNCHRONOUSLY, which is the biggest source of "the page never
             // loaded" false alarms: this script is injected in <head>
-      <meta name="generator" content="Molecule (https://molecule.dev)">, so after a navigate or
+      <meta name="generator" content="molecule.dev">, so after a navigate or
             // reload the FRESH document's bridge answers the host's re-post while the framework
             // is still booting — empty root, empty pageText, zero elements. Settle first.
             if (cmd.action === 'snapshot') return settleThenReply(id, null, deadline)

@@ -1911,7 +1911,7 @@ export async function ensureReadmeMd(
   if (existsSync(target)) return
   const vars = {
     PROJECT_NAME: projectName,
-    PROJECT_DESCRIPTION: `${projectName} — built with Molecule`,
+    PROJECT_DESCRIPTION: `${projectName} — built with Molecule.dev`,
     FRAMEWORK: framework ?? 'React',
   }
   await writeFile(target, await loadTemplate('shared/README.md.tpl', vars))

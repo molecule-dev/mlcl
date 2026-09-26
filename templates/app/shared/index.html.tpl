@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta name="generator" content="Molecule (https://molecule.dev)">
+    <meta name="generator" content="molecule.dev">
     <meta charset="UTF-8" />
     <meta
       name="viewport"
