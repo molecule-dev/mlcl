@@ -55936,7 +55936,15 @@
       "@molecule/api-agent-transcript-autodetect": "1.0.0",
       "@molecule/api-text-provenance": "1.0.0",
       "@molecule/api-text-provenance-overlap": "1.0.0",
-      "@molecule/app-locales-margin-notes": "1.0.0"
+      "@molecule/app-locales-margin-notes": "1.0.0",
+      "@molecule/api-ai-translation-llm": "1.1.0",
+      "@molecule/api-ai-translation-molecule": "1.1.0",
+      "@molecule/api-ai-translation-bergamot": "1.1.0",
+      "@molecule/api-ai-translation-madlad": "1.1.0",
+      "@molecule/api-ai-embeddings-molecule": "1.1.0",
+      "@molecule/api-ai-speech-molecule": "1.1.0",
+      "@molecule/api-content-moderation-openai": "1.1.0",
+      "@molecule/api-content-moderation-molecule": "1.1.0"
     }
   }
 }
