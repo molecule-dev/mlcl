@@ -56233,7 +56233,7 @@
       "@molecule/api-ai-speech-molecule": "1.1.0",
       "@molecule/api-content-moderation-openai": "1.1.0",
       "@molecule/api-content-moderation-molecule": "1.1.0",
-      "@molecule/app-margin-notes-html": "1.0.1",
+      "@molecule/app-margin-notes-html": "1.0.2",
       "@molecule/api-ai-translation-google": "1.0.0"
     }
   }
