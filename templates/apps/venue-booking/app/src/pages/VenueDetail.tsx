@@ -148,7 +148,7 @@ export function VenueDetail() {
   return (
     <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
       {/* Header band */}
-      <header className={cm.sp('mb', 6)}>
+      <div className={cm.sp('mb', 6)}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -233,7 +233,7 @@ export function VenueDetail() {
             </span>
           ) : null}
         </div>
-      </header>
+      </div>
 
       {/* Photo gallery — 1 large left + 4 small right per DESIGN.md */}
       <section className={cm.sp('mb', 8)}>
@@ -404,9 +404,7 @@ export function VenueDetail() {
                       'bg-surface-container-lowest rounded-2xl border border-outline-variant/40',
                     )}
                   >
-                    <header
-                      className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 2))}
-                    >
+                    <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 2))}>
                       {rv.author_avatar_url ? (
                         <img
                           src={rv.author_avatar_url}
@@ -453,7 +451,7 @@ export function VenueDetail() {
                           </span>
                         ))}
                       </div>
-                    </header>
+                    </div>
                     <p className={cm.cn(cm.textSize('sm'), 'leading-relaxed')}>{rv.comment}</p>
                     {rv.host_response ? (
                       <div

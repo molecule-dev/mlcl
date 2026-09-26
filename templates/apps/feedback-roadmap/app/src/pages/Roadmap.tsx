@@ -210,7 +210,7 @@ export function Roadmap() {
 
                             aria-hidden="true"
                           >
-                            arrow_drop_up_circle
+                            arrow_drop_up
                           </span>
                           {post.vote_count ?? 0}
                         </span>

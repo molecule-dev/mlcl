@@ -168,7 +168,7 @@ export function Search() {
 
   return (
     <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }))}>
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
         <span
           className={cm.cn(
             cm.fontWeight('bold'),
@@ -212,7 +212,7 @@ export function Search() {
             </button>
           )}
         </div>
-      </header>
+      </div>
 
       <div
         className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }), 'flex-wrap')}

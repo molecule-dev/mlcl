@@ -31,6 +31,11 @@ interface PipelineRowProps {
   pipeline: PipelineRowData
   /** When false, renders a non-interactive demo row (used on Landing). */
   linked?: boolean
+  /** Drop the secondary metadata columns (commit SHA, started) for narrow
+   * embeds like the landing-page hero mock, where the full column set
+   * over-commits the row width and squeezes the status pill under the
+   * branch chip. */
+  dense?: boolean
 }
 
 const ACCENT: Record<PipelineStatus, string> = {
@@ -72,7 +77,7 @@ function authorInitial(author: string): string {
   return trimmed[0]!.toUpperCase()
 }
 
-export function PipelineRow({ pipeline, linked = true }: PipelineRowProps) {
+export function PipelineRow({ pipeline, linked = true, dense = false }: PipelineRowProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const accent = ACCENT[pipeline.status]
@@ -92,8 +97,9 @@ export function PipelineRow({ pipeline, linked = true }: PipelineRowProps) {
       }}
       data-mol-id={`pipeline-row-${pipeline.id}`}
     >
-      {/* Status + name + repo */}
-      <div className={'flex-1 min-w-0'}>
+      {/* Status + name + repo — positioned above later siblings so a
+          squeezed pill can never be painted over by the branch chip. */}
+      <div className={'relative z-10 flex-1 min-w-0'}>
         <div className={cm.flex({ align: 'center', gap: 'sm' })}>
           <StatusPill status={pipeline.status} />
           <p className="font-mono text-[15px] font-bold text-on-surface truncate">
@@ -126,7 +132,7 @@ export function PipelineRow({ pipeline, linked = true }: PipelineRowProps) {
       </div>
 
       {/* Commit SHA */}
-      <div className={'hidden lg:flex shrink-0 flex-col items-end'}>
+      <div className={dense ? 'hidden' : 'hidden lg:flex shrink-0 flex-col items-end'}>
         <span className="text-[9px] font-black uppercase tracking-widest text-on-surface-variant">
           {t('pipelineRow.commit', {}, { defaultValue: 'Commit' })}
         </span>
@@ -149,7 +155,7 @@ export function PipelineRow({ pipeline, linked = true }: PipelineRowProps) {
       </div>
 
       {/* Started + author */}
-      <div className={'hidden xl:flex shrink-0 flex-col items-end'}>
+      <div className={dense ? 'hidden' : 'hidden xl:flex shrink-0 flex-col items-end'}>
         <span className="text-[9px] font-black uppercase tracking-widest text-on-surface-variant">
           {t('pipelineRow.started', {}, { defaultValue: 'Started' })}
         </span>

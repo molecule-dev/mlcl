@@ -169,7 +169,7 @@ export function Browse() {
     <div className={cm.cn('min-h-screen flex flex-col bg-background')}>
       <Header />
       <main className={cm.cn(cm.sp('px', 6), cm.sp('py', 12), 'max-w-7xl mx-auto w-full flex-1')}>
-        <header className={cm.cn('mb-10')}>
+        <div className={cm.cn('mb-10')}>
           <p
             className={cm.cn(
               'text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2',
@@ -194,7 +194,7 @@ export function Browse() {
               },
             )}
           </p>
-        </header>
+        </div>
 
         <div className={cm.cn('grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10 items-start')}>
           <aside
@@ -301,7 +301,7 @@ export function Browse() {
           </aside>
 
           <section>
-            <header className={cm.cn('flex items-center justify-between gap-4 mb-6 flex-wrap')}>
+            <div className={cm.cn('flex items-center justify-between gap-4 mb-6 flex-wrap')}>
               <div className={cm.cn('flex items-center gap-3 flex-wrap')}>
                 <p className={cm.cn('text-sm text-on-surface-variant')} data-mol-id="results-count">
                   {loading
@@ -357,7 +357,7 @@ export function Browse() {
                   ))}
                 </select>
               </div>
-            </header>
+            </div>
             {error && (
               <div
                 role="alert"

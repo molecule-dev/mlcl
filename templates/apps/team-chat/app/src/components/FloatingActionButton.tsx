@@ -11,6 +11,7 @@ function FloatingActionButton({ onClick }: FloatingActionButtonProps) {
   return (
     <button
       onClick={onClick}
+      aria-label="Create new channel"
       className={cm.cn(
         cm.flex({ align: 'center', justify: 'center' }),
         cm.w(14),

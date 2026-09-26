@@ -169,7 +169,7 @@ export function PresenterMode() {
         )}
       />
 
-      <header
+      <div
         className={cm.cn(
           'relative z-10 flex items-center justify-between',
           cm.sp('px', 12),
@@ -209,7 +209,7 @@ export function PresenterMode() {
             </span>
           ) : null}
         </div>
-      </header>
+      </div>
 
       <main className={cm.cn('relative z-10 mx-auto pb-32', cm.maxW('5xl'), cm.sp('px', 12))}>
         <h1

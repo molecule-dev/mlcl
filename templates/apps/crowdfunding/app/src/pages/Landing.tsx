@@ -184,7 +184,7 @@ export function Landing() {
       >
         {/* Featured campaigns */}
         <section className={cm.stack(8)}>
-          <header
+          <div
             className={cm.cn(cm.flex({ align: 'baseline', justify: 'between' }), 'flex-wrap gap-3')}
           >
             <div>
@@ -218,7 +218,7 @@ export function Landing() {
             >
               {t('landing.featured.browseAll', {}, { defaultValue: 'Browse all campaigns →' })}
             </Link>
-          </header>
+          </div>
 
           <CategoryFilterBar categories={[...CATEGORIES]} />
 
@@ -278,7 +278,7 @@ export function Landing() {
 
         {/* How it works */}
         <section className={cm.stack(10)}>
-          <header className={cm.textCenter}>
+          <div className={cm.textCenter}>
             <h2 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), 'tracking-tight')}>
               {t(
                 'landing.how.title',
@@ -301,7 +301,7 @@ export function Landing() {
                 { defaultValue: 'Turn your ambitious idea into reality in three simple steps.' },
               )}
             </p>
-          </header>
+          </div>
           <div className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-3')}>
             {HOW_IT_WORKS.map((step) => (
               <article

@@ -249,7 +249,7 @@ function PasswordField({
       <div className="relative">
         <span
           className={cm.cn(
-            'absolute inset-y-0 left-0 pl-3 flex items-center text-on-surface-variant pointer-events-none',
+            'absolute inset-y-0 left-0 px-3 flex items-center text-on-surface-variant pointer-events-none',
           )}
           aria-hidden="true"
         >
@@ -276,7 +276,7 @@ function PasswordField({
           type="button"
           onClick={onToggleShow}
           className={cm.cn(
-            'absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-on-surface focus:outline-none',
+            'absolute inset-y-0 right-0 px-3 flex items-center text-on-surface-variant hover:text-on-surface focus:outline-none',
           )}
           aria-label={show ? hideLabel : showLabel}
         >

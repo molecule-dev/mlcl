@@ -40,7 +40,9 @@ export function ReviewCard({
         'bg-surface-container-lowest rounded-xl border border-outline-variant/20 shadow-sm transition-all hover:shadow-md',
       )}
     >
-      <header
+      {/* A <div>, not <header>: a review attribution row is card content,
+          not a page banner — <header> here reads as a duplicated app bar. */}
+      <div
         className={cm.cn(
           cm.flex({ align: 'center', gap: 'sm' }),
           // Stars are one rigid run; in narrow cards (e.g. 3-up testimonial
@@ -90,7 +92,7 @@ export function ReviewCard({
             </span>
           ))}
         </div>
-      </header>
+      </div>
       <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 3), 'text-on-surface leading-[1.65]')}>
         {body}
       </p>

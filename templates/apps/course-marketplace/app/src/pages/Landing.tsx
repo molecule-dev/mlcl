@@ -424,7 +424,7 @@ export function Landing() {
       {/* Most popular */}
       <section className={cm.cn('bg-background py-24')}>
         <div className={cm.cn('max-w-7xl mx-auto px-8')}>
-          <header className={cm.cn('flex items-end justify-between mb-12 gap-6 flex-wrap')}>
+          <div className={cm.cn('flex items-end justify-between mb-12 gap-6 flex-wrap')}>
             <div>
               <p
                 className={cm.cn(
@@ -459,7 +459,7 @@ export function Landing() {
                 arrow_forward
               </span>
             </Link>
-          </header>
+          </div>
           {featured.length === 0 ? (
             <p
               data-mol-id="featured-empty"
@@ -494,7 +494,7 @@ export function Landing() {
       {/* Instructors */}
       <section className={cm.cn('bg-surface-container-low py-24')}>
         <div className={cm.cn('max-w-7xl mx-auto px-8')}>
-          <header className={cm.cn('text-center mb-16 max-w-2xl mx-auto')}>
+          <div className={cm.cn('text-center mb-16 max-w-2xl mx-auto')}>
             <p
               className={cm.cn(
                 'text-[11px] font-black uppercase tracking-widest text-on-surface-variant mb-3',
@@ -519,7 +519,7 @@ export function Landing() {
                 },
               )}
             </p>
-          </header>
+          </div>
           {instructors.length === 0 ? (
             <p
               data-mol-id="instructors-empty"

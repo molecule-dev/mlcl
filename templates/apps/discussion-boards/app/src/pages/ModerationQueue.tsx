@@ -374,7 +374,7 @@ export function ModerationQueue() {
                         to={`/u/${item.subject.username}`}
                         className={cm.cn('text-primary hover:underline')}
                       >
-                        @{item.subject.username}
+                        {`@${item.subject.username}`}
                       </Link>
                     )}
                     {item.thread && (

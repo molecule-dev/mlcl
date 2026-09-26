@@ -64,7 +64,7 @@ export function Reservations() {
 
   return (
     <div className={cm.cn(cm.maxW('5xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
-      <header className={cm.sp('mb', 6)}>
+      <div className={cm.sp('mb', 6)}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -96,7 +96,7 @@ export function Reservations() {
             { defaultValue: '{{upcoming}} upcoming · {{past}} past · {{cancelled}} cancelled' },
           )}
         </p>
-      </header>
+      </div>
 
       <div className={cm.cn(cm.sp('mb', 6), cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }))}>
         {STATUS_TABS.map((s) => (

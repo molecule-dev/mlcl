@@ -143,7 +143,7 @@ export function Booking() {
 
   return (
     <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
-      <header className={cm.sp('mb', 8)}>
+      <div className={cm.sp('mb', 8)}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -164,7 +164,7 @@ export function Booking() {
         >
           {t('booking.heading', { name: venue.name }, { defaultValue: 'Book {{name}}' })}
         </h1>
-      </header>
+      </div>
 
       <form onSubmit={submit} className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-10')}>
         <div className={'lg:col-span-7 xl:col-span-8'}>

@@ -548,11 +548,12 @@ export function Landing() {
                 cm.sp('px', 6),
                 cm.sp('py', 3),
                 cm.fontWeight('bold'),
+                'whitespace-nowrap max-w-full',
                 'rounded-full bg-surface text-primary shadow-lg hover:shadow-xl transition-all',
               )}
             >
               <span
-                className="material-symbols-outlined"
+                className="material-symbols-outlined shrink-0"
                 style={{ fontVariationSettings: "'FILL' 1" }}
               >
                 auto_awesome

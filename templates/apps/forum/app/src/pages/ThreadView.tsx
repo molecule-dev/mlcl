@@ -187,7 +187,7 @@ function ReplyItem({
       )}
       style={{ borderColor: accent }}
     >
-      <header
+      <div
         className={cm.cn(
           cm.flex({ align: 'center', gap: 'sm' }),
           cm.textSize('xs'),
@@ -224,7 +224,7 @@ function ReplyItem({
         />
         <span aria-hidden="true">·</span>
         <span>{timeAgo(reply.created_at)}</span>
-      </header>
+      </div>
       <p
         className={cm.cn(cm.textSize('sm'), 'leading-relaxed text-on-surface whitespace-pre-line')}
         style={{ fontFamily: 'var(--font-family-serif)' }}
@@ -593,7 +593,7 @@ export function ThreadView() {
                 'flex-1 min-w-0',
               )}
             >
-              <header
+              <div
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'sm' }),
                   cm.textSize('xs'),
@@ -647,7 +647,7 @@ export function ThreadView() {
                     {t('threadView.pinned', {}, { defaultValue: 'Pinned' })}
                   </span>
                 )}
-              </header>
+              </div>
               <h1
                 className={cm.cn(
                   cm.fontWeight('bold'),

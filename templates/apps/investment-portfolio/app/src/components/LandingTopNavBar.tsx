@@ -30,22 +30,32 @@ export function LandingTopNavBar() {
           cm.sp('px', 6),
           cm.sp('py', 4),
           cm.flex({ align: 'center', justify: 'between' }),
+          'flex-wrap gap-x-4 gap-y-2',
           cm.mxAuto,
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+        <Link
+          to="/"
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'sm' }),
+            'min-w-0 whitespace-nowrap shrink-0',
+          )}
+        >
           <img src="/logo.svg" width={LOGO_SIZE} height={LOGO_SIZE} alt={`${APP_NAME} logo`} />
           <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}>
             {APP_NAME}
           </span>
         </Link>
-        <div className={cm.flex({ align: 'center', gap: 'md' })}>
+        <div
+          className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 flex-wrap gap-y-2')}
+        >
           <Link
             to="/pricing"
             className={cm.cn(
               cm.sp('py', 2),
               cm.textSize('sm'),
               cm.fontWeight('medium'),
+              'hidden sm:inline whitespace-nowrap',
               'text-on-surface-variant hover:text-on-surface',
             )}
           >
@@ -60,6 +70,7 @@ export function LandingTopNavBar() {
                 cm.sp('py', 2),
                 cm.fontWeight('semibold'),
                 cm.textSize('sm'),
+                'whitespace-nowrap shrink-0',
                 'bg-primary text-on-primary rounded-full hover:shadow-md transition-shadow',
               )}
             >
@@ -73,6 +84,7 @@ export function LandingTopNavBar() {
                   cm.sp('py', 2),
                   cm.textSize('sm'),
                   cm.fontWeight('medium'),
+                  'whitespace-nowrap',
                   'text-on-surface-variant hover:text-on-surface',
                 )}
               >
@@ -86,6 +98,7 @@ export function LandingTopNavBar() {
                   cm.sp('py', 2),
                   cm.fontWeight('semibold'),
                   cm.textSize('sm'),
+                  'whitespace-nowrap shrink-0',
                   'bg-primary text-on-primary rounded-full hover:shadow-md transition-shadow',
                 )}
               >

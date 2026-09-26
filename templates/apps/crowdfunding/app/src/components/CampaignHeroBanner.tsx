@@ -31,7 +31,9 @@ export function CampaignHeroBanner({
   const heightClass = size === 'landing' ? 'min-h-[480px]' : 'min-h-[280px]'
 
   return (
-    <header
+    // A `<section>`, not `<header>` — the shell top bar is the page's only
+    // banner; a second `<header>` reads as a duplicated app bar.
+    <section
       className={cm.cn(
         cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
         cm.sp('px', 6),
@@ -144,7 +146,7 @@ export function CampaignHeroBanner({
           </p>
         )}
       </div>
-    </header>
+    </section>
   )
 }
 

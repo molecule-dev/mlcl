@@ -51,7 +51,7 @@ export function LandingFooter() {
         </span>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }))}>
           <Link to="/about" className={linkClassName}>
-            {t('footer.about', {}, { defaultValue: 'About' })}
+            {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About' })}
           </Link>
           <Link to="/pricing" className={linkClassName}>
             {t('nav.pricing', {}, { defaultValue: 'Pricing' })}

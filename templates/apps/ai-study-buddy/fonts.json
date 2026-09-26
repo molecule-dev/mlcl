@@ -10,5 +10,7 @@
   "app/public/fonts/JetBrainsMono-VariableFont_wght.ttf",
   "app/public/fonts/MaterialSymbolsOutlined.woff2",
   "app/public/fonts/Merriweather-VariableFont.ttf",
-  "app/public/fonts/Newsreader-VariableFont.ttf"
+  "app/public/fonts/Newsreader-VariableFont.ttf",
+  "app/public/fonts/Inter-VariableFont.woff2",
+  "app/public/fonts/MaterialSymbolsOutlined.static.woff2"
 ]

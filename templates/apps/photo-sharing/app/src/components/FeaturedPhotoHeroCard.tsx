@@ -115,11 +115,9 @@ export function FeaturedPhotoHeroCard({
       />
 
       <div
-        className={
-          'relative z-10 p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[420px]'
-        }
+        className={'relative z-10 p-8 lg:p-10 grid grid-cols-1 gap-8 items-center min-h-[420px]'}
       >
-        <div className={'lg:col-span-7'}>
+        <div>
           <div className={cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' })}>
             <span
               className={
@@ -233,7 +231,7 @@ export function FeaturedPhotoHeroCard({
           </div>
         </div>
 
-        <div className={'lg:col-span-5 flex justify-center lg:justify-end'}>
+        <div className={'flex justify-center'}>
           <div className="relative">
             <div
               className={

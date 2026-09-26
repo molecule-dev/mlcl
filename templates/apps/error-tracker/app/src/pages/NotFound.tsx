@@ -88,7 +88,7 @@ export function NotFound() {
 
         <pre
           className={cm.cn(
-            'text-left text-sm font-mono leading-relaxed rounded-xl px-4 py-3 overflow-auto',
+            'text-left text-sm font-mono leading-relaxed rounded-xl px-4 py-3 whitespace-pre-wrap break-words',
           )}
           style={{
             backgroundColor: 'var(--color-code-block)',

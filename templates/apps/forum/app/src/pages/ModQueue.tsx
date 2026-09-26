@@ -196,7 +196,7 @@ export function ModQueue() {
 
   return (
     <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }))}>
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
         <span
           className={cm.cn(
             cm.fontWeight('bold'),
@@ -218,7 +218,7 @@ export function ModQueue() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       <div className={cm.cn('grid gap-3 grid-cols-2 md:grid-cols-4')}>
         {stats.map((stat) => (
@@ -330,7 +330,7 @@ export function ModQueue() {
                   borderLeft: '4px solid var(--color-moderator)',
                 }}
               >
-                <header
+                <div
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 'sm' }),
                     cm.textSize('xs'),
@@ -351,7 +351,7 @@ export function ModQueue() {
                   </span>
                   <span aria-hidden="true">·</span>
                   <span>{formatRelativeTime(r.created_at)}</span>
-                </header>
+                </div>
                 <h3
                   className={cm.cn(
                     cm.fontWeight('semibold'),

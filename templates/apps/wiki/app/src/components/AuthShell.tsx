@@ -197,7 +197,7 @@ export function AuthShell({ eyebrow, heading, subheading, children, meta }: Auth
         {/* Form panel */}
         <AuthShellCardColumn className={cm.cn(cm.sp('px', 8), cm.sp('py', 12))}>
           <div className={cm.cn(cm.stack(8), 'w-full max-w-md')}>
-            <header className={cm.stack(2)}>
+            <div className={cm.stack(2)}>
               {eyebrow ? (
                 <span
                   className={cm.cn(
@@ -222,7 +222,7 @@ export function AuthShell({ eyebrow, heading, subheading, children, meta }: Auth
                   {subheading}
                 </p>
               ) : null}
-            </header>
+            </div>
 
             {children}
 

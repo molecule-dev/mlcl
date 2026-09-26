@@ -118,7 +118,7 @@ export function Surveys() {
 
   return (
     <div className={cm.cn(cm.stack(8), cm.sp('p', 8), cm.maxW('7xl'), cm.mxAuto, cm.w('full'))}>
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 2 }), cm.sp('mb', 0))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }), cm.sp('mb', 0))}>
         <span
           className={cm.cn(
             cm.fontWeight('bold'),
@@ -166,7 +166,7 @@ export function Surveys() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       <ResponsesHeroCard
         responsesThisWeek={totalResponses}
@@ -211,7 +211,7 @@ export function Surveys() {
       </section>
 
       <section className={cm.cn(cm.flex({ direction: 'col', gap: 4 }))}>
-        <header
+        <div
           className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 3 }), 'flex-wrap')}
         >
           <h2 className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-on-surface')}>
@@ -228,7 +228,7 @@ export function Surveys() {
           >
             {t('surveys.browseTemplates', {}, { defaultValue: 'Browse templates →' })}
           </Link>
-        </header>
+        </div>
         {surveys === null ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('surveys.loading', {}, { defaultValue: 'Loading surveys…' })}

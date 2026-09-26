@@ -323,7 +323,11 @@ export function AuthShell({
 
         <AuthShellCardColumn
           as="main"
-          className={cm.cn(cm.sp('px', 6), cm.sp('py', 24), 'col-span-12 lg:col-span-7 relative')}
+          className={cm.cn(
+            cm.sp('px', 6),
+            cm.sp('py', 24),
+            'col-span-12 lg:col-span-7 relative overflow-hidden',
+          )}
         >
           <div
             className={cm.cn(

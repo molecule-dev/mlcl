@@ -26,7 +26,7 @@ const PARSING_RULES = [
   { field: 'severity', example: 'INFO|WARN|ERROR|FATAL', mapping: 'severity' },
   { field: 'service', example: '[checkout]', mapping: 'service' },
   { field: 'timestamp', example: 'ISO-8601', mapping: '@timestamp' },
-  { field: 'trace_id', example: 'trc_xxxxx', mapping: 'trace.trace_id' },
+  { field: 'trace_id', example: 'trc-xxxxx', mapping: 'trace.trace_id' },
 ]
 
 function fmtRelative(iso: string): string {

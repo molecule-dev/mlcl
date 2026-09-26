@@ -119,7 +119,7 @@ export function Orders() {
 
   return (
     <div className={cm.cn(cm.maxW('full'), cm.mxAuto, cm.sp('p', 8), 'max-w-[1280px] space-y-8')}>
-      <header className={cm.cn(cm.stack(2))}>
+      <div className={cm.cn(cm.stack(2))}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -147,7 +147,7 @@ export function Orders() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       {/* Filter chips scroll horizontally on narrow screens instead of
           overflowing the page (the only overflow-x>viewport offender). */}

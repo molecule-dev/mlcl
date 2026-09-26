@@ -98,7 +98,7 @@ export function Storefront() {
     <div className={cm.cn(cm.page, cm.flex({ direction: 'col' }), 'min-h-screen')}>
       <Header />
       <main className={cm.cn(cm.mxAuto, cm.sp('px', 6), cm.sp('py', 12), 'w-full max-w-[1200px]')}>
-        <header className={cm.cn(cm.sp('mb', 10))}>
+        <div className={cm.cn(cm.sp('mb', 10))}>
           <p
             className={cm.cn(
               cm.textSize('xs'),
@@ -134,7 +134,7 @@ export function Storefront() {
               },
             )}
           </p>
-        </header>
+        </div>
 
         <div
           className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), cm.sp('mb', 8), 'flex-wrap')}

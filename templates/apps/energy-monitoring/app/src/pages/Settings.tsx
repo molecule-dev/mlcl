@@ -330,7 +330,7 @@ export function Settings() {
       data-mol-id="settings-page"
       className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, cm.stack(8))}
     >
-      <header className={cm.flex({ direction: 'col', gap: 'xs' })}>
+      <div className={cm.flex({ direction: 'col', gap: 'xs' })}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -346,7 +346,7 @@ export function Settings() {
         <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
           {t('settings.subheading', {}, { defaultValue: 'Rates, notifications, and data export.' })}
         </p>
-      </header>
+      </div>
 
       <section
         className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}

@@ -173,10 +173,17 @@ export function Landing() {
           cm.flex({ align: 'center', justify: 'between' }),
           cm.sp('px', 8),
           cm.sp('py', 5),
+          'flex-wrap gap-x-4 gap-y-2',
           'sticky top-0 z-30 backdrop-blur-md bg-surface/80 border-b border-outline-variant/30',
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+        <Link
+          to="/"
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            'min-w-0 whitespace-nowrap shrink-0',
+          )}
+        >
           <span
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center' }),
@@ -207,7 +214,9 @@ export function Landing() {
             {APP_NAME}
           </span>
         </Link>
-        <nav className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+        <nav
+          className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex-wrap min-w-0 gap-y-2')}
+        >
           <Link
             to="/search"
             className={cm.cn(
@@ -262,6 +271,7 @@ export function Landing() {
                 className={cm.cn(
                   cm.textSize('sm'),
                   cm.fontWeight('semibold'),
+                  'whitespace-nowrap',
                   'rounded-full px-5 py-2 border border-outline-variant/40 hover:bg-surface-container transition-colors',
                 )}
               >
@@ -272,6 +282,7 @@ export function Landing() {
                 className={cm.cn(
                   cm.textSize('sm'),
                   cm.fontWeight('semibold'),
+                  'whitespace-nowrap shrink-0',
                   'rounded-full px-5 py-2 text-on-primary shadow-md hover:scale-[1.03] transition-transform',
                 )}
                 style={{ backgroundColor: 'var(--mol-color-primary)' }}

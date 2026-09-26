@@ -122,7 +122,7 @@ export function ResponseDetail() {
 
   return (
     <div className={cm.cn(cm.stack(8), cm.sp('p', 8), cm.maxW('5xl'), cm.mxAuto, cm.w('full'))}>
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 3 }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 3 }))}>
         <Link
           to={`/surveys/${surveyId}/responses`}
           className={cm.cn(
@@ -168,7 +168,7 @@ export function ResponseDetail() {
             )}
           </p>
         </div>
-      </header>
+      </div>
 
       <section className={cm.cn(cm.flex({ direction: 'col', gap: 4 }))}>
         <h2 className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-on-surface')}>

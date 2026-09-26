@@ -171,12 +171,16 @@ export function Landing() {
           cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
           cm.sp('px', 6),
           cm.sp('py', 4),
+          'flex-wrap gap-y-2',
           'sticky top-0 z-30 bg-background/80 backdrop-blur-md border-b border-outline-variant/30',
         )}
       >
         <Link
           to="/"
-          className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            'min-w-0 whitespace-nowrap shrink-0',
+          )}
           aria-label={APP_NAME}
         >
           <span
@@ -201,7 +205,9 @@ export function Landing() {
             {APP_NAME}
           </span>
         </Link>
-        <nav className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+        <nav
+          className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 flex-wrap gap-y-2')}
+        >
           <ThemeToggle />
           {isAuthenticated ? (
             <Link
@@ -212,6 +218,7 @@ export function Landing() {
                 cm.roundedFull,
                 cm.textSize('sm'),
                 cm.fontWeight('bold'),
+                'whitespace-nowrap shrink-0',
                 'bg-primary text-on-primary hover:bg-primary-hover transition-colors',
               )}
             >
@@ -224,6 +231,7 @@ export function Landing() {
                 className={cm.cn(
                   cm.textSize('sm'),
                   cm.fontWeight('semibold'),
+                  'whitespace-nowrap',
                   'text-on-surface-variant hover:text-primary transition-colors',
                 )}
               >
@@ -237,6 +245,7 @@ export function Landing() {
                   cm.roundedFull,
                   cm.textSize('sm'),
                   cm.fontWeight('bold'),
+                  'whitespace-nowrap shrink-0',
                   'bg-primary text-on-primary hover:bg-primary-hover transition-colors',
                 )}
               >
@@ -367,7 +376,7 @@ export function Landing() {
             'max-w-5xl w-full mx-auto py-12',
           )}
         >
-          <header className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
             <p
               className={cm.cn(
                 cm.fontWeight('bold'),
@@ -390,7 +399,7 @@ export function Landing() {
             >
               {t('landing.todayHeadline', {}, { defaultValue: 'A peek at the front page.' })}
             </h2>
-          </header>
+          </div>
           <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
             {previewPosts.map((p, i) => (
               <LinkPostCard key={p.id} post={p} rank={i + 1} />
@@ -405,7 +414,7 @@ export function Landing() {
             'max-w-5xl w-full mx-auto pb-20',
           )}
         >
-          <header>
+          <div>
             <p
               className={cm.cn(
                 cm.fontWeight('bold'),
@@ -429,7 +438,7 @@ export function Landing() {
                 { defaultValue: 'Small communities, big conversations.' },
               )}
             </h2>
-          </header>
+          </div>
           <div className={cm.cn(cm.grid({ cols: 1, gap: 'md' }), 'md:grid-cols-3')}>
             {previewSubs.map((s) => (
               <SubBadge key={s.slug} sub={s} />

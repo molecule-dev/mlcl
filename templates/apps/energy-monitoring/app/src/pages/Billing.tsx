@@ -185,7 +185,7 @@ export function Billing() {
       data-mol-id="billing-page"
       className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}
     >
-      <header>
+      <div>
         <h1 className={cm.cn(cm.textSize('4xl'), 'font-extrabold tracking-tighter')}>
           {t('billing.heading', {}, { defaultValue: 'Plans & billing' })}
         </h1>
@@ -196,7 +196,7 @@ export function Billing() {
             { defaultValue: 'Pick the plan that matches how much you meter.' },
           )}
         </p>
-      </header>
+      </div>
 
       {actionMessage ? (
         <div

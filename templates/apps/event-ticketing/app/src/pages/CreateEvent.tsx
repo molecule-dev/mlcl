@@ -776,7 +776,7 @@ export function CreateEvent({
                           data-mol-id={`tier-${i}-price`}
                           inputMode="decimal"
                           className={cm.cn(
-                            'flex-1 bg-transparent text-sm font-mono tabular-nums focus:outline-none',
+                            'w-0 min-w-0 flex-1 bg-transparent text-sm font-mono tabular-nums focus:outline-none',
                           )}
                           value={tier.price}
                           onChange={(e) => patchTier(tier.id, { price: e.target.value })}

@@ -109,6 +109,11 @@
 
 /* polish-v2:stitch-styles:start */
 .material-symbols-outlined {
+  /* Hashed icon classes (@apply material-symbols-outlined) get their
+     declarations from these plain-CSS rules — the mol:fonts font-family rule
+     in index.html only matches the literal class, so without this the
+     ligature text renders in the body font (raw 'rss_feed' etc.). */
+  font-family: 'Material Symbols Outlined';
   font-variation-settings:
     'FILL' 0,
     'wght' 400,
@@ -131,6 +136,11 @@
 }
 
 .material-symbols-outlined {
+  /* Hashed icon classes (@apply material-symbols-outlined) get their
+     declarations from these plain-CSS rules — the mol:fonts font-family rule
+     in index.html only matches the literal class, so without this the
+     ligature text renders in the body font (raw 'rss_feed' etc.). */
+  font-family: 'Material Symbols Outlined';
   font-variation-settings:
     'FILL' 0,
     'wght' 400,
@@ -164,6 +174,11 @@
 }
 
 .material-symbols-outlined {
+  /* Hashed icon classes (@apply material-symbols-outlined) get their
+     declarations from these plain-CSS rules — the mol:fonts font-family rule
+     in index.html only matches the literal class, so without this the
+     ligature text renders in the body font (raw 'rss_feed' etc.). */
+  font-family: 'Material Symbols Outlined';
   font-variation-settings:
     'FILL' 0,
     'wght' 400,

@@ -138,7 +138,7 @@ export function Team() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
-      <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
+      <div className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <p className="text-[10px] font-black uppercase tracking-widest text-primary">
             {t('team.eyebrow', {}, { defaultValue: 'Permissions + audit' })}
@@ -183,7 +183,7 @@ export function Team() {
           </span>
           {t('team.invite', {}, { defaultValue: 'Invite teammate' })}
         </button>
-      </header>
+      </div>
 
       {error ? (
         <div
@@ -230,7 +230,7 @@ export function Team() {
           'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
         )}
       >
-        <header className={cm.sp('mb', 5)}>
+        <div className={cm.sp('mb', 5)}>
           <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
             {t('team.tableEyebrow', {}, { defaultValue: 'Team roster' })}
           </p>
@@ -242,7 +242,7 @@ export function Team() {
           >
             {t('team.tableHeading', {}, { defaultValue: 'Roles and permissions' })}
           </h2>
-        </header>
+        </div>
         {loading ? (
           <p className="text-on-surface-variant text-sm" data-test="team-loading">
             {t('team.loading', {}, { defaultValue: 'Loading team…' })}
@@ -386,7 +386,7 @@ export function Team() {
               'w-full max-w-md rounded-2xl bg-surface-container-lowest shadow-2xl border border-outline-variant/30',
             )}
           >
-            <header className={cm.flex({ align: 'center', justify: 'between' })}>
+            <div className={cm.flex({ align: 'center', justify: 'between' })}>
               <h2
                 className={cm.cn(
                   cm.textSize('lg'),
@@ -403,7 +403,7 @@ export function Team() {
               >
                 <span className="material-symbols-outlined text-[20px]">close</span>
               </button>
-            </header>
+            </div>
             {inviteError ? (
               <div
                 role="alert"

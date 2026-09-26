@@ -140,6 +140,7 @@ export function Landing() {
                   cm.sp('py', 4),
                   cm.fontWeight('bold'),
                   cm.textSize('base'),
+                  'whitespace-nowrap',
                   'bg-primary text-on-primary rounded-full shadow-lg hover:shadow-xl transition-shadow inline-flex items-center gap-2',
                 )}
               >
@@ -153,6 +154,7 @@ export function Landing() {
                   cm.sp('py', 4),
                   cm.fontWeight('semibold'),
                   cm.textSize('base'),
+                  'whitespace-nowrap',
                   'rounded-full border-2 border-outline-variant hover:border-primary hover:bg-primary-container/30 transition-colors',
                 )}
               >
@@ -366,7 +368,7 @@ export function Landing() {
                 cm.sp('py', 4),
                 cm.sp('mt', 8),
                 cm.fontWeight('bold'),
-                'inline-flex items-center gap-2 rounded-full bg-surface text-primary shadow-lg hover:shadow-xl transition-shadow relative z-10',
+                'inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-surface text-primary shadow-lg hover:shadow-xl transition-shadow relative z-10',
               )}
               style={{ color: 'var(--color-primary)' }}
             >

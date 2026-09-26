@@ -154,7 +154,7 @@ export function Settings() {
 
   return (
     <div className={cm.cn(cm.sp('p', 8), cm.stack(6))}>
-      <header>
+      <div>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -192,7 +192,7 @@ export function Settings() {
         >
           {t('settings.plan', { plan: planKey }, { defaultValue: 'Current plan: {{plan}}' })}
         </p>
-      </header>
+      </div>
 
       <SettingsCard
         icon="storefront"

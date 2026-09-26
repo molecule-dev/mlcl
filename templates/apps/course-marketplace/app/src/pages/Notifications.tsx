@@ -127,7 +127,7 @@ export function Notifications() {
     <div className={cm.cn('min-h-screen flex flex-col bg-background')}>
       <Header />
       <main className={cm.cn(cm.sp('px', 6), cm.sp('py', 12), 'max-w-4xl mx-auto w-full flex-1')}>
-        <header className={cm.cn('flex items-end justify-between mb-10 gap-6 flex-wrap')}>
+        <div className={cm.cn('flex items-end justify-between mb-10 gap-6 flex-wrap')}>
           <div>
             <p
               className={cm.cn(
@@ -158,7 +158,7 @@ export function Notifications() {
               ? t('common.markingEllipsis', {}, { defaultValue: 'Marking…' })
               : t('common.markAllRead', {}, { defaultValue: 'Mark all read' })}
           </button>
-        </header>
+        </div>
         {actionError && (
           <p
             role="alert"

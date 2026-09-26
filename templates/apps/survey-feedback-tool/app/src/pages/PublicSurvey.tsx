@@ -186,7 +186,7 @@ export function PublicSurvey() {
         'bg-gradient-to-br from-[var(--color-bg-tertiary)] via-[var(--color-bg)] to-[var(--color-bg-tertiary)] dark:from-[var(--color-bg)] dark:via-[var(--color-bg-secondary)] dark:to-[var(--color-bg)]',
       )}
     >
-      <header
+      <div
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'between' }),
           cm.sp('px', 6),
@@ -227,7 +227,7 @@ export function PublicSurvey() {
             )}
           </span>
         )}
-      </header>
+      </div>
 
       {total > 0 && (
         <div className={cm.cn(cm.maxW('2xl'), cm.mxAuto, cm.w('full'), cm.sp('px', 6))}>
@@ -317,7 +317,7 @@ export function PublicSurvey() {
               'rounded-[1.5rem] bg-surface shadow-lg border border-[color:var(--color-border)]',
             )}
           >
-            <header className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+            <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
               <span
                 className={cm.cn(
                   cm.fontWeight('bold'),
@@ -349,7 +349,7 @@ export function PublicSurvey() {
                   {question.description}
                 </p>
               )}
-            </header>
+            </div>
 
             {question?.type === 'nps' && (
               <div className={cm.cn(cm.flex({ gap: 1 }), 'flex-wrap')} role="radiogroup">

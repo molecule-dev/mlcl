@@ -95,7 +95,7 @@ export function VendryOrderCard({ order, hideDetailLink = false }: VendryOrderCa
         'overflow-hidden rounded-2xl border border-outline-variant bg-surface transition-all hover:shadow-md',
       )}
     >
-      <header
+      <div
         className={cm.cn(
           cm.flex({ justify: 'between', align: 'center', wrap: 'wrap', gap: 'md' }),
           cm.sp('px', 6),
@@ -140,7 +140,7 @@ export function VendryOrderCard({ order, hideDetailLink = false }: VendryOrderCa
             {formatCents(order.total_cents)}
           </span>
         </div>
-      </header>
+      </div>
       <div className={cm.cn(cm.stack(0))}>
         {order.vendor_groups.map((group, idx) => {
           const groupStatus = statusToTokens[group.status] ?? FALLBACK_STATUS_TOKEN

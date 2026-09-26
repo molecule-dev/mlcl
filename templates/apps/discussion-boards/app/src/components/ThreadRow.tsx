@@ -181,7 +181,7 @@ export function ThreadRow({
             to={`/u/${author.username}`}
             className={cm.cn(cm.fontWeight('semibold'), 'text-primary hover:underline')}
           >
-            @{author.username}
+            {`@${author.username}`}
           </Link>
           {isModeratorAuthor && (
             <span

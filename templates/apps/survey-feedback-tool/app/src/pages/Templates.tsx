@@ -135,7 +135,7 @@ export function Templates() {
 
   return (
     <div className={cm.cn(cm.stack(8), cm.sp('p', 8), cm.maxW('7xl'), cm.mxAuto, cm.w('full'))}>
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
         <span
           className={cm.cn(
             cm.fontWeight('bold'),
@@ -162,7 +162,7 @@ export function Templates() {
             {error}
           </p>
         )}
-      </header>
+      </div>
 
       {templates === null ? (
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
@@ -207,7 +207,7 @@ export function Templates() {
                   'rounded-xl bg-surface border border-[color:var(--color-border)] hover:border-primary/40 hover:-translate-y-0.5 transition-all duration-200 shadow-sm',
                 )}
               >
-                <header className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 2 }))}>
+                <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 2 }))}>
                   <span
                     className={cm.cn(
                       cm.flex({ align: 'center', justify: 'center' }),
@@ -235,7 +235,7 @@ export function Templates() {
                   >
                     {tpl.category}
                   </span>
-                </header>
+                </div>
                 <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
                   <h2
                     className={cm.cn(

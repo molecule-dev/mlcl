@@ -249,7 +249,7 @@ export function Landing() {
 
         {/* Featured Vendors */}
         <section className={cm.cn(cm.sp('mt', 16))}>
-          <header
+          <div
             className={cm.cn(
               cm.flex({ justify: 'between', align: 'end', wrap: 'wrap', gap: 'md' }),
               cm.sp('mb', 6),
@@ -291,7 +291,7 @@ export function Landing() {
                 arrow_forward
               </span>
             </Link>
-          </header>
+          </div>
           <div className={cm.cn(cm.grid({ cols: 1, gap: 'lg' }), 'md:grid-cols-2 lg:grid-cols-3')}>
             {vendors.slice(0, 3).map((vendor) => (
               <VendryVendorCard key={vendor.id} vendor={vendor} />
@@ -301,7 +301,7 @@ export function Landing() {
 
         {/* Trending Products */}
         <section className={cm.cn(cm.sp('mt', 20))}>
-          <header
+          <div
             className={cm.cn(
               cm.flex({ justify: 'between', align: 'end', wrap: 'wrap', gap: 'md' }),
               cm.sp('mb', 6),
@@ -339,7 +339,7 @@ export function Landing() {
                 arrow_forward
               </span>
             </Link>
-          </header>
+          </div>
           <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }), 'md:grid-cols-3 lg:grid-cols-4')}>
             {products.slice(0, 4).map((product) => (
               <VendryProductCard key={product.id} product={product} />

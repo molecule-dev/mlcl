@@ -69,7 +69,7 @@ export function Analytics() {
 
   return (
     <div className={cm.cn(cm.stack(8), cm.sp('p', 8), cm.maxW('7xl'), cm.mxAuto, cm.w('full'))}>
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
         <Link
           to={`/surveys/${surveyId}`}
           className={cm.cn(
@@ -102,7 +102,7 @@ export function Analytics() {
             {error}
           </p>
         )}
-      </header>
+      </div>
 
       <section className={cm.cn(cm.grid({ cols: 1, gap: 4 }), 'sm:grid-cols-3')}>
         <KpiStatCard
@@ -151,7 +151,7 @@ export function Analytics() {
           'rounded-xl bg-surface border border-[color:var(--color-border)]',
         )}
       >
-        <header className={cm.cn(cm.flex({ direction: 'col', gap: 1 }))}>
+        <div className={cm.cn(cm.flex({ direction: 'col', gap: 1 }))}>
           <span
             className={cm.cn(
               cm.fontWeight('bold'),
@@ -167,7 +167,7 @@ export function Analytics() {
               { defaultValue: 'How respondents are scoring you, 0-10' },
             )}
           </h2>
-        </header>
+        </div>
         {loading ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('analytics.loading', {}, { defaultValue: 'Loading analytics…' })}

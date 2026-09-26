@@ -91,9 +91,7 @@ export function Spaces() {
 
   return (
     <div className={cm.stack(8)} data-testid="spaces-page">
-      <header
-        className={cm.cn(cm.flex({ align: 'end', justify: 'between', gap: 'md' }), 'flex-wrap')}
-      >
+      <div className={cm.cn(cm.flex({ align: 'end', justify: 'between', gap: 'md' }), 'flex-wrap')}>
         <div className={cm.stack(2)}>
           <span
             className={cm.cn(
@@ -140,7 +138,7 @@ export function Spaces() {
           </span>
           {t('spaces.newSpace', {}, { defaultValue: 'New space' })}
         </button>
-      </header>
+      </div>
 
       {error ? (
         <div

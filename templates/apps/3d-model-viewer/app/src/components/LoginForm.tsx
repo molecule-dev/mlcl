@@ -145,6 +145,7 @@ function LoginForm() {
           <button
             className={cm.cn(
               cm.flex({ align: 'center' }),
+              cm.sp('pl', 3),
               cm.sp('pr', 3),
               'absolute inset-y-0 right-0 text-outline hover:text-on-surface transition-colors',
             )}

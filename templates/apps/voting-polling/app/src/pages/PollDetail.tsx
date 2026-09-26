@@ -203,7 +203,7 @@ export function PollDetail() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
-      <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
+      <div className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <div className={cm.flex({ align: 'center', gap: 'sm' }) + ' min-w-0'}>
             <Link
@@ -365,7 +365,7 @@ export function PollDetail() {
             </Link>
           ) : null}
         </div>
-      </header>
+      </div>
 
       {actionError ? (
         <div

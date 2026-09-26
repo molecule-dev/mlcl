@@ -62,7 +62,14 @@ export function EmbarkAuthShell({
     >
       {/* Decorative left brand panel — hidden on small screens */}
       <aside
-        className={cm.cn(cm.flex({ direction: 'col', justify: 'between' }), cm.sp('p', 12))}
+        className={cm.cn(
+          cm.flex({ direction: 'col', justify: 'between' }),
+          cm.sp('p', 12),
+          // `flex: '0 0 480px'` below is an inline style, so a media-query class
+          // is the only way to take the panel off the phone layout — without it
+          // the 480px basis overflows every <768px viewport (mobileOverflow).
+          'max-md:hidden',
+        )}
         style={{
           flex: '0 0 480px',
           background:

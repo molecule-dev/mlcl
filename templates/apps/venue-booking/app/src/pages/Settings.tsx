@@ -173,7 +173,7 @@ export function Settings() {
 
   return (
     <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
-      <header className={cm.sp('mb', 8)}>
+      <div className={cm.sp('mb', 8)}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -194,7 +194,7 @@ export function Settings() {
         >
           {t('nav.settings', {}, { defaultValue: 'Settings' })}
         </h1>
-      </header>
+      </div>
 
       <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-6')}>
         <nav

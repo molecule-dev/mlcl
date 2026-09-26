@@ -156,7 +156,8 @@
 }
 
 .login-card {
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   background-color: #ffffff; /* surface_container_lowest */
   border-radius: 0.75rem; /* xl */
   box-shadow: 0 8px 24px rgba(48, 0, 51, 0.08); /* Ambient Shadow */

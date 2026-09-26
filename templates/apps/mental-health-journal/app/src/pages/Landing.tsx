@@ -126,7 +126,12 @@ export function Landing() {
                 },
               )}
             </p>
-            <div className={cm.cn(cm.flex({ align: 'center', justify: 'center', gap: 'md' }))}>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center', gap: 'md' }),
+                'flex-wrap gap-y-3',
+              )}
+            >
               <Link
                 to="/signup"
                 className={cm.cn(
@@ -134,6 +139,7 @@ export function Landing() {
                   cm.sp('py', 4),
                   cm.fontWeight('bold'),
                   cm.textSize('base'),
+                  'whitespace-nowrap shrink-0',
                   'text-white rounded-full shadow-lg hover:shadow-xl transition-shadow inline-flex items-center gap-2',
                 )}
                 style={{
@@ -151,6 +157,7 @@ export function Landing() {
                   cm.sp('py', 4),
                   cm.fontWeight('semibold'),
                   cm.textSize('base'),
+                  'whitespace-nowrap shrink-0',
                   'rounded-full border-2 border-outline-variant hover:border-primary hover:bg-primary-container/30 transition-colors',
                 )}
               >

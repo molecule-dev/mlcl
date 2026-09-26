@@ -269,7 +269,7 @@ export function Landing() {
         />
 
         <section>
-          <header
+          <div
             className={cm.cn(
               cm.flex({ align: 'end', justify: 'between', wrap: 'wrap' }),
               cm.sp('mb', 6),
@@ -305,7 +305,7 @@ export function Landing() {
                 arrow_forward
               </span>
             </Link>
-          </header>
+          </div>
           <div className={cm.grid({ cols: 4, gap: 'md' })}>
             {FEATURED_CATEGORIES.map((cat) => (
               <Link
@@ -337,7 +337,7 @@ export function Landing() {
         </section>
 
         <section>
-          <header className={cm.sp('mb', 6)}>
+          <div className={cm.sp('mb', 6)}>
             <p
               className={cm.cn(
                 cm.textSize('xs'),
@@ -352,7 +352,7 @@ export function Landing() {
             >
               {t('landing.featuredHeading', {}, { defaultValue: 'Fresh today' })}
             </h2>
-          </header>
+          </div>
           <FeaturedProductsGrid products={SAMPLE_PRODUCTS} cols="2-3-4" />
         </section>
 

@@ -94,7 +94,10 @@ export function Signup() {
       }
     >
       <form onSubmit={handleSubmit} className={cm.flex({ direction: 'col', gap: 'md' })}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+        {/* minmax(0,1fr) tracks (Tailwind grid-cols-*) + w-full inputs: a bare
+            `1fr 1fr` inline grid cannot shrink below the inputs' intrinsic
+            width and overflowed every <~570px viewport. */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <FormField cm={cm} label={t('form.firstName', {}, { defaultValue: 'First name' })}>
             <input
               type="text"
@@ -102,7 +105,7 @@ export function Signup() {
               onChange={(e) => setFirstName(e.target.value)}
               autoComplete="given-name"
               required
-              className="bg-surface-container-lowest transition-all"
+              className="w-full bg-surface-container-lowest transition-all"
               style={{ padding: '14px 16px' }}
             />
           </FormField>
@@ -113,7 +116,7 @@ export function Signup() {
               onChange={(e) => setLastName(e.target.value)}
               autoComplete="family-name"
               required
-              className="bg-surface-container-lowest transition-all"
+              className="w-full bg-surface-container-lowest transition-all"
               style={{ padding: '14px 16px' }}
             />
           </FormField>

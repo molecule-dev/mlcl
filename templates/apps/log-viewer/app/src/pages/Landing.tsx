@@ -87,7 +87,7 @@ const DEMO_LINES: LogLine[] = [
     service: 'api-gateway',
     severity: 'fatal',
     message: 'panic: nil pointer dereference in handlers/checkout.go:142',
-    trace_id: 'trc_b8d4f1a3',
+    trace_id: 'trc-b8d4f1a3',
   },
   {
     id: 'demo-2',
@@ -95,7 +95,7 @@ const DEMO_LINES: LogLine[] = [
     service: 'checkout',
     severity: 'error',
     message: 'stripe: charge failed — card_declined',
-    trace_id: 'trc_b8d4f1a3',
+    trace_id: 'trc-b8d4f1a3',
   },
   {
     id: 'demo-3',
@@ -103,7 +103,7 @@ const DEMO_LINES: LogLine[] = [
     service: 'checkout',
     severity: 'warn',
     message: 'retrying upstream charge after backoff (attempt 3/5)',
-    trace_id: 'trc_b8d4f1a3',
+    trace_id: 'trc-b8d4f1a3',
   },
   {
     id: 'demo-4',
@@ -111,7 +111,7 @@ const DEMO_LINES: LogLine[] = [
     service: 'auth-service',
     severity: 'info',
     message: 'session refreshed for user_id=usr_4f2e91a iat=1714485518',
-    trace_id: 'trc_19e2c7da',
+    trace_id: 'trc-19e2c7da',
   },
 ]
 

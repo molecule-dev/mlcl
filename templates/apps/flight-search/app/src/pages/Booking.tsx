@@ -234,7 +234,7 @@ export function Booking() {
         {t('booking.backToDetail', {}, { defaultValue: 'Back to flight details' })}
       </Link>
 
-      <header className={cm.cn(cm.sp('mt', 4), cm.sp('mb', 6))}>
+      <div className={cm.cn(cm.sp('mt', 4), cm.sp('mb', 6))}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -254,7 +254,7 @@ export function Booking() {
         >
           {t('booking.heading', {}, { defaultValue: 'Confirm your trip' })}
         </h1>
-      </header>
+      </div>
 
       {/* Stepper */}
       <ol

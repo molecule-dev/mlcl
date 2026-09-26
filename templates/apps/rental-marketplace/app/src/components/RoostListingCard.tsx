@@ -45,6 +45,18 @@ const BADGE_THEME: Record<string, { className: string; label: string; icon?: str
   rare_find: { className: 'bg-accent text-on-primary', label: 'Rare find', icon: 'auto_awesome' },
   new: { className: 'bg-[--color-success] text-[--color-surface]', label: 'New' },
   deal: { className: 'bg-[--color-deal] text-[--color-surface]', label: 'Deal' },
+  // The API emits these too (api/src/handlers/_seed.ts, _decorate.ts) —
+  // without an entry the fallback label IS the raw badge key, so the pill
+  // renders "EDITOR_PICK" and the audits flag it as a leaked i18n key.
+  editor_pick: {
+    className: 'bg-[--color-superhost] text-[--color-surface]',
+    label: "Editor's pick",
+    icon: 'star',
+  },
+  frequently_booked: {
+    className: 'bg-[--color-instant-book] text-[--color-surface]',
+    label: 'Frequently booked',
+  },
 }
 
 function fmtPrice(cents: number): string {

@@ -150,7 +150,7 @@ export function Settings() {
 
   return (
     <div className={cm.cn(cm.maxW('5xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
-      <header className={cm.cn(cm.sp('mb', 6))}>
+      <div className={cm.cn(cm.sp('mb', 6))}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -170,7 +170,7 @@ export function Settings() {
         >
           {t('nav.settings', {}, { defaultValue: 'Settings' })}
         </h1>
-      </header>
+      </div>
 
       <nav
         className={cm.cn(

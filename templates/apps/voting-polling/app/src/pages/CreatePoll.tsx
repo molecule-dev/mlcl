@@ -143,7 +143,7 @@ export function CreatePoll() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
-      <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
+      <div className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <p className="text-[10px] font-black uppercase tracking-widest text-primary">
             {t('createPoll.eyebrow', {}, { defaultValue: 'New ballot' })}
@@ -183,7 +183,7 @@ export function CreatePoll() {
           </span>
           {t('common.cancel', {}, { defaultValue: 'Cancel' })}
         </Link>
-      </header>
+      </div>
 
       {error ? (
         <div

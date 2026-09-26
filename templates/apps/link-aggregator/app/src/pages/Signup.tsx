@@ -71,7 +71,7 @@ export function Signup() {
   return (
     <AuthShell>
       <BrandHeader />
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.textCenter)}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.textCenter)}>
         <h2
           className={cm.cn(
             cm.textSize('2xl'),
@@ -88,7 +88,7 @@ export function Signup() {
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
           {t('signup.subtitle', {}, { defaultValue: 'Join a small, slow link-sharing community.' })}
         </p>
-      </header>
+      </div>
 
       <form onSubmit={handleSubmit} className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
         <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }))}>

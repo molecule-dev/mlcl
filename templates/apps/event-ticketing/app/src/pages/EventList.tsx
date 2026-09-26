@@ -162,7 +162,7 @@ export function EventList() {
               { defaultValue: 'Concerts, conferences, your favorite venue…' },
             )}
             className={cm.cn(
-              'flex-1 bg-transparent border-none focus:outline-none text-sm font-medium',
+              'w-0 min-w-0 flex-1 bg-transparent border-none focus:outline-none text-sm font-medium',
             )}
           />
         </div>

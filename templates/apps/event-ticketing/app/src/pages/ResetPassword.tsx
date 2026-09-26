@@ -105,7 +105,7 @@ export function ResetPassword() {
                 { defaultValue: 'you@example.com (auto-sign-in after reset)' },
               )}
               className={cm.cn(
-                'flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
+                'w-0 min-w-0 flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
               )}
             />
           </div>
@@ -142,7 +142,7 @@ export function ResetPassword() {
                 { defaultValue: 'Paste your code' },
               )}
               className={cm.cn(
-                'flex-1 bg-transparent border-none focus:outline-none text-sm font-mono tabular-nums text-on-surface placeholder:text-on-surface-variant',
+                'w-0 min-w-0 flex-1 bg-transparent border-none focus:outline-none text-sm font-mono tabular-nums text-on-surface placeholder:text-on-surface-variant',
               )}
             />
           </div>
@@ -181,7 +181,7 @@ export function ResetPassword() {
                 { defaultValue: 'At least 8 characters' },
               )}
               className={cm.cn(
-                'flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
+                'w-0 min-w-0 flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
               )}
             />
             <button
@@ -234,7 +234,7 @@ export function ResetPassword() {
                 { defaultValue: 'Re-enter password' },
               )}
               className={cm.cn(
-                'flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
+                'w-0 min-w-0 flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
               )}
             />
           </div>

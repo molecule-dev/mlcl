@@ -145,9 +145,7 @@ export function TeamMembers() {
 
   return (
     <div className={cm.stack(8)}>
-      <header
-        className={cm.cn(cm.flex({ align: 'end', justify: 'between', gap: 'md' }), 'flex-wrap')}
-      >
+      <div className={cm.cn(cm.flex({ align: 'end', justify: 'between', gap: 'md' }), 'flex-wrap')}>
         <div className={cm.stack(2)}>
           <span
             className={cm.cn(
@@ -190,7 +188,7 @@ export function TeamMembers() {
           </span>
           {t('teamMembers.invite', {}, { defaultValue: 'Invite member' })}
         </button>
-      </header>
+      </div>
 
       <div className={cm.cn('grid gap-4 md:grid-cols-3')}>
         {ROLES.map((role) => (

@@ -70,7 +70,7 @@ export function ResetPassword() {
           >
             <AuthBrandHeader />
 
-            <header className={cm.cn(cm.textCenter, cm.flex({ direction: 'col' }), 'gap-2')}>
+            <div className={cm.cn(cm.textCenter, cm.flex({ direction: 'col' }), 'gap-2')}>
               <h2 className={cm.cn(cm.textSize('xl'), 'font-bold tracking-tight')}>
                 {t('auth.resetPassword.setNewPassword', {}, { defaultValue: 'Set a new password' })}
               </h2>
@@ -84,7 +84,7 @@ export function ResetPassword() {
                   },
                 )}
               </p>
-            </header>
+            </div>
 
             <form className={cm.cn(cm.flex({ direction: 'col' }), 'gap-5')} onSubmit={handleSubmit}>
               <ResetField

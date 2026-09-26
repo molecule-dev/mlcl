@@ -27,6 +27,12 @@
   --color-error: #c62828;
   --color-success: #2e7d32;
   --color-star: #f59e0b;
+  /* Amber accent — mirrors the dark-mode value so the hero eyebrow and the
+     hero's bg-accent glow blob render on light mode too (WAVE-3 contrast fix:
+     the hero is dark teal, so its accent text must be light, never the
+     base.css tertiary default which mixes to dark slate). */
+  --color-accent: #fbbf24;
+  --color-accent-strong: #fcd34d;
 
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   /* Headline font — picked up by shared molecule pages

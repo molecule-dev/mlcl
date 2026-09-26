@@ -217,7 +217,7 @@ export function Ballot() {
       )}
     >
       <div className={cm.cn(cm.maxW('xl'), 'w-full', cm.stack(8))}>
-        <header>
+        <div>
           <p className="text-[10px] font-black uppercase tracking-widest text-primary">
             {t('ballot.eyebrow', {}, { defaultValue: 'Cast your ballot' })}
           </p>
@@ -245,7 +245,7 @@ export function Ballot() {
               {t('ballot.pollId', { id: poll.id }, { defaultValue: 'poll · {{id}}' })}
             </span>
           </div>
-        </header>
+        </div>
 
         {poll.status !== 'active' ? (
           <div

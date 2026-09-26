@@ -10,5 +10,7 @@
   "app/public/fonts/JetBrainsMono-VariableFont_wght.ttf",
   "app/public/fonts/Lato-Bold.ttf",
   "app/public/fonts/Lato-Regular.ttf",
-  "app/public/fonts/MaterialSymbolsOutlined.woff2"
+  "app/public/fonts/MaterialSymbolsOutlined.woff2",
+  "app/public/fonts/Inter-VariableFont.woff2",
+  "app/public/fonts/MaterialSymbolsOutlined.static.woff2"
 ]

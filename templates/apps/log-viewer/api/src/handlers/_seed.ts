@@ -413,7 +413,7 @@ const INCIDENTS: IncidentFixture[] = [
 
 const TRACES: TraceFixture[] = [
   {
-    id: 'trc_b8d4f1a3c1',
+    id: 'trc-b8d4f1a3c1',
     root_service: 'api-gateway',
     operation: 'POST /v1/checkout',
     duration_ms: 3122,
@@ -423,7 +423,7 @@ const TRACES: TraceFixture[] = [
     error_count: 3,
   },
   {
-    id: 'trc_19e2c7da8b',
+    id: 'trc-19e2c7da8b',
     root_service: 'auth-service',
     operation: 'POST /oauth/callback',
     duration_ms: 412,
@@ -433,7 +433,7 @@ const TRACES: TraceFixture[] = [
     error_count: 0,
   },
   {
-    id: 'trc_77a02bd9e3',
+    id: 'trc-77a02bd9e3',
     root_service: 'edge-cdn',
     operation: 'GET /api/v2/products/p_392',
     duration_ms: 18,
@@ -443,7 +443,7 @@ const TRACES: TraceFixture[] = [
     error_count: 0,
   },
   {
-    id: 'trc_661ab09cf2',
+    id: 'trc-661ab09cf2',
     root_service: 'api-gateway',
     operation: 'GET /api/v2/orders',
     duration_ms: 142,
@@ -453,7 +453,7 @@ const TRACES: TraceFixture[] = [
     error_count: 0,
   },
   {
-    id: 'trc_8a112d0ef9',
+    id: 'trc-8a112d0ef9',
     root_service: 'billing',
     operation: 'subscription.renew',
     duration_ms: 891,
@@ -463,7 +463,7 @@ const TRACES: TraceFixture[] = [
     error_count: 0,
   },
   {
-    id: 'trc_aa120d4cf3',
+    id: 'trc-aa120d4cf3',
     root_service: 'search-index',
     operation: 'POST /index/products',
     duration_ms: 1812,
@@ -473,7 +473,7 @@ const TRACES: TraceFixture[] = [
     error_count: 1,
   },
   {
-    id: 'trc_d44e218a91',
+    id: 'trc-d44e218a91',
     root_service: 'checkout',
     operation: 'stripe.charges.create',
     duration_ms: 3001,
@@ -548,7 +548,7 @@ const LOGS: LogFixture[] = [
     service: 'api-gateway',
     severity: 'fatal',
     message: 'panic: nil pointer dereference in handlers/checkout.go:142',
-    trace_id: 'trc_b8d4f1a3c1',
+    trace_id: 'trc-b8d4f1a3c1',
   },
   {
     id: 'lg2',
@@ -556,7 +556,7 @@ const LOGS: LogFixture[] = [
     service: 'checkout',
     severity: 'error',
     message: 'stripe: charge failed — card_declined',
-    trace_id: 'trc_b8d4f1a3c1',
+    trace_id: 'trc-b8d4f1a3c1',
   },
   {
     id: 'lg3',
@@ -564,7 +564,7 @@ const LOGS: LogFixture[] = [
     service: 'checkout',
     severity: 'warn',
     message: 'retrying upstream charge after backoff (attempt 3/5)',
-    trace_id: 'trc_b8d4f1a3c1',
+    trace_id: 'trc-b8d4f1a3c1',
   },
   {
     id: 'lg4',
@@ -572,7 +572,7 @@ const LOGS: LogFixture[] = [
     service: 'auth-service',
     severity: 'info',
     message: 'session refreshed for user_id=usr_4f2e91a payload.iat=1714485518',
-    trace_id: 'trc_19e2c7da8b',
+    trace_id: 'trc-19e2c7da8b',
   },
   {
     id: 'lg5',
@@ -596,7 +596,7 @@ const LOGS: LogFixture[] = [
     service: 'edge-cdn',
     severity: 'info',
     message: 'cache MISS for /api/v2/products/p_392 status=200 ttl=300s',
-    trace_id: 'trc_77a02bd9e3',
+    trace_id: 'trc-77a02bd9e3',
   },
   {
     id: 'lg8',
@@ -604,7 +604,7 @@ const LOGS: LogFixture[] = [
     service: 'checkout',
     severity: 'error',
     message: 'exception: TimeoutError on /v1/charges (3.00s) — peer=stripe.com',
-    trace_id: 'trc_b8d4f1a3c1',
+    trace_id: 'trc-b8d4f1a3c1',
   },
   {
     id: 'lg9',
@@ -612,7 +612,7 @@ const LOGS: LogFixture[] = [
     service: 'auth-service',
     severity: 'info',
     message: 'oauth callback github code=AbC… exchanged successfully',
-    trace_id: 'trc_19e2c7da8b',
+    trace_id: 'trc-19e2c7da8b',
   },
   {
     id: 'lg10',
@@ -628,7 +628,7 @@ const LOGS: LogFixture[] = [
     service: 'api-gateway',
     severity: 'info',
     message: 'GET /api/v2/orders 200 4ms ip=10.4.2.81 user_id=usr_8a01ed',
-    trace_id: 'trc_661ab09cf2',
+    trace_id: 'trc-661ab09cf2',
   },
   {
     id: 'lg12',
@@ -644,7 +644,7 @@ const LOGS: LogFixture[] = [
     service: 'billing',
     severity: 'info',
     message: 'subscription renewed sub_91Gb… amount=$29.00 customer=cus_8e2a',
-    trace_id: 'trc_8a112d0ef9',
+    trace_id: 'trc-8a112d0ef9',
   },
   {
     id: 'lg14',

@@ -74,7 +74,7 @@ export function LiveResultsHero({
           'absolute -left-16 -top-20 h-64 w-64 rounded-full bg-secondary-fixed/20 blur-3xl pointer-events-none',
         )}
       />
-      <header
+      <div
         className={cm.cn(
           'relative z-10',
           cm.flex({ align: 'start', justify: 'between', wrap: 'wrap', gap: 'md' }),
@@ -134,7 +134,7 @@ export function LiveResultsHero({
             {totalVotes.toLocaleString()}
           </span>
         </div>
-      </header>
+      </div>
 
       <ul className={cm.cn(cm.sp('mt', 6), 'relative z-10 space-y-3')}>
         {options.map((o) => {

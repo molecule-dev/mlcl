@@ -63,7 +63,7 @@ export function Signup() {
           >
             <MeridianBrandHeader />
 
-            <header className={cm.cn(cm.textCenter, cm.flex({ direction: 'col', gap: 'xs' }))}>
+            <div className={cm.cn(cm.textCenter, cm.flex({ direction: 'col', gap: 'xs' }))}>
               <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-on-surface')}>
                 {t(
                   'meridian.signup.heading',
@@ -78,7 +78,7 @@ export function Signup() {
                   { defaultValue: 'Process your inbox before lunch.' },
                 )}
               </p>
-            </header>
+            </div>
 
             <form
               className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}

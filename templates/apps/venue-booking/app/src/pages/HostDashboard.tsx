@@ -323,7 +323,7 @@ export function HostDashboard() {
             'lg:col-span-2 bg-surface rounded-2xl shadow-sm border border-outline-variant/40',
           )}
         >
-          <header className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 4))}>
+          <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 4))}>
             <div>
               <p
                 className={cm.cn(
@@ -341,7 +341,7 @@ export function HostDashboard() {
                 {t('hostDashboard.chart.heading', {}, { defaultValue: 'Listing performance' })}
               </h2>
             </div>
-          </header>
+          </div>
           <svg
             viewBox="0 0 600 180"
             className={'w-full h-44'}
@@ -464,7 +464,7 @@ export function HostDashboard() {
           'bg-surface rounded-2xl shadow-sm border border-outline-variant/40',
         )}
       >
-        <header className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 4))}>
+        <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 4))}>
           <h2
             className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}
             style={{ fontFamily: '"DM Sans", system-ui, sans-serif' }}
@@ -481,7 +481,7 @@ export function HostDashboard() {
           >
             {t('common.viewAll', {}, { defaultValue: 'View all' })}
           </Link>
-        </header>
+        </div>
         <div className="overflow-x-auto">
           <table className={'w-full text-sm'}>
             <thead>

@@ -19,7 +19,7 @@ function LoginGlobalFooter() {
         cm.sp('px', 12),
         cm.sp('py', 8),
         cm.w('full'),
-        'fixed bottom-0 md:flex-row gap-6',
+        'md:flex-row gap-6',
       )}
     >
       <span

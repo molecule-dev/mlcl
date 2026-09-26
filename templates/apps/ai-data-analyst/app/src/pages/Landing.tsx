@@ -479,7 +479,7 @@ export function Landing() {
             'relative z-10',
           )}
         >
-          <header
+          <div
             className={cm.cn(
               cm.textCenter,
               cm.maxW('2xl'),
@@ -524,7 +524,7 @@ export function Landing() {
                 },
               )}
             </p>
-          </header>
+          </div>
           <div className={cm.cn(cm.grid({ cols: 1, gap: 5 }), 'sm:grid-cols-2 lg:grid-cols-4')}>
             {FEATURES.map((f) => (
               <article

@@ -6,6 +6,18 @@
 @source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
 @source "../../../../../../node_modules/@molecule/app-ui-react/dist";
 
+/* qa-theme-tokens: custom tokens used as Tailwind utilities but only defined
+   in :root — register them in @theme so the utilities compile (the :root/.dark
+   definitions keep overriding at runtime for theming).
+   POSITION MATTERS: this block must sit ABOVE the bare @media rule below.
+   Placed after it, Tailwind v4 silently drops the whole @theme block and every
+   accent utility (`bg-accent`, `text-accent`, …) compiles to NOTHING — the
+   header CTA pill shipped as a transparent capsule with invisible white text
+   (found by the 2026-09 visual audit). */
+@theme {
+  --color-accent: #e8a020;
+}
+
 /*
  * Safelist for dynamically-generated UIClassMap utility classes.
  *
@@ -52,10 +64,3 @@
 }
 
 @import '@molecule/app-ui-tailwind/base.css';
-
-/* qa-theme-tokens: custom tokens used as Tailwind utilities but only defined
-   in :root — register them in @theme so the utilities compile (the :root/.dark
-   definitions keep overriding at runtime for theming). */
-@theme {
-  --color-accent: #e8a020;
-}

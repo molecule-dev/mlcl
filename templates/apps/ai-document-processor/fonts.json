@@ -11,5 +11,7 @@
   "app/public/fonts/MaterialSymbolsOutlined.woff2",
   "app/public/fonts/Newsreader-VariableFont.ttf",
   "app/public/fonts/SourceSerif4-VariableFont.ttf",
-  "app/public/fonts/SpaceGrotesk-VariableFont.ttf"
+  "app/public/fonts/SpaceGrotesk-VariableFont.ttf",
+  "app/public/fonts/Inter-VariableFont.woff2",
+  "app/public/fonts/MaterialSymbolsOutlined.static.woff2"
 ]

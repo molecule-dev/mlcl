@@ -145,7 +145,7 @@ export function VendorPayouts() {
 
   return (
     <div className={cm.cn(cm.maxW('full'), cm.mxAuto, cm.sp('p', 8), 'max-w-[1280px] space-y-8')}>
-      <header className={cm.cn(cm.stack(2))}>
+      <div className={cm.cn(cm.stack(2))}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -172,7 +172,7 @@ export function VendorPayouts() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       {/* Hero strip */}
       <section
@@ -275,7 +275,7 @@ export function VendorPayouts() {
 
       {/* Payout history table */}
       <section className={'overflow-hidden rounded-3xl border border-outline-variant bg-surface'}>
-        <header
+        <div
           className={cm.cn(
             cm.flex({ justify: 'between', align: 'center' }),
             cm.sp('px', 6),
@@ -286,7 +286,7 @@ export function VendorPayouts() {
           <h2 className={cm.cn(cm.fontWeight('bold'), 'text-xl text-on-surface')}>
             {t('vendorPayouts.history', {}, { defaultValue: 'Payout history' })}
           </h2>
-        </header>
+        </div>
         <div className="overflow-x-auto">
           <table className={cm.cn(cm.w('full'), cm.textSize('sm'))}>
             <thead className="bg-surface-container-low">

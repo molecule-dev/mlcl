@@ -75,7 +75,7 @@ export function VaultCard({ vault, action }: VaultCardProps) {
       />
 
       <div className={cm.cn('flex-1 p-4 pl-5 flex flex-col gap-3')}>
-        <header className={cm.cn(cm.flex({ align: 'start', justify: 'between', gap: 'sm' }))}>
+        <div className={cm.cn(cm.flex({ align: 'start', justify: 'between', gap: 'sm' }))}>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
             <span
               className={cm.cn('inline-flex items-center justify-center rounded-md p-1.5')}
@@ -100,7 +100,7 @@ export function VaultCard({ vault, action }: VaultCardProps) {
             </div>
           </div>
           <SecretStatusPill tone={vault.environment} />
-        </header>
+        </div>
 
         <p
           className={cm.cn(

@@ -218,7 +218,7 @@ export function Landing() {
             'bg-surface rounded-[1.5rem] shadow-sm border border-[color:var(--color-border)]',
           )}
         >
-          <header className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
             <span
               className={cm.cn(
                 cm.fontWeight('bold'),
@@ -244,7 +244,7 @@ export function Landing() {
                 },
               )}
             </p>
-          </header>
+          </div>
           <NpsDistributionBar counts={SAMPLE_NPS_COUNTS} />
         </div>
       </section>
@@ -253,7 +253,7 @@ export function Landing() {
         id="pricing"
         className={cm.cn(cm.maxW('6xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('pb', 24))}
       >
-        <header
+        <div
           className={cm.cn(
             cm.flex({ direction: 'col', align: 'center', gap: 2 }),
             cm.sp('mb', 10),
@@ -281,7 +281,7 @@ export function Landing() {
               },
             )}
           </p>
-        </header>
+        </div>
         <div className={cm.cn(cm.grid({ cols: 1, gap: 6 }), 'sm:grid-cols-3 items-start')}>
           {PRICING_PLANS.map((plan) => (
             <div

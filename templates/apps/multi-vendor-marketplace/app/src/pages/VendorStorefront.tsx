@@ -414,7 +414,7 @@ export function VendorStorefront() {
 
       {/* Products */}
       <section className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(4))}>
-        <header className={cm.cn(cm.flex({ justify: 'between', align: 'end' }))}>
+        <div className={cm.cn(cm.flex({ justify: 'between', align: 'end' }))}>
           <h2
             className={cm.cn(
               cm.fontWeight('bold'),
@@ -433,7 +433,7 @@ export function VendorStorefront() {
           >
             {t('vendorStorefront.viewCatalog', {}, { defaultValue: 'Back to catalog →' })}
           </Link>
-        </header>
+        </div>
         <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }), 'md:grid-cols-3 lg:grid-cols-4')}>
           {products.map((product) => (
             <VendryProductCard key={product.id} product={product} />

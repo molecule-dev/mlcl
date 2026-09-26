@@ -539,7 +539,7 @@ export function CourseDetail() {
               )}
 
               <div>
-                <header className={cm.cn('flex items-baseline justify-between mb-5')}>
+                <div className={cm.cn('flex items-baseline justify-between mb-5')}>
                   <h2 className={cm.cn('text-2xl font-extrabold tracking-tight text-on-surface')}>
                     {t('courseDetail.curriculum', {}, { defaultValue: 'Curriculum' })}
                   </h2>
@@ -553,7 +553,7 @@ export function CourseDetail() {
                       { defaultValue: '{{lectures}} lectures · {{hours}}h total' },
                     )}
                   </p>
-                </header>
+                </div>
                 {grouped.length === 0 ? (
                   <p
                     data-mol-id="curriculum-empty"

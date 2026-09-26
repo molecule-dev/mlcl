@@ -12,7 +12,7 @@ const FEATURED_CUISINES = [
     cuisine: 'Japanese',
     rating: 4.8,
     eta: '25–35',
-    icon: 'set_meal',
+    icon: 'ramen_dining',
     gradient: 'linear-gradient(135deg, #ec4899 0%, #f43f5e 50%, #fb923c 100%)',
   },
   {
@@ -21,7 +21,7 @@ const FEATURED_CUISINES = [
     cuisine: 'Italian',
     rating: 4.7,
     eta: '30–40',
-    icon: 'local_pizza',
+    icon: 'restaurant',
     gradient: 'linear-gradient(135deg, #16a34a 0%, #dc2626 50%, #f59e0b 100%)',
   },
   {
@@ -35,14 +35,17 @@ const FEATURED_CUISINES = [
   },
 ] as const
 
+// Icon names must be members of the fleet SUBSET icon font
+// (scripts/subset-flagship-icon-fonts.mjs breadth-ranked top-350) — long-tail
+// names only render via the async runtime healer and flash raw text on first paint.
 const CATEGORIES = [
-  { key: 'pizza', label: 'Pizza', icon: 'local_pizza' },
+  { key: 'pizza', label: 'Pizza', icon: 'restaurant' },
   { key: 'burgers', label: 'Burgers', icon: 'lunch_dining' },
-  { key: 'sushi', label: 'Sushi', icon: 'set_meal' },
-  { key: 'tacos', label: 'Tacos', icon: 'taco' },
+  { key: 'sushi', label: 'Sushi', icon: 'ramen_dining' },
+  { key: 'tacos', label: 'Tacos', icon: 'lunch_dining' },
   { key: 'ramen', label: 'Ramen', icon: 'ramen_dining' },
   { key: 'salads', label: 'Salads', icon: 'eco' },
-  { key: 'desserts', label: 'Desserts', icon: 'cake' },
+  { key: 'desserts', label: 'Desserts', icon: 'local_cafe' },
   { key: 'healthy', label: 'Healthy', icon: 'restaurant' },
 ] as const
 
@@ -260,7 +263,7 @@ export function Landing() {
                           aria-hidden="true"
                         >
                           <span className="material-symbols-outlined text-3xl text-white">
-                            set_meal
+                            ramen_dining
                           </span>
                         </div>
                         <div className={'flex-1 min-w-0'}>

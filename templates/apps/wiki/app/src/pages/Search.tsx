@@ -181,7 +181,7 @@ export function Search() {
 
   return (
     <div className={cm.stack(8)} data-testid="search-page">
-      <header className={cm.stack(2)}>
+      <div className={cm.stack(2)}>
         <span
           className={cm.cn(
             cm.textSize('xs'),
@@ -200,7 +200,7 @@ export function Search() {
             { defaultValue: 'Pages, comments, contributors — all instant, all local-first.' },
           )}
         </p>
-      </header>
+      </div>
 
       <div
         className={cm.cn(

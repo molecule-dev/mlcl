@@ -63,22 +63,34 @@ export function Landing() {
             cm.sp('px', 6),
             cm.sp('py', 4),
             cm.flex({ align: 'center', justify: 'between' }),
+            'flex-wrap gap-x-4 gap-y-2',
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.cn('text-xl font-extrabold tracking-tight')}>
+          <Link
+            to="/"
+            className={cm.cn(
+              'min-w-0 whitespace-nowrap shrink-0 text-xl font-extrabold tracking-tight',
+            )}
+          >
             {APP_NAME}
           </Link>
-          <div className={cm.flex({ align: 'center', gap: 'md' })}>
+          <div
+            className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 flex-wrap gap-y-2')}
+          >
             <Link
               to="/pricing"
-              className={cm.cn('text-sm font-medium text-on-surface-variant hover:text-on-surface')}
+              className={cm.cn(
+                'hidden sm:inline whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-on-surface',
+              )}
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
             </Link>
             <Link
               to="/about"
-              className={cm.cn('text-sm font-medium text-on-surface-variant hover:text-on-surface')}
+              className={cm.cn(
+                'hidden sm:inline whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-on-surface',
+              )}
             >
               {t('about.eyebrow', {}, { defaultValue: 'About' })}
             </Link>
@@ -86,7 +98,7 @@ export function Landing() {
               <Link
                 to="/dashboard"
                 className={cm.cn(
-                  'px-5 py-2 font-semibold text-white rounded-full hover:opacity-90 transition-opacity',
+                  'whitespace-nowrap shrink-0 px-5 py-2 font-semibold text-white rounded-full hover:opacity-90 transition-opacity',
                 )}
                 style={{
                   background:
@@ -100,7 +112,7 @@ export function Landing() {
                 <Link
                   to="/login"
                   className={cm.cn(
-                    'text-sm font-medium text-on-surface-variant hover:text-on-surface',
+                    'whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-on-surface',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -108,7 +120,7 @@ export function Landing() {
                 <Link
                   to="/signup"
                   className={cm.cn(
-                    'px-5 py-2 font-semibold text-white rounded-full hover:opacity-90 transition-opacity',
+                    'whitespace-nowrap shrink-0 px-5 py-2 font-semibold text-white rounded-full hover:opacity-90 transition-opacity',
                   )}
                   style={{
                     background:

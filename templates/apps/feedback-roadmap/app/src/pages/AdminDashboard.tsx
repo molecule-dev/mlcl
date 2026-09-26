@@ -289,7 +289,7 @@ export function AdminDashboard() {
                       style={{ color: 'var(--color-primary)' }}
                     >
                       <span className="material-symbols-outlined" aria-hidden="true">
-                        arrow_drop_up_circle
+                        arrow_drop_up
                       </span>
                       {post.vote_count}
                     </span>

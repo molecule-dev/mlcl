@@ -16,9 +16,9 @@ export default function AuthFooter() {
   return (
     <footer
       className={cm.cn(
-        cm.flex({ justify: 'center', gap: 'xl' }),
+        cm.flex({ justify: 'center', gap: 'xl', wrap: 'wrap' }),
         cm.sp('px', 8),
-        'fixed bottom-8 w-full',
+        'w-full shrink-0 pt-8',
       )}
     >
       <span

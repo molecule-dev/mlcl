@@ -248,7 +248,7 @@ export function InstructorProfile() {
             </div>
             <div className={cm.cn('lg:col-span-2 space-y-12')}>
               <section>
-                <header className={cm.cn('flex items-baseline justify-between mb-6')}>
+                <div className={cm.cn('flex items-baseline justify-between mb-6')}>
                   <h2 className={cm.cn('text-2xl font-extrabold tracking-tight text-on-surface')}>
                     {t(
                       'instructorProfile.coursesByName',
@@ -266,7 +266,7 @@ export function InstructorProfile() {
                       { defaultValue: '{{count}} courses' },
                     )}
                   </span>
-                </header>
+                </div>
                 {courses.length === 0 ? (
                   <p
                     data-mol-id="instructor-courses-empty"
@@ -302,11 +302,11 @@ export function InstructorProfile() {
                 )}
               </section>
               <section>
-                <header className={cm.cn('flex items-baseline justify-between mb-2')}>
+                <div className={cm.cn('flex items-baseline justify-between mb-2')}>
                   <h2 className={cm.cn('text-2xl font-extrabold tracking-tight text-on-surface')}>
                     {t('instructorProfile.recentReviews', {}, { defaultValue: 'Recent reviews' })}
                   </h2>
-                </header>
+                </div>
                 {reviews.length === 0 ? (
                   <p
                     data-mol-id="instructor-reviews-empty"

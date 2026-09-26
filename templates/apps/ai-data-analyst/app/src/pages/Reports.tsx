@@ -44,7 +44,7 @@ export function Reports() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.flex({ direction: 'col', gap: 6 }))}>
-      <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 4 })}>
+      <div className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 4 })}>
         <div>
           <p
             className={cm.cn(
@@ -101,7 +101,7 @@ export function Reports() {
           </span>
           {t('reports.newCta', {}, { defaultValue: 'New report' })}
         </button>
-      </header>
+      </div>
 
       {error ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>

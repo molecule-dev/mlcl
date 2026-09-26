@@ -99,7 +99,7 @@ export function Feed() {
 
   return (
     <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }))}>
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
         <h1 className={cm.cn(cm.fontWeight('bold'), 'text-3xl tracking-tight text-on-surface')}>
           {t('feed.title', {}, { defaultValue: 'Your feed' })}
         </h1>
@@ -113,7 +113,7 @@ export function Feed() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'flex-wrap')}>
         {FILTERS.map((filter) => {

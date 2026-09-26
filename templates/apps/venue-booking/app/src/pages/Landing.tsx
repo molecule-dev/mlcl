@@ -41,7 +41,7 @@ const CATEGORIES = [
   },
   {
     id: 'banquet',
-    name: 'Banquet halls',
+    name: 'Banquet Halls',
     subtitle: 'Restored halls and stained-glass ballrooms',
     thumbnail: 'https://picsum.photos/seed/alcove-cat-banquet/1200/900',
     count: 33,
@@ -214,7 +214,7 @@ export function Landing() {
         </section>
 
         <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('pb', 20), cm.mxAuto)}>
-          <header className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
+          <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
             <div>
               <p
                 className={cm.cn(
@@ -254,8 +254,11 @@ export function Landing() {
                 arrow_forward
               </span>
             </Link>
-          </header>
-          <div className={cm.cn('grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5')}>
+          </div>
+          {/* 1/2/3 columns — the tile's top-right count pill needs vertical
+              room to clear the bottom-left title; six-across shrank every tile
+              until the pill sat on the title text (WAVE-3 contrast fix). */}
+          <div className={cm.cn('grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5')}>
             {CATEGORIES.map((c) => (
               <CategoryTile key={c.id} category={c} />
             ))}
@@ -264,9 +267,7 @@ export function Landing() {
 
         <section className={cm.cn('bg-surface-container-low')}>
           <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}>
-            <header
-              className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}
-            >
+            <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
               <div>
                 <p
                   className={cm.cn(
@@ -326,7 +327,7 @@ export function Landing() {
                   arrow_forward
                 </span>
               </Link>
-            </header>
+            </div>
             {previewVenues.length > 0 ? (
               <div className={cm.cn('grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6')}>
                 {previewVenues.map((v) => (
@@ -362,7 +363,7 @@ export function Landing() {
         </section>
 
         <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}>
-          <header className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
+          <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
             <div>
               <p
                 className={cm.cn(
@@ -385,7 +386,7 @@ export function Landing() {
                 {t('landing.journal.heading', {}, { defaultValue: 'Stories worth booking for' })}
               </h2>
             </div>
-          </header>
+          </div>
           <div className={cm.cn('grid grid-cols-1 md:grid-cols-3 gap-6')}>
             {EDITORIAL.map((item) => (
               <article

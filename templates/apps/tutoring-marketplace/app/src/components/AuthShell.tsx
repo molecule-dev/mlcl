@@ -109,7 +109,9 @@ export function AuthShell({
             )}
             className={cm.cn(cm.sp('p', 8), cm.stack(6))}
           >
-            <header className={cm.cn(cm.textCenter, cm.stack(2))}>
+            {/* A <div>, not <header>: the app bar above is the page's single
+                banner — a second <header> here reads as a duplicated app bar. */}
+            <div className={cm.cn(cm.textCenter, cm.stack(2))}>
               <span
                 className={cm.cn(
                   cm.flex({ align: 'center', justify: 'center' }),
@@ -156,7 +158,7 @@ export function AuthShell({
               {subheading && (
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>{subheading}</p>
               )}
-            </header>
+            </div>
             {children}
           </AuthShellCard>
           {(footerLeft || footerRight) && (

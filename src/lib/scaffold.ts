@@ -4386,6 +4386,97 @@ function indentCssBlock(css: string): string {
  * @param allPackages - All scanned packages from the registry
  * @returns Object with html string and fontFiles to copy
  */
+const ICON_FONT_HEALER_HTML = `    <script>
+      // mol:icon-healer — the bundled icon font may be a SUBSET. If a page
+      // uses a ligature outside it (user-added icon), the span renders as
+      // raw text; load the full font once and it takes over. Pairs with the
+      // mol:icon-gate CSS (emitted below): icons are hidden from FIRST PAINT
+      // until this script adds .mol-icons-ready to <html> — a blank gap beats
+      // raw ligature text in the pre-font flash window, and no JS poll can
+      // win that race. Canonical copy:
+      // scripts/sweep-flagship-index-fonts.mjs (HEALER const).
+      ;(function () {
+        var tried = 0
+        var fullRequested = false
+        function markReady() {
+          document.documentElement.classList.add('mol-icons-ready')
+        }
+        function offending(s) {
+          var name = (s.textContent || '').trim()
+          if (!name) return false
+          var fs = parseFloat(getComputedStyle(s).fontSize) || 24
+          return s.offsetWidth > fs * 1.8
+        }
+        function each(fn) {
+          var spans = document.querySelectorAll('.material-symbols-outlined')
+          for (var i = 0; i < spans.length; i++) fn(spans[i])
+        }
+        function needsFull() {
+          var found = false
+          each(function (s) {
+            if (!found && offending(s)) found = true
+          })
+          return found
+        }
+        function requestFull() {
+          if (fullRequested) return true
+          fullRequested = true
+          try {
+            var f = new FontFace(
+              'Material Symbols Outlined',
+              "url('/fonts/MaterialSymbolsOutlined.static.woff2') format('woff2')",
+              { weight: '100 700', style: 'normal', display: 'block' }
+            )
+            f.load()
+              .then(function (lf) {
+                document.fonts.add(lf)
+                // two frames: let the new face apply before showing
+                requestAnimationFrame(function () {
+                  requestAnimationFrame(markReady)
+                })
+              })
+              .catch(markReady)
+          } catch (e) {
+            markReady()
+          }
+          return true
+        }
+        function sweep() {
+          var spans = document.querySelectorAll('.material-symbols-outlined')
+          if (spans.length > 0) {
+            if (!needsFull()) {
+              // subset covers every mounted icon — show now, but keep the
+              // bounded watch in case a late route mounts an uncovered one
+              markReady()
+            } else if (requestFull()) {
+              return
+            }
+          }
+          if (tried++ < 6) setTimeout(sweep, 1500)
+        }
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(sweep)
+        else window.addEventListener('load', sweep)
+        // Failsafe: even if measurement or the face load never resolves,
+        // icons come back (worst case as raw text) instead of staying blank.
+        setTimeout(markReady, 3000)
+      })()
+    </script>`
+
+const ICON_GATE_CSS = `      /* mol:icon-gate — icons stay invisible from FIRST PAINT until the
+         icon-healer confirms coverage and adds .mol-icons-ready to <html>
+         (3s failsafe reveal baked in): a blank gap beats raw ligature text
+         flashing in the pre-font window. */
+      html:not(.mol-icons-ready) .material-symbols-outlined {
+        visibility: hidden;
+        animation: mol-icon-failsafe 0s 3s forwards;
+      }
+      @keyframes mol-icon-failsafe {
+        to {
+          visibility: visible;
+        }
+      }
+`
+
 export function generateFontHtml(
   selectedPackageNames: string[],
   allPackages: InferredPackage[],
@@ -4420,6 +4511,9 @@ export function generateFontHtml(
   const staticFaces: string[] = []
   const variableFaces: string[] = []
   const utilityCssBlocks: string[] = []
+  // Small woff2 text faces worth preloading (never icon fonts — the full
+  // Material Symbols file is multi-MB; display:block hides its load window).
+  const preloadFaces: string[] = []
 
   for (const pkg of selectedFontProviders) {
     const font = pkg.molecule!.font!
@@ -4427,6 +4521,7 @@ export function generateFontHtml(
 
     if (font.source === 'local' && font.faces) {
       for (const face of font.faces) {
+        if (face.file.endsWith('.woff2') && !font.utilityCss) preloadFaces.push(face.file)
         fontFiles.push({
           packageName: pkg.name,
           fontsDir: font.fontsDir ?? 'fonts',
@@ -4463,7 +4558,7 @@ export function generateFontHtml(
           ...srcLines,
           `${propIndent}font-weight: ${face.weight};`,
           face.variable ? null : `${propIndent}font-style: ${style};`,
-          `${propIndent}font-display: swap;`,
+          `${propIndent}font-display: ${font.utilityCss ? 'block' : 'swap'};`, // icon fonts: block (blank beats raw ligature text)
           `${indent}}`,
         ]
           .filter((l) => l !== null)
@@ -4504,6 +4599,10 @@ export function generateFontHtml(
   }
 
   // Local font style block
+  for (const file of preloadFaces) {
+    lines.push(`    <link rel="preload" href="/fonts/${file}" as="font" type="font/woff2" crossorigin />`)
+  }
+
   if (staticFaces.length > 0 || variableFaces.length > 0 || utilityCssBlocks.length > 0) {
     lines.push('    <style>')
     lines.push(...staticFaces)
@@ -4515,10 +4614,18 @@ export function generateFontHtml(
     for (const css of utilityCssBlocks) {
       lines.push(indentCssBlock(css))
     }
+    // Icon gate: hide icon spans from first paint until the healer confirms
+    // coverage (ICON_FONT_HEALER_HTML adds .mol-icons-ready). Blank gap beats
+    // a raw ligature name ("360") flashing before the font lands.
+    if (utilityCssBlocks.some((css) => css.includes('material-symbols-outlined'))) {
+      lines.push(ICON_GATE_CSS)
+    }
     lines.push('    </style>')
   }
 
   // Wrap in marker comments so inject/swap can find and replace later
+  if (utilityCssBlocks.length > 0) lines.push(ICON_FONT_HEALER_HTML)
+
   const inner = lines.join('\n')
   const html = inner ? `    <!-- mol:fonts -->\n${inner}\n    <!-- /mol:fonts -->` : ''
 
@@ -4797,12 +4904,16 @@ async function updateHtmlFontBlock(
   const staticFaces: string[] = []
   const variableFaces: string[] = []
   const utilityCssBlocks: string[] = []
+  // Small woff2 text faces worth preloading (never icon fonts — the full
+  // Material Symbols file is multi-MB; display:block hides its load window).
+  const preloadFaces: string[] = []
 
   for (const font of fontMetas) {
     if (font.source === 'system') continue
 
     if (font.source === 'local' && font.faces) {
       for (const face of font.faces) {
+        if (face.file.endsWith('.woff2') && !font.utilityCss) preloadFaces.push(face.file)
         const style = face.style ?? 'normal'
         const format = inferFontFormat(face.file)
         const localNames = deriveLocalNames(font.family, face.weight, face.variable)
@@ -4833,7 +4944,7 @@ async function updateHtmlFontBlock(
           ...srcLines,
           `${propIndent}font-weight: ${face.weight};`,
           face.variable ? null : `${propIndent}font-style: ${style};`,
-          `${propIndent}font-display: swap;`,
+          `${propIndent}font-display: ${font.utilityCss ? 'block' : 'swap'};`, // icon fonts: block (blank beats raw ligature text)
           `${indent}}`,
         ]
           .filter((l) => l !== null)
@@ -4863,6 +4974,10 @@ async function updateHtmlFontBlock(
     }
   }
 
+  for (const file of preloadFaces) {
+    lines.push(`    <link rel="preload" href="/fonts/${file}" as="font" type="font/woff2" crossorigin />`)
+  }
+
   if (staticFaces.length > 0 || variableFaces.length > 0 || utilityCssBlocks.length > 0) {
     lines.push('    <style>')
     lines.push(...staticFaces)
@@ -4874,8 +4989,16 @@ async function updateHtmlFontBlock(
     for (const css of utilityCssBlocks) {
       lines.push(indentCssBlock(css))
     }
+    // Icon gate: hide icon spans from first paint until the healer confirms
+    // coverage (ICON_FONT_HEALER_HTML adds .mol-icons-ready). Blank gap beats
+    // a raw ligature name ("360") flashing before the font lands.
+    if (utilityCssBlocks.some((css) => css.includes('material-symbols-outlined'))) {
+      lines.push(ICON_GATE_CSS)
+    }
     lines.push('    </style>')
   }
+
+  if (utilityCssBlocks.length > 0) lines.push(ICON_FONT_HEALER_HTML)
 
   const inner = lines.join('\n')
   const newBlock = inner ? `    <!-- mol:fonts -->\n${inner}\n    <!-- /mol:fonts -->` : ''

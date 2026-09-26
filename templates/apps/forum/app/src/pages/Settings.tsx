@@ -305,7 +305,7 @@ export function Settings() {
 
   return (
     <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }))}>
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
         <span
           className={cm.cn(
             cm.fontWeight('bold'),
@@ -317,7 +317,7 @@ export function Settings() {
         <h1 className={cm.cn(cm.fontWeight('bold'), 'text-3xl tracking-tight text-on-surface')}>
           {t('nav.settings', {}, { defaultValue: 'Settings' })}
         </h1>
-      </header>
+      </div>
 
       {loading && (
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>

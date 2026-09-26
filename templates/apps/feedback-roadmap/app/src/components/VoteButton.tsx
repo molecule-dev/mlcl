@@ -60,7 +60,7 @@ export function VoteButton({
         style={voted ? { fontVariationSettings: '"FILL" 1' } : undefined}
         aria-hidden="true"
       >
-        arrow_drop_up_circle
+        arrow_drop_up
       </span>
       <span
         className={cm.cn(cm.textSize(size === 'lg' ? 'lg' : 'sm'))}

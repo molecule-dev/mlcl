@@ -153,7 +153,7 @@ export function MessageThread() {
         {t('messageThread.back', {}, { defaultValue: 'All conversations' })}
       </Link>
 
-      <header
+      <div
         className={cm.cn(
           cm.sp('p', 5),
           cm.sp('mb', 5),
@@ -186,7 +186,7 @@ export function MessageThread() {
         >
           {t('messageThread.viewBooking', {}, { defaultValue: 'View booking' })}
         </Link>
-      </header>
+      </div>
 
       <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), cm.sp('mb', 6))}>
         {messages.map((m) => (

@@ -79,7 +79,7 @@ export function ResetPassword() {
 
       <main className={cm.cn('relative z-10 flex justify-center', cm.sp('px', 6), cm.sp('py', 12))}>
         <div className={cm.cn(cm.maxW('md'), 'w-full')}>
-          <header className={cm.sp('mb', 8)}>
+          <div className={cm.sp('mb', 8)}>
             <p className="text-[10px] font-black uppercase tracking-widest text-primary">
               {t('auth.resetPassword.accountRecovery', {}, { defaultValue: 'Account recovery' })}
             </p>
@@ -98,7 +98,7 @@ export function ResetPassword() {
                 { defaultValue: 'Enter the token from your email and choose a new password.' },
               )}
             </p>
-          </header>
+          </div>
 
           <div
             className={cm.cn(

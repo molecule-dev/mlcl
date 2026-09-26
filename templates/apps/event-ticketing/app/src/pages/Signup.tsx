@@ -110,7 +110,7 @@ export function Signup() {
               onChange={(e) => setName(e.target.value)}
               placeholder={t('signup.namePlaceholder', {}, { defaultValue: 'Alex Rivera' })}
               className={cm.cn(
-                'flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
+                'w-0 min-w-0 flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
               )}
             />
           </div>
@@ -147,7 +147,7 @@ export function Signup() {
                 { defaultValue: 'you@example.com' },
               )}
               className={cm.cn(
-                'flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
+                'w-0 min-w-0 flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
               )}
             />
           </div>
@@ -185,7 +185,7 @@ export function Signup() {
                 { defaultValue: 'At least 8 characters' },
               )}
               className={cm.cn(
-                'flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
+                'w-0 min-w-0 flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
               )}
             />
             <button
@@ -237,7 +237,7 @@ export function Signup() {
                 { defaultValue: 'Re-enter password' },
               )}
               className={cm.cn(
-                'flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
+                'w-0 min-w-0 flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
               )}
             />
           </div>

@@ -132,10 +132,13 @@ export function SecretRow({ secret, statusLabel, onOpen }: SecretRowProps) {
         ) : null}
       </div>
 
-      <div className={cm.cn('flex items-center gap-2')}>
+      <div className={cm.cn('flex min-w-0 items-center gap-2')}>
         <code
           className={cm.cn(
-            'inline-flex h-7 items-center rounded border border-border/60 px-2 font-mono text-[12px]',
+            // min-w-0 + overflow-hidden: the masked bullet run is unbreakable,
+            // so without these the code cannot shrink and pushes the status
+            // pill past the card edge on narrow viewports.
+            'inline-flex h-7 min-w-0 items-center overflow-hidden whitespace-nowrap rounded border border-border/60 px-2 font-mono text-[12px]',
             revealed && hasValue
               ? 'bg-primary/10 text-primary'
               : 'bg-background text-secret-masked',
@@ -160,7 +163,7 @@ export function SecretRow({ secret, statusLabel, onOpen }: SecretRowProps) {
           onTouchStart={revealStart}
           onTouchEnd={() => setRevealed(false)}
           className={cm.cn(
-            'inline-flex h-8 w-8 items-center justify-center rounded border border-border/60 text-muted',
+            'inline-flex h-8 w-8 shrink-0 items-center justify-center rounded border border-border/60 text-muted',
             'transition-colors hover:border-primary hover:text-primary',
             !hasValue && 'cursor-not-allowed opacity-40',
           )}
@@ -176,7 +179,7 @@ export function SecretRow({ secret, statusLabel, onOpen }: SecretRowProps) {
           onClick={handleCopy}
           className={cm.cn(
             // Always visible on touch (no hover to reveal it); hover-reveal on md+.
-            'inline-flex h-8 w-8 items-center justify-center rounded border border-border/60 text-muted md:opacity-0',
+            'inline-flex h-8 w-8 shrink-0 items-center justify-center rounded border border-border/60 text-muted md:opacity-0',
             'transition-all md:group-hover:opacity-100 hover:border-primary hover:text-primary',
             copied && 'opacity-100 border-primary text-primary',
             !hasValue && 'cursor-not-allowed opacity-40 md:group-hover:opacity-40',
@@ -188,7 +191,9 @@ export function SecretRow({ secret, statusLabel, onOpen }: SecretRowProps) {
         </button>
       </div>
 
-      <SecretStatusPill tone={secret.status} label={statusLabel} compact />
+      <div className={cm.cn('shrink-0')}>
+        <SecretStatusPill tone={secret.status} label={statusLabel} compact />
+      </div>
 
       <span className={cm.cn('hidden w-28 text-right font-mono text-[11px] text-muted md:inline')}>
         {secret.lastRotated ?? '—'}

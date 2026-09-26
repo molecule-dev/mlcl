@@ -65,8 +65,11 @@ export function VendryVendorCard({ vendor, onFollow, compact = false }: VendryVe
             className={cm.cn(cm.w('full'), cm.h('full'), 'object-cover')}
             loading="lazy"
           />
+          {/* Fade the banner's bottom edge into the card surface: the name +
+              FEATURED row straddles this edge (-mt-10), so its dark text needs
+              a light field here, not a tinted one (WAVE-3 contrast fix). */}
           <div
-            className="absolute inset-0 bg-gradient-to-t from-info/30 via-info/0 to-info/0"
+            className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface via-surface/80 to-transparent"
             aria-hidden
           />
         </div>

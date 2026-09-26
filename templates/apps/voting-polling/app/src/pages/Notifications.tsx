@@ -140,7 +140,7 @@ export function Notifications() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
-      <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
+      <div className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <p className="text-[10px] font-black uppercase tracking-widest text-primary">
             {t('notifications.eyebrow', {}, { defaultValue: 'Event center' })}
@@ -180,7 +180,7 @@ export function Notifications() {
         >
           {t('common.markAllRead', {}, { defaultValue: 'Mark all read' })}
         </button>
-      </header>
+      </div>
 
       {error ? (
         <div

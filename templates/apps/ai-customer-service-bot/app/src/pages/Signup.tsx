@@ -117,6 +117,7 @@ function Signup() {
                     className={cm.cn(
                       cm.flex({ align: 'center' }),
                       cm.sp('pl', 3),
+                      cm.sp('pr', 3),
                       'absolute inset-y-0 left-0 pointer-events-none text-outline',
                     )}
                   >
@@ -163,6 +164,7 @@ function Signup() {
                     className={cm.cn(
                       cm.flex({ align: 'center' }),
                       cm.sp('pl', 3),
+                      cm.sp('pr', 3),
                       'absolute inset-y-0 left-0 pointer-events-none text-outline',
                     )}
                   >
@@ -192,6 +194,7 @@ function Signup() {
                     data-mol-id="signup-toggle-password"
                     className={cm.cn(
                       cm.flex({ align: 'center' }),
+                      cm.sp('pl', 3),
                       cm.sp('pr', 3),
                       'absolute inset-y-0 right-0 text-outline hover:text-on-surface transition-colors',
                     )}

@@ -65,6 +65,10 @@
   /* ── App-specific variables ── */
   --color-primary-hover: #115e59;
   --color-secondary-hover: #92400e;
+  /* Hero "live board" map card canvas — deep teal-navy so the white stat text
+     stays readable (fleet convention: field-service / fleet-management use the
+     same token name and value family). */
+  --color-map-bg: #0c1929;
 
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
@@ -210,6 +214,7 @@
   --color-error-container: #5a1818;
   --color-on-error: #690005;
   --color-on-error-container: #ffdad6;
+  --color-map-bg: #060d18;
   --color-outline: #4b615c;
   --color-outline-variant: #354b46;
   --color-surface-tint: #14b8a6;

@@ -169,7 +169,7 @@ export function VendorDashboard() {
 
   return (
     <div className={cm.cn(cm.maxW('full'), cm.mxAuto, cm.sp('p', 8), 'max-w-[1400px] space-y-10')}>
-      <header
+      <div
         className={cm.cn(cm.flex({ justify: 'between', align: 'end', wrap: 'wrap', gap: 'md' }))}
       >
         <div className={cm.cn(cm.stack(2))}>
@@ -240,7 +240,7 @@ export function VendorDashboard() {
             {t('vendorDashboard.payoutsCta', {}, { defaultValue: 'View payouts' })}
           </Link>
         </div>
-      </header>
+      </div>
 
       {/* Hero gradient KPI */}
       <section
@@ -376,7 +376,7 @@ export function VendorDashboard() {
 
       {/* Recent orders */}
       <section className={cm.cn(cm.stack(4))}>
-        <header className={cm.cn(cm.flex({ justify: 'between', align: 'end' }))}>
+        <div className={cm.cn(cm.flex({ justify: 'between', align: 'end' }))}>
           <h2
             className={cm.cn(
               cm.fontWeight('bold'),
@@ -395,7 +395,7 @@ export function VendorDashboard() {
           >
             {t('vendorDashboard.recentOrders.cta', {}, { defaultValue: 'View all orders →' })}
           </Link>
-        </header>
+        </div>
         <div className={cm.cn(cm.stack(4))}>
           {recentOrders === null ? (
             [0, 1].map((i) => (

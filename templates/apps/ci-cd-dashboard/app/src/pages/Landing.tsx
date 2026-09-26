@@ -341,7 +341,7 @@ export function Landing() {
                   </div>
                   <div className={'p-4 space-y-3'}>
                     {DEMO_PIPELINES.map((pl) => (
-                      <PipelineRow key={pl.id} pipeline={pl} linked={false} />
+                      <PipelineRow key={pl.id} pipeline={pl} linked={false} dense />
                     ))}
                   </div>
                 </div>

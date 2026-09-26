@@ -176,7 +176,7 @@ export function SearchResults() {
   return (
     <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
       {/* Search summary header */}
-      <header
+      <div
         className={cm.cn(
           cm.sp('mb', 6),
           cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' }),
@@ -246,7 +246,7 @@ export function SearchResults() {
             ))}
           </select>
         </label>
-      </header>
+      </div>
 
       {/* Filter chips */}
       <div className={cm.cn(cm.sp('mb', 6), cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }))}>

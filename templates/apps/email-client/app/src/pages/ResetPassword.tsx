@@ -52,7 +52,7 @@ export function ResetPassword() {
           >
             <MeridianBrandHeader />
 
-            <header className={cm.cn(cm.textCenter, cm.flex({ direction: 'col', gap: 'xs' }))}>
+            <div className={cm.cn(cm.textCenter, cm.flex({ direction: 'col', gap: 'xs' }))}>
               <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-on-surface')}>
                 {t('auth.resetPassword.setNewPassword', {}, { defaultValue: 'Set a new password' })}
               </h2>
@@ -63,7 +63,7 @@ export function ResetPassword() {
                   { defaultValue: 'Choose a strong password — at least 8 characters.' },
                 )}
               </p>
-            </header>
+            </div>
 
             <form
               className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}

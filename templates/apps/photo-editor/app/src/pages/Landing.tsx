@@ -193,11 +193,11 @@ export function Landing() {
         <section className={cm.cn(cm.sp('px', 6), cm.sp('pb', 20), 'max-w-[1100px] mx-auto')}>
           <div
             className={cm.cn(
-              'relative overflow-hidden rounded-[2rem] shadow-2xl shadow-black/40 border border-[var(--photo-border)]',
+              'relative overflow-hidden rounded-[2rem] shadow-2xl shadow-black/40 border border-[var(--photo-showcase-border)]',
             )}
             style={{
               background:
-                'linear-gradient(135deg, var(--photo-panel-bg) 0%, var(--photo-surface-elevated) 50%, var(--color-secondary-container) 130%)',
+                'linear-gradient(135deg, var(--photo-showcase-bg) 0%, var(--photo-showcase-elevated) 50%, var(--photo-showcase-violet) 130%)',
             }}
           >
             <div

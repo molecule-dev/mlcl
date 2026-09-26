@@ -250,7 +250,9 @@ function Landing() {
             'bg-surface rounded-[1.5rem] shadow-sm border border-[color:var(--color-border)]',
           )}
         >
-          <header className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+          {/* Content heading, not an app bar — the top nav band above is the
+              page's only <header> element (audit: headerCountOverOne). */}
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
             <span
               className={cm.cn(
                 cm.fontWeight('bold'),
@@ -272,7 +274,7 @@ function Landing() {
                 },
               )}
             </p>
-          </header>
+          </div>
           <div className={cm.cn(cm.flex({ direction: 'col', gap: 3 }))}>
             <ChatBubble speaker="customer" name="Maya R." timestamp="2m ago">
               {t(

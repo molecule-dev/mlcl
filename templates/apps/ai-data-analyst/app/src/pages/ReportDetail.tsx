@@ -87,12 +87,12 @@ export function ReportDetail() {
         ← {t('reportDetail.back', {}, { defaultValue: 'All reports' })}
       </Link>
 
-      <header>
+      <div>
         <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>{report.title}</h1>
         <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
           {report.description}
         </p>
-      </header>
+      </div>
 
       <section className={cm.cn(cm.card(), cm.sp('p', 6))}>
         <h2 className={cm.cn(cm.sectionHeading, cm.sp('mb', 4))}>
@@ -281,7 +281,7 @@ export function ReportDetail() {
       </div>
 
       <section className={cm.cn(cm.card(), 'overflow-hidden')}>
-        <header
+        <div
           className={cm.cn(
             cm.sp('px', 5),
             cm.sp('py', 3),
@@ -297,7 +297,7 @@ export function ReportDetail() {
           >
             {t('reportDetail.dataHeading', {}, { defaultValue: 'Full data' })}
           </h2>
-        </header>
+        </div>
         {/* overflow-x-auto: wide data tables scroll inside the card on phones
             instead of blowing out the page. */}
         <div className={'overflow-x-auto'}>

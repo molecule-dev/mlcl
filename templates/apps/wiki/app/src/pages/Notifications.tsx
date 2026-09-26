@@ -119,9 +119,7 @@ export function Notifications() {
 
   return (
     <div className={cm.stack(8)} data-testid="notifications-page">
-      <header
-        className={cm.cn(cm.flex({ align: 'end', justify: 'between', gap: 'md' }), 'flex-wrap')}
-      >
+      <div className={cm.cn(cm.flex({ align: 'end', justify: 'between', gap: 'md' }), 'flex-wrap')}>
         <div className={cm.stack(2)}>
           <span
             className={cm.cn(
@@ -215,7 +213,7 @@ export function Notifications() {
             </button>
           ) : null}
         </div>
-      </header>
+      </div>
 
       {error ? (
         <div

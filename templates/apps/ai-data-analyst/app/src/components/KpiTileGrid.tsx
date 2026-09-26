@@ -95,21 +95,21 @@ export function KpiTileGrid({ tiles }: KpiTileGridProps) {
               accent.border,
             )}
           >
-            <header className={cm.flex({ align: 'center', justify: 'between' })}>
-              <span
+            <div className={cm.flex({ align: 'center', justify: 'between' })}>
+              <h3
                 className={cm.cn(
                   'text-[10px] uppercase tracking-[0.18em] font-black text-on-surface-variant',
                 )}
               >
                 {tile.label}
-              </span>
+              </h3>
               <span
                 className={cm.cn('material-symbols-outlined', cm.textSize('lg'), accent.glyph)}
                 aria-hidden="true"
               >
                 {accent.icon}
               </span>
-            </header>
+            </div>
 
             <div>
               <p

@@ -36,6 +36,20 @@
     <!-- mol:design-resources -->
     <!-- /mol:design-resources -->
     <!-- mol:fonts -->
+    <link
+      rel="preload"
+      href="/fonts/MaterialSymbolsOutlined.static.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Inter-VariableFont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <style>
       @font-face {
         font-family: 'Arimo';
@@ -134,9 +148,9 @@
             local('Material Symbols Outlined'),
             local('Material Symbols Outlined VariableFont'),
             local('Material Symbols Outlined-VariableFont'),
-            url('/fonts/MaterialSymbolsOutlined.woff2') format('woff2');
+            url('/fonts/MaterialSymbolsOutlined.static.woff2') format('woff2');
           font-weight: 100 700;
-          font-display: swap;
+          font-display: block;
         }
         @font-face {
           font-family: 'Newsreader';
@@ -146,7 +160,7 @@
             local('Newsreader-VariableFont'),
             url('/fonts/Newsreader-VariableFont.ttf') format('truetype');
           font-weight: 200 800;
-          font-display: swap;
+          font-display: block;
         }
       }
       .material-symbols-outlined {
@@ -169,7 +183,99 @@
         -webkit-font-feature-settings: 'liga';
         -webkit-font-smoothing: antialiased;
       }
+      /* mol:icon-gate — icons stay invisible from FIRST PAINT until the
+         icon-healer confirms coverage and adds .mol-icons-ready to <html>
+         (3s failsafe reveal baked in): a blank gap beats raw ligature text
+         flashing in the pre-font window. */
+      html:not(.mol-icons-ready) .material-symbols-outlined {
+        visibility: hidden;
+        animation: mol-icon-failsafe 0s 3s forwards;
+      }
+      @keyframes mol-icon-failsafe {
+        to {
+          visibility: visible;
+        }
+      }
     </style>
+
+    <script>
+      // mol:icon-healer — the bundled icon font is a SUBSET (fleet census,
+      // capped at the ~350 names Google's icon_names accepts). If a page uses
+      // a ligature outside the subset, the span renders as raw text
+      // (document.fonts.check is BLIND to this — the letters are covered, the
+      // ligature is not) — so detect by WIDTH: a ligature glyph is ~1em wide,
+      // a raw ligature name is several em. Load the static full instance
+      // (324KB, every icon) once; the newly-added face wins font matching and
+      // every icon renders. Pairs with the mol:icon-gate CSS (injected by
+      // this sweep): icons are hidden from FIRST PAINT until the healer adds
+      // .mol-icons-ready to <html> — a blank gap beats raw ligature text in
+      // the pre-font flash window, and no JS poll can win that race.
+      ;(function () {
+        var tried = 0
+        var fullRequested = false
+        function markReady() {
+          document.documentElement.classList.add('mol-icons-ready')
+        }
+        function offending(s) {
+          var name = (s.textContent || '').trim()
+          if (!name) return false
+          var fs = parseFloat(getComputedStyle(s).fontSize) || 24
+          return s.offsetWidth > fs * 1.8
+        }
+        function each(fn) {
+          var spans = document.querySelectorAll('.material-symbols-outlined')
+          for (var i = 0; i < spans.length; i++) fn(spans[i])
+        }
+        function needsFull() {
+          var found = false
+          each(function (s) {
+            if (!found && offending(s)) found = true
+          })
+          return found
+        }
+        function requestFull() {
+          if (fullRequested) return true
+          fullRequested = true
+          try {
+            var f = new FontFace(
+              'Material Symbols Outlined',
+              "url('/fonts/MaterialSymbolsOutlined.static.woff2') format('woff2')",
+              { weight: '100 700', style: 'normal', display: 'block' },
+            )
+            f.load()
+              .then(function (lf) {
+                document.fonts.add(lf)
+                // two frames: let the new face apply before showing
+                requestAnimationFrame(function () {
+                  requestAnimationFrame(markReady)
+                })
+              })
+              .catch(markReady)
+          } catch (e) {
+            markReady()
+          }
+          return true
+        }
+        function sweep() {
+          var spans = document.querySelectorAll('.material-symbols-outlined')
+          if (spans.length > 0) {
+            if (!needsFull()) {
+              // subset covers every mounted icon — show now, but keep the
+              // bounded watch in case a late route mounts an uncovered one
+              markReady()
+            } else if (requestFull()) {
+              return
+            }
+          }
+          if (tried++ < 6) setTimeout(sweep, 1500)
+        }
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(sweep)
+        else window.addEventListener('load', sweep)
+        // Failsafe: even if measurement or the face load never resolves,
+        // icons come back (worst case as raw text) instead of staying blank.
+        setTimeout(markReady, 3000)
+      })()
+    </script>
     <!-- /mol:fonts -->
     <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
     <link rel="apple-touch-startup-image" href="/icons/splash-2048x2732.svg" sizes="2048x2732" />

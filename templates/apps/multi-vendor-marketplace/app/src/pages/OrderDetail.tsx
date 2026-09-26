@@ -190,7 +190,7 @@ export function OrderDetail() {
         {t('orderDetail.backToOrders', {}, { defaultValue: 'Back to all orders' })}
       </Link>
 
-      <header className={cm.cn(cm.stack(2))}>
+      <div className={cm.cn(cm.stack(2))}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -220,7 +220,7 @@ export function OrderDetail() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       {/* Timeline */}
       <section

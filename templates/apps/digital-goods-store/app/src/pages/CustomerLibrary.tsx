@@ -82,7 +82,7 @@ export function CustomerLibrary() {
 
   return (
     <div className={cm.cn(cm.sp('p', 8), cm.stack(8))}>
-      <header>
+      <div>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -109,7 +109,7 @@ export function CustomerLibrary() {
             { defaultValue: '{{count}} purchased products. Re-download anytime.' },
           )}
         </p>
-      </header>
+      </div>
 
       {loading ? (
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>

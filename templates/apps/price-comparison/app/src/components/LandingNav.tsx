@@ -30,7 +30,7 @@ export function LandingNav() {
           cm.sp('py', 4),
           cm.flex({ align: 'center', justify: 'between' }),
           cm.mxAuto,
-          'max-w-screen-2xl',
+          'max-w-screen-2xl flex-wrap gap-x-4 gap-y-2',
         )}
       >
         <Link
@@ -39,7 +39,7 @@ export function LandingNav() {
             cm.flex({ align: 'center', gap: 'xs' }),
             cm.fontWeight('extrabold'),
             cm.textSize('xl'),
-            'text-primary tracking-tighter',
+            'text-primary tracking-tighter min-w-0 whitespace-nowrap shrink-0',
           )}
         >
           <span className={cm.cn('material-symbols-outlined text-primary')} aria-hidden="true">
@@ -53,7 +53,7 @@ export function LandingNav() {
             className={cm.cn(
               cm.textSize('sm'),
               cm.fontWeight('semibold'),
-              'text-on-surface-variant hover:text-primary transition-colors',
+              'text-on-surface-variant hover:text-primary transition-colors hidden sm:inline',
             )}
           >
             {t('landing.seePricing', {}, { defaultValue: 'See pricing' })}
@@ -67,7 +67,7 @@ export function LandingNav() {
                 cm.sp('py', 2),
                 cm.fontWeight('bold'),
                 cm.textSize('sm'),
-                'rounded-full bg-primary text-on-primary hover:opacity-90 transition-all shadow-sm',
+                'rounded-full bg-primary text-on-primary hover:opacity-90 transition-all shadow-sm whitespace-nowrap shrink-0',
               )}
             >
               {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -91,7 +91,7 @@ export function LandingNav() {
                   cm.sp('py', 2),
                   cm.fontWeight('bold'),
                   cm.textSize('sm'),
-                  'rounded-full bg-primary text-on-primary hover:opacity-90 transition-all shadow-sm',
+                  'rounded-full bg-primary text-on-primary hover:opacity-90 transition-all shadow-sm whitespace-nowrap shrink-0',
                 )}
               >
                 {t('landing.getStarted', {}, { defaultValue: 'Start saving' })}

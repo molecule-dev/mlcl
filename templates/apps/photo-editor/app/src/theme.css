@@ -52,6 +52,14 @@
   --photo-hero-via: #c4b5fd;
   --photo-hero-to: #fbcfe8;
 
+  /* Landing showcase card — intentionally DARK in both modes: it mirrors the
+     editor's dark chrome and its text is hard-coded white, so it must never
+     borrow the light-mapped panel/surface tones (WAVE-3 contrast fix). */
+  --photo-showcase-bg: #16161a;
+  --photo-showcase-elevated: #1f1f24;
+  --photo-showcase-violet: #2d2345;
+  --photo-showcase-border: #2a2a30;
+
   --photo-radius-sm: 4px;
   --photo-radius-md: 8px;
   --photo-radius-lg: 12px;

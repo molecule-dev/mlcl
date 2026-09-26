@@ -7,7 +7,6 @@ import { getClassMap } from '@molecule/app-ui'
 import { Button, Flex } from '@molecule/app-ui-react'
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
-import { AuthBrandHeader } from '../components/AuthBrandHeader.js'
 import { FloatingInput } from '../components/FloatingInput.js'
 import { Footer } from '../components/Footer.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
@@ -69,9 +68,7 @@ export function Login() {
       </header>
       <div className={cm.authPageBody}>
         <div className={cm.authFormWrapper}>
-          <div className={cm.cn(cm.sp('mb', 6))}>
-            <AuthBrandHeader />
-          </div>
+          <div className={cm.cn(cm.sp('mb', 6))}></div>
           <form onSubmit={handleSubmit}>
             <div className={cm.authField}>
               <FloatingInput

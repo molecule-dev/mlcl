@@ -64,10 +64,17 @@ export function Landing() {
             cm.sp('px', 6),
             cm.sp('py', 4),
             cm.flex({ align: 'center', justify: 'between' }),
+            'flex-wrap gap-x-4 gap-y-2',
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+          <Link
+            to="/"
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              'min-w-0 whitespace-nowrap shrink-0',
+            )}
+          >
             <span
               className={cm.cn(
                 cm.w(8),
@@ -91,12 +98,13 @@ export function Landing() {
               {APP_NAME}
             </span>
           </Link>
-          <div className={cm.flex({ align: 'center', gap: 'md' })}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0')}>
             <Link
               to="/pricing"
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('medium'),
+                'hidden sm:inline whitespace-nowrap',
                 'text-on-surface-variant hover:text-on-surface',
               )}
             >
@@ -109,6 +117,7 @@ export function Landing() {
                   cm.sp('px', 5),
                   cm.sp('py', 2),
                   cm.fontWeight('semibold'),
+                  'whitespace-nowrap shrink-0',
                   'rounded-full text-white hover:opacity-90 transition-opacity',
                 )}
                 style={{ background: BRAND_GRADIENT }}
@@ -122,6 +131,7 @@ export function Landing() {
                   className={cm.cn(
                     cm.textSize('sm'),
                     cm.fontWeight('medium'),
+                    'whitespace-nowrap',
                     'text-on-surface-variant hover:text-on-surface',
                   )}
                 >
@@ -133,6 +143,7 @@ export function Landing() {
                     cm.sp('px', 5),
                     cm.sp('py', 2),
                     cm.fontWeight('semibold'),
+                    'whitespace-nowrap shrink-0',
                     'rounded-full text-white hover:opacity-90 transition-opacity',
                   )}
                   style={{ background: BRAND_GRADIENT }}

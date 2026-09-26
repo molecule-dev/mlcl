@@ -190,14 +190,14 @@ function HeroStat({ label, value }: { label: string; value: string }) {
       className={cm.cn(
         cm.sp('px', 4),
         cm.sp('py', 3),
-        'rounded-2xl bg-surface/15 backdrop-blur-md ring-1 ring-white/20',
+        'min-w-0 rounded-2xl bg-surface/15 backdrop-blur-md ring-1 ring-white/20',
       )}
     >
       <p
         className={cm.cn(
-          cm.textSize('xs'),
-          cm.fontWeight('extrabold'),
-          'uppercase tracking-widest text-white/70',
+          // 10px/tracking-wide so the longest label ("COLLABORATORS") keeps
+          // right padding inside the 3-up tile instead of touching its border
+          'text-[10px] font-extrabold uppercase tracking-wide text-white/70',
         )}
       >
         {label}

@@ -15,7 +15,9 @@ export function SSOButton() {
     setNotice(null)
     try {
       await Promise.resolve(auth)
-      setNotice(t('demo.ssoUnavailable'))
+      setNotice(
+        t('demo.ssoUnavailable', {}, { defaultValue: 'Single sign-on is not wired in this demo.' }),
+      )
     } catch (err) {
       console.error('SSO initiation failed:', err)
     } finally {

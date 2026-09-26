@@ -56,7 +56,7 @@ export function MobileNavShell() {
   return (
     <div className={cm.cn(cm.flex({ direction: 'col' }), cm.h('screen'), 'overflow-hidden')}>
       {/* Sticky top bar — in normal flow, so pages need no offset padding. */}
-      <header
+      <div
         data-mol-id="mobile-top-bar"
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
@@ -98,7 +98,7 @@ export function MobileNavShell() {
           <ThemeToggle />
           <UserMenu />
         </div>
-      </header>
+      </div>
 
       <main className={cm.cn(cm.flex1, 'overflow-y-auto bg-background')}>
         <Outlet />

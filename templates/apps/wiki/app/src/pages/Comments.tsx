@@ -115,7 +115,7 @@ export function Comments() {
 
   return (
     <div className={cm.stack(8)}>
-      <header className={cm.stack(2)}>
+      <div className={cm.stack(2)}>
         <span
           className={cm.cn(
             cm.textSize('xs'),
@@ -139,7 +139,7 @@ export function Comments() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       <ul className={cm.stack(4)}>
         {THREADS.map((thread) => (

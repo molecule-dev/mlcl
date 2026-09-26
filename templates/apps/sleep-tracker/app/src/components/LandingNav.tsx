@@ -29,6 +29,7 @@ export function LandingNav() {
           cm.sp('px', 6),
           cm.sp('py', 4),
           cm.flex({ align: 'center', justify: 'between' }),
+          'flex-wrap gap-x-4 gap-y-2',
           cm.mxAuto,
         )}
       >
@@ -39,6 +40,7 @@ export function LandingNav() {
             cm.flex({ align: 'center', gap: 'xs' }),
             cm.textSize('xl'),
             cm.fontWeight('extrabold'),
+            'min-w-0 whitespace-nowrap shrink-0',
           )}
         >
           <span
@@ -50,7 +52,7 @@ export function LandingNav() {
           </span>
           <span style={{ letterSpacing: '-0.02em' }}>{APP_NAME}</span>
         </Link>
-        <div className={cm.flex({ align: 'center', gap: 'md' })}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0')}>
           {isAuthenticated ? (
             <Link
               to="/dashboard"
@@ -60,6 +62,7 @@ export function LandingNav() {
                 cm.sp('py', 2),
                 cm.fontWeight('bold'),
                 cm.textSize('sm'),
+                'whitespace-nowrap shrink-0',
                 'bg-primary text-on-primary rounded-full shadow-md hover:shadow-lg transition-shadow',
               )}
             >
@@ -73,6 +76,7 @@ export function LandingNav() {
                 className={cm.cn(
                   cm.textSize('sm'),
                   cm.fontWeight('semibold'),
+                  'whitespace-nowrap',
                   'text-on-surface-variant hover:text-on-surface',
                 )}
               >
@@ -86,6 +90,7 @@ export function LandingNav() {
                   cm.sp('py', 2),
                   cm.fontWeight('bold'),
                   cm.textSize('sm'),
+                  'whitespace-nowrap shrink-0',
                   'bg-primary text-on-primary rounded-full shadow-md hover:shadow-lg transition-shadow',
                 )}
               >

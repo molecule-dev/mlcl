@@ -100,11 +100,16 @@ export function MiniTreePreview() {
             {},
           )}
         </div>
-        <div className="absolute left-1/2 -translate-x-[172%] top-[122px]">
-          {card(name('parent', 'David Hutchins'), name('parentYears', 'b. 1965'), false, {})}
-        </div>
-        <div className="absolute left-1/2 translate-x-[4%] top-[122px]">
-          {card(name('partner', 'Lucia Moretti'), name('partnerYears', 'b. 1967'), false, {})}
+        <div
+          className="absolute left-1/2 -translate-x-1/2 top-[122px] w-[304px]"
+          aria-hidden="true"
+        >
+          <div className="absolute left-0 top-0">
+            {card(name('parent', 'David Hutchins'), name('parentYears', 'b. 1965'), false, {})}
+          </div>
+          <div className="absolute right-0 top-0">
+            {card(name('partner', 'Lucia Moretti'), name('partnerYears', 'b. 1967'), false, {})}
+          </div>
         </div>
       </div>
 

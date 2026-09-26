@@ -248,7 +248,7 @@ export function LinkDetail() {
       </section>
 
       <section className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
-        <header className={cm.cn(cm.flex({ align: 'baseline', justify: 'between' }), 'flex-wrap')}>
+        <div className={cm.cn(cm.flex({ align: 'baseline', justify: 'between' }), 'flex-wrap')}>
           <h2
             className={cm.cn(
               cm.textSize('xl'),
@@ -271,7 +271,7 @@ export function LinkDetail() {
           >
             {t('linkDetail.commentSort', {}, { defaultValue: 'Best first' })}
           </span>
-        </header>
+        </div>
 
         <form
           onSubmit={handleSubmit}

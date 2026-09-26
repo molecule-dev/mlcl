@@ -334,7 +334,7 @@ export function PageEditor() {
 
   return (
     <div className={cm.stack(6)} data-testid="page-editor">
-      <header
+      <div
         className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'md' }), 'flex-wrap')}
       >
         <div className={cm.stack(1)}>
@@ -430,7 +430,7 @@ export function PageEditor() {
               : t('common.save', {}, { defaultValue: 'Save' })}
           </button>
         </div>
-      </header>
+      </div>
 
       {error ? (
         <div

@@ -45,7 +45,12 @@ export function LandingFooter() {
         >
           © 2026 {APP_NAME}
         </p>
-        <div className={cm.flex({ align: 'center', gap: 6 })}>
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 6 }),
+            'flex-wrap justify-end gap-y-2 min-w-0',
+          )}
+        >
           <Link to="/about" className={linkClass}>
             {t('nav.about', {}, { defaultValue: 'About' })}
           </Link>

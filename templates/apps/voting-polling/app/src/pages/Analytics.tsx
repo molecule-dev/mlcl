@@ -122,7 +122,7 @@ export function Analytics() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
-      <header>
+      <div>
         <p className="text-[10px] font-black uppercase tracking-widest text-primary">
           {t('analytics.eyebrow', {}, { defaultValue: 'Civic analytics' })}
         </p>
@@ -146,7 +146,7 @@ export function Analytics() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       {error ? (
         <div
@@ -196,9 +196,7 @@ export function Analytics() {
             'lg:col-span-8 min-w-0 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
           )}
         >
-          <header
-            className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 5))}
-          >
+          <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 5))}>
             <div>
               <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
                 {t('analytics.trendEyebrow', {}, { defaultValue: 'Participation curve' })}
@@ -216,7 +214,7 @@ export function Analytics() {
                 )}
               </h2>
             </div>
-          </header>
+          </div>
           <ParticipationSparkline
             values={series}
             width={640}
@@ -234,7 +232,7 @@ export function Analytics() {
             'lg:col-span-4 min-w-0 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
           )}
         >
-          <header className={cm.sp('mb', 4)}>
+          <div className={cm.sp('mb', 4)}>
             <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
               {t('analytics.totalsEyebrow', {}, { defaultValue: 'Workspace totals' })}
             </p>
@@ -246,7 +244,7 @@ export function Analytics() {
             >
               {t('analytics.totalsHeading', {}, { defaultValue: 'Polls and ballots' })}
             </h2>
-          </header>
+          </div>
           <ul className={cm.stack(2)}>
             <li className={cm.flex({ align: 'center', justify: 'between' })}>
               <span className="text-sm text-on-surface-variant">
@@ -274,7 +272,7 @@ export function Analytics() {
           'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
         )}
       >
-        <header className={cm.sp('mb', 5)}>
+        <div className={cm.sp('mb', 5)}>
           <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
             {t('analytics.recentEyebrow', {}, { defaultValue: 'Recent ballots' })}
           </p>
@@ -286,7 +284,7 @@ export function Analytics() {
           >
             {t('analytics.recentHeading', {}, { defaultValue: 'Across all polls' })}
           </h2>
-        </header>
+        </div>
         {loading ? (
           <p className="text-sm text-on-surface-variant" data-test="analytics-loading">
             {t('analytics.loading', {}, { defaultValue: 'Loading analytics…' })}

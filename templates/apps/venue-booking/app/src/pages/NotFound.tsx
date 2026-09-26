@@ -15,9 +15,7 @@ export function NotFound() {
         'bg-background text-on-surface antialiased flex flex-col',
       )}
     >
-      <header
-        className={cm.cn('border-b border-outline-variant/40 bg-surface/95 backdrop-blur-md')}
-      >
+      <div className={cm.cn('border-b border-outline-variant/40 bg-surface/95 backdrop-blur-md')}>
         <div
           className={cm.cn(
             cm.maxW('7xl'),
@@ -36,7 +34,7 @@ export function NotFound() {
             </span>
           </Link>
         </div>
-      </header>
+      </div>
       <main
         className={cm.cn(
           'flex-1 flex items-center justify-center',

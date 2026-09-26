@@ -15,7 +15,7 @@ function Login() {
   return (
     <div
       className={cm.cn(
-        cm.flex({ align: 'center', justify: 'center' }),
+        cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
         cm.sp('p', 6),
         cm.minH('screen'),
         'bg-surface-container-low font-body text-on-surface',
@@ -37,7 +37,7 @@ function Login() {
           {/* Divider */}
           <div
             className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
+              cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
               cm.sp('py', 2),
               'relative',
             )}

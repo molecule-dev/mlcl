@@ -81,7 +81,7 @@ export function PollCard({ poll, to }: PollCardProps) {
       style={{ borderLeftWidth: '4px', borderLeftColor: STATUS_BORDER[poll.status] }}
       data-mol-id={`poll-card-${poll.id}`}
     >
-      <header className={cm.flex({ align: 'start', justify: 'between', gap: 'sm' })}>
+      <div className={cm.flex({ align: 'start', justify: 'between', gap: 'sm' })}>
         <div className={cm.cn('min-w-0 flex-1')}>
           <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
             {t(`pollCard.type.${poll.type}`, {}, { defaultValue: TYPE_LABEL[poll.type] })}
@@ -97,7 +97,7 @@ export function PollCard({ poll, to }: PollCardProps) {
           </h3>
         </div>
         <PollStatusPill status={poll.status} />
-      </header>
+      </div>
 
       <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
         {t(

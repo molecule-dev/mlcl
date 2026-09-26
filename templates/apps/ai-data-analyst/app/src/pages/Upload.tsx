@@ -338,7 +338,7 @@ export function Upload() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('4xl'), cm.mxAuto, 'space-y-6')}>
-      <header>
+      <div>
         <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
           {t('common.upload', {}, { defaultValue: 'Upload' })}
         </h1>
@@ -352,7 +352,7 @@ export function Upload() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       <section
         className={cm.cn(

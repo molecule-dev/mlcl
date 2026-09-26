@@ -137,7 +137,7 @@ export function VendorProducts() {
 
   return (
     <div className={cm.cn(cm.maxW('full'), cm.mxAuto, cm.sp('p', 8), 'max-w-[1280px] space-y-8')}>
-      <header
+      <div
         className={cm.cn(cm.flex({ justify: 'between', align: 'end', wrap: 'wrap', gap: 'md' }))}
       >
         <div className={cm.cn(cm.stack(2))}>
@@ -182,7 +182,7 @@ export function VendorProducts() {
           </span>
           {t('vendorProducts.newCta', {}, { defaultValue: 'New product' })}
         </Link>
-      </header>
+      </div>
 
       <div className={cm.cn(cm.grid({ cols: 2, gap: 'sm' }), 'md:grid-cols-4')}>
         {[

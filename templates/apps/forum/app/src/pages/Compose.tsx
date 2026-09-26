@@ -239,7 +239,7 @@ export function Compose() {
 
   return (
     <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), 'max-w-3xl')}>
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
         <span
           className={cm.cn(
             cm.fontWeight('bold'),
@@ -251,7 +251,7 @@ export function Compose() {
         <h1 className={cm.cn(cm.fontWeight('bold'), 'text-3xl tracking-tight text-on-surface')}>
           {t('compose.title', {}, { defaultValue: 'Bring something worth reading.' })}
         </h1>
-      </header>
+      </div>
 
       <div
         className={cm.cn(

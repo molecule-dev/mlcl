@@ -38,14 +38,14 @@ function Section({
         'rounded-xl bg-surface border border-[color:var(--color-border)]',
       )}
     >
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 1 }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 1 }))}>
         <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}>
           {title}
         </h2>
         {description && (
           <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>{description}</p>
         )}
-      </header>
+      </div>
       {children}
     </section>
   )
@@ -205,7 +205,7 @@ export function Profile() {
 
   return (
     <div className={cm.cn(cm.stack(8), cm.sp('p', 8), cm.maxW('5xl'), cm.mxAuto, cm.w('full'))}>
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
         <span
           className={cm.cn(
             cm.fontWeight('bold'),
@@ -217,7 +217,7 @@ export function Profile() {
         <h1 className={cm.cn(cm.textSize('3xl'), 'font-extrabold tracking-tight text-on-surface')}>
           {t('nav.profile', {}, { defaultValue: 'Profile' })}
         </h1>
-      </header>
+      </div>
 
       <Section
         title={t('nav.identity', {}, { defaultValue: 'Identity' })}

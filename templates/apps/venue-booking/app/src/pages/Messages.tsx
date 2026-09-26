@@ -76,7 +76,7 @@ export function Messages() {
 
   return (
     <div className={cm.cn(cm.maxW('5xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
-      <header className={cm.sp('mb', 6)}>
+      <div className={cm.sp('mb', 6)}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -104,7 +104,7 @@ export function Messages() {
             { defaultValue: '{{count}} threads · {{unread}} unread' },
           )}
         </p>
-      </header>
+      </div>
 
       <div className={cm.cn(cm.sp('mb', 5), cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }))}>
         {FILTERS.map((f) => (

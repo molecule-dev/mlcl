@@ -113,7 +113,7 @@ export function AuthShell({ eyebrow, heading, description, children, footer }: A
               'rounded-2xl border border-outline-variant/40 bg-surface shadow-sm',
             )}
           >
-            <header className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.textCenter)}>
+            <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.textCenter)}>
               <h1
                 className={cm.cn(
                   cm.fontWeight('bold'),
@@ -127,7 +127,7 @@ export function AuthShell({ eyebrow, heading, description, children, footer }: A
                   {description}
                 </p>
               )}
-            </header>
+            </div>
             {children}
           </div>
           {footer && (

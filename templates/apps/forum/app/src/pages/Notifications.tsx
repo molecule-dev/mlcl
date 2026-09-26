@@ -95,7 +95,7 @@ export function Notifications() {
 
   return (
     <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }))}>
-      <header
+      <div
         className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'md' }), 'flex-wrap')}
       >
         <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
@@ -135,7 +135,7 @@ export function Notifications() {
             {t('common.markAllRead', {}, { defaultValue: 'Mark all read' })}
           </button>
         )}
-      </header>
+      </div>
 
       <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'flex-wrap')}>
         {FILTERS.map((current) => {

@@ -89,7 +89,7 @@ function ResetPassword() {
     <div
       className={cm.cn(
         cm.minH('screen'),
-        cm.flex({ align: 'center', justify: 'center' }),
+        cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
         cm.sp('p', 6),
         'bg-surface-container-low font-body text-on-surface',
       )}
@@ -109,7 +109,7 @@ function ResetPassword() {
               className={cm.cn(
                 cm.w(12),
                 cm.h(12),
-                cm.flex({ align: 'center', justify: 'center' }),
+                cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
                 cm.sp('mb', 2),
                 cm.roundedFull,
                 'primary-gradient',
@@ -338,7 +338,7 @@ function ResetPassword() {
           {/* Divider */}
           <div
             className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
+              cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
               cm.sp('py', 2),
               'relative',
             )}
@@ -422,7 +422,7 @@ function ResetPassword() {
           cm.sp('px', 12),
           cm.sp('py', 8),
           cm.flex({ direction: 'col', align: 'center', justify: 'between', gap: 'lg' }),
-          'fixed bottom-0 md:flex-row',
+          'md:flex-row',
         )}
       >
         <span

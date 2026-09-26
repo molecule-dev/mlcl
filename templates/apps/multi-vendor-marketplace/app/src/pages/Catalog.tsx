@@ -232,7 +232,7 @@ export function Catalog() {
 
   return (
     <div className={cm.cn(cm.maxW('full'), cm.mxAuto, cm.sp('p', 8), 'max-w-[1400px]')}>
-      <header className={cm.cn(cm.stack(4), cm.sp('mb', 8))}>
+      <div className={cm.cn(cm.stack(4), cm.sp('mb', 8))}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -293,7 +293,7 @@ export function Catalog() {
             aria-label={t('catalog.searchAria', {}, { defaultValue: 'Search the catalog' })}
           />
         </div>
-      </header>
+      </div>
 
       {/* Category nav */}
       <nav
@@ -386,11 +386,11 @@ export function Catalog() {
       {/* Featured vendor strip */}
       {vendors.length > 0 && (
         <section className={cm.cn(cm.sp('mb', 10))}>
-          <header className={cm.cn(cm.flex({ justify: 'between', align: 'end' }), cm.sp('mb', 4))}>
+          <div className={cm.cn(cm.flex({ justify: 'between', align: 'end' }), cm.sp('mb', 4))}>
             <h2 className={cm.cn(cm.fontWeight('bold'), 'text-xl text-on-surface')}>
               {t('catalog.featuredVendors', {}, { defaultValue: 'Featured shops' })}
             </h2>
-          </header>
+          </div>
           <div className={cm.cn(cm.grid({ cols: 1, gap: 'md' }), 'md:grid-cols-2 lg:grid-cols-3')}>
             {vendors.slice(0, 3).map((vendor) => (
               <VendryVendorCard key={vendor.id} vendor={vendor} compact />

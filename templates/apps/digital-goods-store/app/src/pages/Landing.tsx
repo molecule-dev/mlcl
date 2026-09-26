@@ -218,7 +218,10 @@ export function Landing() {
                 <div
                   className={cm.cn(
                     cm.sp('p', 8),
-                    'rounded-[2rem] bg-gradient-to-br from-primary to-accent text-white shadow-2xl shadow-primary/20 overflow-hidden relative',
+                    // bg-primary-dark is the fallback base: if the gradient
+                    // endpoints ever fail to compile, white text must still sit
+                    // on a dark field, never on the pale page background.
+                    'rounded-[2rem] bg-primary-dark bg-gradient-to-br from-primary to-accent text-white shadow-2xl shadow-primary/20 overflow-hidden relative',
                   )}
                 >
                   <div

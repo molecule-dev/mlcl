@@ -139,7 +139,7 @@ export function Notifications() {
 
   return (
     <div className={cm.cn(cm.stack(6), cm.sp('p', 8), cm.maxW('5xl'), cm.mxAuto, cm.w('full'))}>
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
         <span
           className={cm.cn(
             cm.fontWeight('bold'),
@@ -202,7 +202,7 @@ export function Notifications() {
             {error}
           </p>
         )}
-      </header>
+      </div>
 
       {items === null ? (
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>

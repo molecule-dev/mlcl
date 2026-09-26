@@ -135,7 +135,7 @@ export function VendorProductForm() {
 
   return (
     <div className={cm.cn(cm.maxW('full'), cm.mxAuto, cm.sp('p', 8), 'max-w-[1200px] space-y-8')}>
-      <header className={cm.cn(cm.stack(2))}>
+      <div className={cm.cn(cm.stack(2))}>
         <Link
           to="/vendor/products"
           className={cm.cn(
@@ -168,7 +168,7 @@ export function VendorProductForm() {
         >
           {t('vendorProductForm.title', {}, { defaultValue: 'Tell shoppers about your piece' })}
         </h1>
-      </header>
+      </div>
 
       <form
         className={cm.cn(cm.grid({ cols: 1, gap: 'lg' }), 'lg:grid-cols-[1.5fr_1fr]')}

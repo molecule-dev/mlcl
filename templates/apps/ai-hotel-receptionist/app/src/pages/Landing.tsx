@@ -82,7 +82,7 @@ export function Landing() {
             className={cm.cn(
               cm.textSize('xs'),
               cm.fontWeight('bold'),
-              'uppercase tracking-[0.3em] text-tertiary',
+              'uppercase tracking-[0.3em] text-accent',
             )}
           >
             {t('landing.hero.eyebrow', {}, { defaultValue: 'AI hotel receptionist + PMS' })}

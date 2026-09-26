@@ -81,7 +81,7 @@ export function Signup() {
 
       <main className={cm.cn('relative z-10 flex justify-center', cm.sp('px', 6), cm.sp('py', 12))}>
         <div className={cm.cn(cm.maxW('md'), 'w-full')}>
-          <header className={cm.sp('mb', 8)}>
+          <div className={cm.sp('mb', 8)}>
             <p className="text-[10px] font-black uppercase tracking-widest text-primary">
               {t('signup.eyebrow', {}, { defaultValue: 'Open the floor · free' })}
             </p>
@@ -104,7 +104,7 @@ export function Signup() {
                 { defaultValue: 'No credit card. The Free plan is yours forever.' },
               )}
             </p>
-          </header>
+          </div>
 
           <div
             className={cm.cn(

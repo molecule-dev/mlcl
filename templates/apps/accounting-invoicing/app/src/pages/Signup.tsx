@@ -298,7 +298,7 @@ function Field({
         {icon ? (
           <span
             className={cm.cn(
-              'absolute inset-y-0 left-0 pl-3 flex items-center text-on-surface-variant pointer-events-none',
+              'absolute inset-y-0 left-0 px-3 flex items-center text-on-surface-variant pointer-events-none',
             )}
             aria-hidden="true"
           >

@@ -11,6 +11,7 @@ import {
 } from '@molecule/api-bonds-default-express'
 
 import templateHandlers from '../handlers/index.js'
+import billingRoutes from '../routes/billing.js'
 import { requestHandlerMap as Device } from './Resource/Device/index.js'
 import {
   authorization as userAuthorization,
@@ -30,3 +31,4 @@ mountDefaultUserBillingRoutes(router, User)
 mountDefaultUserVerifyPaymentRoutes(router, User)
 
 router.use(templateHandlers)
+router.use('/billing', billingRoutes)

@@ -41,9 +41,106 @@ import { ui as en } from '../locales/en/ui.js'
 const lazyLoadUi = (code: string): Promise<Record<string, string>> =>
   import(`../locales/${code}/ui.ts`).then((m: { ui: Record<string, string> }) => m.ui)
 
+/**
+ * Languages this app actually ships `src/locales/<code>/ui.ts` translations
+ * for — every directory under `src/locales/` except `en` (the eager
+ * bootstrap, always kept). Passing this list to the provider short-circuits
+ * its boot-time support probe, which otherwise dynamic-imports every non-en
+ * locale module on EVERY page load just to prune empty ones. In dev mode
+ * that is ~79 HTTP module requests per navigation for an answer that never
+ * changes — a large share of the request storm that exhausted the browser's
+ * request budget on this app (net::ERR_INSUFFICIENT_RESOURCES,
+ * 2026-09-26 flagship audit). The outcome is identical: this app translates
+ * all 78 of these languages, and locales outside the list are pruned
+ * synchronously instead of probed.
+ *
+ * Keep in sync with `src/locales/` when adding or removing languages.
+ */
+const supportedLocales = [
+  'af',
+  'am',
+  'ar',
+  'az',
+  'be',
+  'bg',
+  'bn',
+  'bs',
+  'ca',
+  'cs',
+  'cy',
+  'da',
+  'de',
+  'el',
+  'es',
+  'et',
+  'eu',
+  'fa',
+  'fi',
+  'fil',
+  'fr',
+  'ga',
+  'gl',
+  'gu',
+  'ha',
+  'he',
+  'hi',
+  'hr',
+  'hu',
+  'hy',
+  'id',
+  'ig',
+  'is',
+  'it',
+  'ja',
+  'ka',
+  'kk',
+  'km',
+  'kn',
+  'ko',
+  'ky',
+  'lo',
+  'lt',
+  'lv',
+  'mk',
+  'ml',
+  'mn',
+  'mr',
+  'ms',
+  'mt',
+  'my',
+  'nb',
+  'ne',
+  'nl',
+  'pa',
+  'pl',
+  'pt',
+  'ro',
+  'ru',
+  'si',
+  'sk',
+  'sl',
+  'sq',
+  'sr',
+  'sv',
+  'sw',
+  'ta',
+  'te',
+  'th',
+  'tr',
+  'uk',
+  'ur',
+  'uz',
+  'vi',
+  'yo',
+  'zh',
+  'zh-TW',
+  'zu',
+] as const
+
 export const i18nProvider = setupI18nProvider({
   enUi: en,
   lazyLoadUi,
+  supportedLocales: [...supportedLocales],
   packageLocales: [
     aiChatLocales,
     authLocales,

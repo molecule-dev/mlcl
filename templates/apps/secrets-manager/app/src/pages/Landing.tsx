@@ -252,7 +252,7 @@ export function Landing() {
             'overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl',
           )}
         >
-          <header
+          <div
             className={cm.cn(
               'flex items-center justify-between border-b border-border bg-surface-secondary px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-muted',
             )}
@@ -275,7 +275,7 @@ export function Landing() {
               </span>
             </div>
             <SecretStatusPill tone="production" />
-          </header>
+          </div>
           <div className={cm.cn('grid gap-3 border-b border-border/60 p-4 md:grid-cols-3')}>
             {SAMPLE_VAULTS.map((vault) => (
               <VaultCard key={vault.id} vault={vault} />

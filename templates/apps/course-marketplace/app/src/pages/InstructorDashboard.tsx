@@ -351,7 +351,7 @@ export function InstructorDashboard() {
         <section
           className={cm.cn('bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden')}
         >
-          <header
+          <div
             className={cm.cn(
               'flex items-center justify-between px-8 py-5 border-b border-outline-variant/15',
             )}
@@ -386,7 +386,7 @@ export function InstructorDashboard() {
                 ? t('instructorDashboard.creating', {}, { defaultValue: 'Creating draft…' })
                 : t('instructorDashboard.newCourse', {}, { defaultValue: 'New course' })}
             </button>
-          </header>
+          </div>
           {courses.length === 0 ? (
             <p
               data-mol-id="instructor-courses-empty"

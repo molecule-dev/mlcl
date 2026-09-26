@@ -319,7 +319,7 @@ export function PageView() {
         <span className={cm.cn('text-on-surface font-medium')}>{page.title}</span>
       </nav>
 
-      <header className={cm.stack(4)}>
+      <div className={cm.stack(4)}>
         <h1
           className={cm.cn(
             cm.textSize('4xl'),
@@ -409,7 +409,7 @@ export function PageView() {
           </div>
         </div>
         <hr className={cm.cn('border-t border-outline-variant/40')} />
-      </header>
+      </div>
 
       {page.summary ? (
         <AISummaryCard

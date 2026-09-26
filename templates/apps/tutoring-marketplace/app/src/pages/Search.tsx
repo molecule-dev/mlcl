@@ -210,7 +210,9 @@ export function Search() {
 
   return (
     <div className={cm.cn(cm.sp('px', 6), cm.sp('py', 8), cm.stack(8))}>
-      <header
+      {/* A <div>, not <header>: the fixed top bar above is the page's single
+          banner — a second <header> here reads as a duplicated app bar. */}
+      <div
         className={cm.cn(
           cm.flex({ direction: 'col', gap: 'md' }),
           'md:flex-row md:items-end md:justify-between',
@@ -270,7 +272,7 @@ export function Search() {
             )}
           />
         </form>
-      </header>
+      </div>
 
       <div className={cm.cn(cm.grid({ cols: 1, gap: 'lg' }), 'lg:grid-cols-[280px_1fr]')}>
         <aside

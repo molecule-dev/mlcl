@@ -323,7 +323,7 @@ export function Search() {
                     to={`/u/${result.author.username}`}
                     className={cm.cn(cm.fontWeight('semibold'), 'text-primary hover:underline')}
                   >
-                    @{result.author.username}
+                    {`@${result.author.username}`}
                   </Link>
                   {!isUser && (
                     <>

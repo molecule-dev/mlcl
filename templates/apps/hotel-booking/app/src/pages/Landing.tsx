@@ -205,7 +205,7 @@ export function Landing() {
 
         {/* Featured destinations */}
         <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('pb', 20), cm.mxAuto)}>
-          <header className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
+          <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
             <div>
               <p
                 className={cm.cn(
@@ -241,7 +241,7 @@ export function Landing() {
                 arrow_forward
               </span>
             </Link>
-          </header>
+          </div>
           <div className={cm.cn('grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5')}>
             {FEATURED_DESTINATIONS.map((d) => (
               <DestinationDiscoveryCard key={d.id} destination={d} />
@@ -254,9 +254,7 @@ export function Landing() {
             from the inside. */}
         <section className={cm.cn('bg-surface-container-low')}>
           <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}>
-            <header
-              className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}
-            >
+            <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
               <div>
                 <p
                   className={cm.cn(
@@ -313,7 +311,7 @@ export function Landing() {
                   arrow_forward
                 </span>
               </Link>
-            </header>
+            </div>
             <div className={cm.cn('grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6')}>
               {previewProperties.length > 0
                 ? previewProperties.map((p) => <PropertyListingCard key={p.id} property={p} />)
@@ -331,7 +329,7 @@ export function Landing() {
 
         {/* Editorial / journal */}
         <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}>
-          <header className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
+          <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
             <div>
               <p
                 className={cm.cn(
@@ -354,7 +352,7 @@ export function Landing() {
                 {t('landing.journal.heading', {}, { defaultValue: 'Stories worth packing for' })}
               </h2>
             </div>
-          </header>
+          </div>
           <div className={cm.cn('grid grid-cols-1 md:grid-cols-3 gap-6')}>
             {EDITORIAL.map((item) => (
               <article

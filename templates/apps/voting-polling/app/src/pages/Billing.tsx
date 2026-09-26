@@ -160,7 +160,7 @@ export function Billing() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
-      <header>
+      <div>
         <p className="text-[10px] font-black uppercase tracking-widest text-primary">
           {t('nav.subscription', {}, { defaultValue: 'Subscription' })}
         </p>
@@ -181,7 +181,7 @@ export function Billing() {
             { defaultValue: 'You are currently on the {{plan}} plan.' },
           )}
         </p>
-      </header>
+      </div>
 
       {error ? (
         <div
@@ -254,7 +254,7 @@ export function Billing() {
           'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
         )}
       >
-        <header className={cm.sp('mb', 5)}>
+        <div className={cm.sp('mb', 5)}>
           <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
             {t('billing.plansEyebrow', {}, { defaultValue: 'Choose a plan' })}
           </p>
@@ -266,7 +266,7 @@ export function Billing() {
           >
             {t('billing.plansHeading', {}, { defaultValue: 'Free, Pro, and Team' })}
           </h2>
-        </header>
+        </div>
         {loading ? (
           <p className="text-on-surface-variant text-sm" data-test="billing-loading">
             {t('nav.loadingPlans', {}, { defaultValue: 'Loading plans…' })}
@@ -380,7 +380,7 @@ export function Billing() {
             'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
           )}
         >
-          <header className={cm.sp('mb', 4)}>
+          <div className={cm.sp('mb', 4)}>
             <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
               {t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
             </p>
@@ -392,7 +392,7 @@ export function Billing() {
             >
               {t('billing.cancelHeading', {}, { defaultValue: 'Downgrade to Free' })}
             </h2>
-          </header>
+          </div>
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t(
               'billing.cancelBody',

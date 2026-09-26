@@ -53,7 +53,7 @@ export function ForgotPassword() {
           >
             <AuthBrandHeader />
 
-            <header className={cm.cn(cm.textCenter, cm.flex({ direction: 'col' }), 'gap-2')}>
+            <div className={cm.cn(cm.textCenter, cm.flex({ direction: 'col' }), 'gap-2')}>
               <h2 className={cm.cn(cm.textSize('xl'), 'font-bold tracking-tight')}>
                 {t('auth.resetPassword.title', {}, { defaultValue: 'Reset your password' })}
               </h2>
@@ -64,7 +64,7 @@ export function ForgotPassword() {
                   { defaultValue: "Enter your work email and we'll send a reset link." },
                 )}
               </p>
-            </header>
+            </div>
 
             {isSent ? (
               <div

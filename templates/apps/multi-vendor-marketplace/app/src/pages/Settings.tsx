@@ -212,7 +212,7 @@ export function Settings() {
       data-testid="settings-page"
       className={cm.cn(cm.maxW('full'), cm.mxAuto, cm.sp('p', 8), 'max-w-[1100px] space-y-8')}
     >
-      <header className={cm.cn(cm.stack(2))}>
+      <div className={cm.cn(cm.stack(2))}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -237,7 +237,7 @@ export function Settings() {
             { defaultValue: 'Manage how you shop, how vendors reach you, and where money goes.' },
           )}
         </p>
-      </header>
+      </div>
 
       {error && (
         <p
@@ -395,7 +395,7 @@ export function Settings() {
             'rounded-3xl border border-outline-variant bg-surface space-y-4',
           )}
         >
-          <header className={cm.cn(cm.flex({ justify: 'between', align: 'center' }))}>
+          <div className={cm.cn(cm.flex({ justify: 'between', align: 'center' }))}>
             <h2 className={cm.cn(cm.fontWeight('bold'), 'text-xl text-on-surface')}>
               {t('settings.shipping.title', {}, { defaultValue: 'Shipping addresses' })}
             </h2>
@@ -414,7 +414,7 @@ export function Settings() {
             >
               {t('settings.shipping.addCta', {}, { defaultValue: 'Add address' })}
             </button>
-          </header>
+          </div>
           {addresses.length === 0 && editingAddressId === null && (
             <p className="text-on-surface-variant text-sm" data-testid="settings-shipping-empty">
               {t(

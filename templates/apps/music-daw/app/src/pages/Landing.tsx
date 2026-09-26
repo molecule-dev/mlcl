@@ -115,7 +115,7 @@ export function Landing() {
                   <Link
                     to="/signup"
                     className={cm.cn(
-                      'inline-flex items-center gap-2 px-8 py-4 font-semibold text-white rounded-full transition-colors shadow-xl',
+                      'inline-flex items-center gap-2 px-8 py-4 font-semibold whitespace-nowrap text-white rounded-full transition-colors shadow-xl',
                     )}
                     style={{
                       background: `linear-gradient(135deg, ${BRAND_COLOR}, ${BRAND_ACCENT_COLOR})`,
@@ -379,7 +379,7 @@ export function Landing() {
             <Link
               to="/signup"
               className={cm.cn(
-                'inline-flex items-center gap-2 px-10 py-4 font-semibold text-white rounded-full transition-colors',
+                'inline-flex items-center gap-2 px-10 py-4 font-semibold whitespace-nowrap text-white rounded-full transition-colors',
               )}
               style={{
                 background: `linear-gradient(135deg, ${BRAND_COLOR}, ${BRAND_ACCENT_COLOR})`,

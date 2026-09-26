@@ -159,7 +159,7 @@ export function Dashboard() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
-      <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
+      <div className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <p className="text-[10px] font-black uppercase tracking-widest text-primary">
             {t('dashboard.eyebrow', {}, { defaultValue: 'Live floor · today' })}
@@ -198,7 +198,7 @@ export function Dashboard() {
           </span>
           {t('dashboard.newPollCta', {}, { defaultValue: 'Open a new poll' })}
         </Link>
-      </header>
+      </div>
 
       {error ? (
         <div
@@ -292,9 +292,7 @@ export function Dashboard() {
             'lg:col-span-5 min-w-0 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
           )}
         >
-          <header
-            className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 5))}
-          >
+          <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 5))}>
             <div>
               <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
                 {t(
@@ -322,7 +320,7 @@ export function Dashboard() {
             >
               {t('dashboard.viewAnalytics', {}, { defaultValue: 'Analytics →' })}
             </Link>
-          </header>
+          </div>
           <div className={cm.flex({ align: 'baseline', gap: 'md' })}>
             <span
               className="font-mono text-4xl font-extrabold tabular-nums tracking-tight text-on-surface"
@@ -358,7 +356,7 @@ export function Dashboard() {
           'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
         )}
       >
-        <header className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 5))}>
+        <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 5))}>
           <div>
             <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
               {t('dashboard.libraryEyebrow', {}, { defaultValue: 'Poll library' })}
@@ -387,7 +385,7 @@ export function Dashboard() {
           >
             {t('dashboard.viewAll', {}, { defaultValue: 'Full archive →' })}
           </Link>
-        </header>
+        </div>
         {polls.length === 0 ? (
           <p
             className={cm.cn('text-on-surface-variant text-sm')}

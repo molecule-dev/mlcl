@@ -137,7 +137,9 @@ export function Landing() {
 
         {/* Feature triad */}
         <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('pb', 20), cm.mxAuto)}>
-          <header className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
+          {/* Section heading — NOT a <header>: the app shell topbar is the one
+              true header; extra <header> elements flag duplicate-brand audits. */}
+          <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
             <div>
               <p
                 className={cm.cn(
@@ -163,7 +165,7 @@ export function Landing() {
                 )}
               </h2>
             </div>
-          </header>
+          </div>
           <div className={cm.cn('grid grid-cols-1 md:grid-cols-3 gap-5')}>
             {FEATURE_CARDS.map((feature) => (
               <article
@@ -189,7 +191,7 @@ export function Landing() {
                     cm.textSize('xs'),
                     cm.fontWeight('bold'),
                     cm.sp('mt', 4),
-                    'uppercase tracking-[0.25em] text-accent',
+                    'uppercase tracking-[0.25em] text-accent-dark',
                   )}
                 >
                   {t(
@@ -229,7 +231,7 @@ export function Landing() {
         {/* Inside-the-app preview */}
         <section className={cm.cn('bg-surface-container-low')}>
           <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}>
-            <header
+            <div
               className={cm.cn(
                 cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' }),
                 cm.sp('mb', 8),
@@ -290,7 +292,7 @@ export function Landing() {
                   arrow_forward
                 </span>
               </Link>
-            </header>
+            </div>
             <div className={cm.cn(cm.maxW('3xl'))}>
               <ul className={cm.flex({ direction: 'col', gap: 'sm' })}>
                 {PREVIEW_ARRIVALS.map((arrival, index) => (
@@ -368,7 +370,7 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
-                'uppercase tracking-[0.25em] text-accent',
+                'uppercase tracking-[0.25em] text-accent-dark',
               )}
             >
               {t('landing.cta.eyebrow', { app: APP_NAME }, { defaultValue: '{{app}} Pro' })}
@@ -413,7 +415,7 @@ export function Landing() {
                   cm.sp('px', 8),
                   cm.sp('py', 3),
                   cm.fontWeight('bold'),
-                  'rounded-full bg-accent text-white hover:bg-accent/90 transition-colors shadow-lg',
+                  'rounded-full bg-accent text-[#0c1929] hover:bg-accent/90 transition-colors shadow-lg',
                 )}
               >
                 {t('landing.cta.signup', {}, { defaultValue: 'Create a free account' })}

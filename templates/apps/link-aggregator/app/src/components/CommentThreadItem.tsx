@@ -66,7 +66,7 @@ export function CommentThreadItem({ comment, depth = 0, onVote, onReply }: Comme
           onVote={(next) => onVote?.(comment.id, next)}
         />
         <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), 'flex-1 min-w-0')}>
-          <header
+          <div
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),
               cm.textSize('xs'),
@@ -121,7 +121,7 @@ export function CommentThreadItem({ comment, depth = 0, onVote, onReply }: Comme
                 </span>
               </>
             )}
-          </header>
+          </div>
           {!collapsed && (
             <>
               <p

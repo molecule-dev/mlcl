@@ -18,7 +18,7 @@ const FEATURES = [
       'Pan, zoom, and drop sticky notes across an unbounded surface. Your ideas never need a margin.',
   },
   {
-    icon: 'cursor',
+    icon: 'arrow_selector_tool',
     titleKey: 'landing.features.cursors.title',
     titleDefault: 'Live multiplayer cursors',
     bodyKey: 'landing.features.cursors.body',
@@ -379,7 +379,7 @@ export function Landing() {
       </section>
 
       <section className={cm.cn(cm.sp('px', 8), cm.sp('py', 16), 'bg-surface-container-low')}>
-        <div className={cm.cn(cm.maxW('xl'), cm.stack(12), 'mx-auto')}>
+        <div className={cm.cn('max-w-screen-xl', cm.stack(12), 'mx-auto')}>
           <div className={cm.cn(cm.textCenter, cm.stack(3), cm.maxW('lg'), 'mx-auto')}>
             <span
               className={cm.cn(
@@ -405,7 +405,7 @@ export function Landing() {
               )}
             </h2>
           </div>
-          <div className={cm.cn(cm.grid({ cols: 4, gap: 'lg' }))}>
+          <div className={cm.cn('grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8')}>
             {FEATURES.map((f, idx) => (
               <article
                 key={f.titleKey}

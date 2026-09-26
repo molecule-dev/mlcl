@@ -31,7 +31,7 @@ export function Cart() {
     <div className={cm.cn(cm.page, cm.flex({ direction: 'col' }), 'min-h-screen')}>
       <Header />
       <main className={cm.cn(cm.mxAuto, cm.sp('px', 6), cm.sp('py', 12), 'w-full max-w-[1200px]')}>
-        <header className={cm.cn(cm.sp('mb', 8))}>
+        <div className={cm.cn(cm.sp('mb', 8))}>
           <p
             className={cm.cn(
               cm.textSize('xs'),
@@ -57,7 +57,7 @@ export function Cart() {
                   { defaultValue: 'You have {{count}} item(s)' },
                 )}
           </h1>
-        </header>
+        </div>
 
         <div className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 lg:grid-cols-3')}>
           <section className={cm.cn(cm.stack(4), 'lg:col-span-2')} data-testid="cart-items">

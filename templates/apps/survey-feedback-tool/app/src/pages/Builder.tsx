@@ -263,7 +263,7 @@ export function Builder() {
         cm.w('full'),
       )}
     >
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
         <Link
           to={`/surveys/${surveyId}`}
           className={cm.cn(
@@ -331,7 +331,7 @@ export function Builder() {
             {error}
           </p>
         )}
-      </header>
+      </div>
 
       <section
         className={cm.cn(
@@ -452,12 +452,12 @@ export function Builder() {
           )}
           aria-label={t('builder.canvasAria', {}, { defaultValue: 'Survey canvas' })}
         >
-          <header className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 2 }))}>
+          <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 2 }))}>
             <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}>
               {t('builder.canvasTitle', {}, { defaultValue: 'Survey questions' })}
             </h2>
             <StatusPill variant={statusToVariant(survey?.status)} />
-          </header>
+          </div>
           {questions.length === 0 ? (
             <div
               data-testid="builder-empty"

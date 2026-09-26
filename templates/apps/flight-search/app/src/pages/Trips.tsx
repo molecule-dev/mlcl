@@ -101,7 +101,7 @@ export function Trips() {
 
   return (
     <div className={cm.cn(cm.maxW('5xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
-      <header
+      <div
         className={cm.cn(
           cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' }),
           cm.sp('mb', 6),
@@ -143,7 +143,7 @@ export function Trips() {
           </span>
           {t('trips.bookNew', {}, { defaultValue: 'Book new trip' })}
         </Link>
-      </header>
+      </div>
 
       {error ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>

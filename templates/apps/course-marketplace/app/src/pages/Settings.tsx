@@ -16,7 +16,7 @@ export function Settings() {
     <div className={cm.cn('min-h-screen flex flex-col bg-background')}>
       <Header />
       <main className={cm.cn(cm.sp('px', 6), cm.sp('py', 12), 'max-w-5xl mx-auto w-full flex-1')}>
-        <header className={cm.cn('mb-10')}>
+        <div className={cm.cn('mb-10')}>
           <p
             className={cm.cn(
               'text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2',
@@ -29,7 +29,7 @@ export function Settings() {
           >
             {t('nav.settings', {}, { defaultValue: 'Settings' })}
           </h1>
-        </header>
+        </div>
         <div className={cm.cn('bg-surface-container-lowest rounded-2xl shadow-sm')}>
           <SettingsPanel onClose={() => navigate('/my-learning')} />
         </div>

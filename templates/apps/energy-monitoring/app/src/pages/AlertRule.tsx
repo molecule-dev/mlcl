@@ -91,7 +91,7 @@ export function AlertRule() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('2xl'), cm.mxAuto, cm.stack(8))}>
-      <header className={cm.flex({ direction: 'col', gap: 'xs' })}>
+      <div className={cm.flex({ direction: 'col', gap: 'xs' })}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -114,7 +114,7 @@ export function AlertRule() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       <form
         onSubmit={handleSubmit}

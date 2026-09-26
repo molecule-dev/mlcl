@@ -125,7 +125,7 @@ export function Cart() {
       data-testid="cart-page"
       className={cm.cn(cm.maxW('full'), cm.mxAuto, cm.sp('p', 8), 'max-w-[1280px] space-y-8')}
     >
-      <header className={cm.cn(cm.stack(2))}>
+      <div className={cm.cn(cm.stack(2))}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -157,7 +157,7 @@ export function Cart() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       {error && (
         <p
@@ -232,7 +232,7 @@ export function Cart() {
                     'overflow-hidden rounded-2xl border border-outline-variant bg-surface',
                   )}
                 >
-                  <header
+                  <div
                     className={cm.cn(
                       cm.flex({ justify: 'between', align: 'center', wrap: 'wrap', gap: 'md' }),
                       cm.sp('px', 6),
@@ -277,7 +277,7 @@ export function Cart() {
                         { defaultValue: 'Estimated delivery {{range}}' },
                       )}
                     </p>
-                  </header>
+                  </div>
                   <ul className={cm.cn(cm.stack(0))}>
                     {group.items.map((item, idx) => (
                       <li

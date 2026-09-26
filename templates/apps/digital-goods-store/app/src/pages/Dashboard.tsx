@@ -170,7 +170,7 @@ export function Dashboard() {
 
   return (
     <div className={cm.cn(cm.sp('p', 8), cm.stack(8))}>
-      <header
+      <div
         className={cm.cn(cm.flex({ align: 'start', justify: 'between', gap: 'md' }), 'flex-wrap')}
       >
         <div>
@@ -216,7 +216,7 @@ export function Dashboard() {
           </span>
           {t('dashboard.addProduct', {}, { defaultValue: 'Add product' })}
         </Link>
-      </header>
+      </div>
 
       <RevenueHeroCard
         totalRevenueCents={analytics.totalRevenueCents}

@@ -175,7 +175,7 @@ export function Account() {
 
   return (
     <div className={cm.cn(cm.maxW('5xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
-      <header className={cm.sp('mb', 8)}>
+      <div className={cm.sp('mb', 8)}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -196,7 +196,7 @@ export function Account() {
         >
           {t('account.heading', {}, { defaultValue: 'Profile & preferences' })}
         </h1>
-      </header>
+      </div>
 
       <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
         {/* Profile */}
@@ -346,9 +346,7 @@ export function Account() {
             'bg-surface rounded-2xl border border-outline-variant/40',
           )}
         >
-          <header
-            className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}
-          >
+          <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}>
             <h2
               className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}
               style={{ fontFamily: '"DM Sans", system-ui, sans-serif' }}
@@ -367,7 +365,7 @@ export function Account() {
               {/* TODO: open add-card flow */}
               {t('account.payments.add', {}, { defaultValue: '+ Add card' })}
             </button>
-          </header>
+          </div>
           <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
             {PAYMENT_METHODS.map((pm) => (
               <li

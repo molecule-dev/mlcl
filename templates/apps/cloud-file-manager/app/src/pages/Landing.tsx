@@ -270,7 +270,7 @@ export function Landing() {
             <div
               className={cm.cn(
                 cm.sp('p', 4),
-                'relative z-10 rounded-[2rem] bg-surface-container-lowest border border-outline-variant/15 shadow-2xl',
+                'relative z-10 rounded-[2rem] bg-surface-container-lowest border border-outline-variant/15 shadow-2xl overflow-hidden',
               )}
             >
               <div
@@ -285,7 +285,7 @@ export function Landing() {
                 <div className={cm.cn('w-3 h-3 rounded-full bg-surface-container-high')} />
                 <div className={cm.cn('w-3 h-3 rounded-full bg-surface-container-high')} />
               </div>
-              <div className={cm.cn(cm.grid({ cols: 12, gap: 4 }), 'h-[400px]')}>
+              <div className={cm.cn(cm.grid({ cols: 12, gap: 4 }), 'h-auto lg:h-[400px]')}>
                 <div
                   className={cm.cn(
                     cm.flex({ direction: 'col', gap: 'xs' }),
@@ -386,7 +386,7 @@ export function Landing() {
                         className={cm.cn(
                           cm.flex({ direction: 'col', justify: 'between' }),
                           cm.sp('p', 3),
-                          'aspect-square rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors',
+                          'h-32 sm:h-auto sm:aspect-square rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors',
                         )}
                       >
                         <span

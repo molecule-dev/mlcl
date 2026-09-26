@@ -6,7 +6,7 @@
   --color-secondary-light: #6d97c2;
   --color-accent: #e8a020;
   --color-accent-light: #f0b349;
-  --color-accent-dark: #c4850f;
+  --color-accent-dark: #8f6400; /* AA on light bg for small uppercase labels */
   --color-background: #f3f7f6;
   --color-surface: #ffffff;
   --color-surface-secondary: #f3f7f6;

@@ -182,7 +182,7 @@ export function AudienceQA() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
-      <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
+      <div className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <div className={cm.flex({ align: 'center', gap: 'sm' })}>
             <Link
@@ -221,7 +221,7 @@ export function AudienceQA() {
             </span>
           </div>
         </div>
-      </header>
+      </div>
 
       {error ? (
         <div
@@ -395,7 +395,7 @@ export function AudienceQA() {
             )}
             data-test="qa-queue"
           >
-            <header
+            <div
               className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}
             >
               <div>
@@ -418,7 +418,7 @@ export function AudienceQA() {
               >
                 {queued.length} {t('audienceQa.queued', {}, { defaultValue: 'queued' })}
               </span>
-            </header>
+            </div>
             {queued.length === 0 ? (
               <p className="text-xs text-on-surface-variant" data-test="qa-queue-empty">
                 {t('audienceQa.noPending', {}, { defaultValue: 'No pending questions yet.' })}
@@ -447,7 +447,7 @@ export function AudienceQA() {
             )}
             data-test="qa-answered"
           >
-            <header className={cm.sp('mb', 4)}>
+            <div className={cm.sp('mb', 4)}>
               <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
                 {t('audienceQa.answeredEyebrow', {}, { defaultValue: 'Answered' })}
               </p>
@@ -459,7 +459,7 @@ export function AudienceQA() {
               >
                 {t('audienceQa.answeredHeading', {}, { defaultValue: 'Already addressed' })}
               </h2>
-            </header>
+            </div>
             {answered.length === 0 ? (
               <p className="text-xs text-on-surface-variant">
                 {t('audienceQa.noAnswered', {}, { defaultValue: 'No answered questions yet.' })}

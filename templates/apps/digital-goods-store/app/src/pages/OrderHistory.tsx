@@ -116,7 +116,7 @@ export function OrderHistory() {
 
   return (
     <div className={cm.cn(cm.sp('p', 8), cm.stack(8))}>
-      <header>
+      <div>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -136,7 +136,7 @@ export function OrderHistory() {
         >
           {t('orderHistory.title', {}, { defaultValue: 'Order history' })}
         </h1>
-      </header>
+      </div>
 
       {downloadError && (
         <div
@@ -193,7 +193,7 @@ export function OrderHistory() {
               key={order.id}
               className={cm.cn('rounded-2xl bg-surface-container-lowest shadow-sm overflow-hidden')}
             >
-              <header
+              <div
                 className={cm.cn(
                   cm.flex({ align: 'center', justify: 'between' }),
                   cm.sp('px', 6),
@@ -237,7 +237,7 @@ export function OrderHistory() {
                     {formatPrice(order.total_cents)}
                   </span>
                 </div>
-              </header>
+              </div>
               <ul className={cm.cn(cm.sp('px', 6), cm.sp('py', 4), cm.stack(3))}>
                 {order.items.map((item) => (
                   <li

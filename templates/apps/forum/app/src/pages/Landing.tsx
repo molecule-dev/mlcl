@@ -20,7 +20,7 @@ const SAMPLE_TRENDING: ThreadRowData[] = [
     id: 'sample-1',
     title:
       'After eight years of running my own studio, here is the one process change I wish I had made on day one.',
-    author: 'mira.k',
+    author: 'mira-ken',
     authorBadge: 'op',
     category: 'design-craft',
     categorySlug: 'design-craft',

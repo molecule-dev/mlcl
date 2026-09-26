@@ -161,17 +161,27 @@ export function QuizCard({
             )}
           </span>
         </div>
-        <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', gap: 3, wrap: 'wrap' }),
+            'gap-y-2',
+          )}
+        >
           {authorName ? (
-            <span className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
+            <span className={cm.cn(cm.flex({ align: 'center', gap: 2 }), 'min-w-0 max-w-full')}>
               <img
                 src={`https://picsum.photos/seed/${authorAvatarSeed ?? id}/64/64`}
                 alt=""
                 className={cm.cn(
-                  'w-7 h-7 rounded-full object-cover ring-2 ring-surface-container-lowest',
+                  'w-7 h-7 rounded-full object-cover ring-2 ring-surface-container-lowest shrink-0',
                 )}
               />
-              <span className={cm.cn(cm.textSize('xs'), 'font-semibold text-on-surface-variant')}>
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  'font-semibold text-on-surface-variant truncate',
+                )}
+              >
                 {authorName}
               </span>
             </span>
@@ -182,7 +192,7 @@ export function QuizCard({
             to={target}
             className={cm.cn(
               cm.flex({ align: 'center', gap: 1 }),
-              'px-4 py-2 rounded-xl bg-gradient-to-r from-primary to-primary-container text-white font-bold text-xs shadow-md shadow-primary/20 transition-transform group-hover:translate-x-0.5',
+              'shrink-0 ml-auto whitespace-nowrap px-4 py-2 rounded-xl bg-gradient-to-r from-primary to-primary-container text-white font-bold text-xs shadow-md shadow-primary/20 transition-transform group-hover:translate-x-0.5',
             )}
             data-mol-id={`btn-quiz-${id}`}
           >

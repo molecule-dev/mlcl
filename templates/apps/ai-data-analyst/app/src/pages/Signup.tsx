@@ -155,7 +155,7 @@ function Signup() {
                   : t('signup.showPassword', {}, { defaultValue: 'Show password' })
               }
               className={cm.cn(
-                'absolute inset-y-0 right-0 flex items-center pr-3 text-on-surface-variant/60 hover:text-primary transition-colors',
+                'absolute inset-y-0 right-0 flex items-center px-3 text-on-surface-variant/60 hover:text-primary transition-colors',
               )}
               onClick={() => setShowPassword((v) => !v)}
             >

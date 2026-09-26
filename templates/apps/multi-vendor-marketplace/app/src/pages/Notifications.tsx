@@ -152,7 +152,7 @@ export function Notifications() {
       data-testid="notifications-page"
       className={cm.cn(cm.maxW('full'), cm.mxAuto, cm.sp('p', 8), 'max-w-[1100px] space-y-8')}
     >
-      <header
+      <div
         className={cm.cn(cm.flex({ justify: 'between', align: 'center', wrap: 'wrap', gap: 'md' }))}
       >
         <div className={cm.cn(cm.stack(2))}>
@@ -194,7 +194,7 @@ export function Notifications() {
         >
           {t('common.markAllRead', {}, { defaultValue: 'Mark all read' })}
         </button>
-      </header>
+      </div>
 
       {error && (
         <p

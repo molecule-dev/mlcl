@@ -26,16 +26,19 @@ interface Restaurant {
   tags?: string[]
 }
 
+// Icon names must be members of the fleet SUBSET icon font
+// (scripts/subset-flagship-icon-fonts.mjs breadth-ranked top-350) — long-tail
+// names only render via the async runtime healer and flash raw text on first paint.
 const CATEGORIES = [
   { key: 'all', defaultLabel: 'All', icon: 'restaurant_menu' },
-  { key: 'pizza', defaultLabel: 'Pizza', icon: 'local_pizza' },
+  { key: 'pizza', defaultLabel: 'Pizza', icon: 'restaurant' },
   { key: 'burgers', defaultLabel: 'Burgers', icon: 'lunch_dining' },
-  { key: 'sushi', defaultLabel: 'Sushi', icon: 'set_meal' },
+  { key: 'sushi', defaultLabel: 'Sushi', icon: 'ramen_dining' },
   { key: 'asian', defaultLabel: 'Asian', icon: 'ramen_dining' },
-  { key: 'mexican', defaultLabel: 'Mexican', icon: 'taco' },
-  { key: 'italian', defaultLabel: 'Italian', icon: 'dinner_dining' },
+  { key: 'mexican', defaultLabel: 'Mexican', icon: 'lunch_dining' },
+  { key: 'italian', defaultLabel: 'Italian', icon: 'restaurant_menu' },
   { key: 'healthy', defaultLabel: 'Healthy', icon: 'eco' },
-  { key: 'desserts', defaultLabel: 'Desserts', icon: 'cake' },
+  { key: 'desserts', defaultLabel: 'Desserts', icon: 'local_cafe' },
 ] as const
 
 export function Restaurants() {

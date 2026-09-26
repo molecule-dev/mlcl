@@ -197,7 +197,7 @@ export function SurveyDetail() {
 
   return (
     <div className={cm.cn(cm.stack(8), cm.sp('p', 8), cm.maxW('7xl'), cm.mxAuto, cm.w('full'))}>
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 3 }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 3 }))}>
         <Link
           to="/surveys"
           className={cm.cn(
@@ -322,7 +322,7 @@ export function SurveyDetail() {
             {error}
           </p>
         )}
-      </header>
+      </div>
 
       <nav
         aria-label={t('surveyDetail.tabsAria', {}, { defaultValue: 'Survey sections' })}
@@ -404,12 +404,12 @@ export function SurveyDetail() {
           'rounded-xl bg-surface border border-[color:var(--color-border)]',
         )}
       >
-        <header className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 2 }))}>
+        <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 2 }))}>
           <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}>
             {t('surveyDetail.shareTitle', {}, { defaultValue: 'Share link' })}
           </h2>
           <StatusPill variant={shareUrl ? 'active' : 'draft'} />
-        </header>
+        </div>
         {shareUrl ? (
           <>
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>

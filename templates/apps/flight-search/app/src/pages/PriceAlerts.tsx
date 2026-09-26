@@ -175,7 +175,7 @@ export function PriceAlerts() {
 
   return (
     <div className={cm.cn(cm.maxW('5xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
-      <header
+      <div
         className={cm.cn(
           cm.sp('mb', 6),
           cm.flex({ align: 'end', justify: 'between', gap: 'md', wrap: 'wrap' }),
@@ -237,7 +237,7 @@ export function PriceAlerts() {
             ? t('common.cancel', {}, { defaultValue: 'Cancel' })
             : t('priceAlerts.addAlert', {}, { defaultValue: 'Add alert' })}
         </button>
-      </header>
+      </div>
 
       {showForm ? (
         <form

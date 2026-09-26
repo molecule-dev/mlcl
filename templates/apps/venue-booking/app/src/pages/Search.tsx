@@ -38,7 +38,7 @@ const TYPE_FILTERS = [
   { value: 'loft', label: 'Lofts' },
   { value: 'rooftop', label: 'Rooftops' },
   { value: 'garden', label: 'Gardens' },
-  { value: 'banquet', label: 'Banquet halls' },
+  { value: 'banquet', label: 'Banquet Halls' },
 ] as const
 
 const PRICE_FILTERS = [
@@ -184,7 +184,7 @@ export function Search() {
         <AlcoveHeroSearchCard compact />
       </section>
 
-      <header
+      <div
         className={cm.cn(
           cm.sp('mb', 6),
           cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' }),
@@ -223,7 +223,7 @@ export function Search() {
                 )}
           </p>
         </div>
-      </header>
+      </div>
 
       {/* Type chips */}
       <div className={cm.cn(cm.sp('mb', 4), cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }))}>

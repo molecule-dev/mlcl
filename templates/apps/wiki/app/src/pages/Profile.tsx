@@ -104,7 +104,7 @@ export function Profile() {
   return (
     <div className={cm.stack(8)}>
       {/* Hero header */}
-      <header
+      <div
         className={cm.cn(
           cm.sp('p', 8),
           'relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-secondary text-white',
@@ -144,7 +144,7 @@ export function Profile() {
             <p className={cm.cn(cm.textSize('xs'), 'text-white/70')}>{profile.joinedAt}</p>
           </div>
         </div>
-      </header>
+      </div>
 
       {/* KPI triad */}
       <div className={cm.cn('grid gap-4 md:grid-cols-3')}>

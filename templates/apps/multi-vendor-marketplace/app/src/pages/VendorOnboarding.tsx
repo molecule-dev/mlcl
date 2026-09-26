@@ -272,7 +272,7 @@ export function VendorOnboarding() {
             'rounded-3xl border border-outline-variant bg-surface space-y-6',
           )}
         >
-          <header className={cm.cn(cm.stack(1))}>
+          <div className={cm.cn(cm.stack(1))}>
             <p
               className={cm.cn(
                 cm.textSize('xs'),
@@ -298,7 +298,7 @@ export function VendorOnboarding() {
                 { defaultValue: STEP_META[step].label },
               )}
             </h2>
-          </header>
+          </div>
 
           {step === 'shop' && (
             <div className={cm.cn(cm.grid({ cols: 1, gap: 'md' }), 'md:grid-cols-2')}>

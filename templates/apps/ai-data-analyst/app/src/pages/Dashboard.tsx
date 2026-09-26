@@ -100,7 +100,7 @@ export function Dashboard() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.flex({ direction: 'col', gap: 6 }))}>
-      <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 4 })}>
+      <div className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 4 })}>
         <div>
           <p
             className={cm.cn(
@@ -183,7 +183,7 @@ export function Dashboard() {
             {t('dashboard.askCta', { appName: APP_NAME }, { defaultValue: 'Ask {{appName}}' })}
           </Link>
         </div>
-      </header>
+      </div>
 
       {error ? (
         <div
@@ -208,7 +208,7 @@ export function Dashboard() {
       <KpiTileGrid tiles={otherTiles.length > 0 ? otherTiles : kpis} />
 
       <section className={cm.flex({ direction: 'col', gap: 4 })}>
-        <header className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mt', 2))}>
+        <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mt', 2))}>
           <div>
             <p className={cm.cn('text-[10px] uppercase tracking-[0.22em] font-black text-primary')}>
               {t('dashboard.insightsEyebrow', {}, { defaultValue: 'AI-noticed' })}
@@ -245,7 +245,7 @@ export function Dashboard() {
               arrow_forward
             </span>
           </Link>
-        </header>
+        </div>
 
         {loading ? (
           <div className={cm.cn(cm.grid({ cols: 1, gap: 4 }), 'md:grid-cols-2 xl:grid-cols-3')}>

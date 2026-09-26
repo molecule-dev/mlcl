@@ -31,9 +31,16 @@ export function PublicTopNav() {
           cm.sp('px', 6),
           cm.sp('py', 4),
           cm.flex({ align: 'center', justify: 'between' }),
+          'flex-wrap gap-x-4 gap-y-2',
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+        <Link
+          to="/"
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'sm' }),
+            'min-w-0 whitespace-nowrap shrink-0',
+          )}
+        >
           <span
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center' }),
@@ -55,7 +62,9 @@ export function PublicTopNav() {
             {APP_NAME}
           </span>
         </Link>
-        <div className={cm.flex({ align: 'center', gap: 'md' })}>
+        <div
+          className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 whitespace-nowrap')}
+        >
           {isAuthenticated ? (
             <Link
               data-mol-id="nav-go-to-dashboard"
@@ -64,6 +73,7 @@ export function PublicTopNav() {
                 cm.sp('px', 5),
                 cm.sp('py', 2),
                 cm.fontWeight('semibold'),
+                'shrink-0',
                 'bg-gradient-to-br from-blue-600 to-emerald-500 text-white rounded-full shadow-md hover:shadow-lg transition-all',
               )}
             >
@@ -87,6 +97,7 @@ export function PublicTopNav() {
                   cm.sp('px', 5),
                   cm.sp('py', 2),
                   cm.fontWeight('semibold'),
+                  'shrink-0',
                   'bg-gradient-to-br from-blue-600 to-emerald-500 text-white rounded-full shadow-md hover:shadow-lg transition-all',
                 )}
               >

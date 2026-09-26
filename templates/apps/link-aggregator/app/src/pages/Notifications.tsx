@@ -207,7 +207,7 @@ export function Notifications() {
                   <span className={'material-symbols-outlined text-xl'}>{meta.icon}</span>
                 </span>
                 <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), 'flex-1 min-w-0')}>
-                  <header
+                  <div
                     className={cm.cn(
                       cm.flex({ align: 'baseline', justify: 'between', gap: 'sm' }),
                       'flex-wrap',
@@ -228,7 +228,7 @@ export function Notifications() {
                     >
                       {timeAgo(n.created_at)}
                     </time>
-                  </header>
+                  </div>
                   {n.body && (
                     <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant line-clamp-2')}>
                       {n.body}

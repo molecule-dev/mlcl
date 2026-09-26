@@ -132,7 +132,7 @@ export function Responses() {
 
   return (
     <div className={cm.cn(cm.stack(8), cm.sp('p', 8), cm.maxW('7xl'), cm.mxAuto, cm.w('full'))}>
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
         <Link
           to={`/surveys/${surveyId}`}
           className={cm.cn(
@@ -182,7 +182,7 @@ export function Responses() {
             {error}
           </p>
         )}
-      </header>
+      </div>
 
       <section className={cm.cn(cm.grid({ cols: 1, gap: 4 }), 'sm:grid-cols-3')}>
         <KpiStatCard
@@ -224,7 +224,7 @@ export function Responses() {
         )}
         aria-labelledby="responses-table-title"
       >
-        <header
+        <div
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'between', gap: 3 }),
             cm.sp('p', 5),
@@ -250,7 +250,7 @@ export function Responses() {
               { defaultValue: 'Showing {{count}}' },
             )}
           </span>
-        </header>
+        </div>
         {rows === null ? (
           <p className={cm.cn(cm.sp('p', 6), cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('responses.loading', {}, { defaultValue: 'Loading responses…' })}

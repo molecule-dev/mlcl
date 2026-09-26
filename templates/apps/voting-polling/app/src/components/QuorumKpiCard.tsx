@@ -88,7 +88,7 @@ export function QuorumKpiCard({
       )}
       style={{ borderLeftWidth: '4px', borderLeftColor: palette.border }}
     >
-      <header className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
+      <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
         <p
           className={cm.cn(
             'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
@@ -107,7 +107,7 @@ export function QuorumKpiCard({
             {icon}
           </span>
         ) : null}
-      </header>
+      </div>
       <div className={cm.flex({ align: 'baseline', gap: 'sm' })}>
         <span
           className={cm.cn(

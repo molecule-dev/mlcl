@@ -60,9 +60,7 @@ export function Products() {
 
   return (
     <div className={cm.cn(cm.sp('p', 8), cm.stack(6))}>
-      <header
-        className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-4')}
-      >
+      <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-4')}>
         <div>
           <p
             className={cm.cn(
@@ -105,7 +103,7 @@ export function Products() {
           </span>
           {t('products.addCta', {}, { defaultValue: 'Add product' })}
         </Link>
-      </header>
+      </div>
 
       {loading ? (
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>

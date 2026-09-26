@@ -117,7 +117,7 @@ export function Landing() {
 
         {/* Feature triad */}
         <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('pb', 20), cm.mxAuto)}>
-          <header className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
+          <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
             <div>
               <p
                 className={cm.cn(
@@ -143,7 +143,7 @@ export function Landing() {
                 )}
               </h2>
             </div>
-          </header>
+          </div>
           <div className={cm.cn('grid grid-cols-1 md:grid-cols-3 gap-5')}>
             {FEATURE_CARDS.map((feature) => (
               <article
@@ -209,7 +209,7 @@ export function Landing() {
         {/* Inside-the-app preview */}
         <section className={cm.cn('bg-surface-container-low')}>
           <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}>
-            <header
+            <div
               className={cm.cn(
                 cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' }),
                 cm.sp('mb', 8),
@@ -270,7 +270,7 @@ export function Landing() {
                   arrow_forward
                 </span>
               </Link>
-            </header>
+            </div>
             <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
               {PREVIEW_FLIGHTS.map((flight) => (
                 <FlightResultCard key={flight.id} flight={flight} />

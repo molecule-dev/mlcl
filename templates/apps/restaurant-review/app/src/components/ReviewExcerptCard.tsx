@@ -69,7 +69,7 @@ export function ReviewExcerptCard({
         'bg-surface rounded-2xl border border-outline-variant/40 shadow-sm hover:shadow-md transition-shadow',
       )}
     >
-      <header className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }))}>
+      <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }))}>
         <Link
           to={`/users/${review.author.id}`}
           className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
@@ -114,7 +114,7 @@ export function ReviewExcerptCard({
           </span>
         </Link>
         <StarRating value={review.rating} size="sm" showScore={false} />
-      </header>
+      </div>
 
       <div className={cm.cn(cm.sp('mt', 4))}>
         <Link

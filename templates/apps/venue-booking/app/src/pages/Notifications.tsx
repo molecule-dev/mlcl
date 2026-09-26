@@ -124,7 +124,7 @@ export function Notifications() {
 
   return (
     <div className={cm.cn(cm.maxW('5xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
-      <header
+      <div
         className={cm.cn(
           cm.sp('mb', 6),
           cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' }),
@@ -202,7 +202,7 @@ export function Notifications() {
               : t('notifications.quietHoursOff', {}, { defaultValue: 'Set quiet hours' })}
           </button>
         </div>
-      </header>
+      </div>
 
       <div className={cm.cn(cm.sp('mb', 6), cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }))}>
         {FILTERS.map((f) => (

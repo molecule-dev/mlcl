@@ -348,7 +348,7 @@ export function InstructorCourseEditor() {
                   'bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden',
                 )}
               >
-                <header
+                <div
                   className={cm.cn(
                     'flex items-center justify-between px-6 py-5 bg-surface-container-low',
                   )}
@@ -368,7 +368,7 @@ export function InstructorCourseEditor() {
                       { defaultValue: '{{count}} lectures' },
                     )}
                   </span>
-                </header>
+                </div>
                 {lessons.length === 0 ? (
                   <p
                     data-mol-id="course-editor-empty"

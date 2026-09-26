@@ -61,6 +61,7 @@ export function Landing() {
             cm.sp('px', 6),
             cm.sp('py', 4),
             cm.flex({ align: 'center', justify: 'between' }),
+            'flex-wrap gap-x-4 gap-y-2',
           )}
         >
           <Link
@@ -68,6 +69,7 @@ export function Landing() {
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'sm' }),
               cm.textSize('xl'),
+              'min-w-0 whitespace-nowrap shrink-0',
               'font-extrabold tracking-tight',
             )}
           >
@@ -90,12 +92,15 @@ export function Landing() {
             </span>
             {APP_NAME}
           </Link>
-          <div className={cm.flex({ align: 'center', gap: 'md' })}>
+          <div
+            className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 flex-wrap gap-y-2')}
+          >
             <Link
               to="/pricing"
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('medium'),
+                'hidden sm:inline whitespace-nowrap',
                 'text-on-surface-variant hover:text-on-surface',
               )}
             >
@@ -106,6 +111,7 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('medium'),
+                'hidden sm:inline whitespace-nowrap',
                 'text-on-surface-variant hover:text-on-surface',
               )}
             >
@@ -119,6 +125,7 @@ export function Landing() {
                   cm.sp('py', 2),
                   cm.fontWeight('semibold'),
                   cm.roundedFull,
+                  'whitespace-nowrap shrink-0',
                   'bg-primary text-on-primary hover:bg-primary/90 transition-colors',
                 )}
               >
@@ -131,6 +138,7 @@ export function Landing() {
                   className={cm.cn(
                     cm.textSize('sm'),
                     cm.fontWeight('medium'),
+                    'whitespace-nowrap',
                     'text-on-surface-variant hover:text-on-surface',
                   )}
                 >
@@ -143,6 +151,7 @@ export function Landing() {
                     cm.sp('py', 2),
                     cm.fontWeight('semibold'),
                     cm.roundedFull,
+                    'whitespace-nowrap shrink-0',
                     'bg-primary text-on-primary hover:bg-primary/90 transition-colors',
                   )}
                 >

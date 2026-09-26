@@ -53,6 +53,14 @@ test.describe('accessibility (axe-core)', () => {
   })
 
   test('authenticated home has no serious/critical violations', async ({ page }) => {
+    // The signup redirect passes through /plan-updated, whose payment-
+    // verification poll 404s in sandboxes without a Stripe provider — the
+    // plan-updated.spec.ts annotates the same expected 404. The 404 lands in
+    // THIS test's console because the redirect completes before the poll ends.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404.*verify-payment',
+    })
     await signup(page)
     // signup() may be API-only — the httpOnly cookie is the credential, and the
     // helper leaves navigation to the caller. Without this the page is still

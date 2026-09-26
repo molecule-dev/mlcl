@@ -125,7 +125,7 @@ export function Certificate() {
     <div className={cm.cn('min-h-screen flex flex-col bg-background')}>
       <Header />
       <main className={cm.cn(cm.sp('px', 6), cm.sp('py', 12), 'max-w-5xl mx-auto w-full flex-1')}>
-        <header className={cm.cn('mb-10 text-center')}>
+        <div className={cm.cn('mb-10 text-center')}>
           <p
             className={cm.cn(
               'text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-3',
@@ -150,7 +150,7 @@ export function Certificate() {
               },
             )}
           </p>
-        </header>
+        </div>
 
         {loading ? (
           <p

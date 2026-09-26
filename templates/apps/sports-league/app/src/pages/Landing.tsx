@@ -93,10 +93,17 @@ export function Landing() {
             cm.sp('px', 6),
             cm.sp('py', 4),
             cm.flex({ align: 'center', justify: 'between' }),
+            'flex-wrap gap-x-4 gap-y-2',
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0 shrink')}>
+          <Link
+            to="/"
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              'min-w-0 whitespace-nowrap shrink-0',
+            )}
+          >
             <span
               aria-hidden="true"
               className={cm.cn(
@@ -117,20 +124,21 @@ export function Landing() {
             <span
               className={cm.cn(
                 cm.textSize('xl'),
-                'font-extrabold tracking-tight truncate whitespace-nowrap',
+                'font-extrabold tracking-tight whitespace-nowrap',
               )}
             >
               {APP_NAME}
             </span>
           </Link>
           <div
-            className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'shrink-0 whitespace-nowrap')}
+            className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 whitespace-nowrap')}
           >
             <Link
               to="/pricing"
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
+                'hidden sm:inline',
                 'text-on-surface-variant hover:text-on-surface',
               )}
             >

@@ -49,7 +49,7 @@ export function ForgotPassword() {
           >
             <MeridianBrandHeader />
 
-            <header className={cm.cn(cm.textCenter, cm.flex({ direction: 'col', gap: 'xs' }))}>
+            <div className={cm.cn(cm.textCenter, cm.flex({ direction: 'col', gap: 'xs' }))}>
               <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-on-surface')}>
                 {t('auth.resetPassword.title', {}, { defaultValue: 'Reset your password' })}
               </h2>
@@ -63,7 +63,7 @@ export function ForgotPassword() {
                   },
                 )}
               </p>
-            </header>
+            </div>
 
             {isDone ? (
               <div

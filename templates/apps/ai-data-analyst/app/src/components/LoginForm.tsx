@@ -71,6 +71,7 @@ function LoginForm() {
             className={cm.cn(
               cm.flex({ align: 'center' }),
               cm.sp('pl', 3),
+              cm.sp('pr', 3),
               'absolute inset-y-0 left-0 pointer-events-none',
             )}
           >
@@ -106,6 +107,7 @@ function LoginForm() {
             className={cm.cn(
               cm.flex({ align: 'center' }),
               cm.sp('pl', 3),
+              cm.sp('pr', 3),
               'absolute inset-y-0 left-0 pointer-events-none',
             )}
           >
@@ -132,6 +134,7 @@ function LoginForm() {
           <button
             className={cm.cn(
               cm.flex({ align: 'center' }),
+              cm.sp('pl', 3),
               cm.sp('pr', 3),
               'absolute inset-y-0 right-0 text-on-surface-variant/50 hover:text-primary transition-colors',
             )}

@@ -106,7 +106,7 @@ export function Favorites() {
 
   return (
     <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
-      <header
+      <div
         className={cm.cn(
           cm.sp('mb', 6),
           cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' }),
@@ -164,7 +164,7 @@ export function Favorites() {
             { defaultValue: compareMode ? 'Exit compare' : 'Compare' },
           )}
         </button>
-      </header>
+      </div>
 
       {compareMode && compared.length > 0 ? (
         <section

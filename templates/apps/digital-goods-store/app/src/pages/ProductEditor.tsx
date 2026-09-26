@@ -159,9 +159,7 @@ export function ProductEditor() {
 
   return (
     <div className={cm.cn(cm.sp('p', 8), cm.stack(6))}>
-      <header
-        className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-4')}
-      >
+      <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-4')}>
         <div>
           <Link
             to="/products"
@@ -237,7 +235,7 @@ export function ProductEditor() {
             {t('common.publish', {}, { defaultValue: 'Publish' })}
           </button>
         </div>
-      </header>
+      </div>
 
       {error && (
         <p

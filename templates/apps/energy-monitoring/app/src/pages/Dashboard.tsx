@@ -192,7 +192,7 @@ export function Dashboard() {
       data-mol-id="dashboard-page"
       className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}
     >
-      <header className={cm.flex({ direction: 'col', gap: 'xs' })}>
+      <div className={cm.flex({ direction: 'col', gap: 'xs' })}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -216,7 +216,7 @@ export function Dashboard() {
             { defaultValue: 'Whole-home draw, solar production, and cost so far today.' },
           )}
         </p>
-      </header>
+      </div>
 
       {error ? (
         <p

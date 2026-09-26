@@ -116,7 +116,7 @@ export function VendorOrders() {
 
   return (
     <div className={cm.cn(cm.maxW('full'), cm.mxAuto, cm.sp('p', 8), 'max-w-[1280px] space-y-8')}>
-      <header className={cm.cn(cm.stack(2))}>
+      <div className={cm.cn(cm.stack(2))}>
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -144,7 +144,7 @@ export function VendorOrders() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       <div className={cm.cn(cm.grid({ cols: 2, gap: 'sm' }), 'md:grid-cols-4')}>
         {[

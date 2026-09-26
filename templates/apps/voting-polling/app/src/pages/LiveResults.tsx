@@ -207,7 +207,7 @@ export function LiveResults() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
-      <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
+      <div className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <div className={cm.flex({ align: 'center', gap: 'sm' }) + ' min-w-0'}>
             <Link
@@ -283,7 +283,7 @@ export function LiveResults() {
             {t('liveResults.present', {}, { defaultValue: 'Present' })}
           </Link>
         </div>
-      </header>
+      </div>
 
       <div className={cm.grid({ cols: 4, gap: 'md' })}>
         <QuorumKpiCard
@@ -357,7 +357,7 @@ export function LiveResults() {
             'lg:col-span-4 min-w-0 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
           )}
         >
-          <header className={cm.sp('mb', 4)}>
+          <div className={cm.sp('mb', 4)}>
             <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
               {t('liveResults.streamEyebrow', {}, { defaultValue: 'Vote stream' })}
             </p>
@@ -369,7 +369,7 @@ export function LiveResults() {
             >
               {t('liveResults.streamHeading', {}, { defaultValue: 'Recent ballots' })}
             </h2>
-          </header>
+          </div>
           <ParticipationSparkline
             values={series}
             width={400}

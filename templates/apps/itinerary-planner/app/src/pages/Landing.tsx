@@ -267,7 +267,7 @@ export function Landing() {
 
         <section id="features" className={cm.cn('bg-surface-container-low')}>
           <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}>
-            <header className={cm.cn(cm.maxW('2xl'))}>
+            <div className={cm.cn(cm.maxW('2xl'))}>
               <p
                 className={cm.cn(
                   cm.textSize('xs'),
@@ -296,7 +296,7 @@ export function Landing() {
                   { defaultValue: 'Built for travelers, not spreadsheets.' },
                 )}
               </h2>
-            </header>
+            </div>
             <div className={cm.cn('grid grid-cols-1 md:grid-cols-3 gap-6', cm.sp('mt', 10))}>
               {FEATURE_TRIAD.map((f) => (
                 <article
@@ -346,7 +346,7 @@ export function Landing() {
           id="preview"
           className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}
         >
-          <header
+          <div
             className={cm.cn(
               cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' }),
               cm.sp('mb', 8),
@@ -396,7 +396,7 @@ export function Landing() {
                 arrow_forward
               </span>
             </Link>
-          </header>
+          </div>
           <div className={cm.cn('grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6')}>
             {previewTrips.map((trip) => (
               <TripCoverCard key={trip.id} trip={trip} />
@@ -406,7 +406,7 @@ export function Landing() {
 
         <section className={cm.cn('bg-surface-container-low')}>
           <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}>
-            <header
+            <div
               className={cm.cn(
                 cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' }),
                 cm.sp('mb', 8),
@@ -438,7 +438,7 @@ export function Landing() {
                   )}
                 </h2>
               </div>
-            </header>
+            </div>
             <div className={cm.cn('grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5')}>
               {previewDestinations.map((d) => (
                 <DestinationOrbCard key={d.id} destination={d} />

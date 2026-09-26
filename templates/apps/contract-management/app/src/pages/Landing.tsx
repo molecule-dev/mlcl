@@ -68,6 +68,7 @@ export function Landing() {
             cm.sp('px', 6),
             cm.sp('py', 4),
             cm.flex({ align: 'center', justify: 'between' }),
+            'flex-wrap gap-x-4 gap-y-2',
             cm.mxAuto,
           )}
         >
@@ -76,19 +77,20 @@ export function Landing() {
             className={cm.cn(
               cm.textSize('2xl'),
               cm.fontWeight('extrabold'),
+              'min-w-0 whitespace-nowrap shrink-0',
               'tracking-tight text-on-surface',
             )}
           >
             {APP_NAME}
           </Link>
-          <div className={cm.flex({ align: 'center', gap: 'md' })}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0')}>
             <Link
               to="/pricing"
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
                 // Tap-target floor: bare text links measured 20px tall on phones.
-                'inline-flex items-center py-2 text-on-surface-variant hover:text-on-surface',
+                'hidden sm:inline-flex whitespace-nowrap items-center py-2 text-on-surface-variant hover:text-on-surface',
               )}
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
@@ -100,6 +102,7 @@ export function Landing() {
                   cm.sp('px', 5),
                   cm.sp('py', 2),
                   cm.fontWeight('semibold'),
+                  'whitespace-nowrap shrink-0',
                   'rounded-full bg-gradient-to-br from-sidebar-bg to-[var(--mol-color-primary)] text-white shadow-md transition-transform hover:-translate-y-0.5',
                 )}
               >
@@ -113,7 +116,7 @@ export function Landing() {
                     cm.textSize('sm'),
                     cm.fontWeight('semibold'),
                     // Tap-target floor: bare text links measured 20px tall on phones.
-                    'inline-flex items-center py-2 text-on-surface-variant hover:text-on-surface',
+                    'inline-flex whitespace-nowrap items-center py-2 text-on-surface-variant hover:text-on-surface',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -124,6 +127,7 @@ export function Landing() {
                     cm.sp('px', 5),
                     cm.sp('py', 2),
                     cm.fontWeight('semibold'),
+                    'whitespace-nowrap shrink-0',
                     'rounded-full bg-gradient-to-br from-sidebar-bg to-[var(--mol-color-primary)] text-white shadow-md transition-transform hover:-translate-y-0.5',
                   )}
                 >

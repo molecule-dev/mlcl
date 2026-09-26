@@ -121,7 +121,7 @@ export function PostCard({
           )}
         </div>
         <p className={cm.cn(cm.fontWeight('bold'), cm.textSize('sm'), 'text-on-surface')}>
-          @{author.username}
+          {`@${author.username}`}
         </p>
         {author.displayName && author.displayName !== author.username && (
           <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>

@@ -60,7 +60,7 @@ export function Login() {
   return (
     <AuthShell>
       <BrandHeader />
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.textCenter)}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.textCenter)}>
         <h2
           className={cm.cn(
             cm.textSize('2xl'),
@@ -73,7 +73,7 @@ export function Login() {
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
           {t('login.subtitle', { tagline: APP_TAGLINE }, { defaultValue: '{{tagline}}' })}
         </p>
-      </header>
+      </div>
 
       <form onSubmit={handleSubmit} className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
         <Field
@@ -214,9 +214,9 @@ export function AuthShell({ children }: { children: React.ReactNode }) {
         'bg-gradient-to-br from-background via-primary/5 to-secondary/5 relative overflow-hidden',
       )}
     >
-      <header className={'absolute top-0 right-0 p-6 z-20'}>
+      <div className={'absolute top-0 right-0 p-6 z-20'}>
         <ThemeToggle />
-      </header>
+      </div>
       <div
         className={cm.cn(
           cm.w(80),

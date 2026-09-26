@@ -226,7 +226,7 @@ export function SkylarkHeroSearchCard() {
                   'grid grid-cols-1 md:grid-cols-[1.1fr_1.1fr_1fr_auto] gap-2 items-end',
                 )}
               >
-                <label className={cm.cn(cm.sp('px', 4), cm.sp('py', 2), 'flex flex-col')}>
+                <label className={cm.cn(cm.sp('px', 4), cm.sp('py', 2), 'flex flex-col min-w-0')}>
                   <span
                     className={cm.cn(
                       cm.textSize('xs'),
@@ -252,7 +252,7 @@ export function SkylarkHeroSearchCard() {
                     className={cm.cn(
                       cm.textSize('lg'),
                       cm.fontWeight('bold'),
-                      'bg-transparent border-0 outline-none uppercase tracking-wide placeholder:text-on-surface-variant/60 placeholder:font-medium placeholder:normal-case',
+                      'w-full min-w-0 bg-transparent border-0 outline-none uppercase tracking-wide placeholder:text-on-surface-variant/60 placeholder:font-medium placeholder:normal-case',
                     )}
                     aria-label={t(
                       'skylarkHeroSearchCard.multi.legFromAria',
@@ -261,7 +261,7 @@ export function SkylarkHeroSearchCard() {
                     )}
                   />
                 </label>
-                <label className={cm.cn(cm.sp('px', 4), cm.sp('py', 2), 'flex flex-col')}>
+                <label className={cm.cn(cm.sp('px', 4), cm.sp('py', 2), 'flex flex-col min-w-0')}>
                   <span
                     className={cm.cn(
                       cm.textSize('xs'),
@@ -283,7 +283,7 @@ export function SkylarkHeroSearchCard() {
                     className={cm.cn(
                       cm.textSize('lg'),
                       cm.fontWeight('bold'),
-                      'bg-transparent border-0 outline-none uppercase tracking-wide placeholder:text-on-surface-variant/60 placeholder:font-medium placeholder:normal-case',
+                      'w-full min-w-0 bg-transparent border-0 outline-none uppercase tracking-wide placeholder:text-on-surface-variant/60 placeholder:font-medium placeholder:normal-case',
                     )}
                     aria-label={t(
                       'skylarkHeroSearchCard.multi.legToAria',
@@ -296,7 +296,7 @@ export function SkylarkHeroSearchCard() {
                   className={cm.cn(
                     cm.sp('px', 4),
                     cm.sp('py', 2),
-                    'flex flex-col border-l border-outline-variant/40',
+                    'flex flex-col min-w-0 border-l border-outline-variant/40',
                   )}
                 >
                   <span
@@ -315,7 +315,7 @@ export function SkylarkHeroSearchCard() {
                     className={cm.cn(
                       cm.textSize('base'),
                       cm.fontWeight('semibold'),
-                      'bg-transparent border-0 outline-none',
+                      'w-full min-w-0 bg-transparent border-0 outline-none',
                     )}
                     aria-label={t(
                       'skylarkHeroSearchCard.multi.legDateAria',
@@ -431,7 +431,7 @@ export function SkylarkHeroSearchCard() {
           </>
         ) : (
           <>
-            <label className={cm.cn(cm.sp('px', 4), cm.sp('py', 2), 'flex flex-col')}>
+            <label className={cm.cn(cm.sp('px', 4), cm.sp('py', 2), 'flex flex-col min-w-0')}>
               <span
                 className={cm.cn(
                   cm.textSize('xs'),
@@ -453,7 +453,7 @@ export function SkylarkHeroSearchCard() {
                 className={cm.cn(
                   cm.textSize('lg'),
                   cm.fontWeight('bold'),
-                  'bg-transparent border-0 outline-none uppercase tracking-wide placeholder:text-on-surface-variant/60 placeholder:font-medium placeholder:normal-case',
+                  'w-full min-w-0 bg-transparent border-0 outline-none uppercase tracking-wide placeholder:text-on-surface-variant/60 placeholder:font-medium placeholder:normal-case',
                 )}
                 aria-label={t(
                   'skylarkHeroSearchCard.fromAria',
@@ -482,7 +482,7 @@ export function SkylarkHeroSearchCard() {
                 swap_horiz
               </span>
             </button>
-            <label className={cm.cn(cm.sp('px', 4), cm.sp('py', 2), 'flex flex-col')}>
+            <label className={cm.cn(cm.sp('px', 4), cm.sp('py', 2), 'flex flex-col min-w-0')}>
               <span
                 className={cm.cn(
                   cm.textSize('xs'),
@@ -504,7 +504,7 @@ export function SkylarkHeroSearchCard() {
                 className={cm.cn(
                   cm.textSize('lg'),
                   cm.fontWeight('bold'),
-                  'bg-transparent border-0 outline-none uppercase tracking-wide placeholder:text-on-surface-variant/60 placeholder:font-medium placeholder:normal-case',
+                  'w-full min-w-0 bg-transparent border-0 outline-none uppercase tracking-wide placeholder:text-on-surface-variant/60 placeholder:font-medium placeholder:normal-case',
                 )}
                 aria-label={t(
                   'skylarkHeroSearchCard.toAria',
@@ -517,7 +517,7 @@ export function SkylarkHeroSearchCard() {
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),
-                'flex flex-col border-l border-outline-variant/40',
+                'flex flex-col min-w-0 border-l border-outline-variant/40',
               )}
             >
               <span
@@ -536,7 +536,7 @@ export function SkylarkHeroSearchCard() {
                 className={cm.cn(
                   cm.textSize('base'),
                   cm.fontWeight('semibold'),
-                  'bg-transparent border-0 outline-none',
+                  'w-full min-w-0 bg-transparent border-0 outline-none',
                 )}
                 aria-label={t(
                   'skylarkHeroSearchCard.departAria',
@@ -549,7 +549,7 @@ export function SkylarkHeroSearchCard() {
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),
-                'flex flex-col border-l border-outline-variant/40',
+                'flex flex-col min-w-0 border-l border-outline-variant/40',
               )}
             >
               <span
@@ -569,7 +569,7 @@ export function SkylarkHeroSearchCard() {
                 className={cm.cn(
                   cm.textSize('base'),
                   cm.fontWeight('semibold'),
-                  'bg-transparent border-0 outline-none disabled:opacity-40',
+                  'w-full min-w-0 bg-transparent border-0 outline-none disabled:opacity-40',
                 )}
                 aria-label={t(
                   'skylarkHeroSearchCard.returnAria',
@@ -582,7 +582,7 @@ export function SkylarkHeroSearchCard() {
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),
-                'flex flex-col border-l border-outline-variant/40',
+                'flex flex-col min-w-0 border-l border-outline-variant/40',
               )}
             >
               <span
@@ -600,7 +600,7 @@ export function SkylarkHeroSearchCard() {
                 className={cm.cn(
                   cm.textSize('base'),
                   cm.fontWeight('semibold'),
-                  'bg-transparent border-0 outline-none',
+                  'w-full min-w-0 bg-transparent border-0 outline-none',
                 )}
                 aria-label={t(
                   'skylarkHeroSearchCard.passengersAria',

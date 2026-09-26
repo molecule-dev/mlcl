@@ -109,7 +109,7 @@ export function Login() {
                 { defaultValue: 'you@example.com' },
               )}
               className={cm.cn(
-                'flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
+                'w-0 min-w-0 flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
               )}
             />
           </div>
@@ -152,7 +152,7 @@ export function Login() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder={t('auth.passwordMask', {}, { defaultValue: '••••••••' })}
               className={cm.cn(
-                'flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
+                'w-0 min-w-0 flex-1 bg-transparent border-none focus:outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant',
               )}
             />
             <button

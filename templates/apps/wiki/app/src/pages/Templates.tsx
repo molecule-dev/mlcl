@@ -118,7 +118,7 @@ export function Templates() {
 
   return (
     <div className={cm.stack(10)}>
-      <header className={cm.stack(2)}>
+      <div className={cm.stack(2)}>
         <span
           className={cm.cn(
             cm.textSize('xs'),
@@ -140,7 +140,7 @@ export function Templates() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       {CATEGORIES.map((cat) => (
         <section key={cat.id} className={cm.stack(4)}>

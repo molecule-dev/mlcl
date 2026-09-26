@@ -200,7 +200,7 @@ export function Changelog() {
 
                   aria-hidden="true"
                 >
-                  arrow_drop_up_circle
+                  arrow_drop_up
                 </span>
                 {t(
                   'changelog.voteCount',

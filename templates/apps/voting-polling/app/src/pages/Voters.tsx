@@ -149,7 +149,7 @@ export function Voters() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
-      <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
+      <div className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <p className="text-[10px] font-black uppercase tracking-widest text-primary">
             {t('voters.eyebrow', {}, { defaultValue: 'Eligibility roll' })}
@@ -190,7 +190,7 @@ export function Voters() {
           </span>
           {t('voters.invite', {}, { defaultValue: 'Invite voter' })}
         </button>
-      </header>
+      </div>
 
       {error ? (
         <div
@@ -244,7 +244,7 @@ export function Voters() {
             'lg:col-span-4 min-w-0 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
           )}
         >
-          <header className={cm.sp('mb', 4)}>
+          <div className={cm.sp('mb', 4)}>
             <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
               {t('voters.groupsEyebrow', {}, { defaultValue: 'Organizations' })}
             </p>
@@ -256,7 +256,7 @@ export function Voters() {
             >
               {t('voters.groupsHeading', {}, { defaultValue: 'Most represented' })}
             </h2>
-          </header>
+          </div>
           {orgs.length === 0 ? (
             <p className="text-xs text-on-surface-variant">
               {t('voters.noOrgs', {}, { defaultValue: 'No voters yet — invite your first.' })}
@@ -298,7 +298,7 @@ export function Voters() {
             'lg:col-span-8 min-w-0 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
           )}
         >
-          <header
+          <div
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
               cm.sp('mb', 5),
@@ -343,7 +343,7 @@ export function Voters() {
                 data-test="voters-search"
               />
             </form>
-          </header>
+          </div>
           {loading ? (
             <p className="text-xs text-on-surface-variant" data-test="voters-loading">
               {t('voters.loading', {}, { defaultValue: 'Loading voters…' })}
@@ -480,7 +480,7 @@ export function Voters() {
               'w-full max-w-md rounded-2xl bg-surface-container-lowest shadow-2xl border border-outline-variant/30',
             )}
           >
-            <header className={cm.flex({ align: 'center', justify: 'between' })}>
+            <div className={cm.flex({ align: 'center', justify: 'between' })}>
               <h2
                 className={cm.cn(
                   cm.textSize('lg'),
@@ -499,7 +499,7 @@ export function Voters() {
               >
                 <span className="material-symbols-outlined text-[20px]">close</span>
               </button>
-            </header>
+            </div>
             {inviteError ? (
               <div
                 role="alert"

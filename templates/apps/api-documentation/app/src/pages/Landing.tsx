@@ -334,7 +334,14 @@ export function Landing() {
                 className={cm.cn(
                   'rounded-2xl p-6 hover:shadow-2xl hover:shadow-emerald-500/5 transition-all group border border-surface/10',
                 )}
-                style={{ backgroundColor: 'var(--mol-color-surface)' }}
+                style={{
+                  /* Elevated dark card on the section's dark canvas (same
+                     inverted-token scheme as the hero terminal below) — NOT
+                     `--mol-color-surface`, which is #ffffff in light mode and
+                     rendered these cards white-on-white under the hardcoded
+                     white feature text. */
+                  backgroundColor: 'color-mix(in srgb, white 4%, var(--mol-color-secondary))',
+                }}
               >
                 <div
                   className={cm.cn(

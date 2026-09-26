@@ -63,10 +63,17 @@ export function Landing() {
           cm.flex({ align: 'center', justify: 'between' }),
           cm.sp('px', 8),
           cm.sp('py', 5),
+          'flex-wrap gap-x-4 gap-y-2',
           'sticky top-0 z-30 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30',
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+        <Link
+          to="/"
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'sm' }),
+            'min-w-0 whitespace-nowrap shrink-0',
+          )}
+        >
           <span
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center' }),
@@ -89,6 +96,7 @@ export function Landing() {
         <nav
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'lg' }),
+            'flex-wrap min-w-0 gap-y-2',
             cm.fontWeight('semibold'),
             cm.textSize('sm'),
           )}
@@ -128,6 +136,7 @@ export function Landing() {
                 cm.sp('px', 5),
                 cm.sp('py', 2),
                 cm.fontWeight('bold'),
+                'whitespace-nowrap shrink-0',
                 'bg-gradient-to-br from-primary to-secondary text-white rounded-xl shadow-md shadow-primary/30 hover:scale-[1.02] transition-transform',
               )}
             >
@@ -140,6 +149,7 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('px', 4),
                   cm.sp('py', 2),
+                  'whitespace-nowrap',
                   'text-on-surface-variant hover:text-on-surface transition-colors',
                 )}
               >
@@ -151,6 +161,7 @@ export function Landing() {
                   cm.sp('px', 5),
                   cm.sp('py', 2),
                   cm.fontWeight('bold'),
+                  'whitespace-nowrap shrink-0',
                   'bg-gradient-to-br from-primary to-secondary text-white rounded-xl shadow-md shadow-primary/30 hover:scale-[1.02] transition-transform',
                 )}
               >
@@ -396,7 +407,7 @@ export function Landing() {
       </section>
 
       <section className={cm.cn(cm.sp('px', 8), cm.sp('py', 16), 'bg-surface-container-low')}>
-        <div className={cm.cn(cm.maxW('xl'), cm.stack(12), 'mx-auto')}>
+        <div className={cm.cn('max-w-screen-xl', cm.stack(12), 'mx-auto')}>
           <div className={cm.cn(cm.textCenter, cm.stack(3), cm.maxW('lg'), 'mx-auto')}>
             <span
               className={cm.cn(
@@ -422,7 +433,7 @@ export function Landing() {
               )}
             </h2>
           </div>
-          <div className={cm.cn(cm.grid({ cols: 4, gap: 'lg' }))}>
+          <div className={cm.cn('grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8')}>
             {FEATURES.map((f, idx) => (
               <article
                 key={f.titleKey}

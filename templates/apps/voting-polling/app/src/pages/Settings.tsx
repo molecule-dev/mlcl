@@ -142,7 +142,7 @@ export function Settings() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
-      <header>
+      <div>
         <p className="text-[10px] font-black uppercase tracking-widest text-primary">
           {t('settings.eyebrow', {}, { defaultValue: 'Workspace settings' })}
         </p>
@@ -164,7 +164,7 @@ export function Settings() {
               )
             : t('nav.loadingProfile', {}, { defaultValue: 'Loading profile…' })}
         </p>
-      </header>
+      </div>
 
       {error ? (
         <div
@@ -243,7 +243,7 @@ export function Settings() {
               </p>
             ) : section === 'organization' ? (
               <div className={cm.stack(4)} data-test="settings-organization">
-                <header>
+                <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
                     {t('nav.identity', {}, { defaultValue: 'Identity' })}
                   </p>
@@ -255,7 +255,7 @@ export function Settings() {
                   >
                     {t('settings.org.heading', {}, { defaultValue: 'Profile + organization' })}
                   </h2>
-                </header>
+                </div>
                 <div className={cm.grid({ cols: 2, gap: 'md' })}>
                   <Field
                     label={t('auth.signup.name', {}, { defaultValue: 'Your name' })}
@@ -287,7 +287,7 @@ export function Settings() {
               </div>
             ) : section === 'preferences' ? (
               <div className={cm.stack(4)} data-test="settings-preferences">
-                <header>
+                <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
                     {t('settings.prefs.eyebrow', {}, { defaultValue: 'Display' })}
                   </p>
@@ -299,7 +299,7 @@ export function Settings() {
                   >
                     {t('settings.prefs.heading', {}, { defaultValue: 'Theme + language' })}
                   </h2>
-                </header>
+                </div>
                 <div className={cm.grid({ cols: 2, gap: 'md' })}>
                   <label className={cm.stack(2)}>
                     <span className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
@@ -358,7 +358,7 @@ export function Settings() {
               </div>
             ) : (
               <div className={cm.stack(4)} data-test="settings-notifications">
-                <header>
+                <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
                     {t('settings.notifs.eyebrow', {}, { defaultValue: 'Email + in-app' })}
                   </p>
@@ -374,7 +374,7 @@ export function Settings() {
                       { defaultValue: 'Notification preferences' },
                     )}
                   </h2>
-                </header>
+                </div>
                 <ToggleRow
                   label={t('settings.notifs.pollPublished', {}, { defaultValue: 'Poll published' })}
                   checked={notif.poll_published}

@@ -86,7 +86,7 @@ export function Checkout() {
     <div className={cm.cn(cm.page, cm.flex({ direction: 'col' }), 'min-h-screen')}>
       <Header />
       <main className={cm.cn(cm.mxAuto, cm.sp('px', 6), cm.sp('py', 12), 'w-full max-w-[1100px]')}>
-        <header className={cm.cn(cm.sp('mb', 8))}>
+        <div className={cm.cn(cm.sp('mb', 8))}>
           <p
             className={cm.cn(
               cm.textSize('xs'),
@@ -116,7 +116,7 @@ export function Checkout() {
               },
             )}
           </p>
-        </header>
+        </div>
 
         {items.length === 0 ? (
           <div

@@ -73,12 +73,13 @@ export function Landing() {
             cm.sp('px', 6),
             cm.sp('py', 4),
             cm.flex({ align: 'center', justify: 'between' }),
+            'flex-wrap gap-x-4 gap-y-2',
             cm.mxAuto,
           )}
         >
           <Link
             to="/"
-            className={'text-2xl font-extrabold tracking-tight'}
+            className={'min-w-0 whitespace-nowrap shrink-0 text-2xl font-extrabold tracking-tight'}
             style={{
               fontFamily: 'Playfair Display, Georgia, serif',
               color: 'var(--color-primary)',
@@ -86,11 +87,15 @@ export function Landing() {
           >
             {APP_NAME}
           </Link>
-          <div className={cm.flex({ align: 'center', gap: 'md' })}>
+          <div
+            className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 whitespace-nowrap')}
+          >
             <Link
               to="/pricing"
               data-mol-id="nav-pricing"
-              className={'text-sm font-medium text-on-surface-variant hover:text-on-surface'}
+              className={
+                'hidden sm:inline text-sm font-medium text-on-surface-variant hover:text-on-surface'
+              }
             >
               {t('landing.pricingLink', {}, { defaultValue: 'Pricing' })}
             </Link>
@@ -98,7 +103,7 @@ export function Landing() {
               <Link
                 to="/explore"
                 className={
-                  'px-5 py-2 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
+                  'whitespace-nowrap shrink-0 px-5 py-2 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
                 }
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -107,14 +112,16 @@ export function Landing() {
               <>
                 <Link
                   to="/login"
-                  className={'text-sm font-medium text-on-surface-variant hover:text-on-surface'}
+                  className={
+                    'whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-on-surface'
+                  }
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
                 </Link>
                 <Link
                   to="/signup"
                   className={
-                    'px-5 py-2 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
+                    'whitespace-nowrap shrink-0 px-5 py-2 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
                   }
                 >
                   {t('landing.getStarted', { app: APP_NAME }, { defaultValue: 'Join {{app}}' })}

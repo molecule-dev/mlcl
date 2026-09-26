@@ -52,10 +52,17 @@ export function Landing() {
           cm.flex({ align: 'center', justify: 'between' }),
           cm.sp('px', 6),
           cm.sp('py', 4),
+          'flex-wrap gap-x-4 gap-y-2',
           'border-b border-outline-variant/30 bg-surface',
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+        <Link
+          to="/"
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'sm' }),
+            'min-w-0 whitespace-nowrap shrink-0',
+          )}
+        >
           <img src="/logo.svg" alt="" className={cm.cn(cm.w(8), cm.h(8))} aria-hidden="true" />
           <span
             className={cm.cn(cm.fontWeight('bold'), 'text-2xl tracking-tight')}
@@ -64,7 +71,9 @@ export function Landing() {
             {APP_NAME}
           </span>
         </Link>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+        <div
+          className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 flex-wrap gap-y-2')}
+        >
           <Link
             to="/boards"
             className={cm.cn(
@@ -100,6 +109,7 @@ export function Landing() {
             className={cm.cn(
               cm.fontWeight('semibold'),
               cm.textSize('sm'),
+              'whitespace-nowrap',
               'text-on-surface-variant hover:text-primary transition-colors',
             )}
           >
@@ -113,6 +123,7 @@ export function Landing() {
               cm.textSize('sm'),
               cm.sp('px', 5),
               cm.sp('py', 2),
+              'whitespace-nowrap shrink-0',
               'rounded-full bg-primary text-on-primary hover:bg-primary-active transition-colors',
             )}
           >

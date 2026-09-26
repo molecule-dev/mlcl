@@ -43,7 +43,7 @@ function decorate(row: TraceRow): Record<string, unknown> {
       attributes = {}
     }
   }
-  // The seeded fixture id (e.g. trc_b8d4f1a3c1) doubles as a stable
+  // The seeded fixture id (e.g. trc-b8d4f1a3c1) doubles as a stable
   // public identifier; UI logs reference traces by this value.
   const publicId = (attributes.fixture_id as string | undefined) ?? row.id
   return {
@@ -95,7 +95,7 @@ router.get(
     }
     const idParam = req.params.id
     const id = Array.isArray(idParam) ? idParam[0] : idParam
-    // Look up by the public fixture id first (e.g. trc_b8d4f1a3c1) since
+    // Look up by the public fixture id first (e.g. trc-b8d4f1a3c1) since
     // the UI references traces by that opaque token, not the underlying
     // UUID. Fall back to a UUID lookup if the URL-id parses as a UUID.
     const matches = (await findMany<TraceRow>('traces', {

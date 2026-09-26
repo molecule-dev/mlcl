@@ -128,7 +128,7 @@ export function Sales() {
 
   return (
     <div className={cm.cn(cm.sp('p', 8), cm.stack(8))}>
-      <header>
+      <div>
         <Link
           to="/dashboard"
           data-testid="sales-back"
@@ -163,7 +163,7 @@ export function Sales() {
         >
           {t('sales.title', {}, { defaultValue: 'Sales & licenses' })}
         </h1>
-      </header>
+      </div>
 
       <CreatorStatGrid stats={stats} />
 

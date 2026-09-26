@@ -80,7 +80,7 @@ export default function RecentSalesTable({
 
   return (
     <section className={cm.cn(cm.sp('p', 8), 'rounded-2xl bg-surface-container-lowest shadow-sm')}>
-      <header className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 6))}>
+      <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 6))}>
         <h3 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface')}>
           {title ?? t('recentSalesTable.title', {}, { defaultValue: 'Recent Sales' })}
         </h3>
@@ -94,7 +94,7 @@ export default function RecentSalesTable({
         >
           {t('common.viewAll', {}, { defaultValue: 'View all' })}
         </Link>
-      </header>
+      </div>
       {sales.length === 0 ? (
         <p
           className={cm.cn(

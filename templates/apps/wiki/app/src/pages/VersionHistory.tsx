@@ -163,7 +163,7 @@ export function VersionHistory() {
 
   return (
     <div className={cm.stack(6)} data-testid="version-history-page">
-      <header className={cm.stack(2)}>
+      <div className={cm.stack(2)}>
         <Link
           to={slug ? `/page/${slug}` : '/home'}
           className={cm.cn(cm.textSize('sm'), 'text-primary hover:underline')}
@@ -182,7 +182,7 @@ export function VersionHistory() {
                 { defaultValue: '{{count}} versions · select a row to inspect the diff' },
               )}
         </p>
-      </header>
+      </div>
 
       {error ? (
         <div

@@ -166,7 +166,7 @@ export function Landing() {
                   <Link
                     to="/signup"
                     className={cm.cn(
-                      'inline-flex items-center gap-2 px-8 py-4 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors',
+                      'inline-flex items-center gap-2 px-8 py-4 font-semibold whitespace-nowrap bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors',
                     )}
                   >
                     {t(
@@ -405,7 +405,7 @@ export function Landing() {
             <Link
               to="/signup"
               className={cm.cn(
-                'inline-flex items-center gap-2 px-10 py-4 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors',
+                'inline-flex items-center gap-2 px-10 py-4 font-semibold whitespace-nowrap bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors',
               )}
             >
               {t('landing.heroCta', {}, { defaultValue: 'Start listening — free for 30 days' })}

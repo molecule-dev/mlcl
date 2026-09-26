@@ -436,6 +436,7 @@ export function Landing() {
                 cm.sp('py', 4),
                 cm.fontWeight('bold'),
                 cm.textSize('base'),
+                'whitespace-nowrap',
                 'relative inline-flex rounded-full bg-surface text-primary hover:opacity-95 active:scale-95 transition-all',
               )}
             >

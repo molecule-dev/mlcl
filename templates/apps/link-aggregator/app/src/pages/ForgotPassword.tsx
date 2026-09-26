@@ -33,7 +33,7 @@ export function ForgotPassword() {
   return (
     <AuthShell>
       <BrandHeader />
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.textCenter)}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.textCenter)}>
         <h2
           className={cm.cn(
             cm.textSize('2xl'),
@@ -52,7 +52,7 @@ export function ForgotPassword() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       {submitted ? (
         <div

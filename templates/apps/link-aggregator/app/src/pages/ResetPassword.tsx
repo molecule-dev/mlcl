@@ -47,7 +47,7 @@ export function ResetPassword() {
   return (
     <AuthShell>
       <BrandHeader />
-      <header className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.textCenter)}>
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.textCenter)}>
         <h2
           className={cm.cn(
             cm.textSize('2xl'),
@@ -64,7 +64,7 @@ export function ResetPassword() {
             { defaultValue: 'Choose a strong, unique password to finish unlocking your account.' },
           )}
         </p>
-      </header>
+      </div>
 
       <form onSubmit={handleSubmit} className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
         <Field

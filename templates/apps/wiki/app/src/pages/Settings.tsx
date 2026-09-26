@@ -131,7 +131,7 @@ export function Settings() {
 
   return (
     <div className={cm.stack(8)} data-testid="settings-page">
-      <header className={cm.stack(2)}>
+      <div className={cm.stack(2)}>
         <span
           className={cm.cn(
             cm.textSize('xs'),
@@ -157,7 +157,7 @@ export function Settings() {
             },
           )}
         </p>
-      </header>
+      </div>
 
       {error ? (
         <div
