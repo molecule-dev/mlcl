@@ -307,7 +307,10 @@ export default class Create extends Command {
         await ensureRootNpmrc(projectPath)
         await ensureReadmeMd(projectPath, projectName, flags.type ?? 'full-stack', flags.framework)
         await stampMoleculeMetadata(projectPath)
-        {
+        // A template with no api/ workspace (a static site) gets no api .env:
+        // writing one into a missing directory failed the scaffold (ENOTDIR,
+        // static-site-thin on the platform's host path, 2026-09-26).
+        if (existsSync(join(projectPath, 'api'))) {
           const { generateEnvFile } = await import('../lib/scaffold.js')
           const { collectSecrets } = await import('../lib/features.js')
           const { loadRegistry } = await import('../lib/registry.js')

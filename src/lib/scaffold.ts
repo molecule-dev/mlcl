@@ -5089,7 +5089,11 @@ export async function generateEnvFile(
 
   // Write .env.example alongside .env — key names only, values redacted.
   // This is what a bot sees when it clones the repo (the real .env is gitignored).
-  const examplePath = projectPath.replace(/\.env$/, '.env.example')
+  // projectPath is the workspace DIRECTORY (the .env goes to <dir>/.env below).
+  // Treating it as the .env path wrote the example over the directory path itself,
+  // which made a FILE named `api` for a template with no api/ workspace and then
+  // failed the scaffold with ENOTDIR (static-site-thin, 2026-09-26).
+  const examplePath = join(projectPath, '.env.example')
   const exampleContent = lines.concat(secrets.map((s) => `${s.name}=`)).join('\n')
   try {
     await writeFile(examplePath, exampleContent)
