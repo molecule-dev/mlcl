@@ -20,6 +20,7 @@ import { dirname, join, relative } from 'node:path'
 
 import { marginNotesCss } from '@molecule/app-margin-notes-html'
 
+import { sectionSummaries } from './ai-summaries.js'
 import {
   ABOUT_PATH,
   loadPosts,
@@ -34,8 +35,16 @@ import {
   TRANSCRIPTS_DIR,
 } from './content.js'
 import { siteFiles } from './files.js'
-import { aboutPage, indexPage, notFoundPage, postPage, tagPage, tagsPage } from './pages.js'
-import { humanProvenance, postProvenance, type Provenance } from './provenance.js'
+import {
+  aboutPage,
+  indexPage,
+  notFoundPage,
+  postPage,
+  sectionStarts,
+  tagPage,
+  tagsPage,
+} from './pages.js'
+import { humanProvenance, markdownBlocks, postProvenance, type Provenance } from './provenance.js'
 import { createSite, type Site } from './site.js'
 
 /** One HTML page the build writes. */
@@ -61,9 +70,9 @@ export function sitePages(
     provenance?: Map<string, Provenance>
     /**
      * TL;DR per section per post slug, keyed by section start index
-     * (`sectionStarts` in src/pages.ts). Fill it in `buildSite` from a summarizer,
-     * e.g. `summarizeCached` from `@molecule/api-ai-summarization-llm` with
-     * `{ format: 'tldr', maxWords: 25 }` — it enforces the cap and caches by content.
+     * (`sectionStarts` in src/pages.ts). `buildSite` fills it by calling
+     * `sectionSummaries()` (src/ai-summaries.ts), which summarizes each
+     * section over the bonded AI provider and caches the answers.
      */
     summaries?: Map<string, Record<number, string>>
   } = {},
@@ -111,6 +120,40 @@ function listFiles(dir: string, root = dir): string[] {
   })
 }
 
+/**
+ * A TL;DR for every section of every post that has one to give.
+ *
+ * Summaries are generated in parallel over the bonded AI provider and cached
+ * in `.cache/summaries.json`, so a rebuild only pays for sections whose text
+ * changed. A post whose sections are all too short for a summary is skipped
+ * without calling the model at all.
+ *
+ * @param root - The app root (content/ and the cache live here).
+ * @param sources - Each post's markdown, by slug.
+ * @returns TL;DR per section per slug (see `sitePages`).
+ */
+async function buildSummaries(
+  root: string,
+  sources: Map<string, string>,
+): Promise<Map<string, Record<number, string>>> {
+  const summaries = new Map<string, Record<number, string>>()
+  await Promise.all(
+    [...sources].map(async ([slug, markdown]) => {
+      const blocks = markdownBlocks(markdown)
+      const starts = sectionStarts(blocks)
+      // A section runs from its own block up to the next one, so the model is
+      // given that section and nothing else.
+      const sections = starts.map((index, i) => ({
+        index,
+        text: blocks.slice(index, starts[i + 1] ?? blocks.length).join('\n\n'),
+      }))
+      const filled = await sectionSummaries(root, slug, sections)
+      if (Object.keys(filled).length > 0) summaries.set(slug, filled)
+    }),
+  )
+  return summaries
+}
+
 /** What a build produced. */
 export interface BuildResult {
   /** Every file in the output directory, relative to it, sorted. */
@@ -128,6 +171,8 @@ export interface BuildResult {
  * @param options.basePath - Defaults to BASE_PATH from the environment.
  * @param options.siteUrl - Defaults to SITE_URL from the environment.
  * @param options.summaries - TL;DR per section per post slug (see `sitePages`).
+ *   Left out, the build generates them (see src/ai-summaries.ts); pass `new Map()`
+ *   to build without summaries, e.g. in a test.
  * @returns Every file written, the posts and the URL helpers used.
  */
 export async function buildSite(options: {
@@ -152,7 +197,9 @@ export async function buildSite(options: {
         : humanProvenance(post.markdown),
     )
   }
-  const pages = sitePages(site, posts, { provenance, summaries: options.summaries })
+  const sources = new Map(posts.map((post) => [post.slug, post.markdown]))
+  const summaries = options.summaries ?? (await buildSummaries(root, sources))
+  const pages = sitePages(site, posts, { provenance, summaries })
 
   // Write into a sibling directory and swap it in only when everything was
   // written: a build that fails halfway leaves the previous output intact (the
@@ -176,6 +223,14 @@ export async function buildSite(options: {
     }
     for (const [slug, p] of provenance) {
       write(`${slug}/provenance.json`, JSON.stringify(p, null, 2) + '\n')
+    }
+    // Each post's TL;DRs beside it: the same text the page shows, as data —
+    // keyed by the block index each section starts at.
+    for (const post of posts) {
+      write(
+        `${post.slug}/summaries.json`,
+        JSON.stringify(summaries.get(post.slug) ?? {}, null, 2) + '\n',
+      )
     }
     // The margin-notes layout's stylesheet (post pages with notes), after the site's own.
     const styles = join(staging, 'styles.css')
