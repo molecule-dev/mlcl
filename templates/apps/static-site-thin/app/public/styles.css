@@ -170,12 +170,24 @@ h1 {
 }
 
 .tags a {
+  position: relative;
   display: inline-block;
   padding: 0.15rem 0.5rem;
   border: 1px solid var(--border);
   border-radius: 999px;
   color: var(--muted);
   text-decoration: none;
+}
+
+/* A 44px tap target without a taller pill: an unpainted hit area around it. */
+.tags a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 44px;
+  transform: translateY(-50%);
 }
 
 .tags a:hover {
