@@ -9,7 +9,9 @@
  * `human` or `ai`, with the prompt (as the person typed it) and the model
  * behind every `ai` block, plus the post's AI word share. A post without a
  * transcripts folder gets one too, every block `human` (`humanProvenance`);
- * files in the folder that are not transcripts are skipped.
+ * files in the folder that are not transcripts are skipped. An `ai` block
+ * whose transcript names no model fails the build, naming the file: a Codex
+ * Markdown export never records one, so use that session's rollout `.jsonl`.
  *
  * The attribution is `@molecule/api-text-provenance` with its word-overlap bond;
  * the transcripts are read by `@molecule/api-agent-transcript-autodetect`. To
@@ -96,6 +98,21 @@ export function postProvenance(markdown: string, transcriptDir: string): Provena
     .filter((input) => canReadTranscript(input))
     .map((input) => readTranscript(input))
   const result = attributeText({ paragraphs: blocks, sessions })
+  // Every ai span names its model. A transcript that records none (a Codex
+  // Markdown export never does) fails the build here, naming the file, rather
+  // than publishing an ai paragraph with no model.
+  const unnamed = result.paragraphs.filter((p) => p.origin === 'ai' && !p.model)
+  if (unnamed.length > 0) {
+    const from = files.filter((name) =>
+      unnamed.some((p) =>
+        readFileSync(join(transcriptDir, name), 'utf8').includes((p.prompt ?? '').slice(0, 60)),
+      ),
+    )
+    throw new Error(
+      `${transcriptDir}: ${unnamed.length} ai paragraph(s) came from a transcript that names no model (${from.join(', ') || 'unknown file'}). ` +
+        'Use an export that records the model: for Codex, the session rollout .jsonl (its turn_context carries the model), not the Markdown export.',
+    )
+  }
   return {
     aiShare: result.aiShare,
     words: result.words,
