@@ -2,8 +2,8 @@ import { useMemo } from 'react'
 import { Link, Outlet } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
-import { ResponsiveAppShell } from '@molecule/app-ui-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { useSecurityFindings, useVaultItems } from '../lib/api.js'
