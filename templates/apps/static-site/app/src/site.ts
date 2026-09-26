@@ -10,7 +10,8 @@
  * moment the site is served from a sub-path.
  *
  * SITE_URL: the public origin, for the absolute URLs feeds and sitemaps need.
- * Set VITE_SITE_URL in `.env` (`VITE_SITE_URL=https://example.com`).
+ * Set SITE_URL (or VITE_SITE_URL) at build time, or VITE_SITE_URL in `.env`
+ * (`VITE_SITE_URL=https://example.com`); vite.config.ts copies SITE_URL across.
  */
 
 export const BASE_PATH: string = import.meta.env.BASE_URL || '/'

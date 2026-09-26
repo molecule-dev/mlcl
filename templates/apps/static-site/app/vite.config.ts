@@ -32,6 +32,13 @@ const normalizeBase = (raw: string | undefined): string => {
 }
 const BASE_PATH = normalizeBase(process.env.BASE_PATH)
 
+// SITE_URL — the public origin for feeds, the sitemap and llms.txt. Hosts and
+// deploy tools set SITE_URL; the app reads it as VITE_SITE_URL. Without this,
+// a build that was given SITE_URL published http://localhost:3000 links.
+if (process.env.SITE_URL && !process.env.VITE_SITE_URL) {
+  process.env.VITE_SITE_URL = process.env.SITE_URL
+}
+
 // Discover @molecule/* packages to exclude from pre-bundling.
 // Bond state uses module-level singletons — pre-bundling creates duplicate
 // instances that break the bond system. They're pre-built (.js) so Vite
