@@ -23,7 +23,27 @@ const busboyMiddleware = connectBusboy({
   limits: { files: 1, fileSize: MAX_BYTES, fields: 0 },
 })
 
-router.post('/avatar', busboyMiddleware, (req: Request, res: Response) => {
+// If the app-wide body parser already read this request, busboy would wait forever
+// for a body that never comes. Say so at once instead of hanging (see README:
+// mount this router through `preBodyParser`).
+const requireUnreadBody = (req: Request, res: Response, next: () => void): void => {
+  if (req.readableEnded) {
+    res.status(500).json({
+      error: t(
+        'uploads.error.bodyAlreadyRead',
+        {},
+        {
+          defaultValue:
+            'The upload body was already read by the body parser — mount this router in preBodyParser (api/src/server.ts).',
+        },
+      ),
+    })
+    return
+  }
+  next()
+}
+
+router.post('/avatar', requireUnreadBody, busboyMiddleware, (req: Request, res: Response) => {
   if (!res.locals.session?.userId) {
     res
       .status(401)

@@ -35,6 +35,29 @@ npm install @molecule/app-file-dropzone-react --workspace=app
 The uploaded photo is saved to the **framework `users.avatar` column** (a text column,
 not `avatar_url`) — as the `/api/upload/avatar/<id>` serve URL, not the raw bucket URL.
 
+## Mount the upload router BEFORE the body parser
+
+The app-wide body parser reads every multipart request itself (and drops the
+file), so an upload route mounted in the normal router finds the request already
+read and **waits forever** — the request hangs until the client times out. Mount
+it in `api/src/server.ts` through the `preBodyParser` hook, which runs first:
+
+```ts
+export const create = createServerFactory({
+  setupBonds,
+  runMigrations,
+  getRouter: () => import('./App/router.js'),
+  preBodyParser: async (app) => {
+    const { authorization: userAuthorization } = await import('./App/Resource/User/index.js')
+    const { default: uploadRouter } = await import('./handlers/upload.js')
+    app.use('/api/upload', userAuthorization.verifyMiddleware(), uploadRouter)
+  },
+})
+```
+
+Drop `verifyMiddleware()` for an upload anyone may make (no accounts). Do NOT also
+register the router in `App/router.ts`.
+
 ## Required env (S3 variant)
 
 The `@molecule/api-uploads-s3` bond reads these EXACT names (AWS-prefixed) — not `S3_*`:
