@@ -41,6 +41,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **categories** — `api/src/handlers/categories.ts`
 - **moderation** — `api/src/handlers/moderation.ts`
 - **notifications** — `api/src/handlers/notifications.ts`
+- **preferences** — `api/src/handlers/preferences.ts`
 - **profiles** — `api/src/handlers/profiles.ts`
 - **threads** — `api/src/handlers/threads.ts`
 - **votes** — `api/src/handlers/votes.ts`

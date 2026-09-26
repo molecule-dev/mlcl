@@ -295,11 +295,38 @@ export default class Create extends Command {
       const templateAppPkg = join(templateInstanceDir, 'app', 'package.json')
       const { existsSync } = await import('node:fs')
       if (existsSync(templateAppPkg)) {
-        const { copyTemplateInstance, ensureAgentsMd, ensureRootNpmrc } =
-          await import('../lib/scaffold.js')
+        const {
+          copyTemplateInstance,
+          ensureAgentsMd,
+          ensureReadmeMd,
+          ensureRootNpmrc,
+          stampMoleculeMetadata,
+        } = await import('../lib/scaffold.js')
         await copyTemplateInstance(templateInstanceDir, projectPath, projectName)
         await ensureAgentsMd(projectPath)
         await ensureRootNpmrc(projectPath)
+        await ensureReadmeMd(projectPath, projectName, flags.type ?? 'full-stack', flags.framework)
+        await stampMoleculeMetadata(projectPath)
+        {
+          const { generateEnvFile } = await import('../lib/scaffold.js')
+          const { collectSecrets } = await import('../lib/features.js')
+          const { loadRegistry } = await import('../lib/registry.js')
+
+          const allPackages = loadRegistry()
+          const selectedNames = (flags.packages ?? '')
+            .split(',')
+            .map((s) => s.trim())
+            .filter(Boolean)
+          const explicitPkgMetas = selectedNames
+            .map((name) => allPackages.find((p) => p.name === name))
+            .filter(Boolean)
+          await generateEnvFile(
+            join(projectPath, 'api'),
+            collectSecrets(explicitPkgMetas as never[]),
+            'api',
+            projectName,
+          )
+        }
         if (requestedFramework && requestedFramework !== templateFramework) {
           this.warn(
             `The ${flags.template} template is built with ${templateFramework ?? 'its own framework'}; --framework ${requestedFramework} was not applied. For another framework, create a custom app: mlcl create <name> --type ${flags.type ?? 'full-stack'} --framework ${requestedFramework}.`,
@@ -744,9 +771,12 @@ export default class Create extends Command {
     // the molecule conventions in context on project open. The .npmrc carries
     // legacy-peer-deps so a default `npm install` resolves (see its comment).
     {
-      const { ensureAgentsMd, ensureRootNpmrc } = await import('../lib/scaffold.js')
+      const { ensureAgentsMd, ensureRootNpmrc, ensureReadmeMd, stampMoleculeMetadata } =
+        await import('../lib/scaffold.js')
       await ensureAgentsMd(projectPath)
       await ensureRootNpmrc(projectPath)
+      await ensureReadmeMd(projectPath, projectName, projectType, framework)
+      await stampMoleculeMetadata(projectPath)
     }
 
     spinner?.stop(t('commands.create.spinners.created'))

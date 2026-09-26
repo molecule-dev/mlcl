@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta name="generator" content="Molecule (https://molecule.dev)" />
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -542,231 +543,232 @@
     </script>
     <!-- mol:snapshot-bridge -->
     <script>
-      // molecule:snapshot — post a small downscaled JPEG of the last STABLE render so
-      //   the parent IDE can show a blurred "last working build" frame while the app
-      //   is blank/rebuilding (P2-16). Self-rasterized SAME-ORIGIN (the cross-origin
-      //   parent cannot canvas-capture the iframe), dependency-free, time-budgeted.
-      // molecule:ready (self-heal) — the loading overlay clears ONLY on molecule:ready;
-      //   the baked sender posts it once and suppresses it under a rapid ready/error
-      //   storm, so a dropped/suppressed ready leaves the overlay stuck forever (P2-15).
-      //   This is an INDEPENDENT closure (not subject to that suppression), so it
-      //   re-sends ready on first render and on a periodic "rendered+alive" beat while
-      //   #root has content. The parent treats ready idempotently (double-ready is safe).
-      // No-op outside the IDE iframe (production runs standalone).
-      ;(function () {
-        if (!window.parent || window.parent === window) return
-        // Resolve the app's render root LAZILY on every check: this script may run
-        // (injected in <head>) before the content exists, and imported / SSR apps
-        // often render straight into <body> with no #root/#app wrapper. Falling back
-        // to <body> — instead of capturing #root once and bailing when it is absent —
-        // is what lets molecule:ready fire for those apps (otherwise the IDE loading
-        // overlay sticks forever).
-        function molRoot() {
-          return (
-            document.getElementById('root') ||
-            document.getElementById('app') ||
-            document.body ||
-            null
-          )
-        }
-        function isChrome(el) {
-          return /^(SCRIPT|STYLE|LINK|META|TEMPLATE|BASE|TITLE|NOSCRIPT)$/.test(el.tagName)
-        }
-        function rootHasVisibleContent() {
-          try {
-            var root = molRoot()
-            if (!root) return false
-            if (root !== document.body) {
-              return root.children.length > 0 && root.getBoundingClientRect().height > 10
-            }
-            // Body fallback: require a NON-chrome child (not the injected bridge
-            // <script>s / <style> / <meta>) with real rendered height, so the bridge
-            // tags alone never count as "the app rendered".
-            for (var i = 0; i < root.children.length; i++) {
-              var el = root.children[i]
-              if (isChrome(el)) continue
-              try {
-                if (el.getBoundingClientRect().height > 10) return true
-              } catch (_inner) {
-                // element measurement failed — keep scanning siblings.
+        // molecule:snapshot — post a small downscaled JPEG of the last STABLE render so
+        //   the parent IDE can show a blurred "last working build" frame while the app
+        //   is blank/rebuilding (P2-16). Self-rasterized SAME-ORIGIN (the cross-origin
+        //   parent cannot canvas-capture the iframe), dependency-free, time-budgeted.
+        // molecule:ready (self-heal) — the loading overlay clears ONLY on molecule:ready;
+        //   the baked sender posts it once and suppresses it under a rapid ready/error
+        //   storm, so a dropped/suppressed ready leaves the overlay stuck forever (P2-15).
+        //   This is an INDEPENDENT closure (not subject to that suppression), so it
+        //   re-sends ready on first render and on a periodic "rendered+alive" beat while
+        //   #root has content. The parent treats ready idempotently (double-ready is safe).
+        // No-op outside the IDE iframe (production runs standalone).
+        ;(function () {
+          if (!window.parent || window.parent === window) return
+          // Resolve the app's render root LAZILY on every check: this script may run
+          // (injected in <head>
+      <meta name="generator" content="Molecule (https://molecule.dev)">) before the content exists, and imported / SSR apps
+          // often render straight into <body> with no #root/#app wrapper. Falling back
+          // to <body> — instead of capturing #root once and bailing when it is absent —
+          // is what lets molecule:ready fire for those apps (otherwise the IDE loading
+          // overlay sticks forever).
+          function molRoot() {
+            return (
+              document.getElementById('root') ||
+              document.getElementById('app') ||
+              document.body ||
+              null
+            )
+          }
+          function isChrome(el) {
+            return /^(SCRIPT|STYLE|LINK|META|TEMPLATE|BASE|TITLE|NOSCRIPT)$/.test(el.tagName)
+          }
+          function rootHasVisibleContent() {
+            try {
+              var root = molRoot()
+              if (!root) return false
+              if (root !== document.body) {
+                return root.children.length > 0 && root.getBoundingClientRect().height > 10
               }
+              // Body fallback: require a NON-chrome child (not the injected bridge
+              // <script>s / <style> / <meta>) with real rendered height, so the bridge
+              // tags alone never count as "the app rendered".
+              for (var i = 0; i < root.children.length; i++) {
+                var el = root.children[i]
+                if (isChrome(el)) continue
+                try {
+                  if (el.getBoundingClientRect().height > 10) return true
+                } catch (_inner) {
+                  // element measurement failed — keep scanning siblings.
+                }
+              }
+              return false
+            } catch (_e) {
+              return false
             }
-            return false
-          } catch (_e) {
-            return false
           }
-        }
-        function postReady() {
-          try {
-            window.parent.postMessage({ type: 'molecule:ready' }, '*')
-          } catch (_e) {
-            // Parent gone / cross-origin restriction — safe to ignore.
+          function postReady() {
+            try {
+              window.parent.postMessage({ type: 'molecule:ready' }, '*')
+            } catch (_e) {
+              // Parent gone / cross-origin restriction — safe to ignore.
+            }
           }
-        }
 
-        // --- Self-healing readiness (P2-15) ---
-        // Re-send ready the instant a render first appears (fast overlay clear), and
-        // beat ready every few seconds while content is present so a ready that the
-        // baked sender dropped/suppressed self-heals and the overlay can't stick.
-        var hasContent = false
-        function healReadiness() {
-          var visible = rootHasVisibleContent()
-          if (visible && !hasContent) {
+          // --- Self-healing readiness (P2-15) ---
+          // Re-send ready the instant a render first appears (fast overlay clear), and
+          // beat ready every few seconds while content is present so a ready that the
+          // baked sender dropped/suppressed self-heals and the overlay can't stick.
+          var hasContent = false
+          function healReadiness() {
+            var visible = rootHasVisibleContent()
+            if (visible && !hasContent) {
+              hasContent = true
+              postReady()
+            } else if (!visible && hasContent) {
+              hasContent = false
+            }
+          }
+          if (rootHasVisibleContent()) {
             hasContent = true
             postReady()
-          } else if (!visible && hasContent) {
-            hasContent = false
           }
-        }
-        if (rootHasVisibleContent()) {
-          hasContent = true
-          postReady()
-        }
-        setInterval(function () {
-          if (rootHasVisibleContent()) postReady()
-        }, 4000)
+          setInterval(function () {
+            if (rootHasVisibleContent()) postReady()
+          }, 4000)
 
-        // --- Last-good-frame snapshot (P2-16) ---
-        var SNAPSHOT_MIN_INTERVAL = 4000 // throttle: at most one capture per 4s
-        var SNAPSHOT_DEBOUNCE = 700 // settle: capture 700ms after the last mutation
-        var SNAPSHOT_MAX_WIDTH = 600 // downscale target width (keeps the payload small)
-        var SNAPSHOT_MAX_HEIGHT = 1200 // cap source height for very long pages
-        var lastCapture = 0
-        var capturing = false
-        var debounceTimer = null
+          // --- Last-good-frame snapshot (P2-16) ---
+          var SNAPSHOT_MIN_INTERVAL = 4000 // throttle: at most one capture per 4s
+          var SNAPSHOT_DEBOUNCE = 700 // settle: capture 700ms after the last mutation
+          var SNAPSHOT_MAX_WIDTH = 600 // downscale target width (keeps the payload small)
+          var SNAPSHOT_MAX_HEIGHT = 1200 // cap source height for very long pages
+          var lastCapture = 0
+          var capturing = false
+          var debounceTimer = null
 
-        function bgColor() {
-          // JPEG has no alpha, so the canvas needs an opaque fill or transparent
-          // areas encode as black. Use the app's own background where readable.
-          try {
-            var c = getComputedStyle(document.body).backgroundColor
-            if (c && c !== 'transparent' && c !== 'rgba(0, 0, 0, 0)') return c
-          } catch (_e) {
-            // getComputedStyle unavailable — fall through to the default.
-          }
-          return '#ffffff'
-        }
-        function collectSameOriginCss() {
-          // An SVG <foreignObject> loaded via <img> renders in an ISOLATED context:
-          // the document's <link>/<style> rules do NOT apply, so without this the
-          // raster would be unstyled and useless as a placeholder. Embed same-origin
-          // stylesheet text as one <style>. Cross-origin sheets (e.g. Google Fonts)
-          // throw on cssRules access — skip them (fonts may then substitute, which is
-          // acceptable for a blurred placeholder).
-          var css = ''
-          try {
-            for (var i = 0; i < document.styleSheets.length; i++) {
-              try {
-                var rules = document.styleSheets[i].cssRules
-                if (!rules) continue
-                for (var j = 0; j < rules.length; j++) css += rules[j].cssText
-              } catch (_e) {
-                // Cross-origin stylesheet — not readable; skip it.
-              }
+          function bgColor() {
+            // JPEG has no alpha, so the canvas needs an opaque fill or transparent
+            // areas encode as black. Use the app's own background where readable.
+            try {
+              var c = getComputedStyle(document.body).backgroundColor
+              if (c && c !== 'transparent' && c !== 'rgba(0, 0, 0, 0)') return c
+            } catch (_e) {
+              // getComputedStyle unavailable — fall through to the default.
             }
-          } catch (_e) {
-            // styleSheets unavailable — capture without embedded CSS.
+            return '#ffffff'
           }
-          return css
-        }
-        function capture() {
-          if (capturing) return
-          if (Date.now() - lastCapture < SNAPSHOT_MIN_INTERVAL) return
-          if (!rootHasVisibleContent()) return
-          var root = molRoot()
-          if (!root) return
-          try {
-            capturing = true
-            lastCapture = Date.now()
-            var rect = root.getBoundingClientRect()
-            var srcW = Math.max(1, Math.round(rect.width))
-            var srcH = Math.max(1, Math.min(Math.round(rect.height), SNAPSHOT_MAX_HEIGHT))
-            var scale = Math.min(1, SNAPSHOT_MAX_WIDTH / srcW)
-            var dstW = Math.max(1, Math.round(srcW * scale))
-            var dstH = Math.max(1, Math.round(srcH * scale))
-            // Clone so adding the XHTML namespace + serializing never mutates the
-            // live node (which would retrigger the MutationObserver below).
-            var clone = root.cloneNode(true)
-            clone.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml')
-            var serialized = new XMLSerializer().serializeToString(clone)
-            var css = collectSameOriginCss()
-            var svg =
-              '<svg xmlns="http://www.w3.org/2000/svg" width="' +
-              srcW +
-              '" height="' +
-              srcH +
-              '">' +
-              '<foreignObject x="0" y="0" width="100%" height="100%">' +
-              (css ? '<style>' + css + '</style>' : '') +
-              serialized +
-              '</foreignObject></svg>'
-            var url = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg)
-            var img = new Image()
-            var done = false
-            // Time budget: if the SVG never loads, release the lock so future
-            // captures aren't blocked forever.
-            var safety = setTimeout(function () {
-              if (!done) {
+          function collectSameOriginCss() {
+            // An SVG <foreignObject> loaded via <img> renders in an ISOLATED context:
+            // the document's <link>/<style> rules do NOT apply, so without this the
+            // raster would be unstyled and useless as a placeholder. Embed same-origin
+            // stylesheet text as one <style>. Cross-origin sheets (e.g. Google Fonts)
+            // throw on cssRules access — skip them (fonts may then substitute, which is
+            // acceptable for a blurred placeholder).
+            var css = ''
+            try {
+              for (var i = 0; i < document.styleSheets.length; i++) {
+                try {
+                  var rules = document.styleSheets[i].cssRules
+                  if (!rules) continue
+                  for (var j = 0; j < rules.length; j++) css += rules[j].cssText
+                } catch (_e) {
+                  // Cross-origin stylesheet — not readable; skip it.
+                }
+              }
+            } catch (_e) {
+              // styleSheets unavailable — capture without embedded CSS.
+            }
+            return css
+          }
+          function capture() {
+            if (capturing) return
+            if (Date.now() - lastCapture < SNAPSHOT_MIN_INTERVAL) return
+            if (!rootHasVisibleContent()) return
+            var root = molRoot()
+            if (!root) return
+            try {
+              capturing = true
+              lastCapture = Date.now()
+              var rect = root.getBoundingClientRect()
+              var srcW = Math.max(1, Math.round(rect.width))
+              var srcH = Math.max(1, Math.min(Math.round(rect.height), SNAPSHOT_MAX_HEIGHT))
+              var scale = Math.min(1, SNAPSHOT_MAX_WIDTH / srcW)
+              var dstW = Math.max(1, Math.round(srcW * scale))
+              var dstH = Math.max(1, Math.round(srcH * scale))
+              // Clone so adding the XHTML namespace + serializing never mutates the
+              // live node (which would retrigger the MutationObserver below).
+              var clone = root.cloneNode(true)
+              clone.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml')
+              var serialized = new XMLSerializer().serializeToString(clone)
+              var css = collectSameOriginCss()
+              var svg =
+                '<svg xmlns="http://www.w3.org/2000/svg" width="' +
+                srcW +
+                '" height="' +
+                srcH +
+                '">' +
+                '<foreignObject x="0" y="0" width="100%" height="100%">' +
+                (css ? '<style>' + css + '</style>' : '') +
+                serialized +
+                '</foreignObject></svg>'
+              var url = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg)
+              var img = new Image()
+              var done = false
+              // Time budget: if the SVG never loads, release the lock so future
+              // captures aren't blocked forever.
+              var safety = setTimeout(function () {
+                if (!done) {
+                  done = true
+                  capturing = false
+                }
+              }, 3000)
+              img.onload = function () {
+                if (done) return
                 done = true
+                clearTimeout(safety)
+                try {
+                  var canvas = document.createElement('canvas')
+                  canvas.width = dstW
+                  canvas.height = dstH
+                  var ctx = canvas.getContext('2d')
+                  ctx.fillStyle = bgColor()
+                  ctx.fillRect(0, 0, dstW, dstH)
+                  ctx.drawImage(img, 0, 0, srcW, srcH, 0, 0, dstW, dstH)
+                  // toDataURL THROWS on a tainted canvas (the app drew a cross-origin
+                  // image) — swallow + skip = graceful degradation to today's blank.
+                  var dataUrl = canvas.toDataURL('image/jpeg', 0.6)
+                  window.parent.postMessage({ type: 'molecule:snapshot', dataUrl: dataUrl }, '*')
+                } catch (_e) {
+                  // Tainted canvas or encode failure — skip this frame silently.
+                } finally {
+                  capturing = false
+                }
+              }
+              img.onerror = function () {
+                if (done) return
+                done = true
+                clearTimeout(safety)
                 capturing = false
               }
-            }, 3000)
-            img.onload = function () {
-              if (done) return
-              done = true
-              clearTimeout(safety)
-              try {
-                var canvas = document.createElement('canvas')
-                canvas.width = dstW
-                canvas.height = dstH
-                var ctx = canvas.getContext('2d')
-                ctx.fillStyle = bgColor()
-                ctx.fillRect(0, 0, dstW, dstH)
-                ctx.drawImage(img, 0, 0, srcW, srcH, 0, 0, dstW, dstH)
-                // toDataURL THROWS on a tainted canvas (the app drew a cross-origin
-                // image) — swallow + skip = graceful degradation to today's blank.
-                var dataUrl = canvas.toDataURL('image/jpeg', 0.6)
-                window.parent.postMessage({ type: 'molecule:snapshot', dataUrl: dataUrl }, '*')
-              } catch (_e) {
-                // Tainted canvas or encode failure — skip this frame silently.
-              } finally {
-                capturing = false
-              }
-            }
-            img.onerror = function () {
-              if (done) return
-              done = true
-              clearTimeout(safety)
+              img.src = url
+            } catch (_e) {
               capturing = false
             }
-            img.src = url
-          } catch (_e) {
-            capturing = false
           }
-        }
-        function scheduleCapture() {
-          if (debounceTimer) clearTimeout(debounceTimer)
-          debounceTimer = setTimeout(capture, SNAPSHOT_DEBOUNCE)
-        }
+          function scheduleCapture() {
+            if (debounceTimer) clearTimeout(debounceTimer)
+            debounceTimer = setTimeout(capture, SNAPSHOT_DEBOUNCE)
+          }
 
-        // One observer drives BOTH halves: heal readiness immediately on a content
-        // transition, and (cheaply) debounce a snapshot after the DOM settles. The
-        // callback is coalesced into a single rAF (like the baked sender) so the
-        // per-mutation work stays trivial; the heavy capture runs only in the
-        // throttled, debounced capture() — never synchronously per mutation.
-        var pending = false
-        new MutationObserver(function () {
-          if (pending) return
-          pending = true
-          requestAnimationFrame(function () {
-            pending = false
-            healReadiness()
-            scheduleCapture()
-          })
-        }).observe(molRoot() || document.documentElement, { childList: true, subtree: true })
-        // Capture the initial render too (the app may already be painted here).
-        if (rootHasVisibleContent()) scheduleCapture()
-      })()
+          // One observer drives BOTH halves: heal readiness immediately on a content
+          // transition, and (cheaply) debounce a snapshot after the DOM settles. The
+          // callback is coalesced into a single rAF (like the baked sender) so the
+          // per-mutation work stays trivial; the heavy capture runs only in the
+          // throttled, debounced capture() — never synchronously per mutation.
+          var pending = false
+          new MutationObserver(function () {
+            if (pending) return
+            pending = true
+            requestAnimationFrame(function () {
+              pending = false
+              healReadiness()
+              scheduleCapture()
+            })
+          }).observe(molRoot() || document.documentElement, { childList: true, subtree: true })
+          // Capture the initial render too (the app may already be painted here).
+          if (rootHasVisibleContent()) scheduleCapture()
+        })()
     </script>
     <!-- mol:runtime-bridge -->
     <script>
@@ -875,593 +877,595 @@
     </script>
     <!-- mol:interact-bridge -->
     <script>
-      ;(function () {
-        if (!window.parent || window.parent === window) return
-        var SEL =
-          '[data-mol-id],button,[role="button"],a[href],input,select,textarea,' +
-          '[role="link"],[role="checkbox"],[role="switch"],[role="tab"],[role="menuitem"],' +
-          '[role="option"],[contenteditable="true"],' +
-          // Live regions (toasts / inline errors): NOT interactive, but a rejection shown as a
-          // transient toast was invisible to snapshots and the executor stalled on it.
-          '[role="alert"],[role="status"],[aria-live],' +
-          // Dialog containers: inner buttons showed up but nothing said "a modal is open".
-          'dialog,[role="dialog"],[role="alertdialog"],[role="progressbar"]'
-        var LIVE_SEL = '[role="alert"],[role="status"],[aria-live]'
-        function visible(el) {
-          if (!el || el.hidden) return false
-          var r = el.getBoundingClientRect()
-          if (r.width === 0 && r.height === 0) return false
-          try {
-            var s = (el.ownerDocument.defaultView || window).getComputedStyle(el)
-            if (s.visibility === 'hidden' || s.display === 'none') return false
-          } catch (e) {}
-          return true
-        }
-        function label(el) {
-          var t = ((el.getAttribute && el.getAttribute('aria-label')) || '').trim()
-          if (t) return t.slice(0, 80)
-          var lb = el.getAttribute && el.getAttribute('aria-labelledby')
-          if (lb) {
+        ;(function () {
+          if (!window.parent || window.parent === window) return
+          var SEL =
+            '[data-mol-id],button,[role="button"],a[href],input,select,textarea,' +
+            '[role="link"],[role="checkbox"],[role="switch"],[role="tab"],[role="menuitem"],' +
+            '[role="option"],[contenteditable="true"],' +
+            // Live regions (toasts / inline errors): NOT interactive, but a rejection shown as a
+            // transient toast was invisible to snapshots and the executor stalled on it.
+            '[role="alert"],[role="status"],[aria-live],' +
+            // Dialog containers: inner buttons showed up but nothing said "a modal is open".
+            'dialog,[role="dialog"],[role="alertdialog"],[role="progressbar"]'
+          var LIVE_SEL = '[role="alert"],[role="status"],[aria-live]'
+          function visible(el) {
+            if (!el || el.hidden) return false
+            var r = el.getBoundingClientRect()
+            if (r.width === 0 && r.height === 0) return false
             try {
-              var ref = document.getElementById(lb.split(/\s+/)[0])
-              var rt = ref ? (ref.textContent || '').replace(/\s+/g, ' ').trim() : ''
-              if (rt) return rt.slice(0, 80)
+              var s = (el.ownerDocument.defaultView || window).getComputedStyle(el)
+              if (s.visibility === 'hidden' || s.display === 'none') return false
             } catch (e) {}
+            return true
           }
-          // Associated <label> (for= / wrapping): form inputs usually have empty text and no
-          // placeholder, so fills targeted by the field's VISIBLE label name used to miss.
-          try {
-            if (/^(input|select|textarea)$/i.test(el.tagName)) {
-              var lab = null
-              if (el.id)
-                lab = document.querySelector(
-                  'label[for="' + (window.CSS && CSS.escape ? CSS.escape(el.id) : el.id) + '"]',
-                )
-              if (!lab && el.closest) lab = el.closest('label')
-              var lt = lab ? (lab.textContent || '').replace(/\s+/g, ' ').trim() : ''
-              if (lt) return lt.slice(0, 80)
+          function label(el) {
+            var t = ((el.getAttribute && el.getAttribute('aria-label')) || '').trim()
+            if (t) return t.slice(0, 80)
+            var lb = el.getAttribute && el.getAttribute('aria-labelledby')
+            if (lb) {
+              try {
+                var ref = document.getElementById(lb.split(/\s+/)[0])
+                var rt = ref ? (ref.textContent || '').replace(/\s+/g, ' ').trim() : ''
+                if (rt) return rt.slice(0, 80)
+              } catch (e) {}
             }
-          } catch (e) {}
-          var txt = (el.textContent || '').replace(/\s+/g, ' ').trim()
-          var ph = ((el.getAttribute && el.getAttribute('placeholder')) || '').trim()
-          return (txt || ph || el.value || '').slice(0, 80)
-        }
-        function describe(el) {
-          var o = {
-            molId: el.getAttribute ? el.getAttribute('data-mol-id') : null,
-            tag: (el.tagName || '').toLowerCase(),
-            role: el.getAttribute ? el.getAttribute('role') : null,
-            type: el.getAttribute ? el.getAttribute('type') : null,
-            name: label(el),
-            value: (el.value != null ? String(el.value) : '').slice(0, 120),
-          }
-          if (
-            el.checked === true ||
-            (el.getAttribute && el.getAttribute('aria-checked') === 'true')
-          )
-            o.checked = true
-          if (
-            el.disabled === true ||
-            (el.getAttribute && el.getAttribute('aria-disabled') === 'true')
-          )
-            o.disabled = true
-          // State the executor could not previously see: open dropdowns, the active tab,
-          // the current nav item, and loading regions.
-          if (el.getAttribute) {
-            var ex = el.getAttribute('aria-expanded')
-            if (ex === 'true' || ex === 'false') o.expanded = ex === 'true'
-            if (el.getAttribute('aria-selected') === 'true') o.selected = true
-            var cur = el.getAttribute('aria-current')
-            if (cur && cur !== 'false') o.current = true
-            if (el.getAttribute('aria-busy') === 'true') o.busy = true
-          }
-          return o
-        }
-        function snapshot() {
-          var out = [],
-            els = document.querySelectorAll(SEL),
-            CAP = 120
-          // Count ALL visible interactive elements but only include the first CAP — on a
-          // dense page (a data table of N rows × edit/delete already blows past 120) the
-          // rest were dropped with NO signal, so the executor saw a partial list, missed a
-          // control below the fold, and concluded it was absent. Report the overflow so it
-          // knows there are more (reachable by text=<name> via interact_preview / pageText).
-          var visInteractive = 0
-          for (var i = 0; i < els.length; i++) {
-            var el = els[i]
-            if (!visible(el)) continue
-            var d = describe(el)
-            // Empty live-region containers (a toaster's permanent mount point) are noise —
-            // include live regions only when they carry an actual message.
-            if (!d.name && el.matches && el.matches(LIVE_SEL) && !d.molId) continue
-            visInteractive++
-            if (out.length < CAP) out.push(d)
-          }
-          var interactiveShown = out.length
-          // Significant graphics (>= 48px square): a generated QR code is an img/canvas/svg,
-          // which the interactive list can NEVER show — the executor was told to verify "a QR
-          // is visible" with no way to observe one, concluded the feature was broken, and
-          // tangented. The size floor keeps icon svgs/imgs out. Give media its OWN small
-          // budget so it is never crowded out of the shared list by a dense interactive page.
-          var media = document.querySelectorAll('img,canvas,svg'),
-            mediaShown = 0
-          for (var j = 0; j < media.length && mediaShown < 12; j++) {
-            var mel = media[j]
-            if (!visible(mel)) continue
-            var mr = mel.getBoundingClientRect()
-            if (mr.width < 48 || mr.height < 48) continue
-            var alt =
-              (mel.getAttribute &&
-                (mel.getAttribute('alt') ||
-                  mel.getAttribute('aria-label') ||
-                  mel.getAttribute('title'))) ||
-              ''
-            var src = mel.tagName === 'IMG' ? String(mel.currentSrc || mel.src || '') : ''
-            out.push({
-              tag: mel.tagName.toLowerCase(),
-              role: 'image',
-              name: alt,
-              size: Math.round(mr.width) + 'x' + Math.round(mr.height),
-              src: src
-                ? src.indexOf('data:') === 0
-                  ? src.slice(0, 30) + '… (' + src.length + ' chars)'
-                  : src.slice(0, 120)
-                : undefined,
-            })
-            mediaShown++
-          }
-          // The page's visible TEXT (bounded): headings, instructions, inline form errors
-          // (most apps render these as a plain red <p>, NOT role=alert), empty states, list
-          // contents. The element list alone left the executor blind to all static text —
-          // the systemic gap behind several "it cannot see what the user sees" stalls.
-          var pageText = ''
-          try {
-            pageText = ((document.body && document.body.innerText) || '')
-              .replace(/[\t ]+/g, ' ')
-              .replace(/\n{2,}/g, '\n')
-              .trim()
-              .slice(0, 1500)
-          } catch (e) {}
-          var snap = {
-            url: location.href,
-            title: document.title,
-            pageText: pageText,
-            elements: out,
-          }
-          // Overflow signal: the page has this many MORE visible interactive elements than
-          // the shown list — target them by text=<name> (from pageText) via interact_preview
-          // rather than concluding a control is absent.
-          if (visInteractive > interactiveShown)
-            snap.moreElements = visInteractive - interactiveShown
-          return snap
-        }
-        function recentNet() {
-          // Failed requests captured by the log shim (imported apps) in the last 10s — attached
-          // to every reply so a click that 4xx'd explains itself in the SAME tool result.
-          try {
-            var ring = window.__molNetErrors || [],
-              out = []
-            for (var i = 0; i < ring.length; i++) {
-              if (Date.now() - ring[i].t < 10000) out.push(ring[i].text)
-            }
-            return out.length ? out.slice(-3) : undefined
-          } catch (e) {
-            return undefined
-          }
-        }
-        function findByText(txt) {
-          var want = String(txt).replace(/\s+/g, ' ').trim().toLowerCase()
-          if (!want) return null
-          var els = document.querySelectorAll(SEL)
-          var exact = null,
-            partial = null
-          for (var i = 0; i < els.length; i++) {
-            var el = els[i]
-            if (!visible(el)) continue
-            var have = label(el).toLowerCase()
-            if (!have) continue
-            if (have === want) {
-              if (!exact || exact.contains(el)) exact = el
-            } else if (have.indexOf(want) !== -1) {
-              if (!partial || partial.contains(el)) partial = el
-            }
-          }
-          return exact || partial
-        }
-        function find(cmd) {
-          if (cmd.molId) {
-            var esc =
-              window.CSS && CSS.escape
-                ? CSS.escape(cmd.molId)
-                : String(cmd.molId).replace(/"/g, '\\"')
-            var el = document.querySelector('[data-mol-id="' + esc + '"]')
-            if (el) return el
-          }
-          if (cmd.selector) {
+            // Associated <label> (for= / wrapping): form inputs usually have empty text and no
+            // placeholder, so fills targeted by the field's VISIBLE label name used to miss.
             try {
-              var bySel = document.querySelector(cmd.selector)
-              if (bySel) return bySel
+              if (/^(input|select|textarea)$/i.test(el.tagName)) {
+                var lab = null
+                if (el.id)
+                  lab = document.querySelector(
+                    'label[for="' + (window.CSS && CSS.escape ? CSS.escape(el.id) : el.id) + '"]',
+                  )
+                if (!lab && el.closest) lab = el.closest('label')
+                var lt = lab ? (lab.textContent || '').replace(/\s+/g, ' ').trim() : ''
+                if (lt) return lt.slice(0, 80)
+              }
             } catch (e) {}
+            var txt = (el.textContent || '').replace(/\s+/g, ' ').trim()
+            var ph = ((el.getAttribute && el.getAttribute('placeholder')) || '').trim()
+            return (txt || ph || el.value || '').slice(0, 80)
           }
-          if (cmd.text) return findByText(cmd.text)
-          return null
-        }
-        function missError(cmd) {
-          if (cmd.selector) {
+          function describe(el) {
+            var o = {
+              molId: el.getAttribute ? el.getAttribute('data-mol-id') : null,
+              tag: (el.tagName || '').toLowerCase(),
+              role: el.getAttribute ? el.getAttribute('role') : null,
+              type: el.getAttribute ? el.getAttribute('type') : null,
+              name: label(el),
+              value: (el.value != null ? String(el.value) : '').slice(0, 120),
+            }
+            if (
+              el.checked === true ||
+              (el.getAttribute && el.getAttribute('aria-checked') === 'true')
+            )
+              o.checked = true
+            if (
+              el.disabled === true ||
+              (el.getAttribute && el.getAttribute('aria-disabled') === 'true')
+            )
+              o.disabled = true
+            // State the executor could not previously see: open dropdowns, the active tab,
+            // the current nav item, and loading regions.
+            if (el.getAttribute) {
+              var ex = el.getAttribute('aria-expanded')
+              if (ex === 'true' || ex === 'false') o.expanded = ex === 'true'
+              if (el.getAttribute('aria-selected') === 'true') o.selected = true
+              var cur = el.getAttribute('aria-current')
+              if (cur && cur !== 'false') o.current = true
+              if (el.getAttribute('aria-busy') === 'true') o.busy = true
+            }
+            return o
+          }
+          function snapshot() {
+            var out = [],
+              els = document.querySelectorAll(SEL),
+              CAP = 120
+            // Count ALL visible interactive elements but only include the first CAP — on a
+            // dense page (a data table of N rows × edit/delete already blows past 120) the
+            // rest were dropped with NO signal, so the executor saw a partial list, missed a
+            // control below the fold, and concluded it was absent. Report the overflow so it
+            // knows there are more (reachable by text=<name> via interact_preview / pageText).
+            var visInteractive = 0
+            for (var i = 0; i < els.length; i++) {
+              var el = els[i]
+              if (!visible(el)) continue
+              var d = describe(el)
+              // Empty live-region containers (a toaster's permanent mount point) are noise —
+              // include live regions only when they carry an actual message.
+              if (!d.name && el.matches && el.matches(LIVE_SEL) && !d.molId) continue
+              visInteractive++
+              if (out.length < CAP) out.push(d)
+            }
+            var interactiveShown = out.length
+            // Significant graphics (>= 48px square): a generated QR code is an img/canvas/svg,
+            // which the interactive list can NEVER show — the executor was told to verify "a QR
+            // is visible" with no way to observe one, concluded the feature was broken, and
+            // tangented. The size floor keeps icon svgs/imgs out. Give media its OWN small
+            // budget so it is never crowded out of the shared list by a dense interactive page.
+            var media = document.querySelectorAll('img,canvas,svg'),
+              mediaShown = 0
+            for (var j = 0; j < media.length && mediaShown < 12; j++) {
+              var mel = media[j]
+              if (!visible(mel)) continue
+              var mr = mel.getBoundingClientRect()
+              if (mr.width < 48 || mr.height < 48) continue
+              var alt =
+                (mel.getAttribute &&
+                  (mel.getAttribute('alt') ||
+                    mel.getAttribute('aria-label') ||
+                    mel.getAttribute('title'))) ||
+                ''
+              var src = mel.tagName === 'IMG' ? String(mel.currentSrc || mel.src || '') : ''
+              out.push({
+                tag: mel.tagName.toLowerCase(),
+                role: 'image',
+                name: alt,
+                size: Math.round(mr.width) + 'x' + Math.round(mr.height),
+                src: src
+                  ? src.indexOf('data:') === 0
+                    ? src.slice(0, 30) + '… (' + src.length + ' chars)'
+                    : src.slice(0, 120)
+                  : undefined,
+              })
+              mediaShown++
+            }
+            // The page's visible TEXT (bounded): headings, instructions, inline form errors
+            // (most apps render these as a plain red <p>, NOT role=alert), empty states, list
+            // contents. The element list alone left the executor blind to all static text —
+            // the systemic gap behind several "it cannot see what the user sees" stalls.
+            var pageText = ''
             try {
-              document.querySelector(cmd.selector)
+              pageText = ((document.body && document.body.innerText) || '')
+                .replace(/[\t ]+/g, ' ')
+                .replace(/\n{2,}/g, '\n')
+                .trim()
+                .slice(0, 1500)
+            } catch (e) {}
+            var snap = {
+              url: location.href,
+              title: document.title,
+              pageText: pageText,
+              elements: out,
+            }
+            // Overflow signal: the page has this many MORE visible interactive elements than
+            // the shown list — target them by text=<name> (from pageText) via interact_preview
+            // rather than concluding a control is absent.
+            if (visInteractive > interactiveShown)
+              snap.moreElements = visInteractive - interactiveShown
+            return snap
+          }
+          function recentNet() {
+            // Failed requests captured by the log shim (imported apps) in the last 10s — attached
+            // to every reply so a click that 4xx'd explains itself in the SAME tool result.
+            try {
+              var ring = window.__molNetErrors || [],
+                out = []
+              for (var i = 0; i < ring.length; i++) {
+                if (Date.now() - ring[i].t < 10000) out.push(ring[i].text)
+              }
+              return out.length ? out.slice(-3) : undefined
             } catch (e) {
-              return (
-                'invalid CSS selector: ' +
-                cmd.selector +
-                ' -- this runs document.querySelector, NOT Playwright: pseudo-classes like :has-text() are not supported. Target by text (the visible name from the snapshot) or by molId instead.'
-              )
+              return undefined
             }
           }
-          var tried = []
-          if (cmd.molId) tried.push('molId "' + cmd.molId + '"')
-          if (cmd.selector) tried.push('selector "' + cmd.selector + '"')
-          if (cmd.text) tried.push('text "' + cmd.text + '"')
-          return (
-            'element not found for ' +
-            (tried.join(', ') || 'empty target (no molId, selector, or text given)') +
-            ' -- pick a target from the snapshot: use text with the exact visible name, or the molId when the snapshot shows one.'
-          )
-        }
-        function highlight(el) {
-          try {
-            el.scrollIntoView({ block: 'center' })
-            var prev = el.style.outline
-            el.style.outline = '3px solid #7c3aed'
-            setTimeout(function () {
-              try {
-                el.style.outline = prev
-              } catch (e) {}
-            }, 700)
-          } catch (e) {}
-        }
-        function setNativeValue(el, val) {
-          try {
-            // Use the NATIVE value setter from the CORRECT element prototype so React's
-            // value tracker is bypassed and onChange fires. A <select> needs
-            // HTMLSelectElement.prototype — the input setter throws "Illegal invocation"
-            // on it and the catch below falls back to el.value=, which React's tracker
-            // swallows (no onChange) → the dropdown choice never reaches React state.
-            var proto =
-              el.tagName === 'TEXTAREA'
-                ? window.HTMLTextAreaElement.prototype
-                : el.tagName === 'SELECT'
-                  ? window.HTMLSelectElement.prototype
-                  : window.HTMLInputElement.prototype
-            var desc = Object.getOwnPropertyDescriptor(proto, 'value')
-            if (desc && desc.set) desc.set.call(el, val)
-            else el.value = val
-          } catch (e) {
-            el.value = val
-          }
-          el.dispatchEvent(new Event('input', { bubbles: true }))
-          el.dispatchEvent(new Event('change', { bubbles: true }))
-        }
-        var uiSeen = {},
-          uiResults = {}
-        // When THIS document loaded. The script is injected in <head>, so it is the page's
-        // own age — and the paint gate below is measured from it, NOT from when a command
-        // arrives. That distinction is the whole difference between "wait, it is still
-        // starting up" and "wait forever on a page that is simply blank": budgeted from the
-        // command, every single read of a blank preview paid the full boot grace, which is
-        // exactly when the executor reads it most.
-        var loadedAt = Date.now()
-        // DOM-quiescence signal for the settle below: route transitions, lazy route
-        // chunks (dynamic import — invisible to the fetch shim), and animations mutate
-        // the DOM with ZERO network pending; snapshotting mid-transition made the
-        // executor conclude a click did nothing.
-        var lastMutation = loadedAt
-        try {
-          new MutationObserver(function () {
-            lastMutation = Date.now()
-          }).observe(document.documentElement, {
-            childList: true,
-            subtree: true,
-            attributes: true,
-            characterData: true,
-          })
-        } catch (e) {}
-        // Settle budgets (ms).
-        var BOOT_MS = 8000 // how long after load an empty page still counts as "starting"
-        var NET_MS = 8000 // max wait for in-flight requests to drain
-        var DOM_MS = 4000 // max wait for DOM mutations to stop
-        var QUIET_MS = 300 // mutation-free window that counts as settled
-        var FIND_MS = 3000 // auto-wait for a target that is still mounting
-        // Hard ceiling for ONE command, shared by every gate it passes through. The gates
-        // used to be independent budgets that ADDED UP (paint + find + settle ≈ 32s), which
-        // overran the tool's own wait — a deliberate settle then reported as "the preview is
-        // not drivable", the opposite of what it was for. The server waits 30s (45s to
-        // navigate), so one command must always answer well inside that.
-        var TOTAL_MS = 20000
-        function molRoot() {
-          return (
-            document.getElementById('root') ||
-            document.getElementById('app') ||
-            document.body ||
-            null
-          )
-        }
-        // "The app drew something" — same heuristic the nav bridge uses for molecule:ready:
-        // a non-body root needs children + real height; a body root needs a NON-chrome child
-        // with real height, so the injected bridge tags alone never count as a render.
-        function rootHasContent() {
-          try {
-            var root = molRoot()
-            if (!root) return false
-            if (root !== document.body)
-              return root.children.length > 0 && root.getBoundingClientRect().height > 10
-            for (var i = 0; i < root.children.length; i++) {
-              var el = root.children[i]
-              if (/^(SCRIPT|STYLE|LINK|META|TEMPLATE|BASE|TITLE|NOSCRIPT)$/.test(el.tagName))
-                continue
-              try {
-                if (el.getBoundingClientRect().height > 10) return true
-              } catch (e2) {}
-            }
-            return false
-          } catch (e) {
-            return false
-          }
-        }
-        function present() {
-          return document.readyState !== 'loading' && rootHasContent()
-        }
-        // Whether an empty page is plausibly STILL STARTING rather than simply blank. Age of
-        // the document, not of the command — so the boot grace is paid once per page load,
-        // not on every call for the rest of that page's life.
-        function booting() {
-          return Date.now() - loadedAt < BOOT_MS
-        }
-        // Hidden page (the IDE tab is backgrounded / the browser minimized): browsers
-        // throttle timers here -- Chrome's intensive throttling runs ONE timer tick per
-        // MINUTE -- so any settle wait would overrun the tool's reply window and read as
-        // 'preview not drivable'. Nothing animates in a hidden page anyway: answer
-        // single-shot instead of waiting.
-        function hid() {
-          try {
-            return document.hidden === true
-          } catch (e) {
-            return false
-          }
-        }
-        // Run fn once the page EXISTS (parsed + something rendered) — or as soon as it is
-        // clear it never will, so a broken app is REPORTED broken instead of stalling.
-        function whenPresent(fn, deadline) {
-          ;(function wait() {
-            if (!present() && booting() && Date.now() < deadline && !hid())
-              return setTimeout(wait, 100)
-            fn()
-          })()
-        }
-        // Hold the reply until the page is SETTLED, then snapshot. Two gates, both under the
-        // command's single deadline:
-        //   1. present — the document parsed and the app rendered something (only worth
-        //      waiting for while the page is still booting).
-        //   2. quiet — no requests in flight (NET_MS) and no DOM mutation for QUIET_MS
-        //      (DOM_MS).
-        // When a gate is abandoned on its budget rather than satisfied, the reply says so in
-        // stillSettling — a race must be DISTINGUISHABLE from a genuinely broken page, or the
-        // executor "fixes" the wrong thing.
-        function settleThenReply(id, extra, deadline) {
-          var t0 = Date.now()
-          var end = deadline || t0 + TOTAL_MS
-          ;(function step() {
-            var now = Date.now()
-            if (now < end && !hid()) {
-              if (!present() && booting()) return setTimeout(step, 100)
-              var waited = now - t0
-              var busyNet = (window.__molNetPending || 0) > 0 && waited < NET_MS
-              var busyDom = now - lastMutation < QUIET_MS && waited < DOM_MS
-              if (busyNet || busyDom) return setTimeout(step, 150)
-            }
-            var out = { ok: true, snapshot: snapshot() }
-            if (extra) {
-              for (var k in extra) out[k] = extra[k]
-            }
-            var why = []
-            if (document.readyState === 'loading') why.push('the document was still parsing')
-            if (!rootHasContent())
-              why.push(
-                'the app root is EMPTY — nothing rendered' +
-                  (booting()
-                    ? ' yet'
-                    : ' (this page has been up a while, so it is blank, not still loading — check read_logs for a runtime error)'),
-              )
-            if ((window.__molNetPending || 0) > 0) why.push('requests were still in flight')
-            if (hid())
-              why.push(
-                'the page is backgrounded (browser timers are throttled), so settle waits were skipped',
-              )
-            if (why.length) {
-              out.stillSettling =
-                'Snapshot taken with the page unsettled after ' +
-                Math.round((Date.now() - t0) / 1000) +
-                's: ' +
-                why.join('; ') +
-                '. It may be INCOMPLETE — if the page was still loading, call ' +
-                'read_preview_ui once more before concluding it is blank or a control is missing.'
-            }
-            reply(id, out)
-          })()
-        }
-        function reply(id, obj) {
-          obj.type = 'molecule:ui-result'
-          obj.id = id
-          var rn = recentNet()
-          if (rn) obj.recentNetworkErrors = rn
-          // Set by the log bridge when a dynamic app-module import failed on this page
-          // (see noteDeadPage): the DOM below may be a non-interactive leftover shell.
-          try {
-            if (window.__molPageDead) {
-              obj.pageDead =
-                'A module import failed on this page (' +
-                window.__molPageDead +
-                ') so its JS may no longer run: clicks/fills can silently do NOTHING. Call reload_preview, then read_preview_ui again — do not keep interacting with this snapshot.'
-            }
-          } catch (e) {}
-          if (id) uiResults[id] = obj
-          try {
-            window.parent.postMessage(obj, '*')
-          } catch (e) {}
-        }
-        function run(cmd) {
-          var id = cmd.id
-          // ONE deadline for the whole command, shared by every gate below.
-          var deadline = Date.now() + TOTAL_MS
-          // Navigation: only the document the host navigated TO may answer. The page being
-          // navigated AWAY from is still in the iframe when the command arrives, and it used
-          // to answer first with a pre-navigation snapshot — so the executor "verified" the
-          // screen it had just left. The host stamps minLoadedAt ONLY when a new document is
-          // genuinely loading, so an outgoing document just stays quiet and the host's
-          // re-post reaches the new one. Deterministic: no path or timing guesswork, and a
-          // redirect (an auth guard) is answered as soon as it renders instead of waiting.
-          if (cmd.minLoadedAt && loadedAt < cmd.minLoadedAt) return
-          // snapshot — read_preview_ui, AND the reply the host enqueues for navigate_preview.
-          // It used to answer SYNCHRONOUSLY, which is the biggest source of "the page never
-          // loaded" false alarms: this script is injected in <head>, so after a navigate or
-          // reload the FRESH document's bridge answers the host's re-post while the framework
-          // is still booting — empty root, empty pageText, zero elements. Settle first.
-          if (cmd.action === 'snapshot') return settleThenReply(id, null, deadline)
-          if (cmd.action === 'waitFor') {
-            var waitEnd = Math.min(Date.now() + Math.min(cmd.timeoutMs || 8000, 15000), deadline)
-            ;(function poll() {
-              var el = find(cmd)
-              // Found is not the same as done — the element can appear a frame before the
-              // data it renders, so settle before reporting what the screen shows.
-              if (el && visible(el)) return settleThenReply(id, { found: true }, deadline)
-              if (Date.now() > waitEnd || hid())
-                return reply(id, {
-                  ok: false,
-                  error: 'timeout: ' + missError(cmd),
-                  snapshot: snapshot(),
-                })
-              setTimeout(poll, 200)
-            })()
-            return
-          }
-          // scroll — the reading position is state too: a sticky bar, a panel that follows
-          // the reader, a lazily rendered section can only be CHECKED by scrolling. With a
-          // target, scroll it into view; without one, value is 'top' | 'bottom' | a pixel
-          // offset. Replies with the settled snapshot (pageText includes fixed/sticky text).
-          if (cmd.action === 'scroll') {
-            whenPresent(function () {
-              var target = cmd.molId || cmd.selector || cmd.text ? find(cmd) : null
-              if ((cmd.molId || cmd.selector || cmd.text) && !target)
-                return reply(id, { ok: false, error: missError(cmd), snapshot: snapshot() })
-              try {
-                if (target) {
-                  highlight(target)
-                  target.scrollIntoView({ block: 'start' })
-                } else {
-                  var v = String(cmd.value == null ? 'bottom' : cmd.value)
-                    .trim()
-                    .toLowerCase()
-                  var y =
-                    v === 'top'
-                      ? 0
-                      : v === 'bottom'
-                        ? document.documentElement.scrollHeight
-                        : Number(v)
-                  if (!isFinite(y))
-                    return reply(id, {
-                      ok: false,
-                      error: 'scroll value must be top, bottom or a pixel offset (got ' + v + ')',
-                    })
-                  window.scrollTo(0, y)
-                }
-              } catch (e) {
-                return reply(id, {
-                  ok: false,
-                  error: String((e && e.message) || e),
-                  snapshot: snapshot(),
-                })
+          function findByText(txt) {
+            var want = String(txt).replace(/\s+/g, ' ').trim().toLowerCase()
+            if (!want) return null
+            var els = document.querySelectorAll(SEL)
+            var exact = null,
+              partial = null
+            for (var i = 0; i < els.length; i++) {
+              var el = els[i]
+              if (!visible(el)) continue
+              var have = label(el).toLowerCase()
+              if (!have) continue
+              if (have === want) {
+                if (!exact || exact.contains(el)) exact = el
+              } else if (have.indexOf(want) !== -1) {
+                if (!partial || partial.contains(el)) partial = el
               }
-              // Let scroll-driven UI (observers, sticky positioning) react before reading.
-              setTimeout(function () {
-                settleThenReply(
-                  id,
-                  {
-                    scrollY: Math.round(window.scrollY),
-                    scrollHeight: document.documentElement.scrollHeight,
-                    viewportHeight: window.innerHeight,
-                  },
-                  deadline,
+            }
+            return exact || partial
+          }
+          function find(cmd) {
+            if (cmd.molId) {
+              var esc =
+                window.CSS && CSS.escape
+                  ? CSS.escape(cmd.molId)
+                  : String(cmd.molId).replace(/"/g, '\\"')
+              var el = document.querySelector('[data-mol-id="' + esc + '"]')
+              if (el) return el
+            }
+            if (cmd.selector) {
+              try {
+                var bySel = document.querySelector(cmd.selector)
+                if (bySel) return bySel
+              } catch (e) {}
+            }
+            if (cmd.text) return findByText(cmd.text)
+            return null
+          }
+          function missError(cmd) {
+            if (cmd.selector) {
+              try {
+                document.querySelector(cmd.selector)
+              } catch (e) {
+                return (
+                  'invalid CSS selector: ' +
+                  cmd.selector +
+                  ' -- this runs document.querySelector, NOT Playwright: pseudo-classes like :has-text() are not supported. Target by text (the visible name from the snapshot) or by molId instead.'
                 )
-              }, 450)
-            }, deadline)
-            return
+              }
+            }
+            var tried = []
+            if (cmd.molId) tried.push('molId "' + cmd.molId + '"')
+            if (cmd.selector) tried.push('selector "' + cmd.selector + '"')
+            if (cmd.text) tried.push('text "' + cmd.text + '"')
+            return (
+              'element not found for ' +
+              (tried.join(', ') || 'empty target (no molId, selector, or text given)') +
+              ' -- pick a target from the snapshot: use text with the exact visible name, or the molId when the snapshot shows one.'
+            )
           }
-          // click / fill / select — never act on a page that has not rendered yet, and
-          // auto-wait for a target that is still mounting (a lazy route chunk, a
-          // data-gated render). Answering "element not found" the instant the command
-          // landed made the executor conclude the control does not exist.
-          whenPresent(function () {
-            var findEnd = Math.min(Date.now() + FIND_MS, deadline)
-            ;(function act() {
-              var el = find(cmd)
-              if (!el) {
-                if (Date.now() < findEnd && !hid()) return setTimeout(act, 150)
-                return reply(id, { ok: false, error: missError(cmd), snapshot: snapshot() })
-              }
-              highlight(el)
-              try {
-                if (cmd.action === 'click') el.click()
-                else if (cmd.action === 'fill' || cmd.action === 'select') {
-                  try {
-                    el.focus()
-                  } catch (e) {}
-                  setNativeValue(el, cmd.value == null ? '' : String(cmd.value))
-                } else return reply(id, { ok: false, error: 'unknown action: ' + cmd.action })
-              } catch (e) {
-                return reply(id, {
-                  ok: false,
-                  error: String((e && e.message) || e),
-                  snapshot: snapshot(),
-                })
-              }
-              // Post-action settle: a fixed 250ms raced the API round-trip a click triggers —
-              // the snapshot showed the PRE-result UI (no QR yet) and the executor declared
-              // failure. A minimum beat first (handlers may start work a frame later), then
-              // the shared present+quiet gate above, which also covers a click that starts a
-              // route transition (the new route's chunk, fetch, and render all land well
-              // after the old 1.5s DOM cap gave up).
-              if (hid()) return settleThenReply(id, null, deadline)
+          function highlight(el) {
+            try {
+              el.scrollIntoView({ block: 'center' })
+              var prev = el.style.outline
+              el.style.outline = '3px solid #7c3aed'
               setTimeout(function () {
-                settleThenReply(id, null, deadline)
-              }, 350)
+                try {
+                  el.style.outline = prev
+                } catch (e) {}
+              }, 700)
+            } catch (e) {}
+          }
+          function setNativeValue(el, val) {
+            try {
+              // Use the NATIVE value setter from the CORRECT element prototype so React's
+              // value tracker is bypassed and onChange fires. A <select> needs
+              // HTMLSelectElement.prototype — the input setter throws "Illegal invocation"
+              // on it and the catch below falls back to el.value=, which React's tracker
+              // swallows (no onChange) → the dropdown choice never reaches React state.
+              var proto =
+                el.tagName === 'TEXTAREA'
+                  ? window.HTMLTextAreaElement.prototype
+                  : el.tagName === 'SELECT'
+                    ? window.HTMLSelectElement.prototype
+                    : window.HTMLInputElement.prototype
+              var desc = Object.getOwnPropertyDescriptor(proto, 'value')
+              if (desc && desc.set) desc.set.call(el, val)
+              else el.value = val
+            } catch (e) {
+              el.value = val
+            }
+            el.dispatchEvent(new Event('input', { bubbles: true }))
+            el.dispatchEvent(new Event('change', { bubbles: true }))
+          }
+          var uiSeen = {},
+            uiResults = {}
+          // When THIS document loaded. The script is injected in <head>
+      <meta name="generator" content="Molecule (https://molecule.dev)">, so it is the page's
+          // own age — and the paint gate below is measured from it, NOT from when a command
+          // arrives. That distinction is the whole difference between "wait, it is still
+          // starting up" and "wait forever on a page that is simply blank": budgeted from the
+          // command, every single read of a blank preview paid the full boot grace, which is
+          // exactly when the executor reads it most.
+          var loadedAt = Date.now()
+          // DOM-quiescence signal for the settle below: route transitions, lazy route
+          // chunks (dynamic import — invisible to the fetch shim), and animations mutate
+          // the DOM with ZERO network pending; snapshotting mid-transition made the
+          // executor conclude a click did nothing.
+          var lastMutation = loadedAt
+          try {
+            new MutationObserver(function () {
+              lastMutation = Date.now()
+            }).observe(document.documentElement, {
+              childList: true,
+              subtree: true,
+              attributes: true,
+              characterData: true,
+            })
+          } catch (e) {}
+          // Settle budgets (ms).
+          var BOOT_MS = 8000 // how long after load an empty page still counts as "starting"
+          var NET_MS = 8000 // max wait for in-flight requests to drain
+          var DOM_MS = 4000 // max wait for DOM mutations to stop
+          var QUIET_MS = 300 // mutation-free window that counts as settled
+          var FIND_MS = 3000 // auto-wait for a target that is still mounting
+          // Hard ceiling for ONE command, shared by every gate it passes through. The gates
+          // used to be independent budgets that ADDED UP (paint + find + settle ≈ 32s), which
+          // overran the tool's own wait — a deliberate settle then reported as "the preview is
+          // not drivable", the opposite of what it was for. The server waits 30s (45s to
+          // navigate), so one command must always answer well inside that.
+          var TOTAL_MS = 20000
+          function molRoot() {
+            return (
+              document.getElementById('root') ||
+              document.getElementById('app') ||
+              document.body ||
+              null
+            )
+          }
+          // "The app drew something" — same heuristic the nav bridge uses for molecule:ready:
+          // a non-body root needs children + real height; a body root needs a NON-chrome child
+          // with real height, so the injected bridge tags alone never count as a render.
+          function rootHasContent() {
+            try {
+              var root = molRoot()
+              if (!root) return false
+              if (root !== document.body)
+                return root.children.length > 0 && root.getBoundingClientRect().height > 10
+              for (var i = 0; i < root.children.length; i++) {
+                var el = root.children[i]
+                if (/^(SCRIPT|STYLE|LINK|META|TEMPLATE|BASE|TITLE|NOSCRIPT)$/.test(el.tagName))
+                  continue
+                try {
+                  if (el.getBoundingClientRect().height > 10) return true
+                } catch (e2) {}
+              }
+              return false
+            } catch (e) {
+              return false
+            }
+          }
+          function present() {
+            return document.readyState !== 'loading' && rootHasContent()
+          }
+          // Whether an empty page is plausibly STILL STARTING rather than simply blank. Age of
+          // the document, not of the command — so the boot grace is paid once per page load,
+          // not on every call for the rest of that page's life.
+          function booting() {
+            return Date.now() - loadedAt < BOOT_MS
+          }
+          // Hidden page (the IDE tab is backgrounded / the browser minimized): browsers
+          // throttle timers here -- Chrome's intensive throttling runs ONE timer tick per
+          // MINUTE -- so any settle wait would overrun the tool's reply window and read as
+          // 'preview not drivable'. Nothing animates in a hidden page anyway: answer
+          // single-shot instead of waiting.
+          function hid() {
+            try {
+              return document.hidden === true
+            } catch (e) {
+              return false
+            }
+          }
+          // Run fn once the page EXISTS (parsed + something rendered) — or as soon as it is
+          // clear it never will, so a broken app is REPORTED broken instead of stalling.
+          function whenPresent(fn, deadline) {
+            ;(function wait() {
+              if (!present() && booting() && Date.now() < deadline && !hid())
+                return setTimeout(wait, 100)
+              fn()
             })()
-          }, deadline)
-        }
-        window.addEventListener('message', function (event) {
-          if (event.source !== window.parent) return
-          var d = event.data
-          if (!d || d.type !== 'molecule:ui-command') return
-          // Idempotent retries: the host re-sends a command until it gets a reply (the iframe/bridge
-          // is often mid-mount or mid-reload — after navigate_preview — when it first fires, so a
-          // single postMessage is dropped). Re-send the cached result if already done; ignore a
-          // retry that lands while still in progress so a click/fill NEVER double-fires.
-          if (d.id) {
-            if (uiResults[d.id]) {
-              try {
-                window.parent.postMessage(uiResults[d.id], '*')
-              } catch (e) {}
+          }
+          // Hold the reply until the page is SETTLED, then snapshot. Two gates, both under the
+          // command's single deadline:
+          //   1. present — the document parsed and the app rendered something (only worth
+          //      waiting for while the page is still booting).
+          //   2. quiet — no requests in flight (NET_MS) and no DOM mutation for QUIET_MS
+          //      (DOM_MS).
+          // When a gate is abandoned on its budget rather than satisfied, the reply says so in
+          // stillSettling — a race must be DISTINGUISHABLE from a genuinely broken page, or the
+          // executor "fixes" the wrong thing.
+          function settleThenReply(id, extra, deadline) {
+            var t0 = Date.now()
+            var end = deadline || t0 + TOTAL_MS
+            ;(function step() {
+              var now = Date.now()
+              if (now < end && !hid()) {
+                if (!present() && booting()) return setTimeout(step, 100)
+                var waited = now - t0
+                var busyNet = (window.__molNetPending || 0) > 0 && waited < NET_MS
+                var busyDom = now - lastMutation < QUIET_MS && waited < DOM_MS
+                if (busyNet || busyDom) return setTimeout(step, 150)
+              }
+              var out = { ok: true, snapshot: snapshot() }
+              if (extra) {
+                for (var k in extra) out[k] = extra[k]
+              }
+              var why = []
+              if (document.readyState === 'loading') why.push('the document was still parsing')
+              if (!rootHasContent())
+                why.push(
+                  'the app root is EMPTY — nothing rendered' +
+                    (booting()
+                      ? ' yet'
+                      : ' (this page has been up a while, so it is blank, not still loading — check read_logs for a runtime error)'),
+                )
+              if ((window.__molNetPending || 0) > 0) why.push('requests were still in flight')
+              if (hid())
+                why.push(
+                  'the page is backgrounded (browser timers are throttled), so settle waits were skipped',
+                )
+              if (why.length) {
+                out.stillSettling =
+                  'Snapshot taken with the page unsettled after ' +
+                  Math.round((Date.now() - t0) / 1000) +
+                  's: ' +
+                  why.join('; ') +
+                  '. It may be INCOMPLETE — if the page was still loading, call ' +
+                  'read_preview_ui once more before concluding it is blank or a control is missing.'
+              }
+              reply(id, out)
+            })()
+          }
+          function reply(id, obj) {
+            obj.type = 'molecule:ui-result'
+            obj.id = id
+            var rn = recentNet()
+            if (rn) obj.recentNetworkErrors = rn
+            // Set by the log bridge when a dynamic app-module import failed on this page
+            // (see noteDeadPage): the DOM below may be a non-interactive leftover shell.
+            try {
+              if (window.__molPageDead) {
+                obj.pageDead =
+                  'A module import failed on this page (' +
+                  window.__molPageDead +
+                  ') so its JS may no longer run: clicks/fills can silently do NOTHING. Call reload_preview, then read_preview_ui again — do not keep interacting with this snapshot.'
+              }
+            } catch (e) {}
+            if (id) uiResults[id] = obj
+            try {
+              window.parent.postMessage(obj, '*')
+            } catch (e) {}
+          }
+          function run(cmd) {
+            var id = cmd.id
+            // ONE deadline for the whole command, shared by every gate below.
+            var deadline = Date.now() + TOTAL_MS
+            // Navigation: only the document the host navigated TO may answer. The page being
+            // navigated AWAY from is still in the iframe when the command arrives, and it used
+            // to answer first with a pre-navigation snapshot — so the executor "verified" the
+            // screen it had just left. The host stamps minLoadedAt ONLY when a new document is
+            // genuinely loading, so an outgoing document just stays quiet and the host's
+            // re-post reaches the new one. Deterministic: no path or timing guesswork, and a
+            // redirect (an auth guard) is answered as soon as it renders instead of waiting.
+            if (cmd.minLoadedAt && loadedAt < cmd.minLoadedAt) return
+            // snapshot — read_preview_ui, AND the reply the host enqueues for navigate_preview.
+            // It used to answer SYNCHRONOUSLY, which is the biggest source of "the page never
+            // loaded" false alarms: this script is injected in <head>
+      <meta name="generator" content="Molecule (https://molecule.dev)">, so after a navigate or
+            // reload the FRESH document's bridge answers the host's re-post while the framework
+            // is still booting — empty root, empty pageText, zero elements. Settle first.
+            if (cmd.action === 'snapshot') return settleThenReply(id, null, deadline)
+            if (cmd.action === 'waitFor') {
+              var waitEnd = Math.min(Date.now() + Math.min(cmd.timeoutMs || 8000, 15000), deadline)
+              ;(function poll() {
+                var el = find(cmd)
+                // Found is not the same as done — the element can appear a frame before the
+                // data it renders, so settle before reporting what the screen shows.
+                if (el && visible(el)) return settleThenReply(id, { found: true }, deadline)
+                if (Date.now() > waitEnd || hid())
+                  return reply(id, {
+                    ok: false,
+                    error: 'timeout: ' + missError(cmd),
+                    snapshot: snapshot(),
+                  })
+                setTimeout(poll, 200)
+              })()
               return
             }
-            if (uiSeen[d.id]) return
-            uiSeen[d.id] = true
+            // scroll — the reading position is state too: a sticky bar, a panel that follows
+            // the reader, a lazily rendered section can only be CHECKED by scrolling. With a
+            // target, scroll it into view; without one, value is 'top' | 'bottom' | a pixel
+            // offset. Replies with the settled snapshot (pageText includes fixed/sticky text).
+            if (cmd.action === 'scroll') {
+              whenPresent(function () {
+                var target = cmd.molId || cmd.selector || cmd.text ? find(cmd) : null
+                if ((cmd.molId || cmd.selector || cmd.text) && !target)
+                  return reply(id, { ok: false, error: missError(cmd), snapshot: snapshot() })
+                try {
+                  if (target) {
+                    highlight(target)
+                    target.scrollIntoView({ block: 'start' })
+                  } else {
+                    var v = String(cmd.value == null ? 'bottom' : cmd.value)
+                      .trim()
+                      .toLowerCase()
+                    var y =
+                      v === 'top'
+                        ? 0
+                        : v === 'bottom'
+                          ? document.documentElement.scrollHeight
+                          : Number(v)
+                    if (!isFinite(y))
+                      return reply(id, {
+                        ok: false,
+                        error: 'scroll value must be top, bottom or a pixel offset (got ' + v + ')',
+                      })
+                    window.scrollTo(0, y)
+                  }
+                } catch (e) {
+                  return reply(id, {
+                    ok: false,
+                    error: String((e && e.message) || e),
+                    snapshot: snapshot(),
+                  })
+                }
+                // Let scroll-driven UI (observers, sticky positioning) react before reading.
+                setTimeout(function () {
+                  settleThenReply(
+                    id,
+                    {
+                      scrollY: Math.round(window.scrollY),
+                      scrollHeight: document.documentElement.scrollHeight,
+                      viewportHeight: window.innerHeight,
+                    },
+                    deadline,
+                  )
+                }, 450)
+              }, deadline)
+              return
+            }
+            // click / fill / select — never act on a page that has not rendered yet, and
+            // auto-wait for a target that is still mounting (a lazy route chunk, a
+            // data-gated render). Answering "element not found" the instant the command
+            // landed made the executor conclude the control does not exist.
+            whenPresent(function () {
+              var findEnd = Math.min(Date.now() + FIND_MS, deadline)
+              ;(function act() {
+                var el = find(cmd)
+                if (!el) {
+                  if (Date.now() < findEnd && !hid()) return setTimeout(act, 150)
+                  return reply(id, { ok: false, error: missError(cmd), snapshot: snapshot() })
+                }
+                highlight(el)
+                try {
+                  if (cmd.action === 'click') el.click()
+                  else if (cmd.action === 'fill' || cmd.action === 'select') {
+                    try {
+                      el.focus()
+                    } catch (e) {}
+                    setNativeValue(el, cmd.value == null ? '' : String(cmd.value))
+                  } else return reply(id, { ok: false, error: 'unknown action: ' + cmd.action })
+                } catch (e) {
+                  return reply(id, {
+                    ok: false,
+                    error: String((e && e.message) || e),
+                    snapshot: snapshot(),
+                  })
+                }
+                // Post-action settle: a fixed 250ms raced the API round-trip a click triggers —
+                // the snapshot showed the PRE-result UI (no QR yet) and the executor declared
+                // failure. A minimum beat first (handlers may start work a frame later), then
+                // the shared present+quiet gate above, which also covers a click that starts a
+                // route transition (the new route's chunk, fetch, and render all land well
+                // after the old 1.5s DOM cap gave up).
+                if (hid()) return settleThenReply(id, null, deadline)
+                setTimeout(function () {
+                  settleThenReply(id, null, deadline)
+                }, 350)
+              })()
+            }, deadline)
           }
-          try {
-            run(d)
-          } catch (e) {
-            reply(d && d.id, { ok: false, error: String((e && e.message) || e) })
-          }
-        })
-      })()
+          window.addEventListener('message', function (event) {
+            if (event.source !== window.parent) return
+            var d = event.data
+            if (!d || d.type !== 'molecule:ui-command') return
+            // Idempotent retries: the host re-sends a command until it gets a reply (the iframe/bridge
+            // is often mid-mount or mid-reload — after navigate_preview — when it first fires, so a
+            // single postMessage is dropped). Re-send the cached result if already done; ignore a
+            // retry that lands while still in progress so a click/fill NEVER double-fires.
+            if (d.id) {
+              if (uiResults[d.id]) {
+                try {
+                  window.parent.postMessage(uiResults[d.id], '*')
+                } catch (e) {}
+                return
+              }
+              if (uiSeen[d.id]) return
+              uiSeen[d.id] = true
+            }
+            try {
+              run(d)
+            } catch (e) {
+              reply(d && d.id, { ok: false, error: String((e && e.message) || e) })
+            }
+          })
+        })()
     </script>
   </body>
 </html>
