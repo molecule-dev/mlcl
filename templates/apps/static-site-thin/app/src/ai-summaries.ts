@@ -35,6 +35,13 @@ import { bond } from '@molecule/api-bond'
 /** Sections shorter than this are not worth a summary — the paragraph is one already. */
 const MIN_WORDS = 80
 
+/**
+ * The model that writes the summaries. A TL;DR of a paragraph needs no frontier
+ * model: Haiku costs an eighth of the Anthropic bond's default (Opus), and a
+ * build summarizes every long section of every post.
+ */
+const MODEL = 'claude-haiku-4-5'
+
 /** The hard cap on a summary, in words: one complete sentence. */
 const MAX_WORDS = 25
 
@@ -83,7 +90,7 @@ export async function sectionSummaries(
     const cache = createFileSummaryCache(join(root, CACHE_FILE))
     for (const section of wanted) {
       const result = await summarizeCached(
-        { text: section.text, format: 'tldr', maxWords: MAX_WORDS },
+        { text: section.text, format: 'tldr', maxWords: MAX_WORDS, model: MODEL },
         { cache },
       )
       summaries[section.index] = result.summary
