@@ -55,6 +55,8 @@ describe('resolveRequest (the static host rules)', () => {
     })
     expect(resolveRequest(dir, '/blog/', '/about/')).toBeNull()
     expect(resolveRequest(dir, '/blog/', '/blog')).toEqual({ redirect: '/blog/' })
+    // The root sends a browser (and the IDE preview) to the site.
+    expect(resolveRequest(dir, '/blog/', '/')).toEqual({ redirect: '/blog/' })
   })
 
   it('never serves a file outside the directory', () => {

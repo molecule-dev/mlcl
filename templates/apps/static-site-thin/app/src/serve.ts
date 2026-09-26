@@ -1,7 +1,8 @@
 /**
  * A static file server that behaves like a static host: `/about/` serves
  * `about/index.html`, `/about` redirects to `/about/`, an unknown path gets
- * `404.html` with status 404, and nothing outside the base path is served.
+ * `404.html` with status 404, and nothing outside the base path is served —
+ * except `/` itself, which redirects to the base path.
  * Used by `npm run preview` (the built `dist/`) and `npm run dev`.
  */
 import { createReadStream, existsSync, readFileSync, statSync } from 'node:fs'
@@ -48,6 +49,9 @@ export type Resolved = { file: string } | { redirect: string } | null
  * @returns The file, a redirect, or null when nothing matches.
  */
 export function resolveRequest(dir: string, basePath: string, urlPath: string): Resolved {
+  // The site root of a site served under a base path is where a browser (and
+  // the IDE preview) opens first: send it to the site instead of a 404.
+  if (urlPath === '/' && basePath !== '/') return { redirect: basePath }
   if (urlPath + '/' === basePath) return { redirect: basePath }
   if (!urlPath.startsWith(basePath)) return null
   const file = normalize(join(dir, urlPath.slice(basePath.length)))
