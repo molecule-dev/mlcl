@@ -14151,6 +14151,157 @@
         "api.twitter.com"
       ]
     },
+    "@molecule/api-ocr": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "ocr",
+      "label": "Ocr",
+      "description": "Abstract OCR (text extraction from images) interface — bond a vision model, Tesseract, or molecule.dev's hosted service",
+      "stack": "api",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "requireProvider",
+        "OcrInput",
+        "OcrOptions",
+        "OcrPage",
+        "OcrResult",
+        "OcrProvider",
+        "OcrConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "path": "packages/api/core/ocr",
+      "intentHints": [
+        "extract text from an image",
+        "ocr",
+        "image to text",
+        "read text in a screenshot",
+        "scan a document"
+      ]
+    },
+    "@molecule/api-ocr-llm": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ocr",
+      "label": "Ocr",
+      "description": "Language-model OCR provider for molecule.dev — extracts text from images through any vision-capable @molecule/api-ai model",
+      "stack": "api",
+      "implements": "@molecule/api-ocr",
+      "exports": [
+        "systemPrompt",
+        "userPrompt",
+        "createProvider",
+        "provider",
+        "LlmOcrConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-ai",
+        "@molecule/api-ocr"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai",
+        "@molecule/api-ocr"
+      ],
+      "path": "packages/api/bonds/ocr/llm",
+      "intentHints": [
+        "ocr with an ai model",
+        "vision ocr",
+        "image to text model"
+      ]
+    },
+    "@molecule/api-ocr-tesseract": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ocr",
+      "label": "Ocr",
+      "description": "Self-hosted Tesseract OCR provider for molecule.dev — text extraction from images in your own process, no vendor account, no per-call cost",
+      "stack": "api",
+      "implements": "@molecule/api-ocr",
+      "exports": [
+        "createProvider",
+        "provider",
+        "TesseractOcrConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-ocr",
+        "tesseract.js"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ocr"
+      ],
+      "path": "packages/api/bonds/ocr/tesseract",
+      "intentHints": [
+        "self-hosted ocr",
+        "offline ocr",
+        "tesseract ocr"
+      ],
+      "egressHosts": [
+        "tessdata.projectnaptha.com"
+      ]
+    },
+    "@molecule/api-ocr-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ocr",
+      "label": "Ocr",
+      "description": "molecule.dev hosted OCR provider — text extraction from images billed to your molecule project, no vendor account",
+      "stack": "api",
+      "implements": "@molecule/api-ocr",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "OCR_SERVICE_LIMITS",
+        "OCR_IMAGE_TYPES",
+        "MoleculeServiceError",
+        "MoleculeOcrProvider",
+        "createProvider",
+        "ocrMoleculeSecretDefinitions",
+        "MoleculeOcrConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ocr",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ocr",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ocr/molecule",
+      "intentHints": [
+        "hosted ocr",
+        "ocr without an api key",
+        "extract text from an image without a vendor account"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
+      ]
+    },
     "@molecule/api-oembed": {
       "language": "typescript",
       "runtime": "node",

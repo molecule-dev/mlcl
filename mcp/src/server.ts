@@ -709,5 +709,50 @@ server.registerTool(
   ),
 )
 
+server.registerTool(
+  'extract_text',
+  {
+    title: 'Extract text from an image with molecule.dev',
+    description:
+      'OCR a local image (png, jpeg, webp, gif; up to 8 MB) on molecule.dev with a vision model — screenshots, scans, photos of documents — and get the recognized text back. No OCR vendor account; metered to the project whose MOLECULE_API_KEY is used. Pass language only when the text language is known. The same service backs @molecule/api-ocr-molecule in app code; @molecule/api-ocr-tesseract is the self-hosted alternative.',
+    inputSchema: {
+      image_file: z.string().describe('Path of the image file'),
+      language: z
+        .string()
+        .max(40)
+        .optional()
+        .describe('Language name or code, e.g. "en", "de", "zh-TW" — omit to auto-detect'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('extract_text', async ({ image_file, language, directory }) =>
+    serviceResult(async () => {
+      const path = resolve(image_file)
+      const mimeType = IMAGE_TYPES[extname(path).toLowerCase()]
+      if (!mimeType)
+        throw new ServiceCallError('image_file must be .png, .jpg, .jpeg, .webp or .gif.')
+      if (!existsSync(path)) throw new ServiceCallError(`No file at ${path}.`)
+      const size = statSync(path).size
+      if (size > 8 * 1024 * 1024) {
+        throw new ServiceCallError('The image is larger than 8 MB. Downscale or split it first.')
+      }
+      const result = await callHostedService(
+        'ocr',
+        'recognize',
+        {
+          image: readFileSync(path).toString('base64'),
+          mimeType,
+          ...(language ? { language } : {}),
+        },
+        directory,
+      )
+      return JSON.stringify(result)
+    }),
+  ),
+)
+
 /** The configured server — exported so tests can link an in-memory client to it. */
 export { server as moleculeServer }

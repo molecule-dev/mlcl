@@ -330,6 +330,9 @@ const COVERAGE_EXEMPT: Record<string, string> = {
     'Default base URL is `http://localhost:11434/v1` (Ollama on the same host) — not egress at ' +
     'all. A project pointing it at a REMOTE inference host supplies that host itself, so it ' +
     'belongs in that project’s allowlist, not in the package.',
+  '@molecule/api-ai-translation-madlad':
+    'Default base URL is `http://127.0.0.1:8765` (the bundled CTranslate2 sidecar on the same ' +
+    'host) — not egress at all. The sidecar lifecycle belongs to the app process that spawns it.',
 }
 
 describe('registry egressHosts coverage vs molecule bond sources', () => {
