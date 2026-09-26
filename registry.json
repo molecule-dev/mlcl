@@ -24012,6 +24012,136 @@
         "state machine"
       ]
     },
+    "@molecule/api-web-search": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "web-search",
+      "label": "Web Search",
+      "description": "Abstract web search interface — bond a vendor API or molecule.dev's hosted service",
+      "stack": "api",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "requireProvider",
+        "WebSearchResultItem",
+        "WebSearchResult",
+        "WebSearchOptions",
+        "WebSearchProvider",
+        "WebSearchConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "path": "packages/api/core/web-search",
+      "intentHints": [
+        "search the web",
+        "web search",
+        "ground answers in search results",
+        "find sources online"
+      ]
+    },
+    "@molecule/api-web-search-brave": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "web-search",
+      "label": "Web Search",
+      "description": "Brave Search web search provider for molecule.dev — independent index, free monthly credits, per-1k pricing beyond them",
+      "stack": "api",
+      "implements": "@molecule/api-web-search",
+      "exports": [
+        "provider",
+        "BraveWebSearchError",
+        "BraveWebSearchProvider",
+        "createProvider",
+        "braveWebSearchSecretDefinitions",
+        "BraveWebSearchConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "BRAVE_SEARCH_API_KEY",
+          "required": true,
+          "label": "Brave Search API key",
+          "setupUrl": "https://brave.com/search/api/",
+          "instructions": "Subscribe at https://brave.com/search/api/ (the Search plan includes free monthly credits); the key starts with BSAV.",
+          "example": "BSAV..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-web-search",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-web-search",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/web-search/brave",
+      "intentHints": [
+        "brave web search",
+        "search with brave",
+        "web search with my own key"
+      ],
+      "egressHosts": [
+        "api.search.brave.com"
+      ]
+    },
+    "@molecule/api-web-search-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "web-search",
+      "label": "Web Search",
+      "description": "molecule.dev hosted web search provider — web results billed to your molecule project, no vendor account",
+      "stack": "api",
+      "implements": "@molecule/api-web-search",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "WEB_SEARCH_SERVICE_LIMITS",
+        "MoleculeServiceError",
+        "MoleculeWebSearchProvider",
+        "createProvider",
+        "webSearchMoleculeSecretDefinitions",
+        "MoleculeWebSearchConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-web-search",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-web-search",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/web-search/molecule",
+      "intentHints": [
+        "hosted web search",
+        "search the web without an api key",
+        "web search billed to my project"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
+      ]
+    },
     "@molecule/app-achievement-card-react": {
       "language": "typescript",
       "runtime": "node",
@@ -55198,6 +55328,9 @@
       "@molecule/api-sms-capture": "1.0.3",
       "@molecule/api-staging-docker-compose": "1.0.4",
       "@molecule/api-uploads-s3": "1.0.4",
+      "@molecule/api-web-search": "1.1.0",
+      "@molecule/api-web-search-brave": "1.1.0",
+      "@molecule/api-web-search-molecule": "1.1.0",
       "@molecule/api-webhook-capture": "1.0.3",
       "@molecule/app-ai-chat": "1.5.0",
       "@molecule/app-ai-chat-http": "1.2.1",
