@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@molecule/api-ai-classification": "1.0.2",
-    "@molecule/api-ai-summarization": "1.0.2",
+    "@molecule/api-ai-summarization": "1.1.0",
     "@molecule/api-analytics": "1.0.2",
     "@molecule/api-audit": "1.0.2",
     "@molecule/api-audit-database": "1.0.2",
