@@ -1621,50 +1621,6 @@
         "api.elevenlabs.io"
       ]
     },
-    "@molecule/api-ai-speech-openai": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "provider",
-      "category": "ai-speech",
-      "label": "Ai Speech",
-      "description": "OpenAI speech provider for molecule.dev — Whisper STT + TTS",
-      "stack": "api",
-      "implements": "@molecule/api-ai-speech",
-      "exports": [
-        "createProvider",
-        "provider",
-        "aiSpeechOpenaiSecretDefinitions",
-        "OpenaiSpeechConfig"
-      ],
-      "secrets": [
-        {
-          "name": "OPENAI_API_KEY",
-          "required": true,
-          "label": "OpenAI API key",
-          "setupUrl": "https://platform.openai.com/api-keys",
-          "instructions": "Create a secret key on the OpenAI platform (API keys page).",
-          "example": "sk-proj-..."
-        }
-      ],
-      "runtimeDependencies": [
-        "@molecule/api-ai-speech",
-        "@molecule/api-secrets"
-      ],
-      "moleculePeers": [
-        "@molecule/api-ai-speech",
-        "@molecule/api-secrets"
-      ],
-      "path": "packages/api/bonds/ai-speech/openai",
-      "intentHints": [
-        "openai whisper",
-        "whisper",
-        "openai tts",
-        "openai speech"
-      ],
-      "egressHosts": [
-        "api.openai.com"
-      ]
-    },
     "@molecule/api-ai-speech-molecule": {
       "language": "typescript",
       "runtime": "node",
@@ -1711,6 +1667,50 @@
       ],
       "egressHosts": [
         "api.molecule.dev"
+      ]
+    },
+    "@molecule/api-ai-speech-openai": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-speech",
+      "label": "Ai Speech",
+      "description": "OpenAI speech provider for molecule.dev — Whisper STT + TTS",
+      "stack": "api",
+      "implements": "@molecule/api-ai-speech",
+      "exports": [
+        "createProvider",
+        "provider",
+        "aiSpeechOpenaiSecretDefinitions",
+        "OpenaiSpeechConfig"
+      ],
+      "secrets": [
+        {
+          "name": "OPENAI_API_KEY",
+          "required": true,
+          "label": "OpenAI API key",
+          "setupUrl": "https://platform.openai.com/api-keys",
+          "instructions": "Create a secret key on the OpenAI platform (API keys page).",
+          "example": "sk-proj-..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-speech",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-speech",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-speech/openai",
+      "intentHints": [
+        "openai whisper",
+        "whisper",
+        "openai tts",
+        "openai speech"
+      ],
+      "egressHosts": [
+        "api.openai.com"
       ]
     },
     "@molecule/api-ai-summarization": {
@@ -1915,6 +1915,71 @@
         "detect language"
       ]
     },
+    "@molecule/api-ai-translation-bergamot": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-translation",
+      "label": "Ai Translation",
+      "description": "Self-hosted translation provider for molecule.dev — Mozilla's Firefox Translations (Bergamot) models on the CPU, in-process, no API key",
+      "stack": "api",
+      "implements": "@molecule/api-ai-translation",
+      "exports": [
+        "WorkerEngineOptions",
+        "createWorkerEngine",
+        "toBergamotLanguage",
+        "languageName",
+        "escapeHtml",
+        "decodeEntities",
+        "ProtectedSpan",
+        "findProtected",
+        "maskTokens",
+        "tokensIntact",
+        "unmaskTokens",
+        "maskHtml",
+        "unmaskHtml",
+        "createProvider",
+        "provider",
+        "DEFAULT_RECORDS_URL",
+        "DEFAULT_ATTACHMENTS_URL",
+        "BERGAMOT_RUNTIME",
+        "MAX_MODEL_MAJOR_VERSION",
+        "ModelRecord",
+        "ModelSet",
+        "matchesServer",
+        "selectModelSet",
+        "availablePairs",
+        "downloadVerified",
+        "ModelStoreOptions",
+        "ModelStore",
+        "BergamotConfig",
+        "BergamotModelFiles",
+        "BergamotModelSpec",
+        "BergamotRequest",
+        "BergamotEngine"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-ai-translation"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-translation"
+      ],
+      "path": "packages/api/bonds/ai-translation/bergamot",
+      "intentHints": [
+        "bergamot",
+        "firefox translations",
+        "offline translation",
+        "self-hosted translation",
+        "free translation",
+        "translate without api key"
+      ],
+      "egressHosts": [
+        "firefox.settings.services.mozilla.com",
+        "firefox-settings-attachments.cdn.mozilla.net",
+        "raw.githubusercontent.com"
+      ]
+    },
     "@molecule/api-ai-translation-deepl": {
       "language": "typescript",
       "runtime": "node",
@@ -2040,80 +2105,15 @@
         "self-hosted translation"
       ]
     },
-    "@molecule/api-ai-translation-bergamot": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "provider",
-      "category": "ai-translation",
-      "label": "Ai Translation",
-      "stack": "api",
-      "implements": "@molecule/api-ai-translation",
-      "description": "Self-hosted translation provider for molecule.dev — Mozilla's Firefox Translations (Bergamot) models on the CPU, in-process, no API key",
-      "exports": [
-        "WorkerEngineOptions",
-        "createWorkerEngine",
-        "toBergamotLanguage",
-        "languageName",
-        "escapeHtml",
-        "decodeEntities",
-        "ProtectedSpan",
-        "findProtected",
-        "maskTokens",
-        "tokensIntact",
-        "unmaskTokens",
-        "maskHtml",
-        "unmaskHtml",
-        "createProvider",
-        "provider",
-        "DEFAULT_RECORDS_URL",
-        "DEFAULT_ATTACHMENTS_URL",
-        "BERGAMOT_RUNTIME",
-        "MAX_MODEL_MAJOR_VERSION",
-        "ModelRecord",
-        "ModelSet",
-        "matchesServer",
-        "selectModelSet",
-        "availablePairs",
-        "downloadVerified",
-        "ModelStoreOptions",
-        "ModelStore",
-        "BergamotConfig",
-        "BergamotModelFiles",
-        "BergamotModelSpec",
-        "BergamotRequest",
-        "BergamotEngine"
-      ],
-      "secrets": [],
-      "runtimeDependencies": [
-        "@molecule/api-ai-translation"
-      ],
-      "moleculePeers": [
-        "@molecule/api-ai-translation"
-      ],
-      "path": "packages/api/bonds/ai-translation/bergamot",
-      "intentHints": [
-        "bergamot",
-        "firefox translations",
-        "offline translation",
-        "self-hosted translation",
-        "free translation",
-        "translate without api key"
-      ],
-      "egressHosts": [
-        "firefox.settings.services.mozilla.com",
-        "firefox-settings-attachments.cdn.mozilla.net",
-        "raw.githubusercontent.com"
-      ]
-    },
     "@molecule/api-ai-translation-madlad": {
       "language": "typescript",
       "runtime": "node",
       "type": "provider",
       "category": "ai-translation",
       "label": "Ai Translation",
+      "description": "Self-hosted translation provider for molecule.dev — Google MADLAD-400 (400+ languages) through a small CTranslate2 sidecar server, shipped with the package",
       "stack": "api",
       "implements": "@molecule/api-ai-translation",
-      "description": "Self-hosted translation provider for molecule.dev — Google MADLAD-400 (400+ languages) through a small CTranslate2 sidecar server, shipped with the package",
       "exports": [
         "toMadladLanguage",
         "languageName",
@@ -4817,17 +4817,9 @@
       "type": "provider",
       "category": "moderation",
       "label": "Moderation",
+      "description": "molecule.dev hosted content classifier — text and image moderation billed to your molecule project, no vendor account",
       "stack": "api",
       "implements": "@molecule/api-content-moderation",
-      "runtimeDependencies": [
-        "@molecule/api-content-moderation",
-        "@molecule/api-secrets"
-      ],
-      "moleculePeers": [
-        "@molecule/api-content-moderation",
-        "@molecule/api-secrets"
-      ],
-      "description": "molecule.dev hosted content classifier — text and image moderation billed to your molecule project, no vendor account",
       "exports": [
         "classifier",
         "DEFAULT_SERVICES_URL",
@@ -4849,6 +4841,14 @@
           "example": "mk_..."
         }
       ],
+      "runtimeDependencies": [
+        "@molecule/api-content-moderation",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-content-moderation",
+        "@molecule/api-secrets"
+      ],
       "path": "packages/api/bonds/moderation/molecule",
       "intentHints": [
         "hosted content moderation",
@@ -4864,17 +4864,9 @@
       "type": "provider",
       "category": "moderation",
       "label": "Moderation",
+      "description": "OpenAI content classifier for molecule.dev — text and image moderation with omni-moderation",
       "stack": "api",
       "implements": "@molecule/api-content-moderation",
-      "runtimeDependencies": [
-        "@molecule/api-content-moderation",
-        "@molecule/api-secrets"
-      ],
-      "moleculePeers": [
-        "@molecule/api-content-moderation",
-        "@molecule/api-secrets"
-      ],
-      "description": "OpenAI content classifier for molecule.dev — text and image moderation with omni-moderation",
       "exports": [
         "classifier",
         "OpenaiModerationError",
@@ -4894,6 +4886,14 @@
           "instructions": "Create a secret key on the OpenAI platform (API keys page).",
           "example": "sk-proj-..."
         }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-content-moderation",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-content-moderation",
+        "@molecule/api-secrets"
       ],
       "path": "packages/api/bonds/moderation/openai",
       "intentHints": [
@@ -14221,38 +14221,6 @@
         "image to text model"
       ]
     },
-    "@molecule/api-ocr-tesseract": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "provider",
-      "category": "ocr",
-      "label": "Ocr",
-      "description": "Self-hosted Tesseract OCR provider for molecule.dev — text extraction from images in your own process, no vendor account, no per-call cost",
-      "stack": "api",
-      "implements": "@molecule/api-ocr",
-      "exports": [
-        "createProvider",
-        "provider",
-        "TesseractOcrConfig"
-      ],
-      "secrets": [],
-      "runtimeDependencies": [
-        "@molecule/api-ocr",
-        "tesseract.js"
-      ],
-      "moleculePeers": [
-        "@molecule/api-ocr"
-      ],
-      "path": "packages/api/bonds/ocr/tesseract",
-      "intentHints": [
-        "self-hosted ocr",
-        "offline ocr",
-        "tesseract ocr"
-      ],
-      "egressHosts": [
-        "tessdata.projectnaptha.com"
-      ]
-    },
     "@molecule/api-ocr-molecule": {
       "language": "typescript",
       "runtime": "node",
@@ -14300,6 +14268,38 @@
       ],
       "egressHosts": [
         "api.molecule.dev"
+      ]
+    },
+    "@molecule/api-ocr-tesseract": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ocr",
+      "label": "Ocr",
+      "description": "Self-hosted Tesseract OCR provider for molecule.dev — text extraction from images in your own process, no vendor account, no per-call cost",
+      "stack": "api",
+      "implements": "@molecule/api-ocr",
+      "exports": [
+        "createProvider",
+        "provider",
+        "TesseractOcrConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-ocr",
+        "tesseract.js"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ocr"
+      ],
+      "path": "packages/api/bonds/ocr/tesseract",
+      "intentHints": [
+        "self-hosted ocr",
+        "offline ocr",
+        "tesseract ocr"
+      ],
+      "egressHosts": [
+        "tessdata.projectnaptha.com"
       ]
     },
     "@molecule/api-oembed": {
@@ -23759,6 +23759,136 @@
         "api.openweathermap.org"
       ]
     },
+    "@molecule/api-web-search": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "web-search",
+      "label": "Web Search",
+      "description": "Abstract web search interface — bond a vendor API or molecule.dev's hosted service",
+      "stack": "api",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "requireProvider",
+        "WebSearchResultItem",
+        "WebSearchResult",
+        "WebSearchOptions",
+        "WebSearchProvider",
+        "WebSearchConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "path": "packages/api/core/web-search",
+      "intentHints": [
+        "search the web",
+        "web search",
+        "ground answers in search results",
+        "find sources online"
+      ]
+    },
+    "@molecule/api-web-search-brave": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "web-search",
+      "label": "Web Search",
+      "description": "Brave Search web search provider for molecule.dev — independent index, free monthly credits, per-1k pricing beyond them",
+      "stack": "api",
+      "implements": "@molecule/api-web-search",
+      "exports": [
+        "provider",
+        "BraveWebSearchError",
+        "BraveWebSearchProvider",
+        "createProvider",
+        "braveWebSearchSecretDefinitions",
+        "BraveWebSearchConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "BRAVE_SEARCH_API_KEY",
+          "required": true,
+          "label": "Brave Search API key",
+          "setupUrl": "https://brave.com/search/api/",
+          "instructions": "Subscribe at https://brave.com/search/api/ (the Search plan includes free monthly credits); the key starts with BSAV.",
+          "example": "BSAV..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-web-search",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-web-search",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/web-search/brave",
+      "intentHints": [
+        "brave web search",
+        "search with brave",
+        "web search with my own key"
+      ],
+      "egressHosts": [
+        "api.search.brave.com"
+      ]
+    },
+    "@molecule/api-web-search-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "web-search",
+      "label": "Web Search",
+      "description": "molecule.dev hosted web search provider — web results billed to your molecule project, no vendor account",
+      "stack": "api",
+      "implements": "@molecule/api-web-search",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "WEB_SEARCH_SERVICE_LIMITS",
+        "MoleculeServiceError",
+        "MoleculeWebSearchProvider",
+        "createProvider",
+        "webSearchMoleculeSecretDefinitions",
+        "MoleculeWebSearchConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-web-search",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-web-search",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/web-search/molecule",
+      "intentHints": [
+        "hosted web search",
+        "search the web without an api key",
+        "web search billed to my project"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
+      ]
+    },
     "@molecule/api-webhook": {
       "language": "typescript",
       "runtime": "node",
@@ -24010,136 +24140,6 @@
         "workflow persistence",
         "multi-step backend flow",
         "state machine"
-      ]
-    },
-    "@molecule/api-web-search": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "core",
-      "category": "web-search",
-      "label": "Web Search",
-      "description": "Abstract web search interface — bond a vendor API or molecule.dev's hosted service",
-      "stack": "api",
-      "exports": [
-        "setProvider",
-        "getProvider",
-        "hasProvider",
-        "requireProvider",
-        "WebSearchResultItem",
-        "WebSearchResult",
-        "WebSearchOptions",
-        "WebSearchProvider",
-        "WebSearchConfig"
-      ],
-      "secrets": [],
-      "runtimeDependencies": [
-        "@molecule/api-bond",
-        "@molecule/api-i18n"
-      ],
-      "moleculePeers": [
-        "@molecule/api-bond",
-        "@molecule/api-i18n"
-      ],
-      "path": "packages/api/core/web-search",
-      "intentHints": [
-        "search the web",
-        "web search",
-        "ground answers in search results",
-        "find sources online"
-      ]
-    },
-    "@molecule/api-web-search-brave": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "provider",
-      "category": "web-search",
-      "label": "Web Search",
-      "description": "Brave Search web search provider for molecule.dev — independent index, free monthly credits, per-1k pricing beyond them",
-      "stack": "api",
-      "implements": "@molecule/api-web-search",
-      "exports": [
-        "provider",
-        "BraveWebSearchError",
-        "BraveWebSearchProvider",
-        "createProvider",
-        "braveWebSearchSecretDefinitions",
-        "BraveWebSearchConfig",
-        "ProcessEnv"
-      ],
-      "secrets": [
-        {
-          "name": "BRAVE_SEARCH_API_KEY",
-          "required": true,
-          "label": "Brave Search API key",
-          "setupUrl": "https://brave.com/search/api/",
-          "instructions": "Subscribe at https://brave.com/search/api/ (the Search plan includes free monthly credits); the key starts with BSAV.",
-          "example": "BSAV..."
-        }
-      ],
-      "runtimeDependencies": [
-        "@molecule/api-web-search",
-        "@molecule/api-secrets"
-      ],
-      "moleculePeers": [
-        "@molecule/api-web-search",
-        "@molecule/api-secrets"
-      ],
-      "path": "packages/api/bonds/web-search/brave",
-      "intentHints": [
-        "brave web search",
-        "search with brave",
-        "web search with my own key"
-      ],
-      "egressHosts": [
-        "api.search.brave.com"
-      ]
-    },
-    "@molecule/api-web-search-molecule": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "provider",
-      "category": "web-search",
-      "label": "Web Search",
-      "description": "molecule.dev hosted web search provider — web results billed to your molecule project, no vendor account",
-      "stack": "api",
-      "implements": "@molecule/api-web-search",
-      "exports": [
-        "provider",
-        "DEFAULT_SERVICES_URL",
-        "WEB_SEARCH_SERVICE_LIMITS",
-        "MoleculeServiceError",
-        "MoleculeWebSearchProvider",
-        "createProvider",
-        "webSearchMoleculeSecretDefinitions",
-        "MoleculeWebSearchConfig",
-        "ProcessEnv"
-      ],
-      "secrets": [
-        {
-          "name": "MOLECULE_API_KEY",
-          "required": true,
-          "label": "molecule.dev project API key",
-          "setupUrl": "https://www.molecule.dev",
-          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
-          "example": "mk_..."
-        }
-      ],
-      "runtimeDependencies": [
-        "@molecule/api-web-search",
-        "@molecule/api-secrets"
-      ],
-      "moleculePeers": [
-        "@molecule/api-web-search",
-        "@molecule/api-secrets"
-      ],
-      "path": "packages/api/bonds/web-search/molecule",
-      "intentHints": [
-        "hosted web search",
-        "search the web without an api key",
-        "web search billed to my project"
-      ],
-      "egressHosts": [
-        "api.molecule.dev"
       ]
     },
     "@molecule/app-achievement-card-react": {
@@ -48247,51 +48247,6 @@
         "pins on a map"
       ]
     },
-    "@molecule/app-margin-notes-react": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "feature",
-      "category": "margin-notes",
-      "label": "Margin Notes React",
-      "description": "Long-form reading layout with notes beside each paragraph: aligned notes column, margin marks, two-way hover, switchable note kinds, and a phone bar that follows the reader",
-      "stack": "app",
-      "exports": [
-        "MarginNotes",
-        "buildRows",
-        "defaultShownKinds",
-        "MarginNotesBlock",
-        "MarginNote",
-        "MarginNoteKind",
-        "MarginNotesProps",
-        "MarginNotesRow"
-      ],
-      "secrets": [],
-      "runtimeDependencies": [
-        "@molecule/app-react",
-        "@molecule/app-ui",
-        "@molecule/app-ui-react",
-        "react"
-      ],
-      "moleculePeers": [
-        "@molecule/app-react",
-        "@molecule/app-ui",
-        "@molecule/app-ui-react"
-      ],
-      "path": "packages/app/features/margin-notes-react",
-      "intentHints": [
-        "margin notes",
-        "sidenotes",
-        "notes beside paragraphs",
-        "annotated essay",
-        "reading layout with a notes column",
-        "gutter notes",
-        "summary beside each section",
-        "show the prompt behind each paragraph",
-        "which paragraphs the ai wrote",
-        "ai provenance reading view",
-        "toggle summaries and prompts"
-      ]
-    },
     "@molecule/app-margin-notes-html": {
       "language": "typescript",
       "runtime": "node",
@@ -48340,6 +48295,51 @@
         "margin notes in a static site",
         "reading layout without react",
         "html string margin notes"
+      ]
+    },
+    "@molecule/app-margin-notes-react": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "margin-notes",
+      "label": "Margin Notes React",
+      "description": "Long-form reading layout with notes beside each paragraph: aligned notes column, margin marks, two-way hover, switchable note kinds, and a phone bar that follows the reader",
+      "stack": "app",
+      "exports": [
+        "MarginNotes",
+        "buildRows",
+        "defaultShownKinds",
+        "MarginNotesBlock",
+        "MarginNote",
+        "MarginNoteKind",
+        "MarginNotesProps",
+        "MarginNotesRow"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-react",
+        "@molecule/app-ui",
+        "@molecule/app-ui-react",
+        "react"
+      ],
+      "moleculePeers": [
+        "@molecule/app-react",
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
+      ],
+      "path": "packages/app/features/margin-notes-react",
+      "intentHints": [
+        "margin notes",
+        "sidenotes",
+        "notes beside paragraphs",
+        "annotated essay",
+        "reading layout with a notes column",
+        "gutter notes",
+        "summary beside each section",
+        "show the prompt behind each paragraph",
+        "which paragraphs the ai wrote",
+        "ai provenance reading view",
+        "toggle summaries and prompts"
       ]
     },
     "@molecule/app-markdown": {
@@ -53956,6 +53956,7 @@
         "cardFooter",
         "badge",
         "alert",
+        "alertLeftAccent",
         "alertTitle",
         "alertDescription",
         "avatar",
@@ -54131,6 +54132,7 @@
         "borderB",
         "borderT",
         "borderR",
+        "borderL",
         "borderAll",
         "borderBPrimary",
         "bgErrorSubtle",
