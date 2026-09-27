@@ -1,0 +1,15 @@
+[
+  {
+    "id": "7f1d2c3a-1111-4a5b-8c6d-000000000001",
+    "user_id": "00000000-0000-4000-8000-000000000001",
+    "conversation_id": null,
+    "title": "JFK → LHR",
+    "origin_iata": "JFK",
+    "destination_iata": "LHR",
+    "depart_date": "2030-05-12",
+    "traveler_count": 2,
+    "status": "booked",
+    "created_at": "2030-04-12T09:14:00Z",
+    "updated_at": "2030-04-12T09:14:00Z"
+  }
+]

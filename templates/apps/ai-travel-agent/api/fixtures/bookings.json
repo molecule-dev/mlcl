@@ -1,0 +1,31 @@
+[
+  {
+    "id": "9b2e4f6a-2222-4b6c-9d7e-000000000001",
+    "user_id": "00000000-0000-4000-8000-000000000001",
+    "trip_id": "7f1d2c3a-1111-4a5b-8c6d-000000000001",
+    "conversation_id": null,
+    "flight_id": "NS412-2030-05-12",
+    "source": "inventory",
+    "confirmation_code": "KX7P2QM4",
+    "status": "booked",
+    "airline": "Northstar",
+    "flight_number": "NS 412",
+    "origin_iata": "JFK",
+    "destination_iata": "LHR",
+    "depart_at": "2030-05-12T07:00:00Z",
+    "arrive_at": "2030-05-12T14:10:00Z",
+    "cabin": "economy",
+    "passenger_count": 2,
+    "traveler_names": ["Sam", "Ana"],
+    "total_cents": 97800,
+    "currency": "USD",
+    "card_last4": "4242",
+    "payment_intent_id": null,
+    "delay_minutes": 0,
+    "rebooked_from_id": null,
+    "rebooked_to_id": null,
+    "booked_at": "2030-04-12T09:14:00Z",
+    "created_at": "2030-04-12T09:14:00Z",
+    "updated_at": "2030-04-12T09:14:00Z"
+  }
+]

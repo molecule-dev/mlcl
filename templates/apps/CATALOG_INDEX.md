@@ -1,6 +1,6 @@
 # Flagship template index
 
-150 templates, grouped by cluster. Use `inspect_template(slug)` to read a template's full CATALOG.md.
+151 templates, grouped by cluster. Use `inspect_template(slug)` to read a template's full CATALOG.md.
 
 ## ai-first
 
@@ -15,6 +15,7 @@
 - `ai-meeting-notes` — **AI Meeting Notes**: Meeting transcription, AI summarization, and action item extraction
 - `ai-study-buddy` — **AI Study Buddy**: Personalized AI tutoring with quiz generation, RAG-powered explanations, and study progress tracking
 - `ai-translation-hub` — **AI Translation Hub**: Document and website translation with AI review and project management
+- `ai-travel-agent` — **AI Travel Agent**: An AI travel agent that books flights by voice, rebooks them when they are delayed, and splits the bill between travelers — with built-in Stripe-backed subscription tiers
 - `ai-voice-assistant` — **AI Voice Assistant**: Speech-to-text, AI processing, and text-to-speech voice assistant
 - `ai-workflow-automator` — **AI Workflow Automator**: AI-powered automation rules with triggers, conditions, and multi-step actions
 - `ai-writing-studio` — **AI Writing Studio**: Long-form AI content generation with editing, SEO, and style control

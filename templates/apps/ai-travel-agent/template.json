@@ -1,0 +1,118 @@
+{
+  "label": "AI Travel Agent",
+  "description": "An AI travel agent that books flights by voice, rebooks them when they are delayed, and splits the bill between travelers — with built-in Stripe-backed subscription tiers",
+  "cluster": "ai-first",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-ai-anthropic",
+    "@molecule/api-ai-agents",
+    "@molecule/api-ai-agents-llm",
+    "@molecule/api-ai-speech-openai",
+    "@molecule/api-ai-speech-elevenlabs",
+    "@molecule/api-flights",
+    "@molecule/api-flights-amadeus",
+    "@molecule/api-sms",
+    "@molecule/api-sms-twilio",
+    "@molecule/api-sms-capture",
+    "@molecule/api-cron-node-cron",
+    "@molecule/app-ai-voice",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "AI Travel Agent"
+    },
+    "APP_URL": {
+      "description": "Public URL of the app, used in the pay links texted to travelers",
+      "default": "http://localhost:3000"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "ANTHROPIC_API_KEY": {
+      "description": "Anthropic API key for the agent",
+      "required": true
+    },
+    "OPENAI_API_KEY": {
+      "description": "OpenAI API key for Whisper speech-to-text and text-to-speech",
+      "required": true
+    },
+    "ELEVENLABS_API_KEY": {
+      "description": "ElevenLabs API key for optional voices",
+      "required": false
+    },
+    "AMADEUS_CLIENT_ID": {
+      "description": "Amadeus API key for live flight search; without it the seeded inventory is used",
+      "required": false
+    },
+    "AMADEUS_CLIENT_SECRET": {
+      "description": "Amadeus API secret",
+      "required": false
+    },
+    "TWILIO_ACCOUNT_SID": {
+      "description": "Twilio account SID for rebooking texts and pay links; without it texts are captured, not sent",
+      "required": false
+    },
+    "TWILIO_AUTH_TOKEN": {
+      "description": "Twilio auth token",
+      "required": false
+    },
+    "TWILIO_FROM_NUMBER": {
+      "description": "Twilio sender number in E.164 format",
+      "required": false
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_AI_TRAVEL_AGENT_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_AI_TRAVEL_AGENT_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_AI_TRAVEL_AGENT_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_AI_TRAVEL_AGENT_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "chat",
+  "features": [
+    "auth",
+    "speech-to-text",
+    "text-to-speech",
+    "ai-agents",
+    "flights",
+    "sms",
+    "payments",
+    "subscriptions"
+  ]
+}

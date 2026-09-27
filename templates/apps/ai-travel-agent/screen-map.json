@@ -1,0 +1,129 @@
+{
+  "app": "ai-travel-agent",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "deriveFrom": "Login",
+      "derivationNotes": "Same centered card layout as Login with Full Name, Email, Password and Confirm Password. Button 'Create Account'. Bottom link 'Already have an account? Sign In'."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "deriveFrom": "Login",
+      "derivationNotes": "Same card as Login with only an Email field. Heading 'Reset your password'. Button 'Send reset link'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "deriveFrom": "Login",
+      "derivationNotes": "Same card as Login with New Password and Confirm Password. Heading 'Set new password'. Button 'Reset password'."
+    },
+    {
+      "name": "Pricing",
+      "templateFile": "app/pages/Pricing.tsx",
+      "components": [],
+      "route": "/pricing",
+      "auth": false,
+      "type": "generate_new"
+    },
+    {
+      "name": "Pay",
+      "templateFile": "app/pages/Pay.tsx",
+      "components": ["app/components/AmbientOrbs.tsx"],
+      "route": "/pay/:token",
+      "auth": false,
+      "type": "generate_new"
+    },
+    {
+      "name": "Talk",
+      "templateFile": "app/pages/Talk.tsx",
+      "components": [
+        "app/components/ParlanceLayout.tsx",
+        "app/components/VoiceOrb.tsx",
+        "app/components/WaveformBars.tsx",
+        "app/components/ChatBubble.tsx",
+        "app/components/ToolCallChips.tsx"
+      ],
+      "route": "/talk",
+      "auth": true,
+      "type": "generate_new"
+    },
+    {
+      "name": "Trips",
+      "templateFile": "app/pages/Trips.tsx",
+      "components": ["app/components/ParlanceLayout.tsx", "app/components/BookingStatusPill.tsx"],
+      "route": "/trips",
+      "auth": true,
+      "type": "generate_new"
+    },
+    {
+      "name": "TripDetail",
+      "templateFile": "app/pages/TripDetail.tsx",
+      "components": ["app/components/ParlanceLayout.tsx", "app/components/BookingStatusPill.tsx"],
+      "route": "/trips/:id",
+      "auth": true,
+      "type": "generate_new"
+    },
+    {
+      "name": "Bills",
+      "templateFile": "app/pages/Bills.tsx",
+      "components": ["app/components/ParlanceLayout.tsx"],
+      "route": "/bills",
+      "auth": true,
+      "type": "generate_new"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ParlanceLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/ParlanceLayout.tsx"],
+      "route": "/settings/billing",
+      "auth": true,
+      "type": "generate_new"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/ParlanceLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new"
+    }
+  ]
+}
