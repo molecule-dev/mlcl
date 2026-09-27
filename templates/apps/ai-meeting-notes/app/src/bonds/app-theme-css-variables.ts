@@ -40,6 +40,7 @@ const murmurLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [murmurLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {

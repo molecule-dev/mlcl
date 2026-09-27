@@ -40,6 +40,7 @@ const engramLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [engramLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 

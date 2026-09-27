@@ -40,6 +40,7 @@ const cadenceLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [cadenceLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {

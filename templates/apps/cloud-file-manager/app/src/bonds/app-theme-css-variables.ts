@@ -21,6 +21,7 @@ const storage =
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [lightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
   storage,
 })

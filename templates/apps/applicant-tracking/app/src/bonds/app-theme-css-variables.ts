@@ -50,6 +50,7 @@ const shortlistLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [shortlistLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
   storage: browserStorage,
 })

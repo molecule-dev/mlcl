@@ -32,6 +32,7 @@ const defaultLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [defaultLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
   storage:
     typeof globalThis !== 'undefined' && globalThis.localStorage

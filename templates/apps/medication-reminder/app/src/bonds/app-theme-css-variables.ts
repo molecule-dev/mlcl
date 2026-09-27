@@ -40,6 +40,7 @@ const capsivaLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [capsivaLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 

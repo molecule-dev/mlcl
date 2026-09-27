@@ -70,6 +70,7 @@ const waypointDarkTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [waypointLightTheme, waypointDarkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 

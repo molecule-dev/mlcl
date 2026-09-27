@@ -15,6 +15,7 @@ import {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [lightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
   storage: typeof window !== 'undefined' ? window.localStorage : undefined,
 })

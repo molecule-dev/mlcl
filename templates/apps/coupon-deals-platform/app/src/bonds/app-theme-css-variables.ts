@@ -40,6 +40,7 @@ const snagrLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [snagrLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {

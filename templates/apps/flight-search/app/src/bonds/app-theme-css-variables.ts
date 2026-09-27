@@ -41,6 +41,7 @@ const skylarkLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [skylarkLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {

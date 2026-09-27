@@ -40,6 +40,7 @@ const bearingLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [bearingLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 

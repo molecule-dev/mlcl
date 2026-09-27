@@ -40,6 +40,7 @@ const streakLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [streakLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {

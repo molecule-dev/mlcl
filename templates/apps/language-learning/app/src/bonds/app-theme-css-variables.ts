@@ -43,6 +43,7 @@ const parlanceLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [parlanceLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 

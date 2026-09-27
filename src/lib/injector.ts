@@ -1179,6 +1179,7 @@ function generateAppThemeBondSetup(
 export const themeProvider = ${createFn}({
   themes: [lightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   applyToDocument: false,
   persistKey: 'molecule-theme',
 })
@@ -1208,6 +1209,7 @@ ${colorEntries}
 export const themeProvider = ${createFn}({
   themes: [defaultLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })`
     } else {
@@ -1216,6 +1218,7 @@ export const themeProvider = ${createFn}({
 export const themeProvider = ${createFn}({
   themes: [lightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })`
     }
@@ -1224,6 +1227,7 @@ export const themeProvider = ${createFn}({
     themeSetup = `
 export const themeProvider = ${createFn}({
   defaultTheme: 'light',
+  systemDefault: true,
   applyToDocument: false,
   persistKey: 'molecule-theme',
 })

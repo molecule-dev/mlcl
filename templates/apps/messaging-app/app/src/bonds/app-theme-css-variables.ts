@@ -40,6 +40,7 @@ const hushLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [hushLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 

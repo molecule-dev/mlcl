@@ -66,6 +66,7 @@ const cofferDarkTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [cofferLightTheme, cofferDarkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {

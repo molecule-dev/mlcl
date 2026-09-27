@@ -69,6 +69,7 @@ const quillonDarkTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [quillonLightTheme, quillonDarkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {

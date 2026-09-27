@@ -41,6 +41,7 @@ const metroPulseLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [metroPulseLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {

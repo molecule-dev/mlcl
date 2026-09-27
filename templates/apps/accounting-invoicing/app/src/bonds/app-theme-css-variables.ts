@@ -41,6 +41,7 @@ const ledgerLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [ledgerLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
   storage: typeof globalThis !== 'undefined' ? globalThis.localStorage : undefined,
 })

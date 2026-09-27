@@ -40,6 +40,7 @@ const argentLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [argentLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {

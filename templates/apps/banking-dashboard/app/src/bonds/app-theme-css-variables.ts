@@ -41,6 +41,7 @@ const meridianLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [meridianLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
   // Wire localStorage so the user's chosen mode survives reloads. Without
   // a storage adapter the persistKey is effectively a no-op and every

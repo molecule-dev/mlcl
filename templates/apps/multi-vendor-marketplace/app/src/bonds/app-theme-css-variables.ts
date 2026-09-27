@@ -76,6 +76,7 @@ const darkTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [lightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {

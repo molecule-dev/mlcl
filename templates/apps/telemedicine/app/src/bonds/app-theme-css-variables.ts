@@ -40,6 +40,7 @@ const solaceLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [solaceLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 

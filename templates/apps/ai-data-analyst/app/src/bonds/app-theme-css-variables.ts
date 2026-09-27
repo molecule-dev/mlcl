@@ -41,6 +41,7 @@ const clarionLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [clarionLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {

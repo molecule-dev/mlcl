@@ -40,6 +40,7 @@ const lecturaLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [lecturaLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {

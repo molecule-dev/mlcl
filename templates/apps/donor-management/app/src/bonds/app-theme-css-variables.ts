@@ -41,6 +41,7 @@ const toolbeltLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [toolbeltLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 

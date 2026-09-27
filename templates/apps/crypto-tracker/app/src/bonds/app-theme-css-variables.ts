@@ -41,6 +41,7 @@ const sigilLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [sigilLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {

@@ -41,6 +41,7 @@ const prismLightTheme: Theme = {
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [prismLightTheme, darkTheme],
   defaultTheme: 'light',
+  systemDefault: true,
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {
