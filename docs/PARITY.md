@@ -37,16 +37,16 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 
 ## Projects
 
-| Capability                   | Route(s)                  | Decision                                                                                     | CLI                                              | MCP                | Status |
-| ---------------------------- | ------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------ | ------------------ | ------ |
-| List projects                | GET /projects             | parity                                                                                       | `project list`                                   | —                  | ✅     |
-| Project detail               | GET /projects/:id         | parity                                                                                       | `project get`                                    | —                  | ✅     |
-| Open in IDE (deep link)      | — (URL shape)             | parity                                                                                       | `project open` (prints workspace + preview URLs) | —                  | ✅     |
-| Create project               | POST /projects            | local-equivalent (`create` scaffolds locally; cloud create via `project create --cloud` gap) | `create`                                         | `scaffold_project` | 🔶     |
-| Create from template (cloud) | POST /templates/:slug/use | local-equivalent                                                                             | `create --template`                              | `scaffold_project` | 🔶     |
-| Update settings              | PATCH /projects/:id       | parity                                                                                       | `project settings`                               | —                  | ✅     |
-| Delete project               | DELETE /projects/:id      | parity                                                                                       | `project delete`                                 | —                  | ✅     |
-| Clone shared project         | POST /share/:slug/clone   | parity                                                                                       | `share clone`                                    | —                  | ✅     |
+| Capability                   | Route(s)                  | Decision                                                                     | CLI                                              | MCP                | Status |
+| ---------------------------- | ------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------ | ------------------ | ------ |
+| List projects                | GET /projects             | parity                                                                       | `project list`                                   | `list_projects`    | ✅     |
+| Project detail               | GET /projects/:id         | parity                                                                       | `project get`                                    | —                  | ✅     |
+| Open in IDE (deep link)      | — (URL shape)             | parity                                                                       | `project open` (prints workspace + preview URLs) | —                  | ✅     |
+| Create project               | POST /projects            | local-equivalent (`create` scaffolds locally; cloud create is a tracked gap) | `create`                                         | `scaffold_project` | 🔶     |
+| Create from template (cloud) | POST /templates/:slug/use | local-equivalent                                                             | `create --template`                              | `scaffold_project` | 🔶     |
+| Update settings              | PATCH /projects/:id       | parity                                                                       | `project settings`                               | —                  | ✅     |
+| Delete project               | DELETE /projects/:id      | parity                                                                       | `project delete`                                 | —                  | ✅     |
+| Clone shared project         | POST /share/:slug/clone   | parity                                                                       | `share clone`                                    | —                  | ✅     |
 
 ## Sandbox & files
 
@@ -85,26 +85,26 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 
 ## Environment & secrets
 
-| Capability              | Route(s)                 | Decision         | CLI                        | MCP | Status |
-| ----------------------- | ------------------------ | ---------------- | -------------------------- | --- | ------ |
-| Local .env CRUD         | —                        | local-equivalent | `env list/get/set/unset`   | —   | ✅     |
-| Platform env read/write | GET/PUT /env             | parity           | `env pull/push`            | —   | ✅     |
-| Env detected keys       | GET /env/detected        | parity           | `env detected`             | —   | ✅     |
-| Vault secrets           | /vault CRUD              | parity           | `vault list/set/rm`        | —   | ✅     |
-| Vault runtime tokens    | /vault/token mint/revoke | parity           | `vault token [--revoke]`   | —   | ✅     |
-| Credential broker       | /vault/broker            | parity           | `vault broker [--disable]` | —   | ✅     |
-| Project API keys (mk_)  | /api-keys CRUD           | parity           | `apikey list/create/rm`    | —   | ✅     |
+| Capability              | Route(s)                 | Decision         | CLI                        | MCP              | Status |
+| ----------------------- | ------------------------ | ---------------- | -------------------------- | ---------------- | ------ |
+| Local .env CRUD         | —                        | local-equivalent | `env list/get/set/unset`   | —                | ✅     |
+| Platform env read/write | GET/PUT /env             | parity           | `env pull/push`            | —                | ✅     |
+| Env detected keys       | GET /env/detected        | parity           | `env detected`             | —                | ✅     |
+| Vault secrets           | /vault CRUD              | parity           | `vault list/set/rm`        | —                | ✅     |
+| Vault runtime tokens    | /vault/token mint/revoke | parity           | `vault token [--revoke]`   | —                | ✅     |
+| Credential broker       | /vault/broker            | parity           | `vault broker [--disable]` | —                | ✅     |
+| Project API keys (mk_)  | /api-keys CRUD           | parity           | `apikey list/create/rm`    | `create_api_key` | ✅     |
 
 ## Database
 
-| Capability                      | Route(s)             | Decision         | CLI                             | MCP | Status |
-| ------------------------------- | -------------------- | ---------------- | ------------------------------- | --- | ------ |
-| Local migrate/reset/console/url | —                    | local-equivalent | `db migrate/reset/console/url`  | —   | ✅     |
-| Cloud connection info           | GET /database        | parity           | `db info`                       | —   | ✅     |
-| SQL console (cloud)             | POST /database/query | parity           | `db query`                      | —   | ✅     |
-| Schema tables                   | GET /database/tables | parity           | `db info`                       | —   | ✅     |
-| Backups create/list/restore     | /database/backups    | parity           | `db backup list/create/restore` | —   | ✅     |
-| Project eject/export            | GET /export          | parity           | `project export [dir]`          | —   | ✅     |
+| Capability                      | Route(s)             | Decision                                               | CLI                             | MCP | Status |
+| ------------------------------- | -------------------- | ------------------------------------------------------ | ------------------------------- | --- | ------ |
+| Local migrate/reset/console/url | —                    | local-equivalent                                       | `db migrate/reset/console/url`  | —   | ✅     |
+| Cloud connection info           | GET /database        | parity                                                 | `db info`                       | —   | ✅     |
+| SQL console (cloud)             | POST /database/query | parity                                                 | `db query`                      | —   | ✅     |
+| Schema tables                   | GET /database/tables | parity                                                 | `db info`                       | —   | ✅     |
+| Backups create/list/restore     | /database/backups    | parity                                                 | `db backup list/create/restore` | —   | ✅     |
+| Project eject/export            | GET /export          | gap (platform route exists; CLI command not built yet) | —                               | —   | ⬜     |
 
 ## Team & sharing
 
@@ -154,6 +154,23 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 | Package docs             | —              | local-equivalent                    | (node_modules READMEs)           | `read_package_doc`          | ✅     |
 | Staging envs             | —              | local-equivalent                    | `stage up/down/list/status/logs` | —                           | ✅     |
 | Agent wiring             | —              | local-equivalent                    | `agent init`, `mcp install`      | `agent_init`                | ✅     |
+
+## Capability services (hosted)
+
+Capabilities molecule runs on its own vendor accounts for a project —
+`POST /v1/services/:service/:operation` — exposed MCP-first and in app code via
+`@molecule/*` bonds (e.g. `@molecule/api-ai-embeddings-molecule`). Metered to
+the project whose `MOLECULE_API_KEY` the tool call uses.
+
+| Capability          | Route(s)                                | Decision | CLI | MCP                | Status |
+| ------------------- | --------------------------------------- | -------- | --- | ------------------ | ------ |
+| Embeddings          | POST /v1/services/embeddings/embed      | parity   | —   | `embed_text`       | ✅     |
+| Translation         | POST /v1/services/translation/translate | parity   | —   | `translate`        | ✅     |
+| Text-to-speech      | POST /v1/services/speech/synthesize     | parity   | —   | `text_to_speech`   | ✅     |
+| Transcription (STT) | POST /v1/services/speech/transcribe     | parity   | —   | `transcribe_audio` | ✅     |
+| Moderation          | POST /v1/services/moderation/*          | parity   | —   | `moderate_content` | ✅     |
+| OCR / text extract  | POST /v1/services/ocr/recognize         | parity   | —   | `extract_text`     | ✅     |
+| Web search          | POST /v1/services/web-search/search     | parity   | —   | `web_search`       | ✅     |
 
 ## Ops
 
