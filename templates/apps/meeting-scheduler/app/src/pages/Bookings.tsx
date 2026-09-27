@@ -20,6 +20,8 @@ interface ApiBooking {
   status: string
   notes: string | null
   event_type_id: string
+  /** Embedded by GET /api/bookings for business-catalog bookings. */
+  event_type_name?: string | null
 }
 
 interface ApiEventType {
@@ -60,7 +62,7 @@ function makeRow(b: ApiBooking, eventTypes: Record<string, ApiEventType>): Booki
     start_at: typeof b.start_at === 'string' ? b.start_at : new Date(b.start_at).toISOString(),
     end_at: typeof b.end_at === 'string' ? b.end_at : new Date(b.end_at).toISOString(),
     status: b.status,
-    event_type_name: et ? `${et.name} · ${et.duration_minutes} min` : null,
+    event_type_name: b.event_type_name ?? (et ? `${et.name} · ${et.duration_minutes} min` : null),
     notes: b.notes,
   }
 }
@@ -82,10 +84,18 @@ export function Bookings() {
     Promise.all([
       http.get('/api/bookings').then((res) => unwrapList<ApiBooking>(res)),
       http.get('/api/event-types').then((res) => unwrapList<ApiEventType>(res)),
+      // Business-catalog bookings: signed-out visitors book against the
+      // seeded business account; the owner page lists those too.
+      http
+        .get('/api/bookings/business')
+        .then((res) => unwrapList<ApiBooking>(res))
+        .catch(() => [] as ApiBooking[]),
     ])
-      .then(([bookingList, eventTypeList]) => {
+      .then(([bookingList, eventTypeList, businessList]) => {
         if (cancelled) return
-        setBookings(bookingList)
+        const byId = new Map(bookingList.map((b) => [b.id, b]))
+        for (const b of businessList) if (!byId.has(b.id)) byId.set(b.id, b)
+        setBookings([...byId.values()])
         setEventTypes(Object.fromEntries(eventTypeList.map((et) => [et.id, et])))
       })
       .catch(() => {

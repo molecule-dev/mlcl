@@ -36,6 +36,7 @@ import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
 
+import { getSystemOwnerId } from '../lib/business.js'
 import type { MeetingSchedulerLimits } from '../tiers.js'
 
 const router = Router()
@@ -123,6 +124,49 @@ const updateEventTypeSchema = createEventTypeSchema.partial()
 
 // ---- public routes (declared first so /:id never shadows them) ----------
 
+// Public, signed-out business catalog — the home page's services section and
+// the booking flow read THIS, never the authed GET / (the m018 failure: a
+// visitor-visible page calling an owner-only route got 401 for everyone).
+router.get('/public/services', async (_req: Request, res: Response) => {
+  const systemOwnerId = await getSystemOwnerId()
+  if (!systemOwnerId) {
+    return res.json({ services: [], hours: [] })
+  }
+  const services = (
+    await findMany<EventTypeRow & { price_cents: number }>('event_types', {
+      where: [
+        { field: 'owner_id', operator: '=', value: systemOwnerId },
+        { field: 'is_active', operator: '=', value: true },
+      ],
+      orderBy: [{ field: 'position', direction: 'asc' }],
+      limit: 100,
+      offset: 0,
+    })
+  ).map((s) => ({
+    id: s.id,
+    name: s.name,
+    slug: s.slug,
+    description: s.description,
+    duration_minutes: s.duration_minutes,
+    price_cents: s.price_cents,
+  }))
+  const rules = (await findMany<{ day_of_week: number; start_minute: number; end_minute: number }>(
+    'availability_rules',
+    {
+      where: [{ field: 'user_id', operator: '=', value: systemOwnerId }],
+      orderBy: [{ field: 'day_of_week', direction: 'asc' }],
+      limit: 200,
+      offset: 0,
+    },
+  )) as Array<{ day_of_week: number; start_minute: number; end_minute: number }>
+  const hours = rules.map((r) => ({
+    day_of_week: r.day_of_week,
+    start_minute: r.start_minute,
+    end_minute: r.end_minute,
+  }))
+  return res.json({ services, hours })
+})
+
 router.get('/by-slug/:slug', async (req: Request, res: Response) => {
   const slug = getParamSlug(req)
   const eventType = (await findOne<EventTypeRow>('event_types', [
@@ -142,6 +186,7 @@ router.get('/by-slug/:slug', async (req: Request, res: Response) => {
       slug: eventType.slug,
       description: eventType.description,
       duration_minutes: eventType.duration_minutes,
+      price_cents: (eventType as EventTypeRow & { price_cents?: number }).price_cents ?? 0,
       location_kind: eventType.location_kind,
       location_value: eventType.location_value,
       buffer_before_minutes: eventType.buffer_before_minutes,

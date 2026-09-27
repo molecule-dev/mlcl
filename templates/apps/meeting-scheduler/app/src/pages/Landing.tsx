@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
-import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
+import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
@@ -38,11 +39,44 @@ const FEATURES = [
   },
 ] as const
 
+interface PublicService {
+  id: string
+  name: string
+  slug: string
+  description: string | null
+  duration_minutes: number
+  price_cents: number
+}
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const isAuthenticated = useIsAuthenticated()
+  const http = useHttpClient()
   const year = new Date().getFullYear()
+  const [services, setServices] = useState<PublicService[]>([])
+  const [servicesError, setServicesError] = useState(false)
+
+  // Public catalog — signed-out visitors included. NEVER call an authed
+  // endpoint (e.g. GET /api/event-types) from this page: it 401s for every
+  // visitor (the m018 failure).
+  useEffect(() => {
+    let cancelled = false
+    http
+      .get('/api/event-types/public/services')
+      .then((res) => {
+        if (cancelled) return
+        const body = res.data as { services?: PublicService[] }
+        setServices(Array.isArray(body.services) ? body.services : [])
+      })
+      .catch(() => {
+        if (cancelled) return
+        setServicesError(true)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [http])
 
   return (
     <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
@@ -298,6 +332,115 @@ export function Landing() {
               </div>
             </div>
           </div>
+        </section>
+
+        <section
+          id="services"
+          className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}
+        >
+          <h2
+            className={cm.cn(
+              cm.sp('mb', 3),
+              cm.textCenter,
+              'text-3xl md:text-4xl font-extrabold tracking-tight',
+            )}
+          >
+            {t('landing.servicesHeading', {}, { defaultValue: 'Services & pricing' })}
+          </h2>
+          <p
+            className={cm.cn(
+              cm.sp('mb', 12),
+              cm.textCenter,
+              cm.textSize('lg'),
+              'text-on-surface-variant/80',
+            )}
+          >
+            {t(
+              'landing.servicesSubheading',
+              {},
+              {
+                defaultValue:
+                  'Pick a service, choose a time that suits you, and book in under a minute.',
+              },
+            )}
+          </p>
+          {servicesError ? (
+            <p className={cm.cn(cm.textCenter, 'text-on-surface-variant')}>
+              {t(
+                'landing.servicesUnavailable',
+                {},
+                { defaultValue: 'Our price list is being updated — please check back shortly.' },
+              )}
+            </p>
+          ) : (
+            <div
+              className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3')}
+            >
+              {services.map((svc) => (
+                <article
+                  key={svc.id}
+                  data-testid={`service-card-${svc.slug}`}
+                  className={cm.cn(
+                    cm.flex({ direction: 'col' }),
+                    cm.sp('p', 6),
+                    'bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-xl transition-shadow',
+                  )}
+                >
+                  <div
+                    className={cm.cn(
+                      cm.flex({ justify: 'between', align: 'start' }),
+                      cm.sp('mb', 2),
+                    )}
+                  >
+                    <h3 className={cm.cn(cm.textSize('xl'), 'font-bold')}>{svc.name}</h3>
+                    <span
+                      data-testid={`service-price-${svc.slug}`}
+                      className={cm.cn(
+                        cm.textSize('lg'),
+                        'font-extrabold text-primary whitespace-nowrap',
+                      )}
+                    >
+                      {svc.price_cents > 0
+                        ? `$${Math.round(svc.price_cents / 100)}`
+                        : t('landing.freeLabel', {}, { defaultValue: 'Free' })}
+                    </span>
+                  </div>
+                  {svc.description && (
+                    <p
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.sp('mb', 4),
+                        'text-on-surface-variant/80',
+                      )}
+                    >
+                      {svc.description}
+                    </p>
+                  )}
+                  <p
+                    className={cm.cn(cm.textSize('sm'), cm.sp('mb', 6), 'text-on-surface-variant')}
+                  >
+                    {t(
+                      'landing.durationLabel',
+                      { minutes: svc.duration_minutes },
+                      { defaultValue: '{{minutes}} minutes' },
+                    )}
+                  </p>
+                  <Link
+                    to={`/book/${svc.slug}`}
+                    data-testid={`service-book-${svc.slug}`}
+                    className={cm.cn(
+                      cm.sp('px', 5),
+                      cm.sp('py', 2),
+                      'mt-auto',
+                      'rounded-full bg-primary text-on-primary font-semibold text-center hover:opacity-90 transition-opacity',
+                    )}
+                  >
+                    {t('landing.bookNow', {}, { defaultValue: 'Book now' })}
+                  </Link>
+                </article>
+              ))}
+            </div>
+          )}
         </section>
 
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>

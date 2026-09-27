@@ -32,6 +32,7 @@ import { count, create, findById, findMany, findOne, updateById } from '@molecul
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
+import { getSystemOwnerId } from '../lib/business.js'
 
 import { formatInTimezone } from '../lib/format-time.js'
 import type { MeetingSchedulerLimits } from '../tiers.js'
@@ -354,6 +355,7 @@ router.post('/public', validateBody(publicBookingSchema), async (req: Request, r
   return res.status(201).json({
     booking: result.data,
     cancellationToken,
+    price_cents: (eventType as { price_cents?: number }).price_cents ?? 0,
   })
 })
 
@@ -451,6 +453,39 @@ router.get('/', async (req: Request, res: Response) => {
   return res.json(items)
 })
 
+// Owner view of the PUBLIC business catalog's bookings (signed-out visitors
+// book against the seeded system account). Kept as a SEPARATE authed endpoint
+// rather than merged into GET / so a fresh account's list stays empty — the
+// owner page merges the two. (Fleet audit 2026-09-27.)
+router.get('/business', async (_req: Request, res: Response) => {
+  const userId = getUserId(res)
+  if (!userId) {
+    return res.status(401).json({ error: t('auth.unauthorized') })
+  }
+  const systemOwnerId = await getSystemOwnerId()
+  if (!systemOwnerId) return res.json([])
+  const items = await findMany('bookings', {
+    where: [{ field: 'host_user_id', operator: '=', value: systemOwnerId }],
+    orderBy: [{ field: 'start_at', direction: 'asc' }],
+    limit: 200,
+    offset: 0,
+  })
+  const eventTypeNames = new Map<string, string>()
+  const typeIds = [...new Set(items.map((b) => b.event_type_id as string))]
+  for (const id of typeIds) {
+    const et = await findOne<{ name: string }>('event_types', [
+      { field: 'id', operator: '=', value: id },
+    ])
+    if (et) eventTypeNames.set(id, et.name)
+  }
+  return res.json(
+    items.map((b) => ({
+      ...(b as Record<string, unknown>),
+      event_type_name: eventTypeNames.get(b.event_type_id as string) ?? null,
+    })),
+  )
+})
+
 router.get('/:id', async (req: Request, res: Response) => {
   const userId = getUserId(res)
   if (!userId) {
@@ -458,7 +493,9 @@ router.get('/:id', async (req: Request, res: Response) => {
   }
   const id = getParamId(req)
   const item = await findById<BookingRow>('bookings', id)
-  if (!item || item.host_user_id !== userId) {
+  const systemOwnerId = await getSystemOwnerId()
+  const isBusinessBooking = systemOwnerId != null && item?.host_user_id === systemOwnerId
+  if (!item || (item.host_user_id !== userId && !isBusinessBooking)) {
     return res
       .status(404)
       .json({ error: t('booking.notFound', {}, { defaultValue: 'Booking not found' }) })
