@@ -97,6 +97,34 @@ function extractDataModel(appDir) {
       }
       tables.push({ name, cols })
     }
+    // Later migrations also RESHAPE created tables. Replay the column-level
+    // ALTERs in file order so the doc reflects the FINAL schema (a rename
+    // recorded only in a follow-up migration otherwise leaves the doc naming
+    // a column the table no longer has).
+    const renameRe =
+      /ALTER TABLE\s+(?:IF EXISTS\s+)?(?:ONLY\s+)?(?:public\.)?["']?([A-Za-z0-9_]+)["']?\s+RENAME COLUMN\s+(?:IF EXISTS\s+)?["']?([A-Za-z0-9_]+)["']?\s+TO\s+["']?([A-Za-z0-9_]+)["']?/gi
+    while ((m = renameRe.exec(sql))) {
+      const t = tables.find((x) => x.name === m[1])
+      if (!t) continue
+      const i = t.cols.indexOf(m[2])
+      if (i !== -1) t.cols[i] = m[3]
+      else t.cols.push(m[3])
+    }
+    const dropRe =
+      /ALTER TABLE\s+(?:IF EXISTS\s+)?(?:ONLY\s+)?(?:public\.)?["']?([A-Za-z0-9_]+)["']?\s+DROP COLUMN\s+(?:IF EXISTS\s+)?["']?([A-Za-z0-9_]+)["']?/gi
+    while ((m = dropRe.exec(sql))) {
+      const t = tables.find((x) => x.name === m[1])
+      if (!t) continue
+      const i = t.cols.indexOf(m[2])
+      if (i !== -1) t.cols.splice(i, 1)
+    }
+    const addRe =
+      /ALTER TABLE\s+(?:IF EXISTS\s+)?(?:ONLY\s+)?(?:public\.)?["']?([A-Za-z0-9_]+)["']?\s+ADD COLUMN\s+(?:IF NOT EXISTS\s+)?["']?([A-Za-z0-9_]+)["']?/gi
+    while ((m = addRe.exec(sql))) {
+      const t = tables.find((x) => x.name === m[1])
+      if (!t) continue
+      if (!t.cols.includes(m[2])) t.cols.push(m[2])
+    }
   }
   return tables
 }
