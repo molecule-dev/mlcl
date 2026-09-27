@@ -160,7 +160,7 @@ async function confirmCounts(issueIds: string[]): Promise<Map<string, number>> {
   return m
 }
 
-async function confirmedByMe(issueIds: string[], userId: string): Promise<Set<string>> {
+async function confirmedByMe(issueIds: string[], userId: string | null): Promise<Set<string>> {
   const unique = [...new Set(issueIds)].filter(Boolean)
   if (unique.length === 0 || !userId) return new Set()
   const rows = (await findMany('confirmations', {
@@ -198,10 +198,12 @@ async function notify(
 router.get('/', validateQuery(listIssuesQuery), async (req: Request, res: Response) => {
   try {
     const userId = getUserId(res)
-    if (!userId) return unauthorized(res)
     const { category, status, mine, near_x, near_y, radius, sort, order, limit, offset } =
       req.query as unknown as z.infer<typeof listIssuesQuery>
     const mineFlag = mine !== undefined && mine !== '0' && mine !== 'false'
+    // The community list is PUBLIC — the signed-out landing map reads it.
+    // Auth is required only for mine=1 (the caller's own reports).
+    if (!userId && mineFlag) return unauthorized(res)
 
     const where: WhereCondition[] = []
     if (category) where.push({ field: 'category', operator: '=', value: category })

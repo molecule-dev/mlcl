@@ -768,7 +768,7 @@
                 return root.children.length > 0 && root.getBoundingClientRect().height > 10
               }
               // Body fallback: require a NON-chrome child (not the injected bridge
-              // <script>s / <style> / <meta>) with real rendered height, so the bridge
+              // script tags / <style> / <meta>) with real rendered height, so the bridge
               // tags alone never count as "the app rendered".
               for (var i = 0; i < root.children.length; i++) {
                 var el = root.children[i]
@@ -1033,7 +1033,7 @@
             }
             // No #root/#app: an imported / SSR app that renders straight into <body>.
             // Report blank only if <body> has NO non-chrome child (script/style/meta) —
-            // a truly empty render — so the injected bridge <script>s never mask it.
+            // a truly empty render — so the injected bridge script tags never mask it.
             var body = document.body
             if (!body) return
             for (var i = 0; i < body.children.length; i++) {

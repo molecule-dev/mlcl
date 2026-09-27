@@ -793,5 +793,75 @@ server.registerTool(
   ),
 )
 
+server.registerTool(
+  'submit_agent_run',
+  {
+    title: 'Submit an unattended agent run (molecule.dev)',
+    description:
+      'Run a coding agent UNATTENDED against a GitHub repo on molecule.dev: the agent works in an ephemeral cloud sandbox that holds nothing sensitive, with per-run scoped credentials and deny-by-default egress. Returns a runId immediately (runs take minutes) — poll with get_agent_run. When finished, the artifact carries a unified diff (patch) the HOST applies — scan it for secrets first. Requires a GitHub fine-grained token scoped to THE ONE repo (contents:read/write, expiry ≈ timeout) via github_token; metered to the project whose MOLECULE_API_KEY is used.',
+    inputSchema: {
+      repo_url: z.string().url().describe('https GitHub repo URL, e.g. https://github.com/org/repo'),
+      instructions: z.string().min(1).max(20000).describe('What the agent should do, in plain language'),
+      github_token: z
+        .string()
+        .describe(
+          'GitHub FINE-GRAINED token scoped to THIS ONE repo (contents:read/write), expiry ≈ timeout. Never an account-wide token.',
+        ),
+      base_branch: z.string().max(200).optional(),
+      model: z.string().max(100).optional().describe('Model id, e.g. claude-sonnet-5 (default)'),
+      timeout_ms: z
+        .number()
+        .int()
+        .min(60000)
+        .max(1800000)
+        .optional()
+        .describe('Wall-clock budget in ms (default 600000 = 10 min)'),
+      directory: z.string().optional().describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('submit_agent_run', async ({ repo_url, instructions, github_token, base_branch, model, timeout_ms, directory }) =>
+    serviceResult(async () => {
+      const result = await callHostedService(
+        'agent-runs',
+        'submit',
+        {
+          repoUrl: repo_url,
+          instructions,
+          ...(base_branch ? { baseBranch: base_branch } : {}),
+          ...(model ? { model } : {}),
+          ...(timeout_ms ? { timeoutMs: timeout_ms } : {}),
+          credentials: { githubToken: github_token },
+        },
+        directory,
+      )
+      // The token went to the API in this call's body — the tool result carries
+      // only the runId, never the credential.
+      return JSON.stringify(result)
+    }),
+  ),
+)
+
+server.registerTool(
+  'get_agent_run',
+  {
+    title: 'Check an agent run (molecule.dev)',
+    description:
+      'Poll a molecule.dev agent run submitted with submit_agent_run. While queued/running, returns status only; when finished, returns the artifact: exitStatus, patch (unified diff — apply host-side after scanning for secrets), logs and token usage.',
+    inputSchema: {
+      run_id: z.string().describe('runId from submit_agent_run'),
+      directory: z.string().optional().describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('get_agent_run', async ({ run_id, directory }) =>
+    serviceResult(async () => {
+      // get is a GET, but callHostedService is POST — the status route accepts
+      // POST-equivalent semantics via the same auth; use the generic caller on
+      // the dedicated status operation.
+      const result = await callHostedService('agent-runs', 'status', { runId: run_id }, directory)
+      return JSON.stringify(result)
+    }),
+  ),
+)
+
 /** The configured server — exported so tests can link an in-memory client to it. */
 export { server as moleculeServer }
