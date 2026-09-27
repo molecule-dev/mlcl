@@ -37,30 +37,30 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 
 ## Projects
 
-| Capability                   | Route(s)                  | Decision                                                                     | CLI                                              | MCP                | Status |
-| ---------------------------- | ------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------ | ------------------ | ------ |
-| List projects                | GET /projects             | parity                                                                       | `project list`                                   | `list_projects`    | ✅     |
-| Project detail               | GET /projects/:id         | parity                                                                       | `project get`                                    | —                  | ✅     |
-| Open in IDE (deep link)      | — (URL shape)             | parity                                                                       | `project open` (prints workspace + preview URLs) | —                  | ✅     |
-| Create project               | POST /projects            | local-equivalent (`create` scaffolds locally; cloud create is a tracked gap) | `create`                                         | `scaffold_project` | 🔶     |
-| Create from template (cloud) | POST /templates/:slug/use | local-equivalent                                                             | `create --template`                              | `scaffold_project` | 🔶     |
-| Update settings              | PATCH /projects/:id       | parity                                                                       | `project settings`                               | —                  | ✅     |
-| Delete project               | DELETE /projects/:id      | parity                                                                       | `project delete`                                 | —                  | ✅     |
-| Clone shared project         | POST /share/:slug/clone   | parity                                                                       | `share clone`                                    | —                  | ✅     |
+| Capability                   | Route(s)                  | Decision                                                                         | CLI                                              | MCP                | Status |
+| ---------------------------- | ------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------ | ------------------ | ------ |
+| List projects                | GET /projects             | parity                                                                           | `project list`                                   | `list_projects`    | ✅     |
+| Project detail               | GET /projects/:id         | parity                                                                           | `project get`                                    | —                  | ✅     |
+| Open in IDE (deep link)      | — (URL shape)             | parity                                                                           | `project open` (prints workspace + preview URLs) | —                  | ✅     |
+| Create project               | POST /projects            | parity (`project create` creates it on the platform; `create` scaffolds locally) | `project create`, `create`                       | `scaffold_project` | ✅     |
+| Create from template (cloud) | POST /templates/:slug/use | local-equivalent                                                                 | `create --template`                              | `scaffold_project` | 🔶     |
+| Update settings              | PATCH /projects/:id       | parity                                                                           | `project settings`                               | —                  | ✅     |
+| Delete project               | DELETE /projects/:id      | parity                                                                           | `project delete`                                 | —                  | ✅     |
+| Clone shared project         | POST /share/:slug/clone   | parity                                                                           | `share clone`                                    | —                  | ✅     |
 
 ## Sandbox & files
 
-| Capability                   | Route(s)                             | Decision                                                                       | CLI                         | MCP    | Status         |
-| ---------------------------- | ------------------------------------ | ------------------------------------------------------------------------------ | --------------------------- | ------ | -------------- |
-| Sandbox status               | GET /projects/:id/sandbox/status     | parity                                                                         | `sandbox status`            | —      | ✅             |
-| Start / stop / restart       | POST .../sandbox/start               | stop                                                                           | restart                     | parity | `sandbox start | stop | restart` | —   | ✅  |
-| Exec in sandbox              | POST /projects/:id/sandbox/exec      | parity                                                                         | `sandbox exec -- <cmd>`     | —      | ✅             |
-| Snapshots                    | POST/GET /snapshots, restore, DELETE | parity                                                                         | `snapshot create            | list   | restore        | rm`  | —        | ✅  |
-| File CRUD/search             | GET/PUT/DELETE /files/*, search      | local-equivalent (the CLI works on the LOCAL checkout — files are right there) | —                           | —      | ➖             |
-| Terminal / LSP / presence WS | /ws/projects/:id/*                   | ide-only (interactive sockets)                                                 | —                           | —      | ➖             |
-| Egress policy                | GET /egress, allowlist POST/DELETE   | parity                                                                         | `egress get/approve/revoke` | —      | ✅             |
-| Logs / log stream            | GET /logs, /logs/stream              | parity                                                                         | `logs [--stream]`           | —      | ✅             |
-| Preview health               | GET /preview/health/stream           | ide-only (SSE UI)                                                              | —                           | —      | ➖             |
+| Capability                   | Route(s)                             | Decision                                                                                    | CLI                          | MCP    | Status         |
+| ---------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------- | ---------------------------- | ------ | -------------- |
+| Sandbox status               | GET /projects/:id/sandbox/status     | parity                                                                                      | `sandbox status`             | —      | ✅             |
+| Start / stop / restart       | POST .../sandbox/start               | stop                                                                                        | restart                      | parity | `sandbox start | stop | restart` | —   | ✅  |
+| Exec in sandbox              | POST /projects/:id/sandbox/exec      | parity                                                                                      | `sandbox exec -- <cmd>`      | —      | ✅             |
+| Snapshots                    | POST/GET /snapshots, restore, DELETE | parity                                                                                      | `snapshot create             | list   | restore        | rm`  | —        | ✅  |
+| File CRUD/search             | GET/PUT/DELETE /files/*, search      | parity (`sync` pushes a local tree into the sandbox through PUT /files/*; reads stay local) | `sync [dir] --dest <appDir>` | —      | ✅             |
+| Terminal / LSP / presence WS | /ws/projects/:id/*                   | ide-only (interactive sockets)                                                              | —                            | —      | ➖             |
+| Egress policy                | GET /egress, allowlist POST/DELETE   | parity                                                                                      | `egress get/approve/revoke`  | —      | ✅             |
+| Logs / log stream            | GET /logs, /logs/stream              | parity                                                                                      | `logs [--stream]`            | —      | ✅             |
+| Preview health               | GET /preview/health/stream           | ide-only (SSE UI)                                                                           | —                            | —      | ➖             |
 
 ## Git
 

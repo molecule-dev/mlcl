@@ -123,6 +123,7 @@ export async function whoami(
 export interface PlatformProject {
   id: string
   name: string
+  slug?: string
   role?: string
   previewUrl?: string
   liveUrl?: string
@@ -172,7 +173,11 @@ export interface PlatformDeployment {
 
 /** POST /projects/:id/deployments — trigger a production deploy (builds in the sandbox, launches the runtime container). */
 export function createDeployment(projectId: string, token?: string): Promise<PlatformDeployment> {
-  return request(`/projects/${projectId}/deployments`, { method: 'POST', body: {}, token })
+  // The platform wraps the row in `{ data }`; older builds returned it bare.
+  return request<{ data?: PlatformDeployment } & PlatformDeployment>(
+    `/projects/${projectId}/deployments`,
+    { method: 'POST', body: {}, token },
+  ).then((r) => r.data ?? r)
 }
 
 /** GET /projects/:id/deployments/:depId — poll a deploy (buildLog included for editor+). */
@@ -181,7 +186,10 @@ export function getDeployment(
   deploymentId: string,
   token?: string,
 ): Promise<PlatformDeployment & { buildLog?: string }> {
-  return request(`/projects/${projectId}/deployments/${deploymentId}`, { token })
+  return request<{ data?: PlatformDeployment & { buildLog?: string } } & PlatformDeployment>(
+    `/projects/${projectId}/deployments/${deploymentId}`,
+    { token },
+  ).then((r) => r.data ?? r)
 }
 
 export interface DeviceCodeSession {
@@ -804,6 +812,45 @@ export async function getProject(projectId: string, token?: string): Promise<Pla
   const raw = await request<unknown>(`/projects/${projectId}`, { token })
   const props = (raw as { props?: PlatformProject }).props ?? (raw as PlatformProject)
   return props
+}
+
+/** The input `POST /projects` takes — the same shape the IDE's Dashboard sends. */
+export interface CreateProjectInput {
+  name: string
+  projectType: string
+  framework?: string
+  packages?: string[]
+}
+
+/** Create a project (no sandbox yet — `sandboxAction(id, 'start')` boots one). */
+export function createProject(input: CreateProjectInput, token?: string): Promise<PlatformProject> {
+  return request<{ data?: PlatformProject } & PlatformProject>('/projects', {
+    method: 'POST',
+    body: input,
+    token,
+  }).then((r) => r.data ?? r)
+}
+
+/**
+ * Write one text file into the project sandbox (`PUT /projects/:id/files/*`).
+ * `path` is workspace-relative (`app/src/App.tsx`); the API rejects paths
+ * outside /workspace and bodies over 10 MB.
+ */
+export function writeProjectFile(
+  projectId: string,
+  path: string,
+  content: string,
+  token?: string,
+): Promise<unknown> {
+  const rel = path.replace(/^\/+/, '')
+  return request(
+    `/projects/${projectId}/files/${rel.split('/').map(encodeURIComponent).join('/')}`,
+    {
+      method: 'PUT',
+      body: { content },
+      token,
+    },
+  )
 }
 
 export function updateProject(
