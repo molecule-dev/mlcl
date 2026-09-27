@@ -17,17 +17,17 @@ Spotify-like music with playlists, queue, and artist pages
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
-- **albums** — id, user_id, artist_id, title, cover_url, release_date, type, created_at, updatedAt
-- **artists** — id, user_id, name, slug, bio, avatar_url, monthly_listeners, created_at, updatedAt
+- **albums** — id, user_id, artist_id, title, cover_url, release_date, type, created_at, updatedAt, description, label, cover_index, …
+- **artists** — id, user_id, name, slug, bio, avatar_url, monthly_listeners, created_at, updatedAt, follower_count
 - **devices** — id, createdAt, updatedAt, userId, name, pushPlatform, pushSubscription, hasPushSubscription
 - **liked_tracks** — id, user_id, track_id, liked_at, updatedAt
 - **listening_history** — id, user_id, track_id, ms_played, played_at, listened_at, updatedAt
-- **notifications** — id, user_id, kind, payload, read_at, created_at, updatedAt
+- **notifications** — id, user_id, kind, payload, read_at, created_at, updatedAt, title, body, href
 - **payments** — id, createdAt, updatedAt, userId, transactionId, productId, platformKey, data, receipt
 - **playlist_tracks** — id, playlist_id, track_id, position, added_at, updatedAt
-- **playlists** — id, user_id, owner_id, name, description, cover_image_url, is_public, track_count, duration_seconds, created_at, updated_at, updatedAt
-- **queue_items** — id, user_id, track_id, position, added_at, updatedAt
-- **radio_stations** — id, owner_id, user_id, seed_track_id, name, created_at, updatedAt
+- **playlists** — id, user_id, owner_id, name, description, cover_image_url, is_public, track_count, duration_seconds, created_at, updated_at, updatedAt, …
+- **queue_items** — id, user_id, track_id, position, added_at, updatedAt, origin, source_kind, source_id
+- **radio_stations** — id, owner_id, user_id, seed_track_id, name, created_at, updatedAt, description, cover_index
 - **tracks** — id, user_id, album_id, artist_id, title, duration_ms, duration_seconds, track_number, audio_url, genre, play_count, created_at, …
 - **artist_follows** — id, user_id, artist_id, followed_at, updatedAt
 - **playlist_saves** — id, user_id, playlist_id, saved_at, updatedAt

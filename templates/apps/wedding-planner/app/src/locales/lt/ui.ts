@@ -170,7 +170,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Poros kodas yra jūsų kvietimu. Įveskite jį, kad rastumėte savo vardą ir atsakytumėte vieną kartą — paskyros nereikia.',
   'landing.rsvpEyebrow': 'Gavote kvietimą?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Rasti mano kvietimą',
   'landing.rsvpTitle': 'Patvirtinkite savo kodu',
   'landing.secondary': 'Žiūrėti, kaip veikia',
@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Patiekalo pasirinkimas',
   'rsvp.mealNone': 'Be pageidavimų',
   'rsvp.notFoundBody':
-    'Dar kartą patikrinkite savo kvietime nurodytą kodą — jis atrodo kaip ROSE-GARDEN-417 — arba paprašykite poros atsiųsti jį dar kartą.',
+    'Dar kartą patikrinkite savo kvietime nurodytą kodą — jis atrodo kaip WEDD1NG202 — arba paprašykite poros atsiųsti jį dar kartą.',
   'rsvp.notFoundTitle': 'Nepavyko rasti šio kodo',
   'rsvp.plusOnes': 'Svečiai, kuriuos atvesate',
   'rsvp.respondBody': 'Ar prisijungsite prie {{a}} ir {{b}}?',

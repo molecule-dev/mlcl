@@ -168,7 +168,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     "Lambar ma'aurata tana kan gayyatarku. Shigar da ita don neman sunanku kuma ku amsa sau ɗaya — ba a buƙatar asusun.",
   'landing.rsvpEyebrow': 'Ka sami gayyata?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Nemo gayyatata',
   'landing.rsvpTitle': 'RSVP da lambarku',
   'landing.secondary': 'Ga yadda ake aiki',
@@ -239,7 +239,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Zaɓin abinci',
   'rsvp.mealNone': 'Babu fifiko',
   'rsvp.notFoundBody':
-    "Sake duba lambar da ke kan gayyatar ka — da alama ita ce ROSE-GARDEN-417 — ko ka nemi ma'auratan su sake aiko ta.",
+    "Sake duba lambar da ke kan gayyatar ka — da alama ita ce WEDD1NG202 — ko ka nemi ma'auratan su sake aiko ta.",
   'rsvp.notFoundTitle': 'Ba mu sami wannan lambar ba',
   'rsvp.plusOnes': 'Baƙin da kuke kawowa',
   'rsvp.respondBody': 'Za ka halarci bikin {{a}} & {{b}}?',

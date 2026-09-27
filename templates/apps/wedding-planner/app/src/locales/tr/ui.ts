@@ -170,7 +170,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Çiftin kodu davetiyenizde yazmaktadır. Adınızı bulup bir kez yanıt vermek için girin — hesap gerekmez.',
   'landing.rsvpEyebrow': 'Davetiye aldınız mı?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Davetiyemi bul',
   'landing.rsvpTitle': 'Kodunuzla yanıt verin',
   'landing.secondary': 'Nasıl çalıştığını görün',
@@ -241,7 +241,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Yemek tercihi',
   'rsvp.mealNone': 'Tercih yok',
   'rsvp.notFoundBody':
-    'Davetiyenizdeki kodu bir kez daha kontrol edin — ROSE-GARDEN-417 gibi görünüyor — ya da çiftten yeniden göndermesini isteyin.',
+    'Davetiyenizdeki kodu bir kez daha kontrol edin — WEDD1NG202 gibi görünüyor — ya da çiftten yeniden göndermesini isteyin.',
   'rsvp.notFoundTitle': 'Bu kod bulunamadı',
   'rsvp.plusOnes': 'Getireceğiniz misafirler',
   'rsvp.respondBody': '{{a}} & {{b}} düğününe katılacak mısınız?',

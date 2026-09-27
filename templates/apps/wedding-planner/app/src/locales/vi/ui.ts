@@ -169,7 +169,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Mã của cặp đôi có trên thiệp mời của bạn. Nhập mã để tìm tên và trả lời một lần — không cần tài khoản.',
   'landing.rsvpEyebrow': 'Đã nhận được thiệp mời?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Tìm thiệp mời của tôi',
   'landing.rsvpTitle': 'RSVP bằng mã của bạn',
   'landing.secondary': 'Xem cách hoạt động',
@@ -240,7 +240,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Lựa chọn bữa ăn',
   'rsvp.mealNone': 'Không ưu tiên',
   'rsvp.notFoundBody':
-    'Hãy kiểm tra lại mã trên thiệp mời của bạn — có vẻ là ROSE-GARDEN-417 — hoặc nhờ cặp đôi gửi lại.',
+    'Hãy kiểm tra lại mã trên thiệp mời của bạn — có vẻ là WEDD1NG202 — hoặc nhờ cặp đôi gửi lại.',
   'rsvp.notFoundTitle': 'Chúng tôi không tìm thấy mã đó',
   'rsvp.plusOnes': 'Khách bạn sẽ mang theo',
   'rsvp.respondBody': 'Bạn sẽ tham dự cùng {{a}} & {{b}} chứ?',

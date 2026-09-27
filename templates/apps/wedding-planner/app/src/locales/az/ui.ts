@@ -172,7 +172,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Cütlüyün kodu dəvətnamənizin üzərindədir. Adınızı tapmaq və bir dəfə cavab vermək üçün daxil edin — hesab lazım deyil.',
   'landing.rsvpEyebrow': 'Dəvətnaməniz var?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Dəvətnaməmi tap',
   'landing.rsvpTitle': 'Kodunuzla RSVP edin',
   'landing.secondary': 'Necə işlədiyinə bax',
@@ -243,7 +243,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Yemək seçimi',
   'rsvp.mealNone': 'Üstünlük yoxdur',
   'rsvp.notFoundBody':
-    'Dəvətnamənizdəki kodu bir daha yoxlayın — ROSE-GARDEN-417 kimi görünür — ya da cütlükdən onu yenidən göndərməsini xahiş edin.',
+    'Dəvətnamənizdəki kodu bir daha yoxlayın — WEDD1NG202 kimi görünür — ya da cütlükdən onu yenidən göndərməsini xahiş edin.',
   'rsvp.notFoundTitle': 'Bu kod tapılmadı',
   'rsvp.plusOnes': 'Gətirdiyiniz qonaqlar',
   'rsvp.respondBody': '{{a}} & {{b}} ilə birlikdə olacaqsınız?',

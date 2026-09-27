@@ -165,7 +165,7 @@ export const ui: UiTranslations = {
   'landing.rsvpAriaLabel': 'RSVP ኮድ',
   'landing.rsvpBody': 'የጥንዶቹ ኮድ በግብዣዎ ላይ ነው። ስምዎን ለማግኘት እና አንድ ጊዜ ለመመለስ ያስገቡት — መለያ አያስፈልግም።',
   'landing.rsvpEyebrow': 'ግብዣ አለዎት?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'ግብዣዬን አግኝ',
   'landing.rsvpTitle': 'በኮድዎ RSVP ያድርጉ',
   'landing.secondary': 'እንዴት እንደሚሰራ ይመልከቱ',
@@ -232,7 +232,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'የምግብ ምርጫ',
   'rsvp.mealNone': 'ምርጫ የለም',
   'rsvp.notFoundBody':
-    'በግብዣ ጥሪዎ ላይ ያለውን ኮድ በደንብ ያረጋግጡ — ROSE-GARDEN-417 ይመስላል — ወይም ጥንዶቹ እንደገና እንዲልኩት ይጠይቁ።',
+    'በግብዣ ጥሪዎ ላይ ያለውን ኮድ በደንብ ያረጋግጡ — WEDD1NG202 ይመስላል — ወይም ጥንዶቹ እንደገና እንዲልኩት ይጠይቁ።',
   'rsvp.notFoundTitle': 'ያንን ኮድ ማግኘት አልቻልንም',
   'rsvp.plusOnes': 'እየመጡ ያሉ እንግዶች',
   'rsvp.respondBody': 'ከ{{a}} እና {{b}} ጋር ይቀላቀላሉ?',

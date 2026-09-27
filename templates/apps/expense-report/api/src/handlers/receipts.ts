@@ -29,6 +29,12 @@ import {
 
 const router = Router()
 
+// Attacker-chosen content types are NOT stored or served: a receipt is one
+// of these four things (fleet pattern: job-board/api/src/handlers/uploads.ts).
+// Everything else — notably text/html and image/svg+xml, which browsers may
+// execute when the stored URL is opened — is rejected before any work.
+const ALLOWED_MIME = new Set(['image/jpeg', 'image/png', 'image/webp', 'application/pdf'])
+
 const receiptUploadSchema = z.object({
   image_base64: z.string().min(1),
   filename: z.string().optional(),
@@ -42,6 +48,15 @@ router.post('/', validateBody(receiptUploadSchema), async (req: Request, res: Re
   }
 
   const { image_base64, mime_type, filename } = req.body as z.infer<typeof receiptUploadSchema>
+  const mime = (mime_type ?? 'image/jpeg').toLowerCase()
+  if (!ALLOWED_MIME.has(mime)) {
+    return res.status(400).json({
+      error: t('receipts.unsupportedType', undefined, {
+        defaultValue: 'Unsupported receipt type. Use JPEG, PNG, WebP, or PDF.',
+      }),
+    })
+  }
+
   const buffer = Buffer.from(image_base64, 'base64')
   if (buffer.length === 0) {
     return res
@@ -57,7 +72,6 @@ router.post('/', validateBody(receiptUploadSchema), async (req: Request, res: Re
     console.warn('Receipt resize failed, using original buffer', err)
   }
 
-  const mime = (mime_type as string | undefined) ?? 'image/jpeg'
   const safeFilename = String(filename ?? `receipt-${Date.now()}.jpg`).replace(
     /[^a-zA-Z0-9._-]/g,
     '_',

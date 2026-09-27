@@ -20,9 +20,9 @@ test.describe('/ landing', () => {
       description: 'Failed to load resource.*404',
     })
     await page.goto(APP_BASE + '/')
-    await page.locator('[data-mol-id="landing-rsvp-code-input"]').fill('rose-garden-417')
+    await page.locator('[data-mol-id="landing-rsvp-code-input"]').fill('wedd1ng202')
     await page.locator('[data-mol-id="landing-rsvp-submit"]').click()
-    await expect(page).toHaveURL(/\/rsvp\/ROSE-GARDEN-417$/)
+    await expect(page).toHaveURL(/\/rsvp\/WEDD1NG202$/)
   })
 
   test('unknown RSVP code shows the not-found page, not a crash', async ({ page }) => {

@@ -23,10 +23,10 @@
 
 ## Network calls expected during normal use
 
-| trigger            | method | path               | what request body or query is expected                                    |
-| ------------------ | ------ | ------------------ | ------------------------------------------------------------------------- |
-| page mount         | GET    | /api/recovery-keys | returns array of recovery keys for the user                               |
-| Generate kit click | POST   | /api/recovery-keys | `{ public_key, encrypted_recovery_data }` returns `{ id, recovery_code }` |
+| trigger            | method | path               | what request body or query is expected                                                    |
+| ------------------ | ------ | ------------------ | ----------------------------------------------------------------------------------------- |
+| page mount         | GET    | /api/recovery-keys | returns array of recovery keys for the user                                               |
+| Generate kit click | POST   | /api/recovery-keys | `{ recovery_kit }` (plain text — an export/copy artifact, not crypto) returns `{ id, … }` |
 
 ## Coverage check (final pass)
 

@@ -22,10 +22,11 @@ export const router = Router()
 
 router.use(userAuthorization.verifyMiddleware())
 
-// App-specific self-service two-factor preference toggle. Mounted before the
-// default user CRUD routes so the narrow `/users/me/two-factor` route is owned
-// by the app (the platform's generic PATCH /users/:id deliberately refuses to
-// write twoFactorEnabled). See handlers/users-2fa.ts.
+// App-specific self-service two-factor enrollment (real TOTP: setup + verify,
+// never a bare flag write [M-5]). Mounted before the default user CRUD routes so
+// the narrow `/users/me/two-factor*` routes are owned by the app (the platform's
+// generic PATCH /users/:id deliberately refuses to write twoFactorEnabled —
+// see [M6-1]). See handlers/users-2fa.ts.
 router.use('/users', usersTwoFactor)
 
 mountDefaultDeviceRoutes(router, Device)

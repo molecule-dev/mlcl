@@ -240,7 +240,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Maaltijdkeuze',
   'rsvp.mealNone': 'Geen voorkeur',
   'rsvp.notFoundBody':
-    'Controleer de code op je uitnodiging nog eens — die ziet eruit als ROSE-GARDEN-417 — of vraag het koppel om hem opnieuw te sturen.',
+    'Controleer de code op je uitnodiging nog eens — die ziet eruit als WEDD1NG202 — of vraag het koppel om hem opnieuw te sturen.',
   'rsvp.notFoundTitle': 'We konden die code niet vinden',
   'rsvp.plusOnes': 'Gasten die je meeneemt',
   'rsvp.respondBody': 'Kom je naar het huwelijk van {{a}} & {{b}}?',

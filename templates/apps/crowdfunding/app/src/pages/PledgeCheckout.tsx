@@ -260,7 +260,7 @@ export function PledgeCheckout() {
                   },
                   {
                     id: 'apple',
-                    icon: 'apple',
+                    icon: 'payments',
                     label: t('pledgeCheckout.payment.apple', {}, { defaultValue: 'Apple Pay' }),
                   },
                   {

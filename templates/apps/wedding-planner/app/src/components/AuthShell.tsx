@@ -125,7 +125,7 @@ export function AuthShell({
             >
               {t('authShell.inviteChip', {}, { defaultValue: 'RSVP by Jun 1' })}
             </span>
-            <span className="text-white/60 font-mono">ROSE-GARDEN-417</span>
+            <span className="text-white/60 font-mono">WEDD1NG202</span>
           </div>
           <p className={cm.cn('text-base font-bold leading-snug mb-1')}>
             {t(

@@ -12,8 +12,11 @@ import { validateBody } from '@molecule/api-middleware-validation'
 const router = Router()
 
 const registerSchema = z.object({
-  public_key: z.string().min(1),
-  encrypted_recovery_data: z.string().min(1),
+  // The recovery kit is an export/copy feature, not crypto — the client sends
+  // the plain kit text it generated and the server stores it verbatim under a
+  // column that says what it is (`recovery_kit`; formerly the lying
+  // `encrypted_recovery_data` beside a decorative `public_key`).
+  recovery_kit: z.string().min(1),
 })
 
 // Register a new recovery key for the current user
@@ -28,8 +31,7 @@ router.post('/', validateBody(registerSchema), async (req: Request, res: Respons
     }
     const result = await create('vault_recovery_keys', {
       user_id: userId,
-      public_key: req.body.public_key,
-      encrypted_recovery_data: req.body.encrypted_recovery_data,
+      recovery_kit: req.body.recovery_kit,
       created_at: new Date().toISOString(),
     })
     res.status(201).json(result.data)

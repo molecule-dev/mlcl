@@ -169,7 +169,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'යුවළගේ කේතය ඔබගේ ආරාධනාව මත ඇත. ඔබගේ නම සොයා ගැනීමට සහ වරක් පිළිතුරු දීමට එය ඇතුළත් කරන්න — ගිණුමක් අවශ්‍ය නැත.',
   'landing.rsvpEyebrow': 'ආරාධනාවක් ලැබී තිබේද?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'මගේ ආරාධනාව සොයන්න',
   'landing.rsvpTitle': 'ඔබගේ කේතය සමඟ RSVP කරන්න',
   'landing.secondary': 'එය ක්‍රියා කරන ආකාරය බලන්න',
@@ -240,7 +240,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'ආහාර තේරීම',
   'rsvp.mealNone': 'මනාපයක් නැත',
   'rsvp.notFoundBody':
-    'ඔබේ ආරාධනයේ ඇති කේතය නැවත පරීක්ෂා කරන්න — එය ROSE-GARDEN-417 ලෙස පෙනේ — නැතහොත් එය නැවත එවන ලෙස යුවළගෙන් ඉල්ලන්න.',
+    'ඔබේ ආරාධනයේ ඇති කේතය නැවත පරීක්ෂා කරන්න — එය WEDD1NG202 ලෙස පෙනේ — නැතහොත් එය නැවත එවන ලෙස යුවළගෙන් ඉල්ලන්න.',
   'rsvp.notFoundTitle': 'අපට එම කේතය සොයාගත නොහැකි විය',
   'rsvp.plusOnes': 'ඔබ ගෙන එන ආගන්තුකයින්',
   'rsvp.respondBody': 'ඔබ {{a}} සහ {{b}} සමඟ එක්වේද?',

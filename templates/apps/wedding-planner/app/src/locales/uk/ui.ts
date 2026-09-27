@@ -169,7 +169,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     "Код пари вказано на вашому запрошенні. Введіть його, щоб знайти своє ім'я та відповісти один раз — обліковий запис не потрібен.",
   'landing.rsvpEyebrow': 'Отримали запрошення?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Знайти моє запрошення',
   'landing.rsvpTitle': 'Підтвердження за допомогою коду',
   'landing.secondary': 'Як це працює',
@@ -240,7 +240,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Вибір страви',
   'rsvp.mealNone': 'Без переваг',
   'rsvp.notFoundBody':
-    'Перевірте код у своєму запрошенні — він виглядає як ROSE-GARDEN-417 — або попросіть пару надіслати його ще раз.',
+    'Перевірте код у своєму запрошенні — він виглядає як WEDD1NG202 — або попросіть пару надіслати його ще раз.',
   'rsvp.notFoundTitle': 'Ми не знайшли цей код',
   'rsvp.plusOnes': 'Гості, яких ви приводите',
   'rsvp.respondBody': 'Ви приєднаєтеся до {{a}} та {{b}}?',

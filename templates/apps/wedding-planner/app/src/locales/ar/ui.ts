@@ -168,7 +168,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'رمز الزوجين موجود على دعوتك. أدخله للعثور على اسمك والإجابة مرة واحدة — لا حاجة لحساب.',
   'landing.rsvpEyebrow': 'وصلتك دعوة؟',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'ابحث عن دعوتي',
   'landing.rsvpTitle': 'أكِّد حضورك برمزك',
   'landing.secondary': 'شاهد كيف يعمل',
@@ -237,7 +237,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'اختيار الوجبة',
   'rsvp.mealNone': 'لا تفضيل',
   'rsvp.notFoundBody':
-    'تحقق مرة أخرى من الرمز الموجود في دعوتك — يبدو أنه ROSE-GARDEN-417 — أو اطلب من العروسين إعادة إرساله.',
+    'تحقق مرة أخرى من الرمز الموجود في دعوتك — يبدو أنه WEDD1NG202 — أو اطلب من العروسين إعادة إرساله.',
   'rsvp.notFoundTitle': 'لم نتمكن من العثور على هذا الرمز',
   'rsvp.plusOnes': 'الضيوف الذين تحضرهم',
   'rsvp.respondBody': 'هل ستنضم إلى {{a}} و{{b}}؟',

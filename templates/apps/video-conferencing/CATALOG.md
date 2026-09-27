@@ -58,8 +58,8 @@ _These pages already exist — edit the named file in place, never create a para
 - **MeetingDetail** `/meeting/:id/details` (auth) → `app/src/pages/MeetingDetail.tsx`
 - **RecordingDetail** `/recordings/:id` (auth) → `app/src/pages/RecordingDetail.tsx`
 - **Notifications** `/notifications` (auth) → `app/src/pages/Notifications.tsx`
-- **Billing** `/settings/billing` (auth) → `app/src/pages/Billing.tsx`
-- **TeamMembers** `/team` (auth) → `app/src/pages/TeamMembers.tsx`
+- **Billing** `/billing` (auth) → `app/src/pages/Billing.tsx`
+- **TeamMembers** `/team-members` (auth) → `app/src/pages/TeamMembers.tsx`
 
 ## Subscription tiers
 

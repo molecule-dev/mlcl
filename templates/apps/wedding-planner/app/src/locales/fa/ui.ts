@@ -171,7 +171,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'کد زوج روی دعوتنامه شما است. آن را وارد کنید تا نام خود را پیدا کرده و یک‌بار پاسخ دهید — بدون نیاز به حساب کاربری.',
   'landing.rsvpEyebrow': 'دعوتنامه دارید؟',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'یافتن دعوتنامه من',
   'landing.rsvpTitle': 'تأیید حضور با کد خود',
   'landing.secondary': 'نحوه کار را ببینید',
@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'انتخاب غذا',
   'rsvp.mealNone': 'بدون ترجیح',
   'rsvp.notFoundBody':
-    'کد روی دعوت‌نامه‌تان را دوباره بررسی کنید — به نظر می‌رسد ROSE-GARDEN-417 است — یا از زوج بخواهید دوباره آن را بفرستد.',
+    'کد روی دعوت‌نامه‌تان را دوباره بررسی کنید — به نظر می‌رسد WEDD1NG202 است — یا از زوج بخواهید دوباره آن را بفرستد.',
   'rsvp.notFoundTitle': 'نتوانستیم آن کد را پیدا کنیم',
   'rsvp.plusOnes': 'مهمانانی که می‌آورید',
   'rsvp.respondBody': 'آیا به {{a}} و {{b}} ملحق می‌شوید؟',

@@ -19,7 +19,10 @@ const findById = vi.fn(async (table: string, id: string) => {
     return null
   }
   // Any catalog row "exists" so the PUT/DELETE/fetch 404 guard passes for admins.
-  return { id }
+  // Sources carry a PUBLIC IP-literal base_url: the SSRF guard on the fetch
+  // route classifies IP literals without DNS, so the admin-success path stays
+  // hermetic (no real resolution, nothing private).
+  return table === 'sources' ? { id, base_url: 'http://93.184.216.34' } : { id }
 })
 const updateById = vi.fn(async (..._a: unknown[]) => ({ data: { ok: true } }))
 const deleteById = vi.fn(async (..._a: unknown[]) => ({ data: { ok: true } }))

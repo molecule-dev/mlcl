@@ -6,23 +6,38 @@
  * @module
  */
 
+import { randomBytes } from 'node:crypto'
+
 /** Collapse whitespace and casefold a typed guest name for matching. */
 export function normalizeGuestName(name: string): string {
   return name.trim().replace(/\s+/g, ' ').toLowerCase()
 }
 
-const CODE_ADJECTIVES = ['june', 'rose', 'harvest', 'meadow', 'gilded', 'velvet', 'cedar', 'linden']
-const CODE_NOUNS = ['garden', 'orchard', 'ballroom', 'courtyard', 'vineyard', 'pavilion']
+/**
+ * Crockford-style base32 alphabet — digits + uppercase letters with the
+ * visually ambiguous I, L, O and U removed, so a guest reading the code off
+ * a paper invitation cannot confuse 1/I/L, 0/O or V/U.
+ */
+const CODE_ALPHABET = '0123456789ABCDEFGHJKMNPQRSTVWXYZ'
+
+/** Code length in characters. 10 × log2(32) = 50 bits of entropy. */
+const CODE_LENGTH = 10
 
 /**
- * A human-shareable RSVP code, e.g. `ROSE-GARDEN-417`. Unique per wedding;
- * regenerated only when the couple asks for a fresh one. `random` is
- * injectable so tests can pin the outcome.
+ * An unguessable RSVP code, e.g. `QK3M8WRPT7` — 10 Crockford-base32
+ * characters drawn from `crypto.randomBytes` (~50 bits), not a word list
+ * (the former ADJECTIVE-NOUN-NNN scheme capped out around 16 bits and was
+ * readable by brute force). Unique per wedding; regenerated only when the
+ * couple asks for a fresh one. 32 divides 256 evenly, so
+ * `byte % 32` introduces no modulo bias.
  */
-export function generateRsvpCode(random: () => number = Math.random): string {
-  const pick = <T>(arr: readonly T[]): T => arr[Math.floor(random() * arr.length)]
-  const digits = String(Math.floor(100 + random() * 900))
-  return `${pick(CODE_ADJECTIVES)}-${pick(CODE_NOUNS)}-${digits}`.toUpperCase()
+export function generateRsvpCode(): string {
+  const bytes = randomBytes(CODE_LENGTH)
+  let code = ''
+  for (let i = 0; i < CODE_LENGTH; i++) {
+    code += CODE_ALPHABET[bytes[i] % CODE_ALPHABET.length]
+  }
+  return code
 }
 
 export interface BudgetLine {

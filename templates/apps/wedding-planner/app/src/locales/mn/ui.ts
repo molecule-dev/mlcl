@@ -169,7 +169,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Хосуудын код таны урилгандаа байна. Нэрээ олж, нэг удаа хариулна уу — бүртгэл шаардлагагүй.',
   'landing.rsvpEyebrow': 'Урилга авсан уу?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Урилгаа хайх',
   'landing.rsvpTitle': 'Кодоор хариу өгөх',
   'landing.secondary': 'Хэрхэн ажилладгийг харах',
@@ -240,7 +240,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Хоолны сонголт',
   'rsvp.mealNone': 'Давхар сонголтгүй',
   'rsvp.notFoundBody':
-    'Урилга дээрх кодыг дахин шалгана уу — ROSE-GARDEN-417 байх ёстой — эсвэл хосоос дахин илгээхийг хүснэ үү.',
+    'Урилга дээрх кодыг дахин шалгана уу — WEDD1NG202 байх ёстой — эсвэл хосоос дахин илгээхийг хүснэ үү.',
   'rsvp.notFoundTitle': 'Тэр кодыг олж чадсангүй',
   'rsvp.plusOnes': 'Дагуулан авчрах зочид',
   'rsvp.respondBody': 'Та {{a}} & {{b}}-тэй хамт ирэх үү?',

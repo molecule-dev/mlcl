@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Alegere meniu',
   'rsvp.mealNone': 'Fără preferință',
   'rsvp.notFoundBody':
-    'Verifică din nou codul de pe invitația ta — pare a fi ROSE-GARDEN-417 — sau roagă cuplul să ți-l trimită din nou.',
+    'Verifică din nou codul de pe invitația ta — pare a fi WEDD1NG202 — sau roagă cuplul să ți-l trimită din nou.',
   'rsvp.notFoundTitle': 'Nu am găsit acest cod',
   'rsvp.plusOnes': 'Invitați pe care îi aduci',
   'rsvp.respondBody': 'Vei participa la nunta lui {{a}} și {{b}}?',

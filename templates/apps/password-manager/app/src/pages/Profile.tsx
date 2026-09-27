@@ -10,8 +10,9 @@ import { APP_NAME } from '../branding.js'
 interface RecoveryKey {
   id: string
   user_id: string
-  public_key: string
-  encrypted_recovery_data: string
+  // The kit as plain text — an export/copy artifact, deliberately NOT named
+  // or shaped like a ciphertext.
+  recovery_kit: string
   created_at: string
 }
 
@@ -50,11 +51,7 @@ function planLabelFor(t: TranslateFunction, planKey: string | null | undefined):
   return t('plans.free', {}, { defaultValue: 'Free' })
 }
 
-function generateLocalRecoveryKit(): {
-  publicKey: string
-  recoveryCode: string
-  encrypted: string
-} {
+function generateLocalRecoveryKit(): { recoveryCode: string } {
   const arr = new Uint8Array(32)
   crypto.getRandomValues(arr)
   const recoveryCode = Array.from(arr)
@@ -62,9 +59,9 @@ function generateLocalRecoveryKit(): {
     .join('')
     .slice(0, 32)
     .toUpperCase()
-  const publicKey = `pk-${arr.slice(0, 8).reduce((s, b) => s + b.toString(16).padStart(2, '0'), '')}`
-  const encrypted = btoa(`recovery:${recoveryCode}:${Date.now()}`)
-  return { publicKey, recoveryCode, encrypted }
+  // The kit IS the code — plain text by design (an export/copy artifact),
+  // never dressed up as an encrypted payload.
+  return { recoveryCode }
 }
 
 export function Profile() {
@@ -131,8 +128,7 @@ export function Profile() {
     try {
       const kit = generateLocalRecoveryKit()
       const res = await http.post<unknown>('/api/recovery-keys', {
-        public_key: kit.publicKey,
-        encrypted_recovery_data: kit.encrypted,
+        recovery_kit: kit.recoveryCode,
       })
       const created = unwrapOne<RecoveryKey>(res)
       if (created) {
@@ -285,7 +281,7 @@ export function Profile() {
                 {},
                 {
                   defaultValue:
-                    'Without your master password, only the recovery kit can decrypt your vault. Reprint after every device change.',
+                    'Your recovery kit is a printable copy of your recovery code. It is stored on file as plain text, not encrypted — keep it somewhere safe. Reprint after every device change.',
                 },
               )}
             </span>
@@ -408,10 +404,8 @@ export function Profile() {
                 )}
               >
                 <div className={cm.cn(cm.flex({ direction: 'col' }))}>
-                  <span
-                    className={cm.cn('font-mono', cm.textSize('xs'), 'text-on-surface truncate')}
-                  >
-                    {k.public_key}
+                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface')}>
+                    {t('profile.keyLabel', {}, { defaultValue: 'Recovery kit' })}
                   </span>
                   <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                     {t(

@@ -171,7 +171,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Զույգի կոդը նշված է ձեր հրավերի վրա։ Մուտքագրեք այն՝ գտնելու ձեր անունը և պատասխանելու մեկ անգամ՝ առանց հաշիվ ստեղծելու։',
   'landing.rsvpEyebrow': 'Ստացե՞լ եք հրավեր',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Գտնել իմ հրավերը',
   'landing.rsvpTitle': 'RSVP՝ ձեր կոդով',
   'landing.secondary': 'Տեսնել ինչպես է աշխատում',
@@ -241,7 +241,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Ճաշի ընտրություն',
   'rsvp.mealNone': 'Առանց նախապատվության',
   'rsvp.notFoundBody':
-    'Կրկին ստուգեք ձեր հրավիրատոմսի կոդը — կարծես ROSE-GARDEN-417 է — կամ խնդրեք զույգին նորից ուղարկել այն։',
+    'Կրկին ստուգեք ձեր հրավիրատոմսի կոդը — կարծես WEDD1NG202 է — կամ խնդրեք զույգին նորից ուղարկել այն։',
   'rsvp.notFoundTitle': 'Չկարողացանք գտնել այդ կոդը',
   'rsvp.plusOnes': 'Ձեր բերած հյուրերը',
   'rsvp.respondBody': 'Կմիանա՞ք {{a}}-ին և {{b}}-ին։',

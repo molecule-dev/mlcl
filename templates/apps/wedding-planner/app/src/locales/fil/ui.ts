@@ -171,7 +171,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Ang code ng mag-asawa ay nasa iyong imbitasyon. Ilagay ito upang mahanap ang iyong pangalan at sumagot nang isang beses lang — walang kailangang account.',
   'landing.rsvpEyebrow': 'May imbitasyon ka?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Hanapin ang aking imbitasyon',
   'landing.rsvpTitle': 'Mag-RSVP gamit ang iyong code',
   'landing.secondary': 'Tingnan kung paano ito gumagana',
@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Pagpili ng pagkain',
   'rsvp.mealNone': 'Walang preference',
   'rsvp.notFoundBody':
-    'I-double-check ang code sa iyong imbitasyon — mukhang ROSE-GARDEN-417 — o hilingin sa mag-asawa na ipadala itong muli.',
+    'I-double-check ang code sa iyong imbitasyon — mukhang WEDD1NG202 — o hilingin sa mag-asawa na ipadala itong muli.',
   'rsvp.notFoundTitle': 'Hindi namin mahanap ang code na iyan',
   'rsvp.plusOnes': 'Mga bisita na dadalhin mo',
   'rsvp.respondBody': 'Sasama ka ba kina {{a}} at {{b}}?',

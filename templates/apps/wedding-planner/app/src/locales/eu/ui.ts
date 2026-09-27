@@ -245,7 +245,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Janari-aukera',
   'rsvp.mealNone': 'Lehentasunik ez',
   'rsvp.notFoundBody':
-    'Egiaztatu berriro zure gonbidapeneko kodea — ROSE-GARDEN-417 dirudi — edo eskatu bikoteari berriro bidaltzeko.',
+    'Egiaztatu berriro zure gonbidapeneko kodea — WEDD1NG202 dirudi — edo eskatu bikoteari berriro bidaltzeko.',
   'rsvp.notFoundTitle': 'Ezin izan dugu kode hori aurkitu',
   'rsvp.plusOnes': 'Eramango dituzun gonbidatuak',
   'rsvp.respondBody': '{{a}} eta {{b}}-ekin bat egingo duzu?',

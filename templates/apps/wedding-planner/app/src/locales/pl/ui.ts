@@ -168,7 +168,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Kod pary młodej jest na twoim zaproszeniu. Wpisz go, aby znaleźć swoje imię i odpowiedzieć raz — bez zakładania konta.',
   'landing.rsvpEyebrow': 'Masz zaproszenie?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Znajdź moje zaproszenie',
   'landing.rsvpTitle': 'Potwierdź kodem',
   'landing.secondary': 'Zobacz jak to działa',
@@ -238,7 +238,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Wybór posiłku',
   'rsvp.mealNone': 'Bez preferencji',
   'rsvp.notFoundBody':
-    'Sprawdź dokładnie kod na swoim zaproszeniu — wygląda na ROSE-GARDEN-417 — lub poproś parę młodą o ponowne wysłanie go.',
+    'Sprawdź dokładnie kod na swoim zaproszeniu — wygląda na WEDD1NG202 — lub poproś parę młodą o ponowne wysłanie go.',
   'rsvp.notFoundTitle': 'Nie mogliśmy znaleźć tego kodu',
   'rsvp.plusOnes': 'Goście, których przyprowadzasz',
   'rsvp.respondBody': 'Czy dołączysz do {{a}} i {{b}}?',

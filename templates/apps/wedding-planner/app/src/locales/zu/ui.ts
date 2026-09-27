@@ -172,7 +172,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Ikhodi yabayeni isesimemezelweni sakho. Yifake ukuze uthole igama lakho uphendule kanye — akudingeki i-akhawunti.',
   'landing.rsvpEyebrow': 'Unesimemezelo?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Thola isimemezelo sami',
   'landing.rsvpTitle': 'RSVP ngekhodi yakho',
   'landing.secondary': 'Bona ukuthi kusebenza kanjani',

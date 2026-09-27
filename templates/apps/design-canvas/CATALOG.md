@@ -26,11 +26,11 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **project_activities** — id, project_id, user_id, action, metadata, created_at
 - **project_collaborators** — id, project_id, user_id, role, invited_at, accepted_at
 - **project_comments** — id, project_id, author_id, parent_id, body, x, y, resolved, created_at
-- **projects** — id, user_id, team_id, name, width, height, canvas_data, thumbnail_url, created_at, updated_at
+- **projects** — id, user_id, team_id, name, width, height, canvas_data, thumbnail_url, created_at, updated_at, thumbnail_color
 - **resource_tags** — id, tagId, resourceType, resourceId, createdAt
 - **shapes** — id, project_id, layer_id, user_id, type, x, y, width, height, rotation, fill, stroke, …
 - **tags** — id, name, slug, color, description, createdAt, updatedAt
-- **templates** — id, name, category, thumbnail_url, canvas_data, is_public, created_at
+- **templates** — id, name, category, thumbnail_url, canvas_data, is_public, created_at, description, accent_color, icon_name, usage_count
 - **notifications** — id, user_id, kind, actor_name, actor_color, sentence, target_label, target_href, preview, bucket, unread, created_at, …
 - **design_tokens** — id, section, name, value, role, metadata, created_at
 - **user_preferences** — user_id, preferences, updated_at

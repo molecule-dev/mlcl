@@ -19,12 +19,12 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 
 - **activities** — id, actorId, action, resourceType, resourceId, metadata, createdAt
 - **activity_seen_status** — userId, lastSeenActivityId, updatedAt
-- **artifacts** — id, user_id, build_id, pipeline_id, name, filename, mime_type, size_bytes, storage_key, retention_days, created_at
+- **artifacts** — id, user_id, build_id, pipeline_id, name, filename, mime_type, size_bytes, storage_key, retention_days, created_at, type
 - **build_logs** — id, user_id, build_id, step_name, level, message, timestamp
 - **builds** — id, user_id, pipeline_id, status, branch, commit_sha, commit_message, author, triggered_by, duration_ms, exit_code, started_at, …
 - **devices** — id, createdAt, updatedAt, userId, name, pushPlatform, pushSubscription, hasPushSubscription
 - **environments** — id, user_id, name, url, status, traffic_pct, current_deploy, recent_deploys, created_at, updated_at
-- **notifications** — id, createdAt, updatedAt
+- **notifications** — id, createdAt, updatedAt, user_id, type, title, body, href, unread, created_at
 - **payments** — id, createdAt, updatedAt, userId, transactionId, productId, platformKey, data, receipt
 - **pipeline_steps** — id, user_id, pipeline_id, build_id, name, sort_order, status, log_text, exit_code, started_at, finished_at, created_at
 - **pipelines** — id, user_id, project_id, repository_id, name, branch, trigger_type, config, status, last_build_at, created_at, updated_at

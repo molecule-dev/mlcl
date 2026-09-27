@@ -170,7 +170,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Msimbo wa wapendanao uko kwenye mwaliko wako. Uingize ili kupata jina lako na kujibu mara moja — hakuna haja ya akaunti.',
   'landing.rsvpEyebrow': 'Una mwaliko?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Tafuta mwaliko wangu',
   'landing.rsvpTitle': 'Jibu kwa msimbo wako',
   'landing.secondary': 'Angalia jinsi inavyofanya kazi',
@@ -241,7 +241,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Uchaguzi wa chakula',
   'rsvp.mealNone': 'Hakuna mapendeleo',
   'rsvp.notFoundBody':
-    'Angalia tena msimbo kwenye mwaliko wako — inaonekana kama ROSE-GARDEN-417 — au waombe wanandoa wakutumie tena.',
+    'Angalia tena msimbo kwenye mwaliko wako — inaonekana kama WEDD1NG202 — au waombe wanandoa wakutumie tena.',
   'rsvp.notFoundTitle': 'Hatukuweza kupata msimbo huo',
   'rsvp.plusOnes': 'Wageni unaowaleta',
   'rsvp.respondBody': 'Je, utajiunga na {{a}} na {{b}}?',

@@ -241,7 +241,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Izbor jela',
   'rsvp.mealNone': 'Bez preferencije',
   'rsvp.notFoundBody':
-    'Provjerite još jednom kod na svojoj pozivnici — izgleda kao ROSE-GARDEN-417 — ili zamolite par da vam ga ponovno pošalje.',
+    'Provjerite još jednom kod na svojoj pozivnici — izgleda kao WEDD1NG202 — ili zamolite par da vam ga ponovno pošalje.',
   'rsvp.notFoundTitle': 'Nismo mogli pronaći taj kod',
   'rsvp.plusOnes': 'Gosti koje dovodite',
   'rsvp.respondBody': 'Hoćete li se pridružiti {{a}} i {{b}}?',

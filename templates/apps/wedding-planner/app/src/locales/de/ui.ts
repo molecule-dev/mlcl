@@ -171,7 +171,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Der Code des Paares steht auf eurer Einladung. Gebt ihn ein, um euren Namen zu finden und einmal zu antworten — kein Konto nötig.',
   'landing.rsvpEyebrow': 'Einladung erhalten?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Meine Einladung finden',
   'landing.rsvpTitle': 'RSVP mit eurem Code',
   'landing.secondary': 'So funktioniert es',
@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Menüwahl',
   'rsvp.mealNone': 'Keine Präferenz',
   'rsvp.notFoundBody':
-    'Überprüfe den Code auf deiner Einladung — er sieht aus wie ROSE-GARDEN-417 — oder bitte das Paar, ihn erneut zu senden.',
+    'Überprüfe den Code auf deiner Einladung — er sieht aus wie WEDD1NG202 — oder bitte das Paar, ihn erneut zu senden.',
   'rsvp.notFoundTitle': 'Dieser Code wurde nicht gefunden',
   'rsvp.plusOnes': 'Mitgebrachte Gäste',
   'rsvp.respondBody': 'Wirst du an {{a}} & {{b}} teilnehmen?',

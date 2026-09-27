@@ -27,7 +27,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **requests** — id, user_id, collection_id, name, method, url, headers, query_params, body_type, body_content, auth_type, auth_config, …
 - **resource_tags** — id, tagId, resourceType, resourceId, createdAt
 - **tags** — id, name, slug, color, description, createdAt, updatedAt
-- **tests** — id, user_id, request_id, name, assertions, last_run_at, last_status, created_at, updated_at
+- **tests** — id, user_id, request_id, name, assertions, last_run_at, last_status, created_at, updated_at, last_results
 
 ## API surface (handlers)
 

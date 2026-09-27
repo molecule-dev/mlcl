@@ -168,7 +168,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'カップルのコードは招待状に記載されています。入力して名前を確認し、一度だけ回答 — アカウント不要。',
   'landing.rsvpEyebrow': '招待状をお持ちですか?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': '招待状を探す',
   'landing.rsvpTitle': 'コードで出欠確認',
   'landing.secondary': '使い方を見る',
@@ -238,7 +238,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': '食事の選択',
   'rsvp.mealNone': '希望なし',
   'rsvp.notFoundBody':
-    '招待状に記載のコードをもう一度ご確認ください — ROSE-GARDEN-417 のようです — またはカップルに再送を依頼してください。',
+    '招待状に記載のコードをもう一度ご確認ください — WEDD1NG202 のようです — またはカップルに再送を依頼してください。',
   'rsvp.notFoundTitle': 'コードが見つかりませんでした',
   'rsvp.plusOnes': '同伴者数',
   'rsvp.respondBody': '{{a}} & {{b}} の結婚式に出席しますか？',

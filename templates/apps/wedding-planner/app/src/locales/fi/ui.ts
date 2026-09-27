@@ -240,7 +240,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Ruokavalinta',
   'rsvp.mealNone': 'Ei toivetta',
   'rsvp.notFoundBody':
-    'Tarkista kutsusi koodi — se näyttää olevan ROSE-GARDEN-417 — tai pyydä paria lähettämään se uudelleen.',
+    'Tarkista kutsusi koodi — se näyttää olevan WEDD1NG202 — tai pyydä paria lähettämään se uudelleen.',
   'rsvp.notFoundTitle': 'Emme löytäneet tätä koodia',
   'rsvp.plusOnes': 'Vieraat, jotka tuot mukanasi',
   'rsvp.respondBody': 'Tuletko osallistumaan {{a}} & {{b}}?',

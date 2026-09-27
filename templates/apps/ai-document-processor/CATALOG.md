@@ -17,10 +17,10 @@ OCR, intelligent extraction, classification, and automated filing of scanned doc
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
-- **api_tokens** — id, user_id, label, hashed_token, last_used_at, created_at, updatedAt
+- **api_tokens** — id, user_id, label, hashed_token, last_used_at, created_at, updatedAt, prefix
 - **devices** — id, createdAt, updatedAt, userId, name, pushPlatform, pushSubscription, hasPushSubscription
 - **document_events** — id, document_id, user_id, kind, detail_json, created_at
-- **document_fields** — id, document_id, user_id, key, value, confidence, bbox_json, source, reviewed, corrected_value, created_at, updatedAt
+- **document_fields** — id, document_id, user_id, key, value, confidence, bbox_json, source, reviewed, corrected_value, created_at, updatedAt, …
 - **documents** — id, user_id, source_type, title, mime, size_bytes, s3_key, doc_class, status, summary_md, language, page_count, …
 - **extraction_rules** — id, user_id, name, doc_class, condition_json, action, action_args_json, priority, enabled, created_at, updatedAt
 - **folders** — id, user_id, name, parent_id, created_at, updatedAt

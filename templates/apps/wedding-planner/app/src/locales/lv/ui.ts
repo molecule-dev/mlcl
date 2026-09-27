@@ -240,7 +240,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Ēdiena izvēle',
   'rsvp.mealNone': 'Nav preferences',
   'rsvp.notFoundBody':
-    'Vēlreiz pārbaudiet ielūgumā norādīto kodu — tas izskatās pēc ROSE-GARDEN-417 — vai palūdziet pārim to nosūtīt vēlreiz.',
+    'Vēlreiz pārbaudiet ielūgumā norādīto kodu — tas izskatās pēc WEDD1NG202 — vai palūdziet pārim to nosūtīt vēlreiz.',
   'rsvp.notFoundTitle': 'Mēs nevarējām atrast šo kodu',
   'rsvp.plusOnes': 'Viesi, ko vedisat līdzi',
   'rsvp.respondBody': 'Vai jūs pievienosities {{a}} un {{b}}?',

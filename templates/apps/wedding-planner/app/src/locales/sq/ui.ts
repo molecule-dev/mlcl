@@ -169,7 +169,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Kodi i çiftit është në ftesën tuaj. Futeni për të gjetur emrin tuaj dhe përgjigjuni një herë — nuk nevojitet llogari.',
   'landing.rsvpEyebrow': 'Keni një ftesë?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Gjej ftesën time',
   'landing.rsvpTitle': 'RSVP me kodin tuaj',
   'landing.secondary': 'Shiko si funksionon',
@@ -240,7 +240,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Zgjedhja e ushqimit',
   'rsvp.mealNone': 'Pa preferencë',
   'rsvp.notFoundBody':
-    'Kontrollo me kujdes kodin në ftesën tënde — duket si ROSE-GARDEN-417 — ose kërkoji çiftit ta dërgojë përsëri.',
+    'Kontrollo me kujdes kodin në ftesën tënde — duket si WEDD1NG202 — ose kërkoji çiftit ta dërgojë përsëri.',
   'rsvp.notFoundTitle': 'Nuk e gjetëm atë kod',
   'rsvp.plusOnes': 'Mysafirët që po sillni',
   'rsvp.respondBody': 'A do të bashkohesh me {{a}} & {{b}}?',

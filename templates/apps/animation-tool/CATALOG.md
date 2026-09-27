@@ -17,7 +17,7 @@ Rive-like animation tool with keyframes, easing, state machines, and export
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
-- **animation_exports** — id, project_id, format, quality, status, output_url, created_at, updatedAt
+- **animation_exports** — id, project_id, format, quality, status, output_url, created_at, updatedAt, artifact_data
 - **animation_projects** — id, owner_id, user_id, name, width, height, fps, duration, created_at, updated_at, updatedAt
 - **animation_states** — id, project_id, name, animation_id, transitions, is_initial, created_at, updatedAt
 - **animations** — id, project_id, name, target_layer_id, duration, looping, created_at, updatedAt

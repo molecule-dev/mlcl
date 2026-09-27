@@ -168,7 +168,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Koodu di na nwunye dị na nkwa gị. Tinye ya iji chọta aha gị ma zaa otu ugboro — enweghị mkpa akaụntụ.',
   'landing.rsvpEyebrow': 'Ị nwetara nkwa?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Chọta nkwa m',
   'landing.rsvpTitle': 'RSVP site na koodu gị',
   'landing.secondary': 'Lee ka ọ si arụ ọrụ',
@@ -238,7 +238,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Nhọrọ nri',
   'rsvp.mealNone': 'Enweghị mmasị',
   'rsvp.notFoundBody':
-    'Lelee koodu dị na akwụkwọ ịkpọ òkù gị nke ọma — ọ dị ka ROSE-GARDEN-417 — ma ọ bụ gwa di na nwunye ka ha zighachi ya.',
+    'Lelee koodu dị na akwụkwọ ịkpọ òkù gị nke ọma — ọ dị ka WEDD1NG202 — ma ọ bụ gwa di na nwunye ka ha zighachi ya.',
   'rsvp.notFoundTitle': 'Anyị ahụghị koodu ahụ',
   'rsvp.plusOnes': 'Ndị ọbịa ị na-eweta',
   'rsvp.respondBody': 'Ị ga-esonyere {{a}} & {{b}}?',

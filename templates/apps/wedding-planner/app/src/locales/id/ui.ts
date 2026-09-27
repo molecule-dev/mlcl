@@ -168,7 +168,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Kode pasangan ada di undangan Anda. Masukkan untuk menemukan nama Anda dan jawab sekali — tanpa perlu akun.',
   'landing.rsvpEyebrow': 'Punya undangan?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Temukan undangan saya',
   'landing.rsvpTitle': 'RSVP dengan kode Anda',
   'landing.secondary': 'Lihat cara kerjanya',
@@ -239,7 +239,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Pilihan makanan',
   'rsvp.mealNone': 'Tidak ada preferensi',
   'rsvp.notFoundBody':
-    'Periksa kembali kode pada undangan Anda — sepertinya ROSE-GARDEN-417 — atau minta pasangan mengirim ulang.',
+    'Periksa kembali kode pada undangan Anda — sepertinya WEDD1NG202 — atau minta pasangan mengirim ulang.',
   'rsvp.notFoundTitle': 'Kami tidak dapat menemukan kode tersebut',
   'rsvp.plusOnes': 'Tamu yang Anda bawa',
   'rsvp.respondBody': 'Apakah Anda akan bergabung dengan {{a}} & {{b}}?',

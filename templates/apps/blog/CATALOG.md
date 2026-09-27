@@ -19,7 +19,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 
 - **bookmarks** — id, userId, resourceType, resourceId, folder, createdAt, updatedAt
 - **categories** — id, name, slug, description, created_at, updatedAt
-- **comments** — id, resourceType, resourceId, userId, parentId, body, editedAt, createdAt, updatedAt
+- **comments** — id, resourceType, resourceId, userId, parentId, body, editedAt, createdAt, updatedAt, status
 - **devices** — id, createdAt, updatedAt, userId, name, pushPlatform, pushSubscription, hasPushSubscription
 - **posts** — id, author_id, user_id, title, slug, content, excerpt, category_id, tags, cover_image_url, status, published_at, …
 - **reactions** — id, resourceType, resourceId, userId, type, createdAt, updatedAt

@@ -169,7 +169,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Kóði parsins er á boðskortinu þínu. Sláðu hann inn til að finna nafnið þitt og svara einu sinni — enginn reikningur þarf.',
   'landing.rsvpEyebrow': 'Fékkstu boðskort?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Finna boðskortið mitt',
   'landing.rsvpTitle': 'Staðfestu með kóðanum þínum',
   'landing.secondary': 'Sjá hvernig þetta virkar',
@@ -240,7 +240,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Val á máltíð',
   'rsvp.mealNone': 'Engin ósk',
   'rsvp.notFoundBody':
-    'Athugaðu kóðann á boðinu þínu — hann lítur út eins og ROSE-GARDEN-417 — eða biddu parið að senda það aftur.',
+    'Athugaðu kóðann á boðinu þínu — hann lítur út eins og WEDD1NG202 — eða biddu parið að senda það aftur.',
   'rsvp.notFoundTitle': 'Við fundum ekki þennan kóða',
   'rsvp.plusOnes': 'Gestir sem þú tekur með',
   'rsvp.respondBody': 'Ætlarðu að vera með {{a}} og {{b}}?',

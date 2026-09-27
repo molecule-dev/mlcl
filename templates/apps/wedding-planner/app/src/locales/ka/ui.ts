@@ -169,7 +169,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'წყვილის კოდი მითითებულია თქვენს მოსაწვევზე. შეიყვანეთ იგი, იპოვეთ თქვენი სახელი და უპასუხეთ ერთხელ — ანგარიში არ არის საჭირო.',
   'landing.rsvpEyebrow': 'მიიღეთ მოსაწვევი?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'ჩემი მოსაწვევის პოვნა',
   'landing.rsvpTitle': 'RSVP თქვენი კოდით',
   'landing.secondary': 'იხილეთ როგორ მუშაობს',
@@ -239,7 +239,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'კერძის არჩევანი',
   'rsvp.mealNone': 'არ აქვს მნიშვნელობა',
   'rsvp.notFoundBody':
-    'გადაამოწმეთ კოდი თქვენს მოწვევაზე — ის ROSE-GARDEN-417-ს ჰგავს — ან სთხოვეთ წყვილს ხელახლა გამოგზავნოს.',
+    'გადაამოწმეთ კოდი თქვენს მოწვევაზე — ის WEDD1NG202-ს ჰგავს — ან სთხოვეთ წყვილს ხელახლა გამოგზავნოს.',
   'rsvp.notFoundTitle': 'ეს კოდი ვერ მოიძებნა',
   'rsvp.plusOnes': 'სტუმრები რომლებსაც იყვანთ',
   'rsvp.respondBody': 'შეუერთდებით {{a}} და {{b}}?',

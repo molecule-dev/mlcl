@@ -353,7 +353,7 @@ export function Landing() {
                 type="text"
                 value={rsvpCode}
                 onChange={(e) => setRsvpCode(e.target.value)}
-                placeholder={t('landing.rsvpPlaceholder', {}, { defaultValue: 'ROSE-GARDEN-417' })}
+                placeholder={t('landing.rsvpPlaceholder', {}, { defaultValue: 'WEDD1NG202' })}
                 aria-label={t('landing.rsvpAriaLabel', {}, { defaultValue: 'RSVP code' })}
                 data-mol-id="landing-rsvp-code-input"
                 className={cm.cn(

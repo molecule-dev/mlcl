@@ -170,7 +170,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Kod pasangan ada pada jemputan anda. Masukkannya untuk cari nama anda dan jawab sekali sahaja — tiada akaun diperlukan.',
   'landing.rsvpEyebrow': 'Ada jemputan?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Cari jemputan saya',
   'landing.rsvpTitle': 'RSVP dengan kod anda',
   'landing.secondary': 'Lihat cara ia berfungsi',
@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Pilihan hidangan',
   'rsvp.mealNone': 'Tiada pilihan',
   'rsvp.notFoundBody':
-    'Sila semak semula kod pada jemputan anda — nampaknya ROSE-GARDEN-417 — atau minta pasangan itu menghantarnya semula.',
+    'Sila semak semula kod pada jemputan anda — nampaknya WEDD1NG202 — atau minta pasangan itu menghantarnya semula.',
   'rsvp.notFoundTitle': 'Kami tidak dapat mencari kod tersebut',
   'rsvp.plusOnes': 'Tetamu yang anda bawa',
   'rsvp.respondBody': 'Adakah anda akan menyertai {{a}} & {{b}}?',

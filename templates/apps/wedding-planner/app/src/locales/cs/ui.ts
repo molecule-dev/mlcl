@@ -169,7 +169,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Kód páru je na vaší pozvánce. Zadejte jej a najděte své jméno a odpovězte jednou — není potřeba účet.',
   'landing.rsvpEyebrow': 'Máte pozvánku?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Najít mou pozvánku',
   'landing.rsvpTitle': 'Potvrďte účast pomocí svého kódu',
   'landing.secondary': 'Podívejte se, jak to funguje',
@@ -240,7 +240,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Výběr jídla',
   'rsvp.mealNone': 'Bez preference',
   'rsvp.notFoundBody':
-    'Zkontrolujte znovu kód na své pozvánce — vypadá jako ROSE-GARDEN-417 — nebo požádejte pár o jeho opětovné zaslání.',
+    'Zkontrolujte znovu kód na své pozvánce — vypadá jako WEDD1NG202 — nebo požádejte pár o jeho opětovné zaslání.',
   'rsvp.notFoundTitle': 'Tento kód se nám nepodařilo najít',
   'rsvp.plusOnes': 'Hosté, které přivedete',
   'rsvp.respondBody': 'Připojíte se k {{a}} & {{b}}?',

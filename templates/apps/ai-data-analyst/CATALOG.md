@@ -18,15 +18,15 @@ Upload data, ask questions in natural language, and get charts and insights
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
 - **analyses** — id, user_id, dataset_id, prompt_text, generated_sql, result_rows_json, charts_json, narrative_md, model, tokens_used, created_at
-- **dataset_columns** — id, dataset_id, name, type, nullable, unique_count, example, position, created_at
+- **dataset_columns** — id, dataset_id, name, type, nullable, unique_count, example, position, created_at, stats_json
 - **dataset_rows** — id, dataset_id, row_index, values_json, created_at
 - **datasets** — id, user_id, name, description, format, source_url, row_count, col_count, size_bytes, last_analyzed_at, status, created_at, …
 - **devices** — id, createdAt, updatedAt, userId, name, pushPlatform, pushSubscription, hasPushSubscription
 - **insights** — id, user_id, dataset_id, kind, headline, body_md, confidence, detected_at, created_at
 - **kpis** — id, user_id, key, value, recorded_at
-- **notifications** — id, user_id, kind, title, body, link, read_at, created_at
+- **notifications** — id, user_id, kind, title, body, link, read_at, created_at, entity_id
 - **payments** — id, createdAt, updatedAt, userId, transactionId, productId, platformKey, data, receipt
-- **saved_reports** — id, user_id, title, description, dataset_id, layout_json, last_run_at, created_at, updated_at
+- **saved_reports** — id, user_id, title, description, dataset_id, layout_json, last_run_at, created_at, updated_at, metadata_json
 - **uploads** — id, user_id, filename, mime, size_bytes, s3_key, status, error_message, uploaded_at, created_at
 - **api_keys** — id, user_id, name, key_hash, key_masked, scopes, last_used_at, revoked_at, created_at
 - **user_settings** — user_id, organization, preferences, integrations, updated_at

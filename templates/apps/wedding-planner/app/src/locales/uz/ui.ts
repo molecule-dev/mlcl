@@ -171,7 +171,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Juftlikning kodi sizning taklifnomangizda. Uni kiriting, ismingizni toping va bir marta javob bering — hisob kerak emas.',
   'landing.rsvpEyebrow': 'Taklifnoma oldingizmi?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Taklifnomamni topish',
   'landing.rsvpTitle': 'Kodingiz bilan RSVP qiling',
   'landing.secondary': "Qanday ishlashini ko'rish",
@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Taom tanlovi',
   'rsvp.mealNone': "Afzallik yo'q",
   'rsvp.notFoundBody':
-    "Taklifnomangizdagi kodni ikki marta tekshiring — u ROSE-GARDEN-417 ga o'xshaydi — yoki juftlikdan uni qayta yuborishni so'rang.",
+    "Taklifnomangizdagi kodni ikki marta tekshiring — u WEDD1NG202 ga o'xshaydi — yoki juftlikdan uni qayta yuborishni so'rang.",
   'rsvp.notFoundTitle': 'Bu kod topilmadi',
   'rsvp.plusOnes': 'Olib kelayotgan mehmonlar',
   'rsvp.respondBody': "{{a}} va {{b}} bilan birga bo'lasizmi?",

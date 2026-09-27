@@ -168,7 +168,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Brudepar­rets kode står på din invitation. Indtast den for at finde dit navn og svare én gang — ingen konto nødvendig.',
   'landing.rsvpEyebrow': 'Har du en invitation?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Find min invitation',
   'landing.rsvpTitle': 'RSVP med din kode',
   'landing.secondary': 'Se hvordan det virker',
@@ -238,7 +238,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Retvalg',
   'rsvp.mealNone': 'Ingen præference',
   'rsvp.notFoundBody':
-    'Tjek koden på din invitation en ekstra gang — den ser ud til at være ROSE-GARDEN-417 — eller bed parret om at sende den igen.',
+    'Tjek koden på din invitation en ekstra gang — den ser ud til at være WEDD1NG202 — eller bed parret om at sende den igen.',
   'rsvp.notFoundTitle': 'Vi kunne ikke finde den kode',
   'rsvp.plusOnes': 'Gæster du medbringer',
   'rsvp.respondBody': 'Deltager du i {{a}} & {{b}}s bryllup?',

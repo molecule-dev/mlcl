@@ -97,7 +97,7 @@ router.put('/regenerate-code', async (_req: Request, res: Response) => {
         .json({ error: t('wedding.notFound', {}, { defaultValue: 'Wedding not found' }) })
     }
     // Loop-guard: UNIQUE(rsvp_code) collisions are astronomically unlikely
-    // (~53M combinations); retry a handful of times rather than surfacing
+    // (~2^50 combinations); retry a handful of times rather than surfacing
     // a driver error to the couple.
     for (let attempt = 0; attempt < 5; attempt++) {
       const code = generateRsvpCode()

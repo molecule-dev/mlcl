@@ -170,7 +170,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Koda para je na vašem vabilu. Vnesite jo, da najdete svoje ime in odgovorite enkrat — račun ni potreben.',
   'landing.rsvpEyebrow': 'Imate vabilo?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Najdi moje vabilo',
   'landing.rsvpTitle': 'RSVP s svojo kodo',
   'landing.secondary': 'Oglejte si, kako deluje',
@@ -241,7 +241,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Izbira obroka',
   'rsvp.mealNone': 'Brez preference',
   'rsvp.notFoundBody':
-    'Preverite kodo na svojem vabilu – videti je kot ROSE-GARDEN-417 – ali pa prosite par, naj vam jo znova pošlje.',
+    'Preverite kodo na svojem vabilu – videti je kot WEDD1NG202 – ali pa prosite par, naj vam jo znova pošlje.',
   'rsvp.notFoundTitle': 'Te kode nismo našli',
   'rsvp.plusOnes': 'Gostje, ki jih pripeljete',
   'rsvp.respondBody': 'Se boste pridružili {{a}} & {{b}}?',

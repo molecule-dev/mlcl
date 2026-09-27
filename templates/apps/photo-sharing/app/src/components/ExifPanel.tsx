@@ -24,7 +24,7 @@ const FIELDS: Array<{ key: string; defaultLabel: string; icon: string }> = [
   { key: 'camera', defaultLabel: 'Camera', icon: 'photo_camera' },
   { key: 'lens', defaultLabel: 'Lens', icon: 'lens' },
   { key: 'focal_length', defaultLabel: 'Focal length', icon: 'center_focus_strong' },
-  { key: 'aperture', defaultLabel: 'Aperture', icon: 'aperture' },
+  { key: 'aperture', defaultLabel: 'Aperture', icon: 'camera' },
   { key: 'shutter_speed', defaultLabel: 'Shutter speed', icon: 'shutter_speed' },
   { key: 'iso', defaultLabel: 'ISO', icon: 'iso' },
   { key: 'location', defaultLabel: 'Location', icon: 'place' },

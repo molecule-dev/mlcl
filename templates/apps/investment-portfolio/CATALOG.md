@@ -23,7 +23,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **holdings** — id, user_id, account_id, symbol, name, asset_class, shares, avg_cost_cents, cost_basis_cents, market_value_cents, allocation_pct, pnl_cents, …
 - **investment_transactions** — id, user_id, account, symbol, asset_name, kind, type, shares, price_cents, fee_cents, total_cents, price_per_share, …
 - **news_articles** — id, title, source, summary, content, url, symbol, related_symbols, published_at, created_at
-- **notifications** — id, createdAt, updatedAt
+- **notifications** — id, createdAt, updatedAt, user_id, type, title, body, href, unread, read, data, created_at
 - **target_allocations** — id, user_id, asset_class, target_pct, created_at, updatedAt
 - **watchlist** — id, user_id, symbol, name, asset_class, last_price_cents, day_change_pct, alert_direction, alert_threshold_cents, target_price, notes, created_at
 - **notification_preferences** — id, user_id, price_alerts, rebalance_drift, dividends_paid, tax_docs_ready, created_at, updated_at

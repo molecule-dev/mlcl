@@ -2,6 +2,8 @@
 // Specs share signup/login + small request helpers from here so every
 // test starts from a fresh, isolated user.
 
+import { createHmac } from 'node:crypto'
+
 import { Page, expect, APIResponse, request } from '@molecule/app-e2e-fixtures-default'
 
 export const APP_BASE =
@@ -232,4 +234,43 @@ export async function expectNoConsoleErrors(page: Page, fn: () => Promise<void>)
     (e) => !/favicon|net::ERR_|Failed to load resource|404 \(Not Found\)|net::ERR_FAILED/.test(e),
   )
   expect(fatal, 'console errors during interaction').toEqual([])
+}
+
+function base32Decode(input: string): Buffer {
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'
+  let bits = 0
+  let value = 0
+  const bytes: number[] = []
+  for (const char of input.replace(/=+$/, '').toUpperCase()) {
+    const idx = alphabet.indexOf(char)
+    if (idx === -1) continue
+    value = (value << 5) | idx
+    bits += 5
+    if (bits >= 8) {
+      bytes.push((value >>> (bits - 8)) & 0xff)
+      bits -= 8
+    }
+  }
+  return Buffer.from(bytes)
+}
+
+/** Computes the current RFC 6238 TOTP code for a base32 secret, matching the
+ *  server's defaults (HMAC-SHA1, 6 digits, 30-second step) as implemented by
+ *  `@molecule/api-two-factor-otplib`. Exists so e2e specs can complete a REAL
+ *  two-factor enrollment instead of asserting on a boolean flag [M-5]: the
+ *  only way 2FA turns on is by answering the provisioning secret with a valid
+ *  code. No extra dependency needed — node's crypto is enough. */
+export function totp(secret: string, atMs: number = Date.now()): string {
+  const counter = Math.floor(atMs / 1000 / 30)
+  const counterBuffer = Buffer.alloc(8)
+  counterBuffer.writeUInt32BE(Math.floor(counter / 2 ** 32), 0)
+  counterBuffer.writeUInt32BE(counter >>> 0, 4)
+  const digest = createHmac('sha1', base32Decode(secret)).update(counterBuffer).digest()
+  const offset = digest[digest.length - 1]! & 0x0f
+  const binary =
+    ((digest[offset]! & 0x7f) << 24) |
+    ((digest[offset + 1]! & 0xff) << 16) |
+    ((digest[offset + 2]! & 0xff) << 8) |
+    (digest[offset + 3]! & 0xff)
+  return String(binary % 1_000_000).padStart(6, '0')
 }

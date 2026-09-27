@@ -26,16 +26,30 @@ describe('normalizeGuestName', () => {
 })
 
 describe('generateRsvpCode', () => {
-  it('produces ADJECTIVE-NOUN-DIGITS, uppercase, with a 3-digit tail', () => {
-    // Pin the rng: 0 → first adjective + first noun + 100.
-    expect(generateRsvpCode(() => 0)).toBe('JUNE-GARDEN-100')
+  // Crockford-style base32: digits + uppercase minus the visually ambiguous
+  // I, L, O, U. The code is consumed UNAUTHENTICATED by /api/public/rsvp/:code,
+  // so its 50 bits of CSPRNG entropy are the only thing standing between a
+  // stranger and the couple's guest list.
+  const CODE_PATTERN = /^[0-9ABCDEFGHJKMNPQRSTVWXYZ]{10}$/
+
+  it('produces 10-character Crockford-base32 codes (no I/L/O/U)', () => {
+    for (let i = 0; i < 200; i++) {
+      const code = generateRsvpCode()
+      expect(code).toMatch(CODE_PATTERN)
+      expect(code).not.toMatch(/[ILOU]/)
+      expect(code.length).toBe(10)
+    }
+  })
+
+  it('is backed by a CSPRNG — successive calls differ', () => {
+    const seen = new Set<string>()
+    for (let i = 0; i < 50; i++) seen.add(generateRsvpCode())
+    expect(seen.size).toBe(50)
   })
 
   it('stays within the shareable length bound', () => {
     for (let i = 0; i < 50; i++) {
-      const code = generateRsvpCode()
-      expect(code).toMatch(/^[A-Z]+-[A-Z]+-\d{3}$/)
-      expect(code.length).toBeLessThanOrEqual(24)
+      expect(generateRsvpCode().length).toBeLessThanOrEqual(24)
     }
   })
 })

@@ -172,7 +172,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'စုံတွဲ၏ကုဒ်သည် သင့်ဖိတ်စာပေါ်တွင်ရှိသည်။ သင့်အမည်ကို ရှာပြီး တစ်ကြိမ်ဖြေကြားပါ — အကောင့်မလိုအပ်ပါ။',
   'landing.rsvpEyebrow': 'ဖိတ်စာရရှိထားပါသလား?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'ကျွန်ုပ့်ဖိတ်စာကို ရှာပါ',
   'landing.rsvpTitle': 'သင့်ကုဒ်ဖြင့် RSVP လုပ်ပါ',
   'landing.secondary': 'မည်သို့လုပ်ဆောင်သည်ကို ကြည့်ပါ',
@@ -244,7 +244,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'အစားအသောက်ရွေးချယ်မှု',
   'rsvp.mealNone': 'နှစ်သက်မှုမရှိ',
   'rsvp.notFoundBody':
-    'သင့်ဖိတ်စာပါ ကုဒ်ကို ထပ်စစ်ကြည့်ပါ — ROSE-GARDEN-417 ဖြစ်ပုံရသည် — သို့မဟုတ် စုံတွဲကို ပြန်ပို့ပေးပါရန် တောင်းဆိုပါ။',
+    'သင့်ဖိတ်စာပါ ကုဒ်ကို ထပ်စစ်ကြည့်ပါ — WEDD1NG202 ဖြစ်ပုံရသည် — သို့မဟုတ် စုံတွဲကို ပြန်ပို့ပေးပါရန် တောင်းဆိုပါ။',
   'rsvp.notFoundTitle': 'ဒီကုဒ်ကို ရှာမတွေ့ပါ',
   'rsvp.plusOnes': 'သင်ခေါ်ဆောင်လာသောဧည့်သည်များ',
   'rsvp.respondBody': '{{a}} နှင့် {{b}} လက်ထပ်ပွဲကို တက်ရောက်မလား။',

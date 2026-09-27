@@ -168,7 +168,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Жұптың коды шақыруда. Атыңызды табу және бір рет жауап беру үшін оны енгізіңіз — тіркелгі қажет емес.',
   'landing.rsvpEyebrow': 'Шақыру алдыңыз ба?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Шақыруымды табу',
   'landing.rsvpTitle': 'Кодыңызбен RSVP',
   'landing.secondary': 'Қалай жұмыс істейтінін көру',
@@ -240,7 +240,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Тамақ таңдауы',
   'rsvp.mealNone': 'Таңдау жоқ',
   'rsvp.notFoundBody':
-    'Шақыртуыңыздағы кодты қайта тексеріңіз — ол ROSE-GARDEN-417 сияқты көрінеді — немесе жұптан оны қайта жіберуін сұраңыз.',
+    'Шақыртуыңыздағы кодты қайта тексеріңіз — ол WEDD1NG202 сияқты көрінеді — немесе жұптан оны қайта жіберуін сұраңыз.',
   'rsvp.notFoundTitle': 'Бұл кодты таба алмадық',
   'rsvp.plusOnes': 'Бірге алып келетін қонақтар',
   'rsvp.respondBody': '{{a}} және {{b}} қосыласыз ба?',

@@ -171,7 +171,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'A pár kódja a meghívótokon van. Add meg, hogy megtaláljuk a neved és egyszer válaszolj — nincs szükség fiókra.',
   'landing.rsvpEyebrow': 'Kaptál meghívót?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Meghívóm keresése',
   'landing.rsvpTitle': 'RSVP a kódoddal',
   'landing.secondary': 'Nézd meg, hogyan működik',
@@ -243,7 +243,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Ételválasztás',
   'rsvp.mealNone': 'Nincs preferencia',
   'rsvp.notFoundBody':
-    'Ellenőrizd még egyszer a meghívón szereplő kódot — úgy tűnik, ROSE-GARDEN-417 —, vagy kérd meg a párt, hogy küldje el újra.',
+    'Ellenőrizd még egyszer a meghívón szereplő kódot — úgy tűnik, WEDD1NG202 —, vagy kérd meg a párt, hogy küldje el újra.',
   'rsvp.notFoundTitle': 'Nem találtuk ezt a kódot',
   'rsvp.plusOnes': 'Hozott vendégek',
   'rsvp.respondBody': 'Csatlakozol {{a}} és {{b}} esküvőjéhez?',

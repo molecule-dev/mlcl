@@ -168,7 +168,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Kóòdù tọkọtaya wà lórí ìfiwéran rẹ. Tẹ̀ ẹ́ wọlé láti rí orúkọ rẹ kí o sì dáhùn lẹ́ẹ̀kan — kò nílò àkáǹtì.',
   'landing.rsvpEyebrow': 'Ṣé o ní ìfiwéran?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Wá ìfiwéran mi',
   'landing.rsvpTitle': 'Jẹ́rìísí pẹ̀lú kóòdù rẹ',
   'landing.secondary': 'Wo bí ó ṣe ń ṣiṣẹ́',
@@ -237,7 +237,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Ìyàn oúnjẹ',
   'rsvp.mealNone': 'Kò ní ìfẹ́ràn',
   'rsvp.notFoundBody':
-    'Ṣàyẹ̀wò kóòdù tí ó wà nínú ìwé ìpè rẹ lẹ́ẹ̀mejì — ó dàbí ROSE-GARDEN-417 — tàbí béèrè lọ́wọ́ tọkọtaya náà kí wọ́n tún fi ránṣẹ́.',
+    'Ṣàyẹ̀wò kóòdù tí ó wà nínú ìwé ìpè rẹ lẹ́ẹ̀mejì — ó dàbí WEDD1NG202 — tàbí béèrè lọ́wọ́ tọkọtaya náà kí wọ́n tún fi ránṣẹ́.',
   'rsvp.notFoundTitle': 'A kò rí kóòdù yẹn',
   'rsvp.plusOnes': 'Àwọn àlejò tí o ń mú wá',
   'rsvp.respondBody': 'Ṣé wàá wá síbi ayẹyẹ {{a}} & {{b}}?',

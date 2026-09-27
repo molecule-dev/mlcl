@@ -171,7 +171,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     "Mae côd y cwpl ar eich gwahoddiad. Rhowch ef i ddod o hyd i'ch enw ac ateb unwaith — does dim angen cyfrif.",
   'landing.rsvpEyebrow': 'Cael gwahoddiad?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': "Dod o hyd i'm gwahoddiad",
   'landing.rsvpTitle': "Ymateb gyda'ch côd",
   'landing.secondary': "Gweld sut mae'n gweithio",
@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Dewis pryd',
   'rsvp.mealNone': 'Dim dewis',
   'rsvp.notFoundBody':
-    "Gwiriwch y cod ar eich gwahoddiad eto — mae'n edrych fel ROSE-GARDEN-417 — neu gofynnwch i'r cwpl ei anfon eto.",
+    "Gwiriwch y cod ar eich gwahoddiad eto — mae'n edrych fel WEDD1NG202 — neu gofynnwch i'r cwpl ei anfon eto.",
   'rsvp.notFoundTitle': "Ni allem ddod o hyd i'r côd hwnnw",
   'rsvp.plusOnes': "Gwesteion rydych chi'n dod â nhw",
   'rsvp.respondBody': "A fyddwch chi'n ymuno â {{a}} a {{b}}?",

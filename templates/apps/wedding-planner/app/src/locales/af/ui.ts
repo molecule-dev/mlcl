@@ -168,7 +168,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Die paartjie se kode is op jou uitnodiging. Voer dit in om jou naam te vind en antwoord een keer — geen rekening nodig nie.',
   'landing.rsvpEyebrow': "Het jy 'n uitnodiging ontvang?",
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Vind my uitnodiging',
   'landing.rsvpTitle': 'RSVP met jou kode',
   'landing.secondary': 'Sien hoe dit werk',
@@ -239,7 +239,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Maaltydkeuse',
   'rsvp.mealNone': 'Geen voorkeur',
   'rsvp.notFoundBody':
-    'Kontroleer die kode op jou uitnodiging — dit lyk soos ROSE-GARDEN-417 — of vra die paartjie om dit weer te stuur.',
+    'Kontroleer die kode op jou uitnodiging — dit lyk soos WEDD1NG202 — of vra die paartjie om dit weer te stuur.',
   'rsvp.notFoundTitle': 'Ons kon nie daardie kode vind nie',
   'rsvp.plusOnes': 'Gaste wat jy saambring',
   'rsvp.respondBody': 'Sal jy by {{a}} & {{b}} aansluit?',

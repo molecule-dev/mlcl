@@ -171,7 +171,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'ದಂಪತಿಗಳ ಕೋಡ್ ನಿಮ್ಮ ಆಮಂತ್ರಣದಲ್ಲಿದೆ. ನಿಮ್ಮ ಹೆಸರನ್ನು ಹುಡುಕಲು ಮತ್ತು ಒಂದೇ ಬಾರಿ ಉತ್ತರಿಸಲು ಅದನ್ನು ನಮೂದಿಸಿ — ಖಾತೆಯ ಅಗತ್ಯವಿಲ್ಲ.',
   'landing.rsvpEyebrow': 'ಆಮಂತ್ರಣ ಸಿಕ್ಕಿದೆಯೇ?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'ನನ್ನ ಆಮಂತ್ರಣ ಹುಡುಕಿ',
   'landing.rsvpTitle': 'ನಿಮ್ಮ ಕೋಡ್‌ನೊಂದಿಗೆ RSVP',
   'landing.secondary': 'ಇದು ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ ನೋಡಿ',
@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'ಊಟದ ಆಯ್ಕೆ',
   'rsvp.mealNone': 'ಆದ್ಯತೆ ಇಲ್ಲ',
   'rsvp.notFoundBody':
-    'ನಿಮ್ಮ ಆಮಂತ್ರಣದಲ್ಲಿರುವ ಕೋಡ್ ಅನ್ನು ಇನ್ನೊಮ್ಮೆ ಪರಿಶೀಲಿಸಿ — ಅದು ROSE-GARDEN-417 ಎಂದು ತೋರುತ್ತದೆ — ಅಥವಾ ದಂಪತಿಗೆ ಅದನ್ನು ಮತ್ತೆ ಕಳುಹಿಸಲು ಹೇಳಿ.',
+    'ನಿಮ್ಮ ಆಮಂತ್ರಣದಲ್ಲಿರುವ ಕೋಡ್ ಅನ್ನು ಇನ್ನೊಮ್ಮೆ ಪರಿಶೀಲಿಸಿ — ಅದು WEDD1NG202 ಎಂದು ತೋರುತ್ತದೆ — ಅಥವಾ ದಂಪತಿಗೆ ಅದನ್ನು ಮತ್ತೆ ಕಳುಹಿಸಲು ಹೇಳಿ.',
   'rsvp.notFoundTitle': 'ಆ ಕೋಡ್ ಸಿಗಲಿಲ್ಲ',
   'rsvp.plusOnes': 'ನೀವು ಕರೆತರುವ ಅತಿಥಿಗಳು',
   'rsvp.respondBody': 'ನೀವು {{a}} & {{b}} ಅವರೊಂದಿಗೆ ಸೇರಿಕೊಳ್ಳುತ್ತೀರಾ?',

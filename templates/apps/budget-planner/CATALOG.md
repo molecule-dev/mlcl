@@ -17,7 +17,7 @@ YNAB-like envelope budgeting with categories, assignments, spending reports, and
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
-- **budget_accounts** — id, user_id, name, type, institution, mask, balance, on_budget, closed, created_at, updatedAt
+- **budget_accounts** — id, user_id, name, type, institution, mask, balance, on_budget, closed, created_at, updatedAt, opening_balance
 - **budget_categories** — id, user_id, name, group_name, sort_order, archived, created_at, updatedAt
 - **budget_transactions** — id, user_id, account_id, category_id, payee, amount, type, date, memo, cleared, created_at, updatedAt
 - **devices** — id, createdAt, updatedAt, userId, name, pushPlatform, pushSubscription, hasPushSubscription

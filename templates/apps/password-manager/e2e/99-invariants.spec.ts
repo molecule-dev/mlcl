@@ -244,12 +244,12 @@ test.describe('backend invariants — read-after-write', () => {
   test('recovery-keys: POST a key → GET shows it → DELETE removes', async ({ page, request }) => {
     await signup(page)
     const headers = await getAuthHeaders(page)
-    // Mirror what the UI sends — public_key + encrypted_recovery_data
+    // Mirror what the UI sends — the kit is plain text now (an export/copy
+    // artifact), not a fake pk- key + base64 "ciphertext".
     const create = await request.post(`${API_BASE}/recovery-keys`, {
       headers,
       data: {
-        public_key: 'pk-abcdef0123456789',
-        encrypted_recovery_data: 'cmVjb3Zlcnk6QUJDREVGOjE3NDA3NDk2MDA=',
+        recovery_kit: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567',
       },
     })
     expect(create.status()).toBe(201)

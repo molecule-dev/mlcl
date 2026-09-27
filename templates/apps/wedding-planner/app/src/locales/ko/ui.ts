@@ -168,7 +168,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     '예비 부부의 코드는 청첩장에 있습니다. 코드를 입력하여 이름을 찾고 한 번만 답하세요 — 계정 불필요.',
   'landing.rsvpEyebrow': '청첩장을 받으셨나요?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': '내 청첩장 찾기',
   'landing.rsvpTitle': '코드로 참석 확인',
   'landing.secondary': '작동 방식 보기',
@@ -237,7 +237,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': '식사 선택',
   'rsvp.mealNone': '선호 없음',
   'rsvp.notFoundBody':
-    '초대장에 있는 코드를 다시 확인해 주세요 — ROSE-GARDEN-417인 것 같아요 — 또는 두 분에게 코드를 다시 보내달라고 요청하세요.',
+    '초대장에 있는 코드를 다시 확인해 주세요 — WEDD1NG202인 것 같아요 — 또는 두 분에게 코드를 다시 보내달라고 요청하세요.',
   'rsvp.notFoundTitle': '해당 코드를 찾을 수 없습니다',
   'rsvp.plusOnes': '동반하시는 게스트',
   'rsvp.respondBody': '{{a}} & {{b}}의 결혼식에 참석하시겠어요?',

@@ -160,7 +160,7 @@ export function Rsvp() {
             {},
             {
               defaultValue:
-                'Double-check the code on your invitation — it looks like ROSE-GARDEN-417 — or ask the couple to resend it.',
+                'Double-check the code on your invitation — it looks like WEDD1NG202 — or ask the couple to resend it.',
             },
           )}
         </p>

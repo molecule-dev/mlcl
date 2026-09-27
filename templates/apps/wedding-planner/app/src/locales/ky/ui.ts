@@ -170,7 +170,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Жубайлардын коду чакыруу каттарыңызда. Аныңызды табуу жана бир жолу жооп берүү үчүн киргизиңиз — аккаунт керек эмес.',
   'landing.rsvpEyebrow': 'Чакыруу катыңыз барбы?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Чакыруу катымды табуу',
   'landing.rsvpTitle': 'Кодуңуз менен RSVP',
   'landing.secondary': 'Кантип иштээрин көрүү',
@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Тамак тандоо',
   'rsvp.mealNone': 'Артыкчылык жок',
   'rsvp.notFoundBody':
-    'Чакырууңуздагы кодду эки жолу текшериңиз — ал ROSE-GARDEN-417 сыяктуу көрүнөт — же жубайлардан кайра жөнөтүүсүн сураңыз.',
+    'Чакырууңуздагы кодду эки жолу текшериңиз — ал WEDD1NG202 сыяктуу көрүнөт — же жубайлардан кайра жөнөтүүсүн сураңыз.',
   'rsvp.notFoundTitle': 'Бул кодду таба алган жокпуз',
   'rsvp.plusOnes': 'Алып келүүчү конокторуңуз',
   'rsvp.respondBody': '{{a}} жана {{b}} менен кошуласызбы?',

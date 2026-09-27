@@ -173,7 +173,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Ο κωδικός του ζευγαριού είναι στην πρόσκλησή σας. Εισαγάγετε τον για να βρείτε το όνομά σας και να απαντήσετε μία φορά — χωρίς ανάγκη λογαριασμού.',
   'landing.rsvpEyebrow': 'Έχετε πρόσκληση;',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Εύρεση πρόσκλησής μου',
   'landing.rsvpTitle': 'Επιβεβαιώστε με τον κωδικό σας',
   'landing.secondary': 'Δείτε πώς λειτουργεί',
@@ -244,7 +244,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Επιλογή γεύματος',
   'rsvp.mealNone': 'Χωρίς προτίμηση',
   'rsvp.notFoundBody':
-    'Ελέγξτε ξανά τον κωδικό στην πρόσκλησή σας — φαίνεται να είναι ROSE-GARDEN-417 — ή ζητήστε από το ζευγάρι να την ξαναστείλει.',
+    'Ελέγξτε ξανά τον κωδικό στην πρόσκλησή σας — φαίνεται να είναι WEDD1NG202 — ή ζητήστε από το ζευγάρι να την ξαναστείλει.',
   'rsvp.notFoundTitle': 'Δεν μπορέσαμε να βρούμε αυτόν τον κωδικό',
   'rsvp.plusOnes': 'Καλεσμένοι που φέρνετε',
   'rsvp.respondBody': 'Θα έρθετε στους {{a}} & {{b}};',

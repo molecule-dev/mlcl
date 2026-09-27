@@ -238,7 +238,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Måltidsvalg',
   'rsvp.mealNone': 'Ingen preferanse',
   'rsvp.notFoundBody':
-    'Dobbeltsjekk koden på invitasjonen din – den ser ut som ROSE-GARDEN-417 – eller be paret sende den på nytt.',
+    'Dobbeltsjekk koden på invitasjonen din – den ser ut som WEDD1NG202 – eller be paret sende den på nytt.',
   'rsvp.notFoundTitle': 'Vi kunne ikke finne den koden',
   'rsvp.plusOnes': 'Gjester du tar med',
   'rsvp.respondBody': 'Blir du med {{a}} og {{b}}?',

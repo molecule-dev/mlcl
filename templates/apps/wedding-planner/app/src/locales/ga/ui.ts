@@ -171,7 +171,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     "Tá cód an lánúin ar do chuireadh. Cuir isteach é chun d'ainm a aimsiú agus freagair uair amháin — níl cuntas de dhíth.",
   'landing.rsvpEyebrow': 'An bhfuil cuireadh agat?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Aimsigh mo chuireadh',
   'landing.rsvpTitle': 'RSVP le do chód',
   'landing.secondary': 'Féach conas a oibríonn sé',
@@ -244,7 +244,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Rogha béile',
   'rsvp.mealNone': 'Gan rogha',
   'rsvp.notFoundBody':
-    'Seiceáil an cód ar do chuireadh arís — tá an chuma air gur ROSE-GARDEN-417 é — nó iarr ar an lánúin é a sheoladh arís.',
+    'Seiceáil an cód ar do chuireadh arís — tá an chuma air gur WEDD1NG202 é — nó iarr ar an lánúin é a sheoladh arís.',
   'rsvp.notFoundTitle': 'Níorbh fhéidir linn an cód sin a aimsiú',
   'rsvp.plusOnes': 'Aíonna atá tú a thabhairt',
   'rsvp.respondBody': 'An mbeidh tú ag teacht le {{a}} & {{b}}?',

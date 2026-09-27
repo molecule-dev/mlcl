@@ -28,7 +28,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **lessons** — id, unit_id, course_id, title, duration_min, lessons_remaining, progress_percent, level, language, flag, tone, icon, …
 - **notifications** — id, user_id, type, title, body, href, unread, created_at
 - **units** — id, course_id, position, title, description, created_at
-- **user_profiles** — user_id, total_xp, lessons_completed, current_streak, longest_streak, daily_goal_xp, last_activity, target_languages, theme, created_at, updated_at
+- **user_profiles** — user_id, total_xp, lessons_completed, current_streak, longest_streak, daily_goal_xp, last_activity, target_languages, theme, created_at, updated_at, reminder_enabled, …
 - **vocabulary_items** — id, user_id, word, pronunciation, translation, example, language_code, mastery, next_review_iso, created_at, updated_at
 
 ## API surface (handlers)

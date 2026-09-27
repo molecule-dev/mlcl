@@ -42,8 +42,32 @@ import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import { requireAdmin } from '../middleware/require-admin.js'
+import { isPrivateHost } from '../lib/private-hosts.js'
 
 const router = Router()
+
+/**
+ * SSRF guard for admin-configured fetch endpoints: resolve the hostname and
+ * refuse any target that lands on a private/loopback/link-local/metadata
+ * address, and refuse non-http(s) schemes outright. The fetch surface is
+ * admin-gated, but the URL still comes from stored config (base_url /
+ * fetch_config.endpoint), so the sink validates its own input before
+ * touching the network.
+ */
+async function assertFetchableEndpoint(endpoint: string): Promise<void> {
+  let url: URL
+  try {
+    url = new URL(endpoint)
+  } catch {
+    throw new Error('Source endpoint is not a valid URL')
+  }
+  if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+    throw new Error('Only http(s) endpoints can be fetched')
+  }
+  if (await isPrivateHost(url.hostname)) {
+    throw new Error('Refusing to fetch a private/internal address')
+  }
+}
 
 const createSourceSchema = z.object({
   name: z.string().min(1),
@@ -243,6 +267,9 @@ router.post('/:id/fetch', requireAdmin, async (req: Request, res: Response) => {
     const fetchConfig = (source.fetch_config as Record<string, unknown>) || {}
     const endpoint = (fetchConfig.endpoint as string) || `${source.base_url}/api/products`
 
+    // Refuse private/internal/metadata targets BEFORE any request is made.
+    await assertFetchableEndpoint(endpoint)
+
     const response = await httpGet(endpoint, {
       headers: fetchConfig.headers as Record<string, string> | undefined,
     })
@@ -284,6 +311,10 @@ router.post('/cron/init', requireAdmin, async (_req: Request, res: Response) => 
       try {
         const fetchConfig = (source.fetch_config as Record<string, unknown>) || {}
         const endpoint = (fetchConfig.endpoint as string) || `${source.base_url}/api/products`
+
+        // Same SSRF guard as the manual fetch route — the cron fan-out must
+        // not become a bypass for it.
+        await assertFetchableEndpoint(endpoint)
 
         await httpGet(endpoint, {
           headers: fetchConfig.headers as Record<string, string> | undefined,

@@ -190,7 +190,13 @@ export default defineConfig(({ mode }) => {
       // `npm test` collects them and each fails with "Playwright Test did not
       // expect test.describe() to be called here". `exclude` REPLACES vitest's
       // defaults, so they are re-listed.
-      exclude: ['**/node_modules/**', '**/.git/**', '**/dist/**', '**/e2e/**'],
+      exclude: [
+        '@molecule/app-icons-molecule',
+        '**/node_modules/**',
+        '**/.git/**',
+        '**/dist/**',
+        '**/e2e/**',
+      ],
     },
   }
 })

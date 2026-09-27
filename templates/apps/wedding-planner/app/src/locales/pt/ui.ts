@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Escolha de refeição',
   'rsvp.mealNone': 'Sem preferência',
   'rsvp.notFoundBody':
-    'Verifique novamente o código no seu convite — parece ser ROSE-GARDEN-417 — ou peça ao casal para reenviá-lo.',
+    'Verifique novamente o código no seu convite — parece ser WEDD1NG202 — ou peça ao casal para reenviá-lo.',
   'rsvp.notFoundTitle': 'Não conseguimos encontrar esse código',
   'rsvp.plusOnes': 'Convidados que você está trazendo',
   'rsvp.respondBody': 'Você vai comparecer ao casamento de {{a}} & {{b}}?',

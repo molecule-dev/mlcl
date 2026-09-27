@@ -21,22 +21,22 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **inventory_movements** — id, productId, variantId, type, quantity, reason, referenceId, createdAt
 - **inventory_reservations** — id, productId, variantId, quantity, orderId, createdAt
 - **inventory_stock** — id, productId, variantId, total, reserved, lowStockThreshold, createdAt, updatedAt
-- **locations** — id, user_id, zone_id, code, bin_capacity, current_occupancy_pct, created_at, updated_at
-- **notifications** — id, user_id, kind, body, payload, read_at, created_at
+- **locations** — id, user_id, zone_id, code, bin_capacity, current_occupancy_pct, created_at, updated_at, name, aisle
+- **notifications** — id, user_id, kind, body, payload, read_at, created_at, title, link
 - **order_events** — id, orderId, status, metadata, createdAt
 - **order_items** — id, orderId, productId, variantId, name, price, quantity, image
 - **orders** — id, userId, status, subtotal, tax, shipping, discount, total, shippingAddress, billingAddress, paymentId, notes, …
-- **pick_lines** — id, user_id, pick_list_id, product_variant_id, location_id, quantity_to_pick, quantity_picked, picked_at, created_at
-- **pick_lists** — id, user_id, order_id, status, assigned_user_id, started_at, completed_at, created_at, updated_at
+- **pick_lines** — id, user_id, pick_list_id, product_variant_id, location_id, quantity_to_pick, quantity_picked, picked_at, created_at, sku, product_name, bin
+- **pick_lists** — id, user_id, order_id, status, assigned_user_id, started_at, completed_at, created_at, updated_at, pick_number
 - **product_variants** — id, productId, name, sku, price, inventory, createdAt, updatedAt
 - **products** — id, name, slug, description, price, currency, status, imageUrl, sku, inventory, createdAt, updatedAt, …
 - **receipt_items** — id, user_id, receipt_id, product_variant_id, expected_qty, received_qty, created_at
-- **receipts** — id, user_id, supplier, expected_at, received_at, status, received_by_user_id, created_at, updated_at
+- **receipts** — id, user_id, supplier, expected_at, received_at, status, received_by_user_id, created_at, updated_at, po_number, expected_units
 - **return_items** — id, user_id, return_id, product_variant_id, quantity, condition, restock_to_location_id, created_at
-- **returns** — id, user_id, original_order_id, rma_number, reason, status, received_at, created_at, updated_at
+- **returns** — id, user_id, original_order_id, rma_number, reason, status, received_at, created_at, updated_at, resolution
 - **shipment_events** — id, user_id, shipment_id, status, description, location, created_at
-- **shipments** — id, user_id, order_id, carrier, tracking_number, label_s3_key, weight_oz, status, shipped_at, delivered_at, created_at, updated_at
-- **zones** — id, user_id, name, kind, description, created_at, updated_at
+- **shipments** — id, user_id, order_id, carrier, tracking_number, label_s3_key, weight_oz, status, shipped_at, delivered_at, created_at, updated_at, …
+- **zones** — id, user_id, name, kind, description, created_at, updated_at, code, bins, utilization_pct
 - **user_preferences** — user_id, data, updated_at
 
 ## API surface (handlers)

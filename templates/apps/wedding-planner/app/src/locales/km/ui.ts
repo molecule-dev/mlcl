@@ -169,7 +169,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'លេខកូដរបស់គូស្នេហ៍នៅលើការអញ្ជើញរបស់អ្នក។ បញ្ចូលវាដើម្បីរកឈ្មោះរបស់អ្នកនិងឆ្លើយតែម្តង — មិនត្រូវការគណនីទេ។',
   'landing.rsvpEyebrow': 'ទទួលបានការអញ្ជើញ?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'រកការអញ្ជើញរបស់ខ្ញុំ',
   'landing.rsvpTitle': 'RSVP ជាមួយលេខកូដរបស់អ្នក',
   'landing.secondary': 'មើលរបៀបដែលវាដំណើរការ',
@@ -239,7 +239,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'ជម្រើសអាហារ',
   'rsvp.mealNone': 'គ្មានចំណង់ចំណូលចិត្ត',
   'rsvp.notFoundBody':
-    'សូមពិនិត្យកូដនៅលើការអញ្ជើញរបស់អ្នកម្តងទៀត — វាមើលទៅដូចជា ROSE-GARDEN-417 — ឬសូមស្នើឱ្យគូស្វាមីភរិយាផ្ញើវាមកវិញ។',
+    'សូមពិនិត្យកូដនៅលើការអញ្ជើញរបស់អ្នកម្តងទៀត — វាមើលទៅដូចជា WEDD1NG202 — ឬសូមស្នើឱ្យគូស្វាមីភរិយាផ្ញើវាមកវិញ។',
   'rsvp.notFoundTitle': 'យើងរកមិនឃើញលេខកូដនោះទេ',
   'rsvp.plusOnes': 'ភ្ញៀវដែលអ្នកនាំមក',
   'rsvp.respondBody': 'តើអ្នកនឹងចូលរួមជាមួយ {{a}} & {{b}} ឬទេ?',

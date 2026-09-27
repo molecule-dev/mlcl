@@ -1,5 +1,6 @@
 import type { Request, Response } from 'express'
 import { Router } from 'express'
+import { createHash } from 'node:crypto'
 import { z } from 'zod'
 
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
@@ -17,7 +18,11 @@ const listQuerySchema = z.object({
 
 const createSchema = z.object({
   item_id: z.string().min(1),
-  encrypted_password: z.string().min(1),
+  // The plaintext password the client just saved. The server stores only a
+  // sha256 digest + last-4 preview — never the value itself, and no
+  // caller-supplied blob (the old `encrypted_password` column held exactly
+  // that, verbatim, under a name that lied about crypto).
+  password: z.string().min(1),
 })
 
 // List password history for an item the current user owns
@@ -67,10 +72,15 @@ router.post('/', validateBody(createSchema), async (req: Request, res: Response)
       res.status(404).json({ error: t('item.notFound', {}, { defaultValue: 'Item not found' }) })
       return
     }
+    // One-way digest + a last-4 hint: enough to recognize an old password,
+    // useless for recovering it. The hash makes the stored artifact inert —
+    // there is no verify consumer today, and if one is added later it
+    // compares digests, not ciphertext.
     const result = await create('password_history', {
       item_id: req.body.item_id,
       user_id: userId,
-      encrypted_password: req.body.encrypted_password,
+      password_hash: createHash('sha256').update(req.body.password, 'utf8').digest('hex'),
+      password_preview: req.body.password.slice(-4),
       created_at: new Date().toISOString(),
     })
     res.status(201).json(result.data)

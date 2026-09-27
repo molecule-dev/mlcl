@@ -241,7 +241,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Výber jedla',
   'rsvp.mealNone': 'Bez preferencie',
   'rsvp.notFoundBody':
-    'Skontrolujte kód na svojej pozvánke — vyzerá ako ROSE-GARDEN-417 — alebo požiadajte pár, aby vám ju poslal znova.',
+    'Skontrolujte kód na svojej pozvánke — vyzerá ako WEDD1NG202 — alebo požiadajte pár, aby vám ju poslal znova.',
   'rsvp.notFoundTitle': 'Nepodarilo sa nám nájsť tento kód',
   'rsvp.plusOnes': 'Hostia, ktorých si berieš',
   'rsvp.respondBody': 'Pridáte sa k {{a}} a {{b}}?',

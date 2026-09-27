@@ -171,7 +171,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Il codice della coppia è sul tuo invito. Inseriscilo per trovare il tuo nome e rispondere una volta — nessun account necessario.',
   'landing.rsvpEyebrow': 'Hai ricevuto un invito?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Trova il mio invito',
   'landing.rsvpTitle': 'Conferma con il tuo codice',
   'landing.secondary': 'Scopri come funziona',
@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Scelta del pasto',
   'rsvp.mealNone': 'Nessuna preferenza',
   'rsvp.notFoundBody':
-    'Controlla bene il codice sul tuo invito — sembra ROSE-GARDEN-417 — oppure chiedi agli sposi di inviartelo di nuovo.',
+    'Controlla bene il codice sul tuo invito — sembra WEDD1NG202 — oppure chiedi agli sposi di inviartelo di nuovo.',
   'rsvp.notFoundTitle': 'Non siamo riusciti a trovare quel codice',
   'rsvp.plusOnes': 'Ospiti che porti',
   'rsvp.respondBody': 'Parteciperai al matrimonio di {{a}} e {{b}}?',

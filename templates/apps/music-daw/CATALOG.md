@@ -17,12 +17,12 @@ Soundtrap-like digital audio workstation with tracks, instruments, effects, and 
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
-- **music_projects** — id, user_id, name, bpm, time_signature, duration, is_public, created_at, updatedAt
+- **music_projects** — id, user_id, name, bpm, time_signature, duration, is_public, created_at, updatedAt, cover_index
 - **audio_tracks** — id, project_id, user_id, name, type, instrument_id, volume, pan, muted, solo, armed, position, …
 - **audio_effects** — id, track_id, user_id, type, parameters, enabled, position, created_at, updatedAt
 - **audio_exports** — id, project_id, user_id, format, quality, sample_rate, status, output_url, created_at, updatedAt
 - **instruments** — id, user_id, name, category, type, settings, created_at, updatedAt
-- **samples** — id, user_id, name, url, bpm, music_key, length_sec, waveform_peaks, tags, is_public, created_at, updatedAt
+- **samples** — id, user_id, name, url, bpm, music_key, length_sec, waveform_peaks, tags, is_public, created_at, updatedAt, …
 - **clips** — id, track_id, user_id, kind, start_time, duration, source_url, notes, created_at, updatedAt
 - **midi_notes** — id, clip_id, user_id, pitch, velocity, start, duration, created_at, updatedAt
 - **collaborators** — id, project_id, user_id, collaborator_user_id, invitee_email, role, invited_at, joined_at, created_at, updatedAt

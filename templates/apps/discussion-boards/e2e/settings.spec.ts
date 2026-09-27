@@ -1,5 +1,5 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
-import { API_BASE, APP_BASE, captureNetwork, getAccessToken, signup } from './_helpers.js'
+import { API_BASE, APP_BASE, captureNetwork, getAccessToken, signup, totp } from './_helpers.js'
 
 test.describe('/settings', () => {
   test('Renders the email field with the signed-in user email pre-filled', async ({ page }) => {
@@ -70,32 +70,51 @@ test.describe('/settings', () => {
     expect(pwCall!.status).toBeLessThan(400)
   })
 
-  test('Two-factor switch flips and PATCHes /api/users/me/two-factor with twoFactorEnabled', async ({
+  test('Two-factor switch opens real TOTP enrollment and verifies a live code', async ({
     page,
   }) => {
-    // [M6-1] The platform's generic PATCH /users/:id deliberately STRIPS
-    // twoFactorEnabled (a security flag that must go through TOTP step-up), so
-    // the Settings 2FA toggle persists the preference via the narrow,
-    // self-authed app route PATCH /users/me/two-factor instead (see
-    // api/src/handlers/users-2fa.ts). This asserts that correct endpoint —
-    // the flips-and-persists invariant is unchanged.
+    // [M-5] The 2FA switch never writes a bare flag: enabling opens the
+    // enrollment modal, the app's setup route provisions a pending secret,
+    // and the flag only flips after a REAL TOTP code is verified by
+    // PATCH /api/users/me/two-factor { enabled: true, token } (see
+    // api/src/handlers/users-2fa.ts). This drives that genuine enrollment —
+    // the code is derived from the provisioned secret, the same way the
+    // user's authenticator app would.
     await signup(page)
     await page.goto(APP_BASE + '/settings')
     const switches = page.getByRole('switch')
     const twoFa = switches.first()
     await expect(twoFa).toBeVisible({ timeout: 15_000 })
-    const before = await twoFa.getAttribute('aria-checked')
+
+    // Arm the listener BEFORE the click so the setup body can't be missed.
+    const setupResponse = page.waitForResponse(
+      (r) =>
+        /\/api\/users\/me\/two-factor\/setup$/.test(r.url()) && r.request().method() === 'POST',
+      { timeout: 20_000 },
+    )
+    await twoFa.click()
+    await expect(page.locator('[data-mol-id="two-factor-token"]')).toBeVisible({
+      timeout: 15_000,
+    })
+    const setup = await setupResponse
+    expect(setup.status(), 'POST two-factor setup must succeed').toBeLessThan(400)
+    const setupBody = (await setup.json()) as { secret?: string }
+    const secret = setupBody.secret
+    expect(secret, 'setup must provision a base32 TOTP secret').toBeTruthy()
+    await expect(page.locator('[data-mol-id="two-factor-secret"]')).toHaveText(secret!)
+
     const reqs = await captureNetwork(page, async () => {
-      await twoFa.click()
+      await page.locator('[data-mol-id="two-factor-token"]').fill(totp(secret!))
+      await page.locator('[data-mol-id="two-factor-submit"]').click()
       await page.waitForTimeout(800)
     })
     const patch = reqs.find(
       (r) => /\/api\/users\/me\/two-factor$/.test(r.url) && r.method === 'PATCH',
     )
-    expect(patch, 'PATCH /api/users/me/two-factor (twoFactorEnabled) must have fired').toBeTruthy()
+    expect(patch, 'PATCH /api/users/me/two-factor ({enabled, token}) must have fired').toBeTruthy()
     expect(patch!.status).toBeLessThan(300)
     const after = await twoFa.getAttribute('aria-checked')
-    expect(after, 'aria-checked must flip after toggle').not.toBe(before)
+    expect(after, 'aria-checked must flip after verified enrollment').not.toBe('false')
 
     // Persists across reload — the freshly-mounted /users/me reflects it.
     await page.reload()

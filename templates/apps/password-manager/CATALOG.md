@@ -18,13 +18,13 @@
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
 - **devices** — id, createdAt, updatedAt, userId, name, pushPlatform, pushSubscription, hasPushSubscription
-- **password_history** — id, item_id, user_id, encrypted_password, created_at, updatedAt
+- **password_history** — id, item_id, user_id, created_at, updatedAt, password_hash, password_preview
 - **resource_tags** — id, tagId, resourceType, resourceId, createdAt
 - **security_findings** — id, owner_id, user_id, item_id, kind, severity, detected_at, dismissed, updatedAt
 - **tags** — id, name, slug, color, description, createdAt, updatedAt
 - **two_factor_setups** — id, user_id, method, secret_or_credentials, verified_at, created_at, updated_at, updatedAt
 - **vault_items** — id, vault_id, owner_id, user_id, name, type, username, url, encrypted_password, encrypted_notes, icon, folder, …
-- **vault_recovery_keys** — id, user_id, public_key, encrypted_recovery_data, created_at, updatedAt
+- **vault_recovery_keys** — id, user_id, recovery_kit, created_at, updatedAt
 - **vault_shares** — id, vault_id, shared_by, shared_with_user_id, user_id, permission, created_at, accepted_at, updatedAt
 - **vaults** — id, owner_id, user_id, name, description, icon, created_at, updated_at, updatedAt
 

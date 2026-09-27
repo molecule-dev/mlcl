@@ -170,7 +170,7 @@ export const ui: UiTranslations = {
   'landing.rsvpBody':
     'Il-kodiċi tal-koppja jinsab fuq l-istedina tiegħek. Daħħlu biex issib ismek u wieġeb darba — l-ebda kont meħtieġ.',
   'landing.rsvpEyebrow': 'Għandek stedina?',
-  'landing.rsvpPlaceholder': 'ROSE-GARDEN-417',
+  'landing.rsvpPlaceholder': 'WEDD1NG202',
   'landing.rsvpSubmit': 'Sib l-istedina tiegħi',
   'landing.rsvpTitle': 'RSVP bil-kodiċi tiegħek',
   'landing.secondary': 'Ara kif jaħdem',
@@ -241,7 +241,7 @@ export const ui: UiTranslations = {
   'rsvp.mealChoice': 'Għażla tal-ikel',
   'rsvp.mealNone': 'L-ebda preferenza',
   'rsvp.notFoundBody':
-    'Iċċekkja sew il-kodiċi fuq l-istedina tiegħek — jidher qisu ROSE-GARDEN-417 — jew itlob lill-koppja tibgħatha mill-ġdid.',
+    'Iċċekkja sew il-kodiċi fuq l-istedina tiegħek — jidher qisu WEDD1NG202 — jew itlob lill-koppja tibgħatha mill-ġdid.',
   'rsvp.notFoundTitle': 'Ma stajna nsibu dak il-kodiċi',
   'rsvp.plusOnes': 'Mistednin li qed iġġib',
   'rsvp.respondBody': "Se tingħaqad ma' {{a}} u {{b}}?",
