@@ -4600,7 +4600,9 @@ export function generateFontHtml(
 
   // Local font style block
   for (const file of preloadFaces) {
-    lines.push(`    <link rel="preload" href="/fonts/${file}" as="font" type="font/woff2" crossorigin />`)
+    lines.push(
+      `    <link rel="preload" href="/fonts/${file}" as="font" type="font/woff2" crossorigin />`,
+    )
   }
 
   if (staticFaces.length > 0 || variableFaces.length > 0 || utilityCssBlocks.length > 0) {
@@ -4975,7 +4977,9 @@ async function updateHtmlFontBlock(
   }
 
   for (const file of preloadFaces) {
-    lines.push(`    <link rel="preload" href="/fonts/${file}" as="font" type="font/woff2" crossorigin />`)
+    lines.push(
+      `    <link rel="preload" href="/fonts/${file}" as="font" type="font/woff2" crossorigin />`,
+    )
   }
 
   if (staticFaces.length > 0 || variableFaces.length > 0 || utilityCssBlocks.length > 0) {
