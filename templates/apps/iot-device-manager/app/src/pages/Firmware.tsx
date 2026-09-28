@@ -307,14 +307,11 @@ export function Firmware() {
         <div
           className={cm.cn(
             cm.sp('p', 5),
-            'bg-surface-container-lowest rounded-xl border-l-4 border-primary shadow-sm',
+            'bg-surface-container-lowest rounded-xl shadow-sm',
+            cm.accentCard({ tone: 'primary' }),
           )}
         >
-          <p
-            className={cm.cn(
-              'text-[11px] font-bold uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
+          <p className={cm.cn(cm.accentCardLabel({ tone: 'primary' }))}>
             {t('firmware.summary.inFlight', {}, { defaultValue: 'In-flight rollouts' })}
           </p>
           <p className={cm.cn('text-3xl font-extrabold tabular-nums font-mono mt-2')}>{inFlight}</p>
@@ -322,14 +319,11 @@ export function Firmware() {
         <div
           className={cm.cn(
             cm.sp('p', 5),
-            'bg-surface-container-lowest rounded-xl border-l-4 border-success shadow-sm',
+            'bg-surface-container-lowest rounded-xl shadow-sm',
+            cm.accentCard({ tone: 'success' }),
           )}
         >
-          <p
-            className={cm.cn(
-              'text-[11px] font-bold uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
+          <p className={cm.cn(cm.accentCardLabel({ tone: 'success' }))}>
             {t('firmware.summary.updated', {}, { defaultValue: 'Devices updated' })}
           </p>
           <p className={cm.cn('text-3xl font-extrabold tabular-nums font-mono mt-2')}>
@@ -339,14 +333,12 @@ export function Firmware() {
         <div
           className={cm.cn(
             cm.sp('p', 5),
-            'bg-surface-container-lowest rounded-xl border-l-4 border-secondary shadow-sm',
+            'bg-surface-container-lowest rounded-xl shadow-sm',
+            cm.accentCard({ tone: 'custom' }),
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-secondary)' }}
         >
-          <p
-            className={cm.cn(
-              'text-[11px] font-bold uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
+          <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }))}>
             {t('firmware.summary.total', {}, { defaultValue: 'Total fleet coverage' })}
           </p>
           <p className={cm.cn('text-3xl font-extrabold tabular-nums font-mono mt-2')}>

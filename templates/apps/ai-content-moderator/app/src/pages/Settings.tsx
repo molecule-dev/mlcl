@@ -220,7 +220,8 @@ export function Settings() {
         <div
           role="status"
           className={cm.cn(
-            'rounded-lg border-l-4 border-emerald-500 bg-emerald-50 px-4 py-3 text-sm text-emerald-700',
+            cm.accentCard({ tone: 'success' }),
+            'rounded-lg bg-emerald-50 pr-4 py-3 text-sm text-emerald-700',
           )}
         >
           {feedback}
@@ -464,7 +465,8 @@ export function Settings() {
             <div
               role="alert"
               className={cm.cn(
-                'rounded-lg border-l-4 border-red-500 bg-red-50 px-4 py-3 text-sm text-red-700',
+                cm.accentCard({ tone: 'error' }),
+                'rounded-lg bg-red-50 pr-4 py-3 text-sm text-red-700',
               )}
             >
               {tokenError}

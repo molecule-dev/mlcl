@@ -164,7 +164,8 @@ export function Profile() {
                 key={stat.key}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 border-primary hover:-translate-y-0.5 transition-transform',
+                  cm.accentCard({ tone: 'primary' }),
+                  'bg-surface-container-lowest rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform',
                 )}
               >
                 <span
@@ -174,13 +175,7 @@ export function Profile() {
                 >
                   {stat.icon}
                 </span>
-                <p
-                  className={cm.cn(
-                    cm.fontWeight('bold'),
-                    'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                    cm.sp('mt', 4),
-                  )}
-                >
+                <p className={cm.cn(cm.accentCardLabel({ tone: 'primary' }), cm.sp('mt', 4))}>
                   {stat.label}
                 </p>
                 <p className={cm.cn('text-4xl font-extrabold tracking-tight', cm.sp('mt', 1))}>

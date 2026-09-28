@@ -350,16 +350,12 @@ export function Review() {
                 <div
                   className={cm.cn(
                     cm.sp('p', 4),
-                    'bg-source-pane rounded-lg font-serif-content text-sm border-l-4 border-l-secondary',
+                    cm.accentCard({ tone: 'custom' }),
+                    'bg-source-pane rounded-lg font-serif-content text-sm',
                   )}
+                  style={{ ['--mol-accent' as string]: 'var(--color-secondary)' }}
                 >
-                  <p
-                    className={cm.cn(
-                      cm.textSize('xs'),
-                      cm.sp('mb', 2),
-                      'uppercase tracking-widest font-bold text-on-surface-variant',
-                    )}
-                  >
+                  <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), cm.sp('mb', 2))}>
                     {t('review.sourceLabel', {}, { defaultValue: 'Source' })}
                   </p>
                   {active.source}
@@ -367,16 +363,11 @@ export function Review() {
                 <div
                   className={cm.cn(
                     cm.sp('p', 4),
-                    'bg-target-pane rounded-lg font-serif-content text-sm border-l-4 border-l-warning',
+                    cm.accentCard({ tone: 'warning' }),
+                    'bg-target-pane rounded-lg font-serif-content text-sm',
                   )}
                 >
-                  <p
-                    className={cm.cn(
-                      cm.textSize('xs'),
-                      cm.sp('mb', 2),
-                      'uppercase tracking-widest font-bold text-warning',
-                    )}
-                  >
+                  <p className={cm.cn(cm.accentCardLabel({ tone: 'warning' }), cm.sp('mb', 2))}>
                     {t('review.currentLabel', {}, { defaultValue: 'Current translation' })}
                   </p>
                   {active.target}
@@ -386,16 +377,11 @@ export function Review() {
               <div
                 className={cm.cn(
                   cm.sp('p', 4),
-                  'bg-success-light rounded-lg font-serif-content text-sm border-l-4 border-l-success',
+                  cm.accentCard({ tone: 'success' }),
+                  'bg-success-light rounded-lg font-serif-content text-sm',
                 )}
               >
-                <p
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.sp('mb', 2),
-                    'uppercase tracking-widest font-bold text-success',
-                  )}
-                >
+                <p className={cm.cn(cm.accentCardLabel({ tone: 'success' }), cm.sp('mb', 2))}>
                   {t('review.proposedLabel', {}, { defaultValue: 'Proposed' })}
                 </p>
                 {active.proposed}

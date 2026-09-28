@@ -17,11 +17,12 @@ interface EmailKpiTriadProps {
   replyRatePct: number
 }
 
-const ACCENT_BORDER: Record<KpiSpec['accent'], string> = {
-  primary: 'border-primary',
-  secondary: 'border-secondary',
-  info: 'border-info',
-  success: 'border-success',
+/** The card's accent bar color, read by `cm.accentCard({ tone: 'custom' })`. */
+const ACCENT_VAR: Record<KpiSpec['accent'], string> = {
+  primary: 'var(--color-primary)',
+  secondary: 'var(--color-secondary)',
+  info: 'var(--color-info)',
+  success: 'var(--color-success)',
 }
 
 const ACCENT_TINT: Record<KpiSpec['accent'], string> = {
@@ -90,17 +91,14 @@ export function EmailKpiTriad({
           data-mol-id={`kpi-${item.key}`}
           className={cm.cn(
             cm.sp('p', 6),
-            'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4',
+            cm.accentCard({ tone: 'custom' }),
+            'bg-surface-container-lowest rounded-2xl shadow-sm',
             'hover:-translate-y-0.5 hover:shadow-md transition-all',
-            ACCENT_BORDER[item.accent],
           )}
+          style={{ ['--mol-accent' as string]: ACCENT_VAR[item.accent] }}
         >
           <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), cm.sp('mb', 4))}>
-            <p
-              className={cm.cn(
-                'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
+            <p className={cm.accentCardLabel({ tone: 'custom' })}>
               {t(`emailKpiTriad.${item.key}Label`, {}, { defaultValue: item.defaultLabel })}
             </p>
             <span

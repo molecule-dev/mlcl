@@ -220,7 +220,7 @@ export function Notifications() {
                   cm.sp('p', 4),
                   cm.flex({ align: 'start', gap: 'md' }),
                   'bg-surface rounded-xl shadow-sm',
-                  n.unread ? 'border-l-4 border-primary' : '',
+                  n.unread ? cm.accentCard({ tone: 'primary' }) : '',
                 )}
               >
                 <div

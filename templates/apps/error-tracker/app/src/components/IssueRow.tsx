@@ -8,7 +8,7 @@ import { type Severity, SeverityPill } from './SeverityPill.js'
 
 /**
  * Editorial issue row — terminal-aesthetic dark surface with a coloured
- * `border-l-3` severity accent (sacred per DESIGN.md "Error Group Row"),
+ * inset severity accent bar (sacred per DESIGN.md "Error Group Row"),
  * mono title fragment, mono fingerprint badge, frequency sparkline at the
  * far right, and uppercase 10px metadata columns (events, users, last
  * seen) in the dev-tools KPI rhythm.

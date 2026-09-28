@@ -182,14 +182,12 @@ export function Settings() {
           className={cm.cn(
             cm.sp('p', 4),
             cm.sp('mt', 4),
-            'rounded-xl bg-surface-container-low border-l-2 border-secondary',
+            cm.accentCard({ tone: 'custom' }),
+            'rounded-xl bg-surface-container-low',
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-secondary)' }}
         >
-          <p
-            className={cm.cn(
-              'text-[10px] font-black uppercase tracking-widest text-secondary-dark mb-2',
-            )}
-          >
+          <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'mb-2')}>
             {t('settings.signaturePreview', {}, { defaultValue: 'Preview' })}
           </p>
           <pre

@@ -22,24 +22,24 @@ interface AiVerdictPanelProps {
 
 const DECISION_TONE: Record<
   AiVerdictPanelProps['decision'],
-  { text: string; bg: string; border: string; defaultLabel: string }
+  { text: string; bg: string; accent: string; defaultLabel: string }
 > = {
   approve: {
     text: 'text-success',
     bg: 'bg-success-light',
-    border: 'border-emerald-500',
+    accent: 'var(--color-emerald-500)',
     defaultLabel: 'Recommend approve',
   },
   reject: {
     text: 'text-error',
     bg: 'bg-error-light',
-    border: 'border-red-500',
+    accent: 'var(--color-red-500)',
     defaultLabel: 'Recommend reject',
   },
   escalate: {
     text: 'text-purple-700',
     bg: 'bg-purple-50',
-    border: 'border-purple-500',
+    accent: 'var(--color-purple-500)',
     defaultLabel: 'Recommend escalate',
   },
 }
@@ -57,18 +57,15 @@ export function AiVerdictPanel(props: AiVerdictPanelProps) {
       className={cm.cn(
         cm.sp('p', 6),
         cm.stack(4),
-        'rounded-xl bg-surface-container-lowest shadow-sm border-l-4',
-        tone.border,
+        cm.accentCard({ tone: 'custom' }),
+        'rounded-xl bg-surface-container-lowest shadow-sm',
       )}
+      style={{ ['--mol-accent' as string]: tone.accent }}
       aria-labelledby="ai-verdict-heading"
     >
       <header className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), 'gap-3')}>
         <div>
-          <p
-            className={cm.cn(
-              'text-[10px] font-black uppercase tracking-widest text-on-surface-variant font-label',
-            )}
-          >
+          <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-label')}>
             {t('aiVerdict.heading', {}, { defaultValue: 'AI Recommendation' })}
           </p>
           <h3

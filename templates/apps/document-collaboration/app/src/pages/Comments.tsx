@@ -301,7 +301,8 @@ export function Comments() {
         <div
           className={cm.cn(
             cm.sp('p', 4),
-            'rounded-xl border-l-4 border-l-error bg-error/5 text-sm text-error',
+            cm.accentCard({ tone: 'error' }),
+            'rounded-xl bg-error/5 text-sm text-error',
           )}
         >
           {error}
@@ -390,10 +391,9 @@ export function Comments() {
               key={root.id}
               className={cm.cn(
                 cm.sp('p', 6),
-                'rounded-2xl border-l-4 ring-1 ring-outline-variant',
-                root.is_resolved
-                  ? 'border-l-success bg-success/5'
-                  : 'border-l-warning bg-warning/5',
+                cm.accentCard({ tone: root.is_resolved ? 'success' : 'warning' }),
+                'rounded-2xl ring-1 ring-outline-variant',
+                root.is_resolved ? 'bg-success/5' : 'bg-warning/5',
               )}
               data-testid={`comments-thread-${root.id}`}
               data-resolved={root.is_resolved ? 'true' : 'false'}

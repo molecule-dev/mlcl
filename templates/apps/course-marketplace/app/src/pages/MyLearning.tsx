@@ -186,11 +186,16 @@ export function MyLearning() {
                 key={stat.labelKey}
                 data-mol-id={`stat-${stat.labelKey}`}
                 className={cm.cn(
-                  'flex items-center gap-4 px-6 py-5 rounded-2xl bg-surface-container-lowest shadow-sm flex-1 min-w-[220px] border-l-4',
-                  stat.accent === 'primary' && 'border-primary',
-                  stat.accent === 'green' && 'border-[var(--color-lectura-green)]',
-                  stat.accent === 'gold' && 'border-[var(--color-lectura-gold)]',
+                  cm.accentCard({ tone: stat.accent === 'primary' ? 'primary' : 'custom' }),
+                  'flex items-center gap-4 pr-6 py-5 rounded-2xl bg-surface-container-lowest shadow-sm flex-1 min-w-[220px]',
                 )}
+                style={
+                  stat.accent === 'green'
+                    ? { ['--mol-accent' as string]: 'var(--color-lectura-green)' }
+                    : stat.accent === 'gold'
+                      ? { ['--mol-accent' as string]: 'var(--color-lectura-gold)' }
+                      : undefined
+                }
               >
                 <div
                   className={cm.cn(
@@ -219,7 +224,10 @@ export function MyLearning() {
                   </p>
                   <p
                     className={cm.cn(
-                      'text-[10px] font-black uppercase tracking-widest text-on-surface-variant mt-1',
+                      cm.accentCardLabel({
+                        tone: stat.accent === 'primary' ? 'primary' : 'custom',
+                      }),
+                      'mt-1',
                     )}
                   >
                     {t(stat.labelKey, {}, { defaultValue: stat.labelDefault })}

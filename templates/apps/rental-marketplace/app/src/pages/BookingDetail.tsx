@@ -341,7 +341,8 @@ export function BookingDetail() {
         className={cm.cn(
           cm.sp('p', 6),
           cm.sp('mt', 6),
-          'bg-surface rounded-2xl shadow-sm border-l-4 border-primary',
+          'bg-surface rounded-2xl shadow-sm',
+          cm.accentCard({ tone: 'primary' }),
         )}
       >
         <h2

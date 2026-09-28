@@ -211,9 +211,14 @@ export function Notifications() {
                   className={cm.cn(
                     cm.sp('p', 5),
                     cm.flex({ align: 'start', gap: 'md' }),
+                    cm.accentCard({ tone: 'custom' }),
                     'rounded-2xl border border-outline-variant/15 bg-surface-container-lowest transition-colors hover:bg-surface-container-low',
-                    n.unread && 'border-l-4 border-l-primary',
                   )}
+                  // Unread rows carry the accent bar; read rows keep the same
+                  // layout with the bar invisible so the list does not shift.
+                  style={{
+                    ['--mol-accent' as string]: n.unread ? 'var(--color-primary)' : 'transparent',
+                  }}
                 >
                   <div
                     className={cm.cn(

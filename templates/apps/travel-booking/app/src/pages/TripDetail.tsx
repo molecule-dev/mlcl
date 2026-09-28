@@ -344,7 +344,8 @@ export function TripDetail() {
             <section
               className={cm.cn(
                 cm.sp('p', 6),
-                'lg:col-span-7 bg-surface rounded-2xl shadow-sm border-l-4 border-primary',
+                'lg:col-span-7 bg-surface rounded-2xl shadow-sm',
+                cm.accentCard({ tone: 'primary' }),
               )}
             >
               <h2
@@ -381,8 +382,10 @@ export function TripDetail() {
             <section
               className={cm.cn(
                 cm.sp('p', 6),
-                'lg:col-span-5 bg-surface rounded-2xl shadow-sm border-l-4 border-accent',
+                'lg:col-span-5 bg-surface rounded-2xl shadow-sm',
+                cm.accentCard({ tone: 'custom' }),
               )}
+              style={{ ['--mol-accent' as string]: 'var(--color-accent)' }}
             >
               <h2
                 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), cm.sp('mb', 4))}

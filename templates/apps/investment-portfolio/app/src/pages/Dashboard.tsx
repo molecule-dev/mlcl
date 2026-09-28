@@ -56,17 +56,17 @@ function fmtPct(v: unknown): string {
 
 const KPI_ACCENT = {
   cost: {
-    tone: 'border-l-outline',
+    tone: 'default' as const,
     icon: 'savings',
     iconBg: 'bg-surface-secondary text-foreground',
   },
-  pnl: { tone: 'border-l-success', icon: 'trending_up', iconBg: 'bg-success-light text-success' },
+  pnl: { tone: 'success' as const, icon: 'trending_up', iconBg: 'bg-success-light text-success' },
   cash: {
-    tone: 'border-l-info',
+    tone: 'info' as const,
     icon: 'account_balance_wallet',
     iconBg: 'bg-sky-100 text-sky-700',
   },
-  yield: { tone: 'border-l-tertiary', icon: 'paid', iconBg: 'bg-warning-light text-warning' },
+  yield: { tone: 'custom' as const, icon: 'paid', iconBg: 'bg-warning-light text-warning' },
 } as const
 
 export function Dashboard() {
@@ -220,9 +220,14 @@ export function Dashboard() {
               key={k.key}
               className={cm.cn(
                 cm.sp('p', 5),
-                'bg-surface-container-lowest rounded-2xl border border-outline-variant/40 border-l-4 hover:-translate-y-0.5 transition-transform',
-                accent.tone,
+                'bg-surface-container-lowest rounded-2xl border border-outline-variant/40 hover:-translate-y-0.5 transition-transform',
+                cm.accentCard({ tone: accent.tone }),
               )}
+              style={
+                accent.tone === 'custom'
+                  ? { ['--mol-accent' as string]: 'var(--color-tertiary)' }
+                  : undefined
+              }
             >
               <div
                 className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}
@@ -240,12 +245,7 @@ export function Dashboard() {
                     {accent.icon}
                   </span>
                 </span>
-                <span
-                  className={cm.cn(
-                    cm.fontWeight('bold'),
-                    'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
+                <span className={cm.accentCardLabel({ tone: accent.tone })}>
                   {t(k.labelKey, {}, { defaultValue: k.labelDefault })}
                 </span>
               </div>

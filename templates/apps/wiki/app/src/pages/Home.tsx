@@ -157,7 +157,8 @@ export function Home() {
         <div
           className={cm.cn(
             cm.sp('p', 4),
-            'rounded-md border-l-4 border-error bg-error/10 text-on-surface',
+            cm.accentCard({ tone: 'error' }),
+            'rounded-md bg-error/10 text-on-surface',
           )}
           role="alert"
         >
@@ -242,15 +243,11 @@ export function Home() {
             data-testid={`home-kpi-${k.label}`}
             className={cm.cn(
               cm.sp('p', 6),
-              'rounded-xl bg-surface-container-lowest border-l-4 border-primary shadow-sm hover:-translate-y-0.5 transition-transform',
+              cm.accentCard({ tone: 'primary' }),
+              'rounded-xl bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 transition-transform',
             )}
           >
-            <p
-              className={cm.cn(
-                cm.textSize('xs'),
-                'font-black uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
+            <p className={cm.accentCardLabel({ tone: 'primary' })}>
               {t(k.label, {}, { defaultValue: k.defaultLabel })}
             </p>
             <div className={cm.cn(cm.flex({ align: 'end', gap: 'sm' }), cm.sp('mt', 2))}>

@@ -116,7 +116,8 @@ export function About() {
                 className={cm.cn(
                   cm.sp('p', 6),
                   cm.flex({ direction: 'col', gap: 'sm' }),
-                  'bg-surface-container-low/60 rounded-2xl border-l-4 border-primary',
+                  cm.accentCard({ tone: 'primary' }),
+                  'bg-surface-container-low/60 rounded-2xl',
                 )}
               >
                 <span

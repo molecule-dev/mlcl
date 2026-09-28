@@ -270,10 +270,16 @@ export function Subscription() {
                   <article
                     data-testid={`subscription-tier-${tier.key}`}
                     className={cm.cn(
+                      cm.accentCard({ tone: 'custom' }),
                       'h-full flex flex-col bg-surface-container-lowest rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-on-surface/5',
-                      'border-l-4',
-                      isCurrent ? 'border-primary' : 'border-transparent',
                     )}
+                    // The current plan carries the accent bar; the others keep
+                    // the same layout with the bar invisible.
+                    style={{
+                      ['--mol-accent' as string]: isCurrent
+                        ? 'var(--color-primary)'
+                        : 'transparent',
+                    }}
                   >
                     {recommended && (
                       <span

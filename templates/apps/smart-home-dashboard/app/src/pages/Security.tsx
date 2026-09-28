@@ -88,10 +88,13 @@ const STATUS_TONE: Record<CameraTile['status'], string> = {
   offline: 'bg-surface-container text-on-surface-variant',
 }
 
-const ALERT_TONE: Record<AlertItem['tone'], string> = {
-  info: 'border-l-primary bg-surface-container-lowest',
-  warning: 'border-l-warning bg-surface-container-lowest',
-  error: 'border-l-error bg-error-container/40',
+const ALERT_TONE: Record<
+  AlertItem['tone'],
+  { accent: 'primary' | 'warning' | 'error'; bg: string }
+> = {
+  info: { accent: 'primary', bg: 'bg-surface-container-lowest' },
+  warning: { accent: 'warning', bg: 'bg-surface-container-lowest' },
+  error: { accent: 'error', bg: 'bg-error-container/40' },
 }
 
 export function Security() {
@@ -173,8 +176,8 @@ export function Security() {
               className={cm.cn(
                 cm.sp('p', 5),
                 cm.flex({ direction: 'col', gap: 'sm' }),
-                'bg-surface-container-lowest rounded-2xl border-l-4',
-                l.state === 'locked' ? 'border-l-success' : 'border-l-warning',
+                cm.accentCard({ tone: l.state === 'locked' ? 'success' : 'warning' }),
+                'bg-surface-container-lowest rounded-2xl',
               )}
             >
               <div className={cm.flex({ align: 'center', justify: 'between' })}>
@@ -217,8 +220,9 @@ export function Security() {
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'md' }),
                 cm.sp('p', 4),
-                'rounded-2xl border-l-4',
-                ALERT_TONE[a.tone],
+                cm.accentCard({ tone: ALERT_TONE[a.tone].accent }),
+                'rounded-2xl',
+                ALERT_TONE[a.tone].bg,
               )}
             >
               <div

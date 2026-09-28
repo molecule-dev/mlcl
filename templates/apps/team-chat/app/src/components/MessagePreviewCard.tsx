@@ -27,7 +27,8 @@ export default function MessagePreviewCard({
         cm.sp('p', 5),
         cm.w('full'),
         cm.cursorPointer,
-        'text-left bg-surface-container-lowest rounded-xl border-l-4 border-primary shadow-sm hover:translate-x-1 transition-transform',
+        'text-left bg-surface-container-lowest rounded-xl shadow-sm hover:translate-x-1 transition-transform',
+        cm.accentCard({ tone: 'primary' }),
       )}
       onClick={() => navigate(`/channels/${encodeURIComponent(channel)}`)}
     >

@@ -135,17 +135,21 @@ function KpiCard({ cm, molId, label, icon, value, meta, accent }: KpiCardProps) 
       className={cm.cn(
         cm.sp('p', 6),
         'bg-surface-container-lowest rounded-lg editorial-shadow group hover:scale-[1.02] transition-transform',
-        accent ? 'border-l-4 border-primary' : '',
+        accent ? cm.accentCard({ tone: 'primary' }) : '',
       )}
       data-mol-id={molId}
     >
       <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), cm.sp('mb', 4))}>
         <span
-          className={cm.cn(
-            cm.fontWeight('bold'),
-            cm.textSize('xs'),
-            'text-label-sm uppercase tracking-widest text-secondary',
-          )}
+          className={
+            accent
+              ? cm.accentCardLabel({ tone: 'primary' })
+              : cm.cn(
+                  cm.fontWeight('bold'),
+                  cm.textSize('xs'),
+                  'text-label-sm uppercase tracking-widest text-secondary',
+                )
+          }
         >
           {label}
         </span>

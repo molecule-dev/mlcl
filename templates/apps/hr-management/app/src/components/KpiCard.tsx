@@ -1,10 +1,10 @@
 /**
- * Dashboard KPI card — left teal accent border, uppercase tracking-widest
+ * Dashboard KPI card — inset primary accent bar, uppercase tracking-widest
  * label, extrabold tabular-num value, optional trend pill and contextual
  * hint. Hover lift transition.
  *
  * Translated from applicant-tracking's KpiCard / personal-finance's KpiCard
- * — same border-l-4 accent + font-black uppercase eyebrow anatomy.
+ * — same accent-bar + uppercase eyebrow anatomy (the eyebrow takes the bar's color).
  */
 import type { ReactNode } from 'react'
 
@@ -43,17 +43,12 @@ export function KpiCard({ icon, label, value, trend, hint }: KpiCardProps) {
       className={cm.cn(
         cm.sp('p', 5),
         cm.flex({ direction: 'col', gap: 'sm' }),
-        'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 border-l-4 border-l-primary shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
+        cm.accentCard({ tone: 'primary' }),
+        'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
       )}
     >
       <header className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
-        <p
-          className={cm.cn(
-            'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </p>
+        <p className={cm.accentCardLabel({ tone: 'primary' })}>{label}</p>
         {icon ? (
           <span
             aria-hidden="true"

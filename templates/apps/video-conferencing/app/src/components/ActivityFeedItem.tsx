@@ -1,7 +1,7 @@
 /**
  * Activity feed item — colored icon-tile (status-driven), actor avatar,
  * inline message with bold actor name, relative timestamp, optional
- * primary CTA. Hover row background + border-l-2 unread accent.
+ * primary CTA. Hover row background + the inset accent bar while unread.
  *
  * Translated from crm/ActivityFeed.tsx and team-chat/MessagePreviewCard.tsx.
  */
@@ -73,9 +73,7 @@ export function ActivityFeedItem({
         cm.flex({ align: 'start', gap: 4 }),
         cm.sp('p', 4),
         'rounded-xl transition-colors hover:bg-surface-container-lowest',
-        unread
-          ? 'border-l-2 border-primary bg-primary-container/10'
-          : 'border-l-2 border-transparent',
+        unread ? cm.cn(cm.accentCard({ tone: 'primary' }), 'bg-primary-container/10') : '',
       )}
     >
       <div

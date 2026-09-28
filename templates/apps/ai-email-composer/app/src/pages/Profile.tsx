@@ -310,8 +310,10 @@ export function Profile() {
           <div
             className={cm.cn(
               cm.sp('p', 5),
-              'rounded-2xl bg-surface-container-low border-l-2 border-secondary',
+              cm.accentCard({ tone: 'custom' }),
+              'rounded-2xl bg-surface-container-low',
             )}
+            style={{ ['--mol-accent' as string]: 'var(--color-secondary)' }}
           >
             <pre
               data-mol-id="profile-signature"

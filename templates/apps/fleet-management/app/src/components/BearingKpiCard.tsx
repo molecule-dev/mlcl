@@ -17,7 +17,7 @@ interface BearingKpiCardProps {
 
 /**
  * KPI card translated from CRM's polished pattern:
- * - white surface card, border-l-4 in stage color, soft shadow
+ * - white surface card, the inset accent bar in the stage color, soft shadow
  * - 12px uppercase 600-weight label
  * - 30px extrabold tabular-nums value
  * - small sparkline / icon / change badge in the corner
@@ -31,19 +31,21 @@ export function BearingKpiCard({
   valueTone = 'text-on-surface',
 }: BearingKpiCardProps) {
   const cm = getClassMap()
+  // `accentColor` is a `border-<tone>` class name at every call site; the tone
+  // it names becomes the bar's color (and the label's).
+  const accent = `var(--color-${accentColor.replace(/^border-/, '')})`
   return (
     <div
       className={cm.cn(
         cm.flex({ direction: 'col', justify: 'between' }),
         cm.sp('p', 5),
-        'bg-surface-container-lowest rounded-xl border-l-4 shadow-sm hover:shadow-md transition-shadow',
-        accentColor,
+        'bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow',
+        cm.accentCard({ tone: 'custom' }),
       )}
+      style={{ ['--mol-accent' as string]: accent }}
     >
       <div className={cm.flex({ align: 'start', justify: 'between' })}>
-        <span className="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">
-          {label}
-        </span>
+        <span className={cm.accentCardLabel({ tone: 'custom' })}>{label}</span>
         {decoration}
       </div>
       <div className={cm.cn(cm.sp('mt', 2), cm.flex({ align: 'baseline', gap: 'sm' }))}>

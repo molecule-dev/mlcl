@@ -57,7 +57,7 @@ const HERO_CHIPS = [
   {
     key: 'math',
     icon: 'calculate',
-    accent: 'border-info',
+    accent: 'var(--color-info)',
     tileTint: 'text-info',
     defaultTitle: 'Calculus II',
     defaultTime: '09:00 AM — Room 302',
@@ -65,7 +65,7 @@ const HERO_CHIPS = [
   {
     key: 'science',
     icon: 'science',
-    accent: 'border-success',
+    accent: 'var(--color-success)',
     tileTint: 'text-success',
     defaultTitle: 'Biology Lab',
     defaultTime: '11:30 AM — Science Wing',
@@ -73,7 +73,7 @@ const HERO_CHIPS = [
   {
     key: 'history',
     icon: 'history_edu',
-    accent: 'border-warning',
+    accent: 'var(--color-warning)',
     tileTint: 'text-warning',
     defaultTitle: 'World History',
     defaultTime: '02:00 PM — Room 104',
@@ -351,9 +351,10 @@ export function Landing() {
                     <div
                       key={chip.key}
                       className={cm.cn(
-                        'bg-surface-container-low rounded-lg p-4 flex items-center gap-4 border-l-4',
-                        chip.accent,
+                        cm.accentCard({ tone: 'custom' }),
+                        'bg-surface-container-low rounded-lg p-4 flex items-center gap-4',
                       )}
+                      style={{ ['--mol-accent' as string]: chip.accent }}
                     >
                       <div
                         className={cm.cn(

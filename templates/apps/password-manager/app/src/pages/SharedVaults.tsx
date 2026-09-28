@@ -221,7 +221,8 @@ export function SharedVaults() {
               className={cm.cn(
                 cm.flex({ direction: 'col', gap: 'sm' }),
                 cm.sp('p', 6),
-                'bg-surface rounded-2xl border-l-4 border-primary shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group',
+                cm.accentCard({ tone: 'primary' }),
+                'bg-surface rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group',
               )}
             >
               <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>

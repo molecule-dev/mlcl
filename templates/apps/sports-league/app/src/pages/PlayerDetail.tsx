@@ -149,25 +149,25 @@ export function PlayerDetail() {
             k: 'gp',
             label: t('playerDetail.statGP', {}, { defaultValue: 'Games' }),
             value: String(player.games_played ?? 0),
-            tone: 'border-l-primary',
+            tone: 'var(--color-primary)',
           },
           {
             k: 'g',
             label: t('playerDetail.statG', {}, { defaultValue: 'Goals' }),
             value: String(player.goals ?? 0),
-            tone: 'border-l-win',
+            tone: 'var(--color-win)',
           },
           {
             k: 'a',
             label: t('playerDetail.statA', {}, { defaultValue: 'Assists' }),
             value: String(player.assists ?? 0),
-            tone: 'border-l-accent',
+            tone: 'var(--color-accent)',
           },
           {
             k: 'pct',
             label: t('playerDetail.statPct', {}, { defaultValue: 'Shoot %' }),
             value: ((player.shooting_pct ?? 0) * 100).toFixed(1) + '%',
-            tone: 'border-l-live',
+            tone: 'var(--color-live)',
           },
         ].map((s) => (
           <div
@@ -175,15 +175,12 @@ export function PlayerDetail() {
             className={cm.cn(
               cm.flex({ direction: 'col', gap: 'xs' }),
               cm.sp('p', 5),
-              'rounded-xl bg-surface shadow-sm border border-outline/40 border-l-4',
-              s.tone,
+              'rounded-xl bg-surface shadow-sm border border-outline/40',
+              cm.accentCard({ tone: 'custom' }),
             )}
+            style={{ ['--mol-accent' as string]: s.tone }}
           >
-            <span
-              className={cm.cn(
-                'text-[10px] font-black uppercase tracking-[0.22em] text-on-surface-variant',
-              )}
-            >
+            <span className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-black')}>
               {s.label}
             </span>
             <span

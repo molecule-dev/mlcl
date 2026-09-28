@@ -38,8 +38,7 @@ function KeyConceptsAccordion({
         className={cm.cn(
           cm.textSize('xl'),
           cm.fontWeight('bold'),
-          cm.sp('pl', 4),
-          'border-l-4 border-primary',
+          cm.accentCard({ tone: 'primary' }),
         )}
       >
         {t('keyConcepts.heading', {}, { defaultValue: 'Key Concepts' })}

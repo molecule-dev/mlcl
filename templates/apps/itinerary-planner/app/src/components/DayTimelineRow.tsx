@@ -1,11 +1,11 @@
 /**
  * Day-timeline activity row — fixed-width tabular time column on the left
  * (per DESIGN.md "Time display: 600 weight, time color, left-aligned
- * fixed 72px column"), `border-l-4` category accent stripe whose color
+ * fixed 72px column"), inset category accent bar whose color
  * comes from the activity category, duration pill, and a circular
  * timeline node aligned to the rail. Hover lifts a half-step.
  *
- * Translated from personal-finance's ActivityRow.tsx (border-l-4 +
+ * Translated from personal-finance's ActivityRow.tsx (accent bar +
  * timestamp + tabular nums) and crm/ActivityFeed.tsx (rail + node +
  * connector treatment) — adapted for trip-planning's day-by-day cadence
  * and the six DESIGN.md category colors (accommodation, food,
@@ -35,42 +35,42 @@ const CATEGORY_THEME: Record<
   { stripe: string; chip: string; chipText: string; icon: string; defaultLabel: string }
 > = {
   accommodation: {
-    stripe: 'border-cyan-700',
+    stripe: 'var(--color-cyan-700)',
     chip: 'bg-cyan-100 dark:bg-cyan-900/40',
     chipText: 'text-cyan-800 dark:text-cyan-200',
     icon: 'hotel',
     defaultLabel: 'Stay',
   },
   food: {
-    stripe: 'border-orange-600',
+    stripe: 'var(--color-orange-600)',
     chip: 'bg-orange-100 dark:bg-orange-900/40',
     chipText: 'text-orange-800 dark:text-orange-200',
     icon: 'restaurant',
     defaultLabel: 'Food & drink',
   },
   sightseeing: {
-    stripe: 'border-violet-500',
+    stripe: 'var(--color-violet-500)',
     chip: 'bg-violet-100 dark:bg-violet-900/40',
     chipText: 'text-violet-800 dark:text-violet-200',
     icon: 'photo_camera',
     defaultLabel: 'Sightseeing',
   },
   transport: {
-    stripe: 'border-border-secondary',
+    stripe: 'var(--color-border-secondary)',
     chip: 'bg-surface-secondary',
     chipText: 'text-foreground',
     icon: 'directions',
     defaultLabel: 'Transport',
   },
   activity: {
-    stripe: 'border-emerald-600',
+    stripe: 'var(--color-emerald-600)',
     chip: 'bg-success-light',
     chipText: 'text-success',
     icon: 'hiking',
     defaultLabel: 'Activity',
   },
   shopping: {
-    stripe: 'border-pink-500',
+    stripe: 'var(--color-pink-500)',
     chip: 'bg-pink-100 dark:bg-pink-900/40',
     chipText: 'text-pink-800 dark:text-pink-200',
     icon: 'shopping_bag',
@@ -142,9 +142,10 @@ export function DayTimelineRow({
         className={cm.cn(
           cm.sp('p', 4),
           cm.sp('mb', 3),
-          'flex-1 bg-surface rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all border-l-4',
-          theme.stripe,
+          cm.accentCard({ tone: 'custom' }),
+          'flex-1 bg-surface rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
         )}
+        style={{ ['--mol-accent' as string]: theme.stripe }}
       >
         <div className={cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' })}>
           <span

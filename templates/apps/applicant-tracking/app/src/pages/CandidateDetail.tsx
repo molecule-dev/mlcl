@@ -780,7 +780,7 @@ export function CandidateDetail() {
                   noteList.map((n) => (
                     <div
                       key={n.id}
-                      className={cm.cn(cm.sp('py', 2), 'border-l-2 border-primary pl-3')}
+                      className={cm.cn(cm.sp('py', 2), cm.accentCard({ tone: 'primary' }))}
                     >
                       <p className={cm.cn(cm.textSize('sm'))}>{n.body}</p>
                       {n.created_at ? (

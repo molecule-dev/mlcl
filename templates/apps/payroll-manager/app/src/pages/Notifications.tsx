@@ -140,7 +140,7 @@ export function Notifications() {
                   cm.flex({ align: 'start', gap: 'md' }),
                   cm.sp('p', 5),
                   'rounded-xl bg-surface-container-lowest shadow-sm',
-                  n.unread ? 'border-l-4 border-l-primary' : '',
+                  n.unread ? cm.accentCard({ tone: 'primary' }) : '',
                 )}
               >
                 <span

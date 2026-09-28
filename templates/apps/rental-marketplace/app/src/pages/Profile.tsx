@@ -194,7 +194,8 @@ export function Profile() {
         <section
           className={cm.cn(
             cm.sp('p', 6),
-            'lg:col-span-2 bg-surface rounded-2xl shadow-sm border-l-4 border-primary',
+            'lg:col-span-2 bg-surface rounded-2xl shadow-sm',
+            cm.accentCard({ tone: 'primary' }),
           )}
         >
           <h2
@@ -211,8 +212,10 @@ export function Profile() {
         <section
           className={cm.cn(
             cm.sp('p', 6),
-            'bg-surface rounded-2xl shadow-sm border-l-4 border-accent space-y-3',
+            'bg-surface rounded-2xl shadow-sm space-y-3',
+            cm.accentCard({ tone: 'custom' }),
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-accent)' }}
         >
           <h2
             className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}
@@ -335,17 +338,13 @@ function Stat({ label, value }: { label: string; value: string }) {
   const cm = getClassMap()
   return (
     <div
-      className={cm.cn(cm.sp('p', 5), 'bg-surface rounded-2xl shadow-sm border-l-4 border-primary')}
+      className={cm.cn(
+        cm.sp('p', 5),
+        'bg-surface rounded-2xl shadow-sm',
+        cm.accentCard({ tone: 'primary' }),
+      )}
     >
-      <p
-        className={cm.cn(
-          cm.textSize('xs'),
-          cm.fontWeight('bold'),
-          'uppercase tracking-widest text-on-surface-variant',
-        )}
-      >
-        {label}
-      </p>
+      <p className={cm.accentCardLabel({ tone: 'primary' })}>{label}</p>
       <p
         className={cm.cn(
           cm.textSize('3xl'),

@@ -10,17 +10,12 @@ export default function AiResponseFlowNode() {
         cm.flex({ direction: 'col' }),
         cm.sp('p', 4),
         cm.w(52),
-        'absolute left-[580px] top-64 bg-surface-container-high rounded-xl border-l-4 border-primary shadow-[0_0_30px_rgba(192,193,255,0.15)] ring-1 ring-primary/40 gap-3',
+        'absolute left-[580px] top-64 bg-surface-container-high rounded-xl shadow-[0_0_30px_rgba(192,193,255,0.15)] ring-1 ring-primary/40 gap-3',
+        cm.accentCard({ tone: 'primary' }),
       )}
     >
       <div className={cm.flex({ align: 'center', justify: 'between' })}>
-        <span
-          className={cm.cn(
-            cm.fontWeight('bold'),
-            cm.textPrimary,
-            'text-[10px] uppercase tracking-widest',
-          )}
-        >
+        <span className={cm.accentCardLabel({ tone: 'primary' })}>
           {t('aiResponseFlowNode.agentLabel', {}, { defaultValue: 'AI Agent' })}
         </span>
         <div className={cm.cn(cm.flex(), 'gap-1')}>

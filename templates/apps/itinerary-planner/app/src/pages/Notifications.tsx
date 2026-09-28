@@ -25,35 +25,35 @@ const KIND_THEME: Record<
   { stripe: string; icon: string; chip: string; chipText: string; defaultLabel: string }
 > = {
   booking: {
-    stripe: 'border-cyan-700',
+    stripe: 'var(--color-cyan-700)',
     icon: 'confirmation_number',
     chip: 'bg-cyan-100 dark:bg-cyan-900/40',
     chipText: 'text-cyan-800 dark:text-cyan-200',
     defaultLabel: 'Booking',
   },
   collaborator: {
-    stripe: 'border-violet-500',
+    stripe: 'var(--color-violet-500)',
     icon: 'group',
     chip: 'bg-violet-100 dark:bg-violet-900/40',
     chipText: 'text-violet-800 dark:text-violet-200',
     defaultLabel: 'Traveler',
   },
   price_alert: {
-    stripe: 'border-orange-600',
+    stripe: 'var(--color-orange-600)',
     icon: 'trending_down',
     chip: 'bg-orange-100 dark:bg-orange-900/40',
     chipText: 'text-orange-800 dark:text-orange-200',
     defaultLabel: 'Price',
   },
   reminder: {
-    stripe: 'border-amber-500',
+    stripe: 'var(--color-amber-500)',
     icon: 'alarm',
     chip: 'bg-warning-light',
     chipText: 'text-warning',
     defaultLabel: 'Reminder',
   },
   system: {
-    stripe: 'border-border-secondary',
+    stripe: 'var(--color-border-secondary)',
     icon: 'campaign',
     chip: 'bg-surface-secondary',
     chipText: 'text-foreground',
@@ -309,10 +309,11 @@ export function Notifications() {
                   className={cm.cn(
                     cm.sp('p', 5),
                     cm.flex({ gap: 'md' }),
-                    'border-l-4 transition-colors hover:bg-surface-container-low',
-                    theme.stripe,
+                    cm.accentCard({ tone: 'custom' }),
+                    'transition-colors hover:bg-surface-container-low',
                     !n.read ? 'bg-primary-container/10' : '',
                   )}
+                  style={{ ['--mol-accent' as string]: theme.stripe }}
                 >
                   <span
                     className={cm.cn(

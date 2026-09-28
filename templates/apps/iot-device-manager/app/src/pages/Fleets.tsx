@@ -311,26 +311,22 @@ export function Fleets() {
           {fleets.map((f) => {
             const safeTotal = Math.max(1, f.device_count)
             const onlinePct = f.device_count === 0 ? 0 : Math.round((f.online / safeTotal) * 100)
-            const accent =
-              f.critical > 0 ? 'border-error' : f.warning > 0 ? 'border-warning' : 'border-success'
+            const accent: 'error' | 'warning' | 'success' =
+              f.critical > 0 ? 'error' : f.warning > 0 ? 'warning' : 'success'
             return (
               <article
                 key={f.id}
                 data-mol-id={`fleets-row-${f.id}`}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-xl border-l-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
-                  accent,
+                  'bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
+                  cm.accentCard({ tone: accent }),
                 )}
               >
                 <div className={cm.flex({ align: 'center', justify: 'between' })}>
                   <h2 className={cm.cn('text-lg font-bold')}>{f.name}</h2>
                 </div>
-                <p
-                  className={cm.cn(
-                    'mt-1 text-[11px] uppercase tracking-widest font-bold text-on-surface-variant',
-                  )}
-                >
+                <p className={cm.cn('mt-1', cm.accentCardLabel({ tone: accent }))}>
                   {t(
                     'fleets.deviceCount',
                     { count: f.device_count },

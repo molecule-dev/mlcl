@@ -233,7 +233,7 @@ export function Team() {
           icon="groups"
           label={t('nav.members', {}, { defaultValue: 'Members' })}
           value={totalMembers.toString()}
-          accent="border-[var(--color-brand-gradient-from)]"
+          accent="var(--color-brand-gradient-from)"
           tile="bg-violet-50 text-violet-600"
         />
         <StatTile
@@ -241,7 +241,7 @@ export function Team() {
           icon="pending"
           label={t('team.stat.pending', {}, { defaultValue: 'Pending invites' })}
           value={pendingCount.toString()}
-          accent="border-amber-500"
+          accent="var(--color-amber-500)"
           tile="bg-warning-light text-warning"
         />
       </section>
@@ -480,9 +480,10 @@ function StatTile({
       className={cm.cn(
         cm.flex({ align: 'center', gap: 3 }),
         cm.sp('p', 5),
-        'rounded-2xl border-l-4 bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 transition-transform',
-        accent,
+        cm.accentCard({ tone: 'custom' }),
+        'rounded-2xl bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 transition-transform',
       )}
+      style={{ ['--mol-accent' as string]: accent }}
     >
       <div
         className={cm.cn(
@@ -496,13 +497,7 @@ function StatTile({
         <span className={cm.cn('material-symbols-outlined text-xl')}>{icon}</span>
       </div>
       <div>
-        <div
-          className={cm.cn(
-            'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </div>
+        <div className={cm.accentCardLabel({ tone: 'custom' })}>{label}</div>
         <div className={cm.cn('text-3xl font-extrabold tracking-tight text-on-surface')}>
           {value}
         </div>

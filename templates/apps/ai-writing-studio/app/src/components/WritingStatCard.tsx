@@ -2,7 +2,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 /**
- * Compact KPI card with `border-l-4` accent, uppercase 10px label, and
+ * Compact KPI card with the inset accent bar, uppercase label in its color, and
  * extrabold value. Hover lifts the card slightly. Used in the metric
  * triad/quad above the dashboard activity feed.
  *
@@ -22,8 +22,8 @@ export interface WritingStatCardProps {
   icon: string
   /**
    * Accent color: `primary` for documents, `secondary` for SEO/score-related,
-   * `success` for published, `info` for readability. Drives the left border
-   * + icon tint.
+   * `success` for published, `info` for readability. Drives the accent bar,
+   * the label and the icon tint.
    */
   tone?: 'primary' | 'secondary' | 'success' | 'info'
   /** Optional trend pill (e.g. "+12%"). Renders only when provided. */
@@ -34,12 +34,12 @@ export interface WritingStatCardProps {
 
 const TONE_CLASS: Record<
   NonNullable<WritingStatCardProps['tone']>,
-  { border: string; icon: string }
+  { accent: string; icon: string }
 > = {
-  primary: { border: 'border-l-primary', icon: 'text-primary' },
-  secondary: { border: 'border-l-secondary', icon: 'text-secondary' },
-  success: { border: 'border-l-success', icon: 'text-success' },
-  info: { border: 'border-l-info', icon: 'text-info' },
+  primary: { accent: 'var(--color-primary)', icon: 'text-primary' },
+  secondary: { accent: 'var(--color-secondary)', icon: 'text-secondary' },
+  success: { accent: 'var(--color-success)', icon: 'text-success' },
+  info: { accent: 'var(--color-info)', icon: 'text-info' },
 }
 
 export function WritingStatCard({
@@ -59,17 +59,16 @@ export function WritingStatCard({
     <div
       className={cm.cn(
         cm.sp('p', 5),
-        'bg-surface-container-lowest rounded-xl shadow-sm border-l-4 transition-transform hover:-translate-y-0.5',
-        toneClass.border,
+        cm.accentCard({ tone: 'custom' }),
+        'bg-surface-container-lowest rounded-xl shadow-sm transition-transform hover:-translate-y-0.5',
       )}
+      style={{ ['--mol-accent' as string]: toneClass.accent }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}>
         <span
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'xs' }),
-            cm.fontWeight('bold'),
-            cm.textMuted,
-            'text-[10px] uppercase tracking-widest',
+            cm.accentCardLabel({ tone: 'custom' }),
           )}
         >
           <span

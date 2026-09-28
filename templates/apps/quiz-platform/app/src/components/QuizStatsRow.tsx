@@ -4,7 +4,7 @@
  * and Profile.
  *
  * Translated from lms/KpiCard.tsx and crm-style left-accent KPI cards
- * (border-l-4 + uppercase 10px label + extrabold value + hover lift).
+ * (the shared inset accent bar + label in its color + extrabold value + hover lift).
  */
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -22,10 +22,11 @@ export type QuizStatsRowProps = {
   stats: QuizStat[]
 }
 
-const ACCENT_TO_BORDER: Record<QuizStat['accent'], string> = {
-  primary: 'border-l-primary',
-  amber: 'border-l-amber-500',
-  emerald: 'border-l-emerald-500',
+/** The color the card's accent bar and label take (`--mol-accent`). */
+const ACCENT_TO_VAR: Record<QuizStat['accent'], string> = {
+  primary: 'var(--color-primary)',
+  amber: 'var(--color-amber-500)',
+  emerald: 'var(--color-emerald-500)',
 }
 
 const ACCENT_TO_TEXT: Record<QuizStat['accent'], string> = {
@@ -51,9 +52,10 @@ export function QuizStatsRow({ stats }: QuizStatsRowProps) {
           key={stat.key}
           className={cm.cn(
             cm.sp('p', 6),
-            'group rounded-2xl bg-surface-container-lowest shadow-sm border border-outline-variant/10 border-l-4 transition-transform hover:-translate-y-0.5',
-            ACCENT_TO_BORDER[stat.accent],
+            cm.accentCard({ tone: 'custom' }),
+            'group rounded-2xl bg-surface-container-lowest shadow-sm border border-outline-variant/10 transition-transform hover:-translate-y-0.5',
           )}
+          style={{ ['--mol-accent' as string]: ACCENT_TO_VAR[stat.accent] }}
         >
           <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}>
             <span
@@ -81,12 +83,7 @@ export function QuizStatsRow({ stats }: QuizStatsRowProps) {
               </span>
             ) : null}
           </div>
-          <p
-            className={cm.cn(
-              'text-on-surface-variant text-[10px] font-black uppercase tracking-widest',
-              cm.sp('mb', 1),
-            )}
-          >
+          <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), cm.sp('mb', 1))}>
             {t(`quizStatsRow.${stat.key}.label`, {}, { defaultValue: stat.label })}
           </p>
           <p className={cm.cn(cm.fontWeight('bold'), 'text-3xl tracking-tight font-extrabold')}>

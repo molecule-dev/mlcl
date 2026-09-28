@@ -282,14 +282,11 @@ export function MeetingDetail() {
               className={cm.cn(
                 cm.stack(1),
                 cm.sp('p', 4),
-                'bg-surface rounded-xl border-l-4 border-primary',
+                cm.accentCard({ tone: 'primary' }),
+                'bg-surface rounded-xl',
               )}
             >
-              <p
-                className={cm.cn(
-                  'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
+              <p className={cm.accentCardLabel({ tone: 'primary' })}>
                 {t('meetingDetail.startsAt', {}, { defaultValue: 'Starts' })}
               </p>
               <p className={cm.cn(cm.textSize('base'), 'font-bold tabular-nums')}>
@@ -301,14 +298,12 @@ export function MeetingDetail() {
               className={cm.cn(
                 cm.stack(1),
                 cm.sp('p', 4),
-                'bg-surface rounded-xl border-l-4 border-emerald-500',
+                cm.accentCard({ tone: 'custom' }),
+                'bg-surface rounded-xl',
               )}
+              style={{ ['--mol-accent' as string]: 'var(--color-emerald-500)' }}
             >
-              <p
-                className={cm.cn(
-                  'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
+              <p className={cm.accentCardLabel({ tone: 'custom' })}>
                 {t('meetingDetail.endsAt', {}, { defaultValue: 'Ends' })}
               </p>
               <p className={cm.cn(cm.textSize('base'), 'font-bold tabular-nums')}>

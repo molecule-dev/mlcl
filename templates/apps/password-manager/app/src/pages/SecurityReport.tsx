@@ -250,19 +250,15 @@ export function SecurityReport() {
               className={cm.cn(
                 cm.flex({ direction: 'col', gap: 'sm' }),
                 cm.sp('p', 6),
-                'bg-surface rounded-2xl border-l-4 border-primary shadow-sm hover:-translate-y-0.5 transition-transform',
+                cm.accentCard({ tone: 'primary' }),
+                'bg-surface rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform',
               )}
             >
               <span className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), m.color)}>
                 <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
                   {m.icon}
                 </span>
-                <span
-                  className={cm.cn(
-                    cm.fontWeight('bold'),
-                    'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
+                <span className={cm.accentCardLabel({ tone: 'primary' })}>
                   {t(m.key, {}, { defaultValue: m.def })}
                 </span>
               </span>

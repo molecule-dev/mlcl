@@ -310,8 +310,13 @@ export function Notifications() {
                     cm.card(),
                     cm.sp('p', 4),
                     cm.flex({ align: 'start', gap: 'md' }),
-                    unread ? 'border-l-4 border-primary' : '',
+                    cm.accentCard({ tone: 'custom' }),
                   )}
+                  // Unread rows carry the accent bar; read rows keep the same
+                  // layout with the bar invisible so the list does not shift.
+                  style={{
+                    ['--mol-accent' as string]: unread ? 'var(--color-primary)' : 'transparent',
+                  }}
                 >
                   <div
                     className={cm.cn(

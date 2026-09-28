@@ -222,7 +222,8 @@ export function Reservations() {
           className={cm.cn(
             cm.sp('p', 5),
             cm.sp('mb', 6),
-            'rounded-2xl bg-surface-container-low border-l-4 border-error',
+            'rounded-2xl bg-surface-container-low',
+            cm.accentCard({ tone: 'error' }),
           )}
           role="alert"
         >
@@ -249,8 +250,10 @@ export function Reservations() {
                   className={cm.cn(
                     cm.sp('p', 5),
                     cm.flex({ align: 'center', gap: 'md' }),
-                    'bg-surface rounded-2xl shadow-sm border-l-4 border-accent',
+                    'bg-surface rounded-2xl shadow-sm',
+                    cm.accentCard({ tone: 'custom' }),
                   )}
+                  style={{ ['--mol-accent' as string]: 'var(--color-accent)' }}
                 >
                   {r.guest_photo ? (
                     <img

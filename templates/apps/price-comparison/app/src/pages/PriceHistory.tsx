@@ -269,13 +269,17 @@ export function PriceHistory() {
               key={ins.label}
               className={cm.cn(
                 cm.sp('p', 5),
+                cm.accentCard({ tone: ins.tone === 'bad' ? 'error' : 'custom' }),
                 'rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm',
-                ins.tone === 'good'
-                  ? 'border-l-4 border-l-secondary'
-                  : ins.tone === 'bad'
-                    ? 'border-l-4 border-l-error'
-                    : 'border-l-4 border-l-tertiary',
               )}
+              style={
+                ins.tone === 'bad'
+                  ? undefined
+                  : {
+                      ['--mol-accent' as string]:
+                        ins.tone === 'good' ? 'var(--color-secondary)' : 'var(--color-tertiary)',
+                    }
+              }
             >
               <span
                 className={cm.cn(
@@ -293,7 +297,8 @@ export function PriceHistory() {
               </span>
               <p
                 className={cm.cn(
-                  'mt-3 text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+                  cm.accentCardLabel({ tone: ins.tone === 'bad' ? 'error' : 'custom' }),
+                  'mt-3',
                 )}
               >
                 {ins.label}

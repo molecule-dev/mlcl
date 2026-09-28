@@ -196,15 +196,11 @@ export function TeamMembers() {
             key={role}
             className={cm.cn(
               cm.sp('p', 5),
-              'rounded-xl bg-surface-container-lowest border-l-4 border-primary shadow-sm',
+              cm.accentCard({ tone: 'primary' }),
+              'rounded-xl bg-surface-container-lowest shadow-sm',
             )}
           >
-            <p
-              className={cm.cn(
-                cm.textSize('xs'),
-                'font-black uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
+            <p className={cm.accentCardLabel({ tone: 'primary' })}>
               {t(`teamMembers.role.${role}`, {}, { defaultValue: role })}
             </p>
             <p className={cm.cn('text-3xl font-extrabold text-on-surface tracking-tight')}>

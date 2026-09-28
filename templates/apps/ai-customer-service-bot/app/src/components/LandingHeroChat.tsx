@@ -133,19 +133,19 @@ function LandingHeroChat() {
           <div className={cm.cn(cm.flex())}>
             <div
               className={cm.cn(
-                cm.sp('px', 4),
+                cm.sp('pr', 4),
                 cm.sp('py', 3),
                 cm.textSize('sm'),
                 cm.maxW('[85%]'),
-                'rounded-[4px_16px_16px_16px] bg-background text-primary-hover leading-relaxed border-l-[3px] border-info',
+                'rounded-[4px_16px_16px_16px] bg-background text-primary-hover leading-relaxed',
+                cm.accentCard({ tone: 'info' }),
               )}
             >
               <div
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 2 }),
                   cm.sp('mb', 1),
-                  cm.fontWeight('bold'),
-                  'text-[10px] tracking-widest uppercase text-primary-hover',
+                  cm.accentCardLabel({ tone: 'info' }),
                 )}
               >
                 <span className={cm.cn('material-symbols-outlined', cm.textSize('sm'))}>badge</span>

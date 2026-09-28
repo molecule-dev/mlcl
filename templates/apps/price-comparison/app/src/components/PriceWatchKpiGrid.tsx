@@ -1,6 +1,6 @@
 /**
  * Editorial KPI quad — uppercase 10px label, oversized tabular-num value,
- * accent left border, hover-lift transform. The 4 cells are tuned to the
+ * inset accent bar with the label in its color, hover-lift transform. The 4 cells are tuned to the
  * Bargain dashboard vocabulary (lifetime savings, watching, drops this week,
  * deals expiring soon).
  *
@@ -29,7 +29,7 @@ interface KpiCellProps {
   label: string
   value: string
   glyph: string
-  /** Tailwind border-l accent class, e.g. `border-secondary`. */
+  /** The accent bar color, e.g. `var(--color-secondary)`. */
   accent: string
   /** Tailwind text + bg classes for the icon pill. */
   iconTone: string
@@ -43,11 +43,11 @@ function KpiCell({ label, value, glyph, accent, iconTone, trend }: KpiCellProps)
       data-mol-id={`kpi-${label.toLowerCase().replace(/\s+/g, '-')}`}
       className={cm.cn(
         cm.sp('p', 5),
+        cm.accentCard({ tone: 'custom' }),
         'rounded-xl bg-surface-container-lowest shadow-sm border border-outline-variant/30',
-        'border-l-4',
-        accent,
         'transition-all hover:-translate-y-0.5 hover:shadow-md',
       )}
+      style={{ ['--mol-accent' as string]: accent }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 3))}>
         <span
@@ -75,13 +75,7 @@ function KpiCell({ label, value, glyph, accent, iconTone, trend }: KpiCellProps)
           </span>
         )}
       </div>
-      <p
-        className={cm.cn(
-          'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-        )}
-      >
-        {label}
-      </p>
+      <p className={cm.accentCardLabel({ tone: 'custom' })}>{label}</p>
       <p
         className={cm.cn(
           'mt-1 text-3xl font-extrabold tabular-nums tracking-tight text-on-surface',
@@ -103,7 +97,7 @@ export function PriceWatchKpiGrid({ stats }: PriceWatchKpiGridProps) {
         label={t('priceWatchKpiGrid.savings', {}, { defaultValue: 'Lifetime savings' })}
         value={fmtUsd(stats.total_savings_cents)}
         glyph="savings"
-        accent="border-secondary"
+        accent="var(--color-secondary)"
         iconTone="bg-secondary/15 text-secondary"
         trend={{ delta: '+12%', positive: true }}
       />
@@ -111,14 +105,14 @@ export function PriceWatchKpiGrid({ stats }: PriceWatchKpiGridProps) {
         label={t('priceWatchKpiGrid.watching', {}, { defaultValue: 'Products watched' })}
         value={String(stats.watching_count)}
         glyph="visibility"
-        accent="border-primary"
+        accent="var(--color-primary)"
         iconTone="bg-primary/15 text-primary"
       />
       <KpiCell
         label={t('priceWatchKpiGrid.drops', {}, { defaultValue: 'Drops this week' })}
         value={String(stats.drops_this_week)}
         glyph="trending_down"
-        accent="border-tertiary"
+        accent="var(--color-tertiary)"
         iconTone="bg-tertiary/15 text-tertiary"
         trend={{ delta: '+5', positive: true }}
       />
@@ -126,7 +120,7 @@ export function PriceWatchKpiGrid({ stats }: PriceWatchKpiGridProps) {
         label={t('priceWatchKpiGrid.expiring', {}, { defaultValue: 'Alerts firing' })}
         value={String(stats.expiring_alerts)}
         glyph="notifications_active"
-        accent="border-error"
+        accent="var(--color-error)"
         iconTone="bg-error/15 text-error"
         trend={{ delta: 'live', positive: false }}
       />

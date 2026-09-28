@@ -128,8 +128,11 @@ export function Messages() {
                   cm.sp('p', 4),
                   cm.flex({ align: 'center', gap: 'md' }),
                   'group block bg-surface rounded-2xl shadow-sm hover:shadow-md transition-all',
-                  thread.unread ? 'border-l-4 border-accent' : 'border-l-4 border-transparent',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
+                style={{
+                  ['--mol-accent' as string]: thread.unread ? 'var(--color-accent)' : 'transparent',
+                }}
               >
                 <div className="relative shrink-0">
                   {thread.other_party_photo ? (

@@ -33,7 +33,7 @@ function fmtDate(iso?: string | null): string {
  * state, name + trigger label, and a trailing Run / Toggle pair. Border
  * radius and accent come from DESIGN.md's "Automation Row" recipe.
  *
- * Translated from blog/ArticleListItem.tsx — left-accent + headline +
+ * Translated from blog/ArticleListItem.tsx — accent bar + headline +
  * meta-row pattern — but rendered as a list row instead of a card so it
  * stacks densely on Automations.tsx.
  */
@@ -41,17 +41,18 @@ export function AutomationRow({ automation, onToggle, onTrigger }: AutomationRow
   const cm = getClassMap()
   const { t } = useTranslation()
 
-  const accent = automation.enabled ? 'border-l-primary' : 'border-l-outline-variant'
+  const accent = automation.enabled ? 'var(--color-primary)' : 'var(--color-outline-variant)'
 
   return (
     <div
       className={cm.cn(
         cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
         cm.sp('p', 5),
-        'bg-surface-container-lowest rounded-2xl hover:bg-surface-container-low transition-all border-l-4',
-        accent,
+        cm.accentCard({ tone: 'custom' }),
+        'bg-surface-container-lowest rounded-2xl hover:bg-surface-container-low transition-all',
         automation.enabled ? '' : 'opacity-70',
       )}
+      style={{ ['--mol-accent' as string]: accent }}
     >
       <Link
         to={`/automations/${automation.id}/edit`}

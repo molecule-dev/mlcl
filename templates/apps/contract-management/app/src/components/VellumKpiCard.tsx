@@ -1,8 +1,8 @@
 import { useTranslation } from '@molecule/app-react'
-import { getClassMap } from '@molecule/app-ui'
+import { type AccentTone, getClassMap } from '@molecule/app-ui'
 
 /**
- * KPI card with semantic accent border-l, uppercase 10px label,
+ * KPI card with the shared inset accent bar in a semantic tone, an uppercase label in the same tone,
  * extrabold value, and an optional micro-bar sparkline.
  *
  * Translated from crm/KpiCard.tsx — adapted to Vellum's status palette
@@ -16,12 +16,12 @@ export interface VellumKpiCardProps {
   trend?: number[]
 }
 
-const ACCENT_BORDER: Record<NonNullable<VellumKpiCardProps['tone']>, string> = {
-  primary: 'border-l-primary',
-  success: 'border-l-success',
-  warning: 'border-l-warning',
-  error: 'border-l-error',
-  neutral: 'border-l-outline',
+const ACCENT_TONE: Record<NonNullable<VellumKpiCardProps['tone']>, AccentTone> = {
+  primary: 'primary',
+  success: 'success',
+  warning: 'warning',
+  error: 'error',
+  neutral: 'default',
 }
 
 const ACCENT_BAR: Record<NonNullable<VellumKpiCardProps['tone']>, string> = {
@@ -43,15 +43,14 @@ export function VellumKpiCard({ label, value, hint, tone = 'primary', trend }: V
       className={cm.cn(
         cm.sp('p', 5),
         cm.flex({ direction: 'col', justify: 'between' }),
-        'min-h-[7rem] rounded-2xl border border-outline-variant bg-surface-container-lowest border-l-4 shadow-sm transition-transform hover:-translate-y-0.5',
-        ACCENT_BORDER[tone],
+        'min-h-[7rem] rounded-2xl border border-outline-variant bg-surface-container-lowest shadow-sm transition-transform hover:-translate-y-0.5',
+        cm.accentCard({ tone: ACCENT_TONE[tone] }),
       )}
     >
       <p
         className={cm.cn(
-          cm.textSize('xs'),
+          cm.accentCardLabel({ tone: ACCENT_TONE[tone] }),
           cm.fontWeight('extrabold'),
-          'uppercase tracking-widest text-on-surface-variant text-[10px]',
         )}
       >
         {label}

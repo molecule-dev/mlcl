@@ -253,7 +253,7 @@ export function Notifications() {
                     cm.sp('px', 5),
                     cm.sp('py', 4),
                     cm.flex({ align: 'start', gap: 'md' }),
-                    n.read ? '' : 'bg-primary/[0.03] border-l-4 border-l-primary',
+                    n.read ? '' : cm.cn(cm.accentCard({ tone: 'primary' }), 'bg-primary/[0.03]'),
                   )}
                 >
                   <span

@@ -17,14 +17,14 @@ interface DeviceKpiCardProps {
 
 /**
  * KPI card translated from fleet-management's BearingKpiCard:
- * white surface, border-l-4 stage accent, soft shadow, 11px uppercase
+ * white surface, inset stage accent bar, soft shadow, 11px uppercase
  * tracking-widest label, large extrabold tabular-num mono-font value
  * (suited to telemetry counts), corner sparkline / icon slot.
  */
 export function DeviceKpiCard({
   label,
   value,
-  accentColor = 'border-primary',
+  accentColor = 'var(--color-primary)',
   decoration,
   meta,
   valueTone = 'text-on-surface',
@@ -35,18 +35,13 @@ export function DeviceKpiCard({
       className={cm.cn(
         cm.flex({ direction: 'col', justify: 'between' }),
         cm.sp('p', 5),
-        'bg-surface-container-lowest rounded-xl border-l-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
-        accentColor,
+        'bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
+        cm.accentCard({ tone: 'custom' }),
       )}
+      style={{ ['--mol-accent' as string]: accentColor }}
     >
       <div className={cm.flex({ align: 'start', justify: 'between' })}>
-        <span
-          className={cm.cn(
-            'text-[11px] font-bold uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </span>
+        <span className={cm.cn(cm.accentCardLabel({ tone: 'custom' }))}>{label}</span>
         {decoration}
       </div>
       <div className={cm.cn(cm.sp('mt', 2), cm.flex({ align: 'baseline', gap: 'sm' }))}>

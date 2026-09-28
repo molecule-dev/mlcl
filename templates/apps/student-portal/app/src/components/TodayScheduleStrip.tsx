@@ -27,26 +27,16 @@ export interface TodayScheduleStripProps {
   title?: string
 }
 
-const SUBJECT_BORDER: Record<ScheduleEntry['subject'], string> = {
-  math: 'border-blue-500',
-  science: 'border-green-600',
-  english: 'border-violet-500',
-  history: 'border-amber-500',
-  art: 'border-pink-500',
-  pe: 'border-teal-500',
-  language: 'border-orange-500',
-  other: 'border-border-secondary',
-}
-
-const SUBJECT_TINT: Record<ScheduleEntry['subject'], string> = {
-  math: 'text-blue-600',
-  science: 'text-success',
-  english: 'text-violet-600',
-  history: 'text-warning',
-  art: 'text-pink-600',
-  pe: 'text-teal-600',
-  language: 'text-orange-600',
-  other: 'text-foreground-secondary',
+/** The row's accent bar color, read by `cm.accentCard({ tone: 'custom' })`. */
+const SUBJECT_ACCENT: Record<ScheduleEntry['subject'], string> = {
+  math: 'var(--color-blue-500)',
+  science: 'var(--color-green-600)',
+  english: 'var(--color-violet-500)',
+  history: 'var(--color-amber-500)',
+  art: 'var(--color-pink-500)',
+  pe: 'var(--color-teal-500)',
+  language: 'var(--color-orange-500)',
+  other: 'var(--color-border-secondary)',
 }
 
 const STATUS_PILL: Record<NonNullable<ScheduleEntry['status']>, string> = {
@@ -153,22 +143,16 @@ export function TodayScheduleStrip({ entries, title }: TodayScheduleStripProps) 
               data-mol-id={`today-schedule-${entry.id}`}
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'between' }),
-                cm.sp('px', 4),
+                cm.sp('pr', 4),
                 cm.sp('py', 3),
-                'rounded-xl bg-surface shadow-sm border-l-4 hover:shadow-md transition-shadow',
-                SUBJECT_BORDER[entry.subject],
+                cm.accentCard({ tone: 'custom' }),
+                'rounded-xl bg-surface shadow-sm hover:shadow-md transition-shadow',
               )}
+              style={{ ['--mol-accent' as string]: SUBJECT_ACCENT[entry.subject] }}
             >
               <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
                 <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-[4.5rem]')}>
-                  <span
-                    className={cm.cn(
-                      'text-[10px] font-black uppercase tracking-widest',
-                      SUBJECT_TINT[entry.subject],
-                    )}
-                  >
-                    {entry.period}
-                  </span>
+                  <span className={cm.accentCardLabel({ tone: 'custom' })}>{entry.period}</span>
                   <span
                     className={cm.cn(cm.textSize('sm'), 'font-bold tabular-nums text-on-surface')}
                   >

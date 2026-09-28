@@ -118,7 +118,9 @@ function Notifications() {
       className={cm.cn(
         cm.sp('p', 5),
         'group relative bg-surface-secondary rounded-xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.08)] hover:shadow-md transition-shadow',
-        n.unread ? 'border-l-[3px] border-l-primary' : 'border border-outline-variant/15',
+        n.unread
+          ? cm.accentCard({ tone: 'primary' })
+          : 'pl-[30px] border border-outline-variant/15',
       )}
     >
       <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'text-on-surface')}>

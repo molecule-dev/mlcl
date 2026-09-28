@@ -11,13 +11,33 @@ interface MacroGoal {
   label: string
   defaultGrams: number
   tone: string
+  /** The accent bar color (a CSS color or variable). */
+  accent: string
 }
 
 const MACROS: MacroGoal[] = [
-  { key: 'protein', label: 'Protein', defaultGrams: 120, tone: 'border-l-protein bg-protein/5' },
-  { key: 'carbs', label: 'Carbs', defaultGrams: 240, tone: 'border-l-carbs bg-carbs/5' },
-  { key: 'fat', label: 'Fat', defaultGrams: 70, tone: 'border-l-fat bg-fat/5' },
-  { key: 'fiber', label: 'Fiber', defaultGrams: 35, tone: 'border-l-fiber bg-fiber/5' },
+  {
+    key: 'protein',
+    label: 'Protein',
+    defaultGrams: 120,
+    tone: 'bg-protein/5',
+    accent: 'var(--color-protein)',
+  },
+  {
+    key: 'carbs',
+    label: 'Carbs',
+    defaultGrams: 240,
+    tone: 'bg-carbs/5',
+    accent: 'var(--color-carbs)',
+  },
+  { key: 'fat', label: 'Fat', defaultGrams: 70, tone: 'bg-fat/5', accent: 'var(--color-fat)' },
+  {
+    key: 'fiber',
+    label: 'Fiber',
+    defaultGrams: 35,
+    tone: 'bg-fiber/5',
+    accent: 'var(--color-fiber)',
+  },
 ]
 
 interface GoalResponse {
@@ -359,18 +379,14 @@ export function Goals() {
                 className={cm.cn(
                   cm.sp('p', 5),
                   cm.flex({ align: 'center', justify: 'between' }),
-                  'bg-surface rounded-2xl shadow-sm border-l-4',
+                  cm.accentCard({ tone: 'custom' }),
+                  'bg-surface rounded-2xl shadow-sm',
                   m.tone,
                 )}
+                style={{ ['--mol-accent' as string]: m.accent }}
               >
                 <div>
-                  <p
-                    className={cm.cn(
-                      cm.textSize('xs'),
-                      cm.fontWeight('bold'),
-                      'uppercase tracking-widest text-on-surface-variant',
-                    )}
-                  >
+                  <p className={cm.accentCardLabel({ tone: 'custom' })}>
                     {t(`nosh.goals.macros.${m.key}`, {}, { defaultValue: m.label })}
                   </p>
                   {isEditing ? (

@@ -174,25 +174,25 @@ export function TeamDetail() {
             k: 'record',
             label: t('teamDetail.statRecord', {}, { defaultValue: 'Record' }),
             value: `${team.wins ?? 0}-${team.losses ?? 0}-${team.draws ?? 0}`,
-            tone: 'border-l-primary',
+            tone: 'var(--color-primary)',
           },
           {
             k: 'winPct',
             label: t('teamDetail.statWinPct', {}, { defaultValue: 'Win %' }),
             value: winPct.toFixed(3).replace(/^0/, ''),
-            tone: 'border-l-win',
+            tone: 'var(--color-win)',
           },
           {
             k: 'gf',
             label: t('teamDetail.statGF', {}, { defaultValue: 'Goals For' }),
             value: String(team.goals_for ?? 0),
-            tone: 'border-l-accent',
+            tone: 'var(--color-accent)',
           },
           {
             k: 'gd',
             label: t('teamDetail.statGD', {}, { defaultValue: 'Goal Diff' }),
             value: `${goalDiff >= 0 ? '+' : ''}${goalDiff}`,
-            tone: goalDiff >= 0 ? 'border-l-win' : 'border-l-loss',
+            tone: goalDiff >= 0 ? 'var(--color-win)' : 'var(--color-loss)',
           },
         ].map((s) => (
           <div
@@ -200,15 +200,12 @@ export function TeamDetail() {
             className={cm.cn(
               cm.flex({ direction: 'col', gap: 'xs' }),
               cm.sp('p', 5),
-              'rounded-xl bg-surface shadow-sm border border-outline/40 border-l-4',
-              s.tone,
+              'rounded-xl bg-surface shadow-sm border border-outline/40',
+              cm.accentCard({ tone: 'custom' }),
             )}
+            style={{ ['--mol-accent' as string]: s.tone }}
           >
-            <span
-              className={cm.cn(
-                'text-[10px] font-black uppercase tracking-[0.22em] text-on-surface-variant',
-              )}
-            >
+            <span className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-black')}>
               {s.label}
             </span>
             <span

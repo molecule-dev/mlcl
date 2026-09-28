@@ -348,7 +348,8 @@ export function ReviewDetail() {
         <div
           role="alert"
           className={cm.cn(
-            'rounded-lg border-l-4 border-red-500 bg-error-light px-4 py-3 text-sm text-error',
+            cm.accentCard({ tone: 'error' }),
+            'rounded-lg bg-error-light pr-4 py-3 text-sm text-error',
           )}
         >
           {error}
@@ -437,7 +438,8 @@ export function ReviewDetail() {
             {item.automated_flagged && item.automated_reasoning && (
               <div
                 className={cm.cn(
-                  'rounded-lg border-l-4 border-amber-500 bg-warning-light px-4 py-3 text-sm text-warning',
+                  cm.accentCard({ tone: 'warning' }),
+                  'rounded-lg bg-warning-light pr-4 py-3 text-sm text-warning',
                 )}
               >
                 <p className={cm.cn('font-bold mb-1')}>
@@ -598,14 +600,13 @@ export function ReviewDetail() {
               ) : (
                 <div
                   className={cm.cn(
-                    'rounded-lg border-l-4 border-red-500 bg-error-light/40 p-4 space-y-3',
+                    cm.accentCard({ tone: 'error' }),
+                    'rounded-lg bg-error-light/40 p-4 space-y-3',
                   )}
                 >
                   <label
                     htmlFor="reject-reason"
-                    className={cm.cn(
-                      'block text-[10px] font-black uppercase tracking-widest text-error font-label',
-                    )}
+                    className={cm.cn(cm.accentCardLabel({ tone: 'error' }), 'block font-label')}
                   >
                     {t('review.rejectReason', {}, { defaultValue: 'Rejection reason' })}
                   </label>
@@ -658,14 +659,16 @@ export function ReviewDetail() {
           {isResolved && (
             <article
               className={cm.cn(
-                'rounded-xl bg-surface-container-lowest shadow-sm p-6 border-l-4',
-                normalizedStatus === 'approved' ? 'border-emerald-500' : 'border-red-500',
+                cm.accentCard({ tone: normalizedStatus === 'approved' ? 'success' : 'error' }),
+                'rounded-xl bg-surface-container-lowest shadow-sm p-6',
               )}
             >
               <p
                 className={cm.cn(
-                  'text-xs uppercase tracking-widest font-black mb-2',
-                  normalizedStatus === 'approved' ? 'text-success' : 'text-error',
+                  cm.accentCardLabel({
+                    tone: normalizedStatus === 'approved' ? 'success' : 'error',
+                  }),
+                  'mb-2',
                 )}
               >
                 {t(

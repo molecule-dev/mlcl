@@ -312,16 +312,11 @@ export function Profile() {
               key={s.key}
               className={cm.cn(
                 cm.sp('p', 4),
-                'bg-surface rounded-2xl border border-outline-variant/40 border-l-4 border-l-primary',
+                cm.accentCard({ tone: 'primary' }),
+                'bg-surface rounded-2xl border border-outline-variant/40',
               )}
             >
-              <p
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
+              <p className={cm.accentCardLabel({ tone: 'primary' })}>
                 {t(`profile.stat.${s.key}`, {}, { defaultValue: s.label })}
               </p>
               <p

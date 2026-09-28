@@ -377,8 +377,10 @@ export function Landing() {
                   key={f.key}
                   className={cm.cn(
                     cm.sp('p', 8),
-                    'bg-surface-container-lowest rounded-xl shadow-sm border-l-4 border-l-[var(--color-mood-5)]',
+                    cm.accentCard({ tone: 'custom' }),
+                    'bg-surface-container-lowest rounded-xl shadow-sm',
                   )}
+                  style={{ ['--mol-accent' as string]: 'var(--color-mood-5)' }}
                 >
                   <span
                     className="material-symbols-outlined text-3xl text-[var(--color-mood-5)]"
@@ -414,7 +416,8 @@ export function Landing() {
                 key={s.key}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 border-primary text-center',
+                  cm.accentCard({ tone: 'primary' }),
+                  'bg-surface-container-lowest rounded-2xl shadow-sm text-center',
                 )}
               >
                 <p
@@ -423,14 +426,7 @@ export function Landing() {
                 >
                   {s.value}
                 </p>
-                <p
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.fontWeight('bold'),
-                    cm.sp('mt', 2),
-                    'uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
+                <p className={cm.cn(cm.accentCardLabel({ tone: 'primary' }), cm.sp('mt', 2))}>
                   {t(`landing.stat.${s.key}`, {}, { defaultValue: s.defaultLabel })}
                 </p>
               </div>

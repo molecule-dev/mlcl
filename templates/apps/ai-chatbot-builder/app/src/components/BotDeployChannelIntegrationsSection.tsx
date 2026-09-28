@@ -62,8 +62,10 @@ export default function BotDeployChannelIntegrationsSection() {
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'between' }),
               cm.sp('p', 4),
-              `group rounded-2xl ${slackConnected ? 'bg-tertiary/5 border-l-4 border-tertiary' : 'bg-surface-container-high transition-all hover:bg-surface-container-highest'}`,
+              `group rounded-2xl ${slackConnected ? 'bg-tertiary/5' : 'bg-surface-container-high transition-all hover:bg-surface-container-highest'}`,
+              slackConnected && cm.accentCard({ tone: 'custom' }),
             )}
+            style={{ ['--mol-accent' as string]: 'var(--color-tertiary)' }}
           >
             <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4')}>
               <div
@@ -137,8 +139,10 @@ export default function BotDeployChannelIntegrationsSection() {
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'between' }),
               cm.sp('p', 4),
-              `group rounded-2xl ${discordConnected ? 'bg-tertiary/5 border-l-4 border-tertiary' : 'bg-surface-container-high transition-all hover:bg-surface-container-highest'}`,
+              `group rounded-2xl ${discordConnected ? 'bg-tertiary/5' : 'bg-surface-container-high transition-all hover:bg-surface-container-highest'}`,
+              discordConnected && cm.accentCard({ tone: 'custom' }),
             )}
+            style={{ ['--mol-accent' as string]: 'var(--color-tertiary)' }}
           >
             <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4')}>
               <div
@@ -214,8 +218,10 @@ export default function BotDeployChannelIntegrationsSection() {
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'between' }),
               cm.sp('p', 4),
-              `group rounded-2xl ${whatsappConnected ? 'bg-tertiary/5 border-l-4 border-tertiary' : 'bg-surface-container-high transition-all hover:bg-surface-container-highest'}`,
+              `group rounded-2xl ${whatsappConnected ? 'bg-tertiary/5' : 'bg-surface-container-high transition-all hover:bg-surface-container-highest'}`,
+              whatsappConnected && cm.accentCard({ tone: 'custom' }),
             )}
+            style={{ ['--mol-accent' as string]: 'var(--color-tertiary)' }}
           >
             <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4')}>
               <div
@@ -289,8 +295,10 @@ export default function BotDeployChannelIntegrationsSection() {
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'between' }),
               cm.sp('p', 4),
-              `group rounded-2xl ${telegramConnected ? 'bg-tertiary/5 border-l-4 border-tertiary' : 'bg-surface-container-high transition-all hover:bg-surface-container-highest'}`,
+              `group rounded-2xl ${telegramConnected ? 'bg-tertiary/5' : 'bg-surface-container-high transition-all hover:bg-surface-container-highest'}`,
+              telegramConnected && cm.accentCard({ tone: 'custom' }),
             )}
+            style={{ ['--mol-accent' as string]: 'var(--color-tertiary)' }}
           >
             <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4')}>
               <div

@@ -69,8 +69,10 @@ function BotDeployChannelIntegrationsCard() {
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'between' }),
             cm.sp('p', 4),
-            'group bg-tertiary/5 rounded-2xl border-l-4 border-tertiary',
+            'group bg-tertiary/5 rounded-2xl',
+            cm.accentCard({ tone: 'custom' }),
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-tertiary)' }}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
             <div

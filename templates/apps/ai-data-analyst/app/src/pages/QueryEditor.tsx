@@ -410,8 +410,10 @@ export function QueryEditor() {
                   className={cm.cn(
                     cm.flex({ gap: 3 }),
                     cm.sp('p', 4),
-                    'rounded-2xl bg-secondary/10 border-l-4 border-secondary',
+                    'rounded-2xl bg-secondary/10',
+                    cm.accentCard({ tone: 'custom' }),
                   )}
+                  style={{ ['--mol-accent' as string]: 'var(--color-secondary)' }}
                 >
                   <span
                     className={cm.cn(
@@ -424,11 +426,7 @@ export function QueryEditor() {
                     auto_awesome
                   </span>
                   <div className={cm.flex({ direction: 'col', gap: 1 })}>
-                    <p
-                      className={cm.cn(
-                        'text-[10px] uppercase tracking-[0.22em] font-black text-secondary',
-                      )}
-                    >
+                    <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }))}>
                       {t('queryEditor.aiSummary', {}, { defaultValue: 'AI summary' })}
                     </p>
                     <p className={cm.cn(cm.textSize('sm'), 'leading-relaxed text-on-surface')}>

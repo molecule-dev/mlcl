@@ -444,8 +444,10 @@ function ConversationDetail() {
                 cm.sp('mx', 6),
                 cm.sp('mt', 4),
                 cm.sp('p', 3),
-                'rounded-lg bg-[var(--color-status-escalated-bg)] border-l-4 border-secondary-container',
+                'rounded-lg bg-[var(--color-status-escalated-bg)]',
+                cm.accentCard({ tone: 'custom' }),
               )}
+              style={{ ['--mol-accent' as string]: 'var(--color-secondary-container)' }}
             >
               <span className="material-symbols-outlined text-secondary-container text-xl">
                 priority_high

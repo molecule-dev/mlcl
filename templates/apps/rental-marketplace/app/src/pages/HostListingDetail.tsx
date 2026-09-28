@@ -261,7 +261,8 @@ export function HostListingDetail() {
       <section
         className={cm.cn(
           cm.sp('p', 6),
-          'bg-surface rounded-2xl shadow-sm border-l-4 border-primary',
+          'bg-surface rounded-2xl shadow-sm',
+          cm.accentCard({ tone: 'primary' }),
         )}
       >
         {tab === 'calendar' && (
@@ -486,17 +487,14 @@ function KpiCard({ label, value }: { label: string; value: string }) {
   const cm = getClassMap()
   return (
     <div
-      className={cm.cn(cm.sp('p', 5), 'bg-surface rounded-2xl shadow-sm border-l-4 border-accent')}
+      className={cm.cn(
+        cm.sp('p', 5),
+        'bg-surface rounded-2xl shadow-sm',
+        cm.accentCard({ tone: 'custom' }),
+      )}
+      style={{ ['--mol-accent' as string]: 'var(--color-accent)' }}
     >
-      <p
-        className={cm.cn(
-          cm.textSize('xs'),
-          cm.fontWeight('bold'),
-          'uppercase tracking-widest text-on-surface-variant',
-        )}
-      >
-        {label}
-      </p>
+      <p className={cm.accentCardLabel({ tone: 'custom' })}>{label}</p>
       <p
         className={cm.cn(
           cm.textSize('2xl'),

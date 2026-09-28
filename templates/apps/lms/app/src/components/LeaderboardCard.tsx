@@ -108,7 +108,12 @@ export default function LeaderboardCard() {
                 key={entry.userId}
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 4 }),
-                  isMe ? 'bg-primary-container/10 -mx-6 px-6 py-3 border-l-4 border-primary' : '',
+                  isMe
+                    ? cm.cn(
+                        cm.accentCard({ tone: 'primary' }),
+                        'bg-primary-container/10 -mx-6 pr-6 py-3',
+                      )
+                    : '',
                 )}
                 data-mol-id={isMe ? 'leaderboard-me' : 'leaderboard-row'}
               >

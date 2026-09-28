@@ -281,8 +281,10 @@ export function Dashboard() {
                   className={cm.cn(
                     cm.sp('p', 3),
                     cm.flex({ align: 'start', gap: 'sm' }),
-                    'rounded-xl bg-secondary-container/20 border-l-2 border-secondary',
+                    'rounded-xl bg-secondary-container/20',
+                    cm.accentCard({ tone: 'custom' }),
                   )}
+                  style={{ ['--mol-accent' as string]: 'var(--color-secondary)' }}
                 >
                   <span
                     aria-hidden="true"

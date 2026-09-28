@@ -177,19 +177,14 @@ export function TaxCenter() {
                 key={b.key}
                 className={cm.cn(
                   cm.sp('p', 5),
-                  'rounded-2xl bg-surface-container-lowest border-l-4 shadow-sm',
-                  b.stripe,
+                  'rounded-2xl bg-surface-container-lowest shadow-sm',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
+                style={{
+                  ['--mol-accent' as string]: `var(--color-${b.stripe.replace(/^border-l-/, '')})`,
+                }}
               >
-                <p
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.fontWeight('bold'),
-                    'uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {b.label}
-                </p>
+                <p className={cm.accentCardLabel({ tone: 'custom' })}>{b.label}</p>
                 <p
                   className={cm.cn(
                     cm.textSize('2xl'),

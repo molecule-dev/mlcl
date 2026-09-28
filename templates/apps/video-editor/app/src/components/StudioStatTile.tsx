@@ -23,16 +23,17 @@ interface StudioStatTileProps {
   icon?: string
   /** Optional sparkline data; values 0–100. */
   spark?: number[]
-  /** Optional accent border class. */
+  /** Optional accent bar color. */
   accent?: 'violet' | 'pink' | 'cyan' | 'amber'
   children?: ReactNode
 }
 
+/** The accent bar's color (read by `cm.accentCard({ tone: 'custom' })` via `--mol-accent`). */
 const ACCENT: Record<NonNullable<StudioStatTileProps['accent']>, string> = {
-  violet: 'border-l-[var(--video-cta-from)]',
-  pink: 'border-l-[var(--video-cta-to)]',
-  cyan: 'border-l-[var(--mol-color-info)]',
-  amber: 'border-l-[var(--mol-color-warning)]',
+  violet: 'var(--video-cta-from)',
+  pink: 'var(--video-cta-to)',
+  cyan: 'var(--mol-color-info)',
+  amber: 'var(--mol-color-warning)',
 }
 
 const DELTA_TONE: Record<NonNullable<StudioStatTileProps['deltaTone']>, string> = {
@@ -58,18 +59,13 @@ export function StudioStatTile({
     <article
       className={cm.cn(
         cm.sp('p', 5),
-        'rounded-xl bg-[var(--video-panel-bg)] border border-[var(--video-border-subtle)] border-l-4 hover:-translate-y-0.5 transition-transform',
-        ACCENT[accent],
+        cm.accentCard({ tone: 'custom' }),
+        'rounded-xl bg-[var(--video-panel-bg)] border border-[var(--video-border-subtle)] hover:-translate-y-0.5 transition-transform',
       )}
+      style={{ ['--mol-accent' as string]: ACCENT[accent] }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
-        <span
-          className={cm.cn(
-            'font-mono text-[10px] font-black uppercase tracking-widest text-[var(--video-text-dim)]',
-          )}
-        >
-          {label}
-        </span>
+        <span className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-mono')}>{label}</span>
         {icon && (
           <span className={cm.cn('material-symbols-outlined text-[18px] text-[var(--video-link)]')}>
             {icon}

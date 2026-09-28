@@ -32,13 +32,14 @@ const kindIcon: Record<ActivityKind, string> = {
   invite: 'group_add',
 }
 
-const kindAccent: Record<ActivityKind, string> = {
-  comment: 'border-cyan-500 bg-cyan-50 text-cyan-600',
-  view: 'border-violet-500 bg-violet-50 text-violet-600',
-  mention: 'border-amber-500 bg-warning-light text-warning',
-  share: 'border-emerald-500 bg-success-light text-success',
-  reaction: 'border-pink-500 bg-pink-50 text-pink-600',
-  invite: 'border-sky-500 bg-sky-50 text-sky-600',
+/** Per-kind accent: the bar color (read by `cm.accentCard({ tone: 'custom' })`) and the icon tile classes. */
+const kindAccent: Record<ActivityKind, { bar: string; tile: string }> = {
+  comment: { bar: 'var(--color-cyan-500)', tile: 'bg-cyan-50 text-cyan-600' },
+  view: { bar: 'var(--color-violet-500)', tile: 'bg-violet-50 text-violet-600' },
+  mention: { bar: 'var(--color-amber-500)', tile: 'bg-warning-light text-warning' },
+  share: { bar: 'var(--color-emerald-500)', tile: 'bg-success-light text-success' },
+  reaction: { bar: 'var(--color-pink-500)', tile: 'bg-pink-50 text-pink-600' },
+  invite: { bar: 'var(--color-sky-500)', tile: 'bg-sky-50 text-sky-600' },
 }
 
 const kindCopy: Record<ActivityKind, string> = {
@@ -67,9 +68,10 @@ export function ActivityFeedRow({ item }: ActivityFeedRowProps) {
       className={cm.cn(
         cm.flex({ align: 'start', gap: 4 }),
         cm.sp('p', 5),
-        'group rounded-2xl border-l-4 bg-surface-container-lowest shadow-sm hover:translate-x-1 transition-transform',
-        accent.split(' ')[0],
+        cm.accentCard({ tone: 'custom' }),
+        'group rounded-2xl bg-surface-container-lowest shadow-sm hover:translate-x-1 transition-transform',
       )}
+      style={{ ['--mol-accent' as string]: accent.bar }}
     >
       <div
         className={cm.cn(
@@ -77,7 +79,7 @@ export function ActivityFeedRow({ item }: ActivityFeedRowProps) {
           cm.w(11),
           cm.h(11),
           'rounded-xl shrink-0',
-          accent.split(' ').slice(1).join(' '),
+          accent.tile,
         )}
       >
         <span className={cm.cn('material-symbols-outlined text-xl')}>{kindIcon[item.kind]}</span>

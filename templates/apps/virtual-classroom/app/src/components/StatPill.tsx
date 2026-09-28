@@ -10,12 +10,12 @@ import { getClassMap } from '@molecule/app-ui'
  */
 export type StatPillTone = 'primary' | 'secondary' | 'success' | 'tertiary' | 'error'
 
-const TONE_BORDER: Record<StatPillTone, string> = {
-  primary: 'border-l-primary',
-  secondary: 'border-l-secondary',
-  success: 'border-l-success',
-  tertiary: 'border-l-tertiary',
-  error: 'border-l-error',
+const TONE_VAR: Record<StatPillTone, string> = {
+  primary: 'var(--color-primary)',
+  secondary: 'var(--color-secondary)',
+  success: 'var(--color-success)',
+  tertiary: 'var(--color-tertiary)',
+  error: 'var(--color-error)',
 }
 
 const TONE_ICON_BG: Record<StatPillTone, string> = {
@@ -68,10 +68,11 @@ export function StatPill({
     <div
       className={cm.cn(
         cm.sp('p', 6),
-        'group bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 border-l-4',
-        TONE_BORDER[tone],
+        cm.accentCard({ tone: 'custom' }),
+        'group bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10',
         'hover:-translate-y-0.5 hover:shadow-md transition-all',
       )}
+      style={{ ['--mol-accent' as string]: TONE_VAR[tone] }}
     >
       <div className={cm.cn(cm.flex({ align: 'start', justify: 'between' }), cm.sp('mb', 4))}>
         <div
@@ -96,13 +97,7 @@ export function StatPill({
           </span>
         ) : null}
       </div>
-      <p
-        className={cm.cn(
-          'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-        )}
-      >
-        {labelText}
-      </p>
+      <p className={cm.accentCardLabel({ tone: 'custom' })}>{labelText}</p>
       <p
         className={cm.cn(
           cm.fontWeight('bold'),

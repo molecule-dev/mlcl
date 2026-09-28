@@ -34,35 +34,35 @@ const STATUS_TINT: Record<
   { strip: string; pill: string; pillBg: string; pillLabel: string; labelKey: string }
 > = {
   live: {
-    strip: 'border-l-live',
+    strip: 'var(--color-live)',
     pill: 'text-live',
     pillBg: 'bg-live-light',
     pillLabel: 'LIVE',
     labelKey: 'status.live',
   },
   in_progress: {
-    strip: 'border-l-live',
+    strip: 'var(--color-live)',
     pill: 'text-live',
     pillBg: 'bg-live-light',
     pillLabel: 'LIVE',
     labelKey: 'status.live',
   },
   scheduled: {
-    strip: 'border-l-upcoming',
+    strip: 'var(--color-upcoming)',
     pill: 'text-upcoming',
     pillBg: 'bg-upcoming-light',
     pillLabel: 'UPCOMING',
     labelKey: 'status.upcoming',
   },
   final: {
-    strip: 'border-l-final',
+    strip: 'var(--color-final)',
     pill: 'text-final',
     pillBg: 'bg-draw-light',
     pillLabel: 'FINAL',
     labelKey: 'status.final',
   },
   postponed: {
-    strip: 'border-l-draw',
+    strip: 'var(--color-draw)',
     pill: 'text-draw',
     pillBg: 'bg-draw-light',
     pillLabel: 'POSTPONED',
@@ -103,9 +103,10 @@ export function MatchCard({ match, compact = false }: MatchCardProps) {
       className={cm.cn(
         cm.flex({ direction: 'col', gap: 'sm' }),
         cm.sp('p', 5),
-        'rounded-xl bg-surface border-l-4 border border-outline-variant/40 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group',
-        tint.strip,
+        'rounded-xl bg-surface border border-outline-variant/40 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group',
+        cm.accentCard({ tone: 'custom' }),
       )}
+      style={{ ['--mol-accent' as string]: tint.strip }}
     >
       <header className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
         <span

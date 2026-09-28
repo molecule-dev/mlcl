@@ -1,11 +1,11 @@
 /**
  * Editorial KPI tile grid — uppercase 10px label, 3xl extrabold value,
  * tabular-nums delta caption, inline 64px sparkline. Each tile uses
- * border-l-4 with a per-key accent and a subtle hover lift.
+ * an inset accent bar with a per-key accent and a subtle hover lift.
  *
  * Translated from personal-finance's DashboardAccountOverview.tsx (icon +
  * uppercase eyebrow + extrabold value + hover-scale glyph) and crossed
- * with the Sweep-1 KPI-card recipe (border-l-4 accent + sparkline).
+ * with the Sweep-1 KPI-card recipe (accent bar + sparkline).
  */
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -18,34 +18,34 @@ export interface KpiTile {
   sparkline: number[]
 }
 
-const ACCENT: Record<string, { border: string; glyph: string; icon: string; stroke: string }> = {
+const ACCENT: Record<string, { accent: string; glyph: string; icon: string; stroke: string }> = {
   queries: {
-    border: 'border-l-primary',
+    accent: 'var(--color-primary)',
     glyph: 'text-primary',
     icon: 'query_stats',
     stroke: 'var(--color-primary)',
   },
   datasets: {
-    border: 'border-l-secondary',
+    accent: 'var(--color-secondary)',
     glyph: 'text-secondary',
     icon: 'database',
     stroke: 'var(--color-secondary)',
   },
   insights: {
-    border: 'border-l-tertiary-container',
+    accent: 'var(--color-tertiary-container)',
     glyph: 'text-tertiary-container',
     icon: 'auto_awesome',
     stroke: 'var(--color-tertiary-container)',
   },
   shared: {
-    border: 'border-l-success',
+    accent: 'var(--color-success)',
     glyph: 'text-success',
     icon: 'ios_share',
     stroke: 'var(--color-success)',
   },
 }
 const FALLBACK = {
-  border: 'border-l-outline-variant',
+  accent: 'var(--color-outline-variant)',
   glyph: 'text-on-surface-variant',
   icon: 'insights',
   stroke: 'var(--color-primary)',
@@ -91,18 +91,13 @@ export function KpiTileGrid({ tiles }: KpiTileGridProps) {
             className={cm.cn(
               cm.sp('p', 5),
               cm.flex({ direction: 'col', gap: 3 }),
-              'rounded-2xl bg-surface-container-lowest border-l-4 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200',
-              accent.border,
+              'rounded-2xl bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200',
+              cm.accentCard({ tone: 'custom' }),
             )}
+            style={{ ['--mol-accent' as string]: accent.accent }}
           >
             <div className={cm.flex({ align: 'center', justify: 'between' })}>
-              <h3
-                className={cm.cn(
-                  'text-[10px] uppercase tracking-[0.18em] font-black text-on-surface-variant',
-                )}
-              >
-                {tile.label}
-              </h3>
+              <h3 className={cm.cn(cm.accentCardLabel({ tone: 'custom' }))}>{tile.label}</h3>
               <span
                 className={cm.cn('material-symbols-outlined', cm.textSize('lg'), accent.glyph)}
                 aria-hidden="true"

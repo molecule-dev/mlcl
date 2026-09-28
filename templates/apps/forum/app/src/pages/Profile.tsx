@@ -263,15 +263,11 @@ export function Profile() {
             className={cm.cn(
               cm.flex({ direction: 'col', gap: 'xs' }),
               cm.sp('p', 5),
-              'rounded-xl bg-surface-container-low/40 border-l-4 border-primary',
+              'rounded-xl bg-surface-container-low/40',
+              cm.accentCard({ tone: 'primary' }),
             )}
           >
-            <span
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                'text-[10px] uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
+            <span className={cm.accentCardLabel({ tone: 'primary' })}>
               {t(stat.labelKey, {}, { defaultValue: stat.defaultLabel })}
             </span>
             <span

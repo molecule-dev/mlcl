@@ -72,15 +72,19 @@ export function LocationCard({ location, to, onRemove, onSetDefault }: LocationC
     setConfirmingRemove(false)
     onRemove?.(location.id)
   }
-  const accent = location.is_default
-    ? 'border-l-4 border-l-primary bg-primary/8'
-    : 'border-l-4 border-l-transparent'
+  // The default location carries the inset accent bar (transparent otherwise,
+  // so every row keeps the same left padding).
+  const accent = location.is_default ? 'bg-primary/8' : ''
+  const accentStyle = {
+    ['--mol-accent' as string]: location.is_default ? 'var(--color-primary)' : 'transparent',
+  }
   const alertCount = location.alertCount ?? 0
   const wrapperClassName = cm.cn(
     cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
     cm.sp('p', 4),
     'rounded-xl',
     'bg-surface-container-lowest hover:bg-surface-container-low transition-all group',
+    cm.accentCard({ tone: 'custom' }),
     accent,
   )
 
@@ -242,10 +246,14 @@ export function LocationCard({ location, to, onRemove, onSetDefault }: LocationC
 
   if (to) {
     return (
-      <Link to={to} className={wrapperClassName}>
+      <Link to={to} className={wrapperClassName} style={accentStyle}>
         {inner}
       </Link>
     )
   }
-  return <div className={wrapperClassName}>{inner}</div>
+  return (
+    <div className={wrapperClassName} style={accentStyle}>
+      {inner}
+    </div>
+  )
 }

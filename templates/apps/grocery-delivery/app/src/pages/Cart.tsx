@@ -223,7 +223,8 @@ export function Cart() {
                   className={cm.cn(
                     cm.sp('p', 4),
                     cm.flex({ align: 'start', gap: 'md' }),
-                    'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 border-primary',
+                    'bg-surface-container-lowest rounded-2xl shadow-sm',
+                    cm.accentCard({ tone: 'primary' }),
                   )}
                 >
                   <div

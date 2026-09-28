@@ -1,13 +1,13 @@
 /**
- * Tracked price alert card — left border-l-4 in the Skylark "tracked"
- * purple accent, route header (origin → destination) with airport-code
+ * Tracked price alert card — the shared inset accent bar in the Skylark
+ * "tracked" purple accent, route header (origin → destination) with airport-code
  * pills, current price in a 2xl tabular numeral with a delta pill, an
  * inline 64px-tall area-fill SVG sparkline showing the recent fare
  * trend, and an active/paused toggle pill.
  *
  * Translated from personal-finance's NetWorthCard.tsx (sparkline +
  * delta-pill treatment) condensed into a row card and laid out per
- * DESIGN.md §"Price Alert Card" — left border accent in tracked color,
+ * DESIGN.md §"Price Alert Card" — accent bar in tracked color,
  * compact metric row, sparkline at the right.
  *
  * Props match `alerts.json` fixture shape (origin_code,
@@ -98,9 +98,10 @@ export function PriceAlertCard({
     <article
       className={cm.cn(
         cm.sp('p', 5),
-        'group relative bg-surface rounded-2xl shadow-sm hover:shadow-md transition-all ring-1 ring-outline-variant/40',
-        'border-l-[4px] border-tracked',
+        cm.accentCard({ tone: 'custom' }),
+        'group bg-surface rounded-2xl shadow-sm hover:shadow-md transition-all ring-1 ring-outline-variant/40',
       )}
+      style={{ ['--mol-accent' as string]: 'var(--color-tracked)' }}
     >
       <div
         className={cm.cn(cm.flex({ align: 'start', justify: 'between', gap: 'md', wrap: 'wrap' }))}

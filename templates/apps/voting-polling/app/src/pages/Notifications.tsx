@@ -240,7 +240,7 @@ export function Notifications() {
                 className={cm.cn(
                   cm.sp('p', 5),
                   'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm flex items-start gap-4',
-                  !n.read && 'border-l-4 border-l-primary',
+                  !n.read && cm.accentCard({ tone: 'primary' }),
                 )}
                 data-test={`notification-${n.id}`}
               >

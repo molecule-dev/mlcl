@@ -643,10 +643,11 @@ export function Compose() {
             className={cm.cn(
               cm.sp('p', 4),
               cm.sp('mt', 4),
-              'rounded-xl bg-info/10 border-l-2 border-info text-on-surface',
+              cm.accentCard({ tone: 'info' }),
+              'rounded-xl bg-info/10 text-on-surface',
             )}
           >
-            <p className={cm.cn('text-[10px] font-black uppercase tracking-widest text-info mb-2')}>
+            <p className={cm.cn(cm.accentCardLabel({ tone: 'info' }), 'mb-2')}>
               {t('form.summary', {}, { defaultValue: 'Summary' })}
             </p>
             <p className={cm.cn(cm.textSize('sm'), 'leading-relaxed')}>{summary}</p>

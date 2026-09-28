@@ -30,10 +30,11 @@ const CATEGORY_ICON: Record<TemplateCategory, string> = {
   announcement: 'campaign',
 }
 
-const ACCENT_BORDER = {
-  primary: 'border-primary',
-  secondary: 'border-secondary',
-  tertiary: 'border-tertiary',
+/** The card's accent bar color, read by `cm.accentCard({ tone: 'custom' })`. */
+const ACCENT_VAR = {
+  primary: 'var(--color-primary)',
+  secondary: 'var(--color-secondary)',
+  tertiary: 'var(--color-tertiary)',
 }
 
 const ACCENT_TINT = {
@@ -95,10 +96,11 @@ export function TemplateLibraryGrid({ templates, onSelect }: TemplateLibraryGrid
             className={cm.cn(
               cm.sp('p', 6),
               cm.flex({ direction: 'col', align: 'start' }),
-              'group text-left bg-surface-container-lowest rounded-2xl border-l-4 shadow-sm',
-              'hover:shadow-md hover:-translate-y-0.5 transition-all relative overflow-hidden',
-              ACCENT_BORDER[accent],
+              cm.accentCard({ tone: 'custom' }),
+              'group text-left bg-surface-container-lowest rounded-2xl shadow-sm',
+              'hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden',
             )}
+            style={{ ['--mol-accent' as string]: ACCENT_VAR[accent] }}
           >
             <div
               className={cm.cn(

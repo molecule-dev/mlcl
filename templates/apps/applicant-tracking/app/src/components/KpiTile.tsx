@@ -1,9 +1,9 @@
 /**
- * Dashboard KPI card — left accent border, uppercase tracking-widest label,
- * extrabold tabular-num value, optional trend pill and contextual hint.
+ * Dashboard KPI card — the shared inset accent bar with the eyebrow in its
+ * color, extrabold tabular-num value, optional trend pill and contextual hint.
  *
  * Translated from personal-finance's KpiCard / crm's KpiCard — same anatomy
- * (border-l-4 brand accent, hover lift, font-black uppercase eyebrow).
+ * (brand accent bar, hover lift, uppercase eyebrow).
  */
 import type { ReactNode } from 'react'
 
@@ -42,17 +42,12 @@ export function KpiTile({ icon, label, value, trend, hint }: KpiTileProps) {
       className={cm.cn(
         cm.sp('p', 5),
         cm.flex({ direction: 'col', gap: 'sm' }),
-        'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 border-l-4 border-l-primary shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
+        cm.accentCard({ tone: 'primary' }),
+        'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
       )}
     >
       <header className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
-        <p
-          className={cm.cn(
-            'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </p>
+        <p className={cm.accentCardLabel({ tone: 'primary' })}>{label}</p>
         {icon ? (
           <span
             aria-hidden="true"

@@ -383,36 +383,24 @@ export function Channel() {
             {channel.description}
           </p>
           <dl className={cm.cn('grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm')}>
-            <div className={cm.cn('border-l-4 border-primary pl-3')}>
-              <dt
-                className={cm.cn(
-                  'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
+            <div className={cm.accentCard({ tone: 'primary' })}>
+              <dt className={cm.accentCardLabel({ tone: 'primary' })}>
                 {t('nav.subscribers', {}, { defaultValue: 'Subscribers' })}
               </dt>
               <dd className={cm.cn('text-2xl font-extrabold tabular-nums')}>
                 {fmtCount(channel.subscriber_count)}
               </dd>
             </div>
-            <div className={cm.cn('border-l-4 border-primary pl-3')}>
-              <dt
-                className={cm.cn(
-                  'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
+            <div className={cm.accentCard({ tone: 'primary' })}>
+              <dt className={cm.accentCardLabel({ tone: 'primary' })}>
                 {t('channel.aboutTotalViews', {}, { defaultValue: 'Total views' })}
               </dt>
               <dd className={cm.cn('text-2xl font-extrabold tabular-nums')}>
                 {fmtCount(channel.total_views)}
               </dd>
             </div>
-            <div className={cm.cn('border-l-4 border-primary pl-3')}>
-              <dt
-                className={cm.cn(
-                  'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
+            <div className={cm.accentCard({ tone: 'primary' })}>
+              <dt className={cm.accentCardLabel({ tone: 'primary' })}>
                 {t('channel.aboutJoined', {}, { defaultValue: 'Joined' })}
               </dt>
               <dd className={cm.cn('text-2xl font-extrabold')}>

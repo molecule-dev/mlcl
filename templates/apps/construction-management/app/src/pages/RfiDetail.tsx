@@ -224,7 +224,7 @@ export function RfiDetail() {
               className={cm.cn(
                 cm.card(),
                 cm.sp('p', 5),
-                resp.is_final ? 'border-l-4 border-primary' : '',
+                resp.is_final ? cm.accentCard({ tone: 'primary' }) : '',
               )}
             >
               <div

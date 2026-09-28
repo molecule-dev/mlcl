@@ -127,7 +127,7 @@ export function Dashboard() {
         milesToday={stats?.miles_today ?? 0}
       />
 
-      {/* KPI row — CRM-pattern border-l-4 cards */}
+      {/* KPI row — CRM-pattern accent-bar cards */}
       <section className={cm.grid({ cols: 4, gap: 'md' })}>
         <BearingKpiCard
           label={t('dashboard.kpi.fleet', {}, { defaultValue: 'Active fleet' })}

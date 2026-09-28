@@ -553,15 +553,18 @@ export function Memory() {
               <div
                 className={cm.cn(
                   cm.sp('p', 4),
-                  'bg-source-pane rounded-lg font-serif-content text-sm border-l-4 border-l-secondary',
+                  cm.accentCard({ tone: 'custom' }),
+                  'bg-source-pane rounded-lg font-serif-content text-sm',
                 )}
+                style={{ ['--mol-accent' as string]: 'var(--color-secondary)' }}
               >
                 {m.source}
               </div>
               <div
                 className={cm.cn(
                   cm.sp('p', 4),
-                  'bg-target-pane rounded-lg font-serif-content text-sm border-l-4 border-l-primary',
+                  cm.accentCard({ tone: 'primary' }),
+                  'bg-target-pane rounded-lg font-serif-content text-sm',
                 )}
               >
                 {m.target}

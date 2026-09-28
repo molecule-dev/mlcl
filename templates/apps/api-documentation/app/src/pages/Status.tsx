@@ -133,7 +133,9 @@ export function Status() {
       </header>
 
       {incident ? (
-        <section className={cm.cn(cm.card(), cm.sp('p', 6), 'border-l-4 border-error space-y-3')}>
+        <section
+          className={cm.cn(cm.card(), cm.sp('p', 6), 'space-y-3', cm.accentCard({ tone: 'error' }))}
+        >
           <header className={cm.flex({ align: 'center', justify: 'between' })}>
             <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), 'text-error')}>
               {incident.title}

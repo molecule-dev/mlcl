@@ -5,7 +5,7 @@
  * rate) and Analytics page header strip.
  *
  * Translated from applicant-tracking's KpiCard / personal-finance's KpiCard
- * — same anatomy (border-l-4 brand accent, hover lift, font-black uppercase
+ * — same anatomy (brand accent bar, hover lift, font-black uppercase
  * eyebrow), recoloured to the cyan + emerald civic palette from DESIGN.md.
  */
 import type { ReactNode } from 'react'

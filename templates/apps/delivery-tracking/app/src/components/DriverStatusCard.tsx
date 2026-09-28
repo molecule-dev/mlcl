@@ -1,12 +1,12 @@
 import type { ReactNode } from 'react'
 
-import { getClassMap } from '@molecule/app-ui'
+import { type AccentTone, getClassMap } from '@molecule/app-ui'
 
 interface DriverStatusCardProps {
   label: string
   value: string
-  /** Border-l-4 color. */
-  accentColor?: string
+  /** Tone of the inset accent bar and the label (the shared accent-bar recipe). */
+  tone?: AccentTone
   /** Right-side decoration: sparkline bars, an icon, etc. */
   decoration?: ReactNode
   /** Small badge below the value (change %, units, etc). */
@@ -22,7 +22,7 @@ interface DriverStatusCardProps {
 export function DriverStatusCard({
   label,
   value,
-  accentColor = 'border-primary',
+  tone = 'primary',
   decoration,
   meta,
   valueTone = 'text-on-surface',
@@ -33,14 +33,12 @@ export function DriverStatusCard({
       className={cm.cn(
         cm.flex({ direction: 'col', justify: 'between' }),
         cm.sp('p', 5),
-        'bg-surface-container-lowest rounded-xl border-l-4 shadow-sm hover:shadow-md transition-shadow',
-        accentColor,
+        'bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow',
+        cm.accentCard({ tone }),
       )}
     >
       <div className={cm.flex({ align: 'start', justify: 'between' })}>
-        <span className="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">
-          {label}
-        </span>
+        <span className={cm.accentCardLabel({ tone })}>{label}</span>
         {decoration}
       </div>
       <div className={cm.cn(cm.sp('mt', 2), cm.flex({ align: 'baseline', gap: 'sm' }))}>

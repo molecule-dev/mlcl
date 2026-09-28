@@ -24,11 +24,12 @@ export interface InsightCardData {
   detected_at: string
 }
 
-const TYPE_BORDER: Record<InsightType, string> = {
-  trend: 'border-l-success',
-  anomaly: 'border-l-tertiary-container',
-  correlation: 'border-l-primary',
-  summary: 'border-l-secondary',
+/** The accent bar's color per insight type (`--mol-accent`). */
+const TYPE_ACCENT: Record<InsightType, string> = {
+  trend: 'var(--color-success)',
+  anomaly: 'var(--color-tertiary-container)',
+  correlation: 'var(--color-primary)',
+  summary: 'var(--color-secondary)',
 }
 
 const TYPE_PILL: Record<InsightType, string> = {
@@ -60,16 +61,17 @@ export interface InsightFeedCardProps {
 export function InsightFeedCard({ insight }: InsightFeedCardProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const type: InsightType = (TYPE_BORDER[insight.type] ? insight.type : 'summary') as InsightType
+  const type: InsightType = (TYPE_ACCENT[insight.type] ? insight.type : 'summary') as InsightType
 
   return (
     <article
       className={cm.cn(
         cm.flex({ direction: 'col', gap: 3 }),
         cm.sp('p', 5),
-        'border-l-4 bg-surface-container-lowest rounded-xl shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200',
-        TYPE_BORDER[type],
+        'bg-surface-container-lowest rounded-xl shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200',
+        cm.accentCard({ tone: 'custom' }),
       )}
+      style={{ ['--mol-accent' as string]: TYPE_ACCENT[type] }}
     >
       <header className={cm.flex({ align: 'center', justify: 'between' })}>
         <span

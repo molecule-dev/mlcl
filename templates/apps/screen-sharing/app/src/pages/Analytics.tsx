@@ -170,7 +170,7 @@ export function Analytics() {
 
       <section className={cm.cn(cm.grid({ cols: 1, gap: 'lg' }), 'lg:grid-cols-3')}>
         <KpiCard
-          accent="border-[var(--color-brand-gradient-from)]"
+          accent="var(--color-brand-gradient-from)"
           tile="bg-violet-50 text-violet-600"
           icon="visibility"
           label={t('analytics.kpi.viewsToday', {}, { defaultValue: 'Views today' })}
@@ -178,7 +178,7 @@ export function Analytics() {
           molId="kpi-views-today"
         />
         <KpiCard
-          accent="border-[var(--color-brand-gradient-to)]"
+          accent="var(--color-brand-gradient-to)"
           tile="bg-cyan-50 text-cyan-600"
           icon="schedule"
           label={t('analytics.kpi.avgWatchTime', {}, { defaultValue: 'Avg watch time' })}
@@ -186,7 +186,7 @@ export function Analytics() {
           molId="kpi-avg-watch"
         />
         <KpiCard
-          accent="border-emerald-500"
+          accent="var(--color-emerald-500)"
           tile="bg-success-light text-success"
           icon="forum"
           label={t('analytics.kpi.commentsThisWeek', {}, { defaultValue: 'Comments this week' })}
@@ -468,9 +468,10 @@ function KpiCard({
       className={cm.cn(
         cm.sp('p', 5),
         cm.stack(2),
-        'relative rounded-2xl border-l-4 bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 transition-transform',
-        accent,
+        cm.accentCard({ tone: 'custom' }),
+        'rounded-2xl bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 transition-transform',
       )}
+      style={{ ['--mol-accent' as string]: accent }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
         <div
@@ -484,13 +485,7 @@ function KpiCard({
         >
           <span className={cm.cn('material-symbols-outlined text-xl')}>{icon}</span>
         </div>
-        <span
-          className={cm.cn(
-            'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </span>
+        <span className={cm.accentCardLabel({ tone: 'custom' })}>{label}</span>
       </div>
       <div className={cm.cn(cm.flex({ align: 'baseline', justify: 'between', gap: 2 }))}>
         <span className={cm.cn('text-3xl font-extrabold tracking-tight text-on-surface')}>

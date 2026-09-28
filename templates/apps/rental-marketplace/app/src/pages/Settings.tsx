@@ -254,7 +254,8 @@ export function Settings() {
             <section
               className={cm.cn(
                 cm.sp('p', 6),
-                'bg-surface rounded-2xl shadow-sm border-l-4 border-primary space-y-4',
+                'bg-surface rounded-2xl shadow-sm space-y-4',
+                cm.accentCard({ tone: 'primary' }),
               )}
             >
               <h2
@@ -406,8 +407,10 @@ export function Settings() {
             <section
               className={cm.cn(
                 cm.sp('p', 6),
-                'bg-surface rounded-2xl shadow-sm border-l-4 border-accent space-y-4',
+                'bg-surface rounded-2xl shadow-sm space-y-4',
+                cm.accentCard({ tone: 'custom' }),
               )}
+              style={{ ['--mol-accent' as string]: 'var(--color-accent)' }}
             >
               <h2
                 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}
@@ -441,8 +444,10 @@ export function Settings() {
             <section
               className={cm.cn(
                 cm.sp('p', 6),
-                'bg-surface rounded-2xl shadow-sm border-l-4 border-accent space-y-4',
+                'bg-surface rounded-2xl shadow-sm space-y-4',
+                cm.accentCard({ tone: 'custom' }),
               )}
+              style={{ ['--mol-accent' as string]: 'var(--color-accent)' }}
             >
               <div className={cm.cn(cm.stack(1))}>
                 <h2
@@ -467,7 +472,8 @@ export function Settings() {
             <section
               className={cm.cn(
                 cm.sp('p', 6),
-                'bg-surface rounded-2xl shadow-sm border-l-4 border-primary space-y-4',
+                'bg-surface rounded-2xl shadow-sm space-y-4',
+                cm.accentCard({ tone: 'primary' }),
               )}
             >
               <h2

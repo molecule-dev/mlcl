@@ -382,8 +382,10 @@ export function HostDashboard() {
                 className={cm.cn(
                   cm.sp('p', 4),
                   cm.flex({ align: 'center', gap: 'md' }),
-                  'bg-surface rounded-2xl shadow-sm border-l-4 border-accent hover:shadow-md transition-shadow',
+                  'bg-surface rounded-2xl shadow-sm hover:shadow-md transition-shadow',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
+                style={{ ['--mol-accent' as string]: 'var(--color-accent)' }}
               >
                 {r.guest_photo ? (
                   <img
@@ -466,16 +468,11 @@ export function HostDashboard() {
                 key={r.id}
                 className={cm.cn(
                   cm.sp('p', 4),
-                  'bg-surface rounded-2xl shadow-sm border-l-4 border-primary',
+                  'bg-surface rounded-2xl shadow-sm',
+                  cm.accentCard({ tone: 'primary' }),
                 )}
               >
-                <p
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.fontWeight('bold'),
-                    'uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
+                <p className={cm.accentCardLabel({ tone: 'primary' })}>
                   {new Date(r.check_in_iso).toLocaleDateString(undefined, {
                     weekday: 'long',
                     month: 'short',

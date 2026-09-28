@@ -82,7 +82,8 @@ export function AlertConditionCard({
       className={cm.cn(
         cm.sp('p', 5),
         cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-        'rounded-2xl bg-surface-container-lowest border-l-4 border-primary shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex-wrap',
+        'rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex-wrap',
+        cm.accentCard({ tone: 'primary' }),
       )}
       data-mol-id={`alert-card-${alert.id}`}
     >

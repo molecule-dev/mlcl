@@ -340,28 +340,28 @@ export function Workspace() {
               label: 'totalBoards',
               fallback: 'Boards owned',
               value: totalBoards,
-              accent: 'border-primary',
+              accent: 'primary',
             },
             {
               icon: 'group',
               label: 'totalCollaborators',
               fallback: 'Collaborators',
               value: totalCollaborators,
-              accent: 'border-emerald-500',
+              accent: 'var(--color-emerald-500)',
             },
             {
               icon: 'check_circle',
               label: 'accepted',
               fallback: 'Accepted',
               value: acceptedCount,
-              accent: 'border-secondary',
+              accent: 'var(--color-secondary)',
             },
             {
               icon: 'mark_email_unread',
               label: 'pending',
               fallback: 'Pending',
               value: pendingCount,
-              accent: 'border-amber-500',
+              accent: 'var(--color-amber-500)',
             },
           ].map((kpi) => (
             <article
@@ -370,9 +370,12 @@ export function Workspace() {
               className={cm.cn(
                 cm.sp('p', 6),
                 cm.stack(2),
-                'bg-surface-container-lowest rounded-2xl border-l-4 shadow-sm hover:-translate-y-0.5 transition-transform',
-                kpi.accent,
+                cm.accentCard({ tone: kpi.accent === 'primary' ? 'primary' : 'custom' }),
+                'bg-surface-container-lowest rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform',
               )}
+              style={
+                kpi.accent === 'primary' ? undefined : { ['--mol-accent' as string]: kpi.accent }
+              }
             >
               <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
                 <span
@@ -387,10 +390,9 @@ export function Workspace() {
                   <span className={cm.cn('material-symbols-outlined text-[18px]')}>{kpi.icon}</span>
                 </span>
                 <span
-                  className={cm.cn(
-                    cm.fontWeight('bold'),
-                    'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                  )}
+                  className={cm.accentCardLabel({
+                    tone: kpi.accent === 'primary' ? 'primary' : 'custom',
+                  })}
                 >
                   {t(`workspace.kpi.${kpi.label}`, {}, { defaultValue: kpi.fallback })}
                 </span>

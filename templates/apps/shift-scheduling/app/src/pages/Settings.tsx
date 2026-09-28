@@ -141,7 +141,7 @@ export function Settings() {
               className={cm.cn(
                 cm.sp('p', 6),
                 'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm transition-all',
-                'primary' in s && s.primary ? 'border-l-4 border-l-primary' : '',
+                'primary' in s && s.primary ? cm.accentCard({ tone: 'primary' }) : '',
               )}
             >
               <span

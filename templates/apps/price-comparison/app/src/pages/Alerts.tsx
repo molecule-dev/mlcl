@@ -26,10 +26,11 @@ interface ApiAlert {
   } | null
 }
 
-const STATUS_TONE: Record<ApiAlert['status'], string> = {
-  active: 'border-tertiary bg-tertiary/5',
-  triggered: 'border-secondary bg-secondary/10',
-  paused: 'border-outline-variant bg-surface-container/30',
+/** Per-status card tint plus the accent bar color (read by `cm.accentCard({ tone: 'custom' })`). */
+const STATUS_TONE: Record<ApiAlert['status'], { tint: string; accent: string }> = {
+  active: { tint: 'bg-tertiary/5', accent: 'var(--color-tertiary)' },
+  triggered: { tint: 'bg-secondary/10', accent: 'var(--color-secondary)' },
+  paused: { tint: 'bg-surface-container/30', accent: 'var(--color-outline-variant)' },
 }
 
 const STATUS_GLYPH: Record<ApiAlert['status'], { glyph: string; tint: string }> = {
@@ -196,21 +197,17 @@ export function Alerts() {
                 <div
                   className={cm.cn(
                     cm.sp('p', 5),
-                    'block rounded-2xl border-l-4 bg-surface-container-lowest shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md',
-                    tone,
+                    cm.accentCard({ tone: 'custom' }),
+                    'block rounded-2xl bg-surface-container-lowest shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md',
+                    tone.tint,
                     'border border-outline-variant/30',
                   )}
+                  style={{ ['--mol-accent' as string]: tone.accent }}
                 >
                   <header
                     className={cm.cn(cm.flex({ align: 'baseline', justify: 'between', gap: 'sm' }))}
                   >
-                    <p
-                      className={cm.cn(
-                        'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                      )}
-                    >
-                      {brand}
-                    </p>
+                    <p className={cm.accentCardLabel({ tone: 'custom' })}>{brand}</p>
                     <span
                       className={cm.cn(
                         cm.flex({ align: 'center', gap: 'xs' }),

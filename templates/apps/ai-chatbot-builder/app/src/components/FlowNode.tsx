@@ -88,20 +88,17 @@ export default function FlowNode({ node, isSelected, onSelect }: Props) {
     }
   })()
 
-  const borderColor = (() => {
+  // The node kind's color drives the inset accent bar and the kind label.
+  const accentColor = (() => {
     switch (node.type) {
       case 'classify':
-        return 'border-indigo-500'
-      case 'action':
-        return 'border-outline'
-      case 'form':
-        return 'border-outline'
+        return 'var(--color-indigo-500)'
       case 'ai-agent':
-        return 'border-primary'
+        return 'var(--color-primary)'
       case 'output':
-        return 'border-green-500/50'
+        return 'color-mix(in srgb, var(--color-green-500) 50%, transparent)'
       default:
-        return 'border-outline'
+        return 'var(--color-outline)'
     }
   })()
 
@@ -128,15 +125,12 @@ export default function FlowNode({ node, isSelected, onSelect }: Props) {
       data-mol-id={`flow-node-${node.id}`}
     >
       <div
-        className={`${widthClass} ${bgClass} rounded-xl border-l-4 ${borderColor} ${isAiSelected ? 'shadow-[0_0_30px_rgba(192,193,255,0.15)] ring-1 ring-primary/40' : isClassify ? 'shadow-2xl' : ''} ${opacityClass} p-4 flex flex-col ${gapClass}`}
+        className={`${widthClass} ${bgClass} rounded-xl ${cm.accentCard({ tone: 'custom' })} ${isAiSelected ? 'shadow-[0_0_30px_rgba(192,193,255,0.15)] ring-1 ring-primary/40' : isClassify ? 'shadow-2xl' : ''} ${opacityClass} p-4 flex flex-col ${gapClass}`}
+        style={{ ['--mol-accent' as string]: accentColor }}
       >
         {isClassify || isAiAgent ? (
           <div className={cm.flex({ align: 'center', justify: 'between' })}>
-            <span
-              className={`text-[10px] font-bold ${isAiAgent ? 'text-primary' : 'text-on-surface-variant'} uppercase tracking-widest`}
-            >
-              {typeLabel}
-            </span>
+            <span className={cm.accentCardLabel({ tone: 'custom' })}>{typeLabel}</span>
             <div className={cm.flex()} style={{ gap: 'calc(1 * 0.25rem)' }}>
               {isAiSelected && (
                 <span

@@ -459,8 +459,10 @@ export function RulesEditor() {
         <section
           className={cm.cn(
             cm.sp('p', 5),
-            'rounded-2xl border-l-4 bg-surface-container-lowest shadow-sm border-outline-variant/30 border-violet-500',
+            cm.accentCard({ tone: 'custom' }),
+            'rounded-2xl bg-surface-container-lowest shadow-sm',
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-violet-500)' }}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 4))}>
             <span

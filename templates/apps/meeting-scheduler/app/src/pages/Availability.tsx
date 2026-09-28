@@ -281,9 +281,14 @@ export function Availability() {
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
                 cm.sp('p', 4),
-                'bg-surface rounded-xl border-l-4',
-                dayState.enabled ? 'border-emerald-500' : 'border-outline-variant',
+                cm.accentCard({ tone: 'custom' }),
+                'bg-surface rounded-xl',
               )}
+              style={{
+                ['--mol-accent' as string]: dayState.enabled
+                  ? 'var(--color-emerald-500)'
+                  : 'var(--color-outline-variant)',
+              }}
             >
               <div className={cm.flex({ align: 'center', gap: 'md' })}>
                 <button
@@ -328,11 +333,7 @@ export function Availability() {
                       },
                     )}
                   </p>
-                  <p
-                    className={cm.cn(
-                      'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                    )}
-                  >
+                  <p className={cm.accentCardLabel({ tone: 'custom' })}>
                     {dayState.enabled
                       ? t('availability.openHours', {}, { defaultValue: 'Open for bookings' })
                       : t('availability.closed', {}, { defaultValue: 'Closed' })}

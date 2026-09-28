@@ -270,7 +270,7 @@ export function EntryComposer() {
             ))}
           </div>
           <div
-            className={cm.cn(cm.sp('p', 5), 'rounded-2xl border-l-4 border-primary')}
+            className={cm.cn(cm.sp('p', 5), cm.accentCard({ tone: 'primary' }), 'rounded-2xl')}
             style={{
               background:
                 'linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(167, 139, 250, 0.05))',

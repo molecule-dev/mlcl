@@ -7,7 +7,7 @@
  * fill / Over budget: error color fill").
  *
  * Translated from personal-finance's MetricsCard.tsx (KPI label/value
- * stack + border-l-4 + hover lift) and project-management's StatsRow.tsx
+ * stack + inset accent bar + hover lift) and project-management's StatsRow.tsx
  * progress-bar treatment — adapted for travel spending categories.
  */
 
@@ -25,13 +25,13 @@ export interface BudgetSpend {
 }
 
 const CATEGORY_LABELS: Record<BudgetCategory, { label: string; icon: string; stripe: string }> = {
-  accommodation: { label: 'Lodging', icon: 'hotel', stripe: 'border-cyan-700' },
-  food: { label: 'Food & drink', icon: 'restaurant', stripe: 'border-orange-600' },
-  sightseeing: { label: 'Sightseeing', icon: 'photo_camera', stripe: 'border-violet-500' },
-  transport: { label: 'Transit', icon: 'directions', stripe: 'border-border-secondary' },
-  activity: { label: 'Activities', icon: 'hiking', stripe: 'border-emerald-600' },
-  shopping: { label: 'Shopping', icon: 'shopping_bag', stripe: 'border-pink-500' },
-  other: { label: 'Other', icon: 'more_horiz', stripe: 'border-border-secondary' },
+  accommodation: { label: 'Lodging', icon: 'hotel', stripe: 'var(--color-cyan-700)' },
+  food: { label: 'Food & drink', icon: 'restaurant', stripe: 'var(--color-orange-600)' },
+  sightseeing: { label: 'Sightseeing', icon: 'photo_camera', stripe: 'var(--color-violet-500)' },
+  transport: { label: 'Transit', icon: 'directions', stripe: 'var(--color-border-secondary)' },
+  activity: { label: 'Activities', icon: 'hiking', stripe: 'var(--color-emerald-600)' },
+  shopping: { label: 'Shopping', icon: 'shopping_bag', stripe: 'var(--color-pink-500)' },
+  other: { label: 'Other', icon: 'more_horiz', stripe: 'var(--color-border-secondary)' },
 }
 
 function fmtMoney(cents: number): string {
@@ -52,17 +52,16 @@ export function BudgetSpendCard({ spend }: { spend: BudgetSpend }) {
     <article
       className={cm.cn(
         cm.sp('p', 5),
-        'bg-surface rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all border-l-4',
-        meta.stripe,
+        cm.accentCard({ tone: 'custom' }),
+        'bg-surface rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
       )}
+      style={{ ['--mol-accent' as string]: meta.stripe }}
     >
       <header className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }))}>
         <span
           className={cm.cn(
-            cm.textSize('xs'),
-            cm.fontWeight('bold'),
+            cm.accentCardLabel({ tone: 'custom' }),
             cm.flex({ align: 'center', gap: 'xs' }),
-            'uppercase tracking-[0.25em] text-on-surface-variant',
           )}
         >
           <span

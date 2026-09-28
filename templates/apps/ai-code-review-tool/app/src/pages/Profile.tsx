@@ -173,20 +173,25 @@ export function Profile() {
             key: 'reviews',
             label: 'Reviews',
             value: String(reviewCount),
-            tint: 'border-violet-500',
+            accent: 'var(--color-violet-500)',
           },
-          { key: 'streak', label: 'Day streak', value: String(streak), tint: 'border-emerald-500' },
+          {
+            key: 'streak',
+            label: 'Day streak',
+            value: String(streak),
+            accent: 'var(--color-emerald-500)',
+          },
           {
             key: 'avgScore',
             label: 'Avg score',
             value: avgScore > 0 ? avgScore.toFixed(1) : '—',
-            tint: 'border-cyan-500',
+            accent: 'var(--color-cyan-500)',
           },
           {
             key: 'critical',
             label: 'Critical',
             value: String(summary?.criticalReviews ?? 0),
-            tint: 'border-amber-500',
+            accent: 'var(--color-amber-500)',
           },
         ].map((kpi) => (
           <article
@@ -194,17 +199,12 @@ export function Profile() {
             className={cm.cn(
               cm.sp('p', 5),
               cm.stack(2),
-              'rounded-2xl bg-surface-container-lowest shadow-sm border-l-4',
-              kpi.tint,
+              cm.accentCard({ tone: 'custom' }),
+              'rounded-2xl bg-surface-container-lowest shadow-sm',
             )}
+            style={{ ['--mol-accent' as string]: kpi.accent }}
           >
-            <p
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                'uppercase tracking-widest text-on-surface-variant font-mono',
-              )}
-            >
+            <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-mono')}>
               {t(`profile.kpi.${kpi.key}`, {}, { defaultValue: kpi.label })}
             </p>
             <p

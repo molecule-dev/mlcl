@@ -16,11 +16,14 @@ interface FirmwareCampaignCardProps {
   campaign: FirmwareCampaign
 }
 
-const STATUS_ACCENT: Record<FirmwareCampaign['status'], string> = {
-  current: 'border-success',
-  pending: 'border-warning',
-  rolling: 'border-primary',
-  failed: 'border-error',
+const STATUS_ACCENT: Record<
+  FirmwareCampaign['status'],
+  'success' | 'warning' | 'primary' | 'error'
+> = {
+  current: 'success',
+  pending: 'warning',
+  rolling: 'primary',
+  failed: 'error',
 }
 
 const STATUS_LABEL_TONE: Record<FirmwareCampaign['status'], string> = {
@@ -58,8 +61,8 @@ export function FirmwareCampaignCard({ campaign }: FirmwareCampaignCardProps) {
     <article
       className={cm.cn(
         cm.sp('p', 5),
-        'bg-surface-container-lowest rounded-xl border-l-4 shadow-sm hover:shadow-md transition-shadow',
-        STATUS_ACCENT[campaign.status],
+        'bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow',
+        cm.accentCard({ tone: STATUS_ACCENT[campaign.status] }),
       )}
     >
       <div className={cm.flex({ align: 'center', justify: 'between', gap: 'md' })}>

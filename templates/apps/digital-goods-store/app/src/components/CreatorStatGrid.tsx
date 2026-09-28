@@ -1,9 +1,10 @@
 import { useTranslation } from '@molecule/app-react'
+import type { AccentTone } from '@molecule/app-ui'
 import { getClassMap } from '@molecule/app-ui'
 
 /**
  * Quad of summary KPI cards — uppercase 10px label, extrabold value, accent
- * border-l-4, hover lift. Sits below the RevenueHeroCard on the seller
+ * an inset accent bar, hover lift. Sits below the RevenueHeroCard on the seller
  * dashboard.
  *
  * Translated from personal-finance/DashboardAccountOverview.tsx + the §2.3
@@ -22,11 +23,12 @@ export interface CreatorStat {
   accent?: 'primary' | 'accent' | 'success' | 'info'
 }
 
-const ACCENT_BORDER: Record<NonNullable<CreatorStat['accent']>, string> = {
-  primary: 'border-l-primary',
-  accent: 'border-l-accent',
-  success: 'border-l-success',
-  info: 'border-l-info',
+/** The card's accent-bar tone; `accent` is the theme's accent color, which has no semantic tone. */
+const ACCENT_TONE: Record<NonNullable<CreatorStat['accent']>, AccentTone> = {
+  primary: 'primary',
+  accent: 'custom',
+  success: 'success',
+  info: 'info',
 }
 
 const ACCENT_ICON: Record<NonNullable<CreatorStat['accent']>, string> = {
@@ -55,9 +57,14 @@ export default function CreatorStatGrid({ stats }: CreatorStatGridProps) {
             key={stat.key}
             className={cm.cn(
               cm.sp('p', 6),
-              'bg-surface-container-lowest rounded-2xl border-l-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300',
-              ACCENT_BORDER[accent],
+              cm.accentCard({ tone: ACCENT_TONE[accent] }),
+              'bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300',
             )}
+            style={
+              accent === 'accent'
+                ? { ['--mol-accent' as string]: 'var(--color-accent)' }
+                : undefined
+            }
           >
             <div
               className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}
@@ -86,14 +93,7 @@ export default function CreatorStatGrid({ stats }: CreatorStatGridProps) {
                 </span>
               )}
             </div>
-            <p
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                'text-[10px] uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
-              {stat.label}
-            </p>
+            <p className={cm.accentCardLabel({ tone: ACCENT_TONE[accent] })}>{stat.label}</p>
             <p
               className={cm.cn(
                 cm.textSize('3xl'),

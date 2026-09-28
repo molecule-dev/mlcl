@@ -230,7 +230,8 @@ export function RecipeDetail() {
         <section
           className={cm.cn(
             cm.sp('p', 6),
-            'bg-surface rounded-2xl shadow-sm border-l-4 border-l-primary lg:sticky lg:top-6',
+            'bg-surface rounded-2xl shadow-sm lg:sticky lg:top-6',
+            cm.accentCard({ tone: 'primary' }),
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}>

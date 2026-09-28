@@ -22,11 +22,13 @@ export default function ChannelIntegrationItem({
   return (
     <div
       data-mol-id="channel-integration-item"
-      className={
+      className={cm.cn(
+        'group flex items-center justify-between p-4 rounded-2xl',
         isConnected
-          ? 'group flex items-center justify-between p-4 bg-tertiary/5 rounded-2xl border-l-4 border-tertiary'
-          : 'group flex items-center justify-between p-4 bg-surface-container-high rounded-2xl transition-all hover:bg-surface-container-highest'
-      }
+          ? cm.cn('bg-tertiary/5', cm.accentCard({ tone: 'custom' }))
+          : 'bg-surface-container-high transition-all hover:bg-surface-container-highest',
+      )}
+      style={{ ['--mol-accent' as string]: 'var(--color-tertiary)' }}
     >
       <div className={cm.flex({ align: 'center' })} style={{ gap: 'calc(4 * 0.25rem)' }}>
         <div

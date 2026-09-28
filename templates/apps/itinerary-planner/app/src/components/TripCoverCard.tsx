@@ -3,7 +3,7 @@
  * with the destination title (per DESIGN.md "Status dot: 8px circle,
  * confirmed/tentative/cancelled color, inline with title"), date-range
  * pill in the top-left, stacked collaborator avatars bottom-right, and a
- * border-l-4 primary accent stripe to thread the rhythm of polished-11
+ * inset primary accent bar on the text block to thread the rhythm of polished-11
  * card grids.
  *
  * Translated from travel-booking's TripItineraryRow.tsx (status pills,
@@ -103,7 +103,7 @@ export function TripCoverCard({ trip }: { trip: TripSummary }) {
     <Link
       to={`/trips/${trip.id}`}
       className={cm.cn(
-        'group block bg-surface rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all overflow-hidden border-l-4 border-primary',
+        'group block bg-surface rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all overflow-hidden',
       )}
     >
       <div className={cm.cn('relative aspect-[16/9] bg-surface-variant overflow-hidden')}>
@@ -172,7 +172,13 @@ export function TripCoverCard({ trip }: { trip: TripSummary }) {
           ) : null}
         </div>
       </div>
-      <div className={cm.cn(cm.sp('p', 5), cm.flex({ direction: 'col', gap: 'sm' }))}>
+      <div
+        className={cm.cn(
+          cm.sp('p', 5),
+          cm.accentCard({ tone: 'primary' }),
+          cm.flex({ direction: 'col', gap: 'sm' }),
+        )}
+      >
         <div className={cm.flex({ align: 'center', gap: 'sm' })}>
           <span className={cm.cn('w-2 h-2 rounded-full', theme.dot)} aria-hidden="true" />
           <h3

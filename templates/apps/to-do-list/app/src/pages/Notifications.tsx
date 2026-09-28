@@ -236,7 +236,7 @@ export function Notifications() {
                   cm.card(),
                   cm.sp('p', 4),
                   cm.flex({ align: 'start', gap: 'md' }),
-                  n.unread ? 'border-l-4 border-primary' : '',
+                  n.unread ? cm.accentCard({ tone: 'primary' }) : '',
                 )}
               >
                 <div

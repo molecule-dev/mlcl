@@ -15,8 +15,7 @@ function LessonDescription({ lesson }: LessonDescriptionProps) {
         className={cm.cn(
           cm.textSize('xl'),
           cm.fontWeight('bold'),
-          cm.sp('pl', 4),
-          'border-l-4 border-primary',
+          cm.accentCard({ tone: 'primary' }),
         )}
       >
         {t('lessonDescription.heading', {}, { defaultValue: 'Lesson Description' })}

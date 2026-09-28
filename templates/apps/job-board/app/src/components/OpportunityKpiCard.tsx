@@ -1,9 +1,9 @@
 /**
- * Dashboard KPI card — left-accent border, uppercase tracking-widest label,
+ * Dashboard KPI card — inset accent bar, uppercase label in its color,
  * extrabold tabular-num value, optional trend pill and contextual hint, hover
  * lift transition.
  *
- * Translated from applicant-tracking's KpiCard — same border-l-4 brand accent
+ * Translated from applicant-tracking's KpiCard — same brand accent bar
  * + font-black uppercase eyebrow + 3xl extrabold value anatomy. Used 4× on
  * Placement's Dashboard for active jobs / applications / interviews / offers.
  */
@@ -44,17 +44,12 @@ export function OpportunityKpiCard({ icon, label, value, trend, hint }: Opportun
       className={cm.cn(
         cm.sp('p', 5),
         cm.flex({ direction: 'col', gap: 'sm' }),
-        'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 border-l-4 border-l-primary shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
+        cm.accentCard({ tone: 'primary' }),
+        'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
       )}
     >
       <header className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
-        <p
-          className={cm.cn(
-            'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </p>
+        <p className={cm.accentCardLabel({ tone: 'primary' })}>{label}</p>
         {icon ? (
           <span
             aria-hidden="true"

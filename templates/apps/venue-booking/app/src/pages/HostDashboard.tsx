@@ -256,10 +256,11 @@ export function HostDashboard() {
         <div
           className={cm.cn(
             cm.sp('p', 5),
-            'bg-surface rounded-2xl shadow-sm border-l-4 border-primary hover:-translate-y-0.5 transition-transform',
+            cm.accentCard({ tone: 'primary' }),
+            'bg-surface rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform',
           )}
         >
-          <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+          <p className={cm.accentCardLabel({ tone: 'primary' })}>
             {t('hostDashboard.kpi.occupancy', {}, { defaultValue: 'Occupancy' })}
           </p>
           <p className={cm.cn(cm.sp('mt', 2), 'text-3xl font-extrabold tabular-nums')}>
@@ -272,10 +273,12 @@ export function HostDashboard() {
         <div
           className={cm.cn(
             cm.sp('p', 5),
-            'bg-surface rounded-2xl shadow-sm border-l-4 border-accent hover:-translate-y-0.5 transition-transform',
+            cm.accentCard({ tone: 'custom' }),
+            'bg-surface rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform',
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-accent)' }}
         >
-          <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+          <p className={cm.accentCardLabel({ tone: 'custom' })}>
             {t('hostDashboard.kpi.bookings', {}, { defaultValue: 'Active bookings' })}
           </p>
           <p className={cm.cn(cm.sp('mt', 2), 'text-3xl font-extrabold tabular-nums')}>
@@ -288,10 +291,12 @@ export function HostDashboard() {
         <div
           className={cm.cn(
             cm.sp('p', 5),
-            'bg-surface rounded-2xl shadow-sm border-l-4 border-teal-600 hover:-translate-y-0.5 transition-transform',
+            cm.accentCard({ tone: 'custom' }),
+            'bg-surface rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform',
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-teal-600)' }}
         >
-          <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+          <p className={cm.accentCardLabel({ tone: 'custom' })}>
             {t('hostDashboard.kpi.response', {}, { defaultValue: 'Response rate' })}
           </p>
           <p className={cm.cn(cm.sp('mt', 2), 'text-3xl font-extrabold tabular-nums')}>
@@ -304,10 +309,12 @@ export function HostDashboard() {
         <div
           className={cm.cn(
             cm.sp('p', 5),
-            'bg-surface rounded-2xl shadow-sm border-l-4 border-amber-500 hover:-translate-y-0.5 transition-transform',
+            cm.accentCard({ tone: 'custom' }),
+            'bg-surface rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform',
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-amber-500)' }}
         >
-          <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+          <p className={cm.accentCardLabel({ tone: 'custom' })}>
             {t('hostDashboard.kpi.rating', {}, { defaultValue: 'Avg rating' })}
           </p>
           <p className={cm.cn(cm.sp('mt', 2), 'text-3xl font-extrabold tabular-nums')}>4.93</p>

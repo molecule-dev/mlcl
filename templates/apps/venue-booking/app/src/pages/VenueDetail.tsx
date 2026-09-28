@@ -458,16 +458,11 @@ export function VenueDetail() {
                         className={cm.cn(
                           cm.sp('mt', 3),
                           cm.sp('p', 4),
-                          'rounded-xl bg-primary/5 border-l-4 border-primary',
+                          cm.accentCard({ tone: 'primary' }),
+                          'rounded-xl bg-primary/5',
                         )}
                       >
-                        <p
-                          className={cm.cn(
-                            cm.textSize('xs'),
-                            cm.fontWeight('bold'),
-                            'uppercase tracking-widest text-primary',
-                          )}
-                        >
+                        <p className={cm.accentCardLabel({ tone: 'primary' })}>
                           {t(
                             'venueDetail.hostResponse',
                             { host: venue.host_name ?? 'host' },

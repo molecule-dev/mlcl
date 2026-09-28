@@ -328,14 +328,11 @@ export function Billing() {
                 key={u.key}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 border-l-4 border-l-primary shadow-sm',
+                  cm.accentCard({ tone: 'primary' }),
+                  'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
                 )}
               >
-                <p
-                  className={cm.cn(
-                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
+                <p className={cm.accentCardLabel({ tone: 'primary' })}>
                   {t(`billing.usage.${u.key}`, {}, { defaultValue: u.label })}
                 </p>
                 <p

@@ -181,7 +181,8 @@ export function Notifications() {
         <div
           role="alert"
           className={cm.cn(
-            'rounded-lg border-l-4 border-red-500 bg-error-light px-4 py-3 text-sm text-error',
+            cm.accentCard({ tone: 'error' }),
+            'rounded-lg bg-error-light pr-4 py-3 text-sm text-error',
           )}
         >
           {error}

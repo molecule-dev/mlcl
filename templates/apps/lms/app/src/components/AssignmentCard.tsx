@@ -24,10 +24,18 @@ const STATUS_LABELS: Record<NonNullable<AssignmentCardData['status']>, string> =
 }
 
 const STATUS_TONE: Record<NonNullable<AssignmentCardData['status']>, string> = {
-  overdue: 'border-l-error bg-error-container/40 text-on-error-container',
-  upcoming: 'border-l-primary bg-primary-container/40 text-on-primary-container',
-  submitted: 'border-l-tertiary bg-tertiary-container/40 text-on-tertiary-container',
-  graded: 'border-l-secondary bg-secondary-container/40 text-on-secondary-container',
+  overdue: 'bg-error-container/40 text-on-error-container',
+  upcoming: 'bg-primary-container/40 text-on-primary-container',
+  submitted: 'bg-tertiary-container/40 text-on-tertiary-container',
+  graded: 'bg-secondary-container/40 text-on-secondary-container',
+}
+
+/** The status color the card's accent bar and status label take (`--mol-accent`). */
+const STATUS_ACCENT: Record<NonNullable<AssignmentCardData['status']>, string> = {
+  overdue: 'var(--color-error)',
+  upcoming: 'var(--color-primary)',
+  submitted: 'var(--color-tertiary)',
+  graded: 'var(--color-secondary)',
 }
 
 function formatDue(due?: string | null): string {
@@ -57,8 +65,10 @@ export function AssignmentCard({ assignment }: { assignment?: AssignmentCardData
         className={cm.cn(
           cm.flex({ direction: 'col', justify: 'between' }),
           cm.sp('p', 6),
-          'bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 border-l-4 border-l-outline-variant/30',
+          cm.accentCard({ tone: 'custom' }),
+          'bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10',
         )}
+        style={{ ['--mol-accent' as string]: 'var(--color-outline-variant)' }}
         data-mol-id="assignment-card-empty"
       >
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
@@ -76,19 +86,21 @@ export function AssignmentCard({ assignment }: { assignment?: AssignmentCardData
       className={cm.cn(
         cm.flex({ direction: 'col', justify: 'between' }),
         cm.sp('p', 6),
-        'group bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 border-l-4',
+        cm.accentCard({ tone: 'custom' }),
+        'group bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10',
         tone,
       )}
+      style={{ ['--mol-accent' as string]: STATUS_ACCENT[status] }}
       data-mol-id="assignment-card"
     >
       <div>
         <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), cm.sp('mb', 4))}>
           <span
             className={cm.cn(
+              cm.accentCardLabel({ tone: 'custom' }),
               cm.sp('py', 1),
               cm.sp('px', 2),
-              cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-wider rounded',
+              'rounded',
             )}
           >
             {t(`assignmentCard.status.${status}`, {}, { defaultValue: STATUS_LABELS[status] })}

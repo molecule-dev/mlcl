@@ -1,10 +1,10 @@
 /**
- * KPI card with left-border accent + uppercase 10px label, large value
- * font-extrabold, optional supporting trend pill. Used in 3-up triads
- * on Inbox + Reports.
+ * KPI card with the shared inset accent bar + uppercase label in the accent
+ * color, large value font-extrabold, optional supporting trend pill. Used in
+ * 3-up triads on Inbox + Reports.
  *
  * Translated from personal-finance DashboardAccountOverview cell with
- * the catalog "KPI cards" recipe (border-l-4 accent, hover lift).
+ * the catalog "KPI cards" recipe (accent bar, hover lift).
  */
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -18,18 +18,18 @@ interface KpiStatCardProps {
   trend?: string
   /** Material symbol icon name. */
   icon: string
-  /** Accent color used for the left border + icon. */
+  /** Accent color used for the accent bar, its label + the icon. */
   accent?: KpiAccent
   /** Optional tone for the trend label. */
   trendTone?: 'up' | 'down' | 'neutral'
 }
 
-const ACCENT_BORDER: Record<KpiAccent, string> = {
-  primary: 'border-primary',
-  success: 'border-success',
-  warning: 'border-warning',
-  urgent: 'border-error',
-  bot: 'border-[var(--color-bot-accent)]',
+const ACCENT_VAR: Record<KpiAccent, string> = {
+  primary: 'var(--color-primary)',
+  success: 'var(--color-success)',
+  warning: 'var(--color-warning)',
+  urgent: 'var(--color-error)',
+  bot: 'var(--color-bot-accent)',
 }
 
 const ACCENT_TEXT: Record<KpiAccent, string> = {
@@ -61,19 +61,13 @@ function KpiStatCard({
       className={cm.cn(
         cm.sp('p', 5),
         cm.flex({ direction: 'col', gap: 3 }),
-        'bg-surface-container-lowest rounded-xl shadow-sm border-l-4 hover:-translate-y-0.5 transition-transform duration-200',
-        ACCENT_BORDER[accent],
+        cm.accentCard({ tone: 'custom' }),
+        'bg-surface-container-lowest rounded-xl shadow-sm hover:-translate-y-0.5 transition-transform duration-200',
       )}
+      style={{ ['--mol-accent' as string]: ACCENT_VAR[accent] }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
-        <span
-          className={cm.cn(
-            cm.fontWeight('bold'),
-            'text-[10px] uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </span>
+        <span className={cm.accentCardLabel({ tone: 'custom' })}>{label}</span>
         <span
           className={cm.cn('material-symbols-outlined', cm.textSize('xl'), ACCENT_TEXT[accent])}
         >

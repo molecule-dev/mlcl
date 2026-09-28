@@ -25,27 +25,30 @@ interface AlertBannerProps {
   onDismiss?: (id: string) => void
 }
 
-const SEVERITY_TONE: Record<string, { bar: string; bg: string; pill: string; icon: string }> = {
+const SEVERITY_TONE: Record<
+  string,
+  { bar: 'info' | 'warning' | 'error'; bg: string; pill: string; icon: string }
+> = {
   minor: {
-    bar: 'border-l-info',
+    bar: 'info',
     bg: 'bg-info/10',
     pill: 'bg-info/20 text-info',
     icon: 'info',
   },
   moderate: {
-    bar: 'border-l-warning',
+    bar: 'warning',
     bg: 'bg-warning/10',
     pill: 'bg-warning/20 text-warning',
     icon: 'notifications_active',
   },
   severe: {
-    bar: 'border-l-error',
+    bar: 'error',
     bg: 'bg-error/10',
     pill: 'bg-error/20 text-error',
     icon: 'warning',
   },
   extreme: {
-    bar: 'border-l-error',
+    bar: 'error',
     bg: 'bg-error/15',
     pill: 'bg-error/30 text-on-error-container',
     icon: 'storm',
@@ -60,7 +63,7 @@ function fmtTime(iso?: string | null): string {
 }
 
 /**
- * Severity-tinted alert banner — left-border accent, glass-tinted
+ * Severity-tinted alert banner — inset accent bar, glass-tinted
  * background, severity pill, and an optional dismiss control. Stacks
  * vertically inside the Alerts page; the Dashboard renders the highest
  * severity banner inline above the hero.
@@ -80,8 +83,8 @@ export function AlertBanner({ alert, onDismiss }: AlertBannerProps) {
         cm.sp('p', 4),
         'rounded-xl',
         severity.bg,
-        severity.bar,
-        'border-l-4 backdrop-blur-sm',
+        cm.accentCard({ tone: severity.bar }),
+        'backdrop-blur-sm',
       )}
     >
       <div className={cm.cn(cm.flex({ align: 'start', justify: 'between', gap: 'md' }))}>

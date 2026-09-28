@@ -27,7 +27,8 @@ interface CardSpec {
   value: string
   defaultSublabel: string
   icon: string
-  accentBorder: string
+  /** The card's accent color (the inset bar and its label). */
+  accentVar: string
   accentText: string
   iconBg: string
 }
@@ -51,7 +52,7 @@ export function OccupancyKpiQuad({
       value: `${occupancyPct}%`,
       defaultSublabel: '{{occupied}} of {{total}} units',
       icon: 'home',
-      accentBorder: 'border-l-emerald-500',
+      accentVar: 'var(--color-emerald-500)',
       accentText: 'text-success',
       iconBg: 'bg-success-light text-success',
     },
@@ -62,7 +63,7 @@ export function OccupancyKpiQuad({
       value: String(vacantUnits),
       defaultSublabel: 'ready to list',
       icon: 'meeting_room',
-      accentBorder: 'border-l-amber-500',
+      accentVar: 'var(--color-amber-500)',
       accentText: 'text-warning',
       iconBg: 'bg-warning-light text-warning',
     },
@@ -73,7 +74,7 @@ export function OccupancyKpiQuad({
       value: String(overdueCount),
       defaultSublabel: 'rent payments late',
       icon: 'warning',
-      accentBorder: 'border-l-red-500',
+      accentVar: 'var(--color-red-500)',
       accentText: 'text-error',
       iconBg: 'bg-error-light text-error',
     },
@@ -84,7 +85,7 @@ export function OccupancyKpiQuad({
       value: String(leaseExpiringCount),
       defaultSublabel: 'within 60 days',
       icon: 'event',
-      accentBorder: 'border-l-violet-500',
+      accentVar: 'var(--color-violet-500)',
       accentText: 'text-tertiary',
       iconBg: 'bg-tertiary-container text-on-tertiary-container',
     },
@@ -102,16 +103,13 @@ export function OccupancyKpiQuad({
           className={cm.cn(
             cm.flex({ direction: 'col', gap: 'sm' }),
             cm.sp('p', 6),
-            `bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 ${c.accentBorder} hover:-translate-y-0.5 hover:shadow-md transition-all`,
+            cm.accentCard({ tone: 'custom' }),
+            'bg-surface-container-lowest rounded-2xl shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
           )}
+          style={{ ['--mol-accent' as string]: c.accentVar }}
         >
           <div className={cm.flex({ align: 'center', justify: 'between' })}>
-            <span
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                'text-[10px] uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
+            <span className={cm.accentCardLabel({ tone: 'custom' })}>
               {t(`occupancyKpiQuad.${c.key}.label`, {}, { defaultValue: c.defaultLabel })}
             </span>
             <span

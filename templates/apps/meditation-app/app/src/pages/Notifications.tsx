@@ -234,8 +234,11 @@ export function Notifications() {
                   cm.flex({ align: 'start', gap: 'sm' }),
                   cm.sp('p', 5),
                   'rounded-2xl bg-surface-container-lowest shadow-sm border border-outline/20',
-                  unread ? 'border-l-4 border-l-accent' : '',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
+                style={{
+                  ['--mol-accent' as string]: unread ? 'var(--color-accent)' : 'transparent',
+                }}
               >
                 <span
                   className={cm.cn(

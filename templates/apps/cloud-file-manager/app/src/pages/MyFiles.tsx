@@ -221,11 +221,12 @@ export function MyFiles() {
     ]
   }, [stats, t, usedBytes, totalBytes])
 
-  const toneClass: Record<QuickStat['tone'], string> = {
-    primary: 'border-l-primary',
-    tertiary: 'border-l-tertiary',
-    success: 'border-l-success',
-    warning: 'border-l-warning',
+  // The stat's tone drives the inset accent bar and its label (DESIGN.md → "Accent bars").
+  const toneVar: Record<QuickStat['tone'], string> = {
+    primary: 'var(--color-primary)',
+    tertiary: 'var(--color-tertiary)',
+    success: 'var(--color-success)',
+    warning: 'var(--color-warning)',
   }
 
   const visibleFolders = (folders ?? []).filter((f) =>
@@ -459,18 +460,13 @@ export function MyFiles() {
               className={cm.cn(
                 cm.flex({ direction: 'col', gap: 'xs' }),
                 cm.sp('p', 5),
+                cm.accentCard({ tone: 'custom' }),
                 'rounded-xl bg-surface-container-lowest border border-outline-variant/15 hover:-translate-y-0.5 transition-transform',
-                'border-l-4',
-                toneClass[s.tone],
               )}
+              style={{ ['--mol-accent' as string]: toneVar[s.tone] }}
             >
               <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
-                <span
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    'font-black uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
+                <span className={cm.accentCardLabel({ tone: 'custom' })}>
                   {t(s.labelKey, {}, { defaultValue: s.defaultLabel })}
                 </span>
                 <span

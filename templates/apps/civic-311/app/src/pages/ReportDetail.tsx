@@ -358,10 +358,11 @@ export function ReportDetailPage() {
                   className={cm.cn(
                     cm.stack(2),
                     cm.sp('p', 5),
-                    'rounded-xl bg-[var(--color-internal-note)] border-l-4 border-primary',
+                    cm.accentCard({ tone: 'primary' }),
+                    'rounded-xl bg-[var(--color-internal-note)]',
                   )}
                 >
-                  <h2 className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-primary')}>
+                  <h2 className={cm.accentCardLabel({ tone: 'primary' })}>
                     {t('reportDetail.officialNote', {}, { defaultValue: 'Official response' })}
                   </h2>
                   <p className={cm.cn(cm.textSize('sm'), 'leading-relaxed')}>

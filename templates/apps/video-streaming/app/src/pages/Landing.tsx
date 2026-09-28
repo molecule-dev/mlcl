@@ -527,8 +527,10 @@ export function Landing() {
               <div
                 key={s.key}
                 className={cm.cn(
-                  'bg-surface-container-lowest rounded-2xl p-6 text-center hover:shadow-lg transition-shadow border-l-4 border-[var(--spool-cta-from)]',
+                  'bg-surface-container-lowest rounded-2xl p-6 text-center hover:shadow-lg transition-shadow',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
+                style={{ ['--mol-accent' as string]: 'var(--spool-cta-from)' }}
               >
                 <p
                   className={cm.cn(
@@ -537,11 +539,7 @@ export function Landing() {
                 >
                   {s.value}
                 </p>
-                <p
-                  className={cm.cn(
-                    'text-xs font-bold uppercase tracking-widest text-on-surface-variant mt-2',
-                  )}
-                >
+                <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), cm.sp('mt', 2))}>
                   {t(`landing.stat.${s.key}`, {}, { defaultValue: s.defaultLabel })}
                 </p>
               </div>

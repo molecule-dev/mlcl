@@ -78,7 +78,8 @@ export function BookingItineraryRow({ booking }: { booking: Booking }) {
       className={cm.cn(
         cm.sp('p', 4),
         cm.flex({ align: 'center', gap: 'md' }),
-        'group block bg-surface rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all border-l-4 border-primary',
+        'group block bg-surface rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all',
+        cm.accentCard({ tone: 'primary' }),
       )}
     >
       <div

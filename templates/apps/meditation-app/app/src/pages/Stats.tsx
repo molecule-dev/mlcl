@@ -96,7 +96,8 @@ export function Stats() {
       labelKey: 'stillpoint.stats.kpi.lifetime',
       defaultLabel: 'Minutes (last 7 days)',
       value: totalMinutes.toLocaleString(),
-      accent: 'border-l-primary text-primary',
+      accent: 'text-primary',
+      bar: 'var(--color-primary)',
       testId: 'stats-kpi-minutes',
     },
     {
@@ -104,7 +105,8 @@ export function Stats() {
       labelKey: 'stillpoint.stats.kpi.sessions',
       defaultLabel: 'Sessions (last 7 days)',
       value: totalSessions.toLocaleString(),
-      accent: 'border-l-secondary text-secondary',
+      accent: 'text-secondary',
+      bar: 'var(--color-secondary)',
       testId: 'stats-kpi-sessions',
     },
     {
@@ -116,7 +118,8 @@ export function Stats() {
         { count: longestStreak },
         { defaultValue: '{{count}} days' },
       ),
-      accent: 'border-l-accent text-accent',
+      accent: 'text-accent',
+      bar: 'var(--color-accent)',
       testId: 'stats-kpi-streak',
     },
     {
@@ -124,7 +127,8 @@ export function Stats() {
       labelKey: 'stillpoint.stats.kpi.totalDays',
       defaultLabel: 'Days practiced',
       value: totalDays.toLocaleString(),
-      accent: 'border-l-info text-info',
+      accent: 'text-info',
+      bar: 'var(--color-info)',
       testId: 'stats-kpi-days',
     },
   ]
@@ -282,9 +286,11 @@ export function Stats() {
                 className={cm.cn(
                   cm.flex({ direction: 'col', gap: 'sm' }),
                   cm.sp('p', 5),
-                  'rounded-2xl shadow-sm border-l-4 bg-surface-container-lowest hover:-translate-y-0.5 transition-transform',
+                  'rounded-2xl shadow-sm bg-surface-container-lowest hover:-translate-y-0.5 transition-transform',
+                  cm.accentCard({ tone: 'custom' }),
                   k.accent,
                 )}
+                style={{ ['--mol-accent' as string]: k.bar }}
               >
                 <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
                   <span
@@ -294,12 +300,7 @@ export function Stats() {
                   >
                     {k.icon}
                   </span>
-                  <span
-                    className={cm.cn(
-                      cm.fontWeight('bold'),
-                      'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                    )}
-                  >
+                  <span className={cm.cn(cm.accentCardLabel({ tone: 'custom' }))}>
                     {t(k.labelKey, {}, { defaultValue: k.defaultLabel })}
                   </span>
                 </div>

@@ -176,14 +176,12 @@ export function Vocabulary() {
         <div
           className={cm.cn(
             cm.sp('p', 6),
-            'rounded-2xl bg-surface-container-lowest border-l-4 border-secondary shadow-sm',
+            'rounded-2xl bg-surface-container-lowest shadow-sm',
+            cm.accentCard({ tone: 'custom' }),
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-secondary)' }}
         >
-          <p
-            className={cm.cn(
-              'font-black uppercase tracking-widest text-[10px] text-on-surface-variant',
-            )}
-          >
+          <p className={cm.accentCardLabel({ tone: 'custom' })}>
             {t('vocabulary.dueLabel', {}, { defaultValue: 'Due today' })}
           </p>
           <p
@@ -199,14 +197,11 @@ export function Vocabulary() {
         <div
           className={cm.cn(
             cm.sp('p', 6),
-            'rounded-2xl bg-surface-container-lowest border-l-4 border-success shadow-sm',
+            'rounded-2xl bg-surface-container-lowest shadow-sm',
+            cm.accentCard({ tone: 'success' }),
           )}
         >
-          <p
-            className={cm.cn(
-              'font-black uppercase tracking-widest text-[10px] text-on-surface-variant',
-            )}
-          >
+          <p className={cm.accentCardLabel({ tone: 'success' })}>
             {t('vocabulary.masteredLabel', {}, { defaultValue: 'Mastered' })}
           </p>
           <p

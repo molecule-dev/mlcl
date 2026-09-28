@@ -31,7 +31,7 @@ interface ChatBubbleProps {
 const SPEAKER_BG: Record<BubbleSpeaker, string> = {
   bot: 'bg-surface-container text-on-surface',
   user: 'bg-primary text-on-primary',
-  agent: 'bg-surface-container text-primary-hover border-l-[3px] border-info',
+  agent: 'bg-surface-container text-primary-hover',
 }
 
 const SPEAKER_RADIUS: Record<BubbleSpeaker, string> = {
@@ -102,7 +102,11 @@ function ChatBubble({ speaker, name, avatarUrl, initials, timestamp, children }:
         )}
         <div
           className={cm.cn(
-            cm.sp('px', 4),
+            // The agent bubble carries the info accent bar; its name above is
+            // already in that color.
+            speaker === 'agent'
+              ? cm.cn(cm.sp('pr', 4), cm.accentCard({ tone: 'info' }))
+              : cm.sp('px', 4),
             cm.sp('py', 3),
             cm.textSize('sm'),
             'leading-relaxed',

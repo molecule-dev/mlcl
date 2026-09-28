@@ -482,8 +482,10 @@ function SampleTranscriptCard({
         className={cm.cn(
           cm.sp('p', 4),
           cm.stack(2),
-          'rounded-xl bg-secondary-container/30 border-l-4 border-secondary',
+          'rounded-xl bg-secondary-container/30',
+          cm.accentCard({ tone: 'custom' }),
         )}
+        style={{ ['--mol-accent' as string]: 'var(--color-secondary)' }}
       >
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
           <span
@@ -493,13 +495,7 @@ function SampleTranscriptCard({
           >
             auto_awesome
           </span>
-          <span
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-widest text-secondary',
-            )}
-          >
+          <span className={cm.accentCardLabel({ tone: 'custom' })}>
             {t('landing.demo.aiLabel', {}, { defaultValue: 'AI summary, drafted live' })}
           </span>
         </div>

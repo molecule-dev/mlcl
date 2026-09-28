@@ -535,7 +535,8 @@ export function Settings() {
       <section
         className={cm.cn(
           cm.sp('p', 6),
-          'rounded-2xl border-l-4 border-l-error bg-error/5 ring-1 ring-error/20',
+          cm.accentCard({ tone: 'error' }),
+          'rounded-2xl bg-error/5 ring-1 ring-error/20',
         )}
       >
         <h2 className={cm.cn(cm.fontWeight('extrabold'), 'text-error')}>

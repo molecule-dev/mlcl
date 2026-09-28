@@ -62,7 +62,8 @@ export function AISuggestionCard({
     <div
       className={cm.cn(
         cm.sp('p', 4),
-        'rounded-lg shadow-sm border-l-4 border-primary bg-surface',
+        cm.accentCard({ tone: 'primary' }),
+        'rounded-lg shadow-sm bg-surface',
         localState === 'discarded' ? 'opacity-60' : '',
       )}
     >
@@ -70,8 +71,7 @@ export function AISuggestionCard({
         <span
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'xs' }),
-            cm.fontWeight('bold'),
-            'text-[10px] uppercase tracking-widest text-primary',
+            cm.accentCardLabel({ tone: 'primary' }),
           )}
         >
           <span className={cm.cn('material-symbols-outlined text-[14px]')} aria-hidden="true">

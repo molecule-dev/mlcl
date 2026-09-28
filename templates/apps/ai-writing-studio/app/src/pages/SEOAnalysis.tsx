@@ -24,12 +24,12 @@ interface SeoSuggestion {
 
 const SEVERITY_FOR_KIND: Record<
   SeoSuggestion['kind'],
-  { tone: string; icon: string; severity: 'high' | 'medium' | 'low' }
+  { tone: 'error' | 'custom' | 'info'; icon: string; severity: 'high' | 'medium' | 'low' }
 > = {
-  length: { tone: 'border-l-error', icon: 'priority_high', severity: 'high' },
-  structure: { tone: 'border-l-error', icon: 'priority_high', severity: 'high' },
-  keyword: { tone: 'border-l-secondary', icon: 'flag', severity: 'medium' },
-  readability: { tone: 'border-l-info', icon: 'lightbulb', severity: 'low' },
+  length: { tone: 'error', icon: 'priority_high', severity: 'high' },
+  structure: { tone: 'error', icon: 'priority_high', severity: 'high' },
+  keyword: { tone: 'custom', icon: 'flag', severity: 'medium' },
+  readability: { tone: 'info', icon: 'lightbulb', severity: 'low' },
 }
 
 function parseList<T>(value: T[] | string | undefined): T[] {
@@ -370,9 +370,14 @@ export function SEOAnalysis() {
                     key={i}
                     className={cm.cn(
                       cm.sp('p', 5),
-                      'rounded-xl bg-surface border border-outline-variant border-l-4',
-                      sev.tone,
+                      cm.accentCard({ tone: sev.tone }),
+                      'rounded-xl bg-surface border border-outline-variant',
                     )}
+                    style={
+                      sev.tone === 'custom'
+                        ? { ['--mol-accent' as string]: 'var(--color-secondary)' }
+                        : undefined
+                    }
                   >
                     <header
                       className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 2))}

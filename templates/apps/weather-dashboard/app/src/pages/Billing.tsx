@@ -500,14 +500,14 @@ function BillingKpi({ icon, label, value, hint }: BillingKpiProps) {
       className={cm.cn(
         cm.sp('p', 5),
         cm.stack(1),
-        'rounded-2xl bg-surface-container-lowest border-l-4 border-l-primary',
+        'rounded-2xl bg-surface-container-lowest',
+        cm.accentCard({ tone: 'primary' }),
       )}
     >
       <span
         className={cm.cn(
           cm.flex({ align: 'center', gap: 'xs' }),
-          cm.fontWeight('bold'),
-          'text-[10px] uppercase tracking-widest text-on-surface-variant',
+          cm.accentCardLabel({ tone: 'primary' }),
         )}
       >
         <span

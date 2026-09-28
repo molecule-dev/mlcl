@@ -227,15 +227,11 @@ export function Rebalance() {
         <article
           className={cm.cn(
             cm.sp('p', 5),
-            'bg-surface-container-lowest rounded-2xl border border-outline-variant/40 border-l-4 border-l-warning',
+            'bg-surface-container-lowest rounded-2xl border border-outline-variant/40',
+            cm.accentCard({ tone: 'warning' }),
           )}
         >
-          <p
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
+          <p className={cm.accentCardLabel({ tone: 'warning' })}>
             {t('rebalance.summary.driftLabel', {}, { defaultValue: 'Out-of-band' })}
           </p>
           <p
@@ -256,15 +252,11 @@ export function Rebalance() {
         <article
           className={cm.cn(
             cm.sp('p', 5),
-            'bg-surface-container-lowest rounded-2xl border border-outline-variant/40 border-l-4 border-l-success',
+            'bg-surface-container-lowest rounded-2xl border border-outline-variant/40',
+            cm.accentCard({ tone: 'success' }),
           )}
         >
-          <p
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
+          <p className={cm.accentCardLabel({ tone: 'success' })}>
             {t('rebalance.summary.buyLabel', {}, { defaultValue: 'Buys' })}
           </p>
           <p
@@ -281,15 +273,11 @@ export function Rebalance() {
         <article
           className={cm.cn(
             cm.sp('p', 5),
-            'bg-surface-container-lowest rounded-2xl border border-outline-variant/40 border-l-4 border-l-error',
+            'bg-surface-container-lowest rounded-2xl border border-outline-variant/40',
+            cm.accentCard({ tone: 'error' }),
           )}
         >
-          <p
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
+          <p className={cm.accentCardLabel({ tone: 'error' })}>
             {t('rebalance.summary.sellLabel', {}, { defaultValue: 'Sells' })}
           </p>
           <p
@@ -304,15 +292,11 @@ export function Rebalance() {
         <article
           className={cm.cn(
             cm.sp('p', 5),
-            'bg-surface-container-lowest rounded-2xl border border-outline-variant/40 border-l-4 border-l-primary',
+            'bg-surface-container-lowest rounded-2xl border border-outline-variant/40',
+            cm.accentCard({ tone: 'primary' }),
           )}
         >
-          <p
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
+          <p className={cm.accentCardLabel({ tone: 'primary' })}>
             {t('rebalance.summary.notionalLabel', {}, { defaultValue: 'Total notional' })}
           </p>
           <p

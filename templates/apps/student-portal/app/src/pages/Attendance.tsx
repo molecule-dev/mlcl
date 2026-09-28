@@ -132,7 +132,8 @@ export function Attendance() {
             data-mol-id={`attendance-summary-${card.label.toLowerCase()}`}
             className={cm.cn(
               cm.sp('p', 6),
-              'rounded-2xl bg-surface-container-lowest shadow-sm border-l-4 border-primary/40',
+              cm.accentCard({ tone: 'primary' }),
+              'rounded-2xl bg-surface-container-lowest shadow-sm',
             )}
           >
             <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), cm.sp('mb', 4))}>
@@ -148,13 +149,7 @@ export function Attendance() {
                 </span>
               </span>
             </div>
-            <p
-              className={cm.cn(
-                'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
-              {card.label}
-            </p>
+            <p className={cm.accentCardLabel({ tone: 'primary' })}>{card.label}</p>
             <p className={cm.cn(cm.textSize('3xl'), cm.sp('mt', 1), 'font-extrabold tabular-nums')}>
               {card.value}
             </p>

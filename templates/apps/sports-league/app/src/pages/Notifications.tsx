@@ -25,43 +25,43 @@ type Filter = 'all' | 'score' | 'trade' | 'injury' | 'announcement' | 'unread'
 
 const KIND_TINT: Record<string, { strip: string; chip: string; chipText: string; icon: string }> = {
   score: {
-    strip: 'border-l-primary',
+    strip: 'var(--color-primary)',
     chip: 'bg-primary-container',
     chipText: 'text-on-primary-container',
     icon: 'sports_score',
   },
   final_score: {
-    strip: 'border-l-primary',
+    strip: 'var(--color-primary)',
     chip: 'bg-primary-container',
     chipText: 'text-on-primary-container',
     icon: 'sports_score',
   },
   trade: {
-    strip: 'border-l-accent',
+    strip: 'var(--color-accent)',
     chip: 'bg-secondary-container',
     chipText: 'text-on-secondary-container',
     icon: 'swap_horiz',
   },
   injury: {
-    strip: 'border-l-loss',
+    strip: 'var(--color-loss)',
     chip: 'bg-error-container',
     chipText: 'text-on-error-container',
     icon: 'medical_services',
   },
   announcement: {
-    strip: 'border-l-live',
+    strip: 'var(--color-live)',
     chip: 'bg-warning-container',
     chipText: 'text-on-warning-container',
     icon: 'campaign',
   },
   welcome: {
-    strip: 'border-l-primary',
+    strip: 'var(--color-primary)',
     chip: 'bg-primary-container',
     chipText: 'text-on-primary-container',
     icon: 'celebration',
   },
   system: {
-    strip: 'border-l-outline',
+    strip: 'var(--color-outline)',
     chip: 'bg-surface-container',
     chipText: 'text-on-surface',
     icon: 'campaign',
@@ -260,10 +260,11 @@ export function Notifications() {
                 className={cm.cn(
                   cm.flex({ align: 'start', gap: 'md' }),
                   cm.sp('p', 5),
-                  'rounded-xl bg-surface border border-outline-variant/40 border-l-4 shadow-sm',
-                  tint.strip,
+                  'rounded-xl bg-surface border border-outline-variant/40 shadow-sm',
+                  cm.accentCard({ tone: 'custom' }),
                   !n.read ? 'ring-1 ring-primary/20' : '',
                 )}
+                style={{ ['--mol-accent' as string]: tint.strip }}
               >
                 <span
                   aria-hidden="true"

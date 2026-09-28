@@ -1,5 +1,5 @@
 /**
- * Editorial meeting list item — left primary-color time block (border-l-4),
+ * Editorial meeting list item — inset primary accent bar with the time label in its color,
  * title in semibold, attendee avatar stack, status pill, and primary
  * Join/Start CTA aligned right. Hover lift + transition.
  *
@@ -74,19 +74,12 @@ export function MeetingCard({
         // Stack vertically on phones (time above, actions below-right);
         // editorial row from sm up.
         'flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6',
-        'group bg-surface-container-lowest border-l-4 border-primary/70 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
+        cm.accentCard({ tone: 'primary' }),
+        'group bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
       )}
     >
       <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-[88px] shrink-0')}>
-        <span
-          className={cm.cn(
-            cm.textSize('xs'),
-            cm.fontWeight('bold'),
-            'uppercase tracking-widest text-primary',
-          )}
-        >
-          {timeLabel}
-        </span>
+        <span className={cm.accentCardLabel({ tone: 'primary' })}>{timeLabel}</span>
         {durationLabel && (
           <span
             className={cm.cn(

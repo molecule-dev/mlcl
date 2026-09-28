@@ -466,7 +466,7 @@ export function Profile() {
           icon="movie"
           label={t('profile.stat.recordings', {}, { defaultValue: 'Recordings' })}
           value={recordings.length.toString()}
-          accent="border-[var(--color-brand-gradient-from)]"
+          accent="var(--color-brand-gradient-from)"
           tile="bg-violet-50 text-violet-600"
         />
         <StatTile
@@ -474,7 +474,7 @@ export function Profile() {
           icon="visibility"
           label={t('profile.stat.views', {}, { defaultValue: 'Total views' })}
           value={totalViews.toLocaleString()}
-          accent="border-[var(--color-brand-gradient-to)]"
+          accent="var(--color-brand-gradient-to)"
           tile="bg-cyan-50 text-cyan-600"
         />
         <StatTile
@@ -482,7 +482,7 @@ export function Profile() {
           icon="public"
           label={t('profile.stat.public', {}, { defaultValue: 'Public clips' })}
           value={recordings.filter((r) => r.visibility === 'public').length.toString()}
-          accent="border-emerald-500"
+          accent="var(--color-emerald-500)"
           tile="bg-success-light text-success"
         />
       </section>
@@ -549,9 +549,10 @@ function StatTile({
       className={cm.cn(
         cm.flex({ align: 'center', gap: 3 }),
         cm.sp('p', 5),
-        'rounded-2xl border-l-4 bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 transition-transform',
-        accent,
+        cm.accentCard({ tone: 'custom' }),
+        'rounded-2xl bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 transition-transform',
       )}
+      style={{ ['--mol-accent' as string]: accent }}
     >
       <div
         className={cm.cn(
@@ -565,13 +566,7 @@ function StatTile({
         <span className={cm.cn('material-symbols-outlined text-xl')}>{icon}</span>
       </div>
       <div>
-        <div
-          className={cm.cn(
-            'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </div>
+        <div className={cm.accentCardLabel({ tone: 'custom' })}>{label}</div>
         <div className={cm.cn('text-3xl font-extrabold tracking-tight text-on-surface')}>
           {value}
         </div>

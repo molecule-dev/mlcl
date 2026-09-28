@@ -1,6 +1,6 @@
 /**
  * Quad of KPI cards summarising the global crypto market — Total Market Cap,
- * 24h Volume, BTC Dominance, Active Coins. Each card has a `border-l-4`
+ * 24h Volume, BTC Dominance, Active Coins. Each card carries the inset accent bar
  * accent in the brand gold, an uppercase 10px label, an extrabold tabular-nums
  * value, and a subtle hover lift.
  *
@@ -61,17 +61,12 @@ function KpiCard({ label, value, delta }: { label: string; value: string; delta?
     <div
       className={cm.cn(
         cm.sp('p', 6),
-        'rounded-2xl bg-surface-container-lowest border-l-4 border-primary shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200',
+        'rounded-2xl bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200',
+        cm.accentCard({ tone: 'primary' }),
       )}
       data-mol-id="kpi-card"
     >
-      <p
-        className={cm.cn(
-          'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-        )}
-      >
-        {label}
-      </p>
+      <p className={cm.accentCardLabel({ tone: 'primary' })}>{label}</p>
       <p
         className={cm.cn(
           cm.textSize('2xl'),

@@ -202,16 +202,15 @@ export function StoryDetail() {
       <aside
         className={cm.cn(
           cm.sp('p', 6),
-          'rounded-[10px] bg-primary/8 border-l-[3px] border-primary',
+          cm.accentCard({ tone: 'primary' }),
+          'rounded-[10px] bg-primary/8',
         )}
       >
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), cm.sp('mb', 2))}>
           <span className={'material-symbols-outlined text-primary text-base'} aria-hidden="true">
             auto_awesome
           </span>
-          <p
-            className={cm.cn(cm.textSize('xs'), 'font-bold uppercase tracking-widest text-primary')}
-          >
+          <p className={cm.accentCardLabel({ tone: 'primary' })}>
             {t('storyDetail.aiSummary', {}, { defaultValue: 'AI Summary' })}
           </p>
         </div>

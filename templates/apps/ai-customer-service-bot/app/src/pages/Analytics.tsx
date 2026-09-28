@@ -200,15 +200,11 @@ function Analytics() {
                   className={cm.cn(
                     cm.flex({ direction: 'col', gap: 3 }),
                     cm.sp('p', 5),
-                    'rounded-2xl bg-surface-container-lowest border-l-4 border-primary hover:-translate-y-0.5 transition-transform shadow-sm',
+                    'rounded-2xl bg-surface-container-lowest hover:-translate-y-0.5 transition-transform shadow-sm',
+                    cm.accentCard({ tone: 'primary' }),
                   )}
                 >
-                  <span
-                    className={cm.cn(
-                      cm.fontWeight('bold'),
-                      'text-[10px] tracking-widest uppercase text-on-surface-variant',
-                    )}
-                  >
+                  <span className={cm.accentCardLabel({ tone: 'primary' })}>
                     {t(kpi.labelKey, {}, { defaultValue: kpi.labelDefault })}
                   </span>
                   <div className={cm.cn(cm.flex({ align: 'baseline', gap: 1 }))}>

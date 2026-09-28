@@ -188,7 +188,8 @@ export function VersionHistory() {
         <div
           className={cm.cn(
             cm.sp('p', 4),
-            'rounded-md border-l-4 border-error bg-error/10 text-on-surface',
+            cm.accentCard({ tone: 'error' }),
+            'rounded-md bg-error/10 text-on-surface',
           )}
           role="alert"
         >

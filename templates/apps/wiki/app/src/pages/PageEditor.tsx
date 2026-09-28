@@ -436,7 +436,8 @@ export function PageEditor() {
         <div
           className={cm.cn(
             cm.sp('p', 4),
-            'rounded-md border-l-4 border-error bg-error/10 text-on-surface',
+            cm.accentCard({ tone: 'error' }),
+            'rounded-md bg-error/10 text-on-surface',
           )}
           role="alert"
         >
@@ -486,15 +487,14 @@ export function PageEditor() {
 
       {summary ? (
         <div
-          className={cm.cn(cm.sp('p', 4), 'rounded-md border-l-4 border-primary bg-primary/5')}
+          className={cm.cn(
+            cm.sp('p', 4),
+            cm.accentCard({ tone: 'primary' }),
+            'rounded-md bg-primary/5',
+          )}
           data-testid="page-editor-summary"
         >
-          <p
-            className={cm.cn(
-              cm.textSize('xs'),
-              'font-black uppercase tracking-widest text-primary',
-            )}
-          >
+          <p className={cm.accentCardLabel({ tone: 'primary' })}>
             {t('pageEditor.summaryLabel', {}, { defaultValue: 'AI summary' })}
           </p>
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface mt-1 leading-snug')}>{summary}</p>

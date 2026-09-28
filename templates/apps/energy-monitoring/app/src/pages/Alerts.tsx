@@ -447,10 +447,15 @@ export function Alerts() {
                 className={cm.cn(
                   cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' }),
                   cm.sp('p', 5),
-                  'bg-surface-container-lowest rounded-2xl border-l-4',
-                  r.enabled ? 'border-l-primary' : 'border-l-outline-variant',
+                  cm.accentCard({ tone: 'custom' }),
+                  'bg-surface-container-lowest rounded-2xl',
                   r.enabled ? '' : 'opacity-70',
                 )}
+                style={{
+                  ['--mol-accent' as string]: r.enabled
+                    ? 'var(--color-primary)'
+                    : 'var(--color-outline-variant)',
+                }}
               >
                 <div className={cm.cn('min-w-0 flex-1')}>
                   <p className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'))}>{r.name}</p>

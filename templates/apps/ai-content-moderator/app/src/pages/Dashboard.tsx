@@ -157,7 +157,8 @@ export function Dashboard() {
           <div
             role="alert"
             className={cm.cn(
-              'mt-4 rounded-lg border-l-4 border-amber-500 bg-warning-light px-4 py-3 text-sm text-warning',
+              cm.accentCard({ tone: 'warning' }),
+              'mt-4 rounded-lg bg-warning-light pr-4 py-3 text-sm text-warning',
             )}
           >
             {error}

@@ -126,7 +126,7 @@ export function Finances() {
         { rate: collectionRate },
         { defaultValue: '{{rate}}% collection rate' },
       ),
-      tone: 'border-l-emerald-500',
+      tone: 'var(--color-emerald-500)',
       valueClass: 'text-success',
     },
     {
@@ -134,7 +134,7 @@ export function Finances() {
       defaultLabel: 'Outstanding',
       value: fmtCurrency(totalOutstanding),
       sublabel: t('finances.outstandingSublabel', {}, { defaultValue: 'across pending + overdue' }),
-      tone: 'border-l-amber-500',
+      tone: 'var(--color-amber-500)',
       valueClass: 'text-warning',
     },
     {
@@ -146,7 +146,7 @@ export function Finances() {
         { count: overdueCount },
         { defaultValue: '{{count}} balances late' },
       ),
-      tone: 'border-l-red-500',
+      tone: 'var(--color-red-500)',
       valueClass: 'text-error',
     },
   ]
@@ -177,15 +177,12 @@ export function Finances() {
             className={cm.cn(
               cm.sp('p', 6),
               cm.flex({ direction: 'col', gap: 'sm' }),
-              `bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 ${c.tone}`,
+              cm.accentCard({ tone: 'custom' }),
+              'bg-surface-container-lowest rounded-2xl shadow-sm',
             )}
+            style={{ ['--mol-accent' as string]: c.tone }}
           >
-            <span
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                'text-[10px] uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
+            <span className={cm.accentCardLabel({ tone: 'custom' })}>
               {t(`finances.summary.${c.key}`, {}, { defaultValue: c.defaultLabel })}
             </span>
             <span

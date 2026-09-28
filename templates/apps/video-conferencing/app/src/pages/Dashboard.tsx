@@ -324,7 +324,8 @@ export function Dashboard() {
           className={cm.cn(
             cm.flex({ align: 'start', gap: 4 }),
             cm.sp('p', 6),
-            'group text-left bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all border-l-4 border-primary',
+            cm.accentCard({ tone: 'primary' }),
+            'group text-left bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
           )}
         >
           <div
@@ -352,8 +353,10 @@ export function Dashboard() {
           className={cm.cn(
             cm.flex({ align: 'start', gap: 4 }),
             cm.sp('p', 6),
-            'bg-surface-container-lowest rounded-xl shadow-sm border-l-4 border-secondary',
+            cm.accentCard({ tone: 'custom' }),
+            'bg-surface-container-lowest rounded-xl shadow-sm',
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-secondary)' }}
         >
           <div
             className={cm.cn(
@@ -417,8 +420,10 @@ export function Dashboard() {
           className={cm.cn(
             cm.flex({ align: 'start', gap: 4 }),
             cm.sp('p', 6),
-            'group text-left bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all border-l-4 border-tertiary',
+            cm.accentCard({ tone: 'custom' }),
+            'group text-left bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-tertiary)' }}
         >
           <div
             className={cm.cn(

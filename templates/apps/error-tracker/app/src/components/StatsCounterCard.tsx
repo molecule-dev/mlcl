@@ -5,7 +5,7 @@ import { FrequencySparkline } from './FrequencySparkline.js'
 /**
  * Stats counter card — uppercase 10px tracking-widest eyebrow, large
  * mono-extrabold value, optional change pill, optional inline frequency
- * sparkline at bottom-right, coloured `border-l-4` accent, hover lift.
+ * sparkline at bottom-right, coloured inset accent bar, hover lift.
  *
  * Translated from ci-cd-dashboard's MetricStatCard (KPI/DORA stat card)
  * recoloured to error-tracker severity tones (critical/error/warning/info

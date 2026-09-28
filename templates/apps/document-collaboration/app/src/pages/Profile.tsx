@@ -151,7 +151,8 @@ export function Profile() {
         <div
           className={cm.cn(
             cm.sp('p', 4),
-            'rounded-xl border-l-4 border-l-error bg-error/5 text-sm text-error',
+            cm.accentCard({ tone: 'error' }),
+            'rounded-xl bg-error/5 text-sm text-error',
           )}
         >
           {error}
@@ -161,7 +162,8 @@ export function Profile() {
         <div
           className={cm.cn(
             cm.sp('p', 3),
-            'rounded-xl border-l-4 border-l-success bg-success/5 text-sm text-success',
+            cm.accentCard({ tone: 'success' }),
+            'rounded-xl bg-success/5 text-sm text-success',
           )}
           data-testid="profile-saved-banner"
         >

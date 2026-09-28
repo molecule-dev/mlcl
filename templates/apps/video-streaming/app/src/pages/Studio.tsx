@@ -260,14 +260,11 @@ export function Studio() {
       <ul className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-2 md:grid-cols-4')}>
         <li
           className={cm.cn(
-            'bg-surface-container-lowest rounded-2xl p-5 border-l-4 border-primary hover:-translate-y-0.5 transition-transform',
+            'bg-surface-container-lowest rounded-2xl p-5 hover:-translate-y-0.5 transition-transform',
+            cm.accentCard({ tone: 'primary' }),
           )}
         >
-          <p
-            className={cm.cn(
-              'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
+          <p className={cm.accentCardLabel({ tone: 'primary' })}>
             {t('studio.kpiWatch', {}, { defaultValue: 'Watch time' })}
           </p>
           <p className={cm.cn('text-3xl font-extrabold tracking-tight tabular-nums mt-1')}>
@@ -276,14 +273,12 @@ export function Studio() {
         </li>
         <li
           className={cm.cn(
-            'bg-surface-container-lowest rounded-2xl p-5 border-l-4 border-rose-500 hover:-translate-y-0.5 transition-transform',
+            'bg-surface-container-lowest rounded-2xl p-5 hover:-translate-y-0.5 transition-transform',
+            cm.accentCard({ tone: 'custom' }),
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-rose-500)' }}
         >
-          <p
-            className={cm.cn(
-              'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
+          <p className={cm.accentCardLabel({ tone: 'custom' })}>
             {t('nav.subscribers', {}, { defaultValue: 'Subscribers' })}
           </p>
           <p className={cm.cn('text-3xl font-extrabold tracking-tight tabular-nums mt-1')}>
@@ -299,14 +294,12 @@ export function Studio() {
         </li>
         <li
           className={cm.cn(
-            'bg-surface-container-lowest rounded-2xl p-5 border-l-4 border-emerald-500 hover:-translate-y-0.5 transition-transform',
+            'bg-surface-container-lowest rounded-2xl p-5 hover:-translate-y-0.5 transition-transform',
+            cm.accentCard({ tone: 'custom' }),
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-emerald-500)' }}
         >
-          <p
-            className={cm.cn(
-              'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
+          <p className={cm.accentCardLabel({ tone: 'custom' })}>
             {t('studio.kpiRevenue', {}, { defaultValue: 'Revenue (mo)' })}
           </p>
           <p className={cm.cn('text-3xl font-extrabold tracking-tight tabular-nums mt-1')}>
@@ -322,14 +315,12 @@ export function Studio() {
         </li>
         <li
           className={cm.cn(
-            'bg-surface-container-lowest rounded-2xl p-5 border-l-4 border-amber-500 hover:-translate-y-0.5 transition-transform',
+            'bg-surface-container-lowest rounded-2xl p-5 hover:-translate-y-0.5 transition-transform',
+            cm.accentCard({ tone: 'custom' }),
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-amber-500)' }}
         >
-          <p
-            className={cm.cn(
-              'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
+          <p className={cm.accentCardLabel({ tone: 'custom' })}>
             {t('studio.kpiCtr', {}, { defaultValue: 'CTR' })}
           </p>
           <p className={cm.cn('text-3xl font-extrabold tracking-tight tabular-nums mt-1')}>

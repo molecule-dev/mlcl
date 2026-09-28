@@ -30,26 +30,31 @@ const TYPE_META: Record<
   high_usage: {
     icon: 'warning',
     tint: 'text-error',
-    accent: 'border-l-error',
+    accent: 'var(--color-error)',
     severity: 'critical',
   },
   cost_threshold: {
     icon: 'payments',
     tint: 'text-error',
-    accent: 'border-l-error',
+    accent: 'var(--color-error)',
     severity: 'critical',
   },
-  peak_demand: { icon: 'bolt', tint: 'text-warning', accent: 'border-l-warning', severity: 'warn' },
+  peak_demand: {
+    icon: 'bolt',
+    tint: 'text-warning',
+    accent: 'var(--color-warning)',
+    severity: 'warn',
+  },
   low_production: {
     icon: 'wb_sunny',
     tint: 'text-warning',
-    accent: 'border-l-warning',
+    accent: 'var(--color-warning)',
     severity: 'warn',
   },
   unusual_pattern: {
     icon: 'insights',
     tint: 'text-info',
-    accent: 'border-l-info',
+    accent: 'var(--color-info)',
     severity: 'info',
   },
 }
@@ -70,11 +75,11 @@ function fmtAbsoluteAndRelative(iso?: string | null): string {
 }
 
 /**
- * Editorial alert card — left accent bar tinted by severity, type chip
+ * Editorial alert card — the shared inset accent bar tinted by severity, type chip
  * with material-symbol, message body, optional triggered-value summary,
  * and ack/dismiss action buttons.
  *
- * Translated from smart-home-dashboard's AutomationRow (left-accent bar +
+ * Translated from smart-home-dashboard's AutomationRow (accent bar +
  * meta-row + trailing actions) and personal-finance's ActivityRow
  * (timestamp + status pill).
  */
@@ -90,10 +95,11 @@ export function AlertCard({ alert, onAcknowledge, onDismiss }: AlertCardProps) {
       className={cm.cn(
         cm.flex({ align: 'start', gap: 'md' }),
         cm.sp('p', 5),
-        'bg-surface-container-lowest rounded-2xl border-l-4 transition-all hover:bg-surface-container-low',
-        meta.accent,
+        cm.accentCard({ tone: 'custom' }),
+        'bg-surface-container-lowest rounded-2xl transition-all hover:bg-surface-container-low',
         isActive ? '' : 'opacity-70',
       )}
+      style={{ ['--mol-accent' as string]: meta.accent }}
     >
       <div
         className={cm.cn(

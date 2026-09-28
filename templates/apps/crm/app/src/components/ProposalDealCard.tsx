@@ -8,8 +8,12 @@ function ProposalDealCard() {
     <div
       className={cm.cn(
         cm.sp('p', 6),
-        'bg-surface-container-lowest rounded-3xl shadow-sm border border-border hover:shadow-md transition-shadow group border-l-2 border-l-secondary/30',
+        cm.accentCard({ tone: 'custom' }),
+        'bg-surface-container-lowest rounded-3xl shadow-sm border border-border hover:shadow-md transition-shadow group',
       )}
+      style={{
+        ['--mol-accent' as string]: 'color-mix(in srgb, var(--color-secondary) 30%, transparent)',
+      }}
     >
       <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), cm.sp('mb', 2))}>
         <span

@@ -22,42 +22,42 @@ const TYPE_THEME: Record<
 > = {
   flight: {
     icon: 'flight',
-    stripe: 'border-cyan-700',
+    stripe: 'var(--color-cyan-700)',
     chip: 'bg-cyan-100 dark:bg-cyan-900/40',
     chipText: 'text-cyan-800 dark:text-cyan-200',
     defaultLabel: 'Flight',
   },
   hotel: {
     icon: 'hotel',
-    stripe: 'border-violet-500',
+    stripe: 'var(--color-violet-500)',
     chip: 'bg-violet-100 dark:bg-violet-900/40',
     chipText: 'text-violet-800 dark:text-violet-200',
     defaultLabel: 'Hotel',
   },
   activity: {
     icon: 'local_activity',
-    stripe: 'border-emerald-600',
+    stripe: 'var(--color-emerald-600)',
     chip: 'bg-success-light',
     chipText: 'text-success',
     defaultLabel: 'Activity',
   },
   car: {
     icon: 'directions_car',
-    stripe: 'border-orange-600',
+    stripe: 'var(--color-orange-600)',
     chip: 'bg-orange-100 dark:bg-orange-900/40',
     chipText: 'text-orange-800 dark:text-orange-200',
     defaultLabel: 'Rental car',
   },
   train: {
     icon: 'train',
-    stripe: 'border-pink-500',
+    stripe: 'var(--color-pink-500)',
     chip: 'bg-pink-100 dark:bg-pink-900/40',
     chipText: 'text-pink-800 dark:text-pink-200',
     defaultLabel: 'Train',
   },
   other: {
     icon: 'confirmation_number',
-    stripe: 'border-border-secondary',
+    stripe: 'var(--color-border-secondary)',
     chip: 'bg-surface-secondary',
     chipText: 'text-foreground',
     defaultLabel: 'Other',
@@ -269,16 +269,11 @@ export function Bookings() {
         <article
           className={cm.cn(
             cm.sp('p', 5),
-            'bg-surface rounded-2xl shadow-sm border-l-4 border-primary',
+            cm.accentCard({ tone: 'primary' }),
+            'bg-surface rounded-2xl shadow-sm',
           )}
         >
-          <p
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-[0.25em] text-on-surface-variant',
-            )}
-          >
+          <p className={cm.accentCardLabel({ tone: 'primary' })}>
             {t('bookings.summary.total', {}, { defaultValue: 'Total committed' })}
           </p>
           <p
@@ -292,16 +287,12 @@ export function Bookings() {
         <article
           className={cm.cn(
             cm.sp('p', 5),
-            'bg-surface rounded-2xl shadow-sm border-l-4 border-cyan-700',
+            cm.accentCard({ tone: 'custom' }),
+            'bg-surface rounded-2xl shadow-sm',
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-cyan-700)' }}
         >
-          <p
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-[0.25em] text-on-surface-variant',
-            )}
-          >
+          <p className={cm.accentCardLabel({ tone: 'custom' })}>
             {t('bookings.summary.confirmed', {}, { defaultValue: 'Confirmed' })}
           </p>
           <p
@@ -315,16 +306,12 @@ export function Bookings() {
         <article
           className={cm.cn(
             cm.sp('p', 5),
-            'bg-surface rounded-2xl shadow-sm border-l-4 border-amber-500',
+            cm.accentCard({ tone: 'custom' }),
+            'bg-surface rounded-2xl shadow-sm',
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-amber-500)' }}
         >
-          <p
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-[0.25em] text-on-surface-variant',
-            )}
-          >
+          <p className={cm.accentCardLabel({ tone: 'custom' })}>
             {t('bookings.summary.pending', {}, { defaultValue: 'Awaiting confirmation' })}
           </p>
           <p
@@ -420,9 +407,10 @@ export function Bookings() {
                   className={cm.cn(
                     cm.sp('p', 5),
                     cm.flex({ gap: 'md' }),
-                    'border-l-4 hover:bg-surface-container-low transition-colors',
-                    theme.stripe,
+                    cm.accentCard({ tone: 'custom' }),
+                    'hover:bg-surface-container-low transition-colors',
                   )}
+                  style={{ ['--mol-accent' as string]: theme.stripe }}
                 >
                   <span
                     className={cm.cn(

@@ -214,21 +214,24 @@ export function Home() {
       <div data-testid="home-kpis" className={cm.cn('grid grid-cols-1 md:grid-cols-3 gap-4')}>
         <KpiCard
           icon="self_improvement"
-          accent="border-l-primary text-primary"
+          accent="text-primary"
+          bar="var(--color-primary)"
           label={t('stillpoint.home.kpi.minutes', {}, { defaultValue: 'Minutes today' })}
           value={String(minutesToday)}
           testid="home-kpi-minutes"
         />
         <KpiCard
           icon="spa"
-          accent="border-l-secondary text-secondary"
+          accent="text-secondary"
+          bar="var(--color-secondary)"
           label={t('stillpoint.home.kpi.sessions', {}, { defaultValue: 'Sessions this week' })}
           value={String(sessionsThisWeek)}
           testid="home-kpi-sessions"
         />
         <KpiCard
           icon="local_fire_department"
-          accent="border-l-accent text-accent"
+          accent="text-accent"
+          bar="var(--color-accent)"
           label={t('stillpoint.home.kpi.streak', {}, { defaultValue: 'Day streak' })}
           value={String(streak?.current_streak ?? 0)}
           testid="home-kpi-streak"
@@ -284,12 +287,14 @@ export function Home() {
 interface KpiCardProps {
   icon: string
   accent: string
+  /** The accent bar's color (`--mol-accent`). */
+  bar: string
   label: string
   value: string
   testid: string
 }
 
-function KpiCard({ icon, accent, label, value, testid }: KpiCardProps) {
+function KpiCard({ icon, accent, bar, label, value, testid }: KpiCardProps) {
   const cm = getClassMap()
   return (
     <div
@@ -297,9 +302,11 @@ function KpiCard({ icon, accent, label, value, testid }: KpiCardProps) {
       className={cm.cn(
         cm.flex({ direction: 'col', gap: 'sm' }),
         cm.sp('p', 5),
-        'rounded-2xl shadow-sm border-l-4 bg-surface-container-lowest hover:-translate-y-0.5 transition-transform',
+        'rounded-2xl shadow-sm bg-surface-container-lowest hover:-translate-y-0.5 transition-transform',
+        cm.accentCard({ tone: 'custom' }),
         accent,
       )}
+      style={{ ['--mol-accent' as string]: bar }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
         <span
@@ -309,14 +316,7 @@ function KpiCard({ icon, accent, label, value, testid }: KpiCardProps) {
         >
           {icon}
         </span>
-        <span
-          className={cm.cn(
-            cm.fontWeight('bold'),
-            'text-[10px] uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </span>
+        <span className={cm.cn(cm.accentCardLabel({ tone: 'custom' }))}>{label}</span>
       </div>
       <p className={cm.cn('text-4xl font-extrabold text-on-surface tabular-nums tracking-tight')}>
         {value}

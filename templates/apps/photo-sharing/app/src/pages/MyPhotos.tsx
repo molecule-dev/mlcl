@@ -175,16 +175,15 @@ function Stat({ label, value, icon }: { label: string; value: string; icon: stri
     <div
       className={cm.cn(
         cm.flex({ align: 'center', gap: 'md' }),
-        'bg-surface-container-lowest rounded-2xl p-5 border-l-4 border-primary hover:-translate-y-0.5 transition-transform',
+        'bg-surface-container-lowest rounded-2xl p-5 hover:-translate-y-0.5 transition-transform',
+        cm.accentCard({ tone: 'primary' }),
       )}
     >
       <span className="material-symbols-outlined text-3xl text-primary" aria-hidden="true">
         {icon}
       </span>
       <div>
-        <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
-          {label}
-        </p>
+        <p className={cm.accentCardLabel({ tone: 'primary' })}>{label}</p>
         <p
           className={cm.cn(cm.textSize('2xl'), 'font-extrabold tracking-tight tabular-nums')}
           style={{ fontFamily: 'Playfair Display, Georgia, serif' }}

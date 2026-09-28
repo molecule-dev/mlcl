@@ -70,18 +70,15 @@ export function DailyStatsTriad({
           key={item.key}
           className={cm.cn(
             cm.sp('p', 6),
-            'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 hover:-translate-y-0.5 transition-transform',
-            item.accent,
+            'bg-surface-container-lowest rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform',
+            cm.accentCard({ tone: 'custom' }),
           )}
+          style={{
+            ['--mol-accent' as string]: `var(--color-${item.accent.replace(/^border-l-/, '')})`,
+          }}
         >
           <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), cm.sp('mb', 4))}>
-            <p
-              className={cm.cn(
-                'font-black uppercase tracking-widest text-[10px] text-on-surface-variant',
-              )}
-            >
-              {item.label}
-            </p>
+            <p className={cm.accentCardLabel({ tone: 'custom' })}>{item.label}</p>
             <div className={cm.cn(cm.sp('p', 2), 'rounded-xl bg-surface-container-low', item.tint)}>
               <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
                 {item.icon}

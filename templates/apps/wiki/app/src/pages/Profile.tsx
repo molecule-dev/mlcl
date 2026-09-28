@@ -157,15 +157,12 @@ export function Profile() {
             key={k.key}
             className={cm.cn(
               cm.sp('p', 5),
-              'rounded-xl bg-surface-container-lowest border-l-4 border-secondary shadow-sm',
+              cm.accentCard({ tone: 'custom' }),
+              'rounded-xl bg-surface-container-lowest shadow-sm',
             )}
+            style={{ ['--mol-accent' as string]: 'var(--color-secondary)' }}
           >
-            <p
-              className={cm.cn(
-                cm.textSize('xs'),
-                'font-black uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
+            <p className={cm.accentCardLabel({ tone: 'custom' })}>
               {t(`profile.kpi.${k.key}`, {}, { defaultValue: k.label })}
             </p>
             <p className={cm.cn('text-3xl font-extrabold text-on-surface tracking-tight')}>

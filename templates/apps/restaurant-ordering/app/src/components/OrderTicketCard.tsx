@@ -39,46 +39,46 @@ interface OrderTicketCardProps {
 
 const STATUS_PALETTE: Record<
   OrderStatus,
-  { border: string; chip: string; icon: string; defaultLabel: string }
+  { accent: string; chip: string; icon: string; defaultLabel: string }
 > = {
   new: {
-    border: 'border-l-info',
+    accent: 'var(--color-info)',
     chip: 'bg-info/15 text-info',
     icon: 'inbox',
     defaultLabel: 'New',
   },
   pending: {
-    border: 'border-l-info',
+    accent: 'var(--color-info)',
     chip: 'bg-info/15 text-info',
     icon: 'inbox',
     defaultLabel: 'New',
   },
   preparing: {
-    border: 'border-l-warning',
+    accent: 'var(--color-warning)',
     chip: 'bg-warning/15 text-warning',
     icon: 'soup_kitchen',
     defaultLabel: 'Preparing',
   },
   ready: {
-    border: 'border-l-success',
+    accent: 'var(--color-success)',
     chip: 'bg-success/15 text-success',
     icon: 'restaurant_menu',
     defaultLabel: 'Ready',
   },
   served: {
-    border: 'border-l-on-surface-variant',
+    accent: 'var(--color-on-surface-variant)',
     chip: 'bg-surface-container text-on-surface-variant',
     icon: 'check_circle',
     defaultLabel: 'Served',
   },
   paid: {
-    border: 'border-l-on-surface-variant',
+    accent: 'var(--color-on-surface-variant)',
     chip: 'bg-surface-container text-on-surface-variant',
     icon: 'paid',
     defaultLabel: 'Paid',
   },
   cancelled: {
-    border: 'border-l-error',
+    accent: 'var(--color-error)',
     chip: 'bg-error/15 text-error',
     icon: 'cancel',
     defaultLabel: 'Cancelled',
@@ -100,11 +100,11 @@ function elapsed(order: OrderTicket): { minutes: number; tone: string } {
 }
 
 /**
- * Bespoke kanban order ticket — left-border accent in status color, mono
+ * Bespoke kanban order ticket — inset accent bar in status color, mono
  * elapsed timer that warns at 10min / criticals at 15min, items list with
  * qty prefix, optional rush badge, optional total.
  *
- * Pattern source: status-pill + accent-border + uppercase eyebrow recipe
+ * Pattern source: status-pill + accent-bar + uppercase eyebrow recipe
  * from POLISHED-PATTERN-CATALOG §2.3 KPI cards. Adapted for restaurant
  * kitchen-display kanban use.
  */
@@ -120,21 +120,14 @@ export function OrderTicketCard({ order }: OrderTicketCardProps) {
       className={cm.cn(
         cm.sp('p', 4),
         cm.flex({ direction: 'col', gap: 'sm' }),
-        'block bg-surface-container-lowest rounded-xl border-l-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
-        palette.border,
+        'block bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
+        cm.accentCard({ tone: 'custom' }),
       )}
+      style={{ ['--mol-accent' as string]: palette.accent }}
     >
       <div className={cm.flex({ align: 'center', justify: 'between' })}>
         <div className={cm.flex({ direction: 'col' })}>
-          <span
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
-            {order.table}
-          </span>
+          <span className={cm.cn(cm.accentCardLabel({ tone: 'custom' }))}>{order.table}</span>
           <span className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight font-display')}>
             {t('orderTicketCard.number', { number: order.number }, { defaultValue: '#{{number}}' })}
           </span>

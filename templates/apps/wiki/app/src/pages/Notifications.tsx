@@ -219,7 +219,8 @@ export function Notifications() {
         <div
           className={cm.cn(
             cm.sp('p', 4),
-            'rounded-md border-l-4 border-error bg-error/10 text-on-surface',
+            cm.accentCard({ tone: 'error' }),
+            'rounded-md bg-error/10 text-on-surface',
           )}
           role="alert"
         >
@@ -286,7 +287,7 @@ export function Notifications() {
                       cm.flex({ align: 'start', gap: 'md' }),
                       cm.sp('p', 5),
                       'group rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:-translate-y-0.5 hover:shadow-sm transition-all',
-                      !n.read_at ? 'border-l-[3px] border-l-primary' : '',
+                      !n.read_at ? cm.accentCard({ tone: 'primary' }) : '',
                     )}
                   >
                     <span

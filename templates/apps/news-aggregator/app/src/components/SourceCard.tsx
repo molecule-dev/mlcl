@@ -35,7 +35,7 @@ interface SourceCardProps {
  * description, factual-rating stat, BiasIndicator, follow toggle. Forms the
  * Sources index grid and the SourceDetail header.
  *
- * Translated from personal-finance's KPI / AccountCard pattern (border-l-4
+ * Translated from personal-finance's KPI / AccountCard pattern (inset accent bar
  * accent, group-hover icon scale) merged with the Vantage source-attribution
  * + bias-awareness DESIGN.md requirements.
  */

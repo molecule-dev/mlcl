@@ -164,7 +164,8 @@ export function Profile() {
         <div
           role="alert"
           className={cm.cn(
-            'rounded-lg border-l-4 border-red-500 bg-error-light px-4 py-3 text-sm text-error',
+            cm.accentCard({ tone: 'error' }),
+            'rounded-lg bg-error-light pr-4 py-3 text-sm text-error',
           )}
         >
           {error}
@@ -174,7 +175,8 @@ export function Profile() {
         <div
           role="status"
           className={cm.cn(
-            'rounded-lg border-l-4 border-emerald-500 bg-success-light px-4 py-3 text-sm text-success',
+            cm.accentCard({ tone: 'success' }),
+            'rounded-lg bg-success-light pr-4 py-3 text-sm text-success',
           )}
         >
           {feedback}

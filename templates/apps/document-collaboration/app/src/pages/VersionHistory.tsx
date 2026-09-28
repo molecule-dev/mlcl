@@ -161,7 +161,8 @@ export function VersionHistory() {
         <div
           className={cm.cn(
             cm.sp('p', 4),
-            'rounded-xl border-l-4 border-l-error bg-error/5 text-sm text-error',
+            cm.accentCard({ tone: 'error' }),
+            'rounded-xl bg-error/5 text-sm text-error',
           )}
         >
           {error}

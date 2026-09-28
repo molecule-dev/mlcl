@@ -1,14 +1,14 @@
 /**
  * KPI-style drift summary card — uppercase eyebrow label,
  * extrabold percentage, current vs target progress bar with target tick,
- * border-l-4 accent in the action color (success/error/muted).
+ * the shared inset accent bar in the action color (success/error/muted).
  *
  * Translated from personal-finance's DashboardAccountOverview triad
  * + the budget progress bar treatment from BudgetProgressPanel.
  */
 
 import { useTranslation } from '@molecule/app-react'
-import { getClassMap } from '@molecule/app-ui'
+import { type AccentTone, getClassMap } from '@molecule/app-ui'
 
 interface RebalanceDriftCardProps {
   category: string
@@ -28,12 +28,12 @@ const ACTION_LABEL: Record<RebalanceDriftCardProps['tradeAction'], string> = {
 
 const ACTION_ACCENT: Record<
   RebalanceDriftCardProps['tradeAction'],
-  { border: string; pill: string; icon: string }
+  { tone: AccentTone; pill: string; icon: string }
 > = {
-  buy: { border: 'border-l-success', pill: 'bg-success/15 text-success', icon: 'arrow_upward' },
-  sell: { border: 'border-l-error', pill: 'bg-error/15 text-error', icon: 'arrow_downward' },
+  buy: { tone: 'success', pill: 'bg-success/15 text-success', icon: 'arrow_upward' },
+  sell: { tone: 'error', pill: 'bg-error/15 text-error', icon: 'arrow_downward' },
   hold: {
-    border: 'border-l-outline',
+    tone: 'default',
     pill: 'bg-surface-container text-on-surface-variant',
     icon: 'pause',
   },
@@ -78,20 +78,13 @@ export function RebalanceDriftCard({
     <div
       className={cm.cn(
         cm.sp('p', 6),
-        'bg-surface-container-lowest rounded-2xl border border-outline-variant/40 border-l-4 hover:-translate-y-0.5 transition-transform',
-        accent.border,
+        'bg-surface-container-lowest rounded-2xl border border-outline-variant/40 hover:-translate-y-0.5 transition-transform',
+        cm.accentCard({ tone: accent.tone }),
       )}
     >
       <div className={cm.cn(cm.flex({ align: 'start', justify: 'between' }), cm.sp('mb', 5))}>
         <div>
-          <p
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
-            {category}
-          </p>
+          <p className={cm.accentCardLabel({ tone: accent.tone })}>{category}</p>
           <p
             className={cm.cn(
               'text-3xl font-extrabold tabular-nums tracking-tight text-on-surface',

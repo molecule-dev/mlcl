@@ -29,7 +29,7 @@ interface KpiCellProps {
   label: string
   value: string
   glyph: string
-  /** Tailwind border-l accent class, e.g. `border-secondary`. */
+  /** The accent bar's color, e.g. `var(--color-secondary)`. */
   accent: string
   /** Tailwind text + bg classes for the icon pill, e.g. `bg-secondary/15 text-secondary`. */
   iconTone: string
@@ -44,10 +44,10 @@ function KpiCell({ label, value, glyph, accent, iconTone, trend }: KpiCellProps)
       className={cm.cn(
         cm.sp('p', 5),
         'rounded-xl bg-surface-container-lowest shadow-sm border border-outline-variant/30',
-        'border-l-4',
-        accent,
+        cm.accentCard({ tone: 'custom' }),
         'transition-all hover:-translate-y-0.5 hover:shadow-md',
       )}
+      style={{ ['--mol-accent' as string]: accent }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 3))}>
         <span
@@ -75,13 +75,7 @@ function KpiCell({ label, value, glyph, accent, iconTone, trend }: KpiCellProps)
           </span>
         )}
       </div>
-      <p
-        className={cm.cn(
-          'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-        )}
-      >
-        {label}
-      </p>
+      <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }))}>{label}</p>
       <p
         className={cm.cn(
           'mt-1 text-3xl font-extrabold tabular-nums tracking-tight text-on-surface',
@@ -103,7 +97,7 @@ export function SavingsKpiGrid({ stats }: SavingsKpiGridProps) {
         label={t('savingsKpiGrid.lifetime', {}, { defaultValue: 'Lifetime savings' })}
         value={fmtUsd(stats.total_savings_cents)}
         glyph="savings"
-        accent="border-secondary"
+        accent="var(--color-secondary)"
         iconTone="bg-secondary/15 text-secondary"
         trend={{ delta: '+12%', positive: true }}
       />
@@ -111,7 +105,7 @@ export function SavingsKpiGrid({ stats }: SavingsKpiGridProps) {
         label={t('savingsKpiGrid.redeemed', {}, { defaultValue: 'Redeemed' })}
         value={String(stats.redeemed_count)}
         glyph="check_circle"
-        accent="border-tertiary"
+        accent="var(--color-tertiary)"
         iconTone="bg-tertiary/15 text-tertiary"
         trend={{ delta: '+3', positive: true }}
       />
@@ -119,14 +113,14 @@ export function SavingsKpiGrid({ stats }: SavingsKpiGridProps) {
         label={t('savingsKpiGrid.saved', {}, { defaultValue: 'Saved coupons' })}
         value={String(stats.saved_count)}
         glyph="bookmark"
-        accent="border-primary"
+        accent="var(--color-primary)"
         iconTone="bg-primary/15 text-primary"
       />
       <KpiCell
         label={t('savingsKpiGrid.expiring', {}, { defaultValue: 'Expiring < 7d' })}
         value={String(stats.expiring_count)}
         glyph="alarm"
-        accent="border-error"
+        accent="var(--color-error)"
         iconTone="bg-error/15 text-error"
         trend={{
           delta: t('savingsKpiGrid.urgent', {}, { defaultValue: 'urgent' }),

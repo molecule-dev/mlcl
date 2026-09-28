@@ -17,10 +17,10 @@ interface FleetAlertRow extends FleetAlert {
 
 const SEVERITY_ORDER: Array<FleetAlert['severity'] | 'all'> = ['all', 'critical', 'warning', 'info']
 
-const SEVERITY_BORDER: Record<FleetAlert['severity'], string> = {
-  critical: 'border-error',
-  warning: 'border-warning',
-  info: 'border-info',
+const SEVERITY_ACCENT: Record<FleetAlert['severity'], 'error' | 'warning' | 'info'> = {
+  critical: 'error',
+  warning: 'warning',
+  info: 'info',
 }
 
 const SEVERITY_TONE: Record<FleetAlert['severity'], string> = {
@@ -299,8 +299,8 @@ export function Alerts() {
               <div
                 className={cm.cn(
                   cm.sp('p', 5),
-                  'flex items-center gap-4 bg-surface-container-lowest rounded-xl border-l-4 shadow-sm',
-                  SEVERITY_BORDER[a.severity],
+                  'flex items-center gap-4 bg-surface-container-lowest rounded-xl shadow-sm',
+                  cm.accentCard({ tone: SEVERITY_ACCENT[a.severity] }),
                   a.status === 'resolved' && 'opacity-60',
                 )}
               >

@@ -250,18 +250,12 @@ export function Compare() {
               className={cm.cn(
                 cm.flex({ direction: 'col', gap: 'md' }),
                 cm.sp('p', 6),
-                'bg-surface-container-lowest rounded-2xl border-l-4 border-l-primary',
+                'bg-surface-container-lowest rounded-2xl',
+                cm.accentCard({ tone: 'primary' }),
               )}
             >
               <header>
-                <p
-                  className={cm.cn(
-                    cm.fontWeight('bold'),
-                    'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {loc.region}
-                </p>
+                <p className={cm.cn(cm.accentCardLabel({ tone: 'primary' }))}>{loc.region}</p>
                 <h2 className={cm.cn(cm.sp('mt', 1), cm.fontWeight('bold'), cm.textSize('lg'))}>
                   {loc.name}
                 </h2>

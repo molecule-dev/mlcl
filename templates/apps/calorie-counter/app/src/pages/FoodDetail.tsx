@@ -303,7 +303,8 @@ export function FoodDetail() {
           className={cm.cn(
             cm.flex({ direction: 'col', gap: 'md' }),
             cm.sp('p', 8),
-            'lg:col-span-2 bg-surface rounded-2xl shadow-sm border-l-4 border-primary',
+            cm.accentCard({ tone: 'primary' }),
+            'lg:col-span-2 bg-surface rounded-2xl shadow-sm',
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>

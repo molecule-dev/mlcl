@@ -1,6 +1,6 @@
 /**
  * KPI card — icon badge top-left, optional trend pill top-right, uppercase
- * label, large numeric value, optional unit. Hover lift + left border accent.
+ * label, large numeric value, optional unit. Hover lift + the inset accent bar.
  *
  * Translated from lms's KpiCard.tsx and personal-finance's StatRow card.
  */
@@ -19,11 +19,12 @@ export interface StudyKpiCardProps {
   accent?: KpiAccent
 }
 
-const ACCENT_BORDER: Record<KpiAccent, string> = {
-  primary: 'border-l-primary',
-  streak: 'border-l-warning',
-  success: 'border-l-success',
-  info: 'border-l-info',
+/** The accent bar's color (read by `cm.accentCard({ tone: 'custom' })` via `--mol-accent`). */
+const ACCENT_VAR: Record<KpiAccent, string> = {
+  primary: 'var(--color-primary)',
+  streak: 'var(--color-warning)',
+  success: 'var(--color-success)',
+  info: 'var(--color-info)',
 }
 
 const ACCENT_ICON_BG: Record<KpiAccent, string> = {
@@ -48,9 +49,10 @@ export function StudyKpiCard({
     <div
       className={cm.cn(
         cm.sp('p', 6),
-        'rounded-2xl bg-surface-container-lowest border border-l-4 border-outline-variant/30 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md',
-        ACCENT_BORDER[accent],
+        cm.accentCard({ tone: 'custom' }),
+        'rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md',
       )}
+      style={{ ['--mol-accent' as string]: ACCENT_VAR[accent] }}
       data-mol-id={`kpi-${labelKey}`}
     >
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 5))}>
@@ -86,7 +88,7 @@ export function StudyKpiCard({
           </span>
         )}
       </div>
-      <p className="text-[10px] font-black uppercase tracking-[0.25em] text-on-surface-variant">
+      <p className={cm.accentCardLabel({ tone: 'custom' })}>
         {t(labelKey, {}, { defaultValue: labelDefault })}
       </p>
       <p

@@ -31,50 +31,50 @@ interface BookingListItemProps {
  * the /bookings index list.
  *
  * Translated from crm/ActivityFeed.tsx + DESIGN.md booking-card spec
- * (4-px left status accent, status pill, Time-font duration badge).
+ * (inset status accent bar, status pill, Time-font duration badge).
  */
 const STATUS_TONE: Record<
   string,
   { bar: string; pillBg: string; pillText: string; label: string }
 > = {
   scheduled: {
-    bar: 'border-emerald-500',
+    bar: 'var(--color-emerald-500)',
     pillBg: 'bg-emerald-500/15',
     pillText: 'text-success',
     label: 'Scheduled',
   },
   confirmed: {
-    bar: 'border-emerald-500',
+    bar: 'var(--color-emerald-500)',
     pillBg: 'bg-emerald-500/15',
     pillText: 'text-success',
     label: 'Confirmed',
   },
   pending: {
-    bar: 'border-amber-500',
+    bar: 'var(--color-amber-500)',
     pillBg: 'bg-amber-500/15',
     pillText: 'text-warning',
     label: 'Pending',
   },
   cancelled: {
-    bar: 'border-rose-500',
+    bar: 'var(--color-rose-500)',
     pillBg: 'bg-rose-500/15',
     pillText: 'text-error',
     label: 'Cancelled',
   },
   completed: {
-    bar: 'border-border-secondary',
+    bar: 'var(--color-border-secondary)',
     pillBg: 'bg-slate-500/15',
     pillText: 'text-foreground-secondary',
     label: 'Completed',
   },
   no_show: {
-    bar: 'border-border-secondary',
+    bar: 'var(--color-border-secondary)',
     pillBg: 'bg-slate-500/15',
     pillText: 'text-foreground-secondary',
     label: 'No-show',
   },
   past: {
-    bar: 'border-border-secondary',
+    bar: 'var(--color-border-secondary)',
     pillBg: 'bg-slate-500/15',
     pillText: 'text-foreground-secondary',
     label: 'Past',
@@ -116,10 +116,10 @@ export function BookingListItem({ booking }: BookingListItemProps) {
       className={cm.cn(
         cm.flex({ align: 'center', justify: 'between' }),
         cm.sp('p', 4),
-        cm.sp('pl', 5),
-        'gap-4 group bg-surface-container-lowest rounded-xl border-l-4 hover:bg-surface-container-low hover:shadow-sm transition-all',
-        tone.bar,
+        cm.accentCard({ tone: 'custom' }),
+        'gap-4 group bg-surface-container-lowest rounded-xl hover:bg-surface-container-low hover:shadow-sm transition-all',
       )}
+      style={{ ['--mol-accent' as string]: tone.bar }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex-1 min-w-0')}>
         <div
@@ -142,11 +142,7 @@ export function BookingListItem({ booking }: BookingListItemProps) {
           >
             {booking.invitee_name}
           </p>
-          <p
-            className={cm.cn(
-              'text-[11px] uppercase tracking-widest font-bold text-on-surface-variant truncate',
-            )}
-          >
+          <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'truncate')}>
             {booking.event_type_name ||
               t('bookingListItem.defaultEventType', {}, { defaultValue: 'Meeting' })}
           </p>

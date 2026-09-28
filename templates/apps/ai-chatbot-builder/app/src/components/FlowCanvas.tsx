@@ -259,21 +259,13 @@ export default function FlowCanvas({ nodes, connections, selectedNodeId, onNodeS
           type="button"
           key={node.id}
           aria-pressed={isSelected}
-          className={`absolute w-52 text-left bg-surface-container-high rounded-xl border-l-4 border-primary shadow-[0_0_30px_rgba(192,193,255,0.15)] p-4 flex flex-col gap-3 cursor-pointer${isSelected ? ' ring-1 ring-primary/40' : ''}`}
+          className={`absolute w-52 text-left bg-surface-container-high rounded-xl ${cm.accentCard({ tone: 'primary' })} shadow-[0_0_30px_rgba(192,193,255,0.15)] p-4 flex flex-col gap-3 cursor-pointer${isSelected ? ' ring-1 ring-primary/40' : ''}`}
           style={{ left: node.x, top: node.y }}
           data-mol-id={`node-${node.id}`}
           onClick={() => onNodeSelect(node.id)}
         >
           <div className={cm.flex({ align: 'center', justify: 'between' })}>
-            <span
-              className={cm.fontWeight('bold')}
-              style={{
-                fontSize: '10px',
-                color: 'var(--md-sys-color-primary)',
-                textTransform: 'uppercase',
-                letterSpacing: 'widest',
-              }}
-            >
+            <span className={cm.accentCardLabel({ tone: 'primary' })}>
               {t('flow-canvas.ai-agent', {}, { defaultValue: 'AI Agent' })}
             </span>
             <div className={cm.flex()} style={{ gap: 'calc(1 * 0.25rem)' }}>

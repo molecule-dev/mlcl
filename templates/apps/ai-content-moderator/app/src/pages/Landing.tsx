@@ -96,28 +96,28 @@ const QUEUE_ROWS = [
   {
     line: 'w-3/4',
     pill: 'bg-custom-green/10 text-custom-green',
-    border: 'border-l-4 border-custom-green',
+    accent: 'var(--color-custom-green)',
     labelKey: 'landing.mockup.approved',
     labelDefault: 'Approved',
   },
   {
     line: 'w-1/2',
     pill: 'bg-error/10 text-error',
-    border: 'border-l-4 border-error',
+    accent: 'var(--color-error)',
     labelKey: 'landing.mockup.rejected',
     labelDefault: 'Rejected',
   },
   {
     line: 'w-2/3',
     pill: 'bg-custom-amber/10 text-custom-amber',
-    border: 'border-l-4 border-custom-amber',
+    accent: 'var(--color-custom-amber)',
     labelKey: 'landing.mockup.pending',
     labelDefault: 'Pending',
   },
   {
     line: 'w-full',
     pill: 'bg-escalated/10 text-escalated',
-    border: 'border-l-4 border-escalated',
+    accent: 'var(--color-escalated)',
     labelKey: 'landing.mockup.escalated',
     labelDefault: 'Escalated',
   },
@@ -277,9 +277,10 @@ export function Landing() {
                     <div
                       key={row.labelKey}
                       className={cm.cn(
-                        'h-16 bg-surface-container-lowest rounded-md flex items-center px-4 gap-4 shadow-sm',
-                        row.border,
+                        cm.accentCard({ tone: 'custom' }),
+                        'h-16 bg-surface-container-lowest rounded-md flex items-center pr-4 gap-4 shadow-sm',
                       )}
+                      style={{ ['--mol-accent' as string]: row.accent }}
                     >
                       <div className={cm.cn('h-10 w-10 rounded bg-surface-container-high')} />
                       <div

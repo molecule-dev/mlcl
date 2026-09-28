@@ -217,31 +217,31 @@ export function DashboardPage() {
           label={t('dashboard.activeDeals', {}, { defaultValue: 'Active deals' }) as string}
           value={loading ? '…' : String(stats?.total_open ?? 0)}
           molId="kpi-active-deals"
-          accent="border-l-primary"
+          accent="var(--color-primary)"
         />
         <Kpi
           label={t('dashboard.pipelineValue', {}, { defaultValue: 'Pipeline value' }) as string}
           value={loading ? '…' : formatCurrency(stats?.total_value)}
           molId="kpi-pipeline-value"
-          accent="border-l-tertiary"
+          accent="var(--color-tertiary)"
         />
         <Kpi
           label={t('dashboard.wonDeals', {}, { defaultValue: 'Won deals' }) as string}
           value={loading ? '…' : String(stats?.won_count ?? 0)}
           molId="kpi-won-deals"
-          accent="border-l-emerald-500"
+          accent="var(--color-emerald-500)"
         />
         <Kpi
           label={t('dashboard.wonValue', {}, { defaultValue: 'Won value' }) as string}
           value={loading ? '…' : formatCurrency(stats?.won_value)}
           molId="kpi-won-value"
-          accent="border-l-emerald-500"
+          accent="var(--color-emerald-500)"
         />
         <Kpi
           label={t('dashboard.conversion', {}, { defaultValue: 'Win rate' }) as string}
           value={loading ? '…' : `${conversion}%`}
           molId="kpi-conversion"
-          accent="border-l-secondary"
+          accent="var(--color-secondary)"
         />
       </section>
 
@@ -390,6 +390,7 @@ interface KpiProps {
   label: string
   value: string
   molId: string
+  /** The accent bar color (a CSS color or variable). */
   accent: string
 }
 
@@ -400,19 +401,12 @@ function Kpi({ label, value, molId, accent }: KpiProps) {
       data-mol-id={molId}
       className={cm.cn(
         cm.sp('p', 5),
-        'flex-1 min-w-[160px] rounded-xl border border-outline-variant/15 border-l-4 bg-surface-container-lowest shadow-sm',
-        accent,
+        cm.accentCard({ tone: 'custom' }),
+        'flex-1 min-w-[160px] rounded-xl border border-outline-variant/15 bg-surface-container-lowest shadow-sm',
       )}
+      style={{ ['--mol-accent' as string]: accent }}
     >
-      <div
-        className={cm.cn(
-          cm.textSize('xs'),
-          cm.fontWeight('semibold'),
-          'uppercase tracking-wider text-on-surface-variant',
-        )}
-      >
-        {label}
-      </div>
+      <div className={cm.accentCardLabel({ tone: 'custom' })}>{label}</div>
       <div className={cm.cn(cm.textSize('3xl'), 'font-black mt-2 text-on-surface')}>{value}</div>
     </div>
   )

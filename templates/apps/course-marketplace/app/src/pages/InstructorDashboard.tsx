@@ -305,11 +305,16 @@ export function InstructorDashboard() {
               key={k.id}
               data-mol-id={`kpi-${k.id}`}
               className={cm.cn(
-                'bg-surface-container-lowest rounded-2xl shadow-sm p-6 border-l-4',
-                k.accent === 'primary' && 'border-primary',
-                k.accent === 'gold' && 'border-[var(--color-lectura-gold)]',
-                k.accent === 'green' && 'border-[var(--color-lectura-green)]',
+                cm.accentCard({ tone: k.accent === 'primary' ? 'primary' : 'custom' }),
+                'bg-surface-container-lowest rounded-2xl shadow-sm p-6',
               )}
+              style={
+                k.accent === 'gold'
+                  ? { ['--mol-accent' as string]: 'var(--color-lectura-gold)' }
+                  : k.accent === 'green'
+                    ? { ['--mol-accent' as string]: 'var(--color-lectura-green)' }
+                    : undefined
+              }
             >
               <div className={cm.cn('flex items-center justify-between mb-3')}>
                 <div
@@ -332,9 +337,9 @@ export function InstructorDashboard() {
                 </div>
               </div>
               <p
-                className={cm.cn(
-                  'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                )}
+                className={cm.accentCardLabel({
+                  tone: k.accent === 'primary' ? 'primary' : 'custom',
+                })}
               >
                 {t(`instructorDashboard.kpi.${k.id}`, {}, { defaultValue: k.label })}
               </p>

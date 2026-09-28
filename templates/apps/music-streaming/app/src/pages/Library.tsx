@@ -162,12 +162,11 @@ export function Library() {
           <li
             key={s.key}
             className={cm.cn(
-              'bg-surface-container-lowest rounded-2xl p-5 border-l-4 border-primary hover:-translate-y-0.5 transition-transform',
+              cm.accentCard({ tone: 'primary' }),
+              'bg-surface-container-lowest rounded-2xl p-5 hover:-translate-y-0.5 transition-transform',
             )}
           >
-            <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
-              {s.label}
-            </p>
+            <p className={cm.accentCardLabel({ tone: 'primary' })}>{s.label}</p>
             <p className={cm.cn('text-3xl font-extrabold tracking-tight tabular-nums mt-1')}>
               {s.value}
             </p>

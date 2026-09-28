@@ -302,18 +302,13 @@ export function PayStub() {
           className={cm.cn(
             cm.sp('mt', 8),
             cm.sp('p', 6),
-            'rounded-xl bg-primary-container/30 border-l-4 border-l-primary',
+            'rounded-xl bg-primary-container/30',
+            cm.accentCard({ tone: 'primary' }),
           )}
         >
           <div className={cm.flex({ align: 'center', justify: 'between' })}>
             <div>
-              <p
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-primary',
-                )}
-              >
+              <p className={cm.accentCardLabel({ tone: 'primary' })}>
                 {t('payStub.netPay', {}, { defaultValue: 'Net pay' })}
               </p>
               <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>

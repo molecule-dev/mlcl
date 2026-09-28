@@ -6,15 +6,20 @@ import { getClassMap } from '@molecule/app-ui'
 import { type ApiScheduleEntry, subjectFor } from '../lib/format.js'
 import { unwrapList } from '../lib/unwrap.js'
 
-const SUBJECT_BG: Record<string, string> = {
-  math: 'bg-blue-500/10 border-l-4 border-blue-500',
-  science: 'bg-green-600/10 border-l-4 border-green-600',
-  english: 'bg-violet-500/10 border-l-4 border-violet-500',
-  history: 'bg-amber-500/10 border-l-4 border-amber-500',
-  art: 'bg-pink-500/10 border-l-4 border-pink-500',
-  pe: 'bg-teal-500/10 border-l-4 border-teal-500',
-  language: 'bg-orange-500/10 border-l-4 border-orange-500',
-  other: 'bg-gray-500/10 border-l-4 border-border-secondary',
+/** Per-subject block tint, the legend dot, and the accent bar color (read by `cm.accentCard({ tone: 'custom' })`). */
+const SUBJECT_STYLE: Record<string, { bg: string; dot: string; accent: string }> = {
+  math: { bg: 'bg-blue-500/10', dot: 'bg-blue-500', accent: 'var(--color-blue-500)' },
+  science: { bg: 'bg-green-600/10', dot: 'bg-green-600', accent: 'var(--color-green-600)' },
+  english: { bg: 'bg-violet-500/10', dot: 'bg-violet-500', accent: 'var(--color-violet-500)' },
+  history: { bg: 'bg-amber-500/10', dot: 'bg-amber-500', accent: 'var(--color-amber-500)' },
+  art: { bg: 'bg-pink-500/10', dot: 'bg-pink-500', accent: 'var(--color-pink-500)' },
+  pe: { bg: 'bg-teal-500/10', dot: 'bg-teal-500', accent: 'var(--color-teal-500)' },
+  language: { bg: 'bg-orange-500/10', dot: 'bg-orange-500', accent: 'var(--color-orange-500)' },
+  other: {
+    bg: 'bg-gray-500/10',
+    dot: 'bg-border-secondary',
+    accent: 'var(--color-border-secondary)',
+  },
 }
 
 const SUBJECT_LABEL: Record<string, string> = {
@@ -240,9 +245,7 @@ export function Schedule() {
                 tone,
               )}
             >
-              <span
-                className={cm.cn(cm.w(2), cm.h(2), cm.roundedFull, SUBJECT_BG[key].split(' ')[1])}
-              />
+              <span className={cm.cn(cm.w(2), cm.h(2), cm.roundedFull, SUBJECT_STYLE[key]?.dot)} />
               {t(`schedule.legend.${key}`, {}, { defaultValue: key })}
             </span>
           ))}
@@ -307,10 +310,15 @@ function PeriodRow({
             key={`${period.id}:${i}`}
             className={cm.cn(
               cm.sp('p', 3),
+              cm.accentCard({ tone: 'custom' }),
               'rounded-xl shadow-sm transition-shadow hover:shadow-md',
-              SUBJECT_BG[block.subject] ?? '',
+              SUBJECT_STYLE[block.subject]?.bg ?? '',
               activeDay === i ? 'ring-2 ring-primary/30' : '',
             )}
+            style={{
+              ['--mol-accent' as string]:
+                SUBJECT_STYLE[block.subject]?.accent ?? 'var(--color-border-secondary)',
+            }}
           >
             <p className={cm.cn(cm.textSize('sm'), 'font-bold text-on-surface')}>
               {block.className}
@@ -318,14 +326,7 @@ function PeriodRow({
             <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
               {block.teacher} · {block.room}
             </p>
-            <p
-              className={cm.cn(
-                'text-[10px] font-black uppercase tracking-widest mt-2',
-                SUBJECT_LABEL[block.subject] ?? '',
-              )}
-            >
-              {block.subject}
-            </p>
+            <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'mt-2')}>{block.subject}</p>
           </div>
         )
       })}

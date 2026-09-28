@@ -243,8 +243,8 @@ export function Settings() {
               className={cm.cn(
                 cm.sp('p', 5),
                 cm.flex({ direction: 'col', gap: 'sm' }),
-                'bg-surface-container-lowest rounded-2xl border-l-4',
-                h.status === 'online' ? 'border-l-success' : 'border-l-error',
+                cm.accentCard({ tone: h.status === 'online' ? 'success' : 'error' }),
+                'bg-surface-container-lowest rounded-2xl',
               )}
             >
               <div className={cm.flex({ align: 'center', justify: 'between' })}>

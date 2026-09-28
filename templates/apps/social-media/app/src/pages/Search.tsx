@@ -289,18 +289,11 @@ export function Search() {
                   to={`/search?q=%23${h.tag}`}
                   className={cm.cn(
                     cm.sp('p', 5),
-                    'block bg-surface-container-lowest rounded-2xl border-l-4 border-primary border-y border-r border-outline-variant/40 hover:shadow-md transition-shadow',
+                    cm.accentCard({ tone: 'primary' }),
+                    'block bg-surface-container-lowest rounded-2xl border border-outline-variant/40 hover:shadow-md transition-shadow',
                   )}
                 >
-                  <p
-                    className={cm.cn(
-                      cm.textSize('xs'),
-                      'font-black',
-                      'uppercase tracking-widest text-on-surface-variant',
-                    )}
-                  >
-                    #{h.tag}
-                  </p>
+                  <p className={cm.accentCardLabel({ tone: 'primary' })}>#{h.tag}</p>
                   <p
                     className={cm.cn(
                       'text-2xl font-extrabold tracking-tight text-primary mt-1 tabular-nums',

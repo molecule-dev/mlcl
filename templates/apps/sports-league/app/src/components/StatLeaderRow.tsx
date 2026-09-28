@@ -48,8 +48,9 @@ export function StatLeaderRow({ leader, podium }: StatLeaderRowProps) {
         cm.flex({ align: 'center', gap: 'md' }),
         cm.sp('p', 4),
         'rounded-xl border border-outline-variant/40 hover:bg-surface-container-low transition-colors group',
-        podium ? 'bg-accent/5 border-l-4 border-l-accent' : 'bg-surface',
+        podium ? cm.cn('bg-accent/5', cm.accentCard({ tone: 'custom' })) : 'bg-surface',
       )}
+      style={podium ? { ['--mol-accent' as string]: 'var(--color-accent)' } : undefined}
     >
       <span
         className={cm.cn(
@@ -79,9 +80,11 @@ export function StatLeaderRow({ leader, podium }: StatLeaderRowProps) {
           {leader.name}
         </span>
         <span
-          className={cm.cn(
-            'text-[11px] uppercase tracking-widest font-bold text-on-surface-variant',
-          )}
+          className={
+            podium
+              ? cm.accentCardLabel({ tone: 'custom' })
+              : cm.cn('text-[11px] uppercase tracking-widest font-bold text-on-surface-variant')
+          }
         >
           {leader.team_abbr}
         </span>

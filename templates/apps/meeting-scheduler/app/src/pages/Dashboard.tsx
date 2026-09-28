@@ -36,7 +36,8 @@ interface KpiTone {
   value: string | number
   sub: string
   icon: string
-  borderClass: string
+  /** The card's accent: a semantic tone name or a CSS color for `--mol-accent`. */
+  accent: string
   iconClass: string
 }
 
@@ -147,7 +148,7 @@ export function Dashboard() {
         { defaultValue: '{{count}} confirmed' },
       ),
       icon: 'event',
-      borderClass: 'border-primary',
+      accent: 'primary',
       iconClass: 'bg-primary/10 text-primary',
     },
     {
@@ -155,7 +156,7 @@ export function Dashboard() {
       value: bookings.filter((b) => b.status === 'pending').length,
       sub: t('dashboard.kpis.pendingSub', {}, { defaultValue: 'Reminders go out tonight' }),
       icon: 'hourglass_top',
-      borderClass: 'border-amber-500',
+      accent: 'var(--color-amber-500)',
       iconClass: 'bg-amber-500/10 text-warning',
     },
     {
@@ -163,7 +164,7 @@ export function Dashboard() {
       value: weekCount,
       sub: t('dashboard.kpis.weekTotalSub', {}, { defaultValue: 'Past 7 days' }),
       icon: 'calendar_view_week',
-      borderClass: 'border-emerald-500',
+      accent: 'var(--color-emerald-500)',
       iconClass: 'bg-emerald-500/10 text-success',
     },
   ]
@@ -266,9 +267,12 @@ export function Dashboard() {
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'md' }),
                   cm.sp('p', 4),
-                  'bg-surface rounded-xl border-l-4 hover:-translate-y-0.5 transition-transform shadow-sm',
-                  k.borderClass,
+                  cm.accentCard({ tone: k.accent === 'primary' ? 'primary' : 'custom' }),
+                  'bg-surface rounded-xl hover:-translate-y-0.5 transition-transform shadow-sm',
                 )}
+                style={
+                  k.accent === 'primary' ? undefined : { ['--mol-accent' as string]: k.accent }
+                }
               >
                 <span
                   className={cm.cn(
@@ -288,9 +292,9 @@ export function Dashboard() {
                 </span>
                 <div className={cm.flex1}>
                   <p
-                    className={cm.cn(
-                      'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                    )}
+                    className={cm.accentCardLabel({
+                      tone: k.accent === 'primary' ? 'primary' : 'custom',
+                    })}
                   >
                     {k.label}
                   </p>

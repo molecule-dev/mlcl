@@ -238,8 +238,12 @@ export function Notifications() {
               cm.sp('p', 4),
               cm.flex({ align: 'start', gap: 'md' }),
               'block bg-surface rounded-2xl shadow-sm hover:shadow-md transition-all w-full text-left',
-              n.unread ? 'border-l-4 border-accent' : 'border-l-4 border-transparent',
+              cm.accentCard({ tone: 'custom' }),
             )
+            // The bar stays laid out on read rows so the cards line up; it only shows while unread.
+            const cardStyle = {
+              ['--mol-accent' as string]: n.unread ? 'var(--color-accent)' : 'transparent',
+            }
             const inner = (
               <>
                 <span
@@ -296,6 +300,7 @@ export function Notifications() {
                     to={n.href}
                     onClick={() => n.unread && markRead(n.id)}
                     className={cardClass}
+                    style={cardStyle}
                   >
                     {inner}
                   </Link>
@@ -304,6 +309,7 @@ export function Notifications() {
                     type="button"
                     onClick={() => n.unread && markRead(n.id)}
                     className={cardClass}
+                    style={cardStyle}
                   >
                     {inner}
                   </button>

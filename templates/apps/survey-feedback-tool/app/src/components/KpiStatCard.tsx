@@ -1,5 +1,5 @@
 /**
- * KPI card with left-border accent + uppercase 10px label, large value
+ * KPI card with the inset accent bar + uppercase label in its color, large value
  * font-extrabold, optional supporting trend pill. Used in 3-up triads
  * across Surveys, SurveyDetail, Analytics.
  *
@@ -18,18 +18,19 @@ interface KpiStatCardProps {
   trend?: string
   /** Material symbol icon name. */
   icon: string
-  /** Accent color used for the left border + icon. */
+  /** Accent color used for the accent bar, its label and the icon. */
   accent?: KpiAccent
   /** Optional tone for the trend label. */
   trendTone?: 'up' | 'down' | 'neutral'
 }
 
-const ACCENT_BORDER: Record<KpiAccent, string> = {
-  primary: 'border-primary',
-  secondary: 'border-secondary',
-  success: 'border-success',
-  warning: 'border-warning',
-  detractor: 'border-danger',
+/** The accent bar's color (read by `cm.accentCard({ tone: 'custom' })` via `--mol-accent`). */
+const ACCENT_VAR: Record<KpiAccent, string> = {
+  primary: 'var(--color-primary)',
+  secondary: 'var(--color-secondary)',
+  success: 'var(--color-success)',
+  warning: 'var(--color-warning)',
+  detractor: 'var(--color-danger)',
 }
 
 const ACCENT_TEXT: Record<KpiAccent, string> = {
@@ -61,19 +62,13 @@ function KpiStatCard({
       className={cm.cn(
         cm.sp('p', 5),
         cm.flex({ direction: 'col', gap: 3 }),
-        'bg-surface rounded-xl shadow-sm border-l-4 hover:-translate-y-0.5 transition-transform duration-200',
-        ACCENT_BORDER[accent],
+        cm.accentCard({ tone: 'custom' }),
+        'bg-surface rounded-xl shadow-sm hover:-translate-y-0.5 transition-transform duration-200',
       )}
+      style={{ ['--mol-accent' as string]: ACCENT_VAR[accent] }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
-        <span
-          className={cm.cn(
-            cm.fontWeight('bold'),
-            'text-[10px] uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </span>
+        <span className={cm.accentCardLabel({ tone: 'custom' })}>{label}</span>
         <span
           className={cm.cn('material-symbols-outlined', cm.textSize('xl'), ACCENT_TEXT[accent])}
           aria-hidden="true"

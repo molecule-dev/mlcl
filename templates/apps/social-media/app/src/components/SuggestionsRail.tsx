@@ -27,7 +27,7 @@ interface SuggestionsRailProps {
  * 5xl post count, delta percentage). Used by Feed + Explore.
  *
  * Translated from photo-sharing's GalleryFeatureRow.tsx — kept the
- * editorial typography and `border-l-4` accent treatment but
+ * editorial typography and inset accent bar treatment but
  * collapsed into a single sticky column suited to the 320px sidebar
  * width DESIGN.md spec'd.
  */

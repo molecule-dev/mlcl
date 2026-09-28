@@ -85,7 +85,7 @@ export function Landing() {
         {},
         { defaultValue: 'Structural Eng: Approved as noted. Proceed with pour.' },
       ),
-      tone: 'border-primary',
+      accent: 'var(--color-primary)',
     },
     {
       label: t('landing.stream2Label', {}, { defaultValue: 'SUB CLOCK-IN LOG' }),
@@ -96,14 +96,14 @@ export function Landing() {
         {},
         { defaultValue: '18 Ironworkers, 2 Foremen logged onsite.' },
       ),
-      tone: 'border-secondary',
+      accent: 'var(--color-secondary)',
     },
     {
       label: t('landing.stream3Label', {}, { defaultValue: 'OSHA PRE-TASK PLAN' }),
       when: t('landing.stream3When', {}, { defaultValue: 'Daily' }),
       title: t('landing.stream3Title', {}, { defaultValue: 'Rigging & Crane Protocol' }),
       body: t('landing.stream3Body', {}, { defaultValue: 'Signed by Supt. J. Kowalski' }),
-      tone: 'border-tertiary',
+      accent: 'var(--color-tertiary)',
     },
   ]
 
@@ -671,9 +671,10 @@ export function Landing() {
                       key={s.label}
                       data-mol-id="landing-stream-card"
                       className={cm.cn(
-                        'mb-3 p-3 bg-surface-container rounded border border-outline-variant border-l-4 last:mb-0',
-                        s.tone,
+                        cm.accentCard({ tone: 'custom' }),
+                        'mb-3 p-3 bg-surface-container rounded border border-outline-variant last:mb-0',
                       )}
+                      style={{ ['--mol-accent' as string]: s.accent }}
                     >
                       <div
                         className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'mb-1')}

@@ -45,10 +45,11 @@ const TYPE_COLOR: Record<PtoRequest['type'], string> = {
   holiday: 'var(--color-pto-holiday)',
 }
 
-const STATUS_BORDER: Record<PtoStatus, string> = {
-  approved: 'border-l-[color:var(--color-pto-approved)]',
-  pending: 'border-l-[color:var(--color-pto-pending)]',
-  denied: 'border-l-[color:var(--color-pto-denied)]',
+/** The request card's accent bar color (`cm.accentCard({ tone: 'custom' })` reads `--mol-accent`). */
+const STATUS_ACCENT: Record<PtoStatus, string> = {
+  approved: 'var(--color-pto-approved)',
+  pending: 'var(--color-pto-pending)',
+  denied: 'var(--color-pto-denied)',
 }
 
 const PTO_TYPES: { value: PtoRequest['type']; defaultLabel: string }[] = [
@@ -598,9 +599,10 @@ export function PTO() {
                     key={r.id}
                     className={cm.cn(
                       cm.sp('p', 4),
-                      'rounded-xl bg-surface-container-low border border-outline-variant/20 border-l-4',
-                      STATUS_BORDER[r.status],
+                      cm.accentCard({ tone: 'custom' }),
+                      'rounded-xl bg-surface-container-low border border-outline-variant/20',
                     )}
+                    style={{ ['--mol-accent' as string]: STATUS_ACCENT[r.status] }}
                   >
                     <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
                       <span

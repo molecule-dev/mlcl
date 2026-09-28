@@ -75,7 +75,7 @@ export function Dashboard() {
         labelKey: 'dashboard.kpis.today',
         label: 'Generated today',
         value: kpisState.data?.generatedToday ?? 0,
-        accent: 'border-l-primary',
+        accent: 'var(--color-primary)',
       },
       {
         id: 'queue',
@@ -83,7 +83,7 @@ export function Dashboard() {
         labelKey: 'dashboard.kpis.queue',
         label: 'In queue',
         value: kpisState.data?.inQueue ?? 0,
-        accent: 'border-l-secondary',
+        accent: 'var(--color-secondary)',
       },
       {
         id: 'upscaled',
@@ -91,7 +91,7 @@ export function Dashboard() {
         labelKey: 'dashboard.kpis.upscaled',
         label: 'Upscaled this week',
         value: kpisState.data?.upscaledThisWeek ?? 0,
-        accent: 'border-l-info',
+        accent: 'var(--color-info)',
       },
       {
         id: 'shared',
@@ -99,7 +99,7 @@ export function Dashboard() {
         labelKey: 'dashboard.kpis.shared',
         label: 'Shared collections',
         value: kpisState.data?.sharedCollections ?? 0,
-        accent: 'border-l-success',
+        accent: 'var(--color-success)',
       },
     ],
     [kpisState.data],
@@ -139,9 +139,10 @@ export function Dashboard() {
                   className={cm.cn(
                     cm.flex({ direction: 'col', gap: 'xs' }),
                     cm.sp('p', 4),
-                    'rounded-2xl bg-surface-container-lowest border-l-4 border border-outline-variant/15',
-                    kpi.accent,
+                    cm.accentCard({ tone: 'custom' }),
+                    'rounded-2xl bg-surface-container-lowest border border-outline-variant/15',
                   )}
+                  style={{ ['--mol-accent' as string]: kpi.accent }}
                 >
                   <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
                     <span
@@ -150,13 +151,7 @@ export function Dashboard() {
                     >
                       {kpi.icon}
                     </span>
-                    <span
-                      className={cm.cn(
-                        cm.fontWeight('bold'),
-                        cm.textSize('xs'),
-                        'uppercase tracking-widest text-on-surface-variant',
-                      )}
-                    >
+                    <span className={cm.accentCardLabel({ tone: 'custom' })}>
                       {t(kpi.labelKey, {}, { defaultValue: kpi.label })}
                     </span>
                   </div>

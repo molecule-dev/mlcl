@@ -18,7 +18,7 @@ interface AiSuggestionPanelProps {
  * Signet surface that hosts copilot interactions (Compose AI sidebar,
  * Compose-tone adjuster, suggestion drawers).
  *
- * Border-left primary accent + tinted ai-panel background + the Signet
+ * Inset primary accent bar + tinted ai-panel background + the Signet
  * sparkle glyph in the corner. Designed to read as "AI-assisted" without
  * shouting.
  */
@@ -29,7 +29,8 @@ export function AiSuggestionPanel({ title, subtitle, children }: AiSuggestionPan
     <aside
       className={cm.cn(
         cm.sp('p', 6),
-        'rounded-2xl border-l-[3px] border-primary relative overflow-hidden',
+        cm.accentCard({ tone: 'primary' }),
+        'rounded-2xl overflow-hidden',
       )}
       style={{
         background:

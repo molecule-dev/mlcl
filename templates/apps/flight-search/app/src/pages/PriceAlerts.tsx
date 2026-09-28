@@ -389,19 +389,19 @@ export function PriceAlerts() {
           eyebrow={t('priceAlerts.stat.tracked', {}, { defaultValue: 'Routes tracked' })}
           value={`${alerts.length}`}
           icon="track_changes"
-          accent="border-tracked text-tracked"
+          accent="var(--color-tracked)"
         />
         <StatCard
           eyebrow={t('priceAlerts.stat.active', {}, { defaultValue: 'Currently active' })}
           value={`${active.length}`}
           icon="notifications_active"
-          accent="border-primary text-primary"
+          accent="var(--color-primary)"
         />
         <StatCard
           eyebrow={t('priceAlerts.stat.deltaLabel', {}, { defaultValue: 'Avg. vs target' })}
           value={`${avgDelta >= 0 ? '+' : ''}${avgDelta.toFixed(1)}%`}
           icon={avgDelta < 0 ? 'trending_down' : 'trending_up'}
-          accent={avgDelta < 0 ? 'border-cheapest text-cheapest' : 'border-deal text-deal'}
+          accent={avgDelta < 0 ? 'var(--color-cheapest)' : 'var(--color-deal)'}
         />
       </section>
 
@@ -525,9 +525,10 @@ function StatCard({
     <article
       className={cm.cn(
         cm.sp('p', 5),
-        'group relative bg-surface rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all border-l-4',
-        accent,
+        cm.accentCard({ tone: 'custom' }),
+        'group bg-surface rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
       )}
+      style={{ ['--mol-accent' as string]: accent }}
     >
       <span
         className={cm.cn(
@@ -540,22 +541,13 @@ function StatCard({
       >
         <span className="material-symbols-outlined">{icon}</span>
       </span>
-      <p
-        className={cm.cn(
-          cm.textSize('xs'),
-          cm.fontWeight('bold'),
-          cm.sp('mt', 4),
-          'uppercase tracking-[0.25em] text-on-surface-variant',
-        )}
-      >
-        {eyebrow}
-      </p>
+      <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), cm.sp('mt', 4))}>{eyebrow}</p>
       <p
         className={cm.cn(
           cm.textSize('3xl'),
           cm.fontWeight('bold'),
           cm.sp('mt', 2),
-          'tabular-nums leading-none',
+          'tabular-nums leading-none text-[var(--mol-accent)]',
         )}
       >
         {value}

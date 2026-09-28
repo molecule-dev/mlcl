@@ -79,10 +79,10 @@ const STATUS_TINT: Record<string, string> = {
   completed: 'bg-success-light text-success',
 }
 
-const ACCENT_BORDER: Record<string, string> = {
-  high: 'border-error',
-  medium: 'border-warning',
-  low: 'border-border-secondary',
+const ACCENT_VAR: Record<string, string> = {
+  high: 'var(--color-error)',
+  medium: 'var(--color-warning)',
+  low: 'var(--color-border-secondary)',
 }
 
 export function MaintenanceDetail() {
@@ -239,7 +239,7 @@ export function MaintenanceDetail() {
     )
   }
 
-  const accent = ACCENT_BORDER[ticket.priority] ?? ACCENT_BORDER.low
+  const accent = ACCENT_VAR[ticket.priority] ?? ACCENT_VAR.low
   const propertyLabel = property?.name ?? '—'
   const unitLabel = unit?.unit_number ?? '—'
 
@@ -258,9 +258,10 @@ export function MaintenanceDetail() {
       <header
         className={cm.cn(
           cm.sp('p', 8),
-          'bg-surface-container-lowest rounded-2xl border-l-4 shadow-sm',
-          accent,
+          cm.accentCard({ tone: 'custom' }),
+          'bg-surface-container-lowest rounded-2xl shadow-sm',
         )}
+        style={{ ['--mol-accent' as string]: accent }}
       >
         <div className={cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' })}>
           <span

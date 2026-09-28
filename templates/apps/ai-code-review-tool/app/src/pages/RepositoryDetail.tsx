@@ -126,24 +126,24 @@ export function RepositoryDetail() {
         ? 0
         : scored.reduce((acc, r) => acc + (r.quality_score ?? 0) / 10, 0) / scored.length
     return [
-      { key: 'open', label: 'Open PRs', value: String(open), tint: 'border-emerald-500' },
+      { key: 'open', label: 'Open PRs', value: String(open), accent: 'var(--color-emerald-500)' },
       {
         key: 'reviewed',
         label: 'Reviewed (merged)',
         value: String(reviewed),
-        tint: 'border-violet-500',
+        accent: 'var(--color-violet-500)',
       },
       {
         key: 'critical',
         label: 'Critical issues',
         value: String(critical),
-        tint: 'border-red-500',
+        accent: 'var(--color-red-500)',
       },
       {
         key: 'avg',
         label: 'Avg score',
         value: avg > 0 ? avg.toFixed(1) : '—',
-        tint: 'border-cyan-500',
+        accent: 'var(--color-cyan-500)',
       },
     ]
   }, [prs, reviewsForRepo])
@@ -256,17 +256,12 @@ export function RepositoryDetail() {
             className={cm.cn(
               cm.sp('p', 5),
               cm.stack(2),
-              'rounded-2xl bg-surface-container-lowest shadow-sm border-l-4',
-              kpi.tint,
+              cm.accentCard({ tone: 'custom' }),
+              'rounded-2xl bg-surface-container-lowest shadow-sm',
             )}
+            style={{ ['--mol-accent' as string]: kpi.accent }}
           >
-            <p
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                'uppercase tracking-widest text-on-surface-variant font-mono',
-              )}
-            >
+            <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-mono')}>
               {t(`repositoryDetail.kpi.${kpi.key}`, {}, { defaultValue: kpi.label })}
             </p>
             <p

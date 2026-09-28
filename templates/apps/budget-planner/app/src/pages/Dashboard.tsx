@@ -323,7 +323,8 @@ export function Dashboard() {
         <section
           className={cm.cn(
             cm.sp('p', 6),
-            'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 border-l-error',
+            cm.accentCard({ tone: 'error' }),
+            'bg-surface-container-lowest rounded-2xl shadow-sm',
           )}
         >
           <div className={cm.flex({ align: 'center', gap: 'sm' })}>

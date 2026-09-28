@@ -34,10 +34,11 @@ export interface SubjectStatsTriadProps {
   stats?: readonly TriadStat[]
 }
 
-const ACCENT_BORDER: Record<NonNullable<TriadStat['accent']>, string> = {
-  primary: 'border-l-4 border-primary',
-  secondary: 'border-l-4 border-secondary',
-  tertiary: 'border-l-4 border-tertiary',
+/** The card's accent bar color, read by `cm.accentCard({ tone: 'custom' })`. */
+const ACCENT_VAR: Record<NonNullable<TriadStat['accent']>, string> = {
+  primary: 'var(--color-primary)',
+  secondary: 'var(--color-secondary)',
+  tertiary: 'var(--color-tertiary)',
 }
 
 export function SubjectStatsTriad({ stats }: SubjectStatsTriadProps) {
@@ -138,8 +139,9 @@ export function SubjectStatsTriad({ stats }: SubjectStatsTriadProps) {
           className={cm.cn(
             cm.sp('p', 6),
             'bg-surface-container-lowest rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform group',
-            s.accent ? ACCENT_BORDER[s.accent] : '',
+            s.accent ? cm.accentCard({ tone: 'custom' }) : '',
           )}
+          style={s.accent ? { ['--mol-accent' as string]: ACCENT_VAR[s.accent] } : undefined}
         >
           <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), cm.sp('mb', 4))}>
             <span
@@ -156,7 +158,9 @@ export function SubjectStatsTriad({ stats }: SubjectStatsTriadProps) {
           </div>
           <p
             className={cm.cn(
-              'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+              s.accent
+                ? cm.accentCardLabel({ tone: 'custom' })
+                : 'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
             )}
           >
             {s.label}

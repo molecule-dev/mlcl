@@ -54,11 +54,13 @@ export function LeaderboardRow({
     <div
       className={cm.cn(
         cm.flex({ align: 'center', gap: 4 }),
-        cm.sp('px', 4),
+        cm.sp('pr', 4),
         cm.sp('py', 3),
-        'rounded-xl transition-colors',
+        // Every row keeps the accent recipe's left padding so the current
+        // user's row (which carries the bar) lines up with the others.
+        'rounded-xl transition-colors pl-[30px]',
         isCurrentUser
-          ? 'bg-primary-container/30 border-l-4 border-primary shadow-sm'
+          ? cm.cn(cm.accentCard({ tone: 'primary' }), 'bg-primary-container/30 shadow-sm')
           : 'hover:bg-surface-container-low',
       )}
     >

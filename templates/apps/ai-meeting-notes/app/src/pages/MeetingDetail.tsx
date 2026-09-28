@@ -170,7 +170,13 @@ export function MeetingDetail() {
 
         <aside className={cm.cn('col-span-12 lg:col-span-4 space-y-4 sticky top-24')}>
           <section
-            className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-3 border-l-4 border-secondary')}
+            className={cm.cn(
+              cm.card(),
+              cm.sp('p', 5),
+              'space-y-3',
+              cm.accentCard({ tone: 'custom' }),
+            )}
+            style={{ ['--mol-accent' as string]: 'var(--color-secondary)' }}
           >
             <h2 className={cm.sectionHeading}>
               ✨ {t('meetingDetail.summaryHeading', {}, { defaultValue: 'AI summary' })}

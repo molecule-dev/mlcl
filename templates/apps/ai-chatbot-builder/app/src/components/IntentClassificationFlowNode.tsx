@@ -28,16 +28,13 @@ export default function IntentClassificationFlowNode() {
       className={cm.cn(
         cm.flex({ direction: 'col' }),
         cm.sp('p', 4),
-        'absolute left-64 top-32 w-48 bg-surface-container rounded-xl border-l-4 border-indigo-500 shadow-2xl gap-3',
+        'absolute left-64 top-32 w-48 bg-surface-container rounded-xl shadow-2xl gap-3',
+        cm.accentCard({ tone: 'custom' }),
       )}
+      style={{ ['--mol-accent' as string]: 'var(--color-indigo-500)' }}
     >
       <div className={cm.flex({ align: 'center', justify: 'between' })}>
-        <span
-          className={cm.cn(
-            cm.fontWeight('bold'),
-            'text-[10px] text-on-surface-variant uppercase tracking-widest',
-          )}
-        >
+        <span className={cm.accentCardLabel({ tone: 'custom' })}>
           {t('intentClassifier.nodeType', {}, { defaultValue: 'Logic Node' })}
         </span>
         <span

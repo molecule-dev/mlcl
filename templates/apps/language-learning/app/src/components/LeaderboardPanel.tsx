@@ -72,7 +72,7 @@ export function LeaderboardPanel({ entries, period }: LeaderboardPanelProps) {
               cm.sp('px', 3),
               'rounded-xl transition-colors',
               entry.isCurrentUser
-                ? 'bg-primary-container/30 border-l-4 border-primary'
+                ? cm.cn('bg-primary-container/30', cm.accentCard({ tone: 'primary' }))
                 : 'hover:bg-surface-container-low',
             )}
           >

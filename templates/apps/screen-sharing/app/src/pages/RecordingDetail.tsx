@@ -429,8 +429,10 @@ export function RecordingDetail() {
                     className={cm.cn(
                       cm.flex({ align: 'start', gap: 3 }),
                       cm.sp('p', 4),
-                      'rounded-2xl border-l-4 border-cyan-500 bg-cyan-50/40 dark:bg-cyan-500/5 shadow-sm',
+                      cm.accentCard({ tone: 'custom' }),
+                      'rounded-2xl bg-cyan-50/40 dark:bg-cyan-500/5 shadow-sm',
                     )}
+                    style={{ ['--mol-accent' as string]: 'var(--color-cyan-500)' }}
                   >
                     <div
                       className={cm.cn(

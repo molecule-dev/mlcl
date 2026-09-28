@@ -26,11 +26,12 @@ interface MealSectionProps {
   emptyHint?: string
 }
 
-const ACCENT: Record<MealKey, string> = {
-  breakfast: 'border-l-breakfast text-breakfast',
-  lunch: 'border-l-lunch text-lunch',
-  dinner: 'border-l-dinner text-dinner',
-  snacks: 'border-l-snacks text-snacks',
+/** Per-meal accent: the bar color (read by `cm.accentCard({ tone: 'custom' })`) and the icon tint. */
+const ACCENT: Record<MealKey, { bar: string; text: string }> = {
+  breakfast: { bar: 'var(--color-breakfast)', text: 'text-breakfast' },
+  lunch: { bar: 'var(--color-lunch)', text: 'text-lunch' },
+  dinner: { bar: 'var(--color-dinner)', text: 'text-dinner' },
+  snacks: { bar: 'var(--color-snacks)', text: 'text-snacks' },
 }
 
 /**
@@ -63,15 +64,16 @@ export function MealSection({
         className={cm.cn(
           cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
           cm.sp('p', 5),
-          'bg-surface rounded-2xl shadow-sm border border-dashed border-outline/50 border-l-[3px] min-h-[160px] cursor-pointer hover:bg-surface-variant/30 transition-colors group',
-          accent.split(' ')[0],
+          cm.accentCard({ tone: 'custom' }),
+          'bg-surface rounded-2xl shadow-sm border border-dashed border-outline/50 min-h-[160px] cursor-pointer hover:bg-surface-variant/30 transition-colors group',
         )}
+        style={{ ['--mol-accent' as string]: accent.bar }}
       >
         <span
           aria-hidden="true"
           className={cm.cn(
             'material-symbols-outlined text-4xl mb-2 opacity-50 group-hover:scale-110 transition-transform',
-            accent.split(' ')[1],
+            accent.text,
           )}
         >
           {icon}
@@ -93,16 +95,14 @@ export function MealSection({
       className={cm.cn(
         cm.flex({ direction: 'col' }),
         cm.sp('p', 5),
-        'bg-surface rounded-2xl shadow-sm border-l-[3px] h-full',
-        accent.split(' ')[0],
+        cm.accentCard({ tone: 'custom' }),
+        'bg-surface rounded-2xl shadow-sm h-full',
       )}
+      style={{ ['--mol-accent' as string]: accent.bar }}
     >
       <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), cm.sp('mb', 4))}>
         <div className={cm.flex({ align: 'center', gap: 'xs' })}>
-          <span
-            aria-hidden="true"
-            className={cm.cn('material-symbols-outlined', accent.split(' ')[1])}
-          >
+          <span aria-hidden="true" className={cm.cn('material-symbols-outlined', accent.text)}>
             {icon}
           </span>
           <h3 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>{title}</h3>

@@ -16,13 +16,14 @@ export interface QuillonKpiCardProps {
   trend?: number[]
 }
 
-const ACCENT_BORDER: Record<NonNullable<QuillonKpiCardProps['tone']>, string> = {
-  primary: 'border-l-primary',
-  success: 'border-l-success',
-  warning: 'border-l-warning',
-  error: 'border-l-error',
-  info: 'border-l-info',
-  neutral: 'border-l-outline',
+/** The card's accent bar color, read by `cm.accentCard({ tone: 'custom' })`. */
+const ACCENT_VAR: Record<NonNullable<QuillonKpiCardProps['tone']>, string> = {
+  primary: 'var(--color-primary)',
+  success: 'var(--color-success)',
+  warning: 'var(--color-warning)',
+  error: 'var(--color-error)',
+  info: 'var(--color-info)',
+  neutral: 'var(--color-outline)',
 }
 
 const ACCENT_BAR: Record<NonNullable<QuillonKpiCardProps['tone']>, string> = {
@@ -51,18 +52,12 @@ export function QuillonKpiCard({
       className={cm.cn(
         cm.sp('p', 5),
         cm.flex({ direction: 'col', justify: 'between' }),
-        'min-h-[7rem] rounded-2xl border border-outline-variant bg-surface-container-lowest border-l-4 shadow-sm transition-transform hover:-translate-y-0.5',
-        ACCENT_BORDER[tone],
+        cm.accentCard({ tone: 'custom' }),
+        'min-h-[7rem] rounded-2xl border border-outline-variant bg-surface-container-lowest shadow-sm transition-transform hover:-translate-y-0.5',
       )}
+      style={{ ['--mol-accent' as string]: ACCENT_VAR[tone] }}
     >
-      <p
-        className={cm.cn(
-          cm.fontWeight('extrabold'),
-          'uppercase tracking-widest text-on-surface-variant text-[10px]',
-        )}
-      >
-        {label}
-      </p>
+      <p className={cm.accentCardLabel({ tone: 'custom' })}>{label}</p>
       <div
         className={cm.cn(
           cm.sp('mt', 2),

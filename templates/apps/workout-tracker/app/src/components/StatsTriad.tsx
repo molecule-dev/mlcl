@@ -11,7 +11,7 @@ export interface StatItem {
   caption?: string
   /** Material-symbols icon name. */
   icon: string
-  /** Tonal accent — drives the left-border + icon color. */
+  /** Tonal accent — drives the accent bar, its label and the icon color. */
   tone?: 'primary' | 'pr' | 'volume-up' | 'volume-down' | 'rest-timer' | 'streak'
   /** Optional trend pill ("+12 vs last week"). */
   trend?: {
@@ -24,17 +24,17 @@ interface StatsTriadProps {
   items: StatItem[]
 }
 
-const TONE: Record<NonNullable<StatItem['tone']>, { border: string; icon: string }> = {
-  primary: { border: 'border-l-primary', icon: 'text-primary' },
-  pr: { border: 'border-l-pr', icon: 'text-pr' },
-  'volume-up': { border: 'border-l-volume-up', icon: 'text-volume-up' },
-  'volume-down': { border: 'border-l-volume-down', icon: 'text-volume-down' },
-  'rest-timer': { border: 'border-l-rest-timer', icon: 'text-rest-timer' },
-  streak: { border: 'border-l-streak-active', icon: 'text-streak-active' },
+const TONE: Record<NonNullable<StatItem['tone']>, { accent: string; icon: string }> = {
+  primary: { accent: 'var(--color-primary)', icon: 'text-primary' },
+  pr: { accent: 'var(--color-pr)', icon: 'text-pr' },
+  'volume-up': { accent: 'var(--color-volume-up)', icon: 'text-volume-up' },
+  'volume-down': { accent: 'var(--color-volume-down)', icon: 'text-volume-down' },
+  'rest-timer': { accent: 'var(--color-rest-timer)', icon: 'text-rest-timer' },
+  streak: { accent: 'var(--color-streak-active)', icon: 'text-streak-active' },
 }
 
 /**
- * Triad of KPI cards — each rendered with a 4px left-border accent, an icon
+ * Triad of KPI cards — each rendered with the inset accent bar, an icon
  * chip, an uppercase 10px tracked label, and an extrabold tabular-num value.
  * Cards lift on hover (translate-y-0.5) for a subtle interactive feel.
  *
@@ -60,9 +60,10 @@ export function StatsTriad({ items }: StatsTriadProps) {
             className={cm.cn(
               cm.flex({ direction: 'col', gap: 'sm' }),
               cm.sp('p', 5),
-              'rounded-xl bg-surface shadow-sm border border-outline/40 border-l-4 transition-transform hover:-translate-y-0.5',
-              tone.border,
+              cm.accentCard({ tone: 'custom' }),
+              'rounded-xl bg-surface shadow-sm border border-outline/40 transition-transform hover:-translate-y-0.5',
             )}
+            style={{ ['--mol-accent' as string]: tone.accent }}
           >
             <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
               <span
@@ -89,14 +90,7 @@ export function StatsTriad({ items }: StatsTriadProps) {
                 </span>
               ) : null}
             </div>
-            <div
-              className={cm.cn(
-                cm.textSize('xs'),
-                'font-black uppercase tracking-[0.22em] text-on-surface-variant',
-              )}
-            >
-              {item.label}
-            </div>
+            <div className={cm.accentCardLabel({ tone: 'custom' })}>{item.label}</div>
             <div
               className={cm.cn(
                 'text-4xl font-extrabold tracking-tight tabular-nums text-on-surface',

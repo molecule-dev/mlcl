@@ -322,13 +322,12 @@ function Stat({ label, value }: { label: string; value: string }) {
   const cm = getClassMap()
   return (
     <div
-      className={
-        'bg-surface-container-lowest rounded-2xl p-5 border-l-4 border-primary hover:-translate-y-0.5 transition-transform'
-      }
+      className={cm.cn(
+        'bg-surface-container-lowest rounded-2xl p-5 hover:-translate-y-0.5 transition-transform',
+        cm.accentCard({ tone: 'primary' }),
+      )}
     >
-      <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
-        {label}
-      </p>
+      <p className={cm.accentCardLabel({ tone: 'primary' })}>{label}</p>
       <p
         className={cm.cn(cm.textSize('3xl'), 'font-extrabold tracking-tight tabular-nums mt-1')}
         style={{ fontFamily: 'Playfair Display, Georgia, serif' }}

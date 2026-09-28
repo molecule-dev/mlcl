@@ -301,14 +301,14 @@ function Stat({
   tone?: 'amber' | 'emerald' | 'violet'
 }) {
   const cm = getClassMap()
-  const toneBorder =
+  const toneAccent =
     tone === 'amber'
-      ? 'border-l-amber-500'
+      ? 'var(--color-amber-500)'
       : tone === 'emerald'
-        ? 'border-l-emerald-500'
+        ? 'var(--color-emerald-500)'
         : tone === 'violet'
-          ? 'border-l-violet-500'
-          : 'border-l-primary'
+          ? 'var(--color-violet-500)'
+          : 'var(--color-primary)'
   const toneText =
     tone === 'amber'
       ? 'text-warning'
@@ -321,9 +321,10 @@ function Stat({
     <div
       className={cm.cn(
         cm.sp('p', 5),
-        'rounded-2xl bg-surface-container-lowest border border-outline-variant/30 border-l-4',
-        toneBorder,
+        'rounded-2xl bg-surface-container-lowest border border-outline-variant/30',
+        cm.accentCard({ tone: 'custom' }),
       )}
+      style={{ ['--mol-accent' as string]: toneAccent }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'mb-3')}>
         <span
@@ -332,13 +333,7 @@ function Stat({
         >
           {icon}
         </span>
-        <span
-          className={cm.cn(
-            'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </span>
+        <span className={cm.cn(cm.accentCardLabel({ tone: 'custom' }))}>{label}</span>
       </div>
       <p
         className={cm.cn('text-3xl font-extrabold tabular-nums text-on-surface')}

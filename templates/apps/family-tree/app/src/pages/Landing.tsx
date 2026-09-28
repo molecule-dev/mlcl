@@ -880,8 +880,8 @@ export function Landing() {
                   )}
                   {idx === 2 && (
                     <div
-                      className={cm.cn('border-l-2 pl-3', cm.sp('mt', 6))}
-                      style={{ borderColor: 'var(--color-forest-hover)' }}
+                      className={cm.cn(cm.accentCard({ tone: 'custom' }), cm.sp('mt', 6))}
+                      style={{ ['--mol-accent' as string]: 'var(--color-forest-hover)' }}
                     >
                       <p className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'))}>
                         {t(

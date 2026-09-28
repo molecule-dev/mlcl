@@ -15,11 +15,12 @@ interface KpiStatCardProps {
   sparkline?: ReadonlyArray<number>
 }
 
-const ACCENT_BORDER: Record<NonNullable<KpiStatCardProps['accent']>, string> = {
-  primary: 'border-l-primary',
-  accent: 'border-l-accent',
-  warning: 'border-l-warning',
-  tertiary: 'border-l-tertiary',
+/** The accent bar's color (read by `cm.accentCard({ tone: 'custom' })` via `--mol-accent`). */
+const ACCENT_VAR: Record<NonNullable<KpiStatCardProps['accent']>, string> = {
+  primary: 'var(--color-primary)',
+  accent: 'var(--color-accent)',
+  warning: 'var(--color-warning)',
+  tertiary: 'var(--color-tertiary)',
 }
 
 const ACCENT_BG: Record<NonNullable<KpiStatCardProps['accent']>, string> = {
@@ -30,7 +31,7 @@ const ACCENT_BG: Record<NonNullable<KpiStatCardProps['accent']>, string> = {
 }
 
 /**
- * KPI tile — 4-column dashboard summary card with left-edge accent stripe,
+ * KPI tile — 4-column dashboard summary card with the inset accent bar,
  * uppercase 10px label, extrabold value, optional trend pill, optional
  * Material icon chip, optional inline-SVG sparkline.
  *
@@ -78,19 +79,14 @@ export function KpiStatCard({
     <article
       className={cm.cn(
         cm.sp('p', 5),
-        'rounded-lg border-l-4 bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-transform',
-        ACCENT_BORDER[accent],
+        cm.accentCard({ tone: 'custom' }),
+        'rounded-lg bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-transform',
       )}
+      style={{ ['--mol-accent' as string]: ACCENT_VAR[accent] }}
       data-mol-id={`kpi-${label.toLowerCase().replace(/\s+/g, '-')}`}
     >
       <div className={cm.cn(cm.flex({ align: 'start', justify: 'between' }), cm.sp('mb', 4))}>
-        <span
-          className={cm.cn(
-            'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </span>
+        <span className={cm.accentCardLabel({ tone: 'custom' })}>{label}</span>
         {icon && (
           <span className={cm.cn(cm.sp('p', 2), 'rounded-lg', ACCENT_BG[accent])}>
             <span

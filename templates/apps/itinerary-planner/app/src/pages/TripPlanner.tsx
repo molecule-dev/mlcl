@@ -240,7 +240,8 @@ export function TripPlanner() {
           <section
             className={cm.cn(
               cm.sp('p', 6),
-              'bg-surface rounded-2xl shadow-sm border border-outline-variant/40 border-l-4 border-l-primary',
+              cm.accentCard({ tone: 'primary' }),
+              'bg-surface rounded-2xl shadow-sm border border-outline-variant/40',
             )}
           >
             <h2
@@ -365,8 +366,10 @@ export function TripPlanner() {
           <section
             className={cm.cn(
               cm.sp('p', 6),
-              'bg-surface rounded-2xl shadow-sm border border-outline-variant/40 border-l-4 border-l-accent',
+              cm.accentCard({ tone: 'custom' }),
+              'bg-surface rounded-2xl shadow-sm border border-outline-variant/40',
             )}
+            style={{ ['--mol-accent' as string]: 'var(--color-accent)' }}
           >
             <h2
               className={cm.cn(cm.textSize('lg'), cm.fontWeight('extrabold'), 'tracking-tight')}
@@ -457,8 +460,10 @@ export function TripPlanner() {
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 'sm' }),
                     cm.sp('p', 4),
-                    'rounded-xl bg-surface border-l-4 border-cyan-700',
+                    cm.accentCard({ tone: 'custom' }),
+                    'rounded-xl bg-surface',
                   )}
+                  style={{ ['--mol-accent' as string]: 'var(--color-cyan-700)' }}
                 >
                   <span
                     className={cm.cn(

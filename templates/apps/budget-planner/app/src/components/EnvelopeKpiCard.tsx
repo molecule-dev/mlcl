@@ -9,6 +9,7 @@
  */
 
 import { useTranslation } from '@molecule/app-react'
+import type { AccentTone } from '@molecule/app-ui'
 import { getClassMap } from '@molecule/app-ui'
 
 export type EnvelopeKpiTone =
@@ -23,7 +24,8 @@ interface EnvelopeKpiCardProps {
 }
 
 function toneStyles(tone: EnvelopeKpiTone): {
-  border: string
+  tone: AccentTone
+  accent?: string
   valueText: string
   iconBg: string
   iconText: string
@@ -31,42 +33,44 @@ function toneStyles(tone: EnvelopeKpiTone): {
   switch (tone) {
     case 'income':
       return {
-        border: 'border-l-success',
+        tone: 'success',
         valueText: 'text-success',
         iconBg: 'bg-success/10',
         iconText: 'text-success',
       }
     case 'assigned':
       return {
-        border: 'border-l-primary',
+        tone: 'primary',
         valueText: 'text-primary',
         iconBg: 'bg-primary/10',
         iconText: 'text-primary',
       }
     case 'spent':
       return {
-        border: 'border-l-on-surface',
+        tone: 'default',
         valueText: 'text-on-surface',
         iconBg: 'bg-on-surface/10',
         iconText: 'text-on-surface',
       }
     case 'available':
       return {
-        border: 'border-l-secondary',
+        tone: 'custom',
+        accent: 'var(--color-secondary)',
         valueText: 'text-secondary',
         iconBg: 'bg-secondary/10',
         iconText: 'text-secondary',
       }
     case 'overspent':
       return {
-        border: 'border-l-error',
+        tone: 'error',
         valueText: 'text-error',
         iconBg: 'bg-error/10',
         iconText: 'text-error',
       }
     default:
       return {
-        border: 'border-l-outline',
+        tone: 'custom',
+        accent: 'var(--color-outline)',
         valueText: 'text-on-surface',
         iconBg: 'bg-surface-container',
         iconText: 'text-on-surface-variant',
@@ -88,20 +92,14 @@ export function EnvelopeKpiCard({
     <article
       className={cm.cn(
         cm.sp('p', 5),
-        'border-l-4 bg-surface-container-lowest rounded-xl shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
-        styles.border,
+        cm.accentCard({ tone: styles.tone }),
+        'bg-surface-container-lowest rounded-xl shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
       )}
+      style={styles.accent ? { ['--mol-accent' as string]: styles.accent } : undefined}
       data-mol-id={`kpi-${tone}`}
     >
       <div className={cm.flex({ align: 'center', justify: 'between' })}>
-        <p
-          className={cm.cn(
-            cm.fontWeight('extrabold'),
-            'text-[10px] uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </p>
+        <p className={cm.accentCardLabel({ tone: styles.tone })}>{label}</p>
         {icon ? (
           <span
             className={cm.cn(

@@ -691,16 +691,11 @@ export function TripDetail() {
                     cm.sp('py', 3),
                     // top-16 on mobile (below the mobile shell's sticky top
                     // bar), top-0 on md+ where the sidebar layout has no bar.
-                    'sticky top-16 md:top-0 z-10 bg-surface/95 backdrop-blur-md rounded-xl border-l-4 border-primary shadow-sm',
+                    cm.accentCard({ tone: 'primary' }),
+                    'sticky top-16 md:top-0 z-10 bg-surface/95 backdrop-blur-md rounded-xl shadow-sm',
                   )}
                 >
-                  <p
-                    className={cm.cn(
-                      cm.textSize('xs'),
-                      cm.fontWeight('bold'),
-                      'uppercase tracking-[0.25em] text-primary',
-                    )}
-                  >
+                  <p className={cm.accentCardLabel({ tone: 'primary' })}>
                     {t('tripDetail.dayLabel', { day: day.day }, { defaultValue: 'Day {{day}}' })}
                   </p>
                   <h3

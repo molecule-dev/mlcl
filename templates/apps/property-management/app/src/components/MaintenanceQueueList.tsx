@@ -24,12 +24,16 @@ export interface MaintenanceTicket {
 
 const PRIORITY_STYLES: Record<
   MaintenanceTicket['priority'],
-  { border: string; pill: string; icon: string }
+  { accent: string; pill: string; icon: string }
 > = {
-  high: { border: 'border-l-red-500', pill: 'bg-error-light text-error', icon: 'priority_high' },
-  medium: { border: 'border-l-amber-500', pill: 'bg-warning-light text-warning', icon: 'flag' },
+  high: {
+    accent: 'var(--color-red-500)',
+    pill: 'bg-error-light text-error',
+    icon: 'priority_high',
+  },
+  medium: { accent: 'var(--color-amber-500)', pill: 'bg-warning-light text-warning', icon: 'flag' },
   low: {
-    border: 'border-l-slate-400',
+    accent: 'var(--color-slate-400)',
     pill: 'bg-surface-secondary text-foreground',
     icon: 'low_priority',
   },
@@ -107,8 +111,10 @@ export function MaintenanceQueueList({
                   className={cm.cn(
                     cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
                     cm.sp('p', 4),
-                    `bg-surface-container-low rounded-xl border-l-4 ${p.border} hover:-translate-y-0.5 hover:shadow-md transition-all`,
+                    cm.accentCard({ tone: 'custom' }),
+                    'bg-surface-container-low rounded-xl hover:-translate-y-0.5 hover:shadow-md transition-all',
                   )}
+                  style={{ ['--mol-accent' as string]: p.accent }}
                 >
                   <div
                     className={cm.cn(cm.flex({ align: 'start', gap: 'md' }), cm.flex1, 'min-w-0')}

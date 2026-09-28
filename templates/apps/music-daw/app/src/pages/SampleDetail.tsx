@@ -366,17 +366,12 @@ function KpiCard({ label, value, accent }: { label: string; value: string; accen
   return (
     <div
       className={cm.cn(
-        'rounded-2xl bg-surface-container-lowest p-5 hover:-translate-y-0.5 transition-transform border-l-4',
+        'rounded-2xl bg-surface-container-lowest p-5 hover:-translate-y-0.5 transition-transform',
+        cm.accentCard({ tone: 'custom' }),
       )}
-      style={{ borderColor: accent }}
+      style={{ ['--mol-accent' as string]: accent }}
     >
-      <p
-        className={cm.cn(
-          'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-        )}
-      >
-        {label}
-      </p>
+      <p className={cm.accentCardLabel({ tone: 'custom' })}>{label}</p>
       <p className={cm.cn('text-3xl font-extrabold tabular-nums mt-1')} style={{ color: accent }}>
         {value}
       </p>

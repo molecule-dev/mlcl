@@ -32,14 +32,15 @@ interface SegmentRowProps {
   onCommit?: (id: string, target: string) => Promise<void> | void
 }
 
-const STATUS_BORDER: Record<SegmentStatus, string> = {
-  untranslated: 'border-l-outline',
-  draft: 'border-l-tertiary',
-  machine: 'border-l-secondary',
-  in_review: 'border-l-warning',
-  needs_review: 'border-l-warning',
-  needs_revision: 'border-l-tertiary',
-  approved: 'border-l-success',
+/** The status color the target pane's accent bar takes (`--mol-accent`). */
+const STATUS_ACCENT: Record<SegmentStatus, string> = {
+  untranslated: 'var(--color-outline)',
+  draft: 'var(--color-tertiary)',
+  machine: 'var(--color-secondary)',
+  in_review: 'var(--color-warning)',
+  needs_review: 'var(--color-warning)',
+  needs_revision: 'var(--color-tertiary)',
+  approved: 'var(--color-success)',
 }
 
 const STATUS_LABEL: Record<SegmentStatus, string> = {
@@ -136,9 +137,10 @@ export function SegmentRow({ segment, active = false, onSelect, onCommit }: Segm
         className={cm.cn(
           cm.flex1,
           cm.sp('p', 4),
-          'bg-target-pane font-serif-content text-on-surface min-w-0 border-l-4',
-          STATUS_BORDER[segment.status],
+          cm.accentCard({ tone: 'custom' }),
+          'bg-target-pane font-serif-content text-on-surface min-w-0',
         )}
+        style={{ ['--mol-accent' as string]: STATUS_ACCENT[segment.status] }}
       >
         {onCommit ? (
           <textarea

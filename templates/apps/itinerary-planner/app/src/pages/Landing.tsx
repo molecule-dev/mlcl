@@ -303,7 +303,8 @@ export function Landing() {
                   key={f.id}
                   className={cm.cn(
                     cm.sp('p', 6),
-                    'bg-surface rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all border-l-4 border-primary',
+                    cm.accentCard({ tone: 'primary' }),
+                    'bg-surface rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all',
                   )}
                 >
                   <span
