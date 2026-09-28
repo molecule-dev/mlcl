@@ -27,7 +27,7 @@
     "@molecule/app-auth-shell-react": "1.0.3",
     "@molecule/app-auth-ui-react": "1.0.2",
     "@molecule/app-bond": "1.0.2",
-    "@molecule/app-bonds-default-react": "1.0.4",
+    "@molecule/app-bonds-default-react": "1.0.5",
     "@molecule/app-calendar": "1.0.2",
     "@molecule/app-code-editor": "1.0.2",
     "@molecule/app-date-range-picker": "1.0.2",

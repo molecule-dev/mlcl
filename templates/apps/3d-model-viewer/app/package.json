@@ -26,7 +26,7 @@
     "@molecule/app-auth": "1.1.1",
     "@molecule/app-auth-shell-react": "1.0.3",
     "@molecule/app-bond": "1.0.2",
-    "@molecule/app-bonds-default-react": "1.0.4",
+    "@molecule/app-bonds-default-react": "1.0.5",
     "@molecule/app-code-editor": "1.0.2",
     "@molecule/app-command-palette": "1.0.2",
     "@molecule/app-data-table": "1.0.2",
