@@ -289,3 +289,23 @@ input[type='range']:focus {
   --color-text: #0f172a;
   --color-text-secondary: #475569;
 }
+
+/* Landing dark stage — the Stitch design renders the landing as a dark neon
+   page regardless of the app theme mode. `data-mol-mode="dark"` on the landing
+   wrapper flips the token set for its subtree only; the accent override below
+   restores the design's violet→cyan gradient pair (the app-wide dark secondary
+   is emerald for in-app contrast reasons).
+   The foreground aliases are NOT in the app's dark block — base.css derives
+   them from --mol-color-text at :root, so the substituted (light) value is
+   what inherits. Re-derive them here so they resolve against the flipped
+   --mol-color-* values inside the stage. */
+.landing-stage {
+  --color-foreground: var(--mol-color-text, #f5f3ff);
+  --color-foreground-secondary: var(--mol-color-text-secondary, #c4bfe0);
+  --color-foreground-tertiary: var(--mol-color-text-tertiary, #8a85a8);
+  --color-foreground-inverse: var(--mol-color-text-inverse, #0c0a18);
+  --color-surface-secondary: var(--mol-color-surface-secondary, #15102a);
+  --color-secondary: #06b6d4;
+  --color-secondary-hover: #22d3ee;
+  --mol-color-secondary: #22d3ee;
+}

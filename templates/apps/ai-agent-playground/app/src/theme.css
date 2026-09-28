@@ -142,6 +142,12 @@
   --color-outline: #7c6aaf;
   --color-outline-variant: #ddd6fe;
   --color-surface-tint: #7c3aed;
+
+  /* Stitch brand accents — Neuron landing (identical in light + dark). */
+  --color-brand-orange: #e04820;
+  --color-brand-cyan: #0ea5e9;
+  --color-brand-purple: #8b5cf6;
+  --color-brand-green: #16a34a;
 }
 
 /* Dark mode overrides — brand-calibrated dark palette

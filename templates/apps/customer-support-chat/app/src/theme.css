@@ -18,6 +18,9 @@
      zinc-family #6b6b74 = 5.3:1 on white, ≥4.5:1 on every light surface incl. #f5f3ff */
   --color-on-surface-variant: #6b6b74;
 
+  /* Landing footer band (Stitch: parlance-footer #1a1838) */
+  --color-footer: #1a1838;
+
   /* Surfaces */
   --color-bg: #f5f3ff;
   --color-background: #f5f3ff;
@@ -129,6 +132,9 @@
   --color-border-secondary: #f4f4f5;
   --color-border-focus: #635bff;
 
+  /* Landing footer band — light */
+  --color-footer: #1a1838;
+
   --shadow-sm: 0 1px 2px rgba(99, 91, 255, 0.06);
   --shadow-md: 0 4px 12px -2px rgba(99, 91, 255, 0.1);
   --shadow-lg: 0 16px 40px -12px rgba(99, 91, 255, 0.16);
@@ -194,6 +200,9 @@
   --color-border: #2a2a2e;
   --color-border-secondary: #3a3a3f;
   --color-border-focus: #8983ff;
+
+  /* Landing footer band — dark */
+  --color-footer: #131127;
 
   /* Stitch / Material-3 token dark variants — override the @theme block
      so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.

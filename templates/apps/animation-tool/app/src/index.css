@@ -209,4 +209,11 @@
   stroke: #ec4899;
   stroke-width: 2;
 }
+
+/* IDE demo frame — design-animation-tool-landing.html wraps the editor
+   mockup in border-primary/20 + a wide violet glow. */
+.ide-glow {
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 50px -12px rgba(139, 92, 246, 0.3);
+}
 /* polish-v2:stitch-styles:end */

@@ -12,9 +12,7 @@ import {
   SURFACE_PANEL,
 } from '../branding.js'
 import { MethodBadge } from '../components/MethodBadge.js'
-import { RequestRow } from '../components/RequestRow.js'
 import { SafeLink } from '../components/SafeLink.js'
-import { StatusPill } from '../components/StatusPill.js'
 
 const NAV_BG = 'color-mix(in srgb, var(--color-background) 85%, transparent)'
 const PANEL_BORDER = 'var(--color-border)'
@@ -113,40 +111,11 @@ const PRICING = [
   },
 ] as const
 
-const HERO_PREVIEW_ROWS = [
-  {
-    id: 'preview-users',
-    method: 'GET' as const,
-    url: 'https://api.example.com/v1/account',
-    status_code: 200,
-    status_text: 'OK',
-    duration_ms: 142,
-    size_bytes: 1240,
-    collection: 'Account API',
-    ran_at: new Date(Date.now() - 4 * 60_000).toISOString(),
-  },
-  {
-    id: 'preview-orders-create',
-    method: 'POST' as const,
-    url: 'https://api.example.com/v1/orders',
-    status_code: 201,
-    status_text: 'Created',
-    duration_ms: 318,
-    size_bytes: 2840,
-    collection: 'Orders API',
-    ran_at: new Date(Date.now() - 12 * 60_000).toISOString(),
-  },
-  {
-    id: 'preview-orders-delete',
-    method: 'DELETE' as const,
-    url: 'https://api.example.com/v1/orders/last',
-    status_code: 404,
-    status_text: 'Not Found',
-    duration_ms: 87,
-    size_bytes: 156,
-    collection: 'Orders API',
-    ran_at: new Date(Date.now() - 36 * 60_000).toISOString(),
-  },
+const MOCK_TREE = [
+  { key: 'get-user', method: 'GET', tone: 'get', label: 'Get user details', active: true },
+  { key: 'post-user', method: 'POST', tone: 'post', label: 'Create user', active: false },
+  { key: 'put-user', method: 'PUT', tone: 'put', label: 'Update user', active: false },
+  { key: 'del-user', method: 'DELETE', tone: 'delete', label: 'Delete user', active: false },
 ] as const
 
 export function Landing() {
@@ -235,7 +204,7 @@ export function Landing() {
       </nav>
 
       <main>
-        {/* Hero */}
+        {/* Hero — centered per Stitch design */}
         <section className={cm.cn('relative overflow-hidden')}>
           <div
             className={cm.cn('absolute inset-0 pointer-events-none')}
@@ -263,168 +232,326 @@ export function Landing() {
               'relative py-20 md:py-24 lg:py-28',
             )}
           >
-            <div
-              className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center')}
-            >
-              <div className={cm.cn('lg:col-span-7')}>
-                <p
-                  className={cm.cn('font-mono text-sm font-bold uppercase tracking-widest mb-5')}
-                  style={{ color: 'var(--color-primary)' }}
-                >
-                  {t('landing.kicker', {}, { defaultValue: '$ pylon send --watch' })}
-                </p>
-                <h1
+            <div className="max-w-4xl mx-auto text-center">
+              <p
+                className={cm.cn('font-mono text-sm font-bold uppercase tracking-widest mb-5')}
+                style={{ color: 'var(--color-primary)' }}
+              >
+                {t('landing.kicker', {}, { defaultValue: '$ pylon send --watch' })}
+              </p>
+              <h1
+                className={cm.cn(
+                  'text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6',
+                )}
+                style={{ color: 'var(--color-text)' }}
+              >
+                <span className={cm.cn('glow-text')} style={{ color: 'var(--color-primary)' }}>
+                  {t('landing.heroTitleAccent', {}, { defaultValue: 'Fire' })}
+                </span>{' '}
+                {t('landing.heroTitleRest', {}, { defaultValue: 'requests,' })}
+                <br />
+                {t('landing.heroTitleLine2', {}, { defaultValue: 'forge confidence.' })}
+              </h1>
+              <p
+                className={cm.cn('text-xl max-w-2xl mx-auto leading-relaxed mb-10 font-medium')}
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                {t(
+                  'landing.heroSubtitle',
+                  { tagline: APP_TAGLINE },
+                  {
+                    defaultValue:
+                      'The lightning-fast API testing workbench built for engineers who live in terminals.',
+                  },
+                )}
+              </p>
+              <div
+                className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap', justify: 'center' })}
+              >
+                <Link
+                  to="/signup"
                   className={cm.cn(
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] mb-6',
+                    'inline-flex items-center gap-2 px-8 py-4 font-mono font-semibold rounded-md transition-all hover:opacity-90 shadow-xl',
                   )}
-                  style={{ color: 'var(--color-text)' }}
+                  style={{
+                    backgroundColor: 'var(--color-primary)',
+                    color: 'var(--color-on-primary)',
+                    boxShadow:
+                      '0 12px 32px -10px color-mix(in srgb, var(--color-primary) 45%, transparent)',
+                  }}
                 >
-                  <span style={{ color: 'var(--color-primary)' }}>
-                    {t('landing.heroTitleAccent', {}, { defaultValue: 'Fire' })}
-                  </span>{' '}
-                  {t('landing.heroTitleRest', {}, { defaultValue: 'requests,' })}
-                  <br />
-                  {t('landing.heroTitleLine2', {}, { defaultValue: 'forge confidence.' })}
-                </h1>
-                <p
-                  className={cm.cn('text-lg max-w-xl leading-relaxed mb-10')}
-                  style={{ color: 'var(--color-text-secondary)' }}
-                >
-                  {t(
-                    'landing.heroSubtitle',
-                    { tagline: APP_TAGLINE },
-                    {
-                      defaultValue:
-                        'The lightning-fast API testing workbench built for engineers who live in terminals.',
-                    },
+                  {t('landing.heroCta', {}, { defaultValue: 'Download free' })}
+                  <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                    arrow_forward
+                  </span>
+                </Link>
+                <Link
+                  to="/pricing"
+                  className={cm.cn(
+                    'inline-flex items-center gap-2 px-8 py-4 font-mono font-semibold rounded-md border transition-colors hover:bg-surface/5',
                   )}
-                </p>
-                <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                  <Link
-                    to="/signup"
+                  style={{
+                    borderColor: 'color-mix(in srgb, var(--color-text) 18%, transparent)',
+                    color: 'var(--color-text)',
+                  }}
+                >
+                  <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                    sell
+                  </span>
+                  {t('landing.viewPricing', {}, { defaultValue: 'See plans' })}
+                </Link>
+              </div>
+
+              {/* Mono usage stats strip */}
+              <div
+                className={cm.cn(
+                  'mt-12 inline-flex flex-wrap justify-center items-center gap-x-4 gap-y-2 border-t border-b py-4 px-8 font-mono text-sm w-max max-w-full mx-auto',
+                )}
+                style={{
+                  borderColor: PANEL_BORDER,
+                  color: 'var(--color-text-secondary)',
+                  backgroundColor: 'var(--color-background)',
+                }}
+              >
+                <span>
+                  {t('landing.stat.requests', {}, { defaultValue: '12M requests fired today' })}
+                </span>
+                <span style={{ color: 'var(--color-surface-elevated)' }}>•</span>
+                <span>{t('landing.stat.teams', {}, { defaultValue: '40k teams' })}</span>
+                <span style={{ color: 'var(--color-surface-elevated)' }}>•</span>
+                <span style={{ color: 'var(--color-primary)' }}>
+                  {t('landing.stat.uptime', {}, { defaultValue: '99.9% uptime' })}
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Product demo mockup — workspace window with collections, URL bar, response */}
+        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'pb-20')}>
+          <div
+            className={cm.cn('rounded-xl border shadow-2xl overflow-hidden')}
+            style={{
+              backgroundColor: 'var(--color-background)',
+              borderColor: PANEL_BORDER,
+              boxShadow: '0 30px 80px -30px rgba(0,0,0,0.7)',
+            }}
+          >
+            {/* Window title bar */}
+            <div
+              className={cm.cn(cm.flex({ align: 'center' }), 'h-10 px-4 border-b gap-2')}
+              style={{
+                borderColor: PANEL_BORDER,
+                backgroundColor: 'var(--color-surface-secondary)',
+              }}
+            >
+              <span
+                className={cm.cn('w-3 h-3 rounded-full')}
+                style={{ backgroundColor: 'var(--color-method-delete)' }}
+                aria-hidden="true"
+              />
+              <span
+                className={cm.cn('w-3 h-3 rounded-full')}
+                style={{ backgroundColor: 'var(--color-method-put)' }}
+                aria-hidden="true"
+              />
+              <span
+                className={cm.cn('w-3 h-3 rounded-full')}
+                style={{ backgroundColor: 'var(--color-method-get)' }}
+                aria-hidden="true"
+              />
+              <span
+                className={cm.cn('mx-auto font-mono text-xs')}
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                {t('landing.mock.workspace', {}, { defaultValue: 'workspace / production-api' })}
+              </span>
+            </div>
+            <div className={cm.cn(cm.flex({ align: 'stretch' }), 'min-h-[420px]')}>
+              {/* Collections sidebar */}
+              <div
+                className={cm.cn('hidden md:flex flex-col w-64 shrink-0 border-r')}
+                style={{
+                  borderColor: PANEL_BORDER,
+                  backgroundColor: 'var(--color-surface-secondary)',
+                }}
+              >
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between' }),
+                    'p-4 border-b',
+                  )}
+                  style={{ borderColor: PANEL_BORDER }}
+                >
+                  <span
+                    className={cm.cn('text-sm font-semibold')}
+                    style={{ color: 'var(--color-text)' }}
+                  >
+                    {t('landing.mock.collections', {}, { defaultValue: 'Collections' })}
+                  </span>
+                  <span
+                    className={cm.cn('material-symbols-outlined text-[18px]')}
+                    style={{ color: 'var(--color-text-secondary)' }}
+                    aria-hidden="true"
+                  >
+                    add
+                  </span>
+                </div>
+                <div className="p-2 space-y-1">
+                  <div
+                    className={cm.cn(cm.flex({ align: 'center', gap: 2 }), 'px-2 py-1.5 rounded')}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-[16px]')}
+                      style={{ color: 'var(--color-text-secondary)' }}
+                      aria-hidden="true"
+                    >
+                      folder
+                    </span>
+                    <span className={cm.cn('text-sm')} style={{ color: 'var(--color-text)' }}>
+                      {t('landing.mock.folder', {}, { defaultValue: 'Users API' })}
+                    </span>
+                  </div>
+                  {MOCK_TREE.map((item) => (
+                    <div
+                      key={item.key}
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 2 }),
+                        'ml-4 px-2 py-1.5 rounded',
+                        item.active ? '' : 'hover:bg-surface/5',
+                      )}
+                      style={
+                        item.active
+                          ? { backgroundColor: 'var(--color-surface-elevated)' }
+                          : undefined
+                      }
+                    >
+                      <span
+                        className={cm.cn('text-[10px] font-mono font-bold w-8 shrink-0')}
+                        style={{ color: `var(--color-method-${item.tone})` }}
+                      >
+                        {item.method}
+                      </span>
+                      <span
+                        className={cm.cn('text-sm truncate')}
+                        style={{ color: 'var(--color-text)' }}
+                      >
+                        {t(`landing.mock.tree.${item.key}`, {}, { defaultValue: item.label })}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Main pane */}
+              <div
+                className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }), 'min-w-0')}
+                style={{ backgroundColor: 'var(--color-surface)' }}
+              >
+                {/* URL bar */}
+                <div
+                  className={cm.cn(cm.flex({ gap: 2 }), 'p-4 border-b')}
+                  style={{ borderColor: PANEL_BORDER }}
+                >
+                  <div
                     className={cm.cn(
-                      'inline-flex items-center gap-2 px-8 py-4 font-mono font-semibold rounded-md transition-all hover:opacity-90 shadow-xl',
+                      cm.flex({ align: 'center' }),
+                      'flex-1 min-w-0 border rounded px-3 py-2 font-mono text-sm',
+                    )}
+                    style={{
+                      backgroundColor: 'var(--color-background)',
+                      borderColor: PANEL_BORDER,
+                    }}
+                  >
+                    <MethodBadge method="GET" density="default" />
+                    <span className={cm.cn('ml-3 truncate')} style={{ color: 'var(--color-text)' }}>
+                      https://api.example.com/v1/users/42
+                    </span>
+                  </div>
+                  <span
+                    className={cm.cn(
+                      'px-6 py-2 rounded font-medium text-sm inline-flex items-center',
                     )}
                     style={{
                       backgroundColor: 'var(--color-primary)',
                       color: 'var(--color-on-primary)',
-                      boxShadow:
-                        '0 12px 32px -10px color-mix(in srgb, var(--color-primary) 45%, transparent)',
                     }}
                   >
-                    {t('landing.heroCta', {}, { defaultValue: 'Download free' })}
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base')}
-                      aria-hidden="true"
-                    >
-                      arrow_forward
-                    </span>
-                  </Link>
-                  <Link
-                    to="/pricing"
-                    className={cm.cn(
-                      'inline-flex items-center gap-2 px-8 py-4 font-mono font-semibold rounded-md border transition-colors hover:bg-surface/5',
-                    )}
-                    style={{
-                      borderColor: 'color-mix(in srgb, var(--color-text) 18%, transparent)',
-                      color: 'var(--color-text)',
-                    }}
-                  >
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base')}
-                      aria-hidden="true"
-                    >
-                      sell
-                    </span>
-                    {t('landing.viewPricing', {}, { defaultValue: 'See plans' })}
-                  </Link>
+                    {t('landing.mock.send', {}, { defaultValue: 'Send' })}
+                  </span>
                 </div>
-
-                <div className={cm.cn('mt-10 flex flex-wrap items-center gap-x-8 gap-y-3')}>
-                  <p
-                    className={cm.cn('text-xs font-bold uppercase tracking-widest')}
-                    style={{ color: 'var(--color-text-muted)' }}
-                  >
-                    {t('landing.socialProof', {}, { defaultValue: 'Trusted by API teams at' })}
-                  </p>
-                  {['Atlas', 'Northwind', 'Stratafy', 'Helix'].map((brand) => (
-                    <span
-                      key={brand}
-                      className={cm.cn('font-mono text-sm font-bold')}
-                      style={{ color: 'var(--color-text-muted)' }}
-                    >
-                      {brand}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Embedded sample */}
-              <div className={cm.cn('lg:col-span-5')}>
-                <div
-                  className={cm.cn('rounded-2xl shadow-2xl overflow-hidden border')}
-                  style={{
-                    backgroundColor: SURFACE_PANEL,
-                    borderColor: PANEL_BORDER,
-                    boxShadow: '0 30px 80px -30px rgba(0,0,0,0.7)',
-                  }}
-                >
+                {/* Split panes */}
+                <div className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }))}>
                   <div
-                    className={cm.cn('flex items-center gap-2 px-4 py-2.5 border-b')}
-                    style={{
-                      borderColor: PANEL_BORDER,
-                      backgroundColor: 'var(--color-background)',
-                    }}
+                    className={cm.flex({ gap: 'md', align: 'center', justify: 'between' })}
+                    style={{ borderBottom: `1px solid ${PANEL_BORDER}` }}
                   >
-                    <span
-                      className={cm.cn('w-3 h-3 rounded-full')}
-                      style={{ backgroundColor: 'rgba(248, 113, 113, 0.7)' }}
-                      aria-hidden="true"
-                    />
-                    <span
-                      className={cm.cn('w-3 h-3 rounded-full')}
-                      style={{ backgroundColor: 'rgba(251, 191, 36, 0.7)' }}
-                      aria-hidden="true"
-                    />
-                    <span
-                      className={cm.cn('w-3 h-3 rounded-full')}
-                      style={{ backgroundColor: 'rgba(52, 211, 153, 0.7)' }}
-                      aria-hidden="true"
-                    />
-                    <span
-                      className={cm.cn('ml-3 font-mono text-[11px] font-medium')}
-                      style={{ color: 'var(--color-text-secondary)' }}
-                    >
-                      pylon · production-api
-                    </span>
-                    <span className={cm.cn('ml-auto inline-flex items-center gap-1.5')}>
-                      <StatusPill status="passed" pulse label="LIVE" />
-                    </span>
-                  </div>
-                  <div className={cm.cn('p-4 space-y-3')}>
-                    {HERO_PREVIEW_ROWS.map((req) => (
-                      <RequestRow key={req.id} request={req} interactive={false} />
-                    ))}
-                  </div>
-                  <div
-                    className={cm.cn('px-4 py-3 border-t flex items-center justify-between')}
-                    style={{
-                      borderColor: PANEL_BORDER,
-                      backgroundColor:
-                        'color-mix(in srgb, var(--color-background) 40%, transparent)',
-                    }}
-                  >
+                    <div className={cm.cn(cm.flex({ gap: 'md' }), 'px-4 py-2 text-sm font-medium')}>
+                      <span
+                        className={cm.cn('pb-1 border-b-2')}
+                        style={{ color: 'var(--color-text)', borderColor: 'var(--color-primary)' }}
+                      >
+                        {t('landing.mock.tabParams', {}, { defaultValue: 'Params' })}
+                      </span>
+                      <span style={{ color: 'var(--color-text-secondary)' }}>
+                        {t('landing.mock.tabHeaders', {}, { defaultValue: 'Headers (2)' })}
+                      </span>
+                      <span style={{ color: 'var(--color-text-secondary)' }}>
+                        {t('landing.mock.tabBody', {}, { defaultValue: 'Body' })}
+                      </span>
+                      <span style={{ color: 'var(--color-text-secondary)' }}>
+                        {t('landing.mock.tabTests', {}, { defaultValue: 'Tests' })}
+                      </span>
+                    </div>
                     <div
                       className={cm.cn(
-                        'flex items-center gap-3 font-mono text-[10px] uppercase tracking-widest font-extrabold',
+                        cm.flex({ gap: 3, align: 'center' }),
+                        'px-4 font-mono text-xs',
                       )}
                     >
-                      <span style={{ color: 'var(--color-text-secondary)' }}>Tab</span>
-                      <span style={{ color: 'var(--color-text-secondary)' }}>Headers (2)</span>
-                      <span style={{ color: 'var(--color-text-secondary)' }}>Body</span>
-                      <span style={{ color: 'var(--color-text-secondary)' }}>Tests</span>
+                      <span
+                        className={cm.cn('px-2 py-0.5 rounded border')}
+                        style={{
+                          color: 'var(--color-method-get)',
+                          backgroundColor:
+                            'color-mix(in srgb, var(--color-method-get) 10%, transparent)',
+                          borderColor:
+                            'color-mix(in srgb, var(--color-method-get) 20%, transparent)',
+                        }}
+                      >
+                        200 OK
+                      </span>
+                      <span style={{ color: 'var(--color-method-get)' }}>142ms</span>
+                      <span style={{ color: 'var(--color-text-secondary)' }}>1.2 KB</span>
                     </div>
-                    <MethodBadge method="GET" density="default" />
+                  </div>
+                  <div
+                    className={cm.cn(cm.flex1, 'p-4 font-mono text-sm overflow-x-auto')}
+                    style={{ backgroundColor: 'var(--color-background)' }}
+                  >
+                    <pre className="m-0 leading-relaxed">
+                      <span style={{ color: 'var(--color-text-secondary)' }}>{'{'}</span>
+                      {'\n'} <span style={{ color: 'var(--color-method-get)' }}>"id"</span>:{' '}
+                      <span style={{ color: 'var(--color-method-post)' }}>42</span>,{'\n'}{' '}
+                      <span style={{ color: 'var(--color-method-get)' }}>"username"</span>:{' '}
+                      <span style={{ color: 'var(--color-method-put)' }}>"johndoe"</span>,{'\n'}{' '}
+                      <span style={{ color: 'var(--color-method-get)' }}>"email"</span>:{' '}
+                      <span style={{ color: 'var(--color-method-put)' }}>"john@example.com"</span>,
+                      {'\n'} <span style={{ color: 'var(--color-method-get)' }}>"is_active"</span>:{' '}
+                      <span style={{ color: 'var(--color-method-patch)' }}>true</span>,{'\n'}{' '}
+                      <span style={{ color: 'var(--color-method-get)' }}>"last_login"</span>:{' '}
+                      <span style={{ color: 'var(--color-method-put)' }}>
+                        "2026-09-28T14:32:00Z"
+                      </span>
+                      ,{'\n'} <span style={{ color: 'var(--color-method-get)' }}>"roles"</span>:{' '}
+                      <span style={{ color: 'var(--color-text-secondary)' }}>[</span>
+                      {'\n'} <span style={{ color: 'var(--color-method-put)' }}>"admin"</span>,
+                      {'\n'} <span style={{ color: 'var(--color-method-put)' }}>"developer"</span>
+                      {'\n'} <span style={{ color: 'var(--color-text-secondary)' }}>]</span>,{'\n'}{' '}
+                      <span style={{ color: 'var(--color-method-get)' }}>"metadata"</span>:{' '}
+                      <span style={{ color: 'var(--color-method-delete)' }}>null</span>
+                      {'\n'}
+                      <span style={{ color: 'var(--color-text-secondary)' }}>{'}'}</span>
+                    </pre>
                   </div>
                 </div>
               </div>
@@ -454,25 +581,19 @@ export function Landing() {
             {FEATURES.map((f) => (
               <div
                 key={f.key}
-                className={cm.cn('group rounded-2xl p-6 hover:shadow-xl')}
+                className={cm.cn('group rounded-lg p-6 card-hover-accent transition-colors')}
                 style={{
                   backgroundColor: SURFACE_PANEL,
                   border: `1px solid ${PANEL_BORDER}`,
                 }}
               >
-                <div
-                  className={cm.cn(
-                    'inline-flex p-3 rounded-xl group-hover:scale-110 transition-transform',
-                  )}
-                  style={{
-                    backgroundColor: `color-mix(in srgb, ${f.tint} 13%, transparent)`,
-                    color: f.tint,
-                  }}
+                <span
+                  className={cm.cn('material-symbols-outlined text-3xl mb-4 block')}
+                  style={{ color: f.tint }}
+                  aria-hidden="true"
                 >
-                  <span className={cm.cn('material-symbols-outlined text-3xl')} aria-hidden="true">
-                    {f.icon}
-                  </span>
-                </div>
+                  {f.icon}
+                </span>
                 <h3
                   className={cm.cn('text-lg font-extrabold mt-5 mb-2')}
                   style={{ color: 'var(--color-text)' }}
@@ -491,6 +612,98 @@ export function Landing() {
                 </p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Code example — tests in JS */}
+        <section className="max-w-4xl mx-auto px-6 py-20">
+          <div
+            className={cm.cn(cm.flex({ direction: 'col', gap: 12 }), 'md:flex-row md:items-center')}
+          >
+            <div className={cm.flex1}>
+              <h2
+                className={cm.cn('text-3xl font-bold mb-4')}
+                style={{ color: 'var(--color-text)' }}
+              >
+                {t('landing.codeHeading', {}, { defaultValue: 'Write tests in JS.' })}
+              </h2>
+              <p
+                className={cm.cn('mb-6 leading-relaxed')}
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                {t(
+                  'landing.codeBody',
+                  {},
+                  {
+                    defaultValue:
+                      'Validate responses with familiar syntax. A rich assertion library ships out of the box, so you can test every aspect of your API.',
+                  },
+                )}
+              </p>
+              <Link
+                to="/about"
+                className={cm.cn('font-medium hover:underline inline-flex items-center gap-1')}
+                style={{ color: 'var(--color-primary)' }}
+              >
+                {t('landing.codeLink', {}, { defaultValue: 'Read the testing docs' })}
+                <span className={cm.cn('material-symbols-outlined text-[16px]')} aria-hidden="true">
+                  arrow_forward
+                </span>
+              </Link>
+            </div>
+            <div
+              className={cm.cn(cm.flex1, 'w-full rounded-xl border p-6 shadow-xl overflow-x-auto')}
+              style={{ backgroundColor: 'var(--color-background)', borderColor: PANEL_BORDER }}
+            >
+              <div
+                className={cm.cn(cm.flex({ gap: 2 }), 'mb-4 border-b pb-2')}
+                style={{ borderColor: PANEL_BORDER }}
+              >
+                <span
+                  className={cm.cn('w-3 h-3 rounded-full')}
+                  style={{ backgroundColor: 'var(--color-surface-elevated)' }}
+                />
+                <span
+                  className={cm.cn('w-3 h-3 rounded-full')}
+                  style={{ backgroundColor: 'var(--color-surface-elevated)' }}
+                />
+                <span
+                  className={cm.cn('w-3 h-3 rounded-full')}
+                  style={{ backgroundColor: 'var(--color-surface-elevated)' }}
+                />
+              </div>
+              <pre className="font-mono text-sm leading-relaxed">
+                <span style={{ color: 'var(--color-method-patch)' }}>const</span>
+                {' response = pylon.getResponse();'}
+                {'\n\n'}
+                <span style={{ color: 'var(--color-text-secondary)' }}>{'// Verify status'}</span>
+                {'\n'}
+                {'expect(response.status).to.equal('}
+                <span style={{ color: 'var(--color-method-post)' }}>200</span>
+                {');'}
+                {'\n\n'}
+                <span style={{ color: 'var(--color-text-secondary)' }}>{'// Verify timing'}</span>
+                {'\n'}
+                {'expect(response.time).to.be.below('}
+                <span style={{ color: 'var(--color-method-post)' }}>200</span>
+                {');'}
+                {'\n\n'}
+                <span style={{ color: 'var(--color-text-secondary)' }}>
+                  {'// Validate JSON schema'}
+                </span>
+                {'\n'}
+                <span style={{ color: 'var(--color-method-patch)' }}>const</span>
+                {' data = response.json();'}
+                {'\n'}
+                {'expect(data).to.have.property('}
+                <span style={{ color: 'var(--color-method-put)' }}>'id'</span>
+                {');'}
+                {'\n'}
+                {'expect(data.is_active).to.be.'}
+                <span style={{ color: 'var(--color-method-patch)' }}>true</span>
+                {';'}
+              </pre>
+            </div>
           </div>
         </section>
 
@@ -665,10 +878,10 @@ export function Landing() {
       </main>
 
       <footer
-        className={cm.cn('py-8 text-center text-sm border-t')}
+        className={cm.cn('py-8 text-center border-t font-mono text-xs uppercase tracking-widest')}
         style={{
           borderColor: PANEL_BORDER,
-          color: 'var(--color-text-muted)',
+          color: 'var(--color-text-secondary)',
         }}
       >
         <p>

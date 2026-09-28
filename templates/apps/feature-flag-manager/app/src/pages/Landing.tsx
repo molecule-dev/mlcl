@@ -9,6 +9,8 @@ import { FlagRow, type FlagRowData } from '../components/FlagRow.js'
 const SURFACE_DARK = 'var(--color-background)'
 const SURFACE_PANEL = 'var(--color-surface)'
 const NAV_BG = 'var(--color-overlay, rgba(12, 18, 34, 0.85))'
+const HAIRLINE = 'var(--color-outline-variant)'
+const PRIMARY_GLOW = 'color-mix(in srgb, var(--color-primary) 45%, transparent)'
 
 const FEATURES = [
   {
@@ -16,28 +18,28 @@ const FEATURES = [
     defaultTitle: 'Surgical targeting',
     defaultBody: 'Roll out by user, segment, plan tier, or country with attribute rules.',
     icon: 'gps_fixed',
-    tint: '#10b981',
+    tint: 'var(--color-success)',
   },
   {
     key: 'rollouts',
     defaultTitle: 'Gradual rollouts',
     defaultBody: 'Move from 0 → 100% on a slider with sticky bucketing and instant kill.',
     icon: 'tune',
-    tint: '#8b5cf6',
+    tint: 'var(--color-accent)',
   },
   {
     key: 'environments',
     defaultTitle: 'First-class envs',
     defaultBody: 'Promote flag config across development → staging → production safely.',
     icon: 'cloud',
-    tint: '#f59e0b',
+    tint: 'var(--color-warning)',
   },
   {
     key: 'audit',
     defaultTitle: 'Full audit trail',
     defaultBody: 'Every toggle, rule change, and rollout tweak — who, what, when, why.',
     icon: 'history',
-    tint: '#06b6d4',
+    tint: 'var(--color-info)',
   },
 ] as const
 
@@ -127,7 +129,7 @@ export function Landing() {
     >
       <nav
         className={cm.cn('sticky top-0 z-50 backdrop-blur-md border-b')}
-        style={{ backgroundColor: NAV_BG, borderColor: 'rgba(30, 41, 59, 0.7)' }}
+        style={{ backgroundColor: NAV_BG, borderColor: HAIRLINE }}
       >
         <div
           className={cm.cn(
@@ -179,7 +181,7 @@ export function Landing() {
                 style={{
                   backgroundColor: 'var(--color-primary)',
                   color: 'var(--color-on-primary-cta)',
-                  boxShadow: '0 8px 24px -8px rgba(16, 185, 129, 0.4)',
+                  boxShadow: `0 8px 24px -8px ${PRIMARY_GLOW}`,
                 }}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -202,7 +204,7 @@ export function Landing() {
                   style={{
                     backgroundColor: 'var(--color-primary)',
                     color: 'var(--color-on-primary-cta)',
-                    boxShadow: '0 8px 24px -8px rgba(16, 185, 129, 0.4)',
+                    boxShadow: `0 8px 24px -8px ${PRIMARY_GLOW}`,
                   }}
                 >
                   {t('common.startFree', {}, { defaultValue: 'Start free' })}
@@ -220,7 +222,7 @@ export function Landing() {
             className={cm.cn('absolute inset-0 pointer-events-none')}
             style={{
               backgroundImage:
-                'radial-gradient(circle at 20% 25%, rgba(16, 185, 129, 0.22), transparent 50%),' +
+                'radial-gradient(circle at 20% 25%, color-mix(in srgb, var(--color-primary) 22%, transparent), transparent 50%),' +
                 'radial-gradient(circle at 80% 60%, var(--color-accent-chip-bg), transparent 45%)',
             }}
             aria-hidden="true"
@@ -286,7 +288,7 @@ export function Landing() {
                     style={{
                       backgroundColor: 'var(--color-primary)',
                       color: 'var(--color-on-primary-cta)',
-                      boxShadow: '0 12px 32px -10px rgba(16, 185, 129, 0.45)',
+                      boxShadow: `0 12px 32px -10px ${PRIMARY_GLOW}`,
                     }}
                   >
                     {t('common.startFree', {}, { defaultValue: 'Start free' })}
@@ -302,7 +304,9 @@ export function Landing() {
                     className={cm.cn(
                       'px-8 py-4 font-mono font-semibold rounded-md border transition-colors hover:bg-surface/5 text-white',
                     )}
-                    style={{ borderColor: 'rgba(255,255,255,0.18)' }}
+                    style={{
+                      borderColor: 'color-mix(in srgb, var(--color-on-surface) 18%, transparent)',
+                    }}
                   >
                     {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
                   </Link>
@@ -330,14 +334,14 @@ export function Landing() {
                   className={cm.cn('rounded-2xl overflow-hidden border')}
                   style={{
                     backgroundColor: SURFACE_PANEL,
-                    borderColor: 'rgba(30, 41, 59, 0.9)',
-                    boxShadow: '0 30px 80px -30px rgba(0,0,0,0.7)',
+                    borderColor: HAIRLINE,
+                    boxShadow: 'var(--shadow-lg, 0 30px 80px -30px rgba(0, 0, 0, 0.7))',
                   }}
                 >
                   <div
                     className={cm.cn('flex items-center gap-2 px-4 py-2.5 border-b')}
                     style={{
-                      borderColor: 'rgba(30, 41, 59, 0.9)',
+                      borderColor: HAIRLINE,
                       backgroundColor: 'var(--color-code-block)',
                     }}
                   >
@@ -416,14 +420,17 @@ export function Landing() {
                 )}
                 style={{
                   backgroundColor: SURFACE_PANEL,
-                  border: '1px solid rgba(30, 41, 59, 0.9)',
+                  border: `1px solid ${HAIRLINE}`,
                 }}
               >
                 <div
                   className={cm.cn(
                     'inline-flex p-3 rounded-xl group-hover:scale-110 transition-transform',
                   )}
-                  style={{ backgroundColor: `${f.tint}22`, color: f.tint }}
+                  style={{
+                    backgroundColor: `color-mix(in srgb, ${f.tint} 15%, transparent)`,
+                    color: f.tint,
+                  }}
                 >
                   <span className={cm.cn('material-symbols-outlined text-3xl')} aria-hidden="true">
                     {f.icon}
@@ -444,7 +451,7 @@ export function Landing() {
         <section
           className={cm.cn('py-20 border-t')}
           style={{
-            borderColor: 'rgba(30, 41, 59, 0.7)',
+            borderColor: HAIRLINE,
             backgroundColor: 'var(--color-code-block)',
           }}
         >
@@ -475,9 +482,7 @@ export function Landing() {
                     )}
                     style={{
                       backgroundColor: SURFACE_PANEL,
-                      border: featured
-                        ? `2px solid var(--color-primary)`
-                        : '1px solid rgba(30, 41, 59, 0.9)',
+                      border: featured ? `2px solid var(--color-primary)` : `1px solid ${HAIRLINE}`,
                       boxShadow: featured
                         ? `0 18px 50px -20px color-mix(in srgb, var(--color-primary) 50%, transparent)`
                         : undefined,
@@ -542,7 +547,8 @@ export function Landing() {
                               color: 'var(--color-on-primary-cta)',
                             }
                           : {
-                              border: '1px solid rgba(255,255,255,0.18)',
+                              border:
+                                '1px solid color-mix(in srgb, var(--color-on-surface) 18%, transparent)',
                               color: 'var(--color-foreground)',
                             }
                       }
@@ -557,7 +563,7 @@ export function Landing() {
         </section>
 
         {/* Bottom CTA */}
-        <section className={cm.cn('border-t')} style={{ borderColor: 'rgba(30, 41, 59, 0.7)' }}>
+        <section className={cm.cn('border-t')} style={{ borderColor: HAIRLINE }}>
           <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 text-center')}>
             <h3
               className={cm.cn(
@@ -584,7 +590,7 @@ export function Landing() {
               style={{
                 backgroundColor: 'var(--color-primary)',
                 color: 'var(--color-on-primary-cta)',
-                boxShadow: '0 12px 32px -10px rgba(16, 185, 129, 0.45)',
+                boxShadow: `0 12px 32px -10px ${PRIMARY_GLOW}`,
               }}
             >
               {t('common.startFree', {}, { defaultValue: 'Start free' })}
@@ -598,7 +604,7 @@ export function Landing() {
 
       <footer
         className={cm.cn('py-8 text-center text-sm border-t')}
-        style={{ borderColor: 'rgba(30, 41, 59, 0.7)', color: 'rgba(226, 232, 240, 0.55)' }}
+        style={{ borderColor: HAIRLINE, color: 'var(--color-text-muted)' }}
       >
         <p>
           {t(

@@ -31,7 +31,7 @@ const browserLocalStorage =
 
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [lightTheme, darkTheme],
-  defaultTheme: 'dark',
+  defaultTheme: 'light', // the Stitch design is a light page
   persistKey: 'molecule-theme',
   storage: browserLocalStorage,
 })

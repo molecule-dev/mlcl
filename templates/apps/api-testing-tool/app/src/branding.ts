@@ -26,7 +26,7 @@ export const APP_DESCRIPTION =
   'The lightning-fast API testing workbench built for engineers who live in terminals.'
 
 /** Primary brand color (PWA manifest, meta theme-color). Matches theme.css --color-primary. */
-export const BRAND_COLOR = '#6366f1'
+export const BRAND_COLOR = '#10b981'
 
 /** Accent brand color (URL variables, secondary highlights). */
 export const ACCENT_COLOR = '#a78bfa'

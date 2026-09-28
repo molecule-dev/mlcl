@@ -9,6 +9,8 @@ const FEATURES = [
   {
     key: 'splits',
     icon: 'call_split',
+    tileClass:
+      'bg-[color-mix(in_srgb,var(--color-secondary-container)_40%,transparent)] text-primary',
     defaultTitle: 'Any split you need',
     defaultBody:
       'Equal, exact amounts, or weighted shares for couples and roommates — {{app}} computes every share to the cent.',
@@ -16,6 +18,7 @@ const FEATURES = [
   {
     key: 'balances',
     icon: 'account_balance',
+    tileClass: 'bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] text-primary',
     defaultTitle: 'Balances that add up',
     defaultBody:
       'Every group shows who owes whom. Your dashboard totals what you owe and what you are owed across all of them.',
@@ -23,6 +26,7 @@ const FEATURES = [
   {
     key: 'settle',
     icon: 'handshake',
+    tileClass: 'bg-[color-mix(in_srgb,var(--color-tertiary)_10%,transparent)] text-tertiary',
     defaultTitle: 'Simplified settle-up',
     defaultBody:
       'The fewest transfers that zero a group out — record what actually moved and everyone lands on square.',
@@ -30,18 +34,68 @@ const FEATURES = [
   {
     key: 'activity',
     icon: 'notifications',
+    tileClass:
+      'bg-[color-mix(in_srgb,var(--color-secondary-fixed-dim)_30%,transparent)] text-on-secondary-fixed',
     defaultTitle: 'A feed of everything',
     defaultBody:
       'New expenses, members, and payments land in one chronological activity feed per group.',
   },
 ] as const
 
-const PRESS_LOGOS = [
-  'Alpine Club',
-  'Harbor Flat 4B',
-  'Costa Surf School',
-  'Belem Tours',
-  'Fernhaus Collective',
+/* Stitch hero mockup — "Lake Tahoe Weekend Cabin" expense stream. */
+const MOCK_EXPENSES = [
+  {
+    icon: 'cottage',
+    tile: 'bg-[color-mix(in_srgb,var(--color-tertiary-fixed)_50%,transparent)] text-tertiary',
+    name: 'Airbnb 3 Nights',
+    pill: 'Receipt verified',
+    paidBy: 'Sam',
+    note: 'Split equally across 5',
+    amount: '$1,200.00',
+    perShare: '$240.00 / person',
+  },
+  {
+    icon: 'shopping_basket',
+    tile: 'bg-[color-mix(in_srgb,var(--color-secondary-container)_50%,transparent)] text-secondary',
+    name: 'Costco Groceries & BBQ',
+    pill: 'Itemized split',
+    paidBy: 'Maya',
+    note: 'Maya, Leo, Sam, Dev',
+    amount: '$410.00',
+    perShare: 'Custom shares',
+  },
+  {
+    icon: 'local_gas_station',
+    tile: 'bg-surface-container-high text-on-surface-variant',
+    name: 'Gas & Bay Bridge Tolls',
+    pill: null,
+    paidBy: 'Sam',
+    note: 'Split by carpool riders (4)',
+    amount: '$230.00',
+    perShare: '$57.50 / rider',
+  },
+] as const
+
+/* Stitch "Smart Debt Minimizer" settlement rows. */
+const MOCK_SETTLEMENTS = [
+  { from: 'CK', fromName: 'Clara', to: 'Sam', amount: '$184.00', rail: 'Venmo' },
+  { from: 'DP', fromName: 'Dev', to: 'Sam', amount: '$184.00', rail: 'Cash App' },
+  { from: 'DP', fromName: 'Dev', to: 'Maya', amount: '$92.00', rail: 'Zelle' },
+] as const
+
+/* Stitch social-proof scenario chips. */
+const SCENARIOS = [
+  { icon: 'home', label: 'Rent & Flatmate Utilities' },
+  { icon: 'flight_takeoff', label: 'Road Trips & Flights' },
+  { icon: 'favorite', label: 'Couples & Date Nights' },
+  { icon: 'celebration', label: 'Bachelor & Bachelorette Parties' },
+  { icon: 'restaurant', label: 'Weekly Dinner Clubs' },
+] as const
+
+const REASSURANCES = [
+  { icon: 'check', label: 'Free forever for friends' },
+  { icon: 'credit_card_off', label: 'No credit card required' },
+  { icon: 'lock', label: 'Bank-level 256-bit encryption' },
 ] as const
 
 export function Landing() {
@@ -56,41 +110,33 @@ export function Landing() {
     >
       <nav
         className={cm.cn(
-          'sticky top-0 z-40 bg-surface/80 backdrop-blur-md border-b border-outline-variant/40',
+          'sticky top-0 z-40 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30',
         )}
       >
         <div
           className={cm.cn(
-            cm.maxW('7xl'),
+            cm.maxW('[1200px]'),
             cm.sp('px', 6),
-            cm.sp('py', 4),
             cm.flex({ align: 'center', justify: 'between' }),
-            'mx-auto',
+            'h-20 mx-auto w-full',
           )}
         >
-          <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
+          <Link to="/" className={cm.flex({ align: 'center', gap: 2 })}>
             <span
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'center' }),
-                'h-8 w-8 rounded-lg shadow-sm',
+                'h-10 w-10 rounded-xl bg-primary text-on-primary shadow-md transition-transform',
               )}
-              style={{
-                background:
-                  'linear-gradient(135deg, var(--color-primary-hover), var(--color-gradient-end))',
-              }}
             >
               <span
-                className={cm.cn('material-symbols-outlined text-white text-base')}
+                className={cm.cn('material-symbols-outlined text-2xl')}
                 style={{ fontVariationSettings: "'FILL' 1" }}
                 aria-hidden="true"
               >
                 call_split
               </span>
             </span>
-            <span
-              className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}
-              style={{ color: 'var(--color-primary-hover)' }}
-            >
+            <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
               {APP_NAME}
             </span>
           </Link>
@@ -100,14 +146,10 @@ export function Landing() {
                 to="/dashboard"
                 className={cm.cn(
                   cm.sp('px', 5),
-                  cm.sp('py', 2),
+                  cm.sp('py', 2.5),
                   cm.fontWeight('semibold'),
-                  'rounded-full text-white transition-colors',
+                  'rounded-lg bg-primary text-on-primary hover:bg-[color:var(--color-primary-hover)] shadow-sm transition-colors',
                 )}
-                style={{
-                  background:
-                    'linear-gradient(135deg, var(--color-primary-hover), var(--color-gradient-end))',
-                }}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
               </Link>
@@ -117,8 +159,10 @@ export function Landing() {
                   to="/login"
                   className={cm.cn(
                     cm.textSize('sm'),
-                    cm.fontWeight('medium'),
-                    'text-on-surface-variant hover:text-on-surface',
+                    cm.fontWeight('semibold'),
+                    cm.sp('px', 4),
+                    cm.sp('py', 2),
+                    'rounded-lg text-on-surface-variant hover:text-primary transition-colors',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -126,17 +170,14 @@ export function Landing() {
                 <Link
                   to="/signup"
                   className={cm.cn(
-                    cm.sp('px', 5),
-                    cm.sp('py', 2),
+                    cm.textSize('sm'),
                     cm.fontWeight('semibold'),
-                    'rounded-full text-white transition-colors',
+                    cm.sp('px', 5),
+                    cm.sp('py', 2.5),
+                    'rounded-lg bg-primary text-on-primary hover:bg-[color:var(--color-primary-hover)] shadow-sm transition-colors',
                   )}
-                  style={{
-                    background:
-                      'linear-gradient(135deg, var(--color-primary-hover), var(--color-gradient-end))',
-                  }}
                 >
-                  {t('common.startFree', {}, { defaultValue: 'Start free' })}
+                  {t('common.startFree', {}, { defaultValue: 'Get Started Free' })}
                 </Link>
               </>
             )}
@@ -145,337 +186,1016 @@ export function Landing() {
       </nav>
 
       <main>
-        <section className={cm.cn('relative overflow-hidden')}>
+        {/* Hero — Stitch centers everything over the subtle grid + glows */}
+        <section className={cm.cn('relative overflow-hidden bg-grid-subtle')}>
           <div
-            className={cm.cn(
-              'absolute inset-0 pointer-events-none bg-gradient-to-br from-primary-container via-surface to-surface',
-            )}
             aria-hidden="true"
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[320px] bg-[color-mix(in_srgb,var(--color-secondary-container)_20%,transparent)] blur-[100px] rounded-full pointer-events-none"
           />
           <div
-            className={cm.cn(
-              cm.maxW('7xl'),
-              'mx-auto',
-              cm.sp('px', 6),
-              'py-20 md:py-28 lg:py-32 relative',
-            )}
-          >
-            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-12 items-center')}>
-              <div className={cm.cn('lg:col-span-7')}>
-                <p
-                  className={cm.cn(
-                    cm.textSize('sm'),
-                    cm.sp('mb', 4),
-                    cm.fontWeight('bold'),
-                    'uppercase tracking-widest',
-                  )}
-                  style={{ color: 'var(--color-primary-hover)' }}
+            aria-hidden="true"
+            className="absolute top-36 right-10 w-[380px] h-[380px] bg-[color-mix(in_srgb,var(--color-tertiary-fixed)_30%,transparent)] blur-[90px] rounded-full pointer-events-none"
+          />
+          <div className={cm.cn('relative', cm.maxW('[1200px]'), 'mx-auto', cm.sp('px', 6))}>
+            <div
+              className={cm.cn(
+                cm.flex({ direction: 'col', align: 'center' }),
+                'text-center max-w-3xl mx-auto',
+                cm.sp('pt', 12),
+                cm.sp('pb', 16),
+              )}
+            >
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 2 }),
+                  cm.sp('px', 4),
+                  cm.sp('py', 1.5),
+                  cm.sp('mb', 6),
+                  'self-center rounded-full bg-surface-container-lowest border border-outline-variant/50 text-primary shadow-sm',
+                )}
+              >
+                <span
+                  className={cm.cn('material-symbols-outlined text-base')}
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                  aria-hidden="true"
                 >
+                  auto_awesome
+                </span>
+                <span className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'))}>
                   {t(
-                    'landing.eyebrow',
+                    'landing.badge',
                     {},
-                    { defaultValue: 'Group expenses, minus the awkwardness' },
+                    { defaultValue: 'Smarter group expenses · Zero math required' },
                   )}
-                </p>
-                <h1
+                </span>
+              </div>
+              <h1 className="hidden md:block text-5xl lg:text-6xl font-extrabold tracking-tight text-on-background mb-6 leading-[1.1]">
+                {t('landing.heroTitle', {}, { defaultValue: 'Shared costs, settled simply.' })}
+              </h1>
+              <h1 className="block md:hidden text-4xl font-extrabold tracking-tight text-on-background mb-6 leading-[1.15]">
+                {t('landing.heroTitle', {}, { defaultValue: 'Shared costs, settled simply.' })}
+              </h1>
+              <p
+                className={cm.cn(
+                  cm.textSize('lg'),
+                  'text-on-surface-variant max-w-2xl mb-8 leading-relaxed',
+                )}
+              >
+                {t(
+                  'landing.heroSubtitle',
+                  { app: APP_NAME },
+                  {
+                    defaultValue:
+                      'Tired of chaotic spreadsheets and awkward "who owes what" group texts? {{app}} tracks shared expenses for roommates, trips, and dinners — minimizing transactions so everyone settles up in one tap.',
+                  },
+                )}
+              </p>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 4, wrap: 'wrap' }),
+                  cm.sp('mb', 8),
+                  'justify-center w-full sm:w-auto',
+                )}
+              >
+                <Link
+                  to="/signup"
                   className={cm.cn(
-                    cm.sp('mb', 6),
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95]',
+                    cm.sp('px', 8),
+                    cm.sp('py', 4),
+                    cm.fontWeight('semibold'),
+                    cm.flex({ align: 'center', gap: 2 }),
+                    'rounded-xl bg-primary text-on-primary shadow-lg shadow-primary/20 hover:bg-[color:var(--color-primary-hover)] transition-colors',
                   )}
                 >
-                  {t('landing.heroTitle', {}, { defaultValue: 'Shared costs, settled simply.' })}
-                </h1>
-                <p
+                  <span className={cm.cn('material-symbols-outlined text-xl')} aria-hidden="true">
+                    bolt
+                  </span>
+                  {t('landing.ctaPrimary', {}, { defaultValue: 'Start Splitting Free' })}
+                </Link>
+                <a
+                  href="#demo"
                   className={cm.cn(
-                    cm.textSize('lg'),
-                    cm.sp('mb', 10),
-                    'text-on-surface-variant max-w-xl leading-relaxed',
+                    cm.sp('px', 6),
+                    cm.sp('py', 4),
+                    cm.fontWeight('semibold'),
+                    cm.flex({ align: 'center', gap: 2 }),
+                    'rounded-xl bg-surface-container-lowest border border-outline-variant/60 text-on-surface hover:border-outline shadow-sm transition-colors',
                   )}
                 >
-                  {t(
-                    'landing.heroSubtitle',
-                    {},
-                    {
-                      defaultValue:
-                        'Add an expense, split it however is fair, and Evenly keeps the running balances. When it is time to settle up, it suggests the fewest transfers that zero everyone out — no spreadsheet ceremony.',
-                    },
-                  )}
-                </p>
-                <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                  <Link
-                    to="/signup"
-                    className={cm.cn(
-                      cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'rounded-full text-white inline-flex items-center gap-2 transition-colors shadow-lg shadow-primary/20',
-                    )}
-                    style={{
-                      background:
-                        'linear-gradient(135deg, var(--color-primary-hover), var(--color-gradient-end))',
-                    }}
+                  <span
+                    className={cm.cn('material-symbols-outlined text-xl text-primary')}
+                    aria-hidden="true"
                   >
-                    {t('common.startFree', {}, { defaultValue: 'Start free' })}
+                    play_circle
+                  </span>
+                  {t('landing.ctaSecondary', {}, { defaultValue: 'Explore Live Demo' })}
+                </a>
+              </div>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 2, wrap: 'wrap' }),
+                  'justify-center text-on-surface-variant',
+                )}
+              >
+                <span className={cm.flex({ gap: 0.5 })} aria-hidden="true">
+                  {Array.from({ length: 5 }).map((_, i) => (
                     <span
-                      className={cm.cn('material-symbols-outlined text-base')}
+                      key={i}
+                      className={cm.cn('material-symbols-outlined text-base text-amber-500')}
+                      style={{ fontVariationSettings: "'FILL' 1" }}
+                    >
+                      star
+                    </span>
+                  ))}
+                </span>
+                <span
+                  className={cm.cn(cm.textSize('xs'), cm.fontWeight('bold'), 'text-on-surface')}
+                >
+                  4.9/5
+                </span>
+                <span className={cm.textSize('xs')}>
+                  {t(
+                    'landing.trustRating',
+                    {},
+                    { defaultValue: 'from 140,000+ flatmates and travelers' },
+                  )}
+                </span>
+                <span className="text-outline-variant hidden sm:inline" aria-hidden="true">
+                  •
+                </span>
+                <span
+                  className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'), 'text-primary')}
+                >
+                  {t('landing.trustFree', {}, { defaultValue: 'Free forever for personal groups' })}
+                </span>
+              </div>
+            </div>
+
+            {/* Hero interactive preview card */}
+            <HeroPreviewCard cm={cm} t={t} />
+          </div>
+        </section>
+
+        {/* Social proof — Stitch's scenario strip */}
+        <section className="py-8 bg-surface-container-low border-y border-outline-variant/30">
+          <div className={cm.cn(cm.maxW('[1200px]'), 'mx-auto', cm.sp('px', 6))}>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'between', wrap: 'wrap' }),
+                'flex-col md:flex-row gap-6',
+              )}
+            >
+              <p
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'uppercase tracking-wider text-on-surface-variant text-center md:text-left',
+                )}
+              >
+                {t(
+                  'landing.scenariosLabel',
+                  {},
+                  { defaultValue: 'Trusted daily for every shared life scenario' },
+                )}
+              </p>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', wrap: 'wrap', gap: 2.5 }),
+                  'justify-center md:justify-end',
+                )}
+              >
+                {SCENARIOS.map((s) => (
+                  <span
+                    key={s.icon}
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 1.5 }),
+                      cm.sp('px', 4),
+                      cm.sp('py', 1.5),
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'rounded-full bg-surface-container-lowest border border-outline-variant/40 text-on-surface',
+                    )}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-lg text-primary')}
                       aria-hidden="true"
                     >
-                      arrow_forward
+                      {s.icon}
                     </span>
-                  </Link>
-                  <Link
-                    to="/login"
-                    className={cm.cn(
-                      cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors',
-                    )}
-                  >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                  </Link>
-                </div>
-                <p
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.sp('mt', 6),
-                    cm.fontWeight('semibold'),
-                    'uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {t('landing.socialProof', {}, { defaultValue: 'Trusted by groups like' })}
-                </p>
-                <ul
-                  className={cm.cn(
-                    cm.flex({ align: 'center', gap: 'lg', wrap: 'wrap' }),
-                    cm.sp('mt', 3),
-                  )}
-                >
-                  {PRESS_LOGOS.map((name) => (
-                    <li
-                      key={name}
-                      className={cm.cn(
-                        cm.textSize('sm'),
-                        cm.fontWeight('semibold'),
-                        'text-on-surface-variant tracking-wide',
-                      )}
-                    >
-                      {name}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className={cm.cn('lg:col-span-5')}>
-                <div
-                  className={cm.cn(
-                    cm.flex({ direction: 'col', justify: 'between' }),
-                    cm.sp('p', 8),
-                    'min-h-[320px] bg-gradient-to-br from-primary to-primary-container rounded-[2rem] text-white relative overflow-hidden shadow-2xl shadow-primary/20',
-                  )}
-                >
-                  <div className={cm.cn('relative z-10')}>
-                    <p
-                      className={cm.cn(
-                        'font-bold text-xs uppercase tracking-widest text-white/80 mb-2',
-                      )}
-                    >
-                      {t(
-                        'landing.sampleCardLabel',
-                        {},
-                        { defaultValue: 'Settled across your groups · this month' },
-                      )}
-                    </p>
-                    <div className={cm.flex({ align: 'baseline', gap: 'sm' })}>
-                      <span
-                        className={cm.cn('text-5xl font-extrabold tracking-tighter tabular-nums')}
-                      >
-                        $2,340.75
-                      </span>
-                      <span
-                        className={cm.cn(
-                          'px-2 py-1 rounded-full text-[11px] font-bold bg-surface/20 backdrop-blur-md inline-flex items-center gap-1',
-                        )}
-                      >
-                        <span
-                          className={cm.cn('material-symbols-outlined text-sm')}
-                          aria-hidden="true"
-                        >
-                          handshake
-                        </span>
-                        3 groups
-                      </span>
-                    </div>
-                    <p className={cm.cn('text-sm font-medium text-white/85 mt-4 max-w-xs')}>
-                      {t(
-                        'landing.sampleCardCaption',
-                        {},
-                        {
-                          defaultValue:
-                            'Zeroed out with 5 transfers instead of 12 — the simplify-debts engine at work.',
-                        },
-                      )}
-                    </p>
-                  </div>
-                  <div className={cm.cn('relative z-10 mt-8 h-20')}>
-                    <svg
-                      className={cm.cn('w-full h-full')}
-                      viewBox="0 0 400 100"
-                      preserveAspectRatio="none"
-                    >
-                      <path
-                        d="M0,80 Q50,60 100,70 T200,30 T300,50 T400,10 L400,100 L0,100 Z"
-                        fill="white"
-                        opacity="0.3"
-                      />
-                      <path
-                        d="M0,80 Q50,60 100,70 T200,30 T300,50 T400,10"
-                        fill="none"
-                        stroke="white"
-                        strokeWidth="3"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className={cm.cn(
-                      'absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-surface/10 blur-3xl',
-                    )}
-                  />
-                  <div
-                    className={cm.cn(
-                      'absolute right-8 top-8 w-16 h-16 rounded-full bg-surface/15 blur-xl',
-                    )}
-                  />
-                </div>
+                    {t(`landing.scenario.${s.icon}`, {}, { defaultValue: s.label })}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section className={cm.cn(cm.maxW('7xl'), 'mx-auto', cm.sp('px', 6), 'py-20')}>
-          <h2
+        <section
+          className={cm.cn('bg-surface', cm.maxW('[1200px]'), 'mx-auto', cm.sp('px', 6), 'py-24')}
+        >
+          <div
             className={cm.cn(
-              cm.sp('mb', 12),
-              'text-center text-3xl md:text-4xl font-extrabold tracking-tight',
+              'max-w-2xl mx-auto text-center',
+              cm.sp('mb', 16),
+              cm.flex({ direction: 'col', gap: 3 }),
             )}
           >
-            {t('landing.featuresHeading', {}, { defaultValue: 'Splitting, in one calm workspace' })}
-          </h2>
-          <div className={cm.cn('grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6')}>
-            {FEATURES.map((f) => (
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-wider text-primary',
+              )}
+            >
+              {t(
+                'landing.featuresEyebrow',
+                {},
+                { defaultValue: 'Fintech precision with zero friction' },
+              )}
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-on-surface">
+              {t(
+                'landing.featuresHeading',
+                { app: APP_NAME },
+                { defaultValue: 'Why groups prefer {{app}} over spreadsheets' },
+              )}
+            </h2>
+            <p className={cm.cn(cm.textSize('base'), 'text-on-surface-variant')}>
+              {t(
+                'landing.featuresSubheading',
+                {},
+                {
+                  defaultValue:
+                    'Built specifically for humans sharing life together. No complex ledger jargon, no endless back-and-forth messaging.',
+                },
+              )}
+            </p>
+          </div>
+          {/* Bento grid — Stitch's 2×2 value cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {FEATURES.map((f, i) => (
               <article
                 key={f.key}
                 className={cm.cn(
-                  cm.sp('p', 6),
-                  'rounded-2xl bg-surface-container-lowest border border-outline-variant/30 hover:shadow-xl hover:-translate-y-1 transition-all group',
+                  cm.sp('p', 8),
+                  cm.flex({ direction: 'col', justify: 'between' }),
+                  'rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm hover:shadow-md transition-shadow',
                 )}
               >
+                <div>
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      cm.w(12),
+                      cm.h(12),
+                      'rounded-xl mb-6',
+                      f.tileClass,
+                    )}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-2xl')}
+                      aria-hidden="true"
+                    >
+                      {f.icon}
+                    </span>
+                  </div>
+                  <h3 className="text-base font-bold text-on-surface mb-3">
+                    {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
+                  </h3>
+                  <p
+                    className={cm.cn(
+                      cm.textSize('base'),
+                      'text-on-surface-variant mb-6 leading-relaxed',
+                    )}
+                  >
+                    {t(
+                      `landing.feature.${f.key}.body`,
+                      { app: APP_NAME },
+                      { defaultValue: f.defaultBody },
+                    )}
+                  </p>
+                </div>
+                {/* Mini visual — Stitch pairs every card with a small diagram */}
                 <div
                   className={cm.cn(
-                    cm.sp('p', 3),
-                    'inline-flex rounded-xl shadow-sm group-hover:scale-110 transition-transform',
+                    cm.sp('p', 4),
+                    'rounded-xl bg-surface-container-low border border-outline-variant/30',
+                    i === 0 ? '' : cm.flex({ align: 'center', justify: 'between', gap: 2 }),
                   )}
-                  style={{
-                    background:
-                      'linear-gradient(135deg, var(--color-primary-hover), var(--color-gradient-end))',
-                    color: 'var(--color-surface)',
-                  }}
+                  aria-hidden="true"
                 >
-                  <span
-                    className={cm.cn('material-symbols-outlined text-3xl')}
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                    aria-hidden="true"
-                  >
-                    {f.icon}
-                  </span>
+                  {i === 0 && (
+                    <>
+                      <div
+                        className={cm.cn(
+                          cm.flex({ align: 'center', justify: 'between' }),
+                          cm.textSize('xs'),
+                          cm.sp('mb', 2),
+                        )}
+                      >
+                        <span className="text-error font-medium">
+                          {t(
+                            'landing.mini.standard',
+                            {},
+                            { defaultValue: 'Standard App (12 Transfers)' },
+                          )}
+                        </span>
+                        <span className="text-primary font-bold">
+                          {t(
+                            'landing.mini.app',
+                            { app: APP_NAME },
+                            { defaultValue: '{{app}} (2 Transfers)' },
+                          )}
+                        </span>
+                      </div>
+                      <div className="w-full bg-surface-container-highest rounded-full h-3 flex overflow-hidden">
+                        <div className="bg-error/70 h-full w-[85%]" />
+                        <div className="bg-primary h-full w-[15%]" />
+                      </div>
+                      <p
+                        className={cm.cn(cm.textSize('xs'), 'text-outline-variant mt-2 text-right')}
+                      >
+                        {t(
+                          'landing.mini.reduction',
+                          {},
+                          { defaultValue: '83% reduction in payment notifications' },
+                        )}
+                      </p>
+                    </>
+                  )}
+                  {i === 1 && (
+                    <>
+                      <span className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
+                        <span
+                          className={cm.cn('material-symbols-outlined text-primary')}
+                          aria-hidden="true"
+                        >
+                          document_scanner
+                        </span>
+                        <span>
+                          <span
+                            className={cm.cn(
+                              cm.textSize('xs'),
+                              cm.fontWeight('semibold'),
+                              'text-on-surface block',
+                            )}
+                          >
+                            {t(
+                              'landing.mini.receipt',
+                              {},
+                              { defaultValue: 'Truffle Pasta & Cocktails' },
+                            )}
+                          </span>
+                          <span className={cm.cn(cm.textSize('xs'), 'text-outline')}>
+                            {t(
+                              'landing.mini.receiptNote',
+                              {},
+                              { defaultValue: 'Tax (8.875%) & Tip (20%) auto-pro-rated' },
+                            )}
+                          </span>
+                        </span>
+                      </span>
+                      <span
+                        className={cm.cn(
+                          cm.sp('px', 2.5),
+                          cm.sp('py', 1),
+                          cm.textSize('xs'),
+                          cm.fontWeight('bold'),
+                          'rounded-full bg-[color-mix(in_srgb,var(--color-secondary-container)_50%,transparent)] text-primary',
+                        )}
+                      >
+                        {t('landing.mini.scanned', {}, { defaultValue: 'Scanned' })}
+                      </span>
+                    </>
+                  )}
+                  {i === 2 && (
+                    <>
+                      <span className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
+                        <span
+                          className={cm.cn(
+                            cm.flex({ align: 'center', justify: 'center' }),
+                            'h-8 w-8 rounded-full bg-surface text-primary text-sm font-bold',
+                          )}
+                          aria-hidden="true"
+                        >
+                          🔔
+                        </span>
+                        <span className={cm.cn(cm.textSize('xs'), 'text-on-surface')}>
+                          {t(
+                            'landing.mini.reminder',
+                            {},
+                            {
+                              defaultValue:
+                                '"Hey! Sam settled the WiFi bill ($45). Settle when free ✨"',
+                            },
+                          )}
+                        </span>
+                      </span>
+                      <span
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          cm.fontWeight('bold'),
+                          'text-primary whitespace-nowrap',
+                        )}
+                      >
+                        {t('landing.mini.oneTap', {}, { defaultValue: '1-Tap Settle' })}
+                      </span>
+                    </>
+                  )}
+                  {i === 3 && (
+                    <>
+                      <span
+                        className={cm.cn(cm.flex({ align: 'center', gap: 2 }), cm.textSize('xs'))}
+                      >
+                        <span className="px-2 py-0.5 bg-surface-container-lowest rounded border border-outline-variant/30 text-on-surface">
+                          ¥18,400 JPY
+                        </span>
+                        <span
+                          className={cm.cn('material-symbols-outlined text-primary text-sm')}
+                          aria-hidden="true"
+                        >
+                          sync_alt
+                        </span>
+                        <span className="px-2 py-0.5 bg-surface-container-lowest rounded border border-outline-variant/30 text-on-surface">
+                          $121.50 USD
+                        </span>
+                      </span>
+                      <span
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          cm.fontWeight('semibold'),
+                          'text-primary',
+                        )}
+                      >
+                        {t('landing.mini.fx', {}, { defaultValue: '0% FX Markup' })}
+                      </span>
+                    </>
+                  )}
                 </div>
-                <h3
-                  className={cm.cn(
-                    cm.textSize('lg'),
-                    cm.sp('mt', 5),
-                    cm.sp('mb', 2),
-                    cm.fontWeight('bold'),
-                  )}
-                >
-                  {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
-                </h3>
-                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}>
-                  {t(
-                    `landing.feature.${f.key}.body`,
-                    { app: APP_NAME },
-                    { defaultValue: f.defaultBody },
-                  )}
-                </p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className={cm.cn('border-t border-outline-variant/40 bg-surface-container-low')}>
-          <div className={cm.cn(cm.maxW('7xl'), 'mx-auto', cm.sp('px', 6), 'py-16 text-center')}>
-            <h3
-              className={cm.cn(cm.textSize('3xl'), cm.sp('mb', 4), 'font-extrabold tracking-tight')}
-            >
-              {t(
-                'landing.ctaHeading',
-                { tagline: APP_TAGLINE },
-                { defaultValue: 'Ready to settle up, simply?' },
-              )}
-            </h3>
-            <p
-              className={cm.cn(
-                cm.textSize('base'),
-                cm.sp('mb', 8),
-                'text-on-surface-variant max-w-xl mx-auto',
-              )}
-            >
-              {t(
-                'landing.ctaBody',
-                {},
-                {
-                  defaultValue:
-                    'Free for you and every group you start. No account needed for your friends.',
-                },
-              )}
-            </p>
-            <Link
-              to="/signup"
-              className={cm.cn(
-                cm.sp('px', 10),
-                cm.sp('py', 4),
-                cm.fontWeight('semibold'),
-                'rounded-full text-white inline-flex items-center gap-2 transition-colors shadow-lg shadow-primary/20',
-              )}
-              style={{
-                background:
-                  'linear-gradient(135deg, var(--color-primary-hover), var(--color-gradient-end))',
-              }}
-            >
-              {t('common.startFree', {}, { defaultValue: 'Start free' })}
-              <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
-                arrow_forward
+        {/* High-conversion CTA banner — Stitch's gradient rounded-3xl block */}
+        <section
+          className={cm.cn('bg-surface', cm.maxW('[1200px]'), 'mx-auto', cm.sp('px', 6), 'py-20')}
+        >
+          <div
+            className={cm.cn(
+              'relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary to-[color:var(--color-surface-tint)] text-on-primary shadow-2xl text-center',
+              cm.sp('p', 8),
+              'md:p-16',
+            )}
+          >
+            <div
+              aria-hidden="true"
+              className="absolute -right-20 -bottom-20 w-80 h-80 bg-[color-mix(in_srgb,var(--color-secondary-container)_20%,transparent)] rounded-full blur-3xl pointer-events-none"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute -left-20 -top-20 w-80 h-80 bg-white/10 rounded-full blur-3xl pointer-events-none"
+            />
+            <div className="relative max-w-2xl mx-auto flex flex-col items-center">
+              <span
+                className={cm.cn(
+                  'inline-block px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold mb-6',
+                )}
+              >
+                {t('landing.ctaPill', {}, { defaultValue: 'Zero Fees for Personal Groups' })}
               </span>
-            </Link>
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+                {t(
+                  'landing.ctaHeading',
+                  {},
+                  { defaultValue: 'Never argue about the dinner bill again.' },
+                )}
+              </h2>
+              <p
+                className={cm.cn(
+                  cm.textSize('lg'),
+                  'text-on-primary-container mb-8 leading-relaxed',
+                )}
+              >
+                {t(
+                  'landing.ctaBody',
+                  { app: APP_NAME },
+                  {
+                    defaultValue:
+                      'Join over 140,000 roommates, vacationers, and friends who have simplified group expenses with {{app}}.',
+                  },
+                )}
+              </p>
+              <Link
+                to="/signup"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.fontWeight('bold'),
+                  cm.textSize('sm'),
+                  'rounded-xl bg-on-primary text-primary shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-transform inline-flex items-center gap-2',
+                )}
+              >
+                {t('common.startFree', {}, { defaultValue: 'Get Started Free' })}
+                <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                  arrow_forward
+                </span>
+              </Link>
+              <div
+                className={cm.cn(
+                  cm.flex({ wrap: 'wrap', justify: 'center', gap: 6 }),
+                  'text-on-primary-container text-xs font-medium mt-8',
+                )}
+              >
+                {REASSURANCES.map((r) => (
+                  <span key={r.icon} className={cm.flex({ align: 'center', gap: 1.5 })}>
+                    <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+                      {r.icon}
+                    </span>
+                    {t(`landing.reassurance.${r.icon}`, {}, { defaultValue: r.label })}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer
-        className={cm.cn(
-          cm.sp('py', 8),
-          cm.textCenter,
-          cm.textSize('sm'),
-          'bg-surface text-on-surface-variant border-t border-outline-variant',
-        )}
-      >
-        <p>
-          {t(
-            'landing.copyright',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Built with Molecule.dev.' },
+      <footer className="bg-surface-container-low border-t border-outline-variant/30">
+        <div
+          className={cm.cn(
+            cm.maxW('[1200px]'),
+            'mx-auto',
+            cm.sp('px', 6),
+            cm.sp('py', 16),
+            cm.flex({ direction: 'col', gap: 12 }),
           )}
-        </p>
+        >
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+            <div className={cm.cn('md:col-span-5', cm.stack(4))}>
+              <div className={cm.flex({ align: 'center', gap: 2 })}>
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'h-8 w-8 rounded-lg bg-primary text-on-primary',
+                  )}
+                >
+                  <span
+                    className={cm.cn('material-symbols-outlined text-lg')}
+                    style={{ fontVariationSettings: "'FILL' 1" }}
+                    aria-hidden="true"
+                  >
+                    call_split
+                  </span>
+                </span>
+                <span className={cm.cn(cm.fontWeight('bold'), 'text-on-surface')}>{APP_NAME}</span>
+              </div>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-sm')}>
+                {t(
+                  'landing.footerTagline',
+                  { tagline: APP_TAGLINE, appName: APP_NAME },
+                  {
+                    defaultValue:
+                      'Shared costs, settled simply. The modern social expense tracker built for roommates, travel groups, and dinners.',
+                  },
+                )}
+              </p>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 2 }),
+                  'text-xs text-primary font-medium',
+                )}
+              >
+                <span
+                  className={cm.cn('h-2 w-2 rounded-full bg-primary animate-pulse')}
+                  aria-hidden="true"
+                />
+                {t('landing.footerStatus', {}, { defaultValue: 'All systems operational' })}
+              </div>
+            </div>
+            <div className={cm.cn('md:col-span-4', cm.stack(3))}>
+              <h4
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'uppercase tracking-wider text-on-surface',
+                )}
+              >
+                {t('landing.footerProduct', {}, { defaultValue: 'Product' })}
+              </h4>
+              <ul className={cm.cn(cm.stack(2.5), cm.textSize('sm'))}>
+                <li>
+                  <a
+                    href="#demo"
+                    className="text-on-surface-variant hover:text-primary transition-colors"
+                  >
+                    {t('landing.ctaSecondary', {}, { defaultValue: 'Explore Live Demo' })}
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    to="/signup"
+                    className="text-on-surface-variant hover:text-primary transition-colors"
+                  >
+                    {t('common.startFree', {}, { defaultValue: 'Get Started Free' })}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className={cm.cn('md:col-span-3', cm.stack(3))}>
+              <h4
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'uppercase tracking-wider text-on-surface',
+                )}
+              >
+                {t('landing.footerLegal', {}, { defaultValue: 'Legal' })}
+              </h4>
+              <ul className={cm.cn(cm.stack(2.5), cm.textSize('sm'))}>
+                <li>
+                  <Link
+                    to="/about"
+                    className="text-on-surface-variant hover:text-primary transition-colors"
+                  >
+                    {t('nav.about', {}, { defaultValue: 'About' })}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/privacy"
+                    className="text-on-surface-variant hover:text-primary transition-colors"
+                  >
+                    {t('nav.privacy', {}, { defaultValue: 'Privacy Policy' })}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/terms"
+                    className="text-on-surface-variant hover:text-primary transition-colors"
+                  >
+                    {t('nav.terms', {}, { defaultValue: 'Terms of Service' })}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            className={cm.cn(
+              cm.sp('pt', 8),
+              'border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-4',
+            )}
+          >
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'landing.copyright',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                { defaultValue: '© {{year}} {{app}}. All rights reserved.' },
+              )}
+            </p>
+            <p className={cm.cn(cm.textSize('xs'), 'text-outline')}>
+              {t(
+                'landing.footerCrafted',
+                {},
+                { defaultValue: 'Crafted with precision for frictionless sharing' },
+              )}
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   )
 }
+
+type ClassMap = ReturnType<typeof getClassMap>
+type Translate = ReturnType<typeof useTranslation>['t']
+
+/**
+ * Hero interactive preview card — the Stitch "Lake Tahoe Weekend Cabin"
+ * mockup: expense stream on the left, Smart Debt Minimizer on the right.
+ * Entirely presentational; anchors the hero the way the design does.
+ */
+function HeroPreviewCard({ cm, t }: { cm: ClassMap; t: Translate }) {
+  return (
+    <div
+      id="demo"
+      className={cm.cn(
+        'relative rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-2xl backdrop-blur-xl',
+        cm.sp('p', 4),
+        'md:p-8',
+        cm.maxW('5xl'),
+        'mx-auto',
+        cm.sp('mb', 20),
+      )}
+    >
+      {/* Mockup top bar */}
+      <div
+        className={cm.cn(
+          cm.flex({ justify: 'between' }),
+          'flex-col md:flex-row md:items-center gap-4 pb-6 mb-6 border-b border-outline-variant/20',
+        )}
+      >
+        <div className={cm.flex({ align: 'center', gap: 3 })}>
+          <span
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'h-12 w-12 rounded-xl bg-[color-mix(in_srgb,var(--color-secondary-container)_40%,transparent)] text-secondary border border-secondary-container',
+            )}
+            aria-hidden="true"
+          >
+            <span className={cm.cn('material-symbols-outlined text-2xl')}>cabin</span>
+          </span>
+          <div className={cm.stack(1)}>
+            <div className={cm.flex({ align: 'center', gap: 2 })}>
+              <h2 className={cm.cn(cm.fontWeight('bold'), 'text-on-surface')}>
+                {t('landing.demo.tripName', {}, { defaultValue: 'Lake Tahoe Weekend Cabin' })}
+              </h2>
+              <span
+                className={cm.cn(
+                  cm.sp('px', 2.5),
+                  cm.sp('py', 0.5),
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'rounded-full bg-secondary-container text-on-secondary-container',
+                )}
+              >
+                {t('landing.demo.activeTrip', {}, { defaultValue: 'Active Trip' })}
+              </span>
+            </div>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'landing.demo.tripMeta',
+                {},
+                { defaultValue: '5 members · Organized by Sam M. · Oct 18–21' },
+              )}
+            </p>
+          </div>
+        </div>
+        <div className={cm.flex({ align: 'center', gap: 6 })}>
+          <div className="text-right">
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('semibold'),
+                'uppercase tracking-wider text-outline block',
+              )}
+            >
+              {t('landing.demo.totalLabel', {}, { defaultValue: 'Total Group Spend' })}
+            </span>
+            <span
+              className={cm.cn(cm.textSize('2xl'), cm.fontWeight('extrabold'), 'text-on-surface')}
+            >
+              $1,840.00
+            </span>
+          </div>
+          <span
+            className={cm.cn(
+              'hidden',
+              'sm:flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-on-primary font-semibold transition-all shadow-sm',
+            )}
+          >
+            <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+              add
+            </span>
+            {t('landing.demo.addCost', {}, { defaultValue: 'Add Cost' })}
+          </span>
+        </div>
+      </div>
+
+      {/* 2-column mockup grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        {/* Expense stream */}
+        <div className="lg:col-span-7">
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between' }),
+              cm.sp('px', 1),
+              cm.sp('mb', 3),
+            )}
+          >
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-wider text-outline',
+              )}
+            >
+              {t('landing.demo.activityLabel', {}, { defaultValue: 'Live Expense Activity' })}
+            </span>
+            <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'text-primary')}>
+              {t('landing.demo.verified', {}, { defaultValue: '3 of 3 verified' })}
+            </span>
+          </div>
+          <div className={cm.stack(3)}>
+            {MOCK_EXPENSES.map((e) => (
+              <div
+                key={e.name}
+                className={cm.cn(
+                  cm.sp('p', 4),
+                  cm.flex({ align: 'center', justify: 'between', gap: 4 }),
+                  'rounded-xl bg-surface border border-outline-variant/30',
+                )}
+              >
+                <div className={cm.flex({ align: 'center', gap: 4 })}>
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'h-10 w-10 rounded-lg shrink-0',
+                      e.tile,
+                    )}
+                    aria-hidden="true"
+                  >
+                    <span className={cm.cn('material-symbols-outlined text-xl')}>{e.icon}</span>
+                  </span>
+                  <div>
+                    <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), 'flex-wrap')}>
+                      <span
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          cm.fontWeight('semibold'),
+                          'text-on-surface',
+                        )}
+                      >
+                        {t(`landing.demo.expense.${e.name}`, {}, { defaultValue: e.name })}
+                      </span>
+                      {e.pill && (
+                        <span
+                          className={cm.cn(
+                            cm.sp('px', 2),
+                            cm.sp('py', 0.5),
+                            cm.textSize('xs'),
+                            cm.fontWeight('medium'),
+                            'rounded-full bg-surface-container-high text-on-surface-variant',
+                          )}
+                        >
+                          {e.pill}
+                        </span>
+                      )}
+                    </div>
+                    <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                      {t(
+                        'landing.demo.paidBy',
+                        { name: e.paidBy },
+                        { defaultValue: 'Paid by {{name}}' },
+                      )}{' '}
+                      · {e.note}
+                    </p>
+                  </div>
+                </div>
+                <div className="text-right shrink-0">
+                  <span
+                    className={cm.cn(
+                      cm.textSize('base'),
+                      cm.fontWeight('bold'),
+                      'text-on-surface block',
+                    )}
+                  >
+                    {e.amount}
+                  </span>
+                  <span className={cm.cn(cm.textSize('xs'), 'text-outline')}>{e.perShare}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Avatar cluster */}
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between' }),
+              cm.sp('pt', 2),
+              cm.sp('px', 2),
+            )}
+          >
+            <div className={cm.cn(cm.flex({ align: 'center' }), '-space-x-2')}>
+              {['SM', 'ML', 'LT', 'CK', 'DP'].map((initials, i) => (
+                <span
+                  key={initials}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'h-8 w-8 rounded-full text-xs font-bold ring-2 ring-surface-container-lowest',
+                    AVATAR_TILES[i % AVATAR_TILES.length],
+                  )}
+                  aria-hidden="true"
+                >
+                  {initials}
+                </span>
+              ))}
+            </div>
+            <span className={cm.cn(cm.textSize('sm'), 'text-outline')}>
+              {t('landing.demo.synced', {}, { defaultValue: '5 balances synced live' })}
+            </span>
+          </div>
+        </div>
+
+        {/* Smart Debt Minimizer */}
+        <div className="lg:col-span-5 rounded-xl bg-gradient-to-b from-surface-container-low to-surface border border-outline-variant/40 p-5 shadow-sm">
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), cm.sp('mb', 3))}>
+            <span
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                'h-7 w-7 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] text-primary',
+              )}
+              aria-hidden="true"
+            >
+              <span className={cm.cn('material-symbols-outlined text-base')}>insights</span>
+            </span>
+            <h3 className={cm.cn(cm.fontWeight('bold'), 'text-on-surface')}>
+              {t('landing.demo.minimizerTitle', {}, { defaultValue: 'Smart Debt Minimizer' })}
+            </h3>
+          </div>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mb-4')}>
+            {t(
+              'landing.demo.minimizerBody',
+              {},
+              {
+                defaultValue: '10 messy transfers condensed into just 3 direct settlements:',
+              },
+            )}
+          </p>
+          <div className={cm.stack(2.5)}>
+            {MOCK_SETTLEMENTS.map((s) => (
+              <div
+                key={`${s.from}-${s.to}-${s.amount}`}
+                className={cm.cn(
+                  cm.sp('p', 3),
+                  cm.flex({ align: 'center', justify: 'between' }),
+                  'bg-surface-container-lowest rounded-lg border border-outline-variant/30',
+                )}
+              >
+                <span className={cm.cn(cm.flex({ align: 'center', gap: 2 }), cm.textSize('xs'))}>
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'h-6 w-6 rounded-full bg-surface-container-highest text-on-surface text-xs font-bold',
+                    )}
+                    aria-hidden="true"
+                  >
+                    {s.from}
+                  </span>
+                  <span className="text-on-surface font-semibold">{s.fromName}</span>
+                  <span
+                    className={cm.cn('material-symbols-outlined text-primary text-sm')}
+                    aria-hidden="true"
+                  >
+                    arrow_forward
+                  </span>
+                  <span className="text-on-surface font-semibold">{s.to}</span>
+                </span>
+                <span className={cm.flex({ align: 'center', gap: 2 })}>
+                  <span
+                    className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-on-surface')}
+                  >
+                    {s.amount}
+                  </span>
+                  <span
+                    className={cm.cn(
+                      cm.sp('px', 2),
+                      cm.sp('py', 0.5),
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'rounded bg-[color-mix(in_srgb,var(--color-secondary-container)_40%,transparent)] text-primary',
+                    )}
+                  >
+                    {s.rail}
+                  </span>
+                </span>
+              </div>
+            ))}
+          </div>
+          <span
+            className={cm.cn(
+              cm.sp('py', 3),
+              cm.sp('mt', 4),
+              cm.flex({ align: 'center', justify: 'center', gap: 2 }),
+              cm.textSize('xs'),
+              cm.fontWeight('semibold'),
+              'w-full rounded-lg bg-primary text-on-primary shadow-sm',
+            )}
+          >
+            <span className={cm.cn('material-symbols-outlined text-lg')} aria-hidden="true">
+              account_balance_wallet
+            </span>
+            {t('landing.demo.settleUp', {}, { defaultValue: 'Settle up with Venmo / Cash App' })}
+          </span>
+          <p className={cm.cn(cm.textSize('xs'), 'text-outline mt-2 text-center')}>
+            {t(
+              'landing.demo.settleNote',
+              {},
+              { defaultValue: 'No transaction fee · Direct app deep links' },
+            )}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* Initials avatar tiles for the mockup avatar cluster. */
+const AVATAR_TILES = [
+  'bg-primary-fixed text-on-primary-fixed',
+  'bg-secondary-fixed text-on-secondary-fixed',
+  'bg-tertiary-fixed text-on-tertiary-fixed',
+  'bg-surface-container-highest text-on-surface',
+  'bg-surface-dim text-on-surface',
+] as const
+
+export default Landing

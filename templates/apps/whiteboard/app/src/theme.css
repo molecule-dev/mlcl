@@ -1,8 +1,8 @@
 :root {
   /* Brand colors — Slate (indigo + teal + violet canvas accent) */
   --color-primary: #5b5bf7;
-  --color-primary-hover: #7676ff;
-  --color-primary-light: #eaeaff;
+  --color-primary-hover: #4a4ae6;
+  --color-primary-light: #eef0ff;
   --color-primary-dark: #4444d4;
   --color-secondary: #00c4a8;
   --color-secondary-hover: #00dbbe;
@@ -10,16 +10,23 @@
   --color-canvas-accent: #a855f7;
 
   /* Canvas */
-  --color-canvas-bg: #f5f5f5;
-  --color-canvas-grid: #e0e0e0;
+  --color-canvas-bg: #fafafa;
+  --color-canvas-grid: #e2e2e2;
   --color-canvas-selection: rgba(45, 155, 240, 0.2);
 
-  /* Sticky note colors */
-  --color-sticky-yellow: #fef3c7;
-  --color-sticky-green: #d1fae5;
-  --color-sticky-blue: #dbeafe;
-  --color-sticky-pink: #fce7f3;
-  --color-sticky-purple: #ede9fe;
+  /* Sticky note colors — Stitch design palette (pastel board surface) */
+  --color-sticky-yellow: #fef08a;
+  --color-sticky-green: #bbf7d0;
+  --color-sticky-blue: #bfdbfe;
+  --color-sticky-pink: #fecdd3;
+  --color-sticky-purple: #e9d5ff;
+  --color-sticky-orange: #fed7aa;
+  --color-sticky-gray: #e5e7eb;
+
+  /* Live-cursor colors (multiplayer name tags + pointer arrows) */
+  --color-cursor-orange: #f97316;
+  --color-cursor-cyan: #06b6d4;
+  --color-cursor-pink: #ec4899;
 
   /* Background */
   --color-bg: #ffffff;
@@ -95,11 +102,17 @@
   --color-outline-variant: #d8d8e8;
   --color-surface-tint: #5b5bf7;
 
-  /* Typography */
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Typography — the Stitch design runs Inter everywhere, with Caveat as the
+     handwriting accent (board annotations, logo star, footer flourish). */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Handwriting accent — picked up via the `font-handwriting` Tailwind token
+     (bridged in index.css). Falls back to a cursive system face offline. */
+  --font-handwriting: 'Caveat', 'Segoe Script', 'Comic Sans MS', cursive;
   /* Headline font — picked up by shared molecule pages
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Tailwind's default sans (base.css reads --mol-font-sans) — Inter, per design. */
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-size-xs: 0.625rem;
   --font-size-sm: 0.75rem;
   --font-size-base: 0.875rem;
@@ -154,6 +167,13 @@
   --color-sticky-blue: #1e3a8a;
   --color-sticky-pink: #831843;
   --color-sticky-purple: #4c1d95;
+  --color-sticky-orange: #7c2d12;
+  --color-sticky-gray: #27272a;
+
+  /* Live-cursor colors — bright hues stay legible on the dark canvas */
+  --color-cursor-orange: #fb923c;
+  --color-cursor-cyan: #22d3ee;
+  --color-cursor-pink: #f472b6;
 
   /* Background */
   --color-bg: #0f0f17;

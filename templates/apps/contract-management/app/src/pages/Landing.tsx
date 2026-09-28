@@ -4,7 +4,7 @@ import { useLegalModals } from '@molecule/app-legal-pages-react'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_NAME } from '../branding.js'
 import { VellumPortfolioHero } from '../components/VellumPortfolioHero.js'
 import { loadContent } from '../config.js'
 
@@ -76,24 +76,48 @@ export function Landing() {
             to="/"
             className={cm.cn(
               cm.textSize('2xl'),
-              cm.fontWeight('extrabold'),
+              cm.fontWeight('bold'),
               'min-w-0 whitespace-nowrap shrink-0',
-              'tracking-tight text-on-surface',
+              'tracking-tighter text-primary',
             )}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {APP_NAME}
           </Link>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0')}>
+            <a
+              href="#features"
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                'hidden sm:inline-flex whitespace-nowrap items-center py-2 border-b-2 tracking-tight',
+              )}
+              style={{
+                color: 'var(--color-status-pending)',
+                borderColor: 'var(--color-status-pending)',
+              }}
+            >
+              {t('nav.product', {}, { defaultValue: 'Product' })}
+            </a>
             <Link
               to="/pricing"
               className={cm.cn(
                 cm.textSize('sm'),
-                cm.fontWeight('semibold'),
-                // Tap-target floor: bare text links measured 20px tall on phones.
-                'hidden sm:inline-flex whitespace-nowrap items-center py-2 text-on-surface-variant hover:text-on-surface',
+                cm.fontWeight('medium'),
+                'hidden sm:inline-flex whitespace-nowrap items-center px-3 py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors tracking-tight',
               )}
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </Link>
+            <Link
+              to="/about"
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                'hidden md:inline-flex whitespace-nowrap items-center px-3 py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors tracking-tight',
+              )}
+            >
+              {t('nav.resources', {}, { defaultValue: 'Resources' })}
             </Link>
             {isAuthenticated ? (
               <Link
@@ -125,13 +149,17 @@ export function Landing() {
                   to="/signup"
                   className={cm.cn(
                     cm.sp('px', 5),
-                    cm.sp('py', 2),
+                    cm.sp('py', 2.5),
+                    cm.textSize('sm'),
                     cm.fontWeight('semibold'),
-                    'whitespace-nowrap shrink-0',
-                    'rounded-full bg-gradient-to-br from-sidebar-bg to-[var(--mol-color-primary)] text-white shadow-md transition-transform hover:-translate-y-0.5',
+                    'whitespace-nowrap shrink-0 rounded-lg shadow-sm transition-transform hover:scale-[0.98]',
                   )}
+                  style={{
+                    background: 'var(--color-status-pending)',
+                    color: 'var(--color-sidebar-bg)',
+                  }}
                 >
-                  {t('landing.getStarted', {}, { defaultValue: 'Request demo' })}
+                  {t('landing.getStarted', {}, { defaultValue: 'Request Demo' })}
                 </Link>
               </>
             )}
@@ -178,14 +206,15 @@ export function Landing() {
                 <h1
                   className={cm.cn(
                     cm.sp('mt', 5),
-                    cm.fontWeight('extrabold'),
-                    'text-5xl tracking-tight text-on-surface md:text-6xl lg:text-7xl leading-[0.95]',
+                    cm.fontWeight('normal'),
+                    'text-5xl tracking-tight text-primary md:text-6xl lg:text-7xl leading-tight',
                   )}
+                  style={{ fontFamily: 'var(--font-headline)' }}
                 >
                   {t(
                     'landing.heroTitle',
                     {},
-                    { defaultValue: 'A defensible record of every signed deal.' },
+                    { defaultValue: 'Seal every deal with absolute certainty.' },
                   )}
                 </h1>
                 <p
@@ -198,10 +227,10 @@ export function Landing() {
                 >
                   {t(
                     'landing.heroSubtitle',
-                    { tagline: APP_TAGLINE },
+                    { appName: APP_NAME },
                     {
                       defaultValue:
-                        '{{tagline}}. Templates, e-signing, expiry alerts, and an evidentiary audit trail your General Counsel can stand behind.',
+                        '{{appName}} is the ultimate system of record for legal operations. Create, route, and audit contracts with a platform designed for defensibility and permanence.',
                     },
                   )}
                 </p>
@@ -216,22 +245,25 @@ export function Landing() {
                     className={cm.cn(
                       cm.sp('px', 8),
                       cm.sp('py', 4),
-                      cm.fontWeight('extrabold'),
-                      'rounded-full bg-gradient-to-br from-sidebar-bg to-[var(--mol-color-primary)] text-white shadow-lg shadow-sidebar-bg/20 transition-all hover:-translate-y-0.5 hover:shadow-xl',
+                      cm.fontWeight('medium'),
+                      'rounded-lg bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-lg transition-all hover:opacity-90',
                     )}
                   >
-                    {t('landing.heroCta', {}, { defaultValue: 'Request demo' })}
+                    {t('landing.heroCta', {}, { defaultValue: 'Start free' })}
                   </Link>
                   <Link
-                    to="/login"
+                    to="/about"
                     className={cm.cn(
-                      cm.sp('px', 6),
+                      cm.sp('px', 8),
                       cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'rounded-full border border-outline text-on-surface hover:bg-surface-container',
+                      cm.fontWeight('medium'),
+                      'rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-colors inline-flex items-center justify-center gap-2',
                     )}
                   >
-                    {t('landing.heroSecondary', {}, { defaultValue: 'Sign in to your account' })}
+                    {t('landing.heroSecondary', {}, { defaultValue: 'Watch demo' })}
+                    <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+                      play_arrow
+                    </span>
                   </Link>
                 </div>
 
@@ -276,6 +308,49 @@ export function Landing() {
                   expiringCount={3}
                 />
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Trust strip (Stitch design: serif wordmarks, grayscale) */}
+        <section
+          className={cm.cn(
+            'border-y border-outline-variant bg-surface-container-low/50 py-12 px-6',
+          )}
+          data-mol-id="landing-trust-strip"
+        >
+          <div
+            className={cm.cn(
+              cm.maxW('7xl'),
+              cm.mxAuto,
+              cm.flex({ align: 'center', justify: 'between' }),
+              'flex-col md:flex-row gap-8',
+            )}
+          >
+            <p
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                'text-on-surface-variant uppercase tracking-widest',
+              )}
+            >
+              {t('landing.trustStrip', {}, { defaultValue: 'Trusted by leading legal teams' })}
+            </p>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center' }),
+                'flex-wrap justify-center gap-8 lg:gap-16 opacity-50 grayscale transition-all',
+              )}
+            >
+              {['Axiom', 'Nexus', 'Stratagem', 'Vanguard', 'Horizon'].map((name) => (
+                <span
+                  key={name}
+                  className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}
+                  style={{ fontFamily: 'var(--font-headline)' }}
+                >
+                  {name}
+                </span>
+              ))}
             </div>
           </div>
         </section>
@@ -400,8 +475,8 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('px', 8),
                   cm.sp('py', 4),
-                  cm.fontWeight('extrabold'),
-                  'rounded-full bg-gradient-to-br from-sidebar-bg to-[var(--mol-color-primary)] text-white shadow-lg transition-transform hover:-translate-y-0.5',
+                  cm.fontWeight('medium'),
+                  'rounded-lg bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-lg transition-all hover:opacity-90',
                 )}
               >
                 {t('landing.ctaPrimary', {}, { defaultValue: 'Start a workspace' })}
@@ -416,63 +491,95 @@ export function Landing() {
           className={cm.cn(
             cm.maxW('7xl'),
             cm.sp('px', 6),
-            cm.sp('py', 8),
+            cm.sp('py', 12),
             cm.mxAuto,
-            cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
+            cm.grid({ cols: 1, gap: 'lg' }),
+            'md:grid-cols-4 text-sm',
           )}
         >
-          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-            {t(
-              'landing.copyright',
-              { year: new Date().getFullYear(), app: APP_NAME },
-              { defaultValue: '\u00a9 {{year}} {{app}}. Built with Molecule.' },
-            )}
-          </p>
-          <ul className={cm.cn(cm.flex({ gap: 'md', align: 'center' }), cm.textSize('sm'))}>
-            <li>
-              <Link
-                to="/about"
-                className={cm.cn(
-                  // Tap-target floor for footer links on phones.
-                  'inline-flex items-center py-2 text-on-surface-variant hover:text-on-surface',
-                )}
-              >
-                {t('nav.about', {}, { defaultValue: 'About' })}
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/pricing"
-                className={cm.cn(
-                  'inline-flex items-center py-2 text-on-surface-variant hover:text-on-surface',
-                )}
-              >
-                {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
-              </Link>
-            </li>
-            <li>
-              <button
-                type="button"
-                onClick={openPrivacy}
-                className={cm.cn(
-                  'cursor-pointer inline-flex items-center border-0 bg-transparent py-2 text-on-surface-variant hover:text-on-surface',
-                )}
-              >
-                {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                onClick={openTerms}
-                className={cm.cn(
-                  'cursor-pointer inline-flex items-center border-0 bg-transparent py-2 text-on-surface-variant hover:text-on-surface',
-                )}
-              >
-                {t('nav.terms', {}, { defaultValue: 'Terms' })}
-              </button>
-            </li>
-          </ul>
+          <div className={cm.cn(cm.flex({ direction: 'col' }), 'gap-4')}>
+            <span
+              className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-primary')}
+              style={{ fontFamily: 'var(--font-headline)' }}
+            >
+              {APP_NAME}
+            </span>
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('medium'),
+                'tracking-wide uppercase text-on-surface-variant mt-auto',
+              )}
+            >
+              {t(
+                'landing.copyright',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                {
+                  defaultValue:
+                    '© {{year}} {{app}} Operations. All rights reserved. Part of the Sovereign Archive.',
+                },
+              )}
+            </p>
+          </div>
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+            <button
+              type="button"
+              onClick={openPrivacy}
+              className={cm.cn(
+                'cursor-pointer text-left underline text-on-surface-variant hover:text-primary transition-colors py-1',
+              )}
+              // Tap-target floor for footer links on phones.
+              style={{ paddingTop: '0.25rem', paddingBottom: '0.25rem' }}
+            >
+              {t('nav.privacy', {}, { defaultValue: 'Privacy Policy' })}
+            </button>
+            <button
+              type="button"
+              onClick={openTerms}
+              className={cm.cn(
+                'cursor-pointer text-left underline text-on-surface-variant hover:text-primary transition-colors',
+              )}
+              style={{ paddingTop: '0.25rem', paddingBottom: '0.25rem' }}
+            >
+              {t('nav.terms', {}, { defaultValue: 'Terms of Service' })}
+            </button>
+          </div>
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+            <Link
+              to="/about"
+              className={cm.cn(
+                'underline text-on-surface-variant hover:text-primary transition-colors py-1',
+              )}
+            >
+              {t('nav.about', {}, { defaultValue: 'About' })}
+            </Link>
+            <Link
+              to="/pricing"
+              className={cm.cn(
+                'underline text-on-surface-variant hover:text-primary transition-colors py-1',
+              )}
+            >
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </Link>
+          </div>
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+            <Link
+              to="/signup"
+              className={cm.cn(
+                'underline text-on-surface-variant hover:text-primary transition-colors py-1',
+              )}
+            >
+              {t('landing.getStarted', {}, { defaultValue: 'Request Demo' })}
+            </Link>
+            <Link
+              to="/login"
+              className={cm.cn(
+                'underline text-on-surface-variant hover:text-primary transition-colors py-1',
+              )}
+            >
+              {t('auth.login.signInButton', {}, { defaultValue: 'Log In' })}
+            </Link>
+          </div>
         </div>
       </footer>
       {modals}

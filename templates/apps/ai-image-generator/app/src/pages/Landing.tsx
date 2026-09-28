@@ -17,6 +17,7 @@ const FEATURES = [
     title: 'Studio-grade models',
     bodyKey: 'landing.features.studio.body',
     body: 'Diffusion models trained on millions of high-resolution professional images — portraiture, illustration, product, concept art.',
+    tile: 'bg-primary-container text-primary',
   },
   {
     icon: 'tune',
@@ -24,6 +25,7 @@ const FEATURES = [
     title: 'Total prompt control',
     bodyKey: 'landing.features.controls.body',
     body: 'Style chips, aspect-ratio dial, seed lock and CFG slider — all the levers you expect, none of the friction.',
+    tile: 'bg-secondary-container text-secondary',
   },
   {
     icon: 'auto_stories',
@@ -31,6 +33,7 @@ const FEATURES = [
     title: 'Living collections',
     bodyKey: 'landing.features.collections.body',
     body: 'Group runs into mood-boards, share them, iterate as a team. {{appName}} remembers your seeds and your taste.',
+    tile: 'bg-tertiary-container text-tertiary',
   },
 ]
 
@@ -216,7 +219,7 @@ export function Landing() {
             cm.flex({ direction: 'col', align: 'center', justify: 'center', gap: 'lg' }),
             cm.sp('px', 6),
             cm.sp('py', 16),
-            'relative text-center',
+            'relative text-center min-h-[640px] justify-center',
           )}
         >
           <div className={cm.cn('pointer-events-none absolute inset-0 overflow-hidden -z-10')}>
@@ -252,8 +255,8 @@ export function Landing() {
           </span>
           <h1
             className={cm.cn(
-              cm.fontWeight('bold'),
-              'max-w-4xl text-5xl md:text-7xl tracking-tighter leading-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-fuchsia-500 to-secondary',
+              'font-black',
+              'max-w-4xl text-5xl md:text-7xl tracking-[-0.03em] leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-primary via-gradient-mid to-secondary',
             )}
           >
             {t('landing.heroTitle', {}, { defaultValue: APP_TAGLINE })}
@@ -318,14 +321,13 @@ export function Landing() {
                   key={feature.icon}
                   className={cm.cn(
                     cm.flex({ direction: 'col', gap: 'sm' }),
-                    cm.sp('p', 6),
-                    'rounded-2xl bg-surface-container-lowest border border-outline-variant/10 shadow-sm transition-transform',
+                    'rounded-xl bg-surface-container-lowest p-8 shadow-[0_10px_30px_rgba(116,47,229,0.03)] transition-shadow',
                   )}
                 >
                   <span
                     className={cm.cn(
                       cm.flex({ align: 'center', justify: 'center' }),
-                      'h-12 w-12 rounded-xl bg-primary-container/50 text-primary',
+                      `h-12 w-12 rounded-lg ${feature.tile}`,
                     )}
                   >
                     <span className="material-symbols-outlined">{feature.icon}</span>
@@ -568,17 +570,49 @@ export function Landing() {
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
           cm.sp('px', 8),
-          cm.sp('py', 6),
-          'border-t border-outline-variant/10 text-on-surface-variant text-sm',
+          'bg-surface-container-low w-full py-12 flex-col md:flex-row',
         )}
       >
         <BrandLogo showTagline={false} />
-        <p>
+        <nav
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'lg' }),
+            'flex-wrap justify-center font-semibold mb-6 md:mb-0',
+          )}
+          aria-label={t('footer.legalNav', {}, { defaultValue: 'Footer' })}
+        >
+          <Link
+            to="/terms"
+            className={cm.cn(
+              'text-on-surface/70 opacity-80 hover:opacity-100 hover:text-primary transition-colors',
+            )}
+          >
+            {t('footer.termsOfService', {}, { defaultValue: 'Terms' })}
+          </Link>
+          <Link
+            to="/privacy"
+            className={cm.cn(
+              'text-on-surface/70 opacity-80 hover:opacity-100 hover:text-primary transition-colors',
+            )}
+          >
+            {t('footer.privacyPolicy', {}, { defaultValue: 'Privacy' })}
+          </Link>
+        </nav>
+        <p className={cm.cn('text-primary text-sm')}>
           {t(
             'landing.copyright',
             { year: new Date().getFullYear(), appName: APP_NAME },
-            { defaultValue: '© {{year}} {{appName}} Labs. Built with Molecule.dev.' },
+            { defaultValue: '© {{year}} {{appName}} Labs.' },
           )}
+          {' — Built with '}
+          <a
+            href="https://molecule.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline font-medium"
+          >
+            Molecule.dev
+          </a>
         </p>
       </footer>
     </div>

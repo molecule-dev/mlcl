@@ -43,6 +43,30 @@ const FEATURES = [
 
 const PROOF_LOGOS = ['Velora', 'Northwind', 'Atlasware', 'Lumencove', 'Bywater']
 
+const STATS = [
+  {
+    key: 'resolution',
+    valueKey: 'landing.stats.resolution.value',
+    defaultValue: '94%',
+    labelKey: 'landing.stats.resolution.label',
+    defaultLabel: 'Resolution Rate',
+  },
+  {
+    key: 'response',
+    valueKey: 'landing.stats.response.value',
+    defaultValue: '2.3s',
+    labelKey: 'landing.stats.response.label',
+    defaultLabel: 'Avg Response Time',
+  },
+  {
+    key: 'cost',
+    valueKey: 'landing.stats.cost.value',
+    defaultValue: '60%',
+    labelKey: 'landing.stats.cost.label',
+    defaultLabel: 'Cost Reduction',
+  },
+] as const
+
 function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -112,9 +136,9 @@ function Landing() {
                 to="/signup"
                 className={cm.cn(
                   cm.fontWeight('semibold'),
-                  cm.sp('px', 6),
+                  cm.sp('px', 8),
                   cm.sp('py', 3),
-                  'rounded-full bg-primary text-on-primary hover:scale-[1.02] transition-transform shadow-[0_8px_16px_-4px_rgba(37,99,235,0.3)]',
+                  'rounded-xl btn-gradient text-on-primary hover:scale-[1.03] transition-transform duration-300 ease-out shadow-ambient',
                 )}
               >
                 {t('common.startFreeTrial', {}, { defaultValue: 'Start free trial' })}
@@ -122,15 +146,15 @@ function Landing() {
               <a
                 href="#features"
                 className={cm.cn(
-                  cm.fontWeight('semibold'),
-                  cm.sp('px', 6),
+                  cm.fontWeight('medium'),
+                  cm.sp('px', 8),
                   cm.sp('py', 3),
                   cm.flex({ align: 'center', gap: 2 }),
-                  'rounded-full border border-outline-variant text-on-surface hover:bg-surface-container-low transition-colors',
+                  'rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors duration-300',
                 )}
               >
+                <span className={'material-symbols-outlined text-xl'}>play_circle</span>
                 {t('landing.hero.ctaSecondary', {}, { defaultValue: 'See how it works' })}
-                <span className={'material-symbols-outlined text-base'}>arrow_forward</span>
               </a>
             </div>
             <div
@@ -198,59 +222,131 @@ function Landing() {
           </div>
         </section>
 
-        {/* Feature triad */}
-        <section id="features" className={cm.cn(cm.maxW('[1200px]'), cm.mxAuto, cm.sp('py', 16))}>
-          <div
-            className={cm.cn(cm.textCenter, cm.sp('mb', 12), cm.flex({ direction: 'col', gap: 3 }))}
-          >
-            <h2
+        {/* Feature triad — Stitch wraps the cards in a rounded tonal band */}
+        <section
+          id="features"
+          className={cm.cn(
+            cm.maxW('[1200px]'),
+            cm.mxAuto,
+            cm.sp('my', 16),
+            cm.sp('py', 24),
+            'rounded-[2rem] bg-surface-container-low',
+          )}
+        >
+          <div className={cm.cn(cm.sp('px', 8), 'md:px-16')}>
+            <div
               className={cm.cn(
-                cm.fontWeight('bold'),
-                'text-3xl md:text-4xl tracking-tight text-on-background',
+                cm.textCenter,
+                cm.sp('mb', 16),
+                cm.flex({ direction: 'col', gap: 3 }),
               )}
             >
-              {t('landing.features.title', {}, { defaultValue: 'Built for the messy middle' })}
-            </h2>
-            <p className={cm.cn(cm.textSize('base'), 'text-on-surface-variant max-w-xl mx-auto')}>
-              {t(
-                'landing.features.subtitle',
-                {},
-                {
-                  defaultValue: 'A console for teams who refuse to choose between fast and human.',
-                },
-              )}
-            </p>
-          </div>
-          <div className={cm.cn(cm.grid({ cols: 1, gap: 6 }), 'md:grid-cols-3')}>
-            {FEATURES.map((f) => (
-              <div
-                key={f.icon}
+              <h2
                 className={cm.cn(
-                  cm.sp('p', 6),
-                  cm.flex({ direction: 'col', gap: 4 }),
-                  'rounded-2xl bg-surface-container-lowest border-l-4 border-primary hover:-translate-y-0.5 transition-transform shadow-sm',
+                  cm.fontWeight('bold'),
+                  'text-3xl md:text-4xl tracking-tight text-on-surface',
                 )}
               >
+                {t('landing.features.title', {}, { defaultValue: 'Built for the messy middle' })}
+              </h2>
+              <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant max-w-2xl mx-auto')}>
+                {t(
+                  'landing.features.subtitle',
+                  {},
+                  {
+                    defaultValue:
+                      'A console for teams who refuse to choose between fast and human.',
+                  },
+                )}
+              </p>
+            </div>
+            <div className={cm.cn(cm.grid({ cols: 1, gap: 8 }), 'md:grid-cols-3')}>
+              {FEATURES.map((f) => (
                 <div
+                  key={f.icon}
                   className={cm.cn(
-                    cm.flex({ align: 'center', justify: 'center' }),
-                    cm.w(12),
-                    cm.h(12),
-                    'rounded-xl bg-primary/10 text-primary',
+                    cm.sp('p', 8),
+                    cm.flex({ direction: 'col', gap: 3 }),
+                    'rounded-[1.5rem] bg-surface-container-lowest shadow-ambient hover:-translate-y-1 transition-transform duration-300',
                   )}
                 >
-                  <span className={'material-symbols-outlined text-2xl'}>{f.icon}</span>
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      cm.w(12),
+                      cm.h(12),
+                      cm.sp('mb', 3),
+                      'rounded-xl bg-surface-container text-primary',
+                    )}
+                  >
+                    <span className={'material-symbols-outlined text-2xl'}>{f.icon}</span>
+                  </div>
+                  <h3
+                    className={cm.cn(
+                      cm.fontWeight('semibold'),
+                      cm.textSize('xl'),
+                      'text-on-surface',
+                    )}
+                  >
+                    {t(f.titleKey, {}, { defaultValue: f.titleDefault })}
+                  </h3>
+                  <p
+                    className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}
+                  >
+                    {t(f.bodyKey, { appName: APP_NAME }, { defaultValue: f.bodyDefault })}
+                  </p>
                 </div>
-                <h3
-                  className={cm.cn(cm.fontWeight('semibold'), cm.textSize('lg'), 'text-on-surface')}
-                >
-                  {t(f.titleKey, {}, { defaultValue: f.titleDefault })}
-                </h3>
-                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}>
-                  {t(f.bodyKey, { appName: APP_NAME }, { defaultValue: f.bodyDefault })}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Stats band — Stitch's resolution / response / cost strip */}
+        <section
+          className={cm.cn(cm.sp('py', 16), cm.maxW('[1200px]'), cm.mxAuto, cm.sp('px', 6))}
+          aria-label={t('landing.stats.label', {}, { defaultValue: 'Rapport in numbers' })}
+        >
+          <div
+            className={cm.cn(
+              'relative overflow-hidden rounded-[2rem] bg-primary text-on-primary shadow-ambient',
+              cm.sp('p', 12),
+              'md:p-20',
+            )}
+          >
+            <div
+              aria-hidden="true"
+              className={cm.cn(
+                cm.roundedFull,
+                'absolute -top-16 -right-16 w-64 h-64 bg-primary-container blur-3xl opacity-50 pointer-events-none',
+              )}
+            />
+            <div
+              aria-hidden="true"
+              className={cm.cn(
+                cm.roundedFull,
+                'absolute -bottom-16 -left-16 w-64 h-64 bg-tertiary-container blur-3xl opacity-50 pointer-events-none',
+              )}
+            />
+            <div
+              className={cm.cn(
+                'relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left md:divide-x divide-primary-container/30',
+              )}
+            >
+              {STATS.map((s) => (
+                <div key={s.key} className={cm.cn('md:px-8', cm.stack(1))}>
+                  <div className={cm.cn('text-5xl font-extrabold tracking-tight', cm.sp('mb', 2))}>
+                    {t(s.valueKey, {}, { defaultValue: s.defaultValue })}
+                  </div>
+                  <div
+                    className={cm.cn(
+                      'text-on-primary/80 font-medium text-sm tracking-wide uppercase',
+                    )}
+                  >
+                    {t(s.labelKey, {}, { defaultValue: s.defaultLabel })}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -261,7 +357,7 @@ function Landing() {
               cm.sp('p', 12),
               cm.textCenter,
               cm.flex({ direction: 'col', gap: 6 }),
-              'rounded-[2rem] bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-[0_30px_60px_-15px_rgba(37,99,235,0.4)]',
+              'rounded-[2rem] btn-gradient text-on-primary shadow-ambient',
             )}
           >
             <h2

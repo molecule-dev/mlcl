@@ -107,7 +107,7 @@ export const ui: UiTranslations = {
   'imageDetail.variations': '變體',
   'imageDetail.variationsQueued': '已排隊的變體',
   'imageDetail.visibilityToggled': '能見度已更新',
-  'landing.copyright': '© {{year}} {{appName}} Labs. Built with Molecule.dev.',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Built with Molecule.devdev.',
   'landing.cta': '開始創建',
   'landing.eyebrow': '現在提供 Reverie XL v3 版本',
   'landing.featuresEyebrow': '為什麼是白日夢',

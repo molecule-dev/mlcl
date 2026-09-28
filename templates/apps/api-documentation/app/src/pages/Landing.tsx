@@ -41,6 +41,14 @@ const FEATURES = [
   },
 ] as const
 
+/* Social-proof stat cards — verbatim structure of the Stitch hero band. */
+const STATS = [
+  { key: 'apis', value: '10k+', defaultLabel: 'APIs Documented' },
+  { key: 'developers', value: '2M', defaultLabel: 'Developers Served' },
+  { key: 'uptime', value: '99.9%', defaultLabel: 'Global Uptime' },
+  { key: 'integrations', value: '50+', defaultLabel: 'Integrations' },
+] as const
+
 const METHOD_TINT = {
   GET: {
     bg: 'color-mix(in srgb, var(--color-method-get) 20%, transparent)',
@@ -65,6 +73,17 @@ export function Landing() {
   const { t } = useTranslation()
   const isAuthenticated = useIsAuthenticated()
 
+  /* Gradient-accent the final word of the (translated) headline, per the
+     Stitch design — works for any locale without new i18n keys. */
+  const heroTitle = t(
+    'landing.heroTitle',
+    { tagline: APP_TAGLINE },
+    { defaultValue: '{{tagline}}' },
+  )
+  const lastSpace = heroTitle.lastIndexOf(' ')
+  const heroHead = lastSpace === -1 ? heroTitle : heroTitle.slice(0, lastSpace)
+  const heroAccent = lastSpace === -1 ? '' : heroTitle.slice(lastSpace + 1)
+
   return (
     <div
       className={cm.cn(cm.minH('screen'), 'antialiased')}
@@ -88,16 +107,50 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <SafeLink to="/" className={cm.cn('text-xl font-extrabold tracking-tight text-white')}>
-            {APP_NAME}
-          </SafeLink>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 8 }))}>
+            <SafeLink to="/" className={cm.cn('text-xl font-extrabold tracking-tight text-white')}>
+              {APP_NAME}
+            </SafeLink>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 6 }), cm.hiddenBelow('md'))}>
+              <a
+                href="#features"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  'text-white/60 hover:text-emerald-400 transition-colors',
+                )}
+              >
+                {t('nav.product', {}, { defaultValue: 'Product' })}
+              </a>
+              <SafeLink
+                to="/pricing"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  'text-white/60 hover:text-emerald-400 transition-colors',
+                )}
+              >
+                {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+              </SafeLink>
+              <SafeLink
+                to="/about"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  'text-white/60 hover:text-emerald-400 transition-colors',
+                )}
+              >
+                {t('nav.about', {}, { defaultValue: 'About' })}
+              </SafeLink>
+            </div>
+          </div>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
               <Link
                 to="/docs"
                 data-mol-id="nav-go-to-dashboard"
                 className={cm.cn(
-                  'px-5 py-2 font-semibold bg-emerald-500 text-on-surface rounded-full hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-500/20',
+                  'px-4 py-2 font-medium bg-emerald-500 text-on-surface rounded hover:bg-emerald-400 transition-colors',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -113,10 +166,10 @@ export function Landing() {
                 <Link
                   to="/signup"
                   className={cm.cn(
-                    'px-5 py-2 font-semibold bg-emerald-500 text-on-surface rounded-full hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-500/20',
+                    'px-4 py-2 font-medium bg-emerald-500 text-on-surface rounded hover:bg-emerald-400 transition-colors',
                   )}
                 >
-                  {t('landing.getStarted', {}, { defaultValue: 'Try free' })}
+                  {t('landing.getStarted', {}, { defaultValue: 'Get Started' })}
                 </Link>
               </>
             )}
@@ -125,14 +178,15 @@ export function Landing() {
       </nav>
 
       <main>
-        {/* Hero — dev-tools dark with terminal sample on the right */}
+        {/* Hero — centered per the Stitch design: glow blobs, gradient word,
+            email capture, stat band */}
         <section className="relative overflow-hidden">
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               backgroundImage:
-                'radial-gradient(circle at 25% 30%, color-mix(in srgb, var(--color-method-get) 25%, transparent), transparent 50%),' +
-                'radial-gradient(circle at 78% 60%, color-mix(in srgb, var(--color-method-patch) 20%, transparent), transparent 45%)',
+                'radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--color-method-get) 8%, transparent), transparent 45%),' +
+                'radial-gradient(circle at 85% 8%, color-mix(in srgb, var(--color-method-patch) 7%, transparent), transparent 40%)',
             }}
             aria-hidden="true"
           />
@@ -150,152 +204,199 @@ export function Landing() {
               cm.maxW('7xl'),
               cm.mxAuto,
               cm.sp('px', 6),
-              'relative py-20 md:py-28 lg:py-32',
+              'relative pt-32 pb-20 md:pb-24',
             )}
           >
-            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-12 items-center')}>
-              <div className={cm.cn('lg:col-span-7')}>
-                <p
-                  className={cm.cn(
-                    'text-sm font-bold uppercase tracking-widest text-emerald-400 mb-4 font-mono',
-                  )}
-                >
-                  {t('landing.eyebrow', {}, { defaultValue: 'API documentation · OpenAPI 3.1' })}
-                </p>
-                <h1
-                  className={cm.cn(
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] mb-6 text-white',
-                  )}
-                >
-                  {t(
-                    'landing.heroTitle',
-                    { tagline: APP_TAGLINE },
-                    { defaultValue: '{{tagline}}' },
-                  )}
-                </h1>
-                <p className={cm.cn('text-lg text-white/75 max-w-xl leading-relaxed mb-10')}>
-                  {t(
-                    'landing.heroSubtitle',
+            <div className={cm.cn(cm.maxW('3xl'), cm.mxAuto, cm.textCenter)}>
+              <p
+                className={cm.cn(
+                  'text-sm font-bold uppercase tracking-widest text-emerald-400 mb-8 font-mono',
+                )}
+              >
+                {t('landing.eyebrow', {}, { defaultValue: 'API documentation · OpenAPI 3.1' })}
+              </p>
+              <h1
+                className={cm.cn(
+                  'text-5xl md:text-7xl font-extrabold tracking-tight leading-tight text-white mb-8',
+                )}
+              >
+                {heroHead}
+                {heroAccent ? (
+                  <>
+                    {' '}
+                    <span className="text-gradient">{heroAccent}</span>
+                  </>
+                ) : null}
+              </h1>
+              <p
+                className={cm.cn(
+                  cm.textSize('lg'),
+                  'md:text-xl text-white/60 leading-relaxed max-w-2xl mx-auto mb-10',
+                )}
+              >
+                {t(
+                  'landing.heroSubtitle',
+                  {},
+                  {
+                    defaultValue:
+                      'Drop in your OpenAPI spec — get a navigable docs site, SDK matrix, and try-it console. Code samples always in sync.',
+                  },
+                )}
+              </p>
+              {/* Email capture row (decorative input + CTA, per the design) */}
+              <div
+                className={cm.cn(
+                  cm.flex({ direction: 'col', gap: 3 }),
+                  'sm:flex-row sm:items-center sm:justify-center max-w-md mx-auto',
+                )}
+              >
+                <input
+                  type="email"
+                  aria-label={t('landing.emailPlaceholder', {}, { defaultValue: 'Email address' })}
+                  placeholder={t(
+                    'landing.emailPlaceholder',
                     {},
-                    {
-                      defaultValue:
-                        'Drop in your OpenAPI spec — get a navigable docs site, SDK matrix, and try-it console. Code samples always in sync.',
-                    },
+                    { defaultValue: 'developer@company.com' },
                   )}
-                </p>
-                <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                  <Link
-                    to="/signup"
-                    className={cm.cn(
-                      'inline-flex items-center gap-2 px-8 py-4 font-semibold bg-emerald-500 text-on-surface rounded-full hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-500/30',
-                    )}
-                  >
-                    {t('landing.heroCta', {}, { defaultValue: 'Try free' })}
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base')}
-                      aria-hidden="true"
-                    >
-                      arrow_forward
-                    </span>
-                  </Link>
-                  <Link
-                    to="/login"
-                    className={cm.cn(
-                      'px-8 py-4 font-semibold rounded-full border border-surface/20 hover:bg-surface/10 transition-colors text-white',
-                    )}
-                  >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                  </Link>
-                </div>
-              </div>
-
-              {/* Sample terminal */}
-              <div className={cm.cn('lg:col-span-5')}>
-                <div
                   className={cm.cn(
-                    'rounded-2xl shadow-2xl shadow-black/40 overflow-hidden border border-surface/10',
+                    'flex-1 bg-surface/5 border border-surface/10 focus:border-emerald-400/50 rounded px-4 py-3 text-white placeholder:text-white/40 focus:ring-1 focus:ring-emerald-400/50 transition-all outline-none text-sm',
                   )}
-                  style={{ backgroundColor: 'var(--mol-color-secondary)' }}
+                />
+                <Link
+                  to="/signup"
+                  className={cm.cn(
+                    'inline-flex items-center justify-center gap-2 px-6 py-3 font-medium bg-emerald-500 text-on-surface rounded transition-colors glow-emerald',
+                  )}
+                >
+                  {t('landing.heroCta', {}, { defaultValue: 'Start Free' })}
+                </Link>
+              </div>
+            </div>
+
+            {/* Stat band */}
+            <div
+              className={cm.cn(cm.grid({ cols: 2, gap: 'md' }), 'md:grid-cols-4 mt-20 relative')}
+            >
+              {STATS.map((s) => (
+                <div
+                  key={s.key}
+                  className={cm.cn(
+                    'rounded-lg border border-surface/10 p-6 relative group overflow-hidden backdrop-blur',
+                  )}
+                  style={{
+                    backgroundColor: 'color-mix(in srgb, white 4%, transparent)',
+                  }}
                 >
                   <div
+                    aria-hidden="true"
                     className={cm.cn(
-                      'flex items-center gap-2 px-4 py-2 border-b border-surface/10',
+                      'absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity',
+                    )}
+                    style={{
+                      backgroundImage:
+                        'linear-gradient(135deg, color-mix(in srgb, var(--color-method-get) 10%, transparent), transparent)',
+                    }}
+                  />
+                  <div className={cm.cn('text-3xl font-bold text-white mb-1 relative')}>
+                    {s.value}
+                  </div>
+                  <div
+                    className={cm.cn(
+                      'text-white/60 font-medium uppercase tracking-wider text-xs relative',
                     )}
                   >
-                    <span
-                      className={cm.cn('w-3 h-3 rounded-full bg-red-400/70')}
-                      aria-hidden="true"
-                    />
-                    <span
-                      className={cm.cn('w-3 h-3 rounded-full bg-amber-400/70')}
-                      aria-hidden="true"
-                    />
-                    <span
-                      className={cm.cn('w-3 h-3 rounded-full bg-emerald-400/70')}
-                      aria-hidden="true"
-                    />
-                    <span className={cm.cn('ml-3 text-[10px] font-mono text-white/50')}>
-                      {APP_NAME} · docs sample
-                    </span>
+                    {t(`landing.stat.${s.key}`, {}, { defaultValue: s.defaultLabel })}
                   </div>
-                  <div className={cm.cn('p-5 font-mono text-[12px] leading-relaxed space-y-2.5')}>
-                    {/* GET */}
-                    <div className={cm.cn('flex items-center gap-2')}>
-                      <span
-                        className={cm.cn(
-                          'inline-flex px-2 py-0.5 rounded text-[10px] font-extrabold tracking-widest',
-                        )}
-                        style={{ backgroundColor: METHOD_TINT.GET.bg, color: METHOD_TINT.GET.text }}
-                      >
-                        GET
-                      </span>
-                      <span className="text-white/90">/v3/accounts</span>
-                    </div>
-                    <div className={cm.cn('flex items-center gap-2')}>
-                      <span
-                        className={cm.cn(
-                          'inline-flex px-2 py-0.5 rounded text-[10px] font-extrabold tracking-widest',
-                        )}
-                        style={{
-                          backgroundColor: METHOD_TINT.POST.bg,
-                          color: METHOD_TINT.POST.text,
-                        }}
-                      >
-                        POST
-                      </span>
-                      <span className="text-white/90">/v3/transactions</span>
-                    </div>
-                    <div className={cm.cn('flex items-center gap-2')}>
-                      <span
-                        className={cm.cn(
-                          'inline-flex px-2 py-0.5 rounded text-[10px] font-extrabold tracking-widest',
-                        )}
-                        style={{ backgroundColor: METHOD_TINT.PUT.bg, color: METHOD_TINT.PUT.text }}
-                      >
-                        PUT
-                      </span>
-                      <span className="text-white/90">/v3/accounts/&#123;id&#125;</span>
-                    </div>
-                    <div className={cm.cn('flex items-center gap-2')}>
-                      <span
-                        className={cm.cn(
-                          'inline-flex px-2 py-0.5 rounded text-[10px] font-extrabold tracking-widest',
-                        )}
-                        style={{
-                          backgroundColor: METHOD_TINT.DELETE.bg,
-                          color: METHOD_TINT.DELETE.text,
-                        }}
-                      >
-                        DEL
-                      </span>
-                      <span className="text-white/90">/v3/webhooks/&#123;id&#125;</span>
-                    </div>
-                    <div className={cm.cn('border-t border-surface/10 my-2.5')} />
-                    <p className="text-emerald-400">
-                      200 OK <span className={cm.cn('text-white/70 ml-2')}>· 47ms · 2.3 KB</span>
-                    </p>
-                    <pre className="text-white/85 overflow-x-auto">
-                      {`{
+                </div>
+              ))}
+            </div>
+
+            {/* Sample terminal — kept from the previous landing, now centered
+                under the stat band */}
+            <div className={cm.cn(cm.maxW('2xl'), cm.mxAuto, 'mt-16 relative')}>
+              <div
+                className={cm.cn(
+                  'rounded-lg shadow-2xl shadow-black/40 overflow-hidden border border-surface/10 text-left',
+                )}
+                style={{ backgroundColor: 'var(--mol-color-secondary)' }}
+              >
+                <div
+                  className={cm.cn('flex items-center gap-2 px-4 py-2 border-b border-surface/10')}
+                >
+                  <span
+                    className={cm.cn('w-3 h-3 rounded-full bg-red-400/70')}
+                    aria-hidden="true"
+                  />
+                  <span
+                    className={cm.cn('w-3 h-3 rounded-full bg-amber-400/70')}
+                    aria-hidden="true"
+                  />
+                  <span
+                    className={cm.cn('w-3 h-3 rounded-full bg-emerald-400/70')}
+                    aria-hidden="true"
+                  />
+                  <span className={cm.cn('ml-3 text-[10px] font-mono text-white/50')}>
+                    {APP_NAME} · docs sample
+                  </span>
+                </div>
+                <div className={cm.cn('p-5 font-mono text-[12px] leading-relaxed space-y-2.5')}>
+                  {/* GET */}
+                  <div className={cm.cn('flex items-center gap-2')}>
+                    <span
+                      className={cm.cn(
+                        'inline-flex px-2 py-0.5 rounded text-[10px] font-extrabold tracking-widest',
+                      )}
+                      style={{ backgroundColor: METHOD_TINT.GET.bg, color: METHOD_TINT.GET.text }}
+                    >
+                      GET
+                    </span>
+                    <span className="text-white/90">/v3/accounts</span>
+                  </div>
+                  <div className={cm.cn('flex items-center gap-2')}>
+                    <span
+                      className={cm.cn(
+                        'inline-flex px-2 py-0.5 rounded text-[10px] font-extrabold tracking-widest',
+                      )}
+                      style={{
+                        backgroundColor: METHOD_TINT.POST.bg,
+                        color: METHOD_TINT.POST.text,
+                      }}
+                    >
+                      POST
+                    </span>
+                    <span className="text-white/90">/v3/transactions</span>
+                  </div>
+                  <div className={cm.cn('flex items-center gap-2')}>
+                    <span
+                      className={cm.cn(
+                        'inline-flex px-2 py-0.5 rounded text-[10px] font-extrabold tracking-widest',
+                      )}
+                      style={{ backgroundColor: METHOD_TINT.PUT.bg, color: METHOD_TINT.PUT.text }}
+                    >
+                      PUT
+                    </span>
+                    <span className="text-white/90">/v3/accounts/&#123;id&#125;</span>
+                  </div>
+                  <div className={cm.cn('flex items-center gap-2')}>
+                    <span
+                      className={cm.cn(
+                        'inline-flex px-2 py-0.5 rounded text-[10px] font-extrabold tracking-widest',
+                      )}
+                      style={{
+                        backgroundColor: METHOD_TINT.DELETE.bg,
+                        color: METHOD_TINT.DELETE.text,
+                      }}
+                    >
+                      DEL
+                    </span>
+                    <span className="text-white/90">/v3/webhooks/&#123;id&#125;</span>
+                  </div>
+                  <div className={cm.cn('border-t border-surface/10 my-2.5')} />
+                  <p className="text-emerald-400">
+                    200 OK <span className={cm.cn('text-white/70 ml-2')}>· 47ms · 2.3 KB</span>
+                  </p>
+                  <pre className="text-white/85 overflow-x-auto">
+                    {`{
   "data": [
     { "id": "acc_8w2j", "currency": "USD",
       "balance_cents": 142090 },
@@ -304,8 +405,7 @@ export function Landing() {
   ],
   "next_cursor": "Y3Jzcj0xMA"
 }`}
-                    </pre>
-                  </div>
+                  </pre>
                 </div>
               </div>
             </div>
@@ -313,7 +413,10 @@ export function Landing() {
         </section>
 
         {/* Feature grid */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
+        <section
+          className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}
+          id="features"
+        >
           <h2
             className={cm.cn(
               'mb-12 text-center text-3xl md:text-4xl font-extrabold tracking-tight text-white',
@@ -332,7 +435,7 @@ export function Landing() {
               <div
                 key={f.key}
                 className={cm.cn(
-                  'rounded-2xl p-6 hover:shadow-2xl hover:shadow-emerald-500/5 transition-all group border border-surface/10',
+                  'rounded-lg p-6 hover:shadow-2xl hover:shadow-emerald-500/5 transition-all group border border-surface/10',
                 )}
                 style={{
                   /* Elevated dark card on the section's dark canvas (same
@@ -345,7 +448,7 @@ export function Landing() {
               >
                 <div
                   className={cm.cn(
-                    'inline-flex p-3 rounded-xl shadow-sm group-hover:scale-110 transition-transform',
+                    'inline-flex p-3 rounded-lg shadow-sm group-hover:scale-110 transition-transform',
                     f.tint,
                   )}
                   style={{ backgroundColor: 'var(--mol-color-background-secondary)' }}
@@ -387,7 +490,7 @@ export function Landing() {
             <Link
               to="/signup"
               className={cm.cn(
-                'inline-flex items-center gap-2 px-10 py-4 font-semibold bg-emerald-500 text-on-surface rounded-full hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-500/30',
+                'inline-flex items-center gap-2 px-10 py-4 font-semibold bg-emerald-500 text-on-surface rounded hover:bg-emerald-400 transition-colors glow-emerald',
               )}
             >
               {t('landing.heroCta', {}, { defaultValue: 'Try free' })}
@@ -399,16 +502,102 @@ export function Landing() {
         </section>
       </main>
 
-      <footer
-        className={cm.cn('py-8 text-center text-sm text-white/60 border-t border-surface/10')}
-      >
-        <p>
-          {t(
-            'common.copyrightBuiltWithMolecule',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Built with Molecule.' },
+      <footer className={cm.cn('border-t border-surface/10')}>
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            cm.sp('py', 12),
+            cm.grid({ cols: 2, gap: 'lg' }),
+            'md:grid-cols-4 text-sm',
           )}
-        </p>
+        >
+          <div className={cm.cn('col-span-2 md:col-span-1')}>
+            <div className={cm.cn('text-lg font-bold text-white mb-4')}>{APP_NAME}</div>
+            <p className={cm.cn('text-white/60')}>
+              {t(
+                'landing.footerTagline',
+                { tagline: APP_TAGLINE },
+                { defaultValue: '{{tagline}}.' },
+              )}
+            </p>
+          </div>
+          <div>
+            <h4
+              className={cm.cn(
+                cm.fontWeight('semibold'),
+                'text-white uppercase tracking-wider text-xs mb-4',
+              )}
+            >
+              {t('footer.product', {}, { defaultValue: 'Product' })}
+            </h4>
+            <ul className={cm.stack(2)}>
+              <li>
+                <SafeLink
+                  to="/pricing"
+                  className={cm.cn('text-white/60 hover:text-violet-400 transition-colors')}
+                >
+                  {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+                </SafeLink>
+              </li>
+              <li>
+                <SafeLink
+                  to="/about"
+                  className={cm.cn('text-white/60 hover:text-violet-400 transition-colors')}
+                >
+                  {t('nav.about', {}, { defaultValue: 'About' })}
+                </SafeLink>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              className={cm.cn(
+                cm.fontWeight('semibold'),
+                'text-white uppercase tracking-wider text-xs mb-4',
+              )}
+            >
+              {t('footer.legal', {}, { defaultValue: 'Legal' })}
+            </h4>
+            <ul className={cm.stack(2)}>
+              <li>
+                <SafeLink
+                  to="/privacy"
+                  className={cm.cn('text-white/60 hover:text-violet-400 transition-colors')}
+                >
+                  {t('footer.privacyPolicy', {}, { defaultValue: 'Privacy Policy' })}
+                </SafeLink>
+              </li>
+              <li>
+                <SafeLink
+                  to="/terms"
+                  className={cm.cn('text-white/60 hover:text-violet-400 transition-colors')}
+                >
+                  {t('footer.termsOfService', {}, { defaultValue: 'Terms of Service' })}
+                </SafeLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className={cm.cn('border-t border-surface/10 py-6 text-center text-sm text-white/60')}>
+          <p>
+            {t(
+              'common.copyrightBuiltWithMolecule',
+              { year: new Date().getFullYear(), app: APP_NAME },
+              { defaultValue: '© {{year}} {{app}}' },
+            )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
+          </p>
+        </div>
       </footer>
     </div>
   )

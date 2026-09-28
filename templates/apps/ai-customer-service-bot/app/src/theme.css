@@ -1,58 +1,62 @@
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch design (design-ai-customer-service-bot-landing.html) uses
+     Inter for headline/display/body/label alike. */
+  --font-headline: 'Inter', sans-serif;
 
-  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #2563eb;
-  --mol-color-primary-light: #dbeafe;
-  --mol-color-primary-dark: #1d4ed8;
-  --mol-color-secondary: #7c3aed;
-  --mol-color-background: #ffffff;
-  --mol-color-background-secondary: #f9fafb;
-  --mol-color-background-tertiary: #f3f4f6;
-  --mol-color-surface: #ffffff;
-  --mol-color-surface-secondary: #f9fafb;
+  /* === @theme bridge — fed into ClassMap via index.css @theme block.
+     Light values mirror the Stitch teal palette: background #effcf9,
+     primary #00685f, btn-gradient #00685f → #008378. === */
+  --mol-color-primary: #00685f;
+  --mol-color-primary-light: #e9f6f3;
+  --mol-color-primary-dark: #005049;
+  --mol-color-secondary: #9d4300;
+  --mol-color-background: #effcf9;
+  --mol-color-background-secondary: #e9f6f3;
+  --mol-color-background-tertiary: #e4f1ee;
+  --mol-color-surface: #effcf9;
+  --mol-color-surface-secondary: #e9f6f3;
   --mol-color-input-background: #ffffff;
-  --mol-color-text: #111827;
-  --mol-color-text-secondary: #6b7280;
-  --mol-color-text-tertiary: #9ca3af;
+  --mol-color-text: #121e1c;
+  --mol-color-text-secondary: #3d4947;
+  --mol-color-text-tertiary: #6d7a77;
   --mol-color-text-inverse: #ffffff;
-  --mol-color-border: #e5e7eb;
-  --mol-color-border-secondary: #d1d5db;
-  --mol-color-border-focus: #2563eb;
-  --mol-color-success: #10b981;
+  --mol-color-border: #bcc9c6;
+  --mol-color-border-secondary: #d8e5e2;
+  --mol-color-border-focus: #00685f;
+  --mol-color-success: #16a34a;
   --mol-color-warning: #f59e0b;
-  --mol-color-error: #ef4444;
-  --mol-color-info: #3b82f6;
+  --mol-color-error: #ba1a1a;
+  --mol-color-info: #0d9488;
 
-  --color-primary: #1d4ed8; /* was #2563eb — 4.27:1 as chip text on bg-primary/10; blue-700 = 5.54:1 */
-  --color-primary-hover: #1e40af;
-  --color-primary-light: #dbeafe;
-  --color-secondary: #7c3aed;
-  --color-secondary-hover: #6d28d9;
+  --color-primary: #00685f; /* Stitch primary — chip text on bg-primary/10 = 6.2:1 */
+  --color-primary-hover: #005049;
+  --color-primary-light: #89f5e7;
+  --color-secondary: #9d4300;
+  --color-secondary-hover: #783200;
   --color-accent: #f59e0b;
   --color-accent-hover: #d97706;
-  --color-success: #10b981;
+  --color-success: #16a34a;
   --color-warning: #f59e0b;
-  --color-error: #ef4444;
-  --color-info: #3b82f6;
-  --color-bg: #ffffff;
-  --color-bg-secondary: #f9fafb;
+  --color-error: #ba1a1a;
+  --color-info: #0d9488;
+  --color-bg: #effcf9;
+  --color-bg-secondary: #e9f6f3;
   --color-bg-card: #ffffff;
-  --color-bg-sidebar: #f3f4f6;
-  --color-border: #e5e7eb;
-  --color-border-focus: #2563eb;
-  --color-text: #111827;
-  --color-text-secondary: #6b7280;
-  --color-text-muted: #9ca3af;
+  --color-bg-sidebar: #e4f1ee;
+  --color-border: #bcc9c6;
+  --color-border-focus: #00685f;
+  --color-text: #121e1c;
+  --color-text-secondary: #3d4947;
+  --color-text-muted: #6d7a77;
   --color-text-inverse: #ffffff;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --chat-user-bg: #2563eb;
+  --chat-user-bg: #00685f;
   --chat-user-text: #ffffff;
-  --chat-bot-bg: #f3f4f6;
-  --chat-bot-text: #111827;
+  --chat-bot-bg: #e4f1ee;
+  --chat-bot-text: #121e1c;
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
@@ -80,45 +84,46 @@
   --color-confidence-mid: #eab308;
   --color-confidence-high: #0d9488;
   /* Chat bubble — hero card bot bubble overlay */
-  --color-hero-bot-bg: #0f766e;
+  --color-hero-bot-bg: #008378;
 
   /* Stitch / Material-3 light tokens — mirror of index.css @theme so
-     theme.css is the canonical source for both modes. */
-  --color-background: #f7f9fb;
-  --color-on-background: #0b1c30;
-  --color-surface: #f7f9fb;
-  --color-surface-bright: #f7f9fb;
-  --color-surface-dim: #d8dadc;
+     theme.css is the canonical source for both modes. Values are the
+     Stitch teal palette verbatim (design-ai-customer-service-bot). */
+  --color-background: #effcf9;
+  --color-on-background: #121e1c;
+  --color-surface: #effcf9;
+  --color-surface-bright: #effcf9;
+  --color-surface-dim: #d0ddda;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f2f4f6;
-  --color-surface-container: #eceef0;
-  --color-surface-container-high: #e6e8ea;
-  --color-surface-container-highest: #e0e3e5;
-  --color-surface-variant: #e0e3e5;
-  --color-on-surface: #0b1c30;
-  --color-on-surface-variant: #464555;
-  --color-inverse-surface: #213145;
-  --color-inverse-on-surface: #eaf1ff;
-  --color-inverse-primary: #1d4ed8;
-  --color-primary: #1d4ed8; /* match :root — chip-text contrast */
-  --color-primary-container: #1e3a8a;
+  --color-surface-container-low: #e9f6f3;
+  --color-surface-container: #e4f1ee;
+  --color-surface-container-high: #deebe8;
+  --color-surface-container-highest: #d8e5e2;
+  --color-surface-variant: #d8e5e2;
+  --color-on-surface: #121e1c;
+  --color-on-surface-variant: #3d4947;
+  --color-inverse-surface: #273331;
+  --color-inverse-on-surface: #e6f3f1;
+  --color-inverse-primary: #6bd8cb;
+  --color-primary: #00685f;
+  --color-primary-container: #008378;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #dbeafe;
-  --color-secondary: #7c3aed;
-  --color-secondary-container: #4c1d95;
+  --color-on-primary-container: #f4fffc;
+  --color-secondary: #9d4300;
+  --color-secondary-container: #fd761a;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #ede9fe;
-  --color-tertiary: #d97706;
-  --color-tertiary-container: #fef3c7;
+  --color-on-secondary-container: #5c2400;
+  --color-tertiary: #006860;
+  --color-tertiary-container: #248279;
   --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #2e1a00;
+  --color-on-tertiary-container: #f3fffc;
   --color-error: #ba1a1a;
   --color-error-container: #ffdad6;
   --color-on-error: #ffffff;
   --color-on-error-container: #93000a;
-  --color-outline: #6b6a7a; /* was #777587 — 4.48:1 on #ffffff stat cards; #6b6a7a = 5.29:1 */
-  --color-outline-variant: #c7c4d8;
-  --color-surface-tint: #2563eb;
+  --color-outline: #6d7a77;
+  --color-outline-variant: #bcc9c6;
+  --color-surface-tint: #006a61;
 }
 
 /* Dark mode — AI-assistant conversational dark.
@@ -131,10 +136,10 @@
    blue CTA buttons keep their light-on-blue character. */
 [data-mol-mode='dark'] {
   /* === @theme bridge tokens — dark variants === */
-  --mol-color-primary: #60a5fa;
-  --mol-color-primary-light: #1e2a4a;
-  --mol-color-primary-dark: #2563eb;
-  --mol-color-secondary: #a78bfa;
+  --mol-color-primary: #2dd4bf;
+  --mol-color-primary-light: #004d43;
+  --mol-color-primary-dark: #008378;
+  --mol-color-secondary: #fdba74;
   --mol-color-background: #0b1220;
   --mol-color-background-secondary: #111a2c;
   --mol-color-background-tertiary: #15203a;
@@ -153,28 +158,28 @@
   --mol-color-error: #f87171;
   --mol-color-info: #60a5fa;
 
-  --color-primary: #60a5fa;
-  --color-primary-hover: #93c5fd;
-  --color-primary-light: #1e2a4a;
-  --color-secondary: #a78bfa;
-  --color-secondary-hover: #c4b5fd;
+  --color-primary: #2dd4bf;
+  --color-primary-hover: #5eead4;
+  --color-primary-light: #004d43;
+  --color-secondary: #fdba74;
+  --color-secondary-hover: #fed7aa;
   --color-accent: #fbbf24;
   --color-accent-hover: #fcd34d;
   --color-success: #34d399;
   --color-warning: #fbbf24;
   --color-error: #f87171;
-  --color-info: #60a5fa;
+  --color-info: #2dd4bf;
   --color-bg: #0b1220;
   --color-bg-secondary: #111a2c;
   --color-bg-card: #15203a;
   --color-bg-sidebar: #080e1a;
   --color-border: #1f2a44;
-  --color-border-focus: #60a5fa;
+  --color-border-focus: #2dd4bf;
   --color-text: #f1f5f9;
   --color-text-secondary: #b8c2d4;
   --color-text-muted: #7c8aa3;
   --color-text-inverse: #0b1220;
-  --chat-user-bg: #2563eb;
+  --chat-user-bg: #00685f;
   --chat-user-text: #ffffff;
   --chat-bot-bg: #15203a;
   --chat-bot-text: #f1f5f9;
@@ -201,23 +206,23 @@
   --color-on-surface-variant: #b8c2d4;
   --color-inverse-surface: #f1f5f9;
   --color-inverse-on-surface: #15203a;
-  --color-inverse-primary: #1d4ed8;
-  --color-primary: #2563eb; /* keep brand blue at brand stop */
-  --color-primary-container: #1e3a8a;
-  --color-on-primary: #ffffff; /* white on blue — readable in both modes */
-  --color-on-primary-container: #dbeafe;
-  --color-primary-fixed: #bfdbfe;
-  --color-primary-fixed-dim: #60a5fa;
-  --color-on-primary-fixed: #001a3f;
-  --color-on-primary-fixed-variant: #1e3a5f;
-  --color-secondary: #a78bfa;
-  --color-secondary-container: #4c1d95;
-  --color-on-secondary: #1a0a3a;
-  --color-on-secondary-container: #ede9fe;
-  --color-secondary-fixed: #ddd6fe;
-  --color-secondary-fixed-dim: #a78bfa;
-  --color-on-secondary-fixed: #1a0a3a;
-  --color-on-secondary-fixed-variant: #4c1d95;
+  --color-inverse-primary: #2dd4bf;
+  --color-primary: #008378; /* teal brand at a white-text-safe stop in dark mode */
+  --color-primary-container: #00685f;
+  --color-on-primary: #ffffff; /* white on #008378 = 4.97:1 */
+  --color-on-primary-container: #89f5e7;
+  --color-primary-fixed: #00201d;
+  --color-primary-fixed-dim: #2dd4bf;
+  --color-on-primary-fixed: #89f5e7;
+  --color-on-primary-fixed-variant: #005049;
+  --color-secondary: #fdba74;
+  --color-secondary-container: #78350f;
+  --color-on-secondary: #2e1a00;
+  --color-on-secondary-container: #ffdbca;
+  --color-secondary-fixed: #431407;
+  --color-secondary-fixed-dim: #fdba74;
+  --color-on-secondary-fixed: #ffdbca;
+  --color-on-secondary-fixed-variant: #783200;
   --color-tertiary: #fbbf24;
   --color-tertiary-container: #78350f;
   --color-on-tertiary: #2e1a00;
@@ -232,7 +237,7 @@
   --color-on-error-container: #ffdad6;
   --color-outline: #5a6478;
   --color-outline-variant: #1f2a44;
-  --color-surface-tint: #60a5fa;
+  --color-surface-tint: #2dd4bf;
 
   /* App-specific status tokens — dark variants */
   --color-status-escalated-bg: #3a1d0e;

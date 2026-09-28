@@ -66,7 +66,7 @@ export const ui: UiTranslations = {
     '仕事用メールアドレスを入力すると、新しいパスワードを設定するリンクをお送りします。',
   'forgotPassword.successBody':
     '{{email}}にアカウントが存在する場合、数分以内にリセットリンクが届きます。',
-  'landing.copyright': '© {{year}} {{app}}. Built with Molecule.dev.',
+  'landing.copyright': '© {{year}} {{app}}. Built with Molecule.devdev.',
   'landing.ctaBody': '毎月最初の25件の経費まで無料。クレジットカードも導入相談も不要です。',
   'landing.ctaHeading': 'チームに支払うべき金額を取り戻す準備はできましたか?',
   'landing.eyebrow': '財務チーム向けの経費レポート',

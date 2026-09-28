@@ -72,8 +72,17 @@ export function LandingFooter() {
           {t(
             'common.copyrightBuiltWithMolecule',
             { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Built with Molecule.' },
+            { defaultValue: '© {{year}} {{app}}' },
           )}
+          {' — Built with '}
+          <a
+            href="https://molecule.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline font-medium"
+          >
+            Molecule.dev
+          </a>
         </span>
       </div>
     </footer>

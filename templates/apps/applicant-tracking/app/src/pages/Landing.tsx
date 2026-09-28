@@ -39,13 +39,54 @@ const FEATURES = [
   },
 ] as const
 
-const STAGES = [
-  { name: 'Sourced', count: 124, color: 'var(--color-stage-sourced)' },
-  { name: 'Screening', count: 62, color: 'var(--color-stage-screening)' },
-  { name: 'Interview', count: 28, color: 'var(--color-stage-interview)' },
-  { name: 'Offer', count: 4, color: 'var(--color-stage-offer)' },
-  { name: 'Hired', count: 2, color: 'var(--color-stage-hired)' },
-]
+/* Decorative kanban columns for the hero board graphic (mirrors the Stitch
+   design: two populated columns + one faded). Avatars are initials — no
+   external images so the page renders offline. */
+const BOARD_COLUMNS = [
+  {
+    key: 'sourced',
+    name: 'Sourced',
+    dotColor: 'var(--color-stage-sourced)',
+    faded: false,
+    candidate: {
+      initials: 'ER',
+      nameKey: 'landing.board.candidate1Name',
+      defaultName: 'Elena R.',
+      roleKey: 'landing.board.candidate1Role',
+      defaultRole: 'UX Designer',
+      score: '92%',
+      scoreClass: 'text-tertiary',
+    },
+  },
+  {
+    key: 'screening',
+    name: 'Screening',
+    dotColor: 'var(--color-stage-screening)',
+    faded: false,
+    candidate: {
+      initials: 'MT',
+      nameKey: 'landing.board.candidate2Name',
+      defaultName: 'Marcus T.',
+      roleKey: 'landing.board.candidate2Role',
+      defaultRole: 'Frontend Eng',
+      score: '88%',
+      scoreClass: 'text-primary',
+    },
+  },
+  {
+    key: 'interview',
+    name: 'Interview',
+    dotColor: 'var(--color-stage-interview)',
+    faded: true,
+    candidate: null,
+  },
+] as const
+
+const METRICS = [
+  { key: 'timeToHire', value: '4.8x', defaultLabel: 'faster time-to-hire' },
+  { key: 'candidates', value: '2.3M', defaultLabel: 'candidates tracked' },
+  { key: 'satisfaction', value: '96%', defaultLabel: 'recruiter satisfaction' },
+] as const
 
 const PRICING = [
   {
@@ -100,8 +141,7 @@ export function Landing() {
   const isAuthenticated = useIsAuthenticated()
   const footerLinkClass = cm.cn(
     cm.textSize('sm'),
-    cm.fontWeight('semibold'),
-    'hover:text-primary transition-colors inline-block py-2',
+    'text-on-surface-variant hover:text-primary transition-colors',
   )
 
   return (
@@ -112,14 +152,14 @@ export function Landing() {
       {/* Top nav */}
       <nav
         className={cm.cn(
-          'sticky top-0 z-50 border-b border-outline-variant/30 bg-surface/80 backdrop-blur-md',
+          'sticky top-0 z-50 border-b border-outline-variant/30 bg-surface/80 backdrop-blur-xl',
         )}
       >
         <div
           className={cm.cn(
             cm.maxW('7xl'),
             cm.mxAuto,
-            cm.sp('px', 6),
+            cm.sp('px', 8),
             cm.sp('py', 4),
             cm.flex({ align: 'center', justify: 'between' }),
           )}
@@ -127,7 +167,7 @@ export function Landing() {
           <SafeLink
             to="/"
             data-mol-id="landing-logo"
-            className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tighter text-primary')}
+            className={cm.cn(cm.textSize('2xl'), 'font-black tracking-tighter text-on-surface')}
           >
             {APP_NAME}
           </SafeLink>
@@ -139,9 +179,9 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('px', 5),
                   cm.sp('py', 2),
-                  cm.fontWeight('bold'),
+                  cm.fontWeight('medium'),
                   cm.textSize('sm'),
-                  'rounded-lg bg-primary text-on-primary shadow-md shadow-primary/20 hover:opacity-90 transition-opacity',
+                  'rounded-lg bg-primary text-on-primary shadow-sm hover:opacity-90 transition-opacity',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -153,8 +193,8 @@ export function Landing() {
                   data-mol-id="landing-signin"
                   className={cm.cn(
                     cm.textSize('sm'),
-                    cm.fontWeight('semibold'),
-                    'text-on-surface-variant hover:text-on-surface transition-colors py-2',
+                    cm.fontWeight('medium'),
+                    'text-primary hover:text-on-surface transition-colors py-2',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -165,9 +205,9 @@ export function Landing() {
                   className={cm.cn(
                     cm.sp('px', 5),
                     cm.sp('py', 2),
-                    cm.fontWeight('bold'),
+                    cm.fontWeight('medium'),
                     cm.textSize('sm'),
-                    'rounded-lg bg-primary text-on-primary shadow-md shadow-primary/20 hover:opacity-90 transition-opacity',
+                    'rounded-lg bg-primary text-on-primary shadow-sm hover:opacity-90 transition-opacity',
                   )}
                 >
                   {t('common.startFreeTrial', {}, { defaultValue: 'Start free trial' })}
@@ -179,215 +219,281 @@ export function Landing() {
       </nav>
 
       <main>
-        {/* Hero — split panel: copy + pipeline preview */}
+        {/* Hero — split panel: copy + kanban board preview */}
         <section
           className={cm.cn(
             cm.maxW('7xl'),
             cm.mxAuto,
-            cm.sp('px', 6),
-            cm.sp('py', 16),
-            'relative overflow-hidden lg:py-24',
+            cm.sp('px', 8),
+            cm.sp('py', 20),
+            'grid gap-16 lg:grid-cols-2 lg:items-center lg:py-32',
           )}
         >
-          <div
-            aria-hidden="true"
-            className={cm.cn(
-              'absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl',
-            )}
-          />
-          <div
-            aria-hidden="true"
-            className={cm.cn(
-              'absolute -bottom-32 -left-20 h-96 w-96 rounded-full bg-secondary-fixed/15 blur-3xl',
-            )}
-          />
-          <div className={cm.cn('relative grid gap-12 lg:grid-cols-2 lg:items-center')}>
-            <div>
-              <span
-                className={cm.cn(
-                  cm.sp('px', 3),
-                  cm.sp('py', 1),
-                  'inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest',
-                )}
-              >
-                <span className={cm.cn('material-symbols-outlined text-[14px]')} aria-hidden="true">
-                  bolt
-                </span>
-                {t('landing.eyebrow', {}, { defaultValue: 'AI-assisted hiring · v2' })}
-              </span>
-              <h1
-                className={cm.cn(
-                  cm.sp('mt', 5),
-                  'text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight text-on-surface',
-                )}
-              >
+          <div>
+            <h1
+              className={cm.cn(
+                cm.sp('mb', 6),
+                'text-5xl lg:text-7xl font-black tracking-tight leading-tight text-on-background',
+              )}
+            >
+              {t('landing.heroTitleLeading', {}, { defaultValue: 'Hire with' })}
+              <br />
+              <span className="text-primary">
                 {t(
-                  'landing.heroTitle',
+                  'landing.heroTitleAccent',
                   { tagline: APP_TAGLINE },
-                  { defaultValue: 'Hire with clarity.' },
+                  { defaultValue: 'clarity' },
                 )}
-              </h1>
-              <p
+              </span>
+            </h1>
+            <p
+              className={cm.cn(
+                cm.textSize('xl'),
+                cm.sp('mb', 10),
+                'leading-relaxed text-on-surface-variant',
+              )}
+            >
+              {t(
+                'landing.heroSubtitle',
+                {},
+                {
+                  defaultValue:
+                    'A clean kanban pipeline, AI screening that explains itself, and fairness analytics by stage. Built for recruiters and hiring managers who want signal — not noise.',
+                },
+              )}
+            </p>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }))}>
+              <Link
+                to="/signup"
+                data-mol-id="landing-cta-primary"
                 className={cm.cn(
-                  cm.sp('mt', 6),
-                  cm.textSize('lg'),
-                  cm.maxW('xl'),
-                  'leading-relaxed font-medium text-on-surface-variant',
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.fontWeight('semibold'),
+                  'rounded-lg bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-md hover:opacity-90 transition-opacity flex items-center gap-2',
                 )}
               >
-                {t(
-                  'landing.heroSubtitle',
-                  {},
-                  {
-                    defaultValue:
-                      'A clean kanban pipeline, AI screening that explains itself, and fairness analytics by stage. Built for recruiters and hiring managers who want signal — not noise.',
-                  },
-                )}
-              </p>
-              <div
+                {t('landing.heroCta', {}, { defaultValue: 'Start free for 30 days' })}
+                <span className={cm.cn('material-symbols-outlined text-lg')} aria-hidden="true">
+                  arrow_forward
+                </span>
+              </Link>
+              <Link
+                to="/pricing"
+                data-mol-id="landing-cta-secondary"
                 className={cm.cn(
-                  cm.sp('mt', 8),
-                  cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.fontWeight('semibold'),
+                  'rounded-lg bg-surface-container text-primary hover:bg-surface-container-high transition-colors flex items-center gap-2',
                 )}
               >
-                <Link
-                  to="/signup"
-                  data-mol-id="landing-cta-primary"
+                <span className={cm.cn('material-symbols-outlined text-lg')} aria-hidden="true">
+                  play_circle
+                </span>
+                {t('landing.heroSecondary', {}, { defaultValue: 'See pricing' })}
+              </Link>
+            </div>
+            <p
+              className={cm.cn(
+                cm.sp('mt', 4),
+                cm.textSize('xs'),
+                'font-medium text-on-surface-variant',
+              )}
+            >
+              {t(
+                'landing.heroProof',
+                {},
+                { defaultValue: 'No credit card. Cancel anytime. SSO available on Pro.' },
+              )}
+            </p>
+          </div>
+
+          {/* Kanban board graphic with glass AI-insight overlay */}
+          <div
+            className={cm.cn(
+              cm.position('relative'),
+              'w-full aspect-[4/3] bg-surface-container-low rounded-xl overflow-hidden',
+            )}
+            style={{
+              boxShadow:
+                '0 12px 32px -4px color-mix(in srgb, var(--color-on-surface) 8%, transparent)',
+            }}
+          >
+            <div
+              className={cm.cn(
+                cm.position('absolute'),
+                cm.inset0,
+                cm.sp('p', 6),
+                cm.flex({ gap: 'md' }),
+                'overflow-hidden',
+              )}
+            >
+              {BOARD_COLUMNS.map((col) => (
+                <div
+                  key={col.key}
                   className={cm.cn(
-                    cm.sp('px', 6),
-                    cm.sp('py', 3),
-                    cm.fontWeight('bold'),
-                    'rounded-xl bg-primary text-on-primary shadow-md shadow-primary/20 hover:opacity-90 transition-opacity',
+                    cm.flex({ direction: 'col', gap: 'md' }),
+                    'w-56 shrink-0',
+                    col.faded ? 'opacity-50' : '',
                   )}
                 >
-                  {t('landing.heroCta', {}, { defaultValue: 'Start free for 30 days' })}
-                </Link>
-                <Link
-                  to="/pricing"
-                  data-mol-id="landing-cta-secondary"
-                  className={cm.cn(
-                    cm.sp('px', 6),
-                    cm.sp('py', 3),
-                    cm.fontWeight('semibold'),
-                    'rounded-xl border border-outline-variant/30 text-on-surface hover:bg-surface-container-low transition-colors',
-                  )}
-                >
-                  {t('landing.heroSecondary', {}, { defaultValue: 'See pricing →' })}
-                </Link>
-              </div>
-              <p
-                className={cm.cn(
-                  cm.sp('mt', 4),
-                  cm.textSize('xs'),
-                  'font-medium text-on-surface-variant',
-                )}
-              >
-                {t(
-                  'landing.heroProof',
-                  {},
-                  { defaultValue: 'No credit card. Cancel anytime. SSO available on Pro.' },
-                )}
-              </p>
+                  <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), cm.sp('mb', 2))}>
+                    <span
+                      className={cm.cn('h-3 w-3 rounded-full')}
+                      style={{ backgroundColor: col.dotColor }}
+                      aria-hidden="true"
+                    />
+                    <span className={cm.cn(cm.fontWeight('semibold'), cm.textSize('sm'))}>
+                      {t(`landing.board.col.${col.key}`, {}, { defaultValue: col.name })}
+                    </span>
+                  </div>
+                  {col.candidate ? (
+                    <div
+                      className={cm.cn(
+                        cm.sp('p', 4),
+                        'bg-surface-container-lowest rounded-lg shadow-sm border border-outline-variant/15',
+                      )}
+                    >
+                      <div
+                        className={cm.cn(cm.flex({ gap: 'sm', align: 'center' }), cm.sp('mb', 3))}
+                      >
+                        <span
+                          className={cm.cn(
+                            'h-10 w-10 rounded-full bg-surface-variant grid place-items-center',
+                            cm.textSize('xs'),
+                            cm.fontWeight('bold'),
+                            'text-on-surface-variant',
+                          )}
+                          aria-hidden="true"
+                        >
+                          {col.candidate.initials}
+                        </span>
+                        <div>
+                          <div className={cm.cn(cm.fontWeight('semibold'), cm.textSize('sm'))}>
+                            {t(
+                              col.candidate.nameKey,
+                              {},
+                              { defaultValue: col.candidate.defaultName },
+                            )}
+                          </div>
+                          <div className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                            {t(
+                              col.candidate.roleKey,
+                              {},
+                              { defaultValue: col.candidate.defaultRole },
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className={cm.cn(
+                          cm.flex({ align: 'center', justify: 'between' }),
+                          cm.sp('mt', 4),
+                          cm.sp('pt', 3),
+                          'border-t border-surface-container-high',
+                        )}
+                      >
+                        <span
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            cm.fontWeight('medium'),
+                            col.candidate.scoreClass,
+                          )}
+                        >
+                          {t('landing.board.matchScore', {}, { defaultValue: 'Match Score' })}
+                        </span>
+                        <span
+                          className={cm.cn(
+                            cm.fontWeight('bold'),
+                            'tabular-nums',
+                            col.candidate.scoreClass,
+                          )}
+                        >
+                          {col.candidate.score}
+                        </span>
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+              ))}
             </div>
 
-            {/* Pipeline preview card — gradient hero (mirrors the auth'd PipelineFunnelHero) */}
-            <div className={cm.cn('relative')}>
-              <div
-                className={cm.cn(
-                  cm.sp('p', 6),
-                  'rounded-[2rem] bg-gradient-to-br from-primary to-primary-container shadow-md shadow-primary/20 relative overflow-hidden',
-                )}
-              >
-                <div
-                  className={cm.cn(
-                    'absolute -right-16 -top-16 h-48 w-48 rounded-full bg-surface/10 blur-3xl',
-                  )}
+            {/* Glass AI insight overlay */}
+            <div
+              className={cm.cn(
+                cm.position('absolute'),
+                'bottom-8 right-8 bg-surface-container-lowest/80 backdrop-blur-md p-5 rounded-xl border border-outline-variant/20 max-w-xs',
+              )}
+              style={{
+                boxShadow:
+                  '0 12px 32px -4px color-mix(in srgb, var(--color-on-surface) 8%, transparent)',
+              }}
+            >
+              <div className={cm.cn(cm.flex({ align: 'start', gap: 'sm' }))}>
+                <span
+                  className={cm.cn('material-symbols-outlined text-secondary mt-0.5')}
                   aria-hidden="true"
-                />
-                <div
-                  className={cm.cn(
-                    'absolute -bottom-12 -left-12 h-48 w-48 rounded-full bg-secondary-fixed/30 blur-3xl',
-                  )}
-                  aria-hidden="true"
-                />
-                <div className={cm.cn('relative z-10')}>
-                  <p
-                    className={cm.cn(
-                      'text-[10px] font-black uppercase tracking-widest text-on-primary/70',
-                    )}
-                  >
-                    {t('landing.previewLabel', {}, { defaultValue: 'Pipeline · Engineering' })}
-                  </p>
-                  <h3 className={cm.cn(cm.sp('mt', 1), 'text-2xl font-extrabold text-on-primary')}>
-                    {t('landing.previewHeading', {}, { defaultValue: 'Senior Backend Engineer' })}
-                  </h3>
-
-                  <ul className={cm.cn(cm.sp('mt', 6), cm.stack(3))}>
-                    {STAGES.map((s) => {
-                      const max = STAGES[0].count
-                      return (
-                        <li key={s.name}>
-                          <div
-                            className={cm.cn(
-                              cm.flex({ align: 'center', justify: 'between' }),
-                              cm.textSize('sm'),
-                              cm.sp('mb', 1),
-                            )}
-                          >
-                            <span className={cm.cn('font-semibold text-on-primary')}>{s.name}</span>
-                            <span className={cm.cn('font-bold tabular-nums text-on-primary')}>
-                              {s.count}
-                            </span>
-                          </div>
-                          <div className={cm.cn('h-2 overflow-hidden rounded-full bg-surface/15')}>
-                            <div
-                              className={cm.cn('h-full rounded-full')}
-                              style={{
-                                width: `${(s.count / max) * 100}%`,
-                                backgroundColor: s.color,
-                              }}
-                            />
-                          </div>
-                        </li>
-                      )
-                    })}
-                  </ul>
-
+                >
+                  auto_awesome
+                </span>
+                <div>
                   <div
-                    className={cm.cn(
-                      cm.sp('mt', 6),
-                      cm.sp('p', 4),
-                      'rounded-xl bg-surface/10 backdrop-blur-md border border-surface/10',
-                    )}
+                    className={cm.cn(cm.fontWeight('semibold'), cm.textSize('sm'), cm.sp('mb', 1))}
                   >
-                    <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-                      <span
-                        className={cm.cn(
-                          'grid h-9 w-9 place-items-center rounded-full bg-surface/20 font-bold text-on-primary',
-                        )}
-                      >
-                        M
-                      </span>
-                      <div className={cm.cn('min-w-0 flex-1')}>
-                        <p className={cm.cn('font-semibold text-on-primary')}>Maya Chen</p>
-                        <p className={cm.cn('text-[11px] text-on-primary/70')}>
-                          Interview · 4d in stage · LinkedIn
-                        </p>
-                      </div>
-                      <span
-                        className={cm.cn(
-                          cm.sp('px', 2),
-                          cm.sp('py', 1),
-                          'rounded-full bg-green-500/20 text-[10px] font-black uppercase tracking-widest text-on-primary',
-                        )}
-                      >
-                        AI 92
-                      </span>
-                    </div>
+                    {t('landing.board.insightTitle', {}, { defaultValue: 'AI Insight' })}
                   </div>
+                  <p
+                    className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant leading-relaxed')}
+                  >
+                    {t(
+                      'landing.board.insightBody',
+                      {},
+                      {
+                        defaultValue:
+                          'Elena R. shows strong alignment with your required design system experience. Recommend advancing to interview.',
+                      },
+                    )}
+                  </p>
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Metrics strip */}
+        <section className="bg-surface-container py-12 border-y border-outline-variant/10">
+          <div
+            className={cm.cn(
+              cm.maxW('7xl'),
+              cm.mxAuto,
+              cm.sp('px', 8),
+              cm.grid({ cols: 1, gap: 'lg' }),
+              'md:grid-cols-3 text-center md:divide-x divide-outline-variant/20',
+            )}
+          >
+            {METRICS.map((m) => (
+              <div key={m.key} className={cm.cn('py-4 md:px-8')}>
+                <div
+                  className={cm.cn(
+                    cm.textSize('4xl'),
+                    'font-black text-primary tabular-nums',
+                    cm.sp('mb', 2),
+                  )}
+                >
+                  {m.value}
+                </div>
+                <div
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'text-on-surface-variant uppercase tracking-wider',
+                  )}
+                >
+                  {t(`landing.metric.${m.key}`, {}, { defaultValue: m.defaultLabel })}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -431,7 +537,7 @@ export function Landing() {
               className={cm.cn(
                 cm.sp('mt', 3),
                 cm.textSize('4xl'),
-                'font-extrabold tracking-tight text-on-surface',
+                'font-black tracking-tight text-on-surface',
               )}
             >
               {t('landing.featuresHeading', {}, { defaultValue: 'Signal — not spreadsheets.' })}
@@ -459,7 +565,7 @@ export function Landing() {
                 key={f.key}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 hover:-translate-y-0.5 hover:shadow-md transition-all',
+                  'rounded-xl bg-surface-container-lowest border border-outline-variant/20 hover:-translate-y-0.5 hover:shadow-md transition-all',
                 )}
               >
                 <span
@@ -475,7 +581,7 @@ export function Landing() {
                   className={cm.cn(
                     cm.sp('mt', 4),
                     cm.textSize('lg'),
-                    'font-extrabold tracking-tight text-on-surface',
+                    'font-bold tracking-tight text-on-surface',
                   )}
                 >
                   {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
@@ -504,7 +610,7 @@ export function Landing() {
               className={cm.cn(
                 cm.sp('mt', 3),
                 cm.textSize('4xl'),
-                'font-extrabold tracking-tight text-on-surface',
+                'font-black tracking-tight text-on-surface',
               )}
             >
               {t('landing.pricingHeading', {}, { defaultValue: 'Plans for every team size.' })}
@@ -518,7 +624,7 @@ export function Landing() {
                   key={p.key}
                   className={cm.cn(
                     cm.sp('p', 6),
-                    'rounded-2xl border transition-all',
+                    'rounded-xl border transition-all',
                     featured
                       ? 'bg-gradient-to-br from-primary to-primary-container text-on-primary border-primary shadow-md shadow-primary/20'
                       : 'bg-surface-container-lowest border-outline-variant/20 hover:-translate-y-0.5 hover:shadow-md',
@@ -536,7 +642,7 @@ export function Landing() {
                     <span
                       className={cm.cn(
                         cm.textSize('4xl'),
-                        'font-extrabold tracking-tight tabular-nums',
+                        'font-black tracking-tight tabular-nums',
                         featured ? 'text-on-primary' : 'text-on-surface',
                       )}
                     >
@@ -598,7 +704,7 @@ export function Landing() {
                       cm.fontWeight('bold'),
                       cm.textSize('sm'),
                       cm.textCenter,
-                      'block rounded-xl transition-all',
+                      'block rounded-lg transition-all',
                       featured
                         ? 'bg-surface/95 text-primary hover:bg-surface'
                         : 'bg-primary/10 text-primary hover:bg-primary/15',
@@ -613,39 +719,71 @@ export function Landing() {
         </section>
       </main>
 
+      {/* Footer — brand column + link columns */}
       <footer
         className={cm.cn(
-          cm.sp('px', 6),
-          cm.sp('py', 8),
-          cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
-          cm.textSize('sm'),
-          'border-t border-outline-variant/30 bg-surface-container-low text-on-surface-variant',
+          cm.sp('px', 8),
+          cm.sp('py', 12),
+          'border-t border-outline-variant/15 bg-surface-container-low mt-20',
         )}
       >
-        <nav
+        <div
           className={cm.cn(
-            cm.flex({ wrap: 'wrap', align: 'center', justify: 'center', gap: 'md' }),
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.grid({ cols: 1, gap: 'lg' }),
+            'md:grid-cols-4',
           )}
         >
-          <Link to="/about" data-mol-id="footer-about" className={footerLinkClass}>
-            {t('nav.about', {}, { defaultValue: 'About' })}
-          </Link>
-          <LegalModalLinks
-            linkClassName={footerLinkClass}
-            appName={APP_NAME}
-            loadContent={loadContent}
-            privacyLabel={t('nav.privacy', {}, { defaultValue: 'Privacy' })}
-            termsLabel={t('nav.terms', {}, { defaultValue: 'Terms' })}
-          />
-        </nav>
-        <p className={cm.textCenter}>
-          {t(
-            'landing.copyright',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Built with Molecule.' },
-          )}
-        </p>
+          <div className="md:col-span-2">
+            <div
+              className={cm.cn(
+                cm.textSize('xl'),
+                cm.fontWeight('bold'),
+                'text-on-surface',
+                cm.sp('mb', 4),
+              )}
+            >
+              {APP_NAME}
+            </div>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'landing.copyright',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                { defaultValue: '© {{year}} {{app}}' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
+            </p>
+          </div>
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+            <Link to="/about" data-mol-id="footer-about" className={footerLinkClass}>
+              {t('nav.about', {}, { defaultValue: 'About' })}
+            </Link>
+            <Link to="/pricing" data-mol-id="footer-pricing" className={footerLinkClass}>
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </Link>
+          </div>
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+            <LegalModalLinks
+              linkClassName={footerLinkClass}
+              appName={APP_NAME}
+              loadContent={loadContent}
+              privacyLabel={t('nav.privacy', {}, { defaultValue: 'Privacy' })}
+              termsLabel={t('nav.terms', {}, { defaultValue: 'Terms' })}
+            />
+          </div>
+        </div>
       </footer>
     </div>
   )
 }
+
+export default Landing

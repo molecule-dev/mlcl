@@ -41,10 +41,10 @@ const FEATURES = [
 ] as const
 
 const STATS = [
-  { key: 'shipments', defaultLabel: 'Shipments tracked', value: '120M+' },
-  { key: 'carriers', defaultLabel: 'Carriers integrated', value: '247' },
-  { key: 'uptime', defaultLabel: 'Uptime', value: '99.99%' },
-  { key: 'companies', defaultLabel: 'Companies', value: '8,400+' },
+  { key: 'shipments', defaultLabel: 'Shipments tracked', value: '12.4M', tone: 'text-surface' },
+  { key: 'uptime', defaultLabel: 'Uptime API SLA', value: '99.97%', tone: 'text-success' },
+  { key: 'carriers', defaultLabel: 'Carrier networks', value: '180+', tone: 'text-surface' },
+  { key: 'latency', defaultLabel: 'Webhook latency', value: '<2s', tone: 'text-primary' },
 ]
 
 export function Landing() {
@@ -71,33 +71,58 @@ export function Landing() {
         >
           <Link
             to="/"
-            className={'min-w-0 whitespace-nowrap shrink-0 text-xl font-extrabold tracking-tight'}
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 3 }),
+              'min-w-0 whitespace-nowrap shrink-0 text-xl font-bold tracking-tight text-navy dark:text-surface',
+            )}
           >
+            <span
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                'h-8 w-8 rounded-lg bg-primary text-on-primary shrink-0',
+              )}
+              aria-hidden="true"
+            >
+              <span
+                className="material-symbols-outlined"
+                style={{ fontSize: 20, fontVariationSettings: "'FILL' 1" }}
+              >
+                route
+              </span>
+            </span>
             {APP_NAME}
           </Link>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 flex-wrap')}>
             <Link
               to="/pricing"
               className={
-                'hidden sm:inline whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-on-surface'
+                'hidden sm:inline whitespace-nowrap text-sm font-medium text-on-surface hover:text-primary transition-colors'
               }
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
             </Link>
             <Link
-              to="/about"
+              to="/carriers"
               className={
-                'hidden sm:inline whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-on-surface'
+                'hidden sm:inline whitespace-nowrap text-sm font-medium text-on-surface hover:text-primary transition-colors'
               }
             >
-              {t('nav.about', {}, { defaultValue: 'About' })}
+              {t('nav.carriers', {}, { defaultValue: 'Carriers' })}
+            </Link>
+            <Link
+              to="/about"
+              className={
+                'hidden sm:inline whitespace-nowrap text-sm font-medium text-on-surface hover:text-primary transition-colors'
+              }
+            >
+              {t('nav.docs', {}, { defaultValue: 'Docs' })}
             </Link>
             {isAuthenticated ? (
               <Link
                 to="/dashboard"
                 data-mol-id="nav-go-to-dashboard"
                 className={
-                  'whitespace-nowrap shrink-0 px-5 py-2 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
+                  'whitespace-nowrap shrink-0 px-5 py-2.5 text-sm font-semibold bg-primary text-on-primary rounded-xl hover:bg-[var(--mol-color-primary-dark)] transition-colors'
                 }
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -115,7 +140,7 @@ export function Landing() {
                 <Link
                   to="/signup"
                   className={
-                    'whitespace-nowrap shrink-0 px-5 py-2 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
+                    'whitespace-nowrap shrink-0 px-5 py-2.5 text-sm font-semibold bg-primary text-on-primary rounded-xl hover:bg-[var(--mol-color-primary-dark)] transition-colors'
                   }
                 >
                   {t('landing.getStarted', {}, { defaultValue: 'Get a demo' })}
@@ -148,9 +173,6 @@ export function Landing() {
           >
             <div className={'grid grid-cols-1 lg:grid-cols-12 gap-12 items-center'}>
               <div className={'lg:col-span-7'}>
-                <p className={'text-sm font-bold uppercase tracking-widest text-primary mb-4'}>
-                  {t('landing.eyebrow', {}, { defaultValue: 'Logistics ops platform · realtime' })}
-                </p>
                 <h1
                   className={
                     'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] mb-6'
@@ -168,7 +190,7 @@ export function Landing() {
                     {},
                     {
                       defaultValue:
-                        "Track every package across every carrier. Flag exceptions before they become tickets. Built for ops teams who can't miss a beat.",
+                        'Realtime shipment visibility. Track across 180+ carriers instantly.',
                     },
                   )}
                 </p>
@@ -176,10 +198,10 @@ export function Landing() {
                   <Link
                     to="/signup"
                     className={
-                      'inline-flex items-center gap-2 px-8 py-4 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
+                      'inline-flex items-center gap-2 px-8 py-4 text-base font-bold bg-primary text-on-primary rounded-xl hover:-translate-y-0.5 hover:bg-[var(--mol-color-primary-dark)] hover:shadow-lg hover:shadow-primary/30 transition-all'
                     }
                   >
-                    {t('landing.heroCta', {}, { defaultValue: 'Get a demo' })}
+                    {t('common.startFreeTrial', {}, { defaultValue: 'Start free trial' })}
                     <span className={'material-symbols-outlined text-base'} aria-hidden="true">
                       arrow_forward
                     </span>
@@ -187,10 +209,13 @@ export function Landing() {
                   <Link
                     to="/login"
                     className={
-                      'px-8 py-4 font-semibold rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors'
+                      'inline-flex items-center gap-2 px-8 py-4 text-base font-semibold rounded-xl border border-outline-variant bg-surface text-navy hover:bg-surface-container-low transition-colors'
                     }
                   >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                    <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
+                      play_circle
+                    </span>
+                    {t('landing.watchDemo', {}, { defaultValue: 'Watch demo' })}
                   </Link>
                 </div>
               </div>
@@ -286,38 +311,96 @@ export function Landing() {
                       'absolute -right-16 -bottom-16 w-48 h-48 rounded-full bg-cyan-500/20 blur-3xl'
                     }
                   />
+                  {/* Floating status chips — design overlay UI */}
+                  <div
+                    className={
+                      'absolute left-6 top-6 z-20 rounded-xl bg-surface/95 backdrop-blur-sm p-3 shadow-lg ring-1 ring-black/5'
+                    }
+                  >
+                    <div className={cm.flex({ align: 'center', gap: 3 })}>
+                      <div
+                        className={cm.cn(
+                          cm.flex({ align: 'center', justify: 'center' }),
+                          'h-10 w-10 rounded-lg bg-primary/10 text-primary',
+                        )}
+                      >
+                        <span
+                          className="material-symbols-outlined"
+                          style={{ fontSize: 20, fontVariationSettings: "'FILL' 1" }}
+                        >
+                          package_2
+                        </span>
+                      </div>
+                      <div>
+                        <div className="text-xs font-semibold text-on-surface-variant">
+                          {t('landing.chip.inTransit', {}, { defaultValue: 'In Transit' })}
+                        </div>
+                        <div className="text-sm font-bold text-navy dark:text-surface font-mono">
+                          TRK-8924A
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className={
+                      'absolute right-6 bottom-6 z-20 rounded-xl bg-surface/95 backdrop-blur-sm p-3 shadow-lg ring-1 ring-black/5'
+                    }
+                  >
+                    <div className={cm.flex({ align: 'center', gap: 3 })}>
+                      <div
+                        className={cm.cn(
+                          cm.flex({ align: 'center', justify: 'center' }),
+                          'h-10 w-10 rounded-lg bg-success/10 text-success',
+                        )}
+                      >
+                        <span
+                          className="material-symbols-outlined"
+                          style={{ fontSize: 20, fontVariationSettings: "'FILL' 1" }}
+                        >
+                          check_circle
+                        </span>
+                      </div>
+                      <div>
+                        <div className="text-xs font-semibold text-on-surface-variant">
+                          {t('landing.chip.delivered', {}, { defaultValue: 'Delivered' })}
+                        </div>
+                        <div className="text-sm font-bold text-navy dark:text-surface font-mono">
+                          TRK-3319B
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Stats */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-12')}>
-          <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-2 md:grid-cols-4')}>
-            {STATS.map((s) => (
-              <div
-                key={s.key}
-                className={
-                  'bg-surface-container-lowest rounded-2xl p-6 text-center hover:shadow-lg transition-shadow'
-                }
-              >
-                <p
-                  className={
-                    'text-3xl md:text-4xl font-extrabold tracking-tight text-primary tabular-nums'
-                  }
-                >
-                  {s.value}
-                </p>
-                <p
-                  className={
-                    'text-xs font-bold uppercase tracking-widest text-on-surface-variant mt-2'
-                  }
-                >
-                  {t(`landing.stat.${s.key}`, {}, { defaultValue: s.defaultLabel })}
-                </p>
-              </div>
-            ))}
+        {/* Stats — full-bleed navy strip (design) */}
+        <section className="bg-navy py-12">
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6))}>
+            <div
+              className={cm.cn(
+                cm.grid({ gap: 8 }),
+                'grid-cols-2 md:grid-cols-4 md:gap-4 lg:gap-8 md:divide-x divide-navy-light',
+              )}
+            >
+              {STATS.map((s) => (
+                <div key={s.key} className={cm.cn(cm.flex({ direction: 'col', gap: 2 }), 'px-4')}>
+                  <p
+                    className={
+                      'font-mono text-3xl lg:text-4xl font-bold tracking-tight tabular-nums ' +
+                      s.tone
+                    }
+                  >
+                    {s.value}
+                  </p>
+                  <p className="text-sm font-medium text-surface/70">
+                    {t(`landing.stat.${s.key}`, {}, { defaultValue: s.defaultLabel })}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -378,7 +461,7 @@ export function Landing() {
             <Link
               to="/signup"
               className={
-                'inline-flex items-center gap-2 px-10 py-4 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
+                'inline-flex items-center gap-2 px-10 py-4 font-semibold bg-primary text-on-primary rounded-xl hover:bg-[var(--mol-color-primary-dark)] transition-colors'
               }
             >
               {t('landing.heroCta', {}, { defaultValue: 'Get a demo' })}
@@ -399,8 +482,17 @@ export function Landing() {
           {t(
             'common.copyrightBuiltWithMolecule',
             { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Built with Molecule.' },
+            { defaultValue: '© {{year}} {{app}}' },
           )}
+          {' — Built with '}
+          <a
+            href="https://molecule.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline font-medium"
+          >
+            Molecule.dev
+          </a>
         </p>
       </footer>
     </div>

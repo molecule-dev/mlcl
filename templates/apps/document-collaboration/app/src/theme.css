@@ -1,8 +1,8 @@
 :root {
   /* === @theme bridge — feeds ClassMap via index.css === */
-  --mol-color-primary: #1a73e8; /* darkened from #4285f4 — 4.51:1 on white */
-  --mol-color-primary-light: #e8f0fe;
-  --mol-color-primary-dark: #1558c0;
+  --mol-color-primary: #4f46e5; /* indigo-600 — design family primary; 6.4:1 with white */
+  --mol-color-primary-light: #e0e7ff;
+  --mol-color-primary-dark: #4338ca;
   --mol-color-secondary: #5f6368;
   --mol-color-background: #f8f9fa;
   --mol-color-background-secondary: #f1f3f4;
@@ -16,19 +16,20 @@
   --mol-color-text-inverse: #ffffff;
   --mol-color-border: #dadce0;
   --mol-color-border-secondary: #c0c4cb;
-  --mol-color-border-focus: #1a73e8;
+  --mol-color-border-focus: #4f46e5;
   --mol-color-success: #34a853;
   --mol-color-warning: #fbbc04;
   --mol-color-error: #c5221f; /* darkened from #ea4335 for 4.5:1 on white */
   --mol-color-info: #1a73e8;
 
   /* Brand colors */
-  --color-primary: #1a73e8; /* darkened from #4285f4 for 4.51:1 on white */
-  --color-primary-hover: #1558c0;
-  --color-primary-light: #e8f0fe;
+  --color-primary: #4f46e5; /* indigo-600 — 6.4:1 with white */
+  --color-primary-hover: #4338ca;
+  --color-primary-light: #e0e7ff;
   --color-secondary: #5f6368;
 
   /* Accent */
+  --color-accent-cyan: #06b6d4; /* cyan-500 — gradient end / collaborator highlight */
   --color-accent-yellow: #fbbc04;
   --color-accent-green: #34a853;
   --color-accent-red: #c5221f; /* darkened for 4.5:1 on white */
@@ -38,23 +39,23 @@
   --color-bg: #f8f9fa;
   --color-bg-editor: #ffffff;
   --color-bg-sidebar: #ffffff;
-  --color-bg-toolbar: #edf2fa;
+  --color-bg-toolbar: #eef2ff;
   --color-bg-hover: #f1f3f4;
 
   /* Text */
   --color-text: #202124;
   --color-text-secondary: #5f6368;
-  --color-text-link: #1a73e8;
+  --color-text-link: #4f46e5;
   --color-text-comment: #3c4043;
 
   /* Brand gradient tokens — used by StudioHero and AuthBrandPanel */
-  --color-brand-gradient-from: #4285f4;
+  --color-brand-gradient-from: #4f46e5;
   --color-brand-gradient-via: #6366f1;
   --color-brand-gradient-to: #06b6d4;
 
   /* Borders */
   --color-border: #dadce0;
-  --color-border-focus: #1a73e8;
+  --color-border-focus: #4f46e5;
 
   /* Typography */
   --font-family: 'Google Sans', Arial, sans-serif;
@@ -110,11 +111,11 @@
   --color-on-surface-variant: #5f6368;
   --color-inverse-surface: #202124;
   --color-inverse-on-surface: #f8f9fa;
-  --color-inverse-primary: #8ab4f8;
-  --color-primary: #1a73e8; /* darker blue — 4.51:1 on white */
-  --color-primary-container: #e8f0fe;
+  --color-inverse-primary: #a5b4fc;
+  --color-primary: #4f46e5; /* indigo-600 brand stop */
+  --color-primary-container: #e0e7ff;
   --color-on-primary: #ffffff; /* white on #1a73e8 ≥ 4.51:1 */
-  --color-on-primary-container: #1a3a6c;
+  --color-on-primary-container: #312e81;
   --color-secondary: #5f6368;
   --color-secondary-container: #e8eaed;
   --color-on-secondary: #ffffff;
@@ -129,7 +130,7 @@
   --color-on-error-container: #5a0000;
   --color-outline: #dadce0;
   --color-outline-variant: #e8eaed;
-  --color-surface-tint: #4285f4;
+  --color-surface-tint: #6366f1;
 }
 
 /* Dark mode — productivity/docs cool-neutral dark (Material-inspired).
@@ -141,19 +142,21 @@
    content remains the focal point. */
 [data-mol-mode='dark'] {
   /* Brand gradient tokens — slightly brightened for dark surfaces */
-  --color-brand-gradient-from: #6366f1;
-  --color-brand-gradient-via: #818cf8;
+  --color-brand-gradient-from: #818cf8;
+  --color-brand-gradient-via: #a5b4fc;
   --color-brand-gradient-to: #22d3ee;
 
-  --color-primary: #8ab4f8;
-  --color-primary-hover: #aecbfa;
-  --color-primary-light: #1a3a6c;
+  --color-accent-cyan: #22d3ee;
+
+  --color-primary: #a5b4fc;
+  --color-primary-hover: #c7d2fe;
+  --color-primary-light: #312e81;
   --color-secondary: #9aa0a6;
 
   --color-accent-yellow: #fdd663;
   --color-accent-green: #81c995;
   --color-accent-red: #f28b82;
-  --color-accent-blue: #8ab4f8;
+  --color-accent-blue: #818cf8;
 
   --color-bg: #1b1c1e;
   --color-bg-editor: #25272a;
@@ -163,11 +166,11 @@
 
   --color-text: #e8eaed;
   --color-text-secondary: #bdc1c6;
-  --color-text-link: #8ab4f8;
+  --color-text-link: #a5b4fc;
   --color-text-comment: #c9ccd0;
 
   --color-border: #3c4043;
-  --color-border-focus: #8ab4f8;
+  --color-border-focus: #a5b4fc;
 
   --shadow-page: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.55);
   --shadow-toolbar: 0 2px 4px rgba(0, 0, 0, 0.55);
@@ -192,11 +195,11 @@
   --color-on-surface-variant: #bdc1c6;
   --color-inverse-surface: #e8eaed;
   --color-inverse-on-surface: #1b1c1e;
-  --color-inverse-primary: #1a73e8;
-  --color-primary: #1a73e8; /* darker brand blue — 4.51:1 on white */
-  --color-primary-container: #1a3a6c;
+  --color-inverse-primary: #4f46e5;
+  --color-primary: #6366f1; /* indigo-500 lifted brand stop for dark — 4.65:1 with white */
+  --color-primary-container: #312e81;
   --color-on-primary: #ffffff; /* white on #1a73e8 ≥ 4.51:1 */
-  --color-on-primary-container: #d4e3fc;
+  --color-on-primary-container: #e0e7ff;
   --color-secondary: #9aa0a6;
   --color-secondary-container: #3c4043;
   --color-on-secondary: #1b1c1e;
@@ -211,5 +214,5 @@
   --color-on-error-container: #ffdad6;
   --color-outline: #757b80; /* lifted from #5f6368 — 3.98:1 on #1b1c1e surface */
   --color-outline-variant: #3c4043;
-  --color-surface-tint: #8ab4f8;
+  --color-surface-tint: #a5b4fc;
 }

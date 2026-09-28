@@ -29,54 +29,58 @@
 /* Global defaults — inside /* polish-v2:theme:start */
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
-  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
-  --color-background: #f6fafd;
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens.
+     Matched to design-civic-311-landing (mint-surface municipal M3 scheme):
+     surface tiers #ebfdf8→#d4e6e1, primary #005c55, primary-container #0f766e,
+     tertiary re-hosted blue #005683. `outline` stays darker than the design
+     value (#6e7977) — it doubles as placeholder text and needed ≥4.5:1. */
+  --color-background: #ebfdf8;
   --color-error: #ba1a1a;
   --color-error-container: #ffdad6;
-  --color-inverse-on-surface: #edf1f4;
-  --color-inverse-primary: #6cd3f7;
-  --color-inverse-surface: #2c3133;
-  --color-on-background: #171c1e;
+  --color-inverse-on-surface: #e2f5ef;
+  --color-inverse-primary: #80d5cb;
+  --color-inverse-surface: #233330;
+  --color-on-background: #0e1e1b;
   --color-on-error: #ffffff;
   --color-on-error-container: #93000a;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #fafdff;
-  --color-on-primary-fixed: #001f28;
-  --color-on-primary-fixed-variant: #004e61;
+  --color-on-primary-container: #a3faef;
+  --color-on-primary-fixed: #00201d;
+  --color-on-primary-fixed-variant: #00504a;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #466977;
-  --color-on-secondary-fixed: #001f28;
-  --color-on-secondary-fixed-variant: #284b58;
-  --color-on-surface: #171c1e;
-  --color-on-surface-variant: #3e484d;
+  --color-on-secondary-container: #4f6762;
+  --color-on-secondary-fixed: #071f1c;
+  --color-on-secondary-fixed-variant: #344b47;
+  --color-on-surface: #0e1e1b;
+  --color-on-surface-variant: #3e4947;
   --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #fffbff;
-  --color-on-tertiary-fixed: #2d1600;
-  --color-on-tertiary-fixed-variant: #6a3b00;
-  --color-outline: #667379; /* was #6e797e (4.46:1 as divider text on white); 4.9:1 */
-  --color-outline-variant: #bdc8ce;
-  --color-primary: #0f766e;
-  --color-primary-container: #0b4f49;
-  --color-primary-fixed: #99f6e4;
-  --color-primary-fixed-dim: #5eead4;
-  --color-secondary: #3f5652;
-  --color-secondary-container: #d3e6e1;
-  --color-secondary-fixed: #d3e6e1;
-  --color-secondary-fixed-dim: #b8ccc7;
-  --color-surface: #f6fafd;
-  --color-surface-bright: #f6fafd;
-  --color-surface-container: #eaeef1;
-  --color-surface-container-high: #e5e9eb;
-  --color-surface-container-highest: #dfe3e6;
-  --color-surface-container-low: #f0f4f7;
+  --color-on-tertiary-container: #dbecff;
+  --color-on-tertiary-fixed: #001d31;
+  --color-on-tertiary-fixed-variant: #004b73;
+  --color-outline: #667379; /* design #6e7977 (4.46:1 as divider text on white); 4.9:1 */
+  --color-outline-variant: #bdc9c6;
+  --color-primary: #005c55;
+  --color-primary-container: #0f766e;
+  --color-primary-fixed: #9cf2e8;
+  --color-primary-fixed-dim: #80d5cb;
+  --color-secondary: #4b635e;
+  --color-secondary-container: #cbe5df;
+  --color-secondary-fixed: #cee8e2;
+  --color-secondary-fixed-dim: #b2ccc6;
+  --color-surface: #ebfdf8;
+  --color-surface-bright: #ebfdf8;
+  --color-surface-container: #dff2ed;
+  --color-surface-container-high: #daece7;
+  --color-surface-container-highest: #d4e6e1;
+  --color-surface-container-low: #e5f8f2;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-dim: #d6dbdd;
-  --color-surface-tint: #115e59;
-  --color-surface-variant: #dfe3e6;
-  --color-tertiary: #894e00;
-  --color-tertiary-container: #a86516;
-  --color-tertiary-fixed: #ffdcbf;
-  --color-tertiary-fixed-dim: #ffb873;
+  --color-surface-dim: #ccded9;
+  --color-surface-tint: #006a63;
+  --color-surface-variant: #d4e6e1;
+  --color-tertiary: #005683;
+  --color-tertiary-container: #006fa8;
+  --color-tertiary-fixed: #cce5ff;
+  --color-tertiary-fixed-dim: #93ccff;
 
   /* Stitch border-radius scale. */
   --radius: 0.125rem;
@@ -86,8 +90,9 @@
 
   /* Stitch font families. */
   --font-body: Inter;
-  --font-headline: Inter;
+  --font-headline: 'Source Serif 4', Georgia, serif;
   --font-label: Inter;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 /* polish-v2:theme:end */
 

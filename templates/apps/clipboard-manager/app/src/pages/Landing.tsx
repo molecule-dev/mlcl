@@ -157,15 +157,16 @@ export function Landing() {
             <a
               href="#features"
               className={cm.cn(
-                'inline-flex items-center min-h-[36px] px-1 text-on-surface-variant hover:text-on-surface transition-colors',
+                'inline-flex items-center min-h-[36px] px-1 pb-1 text-sm font-medium border-b-2 transition-colors',
               )}
+              style={{ color: 'var(--color-primary)', borderColor: 'var(--color-primary)' }}
             >
               {t('nav.features', {}, { defaultValue: 'Features' })}
             </a>
             <a
               href="#workflow"
               className={cm.cn(
-                'inline-flex items-center min-h-[36px] px-1 text-on-surface-variant hover:text-on-surface transition-colors',
+                'inline-flex items-center min-h-[36px] px-2 py-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors',
               )}
             >
               {t('landing.navWorkflow', {}, { defaultValue: 'Workflow' })}
@@ -173,7 +174,7 @@ export function Landing() {
             <Link
               to="/pricing"
               className={cm.cn(
-                'inline-flex items-center min-h-[36px] px-1 text-on-surface-variant hover:text-on-surface transition-colors',
+                'inline-flex items-center min-h-[36px] px-2 py-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors',
               )}
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
@@ -392,32 +393,90 @@ export function Landing() {
 
           <div
             className={cm.cn(
-              'rounded-xl border border-outline-variant/40 overflow-hidden bg-surface',
+              'rounded-xl border border-outline-variant/40 overflow-hidden bg-surface flex',
             )}
             style={{ boxShadow: '0 12px 32px -12px rgba(91,106,191,0.18)' }}
           >
+            {/* Sidebar (Stitch design: collection switcher + category dots) */}
             <div
               className={cm.cn(
-                cm.flex({ align: 'center', justify: 'between' }),
-                cm.sp('px', 4),
-                cm.sp('py', 3),
-                'border-b border-outline-variant/40 bg-surface-container-lowest',
+                'w-64 bg-surface-container-low border-r border-outline-variant/40 shrink-0 hidden md:flex flex-col',
               )}
             >
-              <span
+              <div className={cm.cn(cm.stack(1), cm.sp('p', 3))}>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center' }),
+                    'gap-2 px-3 py-2 bg-surface-container-high rounded font-medium text-sm text-on-surface',
+                  )}
+                >
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                    inbox
+                  </span>
+                  {t('landing.allClips', {}, { defaultValue: 'All Snippets' })}
+                </div>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center' }),
+                    'gap-2 px-3 py-2 hover:bg-surface-container rounded text-sm text-on-surface-variant',
+                  )}
+                >
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                    star
+                  </span>
+                  {t('landing.favorites', {}, { defaultValue: 'Favorites' })}
+                </div>
+              </div>
+              <div
                 className={cm.cn(
                   cm.textSize('xs'),
                   cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-on-surface-variant font-mono',
+                  'px-6 py-2 text-on-surface-variant uppercase tracking-wider mt-2',
                 )}
               >
-                {t('landing.allClips', {}, { defaultValue: 'All clips' })}
-              </span>
-              <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant font-mono')}>
+                {t('landing.sidebarCategories', {}, { defaultValue: 'Categories' })}
+              </div>
+              <div className={cm.cn(cm.stack(1), cm.sp('p', 3))}>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center' }),
+                    'gap-2 px-3 py-1.5 hover:bg-surface-container rounded text-sm text-on-surface-variant',
+                  )}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="w-2 h-2 rounded-full"
+                    style={{ background: 'var(--color-cat-code-fg)' }}
+                  />
+                  {t('landing.sidebarCode', {}, { defaultValue: 'Code' })}
+                </div>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center' }),
+                    'gap-2 px-3 py-1.5 hover:bg-surface-container rounded text-sm text-on-surface-variant',
+                  )}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="w-2 h-2 rounded-full"
+                    style={{ background: 'var(--color-cat-url-fg)' }}
+                  />
+                  {t('landing.sidebarLinks', {}, { defaultValue: 'Links' })}
+                </div>
+              </div>
+              <div
+                className={cm.cn(
+                  cm.sp('mt', 6),
+                  cm.sp('p', 3),
+                  cm.textSize('xs'),
+                  'mt-auto text-on-surface-variant font-mono px-6',
+                )}
+              >
                 {t('landing.demoItemCount', {}, { defaultValue: '1,284 items' })}
-              </span>
+              </div>
             </div>
-            <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.sp('p', 2))}>
+            {/* Main list */}
+            <div className={cm.cn(cm.flex1, cm.stack(0.5), 'p-2 bg-surface-container-low min-w-0')}>
               {SHOWCASE_SNIPPETS.map((s) => (
                 <SnippetRow key={s.id} snippet={s} />
               ))}
@@ -550,20 +609,63 @@ export function Landing() {
       </section>
 
       <footer
-        className={cm.cn(
-          cm.sp('py', 8),
-          cm.textCenter,
-          cm.textSize('sm'),
-          'text-on-surface-variant border-t border-outline-variant/40',
-        )}
+        className={cm.cn('bg-surface-container-low w-full border-t border-outline-variant/40')}
       >
-        <p>
-          {t(
-            'common.copyrightBuiltWithMolecule',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Built with Molecule.' },
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('py', 12),
+            cm.sp('px', 6),
+            cm.flex({ direction: 'col', justify: 'between', align: 'center' }),
+            'md:flex-row gap-6',
           )}
-        </p>
+        >
+          <div className={cm.cn(cm.stack(2), 'items-center md:items-start')}>
+            <span className={cm.cn(cm.fontWeight('bold'), 'text-on-surface')}>{APP_NAME}</span>
+            <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+              {t(
+                'landing.footerTagline',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                {
+                  defaultValue: '© {{year}} {{app}}. Fast, keyboard-forward clipboard management.',
+                },
+              )}
+            </span>
+          </div>
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'md' }),
+              cm.textSize('xs'),
+              'text-on-surface-variant',
+            )}
+          >
+            <Link
+              to="/privacy"
+              className="hover:text-primary hover:underline opacity-80 hover:opacity-100 transition-opacity"
+            >
+              {t('landing.footerPrivacy', {}, { defaultValue: 'Privacy' })}
+            </Link>
+            <Link
+              to="/terms"
+              className="hover:text-primary hover:underline opacity-80 hover:opacity-100 transition-opacity"
+            >
+              {t('landing.footerTerms', {}, { defaultValue: 'Terms' })}
+            </Link>
+            <Link
+              to="/about"
+              className="hover:text-primary hover:underline opacity-80 hover:opacity-100 transition-opacity"
+            >
+              {t('landing.footerAbout', {}, { defaultValue: 'About' })}
+            </Link>
+            <Link
+              to="/pricing"
+              className="hover:text-primary hover:underline opacity-80 hover:opacity-100 transition-opacity"
+            >
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </Link>
+          </div>
+        </div>
       </footer>
     </div>
   )

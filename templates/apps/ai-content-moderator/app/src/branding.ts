@@ -26,4 +26,4 @@ export const LOGO_SIZE = 30
 export const WEBSITE_URL = ''
 
 /** Primary brand color (PWA manifest, meta theme-color). */
-export const BRAND_COLOR = '#f97316'
+export const BRAND_COLOR = '#3525cd'

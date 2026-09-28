@@ -4,14 +4,14 @@
   --mol-color-primary-light: #d1fae5;
   --mol-color-primary-dark: #059669;
   --mol-color-secondary: #94a3b8;
-  --mol-color-background: #0a0f1e;
-  --mol-color-background-secondary: #111827;
-  --mol-color-background-tertiary: #1f2937;
-  --mol-color-surface: #111827;
-  --mol-color-surface-secondary: #1f2937;
-  --mol-color-input-background: #0c1120;
+  --mol-color-background: #0c0e14;
+  --mol-color-background-secondary: #161926;
+  --mol-color-background-tertiary: #1e2235;
+  --mol-color-surface: #161926;
+  --mol-color-surface-secondary: #1e2235;
+  --mol-color-input-background: #0a0c10;
   --mol-color-text: #f9fafb;
-  --mol-color-text-secondary: #9ca3af;
+  --mol-color-text-secondary: #94a3b8;
   --mol-color-text-tertiary: #6b7280;
   --mol-color-text-inverse: #111827;
   --mol-color-border: #374151;
@@ -23,29 +23,29 @@
   --mol-color-info: #3b82f6;
 
   /* === Material-3 bridge tokens (default/dark — this app is dark-first) === */
-  --color-background: #0a0f1e;
+  --color-background: #0c0e14;
   --color-on-background: #f9fafb;
-  --color-surface: #111827;
-  --color-surface-bright: #1f2937;
-  --color-surface-dim: #060b14;
-  --color-surface-container-lowest: #030609;
-  --color-surface-container-low: #0e1520;
-  --color-surface-container: #111827;
-  --color-surface-container-high: #1f2937;
+  --color-surface: #161926;
+  --color-surface-bright: #1e2235;
+  --color-surface-dim: #080a0f;
+  --color-surface-container-lowest: #0a0c10; /* design `terminal` */
+  --color-surface-container-low: #0a0c10;
+  --color-surface-container: #1e2235; /* design `surfaceSec` */
+  --color-surface-container-high: #1e2235;
   --color-surface-container-highest: #2a3347;
   --color-surface-variant: #1f2937;
   --color-surface-elevated: #1f2937;
   --color-on-surface: #f9fafb;
-  --color-on-surface-variant: #9ca3af;
+  --color-on-surface-variant: #94a3b8;
   --color-inverse-surface: #f9fafb;
-  --color-inverse-on-surface: #111827;
+  --color-inverse-on-surface: #161926;
   --color-inverse-primary: #059669;
   --color-primary: #10b981;
   --color-primary-container: #064e3b;
   --color-on-primary: #022c22; /* dark green — 5.97:1 on #10b981 (was #fff = 2.54:1 fail) */
   --color-on-primary-container: #a7f3d0;
   --color-secondary: #94a3b8;
-  --color-secondary-container: #1e293b;
+  --color-secondary-container: #1e2235;
   --color-on-secondary: #0f172a;
   --color-on-secondary-container: #e2e8f0;
   --color-tertiary: #3b82f6;
@@ -57,7 +57,7 @@
   --color-on-error: #280000; /* dark red — 5.12:1 on #ef4444 (was #fff = 3.76:1 fail) */
   --color-on-error-container: #fecaca;
   --color-outline: #4b5563;
-  --color-outline-variant: #374151;
+  --color-outline-variant: #232838; /* design border: white/5 on #0c0e14 */
   --color-surface-tint: #10b981;
 
   /* === Brand colors === */
@@ -110,9 +110,9 @@
 
   /* Text */
   --color-text: #f9fafb;
-  --color-text-muted: #9ca3af;
-  --color-text-inverse: #111827;
-  --color-border: #374151;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #161926;
+  --color-border: #232838;
 
   /* Feedback */
   --color-success: #22c55e;
@@ -124,7 +124,7 @@
   --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
   /* Headline font — picked up by shared molecule pages
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-size-base: 14px;
 
   /* Spacing */

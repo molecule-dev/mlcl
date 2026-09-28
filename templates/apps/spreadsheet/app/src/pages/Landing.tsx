@@ -441,8 +441,17 @@ export function Landing() {
             {t(
               'landing.footer.copy',
               { year: new Date().getFullYear(), name: APP_NAME },
-              { defaultValue: '© {{year}} {{name}} · Built with Molecule' },
+              { defaultValue: '© {{year}} {{name}}' },
             )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
           </p>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
             <Link

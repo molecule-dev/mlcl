@@ -1,16 +1,20 @@
+import type { ReactNode } from 'react'
+
 import { Link } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 /**
- * Gradient hero card — surfaces the most-recent board with a frosted-glass
- * collaborator pill, decorative blurred orbs, and a stylised dot-grid SVG that
- * echoes the canvas surface.
+ * Live board preview — the hero graphic from the Stitch design: a white
+ * infinite-canvas surface with a dot grid, a floating tool toolbar, pastel
+ * sticky notes annotated in the handwriting font, and multiplayer cursors
+ * with name tags. The board's real data (project code, updated label, title,
+ * active collaborators) rides in a frosted bar along the bottom edge.
  *
- * Translated from personal-finance's NetWorthCard.tsx — same `bg-gradient-to-br
- * from-primary to-primary-container rounded-[2rem]` chrome with a 6xl
- * extrabold headline and white/20 backdrop-blur pill.
+ * Colors come exclusively from theme.css tokens (--color-sticky-*,
+ * --color-cursor-*, --color-canvas-*, brand colors) referenced via Tailwind
+ * utilities or var() inside the SVG doodles — never hardcoded hex.
  */
 export interface BoardHeroCardProps {
   board: {
@@ -25,6 +29,53 @@ export interface BoardHeroCardProps {
   }
 }
 
+/** A multiplayer cursor: pointer arrow + name tag, one hue per teammate. */
+function LiveCursor({
+  color,
+  name,
+  className,
+}: {
+  color: string
+  name: string
+  className: string
+}) {
+  return (
+    <div className={`absolute flex items-center gap-1 ${className}`} aria-hidden="true">
+      <svg className="w-5 h-5" viewBox="0 0 24 24" style={{ fill: `var(${color})` }}>
+        <path d="M7 2l12 11.2-5.8.5 3.3 7.3-2.2.9-3.2-7.4-4.4 5.2z" />
+      </svg>
+      <span
+        className="text-white text-xs font-bold px-1.5 py-0.5 rounded shadow-sm"
+        style={{ backgroundColor: `var(${color})` }}
+      >
+        {name}
+      </span>
+    </div>
+  )
+}
+
+/** Handwriting note on a pastel sticky, slightly rotated like a real board. */
+function StickyNote({
+  color,
+  rotate,
+  className,
+  children,
+}: {
+  color: string
+  rotate: string
+  className: string
+  children: ReactNode
+}) {
+  return (
+    <div
+      className={`absolute aspect-square shadow-md p-4 rounded-sm ${rotate} ${className}`}
+      style={{ backgroundColor: `var(${color})` }}
+    >
+      <p className="font-handwriting text-on-surface text-xl leading-tight">{children}</p>
+    </div>
+  )
+}
+
 export function BoardHeroCard({ board }: BoardHeroCardProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -32,34 +83,162 @@ export function BoardHeroCard({ board }: BoardHeroCardProps) {
   return (
     <Link
       to={`/board/${board.id}`}
+      aria-label={board.title}
       className={cm.cn(
-        cm.flex({ direction: 'col', justify: 'between' }),
-        cm.sp('p', 10),
-        'min-h-[320px] lg:col-span-8 bg-gradient-to-br from-primary to-primary-hover rounded-[2rem] text-white relative overflow-hidden hover:scale-[1.005] transition-transform',
+        'group relative flex flex-col w-full overflow-hidden bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-2xl hover:shadow-xl transition-shadow',
       )}
+      style={{ aspectRatio: '4 / 3' }}
     >
-      <div className={cm.cn('relative z-10', cm.stack(3))}>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+      {/* Dot-grid canvas surface */}
+      <div
+        aria-hidden="true"
+        className={cm.cn(cm.inset0, cm.position('absolute'), 'dot-grid opacity-60')}
+      ></div>
+
+      {/* Floating tool toolbar */}
+      <div
+        aria-hidden="true"
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'sm' }),
+          cm.position('absolute'),
+          'top-4 left-1/2 -translate-x-1/2 z-20 bg-surface/90 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-outline-variant/30',
+        )}
+      >
+        <span
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            'w-8 h-8 rounded bg-surface-container-high text-on-surface-variant',
+          )}
+        >
+          <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>near_me</span>
+        </span>
+        <span
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            'w-8 h-8 rounded bg-primary text-white shadow-sm',
+          )}
+        >
+          <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>
+            sticky_note_2
+          </span>
+        </span>
+        <span
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            'w-8 h-8 rounded bg-surface-container-high text-on-surface-variant',
+          )}
+        >
+          <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>edit</span>
+        </span>
+        <span
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            'w-8 h-8 rounded bg-surface-container-high text-on-surface-variant',
+          )}
+        >
+          <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>title</span>
+        </span>
+      </div>
+
+      {/* Sticky notes */}
+      <StickyNote
+        color="--color-sticky-yellow"
+        rotate="-rotate-3"
+        className="top-10 left-8 w-36 md:w-40"
+      >
+        {t('boardHeroCard.noteYellow', {}, { defaultValue: 'Redesign landing page header' })}
+      </StickyNote>
+      <StickyNote
+        color="--color-sticky-pink"
+        rotate="rotate-3"
+        className="top-1/3 right-8 w-36 md:w-44"
+      >
+        {t('boardHeroCard.notePink', {}, { defaultValue: 'Need more contrast here!' })}
+      </StickyNote>
+      <StickyNote
+        color="--color-sticky-blue"
+        rotate="-rotate-1"
+        className="bottom-28 left-16 md:left-24 w-32 md:w-36"
+      >
+        {t('boardHeroCard.noteBlue', {}, { defaultValue: 'Add animation' })}
+      </StickyNote>
+
+      {/* Hand-drawn connectors + shapes */}
+      <svg
+        aria-hidden="true"
+        className={cm.cn(cm.inset0, cm.position('absolute'), 'w-full h-full pointer-events-none')}
+        viewBox="0 0 400 300"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M 180 120 Q 250 80 320 150"
+          fill="none"
+          stroke="var(--color-secondary)"
+          strokeDasharray="5,5"
+          strokeWidth="3"
+        />
+        <polygon fill="var(--color-secondary)" points="315,145 325,155 310,160" />
+        <circle
+          cx="280"
+          cy="220"
+          r="40"
+          fill="none"
+          stroke="var(--color-canvas-accent)"
+          strokeWidth="4"
+          opacity="0.5"
+        />
+      </svg>
+      <div
+        aria-hidden="true"
+        className={cm.cn(
+          'font-handwriting text-canvas-accent text-3xl font-bold -rotate-12 absolute top-2/5 left-2/5',
+        )}
+      >
+        {t('boardHeroCard.bigIdea', {}, { defaultValue: 'Big Idea!' })}
+      </div>
+
+      {/* Multiplayer cursors */}
+      <LiveCursor color="--color-cursor-pink" name="Ari" className="bottom-2/3 right-4 z-10" />
+      <LiveCursor color="--color-cursor-cyan" name="Jin" className="bottom-40 left-10 z-10" />
+      <LiveCursor color="--color-cursor-orange" name="Maya" className="top-1/2 left-1/2 z-10" />
+
+      {/* Board data bar — the real, linkable payload */}
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+          cm.position('absolute'),
+          'bottom-4 left-4 right-4 z-20 bg-surface/85 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-outline-variant/30 shadow-sm',
+        )}
+      >
+        <div className="flex flex-col min-w-0">
+          <span className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.textSize('xs'))}>
+            <span
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                cm.uppercase,
+                cm.trackingWide,
+                'text-on-surface-variant',
+              )}
+            >
+              {board.projectCode ??
+                t('boardHeroCard.eyebrow', {}, { defaultValue: 'Active board' })}
+            </span>
+            <span className={cm.cn('h-px w-6 bg-outline-variant/40')} aria-hidden="true"></span>
+            <span className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface-variant truncate')}>
+              {board.updatedLabel}
+            </span>
+          </span>
           <span
             className={cm.cn(
               cm.fontWeight('bold'),
-              cm.textSize('xs'),
-              'uppercase tracking-widest text-white/70',
+              cm.textSize('base'),
+              'text-on-surface truncate',
             )}
           >
-            {board.projectCode ?? t('boardHeroCard.eyebrow', {}, { defaultValue: 'Active board' })}
-          </span>
-          <span className={cm.cn('h-px w-8 bg-surface/30')}></span>
-          <span className={cm.cn(cm.fontWeight('semibold'), cm.textSize('xs'), 'text-white/70')}>
-            {board.updatedLabel}
+            {board.title}
           </span>
         </div>
-        <h2
-          className={cm.cn('text-5xl md:text-6xl font-extrabold tracking-tighter leading-[0.95]')}
-        >
-          {board.title}
-        </h2>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mt', 2))}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'shrink-0')}>
           <span
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),
@@ -68,7 +247,7 @@ export function BoardHeroCard({ board }: BoardHeroCardProps) {
               cm.roundedFull,
               cm.textSize('xs'),
               cm.fontWeight('bold'),
-              'bg-surface/20 backdrop-blur-md',
+              'bg-primary text-white',
             )}
           >
             <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>group</span>
@@ -86,7 +265,7 @@ export function BoardHeroCard({ board }: BoardHeroCardProps) {
               cm.roundedFull,
               cm.textSize('xs'),
               cm.fontWeight('bold'),
-              'bg-surface/10 backdrop-blur-md text-white/80',
+              'bg-surface-container-high text-on-surface-variant hidden sm:flex',
             )}
           >
             <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>
@@ -96,69 +275,6 @@ export function BoardHeroCard({ board }: BoardHeroCardProps) {
           </span>
         </div>
       </div>
-
-      <div className={cm.cn('relative z-10', cm.sp('mt', 8), cm.h(28), cm.w('full'))}>
-        <svg
-          viewBox="0 0 400 110"
-          preserveAspectRatio="none"
-          className={cm.cn(cm.w('full'), cm.h('full'), 'opacity-40')}
-        >
-          <defs>
-            <pattern id="dot-grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="2" cy="2" r="1.2" fill="white" />
-            </pattern>
-          </defs>
-          <rect width="400" height="110" fill="url(#dot-grid)" />
-          <rect
-            x="40"
-            y="20"
-            width="80"
-            height="50"
-            rx="4"
-            fill="white"
-            fillOpacity="0.18"
-            stroke="white"
-            strokeOpacity="0.6"
-            strokeWidth="2"
-          />
-          <rect x="160" y="40" width="60" height="30" rx="4" fill="#fef08a" fillOpacity="0.6" />
-          <circle
-            cx="280"
-            cy="50"
-            r="22"
-            fill="white"
-            fillOpacity="0.18"
-            stroke="white"
-            strokeOpacity="0.6"
-            strokeWidth="2"
-          />
-          <path
-            d="M120 45 L160 55"
-            stroke="white"
-            strokeOpacity="0.6"
-            strokeWidth="2"
-            strokeDasharray="4 4"
-          />
-          <path d="M220 55 L258 50" stroke="white" strokeOpacity="0.6" strokeWidth="2" />
-        </svg>
-      </div>
-
-      <div
-        className={cm.cn(
-          cm.w(80),
-          cm.h(80),
-          cm.roundedFull,
-          'absolute -right-20 -bottom-24 bg-surface/10 blur-3xl',
-        )}
-      ></div>
-      <div
-        className={cm.cn(
-          cm.w(40),
-          cm.h(40),
-          cm.roundedFull,
-          'absolute -left-10 top-12 bg-secondary/30 blur-3xl',
-        )}
-      ></div>
     </Link>
   )
 }

@@ -25,3 +25,41 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Design-token bridge — Tailwind utilities for token groups that have no
+ * ClassMap method (board surface, cursors, handwriting font).
+ *
+ * `@theme inline` means the utility carries the var() itself instead of a
+ * snapshot value, so the light/dark overrides in theme.css apply at runtime.
+ * The variables are DEFINED in theme.css (:root + [data-mol-mode='dark']) —
+ * this block only exposes them as `bg-sticky-*`, `text-cursor-*`, `bg-canvas`
+ * and `font-handwriting` utilities. Never hardcode the values here.
+ */
+@theme inline {
+  /* Sticky-note pastels (Stitch palette) */
+  --color-sticky-yellow: var(--color-sticky-yellow);
+  --color-sticky-green: var(--color-sticky-green);
+  --color-sticky-blue: var(--color-sticky-blue);
+  --color-sticky-pink: var(--color-sticky-pink);
+  --color-sticky-purple: var(--color-sticky-purple);
+  --color-sticky-orange: var(--color-sticky-orange);
+  --color-sticky-gray: var(--color-sticky-gray);
+  /* Live-cursor hues (multiplayer name tags) */
+  --color-cursor-orange: var(--color-cursor-orange);
+  --color-cursor-cyan: var(--color-cursor-cyan);
+  --color-cursor-pink: var(--color-cursor-pink);
+  /* Infinite-canvas surface */
+  --color-canvas: var(--color-canvas-bg);
+  --color-canvas-dots: var(--color-canvas-grid);
+  /* Violet canvas accent (handwriting, decorations) */
+  --color-canvas-accent: var(--color-canvas-accent);
+  /* Handwriting accent (Caveat — see index.html's font link) */
+  --font-handwriting: var(--font-handwriting);
+}
+
+/* Infinite-canvas dot grid — hero + board-preview backdrop (design .dot-grid) */
+.dot-grid {
+  background-image: radial-gradient(var(--color-canvas-grid) 1px, transparent 1px);
+  background-size: 20px 20px;
+}

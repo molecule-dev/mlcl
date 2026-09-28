@@ -22,16 +22,6 @@ interface CampaignCardProps {
   campaign: CampaignCardData
 }
 
-const CATEGORY_TINT: Record<string, string> = {
-  tech: 'bg-primary text-white',
-  design: 'bg-tertiary text-white',
-  film: 'bg-secondary text-white',
-  games: 'bg-accent-700 text-white',
-  music: 'bg-warning text-on-warning-container',
-  food: 'bg-success text-white',
-  art: 'bg-tertiary text-white',
-}
-
 function fmtUsd(cents: number) {
   return `$${Math.round(cents / 100).toLocaleString()}`
 }
@@ -47,7 +37,6 @@ function fmtUsd(cents: number) {
 export function CampaignCard({ campaign }: CampaignCardProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const tint = CATEGORY_TINT[campaign.category.toLowerCase()] ?? 'bg-primary text-white'
   const fundedAtLeast = campaign.pledged_cents >= campaign.goal_cents
 
   return (
@@ -95,8 +84,7 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
             cm.textSize('xs'),
             cm.fontWeight('bold'),
             cm.roundedFull,
-            'absolute top-4 left-4 uppercase tracking-widest shadow-md',
-            tint,
+            'absolute top-4 left-4 uppercase tracking-widest shadow-md bg-primary text-white',
           )}
         >
           {campaign.category}

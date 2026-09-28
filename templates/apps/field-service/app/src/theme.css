@@ -20,12 +20,18 @@
  *     Google Fonts <link> (a font not loaded there silently falls back).
  * ============================================================================= */
 :root {
-  --color-primary: #1d4ed8;
-  --color-primary-light: #60a5fa;
-  --color-primary-dark: #1e40af;
+  /* Stitch mission-control palette: deep navy primary, blue-800 band,
+     live-status orange. */
+  --color-primary: #00288e;
+  --color-primary-light: #b8c4ff;
+  --color-primary-dark: #001c63;
   --color-secondary: #0369a1;
   --color-secondary-light: #38bdf8;
   --color-accent: #ea580c;
+  --color-band-blue: #1e40af; /* stats band (design primary-container) */
+  --color-on-band-blue: #a8b8ff; /* muted text on the band */
+  --color-live-orange: #fe932c; /* live pulse dots / status chips */
+  --color-live-deep: #904d00; /* eyebrow label brown-orange */
   --color-danger: #dc2626;
   --color-warning: #d97706;
   --color-success: #16a34a;
@@ -36,13 +42,13 @@
   --color-text-secondary: #334e8a;
   --color-text-muted: #4a6491;
   --color-border: #bfdbfe;
-  --color-border-active: #1d4ed8;
+  --color-border-active: #00288e;
   /* Always-dark dispatch-board rail — intentionally dark in both themes */
   --color-map-bg: #0c1929;
 
   /* === @mol-color-* provider bridge tokens === */
-  --mol-color-primary: #1d4ed8;
-  --mol-color-primary-light: #dbeafe;
+  --mol-color-primary: #00288e;
+  --mol-color-primary-light: #dde1ff;
   --mol-color-primary-dark: #1e40af;
   --mol-color-secondary: #0369a1;
   --mol-color-background: #eff6ff;
@@ -57,7 +63,7 @@
   --mol-color-text-inverse: #ffffff;
   --mol-color-border: #bfdbfe;
   --mol-color-border-secondary: #93c5fd;
-  --mol-color-border-focus: #1d4ed8;
+  --mol-color-border-focus: #00288e;
   --mol-color-success: #16a34a;
   --mol-color-warning: #d97706;
   --mol-color-error: #dc2626;
@@ -94,13 +100,13 @@
   --color-on-error-container: #7f1d1d;
   --color-outline: #64789b;
   --color-outline-variant: #bfdbfe;
-  --color-surface-tint: #1d4ed8;
+  --color-surface-tint: #00288e;
 
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
   /* Headline font — picked up by shared molecule pages
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-headline: 'Inter', system-ui, -apple-system, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;

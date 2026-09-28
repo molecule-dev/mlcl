@@ -143,7 +143,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'משרות',
   'jobs.loadError': 'טעינת העבודות נכשלה.',
   'jobs.newCta': 'פרסום משרה',
-  'landing.copyright': '© {{year}} {{app}}. Built with Molecule.',
+  'landing.copyright': '© {{year}} {{app}}. Built with Molecule.devdev',
   'landing.eyebrow': 'גיוס עובדים בסיוע בינה מלאכותית · גרסה 2',
   'landing.featuresEyebrow': 'איך זה עובד',
   'landing.featuresHeading': 'סיגנל - לא גיליונות אלקטרוניים.',

@@ -74,7 +74,7 @@ export function Landing() {
           cm.maxW('7xl'),
           cm.mxAuto,
           cm.w('full'),
-          'sticky top-0 z-40 bg-surface/80 backdrop-blur-md',
+          'sticky top-0 z-40 bg-surface-container-low/90 backdrop-blur-md',
         )}
       >
         <div className={cm.flex({ align: 'center', gap: 'lg' })}>
@@ -83,19 +83,42 @@ export function Landing() {
             data-mol-id="landing-logo"
             className={cm.flex({ align: 'center', gap: 'xs' })}
           >
-            <span
-              className="material-symbols-outlined text-primary"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-              aria-hidden="true"
-            >
-              lightbulb
-            </span>
-            <span
-              className={cm.cn(cm.textSize('2xl'), 'font-extrabold tracking-tighter text-primary')}
-            >
+            <span className={cm.cn(cm.textSize('2xl'), 'font-black tracking-tighter text-primary')}>
               {APP_NAME}
             </span>
           </SafeLink>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.hiddenBelow('md'))}>
+            <a
+              href="#features"
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                'tracking-wide text-on-surface-variant hover:text-primary hover:bg-surface-container-lowest/60 transition-all rounded-lg px-3 py-2',
+              )}
+            >
+              {t('nav.features', {}, { defaultValue: 'Features' })}
+            </a>
+            <SafeLink
+              to="/pricing"
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                'tracking-wide text-on-surface-variant hover:text-primary hover:bg-surface-container-lowest/60 transition-all rounded-lg px-3 py-2',
+              )}
+            >
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </SafeLink>
+            <SafeLink
+              to="/about"
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                'tracking-wide text-on-surface-variant hover:text-primary hover:bg-surface-container-lowest/60 transition-all rounded-lg px-3 py-2',
+              )}
+            >
+              {t('nav.about', {}, { defaultValue: 'About' })}
+            </SafeLink>
+          </div>
         </div>
         <div className={cm.flex({ align: 'center', gap: 'md' })}>
           {isAuthenticated ? (
@@ -170,7 +193,7 @@ export function Landing() {
               <p
                 className={cm.cn(
                   cm.maxW('xl'),
-                  'serif-text text-lg leading-relaxed text-on-surface-variant',
+                  'serif-text text-[1.375rem] leading-relaxed text-on-surface-variant',
                 )}
               >
                 {t(
@@ -191,7 +214,7 @@ export function Landing() {
                     cm.sp('py', 4),
                     cm.textSize('lg'),
                     cm.fontWeight('semibold'),
-                    'rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary text-center hover:opacity-90 transition-opacity shadow-ambient',
+                    'rounded-lg bg-gradient-to-br from-primary to-primary-container text-on-primary text-center hover:opacity-90 transition-opacity shadow-[0_12px_40px_rgba(0,106,97,0.15)]',
                   )}
                 >
                   {t('common.startFree', {}, { defaultValue: 'Start free' })}
@@ -205,7 +228,7 @@ export function Landing() {
                     cm.textSize('lg'),
                     cm.fontWeight('semibold'),
                     cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
-                    'rounded-xl border border-outline-variant/30 bg-surface-container-lowest text-primary hover:bg-surface-container-low transition-colors shadow-sm',
+                    'rounded-lg border border-outline-variant bg-surface-container-lowest text-primary hover:bg-surface-container-low transition-colors shadow-sm',
                   )}
                 >
                   <span className="material-symbols-outlined" aria-hidden="true">
@@ -219,47 +242,74 @@ export function Landing() {
               </div>
             </div>
 
-            {/* Hero card */}
+            {/* Hero card — white bordered frame, editorial visual, floating tutor bubble */}
             <div className={'relative hidden lg:block'}>
               <div
                 className={
-                  'aspect-square w-full rounded-[2rem] bg-gradient-to-br from-primary-container/30 via-surface-container-low to-secondary-fixed/20 p-10 shadow-ambient relative overflow-hidden'
+                  'aspect-square w-full rounded-xl bg-surface-container-lowest border border-outline-variant/20 p-6 shadow-ambient relative overflow-visible'
                 }
               >
+                {/* Editorial visual area (stands in for the design's photo) */}
                 <div
                   className={
-                    'absolute inset-x-10 top-10 rounded-2xl bg-surface-container-lowest p-6 shadow-sm'
+                    'h-full w-full rounded-lg bg-gradient-to-br from-primary-container/20 via-surface-container-low to-secondary-fixed/30 relative overflow-hidden'
                   }
                 >
-                  <p
-                    className={cm.cn(
-                      cm.textSize('xs'),
-                      cm.sp('mb', 2),
-                      'uppercase tracking-widest text-primary font-bold',
-                    )}
-                  >
-                    {t('landing.heroCardLabel', {}, { defaultValue: 'AI tutor session' })}
-                  </p>
-                  <p
-                    className={cm.cn(
-                      cm.textSize('lg'),
-                      'serif-text leading-relaxed text-on-surface',
-                    )}
-                  >
-                    {t(
-                      'landing.heroCardQuote',
-                      {},
-                      {
-                        defaultValue:
-                          '"Let\'s break down that formula again — think about what happens when x approaches zero."',
-                      },
-                    )}
-                  </p>
+                  {/* Decorative orbs inside the visual */}
+                  <div
+                    className={
+                      'pointer-events-none absolute -right-12 -bottom-16 w-72 h-72 rounded-full bg-primary-container/30 blur-3xl'
+                    }
+                    aria-hidden="true"
+                  />
+                  <div
+                    className={
+                      'pointer-events-none absolute -left-10 -top-8 w-40 h-40 rounded-full bg-secondary-fixed/40 blur-2xl'
+                    }
+                    aria-hidden="true"
+                  />
                 </div>
 
+                {/* Floating tutor bubble — overlaps the card's left edge */}
                 <div
                   className={
-                    'absolute inset-x-10 bottom-10 rounded-2xl bg-surface-container-lowest p-6 shadow-sm'
+                    'absolute -left-12 top-1/4 bg-surface-container-lowest/90 backdrop-blur-[24px] p-4 rounded-lg shadow-[0_12px_40px_rgba(0,106,97,0.1)] border border-outline-variant/20 flex items-start gap-4 max-w-xs'
+                  }
+                >
+                  <div
+                    className={cm.cn(
+                      cm.w(10),
+                      cm.h(10),
+                      cm.roundedFull,
+                      'bg-primary-container/20 flex items-center justify-center shrink-0',
+                    )}
+                  >
+                    <span className="material-symbols-outlined text-primary" aria-hidden="true">
+                      auto_awesome
+                    </span>
+                  </div>
+                  <div>
+                    <p
+                      className={cm.cn(
+                        'serif-text text-sm leading-relaxed text-on-surface-variant',
+                      )}
+                    >
+                      {t(
+                        'landing.heroCardQuote',
+                        {},
+                        {
+                          defaultValue:
+                            '"Let\'s break down that formula again — think about what happens when x approaches zero."',
+                        },
+                      )}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Glass mastery card */}
+                <div
+                  className={
+                    'absolute inset-x-6 bottom-6 rounded-lg bg-surface-container-lowest/90 backdrop-blur-[24px] border border-outline-variant/20 p-4 shadow-sm'
                   }
                 >
                   <div
@@ -297,26 +347,12 @@ export function Landing() {
                     />
                   </div>
                 </div>
-
-                {/* Decorative orbs */}
-                <div
-                  className={
-                    'pointer-events-none absolute -right-12 -bottom-16 w-72 h-72 rounded-full bg-primary-container/30 blur-3xl'
-                  }
-                  aria-hidden="true"
-                />
-                <div
-                  className={
-                    'pointer-events-none absolute -left-10 -top-8 w-40 h-40 rounded-full bg-secondary-fixed/40 blur-2xl'
-                  }
-                  aria-hidden="true"
-                />
               </div>
             </div>
           </div>
           <div
             className={
-              'pointer-events-none absolute -mt-40 -mr-40 top-0 right-0 z-0 w-[700px] h-[700px] rounded-full bg-primary-container/10 blur-3xl'
+              'pointer-events-none absolute -mt-40 -mr-40 top-0 right-0 z-0 w-[800px] h-[800px] rounded-full bg-primary-container/5 blur-3xl'
             }
             aria-hidden="true"
           />
@@ -338,7 +374,7 @@ export function Landing() {
             )}
           >
             <span
-              className="material-symbols-outlined text-secondary"
+              className="material-symbols-outlined text-secondary-container"
               style={{ fontVariationSettings: "'FILL' 1" }}
               aria-hidden="true"
             >
@@ -357,7 +393,7 @@ export function Landing() {
                   defaultValue: 'Join 50,000+ students on a streak — average ',
                 },
               )}
-              <span className="text-secondary font-extrabold text-glow-secondary">
+              <span className="text-secondary-container font-extrabold text-glow-secondary">
                 {t('landing.streakBannerMid', {}, { defaultValue: '42-day' })}
               </span>
               {t('landing.streakBannerTail', {}, { defaultValue: ' streak' })}
@@ -401,7 +437,7 @@ export function Landing() {
                   key={f.titleKey}
                   className={cm.cn(
                     cm.sp('p', 8),
-                    'group rounded-2xl border border-outline-variant/20 bg-surface-container-lowest shadow-sm transition-shadow hover:shadow-md',
+                    'group rounded-xl border border-outline-variant/20 bg-surface-container-lowest shadow-sm transition-shadow hover:shadow-md',
                   )}
                 >
                   <div
@@ -410,10 +446,10 @@ export function Landing() {
                       cm.h(12),
                       cm.flex({ align: 'center', justify: 'center' }),
                       cm.sp('mb', 6),
-                      'rounded-xl transition-colors',
+                      'rounded-lg transition-colors',
                       f.tone === 'secondary'
-                        ? 'bg-secondary-fixed-dim/20 text-secondary group-hover:bg-secondary-fixed-dim/40'
-                        : 'bg-primary-container/15 text-primary group-hover:bg-primary-container/30',
+                        ? 'bg-secondary-container/10 text-secondary-container group-hover:bg-secondary-container/20'
+                        : 'bg-primary-container/10 text-primary group-hover:bg-primary-container/20',
                     )}
                   >
                     <span className={'material-symbols-outlined text-2xl'} aria-hidden="true">

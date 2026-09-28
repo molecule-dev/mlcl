@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LoadErrorBanner } from '@molecule/app-ui-react'
 
@@ -33,6 +33,7 @@ function CartPage() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const isAuthenticated = useIsAuthenticated()
   const [items, setItems] = useState<CartItemData[]>([])
   const [subtotal, setSubtotal] = useState(0)
   const [loading, setLoading] = useState(true)
@@ -68,8 +69,11 @@ function CartPage() {
   }, [http])
 
   useEffect(() => {
+    // The cart API is auth-scoped: a signed-out visitor has no cart to fetch,
+    // and the doomed call would 401 (console noise + wasted round-trip).
+    if (!isAuthenticated) return
     fetchCart()
-  }, [fetchCart])
+  }, [fetchCart, isAuthenticated])
 
   const updateQuantity = async (itemId: string, quantity: number) => {
     try {

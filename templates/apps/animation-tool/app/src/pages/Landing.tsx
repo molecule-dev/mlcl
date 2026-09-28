@@ -75,6 +75,9 @@ const SAMPLE_PROJECTS = [
   },
 ]
 
+/* Stitch logo band — grayscale placeholder customers under the hero. */
+const SOCIAL_PROOF_BRANDS = ['Acme Corp', 'Globex', 'Soylent', 'Initech', 'Umbrella'] as const
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -249,6 +252,24 @@ export function Landing() {
             >
               {APP_TAGLINE}
             </p>
+            {/* Logo band — Stitch's grayscale social-proof strip */}
+            <div
+              className={cm.cn(
+                cm.flex({ wrap: 'wrap', justify: 'center', gap: 8 }),
+                cm.sp('mt', 16),
+                'opacity-50 grayscale',
+              )}
+              aria-hidden="true"
+            >
+              {SOCIAL_PROOF_BRANDS.map((brand) => (
+                <span
+                  key={brand}
+                  className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'font-headline')}
+                >
+                  {brand}
+                </span>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -294,12 +315,13 @@ export function Landing() {
               </h2>
             </div>
             <div className={cm.cn('grid grid-cols-1 md:grid-cols-3 gap-4')}>
-              {FEATURES.map((f) => (
+              {FEATURES.map((f, i) => (
                 <article
                   key={f.titleKey}
                   className={cm.cn(
                     cm.sp('p', 6),
-                    'rounded-xl border border-[var(--anim-border)] bg-[var(--anim-background)] hover:border-[color-mix(in_srgb,var(--anim-primary)_40%,transparent)] transition-colors',
+                    cm.flex({ direction: 'col' }),
+                    'rounded-xl border border-[var(--anim-border)] bg-[var(--anim-surface)] hover:border-[color-mix(in_srgb,var(--anim-primary)_50%,transparent)] transition-colors group',
                   )}
                 >
                   <div
@@ -308,17 +330,17 @@ export function Landing() {
                       cm.h(10),
                       cm.flex({ align: 'center', justify: 'center' }),
                       cm.sp('mb', 4),
-                      'rounded-lg bg-gradient-to-br from-[var(--anim-primary)]/20 to-[var(--anim-secondary)]/20 text-[var(--anim-primary)]',
+                      'rounded-lg bg-[color-mix(in_srgb,var(--anim-primary)_20%,transparent)] text-[var(--anim-primary)]',
                     )}
                   >
                     <span className="material-symbols-outlined">{f.icon}</span>
                   </div>
                   <h3
                     className={cm.cn(
-                      cm.fontWeight('semibold'),
-                      cm.textSize('lg'),
+                      cm.fontWeight('bold'),
+                      cm.textSize('xl'),
                       cm.sp('mb', 2),
-                      'font-headline text-[var(--anim-text)]',
+                      'font-headline text-[var(--anim-text)] group-hover:text-[var(--anim-primary)] transition-colors',
                     )}
                   >
                     {t(f.titleKey, {}, { defaultValue: f.defaultTitle })}
@@ -327,10 +349,44 @@ export function Landing() {
                     className={cm.cn(
                       cm.textSize('sm'),
                       'text-[var(--anim-text-secondary)] leading-relaxed',
+                      cm.sp('mb', 4),
                     )}
                   >
                     {t(f.bodyKey, {}, { defaultValue: f.defaultBody })}
                   </p>
+                  {/* Demo strip — Stitch gives each card a small preview box */}
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'h-24 mt-auto rounded-lg border border-[var(--anim-surface)] bg-[var(--anim-sidebar-bg)] overflow-hidden relative',
+                    )}
+                    aria-hidden="true"
+                  >
+                    {i === 0 && (
+                      <div
+                        className={cm.cn(
+                          'w-16 h-8 rounded-lg border border-[var(--anim-primary)] bg-[color-mix(in_srgb,var(--anim-primary)_20%,transparent)] group-hover:scale-110 group-hover:bg-[color-mix(in_srgb,var(--anim-primary)_40%,transparent)] transition-all duration-300',
+                        )}
+                      />
+                    )}
+                    {i === 1 && (
+                      <>
+                        <div className="absolute bottom-0 left-0 w-full h-2 bg-[var(--anim-surface)]" />
+                        <div className="absolute bottom-0 left-0 w-1/3 h-2 bg-[var(--anim-secondary)] group-hover:w-full transition-all duration-1000 ease-in-out" />
+                        <span className="w-8 h-8 rounded-full border border-[var(--anim-secondary)] bg-[color-mix(in_srgb,var(--anim-secondary)_20%,transparent)] group-hover:translate-x-12 transition-transform duration-1000" />
+                      </>
+                    )}
+                    {i === 2 && (
+                      <span
+                        className={cm.cn(
+                          cm.flex({ align: 'center', justify: 'center' }),
+                          'w-10 h-10 rounded-full border border-[var(--anim-text-secondary)] group-hover:border-[var(--anim-primary)] group-hover:text-[var(--anim-primary)] transition-colors',
+                        )}
+                      >
+                        <span className="material-symbols-outlined text-[20px]">favorite</span>
+                      </span>
+                    )}
+                  </div>
                 </article>
               ))}
             </div>
@@ -387,7 +443,7 @@ export function Landing() {
         className={cm.cn(
           cm.sp('py', 10),
           cm.sp('px', 6),
-          'border-t border-[var(--anim-border)] bg-[var(--anim-background)]',
+          'border-t border-[var(--anim-surface)] bg-[var(--anim-timeline-bg)]',
         )}
       >
         <div

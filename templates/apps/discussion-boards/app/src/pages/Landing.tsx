@@ -3,10 +3,9 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_NAME } from '../branding.js'
 import { CategoryCard } from '../components/CategoryCard.js'
 import { Footer } from '../components/Footer.js'
-import { ForumHeroCard } from '../components/ForumHeroCard.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 import { ThreadRow } from '../components/ThreadRow.js'
 
@@ -165,10 +164,9 @@ export function Landing() {
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),
-                cm.fontWeight('bold'),
-                cm.roundedFull,
+                cm.fontWeight('medium'),
                 cm.textSize('sm'),
-                'bg-primary text-on-primary hover:bg-primary-dark transition-colors shadow-sm shadow-primary/30',
+                'rounded-lg bg-primary text-on-primary hover:bg-primary-dark transition-colors',
               )}
             >
               {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -180,10 +178,9 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('px', 4),
                   cm.sp('py', 2),
-                  cm.fontWeight('semibold'),
-                  cm.roundedFull,
+                  cm.fontWeight('medium'),
                   cm.textSize('sm'),
-                  'text-on-surface-variant hover:text-primary border border-outline-variant/40 hover:border-primary/40 transition-colors',
+                  'hidden md:inline text-on-surface-variant hover:text-primary transition-colors',
                 )}
               >
                 {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -193,10 +190,9 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('px', 4),
                   cm.sp('py', 2),
-                  cm.fontWeight('bold'),
-                  cm.roundedFull,
+                  cm.fontWeight('medium'),
                   cm.textSize('sm'),
-                  'bg-primary text-on-primary hover:bg-primary-dark transition-colors shadow-sm shadow-primary/30',
+                  'rounded-lg bg-primary text-on-primary hover:bg-primary-dark transition-colors',
                 )}
               >
                 {t('landing.nav.joinFree', {}, { defaultValue: 'Join free' })}
@@ -241,30 +237,33 @@ export function Landing() {
             </span>
             <h1
               className={cm.cn(
-                'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-[0.95] text-on-surface',
+                'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-tight text-on-surface',
               )}
             >
-              {t(
-                'landing.hero.title',
-                {},
-                {
-                  defaultValue: 'A focused space for the long conversation.',
-                },
-              )}
+              {t('landing.hero.title', {}, { defaultValue: 'Where ideas' })}{' '}
+              <span className="relative inline-block">
+                <span className="relative z-10">
+                  {t('landing.hero.titleHighlight', {}, { defaultValue: 'converge' })}
+                </span>
+                <span
+                  aria-hidden
+                  className={cm.cn('absolute bottom-2 left-0 w-full h-3 bg-secondary/30 -z-10')}
+                />
+              </span>
             </h1>
             <p
               className={cm.cn(
-                cm.textSize('lg'),
-                cm.maxW('xl'),
+                cm.textSize('xl'),
+                cm.maxW('lg'),
                 'text-on-surface-variant leading-relaxed',
               )}
             >
               {t(
                 'landing.hero.subtitle',
-                { tagline: APP_TAGLINE, appName: APP_NAME },
+                {},
                 {
                   defaultValue:
-                    '{{tagline}} — {{appName}} is a threaded discussion home for communities who care about reputation, considered moderation, and ideas that age well.',
+                    'A modern home for threaded conversations, reputation, and meaningful debate.',
                 },
               )}
             </p>
@@ -274,12 +273,11 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('px', 6),
                   cm.sp('py', 3),
-                  cm.fontWeight('bold'),
-                  cm.roundedFull,
-                  'inline-flex items-center gap-2 bg-primary text-on-primary hover:bg-primary-dark transition-colors shadow-lg shadow-primary/30',
+                  cm.fontWeight('medium'),
+                  'inline-flex items-center gap-2 rounded-lg bg-primary text-on-primary hover:bg-primary-dark transition-colors shadow-md shadow-primary/25',
                 )}
               >
-                {t('landing.hero.primaryCta', {}, { defaultValue: 'Start a community' })}
+                {t('landing.hero.primaryCta', {}, { defaultValue: 'Spin up a board' })}
                 <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden>
                   arrow_forward
                 </span>
@@ -289,12 +287,11 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('px', 6),
                   cm.sp('py', 3),
-                  cm.fontWeight('bold'),
-                  cm.roundedFull,
-                  'inline-flex items-center gap-2 bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/40 transition-colors',
+                  cm.fontWeight('medium'),
+                  'inline-flex items-center gap-2 rounded-lg text-primary hover:bg-primary-light transition-colors',
                 )}
               >
-                {t('landing.hero.secondaryCta', {}, { defaultValue: 'See it in action' })}
+                {t('landing.hero.secondaryCta', {}, { defaultValue: 'See live communities' })}
               </a>
             </div>
             <div className={cm.cn(cm.flex({ gap: 'lg' }), 'flex-wrap text-on-surface-variant')}>
@@ -338,42 +335,145 @@ export function Landing() {
               ))}
             </div>
           </div>
-          <div className={cm.cn('lg:col-span-5')}>
-            <ForumHeroCard
-              eyebrow={t('landing.heroCard.eyebrow', {}, { defaultValue: 'A glimpse inside' })}
-              title={t('landing.heroCard.title', {}, { defaultValue: '218 minds, one thread' })}
-              subtitle={t(
-                'landing.heroCard.subtitle',
-                {},
-                {
-                  defaultValue:
-                    'Live preview of the marquee thread on the agora today — pinned, hot, and threaded five levels deep.',
-                },
+          <div className={cm.cn('relative lg:col-span-5')}>
+            {/* Blurred brand halo behind the mock thread card. */}
+            <div
+              aria-hidden
+              className={cm.cn(
+                'absolute -inset-4 bg-gradient-to-tr from-primary/10 to-transparent rounded-2xl blur-2xl',
               )}
-              primaryCta={{
-                label: 'Read the thread',
-                labelKey: 'landing.heroCard.cta',
-                defaultLabel: 'Read the thread',
-                to: '/login',
-              }}
-              stats={[
-                {
-                  labelKey: 'landing.heroCard.stat.replies',
-                  defaultLabel: 'Replies',
-                  value: '218',
-                },
-                {
-                  labelKey: 'landing.heroCard.stat.upvotes',
-                  defaultLabel: 'Upvotes',
-                  value: '1.2k',
-                },
-                {
-                  labelKey: 'landing.heroCard.stat.lastActivity',
-                  defaultLabel: 'Last reply',
-                  value: '12m ago',
-                },
-              ]}
             />
+            {/* Mock thread card — the "strongest argument surfaces" moment. */}
+            <article
+              className={cm.cn(
+                cm.stack(6),
+                cm.sp('p', 8),
+                'relative overflow-hidden rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-[0_12px_32px_rgba(26,28,31,0.06)]',
+              )}
+            >
+              {/* Column motif — vertical pinstripes along the right edge. */}
+              <div
+                aria-hidden
+                className={cm.cn('absolute right-0 top-0 bottom-0 w-32 pointer-events-none')}
+                style={{
+                  backgroundImage:
+                    'repeating-linear-gradient(90deg, transparent 0, transparent 19px, color-mix(in srgb, var(--color-on-surface) 5%, transparent) 19px, color-mix(in srgb, var(--color-on-surface) 5%, transparent) 20px)',
+                }}
+              />
+              <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'relative z-10')}>
+                <span
+                  aria-hidden
+                  className={cm.cn(
+                    cm.w(10),
+                    cm.h(10),
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    cm.roundedFull,
+                    cm.fontWeight('bold'),
+                    'bg-gradient-to-br from-primary to-secondary text-white text-sm',
+                  )}
+                >
+                  A
+                </span>
+                <div className={cm.cn(cm.stack(0.5))}>
+                  <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
+                    <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                      {t('landing.heroCard.author', {}, { defaultValue: 'Aurelius' })}
+                    </span>
+                    <span
+                      className={cm.cn(
+                        'bg-secondary/10 text-secondary text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full',
+                      )}
+                    >
+                      {t('landing.heroCard.trusted', {}, { defaultValue: 'Trusted' })}
+                    </span>
+                  </div>
+                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                    {t('landing.heroCard.time', {}, { defaultValue: '2 hours ago' })}
+                  </span>
+                </div>
+              </div>
+              <div className={cm.cn('relative z-10')}>
+                <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), cm.sp('mb', 3))}>
+                  <span
+                    className={cm.cn(
+                      'bg-primary/10 text-primary text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full',
+                    )}
+                  >
+                    {t('landing.heroCard.pinned', {}, { defaultValue: 'Pinned' })}
+                  </span>
+                  <h3
+                    className={cm.cn(
+                      cm.textSize('xl'),
+                      cm.fontWeight('bold'),
+                      'tracking-tight text-on-surface',
+                    )}
+                  >
+                    {t(
+                      'landing.heroCard.threadTitle',
+                      {},
+                      { defaultValue: 'The Architecture of Discourse' },
+                    )}
+                  </h3>
+                </div>
+                <p
+                  className={cm.cn(cm.textSize('base'), 'text-on-surface-variant leading-relaxed')}
+                  style={{ fontFamily: 'var(--mol-font-serif, Georgia, serif)' }}
+                >
+                  {t(
+                    'landing.heroCard.excerpt',
+                    {},
+                    {
+                      defaultValue:
+                        "True moderation isn't about silencing voices; it's about curating an environment where the strongest arguments surface naturally through consensus and structural integrity.",
+                    },
+                  )}
+                </p>
+              </div>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'lg' }),
+                  cm.sp('pt', 4),
+                  'mt-2 border-t border-outline-variant/40 relative z-10',
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 2 }),
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'text-on-surface-variant',
+                  )}
+                >
+                  <span className={cm.cn('material-symbols-outlined text-lg')} aria-hidden>
+                    thumb_up
+                  </span>
+                  342
+                </span>
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 2 }),
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'text-on-surface-variant',
+                  )}
+                >
+                  <span className={cm.cn('material-symbols-outlined text-lg')} aria-hidden>
+                    chat_bubble
+                  </span>
+                  89
+                </span>
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 2 }),
+                    'ml-auto text-on-surface-variant',
+                  )}
+                >
+                  <span className={cm.cn('material-symbols-outlined text-lg')} aria-hidden>
+                    bookmark
+                  </span>
+                </span>
+              </div>
+            </article>
           </div>
         </section>
 
@@ -569,9 +669,8 @@ export function Landing() {
             className={cm.cn(
               cm.sp('px', 6),
               cm.sp('py', 3),
-              cm.fontWeight('bold'),
-              cm.roundedFull,
-              'inline-flex items-center gap-2 bg-primary text-on-primary hover:bg-primary-dark transition-colors shadow-lg shadow-primary/30',
+              cm.fontWeight('medium'),
+              'inline-flex items-center gap-2 rounded-lg bg-primary text-on-primary hover:bg-primary-dark transition-colors shadow-md shadow-primary/25',
             )}
           >
             {t('landing.cta.button', {}, { defaultValue: 'Claim your community' })}

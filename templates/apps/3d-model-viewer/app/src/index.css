@@ -224,6 +224,12 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
+/* Ambient card shadow — Stitch boxShadow.ambient
+   (0 8px 32px 0 rgba(26, 26, 46, 0.06)). */
+.shadow-ambient {
+  box-shadow: 0 8px 32px 0 rgba(26, 26, 46, 0.06);
+}
+
 .ambient-shadow {
   box-shadow: 0 8px 32px 0 rgba(26, 26, 46, 0.06);
 }
@@ -282,6 +288,6 @@ h4,
 h5,
 h6,
 .font-headline {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 /* polish-v2:stitch-styles:end */

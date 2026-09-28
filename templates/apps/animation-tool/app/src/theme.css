@@ -1,34 +1,37 @@
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch design (design-animation-tool-landing.html) uses Inter for
+     headline/body and JetBrains Mono for mono. */
+  --font-headline: 'Inter', sans-serif;
 
-  /* === Vivace dark-default palette (dark studio canvas) === */
-  --anim-primary: #e040fb;
-  --anim-primary-hover: #c530db;
-  --anim-secondary: #00bfa5;
-  --anim-accent: #ffd740;
-  --anim-danger: #ff5252;
+  /* === Vivace dark-default palette — Stitch values: canvas #1a1a2e,
+     violet #8b5cf6 → pink #ec4899 accents (dark studio canvas) === */
+  --anim-primary: #8b5cf6;
+  --anim-primary-hover: #7c3aed;
+  --anim-secondary: #ec4899;
+  --anim-accent: #f59e0b;
+  --anim-danger: #ef4444;
 
-  --anim-background: #18181b;
-  --anim-surface: #27272a;
-  --anim-surface-elevated: #3f3f46;
-  --anim-border: #52525b;
+  --anim-background: #1a1a2e;
+  --anim-surface: #16162a;
+  --anim-surface-elevated: #20203a;
+  --anim-border: #2e2e4a;
 
-  --anim-text: #fafafa;
-  --anim-text-secondary: #a1a1aa;
-  --anim-text-muted: #71717a;
+  --anim-text: #f1f0f5;
+  --anim-text-secondary: #a09cb5;
+  --anim-text-muted: #75718c;
 
-  --anim-canvas-bg: #09090b;
-  --anim-selection: #e040fb;
-  --anim-playhead: #00bfa5;
-  --anim-keyframe: #ffd740;
-  --anim-keyframe-selected: #e040fb;
-  --anim-curve: rgba(0, 191, 165, 0.6);
+  --anim-canvas-bg: #1a1a2e;
+  --anim-selection: #ec4899;
+  --anim-playhead: #ef4444;
+  --anim-keyframe: #8b5cf6;
+  --anim-keyframe-selected: #ec4899;
+  --anim-curve: rgba(139, 92, 246, 0.4);
 
-  --anim-toolbar-bg: #18181b;
-  --anim-timeline-bg: #0f0f12;
-  --anim-sidebar-bg: #1f1f23;
+  --anim-toolbar-bg: #16162a;
+  --anim-timeline-bg: #0f0f24;
+  --anim-sidebar-bg: #12122a;
   --anim-sidebar-width: 280px;
 
   --anim-radius-sm: 4px;
@@ -42,64 +45,64 @@
   --anim-font-size-md: 14px;
 
   /* === @theme bridge — provider tokens (dark defaults match dark studio) === */
-  --mol-color-primary: #e040fb;
-  --mol-color-primary-light: #3b0f4d;
-  --mol-color-primary-dark: #c530db;
-  --mol-color-secondary: #00bfa5;
-  --mol-color-background: #18181b;
-  --mol-color-background-secondary: #27272a;
-  --mol-color-background-tertiary: #3f3f46;
-  --mol-color-surface: #27272a;
-  --mol-color-surface-secondary: #3f3f46;
-  --mol-color-input-background: #18181b;
-  --mol-color-text: #fafafa;
-  --mol-color-text-secondary: #a1a1aa;
-  --mol-color-text-tertiary: #71717a;
-  --mol-color-text-inverse: #18181b;
-  --mol-color-border: #52525b;
-  --mol-color-border-secondary: #3f3f46;
-  --mol-color-border-focus: #e040fb;
-  --mol-color-success: #00bfa5;
-  --mol-color-warning: #ffd740;
-  --mol-color-error: #ff5252;
+  --mol-color-primary: #8b5cf6;
+  --mol-color-primary-light: #2e1065;
+  --mol-color-primary-dark: #7c3aed;
+  --mol-color-secondary: #ec4899;
+  --mol-color-background: #1a1a2e;
+  --mol-color-background-secondary: #16162a;
+  --mol-color-background-tertiary: #20203a;
+  --mol-color-surface: #16162a;
+  --mol-color-surface-secondary: #20203a;
+  --mol-color-input-background: #12122a;
+  --mol-color-text: #f1f0f5;
+  --mol-color-text-secondary: #a09cb5;
+  --mol-color-text-tertiary: #75718c;
+  --mol-color-text-inverse: #1a1a2e;
+  --mol-color-border: #2e2e4a;
+  --mol-color-border-secondary: #20203a;
+  --mol-color-border-focus: #8b5cf6;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
   --mol-color-info: #60a5fa;
 
   /* === Material-3 bridge tokens (dark defaults) === */
-  --color-background: #18181b;
-  --color-on-background: #fafafa;
-  --color-surface: #27272a;
-  --color-surface-bright: #3f3f46;
-  --color-surface-dim: #0f0f12;
-  --color-surface-container-lowest: #09090b;
-  --color-surface-container-low: #1f1f23;
-  --color-surface-container: #27272a;
-  --color-surface-container-high: #3f3f46;
-  --color-surface-container-highest: #52525b;
-  --color-surface-variant: #3f3f46;
-  --color-on-surface: #fafafa;
-  --color-on-surface-variant: #a1a1aa;
-  --color-inverse-surface: #fafafa;
-  --color-inverse-on-surface: #18181b;
-  --color-inverse-primary: #c530db;
-  --color-primary: #e040fb;
-  --color-primary-container: #3b0f4d;
-  --color-on-primary: #1a001f; /* dark purple — white gives only 3.3:1 on fuchsia */
-  --color-on-primary-container: #f8d4ff;
-  --color-secondary: #00bfa5;
-  --color-secondary-container: #004d43;
-  --color-on-secondary: #000000;
-  --color-on-secondary-container: #adf7ec;
-  --color-tertiary: #ffd740;
-  --color-tertiary-container: #4d3b00;
-  --color-on-tertiary: #000000;
-  --color-on-tertiary-container: #fff0b0;
-  --color-error: #ff5252;
-  --color-error-container: #4d0a0a;
-  --color-on-error: #450a16; /* dark — white gives only 3.2:1 on coral-red */
-  --color-on-error-container: #ffdad6;
-  --color-outline: #71717a;
-  --color-outline-variant: #3f3f46;
-  --color-surface-tint: #e040fb;
+  --color-background: #1a1a2e;
+  --color-on-background: #f1f0f5;
+  --color-surface: #16162a;
+  --color-surface-bright: #20203a;
+  --color-surface-dim: #0f0f24;
+  --color-surface-container-lowest: #0f0f24;
+  --color-surface-container-low: #12122a;
+  --color-surface-container: #16162a;
+  --color-surface-container-high: #20203a;
+  --color-surface-container-highest: #2e2e4a;
+  --color-surface-variant: #20203a;
+  --color-on-surface: #f1f0f5;
+  --color-on-surface-variant: #a09cb5;
+  --color-inverse-surface: #f1f0f5;
+  --color-inverse-on-surface: #1a1a2e;
+  --color-inverse-primary: #c4b5fd;
+  --color-primary: #8b5cf6;
+  --color-primary-container: #4c1d95;
+  --color-on-primary: #ffffff; /* white on #8b5cf6 = 4.5:1 */
+  --color-on-primary-container: #ede9fe;
+  --color-secondary: #ec4899;
+  --color-secondary-container: #831843;
+  --color-on-secondary: #ffffff; /* white on #ec4899 = 3.9:1 — CTA-scale only */
+  --color-on-secondary-container: #fce7f3;
+  --color-tertiary: #f59e0b;
+  --color-tertiary-container: #78350f;
+  --color-on-tertiary: #1c1004; /* near-black on amber — white is 1.9:1 */
+  --color-on-tertiary-container: #fef3c7;
+  --color-error: #ef4444;
+  --color-error-container: #7f1d1d;
+  --color-on-error: #ffffff; /* white on #ef4444 = 3.76:1 — large/CTA text */
+  --color-on-error-container: #fecaca;
+  --color-outline: #8f8ba6; /* lifted for 4.5:1 on #1a1a2e */
+  --color-outline-variant: #2e2e4a;
+  --color-surface-tint: #8b5cf6;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
@@ -198,99 +201,98 @@
   --color-surface-tint: #e040fb;
 }
 
-/* Dark mode — motion-studio rich-black canvas.
-   Pure-black canvas + near-black chrome so animations and color reads
-   are not contaminated by toolbar tint. Brand fuchsia stays at the
-   brand stop (#E040FB) and brightens slightly for hero CTAs.
+/* Dark mode — Vivace Stitch canvas.
+   Deep indigo-black (#1a1a2e family) with violet #8b5cf6 → pink #ec4899
+   accents, matching design-animation-tool-landing.html exactly.
    `--color-on-primary` stays white so CTA buttons keep white text. */
 [data-mol-mode='dark'] {
-  --anim-primary: #e879f9;
-  --anim-primary-hover: #f0a6fb;
-  --anim-secondary: #2dd4bf;
+  --anim-primary: #a78bfa;
+  --anim-primary-hover: #c4b5fd;
+  --anim-secondary: #f472b6;
   --anim-accent: #fbbf24;
-  --anim-danger: #fb7185;
+  --anim-danger: #f87171;
 
-  --anim-background: #0a0a0c;
-  --anim-surface: #131316;
-  --anim-surface-elevated: #1e1e22;
-  --anim-border: #2e2e34;
+  --anim-background: #1a1a2e;
+  --anim-surface: #16162a;
+  --anim-surface-elevated: #23233e;
+  --anim-border: #323252;
 
-  --anim-text: #f5f5f7;
-  --anim-text-secondary: #b8b8bf;
-  --anim-text-muted: #8a8a92; /* was #75757d — 4.3:1 on the rich-black bg; #8a8a92 = 5.7:1 for the tiny mono labels */
+  --anim-text: #f1f0f5;
+  --anim-text-secondary: #a09cb5;
+  --anim-text-muted: #8a86a0; /* 5.2:1 on #1a1a2e for the tiny mono labels */
 
-  --anim-canvas-bg: #000000;
-  --anim-selection: #e879f9;
-  --anim-playhead: #2dd4bf;
-  --anim-keyframe: #fbbf24;
-  --anim-keyframe-selected: #e879f9;
-  --anim-curve: rgba(45, 212, 191, 0.7);
+  --anim-canvas-bg: #14142a;
+  --anim-selection: #ec4899;
+  --anim-playhead: #ef4444;
+  --anim-keyframe: #8b5cf6;
+  --anim-keyframe-selected: #ec4899;
+  --anim-curve: rgba(139, 92, 246, 0.5);
 
-  --anim-toolbar-bg: #0a0a0c;
-  --anim-timeline-bg: #050506;
-  --anim-sidebar-bg: #0f0f12;
+  --anim-toolbar-bg: #16162a;
+  --anim-timeline-bg: #0f0f24;
+  --anim-sidebar-bg: #12122a;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
 
   /* @theme bridge — dark overrides */
-  --mol-color-primary: #e879f9;
-  --mol-color-primary-light: #3b0f4d;
-  --mol-color-primary-dark: #e040fb;
-  --mol-color-secondary: #2dd4bf;
-  --mol-color-background: #0a0a0c;
-  --mol-color-background-secondary: #131316;
-  --mol-color-background-tertiary: #1e1e22;
-  --mol-color-surface: #131316;
-  --mol-color-surface-secondary: #1e1e22;
-  --mol-color-input-background: #0a0a0c;
-  --mol-color-text: #f5f5f7;
-  --mol-color-text-secondary: #b8b8bf;
-  --mol-color-text-tertiary: #8a8a92; /* matches --anim-text-muted — was #75757d (4.3:1) */
-  --mol-color-text-inverse: #0a0a0c;
-  --mol-color-border: #2e2e34;
-  --mol-color-border-secondary: #1e1e22;
-  --mol-color-border-focus: #e879f9;
-  --mol-color-success: #2dd4bf;
+  --mol-color-primary: #a78bfa;
+  --mol-color-primary-light: #2e1065;
+  --mol-color-primary-dark: #8b5cf6;
+  --mol-color-secondary: #f472b6;
+  --mol-color-background: #1a1a2e;
+  --mol-color-background-secondary: #16162a;
+  --mol-color-background-tertiary: #23233e;
+  --mol-color-surface: #16162a;
+  --mol-color-surface-secondary: #23233e;
+  --mol-color-input-background: #12122a;
+  --mol-color-text: #f1f0f5;
+  --mol-color-text-secondary: #a09cb5;
+  --mol-color-text-tertiary: #8a86a0;
+  --mol-color-text-inverse: #1a1a2e;
+  --mol-color-border: #323252;
+  --mol-color-border-secondary: #23233e;
+  --mol-color-border-focus: #a78bfa;
+  --mol-color-success: #34d399;
   --mol-color-warning: #fbbf24;
-  --mol-color-error: #fb7185;
+  --mol-color-error: #f87171;
   --mol-color-info: #60a5fa;
 
   /* Material-3 bridge tokens — dark */
-  --color-background: #0a0a0c;
-  --color-on-background: #f5f5f7;
-  --color-surface: #131316;
-  --color-surface-bright: #1e1e22;
-  --color-surface-dim: #050506;
-  --color-surface-container-lowest: #000000;
-  --color-surface-container-low: #0f0f12;
-  --color-surface-container: #131316;
-  --color-surface-container-high: #1e1e22;
-  --color-surface-container-highest: #2e2e34;
-  --color-surface-variant: #1e1e22;
-  --color-on-surface: #f5f5f7;
-  --color-on-surface-variant: #b8b8bf;
-  --color-inverse-surface: #f5f5f7;
-  --color-inverse-on-surface: #0a0a0c;
-  --color-inverse-primary: #e040fb;
-  --color-primary: #e040fb;
-  --color-primary-container: #3b0f4d;
-  --color-on-primary: #1a001f; /* dark purple — white gives only 3.3:1 on fuchsia */
-  --color-on-primary-container: #f8d4ff;
-  --color-secondary: #2dd4bf;
-  --color-secondary-container: #004d43;
-  --color-on-secondary: #000000;
-  --color-on-secondary-container: #adf7ec;
-  --color-tertiary: #fbbf24;
-  --color-tertiary-container: #4d3b00;
-  --color-on-tertiary: #000000;
-  --color-on-tertiary-container: #fff0b0;
-  --color-error: #fb7185;
-  --color-error-container: #4d0a0a;
+  --color-background: #1a1a2e;
+  --color-on-background: #f1f0f5;
+  --color-surface: #16162a;
+  --color-surface-bright: #23233e;
+  --color-surface-dim: #0f0f24;
+  --color-surface-container-lowest: #0f0f24;
+  --color-surface-container-low: #12122a;
+  --color-surface-container: #16162a;
+  --color-surface-container-high: #23233e;
+  --color-surface-container-highest: #323252;
+  --color-surface-variant: #23233e;
+  --color-on-surface: #f1f0f5;
+  --color-on-surface-variant: #a09cb5;
+  --color-inverse-surface: #f1f0f5;
+  --color-inverse-on-surface: #1a1a2e;
+  --color-inverse-primary: #c4b5fd;
+  --color-primary: #8b5cf6; /* CTA stop — white text 4.5:1 */
+  --color-primary-container: #4c1d95;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ede9fe;
+  --color-secondary: #ec4899;
+  --color-secondary-container: #831843;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #fce7f3;
+  --color-tertiary: #f59e0b;
+  --color-tertiary-container: #78350f;
+  --color-on-tertiary: #1c1004;
+  --color-on-tertiary-container: #fef3c7;
+  --color-error: #f87171;
+  --color-error-container: #7f1d1d;
   --color-on-error: #450a16; /* dark — white gives only 2.7:1 on rose-400 */
-  --color-on-error-container: #ffdad6;
-  --color-outline: #75757d;
-  --color-outline-variant: #2e2e34;
-  --color-surface-tint: #e879f9;
+  --color-on-error-container: #fecaca;
+  --color-outline: #8f8ba6;
+  --color-outline-variant: #323252;
+  --color-surface-tint: #8b5cf6;
 }

@@ -75,6 +75,18 @@ const CATEGORIES: { emoji: string; key: string; defaultLabel: string; tone: stri
     defaultLabel: 'Fruit',
     tone: 'bg-success-light border-green-100 text-success',
   },
+  {
+    emoji: '🥦',
+    key: 'vegetables',
+    defaultLabel: 'Vegetables',
+    tone: 'bg-emerald-50 border-emerald-100 text-emerald-800',
+  },
+  {
+    emoji: '🍗',
+    key: 'protein',
+    defaultLabel: 'Protein',
+    tone: 'bg-purple-50 border-purple-100 text-purple-800',
+  },
 ]
 
 export function Landing() {
@@ -205,7 +217,7 @@ export function Landing() {
             </span>
             <h1
               className={cm.cn(
-                cm.fontWeight('bold'),
+                'font-extrabold',
                 'text-5xl md:text-6xl tracking-tight text-on-surface leading-tight',
               )}
             >
@@ -262,6 +274,39 @@ export function Landing() {
                 </span>
                 {t('nosh.landing.hero.secondary', {}, { defaultValue: 'See how it works' })}
               </a>
+            </div>
+            {/* Social proof — avatar cluster + member count */}
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'md' }),
+                cm.textSize('sm'),
+                'text-on-surface-variant pt-4',
+              )}
+            >
+              <div className={cm.cn(cm.flex({ align: 'center' }), '-space-x-2')}>
+                {[
+                  { initials: 'AK', tone: 'bg-teal-100 text-teal-700' },
+                  { initials: 'JM', tone: 'bg-orange-100 text-orange-700' },
+                  { initials: 'RS', tone: 'bg-indigo-100 text-indigo-700' },
+                ].map((u) => (
+                  <span
+                    key={u.initials}
+                    aria-hidden="true"
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'w-8 h-8 rounded-full border-2 border-white text-[10px] font-bold',
+                      u.tone,
+                    )}
+                  >
+                    {u.initials}
+                  </span>
+                ))}
+              </div>
+              <p>
+                {t('nosh.landing.hero.join', {}, { defaultValue: 'Join ' })}
+                <span className={cm.cn('font-bold text-on-surface tabular-nums')}>50,000+</span>
+                {t('nosh.landing.hero.joinTail', {}, { defaultValue: ' happy users' })}
+              </p>
             </div>
           </div>
 
@@ -321,6 +366,56 @@ export function Landing() {
                 </p>
                 <p className={cm.cn('text-primary font-semibold mt-2')}>
                   {t('nosh.landing.hero.remaining', {}, { defaultValue: 'Remaining' })}
+                </p>
+              </div>
+            </div>
+
+            {/* Floating meal cards — the design's orbiting log chips */}
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                'absolute top-10 -left-2 md:-left-6 bg-surface p-3 rounded-xl shadow-lg border border-outline z-20',
+              )}
+            >
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'w-10 h-10 rounded-full bg-accent-container text-accent',
+                )}
+                aria-hidden="true"
+              >
+                <span className={cm.cn('material-symbols-outlined')}>coffee</span>
+              </div>
+              <div>
+                <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-on-surface')}>
+                  {t('nosh.landing.categories.breakfast', {}, { defaultValue: 'Breakfast' })}
+                </p>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant tabular-nums')}>
+                  350 cal
+                </p>
+              </div>
+            </div>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                'absolute bottom-20 -right-2 md:-right-8 bg-surface p-3 rounded-xl shadow-lg border border-outline z-20',
+              )}
+            >
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'w-10 h-10 rounded-full bg-primary-container text-primary',
+                )}
+                aria-hidden="true"
+              >
+                <span className={cm.cn('material-symbols-outlined')}>restaurant_menu</span>
+              </div>
+              <div>
+                <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-on-surface')}>
+                  {t('nosh.landing.categories.lunch', {}, { defaultValue: 'Lunch' })}
+                </p>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant tabular-nums')}>
+                  403 cal
                 </p>
               </div>
             </div>
@@ -480,6 +575,64 @@ export function Landing() {
                 </p>
               </div>
             ))}
+            {/* Double-width progress card with mini bar chart (design bento) */}
+            <div
+              className={cm.cn(
+                cm.sp('p', 8),
+                'md:col-span-2 bg-gradient-to-br from-primary-container to-surface rounded-2xl border border-primary/20 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row md:items-center md:justify-between gap-6',
+              )}
+            >
+              <div>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    cm.sp('mb', 6),
+                    'w-12 h-12 bg-surface rounded-full text-primary shadow-sm',
+                  )}
+                >
+                  <span aria-hidden="true" className={cm.cn('material-symbols-outlined')}>
+                    insights
+                  </span>
+                </div>
+                <h3
+                  className={cm.cn(
+                    cm.textSize('xl'),
+                    cm.fontWeight('bold'),
+                    cm.sp('mb', 2),
+                    'text-on-surface',
+                  )}
+                >
+                  {t(
+                    'nosh.landing.features.progress.title',
+                    {},
+                    { defaultValue: 'Progress charts' },
+                  )}
+                </h3>
+                <p className={cm.cn('text-on-surface-variant max-w-sm')}>
+                  {t(
+                    'nosh.landing.features.progress.body',
+                    {},
+                    {
+                      defaultValue:
+                        'Visualize your journey with encouraging, non-judgmental trend lines over time.',
+                    },
+                  )}
+                </p>
+              </div>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'end', justify: 'center', gap: 'xs' }),
+                  'hidden md:flex w-32 h-24 bg-surface rounded-xl shadow-sm border border-outline p-2',
+                )}
+                aria-hidden="true"
+              >
+                <div className={cm.cn('w-4 bg-primary/20 rounded-t-sm h-8')} />
+                <div className={cm.cn('w-4 bg-primary/30 rounded-t-sm h-12')} />
+                <div className={cm.cn('w-4 bg-primary/40 rounded-t-sm h-10')} />
+                <div className={cm.cn('w-4 bg-primary/60 rounded-t-sm h-16')} />
+                <div className={cm.cn('w-4 bg-primary rounded-t-sm h-20')} />
+              </div>
+            </div>
           </div>
         </section>
 
@@ -532,7 +685,7 @@ export function Landing() {
             <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), 'relative z-10')}>
               <h2
                 className={cm.cn(
-                  cm.fontWeight('bold'),
+                  'font-black',
                   'text-4xl md:text-5xl text-on-surface tracking-tight',
                 )}
               >
@@ -561,6 +714,42 @@ export function Landing() {
                   {t('nosh.landing.cta.primary', {}, { defaultValue: 'Create your free account' })}
                 </Link>
               </div>
+              {/* Store badges — decorative chips per the design */}
+              <div
+                className={cm.cn(
+                  cm.flex({ justify: 'center', align: 'center', gap: 'md' }),
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  'text-on-surface-variant pt-2',
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    'rounded-lg border border-outline bg-surface',
+                  )}
+                >
+                  <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-lg')}>
+                    ios
+                  </span>
+                  {t('nosh.landing.cta.appStore', {}, { defaultValue: 'App Store' })}
+                </span>
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    'rounded-lg border border-outline bg-surface',
+                  )}
+                >
+                  <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-lg')}>
+                    android
+                  </span>
+                  {t('nosh.landing.cta.playStore', {}, { defaultValue: 'Google Play' })}
+                </span>
+              </div>
             </div>
           </div>
         </section>
@@ -570,7 +759,7 @@ export function Landing() {
         className={cm.cn(
           cm.sp('px', 6),
           cm.sp('py', 12),
-          'bg-surface-secondary border-t border-primary-container',
+          'bg-primary-container border-t border-primary/20',
         )}
       >
         <div

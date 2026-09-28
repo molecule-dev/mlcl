@@ -1,13 +1,15 @@
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
-  /* Brand colors — light palette (off-white studio, pink/violet accent) */
-  --color-primary: #db2777;
-  --color-primary-hover: #be185d;
-  --color-primary-light: #fce7f3;
-  --color-secondary: #7c3aed;
-  --color-secondary-hover: #6d28d9;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch design uses Inter at heavy weights (700–900). */
+  --font-headline: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Brand colors — light palette (Stitch Reverie: violet primary, magenta
+     secondary on a lavender-white canvas) */
+  --color-primary: #742fe5;
+  --color-primary-hover: #681ad9;
+  --color-primary-light: #ceb5ff;
+  --color-secondary: #b5146e;
+  --color-secondary-hover: #a30061;
 
   /* Accent */
   --color-accent: #0891b2;
@@ -16,21 +18,21 @@
   /* Status */
   --color-success: #059669;
   --color-warning: #d97706;
-  --color-error: #dc2626;
+  --color-error: #ac3149;
   --color-info: #2563eb;
 
   /* Neutrals */
-  --color-bg: #fafafa;
-  --color-bg-secondary: #f5f5f5;
+  --color-bg: #fcf8ff;
+  --color-bg-secondary: #f7f1fd;
   --color-bg-card: #ffffff;
-  --color-bg-sidebar: #f9fafb;
-  --color-border: #e5e5e5;
-  --color-border-focus: #db2777;
+  --color-bg-sidebar: #f7f1fd;
+  --color-border: #e5e0f1;
+  --color-border-focus: #742fe5;
 
   /* Text */
-  --color-text: #171717;
-  --color-text-secondary: #525252;
-  --color-text-muted: #a3a3a3;
+  --color-text: #33313e;
+  --color-text-secondary: #605d6b;
+  --color-text-muted: #7c7988;
   --color-text-inverse: #ffffff;
 
   /* Typography */
@@ -43,7 +45,7 @@
   --gallery-overlay-bg: rgba(0, 0, 0, 0.55);
 
   /* Composer glow shadow (brand-tinted drop shadow beneath prompt box) */
-  --shadow-composer-glow: 0 20px 60px -20px rgba(219, 39, 119, 0.2);
+  --shadow-composer-glow: 0 20px 60px -20px rgba(116, 47, 229, 0.25);
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -63,49 +65,67 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.12);
 
-  /* M3 / Stitch token light variants */
-  --color-background: #fafafa;
-  --color-on-background: #171717;
-  --color-surface: #ffffff;
-  --color-surface-bright: #ffffff;
-  --color-surface-dim: #f5f5f5;
+  /* M3 / Stitch token light variants (design: design-ai-image-generator-landing) */
+  --color-background: #fcf8ff;
+  --color-on-background: #33313e;
+  --color-surface: #fcf8ff;
+  --color-surface-bright: #fcf8ff;
+  --color-surface-dim: #dcd7ea;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #fafafa;
-  --color-surface-container: #f5f5f5;
-  --color-surface-container-high: #ebebeb;
-  --color-surface-container-highest: #e5e5e5;
-  --color-surface-variant: #f5f5f5;
-  --color-on-surface: #171717;
-  --color-on-surface-variant: #525252;
-  --color-inverse-surface: #171717;
-  --color-inverse-on-surface: #fafafa;
-  --color-inverse-primary: #f9a8d4;
-  --color-surface-tint: #db2777;
-  --color-outline: #a3a3a3;
-  --color-outline-variant: #e5e5e5;
-  --color-primary-container: #fce7f3;
-  --color-on-primary: #ffffff;
-  --color-on-primary-container: #500724;
-  --color-on-secondary: #ffffff;
-  --color-secondary-container: #ede9fe;
-  --color-on-secondary-container: #2e1065;
-  --color-tertiary: #d97706;
-  --color-tertiary-container: #fef3c7;
-  --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #451a03;
-  --color-error-container: #fee2e2;
-  --color-on-error: #ffffff;
-  --color-on-error-container: #7f1d1d;
+  --color-surface-container-low: #f7f1fd;
+  --color-surface-container: #f1ecf9;
+  --color-surface-container-high: #ebe6f5;
+  --color-surface-container-highest: #e5e0f1;
+  --color-surface-variant: #e5e0f1;
+  --color-on-surface: #33313e;
+  --color-on-surface-variant: #605d6b;
+  --color-inverse-surface: #0e0d14;
+  --color-inverse-on-surface: #9f9ba4;
+  --color-inverse-primary: #a476ff;
+  --color-surface-tint: #742fe5;
+  --color-outline: #7c7988;
+  --color-outline-variant: #b4b0c0;
+  --color-primary-container: #ceb5ff;
+  --color-on-primary: #fdf7ff;
+  --color-on-primary-container: #4d00ac;
+  --color-primary-dim: #681ad9;
+  --color-primary-fixed: #ceb5ff;
+  --color-primary-fixed-dim: #c2a4ff;
+  --color-on-primary-fixed: #340078;
+  --color-on-primary-fixed-variant: #5800c2;
+  --color-on-secondary: #fff7f7;
+  --color-secondary-container: #ffd9e4;
+  --color-on-secondary-container: #a00060;
+  --color-secondary-dim: #a30061;
+  --color-secondary-fixed: #ffd9e4;
+  --color-secondary-fixed-dim: #ffc5d9;
+  --color-on-secondary-fixed: #7f004b;
+  --color-on-secondary-fixed-variant: #b00d6a;
+  --color-tertiary: #6a5d4b;
+  --color-tertiary-container: #fdebd3;
+  --color-tertiary-dim: #5d513f;
+  --color-on-tertiary: #fff8f2;
+  --color-on-tertiary-container: #635744;
+  --color-tertiary-fixed: #fdebd3;
+  --color-tertiary-fixed-dim: #efddc6;
+  --color-on-tertiary-fixed: #504533;
+  --color-on-tertiary-fixed-variant: #6d614e;
+  --color-error-container: #f76a80;
+  --color-on-error: #fff7f7;
+  --color-on-error-container: #68001f;
+  --color-error-dim: #770326;
+  /* Hero headline gradient mid stop (design: from-primary via-#9d24a3 to-secondary) */
+  --color-gradient-mid: #9d24a3;
 }
 
-/* Dark mode overrides — creative studio dark palette (pink/violet on inky neutrals) */
+/* Dark mode overrides — creative studio dark palette (violet/magenta on inky neutrals) */
 [data-mol-mode='dark'] {
-  /* Brand — pink/violet pop on dark canvas */
-  --color-primary: #f472b6;
-  --color-primary-hover: #ec4899;
-  --color-primary-light: #500724;
-  --color-secondary: #a78bfa;
-  --color-secondary-hover: #8b5cf6;
+  /* Brand — luminous violet/magenta pop on dark canvas */
+  --color-primary: #a476ff;
+  --color-primary-hover: #b993ff;
+  --color-primary-light: #23123f;
+  --color-secondary: #e0559f;
+  --color-secondary-hover: #ea6fae;
 
   /* Accent — cyan stays bright */
   --color-accent: #22d3ee;
@@ -123,7 +143,7 @@
   --color-bg-card: #1a1a1a;
   --color-bg-sidebar: #0f0f0f;
   --color-border: #2a2a2a;
-  --color-border-focus: #f472b6;
+  --color-border-focus: #a476ff;
 
   /* Text — light tiers */
   --color-text: #fafafa;
@@ -158,39 +178,40 @@
   --color-inverse-surface: #f4f0f9;
   --color-inverse-on-surface: #33313e;
   --color-inverse-primary: #742fe5;
-  --color-surface-tint: #f472b6;
+  --color-surface-tint: #742fe5;
   --color-outline: #8a8794;
   --color-outline-variant: #3d3a48;
-  --color-primary: #f472b6;
-  --color-primary-container: #831843;
-  --color-primary-dim: #ec4899;
-  --color-on-primary: #500724; /* was #ffffff — 2.64:1 on pink-400 primary; pink-950 ink = 5.68:1 (M3: light primary pairs with dark on-primary) */
-  --color-on-primary-container: #fce7f3;
-  --color-primary-fixed: #ceb5ff;
-  --color-primary-fixed-dim: #c2a4ff;
-  --color-on-primary-fixed: #340078;
-  --color-on-primary-fixed-variant: #5800c2;
-  --color-secondary: #a78bfa;
-  --color-secondary-container: #4c1d95;
-  --color-secondary-dim: #8b5cf6;
-  --color-on-secondary: #1a0a4d;
-  --color-on-secondary-container: #ddd6fe;
-  --color-secondary-fixed: #ffd9e4;
-  --color-secondary-fixed-dim: #ffc5d9;
-  --color-on-secondary-fixed: #7f004b;
-  --color-on-secondary-fixed-variant: #b00d6a;
+  --color-primary: #a476ff;
+  --color-primary-container: #341e6e;
+  --color-primary-dim: #8b5cf6;
+  --color-on-primary: #1a0b33; /* dark ink on luminous lavender — 7.5:1 */
+  --color-on-primary-container: #e3d0ff;
+  --color-primary-fixed: #341e6e;
+  --color-primary-fixed-dim: #4d00ac;
+  --color-on-primary-fixed: #e3d0ff;
+  --color-on-primary-fixed-variant: #ceb5ff;
+  --color-secondary: #e0559f;
+  --color-secondary-container: #4a0129;
+  --color-secondary-dim: #d6408f;
+  --color-on-secondary: #2b0018;
+  --color-on-secondary-container: #ffd9e4;
+  --color-secondary-fixed: #4a0129;
+  --color-secondary-fixed-dim: #6b013c;
+  --color-on-secondary-fixed: #ffd9e4;
+  --color-on-secondary-fixed-variant: #ffc5d9;
   --color-tertiary: #fcd34d;
   --color-tertiary-container: #713f12;
   --color-tertiary-dim: #facc15;
   --color-on-tertiary: #211404;
   --color-on-tertiary-container: #fef3c7;
-  --color-tertiary-fixed: #fdebd3;
-  --color-tertiary-fixed-dim: #efddc6;
-  --color-on-tertiary-fixed: #504533;
-  --color-on-tertiary-fixed-variant: #6d614e;
+  --color-tertiary-fixed: #504533;
+  --color-tertiary-fixed-dim: #6d614e;
+  --color-on-tertiary-fixed: #fdebd3;
+  --color-on-tertiary-fixed-variant: #efddc6;
   --color-error: #f87171;
   --color-error-container: #7f1d1d;
   --color-error-dim: #ef4444;
   --color-on-error: #ffffff;
   --color-on-error-container: #ffdad6;
+  --color-gradient-mid: #d43fd0;
 }

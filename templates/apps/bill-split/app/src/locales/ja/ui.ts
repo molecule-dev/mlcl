@@ -171,7 +171,7 @@ export const ui: UiTranslations = {
   'groups.totalTracked': '{{total}}件を記録',
   'groups.youAreOwed': 'あなたへの借り',
   'groups.youOwe': 'あなたの借り',
-  'landing.copyright': '© {{year}} {{app}}. Built with Molecule.dev.',
+  'landing.copyright': '© {{year}} {{app}}. Built with Molecule.devdev.',
   'landing.ctaBody':
     'あなたにも、あなたが作るすべてのグループにも無料。友達にアカウントは不要です。',
   'landing.ctaHeading': 'かんたんに精算する準備はできましたか？',

@@ -143,9 +143,8 @@ export function Landing() {
               href="#features"
               className={cm.cn(
                 cm.textSize('sm'),
-                cm.fontWeight('medium'),
-                cm.textMuted,
-                'hover:text-on-surface transition-colors',
+                cm.fontWeight('semibold'),
+                'text-primary border-b-2 border-primary pb-1 hover:opacity-90 transition-opacity',
               )}
             >
               {t('nav.features', {}, { defaultValue: 'Features' })}
@@ -182,7 +181,7 @@ export function Landing() {
                   cm.sp('py', 2),
                   cm.fontWeight('semibold'),
                   cm.textSize('sm'),
-                  'bg-primary text-white rounded-full hover:bg-primary-dark transition-colors shadow-sm',
+                  'bg-gradient-to-r from-primary to-primary-light text-white rounded-lg hover:opacity-90 transition-opacity shadow-sm',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -207,7 +206,7 @@ export function Landing() {
                     cm.sp('py', 2),
                     cm.fontWeight('semibold'),
                     cm.textSize('sm'),
-                    'bg-primary text-white rounded-full hover:bg-primary-dark transition-colors shadow-sm',
+                    'bg-gradient-to-r from-primary to-primary-light text-white rounded-lg hover:opacity-90 transition-opacity shadow-sm',
                   )}
                 >
                   {t('landing.startWriting', {}, { defaultValue: 'Start writing' })}
@@ -219,10 +218,10 @@ export function Landing() {
       </nav>
 
       <main>
-        {/* Hero */}
-        <section className={cm.cn('relative overflow-hidden bg-quote-pattern')}>
+        {/* Hero — centered stage with a radial wash, per the Stitch design */}
+        <section className={cm.cn('relative overflow-hidden bg-surface')}>
           <div
-            className="absolute inset-0 bg-gradient-to-br from-primary-container/30 via-background to-background pointer-events-none"
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-primary-light),_transparent_60%)] pointer-events-none"
             aria-hidden="true"
           />
           <div
@@ -233,10 +232,8 @@ export function Landing() {
               'py-20 md:py-28 lg:py-32 relative',
             )}
           >
-            <div
-              className={cm.cn(cm.grid({ gap: 'xl' }), 'grid-cols-1 lg:grid-cols-12 items-center')}
-            >
-              <div className={cm.cn('lg:col-span-7')}>
+            <div className={cm.cn('max-w-3xl mx-auto text-center space-y-8')}>
+              <div>
                 <p
                   className={cm.cn(
                     cm.textSize('sm'),
@@ -254,7 +251,7 @@ export function Landing() {
                 <h1
                   className={cm.cn(
                     cm.sp('mb', 6),
-                    'text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[0.95] font-serif',
+                    'text-5xl md:text-[60px] font-medium tracking-tight leading-tight font-serif',
                   )}
                 >
                   {t('landing.heroTitle.intelligence', {}, { defaultValue: 'Intelligence meets ' })}
@@ -264,10 +261,10 @@ export function Landing() {
                 </h1>
                 <p
                   className={cm.cn(
-                    cm.textSize('lg'),
+                    'text-lg md:text-2xl font-light',
                     cm.sp('mb', 10),
                     cm.textMuted,
-                    'max-w-xl leading-relaxed',
+                    'max-w-2xl mx-auto leading-relaxed',
                   )}
                 >
                   {t(
@@ -279,14 +276,19 @@ export function Landing() {
                     },
                   )}
                 </p>
-                <div className={cm.cn(cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }))}>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
+                    'justify-center',
+                  )}
+                >
                   <Link
                     to="/signup"
                     className={cm.cn(
-                      cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'bg-primary text-white rounded-full hover:bg-primary-dark transition-colors inline-flex items-center gap-2 shadow-sm',
+                      cm.sp('px', 6),
+                      cm.sp('py', 3),
+                      cm.fontWeight('medium'),
+                      'bg-accent text-white rounded-lg hover:bg-accent-hover transition-colors inline-flex items-center gap-2 shadow-sm whitespace-nowrap',
                     )}
                   >
                     {t('landing.heroCta', {}, { defaultValue: 'Start your free trial' })}
@@ -301,9 +303,9 @@ export function Landing() {
                     to="/login"
                     className={cm.cn(
                       cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors',
+                      cm.sp('py', 3),
+                      cm.fontWeight('medium'),
+                      'rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors',
                     )}
                   >
                     {t('landing.heroSecondaryCta', {}, { defaultValue: 'See it in action' })}
@@ -319,7 +321,7 @@ export function Landing() {
               </div>
 
               {/* Sample hero card mirroring the auth'd dashboard hero */}
-              <div className={cm.cn('lg:col-span-5')}>
+              <div className={cm.cn('pt-4 max-w-xl mx-auto')}>
                 <WritingStreakHeroCard
                   writerName={t('nav.you', {}, { defaultValue: 'You' })}
                   wordsThisWeek={12400}
@@ -332,7 +334,7 @@ export function Landing() {
         </section>
 
         {/* Showcase: editor mock + AI panel */}
-        <section className={cm.cn('relative')}>
+        <section className={cm.cn('relative bg-surface-secondary')}>
           <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 md:py-24')}>
             <div
               className={cm.cn(cm.grid({ gap: 'xl' }), 'grid-cols-1 lg:grid-cols-3 items-center')}
@@ -659,7 +661,7 @@ export function Landing() {
               linkClassName={cm.cn(
                 cm.textSize('sm'),
                 cm.textMuted,
-                'hover:text-on-surface transition-colors',
+                'hover:text-accent transition-colors',
               )}
               appName={APP_NAME}
               loadContent={loadContent}
@@ -671,7 +673,7 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.textMuted,
-                'hover:text-on-surface transition-colors',
+                'hover:text-accent transition-colors',
               )}
             >
               {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}

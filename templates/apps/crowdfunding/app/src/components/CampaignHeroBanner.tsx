@@ -42,7 +42,7 @@ export function CampaignHeroBanner({
       )}
       style={{
         background:
-          'linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary-light) 100%)',
+          'linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary-deep) 100%)',
       }}
     >
       <div

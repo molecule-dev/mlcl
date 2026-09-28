@@ -42,7 +42,7 @@ export function LandingFooter() {
           {t(
             'common.copyrightBuiltWithMolecule',
             { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Built with Molecule.' },
+            { defaultValue: '© {{year}} {{app}} — Built with Molecule.dev' },
           )}
         </p>
         <nav

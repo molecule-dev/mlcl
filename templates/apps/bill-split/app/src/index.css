@@ -25,3 +25,19 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes (cm.* builds
+ * class strings at runtime, which Tailwind's static scanner cannot see).
+ * Covers the Landing page's Stitch design values.
+ */
+@source inline("py-1.5 py-2.5 px-2.5 px-3.5 gap-1.5 gap-2.5 space-y-1 space-y-2.5 space-y-3 space-y-4 pt-2 pt-8 pt-12 pb-16 mb-2 mb-3 mb-4 mb-6 mb-8 mb-16 mb-20 mt-2 mt-4 mt-8 p-3 p-4 p-5 p-8 py-2 py-3 py-4 py-8 py-16 py-20 py-24 px-1 px-4 px-5 px-6 px-8 text-6xl shadow-2xl backdrop-blur-xl rounded-3xl bg-grid-subtle text-on-secondary-fixed text-on-tertiary-fixed text-on-primary-fixed bg-secondary-fixed bg-tertiary-fixed bg-primary-fixed bg-surface-dim max-w-[1200px]");
+
+/* Subtle grid line decoration — Stitch hero backdrop
+   (design-bill-split-landing.html .bg-grid-subtle). */
+.bg-grid-subtle {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(188, 202, 192, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(188, 202, 192, 0.12) 1px, transparent 1px);
+}

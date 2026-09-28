@@ -9,27 +9,31 @@ import { SafeLink } from '../components/SafeLink.js'
 const FEATURES = [
   {
     key: 'ai',
-    defaultTitle: 'AI quality scoring',
+    defaultTitle: 'Smart Bug Detection',
     defaultBody:
-      'Every PR gets a 0-10 score — security, performance, maintainability, and style breakdowns with cite-back to the offending line.',
-    icon: 'auto_awesome',
-    tint: 'text-violet-400',
+      'Every PR gets a quality score — logical flaws and edge cases flagged before they hit production, with cite-back to the offending line.',
+    icon: 'bug_report',
   },
   {
-    key: 'github',
-    defaultTitle: 'GitHub-native flow',
+    key: 'security',
+    defaultTitle: 'Security Audits',
     defaultBody:
-      'Connect a repo in 30 seconds. {{appName}} reviews every push and posts inline comments on the PR you already use.',
-    icon: 'hub',
-    tint: 'text-cyan-400',
+      'Catch OWASP top 10 vulnerabilities, hardcoded secrets, and unsafe dependencies in real-time.',
+    icon: 'shield',
+  },
+  {
+    key: 'perf',
+    defaultTitle: 'Performance Insights',
+    defaultBody:
+      'Flag n+1 queries, memory leaks, and inefficient algorithms with actionable optimization suggestions.',
+    icon: 'speed',
   },
   {
     key: 'rules',
-    defaultTitle: 'Bring your rules',
+    defaultTitle: 'Team Rules',
     defaultBody:
-      'Tune severities per category, add team-specific lint rules, and pin "must-fix-before-merge" guardrails.',
-    icon: 'gavel',
-    tint: 'text-amber-400',
+      'Tune severities per category, add team-specific lint rules, and pin "must-fix-before-merge" guardrails on every single pull request.',
+    icon: 'rule',
   },
   {
     key: 'reports',
@@ -37,7 +41,13 @@ const FEATURES = [
     defaultBody:
       'Trend charts on quality, hotspots by file/contributor, weekly digests delivered to Slack — without dashboards nobody opens.',
     icon: 'analytics',
-    tint: 'text-emerald-400',
+  },
+  {
+    key: 'github',
+    defaultTitle: 'GitHub Native',
+    defaultBody:
+      'Connect a repo in 30 seconds. {{appName}} reviews every push and comments directly on your PR lines — no new dashboards to check.',
+    icon: 'hub',
   },
 ] as const
 
@@ -48,38 +58,69 @@ export function Landing() {
 
   return (
     <div
-      className={cm.cn(cm.minH('screen'), 'antialiased')}
-      // Always-dark ink marketing page — the copy below is hardcoded white,
-      // so the backdrop must not flip with the theme toggle (var(--color-bg)
-      // turned it white in light mode: white-on-white headings).
-      style={{ backgroundColor: 'var(--color-ink-panel)', color: 'var(--color-ink-text)' }}
+      // .landing-scope re-pins the Stitch LIGHT palette inside this wrapper so
+      // the landing matches the design regardless of the app's dark default
+      // (see the .landing-scope block in index.css).
+      className={cm.cn(
+        'landing-scope',
+        cm.minH('screen'),
+        'bg-surface text-on-surface font-sans antialiased',
+      )}
     >
-      <nav
-        className={cm.cn(
-          'sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-surface/10',
-        )}
-      >
+      {/* TopNavBar */}
+      <nav className={cm.cn('lp-nav sticky top-0 w-full z-50 backdrop-blur-xl')}>
         <div
           className={cm.cn(
-            cm.maxW('7xl'),
-            cm.sp('px', 6),
-            cm.sp('py', 4),
             cm.flex({ align: 'center', justify: 'between' }),
+            cm.maxW('7xl'),
             cm.mxAuto,
+            cm.sp('px', 6),
+            'h-20',
           )}
         >
-          <SafeLink
-            to="/"
-            className={cm.cn('text-xl font-extrabold tracking-tight text-on-surface')}
-          >
+          <SafeLink to="/" className={cm.cn('text-2xl font-black tracking-tighter text-primary')}>
             {APP_NAME}
           </SafeLink>
+          <nav className={cm.cn('hidden md:flex gap-8')}>
+            <a
+              href="#features"
+              className={cm.cn(
+                'text-sm font-medium tracking-tight text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('nav.features', {}, { defaultValue: 'Features' })}
+            </a>
+            <SafeLink
+              to="/pricing"
+              className={cm.cn(
+                'text-sm font-medium tracking-tight text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </SafeLink>
+            <SafeLink
+              to="/about"
+              className={cm.cn(
+                'text-sm font-medium tracking-tight text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('nav.docs', {}, { defaultValue: 'Docs' })}
+            </SafeLink>
+            <SafeLink
+              to="/about"
+              className={cm.cn(
+                'text-sm font-medium tracking-tight text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('nav.changelog', {}, { defaultValue: 'Changelog' })}
+            </SafeLink>
+          </nav>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
               <Link
                 to="/dashboard"
                 className={cm.cn(
-                  'px-5 py-2 font-semibold bg-violet-600 text-white rounded-full hover:bg-violet-500 transition-colors shadow-lg shadow-violet-500/25',
+                  'lp-btn-gradient px-5 py-2.5 rounded-lg font-medium text-sm hover:opacity-90 transition-opacity',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -87,32 +128,20 @@ export function Landing() {
             ) : (
               <>
                 <Link
-                  to="/pricing"
-                  className={cm.cn(
-                    'text-sm font-medium text-on-surface-variant hover:text-on-surface',
-                  )}
-                >
-                  {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
-                </Link>
-                <Link
                   to="/login"
                   className={cm.cn(
-                    'text-sm font-medium text-on-surface-variant hover:text-on-surface',
+                    'text-sm font-medium tracking-tight text-on-surface-variant hover:text-primary transition-colors',
                   )}
                 >
-                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign In' })}
                 </Link>
                 <Link
                   to="/signup"
                   className={cm.cn(
-                    'px-5 py-2 font-semibold bg-violet-600 text-white rounded-full hover:bg-violet-500 transition-colors shadow-lg shadow-violet-500/25',
+                    'lp-btn-gradient px-5 py-2.5 rounded-lg font-medium text-sm hover:opacity-90 active:scale-95 transition-all',
                   )}
                 >
-                  {t(
-                    'landing.getStarted',
-                    { appName: APP_NAME },
-                    { defaultValue: 'Get {{appName}} free' },
-                  )}
+                  {t('landing.navCta', {}, { defaultValue: 'Connect with GitHub' })}
                 </Link>
               </>
             )}
@@ -121,210 +150,254 @@ export function Landing() {
       </nav>
 
       <main>
-        <section className={cm.cn('relative overflow-hidden')}>
-          <div
-            className={cm.cn('absolute inset-0 pointer-events-none')}
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 25% 30%, rgba(124, 58, 237, 0.30), transparent 50%),' +
-                'radial-gradient(circle at 78% 60%, rgba(6, 182, 212, 0.22), transparent 45%)',
-            }}
-            aria-hidden="true"
-          />
-          <div
-            className={cm.cn('absolute inset-0 opacity-15 pointer-events-none')}
-            style={{
-              backgroundImage:
-                'radial-gradient(circle, rgba(167, 139, 250, 0.55) 1px, transparent 1px)',
-              backgroundSize: '24px 24px',
-            }}
-            aria-hidden="true"
-          />
+        {/* Hero */}
+        <section className={cm.cn('relative pt-24 pb-32 overflow-hidden')}>
+          <div className={cm.cn('lp-hero-glow absolute inset-0 z-0')} aria-hidden="true" />
           <div
             className={cm.cn(
               cm.maxW('7xl'),
               cm.mxAuto,
               cm.sp('px', 6),
-              'relative py-20 md:py-28 lg:py-32',
+              'relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center',
             )}
           >
-            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-12 items-center')}>
-              <div className={cm.cn('lg:col-span-7')}>
-                <p
+            <div className={cm.cn('max-w-2xl')}>
+              <h1
+                className={cm.cn(
+                  'text-5xl md:text-7xl font-black tracking-tighter text-on-surface leading-tight mb-6',
+                )}
+              >
+                {t(
+                  'landing.heroTitleLine1',
+                  { tagline: APP_TAGLINE },
+                  { defaultValue: 'Code in a' },
+                )}
+                <br />
+                <span className={cm.cn('gradient-text')}>
+                  {t('landing.heroTitleLine2', {}, { defaultValue: 'new light' })}
+                </span>
+              </h1>
+              <p className={cm.cn('text-xl text-on-surface-variant mb-10 leading-relaxed')}>
+                {t(
+                  'landing.heroSubtitle',
+                  { appName: APP_NAME },
+                  {
+                    defaultValue:
+                      'AI code review that catches bugs before they ship. Maintain high standards, enforce team rules, and speed up your workflow with surgical precision.',
+                  },
+                )}
+              </p>
+              <div className={cm.cn('flex flex-col sm:flex-row gap-4')}>
+                <Link
+                  to="/signup"
                   className={cm.cn(
-                    'text-sm font-bold uppercase tracking-widest text-violet-300 mb-4 font-mono',
+                    'inline-flex justify-center items-center gap-2 bg-on-surface text-surface px-8 py-4 rounded-lg font-semibold text-base hover:bg-inverse-surface transition-colors',
                   )}
                 >
-                  {t(
-                    'landing.eyebrow',
-                    {},
-                    { defaultValue: 'AI · Pull request review · GitHub-native' },
-                  )}
-                </p>
-                <h1
+                  <span className={cm.cn('material-symbols-outlined text-lg')} aria-hidden="true">
+                    code
+                  </span>
+                  {t('landing.heroCta', {}, { defaultValue: 'Connect GitHub' })}
+                </Link>
+                <Link
+                  to="/login"
                   className={cm.cn(
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] mb-6 text-white',
+                    'inline-flex justify-center items-center gap-2 bg-surface-container text-on-surface px-8 py-4 rounded-lg font-semibold text-base hover:bg-surface-container-high transition-colors',
                   )}
                 >
-                  {t(
-                    'landing.heroTitle',
-                    { tagline: APP_TAGLINE },
-                    { defaultValue: '{{tagline}}' },
-                  )}
-                </h1>
-                <p className={cm.cn('text-lg text-white/75 max-w-xl leading-relaxed mb-10')}>
-                  {t(
-                    'landing.heroSubtitle',
-                    { appName: APP_NAME },
-                    {
-                      defaultValue:
-                        '{{appName}} reads every pull request like a senior engineer would — flags security holes, suggests rewrites, and grades the diff. Ship faster without shipping regressions.',
-                    },
-                  )}
-                </p>
-                <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                  <Link
-                    to="/signup"
-                    className={cm.cn(
-                      'inline-flex items-center gap-2 px-8 py-4 font-semibold bg-violet-600 text-white rounded-full hover:bg-violet-500 transition-colors shadow-lg shadow-violet-500/30',
-                    )}
+                  <span className={cm.cn('material-symbols-outlined text-lg')} aria-hidden="true">
+                    play_circle
+                  </span>
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign In' })}
+                </Link>
+              </div>
+              <p
+                className={cm.cn(
+                  'mt-8 text-xs font-mono text-on-surface-variant',
+                  cm.flex({ align: 'center', gap: 'sm' }),
+                )}
+              >
+                <span
+                  className={cm.cn('material-symbols-outlined text-[14px] text-primary')}
+                  aria-hidden="true"
+                >
+                  verified
+                </span>
+                {t(
+                  'landing.heroProof',
+                  {},
+                  {
+                    defaultValue:
+                      '12k+ pull requests reviewed · SOC2 in progress · zero source code stored',
+                  },
+                )}
+              </p>
+            </div>
+
+            {/* Hero visual — the reviewer window */}
+            <div
+              className={cm.cn(
+                'lp-visual-shadow relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-surface-variant/10 text-sm',
+              )}
+              style={{
+                backgroundColor: 'var(--color-code-window)',
+                color: 'var(--color-code-text)',
+              }}
+            >
+              <div
+                className={cm.cn('flex items-center gap-2 px-4 py-3 border-b')}
+                style={{
+                  backgroundColor: 'var(--color-code-header)',
+                  borderColor: 'var(--color-code-border)',
+                }}
+              >
+                <span
+                  className={cm.cn('w-3 h-3 rounded-full')}
+                  style={{ backgroundColor: 'var(--color-code-rose)' }}
+                  aria-hidden="true"
+                />
+                <span
+                  className={cm.cn('w-3 h-3 rounded-full')}
+                  style={{ backgroundColor: 'var(--color-code-peach)' }}
+                  aria-hidden="true"
+                />
+                <span
+                  className={cm.cn('w-3 h-3 rounded-full')}
+                  style={{ backgroundColor: 'var(--color-code-green)' }}
+                  aria-hidden="true"
+                />
+                <span
+                  className={cm.cn('ml-4 font-mono text-xs')}
+                  style={{ color: 'var(--color-code-lavender)' }}
+                >
+                  {t('landing.windowTitle', {}, { defaultValue: 'auth.ts — PR #492' })}
+                </span>
+              </div>
+              <div className={cm.cn('p-4 font-mono leading-relaxed overflow-hidden')}>
+                <div className={cm.cn('flex opacity-50')}>
+                  <span
+                    className={cm.cn('w-8 text-right mr-4 select-none')}
+                    style={{ color: 'var(--color-code-dim)' }}
                   >
-                    {t('landing.heroCta', {}, { defaultValue: 'Connect your first repo' })}
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base')}
-                      aria-hidden="true"
-                    >
-                      arrow_forward
-                    </span>
-                  </Link>
-                  <Link
-                    to="/login"
-                    className={cm.cn(
-                      'px-8 py-4 font-semibold rounded-full border border-surface/20 hover:bg-surface/10 transition-colors text-white',
-                    )}
-                  >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                  </Link>
+                    12
+                  </span>
+                  <span>function validateUser(token: string) {'{'}</span>
                 </div>
-                <p
-                  className={cm.cn(
-                    'mt-6 text-xs font-mono text-white/50',
-                    cm.flex({ align: 'center', gap: 'sm' }),
-                  )}
+                <div
+                  className={cm.cn('flex')}
+                  style={{ backgroundColor: 'rgba(243, 138, 168, 0.1)' }}
                 >
                   <span
-                    className="material-symbols-outlined text-[14px] text-emerald-400"
-                    aria-hidden="true"
+                    className={cm.cn('w-8 text-right mr-4 select-none')}
+                    style={{ color: 'var(--color-code-rose)' }}
                   >
-                    verified
+                    13
                   </span>
-                  {t(
-                    'landing.heroProof',
-                    {},
-                    {
-                      defaultValue:
-                        '12k+ pull requests reviewed · SOC2 in progress · zero source code stored',
-                    },
-                  )}
-                </p>
-              </div>
-
-              <div className={cm.cn('lg:col-span-5')}>
+                  <span style={{ color: 'var(--color-code-rose)' }}>
+                    - const decoded = jwt.decode(token);
+                  </span>
+                </div>
+                <div
+                  className={cm.cn('flex')}
+                  style={{ backgroundColor: 'rgba(166, 227, 161, 0.1)' }}
+                >
+                  <span
+                    className={cm.cn('w-8 text-right mr-4 select-none')}
+                    style={{ color: 'var(--color-code-green)' }}
+                  >
+                    13
+                  </span>
+                  <span style={{ color: 'var(--color-code-green)' }}>
+                    + const decoded = jwt.verify(token, process.env.SECRET);
+                  </span>
+                </div>
+                <div className={cm.cn('flex opacity-50')}>
+                  <span
+                    className={cm.cn('w-8 text-right mr-4 select-none')}
+                    style={{ color: 'var(--color-code-dim)' }}
+                  >
+                    14
+                  </span>
+                  <span>{'  '}return decoded;</span>
+                </div>
+                <div className={cm.cn('flex opacity-50')}>
+                  <span
+                    className={cm.cn('w-8 text-right mr-4 select-none')}
+                    style={{ color: 'var(--color-code-dim)' }}
+                  >
+                    15
+                  </span>
+                  <span>{'}'}</span>
+                </div>
+                {/* AI comment bubble */}
                 <div
                   className={cm.cn(
-                    'rounded-2xl shadow-2xl shadow-black/40 overflow-hidden border border-surface/10',
+                    'mt-6 ml-12 rounded-lg p-4 border flex gap-4 items-start relative',
                   )}
-                  style={{ backgroundColor: 'var(--color-ink-panel)' }}
+                  style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                    borderColor: 'rgba(203, 166, 247, 0.3)',
+                    backdropFilter: 'blur(8px)',
+                  }}
                 >
                   <div
                     className={cm.cn(
-                      'flex items-center gap-2 px-4 py-2 border-b border-surface/10',
+                      'absolute -top-3 -left-3 w-8 h-8 rounded-full flex items-center justify-center shadow-lg',
                     )}
+                    style={{ backgroundColor: 'var(--color-code-mauve)' }}
                   >
                     <span
-                      className={cm.cn('w-3 h-3 rounded-full bg-red-400/70')}
+                      className={cm.cn('material-symbols-outlined fill text-white text-sm')}
                       aria-hidden="true"
-                    />
-                    <span
-                      className={cm.cn('w-3 h-3 rounded-full bg-amber-400/70')}
-                      aria-hidden="true"
-                    />
-                    <span
-                      className={cm.cn('w-3 h-3 rounded-full bg-emerald-400/70')}
-                      aria-hidden="true"
-                    />
-                    <span className={cm.cn('ml-3 text-[10px] font-mono text-white/50')}>
-                      {t(
-                        'landing.previewWindowTitle',
-                        {},
-                        { defaultValue: 'refract · review preview' },
-                      )}
+                    >
+                      auto_awesome
                     </span>
                   </div>
-                  <div className={cm.cn('p-5 font-mono text-[12px] leading-relaxed space-y-1.5')}>
-                    <p className={cm.cn('text-white/70')}>@@ -42,6 +42,8 @@ src/auth/oauth.ts</p>
-                    <p className={cm.cn('text-white/85')}>
-                      <span className={cm.cn('text-white/60 mr-3 select-none')}>42</span>
-                      export function rotateToken(user) &#123;
-                    </p>
-                    <p className={cm.cn('bg-red-500/15 border-l-2 border-red-400 -mx-5 px-5')}>
-                      <span className={cm.cn('text-red-400 mr-3 select-none')}>43</span>
-                      <span className={cm.cn('text-red-300')}>- const fresh = sql`SELECT … `</span>
-                    </p>
+                  <div className={cm.cn('flex-1')}>
                     <p
-                      className={cm.cn(
-                        'bg-emerald-500/15 border-l-2 border-emerald-400 -mx-5 px-5',
-                      )}
+                      className={cm.cn('font-semibold text-xs uppercase tracking-wider mb-1')}
+                      style={{ color: 'var(--color-code-mauve)' }}
                     >
-                      <span className={cm.cn('text-emerald-400 mr-3 select-none')}>43</span>
-                      <span className={cm.cn('text-emerald-300')}>
-                        + const fresh = await users.rotate(user.id)
-                      </span>
+                      {t('landing.insightLabel', {}, { defaultValue: `${APP_NAME} Insight` })}
                     </p>
-                    <p className={cm.cn('text-white/85')}>
-                      <span className={cm.cn('text-white/60 mr-3 select-none')}>44</span>
-                      return signJwt(fresh)
+                    <p className={cm.cn('text-sm')} style={{ color: 'var(--color-code-subtext)' }}>
+                      {t(
+                        'landing.insightBody',
+                        {},
+                        {
+                          defaultValue:
+                            'Critical Security Issue: using `jwt.decode` without verification allows spoofed tokens. Suggesting `jwt.verify` instead.',
+                        },
+                      )}
                     </p>
-                    <div className={cm.cn('border-t border-surface/10 my-2.5')} />
-                    <div className={cm.cn('flex items-start gap-2')}>
-                      <span
-                        className={cm.cn(
-                          'material-symbols-outlined text-violet-300 text-[14px] mt-0.5',
-                        )}
-                        aria-hidden="true"
-                      >
-                        auto_awesome
-                      </span>
-                      <p className={cm.cn('text-violet-200/90')}>
-                        {t(
-                          'landing.aiPreview',
-                          {},
-                          {
-                            defaultValue:
-                              'AI: parameterised query closes a SQLi vector seen in the audit log.',
-                          },
-                        )}
-                      </p>
-                    </div>
-                    <div className={cm.cn('flex items-center gap-3 text-[11px] mt-2')}>
-                      <span
-                        className={cm.cn(
-                          'px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold',
-                        )}
-                      >
-                        +24
-                      </span>
-                      <span
-                        className={cm.cn(
-                          'px-2 py-0.5 rounded bg-red-500/20 text-red-300 font-bold',
-                        )}
-                      >
-                        -18
-                      </span>
-                      <span className={cm.cn('ml-auto text-white/60')}>
-                        score <span className={cm.cn('text-emerald-300 font-bold')}>9.1</span> / 10
-                      </span>
-                    </div>
+                  </div>
+                  <div
+                    className={cm.cn(
+                      'relative w-12 h-12 flex items-center justify-center shrink-0',
+                    )}
+                  >
+                    <svg className={cm.cn('w-full h-full -rotate-90')} viewBox="0 0 36 36">
+                      <path
+                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                        fill="none"
+                        stroke="var(--color-code-border)"
+                        strokeWidth="3"
+                      />
+                      <path
+                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                        fill="none"
+                        stroke="var(--color-code-green)"
+                        strokeDasharray="87, 100"
+                        strokeLinecap="round"
+                        strokeWidth="3"
+                      />
+                    </svg>
+                    <span
+                      className={cm.cn('absolute text-[10px] font-bold')}
+                      style={{ color: 'var(--color-code-green)' }}
+                    >
+                      87
+                    </span>
                   </div>
                 </div>
               </div>
@@ -332,61 +405,78 @@ export function Landing() {
           </div>
         </section>
 
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
-          <h2
-            className={cm.cn(
-              'mb-12 text-center text-3xl md:text-4xl font-extrabold tracking-tight text-white',
-            )}
-          >
-            {t(
-              'landing.featuresHeading',
-              {},
-              { defaultValue: 'Built for developers who actually merge' },
-            )}
-          </h2>
-          <div
-            className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}
-          >
-            {FEATURES.map((f) => (
-              <div
-                key={f.key}
+        {/* Features grid */}
+        <section className={cm.cn('py-24 bg-surface-container-low')} id="features">
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6))}>
+            <div className={cm.cn('text-center mb-16 max-w-2xl mx-auto')}>
+              <h2
                 className={cm.cn(
-                  'rounded-2xl p-6 hover:shadow-2xl hover:shadow-violet-500/10 transition-all group border border-surface/10',
+                  'text-3xl md:text-4xl font-bold tracking-tight mb-4 text-on-surface',
                 )}
-                style={{ backgroundColor: 'var(--color-ink-panel)' }}
               >
+                {t(
+                  'landing.featuresHeading',
+                  {},
+                  { defaultValue: 'Review faster. Merge with confidence.' },
+                )}
+              </h2>
+              <p className={cm.cn('text-lg text-on-surface-variant')}>
+                {t(
+                  'landing.featuresSubheading',
+                  {},
+                  { defaultValue: 'Automated insights tailored to your codebase context.' },
+                )}
+              </p>
+            </div>
+            <div
+              className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3')}
+            >
+              {FEATURES.map((f) => (
                 <div
+                  key={f.key}
                   className={cm.cn(
-                    'inline-flex p-3 rounded-xl shadow-sm group-hover:scale-110 transition-transform',
-                    f.tint,
+                    'p-8 rounded-xl bg-surface-container-lowest transition-transform duration-300 hover:-translate-y-1',
                   )}
-                  style={{ backgroundColor: 'var(--color-inverse-surface)' }}
                 >
-                  <span className="material-symbols-outlined text-3xl" aria-hidden="true">
-                    {f.icon}
-                  </span>
+                  <div
+                    className={cm.cn(
+                      'w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center mb-6',
+                    )}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined fill text-primary text-2xl')}
+                      aria-hidden="true"
+                    >
+                      {f.icon}
+                    </span>
+                  </div>
+                  <h3 className={cm.cn('text-xl font-bold mb-3 text-on-surface')}>
+                    {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
+                  </h3>
+                  <p className={cm.cn('text-on-surface-variant leading-relaxed')}>
+                    {t(
+                      `landing.feature.${f.key}.body`,
+                      { appName: APP_NAME },
+                      { defaultValue: f.defaultBody },
+                    )}
+                  </p>
                 </div>
-                <h3 className={cm.cn('text-lg font-bold mt-5 mb-2 text-white')}>
-                  {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
-                </h3>
-                <p className={cm.cn('text-sm text-white/70 leading-relaxed')}>
-                  {t(
-                    `landing.feature.${f.key}.body`,
-                    { appName: APP_NAME },
-                    { defaultValue: f.defaultBody },
-                  )}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className={cm.cn('border-t border-surface/10')}>
-          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 text-center')}>
-            <h3 className={cm.cn('text-3xl font-extrabold tracking-tight mb-4 text-white')}>
+        {/* CTA */}
+        <section className={cm.cn('py-24')}>
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'text-center')}>
+            <h3
+              className={cm.cn(
+                'text-3xl md:text-4xl font-bold tracking-tight mb-4 text-on-surface',
+              )}
+            >
               {t('landing.ctaHeading', {}, { defaultValue: 'Stop merging the bug-prone diff' })}
             </h3>
-            <p className={cm.cn('text-base text-white/70 max-w-xl mx-auto mb-8')}>
+            <p className={cm.cn('text-lg text-on-surface-variant max-w-xl mx-auto mb-10')}>
               {t(
                 'landing.ctaBody',
                 {},
@@ -399,10 +489,10 @@ export function Landing() {
             <Link
               to="/signup"
               className={cm.cn(
-                'inline-flex items-center gap-2 px-10 py-4 font-semibold bg-violet-600 text-white rounded-full hover:bg-violet-500 transition-colors shadow-lg shadow-violet-500/30',
+                'lp-btn-gradient inline-flex items-center gap-2 px-10 py-4 rounded-lg font-semibold text-base hover:opacity-90 transition-opacity',
               )}
             >
-              {t('landing.heroCta', {}, { defaultValue: 'Connect your first repo' })}
+              {t('landing.heroCta', {}, { defaultValue: 'Connect GitHub' })}
               <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
                 arrow_forward
               </span>
@@ -411,16 +501,115 @@ export function Landing() {
         </section>
       </main>
 
-      <footer
-        className={cm.cn('py-8 text-center text-sm text-white/60 border-t border-surface/10')}
-      >
-        <p>
-          {t(
-            'common.copyrightBuiltWithMolecule',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Built with Molecule.' },
+      {/* Footer */}
+      <footer className={cm.cn('w-full border-t border-surface-variant bg-surface py-16')}>
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            cm.grid({ gap: 'lg' }),
+            'grid-cols-2 md:grid-cols-4',
           )}
-        </p>
+        >
+          <div>
+            <div className={cm.cn('text-lg font-bold text-on-surface mb-6')}>{APP_NAME}</div>
+            <p className={cm.cn('text-sm leading-relaxed text-on-surface-variant')}>
+              {t(
+                'common.copyrightBuiltWithMolecule',
+                { year: new Date().getFullYear(), app: `${APP_NAME} Logic` },
+                { defaultValue: '© {{year}} {{app}}. All rights reserved.' },
+              )}
+            </p>
+          </div>
+          <div className={cm.cn('flex flex-col gap-4')}>
+            <h4 className={cm.cn('font-semibold text-on-surface')}>
+              {t('landing.footer.product', {}, { defaultValue: 'Product' })}
+            </h4>
+            <SafeLink
+              to="/"
+              className={cm.cn(
+                'text-sm text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('nav.features', {}, { defaultValue: 'Features' })}
+            </SafeLink>
+            <SafeLink
+              to="/pricing"
+              className={cm.cn(
+                'text-sm text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </SafeLink>
+            <SafeLink
+              to="/about"
+              className={cm.cn(
+                'text-sm text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('nav.changelog', {}, { defaultValue: 'Changelog' })}
+            </SafeLink>
+          </div>
+          <div className={cm.cn('flex flex-col gap-4')}>
+            <h4 className={cm.cn('font-semibold text-on-surface')}>
+              {t('landing.footer.company', {}, { defaultValue: 'Company' })}
+            </h4>
+            <SafeLink
+              to="/about"
+              className={cm.cn(
+                'text-sm text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('landing.footer.aboutUs', {}, { defaultValue: 'About Us' })}
+            </SafeLink>
+            <SafeLink
+              to="/privacy"
+              className={cm.cn(
+                'text-sm text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
+            </SafeLink>
+            <SafeLink
+              to="/terms"
+              className={cm.cn(
+                'text-sm text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('nav.terms', {}, { defaultValue: 'Terms' })}
+            </SafeLink>
+          </div>
+          <div className={cm.cn('flex flex-col gap-4')}>
+            <h4 className={cm.cn('font-semibold text-on-surface')}>
+              {t('landing.footer.resources', {}, { defaultValue: 'Resources' })}
+            </h4>
+            <SafeLink
+              to="/about"
+              className={cm.cn(
+                'text-sm text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('nav.docs', {}, { defaultValue: 'Documentation' })}
+            </SafeLink>
+            <SafeLink
+              to="/login"
+              className={cm.cn(
+                'text-sm text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('auth.login.signInButton', {}, { defaultValue: 'Sign In' })}
+            </SafeLink>
+            <SafeLink
+              to="/signup"
+              className={cm.cn(
+                'text-sm text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('landing.navCta', {}, { defaultValue: 'Connect with GitHub' })}
+            </SafeLink>
+          </div>
+        </div>
       </footer>
     </div>
   )

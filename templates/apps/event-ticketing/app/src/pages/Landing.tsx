@@ -6,7 +6,6 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
 import { EventCard, type EventSummary } from '../components/EventCard.js'
-import { HeroEventCard } from '../components/HeroEventCard.js'
 
 const FEATURES = [
   {
@@ -82,7 +81,6 @@ export function Landing() {
   const http = useHttpClient()
   const isAuthenticated = useIsAuthenticated()
   const [previews, setPreviews] = useState<EventSummary[] | null>(null)
-  const [hero, setHero] = useState<EventSummary | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -91,15 +89,10 @@ export function Landing() {
       .then((res) => {
         if (cancelled) return
         const rows = (res.data as EventRow[]) ?? []
-        const list = rows.map(rowToSummary)
-        setPreviews(list)
-        setHero(list[0] ?? null)
+        setPreviews(rows.map(rowToSummary))
       })
       .catch(() => {
-        if (!cancelled) {
-          setPreviews([])
-          setHero(null)
-        }
+        if (!cancelled) setPreviews([])
       })
     return () => {
       cancelled = true
@@ -175,15 +168,12 @@ export function Landing() {
                 to="/dashboard"
                 data-mol-id="nav-dashboard"
                 className={cm.cn(
-                  cm.sp('px', 5),
+                  cm.sp('px', 6),
                   cm.sp('py', 2),
                   cm.fontWeight('semibold'),
-                  'rounded-full text-white shadow-md shadow-primary/30 hover:-translate-y-0.5 transition-transform',
+                  'rounded-xl text-white shadow-sm hover:opacity-90 transition-opacity',
                 )}
-                style={{
-                  background:
-                    'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-                }}
+                style={{ background: 'var(--color-primary)' }}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
               </Link>
@@ -194,7 +184,7 @@ export function Landing() {
                   className={cm.cn(
                     cm.textSize('sm'),
                     cm.fontWeight('medium'),
-                    'text-on-surface-variant hover:text-on-surface',
+                    'text-on-surface-variant hover:text-primary transition-colors',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -203,15 +193,12 @@ export function Landing() {
                   to="/signup"
                   data-mol-id="nav-signup"
                   className={cm.cn(
-                    cm.sp('px', 5),
+                    cm.sp('px', 6),
                     cm.sp('py', 2),
                     cm.fontWeight('semibold'),
-                    'rounded-full text-white shadow-md shadow-primary/30 hover:-translate-y-0.5 transition-transform',
+                    'rounded-xl text-white shadow-sm hover:opacity-90 transition-opacity',
                   )}
-                  style={{
-                    background:
-                      'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-                  }}
+                  style={{ background: 'var(--color-primary)' }}
                 >
                   {t('common.getStarted', {}, { defaultValue: 'Get started' })}
                 </Link>
@@ -222,272 +209,325 @@ export function Landing() {
       </nav>
 
       <main>
-        {/* Hero */}
-        <section className={cm.cn('relative overflow-hidden')}>
+        {/* Hero — full-bleed violet→indigo gradient banner, centered */}
+        <section
+          className={cm.cn('relative overflow-hidden')}
+          style={{
+            background:
+              'linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)',
+          }}
+        >
+          {/* soft light blooms standing in for the design's crowd-photo overlay */}
           <div
-            className={cm.cn('absolute inset-0 pointer-events-none')}
+            className={cm.cn('absolute inset-0 mix-blend-overlay opacity-30 pointer-events-none')}
             aria-hidden="true"
             style={{
               background:
-                'linear-gradient(135deg, var(--color-background-tertiary) 0%, var(--color-background) 50%, var(--color-surface) 100%)',
+                'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.7) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.4) 0%, transparent 45%)',
             }}
           />
           <div
             className={cm.cn(
-              'absolute -right-24 top-12 w-96 h-96 rounded-full opacity-40 blur-3xl',
-            )}
-            style={{ background: 'var(--color-primary)' }}
-            aria-hidden="true"
-          />
-          <div
-            className={cm.cn(
-              'absolute left-12 bottom-0 w-72 h-72 rounded-full opacity-30 blur-3xl',
-            )}
-            style={{ background: 'var(--color-accent)' }}
-            aria-hidden="true"
-          />
-
-          <div
-            className={cm.cn(
-              cm.maxW('7xl'),
+              cm.maxW('4xl'),
               cm.mxAuto,
               cm.sp('px', 6),
-              'py-20 md:py-28 lg:py-32 relative',
+              'pt-20 pb-24 md:pt-28 md:pb-32 relative text-center',
             )}
           >
-            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-12 items-center')}>
-              <div className={cm.cn('lg:col-span-7')}>
+            <div
+              className={cm.cn(
+                'inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6',
+              )}
+              style={{ background: 'rgba(255,255,255,0.14)', color: 'white' }}
+            >
+              <span
+                className={cm.cn('w-2 h-2 rounded-full animate-pulse')}
+                style={{ background: 'var(--color-accent)' }}
+                aria-hidden="true"
+              />
+              {t('landing.eyebrow', {}, { defaultValue: 'Tickets that travel with you' })}
+            </div>
+            <h1
+              className={cm.cn(
+                cm.sp('mb', 6),
+                'text-5xl md:text-7xl font-black tracking-tight leading-[1.02] text-white',
+              )}
+            >
+              {t('landing.heroTitle', {}, { defaultValue: 'Every moment,' })}{' '}
+              {t('landing.heroTitleAccent', {}, { defaultValue: 'front row.' })}
+            </h1>
+            <p
+              className={cm.cn(
+                cm.textSize('lg'),
+                'md:text-xl text-white/85 font-medium max-w-2xl mx-auto leading-relaxed',
+                cm.sp('mb', 10),
+              )}
+            >
+              {t(
+                'landing.heroSubtitle',
+                {},
+                {
+                  defaultValue:
+                    'Concerts, festivals, conferences — discover what’s on near you, lock in tickets in two taps, and walk in with a single QR pass.',
+                },
+              )}
+            </p>
+            <div
+              className={cm.flex({ align: 'center', justify: 'center', gap: 'md', wrap: 'wrap' })}
+            >
+              <Link
+                to="/signup"
+                data-mol-id="hero-signup"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  'font-semibold rounded-xl text-on-surface inline-flex items-center gap-2 shadow-lg hover:opacity-95 transition-opacity',
+                )}
+                style={{ background: 'var(--color-surface)' }}
+              >
+                {t('common.getStarted', {}, { defaultValue: 'Get started' })}
+                <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                  arrow_forward
+                </span>
+              </Link>
+              <Link
+                to="/events"
+                data-mol-id="hero-browse"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.fontWeight('semibold'),
+                  'rounded-xl inline-flex items-center gap-2 text-white transition-colors',
+                )}
+                style={{ background: 'rgba(255,255,255,0.12)' }}
+              >
+                <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                  explore
+                </span>
+                {t('landing.browseCta', {}, { defaultValue: 'Browse events' })}
+              </Link>
+            </div>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center', gap: 'lg' }),
+                cm.sp('mt', 10),
+                cm.sp('pt', 6),
+                'flex-wrap',
+              )}
+            >
+              {[
+                { key: 'statQr', big: 'QR', small: 'One-tap entry' },
+                { key: 'statSetup', big: '$0', small: 'To list your event' },
+                { key: 'statPayout', big: '24h', small: 'Avg payout time' },
+              ].map((s, i) => (
                 <div
-                  className={cm.cn(
-                    'inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6',
-                  )}
-                  style={{
-                    background: 'var(--color-error-light)',
-                    color: 'var(--color-accent-dark)',
-                  }}
-                >
-                  <span
-                    className={cm.cn('w-2 h-2 rounded-full animate-pulse')}
-                    style={{ background: 'var(--color-accent)' }}
-                    aria-hidden="true"
-                  />
-                  {t('landing.eyebrow', {}, { defaultValue: 'Tickets that travel with you' })}
-                </div>
-                <h1
-                  className={cm.cn(
-                    cm.sp('mb', 6),
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95]',
-                  )}
-                >
-                  {t('landing.heroTitle', {}, { defaultValue: 'Every moment,' })}
-                  <span className={cm.cn('block')} style={{ color: 'var(--color-primary)' }}>
-                    {t('landing.heroTitleAccent', {}, { defaultValue: 'front row.' })}
-                  </span>
-                </h1>
-                <p
-                  className={cm.cn(
-                    cm.textSize('lg'),
-                    cm.sp('mb', 10),
-                    'text-on-surface-variant max-w-xl leading-relaxed',
-                  )}
-                >
-                  {t(
-                    'landing.heroSubtitle',
-                    {},
-                    {
-                      defaultValue:
-                        'Concerts, festivals, conferences — discover what’s on near you, lock in tickets in two taps, and walk in with a single QR pass.',
-                    },
-                  )}
-                </p>
-                <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                  <Link
-                    to="/signup"
-                    data-mol-id="hero-signup"
-                    className={cm.cn(
-                      cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      'font-semibold rounded-full text-white inline-flex items-center gap-2 shadow-lg shadow-primary/30 hover:-translate-y-0.5 transition-transform',
-                    )}
-                    style={{
-                      background:
-                        'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-                    }}
-                  >
-                    {t('common.getStarted', {}, { defaultValue: 'Get started' })}
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base')}
-                      aria-hidden="true"
-                    >
-                      arrow_forward
-                    </span>
-                  </Link>
-                  <Link
-                    to="/events"
-                    data-mol-id="hero-browse"
-                    className={cm.cn(
-                      cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors inline-flex items-center gap-2',
-                    )}
-                  >
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base')}
-                      aria-hidden="true"
-                    >
-                      explore
-                    </span>
-                    {t('landing.browseCta', {}, { defaultValue: 'Browse events' })}
-                  </Link>
-                </div>
-                <div
+                  key={s.key}
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 'lg' }),
-                    cm.sp('mt', 10),
-                    cm.sp('pt', 6),
-                    'border-t border-outline-variant/40',
+                    i > 0 && 'pl-6 border-l border-white/25',
                   )}
                 >
                   <div>
-                    <p className={cm.cn('text-2xl font-extrabold tabular-nums tracking-tight')}>
-                      QR
+                    <p
+                      className={cm.cn(
+                        'text-2xl font-extrabold tabular-nums tracking-tight text-white',
+                      )}
+                    >
+                      {s.big}
                     </p>
-                    <p className={cm.cn(cm.textSize('xs'), cm.textMuted)}>
-                      {t('landing.statQr', {}, { defaultValue: 'One-tap entry' })}
-                    </p>
-                  </div>
-                  <div className={cm.cn('w-px h-10 bg-outline-variant')} />
-                  <div>
-                    <p className={cm.cn('text-2xl font-extrabold tabular-nums tracking-tight')}>
-                      $0
-                    </p>
-                    <p className={cm.cn(cm.textSize('xs'), cm.textMuted)}>
-                      {t('landing.statSetup', {}, { defaultValue: 'To list your event' })}
-                    </p>
-                  </div>
-                  <div className={cm.cn('w-px h-10 bg-outline-variant')} />
-                  <div>
-                    <p className={cm.cn('text-2xl font-extrabold tabular-nums tracking-tight')}>
-                      24h
-                    </p>
-                    <p className={cm.cn(cm.textSize('xs'), cm.textMuted)}>
-                      {t('landing.statPayout', {}, { defaultValue: 'Avg payout time' })}
+                    <p className={cm.cn(cm.textSize('xs'), 'text-white/70')}>
+                      {t(`landing.${s.key}`, {}, { defaultValue: s.small })}
                     </p>
                   </div>
                 </div>
-              </div>
-
-              <div className={cm.cn('lg:col-span-5 relative z-10 flex justify-end')}>
-                {hero ? (
-                  <HeroEventCard
-                    id={hero.id}
-                    category={hero.category || 'Event'}
-                    title={hero.title}
-                    imageAlt={hero.title}
-                    startDateIso={hero.start_date}
-                    startTime={hero.start_time}
-                    venueName={hero.venue_name || ''}
-                    city={hero.city || ''}
-                    fromPriceCents={hero.min_price}
-                    isFree={hero.is_free}
-                    ribbonLabel={
-                      hero.is_sold_out
-                        ? t('landing.ribbonSoldOut', {}, { defaultValue: 'Sold out' })
-                        : t('landing.ribbonOnSale', {}, { defaultValue: 'On sale' })
-                    }
-                  />
-                ) : (
-                  <div
-                    className={cm.cn(
-                      'relative w-full max-w-lg p-10 rounded-[2rem] text-white text-center shadow-2xl shadow-primary/30',
-                    )}
-                    style={{
-                      background:
-                        'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-                    }}
-                    data-mol-id="hero-empty"
-                  >
-                    <span
-                      className={cm.cn('material-symbols-outlined block mx-auto')}
-                      style={{ fontSize: '6rem', fontVariationSettings: "'FILL' 1" }}
-                      aria-hidden="true"
-                    >
-                      celebration
-                    </span>
-                    <h3 className={cm.cn('text-2xl font-extrabold tracking-tight mt-3')}>
-                      {t('landing.heroEmptyHeading', {}, { defaultValue: 'Be the first to host' })}
-                    </h3>
-                    <p className={cm.cn('opacity-80 mt-2 leading-relaxed')}>
-                      {t(
-                        'landing.heroEmptyBody',
-                        {},
-                        {
-                          defaultValue:
-                            'No events are on sale yet. Sell your first ticket in 60 seconds — free to start.',
-                        },
-                      )}
-                    </p>
-                    <Link
-                      to="/events/new"
-                      className={cm.cn(
-                        'inline-flex items-center gap-2 px-6 py-3 mt-6 rounded-full font-bold',
-                      )}
-                      style={{ background: 'var(--color-accent)' }}
-                    >
-                      {t('landing.heroEmptyCta', {}, { defaultValue: 'Host an event' })}
-                      <span
-                        className={cm.cn('material-symbols-outlined text-base')}
-                        aria-hidden="true"
-                      >
-                        arrow_forward
-                      </span>
-                    </Link>
-                  </div>
-                )}
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* On-sale strip */}
-        {previews && previews.length > 0 ? (
-          <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16')}>
-            <div
-              className={cm.cn(
-                cm.flex({ align: 'end', justify: 'between' }),
-                cm.sp('mb', 6),
-                'flex-wrap gap-4',
-              )}
-            >
-              <div>
-                <p
+        {/* Floating search bar — overlaps the hero edge */}
+        <div
+          className={cm.cn(cm.maxW('5xl'), cm.mxAuto, cm.sp('px', 6), 'relative z-20')}
+          style={{ marginTop: '-28px' }}
+        >
+          <div
+            className={cm.cn(
+              'bg-surface rounded-xl shadow-xl border border-outline-variant/40 flex flex-col md:flex-row items-center p-2 gap-2',
+            )}
+          >
+            {[
+              { key: 'what', label: 'What?', hint: 'Search events, artists' },
+              { key: 'where', label: 'Where?', hint: 'Any location' },
+              { key: 'when', label: 'When?', hint: 'Any date' },
+              { key: 'guests', label: 'Guests', hint: '2 people' },
+            ].map((f, i) => (
+              <div key={f.key} className={cm.cn(cm.flex({ align: 'center' }), 'w-full')}>
+                {i > 0 ? (
+                  <div className={cm.cn('hidden md:block w-px h-8 bg-outline-variant mx-2')} />
+                ) : null}
+                <div
                   className={cm.cn(
-                    'text-xs font-black uppercase tracking-widest text-primary mb-2',
+                    cm.flex({ direction: 'col', justify: 'center' }),
+                    'flex-1 w-full px-4 py-1.5 hover:bg-surface-container-low rounded-lg transition-colors',
                   )}
                 >
-                  {t('landing.onSaleEyebrow', {}, { defaultValue: 'Latest events' })}
-                </p>
-                <h2 className={cm.cn('text-3xl font-extrabold tracking-tight')}>
-                  {t('landing.onSaleHeading', {}, { defaultValue: 'On sale right now' })}
-                </h2>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('bold'),
+                      'uppercase tracking-wide text-on-surface',
+                    )}
+                  >
+                    {t(`landing.search.${f.key}.label`, {}, { defaultValue: f.label })}
+                  </span>
+                  <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant truncate')}>
+                    {t(`landing.search.${f.key}.hint`, {}, { defaultValue: f.hint })}
+                  </span>
+                </div>
               </div>
-              <Link
-                to="/events"
-                className={cm.cn(cm.textSize('sm'), 'font-bold text-primary hover:underline')}
-              >
-                {t('landing.viewAll', {}, { defaultValue: 'See every event →' })}
-              </Link>
-            </div>
-            <div
-              className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}
+            ))}
+            <Link
+              to="/events"
+              data-mol-id="hero-search"
+              className={cm.cn(
+                cm.sp('px', 6),
+                cm.sp('py', 3),
+                'rounded-xl font-bold inline-flex items-center justify-center gap-2 text-white shadow-md transition-opacity hover:opacity-90 w-full md:w-auto',
+              )}
+              style={{ background: 'var(--color-accent)' }}
             >
-              {previews.map((evt) => (
+              <span
+                className={cm.cn('material-symbols-outlined text-xl')}
+                style={{ fontVariationSettings: "'FILL' 1" }}
+                aria-hidden="true"
+              >
+                search
+              </span>
+              <span className={cm.cn('hidden lg:inline')}>
+                {t('landing.search.cta', {}, { defaultValue: 'Search events' })}
+              </span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Category pills */}
+        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'pt-14')}>
+          <div className={cm.cn(cm.flex({ wrap: 'wrap', justify: 'center', gap: 'sm' }))}>
+            {[
+              { icon: 'music_note', key: 'music', label: 'Music', active: true },
+              { icon: 'sports_basketball', key: 'sports', label: 'Sports', active: false },
+              { icon: 'festival', key: 'festivals', label: 'Festivals', active: false },
+              { icon: 'theater_comedy', key: 'theater', label: 'Theater', active: false },
+              { icon: 'campaign', key: 'conferences', label: 'Conferences', active: false },
+              { icon: 'mic', key: 'comedy', label: 'Comedy', active: false },
+            ].map((c) => (
+              <Link
+                key={c.key}
+                to="/events"
+                data-mol-id={`category-${c.key}`}
+                className={cm.cn(
+                  cm.sp('px', 6),
+                  cm.sp('py', 3),
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  'rounded-full text-sm font-semibold transition-colors',
+                  c.active
+                    ? 'text-white shadow-sm'
+                    : 'bg-surface-container-low text-on-surface border border-outline-variant/60 hover:text-primary hover:border-primary',
+                )}
+                style={c.active ? { background: 'var(--color-primary)' } : undefined}
+              >
+                <span className={cm.cn('material-symbols-outlined text-lg')} aria-hidden="true">
+                  {c.icon}
+                </span>
+                {t(`landing.category.${c.key}`, {}, { defaultValue: c.label })}
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Tonight near you — live previews from the API */}
+        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16')}>
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'end', justify: 'between' }),
+              cm.sp('mb', 8),
+              'flex-wrap gap-4',
+            )}
+          >
+            <div>
+              <h2 className={cm.cn('text-3xl font-black tracking-tight')}>
+                {t('landing.onSaleHeading', {}, { defaultValue: 'Tonight near you' })}
+              </h2>
+              <p className={cm.cn(cm.textMuted, cm.fontWeight('medium'), cm.sp('mt', 2))}>
+                {t('landing.onSaleSub', {}, { defaultValue: 'Last minute tickets available now' })}
+              </p>
+            </div>
+            <Link
+              to="/events"
+              className={cm.cn(
+                cm.textSize('sm'),
+                'font-bold text-primary inline-flex items-center gap-1 hover:underline',
+              )}
+            >
+              {t('landing.viewAll', {}, { defaultValue: 'See all' })}
+              <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                arrow_forward
+              </span>
+            </Link>
+          </div>
+          {previews && previews.length > 0 ? (
+            <div
+              className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3')}
+            >
+              {previews.slice(0, 3).map((evt) => (
                 <EventCard key={evt.id} event={evt} />
               ))}
             </div>
-          </section>
-        ) : null}
+          ) : (
+            <div
+              className={cm.cn(
+                'relative w-full max-w-lg p-10 rounded-[2rem] text-white text-center shadow-2xl shadow-primary/30 mx-auto',
+              )}
+              style={{
+                background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
+              }}
+              data-mol-id="hero-empty"
+            >
+              <span
+                className={cm.cn('material-symbols-outlined block mx-auto')}
+                style={{ fontSize: '6rem', fontVariationSettings: "'FILL' 1" }}
+                aria-hidden="true"
+              >
+                celebration
+              </span>
+              <h3 className={cm.cn('text-2xl font-extrabold tracking-tight mt-3')}>
+                {t('landing.heroEmptyHeading', {}, { defaultValue: 'Be the first to host' })}
+              </h3>
+              <p className={cm.cn('opacity-80 mt-2 leading-relaxed')}>
+                {t(
+                  'landing.heroEmptyBody',
+                  {},
+                  {
+                    defaultValue:
+                      'No events are on sale yet. Sell your first ticket in 60 seconds — free to start.',
+                  },
+                )}
+              </p>
+              <Link
+                to="/events/new"
+                className={cm.cn(
+                  'inline-flex items-center gap-2 px-6 py-3 mt-6 rounded-full font-bold',
+                )}
+                style={{ background: 'var(--color-accent)', color: 'white' }}
+              >
+                {t('landing.heroEmptyCta', {}, { defaultValue: 'Host an event' })}
+                <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                  arrow_forward
+                </span>
+              </Link>
+            </div>
+          )}
+        </section>
 
         {/* Features */}
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>

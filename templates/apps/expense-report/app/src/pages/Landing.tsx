@@ -421,8 +421,114 @@ export function Landing() {
           </div>
         </section>
 
-        <section className={cm.cn('border-t border-outline-variant/40 bg-surface-container-low')}>
-          <div className={cm.cn(cm.maxW('7xl'), 'mx-auto', cm.sp('px', 6), 'py-16 text-center')}>
+        {/* Why finance teams stay — reason cards with stats */}
+        <section className={cm.cn('border-t border-outline-variant/40')}>
+          <div className={cm.cn(cm.maxW('7xl'), 'mx-auto', cm.sp('px', 6), 'py-20')}>
+            <div className={cm.cn(cm.textCenter, cm.sp('mb', 12))}>
+              <p
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'uppercase tracking-widest text-primary mb-3',
+                )}
+              >
+                {t(
+                  'landing.whyEyebrow',
+                  { app: APP_NAME },
+                  { defaultValue: 'Why teams choose {{app}}' },
+                )}
+              </p>
+              <h2
+                className={cm.cn(cm.textSize('3xl'), 'md:text-4xl font-extrabold tracking-tight')}
+              >
+                {t(
+                  'landing.whyHeading',
+                  {},
+                  { defaultValue: 'Reimbursements without the spreadsheet ceremony' },
+                )}
+              </h2>
+              <p
+                className={cm.cn(
+                  cm.textSize('lg'),
+                  cm.sp('mt', 4),
+                  'text-on-surface-variant max-w-2xl mx-auto',
+                )}
+              >
+                {t(
+                  'landing.whySub',
+                  {},
+                  {
+                    defaultValue:
+                      'A calm approval timeline, policy guardrails that explain themselves, and exports your auditors already love.',
+                  },
+                )}
+              </p>
+            </div>
+            <div className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-3')}>
+              {[
+                {
+                  icon: 'schedule',
+                  key: 'speed',
+                  stat: '2 days',
+                  defaultTitle: 'Faster reimbursements',
+                  defaultBody:
+                    'Two-tier approvals with one-tap marking mean employees see money back in days, not weeks.',
+                },
+                {
+                  icon: 'gpp_good',
+                  key: 'policy',
+                  stat: '100%',
+                  defaultTitle: 'Policy-checked at submission',
+                  defaultBody:
+                    'Daily caps, per-category limits, and receipt-required thresholds flag problems before approval.',
+                },
+                {
+                  icon: 'inventory',
+                  key: 'audit',
+                  stat: '1 click',
+                  defaultTitle: 'Audit-ready exports',
+                  defaultBody:
+                    'CSV exports of every report, expense, and approval state — reconciled and ready for accounting.',
+                },
+              ].map((r) => (
+                <article
+                  key={r.key}
+                  className={cm.cn(
+                    cm.sp('p', 8),
+                    'rounded-2xl bg-surface-container-lowest border border-outline-variant/30 hover:shadow-xl hover:-translate-y-1 transition-all',
+                  )}
+                >
+                  <div className={cm.cn(cm.flex({ align: 'baseline', gap: 'sm' }), cm.sp('mb', 3))}>
+                    <span
+                      className={cm.cn(
+                        'text-3xl font-extrabold tabular-nums tracking-tight text-primary',
+                      )}
+                    >
+                      {t(`landing.why.${r.key}.stat`, {}, { defaultValue: r.stat })}
+                    </span>
+                    <span
+                      className={cm.cn('material-symbols-outlined text-xl text-primary/70')}
+                      aria-hidden="true"
+                    >
+                      {r.icon}
+                    </span>
+                  </div>
+                  <h3 className={cm.cn(cm.textSize('lg'), cm.sp('mb', 2), cm.fontWeight('bold'))}>
+                    {t(`landing.why.${r.key}.title`, {}, { defaultValue: r.defaultTitle })}
+                  </h3>
+                  <p
+                    className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}
+                  >
+                    {t(`landing.why.${r.key}.body`, {}, { defaultValue: r.defaultBody })}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={cm.cn('bg-inverse-surface text-inverse-on-surface')}>
+          <div className={cm.cn(cm.maxW('7xl'), 'mx-auto', cm.sp('px', 6), 'py-20 text-center')}>
             <h3
               className={cm.cn(cm.textSize('3xl'), cm.sp('mb', 4), 'font-extrabold tracking-tight')}
             >
@@ -433,11 +539,7 @@ export function Landing() {
               )}
             </h3>
             <p
-              className={cm.cn(
-                cm.textSize('base'),
-                cm.sp('mb', 8),
-                'text-on-surface-variant max-w-xl mx-auto',
-              )}
+              className={cm.cn(cm.textSize('base'), cm.sp('mb', 8), 'max-w-xl mx-auto opacity-80')}
             >
               {t(
                 'landing.ctaBody',
@@ -454,11 +556,12 @@ export function Landing() {
                 cm.sp('px', 10),
                 cm.sp('py', 4),
                 cm.fontWeight('semibold'),
-                'rounded-full text-white inline-flex items-center gap-2 transition-colors shadow-lg shadow-primary/20',
+                'rounded-full inline-flex items-center gap-2 transition-opacity shadow-lg shadow-black/20 hover:opacity-90',
               )}
               style={{
                 background:
                   'linear-gradient(135deg, var(--color-primary-hover), var(--color-gradient-end))',
+                color: 'var(--color-on-primary, var(--color-surface))',
               }}
             >
               {t('common.startFree', {}, { defaultValue: 'Start free' })}
@@ -482,8 +585,17 @@ export function Landing() {
           {t(
             'landing.copyright',
             { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Built with Molecule.dev.' },
+            { defaultValue: '© {{year}} {{app}}.' },
           )}
+          {' — Built with '}
+          <a
+            href="https://molecule.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline font-medium"
+          >
+            Molecule.dev
+          </a>
         </p>
       </footer>
     </div>

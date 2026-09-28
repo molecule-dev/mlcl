@@ -57,28 +57,20 @@ export function Landing() {
     <div className={cm.cn(cm.page, cm.flex({ direction: 'col' }), 'min-h-screen')}>
       <Header />
       <main>
-        <section
-          className={cm.cn('relative overflow-hidden')}
-          style={{
-            background:
-              'linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-bg-secondary) 50%, var(--color-accent-light) 100%)',
-          }}
-        >
+        {/* Hero — flat warm surface with a soft radial glow top-right. */}
+        <section className={cm.cn('relative overflow-hidden', 'py-20 md:py-32')}>
           <div
-            className={cm.cn('absolute -right-32 -top-32 rounded-full bg-primary/20 blur-3xl')}
-            style={{ width: 400, height: 400 }}
+            className={cm.cn('absolute inset-0 z-0')}
+            style={{
+              background:
+                'radial-gradient(circle at top right, color-mix(in srgb, var(--color-primary) 6%, transparent), transparent 40%)',
+            }}
           />
-          <div
-            className={cm.cn('absolute -left-20 bottom-0 rounded-full bg-accent/15 blur-3xl')}
-            style={{ width: 320, height: 320 }}
-          />
-          <div
-            className={cm.cn(cm.mxAuto, cm.sp('px', 6), cm.sp('py', 16), 'relative max-w-[1200px]')}
-          >
+          <div className={cm.cn(cm.mxAuto, cm.sp('px', 6), 'relative z-10 max-w-[1200px]')}>
             <div
               className={cm.cn(cm.grid({ gap: 'xl' }), 'grid-cols-1 lg:grid-cols-2 items-center')}
             >
-              <div>
+              <div className={cm.cn(cm.stack(8))}>
                 <span
                   className={cm.cn(
                     cm.fontWeight('bold'),
@@ -95,21 +87,21 @@ export function Landing() {
                 </span>
                 <h1
                   className={cm.cn(
-                    cm.fontWeight('bold'),
+                    cm.fontWeight('extrabold'),
                     cm.sp('mb', 6),
-                    'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] font-extrabold text-on-surface',
+                    'text-5xl md:text-7xl tracking-tight leading-tight text-on-surface',
                   )}
                 >
                   {t('landing.headlinePart1', {}, { defaultValue: 'Your creations,' })}{' '}
-                  <span className="text-primary">
-                    {t('landing.headlinePart2', {}, { defaultValue: 'delivered instantly.' })}
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    {t('landing.headlinePart2', {}, { defaultValue: 'delivered instantly' })}
                   </span>
                 </h1>
                 <p
                   className={cm.cn(
-                    cm.textSize('lg'),
+                    cm.textSize('xl'),
                     cm.sp('mb', 8),
-                    'text-on-surface-variant leading-relaxed max-w-xl',
+                    'text-on-surface-variant leading-relaxed max-w-lg',
                   )}
                 >
                   {t(
@@ -121,7 +113,7 @@ export function Landing() {
                     },
                   )}
                 </p>
-                <div className={cm.cn(cm.flex({ gap: 'md' }), 'flex-wrap')}>
+                <div className={cm.cn(cm.flex({ gap: 'md' }), 'flex-col sm:flex-row flex-wrap')}>
                   {isAuthenticated ? (
                     <Link
                       to="/dashboard"
@@ -130,7 +122,8 @@ export function Landing() {
                         cm.sp('px', 8),
                         cm.sp('py', 4),
                         cm.fontWeight('bold'),
-                        'inline-flex items-center gap-2 bg-primary text-on-primary rounded-xl shadow-lg shadow-primary/30 hover:bg-primary-hover hover:-translate-y-0.5 transition-all',
+                        cm.textSize('lg'),
+                        'inline-flex items-center justify-center gap-2 bg-primary text-on-primary rounded-xl shadow-lg shadow-primary/20 hover:bg-primary-hover transition-colors',
                       )}
                     >
                       <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
@@ -146,7 +139,8 @@ export function Landing() {
                         cm.sp('px', 8),
                         cm.sp('py', 4),
                         cm.fontWeight('bold'),
-                        'inline-flex items-center gap-2 bg-primary text-on-primary rounded-xl shadow-lg shadow-primary/30 hover:bg-primary-hover hover:-translate-y-0.5 transition-all',
+                        cm.textSize('lg'),
+                        'inline-flex items-center justify-center gap-2 bg-primary text-on-primary rounded-xl shadow-lg shadow-primary/20 hover:bg-primary-hover transition-colors',
                       )}
                     >
                       <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
@@ -160,8 +154,9 @@ export function Landing() {
                     className={cm.cn(
                       cm.sp('px', 8),
                       cm.sp('py', 4),
-                      cm.fontWeight('bold'),
-                      'inline-flex items-center gap-2 bg-surface text-on-surface rounded-xl border border-border hover:border-primary hover:text-primary transition-colors',
+                      cm.fontWeight('semibold'),
+                      cm.textSize('lg'),
+                      'inline-flex items-center justify-center gap-2 bg-surface text-on-surface rounded-xl border border-border shadow-sm hover:border-primary hover:text-primary transition-colors',
                     )}
                   >
                     {t('landing.ctaSecondary', {}, { defaultValue: 'Browse the storefront' })}
@@ -214,93 +209,141 @@ export function Landing() {
                   ))}
                 </div>
               </div>
-              <div className={cm.cn('relative')}>
+              {/* Floating product card — tilted white card over a blurred
+                  brand-gradient halo (the "delivered product" moment). */}
+              <div className={cm.cn('relative lg:ml-12')}>
+                <div
+                  className={cm.cn(
+                    'absolute inset-0 bg-gradient-to-tr from-primary/10 to-accent/10 rounded-3xl blur-lg',
+                    'rotate-3 scale-105',
+                  )}
+                />
                 <div
                   className={cm.cn(
                     cm.sp('p', 8),
-                    // bg-primary-dark is the fallback base: if the gradient
-                    // endpoints ever fail to compile, white text must still sit
-                    // on a dark field, never on the pale page background.
-                    'rounded-[2rem] bg-primary-dark bg-gradient-to-br from-primary to-accent text-white shadow-2xl shadow-primary/20 overflow-hidden relative',
+                    'relative z-10 bg-surface rounded-3xl shadow-2xl border border-border-light max-w-md mx-auto',
+                    '-rotate-2 hover:rotate-0 transition-transform duration-500',
                   )}
                 >
                   <div
                     className={cm.cn(
-                      'absolute -right-16 -bottom-16 rounded-full bg-surface/15 blur-3xl w-48 h-48',
+                      cm.flex({ align: 'start', justify: 'between' }),
+                      cm.sp('mb', 6),
                     )}
-                  />
-                  <div className={cm.cn('relative z-10')}>
-                    <p
+                  >
+                    <div
                       className={cm.cn(
+                        cm.flex({ align: 'center', justify: 'center' }),
+                        'w-12 h-12 rounded-xl bg-bg-secondary border border-primary-light',
+                      )}
+                    >
+                      <span
+                        className="material-symbols-outlined text-primary"
+                        style={{ fontSize: 24 }}
+                      >
+                        folder_zip
+                      </span>
+                    </div>
+                    <span
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 'xs' }),
+                        cm.sp('px', 3),
+                        cm.sp('py', 1),
+                        cm.roundedFull,
                         cm.textSize('xs'),
                         cm.fontWeight('bold'),
-                        cm.sp('mb', 2),
-                        'uppercase tracking-widest text-white/80',
+                        'bg-success-light text-success',
                       )}
                     >
-                      {t(
-                        'landing.previewLabel',
-                        { appName: APP_NAME },
-                        { defaultValue: 'This week on {{appName}}' },
+                      <span className={cm.cn('w-2 h-2 rounded-full bg-success')} />
+                      {t('landing.preview.downloadReady', {}, { defaultValue: 'Download ready' })}
+                    </span>
+                  </div>
+                  <h3
+                    className={cm.cn(
+                      cm.textSize('2xl'),
+                      cm.fontWeight('bold'),
+                      cm.sp('mb', 2),
+                      'text-on-surface',
+                    )}
+                  >
+                    {t('landing.preview.productName', {}, { defaultValue: 'SaaS UI Kit Pro' })}
+                  </h3>
+                  <p className={cm.cn(cm.sp('mb', 6), 'text-on-surface-variant line-clamp-2')}>
+                    {t(
+                      'landing.preview.productDesc',
+                      {},
+                      {
+                        defaultValue:
+                          'Complete design system and component library for your next indie hacker project.',
+                      },
+                    )}
+                  </p>
+                  <div
+                    className={cm.cn(
+                      cm.sp('p', 4),
+                      cm.sp('mb', 6),
+                      'rounded-lg bg-bg-secondary border border-border-light',
+                    )}
+                  >
+                    <div
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        cm.fontWeight('semibold'),
+                        cm.sp('mb', 1),
+                        'uppercase tracking-widest text-on-surface-variant',
                       )}
-                    </p>
-                    <p
-                      className={cm.cn('text-5xl font-extrabold tracking-tighter')}
-                      style={{ fontVariantNumeric: 'tabular-nums' }}
                     >
-                      {t('landing.previewRevenue', {}, { defaultValue: '$48,274' })}
-                    </p>
-                    <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2), 'text-white/85')}>
-                      {t(
-                        'landing.previewSubtitle',
-                        {},
-                        { defaultValue: 'paid out to creators in the last 7 days' },
-                      )}
-                    </p>
-                    <div className={cm.cn(cm.sp('mt', 6), cm.flex({ gap: 'md' }), 'flex-wrap')}>
-                      {[
-                        {
-                          label: t('landing.preview.sold', {}, { defaultValue: 'Items sold' }),
-                          value: '2,184',
-                        },
-                        {
-                          label: t(
-                            'landing.preview.creators',
-                            {},
-                            { defaultValue: 'Active creators' },
-                          ),
-                          value: '317',
-                        },
-                        {
-                          label: t('landing.preview.countries', {}, { defaultValue: 'Countries' }),
-                          value: '42',
-                        },
-                      ].map((stat) => (
-                        <div
-                          key={stat.label}
-                          className={cm.cn(
-                            cm.sp('px', 4),
-                            cm.sp('py', 3),
-                            'rounded-2xl bg-surface/15 backdrop-blur-md flex-1 min-w-[120px]',
-                          )}
-                        >
-                          <p
-                            className={cm.cn(
-                              cm.textSize('xs'),
-                              'uppercase tracking-widest text-white/80',
-                            )}
-                          >
-                            {stat.label}
-                          </p>
-                          <p
-                            className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}
-                            style={{ fontVariantNumeric: 'tabular-nums' }}
-                          >
-                            {stat.value}
-                          </p>
-                        </div>
-                      ))}
+                      {t('landing.preview.licenseLabel', {}, { defaultValue: 'License Key' })}
                     </div>
+                    <div
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('bold'),
+                        'text-accent tracking-wider',
+                      )}
+                      style={{ fontFamily: 'var(--font-family-mono)' }}
+                    >
+                      {t(
+                        'landing.preview.licenseValue',
+                        {},
+                        { defaultValue: 'TRV-A1B2-CDEF-GHIJ' },
+                      )}
+                    </div>
+                  </div>
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'between' }),
+                      cm.sp('mt', 8),
+                      cm.sp('pt', 4),
+                      'border-t border-border-light',
+                    )}
+                  >
+                    <span
+                      className={cm.cn(
+                        cm.textSize('3xl'),
+                        cm.fontWeight('bold'),
+                        'text-on-surface',
+                      )}
+                      style={{
+                        fontFamily: 'var(--font-family-mono)',
+                        fontVariantNumeric: 'tabular-nums',
+                      }}
+                    >
+                      {t('landing.preview.price', {}, { defaultValue: '$29' })}
+                    </span>
+                    <Link
+                      to="/shop"
+                      data-mol-id="landing-preview-buy"
+                      className={cm.cn(
+                        cm.sp('px', 6),
+                        cm.sp('py', 3),
+                        cm.fontWeight('bold'),
+                        'bg-primary text-on-primary rounded-xl hover:bg-primary-hover transition-colors shadow-sm',
+                      )}
+                    >
+                      {t('landing.preview.buyNow', {}, { defaultValue: 'Buy now' })}
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -308,7 +351,197 @@ export function Landing() {
           </div>
         </section>
 
-        <section className={cm.cn(cm.mxAuto, cm.sp('px', 6), cm.sp('py', 16), 'max-w-[1200px]')}>
+        {/* Stat strip — warm brand band, mono figures. */}
+        <section
+          className={cm.cn('border-y', cm.sp('py', 12))}
+          style={{
+            backgroundColor: 'var(--color-primary-container)',
+            borderColor: 'var(--color-primary-light)',
+          }}
+        >
+          <div className={cm.cn(cm.mxAuto, cm.sp('px', 6), 'max-w-[1200px]')}>
+            <div className={cm.cn(cm.grid({ gap: 8 }), 'grid-cols-2 md:grid-cols-4')}>
+              {[
+                {
+                  value: t('landing.stats.paid', {}, { defaultValue: '$24M' }),
+                  label: t('landing.stats.paidLabel', {}, { defaultValue: 'Paid to creators' }),
+                  tone: 'text-primary',
+                },
+                {
+                  value: t('landing.stats.sold', {}, { defaultValue: '180k+' }),
+                  label: t('landing.stats.soldLabel', {}, { defaultValue: 'Products sold' }),
+                  tone: 'text-on-surface',
+                },
+                {
+                  value: t('landing.stats.countries', {}, { defaultValue: '97' }),
+                  label: t('landing.stats.countriesLabel', {}, { defaultValue: 'Countries' }),
+                  tone: 'text-on-surface',
+                },
+                {
+                  value: t('landing.stats.fee', {}, { defaultValue: '0%' }),
+                  label: t('landing.stats.feeLabel', {}, { defaultValue: 'Platform fee' }),
+                  tone: 'text-accent',
+                },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className={cm.cn(cm.flex({ direction: 'col' }), 'items-center md:items-start')}
+                >
+                  <div
+                    className={cm.cn(
+                      cm.textSize('4xl'),
+                      cm.fontWeight('bold'),
+                      cm.sp('mb', 2),
+                      stat.tone,
+                    )}
+                    style={{
+                      fontFamily: 'var(--font-family-mono)',
+                      fontVariantNumeric: 'tabular-nums',
+                    }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('semibold'),
+                      'text-on-surface-variant uppercase tracking-wide',
+                    )}
+                  >
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How it works — numbered watermark cards on the page surface. */}
+        <section className={cm.cn(cm.sp('py', 24), cm.sp('px', 6))}>
+          <div className={cm.cn(cm.mxAuto, 'max-w-[1200px]')}>
+            <div className={cm.cn('text-center', cm.sp('mb', 16))}>
+              <h2
+                className={cm.cn(
+                  cm.textSize('4xl'),
+                  cm.fontWeight('bold'),
+                  cm.sp('mb', 4),
+                  'tracking-tight text-on-surface',
+                )}
+              >
+                {t('landing.how.title', {}, { defaultValue: 'From file to revenue in minutes' })}
+              </h2>
+              <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant max-w-2xl mx-auto')}>
+                {t(
+                  'landing.how.subtitle',
+                  { appName: APP_NAME },
+                  {
+                    defaultValue:
+                      'Skip the complex setups. {{appName}} gives you a beautiful checkout page instantly.',
+                  },
+                )}
+              </p>
+            </div>
+            <div className={cm.cn(cm.grid({ gap: 8 }), 'grid-cols-1 md:grid-cols-3')}>
+              {[
+                {
+                  icon: 'cloud_upload',
+                  title: t('landing.how.step1Title', {}, { defaultValue: 'Upload your file' }),
+                  body: t(
+                    'landing.how.step1Body',
+                    {},
+                    {
+                      defaultValue:
+                        'Drag and drop your digital product. We handle the secure hosting and delivery automatically.',
+                    },
+                  ),
+                },
+                {
+                  icon: 'sell',
+                  title: t('landing.how.step2Title', {}, { defaultValue: 'Set your price' }),
+                  body: t(
+                    'landing.how.step2Body',
+                    {},
+                    {
+                      defaultValue:
+                        'Choose one-time payment or subscription. Offer discounts or let customers pay what they want.',
+                    },
+                  ),
+                },
+                {
+                  icon: 'payments',
+                  title: t('landing.how.step3Title', {}, { defaultValue: 'Get paid directly' }),
+                  body: t(
+                    'landing.how.step3Body',
+                    {},
+                    {
+                      defaultValue:
+                        'Connect your Stripe or PayPal account. Money goes straight to you, no waiting periods.',
+                    },
+                  ),
+                },
+              ].map((step, idx) => (
+                <div
+                  key={step.icon}
+                  className={cm.cn(
+                    cm.sp('p', 8),
+                    'group relative overflow-hidden rounded-xl bg-surface border border-primary-light shadow-sm hover:shadow-lg transition-shadow',
+                  )}
+                >
+                  <span
+                    className={cm.cn(
+                      'absolute top-0 right-0 opacity-10 group-hover:opacity-20 transition-opacity text-primary',
+                      cm.fontWeight('extrabold'),
+                    )}
+                    style={{
+                      fontFamily: 'var(--font-family-mono)',
+                      fontSize: '6rem',
+                      lineHeight: 1,
+                      padding: '1rem',
+                    }}
+                    aria-hidden="true"
+                  >
+                    {idx + 1}
+                  </span>
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      cm.sp('mb', 6),
+                      'relative z-10 w-14 h-14 rounded-full bg-primary-container',
+                    )}
+                  >
+                    <span
+                      className="material-symbols-outlined text-primary"
+                      style={{ fontSize: 24 }}
+                    >
+                      {step.icon}
+                    </span>
+                  </div>
+                  <h3
+                    className={cm.cn(
+                      cm.textSize('xl'),
+                      cm.fontWeight('bold'),
+                      cm.sp('mb', 3),
+                      'relative z-10 text-on-surface',
+                    )}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    className={cm.cn(
+                      cm.textSize('base'),
+                      'relative z-10 text-on-surface-variant leading-relaxed',
+                    )}
+                  >
+                    {step.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Featured products — live commerce slice from the storefront. */}
+        <section className={cm.cn(cm.mxAuto, cm.sp('px', 6), cm.sp('pb', 24), 'max-w-[1200px]')}>
           <div
             className={cm.cn(
               cm.flex({ align: 'end', justify: 'between' }),
@@ -362,126 +595,6 @@ export function Landing() {
             {FEATURED.map((product) => (
               <TroveProductCard key={product.id} product={product} />
             ))}
-          </div>
-        </section>
-
-        <section
-          className={cm.cn(cm.sp('py', 16))}
-          style={{ backgroundColor: 'var(--color-bg-secondary)' }}
-        >
-          <div className={cm.cn(cm.mxAuto, cm.sp('px', 6), 'max-w-[1200px]')}>
-            <div className={cm.cn('text-center', cm.sp('mb', 12))}>
-              <p
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-primary-dark',
-                )}
-              >
-                {t(
-                  'landing.how.eyebrow',
-                  { appName: APP_NAME },
-                  { defaultValue: 'How {{appName}} works' },
-                )}
-              </p>
-              <h2
-                className={cm.cn(
-                  cm.textSize('3xl'),
-                  cm.fontWeight('bold'),
-                  cm.sp('mt', 2),
-                  'text-on-surface',
-                )}
-              >
-                {t('landing.how.title', {}, { defaultValue: 'Three steps from upload to payout' })}
-              </h2>
-            </div>
-            <div className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-3')}>
-              {[
-                {
-                  icon: 'cloud_upload',
-                  title: t('landing.how.step1Title', {}, { defaultValue: 'Upload your files' }),
-                  body: t(
-                    'landing.how.step1Body',
-                    {},
-                    {
-                      defaultValue:
-                        'Drop in ZIPs, PDFs, or Figma files. We host them, version them, and generate license keys per buyer.',
-                    },
-                  ),
-                },
-                {
-                  icon: 'storefront',
-                  title: t('landing.how.step2Title', {}, { defaultValue: 'Brand your storefront' }),
-                  body: t(
-                    'landing.how.step2Body',
-                    {},
-                    {
-                      defaultValue:
-                        'Pick fonts, colors, and a hero image. Your shop lives at trove.shop/yourname or your own domain.',
-                    },
-                  ),
-                },
-                {
-                  icon: 'paid',
-                  title: t('landing.how.step3Title', {}, { defaultValue: 'Get paid the next day' }),
-                  body: t(
-                    'landing.how.step3Body',
-                    {},
-                    {
-                      defaultValue:
-                        'Stripe-backed payouts, daily. We never hold your money — buyers download, you get paid.',
-                    },
-                  ),
-                },
-              ].map((step, idx) => (
-                <div
-                  key={step.icon}
-                  className={cm.cn(
-                    cm.sp('p', 8),
-                    'rounded-2xl bg-surface shadow-sm border border-border-light hover:shadow-md transition-shadow',
-                  )}
-                >
-                  <div
-                    className={cm.cn(
-                      cm.sp('p', 3),
-                      cm.roundedFull,
-                      cm.flex({ align: 'center', justify: 'center' }),
-                      cm.sp('mb', 5),
-                      'bg-primary-light text-primary w-14 h-14',
-                    )}
-                  >
-                    <span className="material-symbols-outlined" style={{ fontSize: 28 }}>
-                      {step.icon}
-                    </span>
-                  </div>
-                  <p
-                    className={cm.cn(
-                      cm.textSize('xs'),
-                      cm.fontWeight('bold'),
-                      'uppercase tracking-widest text-on-surface-variant',
-                    )}
-                  >
-                    {t('landing.how.stepLabel', { n: idx + 1 }, { defaultValue: 'Step {{n}}' })}
-                  </p>
-                  <h3
-                    className={cm.cn(
-                      cm.textSize('xl'),
-                      cm.fontWeight('bold'),
-                      cm.sp('mt', 1),
-                      cm.sp('mb', 3),
-                      'text-on-surface',
-                    )}
-                  >
-                    {step.title}
-                  </h3>
-                  <p
-                    className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}
-                  >
-                    {step.body}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
       </main>

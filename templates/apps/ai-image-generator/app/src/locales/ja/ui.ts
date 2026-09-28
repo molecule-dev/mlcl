@@ -112,7 +112,7 @@ export const ui: UiTranslations = {
   'imageDetail.variations': 'バリエーション',
   'imageDetail.variationsQueued': 'バリエーションをキューに追加しました',
   'imageDetail.visibilityToggled': '公開設定を更新しました',
-  'landing.copyright': '© {{year}} {{appName}} Labs. Built with Molecule.dev.',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Built with Molecule.devdev.',
   'landing.cta': '作成を始める',
   'landing.eyebrow': 'Reverie XL v3 を提供中',
   'landing.featuresEyebrow': 'Reverie が選ばれる理由',

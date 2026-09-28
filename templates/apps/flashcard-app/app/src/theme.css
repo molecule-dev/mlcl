@@ -1,7 +1,9 @@
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     The Stitch design headlines in Inter; serif is reserved for the
+     flashcard faces (--mol-font-serif below). */
+  --font-headline: 'Inter', system-ui, -apple-system, sans-serif;
 
   /* Serif face for flashcard content (DESIGN.md: cards render in
      Source Serif 4, loaded in index.html; Georgia is the fallback). */

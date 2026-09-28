@@ -142,7 +142,7 @@ export const ui: UiTranslations = {
   'forgotPassword.subheading': 'הזן את כתובת הדוא"ל שלך ואנו נשלח לך קישור איפוס מאובטח.',
   'forgotPassword.successBody':
     'אם קיים חשבון עבור כתובת זו, קישור לאיפוס בדרך. קישורים יפוגו תוקפם בעוד 30 דקות.',
-  'landing.copyright': '© {{year}} {{app}}. Built with Molecule.',
+  'landing.copyright': '© {{year}} {{app}}. Built with Molecule.devdev',
   'landing.eyebrow': 'סקרים חיים, תוצאות מבוקרות',
   'landing.featuresEyebrow': 'איך זה עובד',
   'landing.featuresHeading': 'החלטות הגנתיות תוך דקות.',

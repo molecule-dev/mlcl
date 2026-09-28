@@ -97,10 +97,10 @@ export function LandingTopNavBar() {
               to="/signup"
               className={cm.cn(
                 cm.textSize('sm'),
-                cm.fontWeight('semibold'),
+                cm.fontWeight('medium'),
                 cm.sp('px', 5),
                 cm.sp('py', 2),
-                'rounded-full bg-primary text-on-primary hover:scale-[1.02] transition-transform',
+                'rounded-lg btn-gradient text-on-primary hover:scale-[1.03] transition-transform duration-300 ease-out shadow-ambient',
               )}
             >
               {t('common.startFree', {}, { defaultValue: 'Start free' })}

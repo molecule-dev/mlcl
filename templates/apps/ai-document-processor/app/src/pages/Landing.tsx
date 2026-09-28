@@ -46,6 +46,143 @@ const PROOF_POINTS = [
   { key: 'time', defaultLabel: 'Saved per invoice', defaultValue: '4.7 min' },
 ] as const
 
+const EXTRACTED_FIELDS = [
+  {
+    key: 'vendor',
+    defaultLabel: 'Vendor name',
+    defaultValue: 'Acme Corporation',
+    confidence: '99%',
+    tone: 'text-primary bg-primary/10',
+  },
+  {
+    key: 'date',
+    defaultLabel: 'Invoice date',
+    defaultValue: 'Oct 24, 2026',
+    confidence: '95%',
+    tone: 'text-primary bg-primary/10',
+  },
+  {
+    key: 'total',
+    defaultLabel: 'Total amount',
+    defaultValue: '$12,450.00',
+    confidence: '88%',
+    tone: 'text-tertiary bg-tertiary/10',
+  },
+] as const
+
+const LINE_ITEMS = [
+  { key: 'hosting', defaultLabel: 'Server hosting (Q3)', defaultValue: '$4,500' },
+  { key: 'license', defaultLabel: 'Database license', defaultValue: '$2,100' },
+  { key: 'consulting', defaultLabel: 'Consulting hours', defaultValue: '$5,850' },
+] as const
+
+const TRUST_AVATARS = ['OM', 'JT', 'AS'] as const
+
+function ExtractionPreview() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  return (
+    <div
+      className={cm.cn(
+        cm.flex({ direction: 'col' }),
+        'relative min-h-[420px] lg:min-h-[600px] rounded-[2rem] bg-surface-container shadow-lift p-6 overflow-hidden',
+      )}
+    >
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center', justify: 'between' }),
+          cm.sp('mb', 6),
+          cm.sp('pb', 4),
+          'border-b border-outline-variant/20',
+        )}
+      >
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
+          <div className="w-3 h-3 rounded-full bg-error/50" />
+          <div className="w-3 h-3 rounded-full bg-tertiary/50" />
+          <div className="w-3 h-3 rounded-full bg-primary/50" />
+        </div>
+        <div className="font-mono text-xs text-on-surface-variant px-3 py-1 bg-surface-container-lowest rounded-md">
+          {t('landing.preview.fileName', {}, { defaultValue: 'processing_invoice_492.pdf' })}
+        </div>
+      </div>
+      <div className={cm.cn(cm.flex1, 'grid grid-cols-5 gap-6 min-h-0')}>
+        {/* Document page with field highlights */}
+        <div className="col-span-2 bg-surface-container-lowest rounded-xl p-4 shadow-sm relative overflow-hidden">
+          <div className="w-full h-8 bg-surface-variant/30 rounded mb-4" />
+          <div className="w-3/4 h-4 bg-surface-variant/30 rounded mb-2" />
+          <div className="w-1/2 h-4 bg-surface-variant/30 rounded mb-8" />
+          <div className="absolute top-20 left-4 right-8 h-8 border border-primary/40 bg-primary/5 rounded-md" />
+          <div className="absolute top-36 left-4 right-12 h-24 border border-tertiary/40 bg-tertiary/5 rounded-md" />
+          <div className="absolute bottom-16 right-4 w-32 h-10 border border-primary/40 bg-primary/5 rounded-md" />
+        </div>
+        {/* Extraction results */}
+        <div className="col-span-3 flex flex-col gap-3 min-h-0">
+          {EXTRACTED_FIELDS.map((field) => (
+            <div
+              key={field.key}
+              className={cm.cn(
+                'bg-surface-container-lowest rounded-xl p-3 shadow-sm flex items-center justify-between',
+              )}
+            >
+              <div className={cm.flex({ direction: 'col' })}>
+                <span className="font-label text-[10px] uppercase tracking-wider text-on-surface-variant mb-1">
+                  {t(
+                    `landing.preview.${field.key}.label`,
+                    {},
+                    { defaultValue: field.defaultLabel },
+                  )}
+                </span>
+                <span className="font-medium text-sm text-on-surface">
+                  {t(
+                    `landing.preview.${field.key}.value`,
+                    {},
+                    { defaultValue: field.defaultValue },
+                  )}
+                </span>
+              </div>
+              <div className={cm.cn('font-mono text-xs px-2 py-1 rounded', field.tone)}>
+                {field.confidence}
+              </div>
+            </div>
+          ))}
+          <div className="mt-4 flex-1 bg-surface-container-lowest rounded-xl p-3 shadow-sm border border-outline-variant/10 min-h-0">
+            <span className="font-label text-[10px] uppercase tracking-wider text-on-surface-variant mb-2 block">
+              {t(
+                'landing.preview.lineItems',
+                { count: LINE_ITEMS.length },
+                { defaultValue: 'Line items (3)' },
+              )}
+            </span>
+            <div className="space-y-2">
+              {LINE_ITEMS.map((item) => (
+                <div
+                  key={item.key}
+                  className="flex justify-between items-center text-xs pb-2 border-b border-surface-container last:border-b-0 last:pb-0"
+                >
+                  <span className="text-on-surface">
+                    {t(
+                      `landing.preview.lineItem.${item.key}`,
+                      {},
+                      { defaultValue: item.defaultLabel },
+                    )}
+                  </span>
+                  <span className="font-mono text-on-surface-variant">
+                    {t(
+                      `landing.preview.lineItem.${item.key}.amount`,
+                      {},
+                      { defaultValue: item.defaultValue },
+                    )}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -93,7 +230,7 @@ export function Landing() {
               </span>
             </span>
             <span
-              className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-primary')}
+              className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tighter text-primary')}
             >
               {APP_NAME}
             </span>
@@ -115,10 +252,11 @@ export function Landing() {
                 to="/dashboard"
                 className={cm.cn(
                   cm.sp('px', 5),
-                  cm.sp('py', 2),
-                  cm.fontWeight('semibold'),
+                  cm.sp('py', 2.5),
+                  cm.fontWeight('medium'),
+                  cm.textSize('sm'),
                   'whitespace-nowrap shrink-0',
-                  'rounded-full text-white hover:opacity-90 transition-opacity',
+                  'rounded-xl text-white hover:opacity-90 transition-opacity',
                 )}
                 style={{ background: BRAND_GRADIENT }}
               >
@@ -141,10 +279,11 @@ export function Landing() {
                   to="/signup"
                   className={cm.cn(
                     cm.sp('px', 5),
-                    cm.sp('py', 2),
-                    cm.fontWeight('semibold'),
+                    cm.sp('py', 2.5),
+                    cm.fontWeight('medium'),
+                    cm.textSize('sm'),
                     'whitespace-nowrap shrink-0',
-                    'rounded-full text-white hover:opacity-90 transition-opacity',
+                    'rounded-xl text-white hover:opacity-90 transition-opacity',
                   )}
                   style={{ background: BRAND_GRADIENT }}
                 >
@@ -157,10 +296,11 @@ export function Landing() {
       </nav>
 
       <main>
+        {/* Hero — left copy + right document-extraction preview */}
         <section className={cm.cn('relative overflow-hidden')}>
           <div
             className={cm.cn(
-              'absolute inset-0 bg-gradient-to-br from-primary-container/30 via-surface to-surface pointer-events-none',
+              'absolute inset-0 bg-gradient-to-br from-primary/5 to-surface-container-high/20 rounded-[3rem] blur-3xl opacity-50 pointer-events-none mx-4',
             )}
             aria-hidden="true"
           />
@@ -172,8 +312,8 @@ export function Landing() {
               'py-20 md:py-28 lg:py-32 relative',
             )}
           >
-            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-12 items-center')}>
-              <div className={cm.cn('lg:col-span-7')}>
+            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center')}>
+              <div className={cm.cn('max-w-2xl')}>
                 <p
                   className={cm.cn(
                     cm.textSize('sm'),
@@ -186,7 +326,7 @@ export function Landing() {
                 <h1
                   className={cm.cn(
                     cm.sp('mb', 6),
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95]',
+                    'text-5xl md:text-[64px] font-extrabold leading-[1.1] tracking-[-0.02em] text-on-surface',
                   )}
                 >
                   {t(
@@ -217,7 +357,7 @@ export function Landing() {
                     className={cm.cn(
                       cm.sp('px', 8),
                       cm.sp('py', 4),
-                      'font-semibold rounded-full text-white hover:opacity-90 transition-opacity inline-flex items-center gap-2 shadow-md shadow-primary/30',
+                      'font-semibold text-lg rounded-xl text-white hover:opacity-90 transition-opacity inline-flex items-center gap-2 shadow-lift',
                     )}
                     style={{ background: BRAND_GRADIENT }}
                   >
@@ -235,123 +375,70 @@ export function Landing() {
                       cm.sp('px', 8),
                       cm.sp('py', 4),
                       cm.fontWeight('semibold'),
-                      'rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors',
+                      cm.textSize('lg'),
+                      'inline-flex items-center gap-2 rounded-xl border border-outline-variant text-on-surface hover:bg-surface-container-low transition-colors',
                     )}
                   >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-base')}
+                      aria-hidden="true"
+                    >
+                      login
+                    </span>
                     {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
                   </Link>
                 </div>
-
-                <div className={cm.cn(cm.flex({ wrap: 'wrap', gap: 'lg' }), cm.sp('mt', 12))}>
-                  {PROOF_POINTS.map((p) => (
-                    <div key={p.key} className={cm.cn(cm.flex({ direction: 'col' }))}>
+                <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }), cm.sp('mt', 12))}>
+                  <div className="flex -space-x-3">
+                    {TRUST_AVATARS.map((initials) => (
                       <span
+                        key={initials}
+                        aria-hidden="true"
                         className={cm.cn(
-                          cm.textSize('2xl'),
-                          'font-extrabold tracking-tight text-primary tabular-nums',
+                          cm.w(10),
+                          cm.h(10),
+                          cm.flex({ align: 'center', justify: 'center' }),
+                          'rounded-full border-2 border-surface-container-lowest shadow-sm bg-primary-container text-on-primary-container text-xs font-bold',
                         )}
                       >
-                        {t(`landing.proof.${p.key}.value`, {}, { defaultValue: p.defaultValue })}
+                        {initials}
                       </span>
-                      <span
-                        className={cm.cn(
-                          cm.textSize('xs'),
-                          'uppercase tracking-widest text-on-surface-variant font-semibold',
-                        )}
-                        style={{ fontSize: 10 }}
-                      >
-                        {t(`landing.proof.${p.key}.label`, {}, { defaultValue: p.defaultLabel })}
-                      </span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                  <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant font-medium')}>
+                    {t(
+                      'landing.trustedBy',
+                      {},
+                      { defaultValue: 'Trusted by ops teams at 200+ companies' },
+                    )}
+                  </p>
                 </div>
               </div>
 
-              <div className={cm.cn('lg:col-span-5')}>
+              <div className={cm.cn('lg:col-span-1')}>
+                <ExtractionPreview />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Stats band */}
+        <section className="border-y border-outline-variant/20 bg-surface-container-lowest">
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-10')}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-outline-variant/20">
+              {PROOF_POINTS.map((p) => (
                 <div
-                  className={cm.cn(
-                    cm.flex({ direction: 'col', justify: 'between' }),
-                    cm.sp('p', 8),
-                    'min-h-[320px] rounded-[2rem] text-white relative overflow-hidden shadow-2xl shadow-primary/20',
-                  )}
-                  style={{ background: BRAND_GRADIENT }}
+                  key={p.key}
+                  className={cm.cn(cm.flex({ direction: 'col', gap: 2 }), 'py-4 md:py-0')}
                 >
-                  <div className={cm.cn('relative z-10')}>
-                    <p
-                      className={cm.cn(
-                        'font-bold text-xs uppercase tracking-widest text-white/80 mb-2',
-                      )}
-                    >
-                      {t(
-                        'landing.sampleCardLabel',
-                        {},
-                        { defaultValue: 'Documents processed today' },
-                      )}
-                    </p>
-                    <div className={cm.flex({ align: 'baseline', gap: 'sm' })}>
-                      <span
-                        className={cm.cn('text-5xl font-extrabold tracking-tighter tabular-nums')}
-                      >
-                        128
-                      </span>
-                      <span
-                        className={cm.cn(
-                          'px-2 py-1 rounded-full text-[11px] font-bold bg-surface/20 backdrop-blur-md inline-flex items-center gap-1',
-                        )}
-                      >
-                        <span
-                          className={cm.cn('material-symbols-outlined text-sm')}
-                          aria-hidden="true"
-                        >
-                          trending_up
-                        </span>
-                        +12%
-                      </span>
-                    </div>
-                    <p className={cm.cn('mt-4 text-sm text-white/80')}>
-                      {t(
-                        'landing.sampleCardSubtitle',
-                        {},
-                        {
-                          defaultValue: '96.2% avg accuracy across invoices, receipts, and forms.',
-                        },
-                      )}
-                    </p>
-                  </div>
-                  <div className={cm.cn('relative z-10 mt-6')}>
-                    <div className={cm.cn('flex items-end gap-1 h-20 w-full')}>
-                      {[35, 48, 30, 64, 52, 78, 90].map((h, i) => (
-                        <div
-                          key={i}
-                          className={cm.cn('flex-1 rounded-t-md bg-surface/30')}
-                          style={{ height: `${h}%`, opacity: 0.55 + i * 0.06 }}
-                        />
-                      ))}
-                    </div>
-                    <p
-                      className={cm.cn(
-                        'text-[10px] uppercase tracking-widest text-white/70 mt-3 font-semibold',
-                      )}
-                    >
-                      {t(
-                        'landing.sampleCardChartLabel',
-                        {},
-                        { defaultValue: 'Daily volume · last 7 days' },
-                      )}
-                    </p>
-                  </div>
-                  <div
-                    className={cm.cn(
-                      'absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-surface/10 blur-3xl',
-                    )}
-                  />
-                  <div
-                    className={cm.cn(
-                      'absolute right-8 top-8 w-16 h-16 rounded-full bg-surface/15 blur-xl',
-                    )}
-                  />
+                  <span className="font-mono text-4xl font-bold text-primary tracking-tight tabular-nums">
+                    {t(`landing.proof.${p.key}.value`, {}, { defaultValue: p.defaultValue })}
+                  </span>
+                  <span className="text-sm uppercase tracking-widest text-on-surface-variant font-medium">
+                    {t(`landing.proof.${p.key}.label`, {}, { defaultValue: p.defaultLabel })}
+                  </span>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -437,7 +524,7 @@ export function Landing() {
               className={cm.cn(
                 cm.sp('px', 10),
                 cm.sp('py', 4),
-                'font-semibold rounded-full text-white hover:opacity-90 transition-opacity inline-flex items-center gap-2 shadow-md shadow-primary/30',
+                'font-semibold text-lg rounded-xl text-white hover:opacity-90 transition-opacity inline-flex items-center gap-2 shadow-lift',
               )}
               style={{ background: BRAND_GRADIENT }}
             >

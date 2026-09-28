@@ -25,7 +25,9 @@ export function AuthShell({ heading, tagline, children, footer }: AuthShellProps
   const { t } = useTranslation()
   return (
     <AuthShellContainer
-      className={cm.cn('font-body antialiased selection:bg-primary/30 selection:text-white')}
+      className={cm.cn(
+        'font-body antialiased selection:bg-primary/30 selection:text-white grid-bg',
+      )}
     >
       <AuthShellDecoration>
         <div className={cm.cn('glow-green')} aria-hidden="true" />

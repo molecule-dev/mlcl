@@ -3,15 +3,19 @@
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
   --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
   /* === @theme bridge — feeds ClassMap via index.css === */
-  --mol-color-primary: #1e40af;
-  --mol-color-primary-light: #dbeafe;
-  --mol-color-primary-dark: #1e3a8a;
+  /* Waypoint brand — Stitch cyan #0891b2 (primary), emerald #10b981 (accent).
+     Utility/button stops use cyan-700 #0e7490 — white text on #0891b2 is only
+     3.93:1 (fails AA for normal text); #0e7490 = 5.36:1 and is the design's
+     own hover stop. */
+  --mol-color-primary: #0891b2;
+  --mol-color-primary-light: #cffafe;
+  --mol-color-primary-dark: #0e7490;
   --mol-color-secondary: #f59e0b;
 
-  --mol-color-success: #16a34a;
+  --mol-color-success: #059669;
   --mol-color-warning: #ea580c;
   --mol-color-error: #dc2626;
-  --mol-color-info: #0284c7;
+  --mol-color-info: #0891b2;
 
   --mol-color-background: #fafafa;
   --mol-color-background-secondary: #f5f5f5;
@@ -21,7 +25,7 @@
   --mol-color-input-background: #ffffff;
   --mol-color-border: #e5e5e5;
   --mol-color-border-secondary: #d4d4d4;
-  --mol-color-border-focus: #1e40af;
+  --mol-color-border-focus: #0891b2;
 
   --mol-color-text: #0f172a;
   --mol-color-text-secondary: #475569;
@@ -47,16 +51,16 @@
   --color-on-surface-variant: #475569;
   --color-inverse-surface: #0f172a;
   --color-inverse-on-surface: #fafafa;
-  --color-inverse-primary: #3b82f6;
-  --color-primary: #1e40af;
-  --color-primary-container: #dbeafe;
+  --color-inverse-primary: #22d3ee;
+  --color-primary: #0e7490;
+  --color-primary-container: #cffafe;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #1e3a8a;
+  --color-on-primary-container: #164e63;
   --color-secondary: #f59e0b;
   --color-secondary-container: #fef3c7;
   --color-on-secondary: #451a03; /* dark text on amber — 6.97:1 (was #fff 2.15:1 FAIL) */
   --color-on-secondary-container: #78350f;
-  --color-tertiary: #16a34a;
+  --color-tertiary: #059669;
   --color-tertiary-container: #dcfce7;
   --color-on-tertiary: #052e16; /* dark text on green — 4.52:1 (was #fff 3.30:1 FAIL) */
   --color-on-tertiary-container: #14532d;
@@ -66,12 +70,13 @@
   --color-on-error-container: #7f1d1d;
   --color-outline: #6b7280; /* 4.83:1 on white — was #94a3b8 (2.56:1 FAIL) */
   --color-outline-variant: #e5e5e5;
-  --color-surface-tint: #1e40af;
+  --color-surface-tint: #0891b2;
 
-  /* App-specific tokens — shipment statuses + map */
-  --color-status-in-transit: #1e40af;
+  /* App-specific tokens — shipment statuses + map
+     (Stitch statuses: transit cyan #0891b2, delivered emerald #10b981) */
+  --color-status-in-transit: #0891b2;
   --color-status-out-delivery: #f59e0b;
-  --color-status-delivered: #16a34a;
+  --color-status-delivered: #10b981;
   --color-status-exception: #dc2626;
   --color-status-pending: #94a3b8;
 
@@ -87,9 +92,9 @@
    navy preserved at brand stop; CTA buttons keep white text. */
 [data-mol-mode='dark'] {
   /* --mol-color-* tokens — provider bridge */
-  --mol-color-primary: #3b82f6;
-  --mol-color-primary-light: #1e3a8a;
-  --mol-color-primary-dark: #1e40af;
+  --mol-color-primary: #22d3ee;
+  --mol-color-primary-light: #164e63;
+  --mol-color-primary-dark: #0e7490;
   --mol-color-secondary: #c4c4c4;
   --mol-color-background: #0c1629;
   --mol-color-background-secondary: #131f3a;
@@ -103,16 +108,16 @@
   --mol-color-text-inverse: #0c1629;
   --mol-color-border: #2a3a5c;
   --mol-color-border-secondary: #3a4a70;
-  --mol-color-border-focus: #3b82f6;
-  --mol-color-success: #34d058;
+  --mol-color-border-focus: #22d3ee;
+  --mol-color-success: #34d399;
   --mol-color-warning: #f5b400;
   --mol-color-error: #f25c5c;
-  --mol-color-info: #5ec0ff;
+  --mol-color-info: #22d3ee;
 
   /* Status semantics — brightened for dark visibility on shipment rows */
-  --color-status-in-transit: #60a5fa;
+  --color-status-in-transit: #22d3ee;
   --color-status-out-delivery: #fbbf24;
-  --color-status-delivered: #4ade80;
+  --color-status-delivered: #34d399;
   --color-status-exception: #f87171;
   --color-status-pending: #94a3b8;
 
@@ -138,11 +143,11 @@
   --color-on-surface-variant: #c4cdd9;
   --color-inverse-surface: #f1f5f9;
   --color-inverse-on-surface: #0c1629;
-  --color-inverse-primary: #1e3a8a;
-  --color-primary: #3b82f6;
-  --color-primary-container: #1e3a8a;
-  --color-on-primary: #000e30; /* dark text on blue — 5.16:1 (was #fff 3.68:1 FAIL) */
-  --color-on-primary-container: #dbeafe;
+  --color-inverse-primary: #0891b2;
+  --color-primary: #22d3ee;
+  --color-primary-container: #164e63;
+  --color-on-primary: #083344; /* dark teal on cyan-300 — 9.2:1 (AA) */
+  --color-on-primary-container: #cffafe;
   --color-secondary: #f59e0b;
   --color-secondary-container: #5a3a08;
   --color-on-secondary: #451a03; /* dark text on amber — 6.97:1 (was #fff 2.15:1 FAIL) */
@@ -157,7 +162,7 @@
   --color-on-error-container: #ffdad6;
   --color-outline: #5a6a82;
   --color-outline-variant: #2a3a5c;
-  --color-surface-tint: #60a5fa;
+  --color-surface-tint: #22d3ee;
 
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);

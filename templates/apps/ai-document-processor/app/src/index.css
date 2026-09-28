@@ -29,54 +29,55 @@
 /* Global defaults — inside /* polish-v2:theme:start */
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
-  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
-  --color-background: #f6fafa;
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens.
+     Digital Archivist teal (design tokens: primary #005454 on #eafdfa). */
+  --color-background: #eafdfa;
   --color-error: #ba1a1a;
   --color-error-container: #ffdad6;
-  --color-inverse-on-surface: #edf1f1;
-  --color-inverse-primary: #d2bbff;
-  --color-inverse-surface: #2c3132;
-  --color-on-background: #181c1d;
+  --color-inverse-on-surface: #e1f5f2;
+  --color-inverse-primary: #84d4d3;
+  --color-inverse-surface: #223432;
+  --color-on-background: #0d1e1d;
   --color-on-error: #ffffff;
   --color-on-error-container: #93000a;
-  --color-on-primary: #ffffff;
-  --color-on-primary-container: #ede0ff;
-  --color-on-primary-fixed: #25005a;
-  --color-on-primary-fixed-variant: #5a00c6;
-  --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #523787;
-  --color-on-secondary-fixed: #25005a;
-  --color-on-secondary-fixed-variant: #523787;
-  --color-on-surface: #181c1d;
-  --color-on-surface-variant: #4a4455;
-  --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #ffe0cd;
+  --color-on-primary: #ffffff; /* white on #005454 = 8.63:1 */
+  --color-on-primary-container: #9dedec;
+  --color-on-primary-fixed: #002020;
+  --color-on-primary-fixed-variant: #004f50;
+  --color-on-secondary: #ffffff; /* white on #476363 = 6.06:1 */
+  --color-on-secondary-container: #4d6969;
+  --color-on-secondary-fixed: #012020;
+  --color-on-secondary-fixed-variant: #304c4b;
+  --color-on-surface: #0d1e1d;
+  --color-on-surface-variant: #3e4948;
+  --color-on-tertiary: #ffffff; /* white on #773b00 = 7.20:1 */
+  --color-on-tertiary-container: #ffd9c0;
   --color-on-tertiary-fixed: #301400;
   --color-on-tertiary-fixed-variant: #713700;
-  --color-outline: #7b7487;
-  --color-outline-variant: #ccc3d8;
-  --color-primary: #630ed4;
-  --color-primary-container: #7c3aed;
-  --color-primary-fixed: #eaddff;
-  --color-primary-fixed-dim: #d2bbff;
-  --color-secondary: #6a4fa0;
-  --color-secondary-container: #c4a7ff;
-  --color-secondary-fixed: #eaddff;
-  --color-secondary-fixed-dim: #d2bbff;
-  --color-surface: #f6fafa;
-  --color-surface-bright: #f6fafa;
-  --color-surface-container: #ebefef;
-  --color-surface-container-high: #e5e9e9;
-  --color-surface-container-highest: #dfe3e3;
-  --color-surface-container-low: #f0f4f4;
+  --color-outline: #6e7979;
+  --color-outline-variant: #bec9c8;
+  --color-primary: #005454;
+  --color-primary-container: #0d6e6e;
+  --color-primary-fixed: #a0f0f0;
+  --color-primary-fixed-dim: #84d4d3;
+  --color-secondary: #476363;
+  --color-secondary-container: #cae9e8;
+  --color-secondary-fixed: #cae9e8;
+  --color-secondary-fixed-dim: #aecccc;
+  --color-surface: #eafdfa;
+  --color-surface-bright: #eafdfa;
+  --color-surface-container: #def2ef;
+  --color-surface-container-high: #d9ece9;
+  --color-surface-container-highest: #d3e7e4;
+  --color-surface-container-low: #e4f8f5;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-dim: #d7dbdb;
-  --color-surface-tint: #732ee4;
-  --color-surface-variant: #dfe3e3;
-  --color-tertiary: #7d3d00;
-  --color-tertiary-container: #a15100;
-  --color-tertiary-fixed: #ffdcc6;
-  --color-tertiary-fixed-dim: #ffb784;
+  --color-surface-dim: #cadedb;
+  --color-surface-tint: #016a6a;
+  --color-surface-variant: #d3e7e4;
+  --color-tertiary: #773b00;
+  --color-tertiary-container: #9a4f05;
+  --color-tertiary-fixed: #ffdcc5;
+  --color-tertiary-fixed-dim: #ffb783;
 
   /* Stitch border-radius scale. */
   --radius-12: 0.75rem;
@@ -85,11 +86,11 @@
   --radius-lg: 0.25rem;
   --radius-xl: 0.5rem;
 
-  /* Stitch font families. */
+  /* Stitch font families — the design is Inter everywhere + JetBrains Mono. */
   --font-body: Inter;
-  --font-display: Newsreader;
-  --font-headline: Newsreader;
-  --font-label: 'Space Grotesk';
+  --font-display: Inter;
+  --font-headline: Inter;
+  --font-label: Inter;
   --font-mono: 'JetBrains Mono';
   --font-serif-doc: 'Source Serif 4';
 }
@@ -129,12 +130,12 @@
 }
 
 .extract-hl-active {
-  background-color: rgba(124, 58, 237, 0.1);
+  background-color: rgba(0, 84, 84, 0.1);
   border: 2px solid var(--color-primary-container);
 }
 
 .extract-hl {
-  background-color: rgba(124, 58, 237, 0.1);
+  background-color: rgba(0, 84, 84, 0.1);
   border: 1px solid transparent;
 }
 
@@ -196,11 +197,15 @@
 
 .gradient-primary {
   /* Kept in sync with BRAND_GRADIENT in src/branding.ts */
-  background-image: linear-gradient(135deg, #1d4ed8, #2563eb 60%, #3b6fd4);
+  background-image: linear-gradient(135deg, #005454, #0d6e6e 60%, #084d4d);
 }
 
 .tonal-shadow {
-  box-shadow: 0 12px 40px rgba(10, 31, 31, 0.06);
+  box-shadow: 0 12px 32px rgba(13, 30, 29, 0.06);
+}
+
+.shadow-lift {
+  box-shadow: 0 24px 48px rgba(13, 30, 29, 0.08);
 }
 
 .material-symbols-outlined {

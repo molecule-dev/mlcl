@@ -28,7 +28,7 @@ const FEATURES = [
   {
     key: 'send_later',
     icon: 'schedule_send',
-    tone: 'bg-success-light text-success',
+    tone: 'bg-primary-100 text-primary-dark',
     defaultTitle: 'Schedule send',
     defaultBody:
       'Respect boundaries — write now and deliver during the recipient\u2019s working hours.',
@@ -36,7 +36,7 @@ const FEATURES = [
   {
     key: 'keyboard',
     icon: 'keyboard',
-    tone: 'bg-warning-light text-warning',
+    tone: 'bg-secondary/10 text-secondary',
     defaultTitle: 'Keyboard-native',
     defaultBody:
       'Triage thousands of threads a week with single-key shortcuts, designed for muscle memory.',
@@ -84,23 +84,7 @@ export function Landing() {
           >
             <span
               className={cm.cn(
-                cm.w(8),
-                cm.h(8),
-                cm.flex({ align: 'center', justify: 'center' }),
-                'rounded-xl bg-gradient-to-br from-primary to-secondary text-white shadow-md shadow-primary/20',
-              )}
-            >
-              <span
-                className={'material-symbols-outlined text-lg'}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-                aria-hidden="true"
-              >
-                mail
-              </span>
-            </span>
-            <span
-              className={cm.cn(
-                cm.textSize('xl'),
+                cm.textSize('2xl'),
                 cm.fontWeight('bold'),
                 'text-primary tracking-tight',
               )}
@@ -116,8 +100,8 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('px', 5),
                   cm.sp('py', 2),
-                  cm.fontWeight('semibold'),
-                  'rounded-full bg-gradient-to-br from-primary to-secondary text-white shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-shadow',
+                  cm.fontWeight('medium'),
+                  'rounded-lg bg-primary text-on-primary shadow-sm hover:bg-primary/90 transition-colors',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -132,18 +116,18 @@ export function Landing() {
                     'text-on-surface-variant hover:text-on-surface transition-colors',
                   )}
                 >
-                  {t('landing.signIn', {}, { defaultValue: 'Sign in' })}
+                  {t('landing.signIn', {}, { defaultValue: 'Log In' })}
                 </Link>
                 <Link
                   to="/signup"
                   className={cm.cn(
                     cm.sp('px', 5),
                     cm.sp('py', 2),
-                    cm.fontWeight('semibold'),
-                    'rounded-full bg-gradient-to-br from-primary to-secondary text-white shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-shadow',
+                    cm.fontWeight('medium'),
+                    'rounded-lg bg-primary text-on-primary shadow-sm hover:bg-primary/90 transition-colors',
                   )}
                 >
-                  {t('common.getStarted', {}, { defaultValue: 'Get started' })}
+                  {t('common.getStarted', {}, { defaultValue: 'Get Started' })}
                 </Link>
               </>
             )}
@@ -154,15 +138,11 @@ export function Landing() {
       <main>
         <section className="relative overflow-hidden">
           <div
-            className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 pointer-events-none"
-            aria-hidden="true"
-          />
-          <div
             className={cm.cn(
               cm.maxW('7xl'),
               cm.mxAuto,
               cm.sp('px', 6),
-              'py-20 md:py-28 lg:py-32 relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center',
+              'py-20 md:py-28 relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center',
             )}
           >
             <div className={'lg:col-span-6'}>
@@ -179,7 +159,7 @@ export function Landing() {
               <h1
                 className={cm.cn(
                   cm.sp('mb', 6),
-                  'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95]',
+                  'text-5xl md:text-6xl font-extrabold tracking-tight leading-tight',
                 )}
               >
                 {t('landing.heroTitle', { tagline: APP_TAGLINE }, { defaultValue: '{{tagline}}' })}
@@ -204,24 +184,22 @@ export function Landing() {
                 <Link
                   to="/signup"
                   className={cm.cn(
-                    cm.sp('px', 8),
-                    cm.sp('py', 4),
-                    cm.fontWeight('bold'),
-                    'inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-primary to-secondary text-white shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-shadow',
+                    cm.sp('px', 6),
+                    cm.sp('py', 3),
+                    cm.textSize('lg'),
+                    cm.fontWeight('semibold'),
+                    'inline-flex items-center rounded-lg bg-primary text-on-primary shadow-sm hover:bg-primary/90 transition-colors',
                   )}
                 >
                   {t('common.startFree', {}, { defaultValue: 'Start free' })}
-                  <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                    arrow_forward
-                  </span>
                 </Link>
                 <Link
                   to="/login"
                   className={cm.cn(
-                    cm.sp('px', 8),
-                    cm.sp('py', 4),
-                    cm.fontWeight('semibold'),
-                    'inline-flex items-center gap-2 rounded-full border border-outline-variant text-on-surface bg-surface hover:bg-surface-container-low transition-colors',
+                    cm.sp('px', 6),
+                    cm.sp('py', 3),
+                    cm.fontWeight('medium'),
+                    'inline-flex items-center gap-2 rounded-lg border border-outline-variant text-on-surface bg-surface hover:bg-surface-container-low transition-colors',
                   )}
                 >
                   <span className={'material-symbols-outlined text-base'} aria-hidden="true">
@@ -257,7 +235,7 @@ export function Landing() {
             <div
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'center', gap: 'lg', wrap: 'wrap' }),
-                'opacity-60',
+                'opacity-50 grayscale',
               )}
             >
               {SOCIAL_PROOF.map((s) => (
@@ -306,7 +284,7 @@ export function Landing() {
                   key={f.key}
                   className={cm.cn(
                     cm.sp('p', 6),
-                    'rounded-2xl bg-surface-container-lowest border border-outline-variant/40 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-0.5 transition-all',
+                    'rounded-xl bg-surface-container-low border border-outline-variant/40 shadow-sm hover:shadow-md transition-shadow',
                   )}
                 >
                   <div
@@ -362,9 +340,9 @@ export function Landing() {
               className={cm.cn(
                 cm.sp('px', 10),
                 cm.sp('py', 5),
-                cm.fontWeight('bold'),
+                cm.fontWeight('semibold'),
                 cm.textSize('lg'),
-                'inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-primary to-secondary text-white shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 transition-shadow',
+                'inline-flex items-center gap-2 rounded-lg bg-primary text-on-primary shadow-md hover:bg-primary/90 transition-colors',
               )}
             >
               {t(

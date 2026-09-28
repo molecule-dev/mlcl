@@ -168,12 +168,16 @@ export function Landing() {
               <div className={cm.cn('lg:col-span-7')}>
                 <p
                   className={cm.cn(
-                    cm.textSize('sm'),
-                    cm.sp('mb', 4),
+                    cm.sp('mb', 6),
+                    'inline-flex items-center gap-2 rounded-full border border-outline-variant/60 bg-surface/70 backdrop-blur px-4 py-1.5',
+                    cm.textSize('xs'),
                     cm.fontWeight('bold'),
                     'uppercase tracking-widest text-primary',
                   )}
                 >
+                  <span className={'material-symbols-outlined text-sm'} aria-hidden="true">
+                    bolt
+                  </span>
                   {t('landing.eyebrow', {}, { defaultValue: 'Realtime energy intelligence' })}
                 </p>
                 <h1
@@ -345,6 +349,62 @@ export function Landing() {
           </div>
         </section>
 
+        {/* Social-proof band — works-with integrations */}
+        <section className={cm.cn('border-y border-outline-variant/40 bg-surface')}>
+          <div
+            className={cm.cn(
+              cm.maxW('7xl'),
+              cm.mxAuto,
+              cm.sp('px', 6),
+              cm.sp('py', 10),
+              cm.textCenter,
+            )}
+          >
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-widest text-on-surface-variant/80',
+                cm.sp('mb', 6),
+              )}
+            >
+              {t(
+                'landing.integrationsLabel',
+                {},
+                { defaultValue: 'Works with the gear you already own' },
+              )}
+            </p>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center', gap: 'lg', wrap: 'wrap' }),
+              )}
+            >
+              {[
+                { icon: 'electric_meter', key: 'meters', defaultLabel: 'Utility meters' },
+                { icon: 'solar_power', key: 'inverters', defaultLabel: 'Solar inverters' },
+                { icon: 'battery_charging_full', key: 'batteries', defaultLabel: 'Battery stacks' },
+                { icon: 'ev_station', key: 'ev', defaultLabel: 'EV chargers' },
+                { icon: 'developer_board', key: 'panels', defaultLabel: 'Smart panels' },
+              ].map((b) => (
+                <div
+                  key={b.key}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.textSize('sm'),
+                    cm.fontWeight('semibold'),
+                    'text-on-surface-variant/70',
+                  )}
+                >
+                  <span className={'material-symbols-outlined text-lg'} aria-hidden="true">
+                    {b.icon}
+                  </span>
+                  {t(`landing.integration.${b.key}`, {}, { defaultValue: b.defaultLabel })}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
           <h2
             className={cm.cn(
@@ -399,9 +459,104 @@ export function Landing() {
           </div>
         </section>
 
-        <section className={cm.cn('border-t border-outline-variant/40')}>
-          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 text-center')}>
-            <h3
+        {/* Why-choose-us — reason cards with icon tiles */}
+        <section
+          className={cm.cn('bg-surface-container-lowest border-y border-outline-variant/40')}
+        >
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
+            <h2
+              className={cm.cn(
+                cm.sp('mb', 3),
+                cm.textCenter,
+                'text-3xl md:text-4xl font-extrabold tracking-tight',
+              )}
+            >
+              {t(
+                'landing.why.heading',
+                { appName: APP_NAME },
+                { defaultValue: 'Why homes and facility teams choose {{appName}}' },
+              )}
+            </h2>
+            <p
+              className={cm.cn(
+                cm.textSize('lg'),
+                cm.sp('mb', 12),
+                cm.textCenter,
+                'text-on-surface-variant max-w-2xl mx-auto',
+              )}
+            >
+              {t(
+                'landing.why.sub',
+                {},
+                {
+                  defaultValue:
+                    'Control-room accuracy without the control-room complexity — set it up once and let the watts explain themselves.',
+                },
+              )}
+            </p>
+            <div className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-3')}>
+              {[
+                {
+                  icon: 'speed',
+                  key: 'accuracy',
+                  defaultTitle: 'Utility-grade accuracy',
+                  defaultBody:
+                    'Readings refresh every 5 seconds at circuit level — no estimates, no last-month surprises.',
+                  tint: 'text-primary bg-surface-container',
+                },
+                {
+                  icon: 'lock',
+                  key: 'privacy',
+                  defaultTitle: 'Private by default',
+                  defaultBody:
+                    'Your energy data stays yours — stored locally first, shared with nothing unless you say so.',
+                  tint: 'text-secondary bg-secondary-container',
+                },
+                {
+                  icon: 'savings',
+                  key: 'savings',
+                  defaultTitle: 'It pays for itself',
+                  defaultBody:
+                    'Homes on time-of-use plans typically find double-digit bill savings in the first quarter.',
+                  tint: 'text-tertiary bg-tertiary-container',
+                },
+              ].map((r) => (
+                <div
+                  key={r.key}
+                  className={cm.cn(
+                    cm.sp('p', 8),
+                    'bg-surface rounded-2xl border border-outline-variant/40 shadow-sm hover:shadow-xl hover:shadow-on-surface/5 hover:-translate-y-1 transition-all',
+                  )}
+                >
+                  <div className={cm.cn(cm.sp('p', 3), 'inline-flex rounded-xl', r.tint)}>
+                    <span className="material-symbols-outlined text-3xl" aria-hidden="true">
+                      {r.icon}
+                    </span>
+                  </div>
+                  <h3
+                    className={cm.cn(
+                      cm.textSize('lg'),
+                      cm.sp('mt', 5),
+                      cm.sp('mb', 2),
+                      cm.fontWeight('bold'),
+                    )}
+                  >
+                    {t(`landing.why.${r.key}.title`, {}, { defaultValue: r.defaultTitle })}
+                  </h3>
+                  <p
+                    className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}
+                  >
+                    {t(`landing.why.${r.key}.body`, {}, { defaultValue: r.defaultBody })}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={cm.cn('bg-inverse-surface text-inverse-on-surface')}>
+          <div className={cm.cn(cm.maxW('4xl'), cm.mxAuto, cm.sp('px', 6), 'py-20 text-center')}>
+            <h2
               className={cm.cn(
                 cm.textSize('3xl'),
                 cm.sp('mb', 4),
@@ -414,13 +569,9 @@ export function Landing() {
                 {},
                 { defaultValue: 'Pair your meter, see the watts in minutes' },
               )}
-            </h3>
+            </h2>
             <p
-              className={cm.cn(
-                cm.textSize('base'),
-                cm.sp('mb', 8),
-                'text-on-surface-variant max-w-xl mx-auto',
-              )}
+              className={cm.cn(cm.textSize('base'), cm.sp('mb', 8), 'max-w-xl mx-auto opacity-80')}
             >
               {t(
                 'landing.ctaBody',
@@ -437,7 +588,7 @@ export function Landing() {
                 cm.sp('px', 10),
                 cm.sp('py', 4),
                 cm.fontWeight('semibold'),
-                'bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors inline-flex items-center gap-2',
+                'bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors inline-flex items-center gap-2 shadow-lg shadow-black/20',
               )}
             >
               {t('landing.heroCta', { appName: APP_NAME }, { defaultValue: 'Plug in {{appName}}' })}
@@ -445,6 +596,13 @@ export function Landing() {
                 arrow_forward
               </span>
             </Link>
+            <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 6), 'opacity-70')}>
+              {t(
+                'landing.ctaNote',
+                {},
+                { defaultValue: 'Free for one home. No credit card required.' },
+              )}
+            </p>
           </div>
         </section>
       </main>

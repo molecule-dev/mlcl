@@ -1,8 +1,11 @@
 :root {
   /* === @theme bridge — feeds ClassMap via index.css === */
-  --mol-color-primary: #e8501c;
-  --mol-color-primary-light: #fed7aa;
-  --mol-color-primary-dark: #c23d12;
+  /* Stitch palette (design-coupon-deals-platform-landing): burnt-orange
+     primary #a92f00 with the #ff784e container ramp — matches the M3 block
+     in index.css and the dark-mode block below. */
+  --mol-color-primary: #a92f00;
+  --mol-color-primary-light: #ff784e;
+  --mol-color-primary-dark: #952900;
   --mol-color-secondary: #16a34a;
   --mol-color-success: #16a34a;
   --mol-color-warning: #e0a020;
@@ -18,28 +21,31 @@
   --mol-color-text-tertiary: #94a3b8;
   --mol-color-text-inverse: #ffffff;
 
-  /* Brand colors — bright green/yellow deals theme */
-  --color-primary: #166534; /* was #22c55e — 2.0-2.3:1 as text on white/pink tints; green-800 = 6.3:1 even on #ffedeb */
-  --color-primary-hover: #16a34a;
-  --color-primary-light: #dcfce7;
-  --color-secondary: #1a1a2e;
+  /* Brand colors — Stitch kinetic-bazaar palette: burnt orange CTAs,
+     deep-green save badges on warm pink surfaces. Light-mode primary is the
+     SAME brand stop as dark mode (#a92f00): white on it = 6.6:1. */
+  --color-primary: #a92f00;
+  --color-primary-hover: #952900;
+  --color-primary-light: #ffdad7;
+  --color-secondary: #006a39;
   --color-accent: #eab308;
   --color-accent-hover: #ca8a04;
 
   /* Semantic colors */
   --color-success: #22c55e;
   --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  --color-error: #b31b25;
   --color-info: #3b82f6;
 
-  /* Surfaces */
-  --color-bg: #ffffff;
-  --color-bg-secondary: #f0fdf4;
-  --color-bg-tertiary: #f7fee7;
+  /* Surfaces — warm pink Stitch surface ramp (#fff4f3 bg, containers
+     #ffedeb / #ffe1df / #ffdad7) rather than neutral white. */
+  --color-bg: #fff4f3;
+  --color-bg-secondary: #ffedeb;
+  --color-bg-tertiary: #ffe1df;
   --color-surface: #ffffff;
-  --color-surface-hover: #f0fdf4;
-  --color-border: #d9f99d;
-  --color-border-light: #ecfccb;
+  --color-surface-hover: #ffedeb;
+  --color-border: #ffd2cf;
+  --color-border-light: #ffdad7;
 
   /* Text */
   --color-text: #1a1a2e;
@@ -51,8 +57,9 @@
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch headline face: Plus Jakarta Sans (bundled in index.html). */
+  --font-headline: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -80,7 +87,8 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-deal: 0 4px 14px rgba(34, 197, 94, 0.15);
+  /* Stitch ambient card shadow: soft, warm, barely-there. */
+  --shadow-deal: 0 8px 24px rgba(78, 33, 32, 0.06);
 
   /* Layout */
   --max-width: 1280px;
@@ -92,7 +100,7 @@
   --deal-image-ratio: 16 / 10;
 
   /* Discount badge */
-  --color-discount-bg: #ef4444;
+  --color-discount-bg: #b31b25;
   --color-discount-text: #ffffff;
 
   /* Progress bar */
@@ -126,9 +134,10 @@
   --color-star: #eab308;
   --color-star-empty: #e5e7eb;
 
-  /* M3 light-mode primary token — green CTA is light (#22c55e) so on-primary must
-     be dark text, not white. white on #22c55e = 2.28:1 (fail); #001a0a = 8.00:1. */
-  --color-on-primary: #ffffff; /* ink was 2.55:1 after primary darkened to green-800; white = 7.3:1 */
+  /* M3 light-mode primary token — brand orange #a92f00 in BOTH modes.
+     white/#ffefeb on it = ~6.5:1 (pass); the old green stop fought the
+     Stitch design and every primary surface in the app. */
+  --color-on-primary: #ffefeb;
 }
 
 /* Dark mode — e-commerce/deals warm-neutral dark.

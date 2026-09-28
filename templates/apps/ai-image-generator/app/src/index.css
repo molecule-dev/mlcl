@@ -82,6 +82,9 @@
   --color-tertiary-fixed: #fdebd3;
   --color-tertiary-fixed-dim: #efddc6;
 
+  /* Hero headline gradient mid stop (see theme.css; via-gradient-mid) */
+  --color-gradient-mid: #9d24a3;
+
   /* Stitch border-radius scale. */
   --radius-2xl: 1rem;
   --radius: 0.25rem;

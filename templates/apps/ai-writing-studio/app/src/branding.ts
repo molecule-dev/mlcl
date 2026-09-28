@@ -25,4 +25,4 @@ export const WEBSITE_URL = ''
 export const APP_DESCRIPTION = 'AI writing studio for writers who care deeply about their prose.'
 
 /** Primary brand color (PWA manifest, meta theme-color). */
-export const BRAND_COLOR = '#5b5de5'
+export const BRAND_COLOR = '#6c47d9'

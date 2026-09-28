@@ -1,48 +1,50 @@
 :root {
   /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #7c3aed;
-  --mol-color-primary-light: #ede9fe;
-  --mol-color-primary-dark: #5b21b6;
+  /* Brand teal — the Stitch design system for Coffer is teal-700 (#0f766e)
+     with amber accents; violet was a polish-era drift. */
+  --mol-color-primary: #0f766e;
+  --mol-color-primary-light: #ccfbf1;
+  --mol-color-primary-dark: #134e4a;
   --mol-color-secondary: #0891b2;
-  --mol-color-background: #faf5ff;
-  --mol-color-background-secondary: #f5f0ff;
-  --mol-color-background-tertiary: #ede9fe;
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #f0fdfa;
+  --mol-color-background-tertiary: #ccfbf1;
   --mol-color-surface: #ffffff;
-  --mol-color-surface-secondary: #faf5ff;
+  --mol-color-surface-secondary: #f0fdfa;
   --mol-color-input-background: #ffffff;
-  --mol-color-text: #1e1b4b;
-  --mol-color-text-secondary: #6b7280;
-  --mol-color-text-tertiary: #9ca3af;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
   --mol-color-text-inverse: #ffffff;
-  --mol-color-border: #e9d5ff;
-  --mol-color-border-secondary: #ddd6fe;
-  --mol-color-border-focus: #7c3aed;
+  --mol-color-border: #ccfbf1;
+  --mol-color-border-secondary: #99f6e4;
+  --mol-color-border-focus: #0f766e;
   --mol-color-success: #059669;
   --mol-color-warning: #d97706;
   --mol-color-error: #dc2626;
   --mol-color-info: #2563eb;
 
   /* === Material-3 bridge tokens (light) === */
-  --color-background: #faf5ff;
-  --color-on-background: #1e1b4b;
+  --color-background: #ffffff;
+  --color-on-background: #0f172a;
   --color-surface: #ffffff;
   --color-surface-bright: #ffffff;
-  --color-surface-dim: #e9d5ff;
+  --color-surface-dim: #ccfbf1;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f5f0ff;
-  --color-surface-container: #ede9fe;
-  --color-surface-container-high: #e9d5ff;
-  --color-surface-container-highest: #ddd6fe;
-  --color-surface-variant: #ede9fe;
-  --color-on-surface: #1e1b4b;
-  --color-on-surface-variant: #4b5563; /* was #6b7280 — 4.32:1 on the lavender user card #f5f0ff; gray-600 = 6.5:1 */
-  --color-inverse-surface: #1e1b4b;
-  --color-inverse-on-surface: #faf5ff;
-  --color-inverse-primary: #a78bfa;
-  --color-primary: #7c3aed;
-  --color-primary-container: #ede9fe;
+  --color-surface-container-low: #f0fdfa;
+  --color-surface-container: #ccfbf1;
+  --color-surface-container-high: #99f6e4;
+  --color-surface-container-highest: #5eead4;
+  --color-surface-variant: #ccfbf1;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f0fdfa;
+  --color-inverse-primary: #5eead4;
+  --color-primary: #0f766e;
+  --color-primary-container: #ccfbf1;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #4c1d95;
+  --color-on-primary-container: #134e4a;
   --color-secondary: #0891b2;
   --color-secondary-container: #cffafe;
   --color-on-secondary: #001f29; /* #ffffff was 3.68:1 (fail); #001f29 = 4.64:1 */
@@ -56,12 +58,12 @@
   --color-on-error: #ffffff;
   --color-on-error-container: #7f1d1d;
   --color-outline: #757d8a; /* #9ca3af was 2.54:1 vs white (fail ≥3:1); #757d8a = 4.15:1 */
-  --color-outline-variant: #e9d5ff;
-  --color-surface-tint: #7c3aed;
+  --color-outline-variant: #99f6e4;
+  --color-surface-tint: #0f766e;
 
   /* === App-specific aliases === */
-  --color-primary-hover: #6d28d9;
-  --color-primary-light: #ede9fe;
+  --color-primary-hover: #115e59;
+  --color-primary-light: #ccfbf1;
   --color-secondary-hover: #0e7490;
   --color-secondary-light: #cffafe;
   --color-success: #059669;
@@ -70,14 +72,14 @@
   --color-warning: #d97706;
   --color-info: #2563eb;
 
-  --color-bg: #faf5ff;
-  --color-surface-hover: #f5f3ff;
-  --color-border: #e9d5ff;
-  --color-border-focus: #7c3aed;
+  --color-bg: #ffffff;
+  --color-surface-hover: #f0fdfa;
+  --color-border: #ccfbf1;
+  --color-border-focus: #0f766e;
 
-  --color-text: #1e1b4b;
-  --color-text-secondary: #6b7280;
-  --color-text-muted: #9ca3af;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
   --color-text-inverse: #ffffff;
 
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -108,17 +110,15 @@
 }
 
 /* Dark mode — finance cool-slate dark.
-   Cool slate-blue surfaces (no plum tint — a budgeting tool reads more
-   trustworthy when its dark mode feels like a bank statement, not a
-   nightclub). Brand violet stays at the brand stop (#7c3aed) so the
-   primary CTA holds its identity across modes. `--color-on-primary`
-   STAYS white so the violet CTA buttons keep their light-on-violet
-   character. */
+   Cool slate-blue surfaces (a budgeting tool reads more trustworthy when its
+   dark mode feels like a bank statement). Brand teal is kept at the design's
+   brand stop (#0f766e — teal-700, the same stop the design's dark CTA band
+   pairs with white text); `--color-on-primary` STAYS white. */
 [data-mol-mode='dark'] {
-  /* Brand violet — kept at the brand stop for parity with light mode */
-  --mol-color-primary: #7c3aed;
-  --mol-color-primary-light: #2e1065;
-  --mol-color-primary-dark: #5b21b6;
+  /* Brand teal — kept at the brand stop for parity with light mode */
+  --mol-color-primary: #0f766e;
+  --mol-color-primary-light: #134e4a;
+  --mol-color-primary-dark: #0b3d38;
   --mol-color-secondary: #94a3b8;
   --mol-color-background: #0b1220;
   --mol-color-background-secondary: #131c2e;
@@ -132,15 +132,15 @@
   --mol-color-text-inverse: #0b1220;
   --mol-color-border: #29334a;
   --mol-color-border-secondary: #3a4663;
-  --mol-color-border-focus: #a78bfa;
+  --mol-color-border-focus: #2dd4bf;
   --mol-color-success: #34d399;
   --mol-color-warning: #fbbf24;
   --mol-color-error: #f87171;
   --mol-color-info: #60a5fa;
 
-  --color-primary: #7c3aed; /* keep brand violet at brand stop */
-  --color-primary-hover: #a78bfa;
-  --color-primary-light: #2e1065;
+  --color-primary: #0f766e; /* design brand stop — white text clears 4.5:1 */
+  --color-primary-hover: #2dd4bf; /* teal-400 — dark-mode hover / accent text */
+  --color-primary-light: #134e4a;
   --color-secondary: #67e8f9;
   --color-secondary-hover: #a5f3fc;
   --color-secondary-light: #083344;
@@ -157,7 +157,7 @@
   --color-surface: #131c2e;
   --color-surface-hover: #1c2538;
   --color-border: #29334a;
-  --color-border-focus: #a78bfa;
+  --color-border-focus: #2dd4bf;
 
   /* Text */
   --color-text: #e2e8f0;
@@ -167,7 +167,7 @@
 
   /* Stitch / Material-3 token dark variants — override the @theme block so
      `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly. CTA
-     buttons keep white text on violet: on-primary stays white. */
+     buttons keep white text on teal: on-primary stays white. */
   --color-background: #0b1220;
   --color-on-background: #e2e8f0;
   --color-surface: #131c2e;
@@ -183,26 +183,26 @@
   --color-on-surface-variant: #b6c0d0;
   --color-inverse-surface: #e2e8f0;
   --color-inverse-on-surface: #131c2e;
-  --color-inverse-primary: #5b21b6;
-  --color-primary: #7c3aed; /* keep brand violet at brand stop */
-  --color-on-primary: #ffffff; /* white on violet — readable in both modes */
-  --color-on-primary-container: #ede9fe;
-  --color-primary-container: #4c1d95;
+  --color-inverse-primary: #0d9488;
+  --color-primary: #0f766e; /* design brand stop */
+  --color-on-primary: #ffffff; /* white on teal-700 — 4.66:1 */
+  --color-on-primary-container: #99f6e4;
+  --color-primary-container: #134e4a;
   --color-secondary: #67e8f9;
   --color-secondary-container: #083344;
   --color-on-secondary: #042f3a;
   --color-on-secondary-container: #cffafe;
-  --color-tertiary: #67e8f9;
-  --color-tertiary-container: #155e75;
-  --color-on-tertiary: #042f3a;
-  --color-on-tertiary-container: #cffafe;
+  --color-tertiary: #f59e0b; /* amber CTA accent per the design */
+  --color-tertiary-container: #78350f;
+  --color-on-tertiary: #78350f;
+  --color-on-tertiary-container: #fde68a;
   --color-error: #f87171;
   --color-error-container: #5a1818;
   --color-on-error: #690005; /* #ffffff was 2.77:1 (fail); #690005 = 4.74:1 */
   --color-on-error-container: #ffdad6;
   --color-outline: #627090; /* #5a667e was 2.95:1 vs surface (fail ≥3:1); #627090 = 3.44:1 */
   --color-outline-variant: #29334a;
-  --color-surface-tint: #a78bfa;
+  --color-surface-tint: #14b8a6;
 
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);

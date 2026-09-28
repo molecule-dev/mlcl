@@ -82,6 +82,12 @@
   --color-tertiary-fixed: #ede9fe;
   --color-tertiary-fixed-dim: #c4b5fd;
 
+  /* Stitch brand accents — Neuron landing (identical in light + dark). */
+  --color-brand-orange: #e04820;
+  --color-brand-cyan: #0ea5e9;
+  --color-brand-purple: #8b5cf6;
+  --color-brand-green: #16a34a;
+
   /* Stitch font families. */
   --font-body: Inter, sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
@@ -260,4 +266,32 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-surface-container-highest);
 }
+/* Landing brand accents — orange CTA + hero glow (Stitch design language).
+   Tokens only, so light/dark both resolve. */
+.btn-brand {
+  background: var(--color-brand-orange);
+  color: #ffffff;
+}
+
+.btn-brand:hover {
+  background: color-mix(in srgb, var(--color-brand-orange) 85%, #000);
+}
+
+.glow-brand {
+  box-shadow: 0 0 10px color-mix(in srgb, var(--color-brand-orange) 40%, transparent);
+}
+
+.glow-brand-soft {
+  box-shadow: 0 0 30px color-mix(in srgb, var(--color-brand-orange) 10%, transparent);
+}
+
+.hero-glow {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-brand-orange) 20%, transparent),
+    color-mix(in srgb, var(--color-brand-purple) 20%, transparent)
+  );
+  filter: blur(40px);
+}
+
 /* polish-v2:stitch-styles:end */

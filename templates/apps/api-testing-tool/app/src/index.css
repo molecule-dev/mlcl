@@ -236,3 +236,12 @@
   color: #ef4444;
 }
 /* polish-v2:stitch-styles:end */
+
+/* Feature cards — hover border lifts to the accent violet (design hover). */
+.card-hover-accent {
+  transition: border-color 0.2s ease;
+}
+
+.card-hover-accent:hover {
+  border-color: color-mix(in srgb, var(--color-method-patch) 50%, transparent);
+}

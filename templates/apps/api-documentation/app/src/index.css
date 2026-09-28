@@ -25,3 +25,20 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/* Stitch landing accent — gradient headline word (emerald → violet, the
+   brand-primary → brand-accent axis from the design). */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-method-get), var(--color-method-patch));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow-emerald {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+}
+
+.glow-emerald:hover {
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
+}

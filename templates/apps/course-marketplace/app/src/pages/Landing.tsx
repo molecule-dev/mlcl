@@ -168,16 +168,12 @@ export function Landing() {
             </p>
             <h1
               className={cm.cn(
-                'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-[0.95] text-on-surface mb-6',
+                'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-[1.1] text-primary mb-6',
               )}
             >
               {t('landing.hero.title.1', {}, { defaultValue: 'Master anything,' })}
               <br />
-              <span
-                className={cm.cn(
-                  'bg-gradient-to-br from-primary to-primary-container bg-clip-text text-transparent',
-                )}
-              >
+              <span className={cm.cn('text-on-surface')}>
                 {t('landing.hero.title.2', {}, { defaultValue: 'teach everything.' })}
               </span>
             </h1>
@@ -484,6 +480,7 @@ export function Landing() {
                   priceCents={c.price_cents > 0 ? c.price_cents : undefined}
                   originalPriceCents={c.original_price_cents ?? undefined}
                   imageSeed={c.slug ?? c.id}
+                  badge="bestseller"
                 />
               ))}
             </div>

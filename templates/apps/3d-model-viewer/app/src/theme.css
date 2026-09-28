@@ -1,7 +1,9 @@
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch design (design-3d-model-viewer-landing.html) sets every
+     family — headline, body, label — to Inter. */
+  --font-headline: 'Inter', sans-serif;
 
   /* === @theme bridge — dark default (studio-grade rich black).
      Light mode overrides live in [data-mol-mode='light'] below. === */

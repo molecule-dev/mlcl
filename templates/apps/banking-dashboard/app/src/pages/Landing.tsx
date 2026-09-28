@@ -3,37 +3,76 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_NAME } from '../branding.js'
 import { SafeLink } from '../components/SafeLink.js'
 
 const FEATURES = [
   {
     key: 'multi_account',
-    defaultTitle: 'Multi-account view',
-    defaultBody: 'See every checking, savings, and brokerage balance in one calm dashboard.',
+    defaultTitle: 'Unified accounts',
+    defaultBody:
+      'Consolidate balances, track liabilities, and manage global liquidity from a single, unfragmented view.',
     icon: 'account_balance',
-    tint: 'text-primary',
   },
   {
     key: 'transfers',
-    defaultTitle: 'Transparent transfers',
-    defaultBody: 'Move money between linked accounts with fees disclosed before you confirm.',
-    icon: 'swap_horiz',
-    tint: 'text-secondary',
+    defaultTitle: 'Instant transfers',
+    defaultBody:
+      'Move money between linked accounts with sub-second latency and fees disclosed before you confirm.',
+    icon: 'bolt',
   },
   {
     key: 'statements',
-    defaultTitle: 'Clean statements',
-    defaultBody: 'Download PDF statements by period, search by category, export to CSV.',
-    icon: 'description',
-    tint: 'text-tertiary',
+    defaultTitle: 'Intelligent insights',
+    defaultBody:
+      'Clean statements, cash-flow forecasting, and category search — reporting without the wall of red flags.',
+    icon: 'insights',
   },
   {
     key: 'security',
     defaultTitle: 'Audit-grade security',
     defaultBody: 'Every sign-in, transfer, and password change logged for your records.',
     icon: 'shield',
-    tint: 'text-info',
+  },
+] as const
+
+const STATS = [
+  { value: '$4.2B', labelKey: 'landing.stat.volume', defaultLabel: 'Moved daily' },
+  { value: '2.1M', labelKey: 'landing.stat.members', defaultLabel: 'Active members' },
+  { value: '99.99%', labelKey: 'landing.stat.uptime', defaultLabel: 'Uptime SLA' },
+  { value: 'SOC 2', labelKey: 'landing.stat.soc2', defaultLabel: 'Type II Certified' },
+] as const
+
+const TRUST_CHIPS = [
+  { icon: 'shield', labelKey: 'landing.trust.security', defaultLabel: 'Bank-grade security' },
+  { icon: 'verified', labelKey: 'landing.trust.fdic', defaultLabel: 'FDIC Insured' },
+] as const
+
+const NAVY_LINK_COLUMNS = [
+  {
+    headingKey: 'footer.product',
+    headingDefault: 'Product',
+    links: [
+      { labelKey: 'nav.features', labelDefault: 'Features', to: '/#features' },
+      { labelKey: 'nav.pricing', labelDefault: 'Pricing', to: '/pricing' },
+      { labelKey: 'landing.nav.security', labelDefault: 'Security', to: '/about' },
+    ],
+  },
+  {
+    headingKey: 'footer.company',
+    headingDefault: 'Company',
+    links: [
+      { labelKey: 'about.eyebrow', labelDefault: 'About', to: '/about' },
+      { labelKey: 'auth.login.signInButton', labelDefault: 'Sign in', to: '/login' },
+    ],
+  },
+  {
+    headingKey: 'footer.legal',
+    headingDefault: 'Legal',
+    links: [
+      { labelKey: 'footer.termsOfService', labelDefault: 'Terms', to: '/terms' },
+      { labelKey: 'footer.privacyPolicy', labelDefault: 'Privacy', to: '/privacy' },
+    ],
   },
 ] as const
 
@@ -44,33 +83,56 @@ export function Landing() {
 
   return (
     <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
-      {/* Top navigation */}
-      <nav
-        className={cm.cn(
-          'sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/40',
-        )}
-      >
+      {/* Top navigation — glass bar over the page */}
+      <nav className={cm.cn('fixed top-0 z-50 w-full bg-surface/80 backdrop-blur-md shadow-sm')}>
         <div
-          className={cm.cn(
-            cm.maxW('7xl'),
-            cm.sp('px', 6),
-            cm.sp('py', 4),
-            cm.flex({ align: 'center', justify: 'between' }),
-            cm.mxAuto,
-          )}
+          className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'h-20 px-6 md:px-8')}
         >
-          <SafeLink to="/" className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
+          <SafeLink
+            to="/"
+            className={cm.cn(cm.textSize('2xl'), 'font-bold tracking-tighter text-primary')}
+          >
             {APP_NAME}
           </SafeLink>
-          <div className={cm.flex({ align: 'center', gap: 'md' })}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden md:flex')}>
+            <a
+              href="#features"
+              className={cm.cn(
+                cm.textSize('sm'),
+                'text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('nav.features', {}, { defaultValue: 'Products' })}
+            </a>
+            <a
+              href="#stats"
+              className={cm.cn(
+                cm.textSize('sm'),
+                'text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </a>
+            <a
+              href="#features"
+              className={cm.cn(
+                cm.textSize('sm'),
+                'text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('landing.nav.security', {}, { defaultValue: 'Security' })}
+            </a>
+          </div>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'hidden md:flex')}>
             {isAuthenticated ? (
               <Link
                 to="/dashboard"
                 className={cm.cn(
                   cm.sp('px', 5),
-                  cm.sp('py', 2),
-                  cm.fontWeight('semibold'),
-                  'bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors',
+                  'py-2.5',
+                  cm.fontWeight('medium'),
+                  cm.textSize('sm'),
+                  'bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-lg hover:opacity-90 transition-opacity',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -82,21 +144,22 @@ export function Landing() {
                   className={cm.cn(
                     cm.textSize('sm'),
                     cm.fontWeight('medium'),
-                    'text-on-surface-variant hover:text-on-surface',
+                    'text-on-surface-variant hover:text-primary transition-colors',
                   )}
                 >
-                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign In' })}
                 </Link>
                 <Link
                   to="/signup"
                   className={cm.cn(
                     cm.sp('px', 5),
-                    cm.sp('py', 2),
-                    cm.fontWeight('semibold'),
-                    'bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors',
+                    'py-2.5',
+                    cm.fontWeight('medium'),
+                    cm.textSize('sm'),
+                    'bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-lg hover:opacity-90 transition-opacity',
                   )}
                 >
-                  {t('landing.getStarted', {}, { defaultValue: 'Open an account' })}
+                  {t('landing.getStarted', {}, { defaultValue: 'Open Account' })}
                 </Link>
               </>
             )}
@@ -104,178 +167,215 @@ export function Landing() {
         </div>
       </nav>
 
-      <main>
-        {/* Hero — gradient panel with huge headline + sample balance card on the right */}
-        <section className={cm.cn('relative overflow-hidden')}>
-          <div
-            className={cm.cn(
-              'absolute inset-0 bg-gradient-to-br from-primary-container via-surface to-surface',
-              'pointer-events-none',
-            )}
-            aria-hidden="true"
-          />
-          <div
-            className={cm.cn(
-              cm.maxW('7xl'),
-              cm.mxAuto,
-              cm.sp('px', 6),
-              'py-20 md:py-28 lg:py-32 relative',
-            )}
-          >
-            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-12 items-center')}>
-              <div className={cm.cn('lg:col-span-7')}>
-                <p
-                  className={cm.cn(
-                    cm.textSize('sm'),
-                    cm.sp('mb', 4),
-                    'font-bold uppercase tracking-widest text-primary',
-                  )}
-                >
-                  {t('landing.eyebrow', {}, { defaultValue: 'Personal & business banking' })}
-                </p>
-                <h1
-                  className={cm.cn(
-                    cm.sp('mb', 6),
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95]',
-                  )}
-                >
-                  {t(
-                    'landing.heroTitle',
-                    { tagline: APP_TAGLINE },
-                    { defaultValue: '{{tagline}}' },
-                  )}
-                </h1>
-                <p
-                  className={cm.cn(
-                    cm.textSize('lg'),
-                    cm.sp('mb', 10),
-                    'text-on-surface-variant max-w-xl leading-relaxed',
-                  )}
-                >
-                  {t(
-                    'landing.heroSubtitle',
-                    {},
-                    {
-                      defaultValue:
-                        'Multi-account banking with transparent transfers and clean statements. No surprise fees, no clutter.',
-                    },
-                  )}
-                </p>
-                <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                  <Link
-                    to="/signup"
-                    className={cm.cn(
-                      cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      'font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors inline-flex items-center gap-2',
-                    )}
-                  >
-                    {t('landing.heroCta', {}, { defaultValue: 'Open an account' })}
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base')}
-                      aria-hidden="true"
-                    >
-                      arrow_forward
-                    </span>
-                  </Link>
-                  <Link
-                    to="/login"
-                    className={cm.cn(
-                      cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors',
-                    )}
-                  >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                  </Link>
+      <main className={cm.cn('pt-32')}>
+        {/* Hero — left copy + trust chips, right floating portfolio mockup */}
+        <section
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            'mb-24 md:mb-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center',
+          )}
+        >
+          <div className={cm.cn('w-full space-y-8 lg:pr-12')}>
+            <p
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-widest text-primary',
+              )}
+            >
+              {t('landing.eyebrow', {}, { defaultValue: 'Personal & business banking' })}
+            </p>
+            <h1
+              className={cm.cn(
+                'text-5xl lg:text-7xl font-bold tracking-tight text-on-surface leading-tight',
+              )}
+            >
+              {t('landing.heroTitle', {}, { defaultValue: 'Money in motion, always clear.' })}
+            </h1>
+            <p
+              className={cm.cn(
+                cm.textSize('lg'),
+                'text-on-surface-variant leading-relaxed max-w-xl',
+              )}
+            >
+              {t(
+                'landing.heroSubtitle',
+                {},
+                {
+                  defaultValue:
+                    'The architectural ledger for modern institutions. Unified accounts, instant transfers, and intelligent insights with zero visual clutter.',
+                },
+              )}
+            </p>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }), 'pt-2')}>
+              <Link
+                to="/signup"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  'py-3.5 font-medium bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-lg hover:opacity-90 transition-opacity shadow-[0px_12px_32px_rgba(13,27,42,0.06)] inline-flex items-center gap-2',
+                )}
+              >
+                {t('landing.heroCta', {}, { defaultValue: 'Open an Account' })}
+                <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                  arrow_forward
+                </span>
+              </Link>
+              <Link
+                to="/login"
+                className={cm.cn(
+                  'py-3.5 px-8 rounded-lg font-medium text-secondary hover:bg-surface-container-low transition-colors flex items-center gap-2',
+                )}
+              >
+                {t('landing.heroSecondary', {}, { defaultValue: 'See how it works' })}
+                <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+                  arrow_forward
+                </span>
+              </Link>
+            </div>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'lg', wrap: 'wrap' }),
+                'pt-4 text-on-surface-variant opacity-70',
+              )}
+            >
+              {TRUST_CHIPS.map((chip) => (
+                <div key={chip.icon} className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                  <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-xl')}>
+                    {chip.icon}
+                  </span>
+                  <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                    {t(chip.labelKey, {}, { defaultValue: chip.defaultLabel })}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Floating portfolio mockup (decorative) */}
+          <div className={cm.cn('w-full relative')} aria-hidden="true">
+            <div
+              className={cm.cn(
+                'relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-[0px_12px_32px_rgba(13,27,42,0.06)] bg-surface-container-lowest border border-outline-variant/15 flex flex-col',
+              )}
+            >
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'between' }),
+                  'h-16 border-b border-surface-container-low flex-shrink-0 px-6 bg-surface-container-lowest',
+                )}
+              >
+                <div className={cm.cn(cm.textSize('lg'), 'font-bold text-on-surface')}>
+                  {t('landing.mockup.title', {}, { defaultValue: 'Portfolio Overview' })}
+                </div>
+                <div className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t('landing.mockup.range', {}, { defaultValue: 'Last 30 Days' })}
                 </div>
               </div>
-
-              {/* Sample balance card on the right — same gradient pattern as the auth'd dashboard hero */}
-              <div className={cm.cn('lg:col-span-5')}>
+              <div className={cm.cn('flex-grow p-8 bg-surface relative flex flex-col gap-6')}>
                 <div
                   className={cm.cn(
-                    cm.flex({ direction: 'col', justify: 'between' }),
-                    cm.sp('p', 8),
-                    'min-h-[280px] bg-gradient-to-br from-primary to-primary-container rounded-[2rem] text-white relative overflow-hidden shadow-2xl shadow-primary/20',
+                    'bg-surface-container-lowest p-6 rounded-lg shadow-sm border border-outline-variant/15 w-2/3',
                   )}
                 >
-                  <div className={cm.cn('relative z-10')}>
-                    <p
-                      className={cm.cn(
-                        'font-bold text-xs uppercase tracking-widest text-primary-fixed/80 mb-2',
-                      )}
-                    >
-                      {t('landing.sampleCardLabel', {}, { defaultValue: 'Total Balance' })}
-                    </p>
-                    <div className={cm.flex({ align: 'baseline', gap: 'sm' })}>
-                      <span
-                        className={cm.cn('text-5xl font-extrabold tracking-tighter tabular-nums')}
-                      >
-                        $48,290.50
-                      </span>
-                      <span
-                        className={cm.cn(
-                          'px-2 py-1 rounded-full text-[11px] font-bold bg-surface/20 backdrop-blur-md inline-flex items-center gap-1',
-                        )}
-                      >
-                        <span
-                          className={cm.cn('material-symbols-outlined text-sm')}
-                          aria-hidden="true"
-                        >
-                          trending_up
-                        </span>
-                        +$1,240
-                      </span>
-                    </div>
-                  </div>
-                  <div className={cm.cn('relative z-10 mt-8 h-20')}>
-                    <svg
-                      className={cm.cn('w-full h-full')}
-                      viewBox="0 0 400 100"
-                      preserveAspectRatio="none"
-                    >
-                      <path
-                        d="M0,80 Q50,60 100,70 T200,30 T300,50 T400,10 L400,100 L0,100 Z"
-                        fill="white"
-                        opacity="0.3"
-                      />
-                      <path
-                        d="M0,80 Q50,60 100,70 T200,30 T300,50 T400,10"
-                        fill="none"
-                        stroke="white"
-                        strokeWidth="3"
-                      />
-                    </svg>
+                  <div className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mb-2')}>
+                    {t('landing.sampleCardLabel', {}, { defaultValue: 'Total Balance' })}
                   </div>
                   <div
                     className={cm.cn(
-                      'absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-surface/10 blur-3xl',
+                      'text-4xl font-bold text-on-surface tabular-nums tracking-tight',
                     )}
-                  />
+                  >
+                    $12,450,000.00
+                  </div>
                   <div
-                    className={cm.cn(
-                      'absolute right-8 top-8 w-16 h-16 rounded-full bg-primary-fixed/20 blur-xl',
-                    )}
-                  />
+                    className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'mt-2 text-primary')}
+                  >
+                    <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+                      trending_up
+                    </span>
+                    <span
+                      className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'tabular-nums')}
+                    >
+                      +2.4%
+                    </span>
+                  </div>
+                </div>
+                <div className={cm.cn('absolute bottom-0 left-0 w-full h-48 bg-primary-fixed/20')}>
+                  <svg
+                    className={cm.cn('w-full h-full text-primary-container')}
+                    preserveAspectRatio="none"
+                    viewBox="0 0 100 100"
+                  >
+                    <path
+                      d="M0,100 L0,70 Q20,50 40,65 T80,40 T100,20 L100,100 Z"
+                      fill="currentColor"
+                      opacity="0.12"
+                    />
+                    <path
+                      d="M0,70 Q20,50 40,65 T80,40 T100,20"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Feature grid — surface-container-lowest cards with icon chip pattern from polished apps */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
-          <h2
-            className={cm.cn(
-              cm.sp('mb', 12),
-              cm.textCenter,
-              'text-3xl md:text-4xl font-extrabold tracking-tight',
-            )}
-          >
-            {t('landing.featuresHeading', {}, { defaultValue: 'Banking that respects your time' })}
-          </h2>
+        {/* Stats strip */}
+        <section
+          id="stats"
+          className={cm.cn('bg-surface-container-low py-16 mb-24 md:mb-32 scroll-mt-24')}
+        >
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6))}>
+            <div className={cm.cn(cm.grid({ cols: 2, gap: 12 }), 'md:grid-cols-4')}>
+              {STATS.map((stat) => (
+                <div key={stat.value} className={cm.cn('space-y-2')}>
+                  <div
+                    className={cm.cn(
+                      'text-4xl font-bold text-primary tabular-nums tracking-tighter',
+                    )}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant font-medium')}>
+                    {t(stat.labelKey, {}, { defaultValue: stat.defaultLabel })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Feature grid */}
+        <section
+          id="features"
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            'mb-24 md:mb-32 scroll-mt-24',
+          )}
+        >
+          <div className={cm.cn(cm.textCenter, 'mb-16 space-y-4')}>
+            <h2 className={cm.cn(cm.textSize('3xl'), 'font-bold text-on-surface')}>
+              {t('landing.featuresHeading', {}, { defaultValue: 'Engineered for clarity' })}
+            </h2>
+            <p className={cm.cn('text-on-surface-variant max-w-2xl mx-auto')}>
+              {t(
+                'landing.featuresSubheading',
+                {},
+                {
+                  defaultValue:
+                    'Complex financial logistics distilled into a seamless, high-performance interface.',
+                },
+              )}
+            </p>
+          </div>
           <div
             className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}
           >
@@ -283,29 +383,51 @@ export function Landing() {
               <div
                 key={f.key}
                 className={cm.cn(
-                  cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl hover:shadow-2xl hover:shadow-on-surface/5 transition-all group',
+                  cm.sp('p', 8),
+                  cm.flex({ direction: 'col' }),
+                  'bg-surface-container-lowest rounded-xl shadow-[0px_12px_32px_rgba(13,27,42,0.06)] border border-outline-variant/15',
                 )}
               >
                 <div
                   className={cm.cn(
-                    cm.sp('p', 3),
-                    'inline-flex bg-surface rounded-xl shadow-sm group-hover:scale-110 transition-transform',
-                    f.tint,
+                    'w-12 h-12 bg-surface-container-low rounded-lg flex items-center justify-center mb-6 text-primary',
                   )}
                 >
-                  <span className={cm.cn('material-symbols-outlined text-3xl')} aria-hidden="true">
+                  <span
+                    aria-hidden="true"
+                    className={cm.cn('material-symbols-outlined text-3xl fill-icon')}
+                  >
                     {f.icon}
                   </span>
                 </div>
                 <h3
-                  className={cm.cn(cm.textSize('lg'), cm.sp('mt', 5), cm.sp('mb', 2), 'font-bold')}
+                  className={cm.cn(cm.textSize('xl'), cm.sp('mb', 3), 'font-bold text-on-surface')}
                 >
                   {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
                 </h3>
-                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}>
+                <p
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.sp('mb', 8),
+                    'text-on-surface-variant leading-relaxed flex-grow',
+                  )}
+                >
                   {t(`landing.feature.${f.key}.body`, {}, { defaultValue: f.defaultBody })}
                 </p>
+                <Link
+                  to="/signup"
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'text-secondary hover:opacity-80 transition-opacity',
+                  )}
+                >
+                  {t('landing.feature.learnMore', {}, { defaultValue: 'Learn more' })}
+                  <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-sm')}>
+                    chevron_right
+                  </span>
+                </Link>
               </div>
             ))}
           </div>
@@ -314,9 +436,7 @@ export function Landing() {
         {/* CTA strip */}
         <section className={cm.cn('border-t border-outline-variant/40')}>
           <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 text-center')}>
-            <h3
-              className={cm.cn(cm.textSize('3xl'), cm.sp('mb', 4), 'font-extrabold tracking-tight')}
-            >
+            <h3 className={cm.cn(cm.textSize('3xl'), cm.sp('mb', 4), 'font-bold tracking-tight')}>
               {t('landing.ctaHeading', {}, { defaultValue: 'Open your account in minutes' })}
             </h3>
             <p
@@ -339,11 +459,10 @@ export function Landing() {
               to="/signup"
               className={cm.cn(
                 cm.sp('px', 10),
-                cm.sp('py', 4),
-                'font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors inline-flex items-center gap-2',
+                'py-3.5 font-medium bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-lg hover:opacity-90 transition-opacity inline-flex items-center gap-2',
               )}
             >
-              {t('landing.heroCta', {}, { defaultValue: 'Open an account' })}
+              {t('landing.heroCta', {}, { defaultValue: 'Open an Account' })}
               <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
                 arrow_forward
               </span>
@@ -352,22 +471,51 @@ export function Landing() {
         </section>
       </main>
 
-      <footer
-        className={cm.cn(
-          cm.sp('py', 8),
-          cm.textCenter,
-          cm.textSize('sm'),
-          'bg-surface text-on-surface-variant border-t border-outline-variant',
-        )}
-      >
-        <p>
-          {t(
-            'landing.copyright',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Member FDIC. Equal Housing Lender.' },
+      {/* Footer — dark navy band */}
+      <footer className={cm.cn('w-full bg-navy text-sm leading-relaxed')}>
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.grid({ cols: 2, gap: 12 }),
+            'md:grid-cols-4 py-16 px-6 md:px-8',
           )}
-        </p>
+        >
+          <div className={cm.cn('col-span-2 md:col-span-1')}>
+            <span className={cm.cn(cm.textSize('xl'), 'font-bold text-white mb-6 block')}>
+              {APP_NAME}
+            </span>
+            <p className={cm.cn('text-navy-muted mt-4')}>
+              {t(
+                'landing.copyright',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                { defaultValue: '© {{year}} {{app}}. Member FDIC. Equal Housing Lender.' },
+              )}
+            </p>
+          </div>
+          {NAVY_LINK_COLUMNS.map((column) => (
+            <div key={column.headingKey}>
+              <h4 className={cm.cn('text-white font-medium mb-4')}>
+                {t(column.headingKey, {}, { defaultValue: column.headingDefault })}
+              </h4>
+              <ul className={cm.cn('space-y-3')}>
+                {column.links.map((link) => (
+                  <li key={link.to + link.labelKey}>
+                    <Link
+                      to={link.to}
+                      className={cm.cn('text-navy-muted hover:text-white transition-colors')}
+                    >
+                      {t(link.labelKey, {}, { defaultValue: link.labelDefault })}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </footer>
     </div>
   )
 }
+
+export default Landing

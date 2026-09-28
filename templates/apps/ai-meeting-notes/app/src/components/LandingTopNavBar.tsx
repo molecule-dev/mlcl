@@ -71,7 +71,7 @@ export function LandingTopNavBar() {
                 cm.sp('py', 2),
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
-                'rounded-full text-on-primary bg-gradient-to-r from-primary to-primary-container shadow-md hover:opacity-90 transition-opacity',
+                'rounded-lg btn-primary-gradient text-on-primary hover:opacity-90 transition-opacity',
               )}
             >
               {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -97,7 +97,7 @@ export function LandingTopNavBar() {
                   cm.sp('py', 2),
                   cm.textSize('sm'),
                   cm.fontWeight('semibold'),
-                  'rounded-full text-on-primary bg-gradient-to-r from-primary to-primary-container shadow-md hover:opacity-90 transition-opacity',
+                  'rounded-lg btn-primary-gradient text-on-primary hover:opacity-90 transition-opacity',
                 )}
               >
                 {t('landing.getStarted', {}, { defaultValue: 'Try free' })}

@@ -84,136 +84,139 @@ export function Landing() {
       <LandingTopNavBar />
 
       <main>
-        <section className={cm.cn('relative overflow-hidden', cm.sp('py', 16))}>
-          <span
-            aria-hidden="true"
+        {/* Hero — Stitch centers the copy over a radial gradient wash */}
+        <section
+          className={cm.cn(
+            'relative overflow-hidden bg-gradient-hero',
+            cm.sp('pt', 16),
+            cm.sp('pb', 24),
+            cm.sp('px', 6),
+          )}
+        >
+          <div
             className={cm.cn(
-              'absolute -top-48 -left-32 h-[36rem] w-[36rem] bg-primary/15 blur-3xl pointer-events-none',
-              cm.roundedFull,
+              'relative z-10 flex flex-col items-center text-center',
+              cm.maxW('5xl'),
+              cm.mxAuto,
             )}
-          />
-          <span
-            aria-hidden="true"
-            className={cm.cn(
-              'absolute -bottom-32 -right-24 h-[28rem] w-[28rem] bg-secondary/15 blur-3xl pointer-events-none',
-              cm.roundedFull,
-            )}
-          />
-
-          <div className={cm.cn('relative z-10', cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6))}>
-            <div className={cm.cn(cm.grid({ cols: 12, gap: 'lg' }), 'items-center')}>
-              <div className={cm.cn('col-span-12 lg:col-span-6', cm.stack(6))}>
+          >
+            <span
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                cm.sp('px', 3),
+                cm.sp('py', 1),
+                cm.textSize('xs'),
+                cm.fontWeight('semibold'),
+                'self-center uppercase tracking-widest rounded-full bg-primary/10 text-primary border border-primary/20',
+              )}
+            >
+              <span aria-hidden="true" className={cm.cn('h-2 w-2 bg-primary', cm.roundedFull)} />
+              {t('landing.eyebrow', {}, { defaultValue: 'AI meeting intelligence' })}
+            </span>
+            <h1
+              className={cm.cn(
+                cm.sp('mt', 6),
+                cm.textSize('5xl'),
+                'md:text-7xl',
+                cm.fontWeight('extrabold'),
+                'tracking-tight leading-tight text-primary',
+              )}
+            >
+              {t('landing.heroTitle', {}, { defaultValue: 'Every word, distilled' })}
+            </h1>
+            <p
+              className={cm.cn(
+                cm.textSize('lg'),
+                'md:text-2xl text-on-surface-variant max-w-3xl mx-auto leading-relaxed',
+                cm.sp('mt', 6),
+              )}
+            >
+              {t(
+                'landing.heroSubtitle',
+                { tagline: APP_TAGLINE, appName: APP_NAME },
+                {
+                  defaultValue:
+                    '{{tagline}}. {{appName}} joins your calls, transcribes every word with speaker labels, and ships AI summaries plus owned action items the moment the meeting ends.',
+                },
+              )}
+            </p>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center', gap: 4, wrap: 'wrap' }),
+                cm.sp('mt', 10),
+              )}
+            >
+              <Link
+                to="/signup"
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.textSize('lg'),
+                  cm.fontWeight('semibold'),
+                  'rounded-lg btn-primary-gradient text-on-primary hover:opacity-90 transition-opacity ambient-shadow',
+                )}
+              >
+                {t('common.startFreeTrial', {}, { defaultValue: 'Start free trial' })}
                 <span
-                  className={cm.cn(
-                    cm.flex({ align: 'center', gap: 'sm' }),
-                    cm.sp('px', 3),
-                    cm.sp('py', 1),
-                    cm.textSize('xs'),
-                    cm.fontWeight('semibold'),
-                    'self-start uppercase tracking-widest rounded-full bg-primary/10 text-primary border border-primary/20',
-                  )}
+                  aria-hidden="true"
+                  className={cm.cn('material-symbols-outlined')}
+                  style={{ fontSize: 18 }}
                 >
-                  <span
-                    aria-hidden="true"
-                    className={cm.cn('h-2 w-2 bg-primary', cm.roundedFull)}
-                  />
-                  {t('landing.eyebrow', {}, { defaultValue: 'AI meeting intelligence' })}
+                  arrow_forward
                 </span>
-                <h1
-                  className={cm.cn(
-                    cm.textSize('5xl'),
-                    cm.fontWeight('bold'),
-                    'tracking-tight leading-tight',
-                  )}
+              </Link>
+              <Link
+                to="/login"
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.textSize('lg'),
+                  cm.fontWeight('semibold'),
+                  'rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-dim transition-colors',
+                )}
+              >
+                <span
+                  aria-hidden="true"
+                  className={cm.cn('material-symbols-outlined')}
+                  style={{ fontSize: 18 }}
                 >
-                  {t(
-                    'landing.heroTitle',
-                    {},
-                    {
-                      defaultValue: 'Capture every meeting. Surface what matters.',
-                    },
-                  )}
-                </h1>
-                <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant leading-relaxed')}>
-                  {t(
-                    'landing.heroSubtitle',
-                    { tagline: APP_TAGLINE, appName: APP_NAME },
-                    {
-                      defaultValue:
-                        '{{tagline}}. {{appName}} joins your calls, transcribes every word with speaker labels, and ships AI summaries plus owned action items the moment the meeting ends.',
-                    },
-                  )}
-                </p>
-                <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }))}>
-                  <Link
-                    to="/signup"
+                  play_circle
+                </span>
+                {t('landing.heroSecondary', {}, { defaultValue: 'Watch 90-second tour' })}
+              </Link>
+            </div>
+            <ul
+              className={cm.cn(
+                cm.flex({ gap: 'lg', wrap: 'wrap', justify: 'center' }),
+                cm.sp('pt', 8),
+              )}
+            >
+              {STATS.map((s) => (
+                <li key={s.key} className={cm.cn(cm.stack(1))}>
+                  <span
+                    className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.textPrimary)}
+                  >
+                    {t(`landing.stat.${s.key}.value`, {}, { defaultValue: s.defaultValue })}
+                  </span>
+                  <span
                     className={cm.cn(
-                      cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
-                      cm.sp('px', 6),
-                      cm.sp('py', 3),
-                      cm.textSize('base'),
-                      cm.fontWeight('semibold'),
-                      'rounded-full text-on-primary bg-gradient-to-r from-primary to-primary-container shadow-lg hover:opacity-90 transition-opacity',
+                      cm.textSize('xs'),
+                      'text-on-surface-variant uppercase tracking-wider',
                     )}
                   >
-                    {t('common.startFreeTrial', {}, { defaultValue: 'Start free trial' })}
-                    <span
-                      aria-hidden="true"
-                      className={cm.cn('material-symbols-outlined')}
-                      style={{ fontSize: 18 }}
-                    >
-                      arrow_forward
-                    </span>
-                  </Link>
-                  <Link
-                    to="/login"
-                    className={cm.cn(
-                      cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
-                      cm.sp('px', 6),
-                      cm.sp('py', 3),
-                      cm.textSize('base'),
-                      cm.fontWeight('semibold'),
-                      'rounded-full border border-outline text-on-surface hover:bg-surface-container transition-colors',
+                    {t(
+                      `landing.stat.${s.key}.label`,
+                      { appName: APP_NAME },
+                      { defaultValue: s.defaultLabel },
                     )}
-                  >
-                    <span
-                      aria-hidden="true"
-                      className={cm.cn('material-symbols-outlined')}
-                      style={{ fontSize: 18 }}
-                    >
-                      play_circle
-                    </span>
-                    {t('landing.heroSecondary', {}, { defaultValue: 'Watch 90-second tour' })}
-                  </Link>
-                </div>
-                <ul className={cm.cn(cm.flex({ gap: 'lg', wrap: 'wrap' }), cm.sp('pt', 2))}>
-                  {STATS.map((s) => (
-                    <li key={s.key} className={cm.cn(cm.stack(1))}>
-                      <span
-                        className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.textPrimary)}
-                      >
-                        {t(`landing.stat.${s.key}.value`, {}, { defaultValue: s.defaultValue })}
-                      </span>
-                      <span
-                        className={cm.cn(
-                          cm.textSize('xs'),
-                          'text-on-surface-variant uppercase tracking-wider',
-                        )}
-                      >
-                        {t(
-                          `landing.stat.${s.key}.label`,
-                          { appName: APP_NAME },
-                          { defaultValue: s.defaultLabel },
-                        )}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className={cm.cn('col-span-12 lg:col-span-6')}>
-                <SampleTranscriptCard transcript={SAMPLE_TRANSCRIPT} t={t} />
-              </div>
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <div className={cm.cn('w-full', cm.sp('mt', 16))}>
+              <SampleTranscriptCard transcript={SAMPLE_TRANSCRIPT} t={t} />
             </div>
           </div>
         </section>

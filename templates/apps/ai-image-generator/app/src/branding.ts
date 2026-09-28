@@ -26,4 +26,4 @@ export const APP_DESCRIPTION =
   'Reverie — turn imagination into stunning visuals with AI image generation.'
 
 /** Primary brand color (PWA manifest, meta theme-color). */
-export const BRAND_COLOR = '#db2777'
+export const BRAND_COLOR = '#742fe5'

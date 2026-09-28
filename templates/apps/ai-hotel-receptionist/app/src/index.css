@@ -1,3 +1,6 @@
+/* Stitch landing fonts — Manrope body + Newsreader serif display. */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap');
+
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
@@ -51,3 +54,126 @@
    single ordering story: base.css first, app tokens last (see the
    theming-model comment at the top of theme.css). */
 @import './theme.css';
+
+/* polish-v2:landing-scope:start */
+/*
+ * Landing scope — pins the Stitch landing palette (warm ivory editorial,
+ * near-black ink primary, bronze secondary, hairline borders) on the
+ * .landing-scope wrapper so the landing matches the design in BOTH modes
+ * (custom properties resolve per element, beating [data-mol-mode] on
+ * <html>). Also carries the design's one-off decorative values: serif
+ * display face, hairlines, card shadow, ambient glow, waveform animation.
+ */
+.landing-scope {
+  --color-background: #fbf9f5;
+  --color-surface: #fbf9f5;
+  --color-on-surface: #1b1c1a;
+  --color-on-surface-variant: #44474b;
+  --color-primary: #040910;
+  --color-primary-container: #1a2128;
+  --color-on-primary: #ffffff;
+  --color-primary-fixed-dim: #c0c7d1;
+  --color-secondary: #7b581e;
+  --color-secondary-container: #ffd08a;
+  --color-secondary-fixed: #ffddb0;
+  --color-on-secondary-fixed: #604106;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f3ef;
+  --color-surface-container: #efeeea;
+  --color-surface-container-high: #eae8e4;
+  --color-surface-container-highest: #e4e2de;
+  --color-surface-variant: #e4e2de;
+  --color-outline: #75777b;
+  --color-outline-variant: #c5c6cb;
+  --color-inverse-surface: #30312e;
+  --color-tertiary-container: #03261b;
+  --color-tertiary-fixed: #c6ebd9;
+  --lp-hairline: #e5dfd5;
+  --lp-glow-warm: #faf1e3;
+
+  font-family:
+    'Manrope',
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+/* Serif display face for headlines (Newsreader in the Stitch design). */
+.landing-scope .lp-serif {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+}
+
+/* Hairline borders (1px #E5DFD5) — the design's signature card treatment. */
+.landing-scope .lp-hairline {
+  border: 1px solid var(--lp-hairline);
+}
+.landing-scope .lp-hairline-b {
+  border-bottom: 1px solid var(--lp-hairline);
+}
+.landing-scope .lp-hairline-t {
+  border-top: 1px solid var(--lp-hairline);
+}
+
+/* Live-call console card shadow. */
+.landing-scope .lp-card-shadow {
+  box-shadow:
+    0 12px 32px -4px rgba(26, 33, 40, 0.06),
+    0 4px 12px -2px rgba(26, 33, 40, 0.02);
+}
+
+/* Nav shadow. */
+.landing-scope .lp-nav-shadow {
+  box-shadow: 0 2px 8px -2px rgba(26, 33, 40, 0.04);
+}
+
+/* Ambient hero glows. */
+.landing-scope .lp-glow-warm {
+  background: var(--lp-glow-warm);
+}
+
+/* Live audio waveform bars. */
+@keyframes lp-wave-pulse {
+  0%,
+  100% {
+    height: 6px;
+    opacity: 0.5;
+  }
+  50% {
+    height: 22px;
+    opacity: 1;
+  }
+}
+.landing-scope .lp-wave-bar {
+  animation: lp-wave-pulse 1.1s ease-in-out infinite;
+}
+.landing-scope .lp-wave-bar-2 {
+  animation-duration: 0.9s;
+  animation-delay: 0.25s;
+}
+.landing-scope .lp-wave-bar-3 {
+  animation-duration: 1.3s;
+  animation-delay: 0.4s;
+}
+.landing-scope .lp-wave-bar-4 {
+  animation-duration: 0.8s;
+  animation-delay: 0.15s;
+}
+.landing-scope .lp-wave-bar-5 {
+  animation-duration: 1.2s;
+  animation-delay: 0.3s;
+}
+.landing-scope .lp-wave-bar-6 {
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+}
+/* polish-v2:landing-scope:end */
+
+/* Filled material symbols (design uses FILL 1 on hero/CTA icons). */
+.landing-scope .material-symbols-outlined.fill {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}

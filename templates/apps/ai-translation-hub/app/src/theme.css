@@ -1,7 +1,8 @@
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Design sets headlines in Newsreader; Source Serif 4 is the loaded face. */
+  --font-headline: 'Source Serif 4', Newsreader, Georgia, 'Times New Roman', serif;
   /* Brand colors — light palette (cool off-white canvas, indigo accent) */
   --color-primary: #4648d4;
   --color-primary-hover: #3a3cb8;

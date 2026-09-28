@@ -45,7 +45,7 @@ export function PortfolioHeroCard({
         // Denser padding + smaller display number below the sm breakpoint —
         // p-10/text-6xl overflows a 390px viewport with the change pill.
         'p-5 sm:p-10',
-        'min-h-[320px] bg-gradient-to-br from-primary to-primary-container rounded-[2rem] text-white relative overflow-hidden',
+        'min-h-[320px] bg-gradient-to-br from-primary via-primary to-secondary rounded-[2rem] text-white relative overflow-hidden',
       )}
       data-mol-id="portfolio-hero"
     >

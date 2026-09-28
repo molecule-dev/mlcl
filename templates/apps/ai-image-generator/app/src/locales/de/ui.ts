@@ -114,7 +114,7 @@ export const ui: UiTranslations = {
   'imageDetail.variations': 'Variationen',
   'imageDetail.variationsQueued': 'Variationen in Warteschlange',
   'imageDetail.visibilityToggled': 'Sichtbarkeit aktualisiert',
-  'landing.copyright': '© {{year}} {{appName}} Labs. Built with Molecule.dev.',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Built with Molecule.devdev.',
   'landing.cta': 'Mit dem Erschaffen beginnen',
   'landing.eyebrow': 'Jetzt verfügbar: Reverie XL v3',
   'landing.featuresEyebrow': 'Warum Reverie',

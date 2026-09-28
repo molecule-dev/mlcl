@@ -189,3 +189,39 @@
 @theme {
   --color-accent-violet: #7c3aed;
 }
+
+/* polish-v2:landing-scope:start */
+/*
+ * Landing scope — the Stitch design is a LIGHT page (white, slate text,
+ * violet/cyan/green node accents) while the app defaults to dark mode.
+ * Re-pins the light values of the vars the landing uses on the
+ * .landing-scope wrapper (custom properties resolve per element, so this
+ * beats [data-mol-mode='dark'] on <html>) without touching the auth'd app.
+ */
+.landing-scope {
+  --color-background: #ffffff;
+  --color-bg: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f3f4f6;
+  --color-panel-bg: rgba(255, 255, 255, 0.85);
+  --color-panel-border: #e5e7eb;
+  --color-panel-text: #1e1b4b;
+  --color-panel-text-muted: #4b5563;
+  --color-panel-text-faint: #6b7280;
+  --color-canvas: #f8f7ff;
+  --color-canvas-dot: #ddd8ff;
+  --color-node-trigger: #7c3aed;
+  --color-node-condition: #06b6d4;
+  --color-node-action: #16a34a;
+  --color-node-trigger-bg: #f5f3ff;
+  --color-node-condition-bg: #ecfeff;
+  --color-node-action-bg: #f0fdf4;
+  --color-accent-violet: #7c3aed;
+  --color-accent-violet-strong: #7c3aed;
+  --color-text: #1e293b;
+  --color-run-running-bg: #cffafe;
+  --color-run-running-fg: #0891b2;
+  --color-run-running-dot: #06b6d4;
+}
+/* polish-v2:landing-scope:end */

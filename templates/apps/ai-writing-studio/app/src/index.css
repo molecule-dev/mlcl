@@ -31,6 +31,11 @@
 @theme {
   /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
 
+  /* Gold accent (design "Start Free Trial"); values live in theme.css so dark
+     mode can retune them — these entries only teach Tailwind the utility names. */
+  --color-accent: #e8a830;
+  --color-accent-hover: #d19528;
+
   /* Stitch border-radius scale. */
   --radius-12: 12px;
   --radius: 0.5rem;

@@ -464,6 +464,112 @@ export function Landing() {
           </div>
         </section>
 
+        {/* Why teams stay — reason cards on the terminal grid */}
+        <section className={cm.cn('border-t')} style={{ borderColor: 'var(--color-border)' }}>
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
+            <p
+              className={cm.cn(
+                'text-center font-mono text-xs font-bold uppercase tracking-widest mb-3',
+              )}
+              style={{ color: BRAND_COLOR }}
+            >
+              {t(
+                'landing.why.eyebrow',
+                { appName: APP_NAME },
+                { defaultValue: '// why {{appName}}' },
+              )}
+            </p>
+            <h2
+              className={cm.cn(
+                'mb-12 text-center text-3xl md:text-4xl font-extrabold tracking-tight',
+              )}
+              style={{ color: 'var(--color-text)' }}
+            >
+              {t(
+                'landing.why.heading',
+                {},
+                { defaultValue: 'Noise down. Signal up. On-call stays sane.' },
+              )}
+            </h2>
+            <div className={cm.cn('grid gap-6 grid-cols-1 md:grid-cols-3')}>
+              {[
+                {
+                  icon: 'filter_alt',
+                  key: 'noise',
+                  stat: '90%',
+                  defaultTitle: 'Less alert noise',
+                  defaultBody:
+                    'Fingerprinting collapses event storms into the handful of issues that actually need a human.',
+                },
+                {
+                  icon: 'bolt',
+                  key: 'triage',
+                  stat: '<5 min',
+                  defaultTitle: 'Median time to triage',
+                  defaultBody:
+                    'Stack traces you can read, breadcrumbs that matter, and one-click revert to close the loop.',
+                },
+                {
+                  icon: 'shield',
+                  key: 'safe',
+                  stat: '0',
+                  defaultTitle: 'Surprise pages',
+                  defaultBody:
+                    'Threshold, regression, and anomaly rules with quiet hours — alerts fire when it matters, only then.',
+                },
+              ].map((r) => (
+                <div
+                  key={r.key}
+                  className={cm.cn(
+                    'group rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-xl',
+                  )}
+                  style={{
+                    backgroundColor: SURFACE_PANEL,
+                    border: '1px solid var(--color-border)',
+                  }}
+                >
+                  <div
+                    className={cm.cn(
+                      'inline-flex p-3 rounded-xl group-hover:scale-110 transition-transform',
+                    )}
+                    style={{
+                      backgroundColor: `${BRAND_COLOR}22`,
+                      color: BRAND_COLOR,
+                    }}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-3xl')}
+                      aria-hidden="true"
+                    >
+                      {r.icon}
+                    </span>
+                  </div>
+                  <p
+                    className={cm.cn('font-mono text-3xl font-extrabold mt-5 tabular-nums')}
+                    style={{ color: BRAND_COLOR }}
+                  >
+                    {t(`landing.why.${r.key}.stat`, {}, { defaultValue: r.stat })}
+                  </p>
+                  <h3
+                    className={cm.cn('text-lg font-extrabold mt-2 mb-2')}
+                    style={{ color: 'var(--color-text)' }}
+                  >
+                    {t(`landing.why.${r.key}.title`, {}, { defaultValue: r.defaultTitle })}
+                  </h3>
+                  <p
+                    className={cm.cn('text-sm leading-relaxed')}
+                    style={{
+                      color: 'color-mix(in srgb, var(--color-on-background) 70%, transparent)',
+                    }}
+                  >
+                    {t(`landing.why.${r.key}.body`, {}, { defaultValue: r.defaultBody })}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Pricing */}
         <section
           className={cm.cn('py-20 border-t')}

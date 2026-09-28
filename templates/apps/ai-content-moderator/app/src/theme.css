@@ -1,37 +1,38 @@
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch design uses Inter at heavy weights (700–900). */
+  --font-headline: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #f97316;
-  --mol-color-primary-light: #fff7ed;
-  --mol-color-primary-dark: #c2410c;
-  --mol-color-secondary: #64748b;
-  --mol-color-background: #f8fafc;
-  --mol-color-background-secondary: #f1f5f9;
-  --mol-color-background-tertiary: #e2e8f0;
+  --mol-color-primary: #3525cd;
+  --mol-color-primary-light: #e2dfff;
+  --mol-color-primary-dark: #2d20b8;
+  --mol-color-secondary: #565e74;
+  --mol-color-background: #f7f9fb;
+  --mol-color-background-secondary: #f2f4f6;
+  --mol-color-background-tertiary: #eceef0;
   --mol-color-surface: #ffffff;
-  --mol-color-surface-secondary: #f8fafc;
+  --mol-color-surface-secondary: #f7f9fb;
   --mol-color-input-background: #ffffff;
-  --mol-color-text: #0f172a;
-  --mol-color-text-secondary: #475569;
-  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text: #191c1e;
+  --mol-color-text-secondary: #464555;
+  --mol-color-text-tertiary: #777587;
   --mol-color-text-inverse: #ffffff;
-  --mol-color-border: #e2e8f0;
-  --mol-color-border-secondary: #cbd5e1;
-  --mol-color-border-focus: #f97316;
+  --mol-color-border: #e0e3e5;
+  --mol-color-border-secondary: #c7c4d8;
+  --mol-color-border-focus: #3525cd;
   --mol-color-success: #16a34a;
   --mol-color-warning: #d97706;
   --mol-color-error: #dc2626;
   --mol-color-info: #2563eb;
 
-  /* Brand — professional admin, orange accent */
-  --color-primary: #c2410c;
-  --color-primary-hover: #9a3412;
-  --color-primary-light: rgba(194, 65, 12, 0.1);
-  --color-secondary: #475569;
-  --color-secondary-hover: #334155;
+  /* Brand — enterprise trust & safety, Stitch indigo */
+  --color-primary: #3525cd;
+  --color-primary-hover: #2d20b8;
+  --color-primary-light: rgba(53, 37, 205, 0.1);
+  --color-secondary: #565e74;
+  --color-secondary-hover: #3f465c;
 
   /* Severity / Status */
   --color-success: #16a34a;
@@ -44,17 +45,17 @@
   --color-info-bg: rgba(37, 99, 235, 0.06);
 
   /* Surfaces */
-  --color-bg: #f8fafc;
-  --color-bg-secondary: #f1f5f9;
+  --color-bg: #f7f9fb;
+  --color-bg-secondary: #f2f4f6;
   --color-bg-card: #ffffff;
-  --color-bg-sidebar: #f1f5f9;
-  --color-border: #e2e8f0;
-  --color-border-focus: #f97316;
+  --color-bg-sidebar: #f2f4f6;
+  --color-border: #e0e3e5;
+  --color-border-focus: #3525cd;
 
   /* Text */
-  --color-text: #0f172a;
-  --color-text-secondary: #475569;
-  --color-text-muted: #94a3b8;
+  --color-text: #191c1e;
+  --color-text-secondary: #464555;
+  --color-text-muted: #777587;
   --color-text-inverse: #ffffff;
 
   /* Typography */
@@ -94,53 +95,63 @@
   /* Status badge dot sizes */
   --status-dot-size: 0.5rem;
 
-  /* Stitch / Material-3 light tokens */
-  --color-background: #f8fafc;
-  --color-on-background: #0f172a;
-  --color-surface: #ffffff;
-  --color-surface-bright: #ffffff;
-  --color-surface-dim: #f1f5f9;
+  /* Stitch / Material-3 light tokens (design: design-ai-content-moderator-landing) */
+  --color-background: #f7f9fb;
+  --color-on-background: #191c1e;
+  --color-surface: #f7f9fb;
+  --color-surface-bright: #f7f9fb;
+  --color-surface-dim: #d8dadc;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f8fafc;
-  --color-surface-container: #f1f5f9;
-  --color-surface-container-high: #e2e8f0;
-  --color-surface-container-highest: #cbd5e1;
-  --color-surface-variant: #f1f5f9;
-  --color-on-surface: #0f172a;
-  --color-on-surface-variant: #475569;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container: #eceef0;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+  --color-surface-variant: #e0e3e5;
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #464555;
   --color-inverse-surface: #0f172a;
-  --color-inverse-on-surface: #e8eaed;
-  --color-inverse-primary: #fb923c;
-  --color-primary-container: #ffedd5;
+  --color-inverse-on-surface: #eff1f3;
+  --color-inverse-primary: #c3c0ff;
+  --color-primary-container: #4f46e5;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #7c2d12;
-  --color-secondary-container: #e2e8f0;
+  --color-on-primary-container: #dad7ff;
+  --color-secondary-container: #dae2fd;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #0f172a;
-  --color-tertiary: #0284c7;
-  --color-tertiary-container: #dbeafe;
+  --color-on-secondary-container: #5c647a;
+  --color-tertiary: #004d70;
+  --color-tertiary-container: #006693;
   --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #082f49;
-  --color-error-container: #fee2e2;
+  --color-on-tertiary-container: #b8e0ff;
+  --color-error-container: #ffdad6;
   --color-on-error: #ffffff;
-  --color-on-error-container: #7f1d1d;
-  --color-outline: #64748b;
-  --color-outline-variant: #e2e8f0;
-  --color-surface-tint: #f97316;
+  --color-on-error-container: #93000a;
+  --color-outline: #777587;
+  --color-outline-variant: #c7c4d8;
+  --color-surface-tint: #4d44e3;
+  --color-primary-fixed: #e2dfff;
   --color-custom-amber: #d97706;
-  --color-custom-gray: #475569;
+  --color-custom-gray: #5c647a;
   --color-custom-green: #16a34a;
+  /* Dark decorative bands (nav / stats / footer) from the Stitch design */
+  --color-navy: #0f172a;
+  --color-navy-muted: #94a3b8;
+  --color-navy-faint: #64748b;
+  --color-indigo-accent: #818cf8;
+  --color-indigo-accent-light: #a5b4fc;
+  --color-escalated: #c026d3;
 }
 
-/* Dark mode — brand-calibrated dark palette (admin-tool aesthetic, orange accent).
-   Brand orange shifts slightly brighter on dark surfaces. on-primary uses dark
-   near-black text (#431407) because the bright orange (#fb923c) is luminous
-   enough that white text only achieves 2.26:1 — well below 4.5:1. */
+/* Dark mode — brand-calibrated dark palette (enterprise indigo accent).
+   The brand primary shifts to the design's `inverse-primary` lavender
+   (#c3c0ff) because deep indigo (#3525cd) has poor contrast on dark
+   surfaces. on-primary uses deep-indigo text (#0f0069) — the luminous
+   lavender is only readable with dark text (design token
+   `on-primary-fixed`). */
 [data-mol-mode='dark'] {
   /* === @theme bridge tokens — dark variants === */
-  --mol-color-primary: #fb923c;
-  --mol-color-primary-light: #431407;
-  --mol-color-primary-dark: #f97316;
+  --mol-color-primary: #c3c0ff;
+  --mol-color-primary-light: #191832;
+  --mol-color-primary-dark: #a5a0ff;
   --mol-color-secondary: #94a3b8;
   --mol-color-background: #0f1117;
   --mol-color-background-secondary: #171b26;
@@ -154,15 +165,15 @@
   --mol-color-text-inverse: #0f1117;
   --mol-color-border: #2d3548;
   --mol-color-border-secondary: #3d4658;
-  --mol-color-border-focus: #fb923c;
+  --mol-color-border-focus: #c3c0ff;
   --mol-color-success: #4ade80;
   --mol-color-warning: #fbbf24;
   --mol-color-error: #f87171;
   --mol-color-info: #60a5fa;
 
-  --color-primary: #fb923c;
-  --color-primary-hover: #f97316;
-  --color-primary-light: rgba(251, 146, 60, 0.18);
+  --color-primary: #c3c0ff;
+  --color-primary-hover: #d4d2ff;
+  --color-primary-light: rgba(195, 192, 255, 0.18);
   --color-secondary: #94a3b8;
   --color-secondary-hover: #cbd5e1;
 
@@ -180,7 +191,7 @@
   --color-bg-card: #1a1f2e;
   --color-bg-sidebar: #111520;
   --color-border: #2d3548;
-  --color-border-focus: #fb923c;
+  --color-border-focus: #c3c0ff;
 
   --color-text: #e8eaed;
   --color-text-secondary: #9aa0a6;
@@ -207,11 +218,11 @@
   --color-on-surface-variant: #9aa0a6;
   --color-inverse-surface: #e8eaed;
   --color-inverse-on-surface: #1a1f2e;
-  --color-inverse-primary: #c2410c;
-  --color-primary: #fb923c;
-  --color-primary-container: #7c2d12;
-  --color-on-primary: #431407; /* dark on bright orange — 6.92:1 */
-  --color-on-primary-container: #ffedd5;
+  --color-inverse-primary: #c3c0ff;
+  --color-primary: #c3c0ff;
+  --color-primary-container: #3525cd;
+  --color-on-primary: #0f0069; /* dark on luminous lavender — design `on-primary-fixed` */
+  --color-on-primary-container: #e2dfff;
   --color-secondary: #94a3b8;
   --color-secondary-container: #334155;
   --color-on-secondary: #0f172a;
@@ -226,8 +237,16 @@
   --color-on-error-container: #ffdad6;
   --color-outline: #6b7280;
   --color-outline-variant: #3d4658;
-  --color-surface-tint: #fb923c;
+  --color-surface-tint: #4d44e3;
+  --color-primary-fixed: #35336b;
   --color-custom-amber: #fbbf24;
   --color-custom-gray: #94a3b8;
   --color-custom-green: #4ade80;
+  /* Dark decorative bands keep the design's navy on the dark bg */
+  --color-navy: #0f172a;
+  --color-navy-muted: #94a3b8;
+  --color-navy-faint: #64748b;
+  --color-indigo-accent: #818cf8;
+  --color-indigo-accent-light: #a5b4fc;
+  --color-escalated: #e879f9;
 }

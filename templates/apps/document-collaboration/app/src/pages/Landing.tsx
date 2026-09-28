@@ -4,8 +4,7 @@ import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
-import { QuillonStudioHero } from '../components/QuillonStudioHero.js'
+import { APP_NAME } from '../branding.js'
 import { loadContent } from '../config.js'
 
 const FEATURES = [
@@ -39,11 +38,18 @@ const FEATURES = [
   },
 ] as const
 
+/* Social-proof wordmarks — grayscale publication names, mixed serif/sans
+   per the design's logo band. */
 const PROOF = [
-  { key: 'editorial', defaultLabel: 'Editorial Studios' },
-  { key: 'authors', defaultLabel: 'Long-form Authors' },
-  { key: 'agencies', defaultLabel: 'Content Agencies' },
-  { key: 'newsrooms', defaultLabel: 'Independent Newsrooms' },
+  { key: 'editorial', defaultLabel: 'The Chronicle', className: 'font-serif font-bold' },
+  {
+    key: 'authors',
+    defaultLabel: 'Atelier Press',
+    className: 'font-sans font-bold tracking-tight',
+  },
+  { key: 'agencies', defaultLabel: 'Novella', className: 'font-serif italic font-bold' },
+  { key: 'newsrooms', defaultLabel: 'Folio', className: 'font-sans font-bold uppercase' },
+  { key: 'quarterly', defaultLabel: 'Quarterly', className: 'font-serif font-bold' },
 ]
 
 export function Landing() {
@@ -71,8 +77,8 @@ export function Landing() {
             to="/"
             className={cm.cn(
               cm.textSize('2xl'),
-              cm.fontWeight('extrabold'),
-              'tracking-tight text-on-surface',
+              cm.fontWeight('bold'),
+              'tracking-tighter text-primary',
             )}
           >
             {APP_NAME}
@@ -84,8 +90,9 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('px', 5),
                   cm.sp('py', 2),
-                  cm.fontWeight('semibold'),
-                  'rounded-full bg-gradient-to-br from-primary to-secondary text-white shadow-md transition-transform hover:-translate-y-0.5',
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  'rounded-xl bg-primary text-on-primary shadow-sm hover:bg-primary-hover transition-colors',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -96,22 +103,23 @@ export function Landing() {
                   to="/login"
                   className={cm.cn(
                     cm.textSize('sm'),
-                    cm.fontWeight('semibold'),
-                    'inline-flex min-h-[36px] items-center text-on-surface-variant hover:text-on-surface',
+                    cm.fontWeight('medium'),
+                    'inline-flex min-h-[36px] items-center text-on-surface-variant hover:text-primary transition-colors',
                   )}
                 >
-                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Log in' })}
                 </Link>
                 <Link
                   to="/signup"
                   className={cm.cn(
                     cm.sp('px', 5),
                     cm.sp('py', 2),
-                    cm.fontWeight('semibold'),
-                    'rounded-full bg-gradient-to-br from-primary to-secondary text-white shadow-md transition-transform hover:-translate-y-0.5',
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'rounded-xl bg-primary text-on-primary shadow-sm hover:bg-primary-hover transition-colors',
                   )}
                 >
-                  {t('landing.getStarted', {}, { defaultValue: 'Open the studio' })}
+                  {t('landing.getStarted', {}, { defaultValue: 'Start writing' })}
                 </Link>
               </>
             )}
@@ -120,134 +128,286 @@ export function Landing() {
       </nav>
 
       <main>
-        <section className={cm.cn('relative overflow-hidden')}>
-          <div
-            aria-hidden="true"
-            className={cm.cn(
-              'pointer-events-none absolute -right-32 -top-40 h-[28rem] w-[28rem] rounded-full bg-primary/10 blur-3xl',
-            )}
-          />
-          <div
-            aria-hidden="true"
-            className={cm.cn(
-              'pointer-events-none absolute -left-32 top-40 h-[24rem] w-[24rem] rounded-full bg-secondary/10 blur-3xl',
-            )}
-          />
-
-          <div
-            className={cm.cn(
-              cm.maxW('7xl'),
-              cm.sp('px', 6),
-              cm.sp('pt', 24),
-              cm.sp('pb', 16),
-              'mx-auto',
-            )}
-          >
-            <div className={cm.cn(cm.grid({ cols: 12, gap: 'xl' }), 'items-center')}>
-              <div className={cm.cn('col-span-12 lg:col-span-7')}>
+        {/* Hero — centered, live-badge + gradient headline. */}
+        <section className={cm.cn(cm.sp('pt', 24), cm.sp('pb', 16), cm.sp('px', 6))}>
+          <div className={cm.cn(cm.maxW('4xl'), 'mx-auto text-center')}>
+            <span
+              className={cm.cn(
+                cm.sp('px', 3),
+                cm.sp('py', 1),
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                cm.sp('mb', 8),
+                'inline-flex items-center gap-2 rounded-full bg-primary-light text-primary-dark',
+              )}
+            >
+              <span className={cm.cn('relative flex h-2 w-2')} aria-hidden="true">
                 <span
                   className={cm.cn(
-                    cm.sp('px', 3),
-                    cm.sp('py', 1),
-                    cm.fontWeight('extrabold'),
-                    'inline-flex rounded-full bg-secondary/15 text-[10px] uppercase tracking-widest text-secondary',
+                    'animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75',
                   )}
-                >
-                  {t('landing.eyebrow', {}, { defaultValue: 'For writers, editors, and teams' })}
+                />
+                <span className={cm.cn('relative inline-flex rounded-full h-2 w-2 bg-primary')} />
+              </span>
+              {t('landing.eyebrow', {}, { defaultValue: 'Used by 50k+ writers' })}
+            </span>
+            <h1
+              className={cm.cn(
+                cm.sp('mt', 8),
+                cm.fontWeight('extrabold'),
+                cm.sp('mb', 6),
+                'text-5xl md:text-7xl tracking-tight text-on-surface max-w-4xl mx-auto leading-tight',
+              )}
+            >
+              {t('landing.heroTitle', {}, { defaultValue: 'Think together,' })}{' '}
+              <span className="bg-gradient-to-r from-primary to-accent-cyan bg-clip-text text-transparent">
+                {t('landing.heroTitleAccent', {}, { defaultValue: 'write forever' })}
+              </span>
+            </h1>
+            <p
+              className={cm.cn(
+                cm.sp('mb', 10),
+                cm.textSize('xl'),
+                cm.maxW('2xl'),
+                'mx-auto leading-relaxed text-on-surface-variant',
+              )}
+            >
+              {t(
+                'landing.heroSubtitle',
+                {},
+                {
+                  defaultValue:
+                    'A thoughtful, collaborative workspace designed for literary precision. Write, edit, and refine in real-time without losing focus.',
+                },
+              )}
+            </p>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center', gap: 'md', wrap: 'wrap' }),
+                'flex-col sm:flex-row',
+              )}
+            >
+              <Link
+                to="/signup"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.fontWeight('medium'),
+                  cm.textSize('lg'),
+                  'w-full sm:w-auto rounded-xl bg-primary text-on-primary shadow-md shadow-primary/25 hover:bg-primary-hover transition-colors',
+                )}
+              >
+                {t('landing.heroCta', {}, { defaultValue: 'Start writing free' })}
+              </Link>
+              <Link
+                to="/login"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.fontWeight('medium'),
+                  cm.textSize('lg'),
+                  cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
+                  'w-full sm:w-auto rounded-xl bg-surface text-on-surface border border-outline-variant hover:bg-surface-container transition-colors',
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-xl')} aria-hidden="true">
+                  play_circle
                 </span>
-                <h1
+                {t('landing.watchDemo', {}, { defaultValue: 'Watch demo' })}
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Editor preview — a live manuscript with collaborator cursors. */}
+        <section className={cm.cn(cm.sp('px', 6), cm.sp('pb', 24))}>
+          <div className={cm.cn('relative max-w-[900px] mx-auto')}>
+            <div
+              className={cm.cn(
+                cm.sp('pt', 12),
+                cm.sp('px', 8),
+                'md:p-16 md:pt-12 relative bg-surface rounded-2xl shadow-2xl border border-outline-variant overflow-hidden min-h-[500px]',
+              )}
+            >
+              {/* Mac window dots */}
+              <div
+                className={cm.cn(cm.flex({ gap: 2 }), 'absolute top-4 left-4')}
+                aria-hidden="true"
+              >
+                <span className={cm.cn('w-3 h-3 rounded-full bg-surface-container-high')} />
+                <span className={cm.cn('w-3 h-3 rounded-full bg-surface-container-high')} />
+                <span className={cm.cn('w-3 h-3 rounded-full bg-surface-container-high')} />
+              </div>
+              <div
+                className={cm.cn(
+                  'font-editor relative text-lg md:text-xl leading-relaxed text-on-surface',
+                )}
+              >
+                <h2
                   className={cm.cn(
-                    cm.sp('mt', 5),
-                    cm.fontWeight('extrabold'),
-                    'text-5xl tracking-tight text-on-surface md:text-6xl lg:text-7xl leading-[0.95]',
+                    cm.textSize('3xl'),
+                    cm.fontWeight('bold'),
+                    cm.sp('mb', 8),
+                    'md:text-4xl',
                   )}
-                >
-                  {t('landing.heroTitle', {}, { defaultValue: 'Think together. Write forever.' })}
-                </h1>
-                <p
-                  className={cm.cn(
-                    cm.sp('mt', 6),
-                    cm.textSize('xl'),
-                    cm.maxW('2xl'),
-                    'italic leading-relaxed text-on-surface-variant',
-                  )}
-                  style={{ fontFamily: 'Charter, Georgia, serif' }}
                 >
                   {t(
-                    'landing.heroSubtitle',
-                    { tagline: APP_TAGLINE },
+                    'landing.preview.docTitle',
+                    {},
+                    { defaultValue: 'The Nature of Collaboration' },
+                  )}
+                </h2>
+                <div className={cm.stack(6)}>
+                  <p>
+                    {t(
+                      'landing.preview.p1a',
+                      {},
+                      {
+                        defaultValue:
+                          'When we write together, we are not merely appending words to a document. We are interweaving thoughts, blending distinct voices into a unified narrative. ',
+                      },
+                    )}
+                    <span className="relative">
+                      {t(
+                        'landing.preview.p1Cursor',
+                        {},
+                        { defaultValue: 'The process requires both solitude for deep reflection' },
+                      )}
+                      <span
+                        aria-hidden="true"
+                        className={cm.cn(
+                          'absolute -right-1 -top-1 w-0.5 h-6 bg-primary animate-pulse',
+                        )}
+                      />
+                      <span
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          cm.fontWeight('medium'),
+                          'absolute -top-7 -right-2 bg-primary text-on-primary px-1.5 py-0.5 rounded shadow-sm',
+                        )}
+                      >
+                        {t('landing.preview.editor1', {}, { defaultValue: 'Sarah' })}
+                      </span>
+                    </span>
+                    {t(
+                      'landing.preview.p1b',
+                      {},
+                      { defaultValue: ' and communion for refinement.' },
+                    )}
+                  </p>
+                  <p>
+                    {t(
+                      'landing.preview.p2a',
+                      {},
+                      {
+                        defaultValue:
+                          'Consider the architecture of a great essay. It stands on the foundation of iterative drafts. ',
+                      },
+                    )}
+                    <span className="relative">
+                      <span className="bg-accent-cyan/10 border-b border-accent-cyan/60">
+                        {t(
+                          'landing.preview.p2Highlight',
+                          {},
+                          { defaultValue: 'Every marginal note, every structural shift' },
+                        )}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className={cm.cn('absolute -left-0.5 -top-1 w-0.5 h-6 bg-accent-cyan')}
+                      />
+                      <span
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          cm.fontWeight('medium'),
+                          'absolute -top-7 -left-1 bg-accent-cyan text-on-primary px-1.5 py-0.5 rounded shadow-sm',
+                        )}
+                      >
+                        {t('landing.preview.editor2', {}, { defaultValue: 'Marcus' })}
+                      </span>
+                    </span>
+                    {t(
+                      'landing.preview.p2b',
+                      {},
+                      { defaultValue: ', contributes to the clarity of the final piece.' },
+                    )}
+                  </p>
+                </div>
+              </div>
+              {/* Comment pin */}
+              <aside
+                className={cm.cn(
+                  cm.sp('p', 3),
+                  'absolute top-36 right-4 md:right-8 lg:right-14 bg-surface rounded-xl shadow-lg border border-outline-variant w-48',
+                )}
+              >
+                <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), cm.sp('mb', 2))}>
+                  <span
+                    className={cm.cn(
+                      cm.w(6),
+                      cm.h(6),
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      cm.textSize('xs'),
+                      cm.fontWeight('medium'),
+                      cm.roundedFull,
+                      'bg-primary-light text-primary-dark',
+                    )}
+                    aria-hidden="true"
+                  >
+                    S
+                  </span>
+                  <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                    {t('landing.preview.editor1', {}, { defaultValue: 'Sarah' })}
+                  </span>
+                </div>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {t(
+                    'landing.preview.commentBody',
+                    {},
                     {
                       defaultValue:
-                        'A distraction-free editor with ambient presence. Real-time cursors, threaded comments, version history, and a serif page that reads like the page itself.',
+                        'Perhaps we could expand on this metaphor in the next paragraph?',
                     },
                   )}
                 </p>
-                <div
-                  className={cm.cn(
-                    cm.sp('mt', 8),
-                    cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
-                  )}
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        {/* Social proof — grayscale publication wordmarks. */}
+        <section
+          className={cm.cn(
+            'border-y border-outline-variant bg-surface-container-low',
+            cm.sp('py', 10),
+            cm.sp('mb', 24),
+          )}
+        >
+          <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), 'mx-auto text-center')}>
+            <p
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                cm.sp('mb', 6),
+                'uppercase tracking-wider text-on-surface-variant',
+              )}
+            >
+              {t('landing.proofHeading', {}, { defaultValue: 'Trusted by editorial teams at' })}
+            </p>
+            <div
+              className={cm.cn(
+                cm.flex({ wrap: 'wrap', justify: 'center', gap: 'lg' }),
+                'md:gap-16 opacity-50 grayscale',
+              )}
+            >
+              {PROOF.map((p) => (
+                <span
+                  key={p.key}
+                  className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), p.className)}
                 >
-                  <Link
-                    to="/signup"
-                    className={cm.cn(
-                      cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      cm.fontWeight('extrabold'),
-                      'rounded-full bg-gradient-to-br from-primary to-secondary text-white shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:shadow-xl',
-                    )}
-                  >
-                    {t('landing.heroCta', {}, { defaultValue: 'Start writing' })}
-                  </Link>
-                  <Link
-                    to="/login"
-                    className={cm.cn(
-                      cm.sp('px', 6),
-                      cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'rounded-full border border-outline text-on-surface hover:bg-surface-container',
-                    )}
-                  >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                  </Link>
-                </div>
-
-                <div className={cm.cn(cm.sp('mt', 10))}>
-                  <p
-                    className={cm.cn(
-                      cm.textSize('xs'),
-                      cm.fontWeight('extrabold'),
-                      'uppercase tracking-widest text-on-surface-variant',
-                    )}
-                  >
-                    {t(
-                      'landing.proofHeading',
-                      {},
-                      { defaultValue: 'Trusted by people who care about the page' },
-                    )}
-                  </p>
-                  <ul className={cm.cn(cm.sp('mt', 4), cm.flex({ wrap: 'wrap', gap: 'md' }))}>
-                    {PROOF.map((p) => (
-                      <li
-                        key={p.key}
-                        className={cm.cn(
-                          cm.sp('px', 4),
-                          cm.sp('py', 2),
-                          cm.textSize('sm'),
-                          cm.fontWeight('semibold'),
-                          'rounded-full bg-surface-container text-on-surface-variant',
-                        )}
-                      >
-                        {t(`landing.proof.${p.key}`, {}, { defaultValue: p.defaultLabel })}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className={cm.cn('col-span-12 lg:col-span-5')}>
-                <QuillonStudioHero wordsToday={2840} documentsToday={6} activeCollaborators={4} />
-              </div>
+                  {t(`landing.proof.${p.key}`, {}, { defaultValue: p.defaultLabel })}
+                </span>
+              ))}
             </div>
           </div>
         </section>
@@ -259,7 +419,7 @@ export function Landing() {
                 className={cm.cn(
                   cm.textSize('xs'),
                   cm.fontWeight('extrabold'),
-                  'uppercase tracking-widest text-secondary',
+                  'uppercase tracking-widest text-primary',
                 )}
               >
                 {t('landing.featuresEyebrow', {}, { defaultValue: 'What you get' })}
@@ -279,11 +439,7 @@ export function Landing() {
                 )}
               </h2>
               <p
-                className={cm.cn(
-                  cm.sp('mt', 4),
-                  cm.textSize('lg'),
-                  'italic text-on-surface-variant',
-                )}
+                className={cm.cn(cm.sp('mt', 4), cm.textSize('lg'), 'text-on-surface-variant')}
                 style={{ fontFamily: 'Charter, Georgia, serif' }}
               >
                 {t(
@@ -308,7 +464,7 @@ export function Landing() {
                 >
                   <span
                     className={cm.cn(
-                      'material-symbols-outlined inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-white',
+                      'material-symbols-outlined inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-on-primary',
                     )}
                     aria-hidden="true"
                     style={{ fontSize: '1.5rem' }}
@@ -358,7 +514,7 @@ export function Landing() {
               )}
             </h2>
             <p
-              className={cm.cn(cm.sp('mt', 4), cm.textSize('lg'), 'italic text-on-surface-variant')}
+              className={cm.cn(cm.sp('mt', 4), cm.textSize('lg'), 'text-on-surface-variant')}
               style={{ fontFamily: 'Charter, Georgia, serif' }}
             >
               {t(
@@ -381,8 +537,8 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('px', 8),
                   cm.sp('py', 4),
-                  cm.fontWeight('extrabold'),
-                  'rounded-full bg-gradient-to-br from-primary to-secondary text-white shadow-lg transition-transform hover:-translate-y-0.5',
+                  cm.fontWeight('medium'),
+                  'rounded-xl bg-primary text-on-primary shadow-md shadow-primary/25 hover:bg-primary-hover transition-colors',
                 )}
               >
                 {t('landing.ctaPrimary', {}, { defaultValue: 'Open a studio' })}
@@ -402,16 +558,23 @@ export function Landing() {
             'mx-auto',
           )}
         >
-          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-            {t(
-              'landing.copyright',
-              { year: new Date().getFullYear(), app: APP_NAME },
-              { defaultValue: '\u00a9 {{year}} {{app}}. Built with Molecule.' },
-            )}
+          <p className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.textSize('sm'))}>
+            <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-primary')}>
+              {APP_NAME}
+            </span>
+            <span className="text-on-surface-variant">
+              {t(
+                'landing.copyright',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                { defaultValue: '\u00a9 {{year}} {{app}}. Think together, write forever.' },
+              )}
+            </span>
           </p>
           <nav className={cm.cn(cm.flex({ gap: 'md', align: 'center' }), cm.textSize('sm'))}>
             <LegalModalLinks
-              linkClassName={'text-on-surface-variant hover:text-on-surface'}
+              linkClassName={
+                'text-on-surface-variant hover:text-primary underline underline-offset-4'
+              }
               appName={APP_NAME}
               loadContent={loadContent}
               privacyLabel={t('nav.privacy', {}, { defaultValue: 'Privacy' })}

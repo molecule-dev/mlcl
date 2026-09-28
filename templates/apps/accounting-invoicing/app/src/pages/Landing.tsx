@@ -40,6 +40,8 @@ const FEATURES = [
   },
 ] as const
 
+const SOCIAL_PROOF_LOGOS = ['TechCorp', 'GlobalVentures', 'Nexus', 'NovaStudios', 'BrightPath']
+
 const SAMPLE_REVENUE = [
   { month: 'May', amountCents: 712000 },
   { month: 'Jun', amountCents: 825000 },
@@ -64,44 +66,64 @@ export function Landing() {
     <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
       <nav
         className={cm.cn(
-          'sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant',
+          'sticky top-0 z-50 bg-surface/95 backdrop-blur-md border-b border-outline-variant',
         )}
       >
         <div
           className={cm.cn(
             cm.maxW('7xl'),
-            cm.sp('px', 6),
-            cm.sp('py', 4),
+            cm.sp('px', 8),
+            cm.h(16),
             cm.flex({ align: 'center', justify: 'between' }),
             cm.mxAuto,
           )}
         >
-          <SafeLink to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            <span
-              className={cm.cn(
-                cm.w(9),
-                cm.h(9),
-                'rounded-xl',
-                cm.flex({ align: 'center', justify: 'center' }),
-                'bg-primary text-white',
-              )}
-              aria-hidden="true"
-            >
-              <span className={cm.cn('material-symbols-outlined text-xl')}>account_balance</span>
-            </span>
-            <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'xl' }))}>
+            <SafeLink to="/" className={cm.cn('text-2xl font-bold tracking-tight text-primary')}>
               {APP_NAME}
-            </span>
-          </SafeLink>
+            </SafeLink>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), cm.hiddenBelow('md'))}>
+              <SafeLink
+                to="/#features"
+                className={cm.cn(
+                  cm.fontWeight('medium'),
+                  cm.textSize('sm'),
+                  'text-on-surface-variant hover:text-primary transition-colors',
+                )}
+              >
+                {t('common.whatYouGet', {}, { defaultValue: 'Features' })}
+              </SafeLink>
+              <SafeLink
+                to="/pricing"
+                className={cm.cn(
+                  cm.fontWeight('medium'),
+                  cm.textSize('sm'),
+                  'text-on-surface-variant hover:text-primary transition-colors',
+                )}
+              >
+                {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+              </SafeLink>
+              <SafeLink
+                to="/about"
+                className={cm.cn(
+                  cm.fontWeight('medium'),
+                  cm.textSize('sm'),
+                  'text-on-surface-variant hover:text-primary transition-colors',
+                )}
+              >
+                {t('nav.about', {}, { defaultValue: 'About' })}
+              </SafeLink>
+            </div>
+          </div>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
               <Link
                 to="/dashboard"
                 className={cm.cn(
-                  cm.sp('px', 5),
+                  cm.sp('px', 4),
                   cm.sp('py', 2),
-                  cm.fontWeight('semibold'),
-                  'bg-primary text-on-primary rounded-full hover:bg-primary-dark transition-colors',
+                  cm.fontWeight('medium'),
+                  'bg-primary text-on-primary rounded-lg hover:bg-primary-dark transition-colors',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -111,23 +133,22 @@ export function Landing() {
                 <Link
                   to="/login"
                   className={cm.cn(
-                    cm.textSize('sm'),
                     cm.fontWeight('medium'),
-                    'text-on-surface-variant hover:text-on-surface',
+                    'text-primary hover:text-primary-dark transition-colors',
                   )}
                 >
-                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Log In' })}
                 </Link>
                 <Link
                   to="/signup"
                   className={cm.cn(
-                    cm.sp('px', 5),
+                    cm.sp('px', 4),
                     cm.sp('py', 2),
-                    cm.fontWeight('semibold'),
-                    'bg-primary text-on-primary rounded-full hover:bg-primary-dark transition-colors',
+                    cm.fontWeight('medium'),
+                    'bg-primary text-on-primary rounded-lg hover:bg-primary-dark transition-colors',
                   )}
                 >
-                  {t('common.startFreeTrial', {}, { defaultValue: 'Start free trial' })}
+                  {t('common.startFreeTrial', {}, { defaultValue: 'Start Free Trial' })}
                 </Link>
               </>
             )}
@@ -136,13 +157,23 @@ export function Landing() {
       </nav>
 
       <main>
-        <section className={cm.cn(cm.sp('py', 24), 'relative overflow-hidden')}>
-          <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.mxAuto, cm.textCenter)}>
+        <section
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.sp('px', 8),
+            cm.sp('py', 20),
+            'lg:py-32',
+            cm.mxAuto,
+            cm.grid({ cols: 2, gap: 'lg' }),
+            'lg:items-center',
+          )}
+        >
+          <div className={cm.cn(cm.maxW('xl'))}>
             <p
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
-                cm.sp('mb', 6),
+                cm.sp('mb', 4),
                 'uppercase tracking-[0.3em] text-primary',
               )}
             >
@@ -150,20 +181,19 @@ export function Landing() {
             </p>
             <h1
               className={cm.cn(
-                cm.fontWeight('bold'),
+                cm.fontWeight('extrabold'),
+                cm.textSize('5xl'),
                 cm.sp('mb', 6),
-                'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95]',
+                'lg:text-6xl text-primary leading-tight tracking-tight',
               )}
             >
               {t('landing.heroTitle', { tagline: APP_TAGLINE }, { defaultValue: '{{tagline}}.' })}
             </h1>
             <p
               className={cm.cn(
-                cm.textSize('lg'),
-                cm.sp('mb', 10),
-                cm.maxW('2xl'),
-                cm.mxAuto,
-                'text-on-surface-variant',
+                cm.textSize('xl'),
+                cm.sp('mb', 8),
+                'text-on-surface-variant leading-relaxed',
               )}
             >
               {t(
@@ -175,19 +205,15 @@ export function Landing() {
                 },
               )}
             </p>
-            <div
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center', gap: 'md' }),
-                cm.sp('mb', 16),
-              )}
-            >
+            <div className={cm.cn('flex flex-wrap', cm.flex({ gap: 'md' }))}>
               <Link
                 to="/signup"
                 className={cm.cn(
-                  cm.sp('px', 8),
+                  cm.sp('px', 6),
                   cm.sp('py', 3),
-                  cm.fontWeight('semibold'),
-                  'bg-primary text-on-primary rounded-full hover:bg-primary-dark transition-colors shadow-lg shadow-primary/20',
+                  cm.textSize('lg'),
+                  cm.fontWeight('medium'),
+                  'bg-primary text-on-primary rounded-lg hover:bg-primary-dark transition-colors shadow-sm',
                 )}
               >
                 {t('landing.heroCta', {}, { defaultValue: 'Start free for 30 days' })}
@@ -195,30 +221,162 @@ export function Landing() {
               <Link
                 to="/login"
                 className={cm.cn(
-                  cm.sp('px', 8),
+                  cm.sp('px', 6),
                   cm.sp('py', 3),
-                  cm.fontWeight('semibold'),
-                  'bg-surface-container text-on-surface rounded-full hover:bg-surface-container-high transition-colors',
+                  cm.textSize('lg'),
+                  cm.fontWeight('medium'),
+                  'bg-surface text-primary border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors',
                 )}
               >
-                {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                {t('auth.login.signInButton', {}, { defaultValue: 'Log In' })}
               </Link>
             </div>
+          </div>
 
-            <div className={cm.cn(cm.maxW('5xl'), cm.mxAuto, 'text-left')}>
-              <CashHeroCard
-                cashOnHandCents={1842310}
-                outstandingCents={3461150}
-                overdueCents={802900}
-                ytdRevenueCents={9421084}
-                ytdProfitCents={3842330}
-                revenueHistory={SAMPLE_REVENUE}
-              />
+          {/* Mock browser window — hero visual per the Stitch design */}
+          <div className={cm.cn(cm.sp('py', 8), 'lg:py-0')}>
+            <div
+              data-mol-id="hero-preview-window"
+              className={cm.cn(
+                'bg-surface-container-low rounded-lg border border-outline-variant shadow-xl overflow-hidden',
+              )}
+            >
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'sm' }),
+                  cm.sp('p', 3),
+                  'bg-surface-container border-b border-outline-variant',
+                )}
+              >
+                <span className="w-3 h-3 rounded-full bg-red-400" aria-hidden="true" />
+                <span className="w-3 h-3 rounded-full bg-amber-400" aria-hidden="true" />
+                <span className="w-3 h-3 rounded-full bg-green-400" aria-hidden="true" />
+              </div>
+              <div className={cm.sp('p', 6)}>
+                <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }), cm.sp('mb', 6))}>
+                  <div
+                    className={cm.cn(
+                      cm.sp('p', 4),
+                      'bg-surface-container-lowest rounded-lg shadow-sm border border-outline-variant',
+                    )}
+                  >
+                    <p
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('medium'),
+                        cm.sp('mb', 1),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {t('cashHeroCard.ytdRevenueLabel', {}, { defaultValue: 'Total Revenue' })}
+                    </p>
+                    <p className={cm.cn('text-2xl font-bold text-primary tabular-nums')}>$94.2K</p>
+                  </div>
+                  <div
+                    className={cm.cn(
+                      cm.sp('p', 4),
+                      'bg-surface-container-lowest rounded-lg shadow-sm border border-outline-variant',
+                    )}
+                  >
+                    <p
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('medium'),
+                        cm.sp('mb', 1),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {t('status.outstanding', {}, { defaultValue: 'Pending Invoices' })}
+                    </p>
+                    <p
+                      className={cm.cn('text-2xl font-bold tabular-nums')}
+                      style={{ color: 'var(--color-accent-text)' }}
+                    >
+                      $34.6K
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className={cm.cn(
+                    cm.sp('p', 6),
+                    'bg-surface-container-lowest rounded-lg shadow-sm border border-outline-variant min-h-[200px] flex flex-col justify-center items-center',
+                  )}
+                >
+                  <span
+                    className="material-symbols-outlined text-6xl mb-4 text-on-surface-variant/40"
+                    aria-hidden="true"
+                  >
+                    receipt_long
+                  </span>
+                  <p className={cm.textMuted}>
+                    {t(
+                      'landing.invoicePreviewLabel',
+                      {},
+                      { defaultValue: 'Invoice Document Preview' },
+                    )}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}>
+        <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 8), cm.sp('pb', 16), cm.mxAuto)}>
+          <CashHeroCard
+            cashOnHandCents={1842310}
+            outstandingCents={3461150}
+            overdueCents={802900}
+            ytdRevenueCents={9421084}
+            ytdProfitCents={3842330}
+            revenueHistory={SAMPLE_REVENUE}
+          />
+        </section>
+
+        {/* Social proof band */}
+        <section
+          className={cm.cn(
+            'border-y border-outline-variant bg-surface-container-low',
+            cm.sp('py', 12),
+          )}
+        >
+          <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 8), cm.mxAuto, cm.textCenter)}>
+            <p
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                cm.textMuted,
+                'uppercase tracking-wider',
+                cm.sp('mb', 8),
+              )}
+            >
+              {t(
+                'landing.socialProof',
+                {},
+                { defaultValue: 'Trusted by 12,000+ businesses worldwide' },
+              )}
+            </p>
+            <div
+              className={cm.cn(
+                cm.flex({ justify: 'center', wrap: 'wrap', gap: 'xl' }),
+                'opacity-60 grayscale',
+              )}
+            >
+              {SOCIAL_PROOF_LOGOS.map((name) => (
+                <span
+                  key={name}
+                  className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface')}
+                >
+                  {name}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          className={cm.cn(cm.maxW('7xl'), cm.sp('px', 8), cm.sp('py', 20), cm.mxAuto)}
+          id="features"
+        >
           <div className={cm.cn(cm.textCenter, cm.sp('mb', 12))}>
             <p
               className={cm.cn(
@@ -246,16 +404,16 @@ export function Landing() {
                 key={f.key}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl border border-outline-variant hover:-translate-y-0.5 transition-transform',
+                  'bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
                 )}
               >
                 <span
                   className={cm.cn(
-                    cm.w(11),
-                    cm.h(11),
-                    'rounded-xl',
+                    cm.w(12),
+                    cm.h(12),
+                    'rounded-lg',
                     cm.flex({ align: 'center', justify: 'center' }),
-                    cm.sp('mb', 4),
+                    cm.sp('mb', 5),
                     'bg-primary/10 text-primary',
                   )}
                   aria-hidden="true"
@@ -280,8 +438,10 @@ export function Landing() {
           </div>
         </section>
 
-        <section className={cm.cn(cm.sp('py', 16), 'bg-surface-container-low')}>
-          <div className={cm.cn(cm.maxW('5xl'), cm.sp('px', 6), cm.mxAuto, cm.textCenter)}>
+        <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 8), cm.sp('pb', 24), cm.mxAuto)}>
+          <div
+            className={cm.cn(cm.sp('p', 12), 'bg-primary rounded-lg text-center text-on-primary')}
+          >
             <h2
               className={cm.cn(
                 cm.textSize('3xl'),
@@ -292,7 +452,7 @@ export function Landing() {
             >
               {t('landing.ctaTitle', {}, { defaultValue: 'Move your books to a calmer place.' })}
             </h2>
-            <p className={cm.cn(cm.textSize('lg'), cm.sp('mb', 8), 'text-on-surface-variant')}>
+            <p className={cm.cn(cm.textSize('lg'), cm.sp('mb', 8), 'text-on-primary/80')}>
               {t(
                 'landing.ctaSubtitle',
                 {},
@@ -308,7 +468,7 @@ export function Landing() {
                 cm.sp('px', 8),
                 cm.sp('py', 3),
                 cm.fontWeight('semibold'),
-                'bg-primary text-on-primary rounded-full hover:bg-primary-dark transition-colors inline-block shadow-lg shadow-primary/20',
+                'bg-surface-container-lowest text-primary rounded-lg hover:bg-surface-container-low transition-colors inline-block shadow-sm',
               )}
             >
               {t('common.startFreeTrial', {}, { defaultValue: 'Start free trial' })}
@@ -317,52 +477,120 @@ export function Landing() {
         </section>
       </main>
 
-      <footer
-        className={cm.cn(
-          cm.sp('py', 8),
-          cm.textCenter,
-          cm.textSize('sm'),
-          'bg-surface border-t border-outline-variant text-on-surface-variant',
-        )}
-      >
-        <nav
-          data-mol-id="footer-links"
+      <footer className={cm.cn('bg-surface-container-low border-t border-outline-variant')}>
+        <div
           className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center', gap: 'lg' }),
-            cm.sp('mb', 3),
-            'flex-wrap',
+            cm.maxW('7xl'),
+            cm.sp('px', 8),
+            cm.sp('py', 12),
+            cm.mxAuto,
+            cm.grid({ cols: 4, gap: 'lg' }),
           )}
         >
-          <SafeLink
-            to="/about"
-            className={cm.cn(cm.fontWeight('medium'), 'hover:text-on-surface transition-colors')}
-          >
-            {t('nav.about', {}, { defaultValue: 'About' })}
-          </SafeLink>
-          <SafeLink
-            to="/pricing"
-            className={cm.cn(cm.fontWeight('medium'), 'hover:text-on-surface transition-colors')}
-          >
-            {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
-          </SafeLink>
-          <LegalModalLinks
-            linkClassName={cm.cn(
-              cm.fontWeight('medium'),
-              'hover:text-on-surface transition-colors',
-            )}
-            appName={APP_NAME}
-            loadContent={loadContent}
-            privacyLabel={t('footer.privacyPolicy', {}, { defaultValue: 'Privacy Policy' })}
-            termsLabel={t('footer.termsOfService', {}, { defaultValue: 'Terms of Service' })}
-          />
-        </nav>
-        <p>
-          {t(
-            'common.copyrightBuiltWithMolecule',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Built with Molecule.' },
+          <div>
+            <span
+              className={cm.cn(
+                cm.textSize('xl'),
+                cm.fontWeight('extrabold'),
+                'text-primary',
+                cm.sp('mb', 4),
+                cm.displayBlock,
+              )}
+            >
+              {APP_NAME}
+            </span>
+            <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
+              {t(
+                'landing.footerTagline',
+                {},
+                { defaultValue: 'Precision accounting for modern businesses.' },
+              )}
+            </p>
+          </div>
+          <div>
+            <h4
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                cm.textSize('sm'),
+                cm.sp('mb', 4),
+                'text-on-surface',
+              )}
+            >
+              {t('footer.product', {}, { defaultValue: 'Product' })}
+            </h4>
+            <ul className={cm.cn(cm.stack(3), cm.textSize('sm'))}>
+              <li>
+                <SafeLink
+                  to="/pricing"
+                  className={cm.cn(cm.textMuted, 'hover:text-primary transition-colors')}
+                >
+                  {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+                </SafeLink>
+              </li>
+              <li>
+                <SafeLink
+                  to="/about"
+                  className={cm.cn(cm.textMuted, 'hover:text-primary transition-colors')}
+                >
+                  {t('nav.about', {}, { defaultValue: 'About' })}
+                </SafeLink>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                cm.textSize('sm'),
+                cm.sp('mb', 4),
+                'text-on-surface',
+              )}
+            >
+              {t('footer.legal', {}, { defaultValue: 'Legal' })}
+            </h4>
+            <div className={cm.cn(cm.stack(3), cm.textSize('sm'))}>
+              <LegalModalLinks
+                linkClassName={cm.cn(
+                  cm.textMuted,
+                  'text-left hover:text-primary transition-colors',
+                )}
+                appName={APP_NAME}
+                loadContent={loadContent}
+                privacyLabel={t('footer.privacyPolicy', {}, { defaultValue: 'Privacy Policy' })}
+                termsLabel={t('footer.termsOfService', {}, { defaultValue: 'Terms of Service' })}
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className={cm.cn(
+            'border-t border-outline-variant',
+            cm.sp('py', 6),
+            cm.sp('px', 8),
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.flex({ justify: 'between', align: 'center' }),
+            cm.textSize('sm'),
+            cm.textMuted,
           )}
-        </p>
+        >
+          <p>
+            {t(
+              'common.copyrightBuiltWithMolecule',
+              { year: new Date().getFullYear(), app: APP_NAME },
+              { defaultValue: '© {{year}} {{app}}' },
+            )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
+          </p>
+        </div>
       </footer>
     </div>
   )

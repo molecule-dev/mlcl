@@ -100,7 +100,7 @@ export const ui: UiTranslations = {
   'form.firstName': 'שם פרטי',
   'form.lastName': 'שם משפחה',
   'form.role': 'תפקיד',
-  'landing.copyright': '© {{year}} {{app}}. Built with Molecule.',
+  'landing.copyright': '© {{year}} {{app}}. Built with Molecule.devdev',
   'landing.eyebrow': "תזמון — בלי צ'אט קבוצתי",
   'landing.featuresEyebrow': 'איך זה עובד',
   'landing.featuresHeading': 'בנה. פרסם. נשום.',

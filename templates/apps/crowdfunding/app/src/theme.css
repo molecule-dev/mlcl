@@ -33,6 +33,7 @@
   --color-primary: #0e7490; /* keep in sync with --mol-color-primary above (contrast fix) */
   --color-primary-hover: #0891b2; /* hover one step brighter than the darkened base */
   --color-primary-dark: #155e75; /* cyan-800 — stays a step darker than the new primary */
+  --color-primary-deep: #164e63; /* cyan-900 — Stitch hero-gradient end stop */
   --color-primary-light: #cffafe;
   --color-secondary: #0f172a;
   --color-secondary-hover: #1e293b;
@@ -123,6 +124,7 @@
   --color-primary: #06b6d4;
   --color-primary-hover: #22d3ee;
   --color-primary-dark: #0891b2;
+  --color-primary-deep: #0e4a5c;
   --color-primary-light: #155e75;
   --color-secondary: #cbd5e1;
   --color-secondary-hover: #e2e8f0;

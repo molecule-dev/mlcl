@@ -1,3 +1,10 @@
+/**
+ * Landing — Engram marketing home (Stitch design).
+ *
+ * Flow: top nav → hero with tactile flashcard stack → amber streak banner →
+ * "Built for serious learners" bento grid → footer. The flashcard faces and
+ * the brand wordmark render in Source Serif 4 (--mol-font-serif).
+ */
 import { Link } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
@@ -7,436 +14,550 @@ import { APP_TAGLINE } from '../branding.js'
 import { Footer } from '../components/Footer.js'
 import { LandingTopNavBar } from '../components/LandingTopNavBar.js'
 
-const FEATURES = [
+/** Spaced-repetition grade chips on the card back (design palette). */
+const GRADES = [
+  { key: 'again', label: 'Again', bg: 'var(--color-error-container)', fg: 'var(--color-error)' },
   {
-    key: 'spaced',
-    icon: 'schedule',
-    titleDefault: 'Spaced repetition that works',
-    bodyDefault:
-      'SuperMemo-2 algorithm. Cards you barely know come back tomorrow; cards you nail wait a week.',
+    key: 'hard',
+    label: 'Hard',
+    bg: 'var(--color-secondary-container)',
+    fg: 'var(--color-secondary)',
   },
   {
-    key: 'streaks',
-    icon: 'local_fire_department',
-    titleDefault: 'Streaks for the long game',
-    bodyDefault:
-      'Daily review counter, amber flame. Skip a day, the streak resets — but you keep all the cards.',
+    key: 'good',
+    label: 'Good',
+    bg: 'var(--color-tertiary-container)',
+    fg: 'var(--color-tertiary)',
   },
-  {
-    key: 'authoring',
-    icon: 'edit_note',
-    titleDefault: 'Markdown + cloze deletion',
-    bodyDefault:
-      'Write cards in markdown. Hide any phrase with {{cloze::word}} and the back fills in.',
-  },
-  {
-    key: 'shared',
-    icon: 'unfold_more',
-    titleDefault: 'Bring your own deck',
-    bodyDefault:
-      'Import from Anki .apkg or CSV. Export anytime. Your knowledge, your data, no lock-in.',
-  },
-] as const
+  { key: 'easy', label: 'Easy', bg: 'var(--color-primary-container)', fg: 'var(--color-primary)' },
+]
 
-const STATS = [
-  { key: 'cards', valueDefault: '4,832', labelDefault: 'Cards reviewed today' },
-  { key: 'retain', valueDefault: '92%', labelDefault: 'Avg retention' },
-  { key: 'streak', valueDefault: '38d', labelDefault: 'Avg streak' },
-  { key: 'minutes', valueDefault: '14m', labelDefault: 'Daily commitment' },
-] as const
+/** 21-day habit heatmap — violet intensity per cell (0 = missed day). */
+const HEATMAP: number[] = [
+  0, 25, 45, 70, 85, 70, 0, 25, 70, 85, 100, 70, 45, 25, 70, 85, 100, 55, 85, 70, 0,
+]
 
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
 
+  // Squiggle goes under the tagline's last word ("…sticks.").
+  const lastSpace = APP_TAGLINE.lastIndexOf(' ')
+  const taglineHead = APP_TAGLINE.slice(0, lastSpace + 1)
+  const taglineTail = APP_TAGLINE.slice(lastSpace + 1)
+
   return (
     <div className={cm.cn(cm.minH('screen'), 'bg-surface text-on-surface antialiased')}>
       <LandingTopNavBar />
 
-      <main>
-        {/* Hero */}
-        <section className={cm.cn('relative overflow-hidden', cm.sp('pt', 16), cm.sp('pb', 12))}>
-          <div
-            aria-hidden="true"
-            className={cm.cn(
-              'absolute -top-40 -right-32 h-[28rem] w-[28rem] rounded-full bg-primary/15 blur-3xl',
-            )}
-          />
-          <div
-            aria-hidden="true"
-            className={cm.cn(
-              'absolute -bottom-32 -left-40 h-96 w-96 rounded-full bg-tertiary/15 blur-3xl',
-            )}
-          />
+      <main className={cm.sp('pt', 6)}>
+        {/* Hero + flashcard preview */}
+        <section
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            'grid grid-cols-1 lg:grid-cols-2 gap-16 items-center pt-12 md:pt-20',
+          )}
+        >
+          <div className="text-center lg:text-left">
+            <span
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs', justify: 'center' }),
+                'inline-flex px-3 py-1 rounded-full text-sm font-medium mb-6 border',
+                'lg:justify-start',
+              )}
+              style={{
+                backgroundColor: 'var(--color-surface-secondary)',
+                color: 'var(--color-primary)',
+                borderColor: 'var(--color-primary-container)',
+              }}
+            >
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                psychology
+              </span>
+              {t('landing.eyebrow', {}, { defaultValue: 'Master any subject' })}
+            </span>
+            <h1
+              className={cm.cn(
+                cm.fontWeight('extrabold'),
+                'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.1] mb-6 text-on-surface',
+              )}
+            >
+              {t('landing.heroTitle', {}, { defaultValue: taglineHead })}
+              <span className="relative inline-block">
+                {t('landing.heroTitleTail', {}, { defaultValue: taglineTail + '.' })}
+                <svg
+                  className="absolute -bottom-2 left-0 w-full h-3"
+                  preserveAspectRatio="none"
+                  viewBox="0 0 100 10"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M0 5 Q 50 10 100 5"
+                    fill="transparent"
+                    stroke="var(--color-streak)"
+                    strokeWidth="4"
+                    opacity="0.35"
+                  />
+                </svg>
+              </span>
+            </h1>
+            <p
+              className={cm.cn(
+                cm.textSize('lg'),
+                'text-on-surface-variant mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed',
+              )}
+            >
+              {t(
+                'landing.heroSubtitle',
+                {},
+                {
+                  defaultValue:
+                    'Build an unbreakable memory with optimized spaced repetition. Engram schedules your reviews precisely when your brain is about to forget, saving you hours of study time.',
+                },
+              )}
+            </p>
+            <div
+              className={cm.cn(
+                cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
+                'sm:flex-row justify-center lg:justify-start',
+              )}
+            >
+              <Link
+                to="/signup"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.fontWeight('medium'),
+                  'w-full sm:w-auto rounded-xl bg-primary text-on-primary text-center shadow-lg hover:-translate-y-0.5 transition-transform',
+                )}
+                data-mol-id="hero-cta-primary"
+              >
+                {t('landing.heroCta', {}, { defaultValue: 'Start studying free' })}
+              </Link>
+              <a
+                href="#features"
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.fontWeight('medium'),
+                  'w-full sm:w-auto rounded-xl text-on-surface-variant transition-colors hover:bg-surface-container',
+                )}
+                style={{ backgroundColor: 'var(--color-surface-container-low)' }}
+                data-mol-id="hero-cta-secondary"
+              >
+                <span className="material-symbols-outlined text-xl" aria-hidden="true">
+                  play_circle
+                </span>
+                {t('landing.heroSecondary', {}, { defaultValue: 'See how it works' })}
+              </a>
+            </div>
+          </div>
 
+          {/* Tactile flashcard stack */}
+          <div className="w-full max-w-md mx-auto relative" aria-hidden="true">
+            {/* Back card (answer side) */}
+            <div
+              className={cm.cn(
+                'absolute inset-0 bg-surface rounded-xl border shadow-sm opacity-60 p-8',
+                'flex flex-col justify-between rotate-3 translate-x-4 translate-y-4',
+              )}
+              style={{ borderColor: 'var(--color-outline-variant)' }}
+            >
+              <div className="text-center">
+                <p
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'uppercase tracking-wider mb-4',
+                  )}
+                  style={{ color: 'var(--color-text-tertiary)' }}
+                >
+                  {t('landing.sample.answerLabel', {}, { defaultValue: 'Answer' })}
+                </p>
+                <h3
+                  className={cm.cn(cm.textSize('4xl'), 'text-on-surface')}
+                  style={{ fontFamily: 'var(--mol-font-serif)' }}
+                >
+                  {t('landing.sample.answer', {}, { defaultValue: 'Paris' })}
+                </h3>
+                <p
+                  className={cm.cn('text-lg mt-4 italic')}
+                  style={{
+                    fontFamily: 'var(--mol-font-serif)',
+                    color: 'var(--color-on-surface-variant)',
+                  }}
+                >
+                  {t(
+                    'landing.sample.answerHint',
+                    {},
+                    { defaultValue: 'The city of light, located on the Seine River.' },
+                  )}
+                </p>
+              </div>
+              <div className={cm.cn(cm.grid({ cols: 4, gap: 'xs' }), 'mt-8')}>
+                {GRADES.map((g) => (
+                  <div
+                    key={g.key}
+                    className={cm.cn(
+                      'h-10 rounded-xl flex items-center justify-center text-xs font-semibold',
+                    )}
+                    style={{ backgroundColor: g.bg, color: g.fg }}
+                  >
+                    {t(`landing.sample.grade.${g.key}`, {}, { defaultValue: g.label })}
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Front card (question side) */}
+            <div
+              className={cm.cn(
+                'relative bg-surface rounded-xl border-2 shadow-xl p-8 aspect-[4/3] z-10',
+                'flex flex-col justify-center items-center text-center',
+                'transition-transform duration-300 hover:-translate-y-2 hover:rotate-1',
+              )}
+              style={{
+                borderColor: 'var(--color-primary-container)',
+                backgroundImage:
+                  'linear-gradient(to bottom, var(--color-surface), color-mix(in srgb, var(--color-surface-secondary) 30%, var(--color-surface)))',
+              }}
+              data-mol-id="hero-flashcard"
+            >
+              <span
+                className="absolute top-4 right-4 material-symbols-outlined"
+                style={{ color: 'var(--color-text-tertiary)' }}
+              >
+                bookmark_border
+              </span>
+              <h2
+                className={cm.cn('text-3xl md:text-4xl text-on-surface leading-snug')}
+                style={{ fontFamily: 'var(--mol-font-serif)' }}
+              >
+                {t(
+                  'landing.sample.question',
+                  {},
+                  { defaultValue: 'What is the capital of France?' },
+                )}
+              </h2>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  'absolute bottom-6 text-sm',
+                )}
+                style={{ color: 'var(--color-text-tertiary)' }}
+              >
+                <span className="material-symbols-outlined text-lg" aria-hidden="true">
+                  touch_app
+                </span>
+                <span>{t('landing.sample.tapToFlip', {}, { defaultValue: 'Tap to flip' })}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Streak banner */}
+        <section className="mt-24 w-full" style={{ backgroundColor: 'var(--color-secondary)' }}>
           <div
             className={cm.cn(
               cm.maxW('7xl'),
               cm.mxAuto,
               cm.sp('px', 6),
-              'relative z-10 grid lg:grid-cols-[1.15fr_1fr] gap-12 items-center',
+              cm.sp('py', 4),
+              cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
+              'text-white font-medium text-base md:text-lg',
             )}
           >
-            <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">
-                {t(
-                  'landing.eyebrow',
-                  {},
-                  { defaultValue: 'Spaced repetition · 79 languages · open data' },
-                )}
-              </p>
-              <h1
-                className={cm.cn(
-                  cm.fontWeight('bold'),
-                  cm.sp('mt', 4),
-                  'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] font-extrabold',
-                )}
-              >
-                {t('landing.heroTitle', { tagline: APP_TAGLINE }, { defaultValue: '{{tagline}}.' })}
-              </h1>
-              <p
-                className={cm.cn(
-                  cm.sp('mt', 6),
-                  'text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed',
-                )}
-              >
-                {t(
-                  'landing.heroSubtitle',
-                  {},
-                  {
-                    defaultValue:
-                      'Spaced repetition makes the difference between cramming and remembering. Five minutes a day, year after year, and the language sticks.',
-                  },
-                )}
-              </p>
+            <span
+              className="material-symbols-outlined"
+              style={{ fontVariationSettings: "'FILL' 1" }}
+              aria-hidden="true"
+            >
+              local_fire_department
+            </span>
+            <span>
+              {t(
+                'landing.streakBanner',
+                { days: 340 },
+                { defaultValue: 'Students review {{days}} days in a row on average' },
+              )}
+            </span>
+            <span
+              className="material-symbols-outlined"
+              style={{ fontVariationSettings: "'FILL' 1" }}
+              aria-hidden="true"
+            >
+              local_fire_department
+            </span>
+          </div>
+        </section>
 
+        {/* Features bento */}
+        <section
+          id="features"
+          className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-24')}
+        >
+          <div className={cm.cn(cm.textCenter, cm.sp('mb', 12))}>
+            <h2
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                'text-3xl md:text-4xl text-on-surface mb-4 tracking-tight',
+              )}
+            >
+              {t('landing.featuresHeading', {}, { defaultValue: 'Built for serious learners' })}
+            </h2>
+            <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant max-w-2xl mx-auto')}>
+              {t(
+                'landing.featuresSubheading',
+                {},
+                {
+                  defaultValue:
+                    'Everything you need to memorize facts, languages, and concepts effectively, packaged in a beautifully calm interface.',
+                },
+              )}
+            </p>
+          </div>
+          <div className={cm.cn('grid grid-cols-1 md:grid-cols-3 gap-6 md:auto-rows-[280px]')}>
+            {/* Spaced repetition — large card */}
+            <div
+              className={cm.cn(
+                'md:col-span-2 rounded-xl border p-8 flex flex-col justify-between relative overflow-hidden group',
+              )}
+              style={{
+                borderColor: 'var(--color-outline-variant)',
+                backgroundImage:
+                  'linear-gradient(to bottom right, var(--color-surface-container-low), var(--color-surface-secondary))',
+              }}
+            >
               <div
-                className={cm.cn(
-                  cm.flex({ align: 'center', gap: 'md' }),
-                  cm.sp('mt', 8),
-                  'flex-wrap',
-                )}
-              >
-                <Link
-                  to="/signup"
+                className="absolute right-0 top-0 w-64 h-64 rounded-full blur-3xl -mr-16 -mt-16"
+                style={{
+                  backgroundColor: 'color-mix(in srgb, var(--color-primary) 5%, transparent)',
+                }}
+                aria-hidden="true"
+              />
+              <div className="relative">
+                <div
                   className={cm.cn(
-                    cm.sp('px', 8),
-                    cm.sp('py', 4),
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'w-12 h-12 bg-surface rounded-xl shadow-sm border mb-6',
+                  )}
+                  style={{ borderColor: 'var(--color-outline-variant)' }}
+                  aria-hidden="true"
+                >
+                  <span
+                    className="material-symbols-outlined text-primary"
+                    style={{ fontVariationSettings: "'FILL' 1" }}
+                  >
+                    update
+                  </span>
+                </div>
+                <h3
+                  className={cm.cn(
+                    cm.textSize('2xl'),
                     cm.fontWeight('bold'),
-                    'rounded-2xl bg-primary text-on-primary text-base shadow-lg hover:scale-[1.02] transition-transform inline-flex items-center gap-2',
+                    'text-on-surface mb-2',
                   )}
-                  data-mol-id="hero-cta-primary"
                 >
-                  {t('landing.heroCta', {}, { defaultValue: 'Start studying free' })}
-                  <span className={cm.cn('material-symbols-outlined text-lg')} aria-hidden="true">
-                    arrow_forward
-                  </span>
-                </Link>
-                <Link
-                  to="/login"
-                  className={cm.cn(
-                    cm.sp('px', 6),
-                    cm.sp('py', 4),
-                    cm.fontWeight('semibold'),
-                    'rounded-2xl border border-outline-variant text-sm text-on-surface hover:bg-surface-container transition-colors',
+                  {t('landing.feature.spaced.title', {}, { defaultValue: 'Spaced repetition' })}
+                </h3>
+                <p className={cm.cn('text-on-surface-variant max-w-md')}>
+                  {t(
+                    'landing.feature.spaced.body',
+                    {},
+                    {
+                      defaultValue:
+                        "Our algorithm predicts exactly when you'll forget a card and prompts you to review it just in time. Maximum retention, minimum effort.",
+                    },
                   )}
-                  data-mol-id="hero-cta-secondary"
-                >
-                  {t('landing.heroSecondary', {}, { defaultValue: 'I already have an account' })}
-                </Link>
+                </p>
               </div>
-
+              {/* Decorative review-load graphic */}
               <div
-                className={cm.cn(
-                  cm.flex({ align: 'center', gap: 'md' }),
-                  cm.sp('mt', 8),
-                  'flex-wrap text-xs font-medium text-on-surface-variant',
-                )}
+                className="self-end w-3/4 h-24 rounded-t-xl border border-b-0 shadow-sm relative overflow-hidden mt-6"
+                style={{
+                  backgroundColor: 'color-mix(in srgb, var(--color-surface) 50%, transparent)',
+                  borderColor: 'color-mix(in srgb, var(--color-surface) 60%, transparent)',
+                  backdropFilter: 'blur(4px)',
+                }}
+                aria-hidden="true"
               >
-                <span className={cm.cn('inline-flex items-center gap-1.5')}>
-                  <span
-                    className={cm.cn('material-symbols-outlined text-base text-success')}
-                    aria-hidden="true"
-                  >
-                    check_circle
-                  </span>
-                  {t('landing.proof.free', {}, { defaultValue: 'Free forever for personal use' })}
-                </span>
-                <span aria-hidden="true">·</span>
-                <span className={cm.cn('inline-flex items-center gap-1.5')}>
-                  <span
-                    className={cm.cn('material-symbols-outlined text-base text-success')}
-                    aria-hidden="true"
-                  >
-                    check_circle
-                  </span>
-                  {t('landing.proof.import', {}, { defaultValue: 'Import .apkg / CSV' })}
-                </span>
-                <span aria-hidden="true">·</span>
-                <span className={cm.cn('inline-flex items-center gap-1.5')}>
-                  <span
-                    className={cm.cn('material-symbols-outlined text-base text-success')}
-                    aria-hidden="true"
-                  >
-                    check_circle
-                  </span>
-                  {t('landing.proof.export', {}, { defaultValue: 'Open data, no lock-in' })}
-                </span>
+                <div
+                  className="absolute bottom-0 left-0 w-full h-1"
+                  style={{ backgroundColor: 'var(--color-surface-container-high)' }}
+                />
+                <div
+                  className="absolute bottom-0 left-0 w-1/3 h-1"
+                  style={{ backgroundColor: 'var(--color-primary)' }}
+                />
               </div>
             </div>
 
-            {/* Sample card mirroring auth'd hero */}
-            <SampleHero />
-          </div>
-        </section>
-
-        {/* Stats */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 8))}>
-          <div className={cm.grid({ cols: 4, gap: 'md' })}>
-            {STATS.map((s) => (
-              <div
-                key={s.key}
-                className={cm.cn(
-                  cm.sp('p', 6),
-                  'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 text-center',
-                )}
-              >
-                <p
-                  className={cm.cn(
-                    cm.fontWeight('bold'),
-                    'text-3xl md:text-4xl font-extrabold tracking-tight text-primary',
-                  )}
-                >
-                  {t(`landing.stat.${s.key}.value`, {}, { defaultValue: s.valueDefault })}
-                </p>
-                <p
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.sp('mt', 2),
-                    'font-semibold uppercase tracking-wider text-on-surface-variant',
-                  )}
-                >
-                  {t(`landing.stat.${s.key}.label`, {}, { defaultValue: s.labelDefault })}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Features */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 16))}>
-          <div className={cm.cn(cm.maxW('2xl'), cm.mxAuto, cm.textCenter, cm.sp('mb', 12))}>
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">
-              {t('landing.featuresEyebrow', {}, { defaultValue: 'Built for memory' })}
-            </p>
-            <h2
+            {/* Deck sharing */}
+            <div
               className={cm.cn(
-                cm.fontWeight('bold'),
-                cm.sp('mt', 3),
-                'text-3xl md:text-4xl font-extrabold tracking-tight',
+                'bg-surface border shadow-sm rounded-xl p-8 flex flex-col relative group transition-colors hover:border-primary',
               )}
+              style={{ borderColor: 'var(--color-outline-variant)' }}
             >
-              {t(
-                'landing.featuresHeading',
-                {},
-                { defaultValue: 'A study tool that respects how memory actually works.' },
-              )}
-            </h2>
-          </div>
-          <div className={cm.cn('grid md:grid-cols-2 lg:grid-cols-4 gap-6')}>
-            {FEATURES.map((f) => (
               <div
-                key={f.key}
-                className={cm.cn(
-                  cm.sp('p', 6),
-                  'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 hover:shadow-md transition-shadow',
+                className={
+                  cm.flex({
+                    align: 'center',
+                    justify: 'center',
+                  }) + ' w-12 h-12 rounded-xl mb-6'
+                }
+                style={{ backgroundColor: 'var(--color-primary-container)' }}
+                aria-hidden="true"
+              >
+                <span className="material-symbols-outlined text-primary">folder_shared</span>
+              </div>
+              <h3
+                className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface mb-2')}
+              >
+                {t('landing.feature.sharing.title', {}, { defaultValue: 'Deck sharing' })}
+              </h3>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}>
+                {t(
+                  'landing.feature.sharing.body',
+                  {},
+                  {
+                    defaultValue:
+                      'Collaborate with classmates or download pre-made decks from top students worldwide. Import Anki .apkg or CSV anytime — your data, no lock-in.',
+                  },
                 )}
+              </p>
+            </div>
+
+            {/* Study anywhere */}
+            <div
+              className={cm.cn(
+                'bg-surface border shadow-sm rounded-xl p-8 flex flex-col relative group transition-colors hover:border-secondary',
+              )}
+              style={{ borderColor: 'var(--color-outline-variant)' }}
+            >
+              <div
+                className={
+                  cm.flex({
+                    align: 'center',
+                    justify: 'center',
+                  }) + ' w-12 h-12 rounded-xl mb-6'
+                }
+                style={{ backgroundColor: 'var(--color-secondary-container)' }}
+                aria-hidden="true"
               >
                 <span
-                  className={cm.cn(
-                    'flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-container/60 text-primary',
-                  )}
+                  className="material-symbols-outlined"
+                  style={{ color: 'var(--color-secondary)' }}
                 >
-                  <span className={cm.cn('material-symbols-outlined text-2xl')} aria-hidden="true">
-                    {f.icon}
-                  </span>
+                  devices
                 </span>
-                <h3
-                  className={cm.cn(
-                    cm.fontWeight('bold'),
-                    cm.sp('mt', 5),
-                    'text-lg font-extrabold tracking-tight',
-                  )}
-                >
-                  {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.titleDefault })}
-                </h3>
-                <p
-                  className={cm.cn(
-                    cm.textSize('sm'),
-                    cm.sp('mt', 2),
-                    'text-on-surface-variant leading-relaxed',
-                  )}
-                >
-                  {t(`landing.feature.${f.key}.body`, {}, { defaultValue: f.bodyDefault })}
-                </p>
               </div>
-            ))}
-          </div>
-        </section>
+              <h3
+                className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface mb-2')}
+              >
+                {t('landing.feature.anywhere.title', {}, { defaultValue: 'Study anywhere' })}
+              </h3>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}>
+                {t(
+                  'landing.feature.anywhere.body',
+                  {},
+                  {
+                    defaultValue:
+                      'Seamlessly sync across all your devices. Review on your phone while commuting, create on your laptop.',
+                  },
+                )}
+              </p>
+            </div>
 
-        {/* Final CTA */}
-        <section className={cm.cn(cm.maxW('5xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('pb', 20))}>
-          <div
-            className={cm.cn(
-              cm.sp('p', 12),
-              'relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary to-primary-container text-white text-center shadow-xl',
-            )}
-          >
+            {/* Habit heatmap — dark card */}
             <div
-              aria-hidden="true"
               className={cm.cn(
-                'absolute -top-20 -right-16 h-64 w-64 rounded-full bg-surface/10 blur-3xl',
+                'md:col-span-2 rounded-xl p-8 flex flex-col justify-center relative overflow-hidden',
               )}
-            />
-            <div
-              aria-hidden="true"
-              className={cm.cn(
-                'absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-tertiary/30 blur-3xl',
-              )}
-            />
-            <p className="relative text-[10px] font-black uppercase tracking-[0.3em] text-white/85">
-              {t('landing.finalEyebrow', {}, { defaultValue: '5 minutes a day' })}
-            </p>
-            <h2
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                cm.sp('mt', 4),
-                'relative text-3xl md:text-5xl font-extrabold tracking-tight',
-              )}
+              style={{
+                backgroundColor: 'var(--color-inverse-surface)',
+                color: 'var(--color-inverse-on-surface)',
+              }}
             >
-              {t('landing.finalHeading', {}, { defaultValue: 'Your future self will remember.' })}
-            </h2>
-            <Link
-              to="/signup"
-              className={cm.cn(
-                cm.sp('px', 8),
-                cm.sp('py', 4),
-                cm.fontWeight('bold'),
-                cm.sp('mt', 8),
-                'relative inline-flex items-center gap-2 rounded-2xl bg-surface text-primary text-base shadow-lg hover:scale-[1.02] transition-transform',
-              )}
-              data-mol-id="final-cta"
-            >
-              {t('landing.finalCta', {}, { defaultValue: 'Start your first deck' })}
-              <span className={cm.cn('material-symbols-outlined text-lg')} aria-hidden="true">
-                arrow_forward
-              </span>
-            </Link>
+              <div
+                className="absolute inset-0 opacity-20"
+                style={{
+                  backgroundImage: 'radial-gradient(var(--color-primary) 1px, transparent 1px)',
+                  backgroundSize: '20px 20px',
+                }}
+                aria-hidden="true"
+              />
+              <div
+                className={cm.cn(
+                  cm.flex({ direction: 'col', align: 'center', gap: 'lg' }),
+                  'relative z-10 md:flex-row',
+                )}
+              >
+                <div className="flex-1">
+                  <h3 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'mb-2')}>
+                    {t(
+                      'landing.feature.habit.title',
+                      {},
+                      { defaultValue: 'Build a resilient habit' },
+                    )}
+                  </h3>
+                  <p className={cm.cn(cm.textSize('sm'), 'opacity-70')}>
+                    {t(
+                      'landing.feature.habit.body',
+                      {},
+                      {
+                        defaultValue:
+                          'Visualizing your daily progress turns studying into an addictive game. Never break the chain.',
+                      },
+                    )}
+                  </p>
+                </div>
+                {/* Abstract heatmap */}
+                <div
+                  className={cm.cn(
+                    cm.grid({ gap: 'xs' }),
+                    'grid-cols-7 p-3 rounded-xl border shrink-0',
+                  )}
+                  style={{
+                    backgroundColor:
+                      'color-mix(in srgb, var(--color-inverse-on-surface) 6%, transparent)',
+                    borderColor:
+                      'color-mix(in srgb, var(--color-inverse-on-surface) 15%, transparent)',
+                  }}
+                  aria-hidden="true"
+                >
+                  {HEATMAP.map((level, i) => (
+                    <span
+                      key={i}
+                      className="w-4 h-4 rounded-sm"
+                      style={
+                        level === 100
+                          ? {
+                              backgroundColor: 'var(--color-primary)',
+                              boxShadow:
+                                '0 0 8px color-mix(in srgb, var(--color-primary) 80%, transparent)',
+                            }
+                          : level === 0
+                            ? {
+                                backgroundColor:
+                                  'color-mix(in srgb, var(--color-inverse-on-surface) 15%, transparent)',
+                              }
+                            : {
+                                backgroundColor: `color-mix(in srgb, var(--color-primary) ${level}%, var(--color-inverse-surface))`,
+                              }
+                      }
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>
 
       <Footer />
-    </div>
-  )
-}
-
-function SampleHero() {
-  const cm = getClassMap()
-  const { t } = useTranslation()
-  return (
-    <div
-      className={cm.cn(
-        cm.sp('p', 8),
-        'relative overflow-hidden rounded-[2rem] text-white shadow-2xl',
-        'bg-gradient-to-br from-primary via-primary to-primary-container',
-      )}
-      aria-hidden="true"
-    >
-      <div
-        className={cm.cn(
-          'absolute -top-16 -right-16 h-56 w-56 rounded-full bg-surface/15 blur-3xl',
-        )}
-      />
-      <div
-        className={cm.cn(
-          'absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-tertiary/40 blur-3xl',
-        )}
-      />
-      <span className="material-symbols-outlined absolute -bottom-4 -right-2 text-[140px] text-white/10 select-none">
-        psychology
-      </span>
-
-      <div className="relative">
-        <div className={cm.flex({ align: 'center', justify: 'between' })}>
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/85">
-            {t('landing.sample.eyebrow', {}, { defaultValue: 'Today · Tuesday' })}
-          </p>
-          <span
-            className={cm.cn(
-              'rounded-full bg-surface/20 backdrop-blur-md px-3 py-1 text-xs font-bold inline-flex items-center gap-1',
-            )}
-          >
-            <span className={cm.cn('material-symbols-outlined text-base')}>
-              local_fire_department
-            </span>
-            {t('landing.sample.streak', { days: 47 }, { defaultValue: '{{days}}-day streak' })}
-          </span>
-        </div>
-        <p
-          className={cm.cn(
-            cm.fontWeight('bold'),
-            cm.sp('mt', 6),
-            'text-5xl md:text-6xl tracking-tighter font-extrabold leading-[1.0]',
-          )}
-        >
-          {t('landing.sample.due', { count: 24 }, { defaultValue: '{{count}} cards due' })}
-        </p>
-        <p className={cm.cn(cm.sp('mt', 3), 'text-base italic text-white/85')}>
-          {t(
-            'landing.sample.message',
-            {},
-            { defaultValue: 'Memory rewards consistency, not effort.' },
-          )}
-        </p>
-
-        <div className={cm.cn(cm.sp('mt', 8))}>
-          <div className={cm.flex({ align: 'center', justify: 'between' })}>
-            <span className="text-[10px] font-black uppercase tracking-[0.25em] text-white/75">
-              {t('landing.sample.goalLabel', {}, { defaultValue: 'Daily goal' })}
-            </span>
-            <span className={cm.cn('text-xs font-bold text-white/90')}>
-              {t('landing.sample.goalValue', {}, { defaultValue: '32 / 50' })}
-            </span>
-          </div>
-          <div
-            className={cm.cn('relative mt-2 h-2 w-full overflow-hidden rounded-full bg-surface/20')}
-          >
-            <div className={cm.cn('h-full rounded-full bg-surface/95')} style={{ width: '64%' }} />
-          </div>
-        </div>
-
-        <div
-          className={cm.cn(
-            cm.sp('p', 5),
-            cm.sp('mt', 6),
-            'rounded-2xl bg-surface/15 backdrop-blur-md text-center',
-          )}
-        >
-          <p
-            className={cm.cn('text-2xl font-medium text-white')}
-            style={{ fontFamily: 'var(--mol-font-serif)' }}
-          >
-            {t('landing.sample.cardFront', {}, { defaultValue: '“perspicacious”' })}
-          </p>
-          <p
-            className={cm.cn('mt-2 text-sm italic text-white/80')}
-            style={{ fontFamily: 'var(--mol-font-serif)' }}
-          >
-            {t('landing.sample.cardBack', {}, { defaultValue: 'having keen insight' })}
-          </p>
-        </div>
-      </div>
     </div>
   )
 }

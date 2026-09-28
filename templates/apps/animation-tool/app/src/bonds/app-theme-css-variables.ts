@@ -14,8 +14,9 @@ import {
 
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [lightTheme, darkTheme],
-  defaultTheme: 'light',
-  systemDefault: true,
+  // The Stitch design (design-animation-tool-landing.html) is dark —
+  // `class="dark"` on <html> with the #1a1a2e canvas — so Vivace boots dark.
+  defaultTheme: 'dark',
   persistKey: 'molecule-theme',
 })
 export function setupAppThemeCssVariables(): void {

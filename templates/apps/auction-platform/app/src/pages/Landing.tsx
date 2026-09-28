@@ -55,6 +55,21 @@ function fmt(cents: number): string {
   return `$${(cents / 100).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
 }
 
+/** Decorative demo lot shown in the hero when the API has no live lots yet
+ *  (matches the Stitch design's featured-auction tile; never real data). */
+const DEMO_HERO_LOT = {
+  id: 'demo',
+  title: '1969 Omega Speedmaster Pro',
+  category: 'Vintage Watches',
+  lot: 'Lot #492 · Vintage Watches',
+  current_bid_cents: 245000,
+  bid_count: 42,
+}
+
+function demoEndsAtIso(): string {
+  return new Date(Date.now() + 83 * 60 * 1000 + 45 * 1000).toISOString()
+}
+
 function fmtCountdown(iso: string): string {
   const ms = Math.max(0, new Date(iso).getTime() - Date.now())
   const totalSeconds = Math.floor(ms / 1000)
@@ -146,12 +161,9 @@ export function Landing() {
                   cm.sp('px', 5),
                   cm.sp('py', 2),
                   cm.fontWeight('semibold'),
-                  'rounded-full text-white transition-transform hover:-translate-y-0.5',
+                  'rounded-lg text-white transition-colors hover:opacity-90',
                 )}
-                style={{
-                  background:
-                    'linear-gradient(135deg, var(--mol-color-primary), var(--color-primary-gradient-end))',
-                }}
+                style={{ background: 'var(--mol-color-primary)' }}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
               </Link>
@@ -173,12 +185,9 @@ export function Landing() {
                     cm.sp('px', 5),
                     cm.sp('py', 2),
                     cm.fontWeight('semibold'),
-                    'rounded-full text-white transition-transform hover:-translate-y-0.5',
+                    'rounded-lg text-white transition-colors hover:opacity-90',
                   )}
-                  style={{
-                    background:
-                      'linear-gradient(135deg, var(--mol-color-primary), var(--color-primary-gradient-end))',
-                  }}
+                  style={{ background: 'var(--mol-color-primary)' }}
                 >
                   {t('landing.signUp', {}, { defaultValue: 'Start bidding' })}
                 </Link>
@@ -190,27 +199,16 @@ export function Landing() {
 
       <main>
         {/* Hero */}
-        <section className={cm.cn('relative overflow-hidden')}>
-          <div
-            className={cm.cn('absolute inset-0 pointer-events-none')}
-            aria-hidden="true"
-            style={{
-              background:
-                'linear-gradient(135deg, var(--mol-color-primary-light) 0%, var(--color-surface-secondary) 50%, var(--mol-color-surface) 100%)',
-            }}
-          />
+        <section
+          className={cm.cn('relative overflow-hidden')}
+          style={{ background: 'var(--color-surface-secondary)' }}
+        >
+          {/* Abstract background shape — the design's single soft orange glow */}
           <div
             className={cm.cn(
-              'absolute -right-24 top-12 w-96 h-96 rounded-full opacity-40 blur-3xl',
+              'absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full blur-3xl opacity-50 z-0',
             )}
-            style={{ background: 'var(--mol-color-primary)' }}
-            aria-hidden="true"
-          />
-          <div
-            className={cm.cn(
-              'absolute left-12 bottom-0 w-72 h-72 rounded-full opacity-20 blur-3xl',
-            )}
-            style={{ background: 'var(--color-accent)' }}
+            style={{ background: 'var(--mol-color-primary-light)' }}
             aria-hidden="true"
           />
 
@@ -229,13 +227,13 @@ export function Landing() {
                     'inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6',
                   )}
                   style={{
-                    background: 'var(--mol-color-primary-light)',
-                    color: 'var(--mol-color-primary-dark)',
+                    background: 'var(--color-bid-outbid-light)',
+                    color: 'var(--color-error)',
                   }}
                 >
                   <span
                     className={cm.cn('w-2 h-2 rounded-full animate-pulse')}
-                    style={{ background: 'var(--color-urgent)' }}
+                    style={{ background: 'var(--color-bid-outbid)' }}
                     aria-hidden="true"
                   />
                   {t(
@@ -281,12 +279,9 @@ export function Landing() {
                     className={cm.cn(
                       cm.sp('px', 8),
                       cm.sp('py', 4),
-                      'font-semibold rounded-full text-white inline-flex items-center gap-2 shadow-lg shadow-primary/30 hover:-translate-y-0.5 transition-transform',
+                      'font-bold rounded-lg text-white inline-flex items-center gap-2 shadow-lg shadow-primary/30 hover:-translate-y-0.5 transition-all hover:opacity-90',
                     )}
-                    style={{
-                      background:
-                        'linear-gradient(135deg, var(--mol-color-primary), var(--color-primary-gradient-end))',
-                    }}
+                    style={{ background: 'var(--mol-color-primary)' }}
                   >
                     {t('landing.heroCta', {}, { defaultValue: 'Start bidding' })}
                     <span
@@ -301,8 +296,8 @@ export function Landing() {
                     className={cm.cn(
                       cm.sp('px', 8),
                       cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors inline-flex items-center gap-2',
+                      cm.fontWeight('bold'),
+                      'rounded-lg border border-outline-variant bg-surface text-on-surface hover:bg-surface-container-low transition-colors inline-flex items-center gap-2',
                     )}
                   >
                     <span
@@ -364,21 +359,19 @@ export function Landing() {
                     endsAtIso={hero.ends_at}
                   />
                 ) : (
-                  <div
-                    className={cm.cn(
-                      cm.flex({ align: 'center', justify: 'center' }),
-                      cm.sp('p', 8),
-                      'rounded-2xl border border-outline-variant/40 bg-surface text-on-surface-variant text-sm w-full max-w-md',
-                    )}
-                  >
-                    {previews === null
-                      ? t('landing.heroLoading', {}, { defaultValue: 'Loading featured lot…' })
-                      : t(
-                          'landing.heroEmpty',
-                          {},
-                          { defaultValue: 'No live lots yet — check back soon.' },
-                        )}
-                  </div>
+                  /* Demo lot tile — keeps the hero visual when the API has no
+                     live lots yet (dev/preview); same design card, demo data. */
+                  <HeroAuctionCard
+                    id={DEMO_HERO_LOT.id}
+                    category={DEMO_HERO_LOT.category}
+                    title={DEMO_HERO_LOT.title}
+                    lot={DEMO_HERO_LOT.lot}
+                    imageAlt={DEMO_HERO_LOT.title}
+                    bidCount={DEMO_HERO_LOT.bid_count}
+                    currentBidCents={DEMO_HERO_LOT.current_bid_cents}
+                    endsAtIso={demoEndsAtIso()}
+                    ribbonLabel={t('landing.demoRibbon', {}, { defaultValue: 'Featured lot' })}
+                  />
                 )}
               </div>
             </div>
@@ -422,16 +415,30 @@ export function Landing() {
             <p className={cm.cn(cm.sp('py', 8), cm.textCenter, cm.textMuted)}>
               {t('landing.liveNowLoading', {}, { defaultValue: 'Loading live auctions…' })}
             </p>
-          ) : previewError ? (
-            <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-error')}>{previewError}</p>
-          ) : previews.length === 0 ? (
-            <p className={cm.cn(cm.sp('py', 8), cm.textCenter, cm.textMuted)}>
-              {t(
-                'landing.liveNowEmpty',
-                {},
-                { defaultValue: 'No live auctions right now — be the first to list.' },
+          ) : previewError || previews.length === 0 ? (
+            /* Design-shaped empty state — the section keeps its card rhythm
+               even when the floor is quiet. */
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'md' }),
+                'rounded-lg border border-outline-variant/40 bg-surface p-6 text-on-surface-variant',
               )}
-            </p>
+            >
+              <span
+                className={cm.cn('material-symbols-outlined text-2xl text-primary')}
+                aria-hidden="true"
+              >
+                gavel
+              </span>
+              <p className={cm.cn(cm.textSize('sm'))}>
+                {previewError ??
+                  t(
+                    'landing.liveNowEmpty',
+                    {},
+                    { defaultValue: 'No live auctions right now — be the first to list.' },
+                  )}
+              </p>
+            </div>
           ) : (
             <div
               className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}
@@ -532,7 +539,7 @@ export function Landing() {
                 key={f.key}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl hover:shadow-2xl hover:shadow-on-surface/5 transition-all group',
+                  'bg-surface-container-lowest rounded-lg border border-outline-variant/40 hover:shadow-xl hover:shadow-on-surface/5 transition-all group',
                 )}
               >
                 <div
@@ -562,23 +569,16 @@ export function Landing() {
         {/* Seller CTA */}
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16')}>
           <div
-            className={cm.cn('relative overflow-hidden rounded-3xl shadow-2xl text-white')}
-            style={{
-              background:
-                'linear-gradient(135deg, var(--color-timer), #312419 60%, var(--mol-color-primary-dark))',
-            }}
+            className={cm.cn('relative overflow-hidden rounded-xl shadow-2xl text-white')}
+            style={{ background: 'var(--color-timer)' }}
           >
+            {/* Radial accent glow from the top-right, per the design */}
             <div
-              className={cm.cn(
-                'absolute -right-20 -bottom-20 w-72 h-72 rounded-full bg-surface/10 blur-3xl',
-              )}
-              aria-hidden="true"
-            />
-            <div
-              className={cm.cn(
-                'absolute -left-12 top-0 w-48 h-48 rounded-full opacity-30 blur-3xl',
-              )}
-              style={{ background: 'var(--color-accent)' }}
+              className={cm.cn('absolute inset-0 opacity-20 pointer-events-none')}
+              style={{
+                background:
+                  'radial-gradient(circle at top right, var(--color-accent), transparent 55%)',
+              }}
               aria-hidden="true"
             />
             <div
@@ -669,7 +669,10 @@ export function Landing() {
         </section>
       </main>
 
-      <footer className={cm.cn('border-t border-outline-variant/40')}>
+      <footer
+        className={cm.cn('border-t border-outline-variant/40')}
+        style={{ background: 'var(--color-surface-secondary)' }}
+      >
         <div
           className={cm.cn(
             cm.maxW('7xl'),

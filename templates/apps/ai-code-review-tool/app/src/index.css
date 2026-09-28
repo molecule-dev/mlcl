@@ -232,3 +232,81 @@
   backdrop-filter: blur(12px);
 }
 /* polish-v2:stitch-styles:end */
+
+/* polish-v2:landing-scope:start */
+/*
+ * Landing scope — the landing page must match the Stitch design's LIGHT
+ * palette no matter what mode the app is in (defaultTheme is 'dark', which
+ * flips the @theme Stitch tokens to GitHub-dark via theme.css's
+ * [data-mol-mode='dark'] on <html>). Custom properties resolve per element,
+ * so re-pinning them on the .landing-scope wrapper wins for everything
+ * inside the landing subtree without touching the rest of the app.
+ * Values are the Stitch palette from the @theme block above.
+ */
+.landing-scope {
+  --color-background: #fcf8ff;
+  --color-on-background: #1c1b22;
+  --color-surface: #fcf8ff;
+  --color-surface-bright: #fcf8ff;
+  --color-surface-dim: #ddd8e2;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f7f2fc;
+  --color-surface-container: #f1ecf6;
+  --color-surface-container-high: #ebe6f0;
+  --color-surface-container-highest: #e5e1ea;
+  --color-surface-variant: #e5e1ea;
+  --color-on-surface: #1c1b22;
+  --color-on-surface-variant: #4a4455;
+  --color-inverse-surface: #312f37;
+  --color-inverse-on-surface: #f4eff9;
+  --color-primary: #630ed4;
+  --color-primary-container: #7c3aed;
+  --color-primary-fixed: #eaddff;
+  --color-on-primary: #ffffff;
+  --color-secondary: #00687a;
+  --color-secondary-container: #57dffe;
+  --color-outline: #7b7487;
+  --color-outline-variant: #ccc3d8;
+
+  /* Hero code-window mock (Stitch's dark reviewer visual). */
+  --color-code-window: #1e1e2e;
+  --color-code-header: #181825;
+  --color-code-border: #313244;
+  --color-code-text: #cdd6f4;
+  --color-code-dim: #6c7086;
+  --color-code-rose: #f38ba8;
+  --color-code-peach: #f9e2af;
+  --color-code-green: #a6e3a1;
+  --color-code-mauve: #cba6f7;
+  --color-code-subtext: #bac2de;
+  --color-code-lavender: #a6adc8;
+}
+
+/* Sticky glass nav — rgba(252,248,255,.8) + blur handled by the utility
+   class; this carries the design's ultra-soft purple shadow. */
+.landing-scope .lp-nav {
+  background: rgba(252, 248, 255, 0.8);
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.04);
+}
+
+/* Hero wash — radial ellipse at top fading from primary-fixed/40. */
+.landing-scope .lp-hero-glow {
+  background: radial-gradient(
+    ellipse at top,
+    rgba(234, 221, 255, 0.4),
+    var(--color-surface) 65%,
+    var(--color-surface)
+  );
+}
+
+/* Hero visual — the design's floating-window shadow. */
+.landing-scope .lp-visual-shadow {
+  box-shadow: 0 24px 48px -12px rgba(99, 14, 212, 0.15);
+}
+
+/* Gradient CTA — from-primary to-primary-container, on-primary text. */
+.landing-scope .lp-btn-gradient {
+  background: linear-gradient(to right, var(--color-primary), var(--color-primary-container));
+  color: var(--color-on-primary);
+}
+/* polish-v2:landing-scope:end */

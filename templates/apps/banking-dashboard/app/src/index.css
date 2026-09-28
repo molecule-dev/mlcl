@@ -25,3 +25,11 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+@theme {
+  /* Design band tokens — dark navy footer band (see theme.css; the value
+     lives there so dark mode can retune it). These entries teach Tailwind
+     the utility names only. */
+  --color-navy: #0d1b2a;
+  --color-navy-muted: #94a3b8;
+}

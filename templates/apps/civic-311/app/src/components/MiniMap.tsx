@@ -34,6 +34,8 @@ interface MiniMapProps {
   onPinClick?: (id: string) => void
   /** Selected pin id (rendered on top with a ring). */
   selectedPinId?: string | null
+  /** CSS aspect-ratio for the canvas (default `1 / 1`; wide cards use e.g. `7 / 4`). */
+  aspect?: string
   'data-mol-id'?: string
 }
 
@@ -115,6 +117,7 @@ export function MiniMap({
   onPick,
   onPinClick,
   selectedPinId = null,
+  aspect = '1 / 1',
   'data-mol-id': molId = 'mini-map',
 }: MiniMapProps) {
   const cm = getClassMap()
@@ -182,7 +185,7 @@ export function MiniMap({
         'rounded-lg border border-outline-variant bg-[var(--color-map-road)] touch-none select-none',
         onPick ? 'cursor-crosshair focus:outline-none focus:ring-2 focus:ring-primary' : '',
       )}
-      style={{ aspectRatio: '1 / 1' }}
+      style={{ aspectRatio: aspect }}
       onClick={(e) => {
         if (onPick) pick(e.clientX, e.clientY)
       }}

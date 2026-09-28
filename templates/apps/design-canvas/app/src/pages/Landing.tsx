@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_NAME } from '../branding.js'
 import { CollaboratorStack } from '../components/CollaboratorStack.js'
 import { ProjectHeroCard } from '../components/ProjectHeroCard.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
@@ -165,7 +165,7 @@ export function Landing() {
                   'bg-gradient-to-br from-primary to-secondary text-white rounded-xl shadow-md shadow-primary/30 hover:scale-[1.02] transition-transform',
                 )}
               >
-                {t('common.getStarted', {}, { defaultValue: 'Get started' })}
+                {t('landing.nav.startDesigning', {}, { defaultValue: 'Start Designing' })}
               </Link>
             </>
           )}
@@ -192,120 +192,127 @@ export function Landing() {
 
         <div
           className={cm.cn(
-            cm.flex({ direction: 'col', align: 'center' }),
-            cm.stack(8),
-            cm.textCenter,
-            cm.maxW('2xl'),
-            'relative z-10 mx-auto',
+            cm.maxW('full'),
+            cm.sp('px', 8),
+            'relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mx-auto',
           )}
         >
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'xs' }),
-              cm.sp('px', 4),
-              cm.sp('py', 1),
-              cm.roundedFull,
-              cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-widest bg-primary-fixed/40 text-on-primary-container',
-            )}
-          >
-            <span className={cm.cn('material-symbols-outlined text-[14px]')}>auto_awesome</span>
-            {APP_TAGLINE}
-          </span>
-          <h1
-            className={cm.cn(
-              'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-[0.95] text-on-surface',
-            )}
-          >
-            {t(
-              'landing.hero.title',
-              {},
-              { defaultValue: 'Design tools that move at the speed of your hands' },
-            )}
-          </h1>
-          <p
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('medium'),
-              cm.maxW('xl'),
-              'text-on-surface-variant leading-relaxed',
-            )}
-          >
-            {t(
-              'landing.hero.body',
-              { appName: APP_NAME },
-              {
-                defaultValue:
-                  '{{appName}} is the multiplayer design canvas for product teams who need to ship — vector editing, real-time presence, a shared design system, and developer-ready handoff in one workspace.',
-              },
-            )}
-          </p>
+          {/* Left — copy (design: badge, gradient headline, CTAs) */}
           <div
-            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap justify-center')}
+            className={cm.cn(
+              cm.flex({ direction: 'col', align: 'start' }),
+              cm.stack(6),
+              'lg:col-span-5',
+            )}
           >
-            <Link
-              to="/signup"
-              className={cm.cn(
-                cm.sp('px', 6),
-                cm.sp('py', 3),
-                cm.fontWeight('bold'),
-                cm.flex({ align: 'center', gap: 'sm' }),
-                'bg-gradient-to-br from-primary to-secondary text-white rounded-xl shadow-lg shadow-primary/30 hover:scale-[1.02] active:scale-[0.98] transition-transform',
-              )}
-            >
-              {t('landing.hero.primaryCta', {}, { defaultValue: 'Start designing for free' })}
-              <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>
-                arrow_forward
-              </span>
-            </Link>
-            <Link
-              to="/templates"
-              className={cm.cn(
-                cm.sp('px', 6),
-                cm.sp('py', 3),
-                cm.fontWeight('semibold'),
-                'bg-surface-container text-on-surface rounded-xl border border-outline-variant/40 hover:bg-surface-container-high transition-colors',
-              )}
-            >
-              {t('common.browseTemplates', {}, { defaultValue: 'Browse templates' })}
-            </Link>
-          </div>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), cm.sp('mt', 4))}>
-            <CollaboratorStack
-              size="sm"
-              max={5}
-              collaborators={SOCIAL_PROOF.map((s) => ({
-                id: s.name,
-                name: s.name,
-                avatarColor: s.color,
-                online: true,
-              }))}
-            />
             <span
               className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('semibold'),
-                'text-on-surface-variant',
+                cm.flex({ align: 'center', gap: 2 }),
+                cm.sp('px', 3),
+                cm.sp('py', 1),
+                cm.roundedFull,
+                'bg-surface-container-high w-fit',
+              )}
+            >
+              <span className={cm.cn('w-2 h-2 rounded-full bg-secondary')} aria-hidden="true" />
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('medium'),
+                  'font-mono text-on-surface-variant uppercase tracking-wider',
+                )}
+              >
+                {t('landing.hero.badge', {}, { defaultValue: 'v2.0 Beta Live' })}
+              </span>
+            </span>
+            <h1
+              className={cm.cn(
+                'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-tight text-on-surface',
+              )}
+            >
+              {t('landing.hero.titleA', {}, { defaultValue: 'Shape every pixel with ' })}
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                {t('landing.hero.titleB', {}, { defaultValue: 'intent.' })}
+              </span>
+            </h1>
+            <p
+              className={cm.cn(
+                cm.textSize('xl'),
+                cm.maxW('xl'),
+                'text-on-surface-variant leading-relaxed',
               )}
             >
               {t(
-                'landing.hero.socialProof',
-                { count: '9,200+' },
-                { defaultValue: 'Trusted by {{count}} design teams worldwide' },
+                'landing.hero.body',
+                { appName: APP_NAME },
+                {
+                  defaultValue:
+                    '{{appName}} is the multiplayer design canvas for product teams who need to ship — vector editing, real-time presence, a shared design system, and developer-ready handoff in one workspace.',
+                },
               )}
-            </span>
+            </p>
+            <div
+              className={cm.cn(
+                cm.flex({ direction: 'col', align: 'stretch', gap: 4 }),
+                'sm:flex-row sm:items-center sm:space-y-0',
+              )}
+            >
+              <Link
+                to="/signup"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.fontWeight('bold'),
+                  cm.textSize('lg'),
+                  cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
+                  'bg-gradient-to-b from-primary to-primary-dark text-white rounded-xl shadow-lg shadow-primary/25 hover:scale-[1.02] active:scale-[0.98] transition-transform',
+                )}
+              >
+                {t('landing.hero.primaryCta', {}, { defaultValue: 'Open the canvas' })}
+              </Link>
+              <Link
+                to="/templates"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.fontWeight('bold'),
+                  cm.textSize('lg'),
+                  cm.textCenter,
+                  'bg-transparent text-primary rounded-xl hover:bg-primary/5 transition-colors',
+                )}
+              >
+                {t('landing.hero.secondaryCta', {}, { defaultValue: 'View showcase' })}
+              </Link>
+            </div>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), cm.sp('mt', 2))}>
+              <CollaboratorStack
+                size="sm"
+                max={5}
+                collaborators={SOCIAL_PROOF.map((s) => ({
+                  id: s.name,
+                  name: s.name,
+                  avatarColor: s.color,
+                  online: true,
+                }))}
+              />
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('semibold'),
+                  'text-on-surface-variant',
+                )}
+              >
+                {t(
+                  'landing.hero.socialProof',
+                  { count: '9,200+' },
+                  { defaultValue: 'Trusted by {{count}} design teams worldwide' },
+                )}
+              </span>
+            </div>
           </div>
-        </div>
 
-        <div
-          className={cm.cn(
-            cm.maxW('full'),
-            cm.sp('mt', 16),
-            cm.sp('px', 8),
-            'relative z-10 lg:px-24',
-          )}
-        >
-          <div className={cm.cn(cm.grid({ cols: 12, gap: 'lg' }))}>
+          {/* Right — live canvas visual (design: abstract canvas w/ grid + cursors) */}
+          <div className={cm.cn('lg:col-span-7')}>
             <ProjectHeroCard
               project={{
                 id: 'demo-1',
@@ -324,85 +331,83 @@ export function Landing() {
                 activeTool: t('landing.demoProject.activeTool', {}, { defaultValue: 'Pen tool' })!,
               }}
             />
-            <div
+          </div>
+        </div>
+      </section>
+
+      {/* Why teams switch — three-up bullet band (content preserved from the
+          former hero side card, reflowed to match the design's section flow) */}
+      <section className={cm.cn(cm.sp('px', 8), cm.sp('pb', 16), 'relative z-10')}>
+        <div
+          className={cm.cn(
+            'max-w-screen-xl mx-auto bg-surface-container-lowest rounded-[2rem] shadow-sm border border-outline-variant/30',
+            cm.sp('p', 8),
+          )}
+        >
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }), cm.sp('mb', 6))}>
+            <span
               className={cm.cn(
-                cm.flex({ direction: 'col', justify: 'between' }),
-                cm.sp('p', 8),
-                cm.stack(6),
-                'col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-[2rem] shadow-sm border border-outline-variant/30',
+                cm.fontWeight('bold'),
+                'text-[10px] uppercase tracking-widest text-on-surface-variant',
               )}
             >
-              <div className={cm.stack(2)}>
-                <span
-                  className={cm.cn(
-                    cm.fontWeight('bold'),
-                    'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {t('landing.cta.eyebrow', {}, { defaultValue: 'Why teams switch' })}
-                </span>
-                <h2
-                  className={cm.cn(
-                    cm.textSize('3xl'),
-                    'font-extrabold tracking-tight text-on-surface',
-                  )}
-                >
-                  {t(
-                    'landing.cta.title',
-                    {},
-                    { defaultValue: 'Built for designers who care about every pixel.' },
-                  )}
-                </h2>
-              </div>
-              <ul className={cm.cn(cm.stack(3))}>
-                {[
-                  ['bolt', 'Sub-60ms cursor sync, anywhere in the world.'],
-                  ['draw', 'Vector editing with bezier-precise pen and snap guides.'],
-                  ['code', 'Developer handoff with auto-generated CSS, React, and tokens.'],
-                ].map(([icon, copy]) => (
-                  <li
-                    key={icon}
-                    className={cm.cn(
-                      cm.flex({ align: 'start', gap: 'sm' }),
-                      cm.textSize('sm'),
-                      cm.fontWeight('medium'),
-                    )}
-                  >
-                    <span
-                      className={cm.cn(
-                        cm.flex({ align: 'center', justify: 'center' }),
-                        cm.w(8),
-                        cm.h(8),
-                        cm.roundedFull,
-                        'bg-primary-fixed/40 text-on-primary-container',
-                      )}
-                    >
-                      <span className={cm.cn('material-symbols-outlined text-[18px]')}>{icon}</span>
-                    </span>
-                    <span className={cm.cn(cm.flex1, 'text-on-surface-variant leading-relaxed')}>
-                      {t(`landing.cta.bullet.${icon}`, {}, { defaultValue: copy })}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                to="/signup"
+              {t('landing.cta.eyebrow', {}, { defaultValue: 'Why teams switch' })}
+            </span>
+            <h2
+              className={cm.cn(cm.textSize('3xl'), 'font-extrabold tracking-tight text-on-surface')}
+            >
+              {t(
+                'landing.cta.title',
+                {},
+                { defaultValue: 'Built for designers who care about every pixel.' },
+              )}
+            </h2>
+          </div>
+          <div className={cm.cn(cm.grid({ cols: 1, gap: 6 }), 'md:grid-cols-3 items-start mb-8')}>
+            {[
+              ['bolt', 'Sub-60ms cursor sync, anywhere in the world.'],
+              ['draw', 'Vector editing with bezier-precise pen and snap guides.'],
+              ['code', 'Developer handoff with auto-generated CSS, React, and tokens.'],
+            ].map(([icon, copy]) => (
+              <div
+                key={icon}
                 className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'between' }),
-                  cm.sp('px', 5),
-                  cm.sp('py', 3),
-                  cm.fontWeight('bold'),
+                  cm.flex({ align: 'start', gap: 'sm' }),
                   cm.textSize('sm'),
-                  'bg-on-surface text-surface rounded-xl hover:opacity-90 transition-opacity',
+                  cm.fontWeight('medium'),
                 )}
               >
-                {t('landing.cta.signupButton', {}, { defaultValue: 'Create your free workspace' })}
-                <span className={cm.cn('material-symbols-outlined text-[18px]')}>
-                  arrow_outward
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    cm.w(8),
+                    cm.h(8),
+                    cm.roundedFull,
+                    'bg-primary-fixed/40 text-on-primary-container shrink-0',
+                  )}
+                >
+                  <span className={cm.cn('material-symbols-outlined text-[18px]')}>{icon}</span>
                 </span>
-              </Link>
-            </div>
+                <span className={cm.cn(cm.flex1, 'text-on-surface-variant leading-relaxed')}>
+                  {t(`landing.cta.bullet.${icon}`, {}, { defaultValue: copy })}
+                </span>
+              </div>
+            ))}
           </div>
+          <Link
+            to="/signup"
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between' }),
+              cm.sp('px', 5),
+              cm.sp('py', 3),
+              cm.fontWeight('bold'),
+              cm.textSize('sm'),
+              'bg-on-surface text-surface rounded-xl hover:opacity-90 transition-opacity',
+            )}
+          >
+            {t('landing.cta.signupButton', {}, { defaultValue: 'Create your free workspace' })}
+            <span className={cm.cn('material-symbols-outlined text-[18px]')}>arrow_outward</span>
+          </Link>
         </div>
       </section>
 
@@ -491,9 +496,9 @@ export function Landing() {
       <footer
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-          cm.sp('px', 8),
-          cm.sp('py', 8),
-          'flex-wrap border-t border-outline-variant/30 text-on-surface-variant',
+          cm.sp('px', 12),
+          cm.sp('py', 16),
+          'flex-wrap rounded-t-[32px] bg-surface-container-low text-on-surface-variant',
         )}
       >
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
@@ -516,6 +521,18 @@ export function Landing() {
             {APP_NAME}
           </span>
         </Link>
+        <span
+          className={cm.cn(
+            cm.textSize('xs'),
+            'font-mono uppercase tracking-widest text-on-surface-variant',
+          )}
+        >
+          {t(
+            'landing.footer.copyright',
+            { year: new Date().getFullYear(), appName: APP_NAME },
+            { defaultValue: '© {{year}} {{appName}}. Built for the Precision Playground.' },
+          )}
+        </span>
         <div
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'lg' }),
@@ -524,19 +541,44 @@ export function Landing() {
             'flex-wrap gap-x-4 gap-y-2',
           )}
         >
-          <Link to="/templates" className={cm.cn('hover:text-on-surface transition-colors')}>
+          <Link
+            to="/templates"
+            className={cm.cn(
+              'font-mono text-xs uppercase tracking-widest underline underline-offset-4 hover:text-primary transition-colors',
+            )}
+          >
             {t('nav.templates', {}, { defaultValue: 'Templates' })}
           </Link>
-          <Link to="/library" className={cm.cn('hover:text-on-surface transition-colors')}>
+          <Link
+            to="/library"
+            className={cm.cn(
+              'font-mono text-xs uppercase tracking-widest underline underline-offset-4 hover:text-primary transition-colors',
+            )}
+          >
             {t('nav.library', {}, { defaultValue: 'Library' })}
           </Link>
-          <Link to="/pricing" className={cm.cn('hover:text-on-surface transition-colors')}>
+          <Link
+            to="/pricing"
+            className={cm.cn(
+              'font-mono text-xs uppercase tracking-widest underline underline-offset-4 hover:text-primary transition-colors',
+            )}
+          >
             {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
           </Link>
-          <Link to="/about" className={cm.cn('hover:text-on-surface transition-colors')}>
+          <Link
+            to="/about"
+            className={cm.cn(
+              'font-mono text-xs uppercase tracking-widest underline underline-offset-4 hover:text-primary transition-colors',
+            )}
+          >
             {t('nav.about', {}, { defaultValue: 'About' })}
           </Link>
-          <Link to="/login" className={cm.cn('hover:text-on-surface transition-colors')}>
+          <Link
+            to="/login"
+            className={cm.cn(
+              'font-mono text-xs uppercase tracking-widest underline underline-offset-4 hover:text-primary transition-colors',
+            )}
+          >
             {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
           </Link>
         </div>

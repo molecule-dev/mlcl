@@ -26,6 +26,14 @@
 
 @import '@molecule/app-ui-tailwind/base.css';
 
+/* Register the Waypoint navy band tokens so bg-navy / text-navy /
+   divide-navy-light utilities compile. Values mirror theme.css :root —
+   the runtime var (and its dark-mode override in theme.css) wins. */
+@theme {
+  --color-navy: #0c1629;
+  --color-navy-light: #1e293b;
+}
+
 /* Mobile navigation drawer slide-in (WaypointLayout, below 768px). */
 @keyframes waypoint-drawer-in {
   from {

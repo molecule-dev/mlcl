@@ -1,22 +1,26 @@
 :root {
   /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #f59e0b;
-  --mol-color-primary-light: #fef3c7;
-  --mol-color-primary-dark: #b45309; /* was #d97706 (3.2:1 on white — fails 4.5:1); #b45309 = 5.0:1, the readable-amber for small text on light */
-  --mol-color-secondary: #8b5cf6;
-  --mol-color-background: #fafaf9;
-  --mol-color-background-secondary: #f5f5f4;
-  --mol-color-background-tertiary: #e7e5e4;
+  /* Stitch palette (design-crypto-tracker-dashboard): teal-600 primary with
+     indigo accent on cool slate. Primary sits at teal-700 #0f766e (not the
+     design's literal teal-600) — white text on teal-600 is 3.7:1 (fails
+     4.5:1); teal-700 gives 5.4:1. */
+  --mol-color-primary: #0f766e;
+  --mol-color-primary-light: #ccfbf1;
+  --mol-color-primary-dark: #115e59;
+  --mol-color-secondary: #6366f1;
+  --mol-color-background: #f8fafc;
+  --mol-color-background-secondary: #f1f5f9;
+  --mol-color-background-tertiary: #e2e8f0;
   --mol-color-surface: #ffffff;
-  --mol-color-surface-secondary: #f5f5f4;
+  --mol-color-surface-secondary: #f1f5f9;
   --mol-color-input-background: #ffffff;
-  --mol-color-text: #1c1917;
-  --mol-color-text-secondary: #57534e;
-  --mol-color-text-tertiary: #a8a29e;
+  --mol-color-text: #1e293b;
+  --mol-color-text-secondary: #64748b;
+  --mol-color-text-tertiary: #94a3b8;
   --mol-color-text-inverse: #ffffff;
-  --mol-color-border: #e7e5e4;
-  --mol-color-border-secondary: #d6d3d1;
-  --mol-color-border-focus: #f59e0b;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #0f766e;
   /* green-700. Gain figures render text-success at 12px on white, where
      green-500 #22c55e measures 2.27:1 — far under the 4.5 floor. #15803d is
      5.02:1. The dark-theme value below keeps its lighter green. */
@@ -25,50 +29,51 @@
   --mol-color-error: #ef4444;
   --mol-color-info: #06b6d4;
 
-  --color-primary: #f59e0b;
-  --color-primary-hover: #d97706;
-  --color-primary-light: #fef3c7;
-  --color-secondary: #8b5cf6;
-  --color-secondary-hover: #7c3aed;
-  --color-secondary-light: #ede9fe;
+  --color-primary: #0f766e; /* teal-700 — white on it = 5.4:1 */
+  --color-primary-hover: #0d9488; /* teal-600 — one step brighter */
+  --color-primary-light: #ccfbf1;
+  --color-secondary: #6366f1; /* indigo-500 — Stitch accent */
+  --color-secondary-hover: #4f46e5;
+  --color-secondary-light: #e0e7ff;
   --color-success: #15803d;
   --color-danger: #ef4444;
   --color-danger-hover: #dc2626;
   --color-warning: #f97316;
   --color-info: #06b6d4;
 
-  --color-bg: #fafaf9;
+  --color-bg: #f8fafc;
   --color-surface: #ffffff;
-  --color-surface-hover: #f5f5f4;
-  --color-border: #e7e5e4;
-  --color-border-focus: #f59e0b;
+  --color-surface-hover: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-focus: #0f766e;
 
-  --color-text: #1c1917;
-  --color-text-secondary: #57534e;
-  --color-text-muted: #a8a29e;
+  --color-text: #1e293b;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
   --color-text-inverse: #ffffff;
 
   /* === M3 light tokens === */
-  --color-background: #fafaf9;
-  --color-on-background: #1c1917;
-  --color-on-surface: #1c1917;
-  --color-on-surface-variant: #57534e;
-  --color-on-primary: #1c1917; /* dark on amber — amber is too light for white text */
-  --color-on-primary-container: #431b00;
+  --color-background: #f8fafc;
+  --color-on-background: #1e293b;
+  --color-on-surface: #1e293b;
+  --color-on-surface-variant: #64748b;
+  --color-on-primary: #ffffff; /* white on teal-700 = 5.4:1 */
+  --color-on-primary-container: #042f2e;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #21005d;
+  --color-on-secondary-container: #1e1b4b;
   --color-on-tertiary: #ffffff;
   --color-on-tertiary-container: #001e30;
   --color-on-error: #ffffff;
   --color-on-error-container: #410002;
-  --color-outline: #a8a29e;
-  --color-outline-variant: #e7e5e4;
+  --color-outline: #94a3b8;
+  --color-outline-variant: #e2e8f0;
 
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch face: Inter for headlines AND body. */
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -93,18 +98,17 @@
 
 /* Dark mode — finance trading-desk cool slate dark.
    Cool slate near-black surfaces (no warm tint — finance reads as
-   analytical, not editorial). Brand amber kept at brand stop (#f59e0b)
-   for badges and accents. `--color-on-primary` is dark (#0b1220) in both
-   modes — amber L≈0.46, white fails 4.5:1 (only 2.1:1). Semantic up/down
-   preserved (brighter for dark canvas). */
+   analytical, not editorial). Brand teal brightened to teal-500 (#14b8a6)
+   on the dark canvas; on-primary is deep teal so the pairing stays ≥4.5:1.
+   Semantic up/down preserved (brighter for dark canvas). */
 [data-mol-mode='dark'] {
-  /* Brand — amber kept at brand stop; lighter hover for dark contrast */
-  --color-primary: #f59e0b;
-  --color-primary-hover: #fbbf24;
-  --color-primary-light: #451a03;
-  --color-secondary: #a78bfa;
-  --color-secondary-hover: #c4b5fd;
-  --color-secondary-light: #2e1065;
+  /* Brand — teal brightened one step for dark; hover brighter still */
+  --color-primary: #14b8a6;
+  --color-primary-hover: #2dd4bf;
+  --color-primary-light: #042f2e;
+  --color-secondary: #818cf8;
+  --color-secondary-hover: #a5b4fc;
+  --color-secondary-light: #312e81;
 
   /* Semantic ticker colors — green = up, red = down (brighter for dark bg) */
   --color-success: #34d399;
@@ -118,7 +122,7 @@
   --color-surface: #111827;
   --color-surface-hover: #1a2236;
   --color-border: #1f2937;
-  --color-border-focus: #f59e0b;
+  --color-border-focus: #14b8a6;
 
   /* Text — neutral on cool slate */
   --color-text: #f1f5f9;
@@ -127,10 +131,10 @@
   --color-text-inverse: #0b1220;
 
   /* M3 / Stitch bridge tokens — flip bg-surface, text-on-surface, etc. */
-  --mol-color-primary: #f59e0b;
-  --mol-color-primary-light: #451a03;
-  --mol-color-primary-dark: #d97706;
-  --mol-color-secondary: #a78bfa;
+  --mol-color-primary: #14b8a6;
+  --mol-color-primary-light: #042f2e;
+  --mol-color-primary-dark: #0d9488;
+  --mol-color-secondary: #818cf8;
   --mol-color-background: #0b1220;
   --mol-color-background-secondary: #111827;
   --mol-color-background-tertiary: #1a2236;
@@ -143,7 +147,7 @@
   --mol-color-text-inverse: #ffffff;
   --mol-color-border: #1f2937;
   --mol-color-border-secondary: #273549;
-  --mol-color-border-focus: #f59e0b;
+  --mol-color-border-focus: #14b8a6;
   --mol-color-success: #34d399;
   --mol-color-warning: #fbbf24;
   --mol-color-error: #f87171;
@@ -164,13 +168,13 @@
   --color-on-surface-variant: #94a3b8;
   --color-inverse-surface: #f1f5f9;
   --color-inverse-on-surface: #0b1220;
-  --color-inverse-primary: #d97706;
-  --color-primary-container: #451a03;
-  --color-on-primary: #0b1220; /* dark on amber — 9.8:1; white only 2.1:1 */
-  --color-on-primary-container: #fef3c7;
-  --color-secondary-container: #2e1065;
-  --color-on-secondary: #0b1220; /* dark on violet #a78bfa — white only 2.6:1 */
-  --color-on-secondary-container: #ede9fe;
+  --color-inverse-primary: #0d9488;
+  --color-primary-container: #042f2e;
+  --color-on-primary: #042f2e; /* deep teal on teal-500 — 6.8:1; white only 2.5:1 */
+  --color-on-primary-container: #99f6e4;
+  --color-secondary-container: #3730a3;
+  --color-on-secondary: #1e1b4b; /* dark indigo on #818cf8 — 6.9:1; white only 2.9:1 */
+  --color-on-secondary-container: #e0e7ff;
   --color-tertiary: #38bdf8;
   --color-tertiary-container: #0c4a6e;
   --color-on-tertiary: #0b1220; /* dark on sky blue — white would be ~3.3:1 */
@@ -181,7 +185,7 @@
   --color-on-error-container: #ffdad6;
   --color-outline: #475569;
   --color-outline-variant: #1f2937;
-  --color-surface-tint: #f59e0b;
+  --color-surface-tint: #14b8a6;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);

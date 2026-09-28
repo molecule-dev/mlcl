@@ -91,7 +91,7 @@ export function DealCard({ deal, linked = true }: DealCardProps) {
       <div
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'center' }),
-          'relative h-36 overflow-hidden bg-gradient-to-br from-primary-container/40 to-secondary-container/30',
+          'relative h-36 overflow-hidden bg-surface-container-high',
         )}
       >
         <span
@@ -194,9 +194,9 @@ export function DealCard({ deal, linked = true }: DealCardProps) {
               cm.fontWeight('bold'),
               'uppercase tracking-widest',
               expiry.tone === 'urgent'
-                ? 'text-primary'
+                ? 'text-error'
                 : expiry.tone === 'warning'
-                  ? 'text-tertiary'
+                  ? 'text-error'
                   : 'text-on-surface-variant',
             )}
           >

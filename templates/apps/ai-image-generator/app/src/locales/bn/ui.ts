@@ -109,7 +109,7 @@ export const ui: UiTranslations = {
   'imageDetail.variations': 'বৈচিত্র্য',
   'imageDetail.variationsQueued': 'বিভিন্নতা সারিবদ্ধ',
   'imageDetail.visibilityToggled': 'দৃশ্যমানতা আপডেট করা হয়েছে',
-  'landing.copyright': '© {{year}} {{appName}} Labs. Built with Molecule.dev.',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Built with Molecule.devdev.',
   'landing.cta': 'তৈরি করা শুরু করুন',
   'landing.eyebrow': 'এখন Reverie XL v3 পরিবেশন করা হচ্ছে',
   'landing.featuresEyebrow': 'কেন স্বপ্ন',

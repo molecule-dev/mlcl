@@ -95,6 +95,33 @@ export function Landing() {
 
   return (
     <div className={cm.cn('bg-surface text-on-surface antialiased overflow-x-hidden relative')}>
+      {/* Atmospheric glows (Stitch design: nimbus-glow teal top-right, blue mid-left) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -z-10"
+        style={{
+          width: 600,
+          height: 600,
+          top: -100,
+          right: -100,
+          borderRadius: '50%',
+          background:
+            'radial-gradient(circle, color-mix(in srgb, var(--color-tertiary-fixed) 15%, transparent) 0%, transparent 70%)',
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -z-10"
+        style={{
+          width: 600,
+          height: 600,
+          bottom: '20%',
+          left: -200,
+          borderRadius: '50%',
+          background:
+            'radial-gradient(circle, color-mix(in srgb, var(--color-primary) 5%, transparent) 0%, transparent 70%)',
+        }}
+      />
       <nav
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'between' }),
@@ -117,7 +144,13 @@ export function Landing() {
             'hidden md:flex text-on-surface-variant',
           )}
         >
-          <a href="#features" className={cm.cn('hover:text-primary transition-colors')}>
+          <a
+            href="#features"
+            className={cm.cn(
+              cm.fontWeight('bold'),
+              'text-primary hover:text-primary transition-colors',
+            )}
+          >
             {t('nav.features', {}, { defaultValue: 'Features' })}
           </a>
           <a href="#pricing" className={cm.cn('hover:text-primary transition-colors')}>
@@ -435,6 +468,58 @@ export function Landing() {
         </div>
       </main>
 
+      {/* Social proof (Stitch design: grayscale logo band) */}
+      <section
+        className={cm.cn(cm.sp('py', 12), 'bg-surface w-full border-y border-outline-variant/20')}
+        data-mol-id="landing-social-proof"
+      >
+        <div
+          className={cm.cn(
+            cm.flex({ direction: 'col', align: 'center' }),
+            'max-w-[1440px] mx-auto px-6 md:px-12',
+          )}
+        >
+          <p
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              cm.sp('mb', 8),
+              'uppercase tracking-widest text-outline',
+            )}
+          >
+            {t('landing.socialProof', {}, { defaultValue: 'Trusted by weightless teams' })}
+          </p>
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center' }),
+              'flex-wrap justify-center gap-12 md:gap-24 opacity-50 grayscale',
+            )}
+          >
+            {[
+              { glyph: 'api', name: 'Acme Corp' },
+              { glyph: 'public', name: 'Globex' },
+              { glyph: 'layers', name: 'Soylent' },
+              { glyph: 'token', name: 'Initech' },
+            ].map((logo) => (
+              <span
+                key={logo.name}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  cm.textSize('xl'),
+                  cm.fontWeight('bold'),
+                  'text-on-surface',
+                )}
+              >
+                <span className="material-symbols-outlined" aria-hidden="true">
+                  {logo.glyph}
+                </span>
+                {logo.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="features" className={cm.cn(cm.sp('py', 16), 'bg-surface-container-low w-full')}>
         <div className={cm.cn('max-w-[1440px] mx-auto px-6 md:px-12')}>
           <div
@@ -629,19 +714,91 @@ export function Landing() {
       <footer className={cm.cn(cm.sp('py', 12), 'bg-surface-container-low w-full')}>
         <div
           className={cm.cn(
-            cm.flex({ direction: 'col', align: 'center', gap: 'sm' }),
-            cm.textCenter,
-            'max-w-[1440px] mx-auto px-6 md:px-12',
+            cm.grid({ gap: 'lg' }),
+            'grid-cols-2 md:grid-cols-4 w-full max-w-[1440px] mx-auto px-6 md:px-12',
           )}
         >
-          <NimbusBrandMark size="sm" showIcon />
-          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-            {t(
-              'landing.footer.copyright',
-              { year: new Date().getFullYear(), appName: APP_NAME },
-              { defaultValue: '© {{year}} {{appName}}. Built for the weightless.' },
-            )}
-          </p>
+          <div className={cm.cn(cm.stack(2), 'col-span-2 md:col-span-1')}>
+            <NimbusBrandMark size="sm" showIcon />
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'landing.footer.copyright',
+                { year: new Date().getFullYear(), appName: APP_NAME },
+                { defaultValue: '© {{year}} {{appName}}. Built for the weightless.' },
+              )}
+            </p>
+          </div>
+          <div className={cm.cn(cm.stack(2))}>
+            <h4 className={cm.cn(cm.fontWeight('bold'), 'text-on-surface')}>
+              {t('landing.footer.legal', {}, { defaultValue: 'Legal' })}
+            </h4>
+            <Link
+              to="/privacy"
+              className={cm.cn(
+                cm.textSize('sm'),
+                'text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('landing.footer.privacy', {}, { defaultValue: 'Privacy Policy' })}
+            </Link>
+            <Link
+              to="/terms"
+              className={cm.cn(
+                cm.textSize('sm'),
+                'text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('landing.footer.terms', {}, { defaultValue: 'Terms of Service' })}
+            </Link>
+          </div>
+          <div className={cm.cn(cm.stack(2))}>
+            <h4 className={cm.cn(cm.fontWeight('bold'), 'text-on-surface')}>
+              {t('landing.footer.product', {}, { defaultValue: 'Product' })}
+            </h4>
+            <Link
+              to="/about"
+              className={cm.cn(
+                cm.textSize('sm'),
+                'text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })}
+            </Link>
+            <Link
+              to="/pricing"
+              className={cm.cn(
+                cm.textSize('sm'),
+                'text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </Link>
+          </div>
+          <div className={cm.cn(cm.stack(2))}>
+            <h4 className={cm.cn(cm.fontWeight('bold'), 'text-on-surface')}>
+              {t('landing.footer.connect', {}, { defaultValue: 'Connect' })}
+            </h4>
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cm.cn(
+                cm.textSize('sm'),
+                'text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('landing.footer.builtWith', {}, { defaultValue: 'Built with Molecule.dev' })}
+            </a>
+            <Link
+              to="/signup"
+              className={cm.cn(
+                cm.textSize('sm'),
+                'text-on-surface-variant hover:text-primary transition-colors',
+              )}
+            >
+              {t('common.getStarted', {}, { defaultValue: 'Get started' })}
+            </Link>
+          </div>
         </div>
       </footer>
     </div>

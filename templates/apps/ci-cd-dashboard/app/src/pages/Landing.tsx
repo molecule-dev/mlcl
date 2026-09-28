@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { APP_NAME, BRAND_COLOR } from '../branding.js'
 import type { PipelineRowData } from '../components/PipelineRow.js'
 import { PipelineRow } from '../components/PipelineRow.js'
 
@@ -39,6 +39,46 @@ const FEATURES = [
     defaultBody: 'Lead time, deploy frequency, MTTR, change failure rate — daily.',
     icon: 'bar_chart',
     tint: 'var(--color-pill-degraded-dot)',
+  },
+] as const
+
+/* Decorative build log for the hero terminal window. Tag tones map to the
+   design's log colours: [info] emerald, [step] indigo-blue, [warn] amber. */
+const BUILD_LOG = [
+  {
+    key: 'fetch',
+    tag: '[info]',
+    tagTone: 'text-primary',
+    tone: 'text-on-surface-variant',
+    text: 'Fetching dependencies...',
+  },
+  {
+    key: 'copy',
+    tag: '[step]',
+    tagTone: 'text-tertiary',
+    tone: 'text-on-surface-variant',
+    text: 'COPY . /app',
+  },
+  {
+    key: 'run',
+    tag: null,
+    tagTone: '',
+    tone: 'text-on-surface-variant opacity-70',
+    text: '=> [2/4] RUN npm ci',
+  },
+  {
+    key: 'warn',
+    tag: '[warn]',
+    tagTone: 'text-warning',
+    tone: 'text-warning',
+    text: 'deprecated packages found',
+  },
+  {
+    key: 'done',
+    tag: '[info]',
+    tagTone: 'text-primary',
+    tone: 'text-on-surface-variant',
+    text: 'Build complete in 12.4s',
   },
 ] as const
 
@@ -145,6 +185,35 @@ export function Landing() {
             </span>
             <span>{APP_NAME}</span>
           </Link>
+          <div
+            className={cm.flex({ align: 'center', gap: 'lg' })}
+            aria-label={t('landing.nav', {}, { defaultValue: 'Marketing navigation' })}
+          >
+            <a
+              href="#features"
+              className={
+                'hidden md:inline text-sm font-medium text-primary border-b-2 border-primary pb-1 opacity-80 hover:opacity-100 transition-opacity'
+              }
+            >
+              {t('nav.features', {}, { defaultValue: 'Features' })}
+            </a>
+            <Link
+              to="/pipelines"
+              className={
+                'hidden md:inline text-sm font-medium text-on-surface-variant hover:text-primary transition-colors'
+              }
+            >
+              {t('landing.nav.pipelines', {}, { defaultValue: 'Pipelines' })}
+            </Link>
+            <Link
+              to="/pricing"
+              className={
+                'hidden md:inline text-sm font-medium text-on-surface-variant hover:text-primary transition-colors'
+              }
+            >
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </Link>
+          </div>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
               <Link
@@ -191,24 +260,11 @@ export function Landing() {
       </nav>
 
       <main>
-        {/* Hero — terminal aesthetic with embedded sample */}
+        {/* Hero — centered stage, emerald glow, floating terminal windows */}
         <section className="relative overflow-hidden">
           <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 20% 25%, rgba(16, 185, 129, 0.20), transparent 50%),' +
-                'radial-gradient(circle at 80% 60%, rgba(99, 102, 241, 0.18), transparent 45%)',
-            }}
-            aria-hidden="true"
-          />
-          <div
-            className="absolute inset-0 opacity-[0.07] pointer-events-none"
-            style={{
-              backgroundImage:
-                'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-              backgroundSize: '32px 32px',
-            }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+            style={{ backgroundColor: `${BRAND_COLOR}1a`, filter: 'blur(120px)' }}
             aria-hidden="true"
           />
           <div
@@ -219,8 +275,8 @@ export function Landing() {
               'relative py-20 md:py-24 lg:py-28',
             )}
           >
-            <div className={'grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center'}>
-              <div className={'lg:col-span-7'}>
+            <div className={'text-center space-y-8 relative z-10'}>
+              <div className={'space-y-4'}>
                 <p
                   className={'font-mono text-sm font-bold uppercase tracking-widest mb-5'}
                   style={{ color: BRAND_COLOR }}
@@ -229,16 +285,15 @@ export function Landing() {
                 </p>
                 <h1
                   className={
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] mb-6 text-on-surface'
+                    'text-5xl md:text-7xl font-extrabold tracking-tight leading-tight text-on-surface'
                   }
                 >
-                  {t(
-                    'landing.heroTitle',
-                    { tagline: APP_TAGLINE },
-                    { defaultValue: '{{tagline}}' },
-                  )}
+                  {t('landing.heroTitle.pre', {}, { defaultValue: 'Ship with ' })}
+                  <span className="text-primary">
+                    {t('landing.heroTitle.accent', {}, { defaultValue: 'certainty' })}
+                  </span>
                 </h1>
-                <p className={'text-lg text-on-surface-variant max-w-xl leading-relaxed mb-10'}>
+                <p className={'text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed'}>
                   {t(
                     'landing.heroSubtitle',
                     {},
@@ -248,102 +303,171 @@ export function Landing() {
                     },
                   )}
                 </p>
-                <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                  <Link
-                    to="/signup"
-                    className={
-                      'inline-flex items-center gap-2 px-8 py-4 font-mono font-semibold rounded-md transition-all hover:opacity-90 shadow-xl'
-                    }
-                    style={{
-                      backgroundColor: BRAND_COLOR,
-                      color: 'var(--color-on-primary)',
-                      boxShadow: '0 12px 32px -10px rgba(16, 185, 129, 0.45)',
-                    }}
-                  >
-                    {t('common.startFree', {}, { defaultValue: 'Start free' })}
-                    <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                      arrow_forward
-                    </span>
-                  </Link>
-                  <Link
-                    to="/login"
-                    className={
-                      'px-8 py-4 font-mono font-semibold rounded-md border transition-colors hover:bg-surface/5 text-on-surface'
-                    }
-                    style={{ borderColor: 'var(--color-border)' }}
-                  >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                  </Link>
-                </div>
+              </div>
+              <div
+                className={cm.flex({ align: 'center', justify: 'center', gap: 'md', wrap: 'wrap' })}
+              >
+                <Link
+                  to="/signup"
+                  className={
+                    'inline-flex items-center gap-2 px-8 py-4 font-mono font-semibold rounded-md transition-all hover:opacity-90 shadow-xl'
+                  }
+                  style={{
+                    backgroundColor: BRAND_COLOR,
+                    color: 'var(--color-on-primary)',
+                    boxShadow: '0 0 15px rgba(16, 185, 129, 0.3)',
+                  }}
+                >
+                  {t('common.startFree', {}, { defaultValue: 'Start free' })}
+                  <span className={'material-symbols-outlined text-base'} aria-hidden="true">
+                    arrow_forward
+                  </span>
+                </Link>
+                <Link
+                  to="/login"
+                  className={
+                    'px-8 py-4 font-mono font-semibold rounded-md border transition-colors hover:bg-surface/5 text-on-surface'
+                  }
+                  style={{ borderColor: 'var(--color-border)' }}
+                >
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                </Link>
+              </div>
 
-                {/* Social proof row */}
-                <div className={'mt-10 flex flex-wrap items-center gap-x-8 gap-y-3'}>
-                  <p
-                    className={
-                      'text-xs font-bold uppercase tracking-widest text-on-surface-variant'
-                    }
+              {/* Social proof row */}
+              <div className={'flex flex-wrap items-center justify-center gap-x-8 gap-y-3 pt-2'}>
+                <p
+                  className={'text-xs font-bold uppercase tracking-widest text-on-surface-variant'}
+                >
+                  {t('landing.socialProof', {}, { defaultValue: 'Trusted by platform teams at' })}
+                </p>
+                {['Atlas', 'Northwind', 'Stratafy', 'Helix'].map((brand) => (
+                  <span
+                    key={brand}
+                    className={'font-mono text-sm font-bold text-on-surface-variant'}
                   >
-                    {t('landing.socialProof', {}, { defaultValue: 'Trusted by platform teams at' })}
-                  </p>
-                  {['Atlas', 'Northwind', 'Stratafy', 'Helix'].map((brand) => (
+                    {brand}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Floating terminal windows — live pipeline / build log / status */}
+            <div
+              className={cm.cn(
+                cm.grid({ gap: 'lg' }),
+                'grid-cols-1 md:grid-cols-3 mt-16 relative z-10 text-left',
+              )}
+            >
+              {/* Live pipeline window (reuses the demo rows from the auth'd hero) */}
+              <div
+                className={'rounded-lg shadow-lg overflow-hidden border'}
+                style={{
+                  backgroundColor: SURFACE_PANEL,
+                  borderColor: 'var(--color-border)',
+                }}
+              >
+                <div
+                  className={'flex items-center gap-2 px-4 py-2.5 border-b'}
+                  style={{ borderColor: 'var(--color-border)' }}
+                >
+                  <span className={'w-3 h-3 rounded-full bg-red-400/70'} aria-hidden="true" />
+                  <span className={'w-3 h-3 rounded-full bg-amber-400/70'} aria-hidden="true" />
+                  <span className={'w-3 h-3 rounded-full bg-emerald-400/70'} aria-hidden="true" />
+                  <span
+                    className={'ml-2 font-mono text-[11px] font-medium text-on-surface-variant'}
+                  >
+                    conduit · live pipelines
+                  </span>
+                  <span className={'ml-auto inline-flex items-center gap-1.5'}>
                     <span
-                      key={brand}
-                      className={'font-mono text-sm font-bold text-on-surface-variant'}
+                      className={'inline-block h-2 w-2 rounded-full animate-pulse'}
+                      style={{
+                        backgroundColor: BRAND_COLOR,
+                        boxShadow: `0 0 0 3px ${BRAND_COLOR}40`,
+                      }}
+                      aria-hidden="true"
+                    />
+                    <span
+                      className="font-mono text-[10px] font-bold uppercase tracking-widest"
+                      style={{ color: BRAND_COLOR }}
                     >
-                      {brand}
+                      live
                     </span>
+                  </span>
+                </div>
+                <div className={'p-4 space-y-3'}>
+                  {DEMO_PIPELINES.map((pl) => (
+                    <PipelineRow key={pl.id} pipeline={pl} linked={false} dense />
                   ))}
                 </div>
               </div>
 
-              {/* Embedded sample — mirrors the auth'd hero */}
-              <div className={'lg:col-span-5'}>
+              {/* Build log window */}
+              <div
+                className={'rounded-lg shadow-lg overflow-hidden border font-mono text-xs'}
+                style={{
+                  backgroundColor: 'var(--color-surface-container-low)',
+                  borderColor: 'var(--color-border)',
+                }}
+              >
                 <div
-                  className={'rounded-2xl shadow-2xl overflow-hidden border'}
-                  style={{
-                    backgroundColor: SURFACE_PANEL,
-                    borderColor: 'rgba(30, 41, 59, 0.9)',
-                    boxShadow: '0 30px 80px -30px rgba(0,0,0,0.7)',
-                  }}
+                  className={'px-4 py-2.5 border-b text-on-surface-variant'}
+                  style={{ borderColor: 'var(--color-border)' }}
                 >
-                  {/* terminal chrome */}
+                  build.log
+                </div>
+                <div className={'p-4 space-y-1.5'}>
+                  {BUILD_LOG.map((line) => (
+                    <p key={line.text} className={line.tone}>
+                      {line.tag ? (
+                        <>
+                          <span className={line.tagTone}>{line.tag}</span>{' '}
+                        </>
+                      ) : null}
+                      {t(`landing.buildLog.${line.key}`, {}, { defaultValue: line.text })}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Status indicator window */}
+              <div
+                className={cm.cn(
+                  'rounded-lg shadow-lg border p-6 flex flex-col items-center justify-center gap-4',
+                )}
+                style={{
+                  backgroundColor: SURFACE_PANEL,
+                  borderColor: 'var(--color-border)',
+                }}
+              >
+                <div className={'relative w-16 h-16 flex items-center justify-center'}>
                   <div
-                    className={'flex items-center gap-2 px-4 py-2.5 border-b'}
+                    className={'absolute inset-0 rounded-full border-4'}
+                    style={{ borderColor: `${BRAND_COLOR}33` }}
+                    aria-hidden="true"
+                  />
+                  <div
+                    className={'absolute inset-2 rounded-full animate-pulse'}
+                    style={{ backgroundColor: `${BRAND_COLOR}33` }}
+                    aria-hidden="true"
+                  />
+                  <div
+                    className={'w-8 h-8 rounded-full'}
                     style={{
-                      borderColor: 'rgba(30, 41, 59, 0.9)',
-                      backgroundColor: 'var(--color-background)',
+                      backgroundColor: BRAND_COLOR,
+                      boxShadow: '0 0 20px rgba(16, 185, 129, 0.5)',
                     }}
-                  >
-                    <span className={'w-3 h-3 rounded-full bg-red-400/70'} aria-hidden="true" />
-                    <span className={'w-3 h-3 rounded-full bg-amber-400/70'} aria-hidden="true" />
-                    <span className={'w-3 h-3 rounded-full bg-emerald-400/70'} aria-hidden="true" />
-                    <span
-                      className={'ml-3 font-mono text-[11px] font-medium text-on-surface-variant'}
-                    >
-                      conduit · live pipelines
-                    </span>
-                    <span className={'ml-auto inline-flex items-center gap-1.5'}>
-                      <span
-                        className={'inline-block h-2 w-2 rounded-full animate-pulse'}
-                        style={{
-                          backgroundColor: BRAND_COLOR,
-                          boxShadow: `0 0 0 3px ${BRAND_COLOR}40`,
-                        }}
-                        aria-hidden="true"
-                      />
-                      <span
-                        className="font-mono text-[10px] font-bold uppercase tracking-widest"
-                        style={{ color: BRAND_COLOR }}
-                      >
-                        live
-                      </span>
-                    </span>
-                  </div>
-                  <div className={'p-4 space-y-3'}>
-                    {DEMO_PIPELINES.map((pl) => (
-                      <PipelineRow key={pl.id} pipeline={pl} linked={false} dense />
-                    ))}
-                  </div>
+                    aria-hidden="true"
+                  />
+                </div>
+                <div className={'text-center'}>
+                  <h3 className={'font-medium text-on-surface'}>
+                    {t('landing.status.title', {}, { defaultValue: 'System Operational' })}
+                  </h3>
+                  <p className={'font-mono text-sm text-on-surface-variant mt-1'}>
+                    {t('landing.status.latency', {}, { defaultValue: 'latency: 12ms' })}
+                  </p>
                 </div>
               </div>
             </div>
@@ -537,16 +661,59 @@ export function Landing() {
       </main>
 
       <footer
-        className={'py-8 text-center text-sm border-t'}
-        style={{ borderColor: 'rgba(30, 41, 59, 0.8)', color: 'var(--color-on-surface-variant)' }}
+        className={'w-full py-12 border-t text-sm text-on-surface-variant'}
+        style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-background)' }}
       >
-        <p>
-          {t(
-            'landing.copyright',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Ship with certainty.' },
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            cm.grid({ gap: 'lg' }),
+            'grid-cols-1 md:grid-cols-4',
           )}
-        </p>
+        >
+          <div className={'col-span-1 md:col-span-2'}>
+            <span className={'text-lg font-bold text-on-surface font-mono mb-4 block'}>
+              {APP_NAME}
+            </span>
+            <p>
+              {t(
+                'landing.copyright',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                { defaultValue: '© {{year}} {{app}}. Built for platform engineers.' },
+              )}
+            </p>
+          </div>
+          <div>
+            <ul className={'space-y-2'}>
+              <li>
+                <Link to="/privacy" className={'hover:text-on-surface transition-colors'}>
+                  {t('footer.privacyPolicy', {}, { defaultValue: 'Privacy Policy' })}
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className={'hover:text-on-surface transition-colors'}>
+                  {t('footer.termsOfService', {}, { defaultValue: 'Terms of Service' })}
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul className={'space-y-2'}>
+              <li>
+                <Link to="/about" className={'hover:text-on-surface transition-colors'}>
+                  {t('footer.security', {}, { defaultValue: 'Security' })}
+                </Link>
+              </li>
+              <li>
+                <Link to="/login" className={'hover:text-on-surface transition-colors'}>
+                  {t('landing.status.title', {}, { defaultValue: 'System Operational' })}
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </footer>
     </div>
   )

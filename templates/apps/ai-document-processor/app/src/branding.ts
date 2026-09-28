@@ -29,8 +29,8 @@ export const APP_DESCRIPTION =
   'OCR + AI extraction, classification, and filing for invoices, receipts, contracts, and forms.'
 
 /** Primary brand color (PWA manifest, meta theme-color). */
-export const BRAND_COLOR = '#3b82f6'
+export const BRAND_COLOR = '#005454'
 
 /** Linear gradient used by hero cards and primary CTA.
- *  Darkened to keep white text ≥4.5:1 across the full gradient range. */
-export const BRAND_GRADIENT = 'linear-gradient(135deg, #1d4ed8, #2563eb 60%, #3b6fd4)'
+ *  Digital Archivist teal — all stops keep white text ≥7:1. */
+export const BRAND_GRADIENT = 'linear-gradient(135deg, #005454, #0d6e6e 60%, #084d4d)'

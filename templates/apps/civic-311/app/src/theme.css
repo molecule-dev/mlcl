@@ -1,9 +1,11 @@
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     The Stitch design's hero serif is Source Serif 4; Georgia carries the
+     same editorial feel when the webfont isn't bundled locally. */
+  --font-headline: 'Source Serif 4', Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
   /* ── @theme bridge variables (feed into Tailwind @theme → --color-*) ── */
-  --mol-color-primary: #0f766e;
+  --mol-color-primary: #005c55; /* Stitch design primary (container stays #0f766e) */
   --mol-color-primary-light: #ccfbf1;
   --mol-color-secondary: #b45309; /* darkened from #d97706 — white text was 3.1:1 (fail); #b45309 = 4.6:1 */
   --mol-color-success: #15803d; /* green-700 = 5.0:1 on white */

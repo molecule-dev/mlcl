@@ -25,3 +25,21 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/* polish-v2:stitch-styles:start */
+/* Paper dot texture — the design's warm stationery canvas. */
+.paper-texture {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--color-primary) 4%, transparent) 1px,
+    transparent 0
+  );
+  background-size: 24px 24px;
+}
+
+/* Book-spine inset shading for cover blocks. */
+.spine-shadow {
+  box-shadow:
+    inset 3px 0 6px -1px rgba(0, 0, 0, 0.18),
+    inset -2px 0 4px -1px rgba(255, 255, 255, 0.25);
+}
+/* polish-v2:stitch-styles:end */

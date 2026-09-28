@@ -8,8 +8,10 @@
  */
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     EB Garamond (loaded in index.html) is the design's archival serif. */
+  --font-headline:
+    'EB Garamond', Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
   /* Brand */
   --mol-color-primary: #15803d;
   --mol-color-primary-light: #16a34a;
@@ -68,6 +70,19 @@
   /* Hero card dark background — deep forest */
   --color-hero-bg: #122416;
   --color-hero-bg-gradient-end: #1b4332;
+
+  /* Stitch archival-sanctuary palette (landing): deep-forest bands and CTAs,
+     linen feature cards, paper dot-grid, mint/sage accents on forest. */
+  --color-forest: #1b4332; /* CTAs + dark bands (design primary-container) */
+  --color-forest-hover: #2c694e; /* CTA hover / lineage lines (design secondary) */
+  --color-forest-deep: #00452d; /* pillar cards, band badges (design tertiary-container) */
+  --color-forest-mist: #86af99; /* muted sage text on forest (on-primary-container) */
+  --color-forest-mint: #a0f4c8; /* accent text on forest (tertiary-fixed) */
+  --color-vault-chip: #aeeecb; /* chip bg (secondary-container) */
+  --color-on-vault-chip: #316e52; /* chip text (on-secondary-container) */
+  --color-linen: #fdfbf7; /* linen card background */
+  --color-linen-border: #e3ddd3; /* linen card border */
+  --color-archival-dot: #dfe4df; /* paper dot grid + big step numerals */
 }
 
 /* Dark mode — Branches warm-forest dark.
@@ -170,7 +185,37 @@
   --color-hero-bg: #14261a;
   --color-hero-bg-gradient-end: #1c3a29;
 
+  /* Stitch archival palette — dark-mode surfaces swap for linen/paper; the
+     forest band tones already sit right on the near-black background. */
+  --color-forest: #1e4a37;
+  --color-forest-hover: #3a7a5c;
+  --color-forest-deep: #0f3125;
+  --color-vault-chip: #1f3d2e;
+  --color-on-vault-chip: #aeeecb;
+  --color-linen: #121b16;
+  --color-linen-border: #243128;
+  --color-archival-dot: #1a251e;
+
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}
+
+/*
+ * Stitch landing decorations — archival paper texture and the linen card
+ * surface (warm paper, hairline border, soft green shadow). Utilities rather
+ * than JSX styles so the textures stay in the theme layer.
+ */
+.mol-archival-paper {
+  background-color: var(--mol-color-background);
+  background-image: radial-gradient(var(--color-archival-dot) 0.75px, transparent 0.75px);
+  background-size: 20px 20px;
+}
+
+.mol-linen-card {
+  background: var(--color-linen);
+  border: 1px solid var(--color-linen-border);
+  box-shadow:
+    0 1px 3px rgba(31, 36, 33, 0.04),
+    0 6px 20px -3px rgba(27, 67, 50, 0.05);
 }

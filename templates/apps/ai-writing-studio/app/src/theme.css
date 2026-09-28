@@ -4,71 +4,74 @@
   color-scheme: light;
 
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch design ("Plume") sets headlines and the brand in a serif (Lora);
+     Georgia is the bundled stand-in. */
+  --font-headline: 'Lora', Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
 
   /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #5b5de5; /* matches --color-primary; darkened for white-text contrast */
-  --mol-color-primary-light: #e0e7ff;
-  --mol-color-primary-dark: #4f46e5;
-  --mol-color-secondary: #8b5cf6;
-  --mol-color-background: #fafafa;
-  --mol-color-background-secondary: #f3f4f6;
-  --mol-color-background-tertiary: #e5e7eb;
+  --mol-color-primary: #6c47d9; /* Stitch Plume primary */
+  --mol-color-primary-light: #f0ecf9;
+  --mol-color-primary-dark: #5131b3;
+  --mol-color-secondary: #7c3aed;
+  --mol-color-background: #faf9fc;
+  --mol-color-background-secondary: #f4f2f8;
+  --mol-color-background-tertiary: #ece9f3;
   --mol-color-surface: #ffffff;
-  --mol-color-surface-secondary: #f9fafb;
+  --mol-color-surface-secondary: #faf9fc;
   --mol-color-input-background: #ffffff;
-  --mol-color-text: #111827;
-  --mol-color-text-secondary: #4b5563; /* was #6b7280 — 3.94:1 as chip/button text on bg-surface-container #e7e8e9; gray-600 = 6.16:1 */
-  --mol-color-text-tertiary: #9ca3af;
+  --mol-color-text: #1e1b2e;
+  --mol-color-text-secondary: #6b6580;
+  --mol-color-text-tertiary: #8f89a1;
   --mol-color-text-inverse: #ffffff;
-  --mol-color-border: #e5e7eb;
-  --mol-color-border-secondary: #d1d5db;
-  --mol-color-border-focus: #5b5de5;
+  --mol-color-border: #ece9f3;
+  --mol-color-border-secondary: #ddd8ea;
+  --mol-color-border-focus: #6c47d9;
   --mol-color-success: #10b981;
   --mol-color-warning: #f59e0b;
   --mol-color-error: #ef4444;
   --mol-color-info: #3b82f6;
 
-  /* Brand colors */
-  /* #5454dd. Was #6366f1, then #5b5de5 for white-on-primary (5.07:1) — but
-     link text renders on the #efeffc primary tint, where #5b5de5 measures
-     4.45:1, under the 4.5 floor. #5454dd is 4.99:1 on the tint and 5.69:1
-     under white text, so both directions clear. */
-  --color-primary: #5454dd;
-  --color-primary-hover: #4f46e5;
-  --color-primary-light: #e0e7ff;
-  --color-secondary: #7c3aed; /* was #8b5cf6 — 4.23:1 under white button text; violet-600 = 5.7:1 */
-  --color-secondary-hover: #7c3aed;
+  /* Brand colors — Stitch Plume palette (violet primary, gold accent) */
+  --color-primary: #6c47d9;
+  --color-primary-hover: #5131b3;
+  --color-primary-light: #f0ecf9;
+  --color-secondary: #7c3aed;
+  --color-secondary-hover: #6d28d9;
 
-  /* Accent */
-  --color-accent: #f59e0b;
-  --color-accent-hover: #d97706;
+  /* Accent — design gold ("Start Free Trial" button) */
+  --color-accent: #e8a830;
+  --color-accent-hover: #d19528;
 
   /* Status */
-  --color-success: #047857; /* was #10b981 — 2.53:1 icon on white (needs 3:1); emerald-700 = 5.23:1 */
+  --color-success: #047857;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
   --color-info: #3b82f6;
 
-  /* Neutrals */
-  --color-bg: #fafafa;
-  --color-bg-secondary: #f3f4f6;
+  /* Neutrals — lavender-tinted paper */
+  --color-bg: #faf9fc;
+  --color-bg-secondary: #f4f2f8;
   --color-bg-card: #ffffff;
-  --color-bg-sidebar: #f9fafb;
-  --color-border: #e5e7eb;
-  --color-border-focus: #5b5de5;
+  --color-bg-sidebar: #f4f2f8;
+  --color-border: #ece9f3;
+  --color-border-focus: #6c47d9;
 
   /* Text */
-  --color-text: #111827;
-  --color-text-secondary: #4b5563; /* match --mol-color-text-secondary contrast fix */
-  --color-text-muted: #9ca3af;
+  --color-text: #1e1b2e;
+  --color-text-secondary: #6b6580;
+  --color-text-muted: #8f89a1;
   --color-text-inverse: #ffffff;
 
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+
+  /* Stitch tonal tokens (design: surface-sidebar #f4f2f8, surface-ai #f0ecf9) */
+  --color-primary-container: #f0ecf9;
+  --color-on-primary-container: #5131b3;
+  --color-primary-fixed: #f0ecf9;
 
   /* Editor */
   --editor-bg: #ffffff;
@@ -77,10 +80,10 @@
   --editor-max-width: 48rem;
 
   /* AI Panel */
-  --ai-panel-bg: #f3f4f6;
-  --ai-panel-border: #e5e7eb;
-  --ai-suggestion-bg: #eff6ff;
-  --ai-suggestion-border: #bfdbfe;
+  --ai-panel-bg: #f0ecf9;
+  --ai-panel-border: #ece9f3;
+  --ai-suggestion-bg: #ffffff;
+  --ai-suggestion-border: #6c47d9;
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -102,16 +105,15 @@
 }
 
 /* Dark mode — writing-focused warm near-black.
-   Editorial calm: no blue tint, paper-like contrast inversion. Brand
-   indigo (#6366f1) stays at the brand stop; amber accent preserved.
-   `--color-on-primary` STAYS white so CTA buttons read cleanly. */
+   Editorial calm: no blue tint, paper-like contrast inversion. Brand violet
+   lightens to #7d5ae0 so white button text keeps 4.5:1; gold accent preserved. */
 [data-mol-mode='dark'] {
   color-scheme: dark;
 
   /* Provider bridge (--mol-color-*) */
-  --mol-color-primary: #5b5de5; /* matches dark --color-primary */
-  --mol-color-primary-light: #2a2745;
-  --mol-color-primary-dark: #4338ca;
+  --mol-color-primary: #7d5ae0; /* matches dark --color-primary */
+  --mol-color-primary-light: #2e2650;
+  --mol-color-primary-dark: #6c47d9;
   --mol-color-secondary: #f59e0b;
   --mol-color-background: #0d0d0d;
   --mol-color-background-secondary: #171717;
@@ -125,27 +127,26 @@
   --mol-color-text-inverse: #0d0d0d;
   --mol-color-border: #2a2a2a;
   --mol-color-border-secondary: #3a3a3a;
-  --mol-color-border-focus: #818cf8;
+  --mol-color-border-focus: #a78bfa;
   --mol-color-success: #34d399;
   --mol-color-warning: #fbbf24;
   --mol-color-error: #f87171;
   --mol-color-info: #60a5fa;
 
   /* Legacy app tokens kept for direct var() callers */
-  --color-primary-hover: #4f46e5;
-  --color-primary-light: #2a2745;
+  --color-primary-hover: #8a6bef;
+  --color-primary-light: #2e2650;
   --color-secondary-hover: #d97706;
   --color-accent-hover: #fcd34d;
   --color-bg: #0d0d0d;
   --color-bg-secondary: #171717;
   --color-bg-card: #171717;
   --color-bg-sidebar: #0a0a0a;
-  --color-border-focus: #818cf8;
+  --color-border-focus: #a78bfa;
   --color-text-inverse: #0d0d0d;
 
   /* Stitch / Material-3 token dark variants.
-     `--color-primary` STAYS at brand indigo; `--color-on-primary` stays
-     white for readable CTA buttons in both modes. */
+     `--color-on-primary` STAYS white so CTA buttons read cleanly. */
   --color-background: #0d0d0d;
   --color-on-background: #f5f5f5;
   --color-surface: #0d0d0d;
@@ -161,12 +162,13 @@
   --color-on-surface-variant: #c4c4c4;
   --color-inverse-surface: #f5f5f5;
   --color-inverse-on-surface: #0d0d0d;
-  --color-inverse-primary: #5b5de5;
-  --color-primary: #5b5de5; /* dark-mode primary — darkened so white text clears 4.5:1 (5.07:1) */
-  --color-primary-container: #2a2745;
-  --color-on-primary: #ffffff; /* white on indigo */
-  --color-on-primary-container: #c7c9f5;
-  --color-secondary: #f59e0b; /* amber accent preserved */
+  --color-inverse-primary: #a78bfa;
+  --color-primary: #7d5ae0; /* violet, lightened for white-text contrast */
+  --color-primary-container: #2e2650;
+  --color-on-primary: #ffffff; /* white on violet */
+  --color-on-primary-container: #ddd6f8;
+  --color-primary-fixed: #2e2650;
+  --color-secondary: #f59e0b; /* gold accent preserved */
   --color-secondary-container: #4a3416;
   --color-on-secondary: #0d0d0d;
   --color-on-secondary-container: #fde9b8;
@@ -180,7 +182,7 @@
   --color-on-error-container: #ffdad6;
   --color-outline: #666666; /* 3.38:1 vs surface #0d0d0d — up from 2.82 */
   --color-outline-variant: #2a2a2a;
-  --color-surface-tint: #5b5de5;
+  --color-surface-tint: #7d5ae0;
 
   /* App-specific tokens */
   --color-text: #f5f5f5;

@@ -28,6 +28,9 @@
 
 /* Global defaults — inside /* polish-v2:theme:start */
 @custom-variant dark (&:where(.dark, .dark *));
+/* qa-theme-tokens: custom tokens used as Tailwind utilities but defined in
+   theme.css :root/.dark — registered here so the utilities compile (the
+   theme.css definitions keep overriding at runtime for theming). */
 @theme {
   /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
 
@@ -37,6 +40,10 @@
   --radius-full: 9999px;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
+
+  /* Custom accent token — cyan collaborator highlight (theme.css holds the
+     light/dark values; this entry only registers the utility). */
+  --color-accent-cyan: #06b6d4;
 
   /* Stitch font families. */
   --font-body: Charter, Georgia, serif;

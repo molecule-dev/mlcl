@@ -38,11 +38,15 @@
   --radius-xl: 0.75rem;
 
   /* Stitch font families. */
-  --font-body: Inter;
-  --font-display: Inter;
-  --font-headline: Inter;
-  --font-label: Inter;
-  --font-mono: 'JetBrains Mono', monospace;
+  /* Inter first per the Stitch design; Arimo (loaded by the app-fonts bond)
+     + system sans as fallbacks so machines without Inter stay sans-serif. */
+  --font-body: 'Inter', 'Arimo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display:
+    'Inter', 'Arimo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-headline:
+    'Inter', 'Arimo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-label: 'Inter', 'Arimo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 /* polish-v2:theme:end */
 

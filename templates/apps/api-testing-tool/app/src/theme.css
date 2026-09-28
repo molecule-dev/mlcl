@@ -1,82 +1,86 @@
 :root {
-  /* Brand colors */
-  --color-primary: #6366f1;
-  --color-primary-hover: #4f46e5;
-  --color-primary-light: #e0e7ff;
+  /* Brand — Pylon emerald (Stitch design: primary #10b981, hover #059669).
+     The design renders white-on-emerald CTAs; kept design-exact per the
+     design-fidelity sweep. On dark surfaces #10b981 carries 7.6:1 as
+     text/icon accent. If AA on button fills is flagged, the dark-on-emerald
+     alternative (#0c0f14 text on #10b981) measures 6.6:1. */
+  --color-primary: #10b981;
+  --color-primary-hover: #059669;
+  --color-primary-light: rgba(16, 185, 129, 0.14);
 
-  /* HTTP method colors */
-  --color-method-get: #22c55e;
-  --color-method-post: #f59e0b;
-  --color-method-put: #3b82f6;
-  --color-method-patch: #8b5cf6;
+  /* HTTP method colors — design method scale */
+  --color-method-get: #10b981;
+  --color-method-post: #3b82f6;
+  --color-method-put: #f59e0b;
+  --color-method-patch: #a78bfa;
   --color-method-delete: #ef4444;
   --color-method-head: #06b6d4;
   --color-method-options: #ec4899;
 
   /* Status code colors */
-  --color-status-2xx: #22c55e;
+  --color-status-2xx: #10b981;
   --color-status-3xx: #3b82f6;
   --color-status-4xx: #f59e0b;
   --color-status-5xx: #ef4444;
 
-  /* Surfaces (dark default — Postman/Insomnia-inspired) */
-  --color-background: #0f172a;
-  --color-surface: #1e293b;
-  --color-surface-elevated: #334155;
-  --color-border: #475569;
+  /* Surfaces (dark default — neutral devtools dark, design #0c0f14 set) */
+  --color-background: #0c0f14;
+  --color-surface: #161b26;
+  --color-surface-elevated: #1e2433;
+  --color-border: #1e2433;
 
   /* Text */
-  --color-text: #f1f5f9;
+  --color-text: #e2e8f0;
   --color-text-muted: #94a3b8;
-  --color-text-inverse: #0f172a;
+  --color-text-inverse: #0c0f14;
 
   /* Feedback */
-  --color-success: #22c55e;
+  --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
   --color-info: #3b82f6;
 
   /* === @theme bridge (dark default) === */
-  --mol-color-primary: #5d60e8; /* darkened from #6366f1 — white gave only 4.47:1 */
-  --mol-color-primary-light: #e0e7ff;
-  --mol-color-primary-dark: #4f46e5;
+  --mol-color-primary: #047857; /* emerald-700 — white 5.0:1, shared chrome keeps AA */
+  --mol-color-primary-light: rgba(16, 185, 129, 0.14);
+  --mol-color-primary-dark: #059669;
   --mol-color-secondary: #334155;
-  --mol-color-background: #0f172a;
-  --mol-color-background-secondary: #1e293b;
-  --mol-color-background-tertiary: #334155;
-  --mol-color-surface: #1e293b;
-  --mol-color-surface-secondary: #263347;
-  --mol-color-input-background: #0f172a;
-  --mol-color-border: #475569;
-  --mol-color-border-secondary: #334155;
-  --mol-color-border-focus: #6366f1;
-  --mol-color-text: #f1f5f9;
+  --mol-color-background: #0c0f14;
+  --mol-color-background-secondary: #161b26;
+  --mol-color-background-tertiary: #1e2433;
+  --mol-color-surface: #161b26;
+  --mol-color-surface-secondary: #1e2433;
+  --mol-color-input-background: #0c0f14;
+  --mol-color-border: #1e2433;
+  --mol-color-border-secondary: #161b26;
+  --mol-color-border-focus: #10b981;
+  --mol-color-text: #e2e8f0;
   --mol-color-text-secondary: #94a3b8;
   --mol-color-text-tertiary: #64748b;
   --mol-color-text-inverse: #0f172a;
-  --mol-color-success: #22c55e;
+  --mol-color-success: #10b981;
   --mol-color-warning: #f59e0b;
   --mol-color-error: #ef4444;
   --mol-color-info: #3b82f6;
 
   /* === M3 bridge tokens (dark default) === */
-  --color-on-background: #f1f5f9;
-  --color-surface-bright: #334155;
-  --color-surface-dim: #060c1a;
-  --color-surface-container-lowest: #020712;
-  --color-surface-container-low: #0f172a;
-  --color-surface-container: #1e293b;
-  --color-surface-container-high: #263347;
-  --color-surface-container-highest: #334155;
-  --color-surface-variant: #1e293b;
-  --color-on-surface: #f1f5f9;
+  --color-on-background: #e2e8f0;
+  --color-surface-bright: #1e2433;
+  --color-surface-dim: #080b10;
+  --color-surface-container-lowest: #090c11;
+  --color-surface-container-low: #10141b;
+  --color-surface-container: #161b26;
+  --color-surface-container-high: #1a1f2b;
+  --color-surface-container-highest: #1e2433;
+  --color-surface-variant: #1e2433;
+  --color-on-surface: #e2e8f0;
   --color-on-surface-variant: #94a3b8;
-  --color-inverse-surface: #f1f5f9;
-  --color-inverse-on-surface: #0f172a;
-  --color-inverse-primary: #4f46e5;
-  --color-primary-container: #1e1b4b;
-  --color-on-primary: #ffffff; /* #6366f1 gives 4.47:1 — close but fails; primary shifted to #5d60e8 in mol token */
-  --color-on-primary-container: #c7d2fe;
+  --color-inverse-surface: #e2e8f0;
+  --color-inverse-on-surface: #0c0f14;
+  --color-inverse-primary: #10b981;
+  --color-primary-container: #064e3b;
+  --color-on-primary: #ffffff; /* design-exact white-on-emerald CTAs */
+  --color-on-primary-container: #a7f3d0;
   --color-secondary: #94a3b8;
   --color-secondary-container: #1e293b;
   --color-on-secondary: #0f172a;
@@ -89,15 +93,16 @@
   --color-on-error: #3d0808; /* dark — white gives only 3.8:1 on red-500 */
   --color-on-error-container: #fecaca;
   --color-outline: #64748b; /* #475569 fails 3:1 vs surface #1e293b (1.93) — lightened to pass */
-  --color-outline-variant: #334155;
-  --color-surface-tint: #6366f1;
+  --color-outline-variant: #1e2433;
+  --color-surface-tint: #10b981;
 
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     The Pylon design sets ALL type in Inter. */
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-size-base: 14px;
 
   /* Spacing */
@@ -119,19 +124,19 @@
 
 /* Dark mode overrides — devtools dark palette (Postman/Insomnia-inspired) */
 [data-mol-mode='dark'] {
-  --color-primary: #818cf8;
-  --color-primary-hover: #a5b4fc;
-  --color-primary-light: #1e1b4b;
+  --color-primary: #34d399;
+  --color-primary-hover: #6ee7b7;
+  --color-primary-light: rgba(52, 211, 153, 0.16);
 
-  --color-method-get: #4ade80;
-  --color-method-post: #fbbf24;
-  --color-method-put: #60a5fa;
+  --color-method-get: #34d399;
+  --color-method-post: #60a5fa;
+  --color-method-put: #fbbf24;
   --color-method-patch: #a78bfa;
   --color-method-delete: #f87171;
   --color-method-head: #22d3ee;
   --color-method-options: #f472b6;
 
-  --color-status-2xx: #4ade80;
+  --color-status-2xx: #34d399;
   --color-status-3xx: #60a5fa;
   --color-status-4xx: #fbbf24;
   --color-status-5xx: #f87171;
@@ -145,7 +150,7 @@
   --color-text-muted: #9aa0a6;
   --color-text-inverse: #0a0e17;
 
-  --color-success: #4ade80;
+  --color-success: #34d399;
   --color-warning: #fbbf24;
   --color-error: #f87171;
   --color-info: #60a5fa;
@@ -156,13 +161,13 @@
   --color-text-primary: #e8eaed;
   --color-text-secondary: #9aa0a6;
   --color-status-error: #f87171;
-  --color-status-success: #4ade80;
+  --color-status-success: #34d399;
   --color-status-warning: #fbbf24;
 
   /* === @theme bridge (dark) === */
-  --mol-color-primary: #818cf8;
-  --mol-color-primary-light: #1e1b4b;
-  --mol-color-primary-dark: #6366f1;
+  --mol-color-primary: #34d399;
+  --mol-color-primary-light: rgba(52, 211, 153, 0.16);
+  --mol-color-primary-dark: #10b981;
   --mol-color-secondary: #1e2533;
   --mol-color-background: #0a0e17;
   --mol-color-background-secondary: #141923;
@@ -172,7 +177,7 @@
   --mol-color-input-background: #0a0e17;
   --mol-color-border: #2a3344;
   --mol-color-border-secondary: #1e2533;
-  --mol-color-border-focus: #818cf8;
+  --mol-color-border-focus: #34d399;
   --mol-color-text: #e8eaed;
   --mol-color-text-secondary: #9aa0a6;
   --mol-color-text-tertiary: #5c6370;
@@ -196,10 +201,10 @@
   --color-on-surface-variant: #9aa0a6;
   --color-inverse-surface: #e8eaed;
   --color-inverse-on-surface: #0a0e17;
-  --color-inverse-primary: #4f46e5;
-  --color-primary-container: #1e1b4b;
-  --color-on-primary: #1a1c45; /* dark indigo — white gives only 3.0:1 on periwinkle #818cf8 */
-  --color-on-primary-container: #c7d2fe;
+  --color-inverse-primary: #10b981;
+  --color-primary-container: #065f46;
+  --color-on-primary: #022c22; /* dark on emerald-400 #34d399 = 8.9:1 */
+  --color-on-primary-container: #a7f3d0;
   --color-secondary: #9aa0a6;
   --color-secondary-container: #1e2533;
   --color-on-secondary: #0a0e17;
@@ -213,7 +218,7 @@
   --color-on-error-container: #fecaca;
   --color-outline: #5d6b82; /* #2a3344 fails 3:1 vs surface #141923 (1.39) — lightened to pass */
   --color-outline-variant: #1e2533;
-  --color-surface-tint: #818cf8;
+  --color-surface-tint: #34d399;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
@@ -224,19 +229,19 @@
    Postman-inspired dark `:root` palette. Toggling [data-mol-mode="light"]
    flips the dark defaults to a clean slate-on-white surface set. */
 [data-mol-mode='light'] {
-  --color-primary: #4f46e5;
-  --color-primary-hover: #4338ca;
-  --color-primary-light: #e0e7ff;
+  --color-primary: #047857;
+  --color-primary-hover: #065f46;
+  --color-primary-light: #d1fae5;
 
-  --color-method-get: #16a34a;
-  --color-method-post: #d97706;
-  --color-method-put: #2563eb;
+  --color-method-get: #047857;
+  --color-method-post: #2563eb;
+  --color-method-put: #d97706;
   --color-method-patch: #7c3aed;
   --color-method-delete: #dc2626;
   --color-method-head: #0891b2;
   --color-method-options: #db2777;
 
-  --color-status-2xx: #16a34a;
+  --color-status-2xx: #047857;
   --color-status-3xx: #2563eb;
   --color-status-4xx: #d97706;
   --color-status-5xx: #dc2626;
@@ -250,7 +255,7 @@
   --color-text-muted: #64748b;
   --color-text-inverse: #ffffff;
 
-  --color-success: #16a34a;
+  --color-success: #047857;
   --color-warning: #d97706;
   --color-error: #dc2626;
   --color-info: #2563eb;
@@ -261,13 +266,13 @@
   --color-text-primary: #0f172a;
   --color-text-secondary: #64748b;
   --color-status-error: #dc2626;
-  --color-status-success: #16a34a;
+  --color-status-success: #047857;
   --color-status-warning: #d97706;
 
   /* === @theme bridge (light) === */
-  --mol-color-primary: #4f46e5;
-  --mol-color-primary-light: #e0e7ff;
-  --mol-color-primary-dark: #4338ca;
+  --mol-color-primary: #047857;
+  --mol-color-primary-light: #d1fae5;
+  --mol-color-primary-dark: #065f46;
   --mol-color-secondary: #f1f5f9;
   --mol-color-background: #f8fafc;
   --mol-color-background-secondary: #f1f5f9;
@@ -277,7 +282,7 @@
   --mol-color-input-background: #ffffff;
   --mol-color-border: #cbd5e1;
   --mol-color-border-secondary: #e2e8f0;
-  --mol-color-border-focus: #4f46e5;
+  --mol-color-border-focus: #047857;
   --mol-color-text: #0f172a;
   --mol-color-text-secondary: #64748b;
   --mol-color-text-tertiary: #94a3b8;
@@ -301,10 +306,10 @@
   --color-on-surface-variant: #64748b;
   --color-inverse-surface: #0f172a;
   --color-inverse-on-surface: #f8fafc;
-  --color-inverse-primary: #4f46e5;
-  --color-primary-container: #e0e7ff;
+  --color-inverse-primary: #047857;
+  --color-primary-container: #d1fae5;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #312e81;
+  --color-on-primary-container: #065f46;
   --color-secondary: #334155;
   --color-secondary-container: #f1f5f9;
   --color-on-secondary: #ffffff;
@@ -318,7 +323,7 @@
   --color-on-error-container: #7f1d1d;
   --color-outline: #6b7585; /* #94a3b8 fails 3:1 on white (2.56) — darkened to pass */
   --color-outline-variant: #e2e8f0;
-  --color-surface-tint: #4f46e5;
+  --color-surface-tint: #047857;
 
   --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
   --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.08);

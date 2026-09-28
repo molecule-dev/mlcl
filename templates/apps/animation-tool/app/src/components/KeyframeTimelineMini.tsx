@@ -41,10 +41,9 @@ export function KeyframeTimelineMini({
   return (
     <figure
       data-mol-id="keyframe-timeline-mini"
-      className={cm.cn(cm.sp('p', 4), 'rounded-xl overflow-hidden')}
+      className={cm.cn(cm.sp('p', 4), 'rounded-xl overflow-hidden ide-glow')}
       style={{
         backgroundColor: 'var(--anim-timeline-bg)',
-        border: '1px solid var(--anim-border)',
       }}
     >
       <svg

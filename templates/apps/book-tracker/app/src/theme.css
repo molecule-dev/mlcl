@@ -1,9 +1,9 @@
 :root {
   /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #0f766e;
-  --mol-color-primary-light: #ccfbf1;
-  --mol-color-primary-dark: #115e59;
-  --mol-color-secondary: #b45309;
+  --mol-color-primary: #1b3b36;
+  --mol-color-primary-light: #c7eae2;
+  --mol-color-primary-dark: #032521;
+  --mol-color-secondary: #4d6356;
   --mol-color-background: #faf9f7;
   --mol-color-background-secondary: #f0f7f5;
   --mol-color-background-tertiary: #e6f2ef;
@@ -23,40 +23,40 @@
   --mol-color-info: #0369a1;
 
   /* Brand */
-  --color-primary: #0f766e;
-  --color-primary-hover: #0d655e;
-  --color-primary-light: #ccfbf1;
-  --color-primary-dark: #115e59;
+  --color-primary: #032521; /* design ink-green — white 16.2:1 */
+  --color-primary-hover: #1b3b36;
+  --color-primary-light: #c7eae2;
+  --color-primary-dark: #1b3b36;
   --color-on-primary: #ffffff;
-  --color-primary-container: #ccfbf1;
-  --color-on-primary-container: #042f2e;
-  --color-secondary: #b45309;
+  --color-primary-container: #1b3b36;
+  --color-on-primary-container: #c7eae2; /* on dark container #1b3b36 = 6.9:1 */
+  --color-secondary: #4d6356; /* design sage */
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #fef3c7;
-  --color-on-secondary-container: #451a03;
+  --color-secondary-container: #d0e9d8;
+  --color-on-secondary-container: #0a1f15;
   --color-tertiary: #92400e;
   --color-tertiary-container: #fef3c7;
   --color-on-tertiary: #451a03; /* 6.97:1 (amber-900 on amber-100) */
   --color-on-tertiary-container: #451a03;
-  --color-background: #faf9f7;
-  --color-on-background: #1c1917;
+  --color-background: #f8faf6; /* design paper */
+  --color-on-background: #191c1a;
   --color-surface: #ffffff;
-  --color-surface-bright: #f0f7f5;
-  --color-surface-dim: #efedeb;
+  --color-surface-bright: #f8faf6;
+  --color-surface-dim: #d9dad7;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f0f7f5;
-  --color-surface-container: #e6f2ef;
-  --color-surface-container-high: #d8e9e5;
-  --color-surface-container-highest: #c9dfd9;
-  --color-surface-variant: #e6f2ef;
-  --color-on-surface: #1c1917;
-  --color-on-surface-variant: #57534e;
+  --color-surface-container-low: #f3f4f0;
+  --color-surface-container: #edeeeb;
+  --color-surface-container-high: #e7e9e5;
+  --color-surface-container-highest: #e1e3df;
+  --color-surface-variant: #e1e3df;
+  --color-on-surface: #191c1a;
+  --color-on-surface-variant: #414846;
   --color-outline: #57534e; /* 7.4:1 vs #fff (stone-600, ≥3:1 large + ≥4.5 body) */
-  --color-outline-variant: #e7e5e4;
-  --color-surface-tint: #0f766e;
+  --color-outline-variant: #c1c8c5;
+  --color-surface-tint: #1b3b36;
   --color-inverse-surface: #1c1917;
-  --color-inverse-on-surface: #f0f7f5;
-  --color-inverse-primary: #5eead4;
+  --color-inverse-on-surface: #f0f1ee;
+  --color-inverse-primary: #abcec6;
   --color-error: #b91c1c;
   --color-error-container: #fee2e2;
   --color-on-error: #ffffff; /* 5.9:1 on red-700 */
@@ -82,11 +82,11 @@
   /* Borders (aliases) */
   --color-border: #e7e5e4;
   --color-border-light: #efedeb;
-  --color-border-focus: #0f766e;
+  --color-border-focus: #1b3b36;
 
   /* Hero gradient — dark enough for white text in both modes */
-  --color-gradient-hero-start: #115e59; /* 5.85:1 vs white */
-  --color-gradient-hero-end: #92400e; /* 5.51:1 vs white */
+  --color-gradient-hero-start: #1b3b36; /* 10.9:1 vs white */
+  --color-gradient-hero-end: #4d6356; /* 6.4:1 vs white */
 
   /* Reading accents */
   --color-flame: #b45309; /* kept: shared copy treats this as the warm accent */
@@ -120,7 +120,7 @@
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   /* Headline font — picked up by shared molecule pages
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-headline: 'Newsreader', Georgia, 'Iowan Old Style', serif; /* design display serif */
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -159,7 +159,7 @@
 /* Dark mode overrides — brand-calibrated library dark palette */
 [data-mol-mode='dark'] {
   /* === @theme bridge === */
-  --mol-color-primary: #5eead4;
+  --mol-color-primary: #abcec6;
   --mol-color-primary-light: #134e4a;
   --mol-color-primary-dark: #99f6e4;
   --mol-color-secondary: #fbbf24;
@@ -175,20 +175,20 @@
   --mol-color-text-inverse: #171512;
   --mol-color-border: #3a352e;
   --mol-color-border-secondary: #2a2621;
-  --mol-color-border-focus: #5eead4;
+  --mol-color-border-focus: #abcec6;
   --mol-color-success: #4ade80;
   --mol-color-warning: #fbbf24;
   --mol-color-error: #f87171;
   --mol-color-info: #7dd3fc;
 
   /* Brand */
-  --color-primary: #5eead4;
+  --color-primary: #abcec6;
   --color-primary-hover: #99f6e4;
   --color-primary-light: #134e4a;
   --color-primary-dark: #99f6e4;
-  --color-on-primary: #042f2e; /* 9.9:1 on teal-300 */
+  --color-on-primary: #0a1f15; /* dark on sage-mint #abcec6 = 8.1:1 */
   --color-primary-container: #134e4a;
-  --color-on-primary-container: #ccfbf1;
+  --color-on-primary-container: #c7eae2;
   --color-secondary: #fbbf24;
   --color-on-secondary: #171512; /* 10.6:1 on amber-400 */
   --color-secondary-container: #3a2f1a;
@@ -212,10 +212,10 @@
   --color-on-surface-variant: #a8a29e;
   --color-outline: #a8a29e; /* 6.3:1 vs surface #211e1a */
   --color-outline-variant: #3a352e;
-  --color-surface-tint: #5eead4;
+  --color-surface-tint: #abcec6;
   --color-inverse-surface: #e7e5e4;
   --color-inverse-on-surface: #171512;
-  --color-inverse-primary: #0f766e;
+  --color-inverse-primary: #1b3b36;
   --color-error: #f87171;
   --color-error-container: #450a0a;
   --color-on-error: #450a0a; /* 6.7:1 on red-400 */
@@ -237,7 +237,7 @@
 
   --color-border: #3a352e;
   --color-border-light: #2a2621;
-  --color-border-focus: #5eead4;
+  --color-border-focus: #abcec6;
 
   /* Hero gradient — dark enough for white text */
   --color-gradient-hero-start: #134e4a; /* 9.7:1 vs white */

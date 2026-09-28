@@ -181,12 +181,12 @@ export function Landing() {
       </nav>
 
       <main>
-        {/* Hero */}
+        {/* Hero — centered headline over gradient, per Stitch design */}
         <section className={cm.cn('relative overflow-hidden')}>
           <div
             aria-hidden="true"
             className={cm.cn(
-              'absolute inset-0 bg-gradient-to-br from-primary-container/40 via-surface to-tertiary-fixed/30 pointer-events-none',
+              'absolute inset-0 bg-gradient-to-br from-primary-container/20 via-surface to-tertiary-fixed/20 pointer-events-none',
             )}
           />
           <div
@@ -197,176 +197,173 @@ export function Landing() {
           />
           <div
             className={cm.cn(
-              cm.maxW('7xl'),
+              cm.maxW('6xl'),
               cm.mxAuto,
               cm.sp('px', 6),
-              'pt-24 pb-20 md:pt-32 md:pb-28 relative',
+              'pt-24 pb-20 md:pt-32 md:pb-24 relative',
+              cm.flex({ direction: 'col', align: 'center' }),
+              cm.textCenter,
             )}
           >
-            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-12 items-center')}>
-              <div className={cm.cn('lg:col-span-7')}>
-                <p
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.sp('mb', 5),
-                    'font-bold uppercase tracking-widest text-primary',
-                  )}
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.sp('mb', 5),
+                'font-bold uppercase tracking-widest text-primary',
+              )}
+            >
+              {t('landing.eyebrow', {}, { defaultValue: 'Localization workspace' })}
+            </p>
+            <h1
+              className={cm.cn(
+                cm.sp('mb', 6),
+                'font-display-serif text-5xl md:text-[3.5rem] font-semibold leading-[1.1] tracking-tight bg-gradient-to-r from-primary to-tertiary bg-clip-text text-transparent max-w-3xl',
+              )}
+            >
+              {t('landing.heroTitle', { tagline: APP_TAGLINE }, { defaultValue: '{{tagline}}.' })}
+            </h1>
+            <p
+              className={cm.cn(
+                cm.textSize('lg'),
+                cm.sp('mb', 10),
+                'text-on-surface-variant max-w-2xl leading-relaxed mx-auto',
+              )}
+            >
+              {t(
+                'landing.heroSubtitle',
+                {},
+                {
+                  defaultValue:
+                    'The translation workspace for high-performing localization teams. Combine AI precision with editorial layout, translation memory, and a reviewer-ready workflow.',
+                },
+              )}
+            </p>
+            <div
+              className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap', justify: 'center' })}
+            >
+              <Link
+                to="/signup"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 3),
+                  cm.fontWeight('semibold'),
+                  cm.textSize('sm'),
+                  'rounded-full text-on-primary bg-gradient-to-r from-primary to-primary-container hover:opacity-90 transition-opacity inline-flex items-center gap-2 shadow-ambient',
+                )}
+              >
+                {t('landing.heroCta', {}, { defaultValue: 'Start translating' })}
+                <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                  arrow_forward
+                </span>
+              </Link>
+              <Link
+                to="/login"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 3),
+                  cm.fontWeight('semibold'),
+                  cm.textSize('sm'),
+                  'rounded-full border border-outline-variant/15 text-primary hover:bg-surface-container-low transition-colors',
+                )}
+              >
+                {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+              </Link>
+            </div>
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.sp('mt', 8),
+                'text-on-surface-variant font-mono uppercase tracking-widest',
+              )}
+            >
+              {t(
+                'landing.proof',
+                {},
+                { defaultValue: 'Trusted by 200+ localization teams · 47 supported languages' },
+              )}
+            </p>
+          </div>
+        </section>
+
+        {/* Translation bridge demo — source ⇄ target panes with center gutter */}
+        <section className={cm.cn(cm.maxW('6xl'), cm.mxAuto, cm.sp('px', 6), 'pb-24')}>
+          <div className="flex flex-col md:flex-row rounded-[1.5rem] overflow-hidden shadow-ambient bg-surface-container-highest">
+            <div className="flex-1 bg-surface-container-lowest p-8 flex flex-col relative group">
+              <div
+                className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 6))}
+              >
+                <span className="text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">
+                  {t('landing.demoSourceLabel', {}, { defaultValue: 'Source · English' })}
+                </span>
+                <span
+                  className={cm.cn('material-symbols-outlined text-outline-variant text-sm')}
+                  aria-hidden="true"
                 >
-                  {t('landing.eyebrow', {}, { defaultValue: 'Localization workspace' })}
-                </p>
-                <h1
-                  className={cm.cn(
-                    cm.sp('mb', 6),
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] bg-gradient-to-r from-primary via-primary-container to-tertiary bg-clip-text text-transparent',
-                  )}
+                  content_copy
+                </span>
+              </div>
+              <p className="font-display-serif text-2xl leading-relaxed text-on-surface font-medium border-l-4 border-transparent group-focus-within:border-tertiary pl-4 outline-none transition-colors">
+                {t(
+                  'landing.demoSourceText',
+                  {},
+                  {
+                    defaultValue:
+                      'The rapid advancement of artificial intelligence is fundamentally changing how we approach complex problem-solving in software engineering.',
+                  },
+                )}
+              </p>
+            </div>
+            <div className="w-full md:w-2 h-2 md:h-auto bg-surface-container-highest relative flex items-center justify-center">
+              <div className="absolute h-full w-[2px] bg-primary-fixed-dim" />
+              <div className="w-8 h-8 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center z-10 border border-outline-variant/15">
+                <span
+                  className={cm.cn('material-symbols-outlined text-primary text-sm')}
+                  aria-hidden="true"
                 >
-                  {t(
-                    'landing.heroTitle',
-                    { tagline: APP_TAGLINE },
-                    { defaultValue: '{{tagline}}.' },
-                  )}
-                </h1>
-                <p
-                  className={cm.cn(
-                    cm.textSize('lg'),
-                    cm.sp('mb', 10),
-                    'text-on-surface-variant max-w-xl leading-relaxed',
-                  )}
-                >
-                  {t(
-                    'landing.heroSubtitle',
-                    {},
-                    {
-                      defaultValue:
-                        'The translation workspace for high-performing localization teams. Combine AI precision with editorial layout, translation memory, and a reviewer-ready workflow.',
-                    },
-                  )}
-                </p>
-                <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                  <Link
-                    to="/signup"
+                  sync_alt
+                </span>
+              </div>
+            </div>
+            <div className="flex-1 bg-surface-container-lowest p-8 flex flex-col relative">
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                  cm.sp('mb', 6),
+                )}
+              >
+                <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
+                  <span className="text-[11px] text-primary uppercase tracking-widest font-semibold">
+                    {t('landing.demoTargetLabel', {}, { defaultValue: 'Target · Spanish' })} →
+                  </span>
+                  <span
                     className={cm.cn(
-                      cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'rounded-full text-on-primary bg-gradient-to-br from-primary to-primary-container hover:opacity-90 transition-opacity inline-flex items-center gap-2 shadow-lg shadow-primary/20',
+                      cm.textSize('xs'),
+                      'px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-medium flex items-center gap-1',
                     )}
                   >
-                    {t('landing.heroCta', {}, { defaultValue: 'Start translating' })}
                     <span
-                      className={cm.cn('material-symbols-outlined text-base')}
+                      className={cm.cn('material-symbols-outlined text-[10px]')}
                       aria-hidden="true"
                     >
-                      arrow_forward
+                      bolt
                     </span>
-                  </Link>
-                  <Link
-                    to="/login"
-                    className={cm.cn(
-                      cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'rounded-full border border-outline-variant/40 hover:bg-surface-container-low transition-colors',
-                    )}
-                  >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                  </Link>
+                    {t('landing.demoAiChip', {}, { defaultValue: 'AI generated' })}
+                  </span>
                 </div>
-                <p
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.sp('mt', 8),
-                    'text-on-surface-variant font-mono uppercase tracking-widest',
-                  )}
-                >
-                  {t(
-                    'landing.proof',
-                    {},
-                    { defaultValue: 'Trusted by 200+ localization teams · 47 supported languages' },
-                  )}
-                </p>
+                <span className="text-[11px] text-tertiary font-semibold whitespace-nowrap">
+                  {t('landing.demoConfidence', {}, { defaultValue: '98% confidence' })}
+                </span>
               </div>
-
-              {/* Sample translation pane — mirrors Translate page anatomy */}
-              <div className={cm.cn('lg:col-span-5')}>
-                <div
-                  className={cm.cn(
-                    'rounded-[2rem] overflow-hidden bg-surface-container-lowest shadow-2xl shadow-primary/10 border border-surface-container-high',
-                  )}
-                >
-                  <div
-                    className={cm.cn(
-                      cm.flex({ align: 'center', justify: 'between' }),
-                      cm.sp('px', 5),
-                      cm.sp('py', 4),
-                      'border-b border-surface-container-high bg-surface-container-low',
-                    )}
-                  >
-                    <span
-                      className={cm.cn(
-                        cm.textSize('xs'),
-                        'uppercase tracking-widest font-bold text-on-surface-variant',
-                      )}
-                    >
-                      {t('landing.demoTitle', {}, { defaultValue: 'Live preview' })}
-                    </span>
-                    <span
-                      className={cm.cn(
-                        cm.textSize('xs'),
-                        'inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-bold',
-                      )}
-                    >
-                      <span
-                        className={cm.cn('material-symbols-outlined text-[12px]')}
-                        aria-hidden="true"
-                      >
-                        bolt
-                      </span>
-                      98% AI confidence
-                    </span>
-                  </div>
-                  <div className={cm.cn('grid grid-cols-2')}>
-                    <div
-                      className={cm.cn(
-                        cm.sp('p', 5),
-                        'bg-source-pane font-serif-content text-sm border-r border-surface-container',
-                      )}
-                    >
-                      <p
-                        className={cm.cn(
-                          cm.textSize('xs'),
-                          cm.sp('mb', 2),
-                          'uppercase tracking-widest font-bold text-on-surface-variant',
-                        )}
-                      >
-                        {t('landing.demoSourceLabel', {}, { defaultValue: 'Source · English' })}
-                      </p>
-                      <p>
-                        The rapid advancement of artificial intelligence is fundamentally changing
-                        how we approach complex problem-solving in software engineering.
-                      </p>
-                    </div>
-                    <div
-                      className={cm.cn(cm.sp('p', 5), 'bg-target-pane font-serif-content text-sm')}
-                    >
-                      <p
-                        className={cm.cn(
-                          cm.textSize('xs'),
-                          cm.sp('mb', 2),
-                          'uppercase tracking-widest font-bold text-primary',
-                        )}
-                      >
-                        {t('landing.demoTargetLabel', {}, { defaultValue: 'Target · Spanish' })}
-                      </p>
-                      <p>
-                        El rápido avance de la inteligencia artificial está cambiando
-                        fundamentalmente cómo abordamos la resolución de problemas complejos en la
-                        ingeniería de software.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <p className="font-display-serif text-2xl leading-relaxed text-on-surface font-medium pl-4 outline-none">
+                {t(
+                  'landing.demoTargetText',
+                  {},
+                  {
+                    defaultValue:
+                      'El rápido avance de la inteligencia artificial está cambiando fundamentalmente cómo abordamos la resolución de problemas complejos en la ingeniería de software.',
+                  },
+                )}
+              </p>
             </div>
           </div>
         </section>
@@ -393,7 +390,7 @@ export function Landing() {
             <h2
               className={cm.cn(
                 cm.textSize('4xl'),
-                'font-extrabold tracking-tight max-w-2xl mx-auto',
+                'font-display-serif font-semibold tracking-tight max-w-2xl mx-auto',
               )}
             >
               {t(
@@ -506,7 +503,7 @@ export function Landing() {
             <h2
               className={cm.cn(
                 cm.textSize('4xl'),
-                'font-extrabold tracking-tight max-w-2xl mx-auto',
+                'font-display-serif font-semibold tracking-tight max-w-2xl mx-auto',
               )}
             >
               {t(
@@ -557,7 +554,11 @@ export function Landing() {
                   {t(`landing.plan.${p.key}.name`, {}, { defaultValue: p.defaultName })}
                 </h3>
                 <div className={cm.cn(cm.flex({ align: 'baseline', gap: 'xs' }), cm.sp('mb', 6))}>
-                  <span className={cm.cn(cm.textSize('4xl'), 'font-extrabold tracking-tight')}>
+                  <span
+                    className={cm.cn(
+                      'font-display-serif text-[2.5rem] font-semibold tracking-tight',
+                    )}
+                  >
                     {p.price}
                   </span>
                   {p.cadence && (
@@ -618,7 +619,11 @@ export function Landing() {
         >
           <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 text-center')}>
             <h3
-              className={cm.cn(cm.textSize('3xl'), cm.sp('mb', 4), 'font-extrabold tracking-tight')}
+              className={cm.cn(
+                cm.textSize('3xl'),
+                cm.sp('mb', 4),
+                'font-display-serif font-semibold tracking-tight',
+              )}
             >
               {t('landing.ctaHeading', {}, { defaultValue: 'Translate your first project today' })}
             </h3>
@@ -666,7 +671,11 @@ export function Landing() {
             cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
           )}
         >
-          <p className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>{APP_NAME}</p>
+          <p
+            className={cm.cn(cm.textSize('xl'), 'font-display-serif font-semibold tracking-tight')}
+          >
+            {APP_NAME}
+          </p>
           <p
             className={cm.cn(
               cm.textSize('xs'),

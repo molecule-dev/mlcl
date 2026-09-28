@@ -19,7 +19,7 @@ function LandingHeroChat() {
     <div
       className={cm.cn(
         cm.sp('p', 8),
-        'relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary via-[color:var(--color-primary-container)] to-[var(--color-hero-bot-bg)] text-on-primary shadow-[0_30px_60px_-15px_rgba(37,99,235,0.4)]',
+        'relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary via-[color:var(--color-primary-container)] to-[var(--color-hero-bot-bg)] text-on-primary shadow-ambient',
       )}
     >
       <div

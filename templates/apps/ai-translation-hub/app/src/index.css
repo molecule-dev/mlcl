@@ -101,6 +101,12 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
+/* Editorial display serif — the Stitch design sets headlines in Newsreader;
+   Source Serif 4 is already loaded and is the closest on-brand face. */
+.font-display-serif {
+  font-family: 'Source Serif 4', Newsreader, Georgia, serif;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
     'FILL' 0,

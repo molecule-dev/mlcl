@@ -4,6 +4,8 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { APP_NAME } from '../branding.js'
+
 interface Post {
   id: string
   title: string
@@ -70,7 +72,11 @@ function TrendingSection() {
             'font-label uppercase tracking-[0.2em] text-on-surface',
           )}
         >
-          {t('trending.heading', {}, { defaultValue: 'Trending now' })}
+          {t(
+            'trending.heading',
+            { appName: APP_NAME },
+            { defaultValue: 'Trending on {{appName}}' },
+          )}
         </h2>
       </div>
 

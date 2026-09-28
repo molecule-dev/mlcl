@@ -1,48 +1,50 @@
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch design (design-ai-meeting-notes-landing.html) sets
+     headline/body/label to Inter (mono is IBM Plex Sans). */
+  --font-headline: 'Inter', sans-serif;
 
   /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #6366f1;
-  --mol-color-primary-light: #e0e7ff;
-  --mol-color-primary-dark: #4f46e5;
+  --mol-color-primary: #4648d4;
+  --mol-color-primary-light: #e1e0ff;
+  --mol-color-primary-dark: #2f2ebe;
   --mol-color-secondary: #14b8a6;
-  --mol-color-background: #fafafa;
-  --mol-color-background-secondary: #f3f4f6;
-  --mol-color-background-tertiary: #e5e7eb;
+  --mol-color-background: #f7f9fb;
+  --mol-color-background-secondary: #f2f4f6;
+  --mol-color-background-tertiary: #eceef0;
   --mol-color-surface: #ffffff;
-  --mol-color-surface-secondary: #f9fafb;
+  --mol-color-surface-secondary: #f2f4f6;
   --mol-color-input-background: #ffffff;
-  --mol-color-text: #111827;
-  --mol-color-text-secondary: #6b7280;
-  --mol-color-text-tertiary: #9ca3af;
+  --mol-color-text: #191c1e;
+  --mol-color-text-secondary: #464554;
+  --mol-color-text-tertiary: #767586;
   --mol-color-text-inverse: #ffffff;
-  --mol-color-border: #e5e7eb;
-  --mol-color-border-secondary: #d1d5db;
-  --mol-color-border-focus: #6366f1;
+  --mol-color-border: #c7c4d7;
+  --mol-color-border-secondary: #e0e3e5;
+  --mol-color-border-focus: #4648d4;
   --mol-color-success: #10b981;
   --mol-color-warning: #f59e0b;
-  --mol-color-error: #ef4444;
-  --mol-color-info: #3b82f6;
+  --mol-color-error: #ba1a1a;
+  --mol-color-info: #00687a;
 
-  --color-primary: #4338ca; /* was #6366f1 — 4.46:1 on white links, 3.16:1 as chip text on bg-primary/10; indigo-700 = 6.3/5.4 */
-  --color-primary-hover: #4f46e5;
-  --color-primary-light: #e0e7ff;
-  --color-secondary: #0f766e; /* was #14b8a6 — 2.14:1 as chip text on secondary-container/30; teal-700 = 4.72:1 */
-  --color-secondary-hover: #0d9488;
+  --color-primary: #4648d4; /* Stitch primary — 6.0:1 on white links, 4.6:1 as chip text on bg-primary/10 */
+  --color-primary-hover: #6063ee;
+  --color-primary-light: #e1e0ff;
+  --color-secondary: #00687a;
+  --color-secondary-hover: #006172;
   --color-accent: #f59e0b;
   --color-accent-hover: #d97706;
   --color-success: #10b981;
   --color-warning: #f59e0b;
-  --color-error: #dc2626; /* was #ef4444 — 3.76:1 on white; red-600 = 4.83:1 */
-  --color-info: #3b82f6;
-  --color-bg: #fafafa;
-  --color-bg-secondary: #f3f4f6;
+  --color-error: #ba1a1a; /* was #ef4444 — 3.76:1 on white; red-600 = 4.83:1 */
+  --color-info: #00687a;
+  --color-bg: #f7f9fb;
+  --color-bg-secondary: #f2f4f6;
   --color-bg-card: #ffffff;
-  --color-bg-sidebar: #f9fafb;
-  --color-border: #e5e7eb;
-  --color-border-focus: #6366f1;
+  --color-bg-sidebar: #f2f4f6;
+  --color-border: #e0e3e5;
+  --color-border-focus: #4648d4;
   --color-text: #111827;
   --color-text-secondary: #6b7280;
   --color-text-muted: #9ca3af;
