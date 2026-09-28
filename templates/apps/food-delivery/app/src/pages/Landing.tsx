@@ -263,7 +263,7 @@ export function Landing() {
                     <div className={cm.flex({ align: 'center', gap: 'sm' })}>
                       <span
                         className={
-                          'inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-bold bg-surface/20 backdrop-blur-md'
+                          'inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-bold bg-surface/95 text-on-surface backdrop-blur-md'
                         }
                       >
                         <span className={'material-symbols-outlined text-sm'} aria-hidden="true">
@@ -273,7 +273,7 @@ export function Landing() {
                       </span>
                       <span
                         className={
-                          'px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-surface/20 backdrop-blur-md'
+                          'px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-surface/95 text-on-surface backdrop-blur-md'
                         }
                       >
                         {t('landing.sample.openNow', {}, { defaultValue: 'Open now' })}
