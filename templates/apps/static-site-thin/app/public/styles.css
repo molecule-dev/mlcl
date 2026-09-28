@@ -326,10 +326,11 @@ td {
   }
 }
 
-/* Post pages with margin notes (@molecule/app-margin-notes-html). The layout's
-   own stylesheet is appended to this file by the build; here only the
-   site-specific bits: its colours from this site's tokens, a wider shell for
-   the prose + notes pair, and the header's AI-share line. */
+/* Post pages with margin notes (@molecule/app-margin-notes-html). The build
+   puts the layout's own stylesheet BEFORE this file, so any rule here wins a
+   tie with it — override the layout here, with its --mn-* tokens or plain
+   rules. Below: its colours from this site's tokens, a wider shell for the
+   prose + notes pair, and the header's AI-share line. */
 :root {
   --mn-surface: var(--bg);
   --mn-accent-1: var(--accent);

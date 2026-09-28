@@ -232,9 +232,12 @@ export async function buildSite(options: {
         JSON.stringify(summaries.get(post.slug) ?? {}, null, 2) + '\n',
       )
     }
-    // The margin-notes layout's stylesheet (post pages with notes), after the site's own.
+    // The margin-notes layout's stylesheet goes FIRST and the site's own after it,
+    // so a rule in public/styles.css wins a tie with the layout's defaults. The
+    // other order made every site override lose (X0 x297, 2026-09-28: six minutes
+    // of a fix round went to finding that the layout's --mn-measure beat its own).
     const styles = join(staging, 'styles.css')
-    writeFileSync(styles, (existsSync(styles) ? readFileSync(styles, 'utf8') : '') + marginNotesCss)
+    writeFileSync(styles, marginNotesCss + (existsSync(styles) ? readFileSync(styles, 'utf8') : ''))
   } catch (error) {
     rmSync(staging, { recursive: true, force: true })
     throw error
