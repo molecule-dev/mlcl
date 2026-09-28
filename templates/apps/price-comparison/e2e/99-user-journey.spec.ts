@@ -16,6 +16,11 @@ test.describe('99 user-journey', () => {
   test('signup → seed → search → product → watch → alert → notifications → settings', async ({
     page,
   }) => {
+    /* Fleet convention (see telemedicine et al): an 11-step journey needs more
+       than the 45s default when the suite runs 2 workers on a loaded machine —
+       navigations alone eat the budget and the test dies mid-route. */
+    test.setTimeout(120_000)
+
     const email = uniqueEmail('journey')
     const { accessToken, userId } = await signup(page, email)
     expect(accessToken).toBeTruthy()

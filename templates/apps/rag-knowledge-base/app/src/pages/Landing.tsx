@@ -561,7 +561,10 @@ export function Landing() {
                         )}
                       </span>
                       <br />
-                      <span className="text-on-surface-variant">
+                      {/* Inherits --color-code-text (#d4d0f0) — #57546b
+                          (text-on-surface-variant) on the #1e1b2e code block was
+                          2.30:1, axe serious; code-text on it = 11.25:1. */}
+                      <span>
                         {t('landing.citations.source2Label', {}, { defaultValue: 'Description:' })}
                       </span>{' '}
                       {t(

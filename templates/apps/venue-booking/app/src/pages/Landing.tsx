@@ -488,7 +488,9 @@ export function Landing() {
                 cm.sp('mt', 4),
                 cm.maxW('2xl'),
                 cm.mxAuto,
-                'text-on-primary/85',
+                /* /95 — /85 composites to 4.17:1 on the #2b7a6f CTA band
+                   (axe color-contrast serious); /95 composites to 4.77:1. */
+                'text-on-primary/95',
               )}
             >
               {t(

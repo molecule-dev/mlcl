@@ -32,7 +32,11 @@ test.describe('plan-updated', () => {
     await page.goto(APP_BASE + '/plan-updated')
     // Either the AuthGuard has navigated us, OR the page renders a spinner;
     // never the copy itself for an unauthenticated visitor.
-    await page.waitForLoadState('networkidle')
+    // Wait on the redirect itself, not networkidle: the guard navigates from
+    // JS after the auth bond initializes, and under a loaded machine that can
+    // land well after the last network request — racing networkidle here read
+    // /plan-updated as final and failed the run (rp3 replay, 2026-09-28).
+    await page.waitForURL(/\/login/, { timeout: 30_000 })
     // After the auth bond initializes, AuthGuard should send us to /login
     // (or render the spinner state). Both are valid; what is NOT valid is the
     // signed-in copy showing.

@@ -30,6 +30,12 @@
   /* Auth accent — gradient end-stop on auth page blobs and submit buttons */
   --color-accent: #6d28d9;
 
+  /* Text-link orange. BRAND_LINK_COLOR (branding.ts) resolves this var so the
+     same token works on BOTH modes: #9a3412 = 7.31:1 on white auth cards
+     (#fb923c was 2.26:1 — axe serious); #fb923c = 8.75:1 on the dark mode
+     near-black surfaces where the bright broadcast orange belongs. */
+  --color-brand-link: #9a3412;
+
   /* Player */
   --color-player-bg: #181818;
   --color-player-progress: #c2410c;
@@ -162,6 +168,7 @@
   --color-surface-hover: #232323;
   --color-text-on-primary: #ffffff;
   --color-accent: #a78bfa;
+  --color-brand-link: #fb923c;
 
   --color-player-bg: #141414;
   --color-player-progress: #f36b21;

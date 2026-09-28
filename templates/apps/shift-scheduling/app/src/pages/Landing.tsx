@@ -615,7 +615,11 @@ export function Landing() {
                                   <span className="block text-[11px] font-bold tabular-nums">
                                     {cell.time}
                                   </span>
-                                  <span className="text-[10px] opacity-75">{cell.sub}</span>
+                                  {/* Full text-primary #4f46e5 on the cell bg
+                                      (#edecfc = primary/10 over white) = 5.39:1
+                                      (was `opacity-75`: blends to #7770eb =
+                                      3.39:1, axe serious). */}
+                                  <span className="text-[10px]">{cell.sub}</span>
                                 </div>
                               ) : (
                                 <span className="block py-3 text-center text-[11px] text-on-surface-variant">

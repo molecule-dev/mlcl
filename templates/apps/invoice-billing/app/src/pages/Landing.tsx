@@ -272,8 +272,12 @@ export function Landing() {
                 {t('landing.hero.secondary', {}, { defaultValue: 'See a sample invoice' })}
               </button>
             </div>
-            {/* Trusted-by strip — the design renders gray placeholder blocks. */}
-            <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'opacity-60 grayscale')}>
+            {/* Trusted-by strip — the design renders gray placeholder blocks.
+                No opacity on the text: #1a1a2e at 60% over the #f0f9f9 page
+                bg = 4.41:1 (axe serious). Full-opacity text is 15.9:1; the
+                placeholder blocks keep the gray, washed look via `grayscale`
+                alone (decorative, aria-hidden). */}
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'grayscale')}>
               <span
                 className={cm.cn(
                   cm.textSize('sm'),

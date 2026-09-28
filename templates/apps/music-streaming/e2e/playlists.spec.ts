@@ -11,16 +11,10 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
 import { apiSignup } from './_shared/auth.js'
-import { resetDb, dbNameForSlug } from './_shared/db.js'
 
 import { seedArtistTree } from './fixtures/seed.js'
 
-const SLUG = 'music-streaming'
 const API_URL = process.env.API_URL ?? 'http://localhost:4000'
-
-test.beforeEach(async () => {
-  await resetDb(dbNameForSlug(SLUG))
-})
 
 test('happy path: create playlist, add tracks, list, delete', async ({ request }) => {
   const { authHeaders } = await apiSignup(request, {

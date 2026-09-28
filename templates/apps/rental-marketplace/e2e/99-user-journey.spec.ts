@@ -18,6 +18,12 @@ test('full guest journey — signup → search → reserve → bookmark → mess
   page,
   context,
 }) => {
+  /* Fleet convention (see telemedicine et al): a 10+ step journey needs more
+     than the 45s default when the suite runs 2 workers on a loaded machine —
+     navigations alone eat the budget and the test dies mid-route, flapping
+     the step that happened to be current. */
+  test.setTimeout(120_000)
+
   const { email } = await signup(page)
 
   // 1. Should land somewhere authenticated, not /signup.

@@ -172,15 +172,10 @@ export function Landing() {
           </div>
         </section>
 
-        {/* Integrations (subtle grayscale row) */}
-        <section
-          className={cm.cn(
-            cm.maxW('7xl'),
-            cm.mxAuto,
-            cm.sp('px', 6),
-            'mb-32 opacity-60 grayscale transition-glide duration-500 hover:grayscale-0',
-          )}
-        >
+        {/* Integrations row — no opacity on the text: opacity-60 dropped
+            text-on-surface-variant to #8e9099 (3.18:1 on white, axe fail).
+            The token at full strength (#434655) is 9.4:1. */}
+        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'mb-32')}>
           <p className="mb-8 text-center text-xs font-semibold uppercase tracking-wide text-on-surface-variant">
             {t('landing.integrations.eyebrow', {}, { defaultValue: 'Works alongside your stack' })}
           </p>

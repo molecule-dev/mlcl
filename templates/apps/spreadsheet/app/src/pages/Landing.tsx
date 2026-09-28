@@ -404,7 +404,9 @@ export function Landing() {
                 <span className="text-on-surface-variant">=</span>
                 <span className="text-formula font-semibold">SUM</span>
                 <span className="text-on-surface-variant">(</span>
-                <span className="text-primary bg-primary-light px-0.5 rounded">B2:B10</span>
+                {/* primary-dark: #1d4ed8 = 5.49:1 on bg-primary-light #dbeafe
+                    (text-primary #2563eb was 4.23:1 — axe color-contrast fail) */}
+                <span className="text-primary-dark bg-primary-light px-0.5 rounded">B2:B10</span>
                 <span className="text-on-surface-variant">)</span>
               </span>
             </div>
@@ -608,10 +610,13 @@ export function Landing() {
             </a>
           </p>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
+            {/* No opacity-* on these links: axe composites it — on-surface-variant
+                #475569 at 80% over #f1f5f9 = #697586 = 4.26:1 (axe fail). Full
+                opacity is 6.92:1. */}
             <Link
               to="/login"
               className={
-                'text-xs underline underline-offset-4 opacity-80 hover:opacity-100 hover:text-primary transition-all'
+                'text-xs underline underline-offset-4 hover:text-primary transition-colors'
               }
             >
               {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -619,7 +624,7 @@ export function Landing() {
             <Link
               to="/signup"
               className={
-                'text-xs underline underline-offset-4 opacity-80 hover:opacity-100 hover:text-primary transition-all'
+                'text-xs underline underline-offset-4 hover:text-primary transition-colors'
               }
             >
               {t('auth.login.signUp', {}, { defaultValue: 'Sign up' })}
@@ -627,7 +632,7 @@ export function Landing() {
             <a
               href="mailto:hello@calcite.dev"
               className={
-                'text-xs underline underline-offset-4 opacity-80 hover:opacity-100 hover:text-primary transition-all'
+                'text-xs underline underline-offset-4 hover:text-primary transition-colors'
               }
             >
               {t('nav.contact', {}, { defaultValue: 'Contact' })}

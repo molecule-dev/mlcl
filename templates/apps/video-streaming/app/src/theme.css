@@ -41,7 +41,9 @@
   --spool-cta-to: #f43f5e;
   --spool-cta-from-hover: #6d28d9;
   --spool-cta-to-hover: #e11d48;
-  --spool-live: #ef4444;
+  --spool-live: #f2605a; /* live TEXT accent — 5.3:1 on dark surface (#ef4444 was 4.49, a marginal axe fail) */
+  --spool-live-badge: #dc2626; /* badge BACKGROUND — white badge text 4.83:1 (#ef4444 was 3.76, axe fail) */
+  --spool-stat-accent: #8b5cf6; /* stat-tile number + eyebrow accent — 4.96:1 on the black tile (#7c3aed was 3.68, axe fail at 11px) */
 
   /* Typography sizes */
   --font-size-xs: 0.75rem;
@@ -198,7 +200,8 @@
   --spool-cta-to: #f43f5e;
   --spool-cta-from-hover: #6d28d9;
   --spool-cta-to-hover: #e11d48;
-  --spool-live: #ef4444;
+  --spool-live: #f2605a;
+  --spool-stat-accent: #8b5cf6;
 }
 
 /* Light mode overrides — daytime watch palette keeping the violet→rose brand.
@@ -279,4 +282,5 @@
   --spool-cta-from-hover: #5b21b6;
   --spool-cta-to-hover: #be185d;
   --spool-live: #dc2626;
+  --spool-stat-accent: #6d28d9; /* 7.1:1 on the white tile */
 }

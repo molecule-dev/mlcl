@@ -199,7 +199,7 @@ export function Landing() {
                     className={cm.cn(
                       cm.textSize('sm'),
                       cm.fontWeight('medium'),
-                      'uppercase tracking-widest text-stage-light',
+                      'uppercase tracking-widest text-ring-ink',
                       cm.sp('mb', 1),
                     )}
                   >
@@ -218,7 +218,7 @@ export function Landing() {
                     )}
                   >
                     <span aria-hidden="true" className={cm.cn('h-2 w-2 rounded-full bg-success')} />
-                    <span className={cm.cn('text-success')}>
+                    <span className={cm.cn('text-emerald-300')}>
                       {t('landing.scoreDelta', {}, { defaultValue: '+4 vs last week' })}
                     </span>
                   </div>

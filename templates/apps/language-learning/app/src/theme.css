@@ -21,7 +21,10 @@
   --mol-color-text-secondary: #6b5d8a;
   --mol-color-text-tertiary: #4a3d6b;
   --mol-color-text-inverse: #ffffff;
-  --mol-color-success: #16a34a;
+  /* #166534 not #16a34a: text-success sits on bg-success/10 chips (~#e8f6ed on
+     white) — green-600 was 2.95:1 there (axe serious); #166534 = 6.40:1 on the
+     chip and lifts every white-on-success pairing too. Dark mode keeps #34d058. */
+  --mol-color-success: #166534;
   --mol-color-success-light: #dcfce7;
   --mol-color-warning: #f97316;
   --mol-color-warning-light: #fff7ed;
@@ -88,7 +91,10 @@
   /* Parlance signature accents — used by bespoke streak / XP / mastery treatments. */
   --parlance-streak: #f97316;
   --parlance-streak-light: #fff7ed;
-  --parlance-xp: #eab308;
+  /* #b45309 not #eab308: the "+10 XP" pill renders parlance-xp as 16px bold
+     text on the white bg-surface badge — yellow-500 was 1.91:1 (axe serious);
+     amber-700 = 5.02:1. Dark mode keeps vivid #facc15 on the dark canvas. */
+  --parlance-xp: #b45309;
   --parlance-xp-light: #fef9c3;
   --parlance-mastery: #6c3ce0;
   --parlance-mastery-light: #ede9fe;

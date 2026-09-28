@@ -47,11 +47,14 @@
       Stitch headline faces — design-subscription-box-landing.html sets display
       headings in DM Sans and nav/labels in Plus Jakarta Sans (body stays Inter,
       preloaded below). Google Fonts link; falls back to the local sans.
+      Multi-axis css2 tuples must list EVERY axis per tuple — `opsz,wght@9..40,400;500;700`
+      is a 400 from Google (no CORS headers on it either, which tripped the e2e
+      console guard); the corrected per-tuple form below returns 200.
     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap"
       rel="stylesheet"
     />
     <!-- /mol:design-resources -->

@@ -5,8 +5,10 @@ import { APP_BASE } from './_helpers.js'
 test.describe('Landing', () => {
   test('renders Meridian brand + primary CTAs to signup and pricing', async ({ page }) => {
     await page.goto(APP_BASE + '/')
+    // Exact: the nav also carries "About Meridian", which a bare /Meridian/i
+    // regex also matches — strict mode then throws on the two-element resolve.
     await expect(
-      page.getByRole('navigation').getByRole('link', { name: /Meridian/i }),
+      page.getByRole('navigation').getByRole('link', { name: 'Meridian', exact: true }),
     ).toBeVisible()
     await expect(
       page.getByRole('link', { name: /Create your booking link/i }).first(),

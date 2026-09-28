@@ -30,8 +30,15 @@ import {
 } from './booking.js'
 import type { FlightRow } from './flights.js'
 
-/** How far ahead the watcher looks. */
-const LOOKAHEAD_HOURS = 36
+/**
+ * How far ahead the watcher looks. Must cover the seeded inventory's demo
+ * window (the e2e specs and the UI's "simulate delay" drive the rebook flow
+ * on flights booked a WEEK out — seedInventory serves SEED_DAYS of rows), so
+ * 36h never saw those bookings and the automatic rebook silently no-op'd.
+ * Harmless in live use: a rebook still fires only when the flight's status
+ * feed actually reports a delay past REBOOK_DELAY_MINUTES.
+ */
+const LOOKAHEAD_HOURS = 24 * 10
 
 /** Mark an inventory flight delayed (or back on time with 0 minutes). */
 export async function simulateDelay(flightId: string, minutes: number): Promise<FlightRow | null> {

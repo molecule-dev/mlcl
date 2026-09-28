@@ -381,7 +381,7 @@ export function Landing() {
                     {tile.live && (
                       <div
                         className={cm.cn(
-                          'absolute top-2 left-2 flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold uppercase text-white bg-[var(--spool-live)]',
+                          'absolute top-2 left-2 flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold uppercase text-white bg-[var(--spool-live-badge)]',
                         )}
                       >
                         <span
@@ -457,7 +457,7 @@ export function Landing() {
                   {card.live ? (
                     <div
                       className={cm.cn(
-                        'absolute top-2 left-2 flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold uppercase text-white bg-[var(--spool-live)]',
+                        'absolute top-2 left-2 flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold uppercase text-white bg-[var(--spool-live-badge)]',
                       )}
                     >
                       <span className={cm.cn('h-1.5 w-1.5 rounded-full bg-white animate-pulse')} />
@@ -524,17 +524,19 @@ export function Landing() {
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-12')}>
           <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-2 md:grid-cols-4')}>
             {STATS.map((s) => (
+              // stat accent, NOT --spool-cta-from: the 11px eyebrow label reads it as text and
+              // #7c3aed on the black tile is 3.68:1 (axe fail); this token is 4.96:1 dark / 7.1:1 light
               <div
                 key={s.key}
                 className={cm.cn(
                   'bg-surface-container-lowest rounded-2xl p-6 text-center hover:shadow-lg transition-shadow',
                   cm.accentCard({ tone: 'custom' }),
                 )}
-                style={{ ['--mol-accent' as string]: 'var(--spool-cta-from)' }}
+                style={{ ['--mol-accent' as string]: 'var(--spool-stat-accent)' }}
               >
                 <p
                   className={cm.cn(
-                    'text-3xl md:text-4xl font-extrabold tracking-tight tabular-nums text-[var(--spool-cta-from)]',
+                    'text-3xl md:text-4xl font-extrabold tracking-tight tabular-nums text-[var(--spool-stat-accent)]',
                   )}
                 >
                   {s.value}

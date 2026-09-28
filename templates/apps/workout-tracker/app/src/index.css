@@ -41,6 +41,8 @@
   --color-pr: #b45309;
   --color-pr-light: #fef3cd;
   --color-pr-text: #92600a;
+  /* Text-safe primary (axe contrast) — keep in sync with theme.css. */
+  --color-primary-text: #cc3f1d;
   --color-volume-up: #166534;
   --color-volume-down: #b91c1c;
   --color-rest-timer: #4338ca;

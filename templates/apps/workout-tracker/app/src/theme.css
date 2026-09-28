@@ -66,6 +66,10 @@
   --color-inverse-on-surface: #fafafa;
   --color-inverse-primary: #f07050;
   --color-primary: #e05030;
+  /* Text-safe primary: #e05030 is only 3.92:1 on white as TEXT (axe
+     color-contrast fail). Small primary-colored text uses this darker
+     forge-orange instead — 4.89:1 on #ffffff, 4.68:1 on #fafafa. */
+  --color-primary-text: #cc3f1d;
   --color-primary-container: #fee2d5;
   /* #150702 on #e05030 = 5.04:1 — passes AA. White was 3.92:1 (fail). */
   --color-on-primary: #150702;
@@ -209,6 +213,9 @@
   --color-inverse-on-surface: #0a0a14;
   --color-inverse-primary: #e05030;
   --color-primary: #f07050; /* keep brand orange at slightly brighter dark stop */
+  /* Dark-mode text-safe primary — the dark primary itself reads cleanly
+     as text on the dark canvas (#f07050 on #111827 = 6.03:1). */
+  --color-primary-text: #f07050;
   --color-primary-container: #3a1810;
   /* #1e0a02 on #f07050 = 6.49:1 — passes AA. White was 2.94:1 (fail). */
   --color-on-primary: #1e0a02;

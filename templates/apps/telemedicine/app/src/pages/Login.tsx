@@ -209,14 +209,14 @@ export function Login() {
             <div className={cm.cn(cm.flex({ wrap: 'wrap', justify: 'center' }), 'gap-x-8 gap-y-2')}>
               <LegalModalLinks
                 linkClassName={
-                  'text-[10px] font-bold text-foreground-tertiary uppercase tracking-widest hover:text-primary transition-colors'
+                  'text-[10px] font-bold text-on-surface-variant uppercase tracking-widest hover:text-primary transition-colors'
                 }
                 appName={APP_NAME}
                 loadContent={loadContent}
                 privacyLabel={t('footer.privacyPolicy', {}, { defaultValue: 'Privacy Policy' })}
                 termsLabel={t('footer.termsOfService', {}, { defaultValue: 'Terms of Service' })}
               />
-              <span className="text-[10px] font-bold text-foreground-tertiary uppercase tracking-widest">
+              <span className="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
                 {t('loginFooter.hipaa', {}, { defaultValue: 'HIPAA Compliant' })}
               </span>
             </div>

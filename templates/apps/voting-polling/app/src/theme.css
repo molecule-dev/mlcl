@@ -89,8 +89,11 @@
   --quorum-stage-text: #cbd5e1; /* slate-300 toolbar text */
   --quorum-stage-dim: #94a3b8; /* slate-400 muted */
   --quorum-stage-accent: #22d3ee; /* cyan-400 timer */
-  --quorum-stage-bar1: #0891b2; /* cyan-600 leading bar */
-  --quorum-stage-bar2: #10b981; /* emerald-500 second bar */
+  /* Stage bars carry WHITE text (option labels, "Close Poll" button), so
+     they must hold ≥4.5:1 against #fff. cyan-600/emerald-500 measured
+     3.68/2.53 — cyan-700/emerald-700 give 5.36/5.48. */
+  --quorum-stage-bar1: #0e7490; /* cyan-700 leading bar */
+  --quorum-stage-bar2: #047857; /* emerald-700 second bar */
   --quorum-footer-bg: #020617; /* slate-950 */
   --quorum-footer-fg: #f8fafc;
   --quorum-footer-muted: #94a3b8;

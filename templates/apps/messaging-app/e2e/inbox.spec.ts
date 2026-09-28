@@ -21,9 +21,18 @@ test.describe('inbox page', () => {
 
   test('GET /api/conversations is hit on inbox load', async ({ page }) => {
     await signup(page, uniqueEmail('inbox-net'))
+    // Arm the response wait BEFORE the goto. networkidle is not a reliable
+    // readiness gate here: signup already leaves the page on /inbox, so the
+    // navigation below races a document whose load state machine already
+    // went idle once, and under parallel workers the mount fetch can slip
+    // past the wait. Awaiting the GET by name cannot be raced.
+    const conversationsGet = page.waitForResponse(
+      (r) => r.request().method() === 'GET' && /\/api\/conversations(\?|$)/.test(r.url()),
+      { timeout: 20_000 },
+    )
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/inbox')
-      await page.waitForLoadState('networkidle')
+      await conversationsGet
     })
     expect(
       reqs.some(

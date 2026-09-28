@@ -275,7 +275,12 @@ export function Landing() {
           >
             {/* Mock sidebar */}
             <div className="w-64 bg-surface-container-low p-6 hidden md:block shrink-0">
-              <div className={cm.cn(microLabel, 'text-on-surface-variant/60 mb-4')}>
+              {/* Micro labels carry the FULL variant token: the old /60 alpha
+                  blended to #8a8c92 = 3.05:1 on container-low #f4f4f1 at
+                  11.2px (axe serious). #444652 direct is 8.49:1. Same fix on
+                  every microLabel below (the footer link flagged as its own
+                  node because it inherited the diluted color). */}
+              <div className={cm.cn(microLabel, 'text-on-surface-variant mb-4')}>
                 {t('landing.mock.workspace', {}, { defaultValue: 'Workspace' })}
               </div>
               <ul className="space-y-3 text-sm text-on-surface-variant">
@@ -380,7 +385,7 @@ export function Landing() {
           <div className="col-span-2 md:col-span-1">
             <div className="font-headline text-xl font-medium text-on-surface mb-3">{APP_NAME}</div>
             <p className="text-sm text-on-surface-variant mb-8">{APP_TAGLINE}</p>
-            <div className={cm.cn(microLabel, 'text-on-surface-variant/60')}>
+            <div className={cm.cn(microLabel, 'text-on-surface-variant')}>
               {t(
                 'landing.footer.copyright',
                 { year: new Date().getFullYear(), appName: APP_NAME },
@@ -398,7 +403,7 @@ export function Landing() {
             </div>
           </div>
           <div>
-            <h4 className={cm.cn(microLabel, 'text-on-surface-variant/60 mb-4')}>
+            <h4 className={cm.cn(microLabel, 'text-on-surface-variant mb-4')}>
               {t('landing.footer.product', {}, { defaultValue: 'Product' })}
             </h4>
             <ul className="space-y-2 text-sm">
@@ -421,7 +426,7 @@ export function Landing() {
             </ul>
           </div>
           <div>
-            <h4 className={cm.cn(microLabel, 'text-on-surface-variant/60 mb-4')}>
+            <h4 className={cm.cn(microLabel, 'text-on-surface-variant mb-4')}>
               {t('landing.footer.resources', {}, { defaultValue: 'Resources' })}
             </h4>
             <ul className="space-y-2 text-sm">
@@ -444,7 +449,7 @@ export function Landing() {
             </ul>
           </div>
           <div>
-            <h4 className={cm.cn(microLabel, 'text-on-surface-variant/60 mb-4')}>
+            <h4 className={cm.cn(microLabel, 'text-on-surface-variant mb-4')}>
               {t('landingFooter.account', {}, { defaultValue: 'Account' })}
             </h4>
             <ul className="space-y-2 text-sm">

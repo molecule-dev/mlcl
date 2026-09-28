@@ -452,14 +452,18 @@ export function Landing() {
                     className={cm.cn(
                       cm.sp('p', 4),
                       cm.flex({ justify: 'between', align: 'center' }),
-                      'rounded-xl bg-primary-fixed text-primary shadow-lg shadow-primary/10',
+                      // text-primary on the light primary-fixed chip was 3.92:1
+                      // (axe serious); text-on-primary-fixed is the pairing the
+                      // framework mixes for this bg — 11.2:1 light / 11.4:1 dark.
+                      'rounded-xl bg-primary-fixed text-on-primary-fixed shadow-lg shadow-primary/10',
                     )}
                   >
                     <div className={cm.flex({ direction: 'col' })}>
                       <span className={cm.cn(cm.fontWeight('bold'))}>
                         {t('landing.bookingCard.slot2', {}, { defaultValue: '10:30 AM' })}
                       </span>
-                      <span className={cm.cn(cm.textSize('xs'), 'opacity-80')}>
+                      {/* No opacity on text: #4f46e5 at 80% over the fixed bg was 2.95:1. */}
+                      <span className={cm.cn(cm.textSize('xs'))}>
                         {t('landing.bookingCard.date', {}, { defaultValue: 'Tuesday, Oct 24' })}
                       </span>
                     </div>

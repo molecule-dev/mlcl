@@ -112,7 +112,16 @@ test.describe('timeline page', () => {
   test('Deleting a milestone via the popover removes it from /api/milestones', async ({ page }) => {
     const { accessToken } = await signup(page, uniqueEmail('timeline-del'))
     const project = await seedProject(page, accessToken, { name: 'Del Mile Proj' })
-    const due = new Date(Date.now() + 3 * 86400_000).toISOString()
+    // The calendar grid renders only the CURRENT month, so "today + 3d" must
+    // stay inside it — clamp to the last day of the month or the event chip
+    // never renders (2026-09-28: Sep 28 + 3d = Oct 1 → chip absent → fail).
+    const now = new Date()
+    const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate()
+    const due = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      Math.min(now.getDate() + 3, endOfMonth),
+    ).toISOString()
     const m = await seedMilestone(page, accessToken, {
       title: 'Delete me',
       project_id: project.id,

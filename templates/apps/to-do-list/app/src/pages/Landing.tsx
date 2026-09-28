@@ -244,7 +244,7 @@ export function Landing() {
                 >
                   add
                 </span>
-                <span className="text-sm text-on-surface-variant/70">
+                <span className="text-sm text-on-surface-variant">
                   {t('landing.mock.quickAdd', {}, { defaultValue: 'Add a task...' })}
                 </span>
               </div>
@@ -305,7 +305,7 @@ export function Landing() {
                 {/* Completed */}
                 <div aria-hidden="true" className="my-3 border-t border-outline-variant/40" />
                 {(['Prepare monthly report', 'Reply to client emails'] as const).map((title) => (
-                  <div key={title} className="flex items-center p-2 opacity-50">
+                  <div key={title} className="flex items-center p-2">
                     <span className="mr-3 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-outline-variant">
                       <span
                         className="material-symbols-outlined text-[14px] text-on-primary"
@@ -364,7 +364,7 @@ export function Landing() {
               <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
                 {t('landing.week.heading', {}, { defaultValue: 'See your week at a glance' })}
               </h2>
-              <p className="mx-auto max-w-2xl text-on-surface-variant">
+              <p className="mx-auto max-w-2xl text-inverse-primary">
                 {t(
                   'landing.week.body',
                   {},
@@ -382,14 +382,14 @@ export function Landing() {
                   className={`min-w-[140px] flex-1 snap-center rounded-lg border p-4 ${
                     d.active
                       ? 'z-10 scale-105 border-primary bg-primary text-on-primary shadow-lg'
-                      : 'border-white/10 bg-white/5 opacity-60'
+                      : 'border-white/10 bg-white/5'
                   }`}
                 >
-                  <div className="mb-1 text-xs font-semibold uppercase tracking-wider opacity-80">
+                  <div className="mb-1 text-xs font-semibold uppercase tracking-wider">
                     {t(d.day, {}, { defaultValue: DAY_DEFAULTS[d.day] ?? d.day })}
                   </div>
                   <div className="mb-4 text-2xl font-bold tracking-tight">{d.date}</div>
-                  <div className="flex items-center gap-2 text-sm opacity-90">
+                  <div className="flex items-center gap-2 text-sm">
                     <span className="material-symbols-outlined text-[16px]">
                       {d.done ? 'check_circle' : 'radio_button_unchecked'}
                     </span>

@@ -449,7 +449,10 @@ export function Landing() {
                     <div
                       className={cm.cn(
                         cm.flex({ align: 'center', justify: 'center' }),
-                        'w-10 h-10 rounded-full bg-primary-container text-primary text-xs font-bold shrink-0',
+                        /* text-on-primary-container, not text-primary: brand violet on
+                           primary-container was 3.93:1 at 12px bold (axe serious);
+                           the M3 on-container pairing is 8.60:1 light / 10.06:1 dark. */
+                        'w-10 h-10 rounded-full bg-primary-container text-on-primary-container text-xs font-bold shrink-0',
                       )}
                     >
                       MI

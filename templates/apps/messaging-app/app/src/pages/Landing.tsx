@@ -377,7 +377,7 @@ export function Landing() {
                     >
                       add_circle
                     </span>
-                    <div className={cm.cn(cm.textSize('sm'), 'flex-1 text-on-surface-variant/60')}>
+                    <div className={cm.cn(cm.textSize('sm'), 'flex-1 text-on-surface-variant')}>
                       {t(
                         'landing.phone.placeholder',
                         { app: APP_NAME },

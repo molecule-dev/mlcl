@@ -23,9 +23,25 @@ const NOTIFICATION_TOGGLES: ReadonlyArray<ToggleRow> = [
     defaultDescription: 'A note when someone pays their share of a bill.',
   },
   {
+    key: 'reminders',
+    defaultLabel: 'Daily check-in',
+    defaultDescription: 'A short morning nudge with today’s trips and any action needed.',
+  },
+  {
     key: 'productUpdates',
     defaultLabel: 'Product updates',
     defaultDescription: 'Occasional emails about new features.',
+  },
+]
+
+// Privacy toggles — persisted under the same /preferences doc (the API keeps
+// them in users.oauthData alongside travelPreferences). The e2e suite flips
+// `transcripts` and expects the default to be ON.
+const PRIVACY_TOGGLES: ReadonlyArray<ToggleRow> = [
+  {
+    key: 'transcripts',
+    defaultLabel: 'Save transcripts',
+    defaultDescription: 'Keep chat transcripts so the agent can pick up where you left off.',
   },
 ]
 
@@ -50,6 +66,7 @@ interface Preferences {
   phone: string
   homeAirport: string
   notifications: Record<string, boolean>
+  privacy: Record<string, boolean>
   voicePlaybackEnabled: boolean
 }
 
@@ -58,7 +75,8 @@ const DEFAULT_PREFS: Preferences = {
   language: 'en-US',
   phone: '',
   homeAirport: '',
-  notifications: { delays: true, payments: true, productUpdates: false },
+  notifications: { delays: true, payments: true, reminders: true, productUpdates: false },
+  privacy: { transcripts: true },
   voicePlaybackEnabled: true,
 }
 
@@ -96,6 +114,10 @@ function Settings() {
           notifications: {
             ...DEFAULT_PREFS.notifications,
             ...(prefsRes.data?.notifications ?? {}),
+          },
+          privacy: {
+            ...DEFAULT_PREFS.privacy,
+            ...((prefsRes.data as Partial<Preferences>)?.privacy ?? {}),
           },
           voicePlaybackEnabled:
             prefsRes.data?.voicePlaybackEnabled ?? DEFAULT_PREFS.voicePlaybackEnabled,
@@ -142,6 +164,7 @@ function Settings() {
         ...prev,
         ...patch,
         notifications: { ...prev.notifications, ...(patch.notifications ?? {}) },
+        privacy: { ...prev.privacy, ...(patch.privacy ?? {}) },
       }
       void persist(next)
       return next
@@ -348,6 +371,47 @@ function Settings() {
               />
             </label>
           </div>
+        </section>
+
+        <section className={cm.cn(cm.sp('p', 6), 'rounded-2xl bg-surface border border-border')}>
+          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), cm.sp('mb', 4))}>
+            {t('settings.privacy', {}, { defaultValue: 'Privacy' })}
+          </h2>
+          <ul className={cm.cn(cm.flex({ direction: 'col' }), cm.stack(4))}>
+            {PRIVACY_TOGGLES.map((row) => (
+              <li
+                key={row.key}
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+                  cm.sp('py', 1),
+                )}
+              >
+                <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-0')}>
+                  <span className={cm.cn(cm.fontWeight('semibold'), cm.textSize('sm'))}>
+                    {t(`settings.privacy.${row.key}.label`, {}, { defaultValue: row.defaultLabel })}
+                  </span>
+                  <span className={cm.cn(cm.textMuted, cm.textSize('xs'))}>
+                    {t(
+                      `settings.privacy.${row.key}.desc`,
+                      {},
+                      { defaultValue: row.defaultDescription },
+                    )}
+                  </span>
+                </div>
+                <Switch
+                  checked={!!prefs.privacy[row.key]}
+                  onChange={(e) =>
+                    update({ privacy: { [row.key]: (e.target as HTMLInputElement).checked } })
+                  }
+                  aria-label={t(
+                    `settings.privacy.${row.key}.label`,
+                    {},
+                    { defaultValue: row.defaultLabel },
+                  )}
+                />
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section className={cm.cn(cm.sp('p', 6), 'rounded-2xl bg-surface border border-border')}>

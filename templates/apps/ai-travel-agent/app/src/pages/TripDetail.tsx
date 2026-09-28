@@ -293,6 +293,13 @@ function TripDetail() {
                 {formatMoney(live.total_cents, live.currency)}
               </span>
             </div>
+            {/* The booking card carries its own status pill: the header pill
+                scrolls away, and after an auto-rebook the reader needs the
+                replacement booking's status right where the flight details
+                are (the history list only covers the OLD bookings). */}
+            <div className={cm.cn(cm.sp('mt', 4))}>
+              <BookingStatusPill status={live.status} delayMinutes={live.delay_minutes} />
+            </div>
             {canAct ? (
               <div
                 className={cm.cn(

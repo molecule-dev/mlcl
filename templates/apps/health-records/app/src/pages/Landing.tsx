@@ -394,8 +394,7 @@ export function Landing() {
                         </span>
                       </span>
                       <span className="font-mono font-medium tabular-nums">
-                        {v.value}{' '}
-                        <span className="text-on-surface-variant/70 text-sm">{v.unit}</span>
+                        {v.value} <span className="text-on-surface-variant text-sm">{v.unit}</span>
                       </span>
                     </div>
                   ))}

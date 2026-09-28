@@ -10,16 +10,10 @@
 
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { resetDb, dbNameForSlug } from './_shared/db.js'
 import { signupAndLogin } from './_shared/auth.js'
 
-const SLUG = 'music-streaming'
 const API_URL = process.env.API_URL ?? 'http://localhost:4000'
 const BASE_URL = process.env.BASE_URL ?? 'http://localhost:5173'
-
-test.beforeEach(async () => {
-  await resetDb(dbNameForSlug(SLUG))
-})
 
 test('happy path: signup creates session, authenticated home does not redirect to /login', async ({
   page,

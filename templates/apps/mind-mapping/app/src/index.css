@@ -26,6 +26,14 @@
 
 @import '@molecule/app-ui-tailwind/base.css';
 
+/* cm.w(11)/cm.h(6) (Share page's public-link toggle) and cm.w(5)/cm.h(5)
+   (its knob) are assembled at runtime — Share.tsx holds no string literals
+   for them, so the scanner never sees these candidates and Tailwind never
+   generates the utilities. The toggle rendered 0-height (its knob is the
+   only content), which is why e2e 08-share "Public link toggle flips
+   is_public" timed out on an invisible button. */
+@source inline("w-11 h-6 w-5 h-5");
+
 /* Dotted canvas — the Stitch landing's blueprint background. Dots read the
    border token so they stay subtle in both light and dark mode. */
 .bg-dot-grid {

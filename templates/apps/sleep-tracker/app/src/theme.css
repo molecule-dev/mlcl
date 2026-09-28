@@ -22,6 +22,7 @@
   /* Sleep stage chart colors */
   --color-stage-deep: #3730a3;
   --color-stage-light: #818cf8;
+  --color-ring-ink: #4338ca; /* eyebrow ink on the white ring card (light) */
   --color-stage-rem: #a78bfa;
   --color-stage-awake: #d97706;
 
@@ -230,6 +231,7 @@
   /* Sleep stage chart colors — brighter for dark surfaces */
   --color-stage-deep: #4338ca;
   --color-stage-light: #a5b4fc;
+  --color-ring-ink: #a5b4fc; /* on the dark ring card */
   --color-stage-rem: #c4b5fd;
   --color-stage-awake: #fbbf24;
 

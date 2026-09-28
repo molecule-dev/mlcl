@@ -120,7 +120,7 @@
   --color-surface-container-highest: #e5e5e5;
   --color-surface-variant: #f5f5f5;
   --color-on-surface: #262626;
-  --color-on-surface-variant: #6b6b6b; /* #737373 was 4.34:1 on #f5f5f5 (fail); #6b6b6b = 4.89:1 */
+  --color-on-surface-variant: #595959; /* #737373 was 4.34:1 on #f5f5f5 (fail); #6b6b6b = 4.89:1 on #f5f5f5 but 4.42-4.47:1 on the pastel feature cards #fce4ec/#e8eaff (fail); #595959 = 5.31-5.89:1 on every light surface incl. those cards */
   --color-inverse-surface: #262626;
   --color-inverse-on-surface: #fafafa;
   --color-inverse-primary: #fce4ec;

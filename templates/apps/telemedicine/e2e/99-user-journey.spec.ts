@@ -21,7 +21,7 @@ test('99 — full patient journey: signup → book → consult → message → s
 
   // 1. Land on the marketing page.
   await page.goto(APP_BASE + '/')
-  await expect(page.getByRole('link', { name: /sign\s*up/i }).first()).toBeVisible()
+  await expect(page.getByRole('link', { name: /get care now/i }).first()).toBeVisible()
 
   // 2. Sign up — lands authed.
   const { email, password, accessToken } = await signup(page)

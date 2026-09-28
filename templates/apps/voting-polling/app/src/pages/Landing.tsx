@@ -206,7 +206,9 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('px', 3),
                   cm.sp('py', 1),
-                  'inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest',
+                  // text-primary (#0e7490) on primary/10-over-white is 4.40:1 —
+                  // the darker primary-dark (#155e75) is 5.97:1 on that tint.
+                  'inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary-dark text-[10px] font-black uppercase tracking-widest',
                 )}
               >
                 <span className="material-symbols-outlined text-[14px]" aria-hidden="true">
@@ -326,7 +328,9 @@ export function Landing() {
             className={cm.cn(
               cm.sp('mt', 4),
               cm.flex({ align: 'center', justify: 'center', gap: 'lg', wrap: 'wrap' }),
-              'opacity-70',
+              // No opacity-* here: it composites the muted token down to
+              // ~3.5:1 on the card tint (axe color-contrast). The muted look
+              // IS text-on-surface-variant (#475569, ≥6.9:1 on these tints).
             )}
           >
             {SOCIAL_PROOF.map((s) => (

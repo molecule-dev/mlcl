@@ -237,7 +237,10 @@ function Landing() {
                     { defaultValue: '“Long-form craft deserves a quiet canvas.”' },
                   )}
                 </span>
-                <span className={cm.textSize('xs') + ' text-outline whitespace-nowrap'}>
+                {/* text-outline (#8d7168) is 4.47:1 on white — just under the
+                    4.5:1 AA bar at 12px. on-surface-variant (#59413a) keeps
+                    the muted caption look at 9.37:1. */}
+                <span className={cm.textSize('xs') + ' text-on-surface-variant whitespace-nowrap'}>
                   FIG. 01
                 </span>
               </div>

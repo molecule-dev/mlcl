@@ -111,7 +111,7 @@
   /* Extended tokens used in TSX className strings (default = dark NLE palette) */
   --video-text-primary: #f1f0f5; /* bright text for headings/values */
   --video-text-muted-alt: #9896a6; /* mid-tone muted text */
-  --video-text-dim: #6b6880; /* dimmer muted text / placeholders */
+  --video-text-dim: #8a8ab0; /* dimmer muted text / placeholders — lightened from #6b6880, which was 3.2-3.7:1 on the dark surfaces (fail); #8a8ab0 = ≥4.99:1 on every dark surface */
   --video-link: #a78bfa; /* link/accent — brightened primary */
   --video-link-hover: #ec4899; /* link hover — pink accent */
   --video-cta-from: #7c3aed; /* gradient CTA start stop */
@@ -224,7 +224,7 @@
   /* Extended tokens — dark mode overrides */
   --video-text-primary: #f0f0f8;
   --video-text-muted-alt: #a8a8c8;
-  --video-text-dim: #6a6a88;
+  --video-text-dim: #8a8ab0; /* lightened from #6a6a88 — was 3.31-3.71:1 on #0d0d12/#0f0f18/#1a1a24 (fail); #8a8ab0 = 4.99-5.85:1 on all dark surfaces */
   --video-link: #8b7ef0;
   --video-link-hover: #ff8fb8;
   --video-cta-from: #7c3aed;

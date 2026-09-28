@@ -160,7 +160,10 @@
   /* Text */
   --photo-text: #f0f0f5;
   --photo-text-secondary: #b8b8c8;
-  --photo-text-muted: #8a8aa8;
+  /* #9c9cb8 not #8a8aa8: muted body text over the hero gradient blend (#2c2053
+     where the accent glow sits) was 4.36:1 (axe serious); #9c9cb8 = 5.46:1 on
+     that blend and stays clearly lighter than --photo-text-secondary. */
+  --photo-text-muted: #9c9cb8;
 
   /* Canvas — neutral near-black for colour-accurate viewing */
   --photo-canvas-bg: #050507;
@@ -201,7 +204,7 @@
   --mol-color-border-focus: #a78bfa;
   --mol-color-text: #f0f0f5;
   --mol-color-text-secondary: #b8b8c8;
-  --mol-color-text-tertiary: #8a8aa8;
+  --mol-color-text-tertiary: #9c9cb8; /* keep in step with --photo-text-muted (same axe fix) */
   --mol-color-text-inverse: #0c0c1d;
   --mol-color-success: #34d399;
   --mol-color-warning: #ffdb8a;

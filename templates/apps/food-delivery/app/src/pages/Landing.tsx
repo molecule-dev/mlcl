@@ -337,7 +337,7 @@ export function Landing() {
                     </div>
 
                     <div>
-                      <p className="text-[11px] font-bold uppercase tracking-widest text-white/85">
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-white">
                         {t('landing.sample.trending', {}, { defaultValue: 'Trending tonight' })}
                       </p>
                       <p className={'text-2xl font-extrabold mt-1'}>
@@ -407,7 +407,7 @@ export function Landing() {
               to="/restaurants"
               data-mol-id="landing-view-all"
               className={
-                'text-primary font-semibold hover:opacity-80 flex items-center gap-1 group'
+                'text-[color:var(--mol-color-primary-dark)] font-semibold hover:opacity-80 flex items-center gap-1 group'
               }
             >
               {t('landing.viewAll', {}, { defaultValue: 'View all' })}

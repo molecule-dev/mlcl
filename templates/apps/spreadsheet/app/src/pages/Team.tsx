@@ -402,7 +402,7 @@ export function Team() {
             )}
           </div>
         ) : (
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto" tabIndex={0}>
             <table className={'w-full text-sm'}>
               <thead>
                 <tr className="bg-surface-container-low">

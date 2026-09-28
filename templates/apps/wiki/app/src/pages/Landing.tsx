@@ -197,8 +197,9 @@ export function Landing() {
             </Link>
           </div>
 
-          {/* Trust strip */}
-          <p className="text-sm font-medium text-outline mb-6 tracking-wide uppercase">
+          {/* Trust strip — on-surface-variant (#464555, 9.4:1 on white) not
+              text-outline (#777587, 4.48:1 — axe color-contrast fail at 4.5:1) */}
+          <p className="text-sm font-medium text-on-surface-variant mb-6 tracking-wide uppercase">
             {t(
               'landing.socialProof.eyebrow',
               {},

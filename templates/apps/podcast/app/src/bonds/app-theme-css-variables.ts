@@ -26,10 +26,13 @@ const wavelengthLightTheme: Theme = {
     primaryLight: '#ffedd5',
     primaryDark: '#9a3412',
     secondary: '#1c1917',
-    success: '#16a34a',
+    // Category eyebrow text renders at 12px on bg-background-secondary
+    // (#f3f2ef): #16a34a was 2.94:1 and #0284c7 was 3.66:1 (axe serious,
+    // ≥4.5:1). One hue step darker: #166534 = 6.37:1, #0369a1 = 5.30:1.
+    success: '#166534',
     warning: '#f59e0b',
     error: '#dc2626',
-    info: '#0284c7',
+    info: '#0369a1',
     background: '#faf9f7',
     backgroundSecondary: '#f3f2ef',
     backgroundTertiary: '#ebe9e6',

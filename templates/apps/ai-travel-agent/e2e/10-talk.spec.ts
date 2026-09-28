@@ -71,7 +71,11 @@ test.describe('/talk (the agent surface)', () => {
     const assistant = (detail.messages ?? []).find((m) => m.role === 'assistant')
     expect(assistant, 'the assistant turn is stored').toBeDefined()
     expect(assistant!.content.length).toBeGreaterThan(0)
-    expect(assistant!.content.toUpperCase()).toContain(booking.confirmation_code)
+    // The model reads for VOICE too, so it may spell the code out
+    // ("K-D-6-M-U-T-2-X"); compare on alphanumerics only — the property
+    // under test is that the real code is conveyed.
+    const spoken = assistant!.content.toUpperCase().replace(/[^A-Z0-9]/g, '')
+    expect(spoken).toContain(booking.confirmation_code)
   })
 
   test('voice playback toggle persists to /preferences and survives reload', async ({ page }) => {

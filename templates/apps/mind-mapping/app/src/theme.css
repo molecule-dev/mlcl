@@ -17,8 +17,13 @@
   --mol-color-border: #dfe1e6;
   --mol-color-border-secondary: #ebecf0;
   --mol-color-border-focus: #4060ec;
-  --mol-color-success: #36b37e;
-  --mol-color-warning: #ffab00;
+  /* Status text darkened for the pastel status chips (axe serious):
+     #36b37e was 2.41:1 on its success-light chip (#dcfce7) and 1.90:1 on
+     white; #166534 = 6.49:1 on the chip, 7.13:1 on white. #ffab00 was
+     1.70:1 on warning-light (#fef3c7); #92400e = 6.37:1 there, 7.09:1 on
+     white. Dark mode keeps its own brighter status stops below. */
+  --mol-color-success: #166534;
+  --mol-color-warning: #92400e;
   --mol-color-error: #c93b20;
   --mol-color-info: #0065ff;
 
@@ -65,9 +70,9 @@
   --color-border-light: #ebecf0;
   --color-border-focus: #4060ec;
 
-  /* Status */
-  --color-success: #36b37e;
-  --color-warning: #ffab00;
+  /* Status — light stops match --mol-color-* above (chip contrast, see note) */
+  --color-success: #166534;
+  --color-warning: #92400e;
   --color-error: #c93b20; /* #ff5630 was 3.17:1 on white (fail); #c93b20 = 5.08:1, on-error white passes */
   --color-info: #0065ff;
 

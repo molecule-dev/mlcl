@@ -282,7 +282,10 @@ export function Landing() {
                   to="/discover"
                   className={cm.cn(
                     'inline-flex items-center px-8 py-3.5 rounded-xl text-lg font-headline font-bold',
-                    'bg-surface-container-highest text-primary hover:bg-surface-variant transition-colors',
+                    // text-primary-dark, NOT text-primary — #7c3aed on
+                    // bg-surface-container-highest #e9d5ff is 4.18:1 (axe
+                    // serious, ≥4.5:1 at 18px); #5b21b6 = 6.60:1.
+                    'bg-surface-container-highest text-primary-dark hover:bg-surface-variant transition-colors',
                   )}
                 >
                   {t('landing.hero.ctaSecondary', {}, { defaultValue: 'Try a sample quiz' })}

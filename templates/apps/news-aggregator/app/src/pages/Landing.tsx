@@ -367,7 +367,10 @@ export function Landing() {
                     <div
                       className={cm.cn(
                         cm.flex({ justify: 'between' }),
-                        'text-xs uppercase tracking-widest text-outline',
+                        // text-on-surface-variant, NOT text-outline — the outline
+                        // token is a border color (#e5e7eb on white = 1.23:1);
+                        // as 12px label text it was an axe serious contrast fail.
+                        'text-xs uppercase tracking-widest text-on-surface-variant',
                       )}
                     >
                       <span>{t('landing.spectrum.left', {}, { defaultValue: 'Left' })}</span>

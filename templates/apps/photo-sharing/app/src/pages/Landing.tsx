@@ -301,7 +301,8 @@ export function Landing() {
             <h2 className={'italic text-4xl mb-6'} style={{ fontFamily: 'var(--font-headline)' }}>
               {t('landing.joinHeading', { app: APP_NAME }, { defaultValue: 'Join {{app}}' })}
             </h2>
-            <p className={'text-on-primary/80 mb-8 max-w-lg mx-auto text-lg'}>
+            {/* Full on-primary, not /80: white at 80% over bronze #996013 = 3.96:1 (axe fail); full white = 5.20:1 */}
+            <p className={'text-on-primary mb-8 max-w-lg mx-auto text-lg'}>
               {t(
                 'landing.ctaBody',
                 {},

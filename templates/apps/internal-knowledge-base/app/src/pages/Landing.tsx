@@ -482,7 +482,11 @@ export function Landing() {
                 cm.sp('mt', 4),
                 cm.textSize('sm'),
                 cm.fontWeight('medium'),
-                'text-primary/80',
+                // Full primary, not /80: the 80% alpha blends to #3d918a over
+                // the section's bg-primary-light/20 → 3.64:1 on #f5fefc (axe
+                // serious at 14px). #0f766e is 5.34:1 there; dark mode also
+                // improves (2.34 → 2.91 on the darkened primary-light wash).
+                'text-primary',
               )}
             >
               {t(

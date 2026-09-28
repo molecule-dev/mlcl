@@ -398,7 +398,9 @@ export function Landing() {
           >
             <p
               className={cm.cn(
-                'text-[11px] font-bold uppercase tracking-[0.22em] text-on-primary/60',
+                /* /95 — /60 composites to 2.96:1 on the #0e7490 proof band
+                   (axe color-contrast serious); /95 composites to 5.00:1. */
+                'text-[11px] font-bold uppercase tracking-[0.22em] text-on-primary/95',
               )}
             >
               {t(
@@ -428,7 +430,9 @@ export function Landing() {
                 </p>
                 <p
                   className={cm.cn(
-                    'text-[11px] font-semibold uppercase tracking-[0.18em] text-on-primary/70',
+                    /* /95 — /70 composites to 3.46:1 on the #0e7490 proof
+                       band (axe color-contrast serious); /95 is 5.00:1. */
+                    'text-[11px] font-semibold uppercase tracking-[0.18em] text-on-primary/95',
                   )}
                 >
                   {t(item.labelKey, {}, { defaultValue: item.labelDefault })}

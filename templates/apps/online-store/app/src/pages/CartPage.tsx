@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
-import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app-react'
+import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LoadErrorBanner } from '@molecule/app-ui-react'
 
@@ -33,7 +33,7 @@ function CartPage() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const isAuthenticated = useIsAuthenticated()
+  const { isAuthenticated, state: authState } = useAuth()
   const [items, setItems] = useState<CartItemData[]>([])
   const [subtotal, setSubtotal] = useState(0)
   const [loading, setLoading] = useState(true)
@@ -71,9 +71,17 @@ function CartPage() {
   useEffect(() => {
     // The cart API is auth-scoped: a signed-out visitor has no cart to fetch,
     // and the doomed call would 401 (console noise + wasted round-trip).
-    if (!isAuthenticated) return
+    // Wait for the auth client to finish restoring any session first (same
+    // gate as AuthGuard) — otherwise an anonymous visitor sat on the loading
+    // skeleton forever and never reached the sign-in prompt below.
+    if (!authState.initialized) return
+    if (!isAuthenticated) {
+      setLoading(false)
+      setUnauthenticated(true)
+      return
+    }
     fetchCart()
-  }, [fetchCart, isAuthenticated])
+  }, [fetchCart, isAuthenticated, authState.initialized])
 
   const updateQuantity = async (itemId: string, quantity: number) => {
     try {

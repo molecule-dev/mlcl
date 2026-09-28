@@ -259,7 +259,10 @@ export function VenueListingCard({
                 cm.sp('py', 1),
                 cm.textSize('xs'),
                 cm.fontWeight('semibold'),
-                'uppercase tracking-widest rounded-md bg-primary/10 text-primary',
+                /* text-primary-dark — text-primary on the 10% primary tint
+                   composites to 4.48:1 (axe color-contrast serious);
+                   #1a3a35 on that tint is 10.86:1. */
+                'uppercase tracking-widest rounded-md bg-primary/10 text-primary-dark',
               )}
             >
               {t(

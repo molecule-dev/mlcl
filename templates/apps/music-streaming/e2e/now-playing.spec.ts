@@ -12,17 +12,11 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
 import { apiSignup, signupAndLogin } from './_shared/auth.js'
-import { resetDb, dbNameForSlug } from './_shared/db.js'
 
 import { seedArtistTree } from './fixtures/seed.js'
 
-const SLUG = 'music-streaming'
 const API_URL = process.env.API_URL ?? 'http://localhost:4000'
 const BASE_URL = process.env.BASE_URL ?? 'http://localhost:5173'
-
-test.beforeEach(async () => {
-  await resetDb(dbNameForSlug(SLUG))
-})
 
 test('happy path: signed-in user can navigate to /now-playing without redirect', async ({
   page,

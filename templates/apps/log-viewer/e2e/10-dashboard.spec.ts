@@ -16,15 +16,30 @@ test.describe('/dashboard', () => {
     // responses fired during the wrapped block are recorded — including
     // the seed-triggering /api/logs / /api/incidents / /api/saved calls
     // that the dashboard issues immediately after the signup redirect.
-    // Don't race with separate waitForResponse calls — just wait for the
-    // dashboard hero to render, which guarantees the page mounted and
-    // its useEffects fired.
+    // Do NOT wait those out with waitForLoadState('networkidle'): the
+    // /signup document reaches networkidle while the form is being
+    // filled, and that load state persists for the document's whole
+    // lifetime across SPA route changes — the wait then resolves
+    // INSTANTLY and detaches the capture before the useEffect GETs
+    // complete. Instead, arm the three response waits before signup so
+    // the block cannot return until each call actually landed.
+    const logsResponse = page.waitForResponse(
+      (r) => r.request().method() === 'GET' && /\/api\/logs(\b|\?|$)/.test(r.url()),
+      { timeout: 20_000 },
+    )
+    const incidentsResponse = page.waitForResponse(
+      (r) => r.request().method() === 'GET' && /\/api\/incidents(\b|\?|$)/.test(r.url()),
+      { timeout: 20_000 },
+    )
+    const savedResponse = page.waitForResponse(
+      (r) => r.request().method() === 'GET' && /\/api\/saved(\b|\?|$)/.test(r.url()),
+      { timeout: 20_000 },
+    )
     const reqs = await captureNetwork(page, async () => {
       await signup(page)
       await page.waitForURL(/\/dashboard/)
       await expect(page.locator('[data-mol-id="dashboard-hero"]')).toBeVisible({ timeout: 15_000 })
-      // Give in-flight requests a moment to settle into the listener.
-      await page.waitForLoadState('networkidle', { timeout: 10_000 }).catch(() => {})
+      await Promise.all([logsResponse, incidentsResponse, savedResponse])
     })
     const logs = reqs.find((r) => r.method === 'GET' && /\/api\/logs(\b|\?|$)/.test(r.url))
     const incidents = reqs.find(

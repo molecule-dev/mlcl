@@ -319,7 +319,10 @@ export function Landing() {
                     cm.flex({ align: 'center', justify: 'center' }),
                     cm.textSize('xs'),
                     cm.fontWeight('semibold'),
-                    'w-10 h-10 rounded-full ring-2 ring-background bg-surface-container-high text-on-surface-variant',
+                    // Full ink, not on-surface-variant: variant (#5e6c84) was
+                    // 3.97:1 on the container-high chip (#dcdfe4) at 12px
+                    // (axe serious); on-surface (#172b4d) is 10.55:1.
+                    'w-10 h-10 rounded-full ring-2 ring-background bg-surface-container-high text-on-surface',
                   )}
                 >
                   +40k

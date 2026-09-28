@@ -50,7 +50,6 @@ const KANBAN_COLUMNS = [
     key: 'new',
     defaultLabel: 'New',
     count: 3,
-    faded: false,
     card: 'bg-[var(--color-kanban-new-bg)] border-[var(--color-kanban-new-border)]',
     strong: 'text-[var(--color-kanban-new-text)]',
     tickets: [
@@ -74,7 +73,6 @@ const KANBAN_COLUMNS = [
     key: 'preparing',
     defaultLabel: 'Preparing',
     count: 2,
-    faded: false,
     card: 'bg-[var(--color-kanban-prep-bg)] border-[var(--color-kanban-prep-border)]',
     strong: 'text-[var(--color-kanban-prep-text)]',
     tickets: [
@@ -91,7 +89,6 @@ const KANBAN_COLUMNS = [
     key: 'ready',
     defaultLabel: 'Ready',
     count: 1,
-    faded: true,
     card: 'bg-[var(--color-kanban-ready-bg)] border-[var(--color-kanban-ready-border)]',
     strong: 'text-[var(--color-kanban-ready-text)]',
     tickets: [
@@ -309,7 +306,7 @@ export function Landing() {
                       <span
                         key={b.key}
                         className={cm.cn(
-                          'font-display font-bold text-base text-on-surface-variant opacity-60 grayscale',
+                          'font-display font-bold text-base text-on-surface-variant',
                         )}
                       >
                         {t(`landing.${b.key}`, {}, { defaultValue: b.def })}
@@ -331,8 +328,7 @@ export function Landing() {
                     <div
                       key={col.key}
                       className={
-                        'shrink-0 w-64 bg-surface rounded-2xl p-4 shadow-sm border border-outline-variant/40' +
-                        (col.faded ? ' opacity-70' : '')
+                        'shrink-0 w-64 bg-surface rounded-2xl p-4 shadow-sm border border-outline-variant/40'
                       }
                     >
                       <div className={cm.flex({ align: 'center', justify: 'between' }) + ' mb-4'}>
@@ -703,6 +699,7 @@ export function Landing() {
               <button
                 type="submit"
                 data-mol-id="landing-footer-subscribe"
+                aria-label={t('landing.footerSubscribe', {}, { defaultValue: 'Subscribe' })}
                 className="bg-secondary text-on-secondary px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
               >
                 <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">

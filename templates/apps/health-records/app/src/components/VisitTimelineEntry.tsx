@@ -79,7 +79,7 @@ export function VisitTimelineEntry({
         >
           {dateLabel}
         </p>
-        <p className={cm.cn(cm.textSize('xs'), 'tabular-nums text-on-surface-variant/70')}>
+        <p className={cm.cn(cm.textSize('xs'), 'tabular-nums text-on-surface-variant')}>
           {yearLabel}
         </p>
         <div

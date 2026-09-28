@@ -11,14 +11,8 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
 import { apiSignup } from './_shared/auth.js'
-import { resetDb, dbNameForSlug } from './_shared/db.js'
 
-const SLUG = 'music-streaming'
 const API_URL = process.env.API_URL ?? 'http://localhost:4000'
-
-test.beforeEach(async () => {
-  await resetDb(dbNameForSlug(SLUG))
-})
 
 test('happy path: track search route is reachable for an authed user', async ({ request }) => {
   const { authHeaders } = await apiSignup(request, {

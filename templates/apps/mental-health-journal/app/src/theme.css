@@ -13,8 +13,8 @@
   --mol-color-border: #e5e7eb;
   --mol-color-border-focus: #7c3aed;
   --mol-color-text: #1e1b4b;
-  --mol-color-text-secondary: #6b7280;
-  --mol-color-text-tertiary: #6b7280; /* #9ca3af was 2.37:1 on #faf5ff (fail ≥4.5:1); #6b7280 = 4.51:1 */
+  --mol-color-text-secondary: #4b5563; /* #6b7280 was 3.96:1 on bg-surface-variant #e9e8ed (fail ≥4.5:1); #4b5563 = 6.20:1 */
+  --mol-color-text-tertiary: #4b5563; /* #9ca3af was 2.37:1 on #faf5ff (fail); #6b7280 was 3.96:1 on #e9e8ed (fail); #4b5563 = 6.20:1 */
   --mol-color-text-inverse: #ffffff;
 
   /* Light-mode M3 on-* overrides for colors that fail with white text */
@@ -77,8 +77,8 @@
   --color-bg-sidebar: #ffffff;
 
   --color-text: #1e1b4b;
-  --color-text-secondary: #6b7280;
-  --color-text-muted: #6b7280; /* #9ca3af was 2.37:1 on #faf5ff (fail ≥4.5:1); #6b7280 = 4.51:1 */
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #4b5563; /* #9ca3af was 2.37:1 on #faf5ff (fail); #6b7280 was 3.96:1 on #e9e8ed (fail); #4b5563 = 6.20:1 */
   --color-text-inverse: #ffffff;
 
   --color-border: #e5e7eb;

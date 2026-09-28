@@ -1,10 +1,15 @@
 :root {
   /* === @theme bridge — fed into ClassMap via index.css @theme block === */
   /* Brand per the Vendry Stitch design: burnt-coral primary, warm cream
-     surfaces, teal secondary accent. */
-  --mol-color-primary: #d95030;
+     surfaces, teal secondary accent. Primary darkened one step from the
+     design's #d95030 — that value sat at 4.08:1 against white in BOTH
+     directions (white text on the CTA pills AND text-primary links on
+     white), below the 4.5:1 AA floor for normal text. #c04529 (the
+     palette's own darker step) = 5.09:1 vs white both ways and 4.76:1
+     on the cream-wash surfaces. */
+  --mol-color-primary: #c04529;
   --mol-color-primary-light: #fdf6f3;
-  --mol-color-primary-dark: #c04529;
+  --mol-color-primary-dark: #a83c22;
   --mol-color-secondary: #1e293b;
   --mol-color-background: #ffffff;
   --mol-color-background-secondary: #fafaf9;
@@ -18,15 +23,15 @@
   --mol-color-text-inverse: #ffffff;
   --mol-color-border: #e7e5e4;
   --mol-color-border-secondary: #f5f5f4;
-  --mol-color-border-focus: #d95030;
+  --mol-color-border-focus: #c04529;
   --mol-color-success: #16a34a;
   --mol-color-warning: #d97706;
   --mol-color-error: #dc2626;
   --mol-color-info: #0ea5e9;
 
   /* Brand colors */
-  --color-primary: #d95030;
-  --color-primary-hover: #c04529;
+  --color-primary: #c04529;
+  --color-primary-hover: #a83c22;
   --color-primary-light: #fdf6f3;
   --color-secondary: #1e293b;
   --color-accent: #2a9d8f;
@@ -59,8 +64,8 @@
   --color-text-secondary: #57534e;
   --color-text-muted: #736f6b; /* #a8a29e was 2.52:1 on white (fail); #736f6b = 4.98:1 */
   --color-text-inverse: #ffffff;
-  /* Stitch design: white text on the #d95030 CTA pills (4.09:1 — AA large/bold
-     text, the design's own pairing). */
+  /* White text on the CTA pills: #c04529 primary = 5.09:1 (AA normal text;
+     the design's original #d95030 was 4.09:1 — large/bold only). */
   --color-on-primary: #ffffff;
 
   /* Typography */

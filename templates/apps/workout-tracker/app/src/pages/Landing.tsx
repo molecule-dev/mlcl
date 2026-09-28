@@ -274,7 +274,8 @@ export function Landing() {
                         className={cm.cn(
                           'tabular-nums w-12 text-right',
                           cm.fontWeight(s.pr ? 'bold' : 'semibold'),
-                          s.pr ? 'text-primary' : '',
+                          // text-safe primary — raw #e05030 is 3.92:1 on white
+                          s.pr ? 'text-primary-text' : '',
                         )}
                       >
                         {s.weight}
@@ -351,7 +352,8 @@ export function Landing() {
               <span
                 className={cm.cn(
                   cm.textSize('xs'),
-                  'font-bold uppercase tracking-[0.32em] text-primary',
+                  // text-safe primary — #e05030 on #fafafa is 3.75:1 (axe fail)
+                  'font-bold uppercase tracking-[0.32em] text-primary-text',
                 )}
               >
                 {t('forja.landing.features.eyebrow', {}, { defaultValue: 'The toolkit' })}

@@ -320,7 +320,8 @@ export function Landing() {
                         <span
                           className={cm.cn(
                             cm.textSize('sm'),
-                            'tabular-nums font-bold text-on-surface-variant opacity-70',
+                            // No opacity-* on text: on-surface-variant at 70% over white = 2.95:1 (axe fail); full token = 5.48:1
+                            'tabular-nums font-bold text-on-surface-variant',
                           )}
                         >
                           {t('common.pending', {}, { defaultValue: 'Pending' })}

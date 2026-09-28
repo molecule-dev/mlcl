@@ -34,10 +34,20 @@ test.describe('conversation page', () => {
     await expect(page).toHaveURL(/\/conversations\/[0-9a-f-]{36}$/)
 
     const stamp = `e2e-msg-${Date.now()}`
+    // Arm the response wait BEFORE the click: the send POST must be awaited
+    // by name, not by a fixed timeout — under parallel workers 1.5s is not
+    // always enough, and waitForLoadState('networkidle') cannot be used
+    // here because the /inbox document already reached networkidle before
+    // the SPA click (that load state persists for the document's lifetime,
+    // so the wait would resolve instantly and detach mid-flight).
+    const sendPost = page.waitForResponse(
+      (r) => r.request().method() === 'POST' && /\/api\/messages\b/.test(r.url()),
+      { timeout: 20_000 },
+    )
     const reqs = await captureNetwork(page, async () => {
       await page.getByRole('textbox', { name: /message/i }).fill(stamp)
       await page.getByRole('button', { name: /send/i }).click()
-      await page.waitForTimeout(1500)
+      await sendPost
     })
     expect(
       reqs.some((r) => r.method === 'POST' && /\/api\/messages\b/.test(r.url) && r.status === 201),
@@ -66,9 +76,22 @@ test.describe('conversation page', () => {
     await signup(page, uniqueEmail('conv-read'))
     await page.waitForURL(/\/inbox/, { timeout: 20000 })
     const convo = await pickDirectConversation(page)
+    // Arm the response wait BEFORE the click. The read POST fires in the
+    // fetch effect's .then(), AFTER both thread GETs — and React StrictMode
+    // remounts the page once in dev, doubling that latency. A 500ms quiet
+    // gap between the two mount rounds resolves
+    // waitForLoadState('networkidle') (the state was already achieved while
+    // the inbox form sat idle) and detaches the capture before the POST.
+    // Awaiting the POST by name cannot be raced.
+    const readPost = page.waitForResponse(
+      (r) =>
+        r.request().method() === 'POST' &&
+        /\/api\/conversations\/[0-9a-f-]{36}\/read/.test(r.url()),
+      { timeout: 20_000 },
+    )
     const reqs = await captureNetwork(page, async () => {
       await page.getByRole('link', { name: convo.name, exact: false }).first().click()
-      await page.waitForLoadState('networkidle')
+      await readPost
     })
     expect(
       reqs.some(

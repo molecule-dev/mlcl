@@ -656,7 +656,7 @@ export function Landing() {
             className={cm.cn(
               cm.textSize('sm'),
               cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-[0.18em] text-white/40',
+              'text-[10px] uppercase tracking-[0.18em] text-white/60',
             )}
           >
             {t(

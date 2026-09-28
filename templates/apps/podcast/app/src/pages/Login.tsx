@@ -151,7 +151,9 @@ export function Login() {
                   </label>
                   <Link
                     to="/forgot-password"
-                    className={'text-xs font-bold hover:opacity-80 transition-opacity'}
+                    // hover:underline, NOT hover:opacity-80 — opacity on text
+                    // is banned (it can dip any state below 4.5:1).
+                    className={'text-xs font-bold hover:underline decoration-2 underline-offset-4'}
                     style={{ color: BRAND_LINK_COLOR }}
                   >
                     {t('auth.login.forgotPassword', {}, { defaultValue: 'Forgot password?' })}

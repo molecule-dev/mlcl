@@ -236,10 +236,13 @@ export function Landing() {
                 )}
               >
                 <span aria-hidden="true" className="h-2 w-2 rounded-full bg-tertiary" />
+                {/* Badge copy is load-bearing: e2e/root.spec.ts 'hero badge and
+                    tagline are rendered' asserts /surveys.*nps.*feedback|nps at
+                    scale/i against the landing — keep the wording matching. */}
                 {t(
                   'landing.hero.badge',
                   {},
-                  { defaultValue: 'Introducing conversational surveys' },
+                  { defaultValue: 'Surveys, NPS & feedback in one place' },
                 )}
               </div>
               <h1 className="text-5xl font-bold leading-[1.1] tracking-tight lg:text-7xl">

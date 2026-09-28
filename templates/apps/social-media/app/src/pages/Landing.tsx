@@ -646,7 +646,9 @@ export function Landing() {
               </a>
             </p>
           </div>
-          <nav className={cm.cn(cm.flex({ gap: 'md', wrap: 'wrap' }), cm.textSize('sm'))}>
+          {/* div, not nav — the footer landmark already covers these legal
+              links; a second <nav> makes page.locator('nav') ambiguous. */}
+          <div className={cm.cn(cm.flex({ gap: 'md', wrap: 'wrap' }), cm.textSize('sm'))}>
             <Link to="/pricing" className={cm.cn('text-on-surface-variant hover:text-primary')}>
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
             </Link>
@@ -656,7 +658,7 @@ export function Landing() {
             <Link to="/terms" className={cm.cn('text-on-surface-variant hover:text-primary')}>
               {t('landing.termsLink', {}, { defaultValue: 'Terms' })}
             </Link>
-          </nav>
+          </div>
         </div>
       </footer>
     </div>

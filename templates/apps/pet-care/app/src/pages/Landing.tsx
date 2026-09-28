@@ -54,9 +54,9 @@ const FEATURES = [
 
 const TRUSTED_BY = [
   { initials: 'BL', color: 'var(--mol-color-primary-dark)' },
-  { initials: 'MC', color: 'var(--mol-color-secondary-dark)' },
-  { initials: 'PK', color: 'var(--color-pet-attention)' },
-  { initials: 'KW', color: 'var(--color-pet-vaccinated)' },
+  { initials: 'MC', color: 'var(--mol-color-secondary-deep)' },
+  { initials: 'PK', color: 'var(--color-pet-attention-deep)' },
+  { initials: 'KW', color: 'var(--color-pet-vaccinated-deep)' },
 ]
 
 const VET_NETWORKS = [
@@ -85,7 +85,7 @@ const TESTIMONIALS = [
   {
     key: 'james',
     initials: 'JL',
-    color: 'var(--mol-color-secondary-dark)',
+    color: 'var(--mol-color-secondary-deep)',
     nameKey: 'landing.testimonials.james.name',
     defaultName: 'James L.',
     roleKey: 'landing.testimonials.james.role',
@@ -835,7 +835,7 @@ export function Landing() {
               to="/signup"
               data-mol-id="landing-cta-signup"
               className={cm.cn(
-                'inline-block bg-surface text-secondary-dark hover:bg-surface-container-low font-headline font-bold text-lg px-10 py-4 rounded-full shadow-lg transition-colors',
+                'inline-block bg-surface text-[var(--color-secondary-ink)] hover:bg-surface-container-low font-headline font-bold text-lg px-10 py-4 rounded-full shadow-lg transition-colors',
               )}
             >
               {t('landing.cta.button', {}, { defaultValue: 'Sign up' })}

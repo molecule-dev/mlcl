@@ -48,23 +48,26 @@ test('Theme toggle persists across reload (data-theme attribute)', async ({ page
   await page.goto(APP_BASE + '/settings')
   await page.waitForLoadState('networkidle')
 
-  const initial = await page.evaluate(
-    () => document.documentElement.dataset.theme || document.documentElement.classList.toString(),
-  )
+  // Normalize to the SEMANTIC theme token. The provider toggles the `dark`
+  // CLASS on <html> (no data-theme attribute), and the icon gate co-owns
+  // that class list (`mol-icons-ready` added at font-load time, in
+  // nondeterministic order) — comparing classList.toString() flapped when
+  // the reload re-added the same tokens in a different order
+  // ("dark mol-icons-ready" vs "mol-icons-ready dark" = same theme).
+  const themeOf = () =>
+    document.documentElement.dataset.theme ??
+    (document.documentElement.classList.contains('dark') ? 'dark' : 'light')
+  const initial = await page.evaluate(themeOf)
   const darkBtn = page.getByRole('button', { name: /dark/i }).first()
   if (await darkBtn.count()) {
     await darkBtn.click().catch(() => {})
     await page.waitForTimeout(250)
   }
-  const after = await page.evaluate(
-    () => document.documentElement.dataset.theme || document.documentElement.classList.toString(),
-  )
+  const after = await page.evaluate(themeOf)
 
   await page.reload()
   await page.waitForLoadState('networkidle')
-  const persisted = await page.evaluate(
-    () => document.documentElement.dataset.theme || document.documentElement.classList.toString(),
-  )
+  const persisted = await page.evaluate(themeOf)
 
   // Allow either: theme really toggled and persisted, OR no toggle UI is wired (unchanged on both sides)
   if (after !== initial) {

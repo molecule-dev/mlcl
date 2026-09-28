@@ -725,25 +725,25 @@ export function Landing() {
             >
               <Link
                 to="/privacy"
-                className="text-on-surface-variant hover:text-secondary underline decoration-2 underline-offset-4 opacity-80 hover:opacity-100 transition-opacity"
+                className="text-on-surface-variant hover:text-secondary underline decoration-2 underline-offset-4 transition-colors"
               >
                 {t('footer.privacyPolicy', {}, { defaultValue: 'Privacy Policy' })}
               </Link>
               <Link
                 to="/terms"
-                className="text-on-surface-variant hover:text-secondary underline decoration-2 underline-offset-4 opacity-80 hover:opacity-100 transition-opacity"
+                className="text-on-surface-variant hover:text-secondary underline decoration-2 underline-offset-4 transition-colors"
               >
                 {t('footer.termsOfService', {}, { defaultValue: 'Terms of Service' })}
               </Link>
               <Link
                 to="/about"
-                className="text-on-surface-variant hover:text-secondary underline decoration-2 underline-offset-4 opacity-80 hover:opacity-100 transition-opacity"
+                className="text-on-surface-variant hover:text-secondary underline decoration-2 underline-offset-4 transition-colors"
               >
                 {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })}
               </Link>
               <Link
                 to="/pricing"
-                className="text-on-surface-variant hover:text-secondary underline decoration-2 underline-offset-4 opacity-80 hover:opacity-100 transition-opacity"
+                className="text-on-surface-variant hover:text-secondary underline decoration-2 underline-offset-4 transition-colors"
               >
                 {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
               </Link>

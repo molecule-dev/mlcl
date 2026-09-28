@@ -19,6 +19,16 @@
   --mol-color-secondary: #10b981;
   --mol-color-secondary-light: #34d399;
   --mol-color-secondary-dark: #059669;
+  /* Deep accent variants for white-on-color chips: white on the -dark stops
+     above is only 3.76:1 (axe color-contrast fail at 4.5:1). Mode-invariant
+     like --color-brand-navy — the avatar chips keep these colors in dark. */
+  --mol-color-secondary-deep: #047857; /* white 5.48:1 */
+  --color-pet-attention-deep: #b45309; /* white 5.02:1 */
+  --color-pet-vaccinated-deep: #6d28d9; /* white 7.1:1 */
+  /* Text-safe secondary for small text on the surface pill (secondary-dark
+     was 3.76:1 on white). Dark mode lifts to the bright stop (10:1 on the
+     near-black surface). */
+  --color-secondary-ink: #047857;
 
   /* Surfaces */
   --mol-color-background: #f0fdfa;
@@ -123,6 +133,7 @@
   --mol-color-secondary: #34d399;
   --mol-color-secondary-light: #6ee7b7;
   --mol-color-secondary-dark: #059669;
+  --color-secondary-ink: #34d399; /* 10:1 on the dark surface pill */
 
   --mol-color-background: #100e0c;
   --mol-color-background-secondary: #181614;

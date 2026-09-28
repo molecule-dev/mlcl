@@ -97,7 +97,7 @@
   --color-lm-muted: #a16207; /* secondary text on the canvas */
   --color-lm-glow: #0891b2; /* cyan glow (design primary) */
   --color-lm-glow-soft: rgba(8, 145, 178, 0.12); /* glow bloom + button halo */
-  --color-lm-on-glow: #062a33; /* dark ink on the cyan glow button */
+  --color-lm-on-glow: #03181d; /* dark ink on the cyan glow button (#062a33 was 4.11:1 on #0891b2 — fail; #03181d = 4.95:1) */
   --color-lm-footer: #fef9ee; /* footer canvas */
   --color-lm-footer-edge: #fde68a;
   --font-size-xs: 0.75rem;

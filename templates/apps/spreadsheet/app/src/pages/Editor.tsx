@@ -635,7 +635,12 @@ export function Editor() {
             </button>
           </div>
         ) : (
-          <div className="overflow-x-auto rounded-2xl border border-outline-variant/40 bg-surface-container-lowest">
+          <div
+            // tabIndex: scrollable-region-focusable (axe serious) — a scroll-only
+            // region must be keyboard-reachable
+            tabIndex={0}
+            className="overflow-x-auto rounded-2xl border border-outline-variant/40 bg-surface-container-lowest"
+          >
             <table className="w-full text-sm" data-testid="grid-table">
               <thead className="bg-surface-container-low">
                 <tr>

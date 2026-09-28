@@ -19,7 +19,7 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
 
 import { apiSignup } from './_shared/auth.js'
-import { dbNameForSlug, ensurePaymentsTable, resetDb, withDb } from './_shared/db.js'
+import { dbNameForSlug, ensurePaymentsTable, withDb } from './_shared/db.js'
 import {
   signStripePayload,
   subscriptionCreatedEvent,
@@ -97,10 +97,6 @@ test.describe('Stripe webhook → plan lifecycle', () => {
       )
     }
     await ensurePaymentsTable(DB)
-  })
-
-  test.beforeEach(async () => {
-    await resetDb(DB)
   })
 
   test('customer.subscription.created sets planKey + planExpiresAt', async ({ request }) => {

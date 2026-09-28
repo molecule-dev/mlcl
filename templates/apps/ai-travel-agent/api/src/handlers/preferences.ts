@@ -34,6 +34,7 @@ interface TravelPreferences {
   phone: string
   homeAirport: string
   notifications: Record<string, boolean>
+  privacy: Record<string, boolean>
   voicePlaybackEnabled: boolean
 }
 
@@ -45,7 +46,13 @@ const DEFAULTS: TravelPreferences = {
   notifications: {
     delays: true,
     payments: true,
+    reminders: true,
     productUpdates: false,
+  },
+  privacy: {
+    // Transcript retention is ON by default (the agent resumes conversations
+    // from them); the /settings Privacy section flips it off on request.
+    transcripts: true,
   },
   voicePlaybackEnabled: true,
 }
@@ -65,6 +72,7 @@ const updateSchema = z
       .regex(/^([A-Za-z]{3})?$/)
       .optional(),
     notifications: z.record(z.string(), z.boolean()).optional(),
+    privacy: z.record(z.string(), z.boolean()).optional(),
     voicePlaybackEnabled: z.boolean().optional(),
   })
   .strict()
@@ -80,6 +88,7 @@ function readPrefs(row: UserRow | null): TravelPreferences {
     phone: stored?.phone ?? DEFAULTS.phone,
     homeAirport: stored?.homeAirport ?? DEFAULTS.homeAirport,
     notifications: { ...DEFAULTS.notifications, ...(stored?.notifications ?? {}) },
+    privacy: { ...DEFAULTS.privacy, ...(stored?.privacy ?? {}) },
     voicePlaybackEnabled: stored?.voicePlaybackEnabled ?? DEFAULTS.voicePlaybackEnabled,
   }
 }
@@ -127,6 +136,7 @@ router.put('/', async (req, res) => {
       phone: parsed.data.phone?.trim() ?? current.phone,
       homeAirport: parsed.data.homeAirport?.toUpperCase() ?? current.homeAirport,
       notifications: { ...current.notifications, ...(parsed.data.notifications ?? {}) },
+      privacy: { ...current.privacy, ...(parsed.data.privacy ?? {}) },
       voicePlaybackEnabled: parsed.data.voicePlaybackEnabled ?? current.voicePlaybackEnabled,
     }
     const oauthData: Record<string, unknown> = {

@@ -362,7 +362,9 @@ export function Landing() {
             <div
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'center', gap: 'lg', wrap: 'wrap' }),
-                'opacity-50 grayscale',
+                // #475569 on #ffffff = 7.58:1 (was `opacity-50` on text: #0f172a
+                // at 50% blends to #878b95 on white = 3.41:1, axe serious).
+                'text-on-surface-variant grayscale',
               )}
             >
               {TRUST_LOGOS.map((logo) => (
@@ -685,7 +687,9 @@ export function Landing() {
                     className={cm.cn(
                       cm.textSize('sm'),
                       cm.fontWeight('medium'),
-                      'text-primary-dark/70 uppercase tracking-wider',
+                      // #0a5e75 on #ecfdff (primary-light/40 over white) = 6.99:1
+                      // (was /70: blends to #4e8e9e = 3.52:1, axe serious).
+                      'text-primary-dark uppercase tracking-wider',
                     )}
                   >
                     {t(`landing.stats.${stat.key}`, {}, { defaultValue: stat.defaultLabel })}

@@ -266,7 +266,9 @@ export function Landing() {
                   <p
                     className={cm.cn(
                       cm.fontWeight('medium'),
-                      'text-sm text-on-surface-variant/70 uppercase tracking-wider',
+                      // #4a4560 on #ffffff = 9.09:1 (was /70: blends to
+                      // #807d90 = 4.00:1, axe serious).
+                      'text-sm text-on-surface-variant uppercase tracking-wider',
                     )}
                   >
                     {t('landing.trustedBy', {}, { defaultValue: 'Trusted by visionary teams' })}
@@ -303,7 +305,11 @@ export function Landing() {
                   >
                     <span
                       className={
-                        'inline-block px-3 py-1 bg-secondary/20 text-secondary text-xs font-bold rounded mb-4 w-max uppercase tracking-wider'
+                        // White on the chip's effective bg (secondary/20 over the
+                        // dark stage, glow bleed → #44234f) = 13.13:1 (was
+                        // text-secondary #ec4899 = 3.72:1, axe serious; the pink
+                        // accent stays on the chip tint + stage glows).
+                        'inline-block px-3 py-1 bg-secondary/20 text-white text-xs font-bold rounded mb-4 w-max uppercase tracking-wider'
                       }
                     >
                       {t('landing.slide.confidential', {}, { defaultValue: 'Confidential' })}

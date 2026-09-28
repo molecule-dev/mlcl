@@ -28,7 +28,7 @@
 
   /* Text */
   --mol-color-text: #111827;
-  --mol-color-text-secondary: #5e6473; /* #6b7280 was 4.35:1 vs #f1f3f5 bg (fail ≥4.5:1); #5e6473 = 5.32:1 */
+  --mol-color-text-secondary: #545a68; /* #5e6473 was 4.32:1 on bg-surface-container-high #dbdcdf (fail ≥4.5:1); #545a68 = 5.04:1 */
   --mol-color-text-tertiary: #757575; /* #9ca3af was 2.54:1 vs white surface (fail ≥4.5:1); #757575 = 4.61:1 */
   --mol-color-text-inverse: #ffffff;
 
