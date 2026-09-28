@@ -56775,7 +56775,6 @@
       "@molecule/api-agent-transcript-claude-code": "1.0.0",
       "@molecule/api-agent-transcript-codex": "1.0.0",
       "@molecule/api-agent-transcript-molecule-ide": "1.0.0",
-      "@molecule/api-text-provenance-overlap": "1.0.0",
       "@molecule/app-locales-margin-notes": "1.0.0",
       "@molecule/api-ai-translation-llm": "1.1.0",
       "@molecule/api-ai-translation-molecule": "1.1.1",
