@@ -4,11 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import { LibraryStatsHero } from '../components/LibraryStatsHero.js'
 import { RecordingCard } from '../components/RecordingCard.js'
-import { RecordingIndicator } from '../components/RecordingIndicator.js'
-
-const SAMPLE_TREND = [12, 18, 14, 22, 28, 24, 31]
 
 const SAMPLE_RECORDINGS = [
   {
@@ -66,15 +62,12 @@ export function Landing() {
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
           <span
             className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(10),
-              cm.h(10),
-              'rounded-xl bg-gradient-to-br from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)] text-white shadow-md shadow-[var(--color-brand-gradient-from)]/30',
+              cm.fontWeight('black'),
+              'text-2xl tracking-tighter font-display bg-gradient-to-r from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)] bg-clip-text text-transparent',
             )}
           >
-            <span className={cm.cn('material-symbols-outlined text-xl')}>graphic_eq</span>
+            {APP_NAME}
           </span>
-          <span className={cm.cn(cm.fontWeight('bold'), 'text-xl tracking-tight')}>{APP_NAME}</span>
         </Link>
         <nav
           className={cm.cn(
@@ -109,9 +102,10 @@ export function Landing() {
             <Link
               to="/library"
               className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                'rounded-full text-white bg-gradient-to-r from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)] shadow-md shadow-[var(--color-brand-gradient-from)]/30 hover:opacity-90',
+                cm.sp('px', 5),
+                cm.sp('py', 2.5),
+                cm.fontWeight('semibold'),
+                'rounded-lg text-white bg-primary hover:bg-primary-hover shadow-md shadow-primary/25 transition-colors',
               )}
             >
               {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -120,16 +114,20 @@ export function Landing() {
             <>
               <Link
                 to="/login"
-                className={cm.cn('text-on-surface-variant hover:text-on-surface transition-colors')}
+                className={cm.cn(
+                  'text-on-surface-variant hover:text-primary transition-colors hidden md:block',
+                )}
               >
                 {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
               </Link>
               <Link
                 to="/signup"
+                data-mol-id="landing-nav-cta"
                 className={cm.cn(
-                  cm.sp('px', 4),
-                  cm.sp('py', 2),
-                  'rounded-full text-white bg-gradient-to-r from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)] shadow-md shadow-[var(--color-brand-gradient-from)]/30 hover:opacity-90',
+                  cm.sp('px', 5),
+                  cm.sp('py', 2.5),
+                  cm.fontWeight('semibold'),
+                  'rounded-lg text-white bg-primary hover:bg-primary-hover shadow-md shadow-primary/25 transition-colors',
                 )}
               >
                 {t('common.startFree', {}, { defaultValue: 'Start free' })}
@@ -148,11 +146,10 @@ export function Landing() {
           )}
         >
           <div className={cm.stack(6)}>
-            <RecordingIndicator state="live" size="md" />
             <h1
               className={cm.cn(
                 cm.fontWeight('bold'),
-                'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] font-extrabold text-on-surface',
+                'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.05] font-display text-on-surface',
               )}
             >
               {t(
@@ -176,30 +173,52 @@ export function Landing() {
                 },
               )}
             </p>
-            <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 3, wrap: 'wrap' }))}>
               <Link
                 to="/signup"
+                data-mol-id="landing-hero-cta"
                 className={cm.cn(
-                  cm.sp('px', 6),
-                  cm.sp('py', 3),
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
                   cm.fontWeight('semibold'),
-                  'rounded-full text-white bg-gradient-to-r from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)] shadow-lg shadow-[var(--color-brand-gradient-from)]/30 hover:opacity-90 transition-opacity',
+                  cm.flex({ align: 'center', gap: 2, justify: 'center' }),
+                  'rounded-xl text-white bg-primary hover:bg-primary-hover shadow-lg shadow-primary/25 transition-all active:scale-95',
                 )}
               >
+                <span
+                  className={cm.cn('material-symbols-outlined text-base')}
+                  aria-hidden="true"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  videocam
+                </span>
                 {t('landing.hero.primaryCta', {}, { defaultValue: 'Start recording free' })}
               </Link>
               <Link
                 to="/login"
                 className={cm.cn(
-                  cm.sp('px', 6),
-                  cm.sp('py', 3),
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
                   cm.fontWeight('semibold'),
-                  'rounded-full border border-outline-variant text-on-surface hover:bg-surface-container transition-colors',
+                  'rounded-xl border-2 border-outline-variant text-on-surface hover:border-outline transition-colors active:scale-95',
                 )}
               >
                 {t('landing.hero.secondaryCta', {}, { defaultValue: 'Watch a 60s demo' })}
               </Link>
             </div>
+            <p
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                'text-on-surface-variant',
+              )}
+            >
+              {t(
+                'landing.hero.socialProof',
+                {},
+                { defaultValue: '3.2M recordings shared this month' },
+              )}
+            </p>
             <div
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 6 }),
@@ -223,21 +242,35 @@ export function Landing() {
             </div>
           </div>
 
-          <div className={cm.stack(4)}>
-            <LibraryStatsHero
-              totalRecordings={42}
-              totalViews={5_812}
-              averageWatchPercent={78}
-              trend7d={SAMPLE_TREND}
-              weeklyChangePercent={18.4}
+          {/* Video player mockup — dark frame, REC pill, playback bar with
+              time-coded comment pins (the design's hero product shot) */}
+          <div
+            className="relative w-full aspect-video bg-[var(--color-brand-deep-a)] rounded-2xl shadow-2xl overflow-hidden border border-outline-variant"
+            aria-hidden="true"
+          >
+            <img
+              alt=""
+              src="https://picsum.photos/seed/glint-hero-player/1280/720"
+              className="w-full h-full object-cover opacity-80"
+              loading="eager"
             />
-            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant text-center')}>
-              {t(
-                'landing.hero.cardCaption',
-                {},
-                { defaultValue: 'Sample workspace overview — try it free.' },
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 2 }),
+                'absolute top-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10',
               )}
-            </p>
+            >
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_15px_rgba(239,68,68,0.4)]" />
+              <span className="font-mono text-xs font-bold text-white">REC 00:47</span>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+              <div className="w-full h-1.5 bg-white/20 rounded-full relative overflow-visible">
+                <div className="absolute top-0 left-0 h-full w-[45%] rounded-full bg-gradient-to-r from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)]" />
+                <span className="absolute top-1/2 -translate-y-1/2 left-[20%] w-2.5 h-2.5 rounded-full bg-[var(--color-brand-gradient-to)] border border-[var(--color-brand-deep-a)] shadow-[0_0_8px_rgba(6,182,212,0.6)]" />
+                <span className="absolute top-1/2 -translate-y-1/2 left-[35%] w-2.5 h-2.5 rounded-full bg-[var(--color-brand-gradient-to)] border border-[var(--color-brand-deep-a)] shadow-[0_0_8px_rgba(6,182,212,0.6)]" />
+                <span className="absolute top-1/2 -translate-y-1/2 left-[80%] w-2.5 h-2.5 rounded-full bg-[var(--color-brand-gradient-to)] border border-[var(--color-brand-deep-a)] shadow-[0_0_8px_rgba(6,182,212,0.6)]" />
+              </div>
+            </div>
           </div>
         </section>
 
@@ -387,35 +420,69 @@ export function Landing() {
         </section>
       </main>
 
-      <footer
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between' }),
-          cm.sp('px', 8),
-          cm.sp('py', 6),
-          cm.textSize('xs'),
-          'border-t border-outline-variant text-on-surface-variant',
-        )}
-      >
-        <span>
-          {t(
-            'landing.footer.copy',
-            { year: new Date().getFullYear(), appName: APP_NAME },
-            { defaultValue: '© {{year}} {{appName}}. Async, made luminous.' },
+      {/* Footer — the design's slate-50 rounded band: brand, links, © */}
+      <footer className="bg-surface-container-low border-t border-outline-variant rounded-t-3xl mt-20">
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
+            cm.sp('px', 8),
+            cm.sp('py', 12),
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.textSize('sm'),
           )}
-        </span>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }))}>
-          <a href="#features" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('nav.features', {}, { defaultValue: 'Features' })}
-          </a>
-          <Link to="/pricing" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
-          </Link>
-          <Link to="/login" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-          </Link>
-          <Link to="/signup" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('auth.login.signUp', {}, { defaultValue: 'Sign up' })}
-          </Link>
+        >
+          <span
+            className={cm.cn(
+              cm.fontWeight('bold'),
+              cm.textSize('xl'),
+              'text-on-surface font-display',
+            )}
+          >
+            {APP_NAME}
+          </span>
+          <nav className={cm.cn(cm.flex({ align: 'center', gap: 4, wrap: 'wrap' }))}>
+            <a
+              href="#features"
+              className="text-on-surface-variant hover:text-[var(--color-brand-gradient-to)] transition-colors"
+            >
+              {t('nav.features', {}, { defaultValue: 'Features' })}
+            </a>
+            <Link
+              to="/pricing"
+              className="text-on-surface-variant hover:text-[var(--color-brand-gradient-to)] transition-colors"
+            >
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </Link>
+            <Link
+              to="/login"
+              className="text-on-surface-variant hover:text-[var(--color-brand-gradient-to)] transition-colors"
+            >
+              {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+            </Link>
+            <Link
+              to="/signup"
+              className="text-on-surface-variant hover:text-[var(--color-brand-gradient-to)] transition-colors"
+            >
+              {t('auth.login.signUp', {}, { defaultValue: 'Sign up' })}
+            </Link>
+          </nav>
+          <span className="text-on-surface-variant">
+            {t(
+              'landing.footer.copy',
+              { year: new Date().getFullYear(), appName: APP_NAME },
+              { defaultValue: '© {{year}} {{appName}}. Async, made luminous.' },
+            )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
+          </span>
         </div>
       </footer>
     </div>

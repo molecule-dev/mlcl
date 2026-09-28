@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE, BRAND_ACCENT_COLOR, BRAND_COLOR } from '../branding.js'
+import { APP_NAME } from '../branding.js'
 import { PublicNav } from '../components/PublicNav.js'
 
 const FEATURES = [
@@ -41,10 +41,64 @@ const FEATURES = [
 ] as const
 
 const STATS = [
-  { key: 'producers', defaultLabel: 'Producers', value: '120k' },
-  { key: 'samples', defaultLabel: 'Samples', value: '20k+' },
-  { key: 'projects', defaultLabel: 'Tracks shipped', value: '4.7M' },
-  { key: 'plugins', defaultLabel: 'Built-in FX', value: '60' },
+  { key: 'producers', defaultLabel: 'Producers', value: '120k', tint: 'text-on-surface' },
+  {
+    key: 'projects',
+    defaultLabel: 'Tracks shipped',
+    value: '4.7M',
+    tint: 'text-[var(--daw-track-audio)]',
+  },
+  {
+    key: 'plugins',
+    defaultLabel: 'Built-in FX',
+    value: '60',
+    tint: 'text-[var(--daw-secondary-hover)]',
+  },
+]
+
+/** Hero mockup tracks — colored clips echoing the editor timeline (decorative). */
+const MOCKUP_TRACKS = [
+  {
+    name: 'Synth',
+    tint: 'text-[var(--daw-primary-hover)]',
+    clips: [
+      {
+        left: 'left-4',
+        width: 'w-32',
+        tint: 'bg-[var(--daw-primary)]/40 border-[var(--daw-primary)]/50',
+      },
+      {
+        left: 'left-40',
+        width: 'w-48',
+        tint: 'bg-[var(--daw-primary)]/40 border-[var(--daw-primary)]/50',
+      },
+    ],
+  },
+  {
+    name: 'Bass',
+    tint: 'text-[var(--daw-track-audio)]',
+    clips: [
+      {
+        left: 'left-10',
+        width: 'w-64',
+        tint: 'bg-[var(--daw-track-audio)]/40 border-[var(--daw-track-audio)]/50',
+      },
+    ],
+  },
+  {
+    name: 'Drums',
+    tint: 'text-orange-400',
+    clips: [
+      { left: 'left-4', width: 'w-16', tint: 'bg-orange-400/40 border-orange-400/50' },
+      { left: 'left-24', width: 'w-16', tint: 'bg-orange-400/40 border-orange-400/50' },
+      { left: 'left-44', width: 'w-16', tint: 'bg-orange-400/40 border-orange-400/50' },
+    ],
+  },
+  {
+    name: 'Vocals',
+    tint: 'text-emerald-400',
+    clips: [{ left: 'left-48', width: 'w-40', tint: 'bg-emerald-400/40 border-emerald-400/50' }],
+  },
 ]
 
 export function Landing() {
@@ -56,50 +110,54 @@ export function Landing() {
       <PublicNav />
 
       <main>
+        {/* Hero — violet grid wash over the ink gradient, split copy/mockup */}
         <section className={cm.cn('relative overflow-hidden')}>
           <div
-            className={cm.cn('absolute inset-0 pointer-events-none')}
-            style={{
-              backgroundImage:
-                `radial-gradient(circle at 25% 30%, ${BRAND_COLOR}40, transparent 50%),` +
-                `radial-gradient(circle at 78% 60%, ${BRAND_ACCENT_COLOR}33, transparent 45%)`,
-            }}
+            className={cm.cn(
+              'absolute inset-0 bg-gradient-to-b from-[var(--fugue-bg)] to-[var(--fugue-surface)]',
+            )}
             aria-hidden="true"
           />
+          <div className={cm.cn('absolute inset-0 fugue-hero-grid')} aria-hidden="true" />
           <div
             className={cm.cn(
               cm.maxW('7xl'),
               cm.mxAuto,
               cm.sp('px', 6),
-              'relative py-20 md:py-28 lg:py-32',
+              'relative pt-20 pb-24 md:pt-24 md:pb-32',
             )}
           >
-            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-12 items-center')}>
-              <div className={cm.cn('lg:col-span-7')}>
-                <p
-                  className={cm.cn('text-sm font-black uppercase tracking-widest mb-4')}
-                  style={{ color: BRAND_COLOR }}
+            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-2 gap-16 items-center')}>
+              <div className={cm.cn('space-y-8')}>
+                <div
+                  className={cm.cn(
+                    'inline-flex items-center gap-2 px-3 py-1 rounded-full',
+                    'bg-[color-mix(in_oklab,var(--daw-primary)_12%,transparent)]',
+                    'text-[var(--daw-primary-hover)] text-sm font-medium',
+                  )}
                 >
+                  <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+                    graphic_eq
+                  </span>
                   {t(
                     'landing.eyebrow',
                     {},
                     { defaultValue: 'Browser DAW · multi-track · sample library' },
                   )}
-                </p>
+                </div>
                 <h1
                   className={cm.cn(
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] mb-6',
+                    'text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-tight',
                   )}
                 >
-                  {t(
-                    'landing.heroTitle',
-                    { tagline: APP_TAGLINE },
-                    { defaultValue: '{{tagline}}.' },
-                  )}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--daw-primary-hover)] to-[var(--daw-secondary-hover)]">
+                    {t('landing.heroTitleLead', {}, { defaultValue: 'Layer' })}
+                  </span>{' '}
+                  {t('landing.heroTitleRest', {}, { defaultValue: 'everything, lose nothing.' })}
                 </h1>
                 <p
                   className={cm.cn(
-                    'text-lg text-on-surface-variant max-w-xl leading-relaxed mb-10',
+                    'text-lg md:text-xl text-on-surface-variant max-w-lg leading-relaxed',
                   )}
                 >
                   {t(
@@ -114,13 +172,13 @@ export function Landing() {
                 <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
                   <Link
                     to="/signup"
+                    data-mol-id="landing-hero-cta"
                     className={cm.cn(
-                      'inline-flex items-center gap-2 px-8 py-4 font-semibold whitespace-nowrap text-white rounded-full transition-colors shadow-xl',
+                      'inline-flex items-center gap-2 px-8 py-4 font-bold whitespace-nowrap rounded-full transition-all',
+                      'bg-[var(--daw-primary)] text-[var(--color-on-primary)]',
+                      'shadow-[0_0_20px_color-mix(in_oklab,var(--daw-primary)_50%,transparent)]',
+                      'hover:bg-[var(--daw-primary-hover)]',
                     )}
-                    style={{
-                      background: `linear-gradient(135deg, ${BRAND_COLOR}, ${BRAND_ACCENT_COLOR})`,
-                      boxShadow: `0 12px 32px ${BRAND_COLOR}40`,
-                    }}
                   >
                     {t(
                       'landing.heroCta',
@@ -137,150 +195,119 @@ export function Landing() {
                   <Link
                     to="/login"
                     className={cm.cn(
-                      'px-8 py-4 font-semibold rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors',
+                      'px-8 py-4 font-bold rounded-full transition-all',
+                      'text-on-surface-variant hover:text-on-surface',
+                      'hover:bg-[color-mix(in_oklab,var(--color-on-surface)_5%,transparent)]',
+                      'inline-flex items-center gap-2',
                     )}
                   >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-base')}
+                      aria-hidden="true"
+                    >
+                      play_circle
+                    </span>
                     {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
                   </Link>
                 </div>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'lg' }),
+                    'pt-4 text-sm text-on-surface-variant',
+                  )}
+                >
+                  <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+                    <span
+                      className={cm.cn('material-symbols-outlined text-[var(--daw-primary)]')}
+                      aria-hidden="true"
+                    >
+                      check_circle
+                    </span>
+                    {t('landing.heroCheckWebAudio', {}, { defaultValue: 'Web Audio API' })}
+                  </div>
+                  <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+                    <span
+                      className={cm.cn('material-symbols-outlined text-[var(--daw-secondary)]')}
+                      aria-hidden="true"
+                    >
+                      sync
+                    </span>
+                    {t('landing.heroCheckSync', {}, { defaultValue: 'Real-time sync' })}
+                  </div>
+                </div>
               </div>
 
-              <div className={cm.cn('lg:col-span-5')}>
+              {/* DAW window mockup — toolbar, colored track clips, glowing playhead */}
+              <div className={cm.cn('relative')} aria-hidden="true">
                 <div
-                  className={cm.cn('relative overflow-hidden rounded-[2rem] text-white shadow-2xl')}
-                  style={{
-                    background: `linear-gradient(135deg, ${BRAND_COLOR} 0%, #6d28d9 50%, ${BRAND_ACCENT_COLOR} 100%)`,
-                    minHeight: '460px',
-                    boxShadow: `0 24px 64px ${BRAND_COLOR}40`,
-                  }}
+                  className={cm.cn(
+                    'rounded-xl overflow-hidden border border-white/5 shadow-2xl',
+                    'bg-[var(--fugue-panel)]',
+                    'shadow-[0_20px_50px_rgba(0,0,0,0.5)]',
+                  )}
                 >
                   <div
                     className={cm.cn(
-                      'absolute -right-16 -bottom-16 w-56 h-56 rounded-full bg-surface/15 blur-3xl',
-                    )}
-                    aria-hidden="true"
-                  />
-                  <div
-                    className={cm.cn(
-                      'absolute right-8 top-8 w-16 h-16 rounded-full bg-foreground/10 blur-xl',
-                    )}
-                    aria-hidden="true"
-                  />
-
-                  <div
-                    className={cm.cn(
-                      'relative z-10 p-7 flex flex-col justify-between min-h-[460px]',
+                      'h-12 flex items-center justify-between px-4 border-b border-white/5',
+                      'bg-[var(--fugue-bg)]',
                     )}
                   >
-                    <div>
-                      <span
-                        className={cm.cn(
-                          'px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-surface/20 backdrop-blur-md',
-                        )}
-                      >
-                        {t(
-                          'landing.sampleEyebrow',
-                          {},
-                          { defaultValue: 'Live session · 8 tracks · 124 BPM' },
-                        )}
+                    <div className="flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500/20" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-500/20" />
+                      <div className="w-3 h-3 rounded-full bg-green-500/20" />
+                    </div>
+                    <div className="font-mono text-sm font-bold tracking-widest text-[var(--daw-track-audio)]">
+                      00:42.16
+                    </div>
+                    <div
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 'sm' }),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      <span className="material-symbols-outlined text-lg">play_arrow</span>
+                      <span className="material-symbols-outlined text-lg">stop</span>
+                      <span className="material-symbols-outlined text-lg text-red-500">
+                        fiber_manual_record
                       </span>
-                      <h3
-                        className={cm.cn(
-                          'text-2xl md:text-3xl font-extrabold tracking-tight leading-tight mt-3',
-                        )}
-                      >
-                        {t('landing.sampleTrack', {}, { defaultValue: 'Midnight Bass — Demo' })}
-                      </h3>
-                      <p
-                        className={cm.cn(
-                          'text-[11px] font-black uppercase tracking-widest text-white/80 mt-1',
-                        )}
-                      >
-                        {t(
-                          'landing.sampleAlbum',
-                          {},
-                          { defaultValue: 'Auto-saved · 3 collaborators' },
-                        )}
-                      </p>
                     </div>
-
-                    <div className={cm.cn('flex items-center justify-center my-4')}>
-                      <div
-                        className={cm.cn(
-                          'w-32 h-32 rounded-2xl shadow-2xl shadow-black/30 flex items-center justify-center',
-                        )}
-                        style={{
-                          background: 'rgba(255, 255, 255, 0.15)',
-                          backdropFilter: 'blur(8px)',
-                        }}
-                        aria-hidden="true"
-                      >
-                        <span
-                          className={cm.cn('material-symbols-outlined text-[64px] text-white/90')}
-                        >
-                          graphic_eq
-                        </span>
-                      </div>
+                  </div>
+                  <div className={cm.cn('relative p-4 space-y-2')}>
+                    {/* Playhead */}
+                    <div
+                      className={cm.cn(
+                        'absolute top-0 bottom-0 left-[40%] w-px bg-[var(--daw-track-audio)] z-10',
+                        'shadow-[0_0_8px_color-mix(in_oklab,var(--daw-track-audio)_80%,transparent)]',
+                      )}
+                    >
+                      <div className="absolute -top-1 -left-1.5 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[var(--daw-track-audio)]" />
                     </div>
-
-                    <div>
+                    {MOCKUP_TRACKS.map((track) => (
                       <div
-                        className={cm.cn(
-                          'flex items-center gap-2 text-[11px] font-mono tabular-nums text-white/85',
-                        )}
+                        key={track.name}
+                        className="flex h-16 bg-white/5 rounded-md overflow-hidden"
                       >
-                        <span>00:01:42</span>
-                        <div
-                          className={cm.cn(
-                            'flex-1 h-1.5 rounded-full bg-surface/25 overflow-hidden',
-                          )}
-                        >
-                          <div
-                            className={cm.cn('h-full bg-surface rounded-full')}
-                            style={{ width: '48%' }}
-                            aria-hidden="true"
-                          />
-                        </div>
-                        <span>00:03:31</span>
-                      </div>
-                      <div
-                        className={cm.cn('flex items-center justify-center gap-3 mt-3')}
-                        aria-hidden="true"
-                      >
-                        <span
-                          className={cm.cn(
-                            'w-9 h-9 rounded-full flex items-center justify-center text-white/90',
-                          )}
-                        >
-                          <span className={cm.cn('material-symbols-outlined')}>skip_previous</span>
-                        </span>
-                        <span
-                          className={cm.cn(
-                            'w-12 h-12 rounded-full bg-surface text-on-surface flex items-center justify-center shadow-xl',
-                          )}
-                        >
-                          <span className={cm.cn('material-symbols-outlined text-3xl')}>pause</span>
-                        </span>
-                        <span
-                          className={cm.cn(
-                            'w-9 h-9 rounded-full flex items-center justify-center text-white/90',
-                          )}
-                        >
-                          <span className={cm.cn('material-symbols-outlined')}>skip_next</span>
-                        </span>
-                        <span
-                          className={cm.cn('w-9 h-9 rounded-full flex items-center justify-center')}
-                          style={{ color: 'var(--daw-warning)' }}
-                        >
-                          <span
-                            className={cm.cn('material-symbols-outlined')}
-                            style={{ fontVariationSettings: "'FILL' 1" }}
-                          >
-                            fiber_manual_record
+                        <div className="w-24 bg-white/5 p-2 flex flex-col justify-center border-r border-white/5">
+                          <span className={cm.cn('text-xs font-bold', track.tint)}>
+                            {track.name}
                           </span>
-                        </span>
+                        </div>
+                        <div className="flex-1 relative p-2">
+                          {track.clips.map((clip, i) => (
+                            <div
+                              key={i}
+                              className={cm.cn(
+                                'absolute h-10 rounded border',
+                                clip.left,
+                                clip.width,
+                                clip.tint,
+                              )}
+                            />
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -288,29 +315,30 @@ export function Landing() {
           </div>
         </section>
 
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-12')}>
-          <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-2 md:grid-cols-4')}>
+        {/* Stats band — divided, mono values per the Stitch design */}
+        <section
+          className={cm.cn('relative border-y border-outline-variant/40 bg-[var(--fugue-bg)]')}
+        >
+          <div
+            className={cm.cn(
+              cm.maxW('7xl'),
+              cm.mxAuto,
+              cm.sp('px', 6),
+              cm.sp('py', 12),
+              'grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-outline-variant/40',
+            )}
+          >
             {STATS.map((s) => (
-              <div
-                key={s.key}
-                className={cm.cn(
-                  'bg-surface-container-lowest rounded-2xl p-6 text-center hover:shadow-lg transition-shadow border-l-4',
-                )}
-                style={{ borderColor: BRAND_COLOR }}
-              >
+              <div key={s.key} className="py-4">
                 <p
                   className={cm.cn(
-                    'text-3xl md:text-4xl font-extrabold tracking-tight tabular-nums',
+                    'font-mono text-4xl font-bold tracking-tight tabular-nums mb-2',
+                    s.tint,
                   )}
-                  style={{ color: BRAND_COLOR }}
                 >
                   {s.value}
                 </p>
-                <p
-                  className={cm.cn(
-                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant mt-2',
-                  )}
-                >
+                <p className={cm.cn('text-sm uppercase tracking-wide text-on-surface-variant')}>
                   {t(`landing.stat.${s.key}`, {}, { defaultValue: s.defaultLabel })}
                 </p>
               </div>
@@ -319,11 +347,7 @@ export function Landing() {
         </section>
 
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
-          <h2
-            className={cm.cn(
-              'mb-12 text-center text-3xl md:text-4xl font-extrabold tracking-tight',
-            )}
-          >
+          <h2 className={cm.cn('mb-12 text-center text-3xl md:text-4xl font-black tracking-tight')}>
             {t(
               'landing.featuresHeading',
               {},
@@ -337,12 +361,14 @@ export function Landing() {
               <div
                 key={f.key}
                 className={cm.cn(
-                  'bg-surface-container-lowest rounded-2xl p-6 hover:shadow-2xl hover:shadow-on-surface/5 hover:-translate-y-0.5 transition-all group',
+                  'rounded-2xl p-6 border border-white/5 hover:-translate-y-0.5 transition-all group',
+                  'bg-[var(--fugue-panel)]',
                 )}
               >
                 <div
                   className={cm.cn(
-                    'inline-flex p-3 bg-surface rounded-xl shadow-sm group-hover:scale-110 transition-transform',
+                    'inline-flex p-3 rounded-xl shadow-sm group-hover:scale-110 transition-transform',
+                    'bg-[color-mix(in_oklab,var(--color-on-surface)_5%,transparent)]',
                     f.tint,
                   )}
                 >
@@ -361,9 +387,23 @@ export function Landing() {
           </div>
         </section>
 
-        <section className={cm.cn('border-t border-outline-variant/40')}>
-          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 text-center')}>
-            <h3 className={cm.cn('text-3xl font-extrabold tracking-tight mb-4')}>
+        {/* Final CTA — radial violet glow, gradient headline, white pill */}
+        <section className={cm.cn('relative overflow-hidden bg-[var(--fugue-surface)]')}>
+          <div className={cm.cn('absolute inset-0 fugue-cta-glow')} aria-hidden="true" />
+          <div
+            className={cm.cn(
+              cm.maxW('4xl'),
+              cm.mxAuto,
+              cm.sp('px', 6),
+              'relative py-24 md:py-32 text-center',
+            )}
+          >
+            <h3
+              className={cm.cn(
+                'text-4xl md:text-5xl font-black tracking-tight mb-8',
+                'text-transparent bg-clip-text bg-gradient-to-r from-[var(--daw-secondary-hover)] to-[var(--daw-primary)]',
+              )}
+            >
               {t('landing.ctaHeading', {}, { defaultValue: 'Hit play on your next track' })}
             </h3>
             <p className={cm.cn('text-base text-on-surface-variant max-w-xl mx-auto mb-8')}>
@@ -378,58 +418,123 @@ export function Landing() {
             </p>
             <Link
               to="/signup"
+              data-mol-id="landing-final-cta"
               className={cm.cn(
-                'inline-flex items-center gap-2 px-10 py-4 font-semibold whitespace-nowrap text-white rounded-full transition-colors',
+                'inline-flex items-center gap-2 px-10 py-5 font-bold text-lg whitespace-nowrap rounded-full transition-colors',
+                'bg-[var(--color-on-surface)] text-[var(--color-surface)]',
+                'shadow-[0_0_30px_color-mix(in_oklab,var(--color-on-surface)_20%,transparent)]',
+                'hover:opacity-90',
               )}
-              style={{
-                background: `linear-gradient(135deg, ${BRAND_COLOR}, ${BRAND_ACCENT_COLOR})`,
-              }}
             >
               {t('landing.heroCta', {}, { defaultValue: 'Start producing — free for 14 days' })}
-              <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
-                arrow_forward
-              </span>
             </Link>
           </div>
         </section>
       </main>
 
       <footer
-        className={cm.cn(
-          'py-8 text-center text-sm bg-surface text-on-surface-variant border-t border-outline-variant',
-        )}
+        className={cm.cn('border-t border-white/5 bg-[var(--fugue-bg)] text-on-surface-variant')}
       >
-        <nav
-          aria-label={t('footer.legalNavLabel', {}, { defaultValue: 'Footer' })}
-          className={cm.cn('flex items-center justify-center gap-6 mb-3')}
-        >
-          <Link to="/about" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })}
-          </Link>
-          <Link to="/privacy" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('footer.privacyPolicy', {}, { defaultValue: 'Privacy Policy' })}
-          </Link>
-          <Link to="/terms" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('footer.termsOfService', {}, { defaultValue: 'Terms of Service' })}
-          </Link>
-        </nav>
-        <p>
-          {t(
-            'common.copyrightBuiltWithMolecule',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}' },
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 8),
+            'py-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm',
           )}
-          {' — Built with '}
-          <a
-            href="https://molecule.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline font-medium"
-          >
-            Molecule.dev
-          </a>
-        </p>
+        >
+          <div>
+            <div className={cm.cn('text-lg font-bold text-[var(--daw-primary)] mb-4')}>
+              {APP_NAME}
+            </div>
+            <p>
+              {t(
+                'landing.footer.copyright',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                { defaultValue: '© {{year}} {{app}}. Built for the web.' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
+            </p>
+          </div>
+          <div>
+            <h3 className={cm.cn('text-on-surface font-bold mb-4 text-sm')}>
+              {t('landing.footer.productHeading', {}, { defaultValue: 'Product' })}
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  to="/signup"
+                  className={cm.cn('hover:text-[var(--daw-secondary-hover)] transition-colors')}
+                >
+                  {t('landing.getStarted', {}, { defaultValue: 'Open the studio' })}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/login"
+                  className={cm.cn('hover:text-[var(--daw-secondary-hover)] transition-colors')}
+                >
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/samples"
+                  className={cm.cn('hover:text-[var(--daw-secondary-hover)] transition-colors')}
+                >
+                  {t('landing.footer.samplesLink', {}, { defaultValue: 'Sample library' })}
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className={cm.cn('text-on-surface font-bold mb-4 text-sm')}>
+              {t('landing.footer.legalHeading', {}, { defaultValue: 'Legal' })}
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  to="/about"
+                  aria-label={t(
+                    'footer.about',
+                    { appName: APP_NAME },
+                    { defaultValue: 'About {{appName}}' },
+                  )}
+                  className={cm.cn('hover:text-[var(--daw-secondary-hover)] transition-colors')}
+                >
+                  {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/privacy"
+                  className={cm.cn('hover:text-[var(--daw-secondary-hover)] transition-colors')}
+                >
+                  {t('footer.privacyPolicy', {}, { defaultValue: 'Privacy Policy' })}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/terms"
+                  className={cm.cn('hover:text-[var(--daw-secondary-hover)] transition-colors')}
+                >
+                  {t('footer.termsOfService', {}, { defaultValue: 'Terms of Service' })}
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </footer>
     </div>
   )
 }
+
+export default Landing

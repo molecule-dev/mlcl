@@ -95,10 +95,13 @@
   /* Typography */
   --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-family-mono: 'SF Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-family-mono:
+    'Space Mono', 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     design-photo-sharing-landing.html sets the editorial face as Newsreader
+     (italic serif); Georgia is the offline fallback. */
+  --font-headline: 'Newsreader', Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -142,6 +145,57 @@
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-normal: 300ms ease;
+}
+
+/* Landing photo stand-ins (design-photo-sharing-landing.html). The template
+   ships no raster photography, so hero + featured "prints" render as
+   stage-toned gradients built from theme tokens — they re-skin themselves
+   when the palette tokens change, in light AND dark mode. */
+.photo-tone-warm {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--color-primary) 86%, white) 0%,
+    var(--color-primary) 45%,
+    var(--color-primary-dark) 100%
+  );
+}
+.photo-tone-cool {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--color-secondary) 82%, white) 0%,
+    var(--color-secondary) 40%,
+    color-mix(in oklab, var(--color-secondary) 55%, var(--color-photo-stage)) 100%
+  );
+}
+.photo-tone-stage {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--color-text) 72%, var(--color-surface)) 0%,
+    var(--color-text) 100%
+  );
+}
+
+[data-mol-mode='dark'] .photo-tone-warm {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-dark) 50%,
+    var(--color-photo-stage) 100%
+  );
+}
+[data-mol-mode='dark'] .photo-tone-cool {
+  background: linear-gradient(
+    135deg,
+    var(--color-secondary) 0%,
+    color-mix(in oklab, var(--color-secondary) 45%, var(--color-photo-stage)) 100%
+  );
+}
+[data-mol-mode='dark'] .photo-tone-stage {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--color-text) 40%, var(--color-photo-stage)) 0%,
+    var(--color-photo-stage) 100%
+  );
 }
 
 /* Dark mode — Obscura creative-studio warm-amber on charcoal.

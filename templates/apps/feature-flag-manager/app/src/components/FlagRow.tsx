@@ -38,6 +38,13 @@ interface FlagRowProps {
   flag: FlagRowData
   /** When false, renders a non-interactive demo row (used on Landing). */
   linked?: boolean
+  /**
+   * Narrow-surface layout (Landing hero mockup): always stacked. The desktop
+   * row needs ~470px of fixed-width columns (env badges + rollout + updated +
+   * toggle); Tailwind breakpoints are viewport-based, not container-based, so
+   * inside a ~460px hero card those columns stomp the identity text.
+   */
+  compact?: boolean
   onToggle?: (flag: FlagRowData) => void
 }
 
@@ -60,11 +67,104 @@ function fmtRelative(iso: string): string {
   return `${days}d ago`
 }
 
-export function FlagRow({ flag, linked = true, onToggle }: FlagRowProps) {
+export function FlagRow({ flag, linked = true, compact = false, onToggle }: FlagRowProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const accent = ACCENT[flag.state]
   const isStale = (flag.stale_days ?? 0) >= 30
+
+  if (compact) {
+    const compactBody = (
+      <div
+        className={cm.cn('group relative flex flex-col gap-2.5 rounded-xl px-4 py-3.5')}
+        style={{
+          backgroundColor: 'rgba(30, 34, 53, 0.6)',
+          border: '1px solid rgba(30, 41, 59, 0.8)',
+          borderLeft: `4px solid ${accent}`,
+        }}
+        data-mol-id={`flag-row-${flag.key}`}
+      >
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+          {isStale ? (
+            <span
+              className={cm.cn('h-2 w-2 rounded-full shrink-0')}
+              style={{
+                backgroundColor: 'var(--color-stale-flag)',
+                boxShadow: '0 0 8px rgba(249, 115, 22, 0.6)',
+              }}
+              aria-label={t('flagRow.staleAria', {}, { defaultValue: 'Stale flag' })}
+            />
+          ) : null}
+          <p
+            className={cm.cn(
+              'font-mono text-[13px] font-bold text-on-surface truncate flex-1 min-w-0',
+            )}
+          >
+            {flag.key}
+          </p>
+          <span
+            className={cm.cn(
+              'font-mono text-[9px] font-black uppercase tracking-widest text-on-surface-variant shrink-0',
+            )}
+          >
+            {flag.flag_type}
+          </span>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}>
+            {flag.environments.map((env) => (
+              <EnvironmentBadge key={env} tone={env} compact />
+            ))}
+          </div>
+          <div data-flag-toggle className={cm.cn('shrink-0')}>
+            <FlagToggle
+              state={flag.state}
+              onClick={onToggle ? () => onToggle(flag) : undefined}
+              hideLabel
+              ariaLabel={t(
+                'flagRow.toggleAria',
+                { key: flag.key },
+                { defaultValue: 'Toggle {{key}}' },
+              )}
+            />
+          </div>
+        </div>
+        <div>
+          <p className={cm.cn('text-sm font-semibold text-on-surface truncate')}>{flag.name}</p>
+          {flag.description ? (
+            <p className={cm.cn('mt-0.5 text-xs text-on-surface-variant truncate')}>
+              {flag.description}
+            </p>
+          ) : null}
+        </div>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+          <div className={cm.cn('flex-1 min-w-0')}>
+            <RolloutBar percent={flag.rollout_percentage} showLabel={false} />
+          </div>
+          <p
+            className={cm.cn('font-mono text-xs font-bold text-on-surface shrink-0')}
+            style={{ fontVariantNumeric: 'tabular-nums' }}
+          >
+            {flag.rollout_percentage}%
+          </p>
+          <span className={cm.cn('font-mono text-[11px] text-on-surface-variant shrink-0')}>
+            {flag.updated_at ? fmtRelative(flag.updated_at) : '—'}
+          </span>
+        </div>
+      </div>
+    )
+    if (!linked) return compactBody
+    return (
+      <Link
+        to={`/flags/${flag.key}`}
+        onClick={(e) => {
+          if (e.target instanceof Element && e.target.closest('[data-flag-toggle]')) {
+            e.preventDefault()
+          }
+        }}
+      >
+        {compactBody}
+      </Link>
+    )
+  }
 
   const body = (
     <div

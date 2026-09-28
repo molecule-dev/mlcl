@@ -25,3 +25,14 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Register the app's violet accent as a Tailwind color utility
+ * (`text-accent` / `bg-accent` / `from-accent`). The @theme value here is
+ * just the light default — theme.css (imported after this file) owns the
+ * real per-mode values on :root and [data-mol-mode='dark'], and the
+ * utilities resolve through var(--color-accent) at computed-value time.
+ */
+@theme {
+  --color-accent: #6d28d9;
+}

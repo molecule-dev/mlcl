@@ -53,11 +53,48 @@ const FEATURES = [
 ]
 
 const TRUSTED_BY = [
-  { initials: 'BL', color: '#0e7490' },
-  { initials: 'MC', color: '#047857' },
-  { initials: 'PK', color: '#b45309' },
-  { initials: 'KW', color: '#7c3aed' },
+  { initials: 'BL', color: 'var(--mol-color-primary-dark)' },
+  { initials: 'MC', color: 'var(--mol-color-secondary-dark)' },
+  { initials: 'PK', color: 'var(--color-pet-attention)' },
+  { initials: 'KW', color: 'var(--color-pet-vaccinated)' },
 ]
+
+const VET_NETWORKS = [
+  { icon: 'pets', labelKey: 'landing.networks.vetcore', defaultLabel: 'VetCore' },
+  { icon: 'health_and_safety', labelKey: 'landing.networks.careplus', defaultLabel: 'CarePlus' },
+  {
+    icon: 'medical_services',
+    labelKey: 'landing.networks.nationalvet',
+    defaultLabel: 'NationalVet',
+  },
+] as const
+
+const TESTIMONIALS = [
+  {
+    key: 'sarah',
+    initials: 'ST',
+    color: 'var(--mol-color-primary-dark)',
+    nameKey: 'landing.testimonials.sarah.name',
+    defaultName: 'Sarah T.',
+    roleKey: 'landing.testimonials.sarah.role',
+    defaultRole: 'Owner of Bella & Max',
+    quoteKey: 'landing.testimonials.sarah.quote',
+    defaultQuote:
+      'Nuzzle changed how I manage my dogs\u2019 health. Having their records instantly available saved us during an emergency vet visit out of town. It\u2019s incredibly intuitive.',
+  },
+  {
+    key: 'james',
+    initials: 'JL',
+    color: 'var(--mol-color-secondary-dark)',
+    nameKey: 'landing.testimonials.james.name',
+    defaultName: 'James L.',
+    roleKey: 'landing.testimonials.james.role',
+    defaultRole: 'Owner of Mittens',
+    quoteKey: 'landing.testimonials.james.quote',
+    defaultQuote:
+      'Finding a reliable sitter was always stressful until Nuzzle. Now I have a trusted network, and I get daily health updates through the app when I travel.',
+  },
+] as const
 
 export function Landing() {
   const cm = getClassMap()
@@ -103,7 +140,13 @@ export function Landing() {
                 pets
               </span>
             </div>
-            <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}>
+            <span
+              className={cm.cn(
+                cm.textSize('xl'),
+                cm.fontWeight('bold'),
+                'tracking-tight font-headline',
+              )}
+            >
               {APP_NAME}
             </span>
           </Link>
@@ -160,7 +203,7 @@ export function Landing() {
                   cm.sp('py', 2),
                   cm.textSize('sm'),
                   cm.fontWeight('bold'),
-                  'text-white rounded-lg hover:shadow-lg transition-all',
+                  'text-white rounded-full hover:shadow-lg transition-all',
                 )}
                 style={{ background: heroGradient }}
               >
@@ -185,7 +228,7 @@ export function Landing() {
                     cm.sp('py', 2),
                     cm.textSize('sm'),
                     cm.fontWeight('bold'),
-                    'text-white rounded-lg hover:shadow-lg transition-all',
+                    'text-white rounded-full hover:shadow-lg transition-all',
                   )}
                   style={{ background: heroGradient }}
                 >
@@ -232,13 +275,31 @@ export function Landing() {
               <span className={cm.cn('material-symbols-outlined text-xs')}>pets</span>
               {t('landing.hero.eyebrow', {}, { defaultValue: 'Loved by 24,000+ pet households' })}
             </span>
+            {/* Design splits the headline across the comma: lead in navy,
+                tail in primary. Comma-safe split works for every locale that
+                translates the sentence with its own comma; locales without a
+                comma render single-color (never doubled). */}
             <h1
               className={cm.cn(
                 cm.fontWeight('bold'),
-                'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] font-extrabold',
+                'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.1] text-[var(--color-brand-navy)] font-headline font-extrabold',
               )}
             >
-              {t('landing.hero.title', {}, { defaultValue: 'Every pet, perfectly cared for.' })}
+              {(() => {
+                const raw = t(
+                  'landing.hero.title',
+                  {},
+                  { defaultValue: 'Every pet, perfectly cared for.' },
+                )
+                const at = raw.search(/[,،、，]/)
+                if (at < 0) return raw
+                return (
+                  <>
+                    {raw.slice(0, at + 1)}{' '}
+                    <span className="text-primary">{raw.slice(at + 1).trim()}</span>
+                  </>
+                )
+              })()}
             </h1>
             <p
               className={cm.cn(
@@ -267,7 +328,7 @@ export function Landing() {
                   cm.sp('py', 4),
                   cm.textSize('base'),
                   cm.fontWeight('bold'),
-                  'text-white rounded-xl hover:shadow-xl transform hover:scale-[0.98] transition-all',
+                  'text-white rounded-full hover:shadow-xl transform hover:scale-[0.98] transition-all',
                 )}
                 style={{ background: heroGradient }}
               >
@@ -281,7 +342,7 @@ export function Landing() {
                   cm.sp('py', 4),
                   cm.textSize('base'),
                   cm.fontWeight('semibold'),
-                  'border border-outline-variant bg-surface-container-low text-on-surface hover:bg-surface-container rounded-xl transition-all',
+                  'border border-outline-variant bg-surface text-on-surface hover:border-secondary-dark hover:text-secondary-dark rounded-full transition-all',
                 )}
               >
                 <span className={cm.cn('material-symbols-outlined')}>login</span>
@@ -347,6 +408,56 @@ export function Landing() {
           </div>
         </div>
 
+        {/* Trust row — partnered veterinary networks, per design */}
+        <section
+          aria-label={t(
+            'landing.networks.heading',
+            {},
+            { defaultValue: 'Partnered with top veterinary networks' },
+          )}
+          className={cm.cn(
+            cm.sp('mt', 10),
+            cm.sp('py', 10),
+            'border-y border-outline-variant bg-surface/50',
+          )}
+        >
+          <p
+            className={cm.cn(
+              cm.textCenter,
+              cm.textSize('sm'),
+              cm.fontWeight('medium'),
+              cm.sp('mb', 6),
+              'uppercase tracking-wider text-on-surface-variant',
+            )}
+          >
+            {t(
+              'landing.networks.heading',
+              {},
+              { defaultValue: 'Partnered with top veterinary networks' },
+            )}
+          </p>
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center', gap: 'lg', wrap: 'wrap' }),
+              'opacity-60 grayscale',
+            )}
+          >
+            {VET_NETWORKS.map((n) => (
+              <div
+                key={n.labelKey}
+                className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'font-headline')}
+              >
+                <span className={cm.cn('material-symbols-outlined text-3xl')} aria-hidden="true">
+                  {n.icon}
+                </span>
+                <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
+                  {t(n.labelKey, {}, { defaultValue: n.defaultLabel })}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* §14.2 Feature quad */}
         <section id="features" className={cm.cn(cm.sp('mt', 16), cm.sp('py', 12))}>
           <div className={cm.cn(cm.maxW('2xl'), cm.mxAuto, cm.textCenter, cm.sp('mb', 12))}>
@@ -390,7 +501,7 @@ export function Landing() {
                 key={f.titleKey}
                 className={cm.cn(
                   cm.sp('p', 8),
-                  'bg-surface-container-low rounded-xl border border-outline-variant/10 hover:bg-surface-container transition-colors',
+                  'bg-surface rounded-2xl border border-outline-variant/10 shadow-sm hover:shadow-md transition-shadow',
                 )}
               >
                 <div
@@ -470,7 +581,7 @@ export function Landing() {
                   cm.sp('py', 3),
                   cm.textSize('sm'),
                   cm.fontWeight('bold'),
-                  'text-primary-dark dark:text-primary rounded-xl border border-primary/40 hover:bg-primary-container transition-all',
+                  'text-primary-dark dark:text-primary rounded-full border border-primary/40 hover:bg-primary-container transition-all',
                 )}
               >
                 <span className={cm.cn('material-symbols-outlined text-base')}>
@@ -615,6 +726,120 @@ export function Landing() {
                 </p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section
+          aria-labelledby="testimonials-heading"
+          className={cm.cn(cm.sp('mt', 16), cm.sp('py', 12))}
+        >
+          <h2
+            id="testimonials-heading"
+            className={cm.cn(
+              cm.textSize('3xl'),
+              cm.fontWeight('bold'),
+              cm.textCenter,
+              cm.sp('mb', 12),
+              'text-[var(--color-brand-navy)] dark:text-on-surface font-headline',
+            )}
+          >
+            {t(
+              'landing.testimonials.heading',
+              {},
+              { defaultValue: 'Loved by pets, trusted by owners.' },
+            )}
+          </h2>
+          <div
+            className={cm.cn(
+              cm.grid({ gap: 'lg' }),
+              'grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto',
+            )}
+          >
+            {TESTIMONIALS.map((item) => (
+              <figure
+                key={item.key}
+                className={cm.cn(
+                  cm.sp('p', 8),
+                  'relative bg-surface rounded-2xl shadow-sm border border-outline-variant/10',
+                )}
+              >
+                <span
+                  className="material-symbols-outlined absolute top-6 right-8 text-6xl text-surface-container-highest opacity-50"
+                  aria-hidden="true"
+                >
+                  format_quote
+                </span>
+                <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), cm.sp('mb', 6))}>
+                  <span
+                    className={cm.cn(
+                      cm.w(14),
+                      cm.h(14),
+                      cm.roundedFull,
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      cm.textSize('base'),
+                      cm.fontWeight('bold'),
+                      'text-white',
+                    )}
+                    style={{ backgroundColor: item.color }}
+                    aria-hidden="true"
+                  >
+                    {item.initials}
+                  </span>
+                  <div>
+                    <figcaption
+                      className={cm.cn(
+                        cm.fontWeight('bold'),
+                        'text-[var(--color-brand-navy)] dark:text-on-surface font-headline',
+                      )}
+                    >
+                      {t(item.nameKey, {}, { defaultValue: item.defaultName })}
+                    </figcaption>
+                    <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                      {t(item.roleKey, {}, { defaultValue: item.defaultRole })}
+                    </p>
+                  </div>
+                </div>
+                <blockquote
+                  className={cm.cn(
+                    cm.textSize('lg'),
+                    'relative z-10 italic text-on-surface leading-relaxed',
+                  )}
+                >
+                  {t(item.quoteKey, {}, { defaultValue: item.defaultQuote })}
+                </blockquote>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA band — solid emerald, per design */}
+        <section
+          className={cm.cn(
+            cm.sp('mt', 16),
+            cm.sp('py', 20),
+            cm.sp('px', 6),
+            'bg-[var(--mol-color-secondary-dark)]',
+          )}
+        >
+          <div className={cm.cn(cm.maxW('4xl'), cm.mxAuto, cm.textCenter)}>
+            <h2
+              className={cm.cn(
+                cm.textSize('4xl'),
+                'md:text-5xl font-bold text-white mb-8 font-headline',
+              )}
+            >
+              {t('landing.cta.heading', {}, { defaultValue: 'Ready to nuzzle your pets closer?' })}
+            </h2>
+            <Link
+              to="/signup"
+              data-mol-id="landing-cta-signup"
+              className={cm.cn(
+                'inline-block bg-surface text-secondary-dark hover:bg-surface-container-low font-headline font-bold text-lg px-10 py-4 rounded-full shadow-lg transition-colors',
+              )}
+            >
+              {t('landing.cta.button', {}, { defaultValue: 'Sign up' })}
+            </Link>
           </div>
         </section>
 

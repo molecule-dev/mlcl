@@ -152,17 +152,8 @@ export function Landing() {
       </nav>
 
       <main>
-        {/* Hero — light cyan radial wash with map sample on the right */}
+        {/* Hero — crisp surface per the design; the map card carries the color */}
         <section className="relative overflow-hidden">
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 25% 30%, color-mix(in srgb, var(--mol-color-info) 18%, transparent), transparent 50%),' +
-                'radial-gradient(circle at 78% 60%, color-mix(in srgb, var(--mol-color-success) 12%, transparent), transparent 45%)',
-            }}
-            aria-hidden="true"
-          />
           <div
             className={cm.cn(
               cm.maxW('7xl'),
@@ -420,7 +411,7 @@ export function Landing() {
               <div
                 key={f.key}
                 className={
-                  'bg-surface-container-lowest rounded-2xl p-6 hover:shadow-2xl hover:shadow-on-surface/5 transition-all group'
+                  'bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-on-surface/5 hover:-translate-y-0.5 transition-all group'
                 }
               >
                 <div
@@ -444,12 +435,12 @@ export function Landing() {
           </div>
         </section>
 
-        <section className={'border-t border-outline-variant/40'}>
-          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 text-center')}>
-            <h3 className={'text-3xl font-extrabold tracking-tight mb-4'}>
+        <section className={'bg-navy'}>
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20 text-center')}>
+            <h3 className={'text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-surface'}>
               {t('landing.ctaHeading', {}, { defaultValue: 'Track every mile' })}
             </h3>
-            <p className={'text-base text-on-surface-variant max-w-xl mx-auto mb-8'}>
+            <p className={'text-base text-surface/70 max-w-xl mx-auto mb-8'}>
               {t(
                 'landing.ctaBody',
                 {},
@@ -461,7 +452,7 @@ export function Landing() {
             <Link
               to="/signup"
               className={
-                'inline-flex items-center gap-2 px-10 py-4 font-semibold bg-primary text-on-primary rounded-xl hover:bg-[var(--mol-color-primary-dark)] transition-colors'
+                'inline-flex items-center gap-2 px-10 py-4 font-semibold bg-primary text-on-primary rounded-xl hover:bg-[var(--mol-color-primary-dark)] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 transition-all'
               }
             >
               {t('landing.heroCta', {}, { defaultValue: 'Get a demo' })}

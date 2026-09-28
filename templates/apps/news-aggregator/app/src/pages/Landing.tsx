@@ -1,4 +1,4 @@
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -8,37 +8,43 @@ import { BiasIndicator } from '../components/BiasIndicator.js'
 import { Footer } from '../components/Footer.js'
 import { TopicChipsRow } from '../components/TopicChipsRow.js'
 
-const FEATURES = [
+/** Spectrum sample cards — how three outlets frame the same story (Stitch design). */
+const SPECTRUM_CARDS = [
   {
-    key: 'multi_source',
-    defaultTitle: 'One story, every angle',
-    defaultBody:
-      'Read the same headline through every outlet covering it. Compare framing side by side.',
-    icon: 'groups',
-    tint: 'text-primary',
+    key: 'left',
+    source: 'The Guardian',
+    icon: 'article',
+    headlineKey: 'landing.spectrum.leftHeadline',
+    defaultHeadline: 'Climate Summit Yields Urgent Pledges, But Activists Demand Action',
+    excerptKey: 'landing.spectrum.leftExcerpt',
+    defaultExcerpt:
+      'World leaders agreed to ambitious new targets at today\u2019s summit, though frontline organizers insist the timeline remains critically inadequate.',
+    bias: '20%',
+    lifted: false,
   },
   {
-    key: 'bias_aware',
-    defaultTitle: 'Bias awareness',
-    defaultBody:
-      'Every source is rated on a transparent left-to-right spectrum so you know who you are reading.',
-    icon: 'balance',
-    tint: 'text-secondary',
+    key: 'center',
+    source: 'Reuters',
+    icon: 'breaking_news_alt_1',
+    headlineKey: 'landing.spectrum.centerHeadline',
+    defaultHeadline: 'Nations Agree on Revised Emissions Targets at Global Summit',
+    excerptKey: 'landing.spectrum.centerExcerpt',
+    defaultExcerpt:
+      'Delegates concluded the three-day conference with a signed agreement to reduce industrial emissions by 15% over the next decade.',
+    bias: '50%',
+    lifted: true,
   },
   {
-    key: 'topical_grouping',
-    defaultTitle: 'Topical grouping',
-    defaultBody:
-      'AI clusters related stories by topic — politics, tech, sports — so the day reads as one feed.',
-    icon: 'category',
-    tint: 'text-tertiary',
-  },
-  {
-    key: 'curated',
-    defaultTitle: 'Curated, not algorithmic',
-    defaultBody: 'No infinite scroll. A finite, finished briefing you can actually finish reading.',
-    icon: 'auto_awesome',
-    tint: 'text-info',
+    key: 'right',
+    source: 'Wall Street Journal',
+    icon: 'article',
+    headlineKey: 'landing.spectrum.rightHeadline',
+    defaultHeadline: 'New Climate Regulations Poised to Strain Industrial Sector',
+    excerptKey: 'landing.spectrum.rightExcerpt',
+    defaultExcerpt:
+      'The latest international climate agreement introduces stringent regulatory hurdles that analysts warn could significantly impact manufacturing output.',
+    bias: '80%',
+    lifted: false,
   },
 ] as const
 
@@ -73,6 +79,7 @@ export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const isAuthenticated = useIsAuthenticated()
+  const navigate = useNavigate()
 
   return (
     <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
@@ -100,24 +107,10 @@ export function Landing() {
             )}
           >
             <span
-              className={
-                'w-9 h-9 rounded-full inline-flex items-center justify-center shadow-md shadow-primary/20'
-              }
-              style={{
-                background:
-                  'linear-gradient(135deg, var(--mol-color-primary), var(--color-primary-gradient-to))',
-              }}
-            >
-              <span
-                className={'material-symbols-outlined text-white text-lg'}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-                aria-hidden="true"
-              >
-                newspaper
-              </span>
-            </span>
-            <span
-              className={cm.cn(cm.textSize('xl'), 'font-headline font-extrabold tracking-tight')}
+              className={cm.cn(
+                cm.textSize('xl'),
+                'font-headline italic font-semibold tracking-tight',
+              )}
             >
               {APP_NAME}
             </span>
@@ -141,14 +134,10 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('px', 5),
                   cm.sp('py', 2),
-                  cm.fontWeight('semibold'),
+                  cm.fontWeight('medium'),
                   'whitespace-nowrap shrink-0',
-                  'rounded-full text-white transition-colors hover:opacity-90',
+                  'rounded bg-primary text-on-primary transition-colors hover:bg-primary-container',
                 )}
-                style={{
-                  background:
-                    'linear-gradient(135deg, var(--mol-color-primary), var(--color-primary-gradient-to))',
-                }}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
               </Link>
@@ -170,14 +159,10 @@ export function Landing() {
                   className={cm.cn(
                     cm.sp('px', 5),
                     cm.sp('py', 2),
-                    cm.fontWeight('semibold'),
+                    cm.fontWeight('medium'),
                     'whitespace-nowrap shrink-0',
-                    'rounded-full text-white transition-colors hover:opacity-90',
+                    'rounded bg-primary text-on-primary transition-colors hover:bg-primary-container',
                   )}
-                  style={{
-                    background:
-                      'linear-gradient(135deg, var(--mol-color-primary), var(--color-primary-gradient-to))',
-                  }}
                 >
                   {t('landing.getStarted', {}, { defaultValue: 'Start reading' })}
                 </Link>
@@ -203,20 +188,10 @@ export function Landing() {
             )}
           >
             <div className={'grid grid-cols-1 lg:grid-cols-12 gap-12 items-center'}>
-              <div className={'lg:col-span-7'}>
-                <p
-                  className={cm.cn(
-                    cm.textSize('sm'),
-                    cm.sp('mb', 4),
-                    'font-bold uppercase tracking-widest text-primary',
-                  )}
-                >
-                  {t('landing.eyebrow', {}, { defaultValue: 'Curated multi-source headlines' })}
-                </p>
+              <div className={'lg:col-span-7 flex flex-col gap-8'}>
                 <h1
                   className={cm.cn(
-                    cm.sp('mb', 6),
-                    'font-headline text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95]',
+                    'font-headline text-5xl md:text-[3.5rem] lg:text-7xl font-semibold tracking-[-0.02em] leading-[1.1]',
                   )}
                 >
                   {t(
@@ -228,8 +203,7 @@ export function Landing() {
                 <p
                   className={cm.cn(
                     cm.textSize('lg'),
-                    cm.sp('mb', 10),
-                    'text-on-surface-variant max-w-xl leading-relaxed',
+                    'text-on-surface-variant max-w-2xl leading-[1.6]',
                   )}
                 >
                   {t(
@@ -241,150 +215,76 @@ export function Landing() {
                     },
                   )}
                 </p>
-                <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                  <Link
-                    to="/signup"
-                    className={cm.cn(
-                      cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      'font-semibold rounded-full text-white inline-flex items-center gap-2 transition-colors hover:opacity-90',
-                    )}
-                    style={{
-                      background:
-                        'linear-gradient(135deg, var(--mol-color-primary), var(--color-primary-gradient-to))',
-                    }}
-                  >
-                    {t('landing.heroCta', {}, { defaultValue: 'Start reading free' })}
-                    <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                      arrow_forward
-                    </span>
-                  </Link>
-                  <Link
-                    to="/login"
-                    className={cm.cn(
-                      cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors',
-                    )}
-                  >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                  </Link>
-                </div>
-                {/* Social proof — count of sources & topics */}
-                <div className={cm.cn(cm.flex({ gap: 'lg', wrap: 'wrap' }), cm.sp('mt', 10))}>
-                  {[
-                    { key: 'sources', n: '320+', defaultLabel: 'trusted sources' },
-                    { key: 'topics', n: '24', defaultLabel: 'curated topics' },
-                    { key: 'stories', n: '6k', defaultLabel: 'stories per day' },
-                  ].map((stat) => (
-                    <div key={stat.key}>
-                      <p
-                        className={cm.cn(
-                          cm.textSize('2xl'),
-                          'font-headline font-extrabold tabular-nums',
-                        )}
-                      >
-                        {stat.n}
-                      </p>
-                      <p
-                        className={cm.cn(
-                          cm.textSize('xs'),
-                          'text-on-surface-variant uppercase tracking-widest font-bold',
-                        )}
-                      >
-                        {t(`landing.stat.${stat.key}`, {}, { defaultValue: stat.defaultLabel })}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Sample story card — same gradient pattern as the auth'd hero */}
-              <div className={'lg:col-span-5'}>
-                <div
-                  className={cm.cn(
-                    cm.flex({ direction: 'col', justify: 'between' }),
-                    cm.sp('p', 8),
-                    'min-h-[340px] rounded-[2rem] text-white relative overflow-hidden shadow-2xl shadow-primary/20',
-                  )}
-                  style={{
-                    background:
-                      'linear-gradient(135deg, var(--mol-color-primary), var(--mol-color-primary-dark))',
+                {/* Email capture — routes into signup with the address carried over */}
+                <form
+                  className={cm.cn(cm.flex({ gap: 'md' }), 'max-w-md flex-col sm:flex-row')}
+                  onSubmit={(e) => {
+                    e.preventDefault()
+                    const input = e.currentTarget.elements.namedItem('email')
+                    const email = input instanceof HTMLInputElement ? input.value : ''
+                    navigate(email ? `/signup?email=${encodeURIComponent(email)}` : '/signup')
                   }}
                 >
-                  <div className="relative z-10">
-                    <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 4))}>
-                      <span
-                        className={
-                          'px-3 py-1 rounded-full bg-error text-white text-[10px] font-bold uppercase tracking-widest'
-                        }
-                      >
-                        {t('landing.sampleEyebrow', {}, { defaultValue: 'Breaking' })}
-                      </span>
-                      <span
-                        className={
-                          'px-3 py-1 rounded-full bg-surface/20 backdrop-blur-md text-[10px] font-bold uppercase tracking-widest'
-                        }
-                      >
-                        {t('home.world', {}, { defaultValue: 'World' })}
-                      </span>
-                    </div>
-                    <h2
-                      className={
-                        'font-headline text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.05] mb-3'
-                      }
-                    >
-                      {t(
-                        'landing.sampleHeadline',
-                        {},
-                        {
-                          defaultValue:
-                            'Climate summit lands a deal — five outlets, five framings.',
-                        },
-                      )}
-                    </h2>
-                    <p className={'text-white/85 text-base leading-relaxed max-w-md line-clamp-3'}>
-                      {t(
-                        'landing.sampleExcerpt',
-                        { appName: APP_NAME },
-                        {
-                          defaultValue:
-                            'Reuters calls it a breakthrough. Fox calls it a giveaway. The Guardian calls it overdue. {{appName}} stacks them for you.',
-                        },
-                      )}
-                    </p>
-                  </div>
-                  <div className={'relative z-10 mt-6 flex items-center gap-3 flex-wrap'}>
-                    <span
-                      className={
-                        'px-3 py-1 rounded-full bg-surface/20 backdrop-blur-md text-xs font-bold inline-flex items-center gap-1'
-                      }
-                    >
-                      <span className={'material-symbols-outlined text-sm'} aria-hidden="true">
-                        groups
-                      </span>
-                      {t(
-                        'landing.sampleSourceCount',
-                        { count: 7 },
-                        { defaultValue: '{{count}} sources covering' },
-                      )}
-                    </span>
-                    <span className={'text-xs text-white/70 font-bold uppercase tracking-widest'}>
-                      {t('landing.sampleAgo', {}, { defaultValue: '12m ago' })}
-                    </span>
-                  </div>
-                  <div
-                    className={
-                      'absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-surface/10 blur-3xl'
-                    }
+                  <input
+                    name="email"
+                    type="email"
+                    data-mol-id="landing-hero-email"
+                    placeholder={t(
+                      'landing.heroEmailPlaceholder',
+                      {},
+                      { defaultValue: 'Enter your email' },
+                    )}
+                    className={cm.cn(
+                      'w-full rounded bg-surface-container-low border-0 border-b-2 border-transparent px-4 py-3 text-on-surface transition-colors',
+                      'focus:border-primary focus:ring-0 focus:outline-none',
+                    )}
                   />
-                  <div
-                    className={
-                      'absolute right-8 top-8 w-16 h-16 rounded-full bg-secondary/30 blur-xl'
-                    }
-                  />
-                </div>
+                  <button
+                    type="submit"
+                    data-mol-id="landing-hero-submit"
+                    className={cm.cn(
+                      cm.sp('px', 6),
+                      cm.sp('py', 3),
+                      cm.fontWeight('medium'),
+                      'rounded bg-primary text-on-primary whitespace-nowrap transition-colors hover:bg-primary-container',
+                    )}
+                  >
+                    {t('landing.heroCta', {}, { defaultValue: 'Start reading free' })}
+                  </button>
+                </form>
+                <p
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    'uppercase tracking-widest text-on-surface-variant',
+                  )}
+                >
+                  {t(
+                    'landing.heroSocialProof',
+                    {},
+                    { defaultValue: 'Join 50,000+ informed readers.' },
+                  )}
+                </p>
+              </div>
+
+              {/* Editorial photo — soft primary glow behind, per the Stitch design */}
+              <div className={'lg:col-span-5 relative'}>
+                <div
+                  className={'absolute inset-0 bg-primary-container/10 blur-[40px] rounded-full'}
+                  aria-hidden="true"
+                />
+                <img
+                  src="https://picsum.photos/seed/vantage-editorial/800/1000"
+                  alt={t(
+                    'landing.heroImageAlt',
+                    {},
+                    {
+                      defaultValue:
+                        'High-angle view of scattered newspapers and magazines on a wooden desk in warm morning light',
+                    },
+                  )}
+                  className="relative z-10 aspect-[4/5] h-auto w-full rounded object-cover object-center shadow-xl shadow-primary/5"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
@@ -398,58 +298,89 @@ export function Landing() {
           />
         </section>
 
-        {/* Feature grid */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
-          <h2
-            className={cm.cn(
-              cm.sp('mb', 12),
-              cm.textCenter,
-              'font-headline text-3xl md:text-4xl font-extrabold tracking-tight',
-            )}
-          >
-            {t(
-              'landing.featuresHeading',
-              {},
-              { defaultValue: 'A finished briefing, not an infinite scroll' },
-            )}
-          </h2>
-          <div
-            className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}
-          >
-            {FEATURES.map((f) => (
-              <div
-                key={f.key}
+        {/* Spectrum cards — three outlets, one story (Stitch design centerpiece) */}
+        <section className="bg-surface-container-low">
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-24')}>
+            <div className={cm.cn(cm.sp('mb', 16), cm.textCenter, 'max-w-2xl mx-auto')}>
+              <h2
                 className={cm.cn(
-                  cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl hover:shadow-2xl hover:shadow-on-surface/5 transition-all group',
+                  cm.sp('mb', 4),
+                  'font-headline text-3xl md:text-4xl tracking-tight',
                 )}
               >
-                <div
+                {t('landing.spectrum.title', {}, { defaultValue: 'Read across the spectrum.' })}
+              </h2>
+              <p className="text-on-surface-variant leading-relaxed">
+                {t(
+                  'landing.spectrum.subtitle',
+                  {},
+                  {
+                    defaultValue:
+                      'See how different outlets cover the same breaking story. Our intelligence engine analyzes tone, facts, and omissions to present a complete picture.',
+                  },
+                )}
+              </p>
+            </div>
+            <div className={cm.cn(cm.grid({ cols: 1, gap: 'lg' }), 'md:grid-cols-3 items-start')}>
+              {SPECTRUM_CARDS.map((card) => (
+                <article
+                  key={card.key}
                   className={cm.cn(
-                    cm.sp('p', 3),
-                    'inline-flex bg-surface rounded-xl shadow-sm group-hover:scale-110 transition-transform',
-                    f.tint,
+                    cm.flex({ direction: 'col', gap: 'md' }),
+                    cm.sp('p', 6),
+                    'rounded bg-surface-container-lowest',
+                    card.lifted &&
+                      'shadow-[0_8px_32px_color-mix(in_oklab,var(--color-primary)_8%,transparent)] relative z-10 md:-translate-y-4',
                   )}
                 >
-                  <span className="material-symbols-outlined text-3xl" aria-hidden="true">
-                    {f.icon}
-                  </span>
-                </div>
-                <h3
-                  className={cm.cn(
-                    cm.textSize('lg'),
-                    cm.sp('mt', 5),
-                    cm.sp('mb', 2),
-                    'font-bold font-headline',
-                  )}
-                >
-                  {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
-                </h3>
-                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}>
-                  {t(`landing.feature.${f.key}.body`, {}, { defaultValue: f.defaultBody })}
-                </p>
-              </div>
-            ))}
+                  <div className={cm.flex({ justify: 'between', align: 'start' })}>
+                    <span
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        'uppercase tracking-widest px-2 py-1 rounded bg-surface-container-high text-on-surface-variant',
+                      )}
+                    >
+                      {card.source}
+                    </span>
+                    <span
+                      className={cm.cn(
+                        'material-symbols-outlined',
+                        card.lifted ? 'text-tertiary' : 'text-outline-variant',
+                      )}
+                      aria-hidden="true"
+                    >
+                      {card.icon}
+                    </span>
+                  </div>
+                  <h3 className="font-headline mt-2 text-xl leading-snug">
+                    {t(card.headlineKey, {}, { defaultValue: card.defaultHeadline })}
+                  </h3>
+                  <p
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      'flex-grow line-clamp-3 text-on-surface-variant',
+                    )}
+                  >
+                    {t(card.excerptKey, {}, { defaultValue: card.defaultExcerpt })}
+                  </p>
+                  <div>
+                    <div
+                      className={cm.cn(
+                        cm.flex({ justify: 'between' }),
+                        'text-xs uppercase tracking-widest text-outline',
+                      )}
+                    >
+                      <span>{t('landing.spectrum.left', {}, { defaultValue: 'Left' })}</span>
+                      <span>{t('landing.spectrum.center', {}, { defaultValue: 'Center' })}</span>
+                      <span>{t('landing.spectrum.right', {}, { defaultValue: 'Right' })}</span>
+                    </div>
+                    <div className="bias-track">
+                      <div className="bias-indicator" style={{ left: card.bias }} />
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -540,12 +471,9 @@ export function Landing() {
               className={cm.cn(
                 cm.sp('px', 10),
                 cm.sp('py', 4),
-                'font-semibold rounded-full text-white inline-flex items-center gap-2 transition-colors hover:opacity-90',
+                cm.fontWeight('medium'),
+                'rounded bg-primary text-on-primary inline-flex items-center gap-2 transition-colors hover:bg-primary-container',
               )}
-              style={{
-                background:
-                  'linear-gradient(135deg, var(--mol-color-primary), var(--color-primary-gradient-to))',
-              }}
             >
               {t('landing.heroCta', {}, { defaultValue: 'Start reading free' })}
               <span className={'material-symbols-outlined text-base'} aria-hidden="true">
@@ -571,6 +499,15 @@ export function Landing() {
             { year: new Date().getFullYear(), app: APP_NAME },
             { defaultValue: '© {{year}} {{app}}. Read the spectrum.' },
           )}
+          {' — Built with '}
+          <a
+            href="https://molecule.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline font-medium"
+          >
+            Molecule.dev
+          </a>
         </p>
       </footer>
     </div>

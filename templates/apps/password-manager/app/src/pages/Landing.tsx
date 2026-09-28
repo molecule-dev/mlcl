@@ -190,7 +190,7 @@ export function Landing() {
             </span>
             <h1
               className={cm.cn(
-                'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] text-on-surface',
+                'text-5xl md:text-6xl lg:text-7xl tracking-[-0.02em] leading-[0.95] text-on-surface font-headline',
                 cm.fontWeight('bold'),
               )}
             >
@@ -198,7 +198,7 @@ export function Landing() {
                 {t('landing.hero.headline.line1', {}, { defaultValue: 'Your secrets,' })}
               </span>
               <br />
-              <span className="font-extrabold text-primary">
+              <span className="font-extrabold">
                 {t('landing.hero.headline.line2', {}, { defaultValue: 'sealed.' })}
               </span>
             </h1>
@@ -264,7 +264,7 @@ export function Landing() {
                   )}
                 >
                   <span
-                    className="material-symbols-outlined text-success text-[18px]"
+                    className="material-symbols-outlined text-[var(--color-accent-emerald)] text-[18px]"
                     aria-hidden="true"
                   >
                     {chip.icon}
@@ -378,18 +378,21 @@ export function Landing() {
 
       <section
         id="security"
-        className={cm.cn(cm.sp('px', 6), cm.sp('py', 12), 'bg-indigo-950 text-white')}
+        className={cm.cn(cm.sp('px', 6), cm.sp('py', 12), 'bg-primary-dark text-white')}
       >
         <div className={cm.cn(cm.maxW('7xl'), 'mx-auto')}>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 6))}>
-            <span className="material-symbols-outlined text-emerald-400" aria-hidden="true">
+            <span
+              className="material-symbols-outlined text-[var(--color-accent-emerald)]"
+              aria-hidden="true"
+            >
               analytics
             </span>
             <h3
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
-                'uppercase tracking-widest text-emerald-300',
+                'uppercase tracking-widest text-primary-light',
               )}
             >
               {t('landing.trust.heading', {}, { defaultValue: 'Trust by the numbers' })}
@@ -398,7 +401,7 @@ export function Landing() {
           <div
             className={cm.cn(
               cm.grid({ gap: 'lg' }),
-              'grid-cols-2 md:grid-cols-4 divide-x divide-indigo-900',
+              'grid-cols-2 md:grid-cols-4 divide-x divide-white/10',
             )}
           >
             {TRUST.map((stat, i) => (
@@ -411,7 +414,11 @@ export function Landing() {
                 )}
               >
                 <span
-                  className={cm.cn(cm.textSize('xs'), cm.fontWeight('medium'), 'text-indigo-300')}
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.fontWeight('medium'),
+                    'text-primary-light/70',
+                  )}
                 >
                   {t(stat.labelKey, {}, { defaultValue: stat.defaultLabel })}
                 </span>
@@ -467,6 +474,15 @@ export function Landing() {
               { year: new Date().getFullYear(), appName: APP_NAME },
               { defaultValue: '© {{year}} {{appName}} Security. All rights reserved.' },
             )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
           </p>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'flex-wrap')}>
             <Link
@@ -474,9 +490,18 @@ export function Landing() {
                 cm.textSize('xs'),
                 'text-on-surface-variant hover:text-primary transition-colors',
               )}
-              to="/login"
+              to="/privacy"
             >
-              {t('landing.footer.signIn', {}, { defaultValue: 'Sign In' })}
+              {t('footer.privacyPolicy', {}, { defaultValue: 'Privacy Policy' })}
+            </Link>
+            <Link
+              className={cm.cn(
+                cm.textSize('xs'),
+                'text-on-surface-variant hover:text-primary transition-colors',
+              )}
+              to="/terms"
+            >
+              {t('footer.termsOfService', {}, { defaultValue: 'Terms of Service' })}
             </Link>
             <Link
               className={cm.cn(

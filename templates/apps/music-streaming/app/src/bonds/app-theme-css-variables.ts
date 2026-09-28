@@ -1,7 +1,9 @@
 /**
  * AppThemeCssVariables bond setup
  *
- * Reverb: Spotify-green primary + dark surfaces; persistent dark now-playing dock.
+ * Reverb: Sonic Noir palette (Stitch design set) — light violet primary +
+ * rose secondary on near-black violet-tinted surfaces; persistent dark
+ * now-playing dock.
  */
 
 import type { Theme } from '@molecule/app-theme'
@@ -18,22 +20,26 @@ const reverbLightTheme: Theme = {
   mode: 'light',
   colors: {
     ...baseLightTheme.colors,
-    primary: '#15883e',
-    primaryLight: '#d1fae5',
-    primaryDark: '#117432',
-    secondary: '#f5f5f5',
+    primary: '#6d28d9',
+    primaryLight: '#ede9fe',
+    primaryDark: '#5b21b6',
+    secondary: '#e5195f',
     success: '#15883e',
     warning: '#f59e0b',
     error: '#dc2626',
     info: '#0284c7',
     background: '#fafafa',
-    backgroundSecondary: '#f5f5f5',
-    backgroundTertiary: '#e5e5e5',
+    backgroundSecondary: '#f2f2f6',
+    backgroundTertiary: '#ebebf0',
     surface: '#ffffff',
-    border: '#e4e4e4',
-    text: '#121212',
-    textSecondary: '#4d4d4d',
-    textTertiary: '#8a8a8a',
+    surfaceSecondary: '#f7f7fa',
+    inputBackground: '#ffffff',
+    border: '#e4e4e7',
+    borderSecondary: '#d4d4d9',
+    borderFocus: '#6d28d9',
+    text: '#1a191c',
+    textSecondary: '#52505a',
+    textTertiary: '#6e6c76',
     textInverse: '#ffffff',
   },
 }
@@ -44,23 +50,27 @@ const reverbDarkTheme: Theme = {
   mode: 'dark',
   colors: {
     ...baseDarkTheme.colors,
-    primary: '#1ed760',
-    primaryLight: '#1ed76022',
-    primaryDark: '#1aa34a',
-    secondary: '#0a0a0a',
-    background: '#000000',
-    backgroundSecondary: '#0c0c0c',
-    backgroundTertiary: '#1a1a1a',
-    surface: '#121212',
-    surfaceSecondary: '#1f1f1f',
-    inputBackground: '#0a0a0a',
-    border: '#2a2a2a',
-    borderSecondary: '#3a3a3a',
-    borderFocus: '#1ed760',
-    text: '#ffffff',
-    textSecondary: '#b3b3b3',
-    textTertiary: '#7a7a7a',
-    textInverse: '#000000',
+    primary: '#bd9dff',
+    primaryLight: '#bd9dff22',
+    primaryDark: '#a67aff',
+    secondary: '#ff6f7e',
+    success: '#4ade80',
+    warning: '#fbbf24',
+    error: '#ff6e84',
+    info: '#67e8f9',
+    background: '#0e0e10',
+    backgroundSecondary: '#131315',
+    backgroundTertiary: '#19191c',
+    surface: '#0e0e10',
+    surfaceSecondary: '#19191c',
+    inputBackground: '#0a0a0c',
+    border: '#262528',
+    borderSecondary: '#3a393d',
+    borderFocus: '#bd9dff',
+    text: '#f9f5f8',
+    textSecondary: '#adaaad',
+    textTertiary: '#8a888c',
+    textInverse: '#0e0e10',
   },
 }
 

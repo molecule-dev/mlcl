@@ -25,3 +25,13 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Brand headline face — the Vendry Stitch design sets headlines in DM Sans
+ * (body stays Inter). Declaring it here creates the `font-headline` utility
+ * and feeds `var(--font-headline)` for shared molecule pages; the Google
+ * Fonts <link> lives in index.html.
+ */
+@theme {
+  --font-headline: 'DM Sans', 'Inter', system-ui, sans-serif;
+}

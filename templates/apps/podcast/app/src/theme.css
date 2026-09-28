@@ -1,9 +1,9 @@
 :root {
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-headline: 'Sora', 'Arimo', 'Inter', -apple-system, sans-serif;
   /* ── Bridge variables (feed into @theme via index.css) ── */
-  --mol-color-primary: #9f1239;
-  --mol-color-primary-light: #ffe4e6;
-  --mol-color-primary-dark: #7f0f2d;
+  --mol-color-primary: #c2410c;
+  --mol-color-primary-light: #ffedd5;
+  --mol-color-primary-dark: #9a3412;
   --mol-color-secondary: #191414;
   --mol-color-background: #121212;
   --mol-color-background-secondary: #181818;
@@ -13,7 +13,7 @@
   --mol-color-input-background: #181818;
   --mol-color-border: #333333;
   --mol-color-border-secondary: #3f3f3f;
-  --mol-color-border-focus: #9f1239;
+  --mol-color-border-focus: #c2410c;
   --mol-color-text: #ffffff;
   --mol-color-text-secondary: #b3b3b3;
   --mol-color-text-tertiary: #727272;
@@ -23,16 +23,16 @@
   --mol-font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
 
   /* ── App-specific tokens ── */
-  --color-primary-hover: #7f0f2d;
+  --color-primary-hover: #9a3412;
   --color-surface-hover: #282828;
   --color-text-on-primary: #ffffff;
 
   /* Auth accent — gradient end-stop on auth page blobs and submit buttons */
-  --color-accent: #be185d;
+  --color-accent: #6d28d9;
 
   /* Player */
   --color-player-bg: #181818;
-  --color-player-progress: #9f1239;
+  --color-player-progress: #c2410c;
   --color-player-track: #4d4d4d;
 
   /* Persistent now-playing dock — deliberately dark in BOTH modes
@@ -53,7 +53,7 @@
   --color-cover-5: linear-gradient(135deg, #4c1d95 0%, #7e22ce 50%, #c026d3 100%);
   --color-cover-6: linear-gradient(135deg, #1c1917 0%, #44403c 50%, #78716c 100%);
   --color-cover-7: linear-gradient(135deg, #0f766e 0%, #14b8a6 50%, #5eead4 100%);
-  --color-cover-8: linear-gradient(135deg, #9f1239 0%, #e11d48 50%, #fb7185 100%);
+  --color-cover-8: linear-gradient(135deg, #c2410c 0%, #e11d48 50%, #f36b21 100%);
   --color-cover-9: linear-gradient(135deg, #312e81 0%, #6366f1 50%, #a5b4fc 100%);
   --color-cover-10: linear-gradient(135deg, #78350f 0%, #d97706 50%, #fbbf24 100%);
   --color-cover-11: linear-gradient(135deg, #0f172a 0%, #334155 50%, #64748b 100%);
@@ -114,17 +114,17 @@
   --color-surface-variant: #202020;
   --color-on-surface: #ffffff;
   --color-on-surface-variant: #b3b3b3;
-  --color-inverse-surface: #f2f2f2;
+  --color-inverse-surface: #efedea;
   --color-inverse-on-surface: #121212;
-  --color-inverse-primary: #7f0f2d;
-  --color-primary: #9f1239;
-  --color-primary-container: #3d0714;
+  --color-inverse-primary: #9a3412;
+  --color-primary: #c2410c;
+  --color-primary-container: #431407;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #ffc5cc;
+  --color-on-primary-container: #fed7aa;
   --color-secondary: #b3b3b3;
   --color-secondary-container: #2a2a2a;
   --color-on-secondary: #000000;
-  --color-on-secondary-container: #f2f2f2;
+  --color-on-secondary-container: #efedea;
   --color-tertiary: #f97316;
   --color-tertiary-container: #431407;
   --color-on-tertiary: #3d1200; /* dark on orange — #ffffff was 2.80:1 (fail ≥4.5:1); #3d1200 = 5.83:1 */
@@ -135,14 +135,14 @@
   --color-on-error-container: #ffdad6;
   --color-outline: #6e6e6e; /* #5a5a5a was 2.42:1 vs surface (fail ≥3:1); #6e6e6e = 3.27:1 */
   --color-outline-variant: #2a2a2a;
-  --color-surface-tint: #9f1239;
+  --color-surface-tint: #c2410c;
 }
 
-/* Dark mode overrides — deep broadcast-booth noir with rose-brightened primary */
+/* Dark mode overrides — broadcast-booth noir on warm stone, orange primary */
 [data-mol-mode='dark'] {
-  --mol-color-primary: #fb7185;
-  --mol-color-primary-light: #4a0e1e;
-  --mol-color-primary-dark: #9f1239;
+  --mol-color-primary: #f36b21;
+  --mol-color-primary-light: #431407;
+  --mol-color-primary-dark: #c2410c;
   --mol-color-secondary: #b3b3b3;
   --mol-color-background: #0a0a0a;
   --mol-color-background-secondary: #141414;
@@ -152,7 +152,7 @@
   --mol-color-input-background: #121212;
   --mol-color-border: #2a2a2a;
   --mol-color-border-secondary: #383838;
-  --mol-color-border-focus: #fb7185;
+  --mol-color-border-focus: #f36b21;
   --mol-color-text: #ffffff;
   --mol-color-text-secondary: #c2c2c2;
   --mol-color-text-tertiary: #808080;
@@ -161,10 +161,10 @@
   --color-primary-hover: #f43f5e;
   --color-surface-hover: #232323;
   --color-text-on-primary: #ffffff;
-  --color-accent: #d946a8;
+  --color-accent: #a78bfa;
 
   --color-player-bg: #141414;
-  --color-player-progress: #fb7185;
+  --color-player-progress: #f36b21;
   --color-player-track: #4d4d4d;
 
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -183,19 +183,19 @@
   --color-surface-container-high: #1c1c1c;
   --color-surface-container-highest: #262626;
   --color-surface-variant: #1c1c1c;
-  --color-on-surface: #f2f2f2;
+  --color-on-surface: #efedea;
   --color-on-surface-variant: #b3b3b3;
-  --color-inverse-surface: #f2f2f2;
+  --color-inverse-surface: #efedea;
   --color-inverse-on-surface: #121212;
-  --color-inverse-primary: #7f0f2d;
-  --color-primary: #fb7185;
-  --color-primary-container: #4a0e1e;
-  --color-on-primary: #1a0008; /* dark on rose — #ffffff was 2.69:1 (fail); #1a0008 = 7.45:1 */
-  --color-on-primary-container: #ffc5cc;
+  --color-inverse-primary: #9a3412;
+  --color-primary: #f36b21;
+  --color-primary-container: #431407;
+  --color-on-primary: #1a0008; /* dark on orange — #ffffff was 2.69:1 (fail); #1a0008 = 7.45:1 */
+  --color-on-primary-container: #fed7aa;
   --color-secondary: #b3b3b3;
   --color-secondary-container: #262626;
   --color-on-secondary: #000000;
-  --color-on-secondary-container: #f2f2f2;
+  --color-on-secondary-container: #efedea;
   --color-tertiary: #fb923c;
   --color-tertiary-container: #431407;
   --color-on-tertiary: #3d1200; /* dark on orange — #ffffff was 2.26:1 (fail); #3d1200 = 7.22:1 */
@@ -206,36 +206,36 @@
   --color-on-error-container: #ffdad6;
   --color-outline: #787878; /* #5a5a5a was 2.57:1 vs surface (fail ≥3:1); #787878 = 4.02:1 */
   --color-outline-variant: #2a2a2a;
-  --color-surface-tint: #fb7185;
+  --color-surface-tint: #f36b21;
 }
 
-/* Light mode overrides — warm off-white editorial feel with deepened burgundy */
+/* Light mode overrides — warm off-white editorial feel, deep broadcast orange */
 [data-mol-mode='light'] {
-  --mol-color-primary: #9f1239;
-  --mol-color-primary-light: #ffe4e6;
-  --mol-color-primary-dark: #7f0f2d;
-  --mol-color-secondary: #1a1a1a;
-  --mol-color-background: #fafafa;
-  --mol-color-background-secondary: #f5f5f5;
-  --mol-color-background-tertiary: #eeeeee;
+  --mol-color-primary: #c2410c;
+  --mol-color-primary-light: #ffedd5;
+  --mol-color-primary-dark: #9a3412;
+  --mol-color-secondary: #1c1917;
+  --mol-color-background: #faf9f7;
+  --mol-color-background-secondary: #f3f2ef;
+  --mol-color-background-tertiary: #ebe9e6;
   --mol-color-surface: #ffffff;
-  --mol-color-surface-secondary: #f7f7f7;
+  --mol-color-surface-secondary: #f5f4f1;
   --mol-color-input-background: #ffffff;
-  --mol-color-border: #e4e4e4;
+  --mol-color-border: #e7e5e4;
   --mol-color-border-secondary: #d4d4d4;
-  --mol-color-border-focus: #9f1239;
-  --mol-color-text: #1a1a1a;
-  --mol-color-text-secondary: #4a4a4a;
-  --mol-color-text-tertiary: #7d7d7d;
+  --mol-color-border-focus: #c2410c;
+  --mol-color-text: #1c1917;
+  --mol-color-text-secondary: #57534e;
+  --mol-color-text-tertiary: #78716c;
   --mol-color-text-inverse: #ffffff;
 
-  --color-primary-hover: #7f0f2d;
+  --color-primary-hover: #9a3412;
   --color-surface-hover: #f0f0f0;
   --color-text-on-primary: #ffffff;
-  --color-accent: #be185d;
+  --color-accent: #6d28d9;
 
-  --color-player-bg: #f2f2f2;
-  --color-player-progress: #9f1239;
+  --color-player-bg: #efedea;
+  --color-player-progress: #c2410c;
   --color-player-track: #c4c4c4;
 
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -243,30 +243,30 @@
   --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.12);
 
   /* Material-3 / Stitch bridge tokens */
-  --color-background: #fafafa;
-  --color-on-background: #1a1a1a;
+  --color-background: #faf9f7;
+  --color-on-background: #1c1917;
   --color-surface: #ffffff;
   --color-surface-bright: #ffffff;
-  --color-surface-dim: #eeeeee;
+  --color-surface-dim: #ebe9e6;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f7f7f7;
-  --color-surface-container: #f2f2f2;
-  --color-surface-container-high: #ebebeb;
-  --color-surface-container-highest: #e4e4e4;
-  --color-surface-variant: #ebebeb;
-  --color-on-surface: #1a1a1a;
-  --color-on-surface-variant: #4a4a4a;
+  --color-surface-container-low: #f5f4f1;
+  --color-surface-container: #efedea;
+  --color-surface-container-high: #e7e5e2;
+  --color-surface-container-highest: #e7e5e4;
+  --color-surface-variant: #e7e5e2;
+  --color-on-surface: #1c1917;
+  --color-on-surface-variant: #57534e;
   --color-inverse-surface: #2a2a2a;
-  --color-inverse-on-surface: #f2f2f2;
-  --color-inverse-primary: #fb7185;
-  --color-primary: #9f1239;
-  --color-primary-container: #ffe4e6;
+  --color-inverse-on-surface: #efedea;
+  --color-inverse-primary: #f36b21;
+  --color-primary: #c2410c;
+  --color-primary-container: #ffedd5;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #3d0714;
-  --color-secondary: #4a4a4a;
-  --color-secondary-container: #e4e4e4;
+  --color-on-primary-container: #431407;
+  --color-secondary: #57534e;
+  --color-secondary-container: #e7e5e4;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #1a1a1a;
+  --color-on-secondary-container: #1c1917;
   --color-tertiary: #c2410c;
   --color-tertiary-container: #ffedd5;
   --color-on-tertiary: #ffffff;
@@ -275,7 +275,17 @@
   --color-error-container: #fee2e2;
   --color-on-error: #ffffff;
   --color-on-error-container: #7f1d1d;
-  --color-outline: #7d7d7d;
-  --color-outline-variant: #e4e4e4;
-  --color-surface-tint: #9f1239;
+  --color-outline: #78716c;
+  --color-outline-variant: #e7e5e4;
+  --color-surface-tint: #c2410c;
+}
+
+/* Glass episode card on the landing hero
+   (design-podcast-landing.html `.glass-card`), token-mapped so it frosts
+   correctly in light AND dark mode. */
+.glass-card {
+  background: color-mix(in srgb, var(--color-surface) 72%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--color-surface) 55%, transparent);
 }

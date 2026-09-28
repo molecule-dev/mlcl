@@ -1,38 +1,40 @@
 :root {
-  /* Brand colors */
-  --color-primary: #1db954;
-  --color-primary-hover: #1aa34a;
-  --color-primary-light: #1db95422;
-  --color-secondary: #121212;
+  /* Brand colors — Sonic Noir (Stitch design set): light violet primary,
+     rose secondary, near-black violet-tinted surfaces. */
+  --color-primary: #bd9dff;
+  --color-primary-hover: #a67aff;
+  --color-primary-light: #bd9dff22;
+  --color-secondary: #ff6f7e;
 
   /* Surfaces */
-  --color-background: #121212;
-  --color-surface: #181818;
-  --color-surface-hover: #282828;
-  --color-surface-active: #333333;
-  --color-border: #333333;
+  --color-background: #0e0e10;
+  --color-surface: #0e0e10;
+  --color-surface-hover: #1f1f22;
+  --color-surface-active: #262528;
+  --color-border: #262528;
 
   /* Text */
-  --color-text: #ffffff;
-  --color-text-secondary: #b3b3b3;
-  --color-text-tertiary: #808080; /* #6a6a6a was 3.46:1 vs #121212 dark-default bg (fail ≥4.5:1); #808080 = 4.74:1 */
-  --color-text-on-primary: #ffffff;
+  --color-text: #f9f5f8;
+  --color-text-secondary: #adaaad;
+  --color-text-tertiary: #8a888c; /* ≥4.5:1 on the #0e0e10 dark-default bg */
+  --color-text-on-primary: #3c0089; /* design on-primary — 6.07:1 on #bd9dff */
 
   /* Player bar */
-  --color-player-bg: #181818;
-  --color-player-progress: #1db954;
-  --color-player-track: #4d4d4d;
+  --color-player-bg: #131315;
+  --color-player-progress: #bd9dff;
+  --color-player-track: #48474a;
 
   /* Auth accent — used for gradient end-stop on auth page blobs and submit buttons */
-  --color-accent: #be185d;
+  --color-accent: #ff6f7e;
 
   /* Typography */
   --font-family-sans:
-    'Circular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-family-mono: 'SFMono-Regular', Consolas, monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch design face: Inter black. */
+  --font-headline: 'Inter', system-ui, sans-serif;
 
   --font-size-xs: 0.6875rem;
   --font-size-sm: 0.8125rem;
@@ -75,163 +77,163 @@
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
 
-  /* === Material-3 / Stitch bridge tokens — light (dark-default fallback) === */
-  --color-on-background: #ffffff;
-  --color-surface-bright: #282828;
-  --color-surface-dim: #0a0a0a;
+  /* === Material-3 / Stitch bridge tokens — Sonic Noir dark (design verbatim) === */
+  --color-on-background: #f9f5f8;
+  --color-surface-bright: #2c2c2f;
+  --color-surface-dim: #0e0e10;
   --color-surface-container-lowest: #000000;
-  --color-surface-container-low: #141414;
-  --color-surface-container: #181818;
-  --color-surface-container-high: #222222;
-  --color-surface-container-highest: #2e2e2e;
-  --color-surface-variant: #242424;
-  --color-on-surface: #ffffff;
-  --color-on-surface-variant: #b3b3b3;
-  --color-inverse-surface: #f2f2f2;
-  --color-inverse-on-surface: #121212;
-  --color-inverse-primary: #1aa34a;
-  --color-primary-container: #0d3d20;
-  --color-on-primary: #000000; /* #ffffff was 2.59:1 vs #1db954 (fail); dark = 8.12:1 */
-  --color-on-primary-container: #b6f5cd;
-  --color-secondary-container: #2a2a2a;
-  --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #f2f2f2;
-  --color-tertiary: #a78bfa;
-  --color-tertiary-container: #3b0764;
-  --color-on-tertiary: #000000; /* #ffffff was 2.72:1 vs #a78bfa (fail); dark = 7.72:1 */
-  --color-on-tertiary-container: #ede9fe;
-  --color-error: #f25c5c;
-  --color-error-container: #5a1818;
-  --color-on-error: #3a0000; /* #ffffff was 3.25:1 vs #f25c5c (fail); #3a0000 = 5.48:1 */
-  --color-on-error-container: #ffdad6;
-  --color-outline: #727272; /* #5a5a5a was 2.57:1 vs #181818 surface (fail ≥3:1); #727272 = 3.69:1 */
-  --color-outline-variant: #2e2e2e;
-  --color-surface-tint: #1db954;
+  --color-surface-container-low: #131315;
+  --color-surface-container: #19191c;
+  --color-surface-container-high: #1f1f22;
+  --color-surface-container-highest: #262528;
+  --color-surface-variant: #262528;
+  --color-on-surface: #f9f5f8;
+  --color-on-surface-variant: #adaaad;
+  --color-inverse-surface: #fcf8fb;
+  --color-inverse-on-surface: #565457;
+  --color-inverse-primary: #742fe5;
+  --color-primary-container: #b28cff;
+  --color-on-primary: #3c0089; /* design pairing — 6.07:1 on #bd9dff */
+  --color-on-primary-container: #2e006c; /* 6.07:1 on #b28cff */
+  --color-secondary-container: #b50036;
+  --color-on-secondary: #490010;
+  --color-on-secondary-container: #ffebeb;
+  --color-tertiary: #ff97b2;
+  --color-tertiary-container: #fe81a4;
+  --color-on-tertiary: #6a0a31;
+  --color-on-tertiary-container: #5a0027;
+  --color-error: #ff6e84;
+  --color-error-container: #a70138;
+  --color-on-error: #490013;
+  --color-on-error-container: #ffb2b9;
+  --color-outline: #767577;
+  --color-outline-variant: #48474a;
+  --color-surface-tint: #bd9dff;
 }
 
-/* Dark mode overrides — brand-calibrated lush deep-black music palette */
+/* Dark mode overrides — Sonic Noir (the design's native mode). */
 [data-mol-mode='dark'] {
-  --color-primary: #1ed760;
-  --color-primary-hover: #1fdf64;
-  --color-primary-light: #1ed76022;
-  --color-secondary: #0a0a0a;
-  --color-accent: #d946a8;
+  --color-primary: #bd9dff;
+  --color-primary-hover: #a67aff;
+  --color-primary-light: #bd9dff22;
+  --color-secondary: #ff6f7e;
+  --color-accent: #ff6f7e;
 
-  --color-background: #000000;
-  --color-surface: #121212;
-  --color-surface-hover: #1f1f1f;
-  --color-surface-active: #2a2a2a;
-  --color-border: #2a2a2a;
+  --color-background: #0e0e10;
+  --color-surface: #0e0e10;
+  --color-surface-hover: #1f1f22;
+  --color-surface-active: #262528;
+  --color-border: #262528;
 
-  --color-text: #ffffff;
-  --color-text-secondary: #b3b3b3;
-  --color-text-tertiary: #7a7a7a;
-  --color-text-on-primary: #ffffff;
+  --color-text: #f9f5f8;
+  --color-text-secondary: #adaaad;
+  --color-text-tertiary: #8a888c;
+  --color-text-on-primary: #3c0089;
 
-  --color-player-bg: #0a0a0a;
-  --color-player-progress: #1ed760;
-  --color-player-track: #5a5a5a;
+  --color-player-bg: #131315;
+  --color-player-progress: #bd9dff;
+  --color-player-track: #48474a;
 
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
 
-  /* Material-3 / Stitch bridge tokens */
-  --color-on-background: #ffffff;
-  --color-surface-bright: #1f1f1f;
-  --color-surface-dim: #050505;
+  /* Material-3 / Stitch bridge tokens — design verbatim */
+  --color-on-background: #f9f5f8;
+  --color-surface-bright: #2c2c2f;
+  --color-surface-dim: #0e0e10;
   --color-surface-container-lowest: #000000;
-  --color-surface-container-low: #0c0c0c;
-  --color-surface-container: #121212;
-  --color-surface-container-high: #1a1a1a;
-  --color-surface-container-highest: #242424;
-  --color-surface-variant: #1a1a1a;
-  --color-on-surface: #f2f2f2;
-  --color-on-surface-variant: #b3b3b3;
-  --color-inverse-surface: #f2f2f2;
-  --color-inverse-on-surface: #121212;
-  --color-inverse-primary: #1aa34a;
-  --color-primary-container: #0d3d20;
-  --color-on-primary: #000000; /* #ffffff was 1.92:1 vs #1ed760 (fail); dark = 10.94:1 */
-  --color-on-primary-container: #b6f5cd;
-  --color-secondary: #b3b3b3;
-  --color-secondary-container: #2a2a2a;
-  --color-on-secondary: #000000;
-  --color-on-secondary-container: #f2f2f2;
-  --color-tertiary: #a78bfa;
-  --color-tertiary-container: #3b0764;
-  --color-on-tertiary: #000000; /* #ffffff was 2.72:1 vs #a78bfa (fail); dark = 7.72:1 */
-  --color-on-tertiary-container: #ede9fe;
-  --color-error: #f25c5c;
-  --color-error-container: #5a1818;
-  --color-on-error: #3a0000; /* #ffffff was 3.25:1 vs #f25c5c (fail); #3a0000 = 5.48:1 */
-  --color-on-error-container: #ffdad6;
-  --color-outline: #6e6e6e; /* #5a5a5a was 2.72:1 vs #121212 surface (fail ≥3:1); #6e6e6e = 3.67:1 */
-  --color-outline-variant: #2a2a2a;
-  --color-surface-tint: #1ed760;
+  --color-surface-container-low: #131315;
+  --color-surface-container: #19191c;
+  --color-surface-container-high: #1f1f22;
+  --color-surface-container-highest: #262528;
+  --color-surface-variant: #262528;
+  --color-on-surface: #f9f5f8;
+  --color-on-surface-variant: #adaaad;
+  --color-inverse-surface: #fcf8fb;
+  --color-inverse-on-surface: #565457;
+  --color-inverse-primary: #742fe5;
+  --color-primary-container: #b28cff;
+  --color-on-primary: #3c0089;
+  --color-on-primary-container: #2e006c;
+  --color-secondary-container: #b50036;
+  --color-on-secondary: #490010;
+  --color-on-secondary-container: #ffebeb;
+  --color-tertiary: #ff97b2;
+  --color-tertiary-container: #fe81a4;
+  --color-on-tertiary: #6a0a31;
+  --color-on-tertiary-container: #5a0027;
+  --color-error: #ff6e84;
+  --color-error-container: #a70138;
+  --color-on-error: #490013;
+  --color-on-error-container: #ffb2b9;
+  --color-outline: #767577;
+  --color-outline-variant: #48474a;
+  --color-surface-tint: #bd9dff;
 }
 
-/* Light mode overrides — daytime studio palette. Spotify green deepens for
- * white-bg contrast; surfaces use warm off-white layering so the player bar
- * and sidebar still feel like distinct shelves. */
+/* Light mode overrides — daytime counterpart of Sonic Noir: violet deepens
+ * for white-bg contrast (#6d28d9, white text 7.1:1); surfaces stay neutral
+ * with a faint violet cast so the player bar and sidebar still read as
+ * distinct shelves. */
 [data-mol-mode='light'] {
-  --color-primary: #15883e;
-  --color-primary-hover: #117432;
-  --color-primary-light: #15883e22;
-  --color-secondary: #f5f5f5;
+  --color-primary: #6d28d9;
+  --color-primary-hover: #5b21b6;
+  --color-primary-light: #6d28d922;
+  --color-secondary: #e5195f;
   --color-accent: #be185d;
 
   --color-background: #fafafa;
   --color-surface: #ffffff;
-  --color-surface-hover: #f4f4f4;
-  --color-surface-active: #ebebeb;
-  --color-border: #e4e4e4;
+  --color-surface-hover: #f4f4f8;
+  --color-surface-active: #ebebf2;
+  --color-border: #e4e4e7;
 
-  --color-text: #121212;
-  --color-text-secondary: #4d4d4d;
-  --color-text-tertiary: #737373; /* #8a8a8a was 3.31:1 vs #fafafa light bg (fail ≥4.5:1); #737373 = 4.54:1 */
+  --color-text: #1a191c;
+  --color-text-secondary: #52505a;
+  --color-text-tertiary: #6e6c76; /* 4.6:1 on #fafafa */
   --color-text-on-primary: #ffffff;
 
-  --color-player-bg: #f0f0f0;
-  --color-player-progress: #15883e;
-  --color-player-track: #d4d4d4;
+  --color-player-bg: #f0f0f4;
+  --color-player-progress: #6d28d9;
+  --color-player-track: #d4d4d9;
 
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
 
-  /* Material-3 / Stitch bridge tokens */
+  /* Material-3 / Stitch bridge tokens — light counterparts */
   --color-background: #fafafa;
-  --color-on-background: #121212;
+  --color-on-background: #1a191c;
   --color-surface: #ffffff;
   --color-surface-bright: #ffffff;
-  --color-surface-dim: #f0f0f0;
+  --color-surface-dim: #f0f0f4;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f7f7f7;
-  --color-surface-container: #f2f2f2;
-  --color-surface-container-high: #ebebeb;
-  --color-surface-container-highest: #e4e4e4;
-  --color-surface-variant: #ebebeb;
-  --color-on-surface: #121212;
-  --color-on-surface-variant: #4d4d4d;
-  --color-inverse-surface: #2a2a2a;
-  --color-inverse-on-surface: #f2f2f2;
-  --color-inverse-primary: #1ed760;
-  --color-primary: #15883e;
-  --color-primary-container: #d1fae5;
-  --color-on-primary: #ffffff;
-  --color-on-primary-container: #065f2f;
-  --color-secondary: #4d4d4d;
-  --color-secondary-container: #e4e4e4;
-  --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #121212;
-  --color-tertiary: #7c3aed;
-  --color-tertiary-container: #ede9fe;
+  --color-surface-container-low: #f7f7fa;
+  --color-surface-container: #f2f2f6;
+  --color-surface-container-high: #ebebf0;
+  --color-surface-container-highest: #e4e4ea;
+  --color-surface-variant: #ebebf0;
+  --color-on-surface: #1a191c;
+  --color-on-surface-variant: #52505a;
+  --color-inverse-surface: #2a2930;
+  --color-inverse-on-surface: #f2f2f6;
+  --color-inverse-primary: #bd9dff;
+  --color-primary: #6d28d9;
+  --color-primary-container: #ede9fe;
+  --color-on-primary: #ffffff; /* 7.1:1 on #6d28d9 */
+  --color-on-primary-container: #4c1d95;
+  --color-secondary: #e5195f;
+  --color-secondary-container: #ffe4e6;
+  --color-on-secondary: #490010;
+  --color-on-secondary-container: #881337;
+  --color-tertiary: #be185d;
+  --color-tertiary-container: #fce7f3;
   --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #3b0764;
+  --color-on-tertiary-container: #831843;
   --color-error: #dc2626;
   --color-error-container: #fee2e2;
   --color-on-error: #ffffff;
   --color-on-error-container: #7f1d1d;
-  --color-outline: #8a8a8a;
-  --color-outline-variant: #e4e4e4;
-  --color-surface-tint: #15883e;
+  --color-outline: #71707a;
+  --color-outline-variant: #e4e4e7;
+  --color-surface-tint: #6d28d9;
 }

@@ -10,44 +10,53 @@ function LandingTopNavBar() {
   const { t } = useTranslation()
   const isAuthenticated = useIsAuthenticated()
   return (
-    <header className={cm.cn(cm.w('full'), 'fixed top-0 z-50 bg-surface/80 backdrop-blur-md')}>
+    <header
+      className={cm.cn(
+        cm.w('full'),
+        'fixed top-0 z-50 h-14 bg-surface/90 backdrop-blur-sm border-b border-surface-container-highest transition-colors duration-150 ease-out',
+      )}
+    >
       <div
         className={cm.cn(
           cm.flex({ justify: 'between', align: 'center' }),
           cm.sp('px', 6),
-          cm.sp('py', 4),
-          cm.mxAuto,
-          cm.w('full'),
-          'max-w-7xl',
+          'h-full mx-auto w-full max-w-7xl md:px-12',
         )}
       >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'xl' }))}>
-          <SafeLink
-            className={cm.cn(
-              cm.textSize('2xl'),
-              cm.fontWeight('bold'),
-              'font-serif text-[var(--color-status-published)] tracking-tight',
-            )}
-            to="/"
-          >
-            {t(
-              'landingTopNavBar.brandName',
-              { appName: APP_NAME },
-              { defaultValue: '{{appName}}' },
-            )}
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
+          <SafeLink className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'group')} to="/">
+            <span
+              className={cm.cn(
+                'inline-flex items-center justify-center w-7 h-7 rounded-sm bg-primary-container text-on-primary-container shadow-sm',
+                'transition-transform group-hover:scale-95 duration-150',
+              )}
+            >
+              <span className={cm.fv5b245ffa} aria-hidden>
+                mark_email_read
+              </span>
+            </span>
+            <span
+              className={cm.cn('font-headline text-xl font-medium tracking-tight text-on-surface')}
+            >
+              {t(
+                'landingTopNavBar.brandName',
+                { appName: APP_NAME },
+                { defaultValue: '{{appName}}' },
+              )}
+            </span>
           </SafeLink>
           <nav
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'lg' }),
-              cm.textSize('xs'),
-              'hidden md:flex font-label tracking-wide',
+              cm.textSize('sm'),
+              'hidden md:flex font-label',
             )}
           >
             <SafeLink
               className={cm.cn(
                 cm.fontWeight('medium'),
                 'inline-block px-1 py-2',
-                'text-foreground-secondary hover:text-[var(--color-status-published)] transition-all',
+                'text-on-surface-variant hover:text-primary transition-colors duration-150',
               )}
               to="/#archive"
             >
@@ -57,7 +66,7 @@ function LandingTopNavBar() {
               className={cm.cn(
                 cm.fontWeight('medium'),
                 'inline-block px-1 py-2',
-                'text-foreground-secondary hover:text-[var(--color-status-published)] transition-all',
+                'text-on-surface-variant hover:text-primary transition-colors duration-150',
               )}
               to="/pricing"
             >
@@ -67,7 +76,7 @@ function LandingTopNavBar() {
               className={cm.cn(
                 cm.fontWeight('medium'),
                 'inline-block px-1 py-2',
-                'text-foreground-secondary hover:text-[var(--color-status-published)] transition-all',
+                'text-on-surface-variant hover:text-primary transition-colors duration-150',
               )}
               to="/signup"
             >
@@ -81,12 +90,12 @@ function LandingTopNavBar() {
             <>
               <SafeLink
                 className={cm.cn(
-                  cm.sp('px', 6),
+                  cm.sp('px', 4),
                   cm.sp('py', 2),
                   cm.roundedFull,
+                  cm.textSize('sm'),
                   cm.fontWeight('semibold'),
-                  cm.textSize('xs'),
-                  'bg-primary text-on-primary uppercase tracking-widest hover:bg-primary-container transition-all scale-98 active:scale-95 duration-200',
+                  'inline-flex items-center gap-1.5 bg-primary-container text-on-primary-container hover:bg-primary shadow-sm transition-colors duration-150',
                 )}
                 to="/dashboard"
               >
@@ -101,7 +110,7 @@ function LandingTopNavBar() {
                   cm.textSize('sm'),
                   cm.fontWeight('medium'),
                   'inline-block px-1 py-2',
-                  'text-foreground-secondary hover:text-[var(--color-status-published)] transition-all',
+                  'text-on-surface hover:text-primary transition-colors duration-150',
                 )}
                 to="/login"
               >
@@ -109,12 +118,12 @@ function LandingTopNavBar() {
               </SafeLink>
               <SafeLink
                 className={cm.cn(
-                  cm.sp('px', 6),
+                  cm.sp('px', 4),
                   cm.sp('py', 2),
                   cm.roundedFull,
+                  cm.textSize('sm'),
                   cm.fontWeight('semibold'),
-                  cm.textSize('xs'),
-                  'bg-primary text-on-primary uppercase tracking-widest hover:bg-primary-container transition-all scale-98 active:scale-95 duration-200',
+                  'inline-flex items-center gap-1.5 bg-primary-container text-on-primary-container hover:bg-primary shadow-sm transition-colors duration-150',
                 )}
                 to="/signup"
               >

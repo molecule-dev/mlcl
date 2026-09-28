@@ -1,72 +1,81 @@
 :root {
-  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #1a73e8;
-  --mol-color-primary-light: #e8f0fe;
-  --mol-color-primary-dark: #0d47a1;
-  --mol-color-secondary: #5f6368;
-  --mol-color-background: #f5f5f5;
+  /* === @theme bridge — fed into ClassMap via index.css @theme block ===
+     Palette per the Stitch landing design: indigo-700 primary (#4338ca),
+     deep indigo ink (#1e1b4b), indigo-tinted page background (#f1f0f9),
+     emerald accent (#10b981, decorative). */
+  --mol-color-primary: #4338ca;
+  --mol-color-primary-light: #e0e7ff;
+  --mol-color-primary-dark: #312e81;
+  --mol-color-secondary: #475569;
+  --mol-color-background: #f1f0f9;
   --mol-color-background-secondary: #ffffff;
-  --mol-color-background-tertiary: #e8f0fe;
+  --mol-color-background-tertiary: #e0e7ff;
   --mol-color-surface: #ffffff;
-  --mol-color-surface-secondary: #f0f4ff;
+  --mol-color-surface-secondary: #f4f4fb;
   --mol-color-input-background: #ffffff;
-  --mol-color-text: #202124;
-  --mol-color-text-secondary: #5f6368;
-  --mol-color-text-tertiary: #9aa0a6;
+  --mol-color-text: #1e1b4b;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #64748b;
   --mol-color-text-inverse: #ffffff;
-  --mol-color-border: #dadce0;
-  --mol-color-border-secondary: #e8eaed;
-  --mol-color-border-focus: #1a73e8;
-  --mol-color-success: #0d652d;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #dcdcf0;
+  --mol-color-border-focus: #4338ca;
+  --mol-color-success: #047857;
   --mol-color-warning: #b06000;
   --mol-color-error: #c5221f;
-  --mol-color-info: #1a73e8;
+  --mol-color-info: #4338ca;
 
   /* Stitch / Material-3 light tokens */
-  --color-background: #f5f5f5;
-  --color-on-background: #202124;
+  --color-background: #f1f0f9;
+  --color-on-background: #1e1b4b;
   --color-surface: #ffffff;
   --color-surface-bright: #ffffff;
-  --color-surface-dim: #e8eaed;
+  --color-surface-dim: #e5e5f2;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f5f5f5;
-  --color-surface-container: #f0f4ff;
-  --color-surface-container-high: #e3ecfe;
-  --color-surface-container-highest: #dadce0;
-  --color-surface-variant: #e8f0fe;
-  --color-on-surface: #202124;
-  --color-on-surface-variant: #5f6368;
-  --color-inverse-surface: #202124;
-  --color-inverse-on-surface: #f5f5f5;
-  --color-inverse-primary: #8ab4f8;
+  --color-surface-container-low: #f4f4fb;
+  --color-surface-container: #f1f0f9;
+  --color-surface-container-high: #e9e9f6;
+  --color-surface-container-highest: #e0e7ff;
+  --color-surface-variant: #e0e7ff;
+  --color-on-surface: #1e1b4b;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #1e1b4b;
+  --color-inverse-on-surface: #f1f0f9;
+  --color-inverse-primary: #a5b4fc;
   --color-on-primary: #ffffff;
-  --color-primary-container: #e8f0fe;
-  --color-on-primary-container: #0d47a1;
-  --color-secondary-container: #f1f3f4;
+  --color-primary-container: #e0e7ff;
+  --color-on-primary-container: #312e81;
+  --color-secondary-container: #eef0f6;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #202124;
-  --color-tertiary: #1a73e8;
-  --color-tertiary-container: #e8f0fe;
+  --color-on-secondary-container: #1e1b4b;
+  --color-tertiary: #4338ca;
+  --color-tertiary-container: #e0e7ff;
   --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #0d47a1;
+  --color-on-tertiary-container: #312e81;
   --color-error-container: #fce8e6;
   --color-on-error: #ffffff;
   --color-on-error-container: #c5221f;
   --color-outline: #767c83; /* #9aa0a6 was 2.64:1 vs white surface (fail ≥3:1); #767c83 = 4.22:1 */
-  --color-outline-variant: #dadce0;
-  --color-surface-tint: #1a73e8;
+  --color-outline-variant: #dcdcf0;
+  --color-surface-tint: #4338ca;
 
   /* Brand */
-  --color-primary: #1a73e8;
-  --color-primary-hover: #1557b0;
-  --color-primary-light: #e8f0fe;
-  --color-primary-dark: #0d47a1;
+  --color-primary: #4338ca;
+  --color-primary-hover: #3730a3;
+  --color-primary-light: #e0e7ff;
+  --color-primary-dark: #312e81;
+
+  /* Decorative design accent — the Stitch design's emerald highlights
+     (trust chips, security iconography). Decorative use only: as small text
+     on white #10b981 is 2.5:1, so text-bearing elements keep --color-success
+     (emerald-700, 5.48:1). */
+  --color-accent-emerald: #10b981;
 
   /* Surface */
-  --color-background: #f5f5f5;
+  --color-background: #f1f0f9;
   --color-surface: #ffffff;
-  --color-surface-hover: #f0f4ff;
-  --color-surface-active: #e3ecfe;
+  --color-surface-hover: #f4f4fb;
+  --color-surface-active: #e9e9f6;
 
   /* Sidebar */
   --color-sidebar-bg: #1c2333;
@@ -76,15 +85,15 @@
   --color-sidebar-text-muted: #7f8a9a;
 
   /* Text */
-  --color-text: #202124;
-  --color-text-secondary: #5f6368;
-  --color-text-muted: #9aa0a6;
+  --color-text: #1e1b4b;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
   --color-text-inverse: #ffffff;
 
   /* Borders */
-  --color-border: #dadce0;
-  --color-border-light: #f0f0f0;
-  --color-border-focus: #1a73e8;
+  --color-border: #e2e8f0;
+  --color-border-light: #ececf6;
+  --color-border-focus: #4338ca;
 
   /* Security indicators */
   --color-security-strong: #0d652d;
@@ -92,17 +101,19 @@
   --color-security-weak: #c5221f;
 
   /* Status */
-  --color-success: #0d652d;
+  --color-success: #047857;
   --color-warning: #b06000;
   --color-error: #c5221f;
-  --color-info: #1a73e8;
+  --color-info: #4338ca;
 
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-family-mono: 'JetBrains Mono', 'SF Mono', monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     The Stitch design sets headlines in Inter (extrabold/black), the same
+     face as the body — so the headline stop is Inter, not a serif. */
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 0.9375rem;
@@ -140,16 +151,16 @@
 /* Dark mode — security/devtools cool-slate dark.
    Cool slate near-black (#0f172a / #1e293b / #334155) reinforces the
    secure-vault feeling — chrome stays out of the way of credential rows.
-   Brand blue (#1a73e8) is preserved at the brand stop for primary CTAs
-   (Save Password, Unlock); legacy `--color-primary` shifts to a brighter
-   `#8ab4f8` for body accents (focus rings, links). Security-strength
-   indicators (strong/medium/weak) keep their green/yellow/red semantics
-   with brighter dark-friendly hues. `--color-on-primary` STAYS white. */
+   Brand indigo (#a5b4fc, indigo-300) is preserved at the brand stop for body
+   accents (focus rings, links); primary-container stops shift to indigo-tinted
+   dark surfaces. Security-strength indicators (strong/medium/weak) keep their
+   green/yellow/red semantics with brighter dark-friendly hues.
+   `--color-on-primary` STAYS white. */
 [data-mol-mode='dark'] {
-  --color-primary: #8ab4f8;
-  --color-primary-hover: #a8c7fa;
-  --color-primary-light: #1a2744;
-  --color-primary-dark: #c2dbff;
+  --color-primary: #a5b4fc;
+  --color-primary-hover: #c7d2fe;
+  --color-primary-light: #2b2f5c;
+  --color-primary-dark: #d6dcff;
 
   --color-background: #0f172a;
   --color-surface: #1e293b;
@@ -169,28 +180,31 @@
 
   --color-border: #334155;
   --color-border-light: #1e293b;
-  --color-border-focus: #8ab4f8;
+  --color-border-focus: #a5b4fc;
 
   --color-on-primary: #ffffff; /* white on blue — readable in both modes */
+
+  /* Dark counterpart of the design's decorative emerald accent */
+  --color-accent-emerald: #34d399;
 
   /* Security indicators — brighter for dark, semantics preserved */
   --color-security-strong: #81c995;
   --color-security-medium: #fdd663;
   --color-security-weak: #f28b82;
 
-  --color-success: #81c995;
+  --color-success: #34d399;
   --color-warning: #fdd663;
   --color-error: #f28b82;
-  --color-info: #8ab4f8;
+  --color-info: #a5b4fc;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.55);
   --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.65);
 
   /* === @theme bridge — dark overrides === */
-  --mol-color-primary: #8ab4f8;
-  --mol-color-primary-light: #1a2744;
-  --mol-color-primary-dark: #c2dbff;
+  --mol-color-primary: #a5b4fc;
+  --mol-color-primary-light: #2b2f5c;
+  --mol-color-primary-dark: #d6dcff;
   --mol-color-secondary: #cbd5e1;
   --mol-color-background: #0f172a;
   --mol-color-background-secondary: #1e293b;
@@ -204,11 +218,11 @@
   --mol-color-text-inverse: #0f172a;
   --mol-color-border: #334155;
   --mol-color-border-secondary: #1e293b;
-  --mol-color-border-focus: #8ab4f8;
-  --mol-color-success: #81c995;
+  --mol-color-border-focus: #a5b4fc;
+  --mol-color-success: #34d399;
   --mol-color-warning: #fdd663;
   --mol-color-error: #f28b82;
-  --mol-color-info: #8ab4f8;
+  --mol-color-info: #a5b4fc;
 
   /* Stitch / Material-3 token dark variants */
   --color-background: #0f172a;
@@ -226,21 +240,21 @@
   --color-on-surface-variant: #cbd5e1;
   --color-inverse-surface: #f1f5f9;
   --color-inverse-on-surface: #0f172a;
-  --color-inverse-primary: #1a73e8;
-  --color-primary-container: #1a2744;
-  --color-on-primary-container: #c2dbff;
+  --color-inverse-primary: #6366f1;
+  --color-primary-container: #2b2f5c;
+  --color-on-primary-container: #d6dcff;
   --color-secondary-container: #1e293b;
   --color-on-secondary: #0f172a;
   --color-on-secondary-container: #f1f5f9;
-  --color-tertiary: #8ab4f8;
-  --color-tertiary-container: #1a2744;
-  --color-on-tertiary: #0f172a; /* #ffffff was 2.11:1 on #8ab4f8 (fail); #0f172a = 8.47:1 */
-  --color-on-tertiary-container: #c2dbff;
+  --color-tertiary: #a5b4fc;
+  --color-tertiary-container: #2b2f5c;
+  --color-on-tertiary: #0f172a; /* #ffffff was 2.11:1 on the light-indigo accent (fail); #0f172a = 8.0:1 */
+  --color-on-tertiary-container: #d6dcff;
   --color-error: #f28b82;
   --color-error-container: #4a1818;
   --color-on-error: #3a0000; /* #ffffff was 2.39:1 on #f28b82 (fail); #3a0000 = 7.45:1 */
   --color-on-error-container: #ffdad6;
   --color-outline: #64748b;
   --color-outline-variant: #334155;
-  --color-surface-tint: #8ab4f8;
+  --color-surface-tint: #a5b4fc;
 }

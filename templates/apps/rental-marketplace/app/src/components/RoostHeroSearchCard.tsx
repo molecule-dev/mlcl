@@ -1,12 +1,11 @@
 /**
- * Gradient hero card with embedded destination-search form for the Landing
- * page — `from-primary` deep-teal to `primary-container` lighter teal,
- * 2rem rounded radii, decorative blurred orbs, frosted-glass guests pill,
- * and a DM Sans display headline (per Roost DESIGN.md voice + palette).
+ * Full-bleed image hero with the design's white search pill — scenic
+ * rental photo under a deep ink scrim, DM Sans display headline centered,
+ * and a rounded-pill search form (Location / Check-in / Check-out / Guests
+ * + a round teal submit) that navigates to /search with query params.
  *
- * Translated from travel-booking's SojournHeroSearchCard.tsx — adapted to
- * Roost's "Stay like you belong" voice and the marketplace-specific trust
- * pillars (superhost, free cancellation, 24/7 support).
+ * Restyled to the Stitch landing design (photo hero); the search behavior
+ * and field contract are unchanged from the earlier gradient card.
  */
 
 import { useState } from 'react'
@@ -38,272 +37,195 @@ export function RoostHeroSearchCard() {
 
   return (
     <section
-      className={cm.cn(
-        cm.sp('p', 10),
-        cm.flex({ direction: 'col', justify: 'between' }),
-        'min-h-[520px] bg-gradient-to-br from-primary to-primary-container rounded-[2rem] text-white relative overflow-hidden',
-      )}
+      className={cm.cn('relative flex items-center justify-center pt-28 pb-20 min-h-[640px]')}
+      data-mol-id="hero-search"
     >
-      <div
-        className={cm.cn(
-          cm.w(80),
-          cm.h(80),
-          cm.roundedFull,
-          'absolute -right-24 -top-24 bg-surface/10 blur-3xl',
-        )}
+      {/* Scenic backdrop + scrim. The scrim is heavier than the design's
+         black/30 so the small nav and subtitle text clear 4.5:1 over an
+         arbitrary photo (axe gates this page at serious/critical). */}
+      <img
+        src="https://picsum.photos/seed/roost-hero-villa/2000/1200"
+        alt=""
         aria-hidden="true"
+        className={cm.cn('absolute inset-0 w-full h-full object-cover')}
       />
-      <div
-        className={cm.cn(
-          cm.w(64),
-          cm.h(64),
-          cm.roundedFull,
-          'absolute -left-20 -bottom-20 bg-accent/40 blur-3xl',
-        )}
-        aria-hidden="true"
-      />
+      <div className={cm.cn('absolute inset-0 bg-on-surface/70')} aria-hidden="true" />
 
-      <div className={cm.cn('relative z-10', cm.maxW('2xl'))}>
-        <span
-          className={cm.cn(
-            cm.fontWeight('bold'),
-            cm.textSize('xs'),
-            cm.sp('mb', 4),
-            cm.flex({ align: 'center', gap: 'sm' }),
-            'tracking-[0.25em] uppercase text-accent-on-surface',
-          )}
-        >
-          <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-            cottage
-          </span>
-          {t(
-            'roostHeroSearchCard.eyebrow',
-            {},
-            { defaultValue: 'Hand-picked stays · Verified hosts' },
-          )}
-        </span>
+      <div
+        className={cm.cn(
+          'relative z-10 flex flex-col items-center justify-center text-center px-4 w-full max-w-5xl',
+        )}
+      >
         <h1
           className={cm.cn(
             cm.sp('mb', 4),
-            'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] font-extrabold',
+            'font-headline text-5xl md:text-7xl leading-tight text-white font-bold drop-shadow-lg',
           )}
-          style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
         >
           {t('roostHeroSearchCard.title', {}, { defaultValue: APP_TAGLINE })}
         </h1>
-        <p className={cm.cn(cm.textSize('lg'), cm.maxW('xl'), 'text-white/85 leading-relaxed')}>
+        <p
+          className={cm.cn(
+            cm.textSize('xl'),
+            cm.fontWeight('medium'),
+            cm.sp('mb', 12),
+            'text-white/90 drop-shadow-md',
+          )}
+        >
           {t(
             'roostHeroSearchCard.subtitle',
             {},
-            {
-              defaultValue:
-                'Cabins, cottages, riads, and lofts — vetted by hosts who actually live there. Find a place that feels like home, wherever you wander.',
-            },
+            { defaultValue: 'Handpicked homes in 180+ destinations.' },
           )}
         </p>
-      </div>
 
-      <form
-        onSubmit={search}
-        className={cm.cn(
-          cm.sp('p', 3),
-          cm.sp('mt', 8),
-          'relative z-10 grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_0.9fr_auto] gap-2 bg-surface/95 backdrop-blur-xl rounded-2xl shadow-2xl text-on-surface',
-        )}
-      >
-        <label className={cm.cn(cm.sp('px', 4), cm.sp('py', 2), 'flex flex-col')}>
-          <span
+        {/* Search pill */}
+        <form
+          onSubmit={search}
+          className={cm.cn(
+            'bg-surface rounded-2xl md:rounded-full shadow-2xl w-full max-w-4xl flex flex-col md:flex-row md:items-center text-left divide-y md:divide-y-0 md:divide-x divide-outline-variant/40',
+          )}
+        >
+          <label
             className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-widest text-on-surface-variant',
+              'flex-1 w-full px-6 py-3 md:py-2 hover:bg-surface-container-low rounded-t-2xl md:rounded-l-full md:rounded-tr-none flex flex-col',
             )}
           >
-            {t('roostHeroSearchCard.destLabel', {}, { defaultValue: 'Where' })}
-          </span>
-          <input
-            type="text"
-            value={destination}
-            onChange={(e) => setDestination(e.target.value)}
-            placeholder={t(
-              'roostHeroSearchCard.destPlaceholder',
-              {},
-              { defaultValue: 'City, region, or property' },
-            )}
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-wider text-on-surface',
+              )}
+            >
+              {t('roostHeroSearchCard.destLabel', {}, { defaultValue: 'Location' })}
+            </span>
+            <input
+              type="text"
+              value={destination}
+              onChange={(e) => setDestination(e.target.value)}
+              placeholder={t(
+                'roostHeroSearchCard.destPlaceholder',
+                {},
+                { defaultValue: 'City, region, or property' },
+              )}
+              className={cm.cn(
+                cm.textSize('sm'),
+                'w-full bg-transparent border-0 p-0 outline-none text-on-surface-variant placeholder:text-on-surface-variant/70 mt-0.5 truncate',
+              )}
+              aria-label={t('roostHeroSearchCard.destAria', {}, { defaultValue: 'Destination' })}
+            />
+          </label>
+          <label
             className={cm.cn(
-              cm.textSize('base'),
-              cm.fontWeight('semibold'),
-              'bg-transparent border-0 outline-none placeholder:text-on-surface-variant/60',
-            )}
-            aria-label={t('roostHeroSearchCard.destAria', {}, { defaultValue: 'Destination' })}
-          />
-        </label>
-        <label
-          className={cm.cn(
-            cm.sp('px', 4),
-            cm.sp('py', 2),
-            'flex flex-col border-l border-outline-variant/40',
-          )}
-        >
-          <span
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-widest text-on-surface-variant',
+              'flex-1 w-full px-6 py-3 md:py-2 hover:bg-surface-container-low flex flex-col',
             )}
           >
-            {t('form.checkIn', {}, { defaultValue: 'Check in' })}
-          </span>
-          <input
-            type="date"
-            value={checkIn}
-            onChange={(e) => setCheckIn(e.target.value)}
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-wider text-on-surface',
+              )}
+            >
+              {t('form.checkIn', {}, { defaultValue: 'Check in' })}
+            </span>
+            <input
+              type="date"
+              value={checkIn}
+              onChange={(e) => setCheckIn(e.target.value)}
+              className={cm.cn(
+                cm.textSize('sm'),
+                'bg-transparent border-0 p-0 outline-none text-on-surface-variant mt-0.5',
+              )}
+              aria-label={t(
+                'roostHeroSearchCard.checkInAria',
+                {},
+                { defaultValue: 'Check-in date' },
+              )}
+            />
+          </label>
+          <label
             className={cm.cn(
-              cm.textSize('base'),
-              cm.fontWeight('semibold'),
-              'bg-transparent border-0 outline-none',
-            )}
-            aria-label={t('roostHeroSearchCard.checkInAria', {}, { defaultValue: 'Check-in date' })}
-          />
-        </label>
-        <label
-          className={cm.cn(
-            cm.sp('px', 4),
-            cm.sp('py', 2),
-            'flex flex-col border-l border-outline-variant/40',
-          )}
-        >
-          <span
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-widest text-on-surface-variant',
+              'flex-1 w-full px-6 py-3 md:py-2 hover:bg-surface-container-low flex flex-col',
             )}
           >
-            {t('form.checkOut', {}, { defaultValue: 'Check out' })}
-          </span>
-          <input
-            type="date"
-            value={checkOut}
-            onChange={(e) => setCheckOut(e.target.value)}
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-wider text-on-surface',
+              )}
+            >
+              {t('form.checkOut', {}, { defaultValue: 'Check out' })}
+            </span>
+            <input
+              type="date"
+              value={checkOut}
+              onChange={(e) => setCheckOut(e.target.value)}
+              className={cm.cn(
+                cm.textSize('sm'),
+                'bg-transparent border-0 p-0 outline-none text-on-surface-variant mt-0.5',
+              )}
+              aria-label={t(
+                'roostHeroSearchCard.checkOutAria',
+                {},
+                { defaultValue: 'Check-out date' },
+              )}
+            />
+          </label>
+          <div
             className={cm.cn(
-              cm.textSize('base'),
-              cm.fontWeight('semibold'),
-              'bg-transparent border-0 outline-none',
-            )}
-            aria-label={t(
-              'roostHeroSearchCard.checkOutAria',
-              {},
-              { defaultValue: 'Check-out date' },
-            )}
-          />
-        </label>
-        <label
-          className={cm.cn(
-            cm.sp('px', 4),
-            cm.sp('py', 2),
-            'flex flex-col border-l border-outline-variant/40',
-          )}
-        >
-          <span
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-widest text-on-surface-variant',
+              'flex-1 w-full pl-6 pr-2 py-3 md:py-2 flex items-center justify-between rounded-b-2xl md:rounded-r-full md:rounded-bl-none',
             )}
           >
-            {t('nav.guests', {}, { defaultValue: 'Guests' })}
-          </span>
-          <select
-            value={guests}
-            onChange={(e) => setGuests(Number(e.target.value))}
-            className={cm.cn(
-              cm.textSize('base'),
-              cm.fontWeight('semibold'),
-              'bg-transparent border-0 outline-none',
-            )}
-            aria-label={t('nav.guests', {}, { defaultValue: 'Guests' })}
-          >
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-              <option key={n} value={n}>
-                {t('roostHeroSearchCard.guestsOption', { n }, { defaultValue: '{{n}} guests' })}
-              </option>
-            ))}
-          </select>
-        </label>
-        <button
-          type="submit"
-          className={cm.cn(
-            cm.sp('px', 6),
-            cm.sp('py', 3),
-            cm.fontWeight('bold'),
-            cm.flex({ align: 'center', gap: 'sm', justify: 'center' }),
-            'bg-accent text-on-primary rounded-xl hover:bg-accent-hover transition-colors shadow-lg',
-          )}
-        >
-          <span className={'material-symbols-outlined text-xl'} aria-hidden="true">
-            search
-          </span>
-          {t('common.search', {}, { defaultValue: 'Search' })}
-        </button>
-      </form>
-
-      <div
-        className={cm.cn(
-          'relative z-10',
-          cm.sp('mt', 6),
-          cm.flex({ align: 'center', gap: 'lg', wrap: 'wrap' }),
-        )}
-      >
-        <div
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'sm' }),
-            cm.textSize('sm'),
-            'text-white/85',
-          )}
-        >
-          <span
-            className="material-symbols-outlined text-accent"
-            aria-hidden="true"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            workspace_premium
-          </span>
-          {t(
-            'roostHeroSearchCard.trustSuperhost',
-            {},
-            { defaultValue: 'Superhost-verified properties' },
-          )}
-        </div>
-        <div
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'sm' }),
-            cm.textSize('sm'),
-            'text-white/85',
-          )}
-        >
-          <span className="material-symbols-outlined text-accent" aria-hidden="true">
-            shield_lock
-          </span>
-          {t(
-            'roostHeroSearchCard.trustCancel',
-            {},
-            { defaultValue: 'Free cancellation up to 48h' },
-          )}
-        </div>
-        <div
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'sm' }),
-            cm.textSize('sm'),
-            'text-white/85',
-          )}
-        >
-          <span className="material-symbols-outlined text-accent" aria-hidden="true">
-            support_agent
-          </span>
-          {t('roostHeroSearchCard.trustSupport', {}, { defaultValue: '24/7 traveler support' })}
-        </div>
+            <label className={cm.cn('flex flex-col')}>
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'uppercase tracking-wider text-on-surface',
+                )}
+              >
+                {t('nav.guests', {}, { defaultValue: 'Guests' })}
+              </span>
+              <select
+                value={guests}
+                onChange={(e) => setGuests(Number(e.target.value))}
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  'bg-transparent border-0 p-0 outline-none text-on-surface-variant mt-0.5',
+                )}
+                aria-label={t('nav.guests', {}, { defaultValue: 'Guests' })}
+              >
+                {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+                  <option key={n} value={n}>
+                    {t('roostHeroSearchCard.guestsOption', { n }, { defaultValue: '{{n}} guests' })}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <button
+              type="submit"
+              className={cm.cn(
+                cm.w(12),
+                cm.h(12),
+                cm.roundedFull,
+                cm.flex({ align: 'center', justify: 'center' }),
+                'bg-primary text-white hover:bg-primary-dark transition-colors shadow-md ml-4 shrink-0',
+              )}
+              aria-label={t('common.search', {}, { defaultValue: 'Search' })}
+            >
+              <span className={cm.cn('material-symbols-outlined text-2xl')} aria-hidden="true">
+                search
+              </span>
+            </button>
+          </div>
+        </form>
       </div>
     </section>
   )
 }
+
+export default RoostHeroSearchCard
+export { RoostHeroSearchCard as RoostHeroSearch }

@@ -69,6 +69,48 @@ const FEATURE_TILES = [
   },
 ]
 
+const CATEGORY_CHIPS = [
+  'Science',
+  'History',
+  'Pop Culture',
+  'Geography',
+  'Sports',
+  'Art',
+  'Tech',
+  'Literature',
+]
+
+const HERO_MOCKUP_ANSWERS = [
+  {
+    letter: 'A',
+    label: 'Sydney',
+    bar: 'bg-primary',
+    letter_text: 'text-primary',
+    hover: 'group-hover:text-primary',
+  },
+  {
+    letter: 'B',
+    label: 'Melbourne',
+    bar: 'bg-blue-500',
+    letter_text: 'text-blue-600',
+    hover: 'group-hover:text-blue-600',
+  },
+  {
+    letter: 'C',
+    label: 'Canberra',
+    bar: 'bg-amber-400',
+    letter_text: 'text-amber-700',
+    hover: 'group-hover:text-amber-700',
+  },
+  {
+    letter: 'D',
+    label: 'Brisbane',
+    bar: 'bg-emerald-500',
+    letter_text: 'text-emerald-600',
+    hover: 'group-hover:text-emerald-600',
+  },
+] as const
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -175,116 +217,198 @@ export function Landing() {
             )}
             aria-hidden="true"
           />
-          <div className={cm.cn('relative z-10 mx-auto', cm.maxW('2xl'))}>
-            <span
-              className={cm.cn(
-                'inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest',
-                'bg-primary-container/40 text-primary border border-primary/20',
-                cm.sp('mb', 6),
-              )}
-            >
-              <span className={cm.cn('material-symbols-outlined text-[16px]')} aria-hidden="true">
-                bolt
-              </span>
-              {t('landing.eyebrow', {}, { defaultValue: 'Ignite every answer' })}
-            </span>
-            <h1
-              className={cm.cn(
-                'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] font-extrabold mb-6 text-on-surface',
-              )}
-            >
-              {t('landing.hero.line1', {}, { defaultValue: 'Quizzes that actually' })}
+          <div
+            className={cm.cn(
+              'relative z-10 mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center',
+              cm.maxW('7xl'),
+            )}
+          >
+            <div>
               <span
                 className={cm.cn(
-                  'block bg-gradient-to-r from-primary via-tertiary to-amber-500 bg-clip-text text-transparent',
+                  'inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest',
+                  'bg-primary-container/40 text-primary border border-primary/20',
+                  cm.sp('mb', 6),
                 )}
               >
-                {t('landing.hero.line2', {}, { defaultValue: 'spark the room.' })}
+                <span className={cm.cn('material-symbols-outlined text-[16px]')} aria-hidden="true">
+                  bolt
+                </span>
+                {t('landing.eyebrow', {}, { defaultValue: 'Ignite every answer' })}
               </span>
-            </h1>
-            <p
-              className={cm.cn(
-                cm.textSize('xl'),
-                'text-on-surface-variant max-w-2xl mb-8 leading-relaxed',
-              )}
-            >
-              {t(
-                'landing.hero.subhead',
-                {},
-                {
-                  defaultValue:
-                    'Build playful question packs, host live games with a join code, and watch your classroom or game night light up with streaks, badges, and leaderboards.',
-                },
-              )}
-            </p>
-            <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }), 'flex-wrap mb-10')}>
-              <Link
-                to="/signup"
+              <h1
                 className={cm.cn(
-                  'inline-flex items-center gap-2 px-7 py-3 rounded-2xl text-sm font-extrabold uppercase tracking-widest text-white',
-                  'bg-gradient-to-r from-primary to-tertiary shadow-xl shadow-primary/30 hover:scale-[1.02] transition-transform',
+                  'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-tight font-extrabold font-headline mb-6 text-on-background',
                 )}
               >
-                <span className={cm.cn('material-symbols-outlined text-[18px]')} aria-hidden="true">
-                  rocket_launch
+                {t('landing.hero.line1', {}, { defaultValue: 'Quizzes that actually' })}
+                <span
+                  className={cm.cn(
+                    'block bg-gradient-to-r from-primary via-tertiary to-amber-500 bg-clip-text text-transparent',
+                  )}
+                >
+                  {t('landing.hero.line2', {}, { defaultValue: 'spark the room.' })}
                 </span>
-                {t('landing.hero.ctaPrimary', {}, { defaultValue: 'Start hosting free' })}
-              </Link>
-              <Link
-                to="/discover"
+              </h1>
+              <p
                 className={cm.cn(
-                  'inline-flex items-center gap-2 px-7 py-3 rounded-2xl text-sm font-extrabold uppercase tracking-widest',
-                  'bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors',
+                  cm.textSize('xl'),
+                  'text-on-surface-variant max-w-2xl mb-8 leading-relaxed',
                 )}
               >
-                <span className={cm.cn('material-symbols-outlined text-[18px]')} aria-hidden="true">
-                  travel_explore
-                </span>
-                {t('landing.hero.ctaSecondary', {}, { defaultValue: 'Try a sample quiz' })}
-              </Link>
-            </div>
-            <div
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 6 }),
-                'flex-wrap text-xs text-on-surface-variant',
-              )}
-            >
-              <span className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-                <span className={cm.cn('flex -space-x-2')}>
-                  {['p1', 'p2', 'p3', 'p4'].map((seed) => (
-                    <img
-                      key={seed}
-                      src={`https://picsum.photos/seed/${seed}/64/64`}
-                      alt=""
-                      className={cm.cn('w-7 h-7 rounded-full ring-2 ring-surface object-cover')}
-                    />
-                  ))}
-                </span>
-                <span className={cm.cn('font-semibold')}>
+                {t(
+                  'landing.hero.subhead',
+                  {},
+                  {
+                    defaultValue:
+                      'Build playful question packs, host live games with a join code, and watch your classroom or game night light up with streaks, badges, and leaderboards.',
+                  },
+                )}
+              </p>
+              <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }), 'flex-wrap pt-2')}>
+                <Link
+                  to="/signup"
+                  className={cm.cn(
+                    'inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-lg font-headline font-bold text-on-primary',
+                    'bg-gradient-to-br from-primary to-primary-dark shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-shadow',
+                  )}
+                >
+                  <span className={cm.cn('material-symbols-outlined text-xl')} aria-hidden="true">
+                    play_arrow
+                  </span>
+                  {t('landing.hero.ctaPrimary', {}, { defaultValue: 'Start hosting free' })}
+                </Link>
+                <Link
+                  to="/discover"
+                  className={cm.cn(
+                    'inline-flex items-center px-8 py-3.5 rounded-xl text-lg font-headline font-bold',
+                    'bg-surface-container-highest text-primary hover:bg-surface-variant transition-colors',
+                  )}
+                >
+                  {t('landing.hero.ctaSecondary', {}, { defaultValue: 'Try a sample quiz' })}
+                </Link>
+              </div>
+              <div className={cm.sp('pt', 8)}>
+                <p
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'text-on-surface-variant tracking-wide uppercase',
+                  )}
+                >
                   {t(
                     'landing.hero.proofUsers',
-                    { count: '12,400' },
-                    { defaultValue: '{{count}} hosts running games this week' },
+                    { count: '50,000' },
+                    { defaultValue: '{{count}}+ quizzes played daily' },
                   )}
-                </span>
-              </span>
-              <span className={cm.cn(cm.flex({ align: 'center', gap: 1 }))}>
-                <span
-                  className={cm.cn('material-symbols-outlined text-warning text-[18px]')}
-                  aria-hidden="true"
-                >
-                  star
-                </span>
-                <span className={cm.cn('font-bold')}>4.9</span>{' '}
-                {t('landing.hero.proofRating', {}, { defaultValue: 'on app stores' })}
-              </span>
+                </p>
+              </div>
             </div>
+
+            {/* Game board mockup */}
+            <div className={cm.cn('relative', cm.sp('px', 4), 'lg:px-0')}>
+              <div
+                className={cm.cn(
+                  'bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 shadow-2xl shadow-primary/25 relative overflow-hidden',
+                )}
+                data-mol-id="hero-game-board"
+              >
+                {/* Timer bar */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-surface/20">
+                  <div className="h-full bg-amber-400 w-3/4 rounded-r-full" />
+                </div>
+                <div className="bg-surface/70 backdrop-blur-xl p-6 rounded-xl mt-4 mb-8">
+                  <h3 className={cm.cn('font-headline font-bold text-xl text-on-background mb-2')}>
+                    {t(
+                      'landing.mockup.question',
+                      {},
+                      { defaultValue: 'What is the capital of Australia?' },
+                    )}
+                  </h3>
+                  <p
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('medium'),
+                      'text-on-surface-variant',
+                    )}
+                  >
+                    {t(
+                      'landing.mockup.meta',
+                      {
+                        category: t('landing.mockup.category', {}, { defaultValue: 'Geography' }),
+                        difficulty: t('landing.mockup.difficulty', {}, { defaultValue: 'Medium' }),
+                      },
+                      { defaultValue: '{{category}} • {{difficulty}}' },
+                    )}
+                  </p>
+                </div>
+                <div className={cm.cn(cm.grid({ cols: 1, gap: 3 }), 'sm:grid-cols-2 sm:gap-4')}>
+                  {HERO_MOCKUP_ANSWERS.map((answer) => (
+                    <div
+                      key={answer.letter}
+                      className={cm.cn(
+                        'bg-surface-container-lowest p-4 rounded-xl shadow-sm flex items-center gap-3 relative overflow-hidden group',
+                      )}
+                    >
+                      <div className={cm.cn('absolute left-0 top-0 bottom-0 w-1.5', answer.bar)} />
+                      <span
+                        className={cm.cn(
+                          'w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-headline font-bold shrink-0',
+                          answer.letter_text,
+                        )}
+                      >
+                        {answer.letter}
+                      </span>
+                      <span
+                        className={cm.cn(
+                          cm.fontWeight('medium'),
+                          answer.hover,
+                          'transition-colors',
+                        )}
+                      >
+                        {t(
+                          `landing.mockup.answer${answer.letter}`,
+                          {},
+                          { defaultValue: answer.label },
+                        )}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Floating XP badge */}
+              <div
+                className={cm.cn(
+                  'absolute -right-2 lg:-right-4 -top-4 lg:-top-6 bg-amber-400 text-amber-950 px-4 py-2 rounded-xl font-headline font-bold text-sm rotate-6 shadow-lg',
+                )}
+              >
+                {t('landing.mockup.xp', { xp: 150 }, { defaultValue: '+{{xp}} XP' })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Categories row */}
+        <section className={cm.cn(cm.sp('px', 6), cm.sp('py', 12), cm.maxW('7xl'), 'mx-auto')}>
+          <div className={cm.cn(cm.flex({ justify: 'center', wrap: 'wrap', gap: 3 }))}>
+            {CATEGORY_CHIPS.map((chip) => (
+              <Link
+                key={chip}
+                to="/discover"
+                className={cm.cn(
+                  'bg-surface-container-low text-primary px-5 py-2.5 rounded-full font-headline font-semibold text-sm',
+                  'hover:bg-primary-container hover:text-on-primary-container transition-colors',
+                )}
+              >
+                {t(`landing.category.${chip}`, {}, { defaultValue: chip })}
+              </Link>
+            ))}
           </div>
         </section>
 
         <section
           id="features"
-          className={cm.cn(cm.sp('px', 8), cm.sp('py', 16), cm.maxW('2xl'), 'mx-auto')}
+          className={cm.cn(cm.sp('px', 8), cm.sp('py', 16), cm.maxW('7xl'), 'mx-auto')}
         >
           <div className={cm.sp('mb', 10)}>
             <span
@@ -292,7 +416,11 @@ export function Landing() {
             >
               {t('common.whatYouGet', {}, { defaultValue: 'What you get' })}
             </span>
-            <h2 className={cm.cn('text-3xl md:text-4xl font-extrabold tracking-tight mt-2')}>
+            <h2
+              className={cm.cn(
+                'text-3xl md:text-4xl font-extrabold font-headline tracking-tight mt-2',
+              )}
+            >
               {t(
                 'landing.features.heading',
                 {},
@@ -335,7 +463,7 @@ export function Landing() {
 
         <section
           id="popular"
-          className={cm.cn(cm.sp('px', 8), cm.sp('py', 16), cm.maxW('2xl'), 'mx-auto')}
+          className={cm.cn(cm.sp('px', 8), cm.sp('py', 16), cm.maxW('7xl'), 'mx-auto')}
         >
           <div
             className={cm.cn(
@@ -350,7 +478,11 @@ export function Landing() {
               >
                 {t('landing.popular.eyebrow', {}, { defaultValue: 'Popular this week' })}
               </span>
-              <h2 className={cm.cn('text-3xl md:text-4xl font-extrabold tracking-tight mt-2')}>
+              <h2
+                className={cm.cn(
+                  'text-3xl md:text-4xl font-extrabold font-headline tracking-tight mt-2',
+                )}
+              >
                 {t(
                   'landing.popular.heading',
                   {},
@@ -374,78 +506,60 @@ export function Landing() {
 
         <section
           id="hosts"
-          className={cm.cn(cm.sp('px', 8), cm.sp('py', 16), cm.maxW('2xl'), 'mx-auto')}
+          className={cm.cn(cm.sp('px', 8), cm.sp('py', 16), cm.maxW('7xl'), 'mx-auto')}
         >
           <div
             className={cm.cn(
-              'relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-primary via-primary to-[var(--quiz-gradient-to)] text-white shadow-2xl shadow-primary/30',
-              cm.sp('p', 12),
+              'relative overflow-hidden rounded-xl bg-gradient-to-r from-amber-300 to-amber-400 p-10 md:p-12 shadow-xl shadow-amber-400/25',
             )}
           >
             <span
               className={cm.cn(
-                'absolute -right-32 -bottom-32 w-[420px] h-[420px] rounded-full bg-amber-400/30 blur-3xl',
+                'absolute top-0 right-0 w-64 h-64 rounded-full bg-white/20 blur-3xl translate-x-1/2 -translate-y-1/2',
               )}
               aria-hidden="true"
             />
             <span
               className={cm.cn(
-                'absolute -left-24 -top-24 w-72 h-72 rounded-full bg-surface/15 blur-3xl',
+                'absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/20 blur-3xl -translate-x-1/2 translate-y-1/2',
               )}
               aria-hidden="true"
             />
-            <div
-              className={cm.cn(
-                'relative z-10',
-                cm.flex({ direction: 'col', gap: 4 }),
-                'lg:flex-row lg:items-center lg:justify-between',
-              )}
-            >
-              <div className={cm.maxW('lg')}>
-                <span
-                  className={cm.cn(
-                    'inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface/20 backdrop-blur-md text-[10px] font-black uppercase tracking-widest mb-4',
-                  )}
-                >
-                  <span
-                    className={cm.cn('material-symbols-outlined text-[14px]')}
-                    aria-hidden="true"
-                  >
-                    school
-                  </span>
-                  {t('landing.cta.eyebrow', {}, { defaultValue: 'Free for educators' })}
-                </span>
-                <h2
-                  className={cm.cn(
-                    'text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-3',
-                  )}
-                >
-                  {t(
-                    'landing.cta.heading',
-                    {},
-                    { defaultValue: 'Bring the spark to every lesson.' },
-                  )}
-                </h2>
-                <p className={cm.cn('text-white/85 text-lg max-w-xl')}>
-                  {t(
-                    'landing.cta.subhead',
-                    {},
-                    {
-                      defaultValue:
-                        'Sign up in 30 seconds. Host unlimited live games, draft quizzes with AI, and keep every player on a streak.',
-                    },
-                  )}
-                </p>
-              </div>
+            <div className={cm.cn('relative z-10 max-w-2xl mx-auto text-center')}>
+              <h2
+                className={cm.cn(
+                  'text-3xl md:text-4xl font-extrabold font-headline text-amber-900 tracking-tight mb-6',
+                )}
+              >
+                {t(
+                  'landing.cta.heading',
+                  {},
+                  { defaultValue: 'Create your first quiz — free forever' },
+                )}
+              </h2>
+              <p
+                className={cm.cn(
+                  cm.textSize('lg'),
+                  cm.fontWeight('medium'),
+                  'text-amber-900/80 mb-8',
+                )}
+              >
+                {t(
+                  'landing.cta.subhead',
+                  {},
+                  {
+                    defaultValue:
+                      'Join thousands of creators building engaging trivia experiences.',
+                  },
+                )}
+              </p>
               <Link
                 to="/signup"
                 className={cm.cn(
-                  'inline-flex items-center gap-2 px-7 py-4 rounded-2xl bg-amber-400 text-amber-950 font-extrabold text-sm uppercase tracking-widest shadow-xl shadow-amber-400/30 hover:bg-amber-300 transition-colors flex-shrink-0',
+                  'inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-lg font-headline font-bold',
+                  'bg-amber-950 text-amber-200 hover:opacity-90 transition-opacity',
                 )}
               >
-                <span className={cm.cn('material-symbols-outlined text-[18px]')} aria-hidden="true">
-                  bolt
-                </span>
                 {t('landing.cta.button', {}, { defaultValue: 'Create your first quiz' })}
               </Link>
             </div>

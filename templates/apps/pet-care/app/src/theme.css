@@ -8,8 +8,10 @@
 
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     The Stitch design sets headlines in Plus Jakarta Sans (bundled via
+     index.html @font-face); Inter stays the body face. */
+  --font-headline: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   /* Brand */
   --mol-color-primary: #0891b2;
   --mol-color-primary-light: #22b8cf;

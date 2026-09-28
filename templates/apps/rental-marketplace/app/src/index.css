@@ -43,3 +43,12 @@
 }
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Stitch headline face — the design sets display headings in DM Sans
+ * (variable font via the Google Fonts link in index.html), driven by
+ * theme.css's `--font-headline` so shared molecule pages follow too.
+ */
+.font-headline {
+  font-family: var(--font-headline);
+}

@@ -102,6 +102,12 @@
   /* Nav / heading deep-indigo — the brand's darkest surface stop */
   --color-nav-bg: #1e1b4b;
   --color-heading-ink: #1e1b4b;
+
+  /* CTA band gradient stops (design-okr-goal-tracking-landing.html:
+     primary-600 → accent-500). Tokenized so dark mode can deepen the
+     accent end and keep white band text readable. */
+  --color-cta-grad-from: #4f46e5;
+  --color-cta-grad-to: #0ea5e9;
 }
 
 /* Dark mode — productivity cool-neutral.
@@ -152,6 +158,11 @@
      headings use light foreground text instead of the deep indigo */
   --color-nav-bg: #0d1626;
   --color-heading-ink: #f1f5f9;
+
+  /* CTA band stops — the accent end deepens to accent-700 so the white
+     band headline keeps its contrast on dark gradients. */
+  --color-cta-grad-from: #4f46e5;
+  --color-cta-grad-to: #0369a1;
 
   /* === @theme bridge — dark overrides === */
   --mol-color-primary: #818cf8;

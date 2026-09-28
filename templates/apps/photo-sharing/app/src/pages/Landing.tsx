@@ -4,50 +4,23 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
-import { FeaturedPhotoHeroCard } from '../components/FeaturedPhotoHeroCard.js'
-import { GalleryFeatureRow } from '../components/GalleryFeatureRow.js'
-import { SAMPLE_GALLERIES, SAMPLE_PHOTOS } from '../lib/sample-photos.js'
+import { SAMPLE_PHOTOS } from '../lib/sample-photos.js'
 
-const FEATURES = [
-  {
-    key: 'exif',
-    defaultTitle: 'EXIF as a first-class citizen',
-    defaultBody:
-      'Camera, lens, focal length, aperture, shutter, ISO. Searchable, filterable, and never stripped.',
-    icon: 'photo_camera',
-    tint: 'text-primary',
-  },
-  {
-    key: 'curated',
-    defaultTitle: 'Editorial galleries',
-    defaultBody:
-      'Curators publish thematic collections. Discover photographers like you read a magazine.',
-    icon: 'collections_bookmark',
-    tint: 'text-secondary',
-  },
-  {
-    key: 'masonry',
-    defaultTitle: 'A canvas, not a feed',
-    defaultBody:
-      'Variable-height masonry, generous whitespace, no chrome. The photographs do the work.',
-    icon: 'view_quilt',
-    tint: 'text-warning',
-  },
-  {
-    key: 'community',
-    defaultTitle: 'Conversations that matter',
-    defaultBody:
-      'Threaded comments, hearted photos, and follows. Civil-by-default — moderated by humans.',
-    icon: 'forum',
-    tint: 'text-error',
-  },
-] as const
+/**
+ * Landing — translated from reference/flagship-apps-designs/design-photo-sharing-landing.html
+ * ("Obscura" editorial photography journal): fixed blurred-paper nav with an
+ * italic-serif brand, a 4/8 hero split (italic Newsreader headline left, large
+ * stage-toned "print" with a hover EXIF overlay right), a border-t "Featured
+ * this week" trio with an italic pull-quote, a full-bleed primary sign-up
+ * band, and a mono-uppercase footer. Sample photographs render as
+ * stage-toned gradient stand-ins (the template ships no raster assets) —
+ * see `.photo-tone-*` in theme.css.
+ */
 
-const STATS = [
-  { key: 'photographers', defaultLabel: 'Photographers', value: '184K' },
-  { key: 'photos', defaultLabel: 'Frames shared', value: '4.2M' },
-  { key: 'galleries', defaultLabel: 'Curated galleries', value: '380' },
-  { key: 'countries', defaultLabel: 'Countries', value: '92' },
+const FEATURED = [
+  { photo: SAMPLE_PHOTOS[1], tone: 'photo-tone-warm' },
+  { photo: SAMPLE_PHOTOS[2], tone: 'photo-tone-cool' },
+  { photo: SAMPLE_PHOTOS[4], tone: 'photo-tone-stage' },
 ]
 
 export function Landing() {
@@ -56,15 +29,13 @@ export function Landing() {
   const isAuthenticated = useIsAuthenticated()
 
   const heroPhoto = SAMPLE_PHOTOS[0]
-  const featuredGalleries = SAMPLE_GALLERIES.filter((g) => g.is_featured)
-    .concat(SAMPLE_GALLERIES.filter((g) => !g.is_featured))
-    .slice(0, 3)
+  const year = new Date().getFullYear()
 
   return (
     <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
       <nav
         className={
-          'sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/40'
+          'sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-outline-variant/60'
         }
       >
         <div
@@ -73,37 +44,54 @@ export function Landing() {
             cm.sp('px', 6),
             cm.sp('py', 4),
             cm.flex({ align: 'center', justify: 'between' }),
-            'flex-wrap gap-x-4 gap-y-2',
+            'flex-wrap gap-x-6 gap-y-2',
             cm.mxAuto,
           )}
         >
-          <Link
-            to="/"
-            className={'min-w-0 whitespace-nowrap shrink-0 text-2xl font-extrabold tracking-tight'}
-            style={{
-              fontFamily: 'Playfair Display, Georgia, serif',
-              color: 'var(--color-primary)',
-            }}
-          >
-            {APP_NAME}
-          </Link>
-          <div
-            className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 whitespace-nowrap')}
-          >
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'min-w-0')}>
             <Link
-              to="/pricing"
-              data-mol-id="nav-pricing"
+              to="/"
               className={
-                'hidden sm:inline text-sm font-medium text-on-surface-variant hover:text-on-surface'
+                'text-2xl italic font-light tracking-tight text-on-surface whitespace-nowrap'
               }
+              style={{ fontFamily: 'var(--font-headline)' }}
             >
-              {t('landing.pricingLink', {}, { defaultValue: 'Pricing' })}
+              {APP_NAME}
             </Link>
+            <div className={cm.cn('hidden md:flex', cm.flex({ gap: 'lg' }))}>
+              <Link
+                to="/explore"
+                className={
+                  'text-primary border-b-2 border-primary pb-1 font-medium transition-all duration-200'
+                }
+              >
+                {t('landing.navCurated', {}, { defaultValue: 'Curated' })}
+              </Link>
+              <Link
+                to="/galleries"
+                className={
+                  'text-on-surface-variant hover:text-on-surface transition-opacity duration-300'
+                }
+              >
+                {t('landing.navGalleries', {}, { defaultValue: 'Galleries' })}
+              </Link>
+              <Link
+                to="/pricing"
+                data-mol-id="nav-pricing"
+                className={
+                  'text-on-surface-variant hover:text-on-surface transition-opacity duration-300'
+                }
+              >
+                {t('landing.pricingLink', {}, { defaultValue: 'Pricing' })}
+              </Link>
+            </div>
+          </div>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0')}>
             {isAuthenticated ? (
               <Link
                 to="/explore"
                 className={
-                  'whitespace-nowrap shrink-0 px-5 py-2 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
+                  'whitespace-nowrap shrink-0 px-6 py-2 font-medium bg-primary text-on-primary rounded hover:bg-primary-hover transition-colors'
                 }
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -113,7 +101,7 @@ export function Landing() {
                 <Link
                   to="/login"
                   className={
-                    'whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-on-surface'
+                    'whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-on-surface transition-opacity duration-300'
                   }
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -121,7 +109,7 @@ export function Landing() {
                 <Link
                   to="/signup"
                   className={
-                    'whitespace-nowrap shrink-0 px-5 py-2 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
+                    'whitespace-nowrap shrink-0 px-6 py-2 font-medium bg-primary text-on-primary rounded hover:bg-primary-hover transition-colors'
                   }
                 >
                   {t('landing.getStarted', { app: APP_NAME }, { defaultValue: 'Join {{app}}' })}
@@ -133,203 +121,187 @@ export function Landing() {
       </nav>
 
       <main>
-        <section className="relative overflow-hidden">
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 22% 30%, color-mix(in srgb, var(--color-primary) 20%, transparent), transparent 50%),' +
-                'radial-gradient(circle at 78% 60%, color-mix(in srgb, var(--color-secondary) 18%, transparent), transparent 45%)',
-            }}
-            aria-hidden="true"
-          />
-          <div
-            className={cm.cn(
-              cm.maxW('7xl'),
-              cm.mxAuto,
-              cm.sp('px', 6),
-              'relative py-20 md:py-28 lg:py-32',
-            )}
-          >
-            <div className={'grid grid-cols-1 lg:grid-cols-12 gap-12 items-center'}>
-              <div className={'lg:col-span-7'}>
-                <p className={'text-sm font-bold uppercase tracking-widest text-primary mb-5'}>
-                  {t(
-                    'landing.eyebrow',
-                    {},
-                    { defaultValue: 'Photo sharing · curated galleries · gallery-grade EXIF' },
-                  )}
-                </p>
-                <h1
-                  className={
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] mb-6'
-                  }
-                  style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
-                >
-                  {t(
-                    'landing.heroTitle',
-                    { tagline: APP_TAGLINE },
-                    { defaultValue: '{{tagline}}' },
-                  )}
-                </h1>
-                <p className={'text-lg text-on-surface-variant max-w-xl leading-relaxed mb-10'}>
-                  {t(
-                    'landing.heroSubtitle',
-                    { app: APP_NAME },
-                    {
-                      defaultValue:
-                        '{{app}} is a quiet, gallery-grade place for photographers. Share albums with intact metadata, browse curator-led editorial galleries, and let the photographs breathe.',
-                    },
-                  )}
-                </p>
-                <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                  <Link
-                    to="/signup"
-                    className={
-                      'inline-flex items-center gap-2 px-8 py-4 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
-                    }
-                  >
-                    {t('landing.heroCta', {}, { defaultValue: 'Start sharing' })}
-                    <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                      arrow_forward
-                    </span>
-                  </Link>
-                  <Link
-                    to="/login"
-                    className={
-                      'px-8 py-4 font-semibold rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors'
-                    }
-                  >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                  </Link>
-                </div>
-              </div>
+        {/* Hero — 4/8 split: italic serif headline left, stage print with EXIF overlay right */}
+        <section
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            'grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-16 lg:py-24',
+          )}
+        >
+          <div className={'lg:col-span-4 space-y-8'}>
+            <h1
+              className={
+                'text-5xl lg:text-6xl xl:text-7xl italic font-light leading-tight text-on-surface'
+              }
+              style={{ fontFamily: 'var(--font-headline)' }}
+            >
+              {t('landing.heroTitle', { tagline: APP_TAGLINE }, { defaultValue: '{{tagline}}' })}
+            </h1>
+            <p className={'text-lg text-on-surface-variant leading-relaxed'}>
+              {t(
+                'landing.heroSubtitle',
+                { app: APP_NAME },
+                {
+                  defaultValue:
+                    '{{app}} is a quiet, gallery-grade place for photographers. Share albums with intact metadata, browse curator-led editorial galleries, and let the photographs breathe.',
+                },
+              )}
+            </p>
+            <div className={'pt-4'}>
+              <Link
+                to="/signup"
+                data-mol-id="hero-cta"
+                className={
+                  'inline-block border-b border-on-surface pb-1 text-on-surface font-medium hover:text-primary hover:border-primary transition-colors'
+                }
+              >
+                {t('landing.heroCta', {}, { defaultValue: 'Start sharing' })}
+              </Link>
+            </div>
+          </div>
 
-              <div className={'lg:col-span-5'}>
-                <FeaturedPhotoHeroCard
-                  photo={heroPhoto}
-                  eyebrow={t(
-                    'landing.sampleEyebrow',
-                    {},
-                    { defaultValue: "Today's editorial pick" },
-                  )}
-                  primaryHref="/signup"
-                  primaryLabel={t('landing.sampleOpenInApp', {}, { defaultValue: 'Join to view' })}
-                  secondaryHref="/login"
-                  secondaryLabel={t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                />
+          <div className={'lg:col-span-8 relative group'}>
+            <div
+              className={
+                'photo-tone-warm w-full aspect-[3/2] rounded shadow-xl relative overflow-hidden'
+              }
+              role="img"
+              aria-label={heroPhoto.title}
+            >
+              <span
+                className={
+                  'material-symbols-outlined absolute inset-0 m-auto w-fit h-fit text-8xl text-white/25 group-hover:scale-105 transition-transform duration-700'
+                }
+                aria-hidden="true"
+              >
+                image
+              </span>
+            </div>
+            {/* EXIF overlay */}
+            <div
+              className={
+                'absolute bottom-6 right-6 bg-stage/80 backdrop-blur-sm p-4 rounded text-white/90 font-mono text-xs shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300'
+              }
+            >
+              <div className={'grid grid-cols-2 gap-x-6 gap-y-2 text-left'}>
+                <span className={'text-exif'}>
+                  {t('photo.exif.camera', {}, { defaultValue: 'Camera' })}
+                </span>
+                <span>{heroPhoto.exif.camera}</span>
+                <span className={'text-exif'}>
+                  {t('photo.exif.lens', {}, { defaultValue: 'Lens' })}
+                </span>
+                <span>{heroPhoto.exif.lens}</span>
+                <span className={'text-exif'}>
+                  {t('landing.exifSettings', {}, { defaultValue: 'Settings' })}
+                </span>
+                <span>
+                  {heroPhoto.exif.aperture} · {heroPhoto.exif.shutter_speed} · {heroPhoto.exif.iso}
+                </span>
               </div>
             </div>
           </div>
         </section>
 
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-12')}>
-          <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-2 md:grid-cols-4')}>
-            {STATS.map((s) => (
-              <div
-                key={s.key}
-                className={
-                  'bg-surface-container-lowest rounded-2xl p-6 text-center hover:shadow-lg transition-shadow border-l-4 border-primary'
-                }
-              >
-                <p
-                  className={
-                    'text-3xl md:text-4xl font-extrabold tracking-tight text-primary tabular-nums'
-                  }
-                  style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
-                >
-                  {s.value}
-                </p>
-                <p
-                  className={
-                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant mt-2'
-                  }
-                >
-                  {t(`landing.stat.${s.key}`, {}, { defaultValue: s.defaultLabel })}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
-          <h2
-            className={'mb-3 text-center text-3xl md:text-5xl font-extrabold tracking-tight'}
-            style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
-          >
-            {t(
-              'landing.featuresHeading',
-              {},
-              { defaultValue: 'Built for people who actually look' },
-            )}
-          </h2>
-          <p className={'mb-12 text-center text-base text-on-surface-variant max-w-2xl mx-auto'}>
-            {t(
-              'landing.featuresSubheading',
-              {},
-              {
-                defaultValue:
-                  'No infinite-scroll dopamine loops. No ads in your portfolio. Just the photographs and the people behind them.',
-              },
-            )}
-          </p>
+        {/* Featured this week — italic pull-quote + 3-up editorial grid */}
+        <section
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            'py-20 border-t border-outline-variant/60',
+          )}
+        >
           <div
-            className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}
+            className={cm.cn(
+              cm.flex({ justify: 'between', align: 'end' }),
+              'flex-col md:flex-row mb-12',
+            )}
           >
-            {FEATURES.map((f) => (
-              <div
-                key={f.key}
-                className={
-                  'bg-surface-container-lowest rounded-2xl p-6 hover:shadow-2xl hover:shadow-on-surface/5 transition-all group'
-                }
+            <div className={'max-w-xl'}>
+              <h2
+                className={'text-3xl text-on-surface mb-4'}
+                style={{ fontFamily: 'var(--font-headline)' }}
+              >
+                {t('landing.featuredHeading', {}, { defaultValue: 'Featured this week' })}
+              </h2>
+              <p
+                className={'italic text-xl text-on-surface-variant border-l-2 border-primary pl-4'}
+                style={{ fontFamily: 'var(--font-headline)' }}
+              >
+                {t(
+                  'landing.featuredQuote',
+                  {},
+                  {
+                    defaultValue:
+                      '"Photography takes an instant out of time, altering life by holding it still."',
+                  },
+                )}
+              </p>
+            </div>
+          </div>
+          <div className={'grid grid-cols-1 md:grid-cols-3 gap-8'}>
+            {FEATURED.map(({ photo, tone }, i) => (
+              <Link
+                key={photo.id}
+                to="/signup"
+                data-mol-id={i === 0 ? 'featured-photo-card' : undefined}
+                className={'group block cursor-pointer'}
               >
                 <div
-                  className={cm.cn(
-                    'inline-flex p-3 bg-surface rounded-xl shadow-sm group-hover:scale-110 transition-transform',
-                    f.tint,
-                  )}
+                  className={
+                    'overflow-hidden rounded mb-4 bg-background-secondary aspect-[4/5] flex items-center justify-center'
+                  }
                 >
-                  <span className="material-symbols-outlined text-3xl" aria-hidden="true">
-                    {f.icon}
-                  </span>
+                  <div
+                    className={cm.cn(
+                      tone,
+                      'w-full h-full group-hover:scale-105 transition-transform duration-700 flex items-center justify-center',
+                    )}
+                  >
+                    <span
+                      className={'material-symbols-outlined text-6xl text-white/25'}
+                      aria-hidden="true"
+                    >
+                      image
+                    </span>
+                  </div>
                 </div>
-                <h3
-                  className={'text-lg font-bold mt-5 mb-2'}
-                  style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
-                >
-                  {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
-                </h3>
-                <p className={'text-sm text-on-surface-variant leading-relaxed'}>
-                  {t(`landing.feature.${f.key}.body`, {}, { defaultValue: f.defaultBody })}
-                </p>
-              </div>
+                <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+                  <span
+                    className={
+                      'w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-mono uppercase shrink-0'
+                    }
+                    aria-hidden="true"
+                  >
+                    {photo.author.slice(0, 1)}
+                  </span>
+                  <div className={'min-w-0'}>
+                    <h3
+                      className={
+                        'text-lg text-on-surface group-hover:text-primary transition-colors truncate'
+                      }
+                      style={{ fontFamily: 'var(--font-headline)' }}
+                    >
+                      {photo.title}
+                    </h3>
+                    <p className={'text-sm text-on-surface-variant truncate'}>{photo.author}</p>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </section>
 
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-12')}>
-          <GalleryFeatureRow
-            galleries={featuredGalleries}
-            eyebrow={t(
-              'landing.galleriesEyebrow',
-              { app: APP_NAME },
-              { defaultValue: 'This week, on {{app}}' },
-            )}
-            title={t('landing.galleriesHeading', {}, { defaultValue: 'Curated galleries' })}
-            seeAllHref="/signup"
-            buildCardHref={() => '/signup'}
-          />
-        </section>
-
-        <section className={'border-t border-outline-variant/40'}>
-          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 text-center')}>
-            <h3
-              className={'text-3xl md:text-4xl font-extrabold tracking-tight mb-4'}
-              style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
-            >
-              {t('landing.ctaHeading', {}, { defaultValue: 'Bring your portfolio home' })}
-            </h3>
-            <p className={'text-base text-on-surface-variant max-w-xl mx-auto mb-8'}>
+        {/* Sign-up band — full-bleed primary */}
+        <section className={'bg-primary text-on-primary py-20 mt-12'}>
+          <div className={cm.cn(cm.maxW('4xl'), cm.mxAuto, cm.sp('px', 6), 'text-center')}>
+            <h2 className={'italic text-4xl mb-6'} style={{ fontFamily: 'var(--font-headline)' }}>
+              {t('landing.joinHeading', { app: APP_NAME }, { defaultValue: 'Join {{app}}' })}
+            </h2>
+            <p className={'text-on-primary/80 mb-8 max-w-lg mx-auto text-lg'}>
               {t(
                 'landing.ctaBody',
                 {},
@@ -341,40 +313,82 @@ export function Landing() {
             </p>
             <Link
               to="/signup"
+              data-mol-id="cta-signup"
               className={
-                'inline-flex items-center gap-2 px-10 py-4 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
+                'inline-block bg-surface text-primary px-8 py-3 rounded font-medium hover:bg-background-secondary transition-colors'
               }
             >
               {t('landing.ctaButton', {}, { defaultValue: 'Create your portfolio' })}
-              <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                arrow_forward
-              </span>
             </Link>
           </div>
         </section>
       </main>
 
-      <footer
-        className={
-          'py-8 text-center text-sm bg-surface text-on-surface-variant border-t border-outline-variant'
-        }
-      >
-        <p>
-          {t(
-            'common.copyrightBuiltWithMolecule',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}' },
+      <footer className={'bg-background border-t border-outline-variant/60'}>
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            'flex flex-col md:flex-row justify-between items-center gap-8 py-12',
           )}
-          {' — Built with '}
-          <a
-            href="https://molecule.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline font-medium"
+        >
+          <div
+            className={'italic text-lg text-on-surface'}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
-            Molecule.dev
-          </a>
-        </p>
+            {APP_NAME}
+          </div>
+          <div className={cm.cn(cm.flex({ gap: 'md' }), 'flex-wrap justify-center gap-6')}>
+            <Link
+              to="/galleries"
+              className={
+                'font-mono text-xs uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors'
+              }
+            >
+              {t('landing.navGalleries', {}, { defaultValue: 'Galleries' })}
+            </Link>
+            <Link
+              to="/privacy"
+              className={
+                'font-mono text-xs uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors'
+              }
+            >
+              {t('landing.footerPrivacy', {}, { defaultValue: 'Privacy' })}
+            </Link>
+            <Link
+              to="/terms"
+              className={
+                'font-mono text-xs uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors'
+              }
+            >
+              {t('landing.footerTerms', {}, { defaultValue: 'Terms' })}
+            </Link>
+          </div>
+          <div
+            className={
+              'font-mono text-xs uppercase tracking-widest text-on-surface-variant text-center'
+            }
+          >
+            {/* App-scoped key: the shared `common.copyrightBuiltWithMolecule`
+                already contains ". Built with Molecule.dev", which duplicated
+                the sibling link below. */}
+            {t(
+              'landing.copyright',
+              { year, app: APP_NAME },
+              { defaultValue: '© {{year}} {{app}}' },
+            )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   )

@@ -1,8 +1,13 @@
 :root {
-  /* Brand colors — warm amber/brown restaurant palette */
-  --color-primary: #b45309;
-  --color-primary-hover: #92400e;
-  --color-primary-light: #fef3c7;
+  /* Brand colors — Hearth design palette: vivid orange over warm stone.
+     Primary stays at the palette's orange-700 (#c2380a) rather than the
+     design's orange-600 (#e8590c): white text on #e8590c is 3.58:1 and
+     fails the axe AA gate on every filled button; #c2380a is 5.03:1 and
+     keeps the same hue family. #e8590c survives as --color-tertiary for
+     large-type/logo/icon accents (large-text AA = 3:1). */
+  --color-primary: #c2380a;
+  --color-primary-hover: #9a2c0f;
+  --color-primary-light: #ffe6d4;
   --color-secondary: #292524;
   --color-accent: #dc2626;
   --color-accent-hover: #b91c1c;
@@ -13,14 +18,14 @@
   --color-error: #dc2626;
   --color-info: #0ea5e9;
 
-  /* Surfaces */
-  --color-bg: #fffbeb;
-  --color-bg-secondary: #fef3c7;
-  --color-bg-tertiary: #fde68a;
+  /* Surfaces — stone neutrals per the Hearth design (white body, stone-50 panels) */
+  --color-bg: #faf5f2;
+  --color-bg-secondary: #f5f0ec;
+  --color-bg-tertiary: #e5e0dc;
   --color-surface: #ffffff;
-  --color-surface-hover: #fffbeb;
-  --color-border: #d6d3d1;
-  --color-border-light: #e7e5e4;
+  --color-surface-hover: #faf5f2;
+  --color-border: #d4ceca;
+  --color-border-light: #e5e0dc;
 
   /* Text */
   --color-text: #1c1917;
@@ -28,12 +33,14 @@
   --color-text-muted: #78716c; /* lifted from #a8a29e (2.43:1 fail) → 4.63:1 on #fffbeb */
   --color-text-inverse: #ffffff;
 
-  /* Typography */
-  --font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  /* Typography — design pairing: Inter body, DM Sans headlines (design's
+     font-body/font-headline split). Both faces ship in the app's local fonts. */
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
   /* Headline font — picked up by shared molecule pages
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-headline: 'DM Sans', 'Inter', system-ui, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -90,20 +97,33 @@
   --kitchen-urgent-bg: #fef2f2;
   --kitchen-urgent-border: #dc2626;
 
+  /* Landing kanban mockup — New / Preparing / Ready tickets (design's
+     blue/amber/green trio, AA-checked text stops; dark stops lighten the
+     text and deepen the panels over the coffee chassis). */
+  --color-kanban-new-bg: #eff6ff;
+  --color-kanban-new-border: #dbeafe;
+  --color-kanban-new-text: #1e40af;
+  --color-kanban-prep-bg: #fffbeb;
+  --color-kanban-prep-border: #fef3c7;
+  --color-kanban-prep-text: #92400e;
+  --color-kanban-ready-bg: #ecfdf5;
+  --color-kanban-ready-border: #d1fae5;
+  --color-kanban-ready-text: #065f46;
+
   /* Material-3 bridge — light mode tokens so bg-primary, text-on-surface etc.
      work correctly in both modes without relying on the dark-only block. */
-  --color-background: #fffbeb;
+  --color-background: #faf5f2;
   --color-on-background: #1c1917;
   --color-on-surface: #1c1917;
   --color-on-surface-variant: #57534e;
-  --color-surface-variant: #fef3c7;
+  --color-surface-variant: #f5f0ec;
   --color-surface-bright: #ffffff;
-  --color-surface-dim: #fde68a;
+  --color-surface-dim: #e5e0dc;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #fffbeb;
-  --color-surface-container: #fef3c7;
-  --color-surface-container-high: #fde68a;
-  --color-surface-container-highest: #fcd34d;
+  --color-surface-container-low: #faf5f2;
+  --color-surface-container: #f5f0ec;
+  --color-surface-container-high: #e5e0dc;
+  --color-surface-container-highest: #d4ceca;
   --color-inverse-surface: #1c1917;
   --color-inverse-on-surface: #fffbeb;
   --color-inverse-primary: #fef3c7;
@@ -114,8 +134,8 @@
   --color-secondary-container: #e7e5e4;
   --color-on-secondary: #ffffff;
   --color-on-secondary-container: #1c1917;
-  --color-tertiary: #d97706;
-  --color-tertiary-container: #fef3c7;
+  --color-tertiary: #e8590c; /* design's vivid orange-600 — logo/large accents */
+  --color-tertiary-container: #ffe6d4;
   --color-on-tertiary: #2a1200; /* dark on amber — #ffffff was 3.19:1 (fail); #2a1200 = 5.56:1 */
   --color-on-tertiary-container: #451a03;
   --color-error-container: #fecaca;
@@ -180,6 +200,18 @@
   /* Kitchen display */
   --kitchen-urgent-bg: #3a1010;
   --kitchen-urgent-border: #f87171;
+
+  /* Landing kanban mockup — dark stops (panels deepen over the coffee
+     chassis, text lifts to the bright end of each hue). */
+  --color-kanban-new-bg: #16233a;
+  --color-kanban-new-border: #2b4266;
+  --color-kanban-new-text: #93c5fd;
+  --color-kanban-prep-bg: #2a2210;
+  --color-kanban-prep-border: #4a3a12;
+  --color-kanban-prep-text: #fcd34d;
+  --color-kanban-ready-bg: #0d2b1e;
+  --color-kanban-ready-border: #1d5240;
+  --color-kanban-ready-text: #6ee7b7;
 
   /* Material-3 bridge tokens — dark variants.
      Components that use `bg-background`, `text-on-surface`, `bg-primary`, etc.

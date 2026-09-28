@@ -1,7 +1,8 @@
 :root {
   /* Headline font — picked up by shared molecule pages
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* design-presentation-builder-landing.html headline face; Arimo/Inter are the bundled fallbacks. */
+  --font-headline: 'Plus Jakarta Sans', 'Arimo', 'Inter', -apple-system, sans-serif;
   /* Overture brand — drives Tailwind's --color-primary chain via index.css. */
   --mol-color-primary: #7c3aed;
   --mol-color-primary-light: #8b5cf6;
@@ -70,6 +71,11 @@
      Light mode uses a slightly warmer near-black; dark mode goes pure rich-black. */
   --color-slide-canvas: #0f172a;
   --color-slide-canvas-deep: #1e1b4b;
+
+  /* Hero CTA glow (design-presentation-builder-landing.html
+     shadow-[0_0_20px_rgba(124,58,237,0.3)] / 0.5 hover), token-mapped. */
+  --glow-primary: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  --glow-primary-strong: color-mix(in srgb, var(--color-primary) 50%, transparent);
   --color-slide-editor-bg: #1e1e2e;
   --color-slide-text-dim: #6b7280;
 
@@ -217,6 +223,10 @@
   /* Slide canvas tokens — go even deeper in app dark mode */
   --color-slide-canvas: #080c14;
   --color-slide-canvas-deep: #14112e;
+
+  /* Dark-mode CTA glow — brighter over the rich-black canvas. */
+  --glow-primary: color-mix(in srgb, var(--color-primary) 40%, transparent);
+  --glow-primary-strong: color-mix(in srgb, var(--color-primary) 60%, transparent);
   --color-slide-editor-bg: #141420;
   --color-slide-text-dim: #4b5563;
 }

@@ -25,3 +25,15 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Register the slide-stage token as a Tailwind color utility (`bg-stage`)
+ * for the landing's 3D stage mockup, and the design headline face. The
+ * @theme values are defaults only — theme.css (imported after this file)
+ * owns the real per-mode values, and the utilities resolve through the
+ * vars at computed-value time.
+ */
+@theme {
+  --color-stage: var(--color-slide-canvas);
+  --font-headline: 'Plus Jakarta Sans', 'Arimo', 'Inter', -apple-system, sans-serif;
+}

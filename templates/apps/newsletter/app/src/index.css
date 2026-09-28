@@ -32,54 +32,55 @@
 /* Global defaults — inside /* polish-v2:theme:start */
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
-  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
-  --color-background: #faf9f6;
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens.
+     Aligned to design-newsletter-landing.html (warm editorial paper). */
+  --color-background: #fcf9f8;
   --color-error: #ba1a1a;
   --color-error-container: #ffdad6;
-  --color-inverse-on-surface: #f2f1ee;
-  --color-inverse-primary: #f5a97f;
-  --color-inverse-surface: #2f312f;
-  --color-on-background: #1b1c1a;
+  --color-inverse-on-surface: #f3f0ef;
+  --color-inverse-primary: #ffb59d;
+  --color-inverse-surface: #303030;
+  --color-on-background: #1b1c1c;
   --color-on-error: #ffffff;
   --color-on-error-container: #93000a;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #ffffff;
-  --color-on-primary-fixed: #3a1503;
-  --color-on-primary-fixed-variant: #8a3410;
+  --color-on-primary-container: #ffece7;
+  --color-on-primary-fixed: #390c00;
+  --color-on-primary-fixed-variant: #832600;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #7c3f1a;
-  --color-on-secondary-fixed: #331500;
-  --color-on-secondary-fixed-variant: #6b3410;
-  --color-on-surface: #1b1c1a;
-  --color-on-surface-variant: #4a4440;
+  --color-on-secondary-container: #6b1a00;
+  --color-on-secondary-fixed: #3a0a00;
+  --color-on-secondary-fixed-variant: #842503;
+  --color-on-surface: #1b1c1c;
+  --color-on-surface-variant: #59413a;
   --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #ffffff;
-  --color-on-tertiary-fixed: #3e0022;
-  --color-on-tertiary-fixed-variant: #8b0653;
-  --color-outline: #79706a;
-  --color-outline-variant: #d7cdc5;
-  --color-primary: #9a3412;
+  --color-on-tertiary-container: #ffede2;
+  --color-on-tertiary-fixed: #251910;
+  --color-on-tertiary-fixed-variant: #534439;
+  --color-outline: #8d7168;
+  --color-outline-variant: #e1bfb5;
+  --color-primary: #9b2f00;
   --color-primary-container: #c2410c;
-  --color-primary-fixed: #ffd2b8;
-  --color-primary-fixed-dim: #f5a97f;
-  --color-secondary: #7c3f1a;
-  --color-secondary-container: #ffe0c7;
-  --color-secondary-fixed: #ffe0c7;
-  --color-secondary-fixed-dim: #f0c9a8;
-  --color-surface: #faf9f6;
-  --color-surface-bright: #faf9f6;
-  --color-surface-container: #efeeeb;
-  --color-surface-container-high: #e9e8e5;
-  --color-surface-container-highest: #e3e2df;
-  --color-surface-container-low: #f4f3f0;
+  --color-primary-fixed: #ffdbd0;
+  --color-primary-fixed-dim: #ffb59d;
+  --color-secondary: #a53c19;
+  --color-secondary-container: #fb7b54;
+  --color-secondary-fixed: #ffdbd1;
+  --color-secondary-fixed-dim: #ffb59f;
+  --color-surface: #fcf9f8;
+  --color-surface-bright: #fcf9f8;
+  --color-surface-container: #f0eded;
+  --color-surface-container-high: #eae7e7;
+  --color-surface-container-highest: #e4e2e1;
+  --color-surface-container-low: #f6f3f2;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-dim: #dbdad7;
-  --color-surface-tint: #9a3412;
-  --color-surface-variant: #e3e2df;
-  --color-tertiary: #aa286b;
-  --color-tertiary-container: #ca4384;
-  --color-tertiary-fixed: #ffd9e4;
-  --color-tertiary-fixed-dim: #ffb0cd;
+  --color-surface-dim: #dcd9d9;
+  --color-surface-tint: #ac3400;
+  --color-surface-variant: #e4e2e1;
+  --color-tertiary: #625247;
+  --color-tertiary-container: #7b6a5e;
+  --color-tertiary-fixed: #f5decf;
+  --color-tertiary-fixed-dim: #d8c2b4;
 
   /* Stitch border-radius scale. */
   --radius: 0.125rem;
@@ -121,6 +122,20 @@
     'wght' 400,
     'GRAD' 0,
     'opsz' 24;
+}
+
+/* Editorial drop cap (design-newsletter-landing.html) — first letter of the
+   reading-column paragraph lifts into the primary accent. */
+.editorial-dropcap::first-letter {
+  font-family: 'Newsreader', serif;
+  float: left;
+  font-size: 3.5rem;
+  line-height: 0.85;
+  padding-top: 4px;
+  padding-right: 12px;
+  padding-bottom: 2px;
+  color: var(--color-primary);
+  font-weight: 500;
 }
 
 .serif-display {

@@ -35,4 +35,15 @@
  */
 @theme {
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+
+  /* Editorial mono (design-photo-sharing-landing.html uses Space Mono for
+     EXIF overlays and footer meta). JetBrains Mono is the bundled fallback
+     so offline sandboxes keep a true mono face. */
+  --font-mono: 'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Expose the photographic theme.css tokens as Tailwind color utilities
+     (theme.css defines them on :root, loaded after this block, so the var()
+     indirection always resolves to the light/dark stop there). */
+  --color-stage: var(--color-photo-stage);
+  --color-exif: var(--color-exif-label);
 }

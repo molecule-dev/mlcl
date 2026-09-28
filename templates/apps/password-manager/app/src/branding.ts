@@ -26,4 +26,4 @@ export const APP_DESCRIPTION =
   'End-to-end encrypted vault, generator, and sharing for individuals and teams.'
 
 /** Primary brand color (PWA manifest, meta theme-color). */
-export const BRAND_COLOR = '#1a73e8'
+export const BRAND_COLOR = '#4338ca'

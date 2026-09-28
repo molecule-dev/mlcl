@@ -59,7 +59,25 @@
       type="font/woff2"
       crossorigin
     />
+    <link
+      rel="preload"
+      href="/fonts/PlusJakartaSans-VariableFont.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
     <style>
+      /* Plus Jakarta Sans — the Stitch design's headline face. */
+      @font-face {
+        font-family: 'Plus Jakarta Sans';
+        src:
+          local('Plus Jakarta Sans'),
+          local('PlusJakartaSans-VariableFont'),
+          url('/fonts/PlusJakartaSans-VariableFont.ttf') format('truetype');
+        font-weight: 200 800;
+        font-style: normal;
+        font-display: swap;
+      }
       @font-face {
         font-family: 'Arimo';
         src:

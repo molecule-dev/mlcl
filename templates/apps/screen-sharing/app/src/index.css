@@ -25,3 +25,12 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Headline face — the Glint design sets headlines in Inter Tight over an Inter
+ * body. Binds the `font-display` utility to the design's headline stack and
+ * mirrors theme.css --font-headline for shared molecule pages.
+ */
+@theme {
+  --font-display: 'Inter Tight', 'Inter', system-ui, sans-serif;
+}

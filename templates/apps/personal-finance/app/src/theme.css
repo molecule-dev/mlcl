@@ -25,8 +25,10 @@
   --color-surface-hover: #f3f4f6;
   --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     The Stitch design sets headlines in Manrope (h1/h2/h3 and .font-headline
+     in index.css already bind it); align the token so shared pages match. */
+  --font-headline: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;

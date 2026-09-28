@@ -402,13 +402,52 @@ export function Landing() {
         </div>
       </section>
 
-      <footer
-        className={cm.cn(
-          'relative z-10 border-t border-border/60 bg-background/80 py-6 text-center font-mono text-[11px] uppercase tracking-widest text-muted',
-        )}
-      >
-        <span>© {APP_NAME} · </span>
-        <span>{t('landing.footerSlogan', {}, { defaultValue: 'Secrets die in the open.' })}</span>
+      {/* Footer — the design's slate-950 three-part row: brand mark, mono
+          uppercase links, © line. */}
+      <footer className="relative z-10 mt-24 border-t border-primary/10 bg-surface/60">
+        <div
+          className={cm.cn(
+            'mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-12 md:flex-row',
+          )}
+        >
+          <Link to="/" className={cm.cn('inline-flex items-baseline')}>
+            <ArcanumBrandMark size="md" />
+          </Link>
+          <nav
+            className={cm.cn(
+              'flex flex-wrap items-center justify-center gap-6 font-mono text-[11px] uppercase tracking-widest text-muted',
+            )}
+          >
+            <Link to="/about" className="transition-colors hover:text-primary">
+              {t('nav.about', {}, { defaultValue: 'About' })}
+            </Link>
+            <Link to="/pricing" className="transition-colors hover:text-primary">
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </Link>
+            <Link to="/privacy" className="transition-colors hover:text-primary">
+              {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
+            </Link>
+            <Link to="/terms" className="transition-colors hover:text-primary">
+              {t('nav.terms', {}, { defaultValue: 'Terms' })}
+            </Link>
+          </nav>
+          <p className="font-mono text-[11px] uppercase tracking-widest text-muted">
+            {t(
+              'landing.footer.copy',
+              { year: new Date().getFullYear(), app: APP_NAME },
+              { defaultValue: '© {{year}} {{app}} · Fortified & encrypted.' },
+            )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="normal-case tracking-normal hover:text-primary hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
+          </p>
+        </div>
       </footer>
     </div>
   )

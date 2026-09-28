@@ -254,6 +254,26 @@ function Dashboard() {
                     </p>
                   )}
                 </div>
+                {/* Mock trend chart + abstract background shapes, per design */}
+                <div className={cm.cn('relative z-10 mt-12 h-24 w-full flex items-end gap-2')}>
+                  <svg
+                    className={cm.cn('w-full h-full opacity-30')}
+                    viewBox="0 0 400 100"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M0,80 Q50,60 100,70 T200,30 T300,50 T400,10 L400,100 L0,100 Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M0,80 Q50,60 100,70 T200,30 T300,50 T400,10"
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="3"
+                    />
+                  </svg>
+                </div>
                 <div
                   className={cm.cn(
                     cm.w(80),
@@ -262,14 +282,23 @@ function Dashboard() {
                     'absolute -right-20 -bottom-20 bg-surface/10 blur-3xl',
                   )}
                 ></div>
+                <div
+                  className={cm.cn(
+                    cm.w(20),
+                    cm.h(20),
+                    cm.roundedFull,
+                    'absolute right-10 top-10 bg-primary-fixed/20 blur-xl',
+                  )}
+                  aria-hidden="true"
+                ></div>
               </div>
 
               <div
                 data-mol-id="dashboard-asset-allocation"
                 className={cm.cn(
                   cm.flex({ direction: 'col', justify: 'center' }),
-                  cm.sp('p', 6),
-                  'lg:col-span-4 bg-surface-container-lowest rounded-2xl',
+                  cm.sp('p', 8),
+                  'lg:col-span-4 bg-surface-container-lowest rounded-3xl border border-outline-variant/15',
                 )}
               >
                 <h3
@@ -580,15 +609,36 @@ function Dashboard() {
                                 {Number(b.amount || 0).toFixed(2)}
                               </span>
                             </div>
-                            <div className={cm.cn('h-2 w-full rounded-full bg-surface-container')}>
+                            <div
+                              className={cm.cn(
+                                'h-1.5 w-full rounded-full bg-surface-container-highest',
+                              )}
+                            >
                               <div
                                 className={cm.cn(
-                                  'h-2 rounded-full',
-                                  over ? 'bg-error' : 'bg-primary',
+                                  'h-1.5 rounded-full',
+                                  over ? 'bg-tertiary' : 'bg-primary',
                                 )}
                                 style={{ width: `${Math.min(pct, 100)}%` }}
                               />
                             </div>
+                            {over && (
+                              <p
+                                className={cm.cn(
+                                  cm.textSize('xs'),
+                                  cm.fontWeight('bold'),
+                                  'italic tracking-wide text-tertiary',
+                                )}
+                              >
+                                {t(
+                                  'dashboard.overBudget',
+                                  { amount: formatMoney(Math.abs((b.spent || 0) - b.amount)) },
+                                  {
+                                    defaultValue: 'You\u2019ve exceeded this budget by {{amount}}',
+                                  },
+                                )}
+                              </p>
+                            )}
                           </li>
                         )
                       })}
@@ -601,31 +651,67 @@ function Dashboard() {
                     to="/goals"
                     data-mol-id="dashboard-goal"
                     className={cm.cn(
-                      cm.sp('p', 6),
-                      'block bg-secondary-container text-on-secondary-container rounded-2xl',
+                      cm.sp('p', 8),
+                      'relative block overflow-hidden bg-secondary rounded-3xl text-white group',
                     )}
                   >
-                    <p className={cm.cn(cm.textSize('xs'), 'uppercase tracking-widest opacity-70')}>
-                      {t('dashboard.savingGoal', {}, { defaultValue: 'Saving Goal' })}
-                    </p>
-                    <h4 className={cm.cn(cm.fontWeight('bold'), cm.textSize('xl'), cm.sp('mt', 1))}>
-                      {featuredGoal.name}
-                    </h4>
+                    <div className={cm.cn('relative z-10')}>
+                      <p
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          cm.fontWeight('bold'),
+                          'uppercase tracking-widest text-white/60',
+                        )}
+                      >
+                        {t('dashboard.savingGoal', {}, { defaultValue: 'Saving Goal' })}
+                      </p>
+                      <h4
+                        className={cm.cn(cm.fontWeight('bold'), cm.textSize('xl'), cm.sp('mt', 1))}
+                      >
+                        {featuredGoal.name}
+                      </h4>
+                      <div
+                        className={cm.cn(
+                          cm.flex({ justify: 'between', align: 'end' }),
+                          cm.sp('mt', 4),
+                          cm.sp('mb', 2),
+                          cm.textSize('sm'),
+                        )}
+                      >
+                        <span className="text-3xl font-extrabold tabular-nums">
+                          ${Number(featuredGoal.current_amount || 0).toFixed(2)}
+                        </span>
+                        <span className="font-medium text-white/80">
+                          {t('dashboard.goalTarget', {}, { defaultValue: 'Target' })}: $
+                          {Number(featuredGoal.target_amount || 0).toFixed(2)}
+                        </span>
+                      </div>
+                      <div className="h-2 w-full rounded-full bg-white/20 overflow-hidden">
+                        <div
+                          className="h-2 rounded-full bg-white"
+                          style={{
+                            width: `${
+                              featuredGoal.target_amount > 0
+                                ? Math.min(
+                                    100,
+                                    Math.round(
+                                      (Number(featuredGoal.current_amount || 0) /
+                                        Number(featuredGoal.target_amount)) *
+                                        100,
+                                    ),
+                                  )
+                                : 0
+                            }%`,
+                          }}
+                        />
+                      </div>
+                    </div>
                     <div
                       className={cm.cn(
-                        cm.flex({ justify: 'between' }),
-                        cm.sp('mt', 4),
-                        cm.textSize('sm'),
+                        'absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl',
                       )}
-                    >
-                      <span className={cm.fontWeight('semibold')}>
-                        ${Number(featuredGoal.current_amount || 0).toFixed(2)}
-                      </span>
-                      <span>
-                        {t('dashboard.goalTarget', {}, { defaultValue: 'Target' })}: $
-                        {Number(featuredGoal.target_amount || 0).toFixed(2)}
-                      </span>
-                    </div>
+                      aria-hidden="true"
+                    />
                   </Link>
                 )}
               </aside>

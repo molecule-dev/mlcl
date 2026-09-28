@@ -49,4 +49,11 @@
      5.02:1 on #faf8f6, 5.32:1 on #ffffff. `bg-accent` keeps the vivid #d4a017 —
      it is a fill, where the 3:1 graphics threshold applies, not 4.5. */
   --color-accent-on-surface: #8a6508;
+  /* The design's CTA band is warm stone-900 (#1c1917) under a saffron rule,
+     not the brand crimson. Light stop as designed; the dark stop drops to
+     stone-950 (theme.css) so the band stays the darkest surface on the page. */
+  --color-ink-band: #1c1917;
+  /* Headline face — Newsreader (the design's font-headline). Mirrors
+     theme.css --font-headline so the `font-display` utility resolves to it. */
+  --font-display: 'Newsreader', 'DM Serif Display', Georgia, 'Times New Roman', serif;
 }

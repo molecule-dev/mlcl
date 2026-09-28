@@ -296,6 +296,16 @@
       })()
     </script>
     <!-- /mol:fonts -->
+    <!-- mol:webfont — the Morsel design sets headlines in Newsreader (italic
+         display serif). Not bundled locally; loads from Google Fonts and falls
+         back to DM Serif Display / Georgia (theme.css --font-headline) when
+         offline, so the app never blocks on it. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..800&display=swap"
+    />
     <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
     <link rel="apple-touch-startup-image" href="/icons/splash-2048x2732.svg" sizes="2048x2732" />
     <link rel="apple-touch-startup-image" href="/icons/splash-1668x2224.svg" sizes="1668x2224" />

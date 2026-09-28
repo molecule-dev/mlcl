@@ -55,11 +55,14 @@
   /* Recording live-indicator icon (rose on dark violet CTA) */
   --color-live-indicator: #fecaca;
 
-  /* Typography */
+  /* Typography — the Glint design pairs Inter Tight headlines with an Inter
+     body (font-headline/font-body). Inter Tight loads from Google Fonts and
+     falls back to the bundled Inter when offline. */
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   /* Headline font — picked up by shared molecule pages
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-headline: 'Inter Tight', 'Inter', system-ui, sans-serif;
   --font-size-xs: 0.6875rem;
   --font-size-sm: 0.8125rem;
   --font-size-base: 0.875rem;

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router'
 
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
@@ -40,16 +41,89 @@ const FEATURES = [
   },
 ] as const
 
+/* Kanban mockup columns — the design's kitchen board (New / Preparing / Ready)
+   rendered as static product art for the hero. Classes are spelled out
+   literally (no interpolation) so Tailwind's scanner picks them up; the
+   bracketed var() values resolve to the kanban tokens in theme.css. */
+const KANBAN_COLUMNS = [
+  {
+    key: 'new',
+    defaultLabel: 'New',
+    count: 3,
+    faded: false,
+    card: 'bg-[var(--color-kanban-new-bg)] border-[var(--color-kanban-new-border)]',
+    strong: 'text-[var(--color-kanban-new-text)]',
+    tickets: [
+      {
+        id: '#4012',
+        time: '2m',
+        table: { key: 'table12', def: 'Table 12' },
+        items: { key: 'itemsBurger', def: '2x Burger, 1x Fries' },
+        done: false,
+      },
+      {
+        id: '#4013',
+        time: '0m',
+        table: { key: 'tableTakeout', def: 'Takeout' },
+        items: { key: 'itemsSalad', def: '1x Salad, 1x Soup' },
+        done: false,
+      },
+    ],
+  },
+  {
+    key: 'preparing',
+    defaultLabel: 'Preparing',
+    count: 2,
+    faded: false,
+    card: 'bg-[var(--color-kanban-prep-bg)] border-[var(--color-kanban-prep-border)]',
+    strong: 'text-[var(--color-kanban-prep-text)]',
+    tickets: [
+      {
+        id: '#4009',
+        time: '12:45',
+        table: { key: 'table4', def: 'Table 4' },
+        items: { key: 'itemsSteak', def: '3x Steak, 3x Wine' },
+        done: false,
+      },
+    ],
+  },
+  {
+    key: 'ready',
+    defaultLabel: 'Ready',
+    count: 1,
+    faded: true,
+    card: 'bg-[var(--color-kanban-ready-bg)] border-[var(--color-kanban-ready-border)]',
+    strong: 'text-[var(--color-kanban-ready-text)]',
+    tickets: [
+      {
+        id: '#4005',
+        time: '',
+        table: { key: 'table8', def: 'Table 8' },
+        items: { key: 'itemsDesserts', def: 'Desserts' },
+        done: true,
+      },
+    ],
+  },
+] as const
+
+const TRUSTED = [
+  { key: 'trusted1', def: 'Pomodoro Pasta' },
+  { key: 'trusted2', def: 'Maple & Smoke' },
+  { key: 'trusted3', def: 'Mile End Bagels' },
+  { key: 'trusted4', def: "Otto's Yakitori" },
+] as const
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const isAuthenticated = useIsAuthenticated()
+  const [subscribed, setSubscribed] = useState(false)
 
   return (
     <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
       <nav
         className={cm.cn(
-          'sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/40',
+          'sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/60 shadow-sm',
         )}
       >
         <div
@@ -64,50 +138,54 @@ export function Landing() {
           <Link
             to="/"
             className={cm.cn(
-              cm.textSize('xl'),
               cm.flex({ align: 'center', gap: 'sm' }),
-              'font-extrabold tracking-tight font-display',
+              'text-2xl font-black tracking-tight font-display text-tertiary',
             )}
           >
             <span
-              className={cm.cn(
-                cm.w(8),
-                cm.h(8),
-                cm.roundedFull,
-                cm.flex({ align: 'center', justify: 'center' }),
-                'bg-gradient-to-br from-primary to-tertiary',
-              )}
+              className={cm.cn('material-symbols-outlined text-3xl text-tertiary')}
+              style={{ fontVariationSettings: "'FILL' 1" }}
+              aria-hidden="true"
             >
-              <span
-                className={cm.cn('material-symbols-outlined text-on-primary text-xl')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-                aria-hidden="true"
-              >
-                local_fire_department
-              </span>
+              local_fire_department
             </span>
             {APP_NAME}
           </Link>
-          <div className={cm.flex({ align: 'center', gap: 'md' })}>
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'md' }),
+              'hidden md:flex text-sm font-medium',
+            )}
+          >
+            <a
+              href="#features"
+              className="text-on-surface-variant hover:text-primary transition-colors"
+            >
+              {t('landing.navFeatures', {}, { defaultValue: 'Features' })}
+            </a>
             <Link
               to="/menu/guest"
-              className={cm.cn(
-                cm.textSize('sm'),
-                cm.fontWeight('medium'),
-                'text-on-surface-variant hover:text-on-surface hidden md:inline',
-              )}
+              className="text-on-surface-variant hover:text-primary transition-colors"
             >
               {t('landing.tryGuestMenu', {}, { defaultValue: 'Guest menu demo' })}
             </Link>
+            <Link
+              to="/about"
+              className="text-on-surface-variant hover:text-primary transition-colors"
+            >
+              {t('landing.navAbout', {}, { defaultValue: 'About' })}
+            </Link>
+          </div>
+          <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
               <Link
                 to="/dashboard"
                 data-mol-id="landing-nav-dashboard"
                 className={cm.cn(
                   cm.sp('px', 5),
-                  cm.sp('py', 2),
-                  cm.fontWeight('semibold'),
-                  'bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors',
+                  cm.sp('py', 2.5),
+                  cm.fontWeight('medium'),
+                  'bg-primary text-on-primary rounded-full hover:bg-primary-hover transition-colors active:scale-95',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -119,18 +197,19 @@ export function Landing() {
                   className={cm.cn(
                     cm.textSize('sm'),
                     cm.fontWeight('medium'),
-                    'text-on-surface-variant hover:text-on-surface',
+                    'text-on-surface-variant hover:text-on-surface hidden sm:block',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
                 </Link>
                 <Link
                   to="/signup"
+                  data-mol-id="landing-nav-cta"
                   className={cm.cn(
                     cm.sp('px', 5),
-                    cm.sp('py', 2),
-                    cm.fontWeight('semibold'),
-                    'bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors',
+                    cm.sp('py', 2.5),
+                    cm.fontWeight('medium'),
+                    'bg-primary text-on-primary rounded-full hover:bg-primary-hover transition-colors active:scale-95',
                   )}
                 >
                   {t('landing.getStarted', {}, { defaultValue: 'Open your kitchen' })}
@@ -142,40 +221,17 @@ export function Landing() {
       </nav>
 
       <main>
+        {/* Hero — headline left, kitchen kanban mockup right */}
         <section className={cm.cn('relative overflow-hidden')}>
           <div
-            className={cm.cn(
-              'absolute inset-0 bg-gradient-to-br from-primary-container via-surface to-surface pointer-events-none',
-            )}
-            aria-hidden="true"
-          />
-          <div
-            className={cm.cn(
-              cm.maxW('7xl'),
-              cm.mxAuto,
-              cm.sp('px', 6),
-              'py-20 md:py-28 lg:py-32 relative',
-            )}
+            className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20 lg:py-32 relative')}
           >
-            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-12 items-center')}>
-              <div className={cm.cn('lg:col-span-7')}>
-                <p
-                  className={cm.cn(
-                    cm.textSize('sm'),
-                    cm.sp('mb', 4),
-                    'font-bold uppercase tracking-widest text-primary',
-                  )}
-                >
-                  {t(
-                    'landing.eyebrow',
-                    {},
-                    { defaultValue: 'Restaurants · Cafés · Quick service' },
-                  )}
-                </p>
+            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-2 gap-16 items-center')}>
+              <div className={cm.cn('max-w-2xl')}>
                 <h1
                   className={cm.cn(
                     cm.sp('mb', 6),
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] font-display',
+                    'text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight font-display text-on-surface',
                   )}
                 >
                   {t(
@@ -186,9 +242,9 @@ export function Landing() {
                 </h1>
                 <p
                   className={cm.cn(
-                    cm.textSize('lg'),
+                    cm.textSize('xl'),
                     cm.sp('mb', 10),
-                    'text-on-surface-variant max-w-xl leading-relaxed',
+                    'text-on-surface-variant leading-relaxed',
                   )}
                 >
                   {t(
@@ -203,198 +259,176 @@ export function Landing() {
                 <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
                   <Link
                     to="/signup"
+                    data-mol-id="landing-hero-cta"
                     className={cm.cn(
                       cm.sp('px', 8),
                       cm.sp('py', 4),
-                      'font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors inline-flex items-center gap-2',
+                      cm.textSize('lg'),
+                      cm.fontWeight('medium'),
+                      'bg-primary text-on-primary rounded-full hover:bg-primary-hover transition-colors',
                     )}
                   >
                     {t('landing.heroCta', {}, { defaultValue: 'Start a free 14-day kitchen' })}
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base')}
-                      aria-hidden="true"
-                    >
-                      arrow_forward
-                    </span>
                   </Link>
                   <Link
                     to="/menu/guest"
                     className={cm.cn(
                       cm.sp('px', 8),
                       cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors inline-flex items-center gap-2',
+                      cm.textSize('lg'),
+                      cm.fontWeight('medium'),
+                      cm.flex({ align: 'center', gap: 'sm' }),
+                      'text-on-surface bg-surface-container hover:bg-surface-container-high rounded-full transition-colors',
                     )}
                   >
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base')}
-                      aria-hidden="true"
-                    >
-                      qr_code_2
+                    <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
+                      play_circle
                     </span>
                     {t('landing.guestDemoCta', {}, { defaultValue: 'See the guest view' })}
                   </Link>
                 </div>
                 <div
                   className={cm.cn(
-                    cm.sp('mt', 10),
-                    cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
-                    'text-on-surface-variant',
+                    cm.sp('pt', 8),
+                    cm.sp('mt', 12),
+                    'border-t border-outline-variant/60',
                   )}
                 >
-                  <span
+                  <p
                     className={cm.cn(
-                      cm.textSize('xs'),
-                      cm.fontWeight('bold'),
-                      'uppercase tracking-widest',
+                      cm.textSize('sm'),
+                      cm.fontWeight('medium'),
+                      cm.sp('mb', 4),
+                      'text-on-surface-variant uppercase tracking-wider',
                     )}
                   >
                     {t('landing.socialProof', {}, { defaultValue: 'Loved by service teams at' })}
-                  </span>
-                  <span
-                    className={cm.cn(cm.textSize('sm'), 'font-display font-bold tracking-tight')}
-                  >
-                    Pomodoro Pasta
-                  </span>
-                  <span aria-hidden="true">·</span>
-                  <span
-                    className={cm.cn(cm.textSize('sm'), 'font-display font-bold tracking-tight')}
-                  >
-                    Maple &amp; Smoke
-                  </span>
-                  <span aria-hidden="true">·</span>
-                  <span
-                    className={cm.cn(cm.textSize('sm'), 'font-display font-bold tracking-tight')}
-                  >
-                    Mile End Bagels
-                  </span>
-                  <span aria-hidden="true">·</span>
-                  <span
-                    className={cm.cn(cm.textSize('sm'), 'font-display font-bold tracking-tight')}
-                  >
-                    Otto's Yakitori
-                  </span>
+                  </p>
+                  <div className={cm.flex({ align: 'center', gap: 'lg', wrap: 'wrap' })}>
+                    {TRUSTED.map((b) => (
+                      <span
+                        key={b.key}
+                        className={cm.cn(
+                          'font-display font-bold text-base text-on-surface-variant opacity-60 grayscale',
+                        )}
+                      >
+                        {t(`landing.${b.key}`, {}, { defaultValue: b.def })}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div className={cm.cn('lg:col-span-5')}>
-                <div
-                  className={cm.cn(
-                    cm.flex({ direction: 'col', justify: 'between' }),
-                    cm.sp('p', 8),
-                    'min-h-[320px] bg-gradient-to-br from-primary to-primary-container rounded-[2rem] text-white relative overflow-hidden shadow-2xl shadow-primary/20',
-                  )}
-                >
-                  <div className={cm.cn('relative z-10')}>
-                    <p
-                      className={cm.cn(
-                        'font-bold text-xs uppercase tracking-widest text-primary-fixed/80 mb-2',
-                      )}
+              {/* Kitchen kanban mockup */}
+              <div
+                className={cm.cn(
+                  'relative bg-surface-container-low rounded-3xl p-6 shadow-xl border border-outline-variant/60 lg:mr-[-3rem]',
+                )}
+                aria-hidden="true"
+              >
+                <div className={cm.flex({ gap: 'md' }) + ' overflow-x-auto pb-2'}>
+                  {KANBAN_COLUMNS.map((col) => (
+                    <div
+                      key={col.key}
+                      className={
+                        'shrink-0 w-64 bg-surface rounded-2xl p-4 shadow-sm border border-outline-variant/40' +
+                        (col.faded ? ' opacity-70' : '')
+                      }
                     >
-                      {t('landing.sampleCardLabel', {}, { defaultValue: "Today's revenue" })}
-                    </p>
-                    <div className={cm.flex({ align: 'baseline', gap: 'sm' })}>
-                      <span
-                        className={cm.cn(
-                          'text-5xl font-extrabold tracking-tighter tabular-nums font-display',
-                        )}
-                      >
-                        $5,970
-                      </span>
-                      <span
-                        className={cm.cn(
-                          'px-2 py-1 rounded-full text-[11px] font-bold bg-white/20 backdrop-blur-md inline-flex items-center gap-1',
-                        )}
-                      >
-                        <span
-                          className={cm.cn('material-symbols-outlined text-sm')}
-                          aria-hidden="true"
+                      <div className={cm.flex({ align: 'center', justify: 'between' }) + ' mb-4'}>
+                        <h3
+                          className={cm.cn(
+                            cm.fontWeight('semibold'),
+                            'font-display text-on-surface',
+                          )}
                         >
-                          trending_up
+                          {t(
+                            `landing.kanban.col.${col.key}`,
+                            {},
+                            { defaultValue: col.defaultLabel },
+                          )}
+                        </h3>
+                        <span
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            cm.fontWeight('bold'),
+                            cm.sp('px', 2),
+                            cm.sp('py', 1),
+                            'rounded-full',
+                            col.card,
+                            col.strong,
+                          )}
+                        >
+                          {col.count}
                         </span>
-                        +8% vs Mon
-                      </span>
+                      </div>
+                      <div className={cm.flex({ direction: 'col', gap: 'sm' })}>
+                        {col.tickets.map((tk) => (
+                          <div
+                            key={tk.id}
+                            className={cm.cn(cm.sp('p', 3), 'rounded-lg border', col.card)}
+                          >
+                            <div
+                              className={cm.flex({ align: 'center', justify: 'between' }) + ' mb-2'}
+                            >
+                              <span className={cm.cn('font-mono text-sm font-bold', col.strong)}>
+                                {tk.id}
+                              </span>
+                              {tk.done ? (
+                                <span
+                                  className={cm.cn(
+                                    'material-symbols-outlined text-sm text-success',
+                                  )}
+                                >
+                                  check_circle
+                                </span>
+                              ) : (
+                                <span className={cm.cn(cm.textSize('xs'), col.strong)}>
+                                  {tk.time}
+                                </span>
+                              )}
+                            </div>
+                            <div
+                              className={cm.cn(
+                                cm.textSize('sm'),
+                                cm.fontWeight('medium'),
+                                cm.sp('mb', 1),
+                                'text-on-surface',
+                              )}
+                            >
+                              {t(
+                                `landing.kanban.${tk.table.key}`,
+                                {},
+                                { defaultValue: tk.table.def },
+                              )}
+                            </div>
+                            <div className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                              {t(
+                                `landing.kanban.${tk.items.key}`,
+                                {},
+                                { defaultValue: tk.items.def },
+                              )}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  <div className={cm.cn('relative z-10 mt-8 h-20')}>
-                    <svg
-                      className={cm.cn('w-full h-full')}
-                      viewBox="0 0 400 100"
-                      preserveAspectRatio="none"
-                    >
-                      <path
-                        d="M0,80 Q50,55 100,65 T200,40 T300,30 T400,15 L400,100 L0,100 Z"
-                        fill="white"
-                        opacity="0.3"
-                      />
-                      <path
-                        d="M0,80 Q50,55 100,65 T200,40 T300,30 T400,15"
-                        fill="none"
-                        stroke="white"
-                        strokeWidth="3"
-                      />
-                    </svg>
-                  </div>
-                  <div className={cm.cn('relative z-10 mt-4 grid grid-cols-3 gap-3 text-white/90')}>
-                    <div>
-                      <p
-                        className={cm.cn(
-                          'text-[10px] uppercase tracking-widest font-bold opacity-80',
-                        )}
-                      >
-                        Active
-                      </p>
-                      <p className={cm.cn('text-2xl font-extrabold tabular-nums font-display')}>
-                        12
-                      </p>
-                    </div>
-                    <div>
-                      <p
-                        className={cm.cn(
-                          'text-[10px] uppercase tracking-widest font-bold opacity-80',
-                        )}
-                      >
-                        Ready
-                      </p>
-                      <p className={cm.cn('text-2xl font-extrabold tabular-nums font-display')}>
-                        3
-                      </p>
-                    </div>
-                    <div>
-                      <p
-                        className={cm.cn(
-                          'text-[10px] uppercase tracking-widest font-bold opacity-80',
-                        )}
-                      >
-                        Tables
-                      </p>
-                      <p className={cm.cn('text-2xl font-extrabold tabular-nums font-display')}>
-                        9/14
-                      </p>
-                    </div>
-                  </div>
-                  <div
-                    className={cm.cn(
-                      'absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-white/10 blur-3xl',
-                    )}
-                  />
-                  <div
-                    className={cm.cn(
-                      'absolute right-8 top-8 w-16 h-16 rounded-full bg-primary-fixed/20 blur-xl',
-                    )}
-                  />
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
+        <section
+          id="features"
+          className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}
+        >
           <h2
             className={cm.cn(
               cm.sp('mb', 4),
               cm.textCenter,
-              'text-3xl md:text-4xl font-extrabold tracking-tight font-display',
+              'text-3xl md:text-4xl font-bold tracking-tight font-display',
             )}
           >
             {t(
@@ -429,13 +463,13 @@ export function Landing() {
                 key={f.key}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl hover:shadow-2xl hover:shadow-on-surface/5 transition-all group',
+                  'bg-surface rounded-xl border border-outline-variant/60 hover:shadow-lg transition-shadow group',
                 )}
               >
                 <div
                   className={cm.cn(
                     cm.sp('p', 3),
-                    'inline-flex bg-surface rounded-xl shadow-sm group-hover:scale-110 transition-transform',
+                    'inline-flex bg-surface-container-low rounded-lg group-hover:scale-110 transition-transform',
                     f.tint,
                   )}
                 >
@@ -461,13 +495,13 @@ export function Landing() {
           </div>
         </section>
 
-        <section className={cm.cn('border-t border-outline-variant/40')}>
+        <section className={cm.cn('border-t border-outline-variant/60')}>
           <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 text-center')}>
             <h3
               className={cm.cn(
                 cm.textSize('3xl'),
                 cm.sp('mb', 4),
-                'font-extrabold tracking-tight font-display',
+                'font-bold tracking-tight font-display',
               )}
             >
               {t('landing.ctaHeading', {}, { defaultValue: 'Open your kitchen in under an hour' })}
@@ -490,10 +524,13 @@ export function Landing() {
             </p>
             <Link
               to="/signup"
+              data-mol-id="landing-footer-cta"
               className={cm.cn(
                 cm.sp('px', 10),
                 cm.sp('py', 4),
-                'font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors inline-flex items-center gap-2',
+                cm.textSize('lg'),
+                cm.fontWeight('medium'),
+                'bg-primary text-on-primary rounded-full hover:bg-primary-hover transition-colors inline-flex items-center gap-2',
               )}
             >
               {t('landing.heroCta', {}, { defaultValue: 'Start a free 14-day kitchen' })}
@@ -505,21 +542,181 @@ export function Landing() {
         </section>
       </main>
 
-      <footer
-        className={cm.cn(
-          cm.sp('py', 8),
-          cm.textCenter,
-          cm.textSize('sm'),
-          'bg-surface text-on-surface-variant border-t border-outline-variant',
-        )}
-      >
-        <p>
-          {t(
-            'landing.copyright',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Every table, served.' },
+      <footer className="bg-surface-container-low border-t border-outline-variant/60 rounded-t-2xl mt-20">
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            'grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16',
           )}
-        </p>
+        >
+          <div>
+            <div className={cm.flex({ align: 'center', gap: 'sm' }) + ' mb-4'}>
+              <span
+                className={cm.cn('material-symbols-outlined text-2xl text-tertiary')}
+                style={{ fontVariationSettings: "'FILL' 1" }}
+                aria-hidden="true"
+              >
+                local_fire_department
+              </span>
+              <span className="text-xl font-bold text-tertiary font-display">{APP_NAME}</span>
+            </div>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mb-6')}>
+              {t(
+                'landing.footerBlurb',
+                {},
+                { defaultValue: 'Warmth in every order. Built for modern restaurants.' },
+              )}
+            </p>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {/* landing-scoped key: the shared `common.copyrightBuiltWithMolecule`
+                  value already ends in plain-text "Built with Molecule.dev", which
+                  would duplicate the linked sibling below. */}
+              {t(
+                'landing.copyright',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                { defaultValue: '© {{year}} {{app}}' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
+            </p>
+          </div>
+          <div>
+            <h4
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                cm.sp('mb', 4),
+                'font-display text-on-surface',
+              )}
+            >
+              {t('landing.footerCompany', {}, { defaultValue: 'Company' })}
+            </h4>
+            <ul className={cm.flex({ direction: 'col', gap: 'sm' })}>
+              <li>
+                <Link
+                  to="/about"
+                  className="text-sm text-on-surface-variant hover:text-on-surface underline decoration-tertiary underline-offset-4 transition-colors"
+                >
+                  {t('landing.footerAboutUs', {}, { defaultValue: 'About Us' })}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/signup"
+                  className="text-sm text-on-surface-variant hover:text-on-surface underline decoration-tertiary underline-offset-4 transition-colors"
+                >
+                  {t('landing.footerPartner', {}, { defaultValue: 'Partner with Us' })}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/menu/guest"
+                  className="text-sm text-on-surface-variant hover:text-on-surface underline decoration-tertiary underline-offset-4 transition-colors"
+                >
+                  {t('landing.tryGuestMenu', {}, { defaultValue: 'Guest menu demo' })}
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                cm.sp('mb', 4),
+                'font-display text-on-surface',
+              )}
+            >
+              {t('landing.footerLegal', {}, { defaultValue: 'Legal' })}
+            </h4>
+            <ul className={cm.flex({ direction: 'col', gap: 'sm' })}>
+              <li>
+                <Link
+                  to="/privacy"
+                  className="text-sm text-on-surface-variant hover:text-on-surface underline decoration-tertiary underline-offset-4 transition-colors"
+                >
+                  {t('landing.footerPrivacy', {}, { defaultValue: 'Privacy Policy' })}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/terms"
+                  className="text-sm text-on-surface-variant hover:text-on-surface underline decoration-tertiary underline-offset-4 transition-colors"
+                >
+                  {t('landing.footerTerms', {}, { defaultValue: 'Terms of Service' })}
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="mailto:hello@molecule.dev"
+                  className="text-sm text-on-surface-variant hover:text-on-surface underline decoration-tertiary underline-offset-4 transition-colors"
+                >
+                  {t('landing.footerContact', {}, { defaultValue: 'Contact' })}
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                cm.sp('mb', 4),
+                'font-display text-on-surface',
+              )}
+            >
+              {t('landing.footerSubscribe', {}, { defaultValue: 'Subscribe' })}
+            </h4>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mb-4')}>
+              {t(
+                'landing.footerSubscribeBlurb',
+                {},
+                { defaultValue: 'Get the latest restaurant tech news.' },
+              )}
+            </p>
+            <form
+              className={cm.flex({ gap: 'sm' })}
+              onSubmit={(e) => {
+                e.preventDefault()
+                setSubscribed(true)
+              }}
+            >
+              <label className="sr-only" htmlFor="landing-subscribe-email">
+                {t('landing.footerSubscribeLabel', {}, { defaultValue: 'Email address' })}
+              </label>
+              <input
+                id="landing-subscribe-email"
+                type="email"
+                required
+                placeholder={t(
+                  'landing.footerSubscribePlaceholder',
+                  {},
+                  { defaultValue: 'Email address' },
+                )}
+                className="w-full px-4 py-2 rounded-lg bg-surface text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+              <button
+                type="submit"
+                data-mol-id="landing-footer-subscribe"
+                className="bg-secondary text-on-secondary px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+              >
+                <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
+                  arrow_forward
+                </span>
+              </button>
+            </form>
+            {subscribed && (
+              <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2), 'text-success')}>
+                {t('landing.footerSubscribed', {}, { defaultValue: 'Subscribed — thank you!' })}
+              </p>
+            )}
+          </div>
+        </div>
       </footer>
     </div>
   )

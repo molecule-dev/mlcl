@@ -1,32 +1,35 @@
 :root {
-  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #06b6d4;
-  --mol-color-primary-light: #67e8f9;
-  --mol-color-primary-dark: #0891b2;
+  /* === @theme bridge — fed into ClassMap via index.css @theme block ===
+     Aligned to design-oncall-management-landing.html (Klaxon — deep navy
+     mission control with signal-amber brand). */
+  --mol-color-primary: #ffb95f;
+  --mol-color-primary-light: #2a1700;
+  --mol-color-primary-dark: #f59e0b;
   --mol-color-secondary: #a78bfa;
-  --mol-color-background: #0c0e14;
-  --mol-color-background-secondary: #111318;
-  --mol-color-background-tertiary: #181b22;
-  --mol-color-surface: #1a1d26;
-  --mol-color-surface-secondary: #21252f;
-  --mol-color-input-background: #181b22;
-  --mol-color-text: #e2e8f0;
-  --mol-color-text-secondary: #94a3b8;
-  --mol-color-text-tertiary: #64748b;
-  --mol-color-text-inverse: #0c0e14;
-  --mol-color-border: #1e2330;
-  --mol-color-border-secondary: #2a3040;
-  --mol-color-border-focus: #06b6d4;
+  --mol-color-background: #031427;
+  --mol-color-background-secondary: #0b1c30;
+  --mol-color-background-tertiary: #102034;
+  --mol-color-surface: #102034;
+  --mol-color-surface-secondary: #1b2b3f;
+  --mol-color-input-background: #0b1c30;
+  --mol-color-text: #d3e4fe;
+  --mol-color-text-secondary: #d8c3ad;
+  --mol-color-text-tertiary: #7d92b2;
+  --mol-color-text-inverse: #031427;
+  --mol-color-border: #1d3049;
+  --mol-color-border-secondary: #2a405c;
+  --mol-color-border-focus: #ffb95f;
   --mol-color-success: #10b981;
   --mol-color-warning: #eab308;
   --mol-color-error: #ef4444;
   --mol-color-info: #3b82f6;
 
-  /* Brand colors — Klaxon ops-console cyan palette per DESIGN.md */
-  --color-primary: #06b6d4;
-  --color-primary-hover: #22d3ee;
-  --color-primary-dark: #0891b2;
-  --color-primary-light: #67e8f9;
+  /* Brand colors — Klaxon signal-amber on deep navy per
+     design-oncall-management-landing.html */
+  --color-primary: #ffb95f;
+  --color-primary-hover: #ffd9a0;
+  --color-primary-dark: #f59e0b;
+  --color-primary-light: #2a1700;
 
   /* Severity (sacred — never decorative) */
   --color-severity-critical: #ef4444;
@@ -37,25 +40,25 @@
   --color-severity-new: #a78bfa;
   --color-severity-muted: #64748b;
 
-  /* Surfaces — dark-first */
-  --color-background: #0c0e14;
-  --color-background-secondary: #111318;
-  --color-background-tertiary: #181b22;
-  --color-surface: #1a1d26;
-  --color-surface-secondary: #21252f;
-  --color-surface-elevated: #282d3a;
-  --color-input-background: #181b22;
-  --color-code-block: #0a0c10;
-  --color-border: #1e2330;
-  --color-border-secondary: #2a3040;
-  --color-border-subtle: #161a24;
+  /* Surfaces — dark-first deep navy (design: #031427 family) */
+  --color-background: #031427;
+  --color-background-secondary: #0b1c30;
+  --color-background-tertiary: #102034;
+  --color-surface: #102034;
+  --color-surface-secondary: #1b2b3f;
+  --color-surface-elevated: #1b2b3f;
+  --color-input-background: #0b1c30;
+  --color-code-block: #000f21;
+  --color-border: #1d3049;
+  --color-border-secondary: #2a405c;
+  --color-border-subtle: #102034;
 
-  /* Text */
-  --color-text: #e2e8f0;
-  --color-text-secondary: #94a3b8;
-  --color-text-tertiary: #64748b;
-  --color-text-inverse: #0c0e14;
-  --color-text-code: #22d3ee;
+  /* Text — ice-blue foreground with the design's warm tan variant */
+  --color-text: #d3e4fe;
+  --color-text-secondary: #d8c3ad;
+  --color-text-tertiary: #7d92b2;
+  --color-text-inverse: #031427;
+  --color-text-code: #54ddfc;
 
   /* Feedback */
   --color-success: #10b981;
@@ -84,37 +87,37 @@
   --border-radius-lg: 12px;
 
   /* Material-3 bridge (dark-first root) */
-  --color-on-primary: #062a30; /* deep ink on cyan #06b6d4 — 6.9:1; white was 2.1:1 fail */
-  --color-primary-container: #164e63;
-  --color-on-primary-container: #a5f3fc;
+  --color-on-primary: #472a00; /* dark umber on signal amber #ffb95f — 8.9:1; white was 1.9:1 fail */
+  --color-primary-container: #f59e0b;
+  --color-on-primary-container: #613b00;
   --color-secondary: #a78bfa;
   --color-on-secondary: #0c0e14; /* dark on light-purple — 7.09:1; white was 2.72:1 fail */
-  --color-secondary-container: #21252f;
+  --color-secondary-container: #1b2b3f;
   --color-on-secondary-container: #ede9fe;
-  --color-tertiary: #60a5fa;
-  --color-tertiary-container: #1e3a8a;
-  --color-on-tertiary: #0c0e14; /* dark on light-blue — 7.59:1; white was 2.54:1 fail */
-  --color-on-tertiary-container: #bfdbfe;
-  --color-on-background: #e2e8f0;
-  --color-surface-bright: #282d3a;
-  --color-surface-dim: #04060a;
-  --color-surface-container-lowest: #020408;
-  --color-surface-container-low: #111318;
-  --color-surface-container: #1a1d26;
-  --color-surface-container-high: #21252f;
-  --color-surface-container-highest: #282d3a;
-  --color-surface-variant: #21252f;
-  --color-on-surface: #e2e8f0;
-  --color-on-surface-variant: #94a3b8;
-  --color-inverse-surface: #e2e8f0;
-  --color-inverse-on-surface: #0c0e14;
-  --color-inverse-primary: #0891b2;
-  --color-surface-tint: #06b6d4;
+  --color-tertiary: #54ddfc;
+  --color-tertiary-container: #004b58;
+  --color-on-tertiary: #003640; /* dark on bright-cyan #54ddfc — 8.2:1; white was 1.6:1 fail */
+  --color-on-tertiary-container: #acedff;
+  --color-on-background: #d3e4fe;
+  --color-surface-bright: #2a3a4f;
+  --color-surface-dim: #020d1c;
+  --color-surface-container-lowest: #000f21;
+  --color-surface-container-low: #0b1c30;
+  --color-surface-container: #102034;
+  --color-surface-container-high: #1b2b3f;
+  --color-surface-container-highest: #26364a;
+  --color-surface-variant: #1b2b3f;
+  --color-on-surface: #d3e4fe;
+  --color-on-surface-variant: #d8c3ad;
+  --color-inverse-surface: #d3e4fe;
+  --color-inverse-on-surface: #102034;
+  --color-inverse-primary: #855300;
+  --color-surface-tint: #ffb95f;
   --color-on-error: #0c0e14; /* dark on bright-red — 5.13:1; white was 3.76:1 fail */
   --color-error-container: #450a0a;
   --color-on-error-container: #fecdd3;
-  --color-outline: #6b7280; /* brightened from #475569 — 3.48:1 on surface; was 2.22:1 fail */
-  --color-outline-variant: #1e2330;
+  --color-outline: #a08e7a; /* design outline — warm bronze, 6.1:1 on surface */
+  --color-outline-variant: #26364a;
 
   /* Severity light variants (tinted backgrounds for badges) */
   --color-severity-critical-light: color-mix(
@@ -151,10 +154,10 @@
  * developer-console legibility under the toggle. Emerald primary stays.
  */
 [data-mol-mode='dark'] {
-  --color-primary: #22d3ee;
-  --color-primary-hover: #67e8f9;
-  --color-primary-dark: #06b6d4;
-  --color-primary-light: #164e63;
+  --color-primary: #ffc174;
+  --color-primary-hover: #ffddb8;
+  --color-primary-dark: #ffb95f;
+  --color-primary-light: #2a1700;
 
   /* Severity (brighter — error/warning especially must scream) */
   --color-severity-critical: #f87171;
@@ -166,24 +169,24 @@
   --color-severity-muted: #94a3b8;
 
   /* Surfaces — depth-layered, slightly deeper than :root for true-dark mode */
-  --color-background: #07090f;
-  --color-background-secondary: #0c0e14;
-  --color-background-tertiary: #111318;
-  --color-surface: #161a24;
-  --color-surface-secondary: #1e2330;
-  --color-surface-elevated: #252b3a;
-  --color-input-background: #111318;
-  --color-code-block: #05070b;
-  --color-border: #252b3a;
-  --color-border-secondary: #323a4e;
-  --color-border-subtle: #181d28;
+  --color-background: #020d1c;
+  --color-background-secondary: #031427;
+  --color-background-tertiary: #0b1c30;
+  --color-surface: #0b1c30;
+  --color-surface-secondary: #102034;
+  --color-surface-elevated: #1b2b3f;
+  --color-input-background: #031427;
+  --color-code-block: #000913;
+  --color-border: #1d3049;
+  --color-border-secondary: #2a405c;
+  --color-border-subtle: #102034;
 
   /* Text */
-  --color-text: #f1f5f9;
-  --color-text-secondary: #cbd5e1;
-  --color-text-tertiary: #94a3b8;
-  --color-text-inverse: #07090f;
-  --color-text-code: #67e8f9;
+  --color-text: #e6f0ff;
+  --color-text-secondary: #d8c3ad;
+  --color-text-tertiary: #7d92b2;
+  --color-text-inverse: #020d1c;
+  --color-text-code: #54ddfc;
 
   /* Feedback (mirror severity intensity) */
   --color-success: #34d399;
@@ -192,37 +195,37 @@
   --color-info: #60a5fa;
 
   /* Material-3 bridge — flip bg-surface, text-on-surface, bg-primary etc.
-     Emerald primary pumped bright for dark-mode; on-primary uses dark text for contrast. */
-  --color-on-primary: #05242b; /* deep ink on bright cyan #22d3ee — 9.6:1; white was 1.8:1 fail */
-  --color-primary-container: #164e63;
-  --color-on-primary-container: #a5f3fc;
+     Signal amber pumped bright for dark-mode; on-primary keeps dark umber ink. */
+  --color-on-primary: #472a00; /* dark umber on bright amber #ffc174 — 9.6:1; white was 1.8:1 fail */
+  --color-primary-container: #f59e0b;
+  --color-on-primary-container: #613b00;
   --color-on-secondary: #0c0e14; /* dark on light-purple #a78bfa — 7.09:1; white was 2.72:1 fail */
-  --color-secondary-container: #1e2330;
+  --color-secondary-container: #102034;
   --color-on-secondary-container: #e2e8f0;
-  --color-tertiary: #60a5fa;
-  --color-tertiary-container: #1e3a8a;
-  --color-on-tertiary: #0c0e14; /* dark on light-blue #60a5fa — 7.59:1; white was 2.54:1 fail */
-  --color-on-tertiary-container: #bfdbfe;
-  --color-on-background: #f1f5f9;
-  --color-surface-bright: #252b3a;
-  --color-surface-dim: #04060a;
-  --color-surface-container-lowest: #020408;
-  --color-surface-container-low: #0c0e14;
-  --color-surface-container: #111318;
-  --color-surface-container-high: #181b22;
-  --color-surface-container-highest: #21252f;
-  --color-surface-variant: #21252f;
-  --color-on-surface: #f1f5f9;
-  --color-on-surface-variant: #94a3b8;
-  --color-inverse-surface: #f1f5f9;
-  --color-inverse-on-surface: #07090f;
-  --color-inverse-primary: #0891b2;
-  --color-surface-tint: #22d3ee;
+  --color-tertiary: #54ddfc;
+  --color-tertiary-container: #004b58;
+  --color-on-tertiary: #003640; /* dark on bright-cyan — 8.2:1; white was 1.6:1 fail */
+  --color-on-tertiary-container: #acedff;
+  --color-on-background: #e6f0ff;
+  --color-surface-bright: #2a3a4f;
+  --color-surface-dim: #010812;
+  --color-surface-container-lowest: #000913;
+  --color-surface-container-low: #031427;
+  --color-surface-container: #0b1c30;
+  --color-surface-container-high: #102034;
+  --color-surface-container-highest: #1b2b3f;
+  --color-surface-variant: #102034;
+  --color-on-surface: #e6f0ff;
+  --color-on-surface-variant: #d8c3ad;
+  --color-inverse-surface: #e6f0ff;
+  --color-inverse-on-surface: #020d1c;
+  --color-inverse-primary: #855300;
+  --color-surface-tint: #ffc174;
   --color-on-error: #690005; /* dark on light-red #f87171 — 4.74:1; white was 2.77:1 fail */
   --color-error-container: #450a0a;
   --color-on-error-container: #fecdd3;
-  --color-outline: #64748b; /* 3.65:1 on surface #161a24 — passes ≥3:1 */
-  --color-outline-variant: #252b3a;
+  --color-outline: #a08e7a; /* warm bronze — 5.6:1 on surface #0b1c30 */
+  --color-outline-variant: #1d3049;
 
   /* Severity light variants (tinted backgrounds for dark-mode badges) */
   --color-severity-critical-light: color-mix(
@@ -257,10 +260,10 @@
    cyan-terminal dark `:root`. Toggling [data-mol-mode="light"]
    flips the dark defaults to a calm slate-on-white console. */
 [data-mol-mode='light'] {
-  --color-primary: #0e7490; /* darkened from #0891b2 → white text 4.9:1; was 2.9:1 fail */
-  --color-primary-hover: #155e75;
-  --color-primary-dark: #155e75;
-  --color-primary-light: #cffafe;
+  --color-primary: #b45309; /* amber-700 — white text 4.7:1; raw #f59e0b was 2.2:1 fail */
+  --color-primary-hover: #92400e;
+  --color-primary-dark: #92400e;
+  --color-primary-light: #ffddb8;
 
   /* Severity (slightly darker / more saturated for light-bg contrast) */
   --color-severity-critical: #dc2626;
@@ -298,17 +301,17 @@
   --color-info: #2563eb;
 
   /* Material-3 bridge (light mode) */
-  --color-on-primary: #ffffff; /* white on #0e7490 — 4.9:1 ✓ */
-  --color-primary-container: #cffafe;
-  --color-on-primary-container: #155e75;
+  --color-on-primary: #ffffff; /* white on #b45309 — 4.7:1 ✓ */
+  --color-primary-container: #ffddb8;
+  --color-on-primary-container: #653e00;
   --color-secondary: #7c3aed;
   --color-on-secondary: #ffffff;
   --color-secondary-container: #ede9fe;
   --color-on-secondary-container: #4c1d95;
-  --color-tertiary: #2563eb;
-  --color-tertiary-container: #dbeafe;
+  --color-tertiary: #0891b2;
+  --color-tertiary-container: #cffafe;
   --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #1e3a8a;
+  --color-on-tertiary-container: #164e63;
   --color-on-background: #0f172a;
   --color-surface-bright: #ffffff;
   --color-surface-dim: #e2e8f0;
@@ -322,8 +325,8 @@
   --color-on-surface-variant: #475569;
   --color-inverse-surface: #0f172a;
   --color-inverse-on-surface: #f8fafc;
-  --color-inverse-primary: #67e8f9;
-  --color-surface-tint: #0891b2;
+  --color-inverse-primary: #f59e0b;
+  --color-surface-tint: #b45309;
   --color-on-error: #ffffff;
   --color-error-container: #fee2e2;
   --color-on-error-container: #450a0a;

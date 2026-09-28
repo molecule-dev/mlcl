@@ -1,68 +1,69 @@
 :root {
-  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #2b6cb0;
-  --mol-color-primary-light: #ebf4ff;
-  --mol-color-primary-dark: #1a365d;
-  --mol-color-secondary: #37352f;
-  --mol-color-background: #ffffff;
-  --mol-color-background-secondary: #f7fafc;
-  --mol-color-background-tertiary: #edf2f7;
-  --mol-color-surface: #f7fafc;
-  --mol-color-surface-secondary: #edf2f7;
+  /* === @theme bridge — fed into ClassMap via index.css @theme block ===
+     Aligned to design-note-taking-landing.html (Verso — paper + royal blue). */
+  --mol-color-primary: #1c46a6;
+  --mol-color-primary-light: #dbe1ff;
+  --mol-color-primary-dark: #123fa0;
+  --mol-color-secondary: #775a00;
+  --mol-color-background: #f9f9f6;
+  --mol-color-background-secondary: #f4f4f1;
+  --mol-color-background-tertiary: #eeeeeb;
+  --mol-color-surface: #f9f9f6;
+  --mol-color-surface-secondary: #eeeeeb;
   --mol-color-input-background: #ffffff;
-  --mol-color-text: #37352f;
-  --mol-color-text-secondary: #6b7280;
-  --mol-color-text-tertiary: #9b9a97;
+  --mol-color-text: #1a1c1b;
+  --mol-color-text-secondary: #444652;
+  --mol-color-text-tertiary: #747684;
   --mol-color-text-inverse: #ffffff;
-  --mol-color-border: #e5e7eb;
-  --mol-color-border-secondary: #d4d4d4;
-  --mol-color-border-focus: #2b6cb0;
+  --mol-color-border: #e2e3e0;
+  --mol-color-border-secondary: #c4c6d4;
+  --mol-color-border-focus: #1c46a6;
   --mol-color-success: #38a169;
   --mol-color-warning: #d69e2e;
   --mol-color-error: #e53e3e;
   --mol-color-info: #3182ce;
 
   /* Brand colors */
-  --color-primary: #2b6cb0;
-  --color-primary-hover: #2c5282;
-  --color-primary-light: #ebf4ff;
-  --color-primary-dark: #1a365d;
+  --color-primary: #1c46a6;
+  --color-primary-hover: #123fa0;
+  --color-primary-light: #dbe1ff;
+  --color-primary-dark: #123fa0;
 
   /* Stitch / Material-3 light tokens */
-  --color-background: #ffffff;
-  --color-on-background: #37352f;
-  --color-surface: #f7fafc;
-  --color-surface-bright: #ffffff;
-  --color-surface-dim: #edf2f7;
+  --color-background: #f9f9f6;
+  --color-on-background: #1a1c1b;
+  --color-surface: #f9f9f6;
+  --color-surface-bright: #f9f9f6;
+  --color-surface-dim: #dadad7;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f7fafc;
-  --color-surface-container: #edf2f7;
-  --color-surface-container-high: #e2e8f0;
-  --color-surface-container-highest: #d4d4d4;
-  --color-surface-variant: #edf2f7;
-  --color-on-surface: #37352f;
-  --color-on-surface-variant: #6b7280;
-  --color-inverse-surface: #37352f;
-  --color-inverse-on-surface: #f7fafc;
-  --color-inverse-primary: #63b3ed;
-  --color-on-primary: #ffffff; /* white on #2b6cb0 = 5.42:1 ✓ */
-  --color-primary-container: #ebf4ff;
-  --color-on-primary-container: #1a365d;
-  --color-secondary: #37352f;
-  --color-secondary-container: #edf2f7;
+  --color-surface-container-low: #f4f4f1;
+  --color-surface-container: #eeeeeb;
+  --color-surface-container-high: #e8e8e5;
+  --color-surface-container-highest: #e2e3e0;
+  --color-surface-variant: #e2e3e0;
+  --color-on-surface: #1a1c1b;
+  --color-on-surface-variant: #444652;
+  --color-inverse-surface: #2f312f;
+  --color-inverse-on-surface: #f1f1ee;
+  --color-inverse-primary: #b4c5ff;
+  --color-on-primary: #ffffff; /* white on #1c46a6 ≈ 8.5:1 ✓ */
+  --color-primary-container: #3b5fc0;
+  --color-on-primary-container: #dbe2ff;
+  --color-secondary: #775a00;
+  --color-secondary-container: #fece5a;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #37352f;
-  --color-tertiary: #553c9a;
-  --color-tertiary-container: #e9d8fd;
+  --color-on-secondary-container: #745700;
+  --color-tertiary: #4b4b62;
+  --color-tertiary-container: #64637a;
   --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #44337a;
+  --color-on-tertiary-container: #e3e0fc;
   --color-error: #e53e3e;
-  --color-error-container: #fed7d7;
+  --color-error-container: #ffdad6;
   --color-on-error: #ffffff; /* white on #e53e3e = 4.61:1 ✓ */
-  --color-on-error-container: #822727;
-  --color-outline: #6b7280; /* #6b7280 on #f7fafc = 4.62:1 ✓ (≥3:1 outline) */
-  --color-outline-variant: #e5e7eb;
-  --color-surface-tint: #2b6cb0;
+  --color-on-error-container: #93000a;
+  --color-outline: #747684; /* #747684 on #f9f9f6 ≈ 4.6:1 ✓ (≥3:1 outline) */
+  --color-outline-variant: #c4c6d4;
+  --color-surface-tint: #3358b9;
 
   /* Surface colors */
   --color-surface-hover: #edf2f7;
@@ -102,10 +103,10 @@
   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   --font-family-mono: 'SFMono-Regular', 'Menlo', 'Monaco', monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, etc.) via `var(--font-headline)`. Matches
-     the inline Georgia stack used in this app's hand-curated pages
-     (Home.tsx, VersoNoteCard.tsx). */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, etc.) via `var(--font-headline)` and by the
+     landing's `font-headline` utility. Newsreader is the design's display
+     serif (design-note-taking-landing.html); Georgia stays as fallback. */
+  --font-headline: 'Newsreader', Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -136,6 +137,10 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
   --shadow-popup: 0 4px 16px rgba(0, 0, 0, 0.12);
+  /* Landing surfaces (design-note-taking-landing.html) — a soft brand-tinted
+     nav wash and a deep frame shadow under the hero app mockup. */
+  --shadow-nav: 0 10px 40px color-mix(in srgb, var(--color-primary) 6%, transparent);
+  --shadow-frame: 0 20px 60px color-mix(in srgb, var(--color-primary) 10%, transparent);
 
   /* Transitions */
   --transition-fast: 120ms ease;
@@ -187,6 +192,8 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
   --shadow-popup: 0 4px 16px rgba(0, 0, 0, 0.65);
+  --shadow-nav: 0 10px 40px rgba(0, 0, 0, 0.45);
+  --shadow-frame: 0 20px 60px rgba(0, 0, 0, 0.55);
 
   /* === @theme bridge — dark overrides === */
   --mol-color-primary: #63b3ed;

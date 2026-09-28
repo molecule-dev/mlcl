@@ -8,5 +8,5 @@ export const LOGO_SIZE = 30
 export const WEBSITE_URL = ''
 export const APP_DESCRIPTION =
   'Music streaming — playlists, radio, social listening, and personal libraries.'
-export const BRAND_COLOR = '#1db954'
-export const ACCENT_COLOR = '#be185d'
+export const BRAND_COLOR = '#bd9dff'
+export const ACCENT_COLOR = '#ff6f7e'

@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app-react'
+import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { loadContent } from '../config.js'
 import { DestinationDiscoveryCard } from '../components/DestinationDiscoveryCard.js'
 import { RoostHeroSearchCard } from '../components/RoostHeroSearchCard.js'
 import { RoostListingCard } from '../components/RoostListingCard.js'
@@ -143,11 +145,7 @@ export function Landing() {
 
   return (
     <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
-      <nav
-        className={cm.cn(
-          'sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant/40',
-        )}
-      >
+      <nav className={cm.cn('absolute top-0 left-0 right-0 z-40')}>
         <div
           className={cm.cn(
             cm.maxW('7xl'),
@@ -161,10 +159,9 @@ export function Landing() {
             <span
               className={cm.cn(
                 cm.textSize('2xl'),
-                cm.fontWeight('extrabold'),
-                'text-primary-dark tracking-tight',
+                cm.fontWeight('bold'),
+                'text-white tracking-tight font-headline drop-shadow-md',
               )}
-              style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
             >
               {APP_NAME}
             </span>
@@ -175,7 +172,7 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('medium'),
-                'hidden md:inline text-on-surface-variant hover:text-primary',
+                'hidden md:inline text-white hover:text-primary-fixed transition-colors',
               )}
             >
               {t('landing.nav.search', {}, { defaultValue: 'Find a stay' })}
@@ -185,7 +182,7 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('medium'),
-                'hidden md:inline text-on-surface-variant hover:text-primary',
+                'hidden md:inline text-white hover:text-primary-fixed transition-colors',
               )}
             >
               {t('landing.nav.host', {}, { defaultValue: 'Become a host' })}
@@ -198,8 +195,10 @@ export function Landing() {
                   cm.sp('px', 5),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  cm.fontWeight('bold'),
-                  'rounded-full bg-primary text-on-primary hover:bg-primary-container transition-colors',
+                  cm.fontWeight('medium'),
+                  // text-white was 3.66:1 on the teal (axe serious); the theme's
+                  // dark on-primary ink clears 4.5:1 on the brand teal.
+                  'rounded-full bg-primary text-on-primary hover:bg-primary-dark transition-colors',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -210,8 +209,8 @@ export function Landing() {
                   to="/login"
                   className={cm.cn(
                     cm.textSize('sm'),
-                    cm.fontWeight('semibold'),
-                    'hidden md:inline text-on-surface hover:text-primary',
+                    cm.fontWeight('medium'),
+                    'hidden md:inline text-white hover:text-primary-fixed transition-colors',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -222,8 +221,9 @@ export function Landing() {
                     cm.sp('px', 5),
                     cm.sp('py', 2),
                     cm.textSize('sm'),
-                    cm.fontWeight('bold'),
-                    'rounded-full bg-primary text-on-primary hover:bg-primary-container transition-colors',
+                    cm.fontWeight('medium'),
+                    // dark on-primary ink on the teal pill (see the dashboard CTA note)
+                    'rounded-full bg-primary text-on-primary hover:bg-primary-dark transition-colors',
                   )}
                 >
                   {t(
@@ -239,17 +239,8 @@ export function Landing() {
       </nav>
 
       <main>
-        <section
-          className={cm.cn(
-            cm.maxW('7xl'),
-            cm.sp('px', 6),
-            cm.sp('pt', 10),
-            cm.sp('pb', 16),
-            cm.mxAuto,
-          )}
-        >
-          <RoostHeroSearchCard />
-        </section>
+        {/* Full-bleed image hero with the design's search pill */}
+        <RoostHeroSearchCard />
 
         <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('pb', 20), cm.mxAuto)}>
           <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
@@ -268,9 +259,8 @@ export function Landing() {
                   cm.textSize('4xl'),
                   cm.fontWeight('extrabold'),
                   cm.sp('mt', 2),
-                  'leading-tight tracking-tight',
+                  'leading-tight tracking-tight font-headline',
                 )}
-                style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
               >
                 {t(
                   'landing.destinations.heading',
@@ -318,9 +308,8 @@ export function Landing() {
                     cm.textSize('4xl'),
                     cm.fontWeight('extrabold'),
                     cm.sp('mt', 2),
-                    'leading-tight tracking-tight',
+                    'leading-tight tracking-tight font-headline',
                   )}
-                  style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
                 >
                   {t(
                     'landing.preview.heading',
@@ -385,9 +374,8 @@ export function Landing() {
                   cm.textSize('4xl'),
                   cm.fontWeight('extrabold'),
                   cm.sp('mt', 2),
-                  'leading-tight tracking-tight',
+                  'leading-tight tracking-tight font-headline',
                 )}
-                style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
               >
                 {t('landing.journal.heading', {}, { defaultValue: 'Stories from the road' })}
               </h2>
@@ -427,9 +415,8 @@ export function Landing() {
                       cm.textSize('xl'),
                       cm.fontWeight('bold'),
                       cm.sp('mt', 2),
-                      'leading-snug',
+                      'leading-snug font-headline',
                     )}
-                    style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
                   >
                     {item.title}
                   </h3>
@@ -444,155 +431,309 @@ export function Landing() {
           </div>
         </section>
 
-        <section className={cm.cn('bg-primary text-on-primary relative overflow-hidden')}>
-          <div
-            className={cm.cn(
-              cm.w(96),
-              cm.h(96),
-              cm.roundedFull,
-              'absolute -right-24 -bottom-24 bg-accent/40 blur-3xl',
-            )}
-            aria-hidden="true"
-          />
-          <div
-            className={cm.cn(
-              cm.maxW('5xl'),
-              cm.sp('px', 6),
-              cm.sp('py', 20),
-              cm.textCenter,
-              cm.mxAuto,
-              'relative z-10',
-            )}
-          >
-            <p
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                // Inherits the band's text-on-primary (#111827, 4.74:1 on the teal).
-                // No coral clears 4.5:1 there — pale coral tops out at 3.4:1 — and the
-                // app already picked a dark on-primary for exactly this reason.
-                'uppercase tracking-[0.25em]',
-              )}
-            >
-              {t('landing.cta.eyebrow', {}, { defaultValue: 'For hosts' })}
-            </p>
+        {/* Why travelers choose Roost — trust pillars */}
+        <section className={cm.cn('bg-surface-container-low/50')}>
+          <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}>
             <h2
               className={cm.cn(
-                cm.textSize('5xl'),
-                cm.fontWeight('extrabold'),
-                cm.sp('mt', 3),
-                'leading-[0.95] tracking-tight',
+                cm.textSize('3xl'),
+                cm.fontWeight('bold'),
+                cm.sp('mb', 12),
+                cm.textCenter,
+                'font-headline',
               )}
-              style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
             >
               {t(
-                'landing.cta.heading',
-                {},
-                { defaultValue: 'Open your door. Earn what your home is worth.' },
+                'landing.why.heading',
+                { appName: APP_NAME },
+                { defaultValue: 'Why travelers choose {{appName}}' },
               )}
             </h2>
-            <p
-              className={cm.cn(
-                cm.textSize('lg'),
-                cm.sp('mt', 4),
-                cm.maxW('2xl'),
-                cm.mxAuto,
-                // white/85 was 3.13:1 on the bg-primary band (axe serious); the theme's
-                // on-primary ink pair (#111827) gives 4.74:1
-                'text-on-primary',
-              )}
-            >
-              {t(
-                'landing.cta.subheading',
-                { appName: APP_NAME },
+            <div className={cm.cn('grid grid-cols-1 md:grid-cols-3 gap-10')}>
+              {[
                 {
-                  defaultValue:
-                    '{{appName}} takes care of payouts, taxes, and traveler vetting so you can focus on hosting. Most new hosts earn their first $1,000 within 30 days.',
+                  key: 'vetted',
+                  icon: 'verified_user',
+                  title: 'Vetted Hosts',
+                  body: 'Every host passes a rigorous background check and identity verification process to ensure your safety and comfort.',
                 },
-              )}
-            </p>
+                {
+                  key: 'support',
+                  icon: 'support_agent',
+                  title: '24/7 Global Support',
+                  body: 'Our dedicated team is always on standby, ready to assist you anywhere, anytime during your stay.',
+                },
+                {
+                  key: 'quality',
+                  icon: 'diamond',
+                  title: 'Premium Quality',
+                  body: 'Look for the Superhost gold badge for guaranteed exceptional hospitality, cleanliness, and amenities.',
+                },
+              ].map((f) => (
+                <div
+                  key={f.key}
+                  className={cm.cn(cm.flex({ direction: 'col', align: 'center' }), cm.textCenter)}
+                >
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      cm.sp('mb', 6),
+                      'w-16 h-16 bg-surface rounded-full shadow-sm text-primary border border-primary/15',
+                    )}
+                    aria-hidden="true"
+                  >
+                    <span className={cm.cn('material-symbols-outlined text-3xl')}>{f.icon}</span>
+                  </div>
+                  <h3
+                    className={cm.cn(
+                      cm.fontWeight('bold'),
+                      cm.textSize('xl'),
+                      cm.sp('mb', 3),
+                      'font-headline',
+                    )}
+                  >
+                    {t(`landing.why.${f.key}.title`, {}, { defaultValue: f.title })}
+                  </h3>
+                  <p
+                    className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}
+                  >
+                    {t(`landing.why.${f.key}.body`, {}, { defaultValue: f.body })}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Host banner — dark card with polaroid collage */}
+        <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}>
+          <div
+            className={cm.cn(
+              'bg-on-primary rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row relative',
+            )}
+            data-mol-id="host-banner"
+          >
             <div
               className={cm.cn(
-                cm.flex({ align: 'center', gap: 'md', justify: 'center' }),
-                cm.sp('mt', 8),
+                'md:w-[60%] flex flex-col justify-center relative z-10',
+                cm.sp('p', 10),
+                'md:p-16',
               )}
             >
-              <Link
-                to="/host"
+              <h2
                 className={cm.cn(
-                  cm.sp('px', 8),
-                  cm.sp('py', 3),
+                  cm.textSize('4xl'),
                   cm.fontWeight('bold'),
-                  'rounded-full bg-accent text-on-primary hover:bg-accent-hover transition-colors shadow-lg',
+                  cm.sp('mb', 6),
+                  'text-white font-headline',
                 )}
               >
-                {t('landing.cta.host', {}, { defaultValue: 'Start hosting' })}
-              </Link>
-              <Link
-                to="/search"
+                {t('landing.cta.heading', {}, { defaultValue: 'Become a host' })}
+              </h2>
+              <p
                 className={cm.cn(
-                  cm.sp('px', 8),
-                  cm.sp('py', 3),
-                  cm.fontWeight('semibold'),
-                  // white was 3.74:1 on the bg-primary band (axe serious); on-primary = 4.74:1
-                  'rounded-full border border-surface/40 text-on-primary hover:bg-surface/10 transition-colors',
+                  cm.textSize('lg'),
+                  cm.sp('mb', 8),
+                  cm.maxW('md'),
+                  'text-white/75 leading-relaxed',
                 )}
               >
-                {t('nav.browseStays', {}, { defaultValue: 'Browse stays' })}
-              </Link>
+                {t(
+                  'landing.cta.subheading',
+                  { appName: APP_NAME },
+                  {
+                    defaultValue:
+                      'Turn your extra space into extra income. Join thousands of {{appName}} hosts earning money while sharing their local culture.',
+                  },
+                )}
+              </p>
+              <div>
+                <Link
+                  to="/host"
+                  className={cm.cn(
+                    cm.sp('px', 8),
+                    cm.sp('py', 3),
+                    cm.fontWeight('bold'),
+                    'rounded-full bg-accent text-on-primary hover:bg-accent-hover transition-colors shadow-lg shadow-accent/30 inline-block',
+                  )}
+                >
+                  {t('landing.cta.host', {}, { defaultValue: 'Start hosting' })}
+                </Link>
+              </div>
+            </div>
+            <div
+              className={cm.cn(
+                'md:w-[40%] relative min-h-[300px] bg-primary-dark overflow-hidden flex items-center justify-center p-6',
+              )}
+            >
+              {/* Polaroid styled images */}
+              <div
+                className={cm.cn(
+                  'relative w-full max-w-xs aspect-square rotate-3 shadow-xl bg-surface p-3 pb-12 rounded-sm z-10',
+                )}
+              >
+                <img
+                  src="https://picsum.photos/seed/roost-host-1/800/800"
+                  alt={t(
+                    'landing.hostBanner.polaroid1Alt',
+                    {},
+                    { defaultValue: 'Host home interior' },
+                  )}
+                  className={cm.cn(cm.w('full'), cm.h('full'), 'object-cover')}
+                />
+              </div>
+              <div
+                className={cm.cn(
+                  'absolute w-full max-w-xs aspect-square -rotate-6 shadow-xl bg-surface p-3 pb-12 rounded-sm right-4 top-8 opacity-90',
+                )}
+              >
+                <img
+                  src="https://picsum.photos/seed/roost-host-2/800/800"
+                  alt={t('landing.hostBanner.polaroid2Alt', {}, { defaultValue: 'Host apartment' })}
+                  className={cm.cn(cm.w('full'), cm.h('full'), 'object-cover')}
+                />
+              </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className={cm.cn('bg-surface border-t border-outline-variant/40')}>
+      <footer className={cm.cn('bg-surface-container-low border-t border-outline-variant/40')}>
         <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 12), cm.mxAuto)}>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
-            )}
-          >
-            <div>
-              <span
+          <div className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-2 md:grid-cols-4')}>
+            <div className="col-span-2 md:col-span-1">
+              <div
                 className={cm.cn(
-                  cm.textSize('2xl'),
-                  cm.fontWeight('extrabold'),
-                  'text-primary-dark tracking-tight',
+                  cm.textSize('xl'),
+                  cm.fontWeight('bold'),
+                  cm.sp('mb', 4),
+                  'text-primary font-headline',
                 )}
-                style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
               >
                 {APP_NAME}
-              </span>
-              <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
-                {t('landing.footer.tagline', {}, { defaultValue: 'Stay like you belong.' })}
+              </div>
+              <p
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.sp('mb', 6),
+                  cm.maxW('xs'),
+                  'text-on-surface-variant',
+                )}
+              >
+                {t(
+                  'landing.footer.tagline',
+                  {},
+                  {
+                    defaultValue:
+                      'Connecting travelers with unique homes and unforgettable experiences around the world.',
+                  },
+                )}
               </p>
             </div>
-            <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), cm.textSize('sm'))}>
-              <Link to="/search" className={'text-on-surface-variant hover:text-primary'}>
-                {t('landing.footer.search', {}, { defaultValue: 'Find a stay' })}
-              </Link>
-              <Link to="/host" className={'text-on-surface-variant hover:text-primary'}>
-                {t('landing.footer.host', {}, { defaultValue: 'Become a host' })}
-              </Link>
-              <Link to="/login" className={'text-on-surface-variant hover:text-primary'}>
-                {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-              </Link>
+            <div>
+              <h4
+                className={cm.cn(
+                  cm.fontWeight('bold'),
+                  cm.sp('mb', 4),
+                  'uppercase text-xs tracking-wider text-on-surface',
+                )}
+              >
+                {t('landing.footer.exploreLabel', {}, { defaultValue: 'Explore' })}
+              </h4>
+              <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), cm.textSize('sm'))}>
+                <li>
+                  <Link
+                    className="text-on-surface-variant hover:text-primary underline"
+                    to="/search"
+                  >
+                    {t('landing.footer.search', {}, { defaultValue: 'Find a stay' })}
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-on-surface-variant hover:text-primary underline" to="/host">
+                    {t('landing.footer.host', {}, { defaultValue: 'Become a host' })}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4
+                className={cm.cn(
+                  cm.fontWeight('bold'),
+                  cm.sp('mb', 4),
+                  'uppercase text-xs tracking-wider text-on-surface',
+                )}
+              >
+                {t('landing.footer.companyLabel', {}, { defaultValue: 'Company' })}
+              </h4>
+              <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), cm.textSize('sm'))}>
+                <li>
+                  <Link
+                    className="text-on-surface-variant hover:text-primary underline"
+                    to="/about"
+                  >
+                    {t('landing.footer.about', {}, { defaultValue: 'About' })}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="text-on-surface-variant hover:text-primary underline"
+                    to="/pricing"
+                  >
+                    {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4
+                className={cm.cn(
+                  cm.fontWeight('bold'),
+                  cm.sp('mb', 4),
+                  'uppercase text-xs tracking-wider text-on-surface',
+                )}
+              >
+                {t('landing.footer.legalLabel', {}, { defaultValue: 'Legal' })}
+              </h4>
+              <div
+                className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), 'items-start text-sm')}
+              >
+                <LegalModalLinks
+                  linkClassName="text-on-surface-variant hover:text-primary underline"
+                  appName={APP_NAME}
+                  loadContent={loadContent}
+                  privacyLabel={t('landing.footer.privacyPolicy', {}, { defaultValue: 'Privacy' })}
+                  termsLabel={t('landing.footer.terms', {}, { defaultValue: 'Terms' })}
+                />
+              </div>
             </div>
           </div>
-          <p
+          <div
             className={cm.cn(
-              cm.textSize('xs'),
+              'border-t border-outline-variant/40',
               cm.sp('mt', 8),
-              cm.textCenter,
-              'text-on-surface-variant',
+              cm.sp('pt', 6),
+              cm.flex({ direction: 'col', gap: 'sm' }),
+              'md:flex-row md:items-center md:justify-between',
             )}
           >
-            {t(
-              'common.copyrightAllRightsReserved',
-              { year: new Date().getFullYear(), app: APP_NAME },
-              { defaultValue: '© {{year}} {{app}}. All rights reserved.' },
-            )}
-          </p>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'common.copyrightAllRightsReserved',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                { defaultValue: '© {{year}} {{app}}. All rights reserved.' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
+            </p>
+          </div>
         </div>
       </footer>
     </div>

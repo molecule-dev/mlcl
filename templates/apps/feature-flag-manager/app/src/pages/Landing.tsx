@@ -385,7 +385,7 @@ export function Landing() {
                   </div>
                   <div className={cm.cn('p-4 space-y-3')}>
                     {DEMO_FLAGS.map((f) => (
-                      <FlagRow key={f.key} flag={f} linked={false} />
+                      <FlagRow key={f.key} flag={f} linked={false} compact />
                     ))}
                   </div>
                 </div>
@@ -610,8 +610,17 @@ export function Landing() {
           {t(
             'landing.copyright',
             { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Ship fearlessly, toggle instantly.' },
+            { defaultValue: '© {{year}} {{app}}' },
           )}
+          {' — Built with '}
+          <a
+            href="https://molecule.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline font-medium"
+          >
+            Molecule.dev
+          </a>
         </p>
       </footer>
     </div>

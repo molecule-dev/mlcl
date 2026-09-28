@@ -25,3 +25,25 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Fugue landing helpers — from the Stitch design (design-music-daw-landing):
+ * the violet grid-line wash behind the hero and the radial glow behind the
+ * final CTA. Token-driven so light/dark both inherit correctly.
+ */
+.fugue-hero-grid {
+  background-image:
+    linear-gradient(to right, var(--fugue-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--fugue-grid-line) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black 70%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black 70%, transparent 100%);
+}
+
+.fugue-cta-glow {
+  background-image: radial-gradient(
+    circle at center,
+    color-mix(in oklab, var(--daw-primary) 15%, transparent) 0%,
+    transparent 70%
+  );
+}

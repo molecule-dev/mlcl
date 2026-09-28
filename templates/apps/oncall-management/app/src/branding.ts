@@ -23,4 +23,4 @@ export const APP_DESCRIPTION =
   'On-call rotations, escalation policies, and incident response with acknowledge/resolve workflow and postmortems.'
 
 /** Primary brand color (PWA manifest, meta theme-color). Matches theme.css --color-primary. */
-export const BRAND_COLOR = '#06b6d4'
+export const BRAND_COLOR = '#f59e0b'

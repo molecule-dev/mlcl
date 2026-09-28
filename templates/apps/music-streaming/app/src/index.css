@@ -25,3 +25,12 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Sonic Noir landing helper — the Premium plan card's glowing violet border
+ * from the Stitch design (design-music-streaming-landing).
+ */
+.glowing-border {
+  box-shadow: 0 0 24px color-mix(in oklab, var(--color-primary) 30%, transparent);
+  border: 1px solid color-mix(in oklab, var(--color-primary) 50%, transparent);
+}

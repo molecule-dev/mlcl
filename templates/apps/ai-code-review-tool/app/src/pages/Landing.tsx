@@ -520,6 +520,15 @@ export function Landing() {
                 { year: new Date().getFullYear(), app: `${APP_NAME} Logic` },
                 { defaultValue: '© {{year}} {{app}}. All rights reserved.' },
               )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
             </p>
           </div>
           <div className={cm.cn('flex flex-col gap-4')}>

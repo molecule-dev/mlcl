@@ -1,7 +1,11 @@
 /**
  * AppThemeCssVariables bond setup
  *
- * Wavelength: burgundy primary; persistent dark now-playing dock.
+ * Wavelength: broadcast orange primary on warm paper (light) / warm stone
+ * (dark), per reference/flagship-apps-designs/design-podcast-landing.html.
+ * Deep orange #c2410c carries white text at 5.18:1; the brighter brand
+ * orange (#e8540a light / #f36b21 dark) is reserved for large/decorative
+ * accents. The design defaults to light, so the app boots light now.
  */
 
 import type { Theme } from '@molecule/app-theme'
@@ -18,22 +22,22 @@ const wavelengthLightTheme: Theme = {
   mode: 'light',
   colors: {
     ...baseLightTheme.colors,
-    primary: '#9f1239',
-    primaryLight: '#ffe4e6',
-    primaryDark: '#7f0f2d',
-    secondary: '#1a1a1a',
+    primary: '#c2410c',
+    primaryLight: '#ffedd5',
+    primaryDark: '#9a3412',
+    secondary: '#1c1917',
     success: '#16a34a',
     warning: '#f59e0b',
     error: '#dc2626',
     info: '#0284c7',
-    background: '#fafafa',
-    backgroundSecondary: '#f5f5f5',
-    backgroundTertiary: '#eeeeee',
+    background: '#faf9f7',
+    backgroundSecondary: '#f3f2ef',
+    backgroundTertiary: '#ebe9e6',
     surface: '#ffffff',
-    border: '#e4e4e4',
-    text: '#1a1a1a',
-    textSecondary: '#4a4a4a',
-    textTertiary: '#7d7d7d',
+    border: '#e7e5e4',
+    text: '#1c1917',
+    textSecondary: '#57534e',
+    textTertiary: '#78716c',
     textInverse: '#ffffff',
   },
 }
@@ -44,9 +48,9 @@ const wavelengthDarkTheme: Theme = {
   mode: 'dark',
   colors: {
     ...baseDarkTheme.colors,
-    primary: '#fb7185',
-    primaryLight: '#4a0e1e',
-    primaryDark: '#9f1239',
+    primary: '#f36b21',
+    primaryLight: '#431407',
+    primaryDark: '#c2410c',
     secondary: '#b3b3b3',
     background: '#0a0a0a',
     backgroundSecondary: '#141414',
@@ -56,7 +60,7 @@ const wavelengthDarkTheme: Theme = {
     inputBackground: '#121212',
     border: '#2a2a2a',
     borderSecondary: '#383838',
-    borderFocus: '#fb7185',
+    borderFocus: '#f36b21',
     text: '#ffffff',
     textSecondary: '#c2c2c2',
     textTertiary: '#808080',
@@ -66,7 +70,7 @@ const wavelengthDarkTheme: Theme = {
 
 export const themeProvider = createCSSVariablesThemeProvider({
   themes: [wavelengthLightTheme, wavelengthDarkTheme],
-  defaultTheme: 'dark',
+  defaultTheme: 'light',
   persistKey: 'molecule-theme',
 })
 

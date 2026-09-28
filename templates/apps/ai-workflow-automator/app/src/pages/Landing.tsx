@@ -695,6 +695,15 @@ export function Landing() {
                 { year: new Date().getFullYear(), app: `${APP_NAME} AI` },
                 { defaultValue: '© {{year}} {{app}}. All rights reserved.' },
               )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
             </p>
             <div className={'flex items-center gap-4 text-slate-400'}>
               <span className={'material-symbols-outlined'} aria-hidden="true">
