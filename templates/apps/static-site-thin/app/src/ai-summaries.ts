@@ -93,7 +93,11 @@ export async function sectionSummaries(
         { text: section.text, format: 'tldr', maxWords: MAX_WORDS, model: MODEL },
         { cache },
       )
-      summaries[section.index] = result.summary
+      // Over the cap or unfinished (no full stop, ends on "and"/"the"…): the
+      // summarizer's fallback, not a TL;DR. Leave the section without one; the
+      // next build asks again. Publishing it showed readers a sentence that
+      // stops mid-phrase (X0 x282, x302).
+      if (result.withinCap !== false) summaries[section.index] = result.summary
     }
     cache.save()
     return summaries
