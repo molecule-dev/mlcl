@@ -243,11 +243,12 @@ export function Segments() {
               to={`/segments/${s.key}`}
               className={cm.cn(
                 'group rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg',
+                cm.accentCard({ tone: 'custom' }),
               )}
               style={{
                 backgroundColor: 'var(--color-surface)',
                 border: '1px solid rgba(30, 41, 59, 0.7)',
-                borderLeft: `4px solid var(--color-flag-on)`,
+                ['--mol-accent' as string]: 'var(--color-flag-on)',
               }}
               data-mol-id={`segment-card-${s.key}`}
             >

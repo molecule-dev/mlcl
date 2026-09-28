@@ -31,8 +31,7 @@ interface VendryVendorCardProps {
 
 /**
  * Vendor attribution card — banner + circular avatar overlap, verified
- * checkmark, stats row (products | rating | sales), violet vendor accent
- * border-left.
+ * checkmark, stats row (products | rating | sales), vendor accent bar.
  *
  * Bespoke to the marketplace cluster — no direct sibling, but the
  * structural treatment borrows from property-listing AgentProfileHero
@@ -53,9 +52,9 @@ export function VendryVendorCard({ vendor, onFollow, compact = false }: VendryVe
   return (
     <article
       className={cm.cn(
-        'group relative overflow-hidden rounded-2xl border border-info/20 bg-surface transition-all hover:shadow-lg hover:-translate-y-0.5',
+        cm.accentCard({ tone: 'info' }),
+        'group overflow-hidden rounded-2xl border border-info/20 bg-surface transition-all hover:shadow-lg hover:-translate-y-0.5',
       )}
-      style={{ borderLeftWidth: '3px', borderLeftColor: 'var(--color-info)' }}
     >
       {!compact && (
         <div className="relative aspect-[5/2] overflow-hidden bg-info/10">

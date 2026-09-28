@@ -252,12 +252,13 @@ export function Notifications() {
                 <button
                   type="button"
                   className={cm.cn(
+                    cm.accentCard({ tone: 'custom' }),
                     'w-full text-left rounded-xl px-5 py-4 transition-all hover:-translate-y-0.5 cursor-pointer',
                   )}
                   style={{
                     backgroundColor: 'var(--mol-color-surface)',
                     border: '1px solid var(--mol-color-border)',
-                    borderLeft: `4px solid ${tint.border}`,
+                    ['--mol-accent' as string]: tint.border,
                   }}
                   onClick={() => markRead(n.id, !n.is_read)}
                   aria-pressed={n.is_read}

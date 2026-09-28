@@ -233,11 +233,19 @@ export function Dashboard() {
               key={m.id}
               className={cm.cn(
                 cm.card(),
-                'overflow-hidden border-l-4 hover:-translate-y-0.5 hover:shadow-md transition-all',
+                'overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all',
               )}
-              style={{ borderLeftColor: SPEAKER_COLOR[m.primary_speaker] }}
             >
-              <Link to={`/meetings/${m.id}`} className={cm.cn('block', cm.sp('p', 5), cm.stack(3))}>
+              <Link
+                to={`/meetings/${m.id}`}
+                className={cm.cn(
+                  'block',
+                  cm.sp('p', 5),
+                  cm.stack(3),
+                  cm.accentCard({ tone: 'custom' }),
+                )}
+                style={{ ['--mol-accent' as string]: SPEAKER_COLOR[m.primary_speaker] }}
+              >
                 <header
                   className={cm.cn(cm.flex({ align: 'start', justify: 'between', gap: 'sm' }))}
                 >

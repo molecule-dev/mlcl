@@ -178,9 +178,14 @@ export function Changelog() {
               </p>
               {post.admin_response && (
                 <p
-                  className={cm.cn(cm.textSize('sm'), cm.sp('p', 3), 'rounded-lg border-l-4')}
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.sp('p', 3),
+                    'rounded-lg',
+                    cm.accentCard({ tone: 'custom' }),
+                  )}
                   style={{
-                    borderLeftColor: 'var(--color-official-border)',
+                    ['--mol-accent' as string]: 'var(--color-official-border)',
                     backgroundColor: 'var(--color-official-bg)',
                   }}
                 >

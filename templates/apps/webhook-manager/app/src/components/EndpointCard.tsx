@@ -188,13 +188,14 @@ export function EndpointCard({ endpoint, to, interactive = true }: EndpointCardP
   )
 
   const className = cm.cn(
-    'group relative block rounded-xl px-5 py-4 transition-all',
+    cm.accentCard({ tone: 'custom' }),
+    'group block rounded-xl px-5 py-4 transition-all',
     interactive && 'hover:-translate-y-0.5 hover:shadow-lg',
   )
   const style = {
     backgroundColor: 'var(--mol-color-surface)',
     border: '1px solid var(--mol-color-border)',
-    borderLeft: `4px solid ${accent}`,
+    ['--mol-accent' as string]: accent,
   } as const
 
   const href = to ?? `/endpoints/${endpoint.id}`

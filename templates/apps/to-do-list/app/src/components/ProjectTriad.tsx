@@ -40,9 +40,10 @@ export function ProjectTriad({ projects, taskCounts }: ProjectTriadProps) {
             key={p.id}
             to={`/projects/${p.id}`}
             className={cm.cn(
-              'group block bg-surface-container-low rounded-2xl p-6 hover:bg-surface-container-lowest hover:shadow-2xl hover:shadow-on-surface/5 transition-all border-l-4',
+              'group block bg-surface-container-low rounded-2xl p-6 hover:bg-surface-container-lowest hover:shadow-2xl hover:shadow-on-surface/5 transition-all',
+              cm.accentCard({ tone: 'custom' }),
             )}
-            style={{ borderLeftColor: p.color }}
+            style={{ ['--mol-accent' as string]: p.color }}
           >
             <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), cm.sp('mb', 4))}>
               <div

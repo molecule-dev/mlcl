@@ -69,9 +69,10 @@ export function MedicationCard({
       className={cm.cn(
         cm.flex({ align: 'center', gap: 'md' }),
         cm.sp('p', 5),
+        cm.accentCard({ tone: 'custom' }),
         'rounded-2xl bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
       )}
-      style={{ borderLeft: `4px solid ${REFILL_BORDER[refillStatus]}` }}
+      style={{ ['--mol-accent' as string]: REFILL_BORDER[refillStatus] }}
     >
       <div
         className={cm.cn(

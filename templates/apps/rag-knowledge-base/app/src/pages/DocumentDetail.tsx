@@ -203,19 +203,18 @@ export function DocumentDetail() {
         data-testid="documentDetail-header"
         className={cm.cn(
           cm.sp('p', 8),
-          'rounded-3xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm relative overflow-hidden',
+          cm.accentCard({ tone: 'custom' }),
+          'rounded-3xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm overflow-hidden',
         )}
-        style={{ borderLeft: `4px solid ${fileColor}` }}
+        style={{ ['--mol-accent' as string]: fileColor }}
       >
         <div className={cm.flex({ align: 'start', justify: 'between', gap: 'lg', wrap: 'wrap' })}>
           <div className={cm.flex({ direction: 'col', gap: 'sm' })}>
             <span
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'xs' }),
-                cm.textSize('xs'),
-                'uppercase tracking-widest font-bold',
+                cm.accentCardLabel({ tone: 'custom' }),
               )}
-              style={{ color: fileColor, fontSize: 10 }}
             >
               <span
                 className={cm.cn('material-symbols-outlined')}

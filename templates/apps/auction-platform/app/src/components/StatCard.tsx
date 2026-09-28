@@ -50,16 +50,12 @@ export function StatCard({
         cm.sp('p', 5),
         cm.stack(3),
         'relative bg-surface rounded-xl border border-outline-variant/40 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
+        cm.accentCard({ tone: 'custom' }),
       )}
-      style={{ borderLeft: `4px solid ${accentColor}` }}
+      style={{ ['--mol-accent' as string]: accentColor }}
     >
       <div className={cm.flex({ align: 'center', justify: 'between' })}>
-        <p
-          className={cm.cn(
-            cm.textSize('xs'),
-            'font-black uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
+        <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-black tracking-widest')}>
           {label}
         </p>
         {icon ? (

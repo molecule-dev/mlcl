@@ -248,20 +248,14 @@ export function ReportsList() {
                 className={cm.cn(
                   cm.flex({ direction: 'col', gap: 'sm' }),
                   cm.sp('p', 5),
+                  cm.accentCard({ tone: 'custom' }),
                   'rounded-2xl bg-surface border border-outline-variant/40 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all',
                 )}
-                style={{ borderLeft: `4px solid ${accent}` }}
+                // The status accent bar and eyebrow (DESIGN.md → "Accent bars").
+                style={{ ['--mol-accent' as string]: accent }}
               >
                 <div className={cm.flex({ align: 'center', justify: 'between' })}>
-                  <span
-                    className={cm.cn(
-                      cm.textSize('xs'),
-                      cm.fontWeight('bold'),
-                      'uppercase tracking-widest text-on-surface-variant',
-                    )}
-                  >
-                    {report.id}
-                  </span>
+                  <span className={cm.accentCardLabel({ tone: 'custom' })}>{report.id}</span>
                   <ApprovalBadge status={report.status} />
                 </div>
                 <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>{report.title}</h2>

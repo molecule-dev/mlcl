@@ -218,11 +218,11 @@ export function Search() {
                   key={s.slug}
                   className={cm.cn(
                     cm.sp('p', 5),
+                    cm.accentCard({ tone: 'custom' }),
                     'bg-surface rounded-xl border border-outline-variant/40 shadow-sm hover:shadow-md transition-shadow',
                   )}
                   style={{
-                    borderLeftColor: s.accent_color ?? 'var(--mol-color-primary)',
-                    borderLeftWidth: '4px',
+                    ['--mol-accent' as string]: s.accent_color ?? 'var(--mol-color-primary)',
                   }}
                 >
                   <header
@@ -286,12 +286,11 @@ export function Search() {
                   key={tp.slug}
                   className={cm.cn(
                     cm.sp('p', 5),
+                    tp.accent_color && cm.accentCard({ tone: 'custom' }),
                     'bg-surface rounded-xl border border-outline-variant/40 shadow-sm hover:shadow-md transition-shadow',
                   )}
                   style={
-                    tp.accent_color
-                      ? { borderLeftColor: tp.accent_color, borderLeftWidth: '4px' }
-                      : undefined
+                    tp.accent_color ? { ['--mol-accent' as string]: tp.accent_color } : undefined
                   }
                 >
                   <header className={cm.flex({ align: 'center', gap: 'sm' })}>
@@ -307,9 +306,13 @@ export function Search() {
                   </header>
                   <p
                     className={cm.cn(
-                      cm.textSize('xs'),
                       cm.sp('mt', 1),
-                      'font-bold uppercase tracking-widest text-on-surface-variant',
+                      tp.accent_color
+                        ? cm.accentCardLabel({ tone: 'custom' })
+                        : cm.cn(
+                            cm.textSize('xs'),
+                            'font-bold uppercase tracking-widest text-on-surface-variant',
+                          ),
                     )}
                   >
                     {t(

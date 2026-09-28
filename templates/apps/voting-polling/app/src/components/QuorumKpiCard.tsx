@@ -85,15 +85,12 @@ export function QuorumKpiCard({
         cm.sp('p', 5),
         cm.flex({ direction: 'col', gap: 'sm' }),
         'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
+        cm.accentCard({ tone: 'custom' }),
       )}
-      style={{ borderLeftWidth: '4px', borderLeftColor: palette.border }}
+      style={{ ['--mol-accent' as string]: palette.border }}
     >
       <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
-        <p
-          className={cm.cn(
-            'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
+        <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-black tracking-widest')}>
           {label}
         </p>
         {icon ? (

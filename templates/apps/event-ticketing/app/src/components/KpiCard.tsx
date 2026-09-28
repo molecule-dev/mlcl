@@ -53,19 +53,13 @@ export function KpiCard({
       className={cm.cn(
         cm.sp('p', 5),
         cm.stack(3),
-        'relative bg-surface rounded-2xl border border-outline-variant/40 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
+        cm.accentCard({ tone: 'custom' }),
+        'bg-surface rounded-2xl border border-outline-variant/40 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
       )}
-      style={{ borderLeft: `4px solid ${accentColor}` }}
+      style={{ ['--mol-accent' as string]: accentColor }}
     >
       <div className={cm.flex({ align: 'center', justify: 'between' })}>
-        <p
-          className={cm.cn(
-            cm.textSize('xs'),
-            'font-black uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </p>
+        <p className={cm.accentCardLabel({ tone: 'custom' })}>{label}</p>
         {icon ? (
           <span
             className={cm.cn('material-symbols-outlined text-lg p-1.5 rounded-lg')}

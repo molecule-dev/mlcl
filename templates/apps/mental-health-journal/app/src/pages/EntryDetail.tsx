@@ -285,9 +285,10 @@ export function EntryDetail() {
       <article
         className={cm.cn(
           cm.sp('p', 8),
-          'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4',
+          cm.accentCard({ tone: 'custom' }),
+          'bg-surface-container-lowest rounded-2xl shadow-sm',
         )}
-        style={{ borderLeftColor: meta.color, fontFamily: '"Lora", Georgia, serif' }}
+        style={{ ['--mol-accent' as string]: meta.color, fontFamily: '"Lora", Georgia, serif' }}
       >
         {entry.body.split(/\n\n+/).map((para, i) => (
           <p

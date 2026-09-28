@@ -654,15 +654,16 @@ export function TimelinePage({ projectId }: { projectId: string }) {
                     return (
                       <div
                         key={event.id}
+                        className={isUrgent ? cm.accentCard({ tone: 'custom' }) : undefined}
                         style={{
-                          padding: 12,
+                          padding: isUrgent ? '12px 12px 12px 30px' : 12,
                           backgroundColor: 'var(--color-on-error)',
                           borderRadius: 12,
                           display: 'flex',
                           flexDirection: 'column',
                           gap: 'lg',
                           cursor: 'pointer',
-                          borderLeft: isUrgent ? `4px solid ${colors.border}` : undefined,
+                          ['--mol-accent' as string]: colors.border,
                           transition: 'transform 0.15s, box-shadow 0.15s',
                         }}
                       >

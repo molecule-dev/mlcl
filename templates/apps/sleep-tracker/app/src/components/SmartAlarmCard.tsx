@@ -65,9 +65,10 @@ export function SmartAlarmCard({
     <div
       className={cm.cn(
         cm.sp('p', 6),
-        'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 hover:shadow-md transition-all',
+        'bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md transition-all',
+        cm.accentCard({ tone: 'custom' }),
       )}
-      style={{ borderLeftColor: accent, opacity: enabled ? 1 : 0.7 }}
+      style={{ ['--mol-accent' as string]: accent, opacity: enabled ? 1 : 0.7 }}
     >
       <div
         className={cm.cn(cm.flex({ align: 'start', justify: 'between', gap: 'md' }), 'flex-wrap')}
@@ -91,7 +92,8 @@ export function SmartAlarmCard({
             ) : null}
             <span
               className={cm.cn(
-                'text-[10px] uppercase tracking-widest font-bold text-on-surface-variant',
+                'text-[10px] uppercase tracking-widest font-bold',
+                cm.accentCardLabel({ tone: 'custom' }),
               )}
             >
               {label || t('smartAlarmCard.defaultLabel', {}, { defaultValue: 'Wake-up' })}

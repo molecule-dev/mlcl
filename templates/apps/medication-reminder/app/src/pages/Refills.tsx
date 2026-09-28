@@ -217,19 +217,14 @@ function SummaryTile({
   const cm = getClassMap()
   return (
     <article
-      className={cm.cn(cm.sp('p', 5), 'rounded-2xl bg-surface-container-lowest')}
-      style={{ borderLeft: `4px solid ${TILE_BORDER[tone]}` }}
+      className={cm.cn(
+        cm.sp('p', 5),
+        cm.accentCard({ tone: 'custom' }),
+        'rounded-2xl bg-surface-container-lowest',
+      )}
+      style={{ ['--mol-accent' as string]: TILE_BORDER[tone] }}
     >
-      <p
-        className={cm.cn(
-          cm.fontWeight('bold'),
-          cm.textSize('xs'),
-          cm.sp('mb', 1),
-          'uppercase tracking-widest text-on-surface-variant',
-        )}
-      >
-        {label}
-      </p>
+      <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), cm.sp('mb', 1))}>{label}</p>
       <p
         className={cm.cn('text-3xl font-extrabold tracking-tight')}
         style={{ color: TILE_BORDER[tone] }}

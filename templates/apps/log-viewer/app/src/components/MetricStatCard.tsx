@@ -5,7 +5,7 @@ import { LogVolumeSparkline } from './LogVolumeSparkline.js'
 /**
  * KPI / observability stat card — uppercase 10px tracking-widest eyebrow,
  * mono-extrabold value, optional change pill, optional inline sparkline,
- * coloured `border-l-4` accent, hover lift.
+ * coloured inset accent bar (`cm.accentCard`), hover lift.
  *
  * Translated from ci-cd-dashboard's MetricStatCard (in turn translated
  * from personal-finance's DashboardAccountOverview triad). Recoloured to
@@ -97,23 +97,18 @@ export function MetricStatCard({
   return (
     <div
       className={cm.cn(
-        'group relative overflow-hidden rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl',
+        cm.accentCard({ tone: 'custom' }),
+        'group overflow-hidden rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl',
       )}
       style={{
         backgroundColor: 'var(--color-surface-container)',
         border: '1px solid var(--color-border)',
-        borderLeft: `4px solid ${palette.accent}`,
+        ['--mol-accent' as string]: palette.accent,
       }}
       data-mol-id="metric-stat-card"
     >
       <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
-        <span
-          className={cm.cn(
-            'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {eyebrow}
-        </span>
+        <span className={cm.accentCardLabel({ tone: 'custom' })}>{eyebrow}</span>
         {icon ? (
           <span
             className={cm.cn('material-symbols-outlined text-base')}

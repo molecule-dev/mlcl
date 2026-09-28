@@ -51,9 +51,10 @@ export function DeckProgressCard({
     <article
       className={cm.cn(
         cm.sp('p', 6),
+        cm.accentCard({ tone: 'custom' }),
         'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm hover:shadow-md transition-shadow',
       )}
-      style={{ borderLeft: `4px solid ${accent}` }}
+      style={{ ['--mol-accent' as string]: accent }}
       data-mol-id={`deck-${id}`}
     >
       <div
@@ -69,7 +70,7 @@ export function DeckProgressCard({
               className={cm.cn('h-2 w-2 rounded-full shrink-0')}
               style={{ backgroundColor: accent }}
             />
-            <span className="text-[10px] font-black uppercase tracking-[0.25em] text-on-surface-variant">
+            <span className={cm.accentCardLabel({ tone: 'custom' })}>
               {t(`deckProgressCard.category.${category}`, {}, { defaultValue: category })}
             </span>
           </div>

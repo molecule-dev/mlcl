@@ -5,7 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 /**
  * Editorial incident row — terminal-aesthetic dark surface with a coloured
- * `border-l-4` severity accent, status pill, mono columns for service +
+ * inset severity accent bar (`cm.accentCard`), status pill, mono columns for service +
  * impact + duration, owner avatar, and a trailing chevron.
  *
  * Translated from ci-cd-dashboard's PipelineRow row treatment, recoloured
@@ -116,13 +116,14 @@ export function IncidentRow({ incident, linked = true }: IncidentRowProps) {
   const body = (
     <div
       className={cm.cn(
-        'group relative flex items-center gap-4 rounded-xl px-5 py-4 transition-all',
+        cm.accentCard({ tone: 'custom' }),
+        'group flex items-center gap-4 rounded-xl px-5 py-4 transition-all',
         linked && 'hover:-translate-y-0.5 hover:shadow-lg cursor-pointer',
       )}
       style={{
         backgroundColor: 'var(--color-surface-container)',
         border: '1px solid var(--color-border)',
-        borderLeft: `4px solid ${accent}`,
+        ['--mol-accent' as string]: accent,
       }}
       data-mol-id={`incident-row-${incident.id}`}
     >

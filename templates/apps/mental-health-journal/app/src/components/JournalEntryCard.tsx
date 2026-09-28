@@ -93,9 +93,10 @@ export function JournalEntryCard({
       to={`/journal/${id}`}
       className={cm.cn(
         cm.sp('p', 5),
-        'block bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all border-l-4 group',
+        cm.accentCard({ tone: 'custom' }),
+        'block bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group',
       )}
-      style={{ borderLeftColor: palette.border }}
+      style={{ ['--mol-accent' as string]: palette.border }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 2))}>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
@@ -104,14 +105,7 @@ export function JournalEntryCard({
             aria-hidden="true"
             style={{ width: 10, height: 10, backgroundColor: palette.dot }}
           />
-          <span
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
-            {formattedDate}
-          </span>
+          <span className={cm.accentCardLabel({ tone: 'custom' })}>{formattedDate}</span>
         </div>
         {encrypted ? (
           <span

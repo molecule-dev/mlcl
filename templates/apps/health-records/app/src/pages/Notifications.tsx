@@ -253,9 +253,10 @@ export function Notifications() {
                 className={cm.cn(
                   cm.flex({ align: 'start', gap: 'md' }),
                   cm.sp('p', 5),
+                  cm.accentCard({ tone: 'custom' }),
                   'bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md transition-all',
                 )}
-                style={{ borderLeft: `4px solid ${urgency.border}` }}
+                style={{ ['--mol-accent' as string]: urgency.border }}
               >
                 <div
                   className={cm.cn(

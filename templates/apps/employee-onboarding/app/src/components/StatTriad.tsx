@@ -52,25 +52,19 @@ export function StatTriad({ items }: StatTriadProps) {
             data-mol-id={`stat-${item.id}`}
             className={cm.cn(
               cm.flex({ direction: 'col' }),
+              cm.accentCard({ tone: 'custom' }),
               'transition-transform duration-200 hover:-translate-y-0.5',
             )}
             style={{
               background: 'var(--color-surface, var(--mol-color-surface))',
-              padding: '20px 24px',
+              padding: '20px 24px 20px 30px',
               borderRadius: '14px',
               boxShadow: '0 1px 2px rgba(15, 23, 42, 0.05)',
-              borderLeft: `4px solid ${accent}`,
+              ['--mol-accent' as string]: accent,
             }}
           >
             <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
-              <p
-                className="text-[10px] font-black uppercase tracking-[0.2em]"
-                style={{
-                  color: 'var(--color-foreground-secondary, var(--mol-color-text-secondary))',
-                }}
-              >
-                {item.label}
-              </p>
+              <p className={cm.accentCardLabel({ tone: 'custom' })}>{item.label}</p>
               {item.icon && (
                 <span
                   className={cm.cn(cm.flex({ align: 'center', justify: 'center' }))}

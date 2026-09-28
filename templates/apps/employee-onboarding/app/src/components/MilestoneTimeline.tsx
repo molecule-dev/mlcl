@@ -116,11 +116,12 @@ export function MilestoneTimeline({ entries }: MilestoneTimelineProps) {
             <article
               className={cm.cn(
                 cm.sp('p', 5),
+                cm.accentCard({ tone: 'custom' }),
                 'rounded-xl shadow-sm transition-shadow hover:shadow-md',
               )}
               style={{
                 background: 'var(--color-surface, var(--mol-color-surface))',
-                borderLeft: `3px solid ${color}`,
+                ['--mol-accent' as string]: color,
               }}
             >
               <div

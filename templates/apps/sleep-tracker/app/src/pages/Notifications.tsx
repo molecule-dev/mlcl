@@ -240,10 +240,11 @@ export function Notifications() {
                   to={n.href}
                   className={cm.cn(
                     cm.sp('p', 5),
-                    'block bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md transition-all border-l-4',
+                    'block bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md transition-all',
+                    cm.accentCard({ tone: 'custom' }),
                     n.unread ? '' : 'opacity-80',
                   )}
-                  style={{ borderLeftColor: palette.fg }}
+                  style={{ ['--mol-accent' as string]: palette.fg }}
                 >
                   <div className={cm.cn(cm.flex({ align: 'start', gap: 'md' }))}>
                     <span
@@ -272,8 +273,8 @@ export function Notifications() {
                           className={cm.cn(
                             cm.fontWeight('bold'),
                             'text-[10px] uppercase tracking-widest',
+                            cm.accentCardLabel({ tone: 'custom' }),
                           )}
-                          style={{ color: palette.fg }}
                         >
                           {t(`notifications.actor.${n.actor}`, {}, { defaultValue: palette.label })}
                         </span>

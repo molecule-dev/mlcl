@@ -75,9 +75,10 @@ function RingCard({ ringColor, icon, label, caption, value, pct }: CardProps) {
       className={cm.cn(
         cm.sp('p', 6),
         cm.flex({ align: 'center', gap: 'md' }),
-        'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 hover:-translate-y-0.5 transition-transform group',
+        cm.accentCard({ tone: 'custom' }),
+        'bg-surface-container-lowest rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform group',
       )}
-      style={{ borderLeftColor: ringColor }}
+      style={{ ['--mol-accent' as string]: ringColor }}
     >
       <div className="relative shrink-0">
         <ProgressRing value={pct * goalForRing} goal={goalForRing} color={ringColor} />
@@ -92,15 +93,7 @@ function RingCard({ ringColor, icon, label, caption, value, pct }: CardProps) {
         </span>
       </div>
       <div className={cm.flex1}>
-        <p
-          className={cm.cn(
-            cm.fontWeight('bold'),
-            cm.sp('mb', 1),
-            'text-[10px] uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </p>
+        <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), cm.sp('mb', 1))}>{label}</p>
         <p className={cm.cn('text-3xl font-extrabold tracking-tight text-on-surface')}>{value}</p>
         <p
           className={cm.cn(

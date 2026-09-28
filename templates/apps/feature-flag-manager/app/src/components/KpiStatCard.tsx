@@ -90,23 +90,18 @@ export function KpiStatCard({
   return (
     <div
       className={cm.cn(
-        'group relative overflow-hidden rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl',
+        'group overflow-hidden rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl',
+        cm.accentCard({ tone: 'custom' }),
       )}
       style={{
         backgroundColor: 'rgba(30, 34, 53, 0.6)',
         border: '1px solid rgba(30, 41, 59, 0.8)',
-        borderLeft: `4px solid ${palette.accent}`,
+        ['--mol-accent' as string]: palette.accent,
       }}
       data-mol-id="kpi-stat-card"
     >
       <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
-        <span
-          className={cm.cn(
-            'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {eyebrow}
-        </span>
+        <span className={cm.accentCardLabel({ tone: 'custom' })}>{eyebrow}</span>
         {icon ? (
           <span
             className={cm.cn('inline-flex items-center justify-center rounded-md p-1.5')}

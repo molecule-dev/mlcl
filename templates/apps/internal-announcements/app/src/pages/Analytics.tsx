@@ -329,18 +329,12 @@ export function Analytics() {
                 className={cm.cn(
                   cm.flex({ direction: 'col', gap: 'xs' }),
                   cm.sp('p', 5),
+                  cm.accentCard({ tone: 'custom' }),
                   'rounded-xl bg-surface-container-low/40',
                 )}
-                style={{ borderLeftWidth: '4px', borderLeftColor: PRIORITY_ACCENT[card.accent] }}
+                style={{ ['--mol-accent' as string]: PRIORITY_ACCENT[card.accent] }}
               >
-                <span
-                  className={cm.cn(
-                    cm.fontWeight('bold'),
-                    'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {card.label}
-                </span>
+                <span className={cm.accentCardLabel({ tone: 'custom' })}>{card.label}</span>
                 <span
                   className={cm.cn(
                     cm.fontWeight('bold'),

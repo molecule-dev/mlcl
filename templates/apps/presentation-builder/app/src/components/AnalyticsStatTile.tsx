@@ -83,9 +83,10 @@ export function AnalyticsStatTile({
         cm.flex({ direction: 'col' }),
         cm.sp('p', 6),
         cm.stack(3),
-        'group bg-surface-container-lowest rounded-xl shadow-sm border-l-4 hover:-translate-y-0.5 hover:shadow-md transition-all',
+        cm.accentCard({ tone: 'custom' }),
+        'group bg-surface-container-lowest rounded-xl shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
       )}
-      style={{ borderLeftColor: accentColor }}
+      style={{ ['--mol-accent' as string]: accentColor }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }))}>
         <div className={cm.stack(1)}>
@@ -99,12 +100,7 @@ export function AnalyticsStatTile({
               {eyebrow}
             </span>
           )}
-          <span
-            className={cm.cn(cm.fontWeight('bold'), 'text-[10px] uppercase tracking-widest')}
-            style={{ color: accentColor }}
-          >
-            {label}
-          </span>
+          <span className={cm.accentCardLabel({ tone: 'custom' })}>{label}</span>
         </div>
         {iconName && (
           <span

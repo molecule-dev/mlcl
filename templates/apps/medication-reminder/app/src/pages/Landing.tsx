@@ -146,9 +146,10 @@ function HeroAdherenceCard() {
             className={cm.cn(
               cm.flex({ direction: 'col', gap: 'xs' }),
               cm.sp('p', 4),
-              'bg-surface rounded-xl border-l-4 shadow-sm',
+              cm.accentCard({ tone: 'custom' }),
+              'bg-surface rounded-xl shadow-sm',
             )}
-            style={{ borderLeftColor: row.tone }}
+            style={{ ['--mol-accent' as string]: row.tone }}
           >
             <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'gap-2')}>
               <span

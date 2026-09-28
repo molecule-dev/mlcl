@@ -176,13 +176,14 @@ export function Notifications() {
                     data-mol-id={`notification-${item.id}`}
                     className={cm.cn(
                       cm.sp('p', 5),
+                      item.unread ? cm.accentCard({ tone: 'custom' }) : 'pl-[30px]',
                       'rounded-xl bg-surface shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md block',
                     )}
                     style={{
                       border: '1px solid var(--color-border)',
-                      borderLeft: item.unread
-                        ? '4px solid var(--color-accent-violet)'
-                        : '4px solid transparent',
+                      // Unread: the accent bar (DESIGN.md → "Accent bars"); read
+                      // keeps the same left padding so cards line up.
+                      ['--mol-accent' as string]: 'var(--color-accent-violet)',
                     }}
                   >
                     <div
@@ -194,14 +195,7 @@ export function Notifications() {
                         >
                           <WorkflowStatusBadge status={statusToRunStatus(item.status)} size="sm" />
                           {item.unread && (
-                            <span
-                              className={cm.cn(
-                                cm.textSize('xs'),
-                                cm.fontWeight('bold'),
-                                'uppercase tracking-widest',
-                              )}
-                              style={{ color: 'var(--color-accent-violet)' }}
-                            >
+                            <span className={cm.accentCardLabel({ tone: 'custom' })}>
                               {t('status.new', {}, { defaultValue: 'New' })}
                             </span>
                           )}

@@ -354,9 +354,10 @@ export function Pipeline() {
                         to={`/candidates/${c.id}`}
                         className={cm.cn(
                           cm.sp('p', 4),
+                          cm.accentCard({ tone: 'custom' }),
                           'block rounded-xl bg-surface-container-lowest border border-outline-variant/20 hover:-translate-y-0.5 hover:shadow-md transition-all cursor-grab active:cursor-grabbing',
                         )}
-                        style={{ borderLeftWidth: '3px', borderLeftColor: STAGE_FG[stage] }}
+                        style={{ ['--mol-accent' as string]: STAGE_FG[stage] }}
                       >
                         <div className={cm.flex({ align: 'center', gap: 'sm' })}>
                           <span

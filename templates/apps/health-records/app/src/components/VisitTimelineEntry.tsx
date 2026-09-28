@@ -104,9 +104,10 @@ export function VisitTimelineEntry({
           cm.flex1,
           cm.sp('p', 5),
           cm.sp('mb', 4),
+          cm.accentCard({ tone: 'custom' }),
           'rounded-xl bg-surface-container-lowest hover:shadow-md transition-all',
         )}
-        style={{ borderLeft: `4px solid ${CATEGORY_COLOR[category]}` }}
+        style={{ ['--mol-accent' as string]: CATEGORY_COLOR[category] }}
       >
         <div
           className={cm.cn(

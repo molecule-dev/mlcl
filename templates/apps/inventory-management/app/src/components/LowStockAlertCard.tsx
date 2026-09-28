@@ -56,11 +56,12 @@ export function LowStockAlertCard({ alert, onAction, actionLabel, busy }: LowSto
     <article
       className={cm.cn(
         cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-        cm.sp('px', 4),
+        cm.sp('pr', 4),
         cm.sp('py', 3),
-        'rounded-lg border-l-4 transition-shadow hover:shadow-sm',
+        'rounded-lg transition-shadow hover:shadow-sm',
+        cm.accentCard({ tone: 'custom' }),
       )}
-      style={{ borderLeftColor: accent, backgroundColor: accentBg }}
+      style={{ ['--mol-accent' as string]: accent, backgroundColor: accentBg }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0 flex-1')}>
         <span

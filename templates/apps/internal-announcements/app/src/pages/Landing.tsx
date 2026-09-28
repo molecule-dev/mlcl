@@ -323,9 +323,10 @@ export function Landing() {
                 className={cm.cn(
                   cm.flex({ direction: 'col', gap: 'sm' }),
                   cm.sp('p', 6),
+                  cm.accentCard({ tone: 'custom' }),
                   'rounded-xl border border-outline-variant/40 bg-surface hover:-translate-y-0.5 hover:shadow-sm transition-all',
                 )}
-                style={{ borderLeftWidth: '4px', borderLeftColor: feature.accent }}
+                style={{ ['--mol-accent' as string]: feature.accent }}
               >
                 <span
                   className={cm.cn(

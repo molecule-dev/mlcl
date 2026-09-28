@@ -508,11 +508,12 @@ function Board({ projectId: projectIdProp }: BoardPageProps = {}) {
                               data-task-priority={task.priority}
                               className={cm.cn(
                                 cm.sp('p', 4),
-                                'bg-surface-container-lowest rounded-xl shadow-sm border-l-4 cursor-grab active:cursor-grabbing select-none transition-transform hover:-translate-y-0.5',
+                                'bg-surface-container-lowest rounded-xl shadow-sm cursor-grab active:cursor-grabbing select-none transition-transform hover:-translate-y-0.5',
+                                cm.accentCard({ tone: 'custom' }),
                                 completed && 'opacity-70',
                               )}
                               style={{
-                                borderLeftColor:
+                                ['--mol-accent' as string]:
                                   status === 'done'
                                     ? 'var(--color-status-done)'
                                     : status === 'in_progress'

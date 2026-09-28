@@ -77,13 +77,16 @@ export function PollCard({ poll, to }: PollCardProps) {
         cm.sp('p', 5),
         cm.flex({ direction: 'col', gap: 'sm' }),
         'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
+        cm.accentCard({ tone: 'custom' }),
       )}
-      style={{ borderLeftWidth: '4px', borderLeftColor: STATUS_BORDER[poll.status] }}
+      style={{ ['--mol-accent' as string]: STATUS_BORDER[poll.status] }}
       data-mol-id={`poll-card-${poll.id}`}
     >
       <div className={cm.flex({ align: 'start', justify: 'between', gap: 'sm' })}>
         <div className={cm.cn('min-w-0 flex-1')}>
-          <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+          <p
+            className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-black tracking-widest')}
+          >
             {t(`pollCard.type.${poll.type}`, {}, { defaultValue: TYPE_LABEL[poll.type] })}
           </p>
           <h3

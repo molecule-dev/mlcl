@@ -297,17 +297,14 @@ export function VisitDetail() {
       <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 md:grid-cols-2')}>
         {visit.follow_up_at && (
           <section
-            className={cm.cn(cm.sp('p', 6), 'bg-surface-container-lowest rounded-2xl shadow-sm')}
-            style={{ borderLeft: '4px solid var(--color-clinical-info)' }}
+            className={cm.cn(
+              cm.sp('p', 6),
+              cm.accentCard({ tone: 'custom' }),
+              'bg-surface-container-lowest rounded-2xl shadow-sm',
+            )}
+            style={{ ['--mol-accent' as string]: 'var(--color-clinical-info)' }}
           >
-            <h2
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                'uppercase tracking-widest text-on-surface-variant',
-                cm.sp('mb', 2),
-              )}
-            >
+            <h2 className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), cm.sp('mb', 2))}>
               {t('visitDetail.followUp', {}, { defaultValue: 'Next follow-up' })}
             </h2>
             <p className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>

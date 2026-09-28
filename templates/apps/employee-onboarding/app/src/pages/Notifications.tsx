@@ -183,13 +183,16 @@ export function Notifications() {
                   className={cm.cn(
                     cm.flex({ align: 'start', gap: 'md' }),
                     cm.sp('p', 5),
+                    // The bar is always laid out so read and unread rows align;
+                    // a read row's bar is simply transparent.
+                    cm.accentCard({ tone: 'custom' }),
                     'transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md',
                   )}
                   style={{
                     background: 'var(--color-surface, var(--mol-color-surface))',
                     borderRadius: '14px',
                     border: '1px solid var(--color-border, var(--mol-color-background-tertiary))',
-                    borderLeft: `3px solid ${unreadItem ? visuals.color : 'transparent'}`,
+                    ['--mol-accent' as string]: unreadItem ? visuals.color : 'transparent',
                     cursor: unreadItem ? 'pointer' : 'default',
                   }}
                   onClick={() => unreadItem && void markRead(n.id)}

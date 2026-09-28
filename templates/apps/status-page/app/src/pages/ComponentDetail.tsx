@@ -106,11 +106,14 @@ export function ComponentDetail() {
       </nav>
 
       <header
-        className={cm.cn('rounded-2xl p-8 mb-8 relative overflow-hidden')}
+        className={cm.cn(
+          'rounded-2xl p-8 mb-8 relative overflow-hidden',
+          cm.accentCard({ tone: 'custom' }),
+        )}
         style={{
           backgroundColor: 'rgba(30, 41, 59, 0.65)',
           border: '1px solid var(--color-border-card)',
-          borderLeft: '4px solid var(--color-status-operational)',
+          ['--mol-accent' as string]: 'var(--color-status-operational)',
         }}
       >
         <div

@@ -85,19 +85,18 @@ export function MetricKpiCard({
     <div
       className={cm.cn(
         'group relative overflow-hidden rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl',
+        cm.accentCard({ tone: 'custom' }),
       )}
       style={{
         backgroundColor: 'rgba(30, 41, 59, 0.6)',
         border: '1px solid var(--color-border-card)',
-        borderLeft: `4px solid ${palette.accent}`,
+        ['--mol-accent' as string]: palette.accent,
       }}
       data-mol-id="metric-kpi-card"
     >
       <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
         <span
-          className={cm.cn(
-            'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-          )}
+          className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-black tracking-widest')}
         >
           {eyebrow}
         </span>

@@ -327,9 +327,9 @@ export function Calendar() {
             key={s.label}
             className={cm.cn(
               cm.sp('p', 5),
-              'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 hover:-translate-y-0.5 transition-transform',
+              cm.accentCard({ tone: 'primary' }),
+              'bg-surface-container-lowest rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform',
             )}
-            style={{ borderLeftColor: 'var(--mol-color-primary)' }}
           >
             <div className={cm.flex({ align: 'center', gap: 'sm' })}>
               <span
@@ -338,15 +338,7 @@ export function Calendar() {
               >
                 {s.icon}
               </span>
-              <span
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
-                {s.label}
-              </span>
+              <span className={cm.accentCardLabel({ tone: 'primary' })}>{s.label}</span>
             </div>
             <p className={cm.cn('text-3xl font-extrabold mt-2 text-on-surface')}>{s.value}</p>
           </div>

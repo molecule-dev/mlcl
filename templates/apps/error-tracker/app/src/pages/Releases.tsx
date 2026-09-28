@@ -143,11 +143,12 @@ export function Releases() {
                   to={`/releases/${encodeURIComponent(r.version)}`}
                   className={cm.cn(
                     'block rounded-xl px-5 py-4 transition-all hover:-translate-y-0.5 hover:shadow-lg',
+                    cm.accentCard({ tone: 'custom' }),
                   )}
                   style={{
                     backgroundColor: 'var(--color-surface)',
                     border: '1px solid var(--color-border)',
-                    borderLeft: `3px solid ${h.accent}`,
+                    ['--mol-accent' as string]: h.accent,
                   }}
                 >
                   <div className={cm.cn('flex items-center gap-4 flex-wrap')}>

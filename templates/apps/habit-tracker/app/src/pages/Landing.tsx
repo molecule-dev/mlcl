@@ -256,7 +256,8 @@ export function Landing() {
                 key={s.key}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 border-primary text-center hover:-translate-y-0.5 transition-transform',
+                  cm.accentCard({ tone: 'primary' }),
+                  'bg-surface-container-lowest rounded-2xl shadow-sm text-center hover:-translate-y-0.5 transition-transform',
                 )}
               >
                 <p
@@ -265,14 +266,7 @@ export function Landing() {
                 >
                   {s.value}
                 </p>
-                <p
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.fontWeight('bold'),
-                    cm.sp('mt', 2),
-                    'uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
+                <p className={cm.cn(cm.sp('mt', 2), cm.accentCardLabel({ tone: 'primary' }))}>
                   {t(`landing.stat.${s.key}`, {}, { defaultValue: s.defaultLabel })}
                 </p>
               </div>

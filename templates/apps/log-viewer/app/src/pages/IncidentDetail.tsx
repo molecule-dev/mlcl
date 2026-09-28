@@ -206,12 +206,15 @@ export function IncidentDetail() {
             const isOpen = incident.resolved_at === null
             return (
               <header
-                className={cm.cn('relative overflow-hidden rounded-[1.5rem] mt-4 p-6 md:p-8')}
+                className={cm.cn(
+                  cm.accentCard({ tone: 'custom' }),
+                  'overflow-hidden rounded-[1.5rem] mt-4 p-6 md:p-8',
+                )}
                 style={{
                   backgroundImage: `linear-gradient(135deg, color-mix(in srgb, ${accent} 20%, transparent), color-mix(in srgb, var(--color-accent) 18%, transparent))`,
                   backgroundColor: 'var(--color-background-tertiary)',
                   border: '1px solid var(--color-border)',
-                  borderLeft: `4px solid ${accent}`,
+                  ['--mol-accent' as string]: accent,
                 }}
               >
                 <div

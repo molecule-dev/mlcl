@@ -59,12 +59,13 @@ export function ServiceRow({ service, linked = true, hideUptime = false }: Servi
       className={cm.cn(
         'group relative grid gap-4 rounded-xl px-5 py-4 transition-all',
         'grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]',
+        cm.accentCard({ tone: 'custom' }),
         linked && 'hover:-translate-y-0.5 hover:shadow-lg cursor-pointer',
       )}
       style={{
         backgroundColor: 'var(--color-surface-raised)',
         border: '1px solid var(--color-border-card)',
-        borderLeft: `4px solid ${accent}`,
+        ['--mol-accent' as string]: accent,
       }}
       data-mol-id={`service-row-${service.id}`}
     >

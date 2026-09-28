@@ -191,13 +191,16 @@ export function AlertDetail() {
       ) : null}
 
       <header
-        className={cm.cn('relative overflow-hidden rounded-2xl mb-6 p-6')}
+        className={cm.cn(
+          'relative overflow-hidden rounded-2xl mb-6 p-6',
+          cm.accentCard({ tone: 'custom' }),
+        )}
         style={{
           backgroundImage:
             'linear-gradient(135deg, var(--color-severity-critical-light), var(--color-severity-info-light))',
           backgroundColor: 'var(--color-surface)',
           border: '1px solid var(--color-border)',
-          borderLeft: `4px solid ${accent}`,
+          ['--mol-accent' as string]: accent,
         }}
       >
         <div className={cm.cn('flex items-center gap-2 flex-wrap mb-3')}>

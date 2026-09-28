@@ -48,15 +48,17 @@ export function ParcelaMetricTile({
       className={cm.cn(
         cm.sp('p', 6),
         cm.flex({ direction: 'col', justify: 'between' }),
-        'rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all relative overflow-hidden',
+        'rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all overflow-hidden',
+        cm.accentCard({ tone: 'custom' }),
       )}
-      style={{ borderLeft: `4px solid ${color}` }}
+      style={{ ['--mol-accent' as string]: color }}
     >
       <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), cm.sp('mb', 4))}>
         <span
           className={cm.cn(
             cm.textSize('xs'),
-            'font-black uppercase tracking-widest text-on-surface-variant',
+            'font-black uppercase tracking-widest',
+            cm.accentCardLabel({ tone: 'custom' }),
           )}
           style={{ fontSize: 10 }}
         >

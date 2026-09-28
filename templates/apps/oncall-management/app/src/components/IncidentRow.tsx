@@ -78,13 +78,14 @@ export function IncidentRow({ incident, linked = true }: IncidentRowProps) {
   const body = (
     <div
       className={cm.cn(
-        'group relative flex items-center gap-4 rounded-xl px-5 py-3.5 transition-all',
+        'group flex items-center gap-4 rounded-xl px-5 py-3.5 transition-all',
+        cm.accentCard({ tone: 'custom' }),
         linked && 'hover:-translate-y-0.5 hover:shadow-lg cursor-pointer',
       )}
       style={{
         backgroundColor: 'var(--color-surface)',
         border: '1px solid var(--color-border)',
-        borderLeft: `3px solid ${accent}`,
+        ['--mol-accent' as string]: accent,
       }}
       data-mol-id={`incident-row-${incident.id}`}
     >

@@ -5,7 +5,7 @@ import { BuildSparkline } from './BuildSparkline.js'
 /**
  * KPI / DORA stat card — uppercase 10px tracking-widest eyebrow, large
  * mono-extrabold value, optional change pill, optional inline sparkline,
- * coloured `border-l-4` accent, hover lift.
+ * coloured inset accent bar (`cm.accentCard`), hover lift.
  *
  * Translated from personal-finance's DashboardAccountOverview triad
  * (eyebrow + value + delta) and crm's StatsRow accent stripe.
@@ -90,19 +90,19 @@ export function MetricStatCard({
   return (
     <div
       className={cm.cn(
-        'group relative overflow-hidden rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl',
+        cm.accentCard({ tone: 'custom' }),
+        'group overflow-hidden rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl',
       )}
       style={{
         backgroundColor: 'rgba(30, 34, 53, 0.6)',
         border: '1px solid rgba(30, 41, 59, 0.8)',
-        borderLeft: `4px solid ${palette.accent}`,
+        // The tone's accent bar and eyebrow (DESIGN.md → "Accent bars").
+        ['--mol-accent' as string]: palette.accent,
       }}
       data-mol-id="metric-stat-card"
     >
       <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
-        <span className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
-          {eyebrow}
-        </span>
+        <span className={cm.accentCardLabel({ tone: 'custom' })}>{eyebrow}</span>
         {icon ? (
           <span
             className={'material-symbols-outlined text-base'}

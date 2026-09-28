@@ -115,9 +115,10 @@ export function Profile() {
             key={s.label}
             className={cm.cn(
               cm.sp('p', 5),
-              'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 text-center hover:-translate-y-0.5 transition-transform',
+              'bg-surface-container-lowest rounded-2xl shadow-sm text-center hover:-translate-y-0.5 transition-transform',
+              cm.accentCard({ tone: 'custom' }),
             )}
-            style={{ borderLeftColor: 'var(--color-border-focus)' }}
+            style={{ ['--mol-accent' as string]: 'var(--color-border-focus)' }}
           >
             <p
               className={cm.cn('text-3xl font-extrabold tracking-tight')}
@@ -130,7 +131,8 @@ export function Profile() {
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
                 cm.sp('mt', 2),
-                'uppercase tracking-widest text-on-surface-variant',
+                'uppercase tracking-widest',
+                cm.accentCardLabel({ tone: 'custom' }),
               )}
             >
               {t(`profile.yearStat.${s.label}`, {}, { defaultValue: s.label })}
@@ -149,11 +151,14 @@ export function Profile() {
               key={a.id}
               className={cm.cn(
                 cm.sp('p', 5),
-                'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4',
+                'bg-surface-container-lowest rounded-2xl shadow-sm',
+                cm.accentCard({ tone: 'custom' }),
                 a.earned ? '' : 'opacity-70',
               )}
               style={{
-                borderLeftColor: a.earned ? 'var(--color-border-focus)' : 'var(--color-text-muted)',
+                ['--mol-accent' as string]: a.earned
+                  ? 'var(--color-border-focus)'
+                  : 'var(--color-text-muted)',
               }}
             >
               <div

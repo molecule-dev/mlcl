@@ -143,13 +143,18 @@ export function ReleaseDetail() {
       </Link>
 
       <header
-        className={cm.cn('relative overflow-hidden rounded-2xl mb-6 p-6')}
+        className={cm.cn(
+          'relative overflow-hidden rounded-2xl mb-6 p-6',
+          cm.accentCard({ tone: 'custom' }),
+        )}
         style={{
           backgroundImage:
             'linear-gradient(135deg, var(--color-severity-new-light), var(--color-severity-resolved-light))',
           backgroundColor: 'var(--color-surface)',
           border: '1px solid var(--color-border)',
-          borderLeft: `4px solid ${isRegressed ? 'var(--color-severity-critical)' : 'var(--color-severity-new)'}`,
+          ['--mol-accent' as string]: isRegressed
+            ? 'var(--color-severity-critical)'
+            : 'var(--color-severity-new)',
         }}
       >
         <div className={cm.cn('flex items-center gap-2 flex-wrap mb-3')}>

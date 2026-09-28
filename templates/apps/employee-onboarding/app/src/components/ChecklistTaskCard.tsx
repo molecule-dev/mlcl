@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 /**
- * Onboarding task card — left-border-accented surface card with a category
+ * Onboarding task card — accent-bar surface card with a category
  * eyebrow, large title, due-date row, and an optional checkbox toggle. Border
  * color encodes category (general → primary teal, milestone → accent purple).
  *
@@ -106,15 +106,15 @@ export function ChecklistTaskCard({
       data-mol-id={`checklist-task-${id}`}
       className={cm.cn(
         cm.flex({ gap: 'md', align: 'start' }),
+        cm.accentCard({ tone: 'custom' }),
         'group transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md',
       )}
       style={{
-        position: 'relative',
         background: 'var(--color-surface, var(--mol-color-surface))',
-        padding: '20px 24px',
+        padding: '20px 24px 20px 30px',
         borderRadius: '12px',
         boxShadow: '0 1px 2px rgba(15, 23, 42, 0.04)',
-        borderLeft: `4px solid ${cat.color}`,
+        ['--mol-accent' as string]: cat.color,
       }}
     >
       {/* Toggle renders only when the caller wires onToggle — a checkbox that

@@ -96,12 +96,17 @@ export function VetRecordDetail() {
 
       {record && (
         <section
-          className={cm.cn(cm.sp('p', 8), 'rounded-2xl bg-surface-container-lowest shadow-sm')}
-          style={{ borderLeft: '4px solid var(--color-pet-vaccinated)' }}
+          className={cm.cn(
+            cm.sp('p', 8),
+            'rounded-2xl bg-surface-container-lowest shadow-sm',
+            cm.accentCard({ tone: 'custom' }),
+          )}
+          style={{ ['--mol-accent' as string]: 'var(--color-pet-vaccinated)' }}
         >
           <p
             className={cm.cn(
-              'text-[10px] font-bold uppercase tracking-widest text-primary-dark dark:text-primary mb-1',
+              'text-[10px] font-bold uppercase tracking-widest mb-1',
+              cm.accentCardLabel({ tone: 'custom' }),
             )}
           >
             {t('vetRecordDetail.eyebrow', {}, { defaultValue: 'Vet record' })} ·{' '}

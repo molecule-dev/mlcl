@@ -93,9 +93,10 @@ export function DocumentCard({
       className={cm.cn(
         cm.sp('p', 5),
         cm.flex({ direction: 'col', gap: 'sm' }),
-        'block group rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all relative overflow-hidden',
+        cm.accentCard({ tone: 'custom' }),
+        'block group rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden',
       )}
-      style={{ borderLeft: `4px solid ${fileColor}` }}
+      style={{ ['--mol-accent' as string]: fileColor }}
     >
       <div className={cm.flex({ align: 'center', gap: 'sm' })}>
         <span
@@ -118,15 +119,7 @@ export function DocumentCard({
             {FILE_TYPE_ICON[fileType]}
           </span>
         </span>
-        <span
-          className={cm.cn(
-            cm.textSize('xs'),
-            'uppercase tracking-widest font-bold text-on-surface-variant',
-          )}
-          style={{ fontSize: 10 }}
-        >
-          {fileType.toUpperCase()}
-        </span>
+        <span className={cm.accentCardLabel({ tone: 'custom' })}>{fileType.toUpperCase()}</span>
       </div>
 
       <p

@@ -5,7 +5,7 @@ import { DeliverySparkline } from './DeliverySparkline.js'
 /**
  * KPI / delivery-stat card — uppercase 10px tracking-widest eyebrow,
  * large mono-extrabold value, optional change pill, optional
- * sparkline, coloured `border-l-4` accent, hover lift. Used on the
+ * sparkline, coloured inset accent bar (`cm.accentCard`), hover lift. Used on the
  * Dashboard summary triad, Billing usage cards, EndpointDetail
  * recent-deliveries, AuditLog summary.
  *
@@ -95,22 +95,18 @@ export function MetricStatCard({
   return (
     <div
       className={cm.cn(
-        'group relative overflow-hidden rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl',
+        cm.accentCard({ tone: 'custom' }),
+        'group overflow-hidden rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl',
       )}
       style={{
         backgroundColor: 'var(--mol-color-surface)',
         border: '1px solid var(--mol-color-border)',
-        borderLeft: `4px solid ${palette.accent}`,
+        ['--mol-accent' as string]: palette.accent,
       }}
       data-mol-id="metric-stat-card"
     >
       <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
-        <span
-          className={cm.cn('text-[10px] font-black uppercase tracking-widest')}
-          style={{ color: 'var(--mol-color-text-secondary)' }}
-        >
-          {eyebrow}
-        </span>
+        <span className={cm.accentCardLabel({ tone: 'custom' })}>{eyebrow}</span>
         {icon ? (
           <span
             className={cm.cn('material-symbols-outlined text-base')}

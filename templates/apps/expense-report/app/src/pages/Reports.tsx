@@ -319,20 +319,16 @@ export function Reports() {
           className={cm.cn(
             cm.flex({ gap: 'sm', align: 'start' }),
             cm.sp('p', 4),
-            'rounded-xl bg-[var(--color-status-rejected-bg)] border-l-4 border-[var(--color-status-rejected)] text-[var(--color-status-rejected-dark)]',
+            cm.accentCard({ tone: 'custom' }),
+            'rounded-xl bg-[var(--color-status-rejected-bg)] text-[var(--color-status-rejected-dark)]',
           )}
+          style={{ ['--mol-accent' as string]: 'var(--color-status-rejected)' }}
         >
           <span className={cm.cn('material-symbols-outlined text-xl shrink-0')} aria-hidden="true">
             warning
           </span>
           <div>
-            <p
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                'uppercase tracking-widest',
-              )}
-            >
+            <p className={cm.accentCardLabel({ tone: 'custom' })}>
               {t('reports.policyTitle', {}, { defaultValue: 'Policy flag' })}
             </p>
             <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), cm.fontWeight('medium'))}>

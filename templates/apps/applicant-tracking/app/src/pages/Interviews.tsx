@@ -173,13 +173,17 @@ export function Interviews() {
                         <li key={iv.id}>
                           <Link
                             to={`/candidates/${iv.candidate_id}`}
-                            className={cm.cn(cm.sp('p', 2), 'block rounded-md hover:opacity-90')}
+                            className={cm.cn(
+                              cm.sp('p', 2),
+                              cm.accentCard({ tone: 'custom' }),
+                              'block rounded-md hover:opacity-90',
+                            )}
                             style={{
                               backgroundColor: STAGE_BG[iv.stage],
-                              borderLeft: `3px solid ${STAGE_FG[iv.stage]}`,
+                              ['--mol-accent' as string]: STAGE_FG[iv.stage],
                             }}
                           >
-                            <p className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'))}>
+                            <p className={cm.accentCardLabel({ tone: 'custom' })}>
                               {fmtTime(iv.scheduled_at)} · {iv.duration_minutes}m
                             </p>
                             <p

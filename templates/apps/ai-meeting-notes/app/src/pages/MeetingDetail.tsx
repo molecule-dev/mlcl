@@ -136,8 +136,8 @@ export function MeetingDetail() {
               return (
                 <li
                   key={i}
-                  className={'flex gap-3'}
-                  style={{ borderLeft: `2px solid ${color}`, paddingLeft: '12px' }}
+                  className={cm.cn('flex gap-3', cm.accentCard({ tone: 'custom' }))}
+                  style={{ ['--mol-accent' as string]: color }}
                 >
                   <span
                     className={cm.cn(

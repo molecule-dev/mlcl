@@ -76,11 +76,14 @@ export function FlagRow({ flag, linked = true, compact = false, onToggle }: Flag
   if (compact) {
     const compactBody = (
       <div
-        className={cm.cn('group relative flex flex-col gap-2.5 rounded-xl px-4 py-3.5')}
+        className={cm.cn(
+          'group flex flex-col gap-2.5 rounded-xl px-4 py-3.5',
+          cm.accentCard({ tone: 'custom' }),
+        )}
         style={{
           backgroundColor: 'rgba(30, 34, 53, 0.6)',
           border: '1px solid rgba(30, 41, 59, 0.8)',
-          borderLeft: `4px solid ${accent}`,
+          ['--mol-accent' as string]: accent,
         }}
         data-mol-id={`flag-row-${flag.key}`}
       >
@@ -102,11 +105,7 @@ export function FlagRow({ flag, linked = true, compact = false, onToggle }: Flag
           >
             {flag.key}
           </p>
-          <span
-            className={cm.cn(
-              'font-mono text-[9px] font-black uppercase tracking-widest text-on-surface-variant shrink-0',
-            )}
-          >
+          <span className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-mono shrink-0')}>
             {flag.flag_type}
           </span>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}>
@@ -169,13 +168,14 @@ export function FlagRow({ flag, linked = true, compact = false, onToggle }: Flag
   const body = (
     <div
       className={cm.cn(
-        'group relative flex flex-col gap-3 rounded-xl px-5 py-4 transition-all md:flex-row md:items-center md:gap-4',
+        'group flex flex-col gap-3 rounded-xl px-5 py-4 transition-all md:flex-row md:items-center md:gap-4',
+        cm.accentCard({ tone: 'custom' }),
         linked && 'hover:-translate-y-0.5 hover:shadow-lg cursor-pointer',
       )}
       style={{
         backgroundColor: 'rgba(30, 34, 53, 0.6)',
         border: '1px solid rgba(30, 41, 59, 0.8)',
-        borderLeft: `4px solid ${accent}`,
+        ['--mol-accent' as string]: accent,
       }}
       data-mol-id={`flag-row-${flag.key}`}
     >
@@ -195,11 +195,7 @@ export function FlagRow({ flag, linked = true, compact = false, onToggle }: Flag
           <p className={cm.cn('font-mono text-[14px] font-bold text-on-surface truncate')}>
             {flag.key}
           </p>
-          <span
-            className={cm.cn(
-              'font-mono text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
+          <span className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-mono')}>
             {flag.flag_type}
           </span>
         </div>

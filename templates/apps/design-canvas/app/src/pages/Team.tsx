@@ -316,15 +316,17 @@ export function Team() {
               className={cm.cn(
                 cm.sp('p', 5),
                 cm.stack(2),
-                'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 hover:-translate-y-0.5 transition-transform',
+                'bg-surface-container-lowest rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform',
+                cm.accentCard({ tone: 'custom' }),
               )}
-              style={{ borderLeftColor: s.accent }}
+              style={{ ['--mol-accent' as string]: s.accent }}
             >
               <span
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'sm' }),
                   cm.fontWeight('bold'),
-                  'text-[10px] uppercase tracking-widest text-on-surface-variant',
+                  'text-[10px] uppercase tracking-widest',
+                  cm.accentCardLabel({ tone: 'custom' }),
                 )}
               >
                 <span

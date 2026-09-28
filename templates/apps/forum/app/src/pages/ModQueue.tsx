@@ -228,13 +228,15 @@ export function ModQueue() {
               cm.flex({ direction: 'col', gap: 'xs' }),
               cm.sp('p', 5),
               'rounded-xl bg-surface-container-low/40 transition-transform hover:-translate-y-0.5',
+              cm.accentCard({ tone: 'custom' }),
             )}
-            style={{ borderLeft: `4px solid ${stat.tone}` }}
+            style={{ ['--mol-accent' as string]: stat.tone }}
           >
             <span
               className={cm.cn(
                 cm.fontWeight('bold'),
-                'text-[10px] uppercase tracking-widest text-on-surface-variant',
+                cm.accentCardLabel({ tone: 'custom' }),
+                'tracking-widest',
               )}
             >
               {t(stat.labelKey, {}, { defaultValue: stat.defaultLabel })}
@@ -324,10 +326,11 @@ export function ModQueue() {
                   cm.flex({ direction: 'col', gap: 'sm' }),
                   cm.sp('p', 5),
                   'rounded-xl bg-surface',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
                 style={{
                   border: '1px solid color-mix(in srgb, var(--color-moderator) 20%, transparent)',
-                  borderLeft: '4px solid var(--color-moderator)',
+                  ['--mol-accent' as string]: 'var(--color-moderator)',
                 }}
               >
                 <div

@@ -6,7 +6,7 @@ import { statusFromCode, StatusPill } from './StatusPill.js'
 
 /**
  * Editorial request-history row — terminal-aesthetic dark surface with a
- * coloured `border-l-4` keyed to the response family (2xx green / 4xx
+ * coloured inset accent bar (`cm.accentCard`) keyed to the response family (2xx green / 4xx
  * amber / 5xx red), mono URL column, status pill, latency, size, and a
  * relative timestamp. Hover lifts -translate-y-0.5 + chevron arrow.
  *
@@ -56,13 +56,14 @@ export function RequestRow({ request, interactive = true }: RequestRowProps) {
   return (
     <div
       className={cm.cn(
-        'group relative flex items-center gap-4 rounded-xl px-4 py-3 transition-all',
+        'group flex items-center gap-4 rounded-xl pr-4 py-3 transition-all',
+        cm.accentCard({ tone: 'custom' }),
         interactive && 'hover:-translate-y-0.5 hover:shadow-lg cursor-pointer',
       )}
       style={{
         backgroundColor: 'color-mix(in srgb, var(--color-surface-elevated) 60%, transparent)',
         border: '1px solid var(--color-border)',
-        borderLeft: `4px solid ${accent}`,
+        ['--mol-accent' as string]: accent,
       }}
       data-mol-id={`request-row-${request.id}`}
     >

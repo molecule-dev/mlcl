@@ -327,9 +327,10 @@ export function AnnouncementDetail() {
         className={cm.cn(
           cm.flex({ direction: 'col', gap: 'md' }),
           cm.sp('p', 6),
+          cm.accentCard({ tone: 'custom' }),
           'rounded-2xl border border-outline-variant/40 bg-gradient-to-br from-surface via-surface to-primary/5',
         )}
-        style={{ borderLeftWidth: '6px', borderLeftColor: accent }}
+        style={{ ['--mol-accent' as string]: accent }}
       >
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
           <PriorityPill priority={toCardPriority(announcement)} />

@@ -261,9 +261,13 @@ export function PostDetail() {
       {post.admin_response && (
         <section
           data-mol-id="official-response"
-          className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), cm.sp('p', 5))}
+          className={cm.cn(
+            cm.flex({ direction: 'col', gap: 'sm' }),
+            cm.sp('p', 5),
+            cm.accentCard({ tone: 'custom' }),
+          )}
           style={{
-            borderLeft: '4px solid var(--color-official-border)',
+            ['--mol-accent' as string]: 'var(--color-official-border)',
             backgroundColor: 'var(--color-official-bg)',
           }}
         >
@@ -272,8 +276,8 @@ export function PostDetail() {
               cm.flex({ align: 'center', gap: 'xs' }),
               cm.fontWeight('bold'),
               'text-[11px] uppercase tracking-widest',
+              cm.accentCardLabel({ tone: 'custom' }),
             )}
-            style={{ color: 'var(--color-primary)' }}
           >
             <span className="material-symbols-outlined text-sm" aria-hidden="true">
               verified

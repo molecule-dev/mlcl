@@ -183,9 +183,10 @@ export function Composer() {
         className={cm.cn(
           cm.flex({ direction: 'col', gap: 'md' }),
           cm.sp('p', 6),
+          cm.accentCard({ tone: 'custom' }),
           'rounded-2xl border border-outline-variant/40 bg-surface shadow-sm',
         )}
-        style={{ borderLeftWidth: '6px', borderLeftColor: accent }}
+        style={{ ['--mol-accent' as string]: accent }}
       >
         <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
           <label

@@ -265,12 +265,13 @@ export function Alerts() {
                 <Link
                   to={`/alerts/${a.id}`}
                   className={cm.cn(
+                    cm.accentCard({ tone: 'custom' }),
                     'block rounded-xl px-5 py-4 transition-all hover:-translate-y-0.5 hover:shadow-lg',
                   )}
                   style={{
                     backgroundColor: 'var(--color-surface-container)',
                     border: '1px solid var(--color-border)',
-                    borderLeft: `4px solid ${tint.accent}`,
+                    ['--mol-accent' as string]: tint.accent,
                   }}
                 >
                   <div className={cm.cn('flex items-center justify-between gap-4 flex-wrap')}>

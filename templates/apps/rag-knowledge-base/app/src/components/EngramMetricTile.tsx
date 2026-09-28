@@ -49,20 +49,13 @@ export function EngramMetricTile({
       className={cm.cn(
         cm.sp('p', 6),
         cm.flex({ direction: 'col', justify: 'between' }),
-        'rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all relative overflow-hidden',
+        cm.accentCard({ tone: 'custom' }),
+        'rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all overflow-hidden',
       )}
-      style={{ borderLeft: `4px solid ${color}` }}
+      style={{ ['--mol-accent' as string]: color }}
     >
       <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), cm.sp('mb', 4))}>
-        <span
-          className={cm.cn(
-            cm.textSize('xs'),
-            'font-black uppercase tracking-widest text-on-surface-variant',
-          )}
-          style={{ fontSize: 10 }}
-        >
-          {label}
-        </span>
+        <span className={cm.accentCardLabel({ tone: 'custom' })}>{label}</span>
         <span
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'center' }),

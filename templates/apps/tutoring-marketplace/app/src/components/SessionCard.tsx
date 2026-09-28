@@ -76,9 +76,10 @@ export function SessionCard({
       data-mol-id={`session-${id}`}
       className={cm.cn(
         cm.flex({ align: 'center', gap: 'md' }),
-        'relative bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10 pl-5 pr-4 py-4 transition-all hover:translate-x-1 hover:shadow-md',
+        'bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10 pr-4 py-4 transition-all hover:translate-x-1 hover:shadow-md',
+        cm.accentCard({ tone: 'custom' }),
       )}
-      style={{ borderLeft: `4px solid ${statusBorder[status]}` }}
+      style={{ ['--mol-accent' as string]: statusBorder[status] }}
     >
       <div
         className={cm.cn(

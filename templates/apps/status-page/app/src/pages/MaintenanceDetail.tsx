@@ -138,11 +138,14 @@ export function MaintenanceDetail() {
       </nav>
 
       <header
-        className={cm.cn('rounded-2xl p-8 mb-8 relative overflow-hidden')}
+        className={cm.cn(
+          'rounded-2xl p-8 mb-8 relative overflow-hidden',
+          cm.accentCard({ tone: 'custom' }),
+        )}
         style={{
           backgroundColor: 'rgba(30, 41, 59, 0.7)',
           border: '1px solid var(--color-border-card)',
-          borderLeft: `4px solid ${accent}`,
+          ['--mol-accent' as string]: accent,
         }}
       >
         <div

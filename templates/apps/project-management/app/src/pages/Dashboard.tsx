@@ -657,9 +657,10 @@ export function Dashboard() {
                           data-project-id={project.id}
                           className={cm.cn(
                             cm.sp('p', 5),
-                            'rounded-xl bg-surface-container-low border-l-4 border-primary',
+                            'rounded-xl bg-surface-container-low',
+                            cm.accentCard({ tone: 'custom' }),
                           )}
-                          style={{ borderLeftColor: color }}
+                          style={{ ['--mol-accent' as string]: color }}
                         >
                           <Link
                             to={`/projects/${project.id}/board`}

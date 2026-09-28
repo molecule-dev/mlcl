@@ -15,12 +15,13 @@ interface KpiSummaryCardProps {
   className?: string
 }
 
-const TONE_BORDER: Record<NonNullable<KpiSummaryCardProps['tone']>, string> = {
-  primary: 'border-l-primary',
-  success: 'border-l-emerald-500',
-  warning: 'border-l-amber-500',
-  danger: 'border-l-red-500',
-  neutral: 'border-l-slate-400',
+/** The tone's accent color: the inset bar and the label (DESIGN.md → "Accent bars"). */
+const TONE_ACCENT: Record<NonNullable<KpiSummaryCardProps['tone']>, string> = {
+  primary: 'var(--color-primary)',
+  success: 'var(--color-emerald-500)',
+  warning: 'var(--color-amber-500)',
+  danger: 'var(--color-red-500)',
+  neutral: 'var(--color-slate-400)',
 }
 
 const TONE_ICON_BG: Record<NonNullable<KpiSummaryCardProps['tone']>, string> = {
@@ -65,10 +66,11 @@ export function KpiSummaryCard({
       className={cm.cn(
         cm.sp('p', 5),
         cm.stack(3),
-        'bg-surface-container-lowest rounded-xl shadow-sm border-l-4 hover:-translate-y-0.5 transition-transform duration-200',
-        TONE_BORDER[tone],
+        cm.accentCard({ tone: 'custom' }),
+        'bg-surface-container-lowest rounded-xl shadow-sm hover:-translate-y-0.5 transition-transform duration-200',
         className,
       )}
+      style={{ ['--mol-accent' as string]: TONE_ACCENT[tone] }}
     >
       <div className={cm.cn(cm.flex({ justify: 'between', align: 'center' }))}>
         <span
@@ -95,14 +97,7 @@ export function KpiSummaryCard({
           </span>
         )}
       </div>
-      <span
-        className={cm.cn(
-          cm.fontWeight('bold'),
-          'text-[10px] uppercase tracking-widest text-on-surface-variant',
-        )}
-      >
-        {label}
-      </span>
+      <span className={cm.accentCardLabel({ tone: 'custom' })}>{label}</span>
       <p
         className={cm.cn('font-extrabold tracking-tight tabular-nums text-on-surface', 'text-3xl')}
       >

@@ -275,17 +275,12 @@ export function Library() {
           <li
             key={s.key}
             className={cm.cn(
-              'bg-surface-container-lowest rounded-2xl p-5 border-l-4 hover:-translate-y-0.5 transition-transform',
+              cm.accentCard({ tone: 'custom' }),
+              'bg-surface-container-lowest rounded-2xl p-5 hover:-translate-y-0.5 transition-transform',
             )}
-            style={{ borderLeftColor: BRAND_COLOR }}
+            style={{ ['--mol-accent' as string]: BRAND_COLOR }}
           >
-            <p
-              className={cm.cn(
-                'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
-              {s.label}
-            </p>
+            <p className={cm.accentCardLabel({ tone: 'custom' })}>{s.label}</p>
             <p className={cm.cn('text-3xl font-extrabold tracking-tight tabular-nums mt-1')}>
               {s.value}
             </p>

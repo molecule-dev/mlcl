@@ -245,11 +245,12 @@ export function Projects() {
                   data-project-id={p.id}
                   className={cm.cn(
                     'block rounded-2xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg',
+                    cm.accentCard({ tone: 'custom' }),
                   )}
                   style={{
                     backgroundColor: 'var(--color-surface)',
                     border: '1px solid var(--color-border)',
-                    borderLeft: `3px solid ${accent}`,
+                    ['--mol-accent' as string]: accent,
                   }}
                 >
                   <div className={cm.cn('flex items-center justify-between gap-3 mb-3')}>

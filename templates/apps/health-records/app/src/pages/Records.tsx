@@ -162,9 +162,10 @@ export function Records() {
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'md' }),
                   cm.sp('p', 5),
+                  cm.accentCard({ tone: 'custom' }),
                   'block bg-surface-container-lowest rounded-2xl shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
                 )}
-                style={{ borderLeft: `4px solid ${TYPE_COLOR[r.type]}` }}
+                style={{ ['--mol-accent' as string]: TYPE_COLOR[r.type] }}
               >
                 <div
                   className={cm.cn(

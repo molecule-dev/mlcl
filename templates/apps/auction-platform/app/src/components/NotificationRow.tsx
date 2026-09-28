@@ -100,8 +100,9 @@ export function NotificationRow({
         cm.flex({ gap: 'md' }),
         cm.sp('p', 4),
         'rounded-xl bg-surface border border-outline-variant/40 hover:shadow-sm transition-all',
+        cm.accentCard({ tone: 'custom' }),
       )}
-      style={{ borderLeft: `4px solid ${v.color}` }}
+      style={{ ['--mol-accent' as string]: v.color }}
     >
       <div
         className={cm.cn(

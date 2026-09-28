@@ -215,17 +215,12 @@ export function Profile() {
                 key={s.label}
                 className={cm.cn(
                   cm.sp('p', 5),
-                  'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 hover:-translate-y-0.5 transition-transform',
+                  cm.accentCard({ tone: 'custom' }),
+                  'bg-surface-container-lowest rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform',
                 )}
-                style={{ borderLeftColor: s.accent }}
+                style={{ ['--mol-accent' as string]: s.accent }}
               >
-                <p
-                  className={cm.cn(
-                    'text-[10px] font-bold uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {s.label}
-                </p>
+                <p className={cm.accentCardLabel({ tone: 'custom' })}>{s.label}</p>
                 <p className={cm.cn('text-3xl font-extrabold mt-2 text-on-surface')}>{s.value}</p>
               </div>
             ))}

@@ -6,8 +6,7 @@ import { getClassMap } from '@molecule/app-ui'
 /**
  * Template gallery card — categorical eyebrow, illustrated 16:9 stage
  * preview, slide count, and a "Use template" CTA on hover. Per-card accent
- * strip (left border) sourced from the cursor palette so the gallery feels
- * editorial.
+ * bar sourced from the cursor palette so the gallery feels editorial.
  *
  * Translated from design-canvas's TemplateCard.tsx — same border-l-4 accent
  * + uppercase 10px tracking-widest label treatment from catalog §2.3 KPI
@@ -39,9 +38,8 @@ export function TemplateCard({ template }: TemplateCardProps) {
       data-testid={`template-card-${template.id}`}
       className={cm.cn(
         cm.flex({ direction: 'col' }),
-        'group bg-surface-container-lowest rounded-xl shadow-sm border-l-4 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 relative overflow-hidden',
+        'group bg-surface-container-lowest rounded-xl shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 relative overflow-hidden',
       )}
-      style={{ borderLeftColor: template.accentColor }}
     >
       <div
         className={cm.cn('relative overflow-hidden')}
@@ -87,7 +85,11 @@ export function TemplateCard({ template }: TemplateCardProps) {
           <circle cx="270" cy="120" r="10" fill={template.accentColor} />
         </svg>
       </div>
-      <div className={cm.cn(cm.sp('p', 6), cm.stack(3), cm.flex1)}>
+      {/* The accent bar runs beside the text, not the preview image. */}
+      <div
+        className={cm.cn(cm.sp('p', 6), cm.stack(3), cm.flex1, cm.accentCard({ tone: 'custom' }))}
+        style={{ ['--mol-accent' as string]: template.accentColor }}
+      >
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
           <span
             className={cm.cn(
@@ -106,14 +108,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
               {template.iconName}
             </span>
           </span>
-          <span
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
-            {template.category}
-          </span>
+          <span className={cm.accentCardLabel({ tone: 'custom' })}>{template.category}</span>
         </div>
         <h3
           className={cm.cn(

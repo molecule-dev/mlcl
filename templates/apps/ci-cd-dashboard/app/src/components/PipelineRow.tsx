@@ -7,7 +7,7 @@ import { type PipelineStatus, StatusPill } from './StatusPill.js'
 
 /**
  * Editorial pipeline row — terminal-aesthetic dark surface with a
- * coloured `border-l-4` status accent, mono SHA + duration columns, a
+ * coloured inset status accent bar (`cm.accentCard`), mono SHA + duration columns, a
  * branch chip, hover translate-y, and a trailing chevron. Translated
  * from personal-finance's AccountRecentTransactions row treatment, with
  * KPI-card vibe (uppercase 10px label, font-extrabold values) layered
@@ -87,13 +87,15 @@ export function PipelineRow({ pipeline, linked = true, dense = false }: Pipeline
   const body = (
     <div
       className={cm.cn(
-        'group relative flex items-center gap-4 rounded-xl px-5 py-4 transition-all',
+        cm.accentCard({ tone: 'custom' }),
+        'group flex items-center gap-4 rounded-xl px-5 py-4 transition-all',
         linked && 'hover:-translate-y-0.5 hover:shadow-lg cursor-pointer',
       )}
       style={{
         backgroundColor: 'rgba(30, 34, 53, 0.6)',
         border: '1px solid rgba(30, 41, 59, 0.8)',
-        borderLeft: `4px solid ${accent}`,
+        // The status accent bar (DESIGN.md → "Accent bars").
+        ['--mol-accent' as string]: accent,
       }}
       data-mol-id={`pipeline-row-${pipeline.id}`}
     >

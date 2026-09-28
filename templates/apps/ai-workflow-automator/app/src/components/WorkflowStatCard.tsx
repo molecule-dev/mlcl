@@ -49,13 +49,13 @@ export function WorkflowStatCard({
     <div
       className={cm.cn(
         cm.sp('p', 5),
-        'rounded-xl bg-surface shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md relative overflow-hidden',
+        cm.accentCard({ tone: 'custom' }),
+        'rounded-xl bg-surface shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md overflow-hidden',
       )}
       style={{
-        // `border` shorthand first — `borderLeft` after it so the 4px accent
-        // stripe survives (the shorthand would otherwise reset it).
         border: '1px solid var(--color-border)',
-        borderLeft: `4px solid ${accent}`,
+        // The accent bar (DESIGN.md → "Accent bars") reads this variable.
+        ['--mol-accent' as string]: accent,
       }}
     >
       <div className={cm.cn(cm.flex({ align: 'start', justify: 'between' }), cm.sp('mb', 3))}>
@@ -90,12 +90,7 @@ export function WorkflowStatCard({
           </div>
         )}
       </div>
-      <div
-        className={cm.cn('text-[10px] font-black uppercase tracking-widest', cm.sp('mb', 1))}
-        style={{ color: 'var(--color-foreground-secondary)' }}
-      >
-        {label}
-      </div>
+      <div className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), cm.sp('mb', 1))}>{label}</div>
       <div
         className={cm.cn('text-3xl font-extrabold tracking-tight', cm.sp('mb', 1))}
         style={{ color: 'var(--color-foreground)' }}

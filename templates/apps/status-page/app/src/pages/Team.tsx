@@ -297,11 +297,14 @@ export function Team() {
             return (
               <li
                 key={m.id}
-                className={cm.cn('rounded-xl px-5 py-4 flex items-center gap-4')}
+                className={cm.cn(
+                  'rounded-xl px-5 py-4 flex items-center gap-4',
+                  m.on_call && cm.accentCard({ tone: 'custom' }),
+                )}
                 style={{
                   backgroundColor: 'rgba(30, 41, 59, 0.6)',
                   border: '1px solid var(--color-border-card)',
-                  borderLeft: m.on_call ? '4px solid var(--color-status-operational)' : undefined,
+                  ['--mol-accent' as string]: 'var(--color-status-operational)',
                 }}
               >
                 <span

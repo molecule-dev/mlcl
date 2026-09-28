@@ -313,8 +313,8 @@ function Card({ id, category, title, body, timeLabel, unread, link, onMarkRead }
         cm.sp('p', 5),
         'rounded-xl shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
         unread ? 'bg-primary-container/40' : 'bg-surface-container-lowest',
+        unread && cm.accentCard({ tone: 'primary' }),
       )}
-      style={unread ? { borderLeft: `4px solid var(--color-primary)` } : undefined}
     >
       <span
         className={cm.cn(

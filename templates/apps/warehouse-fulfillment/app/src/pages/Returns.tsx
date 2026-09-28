@@ -255,9 +255,10 @@ export function Returns() {
                     cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
                     cm.sp('px', 6),
                     cm.sp('py', 4),
-                    'border-l-4 hover:bg-background-secondary transition-colors flex-wrap',
+                    cm.accentCard({ tone: 'custom' }),
+                    'hover:bg-background-secondary transition-colors flex-wrap',
                   )}
-                  style={{ borderLeftColor: meta.color }}
+                  style={{ ['--mol-accent' as string]: meta.color }}
                   data-testid="return-row"
                 >
                   <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0')}>

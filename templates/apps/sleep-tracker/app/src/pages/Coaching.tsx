@@ -189,9 +189,10 @@ export function Coaching() {
                 to={`/coaching/${p.id}`}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'block bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all border-l-4 group',
+                  'block bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
-                style={{ borderLeftColor: palette.fg }}
+                style={{ ['--mol-accent' as string]: palette.fg }}
               >
                 <div
                   className={cm.cn(

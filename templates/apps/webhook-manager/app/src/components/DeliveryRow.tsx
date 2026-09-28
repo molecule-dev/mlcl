@@ -8,7 +8,7 @@ import { statusFromCode, StatusPill } from './StatusPill.js'
 
 /**
  * Editorial delivery-log row — terminal-aesthetic dark surface with a
- * coloured `border-l-4` keyed to the response family (2xx green / 4xx
+ * coloured inset accent bar (`cm.accentCard`) keyed to the response family (2xx green / 4xx
  * amber / 5xx red), mono URL column, status pill, latency, retry
  * count, and a relative timestamp. Hover lifts -translate-y-0.5 +
  * chevron arrow.
@@ -145,13 +145,14 @@ export function DeliveryRow({ delivery, to, interactive = true }: DeliveryRowPro
   )
 
   const className = cm.cn(
-    'group relative flex items-center gap-4 rounded-xl px-4 py-3 transition-all',
+    cm.accentCard({ tone: 'custom' }),
+    'group flex items-center gap-4 rounded-xl px-4 py-3 transition-all',
     interactive && 'hover:-translate-y-0.5 hover:shadow-lg cursor-pointer',
   )
   const style = {
     backgroundColor: 'var(--mol-color-surface)',
     border: '1px solid var(--mol-color-border)',
-    borderLeft: `4px solid ${accent}`,
+    ['--mol-accent' as string]: accent,
   } as const
 
   if (to) {

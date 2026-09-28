@@ -346,9 +346,12 @@ export function Rules() {
                 className={cm.cn(
                   cm.sp('p', 6),
                   'rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:shadow-md transition-shadow',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
                 style={{
-                  borderLeft: `4px solid ${rule.enabled ? 'var(--color-primary)' : 'var(--color-surface-dim)'}`,
+                  ['--mol-accent' as string]: rule.enabled
+                    ? 'var(--color-primary)'
+                    : 'var(--color-surface-dim)',
                 }}
               >
                 <header

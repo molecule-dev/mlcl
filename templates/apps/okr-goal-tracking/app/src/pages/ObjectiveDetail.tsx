@@ -137,9 +137,10 @@ export function ObjectiveDetail() {
       <section
         className={cm.cn(
           cm.sp('p', 8),
+          cm.accentCard({ tone: 'custom' }),
           'rounded-3xl border border-outline-variant/40 bg-surface-container-lowest shadow-sm',
         )}
-        style={{ borderLeft: `8px solid ${status.ring}` }}
+        style={{ ['--mol-accent' as string]: status.ring }}
       >
         <div
           className={cm.cn(
@@ -149,12 +150,7 @@ export function ObjectiveDetail() {
         >
           <div className={cm.cn(cm.stack(3), 'flex-1')}>
             <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-              <span
-                className={cm.cn(
-                  cm.fontWeight('bold'),
-                  'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
+              <span className={cm.accentCardLabel({ tone: 'custom' })}>
                 {t(
                   `objective.scopes.${objective.scope}` as 'objective.scopes.team',
                   {},

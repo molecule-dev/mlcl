@@ -100,11 +100,12 @@ export function LabResultRow({
         cm.flex({ align: 'center', gap: 'md' }),
         cm.sp('px', 5),
         cm.sp('py', 4),
+        cm.accentCard({ tone: 'custom' }),
         'rounded-xl transition-all group',
         isCritical ? '' : 'hover:bg-surface-container-lowest',
       )}
       style={{
-        borderLeft: `4px solid ${FLAG_BORDER[flag]}`,
+        ['--mol-accent' as string]: FLAG_BORDER[flag],
         backgroundColor: isCritical ? FLAG_BG.critical : undefined,
       }}
     >

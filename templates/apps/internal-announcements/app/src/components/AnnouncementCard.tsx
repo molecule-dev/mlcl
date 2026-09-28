@@ -71,9 +71,10 @@ export function AnnouncementCard({ announcement: a }: AnnouncementCardProps) {
       className={cm.cn(
         cm.flex({ direction: 'col', gap: 'sm' }),
         cm.sp('p', 5),
+        cm.accentCard({ tone: 'custom' }),
         'group bg-surface rounded-lg border border-outline-variant/40 shadow-sm hover:shadow-md hover:border-primary/20 transition-all',
       )}
-      style={{ borderLeftWidth: '4px', borderLeftColor: accent }}
+      style={{ ['--mol-accent' as string]: accent }}
     >
       <header className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
         {a.unread && (

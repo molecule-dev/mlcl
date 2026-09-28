@@ -116,11 +116,15 @@ export function Expenses() {
         <section className={cm.cn(cm.card(), 'overflow-hidden')}>
           <ul className="divide-y divide-outline-variant">
             {expenses.map((e) => (
-              <li key={e.id} style={{ borderLeft: `4px solid ${e.category_color}` }}>
+              <li
+                key={e.id}
+                className={cm.accentCard({ tone: 'custom' })}
+                style={{ ['--mol-accent' as string]: e.category_color }}
+              >
                 <Link
                   to={`/expenses/${e.id}`}
                   className={cm.cn(
-                    cm.sp('px', 5),
+                    cm.sp('pr', 5),
                     cm.sp('py', 4),
                     cm.flex({ align: 'center', justify: 'between' }),
                     'hover:bg-surface-container',

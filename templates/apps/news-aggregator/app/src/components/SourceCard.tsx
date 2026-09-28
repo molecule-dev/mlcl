@@ -31,7 +31,7 @@ interface SourceCardProps {
 }
 
 /**
- * Source profile card — `border-l-4` accent strip, favicon chip, headline +
+ * Source profile card — inset accent bar (`cm.accentCard`), favicon chip, headline +
  * description, factual-rating stat, BiasIndicator, follow toggle. Forms the
  * Sources index grid and the SourceDetail header.
  *
@@ -49,9 +49,10 @@ export function SourceCard({ source, onToggleFollow }: SourceCardProps) {
       className={cm.cn(
         cm.flex({ direction: 'col', gap: 'md' }),
         cm.sp('p', 5),
+        cm.accentCard({ tone: 'custom' }),
         'bg-surface rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all border border-outline-variant/40 group',
       )}
-      style={{ borderLeftColor: accent, borderLeftWidth: '4px' }}
+      style={{ ['--mol-accent' as string]: accent }}
     >
       <header className={cm.flex({ align: 'center', gap: 'md' })}>
         <div

@@ -245,10 +245,11 @@ export function PostsAdmin() {
             cm.textSize('sm'),
             cm.fontWeight('medium'),
             cm.sp('p', 3),
-            'rounded-lg border-l-4',
+            'rounded-lg',
+            cm.accentCard({ tone: 'custom' }),
           )}
           style={{
-            borderLeftColor: 'var(--color-status-shipped)',
+            ['--mol-accent' as string]: 'var(--color-status-shipped)',
             backgroundColor: 'var(--color-status-shipped-light)',
           }}
         >

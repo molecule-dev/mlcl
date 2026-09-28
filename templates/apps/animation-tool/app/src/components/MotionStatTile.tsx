@@ -57,21 +57,17 @@ export function MotionStatTile({
     <article
       className={cm.cn(
         cm.sp('p', 5),
-        'rounded-xl border border-l-4 hover:-translate-y-0.5 transition-transform',
+        cm.accentCard({ tone: 'custom' }),
+        'rounded-xl border hover:-translate-y-0.5 transition-transform',
       )}
       style={{
         backgroundColor: 'var(--anim-surface)',
         borderColor: 'var(--anim-border)',
-        borderLeftColor: ACCENT_VAR[accent],
+        ['--mol-accent' as string]: ACCENT_VAR[accent],
       }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
-        <span
-          className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest')}
-          style={{ color: 'var(--anim-text-muted)' }}
-        >
-          {label}
-        </span>
+        <span className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-mono')}>{label}</span>
         {icon && (
           <span
             className={cm.cn('material-symbols-outlined text-[18px]')}

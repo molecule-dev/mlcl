@@ -251,12 +251,13 @@ export function Events() {
               key={event.id}
               to={`/events/${encodeURIComponent(event.name)}`}
               className={cm.cn(
+                cm.accentCard({ tone: 'custom' }),
                 'group block rounded-xl px-5 py-4 transition-all hover:-translate-y-0.5 hover:shadow-lg',
               )}
               style={{
                 backgroundColor: PANEL_BG,
                 border: '1px solid var(--mol-color-border)',
-                borderLeft: `4px solid ${event.color}`,
+                ['--mol-accent' as string]: event.color,
               }}
               data-mol-id={`event-card-${event.id}`}
             >
@@ -268,10 +269,7 @@ export function Events() {
                   >
                     {event.name}
                   </p>
-                  <p
-                    className={cm.cn('mt-1 text-[10px] font-black uppercase tracking-widest')}
-                    style={{ color: event.color }}
-                  >
+                  <p className={cm.cn('mt-1', cm.accentCardLabel({ tone: 'custom' }))}>
                     {event.category}
                   </p>
                 </div>

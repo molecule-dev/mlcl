@@ -142,10 +142,11 @@ export function Notifications() {
                     cm.flex({ align: 'center', gap: 'sm' }),
                     cm.sp('px', 6),
                     cm.sp('py', 4),
-                    'border-l-4 hover:bg-background-secondary transition-colors',
+                    cm.accentCard({ tone: 'custom' }),
+                    'hover:bg-background-secondary transition-colors',
                     unread ? '' : 'opacity-60',
                   )}
-                  style={{ borderLeftColor: meta.color }}
+                  style={{ ['--mol-accent' as string]: meta.color }}
                   data-testid="notification-row"
                 >
                   <span

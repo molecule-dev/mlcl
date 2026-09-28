@@ -418,11 +418,12 @@ export function MaintenanceList() {
                 to={`/maintenance/${w.id}`}
                 className={cm.cn(
                   'block rounded-xl px-5 py-4 transition-all hover:-translate-y-0.5 hover:shadow-lg',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
                 style={{
                   backgroundColor: 'rgba(30, 41, 59, 0.6)',
                   border: '1px solid var(--color-border-card)',
-                  borderLeft: `4px solid ${STATUS_COLOR[w.status]}`,
+                  ['--mol-accent' as string]: STATUS_COLOR[w.status],
                 }}
               >
                 <div

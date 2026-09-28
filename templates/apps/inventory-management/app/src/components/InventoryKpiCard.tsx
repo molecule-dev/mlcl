@@ -77,14 +77,16 @@ export function InventoryKpiCard({
       className={cm.cn(
         cm.sp('p', 6),
         cm.flex({ direction: 'col', gap: 'sm' }),
-        'rounded-xl border border-outline-variant/60 bg-surface-container-lowest border-l-4 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
+        'rounded-xl border border-outline-variant/60 bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
+        cm.accentCard({ tone: 'custom' }),
       )}
-      style={{ borderLeftColor: palette.border }}
+      style={{ ['--mol-accent' as string]: palette.border }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
         <p
           className={cm.cn(
-            'text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant',
+            'text-[10px] font-black uppercase tracking-[0.2em]',
+            cm.accentCardLabel({ tone: 'custom' }),
           )}
         >
           {label}

@@ -129,14 +129,10 @@ export function ExpenseDetail() {
       </Link>
 
       <header
-        className={cm.cn(cm.card(), cm.sp('p', 6))}
-        style={{ borderLeft: `4px solid ${expense.category_color}` }}
+        className={cm.cn(cm.card(), cm.sp('p', 6), cm.accentCard({ tone: 'custom' }))}
+        style={{ ['--mol-accent' as string]: expense.category_color }}
       >
-        <p
-          className={cm.cn(cm.textSize('xs'), 'uppercase tracking-wide', 'text-on-surface-variant')}
-        >
-          {expense.category}
-        </p>
+        <p className={cm.accentCardLabel({ tone: 'custom' })}>{expense.category}</p>
         <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), cm.sp('mt', 1))}>
           {expense.merchant}
         </h1>

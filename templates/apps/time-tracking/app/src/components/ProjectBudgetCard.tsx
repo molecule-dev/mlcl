@@ -51,18 +51,14 @@ export function ProjectBudgetCard({
       className={cm.cn(
         cm.flex({ direction: 'col', gap: 'md' }),
         cm.sp('p', 5),
-        'bg-surface rounded-xl shadow-sm border-l-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200',
+        cm.accentCard({ tone: 'custom' }),
+        'bg-surface rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200',
       )}
-      style={{ borderLeftColor: color }}
+      style={{ ['--mol-accent' as string]: color }}
     >
       <div className={cm.flex({ justify: 'between', align: 'start' })}>
         <div className={cm.cn('min-w-0', cm.flex1)}>
-          <p
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-widest text-foreground-secondary truncate',
-            )}
-          >
+          <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'truncate')}>
             {clientName || t('projectBudgetCard.noClient', {}, { defaultValue: 'Internal' })}
           </p>
           <p

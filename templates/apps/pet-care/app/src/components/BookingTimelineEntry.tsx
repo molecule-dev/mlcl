@@ -118,8 +118,9 @@ export function BookingTimelineEntry({
           cm.sp('p', 5),
           cm.sp('mb', 4),
           'rounded-xl bg-surface-container-lowest hover:shadow-md transition-all',
+          cm.accentCard({ tone: 'custom' }),
         )}
-        style={{ borderLeft: `4px solid ${STATUS_COLOR[status]}` }}
+        style={{ ['--mol-accent' as string]: STATUS_COLOR[status] }}
       >
         <div
           className={cm.cn(

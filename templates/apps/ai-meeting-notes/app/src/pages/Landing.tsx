@@ -258,9 +258,10 @@ export function Landing() {
                   cm.card(),
                   cm.sp('p', 6),
                   cm.stack(3),
-                  'border-l-4 hover:-translate-y-0.5 transition-transform',
+                  cm.accentCard({ tone: 'custom' }),
+                  'hover:-translate-y-0.5 transition-transform',
                 )}
-                style={{ borderLeftColor: f.accent }}
+                style={{ ['--mol-accent' as string]: f.accent }}
               >
                 <span
                   aria-hidden="true"
@@ -448,8 +449,8 @@ function SampleTranscriptCard({
         {transcript.map((line) => (
           <li
             key={line.ts}
-            className={cm.cn(cm.flex({ gap: 'md' }), cm.sp('pl', 3))}
-            style={{ borderLeft: `2px solid ${line.accent}` }}
+            className={cm.cn(cm.flex({ gap: 'md' }), cm.accentCard({ tone: 'custom' }))}
+            style={{ ['--mol-accent' as string]: line.accent }}
           >
             <span
               className={cm.cn(

@@ -2,8 +2,9 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 /**
- * KPI card for the Dendrite dashboard — `border-l-4` accent in a node-type
- * color, uppercase label, extrabold metric, and a small change pill.
+ * KPI card for the Dendrite dashboard — an inset accent bar (`cm.accentCard`) in a
+ * node-type color, an uppercase label in the same color, extrabold metric, and a
+ * small change pill.
  *
  * Translated from project-management's KpiCard.tsx (uppercase 10px label,
  * extrabold metric, hover-lift). Adapted so the accent maps to a node
@@ -13,29 +14,29 @@ import { getClassMap } from '@molecule/app-ui'
 
 export type NodeStatType = 'default' | 'idea' | 'task' | 'reference' | 'note'
 
-const ACCENT_BY_TYPE: Record<NodeStatType, { border: string; iconBg: string; iconText: string }> = {
+const ACCENT_BY_TYPE: Record<NodeStatType, { accent: string; iconBg: string; iconText: string }> = {
   default: {
-    border: 'border-primary',
+    accent: 'var(--color-primary)',
     iconBg: 'bg-primary-fixed',
     iconText: 'text-primary',
   },
   idea: {
-    border: 'border-tertiary',
+    accent: 'var(--color-tertiary)',
     iconBg: 'bg-tertiary-fixed',
     iconText: 'text-tertiary',
   },
   task: {
-    border: 'border-secondary',
+    accent: 'var(--color-secondary)',
     iconBg: 'bg-secondary-fixed',
     iconText: 'text-secondary',
   },
   reference: {
-    border: 'border-primary-container',
+    accent: 'var(--color-primary-container)',
     iconBg: 'bg-primary-container/40',
     iconText: 'text-on-primary-container',
   },
   note: {
-    border: 'border-outline',
+    accent: 'var(--color-outline)',
     iconBg: 'bg-surface-container-high',
     iconText: 'text-on-surface-variant',
   },
@@ -73,9 +74,10 @@ export function NodeStatCard({
       className={cm.cn(
         cm.sp('p', 6),
         cm.stack(3),
-        'bg-surface-container-lowest rounded-2xl border-l-4 shadow-sm hover:-translate-y-0.5 transition-transform duration-300',
-        accent.border,
+        'bg-surface-container-lowest rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform duration-300',
+        cm.accentCard({ tone: 'custom' }),
       )}
+      style={{ ['--mol-accent' as string]: accent.accent }}
     >
       <div className={cm.flex({ justify: 'between', align: 'start' })}>
         <span
@@ -101,7 +103,8 @@ export function NodeStatCard({
       <p
         className={cm.cn(
           cm.fontWeight('bold'),
-          'text-[10px] uppercase tracking-widest text-on-surface-variant',
+          'text-[10px] uppercase tracking-widest',
+          cm.accentCardLabel({ tone: 'custom' }),
         )}
       >
         {label}

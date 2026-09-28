@@ -95,8 +95,9 @@ function Card({ icon, accent, eyebrow, value, unit, meta, link }: CardProps) {
       className={cm.cn(
         cm.sp('p', 6),
         'rounded-2xl bg-surface-container-lowest hover:-translate-y-0.5 hover:shadow-lg transition-all group h-full',
+        cm.accentCard({ tone: 'custom' }),
       )}
-      style={{ borderLeft: `4px solid ${ACCENT_BORDER[accent]}` }}
+      style={{ ['--mol-accent' as string]: ACCENT_BORDER[accent] }}
     >
       <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), cm.sp('mb', 6))}>
         <div
@@ -113,7 +114,8 @@ function Card({ icon, accent, eyebrow, value, unit, meta, link }: CardProps) {
         <span
           className={cm.cn(
             cm.fontWeight('bold'),
-            'text-[10px] uppercase tracking-widest text-on-surface-variant',
+            'text-[10px] uppercase tracking-widest',
+            cm.accentCardLabel({ tone: 'custom' }),
           )}
         >
           {eyebrow}

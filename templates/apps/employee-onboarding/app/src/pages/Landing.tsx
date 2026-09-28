@@ -440,12 +440,16 @@ export function Landing() {
                 {tasks.map((task) => (
                   <div
                     key={task.title}
-                    className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), cm.sp('p', 4))}
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 'md' }),
+                      cm.sp('p', 4),
+                      cm.accentCard({ tone: 'custom' }),
+                    )}
                     style={{
                       background: 'var(--mol-color-surface)',
                       borderRadius: '12px',
                       boxShadow: '0 1px 2px rgba(15, 23, 42, 0.06)',
-                      borderLeft: `4px solid ${task.accent}`,
+                      ['--mol-accent' as string]: task.accent,
                       opacity: task.muted ? 0.75 : 1,
                     }}
                   >

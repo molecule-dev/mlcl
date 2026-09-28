@@ -152,12 +152,15 @@ export function AlertDetail() {
             const tint = STATUS_TINT[alert.status]
             return (
               <header
-                className={cm.cn('relative overflow-hidden rounded-[1.5rem] mt-4 p-6 md:p-8')}
+                className={cm.cn(
+                  cm.accentCard({ tone: 'custom' }),
+                  'overflow-hidden rounded-[1.5rem] mt-4 p-6 md:p-8',
+                )}
                 style={{
                   backgroundImage: `linear-gradient(135deg, color-mix(in srgb, ${tint.accent} 20%, transparent), color-mix(in srgb, var(--color-accent) 18%, transparent))`,
                   backgroundColor: 'var(--color-background-tertiary)',
                   border: '1px solid var(--color-border)',
-                  borderLeft: `4px solid ${tint.accent}`,
+                  ['--mol-accent' as string]: tint.accent,
                 }}
               >
                 <div

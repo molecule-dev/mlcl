@@ -37,9 +37,10 @@ export function TemplateCard({ template }: TemplateCardProps) {
       className={cm.cn(
         cm.flex({ direction: 'col' }),
         cm.sp('p', 6),
-        'group bg-surface-container-lowest rounded-xl shadow-sm border-l-4 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 relative overflow-hidden',
+        cm.accentCard({ tone: 'custom' }),
+        'group bg-surface-container-lowest rounded-xl shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 overflow-hidden',
       )}
-      style={{ borderLeftColor: template.accentColor }}
+      style={{ ['--mol-accent' as string]: template.accentColor }}
     >
       <div
         className={cm.cn(
@@ -59,13 +60,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
           {template.iconName}
         </span>
       </div>
-      <span
-        className={cm.cn(
-          cm.fontWeight('bold'),
-          cm.sp('mb', 2),
-          'text-[10px] uppercase tracking-widest text-on-surface-variant',
-        )}
-      >
+      <span className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), cm.sp('mb', 2))}>
         {template.category}
       </span>
       <h3

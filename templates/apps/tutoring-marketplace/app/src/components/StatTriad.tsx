@@ -40,8 +40,8 @@ export function StatTriad({ items }: StatTriadProps) {
           className={cm.cn(
             cm.sp('p', 6),
             'bg-surface-container-lowest rounded-2xl border border-outline-variant/10 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md',
+            cm.accentCard({ tone: 'primary' }),
           )}
-          style={{ borderLeft: '4px solid var(--mol-color-primary)' }}
         >
           <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}>
             <div
@@ -71,7 +71,8 @@ export function StatTriad({ items }: StatTriadProps) {
           <p
             className={cm.cn(
               cm.fontWeight('bold'),
-              'text-on-surface-variant uppercase tracking-widest',
+              'uppercase tracking-widest',
+              cm.accentCardLabel({ tone: 'primary' }),
             )}
             style={{ fontSize: '0.625rem' }}
           >

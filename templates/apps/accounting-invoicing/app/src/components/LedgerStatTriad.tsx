@@ -42,16 +42,9 @@ function Stat({ eyebrow, label, value, sub, icon, accent }: StatProps) {
     <div
       className={cm.cn(
         cm.sp('p', 6),
-        'lg:col-span-4 bg-surface-container-lowest rounded-2xl border-l-4 hover:-translate-y-0.5 transition-transform',
+        cm.accentCard({ tone: accent }),
+        'lg:col-span-4 bg-surface-container-lowest rounded-2xl hover:-translate-y-0.5 transition-transform',
       )}
-      style={{
-        borderLeftColor:
-          accent === 'success'
-            ? 'var(--mol-color-success)'
-            : accent === 'warning'
-              ? 'var(--mol-color-warning)'
-              : 'var(--mol-color-primary)',
-      }}
     >
       <div className={cm.cn(cm.flex({ align: 'start', justify: 'between' }), cm.sp('mb', 5))}>
         <div
@@ -64,14 +57,7 @@ function Stat({ eyebrow, label, value, sub, icon, accent }: StatProps) {
         >
           <span className="material-symbols-outlined">{icon}</span>
         </div>
-        <span
-          className={cm.cn(
-            cm.fontWeight('bold'),
-            'text-[10px] uppercase tracking-[0.2em] text-on-surface-variant',
-          )}
-        >
-          {eyebrow}
-        </span>
+        <span className={cm.accentCardLabel({ tone: accent })}>{eyebrow}</span>
       </div>
       <p
         className={cm.cn(

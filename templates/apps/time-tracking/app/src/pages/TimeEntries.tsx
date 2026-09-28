@@ -647,24 +647,24 @@ function SummaryCell({
   testId?: string
 }) {
   const cm = getClassMap()
+  // The accent color: the inset bar and the label (DESIGN.md → "Accent bars").
   const tone =
     accent === 'emerald'
-      ? 'border-emerald-500'
+      ? 'var(--color-emerald-500)'
       : accent === 'violet'
-        ? 'border-violet-500'
-        : 'border-blue-500'
+        ? 'var(--color-violet-500)'
+        : 'var(--color-blue-500)'
   return (
     <div
-      className={cm.cn(cm.sp('p', 5), 'bg-surface rounded-xl shadow-sm border-l-4', tone)}
+      className={cm.cn(
+        cm.sp('p', 5),
+        cm.accentCard({ tone: 'custom' }),
+        'bg-surface rounded-xl shadow-sm',
+      )}
+      style={{ ['--mol-accent' as string]: tone }}
       data-test={testId}
     >
-      <p
-        className={cm.cn(
-          'text-[10px] uppercase tracking-widest font-bold text-foreground-secondary',
-        )}
-      >
-        {label}
-      </p>
+      <p className={cm.accentCardLabel({ tone: 'custom' })}>{label}</p>
       <p
         className={cm.cn(
           cm.textSize('2xl'),

@@ -178,10 +178,11 @@ export function LabResultDetail() {
         <section
           className={cm.cn(
             cm.sp('p', 8),
+            cm.accentCard({ tone: 'custom' }),
             'bg-surface-container-lowest rounded-2xl shadow-sm',
             cm.sp('mb', 6),
           )}
-          style={{ borderLeft: `6px solid ${heroFlag.color}` }}
+          style={{ ['--mol-accent' as string]: heroFlag.color }}
         >
           <div
             className={cm.cn(

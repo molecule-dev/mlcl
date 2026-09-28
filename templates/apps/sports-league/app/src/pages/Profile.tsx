@@ -167,9 +167,10 @@ export function Profile() {
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'md' }),
                   cm.sp('p', 5),
-                  'rounded-xl bg-surface border border-outline-variant/40 shadow-sm border-l-4 hover:bg-surface-container-low transition-colors',
+                  cm.accentCard({ tone: 'custom' }),
+                  'rounded-xl bg-surface border border-outline-variant/40 shadow-sm hover:bg-surface-container-low transition-colors',
                 )}
-                style={{ borderLeftColor: color }}
+                style={{ ['--mol-accent' as string]: color }}
               >
                 <span
                   aria-hidden="true"
@@ -184,11 +185,7 @@ export function Profile() {
                   <p className={cm.cn('text-base font-bold text-on-surface tracking-tight')}>
                     {team.name}
                   </p>
-                  <p
-                    className={cm.cn(
-                      'text-[11px] font-bold uppercase tracking-widest text-on-surface-variant',
-                    )}
-                  >
+                  <p className={cm.accentCardLabel({ tone: 'custom' })}>
                     {rank
                       ? t(
                           'profile.rankRecord',

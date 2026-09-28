@@ -243,11 +243,14 @@ export function IncidentDetail() {
       </nav>
 
       <header
-        className={cm.cn('relative overflow-hidden rounded-2xl p-8 mb-8')}
+        className={cm.cn(
+          'relative overflow-hidden rounded-2xl p-8 mb-8',
+          cm.accentCard({ tone: 'custom' }),
+        )}
         style={{
           backgroundColor: 'rgba(30, 41, 59, 0.7)',
           border: '1px solid var(--color-border-card)',
-          borderLeft: `4px solid ${accent}`,
+          ['--mol-accent' as string]: accent,
         }}
       >
         <div

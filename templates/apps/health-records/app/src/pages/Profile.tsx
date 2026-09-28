@@ -437,10 +437,11 @@ export function Profile() {
       <section
         className={cm.cn(
           cm.sp('p', 6),
+          cm.accentCard({ tone: 'custom' }),
           'bg-surface-container-lowest rounded-2xl shadow-sm',
           cm.sp('mb', 6),
         )}
-        style={{ borderLeft: '4px solid var(--color-clinical-abnormal)' }}
+        style={{ ['--mol-accent' as string]: 'var(--color-clinical-abnormal)' }}
       >
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 4))}>
           <span

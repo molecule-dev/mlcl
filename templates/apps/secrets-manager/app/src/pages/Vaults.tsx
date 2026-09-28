@@ -184,16 +184,13 @@ export function Vaults() {
             <article
               key={kpi.kicker}
               className={cm.cn(
-                'relative flex flex-col gap-1 rounded-lg border border-border bg-surface p-4 transition-transform hover:-translate-y-0.5',
+                'flex flex-col gap-1 rounded-lg border border-border bg-surface p-4 transition-transform hover:-translate-y-0.5',
+                cm.accentCard({ tone: 'custom' }),
               )}
-              style={{ borderLeftWidth: 4, borderLeftColor: kpi.tone }}
+              style={{ ['--mol-accent' as string]: kpi.tone }}
             >
               <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
-                <span
-                  className={cm.cn(
-                    'font-mono text-[10px] font-black uppercase tracking-widest text-muted',
-                  )}
-                >
+                <span className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-mono')}>
                   {kpi.kicker}
                 </span>
                 <span

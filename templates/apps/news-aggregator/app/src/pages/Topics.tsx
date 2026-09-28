@@ -123,12 +123,11 @@ export function Topics() {
               className={cm.cn(
                 cm.flex({ direction: 'col', gap: 'md' }),
                 cm.sp('p', 6),
+                topic.accent_color && cm.accentCard({ tone: 'custom' }),
                 'bg-surface rounded-2xl border border-outline-variant/40 shadow-sm hover:shadow-md transition-all group',
               )}
               style={
-                topic.accent_color
-                  ? { borderLeftColor: topic.accent_color, borderLeftWidth: '4px' }
-                  : undefined
+                topic.accent_color ? { ['--mol-accent' as string]: topic.accent_color } : undefined
               }
             >
               <header className={cm.flex({ align: 'center', gap: 'md' })}>

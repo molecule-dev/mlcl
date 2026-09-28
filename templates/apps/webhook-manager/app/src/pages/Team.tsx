@@ -642,19 +642,14 @@ export function Team() {
             return (
               <div
                 key={role}
-                className={cm.cn('rounded-xl p-5')}
+                className={cm.cn(cm.accentCard({ tone: 'custom' }), 'rounded-xl p-5')}
                 style={{
                   backgroundColor: PANEL_BG,
                   border: '1px solid var(--mol-color-border)',
-                  borderLeft: `4px solid ${tint.fg}`,
+                  ['--mol-accent' as string]: tint.fg,
                 }}
               >
-                <p
-                  className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest')}
-                  style={{ color: tint.fg }}
-                >
-                  {role}
-                </p>
+                <p className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-mono')}>{role}</p>
                 <ul
                   className={cm.cn('mt-2 flex flex-col gap-1 font-mono text-xs')}
                   style={{ color: 'var(--mol-color-text-secondary)' }}

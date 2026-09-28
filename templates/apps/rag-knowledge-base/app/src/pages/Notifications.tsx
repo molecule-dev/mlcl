@@ -248,9 +248,10 @@ export function Notifications() {
                 className={cm.cn(
                   cm.sp('p', 4),
                   cm.flex({ align: 'start', gap: 'sm' }),
-                  'rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:shadow-md transition-shadow relative',
+                  cm.accentCard({ tone: 'custom' }),
+                  'rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:shadow-md transition-shadow',
                 )}
-                style={{ borderLeft: `4px solid ${color}` }}
+                style={{ ['--mol-accent' as string]: color }}
               >
                 {unreadFlag ? (
                   <span
@@ -280,10 +281,7 @@ export function Notifications() {
                     <span className={cm.cn(cm.textSize('sm'), 'font-bold text-on-surface')}>
                       {n.title}
                     </span>
-                    <span
-                      className={cm.cn(cm.textSize('xs'), 'uppercase tracking-widest font-bold')}
-                      style={{ color, fontSize: 10 }}
-                    >
+                    <span className={cm.accentCardLabel({ tone: 'custom' })}>
                       {t(`notifications.kind.${kind}`, {}, { defaultValue: KIND_DEFAULT[kind] })}
                     </span>
                   </div>

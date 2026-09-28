@@ -71,8 +71,9 @@ export function RefillAlertCard({
         // Row on tablet/desktop; at phone width the four sections (icon,
         // pharmacy block, days stat, status+request) wrap instead of cramming.
         'flex-wrap gap-y-3 rounded-2xl bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
+        cm.accentCard({ tone: 'custom' }),
       )}
-      style={{ borderLeft: `4px solid ${STATUS_BORDER[status]}` }}
+      style={{ ['--mol-accent' as string]: STATUS_BORDER[status] }}
     >
       <div
         className={cm.cn(

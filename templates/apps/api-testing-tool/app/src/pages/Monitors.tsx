@@ -363,11 +363,12 @@ export function Monitors() {
                 key={monitor.id}
                 className={cm.cn(
                   'rounded-2xl overflow-hidden p-5 grid gap-5 grid-cols-1 md:grid-cols-[2fr_1fr_1fr_auto] items-center',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
                 style={{
                   backgroundColor: SURFACE_PANEL,
                   border: `1px solid ${PANEL_BORDER}`,
-                  borderLeft: `4px solid ${tone.spark}`,
+                  ['--mol-accent' as string]: tone.spark,
                 }}
                 data-mol-id={`monitor-row-${monitor.id}`}
               >

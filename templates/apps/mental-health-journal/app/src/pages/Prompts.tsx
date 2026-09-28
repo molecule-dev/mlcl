@@ -172,9 +172,10 @@ export function Prompts() {
                 key={p.id}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 hover:-translate-y-0.5 transition-transform group',
+                  cm.accentCard({ tone: 'custom' }),
+                  'bg-surface-container-lowest rounded-2xl shadow-sm hover:-translate-y-0.5 transition-transform group',
                 )}
-                style={{ borderLeftColor: meta.color }}
+                style={{ ['--mol-accent' as string]: meta.color }}
               >
                 <div
                   className={cm.cn(

@@ -98,11 +98,12 @@ export function StatsCounterCard({
     <div
       className={cm.cn(
         'group relative overflow-hidden rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl',
+        cm.accentCard({ tone: 'custom' }),
       )}
       style={{
         backgroundColor: 'var(--color-surface)',
         border: '1px solid var(--color-border)',
-        borderLeft: `4px solid ${palette.accent}`,
+        ['--mol-accent' as string]: palette.accent,
       }}
       data-mol-id="stats-counter-card"
       data-testid="stats-counter-card"
@@ -110,8 +111,7 @@ export function StatsCounterCard({
     >
       <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
         <span
-          className={cm.cn('text-[10px] font-black uppercase tracking-widest')}
-          style={{ color: 'var(--color-text-secondary)' }}
+          className={cm.cn(cm.accentCardLabel({ tone: 'custom' }), 'font-black tracking-widest')}
         >
           {eyebrow}
         </span>

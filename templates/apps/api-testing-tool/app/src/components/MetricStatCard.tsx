@@ -5,7 +5,7 @@ import { LatencySparkline } from './LatencySparkline.js'
 /**
  * KPI / response-stat card — uppercase 10px tracking-widest eyebrow,
  * large mono-extrabold value, optional change pill, optional sparkline,
- * coloured `border-l-4` accent, hover lift. Used on Workspace stats,
+ * coloured inset accent bar (`cm.accentCard`), hover lift. Used on Workspace stats,
  * Monitors, TestRunner, History summary.
  *
  * Translated from ci-cd-dashboard's MetricStatCard with the latency
@@ -94,19 +94,22 @@ export function MetricStatCard({
   return (
     <div
       className={cm.cn(
-        'group relative overflow-hidden rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl',
+        'group overflow-hidden rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl',
+        cm.accentCard({ tone: 'custom' }),
       )}
       style={{
         backgroundColor: 'color-mix(in srgb, var(--color-surface-elevated) 60%, transparent)',
         border: '1px solid var(--color-border)',
-        borderLeft: `4px solid ${palette.accent}`,
+        ['--mol-accent' as string]: palette.accent,
       }}
       data-mol-id="metric-stat-card"
     >
       <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
         <span
-          className={cm.cn('text-[10px] font-black uppercase tracking-widest')}
-          style={{ color: 'var(--color-text-secondary)' }}
+          className={cm.cn(
+            'text-[10px] font-black uppercase tracking-widest',
+            cm.accentCardLabel({ tone: 'custom' }),
+          )}
         >
           {eyebrow}
         </span>

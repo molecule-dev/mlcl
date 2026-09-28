@@ -278,8 +278,9 @@ export function Integrations() {
                   data-mol-id={`integration-card-${integration.id}`}
                   className={cm.cn(
                     'flex flex-col gap-3 rounded-xl border border-border bg-surface p-4 transition-colors hover:border-primary/40',
+                    cm.accentCard({ tone: 'custom' }),
                   )}
-                  style={{ borderLeftWidth: 4, borderLeftColor: meta.color }}
+                  style={{ ['--mol-accent' as string]: meta.color }}
                 >
                   <header className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
                     <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>

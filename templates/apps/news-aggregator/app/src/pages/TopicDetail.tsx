@@ -99,13 +99,10 @@ export function TopicDetail() {
         className={cm.cn(
           cm.sp('p', 8),
           cm.flex({ direction: 'col', gap: 'md' }),
+          topic.accent_color && cm.accentCard({ tone: 'custom' }),
           'rounded-2xl bg-surface-container-lowest border border-outline-variant/40',
         )}
-        style={
-          topic.accent_color
-            ? { borderLeftColor: topic.accent_color, borderLeftWidth: '4px' }
-            : undefined
-        }
+        style={topic.accent_color ? { ['--mol-accent' as string]: topic.accent_color } : undefined}
       >
         <div className={cm.flex({ align: 'center', gap: 'md' })}>
           <div
@@ -125,10 +122,14 @@ export function TopicDetail() {
           </div>
           <div className={'flex-1'}>
             <p
-              className={cm.cn(
-                cm.textSize('xs'),
-                'font-bold uppercase tracking-widest text-on-surface-variant',
-              )}
+              className={
+                topic.accent_color
+                  ? cm.accentCardLabel({ tone: 'custom' })
+                  : cm.cn(
+                      cm.textSize('xs'),
+                      'font-bold uppercase tracking-widest text-on-surface-variant',
+                    )
+              }
             >
               {t('topicDetail.eyebrow', {}, { defaultValue: 'Topic' })}
             </p>

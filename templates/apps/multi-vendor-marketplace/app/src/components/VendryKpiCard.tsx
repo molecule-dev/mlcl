@@ -1,3 +1,4 @@
+import type { AccentTone } from '@molecule/app-ui'
 import { getClassMap } from '@molecule/app-ui'
 
 export type VendryKpiTone = 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error'
@@ -19,17 +20,27 @@ interface VendryKpiCardProps {
   tone?: VendryKpiTone
 }
 
-const toneToTokens: Record<VendryKpiTone, { iconBg: string; iconText: string; accent: string }> = {
-  primary: { iconBg: 'bg-primary/10', iconText: 'text-primary', accent: 'border-primary' },
-  secondary: { iconBg: 'bg-secondary/10', iconText: 'text-secondary', accent: 'border-secondary' },
-  info: { iconBg: 'bg-info/10', iconText: 'text-info', accent: 'border-info' },
-  success: { iconBg: 'bg-success/10', iconText: 'text-success', accent: 'border-success' },
-  warning: { iconBg: 'bg-warning/10', iconText: 'text-warning', accent: 'border-warning' },
-  error: { iconBg: 'bg-error/10', iconText: 'text-error', accent: 'border-error' },
+const toneToTokens: Record<VendryKpiTone, { iconBg: string; iconText: string }> = {
+  primary: { iconBg: 'bg-primary/10', iconText: 'text-primary' },
+  secondary: { iconBg: 'bg-secondary/10', iconText: 'text-secondary' },
+  info: { iconBg: 'bg-info/10', iconText: 'text-info' },
+  success: { iconBg: 'bg-success/10', iconText: 'text-success' },
+  warning: { iconBg: 'bg-warning/10', iconText: 'text-warning' },
+  error: { iconBg: 'bg-error/10', iconText: 'text-error' },
 }
 
 /**
- * Vendor-dashboard KPI card — left-accent border, uppercase 10px label,
+ * The accent-bar tone for a KPI tone. `secondary` is not an accent tone, so
+ * it goes through `custom` with the theme's secondary color.
+ */
+function accentTone(tone: VendryKpiTone): { tone: AccentTone; style?: Record<string, string> } {
+  return tone === 'secondary'
+    ? { tone: 'custom', style: { '--mol-accent': 'var(--color-secondary)' } }
+    : { tone }
+}
+
+/**
+ * Vendor-dashboard KPI card — accent bar, uppercase 10px label,
  * 3xl extrabold value, hover lift, optional trend pill.
  *
  * Translated from online-store's AdminDashboardKpiGrid card pattern,
@@ -46,6 +57,7 @@ export function VendryKpiCard({
 }: VendryKpiCardProps) {
   const cm = getClassMap()
   const tokens = toneToTokens[tone]
+  const accent = accentTone(tone)
   const trendClass =
     trendDirection === 'up'
       ? 'bg-success/10 text-success'
@@ -63,16 +75,12 @@ export function VendryKpiCard({
     <article
       className={cm.cn(
         cm.sp('p', 6),
-        'group relative overflow-hidden rounded-2xl border border-outline-variant bg-surface transition-all hover:shadow-md hover:-translate-y-0.5',
+        cm.accentCard({ tone: accent.tone }),
+        'group overflow-hidden rounded-2xl border border-outline-variant bg-surface transition-all hover:shadow-md hover:-translate-y-0.5',
       )}
-      style={{ borderLeftWidth: '4px' }}
+      style={accent.style}
       data-tone={tone}
     >
-      <div
-        className={cm.cn('absolute left-0 top-0 bottom-0 w-1', tokens.accent)}
-        style={{ backgroundColor: 'currentColor', color: 'inherit' }}
-        aria-hidden
-      />
       <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), cm.sp('mb', 4))}>
         <div className={cm.cn(cm.sp('p', 2), 'rounded-xl', tokens.iconBg, tokens.iconText)}>
           <span className="material-symbols-outlined" aria-hidden>
@@ -98,14 +106,7 @@ export function VendryKpiCard({
           </span>
         )}
       </div>
-      <p
-        className={cm.cn(
-          cm.fontWeight('bold'),
-          'text-[10px] uppercase tracking-widest text-on-surface-variant font-black',
-        )}
-      >
-        {label}
-      </p>
+      <p className={cm.accentCardLabel({ tone: accent.tone })}>{label}</p>
       <p
         className={cm.cn(
           cm.fontWeight('bold'),

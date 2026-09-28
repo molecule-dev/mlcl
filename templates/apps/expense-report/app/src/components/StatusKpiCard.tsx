@@ -20,12 +20,13 @@ export interface StatusKpiCardProps {
   icon?: string
 }
 
-const TONE_BORDER: Record<StatusTone, string> = {
-  approved: 'border-l-[var(--color-status-approved)]',
-  pending: 'border-l-[var(--color-status-pending)]',
-  rejected: 'border-l-[var(--color-status-rejected)]',
-  reimbursed: 'border-l-[var(--color-status-reimbursed)]',
-  neutral: 'border-l-primary',
+/** The tone's accent color: the inset bar and the label (DESIGN.md → "Accent bars"). */
+const TONE_ACCENT: Record<StatusTone, string> = {
+  approved: 'var(--color-status-approved)',
+  pending: 'var(--color-status-pending)',
+  rejected: 'var(--color-status-rejected)',
+  reimbursed: 'var(--color-status-reimbursed)',
+  neutral: 'var(--color-primary)',
 }
 
 const TONE_ICON_BG: Record<StatusTone, string> = {
@@ -52,19 +53,13 @@ export function StatusKpiCard({
       className={cm.cn(
         cm.flex({ direction: 'col' }),
         cm.sp('p', 5),
-        'rounded-2xl bg-surface border-l-4 shadow-sm hover:-translate-y-0.5 transition-transform',
-        TONE_BORDER[tone],
+        cm.accentCard({ tone: 'custom' }),
+        'rounded-2xl bg-surface shadow-sm hover:-translate-y-0.5 transition-transform',
       )}
+      style={{ ['--mol-accent' as string]: TONE_ACCENT[tone] }}
     >
       <div className={cm.flex({ align: 'center', justify: 'between' })}>
-        <span
-          className={cm.cn(
-            cm.fontWeight('bold'),
-            'text-[10px] uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {label}
-        </span>
+        <span className={cm.accentCardLabel({ tone: 'custom' })}>{label}</span>
         {icon ? (
           <span
             className={cm.cn(

@@ -553,10 +553,11 @@ export function DocumentDetail() {
                               cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
                               'rounded-lg transition-colors text-left',
                               active ? 'bg-primary/10' : 'hover:bg-surface-container-low',
+                              active && cm.accentCard({ tone: 'custom' }),
                             )}
                             style={
                               active
-                                ? { borderLeft: '3px solid var(--color-secondary)' }
+                                ? { ['--mol-accent' as string]: 'var(--color-secondary)' }
                                 : undefined
                             }
                           >
@@ -564,7 +565,10 @@ export function DocumentDetail() {
                               <span
                                 className={cm.cn(
                                   cm.textSize('xs'),
-                                  'uppercase tracking-widest text-on-surface-variant font-bold',
+                                  'uppercase tracking-widest font-bold',
+                                  active
+                                    ? cm.accentCardLabel({ tone: 'custom' })
+                                    : 'text-on-surface-variant',
                                 )}
                                 style={{ fontSize: 10 }}
                               >
@@ -597,9 +601,10 @@ export function DocumentDetail() {
           data-mol-id="document-summary-card"
           className={cm.cn(
             cm.sp('p', 6),
-            'rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm relative',
+            'rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm',
+            cm.accentCard({ tone: 'custom' }),
           )}
-          style={{ borderLeft: '4px solid var(--color-type-form)' }}
+          style={{ ['--mol-accent' as string]: 'var(--color-type-form)' }}
         >
           <header className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 3))}>
             <span

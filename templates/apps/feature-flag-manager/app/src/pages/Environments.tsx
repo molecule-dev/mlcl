@@ -299,11 +299,14 @@ export function Environments() {
             return (
               <article
                 key={env.id}
-                className={cm.cn('relative min-w-0 overflow-hidden rounded-2xl p-6')}
+                className={cm.cn(
+                  'min-w-0 overflow-hidden rounded-2xl p-6',
+                  cm.accentCard({ tone: 'custom' }),
+                )}
                 style={{
                   backgroundColor: 'var(--color-surface)',
                   border: '1px solid rgba(30, 41, 59, 0.7)',
-                  borderLeft: `4px solid ${env.color}`,
+                  ['--mol-accent' as string]: env.color,
                 }}
                 data-mol-id={`env-card-${env.key}`}
               >

@@ -128,9 +128,10 @@ export function NightHistoryRow({
       aria-label={t('nightHistoryRow.aria', { date, id }, { defaultValue: 'Night of {{date}}' })}
       className={cm.cn(
         cm.sp('p', 5),
-        'block bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all border-l-4 group',
+        'block bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group',
+        cm.accentCard({ tone: 'custom' }),
       )}
-      style={{ borderLeftColor: palette.border }}
+      style={{ ['--mol-accent' as string]: palette.border }}
     >
       <div
         className={cm.cn(
@@ -148,7 +149,8 @@ export function NightHistoryRow({
           <span
             className={cm.cn(
               cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-widest text-on-surface-variant',
+              'text-[10px] uppercase tracking-widest',
+              cm.accentCardLabel({ tone: 'custom' }),
             )}
           >
             {formatDate(date)}

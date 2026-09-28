@@ -88,9 +88,10 @@ export function OrderRow({ order, showLink = true }: OrderRowProps) {
         cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
         cm.sp('px', 4),
         cm.sp('py', 3),
-        'border-l-4 transition-colors hover:bg-background-secondary',
+        cm.accentCard({ tone: 'custom' }),
+        'transition-colors hover:bg-background-secondary',
       )}
-      style={{ borderLeftColor: priority.color }}
+      style={{ ['--mol-accent' as string]: priority.color }}
     >
       <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0 flex-1')}>
         <span

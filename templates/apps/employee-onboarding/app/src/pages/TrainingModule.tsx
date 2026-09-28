@@ -283,12 +283,12 @@ export function TrainingModule() {
             {t('trainingModule.contentHeading', {}, { defaultValue: 'Module' })}
           </h2>
           <article
-            className={cm.sp('p', 6)}
+            className={cm.cn(cm.sp('p', 6), cm.accentCard({ tone: 'custom' }))}
             style={{
               background: 'var(--color-surface, var(--mol-color-surface))',
               border: '1px solid var(--color-border, var(--mol-color-background-tertiary))',
               borderRadius: '12px',
-              borderLeft: `3px solid ${moduleColor}`,
+              ['--mol-accent' as string]: moduleColor,
             }}
           >
             <p className={cm.cn('leading-relaxed')} style={{ whiteSpace: 'pre-wrap' }}>

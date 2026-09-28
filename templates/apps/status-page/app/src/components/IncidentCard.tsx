@@ -106,12 +106,13 @@ export function IncidentCard({ incident, linked = true }: IncidentCardProps) {
     <article
       className={cm.cn(
         'group relative overflow-hidden rounded-xl p-5 transition-all',
+        cm.accentCard({ tone: 'custom' }),
         linked && 'hover:-translate-y-0.5 hover:shadow-lg cursor-pointer',
       )}
       style={{
         backgroundColor: 'var(--color-surface-raised)',
         border: '1px solid var(--color-border-card)',
-        borderLeft: `4px solid ${accent}`,
+        ['--mol-accent' as string]: accent,
       }}
       data-mol-id={`incident-card-${incident.id}`}
     >

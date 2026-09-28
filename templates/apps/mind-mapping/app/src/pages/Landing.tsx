@@ -371,9 +371,10 @@ export function Landing() {
               <div
                 className={cm.cn(
                   cm.sp('p', 5),
-                  'bg-surface shadow-xl rounded-lg w-48 text-center border-l-4',
+                  'bg-surface shadow-xl rounded-lg w-48 text-center',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
-                style={{ borderLeftColor: 'var(--color-node-purple)' }}
+                style={{ ['--mol-accent' as string]: 'var(--color-node-purple)' }}
               >
                 <span
                   className={cm.cn('material-symbols-outlined mb-2 inline-block')}
@@ -392,9 +393,10 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('p', 3),
                   cm.flex({ align: 'center', gap: 'xs' }),
-                  'bg-surface shadow-md rounded-lg w-32 border-l-4',
+                  'bg-surface shadow-md rounded-lg w-32',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
-                style={{ borderLeftColor: 'var(--color-node-orange)' }}
+                style={{ ['--mol-accent' as string]: 'var(--color-node-orange)' }}
               >
                 <span
                   className={cm.cn('material-symbols-outlined text-sm')}
@@ -413,9 +415,10 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('p', 3),
                   cm.flex({ align: 'center', gap: 'xs' }),
-                  'bg-surface shadow-md rounded-lg w-32 border-l-4',
+                  'bg-surface shadow-md rounded-lg w-32',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
-                style={{ borderLeftColor: 'var(--color-node-cyan)' }}
+                style={{ ['--mol-accent' as string]: 'var(--color-node-cyan)' }}
               >
                 <span
                   className={cm.cn('material-symbols-outlined text-sm')}
@@ -434,9 +437,10 @@ export function Landing() {
                 className={cm.cn(
                   cm.sp('p', 3),
                   cm.flex({ align: 'center', gap: 'xs' }),
-                  'bg-surface shadow-md rounded-lg w-32 border-l-4',
+                  'bg-surface shadow-md rounded-lg w-32',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
-                style={{ borderLeftColor: 'var(--color-node-green)' }}
+                style={{ ['--mol-accent' as string]: 'var(--color-node-green)' }}
               >
                 <span
                   className={cm.cn('material-symbols-outlined text-sm')}

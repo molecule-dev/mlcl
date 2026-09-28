@@ -283,18 +283,22 @@ export function PipelineDetail() {
                   return (
                     <li
                       key={stage.name}
-                      className={'rounded-xl overflow-hidden'}
+                      className={cm.cn(
+                        cm.accentCard({ tone: 'custom' }),
+                        'rounded-xl overflow-hidden',
+                      )}
                       style={{
                         backgroundColor: 'rgba(30, 34, 53, 0.6)',
                         border: '1px solid rgba(30, 41, 59, 0.8)',
-                        borderLeft: `3px solid ${accent}`,
+                        // The status accent bar (DESIGN.md → "Accent bars").
+                        ['--mol-accent' as string]: accent,
                       }}
                     >
                       <button
                         type="button"
                         onClick={() => toggleStage(stage.name)}
                         className={
-                          'w-full flex items-center justify-between gap-4 px-4 py-3 text-left transition-colors hover:bg-white/[0.03]'
+                          'w-full flex items-center justify-between gap-4 pr-4 py-3 text-left transition-colors hover:bg-white/[0.03]'
                         }
                         aria-expanded={isOpen}
                         data-mol-id={`stage-toggle-${stage.name}`}

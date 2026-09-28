@@ -412,32 +412,17 @@ interface SummaryStatProps {
 
 function SummaryStat({ label, value, tone }: SummaryStatProps) {
   const cm = getClassMap()
-  const accent =
-    tone === 'success'
-      ? 'var(--mol-color-success)'
-      : tone === 'warning'
-        ? 'var(--mol-color-warning)'
-        : 'var(--mol-color-error)'
   const text =
     tone === 'success' ? 'text-success' : tone === 'warning' ? 'text-warning' : 'text-error'
   return (
     <div
       className={cm.cn(
         cm.sp('p', 6),
-        'bg-surface-container-lowest rounded-2xl border-l-4 hover:-translate-y-0.5 transition-transform',
+        cm.accentCard({ tone }),
+        'bg-surface-container-lowest rounded-2xl hover:-translate-y-0.5 transition-transform',
       )}
-      style={{ borderLeftColor: accent }}
     >
-      <p
-        className={cm.cn(
-          cm.textSize('xs'),
-          cm.fontWeight('bold'),
-          cm.sp('mb', 2),
-          'uppercase tracking-[0.2em] text-on-surface-variant',
-        )}
-      >
-        {label}
-      </p>
+      <p className={cm.cn(cm.accentCardLabel({ tone }), cm.sp('mb', 2))}>{label}</p>
       <p
         className={cm.cn(
           cm.textSize('3xl'),

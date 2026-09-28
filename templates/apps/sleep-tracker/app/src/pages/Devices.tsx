@@ -298,9 +298,10 @@ export function Devices() {
                 key={conn.id}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl shadow-sm border-l-4 hover:shadow-md transition-shadow',
+                  'bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md transition-shadow',
+                  cm.accentCard({ tone: 'custom' }),
                 )}
-                style={{ borderLeftColor: palette.fg, opacity: active ? 1 : 0.7 }}
+                style={{ ['--mol-accent' as string]: palette.fg, opacity: active ? 1 : 0.7 }}
               >
                 <div className={cm.cn(cm.flex({ align: 'start', justify: 'between', gap: 'md' }))}>
                   <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.flex1)}>
@@ -327,7 +328,8 @@ export function Devices() {
                         className={cm.cn(
                           cm.textSize('xs'),
                           cm.fontWeight('semibold'),
-                          'uppercase tracking-widest text-on-surface-variant',
+                          'uppercase tracking-widest',
+                          cm.accentCardLabel({ tone: 'custom' }),
                         )}
                       >
                         {meta.brand}

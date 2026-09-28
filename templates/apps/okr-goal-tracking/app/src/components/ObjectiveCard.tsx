@@ -40,12 +40,13 @@ const STATUS_PILL: Record<RingStatus, string> = {
   completed: 'bg-violet-100 text-violet-700',
 }
 
-const STATUS_BORDER: Record<RingStatus, string> = {
-  'on-track': 'border-l-emerald-500',
-  'at-risk': 'border-l-amber-500',
-  behind: 'border-l-red-500',
-  'not-started': 'border-l-slate-400',
-  completed: 'border-l-violet-500',
+/** The status accent color: the inset bar and the period label (DESIGN.md → "Accent bars"). */
+const STATUS_ACCENT: Record<RingStatus, string> = {
+  'on-track': 'var(--color-emerald-500)',
+  'at-risk': 'var(--color-amber-500)',
+  behind: 'var(--color-red-500)',
+  'not-started': 'var(--color-slate-400)',
+  completed: 'var(--color-violet-500)',
 }
 
 /**
@@ -66,19 +67,15 @@ export function ObjectiveCard({ objective, href, className }: ObjectiveCardProps
       className={cm.cn(
         cm.sp('p', 5),
         cm.flex({ direction: 'col' }),
-        'bg-surface-container-lowest rounded-xl shadow-sm border-l-4 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200',
-        STATUS_BORDER[objective.status],
+        cm.accentCard({ tone: 'custom' }),
+        'bg-surface-container-lowest rounded-xl shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200',
         className,
       )}
+      style={{ ['--mol-accent' as string]: STATUS_ACCENT[objective.status] }}
     >
       <div className={cm.cn(cm.flex({ justify: 'between', align: 'start', gap: 'md' }))}>
         <div className={cm.cn(cm.stack(2), cm.flex1, 'min-w-0')}>
-          <span
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
+          <span className={cm.accentCardLabel({ tone: 'custom' })}>
             {t(
               'objectiveCard.period',
               { period: objective.period },

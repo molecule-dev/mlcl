@@ -357,8 +357,11 @@ export function InviteShare() {
 
         {/* Privacy note + actions */}
         <section
-          className={cm.cn(cm.sp('p', 5), 'bg-surface-container-lowest rounded-xl')}
-          style={{ borderLeft: '4px solid var(--mol-color-info)' }}
+          className={cm.cn(
+            cm.sp('p', 5),
+            cm.accentCard({ tone: 'info' }),
+            'bg-surface-container-lowest rounded-xl',
+          )}
         >
           <div className={cm.cn(cm.flex({ align: 'start', gap: 'sm' }))}>
             <span className={cm.cn('material-symbols-outlined text-primary')} aria-hidden="true">

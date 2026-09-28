@@ -396,11 +396,15 @@ export function Alerts() {
                   to={`/alerts/${r.id}`}
                   className={cm.cn(
                     'block rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg',
+                    cm.accentCard({ tone: 'custom' }),
                   )}
                   style={{
                     backgroundColor: 'var(--color-surface)',
                     border: '1px solid var(--color-border)',
-                    borderLeft: `3px solid ${r.status === 'active' ? 'var(--color-primary)' : 'var(--color-severity-muted)'}`,
+                    ['--mol-accent' as string]:
+                      r.status === 'active'
+                        ? 'var(--color-primary)'
+                        : 'var(--color-severity-muted)',
                   }}
                 >
                   <div className={cm.cn('flex items-center justify-between gap-3')}>

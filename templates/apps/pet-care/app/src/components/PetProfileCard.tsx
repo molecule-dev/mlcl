@@ -5,11 +5,11 @@ import { getClassMap } from '@molecule/app-ui'
 
 /**
  * Pet profile card — circular avatar with species icon badge bottom-right
- * and a 4px health-status border-left, exactly matching DESIGN.md
+ * and a health-status accent bar (the fleet's inset accent-bar treatment), matching DESIGN.md
  * "Pet Profile Card" spec (avatar 80px circle, species badge 24px,
  * health-status pill at bottom).
  *
- * Translated from health-records' MedicationCard.tsx (left-border accent +
+ * Translated from health-records' MedicationCard.tsx (accent bar +
  * shadow-sm rounded-2xl shell) and personal-finance's account-card pattern,
  * recoloured to Nuzzle's pet semantic palette (healthy / attention /
  * critical / vaccinated).
@@ -84,8 +84,9 @@ export function PetProfileCard({
         cm.flex({ direction: 'col', align: 'center' }),
         cm.sp('p', 5),
         'rounded-2xl bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all h-full',
+        cm.accentCard({ tone: 'custom' }),
       )}
-      style={{ borderLeft: `4px solid ${HEALTH_BORDER[health]}` }}
+      style={{ ['--mol-accent' as string]: HEALTH_BORDER[health] }}
     >
       <div className={cm.cn('relative')}>
         <div

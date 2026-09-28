@@ -50,13 +50,13 @@ export function WorkflowCard({ workflow }: WorkflowCardProps) {
       className={cm.cn(
         cm.flex({ direction: 'col', gap: 'sm' }),
         cm.sp('p', 5),
+        cm.accentCard({ tone: 'custom' }),
         'rounded-xl bg-surface shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md group',
       )}
       style={{
-        // `border` shorthand first — `borderLeft` after it so the 4px status
-        // accent stripe survives (the shorthand would otherwise reset it).
         border: '1px solid var(--color-border)',
-        borderLeft: `4px solid ${accent}`,
+        // The status accent bar (DESIGN.md → "Accent bars") reads this variable.
+        ['--mol-accent' as string]: accent,
       }}
     >
       <div className={cm.cn(cm.flex({ align: 'start', justify: 'between', gap: 'sm' }))}>
@@ -64,12 +64,9 @@ export function WorkflowCard({ workflow }: WorkflowCardProps) {
           <div
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),
-              cm.textSize('xs'),
-              cm.fontWeight('semibold'),
+              cm.accentCardLabel({ tone: 'custom' }),
               cm.sp('mb', 1),
-              'uppercase tracking-widest',
             )}
-            style={{ color: 'var(--color-node-condition)' }}
           >
             <span className={cm.cn('material-symbols-outlined', cm.textSize('sm'))}>
               {workflow.triggerIcon}
