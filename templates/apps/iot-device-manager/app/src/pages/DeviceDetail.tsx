@@ -491,19 +491,19 @@ export function DeviceDetail() {
         <DeviceKpiCard
           label={t('deviceDetail.kpi.metric', {}, { defaultValue: 'Last metric' })}
           value={latest ? `${latest.value.toFixed(1)}${latest.unit ? ' ' + latest.unit : ''}` : '—'}
-          accentColor="border-primary"
+          accentColor="var(--color-primary)"
           decoration={<TelemetrySparkline color="#0891b2" values={series} />}
         />
         <DeviceKpiCard
           label={t('deviceDetail.kpi.firmware', {}, { defaultValue: 'Firmware' })}
           value={`v${device.firmware_version ?? '—'}`}
-          accentColor="border-secondary"
+          accentColor="var(--color-secondary)"
           meta={t('deviceDetail.kpi.firmwareMeta', {}, { defaultValue: 'channel: stable' })}
         />
         <DeviceKpiCard
           label={t('deviceDetail.kpi.signal', {}, { defaultValue: 'Signal' })}
           value={`${device.signal ?? 0} / 4`}
-          accentColor="border-success"
+          accentColor="var(--color-success)"
           decoration={<SignalStrength bars={device.signal ?? 0} color="#10b981" />}
         />
         <DeviceKpiCard
@@ -511,10 +511,10 @@ export function DeviceDetail() {
           value={t(`devices.status.${device.status}`, {}, { defaultValue: device.status })}
           accentColor={
             device.status === 'critical'
-              ? 'border-error'
+              ? 'var(--color-error)'
               : device.status === 'warning'
-                ? 'border-warning'
-                : 'border-success'
+                ? 'var(--color-warning)'
+                : 'var(--color-success)'
           }
           valueTone={
             device.status === 'critical'

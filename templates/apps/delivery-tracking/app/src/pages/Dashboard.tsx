@@ -148,7 +148,7 @@ export function Dashboard() {
         <DriverStatusCard
           label={t('dashboard.kpi.inTransit', {}, { defaultValue: 'In transit' })}
           value={(stats?.in_transit ?? 0).toLocaleString()}
-          accentColor="border-primary"
+          tone="primary"
           decoration={<MiniSparkline color="var(--mol-color-info)" values={dailyVolume} />}
           meta={t(
             'dashboard.kpi.inTransitMeta',
@@ -159,7 +159,7 @@ export function Dashboard() {
         <DriverStatusCard
           label={t('dashboard.kpi.deliveredToday', {}, { defaultValue: 'Delivered today' })}
           value={(stats?.delivered_today ?? 0).toLocaleString()}
-          accentColor="border-success"
+          tone="success"
           decoration={<MiniSparkline color="var(--mol-color-success)" values={dailyVolume} />}
           meta={t(
             'dashboard.kpi.deliveredMeta',
@@ -170,13 +170,13 @@ export function Dashboard() {
         <DriverStatusCard
           label={t('dashboard.kpi.onTime', {}, { defaultValue: 'On-time rate' })}
           value={`${Math.round((stats?.on_time_rate ?? 0) * 100)}%`}
-          accentColor="border-info"
+          tone="info"
           meta={t('dashboard.kpi.onTimeMeta', {}, { defaultValue: 'last 30 days' })}
         />
         <DriverStatusCard
           label={t('dashboard.kpi.exceptions', {}, { defaultValue: 'Exception rate' })}
           value={`${(stats?.exception_rate ?? 0).toFixed(1)}%`}
-          accentColor={(stats?.exception_rate ?? 0) > 2 ? 'border-error' : 'border-warning'}
+          tone={(stats?.exception_rate ?? 0) > 2 ? 'error' : 'warning'}
           valueTone={(stats?.exception_rate ?? 0) > 2 ? 'text-error' : 'text-on-surface'}
           meta={t('dashboard.kpi.exceptionsMeta', {}, { defaultValue: 'needs attention' })}
         />

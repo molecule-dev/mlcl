@@ -170,7 +170,7 @@ export function Dashboard() {
         <DeviceKpiCard
           label={t('dashboard.kpi.fleet', {}, { defaultValue: 'Devices in fleet' })}
           value={s.devices_total.toLocaleString()}
-          accentColor="border-primary"
+          accentColor="var(--color-primary)"
           decoration={<TelemetrySparkline color="var(--color-primary)" values={throughput} />}
           meta={t(
             'dashboard.kpi.fleetMeta',
@@ -181,20 +181,22 @@ export function Dashboard() {
         <DeviceKpiCard
           label={t('dashboard.kpi.throughput', {}, { defaultValue: 'Msgs / min' })}
           value={s.messages_per_min.toLocaleString()}
-          accentColor="border-success"
+          accentColor="var(--color-success)"
           decoration={<TelemetrySparkline color="var(--mol-color-success)" values={throughput} />}
           meta={t('dashboard.kpi.throughputMeta', {}, { defaultValue: 'rolling 5 min' })}
         />
         <DeviceKpiCard
           label={t('dashboard.kpi.firmware', {}, { defaultValue: 'Firmware pending' })}
           value={`${s.firmware_pending}`}
-          accentColor="border-secondary"
+          accentColor="var(--color-secondary)"
           meta={t('dashboard.kpi.firmwareMeta', {}, { defaultValue: 'rollouts in flight' })}
         />
         <DeviceKpiCard
           label={t('dashboard.kpi.alerts', {}, { defaultValue: 'Active alerts' })}
           value={`${s.active_alerts}`}
-          accentColor={s.active_alerts > 0 ? 'border-error' : 'border-on-surface-variant'}
+          accentColor={
+            s.active_alerts > 0 ? 'var(--color-error)' : 'var(--color-on-surface-variant)'
+          }
           valueTone={s.active_alerts > 0 ? 'text-error' : 'text-on-surface'}
           meta={
             s.active_alerts > 0
