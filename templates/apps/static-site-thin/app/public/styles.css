@@ -3,6 +3,14 @@
  *
  * Colors, type and spacing are tokens on :root; change the look there first.
  * Dark mode is the same tokens redefined under prefers-color-scheme.
+ *
+ * Type sizes are a reading hierarchy, not decoration: body text is 18px or
+ * more on every screen (phones included), and a post's prose is LARGER than
+ * anything beside it. On post pages with margin notes the prose size comes
+ * from --mn-prose-size (desktop, 20px) and --mn-prose-size-phone (18px) at
+ * the bottom of this file, and the notes are sized relative to it — change
+ * the size THERE. Setting font-size on paragraphs or .prose instead overrides
+ * that pair and can leave the prose smaller than the notes.
  */
 :root {
   --bg: #fcfcfa;
@@ -313,10 +321,6 @@ td {
 }
 
 @media (max-width: 480px) {
-  body {
-    font-size: 1.0625rem;
-  }
-
   h1 {
     font-size: 1.6rem;
   }
@@ -330,6 +334,7 @@ td {
   --mn-surface: var(--bg);
   --mn-accent-1: var(--accent);
   --mn-prose-size: 1.25rem;
+  --mn-prose-size-phone: 1.125rem;
   --mn-measure: 36rem;
 }
 .site:has([data-mn-has-notes]) {
