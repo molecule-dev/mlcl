@@ -34,7 +34,9 @@
   --color-live-deep: #904d00; /* eyebrow label brown-orange */
   --color-danger: #dc2626;
   --color-warning: #d97706;
-  --color-success: #16a34a;
+  /* green-800 — light theme success TEXT must hold ≥4.5:1 on the pale
+     surfaces it sits on (#ffffff/#f8fbff/#e7f0fe); green-600 was 2.9–3.3:1. */
+  --color-success: #166534;
   --color-background: #eff6ff;
   --color-surface: #ffffff;
   --color-surface-alt: #dbeafe;
@@ -64,7 +66,7 @@
   --mol-color-border: #bfdbfe;
   --mol-color-border-secondary: #93c5fd;
   --mol-color-border-focus: #00288e;
-  --mol-color-success: #16a34a;
+  --mol-color-success: #166534;
   --mol-color-warning: #d97706;
   --mol-color-error: #dc2626;
   --mol-color-info: #0369a1;
@@ -98,7 +100,10 @@
   --color-error-container: #fee2e2;
   --color-on-error: #ffffff;
   --color-on-error-container: #7f1d1d;
-  --color-outline: #64789b;
+  /* Blue-gray darkened just enough for outline-colored TEXT to hold ≥4.5:1
+     on the light surfaces it labels (#ffffff/#f8fbff/#e7f0fe); #64789b was
+     4.3–4.46:1. Still reads as a muted outline hue for borders. */
+  --color-outline: #5a6e8e;
   --color-outline-variant: #bfdbfe;
   --color-surface-tint: #00288e;
 

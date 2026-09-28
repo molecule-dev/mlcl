@@ -63,7 +63,9 @@ const BUILD_LOG = [
     key: 'run',
     tag: null,
     tagTone: '',
-    tone: 'text-on-surface-variant opacity-70',
+    // Same token as sibling lines, never opacity-* — 0.7 alpha blended the
+    // muted tone down to ~3.9:1 on the dark terminal panel (axe color-contrast).
+    tone: 'text-on-surface-variant',
     text: '=> [2/4] RUN npm ci',
   },
   {

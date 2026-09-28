@@ -80,7 +80,9 @@
   --color-secondary-container: #ccfbf1;
   --color-on-secondary: #ffffff;
   --color-on-secondary-container: #0d9488;
-  --color-tertiary: #8b5cf6;
+  /* violet-600 — tertiary TEXT must hold ≥4.5:1 on white/#f5f5f5/#ede9fe;
+     violet-500 (#8b5cf6) was 3.6–4.2:1. */
+  --color-tertiary: #7c3aed;
   --color-tertiary-container: #ede9fe;
   --color-on-tertiary: #ffffff;
   --color-on-tertiary-container: #3b0764;

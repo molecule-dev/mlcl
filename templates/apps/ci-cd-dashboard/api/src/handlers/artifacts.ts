@@ -22,6 +22,7 @@ import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 
 import { listDecoratedArtifacts, readDecoratedArtifact } from './decorators.js'
+import { seedDemoForUser } from './_seed.js'
 
 const router = Router()
 
@@ -52,6 +53,11 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
       return res
         .status(401)
         .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
+    // Lazy demo seeding — every other list endpoint (repositories, pipelines,
+    // environments, insights, notifications) seeds a fresh user on first read.
+    // GET /artifacts was the only one that didn't, so a client hitting it
+    // before any other surface saw an empty list for a brand-new account.
+    await seedDemoForUser(userId).catch((err) => logger.warn(err))
     const artifacts = await listDecoratedArtifacts(userId, {
       build_id: req.query.build_id as string | undefined,
       limit: req.query.limit ? Number(req.query.limit) : undefined,

@@ -293,6 +293,7 @@ export function Landing() {
               <>
                 <Link
                   to="/login"
+                  data-mol-id="landing-nav-login"
                   className="px-3 py-2 text-sm font-medium text-on-surface hover:text-primary whitespace-nowrap"
                 >
                   {t('landing.logIn', {}, { defaultValue: 'Log In' })}

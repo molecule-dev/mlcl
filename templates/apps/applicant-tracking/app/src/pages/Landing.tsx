@@ -332,11 +332,7 @@ export function Landing() {
               {BOARD_COLUMNS.map((col) => (
                 <div
                   key={col.key}
-                  className={cm.cn(
-                    cm.flex({ direction: 'col', gap: 'md' }),
-                    'w-56 shrink-0',
-                    col.faded ? 'opacity-50' : '',
-                  )}
+                  className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), 'w-56 shrink-0')}
                 >
                   <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), cm.sp('mb', 2))}>
                     <span
@@ -344,7 +340,16 @@ export function Landing() {
                       style={{ backgroundColor: col.dotColor }}
                       aria-hidden="true"
                     />
-                    <span className={cm.cn(cm.fontWeight('semibold'), cm.textSize('sm'))}>
+                    {/* Faded column: dimmed via a muted token, never opacity-* —
+                        opacity on text axe-fails color-contrast on its effective
+                        background (a 0.5-alpha slate read 3.34:1 on #f5f5f5). */}
+                    <span
+                      className={cm.cn(
+                        cm.fontWeight('semibold'),
+                        cm.textSize('sm'),
+                        col.faded ? 'text-on-surface-variant' : '',
+                      )}
+                    >
                       {t(`landing.board.col.${col.key}`, {}, { defaultValue: col.name })}
                     </span>
                   </div>
