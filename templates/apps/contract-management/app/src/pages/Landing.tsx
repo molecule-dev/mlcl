@@ -93,7 +93,9 @@ export function Landing() {
                 'hidden sm:inline-flex whitespace-nowrap items-center py-2 border-b-2 tracking-tight',
               )}
               style={{
-                color: 'var(--color-status-pending)',
+                // amber fails WCAG AA as text (2.62:1) — it stays as the
+                // active-tab underline accent; the label reads in brand primary
+                color: 'var(--color-primary)',
                 borderColor: 'var(--color-status-pending)',
               }}
             >
