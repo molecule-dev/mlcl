@@ -106,6 +106,14 @@ export function Landing() {
   const isAuthenticated = useIsAuthenticated()
 
   const playToday = t('landing.nav.playToday', {}, { defaultValue: 'Play Today’s Puzzle' })
+  const navPlayButtonClass = cm.cn(
+    cm.flex({ align: 'center', justify: 'center' }),
+    cm.sp('px', 4),
+    cm.sp('py', 2),
+    cm.textSize('xs'),
+    cm.fontWeight('bold'),
+    'hidden sm:inline-flex bg-primary text-on-primary hover:bg-[var(--puzzle-primary-hover)] rounded-lg shadow-sm transition',
+  )
 
   return (
     <div
@@ -124,40 +132,42 @@ export function Landing() {
           <LexletLogo size="md" />
         </Link>
         <nav className={cm.cn(cm.flex({ align: 'center', gap: 5 }), 'hidden md:flex')}>
-          <Link
-            to="/how-to-play"
+          {/* Section anchors — the icon actions to the right cover the routes
+              (/how-to-play, /leaderboard, /settings). */}
+          <a
+            href="#how"
             className={cm.cn(
               cm.textSize('sm'),
               'font-semibold text-on-surface-variant hover:text-primary transition-colors',
             )}
           >
-            {t('landing.nav.how', {}, { defaultValue: 'How to Play' })}
-          </Link>
-          <Link
-            to="/archive"
+            {t('landing.nav.how', {}, { defaultValue: 'How it works' })}
+          </a>
+          <a
+            href="#streaks"
             className={cm.cn(
               cm.textSize('sm'),
               'font-semibold text-on-surface-variant hover:text-primary transition-colors',
             )}
           >
-            {t('landing.nav.archive', {}, { defaultValue: 'Archive' })}
-          </Link>
-          <Link
-            to="/leaderboard"
+            {t('landing.nav.streaks', {}, { defaultValue: 'Streaks & stats' })}
+          </a>
+          <a
+            href="#community"
             className={cm.cn(
               cm.textSize('sm'),
               'font-semibold text-on-surface-variant hover:text-primary transition-colors',
             )}
           >
-            {t('landing.nav.community', {}, { defaultValue: 'Community' })}
-          </Link>
+            {t('landing.nav.community', {}, { defaultValue: 'Leaderboard' })}
+          </a>
         </nav>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
           {/* Live streak pill */}
           <div
             className={cm.cn(
               cm.flex({ align: 'center', gap: 1.5 }),
-              'px-3 py-1 bg-[var(--color-error-container)] border border-error/30 rounded-full text-error',
+              'px-3 py-1 bg-[var(--color-error-container)] border border-error/30 rounded-full text-on-error-container',
             )}
             title={t(
               'landing.streakPill.title',
@@ -221,20 +231,27 @@ export function Landing() {
             </Link>
           </div>
           <ThemeToggle />
-          <Link
-            to={isAuthenticated ? '/play' : '/signup'}
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'hidden sm:inline-flex bg-primary text-on-primary hover:bg-[var(--puzzle-primary-hover)] rounded-lg shadow-sm transition',
-            )}
-            data-mol-id="landing-nav-play"
-          >
-            {playToday}
-          </Link>
+          {isAuthenticated ? (
+            <Link to="/play" className={navPlayButtonClass} data-mol-id="landing-nav-play">
+              {playToday}
+            </Link>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  'hidden sm:inline-flex font-semibold text-on-surface-variant hover:text-primary transition-colors',
+                )}
+                data-mol-id="landing-nav-signin"
+              >
+                {t('nav.signIn', {}, { defaultValue: 'Sign in' })}
+              </Link>
+              <Link to="/signup" className={navPlayButtonClass} data-mol-id="landing-nav-play">
+                {t('nav.getStarted', {}, { defaultValue: 'Get started' })}
+              </Link>
+            </>
+          )}
         </div>
       </header>
 
@@ -329,7 +346,7 @@ export function Landing() {
                   <span>
                     {isAuthenticated
                       ? t('landing.hero.cta.play', {}, { defaultValue: 'Play Today’s Puzzle' })
-                      : t('landing.hero.cta.start', {}, { defaultValue: 'Play Today’s Puzzle' })}
+                      : t('landing.hero.cta.start', {}, { defaultValue: 'Start playing free' })}
                   </span>
                   <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
                     arrow_forward
@@ -349,7 +366,7 @@ export function Landing() {
                   <span className="material-symbols-outlined text-primary" style={{ fontSize: 20 }}>
                     play_circle
                   </span>
-                  {t('landing.hero.cta.demo', {}, { defaultValue: 'Watch 10-Second Demo' })}
+                  {t('landing.hero.cta.how', {}, { defaultValue: 'How to play' })}
                 </Link>
               </div>
               {/* Micro-copy */}
@@ -601,6 +618,7 @@ export function Landing() {
                       )
                     })}
                     <span
+                      role="img"
                       aria-label={t('landing.demo.backspace', {}, { defaultValue: 'Backspace' })}
                       style={KEY_TACTILE}
                       className={cm.cn(
@@ -638,11 +656,7 @@ export function Landing() {
               <h2
                 className={cm.cn(cm.textSize('4xl'), cm.fontWeight('extrabold'), 'text-on-surface')}
               >
-                {t(
-                  'landing.rules.title',
-                  {},
-                  { defaultValue: 'Simple rules. Infinite satisfaction.' },
-                )}
+                {t('landing.how.title', {}, { defaultValue: 'A tiny daily ritual' })}
               </h2>
               <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mt-2')}>
                 {t(
@@ -805,8 +819,8 @@ export function Landing() {
                     {t('landing.features.share.copy', {}, { defaultValue: 'Tap to copy result' })}
                   </span>
                 </div>
-                {SHARE_PREVIEW.map((line) => (
-                  <p key={line} className={cm.cn(cm.textSize('base'), 'pt-1')}>
+                {SHARE_PREVIEW.map((line, i) => (
+                  <p key={`${i}-${line}`} className={cm.cn(cm.textSize('base'), 'pt-1')}>
                     {line}
                   </p>
                 ))}
@@ -839,7 +853,7 @@ export function Landing() {
                     'text-on-surface mb-2',
                   )}
                 >
-                  {t('landing.features.streaks.title', {}, { defaultValue: 'Streaks That Matter' })}
+                  {t('landing.streaks.title', {}, { defaultValue: 'Streaks you hate to break' })}
                 </h3>
                 <p
                   className={cm.cn(
@@ -878,7 +892,7 @@ export function Landing() {
                       className={cm.cn(
                         cm.textSize('xs'),
                         cm.fontWeight('bold'),
-                        'text-error uppercase tracking-wider',
+                        'text-on-error-container uppercase tracking-wider',
                       )}
                     >
                       {t(
@@ -1215,7 +1229,7 @@ export function Landing() {
                         cm.sp('py', 1),
                         cm.textSize('xs'),
                         cm.fontWeight('bold'),
-                        'bg-[var(--color-error-container)] border border-error/30 rounded text-error',
+                        'bg-[var(--color-error-container)] border border-error/30 rounded text-on-error-container',
                       )}
                     >
                       🔥 {item.streak}
@@ -1308,7 +1322,7 @@ export function Landing() {
                 <span>
                   {isAuthenticated
                     ? t('landing.cta.play', {}, { defaultValue: 'Start Playing Now — Free' })
-                    : t('landing.cta.start', {}, { defaultValue: 'Start Playing Now — Free' })}
+                    : t('landing.cta.start', {}, { defaultValue: 'Play your first word' })}
                 </span>
                 <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
                   arrow_forward

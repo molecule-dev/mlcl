@@ -12,8 +12,11 @@ test.describe('/goals (Goals)', () => {
     const slider = page.locator('input[type=range]').first()
     const handle = await slider.elementHandle()
     expect(handle).toBeTruthy()
-    // Move slider then dispatch a real mouseup to trigger onMouseUp persistence
-    await page.mouse.click(0, 0)
+    // Move slider then dispatch a real mouseup to trigger onMouseUp persistence.
+    // Blur via activeElement instead of a raw click at (0,0): the sidebar brand
+    // link ("Nosh" → /today) sits at the viewport's top-left corner, so a
+    // click there navigates away from /goals and the slider never gets focused.
+    await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur())
     await slider.focus()
     for (let i = 0; i < 10; i++) await page.keyboard.press('ArrowRight')
     await page.waitForTimeout(150)
