@@ -11,8 +11,7 @@ const FEATURES = [
     defaultTitle: 'Virtual visits in minutes',
     defaultBody:
       'Connect with a board-certified clinician without scheduling, transit, or waiting-room time.',
-    icon: 'video_call',
-    tint: 'text-primary',
+    icon: 'videocam',
   },
   {
     key: 'records',
@@ -20,7 +19,6 @@ const FEATURES = [
     defaultBody:
       'Lab results, prescriptions, visit notes, vitals — all merged into a single chronological timeline.',
     icon: 'folder_shared',
-    tint: 'text-info',
   },
   {
     key: 'rx',
@@ -28,7 +26,6 @@ const FEATURES = [
     defaultBody:
       'E-prescriptions delivered to the pharmacy of your choice. Refills resolve in under 60 seconds.',
     icon: 'medication',
-    tint: 'text-success',
   },
   {
     key: 'continuity',
@@ -36,7 +33,6 @@ const FEATURES = [
     defaultBody:
       'Build a longitudinal relationship with your provider. They see your history; nothing repeats.',
     icon: 'chronic',
-    tint: 'text-tertiary',
   },
 ] as const
 
@@ -47,18 +43,38 @@ const TRUST_STATS = [
   { key: 'states', defaultLabel: 'Licensed in', value: '50 states' },
 ]
 
+/** Design's trust avatars — initials on token-tinted circles (no external images). */
+const TRUST_AVATARS = [
+  { initials: 'MC', className: 'bg-primary-fixed text-on-primary-fixed' },
+  { initials: 'JO', className: 'bg-secondary-fixed text-on-secondary-fixed' },
+  { initials: 'AS', className: 'bg-tertiary-fixed text-on-tertiary-fixed' },
+]
+
+/** Splits the headline so the last word carries the design's gradient text
+ * ("Care without the" + "commute."). Works for any locale's translation. */
+function splitHeadlineAccent(title: string): { lead: string; accent: string } {
+  // Prefer the full trailing phrase after the last comma ("Every second," +
+  // "accounted for."); fall back to the final word.
+  const comma = title.lastIndexOf(',')
+  if (comma >= 0 && comma < title.length - 1) {
+    return { lead: title.slice(0, comma + 1), accent: title.slice(comma + 1).trim() }
+  }
+  const idx = title.lastIndexOf(' ')
+  if (idx <= 0) return { lead: title, accent: '' }
+  return { lead: title.slice(0, idx), accent: title.slice(idx + 1) }
+}
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const isAuthenticated = useIsAuthenticated()
+  const headline = splitHeadlineAccent(
+    t('landing.heroTitle', { tagline: APP_TAGLINE }, { defaultValue: '{{tagline}}' }),
+  )
 
   return (
     <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
-      <nav
-        className={
-          'sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/40'
-        }
-      >
+      <nav className={'fixed inset-x-0 top-0 z-50 bg-surface/70 backdrop-blur-xl'}>
         <div
           className={cm.cn(
             cm.maxW('7xl'),
@@ -68,27 +84,45 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={'text-xl font-extrabold tracking-tight'}>
+          <Link to="/" className={'text-2xl font-bold tracking-tighter text-primary'}>
             {APP_NAME}
           </Link>
-          <div className={cm.flex({ align: 'center', gap: 'md' })}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 8 }), 'hidden md:flex')}>
+            <Link
+              to="/providers"
+              className={cm.cn(
+                cm.sp('py', 2),
+                'text-sm font-medium tracking-tight text-on-surface-variant transition-colors hover:text-primary',
+              )}
+            >
+              {t('nav.providers', {}, { defaultValue: 'For Providers' })}
+            </Link>
             <Link
               to="/pricing"
               className={cm.cn(
                 cm.sp('py', 2),
-                'text-sm font-medium text-on-surface-variant hover:text-on-surface',
+                'text-sm font-medium tracking-tight text-on-surface-variant transition-colors hover:text-primary',
               )}
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
             </Link>
+          </div>
+          <div className={cm.flex({ align: 'center', gap: 4 })}>
             {isAuthenticated ? (
               <Link
                 to="/dashboard"
                 className={
-                  'px-5 py-2 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
+                  'flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-xl bg-primary text-on-primary hover:opacity-90 transition-opacity'
                 }
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: 18 }}
+                  aria-hidden="true"
+                >
+                  arrow_forward
+                </span>
               </Link>
             ) : (
               <>
@@ -96,18 +130,26 @@ export function Landing() {
                   to="/login"
                   className={cm.cn(
                     cm.sp('py', 2),
-                    'text-sm font-medium text-on-surface-variant hover:text-on-surface',
+                    'text-sm font-medium text-primary transition-opacity hover:opacity-80',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
                 </Link>
                 <Link
                   to="/signup"
+                  data-mol-id="landing-nav-cta"
                   className={
-                    'px-5 py-2 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
+                    'flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-xl bg-primary text-on-primary hover:opacity-90 transition-opacity'
                   }
                 >
-                  {t('auth.login.signUp', {}, { defaultValue: 'Sign up' })}
+                  {t('landing.navCta', {}, { defaultValue: 'Get Care Now' })}
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ fontSize: 18 }}
+                    aria-hidden="true"
+                  >
+                    arrow_forward
+                  </span>
                 </Link>
               </>
             )}
@@ -115,211 +157,178 @@ export function Landing() {
         </div>
       </nav>
 
-      <main>
-        {/* Hero — calm teal radial wash with sample provider card */}
-        <section className="relative overflow-hidden">
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 25% 30%, color-mix(in srgb, var(--color-primary) 20%, transparent), transparent 50%),' +
-                'radial-gradient(circle at 78% 60%, color-mix(in srgb, var(--color-secondary) 15%, transparent), transparent 45%)',
-            }}
-            aria-hidden="true"
-          />
-          <div
-            className={cm.cn(
-              cm.maxW('7xl'),
-              cm.mxAuto,
-              cm.sp('px', 6),
-              'relative py-20 md:py-28 lg:py-32',
-            )}
-          >
-            <div className={'grid grid-cols-1 lg:grid-cols-12 gap-12 items-center'}>
-              <div className={'lg:col-span-7'}>
-                <p className={'text-sm font-bold uppercase tracking-widest text-primary mb-4'}>
-                  {t('landing.eyebrow', {}, { defaultValue: 'Telemedicine · HIPAA-compliant' })}
-                </p>
-                <h1
-                  className={
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] mb-6'
-                  }
-                >
-                  {t(
-                    'landing.heroTitle',
-                    { tagline: APP_TAGLINE },
-                    { defaultValue: '{{tagline}}' },
-                  )}
-                </h1>
-                <p className={'text-lg text-on-surface-variant max-w-xl leading-relaxed mb-10'}>
-                  {t(
-                    'landing.heroSubtitle',
-                    {},
-                    {
-                      defaultValue:
-                        'See a board-certified clinician in minutes. Records, vitals, and prescriptions, all in one calm place.',
-                    },
-                  )}
-                </p>
-                <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                  <Link
-                    to="/signup"
-                    className={
-                      'inline-flex items-center gap-2 px-8 py-4 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
-                    }
-                  >
-                    {t('landing.heroCta', {}, { defaultValue: 'Book a visit' })}
-                    <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                      arrow_forward
-                    </span>
-                  </Link>
-                  <Link
-                    to="/login"
-                    className={
-                      'px-8 py-4 font-semibold rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors'
-                    }
-                  >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                  </Link>
-                </div>
+      <main className="pt-24 pb-20">
+        {/* Hero — 60/40 asymmetry: calm copy left, care card right */}
+        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'relative mb-32')}>
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-7 lg:pr-12">
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 2 }),
+                  'mb-6 w-fit rounded-full bg-surface-container-high px-4 py-1.5',
+                )}
+              >
+                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-primary" />
+                <span className="text-xs font-semibold uppercase tracking-wide text-on-surface">
+                  {t('landing.eyebrow', {}, { defaultValue: 'Available 24/7 nationwide' })}
+                </span>
               </div>
-
-              {/* Sample provider hero card */}
-              <div className={'lg:col-span-5'}>
-                <div
-                  className={
-                    'relative overflow-hidden rounded-[2rem] text-white shadow-2xl shadow-primary/20'
-                  }
-                  style={{
-                    backgroundColor: 'var(--color-hero-surface, #0f2937)',
-                    minHeight: '420px',
-                  }}
+              <h1 className="mb-6 text-5xl font-bold leading-[1.1] tracking-tight lg:text-7xl">
+                {headline.lead}{' '}
+                {headline.accent && <span className="gradient-text">{headline.accent}</span>}
+              </h1>
+              <p className="mb-10 max-w-2xl text-xl leading-relaxed text-on-surface-variant">
+                {t(
+                  'landing.heroSubtitle',
+                  {},
+                  {
+                    defaultValue:
+                      'Experience compassionate, high-quality healthcare from the comfort of your home. Connect with board-certified doctors in minutes, not days.',
+                  },
+                )}
+              </p>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Link
+                  to="/signup"
+                  data-mol-id="landing-hero-cta"
+                  className="ambient-shadow hero-gradient inline-flex items-center justify-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold text-on-primary transition-opacity hover:opacity-90"
                 >
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      backgroundImage:
-                        'radial-gradient(circle at 25% 30%, color-mix(in srgb, var(--color-primary) 45%, transparent) 0%, transparent 40%),' +
-                        'radial-gradient(circle at 70% 70%, color-mix(in srgb, var(--color-accent) 30%, transparent) 0%, transparent 35%),' +
-                        'linear-gradient(135deg, var(--color-hero-surface, #0f2937) 0%, var(--color-hero-surface-end, #134e4a) 100%)',
-                    }}
-                    aria-hidden="true"
-                  />
-                  <svg
-                    className={'absolute left-0 right-0 top-1/2 -translate-y-1/2 w-full opacity-30'}
-                    style={{ color: 'var(--color-accent)' }}
-                    height="60"
-                    viewBox="0 0 600 60"
-                    preserveAspectRatio="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M0,30 L150,30 L160,15 L170,45 L180,5 L190,45 L200,30 L350,30 L360,15 L370,45 L380,5 L390,45 L400,30 L600,30"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                    />
-                  </svg>
-
-                  <div className={'relative z-10 p-7 flex flex-col justify-between min-h-[420px]'}>
-                    <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-                      <span className={'relative flex h-3 w-3'}>
-                        <span
-                          className={
-                            'absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping'
-                          }
-                        />
-                        <span
-                          className={'relative inline-flex rounded-full h-3 w-3 bg-emerald-400'}
-                        />
-                      </span>
-                      <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-300">
-                        Available now · 4 min wait
-                      </span>
-                    </div>
-
-                    <div
+                  {t('landing.heroCta', {}, { defaultValue: 'Start a visit now' })}
+                  <span className="material-symbols-outlined" aria-hidden="true">
+                    video_call
+                  </span>
+                </Link>
+                <Link
+                  to="/providers"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-surface-container-lowest px-8 py-4 text-lg font-semibold text-primary transition-colors hover:bg-surface-container-high"
+                >
+                  {t('landing.heroCtaSecondary', {}, { defaultValue: 'Meet our doctors' })}
+                </Link>
+              </div>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 4 }),
+                  'mt-8 text-sm text-on-surface-variant',
+                )}
+              >
+                <div className={cm.cn(cm.flex({ align: 'center' }), '-space-x-2')}>
+                  {TRUST_AVATARS.map((a) => (
+                    <span
+                      key={a.initials}
+                      aria-hidden="true"
                       className={
-                        'bg-surface text-on-surface rounded-2xl p-4 my-4 shadow-2xl shadow-black/20'
+                        'flex h-8 w-8 items-center justify-center rounded-full border-2 border-surface text-[10px] font-bold ' +
+                        a.className
                       }
                     >
-                      <div className={'flex items-start gap-3'}>
-                        <div
-                          className={
-                            'w-14 h-14 rounded-full flex items-center justify-center text-on-primary font-bold shrink-0'
-                          }
-                          style={{
-                            background:
-                              'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
-                          }}
-                          aria-hidden="true"
-                        >
-                          MC
-                        </div>
-                        <div className={'flex-1 min-w-0'}>
-                          <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
-                            Internal medicine
-                          </p>
-                          <h3 className={'text-base font-extrabold tracking-tight'}>
-                            Dr. Mira Chen
-                          </h3>
-                          <p className={'text-[11px] text-on-surface-variant mt-1'}>
-                            12 yrs · 1,800+ visits · 4.9 ★
-                          </p>
-                        </div>
-                        <span
-                          className={
-                            'px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-widest bg-success/10 text-success shrink-0'
-                          }
-                        >
-                          In
-                        </span>
-                      </div>
-                      <div className={'grid grid-cols-3 gap-2 mt-3 text-center'}>
-                        <div className={'bg-success/10 rounded-lg p-2'}>
-                          <p className="text-[9px] font-bold text-on-surface-variant uppercase">
-                            BP
-                          </p>
-                          <p
-                            className={'text-sm font-mono font-extrabold tabular-nums text-success'}
-                          >
-                            118/76
-                          </p>
-                        </div>
-                        <div className={'bg-success/10 rounded-lg p-2'}>
-                          <p className="text-[9px] font-bold text-on-surface-variant uppercase">
-                            HR
-                          </p>
-                          <p
-                            className={'text-sm font-mono font-extrabold tabular-nums text-success'}
-                          >
-                            68
-                          </p>
-                        </div>
-                        <div className={'bg-success/10 rounded-lg p-2'}>
-                          <p className="text-[9px] font-bold text-on-surface-variant uppercase">
-                            SpO2
-                          </p>
-                          <p
-                            className={'text-sm font-mono font-extrabold tabular-nums text-success'}
-                          >
-                            98%
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                      {a.initials}
+                    </span>
+                  ))}
+                </div>
+                <p>{t('landing.trust', {}, { defaultValue: 'Trusted by 10,000+ patients' })}</p>
+              </div>
+            </div>
 
-                    <div>
-                      <p className="text-[11px] font-bold uppercase tracking-widest text-teal-300/80">
-                        Next visit
-                      </p>
-                      <p className={'text-2xl font-extrabold mt-1'}>Today, 2:30 PM</p>
+            {/* Care card — gradient panel with the live provider card + glass
+                status chip standing in for the design's photo */}
+            <div className="relative overflow-hidden lg:col-span-5">
+              <div
+                aria-hidden="true"
+                className="absolute -right-10 -top-10 -z-10 h-64 w-64 rounded-full bg-primary-fixed/30 blur-3xl"
+              />
+              <div
+                className={
+                  'hero-gradient relative flex min-h-[420px] flex-col justify-between overflow-hidden rounded-2xl p-6 ambient-shadow'
+                }
+              >
+                <svg
+                  className="absolute left-0 right-0 top-10 w-full text-primary-fixed opacity-40"
+                  height="60"
+                  viewBox="0 0 600 60"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M0,30 L150,30 L160,15 L170,45 L180,5 L190,45 L200,30 L350,30 L360,15 L370,45 L380,5 L390,45 L400,30 L600,30"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="none"
+                  />
+                </svg>
+
+                <div className="relative z-10 my-auto">
+                  <div className="rounded-2xl bg-surface p-4 text-on-surface shadow-2xl shadow-black/20">
+                    <div className="flex items-start gap-3">
+                      <div
+                        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary-fixed text-on-primary-fixed font-bold"
+                        aria-hidden="true"
+                      >
+                        MC
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
+                          {t('landing.card.specialty', {}, { defaultValue: 'Internal medicine' })}
+                        </p>
+                        <h3 className="text-base font-bold tracking-tight">
+                          {t('landing.card.doctor', {}, { defaultValue: 'Dr. Mira Chen' })}
+                        </h3>
+                        <p className="mt-1 text-[11px] text-on-surface-variant">
+                          {t(
+                            'landing.card.credLine',
+                            {},
+                            { defaultValue: '12 yrs · 1,800+ visits · 4.9 ★' },
+                          )}
+                        </p>
+                      </div>
+                      <span className="shrink-0 rounded-full bg-success/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-success">
+                        {t('landing.card.inNetwork', {}, { defaultValue: 'In network' })}
+                      </span>
+                    </div>
+                    <div className="mt-3 grid grid-cols-3 gap-2 text-center">
+                      <div className="rounded-lg bg-success/10 p-2">
+                        <p className="text-[9px] font-bold uppercase text-on-surface-variant">
+                          {t('landing.card.bp', {}, { defaultValue: 'BP' })}
+                        </p>
+                        <p className="text-sm font-bold tabular-nums text-success">118/76</p>
+                      </div>
+                      <div className="rounded-lg bg-success/10 p-2">
+                        <p className="text-[9px] font-bold uppercase text-on-surface-variant">
+                          {t('landing.card.hr', {}, { defaultValue: 'HR' })}
+                        </p>
+                        <p className="text-sm font-bold tabular-nums text-success">68</p>
+                      </div>
+                      <div className="rounded-lg bg-success/10 p-2">
+                        <p className="text-[9px] font-bold uppercase text-on-surface-variant">
+                          {t('landing.card.spo2', {}, { defaultValue: 'SpO2' })}
+                        </p>
+                        <p className="text-sm font-bold tabular-nums text-success">98%</p>
+                      </div>
                     </div>
                   </div>
-                  <div
-                    className={
-                      'absolute -right-16 -bottom-16 w-48 h-48 rounded-full bg-teal-500/20 blur-3xl'
-                    }
+                </div>
+
+                {/* Floating glass element — vital chip */}
+                <div className="glass-panel relative z-10 flex items-center gap-4 rounded-xl border border-outline-variant/15 p-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary-fixed">
+                    <span className="material-symbols-outlined text-secondary" aria-hidden="true">
+                      favorite
+                    </span>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant">
+                      {t('landing.card.statusLabel', {}, { defaultValue: 'Current status' })}
+                    </p>
+                    <p className="text-sm font-medium text-on-surface">
+                      {t(
+                        'landing.card.statusValue',
+                        {},
+                        { defaultValue: 'Dr. Sarah Jenkins is available' },
+                      )}
+                    </p>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    className="ml-auto h-3 w-3 animate-pulse rounded-full bg-primary"
                   />
                 </div>
               </div>
@@ -327,26 +336,26 @@ export function Landing() {
           </div>
         </section>
 
-        {/* Stats */}
+        {/* Stats (app-needed; the design has no stats band) */}
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-12')}>
           <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-2 md:grid-cols-4')}>
             {TRUST_STATS.map((s) => (
               <div
                 key={s.key}
                 className={
-                  'bg-surface-container-lowest rounded-2xl p-6 text-center hover:shadow-lg transition-shadow'
+                  'rounded-2xl bg-surface-container-lowest p-6 text-center transition-shadow hover:shadow-lg'
                 }
               >
                 <p
                   className={
-                    'text-3xl md:text-4xl font-extrabold tracking-tight text-primary tabular-nums'
+                    'text-3xl font-bold tracking-tight text-primary tabular-nums md:text-4xl'
                   }
                 >
                   {s.value}
                 </p>
                 <p
                   className={
-                    'text-xs font-bold uppercase tracking-widest text-on-surface-variant mt-2'
+                    'mt-2 text-xs font-semibold uppercase tracking-widest text-on-surface-variant'
                   }
                 >
                   {t(`landing.stat.${s.key}`, {}, { defaultValue: s.defaultLabel })}
@@ -356,11 +365,27 @@ export function Landing() {
           </div>
         </section>
 
-        {/* Feature grid */}
+        {/* Features — calm bento cards with mint icon tiles */}
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
-          <h2 className={'mb-12 text-center text-3xl md:text-4xl font-extrabold tracking-tight'}>
-            {t('landing.featuresHeading', {}, { defaultValue: 'Care that travels with you' })}
-          </h2>
+          <div className="mx-auto mb-16 max-w-2xl text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+              {t(
+                'landing.featuresHeading',
+                {},
+                { defaultValue: 'Comprehensive care, simplified.' },
+              )}
+            </h2>
+            <p className="text-lg text-on-surface-variant">
+              {t(
+                'landing.featuresSubheading',
+                {},
+                {
+                  defaultValue:
+                    'Everything you need to manage your health, seamlessly integrated into one calm experience.',
+                },
+              )}
+            </p>
+          </div>
           <div
             className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}
           >
@@ -368,23 +393,21 @@ export function Landing() {
               <div
                 key={f.key}
                 className={
-                  'bg-surface-container-lowest rounded-2xl p-6 hover:shadow-2xl hover:shadow-on-surface/5 transition-all group'
+                  'rounded-2xl border border-outline-variant/15 bg-surface-container-low p-8 transition-colors duration-300 hover:bg-surface-container-high'
                 }
               >
-                <div
-                  className={cm.cn(
-                    'inline-flex p-3 bg-surface rounded-xl shadow-sm group-hover:scale-110 transition-transform',
-                    f.tint,
-                  )}
-                >
-                  <span className="material-symbols-outlined text-3xl" aria-hidden="true">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary-fixed">
+                  <span
+                    className="material-symbols-outlined text-2xl text-on-primary-fixed"
+                    aria-hidden="true"
+                  >
                     {f.icon}
                   </span>
                 </div>
-                <h3 className={'text-lg font-bold mt-5 mb-2'}>
+                <h3 className="mb-3 text-xl font-medium">
                   {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
                 </h3>
-                <p className={'text-sm text-on-surface-variant leading-relaxed'}>
+                <p className="leading-relaxed text-on-surface-variant">
                   {t(`landing.feature.${f.key}.body`, {}, { defaultValue: f.defaultBody })}
                 </p>
               </div>
@@ -392,12 +415,12 @@ export function Landing() {
           </div>
         </section>
 
-        <section className={'border-t border-outline-variant/40'}>
+        <section className="border-t border-outline-variant/40">
           <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 text-center')}>
-            <h3 className={'text-3xl font-extrabold tracking-tight mb-4'}>
+            <h3 className="mb-4 text-3xl font-bold tracking-tight">
               {t('landing.ctaHeading', {}, { defaultValue: 'Visit a doctor today' })}
             </h3>
-            <p className={'text-base text-on-surface-variant max-w-xl mx-auto mb-8'}>
+            <p className="mx-auto mb-8 max-w-xl text-base text-on-surface-variant">
               {t(
                 'landing.ctaBody',
                 {},
@@ -409,12 +432,10 @@ export function Landing() {
             </p>
             <Link
               to="/signup"
-              className={
-                'inline-flex items-center gap-2 px-10 py-4 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
-              }
+              className="hero-gradient inline-flex items-center gap-2 rounded-xl px-10 py-4 font-semibold text-on-primary transition-opacity hover:opacity-90"
             >
-              {t('landing.heroCta', {}, { defaultValue: 'Book a visit' })}
-              <span className={'material-symbols-outlined text-base'} aria-hidden="true">
+              {t('landing.heroCta', {}, { defaultValue: 'Start a visit now' })}
+              <span className="material-symbols-outlined" aria-hidden="true">
                 arrow_forward
               </span>
             </Link>
@@ -422,28 +443,58 @@ export function Landing() {
         </section>
       </main>
 
-      <footer
-        className={
-          'py-8 text-center text-sm bg-surface text-on-surface-variant border-t border-outline-variant'
-        }
-      >
-        <p>
-          {t(
-            'common.copyrightBuiltWithMolecule',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}' },
+      <footer className="bg-surface-container-low py-12">
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            cm.flex({ direction: 'col', gap: 8 }),
+            'md:flex-row md:items-start md:justify-between',
           )}
-          {' — Built with '}
-          <a
-            href="https://molecule.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline font-medium"
+        >
+          <div>
+            <div className="mb-4 text-lg font-bold text-primary">{APP_NAME}</div>
+            <p className="text-xs leading-relaxed tracking-wide text-on-surface-variant">
+              {t(
+                'landing.copyright',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                { defaultValue: '© {{year}} {{app}}' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium hover:underline"
+              >
+                Molecule.dev
+              </a>
+            </p>
+          </div>
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', gap: 6 }),
+              'text-xs leading-relaxed tracking-wide text-on-surface-variant md:flex-row md:justify-end',
+            )}
           >
-            Molecule.dev
-          </a>
-        </p>
+            <Link to="/privacy" className="transition-colors hover:text-primary hover:underline">
+              {t('nav.privacy', {}, { defaultValue: 'Privacy Policy' })}
+            </Link>
+            <Link to="/terms" className="transition-colors hover:text-primary hover:underline">
+              {t('nav.terms', {}, { defaultValue: 'Terms of Service' })}
+            </Link>
+            <Link to="/pricing" className="transition-colors hover:text-primary hover:underline">
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </Link>
+            <Link to="/providers" className="transition-colors hover:text-primary hover:underline">
+              {t('nav.providers', {}, { defaultValue: 'For Providers' })}
+            </Link>
+          </div>
+        </div>
       </footer>
     </div>
   )
 }
+
+export default Landing

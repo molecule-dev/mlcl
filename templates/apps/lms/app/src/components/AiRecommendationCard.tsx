@@ -57,14 +57,22 @@ function AiRecommendationCard() {
             {t('aiRecommendationCard.title', {}, { defaultValue: 'Curated for You' })}
           </h3>
         </div>
-        <p className={cm.cn(cm.textSize('sm'), cm.sp('mb', 6), 'opacity-90')}>{description}</p>
+        <p className={cm.cn(cm.textSize('sm'), cm.sp('mb', 6))}>{description}</p>
         <button
           className={cm.cn(
             cm.w('full'),
             cm.fontWeight('bold'),
             cm.textSize('xs'),
-            'py-2.5 bg-surface/20 backdrop-blur-md rounded-xl hover:bg-surface/30 transition-all border border-surface/10',
+            'py-2.5 rounded-xl transition-all border',
           )}
+          style={{
+            /* Design shows a translucent white pill on the violet card, but
+               inherited #e5d6ff over white/20-blended violet lands ~3.1:1.
+               Deep-ink fill keeps the violet-on-violet look at ~9:1. */
+            backgroundColor: 'var(--color-on-tertiary-fixed)',
+            color: 'var(--color-tertiary-fixed)',
+            borderColor: 'color-mix(in srgb, var(--color-surface) 10%, transparent)',
+          }}
           data-mol-id="btn-ai-recommendation"
           onClick={() => navigate('/courses')}
         >

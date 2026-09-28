@@ -26,4 +26,4 @@ export const APP_DESCRIPTION =
   'Atmospheric forecasts, alerts, and saved-location radar — at a glance.'
 
 /** Primary brand color (PWA manifest, meta theme-color). Matches theme.css --color-primary. */
-export const BRAND_COLOR = '#0284c7'
+export const BRAND_COLOR = '#0891b2'

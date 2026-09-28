@@ -116,7 +116,7 @@ export function Trips() {
               cm.sp('mt', 2),
               'leading-tight tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('trips.heading', {}, { defaultValue: 'Every trip you\u2019ve ever wandered.' })}
           </h1>
@@ -209,7 +209,7 @@ export function Trips() {
               cm.sp('mt', 3),
               'tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {summaries.length === 0
               ? t('trips.noTrips.heading', {}, { defaultValue: 'No trips yet.' })
@@ -251,7 +251,7 @@ export function Trips() {
         <section className={cm.flex({ direction: 'col', gap: 'sm' })}>
           <h2
             className={cm.cn(cm.textSize('xl'), cm.fontWeight('extrabold'), 'tracking-tight')}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('trips.liveHeading', {}, { defaultValue: 'Live & planning' })}
           </h2>
@@ -270,7 +270,7 @@ export function Trips() {
         <section className={cm.flex({ direction: 'col', gap: 'sm' })}>
           <h2
             className={cm.cn(cm.textSize('xl'), cm.fontWeight('extrabold'), 'tracking-tight')}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('trips.pastHeading', {}, { defaultValue: 'Past adventures' })}
           </h2>

@@ -52,7 +52,7 @@ export function AlcoveHeroSearchCard({ compact = false }: { compact?: boolean })
         cm.sp('p', compact ? 6 : 10),
         cm.flex({ direction: 'col', justify: 'between' }),
         compact ? 'min-h-[200px]' : 'min-h-[520px]',
-        'bg-gradient-to-br from-primary to-primary-container rounded-[2rem] text-on-primary relative overflow-hidden',
+        'bg-gradient-to-br from-forest-deep to-primary rounded-[2rem] text-on-primary relative overflow-hidden',
       )}
     >
       <div

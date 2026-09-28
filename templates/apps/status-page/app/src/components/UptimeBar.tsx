@@ -22,14 +22,16 @@ export interface UptimeDay {
   incidentCount?: number
 }
 
+// Segment fill per day status — theme tokens (mode-aware; identical to
+// the previous hardcoded hexes on the dark-first baseline).
 const SEGMENT_COLOR: Record<UptimeDayStatus, string> = {
-  operational: '#10b981',
-  degraded: '#f59e0b',
-  partial: '#f97316',
-  major: '#ef4444',
-  maintenance: '#6366f1',
-  unknown: '#475569',
-  empty: '#1e293b',
+  operational: 'var(--color-status-operational)',
+  degraded: 'var(--color-status-degraded)',
+  partial: 'var(--color-status-partial)',
+  major: 'var(--color-status-major)',
+  maintenance: 'var(--color-status-maintenance)',
+  unknown: 'var(--color-status-unknown)',
+  empty: 'var(--color-surface-container)',
 }
 
 interface UptimeBarProps {

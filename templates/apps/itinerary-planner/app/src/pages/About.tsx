@@ -31,7 +31,7 @@ export function About() {
             cm.sp('mt', 2),
             cm.sp('mb', 6),
           )}
-          style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+          style={{ fontFamily: 'var(--font-headline)' }}
         >
           {t('about.pageTitle', { app: APP_NAME }, { defaultValue: 'About {{app}}' })}
         </h1>
@@ -53,7 +53,7 @@ export function About() {
               cm.sp('mt', 8),
               'text-on-surface',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('about.missionTitle', {}, { defaultValue: 'Our mission' })}
           </h2>
@@ -74,7 +74,7 @@ export function About() {
               cm.sp('mt', 8),
               'text-on-surface',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('common.whatYouGet', {}, { defaultValue: 'What you get' })}
           </h2>
@@ -127,7 +127,7 @@ export function About() {
               cm.sp('mt', 8),
               'text-on-surface',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('about.contactTitle', {}, { defaultValue: 'Talk to us' })}
           </h2>

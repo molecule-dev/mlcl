@@ -25,3 +25,22 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Landing design tokens (Stitch: design-smart-home-dashboard-landing).
+ * Declaring them here registers Tailwind utilities (bg-lm-card,
+ * text-lm-muted, …). The VALUES live in theme.css (:root + dark block) —
+ * same pattern as the Material-3 bridge in base.css: @theme generates the
+ * utilities, theme.css owns the per-mode values.
+ */
+@theme {
+  --color-lm-canvas-from: #fffbeb;
+  --color-lm-canvas-to: #fef3c7;
+  --color-lm-card: #ffffff;
+  --color-lm-card-edge: #fde68a;
+  --color-lm-muted: #a16207;
+  --color-lm-glow: #0891b2;
+  --color-lm-on-glow: #062a33;
+  --color-lm-footer: #fef9ee;
+  --color-lm-footer-edge: #fde68a;
+}

@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { APP_NAME, BRAND_COLOR } from '../branding.js'
 import { type LogLine, LogLineRow } from '../components/LogLineRow.js'
 
 const FEATURES = [
@@ -37,6 +37,130 @@ const FEATURES = [
     tint: 'var(--color-severity-error)',
   },
 ] as const
+
+/** Static mono demo pinned to the bottom of each landing feature card. */
+function FeatureDemo({ kind }: { kind: 'search' | 'tracing' | 'realtime' | 'alerts' }) {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  if (kind === 'search') {
+    return (
+      <div
+        className={cm.cn('mt-auto rounded p-4 font-mono text-xs overflow-hidden border')}
+        style={{
+          backgroundColor: 'var(--color-background)',
+          borderColor: 'var(--color-border)',
+        }}
+      >
+        <div className={cm.cn('mb-1')} style={{ color: 'var(--color-accent)' }}>
+          {t('landing.demoQuerySelect', {}, { defaultValue: 'SELECT * FROM logs' })}
+        </div>
+        <div className={cm.cn('mb-1')} style={{ color: 'var(--color-primary)' }}>
+          {t(
+            'landing.demoQueryWhere',
+            {},
+            { defaultValue: "WHERE severity IN ('ERROR', 'FATAL')" },
+          )}
+        </div>
+        <div className={cm.cn('text-on-surface-variant')}>
+          {t('landing.demoQuerySince', {}, { defaultValue: 'AND timestamp >= NOW() - 1h' })}
+        </div>
+      </div>
+    )
+  }
+  if (kind === 'tracing') {
+    return (
+      <div className={cm.cn('mt-auto flex flex-col gap-2')}>
+        <div
+          className={cm.cn('flex items-center gap-3 rounded border p-2')}
+          style={{ backgroundColor: 'var(--color-background)', borderColor: 'var(--color-border)' }}
+        >
+          <span
+            className={cm.cn('material-symbols-outlined text-sm text-on-surface-variant')}
+            aria-hidden="true"
+          >
+            api
+          </span>
+          <div
+            className={cm.cn('h-1 rounded w-1/3')}
+            style={{ backgroundColor: 'var(--color-primary)' }}
+          />
+          <span className={cm.cn('ml-auto font-mono text-xs text-on-surface-variant')}>12ms</span>
+        </div>
+        <div
+          className={cm.cn('flex items-center gap-3 rounded border p-2 ml-4')}
+          style={{ backgroundColor: 'var(--color-background)', borderColor: 'var(--color-border)' }}
+        >
+          <span
+            className={cm.cn('material-symbols-outlined text-sm text-on-surface-variant')}
+            aria-hidden="true"
+          >
+            database
+          </span>
+          <div
+            className={cm.cn('h-1 rounded w-1/4')}
+            style={{ backgroundColor: 'var(--color-accent)' }}
+          />
+          <span className={cm.cn('ml-auto font-mono text-xs text-on-surface-variant')}>8ms</span>
+        </div>
+      </div>
+    )
+  }
+  if (kind === 'realtime') {
+    return (
+      <div
+        className={cm.cn('mt-auto rounded border p-4 font-mono text-xs')}
+        style={{
+          backgroundColor: 'var(--color-background)',
+          borderColor: 'var(--color-border)',
+        }}
+      >
+        <div className={cm.cn('flex items-center gap-2')}>
+          <span
+            className={cm.cn('inline-block h-2 w-2 rounded-full animate-pulse')}
+            style={{ backgroundColor: 'var(--color-success)' }}
+            aria-hidden="true"
+          />
+          <span className={cm.cn('font-bold uppercase tracking-widest text-success')}>
+            {t('landing.demoLiveBadge', {}, { defaultValue: 'live' })}
+          </span>
+          <span className={cm.cn('ml-auto text-on-surface-variant')}>
+            {t('landing.demoTailRate', {}, { defaultValue: '2.4k lines/s' })}
+          </span>
+        </div>
+      </div>
+    )
+  }
+  return (
+    <div
+      className={cm.cn('mt-auto rounded border p-4 font-mono text-xs relative overflow-hidden')}
+      style={{
+        backgroundColor: 'var(--color-background)',
+        borderColor: 'color-mix(in srgb, var(--color-severity-error) 30%, transparent)',
+      }}
+    >
+      <div
+        className={cm.cn('absolute left-0 top-0 bottom-0 w-1')}
+        style={{ backgroundColor: 'var(--color-severity-error)' }}
+        aria-hidden="true"
+      />
+      <div className={cm.cn('flex justify-between items-center mb-2')}>
+        <span className={cm.cn('font-bold')} style={{ color: 'var(--color-severity-error)' }}>
+          {t('landing.demoAlertTitle', {}, { defaultValue: 'ALERT: Spike in 500s' })}
+        </span>
+        <span className={cm.cn('text-on-surface-variant')}>
+          {t('landing.demoAlertAge', {}, { defaultValue: '1m ago' })}
+        </span>
+      </div>
+      <div className={cm.cn('text-on-surface-variant')}>
+        {t('landing.demoAlertThreshold', {}, { defaultValue: 'Threshold: > 5% error rate' })}
+      </div>
+      <div className={cm.cn('text-on-surface-variant')}>
+        {t('landing.demoAlertCurrent', {}, { defaultValue: 'Current: ' })}
+        <span className={cm.cn('text-on-surface')}>12.4%</span>
+      </div>
+    </div>
+  )
+}
 
 // Mirrors the real tier ladder in api/src/tiers.ts (names, prices, limits) —
 // the /pricing page renders the same tiers from GET /api/billing/tiers.
@@ -183,7 +307,7 @@ export function Landing() {
                 to="/dashboard"
                 data-mol-id="landing-nav-dashboard"
                 className={cm.cn(
-                  'px-5 py-2 font-mono font-semibold text-sm rounded-md transition-all hover:opacity-90 shadow-lg',
+                  'px-5 py-2 font-semibold text-sm rounded transition-all hover:opacity-90 shadow-lg',
                 )}
                 style={{
                   backgroundColor: BRAND_COLOR,
@@ -207,7 +331,7 @@ export function Landing() {
                 <Link
                   to="/signup"
                   className={cm.cn(
-                    'px-5 py-2 font-mono font-semibold text-sm rounded-md transition-all hover:opacity-90 shadow-lg',
+                    'px-5 py-2 font-semibold text-sm rounded transition-all hover:opacity-90 shadow-lg',
                   )}
                   style={{
                     backgroundColor: BRAND_COLOR,
@@ -257,22 +381,29 @@ export function Landing() {
               className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center')}
             >
               <div className={cm.cn('lg:col-span-7')}>
-                <p
-                  className={cm.cn('font-mono text-sm font-bold uppercase tracking-widest mb-5')}
-                  style={{ color: BRAND_COLOR }}
+                {/* Release-note pill — mono tag + muted note */}
+                <div
+                  className={cm.cn(
+                    'inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border w-fit mb-5',
+                  )}
+                  style={{ borderColor: 'var(--color-border)' }}
                 >
-                  {t('landing.kicker', {}, { defaultValue: '$ tail -f /var/log/everything' })}
-                </p>
+                  <span className={cm.cn('font-mono text-xs')} style={{ color: BRAND_COLOR }}>
+                    {t('landing.kicker', {}, { defaultValue: '$ tail -f /var/log/everything' })}
+                  </span>
+                  <span className={cm.cn('text-xs text-on-surface-variant')}>
+                    {t('landing.kickerNote', {}, { defaultValue: 'Improved query performance' })}
+                  </span>
+                </div>
                 <h1
                   className={cm.cn(
                     'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] mb-6 text-on-surface',
                   )}
                 >
-                  {t(
-                    'landing.heroTitle',
-                    { tagline: APP_TAGLINE },
-                    { defaultValue: '{{tagline}}' },
-                  )}
+                  {t('landing.heroTitle', {}, { defaultValue: 'Every signal, instantly' })}{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-hero-gradient-to)]">
+                    {t('landing.heroTitleAccent', {}, { defaultValue: 'traced.' })}
+                  </span>
                 </h1>
                 <p
                   className={cm.cn(
@@ -292,7 +423,7 @@ export function Landing() {
                   <Link
                     to="/signup"
                     className={cm.cn(
-                      'inline-flex items-center gap-2 px-8 py-4 font-mono font-semibold rounded-md transition-all hover:opacity-90 shadow-xl',
+                      'inline-flex items-center gap-2 px-6 py-3 font-semibold text-lg rounded transition-all hover:opacity-90 shadow-xl',
                     )}
                     style={{
                       backgroundColor: BRAND_COLOR,
@@ -312,7 +443,7 @@ export function Landing() {
                   <Link
                     to="/login"
                     className={cm.cn(
-                      'px-8 py-4 font-mono font-semibold rounded-md border transition-colors hover:bg-surface-container text-on-surface',
+                      'inline-flex items-center gap-2 px-6 py-3 font-semibold text-lg rounded border transition-colors hover:bg-surface-container text-on-surface',
                     )}
                     style={{ borderColor: 'var(--color-outline)' }}
                   >
@@ -342,7 +473,7 @@ export function Landing() {
               {/* Embedded sample — mirrors the auth'd live tail */}
               <div className={cm.cn('lg:col-span-5')}>
                 <div
-                  className={cm.cn('rounded-2xl shadow-2xl overflow-hidden border')}
+                  className={cm.cn('rounded shadow-2xl overflow-hidden border')}
                   style={{
                     backgroundColor: 'var(--color-surface)',
                     borderColor: 'var(--color-border)',
@@ -431,32 +562,35 @@ export function Landing() {
               <div
                 key={f.key}
                 className={cm.cn(
-                  'group rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-xl',
+                  'group rounded p-6 flex flex-col gap-6 transition-all hover:-translate-y-0.5 hover:shadow-xl border',
                 )}
                 style={{
                   backgroundColor: 'var(--color-surface)',
-                  border: '1px solid var(--color-border)',
+                  borderColor: 'var(--color-border)',
                 }}
               >
                 <div
                   className={cm.cn(
-                    'inline-flex p-3 rounded-xl group-hover:scale-110 transition-transform',
+                    'inline-flex p-3 rounded border group-hover:scale-110 transition-transform w-fit',
                   )}
                   style={{
                     backgroundColor: `color-mix(in srgb, ${f.tint} 13%, transparent)`,
                     color: f.tint,
                   }}
                 >
-                  <span className={cm.cn('material-symbols-outlined text-3xl')} aria-hidden="true">
+                  <span className={cm.cn('material-symbols-outlined text-2xl')} aria-hidden="true">
                     {f.icon}
                   </span>
                 </div>
-                <h3 className={cm.cn('text-lg font-extrabold mt-5 mb-2 text-on-surface')}>
-                  {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
-                </h3>
-                <p className={cm.cn('text-sm text-on-surface-variant leading-relaxed')}>
-                  {t(`landing.feature.${f.key}.body`, {}, { defaultValue: f.defaultBody })}
-                </p>
+                <div>
+                  <h3 className={cm.cn('text-xl font-bold mb-2 text-on-surface')}>
+                    {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
+                  </h3>
+                  <p className={cm.cn('text-sm text-on-surface-variant leading-relaxed')}>
+                    {t(`landing.feature.${f.key}.body`, {}, { defaultValue: f.defaultBody })}
+                  </p>
+                </div>
+                <FeatureDemo kind={f.key} />
               </div>
             ))}
           </div>
@@ -496,9 +630,7 @@ export function Landing() {
                 return (
                   <div
                     key={p.tier}
-                    className={cm.cn(
-                      'relative rounded-2xl p-7 transition-all hover:-translate-y-1',
-                    )}
+                    className={cm.cn('relative rounded p-7 transition-all hover:-translate-y-1')}
                     style={{
                       backgroundColor: 'var(--color-surface)',
                       border: featured
@@ -571,7 +703,7 @@ export function Landing() {
                     <Link
                       to="/signup"
                       className={cm.cn(
-                        'mt-6 block w-full text-center px-4 py-3 rounded-md font-mono font-semibold transition-colors',
+                        'mt-6 block w-full text-center px-4 py-3 rounded font-semibold transition-colors',
                       )}
                       style={
                         featured
@@ -617,7 +749,7 @@ export function Landing() {
             <Link
               to="/signup"
               className={cm.cn(
-                'inline-flex items-center gap-2 px-10 py-4 font-mono font-semibold rounded-md transition-all hover:opacity-90 shadow-xl',
+                'inline-flex items-center gap-2 px-10 py-4 font-semibold rounded transition-all hover:opacity-90 shadow-xl',
               )}
               style={{
                 backgroundColor: BRAND_COLOR,
@@ -633,33 +765,139 @@ export function Landing() {
             </Link>
           </div>
         </section>
+        {/* Metrics band — "Trusted by platform teams" stat tiles */}
+        <section
+          className={cm.cn('border-t py-20')}
+          style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-background)' }}
+        >
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6))}>
+            <h3
+              className={cm.cn(
+                'text-center font-medium mb-12 uppercase tracking-widest text-sm text-on-surface-variant',
+              )}
+            >
+              {t('landing.metricsHeading', {}, { defaultValue: 'Trusted by platform teams' })}
+            </h3>
+            <div className={cm.cn('grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8')}>
+              {(
+                [
+                  { value: '99.995%', key: 'uptime', defaultLabel: 'Uptime', accent: false },
+                  {
+                    value: '12ms',
+                    key: 'latency',
+                    defaultLabel: 'p99 Query Latency',
+                    accent: true,
+                  },
+                  { value: '14PB+', key: 'indexed', defaultLabel: 'Indexed Daily', accent: false },
+                  { value: '48s', key: 'mttr', defaultLabel: 'Average MTTR', accent: true },
+                ] as const
+              ).map((m) => (
+                <div
+                  key={m.key}
+                  className={cm.cn('flex flex-col items-center justify-center p-6 rounded border')}
+                  style={{
+                    backgroundColor: 'color-mix(in srgb, var(--color-surface) 50%, transparent)',
+                    borderColor: 'color-mix(in srgb, var(--color-border) 50%, transparent)',
+                  }}
+                >
+                  <span
+                    className={cm.cn('text-3xl md:text-4xl font-bold font-mono mb-2')}
+                    style={{ color: m.accent ? 'var(--color-primary)' : undefined }}
+                  >
+                    {m.value}
+                  </span>
+                  <span className={cm.cn('text-sm text-on-surface-variant')}>
+                    {t(`landing.metric.${m.key}`, {}, { defaultValue: m.defaultLabel })}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer
-        className={cm.cn('py-8 text-center text-sm border-t')}
-        style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-tertiary)' }}
+        className={cm.cn('py-12 border-t')}
+        style={{
+          borderColor: 'var(--color-border)',
+          backgroundColor: 'var(--color-footer-bg, var(--color-background))',
+          color: 'var(--color-text-tertiary)',
+        }}
       >
-        <div className={cm.cn('mb-3 flex items-center justify-center gap-6 flex-wrap')}>
-          <Link to="/about" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('nav.about', {}, { defaultValue: 'About' })}
-          </Link>
-          <Link to="/pricing" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
-          </Link>
-          <Link to="/terms" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('nav.terms', {}, { defaultValue: 'Terms' })}
-          </Link>
-          <Link to="/privacy" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
-          </Link>
-        </div>
-        <p>
-          {t(
-            'landing.copyright',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Every signal, instantly traced.' },
+        <div
+          className={cm.cn(
+            cm.maxW('5xl'),
+            cm.mxAuto,
+            cm.sp('px', 8),
+            cm.flex({ direction: 'col', justify: 'between', align: 'center', gap: 'md' }),
+            'md:flex-row gap-6',
           )}
-        </p>
+        >
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', gap: 'xs' }),
+              'items-center md:items-start',
+            )}
+          >
+            <span className={cm.cn('text-lg font-black text-on-surface')}>{APP_NAME}</span>
+            <span
+              className={cm.cn(
+                'font-mono text-xs uppercase tracking-widest text-on-surface-variant',
+              )}
+            >
+              {t(
+                'landing.copyright',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                { defaultValue: '\u00a9 {{year}} {{app}} \u2014 Precise Clinical Observability' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
+            </span>
+          </div>
+          <div
+            className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex-wrap justify-center')}
+          >
+            <Link
+              to="/about"
+              className={cm.cn(
+                'font-mono text-xs uppercase tracking-widest hover:text-on-surface transition-colors',
+              )}
+            >
+              {t('nav.about', {}, { defaultValue: 'About' })}
+            </Link>
+            <Link
+              to="/pricing"
+              className={cm.cn(
+                'font-mono text-xs uppercase tracking-widest hover:text-on-surface transition-colors',
+              )}
+            >
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </Link>
+            <Link
+              to="/terms"
+              className={cm.cn(
+                'font-mono text-xs uppercase tracking-widest hover:text-on-surface transition-colors',
+              )}
+            >
+              {t('nav.terms', {}, { defaultValue: 'Terms' })}
+            </Link>
+            <Link
+              to="/privacy"
+              className={cm.cn(
+                'font-mono text-xs uppercase tracking-widest hover:text-on-surface transition-colors',
+              )}
+            >
+              {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
+            </Link>
+          </div>
+        </div>
       </footer>
     </div>
   )

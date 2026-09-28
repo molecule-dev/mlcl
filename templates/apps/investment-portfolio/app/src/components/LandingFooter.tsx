@@ -45,6 +45,15 @@ export function LandingFooter() {
                 '© {{year}} {{app}}. Not investment advice. Past performance does not guarantee future results.',
             },
           )}
+          {' — Built with '}
+          <a
+            href="https://molecule.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium hover:underline"
+          >
+            Molecule.dev
+          </a>
         </p>
         <div
           className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex-wrap', cm.textSize('xs'))}

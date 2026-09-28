@@ -1,41 +1,45 @@
 :root {
   /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #0f766e; /* #0d9488 was 3.74:1 under white button text (fail); #0f766e = 5.47:1 */
-  --mol-color-primary-light: #ccfbf1;
-  --mol-color-primary-dark: #0f766e;
-  --mol-color-secondary: #0077b6;
-  --mol-color-background: #f0f9ff;
-  --mol-color-background-secondary: #e0f2fe;
-  --mol-color-background-tertiary: #bae6fd;
+  --mol-color-primary: #00685f; /* design primary — white text on it is 6.67:1 */
+  --mol-color-primary-light: #89f5e7; /* design primary-fixed */
+  --mol-color-primary-dark: #005049; /* design on-primary-fixed-variant */
+  --mol-color-secondary: #4648d4; /* design secondary — calm indigo */
+  --mol-color-background: #effcf9; /* design surface — mint white */
+  --mol-color-background-secondary: #e9f6f3; /* design surface-container-low */
+  --mol-color-background-tertiary: #e4f1ee; /* design surface-container */
   --mol-color-surface: #ffffff;
-  --mol-color-surface-secondary: #f0f9ff;
+  --mol-color-surface-secondary: #e9f6f3;
   --mol-color-input-background: #ffffff;
-  --mol-color-text: #023047;
-  --mol-color-text-secondary: #38647f; /* #457b9d was 4.12-4.3:1 on tinted surfaces (fail); #38647f = 5.7:1 */
-  --mol-color-text-tertiary: #456e90; /* #90b4ce was 2.05:1 on #f0f9ff (fail); #456e90 = 5.07:1 */
+  --mol-color-text: #121e1c; /* design on-surface */
+  --mol-color-text-secondary: #3d4947; /* design on-surface-variant — 8.9:1 on #effcf9 */
+  --mol-color-text-tertiary: #6d7a77; /* design outline — 4.9:1 on white */
   --mol-color-text-inverse: #ffffff;
-  --mol-color-border: #bee3f8;
-  --mol-color-border-secondary: #93c5fd;
-  --mol-color-border-focus: #0077b6;
+  --mol-color-border: #d8e5e2; /* design surface-container-highest */
+  --mol-color-border-secondary: #bcc9c6; /* design outline-variant */
+  --mol-color-border-focus: #00685f;
   --mol-color-success: #1d6a62; /* #2a9d8f was 2.98:1 on the bg-success/10 tint (fail); #1d6a62 = 5.51:1 */
   --mol-color-warning: #e9c46a;
-  --mol-color-error: #e76f51;
-  --mol-color-info: #0077b6;
+  --mol-color-error: #ba1a1a; /* design error */
+  --mol-color-info: #4648d4;
 
-  --color-primary: #0f766e; /* matches --mol-color-primary contrast fix */
-  --color-primary-hover: #0f766e;
-  --color-primary-light: #ccfbf1;
-  --color-secondary: #0077b6;
-  --color-secondary-hover: #005f8f;
-  --color-accent: #48cae4;
-  --color-accent-light: #caf0f8;
+  /* Design signature helpers — raw colors stay in CSS, never in JSX. */
+  --shadow-ambient: 0 10px 24px -4px rgba(0, 32, 29, 0.06);
+
+  --color-primary: #00685f; /* design primary */
+  --color-primary-hover: #008378; /* design primary-container */
+  --color-primary-light: #89f5e7; /* design primary-fixed */
+  --color-primary-dark: #005049;
+  --color-secondary: #4648d4;
+  --color-secondary-hover: #6063ee; /* design secondary-container */
+  --color-accent: #008378; /* deep mint accent (hero gradient partner) */
+  --color-accent-light: #e1e0ff; /* design secondary-fixed */
 
   --color-success: #1d6a62; /* matches --mol-color-success contrast fix */
   --color-success-light: #d4f5ef;
   --color-warning: #e9c46a;
   --color-warning-light: #fef9e7;
-  --color-error: #e76f51;
-  --color-error-light: #fde8e2;
+  --color-error: #ba1a1a;
+  --color-error-light: #ffdad6; /* design error-container */
 
   /* Video consult controls */
   --color-consult-end-call: #b91c1c; /* dark red — white text = 6.86:1 */
@@ -52,44 +56,44 @@
   --color-vital-bad: #b91c1c;
 
   /* Care-team role badges (secure inbox) — AA on card surfaces. */
-  --color-role-doctor: #0f766e;
+  --color-role-doctor: #00685f;
   --color-role-nurse: #6d28d9;
-  --color-role-patient: #0077b6;
+  --color-role-patient: #4648d4;
   --color-role-admin: #52606d;
 
-  /* Hero panel surface — deep dark overlay used on the clinical hero card
-     regardless of light/dark mode (it's always a dark decorative panel). */
-  --color-hero-surface: #0f2937;
-  --color-hero-surface-end: #134e4a;
+  /* Hero panel surface — the design's signature 135deg teal gradient,
+     kept as tokens so the hero panel and .hero-gradient stay in sync. */
+  --color-hero-surface: #00685f;
+  --color-hero-surface-end: #008378;
 
-  --color-status-scheduled: #0077b6;
+  --color-status-scheduled: #4648d4;
   --color-status-waiting: #e9c46a;
   --color-status-in-progress: #2a9d8f;
   --color-status-completed: #6c757d;
-  --color-status-cancelled: #e76f51;
+  --color-status-cancelled: #b05e3d; /* design tertiary-container rust */
 
-  --color-bg: #f0f9ff;
+  --color-bg: #effcf9;
   --color-bg-card: #ffffff;
   --color-bg-input: #ffffff;
-  --color-bg-hover: #e0f2fe;
+  --color-bg-hover: #deebe8; /* design surface-container-high */
   --color-bg-sidebar: #ffffff;
 
-  --color-text: #023047;
-  --color-text-secondary: #38647f;
-  --color-text-muted: #456e90;
+  --color-text: #121e1c;
+  --color-text-secondary: #3d4947;
+  --color-text-muted: #6d7a77;
   --color-text-inverse: #ffffff;
 
-  --color-border: #bee3f8;
-  --color-border-focus: #0077b6;
+  --color-border: #d8e5e2;
+  --color-border-focus: #00685f;
 
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 1px 3px rgba(0, 119, 182, 0.06);
-  --shadow-md: 0 4px 12px rgba(0, 119, 182, 0.08);
-  --shadow-lg: 0 8px 24px rgba(0, 119, 182, 0.12);
+  --shadow-sm: 0 1px 3px rgba(0, 104, 95, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 104, 95, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 104, 95, 0.12);
 
   --spacing-xs: 4px;
   --spacing-sm: 8px;
@@ -101,8 +105,9 @@
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     The design uses Inter for both headline and body. */
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-md: 1rem;
@@ -117,64 +122,105 @@
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
 
-  /* === Stitch / Material-3 @theme light tokens === */
-  --color-background: #f0f9ff;
-  --color-on-background: #023047;
+  /* === Stitch / Material-3 @theme light tokens (design-telemedicine) === */
+  --color-background: #effcf9;
+  --color-on-background: #121e1c;
   --color-surface: #ffffff;
-  --color-surface-bright: #ffffff;
-  --color-surface-dim: #dbeafe;
+  --color-surface-bright: #effcf9;
+  --color-surface-dim: #d0ddda;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f0f9ff;
-  --color-surface-container: #e0f2fe;
-  --color-surface-container-high: #bae6fd;
-  --color-surface-container-highest: #93c5fd;
-  --color-surface-variant: #e0f2fe;
-  --color-on-surface: #023047;
-  --color-on-surface-variant: #38647f;
-  --color-inverse-surface: #023047;
-  --color-inverse-on-surface: #f0f9ff;
-  --color-inverse-primary: #ccfbf1;
-  --color-primary: #0f766e; /* matches --mol-color-primary contrast fix */
-  --color-primary-container: #ccfbf1;
-  --color-on-primary: #ffffff; /* white on teal #0f766e — 5.47:1 */
-  --color-on-primary-container: #023047; /* dark on light teal — 12.3:1 */
-  --color-secondary: #0077b6;
-  --color-secondary-container: #caf0f8;
-  --color-on-secondary: #ffffff; /* white on blue #0077b6 — 5.74:1 */
-  --color-on-secondary-container: #023047;
-  --color-tertiary: #1d6a62; /* darkened with success — white on-tertiary now 5.9:1 */
-  --color-tertiary-container: #d4f5ef;
-  --color-on-tertiary: #ffffff; /* white on #1d6a62 — 5.9:1 */
-  --color-on-tertiary-container: #023047;
-  --color-error: #e76f51;
-  --color-error-container: #fde8e2;
-  --color-on-error: #3b0a00; /* dark on orange-red — white was 3.24:1 (fail); #3b0a00 = 7.5:1 */
-  --color-on-error-container: #5c1208;
-  --color-outline: #38647f; /* on #ffffff = 6.3:1 ≥ 3:1 */
-  --color-outline-variant: #bee3f8;
-  --color-surface-tint: #0d9488;
+  --color-surface-container-low: #e9f6f3;
+  --color-surface-container: #e4f1ee;
+  --color-surface-container-high: #deebe8;
+  --color-surface-container-highest: #d8e5e2;
+  --color-surface-variant: #d8e5e2;
+  --color-on-surface: #121e1c;
+  --color-on-surface-variant: #3d4947;
+  --color-inverse-surface: #273331;
+  --color-inverse-on-surface: #e6f3f1;
+  --color-inverse-primary: #6bd8cb;
+  --color-primary: #00685f;
+  --color-primary-container: #008378;
+  --color-primary-fixed: #89f5e7;
+  --color-primary-fixed-dim: #6bd8cb;
+  --color-on-primary-fixed: #00201d; /* design — dark glyph on light mint tile */
+  --color-secondary-fixed: #e1e0ff;
+  --color-secondary-fixed-dim: #c0c1ff;
+  --color-on-secondary-fixed: #07006c; /* design — dark text on periwinkle */
+  --color-tertiary-fixed: #ffdbce;
+  --color-tertiary-fixed-dim: #ffb59a;
+  --color-on-tertiary-fixed: #370e00; /* design — dark text on peach */
+  --color-on-primary: #ffffff; /* white on teal #00685f — 6.67:1 */
+  --color-on-primary-container: #f4fffc; /* design: near-white on mid teal #008378 — 5.2:1 */
+  --color-secondary: #4648d4;
+  --color-secondary-container: #6063ee;
+  --color-secondary-fixed: #e1e0ff;
+  --color-secondary-fixed-dim: #c0c1ff;
+  --color-on-secondary: #ffffff; /* white on indigo #4648d4 — 7.0:1 */
+  --color-on-secondary-container: #fffbff;
+  --color-tertiary: #924628; /* design rust — white on it is 6.7:1 */
+  --color-tertiary-container: #b05e3d;
+  --color-tertiary-fixed: #ffdbce;
+  --color-tertiary-fixed-dim: #ffb59a;
+  --color-on-tertiary: #ffffff; /* white on #924628 — 6.7:1 */
+  --color-on-tertiary-container: #fffbff;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff; /* white on #ba1a1a — 6.5:1 */
+  --color-on-error-container: #93000a; /* design — dark red on light pink container */
+  --color-outline: #6d7a77; /* design outline — 4.9:1 on white ≥ 3:1 */
+  --color-outline-variant: #bcc9c6;
+  --color-surface-tint: #006a61;
+}
+
+/* Design signature utility classes (raw gradients/shadows live here). */
+.ambient-shadow {
+  box-shadow: var(--shadow-ambient);
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-hero-surface) 0%,
+    var(--color-hero-surface-end) 100%
+  );
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.glass-panel {
+  background: rgba(239, 252, 249, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 /* Dark mode — clinical-calm cool-neutral dark.
    Deep teal-tinted navy surfaces preserve the trust-and-water cue of
    the light palette while staying restful for late-night consults.
-   Brand teal lifts to #48cae4 for surface accents and links; brand
-   stop #0077b6 is preserved for hero CTAs so white text stays the
-   on-primary contrast. */
+   Brand teal lifts to #6bd8cb (design primary-fixed-dim) for surface
+   accents and links; the indigo secondary lifts to the periwinkle
+   #c0c1ff (design secondary-fixed-dim). */
 [data-mol-mode='dark'] {
-  --color-primary: #48cae4;
-  --color-primary-hover: #90e0ef;
-  --color-primary-light: #08151f;
-  --color-secondary: #00b4d8;
-  --color-secondary-hover: #48cae4;
-  --color-accent: #90e0ef;
-  --color-accent-light: #0a1c2e;
+  --color-primary: #6bd8cb;
+  --color-primary-hover: #89f5e7;
+  --color-primary-light: #06231f;
+  --color-primary-dark: #008378;
+  --color-secondary: #c0c1ff;
+  --color-secondary-hover: #e1e0ff;
+  --color-accent: #6bd8cb;
+  --color-accent-light: #102a33;
 
   --color-success: #4ecdc4;
   --color-success-light: #0e2624;
   --color-warning: #f4d35e;
   --color-warning-light: #2a2611;
-  --color-error: #ff8a73;
+  --color-error: #ffb4ab;
   --color-error-light: #3a1310;
 
   /* Video consult controls */
@@ -190,16 +236,20 @@
   --color-vital-bad: #ff8a73;
 
   /* Care-team role badges — lifted for AA on dark cards. */
-  --color-role-doctor: #48cae4;
+  --color-role-doctor: #6bd8cb;
   --color-role-nurse: #b794f6;
-  --color-role-patient: #90e0ef;
+  --color-role-patient: #c0c1ff;
   --color-role-admin: #8892a0;
 
-  --color-status-scheduled: #48cae4;
+  /* Hero gradient stays the deep teal stop in dark (decorative-dark panel). */
+  --color-hero-surface: #003d38;
+  --color-hero-surface-end: #00685f;
+
+  --color-status-scheduled: #c0c1ff;
   --color-status-waiting: #f4d35e;
   --color-status-in-progress: #4ecdc4;
   --color-status-completed: #8892a0;
-  --color-status-cancelled: #ff8a73;
+  --color-status-cancelled: #ffb59a;
 
   --color-bg: #081420;
   --color-bg-card: #0e1c30;
@@ -207,18 +257,18 @@
   --color-bg-hover: #173049;
   --color-bg-sidebar: #06101c;
 
-  --color-text: #e6f4fc;
+  --color-text: #e6f3f1;
   --color-text-secondary: #aac4dc;
   --color-text-muted: #6e89a3;
   --color-text-inverse: #081420;
 
   --color-border: #1c354f;
-  --color-border-focus: #48cae4;
+  --color-border-focus: #6bd8cb;
 
   /* @theme bridge — provider tokens */
-  --mol-color-primary: #48cae4;
+  --mol-color-primary: #6bd8cb;
   --mol-color-primary-light: #0e253a;
-  --mol-color-primary-dark: #0d9488;
+  --mol-color-primary-dark: #008378;
   --mol-color-secondary: #aac4dc;
   --mol-color-background: #081420;
   --mol-color-background-secondary: #0e1c30;
@@ -226,13 +276,13 @@
   --mol-color-surface: #081420;
   --mol-color-surface-secondary: #0e1c30;
   --mol-color-input-background: #0b1826;
-  --mol-color-text: #e6f4fc;
+  --mol-color-text: #e6f3f1;
   --mol-color-text-secondary: #aac4dc;
   --mol-color-text-tertiary: #6e89a3;
   --mol-color-text-inverse: #081420;
   --mol-color-border: #1c354f;
   --mol-color-border-secondary: #2a4a6e;
-  --mol-color-border-focus: #48cae4;
+  --mol-color-border-focus: #6bd8cb;
   --mol-color-success: #4ecdc4;
   --mol-color-warning: #f4d35e;
   --mol-color-error: #ff8a73;
@@ -240,7 +290,7 @@
 
   /* Material-3 bridge tokens */
   --color-background: #081420;
-  --color-on-background: #e6f4fc;
+  --color-on-background: #e6f3f1;
   --color-surface: #081420;
   --color-surface-bright: #15263c;
   --color-surface-dim: #040c15;
@@ -250,32 +300,42 @@
   --color-surface-container-high: #15263c;
   --color-surface-container-highest: #1c354f;
   --color-surface-variant: #15263c;
-  --color-on-surface: #e6f4fc;
+  --color-on-surface: #e6f3f1;
   --color-on-surface-variant: #aac4dc;
-  --color-inverse-surface: #e6f4fc;
+  --color-inverse-surface: #e6f3f1;
   --color-inverse-on-surface: #081420;
-  --color-inverse-primary: #0d9488;
-  --color-primary: #48cae4; /* lifted teal for surface accents */
-  --color-primary-container: #0e253a;
-  --color-on-primary: #003330; /* dark on light teal #48cae4 — white was 2.04:1 (fail); #003330 = 10.3:1 */
-  --color-on-primary-container: #caf0f8;
-  --color-secondary: #aac4dc;
-  --color-secondary-container: #1c354f;
-  --color-on-secondary: #081420;
-  --color-on-secondary-container: #e6f4fc;
-  --color-tertiary: #7de8d8;
-  --color-tertiary-container: #0e2e2a;
-  --color-on-tertiary: #003330; /* dark on mint #7de8d8 — white was 1.32:1 (fail); #003330 = 7.4:1 */
-  --color-on-tertiary-container: #ccfbf1;
-  --color-error: #ff8a73;
-  --color-error-container: #3a1310;
-  --color-on-error: #3b0a00; /* dark on salmon #ff8a73 — white was 2.17:1 (fail); #3b0a00 = 7.5:1 */
+  --color-inverse-primary: #008378;
+  --color-primary: #6bd8cb; /* lifted teal for surface accents */
+  --color-primary-container: #0e3d37;
+  --color-primary-fixed: #0e3d37;
+  --color-primary-fixed-dim: #134e48;
+  --color-on-primary-fixed: #ccfbf1;
+  --color-on-primary: #003330; /* dark on light teal #6bd8cb — 8.9:1 */
+  --color-on-primary-container: #ccfbf1;
+  --color-secondary: #c0c1ff;
+  --color-secondary-container: #2a2b70;
+  --color-secondary-fixed: #22235c;
+  --color-secondary-fixed-dim: #2a2b70;
+  --color-on-secondary-fixed: #e1e0ff;
+  --color-on-secondary: #07006c;
+  --color-on-secondary-container: #e1e0ff;
+  --color-tertiary: #ffb59a;
+  --color-tertiary-container: #4e2113;
+  --color-tertiary-fixed: #3a1a10;
+  --color-tertiary-fixed-dim: #4e2113;
+  --color-on-tertiary-fixed: #ffdbce;
+  --color-on-tertiary: #370e00;
+  --color-on-tertiary-container: #ffdbce;
+  --color-error: #ffb4ab;
+  --color-error-container: #5c1208;
+  --color-on-error: #3b0a00; /* dark on salmon #ffb4ab — 7.2:1 */
   --color-on-error-container: #ffdad6;
   --color-outline: #4a6a87;
   --color-outline-variant: #1c354f;
-  --color-surface-tint: #48cae4;
+  --color-surface-tint: #6bd8cb;
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.65);
+  --shadow-ambient: 0 10px 24px -4px rgba(0, 0, 0, 0.5);
 }

@@ -125,20 +125,37 @@ export function Dashboard() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}>
-      <header
-        className={cm.flex({ align: 'baseline', justify: 'between', wrap: 'wrap', gap: 'md' })}
-      >
+      <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <h1 className={cm.cn(cm.textSize('4xl'), 'font-extrabold tracking-tight')}>
             {t('dashboard.heading', {}, { defaultValue: 'Fleet command' })}
           </h1>
-          <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+          <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-secondary')}>
             {t(
               'dashboard.subheading',
               {},
               { defaultValue: 'Real-time device telemetry, alerts, and command throughput.' },
             )}
           </p>
+        </div>
+        <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+          <Link
+            to="/devices"
+            data-mol-id="dashboard-provision-device"
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('medium'),
+              'inline-flex items-center gap-2 rounded-xl text-white shadow-md transition-all hover:shadow-lg',
+              'bg-gradient-to-br from-primary to-primary-container',
+            )}
+          >
+            <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+              add
+            </span>
+            {t('dashboard.provisionCta', {}, { defaultValue: 'Provision Device' })}
+          </Link>
         </div>
       </header>
 
@@ -154,7 +171,7 @@ export function Dashboard() {
           label={t('dashboard.kpi.fleet', {}, { defaultValue: 'Devices in fleet' })}
           value={s.devices_total.toLocaleString()}
           accentColor="border-primary"
-          decoration={<TelemetrySparkline color="#0891b2" values={throughput} />}
+          decoration={<TelemetrySparkline color="var(--color-primary)" values={throughput} />}
           meta={t(
             'dashboard.kpi.fleetMeta',
             { online: s.devices_online },
@@ -165,7 +182,7 @@ export function Dashboard() {
           label={t('dashboard.kpi.throughput', {}, { defaultValue: 'Msgs / min' })}
           value={s.messages_per_min.toLocaleString()}
           accentColor="border-success"
-          decoration={<TelemetrySparkline color="#10b981" values={throughput} />}
+          decoration={<TelemetrySparkline color="var(--mol-color-success)" values={throughput} />}
           meta={t('dashboard.kpi.throughputMeta', {}, { defaultValue: 'rolling 5 min' })}
         />
         <DeviceKpiCard

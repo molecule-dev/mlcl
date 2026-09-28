@@ -58,6 +58,22 @@ const LANGUAGES = [
   { code: 'tr', flag: '🇹🇷', name: 'Turkish' },
 ] as const
 
+const STATS = [
+  { key: 'learners', value: '2M+', defaultLabel: 'Active learners' },
+  { key: 'languages', value: '50+', defaultLabel: 'Languages' },
+  { key: 'improvement', value: '98%', defaultLabel: 'See improvement' },
+  { key: 'minutes', value: '15m', defaultLabel: 'A day needed' },
+] as const
+
+// Quiz-card answer options for the hero composition (design copy). The
+// second option renders in the "correct" state with a check badge.
+const QUIZ_OPTIONS = [
+  { key: 'perro', label: 'El perro', correct: false },
+  { key: 'gato', label: 'El gato', correct: true },
+  { key: 'bebe', label: 'bebe', correct: false },
+  { key: 'leche', label: 'leche', correct: false },
+] as const
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -65,41 +81,28 @@ export function Landing() {
 
   return (
     <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
-      {/* Top navigation */}
+      {/* Top navigation — frosted bar (design: white/80 blur, h-16) */}
       <nav
         className={cm.cn(
-          'sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/40',
+          'sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm',
         )}
       >
         <div
           className={cm.cn(
             cm.maxW('7xl'),
             cm.sp('px', 6),
-            cm.sp('py', 4),
             cm.flex({ align: 'center', justify: 'between' }),
-            cm.mxAuto,
+            'mx-auto h-16',
           )}
         >
-          <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-            <span
-              className={cm.cn(
-                cm.w(8),
-                cm.h(8),
-                cm.flex({ align: 'center', justify: 'center' }),
-                'rounded-xl bg-gradient-to-br from-primary to-primary-dark text-white shadow-md shadow-primary/30',
-              )}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-base')}
-                aria-hidden="true"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                translate
-              </span>
-            </span>
-            <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
-              {APP_NAME}
-            </span>
+          <Link
+            to="/"
+            className={cm.cn(
+              cm.textSize('xl'),
+              'font-black tracking-tight text-primary transition-opacity hover:opacity-80',
+            )}
+          >
+            {APP_NAME}
           </Link>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             <Link
@@ -107,7 +110,7 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('medium'),
-                'text-on-surface-variant hover:text-on-surface',
+                'hidden text-on-surface-variant transition-colors hover:text-primary sm:inline-flex',
               )}
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
@@ -115,11 +118,13 @@ export function Landing() {
             {isAuthenticated ? (
               <Link
                 to="/dashboard"
+                data-mol-id="nav-go-to-dashboard"
                 className={cm.cn(
                   cm.sp('px', 5),
-                  cm.sp('py', 2),
+                  cm.sp('py', 2.5),
+                  cm.textSize('sm'),
                   cm.fontWeight('semibold'),
-                  'bg-primary text-on-primary rounded-full hover:bg-primary-dark transition-colors',
+                  'bg-primary text-on-primary rounded-full shadow-sm transition-all hover:bg-primary-hover hover:shadow-md',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -131,18 +136,20 @@ export function Landing() {
                   className={cm.cn(
                     cm.textSize('sm'),
                     cm.fontWeight('medium'),
-                    'text-on-surface-variant hover:text-on-surface',
+                    'hidden text-on-surface-variant transition-colors hover:text-primary sm:inline-flex',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
                 </Link>
                 <Link
                   to="/signup"
+                  data-mol-id="nav-start-free"
                   className={cm.cn(
                     cm.sp('px', 5),
-                    cm.sp('py', 2),
+                    cm.sp('py', 2.5),
+                    cm.textSize('sm'),
                     cm.fontWeight('semibold'),
-                    'bg-primary text-on-primary rounded-full hover:bg-primary-dark transition-colors',
+                    'bg-primary text-on-primary rounded-full shadow-sm transition-all hover:bg-primary-hover hover:shadow-md active:scale-95',
                   )}
                 >
                   {t('common.startFree', {}, { defaultValue: 'Start free' })}
@@ -153,268 +160,322 @@ export function Landing() {
         </div>
       </nav>
 
-      <main>
-        {/* Hero — gradient panel with huge headline + sample streak card */}
-        <section className={cm.cn('relative overflow-hidden')}>
+      <main className={cm.sp('pb', 16)}>
+        {/* Hero split — headline with squiggle accent + floating quiz card */}
+        <section
+          className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-12 md:py-20 lg:py-24')}
+        >
           <div
             className={cm.cn(
-              'absolute inset-0 bg-gradient-to-br from-primary-container via-surface to-surface pointer-events-none',
-            )}
-            aria-hidden="true"
-          />
-          <div
-            className={cm.cn(
-              cm.maxW('7xl'),
-              cm.mxAuto,
-              cm.sp('px', 6),
-              'py-20 md:py-28 lg:py-32 relative',
+              cm.flex({ direction: 'col', align: 'center', gap: 'lg' }),
+              'lg:flex-row lg:items-center lg:gap-16',
             )}
           >
-            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-12 items-center')}>
-              <div className={cm.cn('lg:col-span-7')}>
-                <p
+            {/* Left content — 55% */}
+            <div
+              className={cm.cn(
+                cm.stack(8),
+                'relative z-10 w-full text-center lg:w-[55%] lg:text-left',
+              )}
+            >
+              <h1
+                className={cm.cn(
+                  'text-5xl font-extrabold tracking-tight leading-[1.1] md:text-6xl lg:text-7xl',
+                )}
+              >
+                {t('landing.heroTitleLeading', {}, { defaultValue: 'Speak the world' })}{' '}
+                <span className={cm.cn('relative inline-block text-primary')}>
+                  {t('landing.heroTitleAccent', {}, { defaultValue: 'fluently' })}
+                  <svg
+                    className={cm.cn(
+                      'absolute -bottom-2 left-0 h-3 w-full text-secondary md:-bottom-4 md:h-5',
+                    )}
+                    preserveAspectRatio="none"
+                    viewBox="0 0 200 20"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M0,10 Q100,20 200,0"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeWidth="8"
+                    />
+                  </svg>
+                </span>
+              </h1>
+              <p
+                className={cm.cn(
+                  cm.mxAuto,
+                  cm.maxW('2xl'),
+                  'text-lg leading-relaxed text-on-surface-variant md:text-xl lg:mx-0',
+                )}
+              >
+                {t(
+                  'landing.heroSubtitle',
+                  {},
+                  {
+                    defaultValue:
+                      'Playful, encouraging, and rhythmic language learning. Master a new language in just 15 minutes a day with our proven, gamified method.',
+                  },
+                )}
+              </p>
+              <div
+                className={cm.cn(
+                  cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
+                  'sm:flex-row lg:justify-start',
+                )}
+              >
+                <Link
+                  to="/signup"
+                  data-mol-id="hero-start-learning"
                   className={cm.cn(
-                    cm.textSize('sm'),
-                    cm.sp('mb', 4),
-                    'font-bold uppercase tracking-widest text-primary',
+                    cm.sp('px', 8),
+                    cm.sp('py', 4),
+                    'inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary text-lg font-bold text-on-primary shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-xl active:scale-95 sm:w-auto',
                   )}
                 >
-                  {t(
-                    'landing.eyebrow',
-                    {},
-                    { defaultValue: 'Daily language practice for grown-ups' },
+                  {t('landing.heroCta', {}, { defaultValue: 'Start a 7-day streak' })}
+                  <span
+                    className={cm.cn(
+                      'material-symbols-outlined text-xl transition-transform group-hover:rotate-12',
+                    )}
+                    aria-hidden="true"
+                  >
+                    auto_awesome
+                  </span>
+                </Link>
+                <a
+                  href="#how-it-works"
+                  className={cm.cn(
+                    cm.sp('px', 8),
+                    cm.sp('py', 4),
+                    'inline-flex w-full items-center justify-center gap-2 rounded-full bg-surface-container-lowest text-lg font-semibold text-on-surface transition-all hover:bg-surface-secondary hover:text-primary active:scale-95 sm:w-auto',
                   )}
-                </p>
-                <h1
+                >
+                  <span className={cm.cn('material-symbols-outlined text-xl')} aria-hidden="true">
+                    play_circle
+                  </span>
+                  {t('landing.heroHow', {}, { defaultValue: 'See how it works' })}
+                </a>
+              </div>
+              {/* Social proof — learner stack + rating */}
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center', gap: 'md' }),
+                  'pt-6 lg:justify-start',
+                )}
+              >
+                <div className={cm.cn('flex -space-x-3')}>
+                  {/* Deliberate non-replication: the design hotlinks portrait
+                      photos; we render initial tiles instead. */}
+                  {['AM', 'JK', 'RS'].map((initials) => (
+                    <span
+                      key={initials}
+                      className={cm.cn(
+                        cm.flex({ align: 'center', justify: 'center' }),
+                        'h-10 w-10 rounded-full border-2 border-surface bg-primary-container text-[11px] font-bold text-on-primary-container shadow-sm',
+                      )}
+                      aria-hidden="true"
+                    >
+                      {initials}
+                    </span>
+                  ))}
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'h-10 w-10 rounded-full border-2 border-surface bg-surface-secondary text-xs font-bold text-primary shadow-sm',
+                    )}
+                    aria-hidden="true"
+                  >
+                    2M+
+                  </span>
+                </div>
+                <div className={cm.cn(cm.flex({ direction: 'col' }), cm.textSize('sm'))}>
+                  <div className={cm.cn(cm.flex({ gap: 'xs' }), 'text-secondary')}>
+                    {['star', 'star', 'star', 'star', 'star_half'].map((icon, i) => (
+                      <span
+                        key={i}
+                        className={cm.cn('material-symbols-outlined text-base')}
+                        aria-hidden="true"
+                      >
+                        {icon}
+                      </span>
+                    ))}
+                  </div>
+                  <span className={cm.cn(cm.fontWeight('medium'), 'text-on-surface-variant')}>
+                    {t(
+                      'landing.proof.stars',
+                      { rating: '4.9' },
+                      { defaultValue: '{{rating}} stars from learners' },
+                    )}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right content — floating quiz composition */}
+            <div
+              className={cm.cn(
+                'relative flex h-[400px] w-full items-center justify-center md:h-[500px] lg:h-[600px] lg:w-[45%]',
+              )}
+              aria-hidden="true"
+            >
+              {/* Background blobs */}
+              <div
+                className={cm.cn(
+                  'absolute inset-0 rounded-full bg-gradient-to-tr from-surface-secondary to-primary-light opacity-40 blur-3xl',
+                )}
+              />
+              {/* Main floating quiz card */}
+              <div
+                className={cm.cn(
+                  cm.sp('p', 6),
+                  'relative z-20 w-72 rotate-[-2deg] rounded-2xl border border-outline-variant/30 bg-surface shadow-2xl transition-transform duration-500 hover:rotate-0 md:w-80',
+                )}
+              >
+                <div
                   className={cm.cn(
                     cm.sp('mb', 6),
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95]',
+                    cm.flex({ justify: 'between', align: 'center' }),
                   )}
                 >
-                  {t(
-                    'landing.heroTitle',
-                    { tagline: APP_TAGLINE },
-                    { defaultValue: '{{tagline}}' },
-                  )}
-                </h1>
-                <p
-                  className={cm.cn(
-                    cm.textSize('lg'),
-                    cm.sp('mb', 10),
-                    'text-on-surface-variant max-w-xl leading-relaxed',
-                  )}
-                >
-                  {t(
-                    'landing.heroSubtitle',
-                    {},
-                    {
-                      defaultValue:
-                        'Five-minute lessons that fit on a coffee break. Drills, vocab, speaking — all wrapped in a streak you’ll actually keep.',
-                    },
-                  )}
-                </p>
-                <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                  <Link
-                    to="/signup"
-                    className={cm.cn(
-                      cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      'font-semibold bg-gradient-to-r from-primary to-primary-dark text-on-primary rounded-full hover:shadow-xl hover:shadow-primary/30 transition-all inline-flex items-center gap-2',
-                    )}
-                  >
-                    {t('landing.heroCta', {}, { defaultValue: 'Start a 7-day streak' })}
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base')}
-                      aria-hidden="true"
-                    >
-                      arrow_forward
-                    </span>
-                  </Link>
-                  <Link
-                    to="/login"
-                    className={cm.cn(
-                      cm.sp('px', 8),
-                      cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors',
-                    )}
-                  >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                  </Link>
-                </div>
-                <div
-                  className={cm.cn(
-                    cm.sp('mt', 10),
-                    cm.flex({ align: 'center', gap: 'lg', wrap: 'wrap' }),
-                    cm.textSize('sm'),
-                    'text-on-surface-variant',
-                  )}
-                >
-                  <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base text-secondary')}
-                      aria-hidden="true"
-                    >
-                      verified
-                    </span>
-                    {t(
-                      'landing.proof.users',
-                      { count: '2.4M' },
-                      { defaultValue: '{{count}} active learners' },
-                    )}
-                  </span>
-                  <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base text-primary')}
-                      aria-hidden="true"
-                    >
-                      stars
-                    </span>
-                    {t(
-                      'landing.proof.rating',
-                      { rating: '4.9' },
-                      { defaultValue: 'App Store · {{rating}} stars' },
-                    )}
-                  </span>
-                  <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base text-info')}
-                      aria-hidden="true"
-                    >
-                      language
-                    </span>
-                    {t(
-                      'landing.proof.languages',
-                      { count: 14 },
-                      { defaultValue: '{{count}} languages' },
-                    )}
+                  <span className={cm.cn('h-2 w-8 rounded-full bg-surface-container-high')} />
+                  <span className={cm.cn('material-symbols-outlined text-on-surface-variant')}>
+                    close
                   </span>
                 </div>
-              </div>
-
-              {/* Sample streak card — same gradient as the auth'd Dashboard hero. */}
-              <div className={cm.cn('lg:col-span-5')}>
-                <div
-                  className={cm.cn(
-                    cm.flex({ direction: 'col', justify: 'between' }),
-                    cm.sp('p', 8),
-                    'min-h-[340px] bg-gradient-to-br from-primary via-primary-dark to-primary-light rounded-[2rem] text-white relative overflow-hidden shadow-2xl shadow-primary/30',
-                  )}
-                >
-                  <div className={cm.cn('relative z-10')}>
-                    <p
-                      className={cm.cn(
-                        'font-bold text-xs uppercase tracking-widest text-primary-fixed/90 mb-2',
-                      )}
+                <div className={cm.cn(cm.textCenter, cm.sp('mb', 6))}>
+                  <h3 className={cm.cn(cm.sp('mb', 2), cm.textSize('xl'), cm.fontWeight('bold'))}>
+                    {t('landing.quiz.prompt', {}, { defaultValue: 'Translate this sentence' })}
+                  </h3>
+                  <div
+                    className={cm.cn(cm.sp('p', 4), 'inline-block rounded-xl bg-surface-secondary')}
+                  >
+                    <span
+                      className={cm.cn(cm.textSize('lg'), cm.fontWeight('medium'), 'text-primary')}
                     >
-                      {t('landing.sampleEyebrow', {}, { defaultValue: 'Current streak' })}
-                    </p>
-                    <div className={cm.flex({ align: 'baseline', gap: 'sm' })}>
+                      {t('landing.quiz.sentence', {}, { defaultValue: '“The cat drinks milk”' })}
+                    </span>
+                  </div>
+                </div>
+                <div className={cm.cn(cm.sp('mb', 6), 'grid grid-cols-2 gap-3')}>
+                  {QUIZ_OPTIONS.map((option) =>
+                    option.correct ? (
                       <span
-                        className={cm.cn('text-7xl font-extrabold tracking-tighter tabular-nums')}
-                      >
-                        42
-                      </span>
-                      <span className={cm.cn('text-lg font-bold opacity-90')}>
-                        {t('streakHeroCard.daysSuffix', {}, { defaultValue: 'days' })}
-                      </span>
-                      <span
+                        key={option.key}
                         className={cm.cn(
-                          'px-3 py-1 rounded-full text-[11px] font-bold bg-surface/20 backdrop-blur-md inline-flex items-center gap-1',
+                          cm.sp('p', 3),
+                          cm.textCenter,
+                          'relative -translate-y-0.5 rounded-xl border-2 border-success bg-success/10 font-bold text-success shadow-[0_4px_0_0_var(--mol-color-success)]',
                         )}
                       >
+                        {t(`landing.quiz.option.${option.key}`, {}, { defaultValue: option.label })}
                         <span
-                          className={cm.cn('material-symbols-outlined text-sm')}
-                          aria-hidden="true"
+                          className={cm.cn(
+                            cm.flex({ align: 'center', justify: 'center' }),
+                            'absolute -top-3 -right-3 h-6 w-6 rounded-full bg-success text-surface shadow-md',
+                          )}
                         >
-                          local_fire_department
+                          <span className={cm.cn('material-symbols-outlined text-sm font-bold')}>
+                            check
+                          </span>
                         </span>
-                        {t(
-                          'streakHeroCard.xpToday',
-                          { xp: 120 },
-                          { defaultValue: '+{{xp}} XP today' },
-                        )}
                       </span>
-                    </div>
-                    <p className={cm.cn('text-sm mt-3 opacity-80 max-w-md')}>
-                      {t(
-                        'landing.sampleTagline',
-                        {},
-                        {
-                          defaultValue:
-                            '8,420 XP earned. Keep the rhythm — three more days to your monthly badge.',
-                        },
-                      )}
-                    </p>
-                  </div>
-                  <div className={cm.cn('relative z-10 mt-6')}>
-                    <div className={cm.cn('flex justify-between items-center mb-2')}>
+                    ) : (
                       <span
+                        key={option.key}
                         className={cm.cn(
-                          'text-[10px] font-bold uppercase tracking-widest text-primary-fixed/90',
+                          cm.sp('p', 3),
+                          cm.textCenter,
+                          cm.fontWeight('medium'),
+                          'rounded-xl border-2 border-outline-variant/40 text-on-surface-variant',
                         )}
                       >
-                        {t('streakHeroCard.goalLabel', {}, { defaultValue: "Today's goal" })}
+                        {t(`landing.quiz.option.${option.key}`, {}, { defaultValue: option.label })}
                       </span>
-                      <span className={cm.cn('text-sm font-bold tabular-nums')}>
-                        {t(
-                          'streakHeroCard.goalProgress',
-                          { current: 120, goal: 150 },
-                          { defaultValue: '{{current}} / {{goal}} XP' },
-                        )}
-                      </span>
-                    </div>
-                    <div
-                      className={cm.cn(
-                        'w-full h-3 rounded-full bg-surface/20 overflow-hidden backdrop-blur-md',
-                      )}
-                    >
-                      <div
-                        className={cm.cn(
-                          'h-full rounded-full bg-gradient-to-r from-secondary to-secondary-light',
-                        )}
-                        style={{ width: '80%' }}
-                      />
-                    </div>
-                  </div>
-                  <div className={cm.cn('relative z-10 mt-6 h-16')}>
-                    <svg
-                      className={cm.cn('w-full h-full')}
-                      viewBox="0 0 400 100"
-                      preserveAspectRatio="none"
-                    >
-                      <path
-                        d="M0,80 L60,70 L120,55 L180,60 L240,40 L300,30 L360,15 L400,10 L400,100 L0,100 Z"
-                        fill="white"
-                        opacity="0.3"
-                      />
-                      <path
-                        d="M0,80 L60,70 L120,55 L180,60 L240,40 L300,30 L360,15 L400,10"
-                        fill="none"
-                        stroke="white"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className={cm.cn(
-                      'absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-surface/10 blur-3xl',
-                    )}
-                  />
-                  <div
-                    className={cm.cn(
-                      'absolute right-8 top-8 w-16 h-16 rounded-full bg-secondary/40 blur-2xl',
-                    )}
-                  />
+                    ),
+                  )}
+                </div>
+                <div
+                  className={cm.cn('h-2 w-full overflow-hidden rounded-full bg-surface-container')}
+                >
+                  <div className={cm.cn('h-full w-3/4 rounded-full bg-success')} />
                 </div>
               </div>
+              {/* Floating decorative elements */}
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  'absolute top-1/4 -left-2 z-30 animate-bounce rounded-full border border-outline-variant/30 bg-surface px-4 py-2 shadow-lg md:-left-6',
+                  '[animation-duration:3s]',
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-[var(--parlance-xp)]')}>
+                  bolt
+                </span>
+                <span className={cm.cn(cm.fontWeight('bold'), 'text-[var(--parlance-xp)]')}>
+                  {t('landing.quiz.xpPill', {}, { defaultValue: '+10 XP' })}
+                </span>
+              </div>
+              <div
+                className={cm.cn(
+                  'absolute bottom-1/4 -right-2 z-10 animate-pulse rounded-full border border-outline-variant/30 bg-surface p-3 text-2xl shadow-xl md:-right-4',
+                  '[animation-duration:4s]',
+                )}
+              >
+                🇪🇸
+              </div>
+              <div
+                className={cm.cn(
+                  'absolute top-1/3 right-0 h-12 w-12 rounded-full bg-secondary opacity-20 blur-xl md:right-8',
+                )}
+              />
+              <div
+                className={cm.cn(
+                  'absolute bottom-1/3 left-4 h-16 w-16 rounded-full bg-primary opacity-20 blur-xl md:left-12',
+                )}
+              />
             </div>
           </div>
         </section>
 
-        {/* Languages strip */}
+        {/* Stats band — purple gradient strip with white numerals */}
+        <section
+          className={cm.cn(
+            'relative overflow-hidden bg-gradient-to-r from-primary to-primary-light py-12',
+          )}
+        >
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'relative z-10')}>
+            <div
+              className={cm.cn('grid grid-cols-2 gap-8 text-center text-on-primary md:grid-cols-4')}
+            >
+              {STATS.map((stat) => (
+                <div key={stat.key}>
+                  <div
+                    className={cm.cn(
+                      cm.sp('mb', 2),
+                      'text-4xl font-black tracking-tight md:text-5xl',
+                    )}
+                  >
+                    {stat.value}
+                  </div>
+                  <div
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('medium'),
+                      'uppercase tracking-wider text-primary-fixed',
+                    )}
+                  >
+                    {t(`landing.stat.${stat.key}`, {}, { defaultValue: stat.defaultLabel })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Languages strip — kept from the app surface (e2e-covered) */}
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16')}>
           <div
             className={cm.cn(
@@ -422,7 +483,7 @@ export function Landing() {
               cm.sp('mb', 8),
             )}
           >
-            <p className={cm.cn('font-bold uppercase tracking-widest text-xs text-primary')}>
+            <p className={cm.cn('text-xs font-bold uppercase tracking-widest text-primary')}>
               {t('landing.languagesEyebrow', {}, { defaultValue: 'Pick a language' })}
             </p>
             <h2
@@ -458,13 +519,17 @@ export function Landing() {
           </div>
         </section>
 
-        {/* Feature grid */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
+        {/* Feature grid — kept from the app surface; anchors the hero's
+            "See how it works" CTA. */}
+        <section
+          id="how-it-works"
+          className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}
+        >
           <h2
             className={cm.cn(
               cm.sp('mb', 4),
               cm.textCenter,
-              'text-3xl md:text-4xl font-extrabold tracking-tight',
+              'text-3xl font-extrabold tracking-tight md:text-4xl',
             )}
           >
             {t(
@@ -498,13 +563,13 @@ export function Landing() {
                 key={f.key}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl hover:shadow-2xl hover:shadow-on-surface/5 transition-all group border border-outline-variant/20',
+                  'group border border-outline-variant/20 bg-surface-container-lowest rounded-2xl transition-all hover:shadow-2xl hover:shadow-on-surface/5',
                 )}
               >
                 <div
                   className={cm.cn(
                     cm.sp('p', 3),
-                    'inline-flex bg-surface rounded-xl shadow-sm group-hover:scale-110 transition-transform',
+                    'inline-flex rounded-xl bg-surface shadow-sm transition-transform group-hover:scale-110',
                     f.tint,
                   )}
                 >
@@ -517,7 +582,7 @@ export function Landing() {
                 >
                   {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
                 </h3>
-                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}>
+                <p className={cm.cn(cm.textSize('sm'), 'leading-relaxed text-on-surface-variant')}>
                   {t(`landing.feature.${f.key}.body`, {}, { defaultValue: f.defaultBody })}
                 </p>
               </div>
@@ -554,10 +619,11 @@ export function Landing() {
             </p>
             <Link
               to="/signup"
+              data-mol-id="cta-start-streak"
               className={cm.cn(
                 cm.sp('px', 10),
                 cm.sp('py', 4),
-                'font-semibold bg-gradient-to-r from-primary to-primary-dark text-on-primary rounded-full hover:shadow-xl hover:shadow-primary/30 transition-all inline-flex items-center gap-2',
+                'inline-flex items-center gap-2 rounded-full bg-primary font-semibold text-on-primary shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-xl active:scale-95',
               )}
             >
               {t('landing.heroCta', {}, { defaultValue: 'Start a 7-day streak' })}
@@ -569,22 +635,34 @@ export function Landing() {
         </section>
       </main>
 
+      {/* Footer — rounded-top tinted panel (design: rounded-t-[32px] #f5f3ff) */}
       <footer
         className={cm.cn(
-          cm.sp('py', 8),
-          cm.textCenter,
-          cm.textSize('sm'),
-          'bg-surface text-on-surface-variant border-t border-outline-variant',
+          'relative z-10 rounded-t-[2rem] border-t border-outline-variant/30 bg-surface-secondary text-on-surface-variant',
         )}
       >
-        <Footer />
-        <p className={cm.sp('mt', 4)}>
-          {t(
-            'landing.copyright',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Built for adult learners.' },
-          )}
-        </p>
+        <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('pt', 8))}>
+          <p className={cm.cn(cm.sp('pb', 6), cm.textCenter, cm.textSize('sm'), 'font-medium')}>
+            {APP_NAME} — {APP_TAGLINE}
+          </p>
+          <Footer className="bg-surface-secondary!" />
+          <p className={cm.cn(cm.sp('mt', 4), cm.sp('pb', 8), cm.textCenter, cm.textSize('sm'))}>
+            {t(
+              'landing.copyright',
+              { year: new Date().getFullYear(), app: APP_NAME },
+              { defaultValue: '© {{year}} {{app}}. Built for adult learners.' },
+            )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
+          </p>
+        </div>
       </footer>
     </div>
   )

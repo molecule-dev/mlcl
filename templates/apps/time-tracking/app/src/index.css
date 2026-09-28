@@ -25,3 +25,32 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/* polish-v2:stitch-styles — Chrono design signature helpers (raw gradients
+   and shadows live here in CSS, never in JSX; the color stops resolve
+   through the theme tokens in theme.css). */
+.btn-gradient {
+  background: linear-gradient(135deg, var(--color-primary-hover) 0%, var(--color-primary) 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary-hover) 0%, var(--color-primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.shadow-ambient {
+  box-shadow: var(--shadow-ambient);
+}
+
+.glass-panel {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.transition-glide {
+  transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+}

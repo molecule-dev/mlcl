@@ -5,6 +5,15 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 
+interface LandingTopNavBarProps {
+  /**
+   * `fixed` pins the bar over the hero (Landing) the way the Stitch design
+   * shows it; `static` (default) keeps it in flow for the scrolling public
+   * pages (About / Privacy / Terms) that share this chrome.
+   */
+  variant?: 'fixed' | 'static'
+}
+
 /**
  * Public marketing top nav, shared across the Landing page and the
  * standalone public pages (About / Privacy / Terms) so the brand chrome
@@ -12,7 +21,7 @@ import { APP_NAME } from '../branding.js'
  * Sign in / Start free trial links collapse into a single Go to Dashboard
  * CTA pointing at the app's primary authed route (`/surveys`).
  */
-export function LandingTopNavBar() {
+export function LandingTopNavBar({ variant = 'static' }: LandingTopNavBarProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const isAuthenticated = useIsAuthenticated()
@@ -21,109 +30,116 @@ export function LandingTopNavBar() {
     <header
       data-mol-id="landing-nav"
       className={cm.cn(
-        cm.flex({ align: 'center', justify: 'between' }),
-        cm.sp('px', 6),
-        cm.sp('py', 4),
-        cm.maxW('7xl'),
-        cm.mxAuto,
+        'w-full',
+        variant === 'fixed' ? 'fixed inset-x-0 top-0 z-50' : 'relative z-40',
+        variant === 'fixed' && 'ambient-shadow bg-surface/80 backdrop-blur-xl',
       )}
     >
-      <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-        <span
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            cm.w(8),
-            cm.h(8),
-            cm.roundedFull,
-            'bg-gradient-to-br from-primary to-secondary text-white',
-          )}
-        >
-          <span className="material-symbols-outlined" style={{ fontSize: 18 }} aria-hidden="true">
-            graphic_eq
-          </span>
-        </span>
-        <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
-          {APP_NAME}
-        </span>
-      </Link>
-      <nav
-        className={cm.cn(cm.flex({ align: 'center', gap: 6 }), 'hidden md:flex')}
-        aria-label={t('landing.navAria', {}, { defaultValue: 'Marketing' })}
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center', justify: 'between' }),
+          'mx-auto w-full max-w-7xl gap-4 px-6 py-4 lg:px-8',
+        )}
       >
-        <a
-          href="#product"
-          className={cm.cn(
-            cm.textSize('sm'),
-            cm.fontWeight('medium'),
-            'text-on-surface-variant hover:text-primary transition-colors',
-          )}
+        <Link to="/" className={cm.cn('text-2xl font-black tracking-tighter text-primary')}>
+          {APP_NAME}
+        </Link>
+        <nav
+          className={cm.cn(cm.flex({ align: 'center', gap: 8 }), 'hidden md:flex')}
+          aria-label={t('landing.navAria', {}, { defaultValue: 'Marketing' })}
         >
-          {t('nav.product', {}, { defaultValue: 'Product' })}
-        </a>
-        <a
-          href="#templates"
-          className={cm.cn(
-            cm.textSize('sm'),
-            cm.fontWeight('medium'),
-            'text-on-surface-variant hover:text-primary transition-colors',
-          )}
-        >
-          {t('nav.templates', {}, { defaultValue: 'Templates' })}
-        </a>
-        <a
-          href="#pricing"
-          className={cm.cn(
-            cm.textSize('sm'),
-            cm.fontWeight('medium'),
-            'text-on-surface-variant hover:text-primary transition-colors',
-          )}
-        >
-          {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
-        </a>
-      </nav>
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
-        {isAuthenticated ? (
-          <Link
-            to="/surveys"
-            data-mol-id="landing-nav-dashboard"
+          <a
+            href="#product"
             className={cm.cn(
-              cm.sp('px', 5),
-              cm.sp('py', 2),
-              cm.fontWeight('bold'),
               cm.textSize('sm'),
-              'rounded-md bg-gradient-to-r from-primary to-secondary text-white shadow-md hover:shadow-lg transition-all',
+              cm.fontWeight('medium'),
+              'text-on-surface-variant transition-colors hover:text-primary',
             )}
           >
-            {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
-          </Link>
-        ) : (
-          <>
+            {t('nav.product', {}, { defaultValue: 'Features' })}
+          </a>
+          <a
+            href="#templates"
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.fontWeight('medium'),
+              'text-on-surface-variant transition-colors hover:text-primary',
+            )}
+          >
+            {t('nav.templates', {}, { defaultValue: 'Templates' })}
+          </a>
+          <a
+            href="#pricing"
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.fontWeight('medium'),
+              'text-on-surface-variant transition-colors hover:text-primary',
+            )}
+          >
+            {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+          </a>
+        </nav>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }))}>
+          {isAuthenticated ? (
             <Link
-              to="/login"
+              to="/surveys"
+              data-mol-id="landing-nav-dashboard"
               className={cm.cn(
-                cm.flex({ align: 'center' }),
-                cm.sp('px', 2),
-                cm.textSize('sm'),
+                cm.flex({ align: 'center', gap: 2 }),
+                cm.sp('px', 6),
+                cm.sp('py', 2.5),
                 cm.fontWeight('semibold'),
-                'min-h-[36px] items-center text-on-surface-variant hover:text-primary transition-colors',
-              )}
-            >
-              {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-            </Link>
-            <Link
-              to="/signup"
-              className={cm.cn(
-                cm.sp('px', 5),
-                cm.sp('py', 2),
-                cm.fontWeight('bold'),
                 cm.textSize('sm'),
-                'rounded-md bg-gradient-to-r from-primary to-secondary text-white shadow-md hover:shadow-lg transition-all',
+                'rounded-full bg-gradient-to-br from-primary to-secondary text-on-primary transition-opacity hover:opacity-90',
               )}
             >
-              {t('common.startFreeTrial', {}, { defaultValue: 'Start free trial' })}
+              {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
+              <span
+                className="material-symbols-outlined"
+                style={{ fontSize: 18 }}
+                aria-hidden="true"
+              >
+                arrow_forward
+              </span>
             </Link>
-          </>
-        )}
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className={cm.cn(
+                  cm.flex({ align: 'center' }),
+                  cm.sp('px', 2),
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  'hidden min-h-[36px] items-center text-on-surface-variant transition-colors hover:text-primary md:flex',
+                )}
+              >
+                {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+              </Link>
+              <Link
+                to="/signup"
+                data-mol-id="landing-nav-cta"
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 2 }),
+                  cm.sp('px', 6),
+                  cm.sp('py', 2.5),
+                  cm.fontWeight('semibold'),
+                  cm.textSize('sm'),
+                  'rounded-full bg-gradient-to-br from-primary to-secondary text-on-primary transition-opacity hover:opacity-90',
+                )}
+              >
+                {t('common.startFreeTrial', {}, { defaultValue: 'Get Started' })}
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: 18 }}
+                  aria-hidden="true"
+                >
+                  arrow_forward
+                </span>
+              </Link>
+            </>
+          )}
+        </div>
       </div>
     </header>
   )

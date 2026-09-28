@@ -174,7 +174,7 @@ export function StreakHeroCard({
       />
       <div
         className={cm.cn('absolute -left-10 top-1/2 w-40 h-40 rounded-full blur-3xl')}
-        style={{ background: 'rgba(249, 115, 22, 0.25)' }}
+        style={{ background: 'color-mix(in oklab, var(--color-flame) 25%, transparent)' }}
       />
     </div>
   )

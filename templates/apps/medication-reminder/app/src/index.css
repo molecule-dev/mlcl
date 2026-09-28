@@ -37,6 +37,14 @@
  * against the 25% tints the buttons actually render on (#b6e2e8 / #bdefd3).
  */
 @theme {
+  /* Stitch design accent — warm orange CTAs (design accent #f97316). Values
+     mirror app/src/theme.css (the runtime authority); declared here so the
+     bg-accent / text-on-accent / bg-accent-hover utilities get generated.
+     Ink on the orange is dark: white = 2.83:1 (fail), #431407 = ~6.9:1. */
+  --color-accent: #f97316;
+  --color-accent-hover: #ea580c;
+  --color-on-accent: #431407;
+
   /* 6.06:1 on the primary tint (was 4.37:1). */
   --color-primary-text: #0b5560;
   /* 5.47:1 on the success tint (was 3.68:1). */

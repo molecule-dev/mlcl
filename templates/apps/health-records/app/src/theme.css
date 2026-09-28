@@ -7,9 +7,10 @@
  * color-mix() against these base tokens.
  */
 :root {
-  /* Headline font — picked up by shared molecule pages
+  /* Headline font — the design composes headlines in Inter (extrabold,
+     tracking-tight), same as body. Picked up by shared molecule pages
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   /* Brand */
   --mol-color-primary: #0f766e;
   --mol-color-primary-light: #14b8a6;

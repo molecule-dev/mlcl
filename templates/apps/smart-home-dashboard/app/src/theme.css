@@ -81,8 +81,25 @@
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     The Stitch landing design sets headlines in Inter (same face as body)
+     at extrabold — no serif. */
+  --font-headline: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* === Landing design tokens (Stitch: design-smart-home-dashboard-landing) ===
+     The design is a dark slate-canvas page with cyan glow primaries and an
+     amber accent CTA. Dark mode adopts the design's literal stops; light mode
+     keeps the warm canvas and maps the cyan glow onto the app's cyan accent. */
+  --color-lm-canvas-from: #fffbeb; /* hero gradient start */
+  --color-lm-canvas-to: #fef3c7; /* hero gradient end */
+  --color-lm-card: #ffffff; /* mockup + feature card surface */
+  --color-lm-card-edge: #fde68a; /* card hairline border */
+  --color-lm-muted: #a16207; /* secondary text on the canvas */
+  --color-lm-glow: #0891b2; /* cyan glow (design primary) */
+  --color-lm-glow-soft: rgba(8, 145, 178, 0.12); /* glow bloom + button halo */
+  --color-lm-on-glow: #062a33; /* dark ink on the cyan glow button */
+  --color-lm-footer: #fef9ee; /* footer canvas */
+  --color-lm-footer-edge: #fde68a;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -196,4 +213,64 @@
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
   --shadow-md: 0 4px 6px rgb(0 0 0 / 0.55);
   --shadow-lg: 0 10px 15px rgb(0 0 0 / 0.65);
+
+  /* Landing design tokens — dark stops from the Stitch design
+     (background #0a0f1a / surface #1e293b / sidebar #060b14, slate-700/50
+     edges, slate-400 muted, primary cyan #22d3ee, accent amber #f59e0b). */
+  --color-lm-canvas-from: #0a0f1a;
+  --color-lm-canvas-to: #060b14;
+  --color-lm-card: #1e293b;
+  --color-lm-card-edge: rgba(51, 65, 85, 0.6);
+  --color-lm-muted: #94a3b8;
+  --color-lm-glow: #22d3ee;
+  --color-lm-glow-soft: rgba(34, 211, 238, 0.16);
+  --color-lm-on-glow: #06121a;
+  --color-lm-footer: #060b14;
+  --color-lm-footer-edge: #1e293b;
+}
+
+/* === Landing composites (Stitch: design-smart-home-dashboard-landing) === */
+
+/* Hero canvas — deep vertical wash behind the split hero. */
+.landing-hero-canvas {
+  background: linear-gradient(to bottom, var(--color-lm-canvas-from), var(--color-lm-canvas-to));
+}
+
+/* Cyan glow button halo (the design's box-shadow glow). */
+.landing-glow {
+  box-shadow: 0 0 20px var(--color-lm-glow-soft);
+}
+.landing-glow:hover {
+  box-shadow: 0 0 30px var(--color-lm-glow-soft);
+}
+
+/* Bloom behind the mockup card. */
+.landing-mockup-bloom {
+  background: var(--color-lm-glow-soft);
+}
+
+/* CTA band — horizontal wash + glowing top hairline. */
+.landing-cta-band {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--color-lm-glow) 20%, transparent),
+    var(--color-lm-card),
+    var(--color-lm-canvas-to)
+  );
+}
+.landing-cta-line {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in srgb, var(--color-lm-glow) 50%, transparent),
+    transparent
+  );
+}
+
+/* The mockup screen is a DEVICE showing the app's dark dashboard UI — it
+   stays dark-slate in BOTH modes (it's the product shot, not the page). */
+.landing-mockup-screen {
+  background: #0a0f1a;
+  color: #e2e8f0;
 }

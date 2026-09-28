@@ -1,8 +1,62 @@
-/* App-specific theme overrides — see DESIGN.md */
+/* App-specific theme overrides — see DESIGN.md
+   Stitch design "Driftboard": M3 blue. Primary #004ac6, primary-container
+   #2563eb (the gradient-primary pair), secondary #0058be, tertiary green
+   #006242, surfaces with a blue cast (#f8f9ff family), ink #0b1c30.
+   These override the theme-bond cores; every derived token (hover/active,
+   containers, on-*, fixed, inverse) re-derives automatically via base.css. */
 
 :root {
   /* Base #808080 fails WCAG AA small-text contrast on this app's light
      surfaces (3.65:1 on #f6f6f6, 3.94:1 on #ffffff — axe serious).
-     #6b6b6b = 4.93:1 on #f6f6f6, 5.33:1 on #ffffff. */
-  --mol-color-text-secondary: #6b6b6b;
+     Design on-surface-variant #434655 = 8.6:1 on white. */
+  --mol-color-text-secondary: #434655;
+  --mol-color-text-tertiary: #6d7183;
+
+  --mol-color-primary: #004ac6;
+  --mol-color-primary-light: #dbe1ff;
+  --mol-color-primary-dark: #003ea8;
+  --mol-color-secondary: #0058be;
+  /* Tertiary green (#006242) doubles as success — status accents read green
+     like the design's dot/badge accents. White on #006242 = 7.5:1. */
+  --mol-color-success: #006242;
+  --mol-color-warning: #b45309;
+  --mol-color-error: #ba1a1a;
+  --mol-color-info: #0058be;
+
+  --mol-color-background: #f8f9ff;
+  --mol-color-background-secondary: #eff4ff;
+  --mol-color-background-tertiary: #e5eeff;
+  /* Design `surface` is #f8f9ff with WHITE cards (container-lowest); the app's
+     cards sit on bg-background, so surface carries the white stop. */
+  --mol-color-surface: #ffffff;
+  --mol-color-border: #c3c6d7;
+
+  --mol-color-text: #0b1c30;
+  --mol-color-text-inverse: #ffffff;
+}
+
+[data-mol-mode='dark'] {
+  /* Dark: the design's own dark hints (slate nav/footer, blue-400 accents)
+     over a blue-cast near-black. The CTA gradient keeps its deep-blue fill:
+     primary stays at a brand stop so white button text holds contrast. */
+  --mol-color-text-secondary: #a9b4c6;
+  --mol-color-text-tertiary: #7c8aa0;
+
+  --mol-color-primary: #3b82f6;
+  --mol-color-primary-light: #1e3a8a;
+  --mol-color-primary-dark: #60a5fa;
+  --mol-color-secondary: #1e5fd0;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  --mol-color-background: #0b1220;
+  --mol-color-background-secondary: #101a2e;
+  --mol-color-background-tertiary: #16223c;
+  --mol-color-surface: #0e1728;
+  --mol-color-border: #25334d;
+
+  --mol-color-text: #e2e8f0;
+  --mol-color-text-inverse: #0b1220;
 }

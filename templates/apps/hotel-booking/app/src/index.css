@@ -30,12 +30,12 @@
    in :root — register them in @theme so the utilities compile (the :root/.dark
    definitions keep overriding at runtime for theming). */
 @theme {
-  --color-accent: #ffb300;
-  /* Ink variant of the amber accent for TEXT on light surfaces: raw accent
-     #ffb300 is 1.79:1 on white (axe serious). #8a5200 = 6.4:1 on white.
-     Dark mode re-overrides it back to the bright amber in theme.css. */
-  --color-accent-ink: #8a5200;
-  /* Text/icon color on amber fills: white is 1.79:1 on #ffb300 (axe
-     serious); this warm near-black is ~9:1. */
+  --color-accent: #c8913a;
+  /* Ink variant of the gold accent for TEXT on light surfaces: raw accent
+     #c8913a is 2.8:1 on white (axe serious). #7e3e23 ≈ 7:1 on white.
+     Dark mode re-overrides it back to the bright gold in theme.css. */
+  --color-accent-ink: #7e3e23;
+  /* Text/icon color on gold fills: white is ~2.9:1 on #c8913a (axe
+     serious); this warm near-black is ~7:1. */
   --color-on-accent: #1a1208;
 }

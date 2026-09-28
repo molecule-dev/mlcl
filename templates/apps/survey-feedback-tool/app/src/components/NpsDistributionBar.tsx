@@ -16,9 +16,12 @@ interface NpsDistributionBarProps {
 }
 
 function npsToneFor(score: number): { bg: string; text: string } {
-  if (score <= 6) return { bg: 'bg-error-light', text: 'text-[color:var(--color-on-error)]' }
-  if (score <= 8) return { bg: 'bg-warning-light', text: 'text-[color:var(--color-on-warning)]' }
-  return { bg: 'bg-success-light', text: 'text-[color:var(--color-on-success)]' }
+  // Saturated fills (the pastel *-light containers washed out against the
+  // cell background); the score/count labels sit on a small surface chip so
+  // they stay readable over either the fill or the pale cell.
+  if (score <= 6) return { bg: 'bg-error', text: 'text-[color:var(--color-on-error-container)]' }
+  if (score <= 8) return { bg: 'bg-warning', text: 'text-[color:var(--color-on-warning)]' }
+  return { bg: 'bg-success', text: 'text-[color:var(--color-on-success-container)]' }
 }
 
 function npsLabelFor(score: number): string {
@@ -53,7 +56,7 @@ function NpsDistributionBar({ counts }: NpsDistributionBarProps) {
               className={cm.cn(
                 cm.flex({ direction: 'col', justify: 'end', align: 'center' }),
                 cm.flex1,
-                cm.h(28),
+                'h-[8rem]',
                 'rounded-md bg-surface-secondary relative overflow-hidden border border-[color:var(--color-border)]',
               )}
               aria-label={t(
@@ -79,7 +82,7 @@ function NpsDistributionBar({ counts }: NpsDistributionBarProps) {
                     cm.fontWeight('bold'),
                     cm.textSize('sm'),
                     tone.text,
-                    'tabular-nums',
+                    'rounded bg-surface/90 px-1 tabular-nums',
                   )}
                 >
                   {score}
@@ -89,7 +92,7 @@ function NpsDistributionBar({ counts }: NpsDistributionBarProps) {
                     cm.textSize('xs'),
                     cm.fontWeight('medium'),
                     tone.text,
-                    'tabular-nums opacity-80',
+                    'rounded bg-surface/90 px-1 tabular-nums',
                   )}
                 >
                   {count}

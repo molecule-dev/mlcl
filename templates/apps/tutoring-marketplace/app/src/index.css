@@ -25,3 +25,12 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/* qa-theme-tokens: app-specific design tokens used as Tailwind utilities but
+   defined (and dark-overridden) in theme.css — bridged here so the utilities
+   compile, exactly like the M3 bridge in app-ui-tailwind/base.css. */
+@theme {
+  --color-violet: var(--chalk-violet, #7c3aed);
+  --color-chalk-verified: var(--chalk-verified, #0d9488);
+  --color-chalk-booked-light: var(--chalk-booked-light, #e0e7ff);
+}

@@ -4,50 +4,45 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
-import { CategoryTile } from '../components/CategoryTile.js'
 import { LandingFooter } from '../components/LandingFooter.js'
 import { LandingNav } from '../components/LandingNav.js'
-import type { CategoryTone } from '../lib/categoryTone.js'
+import { type CategoryTone, getCategoryAccent } from '../lib/categoryTone.js'
 
-interface FeatureCard {
-  icon: string
-  titleKey: string
-  defaultTitle: string
-  bodyKey: string
-  defaultBody: string
-}
-
-const FEATURES: FeatureCard[] = [
-  {
-    icon: 'self_improvement',
-    titleKey: 'stillpoint.landing.features.guided.title',
-    defaultTitle: 'Guided meditations',
-    bodyKey: 'stillpoint.landing.features.guided.body',
-    defaultBody: '600+ teacher-led sessions for any moment of your day.',
-  },
-  {
-    icon: 'air',
-    titleKey: 'stillpoint.landing.features.breath.title',
-    defaultTitle: 'Breathwork',
-    bodyKey: 'stillpoint.landing.features.breath.body',
-    defaultBody: 'Box-breath, 4-7-8, and coherent breathing in one tap.',
-  },
-  {
-    icon: 'bedtime',
-    titleKey: 'stillpoint.landing.features.sleep.title',
-    defaultTitle: 'Sleep stories',
-    bodyKey: 'stillpoint.landing.features.sleep.body',
-    defaultBody: 'Drift off to slow narratives over ambient soundscapes.',
-  },
-]
-
-const CATEGORIES: {
+interface PracticeCard {
   tone: CategoryTone
   key: string
   defaultLabel: string
   sessions: number
   description: string
-}[] = [
+}
+
+/**
+ * "Find your practice" cards — Stitch landing design: tall bottom-aligned
+ * cards with a soft quarter-circle wash in the category color and an
+ * "Explore <category> →" affordance.
+ */
+const PRACTICE: PracticeCard[] = [
+  {
+    tone: 'sleep',
+    key: 'sleep',
+    defaultLabel: 'Sleep',
+    sessions: 86,
+    description: 'Drift off naturally with soundscapes and gentle guidance.',
+  },
+  {
+    tone: 'focus',
+    key: 'focus',
+    defaultLabel: 'Focus',
+    sessions: 58,
+    description: 'Sharpen your mind and stay present in your daily tasks.',
+  },
+  {
+    tone: 'stress',
+    key: 'stress',
+    defaultLabel: 'Stress',
+    sessions: 72,
+    description: 'Find relief through breathing exercises and letting go.',
+  },
   {
     tone: 'mindfulness',
     key: 'mindfulness',
@@ -55,32 +50,17 @@ const CATEGORIES: {
     sessions: 124,
     description: 'Stay present, one breath at a time.',
   },
-  {
-    tone: 'sleep',
-    key: 'sleep',
-    defaultLabel: 'Sleep',
-    sessions: 86,
-    description: 'Wind down with stories and slow breathing.',
-  },
-  {
-    tone: 'focus',
-    key: 'focus',
-    defaultLabel: 'Focus',
-    sessions: 58,
-    description: 'Sharpen attention before deep work.',
-  },
-  {
-    tone: 'stress',
-    key: 'stress',
-    defaultLabel: 'Stress relief',
-    sessions: 72,
-    description: 'Soft sessions for tense afternoons.',
-  },
+]
+
+const STATS: { value: string; key: string; defaultLabel: string }[] = [
+  { value: '320,000+', key: 'users', defaultLabel: 'mindful members' },
+  { value: '8.6M+', key: 'minutes', defaultLabel: 'minutes meditated' },
 ]
 
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const mindfulness = getCategoryAccent('mindfulness')
 
   return (
     <div
@@ -91,15 +71,15 @@ export function Landing() {
       <LandingNav />
 
       <main className={cm.cn('pb-16')}>
-        {/* Hero */}
+        {/* Hero — centered over a soft radial wash, concentric rings and a
+           floating glass session card (Stitch landing design). */}
         <section
           className={cm.cn(
-            cm.sp('px', 6),
-            cm.sp('py', 12),
-            'max-w-7xl mx-auto md:py-24 grid md:grid-cols-2 gap-12 items-center',
+            'relative pt-20 pb-24 md:pt-28 md:pb-28 overflow-hidden flex flex-col items-center text-center',
+            'bg-[image:linear-gradient(160deg,var(--color-background)_0%,color-mix(in_oklab,var(--color-accent)_8%,transparent)_100%)]',
           )}
         >
-          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }))}>
+          <div className={cm.cn('max-w-3xl z-10 flex flex-col items-center gap-6')}>
             <span
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'xs' }),
@@ -126,19 +106,17 @@ export function Landing() {
             <h1
               className={cm.cn(
                 cm.fontWeight('bold'),
-                'text-5xl md:text-6xl lg:text-7xl tracking-tight text-on-surface leading-[0.95]',
+                'text-5xl md:text-7xl tracking-tight text-on-surface leading-[0.98]',
+                'font-headline',
               )}
             >
-              {t('stillpoint.landing.hero.title1', {}, { defaultValue: 'Find your' })}
-              <br />
-              <span className={cm.cn('text-primary')}>
-                {t('stillpoint.landing.hero.title2', {}, { defaultValue: 'still center.' })}
-              </span>
+              {t('stillpoint.landing.hero.title1', {}, { defaultValue: 'Find your' })}{' '}
+              {t('stillpoint.landing.hero.title2', {}, { defaultValue: 'still center.' })}
             </h1>
             <p
               className={cm.cn(
                 cm.textSize('xl'),
-                'text-on-surface-variant max-w-lg leading-relaxed',
+                'text-on-surface-variant max-w-2xl leading-relaxed',
               )}
             >
               {t(
@@ -150,15 +128,21 @@ export function Landing() {
                 },
               )}
             </p>
-            <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), 'sm:flex-row')}>
+            <div
+              className={cm.cn(
+                cm.flex({ direction: 'col', gap: 'sm' }),
+                'sm:flex-row sm:items-center',
+              )}
+            >
               <Link
                 to="/signup"
+                data-mol-id="landing-hero-start-free"
                 className={cm.cn(
                   cm.sp('px', 8),
                   cm.sp('py', 3),
-                  cm.fontWeight('semibold'),
+                  cm.fontWeight('medium'),
                   cm.textSize('lg'),
-                  'bg-accent text-on-accent rounded-full hover:bg-accent/90 transition-colors shadow-md',
+                  'bg-primary text-white rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95',
                 )}
               >
                 {t(
@@ -168,302 +152,422 @@ export function Landing() {
                 )}
               </Link>
               <a
-                href="#features"
+                href="#featured"
                 className={cm.cn(
                   cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
                   cm.sp('px', 8),
                   cm.sp('py', 3),
-                  cm.fontWeight('semibold'),
+                  cm.fontWeight('medium'),
                   cm.textSize('lg'),
-                  'rounded-full text-on-surface bg-surface border border-outline hover:bg-surface-variant transition-colors',
+                  'rounded-full text-primary bg-surface/60 border border-primary/20 hover:bg-surface transition-all hover:-translate-y-0.5 active:scale-95',
                 )}
               >
                 <span
                   aria-hidden="true"
-                  className={cm.cn('material-symbols-outlined text-primary')}
+                  className={cm.cn('material-symbols-outlined')}
+                  style={{ fontVariationSettings: "'FILL' 1" }}
                 >
-                  play_circle
+                  play_arrow
                 </span>
                 {t('stillpoint.landing.hero.secondary', {}, { defaultValue: 'See how it works' })}
               </a>
             </div>
           </div>
 
-          {/* Sample card mirroring the auth'd hero. */}
+          {/* Concentric rings + floating glass session card. */}
           <div
-            className={cm.cn(
-              cm.flex({ direction: 'col', justify: 'between' }),
-              cm.sp('p', 8),
-              'min-h-[360px] bg-gradient-to-br from-[var(--color-hero-from)] via-primary to-[var(--color-cat-mindfulness)] rounded-[2rem] text-white relative overflow-hidden shadow-xl',
-            )}
+            aria-hidden="true"
+            className={cm.cn('relative mt-16 w-full max-w-4xl h-64 flex justify-center z-0')}
           >
-            <div className={cm.cn('relative z-10')}>
-              <span
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-white/70',
-                )}
-              >
-                {t('stillpoint.landing.sample.eyebrow', {}, { defaultValue: "Today's session" })}
-              </span>
-              <p
-                className={cm.cn(
-                  cm.fontWeight('bold'),
-                  'text-3xl md:text-4xl tracking-tight leading-[1.1] mt-2 max-w-xs',
-                )}
-              >
-                {t(
-                  'stillpoint.landing.sample.title',
-                  {},
-                  { defaultValue: 'Letting go of tension' },
-                )}
-              </p>
-              <p
-                className={cm.cn(cm.textSize('sm'), 'text-white/80 mt-3 max-w-xs leading-relaxed')}
-              >
-                {t(
-                  'stillpoint.landing.sample.body',
-                  {},
-                  {
-                    defaultValue:
-                      'A guided body scan to soften the shoulders, jaw, and breath. Best with eyes closed.',
-                  },
-                )}
-              </p>
-            </div>
             <div
-              className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'relative z-10 flex-wrap')}
+              className={cm.cn(
+                'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-primary/10 rounded-full',
+              )}
+            />
+            <div
+              className={cm.cn(
+                'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] border border-primary/5 rounded-full',
+              )}
+            />
+            <div
+              className={cm.cn(
+                'absolute top-8 rounded-xl p-4 shadow-xl flex gap-4 items-center w-80 text-left',
+                '-rotate-2 hover:rotate-0 transition-transform duration-500',
+                'bg-surface/70 backdrop-blur-md border border-surface-bright',
+              )}
             >
-              <span
+              <div
                 className={cm.cn(
-                  cm.flex({ align: 'center', gap: 'xs' }),
-                  cm.sp('px', 3),
-                  cm.sp('py', 1),
-                  cm.roundedFull,
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'bg-surface/15 backdrop-blur-md uppercase tracking-widest',
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'w-20 h-20 rounded shrink-0 text-white',
                 )}
+                style={{ backgroundColor: 'var(--color-cat-mindfulness)' }}
               >
-                <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-base')}>
-                  schedule
+                <span
+                  aria-hidden="true"
+                  className={cm.cn('material-symbols-outlined text-3xl opacity-90')}
+                >
+                  self_improvement
                 </span>
-                {t('stillpoint.landing.sample.duration', {}, { defaultValue: '12 min' })}
-              </span>
-              <span
-                className={cm.cn(
-                  cm.sp('px', 3),
-                  cm.sp('py', 1),
-                  cm.roundedFull,
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'bg-surface/15 backdrop-blur-md uppercase tracking-widest',
-                )}
-              >
-                {t('stillpoint.landing.sample.category', {}, { defaultValue: 'Stress relief' })}
-              </span>
-              <span className={cm.cn(cm.textSize('sm'), 'text-white/85 font-medium')}>
-                {t('stillpoint.landing.sample.with', {}, { defaultValue: 'with Maya Iyer' })}
-              </span>
+              </div>
+              <div className={cm.cn('min-w-0')}>
+                <span
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    cm.sp('px', 2),
+                    cm.sp('py', 1),
+                    cm.sp('mb', 1),
+                    'inline-block rounded-full uppercase tracking-wider',
+                  )}
+                  style={{
+                    color: mindfulness.fg,
+                    backgroundColor: mindfulness.softBg,
+                  }}
+                >
+                  {t('stillpoint.landing.sample.category', {}, { defaultValue: 'Stress relief' })}
+                </span>
+                <h3 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface font-headline')}>
+                  {t(
+                    'stillpoint.landing.sample.title',
+                    {},
+                    { defaultValue: 'Letting go of tension' },
+                  )}
+                </h3>
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t('stillpoint.landing.sample.duration', {}, { defaultValue: '12 min' })}
+                </p>
+              </div>
             </div>
-            <svg
-              aria-hidden="true"
-              className={cm.cn('absolute -right-20 -bottom-20 w-[360px] h-[360px] opacity-30')}
-              viewBox="0 0 100 100"
-            >
-              {[14, 22, 30, 38, 46].map((r) => (
-                <circle
-                  key={r}
-                  cx="50"
-                  cy="50"
-                  r={r}
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="0.6"
-                  strokeOpacity={0.6 - r / 100}
-                />
-              ))}
-            </svg>
-            <div
-              className={cm.cn(
-                'absolute -right-32 -bottom-32 w-80 h-80 bg-accent/30 rounded-full blur-3xl',
-              )}
-            />
-            <div
-              className={cm.cn(
-                'absolute -top-16 -left-10 w-64 h-64 bg-surface/15 rounded-full blur-3xl',
-              )}
-            />
           </div>
         </section>
 
-        {/* Stats strip */}
+        {/* Find your practice (Browse by mood) */}
+        <section id="practice" className={cm.cn(cm.sp('px', 6), cm.sp('py', 20), 'bg-surface')}>
+          <div className={cm.cn('max-w-7xl mx-auto')}>
+            <h2
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                'text-3xl md:text-4xl text-center text-on-surface mb-14 font-headline tracking-tight',
+              )}
+            >
+              {t('stillpoint.landing.categories.heading', {}, { defaultValue: 'Browse by mood' })}
+            </h2>
+            <div className={cm.cn('grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8')}>
+              {PRACTICE.map((c) => {
+                const accent = getCategoryAccent(c.tone)
+                return (
+                  <Link
+                    key={c.key}
+                    to={`/library?category=${c.tone}`}
+                    data-mol-id={`landing-practice-${c.key}`}
+                    className={cm.cn(
+                      'group block relative overflow-hidden rounded-2xl bg-background shadow-sm hover:shadow-lg transition-shadow duration-300 p-8 h-80 flex flex-col justify-end border border-outline/20',
+                    )}
+                  >
+                    <div
+                      aria-hidden="true"
+                      className={cm.cn(
+                        'absolute top-0 right-0 w-48 h-48 rounded-bl-[100px] transition-transform duration-500 group-hover:scale-110 origin-top-right',
+                      )}
+                      style={{
+                        backgroundColor: `color-mix(in oklab, ${accent.fg} 10%, transparent)`,
+                      }}
+                    />
+                    <div className={cm.cn('relative z-10')}>
+                      <span
+                        aria-hidden="true"
+                        className={cm.cn('material-symbols-outlined text-4xl mb-4 inline-block')}
+                        style={{
+                          color: accent.fg,
+                          fontVariationSettings: "'FILL' 1",
+                        }}
+                      >
+                        {accent.icon}
+                      </span>
+                      <h3
+                        className={cm.cn(
+                          cm.textSize('2xl'),
+                          cm.fontWeight('bold'),
+                          'font-headline text-on-surface mb-2',
+                        )}
+                      >
+                        {t(
+                          `stillpoint.landing.categories.${c.key}`,
+                          {},
+                          { defaultValue: c.defaultLabel },
+                        )}
+                      </h3>
+                      <p className={cm.cn('text-on-surface-variant mb-6')}>
+                        {t(
+                          `stillpoint.landing.categoryBody.${c.key}`,
+                          {},
+                          { defaultValue: c.description },
+                        )}
+                      </p>
+                      <span
+                        className={cm.cn(
+                          cm.fontWeight('medium'),
+                          cm.flex({ align: 'center', gap: 'xs' }),
+                          'group-hover:gap-2 transition-all',
+                        )}
+                        style={{ color: accent.fg }}
+                      >
+                        {t(
+                          `stillpoint.landing.practice.explore.${c.key}`,
+                          {
+                            category: t(
+                              `stillpoint.landing.categories.${c.key}`,
+                              {},
+                              { defaultValue: c.defaultLabel },
+                            ),
+                          },
+                          { defaultValue: 'Explore {{category}}' },
+                        )}
+                        <span
+                          aria-hidden="true"
+                          className={cm.cn('material-symbols-outlined text-sm')}
+                        >
+                          arrow_forward
+                        </span>
+                      </span>
+                    </div>
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Today's featured session */}
         <section
-          className={cm.cn(
-            'bg-gradient-to-r from-[var(--color-hero-strip-from)] to-primary py-12 text-white',
-          )}
+          id="featured"
+          className={cm.cn(cm.sp('px', 6), cm.sp('py', 20), 'bg-surface-secondary')}
         >
+          <div className={cm.cn('max-w-4xl mx-auto')}>
+            <div className={cm.cn(cm.sp('mb', 8), 'text-center md:text-left')}>
+              <h2
+                className={cm.cn(
+                  cm.fontWeight('bold'),
+                  'text-3xl md:text-4xl text-on-surface font-headline tracking-tight',
+                )}
+              >
+                {t(
+                  'stillpoint.landing.featured.heading',
+                  {},
+                  { defaultValue: "Today's featured session" },
+                )}
+              </h2>
+              <p className={cm.cn('text-on-surface-variant mt-2')}>
+                {t(
+                  'stillpoint.landing.featured.sub',
+                  {},
+                  { defaultValue: 'A hand-picked meditation to start your day.' },
+                )}
+              </p>
+            </div>
+            <Link
+              to="/library"
+              data-mol-id="landing-featured-card"
+              className={cm.cn(
+                'group bg-surface rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row md:h-64 border border-outline/20',
+              )}
+            >
+              {/* CSS artwork (no photo assets in the template) — sunrise-wash
+                 gradient stand-in for the design's photograph. */}
+              <div className="md:w-1/2 h-48 md:h-full relative overflow-hidden bg-[image:linear-gradient(135deg,var(--color-cat-body)_0%,var(--color-accent)_55%,color-mix(in_oklab,var(--color-cat-mindfulness)_70%,white)_100%)]">
+                <div
+                  aria-hidden="true"
+                  className={cm.cn('absolute inset-0 flex items-center justify-center opacity-90')}
+                >
+                  <span
+                    className={cm.cn('material-symbols-outlined text-white text-7xl')}
+                    style={{ fontVariationSettings: "'FILL' 0" }}
+                  >
+                    wb_twilight
+                  </span>
+                </div>
+                <div
+                  aria-hidden="true"
+                  className={cm.cn(
+                    'absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300',
+                  )}
+                >
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'w-16 h-16 bg-white/30 backdrop-blur-sm rounded-full',
+                    )}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-white text-3xl')}
+                      style={{ fontVariationSettings: "'FILL' 1" }}
+                    >
+                      play_arrow
+                    </span>
+                  </div>
+                </div>
+                <div className={cm.cn('absolute top-4 left-4')}>
+                  <span
+                    className={cm.cn(
+                      'bg-accent text-on-accent text-xs font-bold px-3 py-1.5 rounded-full tracking-wider uppercase shadow-sm',
+                    )}
+                  >
+                    {t('stillpoint.landing.featured.badge', {}, { defaultValue: 'Body' })}
+                  </span>
+                </div>
+              </div>
+              {/* Content */}
+              <div
+                className={cm.cn(cm.sp('p', 8), 'md:w-1/2 flex flex-col justify-center text-left')}
+              >
+                <h3
+                  className={cm.cn(
+                    cm.textSize('2xl'),
+                    cm.fontWeight('bold'),
+                    'font-headline text-on-surface mb-2',
+                  )}
+                >
+                  {t(
+                    'stillpoint.landing.featured.title',
+                    {},
+                    { defaultValue: 'Morning grounding' },
+                  )}
+                </h3>
+                <p className={cm.cn('text-on-surface-variant mb-6 grow')}>
+                  {t(
+                    'stillpoint.landing.featured.body',
+                    {},
+                    {
+                      defaultValue:
+                        'Set a calm, intentional tone for your day with this gentle body scan.',
+                    },
+                  )}
+                </p>
+                <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'mt-auto')}>
+                  <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                    <div
+                      className={cm.cn(
+                        cm.flex({ align: 'center', justify: 'center' }),
+                        'w-10 h-10 rounded-full bg-primary-container text-primary text-xs font-bold shrink-0',
+                      )}
+                    >
+                      MI
+                    </div>
+                    <div>
+                      <p
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          cm.fontWeight('semibold'),
+                          'text-on-surface',
+                        )}
+                      >
+                        {t(
+                          'stillpoint.landing.sample.with',
+                          {},
+                          { defaultValue: 'with Maya Iyer' },
+                        )}
+                      </p>
+                      <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                        {t(
+                          'stillpoint.landing.featured.instructor',
+                          {},
+                          { defaultValue: 'Instructor' },
+                        )}
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 'xs' }),
+                      cm.sp('px', 3),
+                      cm.sp('py', 1),
+                      cm.textSize('sm'),
+                      cm.fontWeight('medium'),
+                      'text-on-surface-variant bg-background rounded-full',
+                    )}
+                  >
+                    <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-lg')}>
+                      schedule
+                    </span>
+                    {t('stillpoint.landing.featured.duration', {}, { defaultValue: '10 min' })}
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+
+        {/* Stats band */}
+        <section className={cm.cn('bg-primary text-white py-14 border-y border-white/10')}>
           <div
             className={cm.cn(
               cm.sp('px', 6),
-              'max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:divide-x divide-white/30',
+              'max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:divide-x divide-white/30',
             )}
           >
-            {[
-              { value: '320,000+', key: 'users', defaultLabel: 'mindful members' },
-              { value: '8.6M+', key: 'minutes', defaultLabel: 'minutes meditated' },
-              { value: '4.9 ★', key: 'rating', defaultLabel: 'App Store rating' },
-            ].map((s) => (
-              <div key={s.key} className={cm.cn('pt-6 md:pt-0')}>
-                <p className={cm.cn('text-4xl font-black tabular-nums tracking-tight')}>
+            {STATS.map((s) => (
+              <div key={s.key} className={cm.cn('py-4 md:py-0')}>
+                <p
+                  className={cm.cn('text-4xl font-bold tabular-nums tracking-tight font-headline')}
+                >
                   {s.value}
                 </p>
-                <p className={cm.cn('text-white/85 mt-2 font-medium')}>
+                <p className={cm.cn('text-white/85 font-medium text-lg mt-2')}>
                   {t(`stillpoint.landing.stats.${s.key}`, {}, { defaultValue: s.defaultLabel })}
                 </p>
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* Feature triad */}
-        <section
-          id="features"
-          className={cm.cn(cm.sp('px', 6), cm.sp('py', 16), 'max-w-7xl mx-auto')}
-        >
-          <div
-            className={cm.cn(
-              cm.textCenter,
-              cm.sp('mb', 12),
-              cm.flex({ direction: 'col', gap: 'sm' }),
-              'max-w-2xl mx-auto',
-            )}
-          >
-            <h2
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                'text-3xl md:text-4xl tracking-tight text-on-surface',
-              )}
-            >
-              {t(
-                'stillpoint.landing.features.heading',
-                {},
-                { defaultValue: 'A practice that grows with you' },
-              )}
-            </h2>
-            <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant')}>
-              {t(
-                'stillpoint.landing.features.body',
-                {},
-                {
-                  defaultValue:
-                    'Calm tools for every moment — morning focus, midday reset, bedtime wind-down.',
-                },
-              )}
-            </p>
-          </div>
-          <div className={cm.cn('grid grid-cols-1 md:grid-cols-3 gap-6')}>
-            {FEATURES.map((f) => (
-              <div
-                key={f.icon}
-                className={cm.cn(
-                  cm.sp('p', 8),
-                  'bg-surface-container-lowest rounded-2xl border border-outline/30 shadow-sm hover:shadow-md transition-shadow',
-                )}
-              >
-                <div
-                  className={cm.cn(
-                    cm.flex({ align: 'center', justify: 'center' }),
-                    cm.sp('mb', 6),
-                    'w-14 h-14 bg-primary-container rounded-2xl text-primary',
-                  )}
-                >
+            <div className={cm.cn('py-4 md:py-0 flex flex-col items-center justify-center')}>
+              <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'text-accent mb-2')}>
+                {[0, 1, 2, 3, 4].map((i) => (
                   <span
+                    key={i}
                     aria-hidden="true"
                     className={cm.cn('material-symbols-outlined text-2xl')}
                     style={{ fontVariationSettings: "'FILL' 1" }}
                   >
-                    {f.icon}
+                    star
                   </span>
-                </div>
-                <h3
-                  className={cm.cn(
-                    cm.textSize('xl'),
-                    cm.fontWeight('bold'),
-                    cm.sp('mb', 2),
-                    'text-on-surface tracking-tight',
-                  )}
-                >
-                  {t(f.titleKey, {}, { defaultValue: f.defaultTitle })}
-                </h3>
-                <p className={cm.cn('text-on-surface-variant leading-relaxed')}>
-                  {t(f.bodyKey, {}, { defaultValue: f.defaultBody })}
-                </p>
+                ))}
               </div>
-            ))}
+              <p className={cm.cn('text-white/85 font-medium text-lg')}>
+                {t('stillpoint.landing.stats.rating', {}, { defaultValue: 'App Store rating' })}
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* Categories */}
-        <section className={cm.cn(cm.sp('px', 6), cm.sp('py', 8), 'max-w-7xl mx-auto')}>
-          <h2
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              'text-2xl md:text-3xl tracking-tight text-on-surface mb-6',
-            )}
-          >
-            {t('stillpoint.landing.categories.heading', {}, { defaultValue: 'Browse by mood' })}
-          </h2>
-          <div className={cm.cn('grid grid-cols-2 md:grid-cols-4 gap-4')}>
-            {CATEGORIES.map((c) => (
-              <CategoryTile
-                key={c.key}
-                category={c.tone}
-                label={t(
-                  `stillpoint.landing.categories.${c.key}`,
-                  {},
-                  { defaultValue: c.defaultLabel },
-                )}
-                sessionCount={c.sessions}
-                description={t(
-                  `stillpoint.landing.categoryBody.${c.key}`,
-                  {},
-                  { defaultValue: c.description },
-                )}
-                to={`/library?category=${c.tone}`}
-              />
-            ))}
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section
-          className={cm.cn(cm.sp('px', 6), cm.sp('py', 16), 'max-w-4xl mx-auto text-center')}
-        >
+        {/* Closing CTA */}
+        <section className={cm.cn(cm.sp('px', 6), cm.sp('py', 24), 'bg-surface text-center')}>
           <div
             className={cm.cn(
               cm.sp('p', 12),
-              'bg-primary-container rounded-3xl border border-primary/20 shadow-sm relative overflow-hidden',
+              'max-w-2xl mx-auto bg-background rounded-[2rem] border border-primary/5 shadow-sm relative overflow-hidden',
             )}
           >
             <div
               className={cm.cn(
-                'absolute -top-24 -right-24 w-64 h-64 bg-primary/30 rounded-full mix-blend-multiply blur-3xl opacity-50',
+                'absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl',
               )}
               aria-hidden="true"
             />
             <div
               className={cm.cn(
-                'absolute -bottom-24 -left-24 w-64 h-64 bg-accent/30 rounded-full mix-blend-multiply blur-3xl opacity-50',
+                'absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl',
               )}
               aria-hidden="true"
             />
-            <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), 'relative z-10')}>
+            <div
+              className={cm.cn(
+                cm.flex({ direction: 'col', gap: 'lg' }),
+                'relative z-10 items-center',
+              )}
+            >
               <h2
                 className={cm.cn(
                   cm.fontWeight('bold'),
-                  'text-4xl md:text-5xl text-on-surface tracking-tight',
+                  'text-4xl md:text-5xl text-on-surface tracking-tight font-headline',
                 )}
               >
                 {t(
@@ -472,7 +576,7 @@ export function Landing() {
                   { defaultValue: 'Begin your stillness today' },
                 )}
               </h2>
-              <p className={cm.cn(cm.textSize('xl'), 'text-on-primary-container max-w-xl mx-auto')}>
+              <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant max-w-md mx-auto')}>
                 {t(
                   'stillpoint.landing.cta.body',
                   { app: APP_NAME, tagline: APP_TAGLINE },
@@ -485,11 +589,14 @@ export function Landing() {
               <div className={cm.cn(cm.flex({ justify: 'center', gap: 'sm' }))}>
                 <Link
                   to="/signup"
+                  data-mol-id="landing-cta-signup"
                   className={cm.cn(
-                    cm.sp('px', 8),
+                    cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
+                    cm.sp('px', 10),
                     cm.sp('py', 3),
-                    cm.fontWeight('semibold'),
-                    'bg-accent text-on-accent rounded-full hover:bg-accent/90 transition-colors shadow-sm',
+                    cm.fontWeight('bold'),
+                    cm.textSize('lg'),
+                    'bg-accent text-on-accent rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95',
                   )}
                 >
                   {t(
@@ -497,6 +604,9 @@ export function Landing() {
                     {},
                     { defaultValue: 'Create your free account' },
                   )}
+                  <span aria-hidden="true" className={cm.cn('material-symbols-outlined')}>
+                    arrow_forward
+                  </span>
                 </Link>
               </div>
             </div>

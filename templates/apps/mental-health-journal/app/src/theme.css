@@ -21,6 +21,9 @@
   --color-on-error: #3a0000; /* white on #ef4444 = 3.76:1 (fail); #3a0000 = 6.43:1 */
   --color-on-primary: #ffffff; /* white on #7c3aed = 5.70:1 (pass) */
 
+  /* Stitch journal-paper tone for preview cards (near-white warm). */
+  --color-journal-bg: #fffefb;
+
   --color-primary: #7c3aed;
   --color-primary-hover: #6d28d9;
   --color-primary-light: #ede9fe;
@@ -101,7 +104,9 @@
   --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
   /* Headline font — picked up by shared molecule pages
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Journal voice — Lora italic, the Stitch landing design's serif quotes. */
+  --font-journal: 'Lora', Georgia, 'Times New Roman', serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-md: 1rem;
@@ -126,6 +131,8 @@
    `--color-on-primary` STAYS white. Mood scale and severity-tinted bgs
    keep their semantic hue meaning. */
 [data-mol-mode='dark'] {
+  /* Stitch journal paper flips to a deep violet-night card. */
+  --color-journal-bg: #1c1730;
   /* ── Bridge variables (feed into @theme) ── */
   --mol-color-primary: #7c3aed; /* brand violet — kept at brand stop for CTAs */
   --mol-color-primary-light: #2d1f4e;

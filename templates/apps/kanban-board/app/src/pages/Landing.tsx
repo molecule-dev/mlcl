@@ -6,223 +6,273 @@ import { getClassMap } from '@molecule/app-ui'
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
+// Design feature set (Stitch "Driftboard" landing): six capability cards in a
+// 2/3-column grid. Copy mirrors the design's cards.
 const FEATURES = [
   {
-    icon: 'view_kanban',
-    titleKey: 'landing.features.boards.title',
-    titleDefault: 'Boards that breathe',
-    bodyKey: 'landing.features.boards.body',
+    icon: 'drag_pan',
+    titleKey: 'landing.features.drag.title',
+    titleDefault: 'Drag-and-drop boards',
+    bodyKey: 'landing.features.drag.body',
     bodyDefault:
-      'Drag, drop, swimlane, filter — built for the rhythm of real product work, not Trello-clone nostalgia.',
+      'Intuitive interfaces that let you move work across stages with a fluid, satisfying click-and-drag motion.',
+  },
+  {
+    icon: 'view_column_2',
+    titleKey: 'landing.features.swimlanes.title',
+    titleDefault: 'Swim lanes',
+    bodyKey: 'landing.features.swimlanes.body',
+    bodyDefault:
+      'Organize complex projects horizontally and vertically. Keep different streams of work distinct but aligned.',
+  },
+  {
+    icon: 'group',
+    titleKey: 'landing.features.presence.title',
+    titleDefault: 'Real-time presence',
+    bodyKey: 'landing.features.presence.body',
+    bodyDefault:
+      'See exactly who is looking at what. Collaborate on cards simultaneously without stepping on toes.',
+  },
+  {
+    icon: 'filter_list',
+    titleKey: 'landing.features.filters.title',
+    titleDefault: 'Powerful filters',
+    bodyKey: 'landing.features.filters.body',
+    bodyDefault:
+      'Cut through the noise. Instantly find tasks by assignee, label, due date, or custom fields.',
   },
   {
     icon: 'bolt',
-    titleKey: 'landing.features.realtime.title',
-    titleDefault: 'Realtime collaboration',
-    bodyKey: 'landing.features.realtime.body',
+    titleKey: 'landing.features.automations.title',
+    titleDefault: 'Card automations',
+    bodyKey: 'landing.features.automations.body',
     bodyDefault:
-      'See teammates move cards, leave comments, and edit checklists with millisecond presence cursors.',
+      'Set up rules to move cards, assign team members, or change statuses automatically based on triggers.',
   },
   {
-    icon: 'shield_lock',
-    titleKey: 'landing.features.permissions.title',
-    titleDefault: 'Workspace-grade permissions',
-    bodyKey: 'landing.features.permissions.body',
+    icon: 'sync',
+    titleKey: 'landing.features.sync.title',
+    titleDefault: 'Slack/GitHub sync',
+    bodyKey: 'landing.features.sync.body',
     bodyDefault:
-      'Owner / admin / member / viewer roles per board. Audit log on every state change. SSO-ready.',
+      'Keep discussions and code linked to tasks. Updates in connected tools reflect directly on your board.',
   },
-  {
-    icon: 'auto_awesome',
-    titleKey: 'landing.features.shortcuts.title',
-    titleDefault: 'Keyboard-first',
-    bodyKey: 'landing.features.shortcuts.body',
-    bodyDefault:
-      'Mod+K command palette, vim-style card navigation, and a sub-100ms feel — built for power users.',
-  },
-]
+] as const
 
-const SAMPLE_CARDS = [
+// Fictional team wordmarks for the trusted-by strip (design copy).
+const TRUSTED_BY = [
+  { key: 'acme', defaultLabel: 'AcmeCorp' },
+  { key: 'globex', defaultLabel: 'Globex' },
+  { key: 'initech', defaultLabel: 'Initech' },
+  { key: 'soylent', defaultLabel: 'Soylent' },
+  { key: 'massive', defaultLabel: 'Massive Dynamic' },
+] as const
+
+// Mini board preview inside the glass panel (design composition:
+// "To Do 3" + "In Progress 1" columns, color bars, avatar initials).
+const PREVIEW_TODO = [
   {
-    tone: 'rose',
-    label: 'Critical',
-    title: 'Investigate the slow board-load 95th percentile',
-    sub: 'Diego · 11 comments',
+    key: 'hero',
+    bars: ['bg-error-container', 'bg-tertiary-container'],
+    titleKey: 'landing.preview.cardHero',
+    titleDefault: 'Redesign landing page hero',
+    commentIcon: 'subject',
+    initials: 'JD',
+    avatarTone: 'bg-primary-container text-on-primary-container',
+    highlighted: false,
   },
   {
-    tone: 'amber',
-    label: 'High',
-    title: 'Migrate dashboard charts to the new color tokens',
-    sub: 'Sarah, Marcus · 5/8',
+    key: 'pricing',
+    bars: [] as string[],
+    titleKey: 'landing.preview.cardPricing',
+    titleDefault: 'Update pricing tiers',
+    commentIcon: 'chat_bubble',
+    initials: 'AS',
+    avatarTone: 'bg-secondary-container text-on-secondary-container',
+    highlighted: false,
   },
+] as const
+
+const PREVIEW_PROGRESS = [
   {
-    tone: 'blue',
-    label: 'Medium',
-    title: 'Wire SSE streaming into the activity feed',
-    sub: 'James · Apr 30',
+    key: 'ai',
+    bars: ['bg-tertiary-container'],
+    titleKey: 'landing.preview.cardAi',
+    titleDefault: 'Integrate AI sprint suggestions',
+    commentIcon: 'auto_awesome',
+    initials: 'MK',
+    avatarTone: 'bg-tertiary text-on-tertiary',
+    highlighted: true,
   },
-]
+] as const
 
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const isAuthenticated = useIsAuthenticated()
 
+  const ctaPrimary = cm.cn(
+    cm.sp('px', 6),
+    cm.sp('py', 3),
+    cm.textSize('base'),
+    cm.fontWeight('bold'),
+    'inline-flex items-center justify-center gap-2 rounded-lg text-on-primary',
+    'bg-gradient-to-br from-primary to-primary-container shadow-md transition-opacity hover:opacity-90 active:scale-95',
+  )
+  const navLink = cm.cn(
+    cm.textSize('sm'),
+    cm.fontWeight('medium'),
+    'text-on-surface-variant transition-colors hover:text-primary',
+  )
+
   return (
     <div className={cm.cn(cm.minH('screen'), 'flex flex-col bg-background text-on-surface')}>
+      {/* Fixed nav — frosted white bar (design: bg-white/80 blur, h-64px) */}
       <header
         className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between' }),
-          'flex-wrap gap-x-6 gap-y-2',
-          cm.sp('px', 6),
-          cm.sp('py', 5),
+          'fixed top-0 z-50 w-full border-b border-outline-variant/15 bg-surface/80 backdrop-blur-xl shadow-sm',
         )}
       >
-        <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-          <span
-            className={cm.cn(
-              cm.w(10),
-              cm.h(10),
-              cm.flex({ align: 'center', justify: 'center' }),
-              'rounded-xl text-white shadow-md',
-              'bg-gradient-to-br from-primary to-primary-container',
-            )}
-          >
-            <span
-              className="material-symbols-outlined"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              dashboard
-            </span>
-          </span>
-          <span
-            className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-on-surface')}
-          >
-            {APP_NAME}
-          </span>
-        </Link>
-        <nav
+        <div
           className={cm.cn(
-            cm.flex({ align: 'center' }),
-            'flex-wrap gap-x-3 gap-y-1 sm:gap-x-6',
-            'text-sm font-semibold text-on-surface-variant',
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            cm.flex({ align: 'center', justify: 'between' }),
+            'h-16 w-full',
           )}
         >
-          <a
-            href="#features"
-            className={cm.cn(
-              `inline-flex items-center py-2 hover:text-on-surface transition-colors`,
-            )}
-          >
-            {t('nav.features', {}, { defaultValue: 'Features' })}
-          </a>
-          <Link
-            to="/pricing"
-            className={cm.cn(
-              `inline-flex items-center py-2 hover:text-on-surface transition-colors`,
-            )}
-          >
-            {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
-          </Link>
-          <Link
-            to="/about"
-            className={cm.cn(
-              `inline-flex items-center py-2 hover:text-on-surface transition-colors`,
-            )}
-          >
-            {t('nav.about', {}, { defaultValue: 'About' })}
-          </Link>
-          <ThemeToggle />
-          {isAuthenticated ? (
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
             <Link
-              to="/dashboard"
-              className={cm.cn(
-                'px-5 py-2 rounded-full text-white text-sm font-bold shadow-md',
-                'bg-gradient-to-br from-primary to-primary-container hover:opacity-90 transition-opacity',
-              )}
+              to="/"
+              className={cm.cn(cm.textSize('xl'), 'font-black tracking-tighter text-primary')}
             >
-              {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
+              {APP_NAME}
             </Link>
-          ) : (
-            <>
-              <Link
-                to="/login"
-                className={cm.cn(
-                  `px-4 py-2 rounded-full bg-surface-container-high text-on-surface text-sm font-semibold hover:bg-surface-container-highest transition-colors`,
-                )}
-              >
-                {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+            <nav className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'hidden md:flex')}>
+              <a href="#features" className={navLink}>
+                {t('nav.features', {}, { defaultValue: 'Features' })}
+              </a>
+              <Link to="/pricing" className={navLink}>
+                {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
               </Link>
-              <Link
-                to="/signup"
-                className={cm.cn(
-                  'px-5 py-2 rounded-full text-white text-sm font-bold shadow-md',
-                  'bg-gradient-to-br from-primary to-primary-container hover:opacity-90 transition-opacity',
-                )}
-              >
-                {t('common.getStarted', {}, { defaultValue: 'Get started' })}
+              <Link to="/about" className={navLink}>
+                {t('nav.about', {}, { defaultValue: 'About' })}
               </Link>
-            </>
-          )}
-        </nav>
-      </header>
-
-      <main className={cm.cn(cm.flex1, 'flex flex-col')}>
-        <section className={cm.cn(cm.sp('px', 6), cm.sp('py', 16), 'mx-auto w-full max-w-7xl')}>
-          <div className={cm.cn(`grid grid-cols-1 lg:grid-cols-12 gap-12 items-center`)}>
-            <div className={cm.cn(`lg:col-span-6`)}>
-              <span
+            </nav>
+          </div>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+            <span className={cm.cn('hidden sm:inline-flex')}>
+              <ThemeToggle />
+            </span>
+            {isAuthenticated ? (
+              <Link
+                to="/dashboard"
+                data-mol-id="nav-go-to-dashboard"
                 className={cm.cn(
-                  cm.flex({ align: 'center', gap: 'xs' }),
-                  'inline-flex w-fit px-3 py-1 mb-6 rounded-full text-[11px] font-black uppercase tracking-widest',
-                  'bg-primary/10 text-primary-dark',
+                  cm.sp('px', 4),
+                  cm.sp('py', 2),
+                  cm.textSize('sm'),
+                  cm.fontWeight('bold'),
+                  'rounded-lg text-on-primary bg-gradient-to-br from-primary to-primary-container transition-opacity hover:opacity-90',
                 )}
               >
-                <span className="material-symbols-outlined text-[14px]">bolt</span>
-                {t(
-                  'landing.hero.eyebrow',
-                  {},
-                  { defaultValue: 'Built for product + engineering teams' },
-                )}
-              </span>
-              <h1
-                className={cm.cn(
-                  `text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] text-on-surface`,
-                )}
-              >
-                {t('landing.hero.headlineLeading', {}, { defaultValue: 'Move work forward,' })}
-                <br />
-                <span className="bg-gradient-to-br from-primary to-primary-container bg-clip-text text-transparent">
-                  {t('landing.hero.headlineAccent', {}, { defaultValue: 'effortlessly.' })}
-                </span>
-              </h1>
-              <p className={cm.cn(cm.sp('mt', 6), 'text-lg text-on-surface-variant max-w-xl')}>
-                {t(
-                  'landing.hero.subline',
-                  {},
-                  {
-                    defaultValue:
-                      'Boards, lists, cards, swimlanes, work-in-progress caps — every primitive your team already trusts, with realtime collaboration and a keyboard-first feel.',
-                  },
-                )}
-              </p>
-              <div className={cm.cn(cm.sp('mt', 8), 'flex flex-wrap items-center gap-4')}>
+                {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
+              </Link>
+            ) : (
+              <>
+                <Link to="/login" className={cm.cn(navLink, 'hidden sm:inline-flex')}>
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                </Link>
                 <Link
                   to="/signup"
+                  data-mol-id="nav-get-started"
                   className={cm.cn(
-                    'px-7 py-3 rounded-full text-white text-base font-bold shadow-lg',
-                    'bg-gradient-to-br from-primary to-primary-container hover:opacity-90 transition-opacity',
-                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.sp('px', 4),
+                    cm.sp('py', 2),
+                    cm.textSize('sm'),
+                    cm.fontWeight('bold'),
+                    'rounded-lg text-on-primary bg-gradient-to-br from-primary to-primary-container transition-transform hover:opacity-90 active:scale-95',
                   )}
                 >
-                  {t('landing.hero.primaryCta', {}, { defaultValue: 'Start your first board' })}
-                  <span className="material-symbols-outlined">arrow_forward</span>
+                  {t('common.getStarted', {}, { defaultValue: 'Get started' })}
+                </Link>
+              </>
+            )}
+          </div>
+        </div>
+      </header>
+
+      <main className={cm.cn(cm.flex1, 'flex flex-col pt-16')}>
+        {/* Hero — split panel on surface-container-low with glass board preview */}
+        <section className={cm.cn('relative overflow-hidden bg-surface-container-low')}>
+          <div
+            className={cm.cn(
+              cm.maxW('7xl'),
+              cm.mxAuto,
+              cm.sp('px', 6),
+              cm.sp('pt', 20),
+              cm.sp('pb', 24),
+              'grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16',
+            )}
+          >
+            <div className={cm.cn('relative z-10', cm.flex({ direction: 'col', gap: 'lg' }))}>
+              <div>
+                <span
+                  className={cm.cn(
+                    cm.sp('mb', 6),
+                    cm.sp('px', 3),
+                    cm.sp('py', 1),
+                    'inline-flex items-center gap-2 rounded-full border border-outline-variant/25 bg-surface-container-highest text-[13px] font-medium text-primary-text',
+                  )}
+                >
+                  <span className={cm.cn('h-2 w-2 rounded-full bg-success')} aria-hidden="true" />
+                  {t('landing.hero.eyebrow', {}, { defaultValue: 'New: AI sprint suggestions' })}
+                </span>
+                <h1
+                  className={cm.cn(
+                    cm.sp('mb', 6),
+                    'text-5xl font-black leading-[1.1] tracking-tighter text-on-surface lg:text-[64px]',
+                  )}
+                >
+                  {t('landing.hero.headlineLeading', {}, { defaultValue: 'Move work forward,' })}{' '}
+                  {t('landing.hero.headlineAccent', {}, { defaultValue: 'effortlessly' })}
+                </h1>
+                <p
+                  className={cm.cn(
+                    cm.maxW('xl'),
+                    cm.textSize('xl'),
+                    cm.fontWeight('medium'),
+                    'leading-relaxed text-on-surface-variant',
+                  )}
+                >
+                  {t(
+                    'landing.hero.subline',
+                    {},
+                    {
+                      defaultValue:
+                        'The visual collaboration platform that helps teams align, execute, and deliver faster. Stop managing tools and start moving work.',
+                    },
+                  )}
+                </p>
+              </div>
+              <div className={cm.cn(cm.flex({ wrap: 'wrap', align: 'center', gap: 'md' }))}>
+                <Link to="/signup" data-mol-id="hero-start-free" className={ctaPrimary}>
+                  {t('landing.hero.primaryCta', {}, { defaultValue: 'Start free' })}
                 </Link>
                 <Link
                   to="/login"
                   className={cm.cn(
-                    `px-6 py-3 rounded-full text-on-surface text-base font-semibold border border-outline-variant hover:bg-surface-container-low transition-colors`,
+                    cm.sp('px', 6),
+                    cm.sp('py', 3),
+                    cm.textSize('base'),
+                    cm.fontWeight('bold'),
+                    'inline-flex items-center gap-2 rounded-lg bg-surface-container-highest text-primary-text transition-colors hover:opacity-80',
                   )}
                 >
+                  <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
+                    play_circle
+                  </span>
                   {t(
                     'landing.hero.secondaryCta',
                     {},
@@ -230,108 +280,199 @@ export function Landing() {
                   )}
                 </Link>
               </div>
-              <div
-                className={cm.cn(
-                  cm.sp('mt', 8),
-                  'flex items-center gap-4 text-sm text-on-surface-variant',
-                )}
-              >
-                <div className={cm.cn(`flex -space-x-2`)}>
-                  <img
-                    src="https://i.pravatar.cc/64?img=1"
-                    alt=""
-                    className={cm.cn(`w-8 h-8 rounded-full ring-2 ring-background object-cover`)}
-                  />
-                  <img
-                    src="https://i.pravatar.cc/64?img=12"
-                    alt=""
-                    className={cm.cn(`w-8 h-8 rounded-full ring-2 ring-background object-cover`)}
-                  />
-                  <img
-                    src="https://i.pravatar.cc/64?img=5"
-                    alt=""
-                    className={cm.cn(`w-8 h-8 rounded-full ring-2 ring-background object-cover`)}
-                  />
-                  <img
-                    src="https://i.pravatar.cc/64?img=8"
-                    alt=""
-                    className={cm.cn(`w-8 h-8 rounded-full ring-2 ring-background object-cover`)}
-                  />
-                </div>
-                <span className="font-semibold">
-                  {t(
-                    'landing.hero.socialProof',
-                    { appName: APP_NAME },
-                    { defaultValue: '4,200+ product teams ship with {{appName}}' },
+              <div className={cm.cn(cm.sp('pt', 8))}>
+                <p
+                  className={cm.cn(
+                    cm.sp('mb', 4),
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'uppercase tracking-widest text-on-surface-variant',
                   )}
-                </span>
+                >
+                  {t('landing.hero.trustedBy', {}, { defaultValue: 'Trusted by innovative teams' })}
+                </p>
+                <div
+                  className={cm.cn(
+                    cm.flex({ wrap: 'wrap', align: 'center', gap: 'lg' }),
+                    'opacity-60 grayscale transition-all duration-300 hover:grayscale-0',
+                  )}
+                >
+                  {TRUSTED_BY.map((brand) => (
+                    <span
+                      key={brand.key}
+                      className={cm.cn(
+                        cm.textSize('xl'),
+                        'font-bold tracking-tight text-on-surface',
+                      )}
+                    >
+                      {t(
+                        `landing.hero.trusted.${brand.key}`,
+                        {},
+                        { defaultValue: brand.defaultLabel },
+                      )}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className={cm.cn(`lg:col-span-6`)}>
+            {/* Floating glass kanban preview, tilted -2deg until hover */}
+            <div
+              className={cm.cn('relative z-10 flex items-center justify-center lg:min-h-[600px]')}
+            >
               <div
                 className={cm.cn(
-                  cm.sp('p', 8),
-                  'relative overflow-hidden rounded-[2rem] text-white shadow-[0_30px_70px_-30px_rgba(37,99,235,0.55)]',
-                  'bg-gradient-to-br from-primary via-primary to-primary-container',
+                  'absolute top-1/2 left-1/2 -z-10 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30 blur-3xl',
+                  'bg-gradient-to-tr from-surface-variant to-primary-fixed-dim',
                 )}
+                aria-hidden="true"
+              />
+              <div
+                className={cm.cn(
+                  cm.sp('p', 6),
+                  'w-full max-w-lg rotate-[-2deg] rounded-xl border border-outline-variant/25 bg-surface/70 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:rotate-0',
+                )}
+                aria-hidden="true"
               >
-                <div
-                  className={cm.cn(
-                    `absolute -right-20 -bottom-24 h-72 w-72 rounded-full bg-surface/15 blur-3xl pointer-events-none`,
-                  )}
-                />
-                <div
-                  className={cm.cn(
-                    `absolute -left-16 -top-20 h-64 w-64 rounded-full bg-surface/10 blur-3xl pointer-events-none`,
-                  )}
-                />
-                <div className="relative z-10">
-                  <p
+                <div className={cm.cn(cm.flex({ align: 'start', gap: 'md' }))}>
+                  <div
                     className={cm.cn(
-                      `text-[10px] uppercase tracking-[0.32em] text-white/70 font-black mb-2`,
+                      cm.flex1,
+                      cm.flex({ direction: 'col', gap: 'sm' }),
+                      cm.sp('p', 3),
+                      'rounded-lg border border-outline-variant/15 bg-surface/50',
                     )}
                   >
-                    {t('landing.preview.workspace', {}, { defaultValue: 'Acme Engineering' })}
-                  </p>
-                  <h3 className={cm.cn(`text-3xl font-extrabold tracking-tight mb-6`)}>
-                    {t('landing.preview.boardName', {}, { defaultValue: 'Q2 Product Launch' })}
-                  </h3>
-                  <div className={cm.flex({ direction: 'col', gap: 'sm' })}>
-                    {SAMPLE_CARDS.map((card, idx) => (
+                    <h3
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('semibold'),
+                        cm.flex({ justify: 'between' }),
+                        'text-on-surface',
+                      )}
+                    >
+                      {t('landing.preview.todo', {}, { defaultValue: 'To Do' })}
+                      <span className={cm.cn(cm.fontWeight('normal'), 'text-on-surface-variant')}>
+                        3
+                      </span>
+                    </h3>
+                    {PREVIEW_TODO.map((card) => (
                       <div
-                        key={card.title}
+                        key={card.key}
                         className={cm.cn(
-                          cm.sp('p', 4),
-                          'rounded-2xl bg-surface/15 backdrop-blur-md text-white',
+                          cm.sp('p', 3),
+                          'rounded border border-outline-variant/15 bg-surface-container-lowest shadow-sm',
                         )}
                       >
-                        <div
+                        {card.bars.length ? (
+                          <div className={cm.cn(cm.sp('mb', 2), cm.flex({ gap: 'xs' }))}>
+                            {card.bars.map((bar) => (
+                              <span key={bar} className={cm.cn('h-2 w-8 rounded-full', bar)} />
+                            ))}
+                          </div>
+                        ) : null}
+                        <p
                           className={cm.cn(
-                            cm.flex({ align: 'center', justify: 'between' }),
-                            'mb-2',
+                            cm.sp('mb', 3),
+                            cm.textSize('sm'),
+                            cm.fontWeight('medium'),
                           )}
                         >
+                          {t(
+                            `landing.preview.card.${card.key}`,
+                            {},
+                            { defaultValue: card.titleDefault },
+                          )}
+                        </p>
+                        <div className={cm.cn(cm.flex({ justify: 'between', align: 'center' }))}>
                           <span
                             className={cm.cn(
-                              'px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest',
-                              card.tone === 'rose'
-                                ? 'bg-rose-300/30'
-                                : card.tone === 'amber'
-                                  ? 'bg-amber-300/30'
-                                  : 'bg-blue-300/30',
+                              'material-symbols-outlined text-sm text-on-surface-variant',
                             )}
                           >
-                            {card.label}
+                            {card.commentIcon}
                           </span>
-                          <span className="text-[11px] font-semibold text-white/70">
-                            #{idx + 1}
+                          <span
+                            className={cm.cn(
+                              cm.flex({ align: 'center', justify: 'center' }),
+                              'h-6 w-6 rounded-full text-[10px] font-bold',
+                              card.avatarTone,
+                            )}
+                          >
+                            {card.initials}
                           </span>
                         </div>
-                        <p className="font-bold leading-snug">{card.title}</p>
-                        <p className={cm.cn(`text-[11px] text-white/80 font-semibold mt-1`)}>
-                          {card.sub}
+                      </div>
+                    ))}
+                  </div>
+                  <div
+                    className={cm.cn(
+                      cm.flex1,
+                      cm.flex({ direction: 'col', gap: 'sm' }),
+                      cm.sp('p', 3),
+                      'rounded-lg border border-outline-variant/15 bg-surface/50',
+                    )}
+                  >
+                    <h3
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('semibold'),
+                        cm.flex({ justify: 'between' }),
+                        'text-on-surface',
+                      )}
+                    >
+                      {t('landing.preview.progress', {}, { defaultValue: 'In Progress' })}
+                      <span className={cm.cn(cm.fontWeight('normal'), 'text-on-surface-variant')}>
+                        1
+                      </span>
+                    </h3>
+                    {PREVIEW_PROGRESS.map((card) => (
+                      <div
+                        key={card.key}
+                        className={cm.cn(
+                          cm.sp('p', 3),
+                          'rounded border bg-surface-container-lowest shadow-sm',
+                          card.highlighted
+                            ? 'border-primary/40 outline outline-2 outline-primary/20'
+                            : 'border-outline-variant/15',
+                        )}
+                      >
+                        {card.bars.length ? (
+                          <div className={cm.cn(cm.sp('mb', 2), cm.flex({ gap: 'xs' }))}>
+                            {card.bars.map((bar) => (
+                              <span key={bar} className={cm.cn('h-2 w-8 rounded-full', bar)} />
+                            ))}
+                          </div>
+                        ) : null}
+                        <p
+                          className={cm.cn(
+                            cm.sp('mb', 3),
+                            cm.textSize('sm'),
+                            cm.fontWeight('medium'),
+                          )}
+                        >
+                          {t(
+                            `landing.preview.card.${card.key}`,
+                            {},
+                            { defaultValue: card.titleDefault },
+                          )}
                         </p>
+                        <div className={cm.cn(cm.flex({ justify: 'between', align: 'center' }))}>
+                          <span
+                            className={cm.cn('material-symbols-outlined text-sm text-primary-text')}
+                          >
+                            {card.commentIcon}
+                          </span>
+                          <span
+                            className={cm.cn(
+                              cm.flex({ align: 'center', justify: 'center' }),
+                              'h-6 w-6 rounded-full text-[10px] font-bold',
+                              card.avatarTone,
+                            )}
+                          >
+                            {card.initials}
+                          </span>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -341,150 +482,287 @@ export function Landing() {
           </div>
         </section>
 
+        {/* Features grid — six capability cards on surface */}
         <section
           id="features"
-          className={cm.cn(cm.sp('px', 6), cm.sp('py', 20), 'mx-auto w-full max-w-7xl')}
+          className={cm.cn('relative bg-surface', cm.sp('px', 6), cm.sp('py', 24))}
         >
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <p
-              className={cm.cn(
-                `text-[11px] font-black uppercase tracking-[0.32em] text-primary-dark mb-3`,
-              )}
-            >
-              {t('landing.features.eyebrow', {}, { defaultValue: 'Why teams switch' })}
-            </p>
-            <h2
-              className={cm.cn(
-                `text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface`,
-              )}
-            >
-              {t(
-                'landing.features.heading',
-                {},
-                { defaultValue: 'Built for the work, not the meta-work.' },
-              )}
-            </h2>
-          </div>
-          <div className={cm.cn(`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6`)}>
-            {FEATURES.map((feature) => (
-              <div
-                key={feature.titleKey}
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto)}>
+            <div className={cm.cn(cm.textCenter, cm.sp('mb', 16))}>
+              <p
                 className={cm.cn(
-                  cm.sp('p', 6),
-                  cm.flex({ direction: 'col' }),
-                  cm.stack(3),
-                  'rounded-2xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant/60 transition-colors shadow-sm',
+                  cm.sp('mb', 4),
+                  cm.textSize('sm'),
+                  cm.fontWeight('bold'),
+                  'block uppercase tracking-widest text-primary-text',
                 )}
               >
-                <span
+                {t('landing.features.eyebrow', {}, { defaultValue: 'Capabilities' })}
+              </p>
+              <h2
+                className={cm.cn(cm.textSize('4xl'), 'font-black tracking-tighter text-on-surface')}
+              >
+                {t(
+                  'landing.features.heading',
+                  {},
+                  { defaultValue: 'Everything your team needs to ship' },
+                )}
+              </h2>
+            </div>
+            <div className={cm.grid({ cols: 3, gap: 'lg' })}>
+              {FEATURES.map((feature) => (
+                <div
+                  key={feature.titleKey}
                   className={cm.cn(
-                    cm.w(11),
-                    cm.h(11),
-                    cm.flex({ align: 'center', justify: 'center' }),
-                    'rounded-xl bg-primary/10 text-primary',
+                    cm.sp('p', 8),
+                    'rounded-xl border border-outline-variant/25 bg-surface-container-low transition-transform duration-300 hover:-translate-y-1',
                   )}
                 >
-                  <span
-                    className="material-symbols-outlined"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
+                  <div
+                    className={cm.cn(
+                      cm.sp('mb', 6),
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'h-12 w-12 rounded-lg bg-surface-container-highest text-primary-text',
+                    )}
                   >
-                    {feature.icon}
-                  </span>
-                </span>
-                <h3 className={cm.cn(cm.textSize('lg'), 'font-bold text-on-surface')}>
-                  {t(feature.titleKey, {}, { defaultValue: feature.titleDefault })}
-                </h3>
-                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                  {t(feature.bodyKey, {}, { defaultValue: feature.bodyDefault })}
-                </p>
-              </div>
-            ))}
+                    <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
+                      {feature.icon}
+                    </span>
+                  </div>
+                  <h3
+                    className={cm.cn(
+                      cm.sp('mb', 3),
+                      cm.textSize('xl'),
+                      cm.fontWeight('bold'),
+                      'text-on-surface',
+                    )}
+                  >
+                    {t(feature.titleKey, {}, { defaultValue: feature.titleDefault })}
+                  </h3>
+                  <p className={cm.cn(cm.fontWeight('medium'), 'text-on-surface-variant')}>
+                    {t(feature.bodyKey, {}, { defaultValue: feature.bodyDefault })}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className={cm.cn(cm.sp('px', 6), cm.sp('py', 20), 'mx-auto w-full max-w-5xl')}>
-          <div
-            className={cm.cn(
-              cm.sp('p', 12),
-              'relative overflow-hidden rounded-[2rem] text-white text-center',
-              'bg-gradient-to-br from-primary via-primary to-primary-container shadow-lg',
-            )}
-          >
+        {/* CTA banner — inverse-surface card on surface-container-low */}
+        <section className={cm.cn('bg-surface-container-low', cm.sp('px', 6), cm.sp('py', 24))}>
+          <div className={cm.cn(cm.maxW('5xl'), cm.mxAuto)}>
             <div
               className={cm.cn(
-                `absolute -right-24 -bottom-28 h-80 w-80 rounded-full bg-surface/15 blur-3xl pointer-events-none`,
+                cm.sp('p', 12),
+                cm.textCenter,
+                'relative overflow-hidden rounded-2xl bg-inverse-surface',
               )}
-            />
-            <div className="relative z-10">
+            >
+              <div
+                className={cm.cn(
+                  'absolute top-0 right-0 h-64 w-64 rounded-full bg-primary-container opacity-20 blur-[100px]',
+                )}
+                aria-hidden="true"
+              />
+              <div
+                className={cm.cn(
+                  'absolute bottom-0 left-0 h-64 w-64 rounded-full bg-tertiary-container opacity-20 blur-[100px]',
+                )}
+                aria-hidden="true"
+              />
               <h2
                 className={cm.cn(
-                  `text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-4`,
+                  cm.sp('mb', 6),
+                  cm.textSize('4xl'),
+                  'relative z-10 font-black tracking-tighter text-inverse-on-surface',
                 )}
               >
-                {t('landing.cta.heading', {}, { defaultValue: 'Ship the next thing.' })}
+                {t('landing.cta.heading', {}, { defaultValue: 'Start moving work forward today' })}
               </h2>
-              <p className={cm.cn(`text-white/85 text-lg max-w-xl mx-auto mb-8`)}>
+              <p
+                className={cm.cn(
+                  cm.sp('mb', 10),
+                  cm.mxAuto,
+                  cm.maxW('2xl'),
+                  cm.textSize('lg'),
+                  cm.fontWeight('medium'),
+                  'relative z-10 text-surface-variant',
+                )}
+              >
                 {t(
                   'landing.cta.body',
-                  {},
+                  { app: APP_NAME },
                   {
                     defaultValue:
-                      'Free for teams up to five. No credit card. Bring your boards or start fresh.',
+                      'Join thousands of teams already using {{app}} to align, execute, and deliver faster.',
                   },
                 )}
               </p>
-              <Link
-                to="/signup"
+              <div
                 className={cm.cn(
-                  `inline-flex items-center gap-2 px-7 py-3 rounded-full bg-surface text-primary text-base font-bold shadow-md hover:opacity-95 transition-opacity`,
+                  cm.flex({ wrap: 'wrap', justify: 'center', gap: 'md' }),
+                  'relative z-10',
                 )}
               >
-                {t('landing.cta.button', {}, { defaultValue: 'Create my workspace' })}
-                <span className="material-symbols-outlined">arrow_forward</span>
-              </Link>
+                <Link to="/signup" data-mol-id="cta-start-free-trial" className={ctaPrimary}>
+                  {t('landing.cta.button', {}, { defaultValue: 'Start free trial' })}
+                </Link>
+                <Link
+                  to="/about"
+                  className={cm.cn(
+                    cm.sp('px', 6),
+                    cm.sp('py', 3),
+                    cm.textSize('base'),
+                    cm.fontWeight('bold'),
+                    'inline-flex items-center rounded-lg bg-surface-container/10 text-inverse-on-surface transition-colors hover:bg-surface-container/20',
+                  )}
+                >
+                  {t('landing.cta.secondary', {}, { defaultValue: 'Talk to sales' })}
+                </Link>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer
-        className={cm.cn(
-          cm.sp('px', 6),
-          cm.sp('py', 8),
-          cm.flex({ align: 'center', justify: 'between' }),
-          'flex-wrap gap-x-6 gap-y-2',
-          'border-t border-outline-variant/20 text-sm text-on-surface-variant',
-        )}
-      >
-        <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-          <span className="font-bold text-on-surface">{APP_NAME}</span>
-          <span>· {APP_TAGLINE}</span>
-        </div>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'font-semibold')}>
-          <Link
-            to="/pricing"
-            className={cm.cn(
-              `inline-flex items-center py-2 hover:text-on-surface transition-colors`,
-            )}
-          >
-            {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
-          </Link>
-          <Link
-            to="/login"
-            className={cm.cn(
-              `inline-flex items-center py-2 hover:text-on-surface transition-colors`,
-            )}
-          >
-            {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-          </Link>
-          <Link
-            to="/about"
-            className={cm.cn(
-              `inline-flex items-center py-2 hover:text-on-surface transition-colors`,
-            )}
-          >
-            {t('nav.about', {}, { defaultValue: 'About' })}
-          </Link>
+      {/* Footer — brand column + link columns (design's 5-column grid) */}
+      <footer className={cm.cn('w-full bg-surface-container-low px-6 py-16')}>
+        <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, 'grid grid-cols-2 gap-12 md:grid-cols-4')}>
+          <div className={cm.cn('col-span-2 md:col-span-1')}>
+            <Link
+              to="/"
+              className={cm.cn(cm.sp('mb', 4), cm.textSize('xl'), 'block font-black text-primary')}
+            >
+              {APP_NAME}
+            </Link>
+            <p className={cm.cn(cm.sp('mb', 6), cm.textSize('sm'), 'text-on-surface-variant')}>
+              {APP_TAGLINE}
+            </p>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'landing.copyright',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                { defaultValue: '\u00a9 {{year}} {{app}}. All rights reserved.' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
+            </p>
+          </div>
+          <div>
+            <h4
+              className={cm.cn(
+                cm.sp('mb', 6),
+                cm.textSize('sm'),
+                cm.fontWeight('extrabold'),
+                'uppercase tracking-widest text-on-surface',
+              )}
+            >
+              {t('landing.footer.product', {}, { defaultValue: 'Product' })}
+            </h4>
+            <ul className={cm.cn(cm.stack(4))}>
+              <li>
+                <a
+                  href="#features"
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'text-on-surface-variant transition-colors hover:text-primary hover:underline underline-offset-4',
+                  )}
+                >
+                  {t('nav.features', {}, { defaultValue: 'Features' })}
+                </a>
+              </li>
+              <li>
+                <Link
+                  to="/pricing"
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'text-on-surface-variant transition-colors hover:text-primary hover:underline underline-offset-4',
+                  )}
+                >
+                  {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              className={cm.cn(
+                cm.sp('mb', 6),
+                cm.textSize('sm'),
+                cm.fontWeight('extrabold'),
+                'uppercase tracking-widest text-on-surface',
+              )}
+            >
+              {t('landing.footer.company', {}, { defaultValue: 'Company' })}
+            </h4>
+            <ul className={cm.cn(cm.stack(4))}>
+              <li>
+                <Link
+                  to="/about"
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'text-on-surface-variant transition-colors hover:text-primary hover:underline underline-offset-4',
+                  )}
+                >
+                  {t('nav.about', {}, { defaultValue: 'About' })}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/login"
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'text-on-surface-variant transition-colors hover:text-primary hover:underline underline-offset-4',
+                  )}
+                >
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              className={cm.cn(
+                cm.sp('mb', 6),
+                cm.textSize('sm'),
+                cm.fontWeight('extrabold'),
+                'uppercase tracking-widest text-on-surface',
+              )}
+            >
+              {t('landing.footer.legal', {}, { defaultValue: 'Legal' })}
+            </h4>
+            <ul className={cm.cn(cm.stack(4))}>
+              <li>
+                <Link
+                  to="/privacy"
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'text-on-surface-variant transition-colors hover:text-primary hover:underline underline-offset-4',
+                  )}
+                >
+                  {t('landing.footer.privacy', {}, { defaultValue: 'Privacy Policy' })}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/terms"
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'text-on-surface-variant transition-colors hover:text-primary hover:underline underline-offset-4',
+                  )}
+                >
+                  {t('landing.footer.terms', {}, { defaultValue: 'Terms of Service' })}
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </footer>
     </div>

@@ -79,6 +79,17 @@ const SOCIAL_PROOF = [
   { defaultLabel: 'Foundry Co-op', key: 'foundry' },
 ] as const
 
+const STATS_STRIP = [
+  { key: 'votes', value: '2M+', defaultLabel: 'Votes Cast' },
+  { key: 'orgs', value: '500+', defaultLabel: 'Organizations' },
+  { key: 'audit', value: '98%', defaultLabel: 'Audit Rate' },
+] as const
+
+const STAGE_RESULTS = [
+  { key: 'product', label: 'Product Development', pct: 54, leading: true },
+  { key: 'marketing', label: 'Marketing Expansion', pct: 31, leading: false },
+] as const
+
 const SAMPLE_OPTIONS = [
   { id: 'a', label: 'Approve revised charter', votes: 412 },
   { id: 'b', label: 'Send back for amendments', votes: 168 },
@@ -108,7 +119,7 @@ export function Landing() {
         >
           <Link
             to="/"
-            className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tighter text-primary')}
+            className={cm.cn(cm.textSize('xl'), 'font-black tracking-tight text-on-surface')}
           >
             {APP_NAME}
           </Link>
@@ -132,7 +143,7 @@ export function Landing() {
                   cm.sp('py', 2),
                   cm.fontWeight('bold'),
                   cm.textSize('sm'),
-                  'rounded-lg bg-primary text-on-primary shadow-md shadow-primary/20 hover:opacity-90 transition-opacity',
+                  'rounded-full bg-primary text-on-primary shadow-md shadow-primary/20 hover:opacity-90 transition-opacity',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -156,7 +167,7 @@ export function Landing() {
                     cm.sp('py', 2),
                     cm.fontWeight('bold'),
                     cm.textSize('sm'),
-                    'rounded-lg bg-primary text-on-primary shadow-md shadow-primary/20 hover:opacity-90 transition-opacity',
+                    'rounded-full bg-primary text-on-primary shadow-md shadow-primary/20 hover:opacity-90 transition-opacity',
                   )}
                 >
                   {t('landing.getStarted', {}, { defaultValue: 'Start a poll' })}
@@ -241,10 +252,9 @@ export function Landing() {
                 <Link
                   to="/signup"
                   className={cm.cn(
-                    cm.sp('px', 6),
-                    cm.sp('py', 3),
                     cm.fontWeight('bold'),
-                    'rounded-xl bg-primary text-on-primary shadow-md shadow-primary/20 hover:opacity-90 transition-opacity',
+                    cm.textSize('lg'),
+                    'px-7 py-3.5 rounded-full bg-primary text-on-primary shadow-md shadow-primary/20 hover:bg-primary-dark transition-colors',
                   )}
                 >
                   {t('landing.heroCta', {}, { defaultValue: 'Start a poll free' })}
@@ -252,10 +262,9 @@ export function Landing() {
                 <Link
                   to="/dashboard"
                   className={cm.cn(
-                    cm.sp('px', 6),
-                    cm.sp('py', 3),
                     cm.fontWeight('semibold'),
-                    'rounded-xl border border-outline-variant/30 text-on-surface hover:bg-surface-container-low transition-colors',
+                    cm.textSize('lg'),
+                    'px-6 py-3.5 rounded-xl text-on-surface hover:bg-surface-container-high transition-colors',
                   )}
                 >
                   {t('landing.heroSecondary', {}, { defaultValue: 'See live demo →' })}
@@ -334,6 +343,35 @@ export function Landing() {
           </div>
         </section>
 
+        <section
+          className={cm.cn('bg-[var(--quorum-stats-bg)]')}
+          aria-label={t('landing.statsStrip.label', {}, { defaultValue: 'Quorum in numbers' })}
+        >
+          <div
+            className={cm.cn(
+              cm.maxW('7xl'),
+              cm.mxAuto,
+              cm.sp('px', 6),
+              'py-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:divide-x divide-[var(--quorum-stats-divide)]',
+            )}
+          >
+            {STATS_STRIP.map((s, i) => (
+              <div key={s.key} className={cm.cn('text-center', i > 0 && 'md:pl-8')}>
+                <p
+                  className={cm.cn(
+                    'text-4xl lg:text-5xl font-black text-white tabular-nums tracking-tight mb-2',
+                  )}
+                >
+                  {s.value}
+                </p>
+                <p className={cm.cn('text-lg font-medium text-[var(--quorum-stats-label)]')}>
+                  {t(`landing.statsStrip.${s.key}`, {}, { defaultValue: s.defaultLabel })}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 16))}>
           <div className={cm.cn(cm.maxW('2xl'), cm.mxAuto, cm.textCenter, cm.sp('mb', 12))}>
             <p className="text-[10px] font-black uppercase tracking-widest text-primary">
@@ -406,6 +444,124 @@ export function Landing() {
                 </p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className={cm.cn('bg-[var(--quorum-stage-bg)] text-white')}>
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
+            <div className={cm.cn(cm.textCenter, 'mb-12')}>
+              <p className="text-[10px] font-black uppercase tracking-widest text-[var(--quorum-stage-accent)]">
+                {t('landing.stage.eyebrow', {}, { defaultValue: 'Presenter mode' })}
+              </p>
+              <h2
+                className={cm.cn(
+                  cm.sp('mt', 3),
+                  cm.textSize('4xl'),
+                  'font-extrabold tracking-tight',
+                )}
+              >
+                {t('landing.stage.title', {}, { defaultValue: 'Command the room.' })}
+              </h2>
+              <p
+                className={cm.cn(
+                  cm.sp('mt', 3),
+                  cm.textSize('base'),
+                  'text-[var(--quorum-stage-dim)]',
+                )}
+              >
+                {t(
+                  'landing.stage.subtitle',
+                  {},
+                  {
+                    defaultValue:
+                      'Projected in 4K with a dedicated presenter toolbar for total control.',
+                  },
+                )}
+              </p>
+            </div>
+            <div
+              data-mol-id="landing-stage-mock"
+              className={cm.cn(
+                'mx-auto max-w-5xl rounded-2xl border border-white/10 bg-[var(--quorum-stage-bg)] shadow-2xl overflow-hidden',
+              )}
+              aria-hidden="true"
+            >
+              <div className={cm.cn('px-8 pt-12 pb-8')}>
+                <h3 className={cm.cn('text-2xl md:text-3xl font-bold text-center mb-10')}>
+                  {t(
+                    'landing.stage.question',
+                    {},
+                    { defaultValue: 'Which initiative should we prioritize?' },
+                  )}
+                </h3>
+                <div className={cm.cn('space-y-6 max-w-3xl mx-auto')}>
+                  {STAGE_RESULTS.map((r) => (
+                    <div key={r.key} className="relative">
+                      <div
+                        className={cm.cn(
+                          'flex justify-between items-center relative z-10 px-4 pt-2',
+                        )}
+                      >
+                        <span className="font-medium text-lg">
+                          {t(`landing.stage.option.${r.key}`, {}, { defaultValue: r.label })}
+                        </span>
+                        <span className="font-bold tabular-nums text-lg">{r.pct}%</span>
+                      </div>
+                      <div
+                        className={cm.cn(
+                          'h-12 rounded-lg w-full overflow-hidden absolute inset-0 bg-[var(--quorum-stage-surface)]',
+                        )}
+                      >
+                        <div
+                          className={cm.cn('h-full transition-all duration-500 ease-in-out')}
+                          style={{
+                            width: `${r.pct}%`,
+                            background: r.leading
+                              ? 'var(--quorum-stage-bar1)'
+                              : 'var(--quorum-stage-bar2)',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div
+                className={cm.cn(
+                  'border-t border-white/10 px-8 py-4 flex flex-wrap justify-between items-center gap-4',
+                )}
+              >
+                <div className={cm.cn('flex items-center gap-6 text-[var(--quorum-stage-text)]')}>
+                  <span className={cm.cn('flex items-center gap-2')}>
+                    <span className="material-symbols-outlined text-[20px]">pause</span>
+                    {t('landing.stage.pause', {}, { defaultValue: 'Pause' })}
+                  </span>
+                  <span className={cm.cn('flex items-center gap-2')}>
+                    <span className="material-symbols-outlined text-[20px]">visibility_off</span>
+                    {t('landing.stage.hide', {}, { defaultValue: 'Hide Results' })}
+                  </span>
+                </div>
+                <span className="text-2xl font-bold tabular-nums text-[var(--quorum-stage-accent)]">
+                  01:45
+                </span>
+                <div className={cm.cn('flex items-center gap-4')}>
+                  <span className="font-medium tabular-nums text-[var(--quorum-stage-dim)]">
+                    {t(
+                      'landing.stage.responses',
+                      { count: 482 },
+                      { defaultValue: '482 responses' },
+                    )}
+                  </span>
+                  <span
+                    className={cm.cn(
+                      'px-6 py-2 rounded-lg font-medium text-white bg-[var(--quorum-stage-bar2)]',
+                    )}
+                  >
+                    {t('landing.stage.close', {}, { defaultValue: 'Close Poll' })}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -529,28 +685,65 @@ export function Landing() {
 
       <footer
         className={cm.cn(
-          cm.sp('py', 8),
-          cm.textCenter,
-          cm.textSize('sm'),
-          'border-t border-outline-variant/30 bg-surface-container-low text-on-surface-variant',
+          'bg-[var(--quorum-footer-bg)] text-[var(--quorum-footer-muted)] border-t border-white/10',
         )}
       >
-        <p>
-          {t(
-            'landing.copyright',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}' },
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            'py-12 flex flex-col md:flex-row justify-between gap-8',
           )}
-          {' — Built with '}
-          <a
-            href="https://molecule.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline font-medium"
+        >
+          <div className={cm.cn(cm.stack(3))}>
+            <div className={cm.cn('text-xl font-bold text-[var(--quorum-footer-fg)]')}>
+              {APP_NAME}
+            </div>
+            <p className={cm.cn(cm.textSize('sm'), 'tracking-wide max-w-md')}>
+              {t(
+                'landing.copyright',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                { defaultValue: '© {{year}} {{app}}' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium text-[var(--quorum-footer-fg)]"
+              >
+                Molecule.dev
+              </a>
+            </p>
+          </div>
+          <nav
+            className={cm.cn(
+              cm.flex({ gap: 'lg', wrap: 'wrap' }),
+              cm.textSize('sm'),
+              'tracking-wide md:justify-end',
+            )}
           >
-            Molecule.dev
-          </a>
-        </p>
+            <Link to="/about" className="hover:text-[var(--quorum-footer-hover)] transition-colors">
+              {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })}
+            </Link>
+            <Link
+              to="/pricing"
+              className="hover:text-[var(--quorum-footer-hover)] transition-colors"
+            >
+              {t('landing.pricingEyebrow', {}, { defaultValue: 'Pricing' })}
+            </Link>
+            <Link
+              to="/privacy"
+              className="hover:text-[var(--quorum-footer-hover)] transition-colors"
+            >
+              {t('landing.footer.privacy', {}, { defaultValue: 'Privacy Policy' })}
+            </Link>
+            <Link to="/terms" className="hover:text-[var(--quorum-footer-hover)] transition-colors">
+              {t('landing.footer.terms', {}, { defaultValue: 'Terms of Service' })}
+            </Link>
+          </nav>
+        </div>
       </footer>
     </div>
   )

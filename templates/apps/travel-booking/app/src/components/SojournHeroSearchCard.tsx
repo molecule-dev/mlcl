@@ -1,14 +1,13 @@
 /**
- * Gradient hero card with embedded property-search form for the Landing
- * page — `from-primary` deep-teal to `primary-container` lighter teal,
- * 2rem rounded radii, decorative blurred orbs, frosted-glass guests pill,
- * and a DM Sans display headline (per travel-booking DESIGN.md).
+ * Full-bleed gradient hero band + overlapping property-search card for the
+ * Landing page — `from-secondary` deep-teal to `primary` teal gradient with
+ * a 20%-opacity photo overlay in `mix-blend-overlay`, centered DM Sans
+ * display headline, and a white search card pulled up over the band's bottom
+ * edge (per design-travel-booking-landing: hero → search → content flow).
  *
- * Translated from hotel-booking's SojournHeroSearchCard.tsx (which was
- * itself a translation of personal-finance's NetWorthCard treatment) —
- * adapted to travel-booking's wanderlust voice ("Wander without worry"),
- * teal/coral palette, and the mandate that the search form is the page's
- * single most important UI surface.
+ * The search form is the page's single most important UI surface: destination,
+ * check-in, check-out, and guests feed /search's query string; the coral
+ * (`bg-accent`) submit button matches the design's coral CTAs.
  */
 
 import { useState } from 'react'
@@ -39,237 +38,249 @@ export function SojournHeroSearchCard() {
   }
 
   return (
-    <section
-      className={cm.cn(
-        cm.sp('p', 10),
-        cm.flex({ direction: 'col', justify: 'between' }),
-        'min-h-[520px] bg-gradient-to-br from-primary to-primary-container rounded-[2rem] text-white relative overflow-hidden',
-      )}
-    >
-      <div
+    <>
+      <header
         className={cm.cn(
-          cm.w(80),
-          cm.h(80),
-          cm.roundedFull,
-          'absolute -right-24 -top-24 bg-surface/10 blur-3xl',
-        )}
-        aria-hidden="true"
-      />
-      <div
-        className={cm.cn(
-          cm.w(64),
-          cm.h(64),
-          cm.roundedFull,
-          'absolute -left-20 -bottom-20 bg-accent/40 blur-3xl',
-        )}
-        aria-hidden="true"
-      />
-
-      <div className={cm.cn('relative z-10', cm.maxW('2xl'))}>
-        <span
-          className={cm.cn(
-            cm.fontWeight('bold'),
-            cm.textSize('xs'),
-            cm.sp('mb', 4),
-            cm.flex({ align: 'center', gap: 'sm' }),
-            'tracking-[0.25em] uppercase',
-          )}
-        >
-          <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-            explore
-          </span>
-          {t(
-            'sojournHeroSearchCard.eyebrow',
-            {},
-            { defaultValue: 'Curated stays · Members-only rates' },
-          )}
-        </span>
-        <h1
-          className={cm.cn(
-            cm.sp('mb', 4),
-            'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] font-extrabold',
-          )}
-          style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
-        >
-          {t('sojournHeroSearchCard.title', {}, { defaultValue: 'Wander without worry' })}
-        </h1>
-        <p className={cm.cn(cm.textSize('lg'), cm.maxW('xl'), 'text-white/85 leading-relaxed')}>
-          {t(
-            'sojournHeroSearchCard.subtitle',
-            { tagline: APP_TAGLINE },
-            {
-              defaultValue:
-                'Inspiration, trustworthy stays, and a frictionless path from daydream to booked — across 14 countries and 200+ hand-vetted properties.',
-            },
-          )}
-        </p>
-      </div>
-
-      <form
-        onSubmit={search}
-        className={cm.cn(
-          cm.sp('p', 3),
-          cm.sp('mt', 8),
-          'relative z-10 grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_0.9fr_auto] gap-2 bg-surface/95 backdrop-blur-xl rounded-2xl shadow-2xl text-on-surface',
-        )}
-      >
-        <label className={cm.cn(cm.sp('px', 4), cm.sp('py', 2), 'flex flex-col')}>
-          <span
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
-            {t('sojournHeroSearchCard.destLabel', {}, { defaultValue: 'Where' })}
-          </span>
-          <input
-            type="text"
-            value={destination}
-            onChange={(e) => setDestination(e.target.value)}
-            placeholder={t(
-              'sojournHeroSearchCard.destPlaceholder',
-              {},
-              { defaultValue: 'City, region, or property' },
-            )}
-            className={cm.cn(
-              cm.textSize('base'),
-              cm.fontWeight('semibold'),
-              'bg-transparent border-0 outline-none placeholder:text-on-surface-variant/60',
-            )}
-            aria-label={t('sojournHeroSearchCard.destAria', {}, { defaultValue: 'Destination' })}
-          />
-        </label>
-        <label
-          className={cm.cn(
-            cm.sp('px', 4),
-            cm.sp('py', 2),
-            'flex flex-col border-l border-outline-variant/40',
-          )}
-        >
-          <span
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
-            {t('form.checkIn', {}, { defaultValue: 'Check in' })}
-          </span>
-          <input
-            type="date"
-            value={checkIn}
-            onChange={(e) => setCheckIn(e.target.value)}
-            className={cm.cn(
-              cm.textSize('base'),
-              cm.fontWeight('semibold'),
-              'bg-transparent border-0 outline-none',
-            )}
-            aria-label={t(
-              'sojournHeroSearchCard.checkInAria',
-              {},
-              { defaultValue: 'Check-in date' },
-            )}
-          />
-        </label>
-        <label
-          className={cm.cn(
-            cm.sp('px', 4),
-            cm.sp('py', 2),
-            'flex flex-col border-l border-outline-variant/40',
-          )}
-        >
-          <span
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
-            {t('form.checkOut', {}, { defaultValue: 'Check out' })}
-          </span>
-          <input
-            type="date"
-            value={checkOut}
-            onChange={(e) => setCheckOut(e.target.value)}
-            className={cm.cn(
-              cm.textSize('base'),
-              cm.fontWeight('semibold'),
-              'bg-transparent border-0 outline-none',
-            )}
-            aria-label={t(
-              'sojournHeroSearchCard.checkOutAria',
-              {},
-              { defaultValue: 'Check-out date' },
-            )}
-          />
-        </label>
-        <label
-          className={cm.cn(
-            cm.sp('px', 4),
-            cm.sp('py', 2),
-            'flex flex-col border-l border-outline-variant/40',
-          )}
-        >
-          <span
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
-            {t('nav.guests', {}, { defaultValue: 'Guests' })}
-          </span>
-          <select
-            value={guests}
-            onChange={(e) => setGuests(Number(e.target.value))}
-            className={cm.cn(
-              cm.textSize('base'),
-              cm.fontWeight('semibold'),
-              'bg-transparent border-0 outline-none',
-            )}
-            aria-label={t('nav.guests', {}, { defaultValue: 'Guests' })}
-          >
-            {[1, 2, 3, 4, 5, 6].map((n) => (
-              <option key={n} value={n}>
-                {t('sojournHeroSearchCard.guestsOption', { n }, { defaultValue: '{{n}} guests' })}
-              </option>
-            ))}
-          </select>
-        </label>
-        <button
-          type="submit"
-          className={cm.cn(
-            cm.sp('px', 6),
-            cm.sp('py', 3),
-            cm.fontWeight('bold'),
-            cm.flex({ align: 'center', gap: 'sm', justify: 'center' }),
-            'bg-accent text-on-accent rounded-xl hover:bg-accent-hover transition-colors shadow-lg',
-          )}
-        >
-          <span className={'material-symbols-outlined text-xl'} aria-hidden="true">
-            search
-          </span>
-          {t('common.search', {}, { defaultValue: 'Search' })}
-        </button>
-      </form>
-
-      <div
-        className={cm.cn(
-          'relative z-10',
-          cm.sp('mt', 6),
-          cm.flex({ align: 'center', gap: 'lg', wrap: 'wrap' }),
+          'relative w-full overflow-hidden bg-gradient-to-br from-secondary to-primary',
         )}
       >
         <div
           className={cm.cn(
-            cm.flex({ align: 'center', gap: 'sm' }),
-            cm.textSize('sm'),
-            'text-white/85',
+            'absolute inset-0 opacity-20 mix-blend-overlay bg-cover bg-center',
+            "bg-[url('https://picsum.photos/seed/sojourn-tb-hero/2074/900')]",
+          )}
+          aria-hidden="true"
+        />
+        <div
+          className={cm.cn(
+            cm.w(64),
+            cm.h(64),
+            cm.roundedFull,
+            'absolute -left-20 -top-20 bg-coral/30 blur-3xl',
+          )}
+          aria-hidden="true"
+        />
+        <div
+          className={cm.cn(
+            'relative z-10 flex flex-col items-center text-center',
+            cm.mxAuto,
+            cm.maxW('4xl'),
+            cm.sp('px', 6),
+            cm.sp('pt', 16),
+            'pb-44',
           )}
         >
           <span
-            className="material-symbols-outlined text-white"
+            className={cm.cn(
+              cm.fontWeight('bold'),
+              cm.textSize('xs'),
+              cm.sp('mb', 4),
+              cm.flex({ align: 'center', gap: 'sm' }),
+              'tracking-[0.25em] uppercase text-white',
+            )}
+          >
+            <span className={'material-symbols-outlined text-base'} aria-hidden="true">
+              explore
+            </span>
+            {t(
+              'sojournHeroSearchCard.eyebrow',
+              {},
+              { defaultValue: 'Curated stays · Members-only rates' },
+            )}
+          </span>
+          <h1
+            className={cm.cn(
+              cm.sp('mb', 4),
+              'font-headline text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] font-extrabold text-white drop-shadow-sm',
+            )}
+          >
+            {t('sojournHeroSearchCard.title', {}, { defaultValue: 'Wander without worry' })}
+          </h1>
+          <p className={cm.cn(cm.textSize('lg'), cm.maxW('2xl'), 'text-white/90 leading-relaxed')}>
+            {t(
+              'sojournHeroSearchCard.subtitle',
+              { tagline: APP_TAGLINE },
+              {
+                defaultValue:
+                  'Inspiration, trustworthy stays, and a frictionless path from daydream to booked — across 14 countries and 200+ hand-vetted properties.',
+              },
+            )}
+          </p>
+        </div>
+      </header>
+
+      <div className={cm.cn('relative z-20', cm.mxAuto, cm.maxW('4xl'), cm.sp('px', 6), '-mt-28')}>
+        <form
+          onSubmit={search}
+          className={cm.cn(
+            cm.sp('p', 3),
+            'grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_0.9fr_auto] gap-2 rounded-xl bg-surface shadow-lg text-on-surface',
+          )}
+        >
+          <label
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              'group flex flex-col items-start rounded-lg bg-background transition-colors hover:bg-surface-container-low',
+            )}
+          >
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('semibold'),
+                cm.sp('mb', 1),
+                'uppercase tracking-wider text-on-surface-variant group-hover:text-primary transition-colors',
+              )}
+            >
+              {t('sojournHeroSearchCard.destLabel', {}, { defaultValue: 'Where' })}
+            </span>
+            <input
+              type="text"
+              value={destination}
+              onChange={(e) => setDestination(e.target.value)}
+              placeholder={t(
+                'sojournHeroSearchCard.destPlaceholder',
+                {},
+                { defaultValue: 'City, region, or property' },
+              )}
+              className={cm.cn(
+                cm.textSize('base'),
+                cm.fontWeight('medium'),
+                'w-full border-0 bg-transparent p-0 outline-none placeholder:text-on-surface-variant/60',
+              )}
+              aria-label={t('sojournHeroSearchCard.destAria', {}, { defaultValue: 'Destination' })}
+            />
+          </label>
+          <label
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              'group flex flex-col items-start rounded-lg bg-background transition-colors hover:bg-surface-container-low md:rounded-none md:border-l md:border-outline-variant/40',
+            )}
+          >
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('semibold'),
+                cm.sp('mb', 1),
+                'uppercase tracking-wider text-on-surface-variant group-hover:text-primary transition-colors',
+              )}
+            >
+              {t('form.checkIn', {}, { defaultValue: 'Check in' })}
+            </span>
+            <input
+              type="date"
+              value={checkIn}
+              onChange={(e) => setCheckIn(e.target.value)}
+              className={cm.cn(
+                cm.textSize('base'),
+                cm.fontWeight('medium'),
+                'w-full border-0 bg-transparent p-0 outline-none',
+              )}
+              aria-label={t(
+                'sojournHeroSearchCard.checkInAria',
+                {},
+                { defaultValue: 'Check-in date' },
+              )}
+            />
+          </label>
+          <label
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              'group flex flex-col items-start rounded-lg bg-background transition-colors hover:bg-surface-container-low md:rounded-none md:border-l md:border-outline-variant/40',
+            )}
+          >
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('semibold'),
+                cm.sp('mb', 1),
+                'uppercase tracking-wider text-on-surface-variant group-hover:text-primary transition-colors',
+              )}
+            >
+              {t('form.checkOut', {}, { defaultValue: 'Check out' })}
+            </span>
+            <input
+              type="date"
+              value={checkOut}
+              onChange={(e) => setCheckOut(e.target.value)}
+              className={cm.cn(
+                cm.textSize('base'),
+                cm.fontWeight('medium'),
+                'w-full border-0 bg-transparent p-0 outline-none',
+              )}
+              aria-label={t(
+                'sojournHeroSearchCard.checkOutAria',
+                {},
+                { defaultValue: 'Check-out date' },
+              )}
+            />
+          </label>
+          <label
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              'group flex flex-col items-start rounded-lg bg-background transition-colors hover:bg-surface-container-low md:rounded-none md:border-l md:border-outline-variant/40',
+            )}
+          >
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('semibold'),
+                cm.sp('mb', 1),
+                'uppercase tracking-wider text-on-surface-variant group-hover:text-primary transition-colors',
+              )}
+            >
+              {t('nav.guests', {}, { defaultValue: 'Guests' })}
+            </span>
+            <select
+              value={guests}
+              onChange={(e) => setGuests(Number(e.target.value))}
+              className={cm.cn(
+                cm.textSize('base'),
+                cm.fontWeight('medium'),
+                'w-full border-0 bg-transparent p-0 outline-none',
+              )}
+              aria-label={t('nav.guests', {}, { defaultValue: 'Guests' })}
+            >
+              {[1, 2, 3, 4, 5, 6].map((n) => (
+                <option key={n} value={n}>
+                  {t('sojournHeroSearchCard.guestsOption', { n }, { defaultValue: '{{n}} guests' })}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button
+            type="submit"
+            aria-label={t('common.search', {}, { defaultValue: 'Search' })}
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              cm.sp('p', 4),
+              'w-full rounded-lg bg-accent text-on-accent shadow-sm transition-colors hover:bg-accent-hover md:ml-2 md:w-auto',
+            )}
+          >
+            <span className={'material-symbols-outlined text-2xl'} aria-hidden="true">
+              search
+            </span>
+          </button>
+        </form>
+      </div>
+
+      <div
+        className={cm.cn(
+          cm.mxAuto,
+          cm.maxW('4xl'),
+          cm.sp('px', 6),
+          cm.sp('mt', 6),
+          cm.flex({ align: 'center', gap: 'lg', wrap: 'wrap', justify: 'center' }),
+          cm.textSize('sm'),
+          'text-on-surface-variant',
+        )}
+      >
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+          <span
+            className="material-symbols-outlined text-primary"
             aria-hidden="true"
             style={{ fontVariationSettings: "'FILL' 1" }}
           >
@@ -281,14 +292,8 @@ export function SojournHeroSearchCard() {
             { defaultValue: 'Hand-vetted properties only' },
           )}
         </div>
-        <div
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'sm' }),
-            cm.textSize('sm'),
-            'text-white/85',
-          )}
-        >
-          <span className="material-symbols-outlined text-white" aria-hidden="true">
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+          <span className="material-symbols-outlined text-primary" aria-hidden="true">
             shield_lock
           </span>
           {t(
@@ -297,14 +302,8 @@ export function SojournHeroSearchCard() {
             { defaultValue: 'Free cancellation, fully protected' },
           )}
         </div>
-        <div
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'sm' }),
-            cm.textSize('sm'),
-            'text-white/85',
-          )}
-        >
-          <span className="material-symbols-outlined text-white" aria-hidden="true">
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+          <span className="material-symbols-outlined text-primary" aria-hidden="true">
             workspace_premium
           </span>
           {t(
@@ -314,6 +313,6 @@ export function SojournHeroSearchCard() {
           )}
         </div>
       </div>
-    </section>
+    </>
   )
 }

@@ -1,62 +1,70 @@
 :root {
-  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #9f1239;
-  --mol-color-primary-light: #ffe4e6;
-  --mol-color-primary-dark: #881337;
-  --mol-color-secondary: #4a044e;
-  --mol-color-background: #fff1f2;
-  --mol-color-background-secondary: #fff5f6;
-  --mol-color-background-tertiary: #ffe4e6;
+  /* === @theme bridge — fed into ClassMap via index.css @theme block ===
+     Palette restyled to the Stitch "Everly" landing design: warm cream
+     paper (#fef8f7), gold-brown primary (#785915) with the gold button tone
+     (#b38e46) as primary-container, and sage secondary (#536251). */
+  --mol-color-primary: #785915;
+  --mol-color-primary-light: #ffdea5;
+  --mol-color-primary-dark: #5d4200;
+  --mol-color-secondary: #536251;
+  --mol-color-background: #fef8f7;
+  --mol-color-background-secondary: #f8f2f2;
+  --mol-color-background-tertiary: #f3ecec;
   --mol-color-surface: #ffffff;
-  --mol-color-surface-secondary: #fff1f2;
+  --mol-color-surface-secondary: #fef8f7;
   --mol-color-input-background: #ffffff;
-  --mol-color-text: #3d0a26;
-  --mol-color-text-secondary: #4a3542;
-  --mol-color-text-tertiary: #6f7287;
+  --mol-color-text: #1d1b1b;
+  --mol-color-text-secondary: #4e4638;
+  --mol-color-text-tertiary: #6f6656; /* design outline #807667, darkened one step for AA small text */
   --mol-color-text-inverse: #ffffff;
-  --mol-color-border: #ffe4e6;
-  --mol-color-border-secondary: #fecdd3;
-  --mol-color-border-focus: #9f1239;
-  --mol-color-success: #16a34a;
-  --mol-color-warning: #f59e0b;
-  --mol-color-error: #dc2626;
+  --mol-color-border: #e7e1e1;
+  --mol-color-border-secondary: #d1c5b3;
+  --mol-color-border-focus: #b38e46;
+  --mol-color-success: #4d7c0f;
+  --mol-color-warning: #b45309;
+  --mol-color-error: #ba1a1a;
   --mol-color-info: #0d9488;
+  --mol-color-accent: #b45309;
+  --mol-font-sans:
+    'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --mol-font-headline: 'Playfair Display', Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
 
-  /* Brand — rose primary, plum secondary (per DESIGN.md). */
-  --color-primary: #9f1239;
-  --color-primary-light: #be123d;
-  --color-primary-dark: #881337;
-  --color-primary-mid: #740b46; /* gradient midpoint between primary and secondary */
-  --color-secondary: #4a044e;
-  --color-secondary-light: #86198f;
+  /* Brand — gold primary, sage secondary (per the Everly Stitch design). */
+  --color-primary: #785915;
+  --color-primary-light: #b38e46; /* the design's gold button tone */
+  --color-primary-dark: #5d4200;
+  --color-primary-mid: #665b33; /* gradient midpoint between gold and sage */
+  --color-secondary: #536251;
+  --color-secondary-light: #778773;
   --color-accent: #b45309; /* champagne gold — amber-700, 4.6:1 on white */
   --color-accent-light: #d97706;
   --color-accent-dark: #92400e; /* amber-800 — 5.3:1 as badge text on #fef3c7 */
-  --color-tertiary: #0f766e; /* teal-700 — 4.5:1 as 24px icon on white */
+  --color-tertiary: #685c56; /* design warm taupe — icon-safe (≥3:1 on white) */
 
-  --color-background: #fff1f2;
-  --color-background-secondary: #fff5f6;
-  --color-background-tertiary: #ffe4e6;
+  --color-background: #fef8f7;
+  --color-background-secondary: #f8f2f2;
+  --color-background-tertiary: #f3ecec;
   --color-surface: #ffffff;
-  --color-surface-secondary: #fff1f2;
-  --color-surface-hover: #fdf0f3;
+  --color-surface-secondary: #fef8f7;
+  --color-surface-hover: #f8f2f2;
 
-  --color-text: #3d0a26;
-  --color-text-secondary: #4a3542;
-  --color-text-muted: #6f7287;
-  --color-foreground: #3d0a26;
-  --color-foreground-secondary: #6b7280;
-  --color-foreground-tertiary: #4b5563;
+  --color-text: #1d1b1b;
+  --color-text-secondary: #4e4638;
+  --color-text-muted: #6f6656;
+  --color-foreground: #1d1b1b;
+  --color-foreground-secondary: #6f6656;
+  --color-foreground-tertiary: #4e4638;
   --color-foreground-inverse: #ffffff;
 
-  --color-border: #ffe4e6;
-  --color-border-secondary: #fecdd3;
+  --color-border: #e7e1e1;
+  --color-border-secondary: #d1c5b3;
 
-  --color-error: #dc2626;
-  --color-error-light: #fee2e2;
-  --color-success: #16a34a;
-  --color-success-light: #dcfce7;
-  --color-warning: #f59e0b;
+  --color-error: #ba1a1a;
+  --color-error-light: #ffdad6;
+  --color-success: #4d7c0f;
+  --color-success-light: #e4ecc9;
+  --color-warning: #b45309;
   --color-warning-light: #fef3c7;
   --color-info: #0d9488;
   --color-info-light: #ccfbf1;
@@ -67,10 +75,10 @@
   --color-status-neutral: #4b5563;
   --color-rsvp-pending-bg: #fef3c7;
   --color-rsvp-pending: #92400e;
-  --color-rsvp-yes-bg: #dcfce7;
-  --color-rsvp-yes: #166534;
-  --color-rsvp-no-bg: #fee2e2;
-  --color-rsvp-no: #b91c1c;
+  --color-rsvp-yes-bg: #e4ecc9;
+  --color-rsvp-yes: #3f6212;
+  --color-rsvp-no-bg: #ffdad6;
+  --color-rsvp-no: #93000a;
   --color-rsvp-maybe-bg: #ede9fe;
   --color-rsvp-maybe: #6d28d9;
   /* Vendor pipeline chips */
@@ -83,18 +91,21 @@
   --color-vendor-paid-bg: #fef3c7;
   --color-vendor-paid: #92400e;
   /* Budget health */
-  --color-budget-over-bg: #fee2e2;
-  --color-budget-over: #b91c1c;
-  --color-budget-ok-bg: #dcfce7;
-  --color-budget-ok: #166534;
-  --color-toggle-off: #e5e7eb;
+  --color-budget-over-bg: #ffdad6;
+  --color-budget-over: #93000a;
+  --color-budget-ok-bg: #e4ecc9;
+  --color-budget-ok: #3f6212;
+  --color-toggle-off: #e7e1e1;
 
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family:
+    'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-heading: 'Playfair Display', Georgia, 'Iowan Old Style', serif;
   --font-family-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     The Everly design sets display/headline to Playfair Display (loaded via
+     the Google Fonts link in index.html; Georgia is the local fallback). */
+  --font-headline: var(--mol-font-headline);
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -115,107 +126,108 @@
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
 
-  --shadow-sm: 0 1px 2px rgba(116, 11, 70, 0.05);
-  --shadow-md: 0 4px 12px rgba(116, 11, 70, 0.08);
-  --shadow-lg: 0 8px 24px rgba(116, 11, 70, 0.14);
+  --shadow-sm: 0 1px 2px rgba(31, 29, 29, 0.05);
+  --shadow-md: 0 4px 12px rgba(31, 29, 29, 0.08);
+  --shadow-lg: 0 8px 24px rgba(31, 29, 29, 0.14);
 
   /* === Stitch / Material-3 @theme token light variants ===
-     These ensure bg-primary, text-on-surface, bg-surface-container etc. all
-     resolve correctly in light mode. */
-  --color-on-primary: #ffffff; /* white on #9f1239 — 6.7:1 ✓ */
-  --color-primary-container: #ffe4e6;
-  --color-on-primary-container: #500724;
-  --color-secondary-container: #fae8ff;
-  --color-on-secondary: #ffffff; /* white on #4a044e — 13.2:1 ✓ */
-  --color-on-secondary-container: #4a044e;
-  --color-tertiary: #0d9488;
-  --color-tertiary-container: #ccfbf1;
-  --color-on-tertiary: #134e4a; /* dark on teal — 5.9:1; white was 2.8:1 fail */
-  --color-on-tertiary-container: #134e4a;
-  --color-on-background: #3d0a26;
-  --color-surface-bright: #ffffff;
-  --color-surface-dim: #f7e8eb;
+     Values from the Everly design's tailwind config; on-colors re-paired for
+     WCAG AA where the mock used white-on-gold (3.2:1 fail). */
+  --color-on-primary: #ffffff; /* white on #785915 — 6.5:1 ✓ */
+  --color-primary-container: #b38e46; /* the design's gold button tone */
+  --color-on-primary-container: #3c2900; /* on gold — 4.54:1 (white was 3.2:1 fail) */
+  --color-secondary-container: #d4e4ce;
+  --color-on-secondary: #ffffff; /* white on #536251 — 6.5:1 ✓ */
+  --color-on-secondary-container: #3c4b3a;
+  --color-tertiary: #685c56;
+  --color-tertiary-container: #f0dfd7;
+  --color-on-tertiary: #ffffff; /* white on #685c56 — 6.4:1 ✓ */
+  --color-on-tertiary-container: #342a25;
+  --color-on-background: #1d1b1b;
+  --color-surface-bright: #fef8f7;
+  --color-surface-dim: #ded9d8;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #fff1f2;
-  --color-surface-container: #ffe9ec;
-  --color-surface-container-high: #ffe0e5;
-  --color-surface-container-highest: #fbd6dc;
-  --color-surface-variant: #fff5f6;
-  --color-on-surface: #3d0a26;
-  --color-on-surface-variant: #4a3542;
-  --color-inverse-surface: #3d0a26;
-  --color-inverse-on-surface: #fff1f2;
-  --color-inverse-primary: #fecdd3;
-  --color-surface-tint: #9f1239;
-  --color-error-container: #fee2e2;
-  --color-on-error: #ffffff; /* white on #dc2626 — 4.83:1 ✓ */
-  --color-on-error-container: #450a0a;
-  --color-outline: #6f7287; /* 4.59:1 on #ffffff ✓ (neutral kept for contrast) */
-  --color-outline-variant: #fecdd3;
+  --color-surface-container-low: #f8f2f2;
+  --color-surface-container: #f3ecec;
+  --color-surface-container-high: #ede7e6;
+  --color-surface-container-highest: #e7e1e1;
+  --color-surface-variant: #e7e1e1;
+  --color-on-surface: #1d1b1b;
+  --color-on-surface-variant: #4e4638;
+  --color-inverse-surface: #323030;
+  --color-inverse-on-surface: #f5efef;
+  --color-inverse-primary: #eac173;
+  --color-surface-tint: #785915;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff; /* white on #ba1a1a — 6.6:1 ✓ */
+  --color-on-error-container: #93000a;
+  --color-outline: #807667; /* design outline — 4.0:1 on #ffffff, UI-component safe ✓ */
+  --color-outline-variant: #d1c5b3;
 }
 
 [data-mol-mode='dark'] {
-  /* Dark mode overrides — candlelit reception: soft pink primary against deep
-     plum so cards and charts still feel celebratory without glare.
-     `--color-on-primary` uses dark text on the bright pink for contrast. */
+  /* Dark mode overrides — candlelit gold: soft gold primary against deep warm
+     brown so cards still feel like evening stationery without glare.
+     `--color-on-primary` uses dark text on the bright gold for contrast. */
 
   /* === @theme bridge — mol-color provider tokens === */
-  --mol-color-primary: #f9a8d4;
-  --mol-color-primary-light: #6d052e;
-  --mol-color-primary-dark: #ec4899;
-  --mol-color-secondary: #a21caf;
-  --mol-color-background: #190b13;
-  --mol-color-background-secondary: #22101a;
-  --mol-color-background-tertiary: #2c1622;
-  --mol-color-surface: #2c1622;
-  --mol-color-surface-secondary: #3a1f2d;
-  --mol-color-input-background: #190b13;
-  --mol-color-text: #fdf2f8;
-  --mol-color-text-secondary: #fda4af;
-  --mol-color-text-tertiary: #d09eb1;
-  --mol-color-text-inverse: #190b13;
-  --mol-color-border: #4c1d2e;
-  --mol-color-border-secondary: #6d052e;
-  --mol-color-border-focus: #f9a8d4;
-  --mol-color-success: #4ade80;
+  --mol-color-primary: #eac173;
+  --mol-color-primary-light: #ffdea5;
+  --mol-color-primary-dark: #d4a259;
+  --mol-color-secondary: #a9c2a4;
+  --mol-color-background: #171310;
+  --mol-color-background-secondary: #201a15;
+  --mol-color-background-tertiary: #2a221b;
+  --mol-color-surface: #2a221b;
+  --mol-color-surface-secondary: #332a21;
+  --mol-color-input-background: #171310;
+  --mol-color-text: #f5efef;
+  --mol-color-text-secondary: #c9bdb0;
+  --mol-color-text-tertiary: #9a8d7d;
+  --mol-color-text-inverse: #171310;
+  --mol-color-border: #3d332a;
+  --mol-color-border-secondary: #4e4234;
+  --mol-color-border-focus: #eac173;
+  --mol-color-success: #a3cc7a;
   --mol-color-warning: #fbbf24;
   --mol-color-error: #f87171;
   --mol-color-info: #2dd4bf;
+  --mol-color-accent: #eac173;
 
   /* === App-specific tokens === */
-  --color-primary: #f9a8d4;
-  --color-primary-light: #fbcfe8;
-  --color-primary-dark: #f472b6;
-  --color-primary-mid: #be185d; /* gradient midpoint — dark-mode equivalent of #740b46 */
-  --color-secondary: #a21caf; /* white text 6.1:1 */
-  --color-secondary-light: #c026d3;
-  --color-accent: #fbbf24;
-  --color-accent-light: #fcd34d;
-  --color-accent-dark: #d97706;
-  --color-tertiary: #2dd4bf;
+  --color-primary: #eac173;
+  --color-primary-light: #ffdea5;
+  --color-primary-dark: #d4a259;
+  --color-primary-mid: #b38e46; /* gradient midpoint — dark-mode gold */
+  --color-secondary: #a9c2a4;
+  --color-secondary-light: #c3d5bf;
+  --color-accent: #eac173;
+  --color-accent-light: #f0d9a8;
+  --color-accent-dark: #d4a259;
+  --color-tertiary: #d3c3bc;
 
-  --color-background: #190b13;
-  --color-background-secondary: #22101a;
-  --color-background-tertiary: #2c1622;
-  --color-surface: #2c1622;
-  --color-surface-secondary: #3a1f2d;
-  --color-surface-hover: #482637;
+  --color-background: #171310;
+  --color-background-secondary: #201a15;
+  --color-background-tertiary: #2a221b;
+  --color-surface: #2a221b;
+  --color-surface-secondary: #332a21;
+  --color-surface-hover: #3d332a;
 
-  --color-text: #fdf2f8;
-  --color-text-secondary: #fda4af;
-  --color-text-muted: #d6b8c4;
-  --color-foreground: #fdf2f8;
-  --color-foreground-secondary: #fda4af;
-  --color-foreground-tertiary: #fecdd3;
-  --color-foreground-inverse: #3d0a26;
+  --color-text: #f5efef;
+  --color-text-secondary: #c9bdb0;
+  --color-text-muted: #9a8d7d;
+  --color-foreground: #f5efef;
+  --color-foreground-secondary: #c9bdb0;
+  --color-foreground-tertiary: #9a8d7d;
+  --color-foreground-inverse: #171310;
 
-  --color-border: #4c1d2e;
-  --color-border-secondary: #6d052e;
+  --color-border: #3d332a;
+  --color-border-secondary: #4e4234;
 
   --color-error: #f87171;
   --color-error-light: #4c1d1d;
-  --color-success: #4ade80;
-  --color-success-light: #14532d;
+  --color-success: #a3cc7a;
+  --color-success-light: #2c3a14;
   --color-warning: #fbbf24;
   --color-warning-light: #3a2d10;
   --color-info: #2dd4bf;
@@ -223,51 +235,52 @@
 
   /* === Stitch / Material-3 @theme token dark variants ===
      Override the @theme block so `bg-surface`, `text-on-surface`, `bg-primary`
-     etc. flip cleanly. on-primary uses dark text on bright pink for contrast. */
-  --color-on-background: #fdf2f8;
-  --color-surface-bright: #3a1f2d;
-  --color-surface-dim: #0a0406;
-  --color-surface-container-lowest: #0d0509;
-  --color-surface-container-low: #170b11;
-  --color-surface-container: #22101a;
-  --color-surface-container-high: #2c1622;
-  --color-surface-container-highest: #3a1f2d;
-  --color-surface-variant: #3a1f2d;
-  --color-on-surface: #fdf2f8;
-  --color-on-surface-variant: #fda4af;
-  --color-inverse-surface: #fdf2f8;
-  --color-inverse-on-surface: #190b13;
-  --color-inverse-primary: #9f1239;
-  --color-primary-container: #6d052e;
-  --color-on-primary: #4c0519; /* dark on pink-300 #f9a8d4 — 7.6:1; white was 1.9:1 fail */
-  --color-on-primary-container: #ffe4e6;
-  --color-secondary-container: #4a044e;
-  --color-on-secondary: #ffffff; /* white on #a21caf — 6.1:1 */
-  --color-on-secondary-container: #fae8ff;
-  --color-tertiary: #2dd4bf;
-  --color-tertiary-container: #134e4a;
-  --color-on-tertiary: #0c0a1d; /* dark on teal #2dd4bf — 9.8:1; white was 2.1:1 fail */
-  --color-on-tertiary-container: #ccfbf1;
+     etc. flip cleanly. on-primary uses dark text on bright gold for contrast. */
+  --color-on-background: #f5efef;
+  --color-surface-bright: #332a21;
+  --color-surface-dim: #0f0c0a;
+  --color-surface-container-lowest: #100d0a;
+  --color-surface-container-low: #1a1512;
+  --color-surface-container: #221c16;
+  --color-surface-container-high: #2a221b;
+  --color-surface-container-highest: #332a21;
+  --color-surface-variant: #2a221b;
+  --color-on-surface: #f5efef;
+  --color-on-surface-variant: #c9bdb0;
+  --color-inverse-surface: #f5efef;
+  --color-inverse-on-surface: #171310;
+  --color-inverse-primary: #785915;
+  --color-primary-container: #5d4200;
+  --color-on-primary: #3c2900; /* dark on gold #eac173 — 7.9:1; white was 1.9:1 fail */
+  --color-on-primary-container: #ffdea5;
+  --color-secondary-container: #3c4b3a;
+  --color-on-secondary: #171310; /* dark on sage #a9c2a4 — 7.8:1 */
+  --color-on-secondary-container: #d7e7d1;
+  --color-tertiary: #d3c3bc;
+  --color-tertiary-container: #4e4234;
+  --color-on-tertiary: #342a25; /* dark on taupe #d3c3bc — 7.4:1 */
+  --color-on-tertiary-container: #f0dfd7;
   --color-error-container: #4c1d1d;
   --color-on-error: #690005; /* dark on light-red #f87171 — 4.74:1; white was 2.77:1 fail */
   --color-on-error-container: #ffdad6;
-  --color-outline: #d09eb1; /* brightened for contrast on plum surface */
-  --color-outline-variant: #4c1d2e;
-  --color-surface-tint: #f9a8d4;
+  --color-outline: #9a8d7d; /* 5.0:1 on #171310 */
+  --color-outline-variant: #3d332a;
+  --color-surface-tint: #eac173;
+  --color-accent: var(--mol-color-accent);
 
   /* === App-specific status tokens — dark overrides === */
-  --color-status-neutral-bg: #1e293b;
-  --color-status-neutral: #94a3b8;
+  --color-status-neutral-bg: #2a221b;
+  --color-status-neutral: #c9bdb0;
   --color-rsvp-pending-bg: #3a2d10;
   --color-rsvp-pending: #fbbf24;
-  --color-rsvp-yes-bg: #14532d;
-  --color-rsvp-yes: #4ade80;
+  --color-rsvp-yes-bg: #2c3a14;
+  --color-rsvp-yes: #a3cc7a;
   --color-rsvp-no-bg: #4c1d1d;
   --color-rsvp-no: #f87171;
   --color-rsvp-maybe-bg: #3730a3;
   --color-rsvp-maybe: #c4b5fd;
-  --color-vendor-researching-bg: #1e293b;
-  --color-vendor-researching: #94a3b8;
+  --color-vendor-researching-bg: #2a221b;
+  --color-vendor-researching: #c9bdb0;
   --color-vendor-contacted-bg: #172554;
   --color-vendor-contacted: #93c5fd;
   --color-vendor-booked-bg: #134e4a;
@@ -276,9 +289,9 @@
   --color-vendor-paid: #fbbf24;
   --color-budget-over-bg: #4c1d1d;
   --color-budget-over: #f87171;
-  --color-budget-ok-bg: #14532d;
-  --color-budget-ok: #4ade80;
-  --color-toggle-off: #374151;
+  --color-budget-ok-bg: #2c3a14;
+  --color-budget-ok: #a3cc7a;
+  --color-toggle-off: #4e4234;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);

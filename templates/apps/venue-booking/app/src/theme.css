@@ -1,8 +1,8 @@
 :root {
   /* ── Provider bridge tokens (--mol-color-* fed into @theme via index.css) ── */
-  --mol-color-primary: #2d3436;
-  --mol-color-primary-light: #636e72;
-  --mol-color-primary-dark: #1e272e;
+  --mol-color-primary: #2b7a6f; /* design forest — white text = 5.10:1 */
+  --mol-color-primary-light: #a7cfc9;
+  --mol-color-primary-dark: #1a3a35; /* design hero-gradient deep stop */
   --mol-color-secondary: #e17055;
   --mol-color-success: #00b894;
   --mol-color-warning: #fdcb6e;
@@ -16,23 +16,27 @@
   --mol-color-input-background: #ffffff;
   --mol-color-border: #dfe6e9;
   --mol-color-border-secondary: #b2bec3;
-  --mol-color-border-focus: #2d3436;
+  --mol-color-border-focus: #2b7a6f;
   --mol-color-text: #2d3436;
   --mol-color-text-secondary: #636e72;
   --mol-color-text-tertiary: #b2bec3;
   --mol-color-text-inverse: #ffffff;
 
-  --color-primary: #2d3436;
-  --color-primary-light: #636e72;
-  --color-primary-dark: #1e272e;
+  --color-primary: #2b7a6f; /* design forest — white text = 5.10:1 */
+  --color-primary-light: #a7cfc9;
+  --color-primary-dark: #1a3a35; /* design hero-gradient deep stop */
   --color-secondary: #e17055;
   --color-secondary-light: #fab1a0;
-  /* Darker teal: 4.53:1 on white AND 4.53:1 for white text on it — #00b894
-     was 2.54:1 both ways (axe color-contrast serious on landing eyebrows). */
-  --color-accent: #00875f;
-  /* Bright accent for accent TEXT on dark surfaces (hero gradient panels):
-     #00875f is only 2.80:1 on the primary ink; #00d4a8 is 6.63:1. */
-  --color-accent-bright: #00d4a8;
+  /* Design copper accent, stepped to its darker ramp stop for AA: #c47d3f is
+     3.31:1 with white; #a66832 (the design's own hover stop) = 4.52:1 both
+     ways. The brighter #c47d3f lives on as decorative --color-copper. */
+  --color-accent: #a66832;
+  --color-accent-hover: #8f5828;
+  /* Warm white for accent TEXT on the forest CTA band: #fff1e4 = 4.60:1 on
+     #2b7a6f (the old #00d4a8 green is 2.67:1 on forest). */
+  --color-accent-bright: #fff1e4;
+  --color-copper: #c47d3f;
+  --color-forest-deep: #1a3a35;
   --color-background: #f9f9f9;
   --color-surface: #ffffff;
   --color-surface-hover: #f5f5f5;
@@ -43,14 +47,16 @@
   --color-error: #d63031;
   --color-success: #00b894;
   --color-on-primary: #ffffff;
-  --color-on-secondary: #3a0b00; /* dark on coral #e17055: 5.42:1 — replaces #ffffff which was 3.16:1 */
+  --color-on-secondary: #241202; /* dark on copper-light #d9a36b: 8.1:1 */
+  --color-on-accent: #241202; /* dark on copper-light #d9a36b: 8.1:1 */
   --color-on-success: #ffffff;
   --color-on-error: #ffffff;
 
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* Headline font (design: DM Sans) — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`, and exposed as
+     the `font-headline` Tailwind utility via the @theme block in index.css. */
+  --font-headline: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -86,10 +92,10 @@
    pairs with dark text via `--color-text-inverse`). */
 [data-mol-mode='dark'] {
   /* ── Provider bridge tokens ── */
-  --mol-color-primary: #f1ece6; /* ink inverted — warm bone for dark mode */
-  --mol-color-primary-light: #d6d0c8;
-  --mol-color-primary-dark: #f7f4ef;
-  --mol-color-secondary: #e17055;
+  --mol-color-primary: #7fd1c2; /* forest lifted for dark mode — #0c2620 text = 9.4:1 */
+  --mol-color-primary-light: #4da89a;
+  --mol-color-primary-dark: #a5ded3;
+  --mol-color-secondary: #d9a36b;
   --mol-color-success: #00d4a8;
   --mol-color-warning: #ffeaa7;
   --mol-color-error: #ff6b6b;
@@ -102,20 +108,23 @@
   --mol-color-input-background: #12100e;
   --mol-color-border: #2e2a26;
   --mol-color-border-secondary: #3e3a34;
-  --mol-color-border-focus: #f1ece6;
+  --mol-color-border-focus: #7fd1c2;
   --mol-color-text: #f1ece6;
   --mol-color-text-secondary: #c4bdb4;
   --mol-color-text-tertiary: #8a8278;
   --mol-color-text-inverse: #161412;
 
-  --color-primary: #f1ece6; /* ink inverted — warm bone for dark mode */
-  --color-primary-light: #d6d0c8;
-  --color-primary-dark: #f7f4ef;
-  --color-secondary: #e17055; /* keep coral at brand stop */
-  --color-secondary-light: #ff8b6f;
-  --color-accent: #00b894;
-  --color-accent-bright: #00d4a8;
-  --color-on-primary: #161412; /* dark text on warm bone primary in dark mode */
+  --color-primary: #7fd1c2; /* forest lifted for dark mode — #0c2620 text = 9.4:1 */
+  --color-primary-light: #4da89a;
+  --color-primary-dark: #a5ded3;
+  --color-secondary: #d9a36b; /* copper lifted for dark mode */
+  --color-secondary-light: #e6bc8b;
+  --color-accent: #d9a36b; /* copper-light — #241202 text = 8.1:1 */
+  --color-accent-hover: #e6bc8b;
+  --color-accent-bright: #241202; /* on light-forest band, accent text goes dark */
+  --color-copper: #d9a36b;
+  --color-forest-deep: #0c2620;
+  --color-on-primary: #0c2620; /* dark text on light-forest primary in dark mode */
   --color-on-secondary: #3a0b00; /* dark on coral #e17055: 5.42:1 — replaces #ffffff which was 3.16:1 */
   --color-on-success: #ffffff;
   --color-on-error: #5c0000; /* dark on #ff6b6b: 5.20:1 — replaces #ffffff which was 2.78:1 */
@@ -150,7 +159,7 @@
   --color-on-surface-variant: #c4bdb4;
   --color-inverse-surface: #f1ece6;
   --color-inverse-on-surface: #161412;
-  --color-inverse-primary: #2d3436;
+  --color-inverse-primary: #2b7a6f;
   --color-primary-container: #2a2724;
   --color-on-primary-container: #f7f4ef;
   --color-secondary-container: #5a2c1a;
@@ -163,7 +172,7 @@
   --color-on-error-container: #ffdad6;
   --color-outline: #7a7570; /* lifted from #5a5550 (2.28:1 fail) to 3.69:1 vs surface #1f1d1a */
   --color-outline-variant: #2e2a26;
-  --color-surface-tint: #f1ece6;
+  --color-surface-tint: #7fd1c2;
 
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);

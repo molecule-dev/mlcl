@@ -3,8 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
-import { TodayHeroCard } from '../components/TodayHeroCard.js'
+import { APP_NAME } from '../branding.js'
 
 const FEATURES = [
   {
@@ -42,7 +41,134 @@ const PROOF = [
   { key: 'refills', defaultLabel: 'Stockouts avoided', value: '23' },
 ]
 
-const SAMPLE_TREND = [0.875, 1, 0.875, 1, 0.875, 1, 0.5]
+/** Static hero card — adherence ring + today's schedule (Stitch design). */
+function HeroAdherenceCard() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const schedule = [
+    {
+      key: 'taken',
+      icon: 'check_circle',
+      tone: 'var(--color-success)',
+      time: '8:00 AM',
+      name: 'Levothyroxine 50mcg',
+      detail: 'Taken · 7:42 AM',
+    },
+    {
+      key: 'upcoming',
+      icon: 'schedule',
+      tone: 'var(--color-primary)',
+      time: '1:00 PM',
+      name: 'Metformin 850mg',
+      detail: 'Upcoming · with lunch',
+    },
+    {
+      key: 'missed',
+      icon: 'error',
+      tone: 'var(--color-dose-missed)',
+      time: '9:00 AM',
+      name: 'Vitamin D 1000 IU',
+      detail: 'Snoozed · escalate at noon',
+    },
+  ] as const
+  return (
+    <div
+      className={cm.cn(
+        cm.sp('p', 8),
+        'relative z-10 bg-surface rounded-3xl shadow-xl border border-outline-variant/60 flex flex-col gap-8',
+      )}
+    >
+      {/* Adherence ring */}
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'md' }),
+          cm.sp('p', 6),
+          'rounded-2xl bg-surface-container-low',
+        )}
+      >
+        <div className={cm.cn('relative w-24 h-24 flex items-center justify-center shrink-0')}>
+          <svg className={cm.cn('w-full h-full -rotate-90')} viewBox="0 0 36 36" aria-hidden="true">
+            <path
+              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              fill="none"
+              stroke="var(--color-outline-variant)"
+              strokeDasharray="100, 100"
+              strokeWidth="4"
+            />
+            <path
+              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              fill="none"
+              stroke="var(--color-primary)"
+              strokeDasharray="92, 100"
+              strokeLinecap="round"
+              strokeWidth="4"
+            />
+          </svg>
+          <div className={cm.cn('absolute text-center')}>
+            <span
+              className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'block text-on-surface')}
+            >
+              92%
+            </span>
+          </div>
+        </div>
+        <div>
+          <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
+            {t('landing.ringTitle', {}, { defaultValue: 'Weekly Adherence' })}
+          </h3>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t('landing.ringBody', {}, { defaultValue: 'Great job staying on track!' })}
+          </p>
+          <span
+            className={cm.cn(
+              'mt-2 inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-semibold bg-accent text-on-accent',
+            )}
+          >
+            <span
+              className={cm.cn('material-symbols-outlined text-sm')}
+              style={{ fontVariationSettings: "'FILL' 1" }}
+              aria-hidden="true"
+            >
+              local_fire_department
+            </span>
+            {t('landing.streakPill', {}, { defaultValue: '23 day streak' })}
+          </span>
+        </div>
+      </div>
+      {/* Today's schedule */}
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+        <h4 className={cm.cn(cm.fontWeight('semibold'), cm.sp('px', 2), 'text-on-surface')}>
+          {t('landing.scheduleTitle', {}, { defaultValue: "Today's Schedule" })}
+        </h4>
+        {schedule.map((row) => (
+          <div
+            key={row.key}
+            className={cm.cn(
+              cm.flex({ direction: 'col', gap: 'xs' }),
+              cm.sp('p', 4),
+              'bg-surface rounded-xl border-l-4 shadow-sm',
+            )}
+            style={{ borderLeftColor: row.tone }}
+          >
+            <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'gap-2')}>
+              <span
+                className={cm.cn(cm.fontWeight('semibold'), cm.textSize('sm'), 'text-on-surface')}
+              >
+                {row.name}
+              </span>
+              <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                {row.time}
+              </span>
+            </div>
+            <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+              {t(`landing.schedule.${row.key}`, {}, { defaultValue: row.detail })}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export function Landing() {
   const cm = getClassMap()
@@ -112,7 +238,7 @@ export function Landing() {
                   cm.sp('py', 2),
                   cm.fontWeight('semibold'),
                   cm.textSize('sm'),
-                  'rounded-full bg-primary text-on-primary hover:opacity-90 transition-opacity shadow-sm shadow-primary/30',
+                  'rounded-full bg-accent text-on-accent hover:bg-accent-hover transition-colors shadow-sm',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -136,7 +262,7 @@ export function Landing() {
                     cm.sp('py', 2),
                     cm.fontWeight('semibold'),
                     cm.textSize('sm'),
-                    'rounded-full bg-primary text-on-primary hover:opacity-90 transition-opacity shadow-sm shadow-primary/30',
+                    'rounded-full bg-accent text-on-accent hover:bg-accent-hover transition-colors shadow-sm',
                   )}
                 >
                   {t('common.getStarted', {}, { defaultValue: 'Get started' })}
@@ -148,111 +274,124 @@ export function Landing() {
       </nav>
 
       <main>
-        {/* §1.2 Marketing editorial hero */}
-        <section className={cm.cn(cm.sp('pt', 24), cm.sp('pb', 16))}>
-          <div className={cm.cn(cm.maxW('5xl'), cm.sp('px', 6), cm.mxAuto, cm.textCenter)}>
-            <p
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                cm.sp('mb', 4),
-                'uppercase tracking-widest text-primary-dark dark:text-primary',
-              )}
-            >
-              {t('landing.eyebrow', {}, { defaultValue: 'Medication adherence, made caring' })}
-            </p>
-            <h1
-              className={cm.cn(
-                'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95]',
-              )}
-            >
-              {t('landing.heroTitle', { tagline: APP_TAGLINE }, { defaultValue: '{{tagline}}' })}
-            </h1>
-            <p
-              className={cm.cn(
-                cm.textSize('xl'),
-                cm.sp('mt', 6),
-                cm.maxW('2xl'),
-                cm.mxAuto,
-                'text-on-surface-variant leading-relaxed',
-              )}
-            >
-              {t(
-                'landing.heroSubtitle',
-                {},
-                {
-                  defaultValue:
-                    'Schedules, reminders, refills, and a real-time adherence record you can share with the people who care about you.',
-                },
-              )}
-            </p>
-            {/* §14.3 Hero CTA buttons */}
-            <div
-              className={cm.cn(
-                cm.sp('mt', 10),
-                cm.flex({ align: 'center', justify: 'center', gap: 'md' }),
-                'flex-wrap',
-              )}
-            >
-              <Link
-                to="/signup"
+        {/* §1.2 Marketing hero — left copy, right adherence card (Stitch design) */}
+        <section className={cm.cn('relative overflow-hidden', cm.sp('pt', 20), cm.sp('pb', 16))}>
+          <div
+            aria-hidden="true"
+            className={cm.cn(
+              'absolute top-0 right-0 -z-10 w-[800px] h-[800px] bg-accent-light rounded-full blur-3xl opacity-50 -translate-y-1/4 translate-x-1/4 pointer-events-none',
+            )}
+          />
+          <div
+            className={cm.cn(
+              cm.maxW('7xl'),
+              cm.sp('px', 6),
+              cm.mxAuto,
+              'grid lg:grid-cols-2 gap-12 lg:gap-16 items-center',
+            )}
+          >
+            <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }))}>
+              <p
                 className={cm.cn(
-                  cm.sp('px', 8),
-                  cm.sp('py', 4),
+                  cm.textSize('xs'),
                   cm.fontWeight('bold'),
-                  cm.textSize('base'),
-                  'rounded-full bg-primary text-on-primary hover:opacity-90 transition-opacity shadow-md shadow-primary/30',
+                  'uppercase tracking-widest text-primary-dark dark:text-primary',
                 )}
               >
-                {t('landing.heroCta', {}, { defaultValue: 'Set up your meds' })}
-              </Link>
-              <Link
-                to="/login"
+                {t('landing.eyebrow', {}, { defaultValue: 'Medication adherence, made caring' })}
+              </p>
+              <h1
                 className={cm.cn(
-                  cm.sp('px', 8),
-                  cm.sp('py', 4),
-                  cm.fontWeight('semibold'),
-                  cm.textSize('base'),
-                  'rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors',
+                  'text-5xl lg:text-7xl font-bold tracking-tight text-on-surface leading-[1.1]',
+                )}
+              >
+                {t('landing.heroTitle', {}, { defaultValue: 'Every dose,' })}
+                <br />
+                <span className="text-primary">
+                  {t('landing.heroTitleAccent', {}, { defaultValue: 'on time' })}
+                </span>
+              </h1>
+              <p
+                className={cm.cn(
+                  cm.textSize('xl'),
+                  cm.maxW('lg'),
+                  'text-on-surface-variant leading-relaxed',
                 )}
               >
                 {t(
-                  'landing.heroSecondary',
-                  { appName: APP_NAME },
-                  { defaultValue: 'I already use {{appName}}' },
+                  'landing.heroSubtitle',
+                  {},
+                  {
+                    defaultValue:
+                      'A caring, reliable medication reminder for peace of mind. Manage complex schedules effortlessly, track adherence, and share updates with loved ones.',
+                  },
                 )}
-              </Link>
+              </p>
+              {/* §14.3 Hero CTA buttons */}
+              <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), 'sm:flex-row pt-2')}>
+                <Link
+                  to="/signup"
+                  className={cm.cn(
+                    cm.sp('px', 8),
+                    cm.sp('py', 4),
+                    cm.fontWeight('semibold'),
+                    cm.textSize('lg'),
+                    'rounded-full bg-accent text-on-accent hover:bg-accent-hover transition-colors shadow-md text-center',
+                  )}
+                >
+                  {t('landing.heroCta', {}, { defaultValue: 'Start free' })}
+                </Link>
+                <Link
+                  to="/login"
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
+                    cm.sp('px', 8),
+                    cm.sp('py', 4),
+                    cm.fontWeight('semibold'),
+                    cm.textSize('lg'),
+                    'rounded-full border-2 border-outline-variant hover:border-outline text-on-surface transition-colors',
+                  )}
+                >
+                  <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                    play_circle
+                  </span>
+                  {t(
+                    'landing.heroSecondary',
+                    { appName: APP_NAME },
+                    { defaultValue: 'I already use {{appName}}' },
+                  )}
+                </Link>
+              </div>
+              {/* §14.4 Hero social proof bar */}
+              <p
+                className={cm.cn(
+                  cm.sp('pt', 6),
+                  cm.sp('mt', 2),
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  'text-on-surface-variant border-t border-outline-variant/60',
+                )}
+              >
+                {t(
+                  'landing.heroProof',
+                  {},
+                  {
+                    defaultValue:
+                      'Trusted by patients, caregivers, and care teams in 40+ countries',
+                  },
+                )}
+              </p>
             </div>
-            {/* §14.4 Hero social proof bar */}
-            <p
-              className={cm.cn(
-                cm.sp('mt', 8),
-                cm.textSize('sm'),
-                cm.fontWeight('medium'),
-                'text-on-surface-variant',
-              )}
-            >
-              {t(
-                'landing.heroProof',
-                {},
-                {
-                  defaultValue: 'Trusted by patients, caregivers, and care teams in 40+ countries',
-                },
-              )}
-            </p>
+            <div className="relative">
+              <div
+                aria-hidden="true"
+                className={cm.cn(
+                  'absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-3xl -rotate-3 scale-105 pointer-events-none',
+                )}
+              />
+              <HeroAdherenceCard />
+            </div>
           </div>
-        </section>
-
-        {/* Sample auth'd hero — same gradient hero a logged-in user would see */}
-        <section className={cm.cn(cm.maxW('5xl'), cm.sp('px', 6), cm.sp('pb', 16), cm.mxAuto)}>
-          <TodayHeroCard
-            takenCount={4}
-            totalDoses={8}
-            upcomingCount={4}
-            currentStreak={47}
-            weekTrend={SAMPLE_TREND}
-            todayLabel={t('landing.sampleDate', {}, { defaultValue: 'Sunday, April 26' })}
-          />
         </section>
 
         {/* Social proof stats */}
@@ -352,7 +491,7 @@ export function Landing() {
             className={cm.cn(
               cm.sp('p', 12),
               cm.textCenter,
-              'rounded-[2rem] bg-gradient-to-br from-primary to-primary-container text-on-primary relative overflow-hidden',
+              'rounded-[2rem] bg-gradient-to-br from-[color:var(--color-cta-gradient-from)] to-[color:var(--color-cta-gradient-to)] text-white relative overflow-hidden',
             )}
           >
             <h2
@@ -370,7 +509,7 @@ export function Landing() {
                 cm.sp('mt', 4),
                 cm.maxW('2xl'),
                 cm.mxAuto,
-                'text-on-primary opacity-90 relative z-10',
+                'text-white/90 relative z-10',
               )}
             >
               {t(
@@ -386,7 +525,7 @@ export function Landing() {
                 cm.sp('py', 4),
                 cm.sp('mt', 8),
                 cm.fontWeight('bold'),
-                'rounded-full bg-surface text-primary-dark dark:text-primary hover:opacity-95 transition-opacity inline-block relative z-10',
+                'rounded-full bg-accent text-on-accent hover:bg-accent-hover transition-colors inline-block relative z-10',
               )}
             >
               {t('landing.ctaButton', {}, { defaultValue: 'Get started — it\u2019s free' })}
@@ -430,6 +569,15 @@ export function Landing() {
               { year: new Date().getFullYear(), app: APP_NAME },
               { defaultValue: '\u00a9 {{year}} {{app}}. Caring for your routine.' },
             )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
           </p>
           <Link
             to="/about"

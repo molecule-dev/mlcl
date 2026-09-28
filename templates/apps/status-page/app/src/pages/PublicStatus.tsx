@@ -5,11 +5,11 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { APP_NAME, APP_TAGLINE } from '../branding.js'
 import { IncidentCard, type IncidentCardData } from '../components/IncidentCard.js'
 import { ServiceRow, type ServiceRowData } from '../components/ServiceRow.js'
-import { StatusOverviewCard } from '../components/StatusOverviewCard.js'
 import type { ComponentStatus } from '../components/StatusPill.js'
+import type { UptimeDay, UptimeDayStatus } from '../components/UptimeBar.js'
 import { aggregateUptimePct, generateUptime90 } from '../lib/sampleUptime.js'
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -48,6 +48,42 @@ const STATUS_RANK: Record<ComponentStatus, number> = {
   unknown: -1,
 }
 
+/**
+ * Aggregate status → the solid banner color (design-status-page-public-status:
+ * one full-width band tinted by the worst current state). Values are theme
+ * tokens — no raw hex in JSX.
+ */
+const BANNER_BG: Record<'all_operational' | ComponentStatus, string> = {
+  all_operational: 'bg-[var(--color-status-operational)]',
+  operational: 'bg-[var(--color-status-operational)]',
+  degraded_performance: 'bg-[var(--color-status-degraded)]',
+  partial_outage: 'bg-[var(--color-status-partial)]',
+  major_outage: 'bg-[var(--color-status-major)]',
+  under_maintenance: 'bg-[var(--color-status-maintenance)]',
+  unknown: 'bg-[var(--color-status-unknown)]',
+}
+
+/** Daily uptime roll-up ranks (worst day wins the page-level strip). */
+const DAY_RANK: Record<UptimeDayStatus, number> = {
+  major: 5,
+  partial: 4,
+  degraded: 3,
+  maintenance: 2,
+  unknown: 1,
+  operational: 0,
+  empty: -1,
+}
+
+const DAY_BG: Record<UptimeDayStatus, string> = {
+  operational: 'bg-[var(--color-status-operational)]',
+  degraded: 'bg-[var(--color-status-degraded)]',
+  partial: 'bg-[var(--color-status-partial)]',
+  major: 'bg-[var(--color-status-major)]',
+  maintenance: 'bg-[var(--color-status-maintenance)]',
+  unknown: 'bg-[var(--color-status-unknown)]',
+  empty: 'bg-surface-container-highest',
+}
+
 function aggregate(components: RawComponent[]): {
   aggregate: 'all_operational' | ComponentStatus
   operational: number
@@ -60,6 +96,17 @@ function aggregate(components: RawComponent[]): {
     if (STATUS_RANK[c.status] > STATUS_RANK[worst]) worst = c.status
   }
   return { aggregate: worst === 'operational' ? 'all_operational' : worst, operational }
+}
+
+function fmtRelative(iso: string): string {
+  const ms = Date.now() - new Date(iso).getTime()
+  const minutes = Math.max(0, Math.floor(ms / 60_000))
+  if (minutes < 1) return 'just now'
+  if (minutes < 60) return `${minutes}m ago`
+  const hours = Math.floor(minutes / 60)
+  if (hours < 24) return `${hours}h ago`
+  const days = Math.floor(hours / 24)
+  return `${days}d ago`
 }
 
 export function PublicStatusPage() {
@@ -183,7 +230,29 @@ export function PublicStatusPage() {
     return aggregateUptimePct(days)
   }, [services])
 
+  // Page-level 90-day strip: per calendar day, the WORST status across all
+  // services wins the bar (design: mostly-tall emerald strip with the
+  // occasional shorted degraded/major day).
+  const uptimeDays = useMemo<UptimeDay[]>(() => {
+    const perService = services.map((s) => s.uptime90Days ?? []).filter((d) => d.length > 0)
+    if (perService.length === 0) return []
+    const len = Math.max(...perService.map((d) => d.length))
+    const out: UptimeDay[] = []
+    for (let i = 0; i < len; i++) {
+      let worst: UptimeDayStatus = 'empty'
+      for (const days of perService) {
+        const day = days[i]
+        if (!day) continue
+        if (DAY_RANK[day.status] > DAY_RANK[worst]) worst = day.status
+      }
+      out.push({ date: perService[0][i]?.date ?? `day-${i}`, status: worst })
+    }
+    return out
+  }, [services])
+
   const lastUpdatedAt = incidents[0]?.latest_update?.created_at ?? incidents[0]?.created_at ?? null
+  const isAllOperational =
+    totals.aggregate === 'all_operational' || totals.aggregate === 'operational'
 
   return (
     <div
@@ -191,12 +260,12 @@ export function PublicStatusPage() {
       style={{ backgroundColor: 'var(--mol-color-background)', color: 'var(--mol-color-text)' }}
       data-mol-id="page-public-status"
     >
-      {/* Visually-hidden H1: the page's visible hero headline is the
-          StatusOverviewCard's h2, so without this the heading outline
-          starts at h2 and skips level 1. */}
+      {/* Visually-hidden H1: the visible headline lives in the status banner,
+          so without this the heading outline would skip level 1. */}
       <h1 className="sr-only">
         {t('publicStatus.pageTitle', { app: APP_NAME }, { defaultValue: '{{app}} status page' })}
       </h1>
+
       {/* Top nav bar */}
       <nav
         className={cm.cn('sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b')}
@@ -216,8 +285,9 @@ export function PublicStatusPage() {
             className={cm.cn('flex items-center gap-2 text-xl font-extrabold tracking-tight')}
           >
             <span
-              className={cm.cn('inline-flex h-8 w-8 items-center justify-center rounded-lg')}
-              style={{ backgroundColor: BRAND_COLOR, color: 'var(--color-auth-on-primary)' }}
+              className={cm.cn(
+                'inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-status-operational)] text-[var(--color-auth-on-primary)]',
+              )}
               aria-hidden="true"
             >
               <span className={cm.cn('material-symbols-outlined text-[20px]')}>graphic_eq</span>
@@ -236,13 +306,8 @@ export function PublicStatusPage() {
               <Link
                 to="/dashboard"
                 className={cm.cn(
-                  'px-5 py-2 font-mono font-semibold text-sm rounded-md transition-all hover:opacity-90 shadow-lg',
+                  'px-5 py-2 font-mono font-semibold text-sm rounded-lg bg-[var(--color-status-operational)] text-[var(--color-on-status-operational)] shadow-cta-status hover:opacity-90 transition-opacity',
                 )}
-                style={{
-                  backgroundColor: BRAND_COLOR,
-                  color: 'var(--color-auth-on-primary)',
-                  boxShadow: '0 8px 24px -8px rgba(16, 185, 129, 0.4)',
-                }}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
               </Link>
@@ -260,14 +325,10 @@ export function PublicStatusPage() {
             )}
             <a
               href="#subscribe"
+              data-mol-id="nav-subscribe"
               className={cm.cn(
-                'px-5 py-2 font-mono font-semibold text-sm rounded-md transition-all hover:opacity-90 shadow-lg',
+                'px-5 py-2 font-mono font-semibold text-sm rounded-lg border border-[var(--color-status-operational)] text-[var(--color-status-operational)] hover:bg-[var(--color-status-operational)]/10 transition-colors',
               )}
-              style={{
-                backgroundColor: BRAND_COLOR,
-                color: 'var(--color-auth-on-primary)',
-                boxShadow: '0 8px 24px -8px rgba(16, 185, 129, 0.4)',
-              }}
             >
               {t('publicStatus.subscribe', {}, { defaultValue: 'Subscribe' })}
             </a>
@@ -275,47 +336,155 @@ export function PublicStatusPage() {
         </div>
       </nav>
 
-      <main className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'pt-10 pb-24')}>
+      {/* Full-width status banner — the design's signature element. Solid
+          band tinted by the worst current state, dark ink, pulsing dot. */}
+      <div
+        className={cm.cn(
+          'w-full px-6 py-4 flex items-center justify-center gap-3',
+          BANNER_BG[totals.aggregate],
+          'text-[var(--color-banner-ink)]',
+        )}
+        data-mol-id="status-banner"
+        role="status"
+      >
+        <span
+          className={cm.cn(
+            'w-3 h-3 rounded-full bg-[var(--color-banner-ink)]',
+            !isAllOperational && 'animate-pulse',
+          )}
+          aria-hidden="true"
+        />
+        <h2 className="font-headline font-semibold text-lg">
+          {isAllOperational
+            ? t(
+                'statusOverviewCard.allOperational',
+                {},
+                { defaultValue: 'All systems operational' },
+              )
+            : totals.aggregate === 'under_maintenance'
+              ? t(
+                  'statusOverviewCard.maintenance',
+                  {},
+                  { defaultValue: 'Scheduled maintenance in progress' },
+                )
+              : t(
+                  'statusOverviewCard.issuesDetected',
+                  {},
+                  { defaultValue: 'Some systems are experiencing issues' },
+                )}
+        </h2>
+      </div>
+
+      <main
+        className={cm.cn(
+          'w-full max-w-[960px]',
+          cm.mxAuto,
+          cm.sp('px', 6),
+          'py-12 flex flex-col gap-12',
+        )}
+      >
         {loading ? (
           <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
             {t('publicStatus.loading', {}, { defaultValue: 'Loading service health…' })}
           </p>
         ) : (
           <>
-            {/* Hero status card */}
-            <StatusOverviewCard
-              status={totals.aggregate}
-              totalServices={services.length}
-              operationalServices={totals.operational}
-              uptimePct90={overallUptime}
-              lastUpdatedAt={lastUpdatedAt}
-            />
+            {/* Metric summary row — the design's divided 4-up stat strip */}
+            <div
+              className={cm.cn(
+                'rounded-lg p-5 flex flex-col md:flex-row justify-between items-center',
+                'bg-surface-container border divide-y md:divide-y-0 md:divide-x',
+              )}
+              style={{ borderColor: 'var(--color-border-card)' }}
+              data-mol-id="status-metrics"
+            >
+              <div className={cm.cn('flex-1 text-center py-4 md:py-0')}>
+                <div className={cm.cn('font-mono font-bold text-2xl mb-1')}>
+                  {overallUptime != null ? `${overallUptime.toFixed(2)}%` : '—'}
+                </div>
+                <div className={cm.cn('text-sm text-on-surface-variant')}>
+                  {t('statusOverviewCard.uptime90', {}, { defaultValue: '90-day uptime' })}
+                </div>
+              </div>
+              <div className={cm.cn('flex-1 text-center py-4 md:py-0')}>
+                <div className={cm.cn('font-mono font-bold text-2xl mb-1')}>{services.length}</div>
+                <div className={cm.cn('text-sm text-on-surface-variant')}>
+                  {t('publicStatus.metrics.components', {}, { defaultValue: 'Components' })}
+                </div>
+              </div>
+              <div className={cm.cn('flex-1 text-center py-4 md:py-0')}>
+                <div className={cm.cn('font-mono font-bold text-2xl mb-1')}>
+                  {totals.operational}
+                  <span className={cm.cn('opacity-50')}>/{services.length}</span>
+                </div>
+                <div className={cm.cn('text-sm text-on-surface-variant')}>
+                  {t('statusOverviewCard.servicesUp', {}, { defaultValue: 'Services up' })}
+                </div>
+              </div>
+              <div className={cm.cn('flex-1 text-center py-4 md:py-0')}>
+                <div className={cm.cn('font-mono font-bold text-2xl mb-1')}>
+                  {lastUpdatedAt ? fmtRelative(lastUpdatedAt) : '—'}
+                </div>
+                <div className={cm.cn('text-sm text-on-surface-variant')}>
+                  {t('statusOverviewCard.lastIncident', {}, { defaultValue: 'Last update' })}
+                </div>
+              </div>
+            </div>
+
+            {/* 90-day uptime strip — mostly-tall emerald bars, shorted on
+                degraded/major days, "90 days ago → Today" rail labels */}
+            {uptimeDays.length > 0 ? (
+              <section className={cm.cn('flex flex-col gap-4')}>
+                <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }))}>
+                  <h2 className="font-headline font-semibold text-lg">
+                    {t('publicStatus.uptime.heading', {}, { defaultValue: '90-Day Uptime' })}
+                  </h2>
+                  <span className={cm.cn('font-mono font-bold text-lg')}>
+                    {overallUptime != null ? `${overallUptime.toFixed(2)}%` : '—'}
+                  </span>
+                </div>
+                <div className="h-[34px] flex gap-[2px] items-end w-full">
+                  {uptimeDays.map((day) => (
+                    <div
+                      key={day.date}
+                      className={cm.cn(
+                        'w-[3px] rounded-sm flex-grow opacity-80 hover:opacity-100 transition-opacity',
+                        DAY_BG[day.status],
+                        day.status === 'major'
+                          ? 'h-1/2'
+                          : day.status === 'degraded' || day.status === 'partial'
+                            ? 'h-4/5'
+                            : 'h-full',
+                      )}
+                      title={day.date}
+                    />
+                  ))}
+                </div>
+                <div
+                  className={cm.cn(
+                    'flex justify-between font-mono text-xs uppercase text-on-surface-variant',
+                  )}
+                >
+                  <span>
+                    {t('publicStatus.uptime.daysAgo', {}, { defaultValue: '90 days ago' })}
+                  </span>
+                  <span>{t('publicStatus.uptime.today', {}, { defaultValue: 'Today' })}</span>
+                </div>
+              </section>
+            ) : null}
 
             {/* Active incidents */}
             {activeIncidents.length > 0 ? (
-              <section className={cm.cn('mt-10')}>
+              <section className={cm.cn('flex flex-col gap-4')}>
                 <header
                   className={cm.cn(
                     cm.flex({ align: 'center', justify: 'between' }),
-                    cm.sp('mb', 4),
+                    cm.sp('mb', 2),
                   )}
                 >
-                  <div>
-                    <p
-                      className={cm.cn(
-                        'font-mono text-xs font-bold uppercase tracking-widest text-primary',
-                      )}
-                    >
-                      {t(
-                        'publicStatus.activeEyebrow',
-                        {},
-                        { defaultValue: 'live · investigating' },
-                      )}
-                    </p>
-                    <h2 className={cm.cn('text-2xl md:text-3xl font-extrabold tracking-tight')}>
-                      {t('publicStatus.activeHeading', {}, { defaultValue: 'Active incidents' })}
-                    </h2>
-                  </div>
+                  <h2 className="font-headline font-semibold text-xl">
+                    {t('publicStatus.activeHeading', {}, { defaultValue: 'Active incidents' })}
+                  </h2>
                   <Link
                     to="/incidents"
                     className={cm.cn(
@@ -336,37 +505,25 @@ export function PublicStatusPage() {
             ) : null}
 
             {/* Component status by group */}
-            <section className={cm.cn('mt-10')}>
-              <header className={cm.cn(cm.sp('mb', 4))}>
-                <p
-                  className={cm.cn(
-                    'font-mono text-xs font-bold uppercase tracking-widest text-primary',
-                  )}
-                >
-                  {t('publicStatus.servicesEyebrow', {}, { defaultValue: '// service health' })}
-                </p>
-                <h2 className={cm.cn('text-2xl md:text-3xl font-extrabold tracking-tight')}>
+            <section className={cm.cn('flex flex-col gap-6')}>
+              <header>
+                <h2 className="font-headline font-semibold text-xl">
                   {t('publicStatus.servicesHeading', {}, { defaultValue: 'Components & services' })}
                 </h2>
               </header>
-              <div className={cm.cn('space-y-6')}>
+              <div className={cm.cn('flex flex-col gap-6')}>
                 {groupedServices.map(([group, list]) => (
                   <section
                     key={group}
-                    className={cm.cn('rounded-2xl overflow-hidden')}
-                    style={{
-                      backgroundColor: 'rgba(15, 23, 42, 0.6)',
-                      border: '1px solid var(--color-border-card)',
-                    }}
+                    className={cm.cn(
+                      'rounded-lg overflow-hidden border border-[var(--color-border-card)] bg-[var(--color-surface-card)]',
+                    )}
                   >
                     <header
                       className={cm.cn(
-                        'px-5 py-3 border-b font-mono text-[10px] font-black uppercase tracking-widest',
+                        'px-5 py-3 border-b font-mono text-xs font-semibold uppercase tracking-widest text-on-surface-variant bg-surface-container/50',
                       )}
-                      style={{
-                        borderColor: 'var(--color-border-card)',
-                        color: 'var(--color-text-muted)',
-                      }}
+                      style={{ borderColor: 'var(--color-border-card)' }}
                     >
                       {t(
                         `publicStatus.group.${group}`,
@@ -388,16 +545,9 @@ export function PublicStatusPage() {
 
             {/* Recent resolved incidents */}
             {recentIncidents.length > 0 ? (
-              <section className={cm.cn('mt-10')}>
-                <header className={cm.cn(cm.sp('mb', 4))}>
-                  <p
-                    className={cm.cn(
-                      'font-mono text-xs font-bold uppercase tracking-widest text-primary',
-                    )}
-                  >
-                    {t('publicStatus.recentEyebrow', {}, { defaultValue: '// recent history' })}
-                  </p>
-                  <h2 className={cm.cn('text-2xl md:text-3xl font-extrabold tracking-tight')}>
+              <section className={cm.cn('flex flex-col gap-4')}>
+                <header>
+                  <h2 className="font-headline font-semibold text-xl">
                     {t('publicStatus.recentHeading', {}, { defaultValue: 'Recently resolved' })}
                   </h2>
                 </header>
@@ -411,47 +561,32 @@ export function PublicStatusPage() {
               </section>
             ) : null}
 
-            {/* Subscribe panel */}
+            {/* Subscribe panel — the design's flat bordered widget */}
             <section
               id="subscribe"
-              className={cm.cn('mt-12 rounded-2xl p-8 md:p-10 relative overflow-hidden')}
-              style={{
-                backgroundImage:
-                  'linear-gradient(135deg, rgba(16, 185, 129, 0.20), rgba(99, 102, 241, 0.20))',
-                border: '1px solid var(--color-border-card)',
-              }}
+              className={cm.cn(
+                'rounded-lg p-8 border border-[var(--color-border-card)] bg-surface-container flex flex-col md:flex-row gap-8 items-center justify-between',
+              )}
             >
-              <div
-                className={cm.cn(
-                  'absolute -right-20 -bottom-24 h-72 w-72 rounded-full blur-3xl pointer-events-none',
-                )}
-                style={{ backgroundColor: 'rgba(16, 185, 129, 0.30)' }}
-                aria-hidden="true"
-              />
-              <p
-                className={cm.cn(
-                  'font-mono text-xs font-black uppercase tracking-widest text-primary',
-                )}
-              >
-                {t('publicStatus.subscribeEyebrow', {}, { defaultValue: '// stay informed' })}
-              </p>
-              <h2 className={cm.cn('mt-2 text-3xl md:text-4xl font-extrabold tracking-tight')}>
-                {t(
-                  'publicStatus.subscribeHeading',
-                  {},
-                  { defaultValue: 'Get every status change as it happens.' },
-                )}
-              </h2>
-              <p className={cm.cn('mt-2 max-w-xl text-on-surface-variant')}>
-                {t(
-                  'publicStatus.subscribeBody',
-                  {},
-                  {
-                    defaultValue:
-                      'Email, SMS, webhooks, RSS — pick the channel your runbook reads. Per-component subscriptions keep the noise to a minimum.',
-                  },
-                )}
-              </p>
+              <div className={cm.cn('flex-1 flex flex-col gap-2')}>
+                <h2 className="font-headline font-semibold text-xl">
+                  {t(
+                    'publicStatus.subscribeHeading',
+                    {},
+                    { defaultValue: 'Get every status change as it happens.' },
+                  )}
+                </h2>
+                <p className={cm.cn('max-w-xl text-on-surface-variant text-sm')}>
+                  {t(
+                    'publicStatus.subscribeBody',
+                    {},
+                    {
+                      defaultValue:
+                        'Email, SMS, webhooks, RSS — pick the channel your runbook reads. Per-component subscriptions keep the noise to a minimum.',
+                    },
+                  )}
+                </p>
+              </div>
               <form
                 onSubmit={handleSubscribe}
                 aria-label={t(
@@ -459,7 +594,7 @@ export function PublicStatusPage() {
                   {},
                   { defaultValue: 'Subscribe to status updates' },
                 )}
-                className={cm.cn('mt-6 flex flex-col sm:flex-row gap-3 max-w-xl')}
+                className={cm.cn('w-full md:w-auto flex flex-col sm:flex-row gap-3')}
               >
                 <label className={cm.cn('sr-only')} htmlFor="public-subscribe-email">
                   {t('auth.emailAddress', {}, { defaultValue: 'Email address' })}
@@ -479,16 +614,11 @@ export function PublicStatusPage() {
                     { defaultValue: 'you@team.example' },
                   )}
                   className={cm.cn(
-                    'flex-1',
+                    'flex-1 md:w-64',
                     cm.sp('px', 4),
                     cm.sp('py', 3),
-                    'rounded-md font-mono text-sm',
+                    'rounded-lg font-mono text-sm bg-surface-container-lowest border border-[var(--color-border-card)] text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-[var(--color-status-operational)]',
                   )}
-                  style={{
-                    backgroundColor: 'rgba(11, 17, 32, 0.6)',
-                    border: '1px solid var(--color-border-card)',
-                    color: 'var(--mol-color-text)',
-                  }}
                   disabled={subscribeStatus.kind === 'submitting'}
                 />
                 <button
@@ -497,13 +627,8 @@ export function PublicStatusPage() {
                   className={cm.cn(
                     cm.sp('px', 6),
                     cm.sp('py', 3),
-                    'rounded-md font-mono font-bold transition-all hover:opacity-90',
+                    'rounded-lg font-headline font-semibold text-sm bg-[var(--color-status-operational)] text-[var(--color-on-status-operational)] shadow-cta-status hover:opacity-90 transition-opacity flex items-center justify-center gap-2 whitespace-nowrap',
                   )}
-                  style={{
-                    backgroundColor: BRAND_COLOR,
-                    color: 'var(--color-auth-on-primary)',
-                    boxShadow: '0 12px 28px -12px rgba(16, 185, 129, 0.6)',
-                  }}
                   disabled={subscribeStatus.kind === 'submitting'}
                 >
                   {subscribeStatus.kind === 'submitting'
@@ -516,8 +641,7 @@ export function PublicStatusPage() {
                   data-testid="public-subscribe-success"
                   role="status"
                   aria-live="polite"
-                  className={cm.cn('mt-3 text-sm font-mono')}
-                  style={{ color: 'var(--color-link-hover)' }}
+                  className={cm.cn('mt-3 text-sm font-mono w-full text-[var(--color-link-hover)]')}
                 >
                   {subscribeStatus.message}
                 </p>
@@ -526,39 +650,64 @@ export function PublicStatusPage() {
                 <p
                   data-testid="public-subscribe-error"
                   role="alert"
-                  className={cm.cn('mt-3 text-sm font-mono')}
-                  style={{ color: 'var(--color-auth-error-text)' }}
+                  className={cm.cn('mt-3 text-sm font-mono text-[var(--color-auth-error-text)]')}
                 >
                   {subscribeStatus.message}
                 </p>
               ) : null}
-              <p className={cm.cn('mt-3 text-xs font-mono text-on-surface-variant')}>
-                {t(
-                  'publicStatus.subscribeChannels',
-                  {},
-                  { defaultValue: 'email · sms · webhook · rss · slack' },
-                )}
-              </p>
             </section>
           </>
         )}
       </main>
 
       <footer
-        className={cm.cn('py-8 text-center text-sm border-t')}
+        className={cm.cn('border-t')}
         style={{
           borderColor: 'var(--color-border-card)',
-          color:
-            '#94a3b8' /* de-alpha'd — rgba(…,0.7) was 4.15:1 on #0b1120 (fail); solid slate-400 = 6.9:1 */,
+          color: 'var(--color-text-muted)' /* solid slate-400 — 6.9:1 on #0b1120 */,
         }}
       >
-        <p className={cm.cn('font-mono')}>
-          {t(
-            'publicStatus.footer',
-            { year: 2026, app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}} · {{app}} keeps every second accountable.' },
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            cm.sp('py', 12),
+            cm.flex({ direction: 'col', gap: 'md' }),
+            'md:flex-row md:justify-between md:items-center font-mono text-xs uppercase tracking-widest',
           )}
-        </p>
+        >
+          <p>
+            {t(
+              'publicStatus.footer',
+              { year: new Date().getFullYear(), app: APP_NAME },
+              { defaultValue: '© {{year}} {{app}}' },
+            )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-bold normal-case tracking-normal"
+            >
+              Molecule.dev
+            </a>
+          </p>
+          <nav className={cm.cn(cm.flex({ align: 'center', gap: 'lg', wrap: 'wrap' }))}>
+            <Link to="/about" className={cm.cn('hover:text-on-surface hover:underline')}>
+              {t('nav.about', {}, { defaultValue: 'About' })}
+            </Link>
+            <Link to="/privacy" className={cm.cn('hover:text-on-surface hover:underline')}>
+              {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
+            </Link>
+            <Link to="/terms" className={cm.cn('hover:text-on-surface hover:underline')}>
+              {t('nav.terms', {}, { defaultValue: 'Terms' })}
+            </Link>
+            <a href="#subscribe" className={cm.cn('hover:text-on-surface hover:underline')}>
+              {t('publicStatus.subscribe', {}, { defaultValue: 'Subscribe' })}
+            </a>
+          </nav>
+        </div>
       </footer>
     </div>
   )

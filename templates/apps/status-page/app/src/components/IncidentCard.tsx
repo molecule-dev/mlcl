@@ -31,11 +31,13 @@ export interface IncidentCardData {
   latest_update?: { status: IncidentStatus; message: string; created_at: string } | null
 }
 
+// Impact accent — theme tokens (minor=degraded amber, major=partial
+// orange, critical=major red, maintenance=indigo), mode-aware.
 const IMPACT_ACCENT: Record<IncidentImpact, string> = {
-  minor: '#f59e0b',
-  major: '#f97316',
-  critical: '#ef4444',
-  maintenance: '#6366f1',
+  minor: 'var(--color-status-degraded)',
+  major: 'var(--color-status-partial)',
+  critical: 'var(--color-status-major)',
+  maintenance: 'var(--color-status-maintenance)',
 }
 
 const IMPACT_LABEL: Record<IncidentImpact, string> = {
@@ -53,10 +55,10 @@ const STATUS_LABEL: Record<IncidentStatus, string> = {
 }
 
 const STATUS_COLOR: Record<IncidentStatus, string> = {
-  investigating: '#ef4444',
-  identified: '#f97316',
-  monitoring: '#f59e0b',
-  resolved: '#10b981',
+  investigating: 'var(--color-status-major)',
+  identified: 'var(--color-status-partial)',
+  monitoring: 'var(--color-status-degraded)',
+  resolved: 'var(--color-status-operational)',
 }
 
 // The same status color, resolved for TEXT. STATUS_COLOR above is the vivid
@@ -107,7 +109,7 @@ export function IncidentCard({ incident, linked = true }: IncidentCardProps) {
         linked && 'hover:-translate-y-0.5 hover:shadow-lg cursor-pointer',
       )}
       style={{
-        backgroundColor: 'rgba(30, 41, 59, 0.6)',
+        backgroundColor: 'var(--color-surface-raised)',
         border: '1px solid var(--color-border-card)',
         borderLeft: `4px solid ${accent}`,
       }}

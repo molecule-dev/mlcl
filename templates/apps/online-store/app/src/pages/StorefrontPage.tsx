@@ -136,6 +136,42 @@ export function StorefrontPage() {
 
   return (
     <div data-mol-id="page-storefront">
+      {/* Announcement bar (design: announcement-bar-01) */}
+      <div
+        data-mol-id="announcement-bar-01"
+        style={{
+          backgroundColor: 'var(--color-surface-secondary)',
+          padding: '8px 24px',
+          borderBottom: '1px solid var(--color-border-light)',
+          textAlign: 'center',
+        }}
+      >
+        <p
+          style={{
+            margin: '0 auto',
+            maxWidth: '1280px',
+            fontSize: '13px',
+            fontWeight: 500,
+            color: 'var(--color-text-secondary)',
+          }}
+        >
+          {t(
+            'storefront.announcement',
+            {},
+            { defaultValue: 'Free shipping on orders over $75 — ' },
+          )}
+          <Link
+            to="/search?q=all"
+            style={{
+              color: 'var(--color-in-stock)',
+              fontWeight: 600,
+              textDecoration: 'none',
+            }}
+          >
+            {t('storefront.shopNowLink', {}, { defaultValue: 'Shop now' })}
+          </Link>
+        </p>
+      </div>
       <StorefrontTopNavBar />
       {/* Hero Section */}
       <section
@@ -457,6 +493,37 @@ export function StorefrontPage() {
                     )}
                   </div>
                   <div style={{ padding: '16px' }}>
+                    {typeof product.rating === 'number' && product.rating > 0 && (
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          marginBottom: '8px',
+                        }}
+                      >
+                        <span
+                          className="material-symbols-outlined"
+                          style={{
+                            fontSize: '14px',
+                            color: 'var(--color-low-stock)',
+                            fontVariationSettings: "'FILL' 1",
+                          }}
+                          aria-hidden="true"
+                        >
+                          star
+                        </span>
+                        <span
+                          style={{
+                            fontSize: '12px',
+                            fontWeight: 600,
+                            color: 'var(--color-text-primary)',
+                          }}
+                        >
+                          {product.rating.toFixed(1)}
+                        </span>
+                      </div>
+                    )}
                     <h3
                       style={{
                         fontWeight: 500,

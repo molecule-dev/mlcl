@@ -1,42 +1,45 @@
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     design-subscription-box-landing.html sets display headings in DM Sans
+     (loaded via the Google Fonts link in index.html). */
+  --font-headline: 'DM Sans', 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
   /* ── Bridge variables (feed into @theme via index.css fallbacks) ── */
-  /* Trove brand: warm citrus orange + crafted green accent (DESIGN.md) */
-  --mol-color-primary: #e85d3a;
-  --mol-color-primary-light: #fff3ee;
-  --mol-color-primary-dark: #c94a2e;
-  --mol-color-secondary: #1a1a1a;
-  --mol-color-secondary-light: #ede4dd;
-  --mol-color-secondary-dark: #000000;
+  /* Aligned to design-subscription-box-landing.html (Trove — terracotta
+     rust primary + mint green accent). */
+  --mol-color-primary: #a93010;
+  --mol-color-primary-light: #ffdccf;
+  --mol-color-primary-dark: #8a2609;
+  --mol-color-secondary: #006941;
+  --mol-color-secondary-light: #d8f5e6;
+  --mol-color-secondary-dark: #005c38;
   --mol-color-success: #1b7a51; /* #2db87a was 2.54:1 as small text on white (fail); #1b7a51 = 5.32:1, 4.80:1 on success-light */
   --mol-color-on-success: #ffffff; /* badge ink on bg-success — 5.32:1 on #1b7a51 (see index.css @theme) */
   --mol-color-success-light: #e8f7ee;
   --mol-color-warning: #f0a030;
   --mol-color-warning-light: #fff4dc;
-  --mol-color-error: #ef4444;
-  --mol-color-error-light: #fee2e2;
+  --mol-color-error: #b41340;
+  --mol-color-error-light: #ffe3ea;
   --mol-color-info: #3b82f6;
   --mol-color-info-light: #dbeafe;
-  --mol-color-background: #faf8f6;
-  --mol-color-background-secondary: #f5f1ed;
-  --mol-color-background-tertiary: #ede4dd;
+  --mol-color-background: #f8f6f4;
+  --mol-color-background-secondary: #f2f0ee;
+  --mol-color-background-tertiary: #e9e8e6;
   --mol-color-surface: #ffffff;
-  --mol-color-surface-secondary: #faf8f6;
+  --mol-color-surface-secondary: #f8f6f4;
   --mol-color-input-background: #ffffff;
-  --mol-color-border: #ede4dd;
-  --mol-color-border-secondary: #ddd3ca;
-  --mol-color-border-focus: #e85d3a;
-  --mol-color-text: #1a1a1a;
-  --mol-color-text-secondary: #5b4a3f;
-  --mol-color-text-tertiary: #8a7a6e;
+  --mol-color-border: #e3e2e0;
+  --mol-color-border-secondary: #aeadab;
+  --mol-color-border-focus: #a93010;
+  --mol-color-text: #2e2f2e;
+  --mol-color-text-secondary: #5b5b5a;
+  --mol-color-text-tertiary: #777775;
   --mol-color-text-inverse: #ffffff;
   --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --mol-font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   /* ── App-specific variables ── */
-  --color-primary-hover: #f27052;
+  --color-primary-hover: #b8401e; /* gradient end + hover: white on-primary stays ≥6.8:1 */
   --color-accent: #2db87a;
   --color-accent-hover: #3ed492;
   --color-accent-dark: #249962;
@@ -49,9 +52,9 @@
   --radius-xl: 1.5rem;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 1px 3px rgba(232, 93, 58, 0.06);
-  --shadow-md: 0 4px 12px rgba(232, 93, 58, 0.08);
-  --shadow-lg: 0 10px 24px rgba(232, 93, 58, 0.14);
+  --shadow-sm: 0 1px 3px rgba(46, 47, 46, 0.06);
+  --shadow-md: 0 4px 12px rgba(46, 47, 46, 0.08);
+  --shadow-lg: 0 10px 24px rgba(46, 47, 46, 0.14);
 
   --spacing-page: 1.5rem;
   --spacing-card: 1.25rem;
@@ -63,94 +66,96 @@
   --color-status-cancelled: #9ca3af;
   --color-status-shipping: #3b82f6;
   --color-status-delivered: #2db87a;
-  --color-status-processing: #e85d3a;
+  --color-status-processing: #a93010;
   --color-status-out-of-stock: #6b7280;
 
-  /* Material-3 / Stitch bridge tokens — light baseline.
-     Primary is a touch deeper (#c94a2e) so white on-primary clears 4.5:1;
-     on-primary-dark = #1a0a04 (near-black) for surfaces where brand stop
-     is displayed at full saturation. */
-  --color-background: #faf8f6;
-  --color-on-background: #1a1a1a;
+  /* Material-3 / Stitch bridge tokens — light baseline
+     (design-subscription-box-landing.html config hues). Primary is the
+     design's rust #a93010 — white on-primary ≈ 7:1; the gradient ramp
+     ends on #c94a2e (primary-container) rather than the design's coral
+     #ff7856 because every `from-primary to-primary-container` surface
+     carries on-primary text and coral drops to ≈2.9:1. */
+  --color-background: #f8f6f4;
+  --color-on-background: #2e2f2e;
   --color-surface: #ffffff;
-  --color-surface-bright: #ffffff;
-  --color-surface-dim: #ede4dd;
+  --color-surface-bright: #f8f6f4;
+  --color-surface-dim: #d5d4d2;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #faf8f6;
-  --color-surface-container: #f5f1ed;
-  --color-surface-container-high: #ede4dd;
-  --color-surface-container-highest: #ddd3ca;
-  --color-surface-variant: #f5f1ed;
-  --color-on-surface: #1a1a1a;
-  --color-on-surface-variant: #5b4a3f;
-  --color-inverse-surface: #1a1a1a;
-  --color-inverse-on-surface: #faf8f6;
-  --color-inverse-primary: #f27052;
-  --color-primary: #b03e24; /* #c94a2e was 4.4:1 as text-primary on bg #faf8f6 (fail); #b03e24 = 5.57:1, white on-primary = 5.90:1 */
-  --color-primary-container: #fff3ee;
-  --color-on-primary: #ffffff; /* 5.90:1 on #b03e24 — passes */
-  --color-on-primary-container: #5a1c0a;
-  --color-secondary: #1a1a1a;
-  --color-secondary-container: #ede4dd;
-  --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #2a1a12;
-  --color-tertiary: #2db87a;
-  --color-tertiary-container: #e8f7ee;
-  --color-on-tertiary: #052e1a; /* #ffffff was 2.55:1 vs #2db87a (fail); #052e1a = 7.82:1 */
-  --color-on-tertiary-container: #052e1a;
-  --color-error: #ef4444;
-  --color-error-container: #fee2e2;
-  --color-on-error: #ffffff;
-  --color-on-error-container: #7f1d1d;
-  --color-outline: #7c6b5f; /* calibrated ≥3:1 vs #ffffff surface */
+  --color-surface-container-low: #f2f0ee;
+  --color-surface-container: #e9e8e6;
+  --color-surface-container-high: #e3e2e0;
+  --color-surface-container-highest: #deddda;
+  --color-surface-variant: #deddda;
+  --color-on-surface: #2e2f2e;
+  --color-on-surface-variant: #5b5b5a;
+  --color-inverse-surface: #0d0e0e;
+  --color-inverse-on-surface: #f8f6f4;
+  --color-inverse-primary: #fc6b47;
+  --color-primary: #a93010;
+  --color-primary-container: #c94a2e; /* gradient end — on-primary text ≥5.5:1 */
+  --color-on-primary: #ffefec; /* design value; ≈6.8:1 on #a93010 */
+  --color-on-primary-container: #490b00; /* ≈4.9:1 on #c94a2e */
+  --color-secondary: #006941; /* design green; ≈6.3:1 as text */
+  --color-secondary-container: #7afbb6; /* design mint */
+  --color-on-secondary: #caffdc; /* design value; ≈5.9:1 on #006941 */
+  --color-on-secondary-container: #005e3a; /* ≈6.4:1 on mint */
+  --color-tertiary: #874d03; /* design amber-brown; ≈5.8:1 as text */
+  --color-tertiary-container: #feb063; /* design apricot */
+  --color-on-tertiary: #fff0e6; /* ≈5.9:1 on #874d03 */
+  --color-on-tertiary-container: #5c3200; /* ≈5.5:1 on apricot */
+  --color-error: #b41340;
+  --color-error-container: #f74b6d;
+  --color-on-error: #ffefef; /* ≈5.9:1 on #b41340 */
+  --color-on-error-container: #510017; /* ≈6:1 on #f74b6d */
+  --color-outline: #777775; /* design value; ≈4.6:1 vs surface — clears the 3:1 bar */
 
   /* base.css derives primary-fixed via color-mix(primary 60%, white), which
      fails against text-primary in the app's bg-primary-fixed/30-40 chips
      (3.2:1 before). Pin a lighter fixed so every chip tint clears 4.5:1. */
-  --color-primary-fixed: #f6ded6; /* text-primary #b03e24 on the /40 tint = 5.17:1 */
-  --color-primary-fixed-dim: #efcfc7;
-  --color-on-primary-fixed: #5a1c0a;
-  --color-outline-variant: #ddd3ca;
-  --color-surface-tint: #e85d3a;
+  --color-primary-fixed: #f8ddd2; /* text-primary #a93010 on the /40 tint ≈ 5.9:1 */
+  --color-primary-fixed-dim: #efc5b6;
+  --color-on-primary-fixed: #5a1000;
+  --color-outline-variant: #aeadab;
+  --color-surface-tint: #a93010;
 }
 
-/* Dark mode — e-commerce / artisan warm-neutral dark.
+/* Dark mode — artisan warm-neutral dark.
    Warm near-black surfaces (cozy unboxing feel — DTC subscription, not
-   tech). Brand citrus orange kept at brand stop (#e85d3a) for badges and
-   CTAs; lighter hover for legibility on warm dark. on-primary text stays
-   white so CTAs read clean. Shipment status dots stay bright for
-   quick-scan tracking. */
+   tech). Primary lifts to the design's inverse-primary coral (#fc6b47)
+   for text/badges, while CTA fills keep white-ish ink via the darker
+   #e85d3a brand stop. Shipment status dots stay bright for quick-scan
+   tracking. */
 [data-mol-mode='dark'] {
-  --mol-color-primary: #e85d3a; /* keep brand citrus at brand stop */
-  --mol-color-primary-light: #3d2418;
-  --mol-color-primary-dark: #c94a2e;
-  --mol-color-secondary: #f5f0ed;
-  --mol-color-secondary-light: #2c2422;
-  --mol-color-secondary-dark: #ffffff;
+  --mol-color-primary: #e85d3a; /* keep brand stop for fills; on-primary is dark ink */
+  --mol-color-primary-light: #3d1c10;
+  --mol-color-primary-dark: #fc6b47;
+  --mol-color-secondary: #6beca9;
+  --mol-color-secondary-light: #0b3a26;
+  --mol-color-secondary-dark: #7afbb6;
   --mol-color-success: #3ed492;
   --mol-color-on-success: #052e1a; /* dark ink on the bright dark-mode success — ≈9:1 */
   --mol-color-success-light: #133929;
   --mol-color-warning: #f5b04e;
   --mol-color-warning-light: #3d2e10;
-  --mol-color-error: #f87171;
-  --mol-color-error-light: #3d1818;
+  --mol-color-error: #ff8fa5;
+  --mol-color-error-light: #3d0f1c;
   --mol-color-info: #60a5fa;
   --mol-color-info-light: #14233d;
-  --mol-color-background: #110d0b;
-  --mol-color-background-secondary: #1a1411;
-  --mol-color-background-tertiary: #221b17;
-  --mol-color-surface: #1a1411;
-  --mol-color-surface-secondary: #221b17;
+  --mol-color-background: #14100d;
+  --mol-color-background-secondary: #1b1613;
+  --mol-color-background-tertiary: #241d18;
+  --mol-color-surface: #1b1613;
+  --mol-color-surface-secondary: #241d18;
   --mol-color-input-background: #14100d;
-  --mol-color-border: #2e2520;
-  --mol-color-border-secondary: #3b302a;
-  --mol-color-border-focus: #e85d3a;
-  --mol-color-text: #f4ece4;
-  --mol-color-text-secondary: #c8baac;
-  --mol-color-text-tertiary: #8a7c70;
-  --mol-color-text-inverse: #1a0a04; /* near-black on citrus — matches --color-on-primary for consistency */
+  --mol-color-border: #2f2721;
+  --mol-color-border-secondary: #3d332c;
+  --mol-color-border-focus: #fc6b47;
+  --mol-color-text: #f1ebe5;
+  --mol-color-text-secondary: #c9beb4;
+  --mol-color-text-tertiary: #91857a;
+  --mol-color-text-inverse: #1a0a04; /* near-black on coral — matches --color-on-primary */
 
-  --color-primary-hover: #f27052;
+  --color-primary-hover: #fc6b47;
   --color-accent: #3ed492;
   --color-accent-hover: #5ee5a8;
   --color-accent-dark: #2db87a;
@@ -162,8 +167,8 @@
   --color-status-cancelled: #6b7280;
   --color-status-shipping: #60a5fa;
   --color-status-delivered: #3ed492;
-  --color-status-processing: #e85d3a;
-  --color-status-out-of-stock: #8a7c70;
+  --color-status-processing: #fc6b47;
+  --color-status-out-of-stock: #91857a;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
@@ -171,40 +176,47 @@
 
   /* Stitch / Material-3 @theme token dark variants — override the @theme block
      from index.css so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip
-     cleanly. CTA buttons keep white text on citrus orange: on-primary stays white. */
-  --color-background: #110d0b;
-  --color-on-background: #f4ece4;
-  --color-surface: #1a1411;
-  --color-surface-bright: #2c2420;
-  --color-surface-dim: #0a0806;
-  --color-surface-container-lowest: #080503;
-  --color-surface-container-low: #140f0c;
-  --color-surface-container: #1a1411;
-  --color-surface-container-high: #221b17;
-  --color-surface-container-highest: #2e2520;
-  --color-surface-variant: #221b17;
-  --color-on-surface: #f4ece4;
-  --color-on-surface-variant: #c8baac;
-  --color-inverse-surface: #f4ece4;
-  --color-inverse-on-surface: #110d0b;
-  --color-inverse-primary: #c94a2e;
-  --color-primary: #e85d3a; /* keep brand citrus at brand stop */
-  --color-primary-container: #3d2418;
-  --color-on-primary: #1a0a04; /* #ffffff was 3.47:1 vs #e85d3a (fail); #1a0a04 = 5.56:1 */
-  --color-on-primary-container: #ffddd4;
-  --color-secondary: #f5f0ed;
-  --color-secondary-container: #2e2520;
-  --color-on-secondary: #110d0b;
-  --color-on-secondary-container: #f4ece4;
-  --color-tertiary: #3ed492;
-  --color-tertiary-container: #133929;
-  --color-on-tertiary: #052e1a; /* #ffffff was 1.90:1 vs #3ed492 (fail); #052e1a = 7.82:1 */
-  --color-on-tertiary-container: #bbf7d0;
-  --color-error: #f87171;
-  --color-error-container: #3d1818;
-  --color-on-error: #3a0000; /* #ffffff was 2.77:1 vs #f87171 (fail); #3a0000 = 6.32:1 */
-  --color-on-error-container: #ffdad6;
-  --color-outline: #7a6d63; /* #5a4f47 was 2.30:1 vs surface (fail ≥3:1); #7a6d63 = 3.64:1 */
-  --color-outline-variant: #2e2520;
-  --color-surface-tint: #e85d3a;
+     cleanly. CTA fills stay at the #e85d3a brand stop with dark ink:
+     #1a0a04 on #e85d3a ≈ 5.6:1 (white would be 3.5:1 — fail). */
+  --color-background: #14100d;
+  --color-on-background: #f1ebe5;
+  --color-surface: #1b1613;
+  --color-surface-bright: #322922;
+  --color-surface-dim: #0c0906;
+  --color-surface-container-lowest: #0b0805;
+  --color-surface-container-low: #171210;
+  --color-surface-container: #1b1613;
+  --color-surface-container-high: #262019;
+  --color-surface-container-highest: #322a23;
+  --color-surface-variant: #322a23;
+  --color-on-surface: #f1ebe5;
+  --color-on-surface-variant: #c9beb4;
+  --color-inverse-surface: #f1ebe5;
+  --color-inverse-on-surface: #14100d;
+  --color-inverse-primary: #a93010;
+  --color-primary: #e85d3a; /* CTA fill brand stop */
+  --color-primary-container: #cf4e2c; /* gradient end — dark ink stays ≥4.2:1 across the ramp */
+  --color-on-primary: #1a0a04; /* ≈5.6:1 on #e85d3a (white was 3.5:1 — fail) */
+  --color-on-primary-container: #ffe0d6;
+  --color-secondary: #6beca9; /* mint as text on dark ≈ 9:1 */
+  --color-secondary-container: #005c38;
+  --color-on-secondary: #00391f;
+  --color-on-secondary-container: #7afbb6; /* ≈7.4:1 on #005c38 */
+  --color-tertiary: #efa357;
+  --color-tertiary-container: #774300;
+  --color-on-tertiary: #3e2000; /* ≈6.4:1 on #efa357 */
+  --color-on-tertiary-container: #feb063; /* ≈5:1 on #774300 */
+  --color-error: #ff8fa5;
+  --color-error-container: #7a0030;
+  --color-on-error: #4a0010; /* ≈6.5:1 on #ff8fa5 */
+  --color-on-error-container: #ffdadf;
+  --color-outline: #98897d; /* ≥3:1 vs dark surface */
+  --color-outline-variant: #3d332c;
+  --color-surface-tint: #fc6b47;
+
+  /* Dark fixed ramp: chip tints (bg-primary-fixed/30-40) need text-primary
+     (#e85d3a on the tint) ≥4.5:1 — keep the fixed a deep rust tint. */
+  --color-primary-fixed: #4a1a0e;
+  --color-primary-fixed-dim: #3d150b;
+  --color-on-primary-fixed: #ffddd4;
 }

@@ -182,7 +182,7 @@ export function DayTimelineRow({
             cm.sp('mt', 2),
             'leading-snug',
           )}
-          style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+          style={{ fontFamily: 'var(--font-headline)' }}
         >
           {activity.title}
         </h4>

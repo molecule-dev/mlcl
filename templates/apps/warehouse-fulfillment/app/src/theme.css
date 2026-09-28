@@ -73,8 +73,15 @@
 
   --font-family-mono: 'JetBrains Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch design: Inter (weight 800) headlines over JetBrains Mono data. */
+  --font-headline: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Landing-specific tokens (mode-stable): emerald stat numbers on the cyan
+     proof band + the dark slate-900 footer palette from the Stitch design. */
+  --wf-stat-number: #6ee7b7; /* emerald-300 on cyan-700 band — large text ≥3:1 */
+  --wf-footer-fg: #f8fafc; /* white on slate-900 footer */
+  --wf-footer-muted: #94a3b8; /* slate-400 footer secondary text */
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -217,6 +224,10 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+
+  /* Landing proof band flips to the bright-cyan dark primary — emerald
+     numbers invert to a deep emerald to keep ≥3:1 on the band. */
+  --wf-stat-number: #064e3b;
 
   /* ── Material-3 / Stitch bridge tokens (dark overrides) ── */
   --color-background: #020617;

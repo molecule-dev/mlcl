@@ -30,7 +30,7 @@ export function DestinationDiscoveryCard({ destination }: { destination: Destina
     <Link
       to={href}
       className={cm.cn(
-        'group relative aspect-[4/3] block overflow-hidden rounded-2xl shadow-sm hover:shadow-2xl transition-all',
+        'group relative aspect-[4/5] block overflow-hidden rounded-lg shadow-sm hover:shadow-2xl transition-all',
       )}
     >
       <img
@@ -70,9 +70,8 @@ export function DestinationDiscoveryCard({ destination }: { destination: Destina
           className={cm.cn(
             cm.textSize('2xl'),
             cm.fontWeight('extrabold'),
-            'text-white leading-tight tracking-tight',
+            'text-white leading-tight tracking-tight font-headline',
           )}
-          style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
         >
           {destination.name}
         </h3>

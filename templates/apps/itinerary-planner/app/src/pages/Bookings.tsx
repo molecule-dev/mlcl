@@ -201,7 +201,7 @@ export function Bookings() {
               cm.sp('mt', 2),
               'leading-tight tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('bookings.heading', {}, { defaultValue: 'Every booking, threaded by trip.' })}
           </h1>
@@ -284,7 +284,7 @@ export function Bookings() {
           <p
             data-testid="bookings-total"
             className={cm.cn(cm.sp('mt', 2), 'text-3xl font-extrabold tracking-tight tabular-nums')}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {fmtMoney(totals.totalCents)}
           </p>
@@ -307,7 +307,7 @@ export function Bookings() {
           <p
             data-testid="bookings-confirmed-count"
             className={cm.cn(cm.sp('mt', 2), 'text-3xl font-extrabold tracking-tight tabular-nums')}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {totals.confirmed}
           </p>
@@ -330,7 +330,7 @@ export function Bookings() {
           <p
             data-testid="bookings-pending-count"
             className={cm.cn(cm.sp('mt', 2), 'text-3xl font-extrabold tracking-tight tabular-nums')}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {totals.pending}
           </p>
@@ -387,7 +387,7 @@ export function Bookings() {
               cm.sp('mt', 3),
               'tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('bookings.empty.heading', {}, { defaultValue: 'No bookings yet.' })}
           </h2>
@@ -485,7 +485,7 @@ export function Bookings() {
                         cm.fontWeight('extrabold'),
                         'tracking-tight',
                       )}
-                      style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+                      style={{ fontFamily: 'var(--font-headline)' }}
                     >
                       {booking.title}
                     </h3>
@@ -544,7 +544,7 @@ export function Bookings() {
                         cm.fontWeight('extrabold'),
                         'tabular-nums tracking-tight',
                       )}
-                      style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+                      style={{ fontFamily: 'var(--font-headline)' }}
                     >
                       {fmtMoney(Number(booking.cost_cents ?? 0))}
                     </span>
@@ -641,7 +641,7 @@ function BookingForm({
     >
       <h3
         className={cm.cn(cm.textSize('lg'), cm.fontWeight('extrabold'))}
-        style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+        style={{ fontFamily: 'var(--font-headline)' }}
       >
         {t('bookings.formHeading', {}, { defaultValue: 'New booking' })}
       </h3>

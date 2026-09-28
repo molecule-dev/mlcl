@@ -25,6 +25,14 @@
   /* Sift brand — savvy deal-hunter palette (DESIGN.md) */
   --color-primary: #e05a2b;
   --color-primary-hover: #f06d3f;
+  /* Deep brand stop — design-price-comparison-landing.html gradient
+     start (#a83301); Tailwind utility alias in index.css is
+     --color-primary-deep -> this var. */
+  --color-primary-deep-alias: #a83301;
+  /* Soft elevation tints — design-price-comparison-landing.html
+     shadow-[0_8px_32px_rgba(27,28,27,0.06)] family, token-mapped. */
+  --shadow-tint: rgba(27, 28, 27, 0.06);
+  --shadow-tint-soft: rgba(27, 28, 27, 0.04);
   --color-primary-light: #fff1eb;
   --color-secondary: #1a9960;
   --color-secondary-hover: #14804e;
@@ -71,7 +79,8 @@
   --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
   /* Headline font — picked up by shared molecule pages
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* design-price-comparison-landing.html headline face; Arimo/Inter are the bundled fallbacks. */
+  --font-headline: 'DM Sans', 'Arimo', 'Inter', -apple-system, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -218,6 +227,9 @@
   --color-inverse-on-surface: #15100d;
   --color-inverse-primary: #4a1f0e;
   --color-primary: #ff7b4a; /* added — root was #e05a2b (3.71:1 vs white, fail); dark brand lifts to #ff7b4a; on-primary goes dark */
+  --color-primary-deep-alias: #c2542a; /* dark-mode deep gradient stop — warm ember on near-black */
+  --shadow-tint: rgba(0, 0, 0, 0.4);
+  --shadow-tint-soft: rgba(0, 0, 0, 0.25);
   --color-primary-container: #4a1f0e;
   --color-on-primary: #1a0800; /* dark on bright orange — #ffffff was 2.57:1 (fail); #1a0800 = 7.59:1 */
   --color-on-primary-container: #ffd5c0;

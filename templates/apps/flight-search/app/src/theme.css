@@ -87,10 +87,12 @@
 
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Design (Skylark): Inter black display headings — same face as body. */
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-family-price: '"DM Sans", -apple-system, sans-serif';
+  /* Design tabular face for prices/numerals (loaded via Google Fonts in index.html) */
+  --font-family-price: 'DM Sans', -apple-system, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -210,4 +212,16 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Trending destination badges (design: Skylark circular destination avatars).
+   Token gradients stand in for the design's photography — no hotlinked images. */
+.flight-dest-a {
+  background-image: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+.flight-dest-b {
+  background-image: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+}
+.flight-dest-c {
+  background-image: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
 }

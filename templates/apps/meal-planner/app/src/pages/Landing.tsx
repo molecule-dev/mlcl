@@ -149,7 +149,7 @@ export function Landing() {
                   cm.sp('py', 2),
                   cm.fontWeight('medium'),
                   cm.textSize('sm'),
-                  'bg-accent text-on-accent rounded-full hover:bg-accent/90 transition-colors shadow-sm',
+                  'bg-accent text-on-accent rounded-lg hover:bg-accent/90 transition-colors shadow-sm',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -174,7 +174,7 @@ export function Landing() {
                     cm.sp('py', 2),
                     cm.fontWeight('medium'),
                     cm.textSize('sm'),
-                    'bg-accent text-on-accent rounded-full hover:bg-accent/90 transition-colors shadow-sm',
+                    'bg-accent text-on-accent rounded-lg hover:bg-accent/90 transition-colors shadow-sm',
                   )}
                 >
                   {t('common.startFree', {}, { defaultValue: 'Start free' })}
@@ -186,46 +186,43 @@ export function Landing() {
       </nav>
 
       <main className={cm.cn('pt-24 pb-16')}>
-        {/* Hero */}
-        <section
-          className={cm.cn(
-            cm.sp('px', 6),
-            cm.sp('py', 12),
-            'max-w-7xl mx-auto md:py-24 grid md:grid-cols-2 gap-12 items-center',
-          )}
-        >
-          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }))}>
+        {/* Hero — centered editorial composition (Stitch design) */}
+        <section className={cm.cn(cm.sp('px', 6), cm.sp('py', 12), 'max-w-4xl mx-auto md:py-20')}>
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', align: 'center', gap: 'lg' }),
+              'text-center',
+            )}
+          >
             <span
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'xs' }),
-                cm.sp('px', 3),
-                cm.sp('py', 1),
                 cm.textSize('sm'),
                 cm.fontWeight('medium'),
-                'inline-flex w-fit rounded-full bg-primary-container text-on-primary-container',
+                'inline-flex w-fit px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary-container',
               )}
             >
-              <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-sm')}>
-                stars
-              </span>
+              <span
+                aria-hidden="true"
+                className={cm.cn('w-2 h-2 rounded-full bg-secondary inline-block')}
+              />
               {t('simmer.landing.hero.eyebrow', {}, { defaultValue: 'Weekly meal planning' })}
             </span>
             <h1
               className={cm.cn(
-                cm.fontWeight('bold'),
-                'text-5xl md:text-6xl tracking-tight text-on-surface leading-tight',
+                cm.fontWeight('semibold'),
+                'font-headline text-5xl md:text-6xl tracking-tight text-on-surface leading-tight',
               )}
             >
-              {t('simmer.landing.hero.title1', {}, { defaultValue: 'Cook less.' })}
-              <br />
-              <span className={cm.cn('text-primary')}>
+              {t('simmer.landing.hero.title1', {}, { defaultValue: 'Cook less.' })}{' '}
+              <span className={cm.cn('italic font-normal text-primary')}>
                 {t('simmer.landing.hero.title2', {}, { defaultValue: 'Plan once.' })}
               </span>
             </h1>
             <p
               className={cm.cn(
                 cm.textSize('xl'),
-                'text-on-surface-variant max-w-lg leading-relaxed',
+                'text-on-surface-variant max-w-2xl leading-relaxed',
               )}
             >
               {t(
@@ -237,7 +234,12 @@ export function Landing() {
                 },
               )}
             </p>
-            <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), 'sm:flex-row')}>
+            <div
+              className={cm.cn(
+                cm.flex({ direction: 'col', gap: 'sm' }),
+                'sm:flex-row justify-center',
+              )}
+            >
               <Link
                 to="/signup"
                 data-mol-id="landing-cta-signup"
@@ -246,7 +248,7 @@ export function Landing() {
                   cm.sp('py', 3),
                   cm.fontWeight('semibold'),
                   cm.textSize('lg'),
-                  'bg-accent text-on-accent rounded-full hover:bg-accent/90 transition-colors shadow-md',
+                  'bg-accent text-on-accent rounded-lg hover:bg-accent/90 transition-colors shadow-sm inline-flex items-center justify-center',
                 )}
               >
                 {t('simmer.landing.hero.primary', {}, { defaultValue: 'Get started — free' })}
@@ -260,12 +262,12 @@ export function Landing() {
                   cm.sp('py', 3),
                   cm.fontWeight('semibold'),
                   cm.textSize('lg'),
-                  'rounded-full text-on-surface bg-surface border border-outline hover:bg-surface-variant transition-colors',
+                  'rounded-lg text-secondary bg-surface border-[1.5px] border-secondary hover:bg-secondary/10 transition-colors',
                 )}
               >
                 <span
                   aria-hidden="true"
-                  className={cm.cn('material-symbols-outlined text-primary')}
+                  className={cm.cn('material-symbols-outlined text-secondary')}
                 >
                   play_circle
                 </span>
@@ -277,7 +279,7 @@ export function Landing() {
           <div
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center' }),
-              'relative max-w-md mx-auto w-full',
+              'relative max-w-md mx-auto w-full mt-12',
             )}
           >
             <div
@@ -413,8 +415,8 @@ export function Landing() {
           >
             <h2
               className={cm.cn(
-                cm.fontWeight('bold'),
-                'text-3xl md:text-4xl tracking-tight text-on-surface',
+                cm.fontWeight('semibold'),
+                'font-headline text-3xl md:text-4xl tracking-tight text-on-surface',
               )}
             >
               {t(
@@ -576,8 +578,8 @@ export function Landing() {
             <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), 'relative z-10')}>
               <h2
                 className={cm.cn(
-                  cm.fontWeight('bold'),
-                  'text-4xl md:text-5xl text-on-surface tracking-tight',
+                  cm.fontWeight('semibold'),
+                  'font-headline text-4xl md:text-5xl text-on-surface tracking-tight',
                 )}
               >
                 {t(
@@ -603,7 +605,7 @@ export function Landing() {
                     cm.sp('px', 8),
                     cm.sp('py', 3),
                     cm.fontWeight('semibold'),
-                    'bg-accent text-on-accent rounded-full hover:bg-accent/90 transition-colors shadow-sm',
+                    'bg-accent text-on-accent rounded-lg hover:bg-accent/90 transition-colors shadow-sm',
                   )}
                 >
                   {t(
@@ -660,6 +662,15 @@ export function Landing() {
                 { app: APP_NAME, tagline: APP_TAGLINE },
                 { defaultValue: '© {{app}} — {{tagline}}.' },
               )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
             </p>
           </div>
           <div

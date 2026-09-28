@@ -53,7 +53,7 @@ export function Settings() {
             cm.sp('mt', 2),
             'leading-tight tracking-tight',
           )}
-          style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+          style={{ fontFamily: 'var(--font-headline)' }}
         >
           {t('settings.heading', {}, { defaultValue: 'Settings & profile.' })}
         </h1>

@@ -181,7 +181,7 @@ export function TripPlanner() {
               cm.sp('mt', 2),
               'leading-tight tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('tripPlanner.heading', {}, { defaultValue: 'Sketch a trip in under a minute.' })}
           </h1>
@@ -245,7 +245,7 @@ export function TripPlanner() {
           >
             <h2
               className={cm.cn(cm.textSize('lg'), cm.fontWeight('extrabold'), 'tracking-tight')}
-              style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+              style={{ fontFamily: 'var(--font-headline)' }}
             >
               {t('tripPlanner.section1.title', {}, { defaultValue: 'Where & when' })}
             </h2>
@@ -370,7 +370,7 @@ export function TripPlanner() {
           >
             <h2
               className={cm.cn(cm.textSize('lg'), cm.fontWeight('extrabold'), 'tracking-tight')}
-              style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+              style={{ fontFamily: 'var(--font-headline)' }}
             >
               {t('tripPlanner.section2.title', {}, { defaultValue: 'Travelers & budget' })}
             </h2>
@@ -436,7 +436,7 @@ export function TripPlanner() {
           >
             <h2
               className={cm.cn(cm.textSize('lg'), cm.fontWeight('extrabold'), 'tracking-tight')}
-              style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+              style={{ fontFamily: 'var(--font-headline)' }}
             >
               {t('tripPlanner.section3.title', {}, { defaultValue: 'Day plan starter' })}
             </h2>

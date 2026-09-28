@@ -4,8 +4,17 @@
   --color-primary-light: #cffafe;
   --color-secondary: #14b8a6;
   --color-secondary-hover: #0d9488;
-  --color-accent: #5eead4;
-  --color-accent-light: #f0fdfa;
+  /* Accent — the Stitch design's warm orange (primary CTAs, streak pill).
+     Ink on it is dark: white on #f97316 = 2.83:1 (fail); #431407 = ~6.9:1. */
+  --color-accent: #f97316;
+  --color-accent-hover: #ea580c;
+  --color-on-accent: #431407;
+  --color-accent-light: #ffedd5;
+  /* Closing-CTA gradient — design runs cyan-600 → teal-800. The FROM stop
+     stays a deep cyan in BOTH modes: dark mode's primary lifts to mint,
+     which white card text would sit on unreadably. */
+  --color-cta-gradient-from: #0891b2;
+  --color-cta-gradient-to: #115e59;
 
   --color-success: #22c55e;
   --color-success-light: #dcfce7;
@@ -150,8 +159,13 @@
   --color-primary-light: #0a2620;
   --color-secondary: #2dd4bf;
   --color-secondary-hover: #5eead4;
-  --color-accent: #99f6e4;
-  --color-accent-light: #0d3330;
+  /* Accent stays the design's orange in dark; slightly lifted for glow */
+  --color-accent: #fb923c;
+  --color-accent-hover: #f97316;
+  --color-on-accent: #431407;
+  --color-accent-light: #431407;
+  --color-cta-gradient-from: #0e7490;
+  --color-cta-gradient-to: #134e4a;
 
   --color-success: #4ade80;
   --color-success-light: #14532d;

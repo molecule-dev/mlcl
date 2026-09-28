@@ -11,7 +11,16 @@ import { APP_NAME } from '../branding.js'
  * Shared across the public pages (Landing, About, Privacy, Terms) so the
  * brand chrome stays consistent. When the visitor is signed in, the
  * Sign-in / Start-free pair collapses into a single "Go to Dashboard" CTA.
+ *
+ * Design: frosted-glass bar (backdrop-blur + soft shadow, no hard border)
+ * with centered section links that anchor into the landing page.
  */
+const NAV_LINKS = [
+  { to: '/#features', key: 'landing.nav.features', defaultValue: 'Features' },
+  { to: '/#how-it-works', key: 'landing.nav.howItWorks', defaultValue: 'How it works' },
+  { to: '/#stats', key: 'landing.nav.stats', defaultValue: 'Stats' },
+] as const
+
 export function LandingNav() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -20,9 +29,7 @@ export function LandingNav() {
   return (
     <nav
       data-mol-id="landing-nav"
-      className={cm.cn(
-        'sticky top-0 z-50 bg-surface/85 backdrop-blur-md border-b border-outline-variant',
-      )}
+      className={cm.cn('sticky top-0 z-50 bg-surface/80 backdrop-blur-xl shadow-sm')}
     >
       <div
         className={cm.cn(
@@ -38,8 +45,7 @@ export function LandingNav() {
           data-mol-id="landing-nav-brand"
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'xs' }),
-            cm.textSize('xl'),
-            cm.fontWeight('bold'),
+            'text-2xl font-bold tracking-tight',
           )}
         >
           <span
@@ -51,6 +57,22 @@ export function LandingNav() {
           </span>
           <span>{APP_NAME}</span>
         </Link>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden md:flex')}>
+          {NAV_LINKS.map((l) => (
+            <a
+              key={l.to}
+              href={l.to}
+              data-mol-id={`landing-nav-link-${l.key.split('.').pop()}`}
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                'text-on-surface-variant hover:text-primary transition-colors duration-300',
+              )}
+            >
+              {t(l.key, {}, { defaultValue: l.defaultValue })}
+            </a>
+          ))}
+        </div>
         <div className={cm.flex({ align: 'center', gap: 'md' })}>
           {isAuthenticated ? (
             <Link
@@ -61,12 +83,8 @@ export function LandingNav() {
                 cm.sp('py', 2),
                 cm.fontWeight('bold'),
                 cm.textSize('sm'),
-                'text-on-primary rounded-full shadow-md hover:shadow-lg transition-shadow',
+                'bg-momentum text-on-gradient rounded-full shadow-md hover:shadow-lg transition-all duration-300 active:scale-95',
               )}
-              style={{
-                background:
-                  'linear-gradient(90deg, var(--color-gradient-hero-start), var(--color-gradient-hero-end))',
-              }}
             >
               {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
             </Link>
@@ -78,7 +96,7 @@ export function LandingNav() {
                 className={cm.cn(
                   cm.textSize('sm'),
                   cm.fontWeight('semibold'),
-                  'text-on-surface-variant hover:text-on-surface',
+                  'px-2 text-on-surface-variant hover:text-primary transition-colors duration-300',
                 )}
               >
                 {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -91,12 +109,8 @@ export function LandingNav() {
                   cm.sp('py', 2),
                   cm.fontWeight('bold'),
                   cm.textSize('sm'),
-                  'text-on-primary rounded-full shadow-md hover:shadow-lg transition-shadow',
+                  'bg-momentum text-on-gradient rounded-full shadow-md hover:shadow-lg transition-all duration-300 active:scale-95',
                 )}
-                style={{
-                  background:
-                    'linear-gradient(90deg, var(--color-gradient-hero-start), var(--color-gradient-hero-end))',
-                }}
               >
                 {t('common.startFree', {}, { defaultValue: 'Start free' })}
               </Link>

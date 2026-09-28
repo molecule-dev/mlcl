@@ -1,3 +1,5 @@
+import { Link } from 'react-router'
+
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -6,6 +8,8 @@ import { APP_NAME } from '../branding.js'
 /**
  * Public marketing footer shared by the Landing, About, Privacy, and Terms
  * pages so the brand chrome stays consistent across all public surfaces.
+ * Styled after the Stitch landing footer: night-chart canvas, brand column
+ * left, policy links right.
  */
 export function LandingFooter() {
   const cm = getClassMap()
@@ -15,28 +19,59 @@ export function LandingFooter() {
     <footer
       data-mol-id="landing-footer"
       className={cm.cn(
+        'w-full bg-night-chart border-t border-night-edge',
         cm.sp('py', 12),
-        cm.textCenter,
+        cm.sp('px', 6),
         cm.textSize('sm'),
-        'bg-surface border-t border-outline-variant text-on-surface-variant',
+        'text-night-muted',
       )}
     >
-      <p>
-        {t(
-          'common.copyrightBuiltWithMolecule',
-          { year: new Date().getFullYear(), app: APP_NAME },
-          { defaultValue: '© {{year}} {{app}}' },
-        )}
-        {' — Built with '}
-        <a
-          href="https://molecule.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:underline font-medium"
+      <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, 'grid grid-cols-1 md:grid-cols-2 gap-8')}>
+        <div>
+          <div
+            className={cm.cn(
+              cm.textSize('lg'),
+              cm.fontWeight('semibold'),
+              'text-on-surface',
+              cm.sp('mb', 4),
+            )}
+          >
+            {APP_NAME}
+          </div>
+          <p className={cm.cn(cm.maxW('xs'), cm.sp('mb', 6), 'font-light tracking-wide')}>
+            {t(
+              'landing.copyright',
+              { year: new Date().getFullYear(), app: APP_NAME },
+              { defaultValue: '© {{year}} {{app}}. Crafted for restorative rest.' },
+            )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
+          </p>
+        </div>
+        <div
+          className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), 'md:items-end justify-start')}
         >
-          Molecule.dev
-        </a>
-      </p>
+          <Link
+            to="/privacy"
+            className={cm.cn('font-light tracking-wide hover:text-on-surface transition-colors')}
+          >
+            {t('landing.privacyLink', {}, { defaultValue: 'Privacy Policy' })}
+          </Link>
+          <Link
+            to="/terms"
+            className={cm.cn('font-light tracking-wide hover:text-on-surface transition-colors')}
+          >
+            {t('landing.termsLink', {}, { defaultValue: 'Terms of Service' })}
+          </Link>
+        </div>
+      </div>
     </footer>
   )
 }

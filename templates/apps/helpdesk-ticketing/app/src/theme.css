@@ -1,7 +1,8 @@
 :root {
-  /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* Headline font — the design composes every headline in Inter
+     (extrabold tracking-tight), same as body. Picked up by shared molecule
+     pages (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   /* ── @theme bridge variables (feed into Tailwind @theme → --color-*) ── */
   --mol-color-primary: #0ea5e9;
   --mol-color-primary-light: #e0f2fe;

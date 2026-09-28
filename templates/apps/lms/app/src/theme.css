@@ -1,7 +1,9 @@
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch design sets headlines in Plus Jakarta Sans (loaded via
+     Google Fonts <link> in app/index.html), body in Inter. */
+  --font-headline: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
   /* ── @theme bridge variables (feed into Tailwind @theme → --color-*) ── */
   --mol-color-primary: #1a56db;
   --mol-color-secondary: #047857;
@@ -71,10 +73,16 @@
   --color-secondary-container: #d1fae5;
   --color-on-secondary: #ffffff;
   --color-on-secondary-container: #064e3b;
-  --color-tertiary: #f59e0b;
-  --color-tertiary-container: #fef3c7;
-  --color-on-tertiary: #451a03;
-  --color-on-tertiary-container: #78350f;
+  /* Tertiary accent — the Stitch design's electric violet (AI/curated cards,
+     welcome-banner gradient wash). Design stops: #5d00cc / #7632e7. */
+  --color-tertiary: #5d00cc;
+  --color-tertiary-container: #7632e7;
+  --color-on-tertiary: #ffffff; /* white on #7632e7 = 4.58:1 — passes AA */
+  --color-on-tertiary-container: #e5d6ff;
+  --color-tertiary-fixed: #eaddff;
+  --color-tertiary-fixed-dim: #d2bbff;
+  --color-on-tertiary-fixed: #25005a;
+  --color-on-tertiary-fixed-variant: #5a00c6;
   --color-error: #dc2626;
   --color-error-container: #fee2e2;
   --color-on-error: #ffffff;
@@ -182,14 +190,14 @@
   --color-secondary-fixed-dim: #6ee7b7;
   --color-on-secondary-fixed: #022c22;
   --color-on-secondary-fixed-variant: #047857;
-  --color-tertiary: #ffb784;
-  --color-tertiary-container: #7d3d00;
-  --color-on-tertiary: #2d1500;
-  --color-on-tertiary-container: #ffe0cd;
-  --color-tertiary-fixed: #ffdcc6;
-  --color-tertiary-fixed-dim: #ffb784;
-  --color-on-tertiary-fixed: #301400;
-  --color-on-tertiary-fixed-variant: #713700;
+  --color-tertiary: #cfbcff; /* lifted violet for dark surfaces */
+  --color-tertiary-container: #4a1288; /* deep violet container */
+  --color-on-tertiary: #25005a; /* dark ink on the light-violet accent */
+  --color-on-tertiary-container: #eaddff;
+  --color-tertiary-fixed: #eaddff;
+  --color-tertiary-fixed-dim: #cfbcff;
+  --color-on-tertiary-fixed: #25005a;
+  --color-on-tertiary-fixed-variant: #5a00c6;
   --color-error: #f87171;
   --color-error-container: #7f1d1d;
   --color-on-error: #690005; /* dark on red-400 — white was 2.77:1 (fail); #690005 = 4.74:1 */

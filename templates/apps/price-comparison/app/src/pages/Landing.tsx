@@ -1,4 +1,5 @@
-import { Link } from 'react-router'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -7,38 +8,18 @@ import { APP_NAME, APP_TAGLINE } from '../branding.js'
 import { LandingFooter } from '../components/LandingFooter.js'
 import { LandingNav } from '../components/LandingNav.js'
 import { ProductPriceCard, type ProductPriceCardProduct } from '../components/ProductPriceCard.js'
-import { SavingsHeroCard } from '../components/SavingsHeroCard.js'
 
-const FEATURES = [
-  {
-    key: 'compare',
-    icon: 'compare_arrows',
-    defaultTitle: 'Every retailer, one screen',
-    defaultBody:
-      'Search a product once and {{appName}} fans out across Amazon, Best Buy, Target, Walmart, and 30+ stores — sorted by total delivered cost.',
-  },
-  {
-    key: 'history',
-    icon: 'show_chart',
-    defaultTitle: 'See the real price history',
-    defaultBody:
-      'A retailer says "lowest in 90 days"? Verify it. Our 12-month history chart shows exactly when (and how often) the price has been lower.',
-  },
-  {
-    key: 'alerts',
-    icon: 'notifications_active',
-    defaultTitle: 'Wait for the perfect drop',
-    defaultBody:
-      'Set a target — we ping you the second the watchlist hits it. No noisy daily emails, no fake "deal of the day" coupons.',
-  },
-  {
-    key: 'savings',
-    icon: 'savings',
-    defaultTitle: 'Track every dollar saved',
-    defaultBody:
-      'Lifetime savings, average wait time per drop, top-saving retailers — all on one Dashboard so you know {{appName}} earns its keep.',
-  },
-] as const
+/**
+ * Landing — translated from reference/flagship-apps-designs/design-price-comparison-landing.html
+ * ("Sift"): warm-paper precision-shopping identity. Centered hero with a
+ * radial wash, a DM Sans "Never overpay again." headline, a pill search bar
+ * with a gradient submit button (routes to /search), a verified-retailers
+ * line, a "Trending Price Drops" card row, "The {{appName}} Methodology"
+ * three medallions with a connecting rule, a "Built for Precision" bento
+ * (price-history bars, smart-alert card, coverage, trust), a dark
+ * inverse-surface stats band, and a rounded final-CTA card with a top
+ * gradient bar and an email form that hands off to /signup.
+ */
 
 const DEMO_PRODUCTS: ProductPriceCardProduct[] = [
   {
@@ -87,329 +68,489 @@ const DEMO_PRODUCTS: ProductPriceCardProduct[] = [
   },
 ] as const
 
+const METHODOLOGY = [
+  {
+    key: 'search',
+    icon: 'manage_search',
+    tint: 'bg-primary/10 text-primary',
+    defaultBody:
+      'Enter any product name or paste a URL. We immediately scan our database of millions of active listings.',
+  },
+  {
+    key: 'compare',
+    icon: 'compare_arrows',
+    tint: 'bg-primary/10 text-primary',
+    defaultBody:
+      'We normalize prices, factoring in shipping costs and hidden fees to give you the true bottom-line comparison.',
+  },
+  {
+    key: 'save',
+    icon: 'savings',
+    tint: 'bg-secondary/10 text-secondary',
+    defaultBody:
+      'Buy instantly at the lowest price, or set a smart alert to be notified the second it drops further.',
+  },
+] as const
+
+const STATS = [
+  { key: 'products', value: '1.2M', label: 'Products tracked', tint: 'text-primary-fixed-dim' },
+  { key: 'saved', value: '$42M', label: 'Saved this year', tint: 'text-secondary-fixed-dim' },
+  { key: 'rating', value: '4.9', label: 'Avg rating', tint: 'text-inverse-primary' },
+  { key: 'accuracy', value: '98%', label: 'Accuracy', tint: 'text-tertiary-fixed-dim' },
+] as const
+
+// Sparkline bars for the price-history card (design: six bars, last in green).
+const HISTORY_BARS = [
+  { h: 'h-[40%]', tint: 'bg-primary/20' },
+  { h: 'h-[60%]', tint: 'bg-primary/30' },
+  { h: 'h-[80%]', tint: 'bg-primary/40' },
+  { h: 'h-[30%]', tint: 'bg-primary/20' },
+  { h: 'h-[90%]', tint: 'bg-primary/50' },
+] as const
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const navigate = useNavigate()
+  const [query, setQuery] = useState('')
+  const [email, setEmail] = useState('')
 
   return (
-    <div
-      className={cm.cn(
-        cm.minH('screen'),
-        'bg-gradient-to-b from-background via-surface to-surface-container-low text-on-surface antialiased',
-      )}
-    >
+    <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
       <LandingNav />
 
       <main>
-        <section className={cm.cn(cm.sp('py', 16), cm.sp('px', 6), 'lg:py-24')}>
+        {/* Hero — centered, radial wash, pill search bar */}
+        <section className="relative px-6 py-24 md:py-32">
           <div
-            className={cm.cn(
-              cm.maxW('xl'),
-              cm.mxAuto,
-              cm.grid({ cols: 12, gap: 'lg' }),
-              'max-w-screen-xl items-center',
-            )}
+            className={
+              'absolute inset-0 -z-10 bg-gradient-to-b from-surface-container-high/40 via-background to-background'
+            }
+            aria-hidden="true"
+          />
+          <div
+            className={cm.cn(cm.maxW('7xl'), cm.mxAuto, 'flex flex-col items-center text-center')}
           >
-            <div className={cm.cn('col-span-12 lg:col-span-7 space-y-6')}>
-              <p
-                className={cm.cn(
-                  cm.flex({ align: 'center', gap: 'xs' }),
-                  'text-[10px] font-black uppercase tracking-widest text-primary',
-                )}
-              >
-                <span
-                  aria-hidden="true"
-                  className={cm.cn('h-2 w-2 rounded-full bg-primary animate-pulse')}
-                />
-                {t('landing.eyebrow', {}, { defaultValue: '4,800+ price drops detected today' })}
-              </p>
-              <h1
-                className={cm.cn(
-                  'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] text-on-surface',
-                )}
-              >
-                {t('landing.heroTitle', { tagline: APP_TAGLINE }, { defaultValue: '{{tagline}}.' })}
-              </h1>
-              <p
-                className={cm.cn(
-                  cm.textSize('lg'),
-                  cm.maxW('xl'),
-                  'text-on-surface-variant leading-relaxed',
-                )}
-              >
-                {t(
-                  'landing.heroSubtitle',
-                  { appName: APP_NAME },
-                  {
-                    defaultValue:
-                      'Search a product once. {{appName}} compares every retailer, charts the price history, and pings you the moment your target drops — so you stop overpaying without thinking about it.',
-                  },
-                )}
-              </p>
-              <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                <Link
-                  to="/signup"
-                  className={cm.cn(
-                    cm.flex({ align: 'center', gap: 'xs' }),
-                    cm.sp('px', 8),
-                    cm.sp('py', 4),
-                    cm.fontWeight('bold'),
-                    cm.textSize('base'),
-                    'rounded-full bg-primary text-on-primary hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-primary/20',
-                  )}
-                >
-                  {t('landing.heroCta', {}, { defaultValue: 'Start saving free' })}
-                  <span className={cm.cn('material-symbols-outlined text-xl')} aria-hidden="true">
-                    arrow_forward
-                  </span>
-                </Link>
-                <Link
-                  to="/deals"
-                  className={cm.cn(
-                    cm.sp('px', 6),
-                    cm.sp('py', 4),
-                    cm.fontWeight('semibold'),
-                    cm.textSize('base'),
-                    'rounded-full border border-outline-variant text-on-surface hover:bg-surface-container transition-colors',
-                  )}
-                >
-                  {t('landing.browseCta', {}, { defaultValue: 'Browse trending drops' })}
-                </Link>
-              </div>
+            <h1 className={cnHeroH1()} style={{ fontFamily: 'var(--font-headline)' }}>
+              {t('landing.heroTitle', { tagline: APP_TAGLINE }, { defaultValue: '{{tagline}}' })}
+            </h1>
+            <p className={cnHeroSub()}>
+              {t(
+                'landing.heroSubtitle',
+                { appName: APP_NAME },
+                {
+                  defaultValue:
+                    'The precision curator for savvy shoppers. {{appName}} monitors millions of products across thousands of retailers to ensure you always get the lowest price.',
+                },
+              )}
+            </p>
+
+            {/* Pill search bar */}
+            <form
+              className={cnSearchWrap()}
+              onSubmit={(e) => {
+                e.preventDefault()
+                navigate(query.trim() ? `/search?q=${encodeURIComponent(query.trim())}` : '/deals')
+              }}
+            >
               <div
-                className={cm.cn(
-                  cm.flex({ align: 'center', gap: 'lg', wrap: 'wrap' }),
-                  cm.sp('pt', 4),
-                  cm.textSize('sm'),
-                  'text-on-surface-variant',
-                )}
+                className={
+                  'absolute -inset-1 bg-gradient-to-r from-primary/20 to-tertiary/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500'
+                }
+                aria-hidden="true"
+              />
+              <div className={cnSearchBar()}>
+                <span
+                  className={cnSearchIcon()}
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                  aria-hidden="true"
+                >
+                  search
+                </span>
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder={t(
+                    'landing.searchPlaceholder',
+                    {},
+                    { defaultValue: 'Search for a product, brand, or URL...' },
+                  )}
+                  aria-label={t(
+                    'landing.searchPlaceholder',
+                    {},
+                    { defaultValue: 'Search for a product, brand, or URL...' },
+                  )}
+                  className={cnSearchInput()}
+                />
+                <button type="submit" data-mol-id="hero-search" className={cnSearchButton()}>
+                  {t('landing.searchButton', { app: APP_NAME }, { defaultValue: '{{app}} it' })}
+                </button>
+              </div>
+            </form>
+
+            <div className={cnVerifiedRow()}>
+              <span
+                className={'material-symbols-outlined text-secondary text-base'}
+                aria-hidden="true"
               >
-                {[
-                  { glyph: 'star', label: '4.8 / 5 in the App Store' },
-                  { glyph: 'storefront', label: '30+ retailers compared' },
-                  { glyph: 'verified', label: 'No affiliate bias' },
-                ].map((proof) => (
-                  <span
-                    key={proof.glyph}
+                verified
+              </span>
+              {t(
+                'landing.retailerProof',
+                {},
+                { defaultValue: 'Compared across 1,200+ retailers in real-time' },
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* Trending price drops */}
+        <section className="py-16 bg-surface-container-low/50">
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6))}>
+            <div className={cm.cn(cm.flex({ justify: 'between', align: 'end' }), cm.sp('mb', 8))}>
+              <div>
+                <h2 className={cnH2()} style={{ fontFamily: 'var(--font-headline)' }}>
+                  {t('landing.trendingHeading', {}, { defaultValue: 'Trending Price Drops' })}
+                </h2>
+                <p className={cnSub()}>
+                  {t(
+                    'landing.trendingSub',
+                    {},
+                    { defaultValue: 'Curated deals verified in the last hour.' },
+                  )}
+                </p>
+              </div>
+              <Link to="/deals" className={cnViewAll()}>
+                {t('landing.viewAll', {}, { defaultValue: 'View all' })}
+                <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+                  arrow_forward
+                </span>
+              </Link>
+            </div>
+            <div
+              className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}
+            >
+              {DEMO_PRODUCTS.map((product) => (
+                <ProductPriceCard key={product.id} product={product} linked={false} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Methodology — three medallions + connecting rule */}
+        <section className={cnMethodSection()}>
+          <div className={cnMethodHead()}>
+            <h2 className={cnH2Big()} style={{ fontFamily: 'var(--font-headline)' }}>
+              {t(
+                'landing.methodologyHeading',
+                { app: APP_NAME },
+                { defaultValue: 'The {{app}} Methodology' },
+              )}
+            </h2>
+            <p className={cnSub()}>
+              {t(
+                'landing.methodologySub',
+                {},
+                { defaultValue: 'Three steps to guarantee you never miss a price drop.' },
+              )}
+            </p>
+          </div>
+          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div
+              className={
+                'hidden md:block absolute top-12 left-1/6 right-1/6 h-px bg-surface-variant opacity-50 z-0'
+              }
+              aria-hidden="true"
+            />
+            {METHODOLOGY.map((step, i) => (
+              <div
+                key={step.key}
+                className={'relative z-10 flex flex-col items-center text-center'}
+              >
+                <div
+                  className={
+                    'w-24 h-24 rounded-full bg-surface-container-lowest shadow-[0_8px_32px_var(--shadow-tint)] flex items-center justify-center mb-6'
+                  }
+                  aria-hidden="true"
+                >
+                  <div
                     className={cm.cn(
-                      cm.flex({ align: 'center', gap: 'xs' }),
-                      cm.fontWeight('medium'),
+                      'w-16 h-16 rounded-full flex items-center justify-center',
+                      step.tint,
                     )}
                   >
                     <span
-                      aria-hidden="true"
-                      className={cm.cn('material-symbols-outlined text-base text-secondary')}
+                      className={'material-symbols-outlined text-3xl'}
+                      style={{ fontVariationSettings: "'FILL' 1" }}
                     >
-                      {proof.glyph}
+                      {step.icon}
                     </span>
-                    {t(`landing.socialProof.${proof.glyph}`, {}, { defaultValue: proof.label })}
-                  </span>
-                ))}
+                  </div>
+                </div>
+                <h3 className={cnH3()} style={{ fontFamily: 'var(--font-headline)' }}>
+                  {t(
+                    `landing.method.${step.key}.title`,
+                    {},
+                    {
+                      defaultValue: `${i + 1}. ${step.key.charAt(0).toUpperCase()}${step.key.slice(1)}`,
+                    },
+                  )}
+                </h3>
+                <p className={cnBody()}>
+                  {t(`landing.method.${step.key}.body`, {}, { defaultValue: step.defaultBody })}
+                </p>
               </div>
-            </div>
-
-            <div className={cm.cn('col-span-12 lg:col-span-5')}>
-              <SavingsHeroCard
-                totalSavingsCents={184220}
-                watchingCount={28}
-                weekDropCount={6}
-                eyebrow={t('landing.heroPreviewEyebrow', {}, { defaultValue: 'Sample dashboard' })}
-              />
-            </div>
-          </div>
-        </section>
-
-        <section
-          className={cm.cn(
-            cm.maxW('xl'),
-            cm.mxAuto,
-            cm.sp('px', 6),
-            cm.sp('py', 12),
-            'max-w-screen-xl',
-          )}
-        >
-          <header
-            className={cm.cn(
-              cm.flex({ align: 'end', justify: 'between', gap: 'md' }),
-              cm.sp('mb', 8),
-            )}
-          >
-            <div>
-              <p className={cm.cn('text-[10px] font-black uppercase tracking-widest text-primary')}>
-                {t('landing.trendingEyebrow', {}, { defaultValue: 'Trending today' })}
-              </p>
-              <h2
-                className={cm.cn(
-                  'mt-1 text-2xl md:text-3xl font-extrabold tracking-tight text-on-surface',
-                )}
-              >
-                {t('landing.trendingHeading', {}, { defaultValue: 'Hot drops worth jumping on' })}
-              </h2>
-            </div>
-            <Link
-              to="/deals"
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 'xs' }),
-                cm.textSize('sm'),
-                cm.fontWeight('bold'),
-                'text-primary hover:underline',
-              )}
-            >
-              {t('landing.viewAll', {}, { defaultValue: 'View all deals' })}
-              <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
-                arrow_forward
-              </span>
-            </Link>
-          </header>
-          <div
-            className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}
-          >
-            {DEMO_PRODUCTS.map((product) => (
-              <ProductPriceCard key={product.id} product={product} linked={false} />
             ))}
           </div>
         </section>
 
-        <section
-          className={cm.cn(
-            cm.maxW('xl'),
-            cm.mxAuto,
-            cm.sp('px', 6),
-            cm.sp('py', 16),
-            'max-w-screen-xl',
-          )}
-        >
-          <p
-            className={cm.cn(
-              cm.textCenter,
-              'text-[10px] font-black uppercase tracking-widest text-primary',
-            )}
-          >
-            {t(
-              'landing.featuresEyebrow',
-              { appName: APP_NAME },
-              { defaultValue: 'Why {{appName}}' },
-            )}
-          </p>
-          <h2
-            className={cm.cn(
-              cm.textCenter,
-              cm.sp('mt', 2),
-              cm.sp('mb', 12),
-              'text-3xl md:text-4xl font-extrabold tracking-tight text-on-surface',
-            )}
-          >
-            {t(
-              'landing.featuresHeading',
-              {},
-              { defaultValue: 'Built for shoppers who hate overpaying.' },
-            )}
-          </h2>
-          <div
-            className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}
-          >
-            {FEATURES.map((f) => (
-              <article
-                key={f.key}
-                className={cm.cn(
-                  cm.sp('p', 6),
-                  'rounded-2xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm transition-all hover:-translate-y-1 hover:shadow-md',
+        {/* Built for precision bento */}
+        <section className="py-24 bg-surface-container-low">
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6))}>
+            <div className={cm.sp('mb', 12)}>
+              <h2 className={cnH2Big()} style={{ fontFamily: 'var(--font-headline)' }}>
+                {t('landing.precisionHeading', {}, { defaultValue: 'Built for Precision' })}
+              </h2>
+              <p className={cnSub()}>
+                {t(
+                  'landing.precisionSub',
+                  {},
+                  { defaultValue: 'Advanced tools disguised as a simple interface.' },
                 )}
-              >
-                <span
-                  className={cm.cn(
-                    cm.flex({ align: 'center', justify: 'center' }),
-                    'h-12 w-12 rounded-xl bg-primary/15 text-primary',
-                  )}
-                  aria-hidden="true"
-                >
-                  <span
-                    className={cm.cn('material-symbols-outlined text-2xl')}
-                    style={{ fontVariationSettings: "'FILL' 1, 'wght' 400" }}
-                  >
-                    {f.icon}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Historical price graphs */}
+              <div className={cnBentoCard()}>
+                <div className={cnBentoIcon()}>
+                  <span className={'material-symbols-outlined'} aria-hidden="true">
+                    monitoring
                   </span>
-                </span>
-                <h3
-                  className={cm.cn(
-                    cm.sp('mt', 4),
-                    cm.textSize('lg'),
-                    cm.fontWeight('extrabold'),
-                    'text-on-surface tracking-tight',
-                  )}
-                >
-                  {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
-                </h3>
-                <p
-                  className={cm.cn(
-                    cm.sp('mt', 2),
-                    cm.textSize('sm'),
-                    'text-on-surface-variant leading-relaxed',
-                  )}
-                >
+                </div>
+                <h3 className={cnH3()} style={{ fontFamily: 'var(--font-headline)' }}>
                   {t(
-                    `landing.feature.${f.key}.body`,
-                    { appName: APP_NAME },
-                    { defaultValue: f.defaultBody },
+                    'landing.precision.history.title',
+                    {},
+                    {
+                      defaultValue: 'Historical Price Graphs',
+                    },
+                  )}
+                </h3>
+                <p className={cm.cn(cnBody(), cm.sp('mb', 6))}>
+                  {t(
+                    'landing.precision.history.body',
+                    {},
+                    {
+                      defaultValue:
+                        'Never buy at the peak. View up to 12 months of pricing history to understand if a "sale" is genuinely a deal or just a marketing tactic.',
+                    },
                   )}
                 </p>
-              </article>
-            ))}
+                <div
+                  className={
+                    'h-32 bg-surface-container rounded-lg relative overflow-hidden flex items-end px-4 pb-4'
+                  }
+                  aria-hidden="true"
+                >
+                  <div className={'w-full flex items-end gap-1 h-full pt-8'}>
+                    {HISTORY_BARS.map((bar, i) => (
+                      <div key={i} className={cm.cn('w-1/6 rounded-t', bar.h, bar.tint)} />
+                    ))}
+                    <div className={'w-1/6 bg-secondary/80 rounded-t h-[20%] relative'}>
+                      <div
+                        className={
+                          'absolute -top-3 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-secondary'
+                        }
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Smart alerts */}
+              <div className={cnBentoCard()}>
+                <div className={cnBentoIcon()}>
+                  <span className={'material-symbols-outlined'} aria-hidden="true">
+                    notifications_active
+                  </span>
+                </div>
+                <h3 className={cnH3()} style={{ fontFamily: 'var(--font-headline)' }}>
+                  {t('landing.precision.alerts.title', {}, { defaultValue: 'Smart Alerts' })}
+                </h3>
+                <p className={cm.cn(cnBody(), cm.sp('mb', 6))}>
+                  {t(
+                    'landing.precision.alerts.body',
+                    {},
+                    {
+                      defaultValue:
+                        "Set target prices and walk away. We'll ping your inbox the moment the price hits your threshold.",
+                    },
+                  )}
+                </p>
+                <div className={'bg-surface-container rounded-lg p-4 flex items-center gap-4'}>
+                  <div
+                    className={
+                      'w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center shrink-0'
+                    }
+                    aria-hidden="true"
+                  >
+                    <span className={'material-symbols-outlined text-tertiary'}>mail</span>
+                  </div>
+                  <div className={'flex-1 min-w-0'}>
+                    <div className={cnAlertTitle()}>
+                      {t(
+                        'landing.precision.alerts.rowTitle',
+                        {},
+                        {
+                          defaultValue: 'Target Reached: Sony WH-1000XM5',
+                        },
+                      )}
+                    </div>
+                    <div className={cnAlertSub()}>
+                      {t(
+                        'landing.precision.alerts.rowBody',
+                        {},
+                        {
+                          defaultValue: 'Price dropped to $298 (Your target: $300)',
+                        },
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Coverage */}
+              <div className={cnBentoCard()}>
+                <div className={cnBentoIcon()}>
+                  <span className={'material-symbols-outlined'} aria-hidden="true">
+                    travel_explore
+                  </span>
+                </div>
+                <h3 className={cnH3()} style={{ fontFamily: 'var(--font-headline)' }}>
+                  {t(
+                    'landing.precision.coverage.title',
+                    {},
+                    {
+                      defaultValue: 'Massive Retailer Coverage',
+                    },
+                  )}
+                </h3>
+                <p className={cnBody()}>
+                  {t(
+                    'landing.precision.coverage.body',
+                    {},
+                    {
+                      defaultValue:
+                        'We index over 1,200 verified retailers globally. From the massive marketplaces to niche specialist stores, we ensure no deal slips through the cracks.',
+                    },
+                  )}
+                </p>
+              </div>
+
+              {/* Trust */}
+              <div className={cnBentoCard()}>
+                <div className={cnBentoIcon()}>
+                  <span className={'material-symbols-outlined'} aria-hidden="true">
+                    shield
+                  </span>
+                </div>
+                <h3 className={cnH3()} style={{ fontFamily: 'var(--font-headline)' }}>
+                  {t('landing.precision.trust.title', {}, { defaultValue: 'Trust Signals' })}
+                </h3>
+                <p className={cnBody()}>
+                  {t(
+                    'landing.precision.trust.body',
+                    {},
+                    {
+                      defaultValue:
+                        "Cheap isn't good if it's a scam. We aggregate seller ratings and highlight authorized dealers so you can buy with confidence.",
+                    },
+                  )}
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className={cm.cn(cm.sp('px', 6), cm.sp('py', 16), 'relative overflow-hidden')}>
-          <div
-            className={cm.cn(
-              cm.maxW('xl'),
-              cm.mxAuto,
-              cm.sp('p', 12),
-              'relative max-w-screen-xl rounded-[2rem] bg-gradient-to-br from-primary to-primary-container text-on-primary text-center overflow-hidden',
-            )}
-          >
+        {/* Stats band */}
+        <section className="py-20 bg-inverse-surface text-inverse-on-surface">
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6))}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:divide-x md:divide-inverse-on-surface/10">
+              {STATS.map((stat) => (
+                <div key={stat.key} className={'flex flex-col items-center text-center px-4'}>
+                  <div
+                    className={cnStatValue(stat.tint)}
+                    style={{ fontFamily: 'var(--font-headline)' }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className={cnStatLabel()}>
+                    {t(`landing.stat.${stat.key}`, {}, { defaultValue: stat.label })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA — white card, top gradient bar, email hand-off */}
+        <section className={cnCtaSection()}>
+          <div className={cnCtaCard()}>
             <div
+              className={
+                'absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary-deep to-primary'
+              }
               aria-hidden="true"
-              className={cm.cn(
-                'absolute -right-20 -top-20 h-72 w-72 rounded-full bg-surface/10 blur-3xl pointer-events-none',
-              )}
             />
-            <div
-              aria-hidden="true"
-              className={cm.cn(
-                'absolute -left-12 -bottom-20 h-64 w-64 rounded-full bg-secondary/30 blur-3xl pointer-events-none',
-              )}
-            />
-            <h2
-              className={cm.cn(
-                'relative text-3xl md:text-5xl font-extrabold tracking-tight leading-tight',
-              )}
-            >
-              {t('landing.ctaHeading', {}, { defaultValue: 'Stop overpaying. Start saving.' })}
+            <h2 className={cnH2Big()} style={{ fontFamily: 'var(--font-headline)' }}>
+              {t('landing.ctaHeading', {}, { defaultValue: 'Stop overpaying today.' })}
             </h2>
-            <p className={cm.cn(cm.textSize('lg'), cm.sp('mt', 4), 'relative text-on-primary/85')}>
+            <p className={cnCtaSub()}>
               {t(
                 'landing.ctaSubheading',
                 {},
-                { defaultValue: 'Free forever. Watch unlimited products on the Team plan.' },
+                {
+                  defaultValue:
+                    'Join 200,000+ savvy shoppers who get our weekly digest of the biggest verified price drops.',
+                },
               )}
             </p>
-            <Link
-              to="/signup"
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 'xs' }),
-                cm.sp('mt', 8),
-                cm.sp('px', 8),
-                cm.sp('py', 4),
-                cm.fontWeight('bold'),
-                cm.textSize('base'),
-                'relative inline-flex rounded-full bg-surface text-primary hover:opacity-95 active:scale-95 transition-all',
-              )}
+            <form
+              className={cnCtaForm()}
+              onSubmit={(e) => {
+                e.preventDefault()
+                navigate('/signup')
+              }}
             >
-              {t('landing.ctaButton', {}, { defaultValue: 'Create my free account' })}
-              <span className={cm.cn('material-symbols-outlined text-xl')} aria-hidden="true">
-                arrow_forward
-              </span>
-            </Link>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder={t(
+                  'landing.ctaEmailPlaceholder',
+                  {},
+                  {
+                    defaultValue: 'Enter your email address',
+                  },
+                )}
+                aria-label={t(
+                  'landing.ctaEmailPlaceholder',
+                  {},
+                  {
+                    defaultValue: 'Enter your email address',
+                  },
+                )}
+                className={cnCtaInput()}
+              />
+              <button type="submit" data-mol-id="cta-signup" className={cnCtaButton()}>
+                {t('landing.ctaButton', {}, { defaultValue: 'Subscribe Now' })}
+              </button>
+            </form>
+            <p className={cnCtaNote()}>
+              {t('landing.ctaNote', {}, { defaultValue: 'No spam. Unsubscribe anytime.' })}
+            </p>
           </div>
         </section>
       </main>
@@ -418,3 +559,48 @@ export function Landing() {
     </div>
   )
 }
+
+/* — class strings (kept as named constants to stay under Tailwind's scanner) — */
+
+const cnHeroH1 = () =>
+  'text-5xl md:text-7xl font-bold tracking-tight text-on-surface mb-6 leading-tight'
+const cnHeroSub = () => 'text-on-surface-variant text-lg md:text-xl max-w-2xl mb-12 leading-relaxed'
+const cnSearchWrap = () => 'w-full max-w-3xl relative group'
+const cnSearchBar = () =>
+  'relative bg-surface-container-lowest rounded-full p-2 flex items-center shadow-[0_8px_32px_var(--shadow-tint)] focus-within:bg-surface-bright focus-within:ring-2 focus-within:ring-primary/30 transition-all'
+const cnSearchIcon = () => 'material-symbols-outlined text-primary ml-4 mr-2'
+const cnSearchInput = () =>
+  'flex-1 min-w-0 bg-transparent outline-none border-none text-on-background text-lg py-3 placeholder:text-on-surface-variant/60'
+const cnSearchButton = () =>
+  'bg-gradient-to-br from-primary-deep to-primary text-on-primary px-6 sm:px-8 py-3 rounded-full font-medium hover:shadow-md transition-shadow shrink-0'
+const cnVerifiedRow = () =>
+  'mt-10 flex items-center gap-2 text-sm text-on-surface-variant font-medium'
+const cnH2 = () => 'text-2xl font-bold text-on-surface'
+const cnH2Big = () => 'text-3xl md:text-4xl font-bold text-on-surface mb-4'
+const cnSub = () => 'text-on-surface-variant mt-1'
+const cnViewAll = () =>
+  'text-tertiary font-medium hover:text-primary transition-colors flex items-center gap-1'
+const cnMethodSection = () => 'py-24 max-w-7xl mx-auto px-6'
+const cnMethodHead = () => 'text-center mb-16'
+const cnH3 = () => 'text-xl font-bold text-on-surface mb-3'
+const cnBody = () => 'text-on-surface-variant leading-relaxed'
+const cnBentoCard = () =>
+  'bg-surface-container-lowest rounded-xl p-8 shadow-[0_4px_24px_var(--shadow-tint-soft)] hover:shadow-[0_8px_32px_var(--shadow-tint)] transition-shadow duration-300'
+const cnBentoIcon = () =>
+  'w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-on-surface mb-6'
+const cnAlertTitle = () => 'text-sm font-bold text-on-surface truncate'
+const cnAlertSub = () => 'text-xs text-on-surface-variant mt-1 truncate'
+const cnStatValue = (tint: string) => `text-4xl md:text-5xl font-bold tabular-nums mb-2 ${tint}`
+const cnStatLabel = () => 'text-sm text-inverse-on-surface/70 font-medium tracking-wide uppercase'
+const cnCtaSection = () => 'py-32 px-6'
+const cnCtaCard = () =>
+  'max-w-3xl mx-auto bg-surface-container-lowest rounded-3xl p-10 md:p-16 text-center shadow-[0_8px_32px_var(--shadow-tint)] relative overflow-hidden'
+const cnCtaSub = () => 'text-on-surface-variant mb-10 text-lg'
+const cnCtaForm = () => 'flex flex-col sm:flex-row gap-4 max-w-xl mx-auto'
+const cnCtaInput = () =>
+  'flex-1 min-w-0 bg-surface-container-highest rounded-xl px-6 py-4 text-on-surface outline-none focus:ring-2 focus:ring-primary/50 transition-shadow'
+const cnCtaButton = () =>
+  'bg-gradient-to-br from-primary-deep to-primary text-on-primary px-8 py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 transition-all active:scale-95 whitespace-nowrap'
+const cnCtaNote = () => 'text-xs text-on-surface-variant mt-4'
+
+export default Landing

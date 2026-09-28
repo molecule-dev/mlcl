@@ -181,7 +181,7 @@ export function TripCoverCard({ trip }: { trip: TripSummary }) {
               cm.fontWeight('extrabold'),
               'leading-tight tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {trip.destination}
           </h3>

@@ -1,7 +1,9 @@
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch design: Plus Jakarta Sans headlines over Inter body (Google Fonts
+     link lives in index.html; offline falls back to Inter). */
+  --font-headline: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
   /* ── @theme bridge variables (feed into Tailwind @theme → --color-*) ── */
   /* Aula brand — lavender/indigo (#5b4dc7) primary + warm accent (#e8853b). */
   --mol-color-primary: #5b4dc7;

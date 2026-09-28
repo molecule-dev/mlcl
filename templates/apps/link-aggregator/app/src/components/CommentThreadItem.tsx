@@ -3,7 +3,7 @@
  * tabular-nums karma, and per-comment vote cluster.
  *
  * Translated from blog/CommentItem*.tsx — adapted to support arbitrary
- * nesting depth and Digest's color-cycling indent rule from DESIGN.md.
+ * nesting depth and Cairn's color-cycling indent rule from DESIGN.md.
  */
 import { useState } from 'react'
 

@@ -4,9 +4,9 @@
  * brand palette declared in DESIGN.md (Indigo primary + Amber accent).
  */
 :root {
-  /* Headline font — picked up by shared molecule pages
+  /* Headline font (design: DM Sans) — picked up by shared molecule pages
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-headline: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --mol-color-primary: #4f46e5; /* darkened from #6366f1: white on #6366f1 = 4.47:1 (fail); #4f46e5 = 6.29:1 */
   --mol-color-primary-light: #818cf8;
   --mol-color-primary-dark: #4338ca;
@@ -55,6 +55,9 @@
   --chalk-top-rated-light: #fef3c7;
   --chalk-cancelled: #dc2626;
   --chalk-cancelled-light: #fee2e2;
+  /* Design hero-gradient endpoint (indigo → violet), bridged into Tailwind
+     via the @theme block in index.css. */
+  --chalk-violet: #7c3aed;
 }
 
 /* Dark mode overrides — brand-calibrated dark palette */

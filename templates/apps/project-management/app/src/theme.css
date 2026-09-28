@@ -3,9 +3,9 @@
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
   --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
   /* ── @theme bridge variables (feed into Tailwind @theme → --color-*) ── */
-  --mol-color-primary: #6366f1;
-  --mol-color-primary-light: #e0e7ff;
-  --mol-color-secondary: #06b6d4;
+  --mol-color-primary: #855300;
+  --mol-color-primary-light: #ffddb8;
+  --mol-color-secondary: #545f73;
   --mol-color-success: #22c55e;
   --mol-color-warning: #f59e0b;
   --mol-color-error: #dc2626;
@@ -31,8 +31,8 @@
   --color-danger: var(--color-error);
 
   /* ── App-specific variables ── */
-  --color-primary-hover: #4f46e5;
-  --color-secondary-hover: #0891b2;
+  --color-primary-hover: #653e00;
+  --color-secondary-hover: #3c475a;
 
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
@@ -85,23 +85,23 @@
   --color-surface-variant: #e8edf4;
   --color-on-surface: #0f172a;
   --color-on-surface-variant: #475569;
-  --color-inverse-surface: #1e2840;
+  --color-inverse-surface: #2d3133;
   --color-inverse-on-surface: #f1f5f9;
-  --color-inverse-primary: #a5b4fc;
-  --color-primary: #4f46e5; /* shifted from #6366f1 — white 6.29:1 vs 4.47 */
-  --color-primary-container: #e0e7ff;
-  --color-on-primary: #ffffff;
-  --color-on-primary-container: #1e1b4b;
-  --color-primary-fixed: #e0e7ff;
-  --color-primary-fixed-dim: #a5b4fc;
-  --color-on-primary-fixed: #1e1b4b;
-  --color-on-primary-fixed-variant: #312e81;
-  --color-secondary: #06b6d4;
-  --color-secondary-container: #cffafe;
-  --color-on-secondary: #001f26;
+  --color-inverse-primary: #ffb95f;
+  --color-primary: #855300; /* Forge deep amber — white 7.0:1 */
+  --color-primary-container: #f59e0b;
+  --color-on-primary: #ffffff; /* white on deep amber #855300 = 7.0:1 */
+  --color-on-primary-container: #613b00;
+  --color-primary-fixed: #ffddb8;
+  --color-primary-fixed-dim: #ffb95f;
+  --color-on-primary-fixed: #2a1700;
+  --color-on-primary-fixed-variant: #2a1700;
+  --color-secondary: #545f73;
+  --color-secondary-container: #d5e0f8;
+  --color-on-secondary: #111c2d;
   --color-on-secondary-container: #0e7490;
-  --color-secondary-fixed: #cffafe;
-  --color-secondary-fixed-dim: #67e8f9;
+  --color-secondary-fixed: #d8e3fb;
+  --color-secondary-fixed-dim: #bcc7de;
   --color-on-secondary-fixed: #001f26;
   --color-on-secondary-fixed-variant: #155e75;
   --color-tertiary: #c2410c;
@@ -114,23 +114,21 @@
   --color-on-error-container: #690005;
   --color-outline: #64748b;
   --color-outline-variant: #e2e8f0;
-  --color-surface-tint: #4f46e5;
+  --color-surface-tint: #855300;
 }
 
-/* Dark mode — Linear-inspired focused-workspace dark.
-   Cool slate canvas (productivity brand — calm, focused, no distractions:
-   the kind of dark that respects long sessions). Brand indigo stays at
-   the brand stop (#6366f1) for primary CTAs so the workspace color
-   reads consistently in both modes; surface accents (links, focus
-   rings, active nav) use a brighter periwinkle. Cyan secondary
-   preserved for accent surfaces. Priority/status semantics preserved.
-   `--color-on-primary` STAYS white so the indigo CTA keeps its
+/* Dark mode — Forge atelier night. Warm slate canvas (productivity
+   brand — calm, focused). The brand reads as bright amber (#ffb95f) on
+   the dark canvas with dark text on primary CTAs (white failed 2.2:1 on
+   the amber); secondary is the design's slate-blue. Priority/status
+   semantics preserved.
+   `--color-on-primary` flips dark so the amber CTA keeps its
    light-on-indigo character. */
 [data-mol-mode='dark'] {
-  --mol-color-primary: #a5b4fc;
-  --mol-color-primary-light: #1e1b4b;
-  --mol-color-primary-dark: #4f46e5;
-  --mol-color-secondary: #22d3ee;
+  --mol-color-primary: #ffb95f;
+  --mol-color-primary-light: #2a1700;
+  --mol-color-primary-dark: #855300;
+  --mol-color-secondary: #bcc7de;
   --mol-color-background: #0a0f1a;
   --mol-color-background-secondary: #131826;
   --mol-color-background-tertiary: #1a2030;
@@ -143,23 +141,23 @@
   --mol-color-text-inverse: #ffffff;
   --mol-color-border: #242a3a;
   --mol-color-border-secondary: #343b50;
-  --mol-color-border-focus: #a5b4fc;
+  --mol-color-border-focus: #f59e0b;
   --mol-color-success: #4ade80;
   --mol-color-warning: #fbbf24;
   --mol-color-error: #f87171;
-  --mol-color-info: #22d3ee;
+  --mol-color-info: #545f73;
 
-  --color-primary-hover: #c7d2fe;
-  --color-primary-light: #1e1b4b;
-  --color-secondary-hover: #67e8f9;
+  --color-primary-hover: #ffcd81;
+  --color-primary-light: #2a1700;
+  --color-secondary-hover: #d8e3fb;
 
   /* Project shell (ProjectLayout) — dark workspace surfaces */
   --mol-pl-shell-bg: #080d18;
   --mol-pl-sidebar-bg: #0f1422;
   --mol-pl-fg: #e8eaf2;
   --mol-pl-muted: #9ea3b0;
-  --mol-pl-active-fg: #c7d2fe;
-  --mol-pl-accent: #22d3ee;
+  --mol-pl-active-fg: #855300;
+  --mol-pl-accent: #b45309;
   --mol-pl-accent-soft: rgba(34, 211, 238, 0.14);
   --mol-pl-border-subtle: rgba(165, 180, 252, 0.12);
   --mol-pl-track: #242a3a;
@@ -183,8 +181,8 @@
 
   /* Stitch / Material-3 token dark variants — override the @theme block
      so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
-     CTA buttons keep white text on the indigo brand: on-primary stays
-     white in both modes. */
+     CTA buttons flip text with the brand: dark text on the bright amber
+     brand in dark mode, white on the deep amber in light mode. */
   --color-background: #0a0f1a;
   --color-on-background: #e8eaf2;
   --color-surface: #0a0f1a;
@@ -200,21 +198,21 @@
   --color-on-surface-variant: #b4b8c4;
   --color-inverse-surface: #e8eaf2;
   --color-inverse-on-surface: #131826;
-  --color-inverse-primary: #4338ca;
-  --color-primary: #4f46e5; /* shifted from #6366f1 — white needs 4.5:1; #4f46e5 = 6.29:1 */
-  --color-primary-container: #312e81;
-  --color-on-primary: #ffffff;
-  --color-on-primary-container: #e0e7ff;
-  --color-primary-fixed: #e0e7ff;
-  --color-primary-fixed-dim: #a5b4fc;
-  --color-on-primary-fixed: #1e1b4b;
-  --color-on-primary-fixed-variant: #312e81;
-  --color-secondary: #22d3ee;
-  --color-secondary-container: #155e75;
-  --color-on-secondary: #001f26;
-  --color-on-secondary-container: #cffafe;
-  --color-secondary-fixed: #cffafe;
-  --color-secondary-fixed-dim: #67e8f9;
+  --color-inverse-primary: #ffb95f;
+  --color-primary: #ffb95f; /* Forge amber in dark — #2a1700 text on it = 7.6:1 */
+  --color-primary-container: #653e00;
+  --color-on-primary: #2a1700; /* dark on bright amber — white was 2.2:1 (fail) */
+  --color-on-primary-container: #ffddb8;
+  --color-primary-fixed: #ffddb8;
+  --color-primary-fixed-dim: #ffb95f;
+  --color-on-primary-fixed: #2a1700;
+  --color-on-primary-fixed-variant: #2a1700;
+  --color-secondary: #bcc7de;
+  --color-secondary-container: #3c475a;
+  --color-on-secondary: #111c2d;
+  --color-on-secondary-container: #d8e3fb;
+  --color-secondary-fixed: #d8e3fb;
+  --color-secondary-fixed-dim: #bcc7de;
   --color-on-secondary-fixed: #001f26;
   --color-on-secondary-fixed-variant: #155e75;
   --color-tertiary: #fb923c;
@@ -231,5 +229,5 @@
   --color-on-error-container: #ffdad6;
   --color-outline: #5a607a;
   --color-outline-variant: #242a3a;
-  --color-surface-tint: #a5b4fc;
+  --color-surface-tint: #ffb95f;
 }

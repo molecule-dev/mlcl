@@ -125,8 +125,11 @@ export function Landing() {
         >
           <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
             <span
-              className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'text-primary')}
-              style={{ fontFamily: '"DM Sans", system-ui, sans-serif', letterSpacing: '-0.02em' }}
+              className={cm.cn(
+                cm.textSize('2xl'),
+                cm.fontWeight('bold'),
+                'text-primary font-headline tracking-tight',
+              )}
             >
               {APP_NAME}
             </span>
@@ -230,9 +233,8 @@ export function Landing() {
                   cm.textSize('4xl'),
                   cm.fontWeight('extrabold'),
                   cm.sp('mt', 2),
-                  'leading-tight',
+                  'leading-tight font-headline tracking-tight',
                 )}
-                style={{ fontFamily: '"DM Sans", system-ui, sans-serif', letterSpacing: '-0.02em' }}
               >
                 {t(
                   'landing.categories.heading',
@@ -283,12 +285,8 @@ export function Landing() {
                     cm.textSize('4xl'),
                     cm.fontWeight('extrabold'),
                     cm.sp('mt', 2),
-                    'leading-tight',
+                    'leading-tight font-headline tracking-tight',
                   )}
-                  style={{
-                    fontFamily: '"DM Sans", system-ui, sans-serif',
-                    letterSpacing: '-0.02em',
-                  }}
                 >
                   {t(
                     'landing.preview.heading',
@@ -379,9 +377,8 @@ export function Landing() {
                   cm.textSize('4xl'),
                   cm.fontWeight('extrabold'),
                   cm.sp('mt', 2),
-                  'leading-tight',
+                  'leading-tight font-headline tracking-tight',
                 )}
-                style={{ fontFamily: '"DM Sans", system-ui, sans-serif', letterSpacing: '-0.02em' }}
               >
                 {t('landing.journal.heading', {}, { defaultValue: 'Stories worth booking for' })}
               </h2>
@@ -421,12 +418,8 @@ export function Landing() {
                       cm.textSize('xl'),
                       cm.fontWeight('bold'),
                       cm.sp('mt', 2),
-                      'leading-snug',
+                      'leading-snug font-headline tracking-tight',
                     )}
-                    style={{
-                      fontFamily: '"DM Sans", system-ui, sans-serif',
-                      letterSpacing: '-0.02em',
-                    }}
                   >
                     {item.title}
                   </h3>
@@ -484,9 +477,8 @@ export function Landing() {
                 cm.textSize('5xl'),
                 cm.fontWeight('extrabold'),
                 cm.sp('mt', 3),
-                'leading-[0.95]',
+                'leading-[0.95] font-headline tracking-tight',
               )}
-              style={{ fontFamily: '"DM Sans", system-ui, sans-serif', letterSpacing: '-0.02em' }}
             >
               {t('landing.cta.heading', {}, { defaultValue: 'Your space deserves an audience.' })}
             </h2>
@@ -541,52 +533,90 @@ export function Landing() {
         </section>
       </main>
 
-      <footer className={cm.cn('bg-surface border-t border-outline-variant/40')}>
-        <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 12), cm.mxAuto)}>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
-            )}
-          >
+      <footer className={cm.cn('border-t border-outline-variant/40 bg-surface-container-low')}>
+        <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), 'pt-12 pb-8', cm.mxAuto)}>
+          <div className={cm.cn('grid grid-cols-1 gap-10 md:grid-cols-4')}>
             <div>
               <span
-                className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'text-primary')}
-                style={{ fontFamily: '"DM Sans", system-ui, sans-serif', letterSpacing: '-0.02em' }}
+                className={cm.cn(
+                  cm.textSize('2xl'),
+                  cm.fontWeight('bold'),
+                  'text-primary font-headline tracking-tight',
+                )}
               >
                 {APP_NAME}
               </span>
-              <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+              <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 3), 'text-on-surface-variant')}>
                 {t('landing.footer.tagline', {}, { defaultValue: 'Every space, a story.' })}
               </p>
             </div>
-            <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), cm.textSize('sm'))}>
-              <Link to="/search" className={'text-on-surface-variant hover:text-primary'}>
+            <div
+              className={cm.cn(
+                cm.flex({ direction: 'col', gap: 'sm' }),
+                cm.textSize('sm'),
+                'text-on-surface-variant',
+              )}
+            >
+              <Link to="/search" className={'hover:text-accent hover:underline transition-colors'}>
                 {t('landing.footer.search', {}, { defaultValue: 'Browse' })}
               </Link>
-              <Link to="/pricing" className={'text-on-surface-variant hover:text-primary'}>
+              <Link to="/pricing" className={'hover:text-accent hover:underline transition-colors'}>
                 {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
               </Link>
-              <Link to="/login" className={'text-on-surface-variant hover:text-primary'}>
+            </div>
+            <div
+              className={cm.cn(
+                cm.flex({ direction: 'col', gap: 'sm' }),
+                cm.textSize('sm'),
+                'text-on-surface-variant',
+              )}
+            >
+              <Link to="/privacy" className={'hover:text-accent hover:underline transition-colors'}>
+                {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
+              </Link>
+              <Link to="/terms" className={'hover:text-accent hover:underline transition-colors'}>
+                {t('nav.terms', {}, { defaultValue: 'Terms' })}
+              </Link>
+            </div>
+            <div
+              className={cm.cn(
+                cm.flex({ direction: 'col', gap: 'sm' }),
+                cm.textSize('sm'),
+                'text-on-surface-variant',
+              )}
+            >
+              <Link to="/login" className={'hover:text-accent hover:underline transition-colors'}>
                 {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
               </Link>
-              <Link to="/signup" className={'text-on-surface-variant hover:text-primary'}>
+              <Link to="/signup" className={'hover:text-accent hover:underline transition-colors'}>
                 {t('landing.footer.signUp', {}, { defaultValue: 'Join' })}
+              </Link>
+              <Link to="/host" className={'hover:text-accent hover:underline transition-colors'}>
+                {t('landing.nav.host', {}, { defaultValue: 'Become a host' })}
               </Link>
             </div>
           </div>
           <p
             className={cm.cn(
               cm.textSize('xs'),
-              cm.sp('mt', 8),
-              cm.textCenter,
+              'mt-10 border-t border-outline-variant/40 pt-6 text-center',
               'text-on-surface-variant',
             )}
           >
             {t(
-              'common.copyrightAllRightsReserved',
+              'landing.copyright',
               { year: new Date().getFullYear(), app: APP_NAME },
-              { defaultValue: '© {{year}} {{app}}. All rights reserved.' },
-            )}
+              { defaultValue: '© {{year}} {{app}}' },
+            )}{' '}
+            — Built with{' '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
           </p>
         </div>
       </footer>

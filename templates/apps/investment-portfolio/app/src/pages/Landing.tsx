@@ -66,6 +66,28 @@ const SOCIAL_PROOF = [
   { key: 'firms', defaultMetric: '230+', defaultLabel: 'Independent advisor firms' },
 ] as const
 
+/** The design highlights the headline's final word in brand teal over a
+ *  soft teal underline block ("Your wealth, <mark>illuminated</mark>.").
+ *  Splitting the translated string keeps the i18n contract intact. */
+function HeadlineWithMark({ text }: { text: string }) {
+  const idx = text.lastIndexOf(' ')
+  if (idx <= 0) return <>{text}</>
+  const head = text.slice(0, idx)
+  const tail = text.slice(idx + 1)
+  const trailing = tail.endsWith('.') ? '.' : ''
+  const word = trailing ? tail.slice(0, -1) : tail
+  return (
+    <>
+      {head}{' '}
+      <span className="relative inline-block whitespace-nowrap">
+        <span className="relative z-10 text-primary">{word}</span>
+        <span aria-hidden="true" className="absolute bottom-1 left-0 h-3 w-full bg-primary/15" />
+      </span>
+      {trailing}
+    </>
+  )
+}
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -75,8 +97,17 @@ export function Landing() {
       <LandingTopNavBar />
 
       <main>
-        {/* Marketing editorial hero */}
+        {/* Marketing editorial hero — radial teal wash from the top right
+            (design: from-teal-50 via-white). */}
         <section className={cm.cn('relative overflow-hidden')}>
+          <div
+            aria-hidden="true"
+            className={cm.cn('absolute inset-0 opacity-70')}
+            style={{
+              background:
+                'radial-gradient(ellipse at top right, color-mix(in oklab, var(--color-primary) 12%, transparent) 0%, transparent 60%)',
+            }}
+          />
           <div
             className={cm.cn(
               cm.maxW('7xl'),
@@ -92,7 +123,7 @@ export function Landing() {
                   cm.fontWeight('bold'),
                   cm.textSize('xs'),
                   cm.sp('mb', 4),
-                  'uppercase tracking-widest text-primary-dark',
+                  'uppercase tracking-widest text-primary',
                 )}
               >
                 {t(
@@ -103,14 +134,20 @@ export function Landing() {
               </p>
               <h1
                 className={cm.cn(
-                  'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] mb-6',
+                  'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-6',
                 )}
               >
-                {t('landing.heroTitle', { tagline: APP_TAGLINE }, { defaultValue: '{{tagline}}.' })}
+                <HeadlineWithMark
+                  text={t(
+                    'landing.heroTitle',
+                    { tagline: APP_TAGLINE },
+                    { defaultValue: '{{tagline}}.' },
+                  )}
+                />
               </h1>
               <p
                 className={cm.cn(
-                  cm.textSize('lg'),
+                  cm.textSize('xl'),
                   cm.sp('mb', 8),
                   'text-on-surface-variant max-w-2xl leading-relaxed',
                 )}
@@ -127,16 +164,14 @@ export function Landing() {
               <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex-wrap')}>
                 <Link
                   to="/signup"
+                  data-mol-id="landing-hero-open-account"
                   className={cm.cn(
                     cm.sp('px', 8),
                     cm.sp('py', 4),
-                    cm.fontWeight('bold'),
-                    'bg-primary text-on-primary rounded-full inline-flex items-center gap-2 hover:shadow-lg transition-shadow',
+                    cm.fontWeight('semibold'),
+                    'bg-primary text-on-primary rounded-lg shadow-sm inline-flex items-center gap-2 transition-all hover:bg-primary-dark active:scale-95',
                   )}
                 >
-                  <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
-                    trending_up
-                  </span>
                   {t('landing.heroCta', {}, { defaultValue: 'Start free for 30 days' })}
                 </Link>
                 <Link
@@ -145,27 +180,20 @@ export function Landing() {
                     cm.sp('px', 8),
                     cm.sp('py', 4),
                     cm.fontWeight('semibold'),
-                    'border border-outline rounded-full inline-flex items-center gap-2 hover:bg-surface-container transition-colors',
+                    'border border-outline bg-surface rounded-lg inline-flex items-center gap-2 transition-colors hover:bg-surface-container',
                   )}
                 >
+                  <span
+                    className={cm.cn('material-symbols-outlined text-primary')}
+                    aria-hidden="true"
+                  >
+                    play_circle
+                  </span>
                   {t('landing.heroSecondaryCta', {}, { defaultValue: 'See pricing' })}
                 </Link>
               </div>
             </div>
           </div>
-          {/* Decorative background orbs */}
-          <div
-            className={cm.cn(
-              'absolute -top-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-primary/10 blur-3xl',
-            )}
-            aria-hidden="true"
-          />
-          <div
-            className={cm.cn(
-              'absolute top-40 -left-20 w-72 h-72 rounded-full bg-amber-500/10 blur-3xl',
-            )}
-            aria-hidden="true"
-          />
         </section>
 
         {/* Sample portfolio teaser — mirrors the auth'd hero */}
@@ -200,8 +228,52 @@ export function Landing() {
           </p>
         </section>
 
-        {/* Feature quad */}
+        {/* Trust strip — slate band, grayscale wordmarks (design). Names are
+            fictional advisory firms standing in for the design's press
+            logos. */}
         <section className={cm.cn('bg-surface-container/30 border-y border-outline-variant/40')}>
+          <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 10), cm.mxAuto)}>
+            <p
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                cm.sp('mb', 6),
+                'text-center uppercase tracking-widest text-on-surface-variant',
+              )}
+            >
+              {t('landing.trustedBy', {}, { defaultValue: 'Trusted by industry leaders' })}
+            </p>
+            <div
+              className={cm.cn(
+                cm.flex({ wrap: 'wrap', justify: 'center', align: 'center', gap: 'xl' }),
+                'opacity-60 grayscale',
+              )}
+            >
+              {[
+                { key: 'northline', label: 'Northline Capital', serif: true },
+                { key: 'meridian', label: 'Meridian Wealth', serif: true },
+                { key: 'atlas', label: 'Atlas Advisory', serif: false },
+                { key: 'beacon', label: 'Beacon Partners', serif: true },
+                { key: 'summit', label: 'Summit Fiduciary', serif: false },
+              ].map((brand) => (
+                <span
+                  key={brand.key}
+                  className={cm.cn(
+                    cm.textSize('xl'),
+                    cm.fontWeight('bold'),
+                    brand.serif ? 'font-serif tracking-normal' : 'tracking-tight',
+                    'text-on-surface',
+                  )}
+                >
+                  {t(`landing.trust.${brand.key}`, {}, { defaultValue: brand.label })}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Feature quad */}
+        <section>
           <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}>
             <div className={cm.cn('max-w-2xl mb-12')}>
               <p
@@ -331,7 +403,7 @@ export function Landing() {
                 cm.sp('px', 10),
                 cm.sp('py', 4),
                 cm.fontWeight('bold'),
-                'bg-primary text-on-primary rounded-full inline-flex items-center gap-2 hover:shadow-lg transition-shadow',
+                'bg-primary text-on-primary rounded-lg shadow-sm inline-flex items-center gap-2 transition-all hover:bg-primary-dark active:scale-95',
               )}
             >
               {t(

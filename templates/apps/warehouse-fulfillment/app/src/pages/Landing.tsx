@@ -77,9 +77,7 @@ export function Landing() {
               local_shipping
             </span>
           </span>
-          <span
-            className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-on-surface')}
-          >
+          <span className={cm.cn(cm.textSize('xl'), 'font-black tracking-tighter text-primary')}>
             {APP_NAME}
           </span>
         </Link>
@@ -198,10 +196,31 @@ export function Landing() {
             </span>
             <h1
               className={cm.cn(
-                'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] text-on-surface',
+                'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-on-surface',
+                '[font-family:var(--font-headline)]',
               )}
             >
-              {APP_TAGLINE}.
+              {(() => {
+                // Stitch design: the headline's final word carries the cyan brand
+                // stop ("Fulfillment without friction.") — works for any locale
+                // because the highlight follows the translated string's last word.
+                const headline = t(
+                  'landing.headline',
+                  { tagline: APP_TAGLINE },
+                  { defaultValue: `${APP_TAGLINE}.` },
+                )
+                const trailing = headline.endsWith('.') ? '.' : ''
+                const body = trailing ? headline.slice(0, -1) : headline
+                const idx = body.lastIndexOf(' ')
+                if (idx <= 0) return headline
+                return (
+                  <>
+                    {body.slice(0, idx + 1)}
+                    <span className="text-primary">{body.slice(idx + 1)}</span>
+                    {trailing}
+                  </>
+                )
+              })()}
             </h1>
             <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant max-w-xl')}>
               {t(
@@ -264,9 +283,10 @@ export function Landing() {
               ].map((line) => (
                 <span key={line.key} className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
                   <span
-                    className={cm.cn('material-symbols-outlined text-[16px]')}
+                    className={cm.cn(
+                      'material-symbols-outlined text-[16px] text-[var(--color-secondary)]',
+                    )}
                     data-icon="check_circle"
-                    style={{ color: 'var(--color-secondary)' }}
                   >
                     check_circle
                   </span>
@@ -366,13 +386,9 @@ export function Landing() {
       >
         <div
           className={cm.cn(
-            'rounded-3xl text-on-primary shadow-xl shadow-primary/20',
+            'rounded-3xl bg-[var(--color-primary)] text-on-primary shadow-xl shadow-primary/20',
             cm.sp('p', 10),
           )}
-          style={{
-            background:
-              'linear-gradient(135deg, var(--color-sidebar) 0%, var(--color-primary-dark) 80%, var(--color-primary) 100%)',
-          }}
         >
           <div
             className={cm.cn(
@@ -404,7 +420,8 @@ export function Landing() {
               <div key={item.labelKey} className={cm.cn(cm.stack(1), 'text-center')}>
                 <p
                   className={cm.cn(
-                    'text-4xl md:text-5xl font-extrabold tracking-tighter tabular-nums',
+                    'font-mono text-4xl md:text-5xl font-bold tracking-tighter tabular-nums',
+                    'text-[var(--wf-stat-number)]',
                   )}
                 >
                   {item.metric}
@@ -483,40 +500,141 @@ export function Landing() {
         </div>
       </section>
 
-      <footer
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-          cm.sp('px', 6),
-          cm.sp('py', 6),
-          'border-t border-outline-variant/60 text-xs text-on-surface-variant',
-        )}
-      >
-        <p>
-          {t(
-            'landing.footer.copy',
-            { year: new Date().getFullYear(), appName: APP_NAME },
-            { defaultValue: '© {{year}} {{appName}} · Fulfillment without friction.' },
+      <footer className={cm.cn('bg-[var(--color-sidebar)]')}>
+        <div
+          className={cm.cn(
+            'mx-auto max-w-[1280px] px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8',
           )}
-        </p>
-        <div className={cm.cn(cm.flex({ gap: 'sm' }))}>
-          <Link
-            to="/pricing"
-            className={cm.cn('inline-flex items-center py-2 pr-3 hover:text-on-surface')}
+        >
+          <div className={cm.cn(cm.stack(3), 'col-span-2 md:col-span-1')}>
+            <span
+              className={cm.cn(
+                cm.textSize('lg'),
+                'font-bold tracking-tight text-[var(--wf-footer-fg)]',
+              )}
+            >
+              {APP_NAME}
+            </span>
+            <p
+              className={cm.cn(
+                cm.textSize('sm'),
+                'text-[var(--wf-footer-muted)] max-w-xs leading-relaxed',
+              )}
+            >
+              {t(
+                'landing.footer.tagline',
+                { appName: APP_NAME },
+                { defaultValue: 'Industrial-grade fulfillment software for modern warehouses.' },
+              )}
+            </p>
+          </div>
+          <div className={cm.cn(cm.stack(3))}>
+            <h4
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                'text-[var(--wf-footer-fg)]',
+              )}
+            >
+              {t('landing.footer.productHeading', {}, { defaultValue: 'Product' })}
+            </h4>
+            <ul className={cm.cn(cm.stack(2))}>
+              <li>
+                <a
+                  href="#features"
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'text-[var(--wf-footer-muted)] hover:text-[var(--wf-footer-fg)] transition-colors',
+                  )}
+                >
+                  {t('nav.features', {}, { defaultValue: 'Features' })}
+                </a>
+              </li>
+              <li>
+                <Link
+                  to="/pricing"
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'text-[var(--wf-footer-muted)] hover:text-[var(--wf-footer-fg)] transition-colors',
+                  )}
+                >
+                  {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="#preview"
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'text-[var(--wf-footer-muted)] hover:text-[var(--wf-footer-fg)] transition-colors',
+                  )}
+                >
+                  {t('landing.footer.preview', {}, { defaultValue: 'Inside the dock' })}
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className={cm.cn(cm.stack(3))}>
+            <h4
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                'text-[var(--wf-footer-fg)]',
+              )}
+            >
+              {t('landing.footer.accountHeading', {}, { defaultValue: 'Account' })}
+            </h4>
+            <ul className={cm.cn(cm.stack(2))}>
+              <li>
+                <Link
+                  to="/login"
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'text-[var(--wf-footer-muted)] hover:text-[var(--wf-footer-fg)] transition-colors',
+                  )}
+                >
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/signup"
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'text-[var(--wf-footer-muted)] hover:text-[var(--wf-footer-fg)] transition-colors',
+                  )}
+                >
+                  {t('auth.login.signUp', {}, { defaultValue: 'Sign up' })}
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className={cm.cn('mx-auto max-w-[1280px] px-6')}>
+          <div
+            className={cm.cn(
+              'border-t border-white/10 py-6 flex flex-col sm:flex-row justify-between gap-2',
+              cm.textSize('xs'),
+              'text-[var(--wf-footer-muted)]',
+            )}
           >
-            {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
-          </Link>
-          <Link
-            to="/login"
-            className={cm.cn('inline-flex items-center py-2 pr-3 hover:text-on-surface')}
-          >
-            {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-          </Link>
-          <Link
-            to="/signup"
-            className={cm.cn('inline-flex items-center py-2 pr-3 hover:text-on-surface')}
-          >
-            {t('auth.login.signUp', {}, { defaultValue: 'Sign up' })}
-          </Link>
+            <p>
+              {t(
+                'landing.footer.copy',
+                { year: new Date().getFullYear(), appName: APP_NAME },
+                { defaultValue: '© {{year}} {{appName}} · Fulfillment without friction.' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium text-[var(--wf-footer-fg)]"
+              >
+                Molecule.dev
+              </a>
+            </p>
+          </div>
         </div>
       </footer>
     </div>

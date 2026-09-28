@@ -21,7 +21,7 @@ export function LandingTopNavBar() {
     <header
       data-mol-id="landing-nav"
       className={cm.cn(
-        'sticky top-0 z-40 backdrop-blur-md bg-surface-container-lowest/80 border-b border-outline-variant/30',
+        'sticky top-0 z-40 backdrop-blur-xl bg-surface-container-lowest/80 shadow-landing-nav',
       )}
     >
       <nav
@@ -33,22 +33,13 @@ export function LandingTopNavBar() {
           cm.flex({ align: 'center', justify: 'between' }),
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <span
-            className={cm.cn(
-              'flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-md',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-xl')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              redeem
-            </span>
-          </span>
-          <span className={cm.cn('text-xl font-extrabold tracking-tight text-on-surface')}>
-            {APP_NAME}
-          </span>
+        <Link
+          to="/"
+          className={cm.cn(
+            'font-headline italic text-2xl font-black tracking-tight text-primary hover:opacity-80 transition-opacity',
+          )}
+        >
+          {APP_NAME}
         </Link>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
           <ThemeToggle />
@@ -57,11 +48,10 @@ export function LandingTopNavBar() {
               to="/dashboard"
               data-mol-id="nav-dashboard"
               className={cm.cn(
-                cm.sp('px', 5),
-                cm.sp('py', 2),
-                cm.fontWeight('bold'),
-                cm.roundedFull,
-                'text-sm bg-primary text-on-primary hover:bg-primary-hover hover:shadow-lg transition-all',
+                cm.sp('px', 6),
+                cm.sp('py', 2.5),
+                cm.fontWeight('medium'),
+                'text-sm rounded-xl btn-gradient text-white ambient-shadow hover:opacity-90 transition-opacity',
               )}
             >
               {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -71,22 +61,22 @@ export function LandingTopNavBar() {
               <Link
                 to="/login"
                 className={cm.cn(
-                  'hidden sm:inline-block text-sm font-bold text-on-surface-variant hover:text-on-surface transition-colors',
+                  'hidden sm:inline-block text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors',
                 )}
               >
                 {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
               </Link>
               <Link
                 to="/signup"
+                data-mol-id="landing-nav-cta"
                 className={cm.cn(
-                  cm.sp('px', 5),
-                  cm.sp('py', 2),
-                  cm.fontWeight('bold'),
-                  cm.roundedFull,
-                  'text-sm bg-primary text-on-primary hover:bg-primary-hover hover:shadow-lg transition-all',
+                  cm.sp('px', 6),
+                  cm.sp('py', 2.5),
+                  cm.fontWeight('medium'),
+                  'text-sm rounded-xl btn-gradient text-white ambient-shadow hover:opacity-90 transition-opacity',
                 )}
               >
-                {t('landing.nav.start', {}, { defaultValue: 'Start your box' })}
+                {t('landing.nav.start', {}, { defaultValue: 'Get the Box' })}
               </Link>
             </>
           )}

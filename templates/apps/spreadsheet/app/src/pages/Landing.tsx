@@ -103,6 +103,18 @@ const FORMULA_EXAMPLES = [
   },
 ]
 
+/* Formula showcase strip chips (design: "Native Syntax" band). */
+const SYNTAX_CHIPS = ['SUM', 'VLOOKUP', 'IF', 'INDEX', 'FILTER', 'SORT']
+
+/* Co-editor avatars in the mock window chrome (design hero visual).
+   Tailwind palette utilities — the mock window is mode-independent chrome. */
+const CO_EDITORS = [
+  { initials: 'JD', cls: 'bg-amber-100 text-amber-700' },
+  { initials: 'AW', cls: 'bg-pink-100 text-pink-700' },
+  { initials: 'RL', cls: 'bg-violet-100 text-violet-700' },
+  { initials: 'ST', cls: 'bg-teal-100 text-teal-700' },
+]
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -120,13 +132,17 @@ export function Landing() {
           'sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/40',
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+        <Link
+          to="/"
+          data-mol-id="nav-brand"
+          className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
+        >
           <span
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center' }),
               cm.w(9),
               cm.h(9),
-              'rounded-xl bg-gradient-to-br from-primary to-primary-dark text-on-primary shadow-lg shadow-primary/30',
+              'rounded-lg bg-primary text-on-primary shadow-sm',
             )}
             aria-hidden="true"
           >
@@ -137,15 +153,25 @@ export function Landing() {
               grid_on
             </span>
           </span>
-          <span className={cm.cn('text-xl font-extrabold tracking-tight text-on-surface')}>
-            {APP_NAME}
+          <span className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+            <span className={cm.cn('text-xl font-extrabold tracking-tighter text-primary')}>
+              {APP_NAME}
+            </span>
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                'text-on-surface-variant hidden sm:inline-block border-l border-outline-variant pl-2',
+              )}
+            >
+              {t('landing.nav.tagline', {}, { defaultValue: 'Structure your thinking' })}
+            </span>
           </span>
         </Link>
         <nav className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden md:flex')}>
           <a
             href="#features"
             className={
-              'inline-block py-3 text-sm font-bold text-on-surface-variant hover:text-primary transition-colors'
+              'inline-block py-3 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors'
             }
           >
             {t('nav.features', {}, { defaultValue: 'Features' })}
@@ -153,7 +179,7 @@ export function Landing() {
           <a
             href="#formulas"
             className={
-              'inline-block py-3 text-sm font-bold text-on-surface-variant hover:text-primary transition-colors'
+              'inline-block py-3 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors'
             }
           >
             {t('landing.nav.formulas', {}, { defaultValue: 'Formulas' })}
@@ -161,7 +187,7 @@ export function Landing() {
           <Link
             to="/templates"
             className={
-              'inline-block py-3 text-sm font-bold text-on-surface-variant hover:text-primary transition-colors'
+              'inline-block py-3 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors'
             }
           >
             {t('nav.templates', {}, { defaultValue: 'Templates' })}
@@ -173,7 +199,7 @@ export function Landing() {
               to="/workbooks"
               data-mol-id="nav-dashboard"
               className={
-                'inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-on-primary rounded-full bg-gradient-to-br from-primary to-primary-dark shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform'
+                'inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-on-primary rounded-md bg-primary shadow-sm hover:brightness-110 transition-all'
               }
             >
               {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -185,16 +211,18 @@ export function Landing() {
             <>
               <Link
                 to="/login"
+                data-mol-id="nav-signin"
                 className={
-                  'hidden sm:inline-flex px-4 py-2 text-sm font-bold text-on-surface-variant hover:text-primary transition-colors'
+                  'hidden sm:inline-flex px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors'
                 }
               >
                 {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
               </Link>
               <Link
                 to="/signup"
+                data-mol-id="nav-signup-cta"
                 className={
-                  'inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-on-primary rounded-full bg-gradient-to-br from-primary to-primary-dark shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform'
+                  'inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-on-primary rounded-md bg-primary shadow-sm hover:brightness-110 transition-all'
                 }
               >
                 {t('common.startFree', {}, { defaultValue: 'Start free' })}
@@ -207,92 +235,97 @@ export function Landing() {
         </div>
       </header>
 
-      <section
-        className={cm.cn(cm.sp('px', 6), cm.sp('py', 24), 'border-b border-outline-variant/40')}
-      >
-        <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.textCenter)}>
-          <p
-            className={cm.cn(
-              cm.sp('mb', 4),
-              'text-[11px] font-bold uppercase tracking-[0.3em] text-primary',
-            )}
-          >
-            {t(
-              'landing.hero.eyebrow',
-              {},
-              { defaultValue: 'Spreadsheet · v1.0 · Forever free for individuals' },
-            )}
-          </p>
-          <h1
-            className={cm.cn(
-              cm.sp('mb', 6),
-              'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] font-extrabold text-on-surface',
-            )}
-          >
-            {t('landing.hero.headline', {}, { defaultValue: 'Spreadsheets that think with you.' })}
-          </h1>
-          <p
-            className={cm.cn(
-              cm.textSize('xl'),
-              cm.maxW('2xl'),
-              cm.mxAuto,
-              cm.sp('mb', 10),
-              'text-on-surface-variant',
-            )}
-          >
-            {t(
-              'landing.hero.subhead',
-              { tagline: APP_TAGLINE, name: APP_NAME },
-              {
-                defaultValue:
-                  '{{tagline}}. {{name}} is the formula-first, multi-view, real-time grid analysts and finance teams reach for first.',
-              },
-            )}
-          </p>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center', gap: 'md', wrap: 'wrap' }),
-            )}
-          >
-            <Link
-              to="/signup"
-              className={
-                'inline-flex items-center gap-2 px-7 py-3.5 text-base font-bold text-on-primary rounded-full bg-gradient-to-br from-primary to-primary-dark shadow-xl shadow-primary/30 hover:scale-[1.02] transition-transform'
-              }
+      {/* Hero — split copy / mock spreadsheet window */}
+      <section className={cm.cn(cm.sp('px', 6), 'pt-16 pb-16 md:pt-24 md:pb-20')}>
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            'grid grid-cols-1 lg:grid-cols-2 gap-16 items-center',
+          )}
+        >
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }))}>
+            <h1
+              className={cm.cn(
+                'text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] text-on-surface',
+              )}
             >
-              {t('landing.hero.startCta', {}, { defaultValue: 'Open a workbook' })}
-              <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                arrow_forward
+              {t('landing.hero.headlineLead', {}, { defaultValue: 'Structure your thinking in ' })}
+              <span className="text-primary">
+                {t('landing.hero.wordCells', {}, { defaultValue: 'cells' })}
               </span>
-            </Link>
-            <Link
-              to="/templates"
-              className={
-                'inline-flex items-center gap-2 px-7 py-3.5 text-base font-bold text-on-surface rounded-full border border-outline-variant hover:border-primary hover:text-primary transition-colors'
-              }
+              {', '}
+              <span className="text-formula">
+                {t('landing.hero.wordFormulas', {}, { defaultValue: 'formulas' })}
+              </span>
+              {t('landing.hero.headlineTail', {}, { defaultValue: ', and views.' })}
+            </h1>
+            <p
+              className={cm.cn(
+                cm.textSize('lg'),
+                'text-on-surface-variant leading-relaxed',
+                cm.maxW('lg'),
+              )}
             >
-              <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                play_arrow
-              </span>
-              {t('common.browseTemplates', {}, { defaultValue: 'Browse templates' })}
-            </Link>
-          </div>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center', gap: 'md' }),
-              cm.sp('mt', 8),
-            )}
-          >
-            <div className={'flex -space-x-2'} aria-hidden="true">
-              {['#2563eb', '#10b981', '#f59e0b', '#ec4899', '#7c3aed'].map((c) => (
-                <span
-                  key={c}
-                  className={'w-7 h-7 rounded-full border-2 border-surface-container-lowest'}
-                  style={{ backgroundColor: c }}
-                />
+              {t(
+                'landing.hero.subhead',
+                { tagline: APP_TAGLINE, name: APP_NAME },
+                {
+                  defaultValue:
+                    '{{name}} is the spreadsheet built for precision — formula-first, multi-view, and real-time, designed for the way analysts and structured thinkers operate.',
+                },
+              )}
+            </p>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
+                cm.sp('pt', 4),
+              )}
+            >
+              <Link
+                to="/signup"
+                data-mol-id="landing-hero-cta"
+                className={
+                  'inline-flex items-center gap-2 px-6 py-3 text-base font-medium text-on-primary rounded-md bg-primary shadow-sm hover:brightness-110 transition-all'
+                }
+              >
+                {t('common.startFree', {}, { defaultValue: 'Start free' })}
+                <span className={'material-symbols-outlined text-base'} aria-hidden="true">
+                  arrow_forward
+                </span>
+              </Link>
+              <Link
+                to="/templates"
+                className={
+                  'inline-flex items-center gap-2 px-6 py-3 text-base font-medium text-on-surface rounded-md bg-surface border border-outline-variant shadow-sm hover:bg-surface-container-low transition-colors'
+                }
+              >
+                {t('landing.hero.openTemplate', {}, { defaultValue: 'Open a template' })}
+              </Link>
+            </div>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
+                cm.sp('pt', 4),
+                cm.textSize('sm'),
+                'text-on-surface-variant',
+              )}
+              style={{ fontFamily: 'var(--font-mono)' }}
+            >
+              {[
+                { key: 'check1', def: 'Tabular nums' },
+                { key: 'check2', def: 'JetBrains Mono' },
+                { key: 'check3', def: 'Keyboard fluent' },
+              ].map((c) => (
+                <span key={c.key} className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+                  <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                    check
+                  </span>
+                  {t(`landing.hero.${c.key}`, {}, { defaultValue: c.def })}
+                </span>
               ))}
             </div>
-            <p className={'text-xs font-medium text-on-surface-variant'}>
+            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('pt', 2))}>
               {t(
                 'landing.hero.socialProof',
                 {},
@@ -300,10 +333,131 @@ export function Landing() {
               )}
             </p>
           </div>
-        </div>
 
-        <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('mt', 16))}>
-          <GridPreview {...SAMPLE_GRID} formula='=SUMIF(Team,"Finance",MRR)' selectedCellRef="C3" />
+          {/* Mock spreadsheet window — real GridPreview inside design chrome */}
+          <div
+            className={cm.cn(
+              'relative w-full rounded-lg border border-outline-variant bg-surface shadow-xl overflow-hidden select-none',
+            )}
+          >
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'between' }),
+                'px-4 py-2 border-b border-outline-variant bg-surface-container-low',
+              )}
+            >
+              <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                <span
+                  className={cm.cn('material-symbols-outlined text-on-surface-variant text-xl')}
+                  aria-hidden="true"
+                >
+                  description
+                </span>
+                <span
+                  className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}
+                  style={{ fontFamily: 'var(--font-mono)' }}
+                >
+                  Q3_Analysis_Final.clct
+                </span>
+              </div>
+              <div className={cm.cn(cm.flex({ align: 'center' }), '-space-x-2')} aria-hidden="true">
+                {CO_EDITORS.map((e) => (
+                  <span
+                    key={e.initials}
+                    className={cm.cn(
+                      'w-7 h-7 rounded-full border-2 border-surface flex items-center justify-center text-[10px] font-bold relative z-10',
+                      e.cls,
+                    )}
+                  >
+                    {e.initials}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                'px-3 py-2 border-b border-outline-variant bg-surface',
+              )}
+            >
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('medium'),
+                  'text-on-surface-variant bg-surface-container px-2 py-1 rounded',
+                )}
+                style={{ fontFamily: 'var(--font-mono)' }}
+              >
+                B11
+              </span>
+              <span
+                className={cm.cn(cm.textSize('sm'), 'text-formula font-bold italic')}
+                style={{ fontFamily: 'var(--font-mono)' }}
+                aria-hidden="true"
+              >
+                fx
+              </span>
+              <span
+                className={cm.cn('flex-1 text-on-surface')}
+                style={{ fontFamily: 'var(--font-mono)' }}
+              >
+                <span className="text-on-surface-variant">=</span>
+                <span className="text-formula font-semibold">SUM</span>
+                <span className="text-on-surface-variant">(</span>
+                <span className="text-primary bg-primary-light px-0.5 rounded">B2:B10</span>
+                <span className="text-on-surface-variant">)</span>
+              </span>
+            </div>
+            <GridPreview
+              {...SAMPLE_GRID}
+              formula='=SUMIF(Team,"Finance",MRR)'
+              selectedCellRef="C3"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Formula syntax strip (design band) */}
+      <section
+        data-mol-id="landing-syntax-strip"
+        className={cm.cn(
+          'border-y border-outline-variant/40 bg-surface-container-low overflow-hidden',
+        )}
+      >
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            cm.sp('py', 8),
+            cm.flex({ align: 'center', gap: 'lg', wrap: 'wrap' }),
+          )}
+        >
+          <span
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'uppercase tracking-widest text-on-surface-variant shrink-0',
+            )}
+          >
+            {t('landing.syntaxLabel', {}, { defaultValue: 'Native syntax' })}
+          </span>
+          <div className={cm.cn(cm.flex({ gap: 'md', wrap: 'wrap' }))}>
+            {SYNTAX_CHIPS.map((fn) => (
+              <span
+                key={fn}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  'px-4 py-2 rounded-md border border-outline-variant bg-surface shadow-sm',
+                  cm.textSize('sm'),
+                )}
+                style={{ fontFamily: 'var(--font-mono)' }}
+              >
+                <span className="text-on-surface-variant">=</span>
+                <span className="text-formula font-bold">{fn}</span>
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -340,7 +494,7 @@ export function Landing() {
                 key={feat.icon}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl border-t-4 border-primary shadow-sm hover:-translate-y-1 transition-transform duration-300',
+                  'bg-surface-container-lowest rounded-lg border border-outline-variant/40 shadow-sm hover:-translate-y-1 transition-transform duration-300',
                 )}
               >
                 <span
@@ -349,9 +503,8 @@ export function Landing() {
                     cm.w(11),
                     cm.h(11),
                     cm.sp('mb', 4),
-                    'rounded-lg bg-primary-fixed text-primary',
+                    'rounded-lg bg-primary-light text-primary',
                   )}
-                  style={{ fontVariationSettings: "'FILL' 1" }}
                   aria-hidden="true"
                 >
                   <span className="material-symbols-outlined">{feat.icon}</span>
@@ -412,8 +565,9 @@ export function Landing() {
         </p>
         <Link
           to="/signup"
+          data-mol-id="landing-cta-band-button"
           className={
-            'inline-flex items-center gap-2 px-7 py-3.5 text-base font-bold text-on-primary rounded-full bg-gradient-to-br from-primary to-primary-dark shadow-xl shadow-primary/30 hover:scale-[1.02] transition-transform'
+            'inline-flex items-center gap-2 px-6 py-3 text-base font-medium text-on-primary rounded-md bg-primary shadow-sm hover:brightness-110 transition-all'
           }
         >
           {t('auth.signup.createYourWorkspace', {}, { defaultValue: 'Create your workspace' })}
@@ -457,7 +611,7 @@ export function Landing() {
             <Link
               to="/login"
               className={
-                'inline-block py-3 text-[10px] font-bold uppercase tracking-[0.25em] hover:text-primary transition-colors'
+                'text-xs underline underline-offset-4 opacity-80 hover:opacity-100 hover:text-primary transition-all'
               }
             >
               {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -465,7 +619,7 @@ export function Landing() {
             <Link
               to="/signup"
               className={
-                'inline-block py-3 text-[10px] font-bold uppercase tracking-[0.25em] hover:text-primary transition-colors'
+                'text-xs underline underline-offset-4 opacity-80 hover:opacity-100 hover:text-primary transition-all'
               }
             >
               {t('auth.login.signUp', {}, { defaultValue: 'Sign up' })}
@@ -473,7 +627,7 @@ export function Landing() {
             <a
               href="mailto:hello@calcite.dev"
               className={
-                'inline-block py-3 text-[10px] font-bold uppercase tracking-[0.25em] hover:text-primary transition-colors'
+                'text-xs underline underline-offset-4 opacity-80 hover:opacity-100 hover:text-primary transition-all'
               }
             >
               {t('nav.contact', {}, { defaultValue: 'Contact' })}

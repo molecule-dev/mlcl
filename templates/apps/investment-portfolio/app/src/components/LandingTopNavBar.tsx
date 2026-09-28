@@ -71,7 +71,7 @@ export function LandingTopNavBar() {
                 cm.fontWeight('semibold'),
                 cm.textSize('sm'),
                 'whitespace-nowrap shrink-0',
-                'bg-primary text-on-primary rounded-full hover:shadow-md transition-shadow',
+                'bg-primary text-on-primary rounded-lg shadow-sm transition-all hover:bg-primary-dark active:scale-95',
               )}
             >
               {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -99,7 +99,7 @@ export function LandingTopNavBar() {
                   cm.fontWeight('semibold'),
                   cm.textSize('sm'),
                   'whitespace-nowrap shrink-0',
-                  'bg-primary text-on-primary rounded-full hover:shadow-md transition-shadow',
+                  'bg-primary text-on-primary rounded-lg shadow-sm transition-all hover:bg-primary-dark active:scale-95',
                 )}
               >
                 {t('landing.getStarted', {}, { defaultValue: 'Open an account' })}

@@ -10,7 +10,7 @@
  */
 
 /** Display name (Header, auth pages, PWA manifest, OG tags). */
-export const APP_NAME = 'Digest'
+export const APP_NAME = 'Cairn'
 
 /** Tagline shown in auth pages and the marketing landing. */
 export const APP_TAGLINE = 'Mark the path'

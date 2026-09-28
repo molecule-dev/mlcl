@@ -37,7 +37,7 @@ export function PublicSiteFooter() {
                 cm.fontWeight('extrabold'),
                 'text-primary tracking-tight',
               )}
-              style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+              style={{ fontFamily: 'var(--font-headline)' }}
             >
               {APP_NAME}
             </span>

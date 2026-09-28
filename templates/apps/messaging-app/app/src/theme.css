@@ -21,6 +21,8 @@
   --mol-color-warning: #f59e0b;
   --mol-color-error: #dc2626;
   --mol-color-info: #027eb5;
+  /* Dark green for badge labels on success-light pills (AA on the pale tint). */
+  --color-success-dark: #0e7a42;
 
   /* === Backward-compat aliases (inline styles can use these short names) === */
   --color-text: var(--color-foreground);
@@ -129,6 +131,7 @@
   --mol-color-border: #232d34;
   --mol-color-border-secondary: #2a3640;
   --mol-color-border-focus: #007a60;
+  --color-success-dark: #4ade80;
   --mol-color-success: #25d366;
   --mol-color-warning: #fbbf24;
   --mol-color-error: #d63030;

@@ -25,3 +25,18 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/* Accent tokens for Tailwind utilities (bg-accent / text-on-accent …).
+   base.css's @theme registers no accent stops, so without this the
+   utilities silently render transparent. Values read the contrast-audited
+   --mol-color-accent* bridge vars, so dark mode flips automatically. */
+@theme {
+  --color-accent: var(--mol-color-accent, #e09a5a);
+  --color-on-accent: var(--mol-color-on-accent, #2a1800);
+}
+
+/* Headline face (DM Sans) — the Stitch landing design's display type.
+   `--font-headline` lives in theme.css; this utility applies it. */
+.font-headline {
+  font-family: var(--font-headline);
+}

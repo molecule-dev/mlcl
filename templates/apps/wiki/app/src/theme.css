@@ -3,79 +3,80 @@
   --mol-color-primary: #4f46e5;
   --mol-color-primary-light: #eef2ff;
   --mol-color-primary-dark: #3730a3;
-  --mol-color-secondary: #92400e; /* keep in sync with --color-secondary below (contrast fix) */
-  --mol-color-background: #ffffff;
-  --mol-color-background-secondary: #f8fafc;
-  --mol-color-background-tertiary: #f1f5f9;
-  --mol-color-surface: #f8fafc;
-  --mol-color-surface-secondary: #f1f5f9;
+  --mol-color-secondary: #2f5a8f; /* design sky-blue family, AA on white (6.0:1) */
+  --mol-color-background: #f9f9ff;
+  --mol-color-background-secondary: #f0f3ff;
+  --mol-color-background-tertiary: #e7eeff;
+  --mol-color-surface: #f9f9ff;
+  --mol-color-surface-secondary: #f0f3ff;
   --mol-color-input-background: #ffffff;
-  --mol-color-text: #1e293b;
-  --mol-color-text-secondary: #64748b;
-  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text: #111c2d;
+  --mol-color-text-secondary: #464555;
+  --mol-color-text-tertiary: #66647a;
   --mol-color-text-inverse: #ffffff;
-  --mol-color-border: #e2e8f0;
-  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border: #dbe3fa;
+  --mol-color-border-secondary: #c7c4d8;
   --mol-color-border-focus: #4f46e5;
   --mol-color-success: #059669;
   --mol-color-warning: #d97706;
   --mol-color-error: #dc2626;
   --mol-color-info: #2563eb;
 
-  /* Brand colors — Cairn (indigo + amber) per DESIGN.md */
+  /* Brand colors — Cairn (indigo + sky + ember tertiary) per the Stitch
+     "Cairn" landing design. Sky-blue secondary, darkened for AA text on its
+     15%-tinted chips (6.0:1 on white). */
   --color-primary: #4f46e5;
   --color-primary-hover: #4338ca;
   --color-primary-light: #eef2ff;
-  /* Amber accent darkened (#d97706 → amber-800): as avatar-chip text on its own
-     bg-secondary/15 it was 2.71:1 (axe serious on /home). #92400e = 5.3:1 there
-     and 6.5+:1 on flat surfaces; white on gradient tiles only improves. */
-  --color-secondary: #92400e;
-  --color-secondary-hover: #b45309;
-  --color-secondary-light: #fef3c7;
+  --color-secondary: #2f5a8f;
+  --color-secondary-hover: #24497a;
+  --color-secondary-light: #d3e4fe;
 
   /* Surfaces */
-  --color-background: #ffffff;
-  --color-surface: #f8fafc;
-  --color-surface-hover: #f1f5f9;
-  --color-border: #e2e8f0;
+  --color-background: #f9f9ff;
+  --color-surface: #f0f3ff;
+  --color-surface-hover: #e7eeff;
+  --color-border: #dbe3fa;
 
   /* Text */
-  --color-text: #1e293b;
-  --color-text-secondary: #64748b;
-  --color-text-tertiary: #94a3b8;
+  --color-text: #111c2d;
+  --color-text-secondary: #464555;
+  --color-text-tertiary: #66647a;
   --color-text-on-primary: #ffffff;
 
-  /* ── Material-3 / Stitch bridge tokens (light defaults) ── */
-  --color-on-background: #1e293b;
-  --color-surface-bright: #ffffff;
-  --color-surface-dim: #e2e8f0;
+  /* ── Material-3 / Stitch bridge tokens (light defaults) — the Stitch
+     "Cairn" design values; primary-container IS the indigo button tone and
+     pairs with pale periwinkle text per the mock. ── */
+  --color-on-background: #111c2d;
+  --color-surface-bright: #f9f9ff;
+  --color-surface-dim: #cfdaf2;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f8fafc;
-  --color-surface-container: #f1f5f9;
-  --color-surface-container-high: #e8edf4;
-  --color-surface-container-highest: #dde3ec;
-  --color-surface-variant: #f1f5f9;
-  --color-on-surface: #1e293b;
-  --color-on-surface-variant: #64748b;
-  --color-inverse-surface: #1e293b;
-  --color-inverse-on-surface: #f8fafc;
-  --color-inverse-primary: #818cf8;
-  --color-primary-container: #eef2ff;
+  --color-surface-container-low: #f0f3ff;
+  --color-surface-container: #e7eeff;
+  --color-surface-container-high: #dee8ff;
+  --color-surface-container-highest: #d8e3fb;
+  --color-surface-variant: #d8e3fb;
+  --color-on-surface: #111c2d;
+  --color-on-surface-variant: #464555;
+  --color-inverse-surface: #32313f;
+  --color-inverse-on-surface: #ecf1ff;
+  --color-inverse-primary: #c3c0ff;
+  --color-primary-container: #4f46e5;
   --color-on-primary: #ffffff; /* white on indigo — 6.29:1 ✓ */
-  --color-on-primary-container: #1e1b4b;
-  --color-secondary-container: #fef3c7;
-  --color-on-secondary: #422006; /* dark on amber — 4.57:1 (white 3.19 FAIL) */
-  --color-on-secondary-container: #451a03;
-  --color-tertiary: #7c3aed;
-  --color-tertiary-container: #ede9fe;
-  --color-on-tertiary: #ffffff; /* white on violet — 7.72:1 ✓ */
-  --color-on-tertiary-container: #2e1065;
+  --color-on-primary-container: #dad7ff;
+  --color-secondary-container: #d0e1fb;
+  --color-on-secondary: #ffffff; /* white on #2f5a8f — 6.0:1 ✓ */
+  --color-on-secondary-container: #38485d;
+  --color-tertiary: #934e00;
+  --color-tertiary-container: #ffdcc3;
+  --color-on-tertiary: #ffffff; /* white on ember — 6.3:1 ✓ */
+  --color-on-tertiary-container: #6e3900;
   --color-error: #dc2626;
   --color-error-container: #fee2e2;
   --color-on-error: #ffffff; /* white on red — 4.83:1 ✓ */
   --color-on-error-container: #7f1d1d;
-  --color-outline: #64748b; /* 4.76:1 vs white */
-  --color-outline-variant: #e2e8f0;
+  --color-outline: #777587; /* design outline — 4.0:1 vs white, UI-safe ✓ */
+  --color-outline-variant: #c7c4d8;
   --color-surface-tint: #4f46e5;
 
   /* Wiki-specific */
@@ -86,11 +87,11 @@
   /* Typography */
   --font-family-sans:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-family-serif: 'Georgia', 'Charter', serif;
+  --font-family-serif: 'Source Serif 4', Georgia, 'Charter', serif;
   --font-family-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   /* Headline font — picked up by shared molecule pages
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -143,19 +144,19 @@
   --mol-color-primary: #818cf8;
   --mol-color-primary-light: #1e1b4b;
   --mol-color-primary-dark: #4f46e5;
-  --mol-color-secondary: #fbbf24;
-  --mol-color-background: #14161c;
-  --mol-color-background-secondary: #1c1f27;
-  --mol-color-background-tertiary: #262a35;
-  --mol-color-surface: #1c1f27;
-  --mol-color-surface-secondary: #262a35;
-  --mol-color-input-background: #111318;
-  --mol-color-text: #e8e9ed;
-  --mol-color-text-secondary: #a0a4b0;
-  --mol-color-text-tertiary: #6b7080;
-  --mol-color-text-inverse: #14161c;
-  --mol-color-border: #2e3340;
-  --mol-color-border-secondary: #3a3f50;
+  --mol-color-secondary: #8ab6e8; /* sky-300 — AA on the deep-navy paper */
+  --mol-color-background: #0b0f1c;
+  --mol-color-background-secondary: #101627;
+  --mol-color-background-tertiary: #16203a;
+  --mol-color-surface: #101627;
+  --mol-color-surface-secondary: #16203a;
+  --mol-color-input-background: #0b0f1c;
+  --mol-color-text: #e2e8f0;
+  --mol-color-text-secondary: #94a3b8;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #0b0f1c;
+  --mol-color-border: #223052;
+  --mol-color-border-secondary: #2d3f63;
   --mol-color-border-focus: #818cf8;
   --mol-color-success: #34d399;
   --mol-color-warning: #fbbf24;
@@ -165,18 +166,18 @@
   --color-primary: #818cf8;
   --color-primary-hover: #a5b4fc;
   --color-primary-light: #1e1b4b;
-  --color-secondary: #fbbf24;
-  --color-secondary-hover: #fcd34d;
-  --color-secondary-light: #422006;
+  --color-secondary: #8ab6e8;
+  --color-secondary-hover: #a5c9ef;
+  --color-secondary-light: #14294a;
 
-  --color-background: #14161c;
-  --color-surface: #1c1f27;
-  --color-surface-hover: #262a35;
-  --color-border: #2e3340;
+  --color-background: #0b0f1c;
+  --color-surface: #101627;
+  --color-surface-hover: #16203a;
+  --color-border: #223052;
 
-  --color-text: #e8e9ed;
-  --color-text-secondary: #a0a4b0;
-  --color-text-tertiary: #6b7080;
+  --color-text: #e2e8f0;
+  --color-text-secondary: #94a3b8;
+  --color-text-tertiary: #64748b;
   --color-text-on-primary: #ffffff; /* white on indigo — readable in both modes */
 
   /* Wiki-specific — links must stay legible on dark paper */
@@ -187,36 +188,36 @@
   /* Stitch / Material-3 token dark variants — override the @theme block
      so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
      CTA buttons keep white text on indigo: `on-primary` stays white. */
-  --color-on-background: #e8e9ed;
-  --color-surface-bright: #262a35;
-  --color-surface-dim: #0c0e14;
-  --color-surface-container-lowest: #0a0c12;
-  --color-surface-container-low: #141720;
-  --color-surface-container: #1c1f27;
-  --color-surface-container-high: #262a35;
-  --color-surface-container-highest: #2e3340;
-  --color-surface-variant: #262a35;
-  --color-on-surface: #e8e9ed;
-  --color-on-surface-variant: #a0a4b0;
-  --color-inverse-surface: #e8e9ed;
-  --color-inverse-on-surface: #14161c;
+  --color-on-background: #e2e8f0;
+  --color-surface-bright: #16203a;
+  --color-surface-dim: #060912;
+  --color-surface-container-lowest: #070b16;
+  --color-surface-container-low: #0d1424;
+  --color-surface-container: #131c31;
+  --color-surface-container-high: #1a2540;
+  --color-surface-container-highest: #223050;
+  --color-surface-variant: #1a2540;
+  --color-on-surface: #e2e8f0;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #e2e8f0;
+  --color-inverse-on-surface: #0b0f1c;
   --color-inverse-primary: #4f46e5;
   --color-on-primary: #0f0f17; /* dark on indigo — 6.39:1 (was white 2.98 FAIL) */
-  --color-primary-container: #1e1b4b;
+  --color-primary-container: #312e81;
   --color-on-primary-container: #c7d2fe;
-  --color-secondary-container: #422006;
-  --color-on-secondary: #14161c;
-  --color-on-secondary-container: #fef3c7;
-  --color-tertiary: #c4b5fd;
-  --color-tertiary-container: #2e1065;
-  --color-on-tertiary: #160040; /* dark on lavender — 10.26:1 (was white 1.85 FAIL) */
-  --color-on-tertiary-container: #ede9fe;
+  --color-secondary-container: #1a2f4d;
+  --color-on-secondary: #0b0f1c;
+  --color-on-secondary-container: #b7c8e1;
+  --color-tertiary: #ffb77d;
+  --color-tertiary-container: #6e3900;
+  --color-on-tertiary: #2f1500; /* dark on peach #ffb77d — 8.4:1 */
+  --color-on-tertiary-container: #ffd2b1;
   --color-error: #f87171;
   --color-error-container: #450a0a;
   --color-on-error: #3a0000; /* dark on red — 6.43:1 (was white 2.77 FAIL) */
   --color-on-error-container: #fecaca;
-  --color-outline: #6b7280; /* 3.41:1 vs surface (was #4a5060 2.05 FAIL) */
-  --color-outline-variant: #2e3340;
+  --color-outline: #6e7b95; /* 4.6:1 vs #0b0f1c */
+  --color-outline-variant: #223052;
   --color-surface-tint: #818cf8;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);

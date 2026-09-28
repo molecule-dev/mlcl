@@ -273,6 +273,17 @@
       })()
     </script>
     <!-- /mol:fonts -->
+    <!-- Stitch design faces — Plus Jakarta Sans (headlines) + Inter (body) —
+         loaded AFTER the mol:fonts block so these @font-faces win over the
+         inline local()-first ones (a bare local() lookup can resolve to a
+         fontconfig substitute on Linux and render serif glyphs). Offline,
+         the browser falls back to the self-hosted mol:fonts faces. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
     <link rel="apple-touch-startup-image" href="/icons/splash-2048x2732.svg" sizes="2048x2732" />
     <link rel="apple-touch-startup-image" href="/icons/splash-1668x2224.svg" sizes="1668x2224" />

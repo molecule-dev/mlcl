@@ -12,6 +12,48 @@ import type { TierPlanCardCadence } from '../components/TierPlanCard.js'
 import { TierPlanCard } from '../components/TierPlanCard.js'
 import { boxThemes, currentSubscription, tierPlans } from '../lib/demoData.js'
 
+/**
+ * Marketing landing — mirrors design-subscription-box-landing.html:
+ * terracotta/mint Material-3 surface, "Unbox the unexpected." gradient
+ * headline, tilted next-box hero card with floating curation badge, a
+ * three-step "Curation Process" band, "Current Curations" cards, and the
+ * tier/pricing band. All copy stays in t(); all colors resolve through
+ * theme tokens (no raw hex/rgba in JSX — gradients/shadows live in
+ * index.css as .btn-gradient/.text-gradient/.ambient-shadow).
+ */
+
+const PROCESS_STEPS = [
+  {
+    key: 'feature1',
+    icon: 'palette',
+    tint: 'text-primary',
+    tileHover: 'group-hover:bg-primary-fixed/40',
+    titleDefault: 'Curated by makers, not algorithms',
+    bodyDefault:
+      'Every {{appName}} edition is hand-picked by a working artist or chef who tells you the story behind each piece.',
+  },
+  {
+    key: 'feature2',
+    icon: 'tune',
+    tint: 'text-secondary',
+    tileHover: 'group-hover:bg-secondary-container/40',
+    titleDefault: 'Customize without the friction',
+    bodyDefault:
+      'Swap items, exclude what you do not want, or skip a box outright. No retention scripts, ever.',
+  },
+  {
+    key: 'feature3',
+    icon: 'local_shipping',
+    tint: 'text-tertiary',
+    tileHover: 'group-hover:bg-tertiary-container/40',
+    titleDefault: 'Tracked end-to-end',
+    bodyDefault:
+      'Every shipment ships in plastic-free packaging with a hand-written note and live tracking from pickup to porch.',
+  },
+] as const
+
+const EYEBROW = 'text-xs font-bold uppercase tracking-widest text-primary'
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -26,45 +68,39 @@ export function Landing() {
   const goToSignup = () => navigate('/signup')
 
   return (
-    <div className={cm.cn(cm.minH('screen'), 'bg-surface-container-low text-on-surface')}>
+    <div className={cm.cn(cm.minH('screen'), 'bg-surface text-on-surface antialiased')}>
       <LandingTopNavBar />
 
-      {/* Hero */}
-      <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 16))}>
-        <div className={cm.cn(cm.grid({ gap: 'lg' }), 'lg:grid-cols-12')}>
-          <div className={cm.cn('lg:col-span-7', cm.flex({ direction: 'col', gap: 'lg' }))}>
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 'xs' }),
-                cm.sp('px', 3),
-                cm.sp('py', 1),
-                cm.fontWeight('bold'),
-                cm.roundedFull,
-                'self-start text-[10px] uppercase tracking-widest bg-primary-fixed/40 text-primary',
-              )}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-base')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                star
+      {/* Hero — copy left, tilted next-box card + floating badge right */}
+      <section
+        className={cm.cn(
+          cm.maxW('7xl'),
+          cm.mxAuto,
+          cm.sp('px', 6),
+          'pt-12 pb-24 relative overflow-x-clip',
+        )}
+      >
+        <div
+          className={cm.cn(
+            cm.grid({ gap: 'xl' }),
+            'grid-cols-1 md:grid-cols-2 md:items-center relative z-10',
+          )}
+        >
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), 'relative')}>
+            <div
+              className="absolute -top-12 -left-12 w-24 h-24 bg-secondary-container rounded-full opacity-50 blur-2xl"
+              aria-hidden="true"
+            />
+            <h1 className="relative z-10 font-headline text-5xl md:text-7xl font-bold tracking-tight text-on-surface leading-[1.1]">
+              {t('landing.hero.headlinePrefix', {}, { defaultValue: 'Unbox the' })}
+              <br />
+              <span className="text-gradient italic">
+                {t('landing.hero.headlineAccent', {}, { defaultValue: 'unexpected.' })}
               </span>
-              {t('landing.hero.eyebrow', {}, { defaultValue: 'Curated monthly. Always personal.' })}
-            </span>
-            <h1
-              className={cm.cn(
-                'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] text-on-surface',
-              )}
-            >
-              {t(
-                'landing.hero.headline',
-                { app: APP_NAME },
-                { defaultValue: 'Unbox the unexpected, every month.' },
-              )}
             </h1>
             <p
               className={cm.cn(
-                'text-lg md:text-xl text-on-surface-variant max-w-2xl leading-relaxed',
+                'relative z-10 text-lg md:text-xl text-on-surface-variant max-w-md leading-relaxed',
               )}
             >
               {t(
@@ -76,34 +112,36 @@ export function Landing() {
                 },
               )}
             </p>
-            <div className={cm.cn(cm.flex({ align: 'center', wrap: 'wrap', gap: 'sm' }))}>
+            <div className={cm.cn(cm.flex({ wrap: 'wrap', gap: 'md' }), 'pt-4 relative z-10')}>
               <Link
                 to="/signup"
+                data-mol-id="landing-hero-cta"
                 className={cm.cn(
                   cm.sp('px', 8),
                   cm.sp('py', 4),
-                  cm.fontWeight('bold'),
-                  cm.roundedFull,
-                  'text-base bg-primary text-on-primary hover:bg-primary-hover hover:shadow-xl active:scale-95 transition-all',
+                  cm.fontWeight('semibold'),
+                  'inline-flex items-center gap-2 rounded-xl text-white btn-gradient ambient-shadow hover:-translate-y-1 transition-transform',
                 )}
               >
-                {t('landing.hero.ctaPrimary', {}, { defaultValue: 'Start your box →' })}
+                {t('landing.hero.ctaPrimary', {}, { defaultValue: 'Start Your Box' })}
+                <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+                  arrow_forward
+                </span>
               </Link>
-              <Link
-                to="#tiers"
+              <a
+                href="#features"
                 className={cm.cn(
                   cm.sp('px', 8),
                   cm.sp('py', 4),
-                  cm.fontWeight('bold'),
-                  cm.roundedFull,
-                  'text-base border-2 border-on-surface text-on-surface hover:bg-on-surface hover:text-surface transition-all',
+                  cm.fontWeight('semibold'),
+                  'rounded-xl bg-surface-container-lowest text-on-surface ambient-shadow hover:bg-surface-container-low transition-colors',
                 )}
               >
-                {t('landing.hero.ctaSecondary', {}, { defaultValue: 'See tiers' })}
-              </Link>
+                {t('landing.hero.ctaSecondary', {}, { defaultValue: 'How It Works' })}
+              </a>
             </div>
             {/* Social proof row */}
-            <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), cm.sp('mt', 4))}>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'relative z-10')}>
               <div className={cm.cn('flex -space-x-3')}>
                 {[1, 2, 3, 4].map((i) => (
                   <img
@@ -136,17 +174,52 @@ export function Landing() {
             </div>
           </div>
 
-          {/* Hero side: a sample of the auth'd dashboard hero */}
-          <div className={cm.cn('lg:col-span-5', cm.flex({ direction: 'col', gap: 'md' }))}>
-            <NextBoxHeroCard
-              boxTitle={currentSubscription.nextBoxTitle}
-              boxTagline={currentSubscription.nextBoxTagline}
-              shipsInDays={currentSubscription.shipsInDays}
-              shipDate={currentSubscription.shipDate}
-              status={currentSubscription.status}
-              itemCount={currentSubscription.itemCount}
+          {/* Hero side: the member-dashboard next-box card, presented like the
+              design's tilted product shot — coral halo, -2° tilt, floating
+              curation badge. */}
+          <div className={cm.cn('relative')}>
+            <div
+              className="absolute inset-0 bg-primary-container/20 rounded-full blur-3xl translate-x-1/4 translate-y-1/4"
+              aria-hidden="true"
             />
-            <p className={cm.cn('text-xs font-medium text-on-surface-variant text-center')}>
+            <div className="relative z-10 -rotate-2 hover:rotate-0 transition-transform duration-500 rounded-2xl shadow-2xl overflow-hidden">
+              <NextBoxHeroCard
+                boxTitle={currentSubscription.nextBoxTitle}
+                boxTagline={currentSubscription.nextBoxTagline}
+                shipsInDays={currentSubscription.shipsInDays}
+                shipDate={currentSubscription.shipDate}
+                status={currentSubscription.status}
+                itemCount={currentSubscription.itemCount}
+              />
+            </div>
+            <div
+              className={cm.cn(
+                'absolute -bottom-6 -left-2 md:-left-6 bg-surface-container-lowest p-4 rounded-xl ambient-shadow z-20 flex items-center gap-3',
+              )}
+            >
+              <div className="flex w-12 h-12 items-center justify-center rounded-full bg-secondary-container">
+                <span
+                  className={cm.cn('material-symbols-outlined text-on-secondary-container')}
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                  aria-hidden="true"
+                >
+                  star
+                </span>
+              </div>
+              <div>
+                <p className="font-headline font-bold text-on-surface">
+                  {t('landing.hero.badgeTitle', {}, { defaultValue: 'Curated Monthly' })}
+                </p>
+                <p className="text-sm text-on-surface-variant">
+                  {t('landing.hero.badgeSub', {}, { defaultValue: '4-6 premium items' })}
+                </p>
+              </div>
+            </div>
+            <p
+              className={cm.cn(
+                'relative z-20 mt-16 text-xs font-medium text-on-surface-variant text-center',
+              )}
+            >
               {t(
                 'landing.hero.previewCaption',
                 {},
@@ -160,189 +233,205 @@ export function Landing() {
         </div>
       </section>
 
-      {/* Featured editions */}
-      <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 12))}>
+      {/* The Curation Process — the design's three-step band */}
+      <section
+        id="features"
+        className={cm.cn(
+          'bg-surface-container-low py-24 px-6 md:px-12 relative overflow-hidden scroll-mt-20',
+        )}
+      >
+        <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto)}>
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
+              cm.sp('mb', 16),
+              cm.textCenter,
+            )}
+          >
+            <h2 className="font-headline text-4xl font-bold tracking-tight text-on-surface">
+              {t('landing.process.heading', {}, { defaultValue: 'The Curation Process' })}
+            </h2>
+            <p className={cm.cn('text-on-surface-variant max-w-xl')}>
+              {t(
+                'landing.process.sub',
+                {},
+                {
+                  defaultValue:
+                    'We scour the globe for the finest crafted goods, so you don’t have to.',
+                },
+              )}
+            </p>
+          </div>
+          <div
+            className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-3 relative z-10')}
+          >
+            {PROCESS_STEPS.map((step) => (
+              <div
+                key={step.key}
+                className={cm.cn(
+                  cm.flex({ direction: 'col', align: 'center' }),
+                  cm.textCenter,
+                  cm.sp('p', 8),
+                  'group bg-surface-container-lowest rounded-xl ambient-shadow hover:-translate-y-2 transition-transform duration-300',
+                )}
+              >
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'w-20 h-20 bg-surface rounded-full mb-6 transition-colors',
+                    step.tileHover,
+                  )}
+                >
+                  <span
+                    className={cm.cn('material-symbols-outlined text-4xl', step.tint)}
+                    style={{ fontVariationSettings: "'FILL' 1" }}
+                    aria-hidden="true"
+                  >
+                    {step.icon}
+                  </span>
+                </div>
+                <h3 className="font-headline text-xl font-bold mb-3 text-on-surface">
+                  {t(
+                    `landing.${step.key}.title`,
+                    { appName: APP_NAME },
+                    { defaultValue: step.titleDefault },
+                  )}
+                </h3>
+                <p className={cm.cn('text-sm text-on-surface-variant leading-relaxed')}>
+                  {t(
+                    `landing.${step.key}.body`,
+                    { appName: APP_NAME },
+                    { defaultValue: step.bodyDefault },
+                  )}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Current Curations — featured editions */}
+      <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 24))}>
         <div
           className={cm.cn(
             cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' }),
-            cm.sp('mb', 8),
+            cm.sp('mb', 12),
           )}
         >
           <div>
-            <span className={cm.cn('text-xs font-bold uppercase tracking-widest text-primary')}>
-              {t('landing.editions.eyebrow', {}, { defaultValue: 'This season' })}
-            </span>
-            <h2
-              className={cm.cn(
-                'text-3xl md:text-4xl font-extrabold tracking-tight text-on-surface',
-              )}
-            >
-              {t(
-                'landing.editions.heading',
-                {},
-                { defaultValue: 'Editions our curators are loving' },
-              )}
+            <h2 className="font-headline text-4xl font-bold tracking-tight text-on-surface">
+              {t('landing.editions.heading', {}, { defaultValue: 'Current Curations' })}
             </h2>
+            <p className={cm.cn('text-on-surface-variant mt-2')}>
+              {t(
+                'landing.editions.sub',
+                {},
+                { defaultValue: 'A glimpse into what’s shipping this season.' },
+              )}
+            </p>
           </div>
           <Link
             to="/boxes"
             className={cm.cn(
-              'text-sm font-bold text-primary hover:underline decoration-2 underline-offset-4',
+              cm.flex({ align: 'center', gap: 'xs' }),
+              'hidden md:flex text-sm font-semibold text-primary hover:underline decoration-2 underline-offset-4',
             )}
           >
-            {t('landing.editions.viewAll', {}, { defaultValue: 'Browse all editions →' })}
+            {t('landing.editions.viewAll', {}, { defaultValue: 'View all past boxes' })}
+            <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+              arrow_forward
+            </span>
           </Link>
         </div>
-        <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3')}>
+        <div className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3')}>
           {featuredThemes.map((theme) => (
             <BoxThemeCard key={theme.id} box={theme} to="/signup" />
           ))}
         </div>
       </section>
 
-      {/* Feature triad */}
-      <section
-        id="features"
-        className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 16))}
-      >
-        <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 md:grid-cols-3')}>
-          {[
-            {
-              icon: 'palette',
-              titleKey: 'landing.feature1.title',
-              titleDefault: 'Curated by makers, not algorithms',
-              bodyKey: 'landing.feature1.body',
-              bodyDefault:
-                'Every {{appName}} edition is hand-picked by a working artist or chef who tells you the story behind each piece.',
-            },
-            {
-              icon: 'tune',
-              titleKey: 'landing.feature2.title',
-              titleDefault: 'Customize without the friction',
-              bodyKey: 'landing.feature2.body',
-              bodyDefault:
-                'Swap items, exclude what you do not want, or skip a box outright. No retention scripts, ever.',
-            },
-            {
-              icon: 'local_shipping',
-              titleKey: 'landing.feature3.title',
-              titleDefault: 'Tracked end-to-end',
-              bodyKey: 'landing.feature3.body',
-              bodyDefault:
-                'Every shipment ships in plastic-free packaging with a hand-written note and live tracking from pickup to porch.',
-            },
-          ].map((feat) => (
-            <div
-              key={feat.titleKey}
-              className={cm.cn(
-                cm.flex({ direction: 'col', gap: 'sm' }),
-                cm.sp('p', 8),
-                'rounded-2xl bg-surface-container-lowest border border-outline-variant/30 hover:shadow-md transition-shadow',
-              )}
-            >
-              <span
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  'w-12 h-12 rounded-xl bg-primary-fixed/30 text-primary',
-                )}
-              >
-                <span
-                  className={cm.cn('material-symbols-outlined text-2xl')}
-                  style={{ fontVariationSettings: "'FILL' 1" }}
-                >
-                  {feat.icon}
-                </span>
-              </span>
-              <h3 className={cm.cn('text-lg font-extrabold tracking-tight text-on-surface')}>
-                {t(feat.titleKey, {}, { defaultValue: feat.titleDefault })}
-              </h3>
-              <p className={cm.cn('text-sm text-on-surface-variant leading-relaxed')}>
-                {t(feat.bodyKey, { appName: APP_NAME }, { defaultValue: feat.bodyDefault })}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Tier selector */}
+      {/* Tier selector — the design's "Commit to Curiosity" pricing band */}
       <section
         id="tiers"
-        className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 16))}
+        className={cm.cn('bg-surface-container-low py-24 px-6 md:px-12 scroll-mt-20')}
       >
-        <div
-          className={cm.cn(
-            cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
-            cm.sp('mb', 10),
-          )}
-        >
-          <span className={cm.cn('text-xs font-bold uppercase tracking-widest text-primary')}>
-            {t('landing.tiers.eyebrow', {}, { defaultValue: 'Pick your cadence' })}
-          </span>
-          <h2
-            className={cm.cn(
-              'text-3xl md:text-5xl font-extrabold tracking-tight text-center text-on-surface max-w-3xl',
-            )}
-          >
-            {t(
-              'landing.tiers.heading',
-              {},
-              { defaultValue: 'Start small, upgrade anytime, cancel just as easily.' },
-            )}
-          </h2>
+        <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto)}>
           <div
             className={cm.cn(
-              cm.flex({ align: 'center', gap: 'xs' }),
-              cm.sp('p', 1),
-              cm.roundedFull,
-              'bg-surface-container-low border border-outline-variant/30',
+              cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
+              cm.sp('mb', 12),
             )}
           >
-            {(['monthly', 'annual'] as TierPlanCardCadence[]).map((mode) => (
-              <button
-                key={mode}
-                type="button"
-                onClick={() => setCadence(mode)}
-                className={cm.cn(
-                  cm.sp('px', 6),
-                  cm.sp('py', 2),
-                  cm.fontWeight('bold'),
-                  cm.roundedFull,
-                  'text-sm transition-all duration-200',
-                  cadence === mode
-                    ? 'bg-primary text-on-primary shadow-md'
-                    : 'text-on-surface-variant hover:text-on-surface',
-                )}
-              >
-                {t(
-                  `landing.tiers.cadence.${mode}`,
-                  {},
-                  { defaultValue: mode === 'monthly' ? 'Monthly' : 'Annual · save 17%' },
-                )}
-              </button>
+            <span className={EYEBROW}>
+              {t('landing.tiers.eyebrow', {}, { defaultValue: 'Pick your cadence' })}
+            </span>
+            <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tight text-center text-on-surface max-w-3xl">
+              {t('landing.tiers.heading', {}, { defaultValue: 'Commit to curiosity' })}
+            </h2>
+            <p className={cm.cn('text-on-surface-variant max-w-xl text-center')}>
+              {t(
+                'landing.tiers.sub',
+                {},
+                { defaultValue: 'Choose how often you want to be surprised. Cancel anytime.' },
+              )}
+            </p>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.sp('p', 1),
+                cm.roundedFull,
+                'bg-surface-container-lowest border border-outline-variant/40 mt-2',
+              )}
+            >
+              {(['monthly', 'annual'] as TierPlanCardCadence[]).map((mode) => (
+                <button
+                  key={mode}
+                  type="button"
+                  onClick={() => setCadence(mode)}
+                  className={cm.cn(
+                    cm.sp('px', 6),
+                    cm.sp('py', 2),
+                    cm.fontWeight('bold'),
+                    cm.roundedFull,
+                    'text-sm transition-all duration-200',
+                    cadence === mode
+                      ? 'bg-primary text-on-primary shadow-md'
+                      : 'text-on-surface-variant hover:text-on-surface',
+                  )}
+                >
+                  {t(
+                    `landing.tiers.cadence.${mode}`,
+                    {},
+                    { defaultValue: mode === 'monthly' ? 'Monthly' : 'Annual · save 17%' },
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div
+            className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-3 items-stretch')}
+          >
+            {tierPlans.map((plan) => (
+              <TierPlanCard key={plan.id} plan={plan} cadence={cadence} onSelect={goToSignup} />
             ))}
           </div>
         </div>
-        <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 md:grid-cols-3 items-stretch')}>
-          {tierPlans.map((plan) => (
-            <TierPlanCard key={plan.id} plan={plan} cadence={cadence} onSelect={goToSignup} />
-          ))}
-        </div>
       </section>
 
-      {/* Footer band */}
-      <footer className={cm.cn('border-t border-outline-variant/30 bg-surface-container-lowest')}>
+      {/* Footer — wordmark, uppercase links, credit line */}
+      <footer className={cm.cn('bg-surface-container border-t border-outline-variant/30 mt-12')}>
         <div
           className={cm.cn(
             cm.maxW('7xl'),
             cm.mxAuto,
             cm.sp('px', 6),
             cm.sp('py', 12),
-            cm.flex({ direction: 'col', gap: 'md' }),
+            cm.flex({ direction: 'col', gap: 'lg' }),
             'md:flex-row md:justify-between md:items-center',
           )}
         >
           <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-            <span className={cm.cn('text-2xl font-extrabold tracking-tight text-on-surface')}>
+            <span className="font-headline italic text-lg font-bold text-on-surface">
               {APP_NAME}
             </span>
             <span className={cm.cn('text-sm text-on-surface-variant')}>
@@ -356,28 +445,44 @@ export function Landing() {
           <div
             className={cm.cn(
               cm.flex({ align: 'center', wrap: 'wrap', gap: 'lg' }),
-              'text-sm font-medium',
+              'text-xs font-semibold uppercase tracking-widest',
             )}
           >
             <Link
               to="/login"
-              className={cm.cn('text-on-surface-variant hover:text-on-surface transition-colors')}
+              className={cm.cn('text-on-surface-variant hover:text-primary transition-colors')}
             >
               {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
             </Link>
             <Link
               to="/signup"
-              className={cm.cn('text-on-surface-variant hover:text-on-surface transition-colors')}
+              className={cm.cn('text-on-surface-variant hover:text-primary transition-colors')}
             >
               {t('auth.signup.createAccount', {}, { defaultValue: 'Create account' })}
             </Link>
             <a
               href="mailto:hello@crate.example"
-              className={cm.cn('text-on-surface-variant hover:text-on-surface transition-colors')}
+              className={cm.cn('text-on-surface-variant hover:text-primary transition-colors')}
             >
               {t('landing.footer.contact', {}, { defaultValue: 'Talk to a curator' })}
             </a>
           </div>
+          <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'text-primary')}>
+            {t(
+              'landing.copyright',
+              { year: new Date().getFullYear(), app: APP_NAME },
+              { defaultValue: '© {{year}} {{app}}' },
+            )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
+          </p>
         </div>
       </footer>
     </div>

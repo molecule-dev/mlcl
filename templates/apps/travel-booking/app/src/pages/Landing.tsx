@@ -134,9 +134,8 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('2xl'),
                 cm.fontWeight('extrabold'),
-                'text-primary tracking-tight',
+                'text-primary tracking-tight font-headline',
               )}
-              style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
             >
               {APP_NAME}
             </span>
@@ -161,7 +160,7 @@ export function Landing() {
                   cm.sp('py', 2),
                   cm.textSize('sm'),
                   cm.fontWeight('bold'),
-                  'rounded-full bg-primary text-on-primary hover:bg-primary-container transition-colors',
+                  'rounded-lg bg-accent text-on-accent hover:bg-accent-hover transition-colors',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -185,7 +184,7 @@ export function Landing() {
                     cm.sp('py', 2),
                     cm.textSize('sm'),
                     cm.fontWeight('bold'),
-                    'rounded-full bg-primary text-on-primary hover:bg-primary-container transition-colors',
+                    'rounded-lg bg-accent text-on-accent hover:bg-accent-hover transition-colors shadow-sm',
                   )}
                 >
                   {t(
@@ -201,19 +200,11 @@ export function Landing() {
       </nav>
 
       <main>
-        <section
-          className={cm.cn(
-            cm.maxW('7xl'),
-            cm.sp('px', 6),
-            cm.sp('pt', 10),
-            cm.sp('pb', 16),
-            cm.mxAuto,
-          )}
-        >
-          <SojournHeroSearchCard />
-        </section>
+        <SojournHeroSearchCard />
 
-        <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('pb', 20), cm.mxAuto)}>
+        <section
+          className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), 'pt-16', cm.sp('pb', 20), cm.mxAuto)}
+        >
           <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
             <div>
               <p
@@ -230,9 +221,8 @@ export function Landing() {
                   cm.textSize('4xl'),
                   cm.fontWeight('extrabold'),
                   cm.sp('mt', 2),
-                  'leading-tight tracking-tight',
+                  'leading-tight tracking-tight font-headline',
                 )}
-                style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
               >
                 {t('landing.destinations.heading', {}, { defaultValue: 'Featured destinations' })}
               </h2>
@@ -251,9 +241,16 @@ export function Landing() {
               </span>
             </Link>
           </div>
-          <div className={cm.cn('grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5')}>
+          <div
+            className={cm.cn(
+              'flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory',
+              '[scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
+            )}
+          >
             {FEATURED_DESTINATIONS.map((d) => (
-              <DestinationDiscoveryCard key={d.id} destination={d} />
+              <div key={d.id} className={cm.cn('w-72 shrink-0 snap-start')}>
+                <DestinationDiscoveryCard destination={d} />
+              </div>
             ))}
           </div>
         </section>
@@ -276,9 +273,8 @@ export function Landing() {
                     cm.textSize('4xl'),
                     cm.fontWeight('extrabold'),
                     cm.sp('mt', 2),
-                    'leading-tight tracking-tight',
+                    'leading-tight tracking-tight font-headline',
                   )}
-                  style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
                 >
                   {t(
                     'landing.preview.heading',
@@ -343,9 +339,8 @@ export function Landing() {
                   cm.textSize('4xl'),
                   cm.fontWeight('extrabold'),
                   cm.sp('mt', 2),
-                  'leading-tight tracking-tight',
+                  'leading-tight tracking-tight font-headline',
                 )}
-                style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
               >
                 {t('landing.journal.heading', {}, { defaultValue: 'Stories worth packing for' })}
               </h2>
@@ -385,9 +380,8 @@ export function Landing() {
                       cm.textSize('xl'),
                       cm.fontWeight('bold'),
                       cm.sp('mt', 2),
-                      'leading-snug',
+                      'leading-snug font-headline',
                     )}
-                    style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
                   >
                     {item.title}
                   </h3>
@@ -402,13 +396,89 @@ export function Landing() {
           </div>
         </section>
 
+        <section className={cm.cn('bg-surface-container-low')}>
+          <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}>
+            <h2
+              className={cm.cn(
+                cm.textSize('4xl'),
+                cm.fontWeight('extrabold'),
+                cm.sp('mb', 8),
+                cm.textCenter,
+                'leading-tight tracking-tight font-headline',
+              )}
+            >
+              {t('landing.testimonials.heading', {}, { defaultValue: "Wanderers' words" })}
+            </h2>
+            <div className={cm.cn('grid grid-cols-1 md:grid-cols-3 gap-8')}>
+              {[
+                {
+                  quote: t(
+                    'landing.testimonials.quote1',
+                    {},
+                    {
+                      defaultValue:
+                        'The villa matched the photos down to the espresso cups. Booking took three minutes and cancellation terms were printed right on the listing.',
+                    },
+                  ),
+                  author: t('landing.testimonials.author1', {}, { defaultValue: 'Marta R.' }),
+                },
+                {
+                  quote: t(
+                    'landing.testimonials.quote2',
+                    {},
+                    {
+                      defaultValue:
+                        'I found a turf-roofed cabin in the Faroes that was on no other platform — and the host answered within the hour.',
+                    },
+                  ),
+                  author: t('landing.testimonials.author2', {}, { defaultValue: 'Devon K.' }),
+                },
+                {
+                  quote: t(
+                    'landing.testimonials.quote3',
+                    {},
+                    {
+                      defaultValue:
+                        'Our flight was cancelled and support rebooked us before we even finished the airline form. That is the whole product for me.',
+                    },
+                  ),
+                  author: t('landing.testimonials.author3', {}, { defaultValue: 'Ines P.' }),
+                },
+              ].map((item) => (
+                <figure
+                  key={item.author}
+                  className={cm.cn(
+                    'bg-surface rounded-lg p-6 shadow-sm text-center',
+                    cm.flex({ direction: 'col', gap: 'md' }),
+                  )}
+                >
+                  <blockquote
+                    className={cm.cn(cm.textSize('base'), 'italic text-on-surface-variant')}
+                  >
+                    “{item.quote}”
+                  </blockquote>
+                  <figcaption
+                    className={cm.cn(
+                      cm.fontWeight('bold'),
+                      cm.textSize('sm'),
+                      'font-headline text-on-surface',
+                    )}
+                  >
+                    {item.author}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className={cm.cn('bg-primary text-on-primary relative overflow-hidden')}>
           <div
             className={cm.cn(
               cm.w(96),
               cm.h(96),
               cm.roundedFull,
-              'absolute -right-24 -bottom-24 bg-accent/40 blur-3xl',
+              'absolute -right-24 -bottom-24 bg-coral/40 blur-3xl',
             )}
             aria-hidden="true"
           />
@@ -440,9 +510,8 @@ export function Landing() {
                 cm.textSize('5xl'),
                 cm.fontWeight('extrabold'),
                 cm.sp('mt', 3),
-                'leading-[0.95] tracking-tight',
+                'leading-[0.95] tracking-tight font-headline',
               )}
-              style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
             >
               {t(
                 'landing.cta.heading',
@@ -502,64 +571,144 @@ export function Landing() {
         </section>
       </main>
 
-      <footer className={cm.cn('bg-surface border-t border-outline-variant/40')}>
-        <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 12), cm.mxAuto)}>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
-            )}
-          >
+      <footer className={cm.cn('bg-surface-container-low border-t border-outline-variant/40')}>
+        <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), 'pt-12 pb-8', cm.mxAuto)}>
+          <div className={cm.cn('grid grid-cols-1 md:grid-cols-4 gap-10')}>
             <div>
               <span
                 className={cm.cn(
                   cm.textSize('2xl'),
                   cm.fontWeight('extrabold'),
-                  'text-primary tracking-tight',
+                  'text-primary tracking-tight font-headline',
                 )}
-                style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
               >
                 {APP_NAME}
               </span>
-              <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+              <p
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.sp('mt', 3),
+                  'leading-relaxed text-on-surface-variant',
+                )}
+              >
                 {t('landing.footer.tagline', {}, { defaultValue: 'Wander without worry.' })}
               </p>
             </div>
-            <div
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 'lg', wrap: 'wrap' }),
-                cm.textSize('sm'),
-              )}
-            >
-              <Link to="/about" className={'text-on-surface-variant hover:text-primary'}>
-                {t('nav.about', {}, { defaultValue: 'About' })}
-              </Link>
-              <Link to="/pricing" className={'text-on-surface-variant hover:text-primary'}>
-                {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
-              </Link>
-              <Link to="/search" className={'text-on-surface-variant hover:text-primary'}>
-                {t('common.search', {}, { defaultValue: 'Search' })}
-              </Link>
-              <Link to="/login" className={'text-on-surface-variant hover:text-primary'}>
-                {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-              </Link>
-              <Link to="/signup" className={'text-on-surface-variant hover:text-primary'}>
-                {t('auth.signup.createAccount', {}, { defaultValue: 'Create account' })}
-              </Link>
+            <div>
+              <h4
+                className={cm.cn(
+                  cm.fontWeight('bold'),
+                  cm.sp('mb', 3),
+                  'font-headline text-on-surface',
+                )}
+              >
+                {t('landing.footer.company', {}, { defaultValue: 'Company' })}
+              </h4>
+              <ul
+                className={cm.cn(
+                  cm.flex({ direction: 'col', gap: 'sm' }),
+                  cm.textSize('sm'),
+                  'text-on-surface-variant',
+                )}
+              >
+                <li>
+                  <Link to="/about" className={'hover:text-accent transition-colors'}>
+                    {t('nav.about', {}, { defaultValue: 'About' })}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/pricing" className={'hover:text-accent transition-colors'}>
+                    {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4
+                className={cm.cn(
+                  cm.fontWeight('bold'),
+                  cm.sp('mb', 3),
+                  'font-headline text-on-surface',
+                )}
+              >
+                {t('landing.footer.explore', {}, { defaultValue: 'Explore' })}
+              </h4>
+              <ul
+                className={cm.cn(
+                  cm.flex({ direction: 'col', gap: 'sm' }),
+                  cm.textSize('sm'),
+                  'text-on-surface-variant',
+                )}
+              >
+                <li>
+                  <Link to="/search" className={'hover:text-accent transition-colors'}>
+                    {t('common.search', {}, { defaultValue: 'Search' })}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/login" className={'hover:text-accent transition-colors'}>
+                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/signup" className={'hover:text-accent transition-colors'}>
+                    {t('auth.signup.createAccount', {}, { defaultValue: 'Create account' })}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4
+                className={cm.cn(
+                  cm.fontWeight('bold'),
+                  cm.sp('mb', 3),
+                  'font-headline text-on-surface',
+                )}
+              >
+                {t('landing.footer.legal', {}, { defaultValue: 'Legal' })}
+              </h4>
+              <ul
+                className={cm.cn(
+                  cm.flex({ direction: 'col', gap: 'sm' }),
+                  cm.textSize('sm'),
+                  'text-on-surface-variant',
+                )}
+              >
+                <li>
+                  <Link to="/privacy" className={'hover:text-accent transition-colors'}>
+                    {t('nav.privacy', {}, { defaultValue: 'Privacy Policy' })}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/terms" className={'hover:text-accent transition-colors'}>
+                    {t('nav.terms', {}, { defaultValue: 'Terms of Service' })}
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
           <p
             className={cm.cn(
               cm.textSize('xs'),
-              cm.sp('mt', 8),
+              cm.sp('mt', 10),
               cm.textCenter,
               'text-on-surface-variant',
             )}
           >
             {t(
-              'common.copyrightAllRightsReserved',
+              'landing.copyright',
               { year: new Date().getFullYear(), app: APP_NAME },
-              { defaultValue: '© {{year}} {{app}}. All rights reserved.' },
-            )}
+              { defaultValue: '© {{year}} {{app}}' },
+            )}{' '}
+            — Built with{' '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
           </p>
         </div>
       </footer>

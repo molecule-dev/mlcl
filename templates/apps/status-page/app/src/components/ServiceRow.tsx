@@ -28,13 +28,15 @@ export interface ServiceRowData {
   monitor_url?: string | null
 }
 
+// Status accent per row — theme tokens (mode-aware; identical to the
+// previous hardcoded hexes on the dark-first baseline).
 const ACCENT: Record<ComponentStatus, string> = {
-  operational: '#10b981',
-  degraded_performance: '#f59e0b',
-  partial_outage: '#f97316',
-  major_outage: '#ef4444',
-  under_maintenance: '#6366f1',
-  unknown: '#475569',
+  operational: 'var(--color-status-operational)',
+  degraded_performance: 'var(--color-status-degraded)',
+  partial_outage: 'var(--color-status-partial)',
+  major_outage: 'var(--color-status-major)',
+  under_maintenance: 'var(--color-status-maintenance)',
+  unknown: 'var(--color-status-unknown)',
 }
 
 interface ServiceRowProps {
@@ -60,7 +62,7 @@ export function ServiceRow({ service, linked = true, hideUptime = false }: Servi
         linked && 'hover:-translate-y-0.5 hover:shadow-lg cursor-pointer',
       )}
       style={{
-        backgroundColor: 'rgba(30, 41, 59, 0.6)',
+        backgroundColor: 'var(--color-surface-raised)',
         border: '1px solid var(--color-border-card)',
         borderLeft: `4px solid ${accent}`,
       }}

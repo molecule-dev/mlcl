@@ -4,11 +4,11 @@ import { Link } from 'react-router'
 import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
-import { CairnHeroCard } from '../components/CairnHeroCard.js'
-import { type LinkPost, LinkPostCard } from '../components/LinkPostCard.js'
-import { SubBadge, type SubSummary } from '../components/SubBadge.js'
+import { APP_NAME } from '../branding.js'
+import { type LinkPost, timeAgo } from '../components/LinkPostCard.js'
+import { formatCount, type SubSummary } from '../components/SubBadge.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
+import { VoteCluster, type VoteDirection } from '../components/VoteCluster.js'
 
 const FALLBACK_POSTS: LinkPost[] = [
   {
@@ -77,6 +77,24 @@ const FALLBACK_SUBS: SubSummary[] = [
     description: 'Long essays, books worth marking, and a slow share queue.',
     member_count: 12700,
   },
+  {
+    slug: 'typography',
+    name: 'typography',
+    description: 'Kerning, grids, and the typefaces worth arguing about.',
+    member_count: 8400,
+  },
+  {
+    slug: 'slowreading',
+    name: 'slowreading',
+    description: 'Marginalia, rereading, and the art of finishing long books.',
+    member_count: 12000,
+  },
+  {
+    slug: 'selfhosting',
+    name: 'selfhosting',
+    description: 'Tiny servers, big uptime, and quitting the managed web.',
+    member_count: 5200,
+  },
 ]
 
 function toLandingPost(row: unknown): LinkPost {
@@ -120,6 +138,129 @@ function toLandingSub(row: unknown): SubSummary {
   }
 }
 
+/** One divided row inside the landing's single "Trending paths" card. */
+function LandingPostRow({ post }: { post: LinkPost }) {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const detailHref = `/links/${post.id}`
+  const titleClass = cm.cn(
+    cm.fontWeight('semibold'),
+    cm.textSize('lg'),
+    'text-on-surface hover:text-primary transition-colors leading-snug decoration-outline-variant underline-offset-4 hover:underline',
+  )
+  return (
+    <article
+      className={cm.cn(
+        cm.flex({ align: 'start', gap: 'md' }),
+        cm.sp('p', 5),
+        'border-b border-outline-variant/30 last:border-b-0 hover:bg-surface-container-low/60 transition-colors',
+      )}
+    >
+      <VoteCluster score={post.points} direction={(post.user_vote ?? null) as VoteDirection} />
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), 'flex-1 min-w-0')}>
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.textSize('xs'),
+            'flex-wrap text-on-surface-variant',
+          )}
+        >
+          {post.sub_slug && (
+            <Link
+              to={`/subs/${post.sub_slug}`}
+              className={cm.cn(
+                cm.fontWeight('semibold'),
+                'text-on-surface hover:text-primary transition-colors',
+              )}
+            >
+              c/{post.sub_name || post.sub_slug}
+            </Link>
+          )}
+          <span aria-hidden="true">•</span>
+          <span>
+            {t(
+              'linkPostCard.byUser',
+              { user: post.submitter_name || post.submitter_id },
+              { defaultValue: 'by {{user}}' },
+            )}
+          </span>
+          <span aria-hidden="true">•</span>
+          <time dateTime={post.created_at}>{timeAgo(post.created_at)}</time>
+        </div>
+        {post.url ? (
+          <a href={post.url} target="_blank" rel="noopener noreferrer" className={titleClass}>
+            {post.title}
+          </a>
+        ) : (
+          <Link to={detailHref} className={titleClass}>
+            {post.title}
+          </Link>
+        )}
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.textSize('xs'),
+            'pt-1 text-on-surface-variant',
+          )}
+        >
+          {post.domain ? (
+            <>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                link
+              </span>
+              <a
+                href={post.url ?? '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                {post.domain}
+              </a>
+            </>
+          ) : (
+            <>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                article
+              </span>
+              <span>{t('landing.textPost', {}, { defaultValue: 'Text post' })}</span>
+            </>
+          )}
+        </div>
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'md' }),
+            cm.textSize('sm'),
+            'pt-3 text-on-surface-variant font-medium',
+          )}
+        >
+          <Link
+            to={detailHref}
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              'hover:text-primary transition-colors',
+            )}
+          >
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">
+              chat_bubble
+            </span>
+            {t(
+              'linkPostCard.commentsCount',
+              { count: post.comment_count },
+              { defaultValue: '{{count}} comments' },
+            )}
+          </Link>
+        </div>
+      </div>
+    </article>
+  )
+}
+
+const FEATURES = [
+  { icon: 'swap_vert', tint: 'primary' as const },
+  { icon: 'format_list_bulleted', tint: 'secondary' as const },
+  { icon: 'explore', tint: 'primary' as const },
+]
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -144,7 +285,7 @@ export function Landing() {
       })
       .catch(() => active && setPosts(FALLBACK_POSTS))
     http
-      .get<{ data?: unknown }>('/api/subs?limit=3')
+      .get<{ data?: unknown }>('/api/subs?limit=6')
       .then((res) => {
         if (!active) return
         const list = (res as { data?: { data?: unknown[] } | unknown[] }).data
@@ -163,6 +304,7 @@ export function Landing() {
 
   const previewPosts = posts && posts.length > 0 ? posts : FALLBACK_POSTS
   const previewSubs = subs && subs.length > 0 ? subs : FALLBACK_SUBS
+  const year = new Date().getFullYear()
 
   return (
     <div className={cm.cn(cm.flex({ direction: 'col' }), cm.minH('screen'), 'bg-background')}>
@@ -172,39 +314,57 @@ export function Landing() {
           cm.sp('px', 6),
           cm.sp('py', 4),
           'flex-wrap gap-y-2',
-          'sticky top-0 z-30 bg-background/80 backdrop-blur-md border-b border-outline-variant/30',
+          'sticky top-0 z-30 bg-surface/90 backdrop-blur-md border-b border-outline-variant/40',
         )}
       >
-        <Link
-          to="/"
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'xs' }),
-            'min-w-0 whitespace-nowrap shrink-0',
-          )}
-          aria-label={APP_NAME}
-        >
-          <span
-            className={cm.cn(
-              cm.w(8),
-              cm.h(8),
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.roundedFull,
-              'bg-gradient-to-br from-primary to-[var(--color-primary-deep)] text-white',
-            )}
-            aria-hidden="true"
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
+          <Link to="/" aria-label={APP_NAME} className="whitespace-nowrap shrink-0">
+            <span
+              className={cm.cn(
+                cm.textSize('2xl'),
+                cm.fontWeight('extrabold'),
+                'tracking-tighter text-primary',
+              )}
+            >
+              {APP_NAME}
+            </span>
+          </Link>
+          <nav
+            className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'hidden md:flex')}
+            aria-label={t('landing.primaryNav', {}, { defaultValue: 'Primary' })}
           >
-            <span className={'material-symbols-outlined text-lg'}>terrain</span>
-          </span>
-          <span
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              cm.textSize('xl'),
-              'tracking-tight text-on-surface',
-            )}
-          >
-            {APP_NAME}
-          </span>
-        </Link>
+            <Link
+              to="/feed"
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                'tracking-tight text-on-surface-variant hover:text-secondary transition-colors',
+              )}
+            >
+              {t('landing.navBrowse', {}, { defaultValue: 'Browse' })}
+            </Link>
+            <Link
+              to="/subs"
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                'tracking-tight text-on-surface-variant hover:text-secondary transition-colors',
+              )}
+            >
+              {t('landing.navSubs', {}, { defaultValue: 'Subs' })}
+            </Link>
+            <Link
+              to="/about"
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                'tracking-tight text-on-surface-variant hover:text-secondary transition-colors',
+              )}
+            >
+              {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })}
+            </Link>
+          </nav>
+        </div>
         <nav
           className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 flex-wrap gap-y-2')}
         >
@@ -213,11 +373,13 @@ export function Landing() {
             <Link
               to="/feed"
               className={cm.cn(
-                cm.sp('px', 5),
+                cm.sp('px', 4),
                 cm.sp('py', 2),
-                cm.roundedFull,
+
+                'rounded-lg',
+
                 cm.textSize('sm'),
-                cm.fontWeight('bold'),
+                cm.fontWeight('medium'),
                 'whitespace-nowrap shrink-0',
                 'bg-primary text-on-primary hover:bg-primary-hover transition-colors',
               )}
@@ -230,7 +392,7 @@ export function Landing() {
                 to="/login"
                 className={cm.cn(
                   cm.textSize('sm'),
-                  cm.fontWeight('semibold'),
+                  cm.fontWeight('medium'),
                   'whitespace-nowrap',
                   'text-on-surface-variant hover:text-primary transition-colors',
                 )}
@@ -239,273 +401,371 @@ export function Landing() {
               </Link>
               <Link
                 to="/signup"
+                data-mol-id="landing-join-cta"
                 className={cm.cn(
-                  cm.sp('px', 5),
+                  cm.sp('px', 4),
                   cm.sp('py', 2),
-                  cm.roundedFull,
+
+                  'rounded-lg',
+
                   cm.textSize('sm'),
-                  cm.fontWeight('bold'),
+                  cm.fontWeight('medium'),
                   'whitespace-nowrap shrink-0',
                   'bg-primary text-on-primary hover:bg-primary-hover transition-colors',
                 )}
               >
-                {t('common.getStarted', {}, { defaultValue: 'Get started' })}
+                {t('landing.joinCta', { appName: APP_NAME }, { defaultValue: 'Join {{appName}}' })}
               </Link>
             </>
           )}
         </nav>
       </header>
 
-      <main className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), 'flex-1')}>
-        <section
-          className={cm.cn(
-            cm.flex({ direction: 'col', align: 'center', gap: 'lg' }),
-            cm.sp('px', 6),
-            'py-20 md:py-28 max-w-5xl mx-auto text-center',
-          )}
-        >
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'xs' }),
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.roundedFull,
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'bg-primary/10 text-primary uppercase tracking-widest',
-            )}
-          >
-            <span className={'material-symbols-outlined text-base'}>terrain</span>
-            {t('landing.eyebrow', { tagline: APP_TAGLINE }, { defaultValue: '{{tagline}}' })}
-          </span>
-          <h1
-            className={cm.cn(
-              'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-[0.95] text-on-surface',
-            )}
-          >
-            {t(
-              'landing.headline',
-              {},
-              { defaultValue: 'A small, slow place for the links worth marking.' },
-            )}
-          </h1>
-          <p
-            className={cm.cn(
-              cm.textSize('xl'),
-              cm.maxW('2xl'),
-              'text-on-surface-variant leading-relaxed',
-            )}
-          >
-            {t(
-              'landing.subhead',
-              { appName: APP_NAME },
-              {
-                defaultValue:
-                  '{{appName}} is a community link aggregator: vote, discuss, and stack up the things you want other curious people to read.',
-              },
-            )}
-          </p>
+      <main className={cm.cn(cm.flex({ direction: 'col' }), 'flex-1')}>
+        {/* Hero — soft violet→orange wash behind a giant two-tone headline */}
+        <section className="relative overflow-hidden">
           <div
-            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap justify-center')}
-          >
-            <Link
-              to="/signup"
-              className={cm.cn(
-                cm.sp('px', 6),
-                cm.sp('py', 3),
-                cm.roundedFull,
-                cm.textSize('base'),
-                cm.fontWeight('bold'),
-                'bg-primary text-on-primary hover:bg-primary-hover shadow-md transition-colors',
-              )}
-            >
-              {t('auth.signup.createYourAccount', {}, { defaultValue: 'Create your account' })}
-            </Link>
-            <Link
-              to="/login"
-              className={cm.cn(
-                cm.sp('px', 6),
-                cm.sp('py', 3),
-                cm.roundedFull,
-                cm.textSize('base'),
-                cm.fontWeight('bold'),
-                'border border-outline-variant text-on-surface hover:bg-surface-container-low transition-colors',
-              )}
-            >
-              {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-            </Link>
-          </div>
-        </section>
-
-        <section
-          className={cm.cn(cm.sp('px', 6), 'max-w-5xl w-full mx-auto')}
-          aria-label={t(
-            'landing.heroPreview',
-            { appName: APP_NAME },
-            { defaultValue: '{{appName}} preview' },
-          )}
-        >
-          <CairnHeroCard
-            eyebrowKey="trending"
-            eyebrowDefault={t('landing.trendingEyebrow', {}, { defaultValue: 'Trending today' })}
-            headlineKey="trendingHeadline"
-            headlineDefault={t(
-              'landing.trendingHeadline',
-              {},
-              { defaultValue: '12,400 readers stacked their cairns this week.' },
+            aria-hidden="true"
+            className={cm.cn(
+              'absolute inset-0 -z-10',
+              'bg-gradient-to-br from-[color:var(--color-hero-from)] to-[color:var(--color-hero-to)]',
             )}
-            bodyKey="trendingBody"
-            bodyDefault={t(
-              'landing.trendingBody',
-              {},
-              {
-                defaultValue:
-                  'Three sub-communities, dozens of conversations, a single shared front page.',
-              },
-            )}
-            pillIcon="trending_up"
-            pillKey="trendingPill"
-            pillDefault={t('landing.trendingPill', {}, { defaultValue: '+18% week over week' })}
           />
-        </section>
-
-        <section
-          className={cm.cn(
-            cm.flex({ direction: 'col', gap: 'md' }),
-            cm.sp('px', 6),
-            'max-w-5xl w-full mx-auto py-12',
-          )}
-        >
-          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-            <p
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                cm.textSize('xs'),
-                'uppercase tracking-widest text-primary',
-              )}
-            >
-              {t(
-                'landing.todayEyebrow',
-                { appName: APP_NAME },
-                { defaultValue: 'Today on {{appName}}' },
-              )}
-            </p>
-            <h2
-              className={cm.cn(
-                cm.textSize('3xl'),
-                cm.fontWeight('bold'),
-                'tracking-tight text-on-surface',
-              )}
-            >
-              {t('landing.todayHeadline', {}, { defaultValue: 'A peek at the front page.' })}
-            </h2>
-          </div>
-          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
-            {previewPosts.map((p, i) => (
-              <LinkPostCard key={p.id} post={p} rank={i + 1} />
-            ))}
-          </div>
-        </section>
-
-        <section
-          className={cm.cn(
-            cm.flex({ direction: 'col', gap: 'md' }),
-            cm.sp('px', 6),
-            'max-w-5xl w-full mx-auto pb-20',
-          )}
-        >
-          <div>
-            <p
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                cm.textSize('xs'),
-                'uppercase tracking-widest text-primary',
-              )}
-            >
-              {t('landing.subsEyebrow', {}, { defaultValue: 'Active subs' })}
-            </p>
-            <h2
-              className={cm.cn(
-                cm.textSize('3xl'),
-                cm.fontWeight('bold'),
-                cm.sp('mt', 1),
-                'tracking-tight text-on-surface',
-              )}
-            >
-              {t(
-                'landing.subsHeadline',
-                {},
-                { defaultValue: 'Small communities, big conversations.' },
-              )}
-            </h2>
-          </div>
-          <div className={cm.cn(cm.grid({ cols: 1, gap: 'md' }), 'md:grid-cols-3')}>
-            {previewSubs.map((s) => (
-              <SubBadge key={s.slug} sub={s} />
-            ))}
-          </div>
-        </section>
-
-        <section className={cm.cn(cm.sp('px', 6), 'border-t border-outline-variant/30')}>
           <div
             className={cm.cn(
-              cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-              'max-w-5xl mx-auto py-10 flex-wrap',
+              cm.flex({ direction: 'col', align: 'center', gap: 'lg' }),
+              cm.sp('px', 6),
+              'py-24 md:py-28 max-w-4xl mx-auto text-center',
             )}
           >
-            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            <h1
+              className={cm.cn(
+                'text-6xl md:text-8xl font-black tracking-tighter text-on-surface leading-[0.95]',
+              )}
+            >
+              {t('landing.headlinePrefix', {}, { defaultValue: 'Mark the' })}{' '}
+              <span className="text-primary">
+                {t('landing.headlineAccent', {}, { defaultValue: 'path' })}
+              </span>
+            </h1>
+            <p
+              className={cm.cn(
+                cm.textSize('xl'),
+                cm.maxW('2xl'),
+                cm.fontWeight('medium'),
+                'md:text-2xl text-on-surface-variant leading-relaxed',
+              )}
+            >
               {t(
-                'landing.footerCopy',
-                { appName: APP_NAME },
-                { defaultValue: '\u00a9 {{appName}} \u2014 Mark the path.' },
+                'landing.subhead',
+                {},
+                {
+                  defaultValue:
+                    'A grounded community for curious readers. Discover, share, and discuss the best links on the web.',
+                },
               )}
             </p>
             <div
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'md' }),
-                cm.textSize('sm'),
-                'flex-wrap',
+                'flex-col sm:flex-row flex-wrap justify-center pt-4 w-full sm:w-auto',
               )}
             >
               <Link
-                to="/pricing"
-                className={'hover:text-primary text-on-surface-variant transition-colors'}
-              >
-                {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
-              </Link>
-              <Link
-                to="/about"
-                className={'hover:text-primary text-on-surface-variant transition-colors'}
-              >
-                {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })}
-              </Link>
-              <Link
-                to="/terms"
-                className={'hover:text-primary text-on-surface-variant transition-colors'}
-              >
-                {t('footer.termsOfService', {}, { defaultValue: 'Terms of Service' })}
-              </Link>
-              <Link
-                to="/privacy"
-                className={'hover:text-primary text-on-surface-variant transition-colors'}
-              >
-                {t('footer.privacyPolicy', {}, { defaultValue: 'Privacy Policy' })}
-              </Link>
-              <Link
-                to="/login"
-                className={'hover:text-primary text-on-surface-variant transition-colors'}
-              >
-                {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-              </Link>
-              <Link
                 to="/signup"
-                className={'hover:text-primary text-on-surface-variant transition-colors'}
+                data-mol-id="landing-hero-join"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+
+                  'rounded-lg',
+
+                  cm.textSize('lg'),
+                  cm.fontWeight('bold'),
+                  'bg-primary text-on-primary hover:bg-primary-hover shadow-sm transition-colors text-center',
+                )}
               >
-                {t('auth.login.signUp', {}, { defaultValue: 'Sign up' })}
+                {t('landing.joinCta', { appName: APP_NAME }, { defaultValue: 'Join {{appName}}' })}
+              </Link>
+              <Link
+                to="/subs"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+
+                  'rounded-lg',
+
+                  cm.textSize('lg'),
+                  cm.fontWeight('bold'),
+                  'bg-surface text-on-surface border border-outline-variant hover:bg-surface-container-low shadow-sm transition-colors text-center',
+                )}
+              >
+                {t('landing.exploreSubs', {}, { defaultValue: 'Explore subs' })}
               </Link>
             </div>
           </div>
         </section>
+
+        {/* Trending paths — three posts inside one divided card */}
+        <section
+          className={cm.cn(cm.sp('px', 6), 'py-16 max-w-4xl w-full mx-auto')}
+          aria-label={t('landing.trendingTitle', {}, { defaultValue: 'Trending paths' })}
+        >
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'mb-8')}>
+            <span
+              className="material-symbols-outlined text-secondary text-2xl"
+              style={{ fontVariationSettings: "'FILL' 1" }}
+              aria-hidden="true"
+            >
+              local_fire_department
+            </span>
+            <h2
+              className={cm.cn(
+                cm.textSize('2xl'),
+                cm.fontWeight('bold'),
+                'tracking-tight text-on-surface',
+              )}
+            >
+              {t('landing.trendingTitle', {}, { defaultValue: 'Trending paths' })}
+            </h2>
+          </div>
+          <div className="rounded-xl bg-surface border border-outline-variant/40 shadow-sm overflow-hidden">
+            {previewPosts.map((p) => (
+              <LandingPostRow key={p.id} post={p} />
+            ))}
+          </div>
+          <div className="mt-6 text-center">
+            <Link
+              to="/feed"
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                'inline-flex text-primary font-semibold hover:text-primary-hover transition-colors',
+              )}
+            >
+              {t('landing.viewMore', {}, { defaultValue: 'View more paths' })}
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                arrow_forward
+              </span>
+            </Link>
+          </div>
+        </section>
+
+        {/* Feature grid — three pillars on a white band */}
+        <section className="bg-surface border-y border-outline-variant/40">
+          <div className="max-w-7xl mx-auto px-6 py-20">
+            <div className={cm.cn(cm.grid({ cols: 1, gap: 'lg' }), 'md:grid-cols-3 text-center')}>
+              {FEATURES.map((f, i) => (
+                <div
+                  key={f.icon}
+                  className={cm.cn(cm.flex({ direction: 'col', align: 'center', gap: 'sm' }))}
+                >
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      cm.w(16),
+                      cm.h(16),
+                      'rounded-2xl shadow-sm',
+                      f.tint === 'primary'
+                        ? 'bg-primary-container text-primary'
+                        : 'bg-secondary-container text-secondary',
+                    )}
+                  >
+                    <span className="material-symbols-outlined text-3xl" aria-hidden="true">
+                      {f.icon}
+                    </span>
+                  </div>
+                  <h3
+                    className={cm.cn(
+                      cm.textSize('xl'),
+                      cm.fontWeight('bold'),
+                      'tracking-tight text-on-surface',
+                    )}
+                  >
+                    {t(
+                      `landing.feature${i + 1}Title`,
+                      {},
+                      {
+                        defaultValue: [
+                          'Vote what matters',
+                          'Nest the conversation',
+                          'Find your sub',
+                        ][i],
+                      },
+                    )}
+                  </h3>
+                  <p className="text-on-surface-variant leading-relaxed">
+                    {t(
+                      `landing.feature${i + 1}Body`,
+                      {},
+                      {
+                        defaultValue: [
+                          'Help surface the most insightful content with simple upvote and downvote mechanics.',
+                          'Dive deep into discussions with color-coded, deeply nested comment threads that stay readable.',
+                          'Discover niche communities curated by passionate people just like you.',
+                        ][i],
+                      },
+                    )}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Popular communities — pill chips with member counts */}
+        <section className={cm.cn(cm.sp('px', 6), 'py-16 max-w-7xl w-full mx-auto')}>
+          <h2
+            className={cm.cn(
+              cm.fontWeight('bold'),
+              cm.textSize('lg'),
+              'uppercase tracking-widest text-on-surface-variant text-center mb-8',
+            )}
+          >
+            {t('landing.communitiesTitle', {}, { defaultValue: 'Popular communities' })}
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {previewSubs.map((s) => (
+              <Link
+                key={s.slug}
+                to={`/subs/${s.slug}`}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'sm' }),
+                  cm.sp('px', 6),
+                  cm.sp('py', 3),
+                  cm.roundedFull,
+                  'bg-surface border border-outline-variant hover:border-primary/40 hover:shadow-sm transition-all',
+                )}
+              >
+                <span className={cm.cn(cm.fontWeight('bold'), 'text-on-surface')}>
+                  c/{s.name || s.slug}
+                </span>
+                <span
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.sp('px', 2),
+                    cm.sp('py', 1),
+                    cm.roundedFull,
+                    'text-on-surface-variant bg-surface-container-high',
+                  )}
+                >
+                  {formatCount(s.member_count)}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Closing CTA — deep violet gradient band */}
+        <section className="bg-gradient-to-br from-primary to-[color:var(--color-cta-gradient-to)] text-white">
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', align: 'center', gap: 'lg' }),
+              cm.sp('px', 6),
+              'py-24 max-w-2xl mx-auto text-center',
+            )}
+          >
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter">
+              {t('landing.closingTitle', {}, { defaultValue: 'Ready to stack some stones?' })}
+            </h2>
+            <p
+              className={cm.cn(
+                cm.textSize('lg'),
+                cm.fontWeight('medium'),
+                'md:text-xl text-[color:var(--color-cta-gradient-sub)] leading-relaxed',
+              )}
+            >
+              {t(
+                'landing.closingBody',
+                {},
+                { defaultValue: 'Join thousands of curious minds sharing the best of the web.' },
+              )}
+            </p>
+            <Link
+              to="/signup"
+              data-mol-id="landing-closing-join"
+              className={cm.cn(
+                cm.sp('px', 8),
+                cm.sp('py', 4),
+
+                'rounded-lg',
+
+                cm.textSize('lg'),
+                cm.fontWeight('bold'),
+                'inline-block bg-[color:var(--color-cta-inverse-bg)] text-[color:var(--color-cta-inverse-text)] shadow-lg hover:opacity-90 transition-opacity',
+              )}
+            >
+              {t(
+                'landing.closingCta',
+                { appName: APP_NAME },
+                { defaultValue: 'Join {{appName}} today' },
+              )}
+            </Link>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="bg-surface-container-low border-t border-outline-variant/40">
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', justify: 'between', align: 'center', gap: 'md' }),
+              cm.sp('px', 6),
+              cm.sp('py', 12),
+              'max-w-7xl w-full mx-auto md:flex-row gap-6 text-center md:text-left',
+            )}
+          >
+            <div className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
+              {APP_NAME}
+            </div>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'md' }),
+                cm.textSize('xs'),
+                'flex-wrap justify-center uppercase tracking-widest',
+              )}
+            >
+              <Link
+                to="/privacy"
+                className="text-on-surface-variant hover:text-secondary underline decoration-2 underline-offset-4 opacity-80 hover:opacity-100 transition-opacity"
+              >
+                {t('footer.privacyPolicy', {}, { defaultValue: 'Privacy Policy' })}
+              </Link>
+              <Link
+                to="/terms"
+                className="text-on-surface-variant hover:text-secondary underline decoration-2 underline-offset-4 opacity-80 hover:opacity-100 transition-opacity"
+              >
+                {t('footer.termsOfService', {}, { defaultValue: 'Terms of Service' })}
+              </Link>
+              <Link
+                to="/about"
+                className="text-on-surface-variant hover:text-secondary underline decoration-2 underline-offset-4 opacity-80 hover:opacity-100 transition-opacity"
+              >
+                {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })}
+              </Link>
+              <Link
+                to="/pricing"
+                className="text-on-surface-variant hover:text-secondary underline decoration-2 underline-offset-4 opacity-80 hover:opacity-100 transition-opacity"
+              >
+                {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+              </Link>
+            </div>
+            <div className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'landing.copyright',
+                { year, app: APP_NAME },
+                { defaultValue: '\u00a9 {{year}} {{app}}' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
   )

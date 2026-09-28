@@ -74,7 +74,7 @@ export function Landing() {
                 cm.fontWeight('extrabold'),
                 'text-primary tracking-tight',
               )}
-              style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+              style={{ fontFamily: 'var(--font-headline)' }}
             >
               {APP_NAME}
             </span>
@@ -178,7 +178,7 @@ export function Landing() {
                   cm.sp('mt', 4),
                   'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] font-extrabold',
                 )}
-                style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+                style={{ fontFamily: 'var(--font-headline)' }}
               >
                 {t('landing.hero.title', {}, { defaultValue: 'Plan it once. Wander it together.' })}
               </h1>
@@ -288,7 +288,7 @@ export function Landing() {
                   cm.sp('mt', 2),
                   'leading-tight tracking-tight',
                 )}
-                style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+                style={{ fontFamily: 'var(--font-headline)' }}
               >
                 {t(
                   'landing.features.heading',
@@ -323,7 +323,7 @@ export function Landing() {
                       cm.sp('mt', 4),
                       'leading-snug tracking-tight',
                     )}
-                    style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+                    style={{ fontFamily: 'var(--font-headline)' }}
                   >
                     {t(`landing.features.${f.id}.title`, {}, { defaultValue: f.title })}
                   </h3>
@@ -373,7 +373,7 @@ export function Landing() {
                   cm.sp('mt', 2),
                   'leading-tight tracking-tight',
                 )}
-                style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+                style={{ fontFamily: 'var(--font-headline)' }}
               >
                 {t(
                   'landing.preview.heading',
@@ -429,7 +429,7 @@ export function Landing() {
                     cm.sp('mt', 2),
                     'leading-tight tracking-tight',
                   )}
-                  style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+                  style={{ fontFamily: 'var(--font-headline)' }}
                 >
                   {t(
                     'landing.destinations.heading',
@@ -494,7 +494,7 @@ export function Landing() {
                 cm.sp('mt', 3),
                 'leading-[0.95] tracking-tight',
               )}
-              style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+              style={{ fontFamily: 'var(--font-headline)' }}
             >
               {t('landing.cta.heading', { tagline: APP_TAGLINE }, { defaultValue: '{{tagline}}.' })}
             </h2>

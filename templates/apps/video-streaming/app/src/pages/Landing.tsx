@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { ACCENT_COLOR, APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { APP_NAME, APP_TAGLINE } from '../branding.js'
 
 const FEATURES = [
   {
@@ -12,7 +12,7 @@ const FEATURES = [
     defaultBody:
       'Curated trending feeds, channel recommendations, and rabbit-hole rails that learn what you love.',
     icon: 'movie',
-    tint: 'text-primary',
+    tone: 'text-[var(--spool-cta-from)] bg-[color-mix(in_srgb,var(--spool-cta-from)_12%,transparent)]',
   },
   {
     key: 'create',
@@ -20,7 +20,7 @@ const FEATURES = [
     defaultBody:
       'Upload, generate captions, mark chapters, and publish — everything a channel needs in one studio.',
     icon: 'videocam',
-    tint: 'text-error',
+    tone: 'text-[var(--spool-cta-to)] bg-[color-mix(in_srgb,var(--spool-cta-to)_12%,transparent)]',
   },
   {
     key: 'live',
@@ -28,7 +28,7 @@ const FEATURES = [
     defaultBody:
       'Tune in to live streams with chat, schedule premieres, and rewatch anything on demand.',
     icon: 'sensors',
-    tint: 'text-warning',
+    tone: 'text-[var(--mol-color-warning)] bg-[color-mix(in_srgb,var(--mol-color-warning)_12%,transparent)]',
   },
   {
     key: 'social',
@@ -36,7 +36,7 @@ const FEATURES = [
     defaultBody:
       'Comments, reactions, and shared playlists keep the conversation alive long after the credits.',
     icon: 'forum',
-    tint: 'text-violet-500',
+    tone: 'text-[var(--mol-color-info)] bg-[color-mix(in_srgb,var(--mol-color-info)_12%,transparent)]',
   },
 ] as const
 
@@ -47,12 +47,107 @@ const STATS = [
   { key: 'languages', defaultLabel: 'Languages', value: '90+' },
 ]
 
-const SAMPLE_CARD = {
-  eyebrow: 'Continue watching',
-  channel: 'Northern Field Studio',
-  title: 'How a film label fell in love with reels again',
-  duration: '24:18',
-  views: '482K',
+/** Hero mosaic tiles — decorative gradient thumbnails in the design's
+ *  rotated 2×2 collage (LIVE badge, duration chips, progress bar). */
+const MOSAIC = [
+  {
+    icon: 'sports_esports',
+    live: true,
+    duration: undefined as string | undefined,
+    progress: undefined as number | undefined,
+  },
+  { icon: 'graphic_eq', live: false, duration: '14:20', progress: undefined },
+  { icon: 'keyboard', live: false, duration: undefined, progress: 66 },
+  { icon: 'travel_explore', live: false, duration: '08:45', progress: undefined },
+]
+
+const TRENDING = [
+  {
+    key: 'film',
+    icon: 'movie_filter',
+    gradient:
+      'from-[var(--spool-cta-from)]/50 via-[var(--spool-cta-to)]/30 to-[var(--mol-color-info)]/40',
+    titleKey: 'landing.sampleTitle',
+    defaultTitle: 'How a film label fell in love with reels again',
+    channelKey: 'landing.sampleChannel',
+    defaultChannel: 'Northern Field Studio',
+    viewsKey: 'landing.sampleViews',
+    defaultViews: '{{count}} views',
+    viewsValues: { count: '482K' },
+    duration: '24:18',
+    live: false,
+    progress: 48,
+  },
+  {
+    key: 'esports',
+    icon: 'sports_esports',
+    gradient: 'from-[var(--mol-color-info)]/40 to-[var(--spool-cta-from)]/50',
+    titleKey: 'landing.trending.esports.title',
+    defaultTitle: 'The Ultimate Championship Finals — Live',
+    channelKey: 'landing.trending.esports.channel',
+    defaultChannel: 'ProGamer Channel',
+    viewsKey: 'landing.trending.esports.views',
+    defaultViews: '{{count}} watching now',
+    viewsValues: { count: '24K' },
+    duration: 'LIVE',
+    live: true,
+    progress: undefined,
+  },
+  {
+    key: 'dance',
+    icon: 'music_note',
+    gradient: 'from-[var(--spool-cta-to)]/50 to-[var(--mol-color-warning)]/40',
+    titleKey: 'landing.trending.dance.title',
+    defaultTitle: 'Neon Nights Choreography | Official Video',
+    channelKey: 'landing.trending.dance.channel',
+    defaultChannel: 'UrbanMoves',
+    viewsKey: 'landing.trending.dance.views',
+    defaultViews: '{{count}} views',
+    viewsValues: { count: '8.4M' },
+    duration: '03:45',
+    live: false,
+    progress: undefined,
+  },
+  {
+    key: 'tokyo',
+    icon: 'ramen_dining',
+    gradient: 'from-[var(--mol-color-success)]/40 to-[var(--spool-cta-to)]/40',
+    titleKey: 'landing.trending.tokyo.title',
+    defaultTitle: 'Finding the Best Late Night Street Food in Tokyo',
+    channelKey: 'landing.trending.tokyo.channel',
+    defaultChannel: 'BiteSizedTravel',
+    viewsKey: 'landing.trending.tokyo.views',
+    defaultViews: '{{count}} views',
+    viewsValues: { count: '2.1M' },
+    duration: '18:30',
+    live: false,
+    progress: 80,
+  },
+] as const
+
+/** Renders the tagline with every word on its own line, the last word carrying
+ *  the violet→rose gradient — matching the Stitch hero ("Unwind. / Watch. /
+ *  Create.") while staying fully translatable. */
+function StackedHeadline({ text }: { text: string }) {
+  const words = text.trim().split(/\s+/)
+  return (
+    <>
+      {words.map((w, i) =>
+        i === words.length - 1 ? (
+          <span
+            key={i}
+            className="block bg-clip-text text-transparent bg-gradient-to-r from-[var(--spool-cta-to)] to-[var(--spool-cta-from)]"
+          >
+            {w}
+          </span>
+        ) : (
+          <span key={i} className="block">
+            {w}
+          </span>
+        ),
+      )}
+    </>
+  )
 }
 
 export function Landing() {
@@ -60,18 +155,26 @@ export function Landing() {
   const { t } = useTranslation()
   const isAuthenticated = useIsAuthenticated()
 
+  const ctaGradient =
+    'bg-gradient-to-r from-[var(--spool-cta-from)] to-[var(--spool-cta-to)] text-white rounded-full hover:opacity-90 transition-opacity'
+
   return (
-    <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
+    <div
+      className={cm.cn(
+        cm.minH('screen'),
+        'bg-background text-on-surface antialiased selection:bg-[var(--spool-cta-from)]',
+      )}
+    >
       <nav
         className={cm.cn(
-          'sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/40',
+          'sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant',
         )}
       >
         <div
           className={cm.cn(
             cm.maxW('7xl'),
             cm.sp('px', 6),
-            cm.sp('py', 4),
+            cm.sp('py', 3),
             cm.flex({ align: 'center', justify: 'between' }),
             cm.mxAuto,
           )}
@@ -79,23 +182,23 @@ export function Landing() {
           <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
             <span
               className={cm.cn(
-                cm.w(8),
-                cm.h(8),
+                cm.w(9),
+                cm.h(9),
                 cm.roundedFull,
                 cm.flex({ align: 'center', justify: 'center' }),
                 'shadow',
+                ctaGradient,
               )}
-              style={{ background: `linear-gradient(135deg, ${BRAND_COLOR}, ${ACCENT_COLOR})` }}
               aria-hidden="true"
             >
               <span
                 className={cm.cn('material-symbols-outlined text-[18px] text-white')}
                 style={{ fontVariationSettings: "'FILL' 1" }}
               >
-                play_circle
+                play_arrow
               </span>
             </span>
-            <span className={cm.cn('text-xl font-extrabold tracking-tighter')}>{APP_NAME}</span>
+            <span className={cm.cn('text-2xl font-black tracking-tighter italic')}>{APP_NAME}</span>
           </Link>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
@@ -103,9 +206,11 @@ export function Landing() {
                 to="/home"
                 data-mol-id="landing-nav-dashboard"
                 className={cm.cn(
-                  'px-5 py-2 font-semibold text-white rounded-full hover:opacity-90 transition-opacity',
+                  cm.sp('px', 5),
+                  cm.sp('py', 2),
+                  cm.fontWeight('bold'),
+                  ctaGradient,
                 )}
-                style={{ background: `linear-gradient(135deg, ${BRAND_COLOR}, ${ACCENT_COLOR})` }}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
               </Link>
@@ -113,18 +218,25 @@ export function Landing() {
               <>
                 <Link
                   to="/login"
+                  data-mol-id="landing-nav-login"
                   className={cm.cn(
-                    'text-sm font-medium text-on-surface-variant hover:text-on-surface',
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'text-on-surface-variant hover:text-[var(--spool-cta-from)] transition-colors',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
                 </Link>
                 <Link
                   to="/signup"
+                  data-mol-id="landing-nav-signup"
                   className={cm.cn(
-                    'px-5 py-2 font-semibold text-white rounded-full hover:opacity-90 transition-opacity',
+                    cm.sp('px', 5),
+                    cm.sp('py', 2),
+                    cm.fontWeight('bold'),
+                    cm.textSize('sm'),
+                    ctaGradient,
                   )}
-                  style={{ background: `linear-gradient(135deg, ${BRAND_COLOR}, ${ACCENT_COLOR})` }}
                 >
                   {t('landing.getStarted', {}, { defaultValue: 'Start watching' })}
                 </Link>
@@ -135,264 +247,277 @@ export function Landing() {
       </nav>
 
       <main>
-        <section className={cm.cn('relative overflow-hidden')}>
-          <div
-            className={cm.cn('absolute inset-0 pointer-events-none')}
-            style={{
-              backgroundImage:
-                `radial-gradient(circle at 22% 32%, ${BRAND_COLOR}33, transparent 50%),` +
-                `radial-gradient(circle at 78% 60%, ${ACCENT_COLOR}26, transparent 45%)`,
-            }}
-            aria-hidden="true"
-          />
-          <div
-            className={cm.cn(
-              cm.maxW('7xl'),
-              cm.mxAuto,
-              cm.sp('px', 6),
-              'relative py-20 md:py-28 lg:py-32',
-            )}
-          >
-            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-12 items-center')}>
-              <div className={cm.cn('lg:col-span-7')}>
-                <p
-                  className={cm.cn('text-sm font-bold uppercase tracking-widest text-primary mb-4')}
-                >
-                  {t(
-                    'landing.eyebrow',
-                    {},
-                    { defaultValue: 'Streaming · creators · live · communities' },
-                  )}
-                </p>
-                <h1
-                  className={cm.cn(
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] mb-6',
-                  )}
-                >
-                  {t(
+        {/* Hero — text left, rotated thumbnail mosaic right (Stitch layout) */}
+        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 lg:py-24')}>
+          <div className={cm.cn('grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center')}>
+            <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
+              <h1
+                className={cm.cn(
+                  'text-5xl lg:text-7xl font-black tracking-tighter leading-[1.05]',
+                  '[font-family:var(--font-headline)]',
+                )}
+              >
+                <StackedHeadline
+                  text={t(
                     'landing.heroTitle',
                     { tagline: APP_TAGLINE },
                     { defaultValue: '{{tagline}}' },
                   )}
-                </h1>
-                <p
+                />
+              </h1>
+              <p
+                className={cm.cn(
+                  cm.textSize('lg'),
+                  'text-on-surface-variant max-w-md leading-relaxed',
+                )}
+              >
+                {t(
+                  'landing.heroSubtitle',
+                  {},
+                  {
+                    defaultValue:
+                      'A streaming home for the people you actually watch. No bot-fueled feeds, no autoplay rabbit traps — just videos worth your time.',
+                  },
+                )}
+              </p>
+              <div className={cm.cn(cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }))}>
+                <Link
+                  to="/signup"
+                  data-mol-id="landing-hero-cta"
                   className={cm.cn(
-                    'text-lg text-on-surface-variant max-w-xl leading-relaxed mb-10',
+                    cm.flex({ align: 'center', gap: 2 }),
+                    'px-7',
+                    cm.sp('py', 3),
+                    cm.fontWeight('bold'),
+                    'shadow-[0_0_20px_color-mix(in_srgb,var(--spool-cta-from)_40%,transparent)]',
+                    ctaGradient,
                   )}
                 >
                   {t(
-                    'landing.heroSubtitle',
-                    {},
-                    {
-                      defaultValue:
-                        'A streaming home for the people you actually watch. No bot-fueled feeds, no autoplay rabbit traps — just videos worth your time.',
-                    },
+                    'landing.heroCta',
+                    { appName: APP_NAME },
+                    { defaultValue: 'Get a free {{appName}} account' },
                   )}
-                </p>
-                <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                  <Link
-                    to="/signup"
-                    className={cm.cn(
-                      'inline-flex items-center gap-2 px-8 py-4 font-semibold text-white rounded-full hover:opacity-90 transition-opacity shadow-lg',
-                    )}
-                    style={{
-                      background: `linear-gradient(135deg, ${BRAND_COLOR}, ${ACCENT_COLOR})`,
-                    }}
-                  >
-                    {t(
-                      'landing.heroCta',
-                      { appName: APP_NAME },
-                      { defaultValue: 'Get a free {{appName}} account' },
-                    )}
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base')}
-                      aria-hidden="true"
-                    >
-                      arrow_forward
-                    </span>
-                  </Link>
-                  <Link
-                    to="/login"
-                    className={cm.cn(
-                      'px-8 py-4 font-semibold rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors',
-                    )}
-                  >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                  </Link>
-                </div>
-
-                <div
+                  <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                    arrow_forward
+                  </span>
+                </Link>
+                <Link
+                  to="/login"
                   className={cm.cn(
-                    cm.flex({ align: 'center', gap: 'md' }),
-                    cm.sp('mt', 8),
-                    'text-xs text-on-surface-variant',
+                    'px-7',
+                    cm.sp('py', 3),
+                    cm.fontWeight('bold'),
+                    'rounded-full bg-surface-container-high border border-outline-variant hover:bg-surface-container-highest transition-colors',
                   )}
                 >
-                  <span className={cm.cn('inline-flex items-center gap-1.5')}>
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base text-success')}
-                      aria-hidden="true"
-                    >
-                      verified
-                    </span>
-                    {t('landing.proofAdFree', {}, { defaultValue: 'No ads on every plan' })}
-                  </span>
-                  <span aria-hidden="true">·</span>
-                  <span className={cm.cn('inline-flex items-center gap-1.5')}>
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base text-success')}
-                      aria-hidden="true"
-                    >
-                      cancel
-                    </span>
-                    {t('landing.proofCancelAnytime', {}, { defaultValue: 'Cancel anytime' })}
-                  </span>
-                </div>
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                </Link>
               </div>
 
-              <div className={cm.cn('lg:col-span-5')}>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
+                  'text-xs text-on-surface-variant',
+                )}
+              >
+                <span className={cm.cn('inline-flex items-center gap-1.5')}>
+                  <span
+                    className={cm.cn('material-symbols-outlined text-base text-success')}
+                    aria-hidden="true"
+                  >
+                    verified
+                  </span>
+                  {t('landing.proofAdFree', {}, { defaultValue: 'No ads on every plan' })}
+                </span>
+                <span aria-hidden="true">·</span>
+                <span className={cm.cn('inline-flex items-center gap-1.5')}>
+                  <span
+                    className={cm.cn('material-symbols-outlined text-base text-success')}
+                    aria-hidden="true"
+                  >
+                    cancel
+                  </span>
+                  {t('landing.proofCancelAnytime', {}, { defaultValue: 'Cancel anytime' })}
+                </span>
+              </div>
+            </div>
+
+            {/* Rotated 2×2 thumbnail collage */}
+            <div className={cm.cn('relative w-full max-w-[520px] mx-auto lg:mx-0')}>
+              <div
+                className={cm.cn(
+                  'grid grid-cols-2 gap-4 -rotate-3 hover:rotate-0 transition-transform duration-700 ease-out',
+                )}
+              >
+                {MOSAIC.map((tile, i) => (
+                  <div
+                    key={tile.icon}
+                    className={cm.cn(
+                      'relative rounded-xl overflow-hidden bg-surface border border-outline-variant aspect-square',
+                      i === 1 && 'mt-8',
+                      i === 2 && '-mt-4',
+                      i === 3 && 'mt-4',
+                    )}
+                    aria-hidden="true"
+                  >
+                    <div
+                      className={cm.cn(
+                        'flex h-full w-full items-center justify-center bg-gradient-to-br',
+                        i === 0 && 'from-[var(--spool-cta-from)]/50 to-[var(--spool-cta-to)]/40',
+                        i === 1 && 'from-[var(--mol-color-info)]/40 to-[var(--spool-cta-from)]/40',
+                        i === 2 && 'from-[var(--spool-cta-to)]/40 to-[var(--mol-color-warning)]/40',
+                        i === 3 &&
+                          'from-[var(--mol-color-success)]/40 to-[var(--spool-cta-from)]/40',
+                      )}
+                    >
+                      <span
+                        className={cm.cn('material-symbols-outlined text-5xl text-white/80')}
+                        style={{ fontVariationSettings: "'FILL' 1" }}
+                      >
+                        {tile.icon}
+                      </span>
+                    </div>
+                    {tile.live && (
+                      <div
+                        className={cm.cn(
+                          'absolute top-2 left-2 flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold uppercase text-white bg-[var(--spool-live)]',
+                        )}
+                      >
+                        <span
+                          className={cm.cn('h-1.5 w-1.5 rounded-full bg-white animate-pulse')}
+                        />
+                        {t('landing.mosaic.live', {}, { defaultValue: 'Live' })}
+                      </div>
+                    )}
+                    {tile.duration && (
+                      <div
+                        className={cm.cn(
+                          'absolute bottom-2 right-2 rounded px-1.5 py-0.5 text-[10px] font-medium tabular-nums text-white bg-black/80',
+                        )}
+                      >
+                        {tile.duration}
+                      </div>
+                    )}
+                    {typeof tile.progress === 'number' && (
+                      <div className={cm.cn('absolute bottom-0 left-0 h-[3px] w-full bg-white/20')}>
+                        <div
+                          className={cm.cn('h-full bg-[var(--spool-cta-from)]')}
+                          style={{ width: `${tile.progress}%` }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Trending row (Stitch section) */}
+        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-12')}>
+          <h2
+            className={cm.cn(
+              cm.textSize('2xl'),
+              cm.fontWeight('bold'),
+              cm.flex({ gap: 2, align: 'center' }),
+              'mb-8',
+            )}
+          >
+            <span
+              className={cm.cn('material-symbols-outlined text-[var(--spool-cta-to)]')}
+              aria-hidden="true"
+            >
+              local_fire_department
+            </span>
+            {t('landing.trending.heading', {}, { defaultValue: 'Trending this week' })}
+          </h2>
+          <div className={cm.cn('grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10')}>
+            {TRENDING.map((card) => (
+              <div key={card.key} className={cm.cn('group')}>
                 <div
                   className={cm.cn(
-                    'relative overflow-hidden rounded-[2rem] text-white shadow-2xl shadow-primary/20',
+                    'relative aspect-video rounded-xl overflow-hidden bg-surface border border-outline-variant mb-3',
                   )}
-                  style={{
-                    background:
-                      'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container, #6d28d9) 50%, var(--color-tertiary, #be185d) 100%)',
-                    minHeight: '420px',
-                  }}
                 >
                   <div
                     className={cm.cn(
-                      'absolute -right-16 -bottom-16 w-56 h-56 rounded-full bg-surface/15 blur-3xl',
+                      'flex h-full w-full items-center justify-center bg-gradient-to-br transition-transform duration-500 group-hover:scale-105',
+                      card.gradient,
                     )}
                     aria-hidden="true"
-                  />
-                  <div
-                    className={cm.cn(
-                      'absolute right-8 top-8 w-16 h-16 rounded-full bg-foreground/10 blur-xl',
-                    )}
-                    aria-hidden="true"
-                  />
-
-                  <div
-                    className={cm.cn(
-                      'relative z-10 p-7 flex flex-col justify-between min-h-[420px]',
-                    )}
                   >
-                    <div>
-                      <span
-                        className={cm.cn(
-                          'px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-surface/20 backdrop-blur-md',
-                        )}
-                      >
-                        {t('landing.sampleEyebrow', {}, { defaultValue: SAMPLE_CARD.eyebrow })}
-                      </span>
-                      <p
-                        className={cm.cn(
-                          'text-[11px] font-bold uppercase tracking-widest text-white/80 mt-3',
-                        )}
-                      >
-                        {t('landing.sampleChannel', {}, { defaultValue: SAMPLE_CARD.channel })}
-                      </p>
-                      <h3
-                        className={cm.cn(
-                          'text-2xl md:text-3xl font-extrabold tracking-tight leading-tight mt-1',
-                        )}
-                      >
-                        {t('landing.sampleTitle', {}, { defaultValue: SAMPLE_CARD.title })}
-                      </h3>
+                    <span
+                      className={cm.cn('material-symbols-outlined text-5xl text-white/80')}
+                      style={{ fontVariationSettings: "'FILL' 1" }}
+                    >
+                      {card.icon}
+                    </span>
+                  </div>
+                  {card.live ? (
+                    <div
+                      className={cm.cn(
+                        'absolute top-2 left-2 flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold uppercase text-white bg-[var(--spool-live)]',
+                      )}
+                    >
+                      <span className={cm.cn('h-1.5 w-1.5 rounded-full bg-white animate-pulse')} />
+                      {t('landing.mosaic.live', {}, { defaultValue: 'Live' })}
                     </div>
-
-                    <div className={cm.cn('flex items-center justify-center my-4')}>
-                      <div
-                        className={cm.cn(
-                          'w-32 h-32 rounded-2xl shadow-2xl shadow-black/30 flex items-center justify-center',
-                        )}
-                        style={{
-                          background: 'rgba(255, 255, 255, 0.15)',
-                          backdropFilter: 'blur(8px)',
-                        }}
-                        aria-hidden="true"
-                      >
-                        <span
-                          className={cm.cn('material-symbols-outlined text-[64px] text-white/90')}
-                          style={{ fontVariationSettings: "'FILL' 1" }}
-                        >
-                          play_circle
-                        </span>
-                      </div>
+                  ) : (
+                    <div
+                      className={cm.cn(
+                        'absolute bottom-2 right-2 rounded px-1.5 py-0.5 text-[10px] font-medium tabular-nums text-white bg-black/80',
+                      )}
+                    >
+                      {card.duration}
                     </div>
-
-                    <div>
+                  )}
+                  {typeof card.progress === 'number' && (
+                    <div className={cm.cn('absolute bottom-0 left-0 h-[3px] w-full bg-white/20')}>
                       <div
-                        className={cm.cn(
-                          'flex items-center gap-2 text-[11px] font-mono tabular-nums text-white/80',
-                        )}
-                      >
-                        <span>11:42</span>
-                        <div
-                          className={cm.cn(
-                            'flex-1 h-1.5 rounded-full bg-surface/25 overflow-hidden',
-                          )}
-                        >
-                          <div
-                            className={cm.cn('h-full bg-surface rounded-full')}
-                            style={{ width: '48%' }}
-                            aria-hidden="true"
-                          />
-                        </div>
-                        <span>{SAMPLE_CARD.duration}</span>
-                      </div>
-                      <div
-                        className={cm.cn(
-                          'flex items-center justify-between gap-4 mt-3 text-[11px] text-white/80',
-                        )}
-                      >
-                        <span className={cm.cn('tabular-nums')}>
-                          {t(
-                            'landing.sampleViews',
-                            { count: SAMPLE_CARD.views },
-                            { defaultValue: '{{count}} views' },
-                          )}
-                        </span>
-                        <div className={cm.cn('flex items-center gap-3')} aria-hidden="true">
-                          <span
-                            className={cm.cn(
-                              'w-9 h-9 rounded-full flex items-center justify-center text-white/90',
-                            )}
-                          >
-                            <span className={cm.cn('material-symbols-outlined text-[18px]')}>
-                              skip_previous
-                            </span>
-                          </span>
-                          <span
-                            className={cm.cn(
-                              'w-12 h-12 rounded-full bg-surface text-on-surface flex items-center justify-center shadow-xl',
-                            )}
-                          >
-                            <span
-                              className={cm.cn('material-symbols-outlined text-2xl')}
-                              style={{ fontVariationSettings: "'FILL' 1" }}
-                            >
-                              pause
-                            </span>
-                          </span>
-                          <span
-                            className={cm.cn(
-                              'w-9 h-9 rounded-full flex items-center justify-center text-white/90',
-                            )}
-                          >
-                            <span className={cm.cn('material-symbols-outlined text-[18px]')}>
-                              skip_next
-                            </span>
-                          </span>
-                        </div>
-                      </div>
+                        className={cm.cn('h-full bg-[var(--spool-cta-from)]')}
+                        style={{ width: `${card.progress}%` }}
+                      />
                     </div>
+                  )}
+                </div>
+                <div className={cm.cn(cm.flex({ gap: 'sm' }))}>
+                  <span
+                    className={cm.cn(
+                      'h-9 w-9 shrink-0 rounded-full bg-gradient-to-br from-[var(--spool-cta-from)] to-[var(--spool-cta-to)] text-white text-xs font-bold flex items-center justify-center',
+                    )}
+                    aria-hidden="true"
+                  >
+                    {t(card.channelKey, {}, { defaultValue: card.defaultChannel })
+                      .trim()
+                      .charAt(0)
+                      .toUpperCase()}
+                  </span>
+                  <div>
+                    <h3
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('bold'),
+                        'leading-tight line-clamp-2 group-hover:text-[var(--spool-cta-from)] transition-colors',
+                      )}
+                    >
+                      {t(card.titleKey, {}, { defaultValue: card.defaultTitle })}
+                    </h3>
+                    <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant mt-1')}>
+                      {t(card.channelKey, {}, { defaultValue: card.defaultChannel })}
+                    </p>
+                    <p
+                      className={cm.cn(
+                        'text-[11px] text-on-surface-variant/80 tabular-nums mt-0.5',
+                        card.live && 'font-medium text-[var(--spool-live)]',
+                      )}
+                    >
+                      {t(card.viewsKey, card.viewsValues, { defaultValue: card.defaultViews })}
+                    </p>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </section>
 
@@ -402,15 +527,13 @@ export function Landing() {
               <div
                 key={s.key}
                 className={cm.cn(
-                  'bg-surface-container-lowest rounded-2xl p-6 text-center hover:shadow-lg transition-shadow border-l-4',
+                  'bg-surface-container-lowest rounded-2xl p-6 text-center hover:shadow-lg transition-shadow border-l-4 border-[var(--spool-cta-from)]',
                 )}
-                style={{ borderLeftColor: BRAND_COLOR }}
               >
                 <p
                   className={cm.cn(
-                    'text-3xl md:text-4xl font-extrabold tracking-tight tabular-nums',
+                    'text-3xl md:text-4xl font-extrabold tracking-tight tabular-nums text-[var(--spool-cta-from)]',
                   )}
-                  style={{ color: BRAND_COLOR }}
                 >
                   {s.value}
                 </p>
@@ -450,8 +573,8 @@ export function Landing() {
               >
                 <div
                   className={cm.cn(
-                    'inline-flex p-3 bg-surface rounded-xl shadow-sm group-hover:scale-110 transition-transform',
-                    f.tint,
+                    'inline-flex p-3 rounded-xl group-hover:scale-110 transition-transform',
+                    f.tone,
                   )}
                 >
                   <span className={cm.cn('material-symbols-outlined text-3xl')} aria-hidden="true">
@@ -486,10 +609,15 @@ export function Landing() {
             </p>
             <Link
               to="/signup"
+              data-mol-id="landing-footer-cta"
               className={cm.cn(
-                'inline-flex items-center gap-2 px-10 py-4 font-semibold text-white rounded-full hover:opacity-90 transition-opacity shadow-lg',
+                cm.flex({ align: 'center', gap: 2 }),
+                cm.sp('px', 8),
+                cm.sp('py', 3),
+                cm.fontWeight('semibold'),
+                'inline-flex shadow-lg',
+                ctaGradient,
               )}
-              style={{ background: `linear-gradient(135deg, ${BRAND_COLOR}, ${ACCENT_COLOR})` }}
             >
               {t('landing.ctaCta', {}, { defaultValue: 'Get started — it\u2019s free' })}
               <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
@@ -502,26 +630,54 @@ export function Landing() {
 
       <footer
         className={cm.cn(
-          'py-8 text-center text-sm bg-surface text-on-surface-variant border-t border-outline-variant',
+          'py-10 text-sm bg-background text-on-surface-variant border-t border-outline-variant',
         )}
       >
-        <p>
-          {t(
-            'common.copyrightBuiltWithMolecule',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}' },
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
           )}
-          {' — Built with '}
-          <a
-            href="https://molecule.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline font-medium"
-          >
-            Molecule.dev
-          </a>
-        </p>
+        >
+          <div className={cm.cn('text-lg font-black tracking-tighter italic text-on-surface')}>
+            {APP_NAME}
+          </div>
+          <div className={cm.cn(cm.flex({ gap: 'lg', wrap: 'wrap' }), cm.textSize('sm'))}>
+            <Link to="/about" className="hover:text-[var(--spool-cta-to)] transition-colors">
+              {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })}
+            </Link>
+            <Link to="/pricing" className="hover:text-[var(--spool-cta-to)] transition-colors">
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </Link>
+            <Link to="/privacy" className="hover:text-[var(--spool-cta-to)] transition-colors">
+              {t('landing.footer.privacy', {}, { defaultValue: 'Privacy' })}
+            </Link>
+            <Link to="/terms" className="hover:text-[var(--spool-cta-to)] transition-colors">
+              {t('landing.footer.terms', {}, { defaultValue: 'Terms' })}
+            </Link>
+          </div>
+          <p>
+            {t(
+              'common.copyrightBuiltWithMolecule',
+              { year: new Date().getFullYear(), app: APP_NAME },
+              { defaultValue: '© {{year}} {{app}}' },
+            )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
+          </p>
+        </div>
       </footer>
     </div>
   )
 }
+
+export default Landing

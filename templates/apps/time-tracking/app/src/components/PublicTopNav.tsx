@@ -9,6 +9,9 @@ import { APP_NAME } from '../branding.js'
  * Shared public-page top navigation, mirroring the Landing hero nav so brand
  * stays consistent across Landing, About, Privacy, and Terms.
  *
+ * Chrono design: text-only wordmark, gradient "Get Started" pill with the
+ * soft ambient shadow, and the ghost hairline along the bottom edge.
+ *
  * Auth-aware: when the visitor is signed in, the Sign in / Start tracking
  * links collapse to a single "Go to Dashboard" CTA.
  */
@@ -20,9 +23,7 @@ export function PublicTopNav() {
   return (
     <nav
       data-mol-id="public-top-nav"
-      className={cm.cn(
-        'sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-border/60',
-      )}
+      className={cm.cn('sticky top-0 z-50 bg-surface/70 backdrop-blur-xl')}
     >
       <div
         className={cm.cn(
@@ -34,47 +35,28 @@ export function PublicTopNav() {
           'flex-wrap gap-x-4 gap-y-2',
         )}
       >
-        <Link
-          to="/"
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'sm' }),
-            'min-w-0 whitespace-nowrap shrink-0',
-          )}
-        >
-          <span
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 12 }))}>
+          <Link
+            to="/"
             className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(8),
-              cm.h(8),
-              'rounded-lg bg-gradient-to-br from-blue-600 to-emerald-500 text-white shadow-md',
+              'min-w-0 whitespace-nowrap shrink-0 text-2xl font-bold tracking-tighter text-on-surface',
             )}
           >
-            <span
-              className={cm.cn(cm.textSize('base'), 'material-symbols-outlined')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              schedule
-            </span>
-          </span>
-          <span
-            className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-foreground')}
-          >
             {APP_NAME}
-          </span>
-        </Link>
-        <div
-          className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 whitespace-nowrap')}
-        >
+          </Link>
+        </div>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }), 'min-w-0 whitespace-nowrap')}>
           {isAuthenticated ? (
             <Link
               data-mol-id="nav-go-to-dashboard"
               to="/dashboard"
               className={cm.cn(
                 cm.sp('px', 5),
-                cm.sp('py', 2),
-                cm.fontWeight('semibold'),
-                'shrink-0',
-                'bg-gradient-to-br from-blue-600 to-emerald-500 text-white rounded-full shadow-md hover:shadow-lg transition-all',
+                cm.sp('py', 2.5),
+                cm.fontWeight('medium'),
+                cm.textSize('sm'),
+                'shrink-0 transition-glide',
+                'btn-gradient rounded-xl text-white shadow-ambient hover:opacity-90',
               )}
             >
               {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -85,20 +67,22 @@ export function PublicTopNav() {
                 to="/login"
                 className={cm.cn(
                   cm.textSize('sm'),
-                  cm.fontWeight('semibold'),
-                  'text-foreground-secondary hover:text-foreground transition-colors',
+                  cm.fontWeight('medium'),
+                  'text-on-surface-variant transition-glide hover:text-on-surface',
                 )}
               >
                 {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
               </Link>
               <Link
                 to="/signup"
+                data-mol-id="nav-cta"
                 className={cm.cn(
                   cm.sp('px', 5),
-                  cm.sp('py', 2),
-                  cm.fontWeight('semibold'),
-                  'shrink-0',
-                  'bg-gradient-to-br from-blue-600 to-emerald-500 text-white rounded-full shadow-md hover:shadow-lg transition-all',
+                  cm.sp('py', 2.5),
+                  cm.fontWeight('medium'),
+                  cm.textSize('sm'),
+                  'shrink-0 transition-glide',
+                  'btn-gradient rounded-xl text-white shadow-ambient hover:opacity-90',
                 )}
               >
                 {t('landing.getStarted', {}, { defaultValue: 'Start tracking — free' })}
@@ -107,6 +91,11 @@ export function PublicTopNav() {
           )}
         </div>
       </div>
+      {/* Ghost border */}
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 h-px w-full bg-outline-variant/15"
+      />
     </nav>
   )
 }

@@ -106,7 +106,7 @@ export function Landing() {
                 cm.textSize('5xl'),
                 cm.fontWeight('bold'),
                 cm.sp('mt', 3),
-                'leading-[0.95] tracking-tight',
+                'leading-[0.95] tracking-tight font-headline',
               )}
             >
               {t(
@@ -155,7 +155,7 @@ export function Landing() {
                   cm.textSize('4xl'),
                   cm.fontWeight('bold'),
                   cm.sp('mt', 2),
-                  'leading-tight tracking-tight',
+                  'leading-tight tracking-tight font-headline',
                 )}
               >
                 {t(
@@ -178,9 +178,7 @@ export function Landing() {
                 <span
                   className={cm.cn(
                     cm.flex({ align: 'center', justify: 'center' }),
-                    cm.w(12),
-                    cm.h(12),
-                    'rounded-xl bg-primary/10 text-primary ring-1 ring-primary/20',
+                    'h-12 w-12 rounded-xl bg-primary/10 text-primary ring-1 ring-primary/20',
                   )}
                   aria-hidden="true"
                 >
@@ -252,7 +250,7 @@ export function Landing() {
                     cm.textSize('4xl'),
                     cm.fontWeight('bold'),
                     cm.sp('mt', 2),
-                    'leading-tight tracking-tight',
+                    'leading-tight tracking-tight font-headline',
                   )}
                 >
                   {t(
@@ -380,7 +378,7 @@ export function Landing() {
                 cm.textSize('5xl'),
                 cm.fontWeight('bold'),
                 cm.sp('mt', 3),
-                'leading-[0.95] tracking-tight',
+                'leading-[0.95] tracking-tight font-headline',
               )}
             >
               {t('landing.cta.heading', {}, { defaultValue: 'Stop waiting. Start timing.' })}
@@ -415,7 +413,7 @@ export function Landing() {
                   cm.sp('px', 8),
                   cm.sp('py', 3),
                   cm.fontWeight('bold'),
-                  'rounded-full bg-accent text-[#0c1929] hover:bg-accent/90 transition-colors shadow-lg',
+                  'rounded-full bg-accent text-on-accent hover:bg-accent/90 transition-colors shadow-lg',
                 )}
               >
                 {t('landing.cta.signup', {}, { defaultValue: 'Create a free account' })}

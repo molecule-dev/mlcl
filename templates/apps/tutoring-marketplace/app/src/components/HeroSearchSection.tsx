@@ -41,14 +41,10 @@ export function HeroSearchSection() {
   return (
     <section
       className={cm.cn(
-        'relative overflow-hidden rounded-[2rem] text-on-primary',
+        'relative overflow-hidden bg-gradient-to-br from-primary-dark via-primary to-violet text-on-primary',
         cm.sp('px', 8),
         cm.sp('py', 16),
       )}
-      style={{
-        background:
-          'linear-gradient(135deg, var(--mol-color-primary-dark) 0%, var(--mol-color-primary) 50%, #7c3aed 100%)',
-      }}
     >
       <div
         aria-hidden="true"
@@ -58,11 +54,17 @@ export function HeroSearchSection() {
       />
       <div
         aria-hidden="true"
-        className={cm.cn('absolute -left-24 -bottom-32 w-[24rem] h-[24rem] rounded-full blur-3xl')}
-        style={{ backgroundColor: 'rgba(245, 158, 11, 0.25)' }}
+        className={cm.cn(
+          'absolute -left-24 -bottom-32 w-[24rem] h-[24rem] rounded-full bg-secondary/25 blur-3xl',
+        )}
       />
 
-      <div className={cm.cn(cm.flex({ direction: 'col', align: 'center' }), 'relative z-10')}>
+      <div
+        className={cm.cn(
+          cm.flex({ direction: 'col', align: 'center' }),
+          'relative z-10 mx-auto w-full max-w-5xl',
+        )}
+      >
         <span
           className={cm.cn(
             cm.textSize('xs'),
@@ -117,9 +119,8 @@ export function HeroSearchSection() {
           <span
             aria-hidden="true"
             className={cm.cn(
-              'material-symbols-outlined absolute left-6 top-1/2 -translate-y-1/2 text-2xl',
+              'material-symbols-outlined absolute left-6 top-1/2 -translate-y-1/2 text-2xl text-primary',
             )}
-            style={{ color: 'var(--mol-color-primary)' }}
           >
             search
           </span>
@@ -143,9 +144,8 @@ export function HeroSearchSection() {
             className={cm.cn(
               cm.fontWeight('bold'),
               cm.textSize('sm'),
-              'absolute right-2 top-1/2 -translate-y-1/2 px-6 py-3 rounded-full text-on-primary transition-transform hover:scale-[1.03]',
+              'absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-secondary px-6 py-3 text-on-secondary transition-colors hover:bg-secondary-dark',
             )}
-            style={{ backgroundColor: 'var(--mol-color-primary-dark)' }}
           >
             {t('heroSearchSection.searchCta', {}, { defaultValue: 'Find tutor' })}
           </button>

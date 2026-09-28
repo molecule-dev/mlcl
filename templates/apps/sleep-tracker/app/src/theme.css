@@ -157,8 +157,33 @@
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     The Stitch landing design sets headlines in Inter (same face as body)
+     at heavy weights — no serif. */
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* === Landing design tokens (Stitch: design-sleep-tracker-landing) ===
+     Night-surface palette for the marketing hero, ring visual, hypnogram
+     card, science strip and CTA band. Light mode maps the design's deep
+     night colors onto soft indigo tints over the light canvas; dark mode
+     uses the design's literal deep-night stops. */
+  --color-night-deep: #1e1b4b; /* icon tiles, CTA text on amber, aurora anchor */
+  --color-night-deep-2: #3730a3; /* aurora gradient far corner */
+  --color-night-surface: #ffffff; /* hero visual + feature card background */
+  --color-night-chart: #eeeeff; /* hypnogram track / footer canvas */
+  --color-night-edge: #c4c4dc; /* hairline borders on night surfaces */
+  --color-night-muted: #46445a; /* secondary text on night surfaces */
+  --color-ring-glow: rgba(129, 140, 248, 0.2); /* sleep-ring halo */
+  /* Aurora canvas wash — light mode stays on the light canvas; dark mode
+     uses the design's deep-night diagonal (#0c0a1d → #1e1b4b). */
+  --color-aurora-from: #f0f0ff;
+  --color-aurora-to: #e0e7ff;
+  /* CTA band gradient — deep indigo → violet in BOTH modes (brand panel;
+     per-mode flips would put white text on pale violet in dark mode).
+     #a78bfa end pairs with white headline text centered over the mid stop. */
+  --color-band-from: #3730a3;
+  --color-band-via: #4f46e5;
+  --color-band-to: #a78bfa;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-md: 1rem;
@@ -299,4 +324,92 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.65);
+
+  /* Landing design tokens — dark stops from the Stitch design
+     (brand.deep #0c0a1d / surface #1a1744 / chart #08061a,
+     text.secondary #a5a3c9, indigo-900/30 edges). */
+  --color-night-deep: #0c0a1d;
+  --color-night-deep-2: #1e1b4b;
+  --color-night-surface: #1a1744;
+  --color-night-chart: #08061a;
+  --color-night-edge: #2a276e;
+  --color-night-muted: #a5a3c9;
+  --color-ring-glow: rgba(129, 140, 248, 0.2);
+  --color-aurora-from: #0c0a1d;
+  --color-aurora-to: #1e1b4b;
+  /* CTA band gradient — same stops in dark mode (see light comment). */
+  --color-band-from: #3730a3;
+  --color-band-via: #4f46e5;
+  --color-band-to: #a78bfa;
+}
+
+/* === Landing composites (Stitch: design-sleep-tracker-landing) ===
+   Multi-stop backgrounds that can't be expressed as a single Tailwind
+   utility. All stops resolve through theme tokens so both modes track. */
+
+/* Hero aurora — two radial glows over a mode-aware diagonal wash (deep
+   night in dark mode, soft indigo-tinted light canvas in light mode). */
+.landing-aurora {
+  background:
+    radial-gradient(
+      circle at 70% 30%,
+      color-mix(in oklab, var(--color-stage-rem) 15%, transparent),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 30% 70%,
+      color-mix(in oklab, var(--color-stage-deep) 20%, transparent),
+      transparent 40%
+    ),
+    linear-gradient(to bottom right, var(--color-aurora-from), var(--color-aurora-to));
+}
+
+/* Sleep score ring — conic sweep of the four stage colors with a halo. */
+.sleep-ring {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  padding: 14px;
+  background: conic-gradient(
+    from 180deg,
+    var(--color-stage-deep) 0%,
+    var(--color-stage-light) 40%,
+    var(--color-stage-rem) 80%,
+    var(--color-stage-awake) 90%,
+    var(--color-stage-deep) 100%
+  );
+  box-shadow: 0 0 40px var(--color-ring-glow);
+}
+.sleep-ring-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--color-night-surface);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 400px) {
+  .sleep-ring {
+    width: 264px;
+    height: 264px;
+    padding: 12px;
+  }
+}
+
+/* Hypnogram bar track — near-black channel behind the stage segments. */
+.hypnogram-track {
+  display: flex;
+  height: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--color-night-chart);
+  border: 1px solid color-mix(in oklab, var(--color-stage-rem) 20%, transparent);
+}
+
+/* CTA band dot texture — faint white speckle over the gradient. */
+.landing-dots {
+  background-image: radial-gradient(color-mix(in srgb, white 5%, transparent) 1px, transparent 1px);
+  background-size: 20px 20px;
 }

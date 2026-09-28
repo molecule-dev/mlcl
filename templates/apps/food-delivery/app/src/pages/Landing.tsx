@@ -13,7 +13,9 @@ const FEATURED_CUISINES = [
     rating: 4.8,
     eta: '25–35',
     icon: 'ramen_dining',
-    gradient: 'linear-gradient(135deg, #ec4899 0%, #f43f5e 50%, #fb923c 100%)',
+    gradient: 'food-grad-sushi',
+    freeDelivery: true,
+    fee: '$0.00',
   },
   {
     key: 'italian',
@@ -22,7 +24,9 @@ const FEATURED_CUISINES = [
     rating: 4.7,
     eta: '30–40',
     icon: 'restaurant',
-    gradient: 'linear-gradient(135deg, #16a34a 0%, #dc2626 50%, #f59e0b 100%)',
+    gradient: 'food-grad-italian',
+    freeDelivery: false,
+    fee: '$2.99',
   },
   {
     key: 'indian',
@@ -31,7 +35,9 @@ const FEATURED_CUISINES = [
     rating: 4.6,
     eta: '20–30',
     icon: 'ramen_dining',
-    gradient: 'linear-gradient(135deg, #f59e0b 0%, #dc2626 50%, #7c2d12 100%)',
+    gradient: 'food-grad-indian',
+    freeDelivery: false,
+    fee: '$1.49',
   },
 ] as const
 
@@ -55,21 +61,18 @@ const STEPS = [
     icon: 'storefront',
     defaultTitle: 'Browse',
     defaultBody: 'Find restaurants and dishes you love.',
-    tint: 'text-primary',
   },
   {
     key: 'order',
     icon: 'shopping_bag',
     defaultTitle: 'Order',
     defaultBody: 'Pay securely and track your order in real time.',
-    tint: 'text-success',
   },
   {
     key: 'enjoy',
     icon: 'restaurant',
     defaultTitle: 'Enjoy',
     defaultBody: 'Receive your meal hot at your door.',
-    tint: 'text-warning',
   },
 ] as const
 
@@ -77,12 +80,13 @@ export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const isAuthenticated = useIsAuthenticated()
+  const year = new Date().getFullYear()
 
   return (
     <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
       <nav
         className={
-          'sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/40'
+          'sticky top-0 z-50 bg-surface/95 backdrop-blur-md shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)]'
         }
       >
         <div
@@ -94,15 +98,21 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={'text-xl font-extrabold tracking-tight'}>
+          <Link
+            to="/"
+            className={
+              'text-2xl font-black italic tracking-tighter text-primary [font-family:var(--font-headline)]'
+            }
+          >
             {APP_NAME}
           </Link>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
               <Link
                 to="/restaurants"
+                data-mol-id="landing-nav-dashboard"
                 className={
-                  'px-5 py-2 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
+                  'px-5 py-2 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary-hover transition-colors'
                 }
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -111,14 +121,16 @@ export function Landing() {
               <>
                 <Link
                   to="/login"
-                  className={'text-sm font-medium text-on-surface-variant hover:text-on-surface'}
+                  data-mol-id="landing-nav-sign-in"
+                  className={'text-sm font-medium text-on-surface-variant hover:text-primary'}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
                 </Link>
                 <Link
                   to="/signup"
+                  data-mol-id="landing-nav-get-started"
                   className={
-                    'px-5 py-2 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
+                    'px-5 py-2 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary-hover transition-colors'
                   }
                 >
                   {t('common.getStarted', {}, { defaultValue: 'Get started' })}
@@ -130,100 +142,121 @@ export function Landing() {
       </nav>
 
       <main>
-        {/* Hero — warm crimson-amber gradient with sample restaurant card on the right */}
-        <section className="relative overflow-hidden">
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 25% 30%, rgba(232, 85, 45, 0.18), transparent 50%),' +
-                'radial-gradient(circle at 78% 60%, rgba(245, 158, 11, 0.15), transparent 45%)',
-            }}
-            aria-hidden="true"
-          />
-          <div
-            className={cm.cn(
-              cm.maxW('7xl'),
-              cm.mxAuto,
-              cm.sp('px', 6),
-              'relative py-20 md:py-28 lg:py-32',
-            )}
-          >
-            <div className={'grid grid-cols-1 lg:grid-cols-12 gap-12 items-center'}>
-              <div className={'lg:col-span-7'}>
-                <p className={'text-sm font-bold uppercase tracking-widest text-primary mb-4'}>
-                  {t('landing.eyebrow', {}, { defaultValue: 'Local restaurants · live delivery' })}
-                </p>
-                <h1
+        {/* Hero — brand gradient band, DM Sans display headline, address pill */}
+        <section className="landing-hero-grad relative overflow-hidden">
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'relative z-10 py-20')}>
+            <div className={'grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'}>
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <h1
+                    className={
+                      'text-5xl md:text-[56px] leading-[1.1] font-black tracking-tight text-white [font-family:var(--font-headline)]'
+                    }
+                  >
+                    {t(
+                      'landing.heroTitle',
+                      { tagline: APP_TAGLINE },
+                      { defaultValue: '{{tagline}}' },
+                    )}
+                  </h1>
+                  <p
+                    className={
+                      'text-lg md:text-xl font-bold text-white/95 max-w-md leading-relaxed'
+                    }
+                  >
+                    {t(
+                      'landing.heroSubtitle',
+                      {},
+                      {
+                        defaultValue:
+                          'Order from hundreds of local restaurants. Track every bite from kitchen to door. Hot, fresh, fast.',
+                      },
+                    )}
+                  </p>
+                </div>
+
+                {/* Address pill → restaurant browsing */}
+                <div
                   className={
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] mb-6'
+                    'bg-surface p-2 rounded-full flex items-center shadow-2xl h-16 w-full max-w-[500px]'
                   }
                 >
-                  {t(
-                    'landing.heroTitle',
-                    { tagline: APP_TAGLINE },
-                    { defaultValue: '{{tagline}}' },
-                  )}
-                </h1>
-                <p className={'text-lg text-on-surface-variant max-w-xl leading-relaxed mb-10'}>
-                  {t(
-                    'landing.heroSubtitle',
-                    {},
-                    {
-                      defaultValue:
-                        'Order from hundreds of local restaurants. Track every bite from kitchen to door. Hot, fresh, fast.',
-                    },
-                  )}
-                </p>
+                  <span
+                    className="material-symbols-outlined text-primary pl-4 pr-2"
+                    aria-hidden="true"
+                  >
+                    location_on
+                  </span>
+                  <input
+                    type="text"
+                    aria-label={t(
+                      'landing.addressPlaceholder',
+                      {},
+                      { defaultValue: 'Enter delivery address' },
+                    )}
+                    placeholder={t(
+                      'landing.addressPlaceholder',
+                      {},
+                      { defaultValue: 'Enter delivery address' },
+                    )}
+                    className={
+                      'flex-1 min-w-0 bg-transparent border-none outline-none text-on-surface placeholder:text-on-surface-variant font-medium h-full'
+                    }
+                  />
+                  <Link
+                    to="/restaurants"
+                    data-mol-id="landing-hero-find-food"
+                    className={
+                      'bg-success text-white px-6 md:px-8 h-full rounded-full font-semibold flex items-center hover:opacity-90 transition-opacity shrink-0'
+                    }
+                  >
+                    {t('landing.findFood', {}, { defaultValue: 'Find food' })}
+                  </Link>
+                </div>
+
+                {/* Trust chips */}
                 <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
-                  <Link
-                    to="/signup"
-                    className={
-                      'inline-flex items-center gap-2 px-8 py-4 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
-                    }
-                  >
-                    {t('landing.heroCta', {}, { defaultValue: 'Order now' })}
-                    <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                      arrow_forward
+                  <span className={'flex items-center gap-1 text-sm font-semibold text-white/95'}>
+                    <span className="material-symbols-outlined text-base" aria-hidden="true">
+                      restaurant
                     </span>
-                  </Link>
-                  <Link
-                    to="/login"
-                    className={
-                      'px-8 py-4 font-semibold rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors'
-                    }
-                  >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                  </Link>
+                    {t('landing.trust.restaurants', {}, { defaultValue: '500+ local restaurants' })}
+                  </span>
+                  <span className="w-1 h-1 bg-white/50 rounded-full" aria-hidden="true" />
+                  <span className={'flex items-center gap-1 text-sm font-semibold text-white/95'}>
+                    <span className="material-symbols-outlined text-base" aria-hidden="true">
+                      timer
+                    </span>
+                    {t('landing.trust.avgDelivery', {}, { defaultValue: '25 min avg delivery' })}
+                  </span>
                 </div>
               </div>
 
               {/* Sample restaurant hero card */}
-              <div className={'lg:col-span-5'}>
+              <div className={'hidden lg:block'}>
                 <div
                   className={
-                    'relative overflow-hidden rounded-[2rem] text-white shadow-2xl shadow-primary/20'
+                    'relative overflow-hidden rounded-[2rem] text-white shadow-2xl shadow-black/30'
                   }
-                  style={{
-                    background:
-                      'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 50%, var(--color-star) 100%)',
-                    minHeight: '420px',
-                  }}
+                  style={{ backgroundColor: 'var(--color-hero-mid)', minHeight: '420px' }}
                 >
                   <div
                     className={
                       'absolute -right-16 -bottom-16 w-56 h-56 rounded-full bg-surface/15 blur-3xl'
                     }
+                    aria-hidden="true"
                   />
                   <div
                     className={
                       'absolute right-12 top-16 w-32 h-32 rounded-full border-4 border-surface/20'
                     }
+                    aria-hidden="true"
                   />
                   <div
                     className={
                       'absolute right-20 top-32 w-20 h-20 rounded-full border-2 border-surface/30'
                     }
+                    aria-hidden="true"
                   />
 
                   <div className={'relative z-10 p-7 flex flex-col justify-between min-h-[420px]'}>
@@ -255,11 +288,8 @@ export function Landing() {
                       <div className={cm.flex({ align: 'start', gap: 'md' })}>
                         <div
                           className={
-                            'w-16 h-16 rounded-xl flex items-center justify-center shrink-0'
+                            'w-16 h-16 rounded-xl flex items-center justify-center shrink-0 food-grad-sushi'
                           }
-                          style={{
-                            background: 'linear-gradient(135deg, #ec4899 0%, #f43f5e 100%)',
-                          }}
                           aria-hidden="true"
                         >
                           <span className="material-symbols-outlined text-3xl text-white">
@@ -268,10 +298,10 @@ export function Landing() {
                         </div>
                         <div className={'flex-1 min-w-0'}>
                           <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
-                            Japanese
+                            {t('landing.sample.cuisine', {}, { defaultValue: 'Japanese' })}
                           </p>
                           <h3 className={'text-base font-extrabold tracking-tight'}>
-                            Sakura Sushi
+                            {t('landing.sample.restaurant', {}, { defaultValue: 'Sakura Sushi' })}
                           </h3>
                           <div
                             className={
@@ -307,7 +337,7 @@ export function Landing() {
                     </div>
 
                     <div>
-                      <p className="text-[11px] font-bold uppercase tracking-widest text-white/80">
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-white/85">
                         {t('landing.sample.trending', {}, { defaultValue: 'Trending tonight' })}
                       </p>
                       <p className={'text-2xl font-extrabold mt-1'}>
@@ -325,131 +355,261 @@ export function Landing() {
           </div>
         </section>
 
-        {/* Cuisine grid */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-12')}>
-          <h2 className={'mb-6 text-2xl md:text-3xl font-extrabold tracking-tight'}>
-            {t('landing.exploreHeading', {}, { defaultValue: 'Explore by craving' })}
-          </h2>
-          <div className={'grid grid-cols-4 md:grid-cols-8 gap-3'}>
-            {CATEGORIES.map((c) => (
-              <Link
-                key={c.key}
-                to={`/restaurants?cuisine=${encodeURIComponent(c.key)}`}
-                className={
-                  'bg-surface-container-lowest rounded-2xl p-4 text-center hover:shadow-lg hover:bg-surface-container transition-all group'
-                }
-              >
-                <div
+        {/* Category pill strip */}
+        <section className="bg-[var(--color-landing-band)] border-b border-outline-variant/40">
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-6')}>
+            <div className={'flex overflow-x-auto gap-4 pb-2'}>
+              {CATEGORIES.map((c, i) => (
+                <Link
+                  key={c.key}
+                  to={`/restaurants?cuisine=${encodeURIComponent(c.key)}`}
+                  data-mol-id={`landing-category-${c.key}`}
                   className={
-                    'w-12 h-12 mx-auto rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform'
+                    'flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm whitespace-nowrap shrink-0 transition-colors ' +
+                    (i === 0
+                      ? 'bg-primary text-on-primary'
+                      : 'bg-surface text-on-surface hover:bg-surface-hover shadow-sm')
                   }
                 >
-                  <span className={'material-symbols-outlined text-2xl'} aria-hidden="true">
+                  <span className={'material-symbols-outlined text-lg'} aria-hidden="true">
                     {c.icon}
                   </span>
-                </div>
-                <p className={'text-xs font-bold mt-2 truncate'}>
                   {t(`landing.category.${c.key}`, {}, { defaultValue: c.label })}
-                </p>
-              </Link>
-            ))}
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Featured restaurants */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-12')}>
-          <h2 className={'mb-6 text-2xl md:text-3xl font-extrabold tracking-tight'}>
-            {t('landing.featuredHeading', {}, { defaultValue: "Tonight's favorites" })}
-          </h2>
+        {/* Popular near you */}
+        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16')}>
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' }),
+              cm.sp('mb', 8),
+            )}
+          >
+            <div>
+              <h2
+                className={'text-3xl font-bold tracking-tight [font-family:var(--font-headline)]'}
+              >
+                {t('landing.featuredHeading', {}, { defaultValue: "Tonight's favorites" })}
+              </h2>
+              <p className={'text-on-surface-variant mt-1'}>
+                {t(
+                  'landing.featuredSubheading',
+                  {},
+                  { defaultValue: 'Highly rated local favorites.' },
+                )}
+              </p>
+            </div>
+            <Link
+              to="/restaurants"
+              data-mol-id="landing-view-all"
+              className={
+                'text-primary font-semibold hover:opacity-80 flex items-center gap-1 group'
+              }
+            >
+              {t('landing.viewAll', {}, { defaultValue: 'View all' })}
+              <span
+                className={
+                  'material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform'
+                }
+                aria-hidden="true"
+              >
+                arrow_forward
+              </span>
+            </Link>
+          </div>
           <div className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-3')}>
             {FEATURED_CUISINES.map((r) => (
               <div
                 key={r.key}
                 className={
-                  'rounded-2xl overflow-hidden bg-surface-container-lowest hover:shadow-2xl hover:shadow-on-surface/5 transition-all group'
+                  'rounded-2xl overflow-hidden bg-surface shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all group'
                 }
               >
                 <div
-                  className={'aspect-[16/9] flex items-center justify-center'}
-                  style={{ background: r.gradient }}
+                  className={'relative aspect-[16/9] flex items-center justify-center'}
                   aria-hidden="true"
                 >
+                  <span className={`absolute inset-0 ${r.gradient}`} />
                   <span
                     className={
-                      'material-symbols-outlined text-[80px] text-white/40 group-hover:scale-110 transition-transform'
+                      'relative material-symbols-outlined text-[80px] text-white/40 group-hover:scale-110 transition-transform'
                     }
                   >
                     {r.icon}
                   </span>
-                </div>
-                <div className={'p-4'}>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
-                    {r.cuisine}
-                  </p>
-                  <h3 className={'text-base font-extrabold tracking-tight mt-0.5'}>{r.name}</h3>
-                  <div
-                    className={'flex items-center gap-2 mt-2 text-[11px] text-on-surface-variant'}
+                  <span
+                    className={
+                      'absolute top-4 right-4 bg-surface/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-on-surface flex items-center gap-1 shadow-sm'
+                    }
                   >
-                    <span className={'inline-flex items-center gap-0.5'}>
-                      <span
-                        className="material-symbols-outlined text-[12px] text-warning"
-                        aria-hidden="true"
-                      >
+                    <span
+                      className="material-symbols-outlined text-[14px] text-primary"
+                      aria-hidden="true"
+                    >
+                      schedule
+                    </span>
+                    <span className="tabular-nums">{r.eta} min</span>
+                  </span>
+                </div>
+                <div className={'p-5'}>
+                  <div className={cm.flex({ align: 'start', justify: 'between', gap: 'sm' })}>
+                    <h3 className="text-xl font-bold tracking-tight [font-family:var(--font-headline)] group-hover:text-primary transition-colors">
+                      {t(`landing.featured.${r.key}.name`, {}, { defaultValue: r.name })}
+                    </h3>
+                    <span
+                      className={
+                        'flex items-center bg-surface-container px-2 py-1 rounded-lg shrink-0'
+                      }
+                    >
+                      <span className="material-symbols-outlined text-[14px] text-warning mr-1">
                         star
                       </span>
-                      <span className="font-semibold tabular-nums">{r.rating.toFixed(1)}</span>
+                      <span className="font-semibold text-sm tabular-nums">
+                        {r.rating.toFixed(1)}
+                      </span>
                     </span>
-                    <span aria-hidden="true">·</span>
-                    <span>{r.eta} min</span>
                   </div>
+                  <p className="text-on-surface-variant text-sm font-medium mt-2">
+                    {r.cuisine}
+                    <span className="mx-2" aria-hidden="true">
+                      •
+                    </span>
+                    {r.freeDelivery ? (
+                      <span className="text-success font-semibold">
+                        {t('landing.card.freeDelivery', {}, { defaultValue: 'Free delivery' })}
+                      </span>
+                    ) : (
+                      <span className="tabular-nums">
+                        {t('landing.card.fee', { price: r.fee }, { defaultValue: '{{price}} fee' })}
+                      </span>
+                    )}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Steps */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
-          <h2 className={'mb-12 text-center text-3xl md:text-4xl font-extrabold tracking-tight'}>
-            {t(
-              'landing.stepsHeading',
-              { appName: APP_NAME },
-              { defaultValue: 'How {{appName}} delivers' },
-            )}
-          </h2>
-          <div className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-3')}>
-            {STEPS.map((s, i) => (
-              <div
-                key={s.key}
+        {/* Limited-time offer banner */}
+        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'mb-16')}>
+          <div
+            className={
+              'landing-offer-grad rounded-[2rem] p-10 flex flex-col md:flex-row items-center justify-between overflow-hidden relative shadow-lg'
+            }
+          >
+            <div
+              className={
+                'absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3'
+              }
+              aria-hidden="true"
+            />
+            <div className={'relative z-10 max-w-lg mb-8 md:mb-0'}>
+              <span
                 className={
-                  'bg-surface-container-lowest rounded-2xl p-6 hover:shadow-2xl hover:shadow-on-surface/5 transition-all group relative'
+                  'inline-block bg-[var(--color-primary-deep)] text-white text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-wider'
                 }
               >
+                {t('landing.offer.chip', {}, { defaultValue: 'Limited time' })}
+              </span>
+              <h2
+                className={'text-4xl font-black leading-tight [font-family:var(--font-headline)]'}
+              >
+                {t('landing.offer.heading', {}, { defaultValue: 'Save 20% on your first order' })}
+              </h2>
+              <p className={'text-lg text-on-surface-variant font-medium mt-4 mb-8'}>
+                {t(
+                  'landing.offer.body',
+                  { app: APP_NAME },
+                  {
+                    defaultValue:
+                      'Use the code below at checkout to claim your discount on participating local spots.',
+                  },
+                )}
                 <span
                   className={
-                    'absolute -top-3 -left-3 w-10 h-10 rounded-full bg-primary text-on-primary text-sm font-extrabold flex items-center justify-center shadow-lg'
+                    'font-bold text-on-primary-container bg-surface px-2 py-1 rounded tabular-nums ml-2 whitespace-nowrap'
                   }
                 >
-                  {i + 1}
+                  CHARIOT20
                 </span>
-                <div
-                  className={cm.cn(
-                    'inline-flex p-3 bg-surface rounded-xl shadow-sm group-hover:scale-110 transition-transform',
-                    s.tint,
-                  )}
-                >
-                  <span className="material-symbols-outlined text-3xl" aria-hidden="true">
-                    {s.icon}
-                  </span>
+              </p>
+              <Link
+                to="/signup"
+                data-mol-id="landing-offer-cta"
+                className={
+                  'inline-block bg-success text-white px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition-opacity shadow-md'
+                }
+              >
+                {t('landing.offer.cta', {}, { defaultValue: 'Claim offer' })}
+              </Link>
+            </div>
+            <div
+              className={
+                'relative z-10 w-64 h-64 rounded-full food-grad-italian shadow-2xl border-8 border-surface -rotate-6 flex items-center justify-center shrink-0'
+              }
+              aria-hidden="true"
+            >
+              <span className="material-symbols-outlined text-[96px] text-white/50">
+                shopping_bag
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* How it works — circular step bubbles with connector line */}
+        <section className="bg-[var(--color-landing-band)]">
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20 text-center')}>
+            <h2
+              className={
+                'mb-16 text-3xl font-bold tracking-tight [font-family:var(--font-headline)]'
+              }
+            >
+              {t(
+                'landing.stepsHeading',
+                { appName: APP_NAME },
+                { defaultValue: 'How {{appName}} delivers' },
+              )}
+            </h2>
+            <div
+              className={cm.cn(
+                cm.grid({ gap: 'lg' }),
+                'grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto relative',
+              )}
+            >
+              <div
+                className={
+                  'hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-primary/20'
+                }
+                aria-hidden="true"
+              />
+              {STEPS.map((s, i) => (
+                <div key={s.key} className="relative z-10 flex flex-col items-center group">
+                  <div
+                    className={
+                      'w-24 h-24 bg-surface rounded-full shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] flex items-center justify-center mb-6 group-hover:-translate-y-2 transition-transform'
+                    }
+                  >
+                    <span
+                      className={'material-symbols-outlined text-4xl text-primary relative z-10'}
+                      aria-hidden="true"
+                    >
+                      {s.icon}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 [font-family:var(--font-headline)]">
+                    {i + 1}.{' '}
+                    {t(`landing.step.${s.key}.title`, {}, { defaultValue: s.defaultTitle })}
+                  </h3>
+                  <p className="text-on-surface-variant font-medium max-w-xs">
+                    {t(`landing.step.${s.key}.body`, {}, { defaultValue: s.defaultBody })}
+                  </p>
                 </div>
-                <h3 className={'text-lg font-bold mt-5 mb-2'}>
-                  {t(`landing.step.${s.key}.title`, {}, { defaultValue: s.defaultTitle })}
-                </h3>
-                <p className={'text-sm text-on-surface-variant leading-relaxed'}>
-                  {t(`landing.step.${s.key}.body`, {}, { defaultValue: s.defaultBody })}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
@@ -467,8 +627,9 @@ export function Landing() {
             </p>
             <Link
               to="/signup"
+              data-mol-id="landing-footer-cta"
               className={
-                'inline-flex items-center gap-2 px-10 py-4 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors'
+                'inline-flex items-center gap-2 px-10 py-4 font-semibold bg-primary text-on-primary rounded-full hover:bg-primary-hover transition-colors'
               }
             >
               {t('landing.heroCta', {}, { defaultValue: 'Order now' })}
@@ -480,18 +641,44 @@ export function Landing() {
         </section>
       </main>
 
-      <footer
-        className={
-          'py-8 text-center text-sm bg-surface text-on-surface-variant border-t border-outline-variant'
-        }
-      >
-        <p>
-          {t(
-            'common.copyrightBuiltWithMolecule',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Built with Molecule.' },
+      <footer className="bg-[var(--color-footer-bg)] rounded-t-[2rem] border-t border-outline-variant/40">
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            'py-12 flex flex-col md:flex-row justify-between items-center gap-6',
           )}
-        </p>
+        >
+          <div className="flex flex-col gap-2 items-center md:items-start">
+            <span
+              className={
+                'text-2xl font-black italic tracking-tighter text-primary [font-family:var(--font-headline)]'
+              }
+            >
+              {APP_NAME}
+            </span>
+            <p className="text-on-surface-variant text-sm max-w-xs text-center md:text-left">
+              {t('landing.footerTagline', {}, { defaultValue: 'Hot, fresh, fast — at your door.' })}
+            </p>
+          </div>
+          <p className="text-sm text-on-surface-variant text-center">
+            {t(
+              'common.copyrightAllRightsReserved',
+              { year, app: APP_NAME },
+              { defaultValue: '© {{year}} {{app}}. All rights reserved.' },
+            )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
+          </p>
+        </div>
       </footer>
     </div>
   )

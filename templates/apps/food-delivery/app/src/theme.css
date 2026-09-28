@@ -33,8 +33,22 @@
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Design (Chariot): DM Sans black display headings. */
+  --font-headline: 'DM Sans', 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* === Landing marketing surface (design: Chariot) === */
+  /* Hero brand gradient — deep stop sits under the headline/subtitle so
+     small white text keeps ≥4.5:1; the vivid brand stop lands bottom-right
+     where only large text and white plates sit. Same in both modes. */
+  --color-hero-from: #9a3412;
+  --color-hero-mid: #c2410c;
+  --color-hero-to: #e8590c;
+  --color-primary-deep: #c2410c; /* small white-on-orange chips — 5.2:1 */
+  --color-landing-band: #fff7f5; /* category pill strip backdrop */
+  --color-offer-from: #fff1eb; /* offer banner bento gradient */
+  --color-offer-to: #fff7f5;
+  --color-footer-bg: #faf8f6; /* design footer plate */
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -207,6 +221,17 @@
   --color-accent-warm: #fbbf24;
   --color-auth-card-shadow: rgba(251, 146, 60, 0.18);
 
+  /* Landing marketing surface — dark counterparts (brand hero gradient and
+     deep-orange chip stay fixed; plates flip to the warm dark surfaces). */
+  --color-hero-from: #9a3412;
+  --color-hero-mid: #c2410c;
+  --color-hero-to: #e8590c;
+  --color-primary-deep: #c2410c;
+  --color-landing-band: #241611;
+  --color-offer-from: #2c2016;
+  --color-offer-to: #241611;
+  --color-footer-bg: #211a14;
+
   /* === @mol-color-* provider bridge tokens === */
   --mol-color-primary: #fb923c;
   --mol-color-primary-light: rgba(251, 146, 60, 0.18);
@@ -269,4 +294,28 @@
    wherever that combination appears. */
 .bg-primary-container.text-primary {
   color: var(--color-on-primary-container);
+}
+
+/* Landing (Chariot design) gradient utilities — keeps raw gradients out of JSX. */
+.landing-hero-grad {
+  background-image: linear-gradient(
+    135deg,
+    var(--color-hero-from) 0%,
+    var(--color-hero-mid) 45%,
+    var(--color-hero-to) 100%
+  );
+}
+.landing-offer-grad {
+  background-image: linear-gradient(120deg, var(--color-offer-from) 0%, var(--color-offer-to) 100%);
+}
+/* Featured restaurant tiles — token gradients stand in for the design's
+   food photography (no hotlinked images in templates). */
+.food-grad-sushi {
+  background-image: linear-gradient(135deg, #ec4899 0%, #f43f5e 50%, #fb923c 100%);
+}
+.food-grad-italian {
+  background-image: linear-gradient(135deg, #16a34a 0%, #dc2626 50%, #f59e0b 100%);
+}
+.food-grad-indian {
+  background-image: linear-gradient(135deg, #f59e0b 0%, #dc2626 50%, #7c2d12 100%);
 }

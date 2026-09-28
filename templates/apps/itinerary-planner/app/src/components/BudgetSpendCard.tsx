@@ -95,7 +95,7 @@ export function BudgetSpendCard({ spend }: { spend: BudgetSpend }) {
           cm.sp('mt', 3),
           'text-3xl font-extrabold tracking-tight tabular-nums leading-none',
         )}
-        style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+        style={{ fontFamily: 'var(--font-headline)' }}
       >
         {fmtMoney(spend.spent_cents)}
       </p>

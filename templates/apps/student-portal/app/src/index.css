@@ -25,3 +25,30 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Stitch headline helper — design-student-portal-landing.html sets display
+ * headings in Inter; theme.css maps --font-headline to it (shared molecule
+ * pages pick that up too). Apply this class to landing display headings.
+ */
+.font-headline {
+  font-family: var(--font-headline);
+}
+
+/*
+ * Soft indigo glows from the design's CTA / card shadows. color-mix off the
+ * primary token so both modes track the palette — no raw literals needed
+ * in the JSX, and the dark mode gets a naturally softer halo.
+ */
+.shadow-landing-cta {
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--color-primary) 39%, transparent);
+}
+.shadow-landing-card {
+  box-shadow: 0 24px 80px color-mix(in srgb, var(--color-primary) 14%, transparent);
+}
+.shadow-landing-soft {
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--color-primary) 8%, transparent);
+}
+.shadow-landing-nav {
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--color-primary) 6%, transparent);
+}

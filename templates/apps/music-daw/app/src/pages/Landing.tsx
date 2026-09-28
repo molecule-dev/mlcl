@@ -243,7 +243,7 @@ export function Landing() {
                   className={cm.cn(
                     'rounded-xl overflow-hidden border border-white/5 shadow-2xl',
                     'bg-[var(--fugue-panel)]',
-                    'shadow-[0_20px_50px_rgba(0,0,0,0.5)]',
+                    'shadow-[0_20px_50px_color-mix(in_oklab,black_50%,transparent)]',
                   )}
                 >
                   <div

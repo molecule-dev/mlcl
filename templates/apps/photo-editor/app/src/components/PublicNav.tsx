@@ -38,7 +38,7 @@ export function PublicNav() {
               cm.sp('px', 4),
               cm.sp('py', 2),
               cm.textSize('sm'),
-              'rounded-lg bg-gradient-to-r from-[var(--photo-accent)] to-[var(--photo-danger)] text-white hover:opacity-90 transition-opacity',
+              'rounded-lg bg-gradient-to-r from-[var(--photo-accent)] to-[var(--photo-danger)] text-white hover:opacity-90 transition-opacity shadow-[0_0_15px_var(--photo-glow)]',
             )}
           >
             {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -62,7 +62,7 @@ export function PublicNav() {
                 cm.sp('px', 4),
                 cm.sp('py', 2),
                 cm.textSize('sm'),
-                'rounded-lg bg-gradient-to-r from-[var(--photo-accent)] to-[var(--photo-danger)] text-white hover:opacity-90 transition-opacity',
+                'rounded-lg bg-gradient-to-r from-[var(--photo-accent)] to-[var(--photo-danger)] text-white hover:opacity-90 transition-opacity shadow-[0_0_15px_var(--photo-glow)]',
               )}
             >
               {t('landing.cta', { appName: APP_NAME }, { defaultValue: 'Open {{appName}}' })}

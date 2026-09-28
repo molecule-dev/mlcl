@@ -1,89 +1,89 @@
 :root {
   /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #0e7490;
-  --mol-color-primary-light: #cffafe;
-  --mol-color-primary-dark: #0c4a6e;
-  --mol-color-secondary: #6366f1;
-  --mol-color-background: #f0f9ff;
-  --mol-color-background-secondary: #e0f2fe;
-  --mol-color-background-tertiary: #cffafe;
+  --mol-color-primary: #00647c;
+  --mol-color-primary-light: #b7eaff;
+  --mol-color-primary-dark: #004e61;
+  --mol-color-secondary: #4648d4;
+  --mol-color-background: #faf8ff;
+  --mol-color-background-secondary: #f2f3ff;
+  --mol-color-background-tertiary: #eaedff;
   --mol-color-surface: #ffffff;
   --mol-color-surface-secondary: #f8fafc;
   --mol-color-input-background: #ffffff;
-  --mol-color-text: #0f172a;
-  --mol-color-text-secondary: #475569; /* was #64748b — 4.46:1 as footer links on #f0f9ff (axe serious); slate-600 = 7.1:1 */
-  --mol-color-text-tertiary: #475569;
+  --mol-color-text: #131b2e;
+  --mol-color-text-secondary: #3e484d; /* design on-surface-variant #3e484d = 7.9:1 on white */
+  --mol-color-text-tertiary: #3e484d;
   --mol-color-text-inverse: #ffffff;
-  --mol-color-border: #e2e8f0;
-  --mol-color-border-secondary: #cbd5e1;
-  --mol-color-border-focus: #0e7490;
+  --mol-color-border: #d5dde3;
+  --mol-color-border-secondary: #bdc8ce;
+  --mol-color-border-focus: #00647c;
   --mol-color-success: #047857; /* was #10b981 — 2.53:1 as landing feature icons on white (axe serious, needs 3:1); emerald-700 = 5.5:1 */
   --mol-color-warning: #f59e0b;
   --mol-color-error: #dc2626;
-  --mol-color-info: #0e7490; /* was #06b6d4 — 2.42:1 as landing feature icons on white (axe serious); cyan-700 = 5.4:1 */
+  --mol-color-info: #00647c; /* teal brand stop; white = 6.1:1 */
 
   /* === Material-3 / Stitch bridge tokens — light palette ===
      These feed bg-surface, text-on-surface, etc. in light mode. */
-  --color-background: #f0f9ff;
-  --color-on-background: #0f172a;
+  --color-background: #faf8ff;
+  --color-on-background: #131b2e;
   --color-surface: #ffffff;
   --color-surface-bright: #ffffff;
-  --color-surface-dim: #e0f2fe;
+  --color-surface-dim: #d2d9f4;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f0f9ff;
-  --color-surface-container: #e0f2fe;
-  --color-surface-container-high: #cffafe;
-  --color-surface-container-highest: #a5f3fc;
-  --color-surface-variant: #e0f2fe;
-  --color-on-surface: #0f172a;
-  --color-on-surface-variant: #475569;
-  --color-inverse-surface: #0f172a;
-  --color-inverse-on-surface: #e0f2fe;
-  --color-inverse-primary: #22d3ee;
-  --color-primary: #0e7490;
-  --color-primary-container: #cffafe;
+  --color-surface-container-low: #f2f3ff;
+  --color-surface-container: #eaedff;
+  --color-surface-container-high: #e2e7ff;
+  --color-surface-container-highest: #dae2fd;
+  --color-surface-variant: #dae2fd;
+  --color-on-surface: #131b2e;
+  --color-on-surface-variant: #3e484d;
+  --color-inverse-surface: #283044;
+  --color-inverse-on-surface: #eef0ff;
+  --color-inverse-primary: #6cd3f7;
+  --color-primary: #00647c; /* design primary; white = 6.1:1 */
+  --color-primary-container: #007f9d; /* design: FILLED teal for the primary→container gradient */
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #0c4a6e;
-  --color-secondary: #6366f1;
-  --color-secondary-container: #e0e7ff;
+  --color-on-primary-container: #fafdff;
+  --color-secondary: #4648d4;
+  --color-secondary-container: #6063ee;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #1e1b4b;
-  --color-tertiary: #0e7490;
-  --color-tertiary-container: #cffafe;
+  --color-on-secondary-container: #fffbff; /* white on #6063ee = 4.9:1 */
+  --color-tertiary: #894e00; /* design tertiary (amber-brown) */
+  --color-tertiary-container: #a86516;
   --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #0c4a6e;
+  --color-on-tertiary-container: #fffbff;
   --color-error: #dc2626;
   --color-error-container: #fee2e2;
   --color-on-error: #ffffff;
   --color-on-error-container: #450a0a;
-  --color-outline: #64748b;
-  --color-outline-variant: #e2e8f0;
-  --color-surface-tint: #0e7490;
+  --color-outline: #6e797e;
+  --color-outline-variant: #bdc8ce;
+  --color-surface-tint: #006780;
 
-  --color-primary-light: #67e8f9;
-  --color-primary-dark: #0c4a6e;
-  --color-secondary-light: #a5b4fc;
-  --color-secondary-dark: #4f46e5;
+  --color-primary-light: #6cd3f7;
+  --color-primary-dark: #004e61;
+  --color-secondary-light: #c0c1ff;
+  --color-secondary-dark: #2f2ebe;
   --color-accent: #06b6d4;
   --color-danger: #ef4444;
   --color-warning: #f59e0b;
   --color-success: #047857; /* keep in sync with --mol-color-success above (contrast fix) */
-  --color-info: #0e7490; /* keep in sync with --mol-color-info above (contrast fix) */
-  --color-background-secondary: #e0f2fe;
-  --color-background-tertiary: #cffafe;
+  --color-info: #00647c; /* keep in sync with --mol-color-info above */
+  --color-background-secondary: #f2f3ff;
+  --color-background-tertiary: #eaedff;
   --color-surface-secondary: #f8fafc;
-  --color-text: #0f172a;
-  --color-text-secondary: #475569; /* keep in sync with --mol-color-text-secondary above (contrast fix) */
-  --color-text-tertiary: #475569;
+  --color-text: #131b2e;
+  --color-text-secondary: #3e484d; /* keep in sync with --mol-color-text-secondary above */
+  --color-text-tertiary: #3e484d;
   --color-text-inverse: #ffffff;
-  --color-border: #e2e8f0;
-  --color-border-secondary: #cbd5e1;
-  --color-border-focus: #0e7490;
+  --color-border: #d5dde3;
+  --color-border-secondary: #bdc8ce;
+  --color-border-focus: #00647c;
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
   /* Headline font — picked up by shared molecule pages
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-headline: 'Inter', system-ui, -apple-system, sans-serif; /* design headlines are Inter */
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;

@@ -168,7 +168,7 @@ export function Landing() {
               cm.textSize('sm'),
               cm.sp('px', 5),
               cm.sp('py', 2),
-              'rounded-full bg-primary text-on-primary hover:bg-primary-active transition-colors',
+              'rounded-lg bg-primary text-on-primary hover:bg-primary-hover transition-colors',
             )}
           >
             {t('landing.navJoin', { appName: APP_NAME }, { defaultValue: 'Join {{appName}}' })}
@@ -177,21 +177,18 @@ export function Landing() {
       </header>
 
       <main className={cm.cn(cm.flex1, 'overflow-hidden')}>
-        <section className={cm.cn(cm.sp('px', 6), cm.sp('py', 16), 'relative overflow-hidden')}>
+        {/* Hero — light typographic split with a live thread preview (Quorum design) */}
+        <section className={cm.cn(cm.sp('px', 6), cm.sp('py', 16), 'lg:py-24')}>
           <div
             className={cm.cn(
-              cm.flex({ direction: 'col', justify: 'between' }),
-              cm.sp('p', 10),
-              'relative max-w-[1120px] mx-auto rounded-[2rem] overflow-hidden bg-gradient-to-br from-primary to-primary-container text-white',
+              'max-w-[1120px] mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16',
             )}
-            style={{ minHeight: 360 }}
           >
-            <div className="relative z-10 max-w-3xl">
+            <div className="flex-1 space-y-8 text-center lg:text-left">
               <span
                 className={cm.cn(
                   cm.fontWeight('bold'),
-                  cm.sp('mb', 4),
-                  'inline-block text-[11px] uppercase tracking-widest text-primary-fixed/80',
+                  'inline-block text-[11px] uppercase tracking-widest text-primary',
                 )}
               >
                 {t(
@@ -202,9 +199,8 @@ export function Landing() {
               </span>
               <h1
                 className={cm.cn(
-                  cm.fontWeight('bold'),
-                  cm.sp('mb', 6),
-                  'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] font-extrabold',
+                  cm.fontWeight('extrabold'),
+                  'text-5xl lg:text-7xl tracking-tight leading-tight text-on-surface [font-family:var(--font-headline)]',
                 )}
               >
                 {t(
@@ -216,9 +212,8 @@ export function Landing() {
               <p
                 className={cm.cn(
                   cm.textSize('lg'),
-                  cm.sp('mb', 8),
-                  cm.maxW('xl'),
-                  'leading-relaxed text-primary-fixed/90',
+                  cm.maxW('2xl'),
+                  'leading-relaxed text-on-surface-variant',
                 )}
               >
                 {t(
@@ -230,15 +225,21 @@ export function Landing() {
                   },
                 )}
               </p>
-              <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex-wrap')}>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
+                  'justify-center lg:justify-start pt-2',
+                )}
+              >
                 <Link
                   to="/signup"
+                  data-mol-id="landing-hero-join"
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 'xs' }),
-                    cm.fontWeight('bold'),
+                    cm.fontWeight('semibold'),
                     cm.sp('px', 6),
                     cm.sp('py', 3),
-                    'rounded-full bg-surface text-primary hover:-translate-y-0.5 transition-transform shadow-sm',
+                    'rounded-lg bg-primary text-on-primary hover:bg-primary-hover transition-colors shadow-sm text-lg',
                   )}
                 >
                   <span className={cm.cn('material-symbols-outlined text-base')}>
@@ -248,12 +249,13 @@ export function Landing() {
                 </Link>
                 <Link
                   to="/categories"
+                  data-mol-id="landing-hero-browse"
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 'xs' }),
                     cm.fontWeight('semibold'),
                     cm.sp('px', 6),
                     cm.sp('py', 3),
-                    'rounded-full border border-surface/40 text-white hover:bg-surface/10 backdrop-blur-md transition-colors',
+                    'rounded-lg border-2 border-outline-variant hover:border-outline text-on-surface bg-surface transition-colors shadow-sm text-lg',
                   )}
                 >
                   {t('landing.heroCtaSecondary', {}, { defaultValue: 'Browse communities' })}
@@ -262,102 +264,112 @@ export function Landing() {
               <div
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'lg' }),
-                  cm.sp('mt', 10),
-                  cm.textSize('sm'),
-                  'flex-wrap text-primary-fixed/80',
+                  'flex-wrap justify-center lg:justify-start',
                 )}
               >
                 <div className={cm.cn(cm.flex({ direction: 'col' }))}>
-                  <span className={cm.cn(cm.fontWeight('bold'), 'text-3xl text-white')}>
+                  <span className={cm.cn(cm.fontWeight('bold'), 'text-3xl text-on-surface')}>
                     {t('landing.heroStat1', {}, { defaultValue: '847k' })}
                   </span>
-                  <span className={cm.cn('uppercase tracking-widest text-xs')}>
+                  <span
+                    className={cm.cn('uppercase tracking-widest text-xs text-on-surface-variant')}
+                  >
                     {t('nav.members', {}, { defaultValue: 'Members' })}
                   </span>
                 </div>
                 <div className={cm.cn(cm.flex({ direction: 'col' }))}>
-                  <span className={cm.cn(cm.fontWeight('bold'), 'text-3xl text-white')}>
+                  <span className={cm.cn(cm.fontWeight('bold'), 'text-3xl text-on-surface')}>
                     {t('landing.heroStat2', {}, { defaultValue: '2,180' })}
                   </span>
-                  <span className={cm.cn('uppercase tracking-widest text-xs')}>
+                  <span
+                    className={cm.cn('uppercase tracking-widest text-xs text-on-surface-variant')}
+                  >
                     {t('landing.heroStat2Label', {}, { defaultValue: 'Communities' })}
                   </span>
                 </div>
                 <div className={cm.cn(cm.flex({ direction: 'col' }))}>
-                  <span className={cm.cn(cm.fontWeight('bold'), 'text-3xl text-white')}>
+                  <span className={cm.cn(cm.fontWeight('bold'), 'text-3xl text-on-surface')}>
                     {t('landing.heroStat3', {}, { defaultValue: '4.6m' })}
                   </span>
-                  <span className={cm.cn('uppercase tracking-widest text-xs')}>
+                  <span
+                    className={cm.cn('uppercase tracking-widest text-xs text-on-surface-variant')}
+                  >
                     {t('landing.heroStat3Label', {}, { defaultValue: 'Threads this year' })}
                   </span>
                 </div>
               </div>
             </div>
-            <div
-              className={cm.cn(
-                cm.w(80),
-                cm.h(80),
-                cm.roundedFull,
-                'absolute -right-24 -bottom-24 bg-surface/10 blur-3xl',
-              )}
-              aria-hidden="true"
-            />
-            <div
-              className={cm.cn(
-                cm.w(20),
-                cm.h(20),
-                cm.roundedFull,
-                'absolute right-16 top-12 bg-primary-fixed/30 blur-xl',
-              )}
-              aria-hidden="true"
-            />
+
+            {/* Thread preview card — the app's own ThreadRow with its vote column */}
+            <div className="flex-1 w-full max-w-md lg:max-w-none">
+              <div
+                className={cm.cn(
+                  'bg-surface rounded-xl shadow-lg border border-outline-variant/40 overflow-hidden hover:-translate-y-1 transition-transform',
+                )}
+              >
+                <ThreadRow thread={SAMPLE_TRENDING[0]} href="/signup" />
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className={cm.cn(cm.sp('px', 6), cm.sp('pb', 16), 'max-w-[1120px] mx-auto')}>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-              cm.sp('mb', 6),
-              'flex-wrap',
-            )}
-          >
-            <div>
-              <h2
-                className={cm.cn(
-                  cm.fontWeight('bold'),
-                  'text-3xl md:text-4xl tracking-tight text-on-surface',
-                )}
-              >
-                {t('landing.trendingTitle', {}, { defaultValue: 'What the room is talking about' })}
-              </h2>
-              <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
-                {t(
-                  'landing.trendingSubtitle',
-                  {},
-                  {
-                    defaultValue: 'Live previews — sign in to vote, comment, or open a thread.',
-                  },
-                )}
-              </p>
-            </div>
-            <Link
-              to="/feed"
+        {/* Trending — white band (design: Trending Now) */}
+        <section className="bg-surface border-y border-outline-variant/40">
+          <div className={cm.cn(cm.sp('px', 6), cm.sp('py', 12), 'max-w-[1120px] mx-auto')}>
+            <div
               className={cm.cn(
-                cm.fontWeight('semibold'),
-                cm.textSize('sm'),
-                cm.flex({ align: 'center', gap: 'xs' }),
-                'text-primary hover:underline',
+                cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+                cm.sp('mb', 6),
+                'flex-wrap',
               )}
             >
-              {t('landing.trendingViewAll', {}, { defaultValue: 'See all' })}
-              <span className={cm.cn('material-symbols-outlined text-base')}>arrow_forward</span>
-            </Link>
-          </div>
-          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
-            {SAMPLE_TRENDING.map((thread) => (
-              <ThreadRow key={thread.id} thread={thread} href="/signup" />
-            ))}
+              <div>
+                <h2
+                  className={cm.cn(
+                    cm.fontWeight('bold'),
+                    'text-3xl md:text-4xl tracking-tight text-on-surface flex items-center gap-2',
+                  )}
+                >
+                  <span
+                    className="material-symbols-outlined text-[var(--color-accent)]"
+                    aria-hidden="true"
+                  >
+                    trending_up
+                  </span>
+                  {t(
+                    'landing.trendingTitle',
+                    {},
+                    { defaultValue: 'What the room is talking about' },
+                  )}
+                </h2>
+                <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+                  {t(
+                    'landing.trendingSubtitle',
+                    {},
+                    {
+                      defaultValue: 'Live previews — sign in to vote, comment, or open a thread.',
+                    },
+                  )}
+                </p>
+              </div>
+              <Link
+                to="/feed"
+                className={cm.cn(
+                  cm.fontWeight('semibold'),
+                  cm.textSize('sm'),
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  'text-primary hover:underline',
+                )}
+              >
+                {t('landing.trendingViewAll', {}, { defaultValue: 'See all' })}
+                <span className={cm.cn('material-symbols-outlined text-base')}>arrow_forward</span>
+              </Link>
+            </div>
+            <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+              {SAMPLE_TRENDING.map((thread) => (
+                <ThreadRow key={thread.id} thread={thread} href="/signup" />
+              ))}
+            </div>
           </div>
         </section>
 

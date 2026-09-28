@@ -28,6 +28,15 @@ function LoginFooter() {
             { year: new Date().getFullYear(), appName: APP_NAME },
             { defaultValue: '© {{year}} {{appName}} LMS. The Digital Curator.' },
           )}
+          {' — Built with '}
+          <a
+            href="https://molecule.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline font-medium"
+          >
+            Molecule.dev
+          </a>
         </span>
       </div>
       <div className={cm.cn(cm.flex({ align: 'center', gap: 8 }))}>

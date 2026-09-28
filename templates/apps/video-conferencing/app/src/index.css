@@ -31,4 +31,5 @@
    definitions keep overriding at runtime for theming). */
 @theme {
   --color-participant-tile: #1e293b;
+  --color-on-accent: #ffffff;
 }

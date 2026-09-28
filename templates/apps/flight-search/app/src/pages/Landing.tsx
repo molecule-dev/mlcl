@@ -92,6 +92,18 @@ const SOCIAL_PROOF = [
   { count: '4.8★', label: 'on the App Store' },
 ] as const
 
+/* Trending destinations (design: circular badges in a snap-scrolling row).
+   Token-gradient monograms stand in for the design's photography. */
+const TRENDING_DESTINATIONS = [
+  { key: 'lisbon', city: 'Lisbon', code: 'LIS', tone: 'flight-dest-a' },
+  { key: 'newYork', city: 'New York', code: 'JFK', tone: 'flight-dest-b' },
+  { key: 'rome', city: 'Rome', code: 'FCO', tone: 'flight-dest-c' },
+  { key: 'sydney', city: 'Sydney', code: 'SYD', tone: 'flight-dest-a' },
+  { key: 'madrid', city: 'Madrid', code: 'MAD', tone: 'flight-dest-b' },
+  { key: 'tokyo', city: 'Tokyo', code: 'HND', tone: 'flight-dest-c' },
+  { key: 'paris', city: 'Paris', code: 'CDG', tone: 'flight-dest-a' },
+] as const
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -276,6 +288,49 @@ export function Landing() {
                 <FlightResultCard key={flight.id} flight={flight} />
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Trending destinations — design section, adapted to token badges */}
+        <section
+          className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}
+          aria-labelledby="landing-trending-heading"
+        >
+          <h2
+            id="landing-trending-heading"
+            className={cm.cn(
+              cm.textSize('2xl'),
+              cm.fontWeight('bold'),
+              cm.sp('mb', 8),
+              'tracking-tight',
+            )}
+          >
+            {t('landing.trending.heading', {}, { defaultValue: 'Trending destinations' })}
+          </h2>
+          <div className={cm.cn(cm.flex({ gap: 'lg' }), 'overflow-x-auto pb-2')}>
+            {TRENDING_DESTINATIONS.map((d) => (
+              <Link
+                key={d.key}
+                to="/search"
+                data-mol-id={`landing-trending-${d.key}`}
+                className={cm.cn('group flex flex-col items-center gap-3 shrink-0 snap-center')}
+              >
+                <span
+                  className={cm.cn(
+                    cm.roundedFull,
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'w-24 h-24 text-lg font-bold text-white tabular-nums ring-4 ring-transparent group-hover:ring-primary/20 group-hover:scale-105 transition-all',
+                    d.tone,
+                  )}
+                  aria-hidden="true"
+                >
+                  {d.code}
+                </span>
+                <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}>
+                  {t(`landing.trending.${d.key}`, {}, { defaultValue: d.city })}
+                </span>
+              </Link>
+            ))}
           </div>
         </section>
 

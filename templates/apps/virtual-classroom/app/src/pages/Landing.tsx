@@ -115,7 +115,7 @@ export function Landing() {
                   cm.fontWeight('bold'),
                   cm.sp('px', 5),
                   cm.sp('py', 2.5),
-                  'rounded-xl bg-primary text-on-primary hover:bg-primary-dark transition-colors shadow-md shadow-primary/20',
+                  'rounded-full bg-secondary text-on-secondary hover:bg-secondary-dark transition-colors shadow-sm',
                 )}
               >
                 {t('landing.navStart', {}, { defaultValue: 'Open a classroom' })}
@@ -170,18 +170,13 @@ export function Landing() {
               </span>
               <h1
                 className={cm.cn(
-                  cm.fontWeight('bold'),
-                  'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] text-on-surface',
+                  cm.fontWeight('extrabold'),
+                  '[font-family:var(--font-headline)]',
+                  'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.1] text-primary',
                 )}
               >
                 {t('landing.heroLine1', {}, { defaultValue: 'Where every classroom' })}{' '}
-                <span
-                  className={cm.cn(
-                    'bg-gradient-to-r from-primary via-tertiary to-secondary bg-clip-text text-transparent',
-                  )}
-                >
-                  {t('landing.heroLine2', {}, { defaultValue: 'feels in the room.' })}
-                </span>
+                {t('landing.heroLine2', {}, { defaultValue: 'feels in the room.' })}
               </h1>
               <p
                 className={cm.cn(
@@ -204,8 +199,7 @@ export function Landing() {
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 2 }),
                     cm.fontWeight('bold'),
-                    cm.sp('py', 4),
-                    'px-7 rounded-2xl bg-primary text-on-primary text-sm shadow-xl shadow-primary/30 hover:scale-[1.02] active:scale-[0.99] transition-transform',
+                    'px-8 py-3.5 rounded-full bg-secondary text-on-secondary hover:bg-secondary-dark transition-colors shadow-md',
                   )}
                 >
                   {t('landing.ctaPrimary', {}, { defaultValue: 'Start a free term' })}
@@ -218,12 +212,10 @@ export function Landing() {
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 2 }),
                     cm.fontWeight('semibold'),
-                    cm.sp('px', 6),
-                    cm.sp('py', 4),
-                    'rounded-2xl border border-outline-variant/30 bg-surface-container-lowest text-on-surface text-sm hover:border-primary hover:text-primary transition-colors',
+                    'px-6 py-3.5 rounded-full text-primary hover:bg-primary/10 transition-colors',
                   )}
                 >
-                  <span className={cm.cn('material-symbols-outlined text-[18px]')}>
+                  <span className={cm.cn('material-symbols-outlined text-[20px]')}>
                     play_circle
                   </span>
                   {t('landing.ctaSecondary', {}, { defaultValue: 'Watch a class tour' })}
@@ -536,41 +528,98 @@ export function Landing() {
         </div>
       </section>
 
-      <footer
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between' }),
-          cm.sp('px', 8),
-          cm.sp('py', 8),
-          'border-t border-outline-variant/20 max-w-7xl mx-auto flex-wrap gap-4',
-        )}
-      >
-        <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-          {t(
-            'landing.footerCopy',
-            { year: new Date().getFullYear(), appName: APP_NAME },
-            { defaultValue: '© {{year}} {{appName}}. Made with care for educators.' },
-          )}
-        </p>
-        <nav className={cm.cn(cm.flex({ align: 'center', gap: 6 }), cm.textSize('xs'))}>
-          <Link
-            to="/login"
-            className={cm.cn('text-on-surface-variant hover:text-primary transition-colors')}
-          >
-            {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-          </Link>
-          <Link
-            to="/signup"
-            className={cm.cn('text-on-surface-variant hover:text-primary transition-colors')}
-          >
-            {t('landing.footerStart', {}, { defaultValue: 'Start a school' })}
-          </Link>
-          <a
-            href="mailto:hello@aula.school"
-            className={cm.cn('text-on-surface-variant hover:text-primary transition-colors')}
-          >
-            {t('nav.contact', {}, { defaultValue: 'Contact' })}
-          </a>
-        </nav>
+      <footer className={cm.cn('border-t border-outline-variant/30 bg-surface-container-low')}>
+        <div
+          className={cm.cn('max-w-7xl mx-auto px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-10')}
+        >
+          <div className={cm.cn(cm.stack(3))}>
+            <span
+              className={cm.cn(
+                cm.textSize('lg'),
+                cm.fontWeight('bold'),
+                '[font-family:var(--font-headline)]',
+                'text-primary tracking-tight',
+              )}
+            >
+              {APP_NAME}
+            </span>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-xs')}>
+              {t(
+                'landing.footerCopy',
+                { year: new Date().getFullYear(), appName: APP_NAME },
+                { defaultValue: '© {{year}} {{appName}}. Made with care for educators.' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
+            </p>
+          </div>
+          <div className={cm.cn(cm.stack(3))}>
+            <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'text-on-surface')}>
+              {t('landing.footer.legalHeading', {}, { defaultValue: 'Legal' })}
+            </h3>
+            <nav className={cm.cn(cm.stack(2))}>
+              <Link
+                to="/privacy"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  'text-on-surface-variant hover:text-primary transition-colors',
+                )}
+              >
+                {t('landing.footer.privacy', {}, { defaultValue: 'Privacy Policy' })}
+              </Link>
+              <Link
+                to="/terms"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  'text-on-surface-variant hover:text-primary transition-colors',
+                )}
+              >
+                {t('landing.footer.terms', {}, { defaultValue: 'Terms of Service' })}
+              </Link>
+            </nav>
+          </div>
+          <div className={cm.cn(cm.stack(3))}>
+            <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'text-on-surface')}>
+              {t('landing.footer.supportHeading', {}, { defaultValue: 'Support' })}
+            </h3>
+            <nav className={cm.cn(cm.stack(2))}>
+              <Link
+                to="/about"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  'text-on-surface-variant hover:text-primary transition-colors',
+                )}
+              >
+                {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })}
+              </Link>
+              <Link
+                to="/pricing"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  'text-on-surface-variant hover:text-primary transition-colors',
+                )}
+              >
+                {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+              </Link>
+              <a
+                href="mailto:hello@aula.school"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  'text-on-surface-variant hover:text-primary transition-colors',
+                )}
+              >
+                {t('nav.contact', {}, { defaultValue: 'Contact' })}
+              </a>
+            </nav>
+          </div>
+        </div>
       </footer>
     </div>
   )

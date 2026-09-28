@@ -25,3 +25,28 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Landing design tokens (Stitch: design-sleep-tracker-landing).
+ * Declaring them here registers Tailwind utilities (bg-night-surface,
+ * text-stage-rem, …). The VALUES live in theme.css (:root + dark block) —
+ * same pattern as the Material-3 bridge in base.css: @theme generates the
+ * utilities, theme.css owns the per-mode values.
+ */
+@theme {
+  --color-night-deep: #1e1b4b;
+  --color-night-deep-2: #3730a3;
+  --color-night-surface: #ffffff;
+  --color-night-chart: #eeeeff;
+  --color-night-edge: #c4c4dc;
+  --color-night-muted: #46445a;
+  --color-accent-amber: #d97706;
+  --color-accent-amber-text: #b45309;
+  --color-band-from: #3730a3;
+  --color-band-via: #4f46e5;
+  --color-band-to: #a78bfa;
+  --color-stage-deep: #3730a3;
+  --color-stage-light: #818cf8;
+  --color-stage-rem: #a78bfa;
+  --color-stage-awake: #d97706;
+}

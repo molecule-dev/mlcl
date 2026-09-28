@@ -1,87 +1,107 @@
 :root,
 [data-mol-mode='light'] {
   /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #7c3aed;
-  --mol-color-primary-light: #a78bfa;
-  --mol-color-primary-dark: #5b21b6;
-  --mol-color-secondary: #c026d3;
-  --mol-color-secondary-light: #e879f9;
-  --mol-color-secondary-dark: #9a1aab;
-  --mol-color-background: #faf5ff;
-  --mol-color-background-secondary: #f3e8ff;
-  --mol-color-background-tertiary: #ede9fe;
+  /* Quorum civic palette per Stitch design: cyan primary over sky-50 page,
+     emerald accent, slate-900 text. */
+  --mol-color-primary: #0e7490; /* cyan-700 — cyan-600 was 3.36:1 as white text/links (fail); #0e7490 = 5.36:1 */
+  --mol-color-primary-light: #67e8f9;
+  --mol-color-primary-dark: #155e75;
+  --mol-color-secondary: #059669; /* emerald accent (deepened for text use) */
+  --mol-color-secondary-light: #a7f3d0;
+  --mol-color-secondary-dark: #047857;
+  --mol-color-background: #f0f9ff; /* sky-50 hero/page tint from the design */
+  --mol-color-background-secondary: #e0f2fe;
+  --mol-color-background-tertiary: #bae6fd;
   --mol-color-surface: #ffffff;
-  --mol-color-surface-secondary: #faf5ff;
+  --mol-color-surface-secondary: #f8fafc;
   --mol-color-input-background: #ffffff;
-  --mol-color-text: #1e1b4b;
-  --mol-color-text-secondary: #4c1d95;
-  --mol-color-text-tertiary: #8b5cf6;
+  --mol-color-text: #0f172a; /* slate-900 */
+  --mol-color-text-secondary: #475569; /* slate-600 */
+  --mol-color-text-tertiary: #64748b; /* slate-500 */
   --mol-color-text-inverse: #ffffff;
-  --mol-color-border: #e9d5ff;
-  --mol-color-border-secondary: #ddd6fe;
-  --mol-color-border-focus: #7c3aed;
-  --mol-color-success: #10b981;
-  --mol-color-warning: #f97316;
-  --mol-color-error: #ef4444;
+  --mol-color-border: #e2e8f0; /* slate-200 */
+  --mol-color-border-secondary: #cbd5e1; /* slate-300 */
+  --mol-color-border-focus: #0891b2;
+  --mol-color-success: #059669;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
   --mol-color-info: #0891b2;
 
   /* Stitch / Material-3 bridge tokens — light mode */
-  --color-background: #faf5ff;
-  --color-on-background: #1e1b4b;
+  --color-background: #f0f9ff;
+  --color-on-background: #0f172a;
   --color-surface: #ffffff;
   --color-surface-bright: #ffffff;
-  --color-surface-dim: #e9d5ff;
+  --color-surface-dim: #e0f2fe;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #faf5ff;
-  --color-surface-container: #f3e8ff;
-  --color-surface-container-high: #ede9fe;
-  --color-surface-container-highest: #e9d5ff;
-  --color-surface-variant: #f3e8ff;
-  --color-on-surface: #1e1b4b;
-  --color-on-surface-variant: #4c1d95;
-  --color-inverse-surface: #1e1b4b;
-  --color-inverse-on-surface: #faf5ff;
-  --color-inverse-primary: #a78bfa;
-  --color-primary: #7c3aed;
-  --color-primary-container: #ede9fe;
-  --color-on-primary: #ffffff;
-  --color-on-primary-container: #2e1065;
-  --color-secondary: #c026d3;
-  --color-secondary-container: #fce7ff;
-  --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #4a0050;
-  --color-tertiary: #f59e0b;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f0f9ff;
+  --color-surface-container-high: #e0f2fe;
+  --color-surface-container-highest: #bae6fd;
+  --color-surface-variant: #f0f9ff;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f0f9ff;
+  --color-inverse-primary: #22d3ee;
+  --color-primary: #0e7490;
+  --color-primary-container: #cffafe; /* cyan-100 chip tint */
+  --color-on-primary: #ffffff; /* 5.36:1 on cyan-700 */
+  --color-on-primary-container: #164e63;
+  --color-secondary: #059669;
+  --color-secondary-container: #d1fae5;
+  --color-on-secondary: #052e22; /* dark on emerald — white was 3.76:1 (fail); #052e22 = 9.0:1 */
+  --color-on-secondary-container: #064e3b;
+  --color-tertiary: #b45309; /* amber-700 — white text on it passes where used as chip bg */
   --color-tertiary-container: #fef3c7;
-  --color-on-tertiary: #ffffff;
+  --color-on-tertiary: #451a03;
   --color-on-tertiary-container: #451a03;
-  --color-error: #ef4444;
-  --color-error-container: #ffdad6;
-  --color-on-error: #ffffff;
-  --color-on-error-container: #5a1818;
-  --color-outline: #8b5cf6;
-  --color-outline-variant: #e9d5ff;
-  --color-surface-tint: #7c3aed;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* 4.53:1 on red-600 */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #64748b; /* slate-500 = 4.76:1 on white (outline ≥3:1) */
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #0e7490;
 
   /* Legacy app-specific aliases (kept for inline-style compat) */
-  --color-primary-light: #a78bfa;
-  --color-primary-dark: #5b21b6;
-  --color-secondary-light: #e879f9;
-  --color-accent: #f59e0b;
-  --color-danger: #ef4444;
-  --color-warning: #f97316;
-  --color-success: #10b981;
-  --color-surface-alt: #f3e8ff;
-  --color-text: #1e1b4b;
-  --color-text-secondary: #4c1d95;
-  --color-text-muted: #8b5cf6;
-  --color-border: #e9d5ff;
-  --color-border-active: #7c3aed;
+  --color-primary-light: #67e8f9;
+  --color-primary-dark: #155e75;
+  --color-secondary-light: #a7f3d0;
+  --color-accent: #10b981; /* emerald-500 — decorative accents only */
+  --color-danger: #dc2626;
+  --color-warning: #d97706;
+  --color-success: #059669;
+  --color-surface-alt: #f0f9ff;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-border-active: #0891b2;
+
+  /* Landing tokens from the Stitch design (mode-stable): the emerald stats
+     strip, the dark presenter stage band, and the slate-950 footer. */
+  --quorum-stats-bg: #047857; /* emerald-700 — white text 5.48:1 */
+  --quorum-stats-label: #d1fae5; /* emerald-100 strip labels */
+  --quorum-stats-divide: #34d399; /* emerald-400 dividers (decorative) */
+  --quorum-stage-bg: #0f172a; /* slate-900 presenter band */
+  --quorum-stage-surface: #1e293b; /* slate-800 bar wells */
+  --quorum-stage-text: #cbd5e1; /* slate-300 toolbar text */
+  --quorum-stage-dim: #94a3b8; /* slate-400 muted */
+  --quorum-stage-accent: #22d3ee; /* cyan-400 timer */
+  --quorum-stage-bar1: #0891b2; /* cyan-600 leading bar */
+  --quorum-stage-bar2: #10b981; /* emerald-500 second bar */
+  --quorum-footer-bg: #020617; /* slate-950 */
+  --quorum-footer-fg: #f8fafc;
+  --quorum-footer-muted: #94a3b8;
+  --quorum-footer-hover: #34d399; /* emerald-400 link hover */
 
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch design: Inter (weight 700) headlines, tabular numerals. */
+  --font-headline: 'Inter', system-ui, -apple-system, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -102,88 +122,87 @@
   --spacing-xl: 2rem;
 }
 
-/* Dark mode overrides — brand-calibrated dark palette (civic clean).
-   Violet primary brightened for dark readability; on-primary stays white
-   so CTA buttons keep white text on violet. */
+/* Dark mode overrides — slate/cyan civic dark. Brightened cyan primary with
+   deep-teal on-primary so CTAs stay readable; emerald accent stays bright. */
 [data-mol-mode='dark'] {
   /* === @theme bridge dark overrides === */
-  --mol-color-primary: #a78bfa;
-  --mol-color-primary-light: #c4b5fd;
-  --mol-color-primary-dark: #7c3aed;
-  --mol-color-secondary: #e879f9;
-  --mol-color-secondary-light: #f0abfc;
-  --mol-color-secondary-dark: #c026d3;
-  --mol-color-background: #0c0a1f;
-  --mol-color-background-secondary: #181232;
-  --mol-color-background-tertiary: #241845;
-  --mol-color-surface: #181232;
-  --mol-color-surface-secondary: #241845;
-  --mol-color-input-background: #0c0a1f;
-  --mol-color-text: #f5f3ff;
-  --mol-color-text-secondary: #d8cbff;
-  --mol-color-text-tertiary: #a78bfa;
-  --mol-color-text-inverse: #0c0a1f;
-  --mol-color-border: #3b2c6c;
-  --mol-color-border-secondary: #4d3a8a;
-  --mol-color-border-focus: #a78bfa;
+  --mol-color-primary: #22d3ee;
+  --mol-color-primary-light: #67e8f9;
+  --mol-color-primary-dark: #0891b2;
+  --mol-color-secondary: #34d399;
+  --mol-color-secondary-light: #6ee7b7;
+  --mol-color-secondary-dark: #10b981;
+  --mol-color-background: #020617;
+  --mol-color-background-secondary: #0f172a;
+  --mol-color-background-tertiary: #1e293b;
+  --mol-color-surface: #0f172a;
+  --mol-color-surface-secondary: #1e293b;
+  --mol-color-input-background: #020617;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #a8b3c5; /* brightened slate-400 for 4.5:1 on slate-900 */
+  --mol-color-text-tertiary: #7c8aa0;
+  --mol-color-text-inverse: #020617;
+  --mol-color-border: #1e293b;
+  --mol-color-border-secondary: #334155;
+  --mol-color-border-focus: #22d3ee;
   --mol-color-success: #34d399;
-  --mol-color-warning: #fb923c;
+  --mol-color-warning: #fbbf24;
   --mol-color-error: #f87171;
-  --mol-color-info: #22d3ee;
+  --mol-color-info: #38bdf8;
 
   /* Stitch / Material-3 token dark variants */
-  --color-background: #0c0a1f;
-  --color-on-background: #f5f3ff;
-  --color-surface: #181232;
-  --color-surface-bright: #2d2060;
-  --color-surface-dim: #060412;
+  --color-background: #020617;
+  --color-on-background: #f1f5f9;
+  --color-surface: #0f172a;
+  --color-surface-bright: #1e293b;
+  --color-surface-dim: #020617;
   --color-surface-container-lowest: #000000;
-  --color-surface-container-low: #110d28;
-  --color-surface-container: #181232;
-  --color-surface-container-high: #241845;
-  --color-surface-container-highest: #3b2c6c;
-  --color-surface-variant: #241845;
-  --color-on-surface: #f5f3ff;
-  --color-on-surface-variant: #d8cbff;
-  --color-inverse-surface: #f5f3ff;
-  --color-inverse-on-surface: #0c0a1f;
-  --color-inverse-primary: #7c3aed;
-  --color-primary: #a78bfa; /* brightened violet for dark */
-  --color-primary-container: #3b1f80;
-  --color-on-primary: #1a0050; /* dark on bright-violet — #ffffff was 2.72:1 (fail); #1a0050 = 6.65:1 */
-  --color-on-primary-container: #e9d5ff;
-  --color-secondary: #e879f9;
-  --color-secondary-container: #4a0050;
-  --color-on-secondary: #2a0050; /* dark on bright-pink — #ffffff was 2.46:1 (fail); #2a0050 = 7.03:1 */
-  --color-on-secondary-container: #fce7ff;
+  --color-surface-container-low: #0a0f1e;
+  --color-surface-container: #0f172a;
+  --color-surface-container-high: #1e293b;
+  --color-surface-container-highest: #334155;
+  --color-surface-variant: #1e293b;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #a8b3c5;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #020617;
+  --color-inverse-primary: #0e7490;
+  --color-primary: #22d3ee; /* brightened cyan for dark */
+  --color-primary-container: #155e75;
+  --color-on-primary: #083344; /* deep teal on bright cyan — #ffffff was 1.9:1 (fail); #083344 = 9.2:1 */
+  --color-on-primary-container: #cffafe;
+  --color-secondary: #34d399;
+  --color-secondary-container: #064e3b;
+  --color-on-secondary: #022c22;
+  --color-on-secondary-container: #d1fae5;
   --color-tertiary: #fbbf24;
   --color-tertiary-container: #451a03;
-  --color-on-tertiary: #3a1a00; /* dark on amber — #ffffff was 1.67:1 (fail); #3a1a00 = 9.48:1 */
+  --color-on-tertiary: #451a03; /* dark on amber — #ffffff was 1.9:1 (fail) */
   --color-on-tertiary-container: #fef3c7;
   --color-error: #f87171;
-  --color-error-container: #5a1818;
-  --color-on-error: #3a0000; /* dark on light-red — #ffffff was 2.77:1 (fail); #3a0000 = 6.43:1 */
-  --color-on-error-container: #ffdad6;
-  --color-outline: #6d5da8;
-  --color-outline-variant: #3b2c6c;
-  --color-surface-tint: #a78bfa;
+  --color-error-container: #7f1d1d;
+  --color-on-error: #3a0000; /* dark on light-red — #ffffff was 2.77:1 (fail) */
+  --color-on-error-container: #fecaca;
+  --color-outline: #7c8aa0; /* ≥3:1 on slate-900 surfaces */
+  --color-outline-variant: #1e293b;
+  --color-surface-tint: #22d3ee;
 
   /* Legacy app-specific aliases */
-  --color-primary: #a78bfa;
-  --color-primary-light: #c4b5fd;
-  --color-primary-dark: #7c3aed;
-  --color-secondary: #e879f9;
-  --color-secondary-light: #f0abfc;
-  --color-accent: #fbbf24;
+  --color-primary: #22d3ee;
+  --color-primary-light: #67e8f9;
+  --color-primary-dark: #0891b2;
+  --color-secondary: #34d399;
+  --color-secondary-light: #6ee7b7;
+  --color-accent: #34d399;
   --color-danger: #f87171;
-  --color-warning: #fb923c;
+  --color-warning: #fbbf24;
   --color-success: #34d399;
-  --color-surface-alt: #241845;
-  --color-text: #f5f3ff;
-  --color-text-secondary: #d8cbff;
-  --color-text-muted: #a78bfa;
-  --color-border: #3b2c6c;
-  --color-border-active: #a78bfa;
+  --color-surface-alt: #1e293b;
+  --color-text: #f1f5f9;
+  --color-text-secondary: #a8b3c5;
+  --color-text-muted: #7c8aa0;
+  --color-border: #1e293b;
+  --color-border-active: #22d3ee;
 
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
   --shadow-md: 0 4px 6px rgb(0 0 0 / 0.55);

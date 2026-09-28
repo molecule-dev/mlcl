@@ -19,6 +19,31 @@
   /* Always-dark map panel surface — intentionally dark in both themes */
   --color-map-bg: #0c1929;
 
+  /* === Landing ops palette (design: Bearing marketing surface) ===
+     Dark-navy operations-console identity for the public landing:
+     navy backdrop, cyan CTAs, mono data type, live-map panel. */
+  --color-ops-navy: #0c1929; /* nav / hero / footer backdrop */
+  --color-ops-navy-deep: #060d18; /* panel header bar */
+  --color-ops-panel: #0f172a; /* live-map panel base (always dark) */
+  --color-ops-grid-dot: #334155; /* dot-grid map base */
+  --color-ops-line: rgb(255 255 255 / 0.1); /* hairlines on navy */
+  --color-ops-navlink: #cbd5e1; /* nav links on navy */
+  --color-ops-muted: #94a3b8; /* body copy on navy */
+  --color-ops-faint: #94a3b8; /* stat/footer labels on navy (≥4.5:1) */
+  --color-brand-cyan: #0e7490; /* CTA bg — white text 5.4:1 */
+  --color-brand-cyan-strong: #155e75; /* CTA hover */
+  --color-brand-cyan-bright: #22d3ee; /* accents, stat numerals */
+  --color-ops-live: #10b981; /* live dot + LIVE OPERATIONS label */
+  --color-ops-marker-amber: #f59e0b; /* third vehicle marker */
+  --color-features-bg: #f8fafc; /* feature band backdrop */
+  --color-features-card: #ffffff;
+  --color-features-card-border: #e2e8f0;
+  --color-features-icon-bg: #f1f5f9;
+  --color-features-icon: #334155;
+  --color-features-heading: #0f172a;
+  --color-features-body: #475569;
+  --font-data: 'DM Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
   /* === @mol-color-* provider bridge tokens === */
   --mol-color-primary: #15803d;
   --mol-color-primary-light: #dcfce7;
@@ -76,10 +101,11 @@
   --color-surface-tint: #15803d;
 
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-family-mono: 'DM Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Design (Bearing): Inter black for display headings — same face as body. */
+  --font-headline: 'Inter', system-ui, -apple-system, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -149,6 +175,30 @@
   /* Always-dark map panel surface — same in dark mode */
   --color-map-bg: #060d18;
 
+  /* Landing ops palette — dark counterparts (navy sections stay navy;
+     feature band flips to the dark dispatch surfaces). */
+  --color-ops-navy: #0c1929;
+  --color-ops-navy-deep: #060d18;
+  --color-ops-panel: #0f172a;
+  --color-ops-grid-dot: #334155;
+  --color-ops-line: rgb(255 255 255 / 0.1);
+  --color-ops-navlink: #cbd5e1;
+  --color-ops-muted: #94a3b8;
+  --color-ops-faint: #94a3b8;
+  --color-brand-cyan: #0e7490;
+  --color-brand-cyan-strong: #155e75;
+  --color-brand-cyan-bright: #22d3ee;
+  --color-ops-live: #34d399;
+  --color-ops-marker-amber: #fbbf24;
+  --color-features-bg: #11161d;
+  --color-features-card: #161b22;
+  --color-features-card-border: #21262d;
+  --color-features-icon-bg: #1c222b;
+  --color-features-icon: #cbd5e1;
+  --color-features-heading: #f5f5f5;
+  --color-features-body: #c4c4c4;
+  --font-data: 'DM Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
   /* Stitch / Material-3 token dark variants.
      `--color-primary` STAYS at brand stop; `--color-on-primary` stays white (10.9:1 on #15803d). */
   --color-on-background: #f5f5f5;
@@ -187,4 +237,11 @@
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
   --shadow-md: 0 4px 6px rgb(0 0 0 / 0.55);
   --shadow-lg: 0 10px 15px rgb(0 0 0 / 0.65);
+}
+
+/* Landing live-map dot grid (design: Bearing hero panel).
+   Class-based so JSX never carries a raw gradient literal. */
+.landing-dot-grid {
+  background-image: radial-gradient(var(--color-ops-grid-dot) 1px, transparent 1px);
+  background-size: 20px 20px;
 }

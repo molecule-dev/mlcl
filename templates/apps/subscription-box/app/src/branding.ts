@@ -26,4 +26,4 @@ export const APP_DESCRIPTION =
   'Curated surprise-and-delight subscription boxes — built with Molecule.dev'
 
 /** Primary brand color (PWA manifest, meta theme-color). */
-export const BRAND_COLOR = '#e85d3a'
+export const BRAND_COLOR = '#a93010'

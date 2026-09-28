@@ -190,7 +190,7 @@ export function Notifications() {
               cm.sp('mt', 2),
               'leading-tight tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t(
               'notifications.heading',
@@ -271,7 +271,7 @@ export function Notifications() {
               cm.sp('mt', 3),
               'tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('notifications.empty.heading', {}, { defaultValue: 'Nothing new yet.' })}
           </h2>
@@ -361,7 +361,7 @@ export function Notifications() {
                         cm.fontWeight('extrabold'),
                         'tracking-tight',
                       )}
-                      style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+                      style={{ fontFamily: 'var(--font-headline)' }}
                     >
                       {n.title}
                     </h3>

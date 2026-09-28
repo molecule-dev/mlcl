@@ -1,15 +1,19 @@
 :root {
   /* Headline font — picked up by shared molecule pages
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Brand colors — unchanged across modes */
   --photo-primary: #ff6b35;
   --photo-primary-hover: #e85a28;
   --photo-secondary: #00b4d8;
   --photo-secondary-hover: #0096b4;
-  --photo-accent: #9b5de5;
-  --photo-danger: #ef476f;
+  --photo-accent: #8b5cf6; /* design brand.purple */
+  --photo-danger: #ec4899; /* design brand.pink */
+
+  /* Design neon glows (decorative box-shadows on gradient CTAs) */
+  --photo-glow: rgba(139, 92, 246, 0.5);
+  --photo-glow-pink: rgba(236, 72, 153, 0.4);
   --photo-warning: #ffd166;
 
   /* Light-mode surfaces */
@@ -55,10 +59,10 @@
   /* Landing showcase card — intentionally DARK in both modes: it mirrors the
      editor's dark chrome and its text is hard-coded white, so it must never
      borrow the light-mapped panel/surface tones (WAVE-3 contrast fix). */
-  --photo-showcase-bg: #16161a;
-  --photo-showcase-elevated: #1f1f24;
+  --photo-showcase-bg: #16162a;
+  --photo-showcase-elevated: #1e1e36;
   --photo-showcase-violet: #2d2345;
-  --photo-showcase-border: #2a2a30;
+  --photo-showcase-border: #262640;
 
   --photo-radius-sm: 4px;
   --photo-radius-md: 8px;
@@ -126,32 +130,37 @@
 }
 
 /* Dark mode — creative-tools rich black.
-   Rich near-pure-black chassis with a slight cool tint (Lightroom /
-   Affinity / Capture One feel — colour-correct work demands a near-
-   neutral dark chrome so it doesn't bias eyeball perception of the
-   image). Brand orange stays at the brand stop (#FF6B35) so the
-   primary CTA matches across modes; `--color-on-primary` is dark
-   (#1a0a00) for contrast compliance — orange mid-value fails white. */
+   The Stitch landing design is DARK-ONLY: #0c0c1d chassis, #16162a surfaces,
+   #1e1e36 panels, violet #8b5cf6 / pink #ec4899 brand gradient. This block
+   bakes those exact stops in; the public marketing surface (Landing) forces
+   this mode via data-mol-mode="dark" so it renders on-design regardless of
+   the user's app theme. Brand orange stays at the brand stop (--photo-primary)
+   for the editor chrome; `--color-on-primary` is dark (#1a0a00) for contrast
+   compliance — orange mid-value fails white. */
 [data-mol-mode='dark'] {
   /* Brand — kept at the brand stop for parity with light mode */
   --photo-primary: #ff6b35; /* keep brand orange at brand stop */
   --photo-primary-hover: #ff8559;
   --photo-secondary: #00b4d8;
   --photo-secondary-hover: #38cfe8;
-  --photo-accent: #9b5de5;
-  --photo-danger: #f56a8c;
+  --photo-accent: #8b5cf6; /* design brand.purple */
+  --photo-danger: #ec4899; /* design brand.pink */
   --photo-warning: #ffdb8a;
 
-  /* Chassis — near-pure rich black for colour-correct viewing */
-  --photo-background: #0e0e10;
-  --photo-surface: #16161a;
-  --photo-surface-elevated: #1f1f24;
-  --photo-border: #2a2a30;
+  /* Design neon glows (decorative box-shadows on gradient CTAs) */
+  --photo-glow: rgba(139, 92, 246, 0.5);
+  --photo-glow-pink: rgba(236, 72, 153, 0.4);
+
+  /* Chassis — the design's near-black indigo, not pure black */
+  --photo-background: #0c0c1d;
+  --photo-surface: #16162a;
+  --photo-surface-elevated: #1e1e36;
+  --photo-border: #262640;
 
   /* Text */
   --photo-text: #f0f0f5;
   --photo-text-secondary: #b8b8c8;
-  --photo-text-muted: #7a7a88;
+  --photo-text-muted: #8a8aa8;
 
   /* Canvas — neutral near-black for colour-accurate viewing */
   --photo-canvas-bg: #050507;
@@ -159,25 +168,25 @@
   --photo-slider-track: #3a3a44;
   --photo-slider-fill: #ff6b35;
 
-  --photo-toolbar-bg: #0a0a0c;
-  --photo-sidebar-bg: #101013;
+  --photo-toolbar-bg: #101020;
+  --photo-sidebar-bg: #0e0e20;
 
   /* Export / auth panel chrome — dark values */
-  --photo-panel-bg: #16161a;
-  --photo-panel-border: #2a2a30;
+  --photo-panel-bg: #131328;
+  --photo-panel-border: #262640;
   --photo-panel-text: #f0f0f5;
-  --photo-panel-text-muted: #7a7a88;
+  --photo-panel-text-muted: #8a8aa8;
   --photo-panel-text-accent: #a78bfa;
   --photo-panel-text-highlight: #c4b5fd;
   --photo-panel-text-cyan: #22d3ee;
-  --photo-input-bg: #1f1f24;
-  --photo-input-border: #2a2a30;
-  --photo-input-border-focus: #9b5de5;
+  --photo-input-bg: #1e1e36;
+  --photo-input-border: #262640;
+  --photo-input-border-focus: #8b5cf6;
   --photo-input-text: #f0f0f5;
-  --photo-input-placeholder: #7a7a88;
+  --photo-input-placeholder: #8a8aa8;
 
   /* Hero / decorative gradient stop tokens (dark) */
-  --photo-hero-from: #16161a;
+  --photo-hero-from: #16162a;
   --photo-hero-via: #2e1065;
   --photo-hero-to: #500724;
 
@@ -186,14 +195,14 @@
   --mol-color-primary-light: #3a1a0a;
   --mol-color-primary-dark: #c4471c;
   --mol-color-secondary: #38cfe8;
-  --mol-color-background: #0e0e10;
-  --mol-color-surface: #16161a;
-  --mol-color-border: #2a2a30;
-  --mol-color-border-focus: #ff8559;
+  --mol-color-background: #0c0c1d;
+  --mol-color-surface: #16162a;
+  --mol-color-border: #262640;
+  --mol-color-border-focus: #a78bfa;
   --mol-color-text: #f0f0f5;
   --mol-color-text-secondary: #b8b8c8;
-  --mol-color-text-tertiary: #7a7a88;
-  --mol-color-text-inverse: #0e0e10;
+  --mol-color-text-tertiary: #8a8aa8;
+  --mol-color-text-inverse: #0c0c1d;
   --mol-color-success: #34d399;
   --mol-color-warning: #ffdb8a;
   --mol-color-error: #f56a8c;
@@ -201,21 +210,21 @@
 
   /* Stitch / Material-3 token dark variants — override the @theme block
      so bg-surface, text-on-surface etc. flip on data-mol-mode="dark". */
-  --color-background: #0e0e10;
+  --color-background: #0c0c1d;
   --color-on-background: #f0f0f5;
-  --color-surface: #0e0e10;
-  --color-surface-bright: #1f1f24;
-  --color-surface-dim: #060608;
-  --color-surface-container-lowest: #020203;
-  --color-surface-container-low: #111114;
-  --color-surface-container: #16161a;
-  --color-surface-container-high: #1f1f24;
-  --color-surface-container-highest: #2a2a30;
-  --color-surface-variant: #1f1f24;
+  --color-surface: #0c0c1d;
+  --color-surface-bright: #1e1e36;
+  --color-surface-dim: #08081a;
+  --color-surface-container-lowest: #06060f;
+  --color-surface-container-low: #111120;
+  --color-surface-container: #16162a;
+  --color-surface-container-high: #1e1e36;
+  --color-surface-container-highest: #262640;
+  --color-surface-variant: #1e1e36;
   --color-on-surface: #f0f0f5;
   --color-on-surface-variant: #b8b8c8;
   --color-inverse-surface: #f0f0f5;
-  --color-inverse-on-surface: #0e0e10;
+  --color-inverse-on-surface: #0c0c1d;
   --color-inverse-primary: #c4471c;
   --color-primary: #ff6b35; /* keep brand orange at brand stop */
   --color-primary-container: #3a1a0a;
@@ -223,7 +232,7 @@
   --color-on-primary-container: #fde8e0;
   --color-secondary: #c4b5fd;
   --color-secondary-container: #2e1065;
-  --color-on-secondary: #0e0e10;
+  --color-on-secondary: #0c0c1d;
   --color-on-secondary-container: #ede9fe;
   --color-tertiary: #f9a8d4;
   --color-tertiary-container: #500724;
@@ -234,8 +243,8 @@
   --color-on-error: #3a0000; /* dark on error pink — white was 2.87:1 (fail); #3a0000 = 6.21:1 */
   --color-on-error-container: #fee2e2;
   --color-outline: #7a7a88;
-  --color-outline-variant: #2a2a30;
-  --color-surface-tint: #ff8559;
+  --color-outline-variant: #262640;
+  --color-surface-tint: #a78bfa;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);

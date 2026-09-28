@@ -166,7 +166,7 @@ export function Calendar() {
               cm.sp('mt', 2),
               'leading-tight tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('calendar.heading', {}, { defaultValue: 'Every trip on a single calendar.' })}
           </h1>
@@ -208,7 +208,7 @@ export function Calendar() {
               cm.fontWeight('extrabold'),
               'tabular-nums tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {fmtMonthHeader(cursor)}
           </h2>
@@ -345,7 +345,7 @@ export function Calendar() {
         <section className={cm.flex({ direction: 'col', gap: 'sm' })}>
           <h2
             className={cm.cn(cm.textSize('xl'), cm.fontWeight('extrabold'), 'tracking-tight')}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('calendar.legendHeading', {}, { defaultValue: 'Trips on this month' })}
           </h2>

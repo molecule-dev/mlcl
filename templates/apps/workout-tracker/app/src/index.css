@@ -52,6 +52,8 @@
   --color-workout-active: #fef7f5;
   --color-accent: #1a1a2e;
   --color-on-accent: #ffffff;
+  --color-surface-muted: #fafafa; /* design surface.muted */
+  --color-surface-divider: #f0f0f0; /* design surface.divider */
   --color-accent-container: #2d2d44;
   --color-on-accent-container: #ffffff;
   --color-muscle-chest: #b91c1c;
@@ -68,4 +70,11 @@
   --color-muscle-core-bg: #fce7f3;
   --color-muscle-cardio: #0e7490;
   --color-muscle-cardio-bg: #cffafe;
+}
+
+/* Footer wordmark — the design's huge outlined FORJA word. Stroke color
+   resolves from the on-accent token so it tracks both themes. */
+.wordmark-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px color-mix(in srgb, var(--color-on-accent, #ffffff) 12%, transparent);
 }

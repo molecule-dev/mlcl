@@ -40,14 +40,39 @@ export function LandingNav() {
           <span
             aria-hidden="true"
             className={cm.cn('material-symbols-outlined text-primary')}
-            style={{ fontVariationSettings: "'FILL' 1" }}
+            style={{ fontVariationSettings: "'FILL' 0" }}
           >
-            self_improvement
+            trip_origin
           </span>
-          <span className={cm.cn(cm.fontWeight('bold'), 'text-2xl text-primary tracking-tight')}>
+          <span
+            className={cm.cn(
+              cm.fontWeight('medium'),
+              'text-2xl text-primary tracking-tighter font-headline',
+            )}
+          >
             {APP_NAME}
           </span>
         </Link>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden md:flex text-sm')}>
+          <Link
+            to="/library"
+            className={cm.cn('text-on-surface-variant hover:text-primary transition-colors')}
+          >
+            {t('nav.library', {}, { defaultValue: 'Library' })}
+          </Link>
+          <Link
+            to="/courses"
+            className={cm.cn('text-on-surface-variant hover:text-primary transition-colors')}
+          >
+            {t('nav.courses', {}, { defaultValue: 'Courses' })}
+          </Link>
+          <Link
+            to="/about"
+            className={cm.cn('text-on-surface-variant hover:text-primary transition-colors')}
+          >
+            {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About' })}
+          </Link>
+        </div>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
           <ThemeToggle />
           {isAuthenticated ? (

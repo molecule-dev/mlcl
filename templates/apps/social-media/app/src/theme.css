@@ -52,8 +52,19 @@
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-family-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     The Stitch landing design sets headlines in Inter (same face as body)
+     at extrabold with tight tracking — no serif. */
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* === Landing design tokens (Stitch: design-social-media-landing) ===
+     Vivid's pink → violet identity, straight from the design. */
+  --color-vivid: #7c3aed; /* the violet stop (design accent) */
+  --color-story-ring: conic-gradient(from 90deg, #f59e0b, #d63384, #7c3aed, #f59e0b);
+  /* Gradient CTA/band stops — FIXED across modes (white button text needs the
+     dark design stops; mode-aware pink would fall to 3.0:1 in dark). */
+  --color-grad-from: #d63384;
+  --color-grad-to: #7c3aed;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -227,4 +238,43 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+
+  /* Landing design tokens — dark variants. The violet stop brightens so the
+     pink→vivid gradient keeps its punch on the rich-black canvas; the story
+     ring and the fixed gradient-CTA stops are identical in both modes. */
+  --color-vivid: #a78bfa;
+  --color-story-ring: conic-gradient(from 90deg, #f59e0b, #d63384, #7c3aed, #f59e0b);
+  --color-grad-from: #d63384;
+  --color-grad-to: #7c3aed;
+}
+
+/* === Landing composites (Stitch: design-social-media-landing) === */
+
+/* Hero brand gradient — pink → violet (design's from-pink-500 to-violet-500),
+   fixed stops so white CTA text clears 4.5:1 in both modes. */
+.landing-vivid-gradient {
+  background: linear-gradient(135deg, var(--color-grad-from) 0%, var(--color-grad-to) 100%);
+}
+
+/* Gradient headline accent — mode-aware so it reads on each canvas. */
+.landing-vivid-text {
+  background: linear-gradient(to right, var(--color-primary), var(--color-vivid));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Story ring — the design's conic rainbow ring. */
+.story-ring {
+  background: var(--color-story-ring);
+  padding: 3px;
+}
+
+/* Download band — pink → violet wash with a faint white dot texture. */
+.landing-download-band {
+  background: linear-gradient(to right, var(--color-grad-from), var(--color-grad-to));
+}
+.landing-dot-texture {
+  background-image: radial-gradient(circle at center, white 1px, transparent 1px);
+  background-size: 24px 24px;
 }

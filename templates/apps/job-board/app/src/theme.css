@@ -56,6 +56,13 @@
   --color-salary: #059669;
   --color-company: #0e7490;
 
+  /* Landing hero band (Stitch design: navy → deep-teal gradient) + its
+     muted cyan-100 supporting copy. Kept out of the M3 set because the
+     hero is marketing-only and must not flip with surfaces. */
+  --color-hero-from: #0c1a2e;
+  --color-hero-to: #164e63;
+  --color-hero-subtle: #cffafe;
+
   /* === Material-3 / Stitch bridge tokens — light palette ===
      These feed bg-surface, text-on-surface, etc. in light mode.
      Required so [data-mol-mode='dark'] overrides have a light baseline to revert from. */
@@ -206,6 +213,12 @@
 
   --color-salary: #34d399;
   --color-company: #67e8f9;
+
+  /* Landing hero band — dark stops: near-black navy into the same deep
+     teal; supporting copy lightened a stop to hold contrast on teal. */
+  --color-hero-from: #08111f;
+  --color-hero-to: #164e63;
+  --color-hero-subtle: #a5f3fc;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);

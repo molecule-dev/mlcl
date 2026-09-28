@@ -63,7 +63,7 @@ export function TierPlanCard({ plan, cadence, selected, onSelect }: TierPlanCard
             cm.sp('py', 1),
             cm.fontWeight('bold'),
             cm.roundedFull,
-            'absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-widest bg-primary text-on-primary shadow-md',
+            'absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-widest bg-secondary-container text-on-secondary-container shadow-sm whitespace-nowrap',
           )}
         >
           {t('status.mostPopular', {}, { defaultValue: 'Most popular' })}

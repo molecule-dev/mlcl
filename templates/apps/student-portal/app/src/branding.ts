@@ -26,4 +26,4 @@ export const APP_DESCRIPTION =
   'PowerSchool-like student portal with schedule, grades, attendance, and messages'
 
 /** Primary brand color (PWA manifest, meta theme-color). Matches theme.css --color-primary. */
-export const BRAND_COLOR = '#2563eb'
+export const BRAND_COLOR = '#4334ae'

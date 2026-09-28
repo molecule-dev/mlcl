@@ -306,7 +306,7 @@ export function TripDetail() {
       >
         <h1
           className={cm.cn(cm.textSize('2xl'), cm.fontWeight('extrabold'))}
-          style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+          style={{ fontFamily: 'var(--font-headline)' }}
         >
           {t('tripDetail.notFound.heading', {}, { defaultValue: 'Trip not found' })}
         </h1>
@@ -374,7 +374,7 @@ export function TripDetail() {
                 cm.fontWeight('extrabold'),
                 'leading-[0.95] tracking-tight text-white',
               )}
-              style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+              style={{ fontFamily: 'var(--font-headline)' }}
             >
               {trip.name ?? trip.destination}
             </h1>
@@ -467,7 +467,7 @@ export function TripDetail() {
                   cm.sp('mt', 1),
                   'tracking-tight',
                 )}
-                style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+                style={{ fontFamily: 'var(--font-headline)' }}
               >
                 {t('tripDetail.timelineHeading', {}, { defaultValue: 'Day-by-day plan' })}
               </h2>
@@ -709,7 +709,7 @@ export function TripDetail() {
                       cm.fontWeight('extrabold'),
                       'tracking-tight',
                     )}
-                    style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+                    style={{ fontFamily: 'var(--font-headline)' }}
                   >
                     {new Date(day.date_iso).toLocaleDateString(undefined, {
                       weekday: 'long',

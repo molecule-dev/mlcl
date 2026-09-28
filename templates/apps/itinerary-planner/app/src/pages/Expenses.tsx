@@ -164,7 +164,7 @@ export function Expenses() {
               cm.sp('mt', 2),
               'leading-tight tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('expenses.heading', {}, { defaultValue: 'Where the trip budget actually goes.' })}
           </h1>
@@ -242,7 +242,7 @@ export function Expenses() {
               cm.sp('mt', 3),
               'tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('expenses.noTrips.heading', {}, { defaultValue: 'No trips yet.' })}
           </h2>
@@ -342,7 +342,7 @@ export function Expenses() {
                 className={cm.cn(
                   'text-6xl md:text-7xl font-extrabold tracking-tighter tabular-nums leading-none',
                 )}
-                style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+                style={{ fontFamily: 'var(--font-headline)' }}
               >
                 {fmtMoney(totalSpent)}
               </p>
@@ -423,7 +423,7 @@ export function Expenses() {
           <section className={cm.flex({ direction: 'col', gap: 'sm' })}>
             <h2
               className={cm.cn(cm.textSize('xl'), cm.fontWeight('extrabold'), 'tracking-tight')}
-              style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+              style={{ fontFamily: 'var(--font-headline)' }}
             >
               {t('expenses.byCategoryHeading', {}, { defaultValue: 'By category' })}
             </h2>
@@ -462,7 +462,7 @@ export function Expenses() {
           <section className={cm.flex({ direction: 'col', gap: 'sm' })}>
             <h2
               className={cm.cn(cm.textSize('xl'), cm.fontWeight('extrabold'), 'tracking-tight')}
-              style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+              style={{ fontFamily: 'var(--font-headline)' }}
             >
               {t('expenses.recentHeading', {}, { defaultValue: 'Recent expenses' })}
             </h2>
@@ -672,7 +672,7 @@ function ExpenseForm({
     >
       <h3
         className={cm.cn(cm.textSize('lg'), cm.fontWeight('extrabold'))}
-        style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+        style={{ fontFamily: 'var(--font-headline)' }}
       >
         {t(
           'expenses.formHeading',

@@ -237,6 +237,15 @@
       })()
     </script>
     <!-- /mol:fonts -->
+    <!-- Stitch design faces — Playfair Display (editorial serif headlines) +
+         Plus Jakarta Sans (body), loaded AFTER the mol:fonts block so these
+         @font-faces win over inline local()-first declarations. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
     <link rel="apple-touch-startup-image" href="/icons/splash-2048x2732.svg" sizes="2048x2732" />
     <link rel="apple-touch-startup-image" href="/icons/splash-1668x2224.svg" sizes="1668x2224" />

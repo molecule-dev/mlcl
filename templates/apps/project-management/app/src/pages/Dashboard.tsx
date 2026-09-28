@@ -242,6 +242,22 @@ export function Dashboard() {
     (user?.email ? user.email.split('@')[0] : '') ||
     t('dashboard.fallbackName', {}, { defaultValue: 'there' })
 
+  // design-project-management-dashboard.html opens with a time-of-day
+  // greeting ("Good morning, Mike").
+  const hour = new Date().getHours()
+  const greetingKey =
+    hour < 12
+      ? 'dashboard.greetingMorning'
+      : hour < 18
+        ? 'dashboard.greetingAfternoon'
+        : 'dashboard.greetingEvening'
+  const greetingDefault =
+    hour < 12
+      ? 'Good morning, {{name}}'
+      : hour < 18
+        ? 'Good afternoon, {{name}}'
+        : 'Good evening, {{name}}'
+
   return (
     <AppShell
       footer={
@@ -336,11 +352,7 @@ export function Dashboard() {
                 )}
                 data-testid="dashboard-greeting"
               >
-                {t(
-                  'dashboard.greeting',
-                  { name: greetingName },
-                  { defaultValue: 'Welcome back, {{name}}' },
-                )}
+                {t(greetingKey, { name: greetingName }, { defaultValue: greetingDefault })}
               </h1>
               <p
                 className={cm.cn(
@@ -373,6 +385,8 @@ export function Dashboard() {
               accentClass="border-primary"
               label={t('nav.projects', {}, { defaultValue: 'Projects' })}
               value={projects.length}
+              hint={t('dashboard.kpi.projectsHint', {}, { defaultValue: 'In flight' })}
+              hintClass="text-primary"
               testId="kpi-projects"
             />
             <KpiTile
@@ -381,6 +395,8 @@ export function Dashboard() {
               accentClass="border-primary"
               label={t('kpi.tasksDueLabel', {}, { defaultValue: 'Due Today' })}
               value={tasksDueToday}
+              hint={t('dashboard.kpi.dueHint', {}, { defaultValue: 'Priority focus' })}
+              hintClass="text-primary"
               testId="kpi-due-today"
             />
             <KpiTile
@@ -390,6 +406,8 @@ export function Dashboard() {
               label={t('status.overdue', {}, { defaultValue: 'Overdue' })}
               value={overdueTasks}
               valueClass="text-error"
+              hint={t('dashboard.kpi.overdueHint', {}, { defaultValue: 'Needs action' })}
+              hintClass="text-error"
               testId="kpi-overdue"
             />
             <KpiTile
@@ -398,6 +416,8 @@ export function Dashboard() {
               accentClass="border-primary"
               label={t('kpi.openTasksLabel', {}, { defaultValue: 'Open Tasks' })}
               value={openTasks}
+              hint={t('dashboard.kpi.openHint', {}, { defaultValue: 'Still open' })}
+              hintClass="text-on-surface-variant"
               testId="kpi-open"
             />
           </section>
@@ -889,15 +909,28 @@ interface KpiTileProps {
   label: string
   value: number
   valueClass?: string
+  /** Small bold hint in the tile's top-right (design: "+2 this week"). */
+  hint?: string
+  hintClass?: string
   testId?: string
 }
 
-function KpiTile({ cm, icon, accentClass, label, value, valueClass, testId }: KpiTileProps) {
+function KpiTile({
+  cm,
+  icon,
+  accentClass,
+  label,
+  value,
+  valueClass,
+  hint,
+  hintClass,
+  testId,
+}: KpiTileProps) {
   return (
     <div
       className={cm.cn(
         cm.sp('p', 6),
-        'bg-surface-container-lowest rounded-xl border-t-4 shadow-sm transition-transform duration-300',
+        'bg-surface-container-lowest rounded-xl border-t-4 shadow-sm hover:-translate-y-0.5 transition-transform duration-300',
         accentClass,
       )}
       data-testid={testId}
@@ -912,6 +945,9 @@ function KpiTile({ cm, icon, accentClass, label, value, valueClass, testId }: Kp
         >
           {icon}
         </span>
+        {hint && (
+          <span className={cm.cn(cm.textSize('xs'), cm.fontWeight('bold'), hintClass)}>{hint}</span>
+        )}
       </div>
       <p
         className={cm.cn(

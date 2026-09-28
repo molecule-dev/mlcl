@@ -25,3 +25,12 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Landing design tokens (Stitch: design-social-media-landing).
+ * Declared here so Tailwind generates utilities (text-vivid, …); the VALUES
+ * live in theme.css (:root + dark block) per the fleet theming model.
+ */
+@theme {
+  --color-vivid: #7c3aed;
+}

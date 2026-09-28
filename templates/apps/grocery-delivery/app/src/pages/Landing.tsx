@@ -117,8 +117,10 @@ export function Landing() {
               </span>
             </span>
             <span
-              className={cm.cn(cm.textSize('xl'), 'font-black tracking-tight')}
-              style={{ fontFamily: 'DM Sans, sans-serif', color: 'var(--color-primary)' }}
+              className={cm.cn(
+                cm.textSize('xl'),
+                'font-bold tracking-tight text-primary [font-family:var(--font-headline)]',
+              )}
             >
               {APP_NAME}
             </span>
@@ -179,94 +181,154 @@ export function Landing() {
       <main
         className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 12), cm.mxAuto, 'space-y-16')}
       >
-        <section className="text-center max-w-3xl mx-auto">
-          <p
-            className={cm.cn(
-              cm.textSize('xs'),
-              'font-black uppercase tracking-widest text-primary-dark mb-4',
-            )}
-          >
-            {t('landing.eyebrow', {}, { defaultValue: 'Same-day grocery delivery' })}
-          </p>
-          <h1
-            className={cm.cn(
-              cm.textSize('5xl'),
-              'md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]',
-            )}
-            style={{ fontFamily: 'DM Sans, sans-serif' }}
-          >
-            {t('landing.heroTitle', {}, { defaultValue: 'Freshness at your door, in hours.' })}
-          </h1>
-          <p
-            className={cm.cn(cm.textSize('lg'), cm.sp('mt', 6), cm.textMuted, 'max-w-2xl mx-auto')}
-          >
-            {t(
-              'landing.heroSubtitle',
-              {},
-              {
-                defaultValue:
-                  'Schedule weekly deliveries with smart reorder of staples and live driver tracking.',
-              },
-            )}
-          </p>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center', gap: 'md', wrap: 'wrap' }),
-              cm.sp('mt', 8),
-            )}
-          >
-            <Link
-              to="/signup"
+        {/* Hero — left copy + ZIP gate, right live-bushel preview (design split) */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <p
               className={cm.cn(
-                cm.sp('px', 8),
-                cm.fontWeight('bold'),
-                'py-3.5 inline-flex items-center gap-2 text-white rounded-full shadow-lg hover:shadow-xl active:scale-95 transition-all',
-              )}
-              style={{
-                background:
-                  'linear-gradient(135deg, var(--color-gradient-mid), var(--color-gradient-end))',
-              }}
-            >
-              <span className="material-symbols-outlined" aria-hidden="true">
-                shopping_cart
-              </span>
-              {t('landing.heroCta', {}, { defaultValue: 'Start shopping free' })}
-            </Link>
-            <Link
-              to="/shop"
-              className={cm.cn(
-                cm.sp('px', 8),
-                cm.fontWeight('bold'),
-                'py-3.5 inline-flex items-center gap-2 border-2 border-primary text-primary-dark rounded-full hover:bg-primary/5 transition-colors',
+                cm.textSize('xs'),
+                'font-bold uppercase tracking-widest text-primary-dark mb-1',
               )}
             >
-              {t('landing.heroSecondary', {}, { defaultValue: 'Browse the aisles' })}
-            </Link>
+              {t('landing.eyebrow', {}, { defaultValue: 'Same-day grocery delivery' })}
+            </p>
+            <h1
+              className={cm.cn(
+                cm.textSize('5xl'),
+                'md:text-6xl font-bold tracking-tight leading-tight text-on-surface [font-family:var(--font-headline)]',
+              )}
+            >
+              {t('landing.heroTitle', {}, { defaultValue: 'Freshness at your door, in hours.' })}
+            </h1>
+            <p className={cm.cn(cm.textSize('lg'), cm.textMuted, 'max-w-lg')}>
+              {t(
+                'landing.heroSubtitle',
+                {},
+                {
+                  defaultValue:
+                    'Schedule weekly deliveries with smart reorder of staples and live driver tracking.',
+                },
+              )}
+            </p>
+            {/* ZIP gate → store browsing */}
+            <div
+              className={cm.cn(cm.flex({ align: 'stretch', gap: 'sm' }), 'flex-col sm:flex-row')}
+            >
+              <div className="relative flex-grow max-w-sm">
+                <span
+                  className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant"
+                  aria-hidden="true"
+                >
+                  location_on
+                </span>
+                <input
+                  type="text"
+                  aria-label={t(
+                    'landing.zipPlaceholder',
+                    {},
+                    { defaultValue: 'Enter your ZIP code' },
+                  )}
+                  placeholder={t(
+                    'landing.zipPlaceholder',
+                    {},
+                    { defaultValue: 'Enter your ZIP code' },
+                  )}
+                  className={
+                    'w-full h-full pl-12 pr-4 py-4 rounded-lg border border-outline-variant bg-surface shadow-sm placeholder:text-on-surface-variant text-base focus:outline-none focus:border-primary'
+                  }
+                />
+              </div>
+              <Link
+                to="/shop"
+                data-mol-id="landing-hero-see-options"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  'py-4 inline-flex items-center justify-center font-medium bg-primary text-on-primary rounded-lg hover:bg-primary-dark transition-colors shadow-sm shrink-0',
+                )}
+              >
+                {t('landing.seeDeliveryOptions', {}, { defaultValue: 'See delivery options' })}
+              </Link>
+            </div>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
+                'pt-4 border-t border-outline-variant/40',
+              )}
+            >
+              {[
+                { icon: 'storefront', key: 'localStores', default: 'Local stores' },
+                { icon: 'verified', key: 'freshness', default: '100% freshness' },
+                { icon: 'local_shipping', key: 'sameDay', default: 'Same-day' },
+              ].map((chip) => (
+                <span key={chip.key} className={cm.flex({ align: 'center', gap: 'xs' })}>
+                  <span
+                    className="material-symbols-outlined text-primary text-[20px]"
+                    aria-hidden="true"
+                  >
+                    {chip.icon}
+                  </span>
+                  <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                    {t(`landing.trust.${chip.key}`, {}, { defaultValue: chip.default })}
+                  </span>
+                </span>
+              ))}
+            </div>
           </div>
+
+          <BushelHero
+            itemsInStock={4823}
+            averageDeliveryMins="58"
+            freshDealsCount={42}
+            deliverToLabel="Springfield, OR"
+            headlineKey="landing.previewHeadline"
+            headlineDefault="Tonight's bushel: 4,800+ items, ready to deliver."
+            subtitleKey="landing.previewSubtitle"
+            subtitleDefault="Pick a slot and we'll have your essentials at the door before sunset."
+            primaryCta={{
+              to: '/signup',
+              key: 'landing.previewCta',
+              defaultLabel: 'Get started',
+              icon: 'arrow_forward',
+            }}
+            secondaryCta={{
+              to: '/shop',
+              key: 'landing.previewSecondary',
+              defaultLabel: 'Browse',
+              icon: 'storefront',
+            }}
+          />
         </section>
 
-        <BushelHero
-          itemsInStock={4823}
-          averageDeliveryMins="58"
-          freshDealsCount={42}
-          deliverToLabel="Springfield, OR"
-          headlineKey="landing.previewHeadline"
-          headlineDefault="Tonight's bushel: 4,800+ items, ready to deliver."
-          subtitleKey="landing.previewSubtitle"
-          subtitleDefault="Pick a slot and we'll have your essentials at the door before sunset."
-          primaryCta={{
-            to: '/signup',
-            key: 'landing.previewCta',
-            defaultLabel: 'Get started',
-            icon: 'arrow_forward',
-          }}
-          secondaryCta={{
-            to: '/shop',
-            key: 'landing.previewSecondary',
-            defaultLabel: 'Browse',
-            icon: 'storefront',
-          }}
-        />
+        {/* Delivery promise strip (design: categoryBanner band) */}
+        <section className="-mx-6 bg-[var(--color-promise-band)] border-y border-outline-variant/40">
+          <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), 'py-8')}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {[
+                { icon: 'timer', key: 'promise60', default: 'Delivered in 60 min' },
+                { icon: 'calendar_today', key: 'promiseSlots', default: 'Same-day slots' },
+                { icon: 'thumb_up', key: 'promiseFresh', default: 'Fresh or refund' },
+                { icon: 'local_mall', key: 'promiseFree', default: 'Free over $35' },
+              ].map((p) => (
+                <div
+                  key={p.key}
+                  className={cm.flex({ direction: 'col', align: 'center', gap: 'sm' })}
+                >
+                  <span
+                    className={
+                      'w-12 h-12 rounded-full bg-surface flex items-center justify-center text-primary shadow-sm'
+                    }
+                    aria-hidden="true"
+                  >
+                    <span className="material-symbols-outlined">{p.icon}</span>
+                  </span>
+                  <span className="font-semibold text-on-surface [font-family:var(--font-headline)]">
+                    {t(`landing.promise.${p.key}`, {}, { defaultValue: p.default })}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <section>
           <div
@@ -286,8 +348,10 @@ export function Landing() {
                 {t('landing.categoriesEyebrow', {}, { defaultValue: 'Aisles' })}
               </p>
               <h2
-                className={cm.cn(cm.textSize('3xl'), 'font-extrabold tracking-tight')}
-                style={{ fontFamily: 'DM Sans, sans-serif' }}
+                className={cm.cn(
+                  cm.textSize('3xl'),
+                  'font-extrabold tracking-tight [font-family:var(--font-headline)]',
+                )}
               >
                 {t('landing.categoriesHeading', {}, { defaultValue: 'Shop by category' })}
               </h2>
@@ -347,8 +411,10 @@ export function Landing() {
               {t('landing.featuredEyebrow', {}, { defaultValue: "Editor's picks" })}
             </p>
             <h2
-              className={cm.cn(cm.textSize('3xl'), 'font-extrabold tracking-tight')}
-              style={{ fontFamily: 'DM Sans, sans-serif' }}
+              className={cm.cn(
+                cm.textSize('3xl'),
+                'font-extrabold tracking-tight [font-family:var(--font-headline)]',
+              )}
             >
               {t('landing.featuredHeading', {}, { defaultValue: 'Fresh today' })}
             </h2>
@@ -367,8 +433,10 @@ export function Landing() {
               {t('landing.howEyebrow', {}, { defaultValue: 'Three steps' })}
             </p>
             <h2
-              className={cm.cn(cm.textSize('3xl'), 'font-extrabold tracking-tight')}
-              style={{ fontFamily: 'DM Sans, sans-serif' }}
+              className={cm.cn(
+                cm.textSize('3xl'),
+                'font-extrabold tracking-tight [font-family:var(--font-headline)]',
+              )}
             >
               {t(
                 'landing.howItWorksHeading',
@@ -405,10 +473,7 @@ export function Landing() {
                 >
                   <span className={'material-symbols-outlined text-2xl'}>{step.icon}</span>
                 </span>
-                <h3
-                  className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight mb-2')}
-                  style={{ fontFamily: 'DM Sans, sans-serif' }}
-                >
+                <h3 className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight mb-2')}>
                   {t(`landing.step.${step.key}.title`, {}, { defaultValue: step.defaultTitle })}
                 </h3>
                 <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
@@ -444,10 +509,7 @@ export function Landing() {
             <p className={'text-[11px] font-black uppercase tracking-widest text-white/85 mb-3'}>
               {t('landing.ctaEyebrow', {}, { defaultValue: 'Ready when you are' })}
             </p>
-            <h2
-              className={'text-4xl md:text-5xl font-black tracking-tight'}
-              style={{ fontFamily: 'DM Sans, sans-serif' }}
-            >
+            <h2 className={'text-4xl md:text-5xl font-black tracking-tight'}>
               {t('landing.ctaHeadline', {}, { defaultValue: 'Your first delivery is on us.' })}
             </h2>
             <p className={'text-base md:text-lg text-white/90 mt-4 max-w-xl mx-auto'}>
@@ -489,6 +551,15 @@ export function Landing() {
             { year: new Date().getFullYear(), app: APP_NAME },
             { defaultValue: '© {{year}} {{app}}. All rights reserved.' },
           )}
+          {' — Built with '}
+          <a
+            href="https://molecule.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline font-medium"
+          >
+            Molecule.dev
+          </a>
         </p>
       </footer>
     </div>

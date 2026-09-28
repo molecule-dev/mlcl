@@ -23,6 +23,8 @@
   --mol-color-on-accent-container: #5a3811;
 
   /* ── App-specific brand colors ── */
+  /* bg-accent / text-on-accent utilities are registered in index.css @theme,
+     reading these contrast-audited --mol-color-accent* stops. */
   --color-accent-hover: #c47f3e;
   --color-streak-active: #e09a5a;
   --color-streak-missed: #6b7280;
@@ -43,8 +45,9 @@
   /* Typography scale */
   --font-family-mono: 'DM Mono', SFMono-Regular, Menlo, monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     DM Sans is the Stitch landing design's headline face. */
+  --font-headline: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;

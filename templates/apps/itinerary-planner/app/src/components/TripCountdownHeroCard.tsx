@@ -131,7 +131,7 @@ export function TripCountdownHeroCard({ trip }: { trip: UpcomingTrip }) {
             cm.sp('mb', 4),
             'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] font-extrabold',
           )}
-          style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+          style={{ fontFamily: 'var(--font-headline)' }}
         >
           {trip.destination}
         </h1>
@@ -169,7 +169,7 @@ export function TripCountdownHeroCard({ trip }: { trip: UpcomingTrip }) {
               'text-6xl md:text-7xl tabular-nums tracking-tighter font-extrabold leading-none',
               cm.sp('mt', 1),
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {days}
           </span>

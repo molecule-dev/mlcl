@@ -110,8 +110,14 @@
   --font-family-mono:
     'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Design (Quorum): Inter extrabold display headings — same face as body. */
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Landing accent (design: Quorum) — warm orange counterpoint to the teal
+     brand; used for the trending glyph and small highlight marks. */
+  --color-accent: #e8762c;
+  --color-accent-soft: #fdeadd;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -266,6 +272,8 @@
   --color-hot-light: rgba(248, 113, 113, 0.16);
   --color-flagged: #fbbf24;
   --color-flagged-light: rgba(251, 191, 36, 0.14);
+  --color-accent: #f5924d;
+  --color-accent-soft: rgba(245, 146, 77, 0.16);
   --color-quote-border: #2c443e;
   --color-vote-divider: #243430;
 }

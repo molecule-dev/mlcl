@@ -1,48 +1,52 @@
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     design-student-portal-landing.html sets display headings in Inter
+     (the app's body face), so the serif default is retired. */
+  --font-headline: 'Inter', system-ui, -apple-system, sans-serif;
 
-  /* ── @theme bridge variables (feed into Tailwind @theme → --color-*) ── */
-  --mol-color-primary: #1d4ed8; /* #2563eb was 4.48:1 on the bg-primary/10 active-nav tint (fail); #1d4ed8 = 5.8:1 */
-  --mol-color-primary-light: #dbeafe;
-  --mol-color-primary-dark: #1d4ed8;
-  --mol-color-secondary: #059669;
-  --mol-color-background: #f1f5f9;
-  --mol-color-background-secondary: #f8fafc;
-  --mol-color-background-tertiary: #f1f5f9;
-  --mol-color-surface: #ffffff;
-  --mol-color-surface-secondary: #f8fafc;
+  /* ── @theme bridge variables (feed into Tailwind @theme → --color-*) ──
+     Aligned to design-student-portal-landing.html (Chalk — indigo +
+     amber Material-3 palette). */
+  --mol-color-primary: #4334ae;
+  --mol-color-primary-light: #e4dfff;
+  --mol-color-primary-dark: #372a8f;
+  --mol-color-secondary: #875200;
+  --mol-color-background: #faf9fe;
+  --mol-color-background-secondary: #f4f3f8;
+  --mol-color-background-tertiary: #eeedf2;
+  --mol-color-surface: #faf9fe;
+  --mol-color-surface-secondary: #f4f3f8;
   --mol-color-input-background: #ffffff;
-  --mol-color-border: #e2e8f0;
-  --mol-color-border-secondary: #cbd5e1;
-  --mol-color-border-focus: #2563eb;
-  --mol-color-text: #0f172a;
-  --mol-color-text-secondary: #475569;
-  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-border: #e3e2e7;
+  --mol-color-border-secondary: #c8c4d5;
+  --mol-color-border-focus: #4334ae;
+  --mol-color-text: #1a1c1f;
+  --mol-color-text-secondary: #474553;
+  --mol-color-text-tertiary: #787585;
   --mol-color-text-inverse: #ffffff;
   --mol-color-success: #22c55e;
   --mol-color-warning: #f59e0b;
-  --mol-color-error: #ef4444;
+  --mol-color-error: #ba1a1a;
   --mol-color-info: #3b82f6;
   --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
   /* ── App-specific portal tokens ── */
-  --portal-primary: #1d4ed8; /* matches --mol-color-primary contrast fix */
-  --portal-primary-hover: #1d4ed8;
+  --portal-primary: #4334ae; /* design primary */
+  --portal-primary-hover: #372a8f;
   --portal-secondary: #059669;
   --portal-secondary-hover: #047857;
-  --portal-accent: #d97706;
-  --portal-background: #f1f5f9;
+  --portal-accent: #b45309;
+  --portal-background: #faf9fe;
   --portal-surface: #ffffff;
-  --portal-surface-hover: #f8fafc;
-  --portal-border: #e2e8f0;
-  --portal-text: #0f172a;
-  --portal-text-muted: #64748b;
-  --portal-text-light: #94a3b8;
+  --portal-surface-hover: #f4f3f8;
+  --portal-border: #e3e2e7;
+  --portal-text: #1a1c1f;
+  --portal-text-muted: #5c5967;
+  --portal-text-light: #787585;
   --portal-success: #22c55e;
   --portal-warning: #f59e0b;
-  --portal-danger: #ef4444;
+  --portal-danger: #ba1a1a;
   --portal-grade-a: #22c55e;
   --portal-grade-b: #3b82f6;
   --portal-grade-c: #f59e0b;
@@ -58,90 +62,90 @@
   --portal-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   --portal-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.08);
 
-  /* Schedule card — soft lavender tint for the today-schedule panel */
-  --color-schedule-card: #f0eef9;
+  /* Schedule card — soft indigo tint for the today-schedule panel */
+  --color-schedule-card: #edecfa;
 
-  /* Material-3 / Stitch bridge tokens — light baseline */
-  --color-background: #f1f5f9;
-  --color-on-background: #0f172a;
-  --color-surface: #ffffff;
-  --color-surface-bright: #ffffff;
-  --color-surface-dim: #e2e8f0;
+  /* Material-3 / Stitch bridge tokens — light baseline
+     (design-student-portal-landing.html tailwind config, verbatim hues) */
+  --color-background: #faf9fe;
+  --color-on-background: #1a1c1f;
+  --color-surface: #faf9fe;
+  --color-surface-bright: #faf9fe;
+  --color-surface-dim: #dad9de;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f8fafc;
-  --color-surface-container: #f1f5f9;
-  --color-surface-container-high: #e9f0f7;
-  --color-surface-container-highest: #e2e8f0;
-  --color-surface-variant: #f1f5f9;
-  --color-on-surface: #0f172a;
-  --color-on-surface-variant: #475569;
-  --color-inverse-surface: #0f172a;
-  --color-inverse-on-surface: #f8fafc;
-  --color-inverse-primary: #93c5fd;
-  --color-primary: #1d4ed8; /* matches --mol-color-primary contrast fix */
-  --color-primary-container: #dbeafe;
+  --color-surface-container-low: #f4f3f8;
+  --color-surface-container: #eeedf2;
+  --color-surface-container-high: #e8e7ec;
+  --color-surface-container-highest: #e3e2e7;
+  --color-surface-variant: #e3e2e7;
+  --color-on-surface: #1a1c1f;
+  --color-on-surface-variant: #474553;
+  --color-inverse-surface: #2f3034;
+  --color-inverse-on-surface: #f1f0f5;
+  --color-inverse-primary: #c6c0ff;
+  --color-primary: #4334ae;
+  --color-primary-container: #5b4fc7;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #1e3a8a;
-  --color-secondary: #059669;
-  --color-secondary-container: #d1fae5;
+  --color-on-primary-container: #ded8ff;
+  --color-secondary: #875200;
+  --color-secondary-container: #fea93a;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #064e3b;
-  --color-tertiary: #d97706;
-  --color-tertiary-container: #fef3c7;
-  --color-on-tertiary: #1c0a00; /* #ffffff was 3.19:1 vs #d97706 (fail); #1c0a00 = 6.03:1 */
-  --color-on-tertiary-container: #78350f;
-  --color-error: #ef4444;
-  --color-error-container: #fee2e2;
-  --color-on-error: #2d0000; /* #ffffff was 3.76:1 vs #ef4444 (fail); #2d0000 = 5.02:1 */
-  --color-on-error-container: #7f1d1d;
-  --color-outline: #6b7280; /* #94a3b8 was 2.56:1 vs surface (fail ≥3:1); #6b7280 = 4.83:1 */
-  --color-outline-variant: #e2e8f0;
-  --color-surface-tint: #2563eb;
+  --color-on-secondary-container: #6c4100;
+  --color-tertiary: #422dbd;
+  --color-tertiary-container: #5a4ad6;
+  --color-on-tertiary: #ffffff; /* white on #422dbd ≈ 9.9:1 */
+  --color-on-tertiary-container: #ded8ff;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff; /* white on #ba1a1a ≈ 6.6:1 */
+  --color-on-error-container: #93000a;
+  --color-outline: #787585; /* 4.4:1 vs surface — clears the 3:1 graphics bar */
+  --color-outline-variant: #c8c4d5;
+  --color-surface-tint: #584cc4;
 }
 
-/* Dark mode — education / academic warm-neutral dark.
-   Warm-leaning near-black surfaces (study-lamp feel — schoolwork is
-   intimate, not corporate). Brand academic blue kept at brand stop
-   (#2563eb) for badges; primary nudges to a brighter hover so on-primary
-   white still reads cleanly. Grades and attendance dots stay vivid for
-   quick-scan legibility. */
+/* Dark mode — indigo-tinted neutral dark. Mirrors the M3 tonal ramp of the
+   design palette: the light config's inverse-primary (#c6c0ff) becomes the
+   dark primary *tone* for text/tints, while button fills stay on the
+   #5b4fc7 container tone so on-primary white still reads cleanly (≈6.3:1).
+   Grades and attendance dots stay vivid for quick-scan legibility. */
 [data-mol-mode='dark'] {
   /* @theme bridge variables */
-  --mol-color-primary: #2563eb; /* keep brand blue at brand stop */
-  --mol-color-primary-light: #1e3a5f;
-  --mol-color-primary-dark: #60a5fa;
-  --mol-color-secondary: #34d399;
-  --mol-color-background: #14110d;
-  --mol-color-background-secondary: #1c1814;
-  --mol-color-background-tertiary: #25201b;
-  --mol-color-surface: #1c1814;
-  --mol-color-surface-secondary: #25201b;
-  --mol-color-input-background: #14110d;
-  --mol-color-border: #2e2922;
-  --mol-color-border-secondary: #3d3630;
-  --mol-color-border-focus: #60a5fa;
-  --mol-color-text: #f4efe7;
-  --mol-color-text-secondary: #c2b8a8;
-  --mol-color-text-tertiary: #8a8170;
-  --mol-color-text-inverse: #14110d;
+  --mol-color-primary: #5b4fc7; /* container-tone fill; on-primary stays white */
+  --mol-color-primary-light: #342a7d;
+  --mol-color-primary-dark: #c6c0ff;
+  --mol-color-secondary: #ffb866;
+  --mol-color-background: #131118;
+  --mol-color-background-secondary: #1b1922;
+  --mol-color-background-tertiary: #232028;
+  --mol-color-surface: #1b1922;
+  --mol-color-surface-secondary: #232028;
+  --mol-color-input-background: #131118;
+  --mol-color-border: #2e2b36;
+  --mol-color-border-secondary: #3d3946;
+  --mol-color-border-focus: #c6c0ff;
+  --mol-color-text: #e7e3ee;
+  --mol-color-text-secondary: #c8c4d0;
+  --mol-color-text-tertiary: #948f9e;
+  --mol-color-text-inverse: #131118;
   --mol-color-success: #4ade80;
   --mol-color-warning: #fbbf24;
   --mol-color-error: #f87171;
   --mol-color-info: #60a5fa;
 
   /* App-specific portal tokens */
-  --portal-primary: #2563eb; /* keep brand blue at brand stop */
-  --portal-primary-hover: #60a5fa;
+  --portal-primary: #7b6fd9; /* brighter indigo for dark-surface fills */
+  --portal-primary-hover: #c6c0ff;
   --portal-secondary: #34d399;
   --portal-secondary-hover: #6ee7b7;
   --portal-accent: #fbbf24;
-  --portal-background: #14110d;
-  --portal-surface: #1c1814;
-  --portal-surface-hover: #25201b;
-  --portal-border: #2e2922;
-  --portal-text: #f4efe7;
-  --portal-text-muted: #c2b8a8;
-  --portal-text-light: #8a8170;
+  --portal-background: #131118;
+  --portal-surface: #1b1922;
+  --portal-surface-hover: #232028;
+  --portal-border: #2e2b36;
+  --portal-text: #e7e3ee;
+  --portal-text-muted: #c8c4d0;
+  --portal-text-light: #948f9e;
   --portal-success: #4ade80;
   --portal-warning: #fbbf24;
   --portal-danger: #f87171;
@@ -156,45 +160,45 @@
   --portal-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   --portal-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.65);
 
-  /* Schedule card — muted warm-indigo tint for dark mode panel */
-  --color-schedule-card: #1e1b2e;
+  /* Schedule card — muted indigo tint for dark mode panel */
+  --color-schedule-card: #211e2e;
 
-  /* Material-3 / Stitch bridge tokens — override @theme for dark mode */
-  --color-background: #14110d;
-  --color-on-background: #f4efe7;
-  --color-surface: #1c1814;
-  --color-surface-bright: #25201b;
-  --color-surface-dim: #0c0a07;
-  --color-surface-container-lowest: #090706;
-  --color-surface-container-low: #161210;
-  --color-surface-container: #1c1814;
-  --color-surface-container-high: #25201b;
-  --color-surface-container-highest: #2e2922;
-  --color-surface-variant: #25201b;
-  --color-on-surface: #f4efe7;
-  --color-on-surface-variant: #c2b8a8;
-  --color-inverse-surface: #f4efe7;
-  --color-inverse-on-surface: #14110d;
-  --color-inverse-primary: #2563eb;
-  --color-primary: #2563eb; /* keep brand blue at brand stop */
-  --color-primary-container: #1e3a5f;
-  --color-on-primary: #ffffff; /* white on blue — readable in both modes */
-  --color-on-primary-container: #bfdbfe;
-  --color-secondary: #34d399;
-  --color-secondary-container: #064e3b;
-  --color-on-secondary: #14110d;
-  --color-on-secondary-container: #a7f3d0;
-  --color-tertiary: #fbbf24;
-  --color-tertiary-container: #4d3800;
-  --color-on-tertiary: #14110d;
-  --color-on-tertiary-container: #fef3c7;
+  /* Material-3 / Stitch bridge tokens — dark overrides */
+  --color-background: #131118;
+  --color-on-background: #e7e3ee;
+  --color-surface: #1b1922;
+  --color-surface-bright: #3b3844;
+  --color-surface-dim: #0e0d12;
+  --color-surface-container-lowest: #0e0d12;
+  --color-surface-container-low: #17151c;
+  --color-surface-container: #1b1922;
+  --color-surface-container-high: #252329;
+  --color-surface-container-highest: #302d35;
+  --color-surface-variant: #302d35;
+  --color-on-surface: #e7e3ee;
+  --color-on-surface-variant: #c8c4d0;
+  --color-inverse-surface: #e7e3ee;
+  --color-inverse-on-surface: #302d35;
+  --color-inverse-primary: #4334ae;
+  --color-primary: #5b4fc7; /* container-tone fill; keeps on-primary white AA */
+  --color-primary-container: #4a3fa9;
+  --color-on-primary: #ffffff; /* white on #5b4fc7 ≈ 6.3:1 */
+  --color-on-primary-container: #e4dfff;
+  --color-secondary: #ffb866;
+  --color-secondary-container: #6c4100;
+  --color-on-secondary: #4a2f00;
+  --color-on-secondary-container: #ffddba;
+  --color-tertiary: #c6bfff;
+  --color-tertiary-container: #4436a4;
+  --color-on-tertiary: #251b6d; /* dark indigo on lavender tone ≈ 7.5:1 */
+  --color-on-tertiary-container: #ded8ff;
   --color-error: #f87171;
-  --color-error-container: #450a0a;
+  --color-error-container: #93000a;
   --color-on-error: #2d0000; /* #ffffff was 2.77:1 vs #f87171 (fail); #2d0000 = 6.83:1 */
-  --color-on-error-container: #fecdd3;
-  --color-outline: #8a8170;
-  --color-outline-variant: #2e2922;
-  --color-surface-tint: #60a5fa;
+  --color-on-error-container: #ffdad6;
+  --color-outline: #948f9e;
+  --color-outline-variant: #474451;
+  --color-surface-tint: #c0b6fa;
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.65);

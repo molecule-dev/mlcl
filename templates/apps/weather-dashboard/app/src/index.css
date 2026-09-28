@@ -25,3 +25,22 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/* ── Nimbus (Stitch landing) design tokens ──────────────────────────────
+   Values live in app/src/theme.css per mode (`--mol-color-accent`); this
+   @theme entry only registers the Tailwind utilities (text-accent, bg-accent,
+   …). Fonts resolve through theme.css: --mol-font-sans (Inter) and
+   --mol-font-mono (JetBrains Mono) feed base.css's --font-sans/--font-mono. */
+@theme {
+  --color-accent: var(--mol-color-accent, #047857);
+}
+
+/* Glass surface — the design's signature material: the surface color at 60%
+   over the atmospheric background, blurred, with a hairline light border.
+   Reads as frosted navy glass in dark mode, translucent white in light. */
+.glass {
+  background: color-mix(in srgb, var(--color-surface) 60%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid color-mix(in srgb, var(--color-on-surface) 6%, transparent);
+}

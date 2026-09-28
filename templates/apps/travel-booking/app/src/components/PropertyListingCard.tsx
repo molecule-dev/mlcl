@@ -140,8 +140,11 @@ export function PropertyListingCard({
       <div className={cm.sp('p', 5)}>
         <div className={cm.cn(cm.flex({ align: 'start', justify: 'between', gap: 'sm' }))}>
           <h3
-            className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'leading-tight truncate')}
-            style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
+            className={cm.cn(
+              cm.textSize('lg'),
+              cm.fontWeight('bold'),
+              'leading-tight truncate font-headline',
+            )}
           >
             {property.name}
           </h3>

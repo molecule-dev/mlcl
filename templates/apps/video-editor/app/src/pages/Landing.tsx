@@ -86,6 +86,9 @@ export function Landing() {
 
   return (
     <div
+      /* The Stitch design is dark-only — pin the marketing surface to the dark
+         NLE palette regardless of the app-wide mode toggle. */
+      data-mol-mode="dark"
       className={cm.cn(
         cm.flex({ direction: 'col' }),
         cm.minH('screen'),
@@ -126,17 +129,11 @@ export function Landing() {
             <h1
               className={cm.cn(
                 cm.textCenter,
-                'font-extrabold tracking-tight text-5xl md:text-6xl lg:text-7xl leading-[0.95] max-w-[860px]',
+                'font-black tracking-tighter text-5xl md:text-7xl lg:text-8xl leading-[0.95] max-w-[900px] pb-2 bg-clip-text text-transparent bg-gradient-to-r from-[var(--video-cta-from)] via-[var(--video-link)] to-[var(--video-cta-to)]',
               )}
             >
-              <span className={cm.cn('text-[var(--video-text-primary)]')}>
-                {t('landing.headline.start', {}, { defaultValue: 'Cut. Create.' })}
-              </span>{' '}
-              <span
-                className={cm.cn(
-                  'bg-clip-text text-transparent bg-gradient-to-r from-[var(--video-link)] via-[var(--video-cta-from)] to-[var(--video-cta-to)]',
-                )}
-              >
+              <span>{t('landing.headline.start', {}, { defaultValue: 'Cut. Create.' })}</span>{' '}
+              <span>
                 {t('landing.headline.brand', { brand: APP_NAME }, { defaultValue: 'Captivate.' })}
               </span>
             </h1>
@@ -368,9 +365,18 @@ export function Landing() {
           <p className={cm.cn('font-mono text-[10px] text-[var(--video-text-dim)]')}>
             {t(
               'landing.footer.copyright',
-              { appName: APP_NAME },
-              { defaultValue: '© {{appName}} Studio. Cinematic cuts in the browser.' },
+              { year: new Date().getFullYear(), appName: APP_NAME },
+              { defaultValue: '© {{year}} {{appName}} Studio. Cinematic cuts in the browser.' },
             )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
           </p>
         </div>
       </footer>

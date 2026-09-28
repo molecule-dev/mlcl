@@ -116,7 +116,7 @@ export function DestinationOrbCard({ destination }: { destination: Destination }
             cm.sp('mt', 1),
             'text-white leading-tight tracking-tight',
           )}
-          style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+          style={{ fontFamily: 'var(--font-headline)' }}
         >
           {destination.name}
         </h3>

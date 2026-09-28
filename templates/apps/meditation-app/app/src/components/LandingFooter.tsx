@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_NAME } from '../branding.js'
 
 /**
  * Public marketing footer for Stillpoint's Landing / About / Privacy / Terms
@@ -41,24 +41,33 @@ export function LandingFooter() {
               cm.flex({ align: 'center', gap: 'xs' }),
               cm.fontWeight('bold'),
               cm.textSize('xl'),
-              'text-primary',
+              'text-primary font-headline',
             )}
           >
             <span
               aria-hidden="true"
               className={cm.cn('material-symbols-outlined')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
+              style={{ fontVariationSettings: "'FILL' 0" }}
             >
-              self_improvement
+              trip_origin
             </span>
             {APP_NAME}
           </Link>
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t(
-              'stillpoint.landing.footer.tagline',
-              { tagline: APP_TAGLINE, app: APP_NAME },
-              { defaultValue: '© {{app}} — {{tagline}}.' },
+              'common.copyrightBuiltWithMolecule',
+              { year: new Date().getFullYear(), app: APP_NAME },
+              { defaultValue: '© {{year}} {{app}}' },
             )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cm.cn('hover:underline font-medium')}
+            >
+              Molecule.dev
+            </a>
           </p>
         </div>
         <div

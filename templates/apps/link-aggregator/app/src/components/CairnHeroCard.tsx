@@ -3,7 +3,7 @@
  * blurred decorative orbs, inline SVG mountain-stack motif (the "cairn").
  *
  * Translated from personal-finance's NetWorthCard.tsx — adapted for
- * Digest's editorial tone (purple→indigo gradient, mark-the-path
+ * Cairn's editorial tone (purple→indigo gradient, mark-the-path
  * iconography).
  */
 import { useTranslation } from '@molecule/app-react'

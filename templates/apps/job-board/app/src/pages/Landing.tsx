@@ -1,48 +1,10 @@
-import { Link } from 'react-router'
+import { useState, type FormEvent } from 'react'
+import { Link, useNavigate } from 'react-router'
 
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
-import { OpportunitiesHero } from '../components/OpportunitiesHero.js'
-
-const FEATURES = [
-  {
-    key: 'search',
-    icon: 'search',
-    defaultTitle: 'Smart job search',
-    defaultBody:
-      'Filter by skills, salary, location, and team size. Faceted search powered by Meilisearch surfaces the right roles in milliseconds.',
-  },
-  {
-    key: 'pipeline',
-    icon: 'view_timeline',
-    defaultTitle: 'Application pipeline',
-    defaultBody:
-      'Track every application from submitted → reviewing → interview → offer in a single timeline. Email + push when status moves.',
-  },
-  {
-    key: 'company',
-    icon: 'apartment',
-    defaultTitle: 'Company profiles',
-    defaultBody:
-      'Real culture, benefits, employee count, and every open role — not just a logo and a tagline. Apply with confidence.',
-  },
-  {
-    key: 'posting',
-    icon: 'edit_note',
-    defaultTitle: 'One-page posting',
-    defaultBody:
-      'Employers publish a role in under two minutes. Stripe-backed tiers unlock higher posting limits, data export, and longer history.',
-  },
-] as const
-
-const SOCIAL_PROOF = [
-  { defaultLabel: 'Acuity Talent · 38 hires last quarter', key: 'acuity' },
-  { defaultLabel: 'Northwind People Ops', key: 'northwind' },
-  { defaultLabel: 'Polaris Recruiting Studio', key: 'polaris' },
-  { defaultLabel: 'Foundry Hiring Co.', key: 'foundry' },
-] as const
 
 // Mirrors api/src/tiers.ts (Free / Pro / Team) — keep names, prices, and
 // limits in sync with getPricingTiers() and the /pricing page.
@@ -92,361 +54,543 @@ const PRICING = [
   },
 ] as const
 
+const STATS = [
+  { key: 'roles', icon: 'work', value: '48K+', defaultLabel: 'Open roles' },
+  { key: 'companies', icon: 'business', value: '12K+', defaultLabel: 'Companies' },
+  { key: 'candidates', icon: 'group', value: '2.4M', defaultLabel: 'Candidates' },
+  { key: 'salary', icon: 'payments', value: '$115K', defaultLabel: 'Avg salary' },
+] as const
+
+const FEATURED_JOBS = [
+  {
+    key: 'frontend',
+    companyInitial: 'T',
+    badge: 'New',
+    defaultTitle: 'Senior Frontend Engineer',
+    defaultCompany: 'TechFlow Inc.',
+    defaultLocation: 'Remote',
+    defaultType: 'Full-time',
+    tags: ['React', 'TypeScript', 'Tailwind'],
+    defaultSalary: '$140k - $180k',
+  },
+  {
+    key: 'designer',
+    companyInitial: 'N',
+    badge: null,
+    defaultTitle: 'Product Designer',
+    defaultCompany: 'Nexus Systems',
+    defaultLocation: 'New York, NY',
+    defaultType: 'Hybrid',
+    tags: ['Figma', 'UI/UX'],
+    defaultSalary: '$120k - $150k',
+  },
+  {
+    key: 'backend',
+    companyInitial: 'D',
+    badge: null,
+    defaultTitle: 'Backend Engineer',
+    defaultCompany: 'DataCore',
+    defaultLocation: 'San Francisco, CA',
+    defaultType: 'Full-time',
+    tags: ['Python', 'Django', 'AWS'],
+    defaultSalary: '$150k - $190k',
+  },
+] as const
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const isAuthenticated = useIsAuthenticated()
+  const navigate = useNavigate()
+  const [searchTitle, setSearchTitle] = useState('')
+  const [searchLocation, setSearchLocation] = useState('')
+
+  function onHeroSearch(e: FormEvent) {
+    e.preventDefault()
+    const params = new URLSearchParams()
+    if (searchTitle.trim()) params.set('q', searchTitle.trim())
+    if (searchLocation.trim()) params.set('location', searchLocation.trim())
+    const qs = params.toString()
+    navigate(qs ? `/jobs?${qs}` : '/jobs')
+  }
 
   return (
     <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
-      {/* Top nav */}
-      <nav
-        className={cm.cn(
-          'sticky top-0 z-50 border-b border-outline-variant/30 bg-surface/80 backdrop-blur-md',
-        )}
-      >
+      {/* Top nav — solid surface bar with hairline divider (design: white h-20 bar) */}
+      <nav className={cm.cn('sticky top-0 z-50 border-b border-outline-variant/30 bg-surface')}>
         <div
           className={cm.cn(
             cm.maxW('7xl'),
             cm.mxAuto,
             cm.sp('px', 6),
-            cm.sp('py', 4),
-            cm.flex({ align: 'center', justify: 'between' }),
+            'flex h-16 items-center justify-between md:h-20',
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn(
-              cm.textSize('xl'),
-              'shrink-0 whitespace-nowrap font-extrabold tracking-tighter text-primary',
-            )}
-          >
-            {APP_NAME}
-          </Link>
-          <div className={cm.flex({ align: 'center', gap: 'md' })}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
             <Link
-              to="/jobs"
+              to="/"
               className={cm.cn(
-                cm.textSize('sm'),
-                cm.fontWeight('semibold'),
-                'hidden min-h-[32px] items-center text-on-surface-variant transition-colors hover:text-on-surface md:inline-flex',
+                cm.textSize('xl'),
+                'shrink-0 whitespace-nowrap font-black tracking-tight text-primary',
               )}
             >
-              {t('landing.browseJobs', {}, { defaultValue: 'Browse jobs' })}
+              {APP_NAME}
             </Link>
-            <Link
-              to="/pricing"
-              className={cm.cn(
-                cm.textSize('sm'),
-                cm.fontWeight('semibold'),
-                'hidden min-h-[32px] items-center text-on-surface-variant transition-colors hover:text-on-surface md:inline-flex',
-              )}
-            >
-              {t('landing.pricingEyebrow', {}, { defaultValue: 'Pricing' })}
-            </Link>
+            <div className={cm.cn('hidden gap-6 md:flex')}>
+              <Link
+                to="/jobs"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  'text-on-surface-variant transition-colors hover:text-primary',
+                )}
+              >
+                {t('landing.navFindJobs', {}, { defaultValue: 'Find Jobs' })}
+              </Link>
+              <Link
+                to="/companies"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  'text-on-surface-variant transition-colors hover:text-primary',
+                )}
+              >
+                {t('landing.navCompanies', {}, { defaultValue: 'Companies' })}
+              </Link>
+              <Link
+                to="/pricing"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  'text-on-surface-variant transition-colors hover:text-primary',
+                )}
+              >
+                {t('landing.pricingEyebrow', {}, { defaultValue: 'Pricing' })}
+              </Link>
+            </div>
+          </div>
+          <div className={cm.cn('hidden items-center gap-4 md:flex')}>
             {isAuthenticated ? (
               <Link
                 to="/dashboard"
                 data-mol-id="nav-go-to-dashboard"
                 className={cm.cn(
-                  cm.sp('px', 5),
-                  cm.sp('py', 2),
-                  cm.fontWeight('bold'),
                   cm.textSize('sm'),
-                  'shrink-0 whitespace-nowrap rounded-lg bg-primary text-on-primary shadow-md shadow-primary/20 transition-opacity hover:opacity-90',
+                  cm.fontWeight('medium'),
+                  'text-primary transition-colors hover:text-primary-dark',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
               </Link>
             ) : (
-              <>
-                <Link
-                  to="/login"
-                  className={cm.cn(
-                    cm.textSize('sm'),
-                    cm.fontWeight('semibold'),
-                    'hidden min-h-[32px] items-center text-on-surface-variant transition-colors hover:text-on-surface md:inline-flex',
-                  )}
-                >
-                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-                </Link>
-                <Link
-                  to="/signup"
-                  className={cm.cn(
-                    cm.sp('px', 5),
-                    cm.sp('py', 2),
-                    cm.fontWeight('bold'),
-                    cm.textSize('sm'),
-                    'shrink-0 whitespace-nowrap rounded-lg bg-primary text-on-primary shadow-md shadow-primary/20 transition-opacity hover:opacity-90',
-                  )}
-                >
-                  {t('common.getStarted', {}, { defaultValue: 'Get started' })}
-                </Link>
-              </>
+              <Link
+                to="/login"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  'text-primary transition-colors hover:text-primary-dark',
+                )}
+              >
+                {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+              </Link>
             )}
+            <Link
+              to="/post-job"
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                'text-on-surface-variant transition-colors hover:text-primary',
+              )}
+            >
+              {t('landing.navPostJob', {}, { defaultValue: 'Post a Job' })}
+            </Link>
+            <Link
+              to="/signup"
+              data-mol-id="nav-get-started"
+              className={cm.cn(
+                cm.sp('px', 5),
+                cm.sp('py', 2.5),
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                'rounded-lg bg-primary text-on-primary shadow-sm transition-colors hover:bg-primary-hover active:scale-95',
+              )}
+            >
+              {t('common.getStarted', {}, { defaultValue: 'Get started' })}
+            </Link>
+          </div>
+          {/* Mobile: single compact CTA keeps the bar to one row */}
+          <div className={cm.cn('md:hidden')}>
+            <Link
+              to="/signup"
+              data-mol-id="nav-get-started-mobile"
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                'rounded-lg bg-primary text-on-primary transition-colors hover:bg-primary-hover',
+              )}
+            >
+              {t('common.getStarted', {}, { defaultValue: 'Get started' })}
+            </Link>
           </div>
         </div>
       </nav>
 
       <main>
-        {/* Hero — split panel */}
+        {/* Search hero — navy gradient band, centered headline + dual-field search card */}
         <section
           className={cm.cn(
-            cm.maxW('7xl'),
-            cm.mxAuto,
-            cm.sp('px', 6),
-            cm.sp('py', 16),
-            'relative overflow-hidden lg:py-24',
+            'relative overflow-hidden px-6 pb-32 pt-20',
+            'bg-[linear-gradient(to_bottom_right,var(--color-hero-from),var(--color-hero-to))]',
           )}
         >
           <div
             className={cm.cn(
-              'absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl',
+              'pointer-events-none absolute -top-20 -right-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl',
             )}
             aria-hidden="true"
           />
           <div
             className={cm.cn(
-              'absolute -bottom-32 -left-20 h-96 w-96 rounded-full bg-success/15 blur-3xl',
+              'pointer-events-none absolute -bottom-20 -left-20 h-96 w-96 rounded-full bg-success/10 blur-3xl',
             )}
             aria-hidden="true"
           />
-          <div className={cm.cn('relative grid gap-12 lg:grid-cols-2 lg:items-center')}>
-            <div>
-              <span
+          <div className={cm.cn(cm.maxW('4xl'), cm.mxAuto, 'relative z-10', cm.textCenter)}>
+            <h1
+              className={cm.cn(
+                cm.sp('mb', 6),
+                'text-4xl font-black tracking-tight text-white md:text-6xl',
+              )}
+            >
+              {t('landing.heroTitle', {}, { defaultValue: 'Where talent meets momentum.' })}
+            </h1>
+            <p
+              className={cm.cn(
+                cm.sp('mb', 10),
+                cm.mxAuto,
+                cm.maxW('2xl'),
+                'text-lg font-medium text-[var(--color-hero-subtle)] md:text-xl',
+              )}
+            >
+              {t(
+                'landing.heroSubtitle',
+                { tagline: APP_TAGLINE },
+                {
+                  defaultValue:
+                    'Discover modern, opportunity-forward roles curated for ambitious professionals.',
+                },
+              )}
+            </p>
+            <form
+              onSubmit={onHeroSearch}
+              className={cm.cn(
+                cm.mxAuto,
+                cm.maxW('3xl'),
+                cm.flex({ direction: 'col', gap: 'sm' }),
+                'rounded-lg bg-surface p-2 shadow-xl md:flex-row',
+              )}
+            >
+              <label
                 className={cm.cn(
-                  cm.sp('px', 3),
-                  cm.sp('py', 1),
-                  'inline-flex items-center gap-2 rounded-full bg-primary/10 text-on-primary-container text-[10px] font-black uppercase tracking-widest',
+                  cm.flex({ align: 'center' }),
+                  'flex-1',
+                  cm.sp('px', 4),
+                  'rounded border border-outline-variant bg-background transition-colors focus-within:border-primary',
                 )}
               >
-                <span className={cm.cn('material-symbols-outlined text-[14px]')} aria-hidden="true">
-                  bolt
+                <span
+                  className={cm.cn('material-symbols-outlined mr-2 text-on-surface-variant')}
+                  aria-hidden="true"
+                >
+                  search
                 </span>
-                {t(
-                  'landing.eyebrow',
-                  { tagline: APP_TAGLINE },
-                  { defaultValue: 'Where talent meets momentum' },
-                )}
-              </span>
-              <h1
-                className={cm.cn(
-                  cm.sp('mt', 5),
-                  'text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight text-on-surface',
-                )}
-              >
-                {t(
-                  'landing.heroTitle',
-                  {},
-                  { defaultValue: 'Find the role you\u2019ve been waiting for.' },
-                )}
-              </h1>
-              <p
-                className={cm.cn(
-                  cm.sp('mt', 6),
-                  cm.textSize('lg'),
-                  cm.maxW('xl'),
-                  'leading-relaxed font-medium text-on-surface-variant',
-                )}
-              >
-                {t(
-                  'landing.heroSubtitle',
-                  { app: APP_NAME },
-                  {
-                    defaultValue:
-                      '{{app}} is a curated job board for seekers and employers. Real companies, real salaries, real signal — built so the next move is the right move.',
-                  },
-                )}
-              </p>
-              <div
-                className={cm.cn(
-                  cm.sp('mt', 8),
-                  cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
-                )}
-              >
-                <Link
-                  to="/signup"
-                  className={cm.cn(
-                    cm.sp('px', 6),
-                    cm.sp('py', 3),
-                    cm.fontWeight('bold'),
-                    'rounded-xl bg-primary text-on-primary shadow-md shadow-primary/20 hover:opacity-90 transition-opacity',
+                <input
+                  type="text"
+                  value={searchTitle}
+                  onChange={(e) => setSearchTitle(e.target.value)}
+                  aria-label={t(
+                    'landing.searchTitleLabel',
+                    {},
+                    { defaultValue: 'Job title, keyword, or company' },
                   )}
-                >
-                  {t('landing.heroCta', {}, { defaultValue: 'Create free account' })}
-                </Link>
-                <Link
-                  to="/jobs"
-                  className={cm.cn(
-                    cm.sp('px', 6),
-                    cm.sp('py', 3),
-                    cm.fontWeight('semibold'),
-                    'rounded-xl border border-outline-variant/30 text-on-surface hover:bg-surface-container-low transition-colors',
+                  placeholder={t(
+                    'landing.searchTitleLabel',
+                    {},
+                    { defaultValue: 'Job title, keyword, or company' },
                   )}
-                >
-                  {t('landing.heroSecondary', {}, { defaultValue: 'Browse open roles \u2192' })}
-                </Link>
-              </div>
-              <p
+                  className={cm.cn(
+                    'w-full border-none bg-transparent py-4 text-on-surface outline-none placeholder:text-on-surface-variant',
+                  )}
+                />
+              </label>
+              <label
                 className={cm.cn(
-                  cm.sp('mt', 4),
-                  cm.textSize('xs'),
-                  'font-medium text-on-surface-variant',
+                  cm.flex({ align: 'center' }),
+                  'flex-1',
+                  cm.sp('px', 4),
+                  'rounded border border-outline-variant bg-background transition-colors focus-within:border-primary',
                 )}
               >
-                {t(
-                  'landing.heroProof',
-                  {},
-                  {
-                    defaultValue:
-                      'Free to start for seekers and employers — upgrade only when you need more.',
-                  },
+                <span
+                  className={cm.cn('material-symbols-outlined mr-2 text-on-surface-variant')}
+                  aria-hidden="true"
+                >
+                  location_on
+                </span>
+                <input
+                  type="text"
+                  value={searchLocation}
+                  onChange={(e) => setSearchLocation(e.target.value)}
+                  aria-label={t(
+                    'landing.searchLocationLabel',
+                    {},
+                    { defaultValue: 'City, state, or Remote' },
+                  )}
+                  placeholder={t(
+                    'landing.searchLocationLabel',
+                    {},
+                    { defaultValue: 'City, state, or Remote' },
+                  )}
+                  className={cm.cn(
+                    'w-full border-none bg-transparent py-4 text-on-surface outline-none placeholder:text-on-surface-variant',
+                  )}
+                />
+              </label>
+              <button
+                type="submit"
+                data-mol-id="hero-search-jobs"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.fontWeight('bold'),
+                  'rounded bg-primary text-on-primary shadow-md transition-colors hover:bg-primary-hover',
                 )}
-              </p>
-            </div>
-
-            {/* Sample card mirroring auth\u2019d Dashboard hero */}
-            <div className={cm.cn('relative')}>
-              <OpportunitiesHero
-                totalRoles={1284}
-                deltaRoles={47}
-                eyebrow={t(
-                  'landing.previewEyebrow',
-                  {},
-                  { defaultValue: 'Open roles \u00b7 today' },
-                )}
-                heading={t(
-                  'landing.previewHeading',
-                  {},
-                  {
-                    defaultValue:
-                      'Senior, mid, junior \u2014 across product, design, and engineering.',
-                  },
-                )}
-                caption={t(
-                  'landing.previewCaption',
-                  {},
-                  {
-                    defaultValue: 'A live snapshot of what\u2019s on the board right now.',
-                  },
-                )}
-              />
-            </div>
+              >
+                {t('landing.searchCta', {}, { defaultValue: 'Search' })}
+              </button>
+            </form>
           </div>
         </section>
 
-        {/* Social proof strip */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 6))}>
-          <p
-            className={cm.cn(
-              cm.textCenter,
-              'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
-            {t(
-              'landing.socialEyebrow',
-              { app: APP_NAME },
-              { defaultValue: 'Hiring teams that post on {{app}}' },
-            )}
-          </p>
+        {/* Stat strip — white card overlapping the hero (-mt-12), mono numerals */}
+        <section
+          className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'relative z-20 -mt-12')}
+        >
           <div
             className={cm.cn(
-              cm.sp('mt', 4),
-              cm.flex({ align: 'center', justify: 'center', gap: 'lg', wrap: 'wrap' }),
+              'grid grid-cols-2 gap-8 rounded-xl border border-outline-variant/40 bg-surface p-8 shadow-lg md:grid-cols-4',
+              'md:divide-x md:divide-outline-variant/30',
             )}
           >
-            {SOCIAL_PROOF.map((s) => (
-              <span
-                key={s.key}
-                className={cm.cn(
-                  cm.textSize('sm'),
-                  'font-bold tracking-tight text-on-surface-variant',
-                )}
-              >
-                {t(`landing.social.${s.key}`, {}, { defaultValue: s.defaultLabel })}
-              </span>
+            {STATS.map((s) => (
+              <div key={s.key} className={cm.cn(cm.sp('px', 4), cm.textCenter)}>
+                <span
+                  className={cm.cn('material-symbols-outlined mb-2 text-[30px] text-primary')}
+                  aria-hidden="true"
+                >
+                  {s.icon}
+                </span>
+                <div className={cm.cn('font-mono text-3xl font-bold text-on-surface')}>
+                  {s.value}
+                </div>
+                <div
+                  className={cm.cn(
+                    cm.sp('mt', 1),
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'uppercase tracking-wider text-on-surface-variant',
+                  )}
+                >
+                  {t(`landing.stat.${s.key}`, {}, { defaultValue: s.defaultLabel })}
+                </div>
+              </div>
             ))}
           </div>
         </section>
 
-        {/* Features */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 16))}>
-          <div className={cm.cn(cm.maxW('2xl'), cm.mxAuto, cm.textCenter, cm.sp('mb', 12))}>
-            <p className={cm.cn('text-[10px] font-black uppercase tracking-widest text-primary')}>
-              {t('landing.featuresEyebrow', {}, { defaultValue: 'How it works' })}
-            </p>
-            <h2
+        {/* Featured jobs — three cards with logo tile, meta, tags, mono salary */}
+        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 24))}>
+          <div className={cm.cn(cm.sp('mb', 10), cm.flex({ justify: 'between', align: 'end' }))}>
+            <div>
+              <h2 className={cm.cn(cm.sp('mb', 2), 'text-3xl font-black text-on-surface')}>
+                {t('landing.featuredHeading', {}, { defaultValue: 'Hot Opportunities' })}
+              </h2>
+              <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant')}>
+                {t(
+                  'landing.featuredSubheading',
+                  {},
+                  { defaultValue: 'Curated roles from top tech companies.' },
+                )}
+              </p>
+            </div>
+            <Link
+              to="/jobs"
               className={cm.cn(
-                cm.sp('mt', 3),
-                cm.textSize('4xl'),
-                'font-extrabold tracking-tight text-on-surface',
+                'hidden items-center font-semibold text-primary transition-colors hover:text-primary-dark md:flex',
               )}
             >
-              {t(
-                'landing.featuresHeading',
-                {},
-                { defaultValue: 'Built for both sides of the table.' },
-              )}
-            </h2>
-            <p
-              className={cm.cn(
-                cm.sp('mt', 3),
-                cm.textSize('base'),
-                'font-medium text-on-surface-variant',
-              )}
-            >
-              {t(
-                'landing.featuresSubheading',
-                {},
-                {
-                  defaultValue:
-                    'Seekers get clean search and a clear pipeline. Employers get fast posting and qualified applicants. Everyone wins.',
-                },
-              )}
-            </p>
+              {t('landing.featuredViewAll', {}, { defaultValue: 'View all jobs' })}
+              <span className={cm.cn('material-symbols-outlined ml-1 text-sm')} aria-hidden="true">
+                arrow_forward
+              </span>
+            </Link>
           </div>
-          <div className={cm.grid({ cols: 4, gap: 'md' })}>
-            {FEATURES.map((f) => (
+          <div className={cm.grid({ cols: 3, gap: 'md' })}>
+            {FEATURED_JOBS.map((job) => (
               <div
-                key={f.key}
+                key={job.key}
                 className={cm.cn(
-                  cm.sp('p', 6),
-                  'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 hover:-translate-y-0.5 hover:shadow-md transition-all',
+                  'group relative rounded-xl border border-outline-variant/60 bg-surface p-6 shadow-sm transition-all duration-200 hover:border-primary hover:shadow-md',
                 )}
               >
                 <span
                   className={cm.cn(
-                    cm.sp('p', 2),
-                    'inline-flex rounded-lg bg-primary/10 text-primary material-symbols-outlined text-[28px]',
+                    'absolute top-0 left-0 h-1 w-full rounded-t-xl bg-primary opacity-0 transition-opacity group-hover:opacity-100',
                   )}
                   aria-hidden="true"
+                />
+                <div
+                  className={cm.cn(cm.sp('mb', 4), cm.flex({ justify: 'between', align: 'start' }))}
                 >
-                  {f.icon}
-                </span>
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'h-12 w-12 overflow-hidden rounded border border-outline-variant/60 bg-surface-container-lowest',
+                    )}
+                  >
+                    {/* Deliberate non-replication: the design hotlinks stock logo
+                        imagery; we render a monogram tile instead. */}
+                    <span className={cm.cn('text-xl font-black text-primary')} aria-hidden="true">
+                      {job.companyInitial}
+                    </span>
+                  </div>
+                  {'badge' in job && job.badge ? (
+                    <span
+                      className={cm.cn(
+                        cm.sp('px', 2),
+                        cm.sp('py', 1),
+                        cm.textSize('xs'),
+                        cm.fontWeight('bold'),
+                        'rounded bg-primary-container text-on-primary-container',
+                      )}
+                    >
+                      {t('landing.jobBadgeNew', {}, { defaultValue: 'New' })}
+                    </span>
+                  ) : null}
+                </div>
                 <h3
                   className={cm.cn(
-                    cm.sp('mt', 4),
-                    cm.textSize('lg'),
-                    'font-extrabold tracking-tight text-on-surface',
+                    cm.sp('mb', 1),
+                    cm.textSize('xl'),
+                    cm.fontWeight('bold'),
+                    'text-on-surface transition-colors group-hover:text-primary',
                   )}
                 >
-                  {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
+                  {t(
+                    `landing.featuredJob.${job.key}.title`,
+                    {},
+                    { defaultValue: job.defaultTitle },
+                  )}
                 </h3>
-                <p
+                <p className={cm.cn(cm.sp('mb', 4), cm.fontWeight('semibold'), 'text-primary')}>
+                  {t(
+                    `landing.featuredJob.${job.key}.company`,
+                    {},
+                    { defaultValue: job.defaultCompany },
+                  )}
+                </p>
+                <div
                   className={cm.cn(
-                    cm.sp('mt', 2),
+                    cm.sp('mb', 4),
+                    cm.flex({ wrap: 'wrap', gap: 'sm' }),
                     cm.textSize('sm'),
-                    'leading-relaxed text-on-surface-variant',
+                    'text-on-surface-variant',
                   )}
                 >
-                  {t(`landing.feature.${f.key}.body`, {}, { defaultValue: f.defaultBody })}
-                </p>
+                  <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+                    <span
+                      className={cm.cn('material-symbols-outlined text-[16px]')}
+                      aria-hidden="true"
+                    >
+                      location_on
+                    </span>
+                    {t(
+                      `landing.featuredJob.${job.key}.location`,
+                      {},
+                      { defaultValue: job.defaultLocation },
+                    )}
+                  </span>
+                  <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+                    <span
+                      className={cm.cn('material-symbols-outlined text-[16px]')}
+                      aria-hidden="true"
+                    >
+                      schedule
+                    </span>
+                    {t(
+                      `landing.featuredJob.${job.key}.type`,
+                      {},
+                      { defaultValue: job.defaultType },
+                    )}
+                  </span>
+                </div>
+                <div className={cm.cn(cm.sp('mb', 5), 'flex flex-wrap gap-2')}>
+                  {job.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className={cm.cn(
+                        cm.sp('px', 2.5),
+                        cm.sp('py', 1),
+                        cm.textSize('xs'),
+                        cm.fontWeight('medium'),
+                        'rounded-full bg-surface-container text-on-surface-variant',
+                      )}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div
+                  className={cm.cn(
+                    cm.sp('pt', 4),
+                    cm.flex({ align: 'center', justify: 'between' }),
+                    'border-t border-outline-variant/40',
+                  )}
+                >
+                  <span className={cm.cn('font-mono font-bold text-success')}>
+                    {t(
+                      `landing.featuredJob.${job.key}.salary`,
+                      {},
+                      { defaultValue: job.defaultSalary },
+                    )}
+                  </span>
+                  {/* Deliberate non-replication: the design's bookmark toggle is a
+                      dead control on a marketing surface — rendered inert. */}
+                  <span className={cm.cn('text-on-surface-variant')} aria-hidden="true">
+                    <span className={cm.cn('material-symbols-outlined')}>bookmark_border</span>
+                  </span>
+                </div>
               </div>
             ))}
           </div>
+          <div className={cm.cn(cm.sp('mt', 8), cm.textCenter, 'md:hidden')}>
+            <Link
+              to="/jobs"
+              className={cm.cn(
+                cm.sp('py', 3),
+                cm.fontWeight('semibold'),
+                'inline-flex w-full items-center justify-center rounded-lg bg-surface-container text-on-surface transition-colors hover:bg-surface-container-high',
+              )}
+            >
+              {t('landing.featuredViewAll', {}, { defaultValue: 'View all jobs' })}
+            </Link>
+          </div>
         </section>
 
-        {/* Pricing */}
+        {/* Pricing — kept from the app surface (the design omits it); card
+            language aligned to the design (rounded-xl, hairline borders). */}
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 16))}>
           <div className={cm.cn(cm.maxW('2xl'), cm.mxAuto, cm.textCenter, cm.sp('mb', 12))}>
             <p className={cm.cn('text-[10px] font-black uppercase tracking-widest text-primary')}>
@@ -456,7 +600,7 @@ export function Landing() {
               className={cm.cn(
                 cm.sp('mt', 3),
                 cm.textSize('4xl'),
-                'font-extrabold tracking-tight text-on-surface',
+                'font-black tracking-tight text-on-surface',
               )}
             >
               {t(
@@ -474,10 +618,10 @@ export function Landing() {
                   key={p.key}
                   className={cm.cn(
                     cm.sp('p', 6),
-                    'rounded-2xl border transition-all',
+                    'rounded-xl border transition-all',
                     featured
-                      ? 'bg-gradient-to-br from-primary to-secondary text-on-primary border-primary shadow-md shadow-primary/20'
-                      : 'bg-surface-container-lowest border-outline-variant/20 hover:-translate-y-0.5 hover:shadow-md',
+                      ? 'border-primary bg-gradient-to-br from-primary to-secondary text-on-primary shadow-md shadow-primary/20'
+                      : 'border-outline-variant/40 bg-surface hover:-translate-y-0.5 hover:shadow-md',
                   )}
                 >
                   <p
@@ -492,7 +636,7 @@ export function Landing() {
                     <span
                       className={cm.cn(
                         cm.textSize('4xl'),
-                        'font-extrabold tracking-tight tabular-nums',
+                        'font-black tracking-tight tabular-nums',
                         featured ? 'text-on-primary' : 'text-on-surface',
                       )}
                     >
@@ -502,7 +646,7 @@ export function Landing() {
                       <span
                         className={cm.cn(
                           cm.textSize('sm'),
-                          'font-semibold',
+                          cm.fontWeight('semibold'),
                           featured ? 'text-white/80' : 'text-on-surface-variant',
                         )}
                       >
@@ -514,7 +658,7 @@ export function Landing() {
                     className={cm.cn(
                       cm.sp('mt', 2),
                       cm.textSize('sm'),
-                      'font-medium',
+                      cm.fontWeight('medium'),
                       featured ? 'text-white/80' : 'text-on-surface-variant',
                     )}
                   >
@@ -532,7 +676,7 @@ export function Landing() {
                       >
                         <span
                           className={cm.cn(
-                            'material-symbols-outlined text-[18px] mt-0.5',
+                            'material-symbols-outlined mt-0.5 text-[18px]',
                             featured ? 'text-white/80' : 'text-primary',
                           )}
                           aria-hidden="true"
@@ -554,7 +698,7 @@ export function Landing() {
                       cm.fontWeight('bold'),
                       cm.textSize('sm'),
                       cm.textCenter,
-                      'block rounded-xl transition-all',
+                      'block rounded-lg transition-all',
                       featured
                         ? 'bg-surface/95 text-primary hover:bg-surface'
                         : 'bg-primary/10 text-primary hover:bg-primary/15',
@@ -567,23 +711,121 @@ export function Landing() {
             })}
           </div>
         </section>
+
+        {/* Final CTA band — navy panel, dual buttons */}
+        <section className={cm.cn('bg-secondary px-6 py-20')}>
+          <div className={cm.cn(cm.maxW('4xl'), cm.mxAuto, cm.textCenter)}>
+            <h2 className={cm.cn(cm.sp('mb', 6), 'text-3xl font-black text-white md:text-4xl')}>
+              {t(
+                'landing.ctaHeading',
+                {},
+                { defaultValue: 'Ready to find your next great opportunity?' },
+              )}
+            </h2>
+            <p
+              className={cm.cn(
+                cm.sp('mb', 10),
+                cm.mxAuto,
+                cm.maxW('2xl'),
+                cm.textSize('lg'),
+                'text-[var(--color-hero-subtle)]',
+              )}
+            >
+              {t(
+                'landing.ctaSubheading',
+                { app: APP_NAME },
+                {
+                  defaultValue:
+                    'Join thousands of professionals finding their momentum on {{app}}.',
+                },
+              )}
+            </p>
+            <div className={cm.cn('flex flex-col justify-center gap-4 sm:flex-row')}>
+              <Link
+                to="/signup"
+                data-mol-id="cta-create-profile"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.textSize('lg'),
+                  cm.fontWeight('bold'),
+                  'rounded-lg bg-primary text-on-primary shadow-lg transition-colors hover:bg-primary-hover',
+                )}
+              >
+                {t('landing.ctaPrimary', {}, { defaultValue: 'Create a Profile' })}
+              </Link>
+              <Link
+                to="/post-job"
+                data-mol-id="cta-post-job"
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 4),
+                  cm.textSize('lg'),
+                  cm.fontWeight('bold'),
+                  'rounded-lg border border-white/20 bg-white/10 text-white transition-colors hover:bg-white/20',
+                )}
+              >
+                {t('landing.navPostJob', {}, { defaultValue: 'Post a Job' })}
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer
         className={cm.cn(
-          cm.sp('py', 8),
-          cm.textCenter,
-          cm.textSize('sm'),
           'border-t border-outline-variant/30 bg-surface-container-low text-on-surface-variant',
         )}
       >
-        <p>
-          {t(
-            'landing.copyright',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '\u00a9 {{year}} {{app}}. Built with Molecule.' },
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('py', 12),
+            cm.sp('px', 6),
+            cm.flex({ direction: 'col', gap: 'lg' }),
+            'items-center justify-between md:flex-row',
           )}
-        </p>
+        >
+          <div className={cm.cn(cm.textCenter, 'md:text-left')}>
+            <Link
+              to="/"
+              className={cm.cn(cm.sp('mb', 2), cm.textSize('xl'), 'block font-black text-primary')}
+            >
+              {APP_NAME}
+            </Link>
+            <p className={cm.cn(cm.textSize('sm'))}>
+              {t(
+                'landing.copyright',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                { defaultValue: '\u00a9 {{year}} {{app}}' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
+            </p>
+          </div>
+          <div className={cm.cn('flex flex-wrap justify-center gap-6 text-sm font-medium')}>
+            <Link to="/about" className={cm.cn('transition-colors hover:text-success')}>
+              {t('landing.footerAbout', {}, { defaultValue: 'About' })}
+            </Link>
+            <Link to="/privacy" className={cm.cn('transition-colors hover:text-success')}>
+              {t('landing.footerPrivacy', {}, { defaultValue: 'Privacy Policy' })}
+            </Link>
+            <Link to="/terms" className={cm.cn('transition-colors hover:text-success')}>
+              {t('landing.footerTerms', {}, { defaultValue: 'Terms of Service' })}
+            </Link>
+            <Link to="/pricing" className={cm.cn('transition-colors hover:text-success')}>
+              {t('landing.pricingEyebrow', {}, { defaultValue: 'Pricing' })}
+            </Link>
+          </div>
+        </div>
       </footer>
     </div>
   )

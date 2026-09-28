@@ -62,7 +62,7 @@ export function Landing() {
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
           <span
             className={cm.cn(
-              cm.fontWeight('black'),
+              cm.fontWeight('extrabold'),
               'text-2xl tracking-tighter font-display bg-gradient-to-r from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)] bg-clip-text text-transparent',
             )}
           >

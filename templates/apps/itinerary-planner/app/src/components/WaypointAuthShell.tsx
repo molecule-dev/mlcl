@@ -94,7 +94,7 @@ export function WaypointAuthShell({
                 cm.fontWeight('extrabold'),
                 'text-primary tracking-tight',
               )}
-              style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+              style={{ fontFamily: 'var(--font-headline)' }}
             >
               {APP_NAME}
             </span>
@@ -170,7 +170,7 @@ export function WaypointAuthShell({
                   cm.sp('mt', 4),
                   'leading-[0.95] tracking-tight text-on-primary',
                 )}
-                style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+                style={{ fontFamily: 'var(--font-headline)' }}
               >
                 {t(
                   'waypointAuthShell.brand.heading',
@@ -236,7 +236,7 @@ export function WaypointAuthShell({
                 cm.sp('mt', 2),
                 'leading-tight tracking-tight',
               )}
-              style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+              style={{ fontFamily: 'var(--font-headline)' }}
             >
               {heading}
             </h1>

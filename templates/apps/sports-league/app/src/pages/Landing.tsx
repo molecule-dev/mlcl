@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_NAME } from '../branding.js'
 import { PennantHeroCard } from '../components/PennantHeroCard.js'
 import { ScoreboardTicker, type TickerGame } from '../components/ScoreboardTicker.js'
 
@@ -84,7 +84,7 @@ export function Landing() {
     <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
       <nav
         className={cm.cn(
-          'sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/40',
+          'sticky top-0 z-50 bg-surface border-b border-outline-variant/60 shadow-sm',
         )}
       >
         <div
@@ -99,6 +99,7 @@ export function Landing() {
         >
           <Link
             to="/"
+            data-mol-id="nav-brand"
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'sm' }),
               'min-w-0 whitespace-nowrap shrink-0',
@@ -107,27 +108,33 @@ export function Landing() {
             <span
               aria-hidden="true"
               className={cm.cn(
-                'inline-flex items-center justify-center w-9 h-9 rounded-lg shadow-md shadow-primary/30 shrink-0',
+                'inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary shadow-md shadow-primary/30 shrink-0',
               )}
-              style={{
-                background:
-                  'linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))',
-              }}
             >
+              {/* Tile owns the sizing/centering — never the glyph span. */}
               <span
-                className={cm.cn('material-symbols-outlined text-white text-xl')}
+                className={cm.cn('material-symbols-outlined text-on-primary text-xl')}
                 style={{ fontVariationSettings: "'FILL' 1" }}
               >
                 shield
               </span>
             </span>
-            <span
-              className={cm.cn(
-                cm.textSize('xl'),
-                'font-extrabold tracking-tight whitespace-nowrap',
-              )}
-            >
-              {APP_NAME}
+            <span className={cm.flex({ direction: 'col' })}>
+              <span
+                className={cm.cn(
+                  cm.textSize('xl'),
+                  'font-black uppercase tracking-tighter leading-none text-primary',
+                )}
+              >
+                {APP_NAME}
+              </span>
+              <span
+                className={cm.cn(
+                  'text-[10px] font-bold uppercase tracking-normal text-on-surface-variant mt-1',
+                )}
+              >
+                {t('landing.brandTagline', {}, { defaultValue: 'Chase the standing' })}
+              </span>
             </span>
           </Link>
           <div
@@ -139,7 +146,7 @@ export function Landing() {
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
                 'hidden sm:inline',
-                'text-on-surface-variant hover:text-on-surface',
+                'text-on-surface-variant hover:text-primary',
               )}
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
@@ -147,16 +154,13 @@ export function Landing() {
             {isAuthenticated ? (
               <Link
                 to="/dashboard"
+                data-mol-id="nav-dashboard-cta"
                 className={cm.cn(
                   cm.sp('px', 5),
                   cm.sp('py', 2),
                   cm.fontWeight('bold'),
-                  'rounded-full text-white hover:opacity-90 transition-colors',
+                  'rounded-lg bg-primary text-on-primary hover:brightness-110 transition-all',
                 )}
-                style={{
-                  background:
-                    'linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))',
-                }}
               >
                 <span className={cm.cn('hidden sm:inline')}>
                   {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -169,26 +173,24 @@ export function Landing() {
               <>
                 <Link
                   to="/login"
+                  data-mol-id="nav-signin"
                   className={cm.cn(
                     cm.textSize('sm'),
-                    cm.fontWeight('semibold'),
-                    'text-on-surface-variant hover:text-on-surface',
+                    cm.fontWeight('bold'),
+                    'text-primary hover:brightness-110',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
                 </Link>
                 <Link
                   to="/signup"
+                  data-mol-id="nav-signup-cta"
                   className={cm.cn(
                     cm.sp('px', 5),
                     cm.sp('py', 2),
                     cm.fontWeight('bold'),
-                    'rounded-full text-white hover:opacity-90 transition-colors',
+                    'rounded-lg bg-primary text-on-primary hover:brightness-110 transition-all',
                   )}
-                  style={{
-                    background:
-                      'linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))',
-                  }}
                 >
                   {t('landing.getStarted', {}, { defaultValue: 'Join the league' })}
                 </Link>
@@ -199,53 +201,49 @@ export function Landing() {
       </nav>
 
       <main>
+        {/* Hero — copy + tilted live-ticker scoreboard card */}
         <section className={cm.cn('relative overflow-hidden')}>
-          <div
-            className={cm.cn('absolute inset-0 pointer-events-none')}
-            style={{
-              background:
-                'linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-bg) 50%, var(--color-surface) 100%)',
-            }}
-            aria-hidden="true"
-          />
           <div
             className={cm.cn(
               cm.maxW('7xl'),
               cm.mxAuto,
               cm.sp('px', 6),
-              'py-16 md:py-24 lg:py-28 relative',
+              'pt-16 pb-24 md:pt-20 lg:pt-24 lg:pb-32 relative',
             )}
           >
-            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-12 items-center')}>
-              <div className={cm.cn('lg:col-span-7')}>
-                <p
+            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-2 gap-16 items-center')}>
+              <div className={cm.cn(cm.maxW('2xl'))}>
+                <div
                   className={cm.cn(
-                    cm.textSize('sm'),
-                    cm.sp('mb', 4),
-                    'font-black uppercase tracking-[0.28em] text-primary',
+                    'inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant',
+                    cm.sp('mb', 6),
                   )}
                 >
-                  {t(
-                    'landing.eyebrow',
-                    {},
-                    { defaultValue: 'Built for fans, coaches, and league organizers' },
-                  )}
-                </p>
+                  <span
+                    aria-hidden="true"
+                    className={cm.cn('w-2 h-2 rounded-full bg-accent animate-pulse')}
+                  />
+                  <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                    {t('landing.seasonLive', {}, { defaultValue: 'Season 2026 is live' })}
+                  </span>
+                </div>
                 <h1
                   className={cm.cn(
                     cm.sp('mb', 6),
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95]',
+                    'text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter leading-[1.05]',
                   )}
                 >
-                  {t(
-                    'landing.heroTitle',
-                    { tagline: APP_TAGLINE },
-                    { defaultValue: '{{tagline}}.' },
-                  )}
+                  {t('landing.heroTitle', {}, { defaultValue: 'Chase the standing —' })}
+                  <br />
+                  <span className="text-primary">
+                    {t('landing.heroTitleAccent', {}, { defaultValue: 'every game,' })}
+                  </span>
+                  <br />
+                  {t('landing.heroTitleRest', {}, { defaultValue: 'every stat.' })}
                 </h1>
                 <p
                   className={cm.cn(
-                    cm.textSize('lg'),
+                    cm.textSize('xl'),
                     cm.sp('mb', 10),
                     'text-on-surface-variant max-w-xl leading-relaxed',
                   )}
@@ -262,18 +260,15 @@ export function Landing() {
                 <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
                   <Link
                     to="/signup"
+                    data-mol-id="landing-hero-cta"
                     className={cm.cn(
                       cm.sp('px', 8),
                       cm.sp('py', 4),
                       cm.fontWeight('bold'),
-                      'rounded-full text-white inline-flex items-center gap-2 hover:opacity-95 transition-colors shadow-lg shadow-primary/30',
+                      'rounded-lg bg-primary text-on-primary inline-flex items-center gap-2 hover:brightness-110 transition-all',
                     )}
-                    style={{
-                      background:
-                        'linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))',
-                    }}
                   >
-                    {t('landing.heroCta', {}, { defaultValue: 'Join the league' })}
+                    {t('landing.heroCta', {}, { defaultValue: 'Start your league' })}
                     <span
                       className={cm.cn('material-symbols-outlined text-base')}
                       aria-hidden="true"
@@ -282,15 +277,18 @@ export function Landing() {
                     </span>
                   </Link>
                   <Link
-                    to="/login"
+                    to="/matches"
                     className={cm.cn(
                       cm.sp('px', 8),
                       cm.sp('py', 4),
-                      cm.fontWeight('semibold'),
-                      'rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors',
+                      cm.fontWeight('bold'),
+                      'rounded-lg border-2 border-outline-variant hover:bg-surface-container-low transition-colors inline-flex items-center gap-2',
                     )}
                   >
-                    {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                    <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
+                      play_circle
+                    </span>
+                    {t('landing.heroCtaSecondary', {}, { defaultValue: 'Watch demo' })}
                   </Link>
                 </div>
                 <dl className={cm.cn(cm.sp('mt', 12), 'grid grid-cols-3 gap-6 max-w-lg')}>
@@ -320,8 +318,8 @@ export function Landing() {
                         {s.l}
                       </dt>
                       <dd
-                        className={cm.cn('text-3xl font-extrabold tabular-nums text-primary')}
-                        style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                        className={cm.cn('text-3xl font-bold tabular-nums text-primary')}
+                        style={{ fontFamily: 'var(--font-family-mono)' }}
                       >
                         {s.v}
                       </dd>
@@ -330,31 +328,71 @@ export function Landing() {
                 </dl>
               </div>
 
-              <div className={cm.cn('lg:col-span-5')}>
-                <PennantHeroCard
-                  leaderName="Atlas United"
-                  record="18-4-2"
-                  points={56}
-                  gamesAhead="+5"
-                  formString="W-W-L-W-W-W-D-W-W-L"
-                  trend={[2, 5, 8, 9, 12, 14, 18, 22, 25, 30, 34, 39, 41, 47, 50, 53, 56]}
+              {/* Tilted live-ticker scoreboard (design hero visual) — wraps the
+                  real ScoreboardTicker games in a broadcast frame. */}
+              <div className={cm.cn('relative')}>
+                <div
+                  aria-hidden="true"
+                  className={cm.cn(
+                    'absolute inset-0 rounded-full blur-3xl opacity-50 bg-gradient-to-br from-primary-light to-transparent',
+                  )}
                 />
+                <div
+                  className={cm.cn(
+                    'relative w-full max-w-md ml-auto rounded-xl overflow-hidden shadow-2xl',
+                    'bg-navy border border-navy-light -rotate-2 hover:rotate-0 transition-transform duration-500',
+                  )}
+                >
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'between' }),
+                      'px-6 py-4 border-b border-navy-light bg-scoreboard',
+                    )}
+                  >
+                    <span
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        cm.fontWeight('bold'),
+                        'uppercase tracking-widest text-slate-400',
+                      )}
+                    >
+                      {t('landing.liveTicker', {}, { defaultValue: 'Live Ticker' })}
+                    </span>
+                    <div className={cm.cn(cm.flex({ gap: 'xs' }))} aria-hidden="true">
+                      <span className={cm.cn('w-2.5 h-2.5 rounded-full bg-slate-700')} />
+                      <span className={cm.cn('w-2.5 h-2.5 rounded-full bg-slate-700')} />
+                      <span className={cm.cn('w-2.5 h-2.5 rounded-full bg-slate-700')} />
+                    </div>
+                  </div>
+                  <div className={cm.sp('p', 4)}>
+                    <ScoreboardTicker games={SAMPLE_GAMES} />
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className={cm.cn(cm.sp('mt', 12))}>
+            {/* Standings snapshot — app content the design lacks; kept */}
+            <div className={cm.cn(cm.sp('mt', 20))}>
               <p
                 className={cm.cn(
                   'text-[11px] font-black uppercase tracking-[0.28em] text-on-surface-variant mb-3',
                 )}
               >
-                {t('landing.scoreboardLabel', {}, { defaultValue: 'Tonight around the league' })}
+                {t('landing.standingsLabel', {}, { defaultValue: 'Standings snapshot' })}
               </p>
-              <ScoreboardTicker games={SAMPLE_GAMES} />
+              <PennantHeroCard
+                leaderName="Atlas United"
+                record="18-4-2"
+                points={56}
+                gamesAhead="+5"
+                formString="W-W-L-W-W-W-D-W-W-L"
+                trend={[2, 5, 8, 9, 12, 14, 18, 22, 25, 30, 34, 39, 41, 47, 50, 53, 56]}
+              />
             </div>
           </div>
         </section>
 
+        {/* Features — design has no grid section; kept (app content) */}
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
           <h2
             className={cm.cn(
@@ -377,13 +415,13 @@ export function Landing() {
                 key={f.key}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl hover:shadow-xl hover:shadow-on-surface/5 transition-all group',
+                  'bg-surface-container-lowest rounded-lg border border-outline-variant/60 hover:shadow-xl hover:shadow-on-surface/5 transition-all group',
                 )}
               >
                 <div
                   className={cm.cn(
                     cm.sp('p', 3),
-                    'inline-flex bg-surface rounded-xl shadow-sm group-hover:scale-110 transition-transform',
+                    'inline-flex bg-surface rounded-lg group-hover:scale-110 transition-transform',
                     f.tint,
                   )}
                 >
@@ -404,6 +442,7 @@ export function Landing() {
           </div>
         </section>
 
+        {/* CTA band — design has no equivalent; kept (app content) */}
         <section className={cm.cn('border-t border-outline-variant/40')}>
           <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 text-center')}>
             <h3
@@ -433,18 +472,15 @@ export function Landing() {
             </p>
             <Link
               to="/signup"
+              data-mol-id="landing-cta-band-button"
               className={cm.cn(
                 cm.sp('px', 10),
                 cm.sp('py', 4),
                 cm.fontWeight('bold'),
-                'rounded-full text-white inline-flex items-center gap-2 hover:opacity-95 transition-colors',
+                'rounded-lg bg-primary text-on-primary inline-flex items-center gap-2 hover:brightness-110 transition-all',
               )}
-              style={{
-                background:
-                  'linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))',
-              }}
             >
-              {t('landing.heroCta', {}, { defaultValue: 'Join the league' })}
+              {t('landing.heroCta', {}, { defaultValue: 'Start your league' })}
               <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
                 arrow_forward
               </span>
@@ -453,21 +489,68 @@ export function Landing() {
         </section>
       </main>
 
+      {/* Footer — design's dark broadcast slab (mode-independent). */}
       <footer
-        className={cm.cn(
-          cm.sp('py', 8),
-          cm.textCenter,
-          cm.textSize('sm'),
-          'bg-surface text-on-surface-variant border-t border-outline-variant',
-        )}
+        className={cm.cn('bg-navy border-t border-navy-light', cm.sp('py', 12), cm.sp('px', 6))}
       >
-        <p>
-          {t(
-            'landing.copyright',
-            { year, app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}. Chase the standing.' },
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.flex({ direction: 'col', align: 'center', gap: 'lg' }),
+            'md:flex-row md:justify-between md:items-start',
           )}
-        </p>
+        >
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', align: 'center', gap: 'xs' }),
+              'md:items-start',
+            )}
+          >
+            <span
+              className={cm.cn(
+                cm.textSize('xl'),
+                cm.fontWeight('extrabold'),
+                'font-black uppercase tracking-widest text-white',
+              )}
+            >
+              {APP_NAME}
+            </span>
+            <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'text-slate-400')}>
+              {t(
+                'landing.copyright',
+                { year, app: APP_NAME },
+                { defaultValue: '© {{year}} {{app}}. Chase the standing.' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
+            </p>
+          </div>
+          <nav
+            className={cm.cn(
+              cm.flex({ wrap: 'wrap', align: 'center', gap: 'md' }),
+              cm.textSize('sm'),
+              cm.fontWeight('medium'),
+            )}
+          >
+            <Link to="/pricing" className={cm.cn('text-slate-400 hover:text-accent')}>
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </Link>
+            <Link to="/privacy" className={cm.cn('text-slate-400 hover:text-accent')}>
+              {t('landing.privacyLink', {}, { defaultValue: 'Privacy' })}
+            </Link>
+            <Link to="/terms" className={cm.cn('text-slate-400 hover:text-accent')}>
+              {t('landing.termsLink', {}, { defaultValue: 'Terms' })}
+            </Link>
+          </nav>
+        </div>
       </footer>
     </div>
   )

@@ -25,3 +25,14 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/* Dotted canvas — the Stitch landing's blueprint background. Dots read the
+   border token so they stay subtle in both light and dark mode. */
+.bg-dot-grid {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--mol-color-border-secondary) 80%, transparent) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 24px 24px;
+}

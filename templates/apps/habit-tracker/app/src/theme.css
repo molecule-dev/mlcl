@@ -87,6 +87,24 @@
   /* Hero gradient — dark enough for white text in both modes */
   --color-gradient-hero-start: #4a3db0; /* 5.62:1 vs white */
   --color-gradient-hero-end: #087a55; /* 5.35:1 vs white */
+  /* Momentum gradient — the design's 135° indigo→emerald sweep used by the
+     hero card, primary CTAs and the gradient headline accent (.bg-momentum /
+     .text-momentum helpers below). Dark mode re-anchors on the dark-stop
+     gradient tokens. --color-on-gradient is the foreground for content ON a
+     momentum surface: both modes' hero-gradient stops are calibrated for
+     WHITE text, so it is #ffffff in light AND dark (text-on-primary would
+     flip dark in dark mode and vanish). */
+  --grad-momentum: linear-gradient(
+    135deg,
+    var(--color-gradient-hero-start) 0%,
+    var(--color-gradient-hero-end) 100%
+  );
+  --grad-momentum-text: linear-gradient(
+    135deg,
+    var(--color-gradient-hero-start) 0%,
+    var(--color-gradient-hero-end) 100%
+  );
+  --color-on-gradient: #ffffff;
 
   /* Streaks and achievements */
   --color-streak-active: #f9a825;
@@ -115,9 +133,11 @@
 
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* Headline font — the design composes headlines in the same Inter as body
+     (extrabold tracking-tight), so --font-headline resolves to the Inter
+     stack. Picked up by shared molecule pages (PricingPage, PlanUpdated, …)
+     via `var(--font-headline)`. */
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -239,6 +259,20 @@
   /* Hero gradient — dark enough for white text */
   --color-gradient-hero-start: #2d2652; /* 13.73:1 vs white */
   --color-gradient-hero-end: #064e3b; /* 14.76:1 vs white */
+  --grad-momentum: linear-gradient(
+    135deg,
+    var(--color-gradient-hero-start) 0%,
+    var(--color-gradient-hero-end) 100%
+  );
+  /* Gradient TEXT needs the opposite calibration from surfaces: the dark-stop
+     surface gradient is near-invisible against the dark background, so
+     .text-momentum sweeps the bright dark-mode brand pair instead. */
+  --grad-momentum-text: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+  --color-on-gradient: #ffffff;
 
   /* Streaks and achievements — keep warm glow vivid */
   --color-streak-active: #fbbf24;
@@ -263,4 +297,19 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
   --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Momentum gradient helpers — the design language's signature sweep.
+   `.bg-momentum` fills a surface (hero card, primary CTA); `.text-momentum`
+   clips the same sweep into headline text. Both track light/dark via
+   --grad-momentum, so no JSX style={} is needed. */
+.bg-momentum {
+  background-image: var(--grad-momentum);
+}
+.text-momentum {
+  background-image: var(--grad-momentum-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }

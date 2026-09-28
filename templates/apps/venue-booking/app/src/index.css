@@ -30,9 +30,14 @@
    in :root — register them in @theme so the utilities compile (the :root/.dark
    definitions keep overriding at runtime for theming). */
 @theme {
-  /* Keep in sync with theme.css :root — darkened from #00b894 so the
-     compiled text-accent/bg-accent utilities pass WCAG AA (4.53:1).
-     accent-bright is for accent text on DARK surfaces (hero panels). */
-  --color-accent: #00875f;
-  --color-accent-bright: #00d4a8;
+  /* Keep in sync with theme.css :root — copper accent stepped to the design's
+     darker ramp stop so compiled text-accent/bg-accent utilities pass WCAG AA
+     (4.52:1). accent-bright is warm white for accent text on the forest band
+     (4.60:1); copper/forest-deep are the decorative design hues. */
+  --color-accent: #a66832;
+  --color-accent-hover: #8f5828;
+  --color-accent-bright: #fff1e4;
+  --color-copper: #c47d3f;
+  --color-forest-deep: #1a3a35;
+  --font-headline: 'DM Sans', 'Inter', -apple-system, sans-serif;
 }

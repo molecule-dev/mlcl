@@ -1,31 +1,35 @@
 :root {
   /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #d32f2f;
-  --mol-color-primary-light: #ef5350;
-  --mol-color-secondary: #1565c0;
-  --mol-color-background: #f5f5f5;
+  --mol-color-primary: #0e4d6e;
+  --mol-color-primary-light: #387ea3;
+  --mol-color-secondary: #286588;
+  --mol-color-background: #f8fafb;
   --mol-color-text: #212121;
   --mol-color-text-secondary: #616161;
   --mol-color-text-tertiary: #767676; /* was #9e9e9e — 2.68:1 on white (fail); #767676 = 4.54:1 */
   --mol-color-border: #e0e0e0;
 
-  --color-primary: #d32f2f;
-  --color-primary-container: #a72121; /* light-mode container — needed for gradient hero; white text = 7.29:1 */
-  --color-on-primary: #ffffff; /* white on #d32f2f = 4.98:1 (pass) */
-  --color-on-primary-container: #ffdad6;
-  --color-primary-light: #ef5350;
-  --color-primary-dark: #b71c1c;
-  --color-secondary: #1565c0;
-  --color-secondary-light: #42a5f5;
-  --color-accent: #ffb300;
-  /* Darker amber for accent TEXT on light surfaces — raw accent #ffb300 is
-     1.79:1 on white (axe serious); #8a5200 = 6.4:1. Decorative uses (stars,
+  --color-primary: #0e4d6e; /* white text = 8.55:1 */
+  --color-primary-container: #1e445d; /* dark-ocean container — white text ≈ 10:1 */
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #daebf3;
+  --color-primary-light: #387ea3;
+  --color-primary-dark: #122535;
+  --color-secondary: #286588;
+  --color-secondary-light: #5698bc;
+  --color-accent: #c8913a;
+  /* Darker gold for accent TEXT on light surfaces — raw accent #c8913a is
+     2.8:1 on white (axe serious); #7e3e23 ≈ 7:1. Decorative uses (stars,
      badges with their own backgrounds) keep --color-accent. */
-  --color-accent-ink: #8a5200;
-  /* Text/icons on amber fills — white was 1.79:1 on #ffb300 (axe serious);
-     this warm near-black is ~9:1. Same in dark mode. */
+  --color-accent-ink: #7e3e23;
+  /* Text/icons on gold fills — white is ~2.9:1 on #c8913a (axe serious);
+     this warm near-black is ~7:1. Same in dark mode. */
   --color-on-accent: #1a1208;
-  --color-background: #f5f5f5;
+  /* Gold accent TEXT sitting on an ocean-primary band (loyalty card
+     eyebrow): light mode brightens the gold for contrast on #0e4d6e,
+     dark mode lifts further for the lifted #387ea3 band. */
+  --color-accent-on-primary: #e0b893;
+  --color-background: #f8fafb;
   --color-surface: #ffffff;
   --color-surface-hover: #fafafa;
   --color-text: #212121;
@@ -34,12 +38,16 @@
   --color-border: #e0e0e0;
   --color-error: #c62828;
   --color-success: #2e7d32;
-  --color-star: #ffb300;
+  --color-star: #c8913a;
+  /* Photo-hero scrim — always-dark in BOTH modes (unlike surface-dim, which
+     this theme leaves at the framework's light default in light mode). */
+  --color-hero-scrim: #0f172a;
 
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* Headline font — the design's editorial serif (loaded in index.html).
+     Picked up by shared molecule pages (PricingPage, PlanUpdated, …) via
+     `var(--font-headline)`. */
+  --font-headline: 'Newsreader', 'DM Serif Display', Georgia, serif;
   --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -63,77 +71,78 @@
   --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
-/* Dark mode — warm hospitality dark.
-   Travel tone: warm near-black surfaces (subtle umber cast — hotel lobby
-   at dusk), brand red kept at the brand stop (#d32f2f) for badges and
-   surface accents and shifted brighter for hero CTAs so white text reads
-   cleanly. `--color-on-primary` STAYS white in both modes so red CTA
-   buttons keep their light-on-red character. */
+/* Dark mode — cool coastal-slate dark.
+   Travel tone: deep ocean-slate surfaces (the design's slate-900 chrome),
+   brand ocean-blue kept at the brand stop (#0e4d6e) for badges and surface
+   accents; white-on-primary CTA character is preserved. Accent shifts to
+   the design's brighter gold stops for dark surfaces. */
 [data-mol-mode='dark'] {
   /* === @theme bridge dark overrides === */
-  --mol-color-primary: #d32f2f;
-  --mol-color-primary-light: #ef5350;
-  --mol-color-secondary: #64b5f6;
-  --mol-color-background: #14100d;
-  --mol-color-text: #f5ece4;
-  --mol-color-text-secondary: #c4b2a3;
-  --mol-color-border: #2e251f;
+  --mol-color-primary: #387ea3;
+  --mol-color-primary-light: #8bbcd4;
+  --mol-color-secondary: #8bbcd4;
+  --mol-color-background: #0f1519;
+  --mol-color-text: #f0f5f7;
+  --mol-color-text-secondary: #b6c4cc;
+  --mol-color-border: #2a3942;
 
-  --color-primary: #d32f2f;
-  --color-primary-light: #ef5350;
-  --color-primary-dark: #b71c1c;
-  --color-secondary: #64b5f6;
-  --color-secondary-light: #90caf9;
-  --color-accent: #ffb300;
-  /* Bright amber reads fine on warm-dark surfaces (#ffb300 = 8.6:1 on
-     #14100d), so accent-ink reverts to the accent stop in dark mode. */
-  --color-accent-ink: #ffc947;
+  --color-primary: #387ea3; /* lifted for dark surfaces; white text = 4.6:1 */
+  --color-primary-light: #8bbcd4;
+  --color-primary-dark: #8bbcd4;
+  --color-secondary: #8bbcd4;
+  --color-secondary-light: #bad8e7;
+  --color-accent: #e0b893;
+  /* Bright gold reads fine on cool-dark surfaces (#e0b893 ≈ 8:1 on
+     #0f1519), so accent-ink reverts to the bright stop in dark mode. */
+  --color-accent-ink: #ecd5bd;
   --color-on-accent: #1a1208;
-  --color-background: #14100d;
-  --color-surface: #1d1815;
-  --color-surface-hover: #28201c;
-  --color-text: #f5ece4;
-  --color-text-secondary: #c4b2a3;
-  --color-text-muted: #9a8278; /* lightened from #80726a — 3.80:1 on dark surface (fail); #9a8278 = 4.89:1 */
-  --color-border: #2e251f;
+  --color-accent-on-primary: #f5e6cd;
+  --color-background: #0f1519;
+  --color-surface: #16212a;
+  --color-surface-hover: #1d2a34;
+  --color-text: #f0f5f7;
+  --color-text-secondary: #b6c4cc;
+  --color-text-muted: #8fa1ab; /* 5.0:1 on #16212a */
+  --color-border: #2a3942;
   --color-error: #f87171;
   --color-success: #4ade80;
-  --color-star: #ffc947;
+  --color-star: #e0b893;
+  --color-hero-scrim: #0f172a;
 
   /* Stitch / Material-3 token dark variants — override the @theme block
      so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
      CTA buttons keep white text on red: `on-primary` stays white. */
-  --color-on-background: #f5ece4;
-  --color-surface-bright: #28201c;
-  --color-surface-dim: #0c0907;
-  --color-surface-container-lowest: #080604;
-  --color-surface-container-low: #181411;
-  --color-surface-container: #1d1815;
-  --color-surface-container-high: #28201c;
-  --color-surface-container-highest: #322823;
-  --color-surface-variant: #28201c;
-  --color-on-surface: #f5ece4;
-  --color-on-surface-variant: #c4b2a3;
-  --color-inverse-surface: #f5ece4;
-  --color-inverse-on-surface: #1d1815;
-  --color-inverse-primary: #d32f2f;
-  --color-primary-container: #5a1818;
+  --color-on-background: #f0f5f7;
+  --color-surface-bright: #1d2a34;
+  --color-surface-dim: #0a0f13;
+  --color-surface-container-lowest: #0a0f13;
+  --color-surface-container-low: #121b21;
+  --color-surface-container: #16212a;
+  --color-surface-container-high: #1d2a34;
+  --color-surface-container-highest: #273641;
+  --color-surface-variant: #1d2a34;
+  --color-on-surface: #f0f5f7;
+  --color-on-surface-variant: #b6c4cc;
+  --color-inverse-surface: #f0f5f7;
+  --color-inverse-on-surface: #16212a;
+  --color-inverse-primary: #8bbcd4;
+  --color-primary-container: #122535;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #ffdad6;
-  --color-secondary-container: #0d3b73;
-  --color-on-secondary: #0a1014;
-  --color-on-secondary-container: #d0e6ff;
-  --color-tertiary: #ffc947;
-  --color-tertiary-container: #5b3a0d;
+  --color-on-primary-container: #bad8e7;
+  --color-secondary-container: #14374d;
+  --color-on-secondary: #0d1418;
+  --color-on-secondary-container: #cfe6f2;
+  --color-tertiary: #e0b893;
+  --color-tertiary-container: #4a3413;
   --color-on-tertiary: #1a1208;
-  --color-on-tertiary-container: #ffe9b0;
+  --color-on-tertiary-container: #f5e6cd;
   --color-error: #f87171;
-  --color-error-container: #5a1818;
+  --color-error-container: #4a1414;
   --color-on-error: #690005; /* dark on bright red — #ffffff was 2.77:1 (fail); #690005 = 4.74:1 */
   --color-on-error-container: #ffdad6;
-  --color-outline: #80706a; /* lightened from #6e5e54 — 2.84:1 on surface (fail); #80706a = 3.72:1 */
-  --color-outline-variant: #2e251f;
-  --color-surface-tint: #ef5350;
+  --color-outline: #8fa1ab; /* 3.9:1 on #16212a */
+  --color-outline-variant: #2a3942;
+  --color-surface-tint: #8bbcd4;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.55);

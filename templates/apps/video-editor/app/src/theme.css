@@ -1,7 +1,8 @@
 :root {
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Stitch design: Inter (weight 900) headlines over JetBrains Mono labels. */
+  --font-headline: 'Inter', system-ui, -apple-system, sans-serif;
 
   /* === @theme bridge — light-mode defaults (overridden by mode blocks below) === */
   --mol-color-primary: #5548c9; /* matches light-block contrast fix */

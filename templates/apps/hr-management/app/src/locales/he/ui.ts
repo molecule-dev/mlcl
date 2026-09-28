@@ -120,7 +120,7 @@ export const ui: UiTranslations = {
   'headcountHeroCard.eyebrow': 'סך כל העובדים',
   'headcountHeroCard.onLeaveLabel': '{{count}} בחופשה',
   'headcountHeroCard.title': 'אנשים בארבור',
-  'landing.copyright': '© {{year}} {{app}}. Built with Molecule.',
+  'landing.copyright': '© {{year}} {{app}}. Built with Molecule.devdev',
   'landing.eyebrow': 'HR - בלי נפיחות',
   'landing.featuresEyebrow': 'איך זה עובד',
   'landing.featuresHeading': 'רגוע. מתחשב. מקור האמת.',

@@ -40,11 +40,13 @@
   --radius-lg: 16px;
   --radius-xl: 24px;
 
-  /* Stitch font families. */
-  --font-body: Inter, sans-serif;
-  --font-display: Inter, sans-serif;
-  --font-headline: Inter, sans-serif;
-  --font-label: Inter, sans-serif;
+  /* Stitch font families — Playfair Display headlines + Plus Jakarta Sans body
+     (loaded via Google Fonts <link> in app/index.html; theme.css is the runtime
+     authority and mirrors these). */
+  --font-body: 'Plus Jakarta Sans', Inter, sans-serif;
+  --font-display: 'Plus Jakarta Sans', Inter, sans-serif;
+  --font-headline: 'Playfair Display', Georgia, serif;
+  --font-label: 'Plus Jakarta Sans', Inter, sans-serif;
 
   /* Simmer brand tokens — DESIGN.md meal slots, accent, pantry badge.
      Keep in sync with theme.css (the authority); these mirror it for the

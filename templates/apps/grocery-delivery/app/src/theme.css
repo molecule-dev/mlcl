@@ -87,12 +87,16 @@
   --color-gradient-mid: #16a34a; /* mid-stop for hero banner; dark mode overrides to keep white text safe */
   --color-gradient-end: #65a30d;
 
+  /* Landing promise strip backdrop (design: grocery categoryBanner band) */
+  --color-promise-band: #f0fdf4;
+
   /* Typography */
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     Design (Bushel marketing surface): DM Sans bold display headings. */
+  --font-headline: 'DM Sans', 'Inter', system-ui, -apple-system, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -275,6 +279,8 @@
   --color-gradient-start: #1a5c35;
   --color-gradient-mid: #1a6635; /* dark mid-stop: white = 7.47:1 */
   --color-gradient-end: #3d6600;
+  /* Landing promise strip — dark counterpart */
+  --color-promise-band: #0f1f14;
 }
 
 /* The shared TopNavLayout hardcodes bg-primary-container + text-primary for the

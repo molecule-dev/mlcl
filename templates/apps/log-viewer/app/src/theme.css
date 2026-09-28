@@ -38,6 +38,9 @@
   --color-primary-dark: #0891b2;
   --color-primary-light: #cffafe;
 
+  /* Hero headline gradient tail — cyan→blue clip on "traced." (Stitch landing) */
+  --color-hero-gradient-to: #3b82f6;
+
   /* Accent — violet for JSON keys, span markers, secondary CTAs */
   --color-accent: #a78bfa;
   --color-accent-hover: #c4b5fd;
@@ -219,6 +222,9 @@
   --color-accent: #c4b5fd;
   --color-accent-hover: #ddd6fe;
   --color-accent-dark: #a78bfa;
+
+  /* Hero headline gradient tail — same cyan→blue in dark mode */
+  --color-hero-gradient-to: #3b82f6;
 
   /* Severity scale — brighter for vibrant signal on darker bg */
   --color-severity-fatal: #f87171;

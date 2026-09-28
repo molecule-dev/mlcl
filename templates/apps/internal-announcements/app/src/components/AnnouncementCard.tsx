@@ -71,7 +71,7 @@ export function AnnouncementCard({ announcement: a }: AnnouncementCardProps) {
       className={cm.cn(
         cm.flex({ direction: 'col', gap: 'sm' }),
         cm.sp('p', 5),
-        'group bg-surface rounded-xl border border-outline-variant/40 hover:shadow-sm hover:border-primary/20 transition-all',
+        'group bg-surface rounded-lg border border-outline-variant/40 shadow-sm hover:shadow-md hover:border-primary/20 transition-all',
       )}
       style={{ borderLeftWidth: '4px', borderLeftColor: accent }}
     >
@@ -173,7 +173,7 @@ export function AnnouncementCard({ announcement: a }: AnnouncementCardProps) {
         <h3
           className={cm.cn(
             cm.fontWeight('bold'),
-            'text-xl leading-snug text-on-surface group-hover:text-primary transition-colors',
+            'text-lg leading-tight text-on-surface group-hover:text-primary transition-colors',
           )}
         >
           {a.title}
@@ -197,7 +197,8 @@ export function AnnouncementCard({ announcement: a }: AnnouncementCardProps) {
           cm.flex({ align: 'center', gap: 'md' }),
           cm.textSize('xs'),
           cm.fontWeight('medium'),
-          'flex-wrap text-on-surface-variant',
+          cm.sp('pt', 3),
+          'flex-wrap border-t border-outline-variant/30 text-on-surface-variant',
         )}
       >
         <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>

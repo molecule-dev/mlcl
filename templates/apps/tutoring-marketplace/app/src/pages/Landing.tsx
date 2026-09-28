@@ -5,7 +5,6 @@ import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
-import { Footer } from '../components/Footer.js'
 import { HeroSearchSection } from '../components/HeroSearchSection.js'
 import { ReviewCard } from '../components/ReviewCard.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
@@ -187,14 +186,8 @@ export function Landing() {
           <span
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center' }),
-              'rounded-xl shadow-md',
+              'h-9 w-9 rounded-xl bg-gradient-to-br from-primary to-primary-dark shadow-md',
             )}
-            style={{
-              width: 36,
-              height: 36,
-              background:
-                'linear-gradient(135deg, var(--mol-color-primary) 0%, var(--mol-color-primary-dark) 100%)',
-            }}
           >
             <span
               aria-hidden="true"
@@ -258,9 +251,8 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
-                'rounded-full px-5 py-2 text-on-primary shadow-md hover:scale-[1.03] transition-transform',
+                'rounded-full bg-secondary px-5 py-2 text-on-secondary shadow-md transition-colors hover:bg-secondary-dark',
               )}
-              style={{ backgroundColor: 'var(--mol-color-primary)' }}
             >
               {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
             </Link>
@@ -283,9 +275,8 @@ export function Landing() {
                   cm.textSize('sm'),
                   cm.fontWeight('semibold'),
                   'whitespace-nowrap shrink-0',
-                  'rounded-full px-5 py-2 text-on-primary shadow-md hover:scale-[1.03] transition-transform',
+                  'rounded-full bg-secondary px-5 py-2 text-on-secondary shadow-md transition-colors hover:bg-secondary-dark',
                 )}
-                style={{ backgroundColor: 'var(--mol-color-primary)' }}
               >
                 {t('common.getStarted', {}, { defaultValue: 'Get started' })}
               </Link>
@@ -294,12 +285,10 @@ export function Landing() {
         </nav>
       </header>
 
-      <main className={cm.cn(cm.sp('px', 6), cm.sp('py', 10), cm.stack(16))}>
-        <div className={cm.cn(cm.maxW('2xl'), 'mx-auto w-full')}>
-          <HeroSearchSection />
-        </div>
+      <main className={cm.cn(cm.sp('py', 10), cm.stack(16))}>
+        <HeroSearchSection />
 
-        <section className={cm.cn(cm.maxW('2xl'), 'mx-auto w-full')}>
+        <section className={cm.cn(cm.maxW('2xl'), 'mx-auto w-full', cm.sp('px', 6))}>
           <div className={cm.cn(cm.textCenter, cm.maxW('xl'), 'mx-auto')}>
             <p
               className={cm.cn(
@@ -343,12 +332,8 @@ export function Landing() {
                 <span
                   className={cm.cn(
                     cm.flex({ align: 'center', justify: 'center' }),
-                    'rounded-xl w-12 h-12',
+                    'h-12 w-12 rounded-xl bg-chalk-booked-light text-primary-dark',
                   )}
-                  style={{
-                    backgroundColor: 'var(--chalk-booked-light)',
-                    color: 'var(--mol-color-primary-dark)',
-                  }}
                 >
                   <span
                     aria-hidden="true"
@@ -376,7 +361,7 @@ export function Landing() {
           </div>
         </section>
 
-        <section className={cm.cn(cm.maxW('2xl'), 'mx-auto w-full')}>
+        <section className={cm.cn(cm.maxW('2xl'), 'mx-auto w-full', cm.sp('px', 6))}>
           <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 6))}>
             <div>
               <p
@@ -425,7 +410,124 @@ export function Landing() {
           </div>
         </section>
 
-        <section className={cm.cn(cm.maxW('2xl'), 'mx-auto w-full')}>
+        <section className={cm.cn(cm.maxW('2xl'), 'mx-auto w-full', cm.sp('px', 6))}>
+          <div className={cm.cn(cm.textCenter, cm.maxW('xl'), 'mx-auto')}>
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-widest text-primary',
+              )}
+            >
+              {t('landing.howItWorks.eyebrow', {}, { defaultValue: 'How it works' })}
+            </p>
+            <h2
+              className={cm.cn(
+                cm.textSize('3xl'),
+                cm.fontWeight('bold'),
+                cm.sp('mt', 1),
+                'font-display tracking-tight',
+              )}
+            >
+              {t(
+                'landing.howItWorks.headline',
+                {},
+                { defaultValue: 'Learning starts in three simple steps.' },
+              )}
+            </h2>
+          </div>
+          <div
+            className={cm.cn('relative grid grid-cols-1 gap-12 md:grid-cols-3', cm.sp('mt', 12))}
+          >
+            <div
+              aria-hidden="true"
+              className={cm.cn(
+                'absolute left-[16%] right-[16%] top-12 hidden h-0.5 bg-chalk-booked-light md:block',
+              )}
+            />
+            {(
+              [
+                {
+                  icon: 'search',
+                  step: t('landing.howItWorks.find.step', {}, { defaultValue: '1. Find' }),
+                  body: t(
+                    'landing.howItWorks.find.body',
+                    {},
+                    {
+                      defaultValue:
+                        'Browse our network of vetted tutors by subject, price, and availability.',
+                    },
+                  ),
+                },
+                {
+                  icon: 'calendar_month',
+                  step: t('landing.howItWorks.book.step', {}, { defaultValue: '2. Book' }),
+                  body: t(
+                    'landing.howItWorks.book.body',
+                    {},
+                    {
+                      defaultValue:
+                        'Schedule a session that fits your week. Secure payments keep it simple.',
+                    },
+                  ),
+                },
+                {
+                  icon: 'school',
+                  step: t('landing.howItWorks.learn.step', {}, { defaultValue: '3. Learn' }),
+                  body: t(
+                    'landing.howItWorks.learn.body',
+                    {},
+                    {
+                      defaultValue:
+                        'Meet online or in person and reach your goals faster with expert feedback.',
+                    },
+                  ),
+                },
+              ] as const
+            ).map((item) => (
+              <div
+                key={item.icon}
+                className={cm.cn('relative z-10 flex flex-col items-center', cm.textCenter)}
+              >
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'h-24 w-24 rounded-full border border-outline-variant/30 bg-chalk-booked-light shadow-sm',
+                  )}
+                >
+                  <span
+                    aria-hidden="true"
+                    className={cm.cn('material-symbols-outlined text-4xl text-primary')}
+                  >
+                    {item.icon}
+                  </span>
+                </span>
+                <h3
+                  className={cm.cn(
+                    cm.fontWeight('bold'),
+                    cm.textSize('xl'),
+                    cm.sp('mt', 6),
+                    'font-display tracking-tight',
+                  )}
+                >
+                  {item.step}
+                </h3>
+                <p
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.sp('mt', 2),
+                    cm.maxW('sm'),
+                    'text-on-surface-variant',
+                  )}
+                >
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className={cm.cn(cm.maxW('2xl'), 'mx-auto w-full', cm.sp('px', 6))}>
           <div className={cm.cn(cm.textCenter, cm.maxW('xl'), 'mx-auto')}>
             <p
               className={cm.cn(
@@ -460,15 +562,11 @@ export function Landing() {
 
         <section
           className={cm.cn(
-            'relative overflow-hidden rounded-[2rem] text-on-primary shadow-xl',
+            'relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-chalk-verified via-primary to-primary-dark text-on-primary shadow-xl',
             cm.sp('p', 12),
             cm.maxW('2xl'),
             'mx-auto w-full',
           )}
-          style={{
-            background:
-              'linear-gradient(135deg, #0d9488 0%, var(--mol-color-primary) 60%, var(--mol-color-primary-dark) 100%)',
-          }}
         >
           <div
             aria-hidden="true"
@@ -521,9 +619,8 @@ export function Landing() {
                 cm.fontWeight('bold'),
                 cm.textSize('sm'),
                 cm.flex({ align: 'center', gap: 'xs' }),
-                'rounded-full px-8 py-4 bg-surface shadow-lg hover:scale-[1.03] transition-transform',
+                'rounded-full bg-surface px-8 py-4 text-primary-dark shadow-lg transition-transform hover:scale-[1.03]',
               )}
-              style={{ color: 'var(--mol-color-primary-dark)' }}
             >
               {t('landing.tutorCta.button', {}, { defaultValue: 'Apply to teach' })}
               <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-base')}>
@@ -534,7 +631,175 @@ export function Landing() {
         </section>
       </main>
 
-      <Footer />
+      <footer
+        className={cm.cn(
+          'border-t border-outline-variant/30 bg-surface-container-low w-full',
+          cm.sp('py', 12),
+        )}
+      >
+        <div
+          className={cm.cn(
+            cm.maxW('5xl'),
+            cm.sp('px', 6),
+            'grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4',
+            cm.mxAuto,
+          )}
+        >
+          <div>
+            <span
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                cm.textSize('xl'),
+                'font-display tracking-tight text-primary',
+              )}
+            >
+              {APP_NAME}
+            </span>
+            <p
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.sp('mt', 3),
+                cm.maxW('xs'),
+                'text-on-surface-variant',
+              )}
+            >
+              {t(
+                'landing.footer.blurb',
+                {},
+                {
+                  defaultValue:
+                    'Connecting curious minds with passionate experts to make learning accessible and inspiring.',
+                },
+              )}
+            </p>
+          </div>
+          <div>
+            <h4
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                cm.sp('mb', 3),
+                'font-display text-on-surface',
+              )}
+            >
+              {t('landing.footer.platform', {}, { defaultValue: 'Platform' })}
+            </h4>
+            <ul
+              className={cm.cn(
+                cm.flex({ direction: 'col', gap: 'sm' }),
+                cm.textSize('sm'),
+                'text-on-surface-variant',
+              )}
+            >
+              <li>
+                <Link to="/search" className={'hover:text-primary transition-colors'}>
+                  {t('landing.nav.findTutors', {}, { defaultValue: 'Find tutors' })}
+                </Link>
+              </li>
+              <li>
+                <Link to="/become-tutor" className={'hover:text-primary transition-colors'}>
+                  {t(
+                    'landing.nav.becomeTutor',
+                    { appName: APP_NAME },
+                    { defaultValue: 'Teach on {{appName}}' },
+                  )}
+                </Link>
+              </li>
+              <li>
+                <Link to="/pricing" className={'hover:text-primary transition-colors'}>
+                  {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                cm.sp('mb', 3),
+                'font-display text-on-surface',
+              )}
+            >
+              {t('landing.footer.company', {}, { defaultValue: 'Company' })}
+            </h4>
+            <ul
+              className={cm.cn(
+                cm.flex({ direction: 'col', gap: 'sm' }),
+                cm.textSize('sm'),
+                'text-on-surface-variant',
+              )}
+            >
+              <li>
+                <Link to="/about" className={'hover:text-primary transition-colors'}>
+                  {t('nav.about', {}, { defaultValue: 'About' })}
+                </Link>
+              </li>
+              <li>
+                <Link to="/login" className={'hover:text-primary transition-colors'}>
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                </Link>
+              </li>
+              <li>
+                <Link to="/signup" className={'hover:text-primary transition-colors'}>
+                  {t('common.getStarted', {}, { defaultValue: 'Get started' })}
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                cm.sp('mb', 3),
+                'font-display text-on-surface',
+              )}
+            >
+              {t('landing.footer.support', {}, { defaultValue: 'Support' })}
+            </h4>
+            <ul
+              className={cm.cn(
+                cm.flex({ direction: 'col', gap: 'sm' }),
+                cm.textSize('sm'),
+                'text-on-surface-variant',
+              )}
+            >
+              <li>
+                <Link to="/privacy" className={'hover:text-primary transition-colors'}>
+                  {t('footer.privacyPolicy', {}, { defaultValue: 'Privacy Policy' })}
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className={'hover:text-primary transition-colors'}>
+                  {t('footer.termsOfService', {}, { defaultValue: 'Terms of Service' })}
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p
+          className={cm.cn(
+            cm.textSize('xs'),
+            cm.sp('mt', 10),
+            cm.textCenter,
+            cm.sp('px', 6),
+            'text-on-surface-variant',
+          )}
+        >
+          {t(
+            'landing.copyright',
+            { year: new Date().getFullYear(), app: APP_NAME },
+            { defaultValue: '© {{year}} {{app}}' },
+          )}{' '}
+          — Built with{' '}
+          <a
+            href="https://molecule.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline font-medium"
+          >
+            Molecule.dev
+          </a>
+        </p>
+      </footer>
     </div>
   )
 }

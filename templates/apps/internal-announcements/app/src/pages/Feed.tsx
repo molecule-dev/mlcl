@@ -53,6 +53,7 @@ export function Feed() {
   const [loading, setLoading] = useState(true)
 
   const [filter, setFilter] = useState<(typeof FILTERS)[number]['id']>('all')
+  const [sortNewest, setSortNewest] = useState(true)
   const channelParam = searchParams.get('channel')
   const authorParam = searchParams.get('author')
 
@@ -154,8 +155,11 @@ export function Feed() {
     if (filter === 'unacked')
       items = items.filter((c) => c.card.ackTotal > 0 && !c.card.hasAcknowledged)
     if (filter === 'mine') items = items.filter((c) => c.isMine)
-    return items
-  }, [cards, categories, channelParam, authorParam, filter])
+    const stamp = (a: ApiAnnouncement) => new Date(a.published_at ?? a.created_at).getTime() || 0
+    return [...items].sort((x, y) =>
+      sortNewest ? stamp(y.ann) - stamp(x.ann) : stamp(x.ann) - stamp(y.ann),
+    )
+  }, [cards, categories, channelParam, authorParam, filter, sortNewest])
 
   const authorFilterName = useMemo(() => {
     if (!authorParam) return null
@@ -169,61 +173,61 @@ export function Feed() {
     <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }))}>
       <header
         className={cm.cn(
-          cm.flex({ direction: 'col', gap: 'sm' }),
-          cm.sp('p', 6),
-          'rounded-2xl border border-outline-variant/40 bg-gradient-to-br from-primary/8 via-surface to-secondary/8',
+          cm.flex({ align: 'center', gap: 'md' }),
+          cm.sp('pb', 4),
+          'flex-wrap justify-between border-b border-outline-variant/40',
         )}
       >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
-          <span
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              cm.sp('px', 2),
-              'py-0.5',
-              'rounded-full text-[10px] uppercase tracking-widest text-primary bg-primary/10',
+        <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), 'min-w-0')}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
+            <span
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                cm.sp('px', 2),
+                'py-0.5',
+                'rounded-full text-[10px] uppercase tracking-widest text-primary bg-primary/10',
+              )}
+            >
+              {t('feed.eyebrow', {}, { defaultValue: 'Internal · Announcements' })}
+            </span>
+            <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+              {loading
+                ? t('feed.loading', {}, { defaultValue: 'Refreshing…' })
+                : t(
+                    'feed.totalCount',
+                    { count: cards.length },
+                    { defaultValue: '{{count}} published' },
+                  )}
+            </span>
+          </div>
+          <h1 className={cm.cn(cm.fontWeight('bold'), 'text-2xl tracking-tight text-on-surface')}>
+            {t('feed.title', {}, { defaultValue: 'Announcements that need to land' })}
+          </h1>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-2xl')}>
+            {t(
+              'feed.subtitle',
+              { unacked: totalUnacked },
+              {
+                defaultValue:
+                  '{{unacked}} still need your acknowledgment. Acknowledge as you read so leadership sees signal, not noise.',
+              },
             )}
-          >
-            {t('feed.eyebrow', {}, { defaultValue: 'Internal · Announcements' })}
-          </span>
-          <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-            {loading
-              ? t('feed.loading', {}, { defaultValue: 'Refreshing…' })
-              : t(
-                  'feed.totalCount',
-                  { count: cards.length },
-                  { defaultValue: '{{count}} published' },
-                )}
-          </span>
+          </p>
         </div>
-        <h1 className={cm.cn(cm.fontWeight('bold'), 'text-3xl tracking-tight text-on-surface')}>
-          {t('feed.title', {}, { defaultValue: 'Announcements that need to land' })}
-        </h1>
-        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-2xl')}>
-          {t(
-            'feed.subtitle',
-            { unacked: totalUnacked },
-            {
-              defaultValue:
-                '{{unacked}} still need your acknowledgment. Acknowledge as you read so leadership sees signal, not noise.',
-            },
+        <Link
+          to="/compose"
+          data-testid="feed-compose-cta"
+          className={cm.cn(
+            cm.fontWeight('bold'),
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.sp('px', 4),
+            cm.sp('py', 2),
+            'rounded-lg bg-primary text-on-primary hover:bg-primary/90 transition-colors shrink-0',
           )}
-        </p>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <Link
-            to="/compose"
-            data-testid="feed-compose-cta"
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              cm.flex({ align: 'center', gap: 'xs' }),
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              'rounded-full bg-primary text-on-primary hover:bg-primary/90 transition-colors',
-            )}
-          >
-            <span className="material-symbols-outlined text-base">add</span>
-            {t('feed.compose', {}, { defaultValue: 'New announcement' })}
-          </Link>
-        </div>
+        >
+          <span className="material-symbols-outlined text-base">add</span>
+          {t('feed.compose', {}, { defaultValue: 'New announcement' })}
+        </Link>
       </header>
 
       {error && (
@@ -242,30 +246,71 @@ export function Feed() {
         </div>
       )}
 
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'flex-wrap')}>
-        {FILTERS.map((f) => {
-          const isActive = filter === f.id
-          return (
-            <button
-              key={f.id}
-              type="button"
-              data-testid={`feed-filter-${f.id}`}
-              onClick={() => setFilter(f.id)}
-              className={cm.cn(
-                cm.fontWeight('semibold'),
-                cm.textSize('sm'),
-                cm.sp('px', 4),
-                'py-1.5',
-                'rounded-full transition-colors',
-                isActive
-                  ? 'bg-primary text-on-primary'
-                  : 'border border-outline-variant/40 text-on-surface-variant hover:bg-surface-container-low/60',
-              )}
-            >
-              {t(f.labelKey, {}, { defaultValue: f.defaultLabel })}
-            </button>
-          )
-        })}
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap justify-between')}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'flex-wrap')}>
+          {FILTERS.map((f) => {
+            const isActive = filter === f.id
+            return (
+              <button
+                key={f.id}
+                type="button"
+                data-testid={`feed-filter-${f.id}`}
+                onClick={() => setFilter(f.id)}
+                className={cm.cn(
+                  cm.fontWeight('medium'),
+                  cm.textSize('sm'),
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  cm.sp('px', 3),
+                  'py-1.5',
+                  'rounded-full transition-colors shrink-0',
+                  isActive
+                    ? 'bg-on-surface text-surface'
+                    : 'border border-outline-variant/40 bg-surface text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60',
+                )}
+              >
+                {f.id === 'urgent' && (
+                  <span
+                    aria-hidden="true"
+                    className={cm.cn(cm.w(1.5), cm.h(1.5), cm.roundedFull, 'bg-error shrink-0')}
+                  />
+                )}
+                {f.id === 'pinned' && (
+                  <span
+                    aria-hidden="true"
+                    className={cm.cn('material-symbols-outlined text-[14px] text-warning shrink-0')}
+                  >
+                    push_pin
+                  </span>
+                )}
+                {t(f.labelKey, {}, { defaultValue: f.defaultLabel })}
+              </button>
+            )
+          })}
+        </div>
+        <button
+          type="button"
+          data-testid="feed-sort-toggle"
+          onClick={() => setSortNewest((v) => !v)}
+          className={cm.cn(
+            cm.fontWeight('medium'),
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.textSize('sm'),
+            'text-on-surface-variant hover:text-on-surface transition-colors shrink-0',
+          )}
+        >
+          {sortNewest
+            ? t('feed.sortNewest', {}, { defaultValue: 'Newest first' })
+            : t('feed.sortOldest', {}, { defaultValue: 'Oldest first' })}
+          <span
+            aria-hidden="true"
+            className={cm.cn(
+              'material-symbols-outlined text-[16px] transition-transform',
+              sortNewest ? '' : 'rotate-180',
+            )}
+          >
+            expand_more
+          </span>
+        </button>
       </div>
 
       <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'flex-wrap')}>

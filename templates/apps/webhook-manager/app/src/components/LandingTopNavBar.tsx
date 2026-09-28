@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, BRAND_COLOR } from '../branding.js'
+import { APP_NAME } from '../branding.js'
 
 /**
  * Shared public top navigation for the marketing/landing surface
@@ -18,11 +18,9 @@ export function LandingTopNavBar() {
   return (
     <nav
       data-mol-id="public-nav"
-      className={cm.cn('sticky top-0 z-50 backdrop-blur-md border-b')}
-      style={{
-        backgroundColor: 'color-mix(in srgb, var(--mol-color-background) 85%, transparent)',
-        borderColor: 'var(--mol-color-border)',
-      }}
+      className={cm.cn(
+        'sticky top-0 z-50 backdrop-blur-md border-b border-outline-variant bg-background/85',
+      )}
     >
       <div
         className={cm.cn(
@@ -36,19 +34,21 @@ export function LandingTopNavBar() {
         <Link
           to="/"
           data-mol-id="nav-brand"
-          className={cm.cn('flex items-center gap-2 text-xl font-extrabold tracking-tight')}
-          style={{ color: 'var(--mol-color-text)' }}
+          className={cm.cn(
+            'flex items-center gap-2 text-xl font-extrabold tracking-tight text-on-surface',
+          )}
         >
           <span
-            className={cm.cn('inline-flex h-8 w-8 items-center justify-center rounded-lg')}
-            style={{ backgroundColor: BRAND_COLOR, color: 'var(--color-on-primary)' }}
+            className={cm.cn(
+              'inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-on-primary',
+            )}
             aria-hidden="true"
           >
             <span className={cm.cn('material-symbols-outlined text-[20px]')}>cloud_sync</span>
           </span>
           <span>
             {APP_NAME}
-            <span style={{ color: BRAND_COLOR }}>.</span>
+            <span className="text-primary">.</span>
           </span>
         </Link>
         <div className={cm.flex({ align: 'center', gap: 'md' })}>
@@ -57,14 +57,8 @@ export function LandingTopNavBar() {
               to="/dashboard"
               data-mol-id="nav-dashboard"
               className={cm.cn(
-                'px-5 py-2 font-mono font-semibold text-sm rounded-md transition-all hover:opacity-90 shadow-lg',
+                'px-5 py-2 font-mono font-semibold text-sm rounded-lg bg-primary text-on-primary transition-all hover:bg-primary-light shadow-lg shadow-primary/25',
               )}
-              style={{
-                backgroundColor: BRAND_COLOR,
-                color: 'var(--color-on-primary)',
-                boxShadow:
-                  '0 8px 24px -8px color-mix(in srgb, var(--mol-color-primary) 40%, transparent)',
-              }}
             >
               {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
             </Link>
@@ -73,8 +67,9 @@ export function LandingTopNavBar() {
               <Link
                 to="/login"
                 data-mol-id="nav-login"
-                className={cm.cn('text-sm font-medium transition-colors hover:opacity-90')}
-                style={{ color: 'var(--mol-color-text-secondary)' }}
+                className={cm.cn(
+                  'text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors',
+                )}
               >
                 {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
               </Link>
@@ -82,14 +77,8 @@ export function LandingTopNavBar() {
                 to="/signup"
                 data-mol-id="nav-signup"
                 className={cm.cn(
-                  'px-5 py-2 font-mono font-semibold text-sm rounded-md transition-all hover:opacity-90 shadow-lg',
+                  'px-5 py-2 font-mono font-semibold text-sm rounded-lg bg-primary text-on-primary transition-all hover:bg-primary-light shadow-lg shadow-primary/25',
                 )}
-                style={{
-                  backgroundColor: BRAND_COLOR,
-                  color: 'var(--color-on-primary)',
-                  boxShadow:
-                    '0 8px 24px -8px color-mix(in srgb, var(--mol-color-primary) 40%, transparent)',
-                }}
               >
                 {t('common.startFree', {}, { defaultValue: 'Start free' })}
               </Link>

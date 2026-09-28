@@ -25,3 +25,23 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/* ── Versal (Stitch landing) design tokens ──────────────────────────────
+   Noto Serif carries the editor voice and the headline's italic accent;
+   Inter carries everything else. Loaded via the Google Fonts link in
+   index.html — Georgia is the local fallback. */
+@theme {
+  --font-serif: 'Noto Serif', Charter, Georgia, serif;
+}
+
+/* The editor page voice — serif, 18px / 1.8, per the design. */
+.editor-text {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* Focus-mode vignette — soft inner shadow that dims the page edges. */
+.vignette {
+  box-shadow: inset 0 0 100px color-mix(in srgb, var(--color-on-surface) 3%, transparent);
+}

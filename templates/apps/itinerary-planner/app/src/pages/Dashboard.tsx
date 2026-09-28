@@ -141,9 +141,9 @@ export function Dashboard() {
         <div>
           <p
             className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-[0.25em] text-primary',
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'uppercase tracking-widest text-secondary',
             )}
           >
             {t('dashboard.eyebrow', {}, { defaultValue: 'Mission control' })}
@@ -155,7 +155,7 @@ export function Dashboard() {
               cm.sp('mt', 2),
               'leading-tight tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t(
               'dashboard.heading',
@@ -220,7 +220,7 @@ export function Dashboard() {
               cm.sp('mt', 3),
               'tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t(
               'dashboard.empty.heading',
@@ -264,7 +264,7 @@ export function Dashboard() {
           >
             <h2
               className={cm.cn(cm.textSize('xl'), cm.fontWeight('extrabold'), 'tracking-tight')}
-              style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+              style={{ fontFamily: 'var(--font-headline)' }}
             >
               {t('dashboard.budgetHeading', {}, { defaultValue: 'Budget pulse' })}
             </h2>
@@ -299,7 +299,7 @@ export function Dashboard() {
           >
             <h2
               className={cm.cn(cm.textSize('xl'), cm.fontWeight('extrabold'), 'tracking-tight')}
-              style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+              style={{ fontFamily: 'var(--font-headline)' }}
             >
               {t('dashboard.tripsHeading', {}, { defaultValue: 'Trips in motion' })}
             </h2>

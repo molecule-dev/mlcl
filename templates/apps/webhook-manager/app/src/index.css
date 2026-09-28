@@ -25,3 +25,50 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/* ── Pylon (Stitch landing) design tokens ───────────────────────────────
+   Values live in app/src/theme.css per mode (`--mol-color-accent`,
+   `--mol-color-code-bg`); these @theme entries only register the Tailwind
+   utilities (text-accent, bg-code-bg, …). */
+@theme {
+  --color-accent: var(--mol-color-accent, #4f46e5);
+  --color-code-bg: var(--mol-color-code-bg, #101828);
+}
+
+/* Hero atmosphere — the design's emerald/indigo radial glows. Lives here so
+   the gradient colors resolve from tokens instead of raw hex in JSX. */
+.hero-glow {
+  background-image:
+    radial-gradient(
+      circle at 20% 25%,
+      color-mix(in srgb, var(--color-primary) 20%, transparent),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 60%,
+      color-mix(in srgb, var(--color-accent) 18%, transparent),
+      transparent 45%
+    );
+}
+
+/* Faint blueprint grid over the hero. */
+.grid-overlay {
+  background-image:
+    linear-gradient(
+      color-mix(in srgb, var(--color-on-surface) 5%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-on-surface) 5%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 32px 32px;
+}
+
+/* Terminal/code block — the design's codeBg canvas with a border hairline. */
+.code-block {
+  background-color: var(--color-code-bg);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 0.5rem;
+}

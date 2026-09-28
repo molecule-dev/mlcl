@@ -25,3 +25,24 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/* ── Everly (Stitch landing) design tokens ──────────────────────────────
+   Values live in app/src/theme.css per mode; these @theme entries only
+   register the Tailwind utilities (text-accent, font-headline, …). */
+@theme {
+  --color-accent: var(--mol-color-accent, #b45309);
+  --font-headline: var(--mol-font-headline, Georgia, 'Iowan Old Style', serif);
+}
+
+/* Everly ambient shadows — the design's soft paper-lift shadows, resolved
+   from the on-surface token so they track both themes. */
+.ambient-glow {
+  box-shadow:
+    0 8px 32px -4px color-mix(in srgb, var(--color-on-surface) 5%, transparent),
+    0 2px 8px -2px color-mix(in srgb, var(--color-on-surface) 3%, transparent);
+}
+.ambient-glow-lg {
+  box-shadow:
+    0 20px 48px -8px color-mix(in srgb, var(--color-on-surface) 7%, transparent),
+    0 4px 16px -2px color-mix(in srgb, var(--color-on-surface) 4%, transparent);
+}

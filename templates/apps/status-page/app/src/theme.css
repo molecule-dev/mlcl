@@ -108,6 +108,10 @@
   --color-chip-text: #cbd5e1;
   /* Semi-transparent border for dark-mode cards */
   --color-border-card: rgba(51, 65, 85, 0.7);
+  /* Public status banner ink + translucent card fills (:root dark-first baseline) */
+  --color-banner-ink: #0b1120;
+  --color-surface-card: rgba(15, 23, 42, 0.55);
+  --color-surface-raised: rgba(30, 41, 59, 0.6);
   /* Disabled/unreached state text */
   --color-text-disabled: #475569;
   /* Light text on dark surface (e.g. reached milestone label) */
@@ -377,6 +381,10 @@
   --color-chip-text: #475569;
   /* Semi-transparent border for light-mode cards */
   --color-border-card: rgba(100, 116, 139, 0.3);
+  /* Public status banner ink (light mode) + translucent card fills */
+  --color-banner-ink: #0f172a;
+  --color-surface-card: rgba(15, 23, 42, 0.04);
+  --color-surface-raised: rgba(255, 255, 255, 0.75);
   /* Disabled/unreached state text */
   --color-text-disabled: #9ca3af;
   /* Text on surface in light mode (replaces e2e8f0 dark equiv) */

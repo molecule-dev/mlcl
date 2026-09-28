@@ -1,74 +1,80 @@
 :root {
   /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #c23a3a; /* #dc4c3e was 4.08:1 with white (FAIL); #c23a3a = 5.30:1 */
-  --mol-color-primary-light: #fef2f1;
-  --mol-color-primary-dark: #a6281a;
-  --mol-color-secondary: #246fe0;
-  --mol-color-background: #ffffff;
-  --mol-color-background-secondary: #fafafa;
-  --mol-color-background-tertiary: #f5f5f5;
-  --mol-color-surface: #fafafa;
-  --mol-color-surface-secondary: #f5f5f5;
+  /* Cadence — indigo (#4f46e5) on slate neutrals per the Stitch design. */
+  --mol-color-primary: #4f46e5; /* design indigo-600 — white text on it is 6.29:1 */
+  --mol-color-primary-light: #e0e7ff; /* indigo-100 */
+  --mol-color-primary-dark: #4338ca; /* indigo-700 */
+  --mol-color-secondary: #4f46e5;
+  --mol-color-background: #f8fafc; /* slate-50 */
+  --mol-color-background-secondary: #f1f5f9; /* slate-100 */
+  --mol-color-background-tertiary: #e2e8f0; /* slate-200 */
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafc;
   --mol-color-input-background: #ffffff;
-  --mol-color-text: #202020;
-  --mol-color-text-secondary: #666666;
-  --mol-color-text-tertiary: #999999;
+  --mol-color-text: #0f172a; /* slate-900 */
+  --mol-color-text-secondary: #475569; /* slate-600 — 7.5:1 on white */
+  --mol-color-text-tertiary: #94a3b8; /* slate-400 */
   --mol-color-text-inverse: #ffffff;
-  --mol-color-border: #e0e0e0;
-  --mol-color-border-secondary: #f0f0f0;
-  --mol-color-border-focus: #c23a3a;
-  --mol-color-success: #058527;
-  --mol-color-warning: #eb8909;
-  --mol-color-error: #d1453b;
-  --mol-color-info: #246fe0;
+  --mol-color-border: #e2e8f0; /* slate-200 */
+  --mol-color-border-secondary: #cbd5e1; /* slate-300 */
+  --mol-color-border-focus: #4f46e5;
+  --mol-color-success: #047857; /* emerald-700 — 5.48:1 as small text on white */
+  --mol-color-success-light: #d1fae5; /* emerald-100 */
+  --mol-color-warning: #b45309; /* amber-700 — 5.02:1 as text on white */
+  --mol-color-warning-light: #fef3c7; /* amber-100 */
+  --mol-color-error: #dc2626; /* red-600 — 4.86:1 with white */
+  --mol-color-error-light: #fee2e2; /* red-100 */
+  --mol-color-info: #4f46e5;
 
   /* Brand */
-  --color-primary: #c23a3a; /* slightly darkened for ≥4.5:1 vs white (was #dc4c3e = 4.08 FAIL) */
-  --color-primary-hover: #a82828;
-  --color-primary-light: #fef2f1;
-  --color-primary-dark: #a6281a;
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-light: #e0e7ff;
+  --color-primary-dark: #3730a3;
 
   /* Surface */
-  --color-background: #ffffff;
-  --color-surface: #fafafa;
-  --color-surface-hover: #f5f5f5;
-  --color-surface-active: #eeeeee;
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f1f5f9;
+  --color-surface-active: #e2e8f0;
 
   /* Sidebar */
-  --color-sidebar-bg: #fafafa;
-  --color-sidebar-hover: #f0f0f0;
-  --color-sidebar-active: #eaeaea;
-  --color-sidebar-text: #202020;
-  --color-sidebar-text-muted: #808080;
+  --color-sidebar-bg: #f8fafc;
+  --color-sidebar-hover: #f1f5f9;
+  --color-sidebar-active: #e2e8f0;
+  --color-sidebar-text: #0f172a;
+  --color-sidebar-text-muted: #64748b;
 
   /* Text */
-  --color-text: #202020;
-  --color-text-secondary: #666666;
-  --color-text-muted: #999999;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
   --color-text-inverse: #ffffff;
 
   /* Borders */
-  --color-border: #e0e0e0;
-  --color-border-light: #f0f0f0;
-  --color-border-focus: #c23a3a;
+  --color-border: #e2e8f0;
+  --color-border-light: #f1f5f9;
+  --color-border-focus: #4f46e5;
 
-  /* Priority colors */
-  --color-priority-high: #d1453b;
-  --color-priority-medium: #eb8909;
-  --color-priority-low: #246fe0;
-  --color-priority-none: #808080;
+  /* Priority colors — the design's dot palette (decorative glyphs, so the
+     brighter stops stay; text-capable status colors live in Status below) */
+  --color-priority-high: #ef4444; /* red-500 */
+  --color-priority-medium: #f59e0b; /* amber-500 */
+  --color-priority-low: #4f46e5; /* indigo-600 */
+  --color-priority-none: #cbd5e1; /* slate-300 */
 
-  /* Status */
-  --color-success: #058527;
-  --color-warning: #eb8909;
-  --color-error: #d1453b;
-  --color-info: #246fe0;
+  /* Status — text-capable semantic palette */
+  --color-success: #047857;
+  --color-warning: #b45309;
+  --color-error: #dc2626;
+  --color-info: #4f46e5;
 
   /* Typography */
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`.
+     The Cadence design uses Inter for headline and body alike. */
+  --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 0.9375rem;
@@ -98,144 +104,147 @@
   --checkbox-border: 2px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 2px 8px rgba(15, 23, 42, 0.1);
 
   /* Transitions */
   --transition-fast: 100ms ease;
   --transition-normal: 200ms ease;
 
-  /* === Material-3 light tokens — required by bg-primary, text-on-surface etc. === */
-  --color-on-background: #202020;
+  /* === Material-3 light tokens (design-to-do-list) — required by bg-primary, text-on-surface etc. === */
+  --color-on-background: #0f172a;
   --color-surface-bright: #ffffff;
-  --color-surface-dim: #ebebeb;
+  --color-surface-dim: #e2e8f0;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f5f5f5;
-  --color-surface-container: #efefef;
-  --color-surface-container-high: #e9e9e9;
-  --color-surface-container-highest: #e0e0e0;
-  --color-surface-variant: #f0e9e8;
-  --color-on-surface: #202020;
-  --color-on-surface-variant: #534341;
-  --color-inverse-surface: #383838;
-  --color-inverse-on-surface: #f5f5f5;
-  --color-inverse-primary: #ff897d;
-  --color-on-primary: #ffffff; /* white on #c23a3a = 5.30:1 PASS (original #dc4c3e was 4.08 FAIL) */
-  --color-primary-container: #ffdad7;
-  --color-on-primary-container: #410001;
-  --color-secondary-container: #d6e3ff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  --color-surface-variant: #f1f5f9;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569; /* slate-600 — 7.5:1 on #ffffff */
+  --color-inverse-surface: #1e293b; /* slate-800 — the design's dark showcase band */
+  --color-inverse-on-surface: #f1f5f9;
+  --color-inverse-primary: #a5b4fc; /* indigo-300 */
+  --color-on-primary: #ffffff; /* white on #4f46e5 = 6.29:1 PASS */
+  --color-primary-container: #e0e7ff; /* indigo-100 */
+  --color-on-primary-container: #1e1b4b; /* indigo-950 — 12:1 on indigo-100 */
+  --color-secondary-container: #e0e7ff;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #001946;
-  --color-tertiary: #7c5800;
-  --color-tertiary-container: #ffdea0;
-  --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #271900;
-  --color-error: #ba1a1a;
-  --color-error-container: #ffdad6;
+  --color-on-secondary-container: #1e1b4b;
+  --color-tertiary: #6d28d9; /* violet-700 — label chips */
+  --color-tertiary-container: #ede9fe; /* violet-100 */
+  --color-on-tertiary: #ffffff; /* white on #6d28d9 — 7.1:1 */
+  --color-on-tertiary-container: #4c1d95; /* violet-900 on violet-100 */
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
   --color-on-error: #ffffff;
-  --color-on-error-container: #410002;
-  --color-outline: #857371;
-  --color-outline-variant: #d8c2bf;
-  --color-surface-tint: #c23a3a;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #64748b; /* slate-500 — 4.76:1 on white ≥ 3:1 */
+  --color-outline-variant: #cbd5e1;
+  --color-surface-tint: #4f46e5;
 }
 
 /* Dark mode is activated via [data-mol-mode="dark"], set by the
    @molecule/app-theme-css-variables provider when the user toggles
    theme. Keep this selector in sync with the provider's prefix. */
 [data-mol-mode='dark'] {
-  --color-primary-hover: #cc3e3e; /* slightly lighter than corrected primary #bf3535 */
-  --color-primary-light: #3d1c1b;
-  --color-primary-dark: #f5a5a4;
+  --color-primary-hover: #6366f1; /* indigo-500 */
+  --color-primary-light: #1e1b4b; /* indigo-950 */
+  --color-primary-dark: #a5b4fc;
 
-  --color-surface-hover: #333333;
-  --color-surface-active: #3d3d3d;
+  --color-surface-hover: #1e293b;
+  --color-surface-active: #334155;
 
-  --color-sidebar-bg: #282828;
-  --color-sidebar-hover: #333333;
-  --color-sidebar-active: #3d3d3d;
-  --color-sidebar-text: #e0e0e0;
-  --color-sidebar-text-muted: #808080;
+  --color-sidebar-bg: #0f172a;
+  --color-sidebar-hover: #1e293b;
+  --color-sidebar-active: #334155;
+  --color-sidebar-text: #e2e8f0;
+  --color-sidebar-text-muted: #94a3b8;
 
-  --color-text: #e0e0e0;
-  --color-text-secondary: #a0a0a0;
-  --color-text-muted: #666666;
-  --color-text-inverse: #1e1e1e;
+  --color-text: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #0f172a;
 
-  --color-border: #3d3d3d;
-  --color-border-light: #333333;
-  --color-border-focus: #bf3535;
+  --color-border: #334155;
+  --color-border-light: #1e293b;
+  --color-border-focus: #818cf8;
 
   /* Priority colors — brightened for dark canvas */
-  --color-priority-high: #e5635a;
-  --color-priority-medium: #f5a623;
-  --color-priority-low: #1e57c8; /* matches corrected secondary */
-  --color-priority-none: #999999;
+  --color-priority-high: #f87171;
+  --color-priority-medium: #fbbf24;
+  --color-priority-low: #818cf8;
+  --color-priority-none: #64748b;
 
   /* Status — brightened semantic palette */
-  --color-success: #34d27f;
-  --color-warning: #f5a623;
-  --color-error: #e5635a;
-  --color-info: #5b8def;
+  --color-success: #34d399; /* emerald-400 */
+  --color-warning: #fbbf24; /* amber-400 */
+  --color-error: #f87171; /* red-400 */
+  --color-info: #818cf8;
 
-  /* === @theme bridge dark overrides === */
-  --mol-color-primary: #bf3535; /* darkened — white text = 5.56:1 (was #de4c4a = 4.01 FAIL) */
-  --mol-color-primary-light: #3d1c1b;
-  --mol-color-primary-dark: #f5a5a4;
-  --mol-color-secondary: #1e57c8; /* darkened — white text = 6.46:1 (was #5b8def = 3.23 FAIL) */
-  --mol-color-background: #1e1e1e;
-  --mol-color-background-secondary: #282828;
-  --mol-color-background-tertiary: #333333;
-  --mol-color-surface: #282828;
-  --mol-color-surface-secondary: #333333;
-  --mol-color-input-background: #1a1a1a;
-  --mol-color-text: #e0e0e0;
-  --mol-color-text-secondary: #a0a0a0;
-  --mol-color-text-tertiary: #666666;
-  --mol-color-text-inverse: #1e1e1e;
-  --mol-color-border: #3d3d3d;
-  --mol-color-border-secondary: #333333;
-  --mol-color-border-focus: #bf3535;
-  --mol-color-success: #34d27f;
-  --mol-color-warning: #f5a623;
-  --mol-color-error: #e5635a;
-  --mol-color-info: #1e57c8;
+  /* === @theme bridge dark overrides — Cadence slate-night === */
+  --mol-color-primary: #5348e0; /* indigo held at brand stop — white text 6.2:1 */
+  --mol-color-primary-light: #1e1b4b;
+  --mol-color-primary-dark: #818cf8;
+  --mol-color-secondary: #818cf8;
+  --mol-color-background: #0f172a; /* slate-900 */
+  --mol-color-background-secondary: #1e293b;
+  --mol-color-background-tertiary: #334155;
+  --mol-color-surface: #1e293b;
+  --mol-color-surface-secondary: #334155;
+  --mol-color-input-background: #0b1220;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #cbd5e1;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #0f172a;
+  --mol-color-border: #334155;
+  --mol-color-border-secondary: #1e293b;
+  --mol-color-border-focus: #818cf8;
+  --mol-color-success: #34d399;
+  --mol-color-success-light: #064e3b;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #451a03;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #7f1d1d;
+  --mol-color-info: #818cf8;
 
   /* Stitch / Material-3 token dark variants */
-  --color-background: #1e1e1e;
-  --color-on-background: #e0e0e0;
-  --color-surface: #282828;
-  --color-surface-bright: #3d3d3d;
-  --color-surface-dim: #141414;
-  --color-surface-container-lowest: #0f0f0f;
-  --color-surface-container-low: #1a1a1a;
-  --color-surface-container: #282828;
-  --color-surface-container-high: #333333;
-  --color-surface-container-highest: #3d3d3d;
-  --color-surface-variant: #2e2e2e;
-  --color-on-surface: #e0e0e0;
-  --color-on-surface-variant: #a0a0a0;
-  --color-inverse-surface: #e0e0e0;
-  --color-inverse-on-surface: #1e1e1e;
-  --color-inverse-primary: #dc4c3e;
-  --color-primary: #bf3535; /* darkened for white-text ≥4.5:1 (was #de4c4a = 4.01 FAIL) */
-  --color-primary-container: #3d1c1b;
-  --color-on-primary: #ffffff; /* white on #bf3535 = 5.56:1 PASS */
-  --color-on-primary-container: #fecdd3;
-  --color-secondary: #1e57c8; /* darkened — white text = 6.46:1 (was #5b8def = 3.23 FAIL) */
-  --color-secondary-container: #1a2d55;
-  --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #bfdbfe;
-  --color-tertiary: #f5a623;
-  --color-tertiary-container: #4a2d05;
-  --color-on-tertiary: #3a1800; /* dark on amber = 7.91:1 (was #ffffff = 2.03 FAIL) */
-  --color-on-tertiary-container: #fef3c7;
-  --color-error: #e5635a;
-  --color-error-container: #3d1818;
-  --color-on-error: #3a0000; /* dark on red = 5.31:1 (was #ffffff = 3.35 FAIL) */
+  --color-background: #0f172a;
+  --color-on-background: #f1f5f9;
+  --color-surface: #1e293b;
+  --color-surface-bright: #334155;
+  --color-surface-dim: #020617;
+  --color-surface-container-lowest: #0b1220;
+  --color-surface-container-low: #141d2e;
+  --color-surface-container: #1e293b;
+  --color-surface-container-high: #334155;
+  --color-surface-container-highest: #475569;
+  --color-surface-variant: #1e293b;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #cbd5e1;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0f172a;
+  --color-inverse-primary: #4f46e5;
+  --color-primary: #5348e0; /* white on it = 6.2:1 PASS */
+  --color-primary-container: #1e1b4b;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #e0e7ff;
+  --color-secondary: #818cf8;
+  --color-secondary-container: #1e1b4b;
+  --color-on-secondary: #0f172a;
+  --color-on-secondary-container: #e0e7ff;
+  --color-tertiary: #c4b5fd; /* violet-300 on dark */
+  --color-tertiary-container: #4c1d95;
+  --color-on-tertiary: #1e1033;
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #7f1d1d;
+  --color-on-error: #450a0a;
   --color-on-error-container: #fee2e2;
-  --color-outline: #7a7a7a; /* vs surface #282828 = 3.43:1 ≥3 (was #5c5c5c = 2.20 FAIL) */
-  --color-outline-variant: #3d3d3d;
-  --color-surface-tint: #bf3535;
+  --color-outline: #94a3b8; /* vs surface #1e293b ≥3:1 */
+  --color-outline-variant: #334155;
+  --color-surface-tint: #818cf8;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.4);

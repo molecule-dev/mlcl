@@ -125,7 +125,7 @@ export function Landing() {
           <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
             <span
               className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'text-primary')}
-              style={{ fontFamily: '"DM Serif Display", Georgia, serif', fontWeight: 400 }}
+              style={{ fontFamily: 'var(--font-headline)', fontWeight: 400 }}
             >
               {APP_NAME}
             </span>
@@ -190,21 +190,19 @@ export function Landing() {
       </nav>
 
       <main>
-        {/* Hero */}
+        {/* Hero — full-bleed image + floating search pill (design) */}
+        <SojournHeroSearchCard />
+
+        {/* Featured destinations — pt clears the floating search pill */}
         <section
           className={cm.cn(
             cm.maxW('7xl'),
             cm.sp('px', 6),
-            cm.sp('pt', 10),
-            cm.sp('pb', 16),
+            'pt-28 md:pt-32',
+            cm.sp('pb', 20),
             cm.mxAuto,
           )}
         >
-          <SojournHeroSearchCard />
-        </section>
-
-        {/* Featured destinations */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('pb', 20), cm.mxAuto)}>
           <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 8))}>
             <div>
               <p
@@ -223,7 +221,7 @@ export function Landing() {
                   cm.sp('mt', 2),
                   'leading-tight',
                 )}
-                style={{ fontFamily: '"DM Serif Display", Georgia, serif', fontWeight: 400 }}
+                style={{ fontFamily: 'var(--font-headline)', fontWeight: 400 }}
               >
                 {t('landing.destinations.heading', {}, { defaultValue: 'Featured destinations' })}
               </h2>
@@ -272,7 +270,7 @@ export function Landing() {
                     cm.sp('mt', 2),
                     'leading-tight',
                   )}
-                  style={{ fontFamily: '"DM Serif Display", Georgia, serif', fontWeight: 400 }}
+                  style={{ fontFamily: 'var(--font-headline)', fontWeight: 400 }}
                 >
                   {t(
                     'landing.preview.heading',
@@ -347,7 +345,7 @@ export function Landing() {
                   cm.sp('mt', 2),
                   'leading-tight',
                 )}
-                style={{ fontFamily: '"DM Serif Display", Georgia, serif', fontWeight: 400 }}
+                style={{ fontFamily: 'var(--font-headline)', fontWeight: 400 }}
               >
                 {t('landing.journal.heading', {}, { defaultValue: 'Stories worth packing for' })}
               </h2>
@@ -389,7 +387,7 @@ export function Landing() {
                       cm.sp('mt', 2),
                       'leading-snug',
                     )}
-                    style={{ fontFamily: '"DM Serif Display", Georgia, serif', fontWeight: 400 }}
+                    style={{ fontFamily: 'var(--font-headline)', fontWeight: 400 }}
                   >
                     {item.title}
                   </h3>
@@ -404,104 +402,132 @@ export function Landing() {
           </div>
         </section>
 
-        {/* CTA band */}
-        <section className={cm.cn('bg-primary text-on-primary relative overflow-hidden')}>
+        {/* Loyalty teaser — design: ocean rounded panel, gold glow blobs,
+            copy left and a blended image right */}
+        <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('pb', 20), cm.mxAuto)}>
           <div
             className={cm.cn(
-              cm.w(96),
-              cm.h(96),
-              cm.roundedFull,
-              'absolute -right-24 -bottom-24 bg-accent/30 blur-3xl',
-            )}
-            aria-hidden="true"
-          />
-          <div
-            className={cm.cn(
-              cm.maxW('5xl'),
-              cm.sp('px', 6),
-              cm.sp('py', 20),
-              cm.textCenter,
-              cm.mxAuto,
-              'relative z-10',
+              'bg-primary rounded-xl overflow-hidden relative flex flex-col md:flex-row items-center',
             )}
           >
-            <p
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                /* On the red band, amber tops out ~3.5:1 — white passes (4.98:1). */
-                'uppercase tracking-[0.25em] text-on-primary',
-              )}
+            {/* Decorative ambient gradient/shapes */}
+            <div
+              className={cm.cn('absolute inset-0 opacity-20 pointer-events-none')}
+              aria-hidden="true"
             >
-              {t(
-                'landing.cta.eyebrow',
-                { appName: APP_NAME },
-                { defaultValue: '{{appName}} members' },
-              )}
-            </p>
-            <h2
-              className={cm.cn(
-                cm.textSize('5xl'),
-                cm.fontWeight('bold'),
-                cm.sp('mt', 3),
-                'leading-[0.95]',
-              )}
-              style={{ fontFamily: '"DM Serif Display", Georgia, serif', fontWeight: 400 }}
-            >
-              {t(
-                'landing.cta.heading',
-                {},
-                { defaultValue: 'Members-only rates. Every booking, every time.' },
-              )}
-            </h2>
-            <p
-              className={cm.cn(
-                cm.textSize('lg'),
-                cm.sp('mt', 4),
-                cm.maxW('2xl'),
-                cm.mxAuto,
-                'text-white', // was text-white/85 — 3.96:1 on the #d32f2f loyalty band; solid white = 5.0:1
-              )}
-            >
-              {t(
-                'landing.cta.subheading',
-                {},
-                {
-                  defaultValue:
-                    'Earn loyalty points on every stay, unlock late checkouts and room upgrades, and get first access to new properties before they list publicly.',
-                },
-              )}
-            </p>
+              <div
+                className={cm.cn(
+                  cm.w(96),
+                  cm.h(96),
+                  cm.roundedFull,
+                  'absolute top-0 right-0 bg-accent mix-blend-multiply blur-3xl translate-x-1/3 -translate-y-1/3',
+                )}
+              />
+              <div
+                className={cm.cn(
+                  cm.w(96),
+                  cm.h(96),
+                  cm.roundedFull,
+                  'absolute bottom-0 left-0 bg-surface mix-blend-overlay blur-3xl -translate-x-1/3 translate-y-1/3',
+                )}
+              />
+            </div>
             <div
               className={cm.cn(
-                cm.flex({ align: 'center', gap: 'md', justify: 'center' }),
-                cm.sp('mt', 8),
+                cm.sp('p', 12),
+                'md:p-20 relative z-10 w-full md:w-1/2 flex flex-col items-start',
               )}
             >
-              <Link
-                to="/signup"
+              <span
                 className={cm.cn(
-                  cm.sp('px', 8),
-                  cm.sp('py', 3),
-                  cm.fontWeight('bold'),
-                  /* amber-700 (#b45309) = 5.02:1 with white text; the raw accent
-                     #ffb300 was 1.79:1 (axe serious). Same stop as the card badge. */
-                  'rounded-full bg-amber-700 text-on-primary hover:bg-amber-800 transition-colors shadow-lg',
+                  cm.fontWeight('medium'),
+                  'tracking-wider text-sm uppercase',
+                  cm.sp('mb', 4),
+                )}
+                style={{ color: 'var(--color-accent-on-primary)' }}
+              >
+                {t(
+                  'landing.cta.eyebrow',
+                  { appName: APP_NAME },
+                  { defaultValue: '{{appName}} members' },
+                )}
+              </span>
+              <h2
+                className={cm.cn(
+                  cm.textSize('4xl'),
+                  'md:text-5xl font-medium',
+                  cm.sp('mb', 6),
+                  'text-on-primary',
+                )}
+                style={{ fontFamily: 'var(--font-headline)', fontWeight: 400 }}
+              >
+                {t(
+                  'landing.cta.heading',
+                  {},
+                  { defaultValue: 'Members-only rates. Every booking, every time.' },
+                )}
+              </h2>
+              <p
+                className={cm.cn(
+                  'font-light text-on-primary/80',
+                  cm.textSize('lg'),
+                  cm.sp('mb', 8),
+                  cm.maxW('md'),
                 )}
               >
-                {t('landing.cta.signup', {}, { defaultValue: 'Create free account' })}
-              </Link>
-              <Link
-                to="/search"
-                className={cm.cn(
-                  cm.sp('px', 8),
-                  cm.sp('py', 3),
-                  cm.fontWeight('semibold'),
-                  'rounded-full border border-surface/40 text-white hover:bg-surface/10 transition-colors',
+                {t(
+                  'landing.cta.subheading',
+                  {},
+                  {
+                    defaultValue:
+                      'Earn loyalty points on every stay, unlock late checkouts and room upgrades, and get first access to new properties before they list publicly.',
+                  },
                 )}
-              >
-                {t('nav.browseStays', {}, { defaultValue: 'Browse stays' })}
-              </Link>
+              </p>
+              <div className={cm.cn(cm.flex({ wrap: 'wrap', align: 'center', gap: 'md' }))}>
+                <Link
+                  to="/signup"
+                  data-mol-id="landing-loyalty-cta"
+                  className={cm.cn(
+                    cm.sp('px', 8),
+                    cm.sp('py', 4),
+                    cm.fontWeight('medium'),
+                    cm.flex({ align: 'center', gap: 'sm' }),
+                    'rounded-full bg-accent text-on-accent hover:bg-accent-ink transition-all duration-300 shadow-lg shadow-accent/20',
+                  )}
+                >
+                  {t('landing.cta.signup', {}, { defaultValue: 'Create free account' })}
+                  <span className={'material-symbols-outlined'} aria-hidden="true">
+                    arrow_forward
+                  </span>
+                </Link>
+                <Link
+                  to="/search"
+                  className={cm.cn(
+                    cm.sp('px', 8),
+                    cm.sp('py', 4),
+                    cm.fontWeight('semibold'),
+                    'rounded-full border border-surface/40 text-white hover:bg-surface/10 transition-colors',
+                  )}
+                >
+                  {t('nav.browseStays', {}, { defaultValue: 'Browse stays' })}
+                </Link>
+              </div>
+            </div>
+            <div className={cm.cn('w-full md:w-1/2 relative min-h-[280px] md:min-h-[420px]')}>
+              <img
+                alt=""
+                src="https://picsum.photos/seed/sojourn-circle/1200/900"
+                className={cm.cn('absolute inset-0 w-full h-full object-cover object-center')}
+              />
+              <div
+                aria-hidden="true"
+                className={cm.cn('absolute inset-0 md:w-1/3')}
+                style={{
+                  backgroundImage:
+                    'linear-gradient(to right, var(--color-primary) 0%, transparent 100%)',
+                }}
+              />
             </div>
           </div>
         </section>
@@ -518,7 +544,7 @@ export function Landing() {
             <div>
               <span
                 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'text-primary')}
-                style={{ fontFamily: '"DM Serif Display", Georgia, serif', fontWeight: 400 }}
+                style={{ fontFamily: 'var(--font-headline)', fontWeight: 400 }}
               >
                 {APP_NAME}
               </span>
@@ -569,6 +595,15 @@ export function Landing() {
               { year: new Date().getFullYear(), app: APP_NAME },
               { defaultValue: '© {{year}} {{app}}. All rights reserved.' },
             )}
+            {' — Built with '}
+            <a
+              href="https://molecule.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-medium"
+            >
+              Molecule.dev
+            </a>
           </p>
         </div>
       </footer>

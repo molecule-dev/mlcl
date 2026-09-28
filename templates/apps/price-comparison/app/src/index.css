@@ -25,3 +25,16 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Register the design's deep brand stop as a Tailwind color utility
+ * (`from-primary-deep` etc. — design-price-comparison-landing.html gradients
+ * run from #a83301 into the brand primary). theme.css owns the per-mode
+ * values; utilities resolve through the var at computed-value time.
+ * `--font-headline` becomes DM Sans (the design's headline face); the local
+ * Arimo/Inter faces stay as offline fallbacks.
+ */
+@theme {
+  --color-primary-deep: var(--color-primary-deep-alias);
+  --font-headline: 'DM Sans', 'Arimo', 'Inter', -apple-system, sans-serif;
+}

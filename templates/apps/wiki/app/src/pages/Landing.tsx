@@ -7,6 +7,44 @@ import { APP_NAME, APP_TAGLINE } from '../branding.js'
 import { KnowledgeHeroCard } from '../components/KnowledgeHeroCard.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
+const FEATURES = [
+  {
+    icon: 'edit_note',
+    titleKey: 'editor',
+    defaultTitle: 'Markdown editor',
+    defaultBody:
+      'Live-split preview, slash commands, AI summary on demand. Your favourite editor, calmer.',
+    tile: 'bg-primary-fixed text-on-primary-fixed',
+  },
+  {
+    icon: 'history',
+    titleKey: 'history',
+    defaultTitle: 'Inline diff history',
+    defaultBody:
+      'Every save is a version. Restore any draft from a side-by-side timeline that never loses a paragraph.',
+    tile: 'bg-tertiary-fixed text-on-tertiary-fixed',
+  },
+  {
+    icon: 'account_tree',
+    titleKey: 'tree',
+    defaultTitle: 'Page atlas',
+    defaultBody:
+      'A persistent left-rail tree per space — drag to reorder, search to leap, breadcrumbs to ground.',
+    tile: 'bg-secondary-fixed text-on-secondary-fixed',
+  },
+] as const
+
+/* The design's grayscale logo strip (material icons standing in for partner
+   marks). */
+const TRUST_ICONS = [
+  'cruelty_free',
+  'eco',
+  'architecture',
+  'dashboard',
+  'extension',
+  'hive',
+] as const
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -16,41 +54,43 @@ export function Landing() {
     <div
       className={cm.cn(cm.flex({ direction: 'col' }), 'min-h-screen bg-surface-container-lowest')}
     >
+      {/* Top navigation */}
       <header
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'between' }),
           cm.sp('px', 8),
-          'h-16 border-b border-outline-variant/40 bg-surface-container-lowest/80 backdrop-blur sticky top-0 z-20',
+          'h-20 bg-surface/80 backdrop-blur-lg sticky top-0 z-20',
         )}
       >
-        <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
+        <Link
+          to="/"
+          className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex items-center gap-2')}
+        >
           <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-secondary text-white',
-            )}
+            className="material-symbols-outlined text-primary text-2xl"
+            style={{ fontVariationSettings: "'FILL' 1" }}
             aria-hidden="true"
           >
-            <span className={cm.cn('material-symbols-outlined text-[18px]')}>layers</span>
+            landscape
           </span>
           <span
             className={cm.cn(
-              cm.textSize('lg'),
+              cm.textSize('xl'),
               cm.fontWeight('bold'),
-              'text-on-surface tracking-tight',
+              'text-on-surface tracking-tighter',
             )}
           >
             {APP_NAME}
           </span>
         </Link>
-        <div className={cm.flex({ align: 'center', gap: 'md' })}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex items-center gap-4')}>
           {isAuthenticated ? (
             <Link
               to="/home"
               data-mol-id="landing-nav-dashboard"
               className={cm.cn(
                 cm.sp('px', 5),
-                'h-10 inline-flex items-center rounded-full bg-primary text-on-primary text-sm font-semibold hover:bg-primary-hover transition-colors',
+                'h-10 inline-flex items-center rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary text-sm font-medium shadow-sm hover:opacity-90 transition-opacity',
               )}
             >
               {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -61,8 +101,8 @@ export function Landing() {
                 to="/login"
                 className={cm.cn(
                   cm.textSize('sm'),
-                  cm.fontWeight('semibold'),
-                  'text-on-surface-variant hover:text-on-surface transition-colors',
+                  cm.fontWeight('medium'),
+                  'hidden sm:inline text-on-surface-variant hover:text-primary transition-colors',
                 )}
               >
                 {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -71,10 +111,10 @@ export function Landing() {
                 to="/signup"
                 className={cm.cn(
                   cm.sp('px', 5),
-                  'h-10 inline-flex items-center rounded-full bg-primary text-on-primary text-sm font-semibold hover:bg-primary-hover transition-colors',
+                  'h-10 inline-flex items-center rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary text-sm font-medium shadow-sm hover:opacity-90 transition-opacity',
                 )}
               >
-                {t('common.startFree', {}, { defaultValue: 'Start free' })}
+                {t('common.startFree', {}, { defaultValue: 'Start your wiki' })}
               </Link>
             </>
           )}
@@ -85,82 +125,102 @@ export function Landing() {
       <main className={cm.flex({ direction: 'col' })}>
         {/* Hero */}
         <section
-          className={cm.cn(cm.sp('px', 8), 'py-24 md:py-32 border-b border-outline-variant/20')}
+          className={cm.cn(
+            cm.sp('px', 8),
+            'pt-24 pb-20 md:pt-32 md:pb-24 flex flex-col items-center text-center',
+          )}
         >
-          <div className={cm.cn('mx-auto max-w-5xl text-center')}>
-            <span
-              className={cm.cn(
-                cm.sp('px', 3),
-                cm.sp('py', 1),
-                cm.sp('mb', 6),
-                'inline-block rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest',
-              )}
-            >
-              {t('landing.eyebrow', {}, { defaultValue: 'Knowledge base · For deep teams' })}
+          {/* Cairn indicator — three stacked stones */}
+          <div className="flex flex-col gap-1 mb-8" aria-hidden="true">
+            <span className="w-1.5 h-1.5 bg-tertiary rounded-full mx-auto opacity-40" />
+            <span className="w-2 h-1.5 bg-tertiary rounded-full mx-auto opacity-70" />
+            <span className="w-3 h-1.5 bg-tertiary rounded-full mx-auto" />
+          </div>
+          <h1
+            className={cm.cn(
+              cm.sp('mb', 6),
+              'text-5xl md:text-7xl font-bold tracking-tight text-on-surface max-w-4xl leading-tight',
+            )}
+          >
+            {t('landing.headlineA', {}, { defaultValue: 'Stack ' })}
+            <span className="font-serif italic text-primary-container">
+              {t('landing.headlineAccent', {}, { defaultValue: 'knowledge' })}
             </span>
-            <h1
+            {t('landing.headlineB', {}, { defaultValue: ', mark the path.' })}
+          </h1>
+          <p
+            className={cm.cn(
+              cm.textSize('lg'),
+              cm.maxW('2xl'),
+              cm.mxAuto,
+              cm.sp('mb', 10),
+              'md:text-xl text-on-surface-variant leading-relaxed',
+            )}
+          >
+            {t(
+              'landing.subtitle',
+              { tagline: APP_TAGLINE },
+              {
+                defaultValue:
+                  'A calm, editorial wiki for teams that read deeply. Versioned pages, AI-summarised long reads, and a page tree that finally feels like furniture, not paperwork.',
+              },
+            )}
+          </p>
+          <div
+            className={cm.cn(
+              cm.flex({ justify: 'center', gap: 'md' }),
+              'flex flex-col sm:flex-row gap-4 mb-20',
+            )}
+          >
+            <Link
+              to="/signup"
               className={cm.cn(
-                cm.sp('mb', 6),
-                'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] font-extrabold text-on-surface',
+                cm.sp('px', 8),
+                cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
+                'h-14 rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary text-base font-medium shadow-sm hover:opacity-90 transition-opacity',
               )}
             >
-              {t('landing.headline', {}, { defaultValue: 'Stack knowledge.\nMark the path.' })
-                .split('\n')
-                .map((line, i, arr) => (
-                  <span
-                    key={i}
-                    className={cm.cn(i === arr.length - 1 ? 'text-primary' : '', 'block')}
-                  >
-                    {line}
-                  </span>
-                ))}
-            </h1>
-            <p
+              {t('landing.ctaPrimary', {}, { defaultValue: 'Start your wiki' })}
+              <span className={cm.cn('material-symbols-outlined text-[18px]')} aria-hidden="true">
+                arrow_forward
+              </span>
+            </Link>
+            <Link
+              to="/login"
               className={cm.cn(
-                cm.textSize('xl'),
-                cm.maxW('2xl'),
-                cm.mxAuto,
-                cm.sp('mb', 10),
-                'text-on-surface-variant leading-relaxed',
+                cm.sp('px', 8),
+                cm.flex({ align: 'center', justify: 'center' }),
+                'h-14 inline-flex items-center rounded-lg bg-surface-container-high text-on-surface text-base font-medium hover:bg-surface-dim transition-colors',
               )}
             >
-              {t(
-                'landing.subtitle',
-                { tagline: APP_TAGLINE },
-                {
-                  defaultValue:
-                    'A calm, editorial wiki for teams that read deeply. Versioned pages, AI-summarised long reads, and a page tree that finally feels like furniture, not paperwork.',
-                },
-              )}
-            </p>
-            <div className={cm.flex({ justify: 'center', gap: 'sm' })}>
-              <Link
-                to="/signup"
-                className={cm.cn(
-                  cm.sp('px', 8),
-                  cm.flex({ align: 'center', gap: 'sm' }),
-                  'h-12 rounded-full bg-primary text-on-primary text-base font-semibold hover:bg-primary-hover transition-colors',
-                )}
-              >
-                {t('landing.ctaPrimary', {}, { defaultValue: 'Start a workspace' })}
-                <span className={cm.cn('material-symbols-outlined text-[18px]')} aria-hidden="true">
-                  arrow_forward
-                </span>
-              </Link>
-              <Link
-                to="/login"
-                className={cm.cn(
-                  cm.sp('px', 8),
-                  'h-12 inline-flex items-center rounded-full border border-outline-variant text-base font-semibold text-on-surface hover:bg-surface-container-high transition-colors',
-                )}
-              >
-                {t('landing.ctaSecondary', {}, { defaultValue: 'Tour a sample wiki' })}
-              </Link>
-            </div>
+              {t('landing.ctaSecondary', {}, { defaultValue: 'Tour a sample wiki' })}
+            </Link>
+          </div>
+
+          {/* Trust strip */}
+          <p className="text-sm font-medium text-outline mb-6 tracking-wide uppercase">
+            {t(
+              'landing.socialProof.eyebrow',
+              {},
+              { defaultValue: 'Trusted by forward-thinking teams' },
+            )}
+          </p>
+          <div
+            className={cm.cn(
+              cm.flex({ justify: 'center', align: 'center', gap: 'lg' }),
+              'flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 text-on-surface-variant',
+            )}
+            aria-hidden="true"
+          >
+            {TRUST_ICONS.map((icon) => (
+              <span key={icon} className="material-symbols-outlined text-4xl">
+                {icon}
+              </span>
+            ))}
           </div>
 
           {/* Sample card mirrors the auth'd hero */}
-          <div className={cm.cn(cm.sp('mt', 16), 'mx-auto max-w-4xl')}>
+          <div className={cm.cn(cm.sp('mt', 16), 'mx-auto max-w-4xl w-full')}>
             <KnowledgeHeroCard
               workspaceName="Lighthouse Engineering"
               pageCount={1284}
@@ -176,15 +236,10 @@ export function Landing() {
         </section>
 
         {/* Feature triad */}
-        <section className={cm.cn(cm.sp('px', 8), 'py-24 border-b border-outline-variant/20')}>
+        <section className={cm.cn(cm.sp('px', 8), 'py-24 bg-surface-container-low')}>
           <div className={cm.cn('mx-auto max-w-6xl')}>
             <div className={cm.cn(cm.sp('mb', 12), 'text-center')}>
-              <h2
-                className={cm.cn(
-                  cm.textSize('4xl'),
-                  'font-extrabold tracking-tight text-on-surface',
-                )}
-              >
+              <h2 className={cm.cn(cm.textSize('4xl'), 'font-bold tracking-tight text-on-surface')}>
                 {t(
                   'landing.featuresHeadline',
                   {},
@@ -199,51 +254,34 @@ export function Landing() {
                 )}
               </p>
             </div>
-            <div className={cm.cn('grid gap-6 md:grid-cols-3')}>
-              {[
-                {
-                  icon: 'edit_note',
-                  titleKey: 'editor',
-                  defaultTitle: 'Markdown editor',
-                  defaultBody:
-                    'Live-split preview, slash commands, AI summary on demand. Your favourite editor, calmer.',
-                },
-                {
-                  icon: 'history',
-                  titleKey: 'history',
-                  defaultTitle: 'Inline diff history',
-                  defaultBody:
-                    'Every save is a version. Restore any draft from a side-by-side timeline that never loses a paragraph.',
-                },
-                {
-                  icon: 'account_tree',
-                  titleKey: 'tree',
-                  defaultTitle: 'Page atlas',
-                  defaultBody:
-                    'A persistent left-rail tree per space — drag to reorder, search to leap, breadcrumbs to ground.',
-                },
-              ].map((f) => (
+            <div className={cm.cn('grid gap-8 md:grid-cols-3 gap-6')}>
+              {FEATURES.map((f) => (
                 <article
                   key={f.titleKey}
                   className={cm.cn(
-                    cm.sp('p', 6),
-                    'rounded-xl bg-surface-container-lowest border-l-4 border-primary shadow-sm hover:-translate-y-0.5 transition-transform',
+                    cm.sp('p', 8),
+                    'group relative rounded-lg bg-surface-container-lowest hover:bg-surface-bright transition-colors',
                   )}
                 >
-                  <span
+                  <div
+                    className="pointer-events-none absolute inset-0 rounded-lg border border-outline-variant opacity-15 group-hover:opacity-30 transition-opacity"
+                    aria-hidden="true"
+                  />
+                  <div
                     className={cm.cn(
                       cm.flex({ align: 'center', justify: 'center' }),
-                      cm.sp('mb', 4),
-                      'h-10 w-10 rounded-lg bg-primary/10 text-primary',
+                      cm.sp('mb', 6),
+                      'w-12 h-12 rounded-full',
+                      f.tile,
                     )}
                     aria-hidden="true"
                   >
-                    <span className={cm.cn('material-symbols-outlined text-[22px]')}>{f.icon}</span>
-                  </span>
+                    <span className={cm.cn('material-symbols-outlined')}>{f.icon}</span>
+                  </div>
                   <h3
                     className={cm.cn(
-                      cm.textSize('lg'),
-                      'font-extrabold text-on-surface tracking-tight',
+                      cm.textSize('xl'),
+                      'font-semibold text-on-surface tracking-tight',
                     )}
                   >
                     {t(
@@ -254,8 +292,8 @@ export function Landing() {
                   </h3>
                   <p
                     className={cm.cn(
-                      cm.sp('mt', 2),
-                      cm.textSize('sm'),
+                      cm.sp('mt', 3),
+                      cm.textSize('base'),
                       'text-on-surface-variant leading-relaxed',
                     )}
                   >
@@ -266,73 +304,149 @@ export function Landing() {
             </div>
           </div>
         </section>
+      </main>
 
-        {/* Social proof */}
-        <section className={cm.cn(cm.sp('px', 8), 'py-20 bg-surface-container-low/30')}>
-          <div className={cm.cn('mx-auto max-w-4xl text-center')}>
-            <p
-              className={cm.cn(
-                cm.textSize('xs'),
-                'mb-6 font-black uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
-              {t(
-                'landing.socialProof.eyebrow',
-                {},
-                { defaultValue: 'Used by deep-thinking teams' },
-              )}
-            </p>
-            <div
-              className={cm.cn(
-                cm.flex({ justify: 'center', align: 'center', gap: 'md' }),
-                'flex-wrap text-on-surface-variant',
-              )}
-            >
-              {['Lighthouse', 'North Star Labs', 'Atlas Research', 'Cooper & Hale', 'Ironclad'].map(
-                (name) => (
-                  <span
-                    key={name}
-                    className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight')}
+      {/* Footer */}
+      <footer className="border-t border-outline-variant/40 bg-surface-container-lowest">
+        <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 8), 'py-16')}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+            <div>
+              <h4
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  'text-on-surface mb-4 tracking-wide',
+                )}
+              >
+                {t('landing.footer.product', {}, { defaultValue: 'Product' })}
+              </h4>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <Link
+                    to="/pricing"
+                    data-mol-id="landing-footer-pricing"
+                    className="text-on-surface-variant hover:text-primary transition-colors"
                   >
-                    {name}
-                  </span>
-                ),
+                    {t('landing.footer.pricing', {}, { defaultValue: 'Pricing' })}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/signup"
+                    data-mol-id="landing-footer-signup"
+                    className="text-on-surface-variant hover:text-primary transition-colors"
+                  >
+                    {t('common.startFree', {}, { defaultValue: 'Start free' })}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  'text-on-surface mb-4 tracking-wide',
+                )}
+              >
+                {t('landing.footer.company', {}, { defaultValue: 'Company' })}
+              </h4>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <Link
+                    to="/about"
+                    data-mol-id="landing-footer-about"
+                    className="text-on-surface-variant hover:text-primary transition-colors"
+                  >
+                    {t('landing.footer.about', {}, { defaultValue: 'About' })}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  'text-on-surface mb-4 tracking-wide',
+                )}
+              >
+                {t('landing.footer.legal', {}, { defaultValue: 'Legal' })}
+              </h4>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <Link
+                    to="/privacy"
+                    data-mol-id="landing-footer-privacy"
+                    className="text-on-surface-variant hover:text-primary transition-colors"
+                  >
+                    {t('landing.footer.privacy', {}, { defaultValue: 'Privacy Policy' })}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/terms"
+                    data-mol-id="landing-footer-terms"
+                    className="text-on-surface-variant hover:text-primary transition-colors"
+                  >
+                    {t('landing.footer.terms', {}, { defaultValue: 'Terms of Service' })}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="flex flex-col justify-end">
+              {isAuthenticated ? (
+                <Link
+                  to="/home"
+                  data-mol-id="landing-footer-dashboard"
+                  className="text-sm text-on-surface-variant hover:text-primary transition-colors"
+                >
+                  {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
+                </Link>
+              ) : (
+                <Link
+                  to="/login"
+                  className="text-sm text-on-surface-variant hover:text-primary transition-colors"
+                >
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                </Link>
               )}
             </div>
           </div>
-        </section>
-      </main>
-
-      <footer
-        className={cm.cn(
-          cm.sp('px', 8),
-          cm.sp('py', 8),
-          cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-          'border-t border-outline-variant/40 text-sm text-on-surface-variant',
-        )}
-      >
-        <span>
-          {t('landing.footer.copyright', { name: APP_NAME }, { defaultValue: '© {{name}}' })}
-        </span>
-        <div className={cm.flex({ align: 'center', gap: 'md' })}>
-          {isAuthenticated ? (
+          <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-outline-variant/40 gap-4">
             <Link
-              to="/home"
-              data-mol-id="landing-footer-dashboard"
-              className={cm.cn('hover:text-on-surface transition-colors')}
+              to="/"
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                'flex items-center gap-2 text-xl font-bold text-on-surface',
+              )}
             >
-              {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
+              <span
+                className="material-symbols-outlined text-primary"
+                style={{ fontVariationSettings: "'FILL' 1" }}
+                aria-hidden="true"
+              >
+                landscape
+              </span>
+              {APP_NAME}
             </Link>
-          ) : (
-            <>
-              <Link to="/login" className={cm.cn('hover:text-on-surface transition-colors')}>
-                {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-              </Link>
-              <Link to="/signup" className={cm.cn('hover:text-on-surface transition-colors')}>
-                {t('common.startFree', {}, { defaultValue: 'Start free' })}
-              </Link>
-            </>
-          )}
+            <p className="text-sm text-on-surface-variant">
+              {t(
+                'landing.footer.copyright',
+                { year: new Date().getFullYear(), name: APP_NAME },
+                { defaultValue: '© {{year}} {{name}}' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
+            </p>
+          </div>
         </div>
       </footer>
     </div>

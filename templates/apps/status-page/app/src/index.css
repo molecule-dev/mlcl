@@ -25,3 +25,12 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Public status banner CTA glow — the design's emerald button shadow.
+ * color-mix off the status token so it tracks the mode (light emerald /
+ * dark mint) without raw literals in the JSX.
+ */
+.shadow-cta-status {
+  box-shadow: 0 8px 24px -8px color-mix(in srgb, var(--color-status-operational) 45%, transparent);
+}

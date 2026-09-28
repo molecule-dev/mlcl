@@ -49,22 +49,37 @@ const STATS = [
     value: '0.4ms',
     labelKey: 'landing.stat1Label',
     defaultLabel: 'Per-pixel adjust',
-    accent: '#a78bfa',
+    accent: 'var(--photo-panel-text-accent)',
   },
   {
     value: '32-bit',
     labelKey: 'landing.stat2Label',
     defaultLabel: 'Float pipeline',
-    accent: '#f472b6',
+    accent: 'var(--photo-danger)',
   },
   {
     value: '400+',
     labelKey: 'landing.stat3Label',
     defaultLabel: 'Curated presets',
-    accent: '#22d3ee',
+    accent: 'var(--photo-panel-text-cyan)',
   },
-  { value: '∞', labelKey: 'landing.stat4Label', defaultLabel: 'Undo history', accent: '#10b981' },
+  {
+    value: '∞',
+    labelKey: 'landing.stat4Label',
+    defaultLabel: 'Undo history',
+    accent: 'var(--color-success, #34d399)',
+  },
 ]
+
+/* Design logo strip — invented studio wordmarks (the mock's VOGUE/Wired
+   real-brand marks are deliberately not replicated). */
+const TRUST_MARKS = [
+  { label: 'APERTURE', className: 'font-black tracking-widest' },
+  { label: 'Chroma', className: 'font-bold italic' },
+  { label: 'STUDIO.X', className: 'font-black' },
+  { label: 'Lumina', className: 'font-bold' },
+  { label: 'GRAIN', className: 'font-black tracking-[0.2em]' },
+] as const
 
 export function Landing() {
   const cm = getClassMap()
@@ -72,7 +87,11 @@ export function Landing() {
   const featuredPresets = SAMPLE_PRESETS.slice(0, 4)
 
   return (
+    // The Stitch landing design is dark-only: force the dark token set on
+    // this subtree regardless of the user's app theme (marketing surfaces
+    // are brand-controlled; the authed app keeps the user's mode).
     <div
+      data-mol-mode="dark"
       className={cm.cn(
         cm.flex({ direction: 'col' }),
         cm.minH('screen'),
@@ -118,7 +137,7 @@ export function Landing() {
             <h1
               className={cm.cn(
                 cm.textCenter,
-                'font-extrabold tracking-tight text-5xl md:text-6xl lg:text-7xl leading-[0.95] max-w-[920px]',
+                'font-black tracking-tighter text-5xl md:text-6xl lg:text-7xl leading-[0.95] max-w-[920px]',
               )}
             >
               <span className={cm.cn('text-[var(--photo-text)]')}>
@@ -157,7 +176,7 @@ export function Landing() {
                   cm.sp('px', 6),
                   cm.sp('py', 3),
                   cm.flex({ align: 'center', gap: 'xs' }),
-                  'rounded-lg bg-gradient-to-r from-[var(--photo-accent)] to-[var(--photo-danger)] text-white hover:opacity-90 transition-opacity shadow-lg',
+                  'rounded-lg bg-gradient-to-r from-[var(--photo-accent)] to-[var(--photo-danger)] text-white hover:opacity-90 transition-opacity shadow-[0_0_20px_var(--photo-glow-pink)]',
                 )}
               >
                 <span>{t('landing.ctaPrimary', {}, { defaultValue: 'Start editing free' })}</span>
@@ -186,6 +205,40 @@ export function Landing() {
             >
               {APP_TAGLINE}
             </p>
+          </div>
+        </section>
+
+        {/* Logo strip — "Trusted by visual pioneers", per design */}
+        <section
+          className={cm.cn(
+            cm.sp('py', 10),
+            cm.sp('px', 6),
+            'border-y border-[var(--photo-border)] bg-[var(--photo-surface)]/30',
+          )}
+        >
+          <div className={cm.cn('max-w-[1100px] mx-auto text-center')}>
+            <p
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                cm.sp('mb', 6),
+                'uppercase tracking-widest text-[var(--photo-text-muted)]',
+              )}
+            >
+              {t('landing.trustMarks', {}, { defaultValue: 'Trusted by visual pioneers' })}
+            </p>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center', gap: 'lg', wrap: 'wrap' }),
+                'opacity-50 grayscale',
+              )}
+            >
+              {TRUST_MARKS.map((mark) => (
+                <span key={mark.label} className={cm.cn('text-xl', mark.className)}>
+                  {mark.label}
+                </span>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -353,14 +406,25 @@ export function Landing() {
               </h2>
             </div>
             <div className={cm.cn('grid grid-cols-1 md:grid-cols-3 gap-4')}>
-              {FEATURES.map((f) => (
+              {FEATURES.map((f, i) => (
                 <article
                   key={f.titleKey}
                   className={cm.cn(
-                    cm.sp('p', 6),
-                    'rounded-xl border border-[var(--photo-border)] bg-[var(--photo-surface)] hover:border-[var(--photo-accent)]/50 hover:-translate-y-0.5 transition-all',
+                    cm.sp('p', 8),
+                    'group relative overflow-hidden rounded-xl border border-[var(--photo-border)] bg-[var(--photo-surface)] hover:border-[var(--photo-accent)]/50 hover:-translate-y-0.5 transition-all',
+                    // Alternate the hover edge purple/pink per design
+                    i % 2 === 1 && 'hover:border-[var(--photo-danger)]/50',
                   )}
                 >
+                  {/* Corner blur orb, per design */}
+                  <div
+                    aria-hidden="true"
+                    className={cm.cn(
+                      'absolute -right-10 -top-10 w-32 h-32 rounded-full blur-2xl bg-[var(--photo-accent)]/10 group-hover:bg-[var(--photo-accent)]/20 transition-all',
+                      i % 2 === 1 &&
+                        'bg-[var(--photo-danger)]/10 group-hover:bg-[var(--photo-danger)]/20',
+                    )}
+                  />
                   <div
                     className={cm.cn(
                       cm.w(10),

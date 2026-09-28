@@ -116,7 +116,7 @@ export function Destinations() {
               cm.sp('mt', 2),
               'leading-tight tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {t('destinations.heading', {}, { defaultValue: 'Saved corners and editor finds.' })}
           </h1>
@@ -225,7 +225,7 @@ export function Destinations() {
               cm.sp('mt', 3),
               'tracking-tight',
             )}
-            style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, sans-serif' }}
+            style={{ fontFamily: 'var(--font-headline)' }}
           >
             {destinations.length === 0
               ? t('destinations.empty.heading', {}, { defaultValue: 'No destinations yet.' })

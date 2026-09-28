@@ -32,7 +32,9 @@
    MUST keep ≥4.5:1 against white — bg-accent CTAs pair with text-on-accent
    (white) and text-accent labels sit on white surfaces (axe color-contrast). */
 @theme {
-  --color-accent: #097b8a;
-  --color-accent-hover: #086d7b;
+  --color-accent: #dc2626;
+  --color-accent-hover: #b91c1c;
   --color-on-accent: #ffffff;
+  --color-coral: #e8634a;
+  --font-headline: 'DM Sans', 'Inter', -apple-system, sans-serif;
 }

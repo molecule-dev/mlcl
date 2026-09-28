@@ -3,9 +3,9 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { ACCENT_COLOR, APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { APP_NAME } from '../branding.js'
 import { PostCard } from '../components/PostCard.js'
-import { SAMPLE_HASHTAGS, SAMPLE_POSTS } from '../lib/sample-feed.js'
+import { SAMPLE_HASHTAGS, SAMPLE_POSTS, SAMPLE_STORIES, vividGradient } from '../lib/sample-feed.js'
 
 const FEATURES = [
   {
@@ -13,8 +13,9 @@ const FEATURES = [
     defaultTitle: 'Stories that stick',
     defaultBody:
       'Conic-gradient rings, snappy transitions, and one-tap replies. Stories that feel current — not noisy.',
-    icon: 'auto_awesome',
-    tint: 'text-primary',
+    icon: 'history_toggle_off',
+    cardCls: 'bg-primary-light',
+    badgeCls: 'landing-vivid-gradient text-white shadow-lg',
   },
   {
     key: 'creators',
@@ -22,7 +23,8 @@ const FEATURES = [
     defaultBody:
       'High-resolution media, tight typography, no ads in the feed. Your portfolio, in full color.',
     icon: 'palette',
-    tint: 'text-fuchsia-500',
+    cardCls: 'bg-secondary-container',
+    badgeCls: 'bg-vivid text-white shadow-lg',
   },
   {
     key: 'realtime',
@@ -30,14 +32,16 @@ const FEATURES = [
     defaultBody:
       'Live badges that pulse, online dots, optimistic likes. The feed moves the way conversation does.',
     icon: 'bolt',
-    tint: 'text-warning',
+    cardCls: 'bg-surface-container',
+    badgeCls: 'bg-error text-white shadow-lg',
   },
   {
     key: 'community',
     defaultTitle: 'A kinder comments section',
     defaultBody: 'Threaded replies, human moderation, opt-in private circles. Civil-by-default.',
     icon: 'group',
-    tint: 'text-violet-500',
+    cardCls: 'bg-surface-container-low',
+    badgeCls: 'bg-success text-white shadow-lg',
   },
 ] as const
 
@@ -48,8 +52,6 @@ const STATS = [
   { key: 'countries', defaultLabel: 'Countries', value: '120+' },
 ]
 
-const HERO_GRADIENT = `linear-gradient(135deg, ${BRAND_COLOR} 0%, ${ACCENT_COLOR} 100%)`
-
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -57,6 +59,7 @@ export function Landing() {
 
   const heroPost = SAMPLE_POSTS[0]
   const trending = SAMPLE_HASHTAGS.slice(0, 4)
+  const stories = SAMPLE_STORIES.slice(0, 8)
 
   return (
     <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
@@ -75,21 +78,22 @@ export function Landing() {
           )}
         >
           <span
+            data-mol-id="nav-brand"
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'sm' }),
               cm.textSize('xl'),
               cm.fontWeight('extrabold'),
-              'tracking-tight',
+              'tracking-tight text-primary',
             )}
-            style={{ color: BRAND_COLOR }}
           >
             <span
               className={cm.cn(
-                'inline-flex w-8 h-8 rounded-full items-center justify-center text-white shadow',
+                'inline-flex w-8 h-8 rounded-full items-center justify-center',
+                'landing-vivid-gradient text-white shadow',
               )}
-              style={{ background: HERO_GRADIENT }}
               aria-hidden="true"
             >
+              {/* Tile owns the sizing/centering — never the glyph span. */}
               <span
                 className={cm.cn('material-symbols-outlined text-[18px]')}
                 style={{ fontVariationSettings: "'FILL' 1" }}
@@ -103,7 +107,7 @@ export function Landing() {
             <Link
               to="/pricing"
               className={cm.cn(
-                'text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors',
+                'text-sm font-medium text-on-surface-variant hover:text-primary transition-colors',
               )}
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
@@ -111,11 +115,11 @@ export function Landing() {
             {isAuthenticated ? (
               <Link
                 to="/feed"
+                data-mol-id="nav-feed-cta"
                 className={cm.cn(
                   cm.sp('px', 5),
-                  'py-2 font-semibold text-sm rounded-full text-white hover:shadow-md transition-shadow',
+                  'py-2.5 font-semibold text-sm rounded-xl landing-vivid-gradient text-white hover:shadow-md transition-shadow',
                 )}
-                style={{ background: HERO_GRADIENT }}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
               </Link>
@@ -123,6 +127,7 @@ export function Landing() {
               <>
                 <Link
                   to="/login"
+                  data-mol-id="nav-signin"
                   className={cm.cn(
                     'text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors',
                   )}
@@ -131,11 +136,11 @@ export function Landing() {
                 </Link>
                 <Link
                   to="/signup"
+                  data-mol-id="nav-signup-cta"
                   className={cm.cn(
                     cm.sp('px', 5),
-                    'py-2 font-semibold text-sm rounded-full text-white hover:shadow-md transition-shadow',
+                    'py-2.5 font-semibold text-sm rounded-xl landing-vivid-gradient text-white hover:shadow-md transition-shadow',
                   )}
-                  style={{ background: HERO_GRADIENT }}
                 >
                   {t(
                     'landing.getStarted',
@@ -150,45 +155,64 @@ export function Landing() {
       </nav>
 
       <main>
+        {/* Hero — split copy / phone-framed live post over soft corner washes */}
         <section className={cm.cn('relative overflow-hidden')}>
-          <div
-            className={cm.cn('absolute inset-0 pointer-events-none')}
-            style={{
-              backgroundImage:
-                `radial-gradient(circle at 18% 28%, ${BRAND_COLOR}33, transparent 50%),` +
-                `radial-gradient(circle at 82% 64%, ${ACCENT_COLOR}33, transparent 45%)`,
-            }}
-            aria-hidden="true"
-          />
+          <div aria-hidden="true" className={cm.cn('absolute inset-0 pointer-events-none')}>
+            <div
+              className={cm.cn(
+                'absolute top-0 right-0 w-1/2 h-full rounded-bl-full',
+                'bg-gradient-to-bl from-primary-light/60 to-transparent',
+              )}
+            />
+            <div
+              className={cm.cn(
+                'absolute bottom-0 left-0 w-1/2 h-full rounded-tr-full',
+                'bg-gradient-to-tr from-secondary-container/60 to-transparent',
+              )}
+            />
+          </div>
           <div
             className={cm.cn(
               cm.maxW('7xl'),
               cm.mxAuto,
               cm.sp('px', 6),
-              'relative py-16 md:py-24 lg:py-28',
+              'relative pt-16 pb-24 md:pt-20 lg:pt-24',
             )}
           >
-            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-12 items-center')}>
-              <div className={cm.cn('lg:col-span-7')}>
-                <p
-                  className={cm.cn('text-sm font-bold uppercase tracking-widest text-primary mb-5')}
+            <div className={cm.cn('grid grid-cols-1 lg:grid-cols-2 gap-16 items-center')}>
+              <div className={cm.cn(cm.textCenter, 'lg:text-left')}>
+                <span
+                  className={cm.cn(
+                    'inline-block py-1.5 px-4 rounded-full text-xs font-bold tracking-widest uppercase',
+                    'bg-primary-light text-primary',
+                    cm.sp('mb', 6),
+                  )}
                 >
-                  {t('landing.eyebrow', {}, { defaultValue: 'Stories · Posts · Realtime feed' })}
-                </p>
+                  {t('landing.eyebrow', {}, { defaultValue: 'Share in full color' })}
+                </span>
                 <h1
                   className={cm.cn(
-                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] mb-6',
+                    'text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight',
+                    cm.sp('mb', 6),
                   )}
                 >
-                  {t(
-                    'landing.heroTitle',
-                    { tagline: APP_TAGLINE },
-                    { defaultValue: '{{tagline}}' },
-                  )}
+                  {t('landing.heroTitle', {}, { defaultValue: 'Life is louder' })}
+                  <br />
+                  <span className="landing-vivid-text">
+                    {t(
+                      'landing.heroTitleAccent',
+                      { appName: APP_NAME },
+                      { defaultValue: 'in {{appName}}.' },
+                    )}
+                  </span>
                 </h1>
                 <p
                   className={cm.cn(
-                    'text-lg text-on-surface-variant max-w-xl leading-relaxed mb-10',
+                    cm.textSize('xl'),
+                    'text-on-surface-variant max-w-2xl leading-relaxed',
+                    cm.sp('mb', 8),
+                    cm.mxAuto,
+                    'lg:mx-0',
                   )}
                 >
                   {t(
@@ -200,15 +224,22 @@ export function Landing() {
                     },
                   )}
                 </p>
-                <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
+                    cm.sp('pt', 4),
+                    cm.textCenter,
+                    'lg:justify-start justify-center',
+                  )}
+                >
                   <Link
                     to="/signup"
+                    data-mol-id="landing-hero-cta"
                     className={cm.cn(
-                      'inline-flex items-center gap-2',
                       cm.sp('px', 8),
-                      'py-4 font-semibold rounded-full text-white hover:shadow-lg transition-all',
+                      'py-4 font-bold rounded-xl',
+                      'landing-vivid-gradient text-white hover:shadow-lg transition-all inline-flex items-center gap-2 justify-center',
                     )}
-                    style={{ background: HERO_GRADIENT }}
                   >
                     {t('landing.heroCta', {}, { defaultValue: 'Start sharing' })}
                     <span
@@ -222,7 +253,7 @@ export function Landing() {
                     to="/login"
                     className={cm.cn(
                       cm.sp('px', 8),
-                      'py-4 font-semibold rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors',
+                      'py-4 font-semibold rounded-xl border border-outline-variant hover:bg-surface-container-low transition-colors',
                     )}
                   >
                     {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -231,12 +262,12 @@ export function Landing() {
                 <div
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }),
-                    'mt-8 text-xs text-on-surface-variant',
+                    'mt-8 text-xs text-on-surface-variant justify-center lg:justify-start',
                   )}
                 >
                   <span className={cm.cn('inline-flex items-center gap-2')}>
                     <span
-                      className={cm.cn('w-2 h-2 rounded-full bg-emerald-500 animate-pulse')}
+                      className={cm.cn('w-2 h-2 rounded-full bg-success animate-pulse')}
                       aria-hidden="true"
                     />
                     {t('landing.online', {}, { defaultValue: '2.4M creators online today' })}
@@ -254,13 +285,102 @@ export function Landing() {
                 </div>
               </div>
 
-              <div className={cm.cn('lg:col-span-5')}>
-                <PostCard post={heroPost} />
+              {/* Phone-framed live post — the design's tilted product shot,
+                  running the app's real PostCard instead of a static image. */}
+              <div
+                className={cm.cn(
+                  'relative w-full max-w-md mx-auto flex justify-center items-center py-6',
+                )}
+              >
+                <div
+                  aria-hidden="true"
+                  className={cm.cn(
+                    'absolute w-[260px] h-[440px] rounded-[2rem] landing-vivid-gradient opacity-30 blur-sm',
+                    'right-0 lg:right-6 top-0 rotate-[10deg]',
+                  )}
+                />
+                <div
+                  className={cm.cn(
+                    'relative w-[280px] rounded-[2.5rem] bg-zinc-900 border-8 border-zinc-900 shadow-2xl',
+                    'overflow-hidden -rotate-3 hover:rotate-0 transition-transform duration-500 z-10',
+                  )}
+                >
+                  <PostCard post={heroPost} compact />
+                </div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Stories row — conic rainbow rings over gradient avatars */}
+        <section
+          data-mol-id="landing-stories-row"
+          className={cm.cn(
+            'py-12 bg-surface-container-low border-y border-outline-variant/40 overflow-x-auto',
+          )}
+        >
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6))}>
+            <ul className={cm.cn(cm.flex({ gap: 'md' }), 'w-max')}>
+              {stories.map((story) => (
+                <li
+                  key={story.id}
+                  className={cm.cn(
+                    cm.flex({ direction: 'col', align: 'center', gap: 'xs' }),
+                    'group',
+                  )}
+                >
+                  <div
+                    className={cm.cn(
+                      story.unread ? 'story-ring' : 'bg-outline-variant p-[3px]',
+                      'rounded-full w-[86px] h-[86px] group-hover:scale-105 transition-transform duration-200',
+                    )}
+                  >
+                    <div
+                      className={cm.cn(
+                        'w-full h-full rounded-full border-4 border-surface flex items-center justify-center',
+                        cm.fontWeight('bold'),
+                        'text-white text-xl',
+                      )}
+                      style={{ background: vividGradient(story.cover_index) }}
+                      aria-hidden="true"
+                    >
+                      {story.author.display_name.slice(0, 1)}
+                    </div>
+                  </div>
+                  <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                    {story.author.handle}
+                  </span>
+                </li>
+              ))}
+              <li className={cm.cn(cm.flex({ direction: 'col', align: 'center', gap: 'xs' }))}>
+                <div
+                  className={cm.cn(
+                    'rounded-full w-[86px] h-[86px] flex items-center justify-center border-4 border-surface',
+                    'bg-surface-container-high',
+                  )}
+                >
+                  <span
+                    className={cm.cn('material-symbols-outlined text-on-surface-variant text-3xl')}
+                    aria-hidden="true"
+                  >
+                    add
+                  </span>
+                </div>
+                <span
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'text-on-surface-variant',
+                  )}
+                >
+                  {t('landing.storiesMore', {}, { defaultValue: 'More' })}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Stats — app content the design lacks; kept in the design's flat tone */}
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-12')}>
           <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-2 md:grid-cols-4')}>
             {STATS.map((s) => (
@@ -268,7 +388,7 @@ export function Landing() {
                 key={s.key}
                 className={cm.cn(
                   cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl text-center hover:shadow-lg transition-shadow border-l-4 border-primary',
+                  'bg-surface-container-lowest rounded-2xl text-center hover:shadow-lg transition-shadow',
                 )}
               >
                 <p
@@ -290,15 +410,12 @@ export function Landing() {
           </div>
         </section>
 
+        {/* Feature grid — design's tinted cards with circular icon badges */}
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 md:py-20')}>
           <h2
             className={cm.cn('mb-3 text-center text-3xl md:text-5xl font-extrabold tracking-tight')}
           >
-            {t(
-              'landing.featuresHeading',
-              {},
-              { defaultValue: 'Built for people who actually post' },
-            )}
+            {t('landing.featuresHeading', {}, { defaultValue: 'Express yourself fully' })}
           </h2>
           <p
             className={cm.cn(
@@ -321,21 +438,26 @@ export function Landing() {
               <div
                 key={f.key}
                 className={cm.cn(
-                  cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-2xl hover:shadow-2xl hover:shadow-on-surface/5 transition-all group border border-outline-variant/40',
+                  cm.sp('p', 8),
+                  cm.flex({ direction: 'col', align: 'center' }),
+                  cm.textCenter,
+                  'rounded-xl hover:-translate-y-2 transition-transform duration-300',
+                  f.cardCls,
                 )}
               >
+                {/* Icon badge: circular tile element with a bare glyph child. */}
                 <div
                   className={cm.cn(
-                    'inline-flex p-3 bg-surface rounded-xl shadow-sm group-hover:scale-110 transition-transform',
-                    f.tint,
+                    'w-16 h-16 rounded-full flex items-center justify-center',
+                    cm.sp('mb', 6),
+                    f.badgeCls,
                   )}
                 >
                   <span className={cm.cn('material-symbols-outlined text-3xl')} aria-hidden="true">
                     {f.icon}
                   </span>
                 </div>
-                <h3 className={cm.cn('text-lg font-bold mt-5 mb-2')}>
+                <h3 className={cm.cn('text-xl font-bold mb-3')}>
                   {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
                 </h3>
                 <p className={cm.cn('text-sm text-on-surface-variant leading-relaxed')}>
@@ -346,6 +468,7 @@ export function Landing() {
           </div>
         </section>
 
+        {/* Trending — app content the design lacks; kept */}
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-12')}>
           <div
             className={cm.cn(
@@ -425,33 +548,47 @@ export function Landing() {
           </ul>
         </section>
 
-        <section className={cm.cn('border-t border-outline-variant/40')}>
-          <div className={cm.cn(cm.maxW('5xl'), cm.mxAuto, cm.sp('px', 6), 'py-16 text-center')}>
-            <h3 className={cm.cn('text-3xl md:text-4xl font-extrabold tracking-tight mb-4')}>
-              {t(
-                'landing.ctaHeading',
-                {},
-                { defaultValue: 'Bring the vivid version of you online' },
+        {/* Download band — gradient wash + dot texture + white CTA */}
+        <section className={cm.cn(cm.sp('py', 24), cm.sp('px', 6), 'relative overflow-hidden')}>
+          <div aria-hidden="true" className={cm.cn('landing-download-band absolute inset-0')} />
+          <div
+            aria-hidden="true"
+            className={cm.cn('landing-dot-texture absolute inset-0 opacity-20')}
+          />
+          <div className={cm.cn(cm.maxW('4xl'), cm.mxAuto, 'relative z-10 text-center text-white')}>
+            <h2
+              className={cm.cn(
+                'text-4xl md:text-5xl font-extrabold tracking-tight',
+                cm.sp('mb', 6),
               )}
-            </h3>
-            <p className={cm.cn('text-base text-on-surface-variant max-w-xl mx-auto mb-8')}>
+            >
+              {t('landing.ctaHeading', {}, { defaultValue: 'Ready to turn up the volume?' })}
+            </h2>
+            <p
+              className={cm.cn(
+                cm.textSize('xl'),
+                cm.sp('mb', 10),
+                cm.maxW('2xl'),
+                cm.mxAuto,
+                'text-white/90',
+              )}
+            >
               {t(
                 'landing.ctaBody',
-                {},
+                { appName: APP_NAME },
                 {
                   defaultValue:
-                    "Free forever for the basics. Pro plans unlock long-form video and collaborator tools — start when you're ready.",
+                    'Join thousands of creators sharing their world in full color on {{appName}}.',
                 },
               )}
             </p>
             <Link
               to="/signup"
+              data-mol-id="landing-cta-band-button"
               className={cm.cn(
-                'inline-flex items-center gap-2',
-                cm.sp('px', 10),
-                'py-4 font-semibold rounded-full text-white hover:shadow-lg transition-all',
+                cm.sp('px', 8),
+                'py-4 rounded-xl bg-surface text-on-surface font-bold hover:shadow-xl transition-all inline-flex items-center gap-2 justify-center',
               )}
-              style={{ background: HERO_GRADIENT }}
             >
               {t('auth.signup.createYourAccount', {}, { defaultValue: 'Create your account' })}
               <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
@@ -464,27 +601,63 @@ export function Landing() {
 
       <footer
         className={cm.cn(
-          cm.sp('py', 8),
-          cm.textCenter,
-          'text-sm bg-surface text-on-surface-variant border-t border-outline-variant',
+          'bg-surface-container-low border-t border-outline-variant/40',
+          cm.sp('py', 12),
+          cm.sp('px', 6),
         )}
       >
-        <p>
-          {t(
-            'common.copyrightBuiltWithMolecule',
-            { year: new Date().getFullYear(), app: APP_NAME },
-            { defaultValue: '© {{year}} {{app}}' },
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.flex({ direction: 'col', align: 'center', gap: 'lg' }),
+            'md:flex-row md:justify-between md:items-start',
           )}
-          {' — Built with '}
-          <a
-            href="https://molecule.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline font-medium"
+        >
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', align: 'center', gap: 'sm' }),
+              'md:items-start',
+            )}
           >
-            Molecule.dev
-          </a>
-        </p>
+            <span
+              className={cm.cn(
+                cm.textSize('xl'),
+                cm.fontWeight('extrabold'),
+                'tracking-tight text-primary',
+              )}
+            >
+              {APP_NAME}
+            </span>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'landing.copyright',
+                { year: new Date().getFullYear(), app: APP_NAME },
+                { defaultValue: '© {{year}} {{app}}. Expressive, vibrant, creator-centric.' },
+              )}
+              {' — Built with '}
+              <a
+                href="https://molecule.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+              >
+                Molecule.dev
+              </a>
+            </p>
+          </div>
+          <nav className={cm.cn(cm.flex({ gap: 'md', wrap: 'wrap' }), cm.textSize('sm'))}>
+            <Link to="/pricing" className={cm.cn('text-on-surface-variant hover:text-primary')}>
+              {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+            </Link>
+            <Link to="/privacy" className={cm.cn('text-on-surface-variant hover:text-primary')}>
+              {t('landing.privacyLink', {}, { defaultValue: 'Privacy' })}
+            </Link>
+            <Link to="/terms" className={cm.cn('text-on-surface-variant hover:text-primary')}>
+              {t('landing.termsLink', {}, { defaultValue: 'Terms' })}
+            </Link>
+          </nav>
+        </div>
       </footer>
     </div>
   )

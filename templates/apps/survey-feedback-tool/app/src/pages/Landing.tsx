@@ -77,300 +77,439 @@ const PRICING_PLANS: PricingPlan[] = [
   },
 ]
 
-export function Landing() {
+/** Splits the headline so the last word gets the design's gradient treatment
+ * ("Every voice," + "amplified."). Works for any locale's translation. */
+function splitHeadlineAccent(title: string): { lead: string; accent: string } {
+  // Prefer the full trailing phrase after the last comma ("Every second," +
+  // "accounted for."); fall back to the final word.
+  const comma = title.lastIndexOf(',')
+  if (comma >= 0 && comma < title.length - 1) {
+    return { lead: title.slice(0, comma + 1), accent: title.slice(comma + 1).trim() }
+  }
+  const idx = title.lastIndexOf(' ')
+  if (idx <= 0) return { lead: title, accent: '' }
+  return { lead: title.slice(0, idx), accent: title.slice(idx + 1) }
+}
+
+/**
+ * The design's "Eloquent Void" hero mockup — a single conversational survey
+ * question card (progress whisper, question, asymmetric options, controls).
+ * Purely decorative: role="img" so screen readers get one label, not a fake
+ * form.
+ */
+function SurveyCardMockup() {
   const cm = getClassMap()
   const { t } = useTranslation()
-
+  const options = [
+    {
+      key: 'o1',
+      label: t('landing.mockup.option1', {}, { defaultValue: 'It’s incredibly intuitive' }),
+      selected: false,
+    },
+    {
+      key: 'o2',
+      label: t('landing.mockup.option2', {}, { defaultValue: 'Powerful, but needs learning' }),
+      selected: true,
+    },
+    {
+      key: 'o3',
+      label: t('landing.mockup.option3', {}, { defaultValue: 'A bit overwhelming' }),
+      selected: false,
+    },
+  ]
   return (
-    <div className={cm.cn(cm.minH('screen'), 'bg-surface-secondary text-on-surface')}>
-      <LandingTopNavBar />
-
-      <section
-        className={cm.cn(
-          cm.flex({ direction: 'col', align: 'center', gap: 6 }),
-          cm.sp('px', 6),
-          cm.sp('py', 16),
-          cm.maxW('5xl'),
-          cm.mxAuto,
-          'text-center',
-        )}
+    <div
+      role="img"
+      aria-label={t(
+        'landing.mockup.label',
+        {},
+        { defaultValue: 'Preview of a conversational survey question' },
+      )}
+      data-testid="landing-mockup"
+      className={cm.cn(
+        'ambient-shadow relative w-full max-w-md rounded-[24px] bg-surface-container-lowest/90 p-8 backdrop-blur-md',
+      )}
+    >
+      {/* Progress whisper */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-1 overflow-hidden rounded-t-[24px] bg-surface-container-high"
       >
-        <span
-          className={cm.cn(
-            cm.sp('px', 3),
-            cm.sp('py', 1),
-            cm.roundedFull,
-            cm.fontWeight('bold'),
-            'text-[10px] uppercase tracking-widest bg-primary/15 text-primary',
-          )}
-        >
-          {t('landing.hero.badge', {}, { defaultValue: 'Surveys, NPS & feedback in one place' })}
-        </span>
-        <h1
-          className={cm.cn(
-            'text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] font-extrabold',
-          )}
-        >
-          {t('landing.hero.title', {}, { defaultValue: APP_TAGLINE })}
-        </h1>
-        <p
-          className={cm.cn(
-            cm.textSize('lg'),
-            cm.maxW('2xl'),
-            'text-on-surface-variant leading-relaxed',
-          )}
-        >
-          {t(
-            'landing.hero.subtitle',
-            {},
-            {
-              defaultValue:
-                'Build beautiful surveys, capture NPS at scale, and turn open feedback into the next product decision — all without the spreadsheets.',
-            },
-          )}
-        </p>
-        <div
-          className={cm.cn(cm.flex({ align: 'center', justify: 'center', gap: 3 }), 'flex-wrap')}
-        >
-          <Link
-            to="/signup"
-            className={cm.cn(
-              cm.sp('px', 6),
-              cm.sp('py', 3),
-              cm.fontWeight('bold'),
-              'rounded-md bg-gradient-to-r from-primary to-secondary text-white shadow-md hover:shadow-lg transition-all',
+        <div className="h-full w-1/3 bg-tertiary" />
+      </div>
+      <div className="space-y-6 pt-4">
+        <div className="space-y-3">
+          <span className="text-xs font-semibold uppercase tracking-widest text-on-surface-variant">
+            {t('landing.mockup.progress', {}, { defaultValue: 'Question 2 of 6' })}
+          </span>
+          <h3 className="text-2xl font-semibold leading-tight tracking-tight text-on-surface">
+            {t(
+              'landing.mockup.question',
+              {},
+              { defaultValue: 'How would you describe the feeling of using our product?' },
             )}
-          >
-            {t('common.startFreeTrial', {}, { defaultValue: 'Start free trial' })}
-          </Link>
-          <a
-            href="#templates"
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 2 }),
-              cm.sp('px', 6),
-              cm.sp('py', 3),
-              cm.fontWeight('semibold'),
-              'rounded-md text-primary hover:bg-primary/10 transition-colors',
-            )}
-          >
-            {t('common.browseTemplates', {}, { defaultValue: 'Browse templates' })}
+          </h3>
+        </div>
+        {/* Options — the selected middle row carries the ghost border */}
+        <div className="space-y-3 pl-4">
+          {options.map((option) => (
+            <div
+              key={option.key}
+              className={cm.cn(
+                'flex items-center rounded-xl p-4',
+                option.selected
+                  ? 'border-2 border-primary/25 bg-surface-container-lowest'
+                  : 'bg-surface-container-low',
+              )}
+            >
+              <span
+                aria-hidden="true"
+                className={cm.cn(
+                  'flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2',
+                  option.selected
+                    ? 'border-primary bg-primary'
+                    : 'border-outline-variant bg-surface',
+                )}
+              >
+                {option.selected && <span className="block h-2 w-2 rounded-full bg-on-primary" />}
+              </span>
+              <span
+                className={cm.cn(
+                  'ml-4 text-sm font-medium',
+                  option.selected ? 'text-primary' : 'text-on-surface',
+                )}
+              >
+                {option.label}
+              </span>
+              {option.selected && (
+                <span
+                  className="material-symbols-outlined ml-auto text-primary"
+                  style={{ fontSize: 20 }}
+                  aria-hidden="true"
+                >
+                  check_circle
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+        {/* Controls */}
+        <div className="flex items-center justify-between pt-2">
+          <span className="flex items-center gap-1 text-sm font-medium text-on-surface-variant">
+            <span className="material-symbols-outlined" style={{ fontSize: 18 }} aria-hidden="true">
+              keyboard_backspace
+            </span>
+            {t('common.back', {}, { defaultValue: 'Back' })}
+          </span>
+          <span className="flex items-center gap-2 rounded-full bg-surface-container-highest px-6 py-2.5 text-sm font-semibold text-on-surface">
+            {t('common.continue', {}, { defaultValue: 'Continue' })}
             <span className="material-symbols-outlined" style={{ fontSize: 18 }} aria-hidden="true">
               arrow_forward
             </span>
-          </a>
+          </span>
         </div>
-      </section>
+      </div>
+    </div>
+  )
+}
 
-      <section
-        id="product"
-        className={cm.cn(cm.maxW('6xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('pb', 12))}
-      >
-        <ResponsesHeroCard
-          responsesThisWeek={3214}
-          changeLabel={t('landing.preview.heroChange', {}, { defaultValue: '+18% vs last week' })}
-          npsAverage={62}
-          avgCompletion={t('landing.preview.completion', {}, { defaultValue: '2m 41s' })}
-        />
-        <div className={cm.cn(cm.grid({ cols: 1, gap: 4 }), cm.sp('mt', 6), 'sm:grid-cols-3')}>
-          <KpiStatCard
-            label={t('landing.preview.kpiActive', {}, { defaultValue: 'Active surveys' })}
-            value="14"
-            trend={t(
-              'landing.preview.kpiActiveTrend',
-              {},
-              { defaultValue: '3 launched this week' },
-            )}
-            icon="poll"
-            accent="primary"
-            trendTone="up"
-          />
-          <KpiStatCard
-            label={t('landing.preview.kpiCompletion', {}, { defaultValue: 'Completion rate' })}
-            value="76%"
-            trend={t('landing.preview.kpiCompletionTrend', {}, { defaultValue: '+4 pts vs Q3' })}
-            icon="task_alt"
-            accent="success"
-            trendTone="up"
-          />
-          <KpiStatCard
-            label={t('landing.preview.kpiPromoter', {}, { defaultValue: 'Promoter share' })}
-            value="71%"
-            trend={t(
-              'landing.preview.kpiPromoterTrend',
-              {},
-              { defaultValue: 'Detractors trending down' },
-            )}
-            icon="thumb_up"
-            accent="secondary"
-            trendTone="up"
-          />
-        </div>
-      </section>
+export function Landing() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const headline = splitHeadlineAccent(t('landing.hero.title', {}, { defaultValue: APP_TAGLINE }))
 
-      <section
-        id="templates"
-        className={cm.cn(cm.maxW('5xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('pb', 20))}
-      >
-        <div
+  return (
+    <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface')}>
+      <LandingTopNavBar variant="fixed" />
+
+      <main className="pt-24 pb-24 lg:pt-32">
+        {/* Hero — the conversational entry: copy left, survey-card mockup right */}
+        <section
+          className={cm.cn('relative mx-auto w-full max-w-7xl px-6 pb-24 pt-16 lg:px-8 lg:pt-20')}
+        >
+          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+            <div className="z-10 space-y-8">
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 2 }),
+                  'w-fit rounded-full bg-surface-container-low px-4 py-2 text-xs font-semibold tracking-wide text-primary',
+                )}
+              >
+                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-tertiary" />
+                {t(
+                  'landing.hero.badge',
+                  {},
+                  { defaultValue: 'Introducing conversational surveys' },
+                )}
+              </div>
+              <h1 className="text-5xl font-bold leading-[1.1] tracking-tight lg:text-7xl">
+                {headline.lead}
+                {headline.accent && (
+                  <>
+                    <br />
+                    <span className="bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent">
+                      {headline.accent}
+                    </span>
+                  </>
+                )}
+              </h1>
+              <p className="max-w-lg text-xl leading-relaxed text-on-surface-variant">
+                {t(
+                  'landing.hero.subtitle',
+                  { app: APP_NAME },
+                  {
+                    defaultValue:
+                      'Turn data collection into a dialogue. {{app}} creates surveys that feel like a conversation, not a form — deeper insights, higher completion rates.',
+                  },
+                )}
+              </p>
+              <div className="flex flex-col gap-4 pt-4 sm:flex-row">
+                <Link
+                  to="/signup"
+                  data-mol-id="landing-hero-cta"
+                  className={cm.cn(
+                    'ambient-shadow w-fit rounded-xl bg-gradient-to-br from-primary to-secondary px-8 py-4 text-base font-semibold text-on-primary transition-opacity hover:opacity-90',
+                  )}
+                >
+                  {t('landing.hero.ctaPrimary', {}, { defaultValue: 'Start a dialogue' })}
+                </Link>
+                <a
+                  href="#product"
+                  className={cm.cn(
+                    'w-fit rounded-xl px-8 py-4 text-base font-semibold text-primary transition-colors hover:bg-surface-container-low',
+                  )}
+                >
+                  {t('landing.hero.ctaSecondary', {}, { defaultValue: 'See how it works' })}
+                </a>
+              </div>
+            </div>
+            <div className="relative flex items-center justify-center lg:h-[600px]">
+              {/* Background decorative shape */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 -z-10 rotate-3 scale-105 rounded-[40px] bg-primary-fixed-dim/20"
+              />
+              <SurveyCardMockup />
+            </div>
+          </div>
+        </section>
+
+        <section id="product" className={cm.cn(cm.maxW('6xl'), cm.mxAuto, cm.sp('px', 6))}>
+          <ResponsesHeroCard
+            responsesThisWeek={3214}
+            changeLabel={t('landing.preview.heroChange', {}, { defaultValue: '+18% vs last week' })}
+            npsAverage={62}
+            avgCompletion={t('landing.preview.completion', {}, { defaultValue: '2m 41s' })}
+          />
+          <div className={cm.cn(cm.grid({ cols: 1, gap: 4 }), cm.sp('mt', 6), 'sm:grid-cols-3')}>
+            <KpiStatCard
+              label={t('landing.preview.kpiActive', {}, { defaultValue: 'Active surveys' })}
+              value="14"
+              trend={t(
+                'landing.preview.kpiActiveTrend',
+                {},
+                { defaultValue: '3 launched this week' },
+              )}
+              icon="poll"
+              accent="primary"
+              trendTone="up"
+            />
+            <KpiStatCard
+              label={t('landing.preview.kpiCompletion', {}, { defaultValue: 'Completion rate' })}
+              value="76%"
+              trend={t('landing.preview.kpiCompletionTrend', {}, { defaultValue: '+4 pts vs Q3' })}
+              icon="task_alt"
+              accent="success"
+              trendTone="up"
+            />
+            <KpiStatCard
+              label={t('landing.preview.kpiPromoter', {}, { defaultValue: 'Promoter share' })}
+              value="71%"
+              trend={t(
+                'landing.preview.kpiPromoterTrend',
+                {},
+                { defaultValue: 'Detractors trending down' },
+              )}
+              icon="thumb_up"
+              accent="secondary"
+              trendTone="up"
+            />
+          </div>
+        </section>
+
+        <section
+          id="templates"
           className={cm.cn(
-            cm.flex({ direction: 'col', gap: 6 }),
-            cm.sp('p', 8),
-            'bg-surface rounded-[1.5rem] shadow-sm border border-[color:var(--color-border)]',
+            cm.maxW('5xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            cm.sp('pt', 20),
+            cm.sp('pb', 20),
           )}
         >
-          <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', gap: 6 }),
+              cm.sp('p', 8),
+              'ambient-shadow rounded-[24px] border border-outline-variant bg-surface',
+            )}
+          >
+            <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+              <span
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 2 }),
+                  cm.fontWeight('bold'),
+                  'text-[10px] uppercase tracking-widest text-primary',
+                )}
+              >
+                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-tertiary" />
+                {t('landing.sample.eyebrow', {}, { defaultValue: 'NPS at a glance' })}
+              </span>
+              <h2 className={cm.cn(cm.textSize('2xl'), 'font-bold tracking-tight')}>
+                {t(
+                  'landing.sample.title',
+                  {},
+                  { defaultValue: 'Detractors, passives, promoters — instantly readable.' },
+                )}
+              </h2>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-xl')}>
+                {t(
+                  'landing.sample.description',
+                  { app: APP_NAME },
+                  {
+                    defaultValue:
+                      'Live distribution of 146 sample responses, scored 0 to 10. {{app}} shades each cell so you spot the shift the moment it happens.',
+                  },
+                )}
+              </p>
+            </div>
+            <NpsDistributionBar counts={SAMPLE_NPS_COUNTS} />
+          </div>
+        </section>
+
+        <section
+          id="pricing"
+          className={cm.cn(cm.maxW('6xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('pb', 24))}
+        >
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', align: 'center', gap: 2 }),
+              cm.sp('mb', 10),
+              'text-center',
+            )}
+          >
             <span
               className={cm.cn(
                 cm.fontWeight('bold'),
                 'text-[10px] uppercase tracking-widest text-primary',
               )}
             >
-              {t('landing.sample.eyebrow', {}, { defaultValue: 'NPS at a glance' })}
+              {t('landing.pricing.eyebrow', {}, { defaultValue: 'Pricing' })}
             </span>
-            <h2 className={cm.cn(cm.textSize('2xl'), 'font-extrabold tracking-tight')}>
-              {t(
-                'landing.sample.title',
-                {},
-                { defaultValue: 'Detractors, passives, promoters — instantly readable.' },
-              )}
+            <h2 className={cm.cn(cm.textSize('3xl'), 'font-bold tracking-tight')}>
+              {t('landing.pricing.title', {}, { defaultValue: 'Start free, scale when you do.' })}
             </h2>
-            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-xl')}>
+            <p className={cm.cn(cm.textSize('sm'), cm.maxW('xl'), 'text-on-surface-variant')}>
               {t(
-                'landing.sample.description',
-                { app: APP_NAME },
+                'landing.pricing.subtitle',
+                {},
                 {
                   defaultValue:
-                    'Live distribution of 146 sample responses, scored 0 to 10. {{app}} shades each cell so you spot the shift the moment it happens.',
+                    'Every plan includes the survey builder, public share links, and NPS analytics. No credit card required to start.',
                 },
               )}
             </p>
           </div>
-          <NpsDistributionBar counts={SAMPLE_NPS_COUNTS} />
-        </div>
-      </section>
-
-      <section
-        id="pricing"
-        className={cm.cn(cm.maxW('6xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('pb', 24))}
-      >
-        <div
-          className={cm.cn(
-            cm.flex({ direction: 'col', align: 'center', gap: 2 }),
-            cm.sp('mb', 10),
-            'text-center',
-          )}
-        >
-          <span
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-widest text-primary',
-            )}
-          >
-            {t('landing.pricing.eyebrow', {}, { defaultValue: 'Pricing' })}
-          </span>
-          <h2 className={cm.cn(cm.textSize('3xl'), 'font-extrabold tracking-tight')}>
-            {t('landing.pricing.title', {}, { defaultValue: 'Start free, scale when you do.' })}
-          </h2>
-          <p className={cm.cn(cm.textSize('sm'), cm.maxW('xl'), 'text-on-surface-variant')}>
-            {t(
-              'landing.pricing.subtitle',
-              {},
-              {
-                defaultValue:
-                  'Every plan includes the survey builder, public share links, and NPS analytics. No credit card required to start.',
-              },
-            )}
-          </p>
-        </div>
-        <div className={cm.cn(cm.grid({ cols: 1, gap: 6 }), 'sm:grid-cols-3 items-start')}>
-          {PRICING_PLANS.map((plan) => (
-            <div
-              key={plan.key}
-              data-testid={`pricing-plan-${plan.key}`}
-              className={cm.cn(
-                cm.flex({ direction: 'col', gap: 5 }),
-                cm.sp('p', 8),
-                cm.h('full'),
-                'rounded-[1.5rem] bg-surface shadow-sm transition-all',
-                plan.highlighted
-                  ? 'border-2 border-primary shadow-md'
-                  : 'border border-[color:var(--color-border)]',
-              )}
-            >
-              <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
-                <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 2 }))}>
-                  <span
-                    className={cm.cn(
-                      cm.textSize('lg'),
-                      'font-extrabold tracking-tight text-on-surface',
-                    )}
-                  >
-                    {t(plan.nameKey, {}, { defaultValue: plan.name })}
-                  </span>
-                  {plan.highlighted && (
+          <div className={cm.cn(cm.grid({ cols: 1, gap: 6 }), 'sm:grid-cols-3 items-start')}>
+            {PRICING_PLANS.map((plan) => (
+              <div
+                key={plan.key}
+                data-testid={`pricing-plan-${plan.key}`}
+                className={cm.cn(
+                  cm.flex({ direction: 'col', gap: 5 }),
+                  cm.sp('p', 8),
+                  cm.h('full'),
+                  'rounded-[24px] bg-surface transition-all',
+                  plan.highlighted
+                    ? 'ambient-shadow border-2 border-primary'
+                    : 'border border-outline-variant',
+                )}
+              >
+                <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+                  <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 2 }))}>
                     <span
                       className={cm.cn(
-                        cm.sp('px', 3),
-                        cm.fontWeight('bold'),
-                        cm.roundedFull,
-                        'py-1 text-[10px] uppercase tracking-widest bg-primary/15 text-primary',
+                        cm.textSize('lg'),
+                        'font-bold tracking-tight text-on-surface',
                       )}
                     >
-                      {t('landing.pricing.popular', {}, { defaultValue: 'Most popular' })}
+                      {t(plan.nameKey, {}, { defaultValue: plan.name })}
+                    </span>
+                    {plan.highlighted && (
+                      <span
+                        className={cm.cn(
+                          cm.sp('px', 3),
+                          cm.fontWeight('bold'),
+                          cm.roundedFull,
+                          'bg-primary-fixed py-1 text-[10px] uppercase tracking-widest text-primary',
+                        )}
+                      >
+                        {t('landing.pricing.popular', {}, { defaultValue: 'Most popular' })}
+                      </span>
+                    )}
+                  </div>
+                  <div className={cm.cn(cm.flex({ align: 'baseline', gap: 1 }))}>
+                    <span className={cm.cn('text-4xl font-bold tracking-tight text-on-surface')}>
+                      {plan.price}
+                    </span>
+                    <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                      {t('landing.pricing.perMonth', {}, { defaultValue: '/mo' })}
+                    </span>
+                  </div>
+                  {plan.yearly && plan.yearlyKey && (
+                    <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      {t(plan.yearlyKey, {}, { defaultValue: plan.yearly })}
                     </span>
                   )}
                 </div>
-                <div className={cm.cn(cm.flex({ align: 'baseline', gap: 1 }))}>
-                  <span className={cm.cn('text-4xl font-extrabold tracking-tight text-on-surface')}>
-                    {plan.price}
-                  </span>
-                  <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                    {t('landing.pricing.perMonth', {}, { defaultValue: '/mo' })}
-                  </span>
-                </div>
-                {plan.yearly && plan.yearlyKey && (
-                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                    {t(plan.yearlyKey, {}, { defaultValue: plan.yearly })}
-                  </span>
-                )}
+                <ul className={cm.cn(cm.flex({ direction: 'col', gap: 3 }), cm.flex1)}>
+                  {plan.featureKeys.map((feature) => (
+                    <li key={feature.key} className={cm.cn(cm.flex({ align: 'start', gap: 2 }))}>
+                      <span
+                        className="material-symbols-outlined text-primary"
+                        style={{ fontSize: 18 }}
+                        aria-hidden="true"
+                      >
+                        check_circle
+                      </span>
+                      <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                        {t(feature.key, {}, { defaultValue: feature.text })}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  to="/signup"
+                  data-testid={`pricing-cta-${plan.key}`}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    cm.sp('px', 5),
+                    cm.sp('py', 3),
+                    cm.fontWeight('semibold'),
+                    cm.textSize('sm'),
+                    'rounded-full transition-all',
+                    plan.highlighted
+                      ? 'bg-gradient-to-br from-primary to-secondary text-on-primary shadow-md hover:opacity-90'
+                      : 'border border-outline-variant text-on-surface hover:bg-surface-container-low',
+                  )}
+                >
+                  {t(plan.ctaKey, {}, { defaultValue: plan.cta })}
+                </Link>
               </div>
-              <ul className={cm.cn(cm.flex({ direction: 'col', gap: 3 }), cm.flex1)}>
-                {plan.featureKeys.map((feature) => (
-                  <li key={feature.key} className={cm.cn(cm.flex({ align: 'start', gap: 2 }))}>
-                    <span
-                      className="material-symbols-outlined text-primary"
-                      style={{ fontSize: 18 }}
-                      aria-hidden="true"
-                    >
-                      check_circle
-                    </span>
-                    <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                      {t(feature.key, {}, { defaultValue: feature.text })}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                to="/signup"
-                data-testid={`pricing-cta-${plan.key}`}
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  cm.sp('px', 5),
-                  cm.sp('py', 3),
-                  cm.fontWeight('bold'),
-                  cm.textSize('sm'),
-                  'rounded-md transition-all',
-                  plan.highlighted
-                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-md hover:shadow-lg'
-                    : 'border border-[color:var(--color-border)] text-on-surface hover:bg-surface-secondary',
-                )}
-              >
-                {t(plan.ctaKey, {}, { defaultValue: plan.cta })}
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      </main>
 
       <LandingFooter />
     </div>
