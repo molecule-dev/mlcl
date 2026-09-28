@@ -5544,6 +5544,89 @@
         "sqlite3"
       ]
     },
+    "@molecule/api-deploy-target": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "deploy-target",
+      "label": "Deploy Target",
+      "description": "Deploy target interface for molecule.dev — publish a built app to static storage, a machine, or any host behind one contract",
+      "stack": "api",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "requireProvider",
+        "listProviders",
+        "DEPLOY_TARGET_BOND_TYPE",
+        "DeployTargetHosts",
+        "DeployTargetFile",
+        "DeployUnmatchedPaths",
+        "DeployRouting",
+        "DeployTargetRequest",
+        "DeployOrigin",
+        "DeployTargetRelease",
+        "StaticSiteManifestEntry",
+        "StaticSiteManifest",
+        "DeployTargetRemoveOptions",
+        "DeployTargetProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond"
+      ],
+      "moleculePeers": [
+        "@molecule/api-bond"
+      ],
+      "path": "packages/api/core/deploy-target",
+      "intentHints": [
+        "deploy target",
+        "choose where to host an app",
+        "publish build output",
+        "switch hosting provider",
+        "static site hosting"
+      ]
+    },
+    "@molecule/api-deploy-target-s3": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "deploy-target",
+      "label": "S3-compatible static sites",
+      "description": "Static-site deploy target for molecule.dev on any S3-compatible bucket (Tigris, Cloudflare R2, AWS S3, MinIO)",
+      "stack": "api",
+      "implements": "@molecule/api-deploy-target",
+      "exports": [
+        "contentTypeFor",
+        "invalidSitePath",
+        "createS3DeployTarget",
+        "provider",
+        "ProcessEnv",
+        "S3SendClient",
+        "S3DeployTargetConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@aws-sdk/client-s3",
+        "@molecule/api-deploy-target",
+        "@molecule/api-proxy-agent"
+      ],
+      "moleculePeers": [
+        "@molecule/api-deploy-target"
+      ],
+      "path": "packages/api/bonds/deploy-target/s3",
+      "intentHints": [
+        "host static site on s3",
+        "deploy static site to a bucket",
+        "tigris static hosting",
+        "r2 static site"
+      ],
+      "egressHosts": [
+        "*.amazonaws.com",
+        "*.tigris.dev",
+        "*.r2.cloudflarestorage.com"
+      ]
+    },
     "@molecule/api-drug-database": {
       "language": "typescript",
       "runtime": "node",
@@ -54174,6 +54257,7 @@
         "FlexClassOptions",
         "GridClassOptions",
         "ToastPosition",
+        "AccentTone",
         "UIClassMap",
         "ClassMapOverrides",
         "extendClassMap"
@@ -54488,6 +54572,8 @@
         "badge",
         "alert",
         "alertLeftAccent",
+        "accentCard",
+        "accentCardLabel",
         "alertTitle",
         "alertDescription",
         "avatar",
@@ -55853,6 +55939,8 @@
       "@molecule/api-database-mysql": "1.0.3",
       "@molecule/api-database-postgresql": "1.0.3",
       "@molecule/api-database-sqlite": "1.0.4",
+      "@molecule/api-deploy-target": "1.0.0",
+      "@molecule/api-deploy-target-s3": "1.0.0",
       "@molecule/api-emails-capture": "1.0.3",
       "@molecule/api-emails-ses": "1.0.5",
       "@molecule/api-export-pptx": "1.0.3",
