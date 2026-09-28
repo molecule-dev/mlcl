@@ -642,6 +642,202 @@
         "zero-shot classification"
       ]
     },
+    "@molecule/api-ai-decisions": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "ai-decisions",
+      "label": "AI Decisions",
+      "description": "Typed AI decisions for molecule.dev — answer choice, score and yes/no questions about text or JSON with calibrated probabilities, behind swappable bonds (Laya, Jev, any LLM)",
+      "stack": "api",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "getProviderByName",
+        "getAllProviders",
+        "hasProvider",
+        "requireProvider",
+        "DecisionState",
+        "ChoiceQuestion",
+        "ScoreQuestion",
+        "YesNoQuestion",
+        "DecisionQuestion",
+        "AnswerBase",
+        "ChoiceAnswer",
+        "ScoreAnswer",
+        "YesNoAnswer",
+        "DecisionAnswer",
+        "AnswersFor",
+        "DecideInput",
+        "DecisionUsage",
+        "DecideResult",
+        "AIDecisionsProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "path": "packages/api/core/ai-decisions",
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "intentHints": [
+        "typed decisions",
+        "route support tickets",
+        "triage messages",
+        "decision model",
+        "system one model",
+        "yes no question about text",
+        "rate urgency",
+        "guardrail check"
+      ]
+    },
+    "@molecule/api-ai-decisions-jev": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-decisions",
+      "label": "Jev",
+      "description": "Jev decisions provider for molecule.dev — typed choice/score/yes-no answers from TypeSafe's hosted Jev System One API",
+      "stack": "api",
+      "implements": "@molecule/api-ai-decisions",
+      "exports": [
+        "DEFAULT_JEV_URL",
+        "DEFAULT_JEV_MODEL",
+        "createProvider",
+        "provider",
+        "aiDecisionsJevSecretDefinitions",
+        "JevConfig",
+        "WireQuestion",
+        "WireAnswer",
+        "WireResponse",
+        "toWireQuestions",
+        "fromWireAnswer",
+        "fromWireResponse",
+        "PostOptions",
+        "postSystemOne"
+      ],
+      "secrets": [
+        {
+          "name": "TYPESAFE_API_KEY",
+          "required": true,
+          "label": "TypeSafe API key",
+          "setupUrl": "https://docs.typesafe.ai/api",
+          "instructions": "Create an API key in your TypeSafe AI account; it is sent as a bearer token to the Jev API.",
+          "example": "ts-..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-decisions",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-decisions/jev",
+      "moleculePeers": [
+        "@molecule/api-ai-decisions",
+        "@molecule/api-secrets"
+      ],
+      "intentHints": [
+        "jev",
+        "typesafe",
+        "typesafe jev",
+        "jev api"
+      ],
+      "egressHosts": [
+        "api.typesafe.ai"
+      ]
+    },
+    "@molecule/api-ai-decisions-laya": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-decisions",
+      "label": "Laya",
+      "description": "Laya decisions provider for molecule.dev — typed choice/score/yes-no answers from the open-weights Laya model on your own laya-serve host",
+      "stack": "api",
+      "implements": "@molecule/api-ai-decisions",
+      "exports": [
+        "DEFAULT_LAYA_URL",
+        "createProvider",
+        "provider",
+        "aiDecisionsLayaSecretDefinitions",
+        "LayaConfig",
+        "WireQuestion",
+        "WireAnswer",
+        "WireResponse",
+        "toWireQuestions",
+        "fromWireAnswer",
+        "fromWireResponse",
+        "PostOptions",
+        "postSystemOne"
+      ],
+      "secrets": [
+        {
+          "name": "LAYA_URL",
+          "required": false,
+          "label": "Laya server URL",
+          "setupUrl": "https://github.com/NandhaKishorM/laya/blob/main/docs/http-api.md",
+          "instructions": "The base URL of your laya-serve host (pip install \"laya[serve]\" && laya-serve, or the Docker image). Defaults to http://localhost:8000.",
+          "example": "http://localhost:8000"
+        },
+        {
+          "name": "LAYA_API_KEY",
+          "required": false,
+          "label": "Laya server API key",
+          "setupUrl": "https://github.com/NandhaKishorM/laya/blob/main/docs/http-api.md",
+          "instructions": "The bearer token your laya-serve host requires, if you set LAYA_API_KEY on the server.",
+          "example": "a-long-random-string"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-decisions",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-decisions/laya",
+      "moleculePeers": [
+        "@molecule/api-ai-decisions",
+        "@molecule/api-secrets"
+      ],
+      "intentHints": [
+        "laya",
+        "laya decision model",
+        "self-hosted decision model",
+        "open weights decision model",
+        "laya-serve"
+      ]
+    },
+    "@molecule/api-ai-decisions-llm": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-decisions",
+      "label": "LLM",
+      "description": "LLM decisions provider for molecule.dev — typed choice/score/yes-no answers by composing the swappable ai chat bond",
+      "stack": "api",
+      "implements": "@molecule/api-ai-decisions",
+      "exports": [
+        "LlmDecisionsConfig",
+        "extractJsonObject",
+        "createProvider",
+        "provider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-ai",
+        "@molecule/api-ai-decisions"
+      ],
+      "path": "packages/api/bonds/ai-decisions/llm",
+      "moleculePeers": [
+        "@molecule/api-ai",
+        "@molecule/api-ai-decisions"
+      ],
+      "intentHints": [
+        "llm decisions",
+        "decisions with an llm",
+        "llm triage"
+      ]
+    },
     "@molecule/api-ai-deepseek": {
       "language": "typescript",
       "runtime": "node",
@@ -56878,7 +57074,11 @@
       "@molecule/app-client-search-minisearch": "1.0.2",
       "@molecule/app-keyboard-shortcuts-react": "1.0.2",
       "@molecule/app-search-ui-react": "1.0.2",
-      "@molecule/app-locales-search-ui": "1.0.2"
+      "@molecule/app-locales-search-ui": "1.0.2",
+      "@molecule/api-ai-decisions": "1.0.0",
+      "@molecule/api-ai-decisions-jev": "1.0.0",
+      "@molecule/api-ai-decisions-laya": "1.0.0",
+      "@molecule/api-ai-decisions-llm": "1.0.0"
     }
   }
 }
