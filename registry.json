@@ -102,47 +102,6 @@
         "post activity events"
       ]
     },
-    "@molecule/api-agent-transcript": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "core",
-      "category": "agent-transcript",
-      "label": "Agent transcript reader",
-      "description": "Reads a coding agent's session export (Claude Code, Codex, Molecule IDE) into one normalized session: turns, models and the files the agent wrote",
-      "stack": "api",
-      "exports": [
-        "setProvider",
-        "getProvider",
-        "hasProvider",
-        "canReadTranscript",
-        "readTranscript",
-        "AgentTurnRole",
-        "AgentFileWrite",
-        "AgentTurn",
-        "AgentSession",
-        "TranscriptInput",
-        "AgentTranscriptReader"
-      ],
-      "secrets": [],
-      "runtimeDependencies": [
-        "@molecule/api-bond",
-        "@molecule/api-i18n"
-      ],
-      "moleculePeers": [
-        "@molecule/api-bond",
-        "@molecule/api-i18n"
-      ],
-      "path": "packages/api/core/agent-transcript",
-      "intentHints": [
-        "read a claude code export",
-        "parse an ai chat transcript",
-        "parse a codex session export",
-        "coding agent session transcript",
-        "agent conversation log",
-        "ai session export",
-        "which files the agent wrote"
-      ]
-    },
     "@molecule/api-agent-run": {
       "language": "typescript",
       "runtime": "node",
@@ -212,6 +171,47 @@
         "claude code agent runtime",
         "run claude unattended",
         "ephemeral sandbox agent"
+      ]
+    },
+    "@molecule/api-agent-transcript": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "agent-transcript",
+      "label": "Agent transcript reader",
+      "description": "Reads a coding agent's session export (Claude Code, Codex, Molecule IDE) into one normalized session: turns, models and the files the agent wrote",
+      "stack": "api",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "canReadTranscript",
+        "readTranscript",
+        "AgentTurnRole",
+        "AgentFileWrite",
+        "AgentTurn",
+        "AgentSession",
+        "TranscriptInput",
+        "AgentTranscriptReader"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "path": "packages/api/core/agent-transcript",
+      "intentHints": [
+        "read a claude code export",
+        "parse an ai chat transcript",
+        "parse a codex session export",
+        "coding agent session transcript",
+        "agent conversation log",
+        "ai session export",
+        "which files the agent wrote"
       ]
     },
     "@molecule/api-agent-transcript-autodetect": {
@@ -26114,6 +26114,8 @@
         "@molecule/app-auth",
         "@molecule/app-charts",
         "@molecule/app-charts-chartjs",
+        "@molecule/app-client-search",
+        "@molecule/app-client-search-minisearch",
         "@molecule/app-code-editor",
         "@molecule/app-code-editor-monaco",
         "@molecule/app-command-palette",
@@ -26772,6 +26774,113 @@
         "timetable",
         "school schedule",
         "virtual classroom schedule"
+      ]
+    },
+    "@molecule/app-client-search": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "client-search",
+      "label": "Client Search",
+      "description": "Client-side search core interface for molecule.dev — index a list already in the browser, then search it with typo tolerance, field filters (`category:auth`), phrases and exclusions",
+      "stack": "app",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "createIndex",
+        "ParseQueryOptions",
+        "parseQuery",
+        "tokenize",
+        "unquote",
+        "filterFieldsOf",
+        "extractFieldText",
+        "matchesFilter",
+        "matchesFilters",
+        "matchesText",
+        "ClientSearchDocument",
+        "ClientSearchIndexOptions",
+        "ClientSearchFilter",
+        "ClientSearchQuery",
+        "ParsedQuery",
+        "ClientSearchHit",
+        "ClientSearchIndex",
+        "ClientSearchProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-bond"
+      ],
+      "moleculePeers": [
+        "@molecule/app-bond"
+      ],
+      "path": "packages/app/core/client-search",
+      "intentHints": [
+        "client-side search",
+        "search a list in the browser",
+        "filter as you type",
+        "fuzzy search box",
+        "field filter query syntax"
+      ]
+    },
+    "@molecule/app-client-search-minisearch": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "client-search",
+      "label": "Client Search",
+      "description": "MiniSearch bond for @molecule/app-client-search — in-memory full-text search with prefix matching, typo tolerance and field boosts",
+      "stack": "app",
+      "implements": "@molecule/app-client-search",
+      "exports": [
+        "createProvider",
+        "provider",
+        "MinisearchConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-client-search",
+        "minisearch"
+      ],
+      "moleculePeers": [
+        "@molecule/app-client-search"
+      ],
+      "path": "packages/app/bonds/client-search/minisearch",
+      "intentHints": [
+        "minisearch",
+        "in-memory full-text search",
+        "typo tolerant search"
+      ]
+    },
+    "@molecule/app-client-search-react": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "client-search",
+      "label": "Client Search React",
+      "description": "React hooks for @molecule/app-client-search — build an index from a list, search it as the person types, and move through the hits with the keyboard",
+      "stack": "app",
+      "exports": [
+        "UseClientSearchOptions",
+        "ClientSearchState",
+        "useClientSearch",
+        "useClientSearchIndex",
+        "UseListNavigationOptions",
+        "ListNavigation",
+        "useListNavigation"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-client-search",
+        "react"
+      ],
+      "moleculePeers": [
+        "@molecule/app-client-search"
+      ],
+      "path": "packages/app/features/client-search-react",
+      "intentHints": [
+        "react search hook",
+        "search results keyboard navigation"
       ]
     },
     "@molecule/app-clipboard": {
@@ -32239,6 +32348,33 @@
         "keyboard shortcuts",
         "hotkeys",
         "key bindings"
+      ]
+    },
+    "@molecule/app-keyboard-shortcuts-react": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "keyboard-shortcuts",
+      "label": "Keyboard Shortcuts React",
+      "description": "React hook for @molecule/app-keyboard-shortcuts — register a shortcut for the life of a component",
+      "stack": "app",
+      "exports": [
+        "UseKeyboardShortcutOptions",
+        "useKeyboardShortcut",
+        "expandKeys"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-keyboard-shortcuts",
+        "react"
+      ],
+      "moleculePeers": [
+        "@molecule/app-keyboard-shortcuts"
+      ],
+      "path": "packages/app/features/keyboard-shortcuts-react",
+      "intentHints": [
+        "react hotkey hook",
+        "use keyboard shortcut hook"
       ]
     },
     "@molecule/app-kpi-card-react": {
