@@ -35,7 +35,7 @@
     "@molecule/app-bond": "1.0.2",
     "@molecule/app-i18n": "1.0.3",
     "@molecule/app-logger": "1.0.2",
-    "@molecule/app-margin-notes-html": "1.0.4",
+    "@molecule/app-margin-notes-html": "1.0.5",
     "@molecule/app-markdown": "1.0.2",
     "@molecule/app-markdown-marked": "1.0.2"
   },
