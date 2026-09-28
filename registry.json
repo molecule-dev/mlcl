@@ -26798,6 +26798,9 @@
         "matchesFilter",
         "matchesFilters",
         "matchesText",
+        "formatQuery",
+        "HighlightSegment",
+        "highlightMatches",
         "ClientSearchDocument",
         "ClientSearchIndexOptions",
         "ClientSearchFilter",
@@ -26861,17 +26864,28 @@
       "description": "React hooks for @molecule/app-client-search — build an index from a list, search it as the person types, and move through the hits with the keyboard",
       "stack": "app",
       "exports": [
+        "HashQuery",
+        "ReadHashQueryOptions",
+        "readHashQuery",
+        "hashForQuery",
+        "writeHashQuery",
         "UseClientSearchOptions",
         "ClientSearchState",
         "useClientSearch",
         "useClientSearchIndex",
+        "useLazyDocs",
         "UseListNavigationOptions",
         "ListNavigation",
-        "useListNavigation"
+        "useListNavigation",
+        "SessionHit",
+        "SearchSessionConfig",
+        "SearchSession",
+        "useSearchSession"
       ],
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-client-search",
+        "@molecule/app-storage",
         "react"
       ],
       "moleculePeers": [
@@ -26967,6 +26981,34 @@
         "react native clipboard",
         "paste from clipboard mobile",
         "copy text on mobile"
+      ]
+    },
+    "@molecule/app-clipboard-web": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "clipboard",
+      "label": "Clipboard",
+      "description": "Web clipboard provider for molecule.dev — the browser's async Clipboard API, with a selection-and-copy fallback for older contexts",
+      "stack": "app",
+      "implements": "@molecule/app-clipboard",
+      "exports": [
+        "createWebClipboardProvider",
+        "provider",
+        "WebClipboardConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-clipboard"
+      ],
+      "moleculePeers": [
+        "@molecule/app-clipboard"
+      ],
+      "path": "packages/app/bonds/native/clipboard/web",
+      "intentHints": [
+        "copy to clipboard in the browser",
+        "navigator clipboard",
+        "copy command button"
       ]
     },
     "@molecule/app-code-block-react": {
@@ -44993,6 +45035,109 @@
       ],
       "path": "packages/app/locales/search-autocomplete"
     },
+    "@molecule/app-locales-search-ui": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "locales",
+      "category": "i18n",
+      "label": "Search UI Locales",
+      "description": "Translations for @molecule/app-search-ui-react in 79 languages",
+      "stack": "app",
+      "exports": [
+        "af",
+        "am",
+        "ar",
+        "az",
+        "be",
+        "bg",
+        "bn",
+        "bs",
+        "ca",
+        "cs",
+        "cy",
+        "da",
+        "de",
+        "el",
+        "en",
+        "es",
+        "et",
+        "eu",
+        "fa",
+        "fi",
+        "fil",
+        "fr",
+        "ga",
+        "gl",
+        "gu",
+        "ha",
+        "he",
+        "hi",
+        "hr",
+        "hu",
+        "hy",
+        "id",
+        "ig",
+        "is",
+        "it",
+        "ja",
+        "ka",
+        "kk",
+        "km",
+        "kn",
+        "ko",
+        "ky",
+        "lo",
+        "lt",
+        "lv",
+        "mk",
+        "ml",
+        "mn",
+        "mr",
+        "ms",
+        "mt",
+        "my",
+        "nb",
+        "ne",
+        "nl",
+        "pa",
+        "pl",
+        "pt",
+        "ro",
+        "ru",
+        "si",
+        "sk",
+        "sl",
+        "sq",
+        "sr",
+        "sv",
+        "sw",
+        "ta",
+        "te",
+        "th",
+        "tr",
+        "SearchUiTranslationKey",
+        "SearchUiTranslations",
+        "uk",
+        "ur",
+        "uz",
+        "vi",
+        "yo",
+        "zhTW",
+        "zh",
+        "zu"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n"
+      ],
+      "path": "packages/app/locales/search-ui",
+      "intentHints": [
+        "search ui translations"
+      ]
+    },
     "@molecule/app-locales-secret-row": {
       "language": "typescript",
       "runtime": "node",
@@ -50306,6 +50451,132 @@
         "scannable code widget"
       ]
     },
+    "@molecule/app-query": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "query",
+      "label": "Query Cache",
+      "description": "Client-side data cache and prefetch core interface for molecule.dev — fetch once, read synchronously, warm ahead of navigation; the cache engine is a bond",
+      "stack": "app",
+      "exports": [
+        "hashQueryKey",
+        "keyStartsWith",
+        "shouldPrefetch",
+        "whenIdle",
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "configureQueryClient",
+        "getQueryClient",
+        "resetQueryClient",
+        "QueryKey",
+        "QueryOptions",
+        "QueryStatus",
+        "QueryState",
+        "QueryClient",
+        "QueryClientConfig",
+        "QueryProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-bond"
+      ],
+      "moleculePeers": [
+        "@molecule/app-bond"
+      ],
+      "path": "packages/app/core/query",
+      "intentHints": [
+        "client-side data cache",
+        "prefetch on hover",
+        "instant page navigation",
+        "cached fetch"
+      ]
+    },
+    "@molecule/app-query-memory": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "query",
+      "label": "Query Cache",
+      "description": "Dependency-free in-memory bond for @molecule/app-query — a Map of documents with freshness, in-flight sharing and observers",
+      "stack": "app",
+      "implements": "@molecule/app-query",
+      "exports": [
+        "createProvider",
+        "provider",
+        "MemoryQueryConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-query"
+      ],
+      "moleculePeers": [
+        "@molecule/app-query"
+      ],
+      "path": "packages/app/bonds/query/memory",
+      "intentHints": [
+        "in-memory query cache",
+        "dependency-free data cache"
+      ]
+    },
+    "@molecule/app-query-react": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "query",
+      "label": "Query Cache React",
+      "description": "React hooks for @molecule/app-query — read a cached document synchronously, observe it, and prefetch on intent",
+      "stack": "app",
+      "exports": [
+        "prefetchQuery",
+        "usePrefetch",
+        "IntentPrefetchProps",
+        "intentPrefetchProps",
+        "useQuery"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-query",
+        "react"
+      ],
+      "moleculePeers": [
+        "@molecule/app-query"
+      ],
+      "path": "packages/app/features/query-react",
+      "intentHints": [
+        "usequery hook",
+        "prefetch links on hover"
+      ]
+    },
+    "@molecule/app-query-tanstack": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "query",
+      "label": "Query Cache",
+      "description": "TanStack Query bond for @molecule/app-query — the query-core cache behind the molecule contract",
+      "stack": "app",
+      "implements": "@molecule/app-query",
+      "exports": [
+        "createProvider",
+        "provider",
+        "TanstackQueryConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-query",
+        "@tanstack/query-core"
+      ],
+      "moleculePeers": [
+        "@molecule/app-query"
+      ],
+      "path": "packages/app/bonds/query/tanstack",
+      "intentHints": [
+        "tanstack query",
+        "react query cache"
+      ]
+    },
     "@molecule/app-quiz-card-react": {
       "language": "typescript",
       "runtime": "node",
@@ -51333,6 +51604,53 @@
         "search autocomplete",
         "typeahead",
         "search suggestions"
+      ]
+    },
+    "@molecule/app-search-ui-react": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "search-ui",
+      "label": "Search UI React",
+      "description": "React search UI for @molecule/app-client-search — a search box with filter chips and tips, a ranked results list with matched terms marked, and a quick-search dialog; styled through the ClassMap",
+      "stack": "app",
+      "exports": [
+        "HighlightProps",
+        "Highlight",
+        "KbdProps",
+        "Kbd",
+        "QuickSearchDialogProps",
+        "QuickSearchDialog",
+        "SearchBoxProps",
+        "SearchBox",
+        "SearchResultHit",
+        "SearchResultView",
+        "SearchResultLinkProps",
+        "SearchResultsProps",
+        "SearchResults"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-client-search",
+        "@molecule/app-client-search-react",
+        "@molecule/app-react",
+        "@molecule/app-ui",
+        "@molecule/app-ui-react",
+        "react"
+      ],
+      "moleculePeers": [
+        "@molecule/app-client-search",
+        "@molecule/app-client-search-react",
+        "@molecule/app-react",
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
+      ],
+      "path": "packages/app/features/search-ui-react",
+      "intentHints": [
+        "search box with results list",
+        "quick search dialog",
+        "cmd k search dialog",
+        "search results with highlighted matches"
       ]
     },
     "@molecule/app-secret-row-react": {
@@ -54368,6 +54686,28 @@
         "pageHeaderBreadcrumbs",
         "pageHeaderBreadcrumbItem",
         "pageHeaderBreadcrumbSeparator",
+        "searchField",
+        "searchFieldIcon",
+        "searchFieldInput",
+        "searchFieldActions",
+        "searchFieldClear",
+        "searchStatusRow",
+        "searchTips",
+        "kbd",
+        "filterChip",
+        "filterChipNegated",
+        "filterChipRemove",
+        "resultList",
+        "resultItem",
+        "resultItemActive",
+        "resultBody",
+        "resultTitle",
+        "resultTitleMono",
+        "resultMeta",
+        "resultDescription",
+        "resultMark",
+        "resultAction",
+        "resultEmpty",
         "container",
         "flex",
         "grid",
