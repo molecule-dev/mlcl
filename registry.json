@@ -55854,8 +55854,6 @@
       "@molecule/api-database-postgresql": "1.0.3",
       "@molecule/api-database-sqlite": "1.0.4",
       "@molecule/api-emails-capture": "1.0.3",
-      "@molecule/api-emails-inbound-agentmail": "1.0.0",
-      "@molecule/api-emails-resend": "1.0.0",
       "@molecule/api-emails-ses": "1.0.5",
       "@molecule/api-export-pptx": "1.0.3",
       "@molecule/api-git-provider": "1.0.5",
@@ -55870,7 +55868,6 @@
       "@molecule/api-oauth-twitter": "1.1.1",
       "@molecule/api-payments": "1.2.1",
       "@molecule/api-payments-paypal": "1.0.3",
-      "@molecule/api-payments-revenuecat": "1.0.0",
       "@molecule/api-payments-stripe": "1.2.3",
       "@molecule/api-project-archive-external-state-d1": "1.0.3",
       "@molecule/api-proxy-agent": "1.1.1",
@@ -55929,7 +55926,7 @@
       "@molecule/app-locales-feature-audio-mixer": "1.0.3",
       "@molecule/app-locales-audio-recorder": "1.0.3",
       "@molecule/app-locales-notifications-page": "1.0.3",
-      "@molecule/app-locales-common": "1.0.3",
+      "@molecule/app-locales-common": "1.0.4",
       "@molecule/app-locales-battery": "1.0.3",
       "@molecule/app-locales-health": "1.0.3",
       "@molecule/app-locales-heatmap": "1.0.3",
@@ -56785,13 +56782,14 @@
       "@molecule/api-content-moderation-openai": "1.1.0",
       "@molecule/api-content-moderation-molecule": "1.1.1",
       "@molecule/app-margin-notes-html": "1.0.3",
-      "@molecule/api-ai-translation-google": "1.0.0",
       "@molecule/api-agent-runtime-claude-code": "1.1.0",
       "@molecule/api-agent-run": "1.1.0",
       "@molecule/app-client-search": "1.0.2",
       "@molecule/app-client-search-react": "1.0.3",
       "@molecule/app-client-search-minisearch": "1.0.2",
-      "@molecule/app-keyboard-shortcuts-react": "1.0.2"
+      "@molecule/app-keyboard-shortcuts-react": "1.0.2",
+      "@molecule/app-search-ui-react": "1.0.2",
+      "@molecule/app-locales-search-ui": "1.0.2"
     }
   }
 }

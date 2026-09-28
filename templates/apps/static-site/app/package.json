@@ -46,7 +46,7 @@
     "@molecule/app-ide": "1.0.2",
     "@molecule/app-lifecycle": "1.0.2",
     "@molecule/app-live-preview": "1.0.2",
-    "@molecule/app-locales-common": "1.0.3",
+    "@molecule/app-locales-common": "1.0.4",
     "@molecule/app-locales-footer": "1.0.3",
     "@molecule/app-locales-forms": "1.0.2",
     "@molecule/app-locales-http": "1.0.2",

@@ -57,7 +57,7 @@
     "@molecule/app-locales-auth": "1.0.2",
     "@molecule/app-locales-calendar": "1.0.2",
     "@molecule/app-locales-code-editor": "1.0.2",
-    "@molecule/app-locales-common": "1.0.3",
+    "@molecule/app-locales-common": "1.0.4",
     "@molecule/app-locales-footer": "1.0.3",
     "@molecule/app-locales-forms": "1.0.2",
     "@molecule/app-locales-http": "1.0.2",
