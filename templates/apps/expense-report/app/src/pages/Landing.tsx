@@ -429,7 +429,10 @@ export function Landing() {
                 className={cm.cn(
                   cm.textSize('xs'),
                   cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-primary mb-3',
+                  // primary-hover (#0f766e) not primary: this 12px eyebrow on
+                  // white measured 3.74:1 with #0d9488 — axe color-contrast
+                  // serious. #0f766e is 5.47:1 on white.
+                  'uppercase tracking-widest text-primary-hover mb-3',
                 )}
               >
                 {t(

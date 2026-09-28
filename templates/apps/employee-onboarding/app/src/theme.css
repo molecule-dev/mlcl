@@ -35,7 +35,12 @@
   --mol-color-input-background: #ffffff;
 
   --mol-color-text: #1e293b;
-  --mol-color-text-secondary: #64748b;
+  /* slate-600. #64748b (slate-500) measured 4.34:1 on the tinted band
+     (--mol-color-background-secondary #f1f5f9) — axe color-contrast serious.
+     #475569 clears every light surface this token pairs with (6.92:1 on
+     #f1f5f9, 6.15:1 on background-tertiary) and matches the M3 bridge's
+     --color-on-surface-variant below. */
+  --mol-color-text-secondary: #475569;
   --mol-color-text-tertiary: #94a3b8;
   --mol-color-text-inverse: #ffffff;
 

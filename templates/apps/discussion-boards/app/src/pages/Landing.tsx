@@ -277,7 +277,7 @@ export function Landing() {
                   'inline-flex items-center gap-2 rounded-lg bg-primary text-on-primary hover:bg-primary-dark transition-colors shadow-md shadow-primary/25',
                 )}
               >
-                {t('landing.hero.primaryCta', {}, { defaultValue: 'Spin up a board' })}
+                {t('landing.hero.primaryCta', {}, { defaultValue: 'Start a community' })}
                 <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden>
                   arrow_forward
                 </span>
@@ -291,7 +291,7 @@ export function Landing() {
                   'inline-flex items-center gap-2 rounded-lg text-primary hover:bg-primary-light transition-colors',
                 )}
               >
-                {t('landing.hero.secondaryCta', {}, { defaultValue: 'See live communities' })}
+                {t('landing.hero.secondaryCta', {}, { defaultValue: 'See it in action' })}
               </a>
             </div>
             <div className={cm.cn(cm.flex({ gap: 'lg' }), 'flex-wrap text-on-surface-variant')}>
