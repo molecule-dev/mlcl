@@ -348,4 +348,37 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Login canvas — the design's pink-tinted surface (#fff7fa) behind the
+   centered card, plus its two radial "Chromatic Architect" blobs.
+   Raw colors stay here in CSS, never in JSX. */
+.login-canvas {
+  background-color: #fff7fa; /* design surface */
+}
+
+[data-mol-mode='dark'] .login-canvas {
+  background-color: #170b16; /* aubergine near-black */
+}
+
+.login-decor-a {
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(74, 210, 254, 0.05) 0%, rgba(255, 247, 250, 0) 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.login-decor-b {
+  position: fixed;
+  bottom: 10%;
+  left: 5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(74, 21, 75, 0.03) 0%, rgba(255, 247, 250, 0) 70%);
+  z-index: -1;
+  pointer-events: none;
+}
 /* polish-v2:stitch-styles:end */

@@ -602,11 +602,13 @@ export function ScheduleDetail() {
                       { defaultValue: 'Move {{name}} up' },
                     )}
                     className={cm.cn(
-                      'material-symbols-outlined text-base disabled:opacity-30 h-9 w-9 flex items-center justify-center shrink-0',
+                      'flex h-9 w-9 shrink-0 items-center justify-center text-base disabled:opacity-30',
                     )}
                     style={{ color: 'var(--color-text-secondary)' }}
                   >
-                    keyboard_arrow_up
+                    <span className="material-symbols-outlined" aria-hidden="true">
+                      keyboard_arrow_up
+                    </span>
                   </button>
                   <button
                     type="button"
@@ -619,11 +621,13 @@ export function ScheduleDetail() {
                       { defaultValue: 'Move {{name}} down' },
                     )}
                     className={cm.cn(
-                      'material-symbols-outlined text-base disabled:opacity-30 h-9 w-9 flex items-center justify-center shrink-0',
+                      'flex h-9 w-9 shrink-0 items-center justify-center text-base disabled:opacity-30',
                     )}
                     style={{ color: 'var(--color-text-secondary)' }}
                   >
-                    keyboard_arrow_down
+                    <span className="material-symbols-outlined" aria-hidden="true">
+                      keyboard_arrow_down
+                    </span>
                   </button>
                 </li>
               ))}

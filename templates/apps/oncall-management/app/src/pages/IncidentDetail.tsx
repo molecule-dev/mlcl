@@ -604,7 +604,7 @@ export function IncidentDetail() {
                 ) : null}
                 <span
                   className={cm.cn(
-                    'material-symbols-outlined text-base z-10 shrink-0 h-8 w-8 flex items-center justify-center rounded-full',
+                    'z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full',
                   )}
                   style={{
                     color: EVENT_COLOR[e.kind],
@@ -613,7 +613,7 @@ export function IncidentDetail() {
                   }}
                   aria-hidden="true"
                 >
-                  {EVENT_ICON[e.kind]}
+                  <span className="material-symbols-outlined text-base">{EVENT_ICON[e.kind]}</span>
                 </span>
                 <div className={cm.cn('min-w-0')}>
                   <p

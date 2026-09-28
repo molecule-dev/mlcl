@@ -640,10 +640,15 @@ export function Budget() {
                               )}
                               data-mol-id={`budget-edit-${item.id}`}
                               className={cm.cn(
-                                'material-symbols-outlined inline-flex h-9 w-9 items-center justify-center rounded-full text-[20px] text-on-surface-variant hover:text-on-surface hover:bg-surface-variant focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary',
+                                'flex h-9 w-9 items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-variant focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary',
                               )}
                             >
-                              edit
+                              <span
+                                className="material-symbols-outlined text-[20px]"
+                                aria-hidden="true"
+                              >
+                                edit
+                              </span>
                             </button>
                             <ConfirmButton
                               label={

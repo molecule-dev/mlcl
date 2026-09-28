@@ -52,12 +52,16 @@ function Login() {
   return (
     <div
       className={cm.cn(
+        'login-canvas',
         cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
         cm.minH('screen'),
         cm.w('full'),
         cm.sp('p', 6),
       )}
     >
+      {/* Design's decorative radial blobs (raw gradients live in index.css) */}
+      <div aria-hidden="true" className="login-decor-a" />
+      <div aria-hidden="true" className="login-decor-b" />
       <div className={cm.cn('login-card', cm.mxAuto)}>
         {/* Logo Section */}
         <div className={cm.cn('logo')}>

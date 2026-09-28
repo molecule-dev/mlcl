@@ -462,14 +462,21 @@ export function Landing() {
                     'rounded-2xl bg-surface-container-lowest ring-1 ring-outline-variant transition-transform hover:-translate-y-1 hover:shadow-lg',
                   )}
                 >
+                  {/* Tile is a separate flex box — see contract-management Landing:
+                      sizing/centering on the glyph span loses to the icon class's
+                      display:inline-block (loads after utilities). */}
                   <span
                     className={cm.cn(
-                      'material-symbols-outlined inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-on-primary',
+                      'flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary',
                     )}
                     aria-hidden="true"
-                    style={{ fontSize: '1.5rem' }}
                   >
-                    {f.icon}
+                    <span
+                      className="material-symbols-outlined text-on-primary"
+                      style={{ fontSize: '1.5rem' }}
+                    >
+                      {f.icon}
+                    </span>
                   </span>
                   <h3
                     className={cm.cn(cm.sp('mt', 4), cm.textSize('lg'), cm.fontWeight('extrabold'))}

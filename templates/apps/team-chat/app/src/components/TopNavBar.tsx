@@ -132,10 +132,15 @@ export default function TopNavBar() {
           aria-label={t('settings.notifications', {}, { defaultValue: 'Notifications' })}
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'center' }),
-            'material-symbols-outlined h-9 w-9 rounded-md text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-primary',
+            'h-9 w-9 shrink-0 rounded-md text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-primary',
           )}
         >
-          notifications
+          {/* glyph is a child so the tile keeps its flex display — the icon font
+              class sets display:inline-block and overrides utility displays on
+              the same element (it loads after the utility stylesheet) */}
+          <span className="material-symbols-outlined" aria-hidden="true">
+            notifications
+          </span>
         </Link>
         <div
           ref={profileRef}

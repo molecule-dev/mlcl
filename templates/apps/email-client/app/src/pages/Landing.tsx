@@ -235,7 +235,9 @@ export function Landing() {
             <div
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'center', gap: 'lg', wrap: 'wrap' }),
-                'opacity-50 grayscale',
+                // muted by token color, not opacity — opacity-50 on text fails
+                // the axe contrast gate (wordmarks are text, not images)
+                'grayscale text-on-surface-variant',
               )}
             >
               {SOCIAL_PROOF.map((s) => (

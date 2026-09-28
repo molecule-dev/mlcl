@@ -274,7 +274,7 @@ export function Landing() {
                   </span>
                   {t('landing.demo.trigger.title', {}, { defaultValue: 'Inbound webhook' })}
                 </div>
-                <div className={'text-xs text-slate-400'}>
+                <div className={'text-xs text-slate-500'}>
                   {t('landing.demo.trigger.subtitle', {}, { defaultValue: 'POST /forms/contact' })}
                 </div>
               </div>
@@ -299,7 +299,7 @@ export function Landing() {
                   </span>
                   {t('landing.demo.condition.title', {}, { defaultValue: 'Score ≥ medium?' })}
                 </div>
-                <div className={'text-xs text-slate-400'}>
+                <div className={'text-xs text-slate-500'}>
                   {t(
                     'landing.demo.condition.subtitle',
                     {},
@@ -328,7 +328,7 @@ export function Landing() {
                   </span>
                   {t('landing.demo.action.title', {}, { defaultValue: 'Notify the rep' })}
                 </div>
-                <div className={'text-xs text-slate-400'}>
+                <div className={'text-xs text-slate-500'}>
                   {t(
                     'landing.demo.action.subtitle',
                     {},
@@ -500,13 +500,13 @@ export function Landing() {
                 }
                 style={{ border: '1px solid var(--color-panel-border)' }}
               >
-                <div className={'text-xs font-bold uppercase tracking-widest mb-1 text-cyan-600'}>
+                <div className={'text-xs font-bold uppercase tracking-widest mb-1 text-cyan-700'}>
                   {t(tpl.catKey, {}, { defaultValue: tpl.catDefault })}
                 </div>
                 <h4 className={'text-base font-bold mb-3 text-slate-900'}>
                   {t(tpl.titleKey, {}, { defaultValue: tpl.titleDefault })}
                 </h4>
-                <div className={'flex items-center justify-between text-xs text-slate-400'}>
+                <div className={'flex items-center justify-between text-xs text-slate-500'}>
                   <span className={'flex items-center gap-1'}>
                     <span className={'material-symbols-outlined text-sm'}>account_tree</span>
                     {t('landing.templates.signupHint', {}, { defaultValue: 'Sign up to install' })}
@@ -587,7 +587,7 @@ export function Landing() {
               </h3>
               <div className={'text-4xl font-extrabold tracking-tight mt-2 text-slate-900'}>
                 {t(tier.priceKey, {}, { defaultValue: tier.priceDefault })}
-                <span className={'text-base font-semibold text-slate-400'}>/mo</span>
+                <span className={'text-base font-semibold text-slate-500'}>/mo</span>
               </div>
               <p className={'text-sm mt-2 text-slate-600'}>
                 {t(tier.descKey, {}, { defaultValue: tier.descDefault })}
@@ -705,7 +705,7 @@ export function Landing() {
                 Molecule.dev
               </a>
             </p>
-            <div className={'flex items-center gap-4 text-slate-400'}>
+            <div className={'flex items-center gap-4 text-slate-500'}>
               <span className={'material-symbols-outlined'} aria-hidden="true">
                 share
               </span>

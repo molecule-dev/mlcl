@@ -404,14 +404,22 @@ export function Landing() {
                     'rounded-2xl bg-surface-container-lowest ring-1 ring-outline-variant transition-transform hover:-translate-y-1 hover:shadow-lg',
                   )}
                 >
+                  {/* Tile is a separate flex box: sizing/centering utilities on the
+                      glyph span itself lose the cascade to .material-symbols-outlined's
+                      `display: inline-block` (icon font CSS loads after utilities),
+                      which left the glyph pinned top-left. */}
                   <span
                     className={
-                      'material-symbols-outlined inline-flex h-12 w-12 items-center justify-center rounded-xl bg-sidebar-bg text-[var(--color-status-pending)]'
+                      'flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-sidebar-bg'
                     }
                     aria-hidden="true"
-                    style={{ fontSize: '1.5rem' }}
                   >
-                    {f.icon}
+                    <span
+                      className="material-symbols-outlined text-[var(--color-status-pending)]"
+                      style={{ fontSize: '1.5rem' }}
+                    >
+                      {f.icon}
+                    </span>
                   </span>
                   <h3
                     className={cm.cn(cm.sp('mt', 4), cm.textSize('lg'), cm.fontWeight('extrabold'))}

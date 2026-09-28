@@ -312,10 +312,15 @@ export function SeatingChart() {
                               )}
                               data-mol-id={`seating-unseat-${guest.id}`}
                               className={cm.cn(
-                                'material-symbols-outlined inline-flex h-9 w-9 items-center justify-center rounded-full text-[20px] text-on-surface-variant hover:text-error hover:bg-error-light disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-error',
+                                'flex h-9 w-9 items-center justify-center rounded-full text-on-surface-variant hover:text-error hover:bg-error-light disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-error',
                               )}
                             >
-                              close
+                              <span
+                                className="material-symbols-outlined text-[20px]"
+                                aria-hidden="true"
+                              >
+                                close
+                              </span>
                             </button>
                           </li>
                         ))

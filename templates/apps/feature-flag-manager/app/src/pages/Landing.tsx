@@ -604,7 +604,7 @@ export function Landing() {
 
       <footer
         className={cm.cn('py-8 text-center text-sm border-t')}
-        style={{ borderColor: HAIRLINE, color: 'var(--color-text-muted)' }}
+        style={{ borderColor: HAIRLINE, color: 'var(--color-text-secondary)' }}
       >
         <p>
           {t(
