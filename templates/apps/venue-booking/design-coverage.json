@@ -1,0 +1,28 @@
+{
+  "screens": {
+    "/search": {
+      "allow": [
+        {
+          "heading": "Creative Concrete Studio",
+          "reason": "Sample-data venue name from the design mock's results grid. The /search page implements the results-card section (image, instant-book badge, rating, location, capacity, rate), all rendered from /api/venues; venue names are host-authored listing data, never hardcoded copy."
+        }
+      ]
+    },
+    "/reservations": {
+      "allow": [
+        {
+          "heading": "Artisan Roasters Studio",
+          "reason": "Sample-data venue name from the design mock's reservations list. The /reservations page implements the status tabs + reservation-card section fed by /api/reservations; the venue shown is whatever the booking actually references."
+        }
+      ]
+    },
+    "/favorites": {
+      "allow": [
+        {
+          "heading": "Historic Brick Studio",
+          "reason": "Sample-data venue name from the design mock's favorites grid. The /favorites page implements the saved-venue card section fed by /api/favorites; card titles are the saved listings' own names."
+        }
+      ]
+    }
+  }
+}

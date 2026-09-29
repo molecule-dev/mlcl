@@ -194,13 +194,20 @@ export function Trips() {
             <section>
               <h2
                 className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
                   cm.textSize('xs'),
                   cm.fontWeight('bold'),
                   cm.sp('mb', 4),
                   'uppercase tracking-[0.25em] text-on-surface-variant',
                 )}
               >
-                {t('trips.pastHeading', {}, { defaultValue: 'Past' })}
+                {t('trips.pastHeading', {}, { defaultValue: 'Past Trips' })}
+                <span
+                  className={cm.cn('material-symbols-outlined text-on-surface-variant')}
+                  aria-hidden="true"
+                >
+                  expand_more
+                </span>
               </h2>
               <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
                 {past.map((trip) => (

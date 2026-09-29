@@ -583,17 +583,13 @@ export function Landing() {
         >
           <Link
             to="/terms"
-            className={cm.cn(
-              'text-on-surface/70 opacity-80 hover:opacity-100 hover:text-primary transition-colors',
-            )}
+            className={cm.cn('text-on-surface-variant hover:text-primary transition-colors')}
           >
             {t('footer.termsOfService', {}, { defaultValue: 'Terms' })}
           </Link>
           <Link
             to="/privacy"
-            className={cm.cn(
-              'text-on-surface/70 opacity-80 hover:opacity-100 hover:text-primary transition-colors',
-            )}
+            className={cm.cn('text-on-surface-variant hover:text-primary transition-colors')}
           >
             {t('footer.privacyPolicy', {}, { defaultValue: 'Privacy' })}
           </Link>

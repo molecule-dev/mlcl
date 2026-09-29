@@ -12,7 +12,7 @@ import { Link, Outlet, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /** Same shape the shared TopNavLayout's navItems prop carries. */
 export interface AlcoveNavItem {
@@ -97,16 +97,8 @@ export function AlcoveMobileShell({ navItems, userMenu }: AlcoveMobileShellProps
               menu
             </span>
           </button>
-          <Link
-            to="/"
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('bold'),
-              'tracking-tight text-on-surface truncate',
-              FOCUS_RING,
-            )}
-          >
-            {APP_NAME}
+          <Link to="/" className={cm.cn('min-w-0', FOCUS_RING)}>
+            <BrandWordmark as="span" size="sm" />
           </Link>
         </div>
         <div
@@ -149,9 +141,7 @@ export function AlcoveMobileShell({ navItems, userMenu }: AlcoveMobileShellProps
                 'pt-5 pb-2',
               )}
             >
-              <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface')}>
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" />
               <button
                 type="button"
                 aria-label={t('mobileNav.closeMenu', {}, { defaultValue: 'Close navigation menu' })}

@@ -27,6 +27,15 @@ const SWATCHES = [
 
 const ICONS = ['bolt', 'view_carousel', 'bar_chart', 'auto_awesome']
 
+type EmbedFormat = 'html' | 'react' | 'vue' | 'iframe'
+
+const EMBED_FORMATS: Array<{ id: EmbedFormat; labelKey: string; defaultLabel: string }> = [
+  { id: 'html', labelKey: 'sharePreview.embedFormatHtml', defaultLabel: 'HTML/CSS' },
+  { id: 'iframe', labelKey: 'sharePreview.embedFormatIframe', defaultLabel: 'iframe' },
+  { id: 'react', labelKey: 'sharePreview.embedFormatReact', defaultLabel: 'React' },
+  { id: 'vue', labelKey: 'sharePreview.embedFormatVue', defaultLabel: 'Vue' },
+]
+
 function formatTimecode(durationSeconds: number): string {
   const total = Math.max(0, Math.floor(durationSeconds))
   const hh = Math.floor(total / 3600)
@@ -77,6 +86,39 @@ export function SharePreview() {
   const [related, setRelated] = useState<ApiProject[] | null>(null)
   const [relatedError, setRelatedError] = useState<string | null>(null)
   const [playing, setPlaying] = useState(false)
+  const [embedFormat, setEmbedFormat] = useState<EmbedFormat>('iframe')
+  const [embedCopied, setEmbedCopied] = useState(false)
+
+  const shareUrl = `https://vivace.io/share/${token ?? ''}`
+  const embedSnippet = (() => {
+    switch (embedFormat) {
+      case 'html':
+        return (
+          `<link rel="stylesheet" href="${shareUrl}.css">\n` +
+          `<div class="vivace-embed" data-share="${token ?? ''}"></div>`
+        )
+      case 'react':
+        return (
+          `import VivaceEmbed from '@vivace/embed-react'\n\n` +
+          `export function Share() {\n` +
+          `  return <VivaceEmbed src="${shareUrl}" autoplay={false} />\n` +
+          `}`
+        )
+      case 'vue':
+        return (
+          `<script setup>\n` +
+          `import { VivaceEmbed } from '@vivace/embed-vue'\n` +
+          `</script>\n\n` +
+          `<template>\n  <VivaceEmbed src="${shareUrl}" :autoplay="false" />\n</template>`
+        )
+      case 'iframe':
+      default:
+        return (
+          `<iframe\n  src="${shareUrl}"\n  width="640" height="360"\n` +
+          `  loading="lazy"\n  allow="autoplay"\n></iframe>`
+        )
+    }
+  })()
 
   useEffect(() => {
     let cancelled = false
@@ -265,26 +307,74 @@ export function SharePreview() {
                 'rounded-2xl bg-[var(--anim-surface)] border border-[var(--anim-border)]',
               )}
             >
-              <h2
-                className={cm.cn(
-                  cm.textSize('sm'),
-                  cm.fontWeight('semibold'),
-                  'text-[var(--anim-text)] font-headline',
-                )}
-              >
-                {t('sharePreview.embed', {}, { defaultValue: 'Embed code' })}
-              </h2>
+              <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 2 }))}>
+                <h2
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 2 }),
+                    cm.textSize('sm'),
+                    cm.fontWeight('semibold'),
+                    'text-[var(--anim-text)] font-headline',
+                  )}
+                >
+                  <span
+                    className={cm.cn(
+                      'material-symbols-outlined text-[18px] text-[var(--anim-accent)]',
+                    )}
+                  >
+                    code_blocks
+                  </span>
+                  {t('sharePreview.quickEmbed', {}, { defaultValue: 'Quick Embed' })}
+                </h2>
+                <button
+                  type="button"
+                  onClick={() => {
+                    void navigator.clipboard?.writeText(embedSnippet).catch(() => {})
+                    setEmbedCopied(true)
+                    window.setTimeout(() => setEmbedCopied(false), 2000)
+                  }}
+                  data-mol-id="share-embed-copy"
+                  aria-label={t(
+                    'sharePreview.embedCopyAria',
+                    {},
+                    { defaultValue: 'Copy embed code to clipboard' },
+                  )}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    cm.sp('p', 2),
+                    'rounded-md text-[var(--anim-text-muted)] hover:text-[var(--anim-text)] hover:bg-[var(--anim-surface-elevated)] transition-colors',
+                  )}
+                >
+                  <span className={cm.cn('material-symbols-outlined text-[18px]')}>
+                    {embedCopied ? 'check' : 'content_copy'}
+                  </span>
+                </button>
+              </div>
+              <div className={cm.cn(cm.flex({ gap: 2 }), 'flex-wrap')}>
+                {EMBED_FORMATS.map((f) => (
+                  <button
+                    key={f.id}
+                    type="button"
+                    onClick={() => setEmbedFormat(f.id)}
+                    data-mol-id={`share-embed-format-${f.id}`}
+                    className={cm.cn(
+                      cm.sp('px', 3),
+                      cm.sp('py', 1),
+                      'font-mono text-xs rounded-md border transition-colors',
+                      embedFormat === f.id
+                        ? 'bg-[color-mix(in_srgb,var(--anim-primary)_15%,transparent)] text-[var(--anim-primary)] border-[color-mix(in_srgb,var(--anim-primary)_40%,transparent)]'
+                        : 'bg-[var(--anim-surface-raised)] text-[var(--anim-text-muted)] border-[var(--anim-border)] hover:text-[var(--anim-text)]',
+                    )}
+                  >
+                    {t(f.labelKey, {}, { defaultValue: f.defaultLabel })}
+                  </button>
+                ))}
+              </div>
               <pre
                 className={cm.cn(
                   'font-mono text-xs bg-[var(--anim-background)] border border-[var(--anim-border)] rounded-lg p-4 overflow-x-auto text-[var(--anim-primary)] whitespace-pre',
                 )}
               >
-                {`<iframe
-  src="https://vivace.io/share/${token ?? ''}"
-  width="640" height="360"
-  loading="lazy"
-  allow="autoplay"
-></iframe>`}
+                {embedSnippet}
               </pre>
             </section>
           </div>

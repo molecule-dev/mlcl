@@ -1,5 +1,5 @@
 import { type ReactElement, useEffect, useState } from 'react'
-import { Link, NavLink, Outlet, useLocation } from 'react-router'
+import { NavLink, Outlet, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -126,9 +126,12 @@ export function WaypointLayout() {
         )}
         style={{ width: 240 }}
       >
-        <Link to="/dashboard" className={cm.cn(cm.sp('mb', 6), cm.displayBlock)}>
+        {/* BrandWordmark renders its own router link — wrapping it in another
+            <Link> nested an <a> inside an <a> (invalid HTML; React logs it as
+            a console error on every authed page). */}
+        <div className={cm.cn(cm.sp('mb', 6))}>
           <BrandWordmark to="/dashboard" />
-        </Link>
+        </div>
         {navLinks()}
         <div className={cm.cn(cm.sp('pt', 4), cm.borderT)}>
           <UserMenu />
@@ -159,9 +162,10 @@ export function WaypointLayout() {
             {drawerOpen ? 'close' : 'menu'}
           </span>
         </button>
-        <Link to="/dashboard" className="min-w-0 truncate">
+        {/* Same nested-anchor rule: no Link around the BrandWordmark. */}
+        <div className="min-w-0 truncate">
           <BrandWordmark to="/dashboard" size="sm" />
-        </Link>
+        </div>
         {/* Cap the user card so a long email cannot squeeze the brand out. */}
         <div className={cm.cn('ml-auto max-w-[44vw] shrink')}>
           <UserMenu />

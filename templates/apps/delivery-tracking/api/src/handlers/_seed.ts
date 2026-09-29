@@ -579,6 +579,17 @@ export async function seedDemoForUser(userId: string): Promise<{
     created_at: offset(-2),
   })
   alertsCreated++
+  // Cold-chain exception on the demo freezer lane — mirrors the critical
+  // alerts the design highlights (sensor above threshold for >15 minutes).
+  await create('alerts', {
+    user_id: userId,
+    shipment_id: exceptionShipments[0]?.id ?? null,
+    type: 'exception_alert',
+    severity: 'error',
+    message: 'Temperature excursion detected — cold-chain sensor exceeded 8°C for over 15 minutes.',
+    created_at: offset(-1),
+  })
+  alertsCreated++
 
   // Notifications log — feeds /api/notifications and the bell.
   const notifications = [

@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/assets": {
+      "allow": [
+        {
+          "heading": "Playfair-Display.ttf",
+          "reason": "Sample-data asset filename from the design mock's asset grid. The /assets page implements the asset-card grid (kind swatch, kind badge, filename, size) fed by GET /api/assets; filenames are whatever the user uploads — the app never hardcodes third-party font names."
+        }
+      ]
+    }
+  }
+}

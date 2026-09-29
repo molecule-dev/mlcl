@@ -6,6 +6,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 import { AlcoveHeroSearchCard } from '../components/AlcoveHeroSearchCard.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { CategoryTile } from '../components/CategoryTile.js'
 import { type VenueListing, VenueListingCard } from '../components/VenueListingCard.js'
 import { unwrapList } from '../lib/unwrap.js'
@@ -123,17 +124,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <span
-              className={cm.cn(
-                cm.textSize('2xl'),
-                cm.fontWeight('bold'),
-                'text-primary font-headline tracking-tight',
-              )}
-            >
-              {APP_NAME}
-            </span>
-          </Link>
+          <BrandWordmark size="lg" />
           <div className={cm.flex({ align: 'center', gap: 'lg' })}>
             <Link
               to="/search"
@@ -539,15 +530,7 @@ export function Landing() {
         <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), 'pt-12 pb-8', cm.mxAuto)}>
           <div className={cm.cn('grid grid-cols-1 gap-10 md:grid-cols-4')}>
             <div>
-              <span
-                className={cm.cn(
-                  cm.textSize('2xl'),
-                  cm.fontWeight('bold'),
-                  'text-primary font-headline tracking-tight',
-                )}
-              >
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" size="lg" footer />
               <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 3), 'text-on-surface-variant')}>
                 {t('landing.footer.tagline', {}, { defaultValue: 'Every space, a story.' })}
               </p>

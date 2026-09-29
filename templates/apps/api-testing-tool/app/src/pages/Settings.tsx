@@ -41,6 +41,11 @@ export function Settings() {
   } | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
+  // SSL/TLS card — client-side request hardening preferences. The toggle and
+  // CA pinning list live in local state (a fresh workspace starts verified-ON
+  // with no custom CAs pinned); this card configures the runner, not the API.
+  const [verifySsl, setVerifySsl] = useState(true)
+  const [caCerts, setCaCerts] = useState<string[]>([])
 
   // Settings is a routed page, not a dismissible panel. SettingsContainer
   // requires an onClose for its children; the log-out / delete-account
@@ -290,6 +295,181 @@ export function Settings() {
           </section>
         ))}
       </div>
+
+      <section
+        className={cm.cn('mt-6 rounded-2xl overflow-hidden')}
+        style={{
+          backgroundColor: SURFACE_PANEL,
+          border: `1px solid ${PANEL_BORDER}`,
+        }}
+        data-mol-id="settings-section-ssl"
+      >
+        <header
+          className={cm.cn('px-6 py-4 border-b flex items-center justify-between gap-4')}
+          style={{ borderColor: PANEL_BORDER }}
+        >
+          <div className={cm.cn('min-w-0')}>
+            <h2
+              className={cm.cn('text-lg font-extrabold tracking-tight')}
+              style={{ color: 'var(--color-text)' }}
+            >
+              {t('settings.ssl.title', {}, { defaultValue: 'SSL/TLS Certificates' })}
+            </h2>
+            <p className={cm.cn('text-xs')} style={{ color: 'var(--color-text-secondary)' }}>
+              {t(
+                'settings.ssl.desc',
+                {},
+                { defaultValue: 'Manage verification and client certs.' },
+              )}
+            </p>
+          </div>
+          <button
+            type="button"
+            role="switch"
+            aria-checked={verifySsl}
+            aria-label={t(
+              'settings.ssl.verifyLabel',
+              {},
+              { defaultValue: 'Verify SSL certificates' },
+            )}
+            onClick={() => setVerifySsl((v) => !v)}
+            data-mol-id="settings-ssl-toggle"
+            className={cm.cn(
+              'relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition-colors',
+            )}
+            style={{
+              backgroundColor: verifySsl
+                ? 'var(--color-status-success)'
+                : 'var(--color-surface-elevated)',
+            }}
+          >
+            <span
+              className={cm.cn('inline-block h-3 w-3 transform rounded-full transition-transform')}
+              style={{
+                backgroundColor: 'var(--color-background)',
+                transform: verifySsl ? 'translateX(22px)' : 'translateX(4px)',
+              }}
+            />
+          </button>
+        </header>
+        <div className={cm.cn('px-6 py-4 flex flex-col gap-4')}>
+          <div>
+            <p className={cm.cn('text-xs font-medium mb-2')} style={{ color: 'var(--color-text)' }}>
+              {t('settings.ssl.customCa', {}, { defaultValue: 'Custom CA Certificates' })}
+            </p>
+            <div className={cm.cn('flex flex-wrap gap-2')}>
+              {caCerts.map((ca) => (
+                <span
+                  key={ca}
+                  className={cm.cn(
+                    'inline-flex items-center gap-x-1.5 rounded px-2 py-1 text-xs font-mono font-medium border',
+                  )}
+                  style={{
+                    backgroundColor: 'var(--color-surface-elevated)',
+                    borderColor: PANEL_BORDER,
+                    color: 'var(--color-text-primary)',
+                  }}
+                >
+                  {ca}
+                  <button
+                    type="button"
+                    onClick={() => setCaCerts((list) => list.filter((c) => c !== ca))}
+                    aria-label={t(
+                      'settings.ssl.removeCa',
+                      { name: ca },
+                      { defaultValue: 'Remove {{name}}' },
+                    )}
+                    data-mol-id={`settings-ssl-remove-${ca}`}
+                    className={cm.cn('rounded-sm hover:opacity-70')}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-[12px]')}
+                      style={{ color: 'var(--color-text-secondary)' }}
+                      aria-hidden="true"
+                    >
+                      close
+                    </span>
+                  </button>
+                </span>
+              ))}
+              <label
+                className={cm.cn(
+                  'inline-flex items-center gap-x-1 rounded px-2 py-1 text-xs font-mono font-medium border border-dashed cursor-pointer transition-colors',
+                )}
+                style={{
+                  borderColor: 'var(--color-text-secondary)',
+                  color: 'var(--color-text-secondary)',
+                }}
+              >
+                <span className={cm.cn('material-symbols-outlined text-[14px]')} aria-hidden="true">
+                  add
+                </span>
+                {t('settings.ssl.addCa', {}, { defaultValue: 'Add CA' })}
+                <input
+                  type="file"
+                  multiple
+                  accept=".crt,.pem,.cer"
+                  className={cm.cn('hidden')}
+                  onChange={(event) => {
+                    const added = Array.from(event.target.files ?? []).map((f) => f.name)
+                    if (added.length > 0) {
+                      setCaCerts((list) => [...new Set([...list, ...added])])
+                    }
+                    event.target.value = ''
+                  }}
+                  data-mol-id="settings-ssl-add-ca"
+                />
+              </label>
+            </div>
+          </div>
+          <div>
+            <p className={cm.cn('text-xs font-medium mb-2')} style={{ color: 'var(--color-text)' }}>
+              {t('settings.ssl.clientCerts', {}, { defaultValue: 'Client Certificates' })}
+            </p>
+            <div
+              className={cm.cn('rounded-md overflow-hidden border')}
+              style={{ borderColor: PANEL_BORDER }}
+            >
+              <table className={cm.cn('min-w-full')}>
+                <thead>
+                  <tr style={{ backgroundColor: 'var(--color-surface-elevated)' }}>
+                    {(['host', 'certificate', 'key'] as const).map((col) => (
+                      <th
+                        key={col}
+                        scope="col"
+                        className={cm.cn(
+                          'py-2 px-3 text-left text-[10px] font-mono uppercase tracking-wider',
+                        )}
+                        style={{ color: 'var(--color-text-secondary)' }}
+                      >
+                        {t(`settings.ssl.col.${col}`, {}, { defaultValue: col })}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      colSpan={3}
+                      className={cm.cn('py-3 px-3 text-xs font-mono')}
+                      style={{ color: 'var(--color-text-secondary)' }}
+                    >
+                      {t(
+                        'settings.ssl.emptyCerts',
+                        {},
+                        {
+                          defaultValue:
+                            'No client certificates configured — add one per host that requires mutual TLS.',
+                        },
+                      )}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section
         className={cm.cn('mt-6 rounded-2xl overflow-hidden')}

@@ -154,7 +154,12 @@ export function Settings() {
         </aside>
 
         <main className={'col-span-12 md:col-span-9 space-y-4'}>
-          {section === 'organization' && <OrganizationPanel http={http} t={t} />}
+          {section === 'organization' && (
+            <>
+              <OrganizationPanel http={http} t={t} />
+              <TrackingDomainCard />
+            </>
+          )}
 
           {section === 'api' && <ApiPanel http={http} t={t} />}
 
@@ -263,6 +268,103 @@ export function Settings() {
 interface PanelProps {
   http: ReturnType<typeof useHttpClient>
   t: ReturnType<typeof useTranslation>['t']
+}
+
+/** Branded tracking domain — lets a workspace host its public tracking pages
+ * on its own hostname. Verification is a client-side hostname check that
+ * returns the CNAME to point; DNS ownership is confirmed out of band. */
+function TrackingDomainCard() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const [domain, setDomain] = useState('')
+  const [check, setCheck] = useState<'idle' | 'valid' | 'invalid'>('idle')
+
+  const verify = () => {
+    const ok = /^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$/i.test(
+      domain.trim(),
+    )
+    setCheck(ok ? 'valid' : 'invalid')
+  }
+
+  return (
+    <section
+      className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-3')}
+      data-mol-id="card-tracking-domain"
+    >
+      <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+        {t('settings.domain.heading', {}, { defaultValue: 'Branded Tracking Domain' })}
+      </h2>
+      <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+        {t(
+          'settings.domain.description',
+          {},
+          { defaultValue: 'Host public tracking pages on your own custom domain.' },
+        )}
+      </p>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
+        <label className={cm.cn('flex-1 min-w-[240px] block')}>
+          <span className={cm.cn('sr-only')}>
+            {t('settings.domain.label', {}, { defaultValue: 'Tracking domain' })}
+          </span>
+          <input
+            type="text"
+            value={domain}
+            data-mol-id="input-tracking-domain"
+            placeholder={t(
+              'settings.domain.placeholder',
+              {},
+              { defaultValue: 'track.yourcompany.com' },
+            )}
+            onChange={(e) => {
+              setDomain(e.target.value)
+              setCheck('idle')
+            }}
+            className={cm.cn(
+              cm.sp('px', 3),
+              cm.sp('py', 2),
+              cm.w('full'),
+              'border border-outline-variant rounded-md bg-surface text-on-surface',
+            )}
+          />
+        </label>
+        <button
+          type="button"
+          onClick={verify}
+          data-mol-id="button-verify-domain"
+          className={cm.cn(
+            cm.sp('px', 4),
+            cm.sp('py', 2),
+            cm.textSize('sm'),
+            cm.fontWeight('semibold'),
+            'bg-primary text-on-primary rounded-md whitespace-nowrap',
+          )}
+        >
+          {t('settings.domain.verify', {}, { defaultValue: 'Verify Domain' })}
+        </button>
+      </div>
+      {check === 'valid' ? (
+        <p className={cm.cn(cm.textSize('xs'), 'text-success')} data-mol-id="domain-verify-ok">
+          {t(
+            'settings.domain.valid',
+            { domain: domain.trim() },
+            {
+              defaultValue:
+                'Point a CNAME for {{domain}} at tracking.molecule.dev to finish setup.',
+            },
+          )}
+        </p>
+      ) : null}
+      {check === 'invalid' ? (
+        <p className={cm.cn(cm.textSize('xs'), 'text-error')} data-mol-id="domain-verify-bad">
+          {t(
+            'settings.domain.invalid',
+            {},
+            { defaultValue: 'Enter a valid hostname, e.g. track.yourcompany.com.' },
+          )}
+        </p>
+      ) : null}
+    </section>
+  )
 }
 
 function OrganizationPanel({ http, t }: PanelProps) {

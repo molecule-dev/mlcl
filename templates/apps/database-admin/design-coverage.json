@@ -1,0 +1,20 @@
+{
+  "screens": {
+    "/history": {
+      "allow": [
+        {
+          "heading": "Monthly Revenue Report",
+          "reason": "Sample-data saved-query name from the design mock's saved tab. The /history page implements the recent/saved tabs and the saved-snippet card list (name, SQL preview, per-snippet links) fed by GET /api/queries/saved; snippet names are user-authored data, never hardcoded copy."
+        }
+      ]
+    },
+    "/history/saved/:queryId": {
+      "allow": [
+        {
+          "heading": "Daily revenue summary",
+          "reason": "Sample-data saved-query name from the design mock's detail header. The page implements the editable name heading (loaded from GET /api/queries/saved/:id and saved via PUT); the title is whatever the snippet is actually called."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "screens": {
+    "/models": {
+      "allow": [
+        {
+          "heading": "Lounge Chair 'Aero'",
+          "reason": "Sample-data model name from the design mock's library grid. The /models page implements the library-card section (thumbnail, tri-count badge, name, size, updated, kebab menu) fed by GET /api/models; model names are user-uploaded asset titles, never hardcoded copy."
+        },
+        {
+          "heading": "Stylized Flora Pack",
+          "reason": "Sample-data model name from the design mock's library grid. The grid renders whatever models the signed-in account owns; a fresh library is empty or carries the user's own uploads, so the design's fixture titles can never appear."
+        }
+      ]
+    }
+  }
+}

@@ -168,7 +168,7 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.sp('mb', 5),
-                'font-mono uppercase tracking-widest text-[var(--anim-primary)]',
+                'font-mono uppercase tracking-widest text-[var(--anim-eyebrow)]',
               )}
             >
               {t('landing.eyebrow', {}, { defaultValue: '// motion design workbench' })}
@@ -247,7 +247,7 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.sp('mt', 6),
-                'font-mono uppercase tracking-widest text-[var(--anim-text-muted)]',
+                'font-mono uppercase tracking-widest text-[var(--anim-eyebrow)]',
               )}
             >
               {APP_TAGLINE}

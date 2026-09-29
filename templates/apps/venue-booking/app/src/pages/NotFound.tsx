@@ -4,6 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 export function NotFound() {
   const cm = getClassMap()
@@ -25,14 +26,7 @@ export function NotFound() {
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <span
-              className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'text-primary')}
-              style={{ fontFamily: '"DM Sans", system-ui, sans-serif', letterSpacing: '-0.02em' }}
-            >
-              {APP_NAME}
-            </span>
-          </Link>
+          <BrandWordmark size="lg" />
         </div>
       </div>
       <main

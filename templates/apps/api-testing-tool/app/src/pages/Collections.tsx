@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -9,8 +10,11 @@ import {
   type CollectionTreeData,
   CollectionTreeItem,
 } from '../components/CollectionTreeItem.js'
+import { SURFACE_PANEL } from '../branding.js'
 import type { HttpMethod } from '../components/MethodBadge.js'
 import { MetricStatCard } from '../components/MetricStatCard.js'
+
+const PANEL_BORDER = 'var(--color-border)'
 
 interface CollectionRow {
   id: string
@@ -36,6 +40,14 @@ interface HistoryRow {
   created_at?: string
 }
 
+interface QuickCommand {
+  id: string
+  labelKey: string
+  defaultLabel: string
+  keys: string[]
+  run: () => void
+}
+
 function pathFromUrl(url: string | undefined): string {
   if (!url) return ''
   try {
@@ -51,6 +63,7 @@ export function Collections() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const navigate = useNavigate()
   const [collections, setCollections] = useState<CollectionTreeData[] | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [creating, setCreating] = useState(false)
@@ -155,6 +168,50 @@ export function Collections() {
     }
   }
 
+  // Quick Commands — the design's keyboard cheatsheet, wired to the actions
+  // this page really offers (⌘ matches Meta or Ctrl so Windows/Linux work).
+  const quickCommands: QuickCommand[] = [
+    {
+      id: 'search',
+      labelKey: 'collections.quickCommands.search',
+      defaultLabel: 'Search everything',
+      keys: ['⌘', 'K'],
+      run: () => navigate('/history'),
+    },
+    {
+      id: 'new-request',
+      labelKey: 'collections.quickCommands.newRequest',
+      defaultLabel: 'New request',
+      keys: ['⌘', 'N'],
+      run: () => void handleNew(),
+    },
+    {
+      id: 'run-collection',
+      labelKey: 'collections.quickCommands.runCollection',
+      defaultLabel: 'Run collection',
+      keys: ['⌘', 'Enter'],
+      run: () => navigate('/tests'),
+    },
+  ]
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (!(event.metaKey || event.ctrlKey)) return
+      if (event.key.toLowerCase() === 'k') {
+        event.preventDefault()
+        navigate('/history')
+      } else if (event.key.toLowerCase() === 'n') {
+        event.preventDefault()
+        void handleNew()
+      } else if (event.key === 'Enter') {
+        event.preventDefault()
+        navigate('/tests')
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  })
+
   const totalRequests = collections?.reduce((acc, c) => acc + c.requests.length, 0) ?? 0
   const failing =
     collections?.reduce(
@@ -253,48 +310,104 @@ export function Collections() {
         />
       </section>
 
-      {collections === null ? (
-        <p
-          className={cm.cn('text-sm py-8 text-center')}
-          style={{ color: 'var(--color-text-secondary)' }}
-        >
-          {t('collections.loading', {}, { defaultValue: 'Loading collections…' })}
-        </p>
-      ) : error ? (
-        <p className={cm.cn('text-sm py-8 text-center')} style={{ color: 'var(--color-error)' }}>
-          {error}
-        </p>
-      ) : collections.length === 0 ? (
-        <div
-          className={cm.cn('py-16 text-center')}
-          style={{ color: 'var(--color-text-secondary)' }}
-        >
-          <span
-            className={cm.cn('material-symbols-outlined text-5xl opacity-40 mb-3 inline-block')}
-            aria-hidden="true"
-          >
-            folder_off
-          </span>
-          <p className={cm.cn('text-sm')}>
-            {t(
-              'collections.empty',
-              {},
-              {
-                defaultValue:
-                  'No collections yet — click “New collection” to scaffold your first folder.',
-              },
-            )}
-          </p>
+      <div className={cm.cn('grid gap-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-start')}>
+        <div>
+          {collections === null ? (
+            <p
+              className={cm.cn('text-sm py-8 text-center')}
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
+              {t('collections.loading', {}, { defaultValue: 'Loading collections…' })}
+            </p>
+          ) : error ? (
+            <p
+              className={cm.cn('text-sm py-8 text-center')}
+              style={{ color: 'var(--color-error)' }}
+            >
+              {error}
+            </p>
+          ) : collections.length === 0 ? (
+            <div
+              className={cm.cn('py-16 text-center')}
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
+              <span
+                className={cm.cn('material-symbols-outlined text-5xl opacity-40 mb-3 inline-block')}
+                aria-hidden="true"
+              >
+                folder_off
+              </span>
+              <p className={cm.cn('text-sm')}>
+                {t(
+                  'collections.empty',
+                  {},
+                  {
+                    defaultValue:
+                      'No collections yet — click “New collection” to scaffold your first folder.',
+                  },
+                )}
+              </p>
+            </div>
+          ) : (
+            <ul className={cm.cn('space-y-3')}>
+              {collections.map((collection, i) => (
+                <li key={collection.id}>
+                  <CollectionTreeItem collection={collection} defaultOpen={i === 0} />
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-      ) : (
-        <ul className={cm.cn('space-y-3')}>
-          {collections.map((collection, i) => (
-            <li key={collection.id}>
-              <CollectionTreeItem collection={collection} defaultOpen={i === 0} />
-            </li>
-          ))}
-        </ul>
-      )}
+
+        <aside
+          data-mol-id="collections-quick-commands"
+          className={cm.cn('rounded-xl p-5 h-fit lg:sticky lg:top-6')}
+          style={{ backgroundColor: SURFACE_PANEL, border: `1px solid ${PANEL_BORDER}` }}
+        >
+          <h3 className={cm.cn('flex items-center gap-2 text-sm font-bold mb-4 tracking-tight')}>
+            <span
+              className={cm.cn('material-symbols-outlined text-[18px]')}
+              style={{ color: 'var(--color-text-secondary)' }}
+              aria-hidden="true"
+            >
+              keyboard
+            </span>
+            {t('collections.quickCommands.title', {}, { defaultValue: 'Quick Commands' })}
+          </h3>
+          <div className={cm.cn('flex flex-col gap-3')}>
+            {quickCommands.map((cmd) => (
+              <button
+                key={cmd.id}
+                type="button"
+                onClick={cmd.run}
+                data-mol-id={`quick-command-${cmd.id}`}
+                className={cm.cn(
+                  'flex items-center justify-between gap-2 text-sm w-full text-left',
+                )}
+              >
+                <span style={{ color: 'var(--color-text-secondary)' }}>
+                  {t(cmd.labelKey, {}, { defaultValue: cmd.defaultLabel })}
+                </span>
+                <span className={cm.cn('flex gap-1 shrink-0')}>
+                  {cmd.keys.map((k) => (
+                    <kbd
+                      key={k}
+                      className={cm.cn('px-1.5 py-0.5 rounded font-mono text-[10px] border')}
+                      style={{
+                        backgroundColor: 'var(--color-surface-elevated)',
+                        borderColor: PANEL_BORDER,
+                        color: 'var(--color-text-primary)',
+                      }}
+                    >
+                      {k}
+                    </kbd>
+                  ))}
+                </span>
+              </button>
+            ))}
+          </div>
+        </aside>
+      </div>
     </div>
   )
 }

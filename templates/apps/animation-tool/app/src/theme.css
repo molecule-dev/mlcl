@@ -9,6 +9,10 @@
      violet #8b5cf6 → pink #ec4899 accents (dark studio canvas) === */
   --anim-primary: #8b5cf6;
   --anim-primary-hover: #7c3aed;
+  /* Small mono eyebrows sit on the hero's 20%-primary glow tint — the raw
+     primary misses 4.5:1 there; the eyebrow token is the light-shifted
+     violet that clears it on the tint in every mode. */
+  --anim-eyebrow: #a78bfa;
   --anim-secondary: #ec4899;
   --anim-accent: #f59e0b;
   --anim-danger: #ef4444;
@@ -117,6 +121,7 @@
 [data-mol-mode='light'] {
   --anim-primary: #86198f; /* was #e040fb — 2.5-3.33:1 as text on light surfaces (4.35 even at fuchsia-700 on the hero glow tint); fuchsia-800 = 5.54:1 there */
   --anim-primary-hover: #86198f;
+  --anim-eyebrow: #86198f; /* same glow-tint math as the dark block: fuchsia-800 clears 4.5:1 on the light hero tint */
   --anim-secondary: #115e59; /* was #00bfa5 — 1.96:1 as chip text on its 15% tint; teal-800 = 5.99:1 (chip pulses, so extra headroom) */
   --anim-accent: #ffd740;
   --anim-danger: #ff5252;
@@ -208,6 +213,7 @@
 [data-mol-mode='dark'] {
   --anim-primary: #a78bfa;
   --anim-primary-hover: #c4b5fd;
+  --anim-eyebrow: #c4b5fd; /* #a78bfa is 4.45:1 on the hero's 20%-primary glow (#363157) — violet-300 = 6.5:1 there */
   --anim-secondary: #f472b6;
   --anim-accent: #fbbf24;
   --anim-danger: #f87171;

@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/models": {
+      "allow": [
+        {
+          "heading": "FLUX.1 Pro verified",
+          "reason": "Sample-data engine name from the design mock's featured spotlight. The /models page implements the featured-model card section (vendor eyebrow, active badge, name, description, capability chips, activate CTA) fed by GET /api/models; the app deliberately ships its own fictional catalog (Reverie/Helio), never a third-party vendor's trademarked engine name."
+        }
+      ]
+    }
+  }
+}

@@ -104,6 +104,45 @@ const TRENDING_DESTINATIONS = [
   { key: 'paris', city: 'Paris', code: 'CDG', tone: 'flight-dest-a' },
 ] as const
 
+/* Popular deals (design: photo cards with from-prices). Curated landing
+   content — token-gradient tiles with route codes stand in for photography,
+   the same adaptation the trending row uses. */
+const POPULAR_DEALS = [
+  {
+    key: 'london',
+    city: 'London',
+    country: 'UK',
+    code: 'LHR',
+    price: 299,
+    duration: '7h 15m',
+    stops: 0,
+    carriers: ['AT', 'SK'],
+    tone: 'flight-dest-a',
+  },
+  {
+    key: 'paris',
+    city: 'Paris',
+    country: 'France',
+    code: 'CDG',
+    price: 345,
+    duration: '7h 40m',
+    stops: 0,
+    carriers: ['PE', 'AT'],
+    tone: 'flight-dest-b',
+  },
+  {
+    key: 'tokyo',
+    city: 'Tokyo',
+    country: 'Japan',
+    code: 'HND',
+    price: 680,
+    duration: '14h 5m',
+    stops: 0,
+    carriers: ['SW', 'PE'],
+    tone: 'flight-dest-c',
+  },
+] as const
+
 export function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -125,6 +164,132 @@ export function Landing() {
           )}
         >
           <SkylarkHeroSearchCard />
+        </section>
+
+        {/* Popular deals — design section; curated fares out of New York */}
+        <section
+          className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('pb', 20), cm.mxAuto)}
+          aria-labelledby="landing-deals-heading"
+        >
+          <h2
+            id="landing-deals-heading"
+            className={cm.cn(
+              cm.textSize('3xl'),
+              cm.fontWeight('bold'),
+              cm.sp('mb', 2),
+              'tracking-tight',
+            )}
+          >
+            {t(
+              'landing.deals.heading',
+              { city: t('landing.deals.originCity', {}, { defaultValue: 'New York' }) },
+              { defaultValue: 'Popular deals from {{city}}' },
+            )}
+          </h2>
+          <p
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.fontWeight('medium'),
+              'text-on-surface-variant',
+              cm.sp('mb', 8),
+            )}
+          >
+            {t(
+              'landing.deals.subheading',
+              {},
+              { defaultValue: 'Hand-picked fares for your next adventure.' },
+            )}
+          </p>
+          <div className={cm.cn('grid grid-cols-1 md:grid-cols-3 gap-6')}>
+            {POPULAR_DEALS.map((deal) => (
+              <Link
+                key={deal.key}
+                to="/search"
+                data-mol-id={`landing-deal-${deal.key}`}
+                className={cm.cn(
+                  'group bg-surface rounded-2xl overflow-hidden ring-1 ring-outline-variant/40 shadow-sm hover:shadow-lg transition-shadow',
+                )}
+              >
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    cm.h(40),
+                    'text-2xl font-black tracking-widest text-white tabular-nums group-hover:scale-[1.02] transition-transform',
+                    deal.tone,
+                  )}
+                  aria-hidden="true"
+                >
+                  {deal.code}
+                </div>
+                <div className={cm.cn(cm.sp('p', 5))}>
+                  <div
+                    className={cm.cn(cm.flex({ align: 'start', justify: 'between', gap: 'sm' }))}
+                  >
+                    <h3
+                      className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}
+                    >
+                      {t(`landing.deals.${deal.key}.city`, {}, { defaultValue: deal.city })}
+                      <span
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          cm.fontWeight('medium'),
+                          'text-on-surface-variant',
+                        )}
+                      >
+                        {`, ${deal.country}`}
+                      </span>
+                    </h3>
+                    <span
+                      className={cm.cn(
+                        cm.fontWeight('bold'),
+                        cm.textSize('lg'),
+                        'text-primary tabular-nums whitespace-nowrap',
+                      )}
+                    >
+                      {t(
+                        'landing.deals.fromPrice',
+                        { price: deal.price },
+                        { defaultValue: 'from ${{price}}' },
+                      )}
+                    </span>
+                  </div>
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 'xs' }),
+                      cm.sp('mt', 2),
+                      'text-on-surface-variant font-mono',
+                    )}
+                  >
+                    <span className={'material-symbols-outlined text-sm'} aria-hidden="true">
+                      schedule
+                    </span>
+                    {deal.duration} (
+                    {deal.stops === 0
+                      ? t('landing.deals.nonstop', {}, { defaultValue: 'Non-stop' })
+                      : t('landing.deals.stops', { n: deal.stops }, { defaultValue: '{{n}} stop' })}
+                    )
+                  </div>
+                  <div className={cm.cn(cm.flex({ gap: 'xs' }), cm.sp('mt', 4))}>
+                    {deal.carriers.map((carrier) => (
+                      <span
+                        key={carrier}
+                        className={cm.cn(
+                          cm.flex({ align: 'center', justify: 'center' }),
+                          cm.w(6),
+                          cm.h(6),
+                          cm.roundedFull,
+                          'bg-surface-container-low text-on-surface-variant text-[10px] font-bold',
+                        )}
+                        aria-hidden="true"
+                      >
+                        {carrier}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </section>
 
         {/* Feature triad */}
