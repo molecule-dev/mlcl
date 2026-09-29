@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { ObjectiveCard, type ObjectiveCardData } from '../components/ObjectiveCard.js'
 import { ProgressRing } from '../components/ProgressRing.js'
 
@@ -115,24 +116,7 @@ export function Landing() {
         )}
       >
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg shadow-primary/30',
-            )}
-          >
-            <span
-              className="material-symbols-outlined text-[22px]"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              landscape
-            </span>
-          </div>
-          <span
-            className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-on-surface')}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" />
         </Link>
         <nav className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
           <a
@@ -572,19 +556,7 @@ export function Landing() {
             'max-w-[1200px] mx-auto flex-col md:flex-row gap-8',
           )}
         >
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'sm' }),
-              cm.fontWeight('bold'),
-              cm.textSize('lg'),
-              'text-white',
-            )}
-          >
-            <span className="material-symbols-outlined" aria-hidden>
-              landscape
-            </span>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="sm" invert footer />
           {/* flex-wrap: at 390px the six links + gaps over-run one row and the
               row (unclipped, outside every overflow-hidden section) pushed the
               document to 485px scroll width (fleet-qa 2026-09-22). py on each

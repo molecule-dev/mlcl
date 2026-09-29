@@ -397,11 +397,12 @@ router.get('/daily', validateQuery(aggregateQuerySchema), async (req: Request, r
       consumption: number
       production: number
       cost: number
+      peakCost: number
       count: number
     }
     const dailyMap: Record<string, DayBucket> = {}
     function ensureBucket(day: string): DayBucket {
-      const b = dailyMap[day] ?? { consumption: 0, production: 0, cost: 0, count: 0 }
+      const b = dailyMap[day] ?? { consumption: 0, production: 0, cost: 0, peakCost: 0, count: 0 }
       dailyMap[day] = b
       return b
     }
@@ -410,13 +411,22 @@ router.get('/daily', validateQuery(aggregateQuerySchema), async (req: Request, r
       if (end_date && ts > new Date(String(end_date))) return false
       return true
     }
+    function isPeakHour(h: number): boolean {
+      return Boolean(
+        ratePlan?.peak_rate &&
+        ratePlan.peak_start_hour != null &&
+        ratePlan.peak_end_hour != null &&
+        h >= Number(ratePlan.peak_start_hour) &&
+        h < Number(ratePlan.peak_end_hour),
+      )
+    }
     function rateForHour(h: number): number {
       if (
         ratePlan?.peak_rate &&
         ratePlan.peak_start_hour != null &&
         ratePlan.peak_end_hour != null
       ) {
-        return h >= Number(ratePlan.peak_start_hour) && h < Number(ratePlan.peak_end_hour)
+        return isPeakHour(h)
           ? Number(ratePlan.peak_rate)
           : Number(ratePlan.off_peak_rate ?? ratePlan.rate_per_kwh)
       }
@@ -436,7 +446,9 @@ router.get('/daily', validateQuery(aggregateQuerySchema), async (req: Request, r
         const b = ensureBucket(day)
         const v = Number(r.value)
         b.consumption += v
-        b.cost += v * rateForHour(ts.getHours())
+        const rate = rateForHour(ts.getHours())
+        b.cost += v * rate
+        if (isPeakHour(ts.getHours())) b.peakCost += v * rate
         b.count += 1
       }
     }
@@ -465,6 +477,8 @@ router.get('/daily', validateQuery(aggregateQuerySchema), async (req: Request, r
         production: Number(agg.production.toFixed(3)),
         net_export: Number((agg.production - agg.consumption).toFixed(3)),
         cost: Number(agg.cost.toFixed(2)),
+        peak_cost: Number(agg.peakCost.toFixed(2)),
+        off_peak_cost: Number(Math.max(0, agg.cost - agg.peakCost).toFixed(2)),
         average: agg.count > 0 ? Number((agg.consumption / Math.max(1, agg.count)).toFixed(4)) : 0,
         min: 0,
         max: 0,

@@ -1,0 +1,16 @@
+{
+  "screens": {
+    "/maps": {
+      "allow": [
+        {
+          "heading": "Machine Learning Basics",
+          "reason": "Sample map name from the design's static card mock. The maps page renders the user's maps dynamically from /maps, so map names are data, not page copy — the map card grid section exists."
+        },
+        {
+          "heading": "Podcast Ideas 2024",
+          "reason": "Sample map name from the design's static card mock. The maps page renders the user's maps dynamically from /maps, so map names are data, not page copy — the map card grid section exists."
+        }
+      ]
+    }
+  }
+}

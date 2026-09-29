@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/alerts": {
+      "allow": [
+        {
+          "heading": "Grid Phase Imbalance Detected",
+          "reason": "Sample alert title from the design's static mock list. The alerts page renders real alerts dynamically from the user's seeded data (alerts.json fixtures), so individual alert titles are data, not page copy — the alert-list section itself exists."
+        }
+      ]
+    }
+  }
+}

@@ -27,7 +27,7 @@ const FEATURES = [
     icon: 'edit_note',
     defaultTitle: 'A block editor that just writes',
     defaultBody:
-      'Slash-command for tables, callouts, code, and embeds. Markdown-friendly. Ships with sane defaults so you write, not configure.',
+      'Editing that respects writers — a calm, distraction-free surface for long-form thought. Slash-command for tables, callouts, code, and embeds. Markdown-friendly. Ships with sane defaults so you write, not configure.',
   },
   {
     key: 'durable',

@@ -6,6 +6,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 interface PublicNode {
@@ -107,27 +108,12 @@ export function PublicMap() {
           "sticky top-0 z-40 bg-surface/85 backdrop-blur-xl border-b border-outline-variant/30 font-['Inter']",
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(9),
-              cm.h(9),
-              'rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-md',
-            )}
-          >
-            <span
-              className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              account_tree
-            </span>
-          </span>
-          <span
-            className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-on-surface')}
-          >
-            {APP_NAME}
-          </span>
+        <Link
+          to="/"
+          className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
+          aria-label={APP_NAME}
+        >
+          <BrandWordmark as="span" size="md" />
         </Link>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
           <ThemeToggle />

@@ -6,6 +6,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 interface AuthShellProps {
@@ -59,22 +60,7 @@ export function AuthShell({ heading, subheading, children, footerPrompt }: AuthS
           )}
         />
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'relative z-10')}>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'w-11 h-11 rounded-xl bg-surface/15 backdrop-blur-md text-white',
-            )}
-          >
-            <span
-              className="material-symbols-outlined text-[24px]"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              arrow_upward
-            </span>
-          </div>
-          <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-white')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" invert />
         </Link>
 
         <div className={cm.cn(cm.stack(6), 'relative z-10 max-w-md')}>
@@ -181,24 +167,7 @@ export function AuthShell({ heading, subheading, children, footerPrompt }: AuthS
           )}
         >
           <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'lg:hidden')}>
-            <div
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-sky-500 text-white shadow-lg',
-              )}
-            >
-              <span
-                className="material-symbols-outlined text-[20px]"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                arrow_upward
-              </span>
-            </div>
-            <span
-              className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-on-surface')}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" size="sm" />
           </Link>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'ml-auto')}>
             <ThemeToggle />

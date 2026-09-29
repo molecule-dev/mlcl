@@ -1,0 +1,24 @@
+{
+  "screens": {
+    "/notes/:id": {
+      "allow": [
+        {
+          "heading": "Notes on Modernist Fiction",
+          "reason": "Sample note title from the design's static sidebar mock. The note editor renders the user's note list dynamically from their data, so note titles are data, not page copy — the note-list sidebar section exists."
+        },
+        {
+          "heading": "Project: \"Aura\" Brainstorming",
+          "reason": "Sample note title from the design's static sidebar mock. The note editor renders the user's note list dynamically from their data, so note titles are data, not page copy — the note-list sidebar section exists."
+        }
+      ]
+    },
+    "/search": {
+      "allow": [
+        {
+          "heading": "Update machine learning framework documentation before release",
+          "reason": "Sample search-result row from the design's static mock (a task matching the query \"machine learning notes\"). Search results render dynamically from the user's real notes as you type, so individual result titles are data, not page copy — the results list section exists."
+        }
+      ]
+    }
+  }
+}

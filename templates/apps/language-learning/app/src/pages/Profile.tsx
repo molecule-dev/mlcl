@@ -286,6 +286,90 @@ export function Profile() {
         />
       </section>
 
+      {/* Stats & insights — learning vitals from progress data. */}
+      <section className={cm.stack(4)}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+          <span
+            aria-hidden="true"
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'w-9 h-9 rounded-full bg-primary-container text-on-primary-container shrink-0',
+            )}
+          >
+            <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
+              insights
+            </span>
+          </span>
+          <h2
+            className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}
+            data-testid="profile-stats-heading"
+          >
+            {t('profile.statsHeading', {}, { defaultValue: 'Stats & insights' })}
+          </h2>
+        </div>
+        <div className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-2 lg:grid-cols-4')}>
+          {[
+            {
+              key: 'lessons',
+              icon: 'menu_book',
+              label: t('profile.statLessons', {}, { defaultValue: 'Lessons completed' }),
+              value: String(profile?.lessons_completed ?? 0),
+              tint: 'text-primary',
+            },
+            {
+              key: 'xp',
+              icon: 'workspace_premium',
+              label: t('profile.statXp', {}, { defaultValue: 'Total XP' }),
+              value: totalXp.toLocaleString(),
+              tint: 'text-secondary',
+            },
+            {
+              key: 'bestStreak',
+              icon: 'local_fire_department',
+              label: t('profile.statBestStreak', {}, { defaultValue: 'Best streak' }),
+              value: `${profile?.longest_streak ?? 0}`,
+              tint: 'text-tertiary',
+            },
+            {
+              key: 'dailyGoal',
+              icon: 'flag',
+              label: t('profile.statDailyGoal', {}, { defaultValue: 'Daily XP goal' }),
+              value: `${profile?.daily_goal_xp ?? 50}`,
+              tint: 'text-on-surface-variant',
+            },
+          ].map((tile) => (
+            <div
+              key={tile.key}
+              data-testid={`profile-stat-${tile.key}`}
+              className={cm.cn(
+                cm.sp('p', 4),
+                cm.stack(1),
+                'rounded-2xl bg-surface-container-lowest border border-outline-variant/20',
+              )}
+            >
+              <p
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  cm.textSize('sm'),
+                  'font-medium text-on-surface-variant',
+                )}
+              >
+                <span
+                  aria-hidden="true"
+                  className={cm.cn('material-symbols-outlined text-base', tile.tint)}
+                >
+                  {tile.icon}
+                </span>
+                {tile.label}
+              </p>
+              <p className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'tabular-nums')}>
+                {tile.value}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Languages — per-language progress. */}
       <section className={cm.stack(4)}>
         <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>

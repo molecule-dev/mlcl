@@ -4,13 +4,11 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const FOCUS_RING =
   'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
-
-const WORDMARK_FONT = 'Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif'
 
 /**
  * Verso's authenticated shell — the shared `ResponsiveAppShell` family.
@@ -83,19 +81,8 @@ export function VersoLayout() {
   // Wordmark — leads the desktop sidebar's nav children and the drawer's
   // header slot (the shared Sidebar has no header slot).
   const brandBlock = (
-    <Link
-      to="/home"
-      className={cm.cn(
-        cm.textSize('xl'),
-        cm.fontWeight('bold'),
-        cm.sp('mb', 6),
-        cm.displayBlock,
-        'tracking-tight text-on-background rounded',
-        FOCUS_RING,
-      )}
-      style={{ fontFamily: WORDMARK_FONT }}
-    >
-      {APP_NAME}
+    <Link to="/home" className={cm.cn(cm.sp('mb', 6), cm.displayBlock, 'rounded', FOCUS_RING)}>
+      <BrandWordmark as="span" />
     </Link>
   )
 
@@ -168,17 +155,8 @@ export function VersoLayout() {
       <ResponsiveAppShell.TopBar
         mobileOnly
         brand={
-          <Link
-            to="/home"
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('extrabold'),
-              'tracking-tight text-on-background truncate rounded',
-              FOCUS_RING,
-            )}
-            style={{ fontFamily: WORDMARK_FONT }}
-          >
-            {APP_NAME}
+          <Link to="/home" className={cm.cn('truncate rounded', FOCUS_RING)}>
+            <BrandWordmark as="span" size="sm" />
           </Link>
         }
         actions={<UserMenu />}

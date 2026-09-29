@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/profile/:handle": {
+      "allow": [
+        {
+          "heading": "Maria Gomez verified",
+          "reason": "Sample profile owner's display name (plus verified badge) from the design's static mock. The profile page renders the looked-up user's display_name and is_verified dynamically from /api/profile, so the name is data, not page copy — the profile header section exists."
+        }
+      ]
+    }
+  }
+}

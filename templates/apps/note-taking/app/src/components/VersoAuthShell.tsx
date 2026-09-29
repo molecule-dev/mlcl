@@ -4,7 +4,8 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 /**
@@ -57,30 +58,7 @@ export function VersoAuthShell({
         )}
       >
         <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-          <span
-            className={cm.cn(
-              cm.w(9),
-              cm.h(9),
-              cm.flex({ align: 'center', justify: 'center' }),
-              'rounded-xl text-white shadow-md',
-              'bg-gradient-to-br from-primary to-primary-container',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              menu_book
-            </span>
-          </span>
-          <span
-            className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-on-surface')}
-            style={{
-              fontFamily: 'Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif',
-            }}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="sm" />
         </Link>
         <ThemeToggle />
       </header>

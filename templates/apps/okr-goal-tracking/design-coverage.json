@@ -1,0 +1,24 @@
+{
+  "screens": {
+    "/check-in": {
+      "allow": [
+        {
+          "heading": "Reduce average latency to <200ms",
+          "reason": "Sample key-result title from the design's static mock. The check-in page renders the user's objectives and key results dynamically from their data, so KR titles are data, not page copy — the per-objective key-result check-in cards exist."
+        }
+      ]
+    },
+    "/reviews/:id": {
+      "allow": [
+        {
+          "heading": "Launch Q4 Holiday Campaign",
+          "reason": "Sample objective title from the design's static review mock. The review detail renders scored objectives dynamically from the period's data, so objective titles are data, not page copy — the objective outcomes/scorecard sections exist."
+        },
+        {
+          "heading": "Increase Inbound Lead Quality",
+          "reason": "Sample objective title from the design's static review mock. The review detail renders scored objectives dynamically from the period's data, so objective titles are data, not page copy — the objective outcomes/scorecard sections exist."
+        }
+      ]
+    }
+  }
+}

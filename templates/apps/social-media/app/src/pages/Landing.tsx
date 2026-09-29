@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { PostCard } from '../components/PostCard.js'
 import { SAMPLE_HASHTAGS, SAMPLE_POSTS, SAMPLE_STORIES, vividGradient } from '../lib/sample-feed.js'
 
@@ -77,32 +78,13 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <span
+          <Link
+            to="/"
             data-mol-id="nav-brand"
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'sm' }),
-              cm.textSize('xl'),
-              cm.fontWeight('extrabold'),
-              'tracking-tight text-primary',
-            )}
+            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
           >
-            <span
-              className={cm.cn(
-                'inline-flex w-8 h-8 rounded-full items-center justify-center',
-                'landing-vivid-gradient text-white shadow',
-              )}
-              aria-hidden="true"
-            >
-              {/* Tile owns the sizing/centering — never the glyph span. */}
-              <span
-                className={cm.cn('material-symbols-outlined text-[18px]')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                bolt
-              </span>
-            </span>
-            {APP_NAME}
-          </span>
+            <BrandWordmark as="span" size="md" />
+          </Link>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             <Link
               to="/pricing"
@@ -620,15 +602,9 @@ export function Landing() {
               'md:items-start',
             )}
           >
-            <span
-              className={cm.cn(
-                cm.textSize('xl'),
-                cm.fontWeight('extrabold'),
-                'tracking-tight text-primary',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            {/* footer lockup: shared BrandWordmark (footer variant keeps the
+                per-page brand-wordmark e2e contract header-scoped) */}
+            <BrandWordmark as="span" size="md" footer />
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t(
                 'landing.copyright',

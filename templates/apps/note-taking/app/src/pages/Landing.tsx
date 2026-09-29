@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 const FEATURES = [
@@ -69,30 +70,7 @@ export function Landing() {
         )}
       >
         <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-          <span
-            className={cm.cn(
-              cm.w(10),
-              cm.h(10),
-              cm.flex({ align: 'center', justify: 'center' }),
-              'rounded-lg text-white shadow-md',
-              'bg-gradient-to-br from-primary to-primary-container',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              menu_book
-            </span>
-          </span>
-          <span
-            className={cm.cn(
-              cm.textSize('2xl'),
-              'font-headline font-semibold tracking-tighter text-on-surface',
-            )}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="lg" />
         </Link>
         <nav
           className={cm.cn(
@@ -383,7 +361,9 @@ export function Landing() {
       <footer className="w-full bg-surface-container-low py-16 px-6 md:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
           <div className="col-span-2 md:col-span-1">
-            <div className="font-headline text-xl font-medium text-on-surface mb-3">{APP_NAME}</div>
+            <div className="mb-3">
+              <BrandWordmark as="span" size="sm" footer />
+            </div>
             <p className="text-sm text-on-surface-variant mb-8">{APP_TAGLINE}</p>
             <div className={cm.cn(microLabel, 'text-on-surface-variant')}>
               {t(

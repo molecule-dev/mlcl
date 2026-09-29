@@ -120,6 +120,20 @@ export function AlertRule() {
         onSubmit={handleSubmit}
         className={cm.cn(cm.sp('p', 6), 'bg-surface-container-lowest rounded-2xl', cm.stack(6))}
       >
+        <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+          <span
+            aria-hidden="true"
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'w-9 h-9 rounded-full bg-primary-container text-on-primary-container shrink-0',
+            )}
+          >
+            <span className={'material-symbols-outlined text-lg'}>tune</span>
+          </span>
+          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+            {t('alertRule.basicsHeading', {}, { defaultValue: 'Rule basics' })}
+          </h2>
+        </div>
         <label className={cm.stack(2)}>
           <span
             className={cm.cn(

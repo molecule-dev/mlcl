@@ -1,0 +1,24 @@
+{
+  "screens": {
+    "/library": {
+      "allow": [
+        {
+          "heading": "Tide pools at dusk",
+          "reason": "Sample session card title from the design's static mock. The library renders session cards dynamically from /sessions, so titles are data, not page copy — the session card grid section exists."
+        },
+        {
+          "heading": "Softening around worry",
+          "reason": "Sample session card title from the design's static mock. The library renders session cards dynamically from /sessions, so titles are data, not page copy — the session card grid section exists."
+        }
+      ]
+    },
+    "/courses/:id": {
+      "allow": [
+        {
+          "heading": "Day 5: Cultivating Gratitude",
+          "reason": "Sample course-day title from the design's static mock. The course detail page renders the day list dynamically from course.days, so per-day titles are data, not page copy — the day-by-day lesson list section exists."
+        }
+      ]
+    }
+  }
+}

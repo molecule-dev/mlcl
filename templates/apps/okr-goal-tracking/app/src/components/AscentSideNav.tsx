@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { NAV_SECTIONS } from './navSections.js'
 
 /**
@@ -32,27 +32,7 @@ export function AscentSideNav() {
         to="/dashboard"
         className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('px', 6), cm.sp('py', 6))}
       >
-        <div
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            'w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-sky-500 text-white shadow-lg shadow-indigo-500/30',
-          )}
-        >
-          <span
-            className="material-symbols-outlined text-[22px]"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            arrow_upward
-          </span>
-        </div>
-        <div className={cm.flex({ direction: 'col' })}>
-          <span className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-white')}>
-            {APP_NAME}
-          </span>
-          <span className="text-[10px] uppercase tracking-[0.18em] text-indigo-300/70 font-bold">
-            {APP_TAGLINE}
-          </span>
-        </div>
+        <BrandWordmark as="span" size="sm" invert withTagline />
       </Link>
 
       <nav className={cm.cn(cm.flex1, cm.sp('px', 4), cm.stack(6), 'overflow-y-auto')}>

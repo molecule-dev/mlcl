@@ -43,6 +43,7 @@ interface SocialPreferences {
   privPrivate?: boolean
   privActivity?: boolean
   privTagging?: boolean
+  twoFactor?: boolean
 }
 
 type UserWithPrefs = UserProfile & { email?: string }
@@ -55,6 +56,7 @@ const DEFAULT_PREFS: Required<SocialPreferences> = {
   privPrivate: false,
   privActivity: true,
   privTagging: true,
+  twoFactor: false,
 }
 
 /**
@@ -401,6 +403,31 @@ export function Settings() {
                     },
                   )}
                 </p>
+                <h3
+                  className={cm.cn(
+                    cm.fontWeight('bold'),
+                    cm.textSize('lg'),
+                    cm.sp('mt', 4),
+                    'text-on-surface',
+                  )}
+                >
+                  {t('settings.account.securityHeading', {}, { defaultValue: 'Security' })}
+                </h3>
+                <Toggle
+                  label={t(
+                    'settings.account.twoFactor',
+                    {},
+                    { defaultValue: 'Two-Factor Authentication' },
+                  )}
+                  description={t(
+                    'settings.account.twoFactorDesc',
+                    {},
+                    { defaultValue: 'Add an extra layer of security to your account.' },
+                  )}
+                  on={prefs.twoFactor}
+                  testId="toggle-two-factor"
+                  onToggle={() => togglePref('twoFactor')}
+                />
               </div>
             )}
 

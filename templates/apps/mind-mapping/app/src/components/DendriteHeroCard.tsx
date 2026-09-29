@@ -20,6 +20,23 @@ export interface DendriteHeroCardProps {
   callToActionHref?: string
 }
 
+// Time-of-day greetings (design: "Good morning, Alex") — literal fallbacks so
+// translations and the doc scanner can see each variant.
+const TIME_GREETINGS = {
+  morning: {
+    key: 'dendriteHero.greeting.morning',
+    fallback: 'Good morning, {{name}}',
+  },
+  afternoon: {
+    key: 'dendriteHero.greeting.afternoon',
+    fallback: 'Good afternoon, {{name}}',
+  },
+  evening: {
+    key: 'dendriteHero.greeting.evening',
+    fallback: 'Good evening, {{name}}',
+  },
+} as const
+
 export function DendriteHeroCard({
   totalMaps,
   weeklyDelta = 0,
@@ -30,6 +47,9 @@ export function DendriteHeroCard({
   const { t } = useTranslation()
   const positive = weeklyDelta >= 0
   const sign = positive ? '+' : ''
+  // Time-of-day for the personal greeting (design: "Good morning, Alex").
+  const hour = new Date().getHours()
+  const timeOfDay = hour < 12 ? 'morning' : hour < 17 ? 'afternoon' : 'evening'
 
   return (
     <section
@@ -67,7 +87,13 @@ export function DendriteHeroCard({
             <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>
               auto_awesome
             </span>
-            {t('dendriteHero.eyebrow', {}, { defaultValue: 'Today on the canvas' })}
+            {greetingName
+              ? t(
+                  TIME_GREETINGS[timeOfDay].key,
+                  { name: greetingName },
+                  { defaultValue: TIME_GREETINGS[timeOfDay].fallback },
+                )
+              : t('dendriteHero.eyebrow', {}, { defaultValue: 'Today on the canvas' })}
           </span>
           <h2
             className={cm.cn(

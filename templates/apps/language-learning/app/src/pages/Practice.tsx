@@ -263,171 +263,242 @@ export function Practice() {
         </p>
       </header>
 
-      <section
-        data-testid="practice-stage"
-        className={cm.cn(
-          cm.sp('p', 10),
-          'relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary via-primary-dark to-primary-light text-white shadow-2xl shadow-primary/30',
-        )}
-      >
-        <div
+      <div className={cm.cn('grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] items-start')}>
+        <section
+          data-testid="practice-stage"
           className={cm.cn(
-            cm.flex({ justify: 'between', align: 'start' }),
-            cm.sp('mb', 8),
-            'relative z-10',
+            cm.sp('p', 10),
+            'relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary via-primary-dark to-primary-light text-white shadow-2xl shadow-primary/30',
           )}
         >
-          <div>
+          <div
+            className={cm.cn(
+              cm.flex({ justify: 'between', align: 'start' }),
+              cm.sp('mb', 8),
+              'relative z-10',
+            )}
+          >
+            <div>
+              <p
+                className={cm.cn(
+                  'font-black uppercase tracking-widest text-[10px] text-primary-fixed/90 mb-1',
+                )}
+              >
+                {t('practice.lessonLabel', {}, { defaultValue: 'Lesson' })}
+              </p>
+              <p className={cm.cn('text-sm font-bold opacity-90')} data-testid="practice-lesson">
+                <span aria-hidden="true">{phrase.flag} </span>
+                {phrase.lesson_title}
+              </p>
+            </div>
+            <span
+              className={cm.cn(
+                cm.sp('px', 3),
+                cm.sp('py', 1),
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                cm.roundedFull,
+                'uppercase tracking-widest bg-surface/20 backdrop-blur-md',
+              )}
+            >
+              {t(`practice.difficulty.${difficulty}`, {}, { defaultValue: difficulty })}
+            </span>
+          </div>
+
+          <p
+            className={cm.cn(
+              cm.textSize('4xl'),
+              cm.sp('mb', 4),
+              'relative z-10 font-extrabold tracking-tight leading-snug',
+            )}
+            data-testid="practice-prompt"
+          >
+            {phrase.prompt}
+          </p>
+          {phrase.correct_answer && (
             <p
               className={cm.cn(
-                'font-black uppercase tracking-widest text-[10px] text-primary-fixed/90 mb-1',
+                cm.textSize('lg'),
+                cm.sp('mb', 10),
+                'relative z-10 italic opacity-90',
               )}
+              data-testid="practice-answer"
             >
-              {t('practice.lessonLabel', {}, { defaultValue: 'Lesson' })}
+              “{phrase.correct_answer}”
             </p>
-            <p className={cm.cn('text-sm font-bold opacity-90')} data-testid="practice-lesson">
-              <span aria-hidden="true">{phrase.flag} </span>
-              {phrase.lesson_title}
-            </p>
+          )}
+
+          <div className={cm.cn('relative z-10 flex items-end gap-1 h-24 mb-10')}>
+            {waveformBars.map((h, i) => (
+              <span
+                key={i}
+                className={cm.cn(
+                  'flex-1 rounded-full bg-surface/70 transition-all',
+                  recording ? 'animate-pulse' : '',
+                )}
+                style={{ height: `${recording ? h : Math.max(8, h / 3)}%` }}
+              />
+            ))}
           </div>
-          <span
+
+          <div
             className={cm.cn(
-              cm.sp('px', 3),
-              cm.sp('py', 1),
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              cm.roundedFull,
-              'uppercase tracking-widest bg-surface/20 backdrop-blur-md',
+              cm.flex({ align: 'center', gap: 'lg', justify: 'center' }),
+              'relative z-10',
             )}
           >
-            {t(`practice.difficulty.${difficulty}`, {}, { defaultValue: difficulty })}
-          </span>
-        </div>
-
-        <p
-          className={cm.cn(
-            cm.textSize('4xl'),
-            cm.sp('mb', 4),
-            'relative z-10 font-extrabold tracking-tight leading-snug',
-          )}
-          data-testid="practice-prompt"
-        >
-          {phrase.prompt}
-        </p>
-        {phrase.correct_answer && (
-          <p
-            className={cm.cn(cm.textSize('lg'), cm.sp('mb', 10), 'relative z-10 italic opacity-90')}
-            data-testid="practice-answer"
-          >
-            “{phrase.correct_answer}”
-          </p>
-        )}
-
-        <div className={cm.cn('relative z-10 flex items-end gap-1 h-24 mb-10')}>
-          {waveformBars.map((h, i) => (
-            <span
-              key={i}
-              className={cm.cn(
-                'flex-1 rounded-full bg-surface/70 transition-all',
-                recording ? 'animate-pulse' : '',
+            <button
+              type="button"
+              onClick={handlePlayNative}
+              disabled={synthLoading}
+              data-testid="practice-play-native"
+              aria-label={t(
+                'practice.playNative',
+                {},
+                { defaultValue: 'Play native pronunciation' },
               )}
-              style={{ height: `${recording ? h : Math.max(8, h / 3)}%` }}
-            />
-          ))}
-        </div>
+              className={cm.cn(
+                cm.w(14),
+                cm.h(14),
+                cm.flex({ align: 'center', justify: 'center' }),
+                cm.roundedFull,
+                'bg-surface/20 backdrop-blur-md text-white hover:bg-surface/30 transition-colors disabled:opacity-50',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
+                {synthLoading ? 'progress_activity' : 'volume_up'}
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={handleToggleRecord}
+              disabled={submitting}
+              aria-pressed={recording}
+              data-testid="practice-record"
+              className={cm.cn(
+                cm.w(20),
+                cm.h(20),
+                cm.flex({ align: 'center', justify: 'center' }),
+                cm.roundedFull,
+                'shadow-2xl transition-transform disabled:opacity-50',
+                recording
+                  ? 'bg-secondary text-white scale-110'
+                  : 'bg-surface text-primary hover:scale-105',
+              )}
+            >
+              <span
+                className={cm.cn('material-symbols-outlined text-4xl')}
+                aria-hidden="true"
+                style={{ fontVariationSettings: "'FILL' 1" }}
+              >
+                {recording ? 'stop_circle' : 'mic'}
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={handleNext}
+              data-testid="practice-next"
+              aria-label={t('practice.nextPhrase', {}, { defaultValue: 'Next phrase' })}
+              className={cm.cn(
+                cm.w(14),
+                cm.h(14),
+                cm.flex({ align: 'center', justify: 'center' }),
+                cm.roundedFull,
+                'bg-surface/20 backdrop-blur-md text-white hover:bg-surface/30 transition-colors',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
+                skip_next
+              </span>
+            </button>
+          </div>
 
-        <div
+          {synthError && (
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.sp('mt', 4),
+                cm.textCenter,
+                'text-white/80 relative z-10',
+              )}
+            >
+              {synthError}
+            </p>
+          )}
+
+          <div
+            className={cm.cn(
+              'absolute -right-20 -bottom-20 w-72 h-72 rounded-full bg-surface/10 blur-3xl',
+            )}
+          />
+          <div
+            className={cm.cn(
+              'absolute right-12 top-12 w-20 h-20 rounded-full bg-secondary/40 blur-2xl',
+            )}
+          />
+        </section>
+
+        <aside
+          data-testid="practice-tips"
           className={cm.cn(
-            cm.flex({ align: 'center', gap: 'lg', justify: 'center' }),
-            'relative z-10',
+            cm.sp('p', 6),
+            'rounded-[2rem] bg-surface-container-lowest border border-outline-variant/20 shadow-sm lg:sticky lg:top-24',
           )}
         >
-          <button
-            type="button"
-            onClick={handlePlayNative}
-            disabled={synthLoading}
-            data-testid="practice-play-native"
-            aria-label={t('practice.playNative', {}, { defaultValue: 'Play native pronunciation' })}
-            className={cm.cn(
-              cm.w(14),
-              cm.h(14),
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.roundedFull,
-              'bg-surface/20 backdrop-blur-md text-white hover:bg-surface/30 transition-colors disabled:opacity-50',
-            )}
-          >
-            <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
-              {synthLoading ? 'progress_activity' : 'volume_up'}
-            </span>
-          </button>
-          <button
-            type="button"
-            onClick={handleToggleRecord}
-            disabled={submitting}
-            aria-pressed={recording}
-            data-testid="practice-record"
-            className={cm.cn(
-              cm.w(20),
-              cm.h(20),
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.roundedFull,
-              'shadow-2xl transition-transform disabled:opacity-50',
-              recording
-                ? 'bg-secondary text-white scale-110'
-                : 'bg-surface text-primary hover:scale-105',
-            )}
-          >
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 4))}>
             <span
-              className={cm.cn('material-symbols-outlined text-4xl')}
               aria-hidden="true"
-              style={{ fontVariationSettings: "'FILL' 1" }}
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                'w-9 h-9 rounded-full bg-secondary-container text-on-secondary-container shrink-0',
+              )}
             >
-              {recording ? 'stop_circle' : 'mic'}
+              <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
+                lightbulb
+              </span>
             </span>
-          </button>
-          <button
-            type="button"
-            onClick={handleNext}
-            data-testid="practice-next"
-            aria-label={t('practice.nextPhrase', {}, { defaultValue: 'Next phrase' })}
-            className={cm.cn(
-              cm.w(14),
-              cm.h(14),
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.roundedFull,
-              'bg-surface/20 backdrop-blur-md text-white hover:bg-surface/30 transition-colors',
-            )}
-          >
-            <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
-              skip_next
-            </span>
-          </button>
-        </div>
-
-        {synthError && (
-          <p
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.sp('mt', 4),
-              cm.textCenter,
-              'text-white/80 relative z-10',
-            )}
-          >
-            {synthError}
-          </p>
-        )}
-
-        <div
-          className={cm.cn(
-            'absolute -right-20 -bottom-20 w-72 h-72 rounded-full bg-surface/10 blur-3xl',
-          )}
-        />
-        <div
-          className={cm.cn(
-            'absolute right-12 top-12 w-20 h-20 rounded-full bg-secondary/40 blur-2xl',
-          )}
-        />
-      </section>
+            <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+              {t('practice.tipsHeading', {}, { defaultValue: 'Tips for better speaking' })}
+            </h2>
+          </div>
+          <ul className={cm.cn(cm.stack(3))}>
+            {[
+              {
+                key: 'pace',
+                body: t(
+                  'practice.tipPace',
+                  {},
+                  { defaultValue: 'Speak at a natural pace — no need to rush the words.' },
+                ),
+              },
+              {
+                key: 'tone',
+                body: t(
+                  'practice.tipTone',
+                  {},
+                  { defaultValue: 'Match the speaker’s tone, not just the sounds.' },
+                ),
+              },
+              {
+                key: 'quiet',
+                body: t(
+                  'practice.tipQuiet',
+                  {},
+                  { defaultValue: 'Record somewhere quiet so every syllable comes through.' },
+                ),
+              },
+            ].map((tip) => (
+              <li key={tip.key} className={cm.cn(cm.flex({ align: 'start', gap: 'sm' }))}>
+                <span
+                  aria-hidden="true"
+                  className={cm.cn('w-2 h-2 rounded-full bg-primary mt-2 shrink-0')}
+                />
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>{tip.body}</p>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      </div>
 
       {feedback && (
         <section

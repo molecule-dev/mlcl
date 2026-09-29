@@ -1,0 +1,20 @@
+{
+  "screens": {
+    "/home": {
+      "allow": [
+        {
+          "heading": "Q3 Roadmap Planning Guidelines",
+          "reason": "Sample article title from the design's static card mock. The home page renders bookmarked/recent articles dynamically from the user's seeded data, so article titles are data, not page copy — the card grid section exists."
+        }
+      ]
+    },
+    "/bookmarks": {
+      "allow": [
+        {
+          "heading": "Backend API Deployment Guide",
+          "reason": "Sample bookmarked-page title from the design's static mock. The bookmarks page renders saved articles dynamically from the user's data, so titles are data — the bookmark card list section exists."
+        }
+      ]
+    }
+  }
+}

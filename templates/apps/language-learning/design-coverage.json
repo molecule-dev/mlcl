@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/practice": {
+      "allow": [
+        {
+          "heading": "Me encanta aprender idiomas nuevos",
+          "reason": "Sample practice prompt from the design's static mock. The practice stage renders the current prompt dynamically from /api/practice/phrases (seeded lesson vocabulary), so the prompt sentence is data, not page copy — the prompt card section exists."
+        }
+      ]
+    }
+  }
+}

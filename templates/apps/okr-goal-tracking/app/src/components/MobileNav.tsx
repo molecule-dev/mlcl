@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { NAV_SECTIONS } from './navSections.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
@@ -91,28 +91,7 @@ export function MobileNav() {
               cm.roundedFull,
             )}
           >
-            <span
-              aria-hidden
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'w-9 h-9 rounded-xl shrink-0 bg-gradient-to-br from-indigo-500 to-sky-500 text-white shadow-md shadow-indigo-500/30',
-              )}
-            >
-              <span
-                className="material-symbols-outlined text-[20px]"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                arrow_upward
-              </span>
-            </span>
-            <span
-              className={cm.cn(
-                cm.textSize('lg'),
-                'font-extrabold tracking-tight text-on-surface truncate',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" size="sm" />
           </Link>
         </div>
         <div className={cm.cn(cm.flex({ align: 'center' }), 'shrink-0')}>
@@ -162,16 +141,7 @@ export function MobileNav() {
             <div
               className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 6))}
             >
-              <span className={cm.flex({ direction: 'col' })}>
-                <span
-                  className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-white')}
-                >
-                  {APP_NAME}
-                </span>
-                <span className="text-[10px] uppercase tracking-[0.18em] text-indigo-300/70 font-bold">
-                  {APP_TAGLINE}
-                </span>
-              </span>
+              <BrandWordmark as="span" size="sm" invert withTagline />
               <button
                 type="button"
                 aria-label={t('mobileNav.closeMenu', {}, { defaultValue: 'Close navigation menu' })}

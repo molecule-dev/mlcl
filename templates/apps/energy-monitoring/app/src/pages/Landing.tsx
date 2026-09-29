@@ -381,7 +381,7 @@ export function Landing() {
                     cm.flex({ align: 'center', gap: 'xs' }),
                     cm.textSize('sm'),
                     cm.fontWeight('semibold'),
-                    'text-on-surface-variant/70',
+                    'text-on-surface-variant',
                   )}
                 >
                   <span className={'material-symbols-outlined text-lg'} aria-hidden="true">

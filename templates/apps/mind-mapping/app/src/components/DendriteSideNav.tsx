@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Branded navigation pieces for Dendrite — nav links with active-state border
@@ -99,36 +99,21 @@ export function DendriteBrand({ compact = false }: { compact?: boolean }) {
       to="/dashboard"
       className={cm.cn(cm.flex({ align: 'center' }), cm.sp('px', 6), cm.sp('py', 8), 'gap-3')}
     >
-      <div
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'center' }),
-          cm.w(9),
-          cm.h(9),
-          'bg-gradient-to-br from-primary to-primary-container rounded-xl text-on-primary shadow-md',
-        )}
-      >
-        <span
-          className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}
-          style={{ fontVariationSettings: "'FILL' 1" }}
-          aria-hidden="true"
-        >
-          account_tree
-        </span>
-      </div>
-      <div className={cm.flex({ direction: 'col' })}>
-        <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-on-surface')}>
-          {APP_NAME}
-        </span>
-        {!compact && (
-          <span
-            className={cm.cn(
-              'text-[10px] uppercase tracking-widest text-on-surface-variant font-bold',
-            )}
-          >
-            {t('brand.tagline', {}, { defaultValue: 'Where ideas branch out' })}
-          </span>
-        )}
-      </div>
+      <BrandWordmark
+        as="span"
+        size="md"
+        tagline={
+          !compact ? (
+            <span
+              className={cm.cn(
+                'text-[10px] uppercase tracking-widest text-on-surface-variant font-bold',
+              )}
+            >
+              {t('brand.tagline', {}, { defaultValue: 'Where ideas branch out' })}
+            </span>
+          ) : undefined
+        }
+      />
     </Link>
   )
 }
