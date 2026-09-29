@@ -34,6 +34,7 @@ export function StoryDetail() {
   const { id } = useParams<{ id: string }>()
   const [story, setStory] = useState<Story | null>(null)
   const [coverage, setCoverage] = useState<ReadonlyArray<SourceCoverage>>([])
+  const [related, setRelated] = useState<ReadonlyArray<Story>>([])
   const [loading, setLoading] = useState(true)
   const [saved, setSaved] = useState(false)
 
@@ -70,6 +71,24 @@ export function StoryDetail() {
       cancelled = true
     }
   }, [http, id])
+  // Related Analysis rail: other stories in the same topic cluster.
+  useEffect(() => {
+    if (!story?.topic_slug) return
+    let cancelled = false
+    http
+      .get(`/api/stories?topic=${encodeURIComponent(story.topic_slug)}&limit=5`)
+      .then((res) => {
+        if (cancelled) return
+        const list = unwrapList<Story>(res).filter((r) => r.id !== id)
+        setRelated(list.slice(0, 4))
+      })
+      .catch(() => {
+        if (!cancelled) setRelated([])
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [http, id, story?.topic_slug])
 
   async function handleSaveToggle() {
     if (!id) return
@@ -349,6 +368,53 @@ export function StoryDetail() {
             )
           })}
         </div>
+      </section>
+
+      {/* Related Analysis — same-topic stories rail from the design's right column */}
+      <section className={cm.stack(4)} data-mol-id="related-analysis">
+        <h2
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.textSize('sm'),
+            cm.fontWeight('semibold'),
+            'uppercase tracking-wider text-on-surface',
+          )}
+        >
+          <span className={'material-symbols-outlined text-primary text-base'} aria-hidden="true">
+            analytics
+          </span>
+          {t('storyDetail.relatedHeading', {}, { defaultValue: 'Related Analysis' })}
+        </h2>
+        {related.length === 0 ? (
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t('storyDetail.relatedEmpty', {}, { defaultValue: 'No related analysis yet.' })}
+          </p>
+        ) : (
+          <div className={cm.cn(cm.stack(4))}>
+            {related.map((r) => (
+              <Link key={r.id} to={`/stories/${r.id}`} className={cm.cn('group')}>
+                <p
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    'uppercase tracking-wider text-on-surface-variant',
+                  )}
+                >
+                  {r.topic}
+                </p>
+                <p
+                  className={cm.cn(
+                    cm.textSize('base'),
+                    cm.fontWeight('bold'),
+                    'leading-snug group-hover:text-primary transition-colors',
+                  )}
+                >
+                  {r.headline}
+                </p>
+              </Link>
+            ))}
+          </div>
+        )}
       </section>
     </article>
   )

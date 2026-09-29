@@ -5,6 +5,7 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { DestinationDiscoveryCard } from '../components/DestinationDiscoveryCard.js'
 import { PropertyListingCard } from '../components/PropertyListingCard.js'
 import { SojournHeroSearchCard } from '../components/SojournHeroSearchCard.js'
@@ -42,40 +43,40 @@ const FEATURED_DESTINATIONS = [
 
 const PREVIEW_PROPERTIES = [
   {
-    id: 'casa-mirador-oaxaca',
-    name: 'Casa Mirador Oaxaca',
-    city: 'Oaxaca',
-    country: 'Mexico',
+    id: 'villa-azul-resort',
+    name: 'Villa Azul Resort',
+    city: 'Corralejo',
+    country: 'Spain',
     rating: 4.9,
-    review_count: 348,
-    price_per_night_cents: 26900,
-    thumbnail_url: 'https://picsum.photos/seed/sojourn-tb-p1/800/600',
-    amenities: ['Plunge pool', 'Mezcal cellar', 'Mountain trails'],
-    badges: ['editor_pick', 'rare_find'],
+    review_count: 402,
+    price_per_night_cents: 38700,
+    thumbnail_url: 'https://picsum.photos/seed/sojourn-tb-p14/800/600',
+    amenities: ['Three pools', 'Spa', 'Beach shuttle'],
+    badges: ['travelers_choice'],
   },
   {
-    id: 'the-faroe-hideaway',
-    name: 'The Faroe Hideaway',
-    city: 'Tórshavn',
-    country: 'Faroe Islands',
-    rating: 4.9,
-    review_count: 142,
-    price_per_night_cents: 41200,
-    thumbnail_url: 'https://picsum.photos/seed/sojourn-tb-p3/800/600',
-    amenities: ['Aurora viewing', 'Hot tub', 'Sea kayaks'],
-    badges: ['new'],
-  },
-  {
-    id: 'lighthouse-suites-cinque-terre',
-    name: 'Lighthouse Suites Cinque Terre',
-    city: 'Vernazza',
-    country: 'Italy',
+    id: 'the-downtown-loft',
+    name: 'The Downtown Loft',
+    city: 'New York',
+    country: 'United States',
     rating: 4.8,
-    review_count: 305,
-    price_per_night_cents: 38900,
-    thumbnail_url: 'https://picsum.photos/seed/sojourn-tb-p7/800/600',
-    amenities: ['Sea access', 'Private boat', 'Pool'],
-    badges: ['rare_find'],
+    review_count: 254,
+    price_per_night_cents: 52400,
+    thumbnail_url: 'https://picsum.photos/seed/sojourn-tb-p15/800/600',
+    amenities: ['Freight elevator', 'Chef’s kitchen', 'Record player'],
+    badges: ['guest_favorite'],
+  },
+  {
+    id: 'pinecrest-a-frame',
+    name: 'Pinecrest A-Frame',
+    city: 'Pinecrest',
+    country: 'United States',
+    rating: 4.9,
+    review_count: 189,
+    price_per_night_cents: 24300,
+    thumbnail_url: 'https://picsum.photos/seed/sojourn-tb-p16/800/600',
+    amenities: ['Woodstove', 'Lake access', 'Fire pit'],
+    badges: ['editors_pick'],
   },
 ]
 
@@ -129,17 +130,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <span
-              className={cm.cn(
-                cm.textSize('2xl'),
-                cm.fontWeight('extrabold'),
-                'text-primary tracking-tight font-headline',
-              )}
-            >
-              {APP_NAME}
-            </span>
-          </Link>
+          <BrandWordmark size="lg" />
           <div className={cm.flex({ align: 'center', gap: 'lg' })}>
             <Link
               to="/search"
@@ -276,11 +267,7 @@ export function Landing() {
                     'leading-tight tracking-tight font-headline',
                   )}
                 >
-                  {t(
-                    'landing.preview.heading',
-                    {},
-                    { defaultValue: 'Hand-picked stays this month' },
-                  )}
+                  {t('landing.preview.heading', {}, { defaultValue: 'Stays loved by travelers' })}
                 </h2>
                 <p
                   className={cm.cn(
@@ -575,15 +562,7 @@ export function Landing() {
         <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), 'pt-12 pb-8', cm.mxAuto)}>
           <div className={cm.cn('grid grid-cols-1 md:grid-cols-4 gap-10')}>
             <div>
-              <span
-                className={cm.cn(
-                  cm.textSize('2xl'),
-                  cm.fontWeight('extrabold'),
-                  'text-primary tracking-tight font-headline',
-                )}
-              >
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" size="lg" footer />
               <p
                 className={cm.cn(
                   cm.textSize('sm'),

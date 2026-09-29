@@ -15,8 +15,17 @@
       "https://picsum.photos/seed/sojourn-tb-p1c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p1d/800/600"
     ],
-    "amenities": ["Plunge pool", "Mezcal cellar", "Free Wi-Fi", "Concierge", "Mountain trails"],
-    "badges": ["editor_pick", "rare_find"]
+    "amenities": [
+      "Plunge pool",
+      "Mezcal cellar",
+      "Free Wi-Fi",
+      "Concierge",
+      "Mountain trails"
+    ],
+    "badges": [
+      "editor_pick",
+      "rare_find"
+    ]
   },
   {
     "id": "p2",
@@ -34,8 +43,16 @@
       "https://picsum.photos/seed/sojourn-tb-p2c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p2d/800/600"
     ],
-    "amenities": ["Vineyard tours", "Wine cellar", "Pool", "Bicycles", "Breakfast included"],
-    "badges": ["editor_pick"]
+    "amenities": [
+      "Vineyard tours",
+      "Wine cellar",
+      "Pool",
+      "Bicycles",
+      "Breakfast included"
+    ],
+    "badges": [
+      "editor_pick"
+    ]
   },
   {
     "id": "p3",
@@ -53,8 +70,16 @@
       "https://picsum.photos/seed/sojourn-tb-p3c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p3d/800/600"
     ],
-    "amenities": ["Hot tub", "Aurora viewing", "Sauna", "Sea kayaks", "Restaurant"],
-    "badges": ["new"]
+    "amenities": [
+      "Hot tub",
+      "Aurora viewing",
+      "Sauna",
+      "Sea kayaks",
+      "Restaurant"
+    ],
+    "badges": [
+      "new"
+    ]
   },
   {
     "id": "p4",
@@ -72,7 +97,14 @@
       "https://picsum.photos/seed/sojourn-tb-p4c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p4d/800/600"
     ],
-    "amenities": ["Hammam", "Rooftop terrace", "Pool", "Restaurant", "Free Wi-Fi", "Pet friendly"],
+    "amenities": [
+      "Hammam",
+      "Rooftop terrace",
+      "Pool",
+      "Restaurant",
+      "Free Wi-Fi",
+      "Pet friendly"
+    ],
     "badges": []
   },
   {
@@ -91,8 +123,16 @@
       "https://picsum.photos/seed/sojourn-tb-p5c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p5d/800/600"
     ],
-    "amenities": ["Onsen", "Kaiseki dining", "Tea house", "Garden", "Concierge"],
-    "badges": ["editor_pick"]
+    "amenities": [
+      "Onsen",
+      "Kaiseki dining",
+      "Tea house",
+      "Garden",
+      "Concierge"
+    ],
+    "badges": [
+      "editor_pick"
+    ]
   },
   {
     "id": "p6",
@@ -110,7 +150,13 @@
       "https://picsum.photos/seed/sojourn-tb-p6c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p6d/800/600"
     ],
-    "amenities": ["Horseback riding", "Glacier tours", "Open fireplace", "Restaurant", "All-inclusive"],
+    "amenities": [
+      "Horseback riding",
+      "Glacier tours",
+      "Open fireplace",
+      "Restaurant",
+      "All-inclusive"
+    ],
     "badges": []
   },
   {
@@ -129,8 +175,16 @@
       "https://picsum.photos/seed/sojourn-tb-p7c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p7d/800/600"
     ],
-    "amenities": ["Sea access", "Private boat", "Pool", "Restaurant", "Concierge"],
-    "badges": ["rare_find"]
+    "amenities": [
+      "Sea access",
+      "Private boat",
+      "Pool",
+      "Restaurant",
+      "Concierge"
+    ],
+    "badges": [
+      "rare_find"
+    ]
   },
   {
     "id": "p8",
@@ -148,7 +202,245 @@
       "https://picsum.photos/seed/sojourn-tb-p8c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p8d/800/600"
     ],
-    "amenities": ["Sauna", "Stargazing", "Hiking trails", "Wildlife tours", "All-inclusive"],
-    "badges": ["new"]
+    "amenities": [
+      "Sauna",
+      "Stargazing",
+      "Hiking trails",
+      "Wildlife tours",
+      "All-inclusive"
+    ],
+    "badges": [
+      "new"
+    ]
+  },
+  {
+    "id": "p9",
+    "name": "Historic Villa in Alfama",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "description": "A restored 18th-century villa in the heart of Alfama with azulejo-lined staircases, a citrus courtyard, and river views from the roof terrace. Two minutes on foot from miradouros and tram 28.",
+    "rating": 4.9,
+    "review_count": 287,
+    "price_per_night_cents": 34900,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p9/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p9-a/1600/1000",
+      "https://picsum.photos/seed/sojourn-tb-p9-b/1200/800"
+    ],
+    "amenities": [
+      "Free Wi-Fi",
+      "Air conditioning"
+    ],
+    "badges": [
+      "Sojourn-verified"
+    ],
+    "status": "active"
+  },
+  {
+    "id": "p10",
+    "name": "Alfama Historic Loft",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "description": "A sun-filled loft behind a listed Pombaline façade: exposed wooden beams, original stone walls, and a reading nook under the skylight. Steps from the flea market.",
+    "rating": 4.8,
+    "review_count": 164,
+    "price_per_night_cents": 18900,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p10/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p10-a/1600/1000",
+      "https://picsum.photos/seed/sojourn-tb-p10-b/1200/800"
+    ],
+    "amenities": [
+      "Free Wi-Fi",
+      "Air conditioning"
+    ],
+    "badges": [
+      "Sojourn-verified"
+    ],
+    "status": "active"
+  },
+  {
+    "id": "p11",
+    "name": "Sunny Bairro Alto Flat",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "description": "A bright one-bedroom flat on the second floor of a Bairro Alto townhouse. South-facing windows, a balcony over the tiled rooftops, and the city’s best cafés downstairs.",
+    "rating": 4.7,
+    "review_count": 212,
+    "price_per_night_cents": 15400,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p11/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p11-a/1600/1000",
+      "https://picsum.photos/seed/sojourn-tb-p11-b/1200/800"
+    ],
+    "amenities": [
+      "Free Wi-Fi",
+      "Air conditioning"
+    ],
+    "badges": [
+      "Sojourn-verified"
+    ],
+    "status": "active"
+  },
+  {
+    "id": "p12",
+    "name": "River View Penthouse",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "description": "A top-floor penthouse over the Tejo with floor-to-ceiling glass, a wraparound terrace, and sunset views straight down the river to the 25 de Abril bridge.",
+    "rating": 4.9,
+    "review_count": 138,
+    "price_per_night_cents": 46800,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p12/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p12-a/1600/1000",
+      "https://picsum.photos/seed/sojourn-tb-p12-b/1200/800"
+    ],
+    "amenities": [
+      "Free Wi-Fi",
+      "Air conditioning"
+    ],
+    "badges": [
+      "Sojourn-verified"
+    ],
+    "status": "active"
+  },
+  {
+    "id": "p13",
+    "name": "Charming Graça Studio",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "description": "A compact, light-washed studio under the Graça convent domes. Handmade tiles, a window table made for slow breakfasts, and the city’s best sunset miradouro around the corner.",
+    "rating": 4.8,
+    "review_count": 176,
+    "price_per_night_cents": 11900,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p13/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p13-a/1600/1000",
+      "https://picsum.photos/seed/sojourn-tb-p13-b/1200/800"
+    ],
+    "amenities": [
+      "Free Wi-Fi",
+      "Air conditioning"
+    ],
+    "badges": [
+      "Sojourn-verified"
+    ],
+    "status": "active"
+  },
+  {
+    "id": "p14",
+    "name": "Villa Azul Resort",
+    "city": "Corralejo",
+    "country": "Spain",
+    "description": "Whitewashed villas around three infinity pools, five minutes from the dunes and the turquoise Flag-Beach lagoon. Breakfast is served under the palms; every terrace faces the Atlantic.",
+    "rating": 4.9,
+    "review_count": 402,
+    "price_per_night_cents": 38700,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p14/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p14-a/1600/1000",
+      "https://picsum.photos/seed/sojourn-tb-p14-b/1200/800"
+    ],
+    "amenities": [
+      "Free Wi-Fi",
+      "Air conditioning"
+    ],
+    "badges": [
+      "Sojourn-verified"
+    ],
+    "status": "active"
+  },
+  {
+    "id": "p15",
+    "name": "The Downtown Loft",
+    "city": "New York",
+    "country": "United States",
+    "description": "A cast-iron SoHo loft with 12-foot windows, exposed brick, and the original freight elevator. The whole of downtown opens at the door — galleries, jazz basements, and the best bagel on the block.",
+    "rating": 4.8,
+    "review_count": 254,
+    "price_per_night_cents": 52400,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p15/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p15-a/1600/1000",
+      "https://picsum.photos/seed/sojourn-tb-p15-b/1200/800"
+    ],
+    "amenities": [
+      "Free Wi-Fi",
+      "Air conditioning"
+    ],
+    "badges": [
+      "Sojourn-verified"
+    ],
+    "status": "active"
+  },
+  {
+    "id": "p16",
+    "name": "Pinecrest A-Frame",
+    "city": "Pinecrest",
+    "country": "United States",
+    "description": "A classic A-frame on a pine ridge above the lake: a woodstove for snowed-in evenings, a deck for summer stars, and the trailhead at the end of the driveway.",
+    "rating": 4.9,
+    "review_count": 189,
+    "price_per_night_cents": 24300,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p16/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p16-a/1600/1000",
+      "https://picsum.photos/seed/sojourn-tb-p16-b/1200/800"
+    ],
+    "amenities": [
+      "Free Wi-Fi",
+      "Air conditioning"
+    ],
+    "badges": [
+      "Sojourn-verified"
+    ],
+    "status": "active"
+  },
+  {
+    "id": "p17",
+    "name": "Nordic A-Frame Retreat",
+    "city": "Åre",
+    "country": "Sweden",
+    "description": "A blackened-timber A-Frame above Lake Åresjön: sauna, fireplace, and northern lights on clear winter nights.",
+    "rating": 4.8,
+    "review_count": 121,
+    "price_per_night_cents": 21900,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p17/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p17-a/1600/1000",
+      "https://picsum.photos/seed/sojourn-tb-p17-b/1200/800"
+    ],
+    "amenities": [
+      "Free Wi-Fi",
+      "Air conditioning"
+    ],
+    "badges": [
+      "Sojourn-verified"
+    ],
+    "status": "active"
+  },
+  {
+    "id": "p18",
+    "name": "Historic Cotswolds Cottage",
+    "city": "Bibury",
+    "country": "United Kingdom",
+    "description": "A honey-stone weaver’s cottage on the River Coln, with roses over the door, a flagstone kitchen, and a walled garden.",
+    "rating": 4.9,
+    "review_count": 203,
+    "price_per_night_cents": 27600,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p18/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p18-a/1600/1000",
+      "https://picsum.photos/seed/sojourn-tb-p18-b/1200/800"
+    ],
+    "amenities": [
+      "Free Wi-Fi",
+      "Air conditioning"
+    ],
+    "badges": [
+      "Sojourn-verified"
+    ],
+    "status": "active"
   }
 ]

@@ -97,5 +97,143 @@
     "cancellable": false,
     "modifiable": false,
     "confirmation_code": "SJ-1H8-BAHIA-3277"
+  },
+  {
+    "id": "t-new1",
+    "property_id": "p17",
+    "property_name": "Nordic A-Frame Retreat",
+    "city": "Åre",
+    "country": "Sweden",
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-t-new1/800/600",
+    "address": "Fjällvägen 4, 837 52 Åre, Sweden",
+    "check_in_iso": "2026-11-08T15:00:00Z",
+    "check_out_iso": "2026-11-13T11:00:00Z",
+    "guests": 2,
+    "status": "upcoming",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-t-new1a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-t-new1b/800/600"
+    ],
+    "host_name": "Anders L.",
+    "host_message_count": 1,
+    "subtotal_cents": 109500,
+    "taxes_cents": 13140,
+    "total_cents": 122640,
+    "cancellable": true
+  },
+  {
+    "id": "t-new2",
+    "property_id": "p19",
+    "property_name": "Oasis Modern Villa",
+    "city": "Marrakesh",
+    "country": "Morocco",
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-t-new2/800/600",
+    "address": "Route de l’Ourika Km 6, Marrakesh 40000, Morocco",
+    "check_in_iso": "2026-10-02T15:00:00Z",
+    "check_out_iso": "2026-10-07T11:00:00Z",
+    "guests": 4,
+    "status": "upcoming",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-t-new2a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-t-new2b/800/600"
+    ],
+    "host_name": "Yasmine B.",
+    "host_message_count": 1,
+    "subtotal_cents": 148500,
+    "taxes_cents": 17820,
+    "total_cents": 166320,
+    "cancellable": true
+  },
+  {
+    "id": "t-new3",
+    "property_id": "p20",
+    "property_name": "Driftwood Coastal Cottage",
+    "city": "Cornwall",
+    "country": "United Kingdom",
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-t-new3/800/600",
+    "address": "Driftwood Way, St Ives TR26 1LE, United Kingdom",
+    "check_in_iso": "2026-09-18T15:00:00Z",
+    "check_out_iso": "2026-09-23T11:00:00Z",
+    "guests": 2,
+    "status": "upcoming",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-t-new3a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-t-new3b/800/600"
+    ],
+    "host_name": "Penelope H.",
+    "host_message_count": 1,
+    "subtotal_cents": 89000,
+    "taxes_cents": 10680,
+    "total_cents": 99680,
+    "cancellable": true
+  },
+  {
+    "id": "t-new4",
+    "property_id": "p21",
+    "property_name": "Downtown Skyline Loft",
+    "city": "Chicago",
+    "country": "United States",
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-t-new4/800/600",
+    "address": "401 N Wabash Ave, Chicago, IL 60611, United States",
+    "check_in_iso": "2026-04-10T15:00:00Z",
+    "check_out_iso": "2026-04-15T11:00:00Z",
+    "guests": 2,
+    "status": "past",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-t-new4a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-t-new4b/800/600"
+    ],
+    "host_name": "Marcus D.",
+    "host_message_count": 1,
+    "subtotal_cents": 132000,
+    "taxes_cents": 15840,
+    "total_cents": 147840,
+    "cancellable": false
+  },
+  {
+    "id": "t-new5",
+    "property_id": "p22",
+    "property_name": "Whispering Pines Lakehouse",
+    "city": "Lake Tahoe",
+    "country": "United States",
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-t-new5/800/600",
+    "address": "618 Pinecone Cir, Tahoe City, CA 96145, United States",
+    "check_in_iso": "2026-02-20T15:00:00Z",
+    "check_out_iso": "2026-02-25T11:00:00Z",
+    "guests": 6,
+    "status": "past",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-t-new5a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-t-new5b/800/600"
+    ],
+    "host_name": "Sarah K.",
+    "host_message_count": 1,
+    "subtotal_cents": 121000,
+    "taxes_cents": 14520,
+    "total_cents": 135520,
+    "cancellable": false
+  },
+  {
+    "id": "t-new6",
+    "property_id": "p23",
+    "property_name": "Cliffside Villa, Santorini",
+    "city": "Oia",
+    "country": "Greece",
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-t-new6/800/600",
+    "address": "Main Marble Street, Oia 847 02, Greece",
+    "check_in_iso": "2026-07-04T15:00:00Z",
+    "check_out_iso": "2026-07-11T11:00:00Z",
+    "guests": 2,
+    "status": "upcoming",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-t-new6a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-t-new6b/800/600"
+    ],
+    "host_name": "Nikos A.",
+    "host_message_count": 1,
+    "subtotal_cents": 266000,
+    "taxes_cents": 31920,
+    "total_cents": 297920,
+    "cancellable": true
   }
 ]

@@ -286,5 +286,412 @@
     "variants": [],
     "created_at": "2026-02-01T10:00:00Z",
     "updated_at": "2026-03-28T12:00:00Z"
+  },
+  {
+    "id": "p-baz-elec-001",
+    "name": "Sony WH-1000XM5 Headphones",
+    "description": "Immersive sound, redefined. Industry-leading noise cancelling wireless over-ear headphones with 30-hour battery life and crystal-clear hands-free calling.",
+    "price": 34800,
+    "category": "Electronics",
+    "sku": "BAZ-ELEC-001",
+    "status": "active",
+    "featured": true,
+    "total_sold": 180,
+    "images": [
+      "https://picsum.photos/seed/bazaar-sony-xm5/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-sony-xm5/400/400"
+    ],
+    "tags": [
+      "bestseller",
+      "premium"
+    ],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-fash-001",
+    "name": "Organic Cotton Crew Neck Tee",
+    "description": "Soft, breathable 100% organic cotton tee in a relaxed crew-neck cut. Pre-washed for zero shrinkage.",
+    "price": 3200,
+    "category": "Fashion",
+    "sku": "BAZ-FASH-001",
+    "status": "active",
+    "featured": true,
+    "total_sold": 210,
+    "images": [
+      "https://picsum.photos/seed/bazaar-tee/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-tee/400/400"
+    ],
+    "tags": [
+      "eco"
+    ],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-sprt-001",
+    "name": "Trail Runner Pro Shoes",
+    "description": "All-terrain trail running shoes with vibram outsole, rock plate, and breathable mesh upper.",
+    "price": 12900,
+    "category": "Sports",
+    "sku": "BAZ-SPRT-001",
+    "status": "active",
+    "featured": true,
+    "total_sold": 160,
+    "images": [
+      "https://picsum.photos/seed/bazaar-trail/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-trail/400/400"
+    ],
+    "tags": [
+      "bestseller"
+    ],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-fash-002",
+    "name": "Minimalist Leather Wallet",
+    "description": "Slim bifold wallet hand-cut from full-grain Italian leather. RFID-blocking.",
+    "price": 5800,
+    "category": "Fashion",
+    "sku": "BAZ-FASH-002",
+    "status": "active",
+    "featured": false,
+    "total_sold": 95,
+    "images": [
+      "https://picsum.photos/seed/bazaar-wallet/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-wallet/400/400"
+    ],
+    "tags": [
+      "rfid"
+    ],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-elec-002",
+    "name": "Bluetooth Portable Speaker",
+    "description": "IP67 waterproof Bluetooth 5.3 speaker with 24-hour battery and 360° audio.",
+    "price": 8900,
+    "category": "Electronics",
+    "sku": "BAZ-ELEC-002",
+    "status": "active",
+    "featured": false,
+    "total_sold": 120,
+    "images": [
+      "https://picsum.photos/seed/bazaar-speaker/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-speaker/400/400"
+    ],
+    "tags": [
+      "waterproof"
+    ],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-home-002",
+    "name": "Linen Blend Throw Pillow",
+    "description": "Hand-loomed linen-cotton blend throw pillow in muted earth tones. Set of 2.",
+    "price": 3400,
+    "category": "Home & Living",
+    "sku": "BAZ-HOME-002",
+    "status": "active",
+    "featured": false,
+    "total_sold": 70,
+    "images": [
+      "https://picsum.photos/seed/bazaar-pillow/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-pillow/400/400"
+    ],
+    "tags": [
+      "set"
+    ],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-elec-003",
+    "name": "Wireless Charging Pad",
+    "description": "15W Qi-certified fast wireless charger compatible with iPhone and Android.",
+    "price": 4200,
+    "category": "Electronics",
+    "sku": "BAZ-ELEC-003",
+    "status": "active",
+    "featured": false,
+    "total_sold": 140,
+    "images": [
+      "https://picsum.photos/seed/bazaar-charger/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-charger/400/400"
+    ],
+    "tags": [
+      "qi"
+    ],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-fash-003",
+    "name": "Cashmere Beanie",
+    "description": "Pure mongolian cashmere ribbed beanie. One size, four colours.",
+    "price": 6900,
+    "category": "Fashion",
+    "sku": "BAZ-FASH-003",
+    "status": "active",
+    "featured": false,
+    "total_sold": 60,
+    "images": [
+      "https://picsum.photos/seed/bazaar-beanie/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-beanie/400/400"
+    ],
+    "tags": [
+      "cashmere"
+    ],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-sprt-003",
+    "name": "Yoga Mat Premium",
+    "description": "6mm extra-thick eco-friendly TPE yoga mat with carrying strap. Non-slip.",
+    "price": 5400,
+    "category": "Sports",
+    "sku": "BAZ-SPRT-003",
+    "status": "active",
+    "featured": false,
+    "total_sold": 85,
+    "images": [
+      "https://picsum.photos/seed/bazaar-mat/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-mat/400/400"
+    ],
+    "tags": [
+      "eco"
+    ],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-home-003",
+    "name": "Scented Soy Candle",
+    "description": "Hand-poured 100% soy wax candle. 60-hour burn time. Bergamot & sandalwood.",
+    "price": 2900,
+    "category": "Home & Living",
+    "sku": "BAZ-HOME-003",
+    "status": "active",
+    "featured": false,
+    "total_sold": 110,
+    "images": [
+      "https://picsum.photos/seed/bazaar-candle/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-candle/400/400"
+    ],
+    "tags": [
+      "handmade"
+    ],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-elec-004",
+    "name": "Bose QuietComfort Ultra Headphones",
+    "description": "Flagship wireless over-ear headphones. Immersive sound, redefined for travel — world-class noise cancellation, spatial audio, and 24-hour battery life.",
+    "price": 37900,
+    "category": "Electronics",
+    "sku": "BAZ-ELEC-004",
+    "status": "active",
+    "featured": false,
+    "total_sold": 88,
+    "images": [
+      "https://picsum.photos/seed/bazaar-bose-qc-ultra/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-bose-qc-ultra/400/400"
+    ],
+    "tags": [
+      "premium"
+    ],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-elec-005",
+    "name": "Apple AirPods Max",
+    "description": "Over-ear wireless headphones with computational audio, active noise cancellation, and transparency mode. Silver anodized aluminium frame.",
+    "price": 44900,
+    "category": "Electronics",
+    "sku": "BAZ-ELEC-005",
+    "status": "active",
+    "featured": false,
+    "total_sold": 76,
+    "images": [
+      "https://picsum.photos/seed/bazaar-airpods-max/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-airpods-max/400/400"
+    ],
+    "tags": [
+      "premium"
+    ],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-elec-006",
+    "name": "Jabra Elite 85h",
+    "description": "Wireless over-ear headphones with SmartSound adaptive audio, rain-resistant coating, and 36-hour battery life.",
+    "price": 19900,
+    "category": "Electronics",
+    "sku": "BAZ-ELEC-006",
+    "status": "active",
+    "featured": false,
+    "total_sold": 64,
+    "images": [
+      "https://picsum.photos/seed/bazaar-jabra-85h/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-jabra-85h/400/400"
+    ],
+    "tags": [],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-elec-007",
+    "name": "Sennheiser Momentum 4 Wireless",
+    "description": "Audiophile-grade wireless over-ear headphones with 60-hour battery life, adaptive noise cancellation, and aptX HD support.",
+    "price": 29900,
+    "category": "Electronics",
+    "sku": "BAZ-ELEC-007",
+    "status": "active",
+    "featured": false,
+    "total_sold": 58,
+    "images": [
+      "https://picsum.photos/seed/bazaar-momentum-4/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-momentum-4/400/400"
+    ],
+    "tags": [
+      "audiophile"
+    ],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-elec-008",
+    "name": "Samsung Galaxy Buds 2 Pro",
+    "description": "Compact wireless earbuds with intelligent active noise cancellation, 360-degree audio, and IPX7 water resistance.",
+    "price": 18900,
+    "category": "Electronics",
+    "sku": "BAZ-ELEC-008",
+    "status": "active",
+    "featured": false,
+    "total_sold": 92,
+    "images": [
+      "https://picsum.photos/seed/bazaar-buds2pro/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-buds2pro/400/400"
+    ],
+    "tags": [],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-elec-009",
+    "name": "Beats Studio Pro Wireless",
+    "description": "Wireless over-ear headphones with lossless audio via USB-C, adaptive noise cancellation, and 40-hour battery life.",
+    "price": 27900,
+    "category": "Electronics",
+    "sku": "BAZ-ELEC-009",
+    "status": "active",
+    "featured": false,
+    "total_sold": 71,
+    "images": [
+      "https://picsum.photos/seed/bazaar-beats-studio-pro/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-beats-studio-pro/400/400"
+    ],
+    "tags": [],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-elec-010",
+    "name": "Samsung Galaxy S24 Ultra",
+    "description": "Flagship smartphone with a 6.8-inch QHD+ display, built-in S Pen, 200MP camera, and titanium frame.",
+    "price": 109900,
+    "category": "Electronics",
+    "sku": "BAZ-ELEC-010",
+    "status": "active",
+    "featured": false,
+    "total_sold": 49,
+    "images": [
+      "https://picsum.photos/seed/bazaar-s24-ultra/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-s24-ultra/400/400"
+    ],
+    "tags": [
+      "premium"
+    ],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "p-baz-elec-011",
+    "name": "Samsung Galaxy Tab S9",
+    "description": "Premium Android tablet with an 11-inch Dynamic AMOLED 2X display, Snapdragon processor, and included S Pen.",
+    "price": 74900,
+    "category": "Electronics",
+    "sku": "BAZ-ELEC-011",
+    "status": "active",
+    "featured": false,
+    "total_sold": 37,
+    "images": [
+      "https://picsum.photos/seed/bazaar-tab-s9/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bazaar-tab-s9/400/400"
+    ],
+    "tags": [],
+    "variants": [],
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
   }
 ]

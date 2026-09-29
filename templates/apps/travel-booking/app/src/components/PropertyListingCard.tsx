@@ -35,6 +35,8 @@ const BADGE_THEME: Record<string, { bg: string; text: string; label: string }> =
   editor_pick: { bg: 'bg-accent/95', text: 'text-on-accent', label: "Editor's pick" },
   rare_find: { bg: 'bg-violet-600', text: 'text-white', label: 'Rare find' },
   new: { bg: 'bg-emerald-700', text: 'text-white', label: 'New' },
+  travelers_choice: { bg: 'bg-teal-700', text: 'text-white', label: "Travelers' choice" },
+  guest_favorite: { bg: 'bg-rose-700', text: 'text-white', label: 'Guest favorite' },
 }
 
 function fmtPrice(cents: number): string {

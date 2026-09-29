@@ -1,0 +1,72 @@
+{
+  "screens": {
+    "/study/:id": {
+      "allow": [
+        {
+          "heading": "Chapter 3: Cellular Respiration",
+          "reason": "sample user content — study sessions render the learner's own topic title (fresh-user empty state is an e2e contract, so the design's demo library is not seeded)"
+        }
+      ]
+    },
+    "/quiz/:id": {
+      "allow": [
+        {
+          "heading": "Biology Quiz — Cellular Respiration",
+          "reason": "sample user content — the quiz page renders the learner's own quiz title via /api/quizzes; no catalog seed by design"
+        }
+      ]
+    },
+    "/courses": {
+      "allow": [
+        {
+          "heading": "Introduction to Organic Chemistry",
+          "reason": "sample user content — /courses lists the learner's created courses; fresh-user empty state is asserted by e2e/26-courses.spec.ts"
+        },
+        {
+          "heading": "The Poetics of Space: Architecture in Modern Novels",
+          "reason": "sample user content — course cards render user-created titles; the list/grid section itself ships"
+        }
+      ]
+    },
+    "/courses/:id": {
+      "allow": [
+        {
+          "heading": "Introduction to Cognitive Science",
+          "reason": "sample user content — course detail renders the learner's course title and lesson list from their own data"
+        }
+      ]
+    },
+    "/flashcards/:id": {
+      "allow": [
+        {
+          "heading": "Spanish Vocabulary - Verbs",
+          "reason": "sample user content — deck detail renders the learner's deck name; fresh-user empty deck is asserted by e2e/21-flashcards.spec.ts"
+        }
+      ]
+    },
+    "/search": {
+      "allow": [
+        {
+          "heading": "110 results for \" cognitive bias \"",
+          "reason": "sample search over a demo user's library — the results-count line ('N results for \"query\"') and AI Synthesis card are implemented; the specific count/query are user data"
+        },
+        {
+          "heading": "Introduction to Cognitive Bias and Heuristics",
+          "reason": "sample search hit (user's lesson title) — the results list renders the searcher's own library matches"
+        },
+        {
+          "heading": "The Impact of Cognitive Bias on Market Behavior",
+          "reason": "sample search hit (user's lesson title) — search indexes only the authenticated user's library"
+        },
+        {
+          "heading": "Define: Cognitive Bias",
+          "reason": "sample flashcard front inside a deck result card — deck results render the searcher's own decks; card fronts are user data"
+        },
+        {
+          "heading": "Confirmation Bias (Type of Cognitive Bias )",
+          "reason": "sample flashcard front inside a deck result card — card content is user data, the Flashcards result section ships"
+        }
+      ]
+    }
+  }
+}

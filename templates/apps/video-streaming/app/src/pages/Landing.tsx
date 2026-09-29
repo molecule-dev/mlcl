@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const FEATURES = [
   {
@@ -179,27 +180,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            <span
-              className={cm.cn(
-                cm.w(9),
-                cm.h(9),
-                cm.roundedFull,
-                cm.flex({ align: 'center', justify: 'center' }),
-                'shadow',
-                ctaGradient,
-              )}
-              aria-hidden="true"
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-[18px] text-white')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                play_arrow
-              </span>
-            </span>
-            <span className={cm.cn('text-2xl font-black tracking-tighter italic')}>{APP_NAME}</span>
-          </Link>
+          <BrandWordmark size="lg" />
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
               <Link
@@ -641,9 +622,7 @@ export function Landing() {
             cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
           )}
         >
-          <div className={cm.cn('text-lg font-black tracking-tighter italic text-on-surface')}>
-            {APP_NAME}
-          </div>
+          <BrandWordmark as="span" footer />
           <div className={cm.cn(cm.flex({ gap: 'lg', wrap: 'wrap' }), cm.textSize('sm'))}>
             <Link to="/about" className="hover:text-[var(--spool-cta-to)] transition-colors">
               {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })}

@@ -6,7 +6,7 @@ import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -115,15 +115,8 @@ export function NewsAggregatorLayout() {
       <ResponsiveAppShell.TopBar
         mobileOnly
         brand={
-          <Link
-            to="/home"
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('extrabold'),
-              'tracking-tight text-on-background truncate font-headline',
-            )}
-          >
-            {APP_NAME}
+          <Link to="/home" className="truncate">
+            <BrandWordmark as="span" size="sm" />
           </Link>
         }
         actions={<UserMenu />}
@@ -138,16 +131,8 @@ export function NewsAggregatorLayout() {
         className={cm.sp('p', 4)}
         footer={<UserMenu />}
       >
-        <Link
-          to="/home"
-          className={cm.cn(
-            cm.textSize('xl'),
-            cm.fontWeight('extrabold'),
-            cm.sp('mb', 6),
-            'block tracking-tight text-on-background font-headline',
-          )}
-        >
-          {APP_NAME}
+        <Link to="/home" className={cm.cn(cm.sp('mb', 6), 'block')}>
+          <BrandWordmark as="span" />
         </Link>
         {navItems}
       </ResponsiveAppShell.Sidebar>
@@ -163,15 +148,8 @@ export function NewsAggregatorLayout() {
         // `h-full` restores the documented full-height left-panel geometry.
         className="h-full"
         header={
-          <Link
-            to="/home"
-            className={cm.cn(
-              cm.textSize('xl'),
-              cm.fontWeight('extrabold'),
-              'tracking-tight text-on-background font-headline',
-            )}
-          >
-            {APP_NAME}
+          <Link to="/home">
+            <BrandWordmark as="span" />
           </Link>
         }
         footer={<UserMenu />}

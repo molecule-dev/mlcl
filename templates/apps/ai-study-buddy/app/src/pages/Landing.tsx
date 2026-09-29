@@ -373,7 +373,7 @@ export function Landing() {
             )}
           >
             <span
-              className="material-symbols-outlined text-secondary-container"
+              className="material-symbols-outlined text-secondary"
               style={{ fontVariationSettings: "'FILL' 1" }}
               aria-hidden="true"
             >
@@ -392,7 +392,7 @@ export function Landing() {
                   defaultValue: 'Join 50,000+ students on a streak — average ',
                 },
               )}
-              <span className="text-secondary-container font-extrabold text-glow-secondary">
+              <span className="text-secondary font-extrabold text-glow-secondary">
                 {t('landing.streakBannerMid', {}, { defaultValue: '42-day' })}
               </span>
               {t('landing.streakBannerTail', {}, { defaultValue: ' streak' })}

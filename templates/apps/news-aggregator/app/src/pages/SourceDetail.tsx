@@ -258,6 +258,78 @@ export function SourceDetail() {
           </div>
         )}
       </section>
+
+      {/* Editorial corrections log — the design's transparency sidebar section */}
+      <section
+        className={cm.cn(cm.stack(4), cm.sp('p', 6), 'rounded-xl bg-surface-container-lowest')}
+        data-mol-id="recent-corrections"
+      >
+        <h3
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.textSize('xs'),
+            cm.fontWeight('semibold'),
+            'uppercase tracking-widest text-on-surface-variant',
+          )}
+        >
+          <span className={'material-symbols-outlined text-sm'} aria-hidden="true">
+            history_edu
+          </span>
+          {t('sourceDetail.correctionsHeading', {}, { defaultValue: 'Recent Corrections' })}
+        </h3>
+        <ol className={cm.stack(4)}>
+          {(
+            [
+              {
+                date: t('sourceDetail.corrections.date1', {}, { defaultValue: 'Oct 12, 2023' }),
+                body: t(
+                  'sourceDetail.corrections.body1',
+                  {},
+                  {
+                    defaultValue:
+                      'Updated an article to clarify the timeline of events in our original report.',
+                  },
+                ),
+              },
+              {
+                date: t('sourceDetail.corrections.date2', {}, { defaultValue: 'Sep 28, 2023' }),
+                body: t(
+                  'sourceDetail.corrections.body2',
+                  {},
+                  {
+                    defaultValue:
+                      'Corrected a misattributed quotation in coverage of the committee hearing.',
+                  },
+                ),
+              },
+              {
+                date: t('sourceDetail.corrections.date3', {}, { defaultValue: 'Aug 14, 2023' }),
+                body: t(
+                  'sourceDetail.corrections.body3',
+                  {},
+                  {
+                    defaultValue:
+                      'Amended a headline that overstated the findings of an interim study.',
+                  },
+                ),
+              },
+            ] as ReadonlyArray<{ date: string; body: string }>
+          ).map((c) => (
+            <li key={c.date} className={cm.cn(cm.flex({ gap: 'md' }), cm.textSize('sm'))}>
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('semibold'),
+                  'uppercase tracking-wider text-on-surface-variant whitespace-nowrap',
+                )}
+              >
+                {c.date}
+              </span>
+              <span className="text-on-surface-variant leading-relaxed">{c.body}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
     </div>
   )
 }

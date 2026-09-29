@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
 import { BiasIndicator } from '../components/BiasIndicator.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { Footer } from '../components/Footer.js'
 import { TopicChipsRow } from '../components/TopicChipsRow.js'
 
@@ -106,14 +107,8 @@ export function Landing() {
               'min-w-0 whitespace-nowrap shrink-0',
             )}
           >
-            <span
-              className={cm.cn(
-                cm.textSize('xl'),
-                'font-headline italic font-semibold tracking-tight',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            {/* the nav Link already provides the destination — span avoids <a> inside <a> */}
+            <BrandWordmark as="span" />
           </Link>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0')}>
             <Link

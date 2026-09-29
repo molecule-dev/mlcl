@@ -34,7 +34,7 @@ const SEED_PRODUCTS: SeedProduct[] = [
   {
     name: 'Sony WH-1000XM5 Headphones',
     description:
-      'Industry-leading noise cancelling wireless over-ear headphones with 30-hour battery life and crystal-clear hands-free calling.',
+      'Immersive sound, redefined. Industry-leading noise cancelling wireless over-ear headphones with 30-hour battery life and crystal-clear hands-free calling.',
     price: 34800,
     category: 'Electronics',
     sku: 'BAZ-ELEC-001',
@@ -154,6 +154,94 @@ const SEED_PRODUCTS: SeedProduct[] = [
     featured: false,
     stock: 150,
     thumbnails: ['https://picsum.photos/seed/bazaar-candle/400/400'],
+  },
+  {
+    name: 'Bose QuietComfort Ultra Headphones',
+    description:
+      'Flagship wireless over-ear headphones. Immersive sound, redefined for travel — world-class noise cancellation, spatial audio, and 24-hour battery life.',
+    price: 37900,
+    category: 'Electronics',
+    sku: 'BAZ-ELEC-004',
+    featured: false,
+    stock: 30,
+    thumbnails: ['https://picsum.photos/seed/bazaar-bose-qc-ultra/400/400'],
+  },
+  {
+    name: 'Apple AirPods Max',
+    description:
+      'Over-ear wireless headphones with computational audio, active noise cancellation, and transparency mode. Silver anodized aluminium frame.',
+    price: 44900,
+    category: 'Electronics',
+    sku: 'BAZ-ELEC-005',
+    featured: false,
+    stock: 22,
+    thumbnails: ['https://picsum.photos/seed/bazaar-airpods-max/400/400'],
+  },
+  {
+    name: 'Jabra Elite 85h',
+    description:
+      'Wireless over-ear headphones with SmartSound adaptive audio, rain-resistant coating, and 36-hour battery life.',
+    price: 19900,
+    category: 'Electronics',
+    sku: 'BAZ-ELEC-006',
+    featured: false,
+    stock: 40,
+    thumbnails: ['https://picsum.photos/seed/bazaar-jabra-85h/400/400'],
+  },
+  {
+    name: 'Sennheiser Momentum 4 Wireless',
+    description:
+      'Audiophile-grade wireless over-ear headphones with 60-hour battery life, adaptive noise cancellation, and aptX HD support.',
+    price: 29900,
+    category: 'Electronics',
+    sku: 'BAZ-ELEC-007',
+    featured: false,
+    stock: 35,
+    thumbnails: ['https://picsum.photos/seed/bazaar-momentum-4/400/400'],
+  },
+  {
+    name: 'Samsung Galaxy Buds 2 Pro',
+    description:
+      'Compact wireless earbuds with intelligent active noise cancellation, 360-degree audio, and IPX7 water resistance.',
+    price: 18900,
+    category: 'Electronics',
+    sku: 'BAZ-ELEC-008',
+    featured: false,
+    stock: 55,
+    thumbnails: ['https://picsum.photos/seed/bazaar-buds2pro/400/400'],
+  },
+  {
+    name: 'Beats Studio Pro Wireless',
+    description:
+      'Wireless over-ear headphones with lossless audio via USB-C, adaptive noise cancellation, and 40-hour battery life.',
+    price: 27900,
+    category: 'Electronics',
+    sku: 'BAZ-ELEC-009',
+    featured: false,
+    stock: 42,
+    thumbnails: ['https://picsum.photos/seed/bazaar-beats-studio-pro/400/400'],
+  },
+  {
+    name: 'Samsung Galaxy S24 Ultra',
+    description:
+      'Flagship smartphone with a 6.8-inch QHD+ display, built-in S Pen, 200MP camera, and titanium frame.',
+    price: 109900,
+    category: 'Electronics',
+    sku: 'BAZ-ELEC-010',
+    featured: false,
+    stock: 18,
+    thumbnails: ['https://picsum.photos/seed/bazaar-s24-ultra/400/400'],
+  },
+  {
+    name: 'Samsung Galaxy Tab S9',
+    description:
+      'Premium Android tablet with an 11-inch Dynamic AMOLED 2X display, Snapdragon processor, and included S Pen.',
+    price: 74900,
+    category: 'Electronics',
+    sku: 'BAZ-ELEC-011',
+    featured: false,
+    stock: 25,
+    thumbnails: ['https://picsum.photos/seed/bazaar-tab-s9/400/400'],
   },
 ]
 

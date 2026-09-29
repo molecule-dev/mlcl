@@ -1,6 +1,74 @@
 [
-  { "id": "fav1", "property_id": "p1", "name": "Casa Mirador Oaxaca",        "city": "Oaxaca",        "country": "Mexico",         "rating": 4.9, "review_count": 348, "price_per_night_cents": 26900, "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p1/800/600", "saved_at": "2026-04-04T00:00:00Z" },
-  { "id": "fav2", "property_id": "p3", "name": "The Faroe Hideaway",          "city": "Tórshavn",      "country": "Faroe Islands",  "rating": 4.9, "review_count": 142, "price_per_night_cents": 41200, "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p3/800/600", "saved_at": "2026-03-22T00:00:00Z" },
-  { "id": "fav3", "property_id": "p5", "name": "Ryokan Yufuin",               "city": "Yufuin",        "country": "Japan",          "rating": 4.9, "review_count": 218, "price_per_night_cents": 51800, "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p5/800/600", "saved_at": "2026-02-19T00:00:00Z" },
-  { "id": "fav4", "property_id": "p7", "name": "Lighthouse Suites Cinque Terre", "city": "Vernazza",   "country": "Italy",          "rating": 4.8, "review_count": 305, "price_per_night_cents": 38900, "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p7/800/600", "saved_at": "2026-01-30T00:00:00Z" }
+  {
+    "id": "fav1",
+    "property_id": "p1",
+    "name": "Casa Mirador Oaxaca",
+    "city": "Oaxaca",
+    "country": "Mexico",
+    "rating": 4.9,
+    "review_count": 348,
+    "price_per_night_cents": 26900,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p1/800/600",
+    "saved_at": "2026-04-04T00:00:00Z"
+  },
+  {
+    "id": "fav2",
+    "property_id": "p3",
+    "name": "The Faroe Hideaway",
+    "city": "Tórshavn",
+    "country": "Faroe Islands",
+    "rating": 4.9,
+    "review_count": 142,
+    "price_per_night_cents": 41200,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p3/800/600",
+    "saved_at": "2026-03-22T00:00:00Z"
+  },
+  {
+    "id": "fav3",
+    "property_id": "p5",
+    "name": "Ryokan Yufuin",
+    "city": "Yufuin",
+    "country": "Japan",
+    "rating": 4.9,
+    "review_count": 218,
+    "price_per_night_cents": 51800,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p5/800/600",
+    "saved_at": "2026-02-19T00:00:00Z"
+  },
+  {
+    "id": "fav4",
+    "property_id": "p7",
+    "name": "Lighthouse Suites Cinque Terre",
+    "city": "Vernazza",
+    "country": "Italy",
+    "rating": 4.8,
+    "review_count": 305,
+    "price_per_night_cents": 38900,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p7/800/600",
+    "saved_at": "2026-01-30T00:00:00Z"
+  },
+  {
+    "id": "fav-new1",
+    "property_id": "p17",
+    "name": "Nordic A-Frame Retreat",
+    "city": "Åre",
+    "country": "Sweden",
+    "rating": 4.8,
+    "review_count": 121,
+    "price_per_night_cents": 21900,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p17/800/600",
+    "saved_at": "2026-05-02T00:00:00Z"
+  },
+  {
+    "id": "fav-new2",
+    "property_id": "p18",
+    "name": "Historic Cotswolds Cottage",
+    "city": "Bibury",
+    "country": "United Kingdom",
+    "rating": 4.9,
+    "review_count": 203,
+    "price_per_night_cents": 27600,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p18/800/600",
+    "saved_at": "2026-05-02T00:00:00Z"
+  }
 ]

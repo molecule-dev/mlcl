@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -108,15 +108,8 @@ export function SpoolLayout() {
       <ResponsiveAppShell.TopBar
         mobileOnly
         brand={
-          <Link
-            to="/home"
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              cm.textSize('base'),
-              'text-on-surface truncate',
-            )}
-          >
-            {APP_NAME}
+          <Link to="/home" className={cm.cn('min-w-0')}>
+            <BrandWordmark as="span" size="sm" />
           </Link>
         }
         actions={<UserMenu />}
@@ -129,11 +122,8 @@ export function SpoolLayout() {
         className={cm.sp('p', 4)}
         footer={<UserMenu />}
       >
-        <Link
-          to="/home"
-          className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 6))}
-        >
-          {APP_NAME}
+        <Link to="/home" className={cm.cn(cm.sp('mb', 6))}>
+          <BrandWordmark as="span" />
         </Link>
         {nav}
       </ResponsiveAppShell.Sidebar>
@@ -144,11 +134,7 @@ export function SpoolLayout() {
       <ResponsiveAppShell.Drawer
         navLabel={navAriaLabel}
         className={cm.cn('h-full', cm.sp('p', 4))}
-        header={
-          <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface')}>
-            {APP_NAME}
-          </span>
-        }
+        header={<BrandWordmark as="span" />}
         footer={<ThemeToggle />}
       >
         {nav}

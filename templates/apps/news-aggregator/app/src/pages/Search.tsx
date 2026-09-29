@@ -158,6 +158,16 @@ export function Search() {
         </nav>
       </header>
 
+      {query.trim().length > 0 && (
+        <p className={cm.cn(cm.textSize('lg'), 'font-headline text-on-surface tracking-tight')}>
+          {t(
+            'search.showingResults',
+            { query: query.trim() },
+            { defaultValue: 'Showing results for “{{query}}”' },
+          )}
+        </p>
+      )}
+
       {scope === 'stories' && (
         <section className={cm.stack(4)}>
           <h2 className={cm.cn(cm.textSize('xl'), 'font-headline font-bold')}>

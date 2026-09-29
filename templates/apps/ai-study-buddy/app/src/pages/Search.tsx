@@ -35,6 +35,7 @@ export function Search() {
   // shell immediately on mount; the fetch then replaces results in place
   // without shifting the layout (which would break verifier probes).
   const [results, setResults] = useState<SearchResult[]>([])
+  const [total, setTotal] = useState(0)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
@@ -59,6 +60,7 @@ export function Search() {
       .then((res) => {
         if (cancelled) return
         setResults(res.data?.data ?? [])
+        setTotal(res.data?.total ?? (res.data?.data ?? []).length)
         setError(null)
         // Fire-and-forget funnel event (no-ops without an analytics provider).
         const rows = res.data?.data ?? []
@@ -77,6 +79,7 @@ export function Search() {
             : t('search.error', {}, { defaultValue: 'Could not load results.' }),
         )
         setResults([])
+        setTotal(0)
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -223,6 +226,93 @@ export function Search() {
             {t('common.searchingEllipsis', {}, { defaultValue: 'Searching…' })}
           </p>
         ) : null}
+
+        {/* Design: a results-count line above the sections */}
+        {!loading && debouncedQuery.trim().length > 0 && (
+          <h2 className={cm.cn(cm.textSize('2xl'), 'font-headline text-on-surface')}>
+            <span
+              className={cm.fontWeight('semibold')}
+              style={{ fontVariantNumeric: 'tabular-nums' }}
+            >
+              {total}
+            </span>{' '}
+            {t(
+              'search.resultsFor',
+              { count: total, query: debouncedQuery.trim() },
+              { defaultValue: 'results for “{{query}}”' },
+            )}
+          </h2>
+        )}
+
+        {/* Design: an AI Synthesis card summarising the top matches */}
+        {!loading && visible.length > 0 && (
+          <aside
+            className={cm.cn(
+              cm.sp('p', 6),
+              'relative overflow-hidden rounded-xl bg-surface-container-lowest',
+            )}
+            data-mol-id="search-synthesis"
+          >
+            <div
+              className={cm.cn('absolute left-0 top-0 bottom-0 w-1 bg-tertiary')}
+              aria-hidden="true"
+            />
+            <div className={cm.cn(cm.flex({ align: 'start', gap: 'md' }))}>
+              <span
+                className={cm.cn(
+                  cm.sp('p', 2),
+                  cm.roundedFull,
+                  'flex-shrink-0 bg-tertiary/10 text-tertiary',
+                )}
+                aria-hidden="true"
+              >
+                <span className={'material-symbols-outlined text-[20px]'}>auto_awesome</span>
+              </span>
+              <div>
+                <h3
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.sp('mb', 2),
+                    cm.textSize('xs'),
+                    cm.fontWeight('bold'),
+                    'uppercase tracking-wider text-tertiary',
+                  )}
+                >
+                  {t('search.synthesis.heading', {}, { defaultValue: 'AI Synthesis' })}
+                  <span
+                    className={cm.cn(
+                      cm.sp('px', 2),
+                      cm.sp('py', 1),
+                      cm.textSize('xs'),
+                      cm.fontWeight('bold'),
+                      cm.roundedFull,
+                      'bg-tertiary/10 text-tertiary',
+                    )}
+                  >
+                    {t('search.synthesis.highRelevance', {}, { defaultValue: 'High Relevance' })}
+                  </span>
+                </h3>
+                <p
+                  className={cm.cn(
+                    cm.textSize('base'),
+                    'font-headline text-on-surface leading-relaxed',
+                  )}
+                >
+                  {t(
+                    'search.synthesis.builtFrom',
+                    {
+                      items: visible
+                        .slice(0, 3)
+                        .map((r) => r.title)
+                        .join(' · '),
+                    },
+                    { defaultValue: 'Synthesised from your library: {{items}}.' },
+                  )}
+                </p>
+              </div>
+            </div>
+          </aside>
+        )}
 
         <ul style={{ minHeight: 360 }} className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
           {visible.map((r) => (

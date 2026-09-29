@@ -376,6 +376,326 @@ const SEED_COURSES: SeedCourse[] = [
     ],
     reviews: [],
   },
+  {
+    slug: 'python-bootcamp',
+    title: 'Complete Python Bootcamp From Zero to Hero in Python',
+    description:
+      'From your first print() to production scripts and small APIs — the full python ladder with a hundred hands-on exercises and a capstone you actually ship.',
+    category: 'Development',
+    level: 'beginner',
+    price_cents: 4999,
+    duration_min: 22 * 60,
+    thumbnail_url: 'https://picsum.photos/seed/python-bootcamp/640/360',
+    featured: true,
+    status: 'published',
+    rating_avg: 4.7,
+    rating_count: 15210,
+    total_enrollments: 214000,
+    lessons: [
+      {
+        title: 'Values, names, and the REPL',
+        description: 'Your first fifty lines of Python.',
+        duration_sec: 16 * 60 + 20,
+        free_preview: true,
+      },
+      {
+        title: 'Control flow and comprehensions',
+        description: 'Loops, branches, and Pythonic collections.',
+        duration_sec: 24 * 60,
+      },
+      {
+        title: 'Modules, venvs, and packaging',
+        description: 'Structure a real project.',
+        duration_sec: 19 * 60 + 5,
+      },
+      {
+        title: 'Capstone: a tiny API',
+        description: 'Ship a working service.',
+        duration_sec: 31 * 60,
+      },
+    ],
+    reviews: [
+      {
+        rating: 5,
+        title: 'Zero to hero indeed',
+        body: 'I had never written a line of code. Six weeks later my capstone runs in production.',
+        reviewer_name: 'Priya N.',
+      },
+      {
+        rating: 4,
+        title: 'Great exercises',
+        body: 'The hundred-drill approach makes everything stick.',
+        reviewer_name: 'Tom H.',
+      },
+    ],
+  },
+  {
+    slug: 'ml-az',
+    title: 'Machine Learning A-Z\u2122: AI, Python & R + ChatGPT Prize',
+    description:
+      'The complete ML toolbox — regression, trees, clustering, and deep learning — taught twice, once in Python and once in R, with a modern LLM module.',
+    category: 'Data Science',
+    level: 'intermediate',
+    price_cents: 7999,
+    duration_min: 41 * 60,
+    thumbnail_url: 'https://picsum.photos/seed/ml-az/640/360',
+    featured: true,
+    status: 'published',
+    rating_avg: 4.6,
+    rating_count: 11890,
+    total_enrollments: 178000,
+    lessons: [
+      {
+        title: 'The ML map',
+        description: 'Where every technique lives.',
+        duration_sec: 12 * 60,
+        free_preview: true,
+      },
+      {
+        title: 'Regression, both languages',
+        description: 'The same model in Python and R.',
+        duration_sec: 28 * 60,
+      },
+      {
+        title: 'Trees, forests, boosting',
+        description: 'Ensembles that actually win.',
+        duration_sec: 33 * 60 + 12,
+      },
+      {
+        title: 'LLMs in the pipeline',
+        description: 'Where GPT-class models fit.',
+        duration_sec: 26 * 60,
+      },
+    ],
+    reviews: [
+      {
+        rating: 5,
+        title: 'Dual-language is the killer feature',
+        body: 'Seeing every algorithm twice cemented it for me.',
+        reviewer_name: 'Diego M.',
+      },
+    ],
+  },
+  {
+    slug: 'react-bootcamp-2024',
+    title: 'Complete React Developer Bootcamp 2024',
+    description:
+      'Hooks, server components, routing, and testing — everything a working React developer needs, built as one real product over the course.',
+    category: 'Development',
+    level: 'intermediate',
+    price_cents: 6499,
+    duration_min: 28 * 60,
+    thumbnail_url: 'https://picsum.photos/seed/react-bootcamp/640/360',
+    featured: true,
+    status: 'published',
+    rating_avg: 4.8,
+    rating_count: 9340,
+    total_enrollments: 121000,
+    lessons: [
+      {
+        title: 'Thinking in components',
+        description: 'Composition before configuration.',
+        duration_sec: 18 * 60,
+        free_preview: true,
+      },
+      {
+        title: 'Hooks in anger',
+        description: 'State, effects, and the rules that keep them honest.',
+        duration_sec: 27 * 60 + 40,
+      },
+      {
+        title: 'Routing and data',
+        description: 'Loaders, suspense, and the request lifecycle.',
+        duration_sec: 25 * 60,
+      },
+      {
+        title: 'Testing the product',
+        description: 'A pragmatic testing trophy.',
+        duration_sec: 22 * 60 + 15,
+      },
+    ],
+    reviews: [
+      {
+        rating: 5,
+        title: 'One product, start to finish',
+        body: 'Building a single real app beats twelve toy examples.',
+        reviewer_name: 'Ava L.',
+      },
+    ],
+  },
+  {
+    slug: 'product-management-masters',
+    title: 'Product Management Masters',
+    description:
+      'Discovery, roadmaps, and the craft of shipping the right thing — with artifacts you can put straight into your PM portfolio.',
+    category: 'Business',
+    level: 'intermediate',
+    price_cents: 8899,
+    duration_min: 18 * 60,
+    thumbnail_url: 'https://picsum.photos/seed/pm-masters/640/360',
+    featured: false,
+    status: 'published',
+    rating_avg: 4.7,
+    rating_count: 4120,
+    total_enrollments: 48200,
+    lessons: [
+      {
+        title: 'Continuous discovery',
+        description: 'Interviews that change the roadmap.',
+        duration_sec: 21 * 60,
+        free_preview: true,
+      },
+      {
+        title: 'Writing specs people read',
+        description: 'Documents as instruments of alignment.',
+        duration_sec: 17 * 60 + 30,
+      },
+      {
+        title: 'Metrics that matter',
+        description: 'From north star to guardrails.',
+        duration_sec: 19 * 60 + 45,
+      },
+    ],
+    reviews: [
+      {
+        rating: 5,
+        title: 'Portfolio-ready artifacts',
+        body: 'The template pack alone landed me two interviews.',
+        reviewer_name: 'Marcus W.',
+      },
+    ],
+  },
+  {
+    slug: 'cloud-architecture-fundamentals',
+    title: 'Cloud Architecture Fundamentals',
+    description:
+      'Regions, networks, storage classes, and the pricing model — the foundations every cloud decision stands on, taught vendor-neutrally.',
+    category: 'IT & Software',
+    level: 'beginner',
+    price_cents: 5499,
+    duration_min: 16 * 60,
+    thumbnail_url: 'https://picsum.photos/seed/cloud-arch/640/360',
+    featured: false,
+    status: 'published',
+    rating_avg: 4.6,
+    rating_count: 3380,
+    total_enrollments: 39400,
+    lessons: [
+      {
+        title: 'The shape of a region',
+        description: 'Zones, fault domains, and blast radius.',
+        duration_sec: 15 * 60,
+        free_preview: true,
+      },
+      {
+        title: 'Storage classes demystified',
+        description: 'Hot, cold, and the cost curve between.',
+        duration_sec: 18 * 60 + 20,
+      },
+      {
+        title: 'Reading a bill',
+        description: 'Where the money actually goes.',
+        duration_sec: 14 * 60 + 50,
+      },
+    ],
+    reviews: [
+      {
+        rating: 5,
+        title: 'Vendor-neutral finally',
+        body: 'Concepts first, consoles second — exactly right.',
+        reviewer_name: 'Hana S.',
+      },
+    ],
+  },
+  {
+    slug: 'digital-marketing-strategy',
+    title: 'Digital Marketing Strategy',
+    description:
+      'Positioning, channels, and measurement — a strategy-first marketing course that ends with a full funnel plan for a real product.',
+    category: 'Marketing',
+    level: 'beginner',
+    price_cents: 3999,
+    duration_min: 12 * 60,
+    thumbnail_url: 'https://picsum.photos/seed/digital-marketing/640/360',
+    featured: false,
+    status: 'published',
+    rating_avg: 4.5,
+    rating_count: 2870,
+    total_enrollments: 32600,
+    lessons: [
+      {
+        title: 'Positioning before promotion',
+        description: 'The message is the strategy.',
+        duration_sec: 16 * 60,
+        free_preview: true,
+      },
+      {
+        title: 'Channels and the funnel',
+        description: 'Paid, owned, earned — and when to use each.',
+        duration_sec: 20 * 60 + 10,
+      },
+      {
+        title: 'Attribution without magic',
+        description: 'Measurement you can defend.',
+        duration_sec: 18 * 60,
+      },
+    ],
+    reviews: [
+      {
+        rating: 4,
+        title: 'Strategy, not hacks',
+        body: 'A welcome antidote to growth-hacking courses.',
+        reviewer_name: 'Lena F.',
+      },
+    ],
+  },
+  {
+    slug: 'advanced-typescript-patterns',
+    title: 'Advanced TypeScript: Patterns for Production',
+    description:
+      'The type-level toolkit for real codebases — generics that earn their keep, discriminated unions, variance, and declaration files that survive refactors.',
+    category: 'Development',
+    level: 'advanced',
+    price_cents: 6999,
+    duration_min: 19 * 60,
+    thumbnail_url: 'https://picsum.photos/seed/ts-patterns/640/360',
+    featured: true,
+    status: 'published',
+    rating_avg: 4.9,
+    rating_count: 5210,
+    total_enrollments: 57300,
+    lessons: [
+      {
+        title: 'Generics that earn their keep',
+        description: 'When a type parameter pays rent.',
+        duration_sec: 23 * 60,
+        free_preview: true,
+      },
+      {
+        title: 'Discriminated unions everywhere',
+        description: 'Make invalid states unrepresentable.',
+        duration_sec: 21 * 60 + 30,
+      },
+      {
+        title: 'Variance without tears',
+        description: 'Covariance, contravariance, and the bugs they prevent.',
+        duration_sec: 24 * 60 + 15,
+      },
+      {
+        title: 'Declaration files that survive',
+        description: 'Public types as an API contract.',
+        duration_sec: 20 * 60,
+      },
+    ],
+    reviews: [
+      {
+        rating: 5,
+        title: 'Finally, production-shaped',
+        body: 'Every pattern maps to code I actually maintain.',
+        reviewer_name: 'Ravi P.',
+      },
+    ],
+  },
 ]
 
 async function ensureDemoInstructor(): Promise<{ id: string; created: boolean }> {
