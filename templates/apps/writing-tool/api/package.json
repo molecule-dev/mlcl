@@ -58,7 +58,7 @@
     "@molecule/api-push-notifications": "1.0.2",
     "@molecule/api-rate-limit": "1.0.2",
     "@molecule/api-resource": "1.0.2",
-    "@molecule/api-resource-device": "1.0.3",
+    "@molecule/api-resource-device": "1.0.2",
     "@molecule/api-resource-payment": "1.0.2",
     "@molecule/api-resource-tag": "1.0.2",
     "@molecule/api-resource-user": "1.4.1",
