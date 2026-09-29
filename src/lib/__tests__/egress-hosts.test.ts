@@ -337,6 +337,10 @@ const COVERAGE_EXEMPT: Record<string, string> = {
     'Default base URL is `http://localhost:8000` (a Laya decision server on the same host) — ' +
     'not egress at all. A project pointing it at a remote host supplies that host itself, so ' +
     'it belongs in that project’s allowlist, not in the package.',
+  '@molecule/api-ai-speech-nemo-speech':
+    'Default base URL is `http://127.0.0.1:8080` (a self-hosted `nemo-speech serve` on the same ' +
+    'host) — not egress at all. A project pointing it at a remote speech host supplies that host ' +
+    'itself, so it belongs in that project’s allowlist, not in the package.',
 }
 
 describe('registry egressHosts coverage vs molecule bond sources', () => {
