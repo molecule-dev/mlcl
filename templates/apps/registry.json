@@ -7426,7 +7426,7 @@
     },
     "static-site-thin": {
       "label": "Static Site / Markdown Blog (plain Node build)",
-      "description": "A static site of markdown posts built by one Node script — pages are HTML string templates, no framework, no hydration: paginated index, post pages, tag pages, RSS + Atom feeds, sitemap, llms.txt, raw markdown per post, drafts, and per-post AI provenance from agent transcripts. `npm run build` writes dist/ for any static host",
+      "description": "A static site of markdown posts built by one Node script — pages are HTML string templates, no framework, no hydration: paginated index, post pages, tag pages, RSS + Atom feeds, sitemap, llms.txt, raw markdown per post, drafts, per-post AI provenance from agent transcripts, a one-sentence TL;DR of every long section (written at build time, cached), and a margin-notes post layout (src/post-notes.ts) already wired to the reader's expectations: summaries switch ON, prompts switch OFF, a margin mark on each AI paragraph, one prompt shown once, and a phone bar. `npm run build` writes dist/ for any static host",
       "cluster": "content-social",
       "type": "static",
       "framework": "none",
@@ -7434,12 +7434,16 @@
       "packages": [
         "@molecule/api-agent-transcript",
         "@molecule/api-agent-transcript-autodetect",
+        "@molecule/api-ai-deepseek",
+        "@molecule/api-ai-summarization",
+        "@molecule/api-ai-summarization-llm",
         "@molecule/api-content",
         "@molecule/api-content-markdown",
         "@molecule/api-feed-rss",
         "@molecule/api-sitemap-xml",
         "@molecule/api-text-provenance",
         "@molecule/api-text-provenance-overlap",
+        "@molecule/app-margin-notes-html",
         "@molecule/app-markdown-marked"
       ],
       "env": {
@@ -7465,7 +7469,10 @@
         "llms-txt",
         "drafts",
         "provenance",
-        "seo"
+        "seo",
+        "section-summaries",
+        "margin-notes",
+        "prompt-reveal"
       ]
     },
     "status-page": {
