@@ -1,0 +1,44 @@
+{
+  "screens": {
+    "/dashboard": {
+      "allow": [
+        {
+          "heading": "The Brutalist Revival in Modern UI Design",
+          "reason": "Sample-data document title from the design mock's document card grid. The Dashboard implements the recent-documents rail (cover, AI-assisted/published chips, word count, updated stamp) fed by the live dashboard bundle; titles are the writer's own documents."
+        },
+        {
+          "heading": "Weekly Dispatch: Issue #42",
+          "reason": "Sample-data document title from the design mock's document card grid. The recent-documents cards render real document titles from the API; fixture documents are not seeded, so the design's sample titles can never be hardcoded."
+        }
+      ]
+    },
+    "/documents": {
+      "allow": [
+        {
+          "heading": "The Quiet Revolution of Home Cooking",
+          "reason": "Sample-data document title from the design mock's library grid. The Documents screen implements search, status filters and the card grid fed by /documents; rows are the user's own documents, never fixture copy."
+        }
+      ]
+    },
+    "/documents/:id/seo": {
+      "allow": [
+        {
+          "heading": "The Quiet Revolution of Home Cooking",
+          "reason": "Sample-data document title from the design mock's analysis header. The SEO analysis header now names the analyzed draft — it fetches the document and renders its real title above the report (plus score ring, target keywords and suggestions); a fixed fixture title would be wrong for every other document."
+        }
+      ]
+    },
+    "/profile": {
+      "allow": [
+        {
+          "heading": "Reclaiming the Narrative: Storytelling in the Age of Algorithms",
+          "reason": "Sample-data published-article title from the design mock's profile grid. The Profile implements the published-articles grid (thumbnail, SEO badge, title, excerpt, date, stats) fed by the live profile bundle; titles follow what the writer actually published."
+        },
+        {
+          "heading": "The Aesthetic of Decay: Finding Beauty in Impermanence",
+          "reason": "Sample-data published-article title from the design mock's profile grid. The published grid renders the user's real published documents from the API; the design's sample essays are content, not sections."
+        }
+      ]
+    }
+  }
+}

@@ -42,6 +42,10 @@
   /* Accent — design gold ("Start Free Trial" button) */
   --color-accent: #e8a830;
   --color-accent-hover: #d19528;
+  /* Ink for text/icons ON the gold accent: white fails WCAG AA on #e8a830
+     (2.08:1); this dark brown reads 6.3:1 in light and 7.9:1 on the
+     dark-mode gold. */
+  --color-accent-ink: #3f2d0a;
 
   /* Status */
   --color-success: #047857;
@@ -193,6 +197,8 @@
   --color-warning: #fbbf24;
   --color-info: #60a5fa;
   --color-accent: #fbbf24;
+  /* Same dark ink works on the lighter dark-mode gold (7.9:1). */
+  --color-accent-ink: #3f2d0a;
 
   /* Editor — soft warm-dark page for long-form writing */
   --editor-bg: #131313;

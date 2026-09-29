@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Building blocks for the shared `ResponsiveAppShell` — brand block, nav
@@ -82,38 +82,9 @@ const NAV_ITEMS: NavItem[] = [
  */
 export function AulaBrand({ compact = false }: { compact?: boolean }) {
   const cm = getClassMap()
-  const { t } = useTranslation()
   return (
     <Link to="/dashboard" className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-      <div
-        className={cm.cn(
-          'h-9 w-9 rounded-xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center shadow-md shadow-primary/20',
-        )}
-        aria-hidden="true"
-      >
-        <span
-          className={cm.cn('material-symbols-outlined text-[20px] text-on-primary')}
-          style={{ fontVariationSettings: "'FILL' 1" }}
-        >
-          cast_for_education
-        </span>
-      </div>
-      <div className={cm.flex({ direction: 'col' })}>
-        <span
-          className={cm.cn(
-            cm.textSize('xl'),
-            cm.fontWeight('bold'),
-            'text-primary leading-none tracking-tight',
-          )}
-        >
-          {APP_NAME}
-        </span>
-        {!compact ? (
-          <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant leading-none mt-1')}>
-            {t('aulaSideNav.tagline', {}, { defaultValue: APP_TAGLINE })}
-          </span>
-        ) : null}
-      </div>
+      <BrandWordmark as="span" size="lg" withTagline={!compact} />
     </Link>
   )
 }

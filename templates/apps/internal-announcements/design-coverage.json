@@ -1,0 +1,36 @@
+{
+  "screens": {
+    "/feed": {
+      "allow": [
+        {
+          "heading": "New Authentication Flow v2 Rollout Details",
+          "reason": "Sample-data announcement title from the design mock (appears as both a feed card and the side-by-side detail panel in the same design file). The Feed implements the announcement card stack (category tag, relative time, title, snippet, author, acknowledgment state) fed by /api/announcements, and AnnouncementDetail renders the loaded announcement's real title as its h1; titles are user data, never hardcoded copy."
+        }
+      ]
+    },
+    "/my-acknowledgments": {
+      "allow": [
+        {
+          "heading": "Office Closure: Severe Weather Warning",
+          "reason": "Sample-data announcement title from the design mock's acknowledgment cards. The My acknowledgments screen implements the designed layout (pending/acknowledged totals, tab bar, cards with Acknowledge actions) over live /api/announcements data; fixture titles are not seeded."
+        },
+        {
+          "heading": "Q4 Roadmap Alignment Adjustments",
+          "reason": "Sample-data announcement title from the design mock's acknowledgment cards. The card list renders real announcement titles from the API; a fresh workspace has no seeded rows, so the design's sample titles can never appear."
+        }
+      ]
+    },
+    "/search": {
+      "allow": [
+        {
+          "heading": "Q2 \" OKR rollout \" — final timeline",
+          "reason": "Sample-data search-result title from the design mock (a pinned announcement matching the demo query 'Q2 OKR rollout'). The Search screen implements the full results list — live full-text match with <mark> highlighting, type chips (All/Announcements/Channels/People), grouped result rows with author + channel + relative time — over real announcements; result titles are the matched records themselves."
+        },
+        {
+          "heading": "Comment on Q2 OKR rollout — \"timeline shifts\"",
+          "reason": "Sample-data comment result row from the design mock (a teammate's comment matching the demo query, rendered as a result). The app's search indexes announcements, channels and people; comment text is user data, so the design's sample comment row is content, not a missing section."
+        }
+      ]
+    }
+  }
+}

@@ -3,7 +3,8 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { CourseTileCard } from '../components/CourseTileCard.js'
 import { LiveClassHeroCard } from '../components/LiveClassHeroCard.js'
 
@@ -22,35 +23,7 @@ export function Landing() {
           'sticky top-0 z-30 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/20',
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-          <div
-            className={cm.cn(
-              'h-9 w-9 rounded-xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center shadow-md shadow-primary/30',
-            )}
-            aria-hidden="true"
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-[20px] text-on-primary')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              cast_for_education
-            </span>
-          </div>
-          <div className={cm.flex({ direction: 'col' })}>
-            <span
-              className={cm.cn(
-                cm.textSize('lg'),
-                cm.fontWeight('bold'),
-                'text-primary leading-none tracking-tight',
-              )}
-            >
-              {APP_NAME}
-            </span>
-            <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant leading-none mt-1')}>
-              {APP_TAGLINE}
-            </span>
-          </div>
-        </Link>
+        <BrandWordmark withTagline />
         <nav className={cm.cn(cm.flex({ align: 'center', gap: 6 }))}>
           <a
             href="#features"
@@ -533,16 +506,7 @@ export function Landing() {
           className={cm.cn('max-w-7xl mx-auto px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-10')}
         >
           <div className={cm.cn(cm.stack(3))}>
-            <span
-              className={cm.cn(
-                cm.textSize('lg'),
-                cm.fontWeight('bold'),
-                '[font-family:var(--font-headline)]',
-                'text-primary tracking-tight',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" footer />
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-xs')}>
               {t(
                 'landing.footerCopy',

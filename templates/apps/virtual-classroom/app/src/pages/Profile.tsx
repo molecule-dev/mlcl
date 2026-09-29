@@ -164,6 +164,110 @@ export function Profile() {
         />
       </section>
 
+      {/* Education & Credentials — the verified-credential list the design
+          gives every instructor profile: degrees from schools, certificates
+          from issuers, each with an icon tile and the conferring body + year. */}
+      <section
+        className={cm.cn(
+          cm.sp('p', 6),
+          'rounded-2xl bg-surface-container-lowest border border-outline-variant/10 shadow-sm',
+        )}
+      >
+        <h2
+          className={cm.cn(
+            cm.textSize('xl'),
+            cm.fontWeight('bold'),
+            'tracking-tight text-on-surface',
+            cm.sp('mb', 4),
+          )}
+        >
+          {t('profile.credentialsTitle', {}, { defaultValue: 'Education & credentials' })}
+        </h2>
+        <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
+          <li className={cm.cn(cm.flex({ align: 'start', gap: 'md' }))}>
+            <span
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                cm.roundedFull,
+                'h-10 w-10 shrink-0 bg-surface-container-lowest text-primary border border-outline-variant/10',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-[20px]')}>school</span>
+            </span>
+            <div className={cm.cn(cm.stack(1))}>
+              <h3 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
+                {t(
+                  'profile.credentialDoctorateTitle',
+                  {},
+                  { defaultValue: 'Ph.D. in Mathematics' },
+                )}
+              </h3>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'profile.credentialDoctorateMeta',
+                  {},
+                  { defaultValue: 'University of Cape Town · 2006 - 2010' },
+                )}
+              </p>
+            </div>
+          </li>
+          <li className={cm.cn(cm.flex({ align: 'start', gap: 'md' }))}>
+            <span
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                cm.roundedFull,
+                'h-10 w-10 shrink-0 bg-surface-container-lowest text-primary border border-outline-variant/10',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-[20px]')}>school</span>
+            </span>
+            <div className={cm.cn(cm.stack(1))}>
+              <h3 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
+                {t(
+                  'profile.credentialMastersTitle',
+                  {},
+                  { defaultValue: 'M.S. in Applied Mathematics' },
+                )}
+              </h3>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'profile.credentialMastersMeta',
+                  {},
+                  { defaultValue: 'University of Lagos · 2004 - 2006' },
+                )}
+              </p>
+            </div>
+          </li>
+          <li className={cm.cn(cm.flex({ align: 'start', gap: 'md' }))}>
+            <span
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                cm.roundedFull,
+                'h-10 w-10 shrink-0 bg-surface-container-lowest text-primary border border-outline-variant/10',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-[20px]')}>verified</span>
+            </span>
+            <div className={cm.cn(cm.stack(1))}>
+              <h3 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
+                {t(
+                  'profile.credentialFellowshipTitle',
+                  {},
+                  { defaultValue: 'National Teaching Fellowship' },
+                )}
+              </h3>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'profile.credentialFellowshipMeta',
+                  {},
+                  { defaultValue: 'Higher Education Academy · Issued 2016' },
+                )}
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
       <section>
         <h2
           className={cm.cn(

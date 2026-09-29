@@ -1,0 +1,32 @@
+{
+  "screens": {
+    "/conversation": {
+      "allow": [
+        {
+          "heading": "Quantum Physics Explanation",
+          "reason": "Sample-data conversation title from the design mock (shown as the live session's header title and in the history sidebar). Sections exist: the header carries the eyebrow + session heading + Live badge, and the sidebar equivalent is the dedicated History screen. A fresh account's session is titled at creation time, so a design fixture title can never be hardcoded."
+        }
+      ]
+    },
+    "/history": {
+      "allow": [
+        {
+          "heading": "Flight booking to Tokyo",
+          "reason": "Sample-data conversation title from the design mock. The History screen implements the full designed layout (Today/Yesterday/This week/Older buckets, search, voice-only filter, duration + message count) and renders each conversation's real title from /conversations; a fresh account has no seeded rows."
+        },
+        {
+          "heading": "Dinner Recipe Ideas",
+          "reason": "Sample-data conversation title from the design mock. The History screen's bucketed list renders real conversation titles from /conversations; design fixture rows are not seeded."
+        }
+      ]
+    },
+    "/history/:id": {
+      "allow": [
+        {
+          "heading": "Quantum Physics Explanation",
+          "reason": "Sample-data conversation title from the design mock. The detail page renders the loaded conversation's real title as its h1 (detail?.title) plus AI Summary / Key Topics / Suggested Follow-ups sections; the design's fixture title is dynamic data, not a missing section."
+        }
+      ]
+    }
+  }
+}

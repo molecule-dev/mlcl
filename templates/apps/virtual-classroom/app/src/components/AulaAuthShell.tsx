@@ -6,6 +6,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
@@ -41,30 +42,7 @@ export function AulaAuthShell({ eyebrow, title, subtitle, children, footer }: Au
           'border-b border-outline-variant/15',
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-          <div
-            className={cm.cn(
-              'h-9 w-9 rounded-xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center shadow-md shadow-primary/20',
-            )}
-            aria-hidden="true"
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-[20px] text-on-primary')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              cast_for_education
-            </span>
-          </div>
-          <span
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('bold'),
-              'text-primary tracking-tight',
-            )}
-          >
-            {APP_NAME}
-          </span>
-        </Link>
+        <BrandWordmark />
         <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
           <ThemeToggle />
           <Link

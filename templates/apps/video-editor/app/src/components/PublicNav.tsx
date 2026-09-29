@@ -11,7 +11,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { RushesWordmark } from './RushesWordmark.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 const ctaClass = (cm: ReturnType<typeof getClassMap>): string =>
   cm.cn(
@@ -36,7 +36,7 @@ export function PublicNav() {
         'h-16 border-b border-[var(--video-border-subtle)] backdrop-blur-md bg-[var(--video-panel-bg)]/80 sticky top-0 z-30',
       )}
     >
-      <RushesWordmark size="md" to="/" />
+      <BrandWordmark size="md" />
       <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }))}>
         {isAuthenticated ? (
           <Link to="/dashboard" data-mol-id="public-nav-dashboard" className={ctaClass(cm)}>

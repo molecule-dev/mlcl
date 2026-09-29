@@ -14,7 +14,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
-import { RushesWordmark } from './RushesWordmark.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface RushesAuthShellProps {
   heading: string
@@ -106,7 +106,7 @@ export function RushesAuthShell({ heading, subheading, children, footer }: Rushe
       >
         <div className={cm.cn(cm.w('full'), 'max-w-[440px]')}>
           <div className={cm.cn(cm.textCenter, cm.sp('mb', 8))}>
-            <RushesWordmark size="xl" />
+            <BrandWordmark size="xl" as="span" />
             <p
               className={cm.cn(
                 cm.sp('mt', 3),

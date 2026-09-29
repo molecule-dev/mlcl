@@ -1,0 +1,32 @@
+{
+  "screens": {
+    "/courses": {
+      "allow": [
+        {
+          "heading": "Quantum Mechanics Intro",
+          "reason": "Sample-data course title from the design mock. The Courses screen implements the designed catalogue (tab filter, course card grid with code badge, instructor, schedule, progress) and renders each course's real title from the API; a fresh account's catalogue is data, not hardcoded rows."
+        },
+        {
+          "heading": "Machine Learning Fundamentals",
+          "reason": "Sample-data course title from the design mock. The course-card grid section is implemented and titles come from the API course list; design fixture rows are not seeded."
+        }
+      ]
+    },
+    "/profile/:id": {
+      "allow": [
+        {
+          "heading": "Certified Scrum Trainer (CST)",
+          "reason": "Sample-data credential from the design mock's CS-instructor persona. The designed 'Education & Credentials' section IS implemented (school + verified icon list with conferring body and year) but carries the app profile persona's own math-department credentials, so the design's certification name can never appear."
+        },
+        {
+          "heading": "Distributed Systems Architecture",
+          "reason": "Sample-data course title from the design mock's 'Currently Teaching' rail. The equivalent 'Courses I teach' section is implemented as a course-card grid; the app profile carries its own math-department course catalog (Calculus II, Discrete Mathematics, Algebraic Topology)."
+        },
+        {
+          "heading": "Concurrent Programming Models",
+          "reason": "Sample-data course title from the design mock's 'Currently Teaching' rail. The 'Courses I teach' card grid section is implemented; the design's CS sample titles are replaced by the app persona's own courses, so the fixture names can never appear."
+        }
+      ]
+    }
+  }
+}

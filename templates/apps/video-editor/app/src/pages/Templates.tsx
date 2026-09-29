@@ -131,7 +131,7 @@ export function Templates() {
                   { count: templates.length },
                   {
                     defaultValue:
-                      '{{count}} hand-crafted shells. Apply one and start swapping clips.',
+                      '{{count}} results · hand-crafted shells. Apply one and start swapping clips.',
                   },
                 )}
           </p>

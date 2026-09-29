@@ -24,7 +24,7 @@ import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { RushesWordmark } from './RushesWordmark.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 interface AccountUser {
@@ -133,7 +133,7 @@ export function RushesLayout({
   /** Brand block for the desktop sidebar (rides inside the sidebar children). */
   const sidebarBrand = (
     <div className={cm.cn(cm.sp('px', 6), cm.sp('mb', 8))}>
-      <RushesWordmark size="md" to="/" />
+      <BrandWordmark size="md" />
       <p
         className={cm.cn(
           'mt-1 font-mono text-[10px] uppercase tracking-widest text-[var(--video-text-dim)]',
@@ -147,7 +147,7 @@ export function RushesLayout({
   /** Brand block for the drawer header row (next to the shell's close button). */
   const drawerBrand = (
     <div className={cm.cn(cm.sp('px', 3))}>
-      <RushesWordmark size="md" to="/" />
+      <BrandWordmark size="md" />
       <p
         className={cm.cn(
           'mt-1 font-mono text-[10px] uppercase tracking-widest text-[var(--video-text-dim)]',
@@ -258,7 +258,7 @@ export function RushesLayout({
           else. */}
       <ResponsiveAppShell.TopBar
         mobileOnly
-        brand={<RushesWordmark size="sm" to="/" />}
+        brand={<BrandWordmark size="sm" />}
         // The /95 bg stays LAST — tailwind-merge keeps the last bg-* of the
         // group, so the translucent bar must not precede the solid panel bg.
         className={cm.cn(panelClasses, 'bg-[var(--video-panel-bg)]/95 backdrop-blur-md')}

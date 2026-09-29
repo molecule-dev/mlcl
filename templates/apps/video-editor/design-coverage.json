@@ -1,0 +1,44 @@
+{
+  "screens": {
+    "/dashboard": {
+      "allow": [
+        {
+          "heading": "Neon Nights Reel",
+          "reason": "Sample-data project name from the design mock's Projects rail. The Dashboard implements the Recent projects rail (cover tiles, name, updated stamp) fed by /api/projects; the fleet carries its own demo catalogue (Skyline · Launch Reel, Vertical · Product Drop, …), so a design fixture title can never be hardcoded."
+        }
+      ]
+    },
+    "/assets": {
+      "allow": [
+        {
+          "heading": "Neon_City_Broll_4K.mov",
+          "reason": "Sample-data asset filename from the design mock. The Asset library implements the media grid (search, upload form, name/type/size rows) fed by /api/assets; filenames are user data, not UI copy."
+        }
+      ]
+    },
+    "/export": {
+      "allow": [
+        {
+          "heading": "Urban-Walk_v3_1080p.mp4",
+          "reason": "Sample-data render filename from the design mock. The Export queue implements the render list (project-derived filename, format/resolution, status, progress) fed by /api/exports; filenames derive from the user's own projects."
+        }
+      ]
+    },
+    "/projects/:id": {
+      "allow": [
+        {
+          "heading": "Sunset Reel — Director's Cut",
+          "reason": "Sample-data project title from the design mock. The Project detail screen implements version history, project info (name editable via PUT /api/projects/:id) and collaborators, rendering the loaded project's real name; a design fixture title cannot appear for an arbitrary id."
+        }
+      ]
+    },
+    "/export/:id": {
+      "allow": [
+        {
+          "heading": "Sunset Reel — Director's Cut",
+          "reason": "Sample-data project title from the design mock (shown as the render's filename header). The Export detail screen computes the filename from the parent project's real name (`${projectName}.${format}`) and implements output settings, destinations and publish; fixture titles are data, not copy."
+        }
+      ]
+    }
+  }
+}

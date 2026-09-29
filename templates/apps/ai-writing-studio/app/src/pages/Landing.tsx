@@ -289,7 +289,7 @@ export function Landing() {
                       cm.sp('px', 6),
                       cm.sp('py', 3),
                       cm.fontWeight('medium'),
-                      'bg-accent text-white rounded-lg hover:bg-accent-hover transition-colors inline-flex items-center gap-2 shadow-sm whitespace-nowrap',
+                      'bg-accent text-accent-ink rounded-lg hover:bg-accent-hover transition-colors inline-flex items-center gap-2 shadow-sm whitespace-nowrap',
                     )}
                   >
                     {t('landing.heroCta', {}, { defaultValue: 'Start your free trial' })}

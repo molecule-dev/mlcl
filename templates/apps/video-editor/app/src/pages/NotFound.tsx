@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { RushesWordmark } from '../components/RushesWordmark.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 export function NotFound() {
   const cm = getClassMap()
@@ -32,7 +32,7 @@ export function NotFound() {
       </div>
 
       <div className={cm.cn('relative z-10 max-w-[520px] px-6')}>
-        <RushesWordmark size="md" to="/" />
+        <BrandWordmark size="md" />
         <p
           className={cm.cn(
             cm.textSize('xs'),

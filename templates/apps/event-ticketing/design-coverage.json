@@ -1,0 +1,48 @@
+{
+  "screens": {
+    "/": {
+      "allow": [
+        {
+          "heading": "City vs United Championship",
+          "reason": "Sample-data event title from the design mock's featured-events grid. The Landing implements the live preview rail fed by /api/events?limit=4 (cover, category chip, title, venue, price, date); event names are organizer data, not UI copy."
+        }
+      ]
+    },
+    "/events": {
+      "allow": [
+        {
+          "heading": "City Marathon & 10K Challenge",
+          "reason": "Sample-data event title from the design mock's browse grid. The Event list implements search, category chips and the event card grid fed by /api/events; a fresh deployment serves the fleet's own seeded catalogue, so the design's fixture rows can never be hardcoded."
+        }
+      ]
+    },
+    "/events/:id": {
+      "allow": [
+        {
+          "heading": "Saturday, October 24, 2024",
+          "reason": "Sample-data date line from the design mock's date tile. The Event detail header renders the loaded event's real starts_at formatted per locale (weekday · long date) next to the day/month tile; a fixed calendar string would be wrong for every other event."
+        }
+      ]
+    },
+    "/my-tickets": {
+      "allow": [
+        {
+          "heading": "Sunset Soundwaves Fest",
+          "reason": "Sample-data event title from the design mock's ticket wallet. The My tickets screen lists the buyer's real tickets (event title resolved from /api/events, tier, QR entry, status); titles follow the events the user actually bought."
+        }
+      ]
+    },
+    "/notifications": {
+      "allow": [
+        {
+          "heading": "Schedule update: Quantum Lights moved to 9pm",
+          "reason": "Sample-data notification row from the design mock. The Notifications screen implements filter chips plus the unread/read row list fed by /api/notifications (title + body + relative time + mark-read); rows are runtime data."
+        },
+        {
+          "heading": "Refund processed for Coding Conf 2024 — $120",
+          "reason": "Sample-data notification row from the design mock. The notifications list renders each real notification's title/body from the API; fixture rows are not seeded, so the design's sample text can never appear."
+        }
+      ]
+    }
+  }
+}

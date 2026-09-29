@@ -34,7 +34,7 @@ interface SearchResult {
 
 const GROUP_DEFS: ReadonlyArray<{ key: Group; defaultLabel: string; icon: string }> = [
   { key: 'transcripts', defaultLabel: 'Transcripts', icon: 'forum' },
-  { key: 'agents', defaultLabel: 'Agents', icon: 'psychology' },
+  { key: 'agents', defaultLabel: 'Agents', icon: 'smart_toy' },
   { key: 'settings', defaultLabel: 'Settings', icon: 'settings' },
 ]
 

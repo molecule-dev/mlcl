@@ -722,7 +722,12 @@ export function CreateEvent({
                     <div
                       className={cm.cn(
                         cm.grid({ gap: 'sm' }),
-                        'grid-cols-1 md:grid-cols-[2fr_2fr_1fr_1fr_auto]',
+                        // Two columns at every width: the create form lives in a
+                        // ~400px column next to the 360px summary rail, so a
+                        // 5-across row would leave the price input single digits
+                        // wide. Name/description span both columns; price and
+                        // quantity sit side by side; delete spans below, right.
+                        'grid-cols-2',
                       )}
                     >
                       <input
@@ -733,7 +738,11 @@ export function CreateEvent({
                           { defaultValue: 'Tier name' },
                         )}
                         className={cm.cn(
-                          'px-3 py-2 rounded-lg bg-surface border border-outline-variant text-sm font-bold',
+                          // min-w-0 + w-full: an <input>'s intrinsic min-content
+                          // width would otherwise floor its track and squeeze the
+                          // price/qty cells. Grid tracks are minmax(auto, 1fr) —
+                          // they need shrinkable items.
+                          'min-w-0 w-full col-span-2 px-3 py-2 rounded-lg bg-surface border border-outline-variant text-sm font-bold',
                         )}
                         value={tier.name}
                         onChange={(e) => patchTier(tier.id, { name: e.target.value })}
@@ -751,7 +760,7 @@ export function CreateEvent({
                           { defaultValue: 'Optional description' },
                         )}
                         className={cm.cn(
-                          'px-3 py-2 rounded-lg bg-surface border border-outline-variant text-sm',
+                          'min-w-0 w-full col-span-2 px-3 py-2 rounded-lg bg-surface border border-outline-variant text-sm',
                         )}
                         value={tier.description}
                         onChange={(e) => patchTier(tier.id, { description: e.target.value })}
@@ -796,7 +805,7 @@ export function CreateEvent({
                           { defaultValue: 'Qty' },
                         )}
                         className={cm.cn(
-                          'px-3 py-2 rounded-lg bg-surface border border-outline-variant text-sm font-mono tabular-nums',
+                          'min-w-0 w-full px-3 py-2 rounded-lg bg-surface border border-outline-variant text-sm font-mono tabular-nums',
                         )}
                         value={tier.total}
                         onChange={(e) => patchTier(tier.id, { total: e.target.value })}
@@ -814,7 +823,9 @@ export function CreateEvent({
                           { defaultValue: 'Remove tier {{n}}' },
                         )}
                         onClick={() => removeTier(tier.id)}
-                        className={cm.cn('text-on-surface-variant hover:text-error')}
+                        className={cm.cn(
+                          'col-span-2 justify-self-end text-on-surface-variant hover:text-error',
+                        )}
                       >
                         <span
                           className={cm.cn('material-symbols-outlined text-lg')}

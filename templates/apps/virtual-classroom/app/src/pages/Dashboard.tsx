@@ -65,6 +65,22 @@ const formatHHMM = (iso: string | null): string => {
   return new Date(iso).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })
 }
 
+/** Day-part greeting keys so the dashboard opens the way the design's
+ * top bar does — morning / afternoon / evening, never a hardcoded name. */
+function greetingKey(): string {
+  const h = new Date().getHours()
+  if (h < 12) return 'dashboard.greeting.morning'
+  if (h < 17) return 'dashboard.greeting.afternoon'
+  return 'dashboard.greeting.evening'
+}
+
+function greetingDefault(): string {
+  const h = new Date().getHours()
+  if (h < 12) return 'Good morning'
+  if (h < 17) return 'Good afternoon'
+  return 'Good evening'
+}
+
 export function Dashboard() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -131,6 +147,30 @@ export function Dashboard() {
 
   return (
     <div className={cm.stack(10)} data-testid="dashboard-root">
+      {/* Time-of-day greeting + date line — the top-bar greeting the design
+          leads every authenticated screen with. The name is deliberately not
+          hardcoded; the greeting carries the day part and the locale-formatted
+          date sits beside it. */}
+      <section className={cm.cn(cm.flex({ direction: 'col', gap: 1 }))}>
+        <h1
+          className={cm.cn(
+            cm.textSize('2xl'),
+            cm.fontWeight('bold'),
+            'tracking-tight text-on-surface',
+          )}
+        >
+          {t(greetingKey(), {}, { defaultValue: greetingDefault() })}
+        </h1>
+        <span className={cm.cn(cm.textSize('sm'), cm.textMuted, 'tabular-nums')}>
+          {new Date().toLocaleDateString(undefined, {
+            weekday: 'long',
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+          })}
+        </span>
+      </section>
+
       {upcomingRoom ? (
         <LiveClassHeroCard
           classId={upcomingRoom.id}

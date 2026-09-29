@@ -6,7 +6,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
 import { type ProjectSummary, ProjectThumbCard } from '../components/ProjectThumbCard.js'
 import { PublicNav } from '../components/PublicNav.js'
-import { RushesWordmark } from '../components/RushesWordmark.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { TimelinePreview } from '../components/TimelinePreview.js'
 
 interface FeatureBlock {
@@ -342,7 +342,7 @@ export function Landing() {
             'max-w-[1100px] mx-auto',
           )}
         >
-          <RushesWordmark size="sm" />
+          <BrandWordmark size="sm" as="span" footer />
           <div
             className={cm.cn(
               cm.flex({ gap: 6 }),

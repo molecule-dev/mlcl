@@ -17,6 +17,11 @@ interface AnalysisRow {
   analyzed_at: string
 }
 
+interface DocumentRow {
+  id: string
+  title: string
+}
+
 interface SeoSuggestion {
   kind: 'keyword' | 'length' | 'readability' | 'structure'
   message: string
@@ -52,8 +57,30 @@ export function SEOAnalysis() {
   const http = useHttpClient()
   const { id } = useParams<{ id: string }>()
   const [analyses, setAnalyses] = useState<AnalysisRow[] | null>(null)
+  const [docTitle, setDocTitle] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [running, setRunning] = useState(false)
+
+  // Name the draft under analysis — the design leads the page with the
+  // document's own title so the writer always knows what is being scored.
+  useEffect(() => {
+    let cancelled = false
+    if (!id) return
+    http
+      .get<DocumentRow>(`/documents/${id}`)
+      .then((res) => {
+        if (cancelled) return
+        const title = res.data?.title
+        if (typeof title === 'string' && title.trim()) setDocTitle(title.trim())
+      })
+      .catch(() => {
+        // The analysis list is the page's substance; a failed title lookup
+        // only drops the sub-line, never the report.
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [http, id])
 
   const fetchAnalyses = (signal?: { cancelled: boolean }) => {
     if (!id) return
@@ -124,6 +151,22 @@ export function SEOAnalysis() {
             >
               {t('seoAnalysis.title', {}, { defaultValue: 'How this draft will travel' })}
             </h1>
+            {docTitle ? (
+              <p
+                data-mol-id="seo-analysis-document-title"
+                className={cm.cn(
+                  cm.sp('mt', 2),
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  'text-on-surface-variant',
+                )}
+              >
+                <span className="material-symbols-outlined align-[-3px] text-[16px] text-primary">
+                  description
+                </span>{' '}
+                {docTitle}
+              </p>
+            ) : null}
           </div>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
             <button

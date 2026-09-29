@@ -1,0 +1,40 @@
+{
+  "screens": {
+    "/": {
+      "allow": [
+        {
+          "heading": "The Art of the Deep Breath: Why Quietude is Our Greatest Asset",
+          "reason": "Sample-data post title from the design mock's featured grid. The landing implements hero, trending, topics row and the featured cards + linear rows sections, all fed by /api/posts; post titles are author content, never hardcoded copy."
+        },
+        {
+          "heading": "What Silicon Valley Gets Wrong About Human Connection",
+          "reason": "Sample-data post title from the design mock's featured grid. The featured-posts section renders real published posts from the API; a fresh blog has the community's own articles, so the design's fixture titles can never appear."
+        }
+      ]
+    },
+    "/post/:id": {
+      "allow": [
+        {
+          "heading": "The Quiet Power of Digital Minimalism: Lessons from a 30-Day Detox",
+          "reason": "Sample-data post title from the design mock's reading rail. The post detail page implements the related-posts section (same-topic rails fed by /api/posts); rail items are whatever the blog actually contains."
+        },
+        {
+          "heading": "The Biological Clock: Aligning Your Deep Work with Your Circadian Rhythm",
+          "reason": "Sample-data post title from the design mock's reading rail. The related-posts rails render real posts from the API; the design's sample articles are content, not sections."
+        }
+      ]
+    },
+    "/posts": {
+      "allow": [
+        {
+          "heading": "A Love Letter to Analog Typewriters",
+          "reason": "Sample-data post title from the design mock's draft list. The Posts screen implements the table (search, status filter, rows with title/views/comments/status) fed by /api/posts/mine/all; rows are the writer's own drafts."
+        },
+        {
+          "heading": "The Ethics of Generative AI in Art",
+          "reason": "Sample-data post title from the design mock's draft list. The posts table renders the user's real posts from the API; fixture titles are not seeded."
+        }
+      ]
+    }
+  }
+}
