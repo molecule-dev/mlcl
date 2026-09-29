@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 export function NotFound() {
   const cm = getClassMap()
@@ -31,12 +31,9 @@ export function NotFound() {
         aria-hidden="true"
       />
 
-      <Link
-        to="/"
-        className={cm.cn('relative z-10 text-3xl font-black text-primary tracking-tighter')}
-      >
-        {APP_NAME}
-      </Link>
+      <span className={cm.cn('relative z-10')}>
+        <BrandWordmark size="lg" invert />
+      </span>
 
       <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), 'relative z-10 max-w-xl')}>
         <span

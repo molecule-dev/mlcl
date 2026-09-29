@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 const FEATURES = [
@@ -59,12 +60,7 @@ export function Landing() {
           <div
             className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'flex items-center gap-8')}
           >
-            <Link
-              to="/"
-              className="text-2xl font-serif italic font-bold text-primary tracking-tight"
-            >
-              {APP_NAME}
-            </Link>
+            <BrandWordmark />
             <nav
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'md' }),
@@ -343,7 +339,7 @@ export function Landing() {
       <footer className="w-full py-12 md:py-20 bg-surface-container-low border-t border-outline-variant/40">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 px-6 md:px-12 max-w-7xl mx-auto text-sm">
           <div className="flex flex-col gap-3 col-span-2 md:col-span-1">
-            <span className="font-serif italic text-lg text-on-surface">{APP_NAME}</span>
+            <BrandWordmark as="span" footer size="sm" />
             <p className="text-on-surface-variant mt-4">
               {t(
                 'landing.footer.tagline',

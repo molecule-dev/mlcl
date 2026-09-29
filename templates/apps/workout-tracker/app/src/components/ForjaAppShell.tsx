@@ -4,8 +4,9 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
 import { useWeightPreference } from '../lib/weight.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface NavItem {
   to: string
@@ -107,7 +108,8 @@ function ForjaNavLinks({ items }: { items: NavItem[] }) {
 
 /**
  * The Forja wordmark + tagline — the Sidebar's brand block and the Drawer's
- * header row (only the mounted breakpoint instantiates it).
+ * header row (only the mounted breakpoint instantiates it). The wordmark
+ * itself renders through the shared BrandWordmark.
  */
 function ForjaBrand() {
   const cm = getClassMap()
@@ -115,9 +117,7 @@ function ForjaBrand() {
 
   return (
     <Link to="/dashboard" className={cm.cn(cm.sp('px', 2), cm.sp('mb', 6), 'block')}>
-      <span className={cm.cn('block text-3xl font-black text-primary tracking-tight')}>
-        {APP_NAME}
-      </span>
+      <BrandWordmark as="span" size="lg" invert />
       <span
         className={cm.cn(
           cm.textSize('xs'),
@@ -158,11 +158,7 @@ export function ForjaAppShell() {
       <ResponsiveAppShell.TopBar
         mobileOnly
         className={cm.cn('bg-accent text-white shadow-sm')}
-        brand={
-          <Link to="/dashboard" className={cm.cn('text-xl font-black text-primary tracking-tight')}>
-            {APP_NAME}
-          </Link>
-        }
+        brand={<BrandWordmark to="/dashboard" size="sm" invert />}
       />
       <ResponsiveAppShell.Sidebar
         navLabel={navLabel}

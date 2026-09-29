@@ -4,7 +4,8 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface ForjaAuthShellProps {
   /** h2 heading ("Welcome back", "Forge your account", …). */
@@ -90,12 +91,8 @@ export function ForjaAuthShell({ heading, subheading, footer, children }: ForjaA
             'relative z-10 text-center',
           )}
         >
-          <span
-            className={cm.cn(
-              'text-[80px] font-black text-white tracking-tighter leading-none mb-4',
-            )}
-          >
-            {APP_NAME}
+          <span className={cm.cn('mb-4 block')}>
+            <BrandWordmark as="span" size="display" invert />
           </span>
           <span
             className={cm.cn(
@@ -116,8 +113,8 @@ export function ForjaAuthShell({ heading, subheading, footer, children }: ForjaA
       >
         <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), 'w-full max-w-[440px]')}>
           <Link to="/" className={cm.cn('lg:hidden text-center mb-2 block')}>
-            <span className={cm.cn('text-5xl font-black text-primary tracking-tighter block')}>
-              {APP_NAME}
+            <span className={cm.cn('block')}>
+              <BrandWordmark as="span" size="xl" />
             </span>
             <span
               className={cm.cn(

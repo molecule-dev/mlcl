@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 interface FeatureCard {
   icon: string
@@ -68,11 +69,7 @@ export function Landing() {
         <div
           className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'max-w-7xl mx-auto')}
         >
-          <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'gap-8')}>
-            <span className={cm.cn('text-2xl font-black text-on-surface tracking-tighter')}>
-              {APP_NAME.toUpperCase()}
-            </span>
-          </Link>
+          <BrandWordmark size="md" />
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'hidden md:flex gap-6')}>
             <a
               href="#features"

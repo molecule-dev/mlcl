@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_ITEMS = [
@@ -37,9 +37,6 @@ const NAV_ITEMS = [
     defaultLabel: 'Settings',
   },
 ] as const
-
-/** Versal's editorial brand face — Charter with serif fallbacks. */
-const BRAND_FACE = 'Charter, Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif'
 
 /**
  * Sidebar shell for Versal's authenticated routes — the shared
@@ -79,17 +76,10 @@ export function VersalLayout() {
 
   const navLabel = t('versalLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
 
-  // Brand mark — Charter serif. One element passed to both the `mobileOnly`
-  // TopBar and the Sidebar; only the mounted breakpoint instantiates it.
-  const brand = (
-    <Link
-      to={safeTarget('/library')}
-      className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface truncate')}
-      style={{ fontFamily: BRAND_FACE }}
-    >
-      {APP_NAME}
-    </Link>
-  )
+  // Brand mark — the shared BrandWordmark (Charter serif). One element
+  // passed to both the `mobileOnly` TopBar and the Sidebar; only the
+  // mounted breakpoint instantiates it.
+  const brand = <BrandWordmark to={safeTarget('/library')} />
 
   // ONE nav element for both breakpoints — the Sidebar and the Drawer receive
   // the same array, and only the mounted breakpoint instantiates it. The
@@ -159,14 +149,7 @@ export function VersalLayout() {
       */}
       <ResponsiveAppShell.Drawer
         navLabel={navLabel}
-        header={
-          <span
-            className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface')}
-            style={{ fontFamily: BRAND_FACE }}
-          >
-            {APP_NAME}
-          </span>
-        }
+        header={<BrandWordmark as="span" />}
         // The shared panel ships no height token (its content would size it);
         // `h-full` restores the full-height left-panel geometry the old
         // hand-rolled drawer had.
