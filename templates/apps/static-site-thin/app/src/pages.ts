@@ -17,6 +17,14 @@
  *   already produced sanitized HTML.
  * - `data-mol-id` attributes are what the e2e specs find elements by — keep
  *   them when you restyle.
+ * - The post page's margin notes (`postNotes` below) already behave as a
+ *   reader expects, and each part was measured: the summaries switch starts ON
+ *   and the prompts switch OFF (`kinds[].defaultOn`), a prompt is the same size
+ *   as a summary and both are smaller than the prose (the `--mn-*` sizes at the
+ *   bottom of public/styles.css), each AI paragraph carries a margin mark, and
+ *   the layout package places and scrolls the notes. Recolour them freely; do
+ *   not flip those defaults, change those sizes, or add a script or grid of your
+ *   own around them — a builder that did each of these failed the build.
  */
 import {
   type MarginNote,
