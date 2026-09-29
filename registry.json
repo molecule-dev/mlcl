@@ -214,25 +214,61 @@
         "which files the agent wrote"
       ]
     },
+    "@molecule/api-agent-transcript-aider": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "agent-transcript",
+      "label": "Aider transcript reader",
+      "description": "Reads Aider's chat history file (.aider.chat.history.md) into a normalized agent session",
+      "stack": "api",
+      "implements": "@molecule/api-agent-transcript",
+      "exports": [
+        "editBlocksOf",
+        "looksLikeAiderHistory",
+        "provider",
+        "readAiderHistory"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-transcript"
+      ],
+      "moleculePeers": [
+        "@molecule/api-agent-transcript"
+      ],
+      "path": "packages/api/bonds/agent-transcript/aider",
+      "intentHints": [
+        "aider chat history",
+        ".aider.chat.history.md"
+      ]
+    },
     "@molecule/api-agent-transcript-autodetect": {
       "language": "typescript",
       "runtime": "node",
       "type": "provider",
       "category": "agent-transcript",
       "label": "Agent transcript autodetect",
-      "description": "Picks the reader that recognizes a transcript and delegates to it; bundles the Claude Code, Codex and Molecule IDE readers",
+      "description": "Picks the reader that recognizes a transcript and delegates to it; bundles readers for Claude Code, Codex CLI, the Molecule IDE, Gemini CLI, Cline / Roo Code, OpenCode, GitHub Copilot Chat, Cursor and Aider, plus a generic Markdown chat reader",
       "stack": "api",
       "implements": "@molecule/api-agent-transcript",
       "exports": [
         "createReader",
+        "harnessReaders",
         "provider"
       ],
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/api-agent-transcript",
+        "@molecule/api-agent-transcript-aider",
         "@molecule/api-agent-transcript-claude-code",
+        "@molecule/api-agent-transcript-cline",
         "@molecule/api-agent-transcript-codex",
-        "@molecule/api-agent-transcript-molecule-ide"
+        "@molecule/api-agent-transcript-copilot-chat",
+        "@molecule/api-agent-transcript-cursor",
+        "@molecule/api-agent-transcript-gemini-cli",
+        "@molecule/api-agent-transcript-markdown-chat",
+        "@molecule/api-agent-transcript-molecule-ide",
+        "@molecule/api-agent-transcript-opencode"
       ],
       "moleculePeers": [
         "@molecule/api-agent-transcript"
@@ -272,6 +308,34 @@
         "claude code session jsonl"
       ]
     },
+    "@molecule/api-agent-transcript-cline": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "agent-transcript",
+      "label": "Cline / Roo Code transcript reader",
+      "description": "Reads Cline and Roo Code task history (ui_messages.json) into a normalized agent session",
+      "stack": "api",
+      "implements": "@molecule/api-agent-transcript",
+      "exports": [
+        "looksLikeUiMessages",
+        "provider",
+        "readUiMessages",
+        "replacementsOf"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-transcript"
+      ],
+      "moleculePeers": [
+        "@molecule/api-agent-transcript"
+      ],
+      "path": "packages/api/bonds/agent-transcript/cline",
+      "intentHints": [
+        "cline task history",
+        "roo code ui_messages.json"
+      ]
+    },
     "@molecule/api-agent-transcript-codex": {
       "language": "typescript",
       "runtime": "node",
@@ -303,6 +367,118 @@
         "codex rollout jsonl"
       ]
     },
+    "@molecule/api-agent-transcript-copilot-chat": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "agent-transcript",
+      "label": "GitHub Copilot Chat transcript reader",
+      "description": "Reads VS Code GitHub Copilot Chat exports (Chat: Export Chat…) into a normalized agent session",
+      "stack": "api",
+      "implements": "@molecule/api-agent-transcript",
+      "exports": [
+        "looksLikeChatExport",
+        "provider",
+        "readChatExport"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-transcript"
+      ],
+      "moleculePeers": [
+        "@molecule/api-agent-transcript"
+      ],
+      "path": "packages/api/bonds/agent-transcript/copilot-chat",
+      "intentHints": [
+        "copilot chat export",
+        "vscode export chat json"
+      ]
+    },
+    "@molecule/api-agent-transcript-cursor": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "agent-transcript",
+      "label": "Cursor transcript reader",
+      "description": "Reads Cursor's \"Export Chat\" Markdown into a normalized agent session",
+      "stack": "api",
+      "implements": "@molecule/api-agent-transcript",
+      "exports": [
+        "looksLikeCursorExport",
+        "provider",
+        "readCursorExport"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-transcript"
+      ],
+      "moleculePeers": [
+        "@molecule/api-agent-transcript"
+      ],
+      "path": "packages/api/bonds/agent-transcript/cursor",
+      "intentHints": [
+        "cursor export chat markdown",
+        "cursor chat export"
+      ]
+    },
+    "@molecule/api-agent-transcript-gemini-cli": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "agent-transcript",
+      "label": "Gemini CLI transcript reader",
+      "description": "Reads Gemini CLI sessions — the session log (.jsonl), the older session .json and /chat save checkpoints — into a normalized agent session",
+      "stack": "api",
+      "implements": "@molecule/api-agent-transcript",
+      "exports": [
+        "looksLikeGeminiSession",
+        "partText",
+        "provider",
+        "readGeminiSession"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-transcript"
+      ],
+      "moleculePeers": [
+        "@molecule/api-agent-transcript"
+      ],
+      "path": "packages/api/bonds/agent-transcript/gemini-cli",
+      "intentHints": [
+        "gemini cli session log",
+        "gemini chat save checkpoint"
+      ]
+    },
+    "@molecule/api-agent-transcript-markdown-chat": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "agent-transcript",
+      "label": "Markdown chat transcript reader",
+      "description": "A last-resort transcript reader for plain Markdown or text chats with clear User / Assistant speaker markers",
+      "stack": "api",
+      "implements": "@molecule/api-agent-transcript",
+      "exports": [
+        "ASSISTANT_NAMES",
+        "USER_NAMES",
+        "chatStyleOf",
+        "looksLikeMarkdownChat",
+        "provider",
+        "readMarkdownChat"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-transcript"
+      ],
+      "moleculePeers": [
+        "@molecule/api-agent-transcript"
+      ],
+      "path": "packages/api/bonds/agent-transcript/markdown-chat",
+      "intentHints": [
+        "plain markdown chat transcript",
+        "user assistant chat log"
+      ]
+    },
     "@molecule/api-agent-transcript-molecule-ide": {
       "language": "typescript",
       "runtime": "node",
@@ -328,6 +504,34 @@
       "intentHints": [
         "molecule ide conversation",
         "synthase conversation export"
+      ]
+    },
+    "@molecule/api-agent-transcript-opencode": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "agent-transcript",
+      "label": "OpenCode transcript reader",
+      "description": "Reads OpenCode session exports (opencode export) into a normalized agent session",
+      "stack": "api",
+      "implements": "@molecule/api-agent-transcript",
+      "exports": [
+        "looksLikeOpencodeExport",
+        "provider",
+        "readOpencodeExport",
+        "writesOfPatch"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-transcript"
+      ],
+      "moleculePeers": [
+        "@molecule/api-agent-transcript"
+      ],
+      "path": "packages/api/bonds/agent-transcript/opencode",
+      "intentHints": [
+        "opencode export session",
+        "opencode session json"
       ]
     },
     "@molecule/api-ai": {
@@ -57668,7 +57872,14 @@
       "@molecule/app-webhook-inspector-react": "1.0.3",
       "@molecule/app-whiteboard-canvas-react": "1.0.2",
       "@molecule/app-wiki-page-header-react": "1.0.2",
-      "@molecule/app-word-cloud-react": "1.0.2"
+      "@molecule/app-word-cloud-react": "1.0.2",
+      "@molecule/api-agent-transcript-gemini-cli": "1.0.0",
+      "@molecule/api-agent-transcript-aider": "1.0.0",
+      "@molecule/api-agent-transcript-cursor": "1.0.0",
+      "@molecule/api-agent-transcript-cline": "1.0.0",
+      "@molecule/api-agent-transcript-opencode": "1.0.0",
+      "@molecule/api-agent-transcript-copilot-chat": "1.0.0",
+      "@molecule/api-agent-transcript-markdown-chat": "1.0.0"
     }
   }
 }
