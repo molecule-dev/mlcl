@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/standings": {
+      "allow": [
+        {
+          "heading": "Eastern Conference Standings",
+          "reason": "The design mock's league is split into named conferences; this app's league model is East/West divisions inside a single league (divisions table, seed data), so the standings render as the Overall table plus per-division sections rather than a conference-titled table. The standings section itself is fully implemented — only the design's sample league-structure naming diverges."
+        }
+      ]
+    }
+  }
+}

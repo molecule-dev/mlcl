@@ -1,154 +1,272 @@
 [
-  {
-    "id": "h1",
-    "name": "The Aoyama Garden",
-    "city": "Tokyo",
-    "country": "Japan",
-    "description": "A serene minimalist hotel tucked between Aoyama side-streets, with a cedar onsen and seasonal kaiseki dining.",
-    "rating": 4.9,
-    "review_count": 412,
-    "price_per_night_cents": 38900,
-    "thumbnail_url": "https://picsum.photos/seed/h1/640/480",
-    "gallery": [
-      "https://picsum.photos/seed/h1a/1200/900",
-      "https://picsum.photos/seed/h1b/800/600",
-      "https://picsum.photos/seed/h1c/800/600",
-      "https://picsum.photos/seed/h1d/800/600"
-    ],
-    "amenities": ["Onsen", "Kaiseki dining", "Free Wi-Fi", "Concierge", "Garden", "Spa"],
-    "badges": ["editor_pick", "rare_find"]
-  },
-  {
-    "id": "h2",
-    "name": "Casa Lúmen Lisboa",
-    "city": "Lisbon",
-    "country": "Portugal",
-    "description": "A boutique guest house in Bairro Alto with a rooftop terrace and locally-sourced breakfast.",
-    "rating": 4.8,
-    "review_count": 287,
-    "price_per_night_cents": 24500,
-    "thumbnail_url": "https://picsum.photos/seed/h2/640/480",
-    "gallery": [
-      "https://picsum.photos/seed/h2a/1200/900",
-      "https://picsum.photos/seed/h2b/800/600",
-      "https://picsum.photos/seed/h2c/800/600",
-      "https://picsum.photos/seed/h2d/800/600"
-    ],
-    "amenities": ["Rooftop terrace", "Breakfast included", "Free Wi-Fi", "Air conditioning", "Pet friendly"],
-    "badges": ["new"]
-  },
-  {
-    "id": "h3",
-    "name": "Villa Lago Como",
-    "city": "Bellagio",
-    "country": "Italy",
-    "description": "Lakefront 19th-century villa with private dock, gardens, and three suites overlooking Lake Como.",
-    "rating": 4.9,
-    "review_count": 156,
-    "price_per_night_cents": 78900,
-    "thumbnail_url": "https://picsum.photos/seed/h3/640/480",
-    "gallery": [
-      "https://picsum.photos/seed/h3a/1200/900",
-      "https://picsum.photos/seed/h3b/800/600",
-      "https://picsum.photos/seed/h3c/800/600",
-      "https://picsum.photos/seed/h3d/800/600"
-    ],
-    "amenities": ["Lake access", "Private dock", "Gardens", "Pool", "Restaurant", "Concierge"],
-    "badges": ["editor_pick"]
-  },
-  {
-    "id": "h4",
-    "name": "Riad Marrakech",
-    "city": "Marrakech",
-    "country": "Morocco",
-    "description": "Traditional riad with central courtyard, hand-painted tiles, and a sunset rooftop pool.",
-    "rating": 4.7,
-    "review_count": 523,
-    "price_per_night_cents": 18900,
-    "thumbnail_url": "https://picsum.photos/seed/h4/640/480",
-    "gallery": [
-      "https://picsum.photos/seed/h4a/1200/900",
-      "https://picsum.photos/seed/h4b/800/600",
-      "https://picsum.photos/seed/h4c/800/600",
-      "https://picsum.photos/seed/h4d/800/600"
-    ],
-    "amenities": ["Pool", "Hammam", "Rooftop terrace", "Restaurant", "Free Wi-Fi"],
-    "badges": []
-  },
-  {
-    "id": "h5",
-    "name": "The Highlands Lodge",
-    "city": "Aviemore",
-    "country": "Scotland",
-    "description": "A stone-and-timber lodge in the Cairngorms with morning sauna and whisky bar.",
-    "rating": 4.6,
-    "review_count": 198,
-    "price_per_night_cents": 21900,
-    "thumbnail_url": "https://picsum.photos/seed/h5/640/480",
-    "gallery": [
-      "https://picsum.photos/seed/h5a/1200/900",
-      "https://picsum.photos/seed/h5b/800/600",
-      "https://picsum.photos/seed/h5c/800/600",
-      "https://picsum.photos/seed/h5d/800/600"
-    ],
-    "amenities": ["Sauna", "Whisky bar", "Hiking trails", "Restaurant", "Fireplace"],
-    "badges": []
-  },
-  {
-    "id": "h6",
-    "name": "Ocean View Reykjavík",
-    "city": "Reykjavík",
-    "country": "Iceland",
-    "description": "Floor-to-ceiling glass overlooking Faxaflói Bay, with private aurora viewing in winter.",
-    "rating": 4.8,
-    "review_count": 341,
-    "price_per_night_cents": 32900,
-    "thumbnail_url": "https://picsum.photos/seed/h6/640/480",
-    "gallery": [
-      "https://picsum.photos/seed/h6a/1200/900",
-      "https://picsum.photos/seed/h6b/800/600",
-      "https://picsum.photos/seed/h6c/800/600",
-      "https://picsum.photos/seed/h6d/800/600"
-    ],
-    "amenities": ["Hot tub", "Aurora viewing", "Restaurant", "Free Wi-Fi", "Spa"],
-    "badges": ["new"]
-  },
-  {
-    "id": "h7",
-    "name": "Casa Tulum",
-    "city": "Tulum",
-    "country": "Mexico",
-    "description": "Beachfront eco-retreat with cenote access, yoga deck, and farm-to-table breakfast.",
-    "rating": 4.7,
-    "review_count": 612,
-    "price_per_night_cents": 28900,
-    "thumbnail_url": "https://picsum.photos/seed/h7/640/480",
-    "gallery": [
-      "https://picsum.photos/seed/h7a/1200/900",
-      "https://picsum.photos/seed/h7b/800/600",
-      "https://picsum.photos/seed/h7c/800/600",
-      "https://picsum.photos/seed/h7d/800/600"
-    ],
-    "amenities": ["Beach access", "Yoga deck", "Cenote", "Restaurant", "Eco friendly"],
-    "badges": []
-  },
-  {
-    "id": "h8",
-    "name": "The Marais Hideaway",
-    "city": "Paris",
-    "country": "France",
-    "description": "An 18th-century townhouse converted into 9 suites in the heart of Le Marais.",
-    "rating": 4.8,
-    "review_count": 274,
-    "price_per_night_cents": 41900,
-    "thumbnail_url": "https://picsum.photos/seed/h8/640/480",
-    "gallery": [
-      "https://picsum.photos/seed/h8a/1200/900",
-      "https://picsum.photos/seed/h8b/800/600",
-      "https://picsum.photos/seed/h8c/800/600",
-      "https://picsum.photos/seed/h8d/800/600"
-    ],
-    "amenities": ["Concierge", "Breakfast included", "Air conditioning", "Free Wi-Fi"],
-    "badges": ["editor_pick"]
-  }
+ {
+  "id": "h1",
+  "name": "The Aoyama Garden",
+  "city": "Tokyo",
+  "country": "Japan",
+  "description": "A serene minimalist hotel tucked between Aoyama side-streets, with a cedar onsen and seasonal kaiseki dining.",
+  "rating": 4.9,
+  "review_count": 412,
+  "price_per_night_cents": 38900,
+  "thumbnail_url": "https://picsum.photos/seed/h1/640/480",
+  "gallery": [
+   "https://picsum.photos/seed/h1a/1200/900",
+   "https://picsum.photos/seed/h1b/800/600",
+   "https://picsum.photos/seed/h1c/800/600",
+   "https://picsum.photos/seed/h1d/800/600"
+  ],
+  "amenities": [
+   "Onsen",
+   "Kaiseki dining",
+   "Free Wi-Fi",
+   "Concierge",
+   "Garden",
+   "Spa"
+  ],
+  "badges": [
+   "editor_pick",
+   "rare_find"
+  ]
+ },
+ {
+  "id": "h2",
+  "name": "Casa Lúmen Lisboa",
+  "city": "Lisbon",
+  "country": "Portugal",
+  "description": "A boutique guest house in Bairro Alto with a rooftop terrace and locally-sourced breakfast.",
+  "rating": 4.8,
+  "review_count": 287,
+  "price_per_night_cents": 24500,
+  "thumbnail_url": "https://picsum.photos/seed/h2/640/480",
+  "gallery": [
+   "https://picsum.photos/seed/h2a/1200/900",
+   "https://picsum.photos/seed/h2b/800/600",
+   "https://picsum.photos/seed/h2c/800/600",
+   "https://picsum.photos/seed/h2d/800/600"
+  ],
+  "amenities": [
+   "Rooftop terrace",
+   "Breakfast included",
+   "Free Wi-Fi",
+   "Air conditioning",
+   "Pet friendly"
+  ],
+  "badges": [
+   "new"
+  ]
+ },
+ {
+  "id": "h3",
+  "name": "Villa Lago Como",
+  "city": "Bellagio",
+  "country": "Italy",
+  "description": "Lakefront 19th-century villa with private dock, gardens, and three suites overlooking Lake Como.",
+  "rating": 4.9,
+  "review_count": 156,
+  "price_per_night_cents": 78900,
+  "thumbnail_url": "https://picsum.photos/seed/h3/640/480",
+  "gallery": [
+   "https://picsum.photos/seed/h3a/1200/900",
+   "https://picsum.photos/seed/h3b/800/600",
+   "https://picsum.photos/seed/h3c/800/600",
+   "https://picsum.photos/seed/h3d/800/600"
+  ],
+  "amenities": [
+   "Lake access",
+   "Private dock",
+   "Gardens",
+   "Pool",
+   "Restaurant",
+   "Concierge"
+  ],
+  "badges": [
+   "editor_pick"
+  ]
+ },
+ {
+  "id": "h4",
+  "name": "Riad Marrakech",
+  "city": "Marrakech",
+  "country": "Morocco",
+  "description": "Traditional riad with central courtyard, hand-painted tiles, and a sunset rooftop pool.",
+  "rating": 4.7,
+  "review_count": 523,
+  "price_per_night_cents": 18900,
+  "thumbnail_url": "https://picsum.photos/seed/h4/640/480",
+  "gallery": [
+   "https://picsum.photos/seed/h4a/1200/900",
+   "https://picsum.photos/seed/h4b/800/600",
+   "https://picsum.photos/seed/h4c/800/600",
+   "https://picsum.photos/seed/h4d/800/600"
+  ],
+  "amenities": [
+   "Pool",
+   "Hammam",
+   "Rooftop terrace",
+   "Restaurant",
+   "Free Wi-Fi"
+  ],
+  "badges": []
+ },
+ {
+  "id": "h5",
+  "name": "The Highlands Lodge",
+  "city": "Aviemore",
+  "country": "Scotland",
+  "description": "A stone-and-timber lodge in the Cairngorms with morning sauna and whisky bar.",
+  "rating": 4.6,
+  "review_count": 198,
+  "price_per_night_cents": 21900,
+  "thumbnail_url": "https://picsum.photos/seed/h5/640/480",
+  "gallery": [
+   "https://picsum.photos/seed/h5a/1200/900",
+   "https://picsum.photos/seed/h5b/800/600",
+   "https://picsum.photos/seed/h5c/800/600",
+   "https://picsum.photos/seed/h5d/800/600"
+  ],
+  "amenities": [
+   "Sauna",
+   "Whisky bar",
+   "Hiking trails",
+   "Restaurant",
+   "Fireplace"
+  ],
+  "badges": []
+ },
+ {
+  "id": "h6",
+  "name": "Ocean View Reykjavík",
+  "city": "Reykjavík",
+  "country": "Iceland",
+  "description": "Floor-to-ceiling glass overlooking Faxaflói Bay, with private aurora viewing in winter.",
+  "rating": 4.8,
+  "review_count": 341,
+  "price_per_night_cents": 32900,
+  "thumbnail_url": "https://picsum.photos/seed/h6/640/480",
+  "gallery": [
+   "https://picsum.photos/seed/h6a/1200/900",
+   "https://picsum.photos/seed/h6b/800/600",
+   "https://picsum.photos/seed/h6c/800/600",
+   "https://picsum.photos/seed/h6d/800/600"
+  ],
+  "amenities": [
+   "Hot tub",
+   "Aurora viewing",
+   "Restaurant",
+   "Free Wi-Fi",
+   "Spa"
+  ],
+  "badges": [
+   "new"
+  ]
+ },
+ {
+  "id": "h7",
+  "name": "Casa Tulum",
+  "city": "Tulum",
+  "country": "Mexico",
+  "description": "Beachfront eco-retreat with cenote access, yoga deck, and farm-to-table breakfast.",
+  "rating": 4.7,
+  "review_count": 612,
+  "price_per_night_cents": 28900,
+  "thumbnail_url": "https://picsum.photos/seed/h7/640/480",
+  "gallery": [
+   "https://picsum.photos/seed/h7a/1200/900",
+   "https://picsum.photos/seed/h7b/800/600",
+   "https://picsum.photos/seed/h7c/800/600",
+   "https://picsum.photos/seed/h7d/800/600"
+  ],
+  "amenities": [
+   "Beach access",
+   "Yoga deck",
+   "Cenote",
+   "Restaurant",
+   "Eco friendly"
+  ],
+  "badges": []
+ },
+ {
+  "id": "h8",
+  "name": "The Marais Hideaway",
+  "city": "Paris",
+  "country": "France",
+  "description": "An 18th-century townhouse converted into 9 suites in the heart of Le Marais.",
+  "rating": 4.8,
+  "review_count": 274,
+  "price_per_night_cents": 41900,
+  "thumbnail_url": "https://picsum.photos/seed/h8/640/480",
+  "gallery": [
+   "https://picsum.photos/seed/h8a/1200/900",
+   "https://picsum.photos/seed/h8b/800/600",
+   "https://picsum.photos/seed/h8c/800/600",
+   "https://picsum.photos/seed/h8d/800/600"
+  ],
+  "amenities": [
+   "Concierge",
+   "Breakfast included",
+   "Air conditioning",
+   "Free Wi-Fi"
+  ],
+  "badges": [
+   "editor_pick"
+  ]
+ },
+ {
+  "id": "h20",
+  "name": "The Azure Riviera Resort",
+  "city": "Nice",
+  "country": "France",
+  "description": "A palm-lined resort on the Promenade des Anglais with a private beach club and rooftop pool.",
+  "rating": 4.8,
+  "review_count": 928,
+  "price_per_night_cents": 42500,
+  "thumbnail_url": "https://picsum.photos/seed/h20/640/480",
+  "gallery": [
+   "https://picsum.photos/seed/h20a/1200/900"
+  ],
+  "amenities": [
+   "Private beach",
+   "Rooftop pool",
+   "Spa",
+   "Free Wi-Fi"
+  ]
+ },
+ {
+  "id": "h21",
+  "name": "Coral Reef Sanctuary",
+  "city": "Port Douglas",
+  "country": "Australia",
+  "description": "An eco-lodge at the reef’s edge with guided snorkel safaris and open-air dining.",
+  "rating": 4.9,
+  "review_count": 512,
+  "price_per_night_cents": 58000,
+  "thumbnail_url": "https://picsum.photos/seed/h21/640/480",
+  "gallery": [
+   "https://picsum.photos/seed/h21a/1200/900"
+  ],
+  "amenities": [
+   "Reef snorkeling",
+   "Open-air dining",
+   "Free Wi-Fi"
+  ]
+ },
+ {
+  "id": "h22",
+  "name": "Oceana Beach Club",
+  "city": "Santa Teresa",
+  "country": "Costa Rica",
+  "description": "Barefoot-luxury bungalows steps from a surf break, with a beachfront pool bar.",
+  "rating": 4.7,
+  "review_count": 663,
+  "price_per_night_cents": 31500,
+  "thumbnail_url": "https://picsum.photos/seed/h22/640/480",
+  "gallery": [
+   "https://picsum.photos/seed/h22a/1200/900"
+  ],
+  "amenities": [
+   "Beachfront pool",
+   "Surf lessons",
+   "Yoga deck"
+  ]
+ }
 ]

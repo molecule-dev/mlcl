@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { PennantHeroCard } from '../components/PennantHeroCard.js'
 import { ScoreboardTicker, type TickerGame } from '../components/ScoreboardTicker.js'
 
@@ -105,37 +106,11 @@ export function Landing() {
               'min-w-0 whitespace-nowrap shrink-0',
             )}
           >
-            <span
-              aria-hidden="true"
-              className={cm.cn(
-                'inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary shadow-md shadow-primary/30 shrink-0',
-              )}
-            >
-              {/* Tile owns the sizing/centering — never the glyph span. */}
-              <span
-                className={cm.cn('material-symbols-outlined text-on-primary text-xl')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                shield
-              </span>
-            </span>
-            <span className={cm.flex({ direction: 'col' })}>
-              <span
-                className={cm.cn(
-                  cm.textSize('xl'),
-                  'font-black uppercase tracking-tighter leading-none text-primary',
-                )}
-              >
-                {APP_NAME}
-              </span>
-              <span
-                className={cm.cn(
-                  'text-[10px] font-bold uppercase tracking-normal text-on-surface-variant mt-1',
-                )}
-              >
-                {t('landing.brandTagline', {}, { defaultValue: 'Chase the standing' })}
-              </span>
-            </span>
+            <BrandWordmark
+              as="span"
+              size="lg"
+              tagline={t('landing.brandTagline', {}, { defaultValue: 'Chase the standing' })}
+            />
           </Link>
           <div
             className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 whitespace-nowrap')}
@@ -507,15 +482,9 @@ export function Landing() {
               'md:items-start',
             )}
           >
-            <span
-              className={cm.cn(
-                cm.textSize('xl'),
-                cm.fontWeight('extrabold'),
-                'font-black uppercase tracking-widest text-white',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            {/* footer lockup: shared BrandWordmark (footer variant keeps the
+                per-page brand-wordmark e2e contract header-scoped) */}
+            <BrandWordmark as="span" size="md" invert footer />
             <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'text-slate-400')}>
               {t(
                 'landing.copyright',

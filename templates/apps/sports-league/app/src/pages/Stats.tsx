@@ -256,6 +256,43 @@ export function Stats() {
     }
   }, [http])
 
+  // Season award race — sample standings for the rookie class, rendered with
+  // the same ranked-row component as the category leaderboards (the design's
+  // "Rookie of the Year" card). Static sample data by nature: the award race
+  // is editorial, not a live category query.
+  const rookies: StatLeader[] = [
+    {
+      player_id: 'rookie-1',
+      rank: 1,
+      name: 'C. Bedard',
+      team_abbr: 'ATL',
+      team_color: '#0e7490',
+      value: '32',
+      unit: 'PTS',
+      delta: 'up',
+    },
+    {
+      player_id: 'rookie-2',
+      rank: 2,
+      name: 'L. Hughes',
+      team_abbr: 'BOS',
+      team_color: '#dc2626',
+      value: '24',
+      unit: 'PTS',
+      delta: 'up',
+    },
+    {
+      player_id: 'rookie-3',
+      rank: 3,
+      name: 'L. Cooley',
+      team_abbr: 'CHI',
+      team_color: '#16a34a',
+      value: '21',
+      unit: 'PTS',
+      delta: 'flat',
+    },
+  ]
+
   const sections: { key: keyof LeaderboardSet; title: string; icon: string }[] = [
     {
       key: 'scoring',
@@ -326,6 +363,32 @@ export function Stats() {
           </section>
         ))}
       </div>
+
+      {/* Award race — the design's "Rookie of the Year" ranked card */}
+      <section
+        className={cm.cn(
+          cm.flex({ direction: 'col', gap: 'sm' }),
+          cm.sp('p', 6),
+          'rounded-2xl bg-surface-container-lowest border border-outline-variant/40',
+        )}
+      >
+        <header className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 2))}>
+          <span
+            aria-hidden="true"
+            className={cm.cn('material-symbols-outlined text-2xl text-primary')}
+          >
+            psychology
+          </span>
+          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+            {t('stats.rookieOfYear', {}, { defaultValue: 'Rookie of the Year' })}
+          </h2>
+        </header>
+        <div className={cm.flex({ direction: 'col', gap: 'sm' })}>
+          {rookies.map((l) => (
+            <StatLeaderRow key={l.player_id} leader={l} podium={l.rank <= 3} />
+          ))}
+        </div>
+      </section>
     </div>
   )
 }

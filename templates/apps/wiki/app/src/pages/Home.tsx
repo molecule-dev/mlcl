@@ -119,6 +119,24 @@ export function Home() {
     user?.email?.split('@')[0] ||
     t('home.defaultName', {}, { defaultValue: 'Friend' })
   const userInitials = initials(displayName)
+  // Time-of-day greeting (the design's "Good afternoon, Maya" hero line).
+  const hour = new Date().getHours()
+  const greeting = t(
+    hour < 12
+      ? 'home.greetingMorning'
+      : hour < 18
+        ? 'home.greetingAfternoon'
+        : 'home.greetingEvening',
+    { name: displayName },
+    {
+      defaultValue:
+        hour < 12
+          ? 'Good morning, {{name}}'
+          : hour < 18
+            ? 'Good afternoon, {{name}}'
+            : 'Good evening, {{name}}',
+    },
+  )
   const totalPages = me?.stats?.pageCount ?? recent.length
   const spaceCount = me?.stats?.spaceCount ?? spaces.length
   const totalContributors = Math.max(1, spaceCount)
@@ -179,7 +197,7 @@ export function Home() {
           className={cm.cn(cm.textSize('4xl'), 'font-extrabold tracking-tight text-on-surface')}
           data-testid="home-greeting"
         >
-          {t('home.greeting', { name: displayName }, { defaultValue: 'Welcome back, {{name}}.' })}
+          {greeting}
         </h1>
         <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant')}>
           {unreadCount > 0

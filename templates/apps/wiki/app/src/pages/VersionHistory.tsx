@@ -303,8 +303,11 @@ export function VersionHistory() {
                     >
                       {t(
                         'versionHistory.diffHeading',
-                        { v: active.version },
-                        { defaultValue: 'Diff · v{{v}}' },
+                        {
+                          from: prior?.version ?? Math.max(1, active.version - 1),
+                          to: active.version,
+                        },
+                        { defaultValue: 'Comparing v{{from}} with v{{to}}' },
                       )}
                     </h2>
                     <StatPill

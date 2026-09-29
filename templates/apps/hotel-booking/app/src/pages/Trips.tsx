@@ -26,6 +26,32 @@ const STATUS_BADGE: Record<Trip['status'], string> = {
   cancelled: 'bg-error/10 text-error',
 }
 
+// Inspiration rail from the design's "Planning your next escape?" section —
+// editorial destination cards (sample content, like the landing journal).
+const INSPIRATION = [
+  {
+    id: 'insp-1',
+    name: 'Oia Sunset Villas',
+    location: 'Santorini, Greece',
+    from_cents: 45000,
+    thumbnail: 'https://picsum.photos/seed/sojourn-insp1/640/480',
+  },
+  {
+    id: 'insp-2',
+    name: 'Reef Gate Lodge',
+    location: 'Port Douglas, Australia',
+    from_cents: 52000,
+    thumbnail: 'https://picsum.photos/seed/sojourn-insp2/640/480',
+  },
+  {
+    id: 'insp-3',
+    name: 'Alpine Quiet House',
+    location: 'Aspen, United States',
+    from_cents: 61000,
+    thumbnail: 'https://picsum.photos/seed/sojourn-insp3/640/480',
+  },
+] as const
+
 function fmt(cents: number): string {
   return `$${Math.round(cents / 100)}`
 }
@@ -128,6 +154,59 @@ export function Trips() {
               </ul>
             </section>
           ) : null}
+
+          {/* Inspiration — the design's "Planning your next escape?" rail */}
+          <section className={cm.sp('mt', 12)}>
+            <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('semibold'), cm.sp('mb', 4))}>
+              {t('trips.inspiration.heading', {}, { defaultValue: 'Planning your next escape?' })}
+            </h2>
+            <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-3')}>
+              {INSPIRATION.map((item) => (
+                <Link
+                  key={item.id}
+                  to="/search"
+                  data-mol-id={`trips-inspiration-${item.id}`}
+                  className={cm.cn(
+                    'group bg-surface rounded-2xl shadow-sm hover:shadow-md transition-shadow overflow-hidden',
+                  )}
+                >
+                  <div className="aspect-[4/3] bg-surface-variant overflow-hidden">
+                    <img
+                      src={item.thumbnail}
+                      alt=""
+                      className={cm.cn(
+                        cm.w('full'),
+                        cm.h('full'),
+                        'object-cover transition-transform duration-500 group-hover:scale-105',
+                      )}
+                    />
+                  </div>
+                  <div className={cm.sp('p', 4)}>
+                    <p className={cm.cn('text-sm font-semibold text-on-surface tracking-tight')}>
+                      {item.name}
+                    </p>
+                    <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      {item.location}
+                    </p>
+                    <p
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        cm.sp('mt', 2),
+                        cm.fontWeight('semibold'),
+                        'text-on-surface',
+                      )}
+                    >
+                      {t(
+                        'trips.inspiration.fromPrice',
+                        { price: fmt(item.from_cents) },
+                        { defaultValue: 'From ${{price}} / night' },
+                      )}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
         </>
       )}
     </div>

@@ -67,7 +67,10 @@ export function Landing() {
           to="/"
           className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex items-center gap-2')}
         >
-          <BrandWordmark size="lg" />
+          {/* as="span": the Link above is already the anchor — a default <a>
+              wordmark nested inside it is invalid HTML and fails the a11y
+              suite's console-error gate. */}
+          <BrandWordmark as="span" size="lg" />
         </Link>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex items-center gap-4')}>
           {isAuthenticated ? (

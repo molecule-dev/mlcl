@@ -1,50 +1,182 @@
 [
-  {
-    "id": "p1",
-    "title": "Sony WH-1000XM6 Wireless Noise Cancelling Headphones",
-    "brand": "Sony",
-    "category": "Audio",
-    "image_url": "https://picsum.photos/seed/sift-p1/640/480",
-    "lowest_price_cents": 32999,
-    "highest_price_cents": 39999,
-    "avg_price_cents": 35499,
-    "currency": "USD",
-    "retailer_count": 7,
-    "drop_pct": 12,
-    "rating": 4.7,
-    "review_count": 8421,
-    "tags": ["bestseller", "editor_pick"]
-  },
-  {
-    "id": "p2",
-    "title": "Apple MacBook Air 13\" M3 8GB / 256GB",
-    "brand": "Apple",
-    "category": "Laptops",
-    "image_url": "https://picsum.photos/seed/sift-p2/640/480",
-    "lowest_price_cents": 99900,
-    "highest_price_cents": 119900,
-    "avg_price_cents": 109400,
-    "currency": "USD",
-    "retailer_count": 5,
-    "drop_pct": 8,
-    "rating": 4.8,
-    "review_count": 3120,
-    "tags": ["new"]
-  },
-  {
-    "id": "p3",
-    "title": "Dyson V15 Detect Cordless Vacuum",
-    "brand": "Dyson",
-    "category": "Home",
-    "image_url": "https://picsum.photos/seed/sift-p3/640/480",
-    "lowest_price_cents": 64999,
-    "highest_price_cents": 74999,
-    "avg_price_cents": 69999,
-    "currency": "USD",
-    "retailer_count": 6,
-    "drop_pct": 5,
-    "rating": 4.6,
-    "review_count": 1042,
-    "tags": ["price_drop"]
-  }
+ {
+  "id": "p1",
+  "title": "Sony WH-1000XM6 Wireless Noise Cancelling Headphones",
+  "brand": "Sony",
+  "category": "Audio",
+  "image_url": "https://picsum.photos/seed/sift-p1/640/480",
+  "lowest_price_cents": 32999,
+  "highest_price_cents": 39999,
+  "avg_price_cents": 35499,
+  "currency": "USD",
+  "retailer_count": 7,
+  "drop_pct": 12,
+  "rating": 4.7,
+  "review_count": 8421,
+  "tags": [
+   "bestseller",
+   "editor_pick"
+  ]
+ },
+ {
+  "id": "p2",
+  "title": "Apple MacBook Air 13\" M3 8GB / 256GB",
+  "brand": "Apple",
+  "category": "Laptops",
+  "image_url": "https://picsum.photos/seed/sift-p2/640/480",
+  "lowest_price_cents": 99900,
+  "highest_price_cents": 119900,
+  "avg_price_cents": 109400,
+  "currency": "USD",
+  "retailer_count": 5,
+  "drop_pct": 8,
+  "rating": 4.8,
+  "review_count": 3120,
+  "tags": [
+   "new"
+  ]
+ },
+ {
+  "id": "p3",
+  "title": "Dyson V15 Detect Cordless Vacuum",
+  "brand": "Dyson",
+  "category": "Home",
+  "image_url": "https://picsum.photos/seed/sift-p3/640/480",
+  "lowest_price_cents": 64999,
+  "highest_price_cents": 74999,
+  "avg_price_cents": 69999,
+  "currency": "USD",
+  "retailer_count": 6,
+  "drop_pct": 5,
+  "rating": 4.6,
+  "review_count": 1042,
+  "tags": [
+   "price_drop"
+  ]
+ },
+ {
+  "id": "p4",
+  "title": "Bose QuietComfort 45 Bluetooth Wireless Noise Cancelling",
+  "brand": "Bose",
+  "category": "Audio",
+  "image_url": "https://picsum.photos/seed/sift-p4/640/480",
+  "lowest_price_cents": 27900,
+  "highest_price_cents": 32900,
+  "avg_price_cents": 29900,
+  "currency": "USD",
+  "retailer_count": 9,
+  "drop_pct": 15,
+  "rating": 4.6,
+  "review_count": 12453,
+  "tags": [
+   "bestseller"
+  ]
+ },
+ {
+  "id": "p5",
+  "title": "Beats Studio Pro - Wireless Bluetooth Noise Cancelling",
+  "brand": "Beats",
+  "category": "Audio",
+  "image_url": "https://picsum.photos/seed/sift-p5/640/480",
+  "lowest_price_cents": 24900,
+  "highest_price_cents": 34900,
+  "avg_price_cents": 28900,
+  "currency": "USD",
+  "retailer_count": 8,
+  "drop_pct": 29,
+  "rating": 4.4,
+  "review_count": 6210,
+  "tags": [
+   "deal"
+  ]
+ },
+ {
+  "id": "p6",
+  "title": "JBL Charge 5 Portable Speaker",
+  "brand": "JBL",
+  "category": "Audio",
+  "image_url": "https://picsum.photos/seed/sift-p6/640/480",
+  "lowest_price_cents": 11900,
+  "highest_price_cents": 17900,
+  "avg_price_cents": 13900,
+  "currency": "USD",
+  "retailer_count": 11,
+  "drop_pct": 8,
+  "rating": 4.8,
+  "review_count": 30112,
+  "tags": [
+   "bestseller"
+  ]
+ },
+ {
+  "id": "p7",
+  "title": "Fellow Stagg EKG Electric Pour-Over Kettle",
+  "brand": "Fellow",
+  "category": "Kitchen",
+  "image_url": "https://picsum.photos/seed/sift-p7/640/480",
+  "lowest_price_cents": 14500,
+  "highest_price_cents": 19500,
+  "avg_price_cents": 16500,
+  "currency": "USD",
+  "retailer_count": 6,
+  "drop_pct": 26,
+  "rating": 4.7,
+  "review_count": 4310,
+  "tags": [
+   "editor_pick",
+   "deal"
+  ]
+ },
+ {
+  "id": "p8",
+  "title": "Apple Watch Series 9 GPS 41mm Midnight Aluminum",
+  "brand": "Apple",
+  "category": "Wearables",
+  "image_url": "https://picsum.photos/seed/sift-p8/640/480",
+  "lowest_price_cents": 32900,
+  "highest_price_cents": 42900,
+  "avg_price_cents": 37900,
+  "currency": "USD",
+  "retailer_count": 10,
+  "drop_pct": 18,
+  "rating": 4.9,
+  "review_count": 18760,
+  "tags": [
+   "bestseller"
+  ]
+ },
+ {
+  "id": "p9",
+  "title": "KitchenAid Artisan Stand Mixer",
+  "brand": "KitchenAid",
+  "category": "Kitchen",
+  "image_url": "https://picsum.photos/seed/sift-p9/640/480",
+  "lowest_price_cents": 39900,
+  "highest_price_cents": 49900,
+  "avg_price_cents": 44900,
+  "currency": "USD",
+  "retailer_count": 7,
+  "drop_pct": -11,
+  "rating": 4.8,
+  "review_count": 22400,
+  "tags": []
+ },
+ {
+  "id": "p10",
+  "title": "Bose QuietComfort Ultra",
+  "brand": "Bose",
+  "category": "Audio",
+  "image_url": "https://picsum.photos/seed/sift-p10/640/480",
+  "lowest_price_cents": 37900,
+  "highest_price_cents": 42900,
+  "avg_price_cents": 39900,
+  "currency": "USD",
+  "retailer_count": 8,
+  "drop_pct": 6,
+  "rating": 4.7,
+  "review_count": 5320,
+  "tags": [
+   "editor_pick"
+  ]
+ }
 ]

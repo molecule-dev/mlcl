@@ -1,6 +1,62 @@
 [
-  { "id": "fav1", "property_id": "h1", "name": "The Aoyama Garden",  "city": "Tokyo",     "country": "Japan",   "rating": 4.9, "review_count": 412, "price_per_night_cents": 38900, "thumbnail_url": "https://picsum.photos/seed/h1/640/480", "saved_at": "2026-04-02T00:00:00Z" },
-  { "id": "fav2", "property_id": "h3", "name": "Villa Lago Como",     "city": "Bellagio",  "country": "Italy",   "rating": 4.9, "review_count": 156, "price_per_night_cents": 78900, "thumbnail_url": "https://picsum.photos/seed/h3/640/480", "saved_at": "2026-03-15T00:00:00Z" },
-  { "id": "fav3", "property_id": "h6", "name": "Ocean View Reykjavík", "city": "Reykjavík", "country": "Iceland", "rating": 4.8, "review_count": 341, "price_per_night_cents": 32900, "thumbnail_url": "https://picsum.photos/seed/h6/640/480", "saved_at": "2026-01-22T00:00:00Z" },
-  { "id": "fav4", "property_id": "h7", "name": "Casa Tulum",          "city": "Tulum",     "country": "Mexico",  "rating": 4.7, "review_count": 612, "price_per_night_cents": 28900, "thumbnail_url": "https://picsum.photos/seed/h7/640/480", "saved_at": "2026-02-28T00:00:00Z" }
+ {
+  "id": "fav1",
+  "property_id": "h1",
+  "name": "The Aoyama Garden",
+  "city": "Tokyo",
+  "country": "Japan",
+  "rating": 4.9,
+  "review_count": 412,
+  "price_per_night_cents": 38900,
+  "thumbnail_url": "https://picsum.photos/seed/h1/640/480",
+  "saved_at": "2026-04-02T00:00:00Z"
+ },
+ {
+  "id": "fav2",
+  "property_id": "h3",
+  "name": "Villa Lago Como",
+  "city": "Bellagio",
+  "country": "Italy",
+  "rating": 4.9,
+  "review_count": 156,
+  "price_per_night_cents": 78900,
+  "thumbnail_url": "https://picsum.photos/seed/h3/640/480",
+  "saved_at": "2026-03-15T00:00:00Z"
+ },
+ {
+  "id": "fav3",
+  "property_id": "h6",
+  "name": "Ocean View Reykjavík",
+  "city": "Reykjavík",
+  "country": "Iceland",
+  "rating": 4.8,
+  "review_count": 341,
+  "price_per_night_cents": 32900,
+  "thumbnail_url": "https://picsum.photos/seed/h6/640/480",
+  "saved_at": "2026-01-22T00:00:00Z"
+ },
+ {
+  "id": "fav4",
+  "property_id": "h7",
+  "name": "Casa Tulum",
+  "city": "Tulum",
+  "country": "Mexico",
+  "rating": 4.7,
+  "review_count": 612,
+  "price_per_night_cents": 28900,
+  "thumbnail_url": "https://picsum.photos/seed/h7/640/480",
+  "saved_at": "2026-02-28T00:00:00Z"
+ },
+ {
+  "id": "fav5",
+  "property_id": "h22",
+  "name": "Oceana Beach Club",
+  "city": "Santa Teresa",
+  "country": "Costa Rica",
+  "rating": 4.7,
+  "review_count": 663,
+  "price_per_night_cents": 31500,
+  "thumbnail_url": "https://picsum.photos/seed/h22/640/480",
+  "saved_at": "2026-09-28T17:06:46Z"
+ }
 ]

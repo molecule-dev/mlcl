@@ -221,6 +221,71 @@ export function Notifications() {
         })}
       </div>
 
+      {/* Quick Actions — the design's bolt-titled shortcut panel */}
+      <section
+        className={cm.cn(
+          cm.sp('p', 5),
+          'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+        )}
+        aria-label={t('notifications.quickActions.heading', {}, { defaultValue: 'Quick Actions' })}
+        data-test="notifications-quick-actions"
+      >
+        <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+          <span
+            aria-hidden="true"
+            className={cm.cn(
+              'grid h-10 w-10 place-items-center rounded-xl bg-primary-container text-primary',
+            )}
+          >
+            <span className="material-symbols-outlined text-[22px]">bolt</span>
+          </span>
+          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-on-surface')}>
+            {t('notifications.quickActions.heading', {}, { defaultValue: 'Quick Actions' })}
+          </h2>
+        </div>
+        <div className={cm.cn(cm.flex({ gap: 'sm', wrap: 'wrap' }), cm.sp('mt', 4))}>
+          <Link
+            to="/polls/new"
+            data-mol-id="quick-action-create-poll"
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'rounded-full bg-primary text-on-primary hover:bg-primary-hover transition-colors',
+            )}
+          >
+            {t('notifications.quickActions.createPoll', {}, { defaultValue: 'Start a poll' })}
+          </Link>
+          <Link
+            to="/voters"
+            data-mol-id="quick-action-invite-voters"
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'rounded-full border border-outline-variant/30 text-on-surface hover:bg-surface-container-low transition-colors',
+            )}
+          >
+            {t('notifications.quickActions.inviteVoters', {}, { defaultValue: 'Invite voters' })}
+          </Link>
+          <Link
+            to="/analytics"
+            data-mol-id="quick-action-view-analytics"
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'rounded-full border border-outline-variant/30 text-on-surface hover:bg-surface-container-low transition-colors',
+            )}
+          >
+            {t('notifications.quickActions.viewAnalytics', {}, { defaultValue: 'View analytics' })}
+          </Link>
+        </div>
+      </section>
+
       {loading ? (
         <p className="text-on-surface-variant text-sm" data-test="notifications-loading">
           {t('notifications.loading', {}, { defaultValue: 'Loading notifications…' })}

@@ -38,6 +38,32 @@ const FEATURES = [
   },
 ] as const
 
+// The design's "Enterprise-grade consensus" trust band: three pillars for
+// governance-heavy organizations.
+const ENTERPRISE_PILLARS = [
+  {
+    key: 'liveResults',
+    icon: 'bar_chart',
+    titleFallback: 'Live Results',
+    bodyFallback:
+      'Watch consensus build in real-time with responsive, animated charts that update instantly.',
+  },
+  {
+    key: 'quorumControl',
+    icon: 'check_circle',
+    titleFallback: 'Quorum Control',
+    bodyFallback:
+      'Automatically enforce attendance and voting thresholds before closing critical motions.',
+  },
+  {
+    key: 'auditable',
+    icon: 'shield',
+    titleFallback: 'Auditable',
+    bodyFallback:
+      'Cryptographically secure logs ensure every vote is counted accurately and traceable if contested.',
+  },
+] as const
+
 const PRICING = [
   {
     key: 'free',
@@ -366,6 +392,74 @@ export function Landing() {
                 </p>
                 <p className={cm.cn('text-lg font-medium text-[var(--quorum-stats-label)]')}>
                   {t(`landing.statsStrip.${s.key}`, {}, { defaultValue: s.defaultLabel })}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Enterprise trust — the design's "Enterprise-grade consensus" band */}
+        <section
+          className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 16))}
+          aria-label={t(
+            'landing.enterprise.heading',
+            {},
+            { defaultValue: 'Enterprise-grade consensus' },
+          )}
+        >
+          <div className={cm.cn(cm.maxW('2xl'), cm.mxAuto, cm.textCenter, cm.sp('mb', 10))}>
+            <h2
+              className={cm.cn(
+                cm.textSize('3xl'),
+                cm.fontWeight('bold'),
+                'tracking-tight text-on-surface',
+              )}
+            >
+              {t('landing.enterprise.heading', {}, { defaultValue: 'Enterprise-grade consensus' })}
+            </h2>
+            <p
+              className={cm.cn(
+                cm.sp('mt', 3),
+                cm.textSize('base'),
+                'font-medium text-on-surface-variant',
+              )}
+            >
+              {t(
+                'landing.enterprise.subheading',
+                {},
+                {
+                  defaultValue:
+                    'Built for organizations that require absolute certainty in their decision-making processes.',
+                },
+              )}
+            </p>
+          </div>
+          <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 md:grid-cols-3')}>
+            {ENTERPRISE_PILLARS.map((p) => (
+              <div
+                key={p.key}
+                className={cm.cn(
+                  cm.flex({ direction: 'col', align: 'start', gap: 'sm' }),
+                  cm.sp('p', 6),
+                  'rounded-2xl bg-surface-container-lowest border border-outline-variant/20',
+                )}
+              >
+                <span
+                  aria-hidden="true"
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    cm.w(12),
+                    cm.h(12),
+                    'rounded-xl bg-primary-container text-primary',
+                  )}
+                >
+                  <span className="material-symbols-outlined text-2xl">{p.icon}</span>
+                </span>
+                <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-on-surface')}>
+                  {t(`landing.enterprise.${p.key}Title`, {}, { defaultValue: p.titleFallback })}
+                </h3>
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}>
+                  {t(`landing.enterprise.${p.key}Body`, {}, { defaultValue: p.bodyFallback })}
                 </p>
               </div>
             ))}

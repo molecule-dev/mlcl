@@ -7,6 +7,7 @@ import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 export const NAV_KEYS = [
@@ -105,24 +106,7 @@ function MobileShell(): ReactElement {
         )}
       >
         <Link to="/dashboard" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0')}>
-          <span
-            aria-hidden="true"
-            className={cm.cn('inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg')}
-            style={{
-              background:
-                'linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))',
-            }}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-lg text-white')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              shield
-            </span>
-          </span>
-          <span className={cm.cn(cm.textSize('lg'), 'truncate font-extrabold tracking-tight')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="sm" />
         </Link>
         <button
           type="button"
@@ -164,9 +148,7 @@ function MobileShell(): ReactElement {
         data-open={open ? 'true' : 'false'}
       >
         <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}>
-          <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="md" />
           <button
             type="button"
             onClick={() => setOpen(false)}

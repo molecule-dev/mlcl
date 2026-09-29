@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/page/:id/history": {
+      "allow": [
+        {
+          "heading": "Comparing v22 with v23",
+          "reason": "Sample version numbers from the design mock. The diff compare section is implemented — the heading renders 'Comparing v{{from}} with v{{to}}' dynamically from the selected version and its predecessor, so the literal design version pair (v22/v23) is data, not a missing section."
+        }
+      ]
+    }
+  }
+}
