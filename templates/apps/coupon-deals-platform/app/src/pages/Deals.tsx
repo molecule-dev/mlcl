@@ -93,8 +93,20 @@ export function Deals() {
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
       <header>
+        {/* Results header (design: "<Category> Deals — N Snags found") */}
         <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
-          {t('deals.heading', {}, { defaultValue: 'Deals' })}
+          {category === 'All'
+            ? t('deals.heading', {}, { defaultValue: 'Deals' })
+            : t('deals.categoryHeading', { category }, { defaultValue: '{{category}} Deals' })}{' '}
+          <span
+            className={cm.cn(cm.textSize('lg'), cm.fontWeight('normal'), 'text-on-surface-variant')}
+          >
+            {t(
+              'deals.resultsCount',
+              { count: filtered.length },
+              { defaultValue: '{{count}} Snags found' },
+            )}
+          </span>
         </h1>
       </header>
 

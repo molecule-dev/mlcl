@@ -5,6 +5,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const FEATURES = [
   {
@@ -132,22 +133,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'sm' }),
-              'text-2xl font-black tracking-tight font-display text-tertiary',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-3xl text-tertiary')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-              aria-hidden="true"
-            >
-              local_fire_department
-            </span>
-            {APP_NAME}
-          </Link>
+          <BrandWordmark size="lg" />
           <div
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'md' }),
@@ -547,15 +533,10 @@ export function Landing() {
           )}
         >
           <div>
+            {/* footer lockup: shared BrandWordmark (footer variant keeps the
+                per-page brand-wordmark e2e contract header-scoped) */}
             <div className={cm.flex({ align: 'center', gap: 'sm' }) + ' mb-4'}>
-              <span
-                className={cm.cn('material-symbols-outlined text-2xl text-tertiary')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-                aria-hidden="true"
-              >
-                local_fire_department
-              </span>
-              <span className="text-xl font-bold text-tertiary font-display">{APP_NAME}</span>
+              <BrandWordmark as="span" size="md" footer />
             </div>
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mb-6')}>
               {t(

@@ -114,6 +114,25 @@ export function Staff() {
         : true,
     )
 
+  // Store staffing health (design card) — computed from the loaded roster
+  // and the current week's shifts, never hardcoded.
+  const health = useMemo(() => {
+    const total = staff.length
+    if (total === 0) return null
+    const active = staff.filter((s) => s.status === 'active').length
+    const withinCaps = staff.filter(
+      (s) => s.max_weekly_hours <= 0 || (hoursByStaff.get(String(s.id)) ?? 0) <= s.max_weekly_hours,
+    ).length
+    const capacity = staff.reduce((sum, s) => sum + Math.max(s.max_weekly_hours, 0), 0)
+    const scheduled = [...hoursByStaff.values()].reduce((sum, h) => sum + h, 0)
+    const pct = (n: number) => Math.round((n / total) * 100)
+    return {
+      withinCapsPct: pct(withinCaps),
+      activePct: pct(active),
+      utilizationPct: capacity > 0 ? Math.min(100, Math.round((scheduled / capacity) * 100)) : 0,
+    }
+  }, [staff, hoursByStaff])
+
   async function submitNew(): Promise<void> {
     setSubmitError(null)
     if (!draft.first_name || !draft.last_name || !draft.email) {
@@ -562,6 +581,103 @@ export function Staff() {
               </tbody>
             </table>
           </div>
+        )}
+      </section>
+
+      {/* Store staffing health & compliance (design card) */}
+      <section
+        data-mol-id="staff-health"
+        className={cm.cn(
+          cm.sp('p', 6),
+          'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+          cm.stack(4),
+        )}
+      >
+        <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' })}>
+          <h2
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              cm.textSize('lg'),
+              'font-extrabold tracking-tight text-on-surface',
+            )}
+          >
+            <span
+              aria-hidden="true"
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                'h-8 w-8 rounded-lg bg-secondary-container/40 shrink-0',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-lg text-secondary-dark')}>
+                security
+              </span>
+            </span>
+            {t('staff.healthHeading', {}, { defaultValue: 'Store Staffing Health' })}
+          </h2>
+          <span
+            className={cm.cn(
+              cm.sp('px', 2),
+              cm.sp('py', 1),
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'rounded-full bg-secondary-container/40 text-secondary-dark uppercase tracking-wider',
+            )}
+          >
+            {t('staff.healthBadge', {}, { defaultValue: 'Fair Workweek' })}
+          </span>
+        </div>
+        {health ? (
+          <ul className={cm.stack(3)}>
+            {(
+              [
+                {
+                  labelKey: 'staff.health.withinCaps',
+                  labelDefault: 'Crew within weekly hour caps',
+                  value: health.withinCapsPct,
+                },
+                {
+                  labelKey: 'staff.health.active',
+                  labelDefault: 'Active roster share',
+                  value: health.activePct,
+                },
+                {
+                  labelKey: 'staff.health.utilization',
+                  labelDefault: 'Scheduled hours vs. capacity',
+                  value: health.utilizationPct,
+                },
+              ] as const
+            ).map((row) => (
+              <li key={row.labelKey}>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                    cm.sp('mb', 1),
+                    cm.textSize('xs'),
+                  )}
+                >
+                  <span className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface-variant')}>
+                    {t(row.labelKey, {}, { defaultValue: row.labelDefault })}
+                  </span>
+                  <span className={cm.cn(cm.fontWeight('bold'), 'text-on-surface tabular-nums')}>
+                    {row.value}%
+                  </span>
+                </div>
+                <div
+                  aria-hidden="true"
+                  className={cm.cn('h-1.5 w-full rounded-full bg-surface-container-high')}
+                >
+                  <div
+                    className={cm.cn('h-1.5 rounded-full bg-primary')}
+                    style={{ width: `${Math.min(100, Math.max(0, row.value))}%` }}
+                  />
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t('staff.healthEmpty', {}, { defaultValue: 'Add staff to see staffing health.' })}
+          </p>
         )}
       </section>
     </div>

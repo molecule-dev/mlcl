@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const FEATURES = [
   {
@@ -82,6 +83,53 @@ const PRICING = [
   },
 ] as const
 
+/* Floor-operations bento (design: "Engineered to eradicate scheduling
+   headaches") — the four operational cards under the how-it-works grid. */
+const FLOOR_FEATURES: {
+  key: string
+  icon: string
+  tone: 'primary' | 'tertiary'
+  defaultTitle: string
+  defaultBody: string
+  defaultStat?: string
+}[] = [
+  {
+    key: 'autoSchedule',
+    icon: 'auto_awesome',
+    tone: 'primary',
+    defaultTitle: '1-Click Auto-Scheduling',
+    defaultBody:
+      'Generate a compliant week from availability, roles, and max-hour caps in one pass — then adjust the edges by hand.',
+  },
+  {
+    key: 'absenceAlerts',
+    icon: 'notifications_active',
+    tone: 'primary',
+    defaultTitle: 'Real-Time Absence Alerts',
+    defaultBody:
+      'A call-out pings every qualified, available teammate at once — the first claim fills the floor before the rush.',
+    defaultStat: 'Under 3 min fill rate',
+  },
+  {
+    key: 'mobileCrew',
+    icon: 'smartphone',
+    tone: 'primary',
+    defaultTitle: 'Mobile Crew App',
+    defaultBody:
+      'Swaps, drops, claims, and the published roster in every pocket — with push notifications for changes.',
+    defaultStat: '92% crew adoption',
+  },
+  {
+    key: 'geofence',
+    icon: 'pin_drop',
+    tone: 'tertiary',
+    defaultTitle: 'Geofenced GPS Timeclock',
+    defaultBody:
+      'Eliminate buddy punching. Staff can only clock in while physically inside the store geofence, or sync with a standard tablet kiosk.',
+    defaultStat: 'Accurate to 15 meters',
+  },
+]
+
 /* Schedule-grid preview — the design's signature product shot. A static
    two-staff week rendered as decorative art (aria-hidden); chips use the
    primary tint/border/text trio from the design system. */
@@ -156,24 +204,7 @@ export function Landing() {
               data-mol-id="landing-brand"
               className={cm.flex({ align: 'center', gap: 'sm' })}
             >
-              <span
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  'h-9 w-9 rounded-xl bg-primary text-on-primary shadow-sm shadow-primary/25',
-                )}
-              >
-                <span className={cm.cn('material-symbols-outlined text-[20px]')} aria-hidden="true">
-                  schedule
-                </span>
-              </span>
-              <span
-                className={cm.cn(
-                  cm.textSize('lg'),
-                  'font-bold tracking-tight text-primary font-display',
-                )}
-              >
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" size="lg" />
             </Link>
             <span
               className={cm.cn(
@@ -714,6 +745,123 @@ export function Landing() {
           </div>
         </section>
 
+        {/* Floor-operations bento (design: "Engineered to eradicate scheduling headaches") */}
+        <section
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            cm.sp('py', 16),
+            'border-t border-outline-variant/40 bg-surface-container-lowest/60',
+          )}
+        >
+          <div className={cm.cn(cm.maxW('2xl'), cm.mxAuto, cm.textCenter, cm.sp('mb', 12))}>
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-wider text-primary',
+              )}
+            >
+              {t(
+                'landing.floorEyebrow',
+                {},
+                { defaultValue: 'Built for store managers & floor crews' },
+              )}
+            </p>
+            <h2
+              className={cm.cn(
+                cm.sp('mt', 3),
+                cm.textSize('3xl'),
+                'font-bold tracking-tight text-on-surface font-display',
+              )}
+            >
+              {t(
+                'landing.floorHeading',
+                {},
+                { defaultValue: 'Engineered to eradicate scheduling headaches' },
+              )}
+            </h2>
+            <p className={cm.cn(cm.sp('mt', 3), cm.textSize('base'), 'text-on-surface-variant')}>
+              {t(
+                'landing.floorSubheading',
+                {},
+                {
+                  defaultValue:
+                    'Spreadsheets break the moment a shift changes in real time. Rosters, availability, and compliance live in one calm, automated system.',
+                },
+              )}
+            </p>
+          </div>
+          <div className={cm.grid({ cols: 4, gap: 'md' })}>
+            {FLOOR_FEATURES.map((f) => (
+              <div
+                key={f.key}
+                className={cm.cn(
+                  cm.sp('p', 6),
+                  'flex flex-col justify-between rounded-2xl border border-outline-variant/40 bg-surface-container-lowest hover:shadow-md transition-shadow',
+                )}
+              >
+                <div>
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'h-12 w-12 rounded-xl',
+                      f.tone === 'tertiary'
+                        ? 'bg-secondary-container/40 text-secondary-dark'
+                        : 'bg-primary/10 text-primary',
+                    )}
+                    aria-hidden="true"
+                  >
+                    <span className={cm.cn('material-symbols-outlined text-[26px]')}>{f.icon}</span>
+                  </span>
+                  <h3
+                    className={cm.cn(
+                      cm.sp('mt', 5),
+                      cm.sp('mb', 2),
+                      cm.textSize('lg'),
+                      'font-bold tracking-tight text-on-surface font-display',
+                    )}
+                  >
+                    {t(`landing.floorFeature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
+                  </h3>
+                  <p
+                    className={cm.cn(cm.textSize('sm'), 'leading-relaxed text-on-surface-variant')}
+                  >
+                    {t(`landing.floorFeature.${f.key}.body`, {}, { defaultValue: f.defaultBody })}
+                  </p>
+                </div>
+                {f.defaultStat ? (
+                  <div
+                    className={cm.cn(
+                      cm.sp('mt', 6),
+                      cm.sp('pt', 4),
+                      cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'border-t border-outline-variant/40 text-primary-dark',
+                    )}
+                  >
+                    <span>
+                      {t(
+                        `landing.floorFeature.${f.key}.stat`,
+                        {},
+                        { defaultValue: f.defaultStat ?? '' },
+                      )}
+                    </span>
+                    <span
+                      className={cm.cn('material-symbols-outlined text-base')}
+                      aria-hidden="true"
+                    >
+                      arrow_forward
+                    </span>
+                  </div>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section className={cm.cn(cm.maxW('5xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('pb', 20))}>
           <div className={cm.cn(cm.maxW('2xl'), cm.mxAuto, cm.textCenter, cm.sp('mb', 12))}>
             <p
@@ -844,19 +992,10 @@ export function Landing() {
         <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6))}>
           <div className={cm.cn('grid grid-cols-2 gap-8 md:grid-cols-5', cm.sp('mb', 12))}>
             <div className="col-span-2">
+              {/* footer lockup: shared BrandWordmark (footer variant keeps the
+                  per-page brand-wordmark e2e contract header-scoped) */}
               <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-                <span
-                  className={cm.cn(
-                    cm.flex({ align: 'center', justify: 'center' }),
-                    'h-8 w-8 rounded-xl bg-primary text-on-primary',
-                  )}
-                  aria-hidden="true"
-                >
-                  <span className={cm.cn('material-symbols-outlined text-[18px]')}>schedule</span>
-                </span>
-                <span className={cm.cn(cm.textSize('base'), 'font-bold text-primary font-display')}>
-                  {APP_NAME}
-                </span>
+                <BrandWordmark as="span" size="md" footer />
               </div>
               <p
                 className={cm.cn(

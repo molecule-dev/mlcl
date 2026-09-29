@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
@@ -32,6 +32,13 @@ interface ClaimRow {
   staff_name: string
   status: 'pending' | 'approved' | 'denied'
 }
+
+const DAY_FORMATTER = new Intl.DateTimeFormat('en-US', {
+  weekday: 'long',
+  month: 'short',
+  day: 'numeric',
+  timeZone: 'UTC',
+})
 
 export function OpenShifts() {
   const cm = getClassMap()
@@ -127,6 +134,29 @@ export function OpenShifts() {
     (a, b) => a.date.localeCompare(b.date) || a.start_time.localeCompare(b.start_time),
   )
 
+  // Date-grouped claim board (design: "Saturday, Oct 25 (Weekend Volume
+  // Peak)") — one header per day with an open-count chip, and a weekend
+  // volume annotation so rush days surface before scheduling.
+  const dateGroups = useMemo(() => {
+    const groups: { date: string; label: string; weekend: boolean; shifts: OpenShift[] }[] = []
+    for (const s of sorted) {
+      const last = groups[groups.length - 1]
+      if (last && last.date === s.date) {
+        last.shifts.push(s)
+        continue
+      }
+      const asUtc = new Date(`${s.date}T00:00:00Z`)
+      const weekday = asUtc.getUTCDay()
+      groups.push({
+        date: s.date,
+        label: Number.isNaN(asUtc.getTime()) ? s.date : DAY_FORMATTER.format(asUtc),
+        weekend: weekday === 0 || weekday === 6,
+        shifts: [s],
+      })
+    }
+    return groups
+  }, [sorted])
+
   return (
     <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.stack(6))}>
       <header>
@@ -169,94 +199,157 @@ export function OpenShifts() {
           )}
         </p>
       ) : (
-        <ul className={cm.grid({ cols: 3, gap: 'md' })}>
-          {sorted.map((s) => {
-            const mine = myClaim(s.id)
-            return (
-              <li
-                key={s.id}
-                data-mol-id={`open-shift-${s.id}`}
+        <div className={cm.stack(8)}>
+          {dateGroups.map((group) => (
+            <section key={group.date} data-mol-id={`open-shifts-day-${group.date}`}>
+              <div
                 className={cm.cn(
-                  cm.sp('p', 5),
-                  'rounded-2xl bg-surface-container-lowest border border-dashed border-outline-variant/50 shadow-sm',
-                  cm.stack(3),
+                  cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' }),
+                  cm.sp('mb', 3),
                 )}
               >
-                <div className={cm.flex({ align: 'center', justify: 'between' })}>
-                  <span
-                    className={cm.cn(
-                      cm.sp('px', 2),
-                      cm.sp('py', 1),
-                      cm.textSize('xs'),
-                      cm.fontWeight('bold'),
-                      'rounded-full uppercase tracking-wider bg-primary/10 text-primary-dark',
-                    )}
-                  >
-                    {s.role}
-                  </span>
-                  <span
-                    className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant tabular-nums')}
-                  >
-                    {s.duration_hours}
-                    {t('shiftDetail.hours', { count: s.duration_hours }, { defaultValue: 'h' })}
-                  </span>
-                </div>
-                <div>
-                  <p
-                    className={cm.cn(
-                      cm.textSize('lg'),
-                      'font-extrabold tabular-nums text-on-surface',
-                    )}
-                  >
-                    {s.date}
-                  </p>
-                  <p className={cm.cn(cm.textSize('sm'), 'font-semibold text-on-surface-variant')}>
-                    {s.time_label}
-                  </p>
-                </div>
-                {s.notes ? (
-                  <p
-                    className={cm.cn(cm.textSize('xs'), 'leading-relaxed text-on-surface-variant')}
-                  >
-                    {s.notes}
-                  </p>
-                ) : null}
-                {mine ? (
-                  <p
-                    className={cm.cn(
-                      cm.textSize('xs'),
-                      'font-semibold text-[color:var(--color-req-pending)]',
-                    )}
-                  >
-                    {t(
-                      'openShifts.youClaimed',
-                      { name: mine.staff_name },
-                      { defaultValue: '{{name}} — awaiting approval' },
-                    )}
-                  </p>
-                ) : (
-                  <button
-                    type="button"
-                    data-mol-id={`open-shift-claim-${s.id}`}
-                    onClick={() => {
-                      setClaimFor(s)
-                      setClaimError(null)
-                    }}
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 2),
-                      cm.textSize('sm'),
-                      cm.fontWeight('bold'),
-                      'rounded-xl bg-primary text-on-primary hover:opacity-90 transition-opacity w-full',
-                    )}
-                  >
-                    {t('openShifts.claim', {}, { defaultValue: 'Claim shift' })}
-                  </button>
-                )}
-              </li>
-            )
-          })}
-        </ul>
+                <h2 className={cm.cn(cm.textSize('lg'), 'font-bold text-on-surface')}>
+                  {group.label}{' '}
+                  {group.weekend ? (
+                    <span
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('medium'),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      (
+                      {t(
+                        'openShifts.weekendVolumePeak',
+                        {},
+                        { defaultValue: 'Weekend volume peak' },
+                      )}
+                      )
+                    </span>
+                  ) : null}
+                </h2>
+                <span
+                  className={cm.cn(
+                    cm.sp('px', 2),
+                    cm.sp('py', 1),
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    'rounded-md bg-surface-container text-on-surface-variant tabular-nums',
+                  )}
+                >
+                  {t(
+                    'openShifts.dayShiftCount',
+                    { count: group.shifts.length },
+                    { defaultValue: '{{count}} open shifts' },
+                  )}
+                </span>
+              </div>
+              <ul className={cm.grid({ cols: 3, gap: 'md' })}>
+                {group.shifts.map((s) => {
+                  const mine = myClaim(s.id)
+                  return (
+                    <li
+                      key={s.id}
+                      data-mol-id={`open-shift-${s.id}`}
+                      className={cm.cn(
+                        cm.sp('p', 5),
+                        'rounded-2xl bg-surface-container-lowest border border-dashed border-outline-variant/50 shadow-sm',
+                        cm.stack(3),
+                      )}
+                    >
+                      <div className={cm.flex({ align: 'center', justify: 'between' })}>
+                        <span
+                          className={cm.cn(
+                            cm.sp('px', 2),
+                            cm.sp('py', 1),
+                            cm.textSize('xs'),
+                            cm.fontWeight('bold'),
+                            'rounded-full uppercase tracking-wider bg-primary/10 text-primary-dark',
+                          )}
+                        >
+                          {s.role}
+                        </span>
+                        <span
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            'text-on-surface-variant tabular-nums',
+                          )}
+                        >
+                          {s.duration_hours}
+                          {t(
+                            'shiftDetail.hours',
+                            { count: s.duration_hours },
+                            { defaultValue: 'h' },
+                          )}
+                        </span>
+                      </div>
+                      <div>
+                        <p
+                          className={cm.cn(
+                            cm.textSize('lg'),
+                            'font-extrabold tabular-nums text-on-surface',
+                          )}
+                        >
+                          {s.time_label}
+                        </p>
+                        <p
+                          className={cm.cn(
+                            cm.textSize('sm'),
+                            'font-semibold text-on-surface-variant',
+                          )}
+                        >
+                          {group.label}
+                        </p>
+                      </div>
+                      {s.notes ? (
+                        <p
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            'leading-relaxed text-on-surface-variant',
+                          )}
+                        >
+                          {s.notes}
+                        </p>
+                      ) : null}
+                      {mine ? (
+                        <p
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            'font-semibold text-[color:var(--color-req-pending)]',
+                          )}
+                        >
+                          {t(
+                            'openShifts.youClaimed',
+                            { name: mine.staff_name },
+                            { defaultValue: '{{name}} — awaiting approval' },
+                          )}
+                        </p>
+                      ) : (
+                        <button
+                          type="button"
+                          data-mol-id={`open-shift-claim-${s.id}`}
+                          onClick={() => {
+                            setClaimFor(s)
+                            setClaimError(null)
+                          }}
+                          className={cm.cn(
+                            cm.sp('px', 4),
+                            cm.sp('py', 2),
+                            cm.textSize('sm'),
+                            cm.fontWeight('bold'),
+                            'rounded-xl bg-primary text-on-primary hover:opacity-90 transition-opacity w-full',
+                          )}
+                        >
+                          {t('openShifts.claim', {}, { defaultValue: 'Claim shift' })}
+                        </button>
+                      )}
+                    </li>
+                  )
+                })}
+              </ul>
+            </section>
+          ))}
+        </div>
       )}
 
       {claimFor ? (

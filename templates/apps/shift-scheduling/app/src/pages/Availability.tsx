@@ -540,6 +540,105 @@ export function Availability() {
               </button>
             </div>
           </section>
+
+          {/* Store policy rules (design: Store Availability Policy & Rules) */}
+          <section
+            data-mol-id="availability-policy"
+            className={cm.cn(
+              cm.sp('p', 6),
+              'lg:col-span-4 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+              cm.stack(4),
+            )}
+          >
+            <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
+              <h2
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'sm' }),
+                  cm.textSize('lg'),
+                  'font-extrabold tracking-tight text-on-surface',
+                )}
+              >
+                <span
+                  aria-hidden="true"
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'h-8 w-8 rounded-lg bg-primary/10 shrink-0',
+                  )}
+                >
+                  <span className={cm.cn('material-symbols-outlined text-lg text-primary-dark')}>
+                    verified_user
+                  </span>
+                </span>
+                {t('availability.policyHeading', {}, { defaultValue: 'Store Policy & Rules' })}
+              </h2>
+              <span
+                className={cm.cn(
+                  cm.sp('px', 2),
+                  cm.sp('py', 1),
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'rounded-full bg-secondary-container/40 text-secondary-dark uppercase tracking-wider',
+                )}
+              >
+                {t('availability.policyEnforced', {}, { defaultValue: 'Enforced' })}
+              </span>
+            </div>
+            <ul className={cm.cn(cm.stack(3))}>
+              {(
+                [
+                  {
+                    icon: 'update',
+                    titleKey: 'availability.policy.leadTime',
+                    titleDefault: 'Notice Lead Time',
+                    bodyKey: 'availability.policy.leadTimeBody',
+                    bodyDefault:
+                      'Minimum 14 days in advance for PTO requests. Automated lock applies 48h prior to schedule publish.',
+                  },
+                  {
+                    icon: 'weekend',
+                    titleKey: 'availability.policy.consecutive',
+                    titleDefault: 'Max Consecutive Days',
+                    bodyKey: 'availability.policy.consecutiveBody',
+                    bodyDefault:
+                      'At most 6 consecutive scheduled days; the seventh triggers a Fair Workweek review before publish.',
+                  },
+                  {
+                    icon: 'bedtime',
+                    titleKey: 'availability.policy.rest',
+                    titleDefault: 'Minimum Rest',
+                    bodyKey: 'availability.policy.restBody',
+                    bodyDefault:
+                      'Scheduling flags any shift starting less than 10 hours after the previous one ends.',
+                  },
+                ] as const
+              ).map((row) => (
+                <li key={row.icon} className={cm.cn(cm.flex({ align: 'start', gap: 'sm' }))}>
+                  <span
+                    aria-hidden="true"
+                    className={cm.cn(
+                      'material-symbols-outlined text-base text-on-surface-variant mt-0.5 shrink-0',
+                    )}
+                  >
+                    {row.icon}
+                  </span>
+                  <span className={cm.cn('min-w-0')}>
+                    <span
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('bold'),
+                        'block text-on-surface',
+                      )}
+                    >
+                      {t(row.titleKey, {}, { defaultValue: row.titleDefault })}
+                    </span>
+                    <span className={cm.cn(cm.textSize('xs'), 'block text-on-surface-variant')}>
+                      {t(row.bodyKey, {}, { defaultValue: row.bodyDefault })}
+                    </span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
         </div>
       )}
     </div>

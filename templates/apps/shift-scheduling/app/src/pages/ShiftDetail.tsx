@@ -83,6 +83,8 @@ export function ShiftDetail() {
     target_staff_id: '',
     note: '',
   })
+  const [proposing, setProposing] = useState<string | null>(null)
+  const [proposeError, setProposeError] = useState<string | null>(null)
 
   function refresh(): Promise<void> {
     if (!id) return Promise.resolve()
@@ -233,6 +235,85 @@ export function ShiftDetail() {
       setConfirmingDelete(false)
     } finally {
       setActing(null)
+    }
+  }
+
+  // Eligible backup workers (design: "Eligible Replacement Pool") — every
+  // teammate except the current assignee. Proposing a backup posts a real
+  // swap request targeting them; broadcast posts one per eligible worker.
+  const eligibleBackups = useMemo(
+    () => (shift ? staff.filter((s) => s.id !== shift.staff_id) : []),
+    [staff, shift],
+  )
+
+  async function proposeBackup(targetStaffId: string): Promise<void> {
+    if (!shift || !shift.staff_id) return
+    setProposing(targetStaffId)
+    setProposeError(null)
+    try {
+      const created = await http.post('/api/swap-requests', {
+        kind: 'swap',
+        from_shift: shift.id,
+        requester_staff_id: shift.staff_id,
+        target_staff_id: targetStaffId,
+        note: t('shiftDetail.backupNote', {}, { defaultValue: 'Backup reassignment request' }),
+      })
+      const request = unwrapSingle<{ id: string }>(created)
+      void track({
+        name: 'swap.requested',
+        properties: {
+          request_id: request?.id,
+          shift_id: shift.id,
+          kind: 'swap',
+          target_staff_id: targetStaffId,
+          broadcast: false,
+        },
+      })
+      await refresh()
+    } catch (_err) {
+      setProposeError(
+        t('shiftDetail.requestFailed', {}, { defaultValue: 'Failed to submit the request.' }),
+      )
+    } finally {
+      setProposing(null)
+    }
+  }
+
+  async function broadcastBackups(): Promise<void> {
+    if (!shift || !shift.staff_id) return
+    setProposing('all')
+    setProposeError(null)
+    let failures = 0
+    try {
+      for (const worker of eligibleBackups) {
+        try {
+          await http.post('/api/swap-requests', {
+            kind: 'swap',
+            from_shift: shift.id,
+            requester_staff_id: shift.staff_id,
+            target_staff_id: worker.id,
+            note: t('shiftDetail.backupNote', {}, { defaultValue: 'Backup reassignment request' }),
+          })
+        } catch {
+          failures += 1
+        }
+      }
+      void track({
+        name: 'swap.broadcast',
+        properties: { shift_id: shift.id, recipients: eligibleBackups.length, failures },
+      })
+      await refresh()
+    } finally {
+      setProposing(null)
+      if (failures > 0) {
+        setProposeError(
+          t(
+            'shiftDetail.broadcastPartial',
+            { count: failures },
+            { defaultValue: '{{count}} broadcast(s) failed — retry the ones still missing.' },
+          ),
+        )
+      }
     }
   }
 
@@ -730,6 +811,151 @@ export function ShiftDetail() {
                   ) : (
                     <RequestStatusPill status={c.status} />
                   )}
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
+        {/* Eligible backup workers (design: Eligible Replacement Pool) */}
+        <section
+          data-mol-id="shift-detail-backup-workers"
+          className={cm.cn(
+            cm.sp('p', 6),
+            'lg:col-span-12 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+          )}
+        >
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' }),
+              cm.sp('mb', 4),
+            )}
+          >
+            <div>
+              <h2
+                className={cm.cn(
+                  cm.textSize('lg'),
+                  'font-extrabold tracking-tight text-on-surface',
+                )}
+              >
+                {t('shiftDetail.backupHeading', {}, { defaultValue: 'Eligible backup workers' })}
+              </h2>
+              <p className={cm.cn(cm.sp('mt', 1), cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'shiftDetail.backupSubheading',
+                  { count: eligibleBackups.length },
+                  {
+                    defaultValue:
+                      '{{count}} teammates available for instant reassignment on this shift.',
+                  },
+                )}
+              </p>
+            </div>
+            <button
+              type="button"
+              data-mol-id="shift-detail-backup-broadcast"
+              onClick={() => void broadcastBackups()}
+              disabled={
+                !shift || !shift.staff_id || eligibleBackups.length === 0 || proposing !== null
+              }
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'rounded-lg bg-primary/10 text-primary-dark hover:bg-primary/15 transition-colors disabled:opacity-50',
+              )}
+            >
+              {proposing === 'all'
+                ? t('shiftDetail.broadcastingEllipsis', {}, { defaultValue: 'Broadcasting…' })
+                : t('shiftDetail.broadcastAll', {}, { defaultValue: 'Broadcast to all' })}
+            </button>
+          </div>
+          {proposeError ? (
+            <p
+              data-mol-id="shift-detail-backup-error"
+              role="alert"
+              className={cm.cn(cm.sp('mb', 3), cm.textSize('xs'), 'text-error font-semibold')}
+            >
+              {proposeError}
+            </p>
+          ) : null}
+          {!shift || !shift.staff_id ? (
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'shiftDetail.backupNeedsAssignee',
+                {},
+                {
+                  defaultValue:
+                    'Assign the shift to a requester first — a backup proposal moves their assignment.',
+                },
+              )}
+            </p>
+          ) : eligibleBackups.length === 0 ? (
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'shiftDetail.backupEmpty',
+                {},
+                { defaultValue: 'No other teammates are on the roster yet.' },
+              )}
+            </p>
+          ) : (
+            <ul className={cm.cn('grid gap-3 grid-cols-1 md:grid-cols-2 xl:grid-cols-3')}>
+              {eligibleBackups.map((worker) => (
+                <li
+                  key={worker.id}
+                  data-mol-id={`shift-detail-backup-${worker.id}`}
+                  className={cm.cn(
+                    cm.sp('p', 3),
+                    cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                    'rounded-xl border border-outline-variant/20 bg-surface-container-low hover:border-primary/40 transition-colors',
+                  )}
+                >
+                  <span className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0')}>
+                    <span
+                      aria-hidden="true"
+                      className={cm.cn(
+                        'grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary/10 text-primary-dark font-bold text-xs',
+                      )}
+                    >
+                      {worker.name
+                        .split(' ')
+                        .map((part) => part[0])
+                        .slice(0, 2)
+                        .join('')
+                        .toUpperCase()}
+                    </span>
+                    <span className={cm.cn('min-w-0')}>
+                      <span
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          'block font-semibold text-on-surface truncate',
+                        )}
+                      >
+                        {worker.name}
+                      </span>
+                      <span className={cm.cn(cm.textSize('xs'), 'block text-on-surface-variant')}>
+                        {worker.role}
+                      </span>
+                    </span>
+                  </span>
+                  <button
+                    type="button"
+                    data-mol-id={`shift-detail-backup-propose-${worker.id}`}
+                    onClick={() => void proposeBackup(worker.id)}
+                    disabled={proposing !== null}
+                    className={cm.cn(
+                      cm.sp('px', 3),
+                      cm.sp('py', 2),
+                      cm.textSize('xs'),
+                      cm.fontWeight('bold'),
+                      'shrink-0 rounded-lg bg-primary text-on-primary hover:opacity-90 transition-opacity disabled:opacity-50',
+                    )}
+                  >
+                    {proposing === worker.id
+                      ? t('common.submittingEllipsis', {}, { defaultValue: 'Submitting…' })
+                      : t('shiftDetail.proposeSwap', {}, { defaultValue: 'Propose swap' })}
+                  </button>
                 </li>
               ))}
             </ul>

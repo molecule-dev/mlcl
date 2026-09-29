@@ -169,104 +169,225 @@ export function SwapRequests() {
         </label>
       </header>
 
-      <div className={cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' })}>
-        {FILTERS.map((f) => (
-          <button
-            key={f.key}
-            type="button"
-            onClick={() => setFilter(f.key)}
-            className={cm.cn(
-              cm.sp('px', 3),
-              cm.sp('py', 2),
-              'rounded-full text-[10px] font-black uppercase tracking-widest transition-colors',
-              filter === f.key
-                ? 'bg-primary text-on-primary'
-                : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',
-            )}
-          >
-            {t(`swapRequests.filter.${f.key}`, {}, { defaultValue: f.defaultLabel })}
-          </button>
-        ))}
-      </div>
-
-      {loading ? (
-        <p className={cm.cn('text-on-surface-variant')}>
-          {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
-        </p>
-      ) : error ? (
-        <p className={cm.cn('text-error')}>{error}</p>
-      ) : (
-        <div className={cm.cn(cm.stack(8))}>
-          {mineStaffId ? (
-            <section
-              className={cm.cn(
-                cm.sp('p', 6),
-                'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
-              )}
-            >
-              <h2
+      <div className={cm.cn('grid gap-6 xl:grid-cols-3')}>
+        <div className={cm.cn('xl:col-span-2', cm.stack(6))}>
+          <div className={cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' })}>
+            {FILTERS.map((f) => (
+              <button
+                key={f.key}
+                type="button"
+                onClick={() => setFilter(f.key)}
                 className={cm.cn(
-                  cm.textSize('lg'),
-                  'font-extrabold tracking-tight text-on-surface',
+                  cm.sp('px', 3),
+                  cm.sp('py', 2),
+                  'rounded-full text-[10px] font-black uppercase tracking-widest transition-colors',
+                  filter === f.key
+                    ? 'bg-primary text-on-primary'
+                    : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',
                 )}
               >
-                {t('swapRequests.mineHeading', {}, { defaultValue: 'My requests' })}
-              </h2>
-              {mine.length === 0 ? (
-                <p className={cm.cn(cm.sp('mt', 4), cm.textSize('sm'), 'text-on-surface-variant')}>
-                  {t('swapRequests.mineEmpty', {}, { defaultValue: 'Nothing requested yet.' })}
-                </p>
-              ) : (
-                <ul className={cm.cn(cm.sp('mt', 4), cm.stack(3))}>
-                  {mine.map((r) => (
-                    <RequestRow
-                      key={r.id}
-                      r={r}
-                      t={t}
-                      cm={cm}
-                      actingId={actingId}
-                      onReview={review}
-                    />
-                  ))}
-                </ul>
-              )}
-            </section>
-          ) : null}
+                {t(`swapRequests.filter.${f.key}`, {}, { defaultValue: f.defaultLabel })}
+              </button>
+            ))}
+          </div>
 
-          <section
+          {loading ? (
+            <p className={cm.cn('text-on-surface-variant')}>
+              {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+            </p>
+          ) : error ? (
+            <p className={cm.cn('text-error')}>{error}</p>
+          ) : (
+            <div className={cm.cn(cm.stack(8))}>
+              {mineStaffId ? (
+                <section
+                  className={cm.cn(
+                    cm.sp('p', 6),
+                    'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+                  )}
+                >
+                  <h2
+                    className={cm.cn(
+                      cm.textSize('lg'),
+                      'font-extrabold tracking-tight text-on-surface',
+                    )}
+                  >
+                    {t('swapRequests.mineHeading', {}, { defaultValue: 'My requests' })}
+                  </h2>
+                  {mine.length === 0 ? (
+                    <p
+                      className={cm.cn(
+                        cm.sp('mt', 4),
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {t('swapRequests.mineEmpty', {}, { defaultValue: 'Nothing requested yet.' })}
+                    </p>
+                  ) : (
+                    <ul className={cm.cn(cm.sp('mt', 4), cm.stack(3))}>
+                      {mine.map((r) => (
+                        <RequestRow
+                          key={r.id}
+                          r={r}
+                          t={t}
+                          cm={cm}
+                          actingId={actingId}
+                          onReview={review}
+                        />
+                      ))}
+                    </ul>
+                  )}
+                </section>
+              ) : null}
+
+              <section
+                className={cm.cn(
+                  cm.sp('p', 6),
+                  'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+                )}
+              >
+                <h2
+                  className={cm.cn(
+                    cm.textSize('lg'),
+                    'font-extrabold tracking-tight text-on-surface',
+                  )}
+                >
+                  {mineStaffId
+                    ? t('swapRequests.incomingHeading', {}, { defaultValue: 'Incoming & team' })
+                    : t('swapRequests.allHeading', {}, { defaultValue: 'All requests' })}
+                </h2>
+                {incoming.length === 0 ? (
+                  <p
+                    className={cm.cn(cm.sp('mt', 4), cm.textSize('sm'), 'text-on-surface-variant')}
+                  >
+                    {t('swapRequests.empty', {}, { defaultValue: 'Nothing here.' })}
+                  </p>
+                ) : (
+                  <ul className={cm.cn(cm.sp('mt', 4), cm.stack(3))}>
+                    {incoming.map((r) => (
+                      <RequestRow
+                        key={r.id}
+                        r={r}
+                        t={t}
+                        cm={cm}
+                        actingId={actingId}
+                        onReview={review}
+                      />
+                    ))}
+                  </ul>
+                )}
+              </section>
+            </div>
+          )}
+        </div>
+
+        {/* Store Swap Policies (design right rail) */}
+        <aside
+          data-mol-id="swap-policies"
+          className={cm.cn(
+            cm.sp('p', 6),
+            'self-start rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+            cm.stack(4),
+          )}
+        >
+          <div
             className={cm.cn(
-              cm.sp('p', 6),
-              'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              cm.sp('pb', 3),
+              'border-b border-outline-variant/20',
             )}
           >
             <h2
-              className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-on-surface')}
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                cm.textSize('lg'),
+                'font-extrabold tracking-tight text-on-surface',
+              )}
             >
-              {mineStaffId
-                ? t('swapRequests.incomingHeading', {}, { defaultValue: 'Incoming & team' })
-                : t('swapRequests.allHeading', {}, { defaultValue: 'All requests' })}
+              <span
+                aria-hidden="true"
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'h-8 w-8 rounded-lg bg-primary/10 shrink-0',
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-lg text-primary-dark')}>
+                  policy
+                </span>
+              </span>
+              {t('swapRequests.policyHeading', {}, { defaultValue: 'Store Swap Policies' })}
             </h2>
-            {incoming.length === 0 ? (
-              <p className={cm.cn(cm.sp('mt', 4), cm.textSize('sm'), 'text-on-surface-variant')}>
-                {t('swapRequests.empty', {}, { defaultValue: 'Nothing here.' })}
-              </p>
-            ) : (
-              <ul className={cm.cn(cm.sp('mt', 4), cm.stack(3))}>
-                {incoming.map((r) => (
-                  <RequestRow
-                    key={r.id}
-                    r={r}
-                    t={t}
-                    cm={cm}
-                    actingId={actingId}
-                    onReview={review}
-                  />
-                ))}
-              </ul>
-            )}
-          </section>
-        </div>
-      )}
+            <span
+              className={cm.cn(
+                cm.sp('px', 2),
+                cm.sp('py', 1),
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'rounded bg-surface-container text-primary-dark uppercase tracking-wider',
+              )}
+            >
+              {t('swapRequests.policyActive', {}, { defaultValue: 'Active' })}
+            </span>
+          </div>
+          <ul className={cm.cn(cm.stack(4))}>
+            {(
+              [
+                {
+                  icon: 'timelapse',
+                  titleKey: 'swapRequests.policy.deadline',
+                  titleDefault: 'Peer Swap Deadline',
+                  bodyKey: 'swapRequests.policy.deadlineBody',
+                  bodyDefault:
+                    'Shifts can be swapped peer-to-peer up to 2 hours before the scheduled start time.',
+                },
+                {
+                  icon: 'how_to_reg',
+                  titleKey: 'swapRequests.policy.approval',
+                  titleDefault: 'Manager Approval Window',
+                  bodyKey: 'swapRequests.policy.approvalBody',
+                  bodyDefault:
+                    'Requests still pending 24 hours before start are declined automatically so the roster never gaps.',
+                },
+                {
+                  icon: 'payments',
+                  titleKey: 'swapRequests.policy.overtime',
+                  titleDefault: 'Overtime Acknowledgment',
+                  bodyKey: 'swapRequests.policy.overtimeBody',
+                  bodyDefault:
+                    'A swap that pushes the receiver into overtime shows the cost and requires explicit acknowledgment at approval.',
+                },
+              ] as const
+            ).map((row) => (
+              <li key={row.icon} className={cm.cn(cm.flex({ align: 'start', gap: 'sm' }))}>
+                <span
+                  aria-hidden="true"
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'h-8 w-8 rounded-lg bg-surface-container-low text-primary-dark shrink-0',
+                  )}
+                >
+                  <span className={cm.cn('material-symbols-outlined text-base')}>{row.icon}</span>
+                </span>
+                <span className={cm.cn('min-w-0')}>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('bold'),
+                      'block text-on-surface',
+                    )}
+                  >
+                    {t(row.titleKey, {}, { defaultValue: row.titleDefault })}
+                  </span>
+                  <span className={cm.cn(cm.textSize('xs'), 'block text-on-surface-variant')}>
+                    {t(row.bodyKey, {}, { defaultValue: row.bodyDefault })}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      </div>
     </div>
   )
 }

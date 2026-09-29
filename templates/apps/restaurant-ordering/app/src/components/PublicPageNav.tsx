@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Public, brand-consistent top navigation shared by the standalone content
@@ -33,33 +33,7 @@ export function PublicPageNav() {
           cm.mxAuto,
         )}
       >
-        <Link
-          to="/"
-          className={cm.cn(
-            cm.textSize('xl'),
-            cm.flex({ align: 'center', gap: 'sm' }),
-            'font-extrabold tracking-tight font-display',
-          )}
-        >
-          <span
-            className={cm.cn(
-              cm.w(8),
-              cm.h(8),
-              cm.roundedFull,
-              cm.flex({ align: 'center', justify: 'center' }),
-              'bg-gradient-to-br from-primary to-tertiary',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-on-primary text-xl')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-              aria-hidden="true"
-            >
-              local_fire_department
-            </span>
-          </span>
-          {APP_NAME}
-        </Link>
+        <BrandWordmark />
         <div className={cm.flex({ align: 'center', gap: 'md' })}>
           {isAuthenticated ? (
             <Link

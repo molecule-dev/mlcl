@@ -1,0 +1,68 @@
+{
+  "screens": {
+    "/search": {
+      "allow": [
+        {
+          "heading": "Gothic Quarter Penthouse",
+          "reason": "sample result-card title in the design mock (Barcelona set); search renders live listings from GET /api/listings with the app's own seeded names"
+        },
+        {
+          "heading": "Eixample Sunny Flat",
+          "reason": "sample result-card title in the design mock (Barcelona set); search renders live listings from GET /api/listings"
+        },
+        {
+          "heading": "Historic Loft near Sagrada",
+          "reason": "sample result-card title in the design mock (Barcelona set); search renders live listings from GET /api/listings"
+        }
+      ]
+    },
+    "/bookings/:id": {
+      "allow": [
+        {
+          "heading": "Your stay at Beachfront Villa in Tulum",
+          "reason": "the 'Your stay at {{title}}' heading is implemented; the Tulum villa is the design mock's sample booking — the page renders the real booked listing's title from GET /api/bookings/:id"
+        }
+      ]
+    },
+    "/messages/:id": {
+      "allow": [
+        {
+          "heading": "Beachfront Villa in Tulum",
+          "reason": "sample thread header in the design mock; MessageThread renders the thread's real listing_title from GET /api/messages/:id"
+        }
+      ]
+    },
+    "/host/listings": {
+      "allow": [
+        {
+          "heading": "Coastal Breeze Villa",
+          "reason": "sample host-listing card in the design mock; the host grid renders real listings from GET /api/host/listings"
+        },
+        {
+          "heading": "Industrial Arts District Loft",
+          "reason": "sample host-listing card in the design mock; the host grid renders real listings from GET /api/host/listings"
+        },
+        {
+          "heading": "Cactus Moon Retreat",
+          "reason": "sample host-listing card in the design mock; the host grid renders real listings from GET /api/host/listings"
+        }
+      ]
+    },
+    "/host/listings/:id": {
+      "allow": [
+        {
+          "heading": "Beachfront Villa in Tulum",
+          "reason": "sample listing title in the design mock; the host detail renders the real listing title from GET /api/host/listings/:id"
+        }
+      ]
+    },
+    "/host/reservations": {
+      "allow": [
+        {
+          "heading": "Beachfront Villa in Tulum",
+          "reason": "sample reservation row in the design mock; the reservation queue renders real rows with listing_title from GET /api/host/reservations"
+        }
+      ]
+    }
+  }
+}

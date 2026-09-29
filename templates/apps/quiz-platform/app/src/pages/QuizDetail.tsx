@@ -6,6 +6,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { LeaderboardRow } from '../components/LeaderboardRow.js'
+import { QuizCard, type QuizCardProps } from '../components/QuizCard.js'
 import { QuizStatsRow } from '../components/QuizStatsRow.js'
 
 interface QuestionRow {
@@ -51,6 +52,16 @@ const CATEGORY_GLYPH: Record<string, string> = {
   general: 'sparkles',
 }
 
+const CATEGORY_HUE: Record<string, NonNullable<QuizCardProps['hue']>> = {
+  science: 'tertiary',
+  geography: 'sky',
+  history: 'amber',
+  arts: 'rose',
+  sports: 'emerald',
+  pop: 'rose',
+  general: 'primary',
+}
+
 export function QuizDetail() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -60,6 +71,7 @@ export function QuizDetail() {
   const [quiz, setQuiz] = useState<QuizRow | null>(null)
   const [questions, setQuestions] = useState<QuestionRow[]>([])
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([])
+  const [related, setRelated] = useState<QuizRow[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
@@ -68,11 +80,14 @@ export function QuizDetail() {
     setLoading(true)
     setError(false)
     try {
-      const [quizRes, qRes, lbRes] = await Promise.allSettled([
+      const [quizRes, qRes, lbRes, allRes] = await Promise.allSettled([
         http.get(`/api/quizzes/${quizId}`),
         http.get(`/api/questions/quiz/${quizId}`),
         http.get(`/api/leaderboard/quiz/${quizId}`),
+        http.get('/api/quizzes'),
       ])
+      const loadedQuiz =
+        quizRes.status === 'fulfilled' ? unwrap<QuizRow | null>(quizRes.value) : null
       if (quizRes.status === 'fulfilled') {
         setQuiz(unwrap<QuizRow>(quizRes.value))
       }
@@ -83,6 +98,17 @@ export function QuizDetail() {
       if (lbRes.status === 'fulfilled') {
         const list = unwrap<LeaderboardEntry[]>(lbRes.value) ?? []
         setLeaderboard(Array.isArray(list) ? list : [])
+      }
+      if (allRes.status === 'fulfilled') {
+        const list = unwrap<QuizRow[]>(allRes.value) ?? []
+        setRelated(
+          Array.isArray(list)
+            ? list
+                .filter((q) => q.id !== quizId && q.id !== loadedQuiz?.id)
+                .sort((a, b) => (b.play_count ?? 0) - (a.play_count ?? 0))
+                .slice(0, 3)
+            : [],
+        )
       }
       // The quiz row is the page's subject: if IT fails to load, the page has
       // no subject — say so instead of spinning forever.
@@ -339,6 +365,38 @@ export function QuizDetail() {
           )}
         </div>
       </section>
+
+      {/* More like this (design: related-quiz card rail) */}
+      {related.length > 0 ? (
+        <section data-testid="quiz-related" className={cm.cn(cm.stack(4))}>
+          <h2 className={cm.cn('text-lg font-extrabold tracking-tight text-on-surface')}>
+            {t('quizDetail.relatedTitle', {}, { defaultValue: 'More like this' })}
+          </h2>
+          <div className={cm.grid({ cols: 3, gap: 'md' })}>
+            {related.map((q) => {
+              const qCat = (q.category ?? 'general').toLowerCase()
+              return (
+                <QuizCard
+                  key={q.id}
+                  id={q.id}
+                  title={q.title}
+                  category={q.category ?? 'General'}
+                  questions={0}
+                  plays={q.play_count ?? 0}
+                  durationMinutes={Math.max(
+                    1,
+                    Math.round(((q.time_per_question_s ?? 20) * 5) / 60),
+                  )}
+                  difficulty="medium"
+                  iconGlyph={CATEGORY_GLYPH[qCat] ?? 'sparkles'}
+                  hue={CATEGORY_HUE[qCat] ?? 'sky'}
+                  ctaTo={`/quiz/${q.id}`}
+                />
+              )
+            })}
+          </div>
+        </section>
+      ) : null}
     </div>
   )
 }

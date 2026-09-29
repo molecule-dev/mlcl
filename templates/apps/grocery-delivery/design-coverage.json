@@ -1,0 +1,64 @@
+{
+  "screens": {
+    "/": {
+      "allow": [
+        {
+          "heading": "Premium Yellow Bananas, Bunch",
+          "reason": "sample sale-item SKU in the design mock; the landing's featured-products section exists and renders product cards from the app's own sample catalog (SAMPLE_PRODUCTS)"
+        }
+      ]
+    },
+    "/product/:id": {
+      "allow": [
+        {
+          "heading": "Organic Baby Spinach — 5 oz clamshell",
+          "reason": "the design mock depicts the 'Organic Baby Spinach' sample product; the page renders the selected product's real name dynamically from GET /api/products/:id"
+        }
+      ]
+    },
+    "/cart": {
+      "allow": [
+        {
+          "heading": "Cage-Free Brown Eggs",
+          "reason": "sample cart line item in the design mock; the cart renders live line items from GET /api/cart with the app's own seeded SKUs"
+        },
+        {
+          "heading": "Sharp Cheddar Cheese",
+          "reason": "sample cart line item in the design mock; the cart renders live line items from GET /api/cart with the app's own seeded SKUs"
+        }
+      ]
+    },
+    "/search": {
+      "allow": [
+        {
+          "heading": "Granny Smith organic apples",
+          "reason": "sample search hit for the mock's 'organic apples' query; results render live from GET /api/products?q=…"
+        },
+        {
+          "heading": "Pink Lady organic apples",
+          "reason": "sample search hit for the mock's 'organic apples' query; results render live from GET /api/products?q=…"
+        },
+        {
+          "heading": "Unsweetened organic apples auce",
+          "reason": "sample search hit (applesauce SKU) for the mock's 'organic apples' query; results render live from GET /api/products?q=…"
+        },
+        {
+          "heading": "Dried Chewy organic apples",
+          "reason": "sample search hit (dried-apple SKU) for the mock's 'organic apples' query; results render live from GET /api/products?q=…"
+        }
+      ]
+    },
+    "/lists": {
+      "allow": [
+        {
+          "heading": "Organic Carrots with Tops",
+          "reason": "sample list item in the design mock; the shopping-list detail renders live items from GET /api/lists/:id with the app's own seeded SKUs"
+        },
+        {
+          "heading": "Pasture Raised Brown Eggs",
+          "reason": "sample list item in the design mock; the shopping-list detail renders live items from GET /api/lists/:id with the app's own seeded SKUs"
+        }
+      ]
+    }
+  }
+}

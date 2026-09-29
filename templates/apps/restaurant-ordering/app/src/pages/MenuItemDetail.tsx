@@ -269,12 +269,24 @@ export function MenuItemDetail() {
           >
             <h3
               className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
                 'uppercase tracking-widest text-on-surface-variant',
               )}
             >
-              {t('menuItemDetail.dietary', {}, { defaultValue: 'Dietary tags' })}
+              <span
+                aria-hidden="true"
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'h-8 w-8 rounded-lg bg-primary/10 shrink-0',
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-lg text-primary')}>
+                  health_and_safety
+                </span>
+              </span>
+              {t('menuItemDetail.dietary', {}, { defaultValue: 'Dietary & Allergens' })}
             </h3>
             <div className={cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' })}>
               {DIETARY_OPTIONS.map((d) => {

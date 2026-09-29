@@ -25,15 +25,15 @@ test.describe('Landing page (/)', () => {
     await expect(page).toHaveURL(/\/login$/)
   })
 
-  test('header "Sign up free" link navigates to /signup', async ({ page }) => {
+  test('header "Get the app" CTA navigates to /signup', async ({ page }) => {
     await page.goto(APP_BASE + '/')
-    await page.getByRole('link', { name: /sign up free/i }).click()
+    await page.getByRole('link', { name: /get the app/i }).click()
     await expect(page).toHaveURL(/\/signup$/)
   })
 
-  test('hero "Start saving free" CTA navigates to /signup', async ({ page }) => {
+  test('hero "Start Hunting" CTA navigates to /signup', async ({ page }) => {
     await page.goto(APP_BASE + '/')
-    await page.getByRole('link', { name: /start saving free/i }).click()
+    await page.getByRole('link', { name: /start hunting/i }).click()
     await expect(page).toHaveURL(/\/signup$/)
   })
 
@@ -53,10 +53,10 @@ test.describe('Landing page (/)', () => {
     await expect(page).toHaveURL(/\/(deals|login)/)
   })
 
-  test('renders the "Snag these before they vanish" trending section heading', async ({ page }) => {
+  test('renders the "Today\'s Hottest Deals" trending section heading', async ({ page }) => {
     await page.goto(APP_BASE + '/')
     await expect(
-      page.getByRole('heading', { name: /snag these before they vanish/i, level: 2 }),
+      page.getByRole('heading', { name: /today.s hottest deals/i, level: 2 }),
     ).toBeVisible()
   })
 

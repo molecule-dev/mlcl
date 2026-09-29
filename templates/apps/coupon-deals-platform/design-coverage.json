@@ -1,0 +1,48 @@
+{
+  "screens": {
+    "/": {
+      "allow": [
+        {
+          "heading": "Smash Burger Combo",
+          "reason": "sample trending-deal card in the design mock; the landing's trending section renders live deals from GET /deals/public with the app's own seeded deals"
+        },
+        {
+          "heading": "Sonic Pro Wireless",
+          "reason": "sample trending-deal card in the design mock; the landing's trending section renders live deals from GET /deals/public"
+        },
+        {
+          "heading": "Premium Glow Facial",
+          "reason": "sample trending-deal card in the design mock; the landing's trending section renders live deals from GET /deals/public"
+        }
+      ]
+    },
+    "/deals": {
+      "allow": [
+        {
+          "heading": "Large Pepperoni Feast",
+          "reason": "sample deal card in the design mock; the deals grid renders live deals from GET /deals with the app's own seeded titles"
+        }
+      ]
+    },
+    "/my-coupons": {
+      "allow": [
+        {
+          "heading": "All Running Shoes",
+          "reason": "sample saved-coupon title in the design mock; My Coupons renders the user's real coupons from the API"
+        },
+        {
+          "heading": "Noise Cancelling Headphones",
+          "reason": "sample saved-coupon title in the design mock; My Coupons renders the user's real coupons from the API"
+        }
+      ]
+    },
+    "/merchants/:id": {
+      "allow": [
+        {
+          "heading": "Nitro Cold Brew BOGO",
+          "reason": "sample merchant deal card in the design mock; the merchant page renders that merchant's real deals from the API"
+        }
+      ]
+    }
+  }
+}

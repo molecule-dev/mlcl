@@ -22,6 +22,7 @@ import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -143,9 +144,9 @@ export function ShiftlyLayout(): ReactElement {
       to={safeTarget('/dashboard')}
       onClick={onClick}
       data-mol-id="nav-brand"
-      className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'block text-on-surface')}
+      className={cm.cn('block')}
     >
-      {APP_NAME}
+      <BrandWordmark as="span" size="md" />
     </Link>
   )
 

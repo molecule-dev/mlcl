@@ -95,6 +95,9 @@ export function Search() {
   const [threads, setThreads] = useState<ApiThread[]>([])
   const [categories, setCategories] = useState<ApiCategory[]>([])
   const [loading, setLoading] = useState(false)
+  const [resolvedOnly, setResolvedOnly] = useState(false)
+  const [hasReplies, setHasReplies] = useState(false)
+  const [minReplies, setMinReplies] = useState(0)
 
   useEffect(() => {
     let mounted = true
@@ -151,6 +154,16 @@ export function Search() {
     }
     return copy
   }, [threads, sort])
+
+  const visibleThreads = useMemo(() => {
+    return sortedThreads.filter((th) => {
+      if (resolvedOnly && th.status !== 'resolved') return false
+      const replies = th.reply_count ?? 0
+      if (hasReplies && replies === 0) return false
+      if (replies < minReplies) return false
+      return true
+    })
+  }, [sortedThreads, resolvedOnly, hasReplies, minReplies])
 
   const matchedCommunities = useMemo(() => {
     if (!query.trim()) return []
@@ -283,6 +296,100 @@ export function Search() {
         </p>
       )}
 
+      {/* Refine Search panel (design sidebar) — narrows thread hits client-side */}
+      <aside
+        data-mol-id="search-refine-panel"
+        className={cm.cn(
+          cm.sp('p', 5),
+          'rounded-xl border border-outline-variant/40 bg-surface shadow-sm',
+        )}
+      >
+        <h3
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'sm' }),
+            cm.fontWeight('bold'),
+            cm.sp('mb', 4),
+            cm.textSize('base'),
+            'text-on-surface',
+          )}
+        >
+          <span
+            aria-hidden="true"
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'w-8 h-8 rounded-lg bg-primary/10 shrink-0',
+            )}
+          >
+            <span className={cm.cn('material-symbols-outlined text-lg text-primary')}>tune</span>
+          </span>
+          {t('search.refineTitle', {}, { defaultValue: 'Refine Search' })}
+        </h3>
+        <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+          <label
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              cm.textSize('sm'),
+              'text-on-surface cursor-pointer',
+            )}
+          >
+            <input
+              type="checkbox"
+              checked={resolvedOnly}
+              onChange={(e) => setResolvedOnly(e.target.checked)}
+              data-mol-id="search-refine-resolved"
+              className="w-4 h-4 rounded border-outline-variant accent-primary"
+            />
+            {t('search.refineResolvedOnly', {}, { defaultValue: 'Resolved questions only' })}
+          </label>
+          <label
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              cm.textSize('sm'),
+              'text-on-surface cursor-pointer',
+            )}
+          >
+            <input
+              type="checkbox"
+              checked={hasReplies}
+              onChange={(e) => setHasReplies(e.target.checked)}
+              data-mol-id="search-refine-has-replies"
+              className="w-4 h-4 rounded border-outline-variant accent-primary"
+            />
+            {t('search.refineHasReplies', {}, { defaultValue: 'Has replies' })}
+          </label>
+          <div
+            className={cm.cn(cm.sp('mt', 2), cm.sp('pt', 4), 'border-t border-outline-variant/30')}
+          >
+            <label
+              htmlFor="search-min-replies"
+              className={cm.cn(
+                cm.fontWeight('semibold'),
+                cm.textSize('sm'),
+                cm.sp('mb', 2),
+                'block text-on-surface',
+              )}
+            >
+              {t(
+                'search.refineMinReplies',
+                { count: minReplies },
+                { defaultValue: 'Minimum replies: {{count}}' },
+              )}
+            </label>
+            <input
+              id="search-min-replies"
+              type="range"
+              min={0}
+              max={25}
+              step={1}
+              value={minReplies}
+              onChange={(e) => setMinReplies(Number(e.target.value))}
+              data-mol-id="search-refine-min-replies"
+              className="w-full accent-primary cursor-pointer"
+            />
+          </div>
+        </div>
+      </aside>
+
       {(tab === 'all' || tab === 'threads') && query.trim() && (
         <section className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
           {tab === 'all' && (
@@ -300,12 +407,12 @@ export function Search() {
               {t('common.searchingEllipsis', {}, { defaultValue: 'Searching…' })}
             </p>
           )}
-          {!loading && sortedThreads.length === 0 && (
+          {!loading && visibleThreads.length === 0 && (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t('search.empty', {}, { defaultValue: 'No threads match.' })}
             </p>
           )}
-          {sortedThreads.map((th) => {
+          {visibleThreads.map((th) => {
             const row = decorateApiThreadToRow(th, null)
             return (
               <div key={row.id} className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>

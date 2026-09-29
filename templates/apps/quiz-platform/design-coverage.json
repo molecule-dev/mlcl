@@ -1,0 +1,72 @@
+{
+  "screens": {
+    "/discover": {
+      "allow": [
+        {
+          "heading": "The Ultimate Cosmos Challenge",
+          "reason": "sample featured-quiz title in the design mock; Discover renders the live catalog from GET /api/quizzes as quiz cards under the gradient hero band"
+        },
+        {
+          "heading": "Masters of the Renaissance",
+          "reason": "sample featured-quiz title in the design mock; Discover renders the live catalog from GET /api/quizzes as quiz cards"
+        },
+        {
+          "heading": "JavaScript Frameworks: The Ultimate Showdown",
+          "reason": "sample trending-quiz title in the design mock; the trending card grid renders live rows from GET /api/quizzes"
+        },
+        {
+          "heading": "Guess the 90s Hit from the First 5 Seconds",
+          "reason": "sample trending-quiz title in the design mock; the trending card grid renders live rows from GET /api/quizzes"
+        },
+        {
+          "heading": "Classic Literature: First Lines Quiz",
+          "reason": "sample trending-quiz title in the design mock; the trending card grid renders live rows from GET /api/quizzes"
+        }
+      ]
+    },
+    "/my-quizzes": {
+      "allow": [
+        {
+          "heading": "The Age of Exploration: Navigators & Discoveries",
+          "reason": "sample library-quiz title in the design mock; My Quizzes renders the user's real quizzes as quiz cards from GET /api/quizzes"
+        },
+        {
+          "heading": "Chemistry 101: Elements & Reactions",
+          "reason": "sample library-quiz title in the design mock; My Quizzes renders the user's real quizzes as quiz cards from GET /api/quizzes"
+        }
+      ]
+    },
+    "/quiz/:id": {
+      "allow": [
+        {
+          "heading": "Cellular Structures & Functions",
+          "reason": "sample related-quiz card title in the design mock; the page's 'More like this' rail renders real quizzes from GET /api/quizzes"
+        },
+        {
+          "heading": "Plate Tectonics & Volcanism",
+          "reason": "sample related-quiz card title in the design mock; the 'More like this' rail renders real quizzes from GET /api/quizzes"
+        },
+        {
+          "heading": "Stellar Evolution: Birth to Death",
+          "reason": "sample related-quiz card title in the design mock; the 'More like this' rail renders real quizzes from GET /api/quizzes"
+        }
+      ]
+    },
+    "/u/:username": {
+      "allow": [
+        {
+          "heading": "Advanced Cellular Biology & Genetics",
+          "reason": "sample profile quiz-card title in the design mock; the profile renders the user's real quizzes as quiz cards from the API"
+        },
+        {
+          "heading": "Organic Chemistry Fundamentals",
+          "reason": "sample profile quiz-card title in the design mock; the profile renders the user's real quizzes as quiz cards from the API"
+        },
+        {
+          "heading": "Shakespearean Tragedies Analysed",
+          "reason": "sample profile quiz-card title in the design mock; the profile renders the user's real quizzes as quiz cards from the API"
+        }
+      ]
+    }
+  }
+}

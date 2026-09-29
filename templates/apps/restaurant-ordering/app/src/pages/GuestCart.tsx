@@ -290,12 +290,27 @@ export function GuestCart() {
         >
           <h2
             className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
               cm.textSize('xs'),
               cm.fontWeight('bold'),
               'uppercase tracking-widest text-on-surface-variant',
             )}
           >
-            {t('guestCart.tipHeading', {}, { defaultValue: 'Tip' })}
+            <span className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+              <span
+                aria-hidden="true"
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'h-8 w-8 rounded-lg bg-primary/10 shrink-0',
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-lg text-primary')}>
+                  volunteer_activism
+                </span>
+              </span>
+              {t('guestCart.tipHeading', {}, { defaultValue: 'Add a tip' })}
+            </span>
+            <span className={cm.cn('tabular-nums text-on-surface')}>+{fmtCents(tip)}</span>
           </h2>
           <div className={cm.cn(cm.grid({ gap: 'sm' }), 'grid-cols-4')}>
             {TIP_PRESETS.map((p) => {

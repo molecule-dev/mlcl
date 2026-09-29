@@ -132,6 +132,186 @@ export function Settings() {
         </p>
       </header>
 
+      {/* Active compliance policy (design: NYC Fair Workweek banner) */}
+      <section
+        data-mol-id="settings-compliance-banner"
+        className={cm.cn(
+          cm.sp('p', 6),
+          cm.flex({ align: 'start', justify: 'between', gap: 'md', wrap: 'wrap' }),
+          'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+        )}
+      >
+        <div className={cm.cn(cm.flex({ align: 'start', gap: 'md' }), 'min-w-0 flex-1')}>
+          <span
+            aria-hidden="true"
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              cm.sp('p', 2),
+              'rounded-lg bg-primary/10 text-primary-dark shrink-0',
+            )}
+          >
+            <span className={cm.cn('material-symbols-outlined text-[24px]')}>verified_user</span>
+          </span>
+          <div className={cm.cn('min-w-0')}>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }))}>
+              <h2
+                className={cm.cn(
+                  cm.textSize('lg'),
+                  'font-extrabold tracking-tight text-on-surface',
+                )}
+              >
+                {t(
+                  'settings.compliance.heading',
+                  {},
+                  {
+                    defaultValue:
+                      'NYC Fair Workweek Ordinance (Fast Food & Retail Hospitality) active',
+                  },
+                )}
+              </h2>
+              <span
+                className={cm.cn(
+                  cm.sp('px', 2),
+                  cm.sp('py', 1),
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'rounded-full bg-secondary-container/40 text-secondary-dark uppercase tracking-wider',
+                )}
+              >
+                {t('settings.compliance.badge', {}, { defaultValue: 'Strict compliance' })}
+              </span>
+            </div>
+            <p className={cm.cn(cm.sp('mt', 2), cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'settings.compliance.body',
+                {},
+                {
+                  defaultValue:
+                    'Automated guardrails enforce 14-day advance schedule publication, mandatory consent for clopening shifts, and predictable-pay calculation.',
+                },
+              )}
+            </p>
+          </div>
+        </div>
+        <button
+          type="button"
+          data-mol-id="settings-compliance-log"
+          onClick={() => {
+            setOpenSection('audit')
+            document
+              .getElementById('settings-audit-log')
+              ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }}
+          className={cm.cn(
+            cm.sp('px', 4),
+            cm.sp('py', 2),
+            cm.textSize('xs'),
+            cm.fontWeight('semibold'),
+            'rounded-xl border border-outline-variant/40 text-on-surface hover:bg-surface-container-low transition-colors shrink-0',
+          )}
+        >
+          {t('settings.compliance.viewLog', {}, { defaultValue: 'View compliance log' })}
+        </button>
+      </section>
+
+      {/* Timeclock & Geofence (design settings tab) */}
+      <section
+        data-mol-id="settings-timeclock-geofence"
+        className={cm.cn(
+          cm.sp('p', 6),
+          'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+          cm.stack(4),
+        )}
+      >
+        <h2
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'sm' }),
+            cm.textSize('lg'),
+            'font-extrabold tracking-tight text-on-surface',
+          )}
+        >
+          <span
+            aria-hidden="true"
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'h-8 w-8 rounded-lg bg-primary/10 shrink-0',
+            )}
+          >
+            <span className={cm.cn('material-symbols-outlined text-lg text-primary-dark')}>
+              pin_drop
+            </span>
+          </span>
+          {t('settings.timeclock.heading', {}, { defaultValue: 'Timeclock & Geofence' })}
+        </h2>
+        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+          {t(
+            'settings.timeclock.body',
+            {},
+            {
+              defaultValue:
+                'Clock-ins are verified against the store geofence, with a tablet kiosk fallback pinned to the counter. Every punch syncs to the timesheet feed for payroll.',
+            },
+          )}
+        </p>
+        <ul className={cm.grid({ cols: 3, gap: 'md' })}>
+          {(
+            [
+              {
+                icon: 'my_location',
+                labelKey: 'settings.timeclock.radius',
+                labelDefault: 'Geofence accuracy',
+                valueKey: 'settings.timeclock.radiusValue',
+                valueDefault: '15 meters',
+              },
+              {
+                icon: 'block',
+                labelKey: 'settings.timeclock.buddyPunch',
+                labelDefault: 'Buddy punching',
+                valueKey: 'settings.timeclock.buddyPunchValue',
+                valueDefault: 'Blocked on mobile',
+              },
+              {
+                icon: 'tablet_android',
+                labelKey: 'settings.timeclock.kiosk',
+                labelDefault: 'Kiosk fallback',
+                valueKey: 'settings.timeclock.kioskValue',
+                valueDefault: 'Staff PIN at the counter',
+              },
+            ] as const
+          ).map((row) => (
+            <li
+              key={row.icon}
+              className={cm.cn(
+                cm.sp('p', 4),
+                'rounded-xl bg-surface-container-low border border-outline-variant/20',
+                cm.stack(2),
+              )}
+            >
+              <span
+                aria-hidden="true"
+                className={cm.cn('material-symbols-outlined text-lg text-primary-dark')}
+              >
+                {row.icon}
+              </span>
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('semibold'),
+                  'block uppercase tracking-widest text-on-surface-variant',
+                )}
+              >
+                {t(row.labelKey, {}, { defaultValue: row.labelDefault })}
+              </span>
+              <span
+                className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'block text-on-surface')}
+              >
+                {t(row.valueKey, {}, { defaultValue: row.valueDefault })}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       <div className={cm.grid({ cols: 2, gap: 'md' })}>
         {SECTIONS.map((s) => {
           const open = openSection === s.key
@@ -317,6 +497,7 @@ export function Settings() {
         <AuthSection />
       </section>
       <section
+        id="settings-audit-log"
         className={cm.cn(
           cm.sp('p', 6),
           'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',

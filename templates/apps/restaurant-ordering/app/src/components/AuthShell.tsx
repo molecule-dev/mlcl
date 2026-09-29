@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import { Link } from 'react-router'
 
 import {
   AuthShellCardColumn,
@@ -10,8 +9,9 @@ import {
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
 import { AuthBrandHeader } from './AuthBrandHeader.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { Footer } from './Footer.js'
 
 interface AuthShellProps {
@@ -37,33 +37,9 @@ export function AuthShell({ children, footer }: AuthShellProps) {
     <AuthShellSplit className="bg-surface-container-low font-body text-on-surface">
       <AuthShellSplitRow className="grid grid-cols-1 lg:grid-cols-2">
         <AuthShellPanel className="relative overflow-hidden flex-col justify-between p-12 bg-gradient-to-br from-primary via-tertiary to-primary text-on-primary">
-          <Link
-            to="/"
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'sm' }),
-              cm.textSize('xl'),
-              'relative z-10 font-extrabold tracking-tight font-display',
-            )}
-          >
-            <span
-              className={cm.cn(
-                cm.w(8),
-                cm.h(8),
-                cm.roundedFull,
-                cm.flex({ align: 'center', justify: 'center' }),
-                'bg-surface/20 backdrop-blur-md',
-              )}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-on-primary text-lg')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-                aria-hidden="true"
-              >
-                local_fire_department
-              </span>
-            </span>
-            {APP_NAME}
-          </Link>
+          <div className="relative z-10">
+            <BrandWordmark as="span" size="md" invert />
+          </div>
 
           <div className={cm.cn('relative z-10 max-w-md')}>
             <p className={cm.cn('text-xs uppercase tracking-widest font-bold opacity-80 mb-4')}>

@@ -22,6 +22,11 @@ export function Profile() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
+  const [emergencyName, setEmergencyName] = useState('')
+  const [emergencyPhone, setEmergencyPhone] = useState('')
+  const [emergencySaving, setEmergencySaving] = useState(false)
+  const [emergencyStatus, setEmergencyStatus] = useState<string | null>(null)
+  const [emergencyError, setEmergencyError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [status, setStatus] = useState<string | null>(null)
@@ -33,6 +38,54 @@ export function Profile() {
       setPhone(user.phone ?? '')
     }
   }, [user])
+
+  // Emergency contact lives in the app's own table (not the shared users
+  // resource, whose update schema whitelists a fixed field set).
+  useEffect(() => {
+    let cancelled = false
+    void (async () => {
+      try {
+        const res = await http.get<{ data?: { contact_name?: string; contact_phone?: string } }>(
+          '/api/emergency-contact',
+        )
+        if (cancelled || !res.data?.data) return
+        setEmergencyName(res.data.data.contact_name ?? '')
+        setEmergencyPhone(res.data.data.contact_phone ?? '')
+      } catch (loadError) {
+        logError('profile.emergencyContactLoad', loadError)
+      }
+    })()
+    return () => {
+      cancelled = true
+    }
+  }, [http])
+
+  const handleSaveEmergency = useCallback(async () => {
+    if (!user?.id) return
+    setEmergencySaving(true)
+    setEmergencyError(null)
+    setEmergencyStatus(null)
+    try {
+      await http.put('/api/emergency-contact', {
+        contact_name: emergencyName,
+        contact_phone: emergencyPhone,
+      })
+      setEmergencyStatus(
+        t('profile.emergencySaved', {}, { defaultValue: 'Emergency contact saved.' }),
+      )
+    } catch (saveError) {
+      logError('profile.emergencyContactSave', saveError)
+      setEmergencyError(
+        t(
+          'profile.emergencySaveFailed',
+          {},
+          { defaultValue: 'Could not save the emergency contact.' },
+        ),
+      )
+    } finally {
+      setEmergencySaving(false)
+    }
+  }, [http, user, emergencyName, emergencyPhone, t])
 
   const handleSave = useCallback(async () => {
     if (!user?.id) return
@@ -187,6 +240,87 @@ export function Profile() {
               { defaultValue: 'You will be sent a reset link to your email.' },
             )}
           </p>
+        </div>
+
+        {/* Emergency contact (design: medical_services card) */}
+        <div
+          data-testid="emergency-contact-card"
+          className={cm.cn(
+            cm.sp('p', 6),
+            'bg-surface-container-lowest rounded-2xl shadow-sm',
+            cm.stack(5),
+          )}
+        >
+          <h2
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              cm.textSize('xl'),
+              'font-extrabold font-display',
+            )}
+          >
+            <span
+              aria-hidden="true"
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                'h-8 w-8 rounded-lg bg-primary/10 shrink-0',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-lg text-primary')}>
+                medical_services
+              </span>
+            </span>
+            {t('profile.emergency', {}, { defaultValue: 'Emergency Contact' })}
+          </h2>
+          <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+            {t(
+              'profile.emergencyHint',
+              {},
+              {
+                defaultValue:
+                  'Who should the restaurant call if something happens during your visit?',
+              },
+            )}
+          </p>
+          <Field
+            id="emergency-name"
+            label={t('profile.emergencyName', {}, { defaultValue: 'Name' })}
+            value={emergencyName}
+            onChange={setEmergencyName}
+          />
+          <Field
+            id="emergency-phone"
+            type="tel"
+            label={t('form.phone', {}, { defaultValue: 'Phone' })}
+            value={emergencyPhone}
+            onChange={setEmergencyPhone}
+          />
+          {emergencyError ? (
+            <p data-testid="emergency-error" className={cm.cn(cm.textSize('sm'), 'text-error')}>
+              {emergencyError}
+            </p>
+          ) : null}
+          {emergencyStatus ? (
+            <p data-testid="emergency-success" className={cm.cn(cm.textSize('sm'), 'text-primary')}>
+              {emergencyStatus}
+            </p>
+          ) : null}
+          <button
+            type="button"
+            onClick={handleSaveEmergency}
+            disabled={emergencySaving || !user?.id}
+            data-testid="emergency-save"
+            className={cm.cn(
+              cm.sp('px', 5),
+              cm.sp('py', 3),
+              cm.fontWeight('bold'),
+              cm.roundedFull,
+              'bg-primary text-on-primary hover:bg-primary/90 transition-colors disabled:opacity-50 self-start',
+            )}
+          >
+            {emergencySaving
+              ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
+              : t('profile.emergencySave', {}, { defaultValue: 'Save emergency contact' })}
+          </button>
         </div>
       </section>
     </div>

@@ -11,8 +11,15 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
-export function LoginBrandPanel() {
+export interface BrandPanelFeature {
+  icon: string
+  title: string
+  body: string
+}
+
+export function LoginBrandPanel({ features }: { features?: BrandPanelFeature[] }) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const year = new Date().getFullYear()
@@ -39,7 +46,7 @@ export function LoginBrandPanel() {
       />
 
       <div className={cm.cn('relative z-10')}>
-        <p className={cm.cn('text-3xl font-black tracking-tighter')}>{APP_NAME}</p>
+        <BrandWordmark as="span" size="lg" invert />
       </div>
 
       <div
@@ -69,6 +76,31 @@ export function LoginBrandPanel() {
         </p>
 
         <div className={cm.cn(cm.sp('mt', 4), 'flex w-full max-w-sm flex-col gap-4 opacity-95')}>
+          {features?.map((f) => (
+            <div
+              key={f.title}
+              className={cm.cn(
+                cm.sp('p', 4),
+                'flex items-start gap-3 rounded-xl bg-surface/10 backdrop-blur-md border border-surface/10',
+              )}
+            >
+              <span
+                aria-hidden="true"
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'h-10 w-10 shrink-0 rounded-lg bg-surface/20',
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-[20px]')}>{f.icon}</span>
+              </span>
+              <span className={cm.cn('min-w-0 flex-1')}>
+                <span className={cm.cn('block text-sm font-bold tracking-tight')}>{f.title}</span>
+                <span className={cm.cn('block text-[11px] leading-relaxed text-on-primary/70')}>
+                  {f.body}
+                </span>
+              </span>
+            </div>
+          ))}
           <ShiftMockCard
             initial="D"
             name="Dana W. · Shift Lead"

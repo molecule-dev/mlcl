@@ -1,0 +1,76 @@
+{
+  "screens": {
+    "/": {
+      "allow": [
+        {
+          "heading": "The implications of artificial general intelligence on creative industries",
+          "reason": "sample trending-thread title in the design mock; the Trending section exists and renders live thread rows from GET /api/threads (sample previews on the marketing landing use the app's own seed titles)"
+        }
+      ]
+    },
+    "/feed": {
+      "allow": [
+        {
+          "heading": "The architecture behind the new distributed database system replacing our legacy cluster.",
+          "reason": "sample post title in the design mock; the Feed renders live thread rows from GET /api/threads — the list section exists, only the mock copy differs"
+        }
+      ]
+    },
+    "/thread/:id": {
+      "allow": [
+        {
+          "heading": "Why do whales seem to follow consistent migration routes? New acoustic data suggests tectonic landmarks play a role.",
+          "reason": "sample reply title in the design mock; ThreadView renders the real thread title plus live replies from GET /api/threads/:id/replies"
+        }
+      ]
+    },
+    "/u/:username": {
+      "allow": [
+        {
+          "heading": "How do you structure your second act? The messy middle is defeating me.",
+          "reason": "sample post title in the design mock; the Profile's threads tab renders live rows from GET /api/users/:username/threads"
+        },
+        {
+          "heading": "My debut novel 'The Silicon Horizon' just hit the NYT Bestseller list! Thank you to this community!",
+          "reason": "sample post title in the design mock; the Profile's threads tab renders live rows from GET /api/users/:username/threads"
+        }
+      ]
+    },
+    "/c/:slug": {
+      "allow": [
+        {
+          "heading": "What lens is best for starting out in street photography?",
+          "reason": "sample thread title in the design mock; CategoryDetail renders live threads from GET /api/categories/:slug/threads"
+        },
+        {
+          "heading": "Sunset at the Golden Gate [OC]",
+          "reason": "sample thread title in the design mock; CategoryDetail renders live threads from GET /api/categories/:slug/threads"
+        }
+      ]
+    },
+    "/search": {
+      "allow": [
+        {
+          "heading": "Best portrait lens recommendation for A7IV under $1000?",
+          "reason": "sample search-hit title in the design mock; results render live from GET /api/threads/search?q=… — the Refine Search sidebar panel itself is implemented"
+        },
+        {
+          "heading": "Budget anamorphic lens recommendation for MFT mount",
+          "reason": "sample search-hit title in the design mock; results render live from GET /api/threads/search?q=…"
+        }
+      ]
+    },
+    "/mod": {
+      "allow": [
+        {
+          "heading": "Buy my new NFT collection! Best photography presets!",
+          "reason": "sample flagged/spam item in the design mock; the ModQueue renders live reported threads from GET /api/mod/reports"
+        },
+        {
+          "heading": "First time shooting film! Look at my results",
+          "reason": "sample flagged item in the design mock; the ModQueue renders live reported threads from GET /api/mod/reports"
+        }
+      ]
+    }
+  }
+}

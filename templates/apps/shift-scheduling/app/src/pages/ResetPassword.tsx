@@ -46,7 +46,54 @@ export function ResetPassword() {
 
   return (
     <div className={cm.cn(cm.minH('screen'), 'flex bg-background text-on-surface antialiased')}>
-      <LoginBrandPanel />
+      <LoginBrandPanel
+        features={[
+          {
+            icon: 'key',
+            title: t(
+              'resetPassword.feature.sessionInvalidation',
+              {},
+              { defaultValue: 'End-to-End Session Invalidation' },
+            ),
+            body: t(
+              'resetPassword.feature.sessionInvalidationBody',
+              {},
+              {
+                defaultValue:
+                  'Resetting signs out every device, so a leaked password can never keep a door open.',
+              },
+            ),
+          },
+          {
+            icon: 'fingerprint',
+            title: t('resetPassword.feature.pinSync', {}, { defaultValue: 'PIN & Biometric Sync' }),
+            body: t(
+              'resetPassword.feature.pinSyncBody',
+              {},
+              {
+                defaultValue:
+                  'Your frontline 4-digit mobile timeclock PIN remains unaffected unless updated in mobile settings.',
+              },
+            ),
+          },
+          {
+            icon: 'event_available',
+            title: t(
+              'resetPassword.feature.scheduleContinuity',
+              {},
+              { defaultValue: 'Schedule Continuity Guaranteed' },
+            ),
+            body: t(
+              'resetPassword.feature.scheduleContinuityBody',
+              {},
+              {
+                defaultValue:
+                  'Assigned shifts, trade requests, and overtime alerts remain intact and synchronized with management.',
+              },
+            ),
+          },
+        ]}
+      />
       <main
         className={cm.cn(
           'flex-1 flex items-center justify-center',

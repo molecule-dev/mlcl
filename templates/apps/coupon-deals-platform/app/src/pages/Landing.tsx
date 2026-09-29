@@ -107,7 +107,7 @@ export function Landing() {
   )
 
   const navLinkClass = cm.cn(
-    'font-headline font-bold tracking-tight text-on-surface-variant opacity-80 hover:opacity-100 hover:text-primary transition-colors',
+    'font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors',
   )
 
   return (
@@ -579,7 +579,7 @@ export function Landing() {
             <p
               className={cm.cn(
                 cm.textSize('sm'),
-                'leading-relaxed text-on-surface-variant opacity-80 max-w-sm',
+                'leading-relaxed text-on-surface-variant max-w-sm',
               )}
             >
               {t(
@@ -647,10 +647,10 @@ export function Landing() {
             cm.sp('mt', 12),
             cm.sp('pt', 8),
             cm.textSize('sm'),
-            'max-w-screen-2xl border-t border-outline-variant/40 text-on-surface-variant opacity-80',
+            'max-w-screen-2xl border-t border-outline-variant/40 text-on-surface-variant',
           )}
         >
-          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant opacity-80')}>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t(
               'common.copyrightBuiltWithMolecule',
               { year: new Date().getFullYear(), app: APP_NAME },

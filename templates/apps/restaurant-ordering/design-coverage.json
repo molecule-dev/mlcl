@@ -1,0 +1,40 @@
+{
+  "screens": {
+    "/menu": {
+      "allow": [
+        {
+          "heading": "Pan-Seared Atlantic Salmon",
+          "reason": "sample menu-item card in the design mock; the menu grid renders live items from GET /api/menu with the app's own seeded dishes"
+        },
+        {
+          "heading": "Smoked Hickory Ribs",
+          "reason": "sample menu-item card in the design mock; the menu grid renders live items from GET /api/menu"
+        },
+        {
+          "heading": "Roasted Duck Breast",
+          "reason": "sample menu-item card in the design mock; the menu grid renders live items from GET /api/menu"
+        }
+      ]
+    },
+    "/menu/guest": {
+      "allow": [
+        {
+          "heading": "Slow-braised Short Rib Pappardelle",
+          "reason": "sample guest-menu card in the design mock; the guest menu renders live items from the guest menu API with the app's own seeded dishes"
+        },
+        {
+          "heading": "Crispy Skin Salmon",
+          "reason": "sample guest-menu card in the design mock; the guest menu renders live items from the guest menu API"
+        }
+      ]
+    },
+    "/cart": {
+      "allow": [
+        {
+          "heading": "Crispy Skin Salmon GF",
+          "reason": "sample cart line item (dish + GF badge) in the design mock; the cart renders real line items from GET /api/cart with the app's own seeded dishes"
+        }
+      ]
+    }
+  }
+}

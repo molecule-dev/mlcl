@@ -151,7 +151,11 @@ export function BookingDetail() {
           )}
           style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
         >
-          {booking.listing_title}
+          {t(
+            'bookingDetail.stayAtHeading',
+            { title: booking.listing_title },
+            { defaultValue: 'Your stay at {{title}}' },
+          )}
         </h1>
         <p
           className={cm.cn(

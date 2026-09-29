@@ -81,7 +81,54 @@ export function Signup() {
 
   return (
     <div className={cm.cn(cm.minH('screen'), 'flex bg-background text-on-surface antialiased')}>
-      <LoginBrandPanel />
+      <LoginBrandPanel
+        features={[
+          {
+            icon: 'bolt',
+            title: t('signup.feature.dispatch', {}, { defaultValue: 'Automated Shift Dispatch' }),
+            body: t(
+              'signup.feature.dispatchBody',
+              {},
+              {
+                defaultValue:
+                  'Fill sudden call-outs in under three minutes with automated worker qualification and instant claim notifications.',
+              },
+            ),
+          },
+          {
+            icon: 'notifications_active',
+            title: t(
+              'signup.feature.overtimeAlerts',
+              {},
+              { defaultValue: 'Real-Time Overtime & Labor Alerts' },
+            ),
+            body: t(
+              'signup.feature.overtimeAlertsBody',
+              {},
+              {
+                defaultValue:
+                  'See overtime risk build before the shift starts and get flagged before it becomes a compliance problem.',
+              },
+            ),
+          },
+          {
+            icon: 'smartphone',
+            title: t(
+              'signup.feature.mobileRoster',
+              {},
+              { defaultValue: 'Mobile Roster & Attendance' },
+            ),
+            body: t(
+              'signup.feature.mobileRosterBody',
+              {},
+              {
+                defaultValue:
+                  'The whole team sees the published roster on their phone and clocks in and out from the floor.',
+              },
+            ),
+          },
+        ]}
+      />
       <main
         className={cm.cn(
           'flex-1 flex items-center justify-center',
