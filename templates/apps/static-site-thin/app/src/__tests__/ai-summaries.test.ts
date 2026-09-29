@@ -21,7 +21,7 @@ vi.mock('@molecule/api-ai-deepseek', () => ({ provider: {} }))
 vi.mock('@molecule/api-ai-summarization', () => ({ setProvider: () => undefined }))
 vi.mock('@molecule/api-bond', () => ({ bond: () => undefined }))
 
-const { sectionSummaries } = await import('../ai-summaries.js')
+const { proseWords, sectionSummaries } = await import('../ai-summaries.js')
 
 const long = (word: string): string => Array.from({ length: 90 }, () => word).join(' ')
 
@@ -74,5 +74,16 @@ describe('sectionSummaries', () => {
       warn.mock.calls.some(([line]) => /1 of 3 long sections have NO summary/.test(String(line))),
     ).toBe(true)
     warn.mockRestore()
+  })
+})
+
+describe('proseWords', () => {
+  it('does not count fenced code, so a command cheatsheet section is short (X0 x391)', () => {
+    const commands = Array.from(
+      { length: 30 },
+      (_, i) => `git log --oneline --graph --all --decorate -n ${i}`,
+    ).join('\n')
+    const section = `### Show the history\n\nA compact graph of every branch.\n\n\`\`\`sh\n${commands}\n\`\`\``
+    expect(proseWords(section)).toBe(9)
   })
 })

@@ -32,8 +32,29 @@ import {
 } from '@molecule/api-ai-summarization-llm'
 import { bond } from '@molecule/api-bond'
 
-/** Sections shorter than this are not worth a summary — the paragraph is one already. */
+/**
+ * Sections with fewer PROSE words than this are not worth a summary — the
+ * paragraph is one already. Prose only: fenced code is not counted, so a
+ * cheatsheet section of one sentence and five commands is short (X0 x391,
+ * 2026-09-29, summarised sections the brief says are too short).
+ */
 const MIN_WORDS = 80
+
+/**
+ * A section's prose words: fenced code blocks removed, inline code kept as
+ * words, markdown markers (#, >, *, _, |, -) not counted.
+ *
+ * @param text - The section's markdown.
+ * @returns The number of prose words.
+ */
+export function proseWords(text: string): number {
+  return countWords(
+    text
+      .replace(/```[\s\S]*?```/g, ' ')
+      .replace(/`([^`\n]*)`/g, '$1')
+      .replace(/[#>*_|-]/g, ' '),
+  )
+}
 
 /**
  * The model that writes the summaries. A TL;DR of a paragraph needs no frontier
@@ -79,7 +100,7 @@ export async function sectionSummaries(
   slug: string,
   sections: Array<{ index: number; text: string }>,
 ): Promise<Record<number, string>> {
-  const wanted = sections.filter((section) => countWords(section.text) >= MIN_WORDS)
+  const wanted = sections.filter((section) => proseWords(section.text) >= MIN_WORDS)
   if (wanted.length === 0) return {}
   // No key, no model: the site builds without summaries (the posts and every
   // page still work). Checked here so a keyless build or test never dials out.
