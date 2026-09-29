@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/": {
+      "allow": [
+        {
+          "heading": "455 NW 23rd Ave, Portland, OR",
+          "reason": "Sample-data listing address from the design mock's search-result card. The result-card section is implemented (photo, price badge overlay, address/city/state heading, beds/baths/sqft) fed by GET /api/search; addresses come from live listing records, so the design's fixture address can never appear for an arbitrary query."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/albums/:id": {
+      "allow": [
+        {
+          "heading": "Dusk at Point Reyes",
+          "reason": "Sample-data photo title from the design mock's masonry hover overlay. The overlay section itself is implemented (PhotoMasonry tile renders the photo title + author handle on hover); titles come from the album's own photo records, so a design fixture name can never appear for an arbitrary album."
+        }
+      ]
+    }
+  }
+}

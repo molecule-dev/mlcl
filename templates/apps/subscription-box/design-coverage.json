@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/shipments": {
+      "allow": [
+        {
+          "heading": "Autumn Linen Bundle",
+          "reason": "Sample-data box name from the design mock's past-shipments timeline. The timeline section is implemented (Shipments renders the delivered history rows with date, box name heading, carrier + tracking from GET /api/shipments); box names come from the subscriber's own subscription, so the design's seasonal fixture name can never appear."
+        }
+      ]
+    }
+  }
+}

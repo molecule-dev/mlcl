@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/shared": {
+      "allow": [
+        {
+          "heading": "Client Pitch: Acme Corp",
+          "reason": "Sample-data deck title from the design mock, rendered on the slide canvas inside the shared-deck card's 16:9 preview. The card section is implemented (DeckCard: stage preview with slide title/subtitle bars, deck title, visibility badge); deck titles come from the signed-in account's presentations, so the design's fixture pitch name can never appear."
+        }
+      ]
+    }
+  }
+}

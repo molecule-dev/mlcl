@@ -194,6 +194,10 @@ export function SurveyDetail() {
   const responses = analytics?.total_responses ?? survey.response_count ?? 0
   const completionPct = analytics?.completion_rate ?? 0
   const npsValue = analytics?.nps
+  // Drop-off is the complement of completion: respondents who started but
+  // did not finish. Healthy per the design system when it stays under 20%.
+  const dropOffPct = Math.max(0, Math.round(100 - completionPct))
+  const dropOffHealthy = dropOffPct < 20
 
   return (
     <div className={cm.cn(cm.stack(8), cm.sp('p', 8), cm.maxW('7xl'), cm.mxAuto, cm.w('full'))}>
@@ -397,100 +401,215 @@ export function SurveyDetail() {
         />
       </section>
 
-      <section
+      <div
         className={cm.cn(
-          cm.flex({ direction: 'col', gap: 3 }),
-          cm.sp('p', 6),
-          'rounded-xl bg-surface border border-[color:var(--color-border)]',
+          'grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-start',
         )}
       >
-        <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 2 }))}>
-          <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}>
-            {t('surveyDetail.shareTitle', {}, { defaultValue: 'Share link' })}
-          </h2>
-          <StatusPill variant={shareUrl ? 'active' : 'draft'} />
-        </div>
-        {shareUrl ? (
-          <>
+        <section
+          className={cm.cn(
+            cm.flex({ direction: 'col', gap: 3 }),
+            cm.sp('p', 6),
+            'rounded-xl bg-surface border border-[color:var(--color-border)]',
+          )}
+        >
+          <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 2 }))}>
+            <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}>
+              {t('surveyDetail.shareTitle', {}, { defaultValue: 'Share link' })}
+            </h2>
+            <StatusPill variant={shareUrl ? 'active' : 'draft'} />
+          </div>
+          {shareUrl ? (
+            <>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'surveyDetail.shareBody',
+                  {},
+                  {
+                    defaultValue:
+                      'Anyone with this link can respond. We auto-record device, locale, and submission timestamp.',
+                  },
+                )}
+              </p>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 2 }),
+                  cm.sp('px', 4),
+                  'h-12 rounded-md border border-[color:var(--color-border)] bg-surface-secondary',
+                )}
+              >
+                <span
+                  className="material-symbols-outlined text-on-surface-variant"
+                  style={{ fontSize: 18 }}
+                  aria-hidden="true"
+                >
+                  link
+                </span>
+                <code
+                  data-testid="share-url"
+                  className={cm.cn(
+                    cm.flex1,
+                    cm.fontWeight('medium'),
+                    cm.textSize('sm'),
+                    'text-on-surface truncate font-mono',
+                  )}
+                >
+                  {shareUrl}
+                </code>
+                <button
+                  type="button"
+                  data-testid="copy-share-url"
+                  onClick={handleCopyShareUrl}
+                  className={cm.cn(
+                    cm.sp('px', 3),
+                    cm.sp('py', 1),
+                    cm.fontWeight('semibold'),
+                    cm.textSize('xs'),
+                    'rounded-md bg-primary/10 text-primary hover:bg-primary/20 transition-colors',
+                  )}
+                >
+                  {copyState === 'copied'
+                    ? t('common.copiedBang', {}, { defaultValue: 'Copied!' })
+                    : copyState === 'error'
+                      ? t('surveyDetail.copyError', {}, { defaultValue: 'Copy failed' })
+                      : t('common.copy', {}, { defaultValue: 'Copy' })}
+                </button>
+              </div>
+              <Link
+                to={`/s/${survey.slug}`}
+                target="_blank"
+                rel="noreferrer"
+                className={cm.cn(
+                  cm.fontWeight('semibold'),
+                  cm.textSize('sm'),
+                  'text-primary hover:underline self-start',
+                )}
+              >
+                {t('surveyDetail.openPublic', {}, { defaultValue: 'Open public survey →' })}
+              </Link>
+            </>
+          ) : (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t(
-                'surveyDetail.shareBody',
+                'surveyDetail.shareBodyUnpublished',
                 {},
                 {
-                  defaultValue:
-                    'Anyone with this link can respond. We auto-record device, locale, and submission timestamp.',
+                  defaultValue: 'Publish the survey to generate a public share link.',
                 },
               )}
             </p>
-            <div
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 2 }),
-                cm.sp('px', 4),
-                'h-12 rounded-md border border-[color:var(--color-border)] bg-surface-secondary',
-              )}
-            >
-              <span
-                className="material-symbols-outlined text-on-surface-variant"
-                style={{ fontSize: 18 }}
-                aria-hidden="true"
-              >
-                link
-              </span>
-              <code
-                data-testid="share-url"
-                className={cm.cn(
-                  cm.flex1,
-                  cm.fontWeight('medium'),
-                  cm.textSize('sm'),
-                  'text-on-surface truncate font-mono',
-                )}
-              >
-                {shareUrl}
-              </code>
-              <button
-                type="button"
-                data-testid="copy-share-url"
-                onClick={handleCopyShareUrl}
-                className={cm.cn(
-                  cm.sp('px', 3),
-                  cm.sp('py', 1),
-                  cm.fontWeight('semibold'),
-                  cm.textSize('xs'),
-                  'rounded-md bg-primary/10 text-primary hover:bg-primary/20 transition-colors',
-                )}
-              >
-                {copyState === 'copied'
-                  ? t('common.copiedBang', {}, { defaultValue: 'Copied!' })
-                  : copyState === 'error'
-                    ? t('surveyDetail.copyError', {}, { defaultValue: 'Copy failed' })
-                    : t('common.copy', {}, { defaultValue: 'Copy' })}
-              </button>
-            </div>
-            <Link
-              to={`/s/${survey.slug}`}
-              target="_blank"
-              rel="noreferrer"
-              className={cm.cn(
-                cm.fontWeight('semibold'),
-                cm.textSize('sm'),
-                'text-primary hover:underline self-start',
-              )}
-            >
-              {t('surveyDetail.openPublic', {}, { defaultValue: 'Open public survey →' })}
-            </Link>
-          </>
-        ) : (
-          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-            {t(
-              'surveyDetail.shareBodyUnpublished',
-              {},
-              {
-                defaultValue: 'Publish the survey to generate a public share link.',
-              },
+          )}
+        </section>
+
+        <aside
+          data-mol-id="survey-health"
+          aria-labelledby="survey-health-heading"
+          className={cm.cn(
+            cm.sp('p', 6),
+            'rounded-xl bg-surface-secondary border border-[color:var(--color-border)] lg:sticky lg:top-6',
+          )}
+        >
+          <h2
+            id="survey-health-heading"
+            data-testid="survey-health-heading"
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 2 }),
+              cm.fontWeight('semibold'),
+              cm.textSize('lg'),
+              'text-on-surface',
             )}
-          </p>
-        )}
-      </section>
+          >
+            <span
+              aria-hidden="true"
+              className={cm.cn(
+                'inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary',
+              )}
+            >
+              <span className="material-symbols-outlined" style={{ fontSize: 18 }}>
+                monitor_heart
+              </span>
+            </span>
+            {t('surveyDetail.health.heading', {}, { defaultValue: 'Survey Health' })}
+          </h2>
+          {responses === 0 ? (
+            <p
+              className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}
+              data-testid="survey-health-empty"
+            >
+              {t(
+                'surveyDetail.health.empty',
+                {},
+                {
+                  defaultValue: 'Health metrics appear with the first responses.',
+                },
+              )}
+            </p>
+          ) : (
+            <div className={cm.cn(cm.stack(6), 'mt-6')}>
+              <div>
+                <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'mb-2')}>
+                  <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                    {t('surveyDetail.health.dropOff', {}, { defaultValue: 'Drop-off rate' })}
+                  </span>
+                  <span
+                    data-testid="survey-health-dropoff"
+                    className={cm.cn(
+                      cm.fontWeight('bold'),
+                      cm.textSize('sm'),
+                      dropOffHealthy ? 'text-success' : 'text-warning',
+                    )}
+                  >
+                    {t(
+                      'surveyDetail.health.percent',
+                      { value: dropOffPct },
+                      { defaultValue: '{{value}}%' },
+                    )}
+                  </span>
+                </div>
+                <div className="h-1.5 w-full overflow-hidden rounded-full bg-surface-dim">
+                  <div
+                    className={cm.cn(
+                      'h-full rounded-full',
+                      dropOffHealthy ? 'bg-success' : 'bg-warning',
+                    )}
+                    style={{ width: `${Math.min(100, dropOffPct)}%` }}
+                  />
+                </div>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', 'mt-2')}>
+                  {t(
+                    'surveyDetail.health.dropOffNote',
+                    {},
+                    { defaultValue: 'Healthy range (under 20%)' },
+                  )}
+                </p>
+              </div>
+              <div>
+                <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'mb-2')}>
+                  <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                    {t('surveyDetail.health.completion', {}, { defaultValue: 'Completion rate' })}
+                  </span>
+                  <span
+                    data-testid="survey-health-completion"
+                    className={cm.cn(cm.fontWeight('bold'), cm.textSize('sm'), 'text-on-surface')}
+                  >
+                    {t(
+                      'surveyDetail.health.percent',
+                      { value: completionPct },
+                      { defaultValue: '{{value}}%' },
+                    )}
+                  </span>
+                </div>
+                <div className="h-1.5 w-full overflow-hidden rounded-full bg-surface-dim">
+                  <div
+                    className="h-full rounded-full bg-primary"
+                    style={{ width: `${Math.min(100, Math.max(0, completionPct))}%` }}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+        </aside>
+      </div>
     </div>
   )
 }

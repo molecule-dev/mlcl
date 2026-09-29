@@ -6,6 +6,7 @@ import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
@@ -154,16 +155,8 @@ function MobileShell({ navItems, navAriaLabel }: { navItems: NavItem[]; navAriaL
             menu
           </span>
         </button>
-        <Link
-          to="/dashboard"
-          className={cm.cn(
-            cm.textSize('lg'),
-            cm.fontWeight('bold'),
-            cm.sp('px', 2),
-            'shrink-0 self-center',
-          )}
-        >
-          {APP_NAME}
+        <Link to="/dashboard" className={cm.cn(cm.sp('px', 2), 'shrink-0 self-center')}>
+          <BrandWordmark as="span" size="sm" />
         </Link>
         <div className={cm.cn(cm.sp('ml', 2), 'ml-auto flex min-w-0 max-w-[12rem] items-center')}>
           <UserMenu />
@@ -196,12 +189,8 @@ function MobileShell({ navItems, navAriaLabel }: { navItems: NavItem[]; navAriaL
             <div
               className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}
             >
-              <Link
-                to="/dashboard"
-                className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}
-                onClick={() => setOpen(false)}
-              >
-                {APP_NAME}
+              <Link to="/dashboard" onClick={() => setOpen(false)}>
+                <BrandWordmark as="span" size="md" />
               </Link>
               <button
                 type="button"

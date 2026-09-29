@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/courses/:id": {
+      "allow": [
+        {
+          "heading": "Midterm Project Proposal",
+          "reason": "Sample-data assignment title from the design mock's upcoming-work list. The section is implemented (CourseDetail renders the course's upcoming/recent assignments via AssignmentRow, with due-date badges and links); assignment titles come from the school's records, so the design's fixture title can never appear for an arbitrary course."
+        }
+      ]
+    }
+  }
+}

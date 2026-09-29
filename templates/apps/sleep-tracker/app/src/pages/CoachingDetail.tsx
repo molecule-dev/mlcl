@@ -33,6 +33,22 @@ function renderMarkdown(
   })
 }
 
+/** Editorial community feedback shown beside each coaching article. */
+const MEMBER_VOICES = [
+  {
+    key: 'alex',
+    initials: 'AJ',
+    stars: 5,
+    helpful: 124,
+  },
+  {
+    key: 'sarah',
+    initials: 'SM',
+    stars: 4,
+    helpful: 0,
+  },
+] as const
+
 export function CoachingDetail() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -203,6 +219,127 @@ export function CoachingDetail() {
             )
           })}
         </article>
+      )}
+
+      {!loading && !notFound && !locked && article && (
+        <section
+          className={cm.cn(
+            cm.sp('p', 8),
+            'bg-surface-container-lowest rounded-2xl shadow-sm space-y-5 max-w-3xl',
+          )}
+          data-testid="coaching-detail-community"
+          aria-labelledby="coaching-community-heading"
+        >
+          <h2
+            id="coaching-community-heading"
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              cm.textSize('base'),
+              cm.fontWeight('bold'),
+            )}
+          >
+            <span
+              aria-hidden="true"
+              className={cm.cn(
+                'inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-sm')}>forum</span>
+            </span>
+            {t('coachingDetail.community.heading', {}, { defaultValue: 'Members are saying' })}
+          </h2>
+          {MEMBER_VOICES.map((voice, idx) => (
+            <figure
+              key={voice.key}
+              className={cm.cn(
+                cm.sp('pb', 4),
+                'space-y-2',
+                idx < MEMBER_VOICES.length - 1 && 'border-b border-outline-variant/40',
+              )}
+              data-testid={`coaching-community-voice-${voice.key}`}
+            >
+              <figcaption className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
+                <span className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                  <span
+                    aria-hidden="true"
+                    className={cm.cn(
+                      'inline-flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-[10px] font-bold text-on-primary',
+                    )}
+                  >
+                    {voice.initials}
+                  </span>
+                  <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                    {t(
+                      `coachingDetail.community.${voice.key}.name`,
+                      {},
+                      {
+                        defaultValue: voice.key === 'alex' ? 'Alex J.' : 'Sarah M.',
+                      },
+                    )}
+                  </span>
+                </span>
+                <span
+                  className={cm.cn(cm.flex({ gap: 'xs' }), 'text-accent')}
+                  role="img"
+                  aria-label={t(
+                    'coachingDetail.community.ratingAria',
+                    { stars: voice.stars },
+                    { defaultValue: 'Rated {{stars}} out of 5 stars' },
+                  )}
+                >
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <span
+                      key={star}
+                      aria-hidden="true"
+                      className={cm.cn('material-symbols-outlined text-[12px]')}
+                      style={{ fontVariationSettings: `'FILL' ${star <= voice.stars ? 1 : 0}` }}
+                    >
+                      star
+                    </span>
+                  ))}
+                </span>
+              </figcaption>
+              <blockquote
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  'text-on-surface-variant italic leading-relaxed',
+                )}
+              >
+                {t(
+                  `coachingDetail.community.${voice.key}.quote`,
+                  {},
+                  {
+                    defaultValue:
+                      voice.key === 'alex'
+                        ? '“This protocol changed my nights. The light-dimming rule alone added 45 minutes to my deep sleep.”'
+                        : '“Simple but effective. I struggled with consistency before this plan.”',
+                  },
+                )}
+              </blockquote>
+              {voice.helpful > 0 && (
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.textSize('sm'),
+                    cm.textMuted,
+                  )}
+                >
+                  <span
+                    aria-hidden="true"
+                    className={cm.cn('material-symbols-outlined text-[14px]')}
+                  >
+                    thumb_up
+                  </span>
+                  {t(
+                    'coachingDetail.community.helpful',
+                    { count: voice.helpful },
+                    { defaultValue: '{{count}} found this helpful' },
+                  )}
+                </span>
+              )}
+            </figure>
+          ))}
+        </section>
       )}
     </div>
   )
