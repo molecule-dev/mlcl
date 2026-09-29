@@ -28,7 +28,7 @@
     "@molecule/api-database-postgresql": "1.0.3",
     "@molecule/api-email-templates": "1.0.2",
     "@molecule/api-emails": "1.0.2",
-    "@molecule/api-emails-mailgun": "1.0.4",
+    "@molecule/api-emails-mailgun": "1.0.5",
     "@molecule/api-entitlements": "1.1.0",
     "@molecule/api-i18n": "1.0.3",
     "@molecule/api-image": "1.0.2",
