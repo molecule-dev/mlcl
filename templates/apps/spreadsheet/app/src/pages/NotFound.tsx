@@ -1,9 +1,16 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
-import { useTranslation } from '@molecule/app-react'
+import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
+
+interface RecentWorkbook {
+  id: string
+  title: string
+  updated_at: string
+}
 
 /**
  * Calcite 404 — riff on the spreadsheet metaphor: a "cell-not-found"
@@ -13,6 +20,33 @@ import { APP_NAME } from '../branding.js'
 export function NotFound() {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const http = useHttpClient()
+  const [recent, setRecent] = useState<RecentWorkbook[]>([])
+
+  // Best-effort recovery strip: the design's 404 offers the user's recent
+  // workbooks as one-click destinations. Anonymous visitors (or a failed
+  // fetch) simply don't see the section.
+  useEffect(() => {
+    let cancelled = false
+    http
+      .get<unknown>('/spreadsheets')
+      .then((res) => {
+        if (cancelled) return
+        const rows = Array.isArray(res.data) ? (res.data as RecentWorkbook[]) : []
+        setRecent(
+          rows
+            .slice()
+            .sort((a, b) => (b.updated_at ?? '').localeCompare(a.updated_at ?? ''))
+            .slice(0, 4),
+        )
+      })
+      .catch(() => {
+        /* tolerate — section stays hidden */
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [http])
 
   return (
     <div
@@ -40,23 +74,7 @@ export function NotFound() {
             cm.sp('mb', 8),
           )}
         >
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(10),
-              cm.h(10),
-              'rounded-xl bg-gradient-to-br from-primary to-primary-dark text-on-primary shadow-lg shadow-primary/30',
-            )}
-            aria-hidden="true"
-          >
-            <span
-              className="material-symbols-outlined"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              grid_on
-            </span>
-          </span>
-          <span className={'text-2xl font-extrabold tracking-tight'}>{APP_NAME}</span>
+          <BrandWordmark as="span" size="lg" />
         </Link>
 
         <div
@@ -146,6 +164,65 @@ export function NotFound() {
             </div>
           </div>
         </div>
+
+        {recent.length > 0 && (
+          <section
+            data-testid="notfound-recent"
+            aria-labelledby="notfound-recent-title"
+            className={cm.cn(cm.sp('mt', 10), 'border-t border-outline-variant/40 pt-8 text-left')}
+          >
+            <h2
+              id="notfound-recent-title"
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                cm.sp('mb', 4),
+                'text-on-surface',
+              )}
+            >
+              {t('notFound.recent.heading', {}, { defaultValue: 'Recent workbooks' })}
+            </h2>
+            <div className={cm.cn('grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4')}>
+              {recent.map((wb) => (
+                <Link
+                  key={wb.id}
+                  to={`/workbooks/${wb.id}`}
+                  data-mol-id="notfound-recent-workbook"
+                  className={cm.cn(
+                    'group flex flex-col h-[100px] rounded-lg p-3 border border-outline-variant/50 bg-surface-container-lowest hover:border-primary hover:shadow-sm transition-all',
+                  )}
+                >
+                  <span
+                    className={
+                      'w-8 h-8 grid grid-cols-3 grid-rows-3 gap-px rounded overflow-hidden border border-outline-variant/40 shrink-0'
+                    }
+                    aria-hidden="true"
+                  >
+                    <span className="bg-surface-container-high" />
+                    <span className="bg-primary-fixed" />
+                    <span className="bg-surface-container-high" />
+                    <span className="bg-surface-container-high" />
+                    <span className="bg-primary-fixed-dim" />
+                    <span className="bg-surface-container-high" />
+                    <span className="bg-primary/15" />
+                    <span className="bg-surface-container-high" />
+                    <span className="bg-surface-container-high" />
+                  </span>
+                  <span className="mt-auto block text-[13px] font-semibold text-on-surface truncate group-hover:text-primary transition-colors">
+                    {wb.title}
+                  </span>
+                  <span className="block text-[11px] text-on-surface-variant tabular-nums mt-0.5">
+                    {t(
+                      'notFound.recent.edited',
+                      { when: new Date(wb.updated_at).toLocaleDateString() },
+                      { defaultValue: 'Edited {{when}}' },
+                    )}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
       </main>
     </div>
   )

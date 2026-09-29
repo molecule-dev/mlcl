@@ -26,6 +26,14 @@ interface BillingStatus {
   limits: Record<string, unknown>
 }
 
+interface UsageMeter {
+  key: string
+  label: string
+  caption: string
+  pct: number
+  accent?: boolean
+}
+
 const PLAN_BLURBS: Record<string, string> = {
   free: 'For tinkering — limited tracks and exports.',
   pro: 'Studio-grade workflow for solo creators.',
@@ -59,6 +67,7 @@ export function Billing() {
   const http = useHttpClient()
   const [tiers, setTiers] = useState<Tier[]>([])
   const [status, setStatus] = useState<BillingStatus | null>(null)
+  const [counts, setCounts] = useState({ projects: 0, samples: 0, exports: 0 })
   const [loading, setLoading] = useState(true)
   const [pendingKey, setPendingKey] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -68,7 +77,10 @@ export function Billing() {
     Promise.allSettled([
       http.get<unknown>('/api/billing/tiers'),
       http.get<unknown>('/api/billing/status'),
-    ]).then(([tiersRes, statusRes]) => {
+      http.get<unknown>('/api/projects'),
+      http.get<unknown>('/api/samples'),
+      http.get<unknown>('/api/exports'),
+    ]).then(([tiersRes, statusRes, projectsRes, samplesRes, exportsRes]) => {
       if (cancelled) return
       if (tiersRes.status === 'fulfilled') {
         setTiers(unwrapList<Tier>(tiersRes.value.data))
@@ -77,6 +89,18 @@ export function Billing() {
         const s = unwrapSingle<BillingStatus>(statusRes.value.data)
         if (s) setStatus(s)
       }
+      // Usage meters are computed from the user's REAL resource counts
+      // against the plan's limits — never hardcoded demo percentages.
+      setCounts({
+        projects:
+          projectsRes.status === 'fulfilled'
+            ? unwrapList<unknown>(projectsRes.value.data).length
+            : 0,
+        samples:
+          samplesRes.status === 'fulfilled' ? unwrapList<unknown>(samplesRes.value.data).length : 0,
+        exports:
+          exportsRes.status === 'fulfilled' ? unwrapList<unknown>(exportsRes.value.data).length : 0,
+      })
       setLoading(false)
     })
     return () => {
@@ -118,6 +142,63 @@ export function Billing() {
     }
   }
 
+  const limits = (status?.limits ?? {}) as {
+    maxProjects?: number
+    maxExports?: number
+  }
+  const projectLimit = typeof limits.maxProjects === 'number' ? limits.maxProjects : undefined
+  const exportLimit = typeof limits.maxExports === 'number' ? limits.maxExports : undefined
+  const pctOf = (used: number, limit: number | undefined) =>
+    limit && limit > 0 ? Math.min(100, Math.round((used / limit) * 100)) : 0
+
+  const usageMeters: UsageMeter[] = [
+    {
+      key: 'storage',
+      label: t('billing.usage.projectStorage', {}, { defaultValue: 'Project storage' }),
+      caption: projectLimit
+        ? t(
+            'billing.usage.projectsOfLimit',
+            { used: counts.projects, limit: projectLimit },
+            { defaultValue: '{{used}} / {{limit}} projects' },
+          )
+        : t(
+            'billing.usage.projectsCount',
+            { count: counts.projects },
+            { defaultValue: '{{count}} projects' },
+          ),
+      pct: pctOf(counts.projects, projectLimit),
+    },
+    {
+      key: 'library',
+      label: t('billing.usage.sampleLibrary', {}, { defaultValue: 'Sample library' }),
+      caption: t(
+        'billing.usage.soundsCount',
+        { count: counts.samples },
+        { defaultValue: '{{count}} sounds' },
+      ),
+      // The library has no per-tier cap, so the meter tracks library size
+      // instead of a percentage of a limit.
+      pct: Math.min(100, counts.samples),
+    },
+    {
+      key: 'render',
+      label: t('billing.usage.renderMinutes', {}, { defaultValue: 'Render minutes' }),
+      caption: exportLimit
+        ? t(
+            'billing.usage.exportsOfLimit',
+            { used: counts.exports, limit: exportLimit },
+            { defaultValue: '{{used}} / {{limit}} exports' },
+          )
+        : t(
+            'billing.usage.exportsCount',
+            { count: counts.exports },
+            { defaultValue: '{{count}} exports' },
+          ),
+      pct: pctOf(counts.exports, exportLimit),
+      accent: true,
+    },
+  ]
+
   return (
     <div className={cm.cn(cm.maxW('6xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 8), 'space-y-10')}>
       <header>
@@ -149,6 +230,47 @@ export function Billing() {
           </p>
         )}
       </header>
+
+      <section
+        data-testid="billing-usage"
+        aria-labelledby="billing-usage-title"
+        className={cm.cn(
+          'rounded-2xl border border-outline-variant bg-surface-container-lowest p-6 space-y-5',
+        )}
+      >
+        <h2 id="billing-usage-title" className={cm.cn('text-lg font-bold flex items-center gap-2')}>
+          <span className={cm.cn('material-symbols-outlined text-primary')} aria-hidden="true">
+            data_usage
+          </span>
+          {t('billing.usage.title', {}, { defaultValue: 'Usage' })}
+        </h2>
+        <div className={cm.cn('space-y-5')}>
+          {usageMeters.map((meter) => (
+            <div key={meter.key} data-testid={`usage-${meter.key}`}>
+              <div className={cm.cn('flex justify-between items-baseline text-sm mb-2 gap-3')}>
+                <span className={cm.cn('text-on-surface-variant')}>{meter.label}</span>
+                <span className={cm.cn('font-mono text-primary tabular-nums text-right')}>
+                  {meter.caption}
+                </span>
+              </div>
+              <div
+                className={cm.cn(
+                  'h-1.5 w-full rounded-full bg-surface-container-highest overflow-hidden',
+                )}
+                role="presentation"
+              >
+                <div
+                  className={cm.cn(
+                    'h-full rounded-full transition-all',
+                    meter.accent ? 'bg-tertiary' : 'bg-primary',
+                  )}
+                  style={{ width: `${meter.pct}%` }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {error && (
         <p

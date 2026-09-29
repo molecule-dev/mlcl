@@ -13,6 +13,7 @@ interface OnboardingTaskApi {
   due_date?: string | null
   status: string
   completed_at?: string | null
+  attachments?: Array<{ name: string; size?: string | null; url?: string | null }> | null
 }
 
 const CATEGORY_LABEL: Record<string, string> = {
@@ -248,6 +249,109 @@ export function TaskDetail() {
           {t('taskDetail.backToChecklist', {}, { defaultValue: 'Back to checklist' })}
         </Link>
       </div>
+
+      <section
+        aria-labelledby="task-attachments-title"
+        data-mol-id="task-attachments"
+        className={cm.cn(cm.sp('p', 6), 'bg-surface border border-outline-variant rounded-2xl')}
+        style={{ maxWidth: '640px' }}
+      >
+        <h2
+          id="task-attachments-title"
+          className={cm.cn(
+            cm.textSize('lg'),
+            cm.fontWeight('semibold'),
+            cm.sp('mb', 4),
+            'flex items-center gap-2',
+          )}
+        >
+          <span
+            className={cm.cn(
+              'w-9 h-9 flex items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0',
+            )}
+            aria-hidden="true"
+          >
+            <span className="material-symbols-outlined text-[20px]">attach_file</span>
+          </span>
+          {t('taskDetail.attachmentsHeading', {}, { defaultValue: 'Attachments' })}
+        </h2>
+        {task.attachments && task.attachments.length > 0 ? (
+          <div className={cm.cn('grid grid-cols-1 sm:grid-cols-2 gap-4')}>
+            {task.attachments.map((a, i) => (
+              <div
+                key={`${a.name}-${i}`}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'sm' }),
+                  cm.sp('p', 3),
+                  'border border-outline-variant rounded-lg hover:border-primary transition-colors',
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    'w-10 h-10 flex items-center justify-center rounded bg-primary/10 text-primary shrink-0',
+                  )}
+                  aria-hidden="true"
+                >
+                  <span className="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+                </span>
+                <span className={cm.cn('flex-1 min-w-0')}>
+                  <span
+                    className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'block truncate')}
+                  >
+                    {a.name}
+                  </span>
+                  {a.size && (
+                    <span className={cm.cn(cm.textSize('xs'), 'block text-on-surface-variant')}>
+                      {a.size}
+                    </span>
+                  )}
+                </span>
+                {a.url && (
+                  <a
+                    href={a.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    data-mol-id="task-attachment-download"
+                    aria-label={t(
+                      'taskDetail.attachmentOpen',
+                      { name: a.name },
+                      { defaultValue: 'Open {{name}}' },
+                    )}
+                    className="material-symbols-outlined text-on-surface-variant hover:text-primary"
+                  >
+                    download
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'taskDetail.attachmentsEmpty',
+                {},
+                { defaultValue: 'No files are attached to this task.' },
+              )}
+            </p>
+            <Link
+              to="/documents"
+              data-mol-id="task-attachments-documents-link"
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                'text-primary hover:underline',
+              )}
+            >
+              {t(
+                'taskDetail.attachmentsBrowse',
+                {},
+                { defaultValue: 'Browse company documents →' },
+              )}
+            </Link>
+          </div>
+        )}
+      </section>
 
       <aside
         className={cm.sp('p', 5)}

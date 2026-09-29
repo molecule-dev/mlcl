@@ -1,9 +1,8 @@
-import { Link } from 'react-router'
-
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface CalciteAuthHeaderProps {
   /** Override the heading. Defaults to the localized welcome string. */
@@ -33,29 +32,7 @@ export function CalciteAuthHeader({ title, subtitle, tagline }: CalciteAuthHeade
   return (
     <div className={cm.cn(cm.stack(4), cm.textCenter)}>
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'center', gap: 'sm' }))}>
-        <div
-          className={cm.cn(
-            cm.w(10),
-            cm.h(10),
-            cm.flex({ align: 'center', justify: 'center' }),
-            'bg-gradient-to-br from-primary to-primary-dark rounded-xl text-on-primary shadow-lg shadow-primary/30',
-          )}
-        >
-          <span
-            aria-hidden="true"
-            className="material-symbols-outlined"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            grid_on
-          </span>
-        </div>
-        <Link to="/">
-          <span
-            className={cm.cn(cm.textSize('3xl'), 'font-black tracking-tighter text-on-surface')}
-          >
-            {APP_NAME}
-          </span>
-        </Link>
+        <BrandWordmark as="span" size="lg" />
       </div>
       <p
         className={cm.cn(

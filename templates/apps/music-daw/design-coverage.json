@@ -1,0 +1,25 @@
+{
+  "_comment": "Accepted divergences from the Stitch designs. Each entry is a reviewed decision; anything not listed here fails verify:design-coverage.",
+  "screens": {
+    "/dashboard": {
+      "allow": [
+        {
+          "heading": "Club Banger Draft",
+          "reason": "Design sample-data project name (a mock session card). The dashboard's Recent Projects grid is implemented and renders the signed-in user's REAL projects from GET /api/projects; a design fixture project name can never appear for an arbitrary account."
+        }
+      ]
+    },
+    "/samples": {
+      "allow": [
+        {
+          "heading": "Neon Nights Synthwave",
+          "reason": "Design sample-data pack name. The Featured Packs strip is implemented and derives its pack cards from the user's OWN library (grouped by the sample `pack` field of GET /api/samples); design fixture pack names can never appear for an arbitrary library."
+        },
+        {
+          "heading": "Organic Foley & Textures",
+          "reason": "Design sample-data pack name. The Featured Packs strip is implemented and derives its pack cards from the user's OWN library (grouped by the sample `pack` field of GET /api/samples); design fixture pack names can never appear for an arbitrary library."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "_comment": "Accepted divergences from the Stitch designs. Each entry is a reviewed decision; anything not listed here fails verify:design-coverage.",
+  "screens": {
+    "/shows/:id": {
+      "allow": [
+        {
+          "heading": "The Future of Artificial General Intelligence",
+          "reason": "Design sample-data episode title. The Episodes list section is implemented and renders the show's REAL episodes (title, number, description, duration, date) from GET /api/episodes?show_id=…; a design fixture title can never appear for an arbitrary show."
+        },
+        {
+          "heading": "Global Supply Chains Unraveling",
+          "reason": "Design sample-data episode title. The Episodes list section is implemented and renders the show's REAL episodes (title, number, description, duration, date) from GET /api/episodes?show_id=…; a design fixture title can never appear for an arbitrary show."
+        },
+        {
+          "heading": "The Return of Nuclear Energy",
+          "reason": "Design sample-data episode title. The Episodes list section is implemented and renders the show's REAL episodes (title, number, description, duration, date) from GET /api/episodes?show_id=…; a design fixture title can never appear for an arbitrary show."
+        }
+      ]
+    },
+    "/episodes/:id": {
+      "allow": [
+        {
+          "heading": "The climate crisis explained",
+          "reason": "Design sample-data episode title. The player page is implemented and renders the loaded episode's real title (and description/artwork/duration) from GET /api/episodes/:id; the design's fixture episode name can never appear for an arbitrary id."
+        }
+      ]
+    }
+  }
+}

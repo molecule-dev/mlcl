@@ -6,6 +6,7 @@ import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { CuisineDiscoveryCard } from '../components/CuisineDiscoveryCard.js'
 import { MorselHeroSearchCard } from '../components/MorselHeroSearchCard.js'
 import {
@@ -179,14 +180,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link
-            to="/"
-            className={
-              cm.flex({ align: 'center', gap: 'sm' }) + ' font-display italic text-primary'
-            }
-          >
-            <span className={cm.textSize('3xl')}>{APP_NAME}</span>
-          </Link>
+          <BrandWordmark size="lg" />
           <div className={cm.flex({ align: 'center', gap: 'lg' })}>
             <Link
               to="/discover"
@@ -548,9 +542,9 @@ export function Landing() {
             )}
           >
             <div>
-              <span className={cm.cn(cm.textSize('2xl'), 'text-primary italic', 'font-display')}>
-                {APP_NAME}
-              </span>
+              {/* footer lockup: shared BrandWordmark (footer variant keeps the
+                  per-page brand-wordmark e2e contract header-scoped) */}
+              <BrandWordmark as="span" size="md" footer />
               <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
                 {t('landing.footer.tagline', {}, { defaultValue: 'Every bite tells a story.' })}
               </p>

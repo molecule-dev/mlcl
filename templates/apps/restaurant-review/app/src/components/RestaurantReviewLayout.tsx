@@ -19,7 +19,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -76,12 +76,8 @@ export function RestaurantReviewLayout(): JSX.Element {
   )
 
   const brand = (
-    <Link
-      to="/discover"
-      className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'shrink-0')}
-      style={{ fontFamily: '"DM Serif Display", Georgia, serif', fontWeight: 400 }}
-    >
-      {APP_NAME}
+    <Link to="/discover" className="shrink-0">
+      <BrandWordmark as="span" size="md" />
     </Link>
   )
 

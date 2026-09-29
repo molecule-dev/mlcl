@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Public marketing-chrome top navigation for Fugue, shared by the Landing,
@@ -12,8 +12,9 @@ import { APP_NAME } from '../branding.js'
  * "Go to Dashboard" CTA instead of the sign-in / get-started pair.
  *
  * Styled after the Stitch design (design-music-daw-landing): translucent
- * violet-tinted chrome, brand mark with a pulsing magenta dot, and a
- * glowing violet CTA pill — all through theme tokens, no inline styles.
+ * violet-tinted chrome, brand mark with a pulsing magenta dot (rendered by
+ * the shared BrandWordmark), and a glowing violet CTA pill — all through
+ * theme tokens, no inline styles.
  */
 export function PublicNav() {
   const cm = getClassMap()
@@ -45,16 +46,8 @@ export function PublicNav() {
           cm.mxAuto,
         )}
       >
-        <Link
-          to="/"
-          data-mol-id="public-nav-brand"
-          className={cm.cn(
-            'text-xl font-extrabold tracking-tighter text-on-surface',
-            "after:content-[''] after:ml-2 after:inline-block after:w-2 after:h-2",
-            'after:rounded-full after:bg-[var(--daw-secondary)] after:animate-pulse',
-          )}
-        >
-          {APP_NAME}
+        <Link to="/" data-mol-id="public-nav-brand" className={cm.cn('shrink-0')}>
+          <BrandWordmark as="span" />
         </Link>
         <div className={cm.flex({ align: 'center', gap: 'md' })}>
           {isAuthenticated ? (

@@ -100,6 +100,52 @@ export function Errors() {
         </p>
       </header>
 
+      <section aria-labelledby="errors-envelope-title" data-testid="errors-envelope">
+        <h2
+          id="errors-envelope-title"
+          className={cm.cn(
+            cm.textSize('lg'),
+            cm.fontWeight('semibold'),
+            cm.sp('mb', 4),
+            'flex items-center gap-2',
+          )}
+        >
+          <span className="material-symbols-outlined text-on-surface-variant" aria-hidden="true">
+            integration_instructions
+          </span>
+          {t('errors.envelope.heading', {}, { defaultValue: 'Error Envelope' })}
+        </h2>
+        <p className={cm.cn(cm.textSize('sm'), cm.sp('mb', 3), 'text-on-surface-variant')}>
+          {t(
+            'errors.envelope.body',
+            { appName: 'Prism' },
+            {
+              defaultValue:
+                'Every error returns the same JSON envelope. Branch on the machine-readable type field; the human-readable message and doc_url are for display and follow-up reading.',
+            },
+          )}
+        </p>
+        <pre
+          className={cm.cn(
+            cm.sp('p', 4),
+            'bg-secondary text-on-secondary rounded-lg font-mono text-[13px] leading-relaxed overflow-x-auto',
+          )}
+        >
+          {`{
+  "error": {
+    "type": "invalid_request_error",
+    "code": "resource_missing",
+    "message": "The requested workspace 'ws_8j9k' does not exist.",
+    "request_id": "req_9Lp2mK5r",
+    "doc_url": "https://docs.prism.dev/errors#resource_missing",
+    "fields": [
+      { "field": "workspace_id", "issue": "Invalid format or missing record" }
+    ]
+  }
+}`}
+        </pre>
+      </section>
+
       {error ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
       ) : loading ? (

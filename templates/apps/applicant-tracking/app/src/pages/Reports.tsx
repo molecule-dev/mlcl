@@ -11,7 +11,14 @@ interface ReportsResponse {
   time_in_stage?: { stage: string; days: number }[]
   source_breakdown?: { source: string; count: number; color: string }[]
   by_department?: { department: string; hires: number }[]
-  top_jobs?: { title: string; applicants: number; days_open: number }[]
+  top_jobs?: {
+    title: string
+    department?: string | null
+    applicants: number
+    in_pipeline_pct?: number
+    avg_score?: number | null
+    days_open: number
+  }[]
   fairness?: { stage: string; pass_rate_majority_pct: number; pass_rate_underrep_pct: number }[]
 }
 
@@ -268,7 +275,7 @@ export function Reports() {
 
       <section className={cm.cn(cm.card(), cm.sp('p', 6))}>
         <h2 className={cm.cn(cm.sectionHeading, cm.sp('mb', 4))}>
-          {t('reports.topJobsHeading', {}, { defaultValue: 'Top open jobs' })}
+          {t('reports.topJobsHeading', {}, { defaultValue: 'Top performing requisitions' })}
         </h2>
         <table className={cm.cn('w-full')}>
           <thead
@@ -280,10 +287,16 @@ export function Reports() {
           >
             <tr>
               <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
-                {t('reports.col.jobTitle', {}, { defaultValue: 'Job' })}
+                {t('reports.col.jobTitle', {}, { defaultValue: 'Job title & dept' })}
               </th>
               <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
                 {t('reports.col.applicants', {}, { defaultValue: 'Applicants' })}
+              </th>
+              <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
+                {t('reports.col.inPipeline', {}, { defaultValue: 'In-pipeline %' })}
+              </th>
+              <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
+                {t('reports.col.avgScore', {}, { defaultValue: 'Avg score' })}
               </th>
               <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
                 {t('reports.col.daysOpen', {}, { defaultValue: 'Days open' })}
@@ -293,8 +306,42 @@ export function Reports() {
           <tbody className={cm.cn('divide-y divide-outline-variant')}>
             {topJobs.map((j) => (
               <tr key={j.title}>
-                <td className={cm.cn(cm.sp('py', 2), cm.fontWeight('medium'))}>{j.title}</td>
+                <td className={cm.cn(cm.sp('py', 2))}>
+                  <p className={cm.fontWeight('medium')}>{j.title}</p>
+                  {j.department ? (
+                    <p
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        cm.sp('mt', 1),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {j.department}
+                    </p>
+                  ) : null}
+                </td>
                 <td className={cm.cn(cm.sp('py', 2), 'text-right tabular-nums')}>{j.applicants}</td>
+                <td className={cm.cn(cm.sp('py', 2), 'text-right')}>
+                  <span
+                    className={cm.cn('tabular-nums', cm.textSize('sm'), 'text-on-surface-variant')}
+                  >
+                    {(j.in_pipeline_pct ?? 0).toFixed(0)}%
+                  </span>
+                  <span
+                    className={cm.cn(
+                      'inline-block align-middle w-16 h-1.5 ms-2 rounded-full bg-surface-container overflow-hidden',
+                    )}
+                    aria-hidden="true"
+                  >
+                    <span
+                      className={cm.cn('block h-full rounded-full bg-primary')}
+                      style={{ width: `${Math.min(100, Math.max(0, j.in_pipeline_pct ?? 0))}%` }}
+                    />
+                  </span>
+                </td>
+                <td className={cm.cn(cm.sp('py', 2), 'text-right tabular-nums')}>
+                  {j.avg_score != null ? j.avg_score : '—'}
+                </td>
                 <td
                   className={cm.cn(
                     cm.sp('py', 2),

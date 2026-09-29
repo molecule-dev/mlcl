@@ -5,7 +5,8 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface NavItem {
   to: string
@@ -204,35 +205,7 @@ export function SpreadsheetShell({ children }: SpreadsheetShellProps) {
             to="/workbooks"
             className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0')}
           >
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                cm.w(8),
-                cm.h(8),
-                'bg-gradient-to-br from-primary to-primary-dark rounded-lg text-on-primary shadow-md shadow-primary/30 shrink-0',
-              )}
-              aria-hidden="true"
-            >
-              <span
-                className={'material-symbols-outlined text-lg'}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                grid_on
-              </span>
-            </span>
-            <span className="min-w-0">
-              <span
-                className={cm.cn(
-                  cm.textSize('sm'),
-                  'block font-extrabold tracking-tight text-on-surface truncate leading-tight',
-                )}
-              >
-                {APP_NAME}
-              </span>
-              <span className="block text-[9px] uppercase tracking-widest text-on-surface-variant truncate leading-tight">
-                {APP_TAGLINE}
-              </span>
-            </span>
+            <BrandWordmark as="span" size="sm" tagline={APP_TAGLINE} />
           </NavLink>
         }
         actions={
@@ -268,32 +241,7 @@ export function SpreadsheetShell({ children }: SpreadsheetShellProps) {
         <div
           className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('px', 2), cm.sp('pb', 4))}
         >
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(9),
-              cm.h(9),
-              'bg-gradient-to-br from-primary to-primary-dark rounded-xl text-on-primary shadow-lg shadow-primary/30',
-            )}
-            aria-hidden="true"
-          >
-            <span
-              className={'material-symbols-outlined text-xl'}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              grid_on
-            </span>
-          </div>
-          <div className={cm.flex({ direction: 'col' })}>
-            <span
-              className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-on-surface')}
-            >
-              {APP_NAME}
-            </span>
-            <span className="text-[10px] uppercase tracking-widest text-on-surface-variant">
-              {APP_TAGLINE}
-            </span>
-          </div>
+          <BrandWordmark as="span" size="md" tagline={APP_TAGLINE} />
         </div>
         {nav}
       </ResponsiveAppShell.Sidebar>
@@ -306,13 +254,7 @@ export function SpreadsheetShell({ children }: SpreadsheetShellProps) {
         // The shared panel ships no height token (its content would size it);
         // `h-full` restores the documented full-height left-panel geometry.
         className="h-full"
-        header={
-          <span
-            className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-on-surface')}
-          >
-            {APP_NAME}
-          </span>
-        }
+        header={<BrandWordmark as="span" size="md" />}
         footer={
           <>
             <UserCard />

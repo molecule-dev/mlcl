@@ -15,12 +15,11 @@
  */
 
 import type { ReactNode } from 'react'
-import { Link } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 interface MorselAuthShellProps {
@@ -73,14 +72,7 @@ export function MorselAuthShell({
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <span
-              className={cm.cn(cm.textSize('2xl'), 'text-primary')}
-              style={{ fontFamily: '"DM Serif Display", Georgia, serif', fontWeight: 400 }}
-            >
-              {APP_NAME}
-            </span>
-          </Link>
+          <BrandWordmark size="md" />
           <ThemeToggle />
         </div>
       </header>

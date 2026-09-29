@@ -187,7 +187,9 @@ export function Landing() {
             className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}
             style={{ textDecoration: 'none' }}
           >
-            <BrandWordmark />
+            {/* as="span" — the wrapping Link already provides navigation;
+                the default `as="link"` would nest <a> inside <a> here. */}
+            <BrandWordmark as="span" />
           </Link>
           <nav className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'hidden md:flex')}>
             {navLinks.map((l) =>

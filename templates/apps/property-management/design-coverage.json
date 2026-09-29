@@ -1,0 +1,33 @@
+{
+  "_comment": "Accepted divergences from the Stitch designs. Each entry is a reviewed decision; anything not listed here fails verify:design-coverage.",
+  "screens": {
+    "/properties": {
+      "allow": [
+        {
+          "heading": "Pine Crest Estates",
+          "reason": "Design sample-data property name. The properties grid is implemented and renders the user's REAL properties (name, address, units, occupancy, revenue) from GET /api/properties; a design fixture name can never appear for an arbitrary portfolio."
+        }
+      ]
+    },
+    "/properties/:id": {
+      "allow": [
+        {
+          "heading": "2340 Maple Avenue",
+          "reason": "Design sample-data property address used as the detail heading. The detail page is implemented and renders the loaded property's real name and address from GET /api/properties/:id; the design's fixture address can never appear for an arbitrary id."
+        }
+      ]
+    },
+    "/maintenance": {
+      "allow": [
+        {
+          "heading": "Leaky Faucet in Master",
+          "reason": "Design sample-data work-order title. The maintenance board is implemented and renders the user's REAL tickets (title, priority, property, unit, due date) from GET /api/maintenance; a design fixture title can never appear for an arbitrary account."
+        },
+        {
+          "heading": "Main Lobby Door Stuck",
+          "reason": "Design sample-data work-order title. The maintenance board is implemented and renders the user's REAL tickets (title, priority, property, unit, due date) from GET /api/maintenance; a design fixture title can never appear for an arbitrary account."
+        }
+      ]
+    }
+  }
+}

@@ -200,7 +200,9 @@ export function EmbarkAuthShell({
           style={{ height: '64px' }}
         >
           <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            <BrandWordmark />
+            {/* as="span" — the wrapping Link already provides navigation;
+                the default `as="link"` would nest <a> inside <a> here. */}
+            <BrandWordmark as="span" />
           </Link>
           <ThemeToggle />
         </div>

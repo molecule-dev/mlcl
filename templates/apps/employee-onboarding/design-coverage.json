@@ -1,0 +1,13 @@
+{
+  "_comment": "Accepted divergences from the Stitch designs. Each entry is a reviewed decision; anything not listed here fails verify:design-coverage.",
+  "screens": {
+    "/documents": {
+      "allow": [
+        {
+          "heading": "Employee Handbook Acknowledgment 2024",
+          "reason": "Design sample-data document title. The documents grid is implemented and renders the user's REAL documents (name, type icon, size, signed state) from GET /api/documents; the seeded catalog carries its own handbook (e.g. 'Employee Handbook 2026'), never the design's fixture title."
+        }
+      ]
+    }
+  }
+}

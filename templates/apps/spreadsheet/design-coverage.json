@@ -1,0 +1,33 @@
+{
+  "_comment": "Accepted divergences from the Stitch designs. Each entry is a reviewed decision; anything not listed here fails verify:design-coverage.",
+  "screens": {
+    "/workbooks": {
+      "allow": [
+        {
+          "heading": "2024 Budget Tracker",
+          "reason": "Design sample-data workbook title. The workbooks grid is implemented and renders the user's REAL workbooks (title, sheets, updated, size) from GET /spreadsheets; a design fixture title can never appear for an arbitrary account."
+        }
+      ]
+    },
+    "/templates": {
+      "allow": [
+        {
+          "heading": "SaaS Financial Model",
+          "reason": "Design sample-data system-template name. The template gallery grid is implemented and renders the seeded system templates + the user's own (name, description, category, preview, instantiate) from GET /spreadsheet-templates; the gallery shows whatever templates exist, never the design's fixture names."
+        },
+        {
+          "heading": "Monthly Department Budget",
+          "reason": "Design sample-data system-template name. The template gallery grid is implemented and renders the seeded system templates + the user's own (name, description, category, preview, instantiate) from GET /spreadsheet-templates; the gallery shows whatever templates exist, never the design's fixture names."
+        }
+      ]
+    },
+    "/*": {
+      "allow": [
+        {
+          "heading": "SaaS Churn Analysis",
+          "reason": "Design sample-data workbook title in the 404's Recent Workbooks strip. The strip is implemented and renders the signed-in user's REAL recent workbooks from GET /spreadsheets (hidden when anonymous or empty); a design fixture title can never appear."
+        }
+      ]
+    }
+  }
+}

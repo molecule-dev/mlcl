@@ -1,0 +1,13 @@
+{
+  "_comment": "Accepted divergences from the Stitch designs. Each entry is a reviewed decision; anything not listed here fails verify:design-coverage.",
+  "screens": {
+    "/status": {
+      "allow": [
+        {
+          "heading": "Mobile Push partition rebalance",
+          "reason": "Design sample-data maintenance-window title. The Scheduled Maintenance section is implemented and renders real windows (title, schedule, affected services) from GET /api/reports/status; the API truthfully reports an empty maintenance schedule, so the design's fixture window can never appear."
+        }
+      ]
+    }
+  }
+}

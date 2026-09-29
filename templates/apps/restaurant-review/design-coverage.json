@@ -1,0 +1,13 @@
+{
+  "_comment": "Accepted divergences from the Stitch designs. Each entry is a reviewed decision; anything not listed here fails verify:design-coverage.",
+  "screens": {
+    "/restaurants/:id": {
+      "allow": [
+        {
+          "heading": "Bistecca alla Fiorentina",
+          "reason": "Design sample-data menu item. The menu section is implemented and renders the restaurant's REAL dishes (name, description, price, grouped by category) from GET /api/restaurants/:id/menu; a design fixture dish can never appear for an arbitrary restaurant."
+        }
+      ]
+    }
+  }
+}

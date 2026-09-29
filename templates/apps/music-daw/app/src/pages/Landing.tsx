@@ -4,6 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { PublicNav } from '../components/PublicNav.js'
 
 const FEATURES = [
@@ -444,8 +445,8 @@ export function Landing() {
           )}
         >
           <div>
-            <div className={cm.cn('text-lg font-bold text-[var(--daw-primary)] mb-4')}>
-              {APP_NAME}
+            <div className={cm.cn('mb-4')}>
+              <BrandWordmark as="span" size="sm" footer />
             </div>
             <p>
               {t(

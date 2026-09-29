@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { TransportBar } from './TransportBar.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -82,11 +82,8 @@ export function FugueLayout() {
         <ResponsiveAppShell.TopBar
           mobileOnly
           brand={
-            <Link
-              to="/dashboard"
-              className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'truncate')}
-            >
-              {APP_NAME}
+            <Link to="/dashboard" className="truncate">
+              <BrandWordmark as="span" size="sm" />
             </Link>
           }
           actions={<UserMenu />}
@@ -99,16 +96,8 @@ export function FugueLayout() {
           className={cm.sp('p', 4)}
           footer={<UserMenu />}
         >
-          <Link
-            to="/dashboard"
-            className={cm.cn(
-              cm.textSize('xl'),
-              cm.fontWeight('bold'),
-              cm.sp('mb', 6),
-              cm.displayBlock,
-            )}
-          >
-            {APP_NAME}
+          <Link to="/dashboard" className={cm.cn(cm.sp('mb', 6), cm.displayBlock)}>
+            <BrandWordmark as="span" />
           </Link>
           {nav}
         </ResponsiveAppShell.Sidebar>
@@ -119,7 +108,9 @@ export function FugueLayout() {
           navLabel={navAriaLabel}
           className={cm.cn('h-full', cm.sp('p', 4))}
           header={
-            <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>{APP_NAME}</span>
+            <span>
+              <BrandWordmark as="span" size="sm" />
+            </span>
           }
         >
           {nav}

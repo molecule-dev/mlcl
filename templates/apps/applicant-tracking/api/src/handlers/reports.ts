@@ -117,6 +117,7 @@ router.get('/full', async (req: Request, res: Response) => {
       stage?: string
       source?: string
       job_id?: string | null
+      ai_score?: number
       created_at?: string | Date
       updated_at?: string | Date
     }>('candidates', {
@@ -243,11 +244,24 @@ router.get('/full', async (req: Request, res: Response) => {
       hires,
     }))
 
-    // Top jobs: applicants per job_id (only jobs that exist for this user).
+    // Top jobs: applicants per job_id (only jobs that exist for this user),
+    // plus per-job pipeline conversion (share of candidates still active in
+    // the pipeline) and average AI score for the requisitions table.
     const jobApplicantCounts: Record<string, number> = {}
     for (const c of candidates) {
       if (!c.job_id) continue
       jobApplicantCounts[c.job_id] = (jobApplicantCounts[c.job_id] ?? 0) + 1
+    }
+    const jobAgg = new Map<string, { inPipeline: number; scoreSum: number; scoreCount: number }>()
+    for (const c of candidates) {
+      if (!c.job_id) continue
+      const agg = jobAgg.get(c.job_id) ?? { inPipeline: 0, scoreSum: 0, scoreCount: 0 }
+      if (c.stage !== 'hired' && c.stage !== 'rejected') agg.inPipeline += 1
+      if (typeof c.ai_score === 'number') {
+        agg.scoreSum += c.ai_score
+        agg.scoreCount += 1
+      }
+      jobAgg.set(c.job_id, agg)
     }
     const topJobs = jobs
       .filter((j) => j.status === 'open' || j.status === 'draft')
@@ -256,9 +270,16 @@ router.get('/full', async (req: Request, res: Response) => {
         const daysOpen = created
           ? Math.max(0, Math.floor((now.getTime() - created.getTime()) / (24 * 60 * 60 * 1000)))
           : 0
+        const agg = jobAgg.get(j.id)
         return {
           title: j.title ?? 'Untitled',
+          department: (j as { department?: string }).department ?? null,
           applicants: jobApplicantCounts[j.id] ?? 0,
+          in_pipeline_pct:
+            agg && (jobApplicantCounts[j.id] ?? 0) > 0
+              ? Math.round((agg.inPipeline / (jobApplicantCounts[j.id] ?? 1)) * 100)
+              : 0,
+          avg_score: agg && agg.scoreCount > 0 ? Math.round(agg.scoreSum / agg.scoreCount) : null,
           days_open: daysOpen,
         }
       })

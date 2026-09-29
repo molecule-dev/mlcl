@@ -40,6 +40,7 @@ interface MorselPreferences {
   bio: string
   dietary: string[]
   notifications: Record<string, boolean>
+  spiceTolerance?: number
 }
 
 function readLocalPrefs(): MorselPreferences | null {
@@ -77,6 +78,7 @@ export function Settings() {
   const [email, setEmail] = useState('')
   const [bio, setBio] = useState('')
   const [diet, setDiet] = useState<Set<string>>(new Set())
+  const [spice, setSpice] = useState(3)
   const [notif, setNotif] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(NOTIFICATION_PREFS.map((p) => [p.key, p.defaultOn])),
   )
@@ -103,6 +105,7 @@ export function Settings() {
     if (prefs) {
       setBio(prefs.bio ?? '')
       setDiet(new Set(prefs.dietary ?? []))
+      setSpice(typeof prefs.spiceTolerance === 'number' ? prefs.spiceTolerance : 3)
       setNotif((cur) => ({ ...cur, ...(prefs.notifications ?? {}) }))
     }
   }, [user?.id, user?.name, user?.username, user?.email])
@@ -157,6 +160,7 @@ export function Settings() {
         bio,
         dietary: Array.from(diet),
         notifications: notif,
+        spiceTolerance: spice,
       })
       void track({
         name: 'settings.updated',
@@ -403,6 +407,66 @@ export function Settings() {
                 </button>
               )
             })}
+          </div>
+        </section>
+
+        <section
+          className={cm.cn(
+            cm.sp('p', 6),
+            'bg-surface rounded-2xl border border-outline-variant/40',
+          )}
+        >
+          <h2
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'uppercase tracking-widest text-primary',
+            )}
+          >
+            {t('settings.spice.heading', {}, { defaultValue: 'Spice tolerance' })}
+          </h2>
+          <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2), 'text-on-surface-variant')}>
+            {t(
+              'settings.spice.body',
+              {},
+              {
+                defaultValue:
+                  'We’ll steer recommendations toward dishes you can actually finish — from gentle to incendiary.',
+              },
+            )}
+          </p>
+          <div className={cm.cn(cm.sp('mt', 5), cm.sp('px', 1))}>
+            <input
+              type="range"
+              min={1}
+              max={5}
+              step={1}
+              value={spice}
+              data-testid="settings-spice"
+              aria-label={t('settings.spice.heading', {}, { defaultValue: 'Spice tolerance' })}
+              aria-valuetext={t(
+                `settings.spice.level.${spice}`,
+                {},
+                { defaultValue: ['Mild', 'Mild', 'Medium', 'Hot', 'Fiery'][spice - 1] ?? 'Medium' },
+              )}
+              onChange={(e) => setSpice(Number(e.target.value))}
+              className={cm.cn(
+                'w-full h-2 rounded-lg appearance-none cursor-pointer accent-primary bg-surface-container-high',
+              )}
+            />
+            <div
+              className={cm.cn(
+                cm.flex({ justify: 'between' }),
+                cm.textSize('xs'),
+                cm.fontWeight('semibold'),
+                cm.sp('mt', 3),
+                'text-on-surface-variant',
+              )}
+            >
+              <span>{t('settings.spice.mild', {}, { defaultValue: 'Mild' })}</span>
+              <span>{t('settings.spice.medium', {}, { defaultValue: 'Medium' })}</span>
+              <span>{t('settings.spice.fiery', {}, { defaultValue: 'Fiery' })}</span>
+            </div>
           </div>
         </section>
 

@@ -10,6 +10,34 @@ import { unwrapSingle } from '../lib/unwrap.js'
 
 const MAX_PHOTOS = 8
 
+/** Design "Tips for great reviews" accordion — static advice, i18n-keyed. */
+const REVIEW_TIPS: Array<{ summaryKey: string; summary: string; bodyKey: string; body: string }> = [
+  {
+    summaryKey: 'writeReview.tips.flavorsSummary',
+    summary: 'Be specific about flavors',
+    bodyKey: 'writeReview.tips.flavorsBody',
+    body: 'Instead of "it was good," try describing the texture and dominant spices. Was it crispy? Savory? Bright with citrus?',
+  },
+  {
+    summaryKey: 'writeReview.tips.serviceSummary',
+    summary: 'Mention the service and vibe',
+    bodyKey: 'writeReview.tips.serviceBody',
+    body: 'Did the staff make great recommendations? Was the lighting romantic or bright and energetic?',
+  },
+  {
+    summaryKey: 'writeReview.tips.contextSummary',
+    summary: 'Include context',
+    bodyKey: 'writeReview.tips.contextBody',
+    body: 'Was this a special occasion dinner, a quick work lunch, or a family gathering? Context helps others decide.',
+  },
+  {
+    summaryKey: 'writeReview.tips.photosSummary',
+    summary: 'Upload clear photos',
+    bodyKey: 'writeReview.tips.photosBody',
+    body: 'Photos taken in natural light or with steady hands in dim light are immensely helpful to other diners.',
+  },
+]
+
 interface ApiRestaurant {
   id: string
   name: string
@@ -521,6 +549,61 @@ export function WriteReview({ initial }: WriteReviewProps = {}) {
           </button>
         </footer>
       </form>
+
+      <aside
+        data-testid="review-tips"
+        aria-labelledby="review-tips-title"
+        className={cm.cn(
+          cm.sp('mt', 8),
+          'rounded-xl bg-surface-container p-5 border border-outline-variant/60',
+        )}
+      >
+        <h2
+          id="review-tips-title"
+          className={cm.cn(
+            cm.textSize('base'),
+            cm.fontWeight('semibold'),
+            'flex items-center gap-2',
+          )}
+        >
+          <span className="material-symbols-outlined text-accent" aria-hidden="true">
+            lightbulb
+          </span>
+          {t('writeReview.tipsTitle', {}, { defaultValue: 'Tips for great reviews' })}
+        </h2>
+        <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), cm.sp('mt', 4))}>
+          {REVIEW_TIPS.map((tip) => (
+            <details
+              key={tip.summaryKey}
+              className="group border-b border-outline-variant/40 pb-2 last:border-0"
+            >
+              <summary
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'between', gap: 'xs' }),
+                  'cursor-pointer list-none text-sm font-medium text-on-surface hover:text-primary transition-colors',
+                )}
+              >
+                {t(tip.summaryKey, {}, { defaultValue: tip.summary })}
+                <span
+                  className="material-symbols-outlined text-sm transition-transform group-open:rotate-180"
+                  aria-hidden="true"
+                >
+                  expand_more
+                </span>
+              </summary>
+              <p
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.sp('mt', 2),
+                  'text-on-surface-variant leading-relaxed',
+                )}
+              >
+                {t(tip.bodyKey, {}, { defaultValue: tip.body })}
+              </p>
+            </details>
+          ))}
+        </div>
+      </aside>
     </main>
   )
 }

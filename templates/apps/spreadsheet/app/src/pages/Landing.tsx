@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { FormulaPlayground } from '../components/FormulaPlayground.js'
 import { GridPreview } from '../components/GridPreview.js'
 
@@ -137,34 +138,14 @@ export function Landing() {
           data-mol-id="nav-brand"
           className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
         >
+          <BrandWordmark as="span" size="md" />
           <span
             className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(9),
-              cm.h(9),
-              'rounded-lg bg-primary text-on-primary shadow-sm',
+              cm.textSize('xs'),
+              'text-on-surface-variant hidden sm:inline-block border-l border-outline-variant pl-2',
             )}
-            aria-hidden="true"
           >
-            <span
-              className={'material-symbols-outlined text-xl'}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              grid_on
-            </span>
-          </span>
-          <span className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            <span className={cm.cn('text-xl font-extrabold tracking-tighter text-primary')}>
-              {APP_NAME}
-            </span>
-            <span
-              className={cm.cn(
-                cm.textSize('xs'),
-                'text-on-surface-variant hidden sm:inline-block border-l border-outline-variant pl-2',
-              )}
-            >
-              {t('landing.nav.tagline', {}, { defaultValue: 'Structure your thinking' })}
-            </span>
+            {t('landing.nav.tagline', {}, { defaultValue: 'Structure your thinking' })}
           </span>
         </Link>
         <nav className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden md:flex')}>

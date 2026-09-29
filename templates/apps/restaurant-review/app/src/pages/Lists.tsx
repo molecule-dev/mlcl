@@ -23,6 +23,14 @@ interface ListWithCount extends ApiList {
 
 const FALLBACK_COVER = 'https://picsum.photos/seed/morsel-list-fallback/1200/700'
 
+/** Design "List ideas" sidebar — starter prompts that pre-fill the create form. */
+const LIST_IDEAS: Array<{ key: string; label: string }> = [
+  { key: 'lists.ideas.cocktailBars', label: 'Cocktail bars under $15' },
+  { key: 'lists.ideas.ramenByNeighborhood', label: 'Ramen by neighborhood' },
+  { key: 'lists.ideas.bestBrunchBrooklyn', label: 'Best brunch in Brooklyn' },
+  { key: 'lists.ideas.birthdayDinners', label: 'Birthday-worthy dinners' },
+]
+
 function ListCard({ list, isYours }: { list: ListWithCount; isYours: boolean }) {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -279,6 +287,48 @@ export function Lists() {
           {t('lists.newList', {}, { defaultValue: 'New list' })}
         </button>
       </header>
+
+      <aside
+        data-testid="list-ideas"
+        aria-labelledby="list-ideas-title"
+        className={cm.cn(
+          cm.sp('mb', 8),
+          cm.sp('p', 6),
+          'rounded-2xl bg-surface-container-low border border-outline-variant/40',
+        )}
+      >
+        <h2
+          id="list-ideas-title"
+          className={cm.cn(cm.textSize('lg'), 'leading-tight flex items-center gap-2')}
+          style={{ fontFamily: '"DM Serif Display", Georgia, serif', fontWeight: 400 }}
+        >
+          <span className="material-symbols-outlined text-accent" aria-hidden="true">
+            lightbulb
+          </span>
+          {t('lists.ideas.heading', {}, { defaultValue: 'List ideas' })}
+        </h2>
+        <ul className={cm.cn(cm.sp('mt', 4), cm.flex({ direction: 'col', gap: 'sm' }))}>
+          {LIST_IDEAS.map((idea) => (
+            <li key={idea.key}>
+              <button
+                type="button"
+                data-mol-id="lists-idea-start"
+                onClick={() => {
+                  setCreateName(idea.label)
+                  setShowCreate(true)
+                }}
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  'text-primary hover:underline underline-offset-2 text-left transition-colors',
+                )}
+              >
+                {t(idea.key, {}, { defaultValue: idea.label })}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </aside>
 
       {showCreate ? (
         <div
