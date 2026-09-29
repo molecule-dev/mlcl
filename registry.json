@@ -668,6 +668,7 @@
         "YesNoAnswer",
         "DecisionAnswer",
         "AnswersFor",
+        "DecisionImage",
         "DecideInput",
         "DecisionUsage",
         "DecideResult",
@@ -692,6 +693,131 @@
         "yes no question about text",
         "rate urgency",
         "guardrail check"
+      ]
+    },
+    "@molecule/api-ai-decisions-intern-decision": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-decisions",
+      "label": "Intern-Decision",
+      "description": "Intern-Decision decisions provider for molecule.dev — typed choice/score/yes-no answers about text and images from the open-weights Intern-Decision models on your own server",
+      "stack": "api",
+      "implements": "@molecule/api-ai-decisions",
+      "exports": [
+        "DEFAULT_INTERN_DECISION_URL",
+        "INTERN_DECISION_LIMITS",
+        "INTERN_DECISION_IMAGE_TYPES",
+        "createProvider",
+        "provider",
+        "aiDecisionsInternDecisionSecretDefinitions",
+        "InternDecisionConfig",
+        "WireQuestion",
+        "WireAnswer",
+        "WireResponse",
+        "toWireQuestions",
+        "fromWireAnswer",
+        "fromWireResponse",
+        "PostOptions",
+        "postDecisions"
+      ],
+      "secrets": [
+        {
+          "name": "INTERN_DECISION_URL",
+          "required": false,
+          "label": "Intern-Decision server URL",
+          "setupUrl": "https://github.com/internlm/Intern-Decision#readme",
+          "instructions": "The base URL of your Intern-Decision service (clone github.com/internlm/Intern-Decision, pip install -r requirements-inference.txt, set MODEL_CHECKPOINT, then bash scripts/demo.sh), or of an authenticating proxy in front of it. Defaults to http://127.0.0.1:7860.",
+          "example": "http://127.0.0.1:7860"
+        },
+        {
+          "name": "INTERN_DECISION_API_KEY",
+          "required": false,
+          "label": "Intern-Decision proxy API key",
+          "setupUrl": "https://github.com/internlm/Intern-Decision#readme",
+          "instructions": "The bearer token your authenticating proxy in front of the Intern-Decision service requires. The service itself has no authentication.",
+          "example": "a-long-random-string"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-decisions",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-decisions/intern-decision",
+      "moleculePeers": [
+        "@molecule/api-ai-decisions",
+        "@molecule/api-secrets"
+      ],
+      "intentHints": [
+        "intern-decision",
+        "internlm decision model",
+        "decide about an image",
+        "screenshot yes no check",
+        "image decision model"
+      ]
+    },
+    "@molecule/api-ai-decisions-jeff": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-decisions",
+      "label": "Jeff",
+      "description": "Jeff decisions provider for molecule.dev — typed choice/score/yes-no answers from the open-weights Jeff models on your own jeff-serve host",
+      "stack": "api",
+      "implements": "@molecule/api-ai-decisions",
+      "exports": [
+        "DEFAULT_JEFF_URL",
+        "DEFAULT_JEFF_MODEL",
+        "DEFAULT_JEFF_MAX_OPTIONS",
+        "JEFF_SCORE_LEVELS",
+        "JEFF_MAX_IMAGES",
+        "JEFF_IMAGE_TYPES",
+        "createProvider",
+        "provider",
+        "aiDecisionsJeffSecretDefinitions",
+        "JeffConfig",
+        "WireQuestion",
+        "WireAnswer",
+        "WireResponse",
+        "toWireQuestions",
+        "fromWireAnswer",
+        "fromWireResponse",
+        "PostOptions",
+        "postSystemOne"
+      ],
+      "secrets": [
+        {
+          "name": "JEFF_URL",
+          "required": false,
+          "label": "Jeff server URL",
+          "setupUrl": "https://github.com/firelex/jeff#readme",
+          "instructions": "The base URL of your jeff-serve host (clone github.com/firelex/jeff, uv sync, download a checkpoint, then JEFF_CHECKPOINT=<dir> uv run jeff-serve). Defaults to http://localhost:8000.",
+          "example": "http://localhost:8000"
+        },
+        {
+          "name": "JEFF_API_KEY",
+          "required": false,
+          "label": "Jeff server API key",
+          "setupUrl": "https://github.com/firelex/jeff#readme",
+          "instructions": "The bearer token your jeff-serve host requires, if you set JEFF_API_KEY on the server.",
+          "example": "a-long-random-string"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-decisions",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-decisions/jeff",
+      "moleculePeers": [
+        "@molecule/api-ai-decisions",
+        "@molecule/api-secrets"
+      ],
+      "intentHints": [
+        "jeff",
+        "jeff decision model",
+        "jeff-serve",
+        "self-hosted jeff",
+        "qwen decision model"
       ]
     },
     "@molecule/api-ai-decisions-jev": {
@@ -56539,6 +56665,8 @@
       "@molecule/api-ai-classification": "1.0.2",
       "@molecule/api-ai-classification-llm": "1.0.2",
       "@molecule/api-ai-decisions": "1.0.0",
+      "@molecule/api-ai-decisions-intern-decision": "1.0.0",
+      "@molecule/api-ai-decisions-jeff": "1.0.0",
       "@molecule/api-ai-decisions-jev": "1.0.0",
       "@molecule/api-ai-decisions-laya": "1.0.0",
       "@molecule/api-ai-decisions-llm": "1.0.0",
