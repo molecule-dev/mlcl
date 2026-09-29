@@ -108,13 +108,16 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 
 ## Team & sharing
 
-| Capability                    | Route(s)                         | Decision | CLI                               | MCP | Status |
-| ----------------------------- | -------------------------------- | -------- | --------------------------------- | --- | ------ |
-| Project team list             | GET /team                        | parity   | `team list`                       | —   | ✅     |
-| Invite member                 | POST /team/invite                | parity   | `team invite <email> --role`      | —   | ✅     |
-| Revoke invite / remove / role | DELETE/PATCH /team/*             | parity   | `team revoke/set-role/rm`         | —   | ✅     |
-| My invitations                | GET /invitations, accept/decline | parity   | `invitations list/accept/decline` | —   | ✅     |
-| Share links mint/revoke       | POST/GET/DELETE /shares          | parity   | `share list/create/rm`            | —   | ✅     |
+| Capability                             | Route(s)                                                      | Decision                                      | CLI                               | MCP                                                           | Status |
+| -------------------------------------- | ------------------------------------------------------------- | --------------------------------------------- | --------------------------------- | ------------------------------------------------------------- | ------ |
+| Project team list                      | GET /team                                                     | parity                                        | `team list`                       | —                                                             | ✅     |
+| Invite member                          | POST /team/invite                                             | parity                                        | `team invite <email> --role`      | —                                                             | ✅     |
+| Revoke invite / remove / role          | DELETE/PATCH /team/*                                          | parity                                        | `team revoke/set-role/rm`         | —                                                             | ✅     |
+| My invitations                         | GET /invitations, accept/decline                              | parity                                        | `invitations list/accept/decline` | —                                                             | ✅     |
+| Share links mint/revoke                | POST/GET/DELETE /shares                                       | parity                                        | `share list/create/rm`            | —                                                             | ✅     |
+| Public transcripts / workspace         | PUT /public-transcript, PUT /public-workspace                 | parity                                        | `share visibility`                | `share_visibility`                                            | ✅     |
+| Session transcripts import/list/remove | POST/GET/DELETE /transcripts                                  | parity                                        | `transcripts import/list/rm`      | `import_transcripts`, `list_transcripts`, `remove_transcript` | ✅     |
+| Public session + file views            | GET /share/:slug/sessions(/:id), GET /share/:slug/files(/raw) | ide-only (the public share page for visitors) | —                                 | —                                                             | ✅     |
 
 ## Builds & tests
 

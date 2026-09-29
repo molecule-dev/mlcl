@@ -73,6 +73,8 @@ export class PlatformApiError extends Error {
   constructor(
     readonly status: number,
     message: string,
+    /** The platform's machine-readable reason (e.g. `workspace.sleeping`), when it sent one. */
+    readonly errorKey?: string,
   ) {
     super(message)
   }
@@ -80,7 +82,7 @@ export class PlatformApiError extends Error {
 
 async function request<T>(
   path: string,
-  init: { method?: string; body?: unknown; token?: string } = {},
+  init: { method?: string; body?: unknown; token?: string; timeoutMs?: number } = {},
 ): Promise<T> {
   // Precedence: explicit arg > CI env var (MOLECULE_TOKEN) > stored credentials file.
   const token = init.token ?? process.env.MOLECULE_TOKEN ?? readCredentials()?.token
@@ -91,13 +93,14 @@ async function request<T>(
       ...(token ? { authorization: `Bearer ${token}` } : {}),
     },
     body: init.body !== undefined ? JSON.stringify(init.body) : undefined,
-    signal: AbortSignal.timeout(30_000),
+    signal: AbortSignal.timeout(init.timeoutMs ?? 30_000),
   })
   const text = await response.text()
   const data: unknown = text ? JSON.parse(text) : null
   if (!response.ok) {
-    const message = (data as { error?: string } | null)?.error ?? `API responded ${response.status}`
-    throw new PlatformApiError(response.status, message)
+    const body = data as { error?: string; errorKey?: string } | null
+    const message = body?.error ?? `API responded ${response.status}`
+    throw new PlatformApiError(response.status, message, body?.errorKey)
   }
   return data as T
 }
@@ -911,6 +914,146 @@ export function deleteAccount(token?: string): Promise<unknown> {
 
 export function exportAccountData(token?: string): Promise<unknown> {
   return whoami(token).then((me) => request(`/users/${me.id}/data-export`, { token }))
+}
+
+// ── Agent session transcripts ───────────────────────────────────────────────
+
+/** A stored session, as the platform lists it (never its turns). */
+export interface TranscriptSummary {
+  id: string
+  /** `molecule-ide` = the project's own chat; `import` = a file someone imported. */
+  source: 'molecule-ide' | 'import'
+  format: string
+  harness: string
+  /** The first thing the person asked, trimmed. */
+  title: string
+  model?: string
+  startedAt?: string
+  turns: number
+  importedAt?: string
+}
+
+/** The platform's import limit for one transcript file. */
+export const TRANSCRIPT_MAX_BYTES = 20 * 1024 * 1024
+
+/** Pull a transcript summary out of whichever envelope the platform used. */
+function unwrapTranscript(raw: unknown): TranscriptSummary {
+  const obj = (raw ?? {}) as Record<string, unknown>
+  const inner = (obj.transcript ?? obj.data ?? obj.props ?? obj) as Record<string, unknown>
+  return ((inner.props as TranscriptSummary | undefined) ?? inner) as unknown as TranscriptSummary
+}
+
+/**
+ * Import one agent session (Claude Code, Codex, … — the platform recognizes the
+ * format) into a project. The same text imported twice returns the stored row.
+ * Throws {@link PlatformApiError} with status 422 when no reader recognizes the
+ * file and 413 when it is too large.
+ */
+export async function importTranscript(
+  projectId: string,
+  input: { fileName: string; text: string },
+  token?: string,
+): Promise<TranscriptSummary> {
+  const raw = await request<unknown>(`/projects/${projectId}/transcripts`, {
+    method: 'POST',
+    body: input,
+    token,
+    // A 20 MB body over a slow link needs longer than the default 30 s.
+    timeoutMs: 5 * 60_000,
+  })
+  return unwrapTranscript(raw)
+}
+
+/** The project's stored sessions: its own chat plus every imported one. */
+export async function listTranscripts(
+  projectId: string,
+  token?: string,
+): Promise<TranscriptSummary[]> {
+  return unwrapRows<TranscriptSummary>(
+    await request<unknown>(`/projects/${projectId}/transcripts`, { token }),
+    'transcripts',
+  )
+}
+
+/** Remove one imported session. */
+export function removeTranscript(
+  projectId: string,
+  transcriptId: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/transcripts/${encodeURIComponent(transcriptId)}`, {
+    method: 'DELETE',
+    token,
+  })
+}
+
+/** What a project's share links show beyond the preview. */
+export interface ShareVisibility {
+  /** Session transcripts (the project's chat and imported ones). */
+  transcripts: boolean
+  /** A read-only view of the workspace files. */
+  workspace: boolean
+}
+
+/** Publish (or unpublish) the project's session transcripts behind its share links. Admin+. */
+export async function setPublicTranscripts(
+  projectId: string,
+  enabled: boolean,
+  token?: string,
+): Promise<boolean> {
+  const raw = await request<{ enabled?: boolean }>(`/projects/${projectId}/public-transcript`, {
+    method: 'PUT',
+    body: { enabled },
+    token,
+  })
+  return raw?.enabled ?? enabled
+}
+
+/** What turning the public workspace on or off did. */
+export interface PublicWorkspaceResult {
+  enabled: boolean
+  /** Files copied for the public view (0 when turned off). */
+  files: number
+  /** When the files were copied; null when turned off. */
+  capturedAt: string | null
+}
+
+/**
+ * Publish (or unpublish) a read-only view of the workspace files behind its
+ * share links. Admin+. Turning it on copies the files from the running
+ * sandbox at that moment, and turning it on again re-copies them. Throws
+ * {@link PlatformApiError} with status 409 and errorKey `workspace.sleeping`
+ * when the sandbox is not running.
+ */
+export async function setPublicWorkspace(
+  projectId: string,
+  enabled: boolean,
+  token?: string,
+): Promise<PublicWorkspaceResult> {
+  const raw = await request<Partial<PublicWorkspaceResult> | null>(
+    `/projects/${projectId}/public-workspace`,
+    { method: 'PUT', body: { enabled }, token },
+  )
+  return {
+    enabled: raw?.enabled ?? enabled,
+    files: raw?.files ?? 0,
+    capturedAt: raw?.capturedAt ?? null,
+  }
+}
+
+/** The current share visibility, read from the project's settings. */
+export async function getShareVisibility(
+  projectId: string,
+  token?: string,
+): Promise<ShareVisibility> {
+  const raw = await request<unknown>(`/projects/${projectId}`, { token })
+  const obj = (raw ?? {}) as Record<string, unknown>
+  const project = (obj.props ?? obj.data ?? obj) as { settings?: Record<string, unknown> | null }
+  const settings = project.settings ?? {}
+  return {
+    transcripts: settings.publicTranscript === true,
+    workspace: settings.publicWorkspace === true,
+  }
 }
 
 // ── Clone shared project ────────────────────────────────────────────────────

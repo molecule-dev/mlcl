@@ -960,5 +960,81 @@ server.registerTool(
   ),
 )
 
+server.registerTool(
+  'import_transcripts',
+  {
+    title: 'Import agent session transcripts (molecule.dev)',
+    description:
+      "Import coding-agent session transcripts into a molecule.dev project, so the sessions that built the app can be shown alongside it. Either pass file paths (Claude Code .jsonl or /export text, Codex rollout .jsonl or Markdown export, and other harnesses the platform recognizes) or set `from` to import this machine's recorded Claude Code or Codex sessions for `cwd`. Returns one result per file: imported (with harness and turn count), unrecognized, too large (over 20 MB) or failed. Use dry_run to list what would be sent. Requires login.",
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+      files: z.array(z.string()).optional().describe('Transcript file paths'),
+      from: z
+        .enum(['claude-code', 'codex'])
+        .optional()
+        .describe("Import this harness's local sessions for cwd instead of named files"),
+      cwd: z.string().optional().describe('Project directory whose sessions `from` looks for'),
+      dry_run: z.boolean().optional().describe('List what would be sent; send nothing'),
+    },
+  },
+  tracked('import_transcripts', async ({ project_id, files, from, cwd, dry_run }) => {
+    const args = ['transcripts', 'import', '--project', project_id, '--json']
+    if (from) args.push('--from', from)
+    if (cwd) args.push('--cwd', cwd)
+    if (dry_run) args.push('--dry-run')
+    if (files?.length) args.push(...files)
+    return text(await runCli(args))
+  }),
+)
+
+server.registerTool(
+  'list_transcripts',
+  {
+    title: "List a project's session transcripts (molecule.dev)",
+    description:
+      "List a molecule.dev project's session transcripts: its own chat and every imported session, with harness, model, start time and turn count.",
+    inputSchema: { project_id: z.string().describe('molecule.dev project id') },
+  },
+  tracked('list_transcripts', async ({ project_id }) =>
+    text(await runCli(['transcripts', 'list', '--project', project_id, '--json'])),
+  ),
+)
+
+server.registerTool(
+  'remove_transcript',
+  {
+    title: 'Remove an imported session transcript (molecule.dev)',
+    description:
+      'Remove one imported session transcript from a molecule.dev project (ids from list_transcripts).',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+      transcript_id: z.string().describe('transcript id from list_transcripts'),
+    },
+  },
+  tracked('remove_transcript', async ({ project_id, transcript_id }) =>
+    text(await runCli(['transcripts', 'rm', '--project', project_id, transcript_id])),
+  ),
+)
+
+server.registerTool(
+  'share_visibility',
+  {
+    title: "Show or set what a project's share links show (molecule.dev)",
+    description:
+      "Show or set whether a molecule.dev project's public share links also show its session transcripts and a read-only view of its workspace files. Omit both flags to read the current state. Turning the workspace on copies the files from the running sandbox at that moment (the result reports how many and when); turning it on again re-copies them after changes. It fails while the project's sandbox is not running. Changing either requires project admin.",
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+      transcripts: z.boolean().optional().describe('Publish the session transcripts'),
+      workspace: z.boolean().optional().describe('Publish a read-only view of the workspace files'),
+    },
+  },
+  tracked('share_visibility', async ({ project_id, transcripts, workspace }) => {
+    const args = ['share', 'visibility', '--project', project_id, '--json']
+    if (transcripts !== undefined) args.push('--transcripts', transcripts ? 'on' : 'off')
+    if (workspace !== undefined) args.push('--workspace', workspace ? 'on' : 'off')
+    return text(await runCli(args))
+  }),
+)
+
 /** The configured server — exported so tests can link an in-memory client to it. */
 export { server as moleculeServer }

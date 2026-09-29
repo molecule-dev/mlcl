@@ -100,7 +100,10 @@
         "description": "Project team (list, invite, revoke, set-role, rm)"
       },
       "share": {
-        "description": "Public share links (list, create, rm)"
+        "description": "Public share links (list, create, rm, visibility)"
+      },
+      "transcripts": {
+        "description": "Agent session transcripts (import, list, rm)"
       },
       "build": {
         "description": "Mobile/desktop builds (mobile, desktop, list, status)"
