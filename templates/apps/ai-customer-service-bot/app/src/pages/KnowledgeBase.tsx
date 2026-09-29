@@ -34,6 +34,40 @@ const CATEGORIES = [
   'general',
 ] as const
 
+// Starter templates offered in the empty state. One click creates the real
+// article via POST /api/knowledge, so a new workspace's knowledge base starts
+// from proven support content instead of a blank page.
+const STARTERS = [
+  {
+    key: 'payments',
+    titleDefault: 'How to update payment method for enterprise accounts',
+    bodyDefault:
+      'Enterprise workspaces can change the payment method on file from Settings > Billing. An owner or billing manager must approve the change before the next invoice cycle.',
+    category: 'Billing',
+  },
+  {
+    key: 'sso',
+    titleDefault: 'Troubleshooting SSO Login Failures (SAML 2.0)',
+    bodyDefault:
+      'If single sign-on fails, confirm the IdP clock skew is under 60 seconds, the ACS URL matches the workspace domain, and the NameID format is emailAddress.',
+    category: 'Auth',
+  },
+  {
+    key: 'teamRoles',
+    titleDefault: 'Inviting Team Members and Setting Roles',
+    bodyDefault:
+      'Owners can invite teammates from Settings > Account. Assign the Agent role for inbox access, or Admin to manage knowledge and integrations.',
+    category: 'Onboarding',
+  },
+  {
+    key: 'salesforce',
+    titleDefault: 'Connecting Salesforce CRM (v2 API)',
+    bodyDefault:
+      'Connect Salesforce through Settings > Integrations using the v2 API. You will need a connected app with api scope and the workspace domain allowlisted.',
+    category: 'Integrations',
+  },
+] as const
+
 function snippetOf(article: ArticleRow): string {
   const text = (article.content || article.body_md || '').replace(/\s+/g, ' ').trim()
   if (!text) return ''
@@ -66,6 +100,45 @@ function KnowledgeBase() {
   const [newTitle, setNewTitle] = useState('')
   const [newContent, setNewContent] = useState('')
   const [newCategory, setNewCategory] = useState('general')
+  const [creatingStarter, setCreatingStarter] = useState<string | null>(null)
+
+  async function createStarter(starter: (typeof STARTERS)[number]) {
+    setCreatingStarter(starter.key)
+    setError(null)
+    try {
+      const title = t(
+        `knowledgeBase.starter.${starter.key}.title`,
+        {},
+        { defaultValue: starter.titleDefault },
+      )
+      const content = t(
+        `knowledgeBase.starter.${starter.key}.body`,
+        {},
+        { defaultValue: starter.bodyDefault },
+      )
+      await post<{ id?: string }>('/api/knowledge', {
+        title,
+        content,
+        body_md: content,
+        category: starter.category,
+        tags: [],
+        status: 'published',
+      })
+      track({
+        name: 'knowledge.article_created',
+        properties: { category: starter.category, starter: starter.key },
+      })
+      await loadArticles()
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : t('knowledgeBase.createError', {}, { defaultValue: 'Failed to create article' }),
+      )
+    } finally {
+      setCreatingStarter(null)
+    }
+  }
 
   async function loadArticles() {
     setLoading(true)
@@ -382,6 +455,61 @@ function KnowledgeBase() {
               { defaultValue: 'No knowledge articles yet — create your first one!' },
             )}
           </span>
+          <div
+            data-mol-id="knowledge-starters"
+            className={cm.cn(cm.grid({ cols: 1, gap: 3 }), 'mt-2 text-left md:grid-cols-2')}
+          >
+            <span
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                cm.textSize('xs'),
+                'col-span-full tracking-widest uppercase text-on-surface-variant',
+              )}
+            >
+              {t('knowledgeBase.starterTitle', {}, { defaultValue: 'Start from a template' })}
+            </span>
+            {STARTERS.map((starter) => (
+              <button
+                key={starter.key}
+                data-mol-id={`knowledge-starter-${starter.key}`}
+                type="button"
+                onClick={() => void createStarter(starter)}
+                disabled={creatingStarter !== null}
+                className={cm.cn(
+                  cm.flex({ direction: 'col', gap: 1 }),
+                  cm.sp('p', 4),
+                  'text-left rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-primary/50 hover:shadow-sm transition-all disabled:opacity-60',
+                )}
+              >
+                <span
+                  className={cm.cn(cm.fontWeight('semibold'), cm.textSize('sm'), 'text-on-surface')}
+                >
+                  {t(
+                    `knowledgeBase.starter.${starter.key}.title`,
+                    {},
+                    { defaultValue: starter.titleDefault },
+                  )}
+                </span>
+                <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {creatingStarter === starter.key
+                    ? t('common.publishingEllipsis', {}, { defaultValue: 'Publishing…' })
+                    : t(
+                        `knowledgeBase.starter.${starter.key}.body`,
+                        {},
+                        { defaultValue: starter.bodyDefault },
+                      )}
+                </span>
+                <span
+                  className={cm.cn(
+                    cm.fontWeight('bold'),
+                    'self-start rounded-full bg-primary/10 text-primary px-2.5 py-0.5 text-[10px] tracking-widest uppercase',
+                  )}
+                >
+                  {starter.category}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
       ) : (
         <div

@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 
 import { APP_NAME, APP_TAGLINE, BRAND_GRADIENT } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { loadContent } from '../config.js'
 import { PublicTopNav } from '../components/PublicTopNav.js'
 
@@ -343,7 +344,11 @@ export function Landing() {
                           'text-primary uppercase tracking-wider',
                         )}
                       >
-                        {APP_NAME}
+                        {t(
+                          'landing.chat.brandLabel',
+                          { app: APP_NAME },
+                          { defaultValue: '{{app}}' },
+                        )}
                       </span>
                     </div>
                     <p className={cm.cn(cm.textSize('sm'), 'leading-relaxed mb-3')}>
@@ -691,15 +696,7 @@ export function Landing() {
           )}
         >
           <div className="col-span-2 md:col-span-2 flex flex-col gap-2">
-            <span
-              className={cm.cn(
-                cm.textSize('lg'),
-                cm.fontWeight('bold'),
-                'tracking-tighter text-primary',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" size="sm" footer />
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t(
                 'landing.copyright',

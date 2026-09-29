@@ -27,6 +27,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -98,22 +99,14 @@ export function WaypointLayout() {
     </>
   )
 
-  // Wordmark → /dashboard, styled like the app's small uppercase brand lockup.
+  // Brand → /dashboard via the shared wordmark.
   const brand = (
-    <Link
-      to="/dashboard"
-      className={cm.cn(
-        'rounded text-[0.65rem] font-bold uppercase tracking-[0.25em] text-primary truncate',
-        FOCUS_RING,
-      )}
-    >
-      {APP_NAME}
+    <Link to="/dashboard" className={cm.cn('rounded truncate', FOCUS_RING)} aria-label={APP_NAME}>
+      <BrandWordmark as="span" size="sm" />
     </Link>
   )
-  // Drawer header wordmark — bigger lockup, as the old drawer header had.
-  const drawerBrand = (
-    <span className={cm.cn(cm.textSize('2xl'), 'font-extrabold tracking-tight')}>{APP_NAME}</span>
-  )
+  // Drawer header wordmark — same shared lockup.
+  const drawerBrand = <BrandWordmark as="span" />
 
   return (
     <ResponsiveAppShell sidebarWidth="lg">

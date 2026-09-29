@@ -141,6 +141,22 @@ router.get('/dashboard_stats', async (_req: Request, res: Response) => {
       amount_cents: revenueByMonth.get(m) ?? 0,
     }))
 
+    // Expense history buckets expenses by month the same way /full does, so
+    // the dashboard's "Revenue vs expenses" chart plots both series over the
+    // identical 12-month axis.
+    const expenseByMonth = new Map<string, number>(months.map((m) => [m, 0]))
+    for (const e of expenses) {
+      const occurred = e.occurred_at ? new Date(e.occurred_at) : null
+      if (!occurred) continue
+      const bucket = monthBucket(occurred)
+      if (expenseByMonth.has(bucket))
+        expenseByMonth.set(bucket, (expenseByMonth.get(bucket) ?? 0) + n(e.amount_cents))
+    }
+    const expenses_history = months.map((m) => ({
+      month: m,
+      amount_cents: expenseByMonth.get(m) ?? 0,
+    }))
+
     res.json({
       cash_on_hand_cents: cash_on_hand,
       outstanding_cents: outstanding,
@@ -150,6 +166,7 @@ router.get('/dashboard_stats', async (_req: Request, res: Response) => {
       ytd_revenue_cents: ytd_revenue,
       ytd_profit_cents: ytd_revenue - ytd_expenses,
       revenue_history,
+      expenses_history,
     })
   } catch (error) {
     logger.error('reports.dashboardStats', error)
@@ -249,7 +266,57 @@ router.get('/full', async (_req: Request, res: Response) => {
       equity_cents: cash_on_hand + outstanding,
     }
 
-    res.json({ pnl_history, expense_breakdown, cash_flow_history, balance_sheet })
+    // Top clients by paid revenue (all-time), highest first — the "Top clients
+    // by revenue" section renders the first slice of this.
+    const revenueByCustomer = new Map<string, number>()
+    for (const inv of invoices) {
+      const paidAt = inv.paid_at ? new Date(inv.paid_at) : null
+      if (!paidAt) continue
+      const name = inv.customer_name?.trim() || 'Unknown'
+      revenueByCustomer.set(
+        name,
+        (revenueByCustomer.get(name) ?? 0) + (n(inv.total_cents) || n(inv.amount_cents)),
+      )
+    }
+    const top_clients = Array.from(revenueByCustomer.entries())
+      .map(([name, cents]) => ({ name, amount_cents: cents }))
+      .sort((a, b) => b.amount_cents - a.amount_cents)
+      .slice(0, 8)
+
+    // Outstanding (sent/overdue) invoices bucketed by how far past due they
+    // are — the receivables aging report. Not-yet-due invoices land in 0-30.
+    const now2 = new Date()
+    const agingBuckets = [
+      { bucket: '0-30', amount_cents: 0 },
+      { bucket: '31-60', amount_cents: 0 },
+      { bucket: '61-90', amount_cents: 0 },
+      { bucket: '90+', amount_cents: 0 },
+    ]
+    let aging_total_cents = 0
+    for (const inv of invoices) {
+      if (inv.status !== 'sent' && inv.status !== 'overdue') continue
+      const amount = n(inv.total_cents) || n(inv.amount_cents)
+      const due = inv.due_date ? new Date(inv.due_date) : null
+      let idx = 0
+      if (due) {
+        const daysLate = Math.floor((now2.getTime() - due.getTime()) / 86_400_000)
+        if (daysLate > 90) idx = 3
+        else if (daysLate > 60) idx = 2
+        else if (daysLate > 30) idx = 1
+      }
+      agingBuckets[idx].amount_cents += amount
+      aging_total_cents += amount
+    }
+
+    res.json({
+      pnl_history,
+      expense_breakdown,
+      cash_flow_history,
+      balance_sheet,
+      top_clients,
+      aging: agingBuckets,
+      aging_total_cents,
+    })
   } catch (error) {
     logger.error('reports.full', error)
     res.status(500).json({ error: t('errors.internalServer') })

@@ -29,6 +29,13 @@ const FEATURES = [
     icon: 'speed',
   },
   {
+    key: 'style',
+    defaultTitle: 'Style Consistency',
+    defaultBody:
+      'Enforce your formatting and convention rules on every diff, so style debates end at the review gate — not in the comments.',
+    icon: 'palette',
+  },
+  {
     key: 'rules',
     defaultTitle: 'Team Rules',
     defaultBody:
@@ -459,6 +466,70 @@ export function Landing() {
                       { appName: APP_NAME },
                       { defaultValue: f.defaultBody },
                     )}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pillars — the four promises every surface of the product is held to */}
+        <section className={cm.cn('py-20 border-t border-surface-variant/60')} id="pillars">
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6))}>
+            <h2
+              className={cm.cn(
+                'text-2xl md:text-3xl font-bold tracking-tight text-center mb-12 text-on-surface',
+              )}
+            >
+              {t('landing.pillarsHeading', {}, { defaultValue: 'Built to be trusted on main' })}
+            </h2>
+            <div
+              className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}
+            >
+              {(
+                [
+                  {
+                    key: 'scoring',
+                    icon: 'fact_check',
+                    title: 'AI quality scoring on every PR',
+                    body: 'A 0–10 score per pull request, with findings cited to the exact offending line.',
+                  },
+                  {
+                    key: 'flow',
+                    icon: 'account_tree',
+                    title: 'GitHub-native flow',
+                    body: 'Reviews land as inline PR comments on every push — no new dashboard to babysit.',
+                  },
+                  {
+                    key: 'rules',
+                    icon: 'rule',
+                    title: 'Bring your rules',
+                    body: 'Team conventions and severity tuning, enforced automatically on every diff.',
+                  },
+                  {
+                    key: 'reports',
+                    icon: 'analytics',
+                    title: 'Reports your team reads',
+                    body: 'Weekly digests and trend charts people open — not another wall of graphs.',
+                  },
+                ] as const
+              ).map((p) => (
+                <div key={p.key} className={cm.cn('flex flex-col gap-3 text-center sm:text-left')}>
+                  <div
+                    className={cm.cn(
+                      'w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center mx-auto sm:mx-0',
+                    )}
+                    aria-hidden="true"
+                  >
+                    <span className={cm.cn('material-symbols-outlined fill text-primary text-xl')}>
+                      {p.icon}
+                    </span>
+                  </div>
+                  <h3 className={cm.cn('text-base font-bold text-on-surface leading-snug')}>
+                    {t(`landing.pillar.${p.key}`, {}, { defaultValue: p.title })}
+                  </h3>
+                  <p className={cm.cn('text-sm text-on-surface-variant leading-relaxed')}>
+                    {t(`landing.pillar.${p.key}.body`, {}, { defaultValue: p.body })}
                   </p>
                 </div>
               ))}

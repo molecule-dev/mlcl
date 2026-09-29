@@ -29,7 +29,17 @@ interface ReportsResponse {
   expense_breakdown: ExpenseSlice[]
   cash_flow_history: { month: string; in_cents: number; out_cents: number }[]
   balance_sheet: BalanceSheet
+  top_clients?: { name: string; amount_cents: number }[]
+  aging?: { bucket: string; amount_cents: number }[]
+  aging_total_cents?: number
 }
+
+interface ReportHistoryEntry {
+  name: string
+  at: string
+}
+
+const REPORT_HISTORY_KEY = 'coffer.recent-reports'
 
 function fmtUsd(cents: number): string {
   return `$${(cents / 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
@@ -87,10 +97,35 @@ export function Reports() {
   }, [http, t])
 
   const [exported, setExported] = useState<boolean>(false)
+  const [history, setHistory] = useState<ReportHistoryEntry[]>([])
+
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(REPORT_HISTORY_KEY)
+      if (raw) setHistory(JSON.parse(raw) as ReportHistoryEntry[])
+    } catch (_error) {
+      // malformed history is disposable — start empty
+    }
+  }, [])
+
+  function recordHistory(name: string) {
+    setHistory((prev) => {
+      const next = [{ name, at: new Date().toISOString() }, ...prev].slice(0, 5)
+      try {
+        window.localStorage.setItem(REPORT_HISTORY_KEY, JSON.stringify(next))
+      } catch (_error) {
+        // storage unavailable — the session list still shows the entry
+      }
+      return next
+    })
+  }
 
   function exportReport(): void {
     if (!data) return
     setExported(true)
+    recordHistory(
+      t('reports.history.fullExport', {}, { defaultValue: 'Financial report (CSV export)' }),
+    )
     track({ name: 'report.exported', properties: { report: 'full', format: 'csv' } })
     try {
       const blob = new Blob([buildCsv(data)], { type: 'text/csv;charset=utf-8' })
@@ -187,6 +222,16 @@ export function Reports() {
         </section>
 
         <section className={cm.cn('col-span-12 lg:col-span-5', cm.card(), cm.sp('p', 6))}>
+          <p
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              cm.sp('mb', 1),
+              'uppercase tracking-[0.2em] text-on-surface-variant',
+            )}
+          >
+            {t('reports.expensesByCategory', {}, { defaultValue: 'Expenses by category' })}
+          </p>
           <h2 className={cm.cn(cm.sectionHeading, cm.sp('mb', 4))}>
             {t('reports.expensesHeading', {}, { defaultValue: 'Expense breakdown' })}
           </h2>
@@ -303,6 +348,192 @@ export function Reports() {
           </div>
         </dl>
       </section>
+
+      <div className={cm.cn(cm.grid({ cols: 12, gap: 'md' }))}>
+        <TopClients clients={data.top_clients ?? []} />
+        <AgingReport buckets={data.aging ?? []} totalCents={data.aging_total_cents ?? 0} />
+      </div>
+
+      <RecentReports history={history} />
     </div>
+  )
+}
+
+/** "Top clients by revenue" — highest-paying customers from paid invoices. */
+function TopClients({ clients }: { clients: { name: string; amount_cents: number }[] }) {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const max = Math.max(...clients.map((c) => c.amount_cents), 1)
+  return (
+    <section
+      className={cm.cn('col-span-12 lg:col-span-6', cm.card(), cm.sp('p', 6))}
+      aria-labelledby="reports-top-clients"
+    >
+      <h2 id="reports-top-clients" className={cm.cn(cm.sectionHeading, cm.sp('mb', 4))}>
+        {t('reports.topClientsHeading', {}, { defaultValue: 'Top clients by revenue' })}
+      </h2>
+      {clients.length === 0 ? (
+        <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-on-surface-variant')}>
+          {t(
+            'reports.topClientsEmpty',
+            {},
+            { defaultValue: 'No paid invoices yet — revenue appears once invoices are paid.' },
+          )}
+        </p>
+      ) : (
+        <ul className={cm.cn('space-y-2')}>
+          {clients.map((c) => (
+            <li key={c.name}>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'between' }),
+                  cm.textSize('sm'),
+                  cm.sp('mb', 1),
+                )}
+              >
+                <span className={cm.fontWeight('medium')}>{c.name}</span>
+                <span className={cm.cn('tabular-nums', 'text-on-surface-variant')}>
+                  {fmtUsd(c.amount_cents)}
+                </span>
+              </div>
+              <div className={cm.cn('h-2', cm.roundedFull, 'bg-surface-container overflow-hidden')}>
+                <div
+                  className={cm.cn('h-full bg-primary', cm.roundedFull)}
+                  style={{ width: `${(c.amount_cents / max) * 100}%` }}
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  )
+}
+
+/** "Outstanding invoices aging" — receivables bucketed by days past due. */
+function AgingReport({
+  buckets,
+  totalCents,
+}: {
+  buckets: { bucket: string; amount_cents: number }[]
+  totalCents: number
+}) {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const max = Math.max(...buckets.map((b) => b.amount_cents), 1)
+  return (
+    <section
+      className={cm.cn('col-span-12 lg:col-span-6', cm.card(), cm.sp('p', 6))}
+      aria-labelledby="reports-aging"
+    >
+      <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}>
+        <h2 id="reports-aging" className={cm.sectionHeading}>
+          {t('reports.agingHeading', {}, { defaultValue: 'Outstanding invoices aging' })}
+        </h2>
+        <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+          {t('reports.agingTotal', {}, { defaultValue: 'Total unpaid:' })}{' '}
+          <span className={cm.cn(cm.fontWeight('semibold'), 'tabular-nums')}>
+            {fmtUsd(totalCents)}
+          </span>
+        </span>
+      </div>
+      {buckets.length === 0 ? (
+        <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-on-surface-variant')}>
+          {t('reports.agingEmpty', {}, { defaultValue: 'No outstanding invoices.' })}
+        </p>
+      ) : (
+        <ul className={cm.cn('space-y-3')}>
+          {buckets.map((b) => (
+            <li key={b.bucket}>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'between' }),
+                  cm.textSize('sm'),
+                  cm.sp('mb', 1),
+                )}
+              >
+                <span className={cm.fontWeight('medium')}>
+                  {t(
+                    'reports.agingBucketLabel',
+                    { bucket: b.bucket },
+                    { defaultValue: '{{bucket}} days' },
+                  )}
+                </span>
+                <span className={cm.cn('tabular-nums', 'text-on-surface-variant')}>
+                  {fmtUsd(b.amount_cents)}
+                </span>
+              </div>
+              <div className={cm.cn('h-2', cm.roundedFull, 'bg-surface-container overflow-hidden')}>
+                <div
+                  className={cm.cn(
+                    'h-full',
+                    cm.roundedFull,
+                    b.bucket === '90+' ? 'bg-error' : 'bg-warning',
+                  )}
+                  style={{ width: `${(b.amount_cents / max) * 100}%` }}
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  )
+}
+
+/**
+ * "Recent reports" — the reports this browser generated lately (exports are
+ * recorded locally when the CSV is produced).
+ */
+function RecentReports({ history }: { history: ReportHistoryEntry[] }) {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  return (
+    <section className={cm.cn(cm.card(), cm.sp('p', 6))} aria-labelledby="reports-recent">
+      <h2 id="reports-recent" className={cm.cn(cm.sectionHeading, cm.sp('mb', 4))}>
+        {t('reports.recentHeading', {}, { defaultValue: 'Recent reports' })}
+      </h2>
+      {history.length === 0 ? (
+        <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-on-surface-variant')}>
+          {t('reports.recentEmpty', {}, { defaultValue: 'Reports you export will appear here.' })}
+        </p>
+      ) : (
+        <ul className="space-y-1">
+          {history.map((h, i) => (
+            <li
+              key={`${h.at}-${i}`}
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'between' }),
+                cm.sp('py', 2),
+                'border-b border-outline-variant last:border-b-0',
+              )}
+            >
+              <span className={cm.flex({ align: 'center', gap: 'sm' })}>
+                <span
+                  className={cm.cn(
+                    cm.sp('p', 1),
+                    'rounded-md bg-surface-container flex items-center justify-center',
+                  )}
+                  aria-hidden="true"
+                >
+                  <span
+                    className={cm.cn('material-symbols-outlined text-base text-on-surface-variant')}
+                  >
+                    description
+                  </span>
+                </span>
+                <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>{h.name}</span>
+              </span>
+              <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', 'tabular-nums')}>
+                {new Date(h.at).toLocaleString(undefined, {
+                  dateStyle: 'medium',
+                  timeStyle: 'short',
+                })}
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
   )
 }

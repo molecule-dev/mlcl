@@ -539,6 +539,27 @@ export function Settings() {
               <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
                 {t('settings.account.heading', {}, { defaultValue: 'Account' })}
               </h2>
+              <div className={cm.flex({ direction: 'col', gap: 1 })}>
+                <h3
+                  className={cm.cn(
+                    cm.textSize('base'),
+                    cm.fontWeight('semibold'),
+                    'text-on-surface',
+                  )}
+                >
+                  {t('settings.personalInfoHeading', {}, { defaultValue: 'Personal Information' })}
+                </h3>
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t(
+                    'settings.personalInfoSub',
+                    { appName: APP_NAME },
+                    {
+                      defaultValue:
+                        'Update your personal information and how you appear in {{appName}}.',
+                    },
+                  )}
+                </p>
+              </div>
               <form onSubmit={handleSaveAccount} className={'space-y-4'}>
                 <Field
                   label={t('form.displayName', {}, { defaultValue: 'Display name' })}

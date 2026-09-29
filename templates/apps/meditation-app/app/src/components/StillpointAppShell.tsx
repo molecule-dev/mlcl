@@ -5,7 +5,8 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface NavItem {
   to: string
@@ -124,9 +125,7 @@ export function StillpointAppShell() {
   // wordmark alone).
   const brand = (
     <Link to="/home" className={cm.cn(cm.sp('px', 2), 'block')}>
-      <span className={cm.cn(cm.fontWeight('bold'), 'text-2xl text-primary tracking-tight block')}>
-        {APP_NAME}
-      </span>
+      <BrandWordmark as="span" />
       <span
         className={cm.cn(
           cm.textSize('xs'),
@@ -169,16 +168,8 @@ export function StillpointAppShell() {
       <ResponsiveAppShell.TopBar
         mobileOnly
         brand={
-          <Link
-            to="/home"
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('bold'),
-              'tracking-tight text-primary truncate rounded',
-              FOCUS_RING,
-            )}
-          >
-            {APP_NAME}
+          <Link to="/home" className={cm.cn('truncate rounded', FOCUS_RING)}>
+            <BrandWordmark as="span" size="sm" />
           </Link>
         }
       />

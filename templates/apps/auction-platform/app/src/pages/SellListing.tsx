@@ -199,201 +199,361 @@ export function SellListing() {
         </p>
       </header>
 
-      <form className={cm.cn(cm.stack(8))} onSubmit={handleSubmit}>
-        {/* Photos */}
-        <section
-          className={cm.cn(
-            cm.sp('p', 6),
-            cm.stack(4),
-            'rounded-xl bg-surface border border-outline-variant/40',
-          )}
-        >
-          <header className={cm.stack(1)}>
-            <h2 className={cm.cn('text-lg font-extrabold tracking-tight')}>
-              {t('sellListing.photosHeading', {}, { defaultValue: 'Photos' })}
-            </h2>
-            <p className={cm.cn(cm.textSize('xs'), cm.textMuted)}>
-              {t(
-                'sellListing.photosHint',
-                {},
-                {
-                  defaultValue:
-                    'Add up to 8 high-resolution photos. Listings with 4+ photos win 38% more bids.',
-                },
-              )}
-            </p>
-          </header>
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/*"
-            multiple
-            data-testid="photo-input"
-            className={cm.cn('sr-only')}
-            aria-label={t('sellListing.photoInput', {}, { defaultValue: 'Choose listing photos' })}
-            onChange={handleFilesSelected}
-          />
-          <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-2 sm:grid-cols-4')}>
-            {photos.map((p, idx) => (
-              <div
-                key={idx}
-                className={cm.cn(
-                  'aspect-square rounded-xl border-2 border-primary overflow-hidden relative',
+      <form
+        className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-8 items-start')}
+        onSubmit={handleSubmit}
+      >
+        <div className={cm.cn('lg:col-span-8 stack-y space-y-8 min-w-0')}>
+          <h2 className={cm.cn('text-2xl font-extrabold tracking-tight')}>
+            {t('sellListing.newListingHeading', {}, { defaultValue: 'New listing' })}
+          </h2>
+
+          {/* Photos */}
+          <section
+            className={cm.cn(
+              cm.sp('p', 6),
+              cm.stack(4),
+              'rounded-xl bg-surface border border-outline-variant/40',
+            )}
+          >
+            <header className={cm.stack(1)}>
+              <h2 className={cm.cn('text-lg font-extrabold tracking-tight')}>
+                {t('sellListing.photosHeading', {}, { defaultValue: 'Photos' })}
+              </h2>
+              <p className={cm.cn(cm.textSize('xs'), cm.textMuted)}>
+                {t(
+                  'sellListing.photosHint',
+                  {},
+                  {
+                    defaultValue:
+                      'Add up to 8 high-resolution photos. Listings with 4+ photos win 38% more bids.',
+                  },
                 )}
-                style={{
-                  background:
-                    'linear-gradient(135deg, var(--color-bid-panel), var(--mol-color-background-secondary))',
-                }}
-              >
-                <img
-                  src={p.dataUrl}
-                  alt={t(
-                    'sellListing.photoAlt',
-                    { idx: idx + 1 },
-                    { defaultValue: `Listing photo ${idx + 1}` },
+              </p>
+            </header>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              multiple
+              data-testid="photo-input"
+              className={cm.cn('sr-only')}
+              aria-label={t(
+                'sellListing.photoInput',
+                {},
+                { defaultValue: 'Choose listing photos' },
+              )}
+              onChange={handleFilesSelected}
+            />
+            <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-2 sm:grid-cols-4')}>
+              {photos.map((p, idx) => (
+                <div
+                  key={idx}
+                  className={cm.cn(
+                    'aspect-square rounded-xl border-2 border-primary overflow-hidden relative',
                   )}
-                  className={cm.cn('w-full h-full object-cover')}
-                />
+                  style={{
+                    background:
+                      'linear-gradient(135deg, var(--color-bid-panel), var(--mol-color-background-secondary))',
+                  }}
+                >
+                  <img
+                    src={p.dataUrl}
+                    alt={t(
+                      'sellListing.photoAlt',
+                      { idx: idx + 1 },
+                      { defaultValue: `Listing photo ${idx + 1}` },
+                    )}
+                    className={cm.cn('w-full h-full object-cover')}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => handleRemovePhoto(idx)}
+                    aria-label={t(
+                      'sellListing.removePhoto',
+                      { idx: idx + 1 },
+                      { defaultValue: `Remove photo ${idx + 1}` },
+                    )}
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'absolute top-1 right-1 w-7 h-7 rounded-full text-white',
+                    )}
+                    style={{ background: 'rgba(0,0,0,0.55)' }}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-base')}
+                      aria-hidden="true"
+                    >
+                      close
+                    </span>
+                  </button>
+                </div>
+              ))}
+              {photos.length < 8 ? (
                 <button
                   type="button"
-                  onClick={() => handleRemovePhoto(idx)}
-                  aria-label={t(
-                    'sellListing.removePhoto',
-                    { idx: idx + 1 },
-                    { defaultValue: `Remove photo ${idx + 1}` },
-                  )}
+                  onClick={handleAddPhoto}
                   className={cm.cn(
                     cm.flex({ align: 'center', justify: 'center' }),
-                    'absolute top-1 right-1 w-7 h-7 rounded-full text-white',
+                    'aspect-square rounded-xl border-2 border-dashed transition-colors',
+                    'border-outline-variant hover:border-primary',
                   )}
-                  style={{ background: 'rgba(0,0,0,0.55)' }}
+                  aria-label={t('sellListing.addPhotoCta', {}, { defaultValue: 'Add photos' })}
                 >
-                  <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
-                    close
+                  <span
+                    className={cm.cn('flex flex-col items-center gap-1 text-on-surface-variant')}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-2xl')}
+                      aria-hidden="true"
+                    >
+                      add_a_photo
+                    </span>
+                    <span className={cm.cn('text-xs font-semibold')}>
+                      {t('common.add', {}, { defaultValue: 'Add' })}
+                    </span>
                   </span>
                 </button>
-              </div>
-            ))}
-            {photos.length < 8 ? (
-              <button
-                type="button"
-                onClick={handleAddPhoto}
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  'aspect-square rounded-xl border-2 border-dashed transition-colors',
-                  'border-outline-variant hover:border-primary',
-                )}
-                aria-label={t('sellListing.addPhotoCta', {}, { defaultValue: 'Add photos' })}
-              >
-                <span className={cm.cn('flex flex-col items-center gap-1 text-on-surface-variant')}>
-                  <span className={cm.cn('material-symbols-outlined text-2xl')} aria-hidden="true">
-                    add_a_photo
-                  </span>
-                  <span className={cm.cn('text-xs font-semibold')}>
-                    {t('common.add', {}, { defaultValue: 'Add' })}
-                  </span>
-                </span>
-              </button>
+              ) : null}
+            </div>
+            {photoUploadError ? (
+              <p role="alert" className={cm.cn(cm.textSize('xs'), 'text-error')}>
+                {photoUploadError}
+              </p>
             ) : null}
-          </div>
-          {photoUploadError ? (
-            <p role="alert" className={cm.cn(cm.textSize('xs'), 'text-error')}>
-              {photoUploadError}
-            </p>
-          ) : null}
-        </section>
+          </section>
 
-        {/* Title + description + category */}
-        <section
-          className={cm.cn(
-            cm.sp('p', 6),
-            cm.stack(5),
-            'rounded-xl bg-surface border border-outline-variant/40',
-          )}
-        >
-          <h2 className={cm.cn('text-lg font-extrabold tracking-tight')}>
-            {t('sellListing.detailsHeading', {}, { defaultValue: 'Listing details' })}
-          </h2>
-          <label className={cm.stack(2)}>
-            <span
-              className={cm.cn(
-                'text-xs font-bold uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
-              {t('form.title', {}, { defaultValue: 'Title' })}
-            </span>
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder={t(
-                'sellListing.titlePlaceholder',
-                {},
-                { defaultValue: 'A short, descriptive title' },
-              )}
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 3),
-                'rounded-lg border border-outline-variant bg-surface text-base font-semibold focus:outline-none focus:border-primary',
-              )}
-            />
-          </label>
-          <label className={cm.stack(2)}>
-            <span
-              className={cm.cn(
-                'text-xs font-bold uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
-              {t('form.description', {}, { defaultValue: 'Description' })}
-            </span>
-            <textarea
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              rows={5}
-              placeholder={t(
-                'sellListing.descriptionPlaceholder',
-                {},
-                {
-                  defaultValue:
-                    'Provenance, condition, recent service, signed paperwork, original kit…',
-                },
-              )}
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 3),
-                'rounded-lg border border-outline-variant bg-surface text-sm leading-relaxed focus:outline-none focus:border-primary',
-              )}
-            />
-          </label>
-          <div
-            className={cm.stack(2)}
-            role="group"
-            aria-label={t('form.category', {}, { defaultValue: 'Category' })}
+          {/* Title + description + category */}
+          <section
+            className={cm.cn(
+              cm.sp('p', 6),
+              cm.stack(5),
+              'rounded-xl bg-surface border border-outline-variant/40',
+            )}
           >
-            <span
-              className={cm.cn(
-                'text-xs font-bold uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
-              {t('form.category', {}, { defaultValue: 'Category' })}
-            </span>
-            <div className={cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' })}>
-              {CATEGORIES.map((c) => {
-                const active = c.key === category
-                const label = t(
-                  `sellListing.category.${c.key}`,
+            <h2 className={cm.cn('text-lg font-extrabold tracking-tight')}>
+              {t('sellListing.detailsHeading', {}, { defaultValue: 'Item details' })}
+            </h2>
+            <label className={cm.stack(2)}>
+              <span
+                className={cm.cn(
+                  'text-xs font-bold uppercase tracking-widest text-on-surface-variant',
+                )}
+              >
+                {t('form.title', {}, { defaultValue: 'Title' })}
+              </span>
+              <input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder={t(
+                  'sellListing.titlePlaceholder',
                   {},
-                  { defaultValue: c.defaultLabel },
+                  { defaultValue: 'A short, descriptive title' },
+                )}
+                className={cm.cn(
+                  cm.sp('px', 4),
+                  cm.sp('py', 3),
+                  'rounded-lg border border-outline-variant bg-surface text-base font-semibold focus:outline-none focus:border-primary',
+                )}
+              />
+            </label>
+            <label className={cm.stack(2)}>
+              <span
+                className={cm.cn(
+                  'text-xs font-bold uppercase tracking-widest text-on-surface-variant',
+                )}
+              >
+                {t('form.description', {}, { defaultValue: 'Description' })}
+              </span>
+              <textarea
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                rows={5}
+                placeholder={t(
+                  'sellListing.descriptionPlaceholder',
+                  {},
+                  {
+                    defaultValue:
+                      'Provenance, condition, recent service, signed paperwork, original kit…',
+                  },
+                )}
+                className={cm.cn(
+                  cm.sp('px', 4),
+                  cm.sp('py', 3),
+                  'rounded-lg border border-outline-variant bg-surface text-sm leading-relaxed focus:outline-none focus:border-primary',
+                )}
+              />
+            </label>
+            <div
+              className={cm.stack(2)}
+              role="group"
+              aria-label={t('form.category', {}, { defaultValue: 'Category' })}
+            >
+              <span
+                className={cm.cn(
+                  'text-xs font-bold uppercase tracking-widest text-on-surface-variant',
+                )}
+              >
+                {t('form.category', {}, { defaultValue: 'Category' })}
+              </span>
+              <div className={cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' })}>
+                {CATEGORIES.map((c) => {
+                  const active = c.key === category
+                  const label = t(
+                    `sellListing.category.${c.key}`,
+                    {},
+                    { defaultValue: c.defaultLabel },
+                  )
+                  if (active) {
+                    return (
+                      <span
+                        key={c.key}
+                        aria-current="true"
+                        className={cm.cn(
+                          cm.sp('px', 4),
+                          cm.sp('py', 2),
+                          'rounded-full text-sm font-semibold border text-white border-transparent',
+                        )}
+                        style={{
+                          background:
+                            'linear-gradient(135deg, var(--mol-color-primary), var(--color-primary-gradient-end))',
+                        }}
+                      >
+                        {label}
+                      </span>
+                    )
+                  }
+                  return (
+                    <button
+                      key={c.key}
+                      type="button"
+                      onClick={() => setCategory(c.key)}
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 2),
+                        'rounded-full text-sm font-semibold border transition-colors',
+                        'border-outline-variant text-on-surface-variant hover:text-on-surface',
+                      )}
+                    >
+                      {label}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          </section>
+
+          {/* Pricing */}
+          <section
+            className={cm.cn(
+              cm.sp('p', 6),
+              cm.stack(5),
+              'rounded-xl bg-surface border border-outline-variant/40',
+            )}
+          >
+            <h2 className={cm.cn('text-lg font-extrabold tracking-tight')}>
+              {t('sellListing.pricingHeading', {}, { defaultValue: 'Pricing' })}
+            </h2>
+            <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-3')}>
+              <label className={cm.stack(2)}>
+                <span
+                  className={cm.cn(
+                    'text-xs font-bold uppercase tracking-widest text-on-surface-variant',
+                  )}
+                >
+                  {t('sellListing.startingBidLabel', {}, { defaultValue: 'Starting bid (USD)' })}
+                </span>
+                <input
+                  type="number"
+                  value={startingBid}
+                  onChange={(e) => setStartingBid(Number(e.target.value))}
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 3),
+                    'rounded-lg border border-outline-variant text-base font-semibold tabular-nums focus:outline-none focus:border-primary',
+                  )}
+                />
+              </label>
+              <label className={cm.stack(2)}>
+                <span
+                  className={cm.cn(
+                    'text-xs font-bold uppercase tracking-widest text-on-surface-variant',
+                  )}
+                >
+                  {t('sellListing.reserveLabel', {}, { defaultValue: 'Reserve (optional)' })}
+                </span>
+                <input
+                  type="number"
+                  value={reserve}
+                  onChange={(e) => setReserve(e.target.value === '' ? '' : Number(e.target.value))}
+                  placeholder={t(
+                    'sellListing.reservePlaceholder',
+                    {},
+                    { defaultValue: 'No reserve' },
+                  )}
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 3),
+                    'rounded-lg border border-outline-variant text-base font-semibold tabular-nums focus:outline-none focus:border-primary',
+                  )}
+                />
+              </label>
+              <label className={cm.stack(2)}>
+                <span
+                  className={cm.cn(
+                    'text-xs font-bold uppercase tracking-widest text-on-surface-variant',
+                  )}
+                >
+                  {t('sellListing.buyNowLabel', {}, { defaultValue: 'Buy now (optional)' })}
+                </span>
+                <input
+                  type="number"
+                  value={buyNow}
+                  onChange={(e) => setBuyNow(e.target.value === '' ? '' : Number(e.target.value))}
+                  placeholder={t(
+                    'sellListing.buyNowPlaceholder',
+                    {},
+                    { defaultValue: 'Disable buy-now' },
+                  )}
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 3),
+                    'rounded-lg border border-outline-variant text-base font-semibold tabular-nums focus:outline-none focus:border-primary',
+                  )}
+                />
+              </label>
+            </div>
+          </section>
+
+          {/* Duration */}
+          <section
+            className={cm.cn(
+              cm.sp('p', 6),
+              cm.stack(4),
+              'rounded-xl bg-surface border border-outline-variant/40',
+            )}
+          >
+            <h2 className={cm.cn('text-lg font-extrabold tracking-tight')}>
+              {t('form.duration', {}, { defaultValue: 'Duration' })}
+            </h2>
+            <div className={cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' })}>
+              {DURATIONS.map((d) => {
+                const active = d === duration
+                const label = t(
+                  'sellListing.durationDays',
+                  { count: d },
+                  { defaultValue: '{{count}} days' },
                 )
                 if (active) {
                   return (
                     <span
-                      key={c.key}
+                      key={d}
                       aria-current="true"
                       className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 2),
-                        'rounded-full text-sm font-semibold border text-white border-transparent',
+                        cm.sp('px', 5),
+                        cm.sp('py', 3),
+                        'rounded-xl text-sm font-semibold border text-white border-transparent shadow-sm shadow-primary/30',
                       )}
                       style={{
                         background:
@@ -406,13 +566,13 @@ export function SellListing() {
                 }
                 return (
                   <button
-                    key={c.key}
+                    key={d}
                     type="button"
-                    onClick={() => setCategory(c.key)}
+                    onClick={() => setDuration(d)}
                     className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 2),
-                      'rounded-full text-sm font-semibold border transition-colors',
+                      cm.sp('px', 5),
+                      cm.sp('py', 3),
+                      'rounded-xl text-sm font-semibold border transition-all',
                       'border-outline-variant text-on-surface-variant hover:text-on-surface',
                     )}
                   >
@@ -421,195 +581,164 @@ export function SellListing() {
                 )
               })}
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Pricing */}
-        <section
-          className={cm.cn(
-            cm.sp('p', 6),
-            cm.stack(5),
-            'rounded-xl bg-surface border border-outline-variant/40',
-          )}
-        >
-          <h2 className={cm.cn('text-lg font-extrabold tracking-tight')}>
-            {t('sellListing.pricingHeading', {}, { defaultValue: 'Pricing' })}
-          </h2>
-          <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-3')}>
-            <label className={cm.stack(2)}>
-              <span
-                className={cm.cn(
-                  'text-xs font-bold uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
-                {t('sellListing.startingBidLabel', {}, { defaultValue: 'Starting bid (USD)' })}
-              </span>
-              <input
-                type="number"
-                value={startingBid}
-                onChange={(e) => setStartingBid(Number(e.target.value))}
-                className={cm.cn(
-                  cm.sp('px', 4),
-                  cm.sp('py', 3),
-                  'rounded-lg border border-outline-variant text-base font-semibold tabular-nums focus:outline-none focus:border-primary',
-                )}
-              />
-            </label>
-            <label className={cm.stack(2)}>
-              <span
-                className={cm.cn(
-                  'text-xs font-bold uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
-                {t('sellListing.reserveLabel', {}, { defaultValue: 'Reserve (optional)' })}
-              </span>
-              <input
-                type="number"
-                value={reserve}
-                onChange={(e) => setReserve(e.target.value === '' ? '' : Number(e.target.value))}
-                placeholder={t(
-                  'sellListing.reservePlaceholder',
-                  {},
-                  { defaultValue: 'No reserve' },
-                )}
-                className={cm.cn(
-                  cm.sp('px', 4),
-                  cm.sp('py', 3),
-                  'rounded-lg border border-outline-variant text-base font-semibold tabular-nums focus:outline-none focus:border-primary',
-                )}
-              />
-            </label>
-            <label className={cm.stack(2)}>
-              <span
-                className={cm.cn(
-                  'text-xs font-bold uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
-                {t('sellListing.buyNowLabel', {}, { defaultValue: 'Buy now (optional)' })}
-              </span>
-              <input
-                type="number"
-                value={buyNow}
-                onChange={(e) => setBuyNow(e.target.value === '' ? '' : Number(e.target.value))}
-                placeholder={t(
-                  'sellListing.buyNowPlaceholder',
-                  {},
-                  { defaultValue: 'Disable buy-now' },
-                )}
-                className={cm.cn(
-                  cm.sp('px', 4),
-                  cm.sp('py', 3),
-                  'rounded-lg border border-outline-variant text-base font-semibold tabular-nums focus:outline-none focus:border-primary',
-                )}
-              />
-            </label>
-          </div>
-        </section>
-
-        {/* Duration */}
-        <section
-          className={cm.cn(
-            cm.sp('p', 6),
-            cm.stack(4),
-            'rounded-xl bg-surface border border-outline-variant/40',
-          )}
-        >
-          <h2 className={cm.cn('text-lg font-extrabold tracking-tight')}>
-            {t('form.duration', {}, { defaultValue: 'Duration' })}
-          </h2>
-          <div className={cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' })}>
-            {DURATIONS.map((d) => {
-              const active = d === duration
-              const label = t(
-                'sellListing.durationDays',
-                { count: d },
-                { defaultValue: '{{count}} days' },
-              )
-              if (active) {
-                return (
-                  <span
-                    key={d}
-                    aria-current="true"
-                    className={cm.cn(
-                      cm.sp('px', 5),
-                      cm.sp('py', 3),
-                      'rounded-xl text-sm font-semibold border text-white border-transparent shadow-sm shadow-primary/30',
-                    )}
-                    style={{
-                      background:
-                        'linear-gradient(135deg, var(--mol-color-primary), var(--color-primary-gradient-end))',
-                    }}
-                  >
-                    {label}
-                  </span>
-                )
-              }
-              return (
-                <button
-                  key={d}
-                  type="button"
-                  onClick={() => setDuration(d)}
-                  className={cm.cn(
-                    cm.sp('px', 5),
-                    cm.sp('py', 3),
-                    'rounded-xl text-sm font-semibold border transition-all',
-                    'border-outline-variant text-on-surface-variant hover:text-on-surface',
-                  )}
-                >
-                  {label}
-                </button>
-              )
-            })}
-          </div>
-        </section>
-
-        {submitStatus.message ? (
-          <p
-            role="status"
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              'rounded-lg text-sm font-semibold',
-              submitStatus.kind === 'error'
-                ? 'text-error bg-error/10'
-                : 'text-on-surface-variant bg-surface-container-low',
-            )}
-          >
-            {submitStatus.message}
-          </p>
-        ) : null}
-
-        <div className={cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' })}>
-          <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
-            {t(
-              'sellListing.feeNotice',
-              { fee: '8%' },
-              {
-                defaultValue:
-                  'Final value fee: {{fee}} of sale price. Includes payment processing.',
-              },
-            )}
-          </p>
-          <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <button
-              type="submit"
-              disabled={submitStatus.kind === 'pending'}
+          {submitStatus.message ? (
+            <p
+              role="status"
               className={cm.cn(
-                cm.sp('px', 8),
-                cm.sp('py', 3),
-                'rounded-full text-sm font-bold text-white shadow-md shadow-primary/30 disabled:opacity-60',
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                'rounded-lg text-sm font-semibold',
+                submitStatus.kind === 'error'
+                  ? 'text-error bg-error/10'
+                  : 'text-on-surface-variant bg-surface-container-low',
               )}
-              style={{
-                background:
-                  'linear-gradient(135deg, var(--mol-color-primary), var(--color-primary-gradient-end))',
-              }}
             >
-              {submitStatus.kind === 'pending'
-                ? t('sellListing.submitting', {}, { defaultValue: 'Listing…' })
-                : t('sellListing.submit', {}, { defaultValue: 'Preview & list' })}
-            </button>
+              {submitStatus.message}
+            </p>
+          ) : null}
+
+          <div
+            className={cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' })}
+          >
+            <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
+              {t(
+                'sellListing.feeNotice',
+                { fee: '8%' },
+                {
+                  defaultValue:
+                    'Final value fee: {{fee}} of sale price. Includes payment processing.',
+                },
+              )}
+            </p>
+            <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+              <button
+                type="submit"
+                disabled={submitStatus.kind === 'pending'}
+                className={cm.cn(
+                  cm.sp('px', 8),
+                  cm.sp('py', 3),
+                  'rounded-full text-sm font-bold text-white shadow-md shadow-primary/30 disabled:opacity-60',
+                )}
+                style={{
+                  background:
+                    'linear-gradient(135deg, var(--mol-color-primary), var(--color-primary-gradient-end))',
+                }}
+              >
+                {submitStatus.kind === 'pending'
+                  ? t('sellListing.submitting', {}, { defaultValue: 'Listing…' })
+                  : t('sellListing.submit', {}, { defaultValue: 'Preview & list' })}
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Live preview — the listing exactly as bidders will see it, driven by
+            the live form state. */}
+        <aside className={cm.cn('lg:col-span-4 stack-y space-y-4 lg:sticky lg:top-6')}>
+          <h3
+            className={cm.cn(
+              cm.textSize('xs'),
+              'font-bold uppercase tracking-widest text-on-surface-variant',
+            )}
+          >
+            {t('sellListing.livePreviewHeading', {}, { defaultValue: 'Live preview' })}
+          </h3>
+          <article
+            className={cm.cn(
+              'rounded-xl overflow-hidden border border-outline-variant/40 bg-surface shadow-sm',
+            )}
+            aria-label={t('sellListing.livePreviewLabel', {}, { defaultValue: 'Listing preview' })}
+          >
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                'relative aspect-[4/3]',
+              )}
+              style={{ background: 'var(--color-surface-gradient)' }}
+            >
+              {photos[0] ? (
+                <img
+                  src={photos[0].dataUrl}
+                  alt={t(
+                    'sellListing.previewPhotoAlt',
+                    {},
+                    { defaultValue: 'First listing photo' },
+                  )}
+                  className={cm.cn('absolute inset-0 w-full h-full object-cover')}
+                />
+              ) : (
+                <span
+                  className={cm.cn('material-symbols-outlined text-5xl')}
+                  aria-hidden="true"
+                  style={{ color: 'color-mix(in srgb, var(--mol-color-primary) 55%, transparent)' }}
+                >
+                  image
+                </span>
+              )}
+              <span
+                className={cm.cn(
+                  'absolute top-3 right-0 px-3 py-1 text-xs font-bold text-white shadow-md',
+                )}
+                style={{ background: 'var(--mol-color-primary)' }}
+              >
+                {t('sellListing.previewRibbon', {}, { defaultValue: 'PREVIEW' })}
+              </span>
+            </div>
+            <div className={cm.cn(cm.sp('p', 5), cm.stack(3))}>
+              <p
+                className={cm.cn(
+                  'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+                )}
+              >
+                {t(
+                  `sellListing.category.${category}`,
+                  {},
+                  { defaultValue: CATEGORIES.find((c) => c.key === category)?.defaultLabel ?? '' },
+                )}
+              </p>
+              <h4 className={cm.cn('text-lg font-bold leading-tight line-clamp-2')}>
+                {title.trim() ||
+                  t('sellListing.previewTitlePlaceholder', {}, { defaultValue: 'Your lot title' })}
+              </h4>
+              <div className={cm.flex({ align: 'baseline', justify: 'between' })}>
+                <span className={cm.cn(cm.textSize('xs'), cm.textMuted)}>
+                  {t('sellListing.previewStartingBid', {}, { defaultValue: 'Starting bid' })}
+                </span>
+                <span
+                  className={cm.cn('text-xl font-extrabold tabular-nums')}
+                  style={{ color: 'var(--mol-color-primary)' }}
+                >
+                  ${startingBid.toLocaleString()}
+                </span>
+              </div>
+              <p className={cm.cn(cm.textSize('xs'), cm.textMuted)}>
+                {photos.length} {t('sellListing.previewPhotoCount', {}, { defaultValue: 'photos' })}{' '}
+                ·{' '}
+                {t(
+                  'sellListing.durationDays',
+                  { count: duration },
+                  { defaultValue: '{{count}} days' },
+                )}{' '}
+                {t('sellListing.previewAuctionSuffix', {}, { defaultValue: 'auction' })}
+              </p>
+            </div>
+          </article>
+          <div
+            className={cm.cn(
+              cm.sp('p', 4),
+              cm.flex({ align: 'center', justify: 'between' }),
+              'rounded-lg border border-outline-variant/40 text-sm',
+            )}
+            style={{ background: 'var(--color-surface-secondary)' }}
+          >
+            <span className={cm.textMuted}>
+              {t('sellListing.previewFeeLine', {}, { defaultValue: 'Final value fee' })}
+            </span>
+            <span className={cm.cn('font-bold')}>8%</span>
+          </div>
+        </aside>
       </form>
     </div>
   )
