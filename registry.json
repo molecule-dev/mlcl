@@ -417,7 +417,7 @@
       ],
       "path": "packages/api/bonds/agent-transcript/cursor",
       "intentHints": [
-        "cursor export chat markdown",
+        "cursor export chat",
         "cursor chat export"
       ]
     },
@@ -475,7 +475,7 @@
       ],
       "path": "packages/api/bonds/agent-transcript/markdown-chat",
       "intentHints": [
-        "plain markdown chat transcript",
+        "plain text chat transcript",
         "user assistant chat log"
       ]
     },
