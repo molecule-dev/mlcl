@@ -57876,14 +57876,12 @@
       "@molecule/api-agent-transcript-cursor": "1.0.0",
       "@molecule/api-agent-transcript-cline": "1.0.0",
       "@molecule/api-agent-transcript-opencode": "1.0.0",
-      "@molecule/api-agent-transcript-copilot-chat": "1.0.0",
-      "@molecule/api-agent-transcript-markdown-chat": "1.0.0",
       "@molecule/api-ocr-teleocr": "1.0.0",
       "@molecule/api-ai-speech-audio8": "1.0.0",
       "@molecule/api-ai-speech-nemo-speech": "1.0.0",
       "@molecule/api-ai-speech-llm": "1.0.0",
       "@molecule/api-ai-speech-confucius4": "1.0.0",
-      "@molecule/api-agent-transcript-autodetect": "1.1.0"
+      "@molecule/api-agent-transcript-autodetect": "1.1.1"
     }
   }
 }
