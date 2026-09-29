@@ -49,7 +49,7 @@
     "@molecule/api-password-bcrypt": "1.0.2",
     "@molecule/api-payments": "1.2.1",
     "@molecule/api-resource": "1.0.2",
-    "@molecule/api-resource-device": "1.0.2",
+    "@molecule/api-resource-device": "1.0.3",
     "@molecule/api-resource-user": "1.4.1",
     "@molecule/api-secrets": "1.0.2",
     "@molecule/api-secrets-env": "1.0.2",

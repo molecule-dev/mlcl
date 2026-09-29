@@ -48,7 +48,7 @@
     "@molecule/api-permissions-custom": "1.0.2",
     "@molecule/api-push-notifications": "1.0.2",
     "@molecule/api-resource": "1.0.2",
-    "@molecule/api-resource-device": "1.0.2",
+    "@molecule/api-resource-device": "1.0.3",
     "@molecule/api-resource-user": "1.4.1",
     "@molecule/api-secrets": "1.0.2",
     "@molecule/api-secrets-env": "1.0.2",
