@@ -794,6 +794,88 @@ server.registerTool(
 )
 
 server.registerTool(
+  'generate_image',
+  {
+    title: 'Generate an image with molecule.dev',
+    description:
+      'Generate an image from a text prompt on molecule.dev (OpenAI gpt-image models, no image-vendor account; metered per image to the project whose MOLECULE_API_KEY is used). Every image passes molecule.dev moderation before it returns; a refused prompt or image is an error. Images are written as png to output_file (never overwritten — pick a fresh name); with n > 1 the extra files get -2, -3, -4 suffixes. quality: low for drafts, medium (default), high for finals — generation can take up to a minute on high. The same service backs @molecule/api-ai-image-generation-molecule in app code.',
+    inputSchema: {
+      prompt: z.string().min(1).max(2000).describe('What the image should show'),
+      output_file: z
+        .string()
+        .describe('Where to write the png (must not exist yet), e.g. "assets/logo.png"'),
+      n: z.number().int().min(1).max(4).optional().describe('How many images (default 1, max 4)'),
+      size: z
+        .enum(['1024x1024', '1024x1536', '1536x1024'])
+        .optional()
+        .describe('Image size (default 1024x1024; wide = 1536x1024, tall = 1024x1536)'),
+      quality: z
+        .enum(['low', 'medium', 'high'])
+        .optional()
+        .describe('low (cheap drafts), medium (default), high (slowest, priciest)'),
+      model: z
+        .enum(['gpt-image-1.5', 'gpt-image-1', 'gpt-image-1-mini'])
+        .optional()
+        .describe('Image model (default gpt-image-1.5; -mini is cheapest)'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('generate_image', async ({ prompt, output_file, n, size, quality, model, directory }) =>
+    serviceResult(async () => {
+      const target = resolve(output_file)
+      if (extname(target).toLowerCase() !== '.png') {
+        throw new ServiceCallError('output_file must end in .png — the service returns png bytes.')
+      }
+      if (!existsSync(dirname(target))) {
+        throw new ServiceCallError(`Directory ${dirname(target)} does not exist.`)
+      }
+      if (existsSync(target)) {
+        throw new ServiceCallError(
+          `${target} already exists. Pick a fresh name — the tool never overwrites.`,
+        )
+      }
+      const result = (await callHostedService(
+        'image-generation',
+        'generate',
+        {
+          prompt,
+          ...(n ? { n } : {}),
+          ...(size ? { size } : {}),
+          ...(quality ? { quality } : {}),
+          ...(model ? { model } : {}),
+        },
+        directory,
+      )) as {
+        images?: Array<{ base64?: string; revisedPrompt?: string }>
+        model?: string
+      }
+      const images = (result.images ?? []).filter((i) => typeof i.base64 === 'string')
+      if (images.length === 0) {
+        throw new ServiceCallError('The service returned no image data.')
+      }
+      const suffix = (i: number) => (i === 0 ? '' : `-${i + 1}`)
+      const files = images.map((image, i) => {
+        const path = join(dirname(target), basename(target, '.png') + suffix(i) + '.png')
+        if (existsSync(path)) {
+          throw new ServiceCallError(`${path} already exists. Pick a fresh name.`)
+        }
+        writeFileSync(path, Buffer.from(image.base64 as string, 'base64'), { mode: 0o644 })
+        return path
+      })
+      return JSON.stringify({
+        files,
+        count: files.length,
+        ...(result.model ? { model: result.model } : {}),
+        ...(images[0]?.revisedPrompt ? { revisedPrompt: images[0].revisedPrompt } : {}),
+      })
+    }),
+  ),
+)
+
+server.registerTool(
   'submit_agent_run',
   {
     title: 'Submit an unattended agent run (molecule.dev)',

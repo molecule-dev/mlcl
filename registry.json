@@ -1357,6 +1357,55 @@
         "api.stability.ai"
       ]
     },
+    "@molecule/api-ai-image-generation-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-image-generation",
+      "label": "Ai Image Generation",
+      "description": "molecule.dev hosted image generation provider — images billed to your molecule project, no vendor account",
+      "stack": "api",
+      "implements": "@molecule/api-ai-image-generation",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "IMAGE_GENERATION_SERVICE_LIMITS",
+        "MoleculeServiceError",
+        "MoleculeImageGenerationProvider",
+        "createProvider",
+        "aiImageGenerationMoleculeSecretDefinitions",
+        "MoleculeImageGenerationConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-image-generation",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-image-generation",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-image-generation/molecule",
+      "intentHints": [
+        "hosted image generation",
+        "generate an image without an api key",
+        "ai images billed to my project",
+        "text to image without a vendor account"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
+      ]
+    },
     "@molecule/api-ai-local": {
       "language": "typescript",
       "runtime": "node",
@@ -28291,7 +28340,11 @@
       "intentHints": [
         "detail page layout",
         "item detail shell",
-        "single item page"
+        "single item page",
+        "master-detail layout",
+        "master detail view",
+        "list and detail pages",
+        "selected item side panel"
       ]
     },
     "@molecule/app-device": {
@@ -32341,7 +32394,10 @@
       "intentHints": [
         "integration card",
         "connected app card",
-        "oauth connection card"
+        "oauth connection card",
+        "integrations gallery",
+        "integrations page",
+        "connections list"
       ]
     },
     "@molecule/app-job-listing-row-react": {

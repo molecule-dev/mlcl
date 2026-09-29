@@ -333,6 +333,10 @@ const COVERAGE_EXEMPT: Record<string, string> = {
   '@molecule/api-ai-translation-madlad':
     'Default base URL is `http://127.0.0.1:8765` (the bundled CTranslate2 sidecar on the same ' +
     'host) — not egress at all. The sidecar lifecycle belongs to the app process that spawns it.',
+  '@molecule/api-ai-decisions-laya':
+    'Default base URL is `http://localhost:8000` (a Laya decision server on the same host) — ' +
+    'not egress at all. A project pointing it at a remote host supplies that host itself, so ' +
+    'it belongs in that project’s allowlist, not in the package.',
 }
 
 describe('registry egressHosts coverage vs molecule bond sources', () => {
