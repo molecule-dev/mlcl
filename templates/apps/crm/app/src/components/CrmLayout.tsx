@@ -4,7 +4,7 @@ import { NavLink, Outlet, useLocation, useNavigate } from 'react-router'
 import { useAuth, useTheme, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_ITEMS = [
@@ -142,41 +142,8 @@ export function CrmLayout() {
           className={cm.cn(cm.flex({ align: 'center' }))}
           style={{ gap: '12px', marginBottom: '40px', padding: '0 8px' }}
         >
-          <div
-            className={cm.cn(cm.flex({ align: 'center', justify: 'center' }))}
-            style={{
-              width: '32px',
-              height: '32px',
-              backgroundColor: 'var(--color-primary-container)',
-              borderRadius: '8px',
-              // on-error (white) on primary-container #dbeafe was 1.22:1 (axe serious);
-              // on-primary-container is the matching M3 pair (12.4:1)
-              color: 'var(--color-on-primary-container)',
-            }}
-          >
-            <span
-              className={cm.fv5b245ffa}
-              style={{ fontSize: '18px', fontVariationSettings: "'FILL' 1" }}
-            >
-              dataset
-            </span>
-          </div>
+          <BrandWordmark size="sm" />
           <div>
-            {/* Brand name is intentionally NOT a heading — each page owns the
-                single <h1>; a second one here broke heading order on every route. */}
-            <div
-              aria-hidden="false"
-              style={{
-                fontSize: '20px',
-                fontWeight: 900,
-                color: 'var(--mol-color-text)',
-                letterSpacing: '-0.5px',
-                lineHeight: '24px',
-                margin: 0,
-              }}
-            >
-              {APP_NAME}
-            </div>
             <span
               // outline (#94a3b8) was 2.56:1 on white (axe serious) — use the muted-text token
               style={{

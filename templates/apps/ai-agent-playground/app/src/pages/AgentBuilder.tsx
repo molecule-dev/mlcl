@@ -98,6 +98,8 @@ export function AgentBuilder() {
   const [prompt, setPrompt] = useState('')
   const [name, setName] = useState('')
   const [testInput, setTestInput] = useState('')
+  const [temperature, setTemperature] = useState(0.7)
+  const [maxTokens, setMaxTokens] = useState(1024)
   const [log, setLog] = useState<LogEntry[]>([])
   const [error, setError] = useState<string | null>(null)
   const [info, setInfo] = useState<string | null>(null)
@@ -111,6 +113,14 @@ export function AgentBuilder() {
     setProvider(normalizeProvider(row.provider))
     setModel(row.model || MODELS[normalizeProvider(row.provider)][0])
     setPrompt(row.system_prompt ?? '')
+    setTemperature(
+      typeof row.temperature === 'number' && row.temperature >= 0 && row.temperature <= 2
+        ? row.temperature
+        : 0.7,
+    )
+    setMaxTokens(
+      typeof row.max_tokens === 'number' && row.max_tokens >= 1 ? Math.round(row.max_tokens) : 1024,
+    )
     if (Array.isArray(row.tools_config) && row.tools_config.length > 0) {
       setTools(
         DEFAULT_TOOLS.map((tool) => ({
@@ -161,6 +171,8 @@ export function AgentBuilder() {
         name: name || agent.name,
         provider,
         model,
+        temperature,
+        max_tokens: maxTokens,
         system_prompt: prompt,
         tools_config: tools.map((tool) => ({ name: tool.name, enabled: tool.enabled })),
       })
@@ -309,7 +321,16 @@ export function AgentBuilder() {
           >
             {t('agentBuilder.toolPalette', {}, { defaultValue: 'Tool Palette' })}
           </h2>
-          <div className={cm.cn(cm.stack(2))}>
+          <h3
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.sp('mb', 2),
+              'font-mono uppercase tracking-widest text-on-surface-variant',
+            )}
+          >
+            {t('agentBuilder.builtinHeading', {}, { defaultValue: 'Built-in' })}
+          </h3>
+          <div className={cm.cn(cm.stack(2), cm.sp('mb', 5))}>
             {tools.map((tool) => (
               <button
                 key={tool.name}
@@ -352,6 +373,42 @@ export function AgentBuilder() {
               </button>
             ))}
           </div>
+          <h3
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.sp('mb', 2),
+              cm.flex({ align: 'center', justify: 'between' }),
+              'font-mono uppercase tracking-widest text-on-surface-variant',
+            )}
+          >
+            <span>{t('agentBuilder.customHeading', {}, { defaultValue: 'Custom' })}</span>
+            <Link
+              aria-label={t(
+                'agentBuilder.customAddHint',
+                {},
+                { defaultValue: 'Register a custom tool in the Tool Library' },
+              )}
+              className={cm.cn(
+                cm.w(5),
+                cm.h(5),
+                cm.flex({ align: 'center', justify: 'center' }),
+                'rounded bg-surface-container text-tertiary hover:text-primary transition-colors',
+              )}
+              data-mol-id="agent-builder-custom-add"
+              to="/tools"
+            >
+              <span className="material-symbols-outlined text-[14px]">add</span>
+            </Link>
+          </h3>
+          <p className={cm.cn(cm.textSize('xs'), 'text-tertiary leading-relaxed')}>
+            {t(
+              'agentBuilder.customHint',
+              {},
+              {
+                defaultValue: 'Register custom functions in the Tool Library, then bind them here.',
+              },
+            )}
+          </p>
         </aside>
 
         <section className="col-span-6">
@@ -433,7 +490,59 @@ export function AgentBuilder() {
           />
         </section>
 
-        <aside className="col-span-3">
+        <aside className="col-span-3" data-mol-id="agent-builder-inspector">
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between' }),
+              cm.sp('mb', 4),
+              cm.sp('px', 3),
+              cm.sp('py', 2),
+              'bg-surface-container-low rounded border border-outline-variant/15',
+            )}
+          >
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
+              <span
+                className={cm.cn(
+                  cm.w(6),
+                  cm.h(6),
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'rounded bg-surface-container-highest text-primary',
+                )}
+              >
+                <span className="material-symbols-outlined text-[14px]">tune</span>
+              </span>
+              <h2 className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-on-surface')}>
+                {t('agentBuilder.inspector', {}, { defaultValue: 'Inspector' })}
+              </h2>
+            </div>
+            <span
+              className={cm.cn(
+                cm.sp('px', 2),
+                cm.sp('py', 1),
+                cm.textSize('xs'),
+                'font-mono text-tertiary bg-surface-container-lowest rounded',
+              )}
+            >
+              node_llm
+            </span>
+          </div>
+          <h3
+            className={cm.cn(
+              cm.textSize('lg'),
+              cm.fontWeight('bold'),
+              cm.sp('mb', 1),
+              'text-primary',
+            )}
+          >
+            {t('agentBuilder.nodeLlmCall', {}, { defaultValue: 'LLM Call' })}
+          </h3>
+          <p className={cm.cn(cm.textSize('xs'), cm.sp('mb', 4), 'text-on-surface-variant')}>
+            {t(
+              'agentBuilder.inspectorHint',
+              {},
+              { defaultValue: 'Configure generation parameters and prompt overrides.' },
+            )}
+          </p>
           <h2
             className={cm.cn(
               cm.textSize('xs'),
@@ -494,6 +603,65 @@ export function AgentBuilder() {
               </option>
             ))}
           </select>
+
+          <div className={cm.sp('mt', 5)}>
+            <label className="block" htmlFor="agent-builder-temperature">
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.sp('mb', 2),
+                  cm.flex({ align: 'center', justify: 'between' }),
+                  'font-mono uppercase tracking-wider text-tertiary',
+                )}
+              >
+                <span>
+                  {t('agentBuilder.temperatureLabel', {}, { defaultValue: 'Temperature' })}
+                </span>
+                <span className="font-mono text-primary tabular-nums">
+                  {temperature.toFixed(1)}
+                </span>
+              </span>
+              <input
+                className={cm.cn(
+                  cm.w('full'),
+                  'h-1 bg-surface-container-lowest rounded-full appearance-none cursor-pointer accent-primary',
+                )}
+                data-mol-id="agent-builder-temperature"
+                id="agent-builder-temperature"
+                max={2}
+                min={0}
+                onChange={(e) => setTemperature(Number(e.target.value))}
+                step={0.1}
+                type="range"
+                value={temperature}
+              />
+            </label>
+            <label className={cm.cn(cm.sp('mt', 4), 'block')} htmlFor="agent-builder-max-tokens">
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.sp('mb', 2),
+                  'font-mono uppercase tracking-wider text-tertiary block',
+                )}
+              >
+                {t('agentBuilder.maxTokensLabel', {}, { defaultValue: 'Max Tokens' })}
+              </span>
+              <input
+                className={cm.cn(
+                  cm.w('full'),
+                  cm.sp('p', 3),
+                  cm.textSize('sm'),
+                  'bg-surface-container-low text-on-surface font-mono rounded border border-outline-variant/15 focus:border-secondary focus:outline-none',
+                )}
+                data-mol-id="agent-builder-max-tokens"
+                id="agent-builder-max-tokens"
+                min={1}
+                onChange={(e) => setMaxTokens(Number(e.target.value) || 1024)}
+                type="number"
+                value={maxTokens}
+              />
+            </label>
+          </div>
 
           <div className={cm.sp('mt', 6)}>
             <ExecutionLogPanel entries={log} />

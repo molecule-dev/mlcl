@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { ProgressRing } from '../components/ProgressRing.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
@@ -186,22 +187,7 @@ export function Landing() {
             className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}
             style={{ textDecoration: 'none' }}
           >
-            <span
-              className="material-symbols-outlined"
-              style={{
-                fontSize: '26px',
-                color: 'var(--mol-color-primary)',
-                fontVariationSettings: "'FILL' 1",
-              }}
-            >
-              sailing
-            </span>
-            <span
-              className={cm.cn(cm.fontWeight('bold'), 'text-2xl tracking-tight')}
-              style={{ color: 'var(--mol-color-primary)' }}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark />
           </Link>
           <nav className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'hidden md:flex')}>
             {navLinks.map((l) =>
@@ -880,24 +866,15 @@ export function Landing() {
           style={{ maxWidth: '1280px' }}
         >
           <div>
-            <div
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 'xs' }),
-                cm.fontWeight('bold'),
-                cm.sp('mb', 2),
-              )}
-              style={{ fontSize: '20px', color: 'var(--mol-color-primary)' }}
-            >
-              <span
-                className="material-symbols-outlined"
-                style={{ fontSize: '22px', fontVariationSettings: "'FILL' 1" }}
-              >
-                sailing
-              </span>
-              {APP_NAME}
+            <div className={cm.sp('mb', 2)}>
+              <BrandWordmark as="span" size="md" footer />
             </div>
             <p style={{ fontSize: '14px', color: 'var(--mol-color-text-secondary)' }}>
-              © {new Date().getFullYear()} {APP_NAME}.{' '}
+              {t(
+                'landing.footer.copyright',
+                { year: new Date().getFullYear(), appName: APP_NAME },
+                { defaultValue: '© {{year}} {{appName}}.' },
+              )}{' '}
               {t('landing.footer.built', {}, { defaultValue: 'Built for welcoming teams.' })}
             </p>
           </div>

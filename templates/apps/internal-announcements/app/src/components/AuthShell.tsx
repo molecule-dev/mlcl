@@ -16,6 +16,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 interface AuthShellProps {
@@ -71,20 +72,7 @@ export function AuthShell({ eyebrow, heading, description, children, footer }: A
         )}
       >
         <Link to="/" className={cm.cn(cm.flex({ direction: 'col' }))}>
-          <span
-            className={cm.cn(cm.fontWeight('bold'), 'text-2xl tracking-tight')}
-            style={{ color: 'var(--mol-color-primary, var(--color-priority-normal))' }}
-          >
-            {APP_NAME}
-          </span>
-          <span
-            className={cm.cn(
-              cm.fontWeight('medium'),
-              'text-[10px] uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
-            {APP_TAGLINE}
-          </span>
+          <BrandWordmark as="span" withTagline />
         </Link>
         <ThemeToggle />
       </header>

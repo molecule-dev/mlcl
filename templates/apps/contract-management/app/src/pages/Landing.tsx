@@ -5,6 +5,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { VellumPortfolioHero } from '../components/VellumPortfolioHero.js'
 import { loadContent } from '../config.js'
 
@@ -72,18 +73,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn(
-              cm.textSize('2xl'),
-              cm.fontWeight('bold'),
-              'min-w-0 whitespace-nowrap shrink-0',
-              'tracking-tighter text-primary',
-            )}
-            style={{ fontFamily: 'var(--font-headline)' }}
-          >
-            {APP_NAME}
-          </Link>
+          <BrandWordmark />
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0')}>
             <a
               href="#features"
@@ -508,12 +498,7 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ direction: 'col' }), 'gap-4')}>
-            <span
-              className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-primary')}
-              style={{ fontFamily: 'var(--font-headline)' }}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" size="sm" footer />
             <p
               className={cm.cn(
                 cm.textSize('xs'),

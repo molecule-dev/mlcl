@@ -5,7 +5,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
@@ -102,12 +102,8 @@ export function FaultlineLayout(): ReactElement {
   // Brand — leads the desktop sidebar, rides in the mobile-only TopBar and
   // the Drawer header. Breakpoint-exclusive mounts, so never duplicated.
   const brand = (
-    <Link
-      to={safeTarget('/dashboard')}
-      data-mol-id="nav-brand"
-      className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'block text-on-surface')}
-    >
-      {APP_NAME}
+    <Link to={safeTarget('/dashboard')} data-mol-id="nav-brand" className="block">
+      <BrandWordmark to="/dashboard" as="span" />
     </Link>
   )
 

@@ -8,6 +8,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { APP_NAME } from '../branding.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 const NAV_KEYS = [
   { to: '/dashboard', key: 'dashboard', defaultLabel: 'Today', icon: 'today' },
@@ -82,7 +83,7 @@ function MobileShell() {
           )}
         >
           <Link to="/dashboard" className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
-            {APP_NAME}
+            <BrandWordmark as="span" />
           </Link>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
             <ThemeToggle />

@@ -9,6 +9,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton, LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import MobileNavMenu, { useMainNavItems } from '../components/MobileNavMenu.js'
 import UserMenu from '../components/UserMenu.js'
 
@@ -102,39 +103,7 @@ function BotsList() {
         <div
           className={cm.cn(cm.flex({ align: 'center' }), cm.sp('mb', 10), cm.sp('px', 2), 'gap-3')}
         >
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(10),
-              cm.h(10),
-              'rounded-lg bg-primary',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-white')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              neurology
-            </span>
-          </div>
-          <div className={cm.flex({ direction: 'col' })}>
-            <span
-              className={cm.cn(
-                cm.textSize('xl'),
-                'font-extrabold text-primary dark:text-[var(--color-border-active)] tracking-tighter',
-              )}
-            >
-              {APP_NAME}
-            </span>
-            <span
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                'text-[10px] uppercase tracking-widest text-on-surface-variant opacity-60',
-              )}
-            >
-              {t('sideNavBar.brandTagline', {}, { defaultValue: 'AI Architect' })}
-            </span>
-          </div>
+          <BrandWordmark as="span" withTagline />
         </div>
         <nav className={cm.cn(cm.flex1, cm.stack(1))}>
           {/* Dashboard */}

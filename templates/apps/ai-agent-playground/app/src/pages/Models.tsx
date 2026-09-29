@@ -114,10 +114,10 @@ export function Models() {
           {},
           {
             defaultValue:
-              'Every model registered in this workspace, with live pricing and latency.',
+              'Every model registered in this workspace, with live pricing and latency. Compare providers, set defaults, benchmark latency and cost.',
           },
         )}
-        title={t('nav.models', {}, { defaultValue: 'Models' })}
+        title={t('models.registryTitle', {}, { defaultValue: 'Model Registry' })}
       />
 
       <div

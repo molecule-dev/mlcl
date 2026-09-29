@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { EventTicketingLayout } from './EventTicketingLayout.js'
 
 /**
@@ -58,24 +58,7 @@ export function DiscoveryShell() {
               'font-extrabold tracking-tighter',
             )}
           >
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'w-9 h-9 rounded-xl text-white shadow-md shadow-primary/30',
-              )}
-              style={{
-                background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-              }}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-lg')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-                aria-hidden="true"
-              >
-                confirmation_number
-              </span>
-            </span>
-            <span style={{ color: 'var(--color-primary)' }}>{APP_NAME}</span>
+            <BrandWordmark as="span" />
           </Link>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             <Link

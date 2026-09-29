@@ -6,6 +6,7 @@ import { useLogin, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
 
 export function Login() {
@@ -80,27 +81,7 @@ export function Login() {
               )}
               aria-label={APP_NAME}
             >
-              <span
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  cm.roundedFull,
-                  'bg-gradient-to-br from-primary to-accent shadow-md shadow-primary/30',
-                )}
-                style={{ width: 44, height: 44 }}
-              >
-                <span className="material-symbols-outlined text-white" style={{ fontSize: 26 }}>
-                  inventory_2
-                </span>
-              </span>
-              <span
-                className={cm.cn(
-                  cm.textSize('2xl'),
-                  cm.fontWeight('bold'),
-                  'tracking-tight text-on-surface',
-                )}
-              >
-                {APP_NAME}
-              </span>
+              <BrandWordmark />
             </Link>
             <h1
               className={cm.cn(

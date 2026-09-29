@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -32,35 +32,10 @@ const NAV_KEYS = [
  * SPA-navigation close, and the root flex direction — no app-side shims.
  */
 
-function BrandMark({ cm }: { cm: ReturnType<typeof getClassMap> }) {
+function BrandMark() {
   return (
-    <Link
-      to="/dashboard"
-      data-mol-id="layout-brand"
-      className={cm.cn(
-        cm.flex({ align: 'center', gap: 'sm' }),
-        cm.textSize('lg'),
-        'font-extrabold tracking-tighter min-w-0',
-      )}
-    >
-      <span
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'center' }),
-          'w-8 h-8 rounded-lg text-white shadow-md shadow-primary/30 shrink-0',
-        )}
-        aria-hidden="true"
-        style={{
-          background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-        }}
-      >
-        <span
-          className={cm.cn('material-symbols-outlined text-base')}
-          style={{ fontVariationSettings: "'FILL' 1" }}
-        >
-          confirmation_number
-        </span>
-      </span>
-      {APP_NAME}
+    <Link to="/dashboard" data-mol-id="layout-brand" className="min-w-0">
+      <BrandWordmark to="/dashboard" as="span" size="sm" />
     </Link>
   )
 }
@@ -120,9 +95,9 @@ export function EventTicketingLayout() {
 
   return (
     <ResponsiveAppShell sidebarWidth="md" className="antialiased">
-      <ResponsiveAppShell.TopBar brand={<BrandMark cm={cm} />} actions={<UserMenu />} />
+      <ResponsiveAppShell.TopBar brand={<BrandMark />} actions={<UserMenu />} />
       <ResponsiveAppShell.Sidebar navLabel={navAriaLabel}>{nav}</ResponsiveAppShell.Sidebar>
-      <ResponsiveAppShell.Drawer navLabel={navAriaLabel} header={<BrandMark cm={cm} />}>
+      <ResponsiveAppShell.Drawer navLabel={navAriaLabel} header={<BrandMark />}>
         {nav}
       </ResponsiveAppShell.Drawer>
       <ResponsiveAppShell.Content>

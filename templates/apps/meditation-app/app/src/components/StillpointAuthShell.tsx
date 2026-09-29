@@ -4,7 +4,8 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface StillpointAuthShellProps {
   /** h2 heading ("Welcome back", "Create your account", …). */
@@ -84,17 +85,8 @@ export function StillpointAuthShell({
             'relative z-10 text-center',
           )}
         >
-          <span
-            aria-hidden="true"
-            className={cm.cn('material-symbols-outlined text-white/90 mb-3')}
-            style={{ fontSize: 56, fontVariationSettings: "'FILL' 1" }}
-          >
-            self_improvement
-          </span>
-          <span
-            className={cm.cn('text-[56px] font-black text-white tracking-tight leading-none mb-4')}
-          >
-            {APP_NAME}
+          <span className={cm.cn('leading-none mb-4')}>
+            <BrandWordmark as="span" size="lg" invert />
           </span>
           <span
             className={cm.cn(
@@ -115,10 +107,8 @@ export function StillpointAuthShell({
       >
         <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), 'w-full max-w-[440px]')}>
           <Link to="/" className={cm.cn('lg:hidden text-center mb-2 block')}>
-            <span
-              className={cm.cn(cm.fontWeight('bold'), 'text-4xl text-primary tracking-tight block')}
-            >
-              {APP_NAME}
+            <span className={cm.cn('block')}>
+              <BrandWordmark as="span" size="lg" />
             </span>
             <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mt-1 block')}>
               {t('stillpoint.auth.tagline', {}, { defaultValue: APP_TAGLINE })}

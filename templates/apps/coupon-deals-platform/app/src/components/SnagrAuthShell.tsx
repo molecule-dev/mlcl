@@ -15,7 +15,8 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { TotalSavingsHero } from './TotalSavingsHero.js'
 
 export interface SnagrAuthShellProps {
@@ -71,17 +72,8 @@ export function SnagrAuthShell({ heading, subheading, children, footer }: SnagrA
             )}
           />
 
-          <Link
-            to="/"
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'xs' }),
-              'relative text-3xl font-extrabold italic tracking-tighter',
-            )}
-          >
-            <span className={cm.cn('material-symbols-outlined text-3xl')} aria-hidden="true">
-              local_activity
-            </span>
-            {APP_NAME}
+          <Link to="/" className="relative">
+            <BrandWordmark as="span" invert />
           </Link>
 
           <div className={cm.cn('relative space-y-6 max-w-md')}>
@@ -152,17 +144,8 @@ export function SnagrAuthShell({ heading, subheading, children, footer }: SnagrA
           )}
         >
           <div className={cm.cn(cm.w('full'), 'max-w-[440px] space-y-8')}>
-            <Link
-              to="/"
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
-                'lg:hidden text-3xl font-extrabold italic tracking-tighter text-primary',
-              )}
-            >
-              <span className={cm.cn('material-symbols-outlined text-2xl')} aria-hidden="true">
-                local_activity
-              </span>
-              {APP_NAME}
+            <Link to="/" className="lg:hidden">
+              <BrandWordmark as="span" />
             </Link>
 
             <header className={cm.cn(cm.textCenter)}>

@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 /**
@@ -38,23 +38,7 @@ export function PublicTopNav() {
           data-mol-id="public-nav-brand"
           className={cm.flex({ align: 'center', gap: 'sm' })}
         >
-          <span
-            className="material-symbols-outlined text-primary text-3xl"
-            aria-hidden="true"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            explore
-          </span>
-          <span
-            className={cm.cn(
-              cm.textSize('2xl'),
-              cm.fontWeight('extrabold'),
-              'text-primary tracking-tight',
-            )}
-            style={{ fontFamily: 'var(--font-headline)' }}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" />
         </Link>
         <div className={cm.flex({ align: 'center', gap: 'lg' })}>
           <ThemeToggle />

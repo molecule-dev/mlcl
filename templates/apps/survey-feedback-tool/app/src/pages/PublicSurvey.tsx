@@ -6,6 +6,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 interface Question {
   id: string
@@ -196,21 +197,8 @@ export function PublicSurvey() {
           cm.w('full'),
         )}
       >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(8),
-              cm.h(8),
-              cm.roundedFull,
-              'bg-gradient-to-br from-primary to-secondary text-white',
-            )}
-          >
-            <span className="material-symbols-outlined" style={{ fontSize: 18 }} aria-hidden="true">
-              graphic_eq
-            </span>
-          </span>
-          <span className={cm.cn(cm.fontWeight('bold'), 'tracking-tight')}>{APP_NAME}</span>
+        <div>
+          <BrandWordmark as="span" size="sm" />
         </div>
         {total > 0 && (
           <span

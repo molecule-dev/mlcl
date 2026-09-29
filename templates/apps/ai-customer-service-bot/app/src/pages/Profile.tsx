@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router'
 
 import { get, put } from '@molecule/app-http'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { APP_NAME } from '../branding.js'
 import { ConfidenceMeter } from '../components/ConfidenceMeter.js'
 import { RapportLayout } from '../components/RapportLayout.js'
 import { StatusBadge } from '../components/StatusBadge.js'
@@ -49,6 +51,7 @@ function Profile() {
   const { user } = useAuth<{ name?: string; email?: string }>()
   const [settings, setSettings] = useState<SettingsRow | null>(null)
   const [analytics, setAnalytics] = useState<AnalyticsResponse | null>(null)
+  const [routingTopics, setRoutingTopics] = useState<string[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
@@ -72,6 +75,18 @@ function Profile() {
       )
     } finally {
       setLoading(false)
+    }
+    // Routing topics are secondary content: the distinct knowledge-base
+    // categories this workspace's bot answers and routes by. A failed fetch
+    // just leaves the section empty — never the page-level error state.
+    try {
+      const k = await get<{ category: string }>('/api/knowledge')
+      const rows = Array.isArray(k.data) ? k.data : []
+      setRoutingTopics(
+        [...new Set(rows.map((r) => r.category).filter((c): c is string => Boolean(c)))].sort(),
+      )
+    } catch {
+      setRoutingTopics([])
     }
   }
 
@@ -141,6 +156,14 @@ function Profile() {
           {initials}
         </div>
         <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }), 'z-10')}>
+          <span
+            className={cm.cn(
+              cm.fontWeight('semibold'),
+              'text-[10px] tracking-widest uppercase text-on-primary/80',
+            )}
+          >
+            {t('profile.yourProfile', {}, { defaultValue: 'Your profile' })}
+          </span>
           <h1
             data-mol-id="profile-name"
             className={cm.cn(
@@ -415,6 +438,72 @@ function Profile() {
                   : t('common.saveProfile', {}, { defaultValue: 'Save profile' })}
               </button>
             </form>
+
+            <div
+              data-mol-id="profile-skills"
+              className={cm.cn(
+                cm.flex({ direction: 'col', gap: 3 }),
+                cm.sp('p', 5),
+                'rounded-2xl bg-surface-container-lowest shadow-sm',
+              )}
+            >
+              <h2
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 2 }),
+                  cm.fontWeight('semibold'),
+                  cm.textSize('base'),
+                  'text-on-surface tracking-tight',
+                )}
+              >
+                <span className="material-symbols-outlined text-lg text-primary">
+                  military_tech
+                </span>
+                {t('profile.skills.title', {}, { defaultValue: 'Skills & Routing' })}
+              </h2>
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                {t(
+                  'profile.skills.subtitle',
+                  { appName: APP_NAME },
+                  {
+                    defaultValue:
+                      'Topics {{appName}} routes and answers, drawn from your knowledge base.',
+                  },
+                )}
+              </p>
+              {routingTopics.length === 0 ? (
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {t(
+                    'profile.skills.empty',
+                    {},
+                    {
+                      defaultValue:
+                        'No routing topics yet — publish a knowledge article to define one.',
+                    },
+                  )}
+                </p>
+              ) : (
+                <div className={cm.cn(cm.flex({ gap: 2 }), 'flex-wrap')}>
+                  {routingTopics.map((topic) => (
+                    <Link
+                      key={topic}
+                      data-mol-id={`profile-skill-${topic.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+                      to="/knowledge"
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 1 }),
+                        cm.textSize('xs'),
+                        cm.fontWeight('medium'),
+                        'rounded-md border border-outline-variant/10 bg-surface-container px-2.5 py-1 text-on-surface hover:bg-surface-container-high transition-colors',
+                      )}
+                    >
+                      {topic}
+                      <span className="material-symbols-outlined text-sm text-primary">
+                        arrow_outward
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

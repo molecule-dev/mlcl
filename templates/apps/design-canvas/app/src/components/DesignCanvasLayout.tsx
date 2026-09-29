@@ -5,6 +5,7 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 interface DesignCanvasLayoutProps {
@@ -121,34 +122,8 @@ export function DesignCanvasLayout({
               'h-14',
             )}
           >
-            <Link
-              to="/dashboard"
-              className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0')}
-            >
-              <span
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  cm.w(8),
-                  cm.h(8),
-                  'shrink-0 bg-gradient-to-br from-primary to-secondary rounded-lg text-white shadow-sm',
-                )}
-              >
-                <span
-                  className={cm.cn('material-symbols-outlined text-[18px]')}
-                  style={{ fontVariationSettings: "'FILL' 1" }}
-                >
-                  brush
-                </span>
-              </span>
-              <span
-                className={cm.cn(
-                  cm.textSize('lg'),
-                  cm.fontWeight('bold'),
-                  'tracking-tight text-on-surface truncate',
-                )}
-              >
-                {APP_NAME}
-              </span>
+            <Link to="/dashboard" className="min-w-0">
+              <BrandWordmark as="span" size="sm" />
             </Link>
             <UserMenu />
           </div>
@@ -301,27 +276,8 @@ export function DesignCanvasLayout({
           to="/dashboard"
           className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('px', 6), cm.sp('py', 8))}
         >
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(10),
-              cm.h(10),
-              'bg-gradient-to-br from-primary to-secondary rounded-xl text-white shadow-lg',
-            )}
-          >
-            <span
-              className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              brush
-            </span>
-          </div>
-          <div className={cm.flex({ direction: 'col' })}>
-            <span
-              className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-on-surface')}
-            >
-              {APP_NAME}
-            </span>
+          <span className={cm.cn(cm.flex({ direction: 'col' }), 'gap-1 min-w-0')}>
+            <BrandWordmark as="span" size="lg" />
             <span
               className={cm.cn(
                 cm.fontWeight('semibold'),
@@ -330,7 +286,7 @@ export function DesignCanvasLayout({
             >
               {APP_TAGLINE}
             </span>
-          </div>
+          </span>
         </Link>
 
         <nav className={cm.cn(cm.flex1, cm.sp('px', 3), cm.stack(1))}>

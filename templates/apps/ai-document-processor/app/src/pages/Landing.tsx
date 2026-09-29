@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE, BRAND_GRADIENT } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const FEATURES = [
   {
@@ -212,28 +213,7 @@ export function Landing() {
               'min-w-0 whitespace-nowrap shrink-0',
             )}
           >
-            <span
-              className={cm.cn(
-                cm.w(8),
-                cm.h(8),
-                cm.flex({ align: 'center', justify: 'center' }),
-                'rounded-lg text-white',
-              )}
-              style={{ background: BRAND_GRADIENT }}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined')}
-                style={{ fontSize: 18, fontVariationSettings: "'FILL' 1" }}
-                aria-hidden="true"
-              >
-                description
-              </span>
-            </span>
-            <span
-              className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tighter text-primary')}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" />
           </Link>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0')}>
             <Link

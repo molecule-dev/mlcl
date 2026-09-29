@@ -6,6 +6,7 @@ import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { useMediaQuery } from '../lib/useMediaQuery.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -108,13 +109,9 @@ function MobileShell({ navItems }: { navItems: NavItem[] }) {
             </button>
             <Link
               to="/home"
-              className={cm.cn(
-                cm.textSize('lg'),
-                cm.fontWeight('bold'),
-                'truncate hover:opacity-80 transition-opacity',
-              )}
+              className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'truncate')}
             >
-              {APP_NAME}
+              <BrandWordmark as="span" size="sm" />
             </Link>
           </div>
           <div className={cm.flex({ align: 'center' })}>

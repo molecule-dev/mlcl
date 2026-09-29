@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const FEATURES = [
   {
@@ -84,18 +85,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link
-            to="/"
-            className={
-              'text-xl font-black tracking-tighter text-white uppercase flex items-baseline gap-1.5'
-            }
-          >
-            {APP_NAME}
-            <span
-              className={'w-1.5 h-1.5 rounded-full bg-[var(--color-brand-cyan-bright)]'}
-              aria-hidden="true"
-            />
-          </Link>
+          <BrandWordmark />
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
               <Link
@@ -406,7 +396,7 @@ export function Landing() {
             'py-12 flex flex-col md:flex-row justify-between items-center gap-6',
           )}
         >
-          <div className="text-lg font-black text-white">{APP_NAME}</div>
+          <BrandWordmark as="span" size="sm" footer />
           <div className="flex flex-wrap justify-center gap-6 text-[10px] uppercase tracking-widest text-[var(--color-ops-faint)] [font-family:var(--font-data)]">
             <Link
               to="/privacy"

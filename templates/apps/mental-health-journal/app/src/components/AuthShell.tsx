@@ -11,6 +11,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
@@ -73,14 +74,7 @@ export function AuthShell({ eyebrow, heading, subheading, footer, children }: Au
             cm.textSize('xl'),
           )}
         >
-          <span
-            aria-hidden="true"
-            className={cm.cn('material-symbols-outlined text-2xl')}
-            style={{ color: 'var(--mol-color-primary)', fontVariationSettings: "'FILL' 1" }}
-          >
-            nights_stay
-          </span>
-          <span style={{ letterSpacing: '-0.02em' }}>{APP_NAME}</span>
+          <BrandWordmark as="span" />
         </Link>
         <ThemeToggle />
       </header>

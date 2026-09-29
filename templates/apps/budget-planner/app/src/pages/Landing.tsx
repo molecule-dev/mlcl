@@ -5,6 +5,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { loadContent } from '../config.js'
 
 const FEATURES = [
@@ -88,21 +89,7 @@ export function Landing() {
           )}
         >
           <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <span
-              className={cm.cn(
-                cm.w(8),
-                cm.h(8),
-                cm.roundedFull,
-                cm.flex({ align: 'center', justify: 'center' }),
-                'bg-primary text-white',
-              )}
-              aria-hidden="true"
-            >
-              <span className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}>savings</span>
-            </span>
-            <span className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'tracking-tight')}>
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" size="lg" />
           </Link>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
@@ -496,17 +483,9 @@ export function Landing() {
           )}
         >
           <div className="col-span-2">
-            <span
-              className={cm.cn(
-                cm.textSize('xl'),
-                cm.fontWeight('bold'),
-                'text-primary-dark',
-                cm.sp('mb', 4),
-                'block',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            <div className={cm.cn(cm.sp('mb', 4))}>
+              <BrandWordmark as="span" footer />
+            </div>
             <p className={cm.cn('text-on-surface-variant', cm.sp('mt', 2), cm.textSize('sm'))}>
               {t(
                 'common.copyrightBuiltWithMolecule',

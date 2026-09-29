@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 /**
  * Landing — translated from reference/flagship-apps-designs/design-podcast-landing.html
@@ -158,23 +159,7 @@ export function Landing() {
             'flex-wrap gap-x-6 gap-y-2',
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'sm' }),
-              'text-2xl font-black tracking-tighter italic text-primary',
-            )}
-            style={{ fontFamily: 'var(--font-headline)' }}
-          >
-            <span
-              className={'material-symbols-outlined text-[26px]'}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-              aria-hidden="true"
-            >
-              graphic_eq
-            </span>
-            {APP_NAME}
-          </Link>
+          <BrandWordmark size="lg" />
           <div
             className={cm.cn(
               'hidden md:flex items-center gap-8 text-sm font-medium tracking-tight',
@@ -818,16 +803,9 @@ export function Landing() {
           <div className={'col-span-2 md:col-span-1'}>
             <Link
               to="/"
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 'sm' }),
-                'text-xl font-bold items-center gap-2 mb-4',
-              )}
-              style={{ fontFamily: 'var(--font-headline)' }}
+              className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'items-center gap-2 mb-4')}
             >
-              <span className={'material-symbols-outlined text-primary'} aria-hidden="true">
-                graphic_eq
-              </span>
-              {APP_NAME}
+              <BrandWordmark as="span" size="sm" footer />
             </Link>
           </div>
           <div

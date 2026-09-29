@@ -5,7 +5,7 @@ import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -150,22 +150,7 @@ export function StudentPortalLayout() {
   // the Drawer header. Breakpoint-exclusive mounts, so never duplicated.
   const brand = (
     <NavLink to="/dashboard" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-      <span
-        className={cm.cn(
-          cm.w(10),
-          cm.h(10),
-          cm.roundedFull,
-          cm.flex({ align: 'center', justify: 'center' }),
-          'bg-primary/10 text-primary',
-        )}
-      >
-        <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
-          menu_book
-        </span>
-      </span>
-      <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-primary')}>
-        {APP_NAME}
-      </span>
+      <BrandWordmark as="span" />
     </NavLink>
   )
 

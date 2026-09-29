@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 /**
  * Shared public-page top navigation, mirroring the Landing hero nav so brand
@@ -36,13 +36,8 @@ export function PublicTopNav() {
         )}
       >
         <div className={cm.cn(cm.flex({ align: 'center', gap: 12 }))}>
-          <Link
-            to="/"
-            className={cm.cn(
-              'min-w-0 whitespace-nowrap shrink-0 text-2xl font-bold tracking-tighter text-on-surface',
-            )}
-          >
-            {APP_NAME}
+          <Link to="/" className={cm.cn('min-w-0 shrink-0')}>
+            <BrandWordmark as="span" />
           </Link>
         </div>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }), 'min-w-0 whitespace-nowrap')}>

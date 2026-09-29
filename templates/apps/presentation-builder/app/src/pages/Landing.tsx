@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 /**
@@ -76,29 +77,7 @@ export function Landing() {
           'sticky top-0 z-30 bg-surface/95 backdrop-blur-md border-b border-outline-variant/60 shadow-sm',
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'group')}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(8),
-              cm.h(8),
-              'rounded bg-primary/10 overflow-hidden',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-primary text-[20px]')}
-              aria-hidden="true"
-            >
-              highlight
-            </span>
-          </span>
-          <span
-            className={cm.cn(cm.textSize('xl'), 'font-black tracking-tighter text-on-surface')}
-            style={{ fontFamily: 'var(--font-headline)' }}
-          >
-            {APP_NAME}
-          </span>
-        </Link>
+        <BrandWordmark size="lg" />
         <nav className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden md:flex')}>
           <Link
             to="/templates"
@@ -519,8 +498,8 @@ export function Landing() {
               'items-center md:items-start',
             )}
           >
-            <Link to="/" className={cnFooterBrand} style={{ fontFamily: 'var(--font-headline)' }}>
-              {APP_NAME}
+            <Link to="/" className={cnFooterBrand}>
+              <BrandWordmark as="span" size="sm" footer invert />
             </Link>
             {/* App-scoped key: the shared `common.copyrightBuiltWithMolecule`
                 already contains ". Built with Molecule.dev", which duplicated

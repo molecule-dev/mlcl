@@ -6,6 +6,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 
 interface NoshAuthShellProps {
@@ -85,10 +86,8 @@ export function NoshAuthShell({ heading, subheading, footer, children }: NoshAut
             'relative z-10 text-center',
           )}
         >
-          <span
-            className={cm.cn('text-[56px] font-black text-white tracking-tight leading-none mb-4')}
-          >
-            {APP_NAME}
+          <span className={cm.cn('block mb-4')}>
+            <BrandWordmark as="span" size="xl" invert />
           </span>
           <span className={cm.cn(cm.textSize('xl'), 'text-white/90 font-medium')}>
             {t('nosh.auth.tagline', {}, { defaultValue: APP_TAGLINE })}
@@ -104,11 +103,7 @@ export function NoshAuthShell({ heading, subheading, footer, children }: NoshAut
       >
         <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), 'w-full max-w-[440px]')}>
           <Link to="/" className={cm.cn('lg:hidden text-center mb-2 block')}>
-            <span
-              className={cm.cn(cm.fontWeight('bold'), 'text-4xl text-primary tracking-tight block')}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" size="lg" />
             <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mt-1 block')}>
               {t('nosh.auth.tagline', {}, { defaultValue: APP_TAGLINE })}
             </span>

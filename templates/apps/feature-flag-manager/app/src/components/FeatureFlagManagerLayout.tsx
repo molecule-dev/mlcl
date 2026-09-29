@@ -5,7 +5,7 @@ import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { PennantBrandMark } from './PennantBrandMark.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
@@ -206,13 +206,13 @@ export function FeatureFlagManagerLayout({ children }: LayoutProps) {
       className={cm.cn('flex items-center gap-2 px-5 py-5 border-b')}
       style={{ borderColor: 'rgba(30, 41, 59, 0.7)' }}
     >
-      <PennantBrandMark size="md" showPulse />
+      <BrandWordmark as="span" size="md" pulse />
     </Link>
   )
 
   const mobileBrand = (
     <Link to="/dashboard" className={cm.cn('flex items-center')}>
-      <PennantBrandMark size="sm" />
+      <BrandWordmark as="span" size="sm" />
     </Link>
   )
 

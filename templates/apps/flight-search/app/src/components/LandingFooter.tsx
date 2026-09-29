@@ -5,6 +5,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 
 /**
@@ -32,20 +33,7 @@ export function LandingFooter() {
             cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
           )}
         >
-          <div>
-            <span
-              className={cm.cn(
-                cm.textSize('xl'),
-                cm.fontWeight('bold'),
-                'text-primary tracking-tight',
-              )}
-            >
-              {APP_NAME}
-            </span>
-            <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
-              {t('landing.footer.tagline', {}, { defaultValue: 'Every route, one search.' })}
-            </p>
-          </div>
+          <BrandWordmark as="span" footer withTagline />
           <div
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'lg', wrap: 'wrap' }),

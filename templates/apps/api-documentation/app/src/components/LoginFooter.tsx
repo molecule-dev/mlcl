@@ -3,6 +3,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 import { SafeLink } from './SafeLink.js'
 
@@ -35,12 +36,8 @@ function LoginFooter() {
           'md:flex-row',
         )}
       >
-        <SafeLink
-          to="/"
-          className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'tracking-tight')}
-          style={{ color: 'var(--mol-color-text)' }}
-        >
-          {APP_NAME}
+        <SafeLink to="/">
+          <BrandWordmark as="span" footer size="sm" />
         </SafeLink>
         <nav
           className={cm.cn(cm.flex({ wrap: 'wrap', justify: 'center', gap: 'lg' }))}

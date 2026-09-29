@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const FEATURES = [
   {
@@ -68,32 +69,7 @@ export function Landing() {
             'mx-auto',
           )}
         >
-          <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'h-8 w-8 rounded-lg shadow-sm',
-              )}
-              style={{
-                background:
-                  'linear-gradient(135deg, var(--color-primary-hover), var(--color-gradient-end))',
-              }}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-white text-base')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-                aria-hidden="true"
-              >
-                receipt_long
-              </span>
-            </span>
-            <span
-              className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}
-              style={{ color: 'var(--color-primary-hover)' }}
-            >
-              {APP_NAME}
-            </span>
-          </Link>
+          <BrandWordmark />
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             <Link
               to="/pricing"

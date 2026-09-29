@@ -4,7 +4,8 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Branded centered-card auth shell — soft lavender background with the
@@ -67,13 +68,8 @@ export function PlumeAuthShell({
         {/* Brand wordmark */}
         <div className={cm.cn(cm.textCenter, cm.sp('mb', 8))}>
           <Link to="/" className={cm.cn('inline-block')}>
-            <h1
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                'text-3xl tracking-tight font-serif text-primary',
-              )}
-            >
-              {APP_NAME}
+            <h1 className={cm.cn(cm.fontWeight('bold'), 'tracking-tight')}>
+              <BrandWordmark as="span" size="lg" />
             </h1>
           </Link>
           <p

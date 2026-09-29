@@ -4,7 +4,7 @@ import { AuthShellCardColumn } from '@molecule/app-auth-shell-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { Footer } from './Footer.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { useIsMobile } from './useIsMobile.js'
@@ -46,35 +46,7 @@ export function AuthShell({ eyebrow, title, subtitle, children, footnote }: Auth
         style={{ padding: '20px 32px' }}
       >
         <Link to="/" style={{ textDecoration: 'none' }}>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            <span
-              style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '12px',
-                backgroundColor: 'var(--color-accent)',
-                color: 'var(--color-sidebar-text-active)',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: 800,
-                fontSize: '16px',
-                boxShadow: '0 6px 18px var(--color-accent-shadow)',
-              }}
-            >
-              R
-            </span>
-            <span
-              style={{
-                fontSize: '20px',
-                fontWeight: 800,
-                letterSpacing: '-0.02em',
-                color: 'var(--color-primary-dark)',
-              }}
-            >
-              {APP_NAME}
-            </span>
-          </div>
+          <BrandWordmark as="span" />
         </Link>
         <ThemeToggle />
       </header>

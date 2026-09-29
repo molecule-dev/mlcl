@@ -18,7 +18,8 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface NavItem {
   to: string
@@ -101,20 +102,7 @@ export function ForumLayout() {
   // header slot (the shared Sidebar has no header, per the Meridian pattern).
   const brandBlock = (
     <Link to="/feed" className={cm.cn(cm.flex({ direction: 'col' }))}>
-      <span
-        className={cm.cn(cm.fontWeight('bold'), 'text-2xl tracking-tight')}
-        style={{ color: 'var(--color-primary, var(--color-pinned))' }}
-      >
-        {APP_NAME}
-      </span>
-      <span
-        className={cm.cn(
-          cm.fontWeight('medium'),
-          'text-[10px] uppercase tracking-widest text-on-surface-variant',
-        )}
-      >
-        {APP_TAGLINE}
-      </span>
+      <BrandWordmark as="span" withTagline />
     </Link>
   )
 
@@ -237,7 +225,7 @@ export function ForumLayout() {
             to="/feed"
             className={cm.cn(cm.fontWeight('bold'), 'text-xl tracking-tight text-on-surface')}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </Link>
         }
         actions={

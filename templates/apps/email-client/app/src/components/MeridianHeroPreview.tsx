@@ -1,6 +1,6 @@
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Decorative 3-pane Meridian inbox mockup for the Landing hero. Shows
@@ -36,32 +36,7 @@ export function MeridianHeroPreview() {
             'h-12 border-b border-outline-variant/40 bg-surface-container-lowest relative',
           )}
         >
-          <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <span
-              className={cm.cn(
-                cm.w(6),
-                cm.h(6),
-                cm.flex({ align: 'center', justify: 'center' }),
-                'rounded-md bg-gradient-to-br from-primary to-secondary text-white',
-              )}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-sm')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                mail
-              </span>
-            </span>
-            <span
-              className={cm.cn(
-                cm.textSize('sm'),
-                cm.fontWeight('bold'),
-                'text-primary tracking-tight',
-              )}
-            >
-              {APP_NAME}
-            </span>
-          </div>
+          <BrandWordmark as="span" size="sm" />
           <div
             className={cm.cn(
               cm.flex({ align: 'center' }),

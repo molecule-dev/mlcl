@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 function SettingsTopBar() {
   const cm = getClassMap()
@@ -21,15 +21,7 @@ function SettingsTopBar() {
       )}
     >
       <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-6')}>
-        <span
-          className={cm.cn(
-            cm.textSize('lg'),
-            cm.fontWeight('bold'),
-            'tracking-tight text-on-background',
-          )}
-        >
-          {APP_NAME}
-        </span>
+        <BrandWordmark size="sm" />
         <div
           className={cm.cn(
             cm.flex({ align: 'center' }),

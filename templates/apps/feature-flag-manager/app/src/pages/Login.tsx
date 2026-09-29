@@ -7,7 +7,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_TAGLINE } from '../branding.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
-import { PennantBrandMark } from '../components/PennantBrandMark.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const SURFACE_DARK = 'var(--color-background)'
 const PANEL = 'var(--color-surface)'
@@ -102,7 +102,7 @@ export function Login() {
                 </span>
               </div>
             </div>
-            <PennantBrandMark size="lg" />
+            <BrandWordmark as="span" size="lg" />
             <p className={cm.cn('mt-2 font-mono text-xs text-on-surface-variant')}>
               <span className={cm.cn('opacity-60')}>v4.2.0 · </span>
               {APP_TAGLINE}

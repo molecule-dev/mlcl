@@ -4,7 +4,7 @@ import { Link, Outlet, useLocation, useNavigate } from 'react-router'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 export interface MobileNavItem {
   to: string
@@ -116,12 +116,10 @@ export function MobileNavShell({ logoTo = '/dashboard', navItems }: MobileNavShe
           <Link
             to={logoTo}
             className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('extrabold'),
-              'tracking-tight text-on-background truncate focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded',
+              'truncate rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
             )}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </Link>
         </div>
         <div className={cm.cn(cm.flex({ align: 'center' }), 'shrink-0')}>
@@ -170,15 +168,7 @@ export function MobileNavShell({ logoTo = '/dashboard', navItems }: MobileNavShe
             <div
               className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 6))}
             >
-              <span
-                className={cm.cn(
-                  cm.textSize('2xl'),
-                  cm.fontWeight('extrabold'),
-                  'text-on-background',
-                )}
-              >
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" size="sm" />
               <button
                 type="button"
                 aria-label={t('mobileNav.closeMenu', {}, { defaultValue: 'Close navigation menu' })}

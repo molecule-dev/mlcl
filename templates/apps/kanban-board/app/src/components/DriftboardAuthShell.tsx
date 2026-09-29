@@ -4,7 +4,8 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 /**
@@ -56,27 +57,7 @@ export function DriftboardAuthShell({
         )}
       >
         <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-          <span
-            className={cm.cn(
-              cm.w(9),
-              cm.h(9),
-              cm.flex({ align: 'center', justify: 'center' }),
-              'rounded-xl text-white shadow-md',
-              'bg-gradient-to-br from-primary to-primary-container',
-            )}
-          >
-            <span
-              className="material-symbols-outlined"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              dashboard
-            </span>
-          </span>
-          <span
-            className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-on-surface')}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" />
         </Link>
         <ThemeToggle />
       </header>

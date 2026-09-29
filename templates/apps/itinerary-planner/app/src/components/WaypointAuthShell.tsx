@@ -21,6 +21,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 interface WaypointAuthShellProps {
@@ -81,23 +82,7 @@ export function WaypointAuthShell({
           )}
         >
           <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <span
-              className="material-symbols-outlined text-primary text-3xl"
-              aria-hidden="true"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              explore
-            </span>
-            <span
-              className={cm.cn(
-                cm.textSize('2xl'),
-                cm.fontWeight('extrabold'),
-                'text-primary tracking-tight',
-              )}
-              style={{ fontFamily: 'var(--font-headline)' }}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" />
           </Link>
           <ThemeToggle />
         </div>

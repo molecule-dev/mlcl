@@ -5,6 +5,7 @@ import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { CampaignCard } from '../components/CampaignCard.js'
 import { CampaignHeroBanner } from '../components/CampaignHeroBanner.js'
 import { CategoryFilterBar } from '../components/CategoryFilterBar.js'
@@ -87,12 +88,7 @@ export function Landing() {
           'sticky top-0 z-40 bg-surface/90 backdrop-blur border-b border-outline-variant',
         )}
       >
-        <Link
-          to="/"
-          className={cm.cn(cm.textSize('2xl'), 'font-black tracking-tighter text-on-surface')}
-        >
-          {APP_NAME}
-        </Link>
+        <BrandWordmark />
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
           <Link
             to="/discover"

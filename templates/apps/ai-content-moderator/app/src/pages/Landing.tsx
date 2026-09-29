@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_DESCRIPTION, APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { SafeLink } from '../components/SafeLink.js'
 
 const FEATURES = [
@@ -138,12 +139,8 @@ export function Landing() {
         )}
       >
         <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-10')}>
-          <SafeLink
-            to="/"
-            className={cm.cn('text-2xl font-black text-white tracking-tighter')}
-            aria-label={APP_NAME}
-          >
-            {APP_NAME}
+          <SafeLink to="/" className={cm.cn('shrink-0')} aria-label={APP_NAME}>
+            <BrandWordmark as="span" invert />
           </SafeLink>
           <nav className={cm.cn(cm.flex({ align: 'center' }), 'hidden md:flex gap-6')}>
             <a
@@ -554,15 +551,18 @@ export function Landing() {
           )}
         >
           <div className={cm.cn('md:col-span-2')}>
-            <div className={cm.cn('text-lg font-bold text-white mb-6')}>{APP_NAME}</div>
+            <div className={cm.cn('mb-6')}>
+              <BrandWordmark as="span" invert footer size="sm" />
+            </div>
             <p
               className={cm.cn('text-navy-faint normal-case tracking-normal text-sm max-w-sm mb-6')}
             >
-              © {new Date().getFullYear()} {APP_NAME}.{' '}
               {t(
-                'landing.footer.tagline',
-                {},
-                { defaultValue: 'The Digital Curator. All rights reserved.' },
+                'landing.footer.copyright',
+                { year: new Date().getFullYear(), appName: APP_NAME },
+                {
+                  defaultValue: `© ${new Date().getFullYear()} ${APP_NAME}. The Digital Curator. All rights reserved.`,
+                },
               )}
             </p>
           </div>

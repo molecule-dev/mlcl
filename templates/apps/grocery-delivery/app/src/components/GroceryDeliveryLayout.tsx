@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -83,8 +83,8 @@ export function GroceryDeliveryLayout() {
       <ResponsiveAppShell.TopBar
         mobileOnly
         brand={
-          <Link to="/shop" className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
-            {APP_NAME}
+          <Link to="/shop" className={cm.cn('shrink-0')}>
+            <BrandWordmark as="span" />
           </Link>
         }
         actions={<UserMenu />}
@@ -107,8 +107,8 @@ export function GroceryDeliveryLayout() {
           </span>
         }
       >
-        <Link to="/shop" className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'block')}>
-          {APP_NAME}
+        <Link to="/shop" className={cm.cn('block')}>
+          <BrandWordmark as="span" />
         </Link>
         {nav}
       </ResponsiveAppShell.Sidebar>

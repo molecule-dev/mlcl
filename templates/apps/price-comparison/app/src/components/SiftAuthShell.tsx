@@ -11,12 +11,12 @@
  * lifetime savings dashboard will look like.
  */
 import type { ReactNode } from 'react'
-import { Link } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { SavingsHeroCard } from './SavingsHeroCard.js'
 
 export interface SiftAuthShellProps {
@@ -72,18 +72,7 @@ export function SiftAuthShell({ heading, subheading, children, footer }: SiftAut
             )}
           />
 
-          <Link
-            to="/"
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'xs' }),
-              'relative text-3xl font-extrabold tracking-tighter',
-            )}
-          >
-            <span className={cm.cn('material-symbols-outlined text-3xl')} aria-hidden="true">
-              filter_alt
-            </span>
-            {APP_NAME}
-          </Link>
+          <BrandWordmark size="lg" invert />
 
           <div className={cm.cn('relative space-y-6 max-w-md')}>
             <h2
@@ -157,18 +146,7 @@ export function SiftAuthShell({ heading, subheading, children, footer }: SiftAut
           )}
         >
           <div className={cm.cn(cm.w('full'), 'max-w-[440px] space-y-8')}>
-            <Link
-              to="/"
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
-                'lg:hidden text-3xl font-extrabold tracking-tighter text-primary',
-              )}
-            >
-              <span className={cm.cn('material-symbols-outlined text-2xl')} aria-hidden="true">
-                filter_alt
-              </span>
-              {APP_NAME}
-            </Link>
+            <BrandWordmark size="lg" />
 
             <header className={cm.cn(cm.textCenter)}>
               <h1

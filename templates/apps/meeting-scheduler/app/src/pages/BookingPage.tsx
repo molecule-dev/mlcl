@@ -15,7 +15,7 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { TimeSlotPicker } from '../components/TimeSlotPicker.js'
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -300,29 +300,7 @@ export function BookingPage() {
         )}
       >
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <span
-            className={cm.cn(
-              cm.w(8),
-              cm.h(8),
-              cm.roundedFull,
-              cm.flex({ align: 'center', justify: 'center' }),
-            )}
-            style={{
-              background:
-                'linear-gradient(135deg, var(--color-primary), var(--color-primary-gradient-to))',
-            }}
-            aria-hidden="true"
-          >
-            <span
-              className={'material-symbols-outlined text-white text-base'}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              schedule
-            </span>
-          </span>
-          <span className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="sm" />
         </Link>
         <span
           className={cm.cn(

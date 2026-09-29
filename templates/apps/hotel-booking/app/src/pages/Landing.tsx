@@ -7,6 +7,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { DestinationDiscoveryCard } from '../components/DestinationDiscoveryCard.js'
 import { PropertyListingCard } from '../components/PropertyListingCard.js'
 import { SojournHeroSearchCard } from '../components/SojournHeroSearchCard.js'
@@ -122,14 +123,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <span
-              className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'text-primary')}
-              style={{ fontFamily: 'var(--font-headline)', fontWeight: 400 }}
-            >
-              {APP_NAME}
-            </span>
-          </Link>
+          <BrandWordmark />
           <div className={cm.flex({ align: 'center', gap: 'lg' })}>
             <Link
               to="/search"
@@ -541,17 +535,7 @@ export function Landing() {
               cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
             )}
           >
-            <div>
-              <span
-                className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'text-primary')}
-                style={{ fontFamily: 'var(--font-headline)', fontWeight: 400 }}
-              >
-                {APP_NAME}
-              </span>
-              <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
-                {t('landing.footer.tagline', {}, { defaultValue: 'Stay somewhere extraordinary.' })}
-              </p>
-            </div>
+            <BrandWordmark as="span" footer withTagline />
             <div
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),

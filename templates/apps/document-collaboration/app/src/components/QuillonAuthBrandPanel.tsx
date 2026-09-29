@@ -1,7 +1,8 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Editorial brand panel for Quillon's auth split-screen layout —
@@ -78,15 +79,7 @@ export function QuillonAuthBrandPanel({
       />
 
       <div className={cm.cn('relative z-10')}>
-        <p
-          className={cm.cn(
-            cm.textSize('5xl'),
-            cm.fontWeight('extrabold'),
-            'tracking-tight text-white',
-          )}
-        >
-          {APP_NAME}
-        </p>
+        <BrandWordmark as="span" size="lg" invert />
         <p className={cm.cn(cm.sp('mt', 3), cm.textSize('xl'), 'text-white/85')}>{APP_TAGLINE}.</p>
       </div>
 

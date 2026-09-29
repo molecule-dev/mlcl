@@ -3,7 +3,8 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, BRAND_GRADIENT } from '../branding.js'
+import { BRAND_GRADIENT } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Public, brand-consistent top navigation shared by the Landing page and the
@@ -32,28 +33,7 @@ export function PublicTopNav() {
           cm.mxAuto,
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <span
-            className={cm.cn(
-              cm.w(8),
-              cm.h(8),
-              cm.flex({ align: 'center', justify: 'center' }),
-              'rounded-lg text-white',
-            )}
-            style={{ background: BRAND_GRADIENT }}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined')}
-              style={{ fontSize: 18, fontVariationSettings: "'FILL' 1" }}
-              aria-hidden="true"
-            >
-              psychology
-            </span>
-          </span>
-          <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-primary')}>
-            {APP_NAME}
-          </span>
-        </Link>
+        <BrandWordmark />
         <div className={cm.flex({ align: 'center', gap: 'md' })}>
           {isAuthenticated ? (
             <Link

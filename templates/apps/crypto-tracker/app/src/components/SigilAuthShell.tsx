@@ -15,6 +15,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
@@ -72,13 +73,8 @@ export function SigilAuthShell({
             aria-hidden="true"
           />
 
-          <header className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'relative z-10')}>
-            <SigilGlyph />
-            <span
-              className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-stone-50')}
-            >
-              {APP_NAME}
-            </span>
+          <header className="relative z-10">
+            <BrandWordmark as="span" invert />
           </header>
 
           <div className={cm.cn('relative z-10 max-w-md space-y-6')}>
@@ -211,33 +207,6 @@ export function SigilAuthShell({
         </main>
       </div>
     </div>
-  )
-}
-
-function SigilGlyph() {
-  return (
-    <svg
-      width="32"
-      height="32"
-      viewBox="0 0 32 32"
-      fill="none"
-      aria-hidden="true"
-      className="text-primary"
-    >
-      <path
-        d="M16 2 L29 9 V23 L16 30 L3 23 V9 Z"
-        stroke="currentColor"
-        strokeWidth="2"
-        fill="rgba(245,158,11,0.10)"
-      />
-      <path
-        d="M16 8 V16 M16 16 L23 20 M16 16 L9 20"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <circle cx="16" cy="16" r="2" fill="currentColor" />
-    </svg>
   )
 }
 

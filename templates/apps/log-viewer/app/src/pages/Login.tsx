@@ -7,6 +7,7 @@ import { useLogin, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
 import { loadContent } from '../config.js'
 
@@ -107,7 +108,7 @@ export function Login() {
               </div>
             </div>
             <h1 className={cm.cn('text-4xl font-extrabold tracking-tighter text-on-surface')}>
-              {APP_NAME}
+              <BrandWordmark as="span" size="lg" />
             </h1>
             <p className={cm.cn('mt-1 font-mono text-xs text-on-surface-variant')}>
               <span className={cm.cn('opacity-60')}>v3.1.0 · </span>

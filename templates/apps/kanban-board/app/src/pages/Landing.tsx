@@ -3,7 +3,8 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 // Design feature set (Stitch "Driftboard" landing): six capability cards in a
@@ -143,12 +144,7 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
-            <Link
-              to="/"
-              className={cm.cn(cm.textSize('xl'), 'font-black tracking-tighter text-primary')}
-            >
-              {APP_NAME}
-            </Link>
+            <BrandWordmark />
             <nav className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'hidden md:flex')}>
               <a href="#features" className={navLink}>
                 {t('nav.features', {}, { defaultValue: 'Features' })}
@@ -629,15 +625,7 @@ export function Landing() {
       <footer className={cm.cn('w-full bg-surface-container-low px-6 py-16')}>
         <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, 'grid grid-cols-2 gap-12 md:grid-cols-4')}>
           <div className={cm.cn('col-span-2 md:col-span-1')}>
-            <Link
-              to="/"
-              className={cm.cn(cm.sp('mb', 4), cm.textSize('xl'), 'block font-black text-primary')}
-            >
-              {APP_NAME}
-            </Link>
-            <p className={cm.cn(cm.sp('mb', 6), cm.textSize('sm'), 'text-on-surface-variant')}>
-              {APP_TAGLINE}
-            </p>
+            <BrandWordmark as="span" footer withTagline />
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t(
                 'landing.copyright',

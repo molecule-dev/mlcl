@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const SECTIONS = [
   { key: 'branding', icon: 'palette', defaultLabel: 'Branding' },
@@ -157,7 +158,9 @@ export function Settings() {
                   >
                     {t('settingsPage.branding.appName', {}, { defaultValue: 'App name' })}
                   </dt>
-                  <dd className={cm.cn('mt-1 font-mono text-base font-extrabold')}>{APP_NAME}</dd>
+                  <dd className={cm.cn('mt-1')}>
+                    <BrandWordmark as="span" size="sm" />
+                  </dd>
                 </div>
                 <div className={cm.cn('mt-2')}>
                   <dt

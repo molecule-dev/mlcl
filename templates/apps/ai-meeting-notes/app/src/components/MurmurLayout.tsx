@@ -6,6 +6,7 @@ import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -149,7 +150,7 @@ function MobileNavShell({ navItems, navAriaLabel }: { navItems: NavItem[]; navAr
           to="/dashboard"
           className={cm.cn('min-w-0 flex-1 truncate font-bold', cm.textSize('lg'))}
         >
-          {APP_NAME}
+          <BrandWordmark as="span" size="sm" />
         </Link>
         <div className={cm.cn('w-40 max-w-[45vw] shrink-0', cm.sp('pr', 1))}>
           <UserMenu />
@@ -181,7 +182,7 @@ function MobileNavShell({ navItems, navAriaLabel }: { navItems: NavItem[]; navAr
             )}
           >
             <div className={cm.cn('flex items-center justify-between', cm.sp('pb', 3))}>
-              <span className={cm.cn('truncate font-bold', cm.textSize('base'))}>{APP_NAME}</span>
+              <BrandWordmark as="span" size="sm" />
               <button
                 type="button"
                 onClick={() => setDrawerOpen(false)}

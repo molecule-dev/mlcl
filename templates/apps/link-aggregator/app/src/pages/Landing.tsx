@@ -5,6 +5,7 @@ import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { type LinkPost, timeAgo } from '../components/LinkPostCard.js'
 import { formatCount, type SubSummary } from '../components/SubBadge.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
@@ -319,15 +320,7 @@ export function Landing() {
       >
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
           <Link to="/" aria-label={APP_NAME} className="whitespace-nowrap shrink-0">
-            <span
-              className={cm.cn(
-                cm.textSize('2xl'),
-                cm.fontWeight('extrabold'),
-                'tracking-tighter text-primary',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" size="lg" />
           </Link>
           <nav
             className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'hidden md:flex')}
@@ -713,9 +706,7 @@ export function Landing() {
               'max-w-7xl w-full mx-auto md:flex-row gap-6 text-center md:text-left',
             )}
           >
-            <div className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
-              {APP_NAME}
-            </div>
+            <BrandWordmark footer as="span" />
             <div
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'md' }),

@@ -5,6 +5,7 @@ import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { EventCard, type EventSummary } from '../components/EventCard.js'
 
 const FEATURES = [
@@ -123,24 +124,7 @@ export function Landing() {
               'font-extrabold tracking-tighter',
             )}
           >
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'w-9 h-9 rounded-xl text-white shadow-md shadow-primary/30',
-              )}
-              style={{
-                background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-              }}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-lg')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-                aria-hidden="true"
-              >
-                confirmation_number
-              </span>
-            </span>
-            <span style={{ color: 'var(--color-primary)' }}>{APP_NAME}</span>
+            <BrandWordmark as="span" />
           </Link>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             <Link
@@ -697,12 +681,9 @@ export function Landing() {
           )}
         >
           <div className={cm.cn('col-span-2 md:col-span-1')}>
-            <p
-              className={cm.cn('text-xl font-extrabold tracking-tighter')}
-              style={{ color: 'var(--color-primary)' }}
-            >
-              {APP_NAME}
-            </p>
+            <div className={cm.sp('mb', 1)}>
+              <BrandWordmark as="span" size="sm" footer />
+            </div>
             <p className={cm.cn('mt-3 text-on-surface-variant leading-relaxed')}>
               {t(
                 'landing.footerTagline',

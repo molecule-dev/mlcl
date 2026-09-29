@@ -5,6 +5,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 // Mirrors api/src/tiers.ts (Free / Pro / Team) — keep names, prices, and
 // limits in sync with getPricingTiers() and the /pricing page.
@@ -127,15 +128,7 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
-            <Link
-              to="/"
-              className={cm.cn(
-                cm.textSize('xl'),
-                'shrink-0 whitespace-nowrap font-black tracking-tight text-primary',
-              )}
-            >
-              {APP_NAME}
-            </Link>
+            <BrandWordmark />
             <div className={cm.cn('hidden gap-6 md:flex')}>
               <Link
                 to="/jobs"
@@ -788,12 +781,7 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.textCenter, 'md:text-left')}>
-            <Link
-              to="/"
-              className={cm.cn(cm.sp('mb', 2), cm.textSize('xl'), 'block font-black text-primary')}
-            >
-              {APP_NAME}
-            </Link>
+            <BrandWordmark as="span" size="sm" footer />
             <p className={cm.cn(cm.textSize('sm'))}>
               {t(
                 'landing.copyright',

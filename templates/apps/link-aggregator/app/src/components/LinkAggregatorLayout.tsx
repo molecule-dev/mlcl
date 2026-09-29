@@ -25,6 +25,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -69,27 +70,7 @@ export function LinkAggregatorLayout() {
       className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}
       aria-label={APP_NAME}
     >
-      <span
-        className={cm.cn(
-          cm.w(8),
-          cm.h(8),
-          cm.flex({ align: 'center', justify: 'center' }),
-          cm.roundedFull,
-          'bg-gradient-to-br from-primary to-[var(--color-primary-deep)] text-white',
-        )}
-        aria-hidden="true"
-      >
-        <span className={'material-symbols-outlined text-lg'}>terrain</span>
-      </span>
-      <span
-        className={cm.cn(
-          cm.fontWeight('bold'),
-          cm.textSize('xl'),
-          'tracking-tight text-on-surface',
-        )}
-      >
-        {APP_NAME}
-      </span>
+      <BrandWordmark as="span" />
     </Link>
   )
 

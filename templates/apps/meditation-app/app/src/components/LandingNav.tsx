@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Public top navigation for Stillpoint's marketing surfaces (Landing, About,
@@ -37,21 +38,7 @@ export function LandingNav() {
           data-mol-id="landing-nav-home"
           className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}
         >
-          <span
-            aria-hidden="true"
-            className={cm.cn('material-symbols-outlined text-primary')}
-            style={{ fontVariationSettings: "'FILL' 0" }}
-          >
-            trip_origin
-          </span>
-          <span
-            className={cm.cn(
-              cm.fontWeight('medium'),
-              'text-2xl text-primary tracking-tighter font-headline',
-            )}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" />
         </Link>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden md:flex text-sm')}>
           <Link

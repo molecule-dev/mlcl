@@ -13,7 +13,7 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface AuthShellProps {
   /** Form heading (e.g. "Welcome back"). */
@@ -55,23 +55,8 @@ function AuthShell({ heading, subheading, children, footer }: AuthShellProps) {
           )}
         >
           <div className={cm.cn('relative z-10')}>
-            <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-              <span
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  cm.w(10),
-                  cm.h(10),
-                  cm.roundedFull,
-                  'bg-surface/20 backdrop-blur-md',
-                )}
-              >
-                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
-                  forum
-                </span>
-              </span>
-              <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
-                {APP_NAME}
-              </span>
+            <Link to="/">
+              <BrandWordmark as="span" invert />
             </Link>
             <p
               className={cm.cn(

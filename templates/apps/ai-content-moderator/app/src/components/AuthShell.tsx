@@ -5,7 +5,8 @@ import { AuthShellCardColumn, AuthShellPanel } from '@molecule/app-auth-shell-re
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_DESCRIPTION, APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_DESCRIPTION, APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface AuthShellProps {
   /** Form heading shown above the form (e.g. "Welcome back"). */
@@ -45,16 +46,7 @@ export function AuthShell({ heading, subheading, children, footer }: AuthShellPr
           aria-hidden="true"
         >
           <Link to="/" className={cm.cn('z-10 inline-block')} tabIndex={-1}>
-            <h1 className={cm.cn('font-headline font-black text-3xl tracking-tighter text-white')}>
-              {APP_NAME}
-            </h1>
-            <p
-              className={cm.cn(
-                'font-headline text-secondary-fixed-dim mt-2 text-xs tracking-widest uppercase font-bold',
-              )}
-            >
-              {APP_TAGLINE}
-            </p>
+            <BrandWordmark as="span" invert size="lg" withTagline />
           </Link>
           <div className={cm.cn('z-10 max-w-md')}>
             <h2
@@ -154,14 +146,8 @@ export function AuthShell({ heading, subheading, children, footer }: AuthShellPr
           }}
         >
           {/* Mobile brand */}
-          <Link to="/" className={cm.cn('absolute top-8 left-8 lg:hidden')}>
-            <h1
-              className={cm.cn(
-                'font-headline font-black text-2xl tracking-tighter text-on-surface',
-              )}
-            >
-              {APP_NAME}
-            </h1>
+          <Link to="/" className={cm.cn('absolute top-8 left-8 lg:hidden')} aria-label={APP_NAME}>
+            <BrandWordmark as="span" />
           </Link>
           <div className={cm.cn('w-full max-w-[400px]')}>
             <header className={cm.cn('mb-10')}>

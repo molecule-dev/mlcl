@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { CategoryCard } from '../components/CategoryCard.js'
 import { Footer } from '../components/Footer.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
@@ -112,29 +113,8 @@ export function Landing() {
           'sticky top-0 z-30 backdrop-blur-md bg-surface/80 border-b border-outline-variant/30',
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <span
-            aria-hidden
-            className={cm.cn(
-              cm.w(8),
-              cm.h(8),
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.fontWeight('bold'),
-              cm.roundedFull,
-              'bg-gradient-to-br from-primary to-secondary text-white text-sm shadow-md shadow-primary/30',
-            )}
-          >
-            S
-          </span>
-          <span
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('bold'),
-              'text-on-surface tracking-tight',
-            )}
-          >
-            {APP_NAME}
-          </span>
+        <Link to="/">
+          <BrandWordmark as="span" />
         </Link>
         <nav className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
           <a

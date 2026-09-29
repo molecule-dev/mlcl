@@ -67,7 +67,7 @@ const FEATURES: Feature[] = [
     defaultTitle: 'Compose every loop',
     bodyKey: 'landing.feature1Body',
     defaultBody:
-      'Wire prompts, tools, and providers into deterministic agent graphs. Swap models without touching downstream contracts.',
+      'A visual agent builder for mapping complex logic flows: drag prompts, tools, and providers onto one canvas that compiles to deterministic agent graphs — swap models without touching downstream contracts.',
   },
   {
     ill: 'registry',
@@ -76,7 +76,7 @@ const FEATURES: Feature[] = [
     defaultTitle: 'Watch every step',
     bodyKey: 'landing.feature2Body',
     defaultBody:
-      'Trace tool calls, token spend, and latency live. Inspect failures with a full execution log instead of a stack trace.',
+      'A typed tool registry for custom functions and third-party integrations. Trace tool calls, token spend, and latency live — inspect failures with a full execution log instead of a stack trace.',
   },
   {
     ill: 'trace',
@@ -314,7 +314,7 @@ const TIMELINE: Array<{
     iconTone: 'text-brand-purple',
     titleKey: 'landing.timeline.toolTitle',
     defaultTitle: 'Tool executing: webSearch',
-    titleTone: 'text-brand-purple',
+    titleTone: 'text-secondary',
     detailKey: 'landing.timeline.toolDetail',
     defaultDetail: 'Querying: "Q3 2026 economic market trends analysis"',
   },
@@ -358,16 +358,16 @@ function FeatureIllustration({ ill }: { ill: FeatureIll }) {
       <div className="h-40 bg-surface-container-lowest rounded-lg mb-6 border border-outline-variant/10 p-4 relative flex flex-col justify-center">
         <div className="space-y-2 font-mono text-[10px]">
           <div className="bg-surface-container p-2 rounded border border-outline-variant/10 flex justify-between">
-            <span className="text-brand-purple">web_search</span>
-            <span className="text-on-surface-variant/50">v1.2.0</span>
+            <span className="text-brand-cyan">web_search</span>
+            <span className="text-on-surface-variant">v1.2.0</span>
           </div>
           <div className="bg-surface-container p-2 rounded border border-outline-variant/10 flex justify-between">
-            <span className="text-brand-cyan">read_file</span>
-            <span className="text-on-surface-variant/50">v2.0.1</span>
+            <span className="text-on-surface-variant">read_file</span>
+            <span className="text-on-surface-variant">v2.0.1</span>
           </div>
-          <div className="bg-surface-container p-2 rounded border border-outline-variant/10 flex justify-between opacity-50">
-            <span className="text-on-surface">execute_sql</span>
-            <span className="text-on-surface-variant/50">v0.9.beta</span>
+          <div className="bg-surface-container p-2 rounded border border-outline-variant/10 flex justify-between">
+            <span className="text-tertiary">execute_sql</span>
+            <span className="text-tertiary">v0.9.beta</span>
           </div>
         </div>
       </div>
@@ -398,7 +398,7 @@ function TerminalLogLines({ cm }: { cm: Cm }) {
       {LOG_LINES.map((line) => (
         <div
           key={line.time + line.segments[0].key}
-          className={cm.cn(cm.flex({ gap: 4 }), 'mb-1 text-on-surface-variant/50')}
+          className={cm.cn(cm.flex({ gap: 4 }), 'mb-1 text-on-surface-variant')}
         >
           <span className="w-20 shrink-0">{line.time}</span>
           <span>
@@ -552,7 +552,7 @@ export function Landing() {
 
         {/* Social-proof band */}
         <section className="max-w-7xl mx-auto px-6 py-12 border-t border-outline-variant/10">
-          <p className="text-center text-sm font-mono text-on-surface-variant mb-8 uppercase tracking-widest opacity-60">
+          <p className="text-center text-sm font-mono text-on-surface-variant mb-8 uppercase tracking-widest">
             {t('landing.trust.heading', {}, { defaultValue: 'Powering next-gen workflows' })}
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale">
@@ -704,7 +704,7 @@ export function Landing() {
                 }
               >
                 {tier.popular ? (
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-orange text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  <div className="badge-brand absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                     {t('landing.tier.popularBadge', {}, { defaultValue: 'Most popular' })}
                   </div>
                 ) : null}

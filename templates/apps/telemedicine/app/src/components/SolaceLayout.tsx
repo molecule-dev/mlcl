@@ -6,6 +6,7 @@ import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -145,11 +146,8 @@ export function SolaceLayout() {
           overflowY: 'auto',
         }}
       >
-        <Link
-          to="/dashboard"
-          className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 2))}
-        >
-          {APP_NAME}
+        <Link to="/dashboard" className={cm.cn(cm.sp('mb', 2))}>
+          <BrandWordmark as="span" size="sm" />
         </Link>
         <nav className={cm.cn(cm.flex({ direction: 'col' }), 'gap-1')}>
           {navItems.map((item) => {
@@ -212,11 +210,8 @@ export function SolaceLayout() {
               {drawerOpen ? 'close' : 'menu'}
             </span>
           </button>
-          <Link
-            to="/dashboard"
-            className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), cm.sp('py', 2), 'shrink-0')}
-          >
-            {APP_NAME}
+          <Link to="/dashboard" className={cm.cn(cm.sp('py', 2), 'shrink-0')}>
+            <BrandWordmark as="span" size="sm" />
           </Link>
         </div>
         <div className={cm.cn(cm.shrink0, 'min-w-0 max-w-[10rem]')}>

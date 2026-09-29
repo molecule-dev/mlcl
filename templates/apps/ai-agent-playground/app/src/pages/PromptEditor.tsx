@@ -1,6 +1,6 @@
 // Pattern source: bespoke — Neuron prompt editing screen with version side-rail.
 // Authed editor — large mono textarea, version history (client snapshots), publish via PUT /agents/:id.
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -12,6 +12,10 @@ interface AgentRow {
   id: string
   name?: string
   system_prompt?: string
+  provider?: string
+  model?: string
+  temperature?: number
+  max_tokens?: number
 }
 
 interface PromptVersion {
@@ -23,6 +27,18 @@ interface PromptVersion {
 
 function makeVersionId(): string {
   return `v${Date.now().toString(36).slice(-6)}`
+}
+
+// Template variables: `{name}` or `{{name}}` placeholders found in the draft.
+const VARIABLE_PATTERN = /\{\{\s*([a-zA-Z_][\w.-]*)\s*\}\}|\{\s*([a-zA-Z_][\w.-]*)\s*\}/g
+
+function extractVariables(text: string): string[] {
+  const found = new Set<string>()
+  for (const match of text.matchAll(VARIABLE_PATTERN)) {
+    const name = match[1] ?? match[2]
+    if (name) found.add(name)
+  }
+  return [...found]
 }
 
 export function PromptEditor() {
@@ -90,6 +106,15 @@ export function PromptEditor() {
     setPrompt(version.content)
     setInfo(t('promptEditor.versionLoaded', { id: version.id }, { defaultValue: 'Loaded {{id}}' }))
   }
+
+  const variables = useMemo(() => extractVariables(prompt), [prompt])
+  // Rough pre-flight estimate (~4 chars per token) for the inference meter.
+  const estimatedTokens = Math.ceil(prompt.length / 4)
+  const meterPct = Math.min(100, Math.round((estimatedTokens / 8192) * 100))
+  const temperatureLabel =
+    typeof agent?.temperature === 'number' ? agent.temperature.toFixed(2) : '0.70'
+  const maxTokensLabel =
+    typeof agent?.max_tokens === 'number' ? String(Math.round(agent.max_tokens)) : '1024'
 
   return (
     <div data-mol-id="page-prompt-editor">
@@ -159,7 +184,61 @@ export function PromptEditor() {
       )}
 
       <div className={cm.cn(cm.grid({ cols: 12, gap: 6 }))}>
-        <section className="col-span-9">
+        <aside className="col-span-3" data-mol-id="prompt-variables">
+          <h2
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.sp('mb', 3),
+              'font-mono uppercase tracking-wider text-tertiary',
+            )}
+          >
+            {t('promptEditor.variables', {}, { defaultValue: 'Variables' })}
+          </h2>
+          {variables.length === 0 ? (
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.sp('p', 3),
+                'text-tertiary leading-relaxed rounded border border-dashed border-outline-variant/30',
+              )}
+            >
+              {t(
+                'promptEditor.noVariables',
+                {},
+                {
+                  defaultValue:
+                    'No variables yet — add {name} placeholders to the prompt and they appear here.',
+                },
+              )}
+            </p>
+          ) : (
+            <div className={cm.stack(2)}>
+              {variables.map((name) => (
+                <div
+                  key={name}
+                  className={cm.cn(
+                    cm.sp('p', 2),
+                    'bg-surface-container-lowest rounded border border-outline-variant/15',
+                  )}
+                  data-mol-id="prompt-variable-chip"
+                >
+                  <div className={cm.cn(cm.textSize('xs'), 'font-mono text-primary mb-1')}>
+                    {`{${name}}`}
+                  </div>
+                  <div className={cm.cn(cm.textSize('xs'), 'text-tertiary truncate font-mono')}>
+                    {t(
+                      'promptEditor.variableFromPrompt',
+                      {},
+                      { defaultValue: 'filled from the run input' },
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </aside>
+
+        <section className="col-span-6">
           <div
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'between' }),
@@ -239,6 +318,97 @@ export function PromptEditor() {
           )}
         </section>
         <aside className="col-span-3">
+          <div data-mol-id="prompt-inference">
+            <h2
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.sp('mb', 3),
+                'font-mono uppercase tracking-wider text-tertiary',
+              )}
+            >
+              {t('promptEditor.inferenceSetup', {}, { defaultValue: 'Inference Setup' })}
+            </h2>
+            <div
+              className={cm.cn(
+                cm.sp('p', 4),
+                cm.sp('mb', 6),
+                'bg-surface-container-low rounded border border-outline-variant/15',
+              )}
+            >
+              <div className={cm.stack(3)}>
+                <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
+                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                    {t('agentBuilder.provider', {}, { defaultValue: 'Provider' })}
+                  </span>
+                  <span
+                    className={cm.cn(
+                      cm.sp('px', 2),
+                      cm.sp('py', 1),
+                      cm.textSize('xs'),
+                      'font-mono uppercase tracking-wider rounded border border-primary/40 text-primary bg-surface-container',
+                    )}
+                  >
+                    {agent?.provider ?? 'anthropic'}
+                  </span>
+                </div>
+                <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
+                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                    {t('form.model', {}, { defaultValue: 'Model' })}
+                  </span>
+                  <span className={cm.cn(cm.textSize('xs'), 'font-mono text-on-surface truncate')}>
+                    {agent?.model ?? '—'}
+                  </span>
+                </div>
+                <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
+                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                    {t('agentBuilder.temperatureLabel', {}, { defaultValue: 'Temperature' })}
+                  </span>
+                  <span className={cm.cn(cm.textSize('xs'), 'font-mono text-on-surface')}>
+                    {temperatureLabel}
+                  </span>
+                </div>
+                <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
+                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                    {t('agentBuilder.maxTokensLabel', {}, { defaultValue: 'Max Tokens' })}
+                  </span>
+                  <span className={cm.cn(cm.textSize('xs'), 'font-mono text-on-surface')}>
+                    {maxTokensLabel}
+                  </span>
+                </div>
+              </div>
+              <div className={cm.sp('mt', 4)}>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between' }),
+                    cm.sp('mb', 2),
+                  )}
+                >
+                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                    {t(
+                      'promptEditor.estimatedTokens',
+                      {},
+                      { defaultValue: 'Estimated tokens (est.)' },
+                    )}
+                  </span>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('semibold'),
+                      'font-mono text-secondary tabular-nums',
+                    )}
+                  >
+                    {estimatedTokens.toLocaleString()}
+                  </span>
+                </div>
+                <div className="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-secondary rounded-full"
+                    style={{ width: `${meterPct}%` }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
           <h2
             className={cm.cn(
               cm.textSize('xs'),

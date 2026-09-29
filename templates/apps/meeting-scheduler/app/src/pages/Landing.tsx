@@ -5,6 +5,7 @@ import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 /**
  * Gradient CTA + brand treatment shared by nav, hero and closing CTA —
@@ -155,7 +156,7 @@ export function Landing() {
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
             <Link to="/" className={cm.cn(cm.textSize('xl'), 'font-black tracking-tighter')}>
-              {APP_NAME}
+              <BrandWordmark as="span" />
             </Link>
             <div
               className={cm.cn(
@@ -849,7 +850,7 @@ export function Landing() {
         >
           <div className={cm.cn('md:col-span-2')}>
             <div className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), cm.sp('mb', 3))}>
-              {APP_NAME}
+              <BrandWordmark footer as="span" size="sm" />
             </div>
             <p
               className={cm.cn(

@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Public top navigation shared across the marketing/legal surfaces
@@ -37,20 +37,7 @@ export function LandingTopNavBar() {
           className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
           data-mol-id="nav-logo"
         >
-          <span
-            aria-hidden="true"
-            className={cm.cn(
-              'flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-container shadow-md',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-white text-lg')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              psychology
-            </span>
-          </span>
-          <span className={cm.cn(cm.fontWeight('bold'), 'text-xl tracking-tight')}>{APP_NAME}</span>
+          <BrandWordmark as="span" />
         </Link>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'shrink-0')}>
           {/* Pricing + Sign in collapse away on phones — the wordmark plus the

@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { CommandPaletteCard, type PaletteResult } from '../components/CommandPaletteCard.js'
 import { KbdBadge } from '../components/KbdBadge.js'
 import { type SnippetItem, SnippetRow } from '../components/SnippetRow.js'
@@ -132,20 +133,7 @@ export function Landing() {
             'h-16',
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'tracking-tighter lowercase')}
-            style={{ color: 'var(--color-primary)' }}
-          >
-            <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
-              {APP_NAME.toLowerCase()}
-            </span>
-            <span
-              aria-hidden="true"
-              className={cm.cn('rounded-full')}
-              style={{ width: 6, height: 6, background: 'var(--color-primary)' }}
-            />
-          </Link>
+          <BrandWordmark />
           <div
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'md' }),
@@ -622,7 +610,7 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.stack(2), 'items-center md:items-start')}>
-            <span className={cm.cn(cm.fontWeight('bold'), 'text-on-surface')}>{APP_NAME}</span>
+            <BrandWordmark as="span" size="sm" footer />
             <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
               {t(
                 'landing.footerTagline',

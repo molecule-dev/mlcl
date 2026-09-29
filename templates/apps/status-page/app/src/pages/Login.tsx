@@ -7,6 +7,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 export function Login() {
   const cm = getClassMap()
@@ -96,7 +97,9 @@ export function Login() {
                 </span>
               </div>
             </div>
-            <h1 className={cm.cn('text-4xl font-extrabold tracking-tight')}>{APP_NAME}</h1>
+            <h1>
+              <BrandWordmark as="span" size="lg" />
+            </h1>
             <p className={cm.cn('mt-1 font-mono text-xs text-on-surface-variant')}>
               {/* de-emphasis via the muted token alone — an opacity-60 wrapper dropped
                   this to 3.38:1 on the dark canvas (axe fail) */}

@@ -6,6 +6,7 @@ import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
@@ -58,26 +59,9 @@ function BrandMark({ cm, logoTo }: { cm: ReturnType<typeof getClassMap>; logoTo:
     <Link
       to={samePath ? `${logoTo}#top` : logoTo}
       data-mol-id="layout-brand"
-      className={cm.cn(
-        cm.flex({ align: 'center', gap: 'sm' }),
-        cm.textSize('lg'),
-        'font-extrabold tracking-tighter min-w-0',
-      )}
-      style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
+      className={cm.cn(cm.flex({ align: 'center' }), 'min-w-0')}
     >
-      <span
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'center' }),
-          'w-8 h-8 rounded-lg text-white shadow-md shrink-0',
-        )}
-        aria-hidden="true"
-        style={{
-          background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-        }}
-      >
-        <span className="material-symbols-outlined text-base">camera</span>
-      </span>
-      {APP_NAME}
+      <BrandWordmark as="span" size="lg" />
     </Link>
   )
 }

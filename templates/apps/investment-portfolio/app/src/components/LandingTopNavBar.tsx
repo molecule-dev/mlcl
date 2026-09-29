@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, LOGO_SIZE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Public marketing top navigation, shared across the Landing, About,
@@ -41,10 +41,7 @@ export function LandingTopNavBar() {
             'min-w-0 whitespace-nowrap shrink-0',
           )}
         >
-          <img src="/logo.svg" width={LOGO_SIZE} height={LOGO_SIZE} alt={`${APP_NAME} logo`} />
-          <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" />
         </Link>
         <div
           className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 flex-wrap gap-y-2')}

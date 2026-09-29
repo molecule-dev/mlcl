@@ -6,8 +6,8 @@ import { useLogin, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Button, Flex } from '@molecule/app-ui-react'
 
-import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { AuthBrandHeader } from '../components/AuthBrandHeader.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { FloatingInput } from '../components/FloatingInput.js'
 import { Footer } from '../components/Footer.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
@@ -51,14 +51,7 @@ export function Login() {
         <div className={cm.authHeaderInner}>
           <Flex align="center" justify="between" className={cm.h('full')}>
             <Flex align="center" gap="xs">
-              <img
-                src="/logo.svg"
-                width={LOGO_SIZE}
-                height={LOGO_SIZE}
-                alt=""
-                className={cm.logoIcon}
-              />
-              <span className={cm.logoText}>{APP_NAME}</span>
+              <BrandWordmark as="span" size="sm" />
             </Flex>
             <ThemeToggle />
           </Flex>

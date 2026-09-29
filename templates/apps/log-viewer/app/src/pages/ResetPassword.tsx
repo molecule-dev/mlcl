@@ -5,7 +5,8 @@ import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { useLogin, usePasswordReset, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 export function ResetPassword() {
   const cm = getClassMap()
@@ -80,7 +81,7 @@ export function ResetPassword() {
         <div className={cm.cn(cm.w('full'), cm.maxW('md'))}>
           <header className={cm.cn('text-center mb-6')}>
             <h1 className={cm.cn('text-4xl font-extrabold tracking-tighter text-on-surface')}>
-              {APP_NAME}
+              <BrandWordmark as="span" size="lg" />
             </h1>
             <p className={cm.cn('mt-1 font-mono text-xs text-on-surface-variant')}>{APP_TAGLINE}</p>
           </header>

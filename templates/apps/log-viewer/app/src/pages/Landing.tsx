@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, BRAND_COLOR } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { type LogLine, LogLineRow } from '../components/LogLineRow.js'
 
 const FEATURES = [
@@ -274,14 +275,7 @@ export function Landing() {
               'flex items-center gap-2 text-xl font-extrabold tracking-tight text-on-surface',
             )}
           >
-            <span
-              className={cm.cn('inline-flex h-8 w-8 items-center justify-center rounded-lg')}
-              style={{ backgroundColor: BRAND_COLOR, color: 'var(--color-background)' }}
-              aria-hidden="true"
-            >
-              <span className={cm.cn('material-symbols-outlined text-[20px]')}>graphic_eq</span>
-            </span>
-            <span>{APP_NAME}</span>
+            <BrandWordmark as="span" />
           </Link>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             <Link
@@ -839,7 +833,7 @@ export function Landing() {
               'items-center md:items-start',
             )}
           >
-            <span className={cm.cn('text-lg font-black text-on-surface')}>{APP_NAME}</span>
+            <BrandWordmark footer as="span" size="sm" />
             <span
               className={cm.cn(
                 'font-mono text-xs uppercase tracking-widest text-on-surface-variant',

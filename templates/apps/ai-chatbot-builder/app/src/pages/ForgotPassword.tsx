@@ -7,6 +7,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { loadContent } from '../config.js'
 function ForgotPassword() {
   const cm = getClassMap()
@@ -115,32 +116,7 @@ function ForgotPassword() {
         >
           {/* Logo Section */}
           <div className={cm.cn(cm.flex({ align: 'center' }), cm.sp('mb', 8), 'gap-2 group')}>
-            <div
-              className={cm.cn(
-                cm.roundedFull,
-                cm.flex({ align: 'center', justify: 'center' }),
-                cm.w(10),
-                cm.h(10),
-                'bg-gradient-to-tr from-primary to-secondary text-white shadow-lg',
-              )}
-            >
-              <span
-                className={cm.cn(cm.textSize('2xl'), 'material-symbols-outlined')}
-                data-icon="auto_awesome"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                auto_awesome
-              </span>
-            </div>
-            <span
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                cm.textSize('2xl'),
-                'font-headline tracking-tight text-primary',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" size="lg" />
           </div>
           {/* Header */}
           <div className={cm.cn(cm.textCenter, cm.sp('mb', 10))}>

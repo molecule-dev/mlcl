@@ -5,7 +5,7 @@ import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { useLogin, usePasswordReset, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { PennantBrandMark } from '../components/PennantBrandMark.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const SURFACE_DARK = 'var(--color-background)'
 const PANEL = 'var(--color-surface)'
@@ -82,7 +82,7 @@ export function ResetPassword() {
       >
         <div className={cm.cn(cm.w('full'), cm.maxW('md'))}>
           <header className={cm.cn('text-center mb-6')}>
-            <PennantBrandMark size="lg" />
+            <BrandWordmark as="span" size="lg" />
           </header>
 
           <div

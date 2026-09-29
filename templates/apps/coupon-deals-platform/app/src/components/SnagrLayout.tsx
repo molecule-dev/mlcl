@@ -6,6 +6,7 @@ import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -82,11 +83,8 @@ function MobileShell({
             'h-14',
           )}
         >
-          <Link
-            to="/dashboard"
-            className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'whitespace-nowrap')}
-          >
-            {APP_NAME}
+          <Link to="/dashboard" className="whitespace-nowrap">
+            <BrandWordmark as="span" size="sm" />
           </Link>
           <UserMenu />
         </div>

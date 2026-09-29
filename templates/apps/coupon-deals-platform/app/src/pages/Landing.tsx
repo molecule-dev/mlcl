@@ -6,6 +6,7 @@ import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { DealCard, type DealCardDeal } from '../components/DealCard.js'
 import { HotDealsRow } from '../components/HotDealsRow.js'
 import { SafeLink } from '../components/SafeLink.js'
@@ -122,15 +123,8 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
-            <SafeLink
-              to="/"
-              className={cm.cn(
-                'font-black',
-                cm.textSize('3xl'),
-                'font-headline italic tracking-tighter text-primary',
-              )}
-            >
-              {APP_NAME}
+            <SafeLink to="/">
+              <BrandWordmark as="span" />
             </SafeLink>
             <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden lg:flex')}>
               <SafeLink
@@ -579,16 +573,9 @@ export function Landing() {
           )}
         >
           <div className={cm.cn('col-span-1 md:col-span-2')}>
-            <h2
-              className={cm.cn(
-                cm.textSize('2xl'),
-                'font-black',
-                cm.sp('mb', 4),
-                'font-headline italic tracking-tighter text-on-surface',
-              )}
-            >
-              {APP_NAME}
-            </h2>
+            <div className={cm.sp('mb', 4)}>
+              <BrandWordmark as="span" footer />
+            </div>
             <p
               className={cm.cn(
                 cm.textSize('sm'),

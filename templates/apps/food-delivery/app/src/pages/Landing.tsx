@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const FEATURED_CUISINES = [
   {
@@ -98,14 +99,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link
-            to="/"
-            className={
-              'text-2xl font-black italic tracking-tighter text-primary [font-family:var(--font-headline)]'
-            }
-          >
-            {APP_NAME}
-          </Link>
+          <BrandWordmark />
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
               <Link
@@ -651,16 +645,7 @@ export function Landing() {
           )}
         >
           <div className="flex flex-col gap-2 items-center md:items-start">
-            <span
-              className={
-                'text-2xl font-black italic tracking-tighter text-primary [font-family:var(--font-headline)]'
-              }
-            >
-              {APP_NAME}
-            </span>
-            <p className="text-on-surface-variant text-sm max-w-xs text-center md:text-left">
-              {t('landing.footerTagline', {}, { defaultValue: 'Hot, fresh, fast — at your door.' })}
-            </p>
+            <BrandWordmark as="span" size="sm" footer withTagline />
           </div>
           <p className="text-sm text-on-surface-variant text-center">
             {t(

@@ -4,7 +4,7 @@ import { Link, Outlet, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 import { NAV_KEYS } from './VellumLayout.js'
 
@@ -87,16 +87,9 @@ export function VellumMobileShell({ children }: { children?: ReactNode }) {
               menu
             </span>
           </button>
-          <Link
-            to="/dashboard"
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('bold'),
-              'shrink-0 truncate px-1 text-[var(--mol-color-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
-            )}
-          >
-            {APP_NAME}
-          </Link>
+          <div className="px-1">
+            <BrandWordmark to="/dashboard" size="sm" />
+          </div>
         </div>
         <div className={cm.cn(cm.flex({ align: 'center' }), 'min-w-0 max-w-[45vw] shrink')}>
           <UserMenu />
@@ -134,15 +127,7 @@ export function VellumMobileShell({ children }: { children?: ReactNode }) {
                 'pt-5 pb-2',
               )}
             >
-              <span
-                className={cm.cn(
-                  cm.textSize('lg'),
-                  cm.fontWeight('bold'),
-                  'text-[var(--mol-color-primary)]',
-                )}
-              >
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" size="md" />
               <button
                 type="button"
                 aria-label={t(

@@ -17,6 +17,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface AuthSplitLayoutProps {
   heading: string
@@ -58,28 +59,7 @@ export function AuthSplitLayout({
           )}
         >
           <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })} aria-label={APP_NAME}>
-            <span
-              className={cm.cn(
-                cm.w(10),
-                cm.h(10),
-                cm.roundedFull,
-                cm.flex({ align: 'center', justify: 'center' }),
-                'bg-surface/15 backdrop-blur-md',
-              )}
-              aria-hidden="true"
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-white text-2xl')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                savings
-              </span>
-            </span>
-            <span
-              className={cm.cn(cm.textSize('2xl'), cm.fontWeight('extrabold'), 'tracking-tight')}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" size="lg" onGradient />
           </Link>
 
           <div className={cm.cn('space-y-6 max-w-md')}>
@@ -207,28 +187,7 @@ export function AuthSplitLayout({
       >
         {/* Mobile brand mark fallback */}
         <Link to="/" className={cm.cn('md:hidden mb-8', cm.flex({ align: 'center', gap: 'sm' }))}>
-          <span
-            className={cm.cn(
-              cm.w(10),
-              cm.h(10),
-              cm.roundedFull,
-              cm.flex({ align: 'center', justify: 'center' }),
-              'bg-primary text-white',
-            )}
-            aria-hidden="true"
-          >
-            <span className={cm.cn(cm.textSize('2xl'), 'material-symbols-outlined')}>savings</span>
-          </span>
-          <span
-            className={cm.cn(
-              cm.textSize('2xl'),
-              cm.fontWeight('extrabold'),
-              cm.textPrimary,
-              'tracking-tight',
-            )}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="lg" />
         </Link>
 
         <div className={cm.cn('w-full max-w-[440px] space-y-7')}>

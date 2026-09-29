@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { InventoryHeroCard } from '../components/InventoryHeroCard.js'
 import { InventoryKpiCard } from '../components/InventoryKpiCard.js'
 
@@ -76,18 +77,7 @@ export function Landing() {
           'sticky top-0 z-30 border-b border-outline-variant/60 bg-surface/80 backdrop-blur-md',
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <span
-            className={cm.cn('material-symbols-outlined text-[26px] text-primary')}
-            data-icon="inventory_2"
-            aria-hidden="true"
-          >
-            inventory_2
-          </span>
-          <span className={cm.cn(cm.textSize('xl'), 'font-bold tracking-tighter text-on-surface')}>
-            {APP_NAME}
-          </span>
-        </Link>
+        <BrandWordmark />
         <nav className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'hidden md:flex')}>
           <a
             href="#features"

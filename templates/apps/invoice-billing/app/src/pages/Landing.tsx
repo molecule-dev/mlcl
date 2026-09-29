@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { ActivityFeed, type ActivityItem } from '../components/ActivityFeed.js'
 import { Footer } from '../components/Footer.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
@@ -108,9 +109,7 @@ export function Landing() {
           'sticky top-0 z-40 bg-surface/80 backdrop-blur-xl',
         )}
       >
-        <Link to="/" className={cm.cn(cm.textSize('2xl'), 'font-black tracking-tighter')}>
-          {APP_NAME}
-        </Link>
+        <BrandWordmark />
         <nav className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
           {isMobile ? null : (
             <>

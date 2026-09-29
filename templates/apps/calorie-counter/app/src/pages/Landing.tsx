@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { SafeLink } from '../components/SafeLink.js'
 
 interface FeatureCard {
@@ -114,16 +115,7 @@ export function Landing() {
           )}
         >
           <SafeLink to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-            <span
-              aria-hidden="true"
-              className={cm.cn('material-symbols-outlined text-primary')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              restaurant
-            </span>
-            <span className={cm.cn(cm.fontWeight('bold'), 'text-2xl text-primary tracking-tight')}>
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" />
           </SafeLink>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'hidden md:flex')}>
             <Link
@@ -774,23 +766,7 @@ export function Landing() {
               'md:items-start',
             )}
           >
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 'xs' }),
-                cm.fontWeight('bold'),
-                cm.textSize('xl'),
-                'text-primary',
-              )}
-            >
-              <span
-                aria-hidden="true"
-                className={cm.cn('material-symbols-outlined')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                restaurant
-              </span>
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" footer />
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t(
                 'nosh.landing.footer.tagline',

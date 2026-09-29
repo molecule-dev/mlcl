@@ -4,7 +4,8 @@ import { Link, Outlet, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, SURFACE_PANEL } from '../branding.js'
+import { SURFACE_PANEL } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { NAV_KEYS } from './PylonShell.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
@@ -82,13 +83,8 @@ export function PylonMobileShell() {
               menu
             </span>
           </button>
-          <Link
-            to="/workspace"
-            data-mol-id="mobile-top-bar-brand"
-            className={cm.cn('font-mono text-sm font-extrabold uppercase tracking-widest truncate')}
-            style={{ color: 'var(--color-text-primary)' }}
-          >
-            {APP_NAME}
+          <Link to="/workspace" data-mol-id="mobile-top-bar-brand">
+            <BrandWordmark as="span" size="sm" />
           </Link>
         </div>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 1 }), 'shrink-0')}>
@@ -129,16 +125,7 @@ export function PylonMobileShell() {
                 'pt-5 pb-2',
               )}
             >
-              <span
-                className={cm.cn(
-                  cm.textSize('lg'),
-                  cm.fontWeight('extrabold'),
-                  'font-mono uppercase tracking-widest',
-                )}
-                style={{ color: 'var(--color-primary)' }}
-              >
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" size="sm" />
               <button
                 type="button"
                 aria-label={t('mobileNav.closeMenu', {}, { defaultValue: 'Close navigation menu' })}

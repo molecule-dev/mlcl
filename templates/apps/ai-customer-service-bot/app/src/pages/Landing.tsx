@@ -213,7 +213,7 @@ function Landing() {
                 className={cm.cn(
                   cm.fontWeight('bold'),
                   cm.textSize('lg'),
-                  'tracking-tight text-outline',
+                  'tracking-tight text-on-surface-variant',
                 )}
               >
                 {logo}

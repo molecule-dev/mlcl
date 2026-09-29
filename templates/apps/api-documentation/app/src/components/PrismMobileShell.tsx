@@ -11,7 +11,7 @@ import { Link, Outlet, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /** Same shape the shared SidebarLayout's navItems prop carries. */
 export interface PrismNavItem {
@@ -105,7 +105,7 @@ export function PrismMobileShell({ navItems, userMenu }: PrismMobileShellProps) 
               FOCUS_RING,
             )}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </Link>
         </div>
         <div
@@ -148,15 +148,7 @@ export function PrismMobileShell({ navItems, userMenu }: PrismMobileShellProps) 
                 'pt-5 pb-2',
               )}
             >
-              <span
-                className={cm.cn(
-                  cm.textSize('xl'),
-                  cm.fontWeight('bold'),
-                  'font-headline tracking-tight text-on-surface',
-                )}
-              >
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" />
               <button
                 type="button"
                 aria-label={t('mobileNav.closeMenu', {}, { defaultValue: 'Close navigation menu' })}

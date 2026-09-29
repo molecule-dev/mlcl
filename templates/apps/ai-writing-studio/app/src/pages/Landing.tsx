@@ -5,6 +5,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { AISuggestionCard } from '../components/AISuggestionCard.js'
 import { DocumentStatusPill } from '../components/DocumentStatusPill.js'
 import { SafeLink } from '../components/SafeLink.js'
@@ -136,7 +137,7 @@ export function Landing() {
               'font-extrabold tracking-tight font-serif text-primary',
             )}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" />
           </SafeLink>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden md:flex')}>
             <a
@@ -647,7 +648,7 @@ export function Landing() {
               'md:items-start',
             )}
           >
-            <span className={cm.cn('font-serif font-bold text-xl text-primary')}>{APP_NAME}</span>
+            <BrandWordmark as="span" footer />
             <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
               {t(
                 'landing.footerCopy',

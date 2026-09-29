@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -88,7 +88,7 @@ export function MeridianLayout() {
             to="/dashboard"
             className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'truncate')}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </Link>
         }
         actions={<UserMenu />}
@@ -103,7 +103,7 @@ export function MeridianLayout() {
           to="/dashboard"
           className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 6), 'block')}
         >
-          {APP_NAME}
+          <BrandWordmark as="span" />
         </Link>
         {navItems}
       </ResponsiveAppShell.Sidebar>

@@ -11,6 +11,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 export function LoginBrandPanel() {
   const cm = getClassMap()
@@ -39,7 +40,7 @@ export function LoginBrandPanel() {
       />
 
       <div className={cm.cn('relative z-10')}>
-        <p className={cm.cn('text-3xl font-black tracking-tighter')}>{APP_NAME}</p>
+        <BrandWordmark as="span" size="lg" invert />
       </div>
 
       <div

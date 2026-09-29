@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Public marketing-site navigation bar (brand + auth-aware CTA).
@@ -48,14 +48,7 @@ export function LandingNav() {
             'text-2xl font-bold tracking-tight',
           )}
         >
-          <span
-            aria-hidden="true"
-            className={cm.cn('material-symbols-outlined text-2xl')}
-            style={{ color: 'var(--color-flame)', fontVariationSettings: "'FILL' 1" }}
-          >
-            local_fire_department
-          </span>
-          <span>{APP_NAME}</span>
+          <BrandWordmark as="span" size="lg" />
         </Link>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden md:flex')}>
           {NAV_LINKS.map((l) => (

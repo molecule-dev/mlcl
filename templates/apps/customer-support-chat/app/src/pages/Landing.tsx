@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 /** Grayscale wordmarks for the "trusted by" band (design shows partner logos). */
 const TRUSTED_LOGOS = ['TechFlow', 'Nova', 'RetailHub', 'Brightline', 'Corelink']
@@ -90,15 +91,8 @@ function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 8 }))}>
-            <Link
-              to="/"
-              className={cm.cn(
-                cm.textSize('2xl'),
-                cm.fontWeight('bold'),
-                'text-primary tracking-tighter',
-              )}
-            >
-              {APP_NAME}
+            <Link to="/">
+              <BrandWordmark as="span" />
             </Link>
             <nav className={cm.cn(cm.flex({ align: 'center', gap: 6 }), 'hidden md:flex')}>
               <a
@@ -834,15 +828,7 @@ function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ direction: 'col', gap: 4 }))}>
-            <span
-              className={cm.cn(
-                cm.textSize('xl'),
-                cm.fontWeight('bold'),
-                'text-white tracking-tighter',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" footer invert />
             <p className={cm.cn(cm.textSize('sm'), 'text-slate-400 max-w-xs')}>
               {t(
                 'landing.footer.tagline',

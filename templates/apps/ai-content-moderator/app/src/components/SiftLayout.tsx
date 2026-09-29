@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { SafeLink } from './SafeLink.js'
 import { SiftNav, SiftNavFooter } from './SiftNav.js'
 import { SiftCrumbs, SiftTopBarActions } from './SiftTopBar.js'
@@ -38,15 +39,7 @@ export function SiftLayout({ children, crumbs, actions, hideSearch }: SiftLayout
   // instantiates it, so the badge fetch runs once on the live surface.
   const nav = <SiftNav />
   const footer = <SiftNavFooter />
-  const drawerBrand = (
-    <span
-      className={cm.cn(
-        'text-2xl font-black tracking-tighter text-white uppercase font-inter leading-none',
-      )}
-    >
-      {APP_NAME}
-    </span>
-  )
+  const drawerBrand = <BrandWordmark as="span" invert />
 
   return (
     <ResponsiveAppShell sidebarWidth={260} className="bg-background text-on-surface antialiased">
@@ -81,13 +74,7 @@ function SiftSidebarBrand() {
       className={cm.cn(cm.sp('px', 4), cm.sp('mb', 8), cm.flex({ direction: 'col' }))}
       aria-label={APP_NAME}
     >
-      <span
-        className={cm.cn(
-          'text-2xl font-black tracking-tighter text-white uppercase font-inter leading-none',
-        )}
-      >
-        {APP_NAME}
-      </span>
+      <BrandWordmark as="span" invert />
       <span
         className={cm.cn(
           'text-secondary-fixed-dim text-[10px] tracking-widest uppercase font-bold mt-1',

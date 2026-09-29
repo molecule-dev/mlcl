@@ -3,7 +3,7 @@ import { useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { SafeLink } from './SafeLink.js'
 
 /** Shared signed-in nav model — the shell's sidebar and drawer render the same set. */
@@ -49,23 +49,9 @@ interface NoshBrandProps {
  */
 export function NoshBrand({ showTagline = true, className }: NoshBrandProps) {
   const cm = getClassMap()
-  const { t } = useTranslation()
-
   return (
     <SafeLink to="/today" className={cm.cn(cm.sp('px', 2), 'block', className)}>
-      <span className={cm.cn(cm.fontWeight('bold'), 'text-2xl text-primary tracking-tight block')}>
-        {APP_NAME}
-      </span>
-      {showTagline ? (
-        <span
-          className={cm.cn(
-            cm.textSize('xs'),
-            'block text-primary/70 font-medium tracking-wide uppercase mt-1',
-          )}
-        >
-          {t('nosh.nav.tagline', {}, { defaultValue: 'Friendly tracking' })}
-        </span>
-      ) : null}
+      <BrandWordmark as="span" withTagline={showTagline} />
     </SafeLink>
   )
 }

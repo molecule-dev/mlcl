@@ -1,0 +1,92 @@
+{
+  "screens": {
+    "/dashboard": {
+      "allow": [
+        {
+          "heading": "Good morning, Alex.",
+          "reason": "Design sample user name; the greeting section exists and renders the signed-in user's real name and time of day."
+        },
+        {
+          "heading": "CSAT Trend",
+          "reason": "The dashboard renders CSAT as a KPI stat card beside the conversation trend chart rather than a separately titled CSAT sparkline."
+        }
+      ]
+    },
+    "/conversations": {
+      "allow": [
+        {
+          "heading": "Maria Chen",
+          "reason": "Design sample customer; the inbox list section exists and renders real conversation customers."
+        },
+        {
+          "heading": "David Miller",
+          "reason": "Design sample customer; the inbox list section exists and renders real conversation customers."
+        },
+        {
+          "heading": "Sarah Jenkins",
+          "reason": "Design sample customer; the inbox list section exists and renders real conversation customers."
+        },
+        {
+          "heading": "Alex Rivera",
+          "reason": "Design sample customer; the inbox list section exists and renders real conversation customers."
+        }
+      ]
+    },
+    "/conversations/:id": {
+      "allow": [
+        {
+          "heading": "Maria Chen Pro",
+          "reason": "Design sample customer with plan chip; the detail header renders the real customer name and channel instead of a sample plan badge."
+        },
+        {
+          "heading": "AI Summary",
+          "reason": "The bot's reply already carries its knowledge-grounded answer inline in the transcript; there is no separate summary endpoint to title a card with."
+        },
+        {
+          "heading": "Knowledge Base",
+          "reason": "Suggested-article rail replaced by the bot's inline knowledge-grounded replies; suggested articles are reachable from the knowledge page."
+        },
+        {
+          "heading": "Recent Tickets",
+          "reason": "This app tracks conversations, not tickets; the escalation history card is the closest real equivalent and is implemented."
+        }
+      ]
+    },
+    "/knowledge/:id": {
+      "allow": [
+        {
+          "heading": "How to update billing information",
+          "reason": "Design sample article title; the page renders the selected article's real title."
+        },
+        {
+          "heading": "Switching payment methods",
+          "reason": "Sample article body section; the body renderer shows the user's own article content, not fixture copy."
+        },
+        {
+          "heading": "Frequently asked questions",
+          "reason": "Sample article body section; the body renderer shows the user's own article content, not fixture copy."
+        }
+      ]
+    },
+    "/notifications": {
+      "allow": [
+        {
+          "heading": "Yesterday",
+          "reason": "Design sample date grouping; group headers render from real notification timestamps and a fresh account has no notifications yet."
+        },
+        {
+          "heading": "Notification Settings",
+          "reason": "Quiet-hours and per-channel preferences are implemented inline on this page (quiet-hours toggle) rather than as a separately titled settings card."
+        }
+      ]
+    },
+    "/profile": {
+      "allow": [
+        {
+          "heading": "Sarah Lee",
+          "reason": "Design sample agent name; the profile hero renders the signed-in user's real name."
+        }
+      ]
+    }
+  }
+}

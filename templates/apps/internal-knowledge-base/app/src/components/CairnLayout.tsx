@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -89,7 +89,7 @@ export function CairnLayout() {
               FOCUS_RING,
             )}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </Link>
         }
         actions={
@@ -119,7 +119,7 @@ export function CairnLayout() {
             FOCUS_RING,
           )}
         >
-          {APP_NAME}
+          <BrandWordmark as="span" />
         </Link>
         {navLinks}
       </ResponsiveAppShell.Sidebar>
@@ -130,7 +130,7 @@ export function CairnLayout() {
           <span
             className={cm.cn(cm.textSize('2xl'), cm.fontWeight('extrabold'), 'text-on-background')}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </span>
         }
       >

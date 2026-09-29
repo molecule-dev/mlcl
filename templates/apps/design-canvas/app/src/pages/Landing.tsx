@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { CollaboratorStack } from '../components/CollaboratorStack.js'
 import { ProjectHeroCard } from '../components/ProjectHeroCard.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
@@ -74,24 +75,7 @@ export function Landing() {
             'min-w-0 whitespace-nowrap shrink-0',
           )}
         >
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(9),
-              cm.h(9),
-              'bg-gradient-to-br from-primary to-secondary rounded-xl text-white shadow-md',
-            )}
-          >
-            <span
-              className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              brush
-            </span>
-          </span>
-          <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="lg" />
         </Link>
         <nav
           className={cm.cn(
@@ -502,24 +486,7 @@ export function Landing() {
         )}
       >
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(7),
-              cm.h(7),
-              'bg-gradient-to-br from-primary to-secondary rounded-lg text-white',
-            )}
-          >
-            <span
-              className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              brush
-            </span>
-          </span>
-          <span className={cm.cn(cm.fontWeight('bold'), cm.textSize('sm'), 'text-on-surface')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="sm" footer />
         </Link>
         <span
           className={cm.cn(

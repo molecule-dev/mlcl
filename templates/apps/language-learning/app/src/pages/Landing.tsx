@@ -3,7 +3,8 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { Footer } from '../components/Footer.js'
 
 const FEATURES = [
@@ -95,15 +96,7 @@ export function Landing() {
             'mx-auto h-16',
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn(
-              cm.textSize('xl'),
-              'font-black tracking-tight text-primary transition-opacity hover:opacity-80',
-            )}
-          >
-            {APP_NAME}
-          </Link>
+          <BrandWordmark size="md" />
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             <Link
               to="/pricing"
@@ -642,9 +635,9 @@ export function Landing() {
         )}
       >
         <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('pt', 8))}>
-          <p className={cm.cn(cm.sp('pb', 6), cm.textCenter, cm.textSize('sm'), 'font-medium')}>
-            {APP_NAME} — {APP_TAGLINE}
-          </p>
+          <div className={cm.cn(cm.sp('pb', 6), cm.flex({ justify: 'center' }))}>
+            <BrandWordmark footer />
+          </div>
           <Footer className="bg-surface-secondary!" />
           <p className={cm.cn(cm.sp('mt', 4), cm.sp('pb', 8), cm.textCenter, cm.textSize('sm'))}>
             {t(

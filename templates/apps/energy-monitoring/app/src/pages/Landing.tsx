@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const FEATURES = [
   {
@@ -77,19 +78,7 @@ export function Landing() {
               'tracking-tight',
             )}
           >
-            <span
-              className={cm.cn(
-                cm.w(8),
-                cm.h(8),
-                cm.roundedFull,
-                cm.flex({ align: 'center', justify: 'center' }),
-                'bg-gradient-to-br from-primary to-primary-container shadow-md shadow-primary/30 text-white',
-              )}
-              aria-hidden="true"
-            >
-              <span className={'material-symbols-outlined text-xl'}>bolt</span>
-            </span>
-            {APP_NAME}
+            <BrandWordmark as="span" />
           </Link>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (

@@ -5,6 +5,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { loadContent } from '../config.js'
 
 const FEATURES = [
@@ -73,16 +74,7 @@ export function Landing() {
             'mx-auto',
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn(
-              cm.textSize('2xl'),
-              cm.fontWeight('bold'),
-              'tracking-tighter text-primary',
-            )}
-          >
-            {APP_NAME}
-          </Link>
+          <BrandWordmark />
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
               <Link
@@ -566,9 +558,7 @@ export function Landing() {
           )}
         >
           <p className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.textSize('sm'))}>
-            <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-primary')}>
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" size="sm" footer />
             <span className="text-on-surface-variant">
               {t(
                 'landing.copyright',

@@ -5,7 +5,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -80,25 +80,7 @@ export function SiftLayout() {
   })
 
   const brandLink = (size: 'lg' | 'xl'): ReactNode => (
-    <Link
-      to="/dashboard"
-      className={
-        size === 'xl'
-          ? cm.cn(
-              cm.textSize('xl'),
-              cm.fontWeight('bold'),
-              cm.displayBlock,
-              'text-on-background truncate',
-            )
-          : cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('extrabold'),
-              'tracking-tight text-on-background truncate',
-            )
-      }
-    >
-      {APP_NAME}
-    </Link>
+    <BrandWordmark as="span" size={size === 'xl' ? 'md' : 'sm'} />
   )
 
   return (
@@ -138,11 +120,7 @@ export function SiftLayout() {
         // The shared panel ships no height token (its content would size it);
         // `h-full` restores the documented full-height left-panel geometry.
         className="h-full"
-        header={
-          <span className={cm.cn(cm.textSize('2xl'), cm.fontWeight('extrabold'), 'truncate')}>
-            {APP_NAME}
-          </span>
-        }
+        header={<BrandWordmark as="span" size="md" />}
         footer={<UserMenu />}
       >
         {navItems}

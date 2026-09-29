@@ -11,6 +11,7 @@ import {
   SURFACE_DARK,
   SURFACE_PANEL,
 } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { MethodBadge } from '../components/MethodBadge.js'
 import { SafeLink } from '../components/SafeLink.js'
 
@@ -141,22 +142,8 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <SafeLink
-            to="/"
-            className={cm.cn('flex items-center gap-2 text-xl font-extrabold tracking-tight')}
-            style={{ color: 'var(--color-text)' }}
-          >
-            <span
-              className={cm.cn('inline-flex h-8 w-8 items-center justify-center rounded-lg')}
-              style={{ backgroundColor: 'var(--color-primary)', color: 'var(--color-on-primary)' }}
-              aria-hidden="true"
-            >
-              <span className={cm.cn('material-symbols-outlined text-[20px]')}>terminal</span>
-            </span>
-            <span>
-              {APP_NAME}
-              <span style={{ color: 'var(--color-primary)' }}>.</span>
-            </span>
+          <SafeLink to="/">
+            <BrandWordmark as="span" />
           </SafeLink>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (

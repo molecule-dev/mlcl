@@ -6,6 +6,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { AmbientOrbs } from './AmbientOrbs.js'
 
 interface AuthShellProps {
@@ -39,24 +40,7 @@ export function AuthShell({ heading, subheading, children, footer }: AuthShellPr
         )}
       >
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 8))}>
-          <span
-            aria-hidden="true"
-            className={cm.cn(
-              cm.roundedFull,
-              cm.flex({ align: 'center', justify: 'center' }),
-              'h-9 w-9 bg-gradient-to-br from-primary to-secondary text-white',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-[22px]')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              graphic_eq
-            </span>
-          </span>
-          <span className={cm.cn(cm.fontWeight('bold'), cm.textSize('2xl'), 'tracking-tight')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="lg" />
         </Link>
         <AuthShellCard
           outerClassName={cm.cn(cm.w('full'), 'max-w-[440px]')}

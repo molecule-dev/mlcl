@@ -4,6 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Public marketing footer for Stillpoint's Landing / About / Privacy / Terms
@@ -44,14 +45,7 @@ export function LandingFooter() {
               'text-primary font-headline',
             )}
           >
-            <span
-              aria-hidden="true"
-              className={cm.cn('material-symbols-outlined')}
-              style={{ fontVariationSettings: "'FILL' 0" }}
-            >
-              trip_origin
-            </span>
-            {APP_NAME}
+            <BrandWordmark footer as="span" size="md" />
           </Link>
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t(

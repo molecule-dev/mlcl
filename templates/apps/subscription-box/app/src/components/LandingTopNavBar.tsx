@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 /**
@@ -33,13 +33,8 @@ export function LandingTopNavBar() {
           cm.flex({ align: 'center', justify: 'between' }),
         )}
       >
-        <Link
-          to="/"
-          className={cm.cn(
-            'font-headline italic text-2xl font-black tracking-tight text-primary hover:opacity-80 transition-opacity',
-          )}
-        >
-          {APP_NAME}
+        <Link to="/" className={cm.cn('hover:opacity-80 transition-opacity rounded')}>
+          <BrandWordmark as="span" />
         </Link>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
           <ThemeToggle />

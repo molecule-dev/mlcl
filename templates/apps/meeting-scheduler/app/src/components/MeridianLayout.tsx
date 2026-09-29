@@ -5,8 +5,8 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
 import { UserMenu } from './UserMenu.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 const NAV_KEYS = [
   { to: '/dashboard', key: 'dashboard', defaultLabel: 'Dashboard', icon: 'dashboard' },
@@ -47,26 +47,7 @@ function BrandMark({ cm }: { cm: ReturnType<typeof getClassMap> }) {
         'font-extrabold tracking-tighter min-w-0',
       )}
     >
-      <span
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'center' }),
-          cm.roundedFull,
-          'w-8 h-8 text-white shrink-0',
-        )}
-        aria-hidden="true"
-        style={{
-          background:
-            'linear-gradient(135deg, var(--color-primary), var(--color-primary-gradient-to))',
-        }}
-      >
-        <span
-          className={cm.cn('material-symbols-outlined text-base')}
-          style={{ fontVariationSettings: "'FILL' 1" }}
-        >
-          schedule
-        </span>
-      </span>
-      {APP_NAME}
+      <BrandWordmark as="span" size="sm" />
     </Link>
   )
 }

@@ -5,6 +5,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { AmbientOrbs } from '../components/AmbientOrbs.js'
 import { API_BASE_URL } from '../config.js'
 import { formatDateTime, formatMoney } from '../lib/format.js'
@@ -106,15 +107,7 @@ function Pay() {
         )}
         data-mol-id="pay-card"
       >
-        <span
-          className={cm.cn(
-            cm.textSize('xs'),
-            cm.textMuted,
-            'uppercase tracking-widest font-semibold',
-          )}
-        >
-          {APP_NAME}
-        </span>
+        <BrandWordmark as="span" size="sm" />
         {missing ? (
           <>
             <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mt', 2))}>

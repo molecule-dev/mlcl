@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Public marketing-chrome navigation shared by the Landing page and the
@@ -38,17 +38,7 @@ export function LandingNav() {
           'max-w-screen-2xl flex-wrap gap-x-6 gap-y-2',
         )}
       >
-        <Link
-          to="/"
-          className={cm.cn(
-            cm.fontWeight('bold'),
-            cm.textSize('xl'),
-            'text-on-surface tracking-tight min-w-0 whitespace-nowrap shrink-0',
-          )}
-          style={{ fontFamily: 'var(--font-headline)' }}
-        >
-          {APP_NAME}
-        </Link>
+        <BrandWordmark />
         <div
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'lg' }),

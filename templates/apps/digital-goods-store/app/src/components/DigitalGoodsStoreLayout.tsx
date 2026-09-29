@@ -4,6 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { TroveMobileNav } from './TroveMobileNav.js'
 import { UserMenu } from './UserMenu.js'
@@ -78,27 +79,7 @@ export function DigitalGoodsStoreLayout() {
           className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('p', 6))}
           aria-label={APP_NAME}
         >
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.roundedFull,
-              'bg-gradient-to-br from-primary to-accent shadow-md shadow-primary/30',
-            )}
-            style={{ width: 36, height: 36 }}
-          >
-            <span className="material-symbols-outlined text-white" style={{ fontSize: 22 }}>
-              inventory_2
-            </span>
-          </span>
-          <span
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('bold'),
-              'tracking-tight text-on-surface',
-            )}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark to="/dashboard" size="sm" />
         </Link>
 
         <nav className={cm.cn(cm.flex1, cm.sp('px', 4), cm.stack(1), 'overflow-y-auto')}>
@@ -160,27 +141,7 @@ export function DigitalGoodsStoreLayout() {
             className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'lg:hidden')}
             aria-label={APP_NAME}
           >
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                cm.roundedFull,
-                'bg-gradient-to-br from-primary to-accent shadow-md shadow-primary/30',
-              )}
-              style={{ width: 30, height: 30 }}
-            >
-              <span className="material-symbols-outlined text-white" style={{ fontSize: 18 }}>
-                inventory_2
-              </span>
-            </span>
-            <span
-              className={cm.cn(
-                cm.textSize('base'),
-                cm.fontWeight('bold'),
-                'tracking-tight text-on-surface',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark to="/dashboard" size="sm" />
           </Link>
           <div className={cm.cn(cm.flex1, 'hidden lg:block')} aria-hidden="true" />
           <div className={cm.flex({ align: 'center', gap: 'xs' })}>

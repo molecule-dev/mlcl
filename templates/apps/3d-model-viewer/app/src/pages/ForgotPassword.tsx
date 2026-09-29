@@ -7,6 +7,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { loadContent } from '../config.js'
 function ForgotPassword() {
   const cm = getClassMap()
@@ -74,12 +75,12 @@ function ForgotPassword() {
             <div className={cm.cn(cm.textCenter, cm.sp('mb', 8), cm.w('full'))}>
               <h1
                 className={cm.cn(
-                  cm.textSize('4xl'),
+                  cm.flex({ justify: 'center' }),
                   cm.sp('mb', 2),
                   'font-headline font-black text-primary tracking-tighter',
                 )}
               >
-                {APP_NAME}
+                <BrandWordmark as="span" size="lg" />
               </h1>
             </div>
             <p

@@ -15,6 +15,7 @@ import { useLegalModals } from '@molecule/app-legal-pages-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker } from '@molecule/app-ui-react'
+import { BrandWordmark } from './BrandWordmark.js'
 
 import { APP_NAME } from '../branding.js'
 import { loadContent } from '../config.js'
@@ -72,12 +73,7 @@ export function SojournAuthShell({
           )}
         >
           <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <span
-              className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'text-primary')}
-              style={{ fontFamily: '"DM Serif Display", Georgia, serif', fontWeight: 400 }}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" />
           </Link>
           <div className={cm.flex({ align: 'center', gap: 'sm' })}>
             <LanguagePicker display="icon" />

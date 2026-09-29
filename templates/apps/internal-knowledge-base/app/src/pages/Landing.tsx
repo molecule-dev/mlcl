@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { CairnTrailHero } from '../components/CairnTrailHero.js'
 
 const FEATURES = [
@@ -72,24 +73,7 @@ export function Landing() {
             'mx-auto',
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'sm' }),
-              'text-xl md:text-2xl',
-              cm.fontWeight('extrabold'),
-              'tracking-tight text-on-surface',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-primary')}
-              style={{ fontSize: '1.75rem' }}
-              aria-hidden="true"
-            >
-              stack
-            </span>
-            {APP_NAME}
-          </Link>
+          <BrandWordmark />
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {/* Compact screens reach Pricing via the page footer — the inline
                 link only fits from `sm` up. */}

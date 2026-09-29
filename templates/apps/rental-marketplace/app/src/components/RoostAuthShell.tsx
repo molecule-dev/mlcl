@@ -14,12 +14,11 @@
  */
 
 import type { ReactNode } from 'react'
-import { Link } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 interface RoostAuthShellProps {
@@ -70,18 +69,7 @@ export function RoostAuthShell({
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <span
-              className={cm.cn(
-                cm.textSize('2xl'),
-                cm.fontWeight('extrabold'),
-                'text-primary-dark tracking-tight',
-              )}
-              style={{ fontFamily: '"DM Sans", -apple-system, sans-serif' }}
-            >
-              {APP_NAME}
-            </span>
-          </Link>
+          <BrandWordmark size="lg" />
           <ThemeToggle />
         </div>
       </header>

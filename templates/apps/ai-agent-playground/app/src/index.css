@@ -268,13 +268,16 @@
 }
 /* Landing brand accents — orange CTA + hero glow (Stitch design language).
    Tokens only, so light/dark both resolve. */
+/* White-on-brand needs 4.5:1 (a11y ratchet): the raw brand orange reads 4.1,
+   so the button surface mixes 18% black (5.7:1) while text accents keep the
+   pure token. Hover continues the darken direction. */
 .btn-brand {
-  background: var(--color-brand-orange);
+  background: color-mix(in srgb, var(--color-brand-orange) 82%, #000);
   color: #ffffff;
 }
 
 .btn-brand:hover {
-  background: color-mix(in srgb, var(--color-brand-orange) 85%, #000);
+  background: color-mix(in srgb, var(--color-brand-orange) 65%, #000);
 }
 
 .glow-brand {
@@ -295,3 +298,9 @@
 }
 
 /* polish-v2:stitch-styles:end */
+
+/* Badge variant of the brand surface — same 4.5:1-safe mix as .btn-brand. */
+.badge-brand {
+  background: color-mix(in srgb, var(--color-brand-orange) 82%, #000);
+  color: #ffffff;
+}

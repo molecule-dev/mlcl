@@ -414,7 +414,11 @@ export function Settings() {
                         'text-[10px] uppercase tracking-widest text-white/60',
                       )}
                     >
-                      {APP_NAME} / {new Date().getFullYear()}
+                      {t(
+                        'settings.brand.brandLine',
+                        { app: APP_NAME, year: new Date().getFullYear() },
+                        { defaultValue: '{{app}} / {{year}}' },
+                      )}
                     </span>
                     <h3
                       className={cm.cn('text-3xl font-extrabold tracking-tight')}

@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Public marketing navigation bar shared across the Landing, About, and other
@@ -35,31 +35,7 @@ export function LandingTopNavBar() {
         )}
       >
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <span
-            aria-hidden="true"
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.roundedFull,
-              'h-9 w-9 bg-gradient-to-br from-primary to-primary-container shadow-md',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-on-primary')}
-              style={{ fontSize: 20, fontVariationSettings: "'FILL' 1" }}
-            >
-              graphic_eq
-            </span>
-          </span>
-          <span
-            className={cm.cn(
-              cm.textSize('xl'),
-              cm.fontWeight('bold'),
-              cm.textPrimary,
-              'tracking-tight',
-            )}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" />
         </Link>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
           {isAuthenticated ? (

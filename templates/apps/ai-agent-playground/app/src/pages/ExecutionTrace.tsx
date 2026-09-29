@@ -1,7 +1,7 @@
 // Pattern source: bespoke per Neuron DESIGN.md "Execution Timeline" + log panel.
 // Authed run trace page — fetches /executions/:id and renders timeline + log tail.
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { useParams } from 'react-router'
+import { Link, useParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -91,6 +91,10 @@ export function ExecutionTrace() {
     [timeline],
   )
 
+  const startedLabel = execution?.started_at
+    ? new Date(execution.started_at).toISOString().replace('T', ' ').slice(0, 19) + ' UTC'
+    : '—'
+
   return (
     <div data-mol-id="page-execution-trace">
       <PageHeader
@@ -137,7 +141,82 @@ export function ExecutionTrace() {
       </div>
 
       <div className={cm.cn(cm.grid({ cols: 12, gap: 6 }))}>
-        <section className="col-span-7">
+        <aside className="col-span-3" data-mol-id="execution-trace-run-info">
+          <div
+            className={cm.cn(
+              cm.sp('p', 4),
+              'bg-surface-container-low rounded border border-outline-variant/15',
+            )}
+          >
+            <h2
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                cm.sp('mb', 3),
+                'font-headline text-on-surface',
+              )}
+            >
+              {t('executionTrace.runInfo', {}, { defaultValue: 'Run Info' })}
+            </h2>
+            <div className={cm.stack(3)}>
+              <div>
+                <span
+                  className={
+                    'block text-[10px] text-on-surface-variant uppercase tracking-wider mb-1'
+                  }
+                >
+                  {t('executionTrace.fieldAgent', {}, { defaultValue: 'Agent' })}
+                </span>
+                <Link
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    'font-mono text-primary hover:underline truncate block',
+                  )}
+                  data-mol-id="execution-trace-agent-link"
+                  to={`/agents/${execution?.agent_id ?? ''}`}
+                >
+                  {execution?.agent_id?.slice(0, 8) ?? id?.slice(0, 8) ?? '—'}
+                </Link>
+              </div>
+              <div>
+                <span
+                  className={
+                    'block text-[10px] text-on-surface-variant uppercase tracking-wider mb-1'
+                  }
+                >
+                  {t('runs.col.startedAt', {}, { defaultValue: 'Started' })}
+                </span>
+                <span className={cm.cn(cm.textSize('xs'), 'font-mono text-on-surface break-all')}>
+                  {startedLabel}
+                </span>
+              </div>
+              <div>
+                <span
+                  className={
+                    'block text-[10px] text-on-surface-variant uppercase tracking-wider mb-1'
+                  }
+                >
+                  {t('nav.status', {}, { defaultValue: 'Status' })}
+                </span>
+                <span
+                  className={cm.cn(
+                    cm.sp('px', 2),
+                    cm.sp('py', 1),
+                    cm.textSize('xs'),
+                    'font-mono uppercase tracking-wider rounded border bg-surface-container',
+                    execution?.status === 'failed'
+                      ? 'text-error border-error/40'
+                      : 'text-success border-emerald-500/40',
+                  )}
+                >
+                  {execution?.status ?? '—'}
+                </span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <section className="col-span-4">
           <h2
             className={cm.cn(
               cm.textSize('xs'),
@@ -215,15 +294,26 @@ export function ExecutionTrace() {
           )}
         </section>
         <aside className="col-span-5">
-          <h2
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.sp('mb', 3),
-              'font-mono uppercase tracking-wider text-tertiary',
-            )}
-          >
-            {t('executionTrace.logTail', {}, { defaultValue: 'Log Tail' })}
-          </h2>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), cm.sp('mb', 3))}>
+            <span
+              className={cm.cn(
+                cm.w(5),
+                cm.h(5),
+                cm.flex({ align: 'center', justify: 'center' }),
+                'rounded bg-surface-container-highest text-tertiary',
+              )}
+            >
+              <span className="material-symbols-outlined text-[14px]">terminal</span>
+            </span>
+            <h2
+              className={cm.cn(
+                cm.textSize('xs'),
+                'font-mono uppercase tracking-wider text-tertiary',
+              )}
+            >
+              {t('executionTrace.systemLogs', {}, { defaultValue: 'System Logs' })}
+            </h2>
+          </div>
           <ExecutionLogPanel entries={log} />
         </aside>
       </div>

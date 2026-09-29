@@ -4,7 +4,8 @@ import { NavLink, Outlet, useLocation, useNavigate } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -196,25 +197,8 @@ export function EmployeeOnboardingLayout() {
         <div
           className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('px', 5), cm.sp('py', 5))}
         >
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'rounded-xl shadow-md',
-            )}
-            style={{
-              width: '36px',
-              height: '36px',
-              background:
-                'linear-gradient(135deg, var(--mol-color-primary) 0%, var(--mol-color-secondary) 100%)',
-              color: 'var(--mol-color-surface)',
-            }}
-          >
-            <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>
-              rocket_launch
-            </span>
-          </div>
           <div>
-            <p className={cm.cn(cm.fontWeight('bold'), 'text-base tracking-tight')}>{APP_NAME}</p>
+            <BrandWordmark as="span" />
             <p className="text-[10px] uppercase tracking-[0.18em] text-on-surface-variant">
               {t('layout.tagline', {}, { defaultValue: APP_TAGLINE })}
             </p>

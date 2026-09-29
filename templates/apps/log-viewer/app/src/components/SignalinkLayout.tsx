@@ -4,9 +4,9 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Authenticated shell — the shared `ResponsiveAppShell`: brand top bar
@@ -84,31 +84,7 @@ export function SignalinkLayout() {
 
   const brand = (
     <Link to="/dashboard" className={cm.cn('inline-flex items-center gap-2 no-underline')}>
-      <span
-        className={cm.cn('flex items-center justify-center')}
-        style={{
-          width: '30px',
-          height: '30px',
-          borderRadius: '8px',
-          backgroundColor: 'var(--color-primary)',
-          color: 'var(--color-surface-dim)',
-          fontSize: '15px',
-          fontWeight: 800,
-        }}
-        aria-hidden="true"
-      >
-        $
-      </span>
-      <span
-        style={{
-          fontSize: '18px',
-          fontWeight: 800,
-          letterSpacing: '-0.01em',
-          color: 'var(--color-on-surface)',
-        }}
-      >
-        {APP_NAME}
-      </span>
+      <BrandWordmark as="span" />
     </Link>
   )
 

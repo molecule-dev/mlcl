@@ -14,7 +14,7 @@ import { NavLink, Outlet } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -46,11 +46,8 @@ export function FlightSearchLayout() {
             'flex items-center justify-between gap-3 px-4 py-2 sm:px-6 sm:py-3',
           )}
         >
-          <NavLink
-            to="/"
-            className={cm.cn(cm.textSize('xl'), 'sm:text-2xl shrink-0 font-bold tracking-tight')}
-          >
-            {APP_NAME}
+          <NavLink to="/" className={cm.cn('shrink-0')}>
+            <BrandWordmark as="span" />
           </NavLink>
 
           {/* Desktop nav — labeled items. */}

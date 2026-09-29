@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { SAMPLE_PHOTOS } from '../lib/sample-photos.js'
 
 /**
@@ -49,15 +50,7 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'min-w-0')}>
-            <Link
-              to="/"
-              className={
-                'text-2xl italic font-light tracking-tight text-on-surface whitespace-nowrap'
-              }
-              style={{ fontFamily: 'var(--font-headline)' }}
-            >
-              {APP_NAME}
-            </Link>
+            <BrandWordmark size="lg" />
             <div className={cm.cn('hidden md:flex', cm.flex({ gap: 'lg' }))}>
               <Link
                 to="/explore"
@@ -334,12 +327,7 @@ export function Landing() {
             'flex flex-col md:flex-row justify-between items-center gap-8 py-12',
           )}
         >
-          <div
-            className={'italic text-lg text-on-surface'}
-            style={{ fontFamily: 'var(--font-headline)' }}
-          >
-            {APP_NAME}
-          </div>
+          <BrandWordmark as="span" size="sm" footer />
           <div className={cm.cn(cm.flex({ gap: 'md' }), 'flex-wrap justify-center gap-6')}>
             <Link
               to="/galleries"

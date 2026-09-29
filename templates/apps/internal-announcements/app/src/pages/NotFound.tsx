@@ -6,7 +6,7 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 export function NotFound() {
   const cm = getClassMap()
@@ -110,7 +110,7 @@ export function NotFound() {
           'uppercase tracking-widest text-on-surface-variant',
         )}
       >
-        {APP_NAME} · {APP_TAGLINE}
+        <BrandWordmark as="span" footer withTagline />
       </p>
     </div>
   )

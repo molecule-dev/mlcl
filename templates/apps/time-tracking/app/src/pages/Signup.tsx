@@ -7,6 +7,7 @@ import { useSignup, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
 import { loadContent } from '../config.js'
 import { AuthField } from './Login.js'
@@ -61,24 +62,7 @@ export function Signup() {
         )}
       >
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'relative z-10')}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(10),
-              cm.h(10),
-              'rounded-xl bg-surface/20 backdrop-blur-md',
-            )}
-          >
-            <span
-              className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              schedule
-            </span>
-          </span>
-          <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="lg" invert />
         </Link>
 
         <div className={cm.cn('relative z-10', cm.stack(8))}>
@@ -166,21 +150,7 @@ export function Signup() {
       >
         <div className={cm.cn(cm.w('full'), cm.maxW('md'), cm.stack(8))}>
           <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'lg:hidden')}>
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                cm.w(8),
-                cm.h(8),
-                'rounded-lg bg-gradient-to-br from-blue-600 to-emerald-500 text-white',
-              )}
-            >
-              <span className={cm.cn(cm.textSize('base'), 'material-symbols-outlined')}>
-                schedule
-              </span>
-            </span>
-            <span className={cm.cn(cm.textSize('lg'), 'font-extrabold text-foreground')}>
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" />
           </Link>
 
           <div className={cm.stack(2)}>

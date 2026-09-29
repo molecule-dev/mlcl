@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { loadContent } from '../config.js'
 
 const NAV_LINKS = [
@@ -93,12 +94,7 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'xl' }))}>
-            <Link
-              to="/"
-              className={cm.cn(cm.textSize('2xl'), 'font-bold tracking-tighter text-primary')}
-            >
-              {APP_NAME}
-            </Link>
+            <BrandWordmark size="lg" />
             <div className={cm.cn(cm.flex({ gap: 'md' }), 'hidden md:flex')}>
               {NAV_LINKS.map((l) => (
                 <Link
@@ -517,10 +513,8 @@ export function Landing() {
           )}
         >
           <div className="col-span-2 md:col-span-1">
-            <span
-              className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 4), 'block')}
-            >
-              {APP_NAME}
+            <span className={cm.cn(cm.sp('mb', 4), 'block')}>
+              <BrandWordmark as="span" footer invert />
             </span>
             <p className={cm.cn('text-[var(--hs-sidebar-text)] mt-4 mb-6 pr-4 leading-relaxed')}>
               {t(

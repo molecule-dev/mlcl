@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -97,12 +97,9 @@ export function EnergyMonitoringLayout() {
   )
 
   const brand = (
-    <Link
-      to="/dashboard"
-      className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 6), cm.displayBlock)}
-    >
-      {APP_NAME}
-    </Link>
+    <div className={cm.cn(cm.sp('mb', 6), cm.displayBlock)}>
+      <BrandWordmark to="/dashboard" />
+    </div>
   )
 
   // Nudge the shared UserMenu trigger to a 36px+ tap target.
@@ -116,14 +113,7 @@ export function EnergyMonitoringLayout() {
     <ResponsiveAppShell sidebarWidth="md">
       <ResponsiveAppShell.TopBar
         mobileOnly
-        brand={
-          <Link
-            to="/dashboard"
-            className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'tracking-tight')}
-          >
-            {APP_NAME}
-          </Link>
-        }
+        brand={<BrandWordmark to="/dashboard" size="sm" />}
         actions={<ThemeToggle />}
       />
       <ResponsiveAppShell.Sidebar

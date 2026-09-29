@@ -5,6 +5,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { BoxThemeCard } from '../components/BoxThemeCard.js'
 import { LandingTopNavBar } from '../components/LandingTopNavBar.js'
 import { NextBoxHeroCard } from '../components/NextBoxHeroCard.js'
@@ -431,9 +432,7 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-            <span className="font-headline italic text-lg font-bold text-on-surface">
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" size="sm" footer />
             <span className={cm.cn('text-sm text-on-surface-variant')}>
               {t(
                 'landing.footer.tagline',

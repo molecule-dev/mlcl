@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { FlagRow, type FlagRowData } from '../components/FlagRow.js'
 
 const SURFACE_DARK = 'var(--color-background)'
@@ -140,29 +141,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn(
-              'flex items-center gap-2 text-xl font-extrabold tracking-tight text-white',
-            )}
-          >
-            <svg viewBox="0 0 24 24" width={26} height={26} aria-hidden="true">
-              <path
-                d="M5 3 L5 21"
-                stroke="var(--color-primary)"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-              <path
-                d="M5 4 L20 8 L5 12 Z"
-                fill="var(--color-primary)"
-                stroke="var(--color-primary)"
-                strokeWidth="1.5"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span>{APP_NAME}</span>
-          </Link>
+          <BrandWordmark />
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             <Link
               to="/pricing"

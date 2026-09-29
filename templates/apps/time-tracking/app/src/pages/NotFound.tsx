@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 export function NotFound() {
   const cm = getClassMap()
@@ -19,24 +19,7 @@ export function NotFound() {
       )}
     >
       <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 12))}>
-        <span
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            cm.w(10),
-            cm.h(10),
-            'rounded-xl bg-gradient-to-br from-blue-600 to-emerald-500 text-white shadow-lg',
-          )}
-        >
-          <span
-            className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            schedule
-          </span>
-        </span>
-        <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
-          {APP_NAME}
-        </span>
+        <BrandWordmark as="span" size="lg" />
       </Link>
 
       <div

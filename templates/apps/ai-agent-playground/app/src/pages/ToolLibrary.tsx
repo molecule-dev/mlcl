@@ -23,6 +23,49 @@ const TYPE_TONE: Record<string, string> = {
   mcp: 'text-tertiary border-outline-variant/30',
 }
 
+// Design "Tool Library" catalog: the orchestrator's always-available built-ins.
+// Display names stay Title Case — the seeded-tool e2e asserts strict-mode
+// `getByText('web_search')`, so the literal snake_case id must not render.
+interface BuiltinTool {
+  icon: string
+  nameKey: string
+  defaultName: string
+  sigKey: string
+  defaultSig: string
+  descKey: string
+  defaultDesc: string
+}
+
+const BUILTIN_TOOLS: BuiltinTool[] = [
+  {
+    icon: 'language',
+    nameKey: 'toolLibrary.builtin.webSearch',
+    defaultName: 'Web Search',
+    sigKey: 'toolLibrary.builtin.webSearchSig',
+    defaultSig: '(query: string)',
+    descKey: 'toolLibrary.builtin.webSearchDesc',
+    defaultDesc: 'Real-time web results fetched at run time.',
+  },
+  {
+    icon: 'description',
+    nameKey: 'toolLibrary.builtin.fileRead',
+    defaultName: 'File Read',
+    sigKey: 'toolLibrary.builtin.fileReadSig',
+    defaultSig: '(path: string)',
+    descKey: 'toolLibrary.builtin.fileReadDesc',
+    defaultDesc: 'Read PDF, Markdown, and JSON files from the workspace.',
+  },
+  {
+    icon: 'code',
+    nameKey: 'toolLibrary.builtin.codeExecute',
+    defaultName: 'Code Execute',
+    sigKey: 'toolLibrary.builtin.codeExecuteSig',
+    defaultSig: '(source: string)',
+    descKey: 'toolLibrary.builtin.codeExecuteDesc',
+    defaultDesc: 'Run sandboxed Python and return stdout.',
+  },
+]
+
 export function ToolLibrary() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -125,6 +168,81 @@ export function ToolLibrary() {
         )}
         title={t('toolLibrary.title', {}, { defaultValue: 'Tool Library' })}
       />
+
+      <h2
+        className={cm.cn(
+          cm.textSize('xs'),
+          cm.sp('mb', 3),
+          'font-mono uppercase tracking-wider text-tertiary',
+        )}
+        data-mol-id="tool-library-builtin-heading"
+      >
+        {t('toolLibrary.builtinHeading', {}, { defaultValue: 'Built-in Tools' })}
+      </h2>
+      <div className={cm.cn(cm.grid({ cols: 3, gap: 4 }), cm.sp('mb', 8))}>
+        {BUILTIN_TOOLS.map((tool) => (
+          <div
+            key={tool.nameKey}
+            className={cm.cn(
+              cm.sp('p', 5),
+              'bg-surface-container-low rounded border border-outline-variant/15 hover:border-outline-variant/30 transition-colors',
+            )}
+            data-mol-id="tool-library-builtin-card"
+          >
+            <div className={cm.cn(cm.flex({ align: 'start', justify: 'between' }), cm.sp('mb', 3))}>
+              <div
+                className={cm.cn(
+                  cm.w(10),
+                  cm.h(10),
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'rounded bg-surface-container-highest text-secondary',
+                )}
+              >
+                <span className="material-symbols-outlined">{tool.icon}</span>
+              </div>
+              <span
+                className={cm.cn(
+                  cm.sp('px', 2),
+                  cm.sp('py', 1),
+                  cm.textSize('xs'),
+                  'font-mono uppercase tracking-wider rounded border bg-surface-container',
+                  TYPE_TONE.builtin,
+                )}
+              >
+                {t('toolLibrary.builtin.chip', {}, { defaultValue: 'built-in' })}
+              </span>
+            </div>
+            <h3
+              className={cm.cn(
+                cm.fontWeight('semibold'),
+                cm.textSize('sm'),
+                cm.sp('mb', 1),
+                'text-on-surface',
+              )}
+            >
+              {t(tool.nameKey, {}, { defaultValue: tool.defaultName })}
+            </h3>
+            <p className={cm.cn(cm.textSize('xs'), 'font-mono text-tertiary mb-1')}>
+              {t(tool.sigKey, {}, { defaultValue: tool.defaultSig })}
+            </p>
+            <p
+              className={cm.cn(cm.textSize('xs'), cm.sp('mb', 2), 'text-tertiary leading-relaxed')}
+            >
+              {t(tool.descKey, {}, { defaultValue: tool.defaultDesc })}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <h2
+        className={cm.cn(
+          cm.textSize('xs'),
+          cm.sp('mb', 3),
+          'font-mono uppercase tracking-wider text-tertiary',
+        )}
+      >
+        {t('toolLibrary.registeredHeading', {}, { defaultValue: 'Registered Tools' })}
+      </h2>
 
       {error && (
         <p

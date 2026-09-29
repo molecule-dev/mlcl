@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { BushelHero } from '../components/BushelHero.js'
 import { FeaturedProductsGrid } from '../components/FeaturedProductsGrid.js'
 
@@ -98,33 +99,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <span
-              className={
-                'inline-flex items-center justify-center w-9 h-9 rounded-full text-white shadow-md'
-              }
-              style={{
-                background:
-                  'linear-gradient(135deg, var(--color-gradient-mid), var(--color-gradient-end))',
-              }}
-              aria-hidden="true"
-            >
-              <span
-                className={'material-symbols-outlined text-xl'}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                eco
-              </span>
-            </span>
-            <span
-              className={cm.cn(
-                cm.textSize('xl'),
-                'font-bold tracking-tight text-primary [font-family:var(--font-headline)]',
-              )}
-            >
-              {APP_NAME}
-            </span>
-          </Link>
+          <BrandWordmark />
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
               <Link

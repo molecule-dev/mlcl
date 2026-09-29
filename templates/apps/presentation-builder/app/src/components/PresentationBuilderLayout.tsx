@@ -4,7 +4,8 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 interface PresentationBuilderLayoutProps {
@@ -163,35 +164,8 @@ export function PresentationBuilderLayout({
   // Brand row — leads the desktop sidebar (the shared Sidebar has no header
   // slot, so it rides inside `children`) and heads the mobile drawer.
   const brandBlock = (
-    <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('p', 5))}>
-      <div
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'center' }),
-          cm.w(10),
-          cm.h(10),
-          'bg-gradient-to-br from-primary to-secondary rounded-xl text-white shadow-lg',
-        )}
-      >
-        <span
-          className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}
-          style={{ fontVariationSettings: "'FILL' 1" }}
-        >
-          co_present
-        </span>
-      </div>
-      <div className={cm.flex({ direction: 'col' })}>
-        <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-on-surface')}>
-          {APP_NAME}
-        </span>
-        <span
-          className={cm.cn(
-            cm.fontWeight('semibold'),
-            'text-[10px] uppercase tracking-widest text-on-surface-variant/70',
-          )}
-        >
-          {APP_TAGLINE}
-        </span>
-      </div>
+    <div className={cm.cn(cm.sp('p', 5))}>
+      <BrandWordmark size="lg" withTagline as="span" />
     </div>
   )
 
@@ -224,30 +198,7 @@ export function PresentationBuilderLayout({
           mobileOnly
           brand={
             <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'min-w-0')}>
-              <div
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  cm.w(8),
-                  cm.h(8),
-                  'bg-gradient-to-br from-primary to-secondary rounded-lg text-white shrink-0',
-                )}
-              >
-                <span
-                  className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}
-                  style={{ fontVariationSettings: "'FILL' 1" }}
-                >
-                  co_present
-                </span>
-              </div>
-              <span
-                className={cm.cn(
-                  cm.textSize('lg'),
-                  cm.fontWeight('bold'),
-                  'tracking-tight text-on-surface truncate',
-                )}
-              >
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" />
             </div>
           }
           actions={<UserMenu />}

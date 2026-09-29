@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 function SideNavBar() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -24,9 +24,7 @@ function SideNavBar() {
       )}
     >
       <div className={cm.cn(cm.sp('px', 6), cm.sp('mb', 8))}>
-        <div className={cm.cn(cm.textSize('xl'), 'font-black tracking-tight text-on-background')}>
-          {APP_NAME}
-        </div>
+        <BrandWordmark />
         <div
           className={cm.cn(
             cm.fontWeight('bold'),

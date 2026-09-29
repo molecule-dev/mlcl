@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 function CrmSidebar() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -30,22 +30,8 @@ function CrmSidebar() {
       <div
         className={cm.cn(cm.flex({ align: 'center' }), cm.sp('px', 2), cm.sp('mb', 10), 'gap-3')}
       >
-        <div
-          className={cm.cn(
-            cm.w(10),
-            cm.h(10),
-            cm.flex({ align: 'center', justify: 'center' }),
-            'bg-primary-container rounded-xl text-white shadow-lg',
-          )}
-        >
-          <span className={cm.fv5b245ffa} data-icon="architecture">
-            architecture
-          </span>
-        </div>
+        <BrandWordmark />
         <div>
-          <h1 className={cm.cn(cm.textSize('lg'), 'font-black text-foreground leading-none')}>
-            {APP_NAME}
-          </h1>
           <p
             className={cm.cn(
               cm.fontWeight('bold'),

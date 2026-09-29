@@ -4,7 +4,7 @@ import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { useIsMobile } from './useIsMobile.js'
 import { UserMenu } from './UserMenu.js'
@@ -139,34 +139,7 @@ export function RemitLayout() {
             onClick={closeDrawer}
             style={{ color: 'var(--color-sidebar-text-active)', textDecoration: 'none' }}
           >
-            <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-              <span
-                style={{
-                  width: '34px',
-                  height: '34px',
-                  borderRadius: '10px',
-                  backgroundColor: 'var(--color-accent)',
-                  color: 'var(--color-sidebar-text-active)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontWeight: 800,
-                  letterSpacing: '0.05em',
-                }}
-              >
-                R
-              </span>
-              <span
-                style={{
-                  fontSize: '20px',
-                  fontWeight: 800,
-                  color: 'var(--color-sidebar-text-active)',
-                  letterSpacing: '-0.01em',
-                }}
-              >
-                {APP_NAME}
-              </span>
-            </div>
+            <BrandWordmark as="span" size="sm" invert />
           </Link>
         </div>
 

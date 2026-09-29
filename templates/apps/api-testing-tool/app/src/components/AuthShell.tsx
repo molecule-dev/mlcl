@@ -8,7 +8,8 @@ import {
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE, BRAND_COLOR, SURFACE_DARK } from '../branding.js'
+import { APP_TAGLINE, BRAND_COLOR, SURFACE_DARK } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { SafeLink } from './SafeLink.js'
 
 /**
@@ -111,15 +112,8 @@ export function AuthShell({ children, title, subtitle, footer, statusLabel }: Au
                 </span>
               </div>
             </div>
-            <SafeLink
-              to="/"
-              className={cm.cn(
-                'inline-flex items-baseline gap-1 text-4xl font-black tracking-tighter',
-              )}
-              style={{ color: 'var(--color-text)' }}
-            >
-              {APP_NAME}
-              <span style={{ color: 'var(--color-primary)' }}>.</span>
+            <SafeLink to="/">
+              <BrandWordmark as="span" size="lg" />
             </SafeLink>
             <p
               className={cm.cn('mt-1 font-mono text-xs')}

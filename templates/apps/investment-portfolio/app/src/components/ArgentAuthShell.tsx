@@ -13,7 +13,8 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE, LOGO_SIZE } from '../branding.js'
+import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 interface ArgentAuthShellProps {
@@ -50,16 +51,7 @@ export function ArgentAuthShell({
           )}
         >
           <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'relative z-10')}>
-            <img
-              src="/logo.svg"
-              width={LOGO_SIZE}
-              height={LOGO_SIZE}
-              alt=""
-              className={cm.cn('invert')}
-            />
-            <span className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'tracking-tight')}>
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" size="lg" invert />
           </Link>
 
           <div className={cm.cn('relative z-10 max-w-md')}>
@@ -162,8 +154,7 @@ export function ArgentAuthShell({
             )}
           >
             <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'lg:invisible')}>
-              <img src="/logo.svg" width={LOGO_SIZE} height={LOGO_SIZE} alt="" />
-              <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>{APP_NAME}</span>
+              <BrandWordmark as="span" size="sm" />
             </Link>
             <ThemeToggle />
           </header>

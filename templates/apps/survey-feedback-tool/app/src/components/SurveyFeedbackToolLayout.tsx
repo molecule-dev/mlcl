@@ -25,7 +25,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { Footer } from './Footer.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
@@ -122,20 +122,7 @@ function SurveyFeedbackToolLayout({ children }: SurveyFeedbackToolLayoutProps) {
   // the drawer header — only the mounted breakpoint instantiates each.
   const brand = (
     <Link to="/surveys" className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-      <span
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'center' }),
-          cm.w(8),
-          cm.h(8),
-          cm.roundedFull,
-          'bg-gradient-to-br from-primary to-secondary text-white',
-        )}
-      >
-        <span className="material-symbols-outlined" style={{ fontSize: 18 }} aria-hidden="true">
-          graphic_eq
-        </span>
-      </span>
-      <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>{APP_NAME}</span>
+      <BrandWordmark as="span" size="sm" />
     </Link>
   )
 

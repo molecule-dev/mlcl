@@ -15,13 +15,13 @@
  * routed through getClassMap helpers + brand tokens (no inline styles).
  */
 import type { ReactElement } from 'react'
-import { Link, NavLink, Outlet } from 'react-router'
+import { NavLink, Outlet } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell, ThemeToggle } from '@molecule/app-ui-react'
 
-import { APP_NAME, LOGO_SIZE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { Footer } from './Footer.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -163,12 +163,7 @@ export function DiscussionBoardsLayout() {
   return (
     <ResponsiveAppShell sidebarWidth="md">
       <ResponsiveAppShell.TopBar
-        brand={
-          <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-            <img src="/logo.svg" width={LOGO_SIZE} height={LOGO_SIZE} alt="" />
-            <span className={cm.logoText}>{APP_NAME}</span>
-          </Link>
-        }
+        brand={<BrandWordmark />}
         actions={
           <>
             <ThemeToggle />

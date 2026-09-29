@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -86,8 +86,8 @@ export function FoodDeliveryLayout() {
     <ResponsiveAppShell sidebarWidth="md">
       <ResponsiveAppShell.TopBar
         brand={
-          <Link to="/restaurants" className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
-            {APP_NAME}
+          <Link to="/restaurants" className={cm.cn('shrink-0')}>
+            <BrandWordmark as="span" />
           </Link>
         }
         actions={
@@ -98,12 +98,7 @@ export function FoodDeliveryLayout() {
         }
       />
       <ResponsiveAppShell.Sidebar navLabel={navLabel}>{nav}</ResponsiveAppShell.Sidebar>
-      <ResponsiveAppShell.Drawer
-        navLabel={navLabel}
-        header={
-          <span className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>{APP_NAME}</span>
-        }
-      >
+      <ResponsiveAppShell.Drawer navLabel={navLabel} header={<BrandWordmark as="span" />}>
         {nav}
       </ResponsiveAppShell.Drawer>
       <ResponsiveAppShell.Content>

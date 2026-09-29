@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 interface LandingTopNavBarProps {
   /**
@@ -41,8 +41,8 @@ export function LandingTopNavBar({ variant = 'static' }: LandingTopNavBarProps) 
           'mx-auto w-full max-w-7xl gap-4 px-6 py-4 lg:px-8',
         )}
       >
-        <Link to="/" className={cm.cn('text-2xl font-black tracking-tighter text-primary')}>
-          {APP_NAME}
+        <Link to="/" className={cm.cn('rounded')}>
+          <BrandWordmark as="span" />
         </Link>
         <nav
           className={cm.cn(cm.flex({ align: 'center', gap: 8 }), 'hidden md:flex')}

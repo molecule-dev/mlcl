@@ -22,7 +22,7 @@ import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import {
   type ApiAcknowledgment,
   type ApiAnnouncement,
@@ -337,20 +337,7 @@ export function InternalAnnouncementsLayout() {
   // header slot (the shared Sidebar has no header slot).
   const brandBlock = (
     <Link to="/feed" className={cm.cn(cm.flex({ direction: 'col' }), cm.sp('mb', 6))}>
-      <span
-        className={cm.cn(cm.fontWeight('bold'), 'text-2xl tracking-tight')}
-        style={{ color: 'var(--mol-color-primary, var(--color-priority-normal))' }}
-      >
-        {APP_NAME}
-      </span>
-      <span
-        className={cm.cn(
-          cm.fontWeight('medium'),
-          'text-[10px] uppercase tracking-widest text-on-surface-variant',
-        )}
-      >
-        {APP_TAGLINE}
-      </span>
+      <BrandWordmark as="span" withTagline />
     </Link>
   )
 
@@ -366,7 +353,7 @@ export function InternalAnnouncementsLayout() {
             className={cm.cn(cm.fontWeight('bold'), 'text-lg tracking-tight')}
             style={{ color: 'var(--mol-color-primary, var(--color-priority-normal))' }}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </Link>
         }
         actions={<ThemeToggle />}

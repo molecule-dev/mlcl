@@ -1,10 +1,10 @@
-import { Link, NavLink, Outlet } from 'react-router'
+import { NavLink, Outlet } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { Footer } from './Footer.js'
 import { NAV_ITEMS } from './MainNav.js'
 import { ThemeToggle } from './ThemeToggle.js'
@@ -63,19 +63,7 @@ export function AppLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navLabel = t('nav.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
-  const brand = (
-    <Link
-      to="/"
-      className={cm.cn(
-        cm.flex({ align: 'center', gap: 2 }),
-        cm.fontWeight('extrabold'),
-        cm.textSize('lg'),
-        'tracking-tight truncate',
-      )}
-    >
-      {APP_NAME}
-    </Link>
-  )
+  const brand = <BrandWordmark />
 
   return (
     <ResponsiveAppShell sidebarWidth="md">
@@ -105,9 +93,7 @@ export function AppLayout() {
       <ResponsiveAppShell.Drawer
         navLabel={navLabel}
         className={cm.cn('h-full', cm.sp('p', 4))}
-        header={
-          <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('extrabold'))}>{APP_NAME}</span>
-        }
+        header={<BrandWordmark as="span" size="sm" />}
       >
         <ShellNav />
       </ResponsiveAppShell.Drawer>

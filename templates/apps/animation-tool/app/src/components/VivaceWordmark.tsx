@@ -1,48 +1,30 @@
 /**
- * Vivace wordmark — italic, gradient-stroked text logo. Used in landing nav,
- * sidebar header, and auth-page brand header.
- *
- * Bespoke per Vivace DESIGN.md (no polished sibling — fallback cluster: dev-tools).
+ * Vivace wordmark — thin compatibility wrapper around the canonical
+ * `BrandWordmark` (italic, gradient-stroked text logo; bespoke per Vivace
+ * DESIGN.md). Kept so existing call sites keep their `size`/`to` API while
+ * the brand itself renders through the one shared component
+ * (scripts/verify-brand-consistency.mjs greps for exactly that).
  */
-import { getClassMap } from '@molecule/app-ui'
+import { BrandWordmark } from './BrandWordmark.js'
+import { SafeLink } from './SafeLink.js'
 
 import { APP_NAME } from '../branding.js'
-import { SafeLink } from './SafeLink.js'
 
 interface VivaceWordmarkProps {
   size?: 'sm' | 'md' | 'lg' | 'xl'
   to?: string
 }
 
-const SIZE_CLASS: Record<NonNullable<VivaceWordmarkProps['size']>, string> = {
-  sm: 'text-lg',
-  md: 'text-2xl',
-  lg: 'text-3xl',
-  xl: 'text-5xl',
-}
-
 export function VivaceWordmark({ size = 'md', to }: VivaceWordmarkProps) {
-  const cm = getClassMap()
-  const wordmark = (
-    <span
-      className={cm.cn(
-        SIZE_CLASS[size],
-        'font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[var(--anim-primary)] via-[var(--anim-primary)] to-[var(--anim-secondary)]',
-      )}
-    >
-      {APP_NAME}
-    </span>
-  )
-
+  const mark = <BrandWordmark as="span" size={size} />
   if (to) {
     return (
       <SafeLink to={to} aria-label={`${APP_NAME} home`} data-mol-id="vivace-wordmark">
-        {wordmark}
+        {mark}
       </SafeLink>
     )
   }
-
-  return wordmark
+  return mark
 }
 
 export default VivaceWordmark

@@ -4,6 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 /**
  * Public marketing footer, shared across the Landing page and the
@@ -26,15 +27,7 @@ export function LandingFooter() {
           'mx-auto flex w-full max-w-7xl flex-col gap-6 px-6 py-12 md:flex-row lg:px-8',
         )}
       >
-        <span
-          className={cm.cn(
-            cm.textSize('lg'),
-            cm.fontWeight('bold'),
-            'tracking-tight text-on-surface',
-          )}
-        >
-          {APP_NAME}
-        </span>
+        <BrandWordmark as="span" size="sm" footer />
         <div className={cm.cn(cm.flex({ align: 'center', gap: 6 }), 'flex-wrap justify-center')}>
           <Link
             to="/about"

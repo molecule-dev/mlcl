@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -106,7 +106,7 @@ export function MeridianLayout() {
             to={safeTarget('/dashboard', pathname)}
             className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'tracking-tight')}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </Link>
         }
         actions={<ThemeToggle />}
@@ -127,7 +127,7 @@ export function MeridianLayout() {
             to={safeTarget('/dashboard', pathname)}
             className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'block')}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" />
           </Link>
           <ThemeToggle />
         </div>

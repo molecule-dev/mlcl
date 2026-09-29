@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 export default function DashboardSideNavBar() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -18,24 +18,7 @@ export default function DashboardSideNavBar() {
       )}
     >
       <div className={cm.cn(cm.sp('mb', 8), cm.sp('px', 2), cm.flex({ align: 'center' }), 'gap-3')}>
-        <div
-          className={cm.cn(
-            cm.w(8),
-            cm.h(8),
-            cm.flex({ align: 'center', justify: 'center' }),
-            'bg-primary rounded-lg text-white',
-          )}
-        >
-          <span
-            className={cm.cn('material-symbols-outlined', cm.textSize('lg'))}
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            dataset
-          </span>
-        </div>
-        <h1 className={cm.cn(cm.textSize('xl'), 'font-black text-blue-800 tracking-tight')}>
-          {APP_NAME}
-        </h1>
+        <BrandWordmark />
       </div>
       <nav className={cm.cn(cm.flex1, cm.stack(1))}>
         <Link className={cm.fv1d0bb218} data-mol-id="nav-dashboard" to="/">

@@ -5,6 +5,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { PublicTopNav } from '../components/PublicTopNav.js'
 import { loadContent } from '../config.js'
 
@@ -274,7 +275,7 @@ export function Landing() {
                 <div className="h-3 w-3 rounded-full bg-tertiary-fixed" />
               </div>
               <div className="text-xs font-semibold uppercase tracking-wide text-on-surface-variant">
-                {APP_NAME}
+                {t('landing.mockupTitle', { app: APP_NAME }, { defaultValue: '{{app}}' })}
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
@@ -401,7 +402,9 @@ export function Landing() {
             'md:flex-row',
           )}
         >
-          <div className="text-lg font-bold text-on-surface">{APP_NAME}</div>
+          <div>
+            <BrandWordmark as="span" size="sm" footer />
+          </div>
           <nav
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center', gap: 'md' }),

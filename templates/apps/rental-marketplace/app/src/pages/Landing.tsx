@@ -6,6 +6,7 @@ import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { loadContent } from '../config.js'
 import { DestinationDiscoveryCard } from '../components/DestinationDiscoveryCard.js'
 import { RoostHeroSearchCard } from '../components/RoostHeroSearchCard.js'
@@ -155,17 +156,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <span
-              className={cm.cn(
-                cm.textSize('2xl'),
-                cm.fontWeight('bold'),
-                'text-white tracking-tight font-headline drop-shadow-md',
-              )}
-            >
-              {APP_NAME}
-            </span>
-          </Link>
+          <BrandWordmark size="lg" invert />
           <div className={cm.flex({ align: 'center', gap: 'lg' })}>
             <Link
               to="/search"
@@ -602,15 +593,8 @@ export function Landing() {
         <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 12), cm.mxAuto)}>
           <div className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-2 md:grid-cols-4')}>
             <div className="col-span-2 md:col-span-1">
-              <div
-                className={cm.cn(
-                  cm.textSize('xl'),
-                  cm.fontWeight('bold'),
-                  cm.sp('mb', 4),
-                  'text-primary font-headline',
-                )}
-              >
-                {APP_NAME}
+              <div className={cm.cn(cm.sp('mb', 4))}>
+                <BrandWordmark as="span" footer />
               </div>
               <p
                 className={cm.cn(

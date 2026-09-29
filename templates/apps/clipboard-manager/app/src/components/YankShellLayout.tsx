@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -89,14 +89,7 @@ export function YankShellLayout() {
           menu trigger. Renders nothing on desktop. */}
       <ResponsiveAppShell.TopBar
         mobileOnly
-        brand={
-          <Link
-            to="/clips"
-            className={cm.cn(cm.textSize('lg'), cm.fontWeight('extrabold'), 'tracking-tight')}
-          >
-            {APP_NAME}
-          </Link>
-        }
+        brand={<BrandWordmark to="/clips" size="sm" />}
         actions={<UserMenu />}
       />
 
@@ -110,17 +103,9 @@ export function YankShellLayout() {
         className={cm.sp('p', 4)}
         footer={<UserMenu />}
       >
-        <Link
-          to="/clips"
-          className={cm.cn(
-            cm.textSize('xl'),
-            cm.fontWeight('bold'),
-            cm.sp('mb', 6),
-            cm.displayBlock,
-          )}
-        >
-          {APP_NAME}
-        </Link>
+        <div className={cm.cn(cm.sp('mb', 6), cm.displayBlock)}>
+          <BrandWordmark to="/clips" />
+        </div>
         {nav}
       </ResponsiveAppShell.Sidebar>
 
@@ -131,9 +116,7 @@ export function YankShellLayout() {
       */}
       <ResponsiveAppShell.Drawer
         navLabel={navLabel}
-        header={
-          <span className={cm.cn(cm.textSize('2xl'), cm.fontWeight('extrabold'))}>{APP_NAME}</span>
-        }
+        header={<BrandWordmark as="span" size="lg" />}
         footer={<UserMenu />}
       >
         {nav}

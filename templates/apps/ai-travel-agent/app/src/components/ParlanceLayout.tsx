@@ -6,6 +6,7 @@ import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -153,7 +154,7 @@ function MobileShell({ navItems }: { navItems: NavItem[] }) {
               'min-w-0 truncate tracking-tight text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded px-1',
             )}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </Link>
         </div>
         <UserMenu />
@@ -189,9 +190,7 @@ function MobileShell({ navItems }: { navItems: NavItem[] }) {
             )}
           >
             <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'px-2 py-2')}>
-              <span className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'tracking-tight')}>
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" size="sm" />
               <button
                 type="button"
                 aria-label={t('parlanceLayout.closeMenu', {}, { defaultValue: 'Close menu' })}

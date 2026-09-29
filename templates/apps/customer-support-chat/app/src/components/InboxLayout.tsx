@@ -23,6 +23,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 interface InboxLayoutProps {
@@ -171,16 +172,10 @@ function InboxLayout({ list, main, side }: InboxLayoutProps) {
       >
         <Link
           to="/inbox"
-          className={cm.cn(
-            cm.sp('px', 3),
-            cm.sp('py', 2),
-            cm.fontWeight('bold'),
-            cm.textSize('lg'),
-            'block truncate text-on-surface',
-          )}
+          className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'block truncate')}
           data-mol-id="sidebar-brand"
         >
-          {APP_NAME}
+          <BrandWordmark as="span" size="sm" />
         </Link>
         {navItems}
       </ResponsiveAppShell.Sidebar>
@@ -193,11 +188,7 @@ function InboxLayout({ list, main, side }: InboxLayoutProps) {
       <ResponsiveAppShell.Drawer
         navLabel={navLabel}
         className="h-full"
-        header={
-          <span className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'truncate')}>
-            {APP_NAME}
-          </span>
-        }
+        header={<BrandWordmark as="span" size="sm" />}
       >
         {navItems}
       </ResponsiveAppShell.Drawer>

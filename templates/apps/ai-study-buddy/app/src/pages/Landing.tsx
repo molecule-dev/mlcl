@@ -3,7 +3,8 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { Footer } from '../components/Footer.js'
 import { SafeLink } from '../components/SafeLink.js'
 import { StreakBadge } from '../components/StreakBadge.js'
@@ -83,9 +84,7 @@ export function Landing() {
             data-mol-id="landing-logo"
             className={cm.flex({ align: 'center', gap: 'xs' })}
           >
-            <span className={cm.cn(cm.textSize('2xl'), 'font-black tracking-tighter text-primary')}>
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" />
           </SafeLink>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.hiddenBelow('md'))}>
             <a

@@ -4,6 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface AuthShellProps {
   heading: string
@@ -64,31 +65,7 @@ export function AuthShell({
       <header
         className={cm.cn('relative z-10', cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 8))}
       >
-        <span
-          aria-hidden="true"
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            'h-11 w-11 bg-gradient-to-br from-primary to-primary-container shadow-lg',
-            cm.roundedFull,
-          )}
-        >
-          <span
-            className={cm.cn('material-symbols-outlined text-on-primary')}
-            style={{ fontSize: 24, fontVariationSettings: "'FILL' 1" }}
-          >
-            graphic_eq
-          </span>
-        </span>
-        <span
-          className={cm.cn(
-            cm.textSize('3xl'),
-            cm.fontWeight('bold'),
-            cm.textPrimary,
-            'tracking-tight',
-          )}
-        >
-          {APP_NAME}
-        </span>
+        <BrandWordmark as="span" size="lg" />
       </header>
 
       <main

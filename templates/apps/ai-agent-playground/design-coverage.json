@@ -1,0 +1,81 @@
+{
+  "_comment": "Accepted divergences from the Stitch designs. Each entry is a reviewed decision; anything not listed here fails verify:design-coverage.",
+  "screens": {
+    "/dashboard": {
+      "allow": [
+        {
+          "heading": "Data_Extractor_v2",
+          "reason": "Design sample-data name (mock agent). The Active Agents grid, Recent Runs, and log sections are implemented; rows render the signed-in user's own agents from GET /agents, never a hardcoded demo fleet."
+        },
+        {
+          "heading": "Support_Bot_EU",
+          "reason": "Design sample-data name (mock agent). The Active Agents grid, Recent Runs, and log sections are implemented; rows render the signed-in user's own agents from GET /agents, never a hardcoded demo fleet."
+        },
+        {
+          "heading": "Content_Moderator",
+          "reason": "Design sample-data name (mock agent). The Active Agents grid, Recent Runs, and log sections are implemented; rows render the signed-in user's own agents from GET /agents, never a hardcoded demo fleet."
+        }
+      ]
+    },
+    "/agents": {
+      "allow": [
+        {
+          "heading": "Research Assistant",
+          "reason": "Design sample-data name (mock agent card). The agents grid is implemented and renders the user's own agents from GET /agents; seeding design demo agents would show fake data in every fresh workspace."
+        },
+        {
+          "heading": "Code Reviewer",
+          "reason": "Design sample-data name (mock agent card). The agents grid is implemented and renders the user's own agents from GET /agents; seeding design demo agents would show fake data in every fresh workspace."
+        },
+        {
+          "heading": "Customer Support Bot",
+          "reason": "Design sample-data name (mock agent card). The agents grid is implemented and renders the user's own agents from GET /agents; seeding design demo agents would show fake data in every fresh workspace."
+        },
+        {
+          "heading": "SQL Query Builder",
+          "reason": "Design sample-data name (mock agent card). The agents grid is implemented and renders the user's own agents from GET /agents; seeding design demo agents would show fake data in every fresh workspace."
+        }
+      ]
+    },
+    "/datasets": {
+      "allow": [
+        {
+          "heading": "support-tickets-eval",
+          "reason": "Design sample-data name (mock dataset). The Evaluation Datasets section is implemented; cards render the user's uploaded datasets from GET /datasets, so the design's demo fixture names are intentionally absent."
+        },
+        {
+          "heading": "financial-qna-golden",
+          "reason": "Design sample-data name (mock dataset). The Evaluation Datasets section is implemented; cards render the user's uploaded datasets from GET /datasets, so the design's demo fixture names are intentionally absent."
+        }
+      ]
+    },
+    "/knowledge-bases": {
+      "allow": [
+        {
+          "heading": "Product Documentation",
+          "reason": "Design sample-data name (mock knowledge base). The KB grid is implemented and renders the user's own indexes from GET /knowledge-bases; the design's demo corpus names are intentionally absent."
+        },
+        {
+          "heading": "API Reference v3",
+          "reason": "Design sample-data name (mock knowledge base). The KB grid is implemented and renders the user's own indexes from GET /knowledge-bases; the design's demo corpus names are intentionally absent."
+        },
+        {
+          "heading": "Customer Support KB",
+          "reason": "Design sample-data name (mock knowledge base). The KB grid is implemented and renders the user's own indexes from GET /knowledge-bases; the design's demo corpus names are intentionally absent."
+        },
+        {
+          "heading": "Engineering Wiki",
+          "reason": "Design sample-data name (mock knowledge base). The KB grid is implemented and renders the user's own indexes from GET /knowledge-bases; the design's demo corpus names are intentionally absent."
+        },
+        {
+          "heading": "Sales Playbook",
+          "reason": "Design sample-data name (mock knowledge base). The KB grid is implemented and renders the user's own indexes from GET /knowledge-bases; the design's demo corpus names are intentionally absent."
+        },
+        {
+          "heading": "Compliance Policies",
+          "reason": "Design sample-data name (mock knowledge base). The KB grid is implemented and renders the user's own indexes from GET /knowledge-bases; the design's demo corpus names are intentionally absent."
+        }
+      ]
+    }
+  }
+}

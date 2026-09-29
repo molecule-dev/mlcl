@@ -4,6 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 function BotDeploySideNavBar() {
   const { t } = useTranslation()
   const cm = getClassMap()
@@ -22,30 +23,7 @@ function BotDeploySideNavBar() {
         )}
       >
         <div className={cm.cn(cm.sp('mb', 10), cm.flex({ align: 'center' }), 'gap-3')}>
-          <div
-            className={cm.cn(
-              cm.w(10),
-              cm.h(10),
-              cm.flex({ align: 'center', justify: 'center' }),
-              'bg-gradient-to-br from-primary to-tertiary rounded-lg',
-            )}
-          >
-            <span
-              className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined text-white')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              bolt
-            </span>
-          </div>
-          <span
-            className={cm.cn(
-              cm.textSize('xl'),
-              cm.fontWeight('bold'),
-              'tracking-tight text-on-background font-headline',
-            )}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" />
         </div>
         <nav className={cm.cn(cm.flex1, 'space-y-1')}>
           <Link

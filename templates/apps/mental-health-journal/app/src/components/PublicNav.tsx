@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Public marketing nav shared by the Landing, About, Privacy, and Terms
@@ -47,14 +47,7 @@ export function PublicNav() {
             cm.fontWeight('extrabold'),
           )}
         >
-          <span
-            aria-hidden="true"
-            className={cm.cn('material-symbols-outlined text-2xl')}
-            style={{ color: 'var(--mol-color-primary)', fontVariationSettings: "'FILL' 1" }}
-          >
-            nights_stay
-          </span>
-          <span style={{ letterSpacing: '-0.02em' }}>{APP_NAME}</span>
+          <BrandWordmark as="span" />
         </Link>
         <div className={cm.flex({ align: 'center', gap: 'md' })}>
           {isAuthenticated ? (

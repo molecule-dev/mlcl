@@ -28,6 +28,7 @@ import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { planLabel } from '../lib/planLabel.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { SideNavFooter, SideNavLinks } from './SideNavBar.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -98,61 +99,28 @@ function MobileTopBarActions() {
 
 /** The mobile bar's brand (kept from the old `MobileNav` header). */
 function MobileBrand() {
-  const cm = getClassMap()
   return (
     <Link
       to="/dashboard"
-      className={cm.cn(
-        cm.flex({ align: 'center', gap: 2 }),
-        cm.fontWeight('bold'),
-        cm.textSize('lg'),
-        'text-primary dark:text-[#a78bfa] min-w-0 truncate',
-      )}
+      className="min-w-0 truncate shrink-0"
       data-mol-id="mobile-nav-brand"
+      aria-label={APP_NAME}
     >
-      <span
-        className={cm.cn('material-symbols-outlined')}
-        style={{ fontVariationSettings: "'FILL' 1" }}
-        aria-hidden="true"
-      >
-        school
-      </span>
-      <span className="truncate">{APP_NAME}</span>
+      <BrandWordmark as="span" size="sm" />
     </Link>
   )
 }
 
 /** Drawer-header brand line (the old drawer's `sideNavBar.brandName` span). */
 function DrawerBrand() {
-  const cm = getClassMap()
-  const { t } = useTranslation()
-  return (
-    <span
-      className={cm.cn(
-        cm.textSize('xl'),
-        cm.fontWeight('bold'),
-        'text-primary dark:text-[#a78bfa]',
-      )}
-    >
-      {t('sideNavBar.brandName', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
-    </span>
-  )
+  return <BrandWordmark as="span" />
 }
 
 /** The default desktop sidebar's brand line. */
 function SidebarBrand() {
-  const cm = getClassMap()
-  const { t } = useTranslation()
   return (
-    <div
-      className={cm.cn(
-        cm.textSize('2xl'),
-        cm.fontWeight('bold'),
-        cm.sp('mb', 10),
-        'text-primary dark:text-[#a78bfa]',
-      )}
-    >
-      {t('sideNavBar.brandName', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
+    <div className="mb-10">
+      <BrandWordmark as="span" size="lg" />
     </div>
   )
 }

@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { NowPlayingBar } from './NowPlayingBar.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -105,9 +105,9 @@ export function WavelengthLayout() {
           brand={
             <Link
               to="/discover"
-              className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'tracking-tight truncate')}
+              className={cm.cn(cm.flex({ align: 'center' }), 'min-w-0 truncate')}
             >
-              {APP_NAME}
+              <BrandWordmark as="span" size="sm" />
             </Link>
           }
           actions={<UserMenu dataMolId="mobile-user-card" compact />}
@@ -130,11 +130,8 @@ export function WavelengthLayout() {
             </span>
           }
         >
-          <Link
-            to="/discover"
-            className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 6), 'block')}
-          >
-            {APP_NAME}
+          <Link to="/discover" className={cm.cn(cm.sp('mb', 6), 'block')}>
+            <BrandWordmark as="span" />
           </Link>
           {nav}
         </ResponsiveAppShell.Sidebar>
@@ -146,9 +143,7 @@ export function WavelengthLayout() {
         <ResponsiveAppShell.Drawer
           navLabel={navLabel}
           className="h-full"
-          header={
-            <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>{APP_NAME}</span>
-          }
+          header={<BrandWordmark as="span" size="sm" />}
         >
           {nav}
         </ResponsiveAppShell.Drawer>

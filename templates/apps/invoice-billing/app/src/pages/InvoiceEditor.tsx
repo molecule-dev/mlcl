@@ -600,7 +600,11 @@ export function InvoiceEditor() {
                   margin: 0,
                 }}
               >
-                {APP_NAME}
+                {t(
+                  'invoiceEditor.preview.companyName',
+                  { appName: APP_NAME },
+                  { defaultValue: '{{appName}}' },
+                )}
               </h2>
               <p
                 style={{

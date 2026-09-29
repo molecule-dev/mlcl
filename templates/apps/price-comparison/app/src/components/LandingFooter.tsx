@@ -5,6 +5,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 
 /**
@@ -39,16 +40,7 @@ export function LandingFooter() {
         className={cm.cn(cm.maxW('xl'), cm.mxAuto, 'grid grid-cols-2 md:grid-cols-4 gap-8 text-sm')}
       >
         <div className={cm.cn('col-span-2 md:col-span-1 flex flex-col gap-4')}>
-          <div
-            className={cm.cn(
-              cm.fontWeight('extrabold'),
-              cm.textSize('xl'),
-              'text-on-surface tracking-tight',
-            )}
-            style={{ fontFamily: 'var(--font-headline)' }}
-          >
-            {APP_NAME}
-          </div>
+          <BrandWordmark as="span" size="sm" footer />
           {/* App-scoped key: the shared `common.copyrightBuiltWithMolecule`
               already contains ". Built with Molecule.dev", which duplicated
               the sibling link below. */}

@@ -14,6 +14,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { AnnouncementCard } from '../components/AnnouncementCard.js'
 import { Footer } from '../components/Footer.js'
 import { SAMPLE_FEED } from '../components/SampleData.js'
@@ -37,20 +38,7 @@ export function Landing() {
         )}
       >
         <Link to="/" className={cm.cn(cm.flex({ direction: 'col' }))}>
-          <span
-            className={cm.cn(cm.fontWeight('bold'), 'text-2xl tracking-tight')}
-            style={{ color: 'var(--mol-color-primary, var(--color-priority-normal))' }}
-          >
-            {APP_NAME}
-          </span>
-          <span
-            className={cm.cn(
-              cm.fontWeight('medium'),
-              'text-[10px] uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
-            {APP_TAGLINE}
-          </span>
+          <BrandWordmark as="span" withTagline />
         </Link>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
           <Link

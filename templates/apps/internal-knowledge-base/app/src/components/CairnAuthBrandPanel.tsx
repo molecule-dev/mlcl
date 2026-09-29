@@ -1,7 +1,7 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Editorial brand panel for Cairn's auth split-screen layout —
@@ -76,25 +76,7 @@ export function CairnAuthBrandPanel({
       />
 
       <div className={cm.cn('relative z-10')}>
-        <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-          <span
-            className={cm.cn('material-symbols-outlined')}
-            style={{ fontSize: '2.5rem' }}
-            aria-hidden="true"
-          >
-            stack
-          </span>
-          <p
-            className={cm.cn(
-              cm.textSize('5xl'),
-              cm.fontWeight('extrabold'),
-              'tracking-tight text-white',
-            )}
-          >
-            {APP_NAME}
-          </p>
-        </div>
-        <p className={cm.cn(cm.sp('mt', 3), cm.textSize('xl'), 'text-white/85')}>{APP_TAGLINE}.</p>
+        <BrandWordmark as="span" size="lg" invert withTagline />
       </div>
 
       <div className={cm.cn('relative z-10 mx-auto max-w-md')}>

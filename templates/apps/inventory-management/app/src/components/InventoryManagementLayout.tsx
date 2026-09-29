@@ -5,7 +5,7 @@ import { useAuth, useTheme, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Icon, ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
@@ -173,8 +173,8 @@ export function InventoryManagementLayout() {
           inventory_2
         </span>
       </span>
-      <span className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-white')}>
-        {APP_NAME}
+      <span className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+        <BrandWordmark as="span" size="sm" invert />
       </span>
     </NavLink>
   )
@@ -406,33 +406,7 @@ export function InventoryManagementLayout() {
         <div
           className={cm.cn(cm.sp('px', 6), cm.sp('py', 6), cm.flex({ align: 'center', gap: 'sm' }))}
         >
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'h-10 w-10 rounded-xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg shadow-primary/30',
-            )}
-          >
-            <span className="material-symbols-outlined" data-icon="inventory_2">
-              inventory_2
-            </span>
-          </div>
-          <div>
-            <p className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight leading-none')}>
-              {APP_NAME}
-            </p>
-            <p
-              className={cm.cn(
-                // white/60 = 7.0:1 on the #0f1729 rail (axe serious)
-                'text-[10px] font-semibold uppercase tracking-[0.18em] text-white/60',
-              )}
-            >
-              {t(
-                'inventoryManagementLayout.brandSubtitle',
-                {},
-                { defaultValue: 'Inventory Control' },
-              )}
-            </p>
-          </div>
+          <BrandWordmark as="span" invert withSubtitle />
         </div>
         {nav}
       </ResponsiveAppShell.Sidebar>

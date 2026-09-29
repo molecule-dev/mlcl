@@ -9,6 +9,7 @@ import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { SafeLink } from '../components/SafeLink.js'
 import { WorkflowStatusBadge } from '../components/WorkflowStatusBadge.js'
 import { loadContent } from '../config.js'
@@ -618,12 +619,7 @@ export function Landing() {
         <div className={'max-w-7xl mx-auto'}>
           <div className={'grid grid-cols-2 md:grid-cols-5 gap-8 mb-12'}>
             <div className={'col-span-2 md:col-span-1 flex flex-col gap-4'}>
-              <span className={'text-xl font-bold text-slate-900 flex items-center gap-2'}>
-                <span className={'material-symbols-outlined text-violet-600'} aria-hidden="true">
-                  hub
-                </span>
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" footer />
               <p className={'text-slate-500 leading-relaxed'}>
                 {t(
                   'landing.footer.tagline',

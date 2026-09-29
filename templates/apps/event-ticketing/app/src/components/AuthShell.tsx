@@ -7,6 +7,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 
 /**
@@ -67,21 +68,7 @@ export function AuthShell({
         />
 
         <Link to="/" className={cm.cn('relative z-10 flex items-center gap-3')}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'w-10 h-10 rounded-xl bg-surface/15 backdrop-blur-md',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-2xl text-white')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-              aria-hidden="true"
-            >
-              confirmation_number
-            </span>
-          </span>
-          <span className={cm.cn('text-3xl font-extrabold tracking-tighter')}>{APP_NAME}</span>
+          <BrandWordmark as="span" size="lg" invert />
         </Link>
 
         <div className={cm.cn('relative z-10 stack-y space-y-6')}>
@@ -167,25 +154,7 @@ export function AuthShell({
           to="/"
           className={cm.cn('lg:hidden absolute top-6 left-6 inline-flex items-center gap-2')}
         >
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'w-9 h-9 rounded-lg text-white',
-            )}
-            style={{
-              background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-            }}
-          >
-            <span className={cm.cn('material-symbols-outlined text-xl')} aria-hidden="true">
-              confirmation_number
-            </span>
-          </span>
-          <span
-            className={cm.cn('text-2xl font-extrabold tracking-tighter')}
-            style={{ color: 'var(--color-primary)' }}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="md" />
         </Link>
 
         <div

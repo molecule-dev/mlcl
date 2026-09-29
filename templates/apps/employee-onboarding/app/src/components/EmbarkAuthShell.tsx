@@ -6,6 +6,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
@@ -116,25 +117,8 @@ export function EmbarkAuthShell({
           className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
           style={{ position: 'relative', zIndex: 1 }}
         >
-          <div
-            className={cm.cn(cm.flex({ align: 'center', justify: 'center' }))}
-            style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '12px',
-              background: 'rgba(255,255,255,0.22)',
-              backdropFilter: 'blur(12px)',
-            }}
-          >
-            <span
-              className="material-symbols-outlined"
-              style={{ fontSize: '24px', color: 'var(--mol-color-surface)' }}
-            >
-              rocket_launch
-            </span>
-          </div>
+          <BrandWordmark as="span" size="lg" invert />
           <div>
-            <p className={cm.cn(cm.fontWeight('bold'), 'text-lg tracking-tight')}>{APP_NAME}</p>
             <p
               className="text-[10px] uppercase tracking-[0.18em]"
               style={{ color: 'rgba(255,255,255,0.85)' }}
@@ -216,24 +200,7 @@ export function EmbarkAuthShell({
           style={{ height: '64px' }}
         >
           <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            <div
-              className={cm.cn(cm.flex({ align: 'center', justify: 'center' }))}
-              style={{
-                width: '32px',
-                height: '32px',
-                borderRadius: '8px',
-                background:
-                  'linear-gradient(135deg, var(--mol-color-primary) 0%, var(--mol-color-secondary) 100%)',
-                color: 'var(--mol-color-surface)',
-              }}
-            >
-              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
-                rocket_launch
-              </span>
-            </div>
-            <span className={cm.cn(cm.fontWeight('bold'), 'text-base tracking-tight')}>
-              {APP_NAME}
-            </span>
+            <BrandWordmark />
           </Link>
           <ThemeToggle />
         </div>

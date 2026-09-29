@@ -4,7 +4,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router'
 import { useLogin, usePasswordReset, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { AuthField } from './Login.js'
 
 export function ResetPassword() {
@@ -45,26 +45,7 @@ export function ResetPassword() {
     >
       <main className={cm.cn(cm.w('full'), cm.maxW('md'), cm.stack(8))}>
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm', justify: 'center' }))}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(10),
-              cm.h(10),
-              'rounded-xl bg-gradient-to-br from-blue-600 to-emerald-500 text-white shadow-lg',
-            )}
-          >
-            <span
-              className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              schedule
-            </span>
-          </span>
-          <span
-            className={cm.cn(cm.textSize('xl'), 'font-extrabold text-foreground tracking-tight')}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="lg" />
         </Link>
 
         <div className={cm.cn(cm.sp('p', 8), 'bg-surface rounded-2xl shadow-xl shadow-blue-500/5')}>

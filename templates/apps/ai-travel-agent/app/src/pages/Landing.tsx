@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { AmbientOrbs } from '../components/AmbientOrbs.js'
 import { ChatBubble } from '../components/ChatBubble.js'
 import { SafeLink } from '../components/SafeLink.js'
@@ -130,27 +131,7 @@ function Landing() {
         )}
       >
         <SafeLink to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <span
-            aria-hidden="true"
-            className={cm.cn(
-              cm.roundedFull,
-              cm.flex({ align: 'center', justify: 'center' }),
-              'h-8 w-8 bg-gradient-to-br from-primary to-secondary text-white',
-            )}
-            style={{
-              boxShadow: '0 0 18px color-mix(in srgb, var(--mol-color-primary) 50%, transparent)',
-            }}
-          >
-            <span
-              className="material-symbols-outlined text-[20px]"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              flight_takeoff
-            </span>
-          </span>
-          <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" />
         </SafeLink>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
           {isAuthenticated ? (

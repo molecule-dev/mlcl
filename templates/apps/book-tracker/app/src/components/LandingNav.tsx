@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Public marketing-site navigation bar (brand + auth-aware CTA).
@@ -42,14 +42,7 @@ export function LandingNav() {
             cm.fontWeight('bold'),
           )}
         >
-          <span
-            aria-hidden="true"
-            className={cm.cn('material-symbols-outlined text-2xl')}
-            style={{ color: 'var(--color-flame)', fontVariationSettings: "'FILL' 1" }}
-          >
-            auto_stories
-          </span>
-          <span>{APP_NAME}</span>
+          <BrandWordmark as="span" />
         </Link>
         <div className={cm.flex({ align: 'center', gap: 'md' })}>
           {isAuthenticated ? (

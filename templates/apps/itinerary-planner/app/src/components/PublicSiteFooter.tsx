@@ -4,7 +4,8 @@ import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 
 /**
@@ -30,25 +31,7 @@ export function PublicSiteFooter() {
             cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
           )}
         >
-          <div>
-            <span
-              className={cm.cn(
-                cm.textSize('2xl'),
-                cm.fontWeight('extrabold'),
-                'text-primary tracking-tight',
-              )}
-              style={{ fontFamily: 'var(--font-headline)' }}
-            >
-              {APP_NAME}
-            </span>
-            <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
-              {t(
-                'landing.footer.tagline',
-                { tagline: APP_TAGLINE },
-                { defaultValue: '{{tagline}}.' },
-              )}
-            </p>
-          </div>
+          <BrandWordmark as="span" footer withTagline />
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), cm.textSize('sm'))}>
             {/* inline-block py-2 keeps the wrapped rows at a tappable height
                 on phones (20px-tall text links fail the ~40px target rule). */}

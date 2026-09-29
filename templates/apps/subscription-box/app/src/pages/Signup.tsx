@@ -7,6 +7,7 @@ import { useSignup, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
 import { loadContent } from '../config.js'
 
@@ -91,21 +92,8 @@ export function Signup() {
               cm.textCenter,
             )}
           >
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-md',
-              )}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-3xl')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                redeem
-              </span>
-            </span>
-            <h1 className={cm.cn('text-3xl font-extrabold tracking-tighter text-on-surface')}>
-              {APP_NAME}
+            <h1>
+              <BrandWordmark as="span" size="lg" />
             </h1>
             <p className={cm.cn('text-sm font-medium text-on-surface-variant')}>{APP_TAGLINE}</p>
           </header>

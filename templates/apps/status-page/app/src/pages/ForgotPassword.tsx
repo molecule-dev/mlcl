@@ -6,6 +6,7 @@ import { usePasswordReset, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 export function ForgotPassword() {
   const cm = getClassMap()
@@ -88,7 +89,9 @@ export function ForgotPassword() {
                 </span>
               </div>
             </div>
-            <h1 className={cm.cn('text-3xl font-extrabold tracking-tight')}>{APP_NAME}</h1>
+            <h1>
+              <BrandWordmark as="span" size="lg" />
+            </h1>
             <p className={cm.cn('mt-1 font-mono text-xs text-on-surface-variant')}>{APP_TAGLINE}</p>
           </header>
 

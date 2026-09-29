@@ -3,7 +3,7 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { CreatorMobileNav } from './CreatorMobileNav.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
@@ -79,9 +79,7 @@ export function CreatorSidebarLayout() {
             'border-b border-surface/10',
           )}
         >
-          <span className={cm.cn(cm.textSize('2xl'), 'font-black tracking-tighter text-white')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" invert />
           <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">
             {t('creatorSidebar.eyebrow', {}, { defaultValue: 'Creator Studio' })}
           </span>
@@ -182,15 +180,8 @@ export function CreatorSidebarLayout() {
             'sticky top-0 z-30 bg-surface/90 backdrop-blur border-b border-outline-variant',
           )}
         >
-          <Link
-            to="/dashboard"
-            className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'lg:hidden')}
-          >
-            <span
-              className={cm.cn(cm.textSize('lg'), 'font-black tracking-tighter text-on-surface')}
-            >
-              {APP_NAME}
-            </span>
+          <Link to="/dashboard" className="lg:hidden">
+            <BrandWordmark as="span" size="sm" />
           </Link>
           <div className={cm.cn(cm.flex1, cm.sp('px', 4), 'hidden lg:block')}>
             <p

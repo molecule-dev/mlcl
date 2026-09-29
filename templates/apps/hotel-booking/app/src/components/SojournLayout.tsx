@@ -8,6 +8,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -65,7 +66,7 @@ function MobileShell({
             to="/"
             className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-primary shrink-0')}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </NavLink>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}>
             <ThemeToggle />
