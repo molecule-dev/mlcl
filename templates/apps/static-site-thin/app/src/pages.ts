@@ -263,6 +263,12 @@ export function postPage({
   // `notes.switchesHtml` stays on screen, directly under the title. Folding the
   // switches into a <details>, a menu or a "Reading controls" disclosure hides
   // the prompts switch from every reader who has not opened it.
+  //
+  // The prompts switch IS the post's prompt display: turned on, each prompt
+  // shows once, beside the paragraphs it wrote, with its model, and hovering
+  // either one highlights the other. Do not add a second list of prompts (a
+  // "Prompts" section, a <details> of every prompt, a footer list): each prompt
+  // then appears twice on the page, and the copy has none of that behaviour.
   return layout({
     site,
     path: postPath(post.slug),
