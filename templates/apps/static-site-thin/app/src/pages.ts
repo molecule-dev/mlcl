@@ -260,6 +260,9 @@ export function postPage({
           .map((h) => `<li><a href="#${escapeHtml(h.id)}">${escapeHtml(h.text)}</a></li>`)
           .join('')}</ul></nav>`
       : ''
+  // `notes.switchesHtml` stays on screen, directly under the title. Folding the
+  // switches into a <details>, a menu or a "Reading controls" disclosure hides
+  // the prompts switch from every reader who has not opened it.
   return layout({
     site,
     path: postPath(post.slug),

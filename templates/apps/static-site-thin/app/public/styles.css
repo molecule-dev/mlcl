@@ -68,6 +68,12 @@ a:hover {
   color: var(--accent-hover);
 }
 
+/* One shell for every page that is not a post: the front page, the tag pages
+   and the about page share one width, so their content starts at the same left
+   edge. To widen the front page, change --measure (or this rule) — never a
+   `.site:has(.post-list)`-style rule that widens one page, which leaves the tag
+   and about pages starting further right. Only post pages widen, for the notes
+   (`.site:has([data-mn-has-notes])` below). */
 .site {
   max-width: calc(var(--measure) + 2 * var(--gutter));
   margin: 0 auto;
