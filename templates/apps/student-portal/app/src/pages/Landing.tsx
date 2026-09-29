@@ -5,7 +5,6 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import { BrandWordmark } from '../components/BrandWordmark.js'
 import { loadContent } from '../config.js'
 
 /**
@@ -120,8 +119,13 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'xl' }))}>
-            <Link to="/" className={cm.cn('scale-95 active:scale-90 transition-transform rounded')}>
-              <BrandWordmark as="span" />
+            <Link
+              to="/"
+              className={cm.cn(
+                'text-2xl font-black tracking-tighter font-headline text-primary scale-95 active:scale-90 transition-transform',
+              )}
+            >
+              {APP_NAME}
             </Link>
             <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden md:flex')}>
               <a
@@ -595,8 +599,14 @@ export function Landing() {
             'py-12 flex flex-col md:flex-row justify-between items-center gap-6',
           )}
         >
-          <div>
-            <BrandWordmark as="span" footer />
+          <div
+            className={cm.cn(
+              cm.textSize('xl'),
+              cm.fontWeight('bold'),
+              'font-headline text-primary',
+            )}
+          >
+            {APP_NAME}
           </div>
           <nav
             className={cm.cn(

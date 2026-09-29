@@ -1,7 +1,6 @@
 // Pattern source: ai-chatbot-builder/components/SettingsProfileSection.tsx +
 // SettingsAccessSection.tsx — workspace-wide preferences, API keys, defaults.
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { Link } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
@@ -26,7 +25,6 @@ interface UserPreferences {
   defaultProvider?: string
   defaultModel?: string
   timezone?: string
-  apiToken?: string
 }
 
 interface OwnedRow {
@@ -205,135 +203,12 @@ export function Settings() {
       )}
 
       <div className={cm.cn(cm.grid({ cols: 12, gap: 6 }))}>
-        <nav
-          aria-label={t('settings.title', {}, { defaultValue: 'Settings' })}
-          className="col-span-2"
-        >
-          <div className={cm.stack(6)}>
-            <div>
-              <h2
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  cm.sp('mb', 2),
-                  cm.sp('px', 2),
-                  'font-mono uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
-                {t('settings.configuration', {}, { defaultValue: 'Configuration' })}
-              </h2>
-              <ul>
-                {[
-                  {
-                    href: '/profile',
-                    icon: 'person',
-                    labelKey: 'settings.nav.account',
-                    defaultLabel: 'Account',
-                  },
-                  {
-                    href: '#settings-api-keys',
-                    icon: 'key',
-                    labelKey: 'settings.apiKeys',
-                    defaultLabel: 'API Keys',
-                  },
-                  {
-                    href: '#settings-defaults',
-                    icon: 'hub',
-                    labelKey: 'settings.nav.providers',
-                    defaultLabel: 'Providers',
-                  },
-                  {
-                    href: '/tools',
-                    icon: 'build',
-                    labelKey: 'settings.nav.toolsMcp',
-                    defaultLabel: 'Tools & MCP',
-                  },
-                  {
-                    href: '#settings-appearance',
-                    icon: 'palette',
-                    labelKey: 'nav.appearance',
-                    defaultLabel: 'Appearance',
-                  },
-                ].map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      className={cm.cn(
-                        cm.flex({ align: 'center', gap: 2 }),
-                        cm.sp('px', 2),
-                        cm.sp('py', 2),
-                        cm.textSize('xs'),
-                        'rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors',
-                      )}
-                      data-mol-id={`settings-nav-${item.href.replace(/[^a-z-]/g, '')}`}
-                      to={item.href}
-                    >
-                      <span className="material-symbols-outlined text-[16px]">{item.icon}</span>
-                      <span>{t(item.labelKey, {}, { defaultValue: item.defaultLabel })}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h2
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  cm.sp('mb', 2),
-                  cm.sp('px', 2),
-                  'font-mono uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
-                {t('settings.organizationHeading', {}, { defaultValue: 'Organization' })}
-              </h2>
-              <ul>
-                {[
-                  {
-                    href: '/pricing',
-                    icon: 'group',
-                    labelKey: 'settings.nav.team',
-                    defaultLabel: 'Team',
-                  },
-                  {
-                    href: '#settings-danger',
-                    icon: 'shield',
-                    labelKey: 'settings.nav.security',
-                    defaultLabel: 'Security',
-                  },
-                  {
-                    href: '/notifications',
-                    icon: 'notifications',
-                    labelKey: 'nav.notifications',
-                    defaultLabel: 'Notifications',
-                  },
-                ].map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      className={cm.cn(
-                        cm.flex({ align: 'center', gap: 2 }),
-                        cm.sp('px', 2),
-                        cm.sp('py', 2),
-                        cm.textSize('xs'),
-                        'rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors',
-                      )}
-                      data-mol-id={`settings-nav-${item.href.replace(/[^a-z-]/g, '')}`}
-                      to={item.href}
-                    >
-                      <span className="material-symbols-outlined text-[16px]">{item.icon}</span>
-                      <span>{t(item.labelKey, {}, { defaultValue: item.defaultLabel })}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </nav>
-
-        <section className="col-span-6">
+        <section className="col-span-7">
           <div
             className={cm.cn(
               cm.sp('p', 6),
               'bg-surface-container-low rounded border border-outline-variant/15',
             )}
-            id="settings-api-keys"
           >
             <h2
               className={cm.cn(
@@ -471,71 +346,13 @@ export function Settings() {
           </div>
         </section>
 
-        <aside className="col-span-4">
-          <section
-            className={cm.cn(
-              cm.sp('p', 6),
-              cm.sp('mb', 4),
-              'bg-surface-container-low rounded border border-outline-variant/15',
-            )}
-            data-mol-id="settings-personal-keys"
-          >
-            <h2
-              className={cm.cn(
-                cm.textSize('lg'),
-                cm.fontWeight('bold'),
-                cm.sp('mb', 1),
-                'font-headline text-on-surface',
-              )}
-            >
-              {t('settings.personalKeys', {}, { defaultValue: 'Personal Keys' })}
-            </h2>
-            <p
-              className={cm.cn(cm.textSize('xs'), cm.sp('mb', 4), 'text-tertiary leading-relaxed')}
-            >
-              {t(
-                'settings.personalKeysHint',
-                {},
-                {
-                  defaultValue:
-                    'Keys scoped to your personal workspace — use them for programmatic API access.',
-                },
-              )}
-            </p>
-            <div
-              className={cm.cn(
-                cm.sp('p', 3),
-                cm.sp('mb', 3),
-                'bg-surface-container-lowest rounded border border-outline-variant/15 font-mono text-xs text-on-surface break-all',
-              )}
-              data-mol-id="settings-personal-key-value"
-            >
-              {prefs.apiToken
-                ? `${prefs.apiToken.slice(0, 9)}${'•'.repeat(Math.max(0, prefs.apiToken.length - 13))}${prefs.apiToken.slice(-4)}`
-                : t('settings.noPersonalKey', {}, { defaultValue: 'no personal key issued yet' })}
-            </div>
-            <Link
-              className={cm.cn(
-                cm.textSize('xs'),
-                'font-mono uppercase tracking-wider text-secondary hover:text-on-surface',
-              )}
-              data-mol-id="settings-personal-keys-manage"
-              to="/profile"
-            >
-              {t(
-                'settings.personalKeysManage',
-                {},
-                { defaultValue: 'Manage keys on your profile →' },
-              )}
-            </Link>
-          </section>
+        <aside className="col-span-5">
           <div
             className={cm.cn(
               cm.sp('p', 6),
               cm.sp('mb', 4),
               'bg-surface-container-low rounded border border-outline-variant/15',
             )}
-            id="settings-defaults"
           >
             <h2
               className={cm.cn(
@@ -659,10 +476,7 @@ export function Settings() {
             </p>
             <LanguagePicker />
           </section>
-          <section
-            className={cm.cn(cm.sp('p', 8), cm.sp('mb', 4), 'bg-surface-container-low rounded-xl')}
-            id="settings-appearance"
-          >
+          <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>
             <div className={cm.sp('mb', 6)}>
               <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
                 {t('nav.appearance', {}, { defaultValue: 'Appearance' })}
@@ -682,7 +496,6 @@ export function Settings() {
               cm.sp('p', 6),
               'bg-surface-container-low rounded border border-error/30',
             )}
-            id="settings-danger"
           >
             <h2
               className={cm.cn(

@@ -4,7 +4,6 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
-import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const FEATURES = [
   {
@@ -70,8 +69,28 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link to="/" className="min-w-0 whitespace-nowrap shrink-0">
-            <BrandWordmark as="span" />
+          <Link
+            to="/"
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 3 }),
+              'min-w-0 whitespace-nowrap shrink-0 text-xl font-bold tracking-tight text-navy dark:text-surface',
+            )}
+          >
+            <span
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                'h-8 w-8 rounded-lg bg-primary text-on-primary shrink-0',
+              )}
+              aria-hidden="true"
+            >
+              <span
+                className="material-symbols-outlined"
+                style={{ fontSize: 20, fontVariationSettings: "'FILL' 1" }}
+              >
+                route
+              </span>
+            </span>
+            {APP_NAME}
           </Link>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 flex-wrap')}>
             <Link

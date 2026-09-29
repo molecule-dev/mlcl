@@ -6,7 +6,6 @@ import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
-import { BrandWordmark } from '../components/BrandWordmark.js'
 import { IncidentCard, type IncidentCardData } from '../components/IncidentCard.js'
 import { ServiceRow, type ServiceRowData } from '../components/ServiceRow.js'
 import type { ComponentStatus } from '../components/StatusPill.js'
@@ -281,8 +280,19 @@ export function PublicStatusPage() {
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.cn('flex items-center gap-2')}>
-            <BrandWordmark as="span" />
+          <Link
+            to="/"
+            className={cm.cn('flex items-center gap-2 text-xl font-extrabold tracking-tight')}
+          >
+            <span
+              className={cm.cn(
+                'inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-status-operational)] text-[var(--color-auth-on-primary)]',
+              )}
+              aria-hidden="true"
+            >
+              <span className={cm.cn('material-symbols-outlined text-[20px]')}>graphic_eq</span>
+            </span>
+            <span>{APP_NAME}</span>
             <span
               className={cm.cn(
                 'ml-2 hidden md:inline font-mono text-[10px] font-black uppercase tracking-widest text-on-surface-variant',

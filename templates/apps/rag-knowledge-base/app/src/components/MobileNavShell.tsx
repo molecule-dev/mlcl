@@ -4,7 +4,7 @@ import { Link, Outlet, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { BrandWordmark } from './BrandWordmark.js'
+import { APP_NAME } from '../branding.js'
 import { UserMenu } from './UserMenu.js'
 
 // Fleet QA mobile-shell pattern (ai-agent-playground MobileNavShell /
@@ -99,8 +99,17 @@ export function MobileNavShell({ navItems, navAriaLabel }: MobileNavShellProps) 
               menu
             </span>
           </button>
-          <Link to="/ask" data-mol-id="mobile-brand" className={cm.cn('truncate', FOCUS_RING)}>
-            <BrandWordmark as="span" size="sm" />
+          <Link
+            to="/ask"
+            data-mol-id="mobile-brand"
+            className={cm.cn(
+              cm.textSize('lg'),
+              cm.fontWeight('extrabold'),
+              'tracking-tight text-on-surface truncate',
+              FOCUS_RING,
+            )}
+          >
+            {APP_NAME}
           </Link>
         </div>
         <div className={cm.cn(cm.flex({ align: 'center' }), 'shrink-0')}>
@@ -136,7 +145,11 @@ export function MobileNavShell({ navItems, navAriaLabel }: MobileNavShellProps) 
                 'pt-5 pb-2',
               )}
             >
-              <BrandWordmark as="span" size="sm" />
+              <span
+                className={cm.cn(cm.textSize('lg'), cm.fontWeight('extrabold'), 'tracking-tight')}
+              >
+                {APP_NAME}
+              </span>
               <button
                 type="button"
                 aria-label={t('mobileNav.closeMenu', {}, { defaultValue: 'Close navigation menu' })}

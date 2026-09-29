@@ -4,7 +4,7 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { BrandWordmark } from './BrandWordmark.js'
+import { APP_NAME } from '../branding.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
@@ -126,8 +126,16 @@ export function WaypointLayout() {
         )}
         style={{ width: 240 }}
       >
-        <Link to="/dashboard" className={cm.cn(cm.sp('mb', 6), cm.displayBlock)}>
-          <BrandWordmark to="/dashboard" />
+        <Link
+          to="/dashboard"
+          className={cm.cn(
+            cm.textSize('xl'),
+            cm.fontWeight('bold'),
+            cm.sp('mb', 6),
+            cm.displayBlock,
+          )}
+        >
+          {APP_NAME}
         </Link>
         {navLinks()}
         <div className={cm.cn(cm.sp('pt', 4), cm.borderT)}>
@@ -159,8 +167,11 @@ export function WaypointLayout() {
             {drawerOpen ? 'close' : 'menu'}
           </span>
         </button>
-        <Link to="/dashboard" className="min-w-0 truncate">
-          <BrandWordmark to="/dashboard" size="sm" />
+        <Link
+          to="/dashboard"
+          className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'min-w-0 truncate')}
+        >
+          {APP_NAME}
         </Link>
         {/* Cap the user card so a long email cannot squeeze the brand out. */}
         <div className={cm.cn('ml-auto max-w-[44vw] shrink')}>
@@ -186,8 +197,8 @@ export function WaypointLayout() {
           )}
           style={{ animation: 'waypoint-drawer-in 160ms ease-out' }}
         >
-          <div className={cm.cn(cm.sp('mb', 6))}>
-            <BrandWordmark to="/dashboard" />
+          <div className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 6))}>
+            {APP_NAME}
           </div>
           {navLinks(() => setDrawerOpen(false))}
         </div>

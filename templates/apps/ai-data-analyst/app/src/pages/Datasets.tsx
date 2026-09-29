@@ -119,80 +119,18 @@ export function Datasets() {
           )}
         </p>
       ) : (
-        <>
-          <section
-            aria-labelledby="datasets-repository-heading"
-            className={cm.flex({ direction: 'col', gap: 3 })}
-          >
-            <h2
-              id="datasets-repository-heading"
-              className={cm.cn(
-                'text-[10px] uppercase tracking-[0.22em] font-black text-on-surface',
-              )}
-            >
-              {t('datasets.repositoryHeading', {}, { defaultValue: 'Data Repository' })}
-            </h2>
-            <ul
-              className={cm.cn(
-                cm.grid({ cols: 1, gap: 4 }),
-                'sm:grid-cols-2 xl:grid-cols-3 list-none p-0',
-              )}
-            >
-              {datasets.map((d) => (
-                <li key={d.id}>
-                  <DatasetCard dataset={d} />
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          {/* Design's bottom upload surface — the repository always offers the
-              next ingest one click away. A div (not li): the fleet e2e asserts
-              `main li` count equals the API's dataset count exactly. */}
-          <div className={cm.flex({ justify: 'center' })}>
-            <Link
-              to="/upload"
-              data-mol-id="datasets-upload-another"
-              className={cm.cn(
-                cm.flex({ direction: 'col', align: 'center', gap: 2 }),
-                cm.sp('px', 10),
-                cm.sp('py', 6),
-                cm.textCenter,
-                'rounded-2xl border border-dashed border-outline-variant bg-surface-container-low/50 hover:border-primary/40 hover:bg-surface-container-low transition-colors',
-              )}
-            >
-              <span
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  cm.w(10),
-                  cm.h(10),
-                  cm.roundedFull,
-                  'bg-primary/10 text-primary',
-                )}
-                aria-hidden="true"
-              >
-                <span className={cm.cn('material-symbols-outlined', cm.textSize('lg'))}>
-                  cloud_upload
-                </span>
-              </span>
-              <span
-                className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'), 'text-on-surface')}
-              >
-                {t('datasets.uploadAnother', {}, { defaultValue: 'Upload another dataset' })}
-              </span>
-              <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                {t(
-                  'datasets.uploadAnotherSub',
-                  {},
-                  {
-                    defaultValue:
-                      'CSV, JSON, JSONL, XLSX, or Parquet — parsed right in your browser',
-                  },
-                )}
-              </span>
-            </Link>
-          </div>
-        </>
+        <ul
+          className={cm.cn(
+            cm.grid({ cols: 1, gap: 4 }),
+            'sm:grid-cols-2 xl:grid-cols-3 list-none p-0',
+          )}
+        >
+          {datasets.map((d) => (
+            <li key={d.id}>
+              <DatasetCard dataset={d} />
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   )

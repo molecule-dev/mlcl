@@ -51,7 +51,6 @@ function KnowledgeArticleDetail() {
   const [saving, setSaving] = useState(false)
   const [confirmingDelete, setConfirmingDelete] = useState(false)
   const [actionMessage, setActionMessage] = useState<string | null>(null)
-  const [related, setRelated] = useState<ArticleRow[]>([])
 
   async function loadArticle() {
     if (!id) return
@@ -65,7 +64,6 @@ function KnowledgeArticleDetail() {
         setEditTitle(row.title)
         setEditContent(row.content || row.body_md || '')
         setEditStatus(row.status)
-        void loadRelated(row.category, row.id)
       }
     } catch (err) {
       setError(
@@ -82,19 +80,6 @@ function KnowledgeArticleDetail() {
     void loadArticle()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
-
-  // Related articles: same category, excluding the current one. A failed
-  // fetch just leaves the section empty — it is secondary content and must
-  // never surface the page-level error state.
-  async function loadRelated(category: string, excludeId: string) {
-    try {
-      const response = await get<ArticleRow[]>('/api/knowledge')
-      const rows = Array.isArray(response.data) ? response.data : []
-      setRelated(rows.filter((r) => r.id !== excludeId && r.category === category).slice(0, 3))
-    } catch {
-      setRelated([])
-    }
-  }
 
   async function handleSave(e: React.FormEvent) {
     e.preventDefault()
@@ -455,191 +440,6 @@ function KnowledgeArticleDetail() {
                   </dd>
                 </div>
               </dl>
-            </div>
-
-            {(article.tags_json ?? []).length > 0 && (
-              <div
-                data-mol-id="knowledge-detail-tags"
-                className={cm.cn(
-                  cm.flex({ direction: 'col', gap: 3 }),
-                  cm.sp('p', 5),
-                  'rounded-2xl bg-surface-container-lowest shadow-sm',
-                )}
-              >
-                <span
-                  className={cm.cn(
-                    cm.flex({ align: 'center', gap: 2 }),
-                    cm.fontWeight('bold'),
-                    cm.textSize('xs'),
-                    'tracking-widest uppercase text-on-surface',
-                  )}
-                >
-                  <span className="material-symbols-outlined text-base text-primary">label</span>
-                  {t('knowledgeArticleDetail.tagsTitle', {}, { defaultValue: 'Tags' })}
-                </span>
-                <div className={cm.cn(cm.flex({ gap: 2 }), 'flex-wrap')}>
-                  {(article.tags_json ?? []).map((tag) => (
-                    <span
-                      key={tag}
-                      className={cm.cn(
-                        cm.textSize('xs'),
-                        'rounded-md bg-surface-container px-2.5 py-1 text-on-surface-variant',
-                      )}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <div
-              data-mol-id="knowledge-detail-related"
-              className={cm.cn(
-                cm.flex({ direction: 'col', gap: 3 }),
-                cm.sp('p', 5),
-                'rounded-2xl bg-surface-container-lowest shadow-sm',
-              )}
-            >
-              <span
-                className={cm.cn(
-                  cm.flex({ align: 'center', gap: 2 }),
-                  cm.fontWeight('bold'),
-                  cm.textSize('xs'),
-                  'tracking-widest uppercase text-on-surface',
-                )}
-              >
-                <span className="material-symbols-outlined text-base text-primary">
-                  library_books
-                </span>
-                {t('knowledgeArticleDetail.relatedTitle', {}, { defaultValue: 'Related' })}
-              </span>
-              {related.length === 0 ? (
-                <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                  {t(
-                    'knowledgeArticleDetail.relatedEmpty',
-                    {},
-                    {
-                      defaultValue:
-                        'No other articles in this category yet — publish one to link it here.',
-                    },
-                  )}
-                </span>
-              ) : (
-                <div className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
-                  {related.map((r) => (
-                    <Link
-                      key={r.id}
-                      data-mol-id={`knowledge-detail-related-${r.id}`}
-                      to={`/knowledge/${r.id}`}
-                      className={cm.cn(
-                        cm.flex({ direction: 'col', gap: 1 }),
-                        cm.sp('p', 3),
-                        'rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors',
-                      )}
-                    >
-                      <span
-                        className={cm.cn(
-                          cm.fontWeight('medium'),
-                          cm.textSize('sm'),
-                          'text-on-surface',
-                        )}
-                      >
-                        {r.title}
-                      </span>
-                      <span
-                        className={cm.cn(cm.textSize('xs'), 'font-mono text-on-surface-variant')}
-                      >
-                        {r.category}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div
-              data-mol-id="knowledge-detail-history"
-              className={cm.cn(
-                cm.flex({ direction: 'col', gap: 3 }),
-                cm.sp('p', 5),
-                'rounded-2xl bg-surface-container-lowest shadow-sm',
-              )}
-            >
-              <span
-                className={cm.cn(
-                  cm.flex({ align: 'center', gap: 2 }),
-                  cm.fontWeight('bold'),
-                  cm.textSize('xs'),
-                  'tracking-widest uppercase text-on-surface',
-                )}
-              >
-                <span className="material-symbols-outlined text-base text-primary">history</span>
-                {t('knowledgeArticleDetail.historyTitle', {}, { defaultValue: 'Version History' })}
-              </span>
-              <div
-                className={cm.cn(
-                  cm.flex({ direction: 'col', gap: 4 }),
-                  'border-l border-outline-variant/30 pl-4 ml-2',
-                )}
-              >
-                <div className={cm.cn(cm.flex({ direction: 'col', gap: 1 }), 'relative')}>
-                  <span
-                    aria-hidden="true"
-                    className="absolute w-2.5 h-2.5 rounded-full bg-primary -left-[22px] top-1.5 ring-4 ring-surface-container-lowest"
-                  />
-                  <div className={cm.flex({ justify: 'between', align: 'baseline' })}>
-                    <span
-                      className={cm.cn(
-                        cm.fontWeight('bold'),
-                        cm.textSize('xs'),
-                        'font-mono text-primary',
-                      )}
-                    >
-                      v{article.version}
-                    </span>
-                    <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                      {relativeTime(article.updated_at ?? article.created_at)}
-                    </span>
-                  </div>
-                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface')}>
-                    {t(
-                      'knowledgeArticleDetail.historyCurrent',
-                      {},
-                      { defaultValue: 'Current revision.' },
-                    )}
-                  </span>
-                </div>
-                {article.version > 1 && (
-                  <div className={cm.cn(cm.flex({ direction: 'col', gap: 1 }), 'relative')}>
-                    <span
-                      aria-hidden="true"
-                      className="absolute w-2 h-2 rounded-full bg-outline-variant -left-[21px] top-1.5 ring-4 ring-surface-container-lowest"
-                    />
-                    <div className={cm.flex({ justify: 'between', align: 'baseline' })}>
-                      <span
-                        className={cm.cn(
-                          cm.fontWeight('medium'),
-                          cm.textSize('xs'),
-                          'font-mono text-outline',
-                        )}
-                      >
-                        v1
-                      </span>
-                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                        {new Date(article.created_at).toLocaleDateString()}
-                      </span>
-                    </div>
-                    <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                      {t(
-                        'knowledgeArticleDetail.historyInitial',
-                        {},
-                        { defaultValue: 'Initial publication.' },
-                      )}
-                    </span>
-                  </div>
-                )}
-              </div>
             </div>
           </aside>
         </div>

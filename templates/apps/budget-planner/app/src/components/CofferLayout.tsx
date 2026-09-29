@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { BrandWordmark } from './BrandWordmark.js'
+import { APP_NAME } from '../branding.js'
 import { usePreferences } from '../lib/format.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -118,13 +118,19 @@ export function CofferLayout() {
             to="/dashboard"
             className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}
           >
-            <BrandWordmark as="span" size="sm" />
+            {APP_NAME}
           </Link>
         }
         actions={<UserMenu />}
       />
       <ResponsiveAppShell.Sidebar>{nav}</ResponsiveAppShell.Sidebar>
-      <ResponsiveAppShell.Drawer header={<BrandWordmark as="span" />}>
+      <ResponsiveAppShell.Drawer
+        header={
+          <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface')}>
+            {APP_NAME}
+          </span>
+        }
+      >
         {nav}
       </ResponsiveAppShell.Drawer>
       <ResponsiveAppShell.Content>

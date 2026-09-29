@@ -45,41 +45,6 @@ const EMPTY_DRAFT: NewRuleDraft = {
   severity: 'warning',
 }
 
-// Built-in security presets shown alongside the user's own rules — read-only
-// catalog entries the engine ships with (create your own via the form above).
-const SECURITY_PRESETS = [
-  {
-    key: 'sqlInjection',
-    title: 'SQL Injection Detection',
-    description: 'Flags concatenated strings interpolated into SQL queries.',
-    severityLabel: 'Critical',
-    severityClass: 'bg-red-500/15 text-error',
-    pattern: 'SELECT\\s+.*\\s+FROM\\s+.*\\s+WHERE\\s+.*\\+.*',
-  },
-  {
-    key: 'hardcodedSecrets',
-    title: 'Hardcoded Secrets',
-    description: 'Catches API keys, tokens, and passwords committed in source.',
-    severityLabel: 'Warning',
-    severityClass: 'bg-amber-500/15 text-warning',
-    pattern: '(?i)(api_key|password|secret)\\s*[=:]\\s*["\'][a-zA-Z0-9_-]{10,}["\']',
-  },
-  {
-    key: 'idor',
-    title: 'Insecure Direct Object Reference',
-    description: 'Finds resource reads that skip an ownership check on the caller.',
-    severityLabel: 'Critical',
-    severityClass: 'bg-red-500/15 text-error',
-    pattern: '(find|get)By(Id|User)\\(req\\.(params|query|body)\\.',
-  },
-] as const
-
-const AI_SUGGESTIONS = [
-  'Anchor patterns with word boundaries (\\b) so identifiers like userId do not match user.',
-  'Prefer severity "warning" for style-level rules so must-fix signal stays loud.',
-  'Scope language-specific rules with the language field instead of mega-patterns.',
-] as const
-
 export function RulesEditor() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -93,7 +58,6 @@ export function RulesEditor() {
   const [draft, setDraft] = useState<NewRuleDraft>(EMPTY_DRAFT)
   const [creating, setCreating] = useState(false)
   const [createError, setCreateError] = useState<string | null>(null)
-  const [showSuggestions, setShowSuggestions] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -265,7 +229,7 @@ export function RulesEditor() {
               'tracking-tight',
             )}
           >
-            {t('rulesEditor.heading', {}, { defaultValue: 'Rule editor' })}
+            {t('rulesEditor.heading', {}, { defaultValue: 'Rules' })}
           </h1>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
             {t(
@@ -611,159 +575,6 @@ export function RulesEditor() {
           </ul>
         </section>
       )}
-
-      <section
-        className={cm.cn(
-          cm.sp('p', 5),
-          cm.accentCard({ tone: 'custom' }),
-          'rounded-2xl bg-surface-container-lowest shadow-sm',
-        )}
-        style={{ ['--mol-accent' as string]: 'var(--color-red-500)' }}
-        aria-labelledby="rules-security-heading"
-      >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 4))}>
-          <span
-            className={cm.cn(
-              'w-7 h-7 rounded-md bg-red-500/10 inline-flex items-center justify-center',
-            )}
-            aria-hidden="true"
-          >
-            <span className="material-symbols-outlined text-[16px] text-error">shield</span>
-          </span>
-          <h2
-            id="rules-security-heading"
-            className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'tracking-tight')}
-          >
-            {t('rulesEditor.securityRulesHeading', {}, { defaultValue: 'Security rules' })}
-          </h2>
-          <span className={cm.cn('ml-auto text-xs font-mono text-on-surface-variant')}>
-            {t(
-              'rulesEditor.securityPresetsCount',
-              { count: SECURITY_PRESETS.length },
-              { defaultValue: '{{count}} built-in presets' },
-            )}
-          </span>
-        </div>
-        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.sp('mb', 4))}>
-          {t(
-            'rulesEditor.securityPresetsNote',
-            {},
-            {
-              defaultValue:
-                'Shipped with the review engine and always on. Clone any preset as a starting point by copying its pattern into the form above.',
-            },
-          )}
-        </p>
-        <ul className={cm.stack(3)}>
-          {SECURITY_PRESETS.map((preset) => (
-            <li
-              key={preset.key}
-              className={cm.cn(
-                cm.flex({ direction: 'col', gap: 'sm' }),
-                cm.sp('p', 3),
-                'rounded-lg border border-outline-variant/40 bg-surface',
-              )}
-              data-mol-id={`rules-preset-${preset.key}`}
-            >
-              <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-                <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-on-surface')}>
-                  {t(`rulesEditor.preset.${preset.key}.title`, {}, { defaultValue: preset.title })}
-                </h3>
-                <span
-                  className={cm.cn(
-                    'ml-auto inline-flex items-center px-2 py-0.5 rounded text-[9px] font-extrabold uppercase tracking-widest font-mono',
-                    preset.severityClass,
-                  )}
-                >
-                  {t(
-                    `rulesEditor.preset.${preset.key}.severity`,
-                    {},
-                    { defaultValue: preset.severityLabel },
-                  )}
-                </span>
-              </div>
-              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                {t(
-                  `rulesEditor.preset.${preset.key}.description`,
-                  {},
-                  { defaultValue: preset.description },
-                )}
-              </p>
-              <pre
-                className={cm.cn(
-                  cm.sp('p', 2),
-                  'bg-surface-container-low rounded text-[10px] font-mono whitespace-pre-wrap break-words text-on-surface-variant',
-                )}
-              >
-                {preset.pattern}
-              </pre>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section
-        className={cm.cn(
-          cm.sp('p', 5),
-          'rounded-2xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm',
-        )}
-        aria-labelledby="rules-ai-heading"
-      >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <span
-            className={cm.cn(
-              'w-7 h-7 rounded-md bg-primary/10 inline-flex items-center justify-center',
-            )}
-            aria-hidden="true"
-          >
-            <span className="material-symbols-outlined text-[16px] text-primary">auto_awesome</span>
-          </span>
-          <h3
-            id="rules-ai-heading"
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-widest text-on-surface-variant font-mono',
-            )}
-          >
-            {t('rulesEditor.aiAssistanceHeading', {}, { defaultValue: 'AI assistance' })}
-          </h3>
-          <button
-            type="button"
-            onClick={() => setShowSuggestions((v) => !v)}
-            aria-expanded={showSuggestions}
-            data-mol-id="rules-ai-toggle"
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.textSize('xs'),
-              cm.fontWeight('semibold'),
-              'ml-auto inline-flex items-center gap-1 rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition-colors',
-            )}
-          >
-            <span className="material-symbols-outlined text-[14px]" aria-hidden="true">
-              auto_awesome
-            </span>
-            {t('rulesEditor.aiSuggestionsCta', {}, { defaultValue: 'Review suggestions' })}
-          </button>
-        </div>
-        {showSuggestions ? (
-          <ul className={cm.cn(cm.stack(2), cm.sp('mt', 4))} data-mol-id="rules-ai-suggestions">
-            {AI_SUGGESTIONS.map((tip, i) => (
-              <li
-                key={i}
-                className={cm.cn(cm.flex({ align: 'start', gap: 'sm' }), cm.textSize('xs'))}
-              >
-                <span
-                  className={cm.cn('w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0')}
-                  aria-hidden="true"
-                />
-                <span className="text-on-surface-variant leading-relaxed">{tip}</span>
-              </li>
-            ))}
-          </ul>
-        ) : null}
-      </section>
     </div>
   )
 }

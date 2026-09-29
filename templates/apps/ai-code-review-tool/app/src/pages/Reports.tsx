@@ -11,34 +11,6 @@ import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 const RANGES = [7, 30, 90] as const
 type Range = (typeof RANGES)[number]
 
-// Scheduled report definitions surfaced in the Scheduled Reports section.
-const SCHEDULED_REPORTS = [
-  {
-    key: 'weeklyExec',
-    title: 'Weekly Executive Summary',
-    body: 'One-screen digest of scores, merged PRs, and the week’s regression list.',
-    cadence: 'Mondays · 09:00',
-    recipients: 'Engineering leads',
-    icon: 'summarize',
-  },
-  {
-    key: 'securityAudit',
-    title: 'Security Audit Log',
-    body: 'Every critical and high-severity finding, exported for the audit trail.',
-    cadence: 'Daily · 06:00',
-    recipients: 'Security on-call',
-    icon: 'security',
-  },
-  {
-    key: 'teamVelocity',
-    title: 'Team Velocity Metrics',
-    body: 'Reviews completed, median time-to-review, and throughput per repository.',
-    cadence: 'Fridays · 17:00',
-    recipients: 'All workspace members',
-    icon: 'speed',
-  },
-] as const
-
 interface SummaryRow {
   openPrs: number
   mergedPrs: number
@@ -242,7 +214,11 @@ export function Reports() {
         >
           <header className={cm.flex({ align: 'baseline', justify: 'between' })}>
             <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'tracking-tight')}>
-              {t('reports.trendHeading', { days: range }, { defaultValue: 'Code quality trend' })}
+              {t(
+                'reports.trendHeading',
+                { days: range },
+                { defaultValue: 'Quality score · last {{days}} days' },
+              )}
             </h2>
             <span className={cm.cn('text-xs font-mono tabular-nums text-on-surface-variant')}>
               {avgScoreVal > 0 ? avgScoreVal.toFixed(1) : '—'}
@@ -317,84 +293,7 @@ export function Reports() {
         />
       </section>
 
-      <section className={cm.cn('grid grid-cols-1 lg:grid-cols-3 gap-6')}>
-        <article
-          className={cm.cn(
-            cm.sp('p', 5),
-            'rounded-2xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm',
-          )}
-          data-mol-id="reports-issue-distribution"
-        >
-          <h2
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('bold'),
-              cm.sp('mb', 4),
-              'tracking-tight',
-            )}
-          >
-            {t('reports.distributionHeading', {}, { defaultValue: 'Issue distribution' })}
-          </h2>
-          {loading ? (
-            <p className={cm.cn(cm.sp('py', 6), cm.textCenter, cm.textMuted)}>
-              {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
-            </p>
-          ) : (
-            <ul className={cm.stack(3)}>
-              {severityCounts.map((row) => {
-                const total = severityCounts.reduce((acc, r) => acc + r.count, 0)
-                const pct = total === 0 ? 0 : Math.round((row.count / total) * 100)
-                const bar =
-                  row.severity === 'critical'
-                    ? 'bg-red-500'
-                    : row.severity === 'changes_requested'
-                      ? 'bg-amber-500'
-                      : row.severity === 'suggestion'
-                        ? 'bg-violet-500'
-                        : 'bg-emerald-500'
-                return (
-                  <li key={row.severity} className={cm.stack(1)}>
-                    <div className={cm.flex({ align: 'baseline', justify: 'between' })}>
-                      <span className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'))}>
-                        {t(
-                          `reports.distribution.${row.severity}`,
-                          {},
-                          {
-                            defaultValue:
-                              row.severity === 'changes_requested'
-                                ? 'Changes requested'
-                                : row.severity === 'suggestion'
-                                  ? 'Suggestions'
-                                  : row.severity === 'approved'
-                                    ? 'Approved'
-                                    : 'Critical',
-                          },
-                        )}
-                      </span>
-                      <span
-                        className={cm.cn(
-                          'text-[10px] font-mono tabular-nums text-on-surface-variant',
-                        )}
-                      >
-                        {row.count} · {pct}%
-                      </span>
-                    </div>
-                    <div
-                      className={cm.cn('h-1.5 rounded-full bg-surface-variant')}
-                      aria-hidden="true"
-                    >
-                      <div
-                        className={cm.cn('h-1.5 rounded-full', bar)}
-                        style={{ width: `${pct}%` }}
-                      />
-                    </div>
-                  </li>
-                )
-              })}
-            </ul>
-          )}
-        </article>
-
+      <section className={cm.cn('grid grid-cols-1 lg:grid-cols-2 gap-6')}>
         <article
           className={cm.cn(
             cm.sp('p', 5),
@@ -409,7 +308,7 @@ export function Reports() {
               'tracking-tight',
             )}
           >
-            {t('reports.topReposHeading', {}, { defaultValue: 'Top repositories by volume' })}
+            {t('reports.topReposHeading', {}, { defaultValue: 'Top repositories' })}
           </h2>
           {loading ? (
             <p className={cm.cn(cm.sp('py', 6), cm.textCenter, cm.textMuted)}>
@@ -456,7 +355,7 @@ export function Reports() {
               'tracking-tight',
             )}
           >
-            {t('reports.reviewersHeading', {}, { defaultValue: 'Reviewer performance' })}
+            {t('reports.reviewersHeading', {}, { defaultValue: 'Reviewer leaderboard' })}
           </h2>
           {loading ? (
             <p className={cm.cn(cm.sp('py', 6), cm.textCenter, cm.textMuted)}>
@@ -497,94 +396,6 @@ export function Reports() {
             </ul>
           )}
         </article>
-      </section>
-
-      <section className={cm.stack(4)} aria-labelledby="reports-scheduled-heading">
-        <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-          <h2
-            id="reports-scheduled-heading"
-            className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'tracking-tight')}
-          >
-            {t('reports.scheduledHeading', {}, { defaultValue: 'Scheduled reports' })}
-          </h2>
-          <span
-            className={cm.cn('ml-auto text-xs font-mono text-on-surface-variant')}
-            data-mol-id="reports-scheduled-count"
-          >
-            {t(
-              'reports.scheduledCount',
-              { count: SCHEDULED_REPORTS.length },
-              { defaultValue: '{{count}} schedules active' },
-            )}
-          </span>
-        </div>
-        <div className={cm.cn('grid grid-cols-1 md:grid-cols-3 gap-6')}>
-          {SCHEDULED_REPORTS.map((report) => (
-            <article
-              key={report.key}
-              className={cm.cn(
-                cm.sp('p', 5),
-                cm.stack(3),
-                'rounded-2xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm',
-              )}
-              data-mol-id={`reports-schedule-${report.key}`}
-            >
-              <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-                <span
-                  className={cm.cn(
-                    'w-8 h-8 rounded-md bg-primary/10 inline-flex items-center justify-center shrink-0',
-                  )}
-                  aria-hidden="true"
-                >
-                  <span className="material-symbols-outlined text-[16px] text-primary">
-                    {report.icon}
-                  </span>
-                </span>
-                <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-on-surface')}>
-                  {t(`reports.schedule.${report.key}.title`, {}, { defaultValue: report.title })}
-                </h3>
-              </div>
-              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant leading-relaxed')}>
-                {t(`reports.schedule.${report.key}.body`, {}, { defaultValue: report.body })}
-              </p>
-              <div
-                className={cm.cn(
-                  cm.flex({ direction: 'col', gap: 'xs' }),
-                  'text-[11px] font-mono text-on-surface-variant',
-                )}
-              >
-                <span className={cm.flex({ align: 'center', gap: 'xs' })}>
-                  <span className="material-symbols-outlined text-[14px]" aria-hidden="true">
-                    event
-                  </span>
-                  {t(
-                    `reports.schedule.${report.key}.cadence`,
-                    {},
-                    { defaultValue: report.cadence },
-                  )}
-                </span>
-                <span className={cm.flex({ align: 'center', gap: 'xs' })}>
-                  <span className="material-symbols-outlined text-[14px]" aria-hidden="true">
-                    group
-                  </span>
-                  {t(
-                    'reports.schedule.recipients',
-                    { who: report.recipients },
-                    { defaultValue: 'Recipients: {{who}}' },
-                  )}
-                </span>
-              </div>
-              <span
-                className={cm.cn(
-                  'inline-flex items-center gap-1 self-start px-2 py-0.5 rounded text-[9px] font-extrabold uppercase tracking-widest font-mono bg-emerald-500/15 text-success',
-                )}
-              >
-                <span className={cm.cn('w-1.5 h-1.5 rounded-full bg-success')} aria-hidden="true" />
-                {t('reports.schedule.enabled', {}, { defaultValue: 'Enabled' })}
-              </span>
-            </article>
-          ))}
-        </div>
       </section>
     </div>
   )

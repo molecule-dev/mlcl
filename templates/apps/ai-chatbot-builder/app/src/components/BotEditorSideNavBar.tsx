@@ -6,7 +6,6 @@ import { getClassMap } from '@molecule/app-ui'
 import { Switch } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
-import { BrandWordmark } from './BrandWordmark.js'
 
 function BotEditorSideNavBar() {
   const cm = getClassMap()
@@ -29,8 +28,20 @@ function BotEditorSideNavBar() {
       <div
         className={cm.cn(cm.sp('mb', 10), cm.sp('px', 2), cm.flex({ direction: 'col' }), 'gap-1')}
       >
-        <BrandWordmark as="span" invert />
-        <span className={cm.cn('text-[10px] uppercase tracking-[0.2em] text-on-surface-variant')}>
+        <span
+          className={cm.cn(
+            cm.textSize('xl'),
+            cm.fontWeight('bold'),
+            'tracking-tighter text-indigo-400 dark:text-inverse-primary',
+          )}
+        >
+          {APP_NAME}
+        </span>
+        <span
+          className={cm.cn(
+            'text-[10px] uppercase tracking-[0.2em] text-on-surface-variant opacity-60',
+          )}
+        >
           {t('botEditorSideNavBar.tagline', {}, { defaultValue: 'AI Logic Forge' })}
         </span>
       </div>

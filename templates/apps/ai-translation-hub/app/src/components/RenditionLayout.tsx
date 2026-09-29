@@ -4,7 +4,7 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { BrandWordmark } from './BrandWordmark.js'
+import { APP_NAME } from '../branding.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -118,7 +118,7 @@ export function RenditionLayout() {
               FOCUS_RING,
             )}
           >
-            <BrandWordmark as="span" size="sm" />
+            {APP_NAME}
           </Link>
         }
         actions={<ThemeToggle />}
@@ -128,7 +128,17 @@ export function RenditionLayout() {
       </ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer
         navLabel={navAriaLabel}
-        header={<BrandWordmark as="span" />}
+        header={
+          <span
+            className={cm.cn(
+              cm.textSize('2xl'),
+              cm.fontWeight('extrabold'),
+              'text-on-background font-headline',
+            )}
+          >
+            {APP_NAME}
+          </span>
+        }
         footer={
           <>
             {/* The sidebar UserMenu card fits the drawer; it never fits a 390px

@@ -4,7 +4,6 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
-import { BrandWordmark } from '../components/BrandWordmark.js'
 import { SafeLink } from '../components/SafeLink.js'
 
 const FEATURES = [
@@ -110,7 +109,7 @@ export function Landing() {
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 8 }))}>
             <SafeLink to="/" className={cm.cn('text-xl font-extrabold tracking-tight text-white')}>
-              <BrandWordmark as="span" invert />
+              {APP_NAME}
             </SafeLink>
             <div className={cm.cn(cm.flex({ align: 'center', gap: 6 }), cm.hiddenBelow('md'))}>
               <a
@@ -337,11 +336,7 @@ export function Landing() {
                     aria-hidden="true"
                   />
                   <span className={cm.cn('ml-3 text-[10px] font-mono text-white/50')}>
-                    {t(
-                      'landing.mockup.label',
-                      { appName: APP_NAME },
-                      { defaultValue: '{{appName}} · docs sample' },
-                    )}
+                    {APP_NAME} · docs sample
                   </span>
                 </div>
                 <div className={cm.cn('p-5 font-mono text-[12px] leading-relaxed space-y-2.5')}>
@@ -519,9 +514,7 @@ export function Landing() {
           )}
         >
           <div className={cm.cn('col-span-2 md:col-span-1')}>
-            <div className={cm.cn('mb-4')}>
-              <BrandWordmark as="span" invert footer size="sm" />
-            </div>
+            <div className={cm.cn('text-lg font-bold text-white mb-4')}>{APP_NAME}</div>
             <p className={cm.cn('text-white/60')}>
               {t(
                 'landing.footerTagline',

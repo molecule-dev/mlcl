@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { BrandWordmark } from './BrandWordmark.js'
+import { APP_NAME } from '../branding.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -90,7 +90,17 @@ export function QuillonLayout() {
         Mobile top bar (< md): the brand + the shell's own menu trigger. The
         desktop sidebar is unmounted below md, so the brand needs this home.
       */}
-      <ResponsiveAppShell.TopBar mobileOnly brand={<BrandWordmark to="/dashboard" size="sm" />} />
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={
+          <Link
+            to="/dashboard"
+            className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'tracking-tight')}
+          >
+            {APP_NAME}
+          </Link>
+        }
+      />
 
       {/*
         Desktop sidebar (>= md). The brand row leads the nav column — the
@@ -102,9 +112,17 @@ export function QuillonLayout() {
         className={cm.sp('p', 4)}
         footer={<UserMenu />}
       >
-        <div className={cm.cn(cm.sp('mb', 6), cm.displayBlock)}>
-          <BrandWordmark to="/dashboard" />
-        </div>
+        <Link
+          to="/dashboard"
+          className={cm.cn(
+            cm.textSize('xl'),
+            cm.fontWeight('bold'),
+            cm.sp('mb', 6),
+            cm.displayBlock,
+          )}
+        >
+          {APP_NAME}
+        </Link>
         {navItems}
       </ResponsiveAppShell.Sidebar>
 

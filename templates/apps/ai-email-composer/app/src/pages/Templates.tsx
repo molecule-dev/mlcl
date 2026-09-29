@@ -67,50 +67,6 @@ const EMPTY_FORM: TemplateFormValues = {
   body: '',
 }
 
-// The three starter patterns from the design, offered when the library is
-// still empty. "Use" opens the create form prefilled — the template only
-// exists once the user saves it through the normal POST /templates flow.
-const STARTER_TEMPLATES: ReadonlyArray<{
-  key: 'cold-outreach' | 'senior-sourcing' | 'quarterly-review'
-  defaultName: string
-  category: TemplateCategory
-  defaultDescription: string
-  defaultSubject: string
-  defaultBody: string
-  icon: string
-}> = [
-  {
-    key: 'cold-outreach',
-    defaultName: 'Cold Outreach — Tech Decision Makers',
-    category: 'sales',
-    defaultDescription: 'First touch to a technical buyer — lead with their stack, not your pitch.',
-    defaultSubject: 'A quick idea for the {{company}} platform team',
-    defaultBody:
-      'Hi {{recipient}},\n\nI noticed {{company}} is scaling its platform work this quarter. Teams in the same spot usually hit two walls: review latency and on-call burnout.\n\nWe built something that addresses both — happy to send a two-paragraph summary, or a 15-minute walkthrough if easier.\n\nEither way, have a great week,\n{{sender}}',
-    icon: 'outbound',
-  },
-  {
-    key: 'senior-sourcing',
-    defaultName: 'Senior Eng Candidate Sourcing',
-    category: 'recruiting',
-    defaultDescription: 'Sourcing note for senior engineers — specific, respectful of their time.',
-    defaultSubject: 'Your work on {{project}} caught my eye',
-    defaultBody:
-      'Hi {{recipient}},\n\nYour post about {{project}} made the rounds with our team — the debugging breakdown alone was worth the read.\n\nWe are hiring a senior engineer to own {{area}}, and I would love 20 minutes to hear what you are excited about next. No recruiter script, just a conversation.\n\n— {{sender}}',
-    icon: 'person_search',
-  },
-  {
-    key: 'quarterly-review',
-    defaultName: 'Quarterly Review Summary',
-    category: 'executive',
-    defaultDescription: 'Executive-ready quarterly recap — outcomes first, detail on request.',
-    defaultSubject: 'Q{{quarter}} in review: wins, misses, and the next bet',
-    defaultBody:
-      "Team,\n\nThe quarter closed with three outcomes worth naming:\n\n1. {{win1}}\n2. {{win2}}\n3. {{win3}}\n\nWhat we missed: {{miss}} — and what we are changing as a result.\n\nThe full deck is attached; bring questions to Thursday's review.\n\n{{sender}}",
-    icon: 'summarize',
-  },
-]
-
 export function Templates() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -165,27 +121,6 @@ export function Templates() {
   const openNewForm = () => {
     setEditingId(null)
     setForm(EMPTY_FORM)
-    setSaveError(null)
-    setFormOpen(true)
-  }
-
-  const openStarterForm = (starter: (typeof STARTER_TEMPLATES)[number]) => {
-    setEditingId(null)
-    setForm({
-      name: t(`templates.starter.${starter.key}.name`, {}, { defaultValue: starter.defaultName }),
-      category: starter.category,
-      description: t(
-        `templates.starter.${starter.key}.description`,
-        {},
-        { defaultValue: starter.defaultDescription },
-      ),
-      subject: t(
-        `templates.starter.${starter.key}.subject`,
-        {},
-        { defaultValue: starter.defaultSubject },
-      ),
-      body: t(`templates.starter.${starter.key}.body`, {}, { defaultValue: starter.defaultBody }),
-    })
     setSaveError(null)
     setFormOpen(true)
   }
@@ -388,108 +323,24 @@ export function Templates() {
           {loadError}
         </p>
       ) : cards.length === 0 ? (
-        !query && activeCategory === 'all' ? (
-          <section data-mol-id="templates-starters" className={cm.cn(cm.stack(4))}>
-            <div>
-              <h2 className={cm.cn(cm.textSize('xl'), 'font-bold tracking-tight')}>
-                {t('templates.starterHeading', {}, { defaultValue: 'Starter patterns' })}
-              </h2>
-              <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
-                {t(
-                  'templates.starterSubheading',
+        <div
+          data-mol-id="templates-empty"
+          className={cm.cn(
+            cm.sp('p', 8),
+            cm.textCenter,
+            'rounded-2xl border-2 border-dashed border-outline-variant/60 text-on-surface-variant',
+          )}
+        >
+          <p className={cm.cn(cm.textSize('sm'))}>
+            {query || activeCategory !== 'all'
+              ? t('templates.noResults', {}, { defaultValue: 'No templates match your filters.' })
+              : t(
+                  'templates.emptyAll',
                   {},
-                  {
-                    defaultValue:
-                      'Proven structures from the design library — open one, edit, and save it as your own.',
-                  },
+                  { defaultValue: 'No templates yet — create your first to start your library.' },
                 )}
-              </p>
-            </div>
-            <div
-              className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3')}
-            >
-              {STARTER_TEMPLATES.map((starter) => (
-                <article
-                  key={starter.key}
-                  data-mol-id={`templates-starter-${starter.key}`}
-                  className={cm.cn(
-                    cm.sp('p', 6),
-                    cm.flex({ direction: 'col' }),
-                    'bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/40',
-                  )}
-                >
-                  <span
-                    className={cm.cn(
-                      cm.w(10),
-                      cm.h(10),
-                      cm.roundedFull,
-                      cm.flex({ align: 'center', justify: 'center' }),
-                      cm.sp('mb', 4),
-                      'bg-primary/10 text-primary',
-                    )}
-                  >
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base')}
-                      aria-hidden="true"
-                    >
-                      {starter.icon}
-                    </span>
-                  </span>
-                  <h3 className={cm.cn(cm.fontWeight('bold'), 'leading-snug')}>
-                    {t(
-                      `templates.starter.${starter.key}.name`,
-                      {},
-                      { defaultValue: starter.defaultName },
-                    )}
-                  </h3>
-                  <p
-                    className={cm.cn(
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                      cm.sp('mt', 2),
-                      'flex-1',
-                    )}
-                  >
-                    {t(
-                      `templates.starter.${starter.key}.description`,
-                      {},
-                      { defaultValue: starter.defaultDescription },
-                    )}
-                  </p>
-                  <button
-                    type="button"
-                    data-mol-id={`templates-starter-use-${starter.key}`}
-                    onClick={() => openStarterForm(starter)}
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 2),
-                      cm.sp('mt', 4),
-                      cm.fontWeight('bold'),
-                      cm.textSize('sm'),
-                      cm.roundedFull,
-                      'self-start bg-primary/10 text-primary hover:bg-primary/20 transition-colors',
-                    )}
-                  >
-                    {t('templates.starterUse', {}, { defaultValue: 'Use' })}
-                  </button>
-                </article>
-              ))}
-            </div>
-          </section>
-        ) : (
-          <div
-            data-mol-id="templates-empty"
-            className={cm.cn(
-              cm.sp('p', 8),
-              cm.textCenter,
-              'rounded-2xl border-2 border-dashed border-outline-variant/60 text-on-surface-variant',
-            )}
-          >
-            <p className={cm.cn(cm.textSize('sm'))}>
-              {t('templates.noResults', {}, { defaultValue: 'No templates match your filters.' })}
-            </p>
-          </div>
-        )
+          </p>
+        </div>
       ) : (
         <TemplateLibraryGrid templates={cards} onSelect={openEditForm} />
       )}

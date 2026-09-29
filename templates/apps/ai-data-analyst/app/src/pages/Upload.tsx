@@ -5,7 +5,6 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface RecentUpload {
@@ -23,50 +22,6 @@ interface DatasetCreated {
 
 const FORMATS = ['CSV', 'JSON', 'JSONL', 'XLSX', 'Parquet'] as const
 const MAX_BYTES = 10 * 1024 * 1024 // 10 MB client-side parse cap
-
-/** The design's capability grid under "What you can do with Clarion". */
-const CAPABILITIES = [
-  {
-    id: 'ask',
-    icon: 'forum',
-    title: 'Ask questions in plain English',
-    body: 'Query your dataset naturally. No SQL required.',
-  },
-  {
-    id: 'charts',
-    icon: 'bar_chart',
-    title: 'Generate charts automatically',
-    body: 'Instant visualizations based on data structures.',
-  },
-  {
-    id: 'anomalies',
-    icon: 'memory',
-    title: 'Detect anomalies and trends',
-    body: 'AI automatically flags outliers in your metrics.',
-  },
-  {
-    id: 'share',
-    icon: 'lock',
-    title: 'Share securely with your team',
-    body: 'Granular access controls for sensitive data.',
-  },
-] as const
-
-/** Formatting-tips checklist (key → its en defaultValue). */
-const TIPS: Record<string, string> = {
-  'upload.tip.headers': 'Ensure the first row contains descriptive column headers.',
-  'upload.tip.dates': 'Use consistent date formats (YYYY-MM-DD is preferred).',
-  'upload.tip.emptyRows': 'Remove empty rows at the end of your file before uploading.',
-}
-
-/** Warehouse/file sources deep-linking into Settings → integrations. */
-const IMPORT_SOURCES = [
-  { key: 'postgres', icon: 'database', label: 'PostgreSQL' },
-  { key: 'snowflake', icon: 'ac_unit', label: 'Snowflake' },
-  { key: 'bigquery', icon: 'search', label: 'BigQuery' },
-  { key: 's3', icon: 'folder_zip', label: 'S3 Bucket' },
-  { key: 'sheets', icon: 'table_chart', label: 'Google Sheets' },
-] as const
 
 const STATUS_COLOR: Record<string, string> = {
   parsing: 'bg-warning/15 text-warning',
@@ -424,17 +379,10 @@ export function Upload() {
           data-mol-id="upload-filename"
           className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), cm.sp('mt', 3))}
         >
-          {file ? file.name : t('upload.dropPrompt', {}, { defaultValue: 'Drop your file here' })}
+          {file
+            ? file.name
+            : t('upload.dropPrompt', {}, { defaultValue: 'Drop a file here, or click to browse' })}
         </p>
-        {!file ? (
-          <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
-            {t(
-              'upload.browsePrompt',
-              {},
-              { defaultValue: 'or click to browse from your computer' },
-            )}
-          </p>
-        ) : null}
         <div
           className={cm.cn(cm.flex({ gap: 'sm', justify: 'center' }), cm.sp('mt', 3), 'flex-wrap')}
         >
@@ -517,172 +465,6 @@ export function Upload() {
           </button>
         </div>
       ) : null}
-
-      <section
-        aria-labelledby="upload-capabilities-heading"
-        className={cm.flex({ direction: 'col', gap: 4 })}
-      >
-        <div className={cm.flex({ align: 'center', gap: 2 })}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(8),
-              cm.h(8),
-              cm.roundedFull,
-              'bg-primary/10 text-primary',
-            )}
-            aria-hidden="true"
-          >
-            <span className={cm.cn('material-symbols-outlined', cm.textSize('sm'))}>insights</span>
-          </span>
-          <h2
-            id="upload-capabilities-heading"
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('bold'),
-              'font-headline tracking-tight text-on-surface',
-            )}
-          >
-            {t(
-              'upload.capabilitiesHeading',
-              { appName: APP_NAME },
-              { defaultValue: 'What you can do with {{appName}}' },
-            )}
-          </h2>
-        </div>
-        <div className={cm.cn(cm.grid({ cols: 1, gap: 3 }), 'sm:grid-cols-2')}>
-          {CAPABILITIES.map((cap) => (
-            <div
-              key={cap.id}
-              className={cm.cn(
-                cm.flex({ align: 'start', gap: 3 }),
-                cm.sp('p', 4),
-                'rounded-xl bg-surface-container-lowest border border-outline-variant/40',
-              )}
-            >
-              <span
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  cm.w(9),
-                  cm.h(9),
-                  cm.roundedFull,
-                  'bg-secondary/10 text-secondary flex-shrink-0',
-                )}
-                aria-hidden="true"
-              >
-                <span className={cm.cn('material-symbols-outlined', cm.textSize('sm'))}>
-                  {cap.icon}
-                </span>
-              </span>
-              <div className={cm.flex({ direction: 'col', gap: 1 })}>
-                <h3
-                  className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'text-on-surface')}
-                >
-                  {t(`upload.capability.${cap.id}.title`, {}, { defaultValue: cap.title })}
-                </h3>
-                <p className={cm.cn(cm.textSize('xs'), 'leading-relaxed text-on-surface-variant')}>
-                  {t(`upload.capability.${cap.id}.body`, {}, { defaultValue: cap.body })}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section
-        aria-labelledby="upload-tips-heading"
-        className={cm.flex({ direction: 'col', gap: 3 })}
-      >
-        <div className={cm.flex({ align: 'center', gap: 2 })}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(8),
-              cm.h(8),
-              cm.roundedFull,
-              'bg-warning/10 text-warning',
-            )}
-            aria-hidden="true"
-          >
-            <span className={cm.cn('material-symbols-outlined', cm.textSize('sm'))}>lightbulb</span>
-          </span>
-          <h2
-            id="upload-tips-heading"
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('bold'),
-              'font-headline tracking-tight text-on-surface',
-            )}
-          >
-            {t('upload.tipsHeading', {}, { defaultValue: 'Formatting Tips' })}
-          </h2>
-        </div>
-        <ul className={cm.cn(cm.flex({ direction: 'col', gap: 2 }), 'list-none p-0')}>
-          {Object.entries(TIPS).map(([tipKey, tipDefault]) => (
-            <li key={tipKey} className={cm.flex({ align: 'start', gap: 2 })}>
-              <span
-                className={cm.cn(
-                  'material-symbols-outlined',
-                  cm.textSize('sm'),
-                  'text-success flex-shrink-0',
-                )}
-                aria-hidden="true"
-              >
-                check_circle
-              </span>
-              <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                {t(tipKey, {}, { defaultValue: tipDefault })}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section
-        aria-labelledby="upload-sources-heading"
-        className={cm.flex({ direction: 'col', gap: 3 })}
-      >
-        <h2
-          id="upload-sources-heading"
-          className={cm.cn(
-            cm.textSize('lg'),
-            cm.fontWeight('bold'),
-            'font-headline tracking-tight text-on-surface',
-          )}
-        >
-          {t('upload.sourcesHeading', {}, { defaultValue: 'Or import directly from a source' })}
-        </h2>
-        <div className={cm.flex({ wrap: 'wrap', gap: 2 })}>
-          {IMPORT_SOURCES.map((src) => (
-            <Link
-              key={src.key}
-              to="/settings#integrations"
-              data-mol-id={`upload-source-${src.key}`}
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 2 }),
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                cm.fontWeight('semibold'),
-                cm.roundedFull,
-                'bg-surface-container-lowest border border-outline-variant text-on-surface hover:border-primary/40 hover:text-primary transition-colors',
-              )}
-            >
-              <span
-                className={cm.cn(
-                  'material-symbols-outlined',
-                  cm.textSize('sm'),
-                  'text-on-surface-variant',
-                )}
-                aria-hidden="true"
-              >
-                {src.icon}
-              </span>
-              {src.label}
-            </Link>
-          ))}
-        </div>
-      </section>
 
       <section>
         <h2 className={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>

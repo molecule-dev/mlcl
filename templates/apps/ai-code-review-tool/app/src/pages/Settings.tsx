@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
@@ -58,9 +58,6 @@ export function Settings() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [savingProvider, setSavingProvider] = useState<'github' | 'gitlab' | null>(null)
-  const [dangerArmed, setDangerArmed] = useState(false)
-  const [dangerBusy, setDangerBusy] = useState(false)
-  const dangerTimer = useRef<number | null>(null)
 
   const loadCredentials = () => {
     setLoading(true)
@@ -147,36 +144,6 @@ export function Settings() {
   const ownerName = user?.name || user?.email || t('nav.you', {}, { defaultValue: 'You' })
   const ownerEmail = user?.email || ''
 
-  const armDanger = () => {
-    setDangerArmed(true)
-    if (dangerTimer.current) window.clearTimeout(dangerTimer.current)
-    dangerTimer.current = window.setTimeout(() => setDangerArmed(false), 6000)
-  }
-
-  const handleDisconnectAll = async () => {
-    if (dangerTimer.current) window.clearTimeout(dangerTimer.current)
-    setDangerArmed(false)
-    setDangerBusy(true)
-    setError(null)
-    try {
-      for (const credential of credentials) {
-        await http.delete(`/api/api-credentials/${credential.id}`)
-      }
-      track({
-        name: 'integration.disconnected',
-        properties: { provider: 'all', count: credentials.length },
-      })
-      loadCredentials()
-    } catch (err) {
-      logError(err instanceof Error ? err : new Error(String(err)))
-      setError(
-        t('settings.disconnectError', {}, { defaultValue: 'Failed to disconnect provider.' }),
-      )
-    } finally {
-      setDangerBusy(false)
-    }
-  }
-
   return (
     <div className={cm.cn(cm.flex1, cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
       <header>
@@ -213,72 +180,6 @@ export function Settings() {
       </header>
 
       {error ? <p className={cm.cn(cm.sp('py', 4), cm.textCenter, 'text-error')}>{error}</p> : null}
-
-      <section
-        className={cm.cn(
-          cm.sp('p', 5),
-          'rounded-2xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm',
-        )}
-        aria-labelledby="settings-config-heading"
-      >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 4))}>
-          <span
-            className="material-symbols-outlined text-on-surface-variant text-[20px]"
-            aria-hidden="true"
-          >
-            tune
-          </span>
-          <h2
-            id="settings-config-heading"
-            className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'tracking-tight')}
-          >
-            {t('settings.configurationHeading', {}, { defaultValue: 'Configuration' })}
-          </h2>
-        </div>
-        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.sp('mb', 3))}>
-          {t(
-            'settings.configurationNote',
-            {},
-            {
-              defaultValue:
-                'How this workspace reviews code. Review behavior follows the webhook trigger configured at install time.',
-            },
-          )}
-        </p>
-        <dl className={cm.cn(cm.stack(2), cm.textSize('sm'))}>
-          {(
-            [
-              {
-                key: 'trigger',
-                label: 'Review trigger',
-                value: 'Every push (webhook)',
-              },
-              {
-                key: 'branch',
-                label: 'Default branch',
-                value: 'main',
-              },
-              {
-                key: 'scale',
-                label: 'Score scale',
-                value: '0 – 10',
-              },
-              {
-                key: 'retention',
-                label: 'Source retention',
-                value: 'None — diffs analyzed in memory',
-              },
-            ] as const
-          ).map((row) => (
-            <div key={row.key} className={cm.flex({ justify: 'between', gap: 'md' })}>
-              <dt className={cm.textMuted}>
-                {t(`settings.configuration.${row.key}`, {}, { defaultValue: row.label })}
-              </dt>
-              <dd className={cm.cn('font-mono text-on-surface text-right')}>{row.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
 
       <section
         className={cm.cn(
@@ -323,23 +224,6 @@ export function Settings() {
             {t('nav.integrations', {}, { defaultValue: 'Integrations' })}
           </h2>
         </div>
-        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.sp('mb', 3))}>
-          {t(
-            'settings.integrationsIntro',
-            {},
-            { defaultValue: 'Connect this workspace to your code hosting tools.' },
-          )}
-        </p>
-        <h3
-          className={cm.cn(
-            cm.textSize('xs'),
-            cm.fontWeight('bold'),
-            cm.sp('mb', 2),
-            'uppercase tracking-widest text-on-surface-variant font-mono',
-          )}
-        >
-          {t('settings.codeHostingHeading', {}, { defaultValue: 'Code hosting' })}
-        </h3>
         {loading ? (
           <p className={cm.cn(cm.sp('py', 4), cm.textMuted)}>
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
@@ -572,72 +456,6 @@ export function Settings() {
         >
           {t('settings.notifications.openCta', {}, { defaultValue: 'Open notifications' })}
         </button>
-      </section>
-
-      <section
-        className={cm.cn(
-          cm.sp('p', 5),
-          'rounded-2xl border border-red-500/40 bg-surface-container-lowest shadow-sm',
-        )}
-        aria-labelledby="settings-danger-heading"
-      >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 3))}>
-          <span
-            className={cm.cn(
-              'w-7 h-7 rounded-md bg-red-500/10 inline-flex items-center justify-center',
-            )}
-            aria-hidden="true"
-          >
-            <span className="material-symbols-outlined text-[16px] text-error">warning</span>
-          </span>
-          <h3
-            id="settings-danger-heading"
-            className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-error tracking-tight')}
-          >
-            {t('settings.dangerZoneHeading', {}, { defaultValue: 'Danger zone' })}
-          </h3>
-        </div>
-        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.sp('mb', 4))}>
-          {t(
-            'settings.dangerZoneBody',
-            {},
-            {
-              defaultValue:
-                'Disconnecting all integrations immediately halts every active sync and webhook for this workspace. Reviews stop until a provider is reconnected. This action cannot be undone from this page.',
-            },
-          )}
-        </p>
-        <button
-          type="button"
-          onClick={dangerArmed ? handleDisconnectAll : armDanger}
-          disabled={dangerBusy || credentials.length === 0}
-          data-mol-id="danger-disconnect-all"
-          className={cm.cn(
-            cm.sp('px', 5),
-            cm.sp('py', 2),
-            cm.textSize('sm'),
-            cm.fontWeight('semibold'),
-            'min-h-[40px] inline-flex items-center rounded-full transition-colors disabled:opacity-50',
-            dangerArmed
-              ? 'bg-error text-white'
-              : 'border border-error/50 text-error hover:bg-error/10',
-          )}
-        >
-          {dangerBusy
-            ? t('settings.dangerDisconnecting', {}, { defaultValue: 'Disconnecting…' })
-            : dangerArmed
-              ? t('settings.dangerConfirmCta', {}, { defaultValue: 'Confirm — disconnect all' })
-              : t('settings.dangerArmCta', {}, { defaultValue: 'Disconnect all integrations' })}
-        </button>
-        {credentials.length === 0 ? (
-          <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mt', 2))}>
-            {t(
-              'settings.dangerNothingConnected',
-              {},
-              { defaultValue: 'No integrations are connected.' },
-            )}
-          </p>
-        ) : null}
       </section>
     </div>
   )

@@ -4,7 +4,6 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
-import { BrandWordmark } from '../components/BrandWordmark.js'
 import { AmbientOrbs } from '../components/AmbientOrbs.js'
 import { ChatBubble } from '../components/ChatBubble.js'
 import { SafeLink } from '../components/SafeLink.js'
@@ -157,7 +156,7 @@ function Landing() {
               graphic_eq
             </span>
           </span>
-          <BrandWordmark as="span" />
+          <span className={cm.cn(cm.textSize('2xl'), 'font-black tracking-tight')}>{APP_NAME}</span>
         </SafeLink>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
           {isAuthenticated ? (
@@ -433,11 +432,7 @@ function Landing() {
                       <span className="material-symbols-outlined text-xs text-white">robot_2</span>
                     </span>
                     <span className={cm.cn(cm.fontWeight('medium'), cm.textSize('sm'))}>
-                      {t(
-                        'landing.demo.assistantName',
-                        { appName: APP_NAME },
-                        { defaultValue: '{{appName}}' },
-                      )}
+                      {APP_NAME}
                     </span>
                   </div>
                   <span className="material-symbols-outlined text-muted text-sm" aria-hidden="true">
@@ -635,8 +630,8 @@ function Landing() {
           )}
         >
           <div className="md:col-span-2">
-            <div className={cm.cn(cm.sp('mb', 4))}>
-              <BrandWordmark as="span" footer size="sm" />
+            <div className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 4))}>
+              {APP_NAME}
             </div>
             <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
               {t(

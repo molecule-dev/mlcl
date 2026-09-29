@@ -186,29 +186,6 @@ export function Analytics() {
 
   const maxToneSends = Math.max(0, ...toneRows.map((t) => t.sends))
 
-  // Engagement Over Time — daily open counts for the last 14 days, from the
-  // sent_emails rows (opened_at). Same bucketing the dashboard sparkline uses.
-  const engagementSeries = useMemo(() => {
-    const days = 14
-    const buckets = Array.from({ length: days }, (_, i) => ({
-      date: new Date(Date.now() - (days - 1 - i) * 86_400_000).toISOString().slice(0, 10),
-      opens: 0,
-      sends: 0,
-    }))
-    for (const s of sent) {
-      const sendDay = new Date(s.created_at ?? s.updated_at ?? 0).toISOString().slice(0, 10)
-      const sendBucket = buckets.find((b) => b.date === sendDay)
-      if (sendBucket) sendBucket.sends += 1
-      if (s.opened_at == null) continue
-      const day = new Date(s.opened_at).toISOString().slice(0, 10)
-      const bucket = buckets.find((b) => b.date === day)
-      if (bucket) bucket.opens += 1
-    }
-    return buckets
-  }, [sent])
-
-  const maxEngagement = Math.max(1, ...engagementSeries.map((d) => Math.max(d.opens, d.sends)))
-
   return (
     <div
       data-mol-id="analytics-page"
@@ -233,103 +210,6 @@ export function Analytics() {
         openRatePct={openRate}
         replyRatePct={replyRate}
       />
-
-      <section
-        data-mol-id="analytics-engagement-section"
-        className={cm.cn(
-          cm.sp('p', 8),
-          'bg-surface-container-lowest rounded-3xl shadow-sm border border-outline-variant/40',
-        )}
-      >
-        <header
-          className={cm.cn(cm.flex({ align: 'baseline', justify: 'between' }), cm.sp('mb', 6))}
-        >
-          <div>
-            <h2 className={cm.cn(cm.textSize('xl'), 'font-bold tracking-tight')}>
-              {t('analytics.engagementHeading', {}, { defaultValue: 'Engagement Over Time' })}
-            </h2>
-            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-              {t(
-                'analytics.engagementSubheading',
-                {},
-                { defaultValue: 'Opens and sends per day, last 14 days.' },
-              )}
-            </p>
-          </div>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), cm.textSize('xs'))}>
-            <span
-              className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'text-on-surface-variant')}
-            >
-              <span
-                className={cm.cn(cm.w(3), cm.h(3), cm.roundedFull, 'bg-primary')}
-                aria-hidden="true"
-              />
-              {t('analytics.legend.opens', {}, { defaultValue: 'Opens' })}
-            </span>
-            <span
-              className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'text-on-surface-variant')}
-            >
-              <span
-                className={cm.cn(cm.w(3), cm.h(3), cm.roundedFull, 'bg-secondary')}
-                aria-hidden="true"
-              />
-              {t('analytics.legend.sends', {}, { defaultValue: 'Sends' })}
-            </span>
-          </div>
-        </header>
-        {loading ? (
-          <p
-            data-mol-id="analytics-engagement-loading"
-            className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}
-          >
-            {t('analytics.loading', {}, { defaultValue: 'Loading analytics…' })}
-          </p>
-        ) : (
-          <>
-            <div
-              data-mol-id="analytics-engagement-chart"
-              className={cm.cn(cm.flex({ align: 'end', gap: 'xs' }), 'h-40 w-full')}
-              role="img"
-              aria-label={t(
-                'analytics.engagementAria',
-                {},
-                { defaultValue: 'Bar chart of opens and sends per day over the last two weeks' },
-              )}
-            >
-              {engagementSeries.map((day) => (
-                <div
-                  key={day.date}
-                  className={cm.cn('flex-1 h-full flex flex-col justify-end gap-px min-w-0')}
-                >
-                  <div
-                    className={cm.cn('w-full rounded-t-sm bg-secondary/60')}
-                    style={{ height: `${(day.sends / maxEngagement) * 100}%` }}
-                    aria-hidden="true"
-                  />
-                  <div
-                    className={cm.cn('w-full rounded-b-sm bg-primary')}
-                    style={{ height: `${(day.opens / maxEngagement) * 100}%` }}
-                    aria-hidden="true"
-                  />
-                </div>
-              ))}
-            </div>
-            <div
-              className={cm.cn(
-                cm.flex({ justify: 'between' }),
-                cm.textSize('xs'),
-                'text-on-surface-variant mt-2 tabular-nums',
-              )}
-            >
-              <span>{engagementSeries[0]?.date.slice(5)}</span>
-              <span>
-                {engagementSeries[Math.floor(engagementSeries.length / 2)]?.date.slice(5)}
-              </span>
-              <span>{engagementSeries[engagementSeries.length - 1]?.date.slice(5)}</span>
-            </div>
-          </>
-        )}
-      </section>
 
       <section
         data-mol-id="analytics-tone-section"
@@ -468,7 +348,7 @@ export function Analytics() {
       >
         <header className={cm.sp('mb', 4)}>
           <h2 className={cm.cn(cm.textSize('xl'), 'font-bold tracking-tight')}>
-            {t('analytics.templateHeading', {}, { defaultValue: 'Top Performing Templates' })}
+            {t('analytics.templateHeading', {}, { defaultValue: 'Template performance' })}
           </h2>
         </header>
         {templateRows.length === 0 ? (

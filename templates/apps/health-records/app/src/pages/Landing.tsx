@@ -4,7 +4,6 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const SAMPLE_VITALS = [
   { label: 'BP', value: '118/76', unit: 'mmHg', state: 'normal' as const },
@@ -106,7 +105,22 @@ export function Landing() {
             data-mol-id="landing-nav-brand"
             className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
           >
-            <BrandWordmark as="span" />
+            <span
+              aria-hidden="true"
+              className="material-symbols-outlined text-2xl text-primary"
+              style={{ fontVariationSettings: "'FILL' 1" }}
+            >
+              health_and_safety
+            </span>
+            <span
+              className={cm.cn(
+                cm.textSize('xl'),
+                cm.fontWeight('bold'),
+                'tracking-tight text-primary-dark',
+              )}
+            >
+              {APP_NAME}
+            </span>
           </Link>
           <nav className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden md:flex')}>
             <a
@@ -536,7 +550,14 @@ export function Landing() {
                   'tracking-tight text-primary-dark',
                 )}
               >
-                <BrandWordmark as="span" size="sm" footer />
+                <span
+                  aria-hidden="true"
+                  className="material-symbols-outlined text-primary"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  health_and_safety
+                </span>
+                {APP_NAME}
               </Link>
               <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                 {t(

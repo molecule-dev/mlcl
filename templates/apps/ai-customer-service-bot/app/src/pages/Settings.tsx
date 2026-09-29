@@ -340,269 +340,124 @@ function Settings() {
             <div data-mol-id="settings-section-bot">
               <h2
                 className={cm.cn(
-                  cm.fontWeight('bold'),
+                  cm.fontWeight('semibold'),
                   cm.textSize('xl'),
-                  'text-on-surface tracking-tight',
+                  'text-on-surface tracking-tight mb-4',
                 )}
               >
-                {t('settings.bot.behaviorTitle', {}, { defaultValue: 'Bot Behavior' })}
+                {t('settings.bot.title', {}, { defaultValue: 'Bot configuration' })}
               </h2>
-              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mt-1 mb-4')}>
-                {t(
-                  'settings.bot.behaviorSubtitle',
-                  { appName: APP_NAME },
-                  { defaultValue: 'Shape how {{appName}} interacts with your customers.' },
-                )}
-              </p>
               <form
                 data-mol-id="settings-bot-form"
                 onSubmit={(e) => {
                   e.preventDefault()
                   void handleSave()
                 }}
-                className={cm.cn(cm.flex({ direction: 'col', gap: 6 }))}
+                className={cm.cn(cm.flex({ direction: 'col', gap: 4 }))}
               >
-                <section
-                  className={cm.cn(
-                    cm.flex({ direction: 'col', gap: 4 }),
-                    cm.sp('p', 5),
-                    'rounded-2xl bg-surface-container-low',
-                  )}
-                >
-                  <h3
+                <label className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+                  <span
                     className={cm.cn(
-                      cm.flex({ align: 'center', gap: 2 }),
-                      cm.fontWeight('bold'),
-                      cm.textSize('lg'),
-                      'text-on-surface',
+                      cm.fontWeight('semibold'),
+                      'text-[10px] tracking-widest uppercase text-on-surface-variant',
                     )}
                   >
-                    <span className="material-symbols-outlined text-primary">psychology</span>
-                    {t('settings.bot.personalityTitle', {}, { defaultValue: 'Tone & Personality' })}
-                  </h3>
-                  <label className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+                    {t('settings.bot.toneLabel', {}, { defaultValue: 'Voice & tone' })}
+                  </span>
+                  <select
+                    data-mol-id="settings-bot-tone"
+                    value={settings.bot_tone}
+                    onChange={(e) => patch('bot_tone', e.target.value)}
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      cm.sp('py', 3),
+                      cm.textSize('sm'),
+                      'rounded-xl bg-surface-container-low border-transparent focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/30 outline-none',
+                    )}
+                  >
+                    <option value="warm">
+                      {t(
+                        'settings.bot.toneWarm',
+                        {},
+                        { defaultValue: 'Warm + attentive (recommended)' },
+                      )}
+                    </option>
+                    <option value="brief">
+                      {t('settings.bot.toneBrief', {}, { defaultValue: 'Brief + direct' })}
+                    </option>
+                    <option value="formal">
+                      {t('settings.bot.toneFormal', {}, { defaultValue: 'Formal' })}
+                    </option>
+                  </select>
+                </label>
+                <label
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between' }),
+                    cm.sp('p', 4),
+                    'rounded-xl bg-surface-container-low',
+                  )}
+                >
+                  <div className={cm.cn(cm.flex({ direction: 'col' }))}>
                     <span
                       className={cm.cn(
                         cm.fontWeight('semibold'),
-                        'text-[10px] tracking-widest uppercase text-on-surface-variant',
-                      )}
-                    >
-                      {t('settings.bot.toneLabel', {}, { defaultValue: 'Voice & tone' })}
-                    </span>
-                    <select
-                      data-mol-id="settings-bot-tone"
-                      value={settings.bot_tone}
-                      onChange={(e) => patch('bot_tone', e.target.value)}
-                      className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 3),
                         cm.textSize('sm'),
-                        'rounded-xl bg-surface-container-lowest border-transparent focus:bg-surface-container focus:ring-2 focus:ring-primary/30 outline-none',
-                      )}
-                    >
-                      <option value="warm">
-                        {t(
-                          'settings.bot.toneWarm',
-                          {},
-                          { defaultValue: 'Warm + attentive (recommended)' },
-                        )}
-                      </option>
-                      <option value="brief">
-                        {t('settings.bot.toneBrief', {}, { defaultValue: 'Brief + direct' })}
-                      </option>
-                      <option value="formal">
-                        {t('settings.bot.toneFormal', {}, { defaultValue: 'Formal' })}
-                      </option>
-                    </select>
-                  </label>
-                  <label className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
-                    <span
-                      className={cm.cn(
-                        cm.fontWeight('semibold'),
-                        'text-[10px] tracking-widest uppercase text-on-surface-variant',
+                        'text-on-surface',
                       )}
                     >
                       {t(
-                        'settings.bot.greetingLabel',
+                        'settings.bot.autoEscalateLabel',
                         {},
-                        { defaultValue: 'First-message greeting' },
+                        { defaultValue: 'Auto-escalate when sentiment drops' },
                       )}
                     </span>
-                    <textarea
-                      data-mol-id="settings-bot-greeting"
-                      rows={3}
-                      value={settings.greeting}
-                      onChange={(e) => patch('greeting', e.target.value)}
-                      placeholder={t(
-                        'settings.bot.greetingPlaceholder',
+                    <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      {t(
+                        'settings.bot.autoEscalateDesc',
                         {},
-                        { defaultValue: 'Hi there — how can I help today?' },
+                        { defaultValue: 'Loop a human in when sentiment dips below -0.3.' },
                       )}
-                      className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 3),
-                        cm.textSize('sm'),
-                        'rounded-xl bg-surface-container-lowest border-transparent focus:bg-surface-container focus:ring-2 focus:ring-primary/30 outline-none resize-none',
-                      )}
-                    />
-                  </label>
-                  <div className="rounded-xl bg-surface-container p-4 border border-outline-variant/20">
-                    <p
-                      className={cm.cn(
-                        cm.fontWeight('semibold'),
-                        'text-[10px] uppercase tracking-widest text-primary',
-                      )}
-                    >
-                      {t('settings.bot.livePreview', {}, { defaultValue: 'Live preview' })}
-                    </p>
-                    <p className={cm.cn(cm.textSize('sm'), 'text-on-surface italic mt-1')}>
-                      {settings.greeting ||
-                        t(
-                          'settings.bot.livePreviewEmpty',
-                          {},
-                          {
-                            defaultValue:
-                              'Write a greeting above to preview the bot’s first message.',
-                          },
-                        )}
-                    </p>
-                  </div>
-                </section>
-
-                <section
-                  className={cm.cn(
-                    cm.flex({ direction: 'col', gap: 4 }),
-                    cm.sp('p', 5),
-                    'rounded-2xl bg-surface-container-low',
-                  )}
-                >
-                  <h3
-                    className={cm.cn(
-                      cm.flex({ align: 'center', gap: 2 }),
-                      cm.fontWeight('bold'),
-                      cm.textSize('lg'),
-                      'text-on-surface',
-                    )}
-                  >
-                    <span className="material-symbols-outlined text-primary">analytics</span>
-                    {t(
-                      'settings.bot.confidenceTitle',
-                      {},
-                      { defaultValue: 'Confidence Threshold' },
-                    )}
-                  </h3>
-                  <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                    {t(
-                      'settings.bot.confidenceDesc',
-                      {},
-                      {
-                        defaultValue:
-                          'How sure the AI must be before it sends a reply without looping in a human. Lower it to automate more; raise it to escalate more.',
-                      },
-                    )}
-                  </p>
-                  <div>
-                    <div className="h-2 rounded-full bg-surface-container-high overflow-hidden">
-                      <div className="h-full w-[70%] rounded-full bg-primary" />
-                    </div>
-                    <div
-                      className={cm.cn(
-                        cm.flex({ justify: 'between' }),
-                        cm.textSize('xs'),
-                        'text-on-surface-variant mt-2 tracking-widest uppercase font-medium',
-                      )}
-                    >
-                      <span>
-                        {t(
-                          'settings.bot.confidenceMoreEscalations',
-                          {},
-                          { defaultValue: 'More escalations' },
-                        )}
-                      </span>
-                      <span>
-                        {t(
-                          'settings.bot.confidenceMoreAutomation',
-                          {},
-                          { defaultValue: 'More automation' },
-                        )}
-                      </span>
-                    </div>
-                  </div>
-                  <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                    {t(
-                      'settings.bot.confidenceNote',
-                      {},
-                      {
-                        defaultValue:
-                          'Today a sentiment score below -0.3 always escalates, whatever the confidence band.',
-                      },
-                    )}
-                  </p>
-                </section>
-
-                <section
-                  className={cm.cn(
-                    cm.flex({ direction: 'col', gap: 4 }),
-                    cm.sp('p', 5),
-                    'rounded-2xl bg-surface-container-low',
-                  )}
-                >
-                  <h3
-                    className={cm.cn(
-                      cm.flex({ align: 'center', gap: 2 }),
-                      cm.fontWeight('bold'),
-                      cm.textSize('lg'),
-                      'text-on-surface',
-                    )}
-                  >
-                    <span className="material-symbols-outlined text-secondary-container">
-                      warning
                     </span>
-                    {t(
-                      'settings.bot.escalationRulesTitle',
-                      {},
-                      { defaultValue: 'Auto-escalation Rules' },
-                    )}
-                  </h3>
-                  <label
+                  </div>
+                  <input
+                    data-mol-id="settings-bot-auto-escalate"
+                    type="checkbox"
+                    checked={settings.auto_escalate}
+                    onChange={(e) => patch('auto_escalate', e.target.checked)}
+                    className="h-5 w-5 accent-primary"
+                  />
+                </label>
+                <label className={cm.cn(cm.flex({ direction: 'col', gap: 2 }))}>
+                  <span
                     className={cm.cn(
-                      cm.flex({ align: 'center', justify: 'between' }),
-                      cm.sp('p', 4),
-                      'rounded-xl bg-surface-container-lowest cursor-pointer',
+                      cm.fontWeight('semibold'),
+                      'text-[10px] tracking-widest uppercase text-on-surface-variant',
                     )}
                   >
-                    <div className={cm.cn(cm.flex({ direction: 'col' }))}>
-                      <span
-                        className={cm.cn(
-                          cm.fontWeight('semibold'),
-                          cm.textSize('sm'),
-                          'text-on-surface',
-                        )}
-                      >
-                        {t(
-                          'settings.bot.ruleSentiment',
-                          {},
-                          { defaultValue: 'Negative sentiment detected' },
-                        )}
-                      </span>
-                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                        {t(
-                          'settings.bot.ruleSentimentDesc',
-                          {},
-                          { defaultValue: 'Escalate to a human agent immediately' },
-                        )}
-                      </span>
-                    </div>
-                    <input
-                      data-mol-id="settings-bot-auto-escalate"
-                      type="checkbox"
-                      checked={settings.auto_escalate}
-                      onChange={(e) => patch('auto_escalate', e.target.checked)}
-                      className="h-5 w-5 accent-primary"
-                    />
-                  </label>
-                </section>
-
+                    {t(
+                      'settings.bot.greetingLabel',
+                      {},
+                      { defaultValue: 'First-message greeting' },
+                    )}
+                  </span>
+                  <textarea
+                    data-mol-id="settings-bot-greeting"
+                    rows={3}
+                    value={settings.greeting}
+                    onChange={(e) => patch('greeting', e.target.value)}
+                    placeholder={t(
+                      'settings.bot.greetingPlaceholder',
+                      {},
+                      { defaultValue: 'Hi there — how can I help today?' },
+                    )}
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      cm.sp('py', 3),
+                      cm.textSize('sm'),
+                      'rounded-xl bg-surface-container-low border-transparent focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/30 outline-none resize-none',
+                    )}
+                  />
+                </label>
                 <div className={cm.flex({ gap: 2 })}>
                   <button
                     data-mol-id="settings-bot-save"

@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { BrandWordmark } from './BrandWordmark.js'
+import { APP_NAME } from '../branding.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -109,7 +109,7 @@ export function PlumeSidebarLayout() {
               'font-serif text-on-surface truncate',
             )}
           >
-            <BrandWordmark as="span" size="sm" />
+            {APP_NAME}
           </Link>
         }
         actions={<UserMenu />}
@@ -136,7 +136,7 @@ export function PlumeSidebarLayout() {
           to="/dashboard"
           className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.displayBlock)}
         >
-          <BrandWordmark as="span" />
+          {APP_NAME}
         </Link>
         {nav}
       </ResponsiveAppShell.Sidebar>
@@ -148,7 +148,11 @@ export function PlumeSidebarLayout() {
       */}
       <ResponsiveAppShell.Drawer
         navLabel={navLabel}
-        header={<BrandWordmark as="span" />}
+        header={
+          <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface')}>
+            {APP_NAME}
+          </span>
+        }
         footer={<ThemeToggle />}
         className={cm.sp('p', 3)}
       >

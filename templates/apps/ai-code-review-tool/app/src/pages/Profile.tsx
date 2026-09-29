@@ -26,13 +26,6 @@ interface ReviewRow {
   started_at: string | null
 }
 
-interface ApiCredentialRow {
-  id: string
-  provider: 'github' | 'gitlab'
-}
-
-const LINKABLE_PROVIDERS = ['github', 'gitlab'] as const
-
 const DAY_MS = 24 * 60 * 60 * 1000
 const HEATMAP_DAYS = 28
 
@@ -43,10 +36,8 @@ export function Profile() {
   const { user } = useAuth<UserProfile>()
   const [summary, setSummary] = useState<SummaryRow | null>(null)
   const [reviews, setReviews] = useState<ReviewRow[]>([])
-  const [credentials, setCredentials] = useState<ApiCredentialRow[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [apiCopied, setApiCopied] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -55,13 +46,11 @@ export function Profile() {
     Promise.all([
       http.get('/api/reports/summary').catch(() => null),
       http.get('/api/reviews?limit=200').catch(() => null),
-      http.get('/api/api-credentials').catch(() => null),
     ])
-      .then(([sumRes, reviewRes, credRes]) => {
+      .then(([sumRes, reviewRes]) => {
         if (cancelled) return
         setSummary(unwrapSingle<SummaryRow>(sumRes))
         setReviews(unwrapList<ReviewRow>(reviewRes))
-        setCredentials(unwrapList<ApiCredentialRow>(credRes))
       })
       .catch(() => {
         if (!cancelled)
@@ -124,18 +113,6 @@ export function Profile() {
 
   const avgScore = summary?.avgScore ?? 0
   const reviewCount = summary?.totalReviews ?? reviews.length
-
-  const apiBase = `${window.location.origin}/api`
-
-  const copyApiBase = async () => {
-    try {
-      await navigator.clipboard.writeText(`${window.location.origin}/api`)
-      setApiCopied(true)
-      window.setTimeout(() => setApiCopied(false), 2000)
-    } catch (err) {
-      console.error('[profile] clipboard copy failed', err)
-    }
-  }
 
   return (
     <div className={cm.cn(cm.flex1, cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
@@ -299,7 +276,7 @@ export function Profile() {
               'uppercase tracking-widest text-on-surface-variant font-mono',
             )}
           >
-            {t('profile.timelineHeading', {}, { defaultValue: 'Recent activity' })}
+            {t('profile.timelineHeading', {}, { defaultValue: 'Recent timeline' })}
           </h3>
           {loading ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
@@ -364,161 +341,6 @@ export function Profile() {
               },
             ]}
           />
-
-          <article
-            className={cm.cn(
-              cm.sp('p', 5),
-              'rounded-2xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm',
-            )}
-            data-mol-id="profile-about"
-          >
-            <h3
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                cm.sp('mb', 3),
-                'uppercase tracking-widest text-on-surface-variant font-mono',
-              )}
-            >
-              {t('profile.aboutHeading', {}, { defaultValue: 'About' })}
-            </h3>
-            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant leading-relaxed')}>
-              {t(
-                'profile.aboutBody',
-                { appName: APP_NAME },
-                {
-                  defaultValue:
-                    '{{appName}} workspace member. This profile aggregates the reviews, quality scores, and review streak recorded for this account across every connected repository.',
-                },
-              )}
-            </p>
-          </article>
-
-          <article
-            className={cm.cn(
-              cm.sp('p', 5),
-              'rounded-2xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm',
-            )}
-            data-mol-id="profile-linked-accounts"
-          >
-            <h3
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                cm.sp('mb', 3),
-                'uppercase tracking-widest text-on-surface-variant font-mono',
-              )}
-            >
-              {t('profile.linkedHeading', {}, { defaultValue: 'Linked accounts' })}
-            </h3>
-            <ul className={cm.stack(3)}>
-              {LINKABLE_PROVIDERS.map((provider) => {
-                const linked = credentials.some((c) => c.provider === provider)
-                return (
-                  <li key={provider} className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-                    <span
-                      className={cm.cn(
-                        'w-7 h-7 rounded-md bg-surface-variant inline-flex items-center justify-center shrink-0',
-                      )}
-                      aria-hidden="true"
-                    >
-                      <span className="material-symbols-outlined text-[14px] text-on-surface-variant">
-                        {provider === 'github' ? 'hub' : 'merge_type'}
-                      </span>
-                    </span>
-                    <span className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'))}>
-                      {t(
-                        `profile.provider.${provider}`,
-                        {},
-                        { defaultValue: provider === 'github' ? 'GitHub' : 'GitLab' },
-                      )}
-                    </span>
-                    <span
-                      className={cm.cn(
-                        'ml-auto inline-flex items-center px-2 py-0.5 rounded text-[9px] font-extrabold uppercase tracking-widest font-mono',
-                        linked
-                          ? 'bg-emerald-500/15 text-success'
-                          : 'bg-surface-container text-on-surface-variant',
-                      )}
-                    >
-                      {linked
-                        ? t('profile.providerConnected', {}, { defaultValue: 'Connected' })
-                        : t('profile.providerNotLinked', {}, { defaultValue: 'Not linked' })}
-                    </span>
-                  </li>
-                )
-              })}
-            </ul>
-            <button
-              type="button"
-              onClick={() => {
-                window.location.href = '/settings'
-              }}
-              data-mol-id="profile-manage-accounts"
-              className={cm.cn(
-                cm.sp('mt', 3),
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                'text-primary hover:underline',
-              )}
-            >
-              {t('profile.manageAccountsCta', {}, { defaultValue: 'Manage in settings' })}
-            </button>
-          </article>
-
-          <article
-            className={cm.cn(
-              cm.sp('p', 5),
-              'rounded-2xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm',
-            )}
-            data-mol-id="profile-api-access"
-          >
-            <h3
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                cm.sp('mb', 3),
-                'uppercase tracking-widest text-on-surface-variant font-mono',
-              )}
-            >
-              {t('profile.apiHeading', {}, { defaultValue: 'API access' })}
-            </h3>
-            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mb', 3))}>
-              {t(
-                'profile.apiBody',
-                {},
-                {
-                  defaultValue:
-                    'Point CLI and API clients at this workspace base URL. Provider tokens are managed in Settings → API keys.',
-                },
-              )}
-            </p>
-            <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-              <code
-                className={cm.cn(
-                  cm.sp('px', 2),
-                  cm.sp('py', 1),
-                  'flex-1 min-w-0 rounded bg-surface-container-low text-[10px] font-mono text-on-surface truncate',
-                )}
-                data-mol-id="profile-api-base"
-              >
-                {apiBase}
-              </code>
-              <button
-                type="button"
-                onClick={copyApiBase}
-                aria-label={t('profile.apiCopyAria', {}, { defaultValue: 'Copy API base URL' })}
-                data-mol-id="profile-api-copy"
-                className={cm.cn(
-                  'w-9 h-9 shrink-0 inline-flex items-center justify-center rounded-md border border-outline-variant/40 text-on-surface-variant hover:text-primary hover:border-primary/40 transition-colors',
-                )}
-              >
-                <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
-                  {apiCopied ? 'check' : 'content_copy'}
-                </span>
-              </button>
-            </div>
-          </article>
         </div>
       </section>
     </div>

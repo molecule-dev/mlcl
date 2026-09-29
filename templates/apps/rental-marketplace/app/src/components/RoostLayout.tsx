@@ -18,7 +18,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { BrandWordmark } from './BrandWordmark.js'
+import { APP_NAME } from '../branding.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -91,8 +91,11 @@ export function RoostLayout() {
       <ResponsiveAppShell.TopBar
         mobileOnly
         brand={
-          <Link to="/" className={cm.cn('whitespace-nowrap')}>
-            <BrandWordmark as="span" size="sm" />
+          <Link
+            to="/"
+            className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'whitespace-nowrap')}
+          >
+            {APP_NAME}
           </Link>
         }
         actions={<UserMenu />}
@@ -108,8 +111,17 @@ export function RoostLayout() {
         className={cm.sp('p', 4)}
         footer={<UserMenu />}
       >
-        <Link to="/" className={cm.cn('block whitespace-nowrap', cm.sp('px', 3), cm.sp('mb', 4))}>
-          <BrandWordmark as="span" />
+        <Link
+          to="/"
+          className={cm.cn(
+            cm.textSize('2xl'),
+            cm.fontWeight('bold'),
+            'block whitespace-nowrap',
+            cm.sp('px', 3),
+            cm.sp('mb', 4),
+          )}
+        >
+          {APP_NAME}
         </Link>
         {nav}
       </ResponsiveAppShell.Sidebar>
@@ -121,7 +133,9 @@ export function RoostLayout() {
       <ResponsiveAppShell.Drawer
         navLabel={navLabel}
         className="h-full"
-        header={<BrandWordmark as="span" />}
+        header={
+          <span className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>{APP_NAME}</span>
+        }
       >
         {nav}
       </ResponsiveAppShell.Drawer>

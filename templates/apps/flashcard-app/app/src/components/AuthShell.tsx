@@ -13,7 +13,7 @@ import { AuthShellPanel } from '@molecule/app-auth-shell-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { BrandWordmark } from './BrandWordmark.js'
+import { APP_NAME } from '../branding.js'
 
 export interface AuthShellProps {
   heading: string
@@ -57,7 +57,10 @@ export function AuthShell({
           className={cm.flex({ align: 'center', gap: 'sm' })}
           data-mol-id="auth-brand-link"
         >
-          <BrandWordmark as="span" />
+          <BrandMark />
+          <span className={cm.cn(cm.fontWeight('bold'), 'text-xl tracking-tight text-on-surface')}>
+            {APP_NAME}
+          </span>
         </Link>
       </header>
 
@@ -180,5 +183,25 @@ export function AuthShell({
         </div>
       </main>
     </div>
+  )
+}
+
+function BrandMark() {
+  const cm = getClassMap()
+  return (
+    <span
+      aria-hidden="true"
+      className={cm.cn(
+        cm.flex({ align: 'center', justify: 'center' }),
+        'h-10 w-10 rounded-xl bg-gradient-to-br from-primary to-primary-container shadow-md',
+      )}
+    >
+      <span
+        className={cm.cn('material-symbols-outlined text-white text-xl')}
+        style={{ fontVariationSettings: "'FILL' 1" }}
+      >
+        psychology
+      </span>
+    </span>
   )
 }

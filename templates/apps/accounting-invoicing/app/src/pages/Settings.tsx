@@ -15,10 +15,6 @@ interface CompanyProfile {
   default_tax_rate_pct: number
   filing_method: string
   fiscal_year_start: string
-  currency?: string
-  payment_terms?: string
-  invoice_late_fee_enabled?: boolean
-  invoice_recurring_enabled?: boolean
 }
 
 interface Integration {
@@ -43,21 +39,7 @@ const EMPTY_COMPANY: CompanyProfile = {
   default_tax_rate_pct: 0,
   filing_method: 'cash',
   fiscal_year_start: 'January',
-  currency: 'USD',
-  payment_terms: 'net_30',
-  invoice_late_fee_enabled: false,
-  invoice_recurring_enabled: false,
 }
-
-const CURRENCIES = ['USD', 'EUR', 'GBP'] as const
-
-const PAYMENT_TERMS = [
-  { value: 'net_7', label: 'Net 7' },
-  { value: 'net_14', label: 'Net 14' },
-  { value: 'net_30', label: 'Net 30' },
-] as const
-
-const FISCAL_STARTS = ['January', 'April', 'July', 'October'] as const
 
 function fmtSyncedAt(iso: string | null | undefined, never: string): string {
   if (!iso) return never
@@ -225,142 +207,51 @@ export function Settings() {
 
       <AccountSettings />
 
-      <form onSubmit={saveCompany} className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-6')}>
-        <div>
-          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
-            {t('settings.company.heading', {}, { defaultValue: 'Company & tax' })}
-          </h2>
-          <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
-            {t(
-              'settings.company.subheading',
-              {},
-              {
-                defaultValue: 'Manage your business identity, contact details, and localizations.',
-              },
-            )}
-          </p>
+      <form onSubmit={saveCompany} className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-4')}>
+        <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+          {t('settings.company.heading', {}, { defaultValue: 'Company & tax' })}
+        </h2>
+        <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }))}>
+          <Field
+            label={t('settings.company.name', {}, { defaultValue: 'Legal name' })}
+            value={companyDraft.legal_name}
+            onChange={(v) => setCompanyDraft((p) => ({ ...p, legal_name: v }))}
+          />
+          <Field
+            label={t('settings.company.email', {}, { defaultValue: 'Billing email' })}
+            type="email"
+            value={companyDraft.billing_email}
+            onChange={(v) => setCompanyDraft((p) => ({ ...p, billing_email: v }))}
+          />
+          <Field
+            label={t('settings.company.taxId', {}, { defaultValue: 'Tax ID / EIN' })}
+            value={companyDraft.tax_id}
+            onChange={(v) => setCompanyDraft((p) => ({ ...p, tax_id: v }))}
+          />
+          <Field
+            label={t('form.address', {}, { defaultValue: 'Address' })}
+            value={companyDraft.address}
+            onChange={(v) => setCompanyDraft((p) => ({ ...p, address: v }))}
+          />
+          <Field
+            label={t('settings.tax.defaultRate', {}, { defaultValue: 'Default tax rate (%)' })}
+            type="number"
+            value={String(companyDraft.default_tax_rate_pct)}
+            onChange={(v) =>
+              setCompanyDraft((p) => ({ ...p, default_tax_rate_pct: Number(v) || 0 }))
+            }
+          />
+          <Field
+            label={t('settings.tax.method', {}, { defaultValue: 'Filing method' })}
+            value={companyDraft.filing_method}
+            onChange={(v) => setCompanyDraft((p) => ({ ...p, filing_method: v }))}
+          />
+          <Field
+            label={t('settings.tax.fiscalYearStart', {}, { defaultValue: 'Fiscal year starts' })}
+            value={companyDraft.fiscal_year_start}
+            onChange={(v) => setCompanyDraft((p) => ({ ...p, fiscal_year_start: v }))}
+          />
         </div>
-
-        {/* Design section 1 — Business Identity */}
-        <div className={cm.cn('space-y-4')}>
-          <h3 className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.fontWeight('semibold'))}>
-            <GlyphTile icon="domain" />{' '}
-            <span>
-              {t('settings.company.identityHeading', {}, { defaultValue: 'Business identity' })}
-            </span>
-          </h3>
-          <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }))}>
-            <Field
-              label={t('settings.company.name', {}, { defaultValue: 'Legal name' })}
-              value={companyDraft.legal_name}
-              onChange={(v) => setCompanyDraft((p) => ({ ...p, legal_name: v }))}
-            />
-            <Field
-              label={t('settings.company.taxId', {}, { defaultValue: 'Tax ID / EIN' })}
-              value={companyDraft.tax_id}
-              onChange={(v) => setCompanyDraft((p) => ({ ...p, tax_id: v }))}
-            />
-          </div>
-        </div>
-
-        {/* Design section 2 — Address & Contact */}
-        <div className={cm.cn('space-y-4')}>
-          <h3 className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.fontWeight('semibold'))}>
-            <GlyphTile icon="location_on" />{' '}
-            <span>
-              {t('settings.company.addressHeading', {}, { defaultValue: 'Address & contact' })}
-            </span>
-          </h3>
-          <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }))}>
-            <Field
-              label={t('form.address', {}, { defaultValue: 'Address' })}
-              value={companyDraft.address}
-              onChange={(v) => setCompanyDraft((p) => ({ ...p, address: v }))}
-            />
-            <Field
-              label={t('settings.company.email', {}, { defaultValue: 'Billing email' })}
-              type="email"
-              value={companyDraft.billing_email}
-              onChange={(v) => setCompanyDraft((p) => ({ ...p, billing_email: v }))}
-            />
-          </div>
-        </div>
-
-        {/* Design section 3 — Currency & Locale */}
-        <div className={cm.cn('space-y-4')}>
-          <h3 className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.fontWeight('semibold'))}>
-            <GlyphTile icon="language" />{' '}
-            <span>
-              {t('settings.company.localeHeading', {}, { defaultValue: 'Currency & locale' })}
-            </span>
-          </h3>
-          <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }))}>
-            <FieldSelect
-              label={t('settings.company.currency', {}, { defaultValue: 'Default currency' })}
-              value={companyDraft.currency ?? 'USD'}
-              options={CURRENCIES.map((c) => ({ value: c, label: c }))}
-              onChange={(v) => setCompanyDraft((p) => ({ ...p, currency: v }))}
-            />
-            <FieldSelect
-              label={t('settings.tax.fiscalYearStart', {}, { defaultValue: 'Fiscal year starts' })}
-              value={companyDraft.fiscal_year_start}
-              options={FISCAL_STARTS.map((m) => ({ value: m, label: m }))}
-              onChange={(v) => setCompanyDraft((p) => ({ ...p, fiscal_year_start: v }))}
-            />
-          </div>
-        </div>
-
-        {/* Design section 4 — Invoice Defaults */}
-        <div className={cm.cn('space-y-4')}>
-          <h3 className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.fontWeight('semibold'))}>
-            <GlyphTile icon="description" />{' '}
-            <span>
-              {t('settings.company.defaultsHeading', {}, { defaultValue: 'Invoice defaults' })}
-            </span>
-          </h3>
-          <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }))}>
-            <Field
-              label={t('settings.tax.defaultRate', {}, { defaultValue: 'Default tax rate (%)' })}
-              type="number"
-              value={String(companyDraft.default_tax_rate_pct)}
-              onChange={(v) =>
-                setCompanyDraft((p) => ({ ...p, default_tax_rate_pct: Number(v) || 0 }))
-              }
-            />
-            <FieldSelect
-              label={t('settings.tax.method', {}, { defaultValue: 'Filing method' })}
-              value={companyDraft.filing_method}
-              options={[
-                { value: 'cash', label: 'Cash basis' },
-                { value: 'accrual', label: 'Accrual basis' },
-              ]}
-              onChange={(v) => setCompanyDraft((p) => ({ ...p, filing_method: v }))}
-            />
-            <FieldSelect
-              label={t(
-                'settings.company.paymentTerms',
-                {},
-                { defaultValue: 'Default payment terms' },
-              )}
-              value={companyDraft.payment_terms ?? 'net_30'}
-              options={PAYMENT_TERMS.map((pt) => ({ value: pt.value, label: pt.label }))}
-              onChange={(v) => setCompanyDraft((p) => ({ ...p, payment_terms: v }))}
-            />
-            <div className={cm.cn('space-y-2', cm.sp('pt', 6))}>
-              <FieldCheckbox
-                label={t('settings.company.lateFee', {}, { defaultValue: 'Apply late fee' })}
-                checked={companyDraft.invoice_late_fee_enabled ?? false}
-                onChange={(v) => setCompanyDraft((p) => ({ ...p, invoice_late_fee_enabled: v }))}
-              />
-              <FieldCheckbox
-                label={t('settings.company.recurring', {}, { defaultValue: 'Recurring invoice' })}
-                checked={companyDraft.invoice_recurring_enabled ?? false}
-                onChange={(v) => setCompanyDraft((p) => ({ ...p, invoice_recurring_enabled: v }))}
-              />
-            </div>
-          </div>
-        </div>
-
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'md', justify: 'between' }))}>
           {companySaved ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-success')}>
@@ -675,81 +566,5 @@ function Field({ label, value, onChange, type = 'text' }: FieldProps) {
         )}
       />
     </label>
-  )
-}
-
-interface FieldSelectProps {
-  label: string
-  value: string
-  options: { value: string; label: string }[]
-  onChange: (v: string) => void
-}
-
-function FieldSelect({ label, value, options, onChange }: FieldSelectProps) {
-  const cm = getClassMap()
-  // Keep the persisted value selectable even when it isn't one of the offered
-  // options (e.g. a fiscal-year start saved before the select existed).
-  const known = options.some((o) => o.value === value)
-  return (
-    <label className="block">
-      <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'block', cm.sp('mb', 1))}>
-        {label}
-      </span>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className={cm.cn(
-          cm.sp('px', 3),
-          cm.sp('py', 2),
-          'w-full border border-outline-variant rounded-md bg-surface',
-        )}
-      >
-        {!known && value ? <option value={value}>{value}</option> : null}
-        {options.map((o) => (
-          <option key={o.value} value={o.value}>
-            {o.label}
-          </option>
-        ))}
-      </select>
-    </label>
-  )
-}
-
-interface FieldCheckboxProps {
-  label: string
-  checked: boolean
-  onChange: (v: boolean) => void
-}
-
-function FieldCheckbox({ label, checked, onChange }: FieldCheckboxProps) {
-  const cm = getClassMap()
-  return (
-    <label className={cm.flex({ align: 'center', gap: 'sm' })}>
-      <input
-        type="checkbox"
-        checked={checked}
-        onChange={(e) => onChange(e.target.checked)}
-        className={cm.cn('h-4 w-4')}
-      />
-      <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>{label}</span>
-    </label>
-  )
-}
-
-/** Glyph tile used by the design's section headings (icon chip + label). */
-function GlyphTile({ icon }: { icon: string }) {
-  const cm = getClassMap()
-  return (
-    <span
-      className={cm.cn(
-        cm.sp('p', 1),
-        'rounded-md bg-surface-container flex items-center justify-center',
-      )}
-      aria-hidden="true"
-    >
-      <span className={cm.cn('material-symbols-outlined text-base text-on-surface-variant')}>
-        {icon}
-      </span>
-    </span>
   )
 }

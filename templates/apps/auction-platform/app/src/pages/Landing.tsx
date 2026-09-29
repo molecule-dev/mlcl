@@ -16,28 +16,6 @@ interface LivePreview {
   ends_at: string
 }
 
-/** Explore-categories tiles (the Stitch landing's category grid). Counts are
- *  filled from the same live-auctions fetch as the Live-now strip, so the
- *  numbers are the real live floor, never marketing copy. */
-const EXPLORE_CATEGORIES = [
-  { key: 'art', defaultLabel: 'Fine Art', icon: 'palette', featured: true },
-  { key: 'watches', defaultLabel: 'Timepieces', icon: 'watch', featured: false },
-  { key: 'cars', defaultLabel: 'Classic Cars', icon: 'directions_car', featured: false },
-  { key: 'jewelry', defaultLabel: 'Jewelry', icon: 'diamond', featured: false },
-  { key: 'collectibles', defaultLabel: 'Collectibles', icon: 'category', featured: false },
-] as const
-
-/* Dark-to-dark token gradients only — white tile labels stay ≥4.5:1 on every
-   stop (verified against theme.css: timer #1e1e1e, primary-dark #9a3412,
-   accent-dark #147a56 all clear 4.5:1 under white). */
-const CATEGORY_TILE_BG: Record<string, string> = {
-  art: 'linear-gradient(150deg, var(--color-timer) 20%, var(--mol-color-primary-dark))',
-  watches: 'linear-gradient(150deg, var(--mol-color-primary-dark), var(--color-timer))',
-  cars: 'linear-gradient(150deg, var(--color-timer) 20%, var(--color-accent-dark))',
-  jewelry: 'linear-gradient(150deg, var(--color-accent-dark), var(--color-timer))',
-  collectibles: 'linear-gradient(150deg, var(--color-timer) 35%, var(--mol-color-primary-dark))',
-}
-
 const FEATURES = [
   {
     key: 'live',
@@ -108,19 +86,15 @@ export function Landing() {
   const isAuthenticated = useIsAuthenticated()
   const [previews, setPreviews] = useState<LivePreview[] | null>(null)
   const [previewError, setPreviewError] = useState<string | null>(null)
-  const [categoryCounts, setCategoryCounts] = useState<Record<string, number>>({})
 
   useEffect(() => {
     let cancelled = false
     http
-      .get<{ data?: LivePreview[] }>('/api/auctions?limit=100')
+      .get<{ data?: LivePreview[] }>('/api/auctions?limit=4')
       .then((res) => {
         if (cancelled) return
         const list = (res.data?.data ?? []) as LivePreview[]
         setPreviews(list.slice(0, 4))
-        const counts: Record<string, number> = {}
-        for (const it of list) counts[it.category] = (counts[it.category] ?? 0) + 1
-        setCategoryCounts(counts)
       })
       .catch((e: unknown) => {
         if (cancelled) return
@@ -545,91 +519,6 @@ export function Landing() {
               ))}
             </div>
           )}
-        </section>
-
-        {/* Explore categories — the Stitch design's category grid. */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16')}>
-          <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mb', 6))}>
-            <div>
-              <h2 className={cm.cn('text-3xl font-extrabold tracking-tight')}>
-                {t('landing.exploreHeading', {}, { defaultValue: 'Explore Categories' })}
-              </h2>
-              <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), cm.textMuted)}>
-                {t(
-                  'landing.exploreSubheading',
-                  {},
-                  {
-                    defaultValue: 'Five floors, one gavel — every category curated by specialists.',
-                  },
-                )}
-              </p>
-            </div>
-          </div>
-          <div
-            className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-2 lg:grid-cols-4 lg:grid-rows-2')}
-          >
-            {EXPLORE_CATEGORIES.map((c) => {
-              const count = categoryCounts[c.key] ?? 0
-              return (
-                <Link
-                  key={c.key}
-                  to={`/auctions#cat=${c.key}`}
-                  data-mol-id={`landing-category-${c.key}`}
-                  className={cm.cn(
-                    'group relative rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all min-h-40',
-                    c.featured ? 'lg:col-span-2 lg:row-span-2 min-h-72' : '',
-                  )}
-                  style={{ background: CATEGORY_TILE_BG[c.key] }}
-                >
-                  <span
-                    className={cm.cn(
-                      'material-symbols-outlined absolute -right-4 -bottom-4 text-8xl select-none',
-                    )}
-                    aria-hidden="true"
-                    style={{ color: 'color-mix(in srgb, white 18%, transparent)' }}
-                  >
-                    {c.icon}
-                  </span>
-                  <div
-                    className={cm.cn(
-                      cm.flex({ direction: 'col', gap: 'xs' }),
-                      cm.sp('p', 5),
-                      'relative h-full justify-end',
-                    )}
-                  >
-                    <h3
-                      className={cm.cn(
-                        c.featured ? 'text-2xl' : 'text-lg',
-                        'font-extrabold tracking-tight text-white',
-                      )}
-                    >
-                      {t(`landing.category.${c.key}`, {}, { defaultValue: c.defaultLabel })}
-                    </h3>
-                    <p className={cm.cn(cm.textSize('sm'), 'font-medium text-white')}>
-                      {t(
-                        'landing.categoryActiveCount',
-                        { count },
-                        {
-                          defaultValue: '{{count}} active auctions',
-                        },
-                      )}
-                    </p>
-                    <span
-                      className={cm.cn(
-                        cm.flex({ align: 'center', justify: 'center' }),
-                        'absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white translate-x-12 group-hover:translate-x-0 transition-transform',
-                      )}
-                      aria-hidden="true"
-                    >
-                      <span className={cm.cn('material-symbols-outlined text-lg')}>
-                        arrow_forward
-                      </span>
-                    </span>
-                  </div>
-                </Link>
-              )
-            })}
-          </div>
         </section>
 
         {/* Features */}

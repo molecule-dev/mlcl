@@ -106,11 +106,7 @@ function SlideCanvas({ slide, themeColor }: { slide: Slide; themeColor: string }
               'text-[10px] uppercase tracking-widest text-white/70',
             )}
           >
-            {t(
-              'editor.brandLine',
-              { app: APP_NAME, year: new Date().getFullYear() },
-              { defaultValue: '{{app}} / {{year}}' },
-            )}
+            {APP_NAME} / {new Date().getFullYear()}
           </span>
           <h2
             className={cm.cn('text-5xl md:text-6xl font-extrabold tracking-tighter leading-[0.95]')}
