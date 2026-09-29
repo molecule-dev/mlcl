@@ -1,6 +1,6 @@
 # Per-finding exemptions the CI gitleaks job itself reports (detect --no-git).
 # Every line is a design-fidelity landing-page i18n KEY or pricing-prose VALUE
-# the generic-api-key rule cannot tell from a token — identifiers and demo copy,
+# the generic-api-key rule cannot tell from a token — identifiers and demo copy, Extend for each new CI finding only after reading the flagged lines (CI run 36547420481: brand-wave line drift + field-service pricing prose — verified demo copy).
 # not credentials (CI run 36519702469; verified against the lines themselves).
 templates/apps/ai-agent-playground/app/src/pages/Landing.tsx:generic-api-key:113
 templates/apps/ai-agent-playground/app/src/pages/Landing.tsx:generic-api-key:114
@@ -12,3 +12,16 @@ templates/apps/feedback-roadmap/app/src/pages/Landing.tsx:generic-api-key:1244
 /repo/templates/apps/feedback-roadmap/app/src/pages/Landing.tsx:generic-api-key:1139
 /repo/templates/apps/feedback-roadmap/app/src/pages/Landing.tsx:generic-api-key:1179
 /repo/templates/apps/feedback-roadmap/app/src/pages/Landing.tsx:generic-api-key:1244
+/repo/templates/apps/feedback-roadmap/app/src/pages/Landing.tsx:generic-api-key:1121
+/repo/templates/apps/feedback-roadmap/app/src/pages/Landing.tsx:generic-api-key:1161
+/repo/templates/apps/feedback-roadmap/app/src/pages/Landing.tsx:generic-api-key:1226
+/repo/templates/apps/field-service/app/src/pages/Pricing.tsx:generic-api-key:35
+/repo/templates/apps/field-service/app/src/pages/Pricing.tsx:generic-api-key:36
+/repo/templates/apps/field-service/app/src/pages/Pricing.tsx:generic-api-key:37
+/repo/templates/apps/field-service/app/src/pages/Pricing.tsx:generic-api-key:38
+/repo/templates/apps/field-service/app/src/pages/Pricing.tsx:generic-api-key:39
+/repo/templates/apps/field-service/app/src/pages/Pricing.tsx:generic-api-key:72
+/repo/templates/apps/field-service/app/src/pages/Pricing.tsx:generic-api-key:73
+/repo/templates/apps/field-service/app/src/pages/Pricing.tsx:generic-api-key:75
+/repo/templates/apps/field-service/app/src/pages/Pricing.tsx:generic-api-key:79
+/repo/templates/apps/field-service/app/src/pages/Pricing.tsx:generic-api-key:82
