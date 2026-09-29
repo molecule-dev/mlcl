@@ -1,9 +1,8 @@
-import { Link, NavLink, Outlet } from 'react-router'
+import { NavLink, Outlet } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
 import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { TroveMobileNav } from './TroveMobileNav.js'
@@ -74,13 +73,12 @@ export function DigitalGoodsStoreLayout() {
         )}
         aria-label={t('nav.creatorAria', {}, { defaultValue: 'Creator dashboard' })}
       >
-        <Link
-          to="/dashboard"
-          className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('p', 6))}
-          aria-label={APP_NAME}
-        >
+        {/* BrandWordmark renders its own router link — wrapping it in another
+            <Link> nests an <a> inside an <a>, which the console (and the e2e
+            console-error gate) rejects. */}
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('p', 6))}>
           <BrandWordmark to="/dashboard" size="sm" />
-        </Link>
+        </div>
 
         <nav className={cm.cn(cm.flex1, cm.sp('px', 4), cm.stack(1), 'overflow-y-auto')}>
           {navItems.map((item) => (
@@ -136,13 +134,10 @@ export function DigitalGoodsStoreLayout() {
             'sticky top-0 z-30 bg-surface/90 backdrop-blur border-b border-border',
           )}
         >
-          <Link
-            to="/dashboard"
-            className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'lg:hidden')}
-            aria-label={APP_NAME}
-          >
+          {/* BrandWordmark renders its own router link — do not wrap in <Link>. */}
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'lg:hidden')}>
             <BrandWordmark to="/dashboard" size="sm" />
-          </Link>
+          </div>
           <div className={cm.cn(cm.flex1, 'hidden lg:block')} aria-hidden="true" />
           <div className={cm.flex({ align: 'center', gap: 'xs' })}>
             <ThemeToggle />

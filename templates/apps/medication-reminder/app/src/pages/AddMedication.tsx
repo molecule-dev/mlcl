@@ -85,6 +85,23 @@ export function AddMedication() {
       </header>
 
       <form onSubmit={submit} className={cm.cn('space-y-5')}>
+        <h2
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.textSize('lg'),
+            cm.fontWeight('semibold'),
+            'border-b border-outline-variant/60 pb-2 text-on-surface',
+          )}
+        >
+          <span
+            className={cm.cn('material-symbols-outlined text-[20px] text-primary')}
+            aria-hidden="true"
+          >
+            vaccines
+          </span>
+          {t('addMedication.section.details', {}, { defaultValue: 'Medication details' })}
+        </h2>
+
         <Field
           label={t('addMedication.name', {}, { defaultValue: 'Medication name' })}
           value={name}
@@ -191,6 +208,58 @@ export function AddMedication() {
           </button>
         </div>
       </form>
+
+      {/* Adherence tips card — the design's "Tips for success" rail. */}
+      <aside
+        className={cm.cn(cm.sp('p', 5), 'rounded-2xl border border-primary/20 bg-primary/5')}
+        data-mol-id="add-medication-tips"
+      >
+        <h2
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.textSize('sm'),
+            cm.fontWeight('bold'),
+            cm.sp('mb', 3),
+            'text-primary',
+          )}
+        >
+          <span className={cm.cn('material-symbols-outlined text-[18px]')} aria-hidden="true">
+            lightbulb
+          </span>
+          {t('addMedication.tips.title', {}, { defaultValue: 'Tips for success' })}
+        </h2>
+        <ul className={cm.cn(cm.stack(3))}>
+          {(
+            [
+              {
+                key: 'routine',
+                defaultBody:
+                  'Set times when you’re usually doing a routine task, like eating breakfast.',
+              },
+              {
+                key: 'colors',
+                defaultBody: 'Use different colors to group medications by purpose.',
+              },
+              {
+                key: 'caregiverAlerts',
+                defaultBody: 'Enable caregiver alerts for critical doses you can’t afford to miss.',
+              },
+            ] as const
+          ).map((tip) => (
+            <li key={tip.key} className={cm.cn(cm.flex({ align: 'start', gap: 'sm' }))}>
+              <span
+                className={cm.cn('material-symbols-outlined text-[18px] text-success mt-0.5')}
+                aria-hidden="true"
+              >
+                check_circle
+              </span>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-snug')}>
+                {t(`addMedication.tips.${tip.key}`, {}, { defaultValue: tip.defaultBody })}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </aside>
     </div>
   )
 }

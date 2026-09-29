@@ -131,6 +131,55 @@ export function Stats() {
           </h2>
           <GuessDistribution distribution={stats.distribution} />
 
+          {/* Play-insight strip: an illustrative read of your solving pattern.
+              Demo copy — the heuristic is static, like the seeded demo board. */}
+          <section
+            className={cm.cn(
+              cm.card(),
+              cm.cardPadding('md'),
+              cm.flex({ align: 'center', justify: 'between', gap: 3 }),
+              'flex-wrap mt-6',
+            )}
+            data-mol-id="stats-insight"
+          >
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'h-10 w-10 shrink-0 rounded-xl bg-primary/10 text-primary',
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-[24px]')} aria-hidden="true">
+                  psychology
+                </span>
+              </div>
+              <div>
+                <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'))}>
+                  {t('stats.insight.title', {}, { defaultValue: 'Vowel-first deductive tendency' })}
+                </h2>
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t(
+                    'stats.insight.body',
+                    {},
+                    {
+                      defaultValue:
+                        'You eliminate an average of 3.2 vowels within your first two guesses.',
+                    },
+                  )}
+                </p>
+              </div>
+            </div>
+            <span
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('bold'),
+                'rounded-lg border border-outline-variant bg-surface-container px-3 py-1 text-on-surface',
+              )}
+            >
+              {t('stats.insight.efficiency', {}, { defaultValue: 'Efficiency: A+' })}
+            </span>
+          </section>
+
           <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), 'mt-8')}>
             <Link
               to="/play"

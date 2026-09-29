@@ -1,0 +1,24 @@
+{
+  "screens": {
+    "/news": {
+      "allow": [
+        {
+          "heading": "Fed Signals Three Rate Cuts in 2024; Tech Stocks Surge",
+          "reason": "Design-mock news headline; the feed renders the live/stored news rows dynamically."
+        },
+        {
+          "heading": "Nvidia Unveils Next-Gen Blackwell AI Chips to Extend Dominance",
+          "reason": "Design-mock news headline; the feed renders the live/stored news rows dynamically."
+        },
+        {
+          "heading": "Tesla Hikes Model Y Prices in US and Europe Despite Slowing EV Demand",
+          "reason": "Design-mock news headline; the feed renders the live/stored news rows dynamically."
+        },
+        {
+          "heading": "Apple in Talks to License Google's Gemini for iPhone AI Features",
+          "reason": "Design-mock news headline; the feed renders the live/stored news rows dynamically."
+        }
+      ]
+    }
+  }
+}

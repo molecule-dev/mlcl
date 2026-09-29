@@ -123,6 +123,13 @@ export function ModerationQueue() {
     [filter, list],
   )
 
+  // Shift-progress card: resolutions made in this moderator session against
+  // the daily goal. Real count — it advances with every approved/hidden/
+  // locked/banned action below.
+  const DAILY_GOAL = 20
+  const resolvedCount = Object.keys(resolved).length
+  const goalPct = Math.min(100, Math.round((resolvedCount / DAILY_GOAL) * 100))
+
   const counts = useMemo(() => {
     const map: Record<string, number> = { all: list.length }
     for (const kind of Object.keys(KIND_PRESENTATION)) {
@@ -214,6 +221,43 @@ export function ModerationQueue() {
           )}
         </div>
       </header>
+
+      {/* Shift-progress card: live count of this session's resolutions. */}
+      <section
+        className={cm.cn(cm.sp('p', 5), 'rounded-2xl bg-primary text-on-primary overflow-hidden')}
+        data-mol-id="moderation-shift-status"
+      >
+        <h2
+          className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), cm.fontWeight('bold'), 'mb-2')}
+        >
+          <span className="material-symbols-outlined text-[20px]" aria-hidden>
+            local_police
+          </span>
+          {t('moderationQueue.shift.title', {}, { defaultValue: 'Shift active' })}
+        </h2>
+        <p className={cm.cn(cm.textSize('sm'), 'text-on-primary/85 mb-4')}>
+          {t(
+            'moderationQueue.shift.body',
+            { count: resolvedCount.toLocaleString() },
+            {
+              defaultValue: `You have resolved ${resolvedCount.toLocaleString()} items this session. Keep the community clean.`,
+            },
+          )}
+        </p>
+        <div className={cm.cn('w-full h-1.5 rounded-full bg-surface/25 mb-1')}>
+          <div
+            className={cm.cn('h-1.5 rounded-full bg-secondary transition-all')}
+            style={{ width: `${goalPct}%` }}
+          />
+        </div>
+        <p className={cm.cn(cm.textSize('xs'), 'text-on-primary/75 text-right')}>
+          {t(
+            'moderationQueue.shift.goal',
+            { pct: goalPct },
+            { defaultValue: `Daily goal: ${goalPct}%` },
+          )}
+        </p>
+      </section>
 
       <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
         {(

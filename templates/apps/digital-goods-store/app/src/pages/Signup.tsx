@@ -91,16 +91,17 @@ export function Signup() {
       >
         <div className={cm.cn(cm.w('full'), cm.maxW('md'))}>
           <header className={cm.cn(cm.textCenter, cm.sp('mb', 8))}>
-            <Link
-              to="/"
+            {/* BrandWordmark renders its own link to "/" — wrapping it in
+                another <Link> nests an <a> inside an <a>, which the console
+                (and the e2e console-error gate) rejects. */}
+            <div
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
                 cm.sp('mb', 4),
               )}
-              aria-label={APP_NAME}
             >
               <BrandWordmark />
-            </Link>
+            </div>
             <h1
               className={cm.cn(
                 cm.textSize('3xl'),

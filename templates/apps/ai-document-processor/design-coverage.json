@@ -1,0 +1,28 @@
+{
+  "screens": {
+    "/documents": {
+      "allow": [
+        {
+          "heading": "INV-2023-1042_AcmeCorp.pdf",
+          "reason": "Design-mock document name; the documents grid renders each uploaded document's real original_name dynamically."
+        },
+        {
+          "heading": "MSA_GlobalTech_Final_v2.docx",
+          "reason": "Design-mock document name; the documents grid renders each uploaded document's real original_name dynamically."
+        },
+        {
+          "heading": "IMG_8842_CafeLumiere.jpg",
+          "reason": "Design-mock document name; the documents grid renders each uploaded document's real original_name dynamically."
+        }
+      ]
+    },
+    "/documents/:id": {
+      "allow": [
+        {
+          "heading": "INVOICE-2024-1042.pdf",
+          "reason": "Design-mock document name; the detail page h1 renders the stored document's original_name."
+        }
+      ]
+    }
+  }
+}

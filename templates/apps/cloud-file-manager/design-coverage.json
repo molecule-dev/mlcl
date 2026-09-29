@@ -1,0 +1,32 @@
+{
+  "screens": {
+    "/files": {
+      "allow": [
+        {
+          "heading": "Q3_Financials_Final.xlsx",
+          "reason": "Design-mock file name; the file list renders each file's stored name dynamically (names come from real uploads/seed data, not the design mock)."
+        }
+      ]
+    },
+    "/starred": {
+      "allow": [
+        {
+          "heading": "Q3_Financial_Review.docx",
+          "reason": "Design-mock file name; the starred list renders each starred file's stored name dynamically."
+        },
+        {
+          "heading": "Pitch_Deck_v2.pptx",
+          "reason": "Design-mock file name; the starred list renders each starred file's stored name dynamically."
+        }
+      ]
+    },
+    "/search": {
+      "allow": [
+        {
+          "heading": "Marketing Brief Q4 2024.docx",
+          "reason": "Design-mock search-result name; results render the stored names of files matching the live query."
+        }
+      ]
+    }
+  }
+}

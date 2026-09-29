@@ -1,0 +1,28 @@
+{
+  "screens": {
+    "/pick/:id": {
+      "allow": [
+        {
+          "heading": "Ridgeline Shell Jacket — M — Black",
+          "reason": "Design-mock pick line; the pick list renders the order's live seeded catalog items (own product names) dynamically."
+        },
+        {
+          "heading": "Alpine Beanie — Blue",
+          "reason": "Design-mock pick line; the pick list renders the order's live seeded catalog items (own product names) dynamically."
+        },
+        {
+          "heading": "Titanium Carabiner 3-Pack",
+          "reason": "Design-mock pick line; the pick list renders the order's live seeded catalog items (own product names) dynamically."
+        }
+      ]
+    },
+    "/inventory/:sku": {
+      "allow": [
+        {
+          "heading": "WGT-CHM-12KG-BLK",
+          "reason": "Design-mock SKU; the inventory detail page renders the SKU of the inventory row addressed by the route."
+        }
+      ]
+    }
+  }
+}

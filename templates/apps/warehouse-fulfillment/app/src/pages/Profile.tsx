@@ -32,6 +32,57 @@ interface InventoryStats {
   outOfStock: number
 }
 
+interface AchievementBadge {
+  icon: string
+  labelKey: string
+  label: string
+  tileClass: string
+  locked?: boolean
+}
+
+// Operator badges rendered as gradient wrapper tiles (glyph sizing lives in
+// the tile, never on the text). Muted tokens keep the locked badge readable
+// in both themes without text opacity.
+const ACHIEVEMENT_BADGES: AchievementBadge[] = [
+  {
+    icon: 'star',
+    labelKey: 'profile.badge.tenKPicks',
+    label: '10K picks',
+    tileClass: 'bg-gradient-to-br from-warning to-error border-2 border-surface shadow-sm',
+  },
+  {
+    icon: 'local_fire_department',
+    labelKey: 'profile.badge.pickStreak',
+    label: '100-day streak',
+    tileClass: 'bg-gradient-to-br from-error to-error-active border-2 border-surface shadow-sm',
+  },
+  {
+    icon: 'verified',
+    labelKey: 'profile.badge.zeroErrorWeek',
+    label: 'Zero-error week',
+    tileClass: 'bg-gradient-to-br from-success to-success-active border-2 border-surface shadow-sm',
+  },
+  {
+    icon: 'bolt',
+    labelKey: 'profile.badge.speedDemon',
+    label: 'Speed demon',
+    tileClass: 'bg-surface-hover border-2 border-outline',
+    locked: true,
+  },
+  {
+    icon: 'bedtime',
+    labelKey: 'profile.badge.nightOwl',
+    label: 'Night owl',
+    tileClass: 'bg-surface border-2 border-dashed border-info',
+  },
+  {
+    icon: 'science',
+    labelKey: 'profile.badge.hazmatCertified',
+    label: 'Hazmat certified',
+    tileClass: 'bg-gradient-to-br from-primary to-primary-dark border-2 border-surface shadow-sm',
+  },
+]
+
 export function Profile() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -195,6 +246,79 @@ export function Profile() {
           tone="info"
           icon="qr_code_2"
         />
+      </section>
+
+      <section
+        className={cm.cn(
+          cm.sp('p', 6),
+          'rounded-2xl border border-outline-variant/60 bg-surface-container-lowest',
+          cm.stack(4),
+        )}
+        data-testid="profile-achievements"
+      >
+        <h2
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.textSize('lg'),
+            'font-extrabold tracking-tight text-on-surface',
+          )}
+        >
+          <span
+            className={cm.cn('material-symbols-outlined text-[20px] text-on-surface-variant')}
+            data-icon="military_tech"
+          >
+            military_tech
+          </span>
+          {t('profile.achievements.title', {}, { defaultValue: 'Achievements' })}
+        </h2>
+        <div className={cm.cn('grid grid-cols-3 gap-x-4 gap-y-6')}>
+          {ACHIEVEMENT_BADGES.map((badge) => (
+            <div key={badge.labelKey} className={cm.cn(cm.stack(2), 'items-center text-center')}>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'relative h-14 w-14 shrink-0 rounded-full',
+                  badge.tileClass,
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    'material-symbols-outlined text-[26px]',
+                    badge.locked ? 'text-on-surface-variant' : 'text-white',
+                  )}
+                  data-icon={badge.icon}
+                >
+                  {badge.icon}
+                </span>
+                {badge.locked && (
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'absolute -bottom-1 -right-1 h-5 w-5 rounded-full border-2 border-surface bg-on-surface-variant',
+                    )}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-[10px] text-surface')}
+                      data-icon="lock"
+                    >
+                      lock
+                    </span>
+                  </span>
+                )}
+              </div>
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('medium'),
+                  'leading-tight',
+                  badge.locked ? 'text-on-surface-variant' : 'text-on-surface',
+                )}
+              >
+                {t(badge.labelKey, {}, { defaultValue: badge.label })}
+              </span>
+            </div>
+          ))}
+        </div>
       </section>
 
       <article

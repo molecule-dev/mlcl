@@ -1,0 +1,32 @@
+{
+  "screens": {
+    "/shop/:slug": {
+      "allow": [
+        {
+          "heading": "Weekly Reset Planner",
+          "reason": "Design-mock product title; the detail page renders the name of the product addressed by the route slug."
+        }
+      ]
+    },
+    "/products": {
+      "allow": [
+        {
+          "heading": "Ultimate Framer Template Kit",
+          "reason": "Design-mock listing; the grid renders the seeded demo catalog (Aurora UI Kit, Lumen Icon Set, …) and real seller products."
+        },
+        {
+          "heading": "Creator Newsletter Playbook",
+          "reason": "Design-mock listing; the grid renders the seeded demo catalog (Aurora UI Kit, Lumen Icon Set, …) and real seller products."
+        }
+      ]
+    },
+    "/library": {
+      "allow": [
+        {
+          "heading": "Nexus SaaS Framer Template",
+          "reason": "Design-mock purchase; the library renders the signed-in buyer's real completed purchases."
+        }
+      ]
+    }
+  }
+}

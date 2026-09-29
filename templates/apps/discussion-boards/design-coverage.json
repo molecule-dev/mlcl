@@ -1,0 +1,28 @@
+{
+  "screens": {
+    "/t/:id": {
+      "allow": [
+        {
+          "heading": "Implementing RAG with local LLMs - sharing my architecture",
+          "reason": "Design-mock thread title; the thread page renders the title of the thread addressed by the route (user-generated content)."
+        }
+      ]
+    },
+    "/u/:username": {
+      "allow": [
+        {
+          "heading": "Applying Dichotomy of Control to Microservices",
+          "reason": "Design-mock post title; the profile's activity list renders the real titles of that user's threads (user-generated content)."
+        }
+      ]
+    },
+    "/search": {
+      "allow": [
+        {
+          "heading": "What are the emerging patterns for decentralized threads ?",
+          "reason": "Design-mock search result; results render the real titles of threads matching the live query (user-generated content)."
+        }
+      ]
+    }
+  }
+}

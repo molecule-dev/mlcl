@@ -157,9 +157,12 @@ export function AuthShell({
 
         <AuthShellCardColumn as="main" className={cm.cn(cm.sp('p', 8), 'min-h-[100dvh]')}>
           <div className={cm.cn(cm.w('full'), cm.maxW('md'), cm.stack(8))}>
-            <Link to="/" className={cm.cn('lg:hidden')}>
+            {/* BrandWordmark renders its own router link — wrapping it in
+                another <Link> nests an <a> inside an <a>, which the console
+                (and the e2e console-error gate) rejects. */}
+            <div className={cm.cn('lg:hidden')}>
               <BrandWordmark size="md" />
-            </Link>
+            </div>
 
             <header className={cm.stack(2)}>
               <p

@@ -4,12 +4,22 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { type BoardGuess, PuzzleBoard } from '../components/PuzzleBoard.js'
+
 interface ArchiveDay {
   date: string
   puzzleNumber: number
   practice: true
   played: boolean
   solved: boolean
+  attempts: number
+}
+
+/** GET /api/puzzles/:date shape — only what the inspection card needs. */
+interface InspectionState {
+  puzzleNumber: number
+  guesses: BoardGuess[]
+  status: 'playing' | 'won' | 'lost'
   attempts: number
 }
 
@@ -40,6 +50,7 @@ export function Archive() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [days, setDays] = useState<ArchiveDay[]>([])
+  const [inspection, setInspection] = useState<InspectionState | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 
@@ -47,8 +58,23 @@ export function Archive() {
     let cancelled = false
     http
       .get('/api/puzzles/archive')
-      .then((res) => {
-        if (!cancelled) setDays(unwrap<{ days: ArchiveDay[] }>(res)?.days ?? [])
+      .then(async (res) => {
+        const loaded = unwrap<{ days: ArchiveDay[] }>(res)?.days ?? []
+        if (cancelled) return
+        setDays(loaded)
+        // Board inspection: reconstruct the most recent solved game from the
+        // server-owned guesses. Only already-solved days are fetched (GET on
+        // an unplayed day lazily creates that puzzle, which we must not do).
+        const lastSolved = loaded
+          .filter((d) => d.solved)
+          .sort((a, b) => b.puzzleNumber - a.puzzleNumber)[0]
+        if (!lastSolved) return
+        try {
+          const state = unwrap<InspectionState>(await http.get(`/api/puzzles/${lastSolved.date}`))
+          if (!cancelled && state.status === 'won') setInspection(state)
+        } catch (_error) {
+          // inspection is a bonus card — never fail the page over it
+        }
       })
       .catch(() => {
         if (!cancelled)
@@ -139,6 +165,59 @@ export function Archive() {
           </li>
         ))}
       </ul>
+
+      {/* Board inspection: your latest solve, reconstructed tile by tile. */}
+      {inspection && (
+        <section
+          className={cm.cn(cm.card(), cm.cardPadding('md'), cm.stack(4), 'mt-6')}
+          data-mol-id="archive-inspection"
+        >
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 2 }),
+              'border-b border-outline-variant/60 pb-3',
+            )}
+          >
+            <div>
+              <p
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'uppercase tracking-wider text-primary',
+                )}
+              >
+                {t('archive.inspection.eyebrow', {}, { defaultValue: 'Board inspection' })}
+              </p>
+              <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'mt-0.5')}>
+                {t(
+                  'archive.inspection.title',
+                  { number: inspection.puzzleNumber },
+                  { defaultValue: `Puzzle #${inspection.puzzleNumber} analysis` },
+                )}
+              </h2>
+            </div>
+            <span
+              className={cm.cn(cm.badge({ variant: 'success' }), 'font-semibold whitespace-nowrap')}
+            >
+              {t(
+                'archive.inspection.solvedIn',
+                { count: inspection.attempts },
+                { defaultValue: `Solved in ${inspection.attempts}` },
+              )}
+            </span>
+          </div>
+          <div className={cm.cn('flex justify-center')}>
+            <PuzzleBoard guesses={inspection.guesses} animate={false} />
+          </div>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant text-center')}>
+            {t(
+              'archive.inspection.note',
+              {},
+              { defaultValue: 'Your most recent solve, replayed tile by tile.' },
+            )}
+          </p>
+        </section>
+      )}
     </section>
   )
 }

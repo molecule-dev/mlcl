@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LoadErrorBanner } from '@molecule/app-ui-react'
 
@@ -49,6 +49,7 @@ export function Dashboard() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const auth = useAuth<{ name?: string | null; email?: string }>()
   const [doses, setDoses] = useState<Dose[]>([])
   const [today, setToday] = useState<TodayReport | null>(null)
   const [trend, setTrend] = useState<number[]>([])
@@ -133,6 +134,12 @@ export function Dashboard() {
     [],
   )
 
+  // Time-of-day greeting with the user's first name (design's "Good morning,
+  // Maria"). Falls back to the email handle, then a warm generic.
+  const firstName = auth.user?.name?.trim().split(/\s+/)[0] ?? auth.user?.email?.split('@')[0] ?? ''
+  const hour = new Date().getHours()
+  const greetingWord = hour < 12 ? 'morning' : hour < 18 ? 'afternoon' : 'evening'
+
   if (error)
     return (
       <LoadErrorBanner
@@ -150,6 +157,25 @@ export function Dashboard() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('6xl'), cm.mxAuto, 'space-y-8')}>
+      <header>
+        <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), 'tracking-tight')}>
+          {firstName
+            ? t(
+                `dashboard.greeting.${greetingWord}`,
+                { name: firstName },
+                { defaultValue: `Good ${greetingWord}, {{name}}` },
+              )
+            : t(
+                `dashboard.greeting.generic.${greetingWord}`,
+                {},
+                { defaultValue: `Good ${greetingWord}!` },
+              )}
+        </h1>
+        <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant mt-1 font-medium')}>
+          {todayLabel}
+        </p>
+      </header>
+
       <TodayHeroCard
         takenCount={today?.taken_count ?? 0}
         totalDoses={today?.total_doses ?? 0}

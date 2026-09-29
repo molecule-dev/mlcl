@@ -463,6 +463,148 @@ export function Landing() {
           </div>
         </section>
 
+        {/* §14.3 Caregivers */}
+        <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 16), cm.mxAuto)}>
+          <div className={cm.cn(cm.grid({ cols: 2 }), 'gap-10 lg:gap-16 items-center')}>
+            <div className={cm.cn('order-2 lg:order-1')}>
+              <div
+                className={cm.cn(
+                  cm.sp('p', 6),
+                  'relative rounded-3xl bg-surface-container-lowest border border-outline-variant/40 shadow-lg',
+                )}
+              >
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'md' }),
+                    cm.sp('mb', 4),
+                    'rounded-2xl border border-outline-variant/40 bg-surface-container p-4',
+                  )}
+                >
+                  <div
+                    className={cm.cn(
+                      cm.w(10),
+                      cm.h(10),
+                      cm.roundedFull,
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'bg-primary/10 text-primary shrink-0',
+                    )}
+                  >
+                    <span className="material-symbols-outlined" aria-hidden="true">
+                      group
+                    </span>
+                  </div>
+                  <div>
+                    <p className={cm.cn(cm.fontWeight('bold'))}>
+                      {t('landing.caregiver.sharedTitle', {}, { defaultValue: 'Shared schedule' })}
+                    </p>
+                    <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                      {t('landing.caregiver.sharedFor', {}, { defaultValue: "Mom's medications" })}
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                    cm.sp('px', 2),
+                    cm.textSize('sm'),
+                  )}
+                >
+                  <span className={cm.cn('text-on-surface-variant')}>
+                    {t('landing.caregiver.routine', {}, { defaultValue: 'Morning routine' })}
+                  </span>
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 'xs' }),
+                      cm.fontWeight('medium'),
+                      // text-success-text, not text-success: raw success green
+                      // on the page surface measures 2.27:1 (axe serious);
+                      // the *-text token mixes toward the foreground for AA.
+                      'text-success-text',
+                    )}
+                  >
+                    <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                      check_circle
+                    </span>
+                    {t('landing.caregiver.completed', {}, { defaultValue: 'Completed' })}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className={cm.cn('order-1 lg:order-2 space-y-5')}>
+              <h2 className={cm.cn(cm.textSize('4xl'), cm.fontWeight('bold'), 'tracking-tight')}>
+                {t('landing.caregiver.title', {}, { defaultValue: 'Caring is easier together.' })}
+              </h2>
+              <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant leading-relaxed')}>
+                {t(
+                  'landing.caregiver.body',
+                  {},
+                  {
+                    defaultValue:
+                      'Supporting a loved one? Capsiva lets you link accounts so you can stay informed without having to constantly ask “Did you take your pills?”',
+                  },
+                )}
+              </p>
+              <ul className={cm.cn('space-y-3 pt-2')}>
+                {(
+                  [
+                    {
+                      key: 'realtime',
+                      defaultLabel: 'Real-time adherence updates',
+                    },
+                    {
+                      key: 'missedAlerts',
+                      defaultLabel: 'Missed dose alerts sent to caregivers',
+                    },
+                    {
+                      key: 'multipleMembers',
+                      defaultLabel: 'Manage multiple family members from one app',
+                    },
+                  ] as const
+                ).map((item) => (
+                  <li key={item.key} className={cm.cn(cm.flex({ align: 'start', gap: 'sm' }))}>
+                    <span
+                      className={cm.cn('material-symbols-outlined text-primary mt-0.5')}
+                      aria-hidden="true"
+                    >
+                      check_circle
+                    </span>
+                    <span className={cm.cn(cm.fontWeight('medium'))}>
+                      {t(
+                        `landing.caregiver.point.${item.key}`,
+                        {},
+                        { defaultValue: item.defaultLabel },
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <div className={cm.cn('pt-4')}>
+                <Link
+                  to="/caregivers"
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.fontWeight('semibold'),
+                    // text-primary-text, not text-primary: raw primary teal on
+                    // the section surface measures 3.53:1 (axe serious); the
+                    // *-text token mixes toward the foreground for AA.
+                    'text-primary-text hover:underline',
+                  )}
+                  data-mol-id="landing-caregiver-link"
+                >
+                  {t(
+                    'landing.caregiver.learnMore',
+                    {},
+                    { defaultValue: 'Learn more about caregiver features' },
+                  )}
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                    arrow_forward
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Closing CTA */}
         <section className={cm.cn(cm.maxW('5xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}>
           <div
