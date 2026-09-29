@@ -55,6 +55,13 @@ regexes = [
   # Invented demo identifiers in flagship sample data.
   '''^DG-[A-Z0-9]{4}-LIC[0-9]-[A-Z]{4}$''',
   '''^glnt-[a-z0-9-]+$''',
+  # i18n KEY VALUES the rule captures after key=/bodyKey=/defaultValue= on the
+  # 2026-09-28 design-fidelity landing pages — identifiers and pricing prose,
+  # not credentials (CI run 36519702469, seven findings, all this shape).
+  '''^landing\.(compliance|pillar|tier)\.[a-z0-9.]+$''',
+  '''^1,000 requests / mo$''',
+  '''^Community support$''',
+  '''^5 active agents$''',
 ]
 
 # Matched as a SUBSTRING of the detected secret. Used here for Stripe's own

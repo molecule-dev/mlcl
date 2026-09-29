@@ -1,0 +1,14 @@
+# Per-finding exemptions the CI gitleaks job itself reports (detect --no-git).
+# Every line is a design-fidelity landing-page i18n KEY or pricing-prose VALUE
+# the generic-api-key rule cannot tell from a token — identifiers and demo copy,
+# not credentials (CI run 36519702469; verified against the lines themselves).
+templates/apps/ai-agent-playground/app/src/pages/Landing.tsx:generic-api-key:113
+templates/apps/ai-agent-playground/app/src/pages/Landing.tsx:generic-api-key:114
+templates/apps/ai-agent-playground/app/src/pages/Landing.tsx:generic-api-key:115
+templates/apps/ai-content-moderator/app/src/pages/Landing.tsx:generic-api-key:60
+templates/apps/feedback-roadmap/app/src/pages/Landing.tsx:generic-api-key:1139
+templates/apps/feedback-roadmap/app/src/pages/Landing.tsx:generic-api-key:1179
+templates/apps/feedback-roadmap/app/src/pages/Landing.tsx:generic-api-key:1244
+/repo/templates/apps/feedback-roadmap/app/src/pages/Landing.tsx:generic-api-key:1139
+/repo/templates/apps/feedback-roadmap/app/src/pages/Landing.tsx:generic-api-key:1179
+/repo/templates/apps/feedback-roadmap/app/src/pages/Landing.tsx:generic-api-key:1244
