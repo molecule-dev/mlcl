@@ -54,6 +54,23 @@ function initialsOf(name: string | null, email: string | null): string {
   return letters.join('') || '?'
 }
 
+const MARGINALIA_ENTRIES = [
+  {
+    key: 'eliot',
+    quote:
+      'Character is not cut in marble; it is not something solid and unalterable. It is something living and changing.',
+    source: 'George Eliot, Middlemarch (p. 612)',
+    when: 'Transcribed from a 2H pencil margin',
+  },
+  {
+    key: 'kimmerer',
+    quote:
+      'The earth does not belong to us; we belong to the earth. To honor a page is simply to honor the wood that lent itself to human thought.',
+    source: 'Commonplace notebook',
+    when: 'Transcribed at the desk lamplight',
+  },
+] as const
+
 export function Profile() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -235,7 +252,7 @@ export function Profile() {
                   {t('profile.reviewsEyebrow', {}, { defaultValue: 'From your shelf' })}
                 </p>
                 <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), cm.sp('mt', 1))}>
-                  {t('profile.reviewsHeading', {}, { defaultValue: 'Recently reviewed' })}
+                  {t('profile.reviewsHeading', {}, { defaultValue: 'Recent Reflections & Essays' })}
                 </h3>
               </div>
               <Link to="/reviews" className={cm.cn('text-sm font-bold', cm.textPrimary)}>
@@ -269,6 +286,96 @@ export function Profile() {
                 ))}
               </div>
             )}
+          </section>
+
+          {/* Marginalia & commonplace entries — transcribed lines worth keeping */}
+          <section
+            className={cm.cn('bg-surface-container-lowest rounded-2xl shadow-sm')}
+            data-mol-id="profile-marginalia-section"
+          >
+            <div
+              className={cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' })}
+            >
+              <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 1))}>
+                <span className="material-symbols-outlined text-primary text-xl" aria-hidden="true">
+                  edit_note
+                </span>
+                <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+                  {t(
+                    'profile.marginaliaHeading',
+                    {},
+                    { defaultValue: 'Marginalia & Commonplace Entries' },
+                  )}
+                </h3>
+              </div>
+              <Link
+                to="/reviews"
+                className={cm.cn('text-sm font-bold', cm.textPrimary, 'inline-flex py-2')}
+              >
+                {t('profile.marginaliaLink', {}, { defaultValue: 'View all reflections →' })}
+              </Link>
+            </div>
+            <ul className={cm.cn('space-y-3', cm.sp('mt', 3))}>
+              {MARGINALIA_ENTRIES.map((entry) => (
+                <li
+                  key={entry.key}
+                  className={cm.cn(
+                    cm.sp('p', 4),
+                    'bg-surface-bright rounded-lg border border-outline-variant flex gap-3',
+                  )}
+                >
+                  <span
+                    className="material-symbols-outlined text-secondary text-lg shrink-0 mt-0.5"
+                    aria-hidden="true"
+                  >
+                    format_quote
+                  </span>
+                  <div className="flex-grow min-w-0">
+                    <p className={cm.cn(cm.textSize('sm'), 'italic text-on-surface')}>
+                      “
+                      {t(`profile.marginaliaQuote.${entry.key}`, {}, { defaultValue: entry.quote })}
+                      ”
+                    </p>
+                    <div
+                      className={cm.cn(
+                        cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }),
+                        cm.textSize('xs'),
+                        'text-on-surface-variant',
+                        cm.sp('mt', 2),
+                      )}
+                    >
+                      <span>
+                        {t(
+                          `profile.marginaliaSource.${entry.key}`,
+                          {},
+                          { defaultValue: entry.source },
+                        )}
+                      </span>
+                      <span>
+                        {t(`profile.marginaliaWhen.${entry.key}`, {}, { defaultValue: entry.when })}
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                'text-on-surface-variant',
+                cm.sp('mt', 3),
+                'leading-relaxed',
+              )}
+            >
+              {t(
+                'profile.marginaliaNote',
+                {},
+                {
+                  defaultValue:
+                    'Transcribe a line from any book desk — margin notes keep the page they came from.',
+                },
+              )}
+            </p>
           </section>
 
           <section className={cm.grid({ cols: 2, gap: 'md' })}>

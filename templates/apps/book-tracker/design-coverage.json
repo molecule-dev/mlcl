@@ -1,0 +1,52 @@
+{
+  "screens": {
+    "/reviews": {
+      "allow": [
+        {
+          "heading": "The quiet geometry of synthetic devotion",
+          "reason": "Sample-data essay headline for the demo reader's Klara review; the review feed renders live review text from the API, and the card's title/body slots exist for it."
+        },
+        {
+          "heading": "Reciprocity as an antidote to modern hurry",
+          "reason": "Sample-data essay headline for the demo reader's Braiding Sweetgrass review; the feed renders live review text from the API."
+        },
+        {
+          "heading": "Winter roads and dual allegiances: mid-reading reflections",
+          "reason": "Sample-data essay headline for the demo reader's in-progress Left Hand of Darkness reflection; mid-reading notes are not review-feed data in this app."
+        }
+      ]
+    },
+    "/profile": {
+      "allow": [
+        {
+          "heading": "The quiet geometry of synthetic devotion",
+          "reason": "Sample-data essay headline echoed from the reviews design; the profile's Recent Reflections section renders the user's live reviews."
+        },
+        {
+          "heading": "Reciprocity as an antidote to modern hurry",
+          "reason": "Sample-data essay headline echoed from the reviews design; the profile's Recent Reflections section renders the user's live reviews."
+        }
+      ]
+    },
+    "/notifications": {
+      "allow": [
+        {
+          "heading": "Autumn Equinox Threshold Reached",
+          "reason": "Sample notification item title; the feed renders live titles from /api/notifications and the grouped week/month structure is implemented."
+        },
+        {
+          "heading": "Julian T. returned Middlemarch with care",
+          "reason": "Sample lending-circle notification title; the feed renders live titles from /api/notifications."
+        },
+        {
+          "heading": "Longest Pause Honored",
+          "reason": "Sample pacing notification title; the feed renders live titles from /api/notifications."
+        },
+        {
+          "heading": "From your commonplace archive: Braiding Sweetgrass",
+          "reason": "Sample commonplace-archive notification title; the feed renders live titles from /api/notifications."
+        }
+      ]
+    }
+  }
+}

@@ -47,6 +47,66 @@ const MONTH_LABELS = [
   'Dec',
 ]
 
+const RUBRIC_TIERS = {
+  deep: {
+    label: 'Deep Companion',
+    stars: '5 of 5',
+    icon: 'star',
+    tone: 'bg-primary-container text-on-primary-container',
+    body: "Life-shaping reread; permanently lives within arm's reach of the reading chair.",
+  },
+  resonant: {
+    label: 'Resonant Volume',
+    stars: '4 of 5',
+    icon: 'auto_stories',
+    tone: 'bg-secondary-container text-on-secondary-container',
+    body: 'Rich prose, striking architecture, lingering philosophical questions that echo.',
+  },
+  acquaintance: {
+    label: 'Quiet Acquaintance',
+    stars: '3 of 5',
+    icon: 'coffee',
+    tone: 'bg-surface-container-high text-on-surface-variant',
+    body: 'Pleasant company for a season; served its chapter gracefully.',
+  },
+  paused: {
+    label: 'Paused With Respect',
+    stars: 'hold',
+    icon: 'pause_circle',
+    tone: 'bg-surface-container text-outline',
+    body: 'Not suited for this season of mind; zero reader guilt.',
+  },
+} as const
+
+type RubricRow = {
+  key: keyof typeof RUBRIC_TIERS
+  count: number
+  pct: number
+  label: string
+  stars: string
+  icon: string
+  tone: string
+  body: string
+}
+
+function rubricRows(ratings: Ratings | null, overview: Overview | null): RubricRow[] {
+  const dist = new Map((ratings?.distribution ?? []).map((d) => [d.stars, d.count]))
+  const paused = overview?.by_shelf?.dnf ?? 0
+  const counts: Record<keyof typeof RUBRIC_TIERS, number> = {
+    deep: dist.get(5) ?? 0,
+    resonant: dist.get(4) ?? 0,
+    acquaintance: dist.get(3) ?? 0,
+    paused,
+  }
+  const total = Math.max(1, counts.deep + counts.resonant + counts.acquaintance + counts.paused)
+  return (Object.keys(RUBRIC_TIERS) as (keyof typeof RUBRIC_TIERS)[]).map((key) => ({
+    key,
+    count: counts[key],
+    pct: Math.round((counts[key] / total) * 100),
+    ...RUBRIC_TIERS[key],
+  }))
+}
+
 export function Stats() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -125,7 +185,11 @@ export function Stats() {
           {t('stats.eyebrow', { year }, { defaultValue: 'Your {{year}} in books' })}
         </p>
         <h1 className={cm.cn('text-4xl md:text-5xl font-extrabold tracking-tight', cm.sp('mt', 2))}>
-          {t('stats.heading', {}, { defaultValue: 'Reading stats' })}
+          {t(
+            'stats.heading',
+            { year },
+            { defaultValue: 'The {{year}} Reading Ledger & Annual Cadence' },
+          )}
         </h1>
         <p className={cm.cn(cm.textSize('lg'), cm.sp('mt', 2), 'text-on-surface-variant')}>
           {t(
@@ -136,12 +200,24 @@ export function Stats() {
         </p>
       </header>
 
-      <ReadingStatsTriad
-        finishedThisYear={overview?.finished_this_year ?? 0}
-        pagesRead={overview?.pages_read ?? 0}
-        avgRating={overview?.avg_rating ?? 0}
-        currentlyReading={overview?.by_shelf?.reading ?? 0}
-      />
+      <section>
+        <h2
+          className={cm.cn(
+            cm.textSize('xs'),
+            cm.fontWeight('bold'),
+            cm.sp('mb', 3),
+            'uppercase tracking-widest text-on-surface-variant',
+          )}
+        >
+          {t('stats.kicker', {}, { defaultValue: 'Reading stats' })}
+        </h2>
+        <ReadingStatsTriad
+          finishedThisYear={overview?.finished_this_year ?? 0}
+          pagesRead={overview?.pages_read ?? 0}
+          avgRating={overview?.avg_rating ?? 0}
+          currentlyReading={overview?.by_shelf?.reading ?? 0}
+        />
+      </section>
 
       {/* Books per month */}
       <section
@@ -155,7 +231,7 @@ export function Stats() {
             'uppercase tracking-widest text-on-surface-variant',
           )}
         >
-          {t('stats.monthlyEyebrow', {}, { defaultValue: 'Books per month' })}
+          {t('stats.monthlyEyebrow', {}, { defaultValue: 'Monthly Rhythm & Seasonal Immersion' })}
         </h2>
         <p
           className={cm.cn(
@@ -213,6 +289,42 @@ export function Stats() {
             )
           })}
         </div>
+        {/* Sanctuary editorial observation under the chart */}
+        <div
+          className={cm.cn(
+            cm.sp('mt', 5),
+            cm.sp('p', 4),
+            'rounded-lg bg-surface-container-low/70 border border-outline-variant flex items-start gap-3',
+          )}
+        >
+          <span className="material-symbols-outlined text-secondary mt-0.5" aria-hidden="true">
+            auto_stories
+          </span>
+          <div className="flex-1">
+            <h4
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('semibold'),
+                'text-primary uppercase tracking-wider',
+              )}
+            >
+              {t('stats.observationTitle', {}, { defaultValue: 'Sanctuary Observation' })}
+            </h4>
+            <p
+              className={cm.cn(cm.textSize('sm'), 'text-on-surface italic', cm.sp('mt', 1))}
+              style={{ fontFamily: 'var(--font-headline)' }}
+            >
+              {t(
+                'stats.observationBody',
+                {},
+                {
+                  defaultValue:
+                    'Your pace is allowed to deepen and to rest — every month on this ledger counts the same, loud or quiet.',
+                },
+              )}
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Genres + ratings distribution — 2-up on wide screens, stacked on mobile */}
@@ -236,7 +348,7 @@ export function Stats() {
               'text-on-surface',
             )}
           >
-            {t('stats.byGenreHeading', {}, { defaultValue: 'Where the hours went' })}
+            {t('stats.byGenreHeading', {}, { defaultValue: 'Genre Taxonomy & Literary Affinity' })}
           </p>
           {(genres?.by_genre ?? []).length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
@@ -347,6 +459,107 @@ export function Stats() {
             ))}
           </ul>
         </div>
+      </section>
+
+      {/* Companion resonance rubric — the non-punitive rating scale */}
+      <section className="bg-surface-container-lowest rounded-2xl shadow-sm p-6">
+        <div className={cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' })}>
+          <div>
+            <h2
+              className={cm.cn('text-xl md:text-2xl font-medium tracking-tight text-primary')}
+              style={{ fontFamily: 'var(--font-headline)' }}
+            >
+              {t('stats.rubricHeading', {}, { defaultValue: 'Companion Resonance Rubric' })}
+            </h2>
+            <p className={cm.cn(cm.textSize('sm'), 'text-outline', cm.sp('mt', 1))}>
+              {t(
+                'stats.rubricSub',
+                {},
+                {
+                  defaultValue:
+                    'Books are relationships, not commodities reviewed for delivery speed.',
+                },
+              )}
+            </p>
+          </div>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant text-[11px] font-semibold">
+            <span className="material-symbols-outlined text-primary text-sm" aria-hidden="true">
+              verified
+            </span>
+            {t('stats.rubricChip', {}, { defaultValue: 'Zero punitive scores assigned' })}
+          </span>
+        </div>
+        <ul className={cm.cn('space-y-3', cm.sp('mt', 5))}>
+          {rubricRows(ratings, overview).map((row) => (
+            <li
+              key={row.key}
+              className={cm.cn(
+                cm.sp('p', 4),
+                'rounded-lg bg-surface-container-lowest border border-outline-variant flex flex-col md:flex-row md:items-center justify-between gap-3',
+              )}
+            >
+              <div className={cm.flex({ align: 'start', gap: 'sm' })}>
+                <div
+                  className={cm.cn(
+                    'w-10 h-10 rounded-lg flex items-center justify-center shrink-0',
+                    row.tone,
+                  )}
+                >
+                  <span className="material-symbols-outlined" aria-hidden="true">
+                    {row.icon}
+                  </span>
+                </div>
+                <div>
+                  <div className={cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' })}>
+                    <h4
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('semibold'),
+                        'text-primary',
+                      )}
+                    >
+                      {t(`stats.rubricTier.${row.key}`, {}, { defaultValue: row.label })}
+                    </h4>
+                    <span
+                      className={cm.cn(
+                        cm.sp('px', 2),
+                        cm.sp('py', 1),
+                        cm.textSize('xs'),
+                        'rounded bg-surface-container text-on-surface-variant',
+                      )}
+                    >
+                      {row.stars}
+                    </span>
+                  </div>
+                  <p className={cm.cn(cm.textSize('sm'), 'text-outline', cm.sp('mt', 1))}>
+                    {t(`stats.rubricTierBody.${row.key}`, {}, { defaultValue: row.body })}
+                  </p>
+                </div>
+              </div>
+              <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'shrink-0')}>
+                <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('medium'), 'text-primary')}>
+                  {row.count}
+                </span>
+                <span className={cm.cn(cm.textSize('sm'), 'text-outline')}>
+                  {t(
+                    'stats.rubricVolumesPct',
+                    { pct: row.pct },
+                    { defaultValue: 'volumes ({{pct}}%)' },
+                  )}
+                </span>
+                <span
+                  className="w-24 h-2 rounded-full bg-surface-container overflow-hidden block"
+                  aria-hidden="true"
+                >
+                  <span
+                    className="h-full rounded-full block"
+                    style={{ width: `${row.pct}%`, background: 'var(--color-primary-container)' }}
+                  />
+                </span>
+              </div>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <ConsistencyHeatmap

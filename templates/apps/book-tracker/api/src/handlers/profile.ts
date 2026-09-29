@@ -28,10 +28,15 @@ const bookPrefsSchema = z
     startOfWeek: z.enum(['sunday', 'monday']).optional(),
     dailyGoalPages: z.number().int().min(0).max(2000).optional(),
     countDnfInStats: z.boolean().optional(),
+    pauseThresholdDays: z.number().int().min(1).max(365).optional(),
+    cadenceUnit: z
+      .enum(['seasons', 'pages_per_sitting', 'hearthlight_hours', 'chapter_arc'])
+      .optional(),
     remindDaily: z.boolean().optional(),
     remindStalled: z.boolean().optional(),
     remindWeekly: z.boolean().optional(),
     remindChallenge: z.boolean().optional(),
+    remindLending: z.boolean().optional(),
     bio: z.string().max(2000).optional(),
   })
   .partial()
@@ -60,10 +65,13 @@ const DEFAULT_PREFS = {
   startOfWeek: 'monday' as 'sunday' | 'monday',
   dailyGoalPages: 20,
   countDnfInStats: false,
+  pauseThresholdDays: 14,
+  cadenceUnit: 'seasons' as 'seasons' | 'pages_per_sitting' | 'hearthlight_hours' | 'chapter_arc',
   remindDaily: true,
   remindStalled: true,
   remindWeekly: true,
   remindChallenge: true,
+  remindLending: true,
   bio: '',
 }
 

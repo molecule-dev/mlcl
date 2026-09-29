@@ -39,6 +39,13 @@ interface Session {
   note: string | null
 }
 
+interface MarginNote {
+  id: string
+  page: number | null
+  quote: string
+  created_at: string
+}
+
 type Shelf = NonNullable<Book['my']>['shelf']
 
 const SHELF_ACTIONS: Shelf[] = ['want_to_read', 'reading', 'read', 'dnf']
@@ -89,6 +96,12 @@ export function BookDetail() {
   // (no modal), second click commits.
   const [confirmingDelete, setConfirmingDelete] = useState(false)
 
+  // Margin notes — transcribed quotes, stored locally per book (no API yet).
+  const [marginNotes, setMarginNotes] = useState<MarginNote[]>([])
+  const [marginFormOpen, setMarginFormOpen] = useState(false)
+  const [marginPage, setMarginPage] = useState('')
+  const [marginQuote, setMarginQuote] = useState('')
+
   const loadBook = async (): Promise<void> => {
     const res = await http.get(`/books/${id}`)
     const data = unwrapSingle<Book>(res)
@@ -136,6 +149,47 @@ export function BookDetail() {
     setDraftPageCount(String(book.page_count))
     setEditError(null)
     setEditing(true)
+  }
+
+  const marginStorageKey = `bt-margin-notes-${id}`
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(marginStorageKey)
+      setMarginNotes(raw ? (JSON.parse(raw) as MarginNote[]) : [])
+    } catch {
+      setMarginNotes([])
+    }
+    setMarginFormOpen(false)
+    setMarginPage('')
+    setMarginQuote('')
+  }, [marginStorageKey])
+
+  const saveMarginNotes = (notes: MarginNote[]) => {
+    setMarginNotes(notes)
+    try {
+      window.localStorage.setItem(marginStorageKey, JSON.stringify(notes))
+    } catch {
+      // Storage unavailable (private mode) — keep the note visible this session.
+    }
+  }
+
+  const addMarginNote = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!marginQuote.trim()) return
+    const note: MarginNote = {
+      id: `mn_${Date.now()}`,
+      page: marginPage === '' ? null : Math.max(0, Number(marginPage) || 0),
+      quote: marginQuote.trim(),
+      created_at: new Date().toISOString(),
+    }
+    saveMarginNotes([note, ...marginNotes])
+    setMarginPage('')
+    setMarginQuote('')
+    setMarginFormOpen(false)
+  }
+
+  const removeMarginNote = (noteId: string) => {
+    saveMarginNotes(marginNotes.filter((n) => n.id !== noteId))
   }
 
   const saveEdit = async () => {
@@ -758,6 +812,219 @@ export function BookDetail() {
           </form>
         </section>
       ) : null}
+
+      {/* Margin notes & paged citations — locally archived quotes */}
+      <section className={cm.cn(cm.card(), cm.sp('p', 5))} data-mol-id="book-margin-section">
+        <div className={cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' })}>
+          <div>
+            <h3
+              className={cm.cn('text-xl font-medium text-primary tracking-tight')}
+              style={{ fontFamily: 'var(--font-headline)' }}
+            >
+              {t('bookDetail.marginTitle', {}, { defaultValue: 'Margin notes & paged citations' })}
+            </h3>
+            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mt', 1))}>
+              {t(
+                'bookDetail.marginSubtitle',
+                {},
+                { defaultValue: 'Transcribed from physical graphite markings' },
+              )}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => setMarginFormOpen((v) => !v)}
+            data-mol-id="book-margin-add"
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 1.5 }),
+              cm.textSize('xs'),
+              cm.fontWeight('semibold'),
+              'text-primary hover:underline px-3 py-2',
+            )}
+          >
+            <span className="material-symbols-outlined text-base" aria-hidden="true">
+              add
+            </span>
+            {t('bookDetail.marginAdd', {}, { defaultValue: 'Transcribe quote' })}
+          </button>
+        </div>
+
+        {marginFormOpen ? (
+          <form
+            className={cm.cn(
+              'space-y-3',
+              cm.sp('mt', 4),
+              cm.sp('p', 4),
+              'bg-surface-container-low rounded-xl border border-outline-variant',
+            )}
+            onSubmit={addMarginNote}
+          >
+            <label className="block">
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  'text-on-surface-variant uppercase tracking-wider block mb-1',
+                )}
+              >
+                {t('bookDetail.marginPageLabel', {}, { defaultValue: 'Page (optional)' })}
+              </span>
+              <input
+                type="number"
+                min={0}
+                value={marginPage}
+                onChange={(e) => setMarginPage(e.target.value)}
+                data-mol-id="book-margin-page"
+                className={cm.cn(
+                  cm.sp('px', 3),
+                  cm.sp('py', 2),
+                  cm.textSize('sm'),
+                  'w-28 border-2 border-outline-variant rounded-lg bg-surface text-on-surface focus:border-primary focus:outline-none',
+                )}
+              />
+            </label>
+            <label className="block">
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  'text-on-surface-variant uppercase tracking-wider block mb-1',
+                )}
+              >
+                {t('bookDetail.marginQuoteLabel', {}, { defaultValue: 'The sentence itself' })}
+              </span>
+              <textarea
+                value={marginQuote}
+                onChange={(e) => setMarginQuote(e.target.value)}
+                rows={3}
+                data-mol-id="book-margin-quote"
+                placeholder={t(
+                  'bookDetail.marginQuotePlaceholder',
+                  {},
+                  { defaultValue: 'Copy the line that stopped you before the leaf turns.' },
+                )}
+                className={cm.cn(
+                  cm.sp('px', 4),
+                  cm.sp('py', 3),
+                  'w-full text-base text-on-surface bg-surface rounded-xl border-2 border-transparent focus:border-primary focus:outline-none transition-colors resize-none',
+                )}
+              />
+            </label>
+            <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+              <button
+                type="submit"
+                disabled={!marginQuote.trim()}
+                data-mol-id="book-margin-save"
+                className={cm.cn(
+                  cm.sp('px', 4),
+                  cm.sp('py', 2),
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  'bg-primary text-on-primary rounded-full disabled:opacity-50',
+                )}
+              >
+                {t('bookDetail.marginSave', {}, { defaultValue: 'Keep in the archive' })}
+              </button>
+              <button
+                type="button"
+                onClick={() => setMarginFormOpen(false)}
+                className={cm.cn(
+                  cm.sp('px', 4),
+                  cm.sp('py', 2),
+                  cm.textSize('sm'),
+                  'border border-outline-variant rounded-full',
+                )}
+              >
+                {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+              </button>
+            </div>
+          </form>
+        ) : null}
+
+        {marginNotes.length === 0 ? (
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.sp('mt', 4))}>
+            {t(
+              'bookDetail.marginEmpty',
+              {},
+              {
+                defaultValue:
+                  'No margin notes yet — transcribe the sentence that stopped you, and page it came from.',
+              },
+            )}
+          </p>
+        ) : (
+          <ul className={cm.cn('space-y-4', cm.sp('mt', 4))}>
+            {marginNotes.map((n) => (
+              <li
+                key={n.id}
+                className={cm.cn(
+                  cm.sp('p', 4),
+                  'bg-surface-container-lowest border border-outline-variant rounded-xl space-y-2',
+                )}
+              >
+                <div
+                  className={cm.flex({
+                    align: 'center',
+                    justify: 'between',
+                    wrap: 'wrap',
+                    gap: 'sm',
+                  })}
+                >
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 1.5 }),
+                      cm.textSize('xs'),
+                      'text-secondary',
+                    )}
+                  >
+                    <span className="material-symbols-outlined text-xs" aria-hidden="true">
+                      bookmark
+                    </span>
+                    {n.page != null
+                      ? t(
+                          'bookDetail.marginPageTag',
+                          { page: n.page },
+                          { defaultValue: 'Page {{page}}' },
+                        )
+                      : t('bookDetail.marginPageUnpaged', {}, { defaultValue: 'Unpaged' })}
+                  </span>
+                  <span className={cm.flex({ align: 'center', gap: 'sm' })}>
+                    <span className={cm.cn(cm.textSize('xs'), 'text-outline')}>
+                      {new Date(n.created_at).toLocaleDateString()}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => removeMarginNote(n.id)}
+                      aria-label={t(
+                        'bookDetail.marginRemoveAria',
+                        {},
+                        { defaultValue: 'Remove this margin note' },
+                      )}
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        'text-outline hover:text-error py-1 px-1',
+                      )}
+                    >
+                      <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                        delete
+                      </span>
+                    </button>
+                  </span>
+                </div>
+                <blockquote
+                  className={cm.cn(
+                    'text-lg text-primary italic leading-relaxed border-l-2 pl-4 py-1',
+                  )}
+                  style={{
+                    fontFamily: 'var(--font-headline)',
+                    borderColor: 'var(--color-tertiary-container)',
+                  }}
+                >
+                  “{n.quote}”
+                </blockquote>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
 
       {/* Session history */}
       {my ? (

@@ -3,42 +3,81 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_TAGLINE } from '../branding.js'
+import { APP_NAME, APP_TAGLINE } from '../branding.js'
 import { BookCover } from '../components/BookCover.js'
 import { Footer } from '../components/Footer.js'
 import { LandingNav } from '../components/LandingNav.js'
 
-const FEATURES = [
+const PILLARS = [
   {
-    key: 'shelves',
-    defaultTitle: 'Shelves that stay honest',
-    defaultBody:
-      'Reading, want-to-read, read, did-not-finish. Every book exactly where you left it.',
-    icon: 'auto_stories',
-    meta: 'Reading · Want to read · DNF with dignity',
+    key: 'noStreakShaming',
+    icon: 'hotel_class',
+    meta: 'Flexible tempos • Ambient reading logs',
   },
   {
-    key: 'progress',
-    defaultTitle: 'Page-by-page progress',
-    defaultBody: 'Log the page you stopped on. Watch the bar close — then the book with it.',
-    icon: 'menu_book',
-    meta: 'Exact page · Gentle pace · No overdue alerts',
+    key: 'messyReality',
+    icon: 'shelves',
+    meta: 'DNF with dignity • Multi-surface libraries',
   },
   {
-    key: 'challenge',
-    defaultTitle: 'The yearly challenge',
-    defaultBody: 'Pick a number. A pace indicator tells you weekly whether the ring still closes.',
-    icon: 'emoji_events',
-    meta: 'Pick a number · Weekly pulse · Guilt-free pauses',
-  },
-  {
-    key: 'reviews',
-    defaultTitle: 'Reviews worth rereading',
-    defaultBody: 'Star ratings and the two lines you will want to remember a book by, in one feed.',
-    icon: 'rate_review',
-    meta: 'Star ratings · Margin notes · One quiet feed',
+    key: 'futureSelf',
+    icon: 'ink_pen',
+    meta: 'Text quotes • Marginalia • Searchable memories',
   },
 ] as const
+
+const CADENCE_BARS = [
+  { key: 'w1', height: 30, tone: 'bg-surface-container-low', label: 'text-outline' },
+  { key: 'w2', height: 60, tone: 'bg-surface-container', label: 'text-outline' },
+  // Opaque sage — translucent fills dropped the white in-bar label under
+  // 4.5:1 (axe color-contrast, serious).
+  { key: 'w3', height: 88, tone: 'bg-secondary', label: 'text-on-secondary' },
+  { key: 'w4', height: 100, tone: 'bg-primary', label: 'text-on-primary' },
+  { key: 'w5', height: 40, tone: 'bg-surface-container', label: 'text-outline' },
+  { key: 'w6', height: 70, tone: 'bg-secondary-container', label: 'text-on-secondary-fixed' },
+] as const
+
+const INTENT_SHELVES = [
+  { key: 'thematic', count: '8 books', title: 'Autumn Rain Reads' },
+  { key: 'intellectual', count: '5 books', title: 'Philosophy of Science' },
+  { key: 'ledger', count: '12 volumes', title: 'Books Borrowed & Returned' },
+  { key: 'archival', count: '3 volumes', title: 'Abandoned with Respect' },
+] as const
+
+const PILLAR_DEFAULTS = {
+  noStreakShaming: {
+    title: 'No streak shaming',
+    body: 'Life happens. Work swells, illness arrives, or summer invites you outdoors. There are no punitive red flames, no resetting counters, and no algorithmic alerts telling you that you have failed your book.',
+  },
+  messyReality: {
+    title: 'Shelves for messy reality',
+    body: 'We never read one solitary book strictly from chapter one to index. Track the paperback in your coat pocket, the heavy folio on your desk, the poetry collection read out of sequence, and books abandoned with intellectual grace.',
+  },
+  futureSelf: {
+    title: 'For your future self',
+    body: 'Condensing six hundred pages into a rushed four-star review erases genuine nuance. The shelf archives the sentences that arrested you, the season you read them in, and reflections you will actually appreciate in ten years.',
+  },
+} as const
+
+const PACING_CHECK_DEFAULTS = {
+  gentleRhythm: 'Gentle pages-per-day rhythm based on books you actually love',
+  seasonalSpreads: 'Visual seasonal spreads instead of red overdue alerts',
+  driftingDates: 'Estimated finish dates that drift forward without judgment',
+} as const
+
+const INTENT_SHELF_KIND_DEFAULTS = {
+  thematic: 'Thematic shelf',
+  intellectual: 'Intellectual shelf',
+  ledger: 'Physical ledger',
+  archival: 'Archival shelf',
+} as const
+
+const INTENT_SHELF_BODY_DEFAULTS = {
+  thematic: 'Fireside essays, Irish novels, and damp country estate mysteries.',
+  intellectual: 'Slow reads to accompany seminar notebooks and morning walks.',
+  ledger: 'Remembering whose shelf it came from, and which note you tucked inside.',
+  archival: 'Not every book meets its season. Archived without regret or guilt.',
+} as const
 
 const STATS = [
   { key: 'challenge', defaultLabel: 'Reading challenges finished', value: '31k+' },
@@ -320,73 +359,483 @@ export function Landing() {
           </div>
         </section>
 
-        <section className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 16), cm.mxAuto)}>
-          <div className={cm.cn(cm.textCenter, cm.sp('mb', 12))}>
+        {/* The Shelf Philosophy — three pillars */}
+        <section
+          id="philosophy"
+          className={cm.cn(
+            'border-y border-outline-variant bg-surface-container-low',
+            cm.sp('py', 20),
+          )}
+        >
+          <div className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.mxAuto)}>
+            <div className={cm.maxW('2xl')}>
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-secondary mb-2">
+                {t('landing.philosophyEyebrow', {}, { defaultValue: 'The core principles' })}
+              </p>
+              <h2
+                className={cm.cn(
+                  'text-3xl md:text-4xl font-medium tracking-[-0.01em] text-primary',
+                )}
+                style={{ fontFamily: 'var(--font-headline)' }}
+              >
+                {t('landing.philosophyTitle', {}, { defaultValue: 'Reading is a sanctuary,' })}{' '}
+                <span className="italic">
+                  {t(
+                    'landing.philosophyTitleAccent',
+                    {},
+                    { defaultValue: 'not an algorithmic sprint.' },
+                  )}
+                </span>
+              </h2>
+              <p className={cm.cn(cm.textSize('base'), cm.sp('mt', 3), 'text-on-surface-variant')}>
+                {t(
+                  'landing.philosophyBody',
+                  { app: APP_NAME },
+                  {
+                    defaultValue:
+                      'Most book trackers borrow mechanisms from corporate sales quotas and fitness rings. {{app}} is built on classic book preservation and human curiosity.',
+                  },
+                )}
+              </p>
+            </div>
+            <div className={cm.cn(cm.grid({ cols: 3, gap: 'lg' }), cm.sp('mt', 12))}>
+              {PILLARS.map((p) => (
+                <div
+                  key={p.key}
+                  className={cm.cn(
+                    cm.sp('p', 8),
+                    'bg-surface-container-lowest rounded-xl border border-outline-variant text-left',
+                  )}
+                >
+                  <div className="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary mb-6">
+                    <span className="material-symbols-outlined" aria-hidden="true">
+                      {p.icon}
+                    </span>
+                  </div>
+                  <h3
+                    className={cm.cn(
+                      cm.textSize('base'),
+                      cm.fontWeight('semibold'),
+                      'text-primary',
+                      cm.sp('mb', 3),
+                    )}
+                  >
+                    {t(
+                      `landing.pillar.${p.key}.title`,
+                      {},
+                      { defaultValue: PILLAR_DEFAULTS[p.key].title },
+                    )}
+                  </h3>
+                  <p
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      'text-on-surface-variant leading-relaxed',
+                      cm.sp('mb', 4),
+                    )}
+                  >
+                    {t(
+                      `landing.pillar.${p.key}.body`,
+                      { app: APP_NAME },
+                      { defaultValue: PILLAR_DEFAULTS[p.key].body },
+                    )}
+                  </p>
+                  <div className="pt-4 border-t border-outline-variant text-[11px] font-semibold text-secondary">
+                    {t(`landing.pillar.${p.key}.meta`, {}, { defaultValue: p.meta })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Crafted instruments — feature deep-divives */}
+        <section
+          id="features"
+          className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 20), cm.mxAuto)}
+        >
+          <div className={cm.cn(cm.textCenter, cm.sp('mb', 16), cm.maxW('2xl'), cm.mxAuto)}>
             <p className="text-[11px] font-semibold uppercase tracking-wider text-secondary mb-2">
-              {t('landing.featuresEyebrow', {}, { defaultValue: 'The core principles' })}
+              {t(
+                'landing.instrumentsEyebrow',
+                {},
+                { defaultValue: 'Instruments of quiet reflection' },
+              )}
             </p>
             <h2
               className={cm.cn('text-3xl md:text-4xl font-medium tracking-[-0.01em] text-primary')}
               style={{ fontFamily: 'var(--font-headline)' }}
             >
               {t(
-                'landing.featuresTitle',
+                'landing.instrumentsTitle',
                 {},
-                { defaultValue: 'Built for people who finish books' },
+                { defaultValue: 'Crafted instruments for thoughtful readers' },
               )}
             </h2>
-            <p
-              className={cm.cn(
-                cm.textSize('lg'),
-                cm.sp('mt', 3),
-                'text-on-surface-variant',
-                cm.maxW('2xl'),
-                cm.mxAuto,
-              )}
-            >
+            <p className={cm.cn(cm.textSize('base'), cm.sp('mt', 3), 'text-on-surface-variant')}>
               {t(
-                'landing.featuresBody',
-                {},
+                'landing.instrumentsBody',
+                { app: APP_NAME },
                 {
                   defaultValue:
-                    'Shelves, progress, challenge, reviews — the four things a reading habit needs and nothing it does not.',
+                    'Every screen in {{app}} is measured against physical stationery, linen book covers, and the quiet satisfaction of library rooms.',
                 },
               )}
             </p>
           </div>
-          <div className={cm.grid({ cols: 4, gap: 'md' })}>
-            {FEATURES.map((f) => (
-              <div
-                key={f.key}
+
+          {/* Feature 1 — pacing without performance */}
+          <div className={cm.cn(cm.grid({ cols: 12, gap: 'lg' }), 'items-center', cm.sp('mb', 20))}>
+            <div className="md:col-span-5">
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-secondary">
+                {t('landing.pacingEyebrow', {}, { defaultValue: 'Pacing without performance' })}
+              </p>
+              <h3
                 className={cm.cn(
-                  cm.sp('p', 6),
-                  'bg-surface-container-lowest rounded-xl border border-outline-variant text-left flex flex-col',
+                  'text-2xl md:text-3xl font-medium tracking-[-0.01em] text-primary',
+                  cm.sp('mt', 2),
+                  cm.sp('mb', 4),
+                )}
+                style={{ fontFamily: 'var(--font-headline)' }}
+              >
+                {t(
+                  'landing.pacingTitle',
+                  {},
+                  { defaultValue: 'Reading velocity, not annual anxiety' },
+                )}
+              </h3>
+              <p
+                className={cm.cn(
+                  cm.textSize('base'),
+                  'text-on-surface-variant leading-relaxed',
+                  cm.sp('mb', 6),
                 )}
               >
-                <div className="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary mb-6">
-                  <span className="material-symbols-outlined" aria-hidden="true">
-                    {f.icon}
-                  </span>
-                </div>
-                <h3
-                  className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'), cm.sp('mb', 2))}
+                {t(
+                  'landing.pacingBody',
+                  {},
+                  {
+                    defaultValue:
+                      'Rather than demanding a mechanical "50 books a year," the shelf maps the cadence of your reading life. See when you were engrossed in deep Victorian realism, when you grazed essays, and when you took restorative breaks.',
+                  },
+                )}
+              </p>
+              <ul className={cm.cn(cm.sp('mt', 0), 'space-y-3')}>
+                {(['gentleRhythm', 'seasonalSpreads', 'driftingDates'] as const).map((k) => (
+                  <li
+                    key={k}
+                    className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.textSize('sm'))}
+                  >
+                    <span
+                      className="material-symbols-outlined text-secondary text-base"
+                      aria-hidden="true"
+                    >
+                      check
+                    </span>
+                    <span>
+                      {t(
+                        `landing.pacingCheck.${k}`,
+                        {},
+                        { defaultValue: PACING_CHECK_DEFAULTS[k] },
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="md:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm p-6">
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }),
+                  'border-b border-outline-variant pb-4 mb-6',
+                )}
+              >
+                <span
+                  className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'), 'text-primary')}
                 >
-                  {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
-                </h3>
-                <p
+                  {t('landing.cadenceRange', {}, { defaultValue: 'October — November cadence' })}
+                </span>
+                <span className="text-[11px] font-semibold text-secondary bg-surface-container-low px-2.5 py-1 rounded">
+                  {t('landing.cadenceAvg', {}, { defaultValue: '22.4 pages avg / quiet day' })}
+                </span>
+              </div>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'end', justify: 'between', gap: 'sm' }),
+                  'h-44 border-b border-outline-variant px-2 pb-2',
+                )}
+                aria-hidden="true"
+              >
+                {CADENCE_BARS.map((b) => (
+                  <div
+                    key={b.key}
+                    className={cm.cn(
+                      'w-full rounded-t flex flex-col justify-end items-center pb-1',
+                      b.tone,
+                    )}
+                    style={{ height: `${b.height}%` }}
+                  >
+                    <span className={cm.cn('text-[10px] font-semibold', b.label)}>
+                      {b.key.toUpperCase()}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                  cm.textSize('xs'),
+                  'text-on-surface-variant',
+                  cm.sp('mt', 4),
+                )}
+              >
+                <span>
+                  {t(
+                    'landing.cadenceFlow',
+                    {},
+                    { defaultValue: 'Steady flow through a long classic' },
+                  )}
+                </span>
+                <span className="italic text-secondary">
+                  {t(
+                    'landing.cadenceRest',
+                    {},
+                    { defaultValue: 'A slow weekend in the country (0 pages logged — restful)' },
+                  )}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 2 — shelves that speak your dialect */}
+          <div className={cm.cn(cm.grid({ cols: 12, gap: 'lg' }), 'items-center', cm.sp('mb', 20))}>
+            <div className="md:col-span-7 order-2 md:order-1 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm p-6">
+              <div className={cm.grid({ cols: 2, gap: 'md' })}>
+                {INTENT_SHELVES.map((s) => (
+                  <div
+                    key={s.key}
+                    className={cm.cn(
+                      cm.sp('p', 4),
+                      'rounded-lg bg-surface-container-low border border-outline-variant text-left',
+                    )}
+                  >
+                    <div className={cm.flex({ align: 'center', justify: 'between', wrap: 'wrap' })}>
+                      <span className="text-[11px] font-semibold uppercase tracking-wide text-secondary">
+                        {t(
+                          `landing.intentShelf.${s.key}.kind`,
+                          {},
+                          { defaultValue: INTENT_SHELF_KIND_DEFAULTS[s.key] },
+                        )}
+                      </span>
+                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                        {t(`landing.intentShelf.${s.key}.count`, {}, { defaultValue: s.count })}
+                      </span>
+                    </div>
+                    <h4
+                      className={cm.cn(
+                        cm.textSize('base'),
+                        cm.fontWeight('semibold'),
+                        'text-primary',
+                        cm.sp('mt', 1),
+                        cm.sp('mb', 1),
+                      )}
+                    >
+                      {t(`landing.intentShelf.${s.key}.title`, {}, { defaultValue: s.title })}
+                    </h4>
+                    <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                      {t(
+                        `landing.intentShelf.${s.key}.body`,
+                        {},
+                        { defaultValue: INTENT_SHELF_BODY_DEFAULTS[s.key] },
+                      )}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="md:col-span-5 order-1 md:order-2">
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-secondary">
+                {t('landing.taxonomiesEyebrow', {}, { defaultValue: 'Custom taxonomies' })}
+              </p>
+              <h3
+                className={cm.cn(
+                  'text-2xl md:text-3xl font-medium tracking-[-0.01em] text-primary',
+                  cm.sp('mt', 2),
+                  cm.sp('mb', 4),
+                )}
+                style={{ fontFamily: 'var(--font-headline)' }}
+              >
+                {t(
+                  'landing.shelvesDialectTitle',
+                  {},
+                  { defaultValue: 'Shelves that speak your dialect' },
+                )}
+              </h3>
+              <p
+                className={cm.cn(
+                  cm.textSize('base'),
+                  'text-on-surface-variant leading-relaxed',
+                  cm.sp('mb', 6),
+                )}
+              >
+                {t(
+                  'landing.shelvesDialectBody',
+                  {},
+                  {
+                    defaultValue:
+                      'Conventional book apps lock you into three rigid buckets: want to read, currently reading, and read. Here, shelves mirror the physical piles on your nightstand, desk, and carry-on bag.',
+                  },
+                )}
+              </p>
+              <p
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'sm' }),
+                  cm.textSize('base'),
+                  cm.fontWeight('medium'),
+                  'text-primary',
+                )}
+              >
+                {t(
+                  'landing.shelvesDialectNote',
+                  {},
+                  { defaultValue: 'Organize by mood, geography, or decade' },
+                )}
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                  arrow_forward
+                </span>
+              </p>
+            </div>
+          </div>
+
+          {/* Feature 3 — capture the sentence */}
+          <div className={cm.cn(cm.grid({ cols: 12, gap: 'lg' }), 'items-center')}>
+            <div className="md:col-span-5">
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-secondary">
+                {t('landing.marginaliaEyebrow', {}, { defaultValue: 'Deep marginalia' })}
+              </p>
+              <h3
+                className={cm.cn(
+                  'text-2xl md:text-3xl font-medium tracking-[-0.01em] text-primary',
+                  cm.sp('mt', 2),
+                  cm.sp('mb', 4),
+                )}
+                style={{ fontFamily: 'var(--font-headline)' }}
+              >
+                {t(
+                  'landing.marginaliaTitle',
+                  {},
+                  { defaultValue: 'Capture the sentence that stopped your heart' },
+                )}
+              </h3>
+              <p
+                className={cm.cn(
+                  cm.textSize('base'),
+                  'text-on-surface-variant leading-relaxed',
+                  cm.sp('mb', 6),
+                )}
+              >
+                {t(
+                  'landing.marginaliaBody',
+                  {},
+                  {
+                    defaultValue:
+                      'Snap a photo of the printed page or type out a paragraph before turning the leaf. The app transforms physical ink into crisp, searchable archival notes connected directly to edition and page number.',
+                  },
+                )}
+              </p>
+              <div className="p-4 bg-surface-container-low border-l-2 border-secondary rounded-r">
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface italic')}>
+                  {t(
+                    'landing.marginaliaQuote',
+                    {},
+                    {
+                      defaultValue:
+                        '"I used to underline in pencil and forget. Now my library is an indexed commonwealth of my own thoughts."',
+                    },
+                  )}
+                </p>
+              </div>
+            </div>
+            <div className="md:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm p-8">
+              <div
+                className={cm.flex({
+                  align: 'center',
+                  justify: 'between',
+                  wrap: 'wrap',
+                  gap: 'sm',
+                })}
+              >
+                <span
                   className={cm.cn(
-                    cm.textSize('sm'),
-                    cm.sp('mb', 4),
-                    'text-on-surface-variant leading-relaxed flex-grow',
+                    cm.flex({ align: 'center', gap: 'sm' }),
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    'text-primary',
                   )}
                 >
-                  {t(`landing.feature.${f.key}.body`, {}, { defaultValue: f.defaultBody })}
-                </p>
-                <div className="pt-4 border-t border-outline-variant text-[11px] font-semibold text-secondary">
-                  {t(`landing.feature.${f.key}.meta`, {}, { defaultValue: f.meta })}
-                </div>
+                  <span className="material-symbols-outlined text-secondary" aria-hidden="true">
+                    bookmark
+                  </span>
+                  {t(
+                    'landing.captureSource',
+                    {},
+                    { defaultValue: 'Middlemarch · Book VIII, Chapter 83' },
+                  )}
+                </span>
+                <span className={cm.cn(cm.textSize('xs'), 'text-outline')}>
+                  {t('landing.capturePage', {}, { defaultValue: 'Page 838' })}
+                </span>
               </div>
-            ))}
+              <blockquote
+                className={cm.cn(
+                  'text-xl md:text-2xl text-primary italic leading-relaxed border-l-4 pl-4',
+                  cm.sp('mt', 6),
+                  cm.sp('mb', 6),
+                )}
+                style={{
+                  fontFamily: 'var(--font-headline)',
+                  borderColor: 'var(--color-secondary-container)',
+                }}
+              >
+                {t(
+                  'landing.captureQuote',
+                  {},
+                  {
+                    defaultValue:
+                      'For the growing good of the world is partly dependent on unhistoric acts; and that things are not so ill with you and me as they might have been, is half owing to the number who lived faithfully a hidden life, and rest in unvisited tombs.',
+                  },
+                )}
+              </blockquote>
+              <div className="p-4 bg-surface-container-low rounded-lg border border-outline-variant">
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 2 }),
+                    'text-secondary',
+                    cm.sp('mb', 1),
+                  )}
+                >
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                    edit
+                  </span>
+                  <span className="text-[11px] font-semibold uppercase tracking-wide">
+                    {t(
+                      'landing.captureAnnotationLabel',
+                      {},
+                      { defaultValue: 'Personal annotation' },
+                    )}
+                  </span>
+                </div>
+                <p className={cm.cn(cm.textSize('base'), 'text-on-surface')}>
+                  {t(
+                    'landing.captureAnnotation',
+                    {},
+                    {
+                      defaultValue:
+                        "Dorothea's ending always makes me pause in the quiet of the morning. Re-read on a blustery November evening with mint tea.",
+                    },
+                  )}
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 

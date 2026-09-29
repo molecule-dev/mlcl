@@ -18,6 +18,21 @@ interface ReviewRow {
   finished_at: string | null
 }
 
+const DRAFT_FRAGMENTS = [
+  {
+    key: 'sebald',
+    title: 'The Rings of Saturn',
+    stage: '2 drafts',
+    note: 'Walking the Suffolk coastline — notes on melancholy and mapping.',
+  },
+  {
+    key: 'carr',
+    title: 'A Month in the Country',
+    stage: 'Outline',
+    note: 'Wall-painting restoration and one peaceful English summer.',
+  },
+] as const
+
 export function Reviews() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -67,7 +82,7 @@ export function Reviews() {
           {t('reviews.eyebrow', {}, { defaultValue: 'What stayed with you' })}
         </p>
         <h1 className={cm.cn('text-4xl md:text-5xl font-extrabold tracking-tight', cm.sp('mt', 2))}>
-          {t('reviews.heading', {}, { defaultValue: 'Your reviews' })}
+          {t('reviews.heading', {}, { defaultValue: 'Reviews, Essays & Companion Reflections' })}
         </h1>
         <p className={cm.cn(cm.textSize('lg'), cm.sp('mt', 2), 'text-on-surface-variant')}>
           {t(
@@ -113,6 +128,95 @@ export function Reviews() {
           ))}
         </ul>
       )}
+
+      {/* Desk scraps & drafts — fragments not yet published to the feed */}
+      <section className={cm.cn(cm.card(), cm.sp('p', 6))} data-mol-id="reviews-desk-scraps">
+        <div className={cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' })}>
+          <h2
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              cm.textSize('base'),
+              cm.fontWeight('semibold'),
+              'text-primary',
+            )}
+          >
+            <span className="material-symbols-outlined text-secondary text-lg" aria-hidden="true">
+              ink_pen
+            </span>
+            {t('reviews.scrapsHeading', {}, { defaultValue: 'Desk Scraps & Drafts' })}
+          </h2>
+          <span
+            className={cm.cn(
+              cm.sp('px', 2),
+              cm.sp('py', 1),
+              cm.textSize('xs'),
+              cm.fontWeight('semibold'),
+              'rounded bg-surface-container text-secondary',
+            )}
+          >
+            {t(
+              'reviews.scrapsChip',
+              { count: DRAFT_FRAGMENTS.length },
+              { defaultValue: '{{count}} in the tray' },
+            )}
+          </span>
+        </div>
+        <ul className={cm.cn('space-y-3', cm.sp('mt', 4))}>
+          {DRAFT_FRAGMENTS.map((d) => (
+            <li
+              key={d.key}
+              className={cm.cn(
+                cm.sp('p', 4),
+                'rounded-lg bg-surface-container-lowest border border-outline-variant',
+              )}
+            >
+              <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
+                <p
+                  className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'text-on-surface')}
+                >
+                  {t(`reviews.scrapsTitle.${d.key}`, {}, { defaultValue: d.title })}
+                </p>
+                <span
+                  className={cm.cn(
+                    cm.sp('px', 2),
+                    cm.sp('py', 1),
+                    cm.textSize('xs'),
+                    'rounded bg-surface-container-low text-secondary shrink-0',
+                  )}
+                >
+                  {t(`reviews.scrapsStage.${d.key}`, {}, { defaultValue: d.stage })}
+                </span>
+              </div>
+              <p
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  'text-on-surface-variant truncate',
+                  cm.sp('mt', 1),
+                )}
+              >
+                {t(`reviews.scrapsNote.${d.key}`, {}, { defaultValue: d.note })}
+              </p>
+            </li>
+          ))}
+        </ul>
+        <p
+          className={cm.cn(
+            cm.textSize('xs'),
+            'text-on-surface-variant',
+            cm.sp('mt', 3),
+            'leading-relaxed',
+          )}
+        >
+          {t(
+            'reviews.scrapsNote',
+            {},
+            {
+              defaultValue:
+                'A quiet tray for begun-but-unfinished reflections — they publish only when you say so.',
+            },
+          )}
+        </p>
+      </section>
     </div>
   )
 }
