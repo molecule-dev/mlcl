@@ -33,6 +33,15 @@ import { provider as wordOverlap } from '@molecule/api-text-provenance-overlap'
 setTranscriptReader(anyTranscript)
 setAttribution(wordOverlap)
 
+/**
+ * What a model name looks like: a known model family somewhere in it
+ * (claude-opus-5-5, gpt-6-sol, deepseek-flash, gemini-3-pro…). An agent or app
+ * name (Synthase, Claude Code, Codex, Cursor) is not one. Add a family here
+ * when a transcript names a model it does not cover.
+ */
+export const MODEL_NAME =
+  /claude|sonnet|opus|haiku|fable|gpt|\bo[1-9]\b|deepseek|gemini|gemma|llama|qwen|glm|kimi|moonshot|mistral|mixtral|codestral|grok|phi-|command-r|nova|minimax|yi-|ernie|hunyuan|doubao/i
+
 /** One block of the post, in page order. `prompt` and `model` are on every ai span. */
 export interface ProvenanceSpan {
   /** The block's markdown: a paragraph, heading, list or code block. */
@@ -111,6 +120,22 @@ export function postProvenance(markdown: string, transcriptDir: string): Provena
     throw new Error(
       `${transcriptDir}: ${unnamed.length} ai paragraph(s) came from a transcript that names no model (${from.join(', ') || 'unknown file'}). ` +
         'Use an export that records the model: for Codex, the session rollout .jsonl (its turn_context carries the model), not the Markdown export.',
+    )
+  }
+  // A model name is the MODEL's, not the agent's: "Prompt · Synthase" tells a
+  // reader nothing true (X0 x408, 2026-09-29, and x324's "synthase-1": a
+  // transcript written by hand with the agent's name, through five fix rounds).
+  const notModels = [
+    ...new Set(
+      result.paragraphs
+        .filter((p) => p.origin === 'ai' && p.model && !MODEL_NAME.test(p.model))
+        .map((p) => p.model),
+    ),
+  ]
+  if (notModels.length > 0) {
+    throw new Error(
+      `${transcriptDir}: ${notModels.map((m) => `"${m}"`).join(', ')} is not a model name — a prompt is labelled with the model that answered it (e.g. deepseek-flash, claude-opus-5-5, gpt-6-sol), never the agent or app. ` +
+        'On molecule.dev your own conversation is /workspace/.molecule/session.json, and each assistant message there carries its model: copy it into this directory as the transcript rather than writing one by hand.',
     )
   }
   return {

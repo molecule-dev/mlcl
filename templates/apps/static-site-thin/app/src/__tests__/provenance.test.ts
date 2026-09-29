@@ -55,4 +55,29 @@ describe('postProvenance', () => {
     expect(ai.length).toBeGreaterThan(0)
     for (const s of ai) expect(s.model).toBe('claude-sonnet-4-5')
   })
+
+  it('fails the build when a prompt is labelled with the agent, not a model (x408: "Synthase")', () => {
+    dir = mkdtempSync(join(tmpdir(), 'prov-'))
+    writeFileSync(
+      join(dir, 'session.json'),
+      JSON.stringify({
+        projectId: 'p',
+        createdAt: '2026-09-29T00:00:00Z',
+        messages: [
+          {
+            role: 'user',
+            content: 'Write the paragraph about measuring word overlap.',
+            timestamp: '2026-09-29T00:00:00Z',
+          },
+          {
+            role: 'assistant',
+            model: 'Synthase',
+            timestamp: '2026-09-29T00:00:10Z',
+            content: paragraph,
+          },
+        ],
+      }),
+    )
+    expect(() => postProvenance(post, dir!)).toThrow(/"Synthase" is not a model name/)
+  })
 })
