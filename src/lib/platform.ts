@@ -953,7 +953,7 @@ export async function importTranscript(
   projectId: string,
   input: { fileName: string; text: string },
   token?: string,
-): Promise<TranscriptSummary> {
+): Promise<TranscriptSummary & { existing?: boolean }> {
   const raw = await request<unknown>(`/projects/${projectId}/transcripts`, {
     method: 'POST',
     body: input,
@@ -961,7 +961,11 @@ export async function importTranscript(
     // A 20 MB body over a slow link needs longer than the default 30 s.
     timeoutMs: 5 * 60_000,
   })
-  return unwrapTranscript(raw)
+  // The platform answers a repeat import with the stored row and `existing: true`.
+  const existing = Boolean(
+    raw && typeof raw === 'object' && (raw as Record<string, unknown>).existing === true,
+  )
+  return { ...unwrapTranscript(raw), ...(existing ? { existing } : {}) }
 }
 
 /** The project's stored sessions: its own chat plus every imported one. */

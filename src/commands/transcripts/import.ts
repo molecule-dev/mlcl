@@ -20,7 +20,7 @@ import { projectFlag, requireAuth } from '../../shared/project-flag.js'
 /** What happened to one file. */
 export interface ImportOutcome {
   file: string
-  status: 'imported' | 'unrecognized' | 'too-large' | 'failed' | 'would-send'
+  status: 'imported' | 'already-imported' | 'unrecognized' | 'too-large' | 'failed' | 'would-send'
   size: number
   transcript?: TranscriptSummary
   error?: string
@@ -109,7 +109,12 @@ export default class TranscriptsImportCmd extends Command {
           fileName: basename(file),
           text: readFileSync(file, 'utf8'),
         })
-        outcomes.push({ file, status: 'imported', size, transcript })
+        outcomes.push({
+          file,
+          status: transcript.existing ? 'already-imported' : 'imported',
+          size,
+          transcript,
+        })
       } catch (error) {
         if (error instanceof PlatformApiError && error.status === 422) {
           outcomes.push({
@@ -136,9 +141,10 @@ export default class TranscriptsImportCmd extends Command {
     } else {
       for (const o of outcomes) {
         const name = basename(o.file)
-        if (o.status === 'imported' && o.transcript) {
+        if ((o.status === 'imported' || o.status === 'already-imported') && o.transcript) {
           const t = o.transcript
-          this.log(`${ui.check('Imported')} ${name}  ${t.harness} · ${t.turns} turns  ${t.id}`)
+          const label = o.status === 'imported' ? 'Imported' : 'Already imported'
+          this.log(`${ui.check(label)} ${name}  ${t.harness} · ${t.turns} turns  ${t.id}`)
         } else if (o.status === 'would-send') {
           this.log(`  would send ${name}  ${mb(o.size)}`)
         } else {
@@ -148,7 +154,10 @@ export default class TranscriptsImportCmd extends Command {
     }
 
     const sent = outcomes.filter((o) => o.status !== 'would-send')
-    if (sent.length > 0 && sent.every((o) => o.status !== 'imported')) {
+    if (
+      sent.length > 0 &&
+      sent.every((o) => o.status !== 'imported' && o.status !== 'already-imported')
+    ) {
       this.exit(1)
     }
     return outcomes
