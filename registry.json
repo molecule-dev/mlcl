@@ -57134,7 +57134,8 @@
       "@molecule/api-ai-decisions": "1.0.0",
       "@molecule/api-ai-decisions-jev": "1.0.0",
       "@molecule/api-ai-decisions-laya": "1.0.0",
-      "@molecule/api-ai-decisions-llm": "1.0.0"
+      "@molecule/api-ai-decisions-llm": "1.0.0",
+      "@molecule/api-ai-image-generation-molecule": "1.1.0"
     }
   }
 }
