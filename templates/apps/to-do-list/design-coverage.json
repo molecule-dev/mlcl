@@ -1,0 +1,20 @@
+{
+  "screens": {
+    "/search": {
+      "allow": [
+        {
+          "heading": "Review homepage copy against brand voice",
+          "reason": "Sample-data search-result row from the design mock: results render the operator's real tasks matched by the live /api/tasks/search query."
+        },
+        {
+          "heading": "Schedule workshop for brand voice training",
+          "reason": "Sample-data search-result row from the design mock: results render the operator's real tasks matched by the live /api/tasks/search query."
+        },
+        {
+          "heading": "Brand Voice Overhaul",
+          "reason": "Sample-data project/search-result name from the design mock: results render the operator's real tasks and projects, not the mock's sample query docket."
+        }
+      ]
+    }
+  }
+}

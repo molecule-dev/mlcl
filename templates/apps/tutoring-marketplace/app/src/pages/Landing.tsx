@@ -5,6 +5,7 @@ import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { HeroSearchSection } from '../components/HeroSearchSection.js'
 import { ReviewCard } from '../components/ReviewCard.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
@@ -183,29 +184,7 @@ export function Landing() {
             'min-w-0 whitespace-nowrap shrink-0',
           )}
         >
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'h-9 w-9 rounded-xl bg-gradient-to-br from-primary to-primary-dark shadow-md',
-            )}
-          >
-            <span
-              aria-hidden="true"
-              className={cm.cn('material-symbols-outlined text-on-primary')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              edit_note
-            </span>
-          </span>
-          <span
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              cm.textSize('xl'),
-              'font-display tracking-tight',
-            )}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" />
         </Link>
         <nav
           className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex-wrap min-w-0 gap-y-2')}
@@ -646,15 +625,7 @@ export function Landing() {
           )}
         >
           <div>
-            <span
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                cm.textSize('xl'),
-                'font-display tracking-tight text-primary',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" footer />
             <p
               className={cm.cn(
                 cm.textSize('sm'),

@@ -92,6 +92,23 @@ export function VehicleDetail() {
       </p>
     )
 
+  // The design's "Current Trip" card: the vehicle's in-progress trip, if any
+  // (the seeded data keeps two trips open with completed_at = null).
+  const activeTrip = trips.find((tr) => !tr.completed_at) ?? null
+  const activeStartedMs = activeTrip ? new Date(activeTrip.started_at).getTime() : 0
+  const activeElapsedMin = activeTrip
+    ? Math.max(0, Math.round((Date.now() - activeStartedMs) / 60000))
+    : 0
+  const activePct = activeTrip
+    ? Math.min(100, Math.round((activeElapsedMin / Math.max(1, activeTrip.duration_minutes)) * 100))
+    : 0
+  const activeEta = activeTrip
+    ? new Date(activeStartedMs + activeTrip.duration_minutes * 60000).toLocaleTimeString(
+        undefined,
+        { hour: '2-digit', minute: '2-digit' },
+      )
+    : ''
+
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, 'space-y-6')}>
       <Link
@@ -220,6 +237,115 @@ export function VehicleDetail() {
       </div>
 
       <section className={cm.grid({ cols: 2, gap: 'md' })}>
+        {activeTrip ? (
+          <div className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-4')}>
+            <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }))}>
+              <h2
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  'text-on-surface',
+                )}
+              >
+                <span
+                  aria-hidden="true"
+                  className={cm.cn('material-symbols-outlined text-primary text-base')}
+                >
+                  route
+                </span>
+                {t('vehicleDetail.currentTrip', {}, { defaultValue: 'Current trip' })}
+                <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant font-mono')}>
+                  #{activeTrip.id}
+                </span>
+              </h2>
+              <span
+                className={cm.cn(
+                  cm.sp('px', 2),
+                  cm.sp('py', 1),
+                  cm.textSize('xs'),
+                  cm.fontWeight('medium'),
+                  'rounded uppercase tracking-wide bg-info-container text-on-info-container',
+                )}
+              >
+                {t('vehicleDetail.trip.onSchedule', {}, { defaultValue: 'On schedule' })}
+              </span>
+            </div>
+            <div>
+              <div
+                className={cm.cn('h-1.5 w-full bg-surface-container rounded-full overflow-hidden')}
+              >
+                <div
+                  className={cm.cn('h-full bg-primary rounded-full')}
+                  style={{ width: `${activePct}%` }}
+                />
+              </div>
+              <div
+                className={cm.cn(
+                  cm.flex({ justify: 'between' }),
+                  cm.sp('mt', 2),
+                  cm.textSize('xs'),
+                  'text-on-surface-variant',
+                )}
+              >
+                <span className={cm.cn('truncate')}>
+                  {activeTrip.origin}
+                  <span className={cm.cn('block font-mono')}>
+                    {new Date(activeTrip.started_at).toLocaleTimeString(undefined, {
+                      hour: '2-digit',
+                      minute: '2-digit',
+                    })}
+                  </span>
+                </span>
+                <span className={cm.cn('truncate text-right')}>
+                  {activeTrip.destination}
+                  <span className={cm.cn('block font-mono')}>
+                    {t(
+                      'vehicleDetail.trip.eta',
+                      { time: activeEta },
+                      { defaultValue: '{{time}} (est)' },
+                    )}
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div
+              className={cm.cn(cm.grid({ cols: 2, gap: 'md' }), 'border-t border-outline/40 pt-3')}
+            >
+              <div>
+                <p
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    'text-on-surface-variant uppercase tracking-wide',
+                    cm.sp('mb', 1),
+                  )}
+                >
+                  {t('vehicleDetail.trip.elapsed', {}, { defaultValue: 'Elapsed time' })}
+                </p>
+                <p className={cm.cn(cm.textSize('sm'), 'font-mono text-on-surface')}>
+                  {Math.floor(activeElapsedMin / 60)}h {activeElapsedMin % 60}m
+                </p>
+              </div>
+              <div>
+                <p
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    'text-on-surface-variant uppercase tracking-wide',
+                    cm.sp('mb', 1),
+                  )}
+                >
+                  {t('vehicleDetail.trip.distance', {}, { defaultValue: 'Distance' })}
+                </p>
+                <p className={cm.cn(cm.textSize('sm'), 'font-mono text-on-surface')}>
+                  {Math.round((activeTrip.miles * activePct) / 100)}{' '}
+                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                    / {activeTrip.miles} mi
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        ) : null}
         <div className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-2')}>
           <h2
             className={cm.cn(

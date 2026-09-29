@@ -5,6 +5,7 @@ import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 import { type VendryProduct, VendryProductCard } from '../components/VendryProductCard.js'
 import { type VendryVendor, VendryVendorCard } from '../components/VendryVendorCard.js'
@@ -180,12 +181,8 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
-            <Link
-              to="/"
-              data-mol-id="landing-logo"
-              className="[font-family:var(--font-headline)] text-2xl font-black tracking-tight text-primary"
-            >
-              {APP_NAME}
+            <Link to="/" data-mol-id="landing-logo" className="shrink-0" aria-label={APP_NAME}>
+              <BrandWordmark as="span" size="lg" />
             </Link>
             <nav className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden md:flex')}>
               <Link
@@ -540,12 +537,9 @@ export function Landing() {
       <footer className="mt-12 border-t border-outline-variant bg-[var(--color-cream-warm)]">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-8 py-12 md:grid-cols-4">
           <div>
-            <Link
-              to="/"
-              className="[font-family:var(--font-headline)] mb-4 block text-xl font-bold text-primary"
-            >
-              {APP_NAME}
-            </Link>
+            <div className="mb-4 block">
+              <BrandWordmark as="span" size="md" footer />
+            </div>
             <p className={cm.cn(cm.textSize('sm'), cm.sp('mb', 6), 'text-on-surface-variant')}>
               {t(
                 'landing.footer.tagline',

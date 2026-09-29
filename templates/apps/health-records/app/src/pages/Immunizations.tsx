@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -66,6 +67,21 @@ function fmtDate(iso: string): string {
   })
 }
 
+/** Static CDC-style adult reference schedule shown beside the record list. */
+const ADULT_SCHEDULE: ReadonlyArray<{ key: string; vaccine: string; cadence: string }> = [
+  { key: 'flu', vaccine: 'Influenza (Flu)', cadence: '1 dose annually' },
+  { key: 'tdap', vaccine: 'Tdap or Td', cadence: '1 dose every 10 yrs' },
+  { key: 'covid', vaccine: 'COVID-19', cadence: 'As recommended' },
+]
+
+/** General pre-travel guidance shown for any destination. */
+const TRAVEL_GUIDANCE: ReadonlyArray<string> = [
+  'Routine vaccines up to date (MMR, Tdap, flu)',
+  'Hepatitis A — recommended for most international travel',
+  'Typhoid — for travel to regions with limited safe food and water',
+  'Consult a travel clinic 4–6 weeks before departure',
+]
+
 export function Immunizations() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -73,6 +89,30 @@ export function Immunizations() {
   const [items, setItems] = useState<Immunization[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [destination, setDestination] = useState('')
+  const [travelOpen, setTravelOpen] = useState(false)
+
+  const handleDownloadSchedule = () => {
+    const lines = [
+      t('immunizations.adultSchedule.title', {}, { defaultValue: 'Adult Schedule' }),
+      '',
+      ...ADULT_SCHEDULE.map((s) => `${s.vaccine} — ${s.cadence}`),
+    ]
+    const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'adult-vaccine-schedule.txt'
+    a.click()
+    URL.revokeObjectURL(url)
+    void track({ name: 'immunizations.schedule_downloaded' })
+  }
+
+  const handleTravelCheck = () => {
+    if (!destination.trim()) return
+    setTravelOpen(true)
+    void track({ name: 'immunizations.travel_checked' })
+  }
 
   useEffect(() => {
     let cancelled = false
@@ -206,6 +246,172 @@ export function Immunizations() {
           ))}
         </div>
       )}
+
+      {/* Reference rail: CDC-style adult schedule + travel guidance */}
+      <div className={cm.cn('grid grid-cols-1 md:grid-cols-2 gap-4', cm.sp('mt', 8))}>
+        <section
+          className={cm.cn(cm.sp('p', 5), 'bg-surface-container-lowest rounded-2xl shadow-sm')}
+          data-mol-id="adult-schedule"
+        >
+          <h3
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              cm.textSize('base'),
+              cm.fontWeight('bold'),
+              cm.sp('mb', 4),
+              'text-on-surface',
+            )}
+          >
+            <span
+              aria-hidden="true"
+              className={cm.cn('material-symbols-outlined text-primary text-xl')}
+            >
+              calendar_month
+            </span>
+            {t('immunizations.adultSchedule.title', {}, { defaultValue: 'Adult Schedule' })}
+          </h3>
+          <ul className={cm.stack(3)}>
+            {ADULT_SCHEDULE.map((s) => (
+              <li
+                key={s.key}
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                  cm.textSize('sm'),
+                  cm.sp('pb', 2),
+                  'border-b border-outline-variant/20 last:border-b-0',
+                )}
+              >
+                <span className={cm.cn('text-on-surface-variant')}>
+                  {t(
+                    `immunizations.adultSchedule.${s.key}.vaccine`,
+                    {},
+                    { defaultValue: s.vaccine },
+                  )}
+                </span>
+                <span className={cm.cn(cm.fontWeight('medium'), 'text-on-surface')}>
+                  {t(
+                    `immunizations.adultSchedule.${s.key}.cadence`,
+                    {},
+                    { defaultValue: s.cadence },
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <button
+            type="button"
+            onClick={handleDownloadSchedule}
+            data-mol-id="download-schedule"
+            className={cm.cn(
+              'w-full mt-4 py-2 border border-outline-variant rounded-lg text-sm font-medium text-on-surface hover:bg-surface-container transition-colors',
+            )}
+          >
+            {t(
+              'immunizations.adultSchedule.download',
+              {},
+              { defaultValue: 'Download PDF Schedule' },
+            )}
+          </button>
+        </section>
+
+        <section
+          className={cm.cn(cm.sp('p', 5), 'bg-surface-container-lowest rounded-2xl shadow-sm')}
+          data-mol-id="travel-requirements"
+        >
+          <h3
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              cm.textSize('base'),
+              cm.fontWeight('bold'),
+              cm.sp('mb', 4),
+              'text-on-surface',
+            )}
+          >
+            <span
+              aria-hidden="true"
+              className={cm.cn('material-symbols-outlined text-primary text-xl')}
+            >
+              flight_takeoff
+            </span>
+            {t('immunizations.travel.title', {}, { defaultValue: 'Travel Requirements' })}
+          </h3>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.sp('mb', 4))}>
+            {t(
+              'immunizations.travel.body',
+              {},
+              {
+                defaultValue:
+                  'Planning a trip? Check required and recommended vaccines for your destination.',
+              },
+            )}
+          </p>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+              handleTravelCheck()
+            }}
+            className="relative"
+          >
+            <span
+              aria-hidden="true"
+              className={cm.cn(
+                'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg',
+              )}
+            >
+              location_on
+            </span>
+            <input
+              type="text"
+              value={destination}
+              onChange={(e) => setDestination(e.target.value)}
+              placeholder={t(
+                'immunizations.travel.placeholder',
+                {},
+                { defaultValue: 'Enter destination country...' },
+              )}
+              aria-label={t(
+                'immunizations.travel.placeholder',
+                {},
+                { defaultValue: 'Enter destination country...' },
+              )}
+              className={cm.cn(
+                'w-full pl-9 pr-4 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none',
+              )}
+            />
+          </form>
+          {travelOpen ? (
+            <div className={cm.cn(cm.sp('mt', 4), cm.stack(2))} role="status">
+              <p className={cm.cn(cm.textSize('xs'), cm.fontWeight('bold'), 'text-on-surface')}>
+                {t(
+                  'immunizations.travel.forDestination',
+                  { destination: destination.trim() },
+                  { defaultValue: 'General guidance for {{destination}}:' },
+                )}
+              </p>
+              <ul className={cm.stack(1)}>
+                {TRAVEL_GUIDANCE.map((g) => (
+                  <li
+                    key={g}
+                    className={cm.cn(
+                      cm.flex({ align: 'start', gap: 'xs' }),
+                      cm.textSize('xs'),
+                      'text-on-surface-variant',
+                    )}
+                  >
+                    <span
+                      aria-hidden="true"
+                      className={cm.cn('material-symbols-outlined text-sm text-success')}
+                    >
+                      check_circle
+                    </span>
+                    {g}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </section>
+      </div>
     </div>
   )
 }

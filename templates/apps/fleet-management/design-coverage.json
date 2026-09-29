@@ -1,0 +1,28 @@
+{
+  "screens": {
+    "/vehicles/:id": {
+      "allow": [
+        {
+          "heading": "Current Trip #TRP-8924",
+          "reason": "Sample-data trip id: a Current Trip card IS rendered from the vehicle's live in-progress trip (seeded ids are tp_*), not the design's mock #TRP-8924."
+        }
+      ]
+    },
+    "/settings": {
+      "allow": [
+        {
+          "heading": "Inland Empire Depot",
+          "reason": "Sample-data geofence row from the design's map+list mock: geofence management lives on the dedicated /geofences screen rendering live /api/geofences data with its own seeded names."
+        },
+        {
+          "heading": "Downtown Corridor Restricted",
+          "reason": "Sample-data geofence row from the design's map+list mock: geofence management lives on the dedicated /geofences screen rendering live /api/geofences data with its own seeded names."
+        },
+        {
+          "heading": "Vegas Route 15 Checkpoint",
+          "reason": "Sample-data geofence row from the design's map+list mock: geofence management lives on the dedicated /geofences screen rendering live /api/geofences data with its own seeded names."
+        }
+      ]
+    }
+  }
+}

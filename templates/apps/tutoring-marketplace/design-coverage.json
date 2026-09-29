@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/tutor/:id": {
+      "allow": [
+        {
+          "heading": "Dr. Elena Ruiz verified",
+          "reason": "Sample-data tutor name from the design mock: the profile header renders the real tutor's display name and verification badge from /api/tutors/:id."
+        }
+      ]
+    }
+  }
+}

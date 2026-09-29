@@ -454,6 +454,108 @@ router.get('/:id', async (req: Request, res: Response) => {
   }
 })
 
+const commentCreateSchema = z.object({
+  body: z.string().min(1).max(4000),
+})
+
+interface TaskCommentRow {
+  id: string
+  task_id: string
+  owner_id: string
+  body: string
+  created_at: string | Date
+}
+
+/** Comments live in the task_comments table (task_id + owner_id scoped). */
+async function assertOwnedTask(taskId: string, ownerId: string): Promise<boolean> {
+  try {
+    const task = await findOne<TaskRow>('tasks', [
+      { field: 'id', operator: '=', value: taskId },
+      { field: 'owner_id', operator: '=', value: ownerId },
+    ])
+    return Boolean(task)
+  } catch {
+    return false
+  }
+}
+
+router.get('/:id/comments', async (req: Request, res: Response) => {
+  const ownerId = requireUser(res)
+  if (!ownerId) return
+  const id = idParam.safeParse(req.params)
+  if (!id.success) {
+    res
+      .status(400)
+      .json({ error: t('validation.failed', {}, { defaultValue: 'Validation failed' }) })
+    return
+  }
+  if (!(await assertOwnedTask(id.data.id, ownerId))) {
+    res.status(404).json({ error: t('task.notFound', {}, { defaultValue: 'Task not found' }) })
+    return
+  }
+  try {
+    const rows = await findMany<TaskCommentRow>('task_comments', {
+      where: [
+        { field: 'task_id', operator: '=', value: id.data.id },
+        { field: 'owner_id', operator: '=', value: ownerId },
+      ],
+      orderBy: [{ field: 'created_at', direction: 'asc' }],
+      limit: 200,
+    })
+    res.json(
+      rows.map((r) => ({
+        id: r.id,
+        task_id: r.task_id,
+        body: r.body,
+        created_at: r.created_at,
+      })),
+    )
+  } catch (err) {
+    console.error('GET /tasks/:id/comments failed:', err)
+    res
+      .status(500)
+      .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
+  }
+})
+
+router.post('/:id/comments', async (req: Request, res: Response) => {
+  const ownerId = requireUser(res)
+  if (!ownerId) return
+  const id = idParam.safeParse(req.params)
+  const parsed = commentCreateSchema.safeParse(req.body)
+  if (!id.success || !parsed.success) {
+    res.status(400).json({
+      error: t('validation.failed', {}, { defaultValue: 'Validation failed' }),
+      issues: parsed.success ? undefined : parsed.error.issues,
+    })
+    return
+  }
+  if (!(await assertOwnedTask(id.data.id, ownerId))) {
+    res.status(404).json({ error: t('task.notFound', {}, { defaultValue: 'Task not found' }) })
+    return
+  }
+  try {
+    const result = await create<TaskCommentRow>('task_comments', {
+      task_id: id.data.id,
+      owner_id: ownerId,
+      body: parsed.data.body,
+      created_at: new Date(),
+    })
+    const row = result.data as TaskCommentRow
+    res.status(201).json({
+      id: row.id,
+      task_id: row.task_id,
+      body: row.body,
+      created_at: row.created_at,
+    })
+  } catch (err) {
+    console.error('POST /tasks/:id/comments failed:', err)
+    res
+      .status(500)
+      .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
+  }
+})
+
 // Enforce the per-tier task cap (tiers.ts maxTasks) — defined + advertised in Pricing but enforceLimit
 // was never called anywhere, so any tier could create unlimited tasks.
 const enforceTaskLimit = enforceLimit<ToDoListLimits>({

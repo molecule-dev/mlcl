@@ -353,6 +353,109 @@ export function Notifications() {
             </div>
           </section>
         )}
+        {showAlerts && alertItems.length > 0 && (
+          <section
+            className={cm.cn(
+              cm.stack(3),
+              cm.sp('p', 6),
+              'rounded-2xl border border-outline-variant/60 bg-surface-container-lowest overflow-hidden',
+            )}
+            data-mol-id="subscribed-watchlist"
+          >
+            <header className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
+              <h2
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  cm.textSize('sm'),
+                  'font-extrabold tracking-tight text-on-surface',
+                )}
+              >
+                <span
+                  aria-hidden="true"
+                  className={cm.cn('material-symbols-outlined text-on-surface-variant text-lg')}
+                >
+                  visibility
+                </span>
+                {t('notifications.watchlist.title', {}, { defaultValue: 'Subscribed Watchlist' })}
+              </h2>
+              <span
+                className={cm.cn(
+                  cm.sp('px', 2),
+                  cm.sp('py', 1),
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'rounded-full bg-surface-container text-on-surface-variant uppercase tracking-wide',
+                )}
+              >
+                {t(
+                  'notifications.watchlist.count',
+                  { count: alertItems.length },
+                  { defaultValue: '{{count}} SKUs' },
+                )}
+              </span>
+            </header>
+            <ul className={cm.stack(2)}>
+              {alertItems.slice(0, 6).map((alert) => {
+                const depleted = alert.quantity < alert.threshold
+                const close = !depleted && alert.quantity <= alert.threshold * 1.2
+                return (
+                  <li
+                    key={`watch-${alert.id}`}
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                      cm.sp('px', 3),
+                      cm.sp('py', 2),
+                      'rounded-lg border border-outline-variant/40',
+                    )}
+                  >
+                    <div className={cm.cn('min-w-0 flex-1')}>
+                      <p
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          'font-mono text-primary',
+                          cm.sp('mb', 1),
+                        )}
+                      >
+                        {alert.sku}
+                      </p>
+                      <p className={cm.cn(cm.textSize('xs'), 'text-on-surface truncate')}>
+                        {alert.productName}
+                        {alert.warehouse ? (
+                          <span className={cm.cn('text-on-surface-variant')}>
+                            {' '}
+                            · {alert.warehouse}
+                          </span>
+                        ) : null}
+                      </p>
+                    </div>
+                    <div className={cm.cn('text-right shrink-0')}>
+                      <p
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          'text-on-surface-variant tabular-nums',
+                          cm.sp('mb', 1),
+                        )}
+                      >
+                        {t('notifications.watchlist.min', {}, { defaultValue: 'Min' })}:{' '}
+                        {alert.threshold}
+                      </p>
+                      <p
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          cm.fontWeight('bold'),
+                          'tabular-nums',
+                          depleted ? 'text-error' : close ? 'text-warning' : 'text-on-surface',
+                        )}
+                      >
+                        {alert.quantity}
+                      </p>
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
+        )}
         {showMovement && (
           <section
             className={cm.cn(

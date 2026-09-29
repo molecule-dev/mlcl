@@ -408,6 +408,67 @@ export function Sharing() {
           ))}
         </div>
       )}
+
+      {/* Link to external EHR — promo card steering patients into the real
+          provider-share flow (EHR connections start as a provider grant). */}
+      <section className={cm.sp('mt', 8)} data-mol-id="ehr-integration">
+        <div
+          className={cm.cn(
+            cm.sp('p', 6),
+            'rounded-2xl bg-inverse-surface text-on-inverse-surface shadow-md relative overflow-hidden',
+          )}
+        >
+          <span
+            aria-hidden="true"
+            className={cm.cn(
+              'material-symbols-outlined absolute -right-4 -top-4 text-[120px] opacity-10',
+            )}
+          >
+            hub
+          </span>
+          <span
+            aria-hidden="true"
+            className={cm.cn('material-symbols-outlined mb-3 block text-2xl text-primary')}
+          >
+            account_tree
+          </span>
+          <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), cm.sp('mb', 1))}>
+            {t('sharing.ehr.title', {}, { defaultValue: 'Link to external EHR' })}
+          </h3>
+          <p
+            className={cm.cn(
+              cm.textSize('xs'),
+              'text-on-inverse-surface/80',
+              cm.sp('mb', 4),
+              'max-w-md',
+            )}
+          >
+            {t(
+              'sharing.ehr.body',
+              {},
+              {
+                defaultValue:
+                  'Connect Meridian to Epic, Cerner, or AthenaHealth networks securely — start by granting your provider organization access.',
+              },
+            )}
+          </p>
+          <Link
+            to="/sharing/new"
+            data-mol-id="ehr-integration-cta"
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              cm.textSize('xs'),
+              cm.fontWeight('medium'),
+              'text-primary hover:underline',
+            )}
+          >
+            {t('sharing.ehr.cta', {}, { defaultValue: 'Setup Integration' })}
+            <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-sm')}>
+              chevron_right
+            </span>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 const STEPS = ['shop', 'categories', 'payouts', 'review'] as const
@@ -144,22 +145,10 @@ export function VendorOnboarding() {
       >
         <Link
           to="/"
-          className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.fontWeight('bold'))}
+          className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
+          aria-label={APP_NAME}
         >
-          <span
-            className={
-              'flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-on-primary'
-            }
-          >
-            <span
-              className="material-symbols-outlined"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-              aria-hidden
-            >
-              storefront
-            </span>
-          </span>
-          <span className={cm.cn(cm.textSize('lg'), 'font-extrabold')}>{APP_NAME}</span>
+          <BrandWordmark as="span" size="sm" />
         </Link>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
           <ThemeToggle />

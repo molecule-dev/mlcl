@@ -12,6 +12,15 @@ interface WarehouseOption {
   code: string
 }
 
+/** Operator permission scope shown on the profile card. */
+const PROFILE_PERMISSIONS: ReadonlyArray<{ key: string; label: string; granted: boolean }> = [
+  { key: 'manageInventory', label: 'Manage Inventory', granted: true },
+  { key: 'approveTransfers', label: 'Approve Transfers', granted: true },
+  { key: 'viewCostData', label: 'View Cost Data', granted: true },
+  { key: 'manageUsers', label: 'Manage Users', granted: false },
+  { key: 'systemConfig', label: 'System Config', granted: false },
+]
+
 export function Profile() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -88,6 +97,11 @@ export function Profile() {
       setSavingPref(false)
     }
   }
+
+  // Profile completeness: share of contact fields actually filled in.
+  const completenessPct = Math.round(
+    (100 * [name, email, role, defaultWarehouseId].filter((v) => Boolean(v)).length) / 4,
+  )
 
   return (
     <div className={cm.stack(8)}>
@@ -274,6 +288,184 @@ export function Profile() {
             </span>
             {t('settings.changePassword', {}, { defaultValue: 'Change password' })}
           </Link>
+        </section>
+      </div>
+
+      {/* Account health + permission scope — profile posture at a glance */}
+      <div className={cm.cn('grid lg:grid-cols-2 gap-6 [&>*]:min-w-0')}>
+        <section
+          className={cm.cn(
+            cm.stack(4),
+            cm.sp('p', 6),
+            'rounded-2xl border border-outline-variant/60 bg-surface-container-lowest',
+          )}
+          data-mol-id="account-health"
+        >
+          <header>
+            <p
+              className={cm.cn(
+                'text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant',
+              )}
+            >
+              {t('profile.health.eyebrow', {}, { defaultValue: 'Standing' })}
+            </p>
+            <h2
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.textSize('lg'),
+                'font-extrabold tracking-tight',
+              )}
+            >
+              <span
+                aria-hidden="true"
+                className={cm.cn('material-symbols-outlined text-primary text-xl')}
+              >
+                health_and_safety
+              </span>
+              {t('profile.health.title', {}, { defaultValue: 'Account Health' })}
+            </h2>
+          </header>
+          <div>
+            <div
+              className={cm.cn(cm.flex({ justify: 'between' }), cm.textSize('sm'), cm.sp('mb', 2))}
+            >
+              <span className={cm.cn('text-on-surface-variant font-medium')}>
+                {t('profile.health.completeness', {}, { defaultValue: 'Profile Completeness' })}
+              </span>
+              <span className={cm.cn(cm.fontWeight('bold'), 'text-on-surface')}>
+                {completenessPct}%
+              </span>
+            </div>
+            <div className={cm.cn('w-full bg-surface-container rounded-full h-2 overflow-hidden')}>
+              <div
+                className={cm.cn('h-2 rounded-full bg-success')}
+                style={{ width: `${completenessPct}%` }}
+              />
+            </div>
+          </div>
+          <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }))}>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+              <span
+                className={cm.cn(
+                  cm.sp('p', 2),
+                  'rounded-lg bg-surface-container text-on-surface-variant',
+                )}
+                aria-hidden="true"
+              >
+                <span className={cm.cn('material-symbols-outlined text-xl')}>password</span>
+              </span>
+              <div>
+                <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                  {t('profile.health.password', {}, { defaultValue: 'Password' })}
+                </p>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {t(
+                    'profile.health.passwordHint',
+                    {},
+                    { defaultValue: 'Passphrase-protected sign-in' },
+                  )}
+                </p>
+              </div>
+            </div>
+            <Link
+              to="/forgot-password"
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('semibold'),
+                'text-primary hover:underline',
+              )}
+            >
+              {t('profile.health.update', {}, { defaultValue: 'Update' })}
+            </Link>
+          </div>
+          <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }))}>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+              <span
+                className={cm.cn(
+                  cm.sp('p', 2),
+                  'rounded-lg bg-surface-container text-on-surface-variant',
+                )}
+                aria-hidden="true"
+              >
+                <span className={cm.cn('material-symbols-outlined text-xl')}>devices</span>
+              </span>
+              <div>
+                <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                  {t('profile.health.sessions', {}, { defaultValue: 'Active Sessions' })}
+                </p>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {t('profile.health.sessionsHint', {}, { defaultValue: 'Web & mobile' })}
+                </p>
+              </div>
+            </div>
+            <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}>1</span>
+          </div>
+        </section>
+
+        <section
+          className={cm.cn(
+            cm.stack(4),
+            cm.sp('p', 6),
+            'rounded-2xl border border-outline-variant/60 bg-surface-container-lowest',
+          )}
+          data-mol-id="permissions"
+        >
+          <header>
+            <p
+              className={cm.cn(
+                'text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant',
+              )}
+            >
+              {t('profile.permissions.eyebrow', {}, { defaultValue: 'Scope' })}
+            </p>
+            <h2
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.textSize('lg'),
+                'font-extrabold tracking-tight',
+              )}
+            >
+              <span
+                aria-hidden="true"
+                className={cm.cn('material-symbols-outlined text-on-surface-variant text-xl')}
+              >
+                shield_person
+              </span>
+              {t('profile.permissions.title', {}, { defaultValue: 'Permissions' })}
+            </h2>
+          </header>
+          <div className={cm.cn(cm.flex({ wrap: 'wrap', gap: 'xs' }))}>
+            {PROFILE_PERMISSIONS.map((perm) => (
+              <span
+                key={perm.key}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  cm.sp('px', 3),
+                  cm.sp('py', 1),
+                  cm.textSize('xs'),
+                  cm.fontWeight('medium'),
+                  'rounded-full border',
+                  perm.granted
+                    ? 'bg-success-container text-on-success-container border-success/30'
+                    : 'bg-surface-container text-on-surface-variant border-outline-variant',
+                )}
+              >
+                <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-sm')}>
+                  {perm.granted ? 'check_circle' : 'cancel'}
+                </span>
+                {t(`profile.permissions.${perm.key}`, {}, { defaultValue: perm.label })}
+              </span>
+            ))}
+          </div>
+          <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+            {t(
+              'profile.permissions.footnote',
+              {},
+              {
+                defaultValue: 'Contact your administrator to request additional permissions.',
+              },
+            )}
+          </p>
         </section>
       </div>
     </div>

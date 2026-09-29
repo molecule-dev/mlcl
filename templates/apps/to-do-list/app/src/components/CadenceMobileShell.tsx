@@ -12,7 +12,7 @@ import { Link, Outlet, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const FOCUS_RING =
@@ -94,15 +94,10 @@ export function CadenceMobileShell({ navItems }: { navItems: ReadonlyArray<Caden
           </button>
           <Link
             to="/today"
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              cm.textSize('base'),
-              // Below ~420px the drawer title carries the brand instead.
-              'hidden min-[420px]:block text-on-surface truncate',
-              FOCUS_RING,
-            )}
+            // Below ~420px the drawer title carries the brand instead.
+            className={cm.cn('hidden min-[420px]:block', FOCUS_RING)}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </Link>
         </div>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}>
@@ -143,9 +138,7 @@ export function CadenceMobileShell({ navItems }: { navItems: ReadonlyArray<Caden
                 'pt-5 pb-2',
               )}
             >
-              <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface')}>
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" />
               <button
                 type="button"
                 aria-label={t('mobileNav.closeMenu', {}, { defaultValue: 'Close navigation menu' })}

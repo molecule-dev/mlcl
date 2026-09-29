@@ -6,7 +6,6 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { type VisitCategory, VisitTimelineEntry } from '../components/VisitTimelineEntry.js'
 import { unwrapList } from '../lib/unwrap.js'
-
 /**
  * Wire shape returned by `GET /api/visits` — mirrors the `visits` table
  * (scheduled_at / clinic_name / chief_complaint, etc.). The Visits list
@@ -34,6 +33,13 @@ interface VisitView {
   facility_name?: string
   summary: string
 }
+
+/** Pre-visit checklist rows — each item's detail line is translated inline. */
+const PREVISIT_ITEMS: ReadonlyArray<{ key: string; done: boolean }> = [
+  { key: 'insurance', done: true },
+  { key: 'meds', done: false },
+  { key: 'fasting', done: false },
+]
 
 function dateParts(iso: string): { dateLabel: string; yearLabel: string } {
   const d = new Date(iso)
@@ -91,6 +97,9 @@ export function Visits() {
   const [visits, setVisits] = useState<VisitView[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [checked, setChecked] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(PREVISIT_ITEMS.map((i) => [i.key, i.done])),
+  )
 
   useEffect(() => {
     let cancelled = false
@@ -144,6 +153,101 @@ export function Visits() {
           {error}
         </p>
       )}
+
+      {/* Pre-visit checklist — what to have ready before the next appointment */}
+      <section
+        className={cm.cn(
+          cm.sp('p', 5),
+          cm.sp('mb', 8),
+          'bg-surface-container-lowest rounded-2xl shadow-sm',
+        )}
+        data-mol-id="previsit-checklist"
+      >
+        <h3
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.fontWeight('bold'),
+            cm.sp('mb', 4),
+            'text-on-surface',
+          )}
+        >
+          <span
+            aria-hidden="true"
+            className={cm.cn('material-symbols-outlined text-primary text-xl')}
+          >
+            checklist
+          </span>
+          {t('visits.previsit.title', {}, { defaultValue: 'Pre-visit Checklist' })}
+        </h3>
+        <ul className={cm.stack(3)}>
+          {PREVISIT_ITEMS.map((item) => {
+            const isDone = checked[item.key] ?? item.done
+            const label = t(
+              `visits.previsit.${item.key}.label`,
+              {},
+              {
+                defaultValue:
+                  item.key === 'insurance'
+                    ? 'Insurance verified'
+                    : item.key === 'meds'
+                      ? 'Review current meds'
+                      : 'Fasting required',
+              },
+            )
+            const detail = t(
+              `visits.previsit.${item.key}.detail`,
+              {},
+              {
+                defaultValue:
+                  item.key === 'insurance'
+                    ? 'Coverage on file with the clinic'
+                    : item.key === 'meds'
+                      ? 'Please update before visit'
+                      : '12 hours prior to visit',
+              },
+            )
+            return (
+              <li key={item.key}>
+                <button
+                  type="button"
+                  data-mol-id={`previsit-${item.key}`}
+                  onClick={() => setChecked((prev) => ({ ...prev, [item.key]: !isDone }))}
+                  aria-pressed={isDone}
+                  className={cm.cn(
+                    cm.flex({ align: 'start', gap: 'sm' }),
+                    'text-left w-full rounded-lg hover:bg-surface-container transition-colors',
+                  )}
+                >
+                  <span
+                    aria-hidden="true"
+                    className={cm.cn(
+                      'material-symbols-outlined text-lg mt-0.5',
+                      isDone ? 'text-success' : 'text-on-surface-variant',
+                    )}
+                  >
+                    {isDone ? 'check_circle' : 'radio_button_unchecked'}
+                  </span>
+                  <span>
+                    <span
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('medium'),
+                        'block',
+                        isDone ? 'text-on-surface' : 'text-on-surface',
+                      )}
+                    >
+                      {label}
+                    </span>
+                    <span className={cm.cn(cm.textSize('xs'), 'block text-on-surface-variant')}>
+                      {detail}
+                    </span>
+                  </span>
+                </button>
+              </li>
+            )
+          })}
+        </ul>
+      </section>
 
       {loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.textMuted)}>

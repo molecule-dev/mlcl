@@ -13,6 +13,15 @@ import {
   toggleTaskCompleted,
 } from '../lib/api.js'
 
+/** Result-age window applied client-side on the task's created_at stamp. */
+const PERIODS = [
+  { key: 'all', label: 'All time', ms: null },
+  { key: '30d', label: 'Last 30 days', ms: 30 * 86_400_000 },
+  { key: '6m', label: 'Last 6 months', ms: 182 * 86_400_000 },
+] as const
+
+type PeriodKey = (typeof PERIODS)[number]['key']
+
 export function Search() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -21,6 +30,7 @@ export function Search() {
   const [results, setResults] = useState<Task[]>([])
   const [query, setQuery] = useState('')
   const [activeLabelId, setActiveLabelId] = useState<string | null>(null)
+  const [period, setPeriod] = useState<PeriodKey>('all')
   const [loading, setLoading] = useState(true)
   const [searching, setSearching] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -94,6 +104,13 @@ export function Search() {
 
   const labelLookup = useMemo(() => new Map(labels.map((l) => [l.id, l])), [labels])
   const activeLabelName = activeLabelId ? labelLookup.get(activeLabelId)?.name : null
+
+  const activePeriod = PERIODS.find((p) => p.key === period) ?? PERIODS[0]
+  const visible = useMemo(() => {
+    if (activePeriod.ms === null) return results
+    const cutoff = Date.now() - activePeriod.ms
+    return results.filter((r) => new Date(r.created_at).getTime() >= cutoff)
+  }, [results, activePeriod])
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('2xl'), cm.mxAuto, 'space-y-6')}>
@@ -286,16 +303,38 @@ export function Search() {
         </div>
       ) : (
         <section className={cm.cn('space-y-3')}>
-          <div className={cm.flex({ align: 'center', justify: 'between' })}>
+          <div
+            className={cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' })}
+          >
             <h2
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
-                'uppercase tracking-wide',
+                'tracking-wide',
                 'text-on-surface-variant',
               )}
             >
-              {t('search.resultsHeading', {}, { defaultValue: 'Results' })}
+              {period === 'all'
+                ? t(
+                    'search.summary',
+                    { count: visible.length, query: trimmedQuery || (activeLabelName ?? '') },
+                    { defaultValue: 'Showing {{count}} results for "{{query}}"' },
+                  )
+                : t(
+                    'search.summaryPeriod',
+                    {
+                      count: visible.length,
+                      query: trimmedQuery || (activeLabelName ?? ''),
+                      period: t(
+                        `search.period.${period}`,
+                        {},
+                        { defaultValue: activePeriod.label },
+                      ),
+                    },
+                    {
+                      defaultValue: 'Showing {{count}} results for "{{query}}" in last {{period}}',
+                    },
+                  )}
             </h2>
             <span
               className={cm.cn(
@@ -309,12 +348,48 @@ export function Search() {
             >
               {t(
                 'search.resultCount',
-                { count: results.length },
+                { count: visible.length },
                 { defaultValue: '{{count}} found' },
               )}
             </span>
           </div>
-          <TaskList tasks={results} showProject onToggle={onToggle} />
+
+          <div className={cm.flex({ gap: 'xs', wrap: 'wrap', align: 'center' })}>
+            {PERIODS.map((p) => (
+              <button
+                key={p.key}
+                type="button"
+                onClick={() => setPeriod(p.key)}
+                data-mol-id={`search-period-${p.key}`}
+                aria-pressed={period === p.key}
+                className={cm.cn(
+                  cm.sp('px', 3),
+                  cm.sp('py', 1),
+                  cm.textSize('xs'),
+                  cm.fontWeight('semibold'),
+                  cm.roundedFull,
+                  'transition-colors',
+                  period === p.key
+                    ? 'bg-primary text-on-primary'
+                    : 'bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest',
+                )}
+              >
+                {t(`search.period.${p.key}`, {}, { defaultValue: p.label })}
+              </button>
+            ))}
+          </div>
+
+          {visible.length === 0 && results.length > 0 ? (
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'search.periodEmpty',
+                {},
+                { defaultValue: 'No matches in this period — widen the window above.' },
+              )}
+            </p>
+          ) : null}
+
+          <TaskList tasks={visible} showProject onToggle={onToggle} />
         </section>
       )}
     </div>

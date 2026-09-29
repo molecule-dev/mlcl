@@ -11,6 +11,7 @@ interface Food {
   id: string
   name: string
   brand?: string | null
+  category?: string | null
   calories: number | string
   protein: number | string
   carbs: number | string
@@ -43,6 +44,7 @@ export function FoodDetail() {
   const http = useHttpClient()
 
   const [food, setFood] = useState<Food | null>(null)
+  const [related, setRelated] = useState<Food[] | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [info, setInfo] = useState<string | null>(null)
   const [servings, setServings] = useState(1)
@@ -75,6 +77,70 @@ export function FoodDetail() {
       cancelled = true
     }
   }, [http, id, t])
+
+  // "You might also like" — foods from the same category, current one excluded.
+  useEffect(() => {
+    if (!food?.category) {
+      setRelated([])
+      return
+    }
+    let cancelled = false
+    http
+      .get<Food[]>(`/api/foods?category=${encodeURIComponent(food.category)}&limit=8`)
+      .then((r) => {
+        if (cancelled) return
+        const rows = Array.isArray(r.data) ? (r.data as Food[]) : []
+        setRelated(rows.filter((f) => f.id !== food.id).slice(0, 6))
+      })
+      .catch(() => {
+        if (cancelled) return
+        setRelated([])
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [http, food])
+
+  const handleAddRelated = async (f: Food) => {
+    setError(null)
+    try {
+      await http.post('/api/diary', {
+        date: todayDate(),
+        meal_type: 'lunch',
+        food_id: f.id,
+        food_name: f.name,
+        servings: 1,
+        serving_unit: f.serving_unit ?? 'serving',
+        calories: num(f.calories),
+        protein: num(f.protein),
+        carbs: num(f.carbs),
+        fat: num(f.fat),
+      })
+      track({
+        name: 'food.logged',
+        properties: {
+          food_id: f.id,
+          food_name: f.name,
+          meal_type: 'lunch',
+          calories: num(f.calories),
+          source: 'related',
+        },
+      })
+      setInfo(
+        t(
+          'nosh.foodDetail.relatedAdded',
+          { name: f.name },
+          { defaultValue: 'Added {{name}} to Lunch.' },
+        ),
+      )
+    } catch (e: unknown) {
+      setError(
+        e instanceof Error
+          ? e.message
+          : t('nosh.foodDetail.addError', {}, { defaultValue: 'Could not add to diary.' }),
+      )
+    }
+  }
 
   const handleAddToMeal = async (mealKey: 'breakfast' | 'lunch' | 'dinner' | 'snacks') => {
     if (!food) return
@@ -494,6 +560,73 @@ export function FoodDetail() {
                 </div>
               )
             })}
+          </div>
+        </section>
+      ) : null}
+
+      {related !== null && related.length > 0 ? (
+        <section className={cm.cn(cm.sp('p', 6), 'bg-surface rounded-2xl shadow-sm')}>
+          <h3
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              cm.fontWeight('semibold'),
+              cm.sp('mb', 4),
+              'text-on-surface',
+            )}
+          >
+            <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-primary')}>
+              explore
+            </span>
+            {t('nosh.foodDetail.related', {}, { defaultValue: 'You might also like' })}
+          </h3>
+          <div className={cm.cn(cm.flex({ gap: 'sm' }), 'overflow-x-auto pb-2')}>
+            {related.map((f) => (
+              <article
+                key={f.id}
+                className={cm.cn(
+                  cm.flex({ direction: 'col', gap: 'xs' }),
+                  cm.sp('p', 3),
+                  'w-40 flex-shrink-0 bg-surface rounded-xl border border-outline/30',
+                )}
+              >
+                <Link
+                  to={`/food/${f.id}`}
+                  className={cm.cn(
+                    cm.fontWeight('semibold'),
+                    cm.textSize('sm'),
+                    'text-on-surface truncate hover:text-primary transition-colors',
+                  )}
+                >
+                  {f.name}
+                </Link>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant tabular-nums')}>
+                  {Math.round(num(f.calories))}{' '}
+                  {t('nosh.foodDetail.kcalPerServing', {}, { defaultValue: 'kcal / serving' })}
+                </p>
+                <button
+                  type="button"
+                  data-mol-id="related-food-add"
+                  onClick={() => handleAddRelated(f)}
+                  aria-label={t(
+                    'nosh.foodDetail.relatedAdd',
+                    { name: f.name },
+                    { defaultValue: 'Add {{name}} to diary' },
+                  )}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
+                    cm.sp('py', 1),
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    'rounded-md bg-primary-container text-primary hover:bg-primary hover:text-on-primary transition-colors',
+                  )}
+                >
+                  <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-sm')}>
+                    add
+                  </span>
+                  {t('nosh.foodDetail.relatedAddLabel', {}, { defaultValue: 'Add' })}
+                </button>
+              </article>
+            ))}
           </div>
         </section>
       ) : null}

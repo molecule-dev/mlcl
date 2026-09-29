@@ -155,6 +155,7 @@ export function BookingConfirmation() {
   }, [bookingId, http, t])
 
   const tutor = booking?.tutor_name ?? 'Tutor'
+  const tutorFirstName = tutor.split(' ')[0] ?? tutor
   const subject = booking?.subject ?? 'Tutoring session'
   const { date, time } = formatDateTime(booking?.scheduled_at)
   const durationMinutes = Math.round(Number(booking?.duration_hours ?? 1) * 60)
@@ -441,6 +442,71 @@ export function BookingConfirmation() {
                 { defaultValue: 'Booking ID: {{id}}' },
               )}
             </p>
+          </div>
+
+          {/* What happens next — the three steps between booking and session */}
+          <div
+            className={cm.cn(
+              cm.sp('p', 6),
+              cm.stack(4),
+              'rounded-2xl border border-outline-variant/30 bg-surface-container-low shadow-sm',
+            )}
+            data-mol-id="what-happens-next"
+          >
+            <h3
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.fontWeight('bold'),
+                cm.textSize('lg'),
+                'font-display tracking-tight',
+              )}
+            >
+              <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-warning')}>
+                lightbulb
+              </span>
+              {t('bookingConfirm.next.title', {}, { defaultValue: 'What happens next?' })}
+            </h3>
+            <ol className={cm.stack(3)}>
+              {[
+                {
+                  key: 'confirm',
+                  text: t(
+                    'bookingConfirm.next.confirm',
+                    { tutor: tutorFirstName },
+                    { defaultValue: '{{tutor}} will confirm within 12 hours' },
+                  ),
+                },
+                {
+                  key: 'link',
+                  text: t(
+                    'bookingConfirm.next.link',
+                    {},
+                    { defaultValue: "We'll email a video link 30 min before" },
+                  ),
+                },
+                {
+                  key: 'review',
+                  text: t(
+                    'bookingConfirm.next.review',
+                    {},
+                    { defaultValue: 'After your session, leave a quick review' },
+                  ),
+                },
+              ].map((step, i) => (
+                <li key={step.key} className={cm.flex({ align: 'start', gap: 'sm' })}>
+                  <span
+                    aria-hidden="true"
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'w-8 h-8 rounded-full bg-primary-container text-on-primary-container font-bold text-sm shrink-0',
+                    )}
+                  >
+                    {i + 1}
+                  </span>
+                  <p className={cm.cn(cm.textSize('sm'), 'pt-1')}>{step.text}</p>
+                </li>
+              ))}
+            </ol>
           </div>
         </aside>
       </div>

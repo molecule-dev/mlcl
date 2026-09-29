@@ -1,0 +1,32 @@
+{
+  "screens": {
+    "/catalog": {
+      "allow": [
+        {
+          "heading": "Handwoven Belgian Linen Throw Blanket - Oatmeal",
+          "reason": "Sample-data product title from the design mock: the catalog grid renders the app's real seeded products from /api/products (Stoneware Breakfast Bowl, Pour-Over Carafe, …)."
+        },
+        {
+          "heading": "Fringed Linen Napkins (Set of 4)",
+          "reason": "Sample-data product title from the design mock: the catalog grid renders the app's real seeded products from /api/products."
+        },
+        {
+          "heading": "Woven Seagrass Belly Basket",
+          "reason": "Sample-data product title from the design mock: the catalog grid renders the app's real seeded products from /api/products."
+        }
+      ]
+    },
+    "/vendors/:slug": {
+      "allow": [
+        {
+          "heading": "Speckled Minimalist Planter (Medium)",
+          "reason": "Sample-data product title from the design mock: the vendor storefront renders that vendor's real seeded catalog from /api/storefront."
+        },
+        {
+          "heading": "Terracotta Hanging Pot",
+          "reason": "Sample-data product title from the design mock: the vendor storefront renders that vendor's real seeded catalog from /api/storefront."
+        }
+      ]
+    }
+  }
+}

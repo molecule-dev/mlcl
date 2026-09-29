@@ -4,6 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface VendryAuthShellProps {
   /** Heading shown above the form. */
@@ -56,20 +57,7 @@ export function VendryAuthShell({
             'relative z-10',
           )}
         >
-          <span
-            className={cm.cn(
-              'flex h-9 w-9 items-center justify-center rounded-xl bg-surface text-primary',
-            )}
-          >
-            <span
-              className="material-symbols-outlined"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-              aria-hidden
-            >
-              storefront
-            </span>
-          </span>
-          {APP_NAME}
+          <BrandWordmark as="span" size="md" />
         </Link>
 
         <div className="relative z-10 max-w-md">
@@ -187,20 +175,7 @@ export function VendryAuthShell({
               'lg:hidden text-primary',
             )}
           >
-            <span
-              className={cm.cn(
-                'flex h-8 w-8 items-center justify-center rounded-xl bg-primary text-on-primary',
-              )}
-            >
-              <span
-                className="material-symbols-outlined"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-                aria-hidden
-              >
-                storefront
-              </span>
-            </span>
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </Link>
           <header className={cm.cn(cm.stack(2))}>
             <h1

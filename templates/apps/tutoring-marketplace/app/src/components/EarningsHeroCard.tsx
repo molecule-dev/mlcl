@@ -54,6 +54,14 @@ export function EarningsHeroCard({
   const positive = changePercent >= 0
   const sparkPath = buildSparkPath(trendCents, 320, 80)
   const sparkArea = sparkPath ? `${sparkPath} L320,80 L0,80 Z` : ''
+  // Time-of-day greeting per the design's "Good afternoon, Sarah" hero.
+  const hour = new Date().getHours()
+  const greetingDefault =
+    hour < 12
+      ? `Good morning, {{name}} — keep the momentum.`
+      : hour < 18
+        ? `Good afternoon, {{name}} — keep the momentum.`
+        : `Good evening, {{name}} — keep the momentum.`
 
   return (
     <section
@@ -102,11 +110,7 @@ export function EarningsHeroCard({
             {formatMoney(earningsCents)}
           </h2>
           <p className={cm.cn(cm.textSize('sm'), 'opacity-85')}>
-            {t(
-              'earningsHero.greeting',
-              { name: tutorName },
-              { defaultValue: 'Welcome back, {{name}} — keep the momentum.' },
-            )}
+            {t('earningsHero.greeting', { name: tutorName }, { defaultValue: greetingDefault })}
           </p>
         </div>
 

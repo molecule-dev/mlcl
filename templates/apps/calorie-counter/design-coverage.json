@@ -1,0 +1,24 @@
+{
+  "screens": {
+    "/log": {
+      "allow": [
+        {
+          "heading": "Chicken Breast Cooked · 4 oz",
+          "reason": "Sample-data search-result row: the log page renders live results from /api/foods (seeded verified foods include Chicken Breast); serving descriptors come from each food's own serving_unit."
+        },
+        {
+          "heading": "Almond Milk Unsweetened · 1 cup",
+          "reason": "Sample-data search-result row: the log page renders live results from /api/foods (seeded verified foods include Almond Milk); serving descriptors come from each food's own serving_unit."
+        }
+      ]
+    },
+    "/food/:id": {
+      "allow": [
+        {
+          "heading": "Greek Yogurt, Plain Nonfat",
+          "reason": "Sample-data food title: FoodDetail renders the real food's name from GET /api/foods/:id (the seed's Greek Yogurt entry), not the design's mock product name."
+        }
+      ]
+    }
+  }
+}

@@ -24,6 +24,33 @@ const PERKS = [
     title: 'Build a verified rep',
     body: 'Real student reviews, badge tiers, and discoverability you actually own.',
   },
+  {
+    icon: 'bolt',
+    title: 'Fast, reliable payouts',
+    body: 'Get paid weekly directly to your bank account with no hidden fees or minimum balances.',
+  },
+]
+
+/** Tutor testimonials shown beneath the application form. */
+const TESTIMONIALS: ReadonlyArray<{ name: string; subjects: string; quote: string }> = [
+  {
+    name: 'Sarah J.',
+    subjects: 'Chemistry & Physics',
+    quote:
+      'Teaching here gave me the freedom to leave my demanding adjunct position. I now teach exactly the subjects I love — and actually have time for my family.',
+  },
+  {
+    name: 'Miguel A.',
+    subjects: 'Spanish & Conversation',
+    quote:
+      'I filled my calendar in three weeks. The booking flow handles payments and scheduling so I can focus on my students.',
+  },
+  {
+    name: 'Priya K.',
+    subjects: 'Python & Algebra',
+    quote:
+      'The built-in whiteboard and session recap tools make every lesson feel professional. My students keep coming back.',
+  },
 ]
 
 const SUBJECT_OPTIONS = [
@@ -156,7 +183,10 @@ export function BecomeTutor() {
           </p>
         </div>
         <div
-          className={cm.cn(cm.grid({ cols: 1, gap: 'md' }), 'sm:grid-cols-3 mt-10 relative z-10')}
+          className={cm.cn(
+            cm.grid({ cols: 1, gap: 'md' }),
+            'sm:grid-cols-2 lg:grid-cols-4 mt-10 relative z-10',
+          )}
         >
           {PERKS.map((p) => (
             <div
@@ -357,6 +387,84 @@ export function BecomeTutor() {
           )}
         </div>
       </form>
+
+      {/* Social proof — tutors on the platform */}
+      <section className={cm.cn(cm.sp('py', 12), cm.textCenter)} aria-labelledby="tutor-love">
+        <h2
+          id="tutor-love"
+          className={cm.cn(
+            cm.fontWeight('bold'),
+            'font-display text-3xl tracking-tight',
+            cm.sp('mb', 3),
+          )}
+        >
+          {t(
+            'becomeTutor.testimonials.title',
+            {},
+            { defaultValue: 'Loved by educators across the world' },
+          )}
+        </h2>
+        <p
+          className={cm.cn(
+            cm.textSize('lg'),
+            'text-on-surface-variant',
+            cm.sp('mb', 8),
+            'max-w-2xl mx-auto',
+          )}
+        >
+          {t(
+            'becomeTutor.testimonials.subtitle',
+            {},
+            { defaultValue: 'Join a thriving community of teachers making an impact.' },
+          )}
+        </p>
+        <div
+          className={cm.cn(
+            cm.grid({ cols: 1, gap: 'lg' }),
+            'md:grid-cols-3 text-left',
+            cm.maxW('6xl'),
+            cm.mxAuto,
+          )}
+        >
+          {TESTIMONIALS.map((tm) => (
+            <figure
+              key={tm.name}
+              className={cm.cn(
+                cm.flex({ direction: 'col', gap: 'sm' }),
+                cm.sp('p', 6),
+                'rounded-2xl border border-outline-variant/30 bg-surface-container-lowest',
+              )}
+            >
+              <div aria-hidden="true" className={cm.cn(cm.flex({ gap: 'xs' }), 'text-warning')}>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <span
+                    key={i}
+                    className={cm.cn('material-symbols-outlined text-base')}
+                    style={{ fontVariationSettings: "'FILL' 1" }}
+                  >
+                    star
+                  </span>
+                ))}
+              </div>
+              <blockquote className={cm.cn(cm.textSize('sm'), 'italic flex-1')}>
+                “{t(`becomeTutor.testimonials.${tm.name}.quote`, {}, { defaultValue: tm.quote })}”
+              </blockquote>
+              <figcaption className={cm.stack(1)}>
+                <span className={cm.cn(cm.fontWeight('bold'), cm.textSize('sm'))}>
+                  {t(`becomeTutor.testimonials.${tm.name}.name`, {}, { defaultValue: tm.name })}
+                </span>
+                <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {t(
+                    `becomeTutor.testimonials.${tm.name}.subjects`,
+                    {},
+                    { defaultValue: tm.subjects },
+                  )}
+                </span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }

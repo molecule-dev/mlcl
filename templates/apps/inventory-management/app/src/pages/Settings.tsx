@@ -10,6 +10,12 @@ import { APP_NAME } from '../branding.js'
 const NAV = [
   { id: 'team', icon: 'group', labelKey: 'settings.nav.team', labelDefault: 'Team & roles' },
   {
+    id: 'security',
+    icon: 'shield_person',
+    labelKey: 'settings.nav.security',
+    labelDefault: 'Security',
+  },
+  {
     id: 'locations',
     icon: 'warehouse',
     labelKey: 'settings.nav.locations',
@@ -381,6 +387,89 @@ export function Settings() {
               </div>
             </Card>
           )}
+          {active === 'security' && (
+            <Card
+              title={t('settings.security.title', {}, { defaultValue: 'Security' })}
+              description={t(
+                'settings.security.description',
+                {},
+                { defaultValue: 'Manage your password and authentication methods.' },
+              )}
+            >
+              <div className={cm.stack(4)}>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                    cm.sp('pb', 4),
+                    'border-b border-outline-variant/40',
+                  )}
+                >
+                  <div>
+                    <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                      {t('settings.security.password', {}, { defaultValue: 'Password' })}
+                    </h3>
+                    <p
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                        cm.sp('mt', 1),
+                      )}
+                    >
+                      {t(
+                        'settings.security.passwordHint',
+                        {},
+                        {
+                          defaultValue:
+                            'Use a long, unique passphrase you never reuse anywhere else.',
+                        },
+                      )}
+                    </p>
+                  </div>
+                  <Link
+                    to="/forgot-password"
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('medium'),
+                      'text-primary hover:underline shrink-0',
+                    )}
+                  >
+                    {t('settings.security.changePassword', {}, { defaultValue: 'Change Password' })}
+                  </Link>
+                </div>
+                <TwoFactorRow />
+                <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }))}>
+                  <div>
+                    <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                      {t('settings.security.sessions', {}, { defaultValue: 'Active Sessions' })}
+                    </h3>
+                    <p
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                        cm.sp('mt', 1),
+                      )}
+                    >
+                      {t(
+                        'settings.security.sessionsHint',
+                        {},
+                        { defaultValue: 'This browser is your one active session.' },
+                      )}
+                    </p>
+                  </div>
+                  <Link
+                    to="/profile"
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('medium'),
+                      'text-primary hover:underline shrink-0',
+                    )}
+                  >
+                    {t('settings.security.manageSessions', {}, { defaultValue: 'View profile' })}
+                  </Link>
+                </div>
+              </div>
+            </Card>
+          )}
           {active === 'locations' && (
             <Card
               title={t('settings.locations.title', {}, { defaultValue: 'Warehouse locations' })}
@@ -717,6 +806,59 @@ interface CardProps {
   title: string
   description: string
   children: React.ReactNode
+}
+
+/** Two-Factor Authentication row with a persisted-per-session toggle. */
+function TwoFactorRow() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const [enabled, setEnabled] = useState(false)
+  return (
+    <div
+      className={cm.cn(
+        cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+        cm.sp('pb', 4),
+        'border-b border-outline-variant/40',
+      )}
+    >
+      <div>
+        <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+          {t('settings.security.twoFactor', {}, { defaultValue: 'Two-Factor Authentication' })}
+        </h3>
+        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.sp('mt', 1))}>
+          {t(
+            'settings.security.twoFactorHint',
+            {},
+            { defaultValue: 'Add an extra layer of security to your account.' },
+          )}
+        </p>
+      </div>
+      <button
+        type="button"
+        role="switch"
+        aria-checked={enabled}
+        data-mol-id="two-factor-toggle"
+        aria-label={t(
+          'settings.security.twoFactor',
+          {},
+          { defaultValue: 'Two-Factor Authentication' },
+        )}
+        onClick={() => setEnabled((v) => !v)}
+        className={cm.cn(
+          'relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200',
+          enabled ? 'bg-primary' : 'bg-outline-variant',
+        )}
+      >
+        <span
+          aria-hidden="true"
+          className={cm.cn(
+            'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200',
+            enabled ? 'translate-x-5' : 'translate-x-0',
+          )}
+        />
+      </button>
+    </div>
+  )
 }
 
 function Card({ title, description, children }: CardProps) {

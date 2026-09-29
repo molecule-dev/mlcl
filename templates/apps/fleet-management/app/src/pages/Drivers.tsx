@@ -278,92 +278,184 @@ export function Drivers() {
           {t('drivers.empty', {}, { defaultValue: 'No drivers yet.' })}
         </p>
       ) : (
-        <ul className={'space-y-2'}>
-          {list.map((d) => (
-            <li key={d.id}>
-              <Link
-                to={`/drivers/${d.id}`}
+        <>
+          {list.some((d) => d.hours_week > 0) ? (
+            <section className={cm.cn(cm.card(), cm.sp('p', 5))}>
+              <h2
                 className={cm.cn(
-                  cm.card(),
-                  cm.sp('p', 4),
-                  cm.flex({ align: 'center', gap: 'md' }),
-                  'hover:bg-surface-container',
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  cm.textSize('sm'),
+                  cm.fontWeight('bold'),
+                  cm.sp('mb', 3),
+                  'text-on-surface',
                 )}
               >
-                <div
-                  className={cm.cn(
-                    cm.flex({ align: 'center', justify: 'center' }),
-                    cm.h(11),
-                    cm.w(11),
-                    'rounded-full bg-primary-container text-on-primary-container shrink-0',
-                    cm.fontWeight('semibold'),
-                  )}
-                >
-                  {d.name
-                    .split(' ')
-                    .map((s) => s[0])
-                    .slice(0, 2)
-                    .join('')}
-                </div>
-                <div className={cm.cn(cm.flex1, 'min-w-0')}>
-                  <p className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'), 'truncate')}>
-                    {d.name}
-                  </p>
-                  <p
-                    className={cm.cn(
-                      cm.textSize('xs'),
-                      'text-on-surface-variant',
-                      'truncate font-mono',
-                    )}
-                  >
-                    {d.license_class} · {d.license_number}
-                  </p>
-                </div>
-                <div className={cm.cn(cm.shrink0, cm.textCenter)}>
-                  <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                    {t('drivers.col.score', {}, { defaultValue: 'Safety' })}
-                  </p>
-                  <p
-                    className={cm.cn(
-                      cm.textSize('lg'),
-                      cm.fontWeight('bold'),
-                      d.safety_score >= 90
-                        ? 'text-success'
-                        : d.safety_score >= 80
-                          ? 'text-warning'
-                          : 'text-error',
-                    )}
-                  >
-                    {d.safety_score}
-                  </p>
-                </div>
-                <div className={cm.cn(cm.shrink0, cm.textCenter)}>
-                  <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                    {t('drivers.col.hoursToday', {}, { defaultValue: 'Hours today' })}
-                  </p>
-                  <p className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'font-mono')}>
-                    {d.hours_today.toFixed(1)}
-                  </p>
-                </div>
                 <span
+                  aria-hidden="true"
+                  className={cm.cn('material-symbols-outlined text-warning')}
+                >
+                  workspace_premium
+                </span>
+                {t('drivers.topPerformers', {}, { defaultValue: 'Top Performers' })}
+              </h2>
+              <ol className={cm.cn(cm.stack(2), 'list-none')}>
+                {/* Proven performers only: a brand-new driver has no logged hours
+                  yet, so it never surfaces here before its first shift. */}
+                {[...list]
+                  .filter((d) => d.hours_week > 0)
+                  .sort((a, b) => b.safety_score - a.safety_score)
+                  .slice(0, 3)
+                  .map((d, i) => (
+                    <li key={d.id}>
+                      <Link
+                        to={`/drivers/${d.id}`}
+                        className={cm.cn(
+                          cm.flex({ align: 'center', gap: 'md' }),
+                          cm.sp('py', 1),
+                          cm.sp('px', 2),
+                          'rounded hover:bg-surface-container',
+                        )}
+                      >
+                        <span
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            cm.fontWeight('bold'),
+                            'text-on-surface-variant w-4 text-right font-mono shrink-0',
+                          )}
+                        >
+                          {i + 1}
+                        </span>
+                        <span
+                          className={cm.cn(
+                            cm.flex({ align: 'center', justify: 'center' }),
+                            cm.h(8),
+                            cm.w(8),
+                            'rounded-full bg-primary-container text-on-primary-container shrink-0',
+                            cm.textSize('xs'),
+                            cm.fontWeight('semibold'),
+                          )}
+                        >
+                          {d.name
+                            .split(' ')
+                            .map((s) => s[0])
+                            .slice(0, 2)
+                            .join('')}
+                        </span>
+                        <span
+                          className={cm.cn(
+                            cm.textSize('sm'),
+                            cm.fontWeight('medium'),
+                            cm.flex1,
+                            'truncate',
+                          )}
+                        >
+                          {d.name}
+                        </span>
+                        <span
+                          className={cm.cn(
+                            cm.textSize('sm'),
+                            cm.fontWeight('bold'),
+                            'text-success font-mono shrink-0',
+                          )}
+                        >
+                          {d.safety_score}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+              </ol>
+            </section>
+          ) : null}
+
+          <ul className={'space-y-2'}>
+            {list.map((d) => (
+              <li key={d.id}>
+                <Link
+                  to={`/drivers/${d.id}`}
                   className={cm.cn(
-                    cm.sp('px', 2),
-                    cm.sp('py', 1),
-                    cm.textSize('xs'),
-                    'rounded shrink-0',
-                    STATUS_COLOR[d.status],
+                    cm.card(),
+                    cm.sp('p', 4),
+                    cm.flex({ align: 'center', gap: 'md' }),
+                    'hover:bg-surface-container',
                   )}
                 >
-                  {t(
-                    `drivers.status.${d.status}`,
-                    {},
-                    { defaultValue: d.status.replace('_', ' ') },
-                  )}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      cm.h(11),
+                      cm.w(11),
+                      'rounded-full bg-primary-container text-on-primary-container shrink-0',
+                      cm.fontWeight('semibold'),
+                    )}
+                  >
+                    {d.name
+                      .split(' ')
+                      .map((s) => s[0])
+                      .slice(0, 2)
+                      .join('')}
+                  </div>
+                  <div className={cm.cn(cm.flex1, 'min-w-0')}>
+                    <p
+                      className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'), 'truncate')}
+                    >
+                      {d.name}
+                    </p>
+                    <p
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        'text-on-surface-variant',
+                        'truncate font-mono',
+                      )}
+                    >
+                      {d.license_class} · {d.license_number}
+                    </p>
+                  </div>
+                  <div className={cm.cn(cm.shrink0, cm.textCenter)}>
+                    <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      {t('drivers.col.score', {}, { defaultValue: 'Safety' })}
+                    </p>
+                    <p
+                      className={cm.cn(
+                        cm.textSize('lg'),
+                        cm.fontWeight('bold'),
+                        d.safety_score >= 90
+                          ? 'text-success'
+                          : d.safety_score >= 80
+                            ? 'text-warning'
+                            : 'text-error',
+                      )}
+                    >
+                      {d.safety_score}
+                    </p>
+                  </div>
+                  <div className={cm.cn(cm.shrink0, cm.textCenter)}>
+                    <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      {t('drivers.col.hoursToday', {}, { defaultValue: 'Hours today' })}
+                    </p>
+                    <p className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'font-mono')}>
+                      {d.hours_today.toFixed(1)}
+                    </p>
+                  </div>
+                  <span
+                    className={cm.cn(
+                      cm.sp('px', 2),
+                      cm.sp('py', 1),
+                      cm.textSize('xs'),
+                      'rounded shrink-0',
+                      STATUS_COLOR[d.status],
+                    )}
+                  >
+                    {t(
+                      `drivers.status.${d.status}`,
+                      {},
+                      { defaultValue: d.status.replace('_', ' ') },
+                    )}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </>
       )}
     </div>
   )

@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/warehouses": {
+      "allow": [
+        {
+          "heading": "East Coast Fulfillment",
+          "reason": "Sample-data warehouse card title: the warehouses grid renders live /api/warehouses rows whose seeded names are the app's own dataset (Portland Main Distribution, Atlanta Cross-Dock, …)."
+        }
+      ]
+    }
+  }
+}

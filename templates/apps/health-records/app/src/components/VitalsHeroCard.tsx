@@ -64,6 +64,21 @@ export function VitalsHeroCard({
   const cm = getClassMap()
   const { t } = useTranslation()
 
+  // Time-of-day greeting, matching the design's "Good morning, Elena" hero.
+  const hour = new Date().getHours()
+  const greetingKey =
+    hour < 12
+      ? 'vitalsHeroCard.greetingMorning'
+      : hour < 18
+        ? 'vitalsHeroCard.greetingAfternoon'
+        : 'vitalsHeroCard.greetingEvening'
+  const greetingDefault =
+    hour < 12
+      ? 'Good morning, {{name}}'
+      : hour < 18
+        ? 'Good afternoon, {{name}}'
+        : 'Good evening, {{name}}'
+
   return (
     <section
       className={cm.cn(
@@ -161,11 +176,7 @@ export function VitalsHeroCard({
           </p>
           <h2 className={cm.cn('text-4xl md:text-5xl font-extrabold tracking-tight leading-tight')}>
             {patientName
-              ? t(
-                  'vitalsHeroCard.greetingNamed',
-                  { name: patientName },
-                  { defaultValue: 'Hello, {{name}}' },
-                )
+              ? t(greetingKey, { name: patientName }, { defaultValue: greetingDefault })
               : t('auth.login.signInTitle', {}, { defaultValue: 'Welcome back' })}
           </h2>
           <p className={cm.cn('text-sm md:text-base text-white/85 mt-2 max-w-lg')}>

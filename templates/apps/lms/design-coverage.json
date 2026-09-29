@@ -1,0 +1,32 @@
+{
+  "screens": {
+    "/assignments": {
+      "allow": [
+        {
+          "heading": "Statistical Modeling of Urban Heat Islands",
+          "reason": "Sample-data assignment title from the design mock: the assignments page renders the app's real seeded curriculum (web-dev bootcamp assignments) from /api/assignments."
+        },
+        {
+          "heading": "Molecular Dynamics Lab Report #4",
+          "reason": "Sample-data assignment title from the design mock: the assignments page renders the app's real seeded curriculum (web-dev bootcamp assignments) from /api/assignments."
+        },
+        {
+          "heading": "Microeconomics: Market Equilibrium Study",
+          "reason": "Sample-data assignment title from the design mock: the assignments page renders the app's real seeded curriculum (web-dev bootcamp assignments) from /api/assignments."
+        },
+        {
+          "heading": "Graduate Thesis Proposal Draft",
+          "reason": "Sample-data featured-assignment title from the design mock: the featured slot renders the real upcoming assignment from /api/assignments."
+        }
+      ]
+    },
+    "/discussions": {
+      "allow": [
+        {
+          "heading": "Interpreting P-values in Non-Parametric Tests",
+          "reason": "Sample-data thread title from the design mock: the discussions page renders the app's real seeded threads from /api/discussions."
+        }
+      ]
+    }
+  }
+}

@@ -68,6 +68,13 @@ function fmtDateTime(iso: string): string {
   })
 }
 
+interface TaskComment {
+  id: string
+  task_id: string
+  body: string
+  created_at: string
+}
+
 export function TaskDetail() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -89,6 +96,43 @@ export function TaskDetail() {
   const [editingDue, setEditingDue] = useState(false)
   const [editingProject, setEditingProject] = useState(false)
   const [editingRecurrence, setEditingRecurrence] = useState(false)
+  const [comments, setComments] = useState<TaskComment[] | null>(null)
+  const [commentDraft, setCommentDraft] = useState('')
+  const [postingComment, setPostingComment] = useState(false)
+
+  const loadComments = (taskId: string) => {
+    http
+      .get<TaskComment[]>(`/tasks/${taskId}/comments`)
+      .then((r) => {
+        setComments(Array.isArray(r.data) ? r.data : [])
+      })
+      .catch(() => {
+        setComments([])
+      })
+  }
+
+  useEffect(() => {
+    if (!id) return
+    loadComments(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id])
+
+  const handlePostComment = async () => {
+    if (!id || !commentDraft.trim()) return
+    setPostingComment(true)
+    try {
+      const r = await http.post<TaskComment>(`/tasks/${id}/comments`, {
+        body: commentDraft.trim(),
+      })
+      track({ name: 'task.comment_added', properties: { task_id: id } })
+      setComments((prev) => [...(prev ?? []), r.data])
+      setCommentDraft('')
+    } catch {
+      // keep the draft so the text isn't lost; the next submit can retry
+    } finally {
+      setPostingComment(false)
+    }
+  }
 
   useEffect(() => {
     if (!id) return
@@ -904,6 +948,7 @@ export function TaskDetail() {
           <div className={cm.cn(cm.card(), cm.sp('p', 6))}>
             <h2
               className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
                 'uppercase tracking-wide',
@@ -911,7 +956,10 @@ export function TaskDetail() {
                 cm.sp('mb', 3),
               )}
             >
-              {t('nav.activity', {}, { defaultValue: 'Activity' })}
+              <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-base')}>
+                chat_bubble
+              </span>
+              {t('taskDetail.activityComments', {}, { defaultValue: 'Activity & Comments' })}
             </h2>
             <ol className={cm.cn('space-y-3')}>
               <li className={cm.flex({ align: 'start', gap: 'sm' })}>
@@ -961,6 +1009,97 @@ export function TaskDetail() {
                 </li>
               )}
             </ol>
+
+            <div
+              className={cm.cn('border-t border-outline/40', cm.sp('pt', 4), cm.sp('mt', 4))}
+              data-mol-id="task-comments"
+            >
+              <h3 className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'), cm.sp('mb', 3))}>
+                {t('taskDetail.comments', {}, { defaultValue: 'Comments' })}
+              </h3>
+              {comments === null ? (
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+                </p>
+              ) : comments.length === 0 ? (
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {t(
+                    'taskDetail.commentsEmpty',
+                    {},
+                    { defaultValue: 'No comments yet — leave a note for future you.' },
+                  )}
+                </p>
+              ) : (
+                <ul className={cm.cn('space-y-3')}>
+                  {comments.map((c) => (
+                    <li key={c.id} className={cm.flex({ align: 'start', gap: 'sm' })}>
+                      <span
+                        aria-hidden="true"
+                        className={cm.cn('material-symbols-outlined text-base text-primary')}
+                      >
+                        chat_bubble
+                      </span>
+                      <div className={cm.cn('min-w-0')}>
+                        <p className={cm.cn(cm.textSize('xs'), 'leading-relaxed break-words')}>
+                          {c.body}
+                        </p>
+                        <p
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            'text-on-surface-variant tabular-nums',
+                          )}
+                        >
+                          {fmtDateTime(c.created_at)}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault()
+                  void handlePostComment()
+                }}
+                className={cm.cn(cm.sp('mt', 3), cm.stack(2))}
+              >
+                <label htmlFor="task-comment-input" className="sr-only">
+                  {t('taskDetail.commentLabel', {}, { defaultValue: 'Add a comment' })}
+                </label>
+                <textarea
+                  id="task-comment-input"
+                  value={commentDraft}
+                  onChange={(e) => setCommentDraft(e.target.value)}
+                  rows={2}
+                  placeholder={t(
+                    'taskDetail.commentPlaceholder',
+                    {},
+                    { defaultValue: 'Add a comment…' },
+                  )}
+                  className={cm.cn(
+                    cm.sp('p', 3),
+                    cm.textSize('sm'),
+                    'w-full rounded-lg border border-outline bg-surface text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-y',
+                  )}
+                />
+                <button
+                  type="submit"
+                  data-mol-id="comment-submit"
+                  disabled={postingComment || !commentDraft.trim()}
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 2),
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    'rounded-md bg-primary text-on-primary disabled:opacity-50 self-start',
+                  )}
+                >
+                  {postingComment
+                    ? t('taskDetail.commentPosting', {}, { defaultValue: 'Posting…' })
+                    : t('taskDetail.commentPost', {}, { defaultValue: 'Comment' })}
+                </button>
+              </form>
+            </div>
           </div>
         </aside>
       </section>

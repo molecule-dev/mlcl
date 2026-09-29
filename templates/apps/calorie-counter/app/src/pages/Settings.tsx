@@ -115,6 +115,18 @@ const ACCOUNT: DetailRow[] = [
   },
 ]
 
+interface IntegrationRow {
+  key: string
+  icon: string
+  defaultLabel: string
+  defaultConnected: boolean
+}
+
+const INTEGRATIONS: IntegrationRow[] = [
+  { key: 'appleHealth', icon: 'favorite', defaultLabel: 'Apple Health', defaultConnected: true },
+  { key: 'googleFit', icon: 'monitor_heart', defaultLabel: 'Google Fit', defaultConnected: false },
+]
+
 interface NotificationPrefs {
   meals?: boolean
   water?: boolean
@@ -174,6 +186,9 @@ export function Settings() {
   const [deletePw, setDeletePw] = useState('')
   const [deleting, setDeleting] = useState(false)
   const [exporting, setExporting] = useState(false)
+  const [connectedApps, setConnectedApps] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(INTEGRATIONS.map((i) => [i.key, i.defaultConnected])),
+  )
   const [error, setError] = useState<string | null>(null)
   const [info, setInfo] = useState<string | null>(null)
   const { hash } = useLocation()
@@ -283,6 +298,28 @@ export function Settings() {
     } finally {
       setExporting(false)
     }
+  }
+
+  const toggleIntegration = (key: string, label: string) => {
+    const willConnect = !(connectedApps[key] ?? false)
+    setConnectedApps((prev) => ({ ...prev, [key]: willConnect }))
+    track({
+      name: 'settings.integration_toggled',
+      properties: { integration: key, connected: willConnect },
+    })
+    setInfo(
+      willConnect
+        ? t(
+            'nosh.settings.connected.connectedToast',
+            { name: label },
+            { defaultValue: 'Connected {{name}}.' },
+          )
+        : t(
+            'nosh.settings.connected.disconnectedToast',
+            { name: label },
+            { defaultValue: 'Disconnected {{name}}.' },
+          ),
+    )
   }
 
   return (
@@ -480,6 +517,116 @@ export function Settings() {
           <DevicesSection />
           <ThisDeviceSection />
         </div>
+      </section>
+
+      <section className={cm.cn(cm.sp('p', 6), 'bg-surface rounded-2xl shadow-sm')}>
+        <h3
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.fontWeight('semibold'),
+            cm.sp('mb', 2),
+            'text-on-surface',
+          )}
+        >
+          <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-primary')}>
+            extension
+          </span>
+          {t('nosh.settings.connected.title', {}, { defaultValue: 'Connected Apps' })}
+        </h3>
+        <p className={cm.cn(cm.textSize('sm'), cm.sp('mb', 4), 'text-on-surface-variant')}>
+          {t(
+            'nosh.settings.connected.description',
+            {},
+            { defaultValue: 'Sync meals and activity with the health apps you already use.' },
+          )}
+        </p>
+        <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), 'list-none')}>
+          {INTEGRATIONS.map((row) => {
+            const label = t(
+              `nosh.settings.connected.${row.key}.label`,
+              {},
+              { defaultValue: row.defaultLabel },
+            )
+            const isConnected = connectedApps[row.key] ?? row.defaultConnected
+            return (
+              <li
+                key={row.key}
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                  cm.sp('p', 3),
+                  'rounded-xl border border-outline/30',
+                )}
+              >
+                <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'w-10 h-10 rounded-xl bg-primary-container text-primary',
+                    )}
+                  >
+                    <span aria-hidden="true" className={cm.cn('material-symbols-outlined')}>
+                      {row.icon}
+                    </span>
+                  </span>
+                  <div>
+                    <p
+                      className={cm.cn(
+                        cm.fontWeight('medium'),
+                        cm.textSize('sm'),
+                        'text-on-surface',
+                      )}
+                    >
+                      {label}
+                    </p>
+                    <p
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 'xs' }),
+                        cm.textSize('xs'),
+                        cm.fontWeight('medium'),
+                        isConnected ? 'text-success' : 'text-on-surface-variant',
+                      )}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className={cm.cn(
+                          'inline-block w-2 h-2 rounded-full',
+                          isConnected ? 'bg-success' : 'bg-outline',
+                        )}
+                      />
+                      {isConnected
+                        ? t(
+                            'nosh.settings.connected.status.connected',
+                            {},
+                            { defaultValue: 'Connected' },
+                          )
+                        : t(
+                            'nosh.settings.connected.status.notConnected',
+                            {},
+                            { defaultValue: 'Not connected' },
+                          )}
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  data-mol-id={isConnected ? 'connected-app-disconnect' : 'connected-app-connect'}
+                  onClick={() => toggleIntegration(row.key, label)}
+                  className={cm.cn(
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'rounded-lg border border-outline text-on-surface-variant hover:text-on-surface hover:border-primary transition-colors',
+                  )}
+                >
+                  {isConnected
+                    ? t('nosh.settings.connected.disconnect', {}, { defaultValue: 'Disconnect' })
+                    : t('nosh.settings.connected.connect', {}, { defaultValue: 'Connect' })}
+                </button>
+              </li>
+            )
+          })}
+        </ul>
       </section>
 
       <section
