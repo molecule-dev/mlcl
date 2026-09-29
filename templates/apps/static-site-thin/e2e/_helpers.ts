@@ -141,7 +141,13 @@ export const FIRST_POST: SamplePost = POSTS[0]!
 /** The newest published post that carries a tag. */
 export const TAGGED_POST: SamplePost = POSTS.find((p) => p.tags.length > 0) ?? FIRST_POST
 
-/** A draft, or null when the content has none — it must never be reachable. */
+/**
+ * A draft, or null when the content has none — it must never be reachable.
+ * With no draft in the content the draft checks SKIP, which is correct: the
+ * build's own test (src/__tests__/build.test.ts) covers drafts with a fixture of
+ * its own. Never mark one of the user's real posts `draft: true` to give these
+ * checks a subject — that hides the post from the site.
+ */
 export const DRAFT: SamplePost | null = ALL_POSTS.find((p) => p.draft) ?? null
 
 /** Distinct tags across the published posts. */

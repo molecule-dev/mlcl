@@ -71,13 +71,22 @@ describe('buildSite on the template content', () => {
   })
 
   it('never publishes a draft', async () => {
+    // Its own draft, not one from content/: the sample draft is deleted with the
+    // other samples, and a planner then marked one of the user's REAL posts
+    // draft "so the path has a real subject" — hiding it from the site (X0 x422,
+    // 2026-09-29).
+    const root = appWith({
+      'a-real-post.md':
+        '---\ntitle: A real post\ndate: 2026-01-02\ndescription: A post.\n---\n\nPublished.\n',
+      'not-yet.md':
+        '---\ntitle: Not yet\ndate: 2026-01-03\ndescription: A draft.\ndraft: true\n---\n\nUnfinished.\n',
+    })
     const outDir = mkdtempSync(join(tmpdir(), 'thin-dist-'))
-    const { files, posts } = await buildSite({ root: APP, outDir })
+    const { files, posts } = await buildSite({ root, outDir })
     expect(posts.some((p) => p.frontMatter.draft === true)).toBe(false)
-    expect(files.some((f) => f.includes('unfinished-thoughts-on-editors'))).toBe(false)
-    expect(readFileSync(join(outDir, 'feed.xml'), 'utf8')).not.toContain(
-      'unfinished-thoughts-on-editors',
-    )
+    expect(files.some((f) => f.includes('not-yet'))).toBe(false)
+    expect(files.some((f) => f.includes('a-real-post'))).toBe(true)
+    expect(readFileSync(join(outDir, 'feed.xml'), 'utf8')).not.toContain('not-yet')
   })
 })
 
