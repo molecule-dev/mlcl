@@ -1,44 +1,48 @@
 :root {
   /* === @theme bridge — fed into ClassMap via index.css @theme block === */
-  --mol-color-primary: #00695c;
-  --mol-color-primary-light: #26a69a;
-  --mol-color-secondary: #455a64;
-  --mol-color-background: #f4f7f6;
-  --mol-color-text: #1c2b2a;
-  --mol-color-text-secondary: #4f6462;
-  --mol-color-text-tertiary: #5d7371;
-  --mol-color-border: #dce5e3;
+  /* Switchboard Stitch palette (design-ai-hotel-receptionist-*.html): warm
+     ivory paper, near-black ink primary, bronze-gold secondary, green
+     tertiary. Every authed surface reads from these tokens. */
+  --mol-color-primary: #040910;
+  --mol-color-primary-light: #40474f;
+  --mol-color-secondary: #7b581e;
+  --mol-color-background: #fbf9f5;
+  --mol-color-text: #1b1c1a;
+  --mol-color-text-secondary: #44474b;
+  --mol-color-text-tertiary: #75777b;
+  --mol-color-border: #e4e2de;
 
-  --color-primary: #00695c;
-  --color-primary-container: #004d43;
+  --color-primary: #040910;
+  --color-primary-container: #1a2128;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #a5f1e5;
-  --color-primary-light: #26a69a;
-  --color-primary-dark: #004d43;
-  --color-secondary: #455a64;
-  --color-secondary-light: #78909c;
-  --color-background: #f4f7f6;
+  --color-on-primary-container: #dce3ed;
+  --color-primary-light: #40474f;
+  --color-primary-dark: #000305;
+  --color-secondary: #7b581e;
+  --color-secondary-light: #edbf7a;
+  --color-background: #fbf9f5;
   --color-surface: #ffffff;
-  --color-surface-hover: #f0f5f4;
-  --color-text: #1c2b2a;
-  --color-text-secondary: #4f6462;
-  --color-text-muted: #5d7371;
-  --color-border: #dce5e3;
-  --color-error: #c62828;
-  --color-success: #2e7d32;
-  --color-star: #f59e0b;
-  /* Amber accent — mirrors the dark-mode value so the hero eyebrow and the
-     hero's bg-accent glow blob render on light mode too (WAVE-3 contrast fix:
-     the hero is dark teal, so its accent text must be light, never the
-     base.css tertiary default which mixes to dark slate). */
-  --color-accent: #fbbf24;
-  --color-accent-strong: #fcd34d;
+  --color-surface-hover: #f5f3ef;
+  --color-text: #1b1c1a;
+  --color-text-secondary: #44474b;
+  --color-text-muted: #75777b;
+  --color-border: #e4e2de;
+  --color-error: #ba1a1a;
+  --color-success: #2d4d40;
+  --color-star: #b7791f;
+  /* Gold accent — the design's bronze/gold pair. `accent` is the chip/fill
+     tone (secondary-container), `accent-strong` is TEXT on an accent tint
+     (on-secondary-container bronze), `accent-ink` is TEXT on a SOLID gold
+     fill (on-secondary-fixed). */
+  --color-accent: #ffd08a;
+  --color-accent-strong: #79571d;
+  --color-accent-ink: #281800;
 
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  /* Headline font — picked up by shared molecule pages
-     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
-  --font-headline: 'Arimo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Headline font — the design's Newsreader serif, also picked up by shared
+     molecule pages (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-family-heading: 'Newsreader', Georgia, 'Times New Roman', serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -52,81 +56,136 @@
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
 
-  --radius-sm: 0.25rem;
+  --radius-sm: 0.125rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-sm: 0 1px 2px rgba(26, 33, 40, 0.05);
+  --shadow-md: 0 2px 8px -2px rgba(26, 33, 40, 0.08);
+  --shadow-lg: 0 4px 16px -4px rgba(26, 33, 40, 0.12);
+
+  /* === Full Stitch / Material-3 token set (light) — the design's own
+     palette, so `bg-surface-container-lowest`, `text-on-surface-variant`,
+     `border-outline-variant`, gold `bg-secondary/10` tints etc. all resolve
+     exactly as the Stitch files do. === */
+  --color-on-background: #1b1c1a;
+  --color-surface-bright: #fbf9f5;
+  --color-surface-dim: #dbdad6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f3ef;
+  --color-surface-container: #efeeea;
+  --color-surface-container-high: #eae8e4;
+  --color-surface-container-highest: #e4e2de;
+  --color-surface-variant: #e4e2de;
+  --color-on-surface: #1b1c1a;
+  --color-on-surface-variant: #44474b;
+  --color-inverse-surface: #30312e;
+  --color-inverse-on-surface: #f2f0ed;
+  --color-inverse-primary: #c0c7d1;
+  --color-primary-fixed: #dce3ed;
+  --color-primary-fixed-dim: #c0c7d1;
+  --color-on-primary-fixed: #151c23;
+  --color-on-primary-fixed-variant: #40474f;
+  --color-secondary-container: #ffd08a;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #79571d;
+  --color-secondary-fixed: #ffddb0;
+  --color-secondary-fixed-dim: #edbf7a;
+  --color-on-secondary-fixed: #281800;
+  --color-on-secondary-fixed-variant: #604106;
+  --color-tertiary: #000c07;
+  --color-tertiary-container: #03261b;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #6d8f80;
+  --color-tertiary-fixed: #c6ebd9;
+  --color-on-tertiary-fixed: #002116;
+  --color-tertiary-fixed-dim: #abcebe;
+  --color-on-tertiary-fixed-variant: #2d4d40;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-outline: #75777b;
+  --color-outline-variant: #c5c6cb;
+  --color-surface-tint: #585f67;
 }
 
-/* Dark mode — night-desk teal. Ops tone: cool near-black surfaces with a
-   faint teal cast (the front desk at 2 a.m.), brand teal brightened for
-   hero CTAs so white text keeps its light-on-teal character.
-   `--color-on-primary` STAYS white in both modes. */
+/* Dark mode — the night desk. Ink-and-slate chrome (the design's dark
+   header sits on `primary-container` #1a2128), bronze-gold accents
+   brightened to `secondary-fixed-dim`, green kept for "lines operational"
+   dots. `--color-on-primary` flips to ink because `primary` itself flips to
+   pale slate — M3 contrast (the landing hero is landing-scoped and keeps
+   its own pinned palette in both modes). */
 [data-mol-mode='dark'] {
   /* === @theme bridge dark overrides === */
-  --mol-color-primary: #26a69a;
-  --mol-color-primary-light: #4db6ac;
-  --mol-color-secondary: #90a4ae;
-  --mol-color-background: #0c1413;
-  --mol-color-text: #e5efed;
-  --mol-color-text-secondary: #b2c4c1;
-  --mol-color-border: #1f2e2c;
+  --mol-color-primary: #c0c7d1;
+  --mol-color-primary-light: #dce3ed;
+  --mol-color-secondary: #edbf7a;
+  --mol-color-background: #0f1216;
+  --mol-color-text: #e8e6e1;
+  --mol-color-text-secondary: #c0c7d1;
+  --mol-color-border: #2a313a;
 
-  --color-primary: #26a69a;
-  --color-primary-light: #4db6ac;
-  --color-primary-dark: #004d43;
-  --color-secondary: #90a4ae;
-  --color-secondary-light: #b0bec5;
-  --color-accent: #fbbf24;
-  --color-accent-strong: #fcd34d;
-  --color-background: #0c1413;
-  --color-surface: #12201e;
-  --color-surface-hover: #182927;
-  --color-text: #e5efed;
-  --color-text-secondary: #b2c4c1;
-  --color-text-muted: #93a8a5;
-  --color-border: #1f2e2c;
-  --color-error: #f87171;
-  --color-success: #4ade80;
+  --color-primary: #c0c7d1;
+  --color-primary-light: #dce3ed;
+  --color-primary-dark: #8b929c;
+  --color-secondary: #edbf7a;
+  --color-secondary-light: #ffddb0;
+  --color-accent: #5c4415;
+  --color-accent-strong: #ffd08a;
+  --color-accent-ink: #ffddb0;
+  --color-background: #0f1216;
+  --color-surface: #151920;
+  --color-surface-hover: #1b212a;
+  --color-text: #e8e6e1;
+  --color-text-secondary: #c0c7d1;
+  --color-text-muted: #8b929c;
+  --color-border: #2a313a;
+  --color-error: #ffb4ab;
+  --color-success: #abcebe;
   --color-star: #fbbf24;
 
-  /* Stitch / Material-3 token dark variants — override the @theme block
-     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
-     CTA buttons keep white text on teal: `on-primary` stays white. */
-  --color-on-background: #e5efed;
-  --color-surface-bright: #182927;
-  --color-surface-dim: #08100f;
-  --color-surface-container-lowest: #060d0c;
-  --color-surface-container-low: #101c1a;
-  --color-surface-container: #12201e;
-  --color-surface-container-high: #182927;
-  --color-surface-container-highest: #1f302e;
-  --color-surface-variant: #182927;
-  --color-on-surface: #e5efed;
-  --color-on-surface-variant: #b2c4c1;
-  --color-inverse-surface: #e5efed;
-  --color-inverse-on-surface: #12201e;
-  --color-inverse-primary: #00695c;
-  --color-primary-container: #00352f;
-  --color-on-primary: #ffffff;
-  --color-on-primary-container: #a5f1e5;
-  --color-secondary-container: #263238;
-  --color-on-secondary: #e5efed;
-  --color-on-secondary-container: #cfd8dc;
-  --color-tertiary: #fbbf24;
-  --color-tertiary-container: #4a3506;
-  --color-on-tertiary: #1a1208;
-  --color-on-tertiary-container: #fde9b8;
-  --color-error: #f87171;
-  --color-error-container: #5a1818;
-  --color-on-error: #690005;
+  /* Stitch / Material-3 token dark variants — override the light block so
+     `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly. */
+  --color-on-background: #e8e6e1;
+  --color-surface-bright: #1b212a;
+  --color-surface-dim: #090b0e;
+  --color-surface-container-lowest: #0c0f13;
+  --color-surface-container-low: #14181e;
+  --color-surface-container: #181d24;
+  --color-surface-container-high: #1f252e;
+  --color-surface-container-highest: #262d37;
+  --color-surface-variant: #1f252e;
+  --color-on-surface: #e8e6e1;
+  --color-on-surface-variant: #c0c7d1;
+  --color-inverse-surface: #e8e6e1;
+  --color-inverse-on-surface: #181d24;
+  --color-inverse-primary: #1a2128;
+  --color-primary-container: #2c343f;
+  --color-on-primary: #151c23;
+  --color-on-primary-container: #dce3ed;
+  --color-primary-fixed: #dce3ed;
+  --color-primary-fixed-dim: #c0c7d1;
+  --color-on-primary-fixed: #151c23;
+  --color-on-primary-fixed-variant: #dce3ed;
+  --color-secondary-container: #5c4415;
+  --color-on-secondary: #281800;
+  --color-on-secondary-container: #ffd08a;
+  --color-secondary-fixed: #ffddb0;
+  --color-secondary-fixed-dim: #edbf7a;
+  --color-on-secondary-fixed: #281800;
+  --color-on-secondary-fixed-variant: #edbf7a;
+  --color-tertiary: #c6ebd9;
+  --color-tertiary-container: #10382b;
+  --color-on-tertiary: #002116;
+  --color-on-tertiary-container: #abcebe;
+  --color-tertiary-fixed: #c6ebd9;
+  --color-on-tertiary-fixed: #002116;
+  --color-tertiary-fixed-dim: #abcebe;
+  --color-on-tertiary-fixed-variant: #c6ebd9;
+  --color-error-container: #93000a;
   --color-on-error-container: #ffdad6;
-  --color-outline: #748980;
-  --color-outline-variant: #1f2e2c;
-  --color-surface-tint: #4db6ac;
+  --color-outline: #8b929c;
+  --color-outline-variant: #2a313a;
+  --color-surface-tint: #c0c7d1;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.55);

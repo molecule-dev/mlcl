@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { formatDate, formatDuration, languageLabel } from '../lib/format.js'
+import { formatDate, formatDuration, formatTime, languageLabel } from '../lib/format.js'
 import { unwrapSingle } from '../lib/unwrap.js'
 
 interface DashboardPayload {
@@ -48,6 +48,14 @@ const STATUS_TONES: Record<string, string> = {
   occupied: 'bg-primary/10 text-primary',
   cleaning: 'bg-accent/15 text-accent-strong',
   out_of_order: 'bg-error/10 text-error',
+}
+
+/** Status tile icons — the design's bento glyph per room state. */
+const STATUS_ICONS: Record<string, string> = {
+  vacant_clean: 'meeting_room',
+  occupied: 'hotel',
+  cleaning: 'cleaning_services',
+  out_of_order: 'build_circle',
 }
 
 export function Dashboard() {
@@ -99,7 +107,7 @@ export function Dashboard() {
           cm.sp('mx', 6),
           cm.sp('px', 4),
           cm.sp('py', 3),
-          'rounded-xl bg-error/10 text-error border border-error/30 inline-block',
+          'rounded-lg bg-error/10 text-error border border-error/30 inline-block',
         )}
       >
         {error}
@@ -116,15 +124,37 @@ export function Dashboard() {
 
   return (
     <div className={cm.cn(cm.maxW('6xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
-      <div className={cm.flex({ align: 'center', justify: 'between', wrap: 'wrap' })}>
+      {/* Ledger hero — audit-console eyebrow, serif headline, dark action */}
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' }),
+          'border-b border-outline-variant/60 pb-6',
+        )}
+      >
         <div>
+          <p
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }),
+              cm.textSize('xs'),
+              cm.fontWeight('semibold'),
+              'uppercase tracking-wider',
+            )}
+          >
+            <span className="text-secondary">
+              {t('dashboard.eyebrow', {}, { defaultValue: 'Autonomous concierge & audit console' })}
+            </span>
+            <span className="text-on-surface-variant" aria-hidden="true">
+              •
+            </span>
+            <span className="text-on-surface-variant">{formatDate(data.today)}</span>
+          </p>
           <h1
-            className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}
+            className={cm.cn('sb-serif mt-1 text-3xl font-normal tracking-tight text-primary')}
             data-mol-id="dashboard-heading"
           >
             {t('dashboard.heading', {}, { defaultValue: 'Today at the front desk' })}
           </h1>
-          <p className={cm.cn(cm.sp('mt', 1), 'text-on-surface-variant')}>
+          <p className={cm.cn(cm.sp('mt', 1), cm.textSize('sm'), 'text-on-surface-variant')}>
             {t(
               'dashboard.subheading',
               { date: formatDate(data.today) },
@@ -136,34 +166,61 @@ export function Dashboard() {
           to="/simulator"
           data-mol-id="dashboard-simulator-link"
           className={cm.cn(
+            cm.flex({ align: 'center', gap: 'sm' }),
             cm.sp('px', 5),
             cm.sp('py', 3),
-            cm.fontWeight('bold'),
-            'rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-colors shadow-lg',
+            cm.textSize('sm'),
+            cm.fontWeight('semibold'),
+            'rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-colors sb-card-shadow',
           )}
         >
-          {t('dashboard.openSimulator', {}, { defaultValue: 'Answer a simulated call' })}
+          <span className="sb-icon flex h-4 w-4 items-center justify-center" aria-hidden="true">
+            <span className="material-symbols-outlined">headset_mic</span>
+          </span>
+          <span>
+            {t('dashboard.openSimulator', {}, { defaultValue: 'Answer a simulated call' })}
+          </span>
         </Link>
       </div>
 
-      {/* Status tiles */}
+      {/* Status tiles — the design's bento metric cards */}
       <div className={cm.cn(cm.sp('mt', 6), 'grid grid-cols-2 sm:grid-cols-4 gap-4')}>
         {statusTiles.map((tile) => (
           <div
             key={tile.status}
             data-mol-id={'dashboard-tile-' + tile.status}
-            className={cm.cn(cm.sp('p', 4), 'rounded-2xl bg-surface border border-outline-variant')}
+            className="sb-card-shadow rounded-lg border border-outline-variant/60 bg-surface-container-lowest p-4"
           >
-            <p
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                'uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
-              {t('roomStatus.' + tile.status, {}, { defaultValue: tile.status.replace(/_/g, ' ') })}
-            </p>
-            <p className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), cm.sp('mt', 1))}>
+            <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'xs' }))}>
+              <p
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('semibold'),
+                  'uppercase tracking-wider text-on-surface-variant',
+                )}
+              >
+                {t(
+                  'roomStatus.' + tile.status,
+                  {},
+                  { defaultValue: tile.status.replace(/_/g, ' ') },
+                )}
+              </p>
+              <span
+                className={cm.cn(
+                  cm.sp('p', 2),
+                  'flex h-8 w-8 items-center justify-center rounded bg-surface-container',
+                  STATUS_TONES[tile.status] ?? 'bg-surface-container text-on-surface',
+                )}
+                aria-hidden="true"
+              >
+                <span className="sb-icon flex h-4 w-4 items-center justify-center">
+                  <span className="material-symbols-outlined">
+                    {STATUS_ICONS[tile.status] ?? 'meeting_room'}
+                  </span>
+                </span>
+              </span>
+            </div>
+            <p className={cm.cn('sb-serif mt-2 text-3xl font-medium tracking-tight text-primary')}>
               {tile.count}
             </p>
           </div>
@@ -174,19 +231,31 @@ export function Dashboard() {
       <section
         data-mol-id="dashboard-occupancy"
         className={cm.cn(
-          cm.sp('mt', 6),
+          cm.sp('mt', 4),
           cm.sp('p', 6),
-          'rounded-2xl bg-surface border border-outline-variant',
+          'rounded-lg border border-outline-variant/60 bg-surface-container-lowest sb-card-shadow',
         )}
         aria-label={t('dashboard.occupancyLabel', {}, { defaultValue: 'Occupancy' })}
       >
-        <div className={cm.flex({ align: 'center', justify: 'between' })}>
-          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+        <div className={cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' })}>
+          <h2
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              cm.textSize('lg'),
+              'sb-serif font-medium text-primary',
+            )}
+          >
+            <span
+              className="sb-icon flex h-5 w-5 items-center justify-center text-secondary"
+              aria-hidden="true"
+            >
+              <span className="material-symbols-outlined">door_sliding</span>
+            </span>
             {t('dashboard.occupancy', {}, { defaultValue: 'Occupancy' })}
           </h2>
           <p
             data-mol-id="dashboard-occupancy-value"
-            className={cm.cn(cm.fontWeight('bold'), 'text-primary')}
+            className={cm.cn(cm.fontWeight('bold'), 'font-mono text-primary')}
           >
             {t(
               'dashboard.occupancyOf',
@@ -202,10 +271,7 @@ export function Dashboard() {
           </p>
         </div>
         <div
-          className={cm.cn(
-            cm.sp('mt', 3),
-            'h-3 rounded-full bg-surface-container-high overflow-hidden',
-          )}
+          className={cm.cn(cm.sp('mt', 3), 'h-1.5 rounded-full bg-surface-variant overflow-hidden')}
           role="progressbar"
           aria-valuenow={data.occupancy.percent}
           aria-valuemin={0}
@@ -218,18 +284,33 @@ export function Dashboard() {
         </div>
       </section>
 
-      <div className={cm.cn(cm.sp('mt', 6), 'grid grid-cols-1 lg:grid-cols-2 gap-6')}>
+      <div className={cm.cn(cm.sp('mt', 4), 'grid grid-cols-1 lg:grid-cols-2 gap-4')}>
         {/* Arrivals */}
         <section
           data-mol-id="dashboard-arrivals"
-          className={cm.cn(cm.sp('p', 6), 'rounded-2xl bg-surface border border-outline-variant')}
+          className={cm.cn(
+            cm.sp('p', 6),
+            'rounded-lg border border-outline-variant/60 bg-surface-container-lowest sb-card-shadow',
+          )}
           aria-label={t('dashboard.arrivalsLabel', {}, { defaultValue: 'Today\u2019s arrivals' })}
         >
-          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+          <h2
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              cm.textSize('lg'),
+              'sb-serif font-medium text-primary',
+            )}
+          >
+            <span
+              className="sb-icon flex h-5 w-5 items-center justify-center text-secondary"
+              aria-hidden="true"
+            >
+              <span className="material-symbols-outlined">luggage</span>
+            </span>
             {t('dashboard.arrivals', {}, { defaultValue: 'Arrivals today' })} (
             {data.arrivals.length})
           </h2>
-          <ul className={cm.cn(cm.sp('mt', 3), cm.flex({ direction: 'col', gap: 'sm' }))}>
+          <ul className={cm.cn(cm.sp('mt', 3), cm.flex({ direction: 'col', gap: 'xs' }))}>
             {data.arrivals.length === 0 ? (
               <li className={cm.textSize('sm') + ' text-on-surface-variant'}>
                 {t(
@@ -240,15 +321,23 @@ export function Dashboard() {
               </li>
             ) : (
               data.arrivals.map((r) => (
-                <li key={r.id} className={cm.flex({ align: 'center', justify: 'between' })}>
+                <li
+                  key={r.id}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' }),
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    'rounded border border-outline-variant/40 bg-surface-bright',
+                  )}
+                >
                   <Link
                     to={'/reservations/' + r.id}
                     data-mol-id={'dashboard-arrival-' + r.confirmation_code}
-                    className="-my-2 inline-block py-2 font-semibold text-primary hover:underline"
+                    className="-my-2 inline-block py-2 font-semibold text-primary hover:text-secondary hover:underline transition-colors"
                   >
                     {r.guest_name}
                   </Link>
-                  <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                  <span className={cm.cn(cm.textSize('xs'), 'font-mono text-on-surface-variant')}>
                     {r.guests} {t('common.guestsShort', {}, { defaultValue: 'guests' })} ·{' '}
                     {r.confirmation_code}
                   </span>
@@ -261,18 +350,33 @@ export function Dashboard() {
         {/* Departures */}
         <section
           data-mol-id="dashboard-departures"
-          className={cm.cn(cm.sp('p', 6), 'rounded-2xl bg-surface border border-outline-variant')}
+          className={cm.cn(
+            cm.sp('p', 6),
+            'rounded-lg border border-outline-variant/60 bg-surface-container-lowest sb-card-shadow',
+          )}
           aria-label={t(
             'dashboard.departuresLabel',
             {},
             { defaultValue: 'Today\u2019s departures' },
           )}
         >
-          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+          <h2
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              cm.textSize('lg'),
+              'sb-serif font-medium text-primary',
+            )}
+          >
+            <span
+              className="sb-icon flex h-5 w-5 items-center justify-center text-on-surface-variant"
+              aria-hidden="true"
+            >
+              <span className="material-symbols-outlined">flight_takeoff</span>
+            </span>
             {t('dashboard.departures', {}, { defaultValue: 'Departures today' })} (
             {data.departures.length})
           </h2>
-          <ul className={cm.cn(cm.sp('mt', 3), cm.flex({ direction: 'col', gap: 'sm' }))}>
+          <ul className={cm.cn(cm.sp('mt', 3), cm.flex({ direction: 'col', gap: 'xs' }))}>
             {data.departures.length === 0 ? (
               <li className={cm.textSize('sm') + ' text-on-surface-variant'}>
                 {t(
@@ -283,15 +387,23 @@ export function Dashboard() {
               </li>
             ) : (
               data.departures.map((r) => (
-                <li key={r.id} className={cm.flex({ align: 'center', justify: 'between' })}>
+                <li
+                  key={r.id}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' }),
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    'rounded border border-outline-variant/40 bg-surface-bright',
+                  )}
+                >
                   <Link
                     to={'/reservations/' + r.id}
                     data-mol-id={'dashboard-departure-' + r.confirmation_code}
-                    className="-my-2 inline-block py-2 font-semibold text-primary hover:underline"
+                    className="-my-2 inline-block py-2 font-semibold text-primary hover:text-secondary hover:underline transition-colors"
                   >
                     {r.guest_name}
                   </Link>
-                  <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                  <span className={cm.cn(cm.textSize('xs'), 'font-mono text-on-surface-variant')}>
                     {r.confirmation_code}
                   </span>
                 </li>
@@ -305,17 +417,29 @@ export function Dashboard() {
       <section
         data-mol-id="dashboard-room-board"
         className={cm.cn(
-          cm.sp('mt', 6),
+          cm.sp('mt', 4),
           cm.sp('p', 6),
-          'rounded-2xl bg-surface border border-outline-variant',
+          'rounded-lg border border-outline-variant/60 bg-surface-container-lowest sb-card-shadow',
         )}
         aria-label={t('dashboard.roomBoardLabel', {}, { defaultValue: 'Room status board' })}
       >
-        <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+        <h2
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'sm' }),
+            cm.textSize('lg'),
+            'sb-serif font-medium text-primary',
+          )}
+        >
+          <span
+            className="sb-icon flex h-5 w-5 items-center justify-center text-on-surface-variant"
+            aria-hidden="true"
+          >
+            <span className="material-symbols-outlined">grid_view</span>
+          </span>
           {t('dashboard.roomBoard', {}, { defaultValue: 'Room board' })}
         </h2>
         <ul
-          className={cm.cn(cm.sp('mt', 3), cm.flex({ direction: 'row', gap: 'sm', wrap: 'wrap' }))}
+          className={cm.cn(cm.sp('mt', 3), cm.flex({ direction: 'row', gap: 'xs', wrap: 'wrap' }))}
         >
           {data.rooms.map((room) => (
             <li key={room.id}>
@@ -326,8 +450,8 @@ export function Dashboard() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  cm.fontWeight('bold'),
-                  'rounded-xl border border-outline-variant',
+                  cm.fontWeight('semibold'),
+                  'inline-block rounded border border-outline-variant/40 font-mono',
                   STATUS_TONES[room.status] ?? 'bg-surface-container-low text-on-surface',
                 )}
                 title={room.status.replace(/_/g, ' ')}
@@ -339,30 +463,49 @@ export function Dashboard() {
         </ul>
       </section>
 
-      {/* Recent calls */}
+      {/* Recent calls — the design's live call feed rail */}
       <section
         data-mol-id="dashboard-recent-calls"
         className={cm.cn(
-          cm.sp('mt', 6),
+          cm.sp('mt', 4),
           cm.sp('p', 6),
-          'rounded-2xl bg-surface border border-outline-variant',
+          'rounded-lg border border-outline-variant/60 bg-surface-container-lowest sb-card-shadow',
         )}
         aria-label={t('dashboard.recentCallsLabel', {}, { defaultValue: 'Recent calls' })}
       >
-        <div className={cm.flex({ align: 'center', justify: 'between' })}>
-          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+        <div className={cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' })}>
+          <h2
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              cm.textSize('lg'),
+              'sb-serif font-medium text-primary',
+            )}
+          >
+            <span
+              className={cm.cn(cm.flex({ align: 'center' }), 'h-2.5 w-2.5 shrink-0')}
+              aria-hidden="true"
+            >
+              <span className="h-2.5 w-2.5 rounded-full bg-success" />
+            </span>
             {t('dashboard.recentCalls', {}, { defaultValue: 'Recent calls' })}
           </h2>
           <Link
             to="/calls"
             data-mol-id="dashboard-all-calls-link"
             className={cm.cn(
-              cm.textSize('sm'),
+              cm.flex({ align: 'center', gap: 'xs' }),
+              cm.textSize('xs'),
               cm.fontWeight('semibold'),
-              '-my-2 inline-block py-2 text-primary hover:underline',
+              'uppercase tracking-wider text-secondary hover:text-primary transition-colors -my-2 inline-flex py-2',
             )}
           >
             {t('dashboard.viewAllCalls', {}, { defaultValue: 'View all calls' })}
+            <span
+              className="sb-icon flex h-3.5 w-3.5 items-center justify-center"
+              aria-hidden="true"
+            >
+              <span className="material-symbols-outlined">arrow_forward</span>
+            </span>
           </Link>
         </div>
         <ul className={cm.cn(cm.sp('mt', 3), cm.flex({ direction: 'col', gap: 'sm' }))}>
@@ -376,19 +519,41 @@ export function Dashboard() {
             </li>
           ) : (
             data.recent_calls.map((c) => (
-              <li key={c.id} className={cm.flex({ align: 'center', justify: 'between' })}>
-                <Link
-                  to={'/calls/' + c.id}
-                  data-mol-id={'dashboard-call-' + c.id}
-                  className="-my-2 inline-block py-2 font-semibold text-primary hover:underline"
-                >
-                  {c.voice_agent_name ??
-                    t('common.voiceAgent', {}, { defaultValue: 'Voice agent' })}
-                </Link>
-                <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                  {languageLabel(c.detected_language)} · {formatDuration(c.duration_seconds)} ·{' '}
+              <li
+                key={c.id}
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' }),
+                  cm.sp('px', 3),
+                  cm.sp('py', 2),
+                  'rounded border border-outline-variant/40 bg-surface-container-low',
+                )}
+              >
+                <span className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                  {c.detected_language ? (
+                    <span
+                      className={cm.cn(
+                        cm.sp('px', 2),
+                        cm.sp('py', 1),
+                        'rounded border border-outline-variant/50 bg-surface font-mono text-xs font-bold text-primary',
+                      )}
+                    >
+                      {c.detected_language.toUpperCase()}
+                    </span>
+                  ) : null}
+                  <Link
+                    to={'/calls/' + c.id}
+                    data-mol-id={'dashboard-call-' + c.id}
+                    className="-my-2 inline-block py-2 font-semibold text-primary hover:text-secondary hover:underline transition-colors"
+                  >
+                    {c.voice_agent_name ??
+                      t('common.voiceAgent', {}, { defaultValue: 'Voice agent' })}
+                  </Link>
+                </span>
+                <span className={cm.cn(cm.textSize('xs'), 'font-mono text-on-surface-variant')}>
+                  {formatTime(c.started_at)} · {formatDuration(c.duration_seconds)} ·{' '}
                   {c.outcome ?? t('callOutcome.inProgress', {}, { defaultValue: 'in progress' })}
                 </span>
+                <span className="sr-only">{languageLabel(c.detected_language)}</span>
               </li>
             ))
           )}

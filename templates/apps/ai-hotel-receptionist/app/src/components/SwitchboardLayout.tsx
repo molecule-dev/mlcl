@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -100,9 +100,13 @@ export function SwitchboardLayout() {
     )
   })
 
+  // Brand lockup — the ONE shared brand component (concierge tile + serif
+  // wordmark). Used by the mobile top bar and the drawer header; the desktop
+  // sidebar carries the same mark below (only one mounts per breakpoint, so
+  // the brand never duplicates in the DOM — same rule as the nav items).
   const brand = (
-    <Link to={safeTarget('/dashboard')} className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
-      {APP_NAME}
+    <Link to={safeTarget('/dashboard')} className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+      <BrandWordmark as="span" size="md" />
     </Link>
   )
 
@@ -138,14 +142,9 @@ export function SwitchboardLayout() {
       >
         <Link
           to={safeTarget('/dashboard')}
-          className={cm.cn(
-            cm.textSize('xl'),
-            cm.fontWeight('bold'),
-            cm.sp('mb', 6),
-            cm.displayBlock,
-          )}
+          className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 6))}
         >
-          {APP_NAME}
+          <BrandWordmark as="span" size="md" />
         </Link>
         {navItems}
       </ResponsiveAppShell.Sidebar>

@@ -41,38 +41,90 @@ export function Account() {
     }
   }, [http, t])
 
-  const rows: Array<{ label: string; value: string | null }> = self
+  const rows: Array<{ label: string; value: string | null; icon: string; mono?: boolean }> = self
     ? [
-        { label: t('account.email', {}, { defaultValue: 'Email' }), value: self.email },
+        {
+          label: t('account.email', {}, { defaultValue: 'Email' }),
+          value: self.email,
+          icon: 'mail',
+          mono: true,
+        },
         {
           label: t('account.name', {}, { defaultValue: 'Name' }),
           value: self.name ?? self.username,
+          icon: 'person',
         },
         {
           label: t('account.username', {}, { defaultValue: 'Username' }),
           value: self.username,
+          icon: 'badge',
+          mono: true,
         },
       ]
     : []
 
+  const displayName = self?.name ?? self?.username ?? '—'
+  const initials = /^[\p{L}]/u.test(displayName)
+    ? displayName
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean)
+        .slice(0, 2)
+        .map((p) => p[0]!.toUpperCase())
+        .join('')
+    : 'S'
+
   return (
     <div className={cm.cn(cm.maxW('3xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
-      <h1
-        className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}
-        data-mol-id="account-heading"
-      >
-        {t('account.heading', {}, { defaultValue: 'Your account' })}
-      </h1>
-      <p className={cm.cn(cm.sp('mt', 2), 'text-on-surface-variant')}>
-        {t(
-          'account.subheading',
-          {},
-          {
-            defaultValue:
-              'Front desk sign-in details and devices. Manage passwords and sessions from the menu.',
-          },
-        )}
-      </p>
+      {/* Header strip — eyebrow ledger trail, serif headline */}
+      <div className="border-b border-outline-variant/60 pb-6">
+        <p
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.textSize('xs'),
+            cm.fontWeight('semibold'),
+            'uppercase tracking-wider text-on-surface-variant',
+          )}
+        >
+          <span>{t('account.eyebrow', {}, { defaultValue: 'Switchboard autonomous ledger' })}</span>
+          <span className="sb-icon flex h-3 w-3 items-center justify-center" aria-hidden="true">
+            <span className="material-symbols-outlined">chevron_right</span>
+          </span>
+          <span className="text-secondary">
+            {t('account.eyebrowSegment', {}, { defaultValue: 'Operator account' })}
+          </span>
+        </p>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), cm.sp('mt', 2))}>
+          <span
+            aria-hidden="true"
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'h-12 w-12 shrink-0 rounded-lg bg-primary text-on-primary',
+              'sb-serif text-lg',
+            )}
+          >
+            {self === null ? '—' : initials}
+          </span>
+          <div>
+            <h1
+              className={cm.cn('sb-serif text-3xl font-normal tracking-tight text-primary')}
+              data-mol-id="account-heading"
+            >
+              {t('account.heading', {}, { defaultValue: 'Your account' })}
+            </h1>
+            <p className={cm.cn(cm.sp('mt', 0.5), cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'account.subheading',
+                {},
+                {
+                  defaultValue:
+                    'Front desk sign-in details and devices. Manage passwords and sessions from the menu.',
+                },
+              )}
+            </p>
+          </div>
+        </div>
+      </div>
 
       {loading ? (
         <p
@@ -88,35 +140,87 @@ export function Account() {
             cm.sp('mt', 6),
             cm.sp('px', 4),
             cm.sp('py', 3),
-            'rounded-xl bg-error/10 text-error border border-error/30',
+            'rounded-lg bg-error/10 text-error border border-error/30',
           )}
         >
           {error}
         </p>
       ) : (
-        <dl
+        <section
           className={cm.cn(
             cm.sp('mt', 6),
-            cm.flex({ direction: 'col', gap: 'sm' }),
-            'rounded-2xl bg-surface border border-outline-variant',
-            cm.sp('p', 6),
+            cm.sp('p', 5),
+            'sb-card-shadow rounded-lg border border-outline-variant/50 bg-surface-container-lowest',
           )}
+          aria-label={t('account.profileLabel', {}, { defaultValue: 'Operator profile' })}
         >
-          {rows.map((row) => (
-            <div key={row.label} className={cm.flex({ align: 'center', justify: 'between' })}>
-              <dt
-                className={cm.cn(
-                  cm.textSize('sm'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-on-surface-variant',
-                )}
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              cm.sp('mb', 4),
+              cm.sp('pb', 3),
+              'border-b border-outline-variant/40',
+            )}
+          >
+            <h2
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                'sb-serif text-lg font-medium text-primary',
+              )}
+            >
+              <span
+                className="sb-icon flex h-5 w-5 items-center justify-center text-secondary"
+                aria-hidden="true"
               >
-                {row.label}
-              </dt>
-              <dd data-mol-id={'account-field-' + row.label.toLowerCase()}>{row.value ?? '—'}</dd>
-            </div>
-          ))}
-        </dl>
+                <span className="material-symbols-outlined">account_circle</span>
+              </span>
+              {t('account.profile', {}, { defaultValue: 'Operator profile' })}
+            </h2>
+            <span
+              className={cm.cn(
+                cm.sp('px', 2),
+                cm.sp('py', 0.5),
+                cm.textSize('xs'),
+                cm.fontWeight('semibold'),
+                'rounded border border-tertiary-fixed bg-tertiary-fixed/40 text-on-tertiary-fixed-variant',
+              )}
+            >
+              {t('account.role', {}, { defaultValue: 'Front desk' })}
+            </span>
+          </div>
+          <dl className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+            {rows.map((row) => (
+              <div key={row.label} className="flex items-center justify-between gap-4">
+                <dt
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.textSize('sm'),
+                    'text-on-surface-variant',
+                  )}
+                >
+                  <span
+                    className="sb-icon flex h-4 w-4 items-center justify-center text-secondary"
+                    aria-hidden="true"
+                  >
+                    <span className="material-symbols-outlined">{row.icon}</span>
+                  </span>
+                  {row.label}
+                </dt>
+                <dd
+                  data-mol-id={'account-field-' + row.label.toLowerCase()}
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'text-right text-primary',
+                    row.mono && 'font-mono',
+                  )}
+                >
+                  {row.value ?? '—'}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
       )}
     </div>
   )

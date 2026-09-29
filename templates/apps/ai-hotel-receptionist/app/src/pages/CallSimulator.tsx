@@ -77,6 +77,10 @@ function nextEntryId(prefix: string): string {
   return prefix + '-' + entrySeq
 }
 
+/** Decorative live-waveform bar heights (the design's dual-stem deck). */
+const WAVE_HEIGHTS = ['h-2', 'h-4', 'h-6', 'h-3', 'h-7', 'h-5', 'h-2', 'h-6', 'h-4', 'h-3']
+const WAVE_VARIANTS = ['', 'sb-wave-bar-2', 'sb-wave-bar-3', 'sb-wave-bar-4']
+
 export function CallSimulator() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -228,27 +232,58 @@ export function CallSimulator() {
   const inputClass = cm.cn(
     cm.sp('px', 4),
     cm.sp('py', 3),
-    'bg-surface-container-low rounded-xl border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors',
+    'bg-surface-bright rounded-lg border border-outline-variant/70 text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-colors',
+  )
+
+  const fieldLabelClass = cm.cn(
+    cm.textSize('xs'),
+    cm.fontWeight('semibold'),
+    'uppercase tracking-wider text-on-surface-variant',
   )
 
   return (
     <div className={cm.cn(cm.maxW('6xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
-      <h1
-        className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}
-        data-mol-id="simulator-heading"
-      >
-        {t('simulator.heading', {}, { defaultValue: 'Call Simulator' })}
-      </h1>
-      <p className={cm.cn(cm.sp('mt', 1), 'text-on-surface-variant')}>
-        {t(
-          'simulator.subheading',
-          {},
-          {
-            defaultValue:
-              'Type what a caller would say. The agent detects the language, calls its tools, and books rooms live.',
-          },
-        )}
-      </p>
+      {/* Header — sandbox-ready chip + serif headline */}
+      <div className="border-b border-outline-variant/60 pb-6">
+        <p
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }),
+            cm.textSize('xs'),
+          )}
+        >
+          <span
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              cm.sp('px', 2),
+              cm.sp('py', 1),
+              cm.fontWeight('semibold'),
+              'rounded-full border border-success/30 bg-success/10 text-success',
+            )}
+          >
+            <span
+              className="h-1.5 w-1.5 animate-pulse rounded-full bg-success"
+              aria-hidden="true"
+            />
+            {t('simulator.sandboxReady', {}, { defaultValue: 'Sandbox engine ready' })}
+          </span>
+        </p>
+        <h1
+          className={cm.cn('sb-serif mt-2 text-3xl font-normal tracking-tight text-primary')}
+          data-mol-id="simulator-heading"
+        >
+          {t('simulator.heading', {}, { defaultValue: 'Call Simulator' })}
+        </h1>
+        <p className={cm.cn(cm.sp('mt', 1), cm.textSize('sm'), 'text-on-surface-variant')}>
+          {t(
+            'simulator.subheading',
+            {},
+            {
+              defaultValue:
+                'Type what a caller would say. The agent detects the language, calls its tools, and books rooms live.',
+            },
+          )}
+        </p>
+      </div>
 
       {error ? (
         <p
@@ -257,28 +292,52 @@ export function CallSimulator() {
             cm.sp('mt', 4),
             cm.sp('px', 4),
             cm.sp('py', 3),
-            'rounded-xl bg-error/10 text-error border border-error/30',
+            'rounded-lg bg-error/10 text-error border border-error/30',
           )}
         >
           {error}
         </p>
       ) : null}
 
-      <div className={cm.cn(cm.sp('mt', 6), 'grid grid-cols-1 lg:grid-cols-2 gap-6')}>
-        {/* Phone panel */}
+      <div className={cm.cn(cm.sp('mt', 6), 'grid grid-cols-1 lg:grid-cols-12 gap-6 items-start')}>
+        {/* Configuration — the design's acoustic & persona engine card */}
         <section
-          className={cm.cn(cm.sp('p', 6), 'rounded-2xl bg-surface border border-outline-variant')}
+          className={cm.cn(
+            cm.sp('p', 6),
+            'rounded-lg border border-outline-variant/60 bg-surface-container-lowest sb-card-shadow lg:col-span-5',
+          )}
           aria-label={t('simulator.phonePanelLabel', {}, { defaultValue: 'Phone panel' })}
         >
-          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
-            <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'border-b border-outline-variant/40 pb-4',
+            )}
+          >
+            <h2
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                cm.textSize('lg'),
+                'sb-serif font-medium text-primary',
+              )}
+            >
               <span
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-on-surface-variant',
-                )}
+                className="sb-icon flex h-5 w-5 items-center justify-center text-secondary"
+                aria-hidden="true"
               >
+                <span className="material-symbols-outlined">tune</span>
+              </span>
+              {t('simulator.configTitle', {}, { defaultValue: 'Line configuration' })}
+            </h2>
+            {selectedAgent ? (
+              <span className="font-mono text-xs text-on-surface-variant">
+                {selectedAgent.phone_number}
+              </span>
+            ) : null}
+          </div>
+          <div className={cm.cn(cm.sp('mt', 4), cm.flex({ direction: 'col', gap: 'md' }))}>
+            <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+              <span className={fieldLabelClass}>
                 {t('simulator.agent', {}, { defaultValue: 'Voice agent' })}
               </span>
               <select
@@ -301,13 +360,7 @@ export function CallSimulator() {
             </label>
 
             <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-              <span
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
+              <span className={fieldLabelClass}>
                 {t('simulator.callerLanguage', {}, { defaultValue: 'Caller speaks' })}
               </span>
               <select
@@ -326,13 +379,7 @@ export function CallSimulator() {
             </label>
 
             <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-              <span
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
+              <span className={fieldLabelClass}>
                 {t('simulator.engine', {}, { defaultValue: 'Conversation engine' })}
               </span>
               <select
@@ -378,89 +425,174 @@ export function CallSimulator() {
                 data-mol-id="simulator-start"
                 onClick={() => void startCall()}
                 className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
                   cm.sp('px', 5),
                   cm.sp('py', 3),
+                  cm.textSize('sm'),
                   cm.fontWeight('bold'),
-                  'rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-colors shadow-lg disabled:opacity-60',
+                  'w-full rounded-lg bg-primary text-on-primary uppercase tracking-wider hover:bg-primary-container transition-colors sb-card-shadow disabled:opacity-60',
                 )}
               >
-                {busy
-                  ? t('simulator.dialingEllipsis', {}, { defaultValue: 'Dialing…' })
-                  : t('simulator.startCall', {}, { defaultValue: 'Start the call' })}
+                <span
+                  className="sb-icon flex h-4 w-4 items-center justify-center"
+                  aria-hidden="true"
+                >
+                  <span className="material-symbols-outlined">phone_in_talk</span>
+                </span>
+                <span>
+                  {busy
+                    ? t('simulator.dialingEllipsis', {}, { defaultValue: 'Dialing…' })
+                    : t('simulator.startCall', {}, { defaultValue: 'Start the call' })}
+                </span>
               </button>
             ) : (
-              <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }))}>
-                <span
+              <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+                {/* Live line strip — the design's dark telephony deck */}
+                <div
                   data-mol-id="simulator-call-state"
-                  className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }),
+                    cm.sp('px', 4),
+                    cm.sp('py', 3),
+                    cm.textSize('sm'),
+                    'rounded-lg bg-primary-container text-on-primary-container',
+                  )}
                 >
-                  {t('simulator.callInProgress', {}, { defaultValue: 'Line open' })}
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 'xs' }),
+                      cm.fontWeight('semibold'),
+                    )}
+                  >
+                    <span
+                      className="h-2 w-2 animate-pulse rounded-full bg-success"
+                      aria-hidden="true"
+                    />
+                    {t('simulator.callInProgress', {}, { defaultValue: 'Line open' })}
+                  </span>
+                  {detectedLanguage ? <span aria-hidden="true">·</span> : null}
                   {detectedLanguage
-                    ? ' · ' +
-                      t(
+                    ? t(
                         'simulator.detectedAs',
                         { lang: detectedLanguage },
                         { defaultValue: 'caller detected: {{lang}}' },
                       )
                     : ''}
-                  {engine ? ' · ' + engine : ''}
-                </span>
-                <button
-                  type="button"
-                  disabled={busy}
-                  data-mol-id="simulator-end-call"
-                  onClick={() => void endCall()}
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 2),
-                    cm.textSize('sm'),
-                    cm.fontWeight('bold'),
-                    'rounded-xl border border-error/40 text-error hover:bg-error/10 transition-colors disabled:opacity-60',
-                  )}
-                >
-                  {t('simulator.endCall', {}, { defaultValue: 'End call' })}
-                </button>
-                {outcome ? (
-                  <>
-                    <span
-                      data-mol-id="simulator-outcome"
-                      className={cm.cn(
-                        cm.sp('px', 3),
-                        cm.sp('py', 1),
-                        cm.textSize('xs'),
-                        cm.fontWeight('bold'),
-                        'rounded-full bg-surface-container-high uppercase tracking-widest',
-                      )}
-                    >
-                      {outcome}
-                    </span>
-                    <Link
-                      to={'/calls/' + callId}
-                      data-mol-id="simulator-view-detail"
-                      className={cm.cn(
-                        cm.textSize('sm'),
-                        cm.fontWeight('semibold'),
-                        'text-primary hover:underline',
-                      )}
-                    >
-                      {t('simulator.viewCallDetail', {}, { defaultValue: 'Open the call record' })}
-                    </Link>
-                  </>
-                ) : null}
+                  {engine ? (
+                    <>
+                      <span aria-hidden="true">·</span>
+                      <span className="font-mono text-xs">{engine}</span>
+                    </>
+                  ) : null}
+                </div>
+                <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }))}>
+                  <button
+                    type="button"
+                    disabled={busy}
+                    data-mol-id="simulator-end-call"
+                    onClick={() => void endCall()}
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      cm.sp('py', 2),
+                      cm.textSize('sm'),
+                      cm.fontWeight('semibold'),
+                      'rounded-lg border border-error/40 text-error hover:bg-error/10 transition-colors disabled:opacity-60',
+                    )}
+                  >
+                    {t('simulator.endCall', {}, { defaultValue: 'End call' })}
+                  </button>
+                  {outcome ? (
+                    <>
+                      <span
+                        data-mol-id="simulator-outcome"
+                        className={cm.cn(
+                          cm.sp('px', 3),
+                          cm.sp('py', 1),
+                          cm.textSize('xs'),
+                          cm.fontWeight('bold'),
+                          'rounded-full border border-secondary/30 bg-secondary/10 text-secondary uppercase tracking-wider',
+                        )}
+                      >
+                        {outcome}
+                      </span>
+                      <Link
+                        to={'/calls/' + callId}
+                        data-mol-id="simulator-view-detail"
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          cm.fontWeight('semibold'),
+                          'text-primary hover:underline',
+                        )}
+                      >
+                        {t(
+                          'simulator.viewCallDetail',
+                          {},
+                          { defaultValue: 'Open the call record' },
+                        )}
+                      </Link>
+                    </>
+                  ) : null}
+                </div>
               </div>
             )}
           </div>
         </section>
 
-        {/* Transcript + actions */}
+        {/* Transcript + actions — the design's live turn-by-turn feed */}
         <section
-          className={cm.cn(cm.sp('p', 6), 'rounded-2xl bg-surface border border-outline-variant')}
+          className={cm.cn(
+            cm.sp('p', 6),
+            'rounded-lg border border-outline-variant/60 bg-surface-container-lowest sb-card-shadow lg:col-span-7',
+          )}
           aria-label={t('simulator.transcriptLabel', {}, { defaultValue: 'Call transcript' })}
         >
           <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'border-b border-outline-variant/40 pb-4',
+            )}
+          >
+            <h2
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                cm.textSize('lg'),
+                'sb-serif font-medium text-primary',
+              )}
+            >
+              <span
+                className="sb-icon flex h-5 w-5 items-center justify-center text-secondary"
+                aria-hidden="true"
+              >
+                <span className="material-symbols-outlined">record_voice_over</span>
+              </span>
+              {t('simulator.transcriptTitle', {}, { defaultValue: 'Live transcript' })}
+            </h2>
+            {/* Decorative dual-stem waveform */}
+            <div
+              className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'h-6 items-center')}
+              aria-hidden="true"
+            >
+              {WAVE_HEIGHTS.map((h, i) => (
+                <span
+                  key={i}
+                  className={cm.cn(
+                    'w-1 rounded-full',
+                    i % 3 === 2 ? 'bg-outline-variant' : 'bg-secondary',
+                    h,
+                    WAVE_VARIANTS[i % WAVE_VARIANTS.length],
+                  )}
+                />
+              ))}
+            </div>
+          </div>
+          <div
             ref={transcriptRef}
             data-mol-id="simulator-transcript"
-            className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), 'max-h-80 overflow-y-auto')}
+            className={cm.cn(
+              cm.sp('mt', 4),
+              cm.flex({ direction: 'col', gap: 'sm' }),
+              'max-h-80 overflow-y-auto',
+            )}
           >
             {transcript.length === 0 ? (
               <p
@@ -484,17 +616,17 @@ export function CallSimulator() {
                   className={cm.cn(
                     cm.sp('p', 3),
                     cm.textSize('sm'),
-                    'rounded-xl max-w-[90%]',
+                    'rounded-lg border max-w-[90%]',
                     entry.role === 'caller'
-                      ? 'bg-surface-container-high self-end'
-                      : 'bg-primary/10 self-start',
+                      ? 'border-outline-variant bg-surface-container-lowest sb-card-shadow self-end'
+                      : 'border-outline-variant/60 bg-surface-container-low self-start',
                   )}
                 >
                   <span
                     className={cm.cn(
                       cm.textSize('xs'),
-                      cm.fontWeight('bold'),
-                      'uppercase tracking-widest text-on-surface-variant block',
+                      cm.fontWeight('semibold'),
+                      'uppercase tracking-wider text-on-surface-variant block',
                     )}
                   >
                     {t('callRole.' + entry.role, {}, { defaultValue: entry.role })}
@@ -536,27 +668,41 @@ export function CallSimulator() {
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),
+                cm.textSize('sm'),
                 cm.fontWeight('bold'),
-                'rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-colors disabled:opacity-60',
+                'rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-colors disabled:opacity-60',
               )}
             >
               {t('simulator.send', {}, { defaultValue: 'Send' })}
             </button>
           </div>
 
-          {/* Live tool-call timeline */}
+          {/* Live tool-call ledger — the design's latched directives rail */}
           {actions.length > 0 ? (
             <div className={cm.sp('mt', 4)}>
               <p
                 className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
                   cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-on-surface-variant',
+                  cm.fontWeight('semibold'),
+                  'uppercase tracking-wider text-on-surface-variant',
                 )}
               >
+                <span
+                  className="sb-icon flex h-4 w-4 items-center justify-center text-secondary"
+                  aria-hidden="true"
+                >
+                  <span className="material-symbols-outlined">terminal</span>
+                </span>
                 {t('simulator.agentActions', {}, { defaultValue: 'Agent actions this call' })}
               </p>
-              <ul className={cm.cn(cm.sp('mt', 2), cm.flex({ direction: 'col', gap: 'xs' }))}>
+              <ul
+                className={cm.cn(
+                  cm.sp('mt', 2),
+                  cm.flex({ direction: 'col', gap: 'xs' }),
+                  'rounded-lg border border-secondary/30 bg-surface-container p-2',
+                )}
+              >
                 {actions.map((a) => (
                   <li
                     key={a.id}
@@ -564,12 +710,12 @@ export function CallSimulator() {
                     className={cm.cn(
                       cm.sp('p', 2),
                       cm.textSize('xs'),
-                      'rounded-lg border border-outline-variant bg-surface-container-low',
-                      cm.flex({ align: 'center', justify: 'between' }),
+                      'rounded border border-outline-variant/50 bg-surface-container-lowest',
+                      cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
                     )}
                   >
-                    <span className="font-bold text-primary">{a.tool}</span>
-                    <span className="text-on-surface-variant">{a.summary}</span>
+                    <span className="font-mono font-bold text-secondary">{a.tool}</span>
+                    <span className="font-mono text-on-surface-variant">{a.summary}</span>
                   </li>
                 ))}
               </ul>

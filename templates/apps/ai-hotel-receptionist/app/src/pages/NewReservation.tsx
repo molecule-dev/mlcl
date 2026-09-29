@@ -118,56 +118,95 @@ export function NewReservation() {
   const inputClass = cm.cn(
     cm.sp('px', 4),
     cm.sp('py', 3),
-    'bg-surface-container-low rounded-xl border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors',
+    'bg-surface-container-lowest rounded-lg border border-outline-variant/60 text-primary focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors',
+  )
+
+  /** Micro field label — the design's uppercase label-md. */
+  const fieldLabelClass = cm.cn(
+    cm.textSize('xs'),
+    cm.fontWeight('semibold'),
+    'uppercase tracking-wider text-on-surface-variant',
   )
 
   return (
-    <div className={cm.cn(cm.maxW('3xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
-      <Link
-        to="/reservations"
-        data-mol-id="new-reservation-back"
-        className={cm.cn(
-          cm.textSize('sm'),
-          cm.fontWeight('semibold'),
-          '-my-2 inline-block py-2 text-primary hover:underline',
-        )}
-      >
-        ← {t('reservations.heading', {}, { defaultValue: 'Reservations' })}
-      </Link>
-      <h1
-        className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), cm.sp('mt', 1))}
-        data-mol-id="new-reservation-heading"
-      >
-        {t('newReservation.heading', {}, { defaultValue: 'New reservation' })}
-      </h1>
-      <p className={cm.cn(cm.sp('mt', 1), 'text-on-surface-variant')}>
-        {t(
-          'newReservation.subheading',
-          {},
-          {
-            defaultValue:
-              'Search availability, pick a room type, and confirm — same rules the voice agent uses.',
-          },
-        )}
-      </p>
+    <div className={cm.cn(cm.maxW('4xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
+      {/* Breadcrumb + dossier headline */}
+      <div className="border-b border-outline-variant/60 pb-6">
+        <p
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.textSize('xs'),
+            cm.fontWeight('semibold'),
+            'uppercase tracking-wider text-on-surface-variant',
+          )}
+        >
+          <Link
+            to="/reservations"
+            data-mol-id="new-reservation-back"
+            className="-my-2 inline-block py-2 hover:text-primary"
+          >
+            {t('reservations.heading', {}, { defaultValue: 'Reservations' })}
+          </Link>
+          <span className="sb-icon flex h-3 w-3 items-center justify-center" aria-hidden="true">
+            <span className="material-symbols-outlined">chevron_right</span>
+          </span>
+          <span className="text-secondary">
+            {t('newReservation.eyebrow', {}, { defaultValue: 'New booking' })}
+          </span>
+        </p>
+        <h1
+          className={cm.cn('sb-serif mt-1 text-3xl font-normal tracking-tight text-primary')}
+          data-mol-id="new-reservation-heading"
+        >
+          {t('newReservation.heading', {}, { defaultValue: 'New reservation' })}
+        </h1>
+        <p className={cm.cn(cm.sp('mt', 1), cm.textSize('sm'), 'text-on-surface-variant')}>
+          {t(
+            'newReservation.subheading',
+            {},
+            {
+              defaultValue:
+                'Search availability, pick a room type, and confirm — same rules the voice agent uses.',
+            },
+          )}
+        </p>
+      </div>
 
-      {/* Search form */}
+      {/* Stay search card */}
       <section
         className={cm.cn(
           cm.sp('mt', 6),
-          cm.sp('p', 6),
-          'rounded-2xl bg-surface border border-outline-variant',
+          cm.sp('p', 5),
+          'sb-card-shadow rounded-lg border border-outline-variant/50 bg-surface-container-lowest',
         )}
+        aria-label={t('newReservation.searchLabel', {}, { defaultValue: 'Stay search' })}
       >
-        <div className={cm.cn('grid grid-cols-1 sm:grid-cols-3 gap-4')}>
-          <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' }),
+            cm.sp('mb', 4),
+            cm.sp('pb', 3),
+            'border-b border-outline-variant/40',
+          )}
+        >
+          <h2
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              'sb-serif text-lg font-medium text-primary',
+            )}
+          >
             <span
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                'uppercase tracking-widest text-on-surface-variant',
-              )}
+              className="sb-icon flex h-5 w-5 items-center justify-center text-secondary"
+              aria-hidden="true"
             >
+              <span className="material-symbols-outlined">date_range</span>
+            </span>
+            {t('newReservation.stayDetails', {}, { defaultValue: 'Dates & party' })}
+          </h2>
+        </div>
+        <div className={cm.cn('grid grid-cols-1 gap-4 sm:grid-cols-3')}>
+          <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+            <span className={fieldLabelClass}>
               {t('newReservation.checkIn', {}, { defaultValue: 'Check-in' })}
             </span>
             <input
@@ -181,13 +220,7 @@ export function NewReservation() {
             />
           </label>
           <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-            <span
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                'uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
+            <span className={fieldLabelClass}>
               {t('newReservation.checkOut', {}, { defaultValue: 'Check-out' })}
             </span>
             <input
@@ -201,13 +234,7 @@ export function NewReservation() {
             />
           </label>
           <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-            <span
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                'uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
+            <span className={fieldLabelClass}>
               {t('newReservation.guests', {}, { defaultValue: 'Guests' })}
             </span>
             <input
@@ -228,13 +255,18 @@ export function NewReservation() {
           data-mol-id="new-reservation-search"
           onClick={() => void search()}
           className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
             cm.sp('px', 5),
-            cm.sp('py', 3),
+            cm.sp('py', 2.5),
             cm.sp('mt', 4),
-            cm.fontWeight('bold'),
-            'rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-colors shadow-lg disabled:opacity-60',
+            cm.textSize('sm'),
+            cm.fontWeight('semibold'),
+            'rounded-lg bg-primary text-on-primary hover:bg-primary-light transition-colors disabled:opacity-60',
           )}
         >
+          <span className="sb-icon flex h-4 w-4 items-center justify-center" aria-hidden="true">
+            <span className="material-symbols-outlined">search</span>
+          </span>
           {busy
             ? t('common.searchingEllipsis', {}, { defaultValue: 'Searching…' })
             : t('newReservation.searchButton', {}, { defaultValue: 'Search availability' })}
@@ -248,20 +280,20 @@ export function NewReservation() {
             cm.sp('mt', 4),
             cm.sp('px', 4),
             cm.sp('py', 3),
-            'rounded-xl bg-error/10 text-error border border-error/30',
+            'rounded-lg bg-error/10 text-error border border-error/30',
           )}
         >
           {error}
         </p>
       ) : null}
 
-      {/* Options */}
+      {/* Availability options */}
       {options !== null && options.length > 0 ? (
         <section
           className={cm.cn(
             cm.sp('mt', 6),
-            cm.sp('p', 6),
-            'rounded-2xl bg-surface border border-outline-variant',
+            cm.sp('p', 5),
+            'sb-card-shadow rounded-lg border border-outline-variant/50 bg-surface-container-lowest',
           )}
           aria-label={t(
             'newReservation.optionsLabel',
@@ -269,7 +301,18 @@ export function NewReservation() {
             { defaultValue: 'Available room types' },
           )}
         >
-          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+          <h2
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              'sb-serif text-lg font-medium text-primary',
+            )}
+          >
+            <span
+              className="sb-icon flex h-5 w-5 items-center justify-center text-secondary"
+              aria-hidden="true"
+            >
+              <span className="material-symbols-outlined">king_bed</span>
+            </span>
             {t('newReservation.available', {}, { defaultValue: 'Available room types' })}
           </h2>
           <ul
@@ -282,10 +325,10 @@ export function NewReservation() {
                   className={cm.cn(
                     cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
                     cm.sp('p', 4),
-                    'rounded-xl border cursor-pointer transition-colors',
+                    'cursor-pointer rounded-lg border transition-colors',
                     selected === opt.room_type_id
-                      ? 'border-primary bg-primary/5'
-                      : 'border-outline-variant hover:border-primary/50',
+                      ? 'border-secondary bg-secondary/5'
+                      : 'border-outline-variant/60 hover:border-secondary/50',
                   )}
                 >
                   <span className={cm.flex({ align: 'center', gap: 'sm' })}>
@@ -298,12 +341,14 @@ export function NewReservation() {
                       data-mol-id={'new-reservation-option-' + opt.room_type_id}
                     />
                     <span>
-                      <span className={cm.fontWeight('bold')}>{opt.name}</span>
+                      <span className={cm.cn(cm.fontWeight('semibold'), 'text-primary')}>
+                        {opt.name}
+                      </span>
                       <span
                         className={cm.cn(
-                          cm.sp('ml', 2),
+                          'block text-on-surface-variant',
+                          cm.sp('mt', 0.5),
                           cm.textSize('sm'),
-                          'text-on-surface-variant',
                         )}
                       >
                         {t(
@@ -317,11 +362,17 @@ export function NewReservation() {
                     </span>
                   </span>
                   <span className={cm.textRight}>
-                    <span className={cm.fontWeight('bold')}>
+                    <span className={cm.cn(cm.fontWeight('semibold'), 'text-primary')}>
                       {formatCents(opt.avg_rate_cents)}
                       {t('common.perNight', {}, { defaultValue: '/night' })}
                     </span>
-                    <span className={cm.cn('block', cm.textSize('sm'), 'text-on-surface-variant')}>
+                    <span
+                      className={cm.cn(
+                        'block text-on-surface-variant',
+                        cm.sp('mt', 0.5),
+                        cm.textSize('sm'),
+                      )}
+                    >
                       {t(
                         'newReservation.totalOf',
                         { total: formatCents(opt.total_cents) },
@@ -335,15 +386,9 @@ export function NewReservation() {
           </ul>
 
           {/* Guest details */}
-          <div className={cm.cn('grid grid-cols-1 sm:grid-cols-2 gap-4', cm.sp('mt', 6))}>
+          <div className={cm.cn('mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2')}>
             <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-              <span
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
+              <span className={fieldLabelClass}>
                 {t('newReservation.guestName', {}, { defaultValue: 'Guest name' })}
               </span>
               <input
@@ -357,13 +402,7 @@ export function NewReservation() {
               />
             </label>
             <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-              <span
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
+              <span className={fieldLabelClass}>
                 {t(
                   'newReservation.guestContact',
                   {},
@@ -381,13 +420,7 @@ export function NewReservation() {
             </label>
           </div>
           <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.sp('mt', 4))}>
-            <span
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                'uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
+            <span className={fieldLabelClass}>
               {t('newReservation.notes', {}, { defaultValue: 'Notes (optional)' })}
             </span>
             <textarea
@@ -406,13 +439,18 @@ export function NewReservation() {
             data-mol-id="new-reservation-book"
             onClick={() => void book()}
             className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
               cm.sp('px', 5),
-              cm.sp('py', 3),
+              cm.sp('py', 2.5),
               cm.sp('mt', 4),
-              cm.fontWeight('bold'),
-              'rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-colors shadow-lg disabled:opacity-60',
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'rounded-lg bg-primary text-on-primary hover:bg-primary-light transition-colors disabled:opacity-60',
             )}
           >
+            <span className="sb-icon flex h-4 w-4 items-center justify-center" aria-hidden="true">
+              <span className="material-symbols-outlined">hotel_class</span>
+            </span>
             {t('newReservation.bookButton', {}, { defaultValue: 'Confirm reservation' })}
           </button>
           <p className={cm.cn(cm.sp('mt', 2), cm.textSize('xs'), 'text-on-surface-variant')}>

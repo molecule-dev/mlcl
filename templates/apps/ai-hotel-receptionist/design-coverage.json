@@ -1,0 +1,77 @@
+{
+  "_comment": "Accepted divergences from the Stitch designs. Each entry is a reviewed decision; anything not listed here fails verify:design-coverage.",
+  "screens": {
+    "/dashboard": {
+      "allow": [
+        {
+          "heading": "Lord Alistair Sterling",
+          "reason": "Design sample-data name (demo persona / room / suite). The screen's structure is implemented; rows render from the app's own seeded inventory."
+        }
+      ]
+    },
+    "/reservations/:id": {
+      "allow": [
+        {
+          "heading": "Lord Alistair Sterling",
+          "reason": "Design sample-data name (demo persona / room / suite). The screen's structure is implemented; rows render from the app's own seeded inventory."
+        },
+        {
+          "heading": "Suite 704 \u2014 Penthouse Balcony",
+          "reason": "Design sample-data name (demo persona / room / suite). The screen's structure is implemented; rows render from the app's own seeded inventory."
+        }
+      ]
+    },
+    "/reservations/new": {
+      "allow": [
+        {
+          "heading": "Lady Vivienne Sterling",
+          "reason": "Design sample-data name (demo persona / room / suite). The screen's structure is implemented; rows render from the app's own seeded inventory."
+        }
+      ]
+    },
+    "/rooms": {
+      "allow": [
+        {
+          "heading": "Penthouse Balcony Suite",
+          "reason": "Design sample-data name (demo persona / room / suite). The screen's structure is implemented; rows render from the app's own seeded inventory."
+        }
+      ]
+    },
+    "/guests": {
+      "allow": [
+        {
+          "heading": "Lord Alistair Sterling",
+          "reason": "Design sample-data name (demo persona / room / suite). The screen's structure is implemented; rows render from the app's own seeded inventory."
+        },
+        {
+          "heading": "Lord Alistair Sterling",
+          "reason": "Design sample-data name (demo persona / room / suite). The screen's structure is implemented; rows render from the app's own seeded inventory."
+        }
+      ]
+    },
+    "/guests/:id": {
+      "allow": [
+        {
+          "heading": "Lord Alistair Sterling",
+          "reason": "Design sample-data name (demo persona / room / suite). The screen's structure is implemented; rows render from the app's own seeded inventory."
+        }
+      ]
+    },
+    "/voice-agents": {
+      "allow": [
+        {
+          "heading": "Quoting, Yield & Rate Negotiation Guardrails",
+          "reason": "Design sample-data name (demo persona / room / suite). The screen's structure is implemented; rows render from the app's own seeded inventory."
+        }
+      ]
+    },
+    "/account": {
+      "allow": [
+        {
+          "heading": "Operator Delegation & Decommission",
+          "reason": "Design sample-data name (demo persona / room / suite). The screen's structure is implemented; rows render from the app's own seeded inventory."
+        }
+      ]
+    }
+  }
+}

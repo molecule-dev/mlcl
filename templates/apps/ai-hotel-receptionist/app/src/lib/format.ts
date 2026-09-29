@@ -28,6 +28,13 @@ export function formatDuration(seconds: number | null | undefined): string {
   return m > 0 ? m + 'm ' + (s % 60) + 's' : s + 's'
 }
 
+export function formatTime(iso: string | null | undefined): string {
+  if (!iso) return '—'
+  const d = new Date(iso)
+  if (!Number.isFinite(d.getTime())) return iso
+  return d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })
+}
+
 export function languageLabel(code: string | null | undefined): string {
   if (!code) return '—'
   try {
