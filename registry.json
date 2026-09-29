@@ -743,11 +743,11 @@
         "@molecule/api-ai-decisions",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/ai-decisions/intern-decision",
       "moleculePeers": [
         "@molecule/api-ai-decisions",
         "@molecule/api-secrets"
       ],
+      "path": "packages/api/bonds/ai-decisions/intern-decision",
       "intentHints": [
         "intern-decision",
         "internlm decision model",
@@ -807,11 +807,11 @@
         "@molecule/api-ai-decisions",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/ai-decisions/jeff",
       "moleculePeers": [
         "@molecule/api-ai-decisions",
         "@molecule/api-secrets"
       ],
+      "path": "packages/api/bonds/ai-decisions/jeff",
       "intentHints": [
         "jeff",
         "jeff decision model",
@@ -2154,11 +2154,11 @@
         "@molecule/api-ai-speech",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/ai-speech/audio8",
       "moleculePeers": [
         "@molecule/api-ai-speech",
         "@molecule/api-secrets"
       ],
+      "path": "packages/api/bonds/ai-speech/audio8",
       "intentHints": [
         "audio8",
         "audio8 asr",
@@ -2239,11 +2239,11 @@
         "@molecule/api-ai-speech",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/ai-speech/confucius4",
       "moleculePeers": [
         "@molecule/api-ai-speech",
         "@molecule/api-secrets"
       ],
+      "path": "packages/api/bonds/ai-speech/confucius4",
       "intentHints": [
         "confucius4",
         "append-only transcription",
@@ -2322,11 +2322,11 @@
         "@molecule/api-ai",
         "@molecule/api-ai-speech"
       ],
-      "path": "packages/api/bonds/ai-speech/llm",
       "moleculePeers": [
         "@molecule/api-ai",
         "@molecule/api-ai-speech"
       ],
+      "path": "packages/api/bonds/ai-speech/llm",
       "intentHints": [
         "transcribe audio with an ai model",
         "speech to text without a speech service",
@@ -2444,11 +2444,11 @@
         "@molecule/api-ai-speech",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/ai-speech/nemo-speech",
       "moleculePeers": [
         "@molecule/api-ai-speech",
         "@molecule/api-secrets"
       ],
+      "path": "packages/api/bonds/ai-speech/nemo-speech",
       "intentHints": [
         "speaker diarization",
         "who spoke when",
@@ -15146,6 +15146,57 @@
       ],
       "egressHosts": [
         "api.molecule.dev"
+      ]
+    },
+    "@molecule/api-ocr-teleocr": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ocr",
+      "label": "Ocr",
+      "description": "TeleOCR provider for molecule.dev — extracts text from images with the open TeleOCR document-parsing model served by vLLM",
+      "stack": "api",
+      "implements": "@molecule/api-ocr",
+      "exports": [
+        "TeleOcrTruncatedError",
+        "OTSL_TOKENS",
+        "convertOtslToHtml",
+        "formatFormula",
+        "TELEOCR_SYSTEM_PROMPT",
+        "TELEOCR_PROMPTS",
+        "TeleOcrTask",
+        "TELEOCR_LAYOUT_IMAGE_SIZE",
+        "DEFAULT_TELEOCR_MODEL",
+        "DEFAULT_TELEOCR_MAX_OUTPUT_TOKENS",
+        "createProvider",
+        "provider",
+        "TeleOcrConfig",
+        "TeleOcrEnv"
+      ],
+      "secrets": [
+        {
+          "name": "TELEOCR_MODEL",
+          "required": false,
+          "label": "TeleOCR served model name",
+          "setupUrl": "https://huggingface.co/XingChen-AGI/TeleOCR",
+          "instructions": "The model name your vLLM server was started with (vllm serve <name>, with the TeleOCR_vllm plugin from github.com/caipeng328/TeleOCR installed). The server URL is set on the AI provider this bond uses, e.g. LOCAL_AI_BASE_URL for @molecule/api-ai-local. Defaults to StarDoc-AI/TeleOCR.",
+          "example": "StarDoc-AI/TeleOCR"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai",
+        "@molecule/api-ocr"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai",
+        "@molecule/api-ocr"
+      ],
+      "path": "packages/api/bonds/ocr/teleocr",
+      "intentHints": [
+        "teleocr",
+        "self-hosted document ocr",
+        "ocr scanned documents on my own gpu",
+        "extract tables from document images"
       ]
     },
     "@molecule/api-ocr-tesseract": {
