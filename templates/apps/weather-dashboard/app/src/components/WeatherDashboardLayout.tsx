@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -101,11 +101,8 @@ export function WeatherDashboardLayout() {
   )
 
   const brand = (
-    <Link
-      to="/dashboard"
-      className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 6), cm.displayBlock)}
-    >
-      {APP_NAME}
+    <Link to="/dashboard" className={cm.cn(cm.sp('mb', 6))}>
+      <BrandWordmark size="md" />
     </Link>
   )
 
@@ -114,11 +111,8 @@ export function WeatherDashboardLayout() {
       <ResponsiveAppShell.TopBar
         mobileOnly
         brand={
-          <Link
-            to="/dashboard"
-            className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}
-          >
-            {APP_NAME}
+          <Link to="/dashboard">
+            <BrandWordmark size="md" />
           </Link>
         }
         actions={<UserMenu />}

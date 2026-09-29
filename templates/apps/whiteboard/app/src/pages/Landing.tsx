@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 import { BoardHeroCard } from '../components/BoardHeroCard.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { CollaboratorStack } from '../components/CollaboratorStack.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
@@ -125,15 +126,7 @@ export function Landing() {
           )}
         >
           <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-            <span
-              className={cm.cn(
-                cm.textSize('2xl'),
-                cm.fontWeight('bold'),
-                'tracking-tight text-primary',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark size="md" />
             <span
               className={cm.cn(
                 'font-handwriting text-canvas-accent text-2xl font-bold leading-none',
@@ -660,9 +653,7 @@ export function Landing() {
             )}
           >
             <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-              <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-primary')}>
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" size="md" footer />
               <span
                 className={cm.cn('font-handwriting text-canvas-accent text-xl')}
                 aria-hidden="true"

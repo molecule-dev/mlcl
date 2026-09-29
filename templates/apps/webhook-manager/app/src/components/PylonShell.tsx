@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME, BRAND_COLOR } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
@@ -114,13 +114,8 @@ export function PylonShell() {
   // desktop brand row rides at the top of its children (the mobile-only
   // TopBar carries its own copy below the breakpoint).
   const brand = (
-    <Link
-      to={safeTarget('/dashboard', pathname)}
-      className={cm.cn(cm.textSize('lg'), cm.fontWeight('extrabold'), 'tracking-tight')}
-      style={{ color: 'var(--mol-color-text)' }}
-    >
-      {APP_NAME}
-      <span style={{ color: BRAND_COLOR }}>.</span>
+    <Link to={safeTarget('/dashboard', pathname)}>
+      <BrandWordmark as="span" size="md" />
     </Link>
   )
 

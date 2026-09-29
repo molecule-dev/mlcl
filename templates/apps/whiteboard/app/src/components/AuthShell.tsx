@@ -7,6 +7,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
 import { loadContent } from '../config.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 /**
@@ -53,24 +54,7 @@ export function AuthShell({
         )}
       >
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(9),
-              cm.h(9),
-              'bg-gradient-to-br from-primary to-primary-hover rounded-xl text-white shadow-md',
-            )}
-          >
-            <span
-              className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              dashboard_customize
-            </span>
-          </span>
-          <span className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="md" />
         </Link>
         <ThemeToggle />
       </header>

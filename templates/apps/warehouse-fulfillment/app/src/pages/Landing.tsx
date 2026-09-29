@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { FulfillmentHeroCard } from '../components/FulfillmentHeroCard.js'
 import { FulfillmentKpiCard } from '../components/FulfillmentKpiCard.js'
 
@@ -66,21 +67,7 @@ export function Landing() {
           'sticky top-0 z-30 border-b border-outline-variant/60 bg-surface/80 backdrop-blur-md',
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'h-10 w-10 rounded-xl bg-gradient-to-br from-primary to-secondary text-on-primary shadow shadow-primary/30',
-            )}
-          >
-            <span className="material-symbols-outlined" data-icon="local_shipping">
-              local_shipping
-            </span>
-          </span>
-          <span className={cm.cn(cm.textSize('xl'), 'font-black tracking-tighter text-primary')}>
-            {APP_NAME}
-          </span>
-        </Link>
+        <BrandWordmark size="md" />
         <nav className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'hidden md:flex')}>
           <a
             href="#features"
@@ -511,14 +498,9 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.stack(3), 'col-span-2 md:col-span-1')}>
-            <span
-              className={cm.cn(
-                cm.textSize('lg'),
-                'font-bold tracking-tight text-[var(--wf-footer-fg)]',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            {/* footer lockup: shared BrandWordmark (footer variant keeps the
+                per-page brand-wordmark e2e contract header-scoped) */}
+            <BrandWordmark as="span" size="md" footer />
             <p
               className={cm.cn(
                 cm.textSize('sm'),

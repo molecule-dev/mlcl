@@ -4,7 +4,7 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Sorthaus shell layout — the shared `ResponsiveAppShell` from
@@ -206,28 +206,16 @@ export function WarehouseFulfillmentLayout() {
   // so never duplicated.
   const brandBlock = (
     <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-      <div
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'center' }),
-          'h-10 w-10 rounded-xl bg-gradient-to-br from-primary to-secondary text-on-primary shadow-lg shadow-primary/30',
+      <BrandWordmark
+        as="span"
+        size="md"
+        invert
+        subtitle={t(
+          'warehouseFulfillmentLayout.brandSubtitle',
+          {},
+          { defaultValue: 'Fulfillment Console' },
         )}
-      >
-        <span className="material-symbols-outlined" data-icon="local_shipping">
-          local_shipping
-        </span>
-      </div>
-      <div>
-        <p className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight leading-none')}>
-          {APP_NAME}
-        </p>
-        <p className={cm.cn('text-[10px] font-semibold uppercase tracking-[0.18em] text-white/50')}>
-          {t(
-            'warehouseFulfillmentLayout.brandSubtitle',
-            {},
-            { defaultValue: 'Fulfillment Console' },
-          )}
-        </p>
-      </div>
+      />
     </div>
   )
 
@@ -312,25 +300,15 @@ export function WarehouseFulfillmentLayout() {
         mobileOnly
         brand={
           <div className={cm.cn('min-w-0')}>
-            <p
-              className={cm.cn(
-                cm.textSize('base'),
-                'truncate font-extrabold tracking-tight leading-none text-on-surface',
-              )}
-            >
-              {APP_NAME}
-            </p>
-            <p
-              className={cm.cn(
-                'truncate text-[10px] font-semibold uppercase tracking-[0.18em] text-on-surface-variant',
-              )}
-            >
-              {t(
+            <BrandWordmark
+              as="span"
+              size="sm"
+              subtitle={t(
                 'warehouseFulfillmentLayout.brandSubtitle',
                 {},
                 { defaultValue: 'Fulfillment Console' },
               )}
-            </p>
+            />
           </div>
         }
         actions={

@@ -11,9 +11,9 @@ import { Link, Outlet, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
-import { buildNavItems, type NavItem } from './nav-items.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
+import { buildNavItems, type NavItem } from './nav-items.js'
 import { UserMenu } from './UserMenu.js'
 
 const FOCUS_RING =
@@ -84,14 +84,9 @@ export function MobileNavShell() {
           </button>
           <Link
             to="/dashboard"
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('extrabold'),
-              'inline-flex min-h-[44px] items-center tracking-tighter text-primary truncate',
-              FOCUS_RING,
-            )}
+            className={cm.cn('inline-flex min-h-[44px] items-center truncate', FOCUS_RING)}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="md" />
           </Link>
         </div>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}>
@@ -133,15 +128,7 @@ export function MobileNavShell() {
                 'pt-5 pb-2',
               )}
             >
-              <span
-                className={cm.cn(
-                  cm.textSize('xl'),
-                  cm.fontWeight('extrabold'),
-                  'tracking-tighter text-primary',
-                )}
-              >
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" size="md" />
               <button
                 type="button"
                 aria-label={t('mobileNav.closeMenu', {}, { defaultValue: 'Close navigation menu' })}

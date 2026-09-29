@@ -4,6 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { LandingNav } from '../components/LandingNav.js'
 
 const FEATURES = [
@@ -483,7 +484,9 @@ export function Landing() {
             'flex-col md:flex-row gap-6',
           )}
         >
-          <p className="text-lg font-bold tracking-tight">{APP_NAME}</p>
+          {/* footer lockup: shared BrandWordmark (footer variant keeps the
+              per-page brand-wordmark e2e contract header-scoped) */}
+          <BrandWordmark as="span" size="sm" footer />
           <nav
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center', wrap: 'wrap' }),

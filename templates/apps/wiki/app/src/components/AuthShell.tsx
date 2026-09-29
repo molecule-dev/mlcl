@@ -7,6 +7,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
 import { loadContent } from '../config.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 /**
@@ -48,24 +49,7 @@ export function AuthShell({ eyebrow, heading, subheading, children, meta }: Auth
         )}
       >
         <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'h-9 w-9 rounded-lg bg-gradient-to-br from-primary to-secondary text-white',
-            )}
-            aria-hidden="true"
-          >
-            <span className={cm.cn('material-symbols-outlined text-[20px]')}>layers</span>
-          </span>
-          <span
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('bold'),
-              'text-on-surface tracking-tight',
-            )}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="md" />
         </Link>
         <ThemeToggle />
       </header>

@@ -8,7 +8,8 @@ import {
 } from '@molecule/app-auth-shell-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Branded auth shell — dark grid backdrop, brand wordmark with terminal
@@ -107,15 +108,8 @@ export function AuthShell({
                 </span>
               </div>
             </div>
-            <Link
-              to="/"
-              className={cm.cn(
-                'inline-flex items-baseline gap-1 text-4xl font-black tracking-tighter',
-              )}
-              style={{ color: 'var(--mol-color-text)' }}
-            >
-              {APP_NAME}
-              <span style={{ color: BRAND_COLOR }}>.</span>
+            <Link to="/" className={cm.cn('inline-flex')}>
+              <BrandWordmark as="span" size="lg" invert />
             </Link>
             <p
               className={cm.cn('mt-1 font-mono text-xs')}

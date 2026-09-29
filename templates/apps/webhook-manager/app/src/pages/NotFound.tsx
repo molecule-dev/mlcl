@@ -4,6 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, BRAND_COLOR } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const DECORATIVE_LINES = [
   '{ "request": {',
@@ -63,22 +64,8 @@ export function NotFound() {
             cm.mxAuto,
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn('flex items-center gap-2 text-xl font-extrabold tracking-tight')}
-            style={{ color: 'var(--mol-color-text)' }}
-          >
-            <span
-              className={cm.cn('inline-flex h-8 w-8 items-center justify-center rounded-lg')}
-              style={{ backgroundColor: BRAND_COLOR, color: 'var(--color-on-primary)' }}
-              aria-hidden="true"
-            >
-              <span className={cm.cn('material-symbols-outlined text-[20px]')}>cloud_sync</span>
-            </span>
-            <span>
-              {APP_NAME}
-              <span style={{ color: BRAND_COLOR }}>.</span>
-            </span>
+          <Link to="/" className={cm.cn('group shrink-0')}>
+            <BrandWordmark size="md" />
           </Link>
           <Link
             to="/login"

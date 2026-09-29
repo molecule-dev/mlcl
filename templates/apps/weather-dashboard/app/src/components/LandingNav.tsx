@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Public marketing top nav, shared across the Landing, About, Privacy, and
@@ -32,34 +32,8 @@ export function LandingNav() {
           cm.mxAuto,
         )}
       >
-        <Link
-          to="/"
-          data-mol-id="landing-nav-home"
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'sm' }),
-            cm.textSize('xl'),
-            cm.fontWeight('bold'),
-            'tracking-tight',
-          )}
-        >
-          <span
-            className={cm.cn(
-              cm.w(8),
-              cm.h(8),
-              cm.roundedFull,
-              cm.flex({ align: 'center', justify: 'center' }),
-              'bg-gradient-to-br from-primary to-tertiary-container shadow-md shadow-primary/30 text-on-primary',
-            )}
-            aria-hidden="true"
-          >
-            <span
-              className={cm.cn('material-symbols-outlined', cm.textSize('xl'))}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              partly_cloudy_day
-            </span>
-          </span>
-          {APP_NAME}
+        <Link to="/" data-mol-id="landing-nav-home" className={cm.cn('group shrink-0')}>
+          <BrandWordmark size="md" />
         </Link>
         <div className={cm.flex({ align: 'center', gap: 'md' })}>
           {isAuthenticated ? (

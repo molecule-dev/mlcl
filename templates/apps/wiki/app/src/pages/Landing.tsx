@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { KnowledgeHeroCard } from '../components/KnowledgeHeroCard.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
@@ -66,22 +67,7 @@ export function Landing() {
           to="/"
           className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex items-center gap-2')}
         >
-          <span
-            className="material-symbols-outlined text-primary text-2xl"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-            aria-hidden="true"
-          >
-            landscape
-          </span>
-          <span
-            className={cm.cn(
-              cm.textSize('xl'),
-              cm.fontWeight('bold'),
-              'text-on-surface tracking-tighter',
-            )}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark size="lg" />
         </Link>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex items-center gap-4')}>
           {isAuthenticated ? (
@@ -417,19 +403,11 @@ export function Landing() {
           <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-outline-variant/40 gap-4">
             <Link
               to="/"
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 'sm' }),
-                'flex items-center gap-2 text-xl font-bold text-on-surface',
-              )}
+              className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex items-center gap-2')}
             >
-              <span
-                className="material-symbols-outlined text-primary"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-                aria-hidden="true"
-              >
-                landscape
-              </span>
-              {APP_NAME}
+              {/* footer lockup: shared BrandWordmark (footer variant keeps the
+                  per-page brand-wordmark e2e contract header-scoped) */}
+              <BrandWordmark as="span" size="md" footer />
             </Link>
             <p className="text-sm text-on-surface-variant">
               {t(

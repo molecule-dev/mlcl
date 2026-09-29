@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Page-tree sidebar CONTENT — the spine of every authenticated Cairn
@@ -134,24 +134,14 @@ export function PageTreeSidebar({ recentPages, tree, workspaceName }: PageTreeSi
     <>
       <div className={cm.cn(cm.sp('p', 4), 'border-b border-outline-variant/40')}>
         <Link to="/home" className={cm.flex({ align: 'center', gap: 'sm' })}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'h-9 w-9 rounded-lg bg-gradient-to-br from-primary to-secondary text-white',
-            )}
-            aria-hidden="true"
-          >
-            <span className={cm.cn('material-symbols-outlined text-[18px]')}>layers</span>
-          </span>
-          <div className={cm.flex({ direction: 'col' })}>
-            <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-on-surface')}>
-              {APP_NAME}
-            </span>
-            <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-              {workspaceName ??
-                t('pageTreeSidebar.defaultWorkspace', {}, { defaultValue: 'Engineering' })}
-            </span>
-          </div>
+          <BrandWordmark
+            as="span"
+            size="sm"
+            subtitle={
+              workspaceName ??
+              t('pageTreeSidebar.defaultWorkspace', {}, { defaultValue: 'Engineering' })
+            }
+          />
         </Link>
         <Link
           to="/page/new/edit"

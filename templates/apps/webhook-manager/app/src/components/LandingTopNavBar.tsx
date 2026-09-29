@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Shared public top navigation for the marketing/landing surface
@@ -31,25 +31,8 @@ export function LandingTopNavBar() {
           cm.mxAuto,
         )}
       >
-        <Link
-          to="/"
-          data-mol-id="nav-brand"
-          className={cm.cn(
-            'flex items-center gap-2 text-xl font-extrabold tracking-tight text-on-surface',
-          )}
-        >
-          <span
-            className={cm.cn(
-              'inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-on-primary',
-            )}
-            aria-hidden="true"
-          >
-            <span className={cm.cn('material-symbols-outlined text-[20px]')}>cloud_sync</span>
-          </span>
-          <span>
-            {APP_NAME}
-            <span className="text-primary">.</span>
-          </span>
+        <Link to="/" data-mol-id="nav-brand" className={cm.cn('group shrink-0')}>
+          <BrandWordmark size="md" />
         </Link>
         <div className={cm.flex({ align: 'center', gap: 'md' })}>
           {isAuthenticated ? (

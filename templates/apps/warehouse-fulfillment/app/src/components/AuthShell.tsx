@@ -6,6 +6,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 
 /**
@@ -71,28 +72,12 @@ export function AuthShell({
             )}
           />
           <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'relative')}>
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'h-11 w-11 rounded-xl bg-gradient-to-br from-primary to-secondary text-on-primary shadow-lg shadow-primary/40',
-              )}
-            >
-              <span className="material-symbols-outlined" data-icon="local_shipping">
-                local_shipping
-              </span>
-            </span>
-            <div>
-              <p className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight leading-none')}>
-                {APP_NAME}
-              </p>
-              <p
-                className={cm.cn(
-                  'mt-1 text-[11px] font-bold uppercase tracking-[0.22em] text-white/50',
-                )}
-              >
-                {t('authShell.brandSubtitle', {}, { defaultValue: 'Fulfillment Console' })}
-              </p>
-            </div>
+            <BrandWordmark
+              as="span"
+              size="lg"
+              invert
+              subtitle={t('authShell.brandSubtitle', {}, { defaultValue: 'Fulfillment Console' })}
+            />
           </Link>
 
           <div className={cm.cn('relative', cm.stack(6))}>
@@ -172,18 +157,8 @@ export function AuthShell({
 
         <AuthShellCardColumn as="main" className={cm.cn(cm.sp('p', 8), 'min-h-[100dvh]')}>
           <div className={cm.cn(cm.w('full'), cm.maxW('md'), cm.stack(8))}>
-            <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'lg:hidden')}>
-              <span
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  'h-10 w-10 rounded-xl bg-gradient-to-br from-primary to-secondary text-on-primary shadow',
-                )}
-              >
-                <span className="material-symbols-outlined" data-icon="local_shipping">
-                  local_shipping
-                </span>
-              </span>
-              <span className={cm.cn('text-xl font-extrabold text-on-surface')}>{APP_NAME}</span>
+            <Link to="/" className={cm.cn('lg:hidden')}>
+              <BrandWordmark size="md" />
             </Link>
 
             <header className={cm.stack(2)}>

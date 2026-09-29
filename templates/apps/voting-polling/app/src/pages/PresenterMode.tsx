@@ -5,7 +5,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { LiveResultsHero } from '../components/LiveResultsHero.js'
 import { unwrap } from '../lib/api.js'
 import { getRealtimeConnection } from '../lib/realtime.js'
@@ -180,9 +180,9 @@ export function PresenterMode() {
           <p className="text-[12px] font-black uppercase tracking-widest text-primary">
             {t('presenter.eyebrow', {}, { defaultValue: 'Live presenter' })}
           </p>
-          <p className={cm.cn('mt-1 text-2xl font-extrabold tracking-tighter text-on-background')}>
-            {APP_NAME}
-          </p>
+          <div className={cm.cn('mt-1')}>
+            <BrandWordmark as="span" size="lg" />
+          </div>
         </div>
         <div className={cm.flex({ align: 'center', gap: 'sm' })}>
           <span

@@ -10,7 +10,8 @@ import {
   usePanelClose,
 } from '@molecule/app-ui-react'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { SettingsPanel } from './SettingsPanel.js'
 
 /**
@@ -133,62 +134,13 @@ export function WhiteboardLayout({
 
   // Brand block for the desktop sidebar (icon + wordmark + tagline).
   const brand = (
-    <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('px', 6), cm.sp('py', 8))}>
-      <div
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'center' }),
-          cm.w(10),
-          cm.h(10),
-          'bg-gradient-to-br from-primary to-primary-hover rounded-xl text-white shadow-lg',
-        )}
-      >
-        <span
-          className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}
-          style={{ fontVariationSettings: "'FILL' 1" }}
-        >
-          dashboard_customize
-        </span>
-      </div>
-      <div className={cm.flex({ direction: 'col' })}>
-        <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-on-surface')}>
-          {APP_NAME}
-        </span>
-        <span
-          className={cm.cn(
-            cm.fontWeight('semibold'),
-            'text-[10px] uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {APP_TAGLINE}
-        </span>
-      </div>
+    <div className={cm.cn(cm.sp('px', 6), cm.sp('py', 8))}>
+      <BrandWordmark as="span" size="lg" withTagline />
     </div>
   )
 
   // Compact brand for the mobile-only top bar and the drawer header.
-  const brandCompact = (
-    <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0')}>
-      <span
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'center' }),
-          'h-8 w-8 shrink-0 bg-gradient-to-br from-primary to-primary-hover rounded-lg text-white shadow',
-        )}
-      >
-        <span className="material-symbols-outlined text-[18px]" aria-hidden>
-          dashboard_customize
-        </span>
-      </span>
-      <span
-        className={cm.cn(
-          cm.textSize('lg'),
-          cm.fontWeight('extrabold'),
-          'tracking-tight text-on-surface truncate',
-        )}
-      >
-        {APP_NAME}
-      </span>
-    </div>
-  )
+  const brandCompact = <BrandWordmark as="span" size="sm" />
 
   // Below-nav content — user card, New board and Sign out; the same element
   // serves the sidebar footer and the drawer footer.

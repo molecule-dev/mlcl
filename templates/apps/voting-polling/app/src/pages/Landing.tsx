@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { LiveResultsHero } from '../components/LiveResultsHero.js'
 
 const FEATURES = [
@@ -117,12 +118,7 @@ export function Landing() {
             cm.flex({ align: 'center', justify: 'between' }),
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn(cm.textSize('xl'), 'font-black tracking-tight text-on-surface')}
-          >
-            {APP_NAME}
-          </Link>
+          <BrandWordmark size="lg" />
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             <Link
               to="/pricing"
@@ -701,9 +697,9 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.stack(3))}>
-            <div className={cm.cn('text-xl font-bold text-[var(--quorum-footer-fg)]')}>
-              {APP_NAME}
-            </div>
+            {/* footer lockup: shared BrandWordmark (footer variant keeps the
+                per-page brand-wordmark e2e contract header-scoped) */}
+            <BrandWordmark as="span" size="md" invert footer />
             <p className={cm.cn(cm.textSize('sm'), 'tracking-wide max-w-md')}>
               {t(
                 'landing.copyright',

@@ -4,6 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Shared public marketing footer (Landing, About, Privacy, Terms).
@@ -31,7 +32,9 @@ export function LandingFooter() {
       <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6))}>
         <div className={cm.cn('grid grid-cols-2 md:grid-cols-4 gap-8')}>
           <div className="col-span-2 md:col-span-4 mb-2">
-            <span className="font-mono text-lg font-semibold text-on-surface">{APP_NAME}</span>
+            {/* footer lockup: shared BrandWordmark (footer variant keeps the
+                per-page brand-wordmark e2e contract header-scoped) */}
+            <BrandWordmark as="span" size="sm" footer />
           </div>
           <div className="flex flex-col gap-2">
             <h4 className="font-semibold text-on-surface text-sm mb-2">

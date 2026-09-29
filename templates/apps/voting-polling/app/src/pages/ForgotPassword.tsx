@@ -5,7 +5,7 @@ import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { usePasswordReset, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 export function ForgotPassword() {
@@ -59,9 +59,7 @@ export function ForgotPassword() {
           cm.sp('py', 4),
         )}
       >
-        <Link to="/" className={cm.cn('text-xl font-extrabold tracking-tighter text-primary')}>
-          {APP_NAME}
-        </Link>
+        <BrandWordmark size="md" />
         <ThemeToggle />
       </header>
 
