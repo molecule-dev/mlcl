@@ -149,49 +149,53 @@ describe('bookings GET / list', () => {
 })
 
 describe('bookings transition validity (confirm/cancel state machine)', () => {
+  // The handler treats a non-UUID :id as "not found" (Postgres uuid columns
+  // reject other shapes with SQLSTATE 22P02), so exercise the real route the
+  // way it is actually called — with a UUID booking id.
+  const BOOKING_ID = '6b2f6b1e-1c2d-4f3a-9a7b-5c4d3e2f1a0b'
   const asOwner = (booking: Record<string, unknown>, venueOwner = 'owner') => {
     dbMock.findById.mockImplementation(async (table: string) =>
       table === 'bookings' ? booking : { id: 'v1', owner_id: venueOwner },
     )
     dbMock.updateById.mockImplementation(
       async (_t: string, _id: string, data: Record<string, unknown>) => ({
-        data: { id: 'b1', ...data },
+        data: { id: BOOKING_ID, ...data },
       }),
     )
   }
   const put = async (action: 'confirm' | 'cancel', userId: string) => {
     const router = (await import('../handlers/bookings.js')).default
     const url = await listen(router, userId)
-    return fetch(`${url}/b1/${action}`, { method: 'PUT' })
+    return fetch(`${url}/${BOOKING_ID}/${action}`, { method: 'PUT' })
   }
 
   it('confirm rejects a cancelled booking (409) — no resurrection', async () => {
-    asOwner({ id: 'b1', status: 'cancelled', resourceId: 'v1', userId: 'guest' })
+    asOwner({ id: BOOKING_ID, status: 'cancelled', resourceId: 'v1', userId: 'guest' })
     const res = await put('confirm', 'owner')
     expect(res.status).toBe(409)
     expect(dbMock.updateById).not.toHaveBeenCalled()
   })
 
   it('confirm transitions a pending booking to confirmed (200)', async () => {
-    asOwner({ id: 'b1', status: 'pending', resourceId: 'v1', userId: 'guest' })
+    asOwner({ id: BOOKING_ID, status: 'pending', resourceId: 'v1', userId: 'guest' })
     const res = await put('confirm', 'owner')
     expect(res.status).toBe(200)
     expect(dbMock.updateById).toHaveBeenCalledWith(
       'bookings',
-      'b1',
+      BOOKING_ID,
       expect.objectContaining({ status: 'confirmed' }),
     )
   })
 
   it('confirm is idempotent for an already-confirmed booking (200, no write)', async () => {
-    asOwner({ id: 'b1', status: 'confirmed', resourceId: 'v1', userId: 'guest' })
+    asOwner({ id: BOOKING_ID, status: 'confirmed', resourceId: 'v1', userId: 'guest' })
     const res = await put('confirm', 'owner')
     expect(res.status).toBe(200)
     expect(dbMock.updateById).not.toHaveBeenCalled()
   })
 
   it('cancel rejects a completed booking (409) — terminal', async () => {
-    asOwner({ id: 'b1', status: 'completed', resourceId: 'v1', userId: 'guest' })
+    asOwner({ id: BOOKING_ID, status: 'completed', resourceId: 'v1', userId: 'guest' })
     const res = await put('cancel', 'owner')
     expect(res.status).toBe(409)
     expect(dbMock.updateById).not.toHaveBeenCalled()
