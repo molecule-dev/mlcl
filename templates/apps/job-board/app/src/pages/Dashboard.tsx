@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import type { CompanyProfile } from '../components/CompanyProfileCard.js'
@@ -20,9 +20,21 @@ interface ApplicationRow {
   created_at?: string
 }
 
+// Time-of-day greeting key for the design's "Good morning, Alex" welcome
+// heading — same convention as lms WelcomeBanner. Never reuse a shared
+// catalog key: these are dashboard-specific.
+function getGreeting(): { key: string; defaultValue: string } {
+  const hour = new Date().getHours()
+  if (hour < 12) return { key: 'dashboard.greetingMorning', defaultValue: 'Good morning, {{name}}' }
+  if (hour < 18)
+    return { key: 'dashboard.greetingAfternoon', defaultValue: 'Good afternoon, {{name}}' }
+  return { key: 'dashboard.greetingEvening', defaultValue: 'Good evening, {{name}}' }
+}
+
 export function Dashboard() {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const { user } = useAuth<{ name?: string; email?: string }>()
   const http = useHttpClient()
   const [jobs, setJobs] = useState<JobListing[]>([])
   const [companies, setCompanies] = useState<CompanyProfile[]>([])
@@ -65,6 +77,15 @@ export function Dashboard() {
     (j) => j.created_at && Date.now() - new Date(j.created_at).getTime() < WEEK_MS,
   ).length
 
+  // Welcome greeting (design: "Good morning, Alex") — real signed-in identity,
+  // never a hardcoded sample name: display-name first word, else email prefix,
+  // else the guest fallback.
+  const greeting = getGreeting()
+  const firstName =
+    (user?.name && user.name.split(' ')[0]) ||
+    (user?.email ? user.email.split('@')[0] : '') ||
+    t('dashboard.greetingGuest', {}, { defaultValue: 'there' })
+
   if (loading) {
     return (
       <div className={cm.cn(cm.sp('p', 8), 'text-on-surface-variant')}>
@@ -94,8 +115,11 @@ export function Dashboard() {
               'font-extrabold tracking-tight text-on-surface',
             )}
           >
-            {t('dashboard.heading', {}, { defaultValue: 'Your hiring momentum' })}
+            {t(greeting.key, { name: firstName }, { defaultValue: greeting.defaultValue })}
           </h1>
+          <p className={cm.cn(cm.sp('mt', 1), cm.fontWeight('medium'), 'text-on-surface')}>
+            {t('dashboard.heading', {}, { defaultValue: 'Your hiring momentum' })}
+          </p>
           <p className={cm.cn(cm.sp('mt', 1), cm.fontWeight('medium'), 'text-on-surface-variant')}>
             {t(
               'dashboard.subheading',

@@ -15,6 +15,7 @@ interface ProfileStats {
   total_words: number
   mood_counts: { radiant: number; good: number; neutral: number; low: number; struggling: number }
   milestones: { id: string; label: string; date: string; icon: string }[]
+  top_prompts: { slug: string; body: string; uses: number }[]
 }
 
 export function Profile() {
@@ -312,6 +313,76 @@ export function Profile() {
                         })}
                       </p>
                     </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+
+          {/* Frequently Explored — the user's most-used reflection prompts,
+              mirrored from the design's favorite-prompts bento. Rendered from
+              real usage counts (profile-stats.top_prompts), never sample data. */}
+          <section
+            className={cm.cn(
+              cm.sp('p', 6),
+              'bg-surface-container-lowest rounded-2xl shadow-sm space-y-4',
+            )}
+          >
+            <h3
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.textSize('base'),
+                cm.fontWeight('bold'),
+                'text-on-surface',
+              )}
+            >
+              <span
+                className={cm.cn('material-symbols-outlined text-base')}
+                aria-hidden="true"
+                style={{ color: 'var(--mol-color-primary)', fontVariationSettings: "'FILL' 1" }}
+              >
+                favorite
+              </span>
+              {t('profile.frequentlyExplored', {}, { defaultValue: 'Frequently Explored' })}
+            </h3>
+            {stats.top_prompts.length === 0 ? (
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'profile.frequentlyExploredEmpty',
+                  {},
+                  {
+                    defaultValue:
+                      'Write with a reflection prompt and your most-explored ones will gather here.',
+                  },
+                )}
+              </p>
+            ) : (
+              <ul className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-3')}>
+                {stats.top_prompts.map((p) => (
+                  <li
+                    key={p.slug}
+                    className={cm.cn(
+                      cm.sp('p', 5),
+                      cm.flex({ direction: 'col', justify: 'between', gap: 'sm' }),
+                      'rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:bg-surface-container transition-colors',
+                    )}
+                  >
+                    <p className={cm.cn('text-on-surface leading-relaxed')}>
+                      &ldquo;{p.body}&rdquo;
+                    </p>
+                    <p
+                      className={cm.cn(
+                        cm.fontWeight('bold'),
+                        'text-[10px] uppercase tracking-widest',
+                      )}
+                      style={{ color: 'var(--color-accent)' }}
+                    >
+                      {t(
+                        'profile.promptUses',
+                        { count: p.uses },
+                        { defaultValue: 'Used {{count}} time(s)' },
+                      )}
+                    </p>
                   </li>
                 ))}
               </ul>

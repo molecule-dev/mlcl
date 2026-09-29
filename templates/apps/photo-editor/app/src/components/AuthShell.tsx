@@ -5,7 +5,7 @@ import { AuthShellCardColumn, AuthShellPanel } from '@molecule/app-auth-shell-re
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { LustraWordmark } from './LustraWordmark.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 /**
@@ -58,7 +58,7 @@ export function AuthShell({
           'absolute top-0 left-0 right-0 z-30',
         )}
       >
-        <LustraWordmark size="md" to="/" />
+        <BrandWordmark size="md" to="/" />
         <ThemeToggle />
       </header>
 

@@ -15,7 +15,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 import { loadContent } from '../config.js'
-import { LustraWordmark } from './LustraWordmark.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 export function PublicFooter() {
   const cm = getClassMap()
@@ -37,7 +37,7 @@ export function PublicFooter() {
           'max-w-[1100px] mx-auto flex-col md:flex-row gap-6 md:gap-4 text-center md:text-left',
         )}
       >
-        <LustraWordmark size="sm" />
+        <BrandWordmark size="sm" footer />
         <div
           className={cm.cn(
             cm.flex({ gap: 'md' }),

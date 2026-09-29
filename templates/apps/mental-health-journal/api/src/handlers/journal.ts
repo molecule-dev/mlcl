@@ -932,6 +932,7 @@ interface ProfileStats {
   total_words: number
   mood_counts: Record<MoodLevel, number>
   milestones: { id: string; label: string; date: string; icon: string }[]
+  top_prompts: { slug: string; body: string; uses: number }[]
 }
 
 router.get('/profile-stats', async (_req: Request, res: Response) => {
@@ -1035,6 +1036,24 @@ router.get('/profile-stats', async (_req: Request, res: Response) => {
     })
   }
 
+  // Most-explored reflection prompts (design: "Frequently Explored" bento on
+  // Profile) — the user's real usage counts, never sample data.
+  const promptRes = await query<{ slug: string; body_template: string; uses: string }>(
+    `SELECT p.slug, p.body_template, COUNT(*)::text AS uses
+       FROM journal_entries e
+       JOIN prompts p ON p.id = e.prompt_id
+      WHERE e.user_id = $1
+      GROUP BY p.id, p.slug, p.body_template
+      ORDER BY COUNT(*) DESC, p.slug ASC
+        LIMIT 3`,
+    [userId],
+  )
+  const topPrompts = promptRes.rows.map((row) => ({
+    slug: row.slug,
+    body: row.body_template,
+    uses: Number(row.uses),
+  }))
+
   const stats: ProfileStats = {
     total_entries: total,
     longest_streak: longestStreak,
@@ -1043,6 +1062,7 @@ router.get('/profile-stats', async (_req: Request, res: Response) => {
     total_words: totalWords,
     mood_counts: moodCounts,
     milestones,
+    top_prompts: topPrompts,
   }
   res.json(stats)
 })

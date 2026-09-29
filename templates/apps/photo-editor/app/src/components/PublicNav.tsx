@@ -11,7 +11,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import { LustraWordmark } from './LustraWordmark.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 export function PublicNav() {
   const cm = getClassMap()
@@ -27,7 +27,7 @@ export function PublicNav() {
         'h-16 border-b border-[var(--photo-border)] backdrop-blur-md bg-[var(--photo-toolbar-bg)]/80 sticky top-0 z-30',
       )}
     >
-      <LustraWordmark size="md" to="/" />
+      <BrandWordmark size="md" to="/" />
       <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
         {isAuthenticated ? (
           <Link

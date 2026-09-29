@@ -23,9 +23,9 @@ const SAMPLE_EMPLOYEES: Employee[] = [
   },
   {
     id: 'e-2',
-    first_name: 'Marcus',
-    last_name: 'Hale',
-    email: 'marcus.hale@stipend.example',
+    first_name: 'Maria',
+    last_name: 'Lopez',
+    email: 'maria.lopez@stipend.example',
     department: 'Sales',
     title: 'Account Executive',
     salary: 96_000,

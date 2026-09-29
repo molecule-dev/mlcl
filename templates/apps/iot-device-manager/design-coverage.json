@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/firmware": {
+      "allow": [
+        {
+          "heading": "v2.5.0 arrow_forward factory-floor",
+          "reason": "Sample-data rollout row from the design mock: a campaign version pointing at the mock fleet 'factory-floor'. The rollout-card section is implemented (FirmwareCampaignCard: accent-border card, mono version, channel pill, status label, animated progress bar, completion ratio, failure %) fed by GET /api/firmware/campaigns; cards render the seeded campaigns and their channel (Canary/Stable/Beta), not a hardcoded version-to-fleet pair, and the app's own seeded fleets carry real names (EU West Manufacturing, NA East Logistics…)."
+        }
+      ]
+    }
+  }
+}

@@ -7,7 +7,7 @@
  *   - 1 processed pay-run with stubs for every active employee
  *     (so Dashboard / Reports / Tax Center / PayRunDetail render real data)
  *   - 4 notifications (pay-run approval, tax deadline, integration sync,
- *     mention)
+ *     mention) — plus a W-4 mention thread on Maria Lopez's W-4, unread
  *
  * Idempotent: checks for existing rows before inserting.
  *
@@ -44,9 +44,9 @@ const EMPLOYEE_SEEDS: EmployeeSeed[] = [
     status: 'active',
   },
   {
-    first_name: 'Marcus',
-    last_name: 'Hale',
-    email: 'marcus.hale@stipend.example',
+    first_name: 'Maria',
+    last_name: 'Lopez',
+    email: 'maria.lopez@stipend.example',
     title: 'Account Executive',
     department: 'Sales',
     salary: 96_000,
@@ -138,6 +138,14 @@ const NOTIFICATION_SEEDS: NotificationSeed[] = [
     href: '/settings',
     unread: true,
     hours_ago: 26,
+  },
+  {
+    category: 'mention',
+    title: "Priya Sundaram mentioned you on Maria Lopez's W-4",
+    body: '"Could you verify the extra withholding amount she requested? Looks higher than usual."',
+    href: '/employees',
+    unread: true,
+    hours_ago: 5,
   },
   {
     category: 'mention',

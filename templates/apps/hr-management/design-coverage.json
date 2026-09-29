@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/documents": {
+      "allow": [
+        {
+          "heading": "Independent_Contractor_Agreement_V2.docx",
+          "reason": "Sample-data document filename from the design mock's document grid. The /documents page implements the full document-card section (type icon tile, kebab menu, filename, date/size row, category chip) fed by GET /api/documents; cards render the seeded library (Employee Handbook, Code of Conduct, Remote Work Policy, offer letters), never a hardcoded design filename."
+        }
+      ]
+    }
+  }
+}

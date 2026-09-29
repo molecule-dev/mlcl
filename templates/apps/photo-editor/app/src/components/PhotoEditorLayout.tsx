@@ -14,7 +14,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { LustraWordmark } from './LustraWordmark.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { useMediaQuery } from './useMediaQuery.js'
 
 interface AccountUser {
@@ -154,7 +154,7 @@ export function PhotoEditorLayout({
               'h-14',
             )}
           >
-            <LustraWordmark size="sm" to="/library" />
+            <BrandWordmark size="sm" to="/library" />
             <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
               <span
                 data-mol-id="lustra-account-plan"
@@ -294,7 +294,7 @@ export function PhotoEditorLayout({
         )}
       >
         <div className={cm.cn(cm.sp('px', 6), cm.sp('mb', 8))}>
-          <LustraWordmark size="md" to="/library" />
+          <BrandWordmark size="md" to="/library" />
           <p
             className={cm.cn(
               'mt-1 font-mono text-[10px] uppercase tracking-widest text-[var(--photo-text-muted)]',

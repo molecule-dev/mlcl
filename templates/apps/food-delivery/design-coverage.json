@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/restaurants": {
+      "allow": [
+        {
+          "heading": "Luigi's Woodfired Pizza",
+          "reason": "Sample-data restaurant name from the design mock's merchant list. The /restaurants page implements the full restaurant-card section (thumbnail, favorite toggle, Currently Closed overlay, rating + review count, cuisine/price line, delivery fee) fed by GET /api/restaurants; rows render the seeded catalog (Bella Italia is the equivalent wood-fired Italian pizzeria at 4.7), never a hardcoded design name."
+        }
+      ]
+    }
+  }
+}

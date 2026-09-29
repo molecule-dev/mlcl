@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const FEATURES = [
   {
@@ -166,16 +167,7 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'min-w-0')}>
-            <Link
-              to="/"
-              className={cm.cn(
-                cm.textSize('2xl'),
-                'min-w-0 whitespace-nowrap shrink-0',
-                'font-black tracking-tight text-primary-dark dark:text-primary',
-              )}
-            >
-              {APP_NAME}
-            </Link>
+            <BrandWordmark size="lg" />
             <div
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'md' }),
@@ -771,15 +763,7 @@ export function Landing() {
               'md:items-start',
             )}
           >
-            <span
-              className={cm.cn(
-                cm.textSize('lg'),
-                cm.fontWeight('bold'),
-                'text-primary-dark dark:text-primary',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" size="sm" footer />
             <p>
               {t(
                 'landing.copyright',

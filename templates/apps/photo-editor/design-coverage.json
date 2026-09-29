@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/album/:id": {
+      "allow": [
+        {
+          "heading": "Coastal Series 2025",
+          "reason": "Sample-data album name from the design mock. The album-detail page implements the full hero section (cover gradient band, eyebrow, the album's real title with data-mol-id=album-title, frame-count chip, updated date) and renders the title of the album actually loaded from GET /api/albums/:id; albums are user-created records (POST /albums takes the name), and the app seeds no demo albums, so the design's fixture title can never appear on an arbitrary album id."
+        }
+      ]
+    }
+  }
+}

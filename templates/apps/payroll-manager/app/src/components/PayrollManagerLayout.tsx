@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
@@ -66,38 +66,7 @@ function BrandRow({ size }: { size: 'sidebar' | 'drawer' }) {
         'text-white',
       )}
     >
-      <span
-        className={cm.cn(
-          size === 'sidebar' ? cm.w(8) : cm.w(7),
-          size === 'sidebar' ? cm.h(8) : cm.h(7),
-          cm.roundedFull,
-          cm.flex({ align: 'center', justify: 'center' }),
-          'bg-gradient-to-br from-primary to-secondary text-white shadow-lg',
-        )}
-        aria-hidden="true"
-      >
-        <span
-          className={cm.cn(
-            size === 'sidebar'
-              ? 'material-symbols-outlined text-lg'
-              : 'material-symbols-outlined text-base',
-          )}
-          style={{ fontVariationSettings: "'FILL' 1" }}
-        >
-          receipt_long
-        </span>
-      </span>
-      {/* Brand names are never translated — render APP_NAME directly.
-          (The old t('nav.primaryNavigation') key resolved to the common
-          locales' "Primary navigation" string, replacing the brand.) */}
-      <span
-        className={cm.cn(
-          size === 'sidebar' ? cm.textSize('xl') : cm.textSize('base'),
-          'font-extrabold tracking-tight',
-        )}
-      >
-        {APP_NAME}
-      </span>
+      <BrandWordmark as="span" size={size === 'sidebar' ? 'md' : 'sm'} invert />
     </Link>
   )
 }

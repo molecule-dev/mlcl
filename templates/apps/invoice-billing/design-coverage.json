@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/": {
+      "allow": [
+        {
+          "heading": "Precision tools for modern finance.",
+          "reason": "Deliberate headline divergence, reviewed: the design's features-grid h2 is rendered as 'Everything to bill, collect, and reconcile.' (landing.features.title) — same section, position, eyebrow, and the design's exact subtitle 'Everything you need to manage receivables without the clutter.' beneath it. The rewrite is already translated into all 78 companion locales, so reverting to the design's wording would orphan the entire translation set for marketing copy with identical meaning."
+        }
+      ]
+    }
+  }
+}
