@@ -19,6 +19,13 @@ interface NotificationRow {
   created_at: string
 }
 
+interface WatchAreaRow {
+  id: string
+  name: string
+  radius: number
+  derived_address: string
+}
+
 const KIND_ICONS: Record<string, string> = {
   watch_area_issue: 'notifications_active',
   status_change: 'swap_horiz',
@@ -37,6 +44,7 @@ export function Notifications() {
   const [unread, setUnread] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [zones, setZones] = useState<WatchAreaRow[]>([])
 
   useEffect(() => {
     document.title = t(
@@ -45,6 +53,28 @@ export function Notifications() {
       { defaultValue: 'Notifications — {{appName}}' },
     )
   }, [t])
+
+  // Watched geofences strip (design: the subscription summary under the feed).
+  useEffect(() => {
+    let cancelled = false
+    async function loadZones() {
+      try {
+        const res = await http.get('/api/watch-areas')
+        const raw: WatchAreaRow[] = Array.isArray(res)
+          ? (res as WatchAreaRow[])
+          : Array.isArray((res as { data?: unknown })?.data)
+            ? (res as { data: WatchAreaRow[] }).data
+            : []
+        if (!cancelled) setZones(raw)
+      } catch {
+        // Summary is a nice-to-have — the feed works without it.
+      }
+    }
+    void loadZones()
+    return () => {
+      cancelled = true
+    }
+  }, [http])
 
   const load = useCallback(async () => {
     setLoading(true)
@@ -111,7 +141,11 @@ export function Notifications() {
         <div className={cm.cn(cm.mxAuto, 'max-w-3xl', cm.sp('px', 6), cm.sp('py', 8), cm.stack(6))}>
           <PageHeader
             molId="notifications-title"
-            title={t('settings.notifications', {}, { defaultValue: 'Notifications' })}
+            title={t(
+              'notifications.title',
+              {},
+              { defaultValue: 'Civic Notifications & Dispatch Telemetry' },
+            )}
             subtitle={t(
               'notifications.subtitle',
               {},
@@ -247,6 +281,114 @@ export function Notifications() {
               })
             )}
           </section>
+
+          {/* Side rails of the design: delivery channels + watched geofences */}
+          <div className={cnRails(cm)}>
+            {/* Delivery Channels (design h3) */}
+            <section
+              data-mol-id="notifications-channels"
+              className={cm.cn(
+                cm.stack(2),
+                cm.sp('p', 4),
+                'rounded-lg border border-outline-variant/40 bg-surface-container-lowest',
+              )}
+            >
+              <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}>
+                {t('notifications.channels', {}, { defaultValue: 'Delivery Channels' })}
+              </h3>
+              <ul className={cm.stack(2)}>
+                {(
+                  [
+                    ['inapp', 'notifications', true, 'In-app feed'],
+                    ['email', 'mail', true, 'Email digests'],
+                    [
+                      'sms',
+                      'sms',
+                      false,
+                      'SMS dispatch alerts (verify a phone number in Settings)',
+                    ],
+                  ] as const
+                ).map(([id, icon, on, label]) => (
+                  <li key={id} className={cm.flex({ align: 'center', justify: 'between', gap: 2 })}>
+                    <span
+                      className={cm.cn(cm.flex({ align: 'center', gap: 2 }), cm.textSize('sm'))}
+                    >
+                      <span
+                        className="material-symbols-outlined text-[18px] text-primary"
+                        aria-hidden
+                      >
+                        {icon}
+                      </span>
+                      {t(`notifications.channel.${id}`, {}, { defaultValue: label })}
+                    </span>
+                    <span
+                      className={cm.cn(
+                        cm.sp('px', 2),
+                        cm.sp('py', 1),
+                        cm.textSize('xs'),
+                        cm.fontWeight('semibold'),
+                        'rounded-full',
+                        on
+                          ? 'bg-secondary-container text-on-secondary-container'
+                          : 'bg-surface-variant text-on-surface-variant',
+                      )}
+                    >
+                      {on
+                        ? t('notifications.channelOn', {}, { defaultValue: 'On' })
+                        : t('notifications.channelOff', {}, { defaultValue: 'Setup' })}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+            {/* Watched Geofences (design h3) */}
+            <section
+              data-mol-id="notifications-geofences"
+              className={cm.cn(
+                cm.stack(2),
+                cm.sp('p', 4),
+                'rounded-lg border border-outline-variant/40 bg-surface-container-lowest',
+              )}
+            >
+              <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}>
+                {t('notifications.geofences', {}, { defaultValue: 'Watched Geofences' })}
+              </h3>
+              {zones.length === 0 ? (
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {t(
+                    'notifications.noGeofences',
+                    {},
+                    {
+                      defaultValue:
+                        'No geofences yet — save a watch area to scope this feed to your zones.',
+                    },
+                  )}
+                </p>
+              ) : (
+                <ul className={cm.stack(2)}>
+                  {zones.map((zone) => (
+                    <li
+                      key={zone.id}
+                      className={cm.flex({ align: 'center', justify: 'between', gap: 2 })}
+                    >
+                      <span className={cm.cn(cm.textSize('sm'), 'min-w-0 truncate')}>
+                        {zone.name}
+                      </span>
+                      <span
+                        className={cm.cn(cm.textSize('xs'), 'shrink-0 text-on-surface-variant')}
+                      >
+                        {t(
+                          'notifications.zoneRadius',
+                          { radius: zone.radius },
+                          { defaultValue: '{{radius}} blocks' },
+                        )}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          </div>
         </div>
       </main>
     </div>
@@ -254,3 +396,7 @@ export function Notifications() {
 }
 
 export default Notifications
+
+/** The two design side rails, side-by-side on wide screens. */
+const cnRails = (cm: ReturnType<typeof getClassMap>): string =>
+  cm.cn(cm.grid({ cols: 2, gap: 'md' }))

@@ -59,7 +59,7 @@ function SettingsProfileSection({
         )}
       >
         <h3 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}>
-          {t('settingsProfile.title', {}, { defaultValue: 'Profile Settings' })}
+          {t('settingsProfile.title', {}, { defaultValue: 'Profile & Municipal Verification' })}
         </h3>
         <button
           onClick={onSave}

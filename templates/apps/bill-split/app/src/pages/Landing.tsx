@@ -4,42 +4,73 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
+/* Stitch's four value cards — titles match the design verbatim. The mini
+ * visuals below are keyed by index and pair 1:1 with these cards. */
 const FEATURES = [
   {
-    key: 'splits',
-    icon: 'call_split',
+    key: 'minimizer',
+    icon: 'insights',
     tileClass:
       'bg-[color-mix(in_srgb,var(--color-secondary-container)_40%,transparent)] text-primary',
-    defaultTitle: 'Any split you need',
+    defaultTitle: 'Smart Debt Minimizer',
     defaultBody:
-      'Equal, exact amounts, or weighted shares for couples and roommates — {{app}} computes every share to the cent.',
+      'Equal, exact amounts, or weighted shares — {{app}} collapses every messy cross-debt into the fewest transfers, computed to the cent.',
   },
   {
-    key: 'balances',
-    icon: 'account_balance',
+    key: 'receipt',
+    icon: 'document_scanner',
     tileClass: 'bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] text-primary',
-    defaultTitle: 'Balances that add up',
+    defaultTitle: 'Receipt Scan & Auto-Split',
     defaultBody:
-      'Every group shows who owes whom. Your dashboard totals what you owe and what you are owed across all of them.',
+      'Snap the receipt and {{app}} reads the line items, pro-rates tax and tip, and splits each share automatically.',
   },
   {
-    key: 'settle',
-    icon: 'handshake',
-    tileClass: 'bg-[color-mix(in_srgb,var(--color-tertiary)_10%,transparent)] text-tertiary',
-    defaultTitle: 'Simplified settle-up',
-    defaultBody:
-      'The fewest transfers that zero a group out — record what actually moved and everyone lands on square.',
-  },
-  {
-    key: 'activity',
+    key: 'nudges',
     icon: 'notifications',
+    tileClass: 'bg-[color-mix(in_srgb,var(--color-tertiary)_10%,transparent)] text-tertiary',
+    defaultTitle: 'Zero Awkward Conversations',
+    defaultBody:
+      'Polite automated nudges chase the balance for you — warm, low-pressure reminders instead of group-text standoffs.',
+  },
+  {
+    key: 'currency',
+    icon: 'currency_exchange',
     tileClass:
       'bg-[color-mix(in_srgb,var(--color-secondary-fixed-dim)_30%,transparent)] text-on-secondary-fixed',
-    defaultTitle: 'A feed of everything',
+    defaultTitle: 'Multi-Currency & Offline Ready',
     defaultBody:
-      'New expenses, members, and payments land in one chronological activity feed per group.',
+      'Log expenses in any currency and settle in your own — 0% FX markup, and everything works offline until you reconnect.',
   },
+] as const
+
+/* Stitch "How Evenly Works" — the three-step onboarding strip. */
+const HOW_IT_WORKS = [
+  {
+    icon: 'group_add',
+    title: 'Create your circle',
+    body: 'Spin up a group for the cabin trip, the flat share, or the weekly dinner club — invites take one tap.',
+  },
+  {
+    icon: 'receipt_long',
+    title: 'Drop in expenses as you go',
+    body: 'Add what was paid the moment it happens — equal, exact, or weighted splits, in any currency.',
+  },
+  {
+    icon: 'handshake',
+    title: 'Settle in a single tap',
+    body: 'The Smart Debt Minimizer reduces everyone’s IOUs to the fewest direct transfers and settles them in one tap.',
+  },
+] as const
+
+/* Stitch "Dinner splits without the awkward side-eye." mockup — an
+ * itemized restaurant receipt the Smart Debt Minimizer has already divided. */
+const DINNER_ITEMS = [
+  { label: 'Truffle pasta', amount: '$32.00' },
+  { label: 'Share plates · 4 kinds', amount: '$58.00' },
+  { label: 'Wine (2 bottles)', amount: '$76.00' },
+  { label: 'Tax (8.875%) & tip (20%)', amount: '$29.53' },
 ] as const
 
 /* Stitch hero mockup — "Lake Tahoe Weekend Cabin" expense stream. */
@@ -92,6 +123,34 @@ const SCENARIOS = [
   { icon: 'restaurant', label: 'Weekly Dinner Clubs' },
 ] as const
 
+/* Stitch testimonials — "Loved by roommates, couples & trip organizers". */
+const TESTIMONIALS = [
+  {
+    name: 'Elena Rostova',
+    initials: 'ER',
+    tile: 'bg-primary-fixed text-on-primary-fixed',
+    role: 'Flatmates of 4 · Chicago',
+    quote:
+      'Our rent-and-utilities group text went from 40 messages a month to zero. The nudges are so polite nobody minds them.',
+  },
+  {
+    name: 'Marcus Vance',
+    initials: 'MV',
+    tile: 'bg-secondary-fixed text-on-secondary-fixed',
+    role: 'Trip organizer · Lake Tahoe',
+    quote:
+      'Ten of us, one ski cabin, fourteen expenses. The minimizer turned it into three transfers. I will never build a spreadsheet again.',
+  },
+  {
+    name: 'Chloe & Jordan',
+    initials: 'CJ',
+    tile: 'bg-tertiary-fixed text-on-tertiary-fixed',
+    role: 'Couple · 12 shared trips',
+    quote:
+      'We split everything with weighted shares so Jordan covers the ski passes and I cover dinners. It just… always adds up.',
+  },
+] as const
+
 const REASSURANCES = [
   { icon: 'check', label: 'Free forever for friends' },
   { icon: 'credit_card_off', label: 'No credit card required' },
@@ -121,25 +180,7 @@ export function Landing() {
             'h-20 mx-auto w-full',
           )}
         >
-          <Link to="/" className={cm.flex({ align: 'center', gap: 2 })}>
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'h-10 w-10 rounded-xl bg-primary text-on-primary shadow-md transition-transform',
-              )}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-2xl')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-                aria-hidden="true"
-              >
-                call_split
-              </span>
-            </span>
-            <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
-              {APP_NAME}
-            </span>
-          </Link>
+          <BrandWordmark size="lg" />
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
               <Link
@@ -637,6 +678,316 @@ export function Landing() {
           </div>
         </section>
 
+        {/* How it works — Stitch's three-step strip */}
+        <section
+          id="how-it-works"
+          data-mol-id="landing-how-it-works"
+          className="bg-surface-container-low border-y border-outline-variant/30"
+        >
+          <div className={cm.cn(cm.maxW('[1200px]'), 'mx-auto', cm.sp('px', 6), 'py-24')}>
+            <div
+              className={cm.cn(
+                'max-w-2xl mx-auto text-center',
+                cm.sp('mb', 16),
+                cm.flex({ direction: 'col', gap: 3 }),
+              )}
+            >
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'uppercase tracking-wider text-primary',
+                )}
+              >
+                {t(
+                  'landing.howEyebrow',
+                  {},
+                  { defaultValue: 'From the bill to settled in three steps' },
+                )}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-on-surface">
+                {t('landing.howHeading', { app: APP_NAME }, { defaultValue: 'How {{app}} Works' })}
+              </h2>
+            </div>
+            <ol className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {HOW_IT_WORKS.map((step, i) => (
+                <li
+                  key={step.title}
+                  className={cm.cn(
+                    cm.sp('p', 8),
+                    cm.flex({ direction: 'col', gap: 4 }),
+                    'relative rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm',
+                  )}
+                >
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      cm.w(12),
+                      cm.h(12),
+                      'rounded-xl bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] text-primary',
+                    )}
+                    aria-hidden="true"
+                  >
+                    <span className={cm.cn('material-symbols-outlined text-2xl')}>{step.icon}</span>
+                  </span>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('bold'),
+                      'text-outline-variant uppercase tracking-widest',
+                    )}
+                    aria-hidden="true"
+                  >
+                    {t('landing.howStepLabel', { step: i + 1 }, { defaultValue: 'Step {{step}}' })}
+                  </span>
+                  <h3 className="text-base font-bold text-on-surface">
+                    {t(`landing.howStep.${i + 1}.title`, {}, { defaultValue: step.title })}
+                  </h3>
+                  <p
+                    className={cm.cn(
+                      cm.textSize('base'),
+                      'text-on-surface-variant leading-relaxed',
+                    )}
+                  >
+                    {t(`landing.howStep.${i + 1}.body`, {}, { defaultValue: step.body })}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Dinner scenario — Stitch's itemized-receipt mockup */}
+        <section
+          data-mol-id="landing-dinner"
+          className={cm.cn('bg-surface', cm.maxW('[1200px]'), 'mx-auto', cm.sp('px', 6), 'py-24')}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className={cm.cn(cm.flex({ direction: 'col', gap: 4 }))}>
+              <span
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 2 }),
+                  cm.sp('px', 4),
+                  cm.sp('py', 1.5),
+                  'self-start rounded-full bg-surface-container-lowest border border-outline-variant/50 text-primary shadow-sm',
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                  restaurant
+                </span>
+                <span className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'))}>
+                  {t('landing.dinner.pill', {}, { defaultValue: 'The Friday-night scenario' })}
+                </span>
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-on-surface">
+                {t(
+                  'landing.dinner.heading',
+                  {},
+                  { defaultValue: 'Dinner splits without the awkward side-eye.' },
+                )}
+              </h2>
+              <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant leading-relaxed')}>
+                {t(
+                  'landing.dinner.body',
+                  { app: APP_NAME },
+                  {
+                    defaultValue:
+                      'One person pays, everyone else opens the app. {{app}} itemizes the receipt, prorates the tax and tip, and hands back exactly what each person owes — no mental math, no "just round it" losses.',
+                  },
+                )}
+              </p>
+              <ul className={cm.cn(cm.stack(2), cm.sp('mt', 2))}>
+                {['itemizedReceipt', 'fairTipSplit', 'oneTapRail'].map((row, i) => (
+                  <li key={row} className={cm.flex({ align: 'center', gap: 2 })}>
+                    <span
+                      className={cm.cn('material-symbols-outlined text-lg text-primary')}
+                      aria-hidden="true"
+                    >
+                      check_circle
+                    </span>
+                    <span className={cm.cn(cm.textSize('sm'), 'text-on-surface')}>
+                      {t(
+                        `landing.dinner.point.${row}`,
+                        {},
+                        {
+                          defaultValue: [
+                            'Every line item visible to the whole table',
+                            'Tip split fairly across whoever dined',
+                            'Payback links for Venmo, Cash App & Zelle',
+                          ][i],
+                        },
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Itemized receipt mockup card */}
+            <div
+              className={cm.cn(
+                cm.sp('p', 6),
+                'rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-xl',
+              )}
+              aria-hidden="true"
+            >
+              <div className={cm.flex({ align: 'center', justify: 'between', gap: 2 })}>
+                <h3
+                  className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'), 'text-on-surface')}
+                >
+                  {t('landing.dinner.receiptTitle', {}, { defaultValue: 'Osteria Morini Dinner' })}
+                </h3>
+                <span
+                  className={cm.cn(
+                    cm.sp('px', 2.5),
+                    cm.sp('py', 1),
+                    cm.textSize('xs'),
+                    cm.fontWeight('bold'),
+                    'rounded-full bg-[color-mix(in_srgb,var(--color-secondary-container)_50%,transparent)] text-primary',
+                  )}
+                >
+                  {t('landing.dinner.autoSplit', {}, { defaultValue: 'Auto-split' })}
+                </span>
+              </div>
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mt', 1))}>
+                {t(
+                  'landing.dinner.receiptMeta',
+                  {},
+                  { defaultValue: '6 people · Friday 8:12 PM · Scanned receipt' },
+                )}
+              </p>
+              <ul
+                className={cm.cn(
+                  cm.stack(2),
+                  cm.sp('mt', 4),
+                  'border-t border-outline-variant/30 pt-4',
+                )}
+              >
+                {DINNER_ITEMS.map((item) => (
+                  <li
+                    key={item.label}
+                    className={cm.flex({ align: 'center', justify: 'between', gap: 2 })}
+                  >
+                    <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                      {t(`landing.dinner.item.${item.label}`, {}, { defaultValue: item.label })}
+                    </span>
+                    <span className={cm.cn(cm.textSize('sm'), 'text-on-surface tabular-nums')}>
+                      {item.amount}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <div
+                className={cm.flex({ align: 'center', justify: 'between' })}
+                data-mol-id="landing-dinner-total"
+              >
+                <span
+                  className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-on-surface')}
+                >
+                  {t('landing.dinner.perPerson', {}, { defaultValue: '$32.59 / person' })}
+                </span>
+                <span
+                  className={cm.cn(
+                    cm.sp('px', 3),
+                    cm.sp('py', 1.5),
+                    cm.textSize('xs'),
+                    cm.fontWeight('bold'),
+                    'rounded-lg bg-primary text-on-primary shadow-sm',
+                  )}
+                >
+                  {t('landing.dinner.settled', {}, { defaultValue: 'Settled in one tap' })}
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials — Stitch's social-proof cards */}
+        <section
+          data-mol-id="landing-testimonials"
+          className="bg-surface-container-low border-y border-outline-variant/30"
+        >
+          <div className={cm.cn(cm.maxW('[1200px]'), 'mx-auto', cm.sp('px', 6), 'py-24')}>
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-on-surface text-center max-w-3xl mx-auto">
+              {t(
+                'landing.testimonials.heading',
+                {},
+                { defaultValue: 'Loved by roommates, couples & trip organizers' },
+              )}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+              {TESTIMONIALS.map((review) => (
+                <figure
+                  key={review.name}
+                  className={cm.cn(
+                    cm.sp('p', 8),
+                    cm.flex({ direction: 'col', gap: 4 }),
+                    'rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm',
+                  )}
+                >
+                  <span className={cm.flex({ gap: 0.5 })} aria-hidden="true">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span
+                        key={i}
+                        className={cm.cn('material-symbols-outlined text-base text-amber-500')}
+                        style={{ fontVariationSettings: "'FILL' 1" }}
+                      >
+                        star
+                      </span>
+                    ))}
+                  </span>
+                  <blockquote
+                    className={cm.cn(cm.textSize('base'), 'text-on-surface leading-relaxed')}
+                  >
+                    “
+                    {t(
+                      `landing.testimonial.${review.name}.quote`,
+                      {},
+                      { defaultValue: review.quote },
+                    )}
+                    ”
+                  </blockquote>
+                  <figcaption
+                    className={cm.cn(cm.flex({ align: 'center', gap: 3 }), cm.sp('mt', 2))}
+                  >
+                    <span
+                      className={cm.cn(
+                        cm.flex({ align: 'center', justify: 'center' }),
+                        'h-10 w-10 rounded-full text-xs font-bold',
+                        review.tile,
+                      )}
+                      aria-hidden="true"
+                    >
+                      {review.initials}
+                    </span>
+                    <span>
+                      <span
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          cm.fontWeight('bold'),
+                          'text-on-surface block',
+                        )}
+                      >
+                        {t(
+                          `landing.testimonial.${review.name}.name`,
+                          {},
+                          { defaultValue: review.name },
+                        )}
+                      </span>
+                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                        {t(
+                          `landing.testimonial.${review.name}.role`,
+                          {},
+                          { defaultValue: review.role },
+                        )}
+                      </span>
+                    </span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* High-conversion CTA banner — Stitch's gradient rounded-3xl block */}
         <section
           className={cm.cn('bg-surface', cm.maxW('[1200px]'), 'mx-auto', cm.sp('px', 6), 'py-20')}
@@ -733,23 +1084,7 @@ export function Landing() {
         >
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
             <div className={cm.cn('md:col-span-5', cm.stack(4))}>
-              <div className={cm.flex({ align: 'center', gap: 2 })}>
-                <span
-                  className={cm.cn(
-                    cm.flex({ align: 'center', justify: 'center' }),
-                    'h-8 w-8 rounded-lg bg-primary text-on-primary',
-                  )}
-                >
-                  <span
-                    className={cm.cn('material-symbols-outlined text-lg')}
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                    aria-hidden="true"
-                  >
-                    call_split
-                  </span>
-                </span>
-                <span className={cm.cn(cm.fontWeight('bold'), 'text-on-surface')}>{APP_NAME}</span>
-              </div>
+              <BrandWordmark as="span" size="sm" footer />
               <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-sm')}>
                 {t(
                   'landing.footerTagline',

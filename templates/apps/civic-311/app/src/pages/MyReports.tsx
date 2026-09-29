@@ -78,6 +78,58 @@ export function MyReportsPage() {
     return { total: issues.length, open, resolved }
   }, [issues])
 
+  // The two docket sections of the design: active dispatch + resolved ledger.
+  const activeRows = useMemo(
+    () => filtered.filter((i) => !['resolved', 'dismissed'].includes(i.status)),
+    [filtered],
+  )
+  const resolvedRows = useMemo(() => filtered.filter((i) => i.status === 'resolved'), [filtered])
+
+  /** One report row (shared by the dispatch and resolved sections). */
+  const renderRow = (issue: MyIssue) => (
+    <button
+      key={issue.id}
+      type="button"
+      data-mol-id="my-reports-item"
+      data-status={issue.status}
+      onClick={() => navigate(`/reports/${issue.id}`)}
+      className={cm.cn(
+        cm.flex({ align: 'start', justify: 'between', gap: 4 }),
+        cm.sp('p', 4),
+        'rounded-lg border border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-left w-full',
+      )}
+    >
+      <span className={cm.cn(cm.stack(1), 'min-w-0')}>
+        <span className={cm.flex({ align: 'center', gap: 2 })}>
+          <span
+            className="material-symbols-outlined"
+            style={{ color: `var(--color-cat-${issue.category})` }}
+            aria-hidden
+          >
+            {categoryIcon(issue.category)}
+          </span>
+          <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+            {categoryLabel(issue.category)}
+          </span>
+          <StatusBadge status={issue.status} />
+        </span>
+        <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+          {issue.derived_address} · {timeAgo(issue.created_at, t)}
+        </span>
+        <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant line-clamp-1')}>
+          {issue.description}
+        </span>
+      </span>
+      <span className={cm.cn(cm.textSize('xs'), 'whitespace-nowrap text-on-surface-variant')}>
+        {t(
+          'myReports.confirmations',
+          { count: issue.confirmation_count },
+          { defaultValue: '{{count}} confirmations' },
+        )}
+      </span>
+    </button>
+  )
+
   return (
     <div className={cm.cn(cm.surface, 'text-on-surface')}>
       <SideNavBar />
@@ -85,7 +137,11 @@ export function MyReportsPage() {
         <div className={cm.cn(cm.mxAuto, 'max-w-4xl', cm.sp('px', 6), cm.sp('py', 8), cm.stack(6))}>
           <PageHeader
             molId="my-reports-title"
-            title={t('myReports.title', {}, { defaultValue: 'My reports' })}
+            title={t(
+              'myReports.title',
+              {},
+              { defaultValue: 'My Civic Reports & Service Requests' },
+            )}
             subtitle={t(
               'myReports.subtitle',
               {},
@@ -163,85 +219,105 @@ export function MyReportsPage() {
               <p className={cm.cn(cm.textSize('sm'), 'text-error')} data-mol-id="my-reports-error">
                 {loadError}
               </p>
-            ) : filtered.length === 0 ? (
-              <div
-                data-mol-id="my-reports-empty"
-                className={cm.cn(
-                  cm.stack(3),
-                  cm.sp('p', 8),
-                  'rounded-xl border border-dashed border-outline-variant text-center',
-                )}
-              >
-                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                  {t(
-                    'myReports.empty',
-                    {},
-                    { defaultValue: 'Nothing reported yet. Spotted something broken?' },
-                  )}
-                </p>
-                <Link
-                  data-mol-id="my-reports-empty-cta"
-                  to="/report"
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    'self-center rounded-lg py-2 text-sm font-semibold',
-                    'bg-primary text-on-primary hover:opacity-90',
-                  )}
-                >
-                  {t('myReports.emptyCta', {}, { defaultValue: 'Report your first issue' })}
-                </Link>
-              </div>
             ) : (
-              filtered.map((issue) => (
-                <button
-                  key={issue.id}
-                  type="button"
-                  data-mol-id="my-reports-item"
-                  data-status={issue.status}
-                  onClick={() => navigate(`/reports/${issue.id}`)}
-                  className={cm.cn(
-                    cm.flex({ align: 'start', justify: 'between', gap: 4 }),
-                    cm.sp('p', 4),
-                    'rounded-lg border border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-left w-full',
-                  )}
-                >
-                  <span className={cm.cn(cm.stack(1), 'min-w-0')}>
-                    <span className={cm.flex({ align: 'center', gap: 2 })}>
-                      <span
-                        className="material-symbols-outlined"
-                        style={{ color: `var(--color-cat-${issue.category})` }}
-                        aria-hidden
-                      >
-                        {categoryIcon(issue.category)}
-                      </span>
-                      <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
-                        {categoryLabel(issue.category)}
-                      </span>
-                      <StatusBadge status={issue.status} />
-                    </span>
-                    <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                      {issue.derived_address} · {timeAgo(issue.created_at, t)}
-                    </span>
-                    <span
-                      className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant line-clamp-1')}
-                    >
-                      {issue.description}
-                    </span>
-                  </span>
-                  <span
+              <>
+                {/* Active dispatch section (design: Active Work Orders in
+                    Dispatch) — heading renders even for a brand-new account so
+                    the docket structure is always visible. */}
+                <div className={cm.stack(3)}>
+                  <h2
                     className={cm.cn(
-                      cm.textSize('xs'),
-                      'whitespace-nowrap text-on-surface-variant',
+                      cm.flex({ align: 'center', gap: 2 }),
+                      cm.textSize('base'),
+                      cm.fontWeight('bold'),
                     )}
                   >
+                    <span
+                      className="material-symbols-outlined text-[18px] text-primary"
+                      aria-hidden
+                    >
+                      local_shipping
+                    </span>
                     {t(
-                      'myReports.confirmations',
-                      { count: issue.confirmation_count },
-                      { defaultValue: '{{count}} confirmations' },
+                      'myReports.activeSection',
+                      {},
+                      { defaultValue: 'Active Work Orders in Dispatch' },
                     )}
-                  </span>
-                </button>
-              ))
+                  </h2>
+                  {filtered.length === 0 ? (
+                    <div
+                      data-mol-id="my-reports-empty"
+                      className={cm.cn(
+                        cm.stack(3),
+                        cm.sp('p', 8),
+                        'rounded-xl border border-dashed border-outline-variant text-center',
+                      )}
+                    >
+                      <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                        {t(
+                          'myReports.empty',
+                          {},
+                          { defaultValue: 'Nothing reported yet. Spotted something broken?' },
+                        )}
+                      </p>
+                      <Link
+                        data-mol-id="my-reports-empty-cta"
+                        to="/report"
+                        className={cm.cn(
+                          cm.sp('px', 4),
+                          'self-center rounded-lg py-2 text-sm font-semibold',
+                          'bg-primary text-on-primary hover:opacity-90',
+                        )}
+                      >
+                        {t('myReports.emptyCta', {}, { defaultValue: 'Report your first issue' })}
+                      </Link>
+                    </div>
+                  ) : activeRows.length > 0 ? (
+                    activeRows.map(renderRow)
+                  ) : (
+                    <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                      {t(
+                        'myReports.noActive',
+                        {},
+                        { defaultValue: 'No active work orders in this view.' },
+                      )}
+                    </p>
+                  )}
+                </div>
+                {/* Resolved ledger section (design: Recently Resolved & Sealed) */}
+                <div className={cm.stack(3)}>
+                  <h3
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 2 }),
+                      cm.textSize('base'),
+                      cm.fontWeight('bold'),
+                    )}
+                  >
+                    <span
+                      className="material-symbols-outlined text-[18px] text-[var(--color-status-resolved)]"
+                      aria-hidden
+                    >
+                      task_alt
+                    </span>
+                    {t(
+                      'myReports.resolvedSection',
+                      { count: resolvedRows.length },
+                      { defaultValue: 'Recently Resolved & Sealed ({{count}} Total)' },
+                    )}
+                  </h3>
+                  {resolvedRows.length > 0 ? (
+                    resolvedRows.map(renderRow)
+                  ) : (
+                    <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                      {t(
+                        'myReports.noResolved',
+                        {},
+                        { defaultValue: 'No sealed reports yet — resolved work orders land here.' },
+                      )}
+                    </p>
+                  )}
+                </div>
+              </>
             )}
           </section>
         </div>

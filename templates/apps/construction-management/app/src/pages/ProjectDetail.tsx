@@ -7,7 +7,13 @@ import { getClassMap } from '@molecule/app-ui'
 import { ProjectNav } from '../components/ProjectNav.js'
 import { StatusBadge } from '../components/StatusBadge.js'
 import { formatDateLong, formatMoney } from '../lib/format.js'
-import { unwrapSingle } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
+
+interface RfiLite {
+  id: string
+  drawings_ref: string
+  status: string
+}
 
 interface Project {
   id: string
@@ -38,6 +44,7 @@ export function ProjectDetail() {
   const http = useHttpClient()
   const { projectId } = useParams<{ projectId: string }>()
   const [project, setProject] = useState<Project | null>(null)
+  const [sheets, setSheets] = useState<Array<{ ref: string; open: number; total: number }>>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -45,10 +52,33 @@ export function ProjectDetail() {
     let cancelled = false
     if (!projectId) return
     setLoading(true)
-    http
-      .get(`/api/projects/${projectId}`)
-      .then((res) => {
-        if (!cancelled) setProject(unwrapSingle<Project>(res))
+    Promise.all([
+      http.get(`/api/projects/${projectId}`),
+      http
+        .get(`/api/rfis?project_id=${projectId}`)
+        .then((res) => unwrapList<RfiLite>(res))
+        .catch(() => [] as RfiLite[]),
+    ])
+      .then(([p, rfis]) => {
+        if (cancelled) return
+        setProject(unwrapSingle<Project>(p))
+        // Group the RFIs' drawing references into the sheet ledger —
+        // the same "current sheets" view the super's table shows.
+        const byRef = new Map<string, { open: number; total: number }>()
+        for (const rfi of rfis) {
+          const ref = rfi.drawings_ref?.trim()
+          if (!ref) continue
+          const entry = byRef.get(ref) ?? { open: 0, total: 0 }
+          entry.total += 1
+          if (rfi.status === 'open') entry.open += 1
+          byRef.set(ref, entry)
+        }
+        setSheets(
+          [...byRef.entries()]
+            .map(([ref, counts]) => ({ ref, ...counts }))
+            .sort((a, b) => b.open - a.open || a.ref.localeCompare(b.ref))
+            .slice(0, 6),
+        )
       })
       .catch(() => {
         if (!cancelled) setError(t('projects.notFound', {}, { defaultValue: 'Project not found' }))
@@ -114,6 +144,57 @@ export function ProjectDetail() {
       </header>
 
       <ProjectNav projectId={project.id} />
+
+      {/* Sheets referenced in RFIs — the current-drawings ledger */}
+      {sheets.length > 0 && (
+        <section data-mol-id="project-sheets" className={cm.cn(cm.card(), cm.sp('p', 6))}>
+          <div
+            className={cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' })}
+          >
+            <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>
+              {t('project.sheets', {}, { defaultValue: 'Sheets referenced in RFIs' })}
+            </h2>
+            <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+              {t(
+                'project.sheetsHint',
+                {},
+                { defaultValue: 'Open RFIs cite these drawing references' },
+              )}
+            </span>
+          </div>
+          <ul className={cm.cn(cm.sp('mt', 4), 'divide-y divide-outline-variant')}>
+            {sheets.map((s) => (
+              <li
+                key={s.ref}
+                className={cm.flex({ align: 'center', justify: 'between', gap: 'md' })}
+              >
+                <span
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.fontWeight('semibold'),
+                    'text-primary whitespace-nowrap',
+                  )}
+                >
+                  {s.ref}
+                </span>
+                <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {s.open > 0
+                    ? t(
+                        'project.sheetsOpen',
+                        { count: s.total, open: s.open },
+                        { defaultValue: '{{count}} RFI(s) · {{open}} open' },
+                      )
+                    : t(
+                        'project.sheetsTotal',
+                        { count: s.total },
+                        { defaultValue: '{{count}} RFI(s)' },
+                      )}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <div className={cm.cn(cm.grid({ cols: 1, gap: 'lg' }), 'lg:grid-cols-3')}>
         <section className={cm.cn(cm.card(), cm.sp('p', 6), 'lg:col-span-2')}>

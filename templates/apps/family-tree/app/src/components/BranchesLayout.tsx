@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -100,24 +100,14 @@ export function BranchesLayout() {
     <ResponsiveAppShell sidebarWidth="lg">
       <ResponsiveAppShell.TopBar
         brand={
-          <Link
-            to="/tree"
-            className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}
-          >
-            {APP_NAME}
+          <Link to="/tree" className={cm.cn(cm.flex({ align: 'center' }), 'text-on-surface')}>
+            <BrandWordmark as="span" />
           </Link>
         }
         actions={<UserMenu />}
       />
       <ResponsiveAppShell.Sidebar navLabel={navLabel}>{nav}</ResponsiveAppShell.Sidebar>
-      <ResponsiveAppShell.Drawer
-        navLabel={navLabel}
-        header={
-          <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface')}>
-            {APP_NAME}
-          </span>
-        }
-      >
+      <ResponsiveAppShell.Drawer navLabel={navLabel} header={<BrandWordmark as="span" />}>
         {nav}
       </ResponsiveAppShell.Drawer>
       <ResponsiveAppShell.Content>

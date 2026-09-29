@@ -60,7 +60,7 @@ export function People() {
       >
         <div>
           <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'tracking-tight')}>
-            {t('people.title', {}, { defaultValue: 'People' })}
+            {t('people.title', {}, { defaultValue: 'The Ancestral Directory' })}
           </h1>
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t(

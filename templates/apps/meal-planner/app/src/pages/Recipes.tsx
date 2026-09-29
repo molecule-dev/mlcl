@@ -81,7 +81,7 @@ export function Recipes() {
   return (
     <>
       <SimmerTopBar
-        title={t('simmer.recipes.heading', {}, { defaultValue: 'Recipe box' })}
+        title={t('simmer.recipes.heading', {}, { defaultValue: 'Recipe vault & library' })}
         eyebrow={t(
           'simmer.recipes.eyebrow',
           { count: recipes?.length ?? 0 },

@@ -1,105 +1,175 @@
 [
   {
-    "id": "e-5011",
-    "group_id": "g-flat-4b",
-    "payer_member_id": "m-aisha",
-    "payer_name": "Aisha Bello",
-    "amount_cents": 6000,
-    "description": "Fibre internet",
-    "category": "utilities",
-    "date": "2026-09-16T18:00:00.000Z",
+    "id": "e-5012",
+    "group_id": "g-cabin-2401",
+    "payer_member_id": "m-self",
+    "payer_name": "You",
+    "amount_cents": 80000,
+    "description": "Lakefront Airbnb (3 nights)",
+    "category": "lodging",
+    "date": "2026-09-16T15:00:00.000Z",
     "split_method": "equal",
     "shares": [
-      { "member_id": "m-self", "amount_cents": 2000 },
-      { "member_id": "m-tomas", "amount_cents": 2000 },
-      { "member_id": "m-aisha", "amount_cents": 2000 }
+      { "member_id": "m-self", "amount_cents": 20000 },
+      { "member_id": "m-dev", "amount_cents": 20000 },
+      { "member_id": "m-sam", "amount_cents": 20000 },
+      { "member_id": "m-clara", "amount_cents": 20000 }
     ],
-    "created_at": "2026-09-16T18:05:00.000Z"
+    "created_at": "2026-09-16T15:05:00.000Z"
+  },
+  {
+    "id": "e-5011",
+    "group_id": "g-cabin-2401",
+    "payer_member_id": "m-clara",
+    "payer_name": "Clara Tran",
+    "amount_cents": 12000,
+    "description": "Safeway Groceries & Cabin Supplies",
+    "category": "groceries",
+    "date": "2026-09-17T16:20:00.000Z",
+    "split_method": "exact",
+    "shares": [
+      { "member_id": "m-clara", "amount_cents": 3000 },
+      { "member_id": "m-self", "amount_cents": 3000 },
+      { "member_id": "m-dev", "amount_cents": 4500 },
+      { "member_id": "m-sam", "amount_cents": 1500 }
+    ],
+    "created_at": "2026-09-17T16:25:00.000Z"
   },
   {
     "id": "e-5010",
+    "group_id": "g-cabin-2401",
+    "payer_member_id": "m-dev",
+    "payer_name": "Dev Patel",
+    "amount_cents": 46000,
+    "description": "Palisades Tahoe Lift Tickets & Passes",
+    "category": "activities",
+    "date": "2026-09-18T09:10:00.000Z",
+    "split_method": "equal",
+    "shares": [
+      { "member_id": "m-self", "amount_cents": 11500 },
+      { "member_id": "m-dev", "amount_cents": 11500 },
+      { "member_id": "m-sam", "amount_cents": 11500 },
+      { "member_id": "m-clara", "amount_cents": 11500 }
+    ],
+    "created_at": "2026-09-18T09:12:00.000Z"
+  },
+  {
+    "id": "e-5009",
+    "group_id": "g-flat-4b",
+    "payer_member_id": "m-marcus",
+    "payer_name": "Marcus Reid",
+    "amount_cents": 360000,
+    "description": "October rent (Apt 4B)",
+    "category": "rent",
+    "date": "2026-09-19T09:00:00.000Z",
+    "split_method": "equal",
+    "shares": [
+      { "member_id": "m-self", "amount_cents": 120000 },
+      { "member_id": "m-marcus", "amount_cents": 120000 },
+      { "member_id": "m-liam", "amount_cents": 120000 }
+    ],
+    "created_at": "2026-09-19T09:02:00.000Z"
+  },
+  {
+    "id": "e-5008",
     "group_id": "g-flat-4b",
     "payer_member_id": "m-self",
     "payer_name": "You",
     "amount_cents": 8750,
     "description": "Weekly groceries",
     "category": "groceries",
-    "date": "2026-09-15T17:40:00.000Z",
+    "date": "2026-09-24T17:40:00.000Z",
     "split_method": "equal",
     "shares": [
       { "member_id": "m-self", "amount_cents": 2917 },
-      { "member_id": "m-tomas", "amount_cents": 2917 },
-      { "member_id": "m-aisha", "amount_cents": 2916 }
+      { "member_id": "m-marcus", "amount_cents": 2917 },
+      { "member_id": "m-liam", "amount_cents": 2916 }
     ],
-    "created_at": "2026-09-15T17:45:00.000Z"
+    "created_at": "2026-09-24T17:45:00.000Z"
   },
   {
-    "id": "e-5009",
-    "group_id": "g-cabin-2401",
-    "payer_member_id": "m-jordan",
-    "payer_name": "Jordan Reyes",
-    "amount_cents": 46000,
-    "description": "Ski passes — 2 days",
-    "category": "activities",
-    "date": "2026-09-09T09:10:00.000Z",
+    "id": "e-5007",
+    "group_id": "g-flat-4b",
+    "payer_member_id": "m-liam",
+    "payer_name": "Liam Zeller",
+    "amount_cents": 6000,
+    "description": "Fibre internet",
+    "category": "utilities",
+    "date": "2026-09-25T18:00:00.000Z",
     "split_method": "equal",
     "shares": [
-      { "member_id": "m-self", "amount_cents": 11500 },
-      { "member_id": "m-maya", "amount_cents": 11500 },
-      { "member_id": "m-jordan", "amount_cents": 11500 },
-      { "member_id": "m-priya", "amount_cents": 11500 }
+      { "member_id": "m-self", "amount_cents": 2000 },
+      { "member_id": "m-marcus", "amount_cents": 2000 },
+      { "member_id": "m-liam", "amount_cents": 2000 }
     ],
-    "created_at": "2026-09-09T09:12:00.000Z"
-  },
-  {
-    "id": "e-5008",
-    "group_id": "g-cabin-2401",
-    "payer_member_id": "m-self",
-    "payer_name": "You",
-    "amount_cents": 12000,
-    "description": "Groceries and firewood",
-    "category": "groceries",
-    "date": "2026-09-08T16:20:00.000Z",
-    "split_method": "exact",
-    "shares": [
-      { "member_id": "m-self", "amount_cents": 3000 },
-      { "member_id": "m-maya", "amount_cents": 3000 },
-      { "member_id": "m-jordan", "amount_cents": 4500 },
-      { "member_id": "m-priya", "amount_cents": 1500 }
-    ],
-    "created_at": "2026-09-08T16:25:00.000Z"
+    "created_at": "2026-09-25T18:05:00.000Z"
   },
   {
     "id": "e-5006",
-    "group_id": "g-lisbon",
-    "payer_member_id": "m-maya",
-    "payer_name": "Maya Chen",
-    "amount_cents": 21000,
-    "description": "Surf lesson in Costa da Caparica",
-    "category": "activities",
-    "date": "2026-09-07T11:00:00.000Z",
-    "split_method": "shares",
-    "shares": [
-      { "member_id": "m-maya", "amount_cents": 14000 },
-      { "member_id": "m-self", "amount_cents": 7000 }
-    ],
-    "created_at": "2026-09-07T11:30:00.000Z"
-  },
-  {
-    "id": "e-5001",
-    "group_id": "g-lisbon",
+    "group_id": "g-joshua-tree",
     "payer_member_id": "m-self",
     "payer_name": "You",
     "amount_cents": 90000,
-    "description": "Hotel Belém — 3 nights",
+    "description": "Joshua Tree Airbnb (2 nights)",
     "category": "lodging",
-    "date": "2026-09-05T15:00:00.000Z",
+    "date": "2026-09-14T15:30:00.000Z",
     "split_method": "equal",
     "shares": [
       { "member_id": "m-self", "amount_cents": 30000 },
-      { "member_id": "m-maya", "amount_cents": 30000 },
-      { "member_id": "m-priya", "amount_cents": 30000 }
+      { "member_id": "m-sam", "amount_cents": 30000 },
+      { "member_id": "m-clara", "amount_cents": 30000 }
     ],
-    "created_at": "2026-09-05T15:10:00.000Z"
+    "created_at": "2026-09-14T15:35:00.000Z"
+  },
+  {
+    "id": "e-5005",
+    "group_id": "g-joshua-tree",
+    "payer_member_id": "m-clara",
+    "payer_name": "Clara Tran",
+    "amount_cents": 24000,
+    "description": "Pioneertown dinner",
+    "category": "meals",
+    "date": "2026-09-15T20:45:00.000Z",
+    "split_method": "exact",
+    "shares": [
+      { "member_id": "m-self", "amount_cents": 8000 },
+      { "member_id": "m-sam", "amount_cents": 8000 },
+      { "member_id": "m-clara", "amount_cents": 8000 }
+    ],
+    "created_at": "2026-09-15T20:50:00.000Z"
+  },
+  {
+    "id": "e-5004",
+    "group_id": "g-joshua-tree",
+    "payer_member_id": "m-sam",
+    "payer_name": "Sam Kwon",
+    "amount_cents": 21000,
+    "description": "Gas & park passes",
+    "category": "transport",
+    "date": "2026-09-16T11:15:00.000Z",
+    "split_method": "shares",
+    "shares": [
+      { "member_id": "m-sam", "amount_cents": 14000 },
+      { "member_id": "m-self", "amount_cents": 7000 }
+    ],
+    "created_at": "2026-09-16T11:20:00.000Z"
+  },
+  {
+    "id": "e-5003",
+    "group_id": "g-dinner",
+    "payer_member_id": "m-clara",
+    "payer_name": "Clara Tran",
+    "amount_cents": 24000,
+    "description": "Osteria Morini Dinner",
+    "category": "meals",
+    "date": "2026-09-23T20:30:00.000Z",
+    "split_method": "equal",
+    "shares": [
+      { "member_id": "m-clara", "amount_cents": 6000 },
+      { "member_id": "m-self", "amount_cents": 6000 },
+      { "member_id": "m-dev", "amount_cents": 6000 },
+      { "member_id": "m-marcus", "amount_cents": 6000 }
+    ],
+    "created_at": "2026-09-23T20:35:00.000Z"
   }
 ]

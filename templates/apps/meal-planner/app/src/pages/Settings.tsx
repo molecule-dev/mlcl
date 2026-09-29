@@ -88,6 +88,29 @@ const EXPORT_COLUMNS = [
   'steps',
 ] as const
 
+/** localStorage keys shared with Pantry (restock) and GroceryList (badges). */
+const PANTRY_BADGES_KEY = 'simmer.settings.pantryBadges'
+const RESTOCK_THRESHOLD_KEY = 'simmer.settings.restockThreshold'
+
+function readStoredFlag(key: string, fallback: boolean): boolean {
+  try {
+    const raw = window.localStorage.getItem(key)
+    return raw === null ? fallback : raw === 'on'
+  } catch {
+    return fallback
+  }
+}
+
+function readStoredThreshold(fallback: number): number {
+  try {
+    const raw = window.localStorage.getItem(RESTOCK_THRESHOLD_KEY)
+    const n = raw === null ? NaN : Number.parseInt(raw, 10)
+    return Number.isFinite(n) && n >= 1 ? Math.min(n, 10) : fallback
+  } catch {
+    return fallback
+  }
+}
+
 const csvEscape = (v: unknown): string => {
   const s = String(v ?? '')
   return /[",\n;]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s
@@ -105,6 +128,12 @@ export function Settings() {
   const [exporting, setExporting] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [info, setInfo] = useState<string | null>(null)
+  // Smart-pantry automation preferences — read/written locally; the pantry
+  // restock queue and the grocery list's pantry badges consume them.
+  const [pantryBadges, setPantryBadges] = useState<boolean>(() =>
+    readStoredFlag(PANTRY_BADGES_KEY, true),
+  )
+  const [restockThreshold, setRestockThreshold] = useState<number>(() => readStoredThreshold(1))
   const { hash } = useLocation()
 
   // The Account rows link to /settings#profile and /settings#export —
@@ -355,18 +384,258 @@ export function Settings() {
         </button>
       </section>
 
+      {/* Measurement, Language & Regional Standards (Stitch design section) */}
       <section className={cm.cn(cm.sp('p', 6), 'bg-surface rounded-2xl shadow-sm')}>
-        <h2 className={cm.cn(cm.fontWeight('semibold'), cm.sp('mb', 3), 'text-on-surface')}>
-          {t('settings.language.title', {}, { defaultValue: 'Language' })}
+        <h2 className={cm.cn(cm.fontWeight('semibold'), cm.sp('mb', 2), 'text-on-surface')}>
+          {t(
+            'simmer.settings.standards.title',
+            {},
+            { defaultValue: 'Measurement, Language & Regional Standards' },
+          )}
         </h2>
         <p className={cm.cn(cm.textSize('sm'), cm.sp('mb', 4), 'text-on-surface-variant')}>
           {t(
-            'common.chooseTheLanguage',
+            'simmer.settings.standards.body',
             {},
-            { defaultValue: 'Choose the language used throughout the app.' },
+            {
+              defaultValue:
+                'How Simmer formats quantities, weeks, and language across your plan and grocery list.',
+            },
           )}
         </p>
-        <LanguagePicker />
+        <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), 'list-none')}>
+          {(
+            [
+              {
+                key: 'units',
+                icon: 'scale',
+                label: 'Measurement units',
+                value: 'Metric (g / ml / °C)',
+                description: 'Recipe quantities and grocery amounts use metric package sizes.',
+              },
+              {
+                key: 'weekStart',
+                icon: 'calendar_view_week',
+                label: 'Week starts',
+                value: 'Monday',
+                description: 'The planner and grocery list follow the ISO Monday-start week.',
+              },
+            ] as const
+          ).map((row) => (
+            <li
+              key={row.key}
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                cm.sp('py', 2),
+              )}
+            >
+              <span className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'w-10 h-10 rounded-xl bg-primary-container text-primary',
+                  )}
+                  aria-hidden="true"
+                >
+                  <span aria-hidden="true" className={cm.cn('material-symbols-outlined')}>
+                    {row.icon}
+                  </span>
+                </span>
+                <span>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('semibold'),
+                      'text-on-surface block',
+                    )}
+                  >
+                    {t(
+                      `simmer.settings.standards.${row.key}.label`,
+                      {},
+                      { defaultValue: row.label },
+                    )}
+                  </span>
+                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                    {t(
+                      `simmer.settings.standards.${row.key}.description`,
+                      {},
+                      { defaultValue: row.description },
+                    )}
+                  </span>
+                </span>
+              </span>
+              <span
+                className={cm.cn(
+                  cm.sp('px', 3),
+                  cm.sp('py', 1),
+                  cm.textSize('xs'),
+                  cm.fontWeight('semibold'),
+                  'rounded-full bg-surface-variant text-on-surface-variant whitespace-nowrap',
+                )}
+              >
+                {t(`simmer.settings.standards.${row.key}.value`, {}, { defaultValue: row.value })}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <div className={cm.sp('mt', 4)}>
+          <p
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              cm.sp('mb', 2),
+              'text-on-surface',
+            )}
+          >
+            {t('settings.language.title', {}, { defaultValue: 'Language' })}
+          </p>
+          <LanguagePicker />
+        </div>
+      </section>
+
+      {/* Smart Pantry & Grocery Automation (Stitch design section) — both
+          rows are wired: pantryBadges drives the grocery list's "you already
+          have this" badges, restockThreshold drives the pantry's restock
+          queue. */}
+      <section className={cm.cn(cm.sp('p', 6), 'bg-surface rounded-2xl shadow-sm')}>
+        <h2 className={cm.cn(cm.fontWeight('semibold'), cm.sp('mb', 2), 'text-on-surface')}>
+          {t(
+            'simmer.settings.automation.title',
+            {},
+            { defaultValue: 'Smart Pantry & Grocery Automation' },
+          )}
+        </h2>
+        <p className={cm.cn(cm.textSize('sm'), cm.sp('mb', 4), 'text-on-surface-variant')}>
+          {t(
+            'simmer.settings.automation.body',
+            {},
+            {
+              defaultValue:
+                'Let the pantry quietly work on your grocery list and restock reminders.',
+            },
+          )}
+        </p>
+        <ul
+          className={cm.cn(cm.flex({ direction: 'col' }), 'list-none divide-y divide-outline/30')}
+        >
+          <li
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              cm.sp('py', 4),
+            )}
+          >
+            <div>
+              <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'text-on-surface')}>
+                {t(
+                  'simmer.settings.automation.dedup.title',
+                  {},
+                  { defaultValue: 'Automated Pantry Deduplication' },
+                )}
+              </p>
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                {t(
+                  'simmer.settings.automation.dedup.body',
+                  {},
+                  {
+                    defaultValue:
+                      'Flag grocery-list items you already have, so you never re-buy staples.',
+                  },
+                )}
+              </p>
+            </div>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={pantryBadges}
+              data-mol-id="settings-automation-dedup"
+              onClick={() => {
+                const next = !pantryBadges
+                setPantryBadges(next)
+                try {
+                  window.localStorage.setItem(PANTRY_BADGES_KEY, next ? 'on' : 'off')
+                } catch {
+                  // Private mode: the toggle still holds for this view.
+                }
+              }}
+              className={cm.cn(
+                'relative w-12 h-7 rounded-full transition-colors flex-none',
+                pantryBadges ? 'bg-primary' : 'bg-outline',
+              )}
+            >
+              <span
+                className={cm.cn(
+                  'absolute top-1 w-5 h-5 rounded-full bg-surface shadow transition-all',
+                  pantryBadges ? 'left-6' : 'left-1',
+                )}
+                aria-hidden="true"
+              />
+              <span className={cm.cn('sr-only')}>
+                {t(
+                  'simmer.settings.automation.dedup.toggleLabel',
+                  {},
+                  { defaultValue: 'Toggle pantry deduplication' },
+                )}
+              </span>
+            </button>
+          </li>
+          <li
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              cm.sp('py', 4),
+            )}
+          >
+            <div>
+              <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'text-on-surface')}>
+                {t(
+                  'simmer.settings.automation.restock.title',
+                  {},
+                  { defaultValue: 'Restock reminders' },
+                )}
+              </p>
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                {t(
+                  'simmer.settings.automation.restock.body',
+                  {},
+                  {
+                    defaultValue:
+                      'Flag pantry staples at or below this many units in the restock queue.',
+                  },
+                )}
+              </p>
+            </div>
+            <select
+              data-mol-id="settings-automation-restock-threshold"
+              value={restockThreshold}
+              onChange={(e) => {
+                const next = Number.parseInt(e.target.value, 10) || 1
+                setRestockThreshold(next)
+                try {
+                  window.localStorage.setItem(RESTOCK_THRESHOLD_KEY, String(next))
+                } catch {
+                  // Private mode: the select still holds for this view.
+                }
+              }}
+              aria-label={t(
+                'simmer.settings.automation.restock.aria',
+                {},
+                { defaultValue: 'Restock threshold' },
+              )}
+              className={cm.cn(
+                'h-10 px-3 rounded-xl bg-surface border border-outline text-on-surface text-sm outline-none focus:border-primary',
+              )}
+            >
+              {[1, 2, 3, 4, 5].map((n) => (
+                <option key={n} value={n}>
+                  {t(
+                    'simmer.settings.automation.restock.option',
+                    { count: n },
+                    { defaultValue: '{{count}} or fewer' },
+                  )}
+                </option>
+              ))}
+            </select>
+          </li>
+        </ul>
       </section>
 
       <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>

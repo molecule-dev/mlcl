@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
@@ -89,6 +89,37 @@ export function EditPerson() {
     }
   }
 
+  // Archival standards checklist — completeness of the record, live.
+  const standards = useMemo(
+    () => [
+      {
+        key: 'name',
+        label: t('editPerson.standard.name', {}, { defaultValue: 'Full name recorded' }),
+        met: form.first_name.trim().length > 0,
+      },
+      {
+        key: 'birth',
+        label: t('editPerson.standard.birth', {}, { defaultValue: 'Birth date set' }),
+        met: form.birth_date.length > 0,
+      },
+      {
+        key: 'birthPlace',
+        label: t('editPerson.standard.birthPlace', {}, { defaultValue: 'Birth place set' }),
+        met: form.birth_place.trim().length > 0,
+      },
+      {
+        key: 'narrative',
+        label: t(
+          'editPerson.standard.narrative',
+          {},
+          { defaultValue: 'Archival narrative (notes) started' },
+        ),
+        met: form.notes.trim().length > 0,
+      },
+    ],
+    [form, t],
+  )
+
   if (loading) {
     return (
       <div
@@ -160,7 +191,69 @@ export function EditPerson() {
         onSubmit={handleSubmit}
         className={cm.cn(cm.sp('p', 6), 'bg-surface-container-lowest rounded-2xl shadow-sm')}
       >
-        <PersonForm value={form} onChange={onChange} idPrefix="edit-person" />
+        <PersonForm
+          value={form}
+          onChange={onChange}
+          idPrefix="edit-person"
+          variant="ledger"
+          betweenSections={
+            <>
+              {/* Kinship & Lineage Associations — wired from the profile */}
+              <section className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+                <h2
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.fontWeight('bold'),
+                    'uppercase tracking-widest text-on-surface-variant',
+                  )}
+                >
+                  {t(
+                    'editPerson.section.kinship',
+                    {},
+                    { defaultValue: 'Kinship & Lineage Associations' },
+                  )}
+                </h2>
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t(
+                    'editPerson.section.kinshipBody',
+                    {},
+                    {
+                      defaultValue:
+                        'Parents, partners, children, and siblings are linked from the profile — open it and use “Add relative”; every link is woven in both directions.',
+                    },
+                  )}
+                </p>
+              </section>
+
+              {/* Keepsakes, Evidence & Biometric Media — notes today */}
+              <section className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+                <h2
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.fontWeight('bold'),
+                    'uppercase tracking-widest text-on-surface-variant',
+                  )}
+                >
+                  {t(
+                    'editPerson.section.keepsakes',
+                    {},
+                    { defaultValue: 'Keepsakes, Evidence & Biometric Media' },
+                  )}
+                </h2>
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t(
+                    'editPerson.section.keepsakesBody',
+                    {},
+                    {
+                      defaultValue:
+                        'Record sources and where original keepsakes are kept in the archival narrative below. The archive deliberately stores no biometric or DNA media.',
+                    },
+                  )}
+                </p>
+              </section>
+            </>
+          }
+        />
 
         <div className={cm.cn(cm.flex({ justify: 'end', gap: 'md' }), cm.sp('mt', 6))}>
           <Link
@@ -194,6 +287,58 @@ export function EditPerson() {
           </button>
         </div>
       </form>
+
+      {/* Archival standards checklist — how complete is this record? */}
+      <section
+        className={cm.cn(
+          cm.sp('p', 6),
+          'bg-surface-container-lowest rounded-2xl shadow-sm',
+          cm.sp('mt', 6),
+        )}
+        data-mol-id="edit-person-standards"
+      >
+        <h2
+          className={cm.cn(
+            cm.textSize('xs'),
+            cm.fontWeight('bold'),
+            'uppercase tracking-widest text-on-surface-variant',
+            cm.sp('mb', 3),
+          )}
+        >
+          {t('editPerson.standardsTitle', {}, { defaultValue: 'Archival Standards Checklist' })}
+        </h2>
+        <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+          {standards.map((s) => (
+            <li
+              key={s.key}
+              className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.textSize('sm'))}
+            >
+              <span
+                className={cm.cn(
+                  cm.w(5),
+                  cm.h(5),
+                  cm.roundedFull,
+                  cm.flex({ align: 'center', justify: 'center' }),
+                )}
+                style={{
+                  backgroundColor: s.met
+                    ? 'var(--color-tree-parent-bg)'
+                    : 'var(--color-surface-container)',
+                  color: s.met ? 'var(--color-tree-parent)' : 'var(--color-outline)',
+                }}
+                aria-hidden="true"
+              >
+                <span className="material-symbols-outlined text-[14px]">
+                  {s.met ? 'check' : 'radio_button_unchecked'}
+                </span>
+              </span>
+              <span className={s.met ? 'text-on-surface' : 'text-on-surface-variant'}>
+                {s.label}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
   )
 }

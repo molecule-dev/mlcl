@@ -7,6 +7,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 import { AuthBrandHeader } from '../components/AuthBrandHeader.js'
+import { DemoTripCard } from '../components/DemoTripCard.js'
 import { Footer } from '../components/Footer.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
 
@@ -342,6 +343,22 @@ export function Signup() {
             </form>
 
             <OAuthButtons />
+
+            {/* Stitch demo panel — the sample trip a new account is seeded into. */}
+            <DemoTripCard
+              emoji="🧗"
+              name={t('signup.demoTrip', {}, { defaultValue: 'Trip to Joshua Tree' })}
+              meta={t('signup.demoTripMeta', {}, { defaultValue: '4 friends · Weekend getaway' })}
+              badge={t('signup.demoTripBadge', {}, { defaultValue: '3 of 4 settled' })}
+              balanceLabel={t('signup.demoBalanceLabel', {}, { defaultValue: 'Your net balance' })}
+              balance="+$142.50"
+              balanceNote={t(
+                'signup.demoBalanceNote',
+                {},
+                { defaultValue: "You're owed across 2 transfers" },
+              )}
+              avatars={['ML', 'SV', 'DK', 'JL']}
+            />
           </div>
 
           <footer className={cm.cn(cm.sp('mt', 8), cm.textCenter)}>

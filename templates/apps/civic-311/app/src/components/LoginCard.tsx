@@ -57,13 +57,16 @@ function LoginCard() {
               'text-[2.25rem] leading-tight tracking-[-0.02em] text-on-surface',
             )}
           >
-            {t('auth.login.signInTitle', {}, { defaultValue: 'Welcome back' })}
+            {t('login.cardTitle', {}, { defaultValue: 'Sign in to CivicPulse' })}
           </h2>
           <p className={cm.cn(cm.textSize('base'), 'text-on-surface-variant')}>
             {t(
               'login.welcomeSubheading',
               {},
-              { defaultValue: 'Sign in to report and follow issues' },
+              {
+                defaultValue:
+                  'Manage your reported municipal issues, subscribe to neighborhood alerts, and access Riverton 311 services.',
+              },
             )}
           </p>
         </header>

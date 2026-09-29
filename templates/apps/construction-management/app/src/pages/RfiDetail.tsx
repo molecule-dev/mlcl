@@ -143,6 +143,8 @@ export function RfiDetail() {
     )
   }
 
+  const finalResponse = rfi.responses.find((resp) => resp.is_final) ?? null
+
   return (
     <div className={cm.cn('px-4 md:px-8', cm.sp('py', 8), cm.maxW('4xl'), cm.mxAuto, 'space-y-6')}>
       <header>
@@ -203,6 +205,57 @@ export function RfiDetail() {
             { defaultValue: 'Raised {{date}}' },
           )}
         </p>
+      </section>
+
+      {/* SEOR official determination */}
+      <section
+        data-mol-id="rfi-seor-determination"
+        className={cm.cn(
+          cm.card(),
+          cm.sp('p', 6),
+          finalResponse ? cm.accentCard({ tone: 'primary' }) : '',
+        )}
+      >
+        <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' })}>
+          <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>
+            {t('rfis.seorDetermination', {}, { defaultValue: 'SEOR Official Determination' })}
+          </h2>
+          <span
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'uppercase tracking-widest',
+              finalResponse ? 'text-tertiary' : 'text-on-surface-variant',
+            )}
+          >
+            {finalResponse
+              ? rfi.status === 'closed'
+                ? t('rfis.determinationLocked', {}, { defaultValue: 'Locked of record' })
+                : t('rfis.determinationIssued', {}, { defaultValue: 'Issued — open for review' })
+              : t('rfis.determinationPending', {}, { defaultValue: 'Ready to sign' })}
+          </span>
+        </div>
+        {finalResponse ? (
+          <>
+            <p className={cm.cn(cm.sp('mt', 3), cm.textSize('sm'), 'leading-relaxed')}>
+              {finalResponse.body}
+            </p>
+            <p className={cm.cn(cm.sp('mt', 3), cm.textSize('xs'), 'text-on-surface-variant')}>
+              {finalResponse.author} · {formatDateTime(finalResponse.created_at)}
+            </p>
+          </>
+        ) : (
+          <p className={cm.cn(cm.sp('mt', 3), cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'rfis.determinationAwaiting',
+              {},
+              {
+                defaultValue:
+                  'Awaiting the engineer of record’s determination. Mark a response as the final answer and it becomes the determination this RFI is built to.',
+              },
+            )}
+          </p>
+        )}
       </section>
 
       {/* Threaded answers */}

@@ -68,6 +68,23 @@ export function Rfis() {
 
   const visible = status === 'all' ? list : list.filter((r) => r.status === status)
 
+  // SEOR & consultant SLA tracker — turnaround stats over the live board.
+  const openRfis = list.filter((r) => r.status === 'open')
+  const avgDaysOpen =
+    openRfis.length > 0
+      ? Math.round(
+          (openRfis.reduce((sum, r) => sum + (daysSince(r.created_at) ?? 0), 0) / openRfis.length) *
+            10,
+        ) / 10
+      : 0
+  const oldestOpen = openRfis.reduce((max, r) => Math.max(max, daysSince(r.created_at) ?? 0), 0)
+  const overdue = openRfis.filter((r) => r.due_date && new Date(r.due_date) < new Date()).length
+  // Official determination log — the answered and closed RFIs, newest first:
+  // what was asked, what governed, and when it was locked.
+  const determinations = list
+    .filter((r) => r.status === 'answered' || r.status === 'closed')
+    .slice(0, 6)
+
   async function handleCreate(e: React.FormEvent): Promise<void> {
     e.preventDefault()
     if (!projectId) return
@@ -380,6 +397,117 @@ export function Rfis() {
           })}
         </ul>
       )}
+
+      {/* SEOR & consultant SLA tracker */}
+      <section data-mol-id="rfis-sla-tracker" className={cm.cn(cm.card(), cm.sp('p', 6))}>
+        <div className={cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' })}>
+          <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>
+            {t('rfis.slaTracker', {}, { defaultValue: 'SEOR & Consultant SLA Tracker' })}
+          </h2>
+          <span
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('semibold'),
+              'text-on-surface-variant',
+            )}
+          >
+            {t(
+              'rfis.slaTarget',
+              {},
+              { defaultValue: 'Contract target: answered in under 72 hours' },
+            )}
+          </span>
+        </div>
+        <div className={cm.cn(cm.sp('mt', 4), cm.grid({ cols: 2, gap: 'md' }), 'md:grid-cols-4')}>
+          {[
+            {
+              label: t('rfis.sla.open', { count: openRfis.length }, { defaultValue: 'Open now' }),
+              value: String(openRfis.length),
+            },
+            {
+              label: t('rfis.sla.avg', {}, { defaultValue: 'Avg days open' }),
+              value: avgDaysOpen.toLocaleString(),
+            },
+            {
+              label: t('rfis.sla.oldest', {}, { defaultValue: 'Oldest open' }),
+              value: t('rfis.sla.days', { days: oldestOpen }, { defaultValue: '{{days}}d' }),
+            },
+            {
+              label: t('rfis.sla.overdue', {}, { defaultValue: 'Past due date' }),
+              value: String(overdue),
+            },
+          ].map((stat) => (
+            <div
+              key={stat.label}
+              className={cm.cn(cm.sp('p', 3), 'rounded-lg bg-surface-container')}
+            >
+              <p className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>{stat.value}</p>
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Official determination log */}
+      <section data-mol-id="rfis-determination-log" className={cm.cn(cm.card(), cm.sp('p', 6))}>
+        <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>
+          {t('rfis.determinationLog', {}, { defaultValue: 'Official Determination Log' })}
+        </h2>
+        <p className={cm.cn(cm.textSize('xs'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+          {t(
+            'rfis.determinationLogHint',
+            {},
+            {
+              defaultValue:
+                'Answered and closed RFIs of record — the determination the field builds to, newest first.',
+            },
+          )}
+        </p>
+        {determinations.length === 0 ? (
+          <p className={cm.cn(cm.sp('mt', 4), cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'rfis.determinationLogEmpty',
+              {},
+              { defaultValue: 'No determinations yet — answer an RFI to open the log.' },
+            )}
+          </p>
+        ) : (
+          <ul className={cm.cn(cm.sp('mt', 4), 'divide-y divide-outline-variant')}>
+            {determinations.map((rfi) => (
+              <li key={rfi.id}>
+                <Link
+                  to={`/projects/${rfi.project_id}/rfis/${rfi.id}`}
+                  className={cm.flex({
+                    align: 'center',
+                    justify: 'between',
+                    gap: 'md',
+                    wrap: 'wrap',
+                  })}
+                >
+                  <span className={cm.cn(cm.textSize('sm'), 'min-w-0 truncate')}>
+                    <span className={cm.cn(cm.fontWeight('semibold'))}>#{rfi.number}</span>{' '}
+                    <span className="text-on-surface-variant">{rfi.title}</span>
+                  </span>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      rfi.status === 'closed' ? 'text-on-surface-variant' : 'text-tertiary',
+                      'whitespace-nowrap',
+                    )}
+                  >
+                    {t(
+                      `rfis.status.${rfi.status}`,
+                      {},
+                      { defaultValue: rfi.status === 'closed' ? 'Closed of record' : 'Answered' },
+                    )}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
 
       <p>
         <Link

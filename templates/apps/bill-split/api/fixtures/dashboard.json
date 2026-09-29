@@ -1,59 +1,60 @@
 {
-  "you_owe_cents": 116167,
-  "you_are_owed_cents": 77500,
+  "you_owe_cents": 211417,
+  "you_are_owed_cents": 255083,
   "groups": [
     {
       "id": "g-flat-4b",
-      "name": "Flat 4B — Household",
+      "name": "Bushwick Flatmates (Apt 4B)",
       "member_count": 3,
       "my_balance_cents": -116167,
       "total_expenses_cents": 374750
     },
     {
-      "id": "g-lisbon",
-      "name": "Lisbon Trip",
+      "id": "g-joshua-tree",
+      "name": "Joshua Tree Weekend",
       "member_count": 3,
       "my_balance_cents": 45000,
       "total_expenses_cents": 135000
     },
     {
       "id": "g-cabin-2401",
-      "name": "Alpine Cabin Weekend",
+      "name": "Lake Tahoe Ski Cabin",
       "member_count": 4,
-      "my_balance_cents": 32500,
+      "my_balance_cents": 35500,
       "total_expenses_cents": 138000
+    },
+    {
+      "id": "g-dinner",
+      "name": "Bi-Weekly Dinner Club",
+      "member_count": 4,
+      "my_balance_cents": 0,
+      "total_expenses_cents": 24000
     }
   ],
   "friends": [
-    { "name": "Tomás Duarte", "net_cents": 235083, "is_self": false },
-    { "name": "Maya Chen", "net_cents": 24500, "is_self": false },
-    { "name": "Priya Nair", "net_cents": -47000, "is_self": false },
-    { "name": "Aisha Bello", "net_cents": -118916, "is_self": false }
+    { "name": "Marcus Reid", "net_cents": 235083, "is_self": false },
+    { "name": "Dev Patel", "net_cents": 20000, "is_self": false },
+    { "name": "Sam Kwon", "net_cents": -56000, "is_self": false },
+    { "name": "Clara Tran", "net_cents": -36500, "is_self": false },
+    { "name": "Liam Zeller", "net_cents": -118917, "is_self": false },
+    { "name": "Chloe & Jordan", "net_cents": 0, "is_self": false }
   ],
   "recent_activities": [
     {
-      "id": "a-7001",
-      "group_id": "g-lisbon",
-      "group_name": "Lisbon Trip",
+      "id": "a-7012",
+      "group_id": "g-joshua-tree",
+      "group_name": "Joshua Tree Weekend",
       "kind": "expense_added",
-      "payload": { "actor": "Maya Chen", "description": "Surf lesson in Costa da Caparica", "amount_cents": 21000 },
-      "created_at": "2026-09-18T08:30:00.000Z"
+      "payload": { "actor": "Sam Kwon", "description": "Gas & park passes", "amount_cents": 21000, "payer_name": "Sam Kwon" },
+      "created_at": "2026-09-27T05:00:00.000Z"
     },
     {
-      "id": "a-7000",
+      "id": "a-7011",
       "group_id": "g-flat-4b",
-      "group_name": "Flat 4B — Household",
+      "group_name": "Bushwick Flatmates (Apt 4B)",
       "kind": "expense_added",
-      "payload": { "actor": "Aisha Bello", "description": "Fibre internet", "amount_cents": 6000 },
-      "created_at": "2026-09-16T18:05:00.000Z"
-    },
-    {
-      "id": "a-6998",
-      "group_id": "g-cabin-2401",
-      "group_name": "Alpine Cabin Weekend",
-      "kind": "settlement_recorded",
-      "payload": { "actor": "You", "amount_cents": 10000, "from_name": "You", "to_name": "Maya Chen", "method": "transfer" },
-      "created_at": "2026-09-13T12:00:00.000Z"
+      "payload": { "actor": "Liam Zeller", "description": "Fibre internet", "amount_cents": 6000, "payer_name": "Liam Zeller" },
+      "created_at": "2026-09-25T18:05:00.000Z"
     }
   ]
 }

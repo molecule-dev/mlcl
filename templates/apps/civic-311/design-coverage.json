@@ -1,0 +1,68 @@
+{
+  "screens": {
+    "/explore": {
+      "allow": [
+        {
+          "heading": "Deep asphalt pothole obstructing cyclist path",
+          "reason": "Sample-data title: the featured-incident card renders the live selected report's real description, not the design's mock docket."
+        }
+      ]
+    },
+    "/my-reports": {
+      "allow": [
+        {
+          "heading": "Deep asphalt pothole obstructing cyclist path",
+          "reason": "Sample-data row title: the dispatch list renders the caller's real reports from /api/issues?mine=1."
+        },
+        {
+          "heading": "Fallen oak branch blocking pedestrian walkway & ADA curb ramp",
+          "reason": "Sample-data row title: the dispatch list renders the caller's real reports from /api/issues?mine=1."
+        },
+        {
+          "heading": "Damaged storm drain grate loose near pedestrian crosswalk",
+          "reason": "Sample-data row title: the dispatch list renders the caller's real reports from /api/issues?mine=1."
+        }
+      ]
+    },
+    "/watch-areas": {
+      "allow": [
+        {
+          "heading": "Home Perimeter & Oak St Bike Corridor",
+          "reason": "Sample-data geofence name: saved-area cards render the caller's real /api/watch-areas rows."
+        },
+        {
+          "heading": "Riverbank Elementary Safe Routes",
+          "reason": "Sample-data geofence name: saved-area cards render the caller's real /api/watch-areas rows."
+        },
+        {
+          "heading": "Mill Plaza Commercial & Transit Basin",
+          "reason": "Sample-data geofence name: saved-area cards render the caller's real /api/watch-areas rows."
+        }
+      ]
+    },
+    "/notifications": {
+      "allow": [
+        {
+          "heading": "DPW Unit #14 Dispatched to Deep Asphalt Pothole (#RIV-2025-8841)",
+          "reason": "Sample-data notification message: feed rows render real /api/notifications messages."
+        },
+        {
+          "heading": "Geofence Trigger: Large Fallen Tree Branch in Riverbank Safe Routes",
+          "reason": "Sample-data notification message: feed rows render real /api/notifications messages."
+        },
+        {
+          "heading": "Work Order Completed: Flickering LED Cobra Luminaire (#RIV-2025-8792)",
+          "reason": "Sample-data notification message: feed rows render real /api/notifications messages."
+        },
+        {
+          "heading": "Ward 2 Street Sweeping & Storm Drain Clearing Schedule Announcement",
+          "reason": "Sample-data announcement row: the feed renders real city-staff notes, not the design's mock bulletin."
+        },
+        {
+          "heading": "4 Neighbors Confirmed Resolution on Commercial Bin Overflow (#RIV-2025-8820)",
+          "reason": "Sample-data notification message: feed rows render real /api/notifications messages."
+        }
+      ]
+    }
+  }
+}

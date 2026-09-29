@@ -16,7 +16,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { PostCard } from '../components/PostCard.js'
 import { StatusBadge } from '../components/StatusBadge.js'
-import type { ApiBoardSummary, ApiPost } from '../utils/posts.js'
+import { type ApiBoardSummary, type ApiPost, authorName } from '../utils/posts.js'
 
 type StatusFilter = 'all' | 'open' | 'planned' | 'in_progress' | 'shipped' | 'declined'
 type SortMode = 'top' | 'latest'
@@ -124,6 +124,18 @@ export function BoardDetail() {
     },
     [isAuthenticated, votingId],
   )
+
+  // Top Contributors — derived live from the board's loaded posts: the
+  // authors whose requests carry the most pooled demand right now.
+  const contributorMap = new Map<string, number>()
+  for (const post of posts) {
+    const name = authorName(post.author)
+    contributorMap.set(name, (contributorMap.get(name) ?? 0) + (post.vote_count ?? 0))
+  }
+  const contributors = [...contributorMap.entries()]
+    .map(([name, votes]) => ({ name, votes }))
+    .sort((a, b) => b.votes - a.votes)
+    .slice(0, 5)
 
   if (loading) {
     return (
@@ -314,6 +326,146 @@ export function BoardDetail() {
           ))}
         </div>
       )}
+
+      <div className={cm.cn('grid gap-4 grid-cols-1 md:grid-cols-3')}>
+        <section
+          aria-labelledby="board-submit-idea"
+          data-mol-id="board-submit-idea-card"
+          className={cm.cn(
+            cm.flex({ direction: 'col', gap: 'sm' }),
+            cm.sp('p', 5),
+            'rounded-xl border-2 border-dashed border-outline-variant/50 hover:border-primary/40 transition-colors',
+          )}
+        >
+          <h3
+            id="board-submit-idea"
+            className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}
+          >
+            {t('boardDetail.submitIdeaTitle', {}, { defaultValue: 'Submit an Idea' })}
+          </h3>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'boardDetail.submitIdeaBody',
+              { board: board.name },
+              {
+                defaultValue:
+                  'Have a feature request for {{board}}? Post directly to get community votes and engineering review.',
+              },
+            )}
+          </p>
+          <Link
+            to="/submit"
+            data-mol-id="board-submit-idea-cta"
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              cm.fontWeight('bold'),
+              cm.textSize('sm'),
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              'rounded-full bg-primary text-on-primary self-start hover:bg-primary-active transition-colors',
+            )}
+          >
+            <span className="material-symbols-outlined text-base" aria-hidden="true">
+              add
+            </span>
+            {t('boardDetail.submitIdeaCta', {}, { defaultValue: 'Post to this board' })}
+          </Link>
+        </section>
+
+        <section
+          aria-labelledby="board-triage"
+          className={cm.cn(
+            cm.flex({ direction: 'col', gap: 'sm' }),
+            cm.sp('p', 5),
+            'rounded-xl border border-outline-variant/40 bg-surface',
+          )}
+        >
+          <h3
+            id="board-triage"
+            className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}
+          >
+            {t('boardDetail.triageTitle', {}, { defaultValue: 'Board Triage & Cadence' })}
+          </h3>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'boardDetail.triageBody',
+              {},
+              {
+                defaultValue:
+                  'The product team triages this board weekly: high-vote requests get an official response and a roadmap slot, duplicates are merged so votes pool into one honest demand signal.',
+              },
+            )}
+          </p>
+        </section>
+
+        {contributors.length > 0 && (
+          <section
+            aria-labelledby="board-contributors"
+            className={cm.cn(
+              cm.flex({ direction: 'col', gap: 'sm' }),
+              cm.sp('p', 5),
+              'rounded-xl border border-outline-variant/40 bg-surface',
+            )}
+          >
+            <h3
+              id="board-contributors"
+              className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}
+            >
+              {t('boardDetail.contributorsTitle', {}, { defaultValue: 'Top Contributors' })}
+            </h3>
+            <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+              {contributors.map((person) => (
+                <li
+                  key={person.name}
+                  className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('py', 1))}
+                >
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      cm.w(7),
+                      cm.h(7),
+                      cm.roundedFull,
+                      cm.fontWeight('bold'),
+                      cm.textSize('xs'),
+                      'shrink-0',
+                    )}
+                    style={{
+                      backgroundColor: 'var(--color-primary-container)',
+                      color: 'var(--color-primary)',
+                    }}
+                    aria-hidden="true"
+                  >
+                    {person.name.slice(0, 1).toUpperCase()}
+                  </span>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('medium'),
+                      'text-on-surface min-w-0 truncate',
+                    )}
+                  >
+                    {person.name}
+                  </span>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'ml-auto text-on-surface-variant',
+                    )}
+                    style={{ fontVariantNumeric: 'tabular-nums' }}
+                  >
+                    {t(
+                      'boardDetail.contributorVotes',
+                      { count: person.votes },
+                      { defaultValue: '{{count}} votes' },
+                    )}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </div>
     </div>
   )
 }

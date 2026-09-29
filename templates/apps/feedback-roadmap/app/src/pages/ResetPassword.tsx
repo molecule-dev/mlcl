@@ -48,11 +48,18 @@ export function ResetPassword() {
   return (
     <AuthShell
       eyebrow={t('auth.resetPassword.accountRecovery', {}, { defaultValue: 'Account recovery' })}
-      heading={t('auth.resetPassword.setNewPassword', {}, { defaultValue: 'Set a new password' })}
+      heading={t(
+        'auth.resetPassword.setNewPasswordShort',
+        {},
+        { defaultValue: 'Set new password' },
+      )}
       description={t(
         'resetPassword.description',
         {},
-        { defaultValue: 'Pick a strong one. We will sign you in once the reset succeeds.' },
+        {
+          defaultValue:
+            'Enter your new workspace password. Ensure it meets security compliance guidelines.',
+        },
       )}
       footer={
         <Link to="/login" className={cm.cn('font-semibold text-primary hover:underline')}>

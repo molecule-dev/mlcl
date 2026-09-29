@@ -15,6 +15,7 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { Footer } from '../components/Footer.js'
 import { PostCard } from '../components/PostCard.js'
 import type { ApiPost } from '../utils/posts.js'
@@ -273,11 +274,14 @@ export function Landing() {
               }
     const avatarStyle: React.CSSProperties =
       r.avatarTone === 'primary'
-        ? { backgroundColor: 'var(--color-primary-fixed)', color: 'var(--color-primary)' }
+        ? {
+            backgroundColor: 'var(--color-primary-fixed)',
+            color: 'var(--color-on-primary-fixed)',
+          }
         : r.avatarTone === 'secondary'
           ? {
               backgroundColor: 'var(--color-secondary-container)',
-              color: 'var(--color-status-shipped)',
+              color: 'var(--color-on-secondary-fixed)',
             }
           : {
               backgroundColor: 'var(--color-surface-variant)',
@@ -451,29 +455,7 @@ export function Landing() {
               to="/"
               className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'whitespace-nowrap')}
             >
-              <span
-                className={cm.cn(
-                  cm.w(7),
-                  cm.h(7),
-                  'rounded-lg bg-primary flex items-center justify-center shadow-sm shrink-0',
-                )}
-              >
-                <span
-                  className="material-symbols-outlined text-[18px] text-on-primary"
-                  aria-hidden="true"
-                >
-                  all_inclusive
-                </span>
-              </span>
-              <span
-                className={cm.cn(
-                  cm.textSize('lg'),
-                  cm.fontWeight('semibold'),
-                  'text-on-surface tracking-tight',
-                )}
-              >
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" />
             </Link>
             <span
               className={cm.cn(
@@ -1383,7 +1365,7 @@ export function Landing() {
                   initials: 'EK',
                   avatar: {
                     backgroundColor: 'var(--color-primary-fixed)',
-                    color: 'var(--color-primary)',
+                    color: 'var(--color-on-primary-fixed)',
                   },
                   name: 'Elena Rostova',
                   role: 'VP of Product at HyperFlow',
@@ -1394,7 +1376,7 @@ export function Landing() {
                   initials: 'TC',
                   avatar: {
                     backgroundColor: 'var(--color-secondary-container)',
-                    color: 'var(--color-status-shipped)',
+                    color: 'var(--color-on-secondary-fixed)',
                   },
                   name: 'Tomás Chen',
                   role: 'Co-founder & CEO at CloudKite',

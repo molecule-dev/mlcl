@@ -106,6 +106,19 @@ export function Dashboard() {
     }
     return counts
   }, [punch])
+  // Upcoming inspections & pours — derived from live records: open
+  // high-severity punch items are the holds waiting on an inspector's
+  // sign-off, and active foundation/structure projects are where the
+  // concrete is moving.
+  const inspectionHolds = useMemo(
+    () => punch.filter((p) => p.status !== 'closed' && p.severity === 'high').slice(0, 3),
+    [punch],
+  )
+  const pourProjects = useMemo(
+    () => projects.filter((p) => p.phase === 'foundations' || p.phase === 'structure').slice(0, 3),
+    [projects],
+  )
+  const hasSchedule = inspectionHolds.length > 0 || pourProjects.length > 0
 
   if (error) {
     return <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
@@ -251,6 +264,157 @@ export function Dashboard() {
           </div>
         </section>
       </div>
+
+      {/* Upcoming inspections & pours */}
+      <section
+        data-mol-id="dashboard-inspections-pours"
+        className={cm.cn(cm.card(), cm.sp('p', 6))}
+      >
+        <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>
+          {t('dashboard.inspectionsPours', {}, { defaultValue: 'Upcoming Inspections & Pours' })}
+        </h2>
+        {!hasSchedule ? (
+          <p className={cm.cn(cm.sp('mt', 4), cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'dashboard.noSchedule',
+              {},
+              {
+                defaultValue:
+                  'Nothing queued: no open high-severity punch holds and no projects in an active pour phase.',
+              },
+            )}
+          </p>
+        ) : (
+          <div className={cm.cn(cm.sp('mt', 4), cm.grid({ cols: 1, gap: 'lg' }), 'md:grid-cols-2')}>
+            <div className="space-y-3">
+              <p
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'uppercase tracking-widest text-on-surface-variant',
+                )}
+              >
+                {t(
+                  'dashboard.inspectionHolds',
+                  { count: inspectionHolds.length },
+                  { defaultValue: 'Inspection holds ({{count}})' },
+                )}
+              </p>
+              {inspectionHolds.length === 0 ? (
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t(
+                    'dashboard.noHolds',
+                    {},
+                    { defaultValue: 'No open high-severity punch items holding a sign-off.' },
+                  )}
+                </p>
+              ) : (
+                inspectionHolds.map((p) => (
+                  <div
+                    key={p.id}
+                    className={cm.flex({
+                      align: 'start',
+                      justify: 'between',
+                      gap: 'md',
+                      wrap: 'wrap',
+                    })}
+                  >
+                    <div className="min-w-0">
+                      <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'truncate')}>
+                        {p.location} — {p.project}
+                      </p>
+                      <p
+                        className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', 'truncate')}
+                      >
+                        {p.description}
+                      </p>
+                    </div>
+                    <span
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        cm.fontWeight('semibold'),
+                        'text-error whitespace-nowrap',
+                      )}
+                    >
+                      {t(
+                        'dashboard.holdForInspection',
+                        {},
+                        { defaultValue: 'Hold for inspection' },
+                      )}
+                    </span>
+                  </div>
+                ))
+              )}
+            </div>
+            <div className="space-y-3">
+              <p
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'uppercase tracking-widest text-on-surface-variant',
+                )}
+              >
+                {t(
+                  'dashboard.pourPhases',
+                  { count: pourProjects.length },
+                  { defaultValue: 'Active pour phases ({{count}})' },
+                )}
+              </p>
+              {pourProjects.length === 0 ? (
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t(
+                    'dashboard.noPours',
+                    {},
+                    { defaultValue: 'No projects currently in foundations or structure.' },
+                  )}
+                </p>
+              ) : (
+                pourProjects.map((p) => (
+                  <div
+                    key={p.id}
+                    className={cm.flex({
+                      align: 'center',
+                      justify: 'between',
+                      gap: 'md',
+                      wrap: 'wrap',
+                    })}
+                  >
+                    <Link
+                      to="/projects"
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('medium'),
+                        'truncate hover:underline',
+                      )}
+                    >
+                      {p.name}
+                    </Link>
+                    <span
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        'text-on-surface-variant',
+                        'whitespace-nowrap',
+                      )}
+                    >
+                      {t(
+                        'projects.phase.' + p.phase,
+                        {},
+                        { defaultValue: p.phase.replace(/_/g, ' ') },
+                      )}{' '}
+                      ·{' '}
+                      {t(
+                        'projects.progress',
+                        { progress: p.progress },
+                        { defaultValue: '{{progress}}% complete' },
+                      )}
+                    </span>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        )}
+      </section>
 
       {/* Recent daily logs */}
       <section className={cm.cn(cm.card(), cm.sp('p', 6))}>

@@ -5,8 +5,9 @@ import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_NAME } from '../branding.js'
 import { loadContent } from '../config.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface SimmerAuthShellProps {
   /** Page heading rendered as the h1 ("Welcome back", "Create your account", …). */
@@ -15,6 +16,12 @@ interface SimmerAuthShellProps {
   subheading?: string
   /** Footer slot — typically the cross-link to the sibling auth page. */
   footer?: ReactNode
+  /**
+   * Brand-panel showcase (Stitch designs carry a marketing aside next to the
+   * form: the featured dish, "what happens next" steps, trial checklist…).
+   * Rendered inside the left gradient panel, below the wordmark.
+   */
+  aside?: ReactNode
   /** Form / OAuth / fields. */
   children: ReactNode
 }
@@ -28,7 +35,13 @@ interface SimmerAuthShellProps {
  * green/tomato palette. Used by Login / Signup / ForgotPassword /
  * ResetPassword.
  */
-export function SimmerAuthShell({ heading, subheading, footer, children }: SimmerAuthShellProps) {
+export function SimmerAuthShell({
+  heading,
+  subheading,
+  footer,
+  aside,
+  children,
+}: SimmerAuthShellProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
 
@@ -87,15 +100,19 @@ export function SimmerAuthShell({ heading, subheading, footer, children }: Simme
             'relative z-10 text-center',
           )}
         >
-          <span
-            className={cm.cn('text-[56px] font-black text-white tracking-tight leading-none mb-4')}
-          >
-            {APP_NAME}
-          </span>
-          <span className={cm.cn(cm.textSize('xl'), 'text-white/90 font-medium')}>
-            {t('simmer.auth.tagline', {}, { defaultValue: APP_TAGLINE })}
-          </span>
+          <BrandWordmark as="span" size="lg" invert withTagline />
         </Link>
+        {aside ? (
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', gap: 'md' }),
+              cm.sp('mt', 10),
+              'relative z-10 w-full max-w-md',
+            )}
+          >
+            {aside}
+          </div>
+        ) : null}
       </aside>
 
       <main
@@ -106,13 +123,8 @@ export function SimmerAuthShell({ heading, subheading, footer, children }: Simme
       >
         <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), 'w-full max-w-[440px]')}>
           <Link to="/" className={cm.cn('lg:hidden text-center mb-2 block')}>
-            <span
-              className={cm.cn(cm.fontWeight('bold'), 'text-4xl text-primary tracking-tight block')}
-            >
-              {APP_NAME}
-            </span>
-            <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mt-1 block')}>
-              {t('simmer.auth.tagline', {}, { defaultValue: APP_TAGLINE })}
+            <span className={cm.cn(cm.flex({ justify: 'center' }))}>
+              <BrandWordmark as="span" withTagline />
             </span>
           </Link>
 

@@ -23,7 +23,22 @@ interface WatchArea {
   created_at: string
 }
 
+interface FeedIssue {
+  id: string
+  category: string
+  description: string
+  status: string
+  derived_address: string
+  x: number
+  y: number
+  created_at: string
+}
+
 const RADIUS_CHOICES = [5, 10, 15, 20] as const
+
+/** Grid-units distance between two pins (the watch-area containment rule). */
+const distance = (ax: number, ay: number, bx: number, by: number): number =>
+  Math.sqrt((ax - bx) ** 2 + (ay - by) ** 2)
 
 /**
  * WatchAreas — saved named circles on the city grid (name + center pin +
@@ -38,6 +53,7 @@ export function WatchAreasPage() {
   const [areas, setAreas] = useState<WatchArea[]>([])
   const [loading, setLoading] = useState(true)
   const [loadError, setLoadError] = useState<string | null>(null)
+  const [recent, setRecent] = useState<FeedIssue[]>([])
 
   const [name, setName] = useState('')
   const [center, setCenter] = useState<{ x: number; y: number } | null>(null)
@@ -77,6 +93,35 @@ export function WatchAreasPage() {
   useEffect(() => {
     void fetchAreas()
   }, [fetchAreas])
+
+  // Recent citywide telemetry — tagged as "in your zones" when the pin falls
+  // inside one of the caller's saved areas (design: Recent Telemetry feed).
+  useEffect(() => {
+    let cancelled = false
+    async function loadRecent() {
+      try {
+        const res = await http.get('/api/issues?limit=8')
+        const raw: FeedIssue[] = Array.isArray(res)
+          ? (res as FeedIssue[])
+          : Array.isArray((res as { data?: unknown })?.data)
+            ? (res as { data: FeedIssue[] }).data
+            : []
+        if (!cancelled) setRecent(raw)
+      } catch {
+        // Telemetry is a nice-to-have — the page works without it.
+      }
+    }
+    void loadRecent()
+    return () => {
+      cancelled = true
+    }
+  }, [http])
+
+  const zonesOf = useCallback(
+    (issue: FeedIssue): WatchArea[] =>
+      areas.filter((a) => distance(a.x, a.y, issue.x, issue.y) <= a.radius),
+    [areas],
+  )
 
   async function handleSave(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -141,7 +186,11 @@ export function WatchAreasPage() {
         <div className={cm.cn(cm.mxAuto, 'max-w-5xl', cm.sp('px', 6), cm.sp('py', 8), cm.stack(6))}>
           <PageHeader
             molId="watch-areas-title"
-            title={t('watchAreas.title', {}, { defaultValue: 'Watch areas' })}
+            title={t(
+              'watchAreas.title',
+              {},
+              { defaultValue: 'Municipal Watch Areas & Geofence Subscriptions' },
+            )}
             subtitle={t(
               'watchAreas.subtitle',
               {},
@@ -290,6 +339,23 @@ export function WatchAreasPage() {
               data-mol-id="watch-area-list"
               className={cm.cn(cm.flex1, 'w-full lg:w-auto min-w-0', cm.stack(3))}
             >
+              {/* Municipal Cadastre & Active Geofence Bounds (design h2) */}
+              <h2
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 2 }),
+                  cm.textSize('base'),
+                  cm.fontWeight('bold'),
+                )}
+              >
+                <span className="material-symbols-outlined text-[18px] text-primary" aria-hidden>
+                  map
+                </span>
+                {t(
+                  'watchAreas.cadastre',
+                  {},
+                  { defaultValue: 'Municipal Cadastre & Active Geofence Bounds' },
+                )}
+              </h2>
               {loading ? (
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                   {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
@@ -376,6 +442,90 @@ export function WatchAreasPage() {
               )}
             </section>
           </div>
+
+          {/* Recent Telemetry in Your Watched Zones (design h2) — newest city
+              reports, flagged when they land inside one of your geofences. */}
+          <section data-mol-id="watch-areas-telemetry" className={cm.stack(3)}>
+            <h2
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 2 }),
+                cm.textSize('base'),
+                cm.fontWeight('bold'),
+              )}
+            >
+              <span className="material-symbols-outlined text-[18px] text-primary" aria-hidden>
+                sensors
+              </span>
+              {t(
+                'watchAreas.telemetry',
+                {},
+                { defaultValue: 'Recent Telemetry in Your Watched Zones' },
+              )}
+            </h2>
+            {recent.length === 0 ? (
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'watchAreas.telemetryEmpty',
+                  {},
+                  { defaultValue: 'No recent reports to scan against your zones yet.' },
+                )}
+              </p>
+            ) : (
+              <ul className={cm.stack(2)}>
+                {recent.map((issue) => {
+                  const zones = zonesOf(issue)
+                  return (
+                    <li
+                      key={issue.id}
+                      data-mol-id="watch-areas-telemetry-item"
+                      data-in-zone={zones.length > 0}
+                      className={cm.cn(
+                        cm.flex({ align: 'center', justify: 'between', gap: 3 }),
+                        cm.sp('p', 3),
+                        'rounded-lg border bg-surface-container-lowest text-sm',
+                        zones.length > 0 ? 'border-primary/40' : 'border-outline-variant/40',
+                      )}
+                    >
+                      <Link
+                        to={`/reports/${issue.id}`}
+                        className={cm.cn(cm.stack(1), 'min-w-0 flex-1')}
+                      >
+                        <span className={cm.fontWeight('medium') + ' truncate'}>
+                          {issue.description}
+                        </span>
+                        <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                          {issue.derived_address}
+                        </span>
+                      </Link>
+                      {zones.length > 0 ? (
+                        <span
+                          className={cm.cn(
+                            cm.sp('px', 2),
+                            cm.sp('py', 1),
+                            cm.textSize('xs'),
+                            cm.fontWeight('semibold'),
+                            'shrink-0 rounded-full bg-primary-container/30 text-primary',
+                          )}
+                        >
+                          {t(
+                            'watchAreas.inZone',
+                            { name: zones[0]?.name ?? '' },
+                            { defaultValue: 'In {{name}}' },
+                          )}
+                        </span>
+                      ) : (
+                        <span
+                          className={cm.cn(cm.textSize('xs'), 'shrink-0 text-on-surface-variant')}
+                        >
+                          {t('watchAreas.citywide', {}, { defaultValue: 'Citywide' })}
+                        </span>
+                      )}
+                    </li>
+                  )
+                })}
+              </ul>
+            )}
+          </section>
         </div>
       </main>
     </div>

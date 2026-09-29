@@ -5,6 +5,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 /**
  * Public landing page (Stitch design: design-construction-management-landing).
@@ -167,35 +168,7 @@ export function Landing() {
               data-mol-id="landing-brand"
               className={cm.flex({ align: 'center', gap: 'xs' })}
             >
-              <span
-                aria-hidden="true"
-                className={cm.cn(
-                  'material-symbols-outlined brand-gradient text-on-primary rounded-lg p-1.5',
-                )}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                construction
-              </span>
-              <span className={cm.flex({ direction: 'col' })}>
-                <span
-                  className={cm.cn(
-                    cm.textSize('lg'),
-                    cm.fontWeight('bold'),
-                    'tracking-tight text-primary',
-                  )}
-                >
-                  {APP_NAME}
-                </span>
-                <span
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    'text-on-surface-variant uppercase tracking-widest hidden sm:block',
-                  )}
-                  style={{ fontSize: '11px' }}
-                >
-                  {t('landing.brandSub', {}, { defaultValue: 'Jobsite OS' })}
-                </span>
-              </span>
+              <BrandWordmark as="span" withTagline />
             </Link>
             <nav
               className={cm.cn(
@@ -288,7 +261,10 @@ export function Landing() {
         >
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             <span
-              className={cm.cn(cm.flex({ align: 'center' }), 'gap-1.5 text-tertiary font-bold')}
+              className={cm.cn(
+                cm.flex({ align: 'center' }),
+                'gap-1.5 text-on-tertiary-container font-bold',
+              )}
             >
               <span
                 className={cm.cn('w-2 h-2 rounded-full bg-tertiary animate-pulse')}
@@ -480,7 +456,10 @@ export function Landing() {
                 style={{ fontSize: '11px', fontWeight: 600 }}
               >
                 <span
-                  className={cm.cn(cm.flex({ align: 'center' }), 'gap-1 text-tertiary font-bold')}
+                  className={cm.cn(
+                    cm.flex({ align: 'center' }),
+                    'gap-1 text-on-tertiary-container font-bold',
+                  )}
                 >
                   <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
                     check_circle
@@ -1079,7 +1058,10 @@ export function Landing() {
               )}
             >
               <span
-                className={cm.cn(cm.fontWeight('bold'), 'text-primary uppercase tracking-widest')}
+                className={cm.cn(
+                  cm.fontWeight('bold'),
+                  'text-on-primary-container uppercase tracking-widest',
+                )}
                 style={{ fontSize: '11px' }}
               >
                 {t('landing.ctaEyebrow', {}, { defaultValue: 'DEPLOY IN UNDER 20 MINUTES' })}
@@ -1128,7 +1110,7 @@ export function Landing() {
                 </span>
                 <Link
                   to="/signup"
-                  data-mol-id="landing-cta-signup"
+                  data-mol-id="landing-cta-signup-bottom"
                   className={cm.cn(
                     cm.flex({ align: 'center', justify: 'center' }),
                     'bg-primary text-on-primary px-6 py-3 rounded-lg font-bold shadow-sm whitespace-nowrap hover:opacity-90 transition-all active:scale-[0.98]',
@@ -1179,18 +1161,7 @@ export function Landing() {
         >
           <div className={cm.cn('md:col-span-2')}>
             <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'mb-3')}>
-              <span
-                aria-hidden="true"
-                className={cm.cn(
-                  'material-symbols-outlined brand-gradient text-on-primary rounded-lg p-1.5',
-                )}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                construction
-              </span>
-              <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-primary')}>
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" invert footer />
             </div>
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-sm mb-4')}>
               {t(
@@ -1273,7 +1244,7 @@ export function Landing() {
               <li>
                 <Link
                   to="/login"
-                  className="hover:text-primary transition-colors font-semibold text-primary"
+                  className="hover:text-primary transition-colors font-semibold text-on-primary-container"
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign In' })}
                 </Link>

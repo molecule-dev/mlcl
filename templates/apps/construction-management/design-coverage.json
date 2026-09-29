@@ -1,0 +1,36 @@
+{
+  "screens": {
+    "/projects": {
+      "allow": [
+        {
+          "heading": "Harborview Surgical Pavilion Exp.",
+          "reason": "Sample project name from the design mock. The jobsites grid (the section the design shows) exists and renders the app's own seeded demo projects; the seed keeps the free-tier cap of 3 that the e2e suite depends on, so the mock's extra sample names are recorded here rather than added as fake projects."
+        },
+        {
+          "heading": "Denver Logistics Hub Terminal C",
+          "reason": "Sample project name from the design mock. The jobsites grid exists; app seeds its own three demo jobsites within the free-tier cap."
+        },
+        {
+          "heading": "Austin Tech Campus Building 4",
+          "reason": "Sample project name from the design mock. The jobsites grid exists; app seeds its own three demo jobsites within the free-tier cap."
+        }
+      ]
+    },
+    "/projects/:projectId": {
+      "allow": [
+        {
+          "heading": "Sheet DWG A-102 Rev 3.4",
+          "reason": "Sample sheet id from the design mock. The project detail carries the real equivalent section — 'Sheets referenced in RFIs' — which lists the actual drawing references (with open counts) cited by the project's RFIs instead of a hardcoded mock sheet."
+        }
+      ]
+    },
+    "/plan-updated": {
+      "allow": [
+        {
+          "heading": "Plan Revision DWG A-102 Rev 4.0 Successfully Conformed & Slip-Sheeted",
+          "reason": "The design's metaphorical plan-revision headline names a sample drawing revision; this page is the Stripe-return confirmation, so it keeps the canonical 'Your plan has been updated' heading (e2e-asserted) and adds the real equivalent section — 'Plan revision conformed across your jobsites' — covering new limits, untouched projects, and offline caches."
+        }
+      ]
+    }
+  }
+}

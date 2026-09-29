@@ -16,6 +16,7 @@
  *     whether their change took.
  */
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useNavigate } from 'react-router'
 
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
@@ -113,24 +114,41 @@ function Toggle({ label, description, checked, onChange, disabled }: ToggleProps
 }
 
 const SECTIONS = [
-  { id: 'account', icon: 'person', labelKey: 'settings.sectionAccount', defaultLabel: 'Account' },
+  {
+    id: 'account',
+    icon: 'person',
+    labelKey: 'settings.sectionAccount',
+    defaultLabel: 'Profile & Account',
+  },
   {
     id: 'notifications',
     icon: 'notifications',
     labelKey: 'settings.sectionNotifications',
-    defaultLabel: 'Notifications',
+    defaultLabel: 'Notification Delivery & Digests',
   },
   {
     id: 'display',
     icon: 'view_compact',
     labelKey: 'settings.sectionDisplay',
-    defaultLabel: 'Display',
+    defaultLabel: 'Appearance & Interface',
   },
   {
     id: 'language',
     icon: 'language',
     labelKey: 'settings.sectionLanguage',
     defaultLabel: 'Language',
+  },
+  {
+    id: 'sso',
+    icon: 'key',
+    labelKey: 'settings.sectionSso',
+    defaultLabel: 'Enterprise SSO & Connected Accounts',
+  },
+  {
+    id: 'danger',
+    icon: 'warning',
+    labelKey: 'settings.sectionDanger',
+    defaultLabel: 'Danger Zone',
   },
 ] as const
 
@@ -145,7 +163,8 @@ type SaveStatus = 'idle' | 'saving' | 'saved' | 'error'
 export function Settings() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const { user } = useAuth<{ id?: string }>()
+  const navigate = useNavigate()
+  const { user, logout } = useAuth<{ id?: string }>()
   const userId = user?.id ?? null
 
   const [section, setSection] = useState<(typeof SECTIONS)[number]['id']>('account')
@@ -371,13 +390,16 @@ export function Settings() {
                   <h2
                     className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}
                   >
-                    {t('settings.account', {}, { defaultValue: 'Account' })}
+                    {t('settings.profileAccountTitle', {}, { defaultValue: 'Profile & Account' })}
                   </h2>
                   <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                     {t(
                       'settings.accountSubtitle',
                       {},
-                      { defaultValue: 'Update your username, email, and display name.' },
+                      {
+                        defaultValue:
+                          'Manage your identity and public contributor profile — username, email, and display name.',
+                      },
                     )}
                   </p>
                 </div>
@@ -519,13 +541,20 @@ export function Settings() {
                   <h2
                     className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}
                   >
-                    {t('settings.notifications', {}, { defaultValue: 'Notifications' })}
+                    {t(
+                      'settings.notificationDeliveryTitle',
+                      {},
+                      { defaultValue: 'Notification Delivery & Digests' },
+                    )}
                   </h2>
                   <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                     {t(
                       'settings.notificationsSubtitle',
                       {},
-                      { defaultValue: 'Decide what reaches your inbox vs your push device.' },
+                      {
+                        defaultValue:
+                          'Control how the app alerts you when requests you upvoted or submitted change state.',
+                      },
                     )}
                   </p>
                 </div>
@@ -619,13 +648,17 @@ export function Settings() {
                   <h2
                     className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}
                   >
-                    {t('settings.displayTitle', {}, { defaultValue: 'Display' })}
+                    {t(
+                      'settings.appearanceInterfaceTitle',
+                      {},
+                      { defaultValue: 'Appearance & Interface' },
+                    )}
                   </h2>
                   <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                     {t(
                       'settings.displaySubtitle',
                       {},
-                      { defaultValue: 'Choose how dense feeds feel.' },
+                      { defaultValue: 'Customize theme contrast and how dense feeds feel.' },
                     )}
                   </p>
                 </div>
@@ -713,6 +746,190 @@ export function Settings() {
                   </p>
                 </div>
                 <LanguagePicker />
+              </>
+            )}
+
+            {section === 'sso' && (
+              <>
+                <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+                  <h2
+                    className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}
+                  >
+                    {t(
+                      'settings.ssoTitle',
+                      {},
+                      { defaultValue: 'Enterprise SSO & Connected Accounts' },
+                    )}
+                  </h2>
+                  <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                    {t(
+                      'settings.ssoSubtitle',
+                      {},
+                      {
+                        defaultValue:
+                          'Manage single-sign-on credentials and integrated development workflows.',
+                      },
+                    )}
+                  </p>
+                </div>
+                <div
+                  className={cm.cn(
+                    cm.flex({ direction: 'col' }),
+                    'divide-y divide-outline-variant/30',
+                  )}
+                >
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+                      cm.sp('py', 3),
+                    )}
+                  >
+                    <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+                      <span
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          cm.fontWeight('medium'),
+                          'text-on-surface',
+                        )}
+                      >
+                        {t('settings.ssoSaml', {}, { defaultValue: 'SAML single sign-on' })}
+                      </span>
+                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                        {t(
+                          'settings.ssoSamlDesc',
+                          {},
+                          {
+                            defaultValue:
+                              'Workspace members sign in through your identity provider when SSO is enabled on the plan.',
+                          },
+                        )}
+                      </span>
+                    </div>
+                    <span
+                      className={cm.cn(
+                        cm.sp('px', 2),
+                        cm.sp('py', 0.5),
+                        cm.textSize('xs'),
+                        cm.fontWeight('semibold'),
+                        'rounded-full border whitespace-nowrap',
+                      )}
+                      style={{ borderColor: 'var(--color-outline-variant)' }}
+                    >
+                      {t('settings.ssoSamlState', {}, { defaultValue: 'Password sign-in' })}
+                    </span>
+                  </div>
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+                      cm.sp('py', 3),
+                    )}
+                  >
+                    <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+                      <span
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          cm.fontWeight('medium'),
+                          'text-on-surface',
+                        )}
+                      >
+                        {t(
+                          'settings.ssoIntegrations',
+                          {},
+                          { defaultValue: 'Connected integrations' },
+                        )}
+                      </span>
+                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                        {t(
+                          'settings.ssoIntegrationsDesc',
+                          {},
+                          {
+                            defaultValue:
+                              'Trackers, chat, and warehouse connections are managed per workspace by your administrators.',
+                          },
+                        )}
+                      </span>
+                    </div>
+                    <span
+                      className={cm.cn(
+                        cm.sp('px', 2),
+                        cm.sp('py', 0.5),
+                        cm.textSize('xs'),
+                        cm.fontWeight('semibold'),
+                        'rounded-full border whitespace-nowrap',
+                      )}
+                      style={{ borderColor: 'var(--color-outline-variant)' }}
+                    >
+                      {t('settings.ssoIntegrationsState', {}, { defaultValue: 'Admin-managed' })}
+                    </span>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {section === 'danger' && (
+              <>
+                <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+                  <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-error')}>
+                    {t('settings.dangerTitle', {}, { defaultValue: 'Danger Zone' })}
+                  </h2>
+                  <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                    {t(
+                      'settings.dangerSubtitle',
+                      {},
+                      {
+                        defaultValue:
+                          'Destructive session actions. Handle with care — these apply immediately.',
+                      },
+                    )}
+                  </p>
+                </div>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+                    cm.sp('p', 4),
+                    'rounded-lg border',
+                  )}
+                  style={{ borderColor: 'var(--color-error)' }}
+                >
+                  <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+                    <span
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('medium'),
+                        'text-on-surface',
+                      )}
+                    >
+                      {t('settings.dangerSignOut', {}, { defaultValue: 'Sign out of this device' })}
+                    </span>
+                    <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      {t(
+                        'settings.dangerSignOutDesc',
+                        {},
+                        {
+                          defaultValue:
+                            'Clears your session immediately and returns you to the public portal.',
+                        },
+                      )}
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    data-mol-id="settings-sign-out"
+                    onClick={() => {
+                      void logout().then(() => navigate('/boards'))
+                    }}
+                    className={cm.cn(
+                      cm.fontWeight('bold'),
+                      cm.textSize('sm'),
+                      cm.sp('px', 4),
+                      cm.sp('py', 2),
+                      'rounded-full border whitespace-nowrap hover:bg-error-container/40 transition-colors',
+                    )}
+                    style={{ borderColor: 'var(--color-error)', color: 'var(--color-error)' }}
+                  >
+                    {t('settings.dangerSignOutCta', {}, { defaultValue: 'Sign out' })}
+                  </button>
+                </div>
               </>
             )}
           </div>

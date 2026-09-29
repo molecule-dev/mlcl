@@ -6,6 +6,7 @@ import { getClassMap } from '@molecule/app-ui'
 import AccountSettingsSection from '../components/AccountSettingsSection.js'
 import AppearanceSettingsSection from '../components/AppearanceSettingsSection.js'
 import DeviceSettingsSection from '../components/DeviceSettingsSection.js'
+import IntegrationsSettingsSection from '../components/IntegrationsSettingsSection.js'
 import NotificationsSettingsSection from '../components/NotificationsSettingsSection.js'
 import ProfileSettingsSection from '../components/ProfileSettingsSection.js'
 
@@ -38,6 +39,7 @@ function Settings() {
       <AppearanceSettingsSection />
       <AccountSettingsSection />
       <DeviceSettingsSection />
+      <IntegrationsSettingsSection />
     </div>
   )
 }

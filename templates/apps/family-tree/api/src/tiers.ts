@@ -49,31 +49,31 @@ export const tierRegistry: TierRegistry<FamilyTreeLimits> = defineTiers<FamilyTr
     [familyTreePlanKeys.free]: {
       planKey: familyTreePlanKeys.free,
       category: 'free',
-      name: 'Free',
+      name: 'Seedling',
       limits: FREE_LIMITS,
     },
     [familyTreePlanKeys.proMonthly]: {
       planKey: familyTreePlanKeys.proMonthly,
       category: 'pro',
-      name: 'Pro',
+      name: 'Living Archive',
       limits: PRO_LIMITS,
     },
     [familyTreePlanKeys.proYearly]: {
       planKey: familyTreePlanKeys.proYearly,
       category: 'pro',
-      name: 'Pro',
+      name: 'Living Archive',
       limits: PRO_LIMITS,
     },
     [familyTreePlanKeys.familyMonthly]: {
       planKey: familyTreePlanKeys.familyMonthly,
       category: 'family',
-      name: 'Family',
+      name: 'Sanctuary Circle',
       limits: FAMILY_LIMITS,
     },
     [familyTreePlanKeys.familyYearly]: {
       planKey: familyTreePlanKeys.familyYearly,
       category: 'family',
-      name: 'Family',
+      name: 'Sanctuary Circle',
       limits: FAMILY_LIMITS,
     },
   },
@@ -94,13 +94,13 @@ export function getPricingTiers(): Array<{
   return [
     {
       key: 'free',
-      name: 'Free',
+      name: 'Seedling',
       prices: [{ period: 'month', price: '$0', stripePriceId: null }],
       limits: FREE_LIMITS,
     },
     {
       key: 'pro',
-      name: 'Pro',
+      name: 'Living Archive',
       prices: [
         {
           period: 'month',
@@ -117,7 +117,7 @@ export function getPricingTiers(): Array<{
     },
     {
       key: 'family',
-      name: 'Family',
+      name: 'Sanctuary Circle',
       prices: [
         {
           period: 'month',

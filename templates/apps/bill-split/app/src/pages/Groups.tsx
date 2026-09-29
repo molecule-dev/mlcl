@@ -111,7 +111,7 @@ export function Groups() {
           <h1
             className={cm.cn(cm.textSize('3xl'), cm.sp('mt', 1), 'font-extrabold tracking-tight')}
           >
-            {t('groups.title', {}, { defaultValue: 'Groups' })}
+            {t('groups.title', {}, { defaultValue: 'Circles & Groups' })}
           </h1>
         </div>
         <button
@@ -178,6 +178,25 @@ export function Groups() {
             'rounded-2xl bg-surface border border-outline-variant/40 space-y-5',
           )}
         >
+          {/* Stitch panel title — the create form doubles as the quick-create circle. */}
+          <h3
+            className={cm.cn(
+              cm.textSize('base'),
+              cm.fontWeight('bold'),
+              cm.flex({ align: 'center', gap: 2 }),
+            )}
+          >
+            <span
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                'h-8 w-8 rounded-lg bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] text-primary',
+              )}
+              aria-hidden="true"
+            >
+              <span className={cm.cn('material-symbols-outlined text-base')}>flash_on</span>
+            </span>
+            {t('groups.quickCreate', {}, { defaultValue: 'Quick Create Circle' })}
+          </h3>
           <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
             <label
               htmlFor="group-name"
@@ -302,15 +321,40 @@ export function Groups() {
             )}
           >
             <div className={cm.flex({ align: 'start', justify: 'between', gap: 'sm' })}>
-              <h2
-                className={cm.cn(
-                  cm.textSize('lg'),
-                  cm.fontWeight('bold'),
-                  'group-hover:text-primary transition-colors',
-                )}
-              >
-                {group.name}
-              </h2>
+              <div className={cm.cn(cm.flex({ align: 'start', gap: 2 }), 'min-w-0')}>
+                <h2
+                  className={cm.cn(
+                    cm.textSize('lg'),
+                    cm.fontWeight('bold'),
+                    'group-hover:text-primary transition-colors',
+                  )}
+                >
+                  {group.name}
+                </h2>
+                {/* Stitch "verified" chip — the ledger invariant (every
+                    circle's balances sum to exactly zero) is verified
+                    server-side on every request. */}
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 1 }),
+                    cm.sp('px', 2),
+                    cm.sp('py', 0.5),
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    'shrink-0 rounded-full bg-primary-container/60 text-on-primary-container mt-1',
+                  )}
+                  title={t(
+                    'groups.verifiedTitle',
+                    {},
+                    { defaultValue: 'Balances verified to sum to zero' },
+                  )}
+                >
+                  <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+                    verified
+                  </span>
+                  {t('groups.verified', {}, { defaultValue: 'Verified' })}
+                </span>
+              </div>
               <span
                 className={cm.cn(
                   cm.flex({ align: 'center', justify: 'center' }),

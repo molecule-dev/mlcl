@@ -2,14 +2,53 @@
   {
     "id": "s-901",
     "group_id": "g-cabin-2401",
-    "from_member_id": "m-self",
-    "from_name": "You",
-    "to_member_id": "m-maya",
-    "to_name": "Maya Chen",
+    "from_member_id": "m-dev",
+    "from_name": "Dev Patel",
+    "to_member_id": "m-self",
+    "to_name": "You",
     "amount_cents": 10000,
     "method": "transfer",
-    "date": "2026-09-13T12:00:00.000Z",
-    "note": "First chunk of the cabin rental",
-    "created_at": "2026-09-13T12:00:00.000Z"
+    "date": "2026-09-22T12:00:00.000Z",
+    "note": "First chunk of the lift tickets",
+    "created_at": "2026-09-22T12:00:00.000Z"
+  },
+  {
+    "id": "s-902",
+    "group_id": "g-dinner",
+    "from_member_id": "m-self",
+    "from_name": "You",
+    "to_member_id": "m-clara",
+    "to_name": "Clara Tran",
+    "amount_cents": 6000,
+    "method": "cash",
+    "date": "2026-09-26T20:00:00.000Z",
+    "note": "Dinner club settle-up",
+    "created_at": "2026-09-26T20:00:00.000Z"
+  },
+  {
+    "id": "s-903",
+    "group_id": "g-dinner",
+    "from_member_id": "m-dev",
+    "from_name": "Dev Patel",
+    "to_member_id": "m-clara",
+    "to_name": "Clara Tran",
+    "amount_cents": 6000,
+    "method": "cash",
+    "date": "2026-09-26T20:15:00.000Z",
+    "note": "Dinner club settle-up",
+    "created_at": "2026-09-26T20:15:00.000Z"
+  },
+  {
+    "id": "s-904",
+    "group_id": "g-dinner",
+    "from_member_id": "m-marcus",
+    "from_name": "Marcus Reid",
+    "to_member_id": "m-clara",
+    "to_name": "Clara Tran",
+    "amount_cents": 6000,
+    "method": "cash",
+    "date": "2026-09-26T20:30:00.000Z",
+    "note": "Dinner club settle-up",
+    "created_at": "2026-09-26T20:30:00.000Z"
   }
 ]

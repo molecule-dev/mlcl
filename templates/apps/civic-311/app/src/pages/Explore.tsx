@@ -111,6 +111,21 @@ export function ExplorePage() {
   }
 
   const selected = filtered.find((i) => i.id === selectedId) ?? null
+  const activeCount = useMemo(
+    () => issues.filter((i) => !['resolved', 'dismissed'].includes(i.status)).length,
+    [issues],
+  )
+  // The design's expanded primary incident card — pinned above the stream,
+  // tracking the selection (or the first row when nothing is selected).
+  const featured = selected ?? filtered[0] ?? null
+
+  /** 4-stage dispatch progression (design: Municipal SLA Progression). */
+  const dispatchStage = (status: string): number => {
+    if (status === 'submitted') return 1
+    if (status === 'acknowledged') return 2
+    if (status === 'in_review') return 3
+    return 4
+  }
 
   return (
     <div className={cm.cn(cm.surface, 'text-on-surface')}>
@@ -119,7 +134,7 @@ export function ExplorePage() {
         <div className={cm.cn(cm.mxAuto, 'max-w-6xl', cm.sp('px', 6), cm.sp('py', 8), cm.stack(6))}>
           <PageHeader
             molId="explore-title"
-            title={t('explore.title', {}, { defaultValue: 'Explore' })}
+            title={t('explore.title', {}, { defaultValue: 'Civic Incidents Live Map' })}
             subtitle={t(
               'explore.subtitle',
               {},
@@ -129,17 +144,45 @@ export function ExplorePage() {
               },
             )}
             action={
-              <Link
-                data-mol-id="explore-report-cta"
-                to="/report"
-                className={cm.cn(
-                  cm.sp('px', 4),
-                  'rounded-lg py-2 text-sm font-semibold shrink-0',
-                  'bg-primary text-on-primary hover:opacity-90',
-                )}
-              >
-                {t('explore.report', {}, { defaultValue: 'Report an issue' })}
-              </Link>
+              <div className={cm.flex({ align: 'center', gap: 3 })}>
+                {/* Live telemetry capsule (design: citywide active ticker) */}
+                <span
+                  data-mol-id="explore-telemetry"
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 2 }),
+                    cm.textSize('xs'),
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    'hidden rounded-full border border-outline-variant/60 bg-surface-container-low text-on-surface-variant lg:flex',
+                  )}
+                >
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-status-resolved)] opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-status-resolved)]" />
+                  </span>
+                  <span>
+                    <strong className="text-primary">
+                      {t(
+                        'explore.activeCount',
+                        { count: activeCount },
+                        { defaultValue: '{{count}} active' },
+                      )}
+                    </strong>{' '}
+                    {t('explore.citywide', {}, { defaultValue: 'citywide' })}
+                  </span>
+                </span>
+                <Link
+                  data-mol-id="explore-report-cta"
+                  to="/report"
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    'rounded-lg py-2 text-sm font-semibold shrink-0',
+                    'bg-primary text-on-primary hover:opacity-90',
+                  )}
+                >
+                  {t('explore.report', {}, { defaultValue: 'Report an issue' })}
+                </Link>
+              </div>
             }
           />
 
@@ -275,6 +318,214 @@ export function ExplorePage() {
               data-mol-id="explore-list"
               className={cm.cn(cm.flex1, 'w-full lg:w-auto min-w-0', cm.stack(3))}
             >
+              {/* Primary active incident card (design: expanded #RIV docket) */}
+              {featured && (
+                <article
+                  data-mol-id="explore-featured"
+                  data-category={featured.category}
+                  data-status={featured.status}
+                  className={cm.cn(
+                    cm.stack(3),
+                    cm.sp('p', 4),
+                    'rounded-lg border-2 border-primary/30 bg-surface-container-low/40',
+                  )}
+                >
+                  <div
+                    className={cm.flex({
+                      align: 'center',
+                      justify: 'between',
+                      gap: 3,
+                      wrap: 'wrap',
+                    })}
+                  >
+                    <div className={cm.flex({ align: 'center', gap: 2, wrap: 'wrap' })}>
+                      <StatusBadge status={featured.status} />
+                      <span
+                        className={cm.cn(
+                          cm.flex({ align: 'center', gap: 1 }),
+                          cm.sp('px', 2),
+                          cm.sp('py', 1),
+                          cm.textSize('xs'),
+                          cm.fontWeight('semibold'),
+                          'rounded-full bg-surface-container text-on-surface-variant',
+                        )}
+                      >
+                        <span
+                          className="h-1.5 w-1.5 rounded-full"
+                          style={{ background: `var(--color-cat-${featured.category})` }}
+                        />
+                        {categoryLabel(featured.category)}
+                      </span>
+                    </div>
+                    <span
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 1 }),
+                        cm.textSize('xs'),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      <span
+                        className="material-symbols-outlined text-[15px] text-primary"
+                        aria-hidden
+                      >
+                        schedule
+                      </span>
+                      {timeAgo(featured.created_at, t)}
+                    </span>
+                  </div>
+                  <h3
+                    className={cm.cn(
+                      cm.textSize('lg'),
+                      cm.fontWeight('bold'),
+                      'leading-tight text-on-surface',
+                    )}
+                  >
+                    {featured.description}
+                  </h3>
+                  <div className={cm.cn('grid grid-cols-2 gap-2', cm.textSize('xs'))}>
+                    <span className={cm.flex({ align: 'center', gap: 1, wrap: 'wrap' })}>
+                      <span
+                        className="material-symbols-outlined text-[15px] text-primary"
+                        aria-hidden
+                      >
+                        location_on
+                      </span>
+                      <span className={cm.fontWeight('medium')}>{featured.derived_address}</span>
+                    </span>
+                    <span className={cm.flex({ align: 'center', gap: 1 })}>
+                      <span
+                        className="material-symbols-outlined text-[15px] text-primary"
+                        aria-hidden
+                      >
+                        verified_user
+                      </span>
+                      {featured.reporter_name ||
+                        t('explore.aResident', {}, { defaultValue: 'A resident' })}
+                    </span>
+                    <span className={cm.flex({ align: 'center', gap: 1 })}>
+                      <span
+                        className="material-symbols-outlined text-[15px] text-primary"
+                        aria-hidden
+                      >
+                        engineering
+                      </span>
+                      {t(
+                        'explore.dispatchStage',
+                        { stage: dispatchStage(featured.status) },
+                        { defaultValue: 'Dispatch stage {{stage}} of 4' },
+                      )}
+                    </span>
+                    <span className={cm.flex({ align: 'center', gap: 1 })}>
+                      <span
+                        className="material-symbols-outlined text-[15px] text-primary"
+                        aria-hidden
+                      >
+                        task_alt
+                      </span>
+                      {t(
+                        'explore.confirmations',
+                        { count: featured.confirmation_count },
+                        { defaultValue: '{{count}} confirmations' },
+                      )}
+                    </span>
+                  </div>
+                  {/* 4-stage SLA progression stepper */}
+                  <div className="rounded-lg border border-outline-variant/50 bg-surface-container-lowest p-3">
+                    <div className={cnStepperHead(cm)}>
+                      <span>
+                        {t(
+                          'explore.slaProgression',
+                          {},
+                          { defaultValue: 'Municipal SLA Progression' },
+                        )}
+                      </span>
+                      <span className={cnStepperStage(cm)}>
+                        {t(
+                          'explore.stageOf',
+                          { stage: dispatchStage(featured.status) },
+                          { defaultValue: 'Stage {{stage}} of 4' },
+                        )}
+                      </span>
+                    </div>
+                    <div className="relative flex items-center justify-between pt-1">
+                      {(
+                        [
+                          [1, 'Logged'],
+                          [2, 'Verified'],
+                          [3, 'Crew Dispatched'],
+                          [4, 'Sealed & Proof'],
+                        ] as const
+                      ).map(([step, label]) => {
+                        const current = dispatchStage(featured.status)
+                        const done = step < current
+                        const active = step === current
+                        return (
+                          <div
+                            key={step}
+                            className={cm.flex({ direction: 'col', align: 'center', gap: 1 })}
+                          >
+                            <span
+                              className={cnStepDot(cm, done, active)}
+                              style={
+                                active ? { background: 'var(--color-status-in-review)' } : undefined
+                              }
+                            >
+                              {done ? '✓' : step}
+                            </span>
+                            <span
+                              className={cm.cn(
+                                cm.textSize('xs'),
+                                active ? cm.fontWeight('bold') : '',
+                                active
+                                  ? 'text-[var(--color-status-in-review)]'
+                                  : 'text-on-surface-variant',
+                              )}
+                            >
+                              {t(`explore.step${step}`, {}, { defaultValue: label })}
+                            </span>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                  <div className={cm.flex({ gap: 2, wrap: 'wrap' })}>
+                    {!featured.is_mine &&
+                      (featured.confirmed_by_me ? (
+                        <span
+                          data-mol-id="explore-featured-confirmed"
+                          className={cnFeaturedConfirm(cm)}
+                        >
+                          {t('explore.confirmed', {}, { defaultValue: 'Confirmed by you' })}
+                        </span>
+                      ) : (
+                        <button
+                          type="button"
+                          data-mol-id="explore-featured-confirm"
+                          disabled={confirmingId === featured.id}
+                          onClick={() => void handleConfirm(featured.id)}
+                          className={cnFeaturedBtn(cm)}
+                        >
+                          <span className="material-symbols-outlined text-[16px]" aria-hidden>
+                            sms
+                          </span>
+                          {confirmingId === featured.id
+                            ? t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })
+                            : t('explore.confirm', {}, { defaultValue: 'Me too' })}
+                        </button>
+                      ))}
+                    <Link
+                      data-mol-id="explore-featured-open"
+                      to={`/reports/${featured.id}`}
+                      className={cnFeaturedOpen(cm)}
+                    >
+                      {t('explore.inspectDocket', {}, { defaultValue: 'Inspect Docket Detail' })}
+                      <span className="material-symbols-outlined text-[14px]" aria-hidden>
+                        arrow_forward
+                      </span>
+                    </Link>
+                  </div>
+                </article>
+              )}
               {loading ? (
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                   {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
@@ -405,3 +656,50 @@ export function ExplorePage() {
 }
 
 export default ExplorePage
+
+/* ── featured-card class helpers ── */
+
+const cnStepperHead = (cm: ReturnType<typeof getClassMap>): string =>
+  cm.cn(
+    cm.flex({ align: 'center', justify: 'between' }),
+    cm.textSize('xs'),
+    cm.fontWeight('semibold'),
+    'text-on-surface-variant',
+  )
+
+const cnStepperStage = (cm: ReturnType<typeof getClassMap>): string =>
+  cm.cn(cm.textSize('xs'), cm.fontWeight('bold'), 'text-primary')
+
+const cnStepDot = (cm: ReturnType<typeof getClassMap>, done: boolean, active: boolean): string =>
+  cm.cn(
+    cm.flex({ align: 'center', justify: 'center' }),
+    'h-6 w-6 rounded-full text-[11px] font-bold',
+    done
+      ? 'bg-primary-container text-on-primary'
+      : active
+        ? 'text-white ring-4 ring-[var(--color-status-in-review)]/20'
+        : 'bg-surface-variant text-on-surface-variant',
+  )
+
+const cnFeaturedBtn = (cm: ReturnType<typeof getClassMap>): string =>
+  cm.cn(
+    cm.flex({ align: 'center', justify: 'center', gap: 1 }),
+    cm.sp('py', 2),
+    cm.sp('px', 3),
+    cm.textSize('xs'),
+    cm.fontWeight('semibold'),
+    'rounded-lg bg-primary-container text-on-primary transition-colors hover:bg-primary',
+  )
+
+const cnFeaturedOpen = (cm: ReturnType<typeof getClassMap>): string =>
+  cm.cn(
+    cm.flex({ align: 'center', gap: 1 }),
+    cm.sp('py', 2),
+    cm.sp('px', 3),
+    cm.textSize('xs'),
+    cm.fontWeight('semibold'),
+    'rounded-lg border border-primary text-primary transition-colors hover:bg-surface-container-low',
+  )
+
+const cnFeaturedConfirm = (cm: ReturnType<typeof getClassMap>): string =>
+  cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'), 'text-primary')

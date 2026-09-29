@@ -109,15 +109,28 @@ export function formatQuantityWithUnit(
 /** Ordered aisle labels for grocery grouping (server category ids). */
 export const GROCERY_CATEGORY_LABELS: ReadonlyArray<{ id: string; label: string; icon: string }> = [
   { id: 'produce', label: 'Produce', icon: 'eco' },
-  { id: 'meat', label: 'Meat', icon: 'kebab_dining' },
-  { id: 'seafood', label: 'Seafood', icon: 'set_meal' },
+  { id: 'meat', label: 'Butcher', icon: 'kebab_dining' },
+  { id: 'seafood', label: 'Fishmonger', icon: 'set_meal' },
   { id: 'dairy', label: 'Dairy & Eggs', icon: 'egg' },
   { id: 'bakery', label: 'Bakery', icon: 'bakery_dining' },
   { id: 'frozen', label: 'Frozen', icon: 'ac_unit' },
-  { id: 'pantry', label: 'Pantry', icon: 'inventory_2' },
+  { id: 'pantry', label: 'Pantry, Grains & Oils', icon: 'inventory_2' },
   { id: 'spices', label: 'Spices', icon: 'science' },
   { id: 'drinks', label: 'Drinks', icon: 'local_cafe' },
   { id: 'other', label: 'Other', icon: 'shopping_basket' },
+]
+
+/**
+ * Pantry-page shelf taxonomy (the Stitch design groups staples into pantry
+ * shelves, not supermarket aisles). Checked before GROCERY_CATEGORY_LABELS;
+ * ids not found here fall through to the grocery labels.
+ */
+export const PANTRY_SHELF_LABELS: ReadonlyArray<{ id: string; label: string; icon: string }> = [
+  { id: 'oils', label: 'Oils, Vinegars & Cooking Liquids', icon: 'water_drop' },
+  { id: 'spices', label: 'Salts, Peppercorns & Seasonings', icon: 'science' },
+  { id: 'grains', label: 'Dry Grains, Pasta & Legumes', icon: 'rice_bowl' },
+  { id: 'aromatics', label: 'Root Cellar & Counter Aromatics', icon: 'spa' },
+  { id: 'pantry', label: 'Other Staples & Sweeteners', icon: 'inventory_2' },
 ]
 
 /** Human label for a grocery category id (unknown ids fall back to the id). */

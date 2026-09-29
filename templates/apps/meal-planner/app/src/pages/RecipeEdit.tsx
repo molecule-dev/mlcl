@@ -32,6 +32,18 @@ interface RecipeDraft {
 
 const EMOJI_CHOICES = ['🍲', '🍝', '🥗', '🍗', '🐟', '🌮', '🥣', '🥞', '🍛', '🍜', '🥙', '🫕']
 
+/** Quick-pick tag chips for the "Tags & seasonal cues" section. */
+const TAG_CHIPS: { tag: string; label: string; emoji: string }[] = [
+  { tag: 'spring', label: 'Spring', emoji: '🌱' },
+  { tag: 'summer', label: 'Summer', emoji: '☀️' },
+  { tag: 'autumn', label: 'Autumn', emoji: '🍂' },
+  { tag: 'winter', label: 'Winter', emoji: '❄️' },
+  { tag: 'dinner', label: 'Dinner', emoji: '🍽️' },
+  { tag: 'quick', label: 'Quick', emoji: '⚡' },
+  { tag: 'vegetarian', label: 'Vegetarian', emoji: '🥕' },
+  { tag: 'batch', label: 'Batch', emoji: '🫙' },
+]
+
 const EMPTY_DRAFT: RecipeDraft = {
   title: '',
   description: '',
@@ -323,6 +335,63 @@ export function RecipeEdit() {
               )}
               className={cm.cn(inputCls)}
             />
+          </div>
+        </section>
+
+        {/* Tags & seasonal cues — quick-pick chips (Stitch design section) */}
+        <section
+          className={cm.cn(
+            cm.sp('p', 6),
+            cm.flex({ direction: 'col', gap: 'md' }),
+            'bg-surface rounded-2xl shadow-sm',
+          )}
+        >
+          <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
+            {t('simmer.recipeEdit.tagsSection', {}, { defaultValue: 'Tags & seasonal cues' })}
+          </h2>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'simmer.recipeEdit.tagsSectionBody',
+              {},
+              {
+                defaultValue:
+                  'Tag the season and the mood — the picker and plan nudges read these cues when the week needs a suggestion.',
+              },
+            )}
+          </p>
+          <div className={cm.cn(cm.flex({ wrap: 'wrap', gap: 'xs' }))}>
+            {TAG_CHIPS.map((chip) => {
+              const active = parseTags(draft.tags).includes(chip.tag)
+              return (
+                <button
+                  key={chip.tag}
+                  type="button"
+                  data-mol-id={`recipe-tag-chip-${chip.tag}`}
+                  aria-pressed={active}
+                  onClick={() => {
+                    const current = parseTags(draft.tags)
+                    const next = active
+                      ? current.filter((x) => x !== chip.tag)
+                      : [...current, chip.tag]
+                    patch({ tags: next.join(', ') })
+                  }}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'rounded-full border transition-colors',
+                    active
+                      ? 'bg-primary-container border-primary text-on-primary-container'
+                      : 'border-outline text-on-surface-variant hover:border-primary hover:text-primary',
+                  )}
+                >
+                  <span aria-hidden="true">{chip.emoji}</span>
+                  {t(`simmer.recipeEdit.tagChip.${chip.tag}`, {}, { defaultValue: chip.label })}
+                </button>
+              )
+            })}
           </div>
           <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
             <span

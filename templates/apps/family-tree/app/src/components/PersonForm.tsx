@@ -1,9 +1,17 @@
+import { useMemo } from 'react'
+import type { ReactNode } from 'react'
+
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 /**
  * Shared biographical form fields for create/edit person flows.
  * Controlled by the parent — the parent owns submit + relative wiring.
+ *
+ * `variant` selects the section chrome around the same fields:
+ *  - `flat`    — one continuous grid (AddRelative's compact thread, default)
+ *  - `dossier` — the Add-Person design sections (numbered ledger sections)
+ *  - `ledger`  — the Edit-Person design sections (archival record sections)
  */
 
 export interface PersonFormValue {
@@ -32,16 +40,62 @@ export const EMPTY_PERSON_FORM: PersonFormValue = {
 
 const GENDER_OPTIONS = ['female', 'male', 'nonbinary', 'other'] as const
 
+export type PersonFormVariant = 'flat' | 'dossier' | 'ledger' | 'thread'
+
 export interface PersonFormProps {
   value: PersonFormValue
   onChange: (patch: Partial<PersonFormValue>) => void
-  /** Disable the death row (e.g. none — reserved for future use). */
+  /** Prefix for every field id / data-mol-id (stable across variants). */
   idPrefix?: string
+  /** Section chrome around the fields. Defaults to `flat`. */
+  variant?: PersonFormVariant
+  /**
+    Design sections 3–4 (kinship placement, keepsake media) rendered between
+    the milestones section and the narrative section — only in sectioned
+    variants. Lets the parent keep the design's exact section order without
+    splitting the field set.
+  */
+  betweenSections?: ReactNode
 }
 
-export function PersonForm({ value, onChange, idPrefix = 'person' }: PersonFormProps) {
+interface SectionHeadProps {
+  level: 'h2' | 'h3'
+  text: string
+  muted?: boolean
+}
+
+/** Section heading shared by the sectioned variants. */
+function SectionHead({ level, text, muted }: SectionHeadProps) {
+  const cm = getClassMap()
+  const Tag = level
+  return (
+    <Tag
+      className={
+        level === 'h2'
+          ? cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'uppercase tracking-widest text-on-surface-variant',
+            )
+          : cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'text-on-surface')
+      }
+      style={level === 'h2' && muted === true ? { color: 'var(--color-forest-hover)' } : undefined}
+    >
+      {text}
+    </Tag>
+  )
+}
+
+export function PersonForm({
+  value,
+  onChange,
+  idPrefix = 'person',
+  variant = 'flat',
+  betweenSections,
+}: PersonFormProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const sectioned = variant !== 'flat'
 
   const label = (key: string, def: string): string =>
     t(`personForm.${key}`, {}, { defaultValue: def })
@@ -58,9 +112,76 @@ export function PersonForm({ value, onChange, idPrefix = 'person' }: PersonFormP
     cm.sp('mb', 2),
     'block text-[0.6875rem] text-on-surface-variant tracking-[0.05em]',
   )
+  const fieldGrid = cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-2')
 
-  return (
-    <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-2')}>
+  // Design section titles per variant (same fields, different ledger chrome).
+  const titles = useMemo(() => {
+    if (variant === 'dossier') {
+      return {
+        identity: t(
+          'personForm.section.identityNew',
+          {},
+          { defaultValue: '1. Essential Identity & Naming' },
+        ),
+        milestones: t(
+          'personForm.section.milestonesNew',
+          {},
+          { defaultValue: '2. Vital Milestones' },
+        ),
+        birth: t('personForm.section.birth', {}, { defaultValue: 'Birth & Nativity' }),
+        death: t('personForm.section.passing', {}, { defaultValue: 'Resting Sanctuary & Passing' }),
+        narrative: t(
+          'personForm.section.narrativeNew',
+          {},
+          { defaultValue: '5. Personal Lore & Archival Narrative' },
+        ),
+      }
+    }
+    if (variant === 'ledger') {
+      return {
+        identity: t(
+          'personForm.section.identityEdit',
+          {},
+          { defaultValue: 'Archival Identity & Name Forms' },
+        ),
+        milestones: t(
+          'personForm.section.milestonesEdit',
+          {},
+          { defaultValue: 'Vital Milestones & Provenance' },
+        ),
+        birth: t('personForm.section.birth', {}, { defaultValue: 'Birth & Nativity' }),
+        death: t('personForm.section.passing', {}, { defaultValue: 'Resting Sanctuary & Passing' }),
+        narrative: t(
+          'personForm.section.narrativeEdit',
+          {},
+          { defaultValue: 'Archival Narrative & Life Tapestry' },
+        ),
+      }
+    }
+    // 'thread' — the Add-Relative design sections (h3-level ledger chrome)
+    return {
+      identity: t(
+        'personForm.section.identityThread',
+        {},
+        { defaultValue: 'Vital Identity & Archival Nomenclature' },
+      ),
+      milestones: t(
+        'personForm.section.milestonesThread',
+        {},
+        { defaultValue: 'Milestones & Lineage Provenance' },
+      ),
+      birth: '',
+      death: '',
+      narrative: t(
+        'personForm.section.narrativeThread',
+        {},
+        { defaultValue: 'Archival Narrative' },
+      ),
+    }
+  }, [t, variant])
+
+  const identityFields = (
+    <>
       <div>
         <label className={labelClass} htmlFor={`${idPrefix}-first-name`}>
           {label('firstName', 'FIRST NAME') + ' *'}
@@ -125,6 +246,11 @@ export function PersonForm({ value, onChange, idPrefix = 'person' }: PersonFormP
           ))}
         </select>
       </div>
+    </>
+  )
+
+  const birthFields = (
+    <>
       <div>
         <label className={labelClass} htmlFor={`${idPrefix}-birth-date`}>
           {label('birthDate', 'BIRTH DATE')}
@@ -156,6 +282,11 @@ export function PersonForm({ value, onChange, idPrefix = 'person' }: PersonFormP
           className={inputClass}
         />
       </div>
+    </>
+  )
+
+  const deathFields = (
+    <>
       <div>
         <label className={labelClass} htmlFor={`${idPrefix}-death-date`}>
           {label('deathDate', 'DEATH DATE')}
@@ -183,24 +314,83 @@ export function PersonForm({ value, onChange, idPrefix = 'person' }: PersonFormP
           className={inputClass}
         />
       </div>
-      <div className="sm:col-span-2">
-        <label className={labelClass} htmlFor={`${idPrefix}-notes`}>
-          {label('notes', 'RESEARCH NOTES')}
-        </label>
-        <textarea
-          id={`${idPrefix}-notes`}
-          data-mol-id={`${idPrefix}-notes`}
-          rows={3}
-          value={value.notes}
-          onChange={(e) => onChange({ notes: e.target.value })}
-          placeholder={t(
-            'personForm.notesPlaceholder',
-            {},
-            { defaultValue: 'Sources, open questions, stories…' },
-          )}
-          className={cm.cn(inputClass, 'resize-y')}
-        />
+    </>
+  )
+
+  const narrativeField = (
+    <div className={sectioned ? cm.cn(cm.flex({ direction: 'col', gap: 'md' })) : 'sm:col-span-2'}>
+      <label className={labelClass} htmlFor={`${idPrefix}-notes`}>
+        {label('notes', 'RESEARCH NOTES')}
+      </label>
+      <textarea
+        id={`${idPrefix}-notes`}
+        data-mol-id={`${idPrefix}-notes`}
+        rows={3}
+        value={value.notes}
+        onChange={(e) => onChange({ notes: e.target.value })}
+        placeholder={t(
+          'personForm.notesPlaceholder',
+          {},
+          { defaultValue: 'Sources, open questions, stories…' },
+        )}
+        className={cm.cn(inputClass, 'resize-y')}
+      />
+    </div>
+  )
+
+  if (!sectioned || !titles) {
+    return (
+      <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-2')}>
+        {identityFields}
+        {birthFields}
+        {deathFields}
+        {narrativeField}
       </div>
+    )
+  }
+
+  const headLevel: 'h2' | 'h3' = variant === 'thread' ? 'h3' : 'h2'
+
+  return (
+    <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }))}>
+      <section className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
+        <SectionHead level={headLevel} text={titles.identity} />
+        <div className={fieldGrid}>{identityFields}</div>
+      </section>
+
+      <section className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
+        <SectionHead level={headLevel} text={titles.milestones} />
+        {variant === 'thread' ? (
+          <div className={fieldGrid}>
+            {birthFields}
+            {deathFields}
+          </div>
+        ) : (
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', gap: 'md' }),
+              cm.sp('pl', 4),
+              'border-l border-outline-variant/30',
+            )}
+          >
+            <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+              <SectionHead level="h3" text={titles.birth} />
+              <div className={fieldGrid}>{birthFields}</div>
+            </div>
+            <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+              <SectionHead level="h3" text={titles.death} />
+              <div className={fieldGrid}>{deathFields}</div>
+            </div>
+          </div>
+        )}
+      </section>
+
+      {betweenSections}
+
+      <section className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
+        <SectionHead level={headLevel} text={titles.narrative} />
+        {narrativeField}
+      </section>
     </div>
   )
 }

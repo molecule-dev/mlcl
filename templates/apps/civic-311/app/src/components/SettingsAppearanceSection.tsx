@@ -1,6 +1,22 @@
+import { useEffect, useState } from 'react'
+
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Switch } from '@molecule/app-ui-react'
+
+const HIGH_CONTRAST_KEY = 'civic.highContrastGrid'
+const REDUCED_MOTION_KEY = 'civic.reducedMotion'
+
+/** Apply the accessibility display switches to <html> immediately (they are
+ * presentation-level, so they take effect live and persist in localStorage —
+ * unlike theme/language, which round-trip through the API preferences). */
+function applyDisplaySwitches(highContrast: boolean, reducedMotion: boolean): void {
+  const root = document.documentElement
+  if (highContrast) root.setAttribute('data-contrast-grid', 'on')
+  else root.removeAttribute('data-contrast-grid')
+  if (reducedMotion) root.setAttribute('data-reduced-motion', 'on')
+  else root.removeAttribute('data-reduced-motion')
+}
 
 interface SettingsAppearanceSectionProps {
   theme: 'light' | 'dark' | 'system'
@@ -25,6 +41,17 @@ function SettingsAppearanceSection({
 }: SettingsAppearanceSectionProps) {
   const cm = getClassMap()
   const { t, locale, setLocale, locales } = useTranslation()
+  const [highContrast, setHighContrast] = useState(
+    () => localStorage.getItem(HIGH_CONTRAST_KEY) === '1',
+  )
+  const [reducedMotion, setReducedMotion] = useState(
+    () => localStorage.getItem(REDUCED_MOTION_KEY) === '1',
+  )
+  useEffect(() => {
+    applyDisplaySwitches(highContrast, reducedMotion)
+    localStorage.setItem(HIGH_CONTRAST_KEY, highContrast ? '1' : '0')
+    localStorage.setItem(REDUCED_MOTION_KEY, reducedMotion ? '1' : '0')
+  }, [highContrast, reducedMotion])
   return (
     <section
       className={cm.cn(
@@ -39,7 +66,11 @@ function SettingsAppearanceSection({
         )}
       >
         <h3 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}>
-          {t('nav.appearance', {}, { defaultValue: 'Appearance' })}
+          {t(
+            'settingsAppearance.sectionTitle',
+            {},
+            { defaultValue: 'Accessibility & Display Preferences' },
+          )}
         </h3>
         <button
           onClick={onSave}
@@ -201,6 +232,85 @@ function SettingsAppearanceSection({
               )}
             />
           </div>
+        </div>
+      </div>
+      {/* Accessibility display switches (design: High-Contrast Road Grid +
+          Reduced Motion & Animation). Presentation-level — they apply live
+          via <html> data attributes and persist in localStorage. */}
+      <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }), cm.sp('mt', 6))}>
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', gap: 3 }),
+            cm.sp('p', 4),
+            'bg-surface-container-low rounded-xl',
+          )}
+        >
+          <div>
+            <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'block')}>
+              {t(
+                'settingsAppearance.highContrastLabel',
+                {},
+                { defaultValue: 'High-Contrast Road Grid' },
+              )}
+            </span>
+            <span className={cm.cn('text-[10px] text-on-surface-variant')}>
+              {t(
+                'settingsAppearance.highContrastDescription',
+                {},
+                {
+                  defaultValue: 'Darken map grid lines and borders for stronger visual separation.',
+                },
+              )}
+            </span>
+          </div>
+          <Switch
+            data-mol-id="high-contrast-switch"
+            checked={highContrast}
+            onChange={(e) => setHighContrast((e.target as HTMLInputElement).checked)}
+            size="md"
+            aria-label={t(
+              'settingsAppearance.highContrastLabel',
+              {},
+              { defaultValue: 'High-Contrast Road Grid' },
+            )}
+          />
+        </div>
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', gap: 3 }),
+            cm.sp('p', 4),
+            'bg-surface-container-low rounded-xl',
+          )}
+        >
+          <div>
+            <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'block')}>
+              {t(
+                'settingsAppearance.reducedMotionLabel',
+                {},
+                { defaultValue: 'Reduced Motion & Animation' },
+              )}
+            </span>
+            <span className={cm.cn('text-[10px] text-on-surface-variant')}>
+              {t(
+                'settingsAppearance.reducedMotionDescription',
+                {},
+                {
+                  defaultValue: 'Minimize transitions and pulse effects across the app.',
+                },
+              )}
+            </span>
+          </div>
+          <Switch
+            data-mol-id="reduced-motion-switch"
+            checked={reducedMotion}
+            onChange={(e) => setReducedMotion((e.target as HTMLInputElement).checked)}
+            size="md"
+            aria-label={t(
+              'settingsAppearance.reducedMotionLabel',
+              {},
+              { defaultValue: 'Reduced Motion & Animation' },
+            )}
+          />
         </div>
       </div>
     </section>

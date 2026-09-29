@@ -6,6 +6,7 @@ import { useLogin, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BRAND_COLOR } from '../branding.js'
+import { AuthAside } from '../components/AuthAside.js'
 import { AuthBrandHeader } from '../components/AuthBrandHeader.js'
 import { Footer } from '../components/Footer.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
@@ -72,192 +73,217 @@ export function Login() {
       <main
         className={cm.cn(cm.flex({ align: 'center', justify: 'center' }), cm.flex1, cm.sp('p', 6))}
       >
-        <div className={cm.cn(cm.w('full'), cm.maxW('md'))}>
-          <div
-            className={cm.cn(
-              cm.flex({ direction: 'col', gap: 'xl' }),
-              cm.sp('p', 10),
-              'bg-surface-container-lowest rounded-xl border border-outline-variant/10 shadow-sm',
-            )}
-          >
-            <AuthBrandHeader />
+        {/* Design layout: marketing aside beside the form card on lg+ */}
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            cm.w('full'),
+            cm.maxW('6xl'),
+          )}
+        >
+          <AuthAside variant="login" />
+          <div className={cm.cn(cm.w('full'), cm.maxW('md'))}>
+            <div
+              className={cm.cn(
+                cm.flex({ direction: 'col', gap: 'xl' }),
+                cm.sp('p', 10),
+                'bg-surface-container-lowest rounded-xl border border-outline-variant/10 shadow-sm',
+              )}
+            >
+              <AuthBrandHeader />
 
-            <div>
-              <h2
-                className={cm.cn(
-                  cm.textSize('2xl'),
-                  cm.fontWeight('bold'),
-                  cm.textCenter,
-                  cm.sp('mb', 1),
-                )}
-              >
-                {t('auth.login.signInTitle', {}, { defaultValue: 'Welcome back' })}
-              </h2>
-              <p className={cm.cn(cm.textSize('sm'), cm.textCenter, 'text-on-surface-variant')}>
-                {t('login.subtitle', {}, { defaultValue: 'Sign in to grow your family tree.' })}
-              </p>
-            </div>
-
-            <form className={cm.cn(cm.flex({ direction: 'col' }), 'gap-5')} onSubmit={handleSubmit}>
               <div>
-                <label
+                <h2
                   className={cm.cn(
-                    cm.fontWeight('semibold'),
-                    cm.sp('mb', 2),
-                    'block text-[0.6875rem] text-on-surface-variant tracking-[0.05em]',
+                    cm.textSize('2xl'),
+                    cm.fontWeight('bold'),
+                    cm.textCenter,
+                    cm.sp('mb', 1),
                   )}
-                  htmlFor="email"
                 >
-                  {t('login.emailLabel', {}, { defaultValue: 'EMAIL' })}
-                </label>
-                <input
-                  className={cm.cn(
-                    cm.w('full'),
-                    cm.sp('py', 4),
-                    cm.sp('px', 5),
-                    cm.textSize('sm'),
-                    'bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all',
-                  )}
-                  id="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  placeholder={t('login.emailPlaceholder', {}, { defaultValue: 'you@example.com' })}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+                  {t('auth.login.signInTitle', {}, { defaultValue: 'Welcome back' })}
+                </h2>
+                <p className={cm.cn(cm.textSize('sm'), cm.textCenter, 'text-on-surface-variant')}>
+                  {t('login.subtitle', {}, { defaultValue: 'Sign in to grow your family tree.' })}
+                </p>
               </div>
 
-              <div>
-                <div
-                  className={cm.cn(
-                    cm.flex({ align: 'center', justify: 'between' }),
-                    cm.sp('mb', 2),
-                  )}
-                >
+              <form
+                className={cm.cn(cm.flex({ direction: 'col' }), 'gap-5')}
+                onSubmit={handleSubmit}
+              >
+                <div>
                   <label
                     className={cm.cn(
                       cm.fontWeight('semibold'),
+                      cm.sp('mb', 2),
                       'block text-[0.6875rem] text-on-surface-variant tracking-[0.05em]',
                     )}
-                    htmlFor="password"
+                    htmlFor="email"
                   >
-                    {t('login.passwordLabel', {}, { defaultValue: 'PASSWORD' })}
+                    {t('login.emailLabel', {}, { defaultValue: 'EMAIL' })}
                   </label>
-                  <Link
-                    to="/forgot-password"
-                    className={cm.cn('text-xs font-bold hover:opacity-80 transition-opacity')}
-                    style={{ color: BRAND_COLOR }}
-                  >
-                    {t('auth.login.forgotPassword', {}, { defaultValue: 'Forgot password?' })}
-                  </Link>
-                </div>
-                <div className={cm.cn('relative')}>
                   <input
                     className={cm.cn(
                       cm.w('full'),
                       cm.sp('py', 4),
                       cm.sp('px', 5),
                       cm.textSize('sm'),
-                      'bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all pr-12',
+                      'bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all',
                     )}
-                    id="password"
-                    type={showPassword ? 'text' : 'password'}
-                    autoComplete="current-password"
+                    id="email"
+                    type="email"
+                    autoComplete="email"
                     required
-                    placeholder={t('auth.passwordMask', {}, { defaultValue: '••••••••' })}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder={t(
+                      'login.emailPlaceholder',
+                      {},
+                      { defaultValue: 'you@example.com' },
+                    )}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword((v) => !v)}
-                    aria-label={
-                      showPassword
-                        ? t('login.hidePassword', {}, { defaultValue: 'Hide password' })
-                        : t('login.showPassword', {}, { defaultValue: 'Show password' })
-                    }
+                </div>
+
+                <div>
+                  <div
                     className={cm.cn(
-                      'absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors',
+                      cm.flex({ align: 'center', justify: 'between' }),
+                      cm.sp('mb', 2),
                     )}
                   >
-                    <span className="material-symbols-outlined">
-                      {showPassword ? 'visibility_off' : 'visibility'}
-                    </span>
-                  </button>
+                    <label
+                      className={cm.cn(
+                        cm.fontWeight('semibold'),
+                        'block text-[0.6875rem] text-on-surface-variant tracking-[0.05em]',
+                      )}
+                      htmlFor="password"
+                    >
+                      {t('login.passwordLabel', {}, { defaultValue: 'PASSWORD' })}
+                    </label>
+                    <Link
+                      to="/forgot-password"
+                      className={cm.cn('text-xs font-bold hover:opacity-80 transition-opacity')}
+                      style={{ color: BRAND_COLOR }}
+                    >
+                      {t('auth.login.forgotPassword', {}, { defaultValue: 'Forgot password?' })}
+                    </Link>
+                  </div>
+                  <div className={cm.cn('relative')}>
+                    <input
+                      className={cm.cn(
+                        cm.w('full'),
+                        cm.sp('py', 4),
+                        cm.sp('px', 5),
+                        cm.textSize('sm'),
+                        'bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all pr-12',
+                      )}
+                      id="password"
+                      type={showPassword ? 'text' : 'password'}
+                      autoComplete="current-password"
+                      required
+                      placeholder={t('auth.passwordMask', {}, { defaultValue: '••••••••' })}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword((v) => !v)}
+                      aria-label={
+                        showPassword
+                          ? t('login.hidePassword', {}, { defaultValue: 'Hide password' })
+                          : t('login.showPassword', {}, { defaultValue: 'Show password' })
+                      }
+                      className={cm.cn(
+                        'absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors',
+                      )}
+                    >
+                      <span className="material-symbols-outlined">
+                        {showPassword ? 'visibility_off' : 'visibility'}
+                      </span>
+                    </button>
+                  </div>
                 </div>
-              </div>
 
-              {error && (
-                <div
-                  data-mol-id="login-error"
-                  role="alert"
+                {error && (
+                  <div
+                    data-mol-id="login-error"
+                    role="alert"
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      cm.sp('py', 3),
+                      cm.textSize('sm'),
+                      cm.textCenter,
+                      'bg-error-container text-on-error-container rounded-xl',
+                    )}
+                  >
+                    {error.message}
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={isLoggingIn}
                   className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    cm.textSize('sm'),
-                    cm.textCenter,
-                    'bg-error-container text-on-error-container rounded-xl',
+                    cm.sp('py', 4),
+                    cm.sp('mt', 2),
+                    cm.textSize('base'),
+                    cm.fontWeight('bold'),
+                    'rounded-xl text-white hover:shadow-lg active:scale-95 transition-all disabled:opacity-60',
                   )}
+                  style={{ background: submitGradient }}
                 >
-                  {error.message}
-                </div>
-              )}
+                  {isLoggingIn
+                    ? t('common.signingInEllipsis', {}, { defaultValue: 'Signing in…' })
+                    : t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                </button>
+              </form>
 
-              <button
-                type="submit"
-                disabled={isLoggingIn}
-                className={cm.cn(
-                  cm.sp('py', 4),
-                  cm.sp('mt', 2),
-                  cm.textSize('base'),
-                  cm.fontWeight('bold'),
-                  'rounded-xl text-white hover:shadow-lg active:scale-95 transition-all disabled:opacity-60',
-                )}
-                style={{ background: submitGradient }}
-              >
-                {isLoggingIn
-                  ? t('common.signingInEllipsis', {}, { defaultValue: 'Signing in…' })
-                  : t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-              </button>
-            </form>
-
-            <OAuthButtons />
-          </div>
-
-          <footer
-            className={cm.cn(
-              cm.sp('mt', 12),
-              cm.flex({ direction: 'col', align: 'center' }),
-              'gap-4',
-            )}
-          >
-            <div className={cm.cn(cm.flex({ wrap: 'wrap', justify: 'center' }), 'gap-x-8 gap-y-2')}>
-              <span
-                className={cm.cn(
-                  'text-[10px] font-bold text-foreground-tertiary uppercase tracking-widest',
-                )}
-              >
-                {t('loginFooter.trust', {}, { defaultValue: 'Your family history, kept private' })}
-              </span>
+              <OAuthButtons />
             </div>
-            <p
+
+            <footer
               className={cm.cn(
-                cm.textSize('sm'),
-                cm.fontWeight('medium'),
-                'text-on-surface-variant',
+                cm.sp('mt', 12),
+                cm.flex({ direction: 'col', align: 'center' }),
+                'gap-4',
               )}
             >
-              {t('auth.login.dontHaveAccount', {}, { defaultValue: "Don't have an account?" })}{' '}
-              <Link
-                to="/signup"
-                className={cm.cn('font-bold hover:underline decoration-2 underline-offset-4 ml-1')}
-                style={{ color: BRAND_COLOR }}
+              <div
+                className={cm.cn(cm.flex({ wrap: 'wrap', justify: 'center' }), 'gap-x-8 gap-y-2')}
               >
-                {t('login.signUp', {}, { defaultValue: 'Create one' })}
-              </Link>
-            </p>
-          </footer>
+                <span
+                  className={cm.cn(
+                    'text-[10px] font-bold text-foreground-tertiary uppercase tracking-widest',
+                  )}
+                >
+                  {t(
+                    'loginFooter.trust',
+                    {},
+                    { defaultValue: 'Your family history, kept private' },
+                  )}
+                </span>
+              </div>
+              <p
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  'text-on-surface-variant',
+                )}
+              >
+                {t('auth.login.dontHaveAccount', {}, { defaultValue: "Don't have an account?" })}{' '}
+                <Link
+                  to="/signup"
+                  className={cm.cn(
+                    'font-bold hover:underline decoration-2 underline-offset-4 ml-1',
+                  )}
+                  style={{ color: BRAND_COLOR }}
+                >
+                  {t('login.signUp', {}, { defaultValue: 'Create one' })}
+                </Link>
+              </p>
+            </footer>
+          </div>
         </div>
       </main>
       <Footer />

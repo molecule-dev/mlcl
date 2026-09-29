@@ -30,13 +30,96 @@ export function ForgotPassword() {
     }
   }
 
+  // The Stitch design's brand-panel showcase: the "what happens next" steps.
+  const aside = (
+    <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), 'text-white')}>
+      <h3
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'xs' }),
+          cm.textSize('lg'),
+          cm.fontWeight('bold'),
+          'text-white',
+        )}
+      >
+        <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-xl')}>
+          checklist
+        </span>
+        {t('simmer.forgot.aside.title', {}, { defaultValue: 'What happens next?' })}
+      </h3>
+      <ol className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), 'list-none')}>
+        {(
+          [
+            {
+              key: 'delivery',
+              title: 'Instant magic delivery',
+              body: 'We generate a secure reset link, good for 15 minutes, and place it softly in your inbox.',
+            },
+            {
+              key: 'noPassword',
+              title: 'No urgent passwords needed',
+              body: 'One tap on the link opens your weekly dinner board, grocery aisles, and recipes.',
+            },
+            {
+              key: 'freshPassphrase',
+              title: 'Create a fresh passphrase',
+              body: 'Set a new comfortable password now, or whenever you next plan your week.',
+            },
+          ] as const
+        ).map((step, i) => (
+          <li key={step.key} className={cm.cn(cm.flex({ align: 'start', gap: 'sm' }))}>
+            <span
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                'w-7 h-7 flex-none rounded-full bg-white/15 text-white font-bold text-xs',
+              )}
+              aria-hidden="true"
+            >
+              {i + 1}
+            </span>
+            <div>
+              <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-white')}>
+                {t(`simmer.forgot.aside.${step.key}.title`, {}, { defaultValue: step.title })}
+              </p>
+              <p className={cm.cn(cm.textSize('xs'), 'text-white/80')}>
+                {t(`simmer.forgot.aside.${step.key}.body`, {}, { defaultValue: step.body })}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'xs' }),
+          cm.textSize('xs'),
+          'text-white/80',
+        )}
+      >
+        <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-sm')}>
+          lock_open
+        </span>
+        {t(
+          'simmer.forgot.aside.dataSafe',
+          {},
+          {
+            defaultValue:
+              'Pantry data stays safe — your meal plan, grocery list, and recipe tags are preserved.',
+          },
+        )}
+      </p>
+    </div>
+  )
+
   return (
     <SimmerAuthShell
-      heading={t('auth.resetPassword.title', {}, { defaultValue: 'Reset your password' })}
+      aside={aside}
+      heading={t('simmer.forgot.title', {}, { defaultValue: 'Reset your kitchen password.' })}
       subheading={t(
         'simmer.forgot.subheading',
         {},
-        { defaultValue: 'Enter the email on your account and we will send a reset link.' },
+        {
+          defaultValue:
+            'Enter the email associated with your account and we will send a calm, one-click reset link.',
+        },
       )}
       footer={
         <Link

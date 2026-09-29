@@ -246,8 +246,15 @@ export function PostDetail() {
       )}
 
       <div
-        className={cm.cn(cm.sp('p', 5), 'rounded-xl border border-outline-variant/40 bg-surface')}
+        className={cm.cn(
+          cm.flex({ direction: 'col', gap: 'sm' }),
+          cm.sp('p', 5),
+          'rounded-xl border border-outline-variant/40 bg-surface',
+        )}
       >
+        <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}>
+          {t('postDetail.problemStatement', {}, { defaultValue: 'Problem Statement' })}
+        </h2>
         <p
           className={cm.cn(
             cm.textSize('base'),
@@ -332,7 +339,7 @@ export function PostDetail() {
 
       <section className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
         <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
-          {t('postDetail.commentsTitle', {}, { defaultValue: 'Comments' })}
+          {t('postDetail.discussionTitle', {}, { defaultValue: 'Discussion' })}
         </h2>
 
         {isAuthenticated ? (

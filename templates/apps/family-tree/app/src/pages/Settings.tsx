@@ -339,7 +339,7 @@ export function Settings() {
           className={cm.cn(cm.sp('p', 6), 'bg-surface-container-lowest rounded-2xl shadow-sm')}
           data-mol-id="settings-account"
         >
-          {sectionTitle('profile', 'Account')}
+          {sectionTitle('profile', 'Curator Dossier (Account Details)')}
           <dl className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-2')}>
             <div>
               <dt
@@ -369,20 +369,6 @@ export function Settings() {
             </div>
           </dl>
           <div className={cm.cn(cm.flex({ wrap: 'wrap', gap: 'md' }), cm.sp('mt', 4))}>
-            <button
-              type="button"
-              data-mol-id="settings-change-password"
-              onClick={() => setShowPasswordModal(true)}
-              className={cm.cn(
-                cm.textSize('sm'),
-                cm.fontWeight('semibold'),
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                'rounded-lg border border-outline-variant/50 hover:bg-surface-container transition-colors',
-              )}
-            >
-              {t('settings.changePasswordAction', {}, { defaultValue: 'Change password' })}
-            </button>
             <Link
               to="/pricing"
               data-mol-id="settings-view-plans"
@@ -422,38 +408,122 @@ export function Settings() {
           className={cm.cn(cm.sp('p', 6), 'bg-surface-container-lowest rounded-2xl shadow-sm')}
           data-mol-id="settings-security"
         >
-          {sectionTitle('security', 'Security')}
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
-            )}
-          >
-            <div>
-              <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
-                {t('settings.twoFactor', {}, { defaultValue: 'Two-factor authentication' })}
-              </p>
-              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                {bundle.twoFactorEnabled
-                  ? t('settings.twoFactorOn', {}, { defaultValue: 'Enabled' })
-                  : t('settings.twoFactorOff', {}, { defaultValue: 'Disabled' })}
-              </p>
-            </div>
-            <button
-              type="button"
-              data-mol-id="settings-two-factor"
-              onClick={openTwoFactor}
+          {sectionTitle('security', 'Cryptographic Custody & Two-Factor Authentication (2FA)')}
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
+            {/* Master passphrase */}
+            <div
               className={cm.cn(
-                cm.textSize('sm'),
-                cm.fontWeight('semibold'),
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                'rounded-lg border border-outline-variant/50 hover:bg-surface-container transition-colors',
+                cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
               )}
             >
-              {bundle.twoFactorEnabled
-                ? t('settings.twoFactorTurnOff', {}, { defaultValue: 'Disable' })
-                : t('settings.twoFactorTurnOn', {}, { defaultValue: 'Enable' })}
-            </button>
+              <div>
+                <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                  {t(
+                    'settings.masterPassphrase',
+                    {},
+                    { defaultValue: 'Master Passphrase & Emergency Recovery Scroll' },
+                  )}
+                </h3>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {t(
+                    'settings.masterPassphraseHint',
+                    {},
+                    {
+                      defaultValue:
+                        'Use a long, unique passphrase and keep a copy in your password manager — the archive holds no printable recovery sheet.',
+                    },
+                  )}
+                </p>
+              </div>
+              <button
+                type="button"
+                data-mol-id="settings-change-password"
+                onClick={() => setShowPasswordModal(true)}
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  cm.sp('px', 4),
+                  cm.sp('py', 2),
+                  'rounded-lg border border-outline-variant/50 hover:bg-surface-container transition-colors',
+                )}
+              >
+                {t('settings.changePasswordAction', {}, { defaultValue: 'Change password' })}
+              </button>
+            </div>
+
+            {/* TOTP */}
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
+              )}
+            >
+              <div>
+                <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                  {t(
+                    'settings.totpTitle',
+                    {},
+                    { defaultValue: 'Time-based One-Time Passcode (TOTP)' },
+                  )}
+                </h3>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {t('settings.twoFactor', {}, { defaultValue: 'Two-factor authentication' })}
+                  {': '}
+                  {bundle.twoFactorEnabled
+                    ? t('settings.twoFactorOn', {}, { defaultValue: 'Enabled' })
+                    : t('settings.twoFactorOff', {}, { defaultValue: 'Disabled' })}
+                </p>
+              </div>
+              <button
+                type="button"
+                data-mol-id="settings-two-factor"
+                onClick={openTwoFactor}
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  cm.sp('px', 4),
+                  cm.sp('py', 2),
+                  'rounded-lg border border-outline-variant/50 hover:bg-surface-container transition-colors',
+                )}
+              >
+                {bundle.twoFactorEnabled
+                  ? t('settings.twoFactorTurnOff', {}, { defaultValue: 'Disable' })
+                  : t('settings.twoFactorTurnOn', {}, { defaultValue: 'Enable' })}
+              </button>
+            </div>
+
+            {/* Passkeys — not available in this archive (honest status) */}
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
+              )}
+            >
+              <div>
+                <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                  {t(
+                    'settings.passkeysTitle',
+                    {},
+                    { defaultValue: 'Hardware Passkeys & FIDO2 WebAuthn' },
+                  )}
+                </h3>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {t(
+                    'settings.passkeysStatus',
+                    {},
+                    {
+                      defaultValue:
+                        'Not available in this archive yet — TOTP above is the second factor today.',
+                    },
+                  )}
+                </p>
+              </div>
+              <span
+                className={cm.cn(
+                  'px-2 py-0.5 text-[10px] uppercase tracking-widest rounded-full bg-surface-container text-on-surface-variant',
+                )}
+              >
+                {t('settings.featureUnavailable', {}, { defaultValue: 'Not available' })}
+              </span>
+            </div>
           </div>
         </section>
 
@@ -462,7 +532,10 @@ export function Settings() {
           className={cm.cn(cm.sp('p', 6), 'bg-surface-container-lowest rounded-2xl shadow-sm')}
           data-mol-id="settings-devices"
         >
-          {sectionTitle('devices', `Devices (${sessionsLine})`)}
+          {sectionTitle('devices', 'Trusted Historical Devices & Active Sessions')}
+          <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mb', 3))}>
+            {sessionsLine}
+          </p>
           {devices.length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t('settings.noDevices', {}, { defaultValue: 'No other signed-in devices.' })}
@@ -556,10 +629,11 @@ export function Settings() {
           className={cm.cn(cm.sp('p', 6), 'bg-surface-container-lowest rounded-2xl shadow-sm')}
           data-mol-id="settings-data"
         >
-          {sectionTitle('data', 'Your research data')}
+          {sectionTitle('data', 'Archival Portability & Complete Export')}
           <div
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
+              cm.sp('mb', 4),
             )}
           >
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.maxW('md'))}>
@@ -594,6 +668,85 @@ export function Settings() {
                 : t('settings.exportAction', {}, { defaultValue: 'Export tree' })}
             </button>
           </div>
+          {/* Export formats — honest availability */}
+          <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+            {[
+              {
+                key: 'json',
+                title: t(
+                  'settings.exportFormatJson',
+                  {},
+                  { defaultValue: 'Full archive JSON (people + relationships)' },
+                ),
+                available: true,
+              },
+              {
+                key: 'gedcom',
+                title: t(
+                  'settings.exportFormatGedcom',
+                  {},
+                  { defaultValue: 'GEDCOM 7.0 & TEI-P5 XML' },
+                ),
+                available: false,
+              },
+              {
+                key: 'zip',
+                title: t(
+                  'settings.exportFormatZip',
+                  {},
+                  { defaultValue: 'Full Lossless Reliquary ZIP' },
+                ),
+                available: false,
+              },
+              {
+                key: 'canvas',
+                title: t(
+                  'settings.exportFormatCanvas',
+                  {},
+                  { defaultValue: 'Offline Interactive Canvas' },
+                ),
+                available: false,
+              },
+            ].map((f) => (
+              <li
+                key={f.key}
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+                  cm.sp('p', 3),
+                  'rounded-xl bg-surface-container-low border border-outline-variant/20',
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    f.available ? cm.fontWeight('semibold') : 'text-on-surface-variant',
+                  )}
+                >
+                  {f.title}
+                </span>
+                <span
+                  className={cm.cn(
+                    'px-2 py-0.5 text-[10px] uppercase tracking-widest rounded-full',
+                  )}
+                  style={
+                    f.available
+                      ? {
+                          backgroundColor: 'var(--color-tree-root-bg)',
+                          color: 'var(--color-tree-root)',
+                        }
+                      : {
+                          backgroundColor: 'var(--color-surface-container)',
+                          color: 'var(--color-on-surface-variant)',
+                        }
+                  }
+                >
+                  {f.available
+                    ? t('settings.exportAvailable', {}, { defaultValue: 'Available' })
+                    : t('settings.featureUnavailable', {}, { defaultValue: 'Not available' })}
+                </span>
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* Danger zone */}
@@ -604,23 +757,27 @@ export function Settings() {
           )}
           data-mol-id="settings-danger"
         >
-          {sectionTitle('danger', 'Danger zone')}
+          {sectionTitle('danger', 'Vault Succession & Irreversible Controls')}
           <div
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
             )}
           >
             <div>
-              <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
-                {t('settings.deleteAccount', {}, { defaultValue: 'Delete account' })}
-              </p>
+              <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                {t(
+                  'settings.rightToFade',
+                  {},
+                  { defaultValue: 'Right to Complete Deletion (“Right to Fade”)' },
+                )}
+              </h3>
               <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                 {t(
                   'settings.deleteWarn',
                   {},
                   {
                     defaultValue:
-                      'Deletes your account, every person, and every relationship. There is no undo.',
+                      'Deletes your account, every person, and every relationship. There is no undo — export first if anyone else in the family will want the research (vault succession by hand-off).',
                   },
                 )}
               </p>

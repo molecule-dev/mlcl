@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { SafeLink } from './SafeLink.js'
 
 interface NavItem {
@@ -90,7 +90,7 @@ function SimmerNavLinks({ items }: { items: NavItem[] }) {
 }
 
 /**
- * The Simmer wordmark + tagline — the desktop Sidebar's brand block and the
+ * The brand lockup + nav motto — the desktop Sidebar's brand block and the
  * mobile Drawer's header row (only the mounted breakpoint instantiates it).
  */
 function SimmerBrand() {
@@ -103,9 +103,7 @@ function SimmerBrand() {
       data-mol-id="nav-brand"
       className={cm.cn(cm.sp('px', 2), cm.sp('mb', 6), 'block')}
     >
-      <span className={cm.cn(cm.fontWeight('bold'), 'text-2xl text-primary tracking-tight block')}>
-        {APP_NAME}
-      </span>
+      <BrandWordmark as="span" />
       <span
         className={cm.cn(
           cm.textSize('xs'),
@@ -136,14 +134,7 @@ export function SimmerAppShell() {
     <ResponsiveAppShell sidebarWidth="md" className="text-on-surface antialiased">
       {/* Mobile-only: carries the drawer trigger + brand; the desktop brand
           lives in the Sidebar and pages render their own headers. */}
-      <ResponsiveAppShell.TopBar
-        mobileOnly
-        brand={
-          <span className={cm.cn(cm.fontWeight('bold'), 'text-2xl text-primary tracking-tight')}>
-            {APP_NAME}
-          </span>
-        }
-      />
+      <ResponsiveAppShell.TopBar mobileOnly brand={<BrandWordmark as="span" />} />
       <ResponsiveAppShell.Sidebar
         navLabel={navLabel}
         footer={<SimmerNavLinks items={SECONDARY_ITEMS} />}

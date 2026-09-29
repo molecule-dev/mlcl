@@ -7,7 +7,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { ProjectNav } from '../components/ProjectNav.js'
 import { SEVERITY_TONE, STATUS_TONE, StatusBadge } from '../components/StatusBadge.js'
-import { formatDate, formatDateTime } from '../lib/format.js'
+import { daysSince, formatDate, formatDateTime } from '../lib/format.js'
 import { unwrapList } from '../lib/unwrap.js'
 
 interface PunchItem {
@@ -27,6 +27,9 @@ interface PunchItem {
 const SEVERITIES = ['low', 'medium', 'high'] as const
 const STATUSES = ['all', 'open', 'in_progress', 'closed'] as const
 type StatusFilter = (typeof STATUSES)[number]
+
+/** Sentinel for the unassigned bucket in the accountability matrix. */
+const UNASSIGNED_KEY = '__unassigned__'
 
 export function PunchList() {
   const cm = getClassMap()
@@ -72,6 +75,26 @@ export function PunchList() {
   }, [http, projectId, t])
 
   const visible = status === 'all' ? items : items.filter((i) => i.status === status)
+
+  // Trade accountability matrix — live remediation status per assignee:
+  // open vs closed counts and the oldest open item per trade.
+  const matrix = Object.entries(
+    items.reduce<Record<string, { open: number; closed: number; oldest: number }>>((acc, item) => {
+      const key = item.assignee?.trim() || UNASSIGNED_KEY
+      const entry = acc[key] ?? { open: 0, closed: 0, oldest: 0 }
+      if (item.status === 'closed') {
+        entry.closed += 1
+      } else {
+        entry.open += 1
+        entry.oldest = Math.max(entry.oldest, daysSince(item.created_at) ?? 0)
+      }
+      acc[key] = entry
+      return acc
+    }, {}),
+  )
+    .map(([assignee, counts]) => ({ assignee, ...counts }))
+    .sort((a, b) => b.open - a.open || a.assignee.localeCompare(b.assignee))
+    .slice(0, 6)
 
   async function refresh(): Promise<void> {
     if (!projectId) return
@@ -516,6 +539,65 @@ export function PunchList() {
             </li>
           ))}
         </ul>
+      )}
+
+      {/* Trade accountability matrix */}
+      {matrix.length > 0 && (
+        <section
+          data-mol-id="punch-accountability-matrix"
+          className={cm.cn(cm.card(), cm.sp('p', 6))}
+        >
+          <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>
+            {t('punch.matrix', {}, { defaultValue: 'Trade Accountability Matrix' })}
+          </h2>
+          <p className={cm.cn(cm.textSize('xs'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+            {t(
+              'punch.matrixHint',
+              {},
+              {
+                defaultValue:
+                  'Live remediation status per assignee — open holds, closures, and the oldest open item.',
+              },
+            )}
+          </p>
+          <ul className={cm.cn(cm.sp('mt', 4), 'divide-y divide-outline-variant')}>
+            {matrix.map((row) => (
+              <li
+                key={row.assignee}
+                className={cm.flex({
+                  align: 'center',
+                  justify: 'between',
+                  gap: 'md',
+                  wrap: 'wrap',
+                })}
+              >
+                <span
+                  className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'min-w-0 truncate')}
+                >
+                  {row.assignee === UNASSIGNED_KEY
+                    ? t('punch.matrixUnassigned', {}, { defaultValue: 'Unassigned' })
+                    : row.assignee}
+                </span>
+                <span
+                  className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant whitespace-nowrap')}
+                >
+                  {t(
+                    'punch.matrixCounts',
+                    { open: row.open, closed: row.closed },
+                    { defaultValue: '{{open}} open · {{closed}} closed' },
+                  )}
+                  {row.oldest > 0
+                    ? ` · ${t(
+                        'punch.matrixOldest',
+                        { days: row.oldest },
+                        { defaultValue: 'oldest {{days}}d' },
+                      )}`
+                    : ''}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
       )}
 
       <p>

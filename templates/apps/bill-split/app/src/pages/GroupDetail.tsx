@@ -5,7 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { formatCents } from '../lib/money.js'
+import { formatCents, formatDate } from '../lib/money.js'
 
 interface MemberBalance {
   member_id: string
@@ -58,6 +58,13 @@ interface SettlementRow {
   note: string | null
 }
 
+interface ActivityRow {
+  id: string
+  kind: string
+  payload: Record<string, unknown>
+  created_at: string | null
+}
+
 const SPLIT_LABELS: Record<string, string> = {
   equal: 'Equal split',
   exact: 'Exact amounts',
@@ -75,6 +82,56 @@ const CATEGORY_ICONS: Record<string, string> = {
   other: 'receipt_long',
 }
 
+const AUDIT_ICONS: Record<string, string> = {
+  group_created: 'group_add',
+  member_added: 'person_add',
+  member_removed: 'person_remove',
+  expense_added: 'receipt',
+  expense_deleted: 'delete',
+  settlement_recorded: 'check_circle',
+}
+
+/** One-line audit-trail prose for an activity payload. */
+function auditLine(row: ActivityRow, t: ReturnType<typeof useTranslation>['t']): string {
+  const p = row.payload ?? {}
+  const actor = String(p.actor ?? p.payer_name ?? p.from_name ?? '')
+  const amount = Number(p.amount_cents ?? 0)
+  switch (row.kind) {
+    case 'group_created':
+      return t('group.audit.created', { actor }, { defaultValue: '{{actor}} created the group' })
+    case 'member_added':
+      return t(
+        'group.audit.memberAdded',
+        { actor, member: String(p.member_name ?? 'a member') },
+        { defaultValue: '{{actor}} added {{member}}' },
+      )
+    case 'expense_added':
+      return t(
+        'group.audit.expenseAdded',
+        { actor, description: String(p.description ?? '') },
+        { defaultValue: '{{actor}} logged “{{description}}”' },
+      )
+    case 'expense_deleted':
+      return t(
+        'group.audit.expenseDeleted',
+        { actor, description: String(p.description ?? '') },
+        { defaultValue: '{{actor}} deleted “{{description}}”' },
+      )
+    case 'settlement_recorded':
+      return t(
+        'group.audit.settlement',
+        {
+          from: String(p.from_name ?? 'someone'),
+          to: String(p.to_name ?? 'someone'),
+          amount: formatCents(amount),
+        },
+        { defaultValue: '{{from}} settled {{amount}} with {{to}}' },
+      )
+    default:
+      return actor.length > 0 ? actor : String(p.description ?? row.kind)
+  }
+}
+
 export function GroupDetail() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -84,6 +141,7 @@ export function GroupDetail() {
   const [group, setGroup] = useState<GroupDetailData | null>(null)
   const [expenses, setExpenses] = useState<ExpenseRow[]>([])
   const [settlements, setSettlements] = useState<SettlementRow[]>([])
+  const [auditTrail, setAuditTrail] = useState<ActivityRow[]>([])
   const [loaded, setLoaded] = useState(false)
   const [notFound, setNotFound] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -95,19 +153,27 @@ export function GroupDetail() {
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null)
   const [deletingId, setDeletingId] = useState<string | null>(null)
 
+  /** Quick Add Expense panel state — Stitch's inline mini form. */
+  const [quickDescription, setQuickDescription] = useState('')
+  const [quickAmount, setQuickAmount] = useState('')
+  const [quickPayerId, setQuickPayerId] = useState('')
+  const [quickSaving, setQuickSaving] = useState(false)
+
   const reload = useCallback(async () => {
     if (!id) return
     try {
-      const [groupRes, expensesRes, settlementsRes] = await Promise.all([
+      const [groupRes, expensesRes, settlementsRes, auditRes] = await Promise.all([
         http.get<GroupDetailData>(`/api/groups/${id}`),
         http.get<ExpenseRow[]>(`/api/expenses?group_id=${id}`),
         http.get<SettlementRow[]>(`/api/settlements?group_id=${id}`),
+        http.get<ActivityRow[]>(`/api/activities?group_id=${id}&limit=12`),
       ])
       setGroup((groupRes?.data as GroupDetailData) ?? null)
       setExpenses(Array.isArray(expensesRes?.data) ? (expensesRes.data as ExpenseRow[]) : [])
       setSettlements(
         Array.isArray(settlementsRes?.data) ? (settlementsRes.data as SettlementRow[]) : [],
       )
+      setAuditTrail(Array.isArray(auditRes?.data) ? (auditRes.data as ActivityRow[]) : [])
       setNotFound(false)
     } catch (err) {
       console.warn('Group detail load failed', err)
@@ -120,6 +186,49 @@ export function GroupDetail() {
   useEffect(() => {
     void reload()
   }, [reload])
+
+  // Keep the quick-add payer valid whenever the group (members) changes.
+  useEffect(() => {
+    if (!group) return
+    const self = group.members.find((m) => m.is_self)
+    const stillValid = group.members.some((m) => m.id === quickPayerId)
+    if (!stillValid) setQuickPayerId(self?.id ?? group.members[0]?.id ?? '')
+  }, [group, quickPayerId])
+
+  async function handleQuickAddExpense(event: React.FormEvent): Promise<void> {
+    event.preventDefault()
+    if (!id || !quickPayerId) return
+    const cents = Math.round(Number(quickAmount) * 100)
+    if (!Number.isFinite(cents) || cents <= 0) return
+    setQuickSaving(true)
+    setError(null)
+    try {
+      await http.post('/api/expenses', {
+        group_id: id,
+        payer_member_id: quickPayerId,
+        amount_cents: cents,
+        description: quickDescription,
+        split_method: 'equal',
+      })
+      track({
+        name: 'expense.added',
+        properties: {
+          group_id: id,
+          amount_cents: cents,
+          split_method: 'equal',
+          source: 'quick-add',
+        },
+      })
+      setQuickDescription('')
+      setQuickAmount('')
+      await reload()
+    } catch (err) {
+      console.warn('Quick add expense failed', err)
+      setError(t('group.quickAddFailed', {}, { defaultValue: 'Could not add that expense.' }))
+    } finally {
+      setQuickSaving(false)
+    }
+  }
 
   async function handleAddMember(event: React.FormEvent): Promise<void> {
     event.preventDefault()
@@ -304,7 +413,11 @@ export function GroupDetail() {
           )}
         >
           <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
-            {t('group.balances', {}, { defaultValue: 'Member balances' })}
+            {t(
+              'group.balances',
+              { count: group.balances.length },
+              { defaultValue: 'Member Balances ({{count}})' },
+            )}
           </h2>
           <ul className={cm.cn(cm.stack(2))}>
             {group.balances.map((balance) => (
@@ -559,6 +672,148 @@ export function GroupDetail() {
         </section>
       </div>
 
+      {/* Quick Add Expense — Stitch's inline mini form (equal split). */}
+      <section
+        data-mol-id="group-quick-add-expense"
+        className={cm.cn(cm.sp('p', 6), 'rounded-2xl bg-surface border border-outline-variant/40')}
+      >
+        <h2
+          className={cm.cn(
+            cm.textSize('base'),
+            cm.fontWeight('bold'),
+            cm.flex({ align: 'center', gap: 2 }),
+          )}
+        >
+          <span
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'h-8 w-8 rounded-lg bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] text-primary',
+            )}
+            aria-hidden="true"
+          >
+            <span className={cm.cn('material-symbols-outlined text-base')}>flash_on</span>
+          </span>
+          {t('group.quickAddTitle', {}, { defaultValue: 'Quick Add Expense' })}
+        </h2>
+        <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mt', 1))}>
+          {t(
+            'group.quickAddHint',
+            {},
+            { defaultValue: 'Split equally across every member — refine the split any time.' },
+          )}
+        </p>
+        <form
+          onSubmit={handleQuickAddExpense}
+          data-mol-id="form-quick-add-expense"
+          className={cm.cn(
+            'grid grid-cols-1 sm:grid-cols-[1fr_140px_150px_auto] gap-3 items-end',
+            cm.sp('mt', 4),
+          )}
+        >
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+            <label
+              htmlFor="quick-expense-description"
+              className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'))}
+            >
+              {t('group.quickAddDescription', {}, { defaultValue: 'Description' })}
+            </label>
+            <input
+              id="quick-expense-description"
+              value={quickDescription}
+              onChange={(e) => setQuickDescription(e.target.value)}
+              required
+              maxLength={200}
+              placeholder={t(
+                'group.quickAddDescriptionPlaceholder',
+                {},
+                { defaultValue: 'e.g. Firewood run' },
+              )}
+              className={cm.cn(
+                cm.w('full'),
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                'rounded-xl bg-surface-container-low border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none',
+              )}
+            />
+          </div>
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+            <label
+              htmlFor="quick-expense-amount"
+              className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'))}
+            >
+              {t('group.quickAddAmount', {}, { defaultValue: 'Amount (USD)' })}
+            </label>
+            <input
+              id="quick-expense-amount"
+              type="number"
+              step="0.01"
+              min="0"
+              value={quickAmount}
+              onChange={(e) => setQuickAmount(e.target.value)}
+              required
+              placeholder="0.00"
+              className={cm.cn(
+                cm.w('full'),
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                'rounded-xl bg-surface-container-low border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none tabular-nums',
+              )}
+            />
+          </div>
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+            <label
+              htmlFor="quick-expense-payer"
+              className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'))}
+            >
+              {t('group.quickAddPayer', {}, { defaultValue: 'Paid by' })}
+            </label>
+            <select
+              id="quick-expense-payer"
+              value={quickPayerId}
+              onChange={(e) => setQuickPayerId(e.target.value)}
+              className={cm.cn(
+                cm.w('full'),
+                cm.sp('px', 3),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                'rounded-xl bg-surface-container-low border border-outline-variant focus:border-primary outline-none',
+              )}
+            >
+              {group.members.map((m) => (
+                <option key={m.id} value={m.id}>
+                  {m.is_self ? t('newExpense.youOption', {}, { defaultValue: 'You' }) : m.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <button
+            type="submit"
+            data-mol-id="btn-quick-add-expense"
+            disabled={quickSaving || quickDescription.trim().length === 0}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'rounded-full text-white shadow-sm transition-all disabled:opacity-60 inline-flex items-center gap-1 justify-center',
+            )}
+            style={{
+              background:
+                'linear-gradient(135deg, var(--color-primary-hover), var(--color-gradient-end))',
+            }}
+          >
+            <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+              bolt
+            </span>
+            {quickSaving
+              ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
+              : t('group.quickAddSubmit', {}, { defaultValue: 'Add equally' })}
+          </button>
+        </form>
+      </section>
+
       <section data-mol-id="group-expenses" className={cm.stack(4)}>
         <header className={cm.flex({ align: 'baseline', justify: 'between' })}>
           <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
@@ -722,6 +977,82 @@ export function GroupDetail() {
             </div>
           ) : null}
         </div>
+      </section>
+
+      {/* Group Audit Trail — Stitch's event log, driven by the real
+          per-group activity feed. */}
+      <section
+        data-mol-id="group-audit-trail"
+        className={cm.cn(
+          cm.sp('p', 6),
+          'rounded-2xl bg-surface border border-outline-variant/40',
+          cm.stack(4),
+        )}
+      >
+        <h2
+          className={cm.cn(
+            cm.textSize('base'),
+            cm.fontWeight('bold'),
+            cm.flex({ align: 'center', gap: 2 }),
+          )}
+        >
+          <span
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'h-8 w-8 rounded-lg bg-surface-container-high text-on-surface-variant',
+            )}
+            aria-hidden="true"
+          >
+            <span className={cm.cn('material-symbols-outlined text-base')}>history</span>
+          </span>
+          {t('group.auditTitle', {}, { defaultValue: 'Group Audit Trail' })}
+        </h2>
+        {auditTrail.length > 0 ? (
+          <ol className={cm.stack(2)}>
+            {auditTrail.map((row) => (
+              <li
+                key={row.id}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'md' }),
+                  cm.sp('px', 4),
+                  cm.sp('py', 2),
+                  'rounded-lg bg-surface-container-low',
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'h-7 w-7 shrink-0 rounded-full bg-primary-container/50 text-on-primary-container',
+                  )}
+                  aria-hidden="true"
+                >
+                  <span className={cm.cn('material-symbols-outlined text-sm')}>
+                    {AUDIT_ICONS[row.kind] ?? 'info'}
+                  </span>
+                </span>
+                <span className={cm.cn(cm.textSize('xs'), 'text-on-surface', cm.flex1, 'min-w-0')}>
+                  {auditLine(row, t)}
+                </span>
+                <time
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    'text-on-surface-variant shrink-0 tabular-nums',
+                  )}
+                >
+                  {row.created_at ? formatDate(row.created_at) : ''}
+                </time>
+              </li>
+            ))}
+          </ol>
+        ) : (
+          <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+            {t(
+              'group.auditEmpty',
+              {},
+              { defaultValue: 'Every expense, member change, and settlement is logged here.' },
+            )}
+          </p>
+        )}
       </section>
     </div>
   )

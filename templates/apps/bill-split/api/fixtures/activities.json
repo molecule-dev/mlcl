@@ -1,50 +1,130 @@
 [
   {
-    "id": "a-7001",
-    "group_id": "g-lisbon",
-    "group_name": "Lisbon Trip",
+    "id": "a-7016",
+    "group_id": "g-joshua-tree",
+    "group_name": "Joshua Tree Weekend",
     "kind": "expense_added",
-    "payload": { "actor": "Maya Chen", "description": "Surf lesson in Costa da Caparica", "amount_cents": 21000, "payer_name": "Maya Chen" },
-    "created_at": "2026-09-18T08:30:00.000Z"
+    "payload": { "actor": "Sam Kwon", "description": "Gas & park passes", "amount_cents": 21000, "payer_name": "Sam Kwon" },
+    "created_at": "2026-09-27T05:00:00.000Z"
   },
   {
-    "id": "a-7000",
-    "group_id": "g-flat-4b",
-    "group_name": "Flat 4B — Household",
-    "kind": "expense_added",
-    "payload": { "actor": "Aisha Bello", "description": "Fibre internet", "amount_cents": 6000, "payer_name": "Aisha Bello" },
-    "created_at": "2026-09-16T18:05:00.000Z"
+    "id": "a-7015",
+    "group_id": "g-dinner",
+    "group_name": "Bi-Weekly Dinner Club",
+    "kind": "settlement_recorded",
+    "payload": { "actor": "Marcus Reid", "amount_cents": 6000, "from_name": "Marcus Reid", "to_name": "Clara Tran", "method": "cash" },
+    "created_at": "2026-09-26T20:30:00.000Z"
   },
   {
-    "id": "a-6999",
+    "id": "a-7014",
+    "group_id": "g-dinner",
+    "group_name": "Bi-Weekly Dinner Club",
+    "kind": "settlement_recorded",
+    "payload": { "actor": "Dev Patel", "amount_cents": 6000, "from_name": "Dev Patel", "to_name": "Clara Tran", "method": "cash" },
+    "created_at": "2026-09-26T20:15:00.000Z"
+  },
+  {
+    "id": "a-7013",
+    "group_id": "g-dinner",
+    "group_name": "Bi-Weekly Dinner Club",
+    "kind": "settlement_recorded",
+    "payload": { "actor": "You", "amount_cents": 6000, "from_name": "You", "to_name": "Clara Tran", "method": "cash" },
+    "created_at": "2026-09-26T20:00:00.000Z"
+  },
+  {
+    "id": "a-7012",
     "group_id": "g-flat-4b",
-    "group_name": "Flat 4B — Household",
+    "group_name": "Bushwick Flatmates (Apt 4B)",
+    "kind": "expense_added",
+    "payload": { "actor": "Liam Zeller", "description": "Fibre internet", "amount_cents": 6000, "payer_name": "Liam Zeller" },
+    "created_at": "2026-09-25T18:05:00.000Z"
+  },
+  {
+    "id": "a-7011",
+    "group_id": "g-flat-4b",
+    "group_name": "Bushwick Flatmates (Apt 4B)",
     "kind": "expense_added",
     "payload": { "actor": "You", "description": "Weekly groceries", "amount_cents": 8750, "payer_name": "You" },
-    "created_at": "2026-09-15T17:45:00.000Z"
+    "created_at": "2026-09-24T17:45:00.000Z"
   },
   {
-    "id": "a-6998",
-    "group_id": "g-cabin-2401",
-    "group_name": "Alpine Cabin Weekend",
-    "kind": "settlement_recorded",
-    "payload": { "actor": "You", "amount_cents": 10000, "from_name": "You", "to_name": "Maya Chen", "method": "transfer" },
-    "created_at": "2026-09-13T12:00:00.000Z"
-  },
-  {
-    "id": "a-6997",
-    "group_id": "g-cabin-2401",
-    "group_name": "Alpine Cabin Weekend",
+    "id": "a-7010",
+    "group_id": "g-dinner",
+    "group_name": "Bi-Weekly Dinner Club",
     "kind": "expense_added",
-    "payload": { "actor": "Jordan Reyes", "description": "Ski passes — 2 days", "amount_cents": 46000, "payer_name": "Jordan Reyes" },
-    "created_at": "2026-09-09T09:12:00.000Z"
+    "payload": { "actor": "Clara Tran", "description": "Osteria Morini Dinner", "amount_cents": 24000, "payer_name": "Clara Tran" },
+    "created_at": "2026-09-23T20:35:00.000Z"
   },
   {
-    "id": "a-6996",
-    "group_id": "g-lisbon",
-    "group_name": "Lisbon Trip",
+    "id": "a-7009",
+    "group_id": "g-cabin-2401",
+    "group_name": "Lake Tahoe Ski Cabin",
+    "kind": "settlement_recorded",
+    "payload": { "actor": "Dev Patel", "amount_cents": 10000, "from_name": "Dev Patel", "to_name": "You", "method": "transfer" },
+    "created_at": "2026-09-22T12:00:00.000Z"
+  },
+  {
+    "id": "a-7008",
+    "group_id": "g-flat-4b",
+    "group_name": "Bushwick Flatmates (Apt 4B)",
+    "kind": "member_added",
+    "payload": { "actor": "You", "member_name": "Liam Zeller" },
+    "created_at": "2026-09-20T10:00:00.000Z"
+  },
+  {
+    "id": "a-7007",
+    "group_id": "g-flat-4b",
+    "group_name": "Bushwick Flatmates (Apt 4B)",
+    "kind": "expense_added",
+    "payload": { "actor": "Marcus Reid", "description": "October rent (Apt 4B)", "amount_cents": 360000, "payer_name": "Marcus Reid" },
+    "created_at": "2026-09-19T09:02:00.000Z"
+  },
+  {
+    "id": "a-7006",
+    "group_id": "g-cabin-2401",
+    "group_name": "Lake Tahoe Ski Cabin",
+    "kind": "expense_added",
+    "payload": { "actor": "Dev Patel", "description": "Palisades Tahoe Lift Tickets & Passes", "amount_cents": 46000, "payer_name": "Dev Patel" },
+    "created_at": "2026-09-18T09:12:00.000Z"
+  },
+  {
+    "id": "a-7005",
+    "group_id": "g-cabin-2401",
+    "group_name": "Lake Tahoe Ski Cabin",
+    "kind": "expense_added",
+    "payload": { "actor": "Clara Tran", "description": "Safeway Groceries & Cabin Supplies", "amount_cents": 12000, "payer_name": "Clara Tran" },
+    "created_at": "2026-09-17T16:25:00.000Z"
+  },
+  {
+    "id": "a-7004",
+    "group_id": "g-cabin-2401",
+    "group_name": "Lake Tahoe Ski Cabin",
+    "kind": "expense_added",
+    "payload": { "actor": "You", "description": "Lakefront Airbnb (3 nights)", "amount_cents": 80000, "payer_name": "You" },
+    "created_at": "2026-09-16T15:05:00.000Z"
+  },
+  {
+    "id": "a-7003",
+    "group_id": "g-joshua-tree",
+    "group_name": "Joshua Tree Weekend",
+    "kind": "expense_added",
+    "payload": { "actor": "Clara Tran", "description": "Pioneertown dinner", "amount_cents": 24000, "payer_name": "Clara Tran" },
+    "created_at": "2026-09-15T20:50:00.000Z"
+  },
+  {
+    "id": "a-7002",
+    "group_id": "g-joshua-tree",
+    "group_name": "Joshua Tree Weekend",
+    "kind": "expense_added",
+    "payload": { "actor": "You", "description": "Joshua Tree Airbnb (2 nights)", "amount_cents": 90000, "payer_name": "You" },
+    "created_at": "2026-09-14T15:35:00.000Z"
+  },
+  {
+    "id": "a-7001",
+    "group_id": "g-joshua-tree",
+    "group_name": "Joshua Tree Weekend",
     "kind": "group_created",
-    "payload": { "actor": "You", "group_name": "Lisbon Trip", "member_count": 3 },
-    "created_at": "2026-08-20T14:30:00.000Z"
+    "payload": { "actor": "You", "group_name": "Joshua Tree Weekend", "member_count": 3 },
+    "created_at": "2026-08-29T14:30:00.000Z"
   }
 ]

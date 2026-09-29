@@ -109,6 +109,27 @@
 /* polish-v2:safelist:end */
 
 /* polish-v2:stitch-styles:start */
+/* Accessibility display switches (Settings → Accessibility & Display
+   Preferences). High-contrast darkens the map grid + borders in BOTH modes
+   (light values here, dark counterparts on the dark variant). */
+:root[data-contrast-grid='on'] {
+  --color-map-grid: #9db4ae;
+  --mol-color-border: #6f8a84;
+}
+
+:root[data-contrast-grid='on'][data-mol-mode='dark'] {
+  --color-map-grid: #54706a;
+  --mol-color-border: #567069;
+}
+
+:root[data-reduced-motion='on'] *,
+:root[data-reduced-motion='on'] *::before,
+:root[data-reduced-motion='on'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
     'FILL' 0,

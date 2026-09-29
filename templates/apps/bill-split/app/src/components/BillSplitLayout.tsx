@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { Footer } from './Footer.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
@@ -135,12 +135,7 @@ export function BillSplitLayout() {
             data-mol-id="mobile-brand"
             className={cm.cn(cm.sp('px', 2), 'block')}
           >
-            <span
-              className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'tracking-tight')}
-              style={{ color: 'var(--color-primary-hover)' }}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" />
           </NavLink>
         }
       />
@@ -158,25 +153,7 @@ export function BillSplitLayout() {
           className={cm.cn(cm.sp('px', 3), cm.sp('mb', 8), 'block')}
           data-mol-id="sidebar-brand"
         >
-          <div
-            className={cm.cn(
-              cm.textSize('xl'),
-              cm.fontWeight('bold'),
-              'tracking-tight font-extrabold',
-            )}
-            style={{ color: 'var(--color-primary-hover)' }}
-          >
-            {APP_NAME}
-          </div>
-          <div
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('semibold'),
-              'uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
-            {t('app.tagline', {}, { defaultValue: APP_TAGLINE })}
-          </div>
+          <BrandWordmark as="span" withTagline />
         </NavLink>
         {nav}
       </ResponsiveAppShell.Sidebar>
@@ -187,14 +164,7 @@ export function BillSplitLayout() {
         in the header row and the actions in the footer.
       */}
       <ResponsiveAppShell.Drawer
-        header={
-          <span
-            className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}
-            style={{ color: 'var(--color-primary-hover)' }}
-          >
-            {APP_NAME}
-          </span>
-        }
+        header={<BrandWordmark as="span" />}
         footer={<div className={cm.flex({ align: 'center', justify: 'between' })}>{actions}</div>}
       >
         {nav}

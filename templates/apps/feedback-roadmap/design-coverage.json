@@ -1,0 +1,240 @@
+{
+  "screens": {
+    "/": {
+      "allow": [
+        {
+          "heading": "Native Slack notifications for status updates",
+          "reason": "Sample-data card title from the design's demo grid; the landing renders live seeded posts in its place when the board has them (the section itself, Community Feature Requests, exists)."
+        },
+        {
+          "heading": "Granular role-based access control (RBAC)",
+          "reason": "Sample-data card title from the design's demo grid; replaced by live posts when the board has them."
+        },
+        {
+          "heading": "Export feedback analytics to CSV & Snowflake",
+          "reason": "Sample-data card title from the design's demo grid; replaced by live posts when the board has them."
+        },
+        {
+          "heading": "AI sentiment clustering on incoming tickets",
+          "reason": "Sample-data card title from the design's demo grid; replaced by live posts when the board has them."
+        }
+      ]
+    },
+    "/boards": {
+      "allow": [
+        {
+          "heading": "Active Product Domains 6 Available",
+          "reason": "The section exists ('Active Product Domains'); the count is rendered as a live chip from the API's board list, not baked into the heading."
+        },
+        {
+          "heading": "Feature Requests & Enhancements",
+          "reason": "Sample board name; the grid renders the live seeded boards from GET /api/boards."
+        },
+        {
+          "heading": "Integrations & Webhooks",
+          "reason": "Sample board name; the grid renders the live seeded boards from GET /api/boards."
+        },
+        {
+          "heading": "Public API & Developer Platform",
+          "reason": "Sample board name; the grid renders the live seeded boards from GET /api/boards."
+        },
+        {
+          "heading": "UX & Design Systems",
+          "reason": "Sample board name; the grid renders the live seeded boards from GET /api/boards."
+        },
+        {
+          "heading": "Enterprise & Security Compliance",
+          "reason": "Sample board name; the grid renders the live seeded boards from GET /api/boards."
+        },
+        {
+          "heading": "Mobile & On-the-go",
+          "reason": "Sample board name; the grid renders the live seeded boards from GET /api/boards."
+        }
+      ]
+    },
+    "/b/:slug": {
+      "allow": [
+        {
+          "heading": "Integrations & Webhooks",
+          "reason": "Sample board name shown as the design's page title; the app renders the routed board's real name from the API."
+        },
+        {
+          "heading": "Bi-directional Snowflake raw telemetry export & warehouse sync",
+          "reason": "Sample post title in the design's board list; the list renders the board's live posts (section + filters exist)."
+        },
+        {
+          "heading": "Two-way Jira Software bi-directional sync for enterprise backlogs",
+          "reason": "Sample post title in the design's board list; the list renders the board's live posts."
+        },
+        {
+          "heading": "GraphQL Webhook dispatchers with HMAC-SHA256 signature verification",
+          "reason": "Sample post title in the design's board list; the list renders the board's live posts."
+        },
+        {
+          "heading": "Native Slack notifications for status updates in private channels",
+          "reason": "Sample post title in the design's board list; the list renders the board's live posts."
+        },
+        {
+          "heading": "Rate limiting customization per OAuth client & scoped API tokens",
+          "reason": "Sample post title in the design's board list; the list renders the board's live posts."
+        }
+      ]
+    },
+    "/post/:id": {
+      "allow": [
+        {
+          "heading": "Bi-directional Snowflake raw telemetry export & warehouse sync",
+          "reason": "Sample post title shown as the design's page title; the app renders the routed post's real title from the API."
+        },
+        {
+          "heading": "Proposed User Story & Technical Acceptance",
+          "reason": "The design's sample post carries a structured YAML proposal; live posts model a single freeform body (rendered under 'Problem Statement') plus the discussion thread."
+        }
+      ]
+    },
+    "/roadmap": {
+      "allow": [
+        {
+          "heading": "Bi-directional Snowflake raw telemetry export & warehouse sync",
+          "reason": "Sample roadmap-card title; the columns render live posts by status from the API."
+        },
+        {
+          "heading": "Custom domain CNAME & automated wildcard SSL provisioning",
+          "reason": "Sample roadmap-card title; the columns render live posts by status from the API."
+        },
+        {
+          "heading": "SCIM 2.0 automatic user deprovisioning & role mapping",
+          "reason": "Sample roadmap-card title; the columns render live posts by status from the API."
+        },
+        {
+          "heading": "Two-way Jira Software bi-directional sync for enterprise backlogs",
+          "reason": "Sample roadmap-card title; the columns render live posts by status from the API."
+        },
+        {
+          "heading": "GraphQL native subscriptions for live upvotes & comment threads",
+          "reason": "Sample roadmap-card title; the columns render live posts by status from the API."
+        },
+        {
+          "heading": "AI deduplication clustering on incoming raw feedback tickets",
+          "reason": "Sample roadmap-card title; the columns render live posts by status from the API."
+        },
+        {
+          "heading": "Native Slack notifications for status updates in private channels",
+          "reason": "Sample roadmap-card title; the columns render live posts by status from the API."
+        },
+        {
+          "heading": "Granular role-based access control (RBAC) & SAML 2.0",
+          "reason": "Sample roadmap-card title; the columns render live posts by status from the API."
+        }
+      ]
+    },
+    "/changelog": {
+      "allow": [
+        {
+          "heading": "Native Slack notifications for status updates & private triage channels",
+          "reason": "Sample release title; the timeline renders real shipped posts from the API (section + subscribe/integrations/cadence panels exist)."
+        },
+        {
+          "heading": "GraphQL native subscriptions for live vote tallies and comment threads",
+          "reason": "Sample release title; the timeline renders real shipped posts from the API."
+        },
+        {
+          "heading": "Granular role-based access control (RBAC) & SAML 2.0 SCIM deprovisioning",
+          "reason": "Sample release title; the timeline renders real shipped posts from the API."
+        },
+        {
+          "heading": "Vector-based duplicate feedback clustering on submission",
+          "reason": "Sample release title; the timeline renders real shipped posts from the API."
+        }
+      ]
+    },
+    "/search": {
+      "allow": [
+        {
+          "heading": "Bi-directional Snowflake raw telemetry export & warehouse sync",
+          "reason": "Sample search-result title; results are live full-text matches from GET /api/posts/search (facets panel exists)."
+        },
+        {
+          "heading": "Automated data pipeline sync: Snowflake & BigQuery analytics export",
+          "reason": "Sample search-result title; results are live full-text matches."
+        },
+        {
+          "heading": "Export feedback analytics to CSV & Snowflake staging warehouse",
+          "reason": "Sample search-result title; results are live full-text matches."
+        },
+        {
+          "heading": "Snowflake OAuth & custom service role authentication for enterprise BI",
+          "reason": "Sample search-result title; results are live full-text matches."
+        }
+      ]
+    },
+    "/my-activity": {
+      "allow": [
+        {
+          "heading": "Native Slack notifications for status updates & private triage channels",
+          "reason": "Sample post title from the design's 'your requests' list; the page renders the signed-in user's real voted/submitted posts."
+        },
+        {
+          "heading": "Export feedback analytics to CSV & Snowflake staging warehouse",
+          "reason": "Sample post title; the page renders the user's real activity."
+        },
+        {
+          "heading": "Bi-directional Snowflake raw telemetry export & warehouse sync",
+          "reason": "Sample post title; the page renders the user's real activity."
+        },
+        {
+          "heading": "Granular role-based access control (RBAC) & SAML 2.0 SCIM",
+          "reason": "Sample post title; the page renders the user's real activity."
+        },
+        {
+          "heading": "GraphQL Webhook dispatchers with HMAC-SHA256 signature verification",
+          "reason": "Sample post title; the page renders the user's real activity."
+        }
+      ]
+    },
+    "/admin": {
+      "allow": [
+        {
+          "heading": "Bi-directional Snowflake raw telemetry export & warehouse sync",
+          "reason": "Sample top-open-request title; the list renders live top-voted open posts from GET /api/admin/stats."
+        },
+        {
+          "heading": "Two-way Jira Software bi-directional sync for enterprise backlogs",
+          "reason": "Sample top-open-request title; the list renders live top-voted open posts."
+        },
+        {
+          "heading": "Custom domain CNAME & automated wildcard SSL provisioning",
+          "reason": "Sample top-open-request title; the list renders live top-voted open posts."
+        },
+        {
+          "heading": "GraphQL native subscriptions for live upvotes & comment threads",
+          "reason": "Sample top-open-request title; the list renders live top-voted open posts."
+        }
+      ]
+    },
+    "/admin/posts": {
+      "allow": [
+        {
+          "heading": "Bi-directional Snowflake raw telemetry export & warehouse sync",
+          "reason": "Sample post title from the design's moderation table; the table renders the live post inventory from the API."
+        },
+        {
+          "heading": "GraphQL native subscriptions for live upvotes & comment threads",
+          "reason": "Sample post title; the table renders the live post inventory."
+        },
+        {
+          "heading": "Two-way Jira Software bi-directional sync for enterprise backlogs",
+          "reason": "Sample post title; the table renders the live post inventory."
+        },
+        {
+          "heading": "Custom domain CNAME & automated wildcard SSL provisioning",
+          "reason": "Sample post title; the table renders the live post inventory."
+        },
+        {
+          "heading": "Granular role-based access control (RBAC) & SAML 2.0 SCIM",
+          "reason": "Sample post title; the table renders the live post inventory."
+        }
+      ]
+    }
+  }
+}

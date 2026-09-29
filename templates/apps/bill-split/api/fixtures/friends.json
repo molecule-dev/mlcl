@@ -1,7 +1,8 @@
 [
-  { "id": "m-maya", "name": "Maya Chen", "email": "maya.chen@example.com", "is_self": false, "created_at": "2026-08-28T10:00:00.000Z" },
-  { "id": "m-jordan", "name": "Jordan Reyes", "email": "jordan.reyes@example.com", "is_self": false, "created_at": "2026-08-28T10:02:00.000Z" },
-  { "id": "m-priya", "name": "Priya Nair", "email": "priya.nair@example.com", "is_self": false, "created_at": "2026-08-28T10:05:00.000Z" },
-  { "id": "m-tomas", "name": "Tomás Duarte", "email": "tomas.duarte@example.com", "is_self": false, "created_at": "2026-08-28T10:07:00.000Z" },
-  { "id": "m-aisha", "name": "Aisha Bello", "email": "aisha.bello@example.com", "is_self": false, "created_at": "2026-08-28T10:09:00.000Z" }
+  { "id": "m-dev", "name": "Dev Patel", "email": "dev.patel@example.com", "is_self": false, "created_at": "2026-08-28T10:00:00.000Z" },
+  { "id": "m-sam", "name": "Sam Kwon", "email": "sam.kwon@example.com", "is_self": false, "created_at": "2026-08-28T10:02:00.000Z" },
+  { "id": "m-clara", "name": "Clara Tran", "email": "clara.tran@example.com", "is_self": false, "created_at": "2026-08-28T10:05:00.000Z" },
+  { "id": "m-liam", "name": "Liam Zeller", "email": "liam.zeller@example.com", "is_self": false, "created_at": "2026-08-28T10:07:00.000Z" },
+  { "id": "m-marcus", "name": "Marcus Reid", "email": "marcus.reid@example.com", "is_self": false, "created_at": "2026-08-28T10:09:00.000Z" },
+  { "id": "m-cj", "name": "Chloe & Jordan", "email": "chloe.and.jordan@example.com", "is_self": false, "created_at": "2026-08-28T10:11:00.000Z" }
 ]

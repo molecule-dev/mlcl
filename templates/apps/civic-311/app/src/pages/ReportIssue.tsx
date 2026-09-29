@@ -177,7 +177,7 @@ export function ReportIssuePage() {
               title={t(
                 'reportIssue.title',
                 { city: CITY_NAME },
-                { defaultValue: 'Report an issue' },
+                { defaultValue: 'Submit a Civic Work Order / Incident Report' },
               )}
               subtitle={t(
                 'reportIssue.subtitle',
@@ -377,26 +377,166 @@ export function ReportIssuePage() {
                 </div>
               </div>
 
-              {/* 5. Duplicate suggestions */}
-              {duplicates.length > 0 && (
-                <section
-                  data-mol-id="report-duplicates"
+              {/* Actions */}
+              <div className={cm.cn(cm.flex({ align: 'center', justify: 'end', gap: 3 }))}>
+                <button
+                  type="button"
+                  data-mol-id="report-cancel"
                   className={cm.cn(
-                    cm.sp('p', 4),
-                    cm.stack(3),
-                    'rounded-lg bg-tertiary-container/40 border border-tertiary-container',
+                    cm.sp('px', 4),
+                    cm.sp('py', 2),
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container-low',
+                  )}
+                  onClick={() => navigate('/explore')}
+                  disabled={submitting}
+                >
+                  {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+                </button>
+                <button
+                  type="submit"
+                  data-mol-id="report-submit"
+                  className={cm.cn(
+                    cm.sp('px', 5),
+                    cm.sp('py', 2),
+                    cm.textSize('sm'),
+                    cm.fontWeight('semibold'),
+                    'rounded-lg bg-primary text-on-primary hover:opacity-90 disabled:opacity-50',
+                  )}
+                  disabled={submitting || !ready || blockedByDuplicates}
+                  title={blockedByDuplicates ? 'Acknowledge the duplicate notice first' : undefined}
+                >
+                  {submitting
+                    ? t('common.submittingEllipsis', {}, { defaultValue: 'Submitting…' })
+                    : t('reportIssue.submit', {}, { defaultValue: 'Submit report' })}
+                </button>
+              </div>
+            </form>
+
+            {/* SLA workflow strip (design: what happens after you submit) */}
+            <section
+              data-mol-id="report-sla-workflow"
+              className={cm.cn(
+                cm.stack(2),
+                cm.sp('p', 4),
+                'rounded-lg border border-outline-variant/40 bg-surface-container-low',
+              )}
+            >
+              <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}>
+                {t('reportIssue.slaTitle', {}, { defaultValue: 'SLA Response Workflow' })}
+              </h3>
+              <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">
+                {(
+                  [
+                    [
+                      'submitted',
+                      'reportIssue.sla1',
+                      '1. Submitted',
+                      'Telemetry logged',
+                      'var(--color-status-submitted)',
+                    ],
+                    [
+                      'acknowledged',
+                      'reportIssue.sla2',
+                      '2. Acknowledged',
+                      'DPW supervisor triage',
+                      'var(--color-status-acknowledged)',
+                    ],
+                    [
+                      'in_review',
+                      'reportIssue.sla3',
+                      '3. In review',
+                      'Crew dispatched on site',
+                      'var(--color-status-in-review)',
+                    ],
+                    [
+                      'resolved',
+                      'reportIssue.sla4',
+                      '4. Resolved',
+                      'Sealed verification photo',
+                      'var(--color-status-resolved)',
+                    ],
+                  ] as const
+                ).map(([id, key, label, note, color]) => (
+                  <div
+                    key={id}
+                    className="rounded-lg border border-outline-variant/40 bg-surface-container-lowest p-3"
+                  >
+                    <span className={cm.flex({ align: 'center', gap: 2 })}>
+                      <span
+                        className="h-2 w-2 shrink-0 rounded-full"
+                        style={{ background: color }}
+                      />
+                      <span className={cm.cn(cm.textSize('xs'), cm.fontWeight('bold'))}>
+                        {t(key, {}, { defaultValue: label })}
+                      </span>
+                    </span>
+                    <span
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        cm.sp('mt', 1),
+                        'block text-on-surface-variant',
+                      )}
+                    >
+                      {t(`${key}Note`, {}, { defaultValue: note })}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* 5. Duplicate radar (design: Duplicate Incident Radar) — the
+                shell always renders so the checker is a visible part of the
+                flow; the candidates block carries the report-duplicates
+                testid and only appears when the API finds near-matches. */}
+            <section
+              data-mol-id="report-duplicate-radar"
+              className={cm.cn(
+                cm.stack(3),
+                cm.sp('p', 4),
+                'rounded-lg border',
+                duplicates.length > 0
+                  ? 'bg-tertiary-container/40 border-tertiary-container'
+                  : 'border-outline-variant/40 bg-surface-container-low',
+              )}
+            >
+              <div
+                className={cm.flex({ align: 'center', justify: 'between', gap: 3, wrap: 'wrap' })}
+              >
+                <h3
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 2 }),
+                    cm.textSize('sm'),
+                    cm.fontWeight('bold'),
                   )}
                 >
-                  <h2 className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}>
-                    {t(
-                      'reportIssue.duplicatesTitle',
-                      { count: duplicates.length },
-                      {
-                        defaultValue:
-                          'Looks like this may already be reported — {{count}} open report(s) of the same kind within 5 blocks',
-                      },
-                    )}
-                  </h2>
+                  <span className="material-symbols-outlined text-[18px] text-primary" aria-hidden>
+                    radar
+                  </span>
+                  {t('reportIssue.radarTitle', {}, { defaultValue: 'Duplicate Incident Radar' })}
+                </h3>
+                <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {duplicates.length > 0
+                    ? t(
+                        'reportIssue.duplicatesTitle',
+                        { count: duplicates.length },
+                        {
+                          defaultValue: '{{count}} open report(s) of the same kind within 5 blocks',
+                        },
+                      )
+                    : t(
+                        'reportIssue.radarIdle',
+                        {},
+                        {
+                          defaultValue:
+                            'Scans open reports of the same kind within 5 blocks of your pin.',
+                        },
+                      )}
+                </span>
+              </div>
+              {duplicates.length > 0 && (
+                <div data-mol-id="report-duplicates" className={cm.stack(3)}>
                   <ul className={cm.stack(2)}>
                     {duplicates.map((d) => (
                       <li
@@ -449,45 +589,9 @@ export function ReportIssuePage() {
                       { defaultValue: 'This is a different issue — submit anyway' },
                     )}
                   </label>
-                </section>
+                </div>
               )}
-
-              {/* Actions */}
-              <div className={cm.cn(cm.flex({ align: 'center', justify: 'end', gap: 3 }))}>
-                <button
-                  type="button"
-                  data-mol-id="report-cancel"
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 2),
-                    cm.textSize('sm'),
-                    cm.fontWeight('medium'),
-                    'rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container-low',
-                  )}
-                  onClick={() => navigate('/explore')}
-                  disabled={submitting}
-                >
-                  {t('common.cancel', {}, { defaultValue: 'Cancel' })}
-                </button>
-                <button
-                  type="submit"
-                  data-mol-id="report-submit"
-                  className={cm.cn(
-                    cm.sp('px', 5),
-                    cm.sp('py', 2),
-                    cm.textSize('sm'),
-                    cm.fontWeight('semibold'),
-                    'rounded-lg bg-primary text-on-primary hover:opacity-90 disabled:opacity-50',
-                  )}
-                  disabled={submitting || !ready || blockedByDuplicates}
-                  title={blockedByDuplicates ? 'Acknowledge the duplicate notice first' : undefined}
-                >
-                  {submitting
-                    ? t('common.submittingEllipsis', {}, { defaultValue: 'Submitting…' })
-                    : t('reportIssue.submit', {}, { defaultValue: 'Submit report' })}
-                </button>
-              </div>
-            </form>
+            </section>
           </div>
         </main>
       </div>

@@ -6,7 +6,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { ProjectNav } from '../components/ProjectNav.js'
-import { dayKeyOffset, formatDateLong, labelize } from '../lib/format.js'
+import { dayKeyOffset, formatDate, formatDateLong, labelize } from '../lib/format.js'
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface LogEntry {
@@ -27,6 +27,14 @@ interface DailyLog {
   entries: LogEntry[]
 }
 
+interface PunchLite {
+  id: string
+  location: string
+  severity: string
+  status: string
+  closed_at: string | null
+}
+
 const WEATHER = [
   'sunny',
   'partly_cloudy',
@@ -38,12 +46,17 @@ const WEATHER = [
   'extreme_cold',
 ] as const
 
+/** Lines in the daily record that read as equipment or material movement. */
+const DELIVERY_PATTERN =
+  /\b(deliver\w*|crane|truck\w*|staged|received|hoist\w*|boom|mixer|forklift|batch|rigg\w*|unloaded|hauled)\b/i
+
 export function DailyLogs() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
   const { projectId } = useParams<{ projectId: string }>()
   const [logs, setLogs] = useState<DailyLog[]>([])
+  const [punch, setPunch] = useState<PunchLite[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -79,10 +92,51 @@ export function DailyLogs() {
       .finally(() => {
         if (!cancelled) setLoading(false)
       })
+    // The inspection sign-off queue comes from the punch list (open
+    // high-severity items hold for inspection; closed items carry the
+    // sign-off timestamp).
+    http
+      .get(`/api/punch-items?project_id=${projectId}`)
+      .then((res) => {
+        if (!cancelled) setPunch(unwrapList<PunchLite>(res))
+      })
+      .catch(() => {
+        /* the ledger sections degrade gracefully without punch data */
+      })
     return () => {
       cancelled = true
     }
   }, [http, projectId, t])
+
+  // Delivery / equipment ledger — the lines from the daily record where
+  // material or iron moved, pulled from the notes and work entries.
+  const deliveryLedger = logs
+    .flatMap((log) => {
+      const rows: Array<{ logId: string; date: string; area: string; line: string }> = []
+      if (log.notes && DELIVERY_PATTERN.test(log.notes)) {
+        rows.push({ logId: log.id, date: log.log_date, area: '—', line: log.notes })
+      }
+      for (const entry of log.entries) {
+        if (DELIVERY_PATTERN.test(entry.work_performed)) {
+          rows.push({
+            logId: log.id,
+            date: log.log_date,
+            area: entry.area,
+            line: entry.work_performed,
+          })
+        }
+      }
+      return rows
+    })
+    .slice(0, 8)
+
+  // Mandatory inspections & official sign-offs — open high-severity punch
+  // items are the holds awaiting the inspector; closed items are signed off.
+  const signOffsPending = punch.filter((p) => p.status !== 'closed' && p.severity === 'high')
+  const signOffsDone = punch
+    .filter((p) => p.status === 'closed' && p.closed_at)
+    .slice(-3)
+    .reverse()
 
   async function handleCreate(e: React.FormEvent): Promise<void> {
     e.preventDefault()
@@ -494,6 +548,160 @@ export function DailyLogs() {
           ))}
         </div>
       )}
+
+      {/* Heavy equipment & material delivery ledger */}
+      <section data-mol-id="daily-logs-delivery-ledger" className={cm.cn(cm.card(), cm.sp('p', 6))}>
+        <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>
+          {t(
+            'dailyLogs.deliveryLedger',
+            {},
+            { defaultValue: 'Heavy Equipment & Material Delivery Batch Ledger' },
+          )}
+        </h2>
+        <p className={cm.cn(cm.textSize('xs'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+          {t(
+            'dailyLogs.deliveryLedgerHint',
+            {},
+            {
+              defaultValue:
+                'Equipment and material movement pulled from the field notes and work entries above.',
+            },
+          )}
+        </p>
+        {deliveryLedger.length === 0 ? (
+          <p className={cm.cn(cm.sp('mt', 4), cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'dailyLogs.deliveryLedgerEmpty',
+              {},
+              { defaultValue: 'No delivery or equipment lines in the log yet.' },
+            )}
+          </p>
+        ) : (
+          <ul className={cm.cn(cm.sp('mt', 4), 'divide-y divide-outline-variant')}>
+            {deliveryLedger.map((row, idx) => (
+              <li key={`${row.logId}-${idx}`} className={cm.cn(cm.flex({ gap: 'md' }), 'py-2.5')}>
+                <span
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    'text-on-surface-variant whitespace-nowrap pt-0.5',
+                  )}
+                >
+                  {formatDate(row.date)}
+                </span>
+                <span
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    'text-primary whitespace-nowrap pt-0.5',
+                  )}
+                >
+                  {row.area}
+                </span>
+                <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', 'min-w-0')}>
+                  {row.line}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      {/* Mandatory inspections & official sign-offs */}
+      <section data-mol-id="daily-logs-signoffs" className={cm.cn(cm.card(), cm.sp('p', 6))}>
+        <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>
+          {t(
+            'dailyLogs.signOffs',
+            {},
+            { defaultValue: 'Mandatory Daily Inspections & Official Sign-Offs' },
+          )}
+        </h2>
+        <div className={cm.cn(cm.sp('mt', 4), cm.grid({ cols: 1, gap: 'lg' }), 'md:grid-cols-2')}>
+          <div className="space-y-2">
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-widest text-on-surface-variant',
+              )}
+            >
+              {t(
+                'dailyLogs.signOffsPending',
+                { count: signOffsPending.length },
+                { defaultValue: 'Awaiting sign-off ({{count}})' },
+              )}
+            </p>
+            {signOffsPending.length === 0 ? (
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'dailyLogs.signOffsNone',
+                  {},
+                  { defaultValue: 'No high-severity holds waiting on an inspector.' },
+                )}
+              </p>
+            ) : (
+              signOffsPending.map((p) => (
+                <div
+                  key={p.id}
+                  className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}
+                >
+                  <span className={cm.cn(cm.textSize('sm'), 'truncate')}>{p.location}</span>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'text-error whitespace-nowrap',
+                    )}
+                  >
+                    {t('dailyLogs.signOffHold', {}, { defaultValue: 'Hold — inspection required' })}
+                  </span>
+                </div>
+              ))
+            )}
+          </div>
+          <div className="space-y-2">
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-widest text-on-surface-variant',
+              )}
+            >
+              {t(
+                'dailyLogs.signOffsCleared',
+                { count: signOffsDone.length },
+                { defaultValue: 'Signed off ({{count}})' },
+              )}
+            </p>
+            {signOffsDone.length === 0 ? (
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'dailyLogs.signOffsNoneYet',
+                  {},
+                  { defaultValue: 'No closed items with a sign-off timestamp yet.' },
+                )}
+              </p>
+            ) : (
+              signOffsDone.map((p) => (
+                <div
+                  key={p.id}
+                  className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}
+                >
+                  <span className={cm.cn(cm.textSize('sm'), 'truncate')}>{p.location}</span>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'text-success whitespace-nowrap',
+                    )}
+                  >
+                    {p.closed_at ? formatDate(p.closed_at.slice(0, 10)) : ''}
+                  </span>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </section>
 
       <p>
         <Link

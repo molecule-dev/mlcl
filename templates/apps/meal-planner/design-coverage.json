@@ -1,0 +1,56 @@
+{
+  "screens": {
+    "/plan": {
+      "allow": [
+        {
+          "heading": "Charred Broccoli & Cacio e Pepe Bucatini",
+          "reason": "Design sample-week recipe name. The board section exists and renders recipe titles dynamically from the seeded starter catalog (Sheet-Pan Harissa Chicken, Weeknight Tomato Pasta, …) and the user's own recipes — the design's demo dishes are not app data."
+        },
+        {
+          "heading": "Heirloom Tomato Tartines & Soup",
+          "reason": "Design sample-week recipe name; the week board renders the real seeded catalog and user recipes (see /plan note above)."
+        },
+        {
+          "heading": "Slow Cooker Beef Shin Ragu with Creamy Polenta",
+          "reason": "Design sample-week recipe name; rendered titles come from the seeded catalog / user recipes, not the design's demo week."
+        },
+        {
+          "heading": "Crisp Pan-Seared Salmon with Braised Leeks",
+          "reason": "Design sample-week recipe name; rendered titles come from the seeded catalog / user recipes, not the design's demo week."
+        }
+      ]
+    },
+    "/recipes": {
+      "allow": [
+        {
+          "heading": "Heirloom Tomato Tartines & Basil Velouté",
+          "reason": "Design sample catalog name. The vault grid section exists and renders the app's own seeded starter catalog plus user recipes; the design's dish names are demo data."
+        },
+        {
+          "heading": "Creamy Polenta & Wild Mushrooms",
+          "reason": "Design sample catalog name; the grid renders the app's seeded catalog (see /recipes note above)."
+        },
+        {
+          "heading": "Castelvetrano Olive & Mozzarella Pizza",
+          "reason": "Design sample catalog name; the grid renders the app's seeded catalog (see /recipes note above)."
+        },
+        {
+          "heading": "Butternut Squash & Sage Brown Butter Risotto",
+          "reason": "Design sample catalog name; the grid renders the app's seeded catalog (see /recipes note above)."
+        },
+        {
+          "heading": "Charred Broccoli Cacio e Pepe",
+          "reason": "Design sample catalog name; the grid renders the app's seeded catalog (see /recipes note above)."
+        }
+      ]
+    },
+    "/recipes/:id": {
+      "allow": [
+        {
+          "heading": "Deglaze & Build Braise",
+          "reason": "Title of step 3 in the design's sample braise recipe. Steps render from user data as free text (the data model has no step-title/phase field), so per-step display titles are sample data. The design's editorial 'Kitchen Notes & Carryover Prep' bento IS implemented on the page."
+        }
+      ]
+    }
+  }
+}

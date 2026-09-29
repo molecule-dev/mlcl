@@ -5,13 +5,31 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { SimmerTopBar } from '../components/SimmerTopBar.js'
-import { formatQuantityWithUnit, GROCERY_CATEGORY_LABELS } from '../lib/plan.js'
+import {
+  formatQuantityWithUnit,
+  GROCERY_CATEGORY_LABELS,
+  num,
+  PANTRY_SHELF_LABELS,
+} from '../lib/plan.js'
 
 interface PantryRow {
   id: string
   name: string
   quantity: number | string
   unit: string
+}
+
+/** localStorage key shared with Settings' "Smart Pantry & Grocery Automation". */
+const RESTOCK_THRESHOLD_KEY = 'simmer.settings.restockThreshold'
+
+function readRestockThreshold(): number {
+  try {
+    const raw = window.localStorage.getItem(RESTOCK_THRESHOLD_KEY)
+    const n = raw === null ? NaN : Number.parseInt(raw, 10)
+    return Number.isFinite(n) && n >= 1 ? Math.min(n, 10) : 1
+  } catch {
+    return 1
+  }
 }
 
 export function Pantry() {
@@ -25,6 +43,7 @@ export function Pantry() {
   const [quantity, setQuantity] = useState('1')
   const [unit, setUnit] = useState('')
   const [adding, setAdding] = useState(false)
+  const [restockThreshold, setRestockThreshold] = useState<number>(() => readRestockThreshold())
 
   const loadPantry = useCallback(() => {
     let cancelled = false
@@ -61,11 +80,31 @@ export function Pantry() {
       list.push(item)
       map.set(category, list)
     }
-    return GROCERY_CATEGORY_LABELS.filter((c) => map.has(c.id)).map((c) => ({
-      ...c,
-      items: map.get(c.id) ?? [],
-    }))
+    // Pantry shelves first (the design's staple taxonomy), then any
+    // grocery-aisle groups the leftover items fall into.
+    const shelves = [...PANTRY_SHELF_LABELS, ...GROCERY_CATEGORY_LABELS]
+    const seen = new Set<string>()
+    return shelves
+      .filter((c) => {
+        if (!map.has(c.id) || seen.has(c.id)) return false
+        seen.add(c.id)
+        return true
+      })
+      .map((c) => ({ ...c, items: map.get(c.id) ?? [] }))
   }, [items, query])
+
+  const restockQueue = useMemo(() => {
+    const q = Number.isFinite(restockThreshold) ? restockThreshold : 1
+    return (items ?? []).filter((i) => num(i.quantity) <= q)
+  }, [items, restockThreshold])
+
+  // Re-read the threshold when the tab regains focus — Settings may have
+  // changed it in another view of the same app.
+  useEffect(() => {
+    const sync = (): void => setRestockThreshold(readRestockThreshold())
+    window.addEventListener('focus', sync)
+    return () => window.removeEventListener('focus', sync)
+  }, [])
 
   const addItem = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault()
@@ -391,14 +430,124 @@ export function Pantry() {
           ))}
         </div>
       )}
+
+      {/* Pantry Restock Queue — staples at or below the restock threshold */}
+      <section
+        data-mol-id="pantry-restock-queue"
+        className={cm.cn(
+          cm.sp('p', 6),
+          cm.flex({ direction: 'col', gap: 'sm' }),
+          'bg-surface rounded-2xl shadow-sm border border-outline/30',
+        )}
+      >
+        <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }))}>
+          <h2
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              cm.fontWeight('bold'),
+              cm.textSize('lg'),
+              'text-on-surface',
+            )}
+          >
+            <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-primary')}>
+              restock
+            </span>
+            {t('simmer.pantry.restock.title', {}, { defaultValue: 'Pantry Restock Queue' })}
+          </h2>
+          <span
+            className={cm.cn(
+              cm.sp('px', 3),
+              cm.sp('py', 1),
+              cm.textSize('xs'),
+              cm.fontWeight('semibold'),
+              'rounded-full bg-surface-variant text-on-surface-variant tabular-nums',
+            )}
+          >
+            {t(
+              'simmer.pantry.restock.threshold',
+              { count: restockThreshold },
+              { defaultValue: 'At or below {{count}}' },
+            )}
+          </span>
+        </div>
+        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+          {t(
+            'simmer.pantry.restock.body',
+            { count: restockThreshold },
+            {
+              defaultValue:
+                'Staples sitting at or below {{count}} units land here — restock them before the next plan rebuilds the list. Adjust the threshold in Settings.',
+            },
+          )}
+        </p>
+        {items === null ? null : restockQueue.length === 0 ? (
+          <p
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              cm.textSize('sm'),
+              cm.fontWeight('medium'),
+              'text-have-it',
+            )}
+          >
+            <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-base')}>
+              check_circle
+            </span>
+            {t(
+              'simmer.pantry.restock.stocked',
+              {},
+              { defaultValue: 'Everything is stocked above the restock line.' },
+            )}
+          </p>
+        ) : (
+          <ul className={cm.cn(cm.flex({ wrap: 'wrap', gap: 'xs' }), 'list-none')}>
+            {restockQueue.map((item) => (
+              <li
+                key={item.id}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  cm.sp('px', 3),
+                  cm.sp('py', 2),
+                  'rounded-full bg-accent-container text-on-accent-container',
+                )}
+              >
+                <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                  {item.name}
+                  <span className={cm.cn(cm.textSize('xs'), 'ml-1 tabular-nums')}>
+                    {formatQuantityWithUnit(item.quantity, item.unit)}
+                  </span>
+                </span>
+                <button
+                  type="button"
+                  data-mol-id={`pantry-restock-${item.id}`}
+                  aria-label={t(
+                    'simmer.pantry.restock.addOne',
+                    { name: item.name },
+                    { defaultValue: 'Restock {{name}}' },
+                  )}
+                  onClick={() => void adjust(item, 1)}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'w-6 h-6 rounded-full bg-on-accent-container/10 hover:bg-on-accent-container/20 transition-colors',
+                  )}
+                >
+                  <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-sm')}>
+                    add
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
     </>
   )
 }
 
 /**
  * Light client-side grouping for display; the authoritative classifier is
- * the server's (api/src/lib/grocery.ts) — this mirrors its keyword table
- * loosely and defaults unknowns to "other".
+ * the server's (api/src/lib/grocery.ts). This mirror adds the design's
+ * pantry-SHELF taxonomy (oils / spices / grains / root-cellar aromatics) on
+ * top of the grocery aisles and defaults unknowns to "other".
  */
 function guessCategory(name: string): string {
   const n = name.toLowerCase()
@@ -424,15 +573,57 @@ function guessCategory(name: string): string {
   )
     return 'dairy'
   if (has('bread', 'baguette', 'tortilla', 'bun', 'roll', 'pita')) return 'bakery'
-  if (has('oil', 'salt', 'pepper', 'paprika', 'cumin', 'oregano', 'cinnamon')) return 'pantry'
+  // Pantry shelves (design taxonomy) — checked before the wider aisles.
+  if (has('oil', 'vinegar', 'sesame', 'syrup', 'mirin', 'cooking wine')) return 'oils'
+  if (
+    has(
+      'salt',
+      'pepper',
+      'peppercorn',
+      'peppercorns',
+      'paprika',
+      'cumin',
+      'oregano',
+      'cinnamon',
+      'turmeric',
+      'seasoning',
+      'spice',
+      'chili flakes',
+    )
+  )
+    return 'spices'
+  if (
+    has(
+      'flour',
+      'rice',
+      'pasta',
+      'noodle',
+      'spaghetti',
+      'macaroni',
+      'bean',
+      'beans',
+      'lentil',
+      'lentils',
+      'oat',
+      'oats',
+      'quinoa',
+      'couscous',
+      'polenta',
+      'grain',
+      'grains',
+      'sugar',
+      'cereal',
+      'chickpea',
+      'chickpeas',
+    )
+  )
+    return 'grains'
+  if (has('garlic', 'onion', 'shallot', 'ginger', 'scallion', 'leek', 'potato')) return 'aromatics'
   if (has('coffee', 'tea', 'juice', 'wine')) return 'drinks'
   if (
     has(
       'apple',
-      'onion',
-      'garlic',
       'tomato',
-      'potato',
       'carrot',
       'lemon',
       'lime',
@@ -444,14 +635,11 @@ function guessCategory(name: string): string {
       'cilantro',
       'cucumber',
       'avocado',
-      'pepper',
       'zucchini',
       'broccoli',
       'mushroom',
       'banana',
       'berry',
-      'ginger',
-      'scallion',
     )
   )
     return 'produce'

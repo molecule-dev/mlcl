@@ -1,0 +1,28 @@
+{
+  "screens": {
+    "/dashboard": {
+      "allow": [
+        {
+          "heading": "Good morning, Maya 👋",
+          "reason": "The greeting renders the signed-in user's real first name (time-boxed good morning/afternoon/evening); 'Maya' is the design mock's persona, not a hardcodable name."
+        },
+        {
+          "heading": "Lake Tahoe Cabin",
+          "reason": "The seeded trip is named 'Lake Tahoe Ski Cabin' (the name used by the groups and group-detail designs); the dashboard mock uses the shortened form of the same group."
+        },
+        {
+          "heading": "Dinner Club & Outings",
+          "reason": "The seeded dinner circle is named 'Bi-Weekly Dinner Club' (the groups-design name); the dashboard mock uses a different label for the same group."
+        }
+      ]
+    },
+    "/balances": {
+      "allow": [
+        {
+          "heading": "Upcoming Cycles",
+          "reason": "bill-split has no recurring-bills model to project cycles from; the design's recurring-bills surface exists as the explicitly-labeled sample schedule on the dashboard ('Upcoming Recurring Bills')."
+        }
+      ]
+    }
+  }
+}

@@ -15,6 +15,16 @@ interface ActivityRow {
   created_at: string | null
 }
 
+interface FriendNet {
+  name: string
+  net_cents: number
+  is_self: boolean
+}
+
+interface PendingSummary {
+  friends: FriendNet[]
+}
+
 const KIND_ICONS: Record<string, string> = {
   group_created: 'group_add',
   member_added: 'person_add',
@@ -82,16 +92,21 @@ export function Activity() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [activities, setActivities] = useState<ActivityRow[]>([])
+  const [pendingFriends, setPendingFriends] = useState<FriendNet[]>([])
   const [loaded, setLoaded] = useState(false)
   const [error, setError] = useState(false)
 
   useEffect(() => {
     let cancelled = false
-    http
-      .get<ActivityRow[]>('/api/activities?limit=100')
-      .then((response) => {
+    Promise.all([
+      http.get<ActivityRow[]>('/api/activities?limit=100'),
+      http.get<PendingSummary>('/api/dashboard/summary').catch(() => null),
+    ])
+      .then(([feed, summary]) => {
         if (cancelled) return
-        setActivities(Array.isArray(response?.data) ? (response.data as ActivityRow[]) : [])
+        setActivities(Array.isArray(feed?.data) ? (feed.data as ActivityRow[]) : [])
+        const friends = (summary?.data as PendingSummary | null)?.friends ?? []
+        setPendingFriends(friends.filter((f) => !f.is_self && f.net_cents !== 0))
         setError(false)
       })
       .catch(() => {
@@ -147,6 +162,96 @@ export function Activity() {
           )}
         </div>
       ) : null}
+
+      {/* Stitch panel — "Pending Actions": unsettled balances waiting on a
+          reminder or a payment, derived from the live per-friend nets. */}
+      <section
+        data-mol-id="activity-pending-actions"
+        className={cm.cn(
+          cm.sp('p', 6),
+          'rounded-2xl bg-surface border border-outline-variant/40',
+          cm.stack(3),
+        )}
+      >
+        <h2
+          className={cm.cn(
+            cm.textSize('base'),
+            cm.fontWeight('bold'),
+            cm.flex({ align: 'center', gap: 2 }),
+          )}
+        >
+          <span
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'h-8 w-8 rounded-lg bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] text-primary',
+            )}
+            aria-hidden="true"
+          >
+            <span className={cm.cn('material-symbols-outlined text-base')}>pending_actions</span>
+          </span>
+          {t('activity.pendingTitle', {}, { defaultValue: 'Pending Actions' })}
+        </h2>
+        {pendingFriends.length > 0 ? (
+          <ul className={cm.stack(2)}>
+            {pendingFriends.map((friend) => (
+              <li
+                key={friend.name}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'md' }),
+                  cm.sp('px', 4),
+                  cm.sp('py', 3),
+                  'rounded-xl bg-surface-container-low',
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'h-8 w-8 shrink-0 rounded-full text-[11px] font-bold uppercase',
+                    friend.net_cents < 0
+                      ? 'bg-error-container text-on-error-container'
+                      : 'bg-primary-container text-on-primary-container',
+                  )}
+                  aria-hidden="true"
+                >
+                  {friend.name.slice(0, 2)}
+                </span>
+                <span className={cm.cn(cm.textSize('sm'), cm.flex1, 'min-w-0')}>
+                  {friend.net_cents < 0
+                    ? t(
+                        'activity.pendingPay',
+                        { name: friend.name, amount: formatCents(-friend.net_cents) },
+                        { defaultValue: 'Pay {{name}} {{amount}}' },
+                      )
+                    : t(
+                        'activity.pendingRemind',
+                        { name: friend.name, amount: formatCents(friend.net_cents) },
+                        { defaultValue: 'Remind {{name}} ({{amount}})' },
+                      )}
+                </span>
+                <Link
+                  to="/balances"
+                  data-mol-id={`activity-pending-${friend.name}`}
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    'text-primary-dark hover:underline shrink-0',
+                  )}
+                >
+                  {t('activity.pendingOpen', {}, { defaultValue: 'Open balances' })}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'activity.pendingEmpty',
+              {},
+              { defaultValue: 'Nothing pending — every balance is settled.' },
+            )}
+          </p>
+        )}
+      </section>
 
       <ol data-mol-id="activity-feed" className={cm.cn(cm.stack(3))}>
         {activities.map((row) => (

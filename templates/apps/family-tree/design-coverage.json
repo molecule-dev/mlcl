@@ -1,0 +1,89 @@
+{
+  "_comment": "Accepted divergences from the Stitch designs. Each entry is a reviewed decision; anything not listed here fails verify:design-coverage.",
+  "screens": {
+    "/about": {
+      "allow": [
+        {
+          "heading": "Zero-Knowledge Genealogical Vaults",
+          "reason": "Design claims client-side zero-knowledge encryption. The discipline card is rendered as 'Private Genealogical Vaults' with the real model (records scoped to the account, never indexed or sold, bcrypt-hashed passphrases) — the page cannot claim zero-knowledge it does not implement."
+        },
+        {
+          "heading": "The 100-Year Perpetual Escrow",
+          "reason": "Design promises a century escrow service. The fourth discipline card ('Yours for the Long Haul') states the shipped guarantee instead: complete export on demand and full deletion, so the archive is never held hostage."
+        }
+      ]
+    },
+    "/privacy": {
+      "allow": [
+        {
+          "heading": "Archival Custodian Seal",
+          "reason": "Decorative trust-seal badge in the design. Not rendered: a 'seal' implies a certification the product does not hold; the covenant sections carry the actual, factual promises."
+        },
+        {
+          "heading": "Zero-Knowledge Cryptographic Vaults",
+          "reason": "Design promises client-side zero-knowledge encryption. The section documents the real security model instead (bcrypt-hashed passphrases, signed httpOnly session tokens, encrypted transport, per-account scoping) rather than claiming a cryptosystem that is not implemented."
+        },
+        {
+          "heading": "enhanced_encryption The Three Pillars of Branches Cryptography",
+          "reason": "Same zero-knowledge divergence: the design's three cryptographic pillars describe client-side key wrapping that does not exist in the product, so no pillar list is claimed. (The heading's leading token is an icon ligature in the design HTML.)"
+        },
+        {
+          "heading": "The 100-Year Perpetual Escrow & Export Rights",
+          "reason": "Design promises a century escrow service. Rendered as 'Export Rights & Portability' with the real guarantees: on-demand structured JSON export (paid tiers) and complete deletion — no escrow service is promised."
+        }
+      ]
+    },
+    "/terms": {
+      "allow": [
+        {
+          "heading": "Perpetual Escrow Guarantee",
+          "reason": "Design promises a perpetual escrow service. The promise card is rendered as 'Export & Portability Guarantee' — the guarantee the product actually ships."
+        },
+        {
+          "heading": "Perpetual Escrow & Dissolution Guarantees",
+          "reason": "Design's escrow clause. Rendered as 'Service Changes, Dissolution & Your Export Guarantees': advance notice by email, export stays available until closure, ownership never transfers — no escrow service is promised."
+        },
+        {
+          "heading": "Governing Law & Swiss Archival Jurisdiction",
+          "reason": "Design fixes Swiss jurisdiction for the fictional brand. The template makes no jurisdictional claim; the clause mirrors the shared legal content ('applicable law, without regard to conflict-of-law provisions')."
+        }
+      ]
+    },
+    "/people/new": {
+      "allow": [
+        {
+          "heading": "Drop Archival Tintype, Glass Plate, or Daguerreotype",
+          "reason": "Design shows a media dropzone for scanning antique photographic media. The template deliberately stores text records only (no media or biometric uploads), so the section states that evidence lives in the archival narrative instead of fabricating a dropzone."
+        }
+      ]
+    },
+    "/people/:id/edit": {
+      "allow": [
+        {
+          "heading": "Audit Trail & Revisions",
+          "reason": "Design shows a per-record revision history ledger. The template keeps a single current record with no revision-history feature; the edit page carries the live Archival Standards Checklist instead of a fabricated audit log."
+        }
+      ]
+    },
+    "/plan-updated": {
+      "allow": [
+        {
+          "heading": "High-Fidelity 96kHz Lossless Audio Reliquary",
+          "reason": "Design's premium perk (an audio keepsake archive). The archive stores text records only; the horizons list renders the actually unlocked capabilities (tree capacity, advanced features, complete export)."
+        },
+        {
+          "heading": "100 GB Encrypted Cold Vault",
+          "reason": "Design's premium perk (a storage-quota cold vault). No storage-quota product exists; the horizons list renders real plan capabilities instead."
+        },
+        {
+          "heading": "Lossless GEDCOM 7.0 & TEI-P5 XML Bi-directional Sync",
+          "reason": "Design's premium perk (GEDCOM/TEI sync). The template exports structured JSON only; GEDCOM and TEI appear in Settings as honestly 'Not available' export formats."
+        },
+        {
+          "heading": "Hand-Bound Acid-Free Heirloom Book Voucher",
+          "reason": "Design's premium perk (a printed-book voucher). Not a product capability; the horizons list renders real plan capabilities instead."
+        }
+      ]
+    }
+  }
+}

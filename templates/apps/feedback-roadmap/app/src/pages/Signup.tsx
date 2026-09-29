@@ -5,6 +5,7 @@ import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { useSignup, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { APP_NAME } from '../branding.js'
 import { AuthShell } from '../components/AuthShell.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
 
@@ -51,8 +52,19 @@ export function Signup() {
   return (
     <AuthShell
       eyebrow={t('signup.eyebrow', {}, { defaultValue: 'Join the room' })}
-      heading={t('auth.signup.createYourAccount', {}, { defaultValue: 'Create your account' })}
-      description={t('signup.description', {}, { defaultValue: 'Shape what we build next.' })}
+      heading={t(
+        'signup.heading',
+        { appName: APP_NAME },
+        { defaultValue: 'Create your {{appName}} workspace' },
+      )}
+      description={t(
+        'signup.description',
+        {},
+        {
+          defaultValue:
+            'Start collecting feedback, closing loops, and shipping public roadmaps in minutes. 14-day free trial. No credit card required.',
+        },
+      )}
       footer={
         <span>
           {t('auth.login.alreadyHaveAccount', {}, { defaultValue: 'Already have an account?' })}{' '}

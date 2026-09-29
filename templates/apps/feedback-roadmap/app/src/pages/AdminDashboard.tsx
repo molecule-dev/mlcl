@@ -153,35 +153,53 @@ export function AdminDashboard() {
         </p>
       ) : (
         <>
-          <div className={cm.cn('grid gap-3 grid-cols-2 md:grid-cols-5')}>
-            {kpis.map((kpi) => (
-              <div
-                key={kpi.key}
-                data-mol-id={`admin-kpi-${kpi.key}`}
-                className={cm.cn(
-                  cm.flex({ direction: 'col', gap: 'xs' }),
-                  cm.sp('p', 4),
-                  'rounded-xl border border-outline-variant/40 bg-surface',
-                )}
-              >
-                <span
-                  className={cm.cn(cm.fontWeight('bold'), cm.textSize('3xl'))}
-                  style={{ fontVariantNumeric: 'tabular-nums' }}
-                >
-                  {kpi.value}
-                </span>
-                <span
+          <section
+            aria-labelledby="admin-lifecycle"
+            className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}
+          >
+            <h2
+              id="admin-lifecycle"
+              className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}
+            >
+              {t('admin.lifecycleTitle', {}, { defaultValue: 'Status Lifecycle Distribution' })}
+            </h2>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'admin.lifecycleBody',
+                {},
+                { defaultValue: 'Backlog breakdown by delivery phase.' },
+              )}
+            </p>
+            <div className={cm.cn('grid gap-3 grid-cols-2 md:grid-cols-5')}>
+              {kpis.map((kpi) => (
+                <div
+                  key={kpi.key}
+                  data-mol-id={`admin-kpi-${kpi.key}`}
                   className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.fontWeight('semibold'),
-                    'uppercase tracking-widest text-on-surface-variant',
+                    cm.flex({ direction: 'col', gap: 'xs' }),
+                    cm.sp('p', 4),
+                    'rounded-xl border border-outline-variant/40 bg-surface',
                   )}
                 >
-                  {kpi.label}
-                </span>
-              </div>
-            ))}
-          </div>
+                  <span
+                    className={cm.cn(cm.fontWeight('bold'), cm.textSize('3xl'))}
+                    style={{ fontVariantNumeric: 'tabular-nums' }}
+                  >
+                    {kpi.value}
+                  </span>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {kpi.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
 
           <div
             className={cm.cn(
@@ -190,9 +208,40 @@ export function AdminDashboard() {
               'rounded-xl border border-outline-variant/40 bg-surface',
             )}
           >
-            <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
-              <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
-                {t('admin.votesOverTime', {}, { defaultValue: 'Votes over time' })}
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                'flex-wrap',
+              )}
+            >
+              <h2
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'sm' }),
+                  cm.fontWeight('bold'),
+                  cm.textSize('lg'),
+                  'text-on-surface',
+                )}
+              >
+                {t(
+                  'admin.votesOverTime',
+                  {},
+                  { defaultValue: 'Customer Demand & Votes Over Time' },
+                )}
+                <span
+                  className={cm.cn(
+                    cm.sp('px', 2),
+                    cm.sp('py', 0.5),
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    'rounded-full border whitespace-nowrap',
+                  )}
+                  style={{
+                    borderColor: 'var(--color-outline-variant)',
+                    color: 'var(--color-on-surface-variant)',
+                  }}
+                >
+                  {t('admin.velocityTracker', {}, { defaultValue: 'Velocity Tracker' })}
+                </span>
               </h2>
               <span
                 className={cm.cn(
@@ -209,6 +258,13 @@ export function AdminDashboard() {
                 )}
               </span>
             </div>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'admin.votesOverTimeBody',
+                {},
+                { defaultValue: 'Weekly intake across accounts and community feedback.' },
+              )}
+            </p>
             <div
               className={cm.cn(cm.flex({ align: 'end', justify: 'between', gap: 'xs' }), 'h-32')}
               role="img"
@@ -254,8 +310,18 @@ export function AdminDashboard() {
               )}
             >
               <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
-                {t('admin.topOpen', {}, { defaultValue: 'Top open requests' })}
+                {t('admin.topOpen', {}, { defaultValue: 'Top Open Requests by Vote Weight' })}
               </h2>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'admin.topOpenBody',
+                  {},
+                  {
+                    defaultValue:
+                      'High-impact customer demand items needing status triage or engineering routing.',
+                  },
+                )}
+              </p>
               {stats.top_open.length === 0 ? (
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                   {t('admin.noOpen', {}, { defaultValue: 'No open requests — inbox zero.' })}
@@ -306,8 +372,15 @@ export function AdminDashboard() {
               )}
             >
               <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
-                {t('admin.recentShipped', {}, { defaultValue: 'Recently shipped' })}
+                {t('admin.recentShipped', {}, { defaultValue: 'Recent Ships & Auto-Notifies' })}
               </h2>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'admin.recentShippedBody',
+                  {},
+                  { defaultValue: 'Closed-loop customer feed — every ship notifies its voters.' },
+                )}
+              </p>
               {stats.recent_shipped.length === 0 ? (
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                   {t('admin.noShipped', {}, { defaultValue: 'Nothing shipped yet.' })}
@@ -340,6 +413,97 @@ export function AdminDashboard() {
               )}
             </section>
           </div>
+
+          <section
+            aria-labelledby="admin-ops-health"
+            className={cm.cn(
+              cm.flex({ direction: 'col', gap: 'sm' }),
+              cm.sp('p', 5),
+              'rounded-xl border border-outline-variant/40 bg-surface',
+            )}
+          >
+            <h3
+              id="admin-ops-health"
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.fontWeight('bold'),
+                cm.textSize('base'),
+                'text-on-surface',
+              )}
+            >
+              <span
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  cm.w(7),
+                  cm.h(7),
+                  'rounded-md shrink-0',
+                )}
+                style={{
+                  backgroundColor: 'var(--color-primary-container)',
+                  color: 'var(--color-primary)',
+                }}
+                aria-hidden="true"
+              >
+                <span className={cm.cn('material-symbols-outlined text-sm')}>tune</span>
+              </span>
+              {t('admin.opsHealthTitle', {}, { defaultValue: 'Operations Automation Health' })}
+            </h3>
+            <div className={cm.cn('grid gap-3 grid-cols-1 sm:grid-cols-3')}>
+              {[
+                {
+                  icon: 'notifications_active',
+                  labelKey: 'admin.opsAutoNotify',
+                  labelDefault: 'Ship auto-notify',
+                  valueKey: 'admin.opsAutoNotifyValue',
+                  valueDefault: 'Active — voters alerted on every status change',
+                },
+                {
+                  icon: 'merge',
+                  labelKey: 'admin.opsMerge',
+                  labelDefault: 'Duplicate merge assist',
+                  valueKey: 'admin.opsMergeValue',
+                  valueDefault: 'Active — merged votes pool automatically',
+                },
+                {
+                  icon: 'event_repeat',
+                  labelKey: 'admin.opsCadence',
+                  labelDefault: 'Triage cadence',
+                  valueKey: 'admin.opsCadenceValue',
+                  valueDefault: 'Weekly — oldest unanswered request first',
+                },
+              ].map((tile) => (
+                <div
+                  key={tile.labelKey}
+                  className={cm.cn(
+                    cm.flex({ direction: 'col', gap: 'xs' }),
+                    cm.sp('p', 3),
+                    'rounded-lg border border-outline-variant/40 bg-surface-container-low/40',
+                  )}
+                >
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 'xs' }),
+                      cm.textSize('xs'),
+                      cm.fontWeight('bold'),
+                      'uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-sm')}
+                      style={{ color: 'var(--color-status-shipped)' }}
+                      aria-hidden="true"
+                    >
+                      {tile.icon}
+                    </span>
+                    {t(tile.labelKey, {}, { defaultValue: tile.labelDefault })}
+                  </span>
+                  <span className={cm.cn(cm.textSize('sm'), 'text-on-surface')}>
+                    {t(tile.valueKey, {}, { defaultValue: tile.valueDefault })}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
         </>
       )}
     </div>

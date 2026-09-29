@@ -22,6 +22,18 @@ interface GroceryRow {
   pantry_unit: string | null
 }
 
+/** localStorage key shared with Settings' "Smart Pantry & Grocery Automation". */
+const PANTRY_BADGES_KEY = 'simmer.settings.pantryBadges'
+
+function pantryBadgesEnabled(): boolean {
+  try {
+    const raw = window.localStorage.getItem(PANTRY_BADGES_KEY)
+    return raw === null ? true : raw === 'on'
+  } catch {
+    return true
+  }
+}
+
 export function GroceryList() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -35,6 +47,17 @@ export function GroceryList() {
   const [manualName, setManualName] = useState('')
   const [adding, setAdding] = useState(false)
   const [regenerating, setRegenerating] = useState(false)
+  // Settings → Smart Pantry & Grocery Automation: when off, the "you already
+  // have this" badges stay hidden (the server still merges the quantities).
+  const [showPantryBadges, setShowPantryBadges] = useState<boolean>(() => pantryBadgesEnabled())
+
+  // Re-read the setting when the tab regains focus — Settings may have
+  // flipped it in another view of the same app.
+  useEffect(() => {
+    const sync = (): void => setShowPantryBadges(pantryBadgesEnabled())
+    window.addEventListener('focus', sync)
+    return () => window.removeEventListener('focus', sync)
+  }, [])
 
   const loadList = useCallback(
     (week: string) => {
@@ -426,7 +449,7 @@ export function GroceryList() {
                             ? t('simmer.groceries.manualTag', {}, { defaultValue: 'added by you' })
                             : ''}
                         </span>
-                        {item.in_pantry ? (
+                        {showPantryBadges && item.in_pantry ? (
                           <span
                             className={cm.cn(
                               cm.sp('mt', 1),

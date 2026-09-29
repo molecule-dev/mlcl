@@ -686,7 +686,7 @@ export function Landing() {
               </span>
               <Link
                 data-mol-id="landing-cta-signup"
-                to="/report"
+                to="/signup"
                 className={cm.cn(
                   cm.flex({ align: 'center', justify: 'center' }),
                   'w-full sm:w-auto px-6 py-3 bg-primary-container text-on-primary text-sm font-semibold rounded-lg',

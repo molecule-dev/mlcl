@@ -271,7 +271,7 @@ export function PersonDetail() {
                 cm.sp('mb', 3),
               )}
             >
-              {t('personDetail.biography', {}, { defaultValue: 'Life details' })}
+              {t('personDetail.biography', {}, { defaultValue: 'Biographical Archival Dossier' })}
             </h2>
             <dl className={cm.cn('space-y-3')}>
               {bioRows.length === 0 && (
@@ -327,10 +327,41 @@ export function PersonDetail() {
                 cm.sp('mb', 4),
               )}
             >
-              {t('personDetail.timeline', {}, { defaultValue: 'Life timeline' })}
+              {t('personDetail.timeline', {}, { defaultValue: 'Chronological Life Tapestry' })}
             </h2>
             <LifeTimeline events={data.timeline} />
           </section>
+
+          {data.notes && (
+            <section
+              className={cm.cn(cm.sp('p', 6), 'bg-surface-container-lowest rounded-2xl shadow-sm')}
+              data-mol-id="person-detail-keepsake"
+            >
+              <h2
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'uppercase tracking-widest text-on-surface-variant',
+                  cm.sp('mb', 3),
+                )}
+              >
+                {t('personDetail.keepsake', {}, { defaultValue: 'Featured Keepsake' })}
+              </h2>
+              <figure
+                className={cm.cn('border-l-2 pl-4')}
+                style={{ borderColor: 'var(--color-tree-partner)' }}
+              >
+                <blockquote
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'leading-relaxed text-on-surface-variant whitespace-pre-line',
+                  )}
+                >
+                  {data.notes}
+                </blockquote>
+              </figure>
+            </section>
+          )}
         </div>
 
         {/* Relatives */}
@@ -349,11 +380,20 @@ export function PersonDetail() {
                 cm.sp('mb', 4),
               )}
             >
-              {t(
-                'personDetail.relatives',
-                { count: totalRelatives },
-                { defaultValue: 'Relatives ({{count}})' },
-              )}
+              {t('personDetail.kinshipRings', {}, { defaultValue: 'Kinship Rings' })}
+              <span
+                className={cm.cn(
+                  cm.sp('ml', 2),
+                  cm.fontWeight('normal'),
+                  'normal-case tracking-normal',
+                )}
+              >
+                {t(
+                  'personDetail.relatives',
+                  { count: totalRelatives },
+                  { defaultValue: '({{count}} relatives)' },
+                )}
+              </span>
             </h2>
             {totalRelatives === 0 && (
               <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
@@ -399,6 +439,60 @@ export function PersonDetail() {
                 )
               })}
             </div>
+          </section>
+
+          {/* Provenance Vault — where this record comes from */}
+          <section
+            className={cm.cn(cm.sp('p', 6), 'bg-surface-container-lowest rounded-2xl shadow-sm')}
+            data-mol-id="person-detail-provenance"
+          >
+            <h3
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-widest text-on-surface-variant',
+                cm.sp('mb', 3),
+              )}
+            >
+              {t('personDetail.provenance', {}, { defaultValue: 'Provenance Vault' })}
+            </h3>
+            <dl className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+              <div>
+                <dt
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    'text-on-surface-variant uppercase tracking-wider font-bold',
+                  )}
+                >
+                  {t('personDetail.provenanceRecord', {}, { defaultValue: 'Record ID' })}
+                </dt>
+                <dd
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    'font-mono tabular-nums text-on-surface-variant break-all',
+                  )}
+                >
+                  {data.id}
+                </dd>
+              </div>
+              <div>
+                <dt
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    'text-on-surface-variant uppercase tracking-wider font-bold',
+                  )}
+                >
+                  {t('personDetail.provenanceSource', {}, { defaultValue: 'Source' })}
+                </dt>
+                <dd className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                  {t(
+                    'personDetail.provenanceSourceValue',
+                    {},
+                    { defaultValue: 'Your private archive' },
+                  )}
+                </dd>
+              </div>
+            </dl>
           </section>
         </aside>
       </div>

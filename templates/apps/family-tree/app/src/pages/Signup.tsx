@@ -6,6 +6,7 @@ import { useSignup, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BRAND_COLOR } from '../branding.js'
+import { AuthAside } from '../components/AuthAside.js'
 import { AuthBrandHeader } from '../components/AuthBrandHeader.js'
 import { Footer } from '../components/Footer.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
@@ -76,231 +77,249 @@ export function Signup() {
       <main
         className={cm.cn(cm.flex({ align: 'center', justify: 'center' }), cm.flex1, cm.sp('p', 6))}
       >
-        <div className={cm.cn(cm.w('full'), cm.maxW('md'))}>
-          <div
-            className={cm.cn(
-              cm.flex({ direction: 'col', gap: 'xl' }),
-              cm.sp('p', 10),
-              'bg-surface-container-lowest rounded-xl border border-outline-variant/10 shadow-sm',
-            )}
-          >
-            <AuthBrandHeader />
+        {/* Design layout: marketing aside beside the form card on lg+ */}
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            cm.w('full'),
+            cm.maxW('6xl'),
+          )}
+        >
+          <AuthAside variant="signup" />
+          <div className={cm.cn(cm.w('full'), cm.maxW('md'))}>
+            <div
+              className={cm.cn(
+                cm.flex({ direction: 'col', gap: 'xl' }),
+                cm.sp('p', 10),
+                'bg-surface-container-lowest rounded-xl border border-outline-variant/10 shadow-sm',
+              )}
+            >
+              <AuthBrandHeader />
 
-            <div>
-              <h2
-                className={cm.cn(
-                  cm.textSize('2xl'),
-                  cm.fontWeight('bold'),
-                  cm.textCenter,
-                  cm.sp('mb', 1),
-                )}
+              <div>
+                <h2
+                  className={cm.cn(
+                    cm.textSize('2xl'),
+                    cm.fontWeight('bold'),
+                    cm.textCenter,
+                    cm.sp('mb', 1),
+                  )}
+                >
+                  {t('signup.welcome', {}, { defaultValue: 'Begin Your Archive' })}
+                </h2>
+                <p className={cm.cn(cm.textSize('sm'), cm.textCenter, 'text-on-surface-variant')}>
+                  {t(
+                    'signup.subtitle',
+                    {},
+                    {
+                      defaultValue: 'Set up your family historian credentials and personal vault.',
+                    },
+                  )}
+                </p>
+              </div>
+
+              <form
+                className={cm.cn(cm.flex({ direction: 'col' }), 'gap-5')}
+                onSubmit={handleSubmit}
               >
-                {t('signup.welcome', {}, { defaultValue: 'Create your secure account' })}
-              </h2>
-              <p className={cm.cn(cm.textSize('sm'), cm.textCenter, 'text-on-surface-variant')}>
-                {t(
-                  'signup.subtitle',
-                  {},
-                  {
-                    defaultValue:
-                      'Start with yourself, add relatives, and watch the branches grow.',
-                  },
+                <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }))}>
+                  <div>
+                    <label
+                      className={cm.cn(
+                        cm.fontWeight('semibold'),
+                        cm.sp('mb', 2),
+                        'block text-[0.6875rem] text-on-surface-variant tracking-[0.05em]',
+                      )}
+                      htmlFor="firstName"
+                    >
+                      {t('signup.firstNameLabel', {}, { defaultValue: 'FIRST NAME' })}
+                    </label>
+                    <input
+                      className={cm.cn(
+                        cm.w('full'),
+                        cm.sp('py', 4),
+                        cm.sp('px', 5),
+                        cm.textSize('sm'),
+                        'bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all',
+                      )}
+                      id="firstName"
+                      type="text"
+                      autoComplete="given-name"
+                      required
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      className={cm.cn(
+                        cm.fontWeight('semibold'),
+                        cm.sp('mb', 2),
+                        'block text-[0.6875rem] text-on-surface-variant tracking-[0.05em]',
+                      )}
+                      htmlFor="lastName"
+                    >
+                      {t('signup.lastNameLabel', {}, { defaultValue: 'LAST NAME' })}
+                    </label>
+                    <input
+                      className={cm.cn(
+                        cm.w('full'),
+                        cm.sp('py', 4),
+                        cm.sp('px', 5),
+                        cm.textSize('sm'),
+                        'bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all',
+                      )}
+                      id="lastName"
+                      type="text"
+                      autoComplete="family-name"
+                      required
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    className={cm.cn(
+                      cm.fontWeight('semibold'),
+                      cm.sp('mb', 2),
+                      'block text-[0.6875rem] text-on-surface-variant tracking-[0.05em]',
+                    )}
+                    htmlFor="email"
+                  >
+                    {t('signup.emailLabel', {}, { defaultValue: 'EMAIL' })}
+                  </label>
+                  <input
+                    className={cm.cn(
+                      cm.w('full'),
+                      cm.sp('py', 4),
+                      cm.sp('px', 5),
+                      cm.textSize('sm'),
+                      'bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all',
+                    )}
+                    id="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    placeholder={t(
+                      'auth.passwordPlaceholderEmail',
+                      {},
+                      { defaultValue: 'you@example.com' },
+                    )}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+
+                <div>
+                  <label
+                    className={cm.cn(
+                      cm.fontWeight('semibold'),
+                      cm.sp('mb', 2),
+                      'block text-[0.6875rem] text-on-surface-variant tracking-[0.05em]',
+                    )}
+                    htmlFor="password"
+                  >
+                    {t('signup.passwordLabel', {}, { defaultValue: 'PASSWORD' })}
+                  </label>
+                  <input
+                    className={cm.cn(
+                      cm.w('full'),
+                      cm.sp('py', 4),
+                      cm.sp('px', 5),
+                      cm.textSize('sm'),
+                      'bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all',
+                    )}
+                    id="password"
+                    type="password"
+                    autoComplete="new-password"
+                    required
+                    minLength={8}
+                    placeholder={t(
+                      'common.atLeast8Characters',
+                      {},
+                      { defaultValue: 'At least 8 characters' },
+                    )}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+
+                {error && (
+                  <div
+                    role="alert"
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      cm.sp('py', 3),
+                      cm.textSize('sm'),
+                      cm.textCenter,
+                      'bg-error-container text-on-error-container rounded-xl',
+                    )}
+                  >
+                    {error.message}
+                  </div>
                 )}
-              </p>
+
+                <button
+                  type="submit"
+                  disabled={isSigningUp}
+                  className={cm.cn(
+                    cm.sp('py', 4),
+                    cm.sp('mt', 2),
+                    cm.textSize('base'),
+                    cm.fontWeight('bold'),
+                    'rounded-xl text-white hover:shadow-lg active:scale-95 transition-all disabled:opacity-60',
+                  )}
+                  style={{ background: submitGradient }}
+                >
+                  {isSigningUp
+                    ? t('common.creatingAccountEllipsis', {}, { defaultValue: 'Creating account…' })
+                    : t('auth.signup.createAccount', {}, { defaultValue: 'Create account' })}
+                </button>
+              </form>
+
+              <OAuthButtons />
             </div>
 
-            <form className={cm.cn(cm.flex({ direction: 'col' }), 'gap-5')} onSubmit={handleSubmit}>
-              <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }))}>
-                <div>
-                  <label
-                    className={cm.cn(
-                      cm.fontWeight('semibold'),
-                      cm.sp('mb', 2),
-                      'block text-[0.6875rem] text-on-surface-variant tracking-[0.05em]',
-                    )}
-                    htmlFor="firstName"
-                  >
-                    {t('signup.firstNameLabel', {}, { defaultValue: 'FIRST NAME' })}
-                  </label>
-                  <input
-                    className={cm.cn(
-                      cm.w('full'),
-                      cm.sp('py', 4),
-                      cm.sp('px', 5),
-                      cm.textSize('sm'),
-                      'bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all',
-                    )}
-                    id="firstName"
-                    type="text"
-                    autoComplete="given-name"
-                    required
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                  />
-                </div>
-                <div>
-                  <label
-                    className={cm.cn(
-                      cm.fontWeight('semibold'),
-                      cm.sp('mb', 2),
-                      'block text-[0.6875rem] text-on-surface-variant tracking-[0.05em]',
-                    )}
-                    htmlFor="lastName"
-                  >
-                    {t('signup.lastNameLabel', {}, { defaultValue: 'LAST NAME' })}
-                  </label>
-                  <input
-                    className={cm.cn(
-                      cm.w('full'),
-                      cm.sp('py', 4),
-                      cm.sp('px', 5),
-                      cm.textSize('sm'),
-                      'bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all',
-                    )}
-                    id="lastName"
-                    type="text"
-                    autoComplete="family-name"
-                    required
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  className={cm.cn(
-                    cm.fontWeight('semibold'),
-                    cm.sp('mb', 2),
-                    'block text-[0.6875rem] text-on-surface-variant tracking-[0.05em]',
-                  )}
-                  htmlFor="email"
-                >
-                  {t('signup.emailLabel', {}, { defaultValue: 'EMAIL' })}
-                </label>
-                <input
-                  className={cm.cn(
-                    cm.w('full'),
-                    cm.sp('py', 4),
-                    cm.sp('px', 5),
-                    cm.textSize('sm'),
-                    'bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all',
-                  )}
-                  id="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  placeholder={t(
-                    'auth.passwordPlaceholderEmail',
-                    {},
-                    { defaultValue: 'you@example.com' },
-                  )}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-
-              <div>
-                <label
-                  className={cm.cn(
-                    cm.fontWeight('semibold'),
-                    cm.sp('mb', 2),
-                    'block text-[0.6875rem] text-on-surface-variant tracking-[0.05em]',
-                  )}
-                  htmlFor="password"
-                >
-                  {t('signup.passwordLabel', {}, { defaultValue: 'PASSWORD' })}
-                </label>
-                <input
-                  className={cm.cn(
-                    cm.w('full'),
-                    cm.sp('py', 4),
-                    cm.sp('px', 5),
-                    cm.textSize('sm'),
-                    'bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all',
-                  )}
-                  id="password"
-                  type="password"
-                  autoComplete="new-password"
-                  required
-                  minLength={8}
-                  placeholder={t(
-                    'common.atLeast8Characters',
-                    {},
-                    { defaultValue: 'At least 8 characters' },
-                  )}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-
-              {error && (
-                <div
-                  role="alert"
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    cm.textSize('sm'),
-                    cm.textCenter,
-                    'bg-error-container text-on-error-container rounded-xl',
-                  )}
-                >
-                  {error.message}
-                </div>
+            <footer
+              className={cm.cn(
+                cm.sp('mt', 12),
+                cm.flex({ direction: 'col', align: 'center' }),
+                'gap-4',
               )}
-
-              <button
-                type="submit"
-                disabled={isSigningUp}
+            >
+              <span
                 className={cm.cn(
-                  cm.sp('py', 4),
-                  cm.sp('mt', 2),
-                  cm.textSize('base'),
-                  cm.fontWeight('bold'),
-                  'rounded-xl text-white hover:shadow-lg active:scale-95 transition-all disabled:opacity-60',
+                  'text-[10px] font-bold text-foreground-tertiary uppercase tracking-widest',
                 )}
-                style={{ background: submitGradient }}
               >
-                {isSigningUp
-                  ? t('common.creatingAccountEllipsis', {}, { defaultValue: 'Creating account…' })
-                  : t('auth.signup.createAccount', {}, { defaultValue: 'Create account' })}
-              </button>
-            </form>
-
-            <OAuthButtons />
+                {t('signupFooter.trust', {}, { defaultValue: 'Your family history, kept private' })}
+              </span>
+              <p
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  'text-on-surface-variant',
+                )}
+              >
+                {t(
+                  'auth.login.alreadyHaveAccount',
+                  {},
+                  { defaultValue: 'Already have an account?' },
+                )}{' '}
+                <Link
+                  to="/login"
+                  className={cm.cn(
+                    'font-bold hover:underline decoration-2 underline-offset-4 ml-1',
+                  )}
+                  style={{ color: BRAND_COLOR }}
+                >
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                </Link>
+              </p>
+            </footer>
           </div>
-
-          <footer
-            className={cm.cn(
-              cm.sp('mt', 12),
-              cm.flex({ direction: 'col', align: 'center' }),
-              'gap-4',
-            )}
-          >
-            <span
-              className={cm.cn(
-                'text-[10px] font-bold text-foreground-tertiary uppercase tracking-widest',
-              )}
-            >
-              {t('signupFooter.trust', {}, { defaultValue: 'Your family history, kept private' })}
-            </span>
-            <p
-              className={cm.cn(
-                cm.textSize('sm'),
-                cm.fontWeight('medium'),
-                'text-on-surface-variant',
-              )}
-            >
-              {t('auth.login.alreadyHaveAccount', {}, { defaultValue: 'Already have an account?' })}{' '}
-              <Link
-                to="/login"
-                className={cm.cn('font-bold hover:underline decoration-2 underline-offset-4 ml-1')}
-                style={{ color: BRAND_COLOR }}
-              >
-                {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-              </Link>
-            </p>
-          </footer>
         </div>
       </main>
       <Footer />

@@ -6,7 +6,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { EMPTY_PERSON_FORM, PersonForm, type PersonFormValue } from '../components/PersonForm.js'
-import { displayName, type Person, type RelativeRelation } from '../lib/people.js'
+import { displayName, formatFullDate, type Person, type RelativeRelation } from '../lib/people.js'
 import { unwrapSingle } from '../lib/unwrap.js'
 
 interface RelationOption {
@@ -162,6 +162,16 @@ export function AddRelative() {
 
   const anchorName = anchor ? displayName(anchor) : ''
 
+  // Live tapestry preview — what the thread will say once woven.
+  const newPersonName = [form.first_name.trim(), form.last_name.trim()].filter(Boolean).join(' ')
+  const relationWord = t(
+    `addRelative.relation.${relation}.label`,
+    {},
+    {
+      defaultValue: RELATIONS.find((r) => r.key === relation)?.label ?? relation,
+    },
+  )
+
   return (
     <div
       className={cm.cn(cm.maxW('2xl'), cm.mxAuto, cm.sp('p', 6), 'lg:p-8')}
@@ -191,7 +201,7 @@ export function AddRelative() {
         {t(
           'addRelative.title',
           { name: anchorName },
-          { defaultValue: 'Add a relative of {{name}}' },
+          { defaultValue: 'Weave a New Kinship Thread for {{name}}' },
         )}
       </h1>
       <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.sp('mb', 6))}>
@@ -206,21 +216,78 @@ export function AddRelative() {
       </p>
 
       <form onSubmit={handleSubmit} className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }))}>
-        {/* Relation picker */}
+        {/* Anchor identity card — the person this thread attaches to */}
+        {anchor && (
+          <section
+            className={cm.cn(cm.sp('p', 6), 'bg-surface-container-lowest rounded-2xl shadow-sm')}
+            data-mol-id="add-relative-anchor"
+          >
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-widest text-on-surface-variant',
+                cm.sp('mb', 2),
+              )}
+            >
+              {t('addRelative.anchorLabel', {}, { defaultValue: 'The anchor of this thread' })}
+            </p>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+              <div
+                className={cm.cn(
+                  cm.w(11),
+                  cm.h(11),
+                  cm.roundedFull,
+                  cm.flex({ align: 'center', justify: 'center' }),
+                )}
+                style={{
+                  backgroundColor: 'var(--color-tree-root-bg)',
+                  color: 'var(--color-tree-root)',
+                }}
+                aria-hidden="true"
+              >
+                <span className="material-symbols-outlined text-[22px]">account_tree</span>
+              </div>
+              <div className="min-w-0">
+                <h2
+                  className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}
+                  style={{ fontFamily: 'var(--mol-font-tree)' }}
+                >
+                  {anchorName}
+                  {anchor.maiden_name ? ` (${anchor.maiden_name})` : ''}
+                </h2>
+                <p
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    'text-on-surface-variant uppercase tracking-wider font-bold tabular-nums',
+                  )}
+                >
+                  {[
+                    anchor.birth_date ? anchor.birth_date.slice(0, 4) : null,
+                    anchor.death_date ? anchor.death_date.slice(0, 4) : null,
+                  ]
+                    .filter(Boolean)
+                    .join(' – ') ||
+                    formatFullDate(anchor.birth_date) ||
+                    t('personDetail.datesUnknown', {}, { defaultValue: 'Dates unknown' })}
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Relation picker — kinship assignment */}
         <fieldset
           className={cm.cn(cm.sp('p', 6), 'bg-surface-container-lowest rounded-2xl shadow-sm')}
           data-mol-id="relation-picker"
         >
-          <legend
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-widest text-on-surface-variant',
-              cm.sp('mb', 4),
+          <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), cm.sp('mb', 4))}>
+            {t(
+              'addRelative.relationHeading',
+              {},
+              { defaultValue: 'Kinship & Consanguinity Assignment' },
             )}
-          >
-            {t('addRelative.relationLegend', {}, { defaultValue: 'Relationship' })}
-          </legend>
+          </h3>
           <div className={cm.cn(cm.grid({ gap: 'sm' }), 'grid-cols-1 sm:grid-cols-2')}>
             {RELATIONS.map((r) => {
               const active = relation === r.key
@@ -271,19 +338,40 @@ export function AddRelative() {
           </div>
         </fieldset>
 
+        {/* Deduplication note — check the registry before weaving */}
+        <section
+          className={cm.cn(cm.sp('p', 4), 'rounded-2xl border bg-surface-container-lowest')}
+          style={{ borderColor: 'var(--color-linen-border)' }}
+          data-mol-id="add-relative-dedup"
+        >
+          <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), cm.sp('mb', 1))}>
+            {t(
+              'addRelative.dedupTitle',
+              {},
+              { defaultValue: 'Sanctuary Registry & Deduplication' },
+            )}
+          </h3>
+          <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+            {t(
+              'addRelative.dedupBody',
+              {},
+              {
+                defaultValue:
+                  'Already in the ledger? Search the Ancestral Directory before creating a second record for the same soul.',
+              },
+            )}{' '}
+            <Link
+              to="/people"
+              className={cm.cn('font-bold text-primary hover:underline whitespace-nowrap')}
+            >
+              {t('addRelative.dedupLink', {}, { defaultValue: 'Open the directory' })}
+            </Link>
+          </p>
+        </section>
+
         {/* Person fields */}
         <div className={cm.cn(cm.sp('p', 6), 'bg-surface-container-lowest rounded-2xl shadow-sm')}>
-          <h2
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-widest text-on-surface-variant',
-              cm.sp('mb', 4),
-            )}
-          >
-            {t('addRelative.personLegend', {}, { defaultValue: 'About the new person' })}
-          </h2>
-          <PersonForm value={form} onChange={onChange} idPrefix="add-relative" />
+          <PersonForm value={form} onChange={onChange} idPrefix="add-relative" variant="thread" />
 
           {error && (
             <div
@@ -332,6 +420,29 @@ export function AddRelative() {
             </button>
           </div>
         </div>
+
+        {/* Live tapestry preview */}
+        <section
+          className={cm.cn(cm.sp('p', 6), 'bg-surface-container-lowest rounded-2xl shadow-sm')}
+          data-mol-id="add-relative-preview"
+        >
+          <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), cm.sp('mb', 2))}>
+            {t('addRelative.previewTitle', {}, { defaultValue: 'Live Tapestry Preview' })}
+          </h3>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {newPersonName
+              ? t(
+                  'addRelative.previewLine',
+                  { name: newPersonName, relation: relationWord, anchor: anchorName },
+                  { defaultValue: '{{name}} will be woven in as {{anchor}}’s {{relation}}.' },
+                )
+              : t(
+                  'addRelative.previewEmpty',
+                  {},
+                  { defaultValue: 'Name the new person above to see the thread preview.' },
+                )}
+          </p>
+        </section>
       </form>
     </div>
   )

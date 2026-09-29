@@ -1,9 +1,11 @@
 /**
  * Roadmap — the public commitment view.
  *
- * Two columns (Planned / In progress) of roadmap cards, each carrying its
- * target-quarter label, vote count, and status color. Shipped work lives on
- * the changelog, not here — this page answers "what is next".
+ * Three columns (Planned / In progress / Shipped & GA) of roadmap cards,
+ * each carrying its target-quarter label, vote count, and status color, and
+ * a closing primer on how the commitments stay honest. Shipped entries also
+ * live on the changelog with full release notes — this column is the
+ * at-a-glance counterpart.
  */
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
@@ -18,7 +20,7 @@ import { StatusBadge } from '../components/StatusBadge.js'
 import { type ApiPost, authorName } from '../utils/posts.js'
 
 interface Column {
-  status: 'planned' | 'in_progress'
+  status: 'planned' | 'in_progress' | 'shipped'
   titleKey: string
   titleDefault: string
   icon: string
@@ -29,16 +31,23 @@ const COLUMNS: Column[] = [
   {
     status: 'planned',
     titleKey: 'roadmap.colPlanned',
-    titleDefault: 'Planned',
+    titleDefault: 'Planned (Committed)',
     icon: 'event_available',
     barColor: 'var(--color-status-planned)',
   },
   {
     status: 'in_progress',
     titleKey: 'roadmap.colInProgress',
-    titleDefault: 'In progress',
+    titleDefault: 'In Progress (Active)',
     icon: 'progress_activity',
     barColor: 'var(--color-status-inprogress)',
+  },
+  {
+    status: 'shipped',
+    titleKey: 'roadmap.colShipped',
+    titleDefault: 'Shipped & GA',
+    icon: 'check_circle',
+    barColor: 'var(--color-status-shipped)',
   },
 ]
 
@@ -62,6 +71,7 @@ export function Roadmap() {
           properties: {
             planned: rows.filter((p) => p.status === 'planned').length,
             in_progress: rows.filter((p) => p.status === 'in_progress').length,
+            shipped: rows.filter((p) => p.status === 'shipped').length,
           },
         })
       })
@@ -90,7 +100,7 @@ export function Roadmap() {
             {t('roadmap.eyebrow', {}, { defaultValue: 'Public roadmap' })}
           </span>
           <h1 className={cm.cn(cm.fontWeight('bold'), 'text-3xl tracking-tight text-on-surface')}>
-            {t('roadmap.title', {}, { defaultValue: 'What we are building next' })}
+            {t('roadmap.title', {}, { defaultValue: 'Public Product Roadmap' })}
           </h1>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
             {t(
@@ -98,7 +108,7 @@ export function Roadmap() {
               {},
               {
                 defaultValue:
-                  'Commitments, not promises — items move as the work moves, and voters hear it first.',
+                  'Verifiable delivery commitments connected to engineering sprints. Track real-time progress — items move as the work moves, and voters hear it first.',
               },
             )}
           </p>
@@ -138,7 +148,7 @@ export function Roadmap() {
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </p>
       ) : (
-        <div className={cm.cn('grid gap-4 grid-cols-1 md:grid-cols-2')}>
+        <div className={cm.cn('grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3')}>
           {COLUMNS.map((col) => {
             const rows = (posts ?? []).filter((p) => p.status === col.status)
             return (
@@ -239,6 +249,32 @@ export function Roadmap() {
           })}
         </div>
       )}
+
+      <section
+        aria-labelledby="roadmap-how"
+        className={cm.cn(
+          cm.flex({ direction: 'col', gap: 'sm' }),
+          cm.sp('p', 6),
+          'rounded-xl border border-outline-variant/40 bg-surface-container-low/40',
+        )}
+      >
+        <h2
+          id="roadmap-how"
+          className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}
+        >
+          {t('roadmap.howTitle', {}, { defaultValue: 'How SignalLoop Roadmap Commitments Work' })}
+        </h2>
+        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}>
+          {t(
+            'roadmap.howBody',
+            {},
+            {
+              defaultValue:
+                'Unlike static marketing roadmaps, this board reflects live engineering backlog states. An item only enters Planned once it is committed to a sprint, moves to In Progress when the work starts, and lands in Shipped & GA the moment it reaches production — at which point every voter is notified and the changelog entry goes out.',
+            },
+          )}
+        </p>
+      </section>
     </div>
   )
 }

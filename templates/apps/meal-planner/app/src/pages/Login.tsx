@@ -46,8 +46,111 @@ export function Login() {
     }
   }
 
+  // The Stitch design's brand-panel showcase: this week's status, the featured
+  // braise card, and a member quote.
+  const aside = (
+    <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), 'text-white')}>
+      <p
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'xs' }),
+          cm.textSize('sm'),
+          cm.fontWeight('semibold'),
+          'text-white/90',
+        )}
+      >
+        <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-base')}>
+          calendar_month
+        </span>
+        {t(
+          'simmer.login.aside.weekStatus',
+          {},
+          { defaultValue: 'This week: 5 dinners planned & ready' },
+        )}
+      </p>
+      <div
+        className={cm.cn(
+          cm.sp('p', 5),
+          cm.flex({ direction: 'col', gap: 'xs' }),
+          'rounded-2xl bg-white/10 border border-white/20',
+        )}
+      >
+        <p
+          className={cm.cn(
+            cm.textSize('xs'),
+            cm.fontWeight('bold'),
+            'uppercase tracking-wider text-white/80',
+          )}
+        >
+          {t(
+            'simmer.login.aside.featuredEyebrow',
+            {},
+            { defaultValue: 'Thursday dinner · 45 mins' },
+          )}
+        </p>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'w-12 h-12 flex-none rounded-xl bg-white/15 text-2xl',
+            )}
+            aria-hidden="true"
+          >
+            🍗
+          </div>
+          <h2
+            className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-white leading-snug')}
+          >
+            {t(
+              'simmer.login.aside.featuredTitle',
+              {},
+              { defaultValue: 'Rustic Braised Lemon Herb Chicken' },
+            )}
+          </h2>
+        </div>
+        <p
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.textSize('xs'),
+            'text-white/80',
+          )}
+        >
+          <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-sm')}>
+            checklist
+          </span>
+          {t(
+            'simmer.login.aside.pantryNote',
+            {},
+            { defaultValue: '7 items already in your pantry' },
+          )}
+        </p>
+      </div>
+      <figure className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+        <blockquote className={cm.cn(cm.textSize('sm'), 'text-white/90 leading-relaxed')}>
+          “
+          {t(
+            'simmer.login.aside.quote',
+            {},
+            {
+              defaultValue:
+                'Simmer shaved two hours off our weekly grocery run and permanently dissolved that nightly 6 PM panic.',
+            },
+          )}
+          ”
+        </blockquote>
+        <figcaption className={cm.cn(cm.textSize('xs'), 'text-white/70')}>
+          {t(
+            'simmer.login.aside.quoteAuthor',
+            {},
+            { defaultValue: 'Maya Chen · Portland, Oregon — Simmer member since 2023' },
+          )}
+        </figcaption>
+      </figure>
+    </div>
+  )
+
   return (
     <SimmerAuthShell
+      aside={aside}
       heading={t('auth.login.signInTitle', {}, { defaultValue: 'Welcome back' })}
       subheading={t('simmer.login.subheading', {}, { defaultValue: 'Log in to see your week' })}
       footer={

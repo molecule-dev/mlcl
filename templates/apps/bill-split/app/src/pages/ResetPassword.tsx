@@ -6,6 +6,7 @@ import { useLogin, usePasswordReset, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AuthBrandHeader } from '../components/AuthBrandHeader.js'
+import { DemoTripCard } from '../components/DemoTripCard.js'
 import { Footer } from '../components/Footer.js'
 
 export function ResetPassword() {
@@ -71,7 +72,11 @@ export function ResetPassword() {
             <AuthBrandHeader />
             <div className={cm.textCenter}>
               <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
-                {t('auth.resetPassword.setNewPassword', {}, { defaultValue: 'Set a new password' })}
+                {t(
+                  'auth.resetPassword.setNewPassword',
+                  {},
+                  { defaultValue: 'Create a new password' },
+                )}
               </h2>
               <p
                 className={cm.cn(
@@ -326,6 +331,103 @@ export function ResetPassword() {
                   : t('resetPassword.submit', {}, { defaultValue: 'Reset password & sign in' })}
               </button>
             </form>
+
+            {/* Stitch info panel — what happens the moment the reset lands. */}
+            <section
+              data-mol-id="reset-password-aftermath"
+              className={cm.cn(
+                cm.sp('p', 5),
+                'rounded-2xl bg-surface-container-low border border-outline-variant/30',
+                cm.stack(3),
+              )}
+            >
+              <h3
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('bold'),
+                  cm.flex({ align: 'center', gap: 2 }),
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'h-7 w-7 rounded-lg bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] text-primary',
+                  )}
+                  aria-hidden="true"
+                >
+                  <span className={cm.cn('material-symbols-outlined text-base')}>info</span>
+                </span>
+                {t(
+                  'resetPassword.aftermathTitle',
+                  {},
+                  { defaultValue: 'What happens after you reset:' },
+                )}
+              </h3>
+              <ol className={cm.stack(2)}>
+                {(
+                  [
+                    {
+                      title: 'Instant session refresh',
+                      body: 'All old session tokens and temporary browser cookies are invalidated immediately.',
+                    },
+                    {
+                      title: 'Payment links restored',
+                      body: 'Your settlement deep links stay intact without any data re-entry.',
+                    },
+                    {
+                      title: 'Security confirmation email',
+                      body: 'A timestamped notification is dispatched to your inbox as a receipt.',
+                    },
+                  ] as const
+                ).map((step, i) => (
+                  <li key={step.title} className={cm.flex({ align: 'start', gap: 3 })}>
+                    <span
+                      className={cm.cn(
+                        cm.flex({ align: 'center', justify: 'center' }),
+                        'h-6 w-6 shrink-0 rounded-full bg-primary text-on-primary text-xs font-bold',
+                      )}
+                      aria-hidden="true"
+                    >
+                      {i + 1}
+                    </span>
+                    <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      <strong className={cm.fontWeight('semibold') + ' text-on-surface block'}>
+                        {t(
+                          `resetPassword.aftermath.${step.title}`,
+                          {},
+                          { defaultValue: step.title },
+                        )}
+                      </strong>
+                      {t(
+                        `resetPassword.aftermathBody.${step.title}`,
+                        {},
+                        { defaultValue: step.body },
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </section>
+
+            {/* Stitch demo panel — the sample trip waiting on the other side. */}
+            <DemoTripCard
+              emoji="⛷️"
+              name={t('resetPassword.demoTrip', {}, { defaultValue: 'Tahoe Ski Weekend' })}
+              meta={t('resetPassword.demoTripMeta', {}, { defaultValue: '8 members · Dec 12–16' })}
+              badge={t('resetPassword.demoTripBadge', {}, { defaultValue: 'Protected' })}
+              balanceLabel={t(
+                'resetPassword.demoBalanceLabel',
+                {},
+                { defaultValue: 'Your pending balance' },
+              )}
+              balance="+$210.00"
+              balanceNote={t(
+                'resetPassword.demoBalanceNote',
+                {},
+                { defaultValue: 'You are owed by 3 members' },
+              )}
+              avatars={['JD', 'MC', 'LT']}
+            />
           </div>
 
           <footer className={cm.cn(cm.sp('mt', 8), cm.textCenter)}>

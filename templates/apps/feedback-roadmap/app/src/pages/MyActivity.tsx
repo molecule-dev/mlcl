@@ -105,6 +105,7 @@ export function MyActivity() {
   )
 
   const shippedCount = (posts ?? []).filter((p) => p.status === 'shipped').length
+  const shipped = (posts ?? []).filter((p) => p.status === 'shipped').slice(0, 5)
 
   return (
     <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }))}>
@@ -121,21 +122,25 @@ export function MyActivity() {
             {t('myActivity.eyebrow', {}, { defaultValue: 'Your activity' })}
           </span>
           <h1 className={cm.cn(cm.fontWeight('bold'), 'text-3xl tracking-tight text-on-surface')}>
-            {tab === 'votes'
-              ? t('myActivity.votesTitle', {}, { defaultValue: 'Requests you voted for' })
-              : t('myActivity.postsTitle', {}, { defaultValue: 'Requests you submitted' })}
+            {t('myActivity.title', {}, { defaultValue: 'My Activity & Impact' })}
           </h1>
-          {tab === 'votes' && posts !== null && (
-            <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
-              {t(
-                'myActivity.shippedNote',
-                { count: shippedCount },
-                {
-                  defaultValue: '{{count}} of them shipped — thanks for the nudge.',
-                },
-              )}
-            </p>
-          )}
+          <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+            {t(
+              'myActivity.subtitle',
+              {},
+              {
+                defaultValue:
+                  'Track your feature requests and active upvotes — and see when engineering ships what you asked for.',
+              },
+            )}{' '}
+            {tab === 'votes' && posts !== null
+              ? t(
+                  'myActivity.shippedNote',
+                  { count: shippedCount },
+                  { defaultValue: '{{count}} of them shipped — thanks for the nudge.' },
+                )
+              : null}
+          </p>
         </div>
         <div role="group" aria-label={t('myActivity.tabLabel', {}, { defaultValue: 'View' })}>
           {(['votes', 'posts'] as Tab[]).map((mode) => {
@@ -166,6 +171,15 @@ export function MyActivity() {
           })}
         </div>
       </header>
+
+      <h2
+        data-mol-id="my-activity-list-title"
+        className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}
+      >
+        {tab === 'votes'
+          ? t('myActivity.votesTitle', {}, { defaultValue: 'Requests you voted for' })
+          : t('myActivity.postsTitle', {}, { defaultValue: 'Requests you submitted' })}
+      </h2>
 
       {error ? (
         <div
@@ -263,6 +277,142 @@ export function MyActivity() {
           ))}
         </div>
       )}
+
+      {shipped.length > 0 && (
+        <section
+          aria-labelledby="my-activity-shipped"
+          className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}
+        >
+          <h2
+            id="my-activity-shipped"
+            className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}
+          >
+            {t('myActivity.shippedSignalsTitle', {}, { defaultValue: 'Recent Shipped Signals' })}
+          </h2>
+          <ul
+            className={cm.cn(
+              cm.flex({ direction: 'col', gap: 'xs' }),
+              cm.sp('p', 2),
+              'rounded-xl border bg-surface divide-y divide-outline-variant/40',
+            )}
+            style={{ borderColor: 'var(--color-outline-variant)' }}
+          >
+            {shipped.map((post) => (
+              <li
+                key={post.id}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'sm' }),
+                  cm.sp('px', 3),
+                  cm.sp('py', 2),
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    cm.w(6),
+                    cm.h(6),
+                    cm.roundedFull,
+                    'shrink-0',
+                  )}
+                  style={{
+                    backgroundColor: 'var(--color-status-shipped-light)',
+                    color: 'var(--color-status-shipped)',
+                  }}
+                  aria-hidden="true"
+                >
+                  <span className={cm.cn('material-symbols-outlined text-xs')}>check</span>
+                </span>
+                <Link
+                  to={`/post/${post.id}`}
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'text-on-surface hover:text-primary transition-colors min-w-0 truncate',
+                  )}
+                >
+                  {post.title}
+                </Link>
+                <span
+                  className={cm.cn(cm.textSize('xs'), 'ml-auto shrink-0')}
+                  style={{ color: 'var(--color-status-shipped)' }}
+                >
+                  {t('myActivity.shippedYouAsked', {}, { defaultValue: 'You asked — we built it' })}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <div className={cm.cn('grid gap-4 grid-cols-1 md:grid-cols-2')}>
+        <section
+          aria-labelledby="my-activity-notifications"
+          data-mol-id="my-activity-notifications-card"
+          className={cm.cn(
+            cm.flex({ direction: 'col', gap: 'sm' }),
+            cm.sp('p', 5),
+            'rounded-xl border border-outline-variant/40 bg-surface',
+          )}
+        >
+          <h2
+            id="my-activity-notifications"
+            className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}
+          >
+            {t('myActivity.notificationsTitle', {}, { defaultValue: 'Notification Settings' })}
+          </h2>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'myActivity.notificationsBody',
+              {},
+              {
+                defaultValue:
+                  'Decide how status changes reach you — replies, mentions, weekly digests, and push alerts for the requests you follow.',
+              },
+            )}
+          </p>
+          <Link
+            to="/settings"
+            data-mol-id="my-activity-notifications-cta"
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              cm.fontWeight('semibold'),
+              cm.textSize('sm'),
+              'text-primary hover:underline self-start',
+            )}
+          >
+            {t('myActivity.notificationsCta', {}, { defaultValue: 'Open settings' })}
+            <span className="material-symbols-outlined text-base" aria-hidden="true">
+              arrow_forward
+            </span>
+          </Link>
+        </section>
+
+        <section
+          aria-labelledby="my-activity-sla"
+          className={cm.cn(
+            cm.flex({ direction: 'col', gap: 'sm' }),
+            cm.sp('p', 5),
+            'rounded-xl border border-outline-variant/40 bg-surface',
+          )}
+        >
+          <h2
+            id="my-activity-sla"
+            className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}
+          >
+            {t('myActivity.slaTitle', {}, { defaultValue: 'Submission Guidelines & SLA' })}
+          </h2>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'myActivity.slaBody',
+              {},
+              {
+                defaultValue:
+                  'Every upvote contributes to the ranking. The product team triages weekly — high-weight requests trigger roadmap tasks automatically, and you hear back the moment the status moves.',
+              },
+            )}
+          </p>
+        </section>
+      </div>
     </div>
   )
 }

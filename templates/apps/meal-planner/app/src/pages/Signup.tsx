@@ -81,8 +81,105 @@ export function Signup() {
     }
   }
 
+  // The Stitch design's brand-panel showcase: trial promise + what-you-get.
+  const aside = (
+    <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), 'text-white')}>
+      <h2
+        className={cm.cn(
+          cm.fontWeight('semibold'),
+          'font-headline text-3xl text-white leading-tight tracking-tight',
+        )}
+      >
+        {t('simmer.signup.aside.title', {}, { defaultValue: 'Start cooking with a calm mind.' })}
+      </h2>
+      <p className={cm.cn(cm.textSize('sm'), 'text-white/90')}>
+        {t(
+          'simmer.signup.aside.body',
+          {},
+          {
+            defaultValue:
+              'Create your free Simmer account. Plan your first week in five minutes and retire the 6 PM panic forever.',
+          },
+        )}
+      </p>
+      <div
+        className={cm.cn(
+          cm.sp('p', 5),
+          cm.flex({ direction: 'col', gap: 'xs' }),
+          'rounded-2xl bg-white/10 border border-white/20',
+        )}
+      >
+        <p
+          className={cm.cn(
+            cm.textSize('xs'),
+            cm.fontWeight('bold'),
+            'uppercase tracking-wider text-white/90',
+          )}
+        >
+          {t('simmer.signup.aside.perksTitle', {}, { defaultValue: 'What you get right away' })}
+        </p>
+        <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), 'list-none')}>
+          {(
+            [
+              {
+                key: 'noCard',
+                body: 'Zero credit card required to explore the full weekly planner.',
+              },
+              {
+                key: 'import',
+                body: 'Import recipes from any food blog, URL, or a photo of a handwritten note.',
+              },
+              {
+                key: 'list',
+                body: 'An instant grocery list, consolidated by supermarket aisle.',
+              },
+              {
+                key: 'share',
+                body: 'Share a real-time dinner board with your partner or roommates.',
+              },
+            ] as const
+          ).map((row) => (
+            <li
+              key={row.key}
+              className={cm.cn(
+                cm.flex({ align: 'start', gap: 'xs' }),
+                cm.textSize('sm'),
+                'text-white/90',
+              )}
+            >
+              <span
+                aria-hidden="true"
+                className={cm.cn('material-symbols-outlined text-base text-white mt-0.5')}
+              >
+                check
+              </span>
+              {t(`simmer.signup.aside.perks.${row.key}`, {}, { defaultValue: row.body })}
+            </li>
+          ))}
+        </ul>
+        <p
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.textSize('xs'),
+            'text-white/80 mt-1',
+          )}
+        >
+          <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-sm')}>
+            verified_user
+          </span>
+          {t(
+            'simmer.signup.aside.privacy',
+            {},
+            { defaultValue: 'Your data stays private. No spam, ever. Export your meals anytime.' },
+          )}
+        </p>
+      </div>
+    </div>
+  )
+
   return (
     <SimmerAuthShell
+      aside={aside}
       heading={t('auth.signup.createYourAccount', {}, { defaultValue: 'Create your account' })}
       subheading={t(
         'simmer.signup.subheading',

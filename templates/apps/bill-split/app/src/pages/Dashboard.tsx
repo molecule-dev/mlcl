@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import type { UserProfile } from '@molecule/app-auth'
+import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { formatCents, formatDate } from '../lib/money.js'
+
+interface UserRecord extends UserProfile {
+  username?: string
+}
 
 interface DashboardGroup {
   id: string
@@ -48,12 +53,49 @@ const ACTIVITY_ICONS: Record<string, string> = {
   settlement_recorded: 'handshake',
 }
 
+/* Stitch "Upcoming Recurring Bills" — a labeled SAMPLE schedule. bill-split
+ * has no recurring-bills model, so this panel is explicitly marked as a
+ * sample of what a subscription split looks like, never real user data. */
+const SAMPLE_RECURRING_BILLS = [
+  {
+    icon: 'wifi',
+    name: 'Spectrum 1Gbps',
+    group: 'Bushwick (Apt 4B)',
+    amount: '$80.00',
+    split: 'Split 4 ways: $20.00 / person',
+    due: 'Due in 4 days',
+  },
+  {
+    icon: 'electric_bolt',
+    name: 'ConEd Electric',
+    group: 'Bushwick (Apt 4B)',
+    amount: '$120.00',
+    split: 'Split 3 ways: $40.00 / person',
+    due: 'Due in 9 days',
+  },
+] as const
+
+/** Time-boxed greeting — Stitch opens the dashboard with "Good morning, …". */
+function greetingKey(
+  hour: number,
+): 'dashboard.greetingMorning' | 'dashboard.greetingAfternoon' | 'dashboard.greetingEvening' {
+  if (hour < 12) return 'dashboard.greetingMorning'
+  if (hour < 18) return 'dashboard.greetingAfternoon'
+  return 'dashboard.greetingEvening'
+}
+
 export function Dashboard() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const { user } = useAuth<UserRecord>()
   const [summary, setSummary] = useState<DashboardSummary>(FALLBACK)
   const [error, setError] = useState<string | null>(null)
+
+  const firstName = (user?.name ?? user?.username ?? '').trim().split(/\s+/)[0] ?? ''
+  const netPositiveFriends = summary.friends.filter((f) => !f.is_self && f.net_cents > 0)
+  const netNegativeFriends = summary.friends.filter((f) => !f.is_self && f.net_cents < 0)
+  const squareAwayActions = [...netNegativeFriends, ...netPositiveFriends]
 
   useEffect(() => {
     let cancelled = false
@@ -94,8 +136,28 @@ export function Dashboard() {
           <h1
             className={cm.cn(cm.textSize('3xl'), cm.sp('mt', 1), 'font-extrabold tracking-tight')}
           >
-            {t('dashboard.title', {}, { defaultValue: 'Your money position' })}
+            {t(
+              greetingKey(new Date().getHours()),
+              { name: firstName },
+              {
+                defaultValue:
+                  firstName.length > 0 ? 'Good morning, {{name}} 👋' : 'Good morning 👋',
+              },
+            )}
           </h1>
+          <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2), 'text-on-surface-variant')}>
+            {squareAwayActions.length > 0
+              ? t(
+                  'dashboard.settlementSuggestions',
+                  {},
+                  { defaultValue: 'Settlement suggestions are pending your quick approval.' },
+                )
+              : t(
+                  'dashboard.allInSync',
+                  {},
+                  { defaultValue: 'All your shared ledgers are in sync.' },
+                )}
+          </p>
         </div>
         <Link
           to="/expenses/new"
@@ -266,10 +328,218 @@ export function Dashboard() {
         </div>
       </section>
 
+      <section className={cm.stack(4)}>
+        {/* Stitch card — "Ready to square away": cross-group 1-tap settlement
+            suggestions derived from the real per-friend nets. */}
+        <div
+          data-mol-id="dashboard-square-away"
+          className={cm.cn(
+            cm.sp('p', 6),
+            'rounded-2xl bg-surface border border-outline-variant/40',
+            cm.stack(4),
+          )}
+        >
+          <header className={cm.flex({ align: 'center', justify: 'between', gap: 'md' })}>
+            <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+              <span
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'h-9 w-9 shrink-0 rounded-lg bg-primary-container text-on-primary-container',
+                )}
+                aria-hidden="true"
+              >
+                <span className={cm.cn('material-symbols-outlined text-base')}>electric_bolt</span>
+              </span>
+              <div>
+                <h3 className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'))}>
+                  {t('dashboard.squareAway', {}, { defaultValue: 'Ready to square away' })}
+                </h3>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {t(
+                    'dashboard.squareAwayHint',
+                    {},
+                    { defaultValue: '1-tap settlement suggestions across your circles' },
+                  )}
+                </p>
+              </div>
+            </div>
+            {squareAwayActions.length > 0 ? (
+              <span
+                className={cm.cn(
+                  cm.sp('px', 2.5),
+                  cm.sp('py', 1),
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'rounded-full bg-primary-container text-on-primary-container',
+                )}
+              >
+                {t(
+                  'dashboard.squareAwayCount',
+                  { count: squareAwayActions.length },
+                  { defaultValue: '{{count}} actions' },
+                )}
+              </span>
+            ) : null}
+          </header>
+          {squareAwayActions.length > 0 ? (
+            <ul className={cm.stack(2)}>
+              {squareAwayActions.map((friend) => (
+                <li
+                  key={friend.name}
+                  data-mol-id={`dashboard-square-away-${friend.name}`}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'md' }),
+                    cm.sp('px', 4),
+                    cm.sp('py', 3),
+                    'rounded-xl bg-surface-container-low',
+                  )}
+                >
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'h-8 w-8 shrink-0 rounded-full text-[11px] font-bold uppercase',
+                      friend.net_cents < 0
+                        ? 'bg-error-container text-on-error-container'
+                        : 'bg-primary-container text-on-primary-container',
+                    )}
+                    aria-hidden="true"
+                  >
+                    {friend.name.slice(0, 2)}
+                  </span>
+                  <span className={cm.cn(cm.textSize('sm'), cm.flex1, 'min-w-0')}>
+                    {friend.net_cents < 0
+                      ? t(
+                          'dashboard.squareAwayPay',
+                          { name: friend.name, amount: formatCents(-friend.net_cents) },
+                          { defaultValue: 'Pay {{name}} {{amount}}' },
+                        )
+                      : t(
+                          'dashboard.squareAwayRemind',
+                          { name: friend.name, amount: formatCents(friend.net_cents) },
+                          { defaultValue: 'Remind {{name}} ({{amount}})' },
+                        )}
+                  </span>
+                  <Link
+                    to="/balances"
+                    className={cm.cn(
+                      cm.sp('px', 3),
+                      cm.sp('py', 1),
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'rounded-full text-white transition-colors shrink-0',
+                    )}
+                    style={{
+                      background:
+                        'linear-gradient(135deg, var(--color-primary-hover), var(--color-gradient-end))',
+                    }}
+                  >
+                    {friend.net_cents < 0
+                      ? t('dashboard.squareAwaySettle', {}, { defaultValue: 'Settle up' })
+                      : t('dashboard.squareAwayView', {}, { defaultValue: 'View' })}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'dashboard.squareAwayEmpty',
+                {},
+                { defaultValue: 'Everyone is square — nothing to settle right now.' },
+              )}
+            </p>
+          )}
+        </div>
+
+        {/* Stitch panel — "Upcoming Recurring Bills" (labeled sample). */}
+        <div
+          data-mol-id="dashboard-recurring-bills"
+          className={cm.cn(
+            cm.sp('p', 6),
+            'rounded-2xl bg-surface border border-outline-variant/40',
+            cm.stack(4),
+          )}
+        >
+          <header className={cm.flex({ align: 'center', justify: 'between', gap: 'md' })}>
+            <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+              <span
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'h-9 w-9 shrink-0 rounded-lg bg-secondary-container text-on-secondary-container',
+                )}
+                aria-hidden="true"
+              >
+                <span className={cm.cn('material-symbols-outlined text-base')}>calendar_month</span>
+              </span>
+              <h3 className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'))}>
+                {t('dashboard.recurringBills', {}, { defaultValue: 'Upcoming Recurring Bills' })}
+              </h3>
+            </div>
+            <span
+              className={cm.cn(
+                cm.sp('px', 2.5),
+                cm.sp('py', 1),
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-widest rounded-full bg-surface-container-high text-on-surface-variant',
+              )}
+            >
+              {t('dashboard.recurringSample', {}, { defaultValue: 'Sample schedule' })}
+            </span>
+          </header>
+          <ul className={cm.stack(2)}>
+            {SAMPLE_RECURRING_BILLS.map((bill) => (
+              <li
+                key={bill.name}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'md' }),
+                  cm.sp('px', 4),
+                  cm.sp('py', 3),
+                  'rounded-xl bg-surface-container-low',
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'h-9 w-9 shrink-0 rounded-lg bg-surface-container-high text-on-surface-variant',
+                  )}
+                  aria-hidden="true"
+                >
+                  <span className={cm.cn('material-symbols-outlined text-base')}>{bill.icon}</span>
+                </span>
+                <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
+                  <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                    {t(`dashboard.recurringBill.${bill.name}`, {}, { defaultValue: bill.name })}
+                  </span>
+                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                    {bill.group} ·{' '}
+                    {t(`dashboard.recurringSplit.${bill.name}`, {}, { defaultValue: bill.split })}
+                  </span>
+                </div>
+                <div className="text-right shrink-0">
+                  <span
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('bold'),
+                      'tabular-nums block',
+                    )}
+                  >
+                    {bill.amount}
+                  </span>
+                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                    {t(`dashboard.recurringDue.${bill.name}`, {}, { defaultValue: bill.due })}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section data-mol-id="dashboard-groups" className={cm.stack(4)}>
         <header className={cm.flex({ align: 'baseline', justify: 'between' })}>
           <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
-            {t('dashboard.groups.title', {}, { defaultValue: 'Your groups' })}
+            {t('dashboard.groups.title', {}, { defaultValue: 'Active Circles & Groups' })}
           </h2>
           <Link
             to="/groups"

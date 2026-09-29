@@ -442,6 +442,131 @@ export function RecipeDetail() {
             )}
           </section>
 
+          {/* Kitchen Notes & Carryover Prep — the design's editorial bento */}
+          <section
+            className={cm.cn(
+              cm.sp('p', 6),
+              'bg-surface-container-low rounded-2xl border border-outline/30',
+            )}
+          >
+            <h3
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.fontWeight('bold'),
+                cm.textSize('lg'),
+                'text-primary',
+                cm.sp('mb', 4),
+              )}
+            >
+              <span aria-hidden="true" className={cm.cn('material-symbols-outlined')}>
+                auto_stories
+              </span>
+              {t(
+                'simmer.recipe.notes.title',
+                {},
+                { defaultValue: 'Kitchen Notes & Carryover Prep' },
+              )}
+            </h3>
+            <div className={cm.cn('grid grid-cols-1 md:grid-cols-2 gap-4')}>
+              <div
+                className={cm.cn(
+                  cm.sp('p', 5),
+                  cm.flex({ direction: 'col', gap: 'xs' }),
+                  'bg-surface rounded-xl border border-outline/30',
+                )}
+              >
+                <p
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.textSize('sm'),
+                    cm.fontWeight('bold'),
+                    'text-secondary',
+                  )}
+                >
+                  <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-base')}>
+                    recycling
+                  </span>
+                  {t('simmer.recipe.notes.batch', {}, { defaultValue: 'Batch cooking strategy' })}
+                </p>
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant flex-1')}>
+                  {t(
+                    'simmer.recipe.notes.batchBody',
+                    {},
+                    {
+                      defaultValue:
+                        "Cooking for plan-night? Double the pot and stash the extra — tomorrow's lunch or Tuesday's grain bowl assembles itself from the leftovers.",
+                    },
+                  )}
+                </p>
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    'text-primary',
+                  )}
+                >
+                  <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-sm')}>
+                    calendar_add_on
+                  </span>
+                  {t(
+                    'simmer.recipe.notes.batchHint',
+                    {},
+                    { defaultValue: 'Plan the leftovers onto any open slot →' },
+                  )}
+                </span>
+              </div>
+              <div
+                className={cm.cn(
+                  cm.sp('p', 5),
+                  cm.flex({ direction: 'col', gap: 'xs' }),
+                  'bg-surface rounded-xl border border-outline/30',
+                )}
+              >
+                <p
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.textSize('sm'),
+                    cm.fontWeight('bold'),
+                    'text-tertiary',
+                  )}
+                >
+                  <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-base')}>
+                    kitchen
+                  </span>
+                  {t('simmer.recipe.notes.pantry', {}, { defaultValue: 'Pantry check' })}
+                </p>
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant flex-1')}>
+                  {t(
+                    'simmer.recipe.notes.pantryBody',
+                    {},
+                    {
+                      defaultValue:
+                        'Ingredients you already stock are struck through on the list — check the pantry before you shop and the grocery list does the deduping.',
+                    },
+                  )}
+                </p>
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    'text-on-surface-variant',
+                  )}
+                >
+                  <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-sm')}>
+                    shopping_basket
+                  </span>
+                  {t(
+                    'simmer.recipe.notes.pantryHint',
+                    {},
+                    { defaultValue: 'Keeps staples off the list automatically' },
+                  )}
+                </span>
+              </div>
+            </div>
+          </section>
+
           {owned ? (
             <section
               className={cm.cn(

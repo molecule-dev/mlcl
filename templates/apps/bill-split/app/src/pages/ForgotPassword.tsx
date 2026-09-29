@@ -6,6 +6,7 @@ import { usePasswordReset, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AuthBrandHeader } from '../components/AuthBrandHeader.js'
+import { DemoTripCard } from '../components/DemoTripCard.js'
 import { Footer } from '../components/Footer.js'
 
 export function ForgotPassword() {
@@ -196,6 +197,94 @@ export function ForgotPassword() {
                 {t('forgotPassword.continue', {}, { defaultValue: 'I have a code · Continue' })}
               </button>
             )}
+
+            {/* Stitch demo panel + security checklist. */}
+            <DemoTripCard
+              emoji="🌲"
+              name={t('forgotPassword.demoTrip', {}, { defaultValue: 'Portland Cabin Trip' })}
+              meta={t('forgotPassword.demoTripMeta', {}, { defaultValue: '7 members · Labor Day' })}
+              badge={t('forgotPassword.demoTripBadge', {}, { defaultValue: 'Protected & Synced' })}
+              balanceLabel={t(
+                'forgotPassword.demoBalanceLabel',
+                {},
+                { defaultValue: 'Your Pending Net Balance' },
+              )}
+              balance="+$210.00"
+              avatars={['SM', 'DP', 'EK']}
+            />
+
+            <section
+              data-mol-id="forgot-password-security"
+              className={cm.cn(cm.stack(2))}
+              aria-label={t(
+                'forgotPassword.securityTitle',
+                { app: 'Evenly' },
+                { defaultValue: 'How {{app}} protects your account' },
+              )}
+            >
+              <h3
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('bold'),
+                  cm.flex({ align: 'center', gap: 2 }),
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'h-7 w-7 rounded-lg bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] text-primary',
+                  )}
+                  aria-hidden="true"
+                >
+                  <span className={cm.cn('material-symbols-outlined text-base')}>security</span>
+                </span>
+                {t(
+                  'forgotPassword.securityTitle',
+                  { app: 'Evenly' },
+                  { defaultValue: 'How {{app}} protects your account' },
+                )}
+              </h3>
+              <ul className={cm.stack(2)}>
+                {(
+                  [
+                    {
+                      icon: 'timer',
+                      title: '15-minute expiration:',
+                      body: ' Reset links automatically invalidate so a stray email can’t touch your shared ledgers.',
+                    },
+                    {
+                      icon: 'pause_circle',
+                      title: 'Automatic transfer pause:',
+                      body: ' Outward settlement links stay locked until your identity is confirmed again.',
+                    },
+                    {
+                      icon: 'support_agent',
+                      title: '24/7 organizer hotline:',
+                      body: ' Locked out mid-trip? Priority assistance is standing by.',
+                    },
+                  ] as const
+                ).map((row) => (
+                  <li key={row.title} className={cm.flex({ align: 'start', gap: 2 })}>
+                    <span
+                      className={cm.cn('material-symbols-outlined text-base text-primary')}
+                      aria-hidden="true"
+                    >
+                      {row.icon}
+                    </span>
+                    <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      <strong className={cm.fontWeight('semibold') + ' text-on-surface'}>
+                        {t(`forgotPassword.security.${row.title}`, {}, { defaultValue: row.title })}
+                      </strong>
+                      {t(
+                        `forgotPassword.securityBody.${row.title}`,
+                        {},
+                        { defaultValue: row.body },
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
           </div>
 
           <footer className={cm.cn(cm.sp('mt', 8), cm.textCenter)}>

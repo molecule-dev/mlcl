@@ -18,7 +18,11 @@ export default function AuthFooter() {
       className={cm.cn(
         cm.flex({ justify: 'center', gap: 'xl' }),
         cm.sp('px', 8),
-        'fixed bottom-8 w-full',
+        cm.sp('py', 6),
+        // Static flow (mt-auto pins it below short content) — a fixed footer
+        // painted OVER tall auth panels and broke the axe color-contrast gate
+        // whenever content extended under it.
+        'mt-auto w-full',
       )}
     >
       <span
@@ -47,7 +51,9 @@ export default function AuthFooter() {
           )}
           to="/about"
         >
-          {t('footer.about', {}, { defaultValue: 'About' })}
+          {/* The shared catalog's footer.about value is 'About {{appName}}' —
+              without the values object it rendered the placeholder literally. */}
+          {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About' })}
         </Link>
       </div>
     </footer>

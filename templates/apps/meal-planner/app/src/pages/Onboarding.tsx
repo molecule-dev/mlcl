@@ -5,6 +5,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const STEPS = ['welcome', 'household', 'diet'] as const
 type Step = (typeof STEPS)[number]
@@ -92,9 +93,7 @@ export function Onboarding() {
           'border-b border-primary-container',
         )}
       >
-        <span className={cm.cn(cm.fontWeight('bold'), 'text-2xl text-primary tracking-tight')}>
-          {APP_NAME}
-        </span>
+        <BrandWordmark as="span" />
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
           {STEPS.map((s, i) => (
             <span

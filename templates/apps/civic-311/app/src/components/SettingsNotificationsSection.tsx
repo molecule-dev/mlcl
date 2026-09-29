@@ -61,7 +61,7 @@ function SettingsNotificationsSection({
           {t(
             'settingsNotifications.sectionTitle',
             {},
-            { defaultValue: 'Notification Preferences' },
+            { defaultValue: 'Notification & Dispatch Telemetry Channels' },
           )}
         </h3>
         <button

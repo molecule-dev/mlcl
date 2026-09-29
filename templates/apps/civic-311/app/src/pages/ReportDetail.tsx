@@ -262,36 +262,6 @@ export function ReportDetailPage() {
               { reporter: issue.reporter_name || 'A resident', when: timeAgo(issue.created_at, t) },
               { defaultValue: 'Reported by {{reporter}} {{when}}' },
             )}
-            action={
-              issue.is_mine ? null : issue.confirmed_by_me ? (
-                <span
-                  data-mol-id="report-confirmed"
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    'rounded-lg py-2 text-sm font-semibold shrink-0',
-                    'bg-primary-container/40 text-primary',
-                  )}
-                >
-                  {t('reportDetail.confirmed', {}, { defaultValue: 'You confirmed this' })}
-                </span>
-              ) : (
-                <button
-                  type="button"
-                  data-mol-id="report-confirm"
-                  onClick={handleConfirm}
-                  disabled={confirming}
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    'rounded-lg py-2 text-sm font-semibold shrink-0',
-                    'bg-primary text-on-primary hover:opacity-90 disabled:opacity-50',
-                  )}
-                >
-                  {confirming
-                    ? t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })
-                    : t('reportDetail.confirm', {}, { defaultValue: 'Me too — confirm' })}
-                </button>
-              )
-            }
           />
 
           {commentError && (
@@ -308,8 +278,9 @@ export function ReportDetailPage() {
           )}
 
           <div className={cm.flex({ align: 'start', gap: 8 })}>
-            {/* Left column: summary + timeline + comments */}
+            {/* Left column: overview + SLA + dispatch feed + community notes */}
             <div className={cm.cn(cm.flex1, 'min-w-0', cm.stack(6))}>
+              {/* Incident Report Overview (design h2) */}
               <section
                 data-mol-id="report-detail-summary"
                 className={cm.cn(
@@ -318,7 +289,10 @@ export function ReportDetailPage() {
                   'rounded-xl bg-surface-container-lowest border border-outline-variant/40',
                 )}
               >
-                <div className={cm.flex({ align: 'center', gap: 3 })}>
+                <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'))}>
+                  {t('reportDetail.overview', {}, { defaultValue: 'Incident Report Overview' })}
+                </h2>
+                <div className={cm.flex({ align: 'center', gap: 3, wrap: 'wrap' })}>
                   <span
                     className="material-symbols-outlined"
                     style={{ color: `var(--color-cat-${issue.category})` }}
@@ -336,17 +310,131 @@ export function ReportDetailPage() {
                   </span>
                 </div>
                 <p className={cm.cn(cm.textSize('sm'), 'leading-relaxed')}>{issue.description}</p>
-                {issue.photo_url && (
-                  <img
-                    src={issue.photo_url}
-                    alt={t(
-                      'reportDetail.photoAlt',
-                      { category: categoryLabel(issue.category) },
-                      { defaultValue: 'Photo of the reported {{category}}' },
+                {/* Visual Evidence & Verification (design h3) */}
+                <div className={cm.stack(2)}>
+                  <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                    {t(
+                      'reportDetail.visualEvidence',
+                      {},
+                      { defaultValue: 'Visual Evidence & Verification' },
                     )}
-                    data-mol-id="report-detail-photo"
-                    className={cm.cn(cm.maxW('sm'), 'rounded-lg border border-outline-variant/50')}
-                  />
+                  </h3>
+                  {issue.photo_url ? (
+                    <img
+                      src={issue.photo_url}
+                      alt={t(
+                        'reportDetail.photoAlt',
+                        { category: categoryLabel(issue.category) },
+                        { defaultValue: 'Photo of the reported {{category}}' },
+                      )}
+                      data-mol-id="report-detail-photo"
+                      className={cm.cn(
+                        cm.maxW('sm'),
+                        'rounded-lg border border-outline-variant/50',
+                      )}
+                    />
+                  ) : (
+                    <p
+                      data-mol-id="report-detail-no-photo"
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 2 }),
+                        cm.sp('p', 3),
+                        cm.textSize('xs'),
+                        'rounded-lg border border-dashed border-outline-variant text-on-surface-variant',
+                      )}
+                    >
+                      <span className="material-symbols-outlined text-[16px]" aria-hidden>
+                        add_a_photo
+                      </span>
+                      {t(
+                        'reportDetail.noPhoto',
+                        {},
+                        {
+                          defaultValue:
+                            'No photo attached — verification relies on neighbor confirmations.',
+                        },
+                      )}
+                    </p>
+                  )}
+                </div>
+              </section>
+
+              {/* Public Works SLA Progression (design h2) */}
+              <section
+                data-mol-id="report-sla-progression"
+                className={cm.cn(
+                  cm.stack(3),
+                  cm.sp('p', 5),
+                  'rounded-xl bg-surface-container-low border border-outline-variant/40',
+                )}
+              >
+                <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'))}>
+                  {t(
+                    'reportDetail.slaProgression',
+                    {},
+                    { defaultValue: 'Public Works SLA Progression' },
+                  )}
+                </h2>
+                <div className="relative flex items-start justify-between pt-1">
+                  {(
+                    [
+                      ['submitted', 'Submitted'],
+                      ['acknowledged', 'Acknowledged'],
+                      ['in_review', 'In review'],
+                      ['resolved', 'Resolved'],
+                    ] as const
+                  ).map(([st, label], idx) => {
+                    const order = ['submitted', 'acknowledged', 'in_review', 'resolved']
+                    const currentIdx = order.indexOf(issue.status)
+                    const done = currentIdx > idx && issue.status !== 'dismissed'
+                    const active = issue.status === st
+                    return (
+                      <div
+                        key={st}
+                        className={cm.cn(
+                          cm.flex({ direction: 'col', align: 'center', gap: 1 }),
+                          'flex-1',
+                        )}
+                      >
+                        <span
+                          className={cnSlaDot(cm, done, active)}
+                          style={
+                            active
+                              ? { background: 'var(--color-status-in-review)' }
+                              : done
+                                ? { background: 'var(--color-status-resolved)' }
+                                : undefined
+                          }
+                        >
+                          {done ? '✓' : idx + 1}
+                        </span>
+                        <span
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            cm.textCenter,
+                            active ? cm.fontWeight('bold') : '',
+                            active
+                              ? 'text-[var(--color-status-in-review)]'
+                              : 'text-on-surface-variant',
+                          )}
+                        >
+                          {t(`reportDetail.sla.${st}`, {}, { defaultValue: label })}
+                        </span>
+                      </div>
+                    )
+                  })}
+                </div>
+                {issue.status === 'dismissed' && (
+                  <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                    {t(
+                      'reportDetail.dismissedNote',
+                      {},
+                      {
+                        defaultValue:
+                          'This report was dismissed from the workflow — see the official response below.',
+                      },
+                    )}
+                  </p>
                 )}
               </section>
 
@@ -449,10 +537,59 @@ export function ReportDetailPage() {
                 </section>
               )}
 
+              {/* Field Dispatch & Telemetry Feed (design h2) — the audit-grade
+                  event stream plus the dispatch card for the assigned crew. */}
               <section data-mol-id="report-timeline" className={cm.stack(3)}>
-                <h2 className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}>
-                  {t('reportDetail.timeline', {}, { defaultValue: 'Timeline' })}
+                <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'))}>
+                  {t(
+                    'reportDetail.timeline',
+                    {},
+                    { defaultValue: 'Field Dispatch & Telemetry Feed' },
+                  )}
                 </h2>
+                {/* Dispatch card (design: Assigned Crew) — the crew unit is
+                    presentational flavor derived from the category, matching
+                    the municipal fleet naming of the Stitch design. */}
+                <div
+                  data-mol-id="report-dispatch-card"
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between', gap: 3, wrap: 'wrap' }),
+                    cm.sp('p', 4),
+                    'rounded-lg border border-outline-variant/40 bg-surface-container-lowest',
+                  )}
+                >
+                  <div>
+                    <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                      {t(
+                        'reportDetail.assignedCrew',
+                        { crew: crewForCategory(issue.category) },
+                        { defaultValue: 'Assigned Crew: {{crew}}' },
+                      )}
+                    </h3>
+                    <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      {t(
+                        'reportDetail.dispatchNote',
+                        {},
+                        {
+                          defaultValue:
+                            'Crew assignment is set by DPW dispatch when the report is acknowledged.',
+                        },
+                      )}
+                    </p>
+                  </div>
+                  <span className={cnDispatchChip(cm)}>
+                    <span className="material-symbols-outlined text-[16px]" aria-hidden>
+                      engineering
+                    </span>
+                    {issue.status === 'submitted'
+                      ? t(
+                          'reportDetail.awaitingDispatch',
+                          {},
+                          { defaultValue: 'Awaiting dispatch' },
+                        )
+                      : t('reportDetail.dispatchActive', {}, { defaultValue: 'Dispatch active' })}
+                  </span>
+                </div>
                 <ol className={cm.stack(0)}>
                   {(issue.events ?? []).map((e) => (
                     <li
@@ -535,64 +672,146 @@ export function ReportDetailPage() {
                 </ol>
               </section>
 
-              {/* Comment composer */}
-              <form
-                data-mol-id="report-comment-form"
-                className={cm.stack(2)}
-                onSubmit={handleComment}
-              >
-                <label
-                  htmlFor="report-comment"
-                  className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}
-                >
-                  {t('reportDetail.addComment', {}, { defaultValue: 'Add a comment' })}
-                </label>
-                <textarea
-                  id="report-comment"
-                  data-mol-id="report-comment"
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 2),
-                    cm.textSize('sm'),
-                    'w-full min-h-[80px] rounded-lg border border-outline-variant bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary',
-                  )}
-                  maxLength={2000}
-                  value={comment}
-                  onChange={(e) => setComment(e.target.value)}
-                  placeholder={t(
-                    'reportDetail.commentPlaceholder',
+              {/* Community Verification & Notes (design h2) — neighbor
+                  comments + the citizen confirmation composer. */}
+              <section data-mol-id="report-community" className={cm.stack(3)}>
+                <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'))}>
+                  {t(
+                    'reportDetail.community',
                     {},
-                    { defaultValue: 'Anything neighbors or the crew should know…' },
+                    { defaultValue: 'Community Verification & Notes' },
                   )}
-                />
-                <button
-                  type="submit"
-                  data-mol-id="report-comment-submit"
+                </h2>
+                {/* Citizen Confirmation (design h3) — the "me too" action moved
+                    out of the header into its own verification card. */}
+                <div
+                  data-mol-id="report-citizen-confirmation"
                   className={cm.cn(
-                    cm.sp('px', 4),
-                    'self-start rounded-lg py-2 text-sm font-semibold',
-                    'bg-primary text-on-primary hover:opacity-90 disabled:opacity-50',
+                    cm.flex({ align: 'center', justify: 'between', gap: 3, wrap: 'wrap' }),
+                    cm.sp('p', 4),
+                    'rounded-lg border border-outline-variant/40 bg-surface-container-low',
                   )}
-                  disabled={commenting || !comment.trim()}
                 >
-                  {commenting
-                    ? t('common.submittingEllipsis', {}, { defaultValue: 'Submitting…' })
-                    : t('reportDetail.postComment', {}, { defaultValue: 'Post comment' })}
-                </button>
-              </form>
+                  <div>
+                    <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                      {t(
+                        'reportDetail.citizenConfirmation',
+                        {},
+                        { defaultValue: 'Citizen Confirmation' },
+                      )}
+                    </h3>
+                    <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      {t(
+                        'reportDetail.citizenConfirmationNote',
+                        { count: issue.confirmation_count },
+                        {
+                          defaultValue:
+                            '{{count}} neighbors have verified they see this issue too.',
+                        },
+                      )}
+                    </p>
+                  </div>
+                  {issue.is_mine ? (
+                    <span
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        cm.fontWeight('semibold'),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {t('reportDetail.ownReport', {}, { defaultValue: 'Your report' })}
+                    </span>
+                  ) : issue.confirmed_by_me ? (
+                    <span
+                      data-mol-id="report-confirmed"
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        'rounded-lg py-2 text-sm font-semibold shrink-0',
+                        'bg-primary-container/40 text-primary',
+                      )}
+                    >
+                      {t('reportDetail.confirmed', {}, { defaultValue: 'You confirmed this' })}
+                    </span>
+                  ) : (
+                    <button
+                      type="button"
+                      data-mol-id="report-confirm"
+                      onClick={handleConfirm}
+                      disabled={confirming}
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        'rounded-lg py-2 text-sm font-semibold shrink-0',
+                        'bg-primary text-on-primary hover:opacity-90 disabled:opacity-50',
+                      )}
+                    >
+                      {confirming
+                        ? t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })
+                        : t('reportDetail.confirm', {}, { defaultValue: 'Me too — confirm' })}
+                    </button>
+                  )}
+                </div>
+                {/* Comment composer */}
+                <form
+                  data-mol-id="report-comment-form"
+                  className={cm.stack(2)}
+                  onSubmit={handleComment}
+                >
+                  <label
+                    htmlFor="report-comment"
+                    className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}
+                  >
+                    {t('reportDetail.addComment', {}, { defaultValue: 'Add a comment' })}
+                  </label>
+                  <textarea
+                    id="report-comment"
+                    data-mol-id="report-comment"
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      cm.sp('py', 2),
+                      cm.textSize('sm'),
+                      'w-full min-h-[80px] rounded-lg border border-outline-variant bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary',
+                    )}
+                    maxLength={2000}
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                    placeholder={t(
+                      'reportDetail.commentPlaceholder',
+                      {},
+                      { defaultValue: 'Anything neighbors or the crew should know…' },
+                    )}
+                  />
+                  <button
+                    type="submit"
+                    data-mol-id="report-comment-submit"
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      'self-start rounded-lg py-2 text-sm font-semibold',
+                      'bg-primary text-on-primary hover:opacity-90 disabled:opacity-50',
+                    )}
+                    disabled={commenting || !comment.trim()}
+                  >
+                    {commenting
+                      ? t('common.submittingEllipsis', {}, { defaultValue: 'Submitting…' })
+                      : t('reportDetail.postComment', {}, { defaultValue: 'Post comment' })}
+                  </button>
+                </form>
+              </section>
             </div>
 
-            {/* Right column: map + facts */}
+            {/* Right column: GIS cadastre map + facts + transparency */}
             <aside className={cm.cn(cm.w('[260px]'), 'hidden lg:block shrink-0', cm.stack(5))}>
               <div data-mol-id="report-detail-map" className={cm.stack(2)}>
-                <span
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    'font-semibold uppercase tracking-wide text-on-surface-variant',
+                {/* Live Municipal GIS Cadastre (design h3) */}
+                <h3 className={cnCadastreTitle(cm)}>
+                  <span className="material-symbols-outlined text-[16px] text-primary" aria-hidden>
+                    layers
+                  </span>
+                  {t(
+                    'reportDetail.gisCadastre',
+                    {},
+                    { defaultValue: 'Live Municipal GIS Cadastre' },
                   )}
-                >
-                  {t('reportDetail.location', {}, { defaultValue: 'Location' })}
-                </span>
+                </h3>
                 <MiniMap
                   data-mol-id="report-map"
                   pins={[
@@ -607,6 +826,13 @@ export function ReportDetailPage() {
                 />
                 <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
                   {issue.derived_address}
+                </span>
+                <span className={cm.cn(cm.textSize('xs'), 'font-mono text-on-surface-variant')}>
+                  {t(
+                    'reportDetail.gridRef',
+                    { x: issue.x, y: issue.y },
+                    { defaultValue: 'grid {{x}}, {{y}} · EPSG:2272' },
+                  )}
                 </span>
               </div>
               <dl
@@ -638,6 +864,40 @@ export function ReportDetailPage() {
                   <dd>{timeAgo(issue.updated_at, t)}</dd>
                 </div>
               </dl>
+              {/* Charter § 4-112 Transparency (design h3) — the public-record
+                  statement for this docket. */}
+              <div
+                data-mol-id="report-charter-transparency"
+                className={cm.cn(
+                  cm.stack(2),
+                  cm.sp('p', 4),
+                  'rounded-lg border border-outline-variant/40 bg-surface-container-lowest',
+                )}
+              >
+                <h3
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 1 }),
+                    cm.textSize('xs'),
+                    cm.fontWeight('bold'),
+                    'text-primary',
+                  )}
+                >
+                  <span className="material-symbols-outlined text-[16px]" aria-hidden>
+                    account_balance
+                  </span>
+                  {t('reportDetail.charter', {}, { defaultValue: 'Charter § 4-112 Transparency' })}
+                </h3>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {t(
+                    'reportDetail.charterNote',
+                    {},
+                    {
+                      defaultValue:
+                        'This docket is a public record. Status transitions, dispatch telemetry, and the resolution photo are retained in the open municipal ledger.',
+                    },
+                  )}
+                </p>
+              </div>
             </aside>
           </div>
         </div>
@@ -647,3 +907,55 @@ export function ReportDetailPage() {
 }
 
 export default ReportDetailPage
+
+/* ── dispatch-flavor helpers (design: municipal fleet naming) ── */
+
+/** Presentational crew unit per category, matching the Stitch design's
+ * fleet naming ("Asphalt Unit #14" for potholes, etc.). */
+function crewForCategory(category: string): string {
+  switch (category) {
+    case 'pothole':
+      return 'Asphalt Unit #14'
+    case 'streetlight':
+      return 'Electrical Unit #7'
+    case 'tree':
+      return 'Forestry Unit #5'
+    case 'trash':
+      return 'Sanitation Unit #9'
+    case 'graffiti':
+      return 'Abatement Unit #3'
+    case 'parking':
+      return 'Enforcement Unit #2'
+    default:
+      return 'Municipal Field Unit #1'
+  }
+}
+
+const cnSlaDot = (cm: ReturnType<typeof getClassMap>, done: boolean, active: boolean): string =>
+  cm.cn(
+    cm.flex({ align: 'center', justify: 'center' }),
+    'h-7 w-7 rounded-full text-xs font-bold',
+    done
+      ? 'text-white'
+      : active
+        ? 'text-white ring-4 ring-[var(--color-status-in-review)]/20'
+        : 'bg-surface-variant text-on-surface-variant',
+  )
+
+const cnDispatchChip = (cm: ReturnType<typeof getClassMap>): string =>
+  cm.cn(
+    cm.flex({ align: 'center', gap: 1 }),
+    cm.sp('px', 3),
+    cm.sp('py', 2),
+    cm.textSize('xs'),
+    cm.fontWeight('semibold'),
+    'shrink-0 rounded-full bg-surface-container text-on-surface-variant',
+  )
+
+const cnCadastreTitle = (cm: ReturnType<typeof getClassMap>): string =>
+  cm.cn(
+    cm.flex({ align: 'center', gap: 1 }),
+    cm.textSize('xs'),
+    cm.fontWeight('bold'),
+    'uppercase tracking-wide',
+  )

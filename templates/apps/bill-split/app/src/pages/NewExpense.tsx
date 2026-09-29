@@ -253,7 +253,7 @@ export function NewExpense() {
           {t('newExpense.eyebrow', {}, { defaultValue: 'One receipt, everyone’s share' })}
         </p>
         <h1 className={cm.cn(cm.textSize('3xl'), cm.sp('mt', 1), 'font-extrabold tracking-tight')}>
-          {t('newExpense.title', {}, { defaultValue: 'Add expense' })}
+          {t('newExpense.title', {}, { defaultValue: 'Add an expense' })}
         </h1>
         <p
           className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2), 'text-on-surface-variant max-w-2xl')}
@@ -664,14 +664,17 @@ export function NewExpense() {
         </section>
 
         <aside className={cm.cn('space-y-4')}>
+          {/* Stitch panel — "Live Balance Impact": the computed per-member
+              share updates as the form changes. */}
           <div
+            data-mol-id="new-expense-balance-impact"
             className={cm.cn(
               cm.sp('p', 5),
               'rounded-2xl bg-surface border border-outline-variant/40 space-y-3',
             )}
           >
-            <h2 className={labelClass}>
-              {t('newExpense.summary', {}, { defaultValue: 'Summary' })}
+            <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'))}>
+              {t('newExpense.liveImpact', {}, { defaultValue: 'Live Balance Impact' })}
             </h2>
             <div className={cm.flex({ align: 'center', justify: 'between' })}>
               <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
@@ -693,7 +696,61 @@ export function NewExpense() {
                 )}
               </span>
             </div>
-            {splitMethod === 'equal' && activeIds.length > 0 ? (
+            {activeIds.length > 0 && amountCents !== null && amountCents > 0 ? (
+              <ul
+                className={cm.cn(cm.stack(1), cm.sp('pt', 2), 'border-t border-outline-variant/30')}
+              >
+                {members
+                  .filter((m) => participants.has(m.id))
+                  .map((m) => {
+                    const share =
+                      splitMethod === 'exact'
+                        ? (dollarsToCents(exactAmounts[m.id] ?? '') ?? 0)
+                        : splitMethod === 'shares'
+                          ? Math.floor(
+                              (amountCents *
+                                Math.max(1, Math.floor(Number(weights[m.id] ?? '1') || 1))) /
+                                Math.max(1, weightSum),
+                            )
+                          : perPersonCents
+                    const isPayer = m.id === payerId
+                    return (
+                      <li
+                        key={m.id}
+                        className={cm.flex({ align: 'center', justify: 'between', gap: 2 })}
+                      >
+                        <span className={cm.cn(cm.textSize('xs'), 'text-on-surface truncate')}>
+                          {m.is_self
+                            ? t('newExpense.youOption', {}, { defaultValue: 'You' })
+                            : m.name}
+                          {isPayer ? (
+                            <span
+                              className={cm.cn(cm.textSize('xs'), 'text-primary', cm.sp('ml', 1))}
+                            >
+                              · {t('newExpense.paysLabel', {}, { defaultValue: 'pays' })}
+                            </span>
+                          ) : null}
+                        </span>
+                        <span
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            cm.fontWeight('semibold'),
+                            'tabular-nums shrink-0',
+                            isPayer ? 'text-primary' : 'text-on-surface',
+                          )}
+                        >
+                          {isPayer ? '+' : '−'}
+                          {formatCents(share)}
+                        </span>
+                      </li>
+                    )
+                  })}
+              </ul>
+            ) : null}
+            {splitMethod === 'equal' &&
+            activeIds.length > 0 &&
+            amountCents !== null &&
+            amountCents > 0 ? (
               <div className={cm.flex({ align: 'center', justify: 'between' })}>
                 <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                   {t('newExpense.perPerson', {}, { defaultValue: 'Per person' })}
@@ -703,6 +760,44 @@ export function NewExpense() {
                 </span>
               </div>
             ) : null}
+          </div>
+
+          {/* Stitch card — "Smart Debt Minimizer": what happens after save. */}
+          <div
+            data-mol-id="new-expense-minimizer"
+            className={cm.cn(
+              cm.sp('p', 5),
+              'rounded-2xl bg-gradient-to-b from-surface-container-low to-surface border border-outline-variant/40 space-y-2',
+            )}
+          >
+            <h2
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('bold'),
+                cm.flex({ align: 'center', gap: 2 }),
+              )}
+            >
+              <span
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'h-7 w-7 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] text-primary',
+                )}
+                aria-hidden="true"
+              >
+                <span className={cm.cn('material-symbols-outlined text-base')}>insights</span>
+              </span>
+              {t('newExpense.minimizerTitle', {}, { defaultValue: 'Smart Debt Minimizer' })}
+            </h2>
+            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant leading-relaxed')}>
+              {t(
+                'newExpense.minimizerBody',
+                {},
+                {
+                  defaultValue:
+                    'After this expense lands, the minimizer immediately recomputes the fewest direct transfers that zero the group out — reciprocal debts cancel before anyone is asked to pay twice.',
+                },
+              )}
+            </p>
           </div>
 
           <div

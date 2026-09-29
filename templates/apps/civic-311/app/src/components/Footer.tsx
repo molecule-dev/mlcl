@@ -4,6 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, CITY_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Municipal footer (Stitch design): branding + department address, hotline and
@@ -42,9 +43,7 @@ export function Footer() {
           )}
         >
           <div>
-            <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-on-surface')}>
-              {APP_NAME} {CITY_NAME} 311
-            </span>
+            <BrandWordmark as="span" variant="line" footer />
             <p className={cm.cn(cm.textSize('sm'), 'text-secondary mt-1')}>
               {t(
                 'footer.address',

@@ -66,7 +66,7 @@ export function Balances() {
           {t('balances.eyebrow', {}, { defaultValue: 'Who owes whom' })}
         </p>
         <h1 className={cm.cn(cm.textSize('3xl'), cm.sp('mt', 1), 'font-extrabold tracking-tight')}>
-          {t('balances.title', {}, { defaultValue: 'Balances & settle up' })}
+          {t('balances.title', {}, { defaultValue: 'Balances & Settlements' })}
         </h1>
         <p
           className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2), 'text-on-surface-variant max-w-2xl')}
@@ -156,9 +156,20 @@ export function Balances() {
       </div>
 
       <section data-mol-id="balances-by-friend" className={cm.stack(4)}>
-        <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
-          {t('balances.byFriend', {}, { defaultValue: 'By person' })}
-        </h2>
+        <header
+          className={cm.flex({ align: 'baseline', justify: 'between', wrap: 'wrap', gap: 'sm' })}
+        >
+          <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
+            {t('balances.byFriend', {}, { defaultValue: '1-Tap Settle Up' })}
+          </h2>
+          <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+            {t(
+              'balances.byFriendHint',
+              {},
+              { defaultValue: 'Open the circle to settle in one tap — balances are per person.' },
+            )}
+          </span>
+        </header>
         <div
           className={cm.cn(
             'rounded-2xl bg-surface border border-outline-variant/40 overflow-hidden',
@@ -201,6 +212,27 @@ export function Balances() {
                         : t('balances.theyOweYou', {}, { defaultValue: 'They owe you' })}
                   </span>
                 </div>
+                {friend.net_cents !== 0 ? (
+                  <Link
+                    to="/groups"
+                    data-mol-id={`balance-settle-${idx}`}
+                    className={cm.cn(
+                      cm.sp('px', 3),
+                      cm.sp('py', 1),
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'rounded-full text-white transition-colors shrink-0',
+                    )}
+                    style={{
+                      background:
+                        'linear-gradient(135deg, var(--color-primary-hover), var(--color-gradient-end))',
+                    }}
+                  >
+                    {friend.net_cents < 0
+                      ? t('balances.payAction', {}, { defaultValue: 'Pay' })
+                      : t('balances.remindAction', {}, { defaultValue: 'Remind' })}
+                  </Link>
+                ) : null}
                 <span
                   className={cm.cn(
                     'text-base font-bold tabular-nums shrink-0',
@@ -256,7 +288,7 @@ export function Balances() {
 
       <section data-mol-id="balances-by-group" className={cm.stack(4)}>
         <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
-          {t('balances.byGroup', {}, { defaultValue: 'By group' })}
+          {t('balances.byGroup', {}, { defaultValue: 'Per-Circle Balances' })}
         </h2>
         <div
           className={cm.cn(

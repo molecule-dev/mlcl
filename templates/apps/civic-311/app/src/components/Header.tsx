@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, CITY_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 /**
@@ -41,41 +41,7 @@ export function Header() {
           data-mol-id="header-brand"
           className={cm.cn(cm.flex({ align: 'center' }), 'gap-2 shrink-0')}
         >
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'w-9 h-9 rounded-lg bg-primary-container text-on-primary shadow-sm',
-            )}
-          >
-            <svg
-              className="w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden
-            >
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-          </span>
-          <span className={cm.cn(cm.flex({ direction: 'col' }), 'leading-none')}>
-            <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'tracking-tight')}>
-              {APP_NAME}
-            </span>
-            <span
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('semibold'),
-                'font-mono uppercase tracking-widest text-secondary',
-              )}
-              style={{ fontSize: '10px' }}
-            >
-              {t('header.subBrand', { city: CITY_NAME }, { defaultValue: '{{city}} 311' })}
-            </span>
-          </span>
+          <BrandWordmark as="span" />
         </Link>
 
         {/* Report lookup — routes the reader to the public map */}

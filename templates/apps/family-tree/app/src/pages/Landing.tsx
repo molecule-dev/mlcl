@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { MiniTreePreview } from '../components/MiniTreePreview.js'
 
 /** Shared props for the decorative landing pillars/steps/features. */
@@ -186,42 +187,7 @@ export function Landing() {
             cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
           )}
         >
-          <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'shrink-0')}>
-            <div
-              className={cm.cn(
-                cm.w(9),
-                cm.h(9),
-                'rounded-md shadow-sm flex items-center justify-center shrink-0',
-              )}
-              style={{ backgroundColor: 'var(--color-forest)' }}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-white text-base')}
-                style={filled}
-                aria-hidden="true"
-              >
-                park
-              </span>
-            </div>
-            <span className={cm.cn(cm.flex({ direction: 'col' }), 'whitespace-nowrap')}>
-              <span
-                className={cm.cn(
-                  cm.textSize('lg'),
-                  cm.fontWeight('semibold'),
-                  'leading-none tracking-tight',
-                )}
-                style={{ fontFamily: 'var(--font-headline)' }}
-              >
-                {APP_NAME}
-              </span>
-              <span
-                className={cm.cn(cm.textSize('xs'), 'tracking-widest uppercase mt-0.5')}
-                style={{ color: 'var(--color-forest-hover)' }}
-              >
-                {t('landing.footer.tagline', {}, { defaultValue: 'Your family, connected' })}
-              </span>
-            </span>
-          </Link>
+          <BrandWordmark size="lg" withTagline />
           <nav
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'lg' }),
@@ -1157,26 +1123,7 @@ export function Landing() {
               'md:flex-row md:text-left',
             )}
           >
-            <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-              <div
-                className={cm.cn(cm.w(6), cm.h(6), 'rounded-md flex items-center justify-center')}
-                style={{ backgroundColor: 'var(--color-forest)' }}
-              >
-                <span
-                  className="material-symbols-outlined text-white text-sm"
-                  style={filled}
-                  aria-hidden="true"
-                >
-                  park
-                </span>
-              </div>
-              <span
-                className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}
-                style={{ fontFamily: 'var(--font-headline)' }}
-              >
-                {APP_NAME}
-              </span>
-            </div>
+            <BrandWordmark as="span" size="sm" footer />
             <span className="hidden md:inline" style={{ color: 'var(--color-archival-dot)' }}>
               |
             </span>
