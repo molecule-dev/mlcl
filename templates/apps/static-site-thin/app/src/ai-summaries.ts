@@ -85,29 +85,56 @@ export async function sectionSummaries(
   // page still work). Checked here so a keyless build or test never dials out.
   if (!process.env.DEEPSEEK_API_KEY) return {}
   const summaries: Record<number, string> = {}
+  let cache: ReturnType<typeof createFileSummaryCache>
   try {
     bondSummarizer()
-    const cache = createFileSummaryCache(join(root, CACHE_FILE))
-    for (const section of wanted) {
-      const result = await summarizeCached(
-        { text: section.text, format: 'tldr', maxWords: MAX_WORDS, model: MODEL },
-        { cache },
-      )
-      // Over the cap or unfinished (no full stop, ends on "and"/"the"…): the
-      // summarizer's fallback, not a TL;DR. Leave the section without one; the
-      // next build asks again. Publishing it showed readers a sentence that
-      // stops mid-phrase (X0 x282, x302).
-      if (result.withinCap !== false) summaries[section.index] = result.summary
-    }
-    cache.save()
-    return summaries
+    cache = createFileSummaryCache(join(root, CACHE_FILE))
   } catch (error) {
     // A build without summaries is a working site; a build that fails is not.
-    console.warn(
-      `[summaries] ${slug}: no section summaries this build — ${
-        error instanceof Error ? error.message : String(error)
-      }`,
-    )
+    console.warn(`[summaries] ${slug}: no section summaries this build — ${message(error)}`)
     return {}
   }
+  // Each section on its own, with one retry: one failed call (a rate limit, a
+  // timeout) used to throw away the WHOLE post's summaries, cached ones
+  // included, and the next deploy published a post with none (X0 x386,
+  // 2026-09-29). Now a failure costs only that section, the cache keeps every
+  // answer that came back, and the build says how many are missing.
+  const missed: number[] = []
+  for (const section of wanted) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const result = await summarizeCached(
+          { text: section.text, format: 'tldr', maxWords: MAX_WORDS, model: MODEL },
+          { cache },
+        )
+        // Over the cap or unfinished (no full stop, ends on "and"/"the"…): the
+        // summarizer's fallback, not a TL;DR. Leave the section without one; the
+        // next build asks again. Publishing it showed readers a sentence that
+        // stops mid-phrase (X0 x282, x302).
+        if (result.withinCap !== false) summaries[section.index] = result.summary
+        break
+      } catch (error) {
+        if (attempt === 1) {
+          missed.push(section.index)
+          console.warn(
+            `[summaries] ${slug}: section at block ${section.index} has no summary this build — ${message(error)}`,
+          )
+        } else {
+          await new Promise((resolve) => setTimeout(resolve, 1500))
+        }
+      }
+    }
+  }
+  cache.save()
+  if (missed.length > 0) {
+    console.warn(
+      `[summaries] ${slug}: ${missed.length} of ${wanted.length} long sections have NO summary — rebuild before deploying (answers that came back are cached, so a rebuild only asks for these).`,
+    )
+  }
+  return summaries
+}
+
+/** An error's message, for a log line. */
+function message(error: unknown): string {
+  return error instanceof Error ? error.message : String(error)
 }
