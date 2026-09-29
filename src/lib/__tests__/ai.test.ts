@@ -63,7 +63,7 @@ describe('ai', () => {
 
       expect(mockCreate).toHaveBeenCalledWith(
         expect.objectContaining({
-          model: 'claude-sonnet-5',
+          model: 'claude-sonnet-5-5',
           max_tokens: 8192,
           system: 'system prompt',
           messages: [

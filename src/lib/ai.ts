@@ -61,7 +61,7 @@ export async function generateCode(
   const client = getClient()
 
   const message = await client.messages.create({
-    model: 'claude-sonnet-5',
+    model: 'claude-sonnet-5-5',
     max_tokens: 8192,
     system: systemPrompt,
     messages: [
