@@ -63,7 +63,7 @@ function bondSummarizer(): void {
 
 /**
  * One sentence about each section of a post, keyed by the section's first block
- * index (`sectionStarts()` in src/pages.ts).
+ * index (`sectionStarts()` in src/post-notes.ts).
  *
  * Sections below `MIN_WORDS` are skipped, and so is any section the model could
  * not summarize — a summary that runs past the cap comes back with

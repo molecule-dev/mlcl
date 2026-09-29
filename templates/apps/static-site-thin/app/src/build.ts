@@ -35,15 +35,8 @@ import {
   TRANSCRIPTS_DIR,
 } from './content.js'
 import { siteFiles } from './files.js'
-import {
-  aboutPage,
-  indexPage,
-  notFoundPage,
-  postPage,
-  sectionStarts,
-  tagPage,
-  tagsPage,
-} from './pages.js'
+import { aboutPage, indexPage, notFoundPage, postPage, tagPage, tagsPage } from './pages.js'
+import { sectionStarts } from './post-notes.js'
 import { humanProvenance, markdownBlocks, postProvenance, type Provenance } from './provenance.js'
 import { createSite, type Site } from './site.js'
 
@@ -70,7 +63,7 @@ export function sitePages(
     provenance?: Map<string, Provenance>
     /**
      * TL;DR per section per post slug, keyed by section start index
-     * (`sectionStarts` in src/pages.ts). `buildSite` fills it by calling
+     * (`sectionStarts` in src/post-notes.ts). `buildSite` fills it by calling
      * `sectionSummaries()` (src/ai-summaries.ts), which summarizes each
      * section over the bonded AI provider and caches the answers.
      */
