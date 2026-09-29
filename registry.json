@@ -57122,7 +57122,7 @@
       "@molecule/api-ai-speech-molecule": "1.1.1",
       "@molecule/api-content-moderation-openai": "1.1.0",
       "@molecule/api-content-moderation-molecule": "1.1.1",
-      "@molecule/app-margin-notes-html": "1.0.6",
+      "@molecule/app-margin-notes-html": "1.0.7",
       "@molecule/api-agent-runtime-claude-code": "1.1.0",
       "@molecule/api-agent-run": "1.1.0",
       "@molecule/app-client-search": "1.0.2",
