@@ -43,7 +43,15 @@ vi.mock('@molecule/app-auth', () => ({
   parseJWT: {},
   isTokenExpired: vi.fn(),
   getTokenExpiration: vi.fn(),
-  createJWTAuthClient: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
+  createJWTAuthClient: vi.fn(() => ({
+    onLocaleChange: vi.fn(),
+    initialize: vi.fn(),
+    // Used by setupAuthDefault() (http bearer interceptor) and by
+    // setupAutoTracking() (auth event subscription).
+    getAccessToken: vi.fn(),
+    addEventListener: vi.fn(() => vi.fn()),
+    subscribe: vi.fn(() => vi.fn()),
+  })),
   setClient: vi.fn(),
   getClient: vi.fn(),
   hasClient: vi.fn(),
@@ -71,13 +79,16 @@ vi.mock('@molecule/app-bond', () => ({
   unbondNamed: {},
   clearProviders: {},
   reset: {},
-  bond: {},
-  get: {},
-  getAll: vi.fn(),
-  unbond: {},
-  unbondAll: {},
+  // bond()/unbond()/unbondAll()/require() are invoked at module-eval time by
+  // app-bonds.ts and at setupProviders() time by setupAllDefaultBonds() —
+  // they must be callable functions, not bare objects.
+  bond: vi.fn(),
+  get: vi.fn(),
+  getAll: vi.fn(() => new Map()),
+  unbond: vi.fn(),
+  unbondAll: vi.fn(),
   isBonded: vi.fn(),
-  require: {},
+  require: vi.fn(),
 }))
 
 vi.mock('@molecule/app-calendar', () => ({

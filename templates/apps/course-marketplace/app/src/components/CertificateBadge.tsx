@@ -9,7 +9,7 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 export type CertificateBadgeProps = {
   recipient: string
@@ -49,9 +49,7 @@ export function CertificateBadge(props: CertificateBadgeProps) {
       ></div>
       <div className={cm.cn('relative z-10 flex flex-col h-full')}>
         <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }))}>
-          <span className={cm.cn('text-3xl font-black tracking-tighter text-primary')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="md" />
           <div
             className={cm.cn(
               'w-16 h-16 rounded-full border-4 border-[var(--color-lectura-gold)] flex items-center justify-center bg-surface',

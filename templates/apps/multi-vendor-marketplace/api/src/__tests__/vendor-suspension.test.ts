@@ -75,14 +75,23 @@ const makeRes = () => {
     },
   }) as unknown as Response & { statusCode: number }
 }
+// The detail handler 404s any non-UUID id before touching the store, and its
+// vendor lookup reads the vendors row by the product's vendor_id — the mocks
+// below must use a real UUID-shaped id and key the vendor row on that id.
+const PRODUCT_ID = '3f1d2c4a-9b0e-4f7a-8c1d-2e3b4a5c6d7e'
+
 const runDetail = (vendorStatus: string) => {
-  db.findById.mockImplementation((table: unknown, id: unknown) => {
-    if (table === 'products') return Promise.resolve({ id: 'p1', vendor_id: 'v1', name: 'Widget' })
-    if (table === 'vendors') return Promise.resolve({ id, status: vendorStatus })
+  db.findById.mockImplementation((table: unknown, _id: unknown) => {
+    if (table === 'products') {
+      return Promise.resolve({ id: PRODUCT_ID, vendor_id: 'v1', name: 'Widget' })
+    }
+    if (table === 'vendors') {
+      return Promise.resolve({ id: 'v1', status: vendorStatus })
+    }
     return Promise.resolve(null)
   })
   const res = makeRes() as Response & { statusCode: number }
-  return detailHandler()({ params: { id: 'p1' } } as unknown as Request, res).then(() => res)
+  return detailHandler()({ params: { id: PRODUCT_ID } } as unknown as Request, res).then(() => res)
 }
 
 beforeEach(() => vi.clearAllMocks())

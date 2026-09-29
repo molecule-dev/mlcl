@@ -201,9 +201,10 @@ router.get('/', validateQuery(listIssuesQuery), async (req: Request, res: Respon
     const { category, status, mine, near_x, near_y, radius, sort, order, limit, offset } =
       req.query as unknown as z.infer<typeof listIssuesQuery>
     const mineFlag = mine !== undefined && mine !== '0' && mine !== 'false'
-    // The community list is PUBLIC — the signed-out landing map reads it.
-    // Auth is required only for mine=1 (the caller's own reports).
-    if (!userId && mineFlag) return unauthorized(res)
+    // Every endpoint in this router requires a session — including the list.
+    // The signed-out landing map degrades to its illustrative content on the
+    // 401 (see app/src/pages/Landing.tsx), so no public read exists here.
+    if (!userId) return unauthorized(res)
 
     const where: WhereCondition[] = []
     if (category) where.push({ field: 'category', operator: '=', value: category })

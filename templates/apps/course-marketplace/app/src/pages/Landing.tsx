@@ -5,6 +5,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { CategoryBubble } from '../components/CategoryBubble.js'
 import { CourseTile } from '../components/CourseTile.js'
 import { Footer } from '../components/Footer.js'
@@ -72,9 +73,7 @@ export function Landing() {
         )}
       >
         <div className={cm.cn('flex justify-between items-center px-8 py-4 max-w-7xl mx-auto')}>
-          <Link to="/" className={'text-2xl font-black tracking-tighter text-primary'}>
-            {APP_NAME}
-          </Link>
+          <BrandWordmark />
           <div className={cm.cn('hidden lg:flex items-center gap-2')}>
             {[
               { to: '/browse', label: t('landing.nav.browse', {}, { defaultValue: 'Browse' }) },

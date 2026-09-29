@@ -12,7 +12,7 @@ import { AuthShellCardColumn, AuthShellPanel } from '@molecule/app-auth-shell-re
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 export type AuthShellProps = {
   heading: string
@@ -49,7 +49,9 @@ export function AuthShell(props: AuthShellProps) {
           )}
         ></div>
         <div className={cm.cn('relative z-10')}>
-          <h1 className={cm.cn('text-4xl font-extrabold tracking-tighter mb-4')}>{APP_NAME}</h1>
+          <h1 className={cm.cn('mb-4 leading-none')}>
+            <BrandWordmark as="span" size="lg" invert />
+          </h1>
           <p
             className={cm.cn(
               'text-2xl font-bold leading-tight max-w-md whitespace-pre-line opacity-95',
@@ -134,8 +136,8 @@ export function AuthShell(props: AuthShellProps) {
         className={cm.cn('w-full lg:w-1/2 min-h-screen bg-surface', cm.sp('p', 8))}
       >
         <div className={cm.cn('lg:hidden mb-8 text-center w-full max-w-[440px]')}>
-          <h1 className={cm.cn('text-3xl font-extrabold tracking-tighter text-primary')}>
-            {APP_NAME}
+          <h1 className={cm.cn('leading-none')}>
+            <BrandWordmark as="span" />
           </h1>
         </div>
         <div

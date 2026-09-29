@@ -5,6 +5,10 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 // the predicate is deterministic and independent of any env wiring.
 process.env.ADMIN_EMAILS = ''
 
+// The handler 404s any non-UUID :id by design (a malformed id must never reach
+// Postgres as a uuid literal), so the fixture order carries a real UUID.
+const ORDER_ID = '6f1c2a3e-9b4d-4c8a-a1b2-3c4d5e6f7a8b'
+
 // --- Database mock -----------------------------------------------------------
 const findById = vi.fn()
 const updateById = vi.fn()
@@ -34,7 +38,7 @@ vi.mock('@molecule/api-logger', () => ({
 let currentUserId: string | undefined
 vi.mock('@molecule/api-bonds-default-express', () => ({
   getUserId: () => currentUserId,
-  getParamId: () => 'order-1',
+  getParamId: () => ORDER_ID,
 }))
 
 vi.mock('@molecule/api-middleware-validation', () => ({
@@ -75,7 +79,7 @@ const makeRes = (): MockRes => {
 }
 
 const makeReq = (body: Record<string, unknown> = {}): Request =>
-  ({ body, params: { id: 'order-1' } }) as unknown as Request
+  ({ body, params: { id: ORDER_ID } }) as unknown as Request
 
 /** Wire findById to serve the fixture order + a small users table. */
 function seedDb(order: Record<string, unknown> | null, users: Record<string, StoreUserRow>): void {
@@ -152,7 +156,7 @@ describe('orders — merchant authorization (M6-1)', () => {
   describe('refund (always merchant-only)', () => {
     it('403s a plain buyer (the order owner) with merchantForbidden', async () => {
       seedDb(
-        { id: 'order-1', user_id: 'buyer-1', status: 'delivered', total: 1999 },
+        { id: ORDER_ID, user_id: 'buyer-1', status: 'delivered', total: 1999 },
         {
           'buyer-1': BUYER,
         },
@@ -166,12 +170,12 @@ describe('orders — merchant authorization (M6-1)', () => {
       expect(res.statusCode).toBe(403)
       expect(res.body?.error).toBe(MERCHANT_FORBIDDEN)
       // No refund mutation happened.
-      expect(updateById).not.toHaveBeenCalledWith('orders', 'order-1', expect.anything())
+      expect(updateById).not.toHaveBeenCalledWith('orders', ORDER_ID, expect.anything())
     })
 
     it('lets a store operator (merchant) refund any order', async () => {
       seedDb(
-        { id: 'order-1', user_id: 'buyer-1', status: 'delivered', total: 1999 },
+        { id: ORDER_ID, user_id: 'buyer-1', status: 'delivered', total: 1999 },
         {
           'op-1': OPERATOR,
         },
@@ -186,7 +190,7 @@ describe('orders — merchant authorization (M6-1)', () => {
       expect(res.body).toMatchObject({ refunded: true, amount: 1999 })
       expect(updateById).toHaveBeenCalledWith(
         'orders',
-        'order-1',
+        ORDER_ID,
         expect.objectContaining({ status: 'refunded' }),
       )
     })
@@ -195,7 +199,7 @@ describe('orders — merchant authorization (M6-1)', () => {
       const { setOrderMerchantAuthorizer } = await import('@molecule/api-resource-order')
       setOrderMerchantAuthorizer(null)
       seedDb(
-        { id: 'order-1', user_id: 'buyer-1', status: 'delivered', total: 1999 },
+        { id: ORDER_ID, user_id: 'buyer-1', status: 'delivered', total: 1999 },
         {
           'op-1': OPERATOR,
         },
@@ -214,7 +218,7 @@ describe('orders — merchant authorization (M6-1)', () => {
   describe('updateStatus — merchant lifecycle vs buyer cancel', () => {
     it('403s a buyer driving a forward/merchant status (delivered) with merchantForbidden', async () => {
       seedDb(
-        { id: 'order-1', user_id: 'buyer-1', status: 'on_the_way', total: 1999 },
+        { id: ORDER_ID, user_id: 'buyer-1', status: 'on_the_way', total: 1999 },
         {
           'buyer-1': BUYER,
         },
@@ -232,7 +236,7 @@ describe('orders — merchant authorization (M6-1)', () => {
 
     it('lets a store operator drive a forward status (delivered)', async () => {
       seedDb(
-        { id: 'order-1', user_id: 'buyer-1', status: 'on_the_way', total: 1999 },
+        { id: ORDER_ID, user_id: 'buyer-1', status: 'on_the_way', total: 1999 },
         {
           'op-1': OPERATOR,
         },
@@ -246,14 +250,14 @@ describe('orders — merchant authorization (M6-1)', () => {
       expect(res.statusCode).toBeUndefined()
       expect(updateById).toHaveBeenCalledWith(
         'orders',
-        'order-1',
+        ORDER_ID,
         expect.objectContaining({ status: 'delivered' }),
       )
     })
 
     it('lets a buyer cancel their OWN still-pending order (no merchant needed)', async () => {
       seedDb(
-        { id: 'order-1', user_id: 'buyer-1', status: 'pending', total: 1999 },
+        { id: ORDER_ID, user_id: 'buyer-1', status: 'pending', total: 1999 },
         {
           'buyer-1': BUYER,
         },
@@ -267,14 +271,14 @@ describe('orders — merchant authorization (M6-1)', () => {
       expect(res.statusCode).toBeUndefined()
       expect(updateById).toHaveBeenCalledWith(
         'orders',
-        'order-1',
+        ORDER_ID,
         expect.objectContaining({ status: 'cancelled' }),
       )
     })
 
     it('403s a non-owner cancelling someone else’s pending order with the owner-check key', async () => {
       seedDb(
-        { id: 'order-1', user_id: 'buyer-1', status: 'pending', total: 1999 },
+        { id: ORDER_ID, user_id: 'buyer-1', status: 'pending', total: 1999 },
         {
           'intruder-1': INTRUDER,
         },
@@ -292,7 +296,7 @@ describe('orders — merchant authorization (M6-1)', () => {
 
     it('403s a buyer cancelling an already-progressed order (merchant-only) with merchantForbidden', async () => {
       seedDb(
-        { id: 'order-1', user_id: 'buyer-1', status: 'confirmed', total: 1999 },
+        { id: ORDER_ID, user_id: 'buyer-1', status: 'confirmed', total: 1999 },
         {
           'buyer-1': BUYER,
         },
@@ -310,7 +314,7 @@ describe('orders — merchant authorization (M6-1)', () => {
 
     it('lets a store operator cancel a progressed order', async () => {
       seedDb(
-        { id: 'order-1', user_id: 'buyer-1', status: 'confirmed', total: 1999 },
+        { id: ORDER_ID, user_id: 'buyer-1', status: 'confirmed', total: 1999 },
         {
           'op-1': OPERATOR,
         },
@@ -324,7 +328,7 @@ describe('orders — merchant authorization (M6-1)', () => {
       expect(res.statusCode).toBeUndefined()
       expect(updateById).toHaveBeenCalledWith(
         'orders',
-        'order-1',
+        ORDER_ID,
         expect.objectContaining({ status: 'cancelled' }),
       )
     })
@@ -343,7 +347,7 @@ describe('orders — merchant authorization (M6-1)', () => {
     it('returns one unit of capacity when an operator cancels a confirmed order', async () => {
       seedDbWithSlot(
         {
-          id: 'order-1',
+          id: ORDER_ID,
           user_id: 'buyer-1',
           status: 'confirmed',
           total: 1999,
@@ -361,7 +365,7 @@ describe('orders — merchant authorization (M6-1)', () => {
     it('returns capacity when an operator refunds an order', async () => {
       seedDbWithSlot(
         {
-          id: 'order-1',
+          id: ORDER_ID,
           user_id: 'buyer-1',
           status: 'delivered',
           total: 1999,
@@ -379,7 +383,7 @@ describe('orders — merchant authorization (M6-1)', () => {
     it('does NOT double-free: refunding an already-cancelled order leaves capacity untouched', async () => {
       seedDbWithSlot(
         {
-          id: 'order-1',
+          id: ORDER_ID,
           user_id: 'buyer-1',
           status: 'cancelled',
           total: 1999,
@@ -397,7 +401,7 @@ describe('orders — merchant authorization (M6-1)', () => {
     it('clamps at the slot ceiling (never exceeds capacity)', async () => {
       seedDbWithSlot(
         {
-          id: 'order-1',
+          id: ORDER_ID,
           user_id: 'buyer-1',
           status: 'confirmed',
           total: 1999,

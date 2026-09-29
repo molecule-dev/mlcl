@@ -149,6 +149,13 @@ vi.mock('@molecule/api-resource-device', () => ({
 vi.mock('@molecule/api-resource-payment', () => ({}))
 
 vi.mock('@molecule/api-resource-user', () => ({
+  // App/Resource/User tunes rateLimitAuth from these outside production —
+  // the module-eval import needs them present even under this mock.
+  authorizers: {
+    rateLimit: vi.fn(() => (_req: unknown, _res: unknown, next: () => void) => next()),
+    loginAccountKey: vi.fn(),
+    emailAccountKey: vi.fn(),
+  },
   createRequestHandlerMap: () => ({
     create: vi.fn(),
     logIn: vi.fn(),
