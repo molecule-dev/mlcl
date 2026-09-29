@@ -6,7 +6,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { JOB_TONE, StatusBadge } from '../components/StatusBadge.js'
-import { formatDateTime } from '../lib/format.js'
+import { formatDateTime, formatMoney } from '../lib/format.js'
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface ChecklistItem {
@@ -48,6 +48,15 @@ interface Technician {
   active_jobs: number
 }
 
+interface InvoiceRecord {
+  id: string
+  number: string
+  status: string
+  total_cents: number
+  customer_id: string
+  job_id: string | null
+}
+
 /** Next status action the workflow offers, in order. */
 function nextActions(status: string): Array<{ to: string; label: string; primary?: boolean }> {
   switch (status) {
@@ -73,6 +82,7 @@ export function JobDetail() {
   const { id } = useParams<{ id: string }>()
   const [job, setJob] = useState<Job | null>(null)
   const [technicians, setTechnicians] = useState<Technician[]>([])
+  const [invoices, setInvoices] = useState<InvoiceRecord[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [acting, setActing] = useState(false)
@@ -87,12 +97,14 @@ export function JobDetail() {
     if (!id) return
     setLoading(true)
     try {
-      const [jobRes, techRes] = await Promise.all([
+      const [jobRes, techRes, invoiceRes] = await Promise.all([
         http.get(`/api/jobs/${id}`),
         http.get('/api/technicians'),
+        http.get('/api/invoices'),
       ])
       setJob(unwrapSingle<Job>(jobRes))
       setTechnicians(unwrapList<Technician>(techRes))
+      setInvoices(unwrapList<InvoiceRecord>(invoiceRes))
       setError(null)
     } catch (_error) {
       setError(t('jobs.detail.loadError', {}, { defaultValue: 'Failed to load job.' }))
@@ -227,6 +239,34 @@ export function JobDetail() {
     job.status === 'scheduled' || job.status === 'en_route' || job.status === 'in_progress'
   const assignOpen = isOpen
 
+  /** This job's dossier documents: the source quote + generated invoices. */
+  const dossier: { href: string; icon: string; label: string; meta: string }[] = []
+  if (job.quote_id) {
+    dossier.push({
+      href: `/quotes/${job.quote_id}`,
+      icon: 'description',
+      label: t('jobs.detail.dossierQuote', {}, { defaultValue: 'Source quote' }),
+      meta: t('jobs.detail.dossierQuoteMeta', {}, { defaultValue: 'Approved estimate & scope' }),
+    })
+  }
+  for (const inv of invoices.filter((i) => i.job_id === job.id)) {
+    dossier.push({
+      href: `/invoices/${inv.id}`,
+      icon: 'receipt_long',
+      label: inv.number,
+      meta: formatMoney(inv.total_cents),
+    })
+  }
+
+  /** Customer ledger for the jobsite environment panel. */
+  const customerInvoices = invoices.filter((i) => i.customer_id === job.customer_id)
+  const customerBilled = customerInvoices
+    .filter((i) => i.status !== 'draft')
+    .reduce((sum, i) => sum + i.total_cents, 0)
+  const customerOutstanding = customerInvoices
+    .filter((i) => i.status === 'sent')
+    .reduce((sum, i) => sum + i.total_cents, 0)
+
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('6xl'), cm.mxAuto, 'space-y-6')}>
       <nav>
@@ -318,6 +358,98 @@ export function JobDetail() {
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>{job.description}</p>
         </section>
       ) : null}
+
+      <section data-mol-id="job-jobsite-environment" className={cm.cn(cm.card(), cm.stack(3))}>
+        <h2
+          className={cm.cn(
+            cm.sp('px', 5),
+            cm.sp('py', 4),
+            cm.textSize('lg'),
+            cm.fontWeight('semibold'),
+            'border-b border-outline-variant font-display',
+          )}
+        >
+          <span
+            className="material-symbols-outlined text-base align-middle mr-2 text-primary"
+            aria-hidden="true"
+          >
+            cottage
+          </span>
+          {t(
+            'jobs.detail.environmentHeading',
+            {},
+            { defaultValue: 'Jobsite Environment & Customer Ledger' },
+          )}
+        </h2>
+        <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }), cm.sp('p', 5))}>
+          <div className={cm.stack(2)}>
+            <h3
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-wider text-on-surface-variant',
+              )}
+            >
+              {t('jobs.detail.environmentSite', {}, { defaultValue: 'Jobsite environment' })}
+            </h3>
+            <p className={cm.cn(cm.textSize('sm'))}>{job.address || '—'}</p>
+            {job.description ? (
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {job.description}
+              </p>
+            ) : null}
+            {job.technician ? (
+              <p
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  cm.textSize('sm'),
+                  'text-on-surface-variant',
+                )}
+              >
+                <span className="material-symbols-outlined text-sm text-primary" aria-hidden="true">
+                  engineering
+                </span>
+                {t(
+                  'jobs.detail.environmentTech',
+                  { name: job.technician },
+                  { defaultValue: 'Lead tech: {{name}}' },
+                )}
+              </p>
+            ) : null}
+          </div>
+          <div className={cm.stack(2)}>
+            <h3
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-wider text-on-surface-variant',
+              )}
+            >
+              {t('jobs.detail.environmentLedger', {}, { defaultValue: 'Customer ledger' })}
+            </h3>
+            <Link
+              to={`/customers/${job.customer_id}`}
+              className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'hover:underline')}
+            >
+              {job.customer}
+            </Link>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'jobs.detail.environmentBilled',
+                { amount: formatMoney(customerBilled) },
+                { defaultValue: 'Billed to date: {{amount}}' },
+              )}
+            </p>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'jobs.detail.environmentOutstanding',
+                { amount: formatMoney(customerOutstanding) },
+                { defaultValue: 'Outstanding: {{amount}}' },
+              )}
+            </p>
+          </div>
+        </div>
+      </section>
 
       {assignOpen ? (
         <section className={cm.cn(cm.card(), cm.sp('p', 5))}>
@@ -546,6 +678,74 @@ export function JobDetail() {
             {t('jobs.detail.addNote', {}, { defaultValue: 'Post' })}
           </button>
         </form>
+      </section>
+
+      <section data-mol-id="job-dossier-documents" className={cm.cn(cm.card(), cm.stack(3))}>
+        <h3
+          className={cm.cn(
+            cm.sp('px', 5),
+            cm.sp('py', 4),
+            cm.textSize('lg'),
+            cm.fontWeight('semibold'),
+            'border-b border-outline-variant font-display',
+          )}
+        >
+          <span
+            className="material-symbols-outlined text-base align-middle mr-2 text-primary"
+            aria-hidden="true"
+          >
+            attachment
+          </span>
+          {t('jobs.detail.dossierHeading', {}, { defaultValue: 'Attached Dossier Documents' })}
+        </h3>
+        {dossier.length === 0 ? (
+          <p className={cm.cn(cm.sp('p', 5), cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'jobs.detail.dossierEmpty',
+              {},
+              {
+                defaultValue:
+                  'No documents filed yet — the approved quote and the generated invoice attach here automatically.',
+              },
+            )}
+          </p>
+        ) : (
+          <ul>
+            {dossier.map((doc) => (
+              <li key={doc.href} className={'border-b border-outline-variant last:border-b-0'}>
+                <Link
+                  to={doc.href}
+                  className={cm.cn(
+                    cm.sp('px', 5),
+                    cm.sp('py', 3),
+                    cm.flex({ align: 'center', gap: 'sm' }),
+                    'hover:bg-surface-container',
+                  )}
+                >
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      cm.roundedFull,
+                      'h-8 w-8 shrink-0 bg-primary-container text-on-primary-container',
+                    )}
+                  >
+                    <span className="material-symbols-outlined text-base" aria-hidden="true">
+                      {doc.icon}
+                    </span>
+                  </span>
+                  <span className={cm.flex1}>
+                    <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                      {doc.label}
+                    </span>
+                    <span className={cm.cn(cm.textSize('xs'), 'block text-on-surface-variant')}>
+                      {doc.meta}
+                    </span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
 
       {error && job ? (

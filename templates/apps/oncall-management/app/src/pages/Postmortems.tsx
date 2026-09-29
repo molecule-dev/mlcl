@@ -260,7 +260,7 @@ export function Postmortems() {
           className={cm.cn('text-lg font-bold tracking-tight mb-2')}
           style={{ color: 'var(--color-text)' }}
         >
-          {t('postmortems.startNew', {}, { defaultValue: 'Start a postmortem' })}
+          {t('postmortems.startNew', {}, { defaultValue: 'Draft New Retrospective' })}
         </h2>
         <p className={cm.cn('text-sm mb-4')} style={{ color: 'var(--color-text-secondary)' }}>
           {t(

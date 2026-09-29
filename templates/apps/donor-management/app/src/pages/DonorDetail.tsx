@@ -89,6 +89,14 @@ export function DonorDetail() {
     )
   }
 
+  const thisYear = new Date().getFullYear()
+  const ytdCents = donor.gifts
+    .filter((g) => g.gift_date.slice(0, 4) === String(thisYear))
+    .reduce((sum, g) => sum + g.amount_cents, 0)
+  const receiptedCount = donor.gifts.filter((g) => g.receipted).length
+  const latestReceipt = donor.gifts.find((g) => g.receipt_id && g.receipted) ?? null
+  const methodsUsed = Array.from(new Set(donor.gifts.map((g) => g.method)))
+
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
       <nav>
@@ -162,9 +170,19 @@ export function DonorDetail() {
 
       <div className={cm.grid({ cols: 3, gap: 'lg' })}>
         <section className={cm.cn(cm.card(), cm.sp('p', 5))}>
-          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), cm.sp('mb', 4))}>
+          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
             {t('donors.givingHistory', {}, { defaultValue: 'Giving history' })}
           </h2>
+          <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mb', 4))}>
+            {t(
+              'donors.givingHistorySubtitle',
+              {},
+              {
+                defaultValue:
+                  'Contribution & gift ledger — the itemized record behind every issued receipt.',
+              },
+            )}
+          </p>
           {donor.gifts.length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t('donors.noGifts', {}, { defaultValue: 'No gifts recorded yet.' })}
@@ -209,9 +227,19 @@ export function DonorDetail() {
         </section>
 
         <section className={cm.cn(cm.card(), cm.sp('p', 5))}>
-          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), cm.sp('mb', 4))}>
+          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
             {t('donors.notes', {}, { defaultValue: 'Notes' })}
           </h2>
+          <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mb', 4))}>
+            {t(
+              'donors.notesSubtitle',
+              {},
+              {
+                defaultValue:
+                  'Recent stewardship — touchpoints, call logs, and thank-yous for this donor.',
+              },
+            )}
+          </p>
           <form onSubmit={addNote} className={cm.stack(2)}>
             <textarea
               rows={3}
@@ -261,7 +289,117 @@ export function DonorDetail() {
             ))}
           </ul>
         </section>
+
+        <div className={cm.stack(4)}>
+          <section className={cm.cn(cm.card(), cm.sp('p', 5), cm.stack(2))}>
+            <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+              {t('donors.liveReceipt', {}, { defaultValue: 'Live tax receipt' })}
+            </h2>
+            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+              {t(
+                'donors.liveReceiptSubtitle',
+                {},
+                {
+                  defaultValue:
+                    'The acknowledgment trail for this donor — issued receipts stay readable forever.',
+                },
+              )}
+            </p>
+            {latestReceipt ? (
+              <Link
+                to={`/receipts/${latestReceipt.receipt_id}`}
+                data-mol-id="donor-latest-receipt"
+                className={cm.cn(
+                  cm.sp('p', 3),
+                  'rounded-lg bg-success-container text-on-success-container flex items-center justify-between gap-3',
+                )}
+              >
+                <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                  {t(
+                    'donors.latestReceipt',
+                    { year: latestReceipt.gift_date.slice(0, 4) },
+                    { defaultValue: 'Receipt on file ({{year}} gift)' },
+                  )}
+                </span>
+                <span className="material-symbols-outlined text-lg" aria-hidden="true">
+                  chevron_right
+                </span>
+              </Link>
+            ) : (
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'donors.noReceiptYet',
+                  {},
+                  {
+                    defaultValue:
+                      'No receipt issued yet — generate the year-end receipt from the Receipts page.',
+                  },
+                )}
+              </p>
+            )}
+          </section>
+
+          <section className={cm.cn(cm.card(), cm.sp('p', 5), cm.stack(3))}>
+            <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+              {t('donors.fiduciaryProfile', {}, { defaultValue: 'Fiduciary & tax profile' })}
+            </h2>
+            <dl className={cm.stack(2)}>
+              <ProfileRow
+                label={t('donors.profileEntityType', {}, { defaultValue: 'Entity type' })}
+                value={
+                  donor.is_organization
+                    ? t(
+                        'donors.profileOrgEntity',
+                        {},
+                        { defaultValue: 'Organization / foundation' },
+                      )
+                    : t('donors.profileIndividualEntity', {}, { defaultValue: 'Individual' })
+                }
+              />
+              <ProfileRow
+                label={t(
+                  'donors.profileYtd',
+                  { year: thisYear },
+                  { defaultValue: '{{year}} giving to date' },
+                )}
+                value={formatMoney(ytdCents)}
+              />
+              <ProfileRow
+                label={t(
+                  'donors.profileReceipts',
+                  {},
+                  { defaultValue: 'Gifts carrying a receipt' },
+                )}
+                value={`${receiptedCount} / ${donor.gifts.length}`}
+              />
+              <ProfileRow
+                label={t(
+                  'donors.profileMethods',
+                  {},
+                  { defaultValue: 'Payment methods on record' },
+                )}
+                value={
+                  methodsUsed.length > 0
+                    ? methodsUsed
+                        .map((m) => t(`gift.method.${m}`, {}, { defaultValue: m }))
+                        .join(', ')
+                    : '—'
+                }
+              />
+            </dl>
+          </section>
+        </div>
       </div>
+    </div>
+  )
+}
+
+function ProfileRow({ label, value }: { label: string; value: string }) {
+  const cm = getClassMap()
+  return (
+    <div className={cm.flex({ align: 'start', justify: 'between', gap: 'sm' })}>
+      <dt className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>{label}</dt>
+      <dd className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'text-right')}>{value}</dd>
     </div>
   )
 }

@@ -123,7 +123,7 @@ export function Receipts() {
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
       <header>
         <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
-          {t('receipts.heading', {}, { defaultValue: 'Tax receipts' })}
+          {t('receipts.heading', {}, { defaultValue: 'Year-end tax receipts' })}
         </h1>
         <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
           {t(
@@ -131,7 +131,7 @@ export function Receipts() {
             {},
             {
               defaultValue:
-                'Year-end: pick a donor and a year — every unreceipted gift becomes one numbered, itemized receipt you can print.',
+                'Year-End Receipts & Tax Substantiation — pick a donor and a year, then turn every unreceipted gift into one numbered, itemized statement you can print.',
             },
           )}
         </p>
@@ -199,7 +199,12 @@ export function Receipts() {
 
         {preview ? (
           <div className={cm.cn(cm.sp('p', 4), 'rounded-lg bg-surface-container-low space-y-3')}>
-            <div className={cm.flex({ align: 'center', justify: 'between' })}>
+            <div
+              className={cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' })}
+            >
+              <h3 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>
+                {t('receipts.inspectorHeading', {}, { defaultValue: 'Live Statement Inspector' })}
+              </h3>
               <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
                 {t(
                   'receipts.previewSummary',

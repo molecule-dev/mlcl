@@ -6,6 +6,7 @@ import { useSignup, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { AuthFeaturePanel } from '../components/AuthFeaturePanel.js'
 import { MetroPulseAuthShell } from '../components/MetroPulseAuthShell.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
 
@@ -246,6 +247,79 @@ export function Signup() {
       </form>
 
       <OAuthButtons />
+
+      {/* Design's "Commuter benefits" card — what a free account unlocks,
+          listed under the form. */}
+      <AuthFeaturePanel
+        title={t('signup.benefitsTitle', {}, { defaultValue: 'Commuter benefits' })}
+        badge={t('signup.benefitsBadge', {}, { defaultValue: 'Free account' })}
+        items={[
+          {
+            icon: 'directions_walk',
+            title: t(
+              'signup.feature.walkBuffer.title',
+              {},
+              { defaultValue: 'Millisecond walk-buffer alarms' },
+            ),
+            body: t(
+              'signup.feature.walkBuffer.body',
+              {},
+              {
+                defaultValue:
+                  'Departure alarms sized to your real walking pace, so the "when to leave" moment is computed for you — not guessed from a timetable.',
+              },
+            ),
+          },
+          {
+            icon: 'nfc',
+            title: t(
+              'signup.feature.nfcSync.title',
+              {},
+              { defaultValue: 'NFC SmartCard & digital pass sync' },
+            ),
+            body: t(
+              'signup.feature.nfcSync.body',
+              {},
+              {
+                defaultValue:
+                  'Your fare-card and pass preferences travel with the account — sign in on any device and the boards, planner, and alerts come with you.',
+              },
+            ),
+          },
+          {
+            icon: 'notifications_active',
+            title: t(
+              'signup.feature.delayPings.title',
+              {},
+              { defaultValue: 'Deterministic delay pings' },
+            ),
+            body: t(
+              'signup.feature.delayPings.body',
+              {},
+              {
+                defaultValue:
+                  'Delay notifications are derived from the same schedule clock the boards use — the ping and the board never disagree.',
+              },
+            ),
+          },
+          {
+            icon: 'bookmarks',
+            title: t(
+              'signup.feature.savedCommutes.title',
+              {},
+              { defaultValue: 'Saved commutes & preferred platforms' },
+            ),
+            body: t(
+              'signup.feature.savedCommutes.body',
+              {},
+              {
+                defaultValue:
+                  'Pin the stops and lines you ride daily and they lead every screen — home opens on your commute, not a city map.',
+              },
+            ),
+          },
+        ]}
+      />
     </MetroPulseAuthShell>
   )
 }

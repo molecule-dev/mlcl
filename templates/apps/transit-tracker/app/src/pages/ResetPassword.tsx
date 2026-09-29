@@ -5,6 +5,7 @@ import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { useLogin, usePasswordReset, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { AuthFeaturePanel } from '../components/AuthFeaturePanel.js'
 import { MetroPulseAuthShell } from '../components/MetroPulseAuthShell.js'
 
 export function ResetPassword() {
@@ -203,6 +204,63 @@ export function ResetPassword() {
           </span>
         </button>
       </form>
+
+      {/* Design's "AMTA Credential Protocol" card — what happens to the rest
+          of the rider's setup once the password is reset. */}
+      <AuthFeaturePanel
+        title={t('resetPassword.protocolTitle', {}, { defaultValue: 'AMTA credential protocol' })}
+        badge={t('resetPassword.protocolBadge', {}, { defaultValue: 'Civic privacy' })}
+        items={[
+          {
+            step: '01',
+            title: t(
+              'resetPassword.protocol.turnstile.title',
+              {},
+              { defaultValue: 'Instant turnstile sync' },
+            ),
+            body: t(
+              'resetPassword.protocol.turnstile.body',
+              {},
+              {
+                defaultValue:
+                  'Your session re-authenticates across every device signed in with this account — saved stops and preferences stay put.',
+              },
+            ),
+          },
+          {
+            step: '02',
+            title: t(
+              'resetPassword.protocol.safety.title',
+              {},
+              { defaultValue: 'Biometric & walk-buffer safety' },
+            ),
+            body: t(
+              'resetPassword.protocol.safety.body',
+              {},
+              {
+                defaultValue:
+                  'Your walk-buffer departure alarms and pinned lines survive the reset — nothing about your commute needs re-configuring.',
+              },
+            ),
+          },
+          {
+            step: '03',
+            title: t(
+              'resetPassword.protocol.storage.title',
+              {},
+              { defaultValue: 'Zero plaintext storage' },
+            ),
+            body: t(
+              'resetPassword.protocol.storage.body',
+              {},
+              {
+                defaultValue:
+                  'Passwords are cryptographically salted and hashed before they touch storage — they are never stored or transmitted in cleartext.',
+              },
+            ),
+          },
+        ]}
+      />
     </MetroPulseAuthShell>
   )
 }

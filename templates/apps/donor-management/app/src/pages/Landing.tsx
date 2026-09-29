@@ -4,35 +4,138 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const FEATURES = [
   {
     key: 'donors',
-    defaultTitle: 'Donors who stay donors',
+    defaultTitle: 'Intelligent Donor CRM',
     defaultBody:
-      'Every profile carries lifetime giving, first and last gift, tags like monthly or major, and a notes timeline.',
+      'Complete giving histories, touchpoint timelines, pledge schedules, and wealth screening. Never misplace notes from coffee meetings or board member introductions.',
     icon: 'group_add',
   },
   {
     key: 'gifts',
-    defaultTitle: 'Gifts logged in seconds',
+    defaultTitle: 'Automated Year-End Receipts',
     defaultBody:
-      'Amount, date, method — check, card, cash, or ACH — fund designation, and the campaign it counts toward.',
-    icon: 'volunteer_activism',
+      'Zero manual paperwork in January. Batch generate IRS-compliant PDFs with your signature, custom letterhead disclaimers, and 1-click bulk email delivery.',
+    icon: 'mark_email_read',
   },
   {
     key: 'campaigns',
-    defaultTitle: 'Campaigns with live progress',
+    defaultTitle: 'Real-Time Gift & Pledge Tracking',
     defaultBody:
-      'Set a goal; raised-to-date updates itself as gifts come in. See the needle move without a spreadsheet.',
-    icon: 'trending_up',
+      'Automatic bank reconciliation, smart card updater for expiring recurring gifts, and instant ACH clearing without surprise 5-day settlement delays.',
+    icon: 'sync_saved_locally',
   },
   {
     key: 'receipts',
-    defaultTitle: 'Year-end receipts, itemized',
+    defaultTitle: 'Campaign & Goal Analytics',
     defaultBody:
-      'Pick a donor and a year: one numbered tax receipt, every gift listed, print-ready in the browser.',
+      'Visual progress tracking, amber goal meters, donor retention cohort analysis, and life-cycle tags that equip executive boards with clear financial answers.',
+    icon: 'trending_up',
+  },
+] as const
+
+const STEPS = [
+  {
+    key: 'connect',
+    defaultTitle: 'Connect Your Data',
+    defaultBody:
+      'Sync your Stripe account, import your checks CSV, or sync bank transactions. Givingly merges identical donors across multiple addresses automatically.',
+    icon: 'link',
+    defaultNote: 'Zero-error deduplication engine',
+  },
+  {
+    key: 'customize',
+    defaultTitle: 'Customize Receipt PDF',
+    defaultBody:
+      "Upload your organization's logo, insert an authentic board signature, and draft a heartfelt donor thank-you paragraph for the header.",
+    icon: 'verified_user',
+    defaultNote: 'Pre-audited 501(c)(3) legal text defaults',
+  },
+  {
+    key: 'deliver',
+    defaultTitle: 'Click “Deliver 2024 Receipts”',
+    defaultBody:
+      'One tap sends personalized cumulative statements to thousands of supporters simultaneously, complete with download tracking and email open alerts.',
     icon: 'mark_email_read',
+    defaultNote: 'Cryptographic delivery audit log',
+  },
+] as const
+
+const TESTIMONIALS = [
+  {
+    key: 'elena',
+    initials: 'ER',
+    quoteKey: 'landing.testimonials.elena',
+    defaultQuote:
+      '“We used to spend all of January printing, folding, and mailing 2,000 tax statements. Givingly delivered them digitally in under four minutes. It saved our small team over 110 work hours.”',
+    nameKey: 'landing.testimonials.elenaName',
+    defaultName: 'Elena Rostova',
+    titleKey: 'landing.testimonials.elenaTitle',
+    defaultTitle: 'Executive Director, Clean Oceans Alliance',
+  },
+  {
+    key: 'marcus',
+    initials: 'MV',
+    quoteKey: 'landing.testimonials.marcus',
+    defaultQuote:
+      '“The recurring gift updater alone recovered $28,000 in lapsed sustainer pledges that would have slipped away. For an arts nonprofit of our size, that pays for Givingly 30 times over.”',
+    nameKey: 'landing.testimonials.marcusName',
+    defaultName: 'Marcus Vance',
+    titleKey: 'landing.testimonials.marcusTitle',
+    defaultTitle: 'VP of Development, Urban Arts Foundation',
+  },
+  {
+    key: 'sarah',
+    initials: 'SJ',
+    quoteKey: 'landing.testimonials.sarah',
+    defaultQuote:
+      '“Donors love the self-service tax portal. Instead of emailing us in April when they can’t find their receipt, they log in, click download, and get back to their day. Remarkable software.”',
+    nameKey: 'landing.testimonials.sarahName',
+    defaultName: 'Sarah Jenkins, CPA',
+    titleKey: 'landing.testimonials.sarahTitle',
+    defaultTitle: 'Treasurer, Evergreen Conservation Trust',
+  },
+] as const
+
+const TIERS = [
+  {
+    key: 'seed',
+    defaultName: 'Seed',
+    defaultAudience: 'For small charities & grassroots initiatives',
+    price: '$49',
+    defaultFeatures: [
+      'Up to 500 active donors',
+      'Automated IRS 170(f)(8) PDF receipts',
+      'Stripe & credit card processing sync',
+      'Standard email support',
+    ],
+  },
+  {
+    key: 'growth',
+    defaultName: 'Growth',
+    defaultAudience: 'For established nonprofits expanding recurring giving',
+    price: '$119',
+    defaultFeatures: [
+      'Up to 2,500 active donors',
+      '1-Click January batch email dispatch',
+      'Smart credit card churn recovery',
+      'Self-service donor tax portal',
+    ],
+  },
+  {
+    key: 'scale',
+    defaultName: 'Scale',
+    defaultAudience: 'For institutions, universities & foundations',
+    price: '$249',
+    defaultFeatures: [
+      'Unlimited donors & contacts',
+      'Automated donor wealth screening',
+      'Custom CRM API & webhook connectors',
+      'Dedicated account manager & phone SLA',
+    ],
   },
 ] as const
 
@@ -109,32 +212,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'w-9 h-9 rounded-lg bg-primary text-on-primary shadow-sm',
-              )}
-              aria-hidden="true"
-            >
-              <span
-                className="material-symbols-outlined text-xl"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                favorite
-              </span>
-            </span>
-            <span
-              className={cm.cn(
-                cm.textSize('lg'),
-                cm.fontWeight('bold'),
-                'text-primary tracking-tight',
-              )}
-              style={serif}
-            >
-              {APP_NAME}
-            </span>
-          </Link>
+          <BrandWordmark />
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
               <Link
@@ -1026,6 +1104,315 @@ export function Landing() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* The January Rescue System — 3-step year-end workflow. */}
+        <section className={cm.cn('bg-surface', cm.sp('py', 20), cm.sp('px', 6))}>
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto)}>
+            <div className={cm.cn('text-center max-w-3xl mx-auto', cm.sp('mb', 12))}>
+              <p
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('semibold'),
+                  'uppercase tracking-wider text-primary',
+                )}
+              >
+                {t('landing.rescueEyebrow', {}, { defaultValue: 'The January Rescue System' })}
+              </p>
+              <h2
+                className={cm.cn(
+                  cm.sp('mt', 2),
+                  cm.sp('mb', 4),
+                  'text-3xl md:text-4xl font-medium tracking-tight text-on-surface',
+                )}
+                style={serif}
+              >
+                {t(
+                  'landing.rescueHeading',
+                  {},
+                  {
+                    defaultValue: 'Turn your hardest month of the year into a 15-minute victory.',
+                  },
+                )}
+              </h2>
+              <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant')}>
+                {t(
+                  'landing.rescueSubtitle',
+                  { appName: APP_NAME },
+                  {
+                    defaultValue:
+                      'Nonprofit leaders routinely lose weeks each January manually cross-checking spreadsheets, mailing paper receipts, and fielding frantic donor calls. With {{appName}}, year-end receipting is completely automated.',
+                  },
+                )}
+              </p>
+            </div>
+            <ol className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-3')}>
+              {STEPS.map((s, i) => (
+                <li
+                  key={s.key}
+                  className={cm.cn(
+                    cm.sp('p', 8),
+                    'bg-surface-container-low/60 rounded-xl border border-outline-variant/60',
+                  )}
+                >
+                  <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), cm.sp('mb', 5))}>
+                    <span
+                      className={cm.cn(
+                        cm.flex({ align: 'center', justify: 'center' }),
+                        'w-10 h-10 rounded-full bg-primary text-on-primary font-bold shrink-0',
+                      )}
+                      aria-hidden="true"
+                    >
+                      {i + 1}
+                    </span>
+                    <span
+                      className={cm.cn(
+                        cm.flex({ align: 'center', justify: 'center' }),
+                        'w-10 h-10 rounded-lg bg-surface-container text-primary shrink-0',
+                      )}
+                      aria-hidden="true"
+                    >
+                      <span className="material-symbols-outlined text-xl">{s.icon}</span>
+                    </span>
+                  </div>
+                  <h3
+                    className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), cm.sp('mb', 3))}
+                    style={serif}
+                  >
+                    {t(`landing.step.${s.key}.title`, {}, { defaultValue: s.defaultTitle })}
+                  </h3>
+                  <p
+                    className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}
+                  >
+                    {t(`landing.step.${s.key}.body`, {}, { defaultValue: s.defaultBody })}
+                  </p>
+                  <p
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 2 }),
+                      cm.sp('mt', 4),
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'text-primary',
+                    )}
+                  >
+                    <span className={'material-symbols-outlined text-sm'} aria-hidden="true">
+                      check_circle
+                    </span>
+                    {t(`landing.step.${s.key}.note`, {}, { defaultValue: s.defaultNote })}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Voices of stewardship — testimonials. */}
+        <section
+          className={cm.cn(
+            'bg-surface-container-low/60 border-y border-outline-variant/40',
+            cm.sp('py', 20),
+            cm.sp('px', 6),
+          )}
+        >
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto)}>
+            <h2
+              className={cm.cn(
+                cm.sp('mb', 12),
+                'text-3xl md:text-4xl font-medium tracking-tight text-center text-on-surface',
+              )}
+              style={serif}
+            >
+              {t(
+                'landing.testimonialsHeading',
+                {},
+                { defaultValue: 'Trusted by nonprofit leaders doing life-changing work.' },
+              )}
+            </h2>
+            <div className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-3')}>
+              {TESTIMONIALS.map((q) => (
+                <figure
+                  key={q.key}
+                  className={cm.cn(
+                    cm.flex({ direction: 'col', gap: 'md' }),
+                    cm.sp('p', 8),
+                    'bg-surface rounded-xl border border-outline-variant/60 shadow-sm',
+                  )}
+                >
+                  <span
+                    className={cm.flex({ gap: 1 })}
+                    aria-label={t(
+                      'landing.testimonials.fiveStars',
+                      {},
+                      { defaultValue: 'Rated five out of five stars' },
+                    )}
+                  >
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span
+                        key={i}
+                        className={'material-symbols-outlined text-warning text-base'}
+                        style={{ fontVariationSettings: "'FILL' 1" }}
+                        aria-hidden="true"
+                      >
+                        star
+                      </span>
+                    ))}
+                  </span>
+                  <blockquote
+                    className={cm.cn(cm.textSize('sm'), 'leading-relaxed text-on-surface')}
+                  >
+                    {t(q.quoteKey, {}, { defaultValue: q.defaultQuote })}
+                  </blockquote>
+                  <figcaption
+                    className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mt', 2))}
+                  >
+                    <span
+                      className={cm.cn(
+                        cm.flex({ align: 'center', justify: 'center' }),
+                        cm.textSize('xs'),
+                        cm.fontWeight('bold'),
+                        'w-9 h-9 rounded-full bg-surface-container text-primary shrink-0',
+                      )}
+                      aria-hidden="true"
+                    >
+                      {q.initials}
+                    </span>
+                    <span>
+                      <span
+                        className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'block')}
+                      >
+                        {t(q.nameKey, {}, { defaultValue: q.defaultName })}
+                      </span>
+                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                        {t(q.titleKey, {}, { defaultValue: q.defaultTitle })}
+                      </span>
+                    </span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing teaser — three tiers, one link to the full page. */}
+        <section className={cm.cn('bg-surface', cm.sp('py', 20), cm.sp('px', 6))}>
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto)}>
+            <div className={cm.cn('text-center max-w-3xl mx-auto', cm.sp('mb', 12))}>
+              <p
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('semibold'),
+                  'uppercase tracking-wider text-primary',
+                )}
+              >
+                {t('landing.pricingEyebrow', {}, { defaultValue: 'Transparent & Predictable' })}
+              </p>
+              <h2
+                className={cm.cn(
+                  cm.sp('mt', 2),
+                  cm.sp('mb', 4),
+                  'text-3xl md:text-4xl font-medium tracking-tight text-on-surface',
+                )}
+                style={serif}
+              >
+                {t(
+                  'landing.pricingTeaserHeading',
+                  {},
+                  { defaultValue: 'Simple pricing designed to scale with your mission.' },
+                )}
+              </h2>
+              <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant')}>
+                {t(
+                  'landing.pricingTeaserSubtitle',
+                  {},
+                  {
+                    defaultValue:
+                      'No percentage penalty fees on your hard-earned donations. No surprise contact tiers.',
+                  },
+                )}
+              </p>
+            </div>
+            <div className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-3')}>
+              {TIERS.map((tier) => (
+                <div
+                  key={tier.key}
+                  className={cm.cn(
+                    cm.flex({ direction: 'col' }),
+                    cm.sp('p', 8),
+                    'rounded-xl border border-outline-variant/60 bg-surface shadow-sm',
+                  )}
+                >
+                  <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))} style={serif}>
+                    {t(`landing.tier.${tier.key}.name`, {}, { defaultValue: tier.defaultName })}
+                  </h3>
+                  <p
+                    className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.sp('mb', 4))}
+                  >
+                    {t(
+                      `landing.tier.${tier.key}.audience`,
+                      {},
+                      { defaultValue: tier.defaultAudience },
+                    )}
+                  </p>
+                  <p className={cm.cn(cm.sp('mb', 6))}>
+                    <span className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
+                      {tier.price}
+                    </span>
+                    <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                      {' '}
+                      {t('landing.tier.perMonth', {}, { defaultValue: '/ month billed annually' })}
+                    </span>
+                  </p>
+                  <ul className={cm.cn(cm.stack(2), cm.flex1, cm.sp('mb', 6))}>
+                    {tier.defaultFeatures.map((f) => (
+                      <li
+                        key={f}
+                        className={cm.cn(
+                          cm.flex({ align: 'start', gap: 2 }),
+                          cm.textSize('sm'),
+                          'text-on-surface-variant',
+                        )}
+                      >
+                        <span
+                          className={'material-symbols-outlined text-primary text-base'}
+                          aria-hidden="true"
+                        >
+                          check
+                        </span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/signup"
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('semibold'),
+                      cm.textCenter,
+                      'px-4 py-3 rounded-lg border border-outline-variant/60 text-primary hover:bg-surface-container-low transition-colors',
+                    )}
+                  >
+                    {t('landing.tier.cta', {}, { defaultValue: 'Start Free 14-Day Trial' })}
+                  </Link>
+                </div>
+              ))}
+            </div>
+            <p className={cm.cn(cm.sp('mt', 8), cm.textCenter)}>
+              <Link
+                to="/pricing"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  'text-primary hover:underline',
+                )}
+              >
+                {t(
+                  'landing.pricingTeaserLink',
+                  {},
+                  { defaultValue: 'Compare every plan feature →' },
+                )}
+              </Link>
+            </p>
           </div>
         </section>
 

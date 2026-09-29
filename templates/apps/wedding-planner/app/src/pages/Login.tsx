@@ -42,6 +42,9 @@ export function Login() {
   const setEmail = (value: string): void => setAuthFormField('email', value)
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+  // Guest invitation lookup (the design's "Lookup Your Wedding Invitation"
+  // card): a code typed here jumps straight to the public RSVP page.
+  const [inviteCode, setInviteCode] = useState('')
 
   const isLoggingIn = status === 'pending'
 
@@ -56,10 +59,16 @@ export function Login() {
     }
   }
 
+  function goToInvitation(e: React.FormEvent) {
+    e.preventDefault()
+    const code = inviteCode.trim().toUpperCase()
+    if (code) navigate(`/rsvp/${encodeURIComponent(code)}`)
+  }
+
   return (
     <AuthShell
       eyebrow={t('auth.login.signInTitle', {}, { defaultValue: 'Welcome back' })}
-      heading={t('login.heading', {}, { defaultValue: 'Welcome back to the plan' })}
+      heading={t('login.heading', {}, { defaultValue: 'Welcome back to your celebration' })}
       subtext={t(
         'login.subtext',
         {},
@@ -206,6 +215,59 @@ export function Login() {
       </form>
 
       <OAuthButtons />
+
+      {/* Guest invitation lookup — you may be a guest, not the couple */}
+      <section
+        className={cm.cn(
+          cm.sp('p', 5),
+          'rounded-2xl bg-surface-container-low border border-outline-variant/40',
+        )}
+        data-mol-id="login-invitation-lookup"
+      >
+        <h3 className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'), 'mb-1')}>
+          {t('login.invitation.heading', {}, { defaultValue: 'Lookup Your Wedding Invitation' })}
+        </h3>
+        <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant mb-3')}>
+          {t(
+            'login.invitation.body',
+            {},
+            {
+              defaultValue:
+                'Enter the 6-character code found on your paper invitation envelope or wedding card.',
+            },
+          )}
+        </p>
+        <form onSubmit={goToInvitation} className={cm.flex({ align: 'center', gap: 'sm' })}>
+          <input
+            type="text"
+            value={inviteCode}
+            onChange={(e) => setInviteCode(e.target.value)}
+            placeholder={t('login.invitation.placeholder', {}, { defaultValue: 'WEDD1NG202' })}
+            aria-label={t('login.invitation.aria', {}, { defaultValue: 'Invitation RSVP code' })}
+            data-mol-id="login-invitation-code"
+            className={cm.cn(
+              'min-w-0 flex-1 px-3 py-2.5 rounded-lg bg-surface border border-outline-variant/60',
+              'focus:outline-none focus:border-primary font-mono uppercase tracking-widest text-sm',
+            )}
+          />
+          <button
+            type="submit"
+            data-mol-id="login-invitation-submit"
+            className={cm.cn(
+              'px-4 py-2.5 rounded-lg text-sm font-bold border border-outline-variant/60',
+              'hover:border-primary hover:text-primary transition-colors whitespace-nowrap',
+            )}
+          >
+            {t('login.invitation.submit', {}, { defaultValue: 'Enter Code' })}
+            <span
+              className="material-symbols-outlined text-sm align-middle ml-1"
+              aria-hidden="true"
+            >
+              arrow_forward
+            </span>
+          </button>
+        </form>
+      </section>
     </AuthShell>
   )
 }

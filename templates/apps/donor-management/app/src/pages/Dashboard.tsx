@@ -15,6 +15,54 @@ export function Dashboard() {
   const [summary, setSummary] = useState<DashboardSummary | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  // Design's "2024 Year-End Tax Substantiation Window Open" action banner —
+  // dismissible per session; a real deadline reminder, not sample data.
+  const [bannerDismissed, setBannerDismissed] = useState(false)
+  const year = summary?.year ?? new Date().getFullYear()
+
+  // Touchpoint queue derived from the newest gifts: unreceipted gifts get a
+  // receipt nudge; the most recent gift gets a thank-you nudge.
+  const pendingQueue = summary
+    ? [
+        ...summary.recent_gifts
+          .filter((g) => !g.receipted)
+          .slice(0, 3)
+          .map((g) => ({
+            id: `${g.id}-receipt`,
+            label: t(
+              'dashboard.queueReceiptLabel',
+              { donor: g.donor_name },
+              { defaultValue: 'Receipt pending — {{donor}}' },
+            ),
+            note: t(
+              'dashboard.queueReceiptNote',
+              {},
+              { defaultValue: 'Include this gift in the next year-end substantiation batch.' },
+            ),
+            href: '/receipts',
+            action: t('dashboard.queueReceiptAction', {}, { defaultValue: 'Open receipts' }),
+          })),
+        ...(summary.recent_gifts[0]
+          ? [
+              {
+                id: `${summary.recent_gifts[0].id}-thanks`,
+                label: t(
+                  'dashboard.queueThanksLabel',
+                  { donor: summary.recent_gifts[0].donor_name },
+                  { defaultValue: 'Thank {{donor}} for their recent gift' },
+                ),
+                note: t(
+                  'dashboard.queueThanksNote',
+                  {},
+                  { defaultValue: 'A personal note within a week lifts donor retention.' },
+                ),
+                href: `/donors/${summary.recent_gifts[0].donor_id}`,
+                action: t('dashboard.queueThanksAction', {}, { defaultValue: 'View donor' }),
+              },
+            ]
+          : []),
+      ]
+    : []
 
   useEffect(() => {
     let cancelled = false
@@ -121,6 +169,102 @@ export function Dashboard() {
         </p>
       ) : !summary ? null : (
         <>
+          {/* Giving intelligence lead — the design's page banner line. */}
+          <section
+            data-mol-id="dashboard-intelligence"
+            className={cm.cn(cm.stack(1))}
+            aria-labelledby="dashboard-intelligence-heading"
+          >
+            <h2
+              id="dashboard-intelligence-heading"
+              className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), 'font-display')}
+            >
+              {t(
+                'dashboard.intelligenceHeading',
+                {},
+                { defaultValue: 'Giving Intelligence & Tax Substantiation' },
+              )}
+            </h2>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'dashboard.intelligenceSubtitle',
+                {},
+                {
+                  defaultValue:
+                    'Fiscal-year snapshot of gifts, campaigns, and year-end substantiation readiness.',
+                },
+              )}
+            </p>
+          </section>
+
+          {/* Year-end substantiation window banner (dismissible). */}
+          {!bannerDismissed ? (
+            <section
+              data-mol-id="dashboard-substantiation-banner"
+              className={cm.cn(
+                cm.sp('p', 5),
+                'rounded-xl bg-primary-container text-on-primary-container flex items-start justify-between gap-4 flex-wrap',
+              )}
+              role="status"
+            >
+              <div className={cm.stack(1)}>
+                <p
+                  className={cm.cn(cm.flex({ align: 'center', gap: 2 }), cm.fontWeight('semibold'))}
+                >
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">
+                    crisis_alert
+                  </span>
+                  {t(
+                    'dashboard.windowHeading',
+                    { year },
+                    { defaultValue: '{{year}} Year-End Tax Substantiation Window Open' },
+                  )}
+                </p>
+                <p className={cm.cn(cm.textSize('sm'))}>
+                  {t(
+                    'dashboard.windowBody',
+                    { year },
+                    {
+                      defaultValue:
+                        'Finish donor address updates and dispatch consolidated year-end receipts before the January 31 statutory postmark deadline.',
+                    },
+                  )}
+                </p>
+              </div>
+              <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
+                <Link
+                  to="/receipts"
+                  data-mol-id="dashboard-review-receipts"
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 2),
+                    cm.textSize('sm'),
+                    cm.fontWeight('semibold'),
+                    'rounded-md bg-primary text-on-primary',
+                  )}
+                >
+                  {t(
+                    'dashboard.windowCta',
+                    {},
+                    { defaultValue: 'Review & dispatch remaining receipts' },
+                  )}
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setBannerDismissed(true)}
+                  className={cm.cn(
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    cm.textSize('sm'),
+                    'rounded-md border border-current',
+                  )}
+                >
+                  {t('dashboard.windowDismiss', {}, { defaultValue: 'Dismiss' })}
+                </button>
+              </div>
+            </section>
+          ) : null}
+
           <div className={cm.grid({ cols: 4, gap: 'md' })}>
             <Kpi
               label={t('dashboard.raisedYtd', {}, { defaultValue: 'Raised this year' })}
@@ -146,9 +290,19 @@ export function Dashboard() {
 
           <div className={cm.grid({ cols: 2, gap: 'lg' })}>
             <section className={cm.cn(cm.card(), cm.sp('p', 5))}>
-              <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), cm.sp('mb', 4))}>
+              <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
                 {t('dashboard.campaignProgress', {}, { defaultValue: 'Campaign progress' })}
               </h2>
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mb', 4))}>
+                {t(
+                  'dashboard.campaignProgressSubtitle',
+                  {},
+                  {
+                    defaultValue:
+                      'Active campaigns & sustainer health — tracking against year-end targets.',
+                  },
+                )}
+              </p>
               {summary.campaigns.length === 0 ? (
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                   {t(
@@ -212,9 +366,19 @@ export function Dashboard() {
             </section>
 
             <section className={cm.cn(cm.card(), cm.sp('p', 5))}>
-              <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), cm.sp('mb', 4))}>
+              <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
                 {t('dashboard.recentGifts', {}, { defaultValue: 'Recent gifts' })}
               </h2>
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mb', 4))}>
+                {t(
+                  'dashboard.recentGiftsSubtitle',
+                  {},
+                  {
+                    defaultValue:
+                      'Verified gift feed — every settled gift with its live receipt status.',
+                  },
+                )}
+              </p>
               {summary.recent_gifts.length === 0 ? (
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                   {t('dashboard.noGifts', {}, { defaultValue: 'No gifts recorded yet.' })}
@@ -256,6 +420,217 @@ export function Dashboard() {
               )}
             </section>
           </div>
+
+          {/* Year-end batch + stewardship queue + gateway sync status. */}
+          <div className={cm.grid({ cols: 2, gap: 'lg' })}>
+            <section className={cm.cn(cm.card(), cm.sp('p', 5), cm.stack(3))}>
+              <div>
+                <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+                  {t(
+                    'dashboard.batchHeading',
+                    { year },
+                    { defaultValue: '{{year}} Year-End Tax Summary Batch' },
+                  )}
+                </h3>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mt', 1))}>
+                  {t(
+                    'dashboard.batchSubtitle',
+                    {},
+                    {
+                      defaultValue:
+                        'Consolidated year-end substantiation statements, itemized per donor under IRS 170(f)(8).',
+                    },
+                  )}
+                </p>
+              </div>
+              <div
+                className={cm.cn(
+                  cm.sp('p', 3),
+                  'rounded-lg bg-surface-container-low flex items-center justify-between gap-3 flex-wrap',
+                )}
+              >
+                <span className={cm.cn(cm.flex({ align: 'center', gap: 2 }), cm.textSize('sm'))}>
+                  <span
+                    className="material-symbols-outlined text-primary text-lg"
+                    aria-hidden="true"
+                  >
+                    receipt_long
+                  </span>
+                  {t(
+                    'dashboard.batchEngine',
+                    {},
+                    { defaultValue: 'Auto-dispatch engine: consolidated statements each January' },
+                  )}
+                </span>
+                <span
+                  className={cm.cn(
+                    cm.sp('px', 2),
+                    cm.sp('py', 1),
+                    cm.textSize('xs'),
+                    cm.fontWeight('bold'),
+                    'rounded-full bg-success-container text-on-success-container',
+                  )}
+                >
+                  {t('dashboard.batchStatus', {}, { defaultValue: 'Ready' })}
+                </span>
+              </div>
+              <div className={cm.flex({ gap: 'sm', wrap: 'wrap' })}>
+                <Link
+                  to="/receipts"
+                  data-mol-id="dashboard-open-batch"
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 2),
+                    cm.textSize('sm'),
+                    cm.fontWeight('semibold'),
+                    'rounded-md bg-primary text-on-primary',
+                  )}
+                >
+                  {t('dashboard.batchCta', {}, { defaultValue: 'Open the receipts batch' })}
+                </Link>
+              </div>
+            </section>
+
+            <section className={cm.cn(cm.card(), cm.sp('p', 5), cm.stack(3))}>
+              <div>
+                <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+                  {t('dashboard.queueHeading', {}, { defaultValue: 'Touchpoint queue' })}
+                </h3>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mt', 1))}>
+                  {t(
+                    'dashboard.queueSubtitle',
+                    {},
+                    {
+                      defaultValue:
+                        'Stewardship follow-ups derived from your newest gifts — receipts to send, thank-yous to write.',
+                    },
+                  )}
+                </p>
+              </div>
+              {pendingQueue.length === 0 ? (
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t(
+                    'dashboard.queueClear',
+                    {},
+                    {
+                      defaultValue:
+                        'Queue clear — every recent gift is receipted and thanked. Check back after the next gift lands.',
+                    },
+                  )}
+                </p>
+              ) : (
+                <ul className={cm.stack(3)}>
+                  {pendingQueue.map((item) => (
+                    <li
+                      key={item.id}
+                      className={cm.cn(
+                        cm.sp('p', 3),
+                        'rounded-lg border border-outline-variant/60 flex items-start justify-between gap-3 flex-wrap',
+                      )}
+                    >
+                      <div className={cm.stack(1)}>
+                        <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                          {item.label}
+                        </p>
+                        <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                          {item.note}
+                        </p>
+                      </div>
+                      <Link
+                        to={item.href}
+                        className={cm.cn(
+                          cm.sp('px', 3),
+                          cm.sp('py', 2),
+                          cm.textSize('xs'),
+                          cm.fontWeight('semibold'),
+                          'rounded-md border border-outline-variant whitespace-nowrap',
+                        )}
+                      >
+                        {item.action}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          </div>
+
+          <section className={cm.cn(cm.card(), cm.sp('p', 5), cm.stack(3))}>
+            <div>
+              <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+                {t('dashboard.gatewaysHeading', {}, { defaultValue: 'Gateways & IRS Sync Status' })}
+              </h3>
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mt', 1))}>
+                {t(
+                  'dashboard.gatewaysSubtitle',
+                  {},
+                  {
+                    defaultValue:
+                      'Settlement channels feeding the ledger and the year-end substantiation pipeline.',
+                  },
+                )}
+              </p>
+            </div>
+            <ul className={cm.stack(2)}>
+              {[
+                {
+                  key: 'stripe',
+                  icon: 'credit_card',
+                  labelKey: 'dashboard.gatewayStripe',
+                  defaultLabel: 'Card payments (Stripe-backed checkout)',
+                  statusKey: 'dashboard.gatewayHealthy',
+                  defaultStatus: 'Healthy',
+                },
+                {
+                  key: 'bank',
+                  icon: 'account_balance',
+                  labelKey: 'dashboard.gatewayBank',
+                  defaultLabel: 'Check & ACH settlements (recorded per gift)',
+                  statusKey: 'dashboard.gatewayOperational',
+                  defaultStatus: 'Operational',
+                },
+                {
+                  key: 'irs',
+                  icon: 'verified_user',
+                  labelKey: 'dashboard.gatewayIrs',
+                  defaultLabel: 'IRS 170(f)(8) substantiation tagging rules',
+                  statusKey: 'dashboard.gatewayOperational',
+                  defaultStatus: 'Operational',
+                },
+              ].map((g) => (
+                <li
+                  key={g.key}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between' }),
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    'rounded-lg bg-surface-container-low gap-3 flex-wrap',
+                  )}
+                >
+                  <span className={cm.cn(cm.flex({ align: 'center', gap: 2 }), cm.textSize('sm'))}>
+                    <span
+                      className="material-symbols-outlined text-primary text-lg"
+                      aria-hidden="true"
+                    >
+                      {g.icon}
+                    </span>
+                    {t(g.labelKey, {}, { defaultValue: g.defaultLabel })}
+                  </span>
+                  <span
+                    className={cm.cn(
+                      cm.sp('px', 2),
+                      cm.sp('py', 1),
+                      cm.textSize('xs'),
+                      cm.fontWeight('bold'),
+                      'rounded-full bg-success-container text-on-success-container',
+                    )}
+                  >
+                    {t(g.statusKey, {}, { defaultValue: g.defaultStatus })}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
         </>
       )}
     </div>

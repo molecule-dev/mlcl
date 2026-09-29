@@ -1,146 +1,282 @@
 [
-  {
-    "id": "inc-1",
-    "title": "Checkout API returning 503 for all requests",
-    "description": "Error rate jumped to 100% on checkout-api after the 14:10 deploy.",
-    "severity": "critical",
-    "status": "triggered",
-    "service": "checkout-api",
-    "assigned_member_id": null,
-    "assignee": null,
-    "escalation_policy_id": "pol-1",
-    "escalation_policy_name": "Platform P1",
-    "schedule_id": "sch-1",
-    "schedule_name": "Platform Primary",
-    "escalation_level": 0,
-    "triggered_at": "2026-09-19T13:51:00Z",
-    "acked_at": null,
-    "resolved_at": null,
-    "events": [
-      {
-        "id": "evt-1",
-        "kind": "trigger",
-        "actor": "monitor",
-        "text": "Triggered on checkout-api — paged Riley Carter via Platform P1.",
-        "at": "2026-09-19T13:51:00Z"
-      }
-    ]
-  },
-  {
-    "id": "inc-2",
-    "title": "Payment authorization latency above 4s",
-    "description": "p95 authorization latency breached the 4s SLO for 25 minutes.",
-    "severity": "critical",
-    "status": "acknowledged",
-    "service": "payments-web",
-    "assigned_member_id": "mem-2",
-    "assignee": "Morgan Reyes",
-    "escalation_policy_id": "pol-1",
-    "escalation_policy_name": "Platform P1",
-    "schedule_id": "sch-1",
-    "schedule_name": "Platform Primary",
-    "escalation_level": 1,
-    "triggered_at": "2026-09-19T12:45:00Z",
-    "acked_at": "2026-09-19T13:08:00Z",
-    "resolved_at": null,
-    "events": [
-      {
-        "id": "evt-2",
-        "kind": "trigger",
-        "actor": "monitor",
-        "text": "Triggered on payments-web — paged Morgan Reyes via Platform P1.",
-        "at": "2026-09-19T12:45:00Z"
-      },
-      {
-        "id": "evt-3",
-        "kind": "escalate",
-        "actor": "system",
-        "text": "No ack — escalated to layer 1.",
-        "at": "2026-09-19T13:00:00Z"
-      },
-      {
-        "id": "evt-4",
-        "kind": "ack",
-        "actor": "Morgan Reyes",
-        "text": "Acknowledged 23 minutes after the page.",
-        "at": "2026-09-19T13:08:00Z"
-      }
-    ]
-  },
-  {
-    "id": "inc-3",
-    "title": "Search relevance scores degraded",
-    "description": "Indexing lag is pushing stale results into the top 10.",
-    "severity": "warning",
-    "status": "acknowledged",
-    "service": "search-service",
-    "assigned_member_id": "mem-3",
-    "assignee": "Sasha Lin",
-    "escalation_policy_id": "pol-2",
-    "escalation_policy_name": "Services P2",
-    "schedule_id": "sch-2",
-    "schedule_name": "API Services",
-    "escalation_level": 0,
-    "triggered_at": "2026-09-19T10:52:00Z",
-    "acked_at": "2026-09-19T11:12:00Z",
-    "resolved_at": null,
-    "events": []
-  },
-  {
-    "id": "inc-4",
-    "title": "Login throttling misconfigured for SSO users",
-    "description": "SSO logins were throttled after 2 attempts instead of 10.",
-    "severity": "warning",
-    "status": "resolved",
-    "service": "auth-api",
-    "assigned_member_id": "mem-4",
-    "assignee": "Jordan Park",
-    "escalation_policy_id": "pol-2",
-    "escalation_policy_name": "Services P2",
-    "schedule_id": "sch-2",
-    "schedule_name": "API Services",
-    "escalation_level": 0,
-    "triggered_at": "2026-09-18T12:00:00Z",
-    "acked_at": "2026-09-18T12:20:00Z",
-    "resolved_at": "2026-09-18T15:00:00Z",
-    "events": []
-  },
-  {
-    "id": "inc-5",
-    "title": "Nightly CI suite flaking on integration tests",
-    "description": "Intermittent container start timeouts on shared runners.",
-    "severity": "info",
-    "status": "resolved",
-    "service": "ci-runner",
-    "assigned_member_id": "mem-2",
-    "assignee": "Morgan Reyes",
-    "escalation_policy_id": "pol-2",
-    "escalation_policy_name": "Services P2",
-    "schedule_id": "sch-3",
-    "schedule_name": "Weekend Cover",
-    "escalation_level": 0,
-    "triggered_at": "2026-09-17T06:00:00Z",
-    "acked_at": "2026-09-17T06:20:00Z",
-    "resolved_at": "2026-09-17T07:30:00Z",
-    "events": []
-  },
-  {
-    "id": "inc-6",
-    "title": "Cart service outage during flash sale",
-    "description": "Connection pool exhaustion took the cart service down for 38 minutes.",
-    "severity": "critical",
-    "status": "resolved",
-    "service": "checkout-api",
-    "assigned_member_id": "mem-1",
-    "assignee": "Riley Carter",
-    "escalation_policy_id": "pol-1",
-    "escalation_policy_name": "Platform P1",
-    "schedule_id": "sch-1",
-    "schedule_name": "Platform Primary",
-    "escalation_level": 2,
-    "triggered_at": "2026-09-13T14:05:00Z",
-    "acked_at": "2026-09-13T14:09:00Z",
-    "resolved_at": "2026-09-13T14:43:00Z",
-    "events": []
-  }
+ {
+  "id": "inc-bgp-03",
+  "title": "BGP route flap on secondary transit provider edge-gw-02",
+  "description": "edge-gw-02 announced and withdrew the primary prefix 14 times in 10 minutes. Traffic failed over to the primary transit with no user impact.",
+  "severity": "info",
+  "status": "resolved",
+  "service": "edge-gw-02",
+  "assigned_member_id": "mem-2",
+  "assignee": "Morgan Reyes",
+  "escalation_policy_id": "pol-2",
+  "escalation_policy_name": "Services P2",
+  "schedule_id": "sch-3",
+  "schedule_name": "Weekend Cover",
+  "escalation_level": 0,
+  "triggered_at": "2026-09-16T03:12:00Z",
+  "acked_at": "2026-09-16T03:18:00Z",
+  "resolved_at": "2026-09-16T03:37:00Z",
+  "events": [
+   {
+    "id": "evt-107",
+    "kind": "trigger",
+    "actor": "monitor",
+    "text": "Triggered on edge-gw-02 \u2014 paged Morgan Reyes via Services P2.",
+    "at": "2026-09-16T03:12:00Z"
+   },
+   {
+    "id": "evt-108",
+    "kind": "resolve",
+    "actor": "morgan",
+    "text": "Resolved \u2014 provider ticket OPEN-8841; flap attributed to a maintenance misconfiguration.",
+    "at": "2026-09-16T03:37:00Z"
+   }
+  ]
+ },
+ {
+  "id": "inc-cache-02",
+  "title": "Auth-session-cache miss rate > 12% on redis-auth-prod",
+  "description": "Session-cache hit ratio dropped to 87.4% after the eviction-policy change, doubling origin reads on the auth service.",
+  "severity": "warning",
+  "status": "resolved",
+  "service": "redis-auth-prod",
+  "assigned_member_id": "mem-3",
+  "assignee": "Sasha Lin",
+  "escalation_policy_id": "pol-2",
+  "escalation_policy_name": "Services P2",
+  "schedule_id": "sch-2",
+  "schedule_name": "API Services",
+  "escalation_level": 0,
+  "triggered_at": "2026-09-18T08:30:00Z",
+  "acked_at": "2026-09-18T08:41:00Z",
+  "resolved_at": "2026-09-18T09:02:00Z",
+  "events": [
+   {
+    "id": "evt-105",
+    "kind": "trigger",
+    "actor": "monitor",
+    "text": "Triggered on redis-auth-prod \u2014 paged Sasha Lin via Services P2.",
+    "at": "2026-09-18T08:30:00Z"
+   },
+   {
+    "id": "evt-106",
+    "kind": "resolve",
+    "actor": "sasha",
+    "text": "Resolved \u2014 allkeys-lru restored; hit ratio recovered to 99.1%.",
+    "at": "2026-09-18T09:02:00Z"
+   }
+  ]
+ },
+ {
+  "id": "inc-kafka-01",
+  "title": "Kafka consumer-lag warning on billing-events queue backlog > 45,000 msgs",
+  "description": "Consumer group billing-ledger-workers fell 48,210 messages behind (threshold: 20k). Asynchronous batch delay of ~3 minutes.",
+  "severity": "warning",
+  "status": "resolved",
+  "service": "kafka-prod-cluster-04",
+  "assigned_member_id": "mem-4",
+  "assignee": "Jordan Park",
+  "escalation_policy_id": "pol-2",
+  "escalation_policy_name": "Services P2",
+  "schedule_id": "sch-2",
+  "schedule_name": "API Services",
+  "escalation_level": 0,
+  "triggered_at": "2026-09-18T20:10:00Z",
+  "acked_at": "2026-09-18T20:25:00Z",
+  "resolved_at": "2026-09-18T21:05:00Z",
+  "events": [
+   {
+    "id": "evt-103",
+    "kind": "trigger",
+    "actor": "monitor",
+    "text": "Triggered on kafka-prod-cluster-04 \u2014 paged Jordan Park via Services P2.",
+    "at": "2026-09-18T20:10:00Z"
+   },
+   {
+    "id": "evt-104",
+    "kind": "resolve",
+    "actor": "jordan",
+    "text": "Resolved \u2014 consumer group rebalanced; lag drained to zero in 14 minutes.",
+    "at": "2026-09-18T21:05:00Z"
+   }
+  ]
+ },
+ {
+  "id": "inc-9482",
+  "title": "Latency Spike p99 > 1850ms (Database connection pool exhaustion)",
+  "description": "Postgres primary pool reached threshold. 498/500 active pool leases (99.6%). Dropping synchronous checkout threads across edge ingress pods.",
+  "severity": "critical",
+  "status": "triggered",
+  "service": "postgres-primary",
+  "assigned_member_id": null,
+  "assignee": null,
+  "escalation_policy_id": "pol-1",
+  "escalation_policy_name": "Platform P1",
+  "schedule_id": "sch-1",
+  "schedule_name": "Platform Primary",
+  "escalation_level": 1,
+  "triggered_at": "2026-09-19T14:22:00Z",
+  "acked_at": null,
+  "resolved_at": null,
+  "events": [
+   {
+    "id": "evt-101",
+    "kind": "trigger",
+    "actor": "monitor",
+    "text": "Triggered on postgres-primary \u2014 paged Riley Carter via Platform P1 (phone delivery confirmed, 0 drops).",
+    "at": "2026-09-19T14:22:00Z"
+   },
+   {
+    "id": "evt-102",
+    "kind": "escalate",
+    "actor": "monitor",
+    "text": "Pool leases crossed 90% \u2014 escalation level raised to tier 2 standby.",
+    "at": "2026-09-19T14:24:00Z"
+   }
+  ]
+ },
+ {
+  "id": "inc-1",
+  "title": "Checkout API returning 503 for all requests",
+  "description": "Error rate jumped to 100% on checkout-api after the 14:10 deploy.",
+  "severity": "critical",
+  "status": "triggered",
+  "service": "checkout-api",
+  "assigned_member_id": null,
+  "assignee": null,
+  "escalation_policy_id": "pol-1",
+  "escalation_policy_name": "Platform P1",
+  "schedule_id": "sch-1",
+  "schedule_name": "Platform Primary",
+  "escalation_level": 0,
+  "triggered_at": "2026-09-19T13:51:00Z",
+  "acked_at": null,
+  "resolved_at": null,
+  "events": [
+   {
+    "id": "evt-1",
+    "kind": "trigger",
+    "actor": "monitor",
+    "text": "Triggered on checkout-api \u2014 paged Riley Carter via Platform P1.",
+    "at": "2026-09-19T13:51:00Z"
+   }
+  ]
+ },
+ {
+  "id": "inc-2",
+  "title": "Payment authorization latency above 4s",
+  "description": "p95 authorization latency breached the 4s SLO for 25 minutes.",
+  "severity": "critical",
+  "status": "acknowledged",
+  "service": "payments-web",
+  "assigned_member_id": "mem-2",
+  "assignee": "Morgan Reyes",
+  "escalation_policy_id": "pol-1",
+  "escalation_policy_name": "Platform P1",
+  "schedule_id": "sch-1",
+  "schedule_name": "Platform Primary",
+  "escalation_level": 1,
+  "triggered_at": "2026-09-19T12:45:00Z",
+  "acked_at": "2026-09-19T13:08:00Z",
+  "resolved_at": null,
+  "events": [
+   {
+    "id": "evt-2",
+    "kind": "trigger",
+    "actor": "monitor",
+    "text": "Triggered on payments-web \u2014 paged Morgan Reyes via Platform P1.",
+    "at": "2026-09-19T12:45:00Z"
+   },
+   {
+    "id": "evt-3",
+    "kind": "escalate",
+    "actor": "system",
+    "text": "No ack \u2014 escalated to layer 1.",
+    "at": "2026-09-19T13:00:00Z"
+   },
+   {
+    "id": "evt-4",
+    "kind": "ack",
+    "actor": "Morgan Reyes",
+    "text": "Acknowledged 23 minutes after the page.",
+    "at": "2026-09-19T13:08:00Z"
+   }
+  ]
+ },
+ {
+  "id": "inc-3",
+  "title": "Search relevance scores degraded",
+  "description": "Indexing lag is pushing stale results into the top 10.",
+  "severity": "warning",
+  "status": "acknowledged",
+  "service": "search-service",
+  "assigned_member_id": "mem-3",
+  "assignee": "Sasha Lin",
+  "escalation_policy_id": "pol-2",
+  "escalation_policy_name": "Services P2",
+  "schedule_id": "sch-2",
+  "schedule_name": "API Services",
+  "escalation_level": 0,
+  "triggered_at": "2026-09-19T10:52:00Z",
+  "acked_at": "2026-09-19T11:12:00Z",
+  "resolved_at": null,
+  "events": []
+ },
+ {
+  "id": "inc-4",
+  "title": "Login throttling misconfigured for SSO users",
+  "description": "SSO logins were throttled after 2 attempts instead of 10.",
+  "severity": "warning",
+  "status": "resolved",
+  "service": "auth-api",
+  "assigned_member_id": "mem-4",
+  "assignee": "Jordan Park",
+  "escalation_policy_id": "pol-2",
+  "escalation_policy_name": "Services P2",
+  "schedule_id": "sch-2",
+  "schedule_name": "API Services",
+  "escalation_level": 0,
+  "triggered_at": "2026-09-18T12:00:00Z",
+  "acked_at": "2026-09-18T12:20:00Z",
+  "resolved_at": "2026-09-18T15:00:00Z",
+  "events": []
+ },
+ {
+  "id": "inc-5",
+  "title": "Nightly CI suite flaking on integration tests",
+  "description": "Intermittent container start timeouts on shared runners.",
+  "severity": "info",
+  "status": "resolved",
+  "service": "ci-runner",
+  "assigned_member_id": "mem-2",
+  "assignee": "Morgan Reyes",
+  "escalation_policy_id": "pol-2",
+  "escalation_policy_name": "Services P2",
+  "schedule_id": "sch-3",
+  "schedule_name": "Weekend Cover",
+  "escalation_level": 0,
+  "triggered_at": "2026-09-17T06:00:00Z",
+  "acked_at": "2026-09-17T06:20:00Z",
+  "resolved_at": "2026-09-17T07:30:00Z",
+  "events": []
+ },
+ {
+  "id": "inc-6",
+  "title": "Cart service outage during flash sale",
+  "description": "Connection pool exhaustion took the cart service down for 38 minutes.",
+  "severity": "critical",
+  "status": "resolved",
+  "service": "checkout-api",
+  "assigned_member_id": "mem-1",
+  "assignee": "Riley Carter",
+  "escalation_policy_id": "pol-1",
+  "escalation_policy_name": "Platform P1",
+  "schedule_id": "sch-1",
+  "schedule_name": "Platform Primary",
+  "escalation_level": 2,
+  "triggered_at": "2026-09-13T14:05:00Z",
+  "acked_at": "2026-09-13T14:09:00Z",
+  "resolved_at": "2026-09-13T14:43:00Z",
+  "events": []
+ }
 ]

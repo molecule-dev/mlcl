@@ -25,12 +25,22 @@ interface Quote {
   declined_at: string | null
 }
 
+interface CustomerRecord {
+  id: string
+  name: string
+  email: string | null
+  phone: string | null
+  address: string
+  notes: string
+}
+
 export function QuoteDetail() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
   const { id } = useParams<{ id: string }>()
   const [quote, setQuote] = useState<Quote | null>(null)
+  const [customer, setCustomer] = useState<CustomerRecord | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [acting, setActing] = useState(false)
@@ -40,8 +50,20 @@ export function QuoteDetail() {
     setLoading(true)
     try {
       const res = await http.get(`/api/quotes/${id}`)
-      setQuote(unwrapSingle<Quote>(res))
+      const shaped = unwrapSingle<Quote>(res)
+      setQuote(shaped)
       setError(null)
+      if (shaped?.customer_id) {
+        // Jobsite logistics come from the customer record — fetch best-effort;
+        // the quote itself stays fully usable without it.
+        try {
+          setCustomer(
+            unwrapSingle<CustomerRecord>(await http.get(`/api/customers/${shaped.customer_id}`)),
+          )
+        } catch {
+          setCustomer(null)
+        }
+      }
     } catch (_error) {
       setError(t('quotes.detail.loadError', {}, { defaultValue: 'Failed to load quote.' }))
     } finally {
@@ -143,6 +165,71 @@ export function QuoteDetail() {
         />
       </header>
 
+      <section
+        data-mol-id="quote-customer-logistics"
+        className={cm.cn(cm.card(), cm.sp('p', 5), cm.stack(3))}
+      >
+        <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), 'font-display')}>
+          <span
+            className="material-symbols-outlined text-base align-middle mr-2 text-primary"
+            aria-hidden="true"
+          >
+            location_on
+          </span>
+          {t(
+            'quotes.detail.logisticsHeading',
+            {},
+            { defaultValue: 'Customer & Jobsite Logistics' },
+          )}
+        </h2>
+        <div className={cm.grid({ cols: 2, gap: 'md' })}>
+          <div className={cm.stack(1)}>
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                'text-on-surface-variant uppercase tracking-wider',
+              )}
+            >
+              {t('quotes.detail.logisticsAccount', {}, { defaultValue: 'Account' })}
+            </span>
+            <Link
+              to={`/customers/${quote.customer_id}`}
+              className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'hover:underline')}
+            >
+              {quote.customer}
+            </Link>
+            {customer?.phone ? (
+              <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {customer.phone}
+              </span>
+            ) : null}
+            {customer?.email ? (
+              <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {customer.email}
+              </span>
+            ) : null}
+          </div>
+          <div className={cm.stack(1)}>
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                'text-on-surface-variant uppercase tracking-wider',
+              )}
+            >
+              {t('quotes.detail.logisticsSite', {}, { defaultValue: 'Jobsite' })}
+            </span>
+            <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+              {customer?.address || '—'}
+            </span>
+            {customer?.notes ? (
+              <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {customer.notes}
+              </span>
+            ) : null}
+          </div>
+        </div>
+      </section>
+
       <section className={cm.cn(cm.card(), 'overflow-x-auto')}>
         <table className={'w-full text-left text-sm'}>
           <thead>
@@ -205,6 +292,73 @@ export function QuoteDetail() {
         </table>
       </section>
 
+      <section
+        data-mol-id="quote-acceptance-audit"
+        className={cm.cn(cm.card(), cm.sp('p', 5), cm.stack(3))}
+      >
+        <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), 'font-display')}>
+          <span
+            className="material-symbols-outlined text-base align-middle mr-2 text-primary"
+            aria-hidden="true"
+          >
+            history_edu
+          </span>
+          {t(
+            'quotes.detail.auditHeading',
+            {},
+            { defaultValue: 'Customer Acceptance & Audit Trail' },
+          )}
+        </h3>
+        <ol className={cm.stack(2)}>
+          {[
+            {
+              icon: quote.sent_at ? 'check_circle' : 'radio_button_unchecked',
+              label: t('quotes.detail.auditSent', {}, { defaultValue: 'Quote sent to customer' }),
+              at: quote.sent_at,
+            },
+            {
+              icon:
+                quote.accepted_at || quote.declined_at ? 'check_circle' : 'radio_button_unchecked',
+              label: quote.declined_at
+                ? t('quotes.detail.auditDeclined', {}, { defaultValue: 'Customer declined' })
+                : t('quotes.detail.auditAccepted', {}, { defaultValue: 'Customer accepted' }),
+              at: quote.accepted_at ?? quote.declined_at,
+            },
+          ].map((row) => (
+            <li key={row.label} className={cm.flex({ align: 'center', gap: 'sm' })}>
+              <span
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  cm.roundedFull,
+                  'h-7 w-7 shrink-0',
+                  row.at
+                    ? 'bg-success-container text-on-success-container'
+                    : 'bg-surface-container text-on-surface-variant',
+                )}
+              >
+                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">
+                  {row.icon}
+                </span>
+              </span>
+              <span className={cm.cn(cm.textSize('sm'))}>{row.label}</span>
+              <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                {row.at ? formatDateTime(row.at) : ''}
+              </span>
+            </li>
+          ))}
+        </ol>
+        <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+          {t(
+            'quotes.detail.auditValidUntil',
+            { date: formatDate(quote.valid_until) },
+            {
+              defaultValue:
+                'Pricing locked until {{date}} — acceptance is recorded the moment the customer signs.',
+            },
+          )}
+        </p>
+      </section>
+
       {quote.notes ? (
         <section className={cm.cn(cm.card(), cm.sp('p', 5))}>
           <h2 className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), cm.sp('mb', 2))}>
@@ -250,70 +404,81 @@ export function QuoteDetail() {
         </p>
       ) : null}
 
-      <div className={cm.flex({ gap: 'sm', wrap: 'wrap' })}>
-        {quote.status === 'draft' ? (
-          <>
-            <button
-              type="button"
-              disabled={acting}
-              onClick={() => act('send')}
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                cm.fontWeight('semibold'),
-                'bg-primary text-on-primary rounded-md disabled:opacity-50',
-              )}
-            >
-              {acting
-                ? t('common.savingEllipsis', {}, { defaultValue: 'Working…' })
-                : t('quotes.detail.send', {}, { defaultValue: 'Send quote' })}
-            </button>
-            <Link
-              to={`/quotes/${quote.id}/edit`}
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                'border border-outline-variant rounded-md',
-              )}
-            >
-              {t('quotes.detail.edit', {}, { defaultValue: 'Edit' })}
-            </Link>
-          </>
-        ) : null}
-        {quote.status === 'sent' ? (
-          <>
-            <button
-              type="button"
-              disabled={acting}
-              onClick={() => act('accept')}
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                cm.fontWeight('semibold'),
-                'bg-success text-on-success rounded-md disabled:opacity-50',
-              )}
-            >
-              {t('quotes.detail.accept', {}, { defaultValue: 'Accept → create job' })}
-            </button>
-            <button
-              type="button"
-              disabled={acting}
-              onClick={() => act('decline')}
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                'border border-outline-variant rounded-md disabled:opacity-50',
-              )}
-            >
-              {t('quotes.detail.decline', {}, { defaultValue: 'Mark declined' })}
-            </button>
-          </>
-        ) : null}
-      </div>
+      <section data-mol-id="quote-fast-track" className={cm.stack(2)}>
+        <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+          <span
+            className="material-symbols-outlined text-base align-middle mr-2 text-primary"
+            aria-hidden="true"
+          >
+            rocket_launch
+          </span>
+          {t('quotes.detail.fastTrack', {}, { defaultValue: 'Fast-Track Dispatch' })}
+        </h3>
+        <div className={cm.flex({ gap: 'sm', wrap: 'wrap' })}>
+          {quote.status === 'draft' ? (
+            <>
+              <button
+                type="button"
+                disabled={acting}
+                onClick={() => act('send')}
+                className={cm.cn(
+                  cm.sp('px', 4),
+                  cm.sp('py', 2),
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  'bg-primary text-on-primary rounded-md disabled:opacity-50',
+                )}
+              >
+                {acting
+                  ? t('common.savingEllipsis', {}, { defaultValue: 'Working…' })
+                  : t('quotes.detail.send', {}, { defaultValue: 'Send quote' })}
+              </button>
+              <Link
+                to={`/quotes/${quote.id}/edit`}
+                className={cm.cn(
+                  cm.sp('px', 4),
+                  cm.sp('py', 2),
+                  cm.textSize('sm'),
+                  'border border-outline-variant rounded-md',
+                )}
+              >
+                {t('quotes.detail.edit', {}, { defaultValue: 'Edit' })}
+              </Link>
+            </>
+          ) : null}
+          {quote.status === 'sent' ? (
+            <>
+              <button
+                type="button"
+                disabled={acting}
+                onClick={() => act('accept')}
+                className={cm.cn(
+                  cm.sp('px', 4),
+                  cm.sp('py', 2),
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  'bg-success text-on-success rounded-md disabled:opacity-50',
+                )}
+              >
+                {t('quotes.detail.accept', {}, { defaultValue: 'Accept → create job' })}
+              </button>
+              <button
+                type="button"
+                disabled={acting}
+                onClick={() => act('decline')}
+                className={cm.cn(
+                  cm.sp('px', 4),
+                  cm.sp('py', 2),
+                  cm.textSize('sm'),
+                  'border border-outline-variant rounded-md disabled:opacity-50',
+                )}
+              >
+                {t('quotes.detail.decline', {}, { defaultValue: 'Mark declined' })}
+              </button>
+            </>
+          ) : null}
+        </div>
+      </section>
     </div>
   )
 }

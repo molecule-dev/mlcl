@@ -6,6 +6,7 @@ import { useSignup, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BRAND_COLOR } from '../branding.js'
+import { AuthAsidePanel } from '../components/AuthAsidePanel.js'
 import { AuthBrandHeader } from '../components/AuthBrandHeader.js'
 import { Footer } from '../components/Footer.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
@@ -72,6 +73,12 @@ export function Signup() {
         className={cm.cn(cm.flex({ align: 'center', justify: 'center' }), cm.flex1, cm.sp('p', 6))}
       >
         <div className={cm.cn(cm.w('full'), cm.maxW('md'))}>
+          <AuthAsidePanel
+            eyebrowKey="auth.aside.eyebrow"
+            eyebrowDefault="IRS 170(f)(8) & SOC-2 compliant platform"
+            headlineKey="signup.aside.headline"
+            headlineDefault="Start cultivating deeper donor relationships today."
+          />
           <div
             className={cm.cn(
               cm.flex({ direction: 'col', gap: 'xl' }),
@@ -80,6 +87,22 @@ export function Signup() {
             )}
           >
             <AuthBrandHeader />
+
+            <div className={cm.cn(cm.flex({ direction: 'col' }), 'gap-1')}>
+              <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'font-display')}>
+                {t('signup.formHeading', {}, { defaultValue: 'Create your nonprofit account' })}
+              </h2>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'signup.formSubheading',
+                  {},
+                  {
+                    defaultValue:
+                      '14-day free trial — set up your stewardship workspace in under 3 minutes.',
+                  },
+                )}
+              </p>
+            </div>
 
             <form className={cm.cn(cm.flex({ direction: 'col' }), 'gap-5')} onSubmit={handleSubmit}>
               <div>

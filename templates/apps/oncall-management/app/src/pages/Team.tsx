@@ -7,6 +7,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, BRAND_COLOR } from '../branding.js'
 import { SeverityPill } from '../components/SeverityPill.js'
+import { unwrapList } from '../lib/unwrap.js'
 
 interface Member {
   id: string
@@ -29,6 +30,22 @@ interface Invite {
   created_at: string
 }
 
+interface PolicyRule {
+  id: string
+  position: number
+  notify_member_id: string | null
+  notify_member_name: string | null
+  notify_channel: string | null
+  wait_minutes: number
+}
+
+interface Policy {
+  id: string
+  name: string
+  is_active: boolean
+  rules: PolicyRule[]
+}
+
 const ROTATION_DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as const
 
 function deriveRotation(members: Member[]): Array<{ day: string; name: string }> {
@@ -47,6 +64,7 @@ export function Team() {
 
   const [members, setMembers] = useState<Member[]>([])
   const [invites, setInvites] = useState<Invite[]>([])
+  const [policies, setPolicies] = useState<Policy[]>([])
   const [showInvite, setShowInvite] = useState(false)
   const [inviteEmail, setInviteEmail] = useState('')
   const [inviteRole, setInviteRole] = useState<'admin' | 'responder' | 'viewer'>('responder')
@@ -68,6 +86,17 @@ export function Team() {
   useEffect(() => {
     void reload()
   }, [reload])
+
+  // Escalation-policy binds: which ladder each responder is wired into.
+  useEffect(() => {
+    http
+      .get('/api/escalation-policies')
+      .then((res) => {
+        const rows = unwrapList<Policy>(res)
+        setPolicies(rows)
+      })
+      .catch(() => {})
+  }, [http])
 
   const sendInvite = useCallback(async () => {
     if (!inviteEmail.trim()) return
@@ -146,6 +175,30 @@ export function Team() {
   const oncallCount = members.filter((m) => m.oncall && m.active).length
   const rotation = useMemo(() => deriveRotation(members), [members])
 
+  /** member id → the ladders they are bound to (position + wait). */
+  const bindsByMember = useMemo(() => {
+    const map = new Map<string, Array<{ policy: string; position: number; wait_minutes: number }>>()
+    for (const p of policies) {
+      for (const r of p.rules ?? []) {
+        if (!r.notify_member_id) continue
+        const list = map.get(r.notify_member_id) ?? []
+        list.push({ policy: p.name, position: r.position, wait_minutes: r.wait_minutes })
+        map.set(r.notify_member_id, list)
+      }
+    }
+    return map
+  }, [policies])
+
+  /** Fallback partner: the next active member in the derived rotation. */
+  const fallbackFor = useMemo(() => {
+    const pool = members.filter((m) => m.active)
+    return (id: string): string | null => {
+      const idx = pool.findIndex((m) => m.id === id)
+      if (idx < 0 || pool.length < 2) return null
+      return pool[(idx + 1) % pool.length]?.name ?? null
+    }
+  }, [members])
+
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8))}>
       <header className={cm.cn('flex items-start justify-between gap-6 flex-wrap mb-8')}>
@@ -218,7 +271,7 @@ export function Team() {
             className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest mb-3')}
             style={{ color: 'var(--color-text-secondary)' }}
           >
-            {t('team.inviteEyebrow', {}, { defaultValue: '// invite by email' })}
+            {t('team.inviteEyebrow', {}, { defaultValue: 'Invite New Responder' })}
           </h2>
           <div className={cm.cn('flex flex-col md:flex-row gap-2 md:items-center')}>
             <input
@@ -387,6 +440,14 @@ export function Team() {
         className={cm.cn('rounded-2xl overflow-hidden')}
         style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}
       >
+        <h2
+          className={cm.cn(
+            'font-mono text-[10px] font-black uppercase tracking-widest px-5 pt-5 mb-3',
+          )}
+          style={{ color: 'var(--color-text-secondary)' }}
+        >
+          {t('team.directoryHeading', {}, { defaultValue: 'Team Directory & Responders' })}
+        </h2>
         {/* Horizontal scroll on phones: the 6-column roster keeps readable
             columns instead of crushing email/role cells. */}
         <div className={cm.cn('overflow-x-auto')}>
@@ -532,6 +593,166 @@ export function Team() {
             </ul>
           )}
         </div>
+      </section>
+
+      {/* Fallback & DND integrity — who covers whom, and the DND-bypass guarantee */}
+      <section
+        className={cm.cn('mt-6 rounded-2xl p-5')}
+        style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}
+        data-mol-id="team-fallback-dnd"
+      >
+        <h2
+          className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest mb-1')}
+          style={{ color: 'var(--color-text-secondary)' }}
+        >
+          {t('team.fallbackHeading', {}, { defaultValue: 'Fallback & DND Integrity' })}
+        </h2>
+        <p className={cm.cn('text-xs mb-4')} style={{ color: 'var(--color-text-tertiary)' }}>
+          {t(
+            'team.fallbackSub',
+            {},
+            {
+              defaultValue:
+                'Every active responder carries a named fallback; critical pages pierce OS Do-Not-Disturb via the hardware APNs/FCM critical-alert channel.',
+            },
+          )}
+        </p>
+        {members.filter((m) => m.active).length === 0 ? (
+          <p
+            className={cm.cn('font-mono text-xs')}
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
+            {t('team.fallbackEmpty', {}, { defaultValue: 'No active responders yet.' })}
+          </p>
+        ) : (
+          <ul className={cm.cn('grid gap-2 md:grid-cols-2')}>
+            {members
+              .filter((m) => m.active)
+              .map((m) => {
+                const fallback = fallbackFor(m.id)
+                return (
+                  <li
+                    key={m.id}
+                    data-mol-id={`team-fallback-${m.id}`}
+                    className={cm.cn('rounded-md px-3 py-2 flex items-center gap-2 flex-wrap')}
+                    style={{
+                      backgroundColor: 'var(--color-background-tertiary)',
+                      border: '1px solid var(--color-border-subtle)',
+                    }}
+                  >
+                    <span
+                      className={cm.cn('text-sm font-bold')}
+                      style={{ color: 'var(--color-text)' }}
+                    >
+                      {m.name}
+                    </span>
+                    <span
+                      className={cm.cn('font-mono text-[11px]')}
+                      style={{ color: 'var(--color-text-secondary)' }}
+                    >
+                      {fallback
+                        ? t(
+                            'team.fallbackPartner',
+                            { name: fallback },
+                            { defaultValue: 'fallback: {{name}}' },
+                          )
+                        : t('team.fallbackNone', {}, { defaultValue: 'no fallback paired yet' })}
+                    </span>
+                    <span
+                      className={cm.cn(
+                        'ml-auto inline-flex items-center gap-1 px-2 py-0.5 rounded-full font-mono text-[9px] font-black uppercase tracking-widest',
+                      )}
+                      style={{
+                        backgroundColor: 'var(--color-severity-resolved-light)',
+                        color: 'var(--color-severity-resolved)',
+                      }}
+                    >
+                      <span
+                        className={cm.cn('material-symbols-outlined text-xs')}
+                        aria-hidden="true"
+                      >
+                        do_not_disturb_off
+                      </span>
+                      {t('team.dndBypass', {}, { defaultValue: 'DND bypass' })}
+                    </span>
+                  </li>
+                )
+              })}
+          </ul>
+        )}
+      </section>
+
+      {/* Escalation policy binds — the ladders each responder is wired into */}
+      <section
+        className={cm.cn('mt-6 rounded-2xl p-5')}
+        style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}
+        data-mol-id="team-policy-binds"
+      >
+        <h2
+          className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest mb-3')}
+          style={{ color: 'var(--color-text-secondary)' }}
+        >
+          {t('team.bindsHeading', {}, { defaultValue: 'Escalation Policy Binds' })}
+        </h2>
+        {bindsByMember.size === 0 ? (
+          <p
+            className={cm.cn('font-mono text-xs')}
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
+            {t(
+              'team.bindsEmpty',
+              {},
+              { defaultValue: 'No escalation policies reference a responder yet.' },
+            )}
+          </p>
+        ) : (
+          <ul className={cm.cn('space-y-2')}>
+            {members
+              .filter((m) => bindsByMember.has(m.id))
+              .map((m) => (
+                <li
+                  key={m.id}
+                  data-mol-id={`team-bind-${m.id}`}
+                  className={cm.cn('flex items-center gap-2 flex-wrap')}
+                >
+                  <span
+                    className={cm.cn('text-sm font-bold')}
+                    style={{ color: 'var(--color-text)' }}
+                  >
+                    {m.name}
+                  </span>
+                  <span
+                    className={cm.cn('font-mono text-[11px]')}
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
+                    →
+                  </span>
+                  <span className={cm.cn('flex flex-wrap gap-1.5')}>
+                    {(bindsByMember.get(m.id) ?? []).map((b, i) => (
+                      <span
+                        key={`${m.id}-${b.policy}-${i}`}
+                        className={cm.cn('px-2 py-0.5 rounded font-mono text-[10px] border')}
+                        style={{
+                          borderColor: 'var(--color-border-secondary)',
+                          color: 'var(--color-text)',
+                          backgroundColor: 'var(--color-background-tertiary)',
+                        }}
+                      >
+                        {b.policy} · L{b.position + 1}
+                        {b.wait_minutes > 0
+                          ? t(
+                              'team.bindsWait',
+                              { minutes: b.wait_minutes },
+                              { defaultValue: ' · +{{minutes}}m' },
+                            )
+                          : ''}
+                      </span>
+                    ))}
+                  </span>
+                </li>
+              ))}
+          </ul>
+        )}
       </section>
     </div>
   )

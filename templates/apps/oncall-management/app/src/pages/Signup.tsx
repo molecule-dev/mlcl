@@ -5,7 +5,8 @@ import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { useSignup, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
 
 const SURFACE_DARK = 'var(--color-background)'
@@ -108,11 +109,8 @@ export function Signup() {
                 </span>
               </div>
             </div>
-            <h1
-              className={cm.cn('text-4xl font-extrabold tracking-tight')}
-              style={{ color: 'var(--color-text)' }}
-            >
-              {APP_NAME}
+            <h1 className={cm.cn(cm.flex({ justify: 'center' }))}>
+              <BrandWordmark as="span" size="lg" />
             </h1>
             <p
               className={cm.cn('mt-1 font-mono text-xs')}
@@ -132,7 +130,11 @@ export function Signup() {
             }}
           >
             <h2 className={cm.cn('text-lg font-bold')} style={{ color: 'var(--color-text)' }}>
-              {t('auth.signup.createYourAccount', {}, { defaultValue: 'Create your account' })}
+              {t(
+                'signup.deployClusterHeading',
+                {},
+                { defaultValue: 'Deploy your on-call cluster' },
+              )}
             </h2>
 
             <form className={cm.cn(cm.flex({ direction: 'col' }), 'gap-5')} onSubmit={handleSubmit}>

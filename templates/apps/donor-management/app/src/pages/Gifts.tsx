@@ -55,6 +55,11 @@ export function Gifts() {
     [list, methodFilter, receiptedFilter, campaignParam],
   )
   const totalCents = visible.reduce((sum, g) => sum + g.amount_cents, 0)
+  // Lockbox-reconciliation highlights — derived live from the ledger.
+  const unreceipted = list.filter((g) => !g.receipted)
+  const unreceiptedCents = unreceipted.reduce((sum, g) => sum + g.amount_cents, 0)
+  const receiptedPct =
+    list.length > 0 ? Math.round((list.filter((g) => g.receipted).length / list.length) * 100) : 100
   const campaignName = campaignParam
     ? (visible[0]?.campaign_name ??
       list.find((g) => g.campaign_id === campaignParam)?.campaign_name ??
@@ -155,6 +160,70 @@ export function Gifts() {
           </option>
         </select>
       </div>
+
+      {list.length > 0 ? (
+        <div className={cm.grid({ cols: 2, gap: 'md' })}>
+          <section
+            data-mol-id="gifts-lockbox"
+            className={cm.cn(cm.card(), cm.sp('p', 5), cm.stack(2))}
+          >
+            <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>
+              {t('gifts.lockboxHeading', {}, { defaultValue: 'Lockbox reconciliation' })}
+            </h2>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'gifts.lockboxBody',
+                { count: unreceipted.length, total: formatMoney(unreceiptedCents) },
+                {
+                  defaultValue:
+                    '{{count}} recorded gifts ({{total}}) are awaiting their year-end receipt — checks, ACH, and cash waiting on deposit match.',
+                },
+              )}
+            </p>
+            <Link
+              to="/receipts"
+              data-mol-id="gifts-lockbox-cta"
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                'rounded-md bg-primary text-on-primary self-start',
+              )}
+            >
+              {t('gifts.lockboxCta', {}, { defaultValue: 'Review & receipt' })}
+            </Link>
+          </section>
+          <section className={cm.cn(cm.card(), cm.sp('p', 5), cm.stack(2))}>
+            <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>
+              {t('gifts.coverageHeading', {}, { defaultValue: 'Receipt coverage' })}
+            </h2>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'gifts.coverageBody',
+                { pct: receiptedPct },
+                {
+                  defaultValue:
+                    '{{pct}}% of recorded gifts are covered by an issued receipt — substantiation ready for the IRS ledger.',
+                },
+              )}
+            </p>
+            <div
+              className={cm.cn('h-2 rounded-full bg-surface-container')}
+              role="progressbar"
+              aria-valuenow={receiptedPct}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-label={t('gifts.coverageHeading', {}, { defaultValue: 'Receipt coverage' })}
+            >
+              <div
+                className={'h-2 rounded-full bg-primary'}
+                style={{ width: `${receiptedPct}%` }}
+              />
+            </div>
+          </section>
+        </div>
+      ) : null}
 
       {error ? (
         <div

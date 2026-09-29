@@ -1,89 +1,246 @@
 [
-  {
-    "id": "pm-1",
-    "incident_id": "inc-6",
-    "title": "Postmortem: cart service outage during flash sale",
-    "summary": "A flash-sale traffic spike exhausted the cart service database connection pool. The pool had no statement timeout, so a slow pricing query held connections until every worker starved. The incident ran 38 minutes: 4 to ack, 34 to roll back the pricing query and drain the pool.",
-    "contributing_factors": [
-      "Pricing query shipped without a statement timeout",
-      "Connection pool sized for normal traffic, not sale traffic",
-      "No load test in CI for the flash-sale profile"
-    ],
-    "status": "published",
-    "incident": {
-      "id": "inc-6",
-      "title": "Cart service outage during flash sale",
-      "severity": "critical",
-      "status": "resolved",
-      "service": "checkout-api",
-      "triggered_at": "2026-09-13T14:05:00Z",
-      "resolved_at": "2026-09-13T14:43:00Z"
-    },
-    "open_action_items": 3,
-    "action_items": [
-      {
-        "id": "ai-1",
-        "description": "Add a 5s statement timeout to every cart-service query",
-        "owner_member_id": "mem-1",
-        "owner_name": "Riley Carter",
-        "status": "done",
-        "due_at": "2026-09-26T00:00:00Z"
-      },
-      {
-        "id": "ai-2",
-        "description": "Raise pool ceiling and add saturation alerting at 80%",
-        "owner_member_id": "mem-2",
-        "owner_name": "Morgan Reyes",
-        "status": "in_progress",
-        "due_at": "2026-10-03T00:00:00Z"
-      },
-      {
-        "id": "ai-3",
-        "description": "Add a flash-sale load profile to the CI pipeline",
-        "owner_member_id": "mem-4",
-        "owner_name": "Jordan Park",
-        "status": "open",
-        "due_at": "2026-10-19T00:00:00Z"
-      }
-    ]
+ {
+  "id": "pm-bgp-03",
+  "incident_id": "inc-bgp-03",
+  "title": "Postmortem: BGP route flap on secondary transit provider",
+  "summary": "edge-gw-02 announced and withdrew the primary prefix 14 times in 10 minutes during provider maintenance. BFD failed traffic to the primary transit in under 2 seconds each time; no user-visible impact.",
+  "contributing_factors": [
+   "Maintenance window was not filed against the peering calendar",
+   "Route flap damping was disabled on the secondary session"
+  ],
+  "status": "published",
+  "incident": {
+   "id": "inc-bgp-03",
+   "title": "BGP route flap on secondary transit provider edge-gw-02",
+   "severity": "info",
+   "status": "resolved",
+   "service": "edge-gw-02",
+   "triggered_at": "2026-09-16T03:12:00Z",
+   "resolved_at": "2026-09-16T03:37:00Z"
   },
-  {
-    "id": "pm-2",
-    "incident_id": "inc-4",
-    "title": "Postmortem: SSO login throttling misconfiguration",
-    "summary": "A config migration reset the SSO throttle window from 10 attempts to 2, locking out frequent SSO users for ~2 hours until the hotfix shipped.",
-    "contributing_factors": [
-      "Throttle defaults lived in code, not in the config store",
-      "Config migration lacked a regression test"
-    ],
-    "status": "draft",
-    "incident": {
-      "id": "inc-4",
-      "title": "Login throttling misconfigured for SSO users",
-      "severity": "warning",
-      "status": "resolved",
-      "service": "auth-api",
-      "triggered_at": "2026-09-18T12:00:00Z",
-      "resolved_at": "2026-09-18T15:00:00Z"
-    },
-    "open_action_items": 2,
-    "action_items": [
-      {
-        "id": "ai-4",
-        "description": "Move throttle defaults into the config store",
-        "owner_member_id": "mem-4",
-        "owner_name": "Jordan Park",
-        "status": "open",
-        "due_at": "2026-10-03T00:00:00Z"
-      },
-      {
-        "id": "ai-5",
-        "description": "Add a regression test covering config migrations",
-        "owner_member_id": "mem-3",
-        "owner_name": "Sasha Lin",
-        "status": "open",
-        "due_at": "2026-10-10T00:00:00Z"
-      }
-    ]
-  }
+  "open_action_items": 0,
+  "action_items": [
+   {
+    "id": "ai-bgp-1",
+    "description": "Enable route-flap damping on both transit sessions",
+    "owner_member_id": "mem-2",
+    "owner_name": "Morgan Reyes",
+    "status": "done",
+    "due_at": "2026-09-26T00:00:00Z"
+   }
+  ]
+ },
+ {
+  "id": "pm-cache-02",
+  "incident_id": "inc-cache-02",
+  "title": "Postmortem: auth-session-cache miss rate on redis-auth-prod",
+  "summary": "An eviction-policy change flipped redis-auth-prod from allkeys-lru to volatile-ttl, and sessions without a TTL set were evicted first. Miss rate peaked at 12.6%, doubling origin reads for 22 minutes.",
+  "contributing_factors": [
+   "Eviction policy drifted from the config store baseline",
+   "No alert on cache hit ratio below 95%"
+  ],
+  "status": "published",
+  "incident": {
+   "id": "inc-cache-02",
+   "title": "Auth-session-cache miss rate > 12% on redis-auth-prod",
+   "severity": "warning",
+   "status": "resolved",
+   "service": "redis-auth-prod",
+   "triggered_at": "2026-09-18T08:30:00Z",
+   "resolved_at": "2026-09-18T09:02:00Z"
+  },
+  "open_action_items": 1,
+  "action_items": [
+   {
+    "id": "ai-cache-1",
+    "description": "Enforce allkeys-lru via config-store drift detection",
+    "owner_member_id": "mem-3",
+    "owner_name": "Sasha Lin",
+    "status": "done",
+    "due_at": "2026-09-22T00:00:00Z"
+   },
+   {
+    "id": "ai-cache-2",
+    "description": "Alert when session-cache hit ratio drops under 95%",
+    "owner_member_id": "mem-4",
+    "owner_name": "Jordan Park",
+    "status": "in_progress",
+    "due_at": "2026-09-27T00:00:00Z"
+   }
+  ]
+ },
+ {
+  "id": "pm-kafka-01",
+  "incident_id": "inc-kafka-01",
+  "title": "Postmortem: kafka consumer-lag warning on billing-events",
+  "summary": "The billing-ledger-workers consumer group fell 48,210 messages behind after a partition rebalance doubled assignment asymmetry. Batch delay peaked at ~3 minutes; no billing events were dropped.",
+  "contributing_factors": [
+   "Rebalance left one worker with 4 of 6 partitions",
+   "No lag-per-partition alerting between 20k and 45k"
+  ],
+  "status": "published",
+  "incident": {
+   "id": "inc-kafka-01",
+   "title": "Kafka consumer-lag warning on billing-events queue backlog > 45,000 msgs",
+   "severity": "warning",
+   "status": "resolved",
+   "service": "kafka-prod-cluster-04",
+   "triggered_at": "2026-09-18T20:10:00Z",
+   "resolved_at": "2026-09-18T21:05:00Z"
+  },
+  "open_action_items": 1,
+  "action_items": [
+   {
+    "id": "ai-kafka-1",
+    "description": "Pin cooperative-sticky assignment for billing-ledger-workers",
+    "owner_member_id": "mem-4",
+    "owner_name": "Jordan Park",
+    "status": "done",
+    "due_at": "2026-09-25T00:00:00Z"
+   },
+   {
+    "id": "ai-kafka-2",
+    "description": "Add per-partition lag alert at 20k sustained 10m",
+    "owner_member_id": "mem-3",
+    "owner_name": "Sasha Lin",
+    "status": "open",
+    "due_at": "2026-09-28T00:00:00Z"
+   }
+  ]
+ },
+ {
+  "id": "pm-9482",
+  "incident_id": "inc-9482",
+  "title": "Postmortem: latency spike p99 > 1850ms (database connection pool exhaustion)",
+  "summary": "The Postgres primary pool saturated at 498/500 leases (99.6%) after a slow migrations query leaked synchronous checkout connections. Edge ingress pods dropped threads and p99 latency breached 1850ms for 11 minutes until the leaked leases were reaped. Executive summary: ~41,200 users saw checkout errors peaking at 18.4%; no billing data was lost.",
+  "contributing_factors": [
+   "Leaked connections held leases with no idle reaping (statement timeout absent)",
+   "Pool saturation alert fired only at 100%, leaving no ramp warning",
+   "The migrations runner shares the checkout connection pool"
+  ],
+  "status": "draft",
+  "incident": {
+   "id": "inc-9482",
+   "title": "Latency Spike p99 > 1850ms (Database connection pool exhaustion)",
+   "severity": "critical",
+   "status": "triggered",
+   "service": "postgres-primary",
+   "triggered_at": "2026-09-19T14:22:00Z",
+   "resolved_at": null
+  },
+  "open_action_items": 2,
+  "action_items": [
+   {
+    "id": "ai-9482-1",
+    "description": "Add a 5s statement timeout to every pooled checkout query",
+    "owner_member_id": "mem-1",
+    "owner_name": "Riley Carter",
+    "status": "open",
+    "due_at": "2026-10-01T00:00:00Z"
+   },
+   {
+    "id": "ai-9482-2",
+    "description": "Move the migrations runner onto a dedicated pool",
+    "owner_member_id": "mem-2",
+    "owner_name": "Morgan Reyes",
+    "status": "open",
+    "due_at": "2026-10-08T00:00:00Z"
+   },
+   {
+    "id": "ai-9482-3",
+    "description": "Alert on pool lease saturation at 80% with a 5-minute ramp",
+    "owner_member_id": "mem-3",
+    "owner_name": "Sasha Lin",
+    "status": "in_progress",
+    "due_at": "2026-09-29T00:00:00Z"
+   }
+  ]
+ },
+ {
+  "id": "pm-1",
+  "incident_id": "inc-6",
+  "title": "Postmortem: cart service outage during flash sale",
+  "summary": "A flash-sale traffic spike exhausted the cart service database connection pool. The pool had no statement timeout, so a slow pricing query held connections until every worker starved. The incident ran 38 minutes: 4 to ack, 34 to roll back the pricing query and drain the pool.",
+  "contributing_factors": [
+   "Pricing query shipped without a statement timeout",
+   "Connection pool sized for normal traffic, not sale traffic",
+   "No load test in CI for the flash-sale profile"
+  ],
+  "status": "published",
+  "incident": {
+   "id": "inc-6",
+   "title": "Cart service outage during flash sale",
+   "severity": "critical",
+   "status": "resolved",
+   "service": "checkout-api",
+   "triggered_at": "2026-09-13T14:05:00Z",
+   "resolved_at": "2026-09-13T14:43:00Z"
+  },
+  "open_action_items": 3,
+  "action_items": [
+   {
+    "id": "ai-1",
+    "description": "Add a 5s statement timeout to every cart-service query",
+    "owner_member_id": "mem-1",
+    "owner_name": "Riley Carter",
+    "status": "done",
+    "due_at": "2026-09-26T00:00:00Z"
+   },
+   {
+    "id": "ai-2",
+    "description": "Raise pool ceiling and add saturation alerting at 80%",
+    "owner_member_id": "mem-2",
+    "owner_name": "Morgan Reyes",
+    "status": "in_progress",
+    "due_at": "2026-10-03T00:00:00Z"
+   },
+   {
+    "id": "ai-3",
+    "description": "Add a flash-sale load profile to the CI pipeline",
+    "owner_member_id": "mem-4",
+    "owner_name": "Jordan Park",
+    "status": "open",
+    "due_at": "2026-10-19T00:00:00Z"
+   }
+  ]
+ },
+ {
+  "id": "pm-2",
+  "incident_id": "inc-4",
+  "title": "Postmortem: SSO login throttling misconfiguration",
+  "summary": "A config migration reset the SSO throttle window from 10 attempts to 2, locking out frequent SSO users for ~2 hours until the hotfix shipped.",
+  "contributing_factors": [
+   "Throttle defaults lived in code, not in the config store",
+   "Config migration lacked a regression test"
+  ],
+  "status": "draft",
+  "incident": {
+   "id": "inc-4",
+   "title": "Login throttling misconfigured for SSO users",
+   "severity": "warning",
+   "status": "resolved",
+   "service": "auth-api",
+   "triggered_at": "2026-09-18T12:00:00Z",
+   "resolved_at": "2026-09-18T15:00:00Z"
+  },
+  "open_action_items": 2,
+  "action_items": [
+   {
+    "id": "ai-4",
+    "description": "Move throttle defaults into the config store",
+    "owner_member_id": "mem-4",
+    "owner_name": "Jordan Park",
+    "status": "open",
+    "due_at": "2026-10-03T00:00:00Z"
+   },
+   {
+    "id": "ai-5",
+    "description": "Add a regression test covering config migrations",
+    "owner_member_id": "mem-3",
+    "owner_name": "Sasha Lin",
+    "status": "open",
+    "due_at": "2026-10-10T00:00:00Z"
+   }
+  ]
+ }
 ]

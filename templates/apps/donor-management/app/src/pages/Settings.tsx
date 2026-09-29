@@ -20,11 +20,14 @@ type Section = (typeof SECTIONS)[number]
 
 interface CompanySettings {
   organizationName?: string
+  organizationEin?: string
   timezone?: string
   officeHours?: string
   defaultFund?: string
   receiptFooterNote?: string
   receiptNumberPrefix?: string
+  signatoryName?: string
+  signatoryTitle?: string
   notifyNewGifts?: boolean
   notifyCampaignGoals?: boolean
   notifyLapsedDonors?: boolean
@@ -34,11 +37,14 @@ interface CompanySettings {
 
 const DEFAULTS: Required<CompanySettings> = {
   organizationName: 'Harbor Community Foundation',
+  organizationEin: '',
   timezone: 'America/New_York',
   officeHours: '9:00am – 5:00pm',
   defaultFund: 'general',
   receiptFooterNote: 'Thank you for your generous support.',
   receiptNumberPrefix: 'R',
+  signatoryName: '',
+  signatoryTitle: '',
   notifyNewGifts: true,
   notifyCampaignGoals: true,
   notifyLapsedDonors: true,
@@ -190,6 +196,11 @@ export function Settings() {
                 onChange={(v) => update('organizationName', v)}
               />
               <Field
+                label={t('settings.organization.ein', {}, { defaultValue: 'Federal EIN / Tax ID' })}
+                value={settings.organizationEin}
+                onChange={(v) => update('organizationEin', v)}
+              />
+              <Field
                 label={t('form.timezone', {}, { defaultValue: 'Timezone' })}
                 value={settings.timezone}
                 onChange={(v) => update('timezone', v)}
@@ -199,14 +210,169 @@ export function Settings() {
                 value={settings.officeHours}
                 onChange={(v) => update('officeHours', v)}
               />
+              {/* Statutory identity + compliance health — the design's
+                  501(c)(3) block, driven by the saved settings values. */}
+              <h3 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'), cm.sp('pt', 2))}>
+                {t(
+                  'settings.compliance.statutoryHeading',
+                  {},
+                  { defaultValue: '501(c)(3) Statutory Identity' },
+                )}
+              </h3>
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                {t(
+                  'settings.compliance.statutorySub',
+                  {},
+                  {
+                    defaultValue:
+                      'The legal registration details printed on every receipt and year-end statement.',
+                  },
+                )}
+              </p>
+              <div
+                className={cm.cn(
+                  cm.sp('p', 4),
+                  'rounded-lg bg-surface-container-low flex items-start justify-between gap-3 flex-wrap',
+                )}
+              >
+                <div className={cm.stack(1)}>
+                  <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                    {settings.organizationName}
+                  </p>
+                  <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                    {settings.organizationEin
+                      ? t(
+                          'settings.compliance.ein',
+                          { ein: settings.organizationEin },
+                          { defaultValue: 'EIN {{ein}}' },
+                        )
+                      : t(
+                          'settings.compliance.einMissing',
+                          {},
+                          { defaultValue: 'No EIN on file — add it above and save.' },
+                        )}
+                  </p>
+                </div>
+                <span
+                  className={cm.cn(
+                    cm.sp('px', 2),
+                    cm.sp('py', 1),
+                    cm.textSize('xs'),
+                    cm.fontWeight('bold'),
+                    'rounded-full',
+                    settings.organizationEin
+                      ? 'bg-success-container text-on-success-container'
+                      : 'bg-warning-container text-on-warning-container',
+                  )}
+                >
+                  {settings.organizationEin
+                    ? t('settings.compliance.verified', {}, { defaultValue: 'On file' })
+                    : t('settings.compliance.pending', {}, { defaultValue: 'Missing' })}
+                </span>
+              </div>
+              <h3 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>
+                {t(
+                  'settings.compliance.healthHeading',
+                  {},
+                  { defaultValue: 'IRS Compliance Health' },
+                )}
+              </h3>
+              <ul className={cm.stack(2)}>
+                {[
+                  {
+                    key: 'ein',
+                    label: t(
+                      'settings.compliance.checkEin',
+                      {},
+                      { defaultValue: 'Federal EIN recorded for statutory identity' },
+                    ),
+                    done: settings.organizationEin.trim().length > 0,
+                  },
+                  {
+                    key: 'disclosure',
+                    label: t(
+                      'settings.compliance.checkDisclosure',
+                      {},
+                      {
+                        defaultValue:
+                          'Quid pro quo disclosure armed — receipts state whether goods or services were provided',
+                      },
+                    ),
+                    done: true,
+                  },
+                  {
+                    key: 'prefix',
+                    label: t(
+                      'settings.compliance.checkPrefix',
+                      {},
+                      {
+                        defaultValue:
+                          'Sequential receipt numbering active — issued receipts are immutable',
+                      },
+                    ),
+                    done: settings.receiptNumberPrefix.trim().length > 0,
+                  },
+                  {
+                    key: 'signatory',
+                    label: t(
+                      'settings.compliance.checkSignatory',
+                      {},
+                      { defaultValue: 'Authorized signatory named for receipt sign-off' },
+                    ),
+                    done: settings.signatoryName.trim().length > 0,
+                  },
+                  {
+                    key: 'footer',
+                    label: t(
+                      'settings.compliance.checkFooter',
+                      {},
+                      { defaultValue: 'Receipt footer note personalized' },
+                    ),
+                    done: settings.receiptFooterNote.trim().length > 0,
+                  },
+                ].map((check) => (
+                  <li
+                    key={check.key}
+                    className={cm.cn(cm.flex({ align: 'start', gap: 2 }), cm.textSize('sm'))}
+                  >
+                    <span
+                      className={
+                        check.done
+                          ? 'material-symbols-outlined text-success text-base'
+                          : 'material-symbols-outlined text-on-surface-variant text-base'
+                      }
+                      aria-hidden="true"
+                    >
+                      {check.done ? 'check_circle' : 'radio_button_unchecked'}
+                    </span>
+                    <span className="text-on-surface-variant">{check.label}</span>
+                  </li>
+                ))}
+              </ul>
             </section>
           )}
 
           {section === 'giving' && (
             <section className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-3')}>
               <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
-                {t('settings.giving.heading', {}, { defaultValue: 'Giving & receipt defaults' })}
+                {t(
+                  'settings.giving.heading',
+                  {},
+                  {
+                    defaultValue: 'Automated Receipting & Substantiation Rules',
+                  },
+                )}
               </h2>
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                {t(
+                  'settings.giving.subheading',
+                  {},
+                  {
+                    defaultValue:
+                      'Codify the acknowledgment logic every issued receipt follows — cadence, numbering, and the signatory who authorizes it.',
+                  },
+                )}
+              </p>
               <Field
                 label={t('settings.giving.defaultFund', {}, { defaultValue: 'Default fund' })}
                 value={settings.defaultFund}
@@ -229,6 +395,37 @@ export function Settings() {
                 )}
                 value={settings.receiptFooterNote}
                 onChange={(v) => update('receiptFooterNote', v)}
+              />
+              <h3 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'), cm.sp('pt', 2))}>
+                {t(
+                  'settings.giving.signatureHeading',
+                  {},
+                  { defaultValue: 'Digital Authorized Signature & Letterhead' },
+                )}
+              </h3>
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                {t(
+                  'settings.giving.signatureSub',
+                  {},
+                  {
+                    defaultValue:
+                      'The officer whose name stamps formal written substantiations, printed with your footer note as the letterhead line.',
+                  },
+                )}
+              </p>
+              <Field
+                label={t(
+                  'settings.giving.signatoryName',
+                  {},
+                  { defaultValue: 'Authorized signatory name' },
+                )}
+                value={settings.signatoryName}
+                onChange={(v) => update('signatoryName', v)}
+              />
+              <Field
+                label={t('settings.giving.signatoryTitle', {}, { defaultValue: 'Signatory title' })}
+                value={settings.signatoryTitle}
+                onChange={(v) => update('signatoryTitle', v)}
               />
             </section>
           )}

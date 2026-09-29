@@ -348,6 +348,16 @@ export function Profile() {
           >
             {me?.email ?? '—'}
           </p>
+          <h2
+            className={cm.cn('mt-2 font-mono text-[10px] font-black uppercase tracking-widest')}
+            style={{ color: 'var(--color-text-tertiary)' }}
+          >
+            {t(
+              'profile.identityHeading',
+              {},
+              { defaultValue: 'SRE Identity & Hardware Telemetry' },
+            )}
+          </h2>
         </div>
       </header>
 
@@ -403,7 +413,13 @@ export function Profile() {
 
       <section className={cm.cn('grid gap-6 grid-cols-1 lg:grid-cols-12')}>
         <div className={cm.cn('min-w-0 lg:col-span-7 space-y-6')}>
-          <Card title={t('settings.account', {}, { defaultValue: 'Account' })}>
+          <Card
+            title={t(
+              'profile.coreIdentity',
+              {},
+              { defaultValue: '1. Core Identity & SRE Profile' },
+            )}
+          >
             {editingDisplayName ? (
               <div className={cm.cn('flex items-center gap-2 py-2.5')}>
                 <span
@@ -528,7 +544,52 @@ export function Profile() {
             />
           </Card>
 
-          <Card title={t('nav.security', {}, { defaultValue: 'Security' })}>
+          {/* 2. Telephony & pager bindings — where pages reach this responder */}
+          <Card
+            title={t(
+              'profile.pagerBindings',
+              {},
+              { defaultValue: '2. Multi-Carrier Telephony & Pager Bindings' },
+            )}
+          >
+            <FieldRow
+              label={t('profile.bindingInApp', {}, { defaultValue: 'In-app pager' })}
+              value={t('profile.bindingInAppValue', {}, { defaultValue: 'Bound to this account' })}
+              valueStyle={{ color: 'var(--color-severity-resolved)' }}
+            />
+            <FieldRow
+              label={t('profile.bindingPush', {}, { defaultValue: 'Critical push' })}
+              value={t(
+                'profile.bindingPushValue',
+                {},
+                { defaultValue: 'APNs/FCM critical alerts — bypasses Do-Not-Disturb' },
+              )}
+            />
+            <FieldRow
+              label={t('profile.bindingVoice', {}, { defaultValue: 'Voice & SMS trunks' })}
+              value={t(
+                'profile.bindingVoiceValue',
+                {},
+                { defaultValue: 'Routed through the rotation schedules you belong to' },
+              )}
+            />
+            <FieldRow
+              label={t('profile.bindingEscalation', {}, { defaultValue: 'Escalation identity' })}
+              value={t(
+                'profile.bindingEscalationValue',
+                {},
+                { defaultValue: 'Paged by every policy ladder that lists you' },
+              )}
+            />
+          </Card>
+
+          <Card
+            title={t(
+              'profile.securityFido',
+              {},
+              { defaultValue: '3. Security, Master Password & Hardware FIDO2' },
+            )}
+          >
             <FieldRow
               label={t('profile.twoFactor', {}, { defaultValue: 'Two-factor auth' })}
               value={
@@ -693,7 +754,13 @@ export function Profile() {
             />
           </Card>
 
-          <Card title={t('profile.apiKeys', {}, { defaultValue: 'Personal API keys' })}>
+          <Card
+            title={t(
+              'profile.cliTokens',
+              {},
+              { defaultValue: '4. CLI Tokens & Personal API Access' },
+            )}
+          >
             {keys.length === 0 ? (
               <p
                 data-testid="api-keys-empty"

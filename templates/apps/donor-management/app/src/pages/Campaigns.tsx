@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -6,23 +6,28 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { formatMoney } from '../lib/format.js'
 import { unwrapList } from '../lib/unwrap.js'
-import type { Campaign } from '../types.js'
+import type { Campaign, Gift } from '../types.js'
 
 export function Campaigns() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
   const [list, setList] = useState<Campaign[]>([])
+  const [gifts, setGifts] = useState<Gift[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
-    http
-      .get('/campaigns')
-      .then((res) => {
-        if (!cancelled) setList(unwrapList<Campaign>(res))
+    Promise.all([
+      http.get('/campaigns').then((res) => unwrapList<Campaign>(res)),
+      http.get('/api/gifts').then((res) => unwrapList<Gift>(res)),
+    ])
+      .then(([campaigns, allGifts]) => {
+        if (cancelled) return
+        setList(campaigns)
+        setGifts(allGifts)
       })
       .catch(() => {
         if (!cancelled)
@@ -35,6 +40,17 @@ export function Campaigns() {
       cancelled = true
     }
   }, [http, t])
+
+  // Top stewardship cohorts — the campaigns with the deepest donor rosters.
+  const topCohorts = useMemo(
+    () => [...list].sort((a, b) => b.gift_count - a.gift_count).slice(0, 3),
+    [list],
+  )
+  // Newest gifts that carry a campaign attribution.
+  const recentContributions = useMemo(
+    () => gifts.filter((g) => g.campaign_id && g.campaign_name).slice(0, 5),
+    [gifts],
+  )
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
@@ -152,6 +168,130 @@ export function Campaigns() {
           })}
         </ul>
       )}
+
+      {list.length > 0 ? (
+        <div className={cm.grid({ cols: 2, gap: 'lg' })}>
+          <section className={cm.cn(cm.card(), cm.sp('p', 5), cm.stack(3))}>
+            <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+              {t(
+                'campaigns.cohortsHeading',
+                {},
+                { defaultValue: 'Top Stewardship Cohorts by Campaign' },
+              )}
+            </h2>
+            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+              {t(
+                'campaigns.cohortsSubtitle',
+                {},
+                {
+                  defaultValue:
+                    'The campaigns with the deepest donor rosters — where stewardship attention pays off first.',
+                },
+              )}
+            </p>
+            <ol className={cm.stack(3)}>
+              {topCohorts.map((c, i) => (
+                <li key={c.id} className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      cm.textSize('xs'),
+                      cm.fontWeight('bold'),
+                      'w-7 h-7 rounded-full bg-surface-container text-primary shrink-0',
+                    )}
+                    aria-hidden="true"
+                  >
+                    {i + 1}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <Link
+                      to={`/gifts?campaign_id=${c.id}`}
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('medium'),
+                        'block truncate',
+                      )}
+                    >
+                      {c.name}
+                    </Link>
+                    <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      {t(
+                        'campaigns.cohortDonors',
+                        { count: c.gift_count },
+                        { defaultValue: '{{count}} contributing donors' },
+                      )}
+                    </span>
+                  </span>
+                  <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                    {formatMoney(c.raised_cents)}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section className={cm.cn(cm.card(), cm.sp('p', 5), cm.stack(3))}>
+            <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+              {t('campaigns.recentHeading', {}, { defaultValue: 'Recent Campaign Contributions' })}
+            </h2>
+            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+              {t(
+                'campaigns.recentSubtitle',
+                {},
+                {
+                  defaultValue:
+                    'The newest gifts carrying a campaign attribution across every active appeal.',
+                },
+              )}
+            </p>
+            {recentContributions.length === 0 ? (
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'campaigns.recentEmpty',
+                  {},
+                  {
+                    defaultValue:
+                      'No campaign-attributed gifts yet — record a gift against a campaign and it shows up here.',
+                  },
+                )}
+              </p>
+            ) : (
+              <ul className={cm.stack(3)}>
+                {recentContributions.map((g) => (
+                  <li
+                    key={g.id}
+                    className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}
+                  >
+                    <span className="min-w-0">
+                      <Link
+                        to={`/gifts/${g.id}`}
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          cm.fontWeight('medium'),
+                          'block truncate',
+                        )}
+                      >
+                        {g.donor_name}
+                      </Link>
+                      <span
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          'text-on-surface-variant truncate block',
+                        )}
+                      >
+                        {g.gift_date} · {g.campaign_name}
+                      </span>
+                    </span>
+                    <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                      {formatMoney(g.amount_cents)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+        </div>
+      ) : null}
     </div>
   )
 }

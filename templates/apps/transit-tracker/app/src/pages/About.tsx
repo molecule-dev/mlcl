@@ -62,6 +62,54 @@ const FEATURES: Feature[] = [
   },
 ]
 
+interface Principle {
+  id: string
+  icon: string
+  titleKey: string
+  titleDefault: string
+  bodyKey: string
+  bodyDefault: string
+}
+
+const PRINCIPLES: Principle[] = [
+  {
+    id: 'telemetry',
+    icon: 'schedule',
+    titleKey: 'about.principle.telemetry.title',
+    titleDefault: 'Deterministic telemetry',
+    bodyKey: 'about.principle.telemetry.body',
+    bodyDefault:
+      'Every countdown is computed from the published schedule and the same clock, so two riders looking at the same stop always see the same truth.',
+  },
+  {
+    id: 'privacy',
+    icon: 'shield',
+    titleKey: 'about.principle.privacy.title',
+    titleDefault: 'Zero-surveillance privacy charter',
+    bodyKey: 'about.principle.privacy.body',
+    bodyDefault:
+      'No ad trackers, no location history, no selling of riding patterns. The app works for you alone — read the full charter on the privacy page.',
+  },
+  {
+    id: 'walkBuffer',
+    icon: 'directions_walk',
+    titleKey: 'about.principle.walkBuffer.title',
+    titleDefault: 'Precision walk-buffer intelligence',
+    bodyKey: 'about.principle.walkBuffer.body',
+    bodyDefault:
+      'Departure alarms are sized to real walking time to the platform, with the buffer computed per stop rather than a one-size-fits-all nag.',
+  },
+  {
+    id: 'openData',
+    icon: 'dataset',
+    titleKey: 'about.principle.openData.title',
+    titleDefault: 'Open data & GTFS-RT standard',
+    bodyKey: 'about.principle.openData.body',
+    bodyDefault:
+      'Boards speak the GTFS-RT open transit standard — the same public format agencies publish, so the data underneath never locks you in.',
+  },
+]
+
 export function About() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -119,7 +167,7 @@ export function About() {
             'tracking-tight',
           )}
         >
-          {t('about.missionTitle', {}, { defaultValue: 'Our mission' })}
+          {t('about.missionTitle', {}, { defaultValue: 'Mission & operational principles' })}
         </h2>
         <p
           data-mol-id="about-mission"
@@ -134,6 +182,48 @@ export function About() {
             },
           )}
         </p>
+
+        {/* Design's operational-principles grid — the four commitments the
+            product is run by, matching the Stitch about screen. */}
+        <ul
+          data-mol-id="about-principles"
+          className={cm.cn('grid grid-cols-1 sm:grid-cols-2 gap-4', cm.sp('mt', 6))}
+        >
+          {PRINCIPLES.map((principle) => (
+            <li
+              key={principle.id}
+              data-mol-id={`about-principle-${principle.id}`}
+              className={cm.cn(
+                cm.sp('p', 5),
+                'bg-surface-container-low rounded-2xl ring-1 ring-outline-variant/40',
+              )}
+            >
+              <span
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  cm.w(10),
+                  cm.h(10),
+                  'rounded-xl bg-primary/10 text-primary ring-1 ring-primary/20',
+                )}
+                aria-hidden="true"
+              >
+                <span className="material-symbols-outlined text-xl">{principle.icon}</span>
+              </span>
+              <h3 className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'), cm.sp('mt', 3))}>
+                {t(principle.titleKey, {}, { defaultValue: principle.titleDefault })}
+              </h3>
+              <p
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.sp('mt', 1),
+                  'text-on-surface-variant leading-relaxed',
+                )}
+              >
+                {t(principle.bodyKey, {}, { defaultValue: principle.bodyDefault })}
+              </p>
+            </li>
+          ))}
+        </ul>
 
         <h2
           className={cm.cn(
@@ -184,6 +274,35 @@ export function About() {
             </li>
           ))}
         </ul>
+
+        <h2
+          className={cm.cn(
+            cm.textSize('2xl'),
+            cm.fontWeight('bold'),
+            cm.sp('mt', 12),
+            cm.sp('mb', 3),
+            'tracking-tight',
+          )}
+        >
+          {t(
+            'about.authorityTitle',
+            {},
+            { defaultValue: 'Averton Metropolitan Transit Authority' },
+          )}
+        </h2>
+        <p
+          data-mol-id="about-authority"
+          className={cm.cn(cm.textSize('base'), 'text-on-surface-variant leading-relaxed')}
+        >
+          {t(
+            'about.authorityBody',
+            { app: APP_NAME },
+            {
+              defaultValue:
+                '{{app}} is the rider companion to the Averton Metropolitan Transit Authority (AMTA) network — a civic transit system that publishes its schedules, positions, and advisories as open data. The authority runs the trains, trams, and buses; {{app}} turns that public feed into the boards, alerts, and door-to-door plans you use every day.',
+            },
+          )}
+        </p>
 
         <h2
           className={cm.cn(

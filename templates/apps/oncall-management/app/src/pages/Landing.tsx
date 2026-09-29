@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { Footer } from '../components/Footer.js'
 import { IncidentRow, type IncidentRowData } from '../components/IncidentRow.js'
 
@@ -24,9 +25,9 @@ const FEATURES = [
   {
     key: 'escalation',
     span: 'md:col-span-5',
-    defaultTitle: 'Deterministic escalation ladders',
+    defaultTitle: 'Deterministic Escalation Chains',
     defaultBody:
-      'Notify a responder, wait N minutes, page the next layer — then the channel. Tier 2 standbys and incident commanders are pulled in automatically.',
+      "If an engineer doesn't acknowledge within 3 minutes, Klaxon triggers Tier 2 standbys, dials team leads, and automatically pulls in designated incident commanders.",
     icon: 'moving',
     tint: 'var(--color-severity-error)',
     statLabel: 'unack trigger',
@@ -35,10 +36,10 @@ const FEATURES = [
   {
     key: 'ackResolve',
     span: 'md:col-span-5',
-    defaultTitle: 'Ack → resolve workflow',
+    defaultTitle: 'Intelligent Alert Grouping',
     defaultBody:
-      'Every page is a tracked incident: trigger, acknowledge, resolve — with a full timeline, correlated alerts grouped into one thread.',
-    icon: 'notifications_active',
+      'Stop 80 cascading downstream microservice alerts from exploding your phone during a network blip. Klaxon groups correlated alerts into a single cohesive root-cause thread.',
+    icon: 'hub',
     tint: 'var(--color-severity-warning)',
     statLabel: 'noise reduction',
     statValue: '84 → 1',
@@ -46,9 +47,9 @@ const FEATURES = [
   {
     key: 'postmortems',
     span: 'md:col-span-7',
-    defaultTitle: 'Blameless postmortems',
+    defaultTitle: 'Automated Post-Mortem Generator',
     defaultBody:
-      'Contributing factors and action items with owners, so the same page never fires twice. Timelines and metrics compile into a document while the incident is still fresh.',
+      'When an outage is declared resolved, Klaxon pulls Datadog charts, Prometheus breach metrics, and Slack incident channel timelines directly into a structured Markdown post-mortem document.',
     icon: 'history_edu',
     tint: 'var(--color-severity-resolved)',
     statLabel: 'generated',
@@ -151,14 +152,14 @@ const PRICING = [
 const DEMO_INCIDENTS: IncidentRowData[] = [
   {
     id: 'demo-1',
-    title: 'Checkout API returning 503 for all requests',
+    title: 'Latency Spike p99 > 1850ms (Database connection pool exhaustion)',
     severity: 'critical',
     status: 'triggered',
-    service: 'checkout-api',
+    service: 'postgres-primary',
     assignee: null,
     escalation_policy_name: 'Platform P1',
-    escalation_level: 0,
-    triggered_at: new Date(Date.now() - 9 * 60_000).toISOString(),
+    escalation_level: 1,
+    triggered_at: new Date(Date.now() - 4 * 60_000).toISOString(),
   },
   {
     id: 'demo-2',
@@ -212,22 +213,7 @@ export function Landing() {
           )}
         >
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
-            <Link
-              to="/"
-              className={cm.cn('flex items-center gap-2 text-xl font-extrabold tracking-tight')}
-              style={{ color: 'var(--color-text)' }}
-            >
-              <span
-                className={cm.cn('inline-flex h-8 w-8 items-center justify-center rounded-lg')}
-                style={{ backgroundColor: BRAND_COLOR, color: 'var(--color-on-primary)' }}
-                aria-hidden="true"
-              >
-                <span className={cm.cn('material-symbols-outlined text-[20px]')}>
-                  notifications_active
-                </span>
-              </span>
-              <span>{APP_NAME}</span>
-            </Link>
+            <BrandWordmark />
             {/* Live SLA badge (design: nav status chip) */}
             <span
               className={cm.cn(
@@ -1075,7 +1061,7 @@ export function Landing() {
               {t(
                 'landing.pricingHeading',
                 {},
-                { defaultValue: 'Pay for the pager, not the noise' },
+                { defaultValue: 'No surprise telecom overages. Ever.' },
               )}
             </h2>
             <div className={cm.cn('grid gap-6 grid-cols-1 md:grid-cols-3 items-stretch')}>
@@ -1215,7 +1201,11 @@ export function Landing() {
                 className={cm.cn('text-3xl md:text-4xl font-extrabold tracking-tight mb-3')}
                 style={{ color: 'var(--color-text)' }}
               >
-                {t('landing.ctaHeading', {}, { defaultValue: 'Never miss a page.' })}
+                {t(
+                  'landing.ctaHeading',
+                  { app: APP_NAME },
+                  { defaultValue: 'Stop sleeping through outages. Start paging with {{app}}.' },
+                )}
               </h2>
               <p
                 className={cm.cn('text-base')}

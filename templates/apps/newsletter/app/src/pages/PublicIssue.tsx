@@ -6,6 +6,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { SafeLink } from '../components/SafeLink.js'
 
 interface Issue {
@@ -132,7 +133,7 @@ function PublicIssue() {
               'text-[var(--color-status-published)] hover:underline',
             )}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </SafeLink>
           <p
             className={cm.cn(

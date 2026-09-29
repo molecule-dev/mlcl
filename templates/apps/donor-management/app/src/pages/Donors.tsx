@@ -49,6 +49,9 @@ export function Donors() {
     })
   }, [list, search, tagFilter])
 
+  const lifetimeCents = useMemo(() => list.reduce((sum, d) => sum + d.lifetime_cents, 0), [list])
+  const lapsedCount = useMemo(() => list.filter((d) => d.tags.includes('lapsed')).length, [list])
+
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
       <header className={cm.flex({ align: 'center', justify: 'between' })}>
@@ -61,6 +64,16 @@ export function Donors() {
               'donors.subheading',
               { count: visible.length, total: list.length },
               { defaultValue: '{{count}} of {{total}} donors' },
+            )}
+          </p>
+          <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+            {t(
+              'donors.directoryLine',
+              {},
+              {
+                defaultValue:
+                  'Donor directory & stewardship — verified giving profiles, pledge follow-up, and year-end receipt readiness.',
+              },
             )}
           </p>
         </div>
@@ -77,6 +90,30 @@ export function Donors() {
           + {t('donors.addLabel', {}, { defaultValue: 'New donor' })}
         </Link>
       </header>
+
+      {/* Directory stats — derived live from the loaded donor book. */}
+      {list.length > 0 ? (
+        <div className={cm.grid({ cols: 3, gap: 'md' })}>
+          <Stat
+            label={t('donors.stat.total', {}, { defaultValue: 'Total donors' })}
+            value={String(list.length)}
+            icon="group"
+            tone="bg-primary-container text-on-primary-container"
+          />
+          <Stat
+            label={t('donors.stat.lifetime', {}, { defaultValue: 'Lifetime giving (all donors)' })}
+            value={formatMoney(lifetimeCents)}
+            icon="payments"
+            tone="bg-secondary-container text-on-secondary-container"
+          />
+          <Stat
+            label={t('donors.stat.lapsed', {}, { defaultValue: 'Lapsed — needs a touchpoint' })}
+            value={String(lapsedCount)}
+            icon="error_outline"
+            tone="bg-warning-container text-on-warning-container"
+          />
+        </div>
+      ) : null}
 
       <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
         <input
@@ -269,5 +306,44 @@ function Th({ children }: { children: React.ReactNode }) {
     >
       {children}
     </th>
+  )
+}
+
+function Stat({
+  label,
+  value,
+  icon,
+  tone,
+}: {
+  label: string
+  value: string
+  icon: string
+  tone: string
+}) {
+  const cm = getClassMap()
+  return (
+    <div className={cm.cn(cm.sp('p', 4), 'rounded-xl flex items-center gap-3', tone)}>
+      <span
+        className={cm.cn(
+          cm.flex({ align: 'center', justify: 'center' }),
+          'w-10 h-10 rounded-lg bg-surface/40 shrink-0',
+        )}
+        aria-hidden="true"
+      >
+        <span className="material-symbols-outlined text-xl">{icon}</span>
+      </span>
+      <div className="min-w-0">
+        <p
+          className={cm.cn(
+            cm.textSize('xs'),
+            cm.fontWeight('semibold'),
+            'uppercase tracking-wider',
+          )}
+        >
+          {label}
+        </p>
+        <p className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>{value}</p>
+      </div>
+    </div>
   )
 }

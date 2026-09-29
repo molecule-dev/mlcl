@@ -218,6 +218,27 @@ const INCIDENT_SEEDS: IncidentSeed[] = [
     notes: ['Monitor confirmed 100% 5xx on /v2/checkout across all regions.'],
   },
   {
+    key: 'latency-spike',
+    title: 'Latency Spike p99 > 1850ms (Database connection pool exhaustion)',
+    description:
+      'Postgres primary pool reached threshold. 498/500 active pool leases (99.6%). Dropping synchronous checkout threads across edge ingress pods.',
+    severity: 'critical',
+    status: 'triggered',
+    service: 'postgres-primary',
+    policy_key: 'p1',
+    schedule_key: 'platform',
+    paged_key: 'riley',
+    assignee_key: null,
+    triggered_minutes_ago: 4,
+    acked_minutes_ago: null,
+    resolved_minutes_ago: null,
+    escalation_level: 1,
+    notes: [
+      'Prometheus alert KafkaConsumerLagHigh corroboration: pool saturation began 90s after the billing-events backlog spike.',
+      'Call tree tier 1 paged — phone delivery confirmed with 0 carrier drops.',
+    ],
+  },
+  {
     key: 'payments-latency',
     title: 'Payment authorization latency above 4s',
     description: 'p95 authorization latency breached the 4s SLO for 25 minutes.',
@@ -289,6 +310,60 @@ const INCIDENT_SEEDS: IncidentSeed[] = [
     notes: ['Runner pool expanded; watching the next three nights.'],
   },
   {
+    key: 'kafka-lag',
+    title: 'Kafka consumer-lag warning on billing-events queue backlog > 45,000 msgs',
+    description:
+      'Consumer group billing-ledger-workers fell 48,210 messages behind (threshold: 20k). Asynchronous batch delay of ~3 minutes.',
+    severity: 'warning',
+    status: 'resolved',
+    service: 'kafka-prod-cluster-04',
+    policy_key: 'p2',
+    schedule_key: 'api',
+    paged_key: 'jordan',
+    assignee_key: 'jordan',
+    triggered_minutes_ago: 18 * 60,
+    acked_minutes_ago: 17 * 60,
+    resolved_minutes_ago: 16 * 60,
+    escalation_level: 0,
+    notes: ['Consumer group rebalanced; lag drained to zero in 14 minutes.'],
+  },
+  {
+    key: 'auth-cache-miss',
+    title: 'Auth-session-cache miss rate > 12% on redis-auth-prod',
+    description:
+      'Session-cache hit ratio dropped to 87.4% after the eviction-policy change, doubling origin reads on the auth service.',
+    severity: 'warning',
+    status: 'resolved',
+    service: 'redis-auth-prod',
+    policy_key: 'p2',
+    schedule_key: 'api',
+    paged_key: 'sasha',
+    assignee_key: 'sasha',
+    triggered_minutes_ago: 30 * 60,
+    acked_minutes_ago: 29 * 60,
+    resolved_minutes_ago: 27 * 60,
+    escalation_level: 0,
+    notes: ['allkeys-lru restored; hit ratio recovered to 99.1%.'],
+  },
+  {
+    key: 'bgp-flap',
+    title: 'BGP route flap on secondary transit provider edge-gw-02',
+    description:
+      'edge-gw-02 announced and withdrew the primary prefix 14 times in 10 minutes. Traffic failed over to the primary transit with no user impact.',
+    severity: 'info',
+    status: 'resolved',
+    service: 'edge-gw-02',
+    policy_key: 'p2',
+    schedule_key: 'weekend',
+    paged_key: 'morgan',
+    assignee_key: 'morgan',
+    triggered_minutes_ago: 3 * 24 * 60,
+    acked_minutes_ago: 3 * 24 * 60 - 6,
+    resolved_minutes_ago: 3 * 24 * 60 - 25,
+    escalation_level: 0,
+    notes: ['Provider ticket OPEN-8841; flap attributed to a maintenance misconfiguration.'],
+  },
+  {
     key: 'cart-outage',
     title: 'Cart service outage during flash sale',
     description: 'Connection pool exhaustion took the cart service down for 38 minutes.',
@@ -326,6 +401,38 @@ interface PostmortemSeed {
 
 const POSTMORTEM_SEEDS: PostmortemSeed[] = [
   {
+    incident_key: 'latency-spike',
+    title: 'Postmortem: latency spike p99 > 1850ms (database connection pool exhaustion)',
+    summary:
+      'The Postgres primary pool saturated at 498/500 leases (99.6%) after a slow migrations query leaked synchronous checkout connections. Edge ingress pods dropped threads and p99 latency breached 1850ms for 11 minutes until the leaked leases were reaped. Executive summary: ~41,200 users saw checkout errors peaking at 18.4%; no billing data was lost.',
+    contributing_factors: [
+      'Leaked connections held leases with no idle reaping (statement timeout absent)',
+      'Pool saturation alert fired only at 100%, leaving no ramp warning',
+      'The migrations runner shares the checkout connection pool',
+    ],
+    status: 'draft',
+    action_items: [
+      {
+        description: 'Add a 5s statement timeout to every pooled checkout query',
+        owner_key: 'riley',
+        status: 'open',
+        due_in_days: 5,
+      },
+      {
+        description: 'Move the migrations runner onto a dedicated pool',
+        owner_key: 'morgan',
+        status: 'open',
+        due_in_days: 12,
+      },
+      {
+        description: 'Alert on pool lease saturation at 80% with a 5-minute ramp',
+        owner_key: 'sasha',
+        status: 'in_progress',
+        due_in_days: 3,
+      },
+    ],
+  },
+  {
     incident_key: 'cart-outage',
     title: 'Postmortem: cart service outage during flash sale',
     summary:
@@ -360,6 +467,75 @@ const POSTMORTEM_SEEDS: PostmortemSeed[] = [
         owner_key: 'sasha',
         status: 'open',
         due_in_days: 21,
+      },
+    ],
+  },
+  {
+    incident_key: 'kafka-lag',
+    title: 'Postmortem: kafka consumer-lag warning on billing-events',
+    summary:
+      'The billing-ledger-workers consumer group fell 48,210 messages behind after a partition rebalance doubled assignment asymmetry. Batch delay peaked at ~3 minutes; no billing events were dropped.',
+    contributing_factors: [
+      'Rebalance left one worker with 4 of 6 partitions',
+      'No lag-per-partition alerting between 20k and 45k',
+    ],
+    status: 'published',
+    action_items: [
+      {
+        description: 'Pin cooperative-sticky assignment for billing-ledger-workers',
+        owner_key: 'jordan',
+        status: 'done',
+        due_in_days: 6,
+      },
+      {
+        description: 'Add per-partition lag alert at 20k sustained 10m',
+        owner_key: 'sasha',
+        status: 'open',
+        due_in_days: 9,
+      },
+    ],
+  },
+  {
+    incident_key: 'auth-cache-miss',
+    title: 'Postmortem: auth-session-cache miss rate on redis-auth-prod',
+    summary:
+      'An eviction-policy change flipped redis-auth-prod from allkeys-lru to volatile-ttl, and sessions without a TTL set were evicted first. Miss rate peaked at 12.6%, doubling origin reads for 22 minutes.',
+    contributing_factors: [
+      'Eviction policy drifted from the config store baseline',
+      'No alert on cache hit ratio below 95%',
+    ],
+    status: 'published',
+    action_items: [
+      {
+        description: 'Enforce allkeys-lru via config-store drift detection',
+        owner_key: 'sasha',
+        status: 'done',
+        due_in_days: 4,
+      },
+      {
+        description: 'Alert when session-cache hit ratio drops under 95%',
+        owner_key: 'jordan',
+        status: 'in_progress',
+        due_in_days: 8,
+      },
+    ],
+  },
+  {
+    incident_key: 'bgp-flap',
+    title: 'Postmortem: BGP route flap on secondary transit provider',
+    summary:
+      'edge-gw-02 announced and withdrew the primary prefix 14 times in 10 minutes during provider maintenance. BFD failed traffic to the primary transit in under 2 seconds each time; no user-visible impact.',
+    contributing_factors: [
+      'Maintenance window was not filed against the peering calendar',
+      'Route flap damping was disabled on the secondary session',
+    ],
+    status: 'published',
+    action_items: [
+      {
+        description: 'Enable route-flap damping on both transit sessions',
+        owner_key: 'morgan',
+        status: 'done',
+        due_in_days: 10,
       },
     ],
   },
@@ -401,6 +577,16 @@ interface NotificationSeed {
 }
 
 const NOTIFICATION_SEEDS: NotificationSeed[] = [
+  {
+    kind: 'page',
+    severity: 'critical',
+    title: 'Page: Latency Spike p99 > 1850ms (Database connection pool exhaustion)',
+    detail:
+      'Paged Riley Carter (on call, Platform Primary) via Platform P1 — phone delivery confirmed, 0 carrier drops.',
+    href_key: 'latency-spike',
+    read: false,
+    minutes_ago: 4,
+  },
   {
     kind: 'page',
     severity: 'critical',
@@ -459,6 +645,20 @@ const NOTIFICATION_SEEDS: NotificationSeed[] = [
 
 const seededUsers = new Set<string>()
 
+/**
+ * In-flight seed promises, keyed by user.
+ *
+ * A fresh signup fires several list endpoints concurrently (the dashboard
+ * fetches /api/overview AND /api/incidents in parallel), and every one of
+ * them calls seedDemoForUser. The `count('incidents')` existence check
+ * below cannot see rows a sibling call has not inserted YET, so two
+ * concurrent calls both passed it and the whole demo set got seeded twice
+ * — every schedule, incident and notification duplicated on first load.
+ * Sharing one promise per user makes the concurrent callers wait for a
+ * single seed run instead.
+ */
+const seedInFlight = new Map<string, Promise<void>>()
+
 const offsetMinutes = (minutes: number): Date => new Date(Date.now() - minutes * 60_000)
 
 const offsetDays = (days: number): Date => new Date(Date.now() + days * 24 * 60 * 60_000)
@@ -497,6 +697,15 @@ export const latestRotationBoundary = (
 }
 
 export const seedDemoForUser = async (userId: string): Promise<void> => {
+  if (seededUsers.has(userId)) return
+  const inFlight = seedInFlight.get(userId)
+  if (inFlight) return inFlight
+  const run = doSeedDemoForUser(userId).finally(() => seedInFlight.delete(userId))
+  seedInFlight.set(userId, run)
+  return run
+}
+
+const doSeedDemoForUser = async (userId: string): Promise<void> => {
   if (seededUsers.has(userId)) return
   try {
     const existing = await count('incidents', [{ field: 'user_id', operator: '=', value: userId }])

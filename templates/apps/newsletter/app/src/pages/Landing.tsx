@@ -16,6 +16,123 @@ interface IssueSummary {
   publish_at?: string | null
 }
 
+/** Publications showcased as "written here" (design: The Vanguard cards). */
+const VOICES = [
+  {
+    id: 'flaneur',
+    genre: 'Cultural Geography',
+    name: 'The Modern Flâneur',
+    byline: 'by Julian Vance',
+    quote:
+      'Dispatch gave me my time back. No growth-hacking tricks, just a gorgeous canvas that honors the 4,000-word essay format my readers love.',
+    cadence: 'Bi-weekly · patron funded',
+  },
+  {
+    id: 'margin',
+    genre: 'Literary Criticism',
+    name: 'The Margin & The Bound',
+    byline: 'by Dr. Clara Hawthorne',
+    quote:
+      'Deliverability jumped 14% after switching our 20,000-member list. The typography alone converted 300 new patrons.',
+    cadence: 'Weekly · $12/mo tier',
+  },
+  {
+    id: 'high-desert',
+    genre: 'Architecture & Solar Tech',
+    name: 'Signals from High Desert',
+    byline: 'by Arlo Vance',
+    quote:
+      'Direct payment integration means zero middlemen taxing my community subscriptions. Clean code, instant markdown shortcuts, perfect integrity.',
+    cadence: 'Monthly · patron funded',
+  },
+]
+
+/** The integrity comparison rows (design: Built for Integrity table). */
+const INTEGRITY_ROWS = [
+  {
+    id: 'sovereignty',
+    dimension: 'Subscriber data sovereignty',
+    ours: '100% portable CSV + custom DKIM keys',
+    legacy: 'Rented follower graph subject to policy lock-in',
+  },
+  {
+    id: 'feeds',
+    dimension: 'Algorithmic feed injections',
+    ours: 'Zero feeds, no sponsored notifications',
+    legacy: 'In-app feeds, cross-promoted rival newsletters',
+  },
+  {
+    id: 'typography',
+    dimension: 'Reading & typographic precision',
+    ours: 'Newsreader serif, 680px optimal measure',
+    legacy: 'Standard system sans, noisy social share bars',
+  },
+  {
+    id: 'deliverability',
+    dimension: 'Deliverability infrastructure',
+    ours: 'Dedicated IP warmups & domain reputation',
+    legacy: 'Shared sender pools susceptible to spam flags',
+  },
+  {
+    id: 'payments',
+    dimension: 'Payment model',
+    ours: 'Flat $0–$29/mo or keep 100% via direct payments',
+    legacy: 'Permanent 10% platform revenue skimming',
+  },
+]
+
+/** The editorial tier ladder (design: Predictable, Respectful Pricing). */
+const TIERS = [
+  {
+    id: 'apprentice',
+    name: 'Apprentice',
+    price: '$0',
+    period: '/ forever',
+    audience: 'For writers drafting their first serialized essays and gathering initial readers.',
+    perks: [
+      'Up to 1,000 subscribers',
+      'Unlimited public web posts',
+      'Standard typography themes',
+      'Instant CSV export',
+    ],
+    cta: 'Start Free',
+    to: '/signup',
+    featured: false,
+  },
+  {
+    id: 'independent',
+    name: 'Independent Author',
+    price: '$29',
+    period: '/ month',
+    audience: 'Complete sovereign newsletter setup for established essayists and critics.',
+    perks: [
+      'Up to 25,000 subscribers',
+      'Custom domain & DKIM setup',
+      '0% platform cut on paid patrons',
+      'Audio essay narration',
+    ],
+    cta: 'Start Writing Free',
+    to: '/signup',
+    featured: true,
+  },
+  {
+    id: 'guild',
+    name: 'Publishing Guild',
+    price: '$65',
+    period: '/ month',
+    audience: 'Multi-author mastheads, serialized fiction houses, and editorial collectives.',
+    perks: [
+      '100,000+ subscribers',
+      'Multiple author seats',
+      'White-glove migration concierge',
+      'Priority deliverability desk',
+    ],
+    cta: 'Talk to Us',
+    to: '/pricing',
+    featured: false,
+  },
+]
+
 function Landing() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -257,7 +374,11 @@ function Landing() {
                         cm.textSize('xs') + ' uppercase tracking-wider text-primary font-semibold'
                       }
                     >
-                      {APP_NAME}
+                      {t(
+                        'common.brandName',
+                        { appName: APP_NAME },
+                        { defaultValue: '{{appName}}' },
+                      )}
                     </span>
                     <span className="text-surface-variant font-light" aria-hidden>
                       /
@@ -609,6 +730,288 @@ function Landing() {
                 ))}
               </ul>
             )}
+          </div>
+        </section>
+
+        {/* VOICES FROM THE VANGUARD — publications written here (design:
+            "Written on Dispatch" cards) */}
+        <section data-mol-id="landing-voices" className="max-w-7xl mx-auto px-6 md:px-12 py-20">
+          <div className="max-w-2xl mb-12">
+            <span
+              className={
+                cm.textSize('xs') +
+                ' uppercase tracking-wider text-primary font-semibold mb-2 block'
+              }
+            >
+              {t('landing.voicesKicker', {}, { defaultValue: 'The Vanguard' })}
+            </span>
+            <h2 className="font-headline text-3xl md:text-4xl text-on-background mb-3">
+              {t('landing.voicesTitle', {}, { defaultValue: 'Written on Dispatch' })}
+            </h2>
+            <p className={cm.textSize('base') + ' text-on-surface-variant'}>
+              {t(
+                'landing.voicesIntro',
+                {},
+                {
+                  defaultValue:
+                    'Explore independent voices, essayists, and investigative newsletters delivering sovereign prose weekly.',
+                },
+              )}
+            </p>
+          </div>
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {VOICES.map((v) => (
+              <li
+                key={v.id}
+                data-mol-id={`landing-voice-${v.id}`}
+                className="bg-surface-container-lowest p-6 rounded-lg border border-surface-container-highest flex flex-col justify-between hover:border-outline transition-colors duration-150"
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <span
+                      className={
+                        cm.textSize('xs') +
+                        ' px-2.5 py-1 rounded bg-surface-container text-tertiary'
+                      }
+                    >
+                      {t(`landing.voice.${v.id}.genre`, {}, { defaultValue: v.genre })}
+                    </span>
+                  </div>
+                  <h3 className={cm.textSize('lg') + ' font-headline text-on-surface mb-1'}>
+                    {t(`landing.voice.${v.id}.name`, {}, { defaultValue: v.name })}
+                  </h3>
+                  <p className={cm.textSize('sm') + ' text-tertiary mb-4'}>
+                    {t(`landing.voice.${v.id}.byline`, {}, { defaultValue: v.byline })}
+                  </p>
+                  <blockquote
+                    className={
+                      cm.textSize('sm') + ' text-on-surface-variant leading-relaxed mb-6 italic'
+                    }
+                  >
+                    {t(`landing.voice.${v.id}.quote`, {}, { defaultValue: v.quote })}
+                  </blockquote>
+                </div>
+                <div className="pt-4 border-t border-surface-container-highest flex items-center justify-between">
+                  <span className={cm.textSize('xs') + ' text-tertiary'}>
+                    {t(`landing.voice.${v.id}.cadence`, {}, { defaultValue: v.cadence })}
+                  </span>
+                  <span
+                    className={
+                      cm.textSize('xs') +
+                      ' text-primary font-semibold inline-flex items-center gap-1'
+                    }
+                  >
+                    {t('landing.readIssue', {}, { defaultValue: 'Read issue' })}
+                    <span className={cm.fv5b245ffa} aria-hidden>
+                      arrow_forward
+                    </span>
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* THE ARCHITECTURAL DIFFERENCE — integrity comparison (design:
+            "Built for Integrity, Not Ad Impressions") */}
+        <section
+          data-mol-id="landing-integrity"
+          className="bg-surface-container-low py-20 border-y border-surface-container-highest"
+        >
+          <div className="max-w-5xl mx-auto px-6 md:px-12">
+            <div className="max-w-2xl mb-10">
+              <span
+                className={
+                  cm.textSize('xs') +
+                  ' uppercase tracking-wider text-primary font-semibold mb-2 block'
+                }
+              >
+                {t('landing.integrityKicker', {}, { defaultValue: 'The Architectural Difference' })}
+              </span>
+              <h2 className="font-headline text-3xl md:text-4xl text-on-background mb-3">
+                {t(
+                  'landing.integrityTitle',
+                  {},
+                  { defaultValue: 'Built for Integrity, Not Ad Impressions' },
+                )}
+              </h2>
+              <p className={cm.textSize('base') + ' text-on-surface-variant'}>
+                {t(
+                  'landing.integrityIntro',
+                  { appName: APP_NAME },
+                  {
+                    defaultValue:
+                      'See how {{appName}} compares to ad-driven social newsletters and generic legacy mass-mail software.',
+                  },
+                )}
+              </p>
+            </div>
+            <div className="overflow-x-auto rounded-lg border border-surface-container-highest bg-surface-container-lowest">
+              <table className={cm.cn('w-full text-left', cm.textSize('sm'))}>
+                <thead>
+                  <tr className="text-on-surface-variant border-b border-surface-container-highest">
+                    <th scope="col" className="px-5 py-4 font-medium">
+                      {t(
+                        'landing.integrity.capability',
+                        {},
+                        { defaultValue: 'Capability / Attribute' },
+                      )}
+                    </th>
+                    <th scope="col" className="px-5 py-4 font-medium text-primary">
+                      {t(
+                        'landing.integrity.ours',
+                        { appName: APP_NAME },
+                        { defaultValue: '{{appName}}' },
+                      )}
+                    </th>
+                    <th scope="col" className="px-5 py-4 font-medium">
+                      {t('landing.integrity.legacy', {}, { defaultValue: 'Traditional platforms' })}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {INTEGRITY_ROWS.map((row) => (
+                    <tr
+                      key={row.id}
+                      data-mol-id={`landing-integrity-${row.id}`}
+                      className="border-t border-surface-container-highest align-top"
+                    >
+                      <th scope="row" className="px-5 py-4 font-medium text-on-surface">
+                        {t(
+                          `landing.integrity.${row.id}.dimension`,
+                          {},
+                          { defaultValue: row.dimension },
+                        )}
+                      </th>
+                      <td className="px-5 py-4 text-on-surface">
+                        <span className="inline-flex items-start gap-2">
+                          <span className={cm.fv5b245ffa + ' text-primary'} aria-hidden>
+                            check
+                          </span>
+                          <span>
+                            {t(`landing.integrity.${row.id}.ours`, {}, { defaultValue: row.ours })}
+                          </span>
+                        </span>
+                      </td>
+                      <td className="px-5 py-4 text-on-surface-variant">
+                        <span className="inline-flex items-start gap-2">
+                          <span className={cm.fv5b245ffa + ' text-on-surface-variant'} aria-hidden>
+                            close
+                          </span>
+                          <span>
+                            {t(
+                              `landing.integrity.${row.id}.legacy`,
+                              {},
+                              { defaultValue: row.legacy },
+                            )}
+                          </span>
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* TRANSPARENT ECONOMICS — the editorial tier ladder (design:
+            "Predictable, Respectful Pricing") */}
+        <section data-mol-id="landing-pricing" className="max-w-7xl mx-auto px-6 md:px-12 py-20">
+          <div className="max-w-2xl mb-10">
+            <span
+              className={
+                cm.textSize('xs') +
+                ' uppercase tracking-wider text-primary font-semibold mb-2 block'
+              }
+            >
+              {t('landing.pricingKicker', {}, { defaultValue: 'Transparent Economics' })}
+            </span>
+            <h2 className="font-headline text-3xl md:text-4xl text-on-background mb-3">
+              {t('landing.pricingTitle', {}, { defaultValue: 'Predictable, Respectful Pricing' })}
+            </h2>
+            <p className={cm.textSize('base') + ' text-on-surface-variant'}>
+              {t(
+                'landing.pricingIntro',
+                {},
+                {
+                  defaultValue:
+                    'Never pay a percentage of your intellectual labor to a venture fund.',
+                },
+              )}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {TIERS.map((tier) => (
+              <div
+                key={tier.id}
+                data-mol-id={`landing-tier-${tier.id}`}
+                className={
+                  'bg-surface-container-lowest p-8 rounded-lg border flex flex-col justify-between transition-colors duration-200 ' +
+                  (tier.featured
+                    ? 'border-primary shadow-sm'
+                    : 'border-surface-container-highest hover:border-primary-container')
+                }
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className={cm.textSize('lg') + ' font-headline text-on-surface'}>
+                      {t(`landing.tier.${tier.id}.name`, {}, { defaultValue: tier.name })}
+                    </h3>
+                    {tier.featured && (
+                      <span
+                        className={
+                          cm.textSize('xs') +
+                          ' px-2.5 py-1 rounded-full bg-primary-fixed text-primary font-semibold uppercase tracking-wider'
+                        }
+                      >
+                        {t('landing.tier.featured', {}, { defaultValue: 'Most coveted' })}
+                      </span>
+                    )}
+                  </div>
+                  <p className="mb-4">
+                    <span className={cm.textSize('3xl') + ' font-headline text-on-surface'}>
+                      {t(`landing.tier.${tier.id}.price`, {}, { defaultValue: tier.price })}
+                    </span>
+                    <span className={cm.textSize('sm') + ' text-on-surface-variant'}>
+                      {' '}
+                      {t(`landing.tier.${tier.id}.period`, {}, { defaultValue: tier.period })}
+                    </span>
+                  </p>
+                  <p className={cm.textSize('sm') + ' text-on-surface-variant mb-6'}>
+                    {t(`landing.tier.${tier.id}.audience`, {}, { defaultValue: tier.audience })}
+                  </p>
+                  <ul className={cm.cn(cm.stack(2), cm.textSize('sm'), 'text-on-surface')}>
+                    {tier.perks.map((perk, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <span className={cm.fv5b245ffa + ' text-primary'} aria-hidden>
+                          check_circle
+                        </span>
+                        {t(`landing.tier.${tier.id}.perk${i + 1}`, {}, { defaultValue: perk })}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <SafeLink
+                  data-mol-id={`landing-tier-cta-${tier.id}`}
+                  to={tier.to}
+                  className={cm.cn(
+                    cm.flex({ justify: 'center', align: 'center' }),
+                    cm.sp('px', 5),
+                    cm.sp('py', 3),
+                    cm.roundedFull,
+                    cm.textSize('sm'),
+                    cm.fontWeight('semibold'),
+                    cm.sp('mt', 8),
+                    tier.featured
+                      ? 'bg-primary text-on-primary hover:bg-primary-container transition-colors'
+                      : 'bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors',
+                  )}
+                >
+                  {t(`landing.tier.${tier.id}.cta`, {}, { defaultValue: tier.cta })}
+                </SafeLink>
+              </div>
+            ))}
           </div>
         </section>
 

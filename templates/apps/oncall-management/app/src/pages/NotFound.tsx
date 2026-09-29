@@ -86,6 +86,13 @@ export function NotFound() {
           <span style={{ color: BRAND_COLOR }}>4</span>
         </h1>
 
+        <h2
+          className={cm.cn('text-xl font-extrabold tracking-tight')}
+          style={{ color: 'var(--color-text)' }}
+        >
+          {t('notFound.routeTitle', {}, { defaultValue: 'Route Unresolved: Pager Packet Dropped' })}
+        </h2>
+
         <pre
           className={cm.cn(
             'text-left text-sm font-mono leading-relaxed rounded-xl px-4 py-3 overflow-auto',
@@ -112,6 +119,52 @@ export function NotFound() {
           )}
         </p>
 
+        {/* On-Call Rapid Triage Redirection — the routes an on-call responder needs */}
+        <nav
+          aria-label={t(
+            'notFound.triageNav',
+            {},
+            { defaultValue: 'On-Call Rapid Triage Redirection' },
+          )}
+          className={cm.cn('rounded-xl px-4 py-3 text-left space-y-1.5')}
+          style={{
+            backgroundColor: 'var(--color-surface)',
+            border: '1px solid var(--color-border)',
+          }}
+          data-mol-id="notfound-triage-links"
+        >
+          <p
+            className={cm.cn(
+              'font-mono text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5',
+            )}
+            style={{ color: BRAND_COLOR }}
+          >
+            <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+              alt_route
+            </span>
+            {t('notFound.triageHeading', {}, { defaultValue: 'On-Call Rapid Triage Redirection' })}
+          </p>
+          {[
+            { href: '/dashboard', label: 'Dashboard — who holds the pager' },
+            { href: '/incidents', label: 'Incidents — what is still burning' },
+            { href: '/schedules', label: 'Schedules — rotation handoffs' },
+          ].map((link) => (
+            <Link
+              key={link.href}
+              to={link.href}
+              className={cm.cn('block font-mono text-xs hover:underline')}
+              style={{ color: 'var(--color-text-code)' }}
+            >
+              {link.href} —{' '}
+              {t(
+                `notFound.triage.${link.href.slice(1)}` as 'notFound.triage.dashboard',
+                {},
+                { defaultValue: link.label },
+              )}
+            </Link>
+          ))}
+        </nav>
+
         <div className={cm.cn('flex items-center justify-center gap-3 flex-wrap')}>
           <Link
             to="/dashboard"
@@ -131,13 +184,13 @@ export function NotFound() {
             {t('auth.backToDashboard', {}, { defaultValue: 'Back to dashboard' })}
           </Link>
           <Link
-            to="/issues"
+            to="/incidents"
             className={cm.cn(
               'font-mono text-xs font-bold uppercase tracking-widest hover:underline',
             )}
             style={{ color: 'var(--color-text-code)' }}
           >
-            {t('notFound.reportBug', {}, { defaultValue: 'Report a bug' })}
+            {t('notFound.goToIncidents', {}, { defaultValue: 'Go to incidents' })}
           </Link>
         </div>
       </div>

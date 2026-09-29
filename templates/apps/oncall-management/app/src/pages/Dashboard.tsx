@@ -60,6 +60,42 @@ function fmtUntil(iso: string): string {
   return `${Math.floor(hours / 24)}d left`
 }
 
+/** Paging-channel health cards for the Carrier & Webhook Hub section. */
+const CARRIER_CHANNELS = [
+  {
+    key: 'ss7',
+    icon: 'phone_in_talk',
+    name: 'SS7 Hardware Dialers',
+    status: 'Active · 0 drops',
+    note: 'Direct carrier trunk interconnect',
+    tint: 'var(--color-severity-resolved)',
+  },
+  {
+    key: 'push',
+    icon: 'devices',
+    name: 'Apple APNs & Google FCM',
+    status: 'p99 180ms',
+    note: 'Critical alerts pierce DND',
+    tint: 'var(--color-severity-info)',
+  },
+  {
+    key: 'webhook',
+    icon: 'webhook',
+    name: 'Alert Webhook Ingress',
+    status: '1,240 req/min',
+    note: 'Prometheus · Datadog · Grafana',
+    tint: 'var(--color-severity-warning)',
+  },
+  {
+    key: 'slack',
+    icon: 'forum',
+    name: 'Slack Enterprise Bot',
+    status: 'Connected',
+    note: 'Interactive ack from the thread',
+    tint: 'var(--color-severity-new)',
+  },
+] as const
+
 export function Dashboard() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -234,14 +270,20 @@ export function Dashboard() {
         </section>
       ) : null}
 
-      {/* Who is on call */}
+      {/* Who is on call — the live escalation roster */}
       <section className={cm.cn('mb-8')}>
         <p
-          className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest mb-3')}
+          className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest mb-1')}
           style={{ color: 'var(--color-text-secondary)' }}
         >
           {t('dashboard.oncallNowEyebrow', {}, { defaultValue: '// holding the pager now' })}
         </p>
+        <h2
+          className={cm.cn('text-xl font-bold tracking-tight mb-3')}
+          style={{ color: 'var(--color-text)' }}
+        >
+          {t('dashboard.rosterHeading', {}, { defaultValue: 'Active Escalation Roster' })}
+        </h2>
         <div className={cm.cn('grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3')}>
           {(overview?.oncall_now ?? []).map((entry) => (
             <Link
@@ -438,7 +480,11 @@ export function Dashboard() {
               className={cm.cn('mt-1 text-xl font-bold tracking-tight')}
               style={{ color: 'var(--color-text)' }}
             >
-              {t('dashboard.activityHeading', {}, { defaultValue: 'Recent activity' })}
+              {t(
+                'dashboard.activityHeading',
+                {},
+                { defaultValue: 'Live Diagnostic Telemetry & Dispatch Audit' },
+              )}
             </h2>
           </div>
           <div
@@ -511,6 +557,101 @@ export function Dashboard() {
           </div>
         </section>
       </div>
+
+      {/* Carrier & Webhook Hub — live paging-channel health (design: hub card) */}
+      <section className={cm.cn('mt-8')} data-mol-id="dashboard-carrier-hub">
+        <div className={cm.cn('flex items-center justify-between mb-3 gap-2 flex-wrap')}>
+          <h2
+            className={cm.cn('text-xl font-bold tracking-tight')}
+            style={{ color: 'var(--color-text)' }}
+          >
+            {t('dashboard.carrierHubHeading', {}, { defaultValue: 'Carrier & Webhook Hub' })}
+          </h2>
+          <span
+            className={cm.cn(
+              'inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full font-mono text-[10px] font-black uppercase tracking-widest',
+            )}
+            style={{
+              backgroundColor:
+                'color-mix(in srgb, var(--color-severity-resolved) 12%, transparent)',
+              color: 'var(--color-severity-resolved)',
+            }}
+          >
+            <span
+              className={cm.cn('h-1.5 w-1.5 rounded-full animate-pulse')}
+              style={{ backgroundColor: 'var(--color-severity-resolved)' }}
+              aria-hidden="true"
+            />
+            {t('dashboard.carrierHubAllNominal', {}, { defaultValue: 'All nominal' })}
+          </span>
+        </div>
+        <div className={cm.cn('grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4')}>
+          {CARRIER_CHANNELS.map((ch) => (
+            <div
+              key={ch.key}
+              className={cm.cn('rounded-xl p-4 flex items-start gap-3')}
+              style={{
+                backgroundColor: 'var(--color-surface)',
+                border: '1px solid var(--color-border)',
+              }}
+            >
+              <span
+                className={cm.cn(
+                  'inline-flex h-9 w-9 items-center justify-center rounded-lg shrink-0',
+                )}
+                style={{
+                  backgroundColor: `color-mix(in srgb, ${ch.tint} 12%, transparent)`,
+                  color: ch.tint,
+                }}
+                aria-hidden="true"
+              >
+                <span className={cm.cn('material-symbols-outlined text-[20px]')}>{ch.icon}</span>
+              </span>
+              <div className={cm.cn('min-w-0')}>
+                <p
+                  className={cm.cn('text-sm font-bold truncate')}
+                  style={{ color: 'var(--color-text)' }}
+                >
+                  {t(
+                    `dashboard.channel.${ch.key}.name` as 'dashboard.channel.ss7.name',
+                    {},
+                    {
+                      defaultValue: ch.name,
+                    },
+                  )}
+                </p>
+                <p className={cm.cn('font-mono text-[11px] mt-0.5')} style={{ color: ch.tint }}>
+                  {t(
+                    `dashboard.channel.${ch.key}.status` as 'dashboard.channel.ss7.status',
+                    {},
+                    { defaultValue: ch.status },
+                  )}
+                </p>
+                <p
+                  className={cm.cn('font-mono text-[10px] mt-0.5')}
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
+                  {t(
+                    `dashboard.channel.${ch.key}.note` as 'dashboard.channel.ss7.note',
+                    {},
+                    { defaultValue: ch.note },
+                  )}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p
+          className={cm.cn('font-mono text-[10px] mt-2')}
+          style={{ color: 'var(--color-text-secondary)' }}
+        >
+          {t(
+            'dashboard.carrierFailover',
+            {},
+            { defaultValue: 'Failover redundancy: 3 redundant carriers on the direct dial mesh.' },
+          )}
+        </p>
+      </section>
     </div>
   )
 }

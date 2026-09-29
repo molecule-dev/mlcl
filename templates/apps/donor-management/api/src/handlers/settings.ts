@@ -29,11 +29,14 @@ const router = Router()
 
 export const companySettingsSchema = z.object({
   organizationName: z.string().max(200).optional(),
+  organizationEin: z.string().max(32).optional(),
   timezone: z.string().max(100).optional(),
   officeHours: z.string().max(100).optional(),
   defaultFund: z.string().max(100).optional(),
   receiptFooterNote: z.string().max(500).optional(),
   receiptNumberPrefix: z.string().max(10).optional(),
+  signatoryName: z.string().max(200).optional(),
+  signatoryTitle: z.string().max(200).optional(),
   notifyNewGifts: z.boolean().optional(),
   notifyCampaignGoals: z.boolean().optional(),
   notifyLapsedDonors: z.boolean().optional(),

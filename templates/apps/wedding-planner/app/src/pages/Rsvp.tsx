@@ -5,7 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 interface WeddingInfo {
   partner_a_name: string
@@ -195,31 +195,8 @@ export function Rsvp() {
             cm.mxAuto,
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'sm' }),
-              'font-extrabold tracking-tighter text-xl',
-            )}
-          >
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'w-8 h-8 rounded-xl text-white',
-              )}
-              style={{
-                background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-              }}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-base')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-                aria-hidden="true"
-              >
-                favorite
-              </span>
-            </span>
-            <span style={{ color: 'var(--color-primary)' }}>{APP_NAME}</span>
+          <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'shrink-0')}>
+            <BrandWordmark as="span" size="sm" />
           </Link>
           <span
             className={cm.cn('text-xs font-mono font-bold tracking-widest text-on-surface-variant')}
@@ -299,82 +276,192 @@ export function Rsvp() {
           </section>
         ) : !lookup ? (
           /* Step 1 — find your name */
-          <section
-            className={cm.cn(
-              cm.sp('p', 10),
-              'rounded-3xl bg-surface border border-outline-variant/40 shadow-lg',
-            )}
-            data-mol-id="rsvp-lookup"
-          >
-            <p
-              className={cm.cn('text-xs font-black uppercase tracking-widest mb-3')}
-              style={{ color: 'var(--color-accent)' }}
-            >
-              {t('rsvp.eyebrow', {}, { defaultValue: 'You’re invited' })}
-            </p>
-            <h1
+          <>
+            <section
               className={cm.cn(
-                'text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-3',
+                cm.sp('p', 10),
+                'rounded-3xl bg-surface border border-outline-variant/40 shadow-lg',
               )}
-              style={{ fontFamily: 'var(--font-headline)' }}
+              data-mol-id="rsvp-lookup"
             >
-              {t(
-                'rsvp.title',
-                { a: info.partner_a_name, b: info.partner_b_name },
-                { defaultValue: '{{a}} & {{b}} are getting married' },
-              )}
-            </h1>
-            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mb-8')}>
-              {formatDate(info.wedding_date)}
-              {info.venue ? ` · ${info.venue}` : ''}
-            </p>
-
-            <form onSubmit={findGuest} className={cm.cn(cm.stack(3))}>
-              <label className={cm.cn(cm.stack(1))}>
-                <span
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    'font-black uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {t(
-                    'rsvp.findName',
-                    {},
-                    { defaultValue: 'Your name (as written on the invitation)' },
-                  )}
-                </span>
-                <input
-                  type="text"
-                  required
-                  maxLength={200}
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  data-mol-id="rsvp-name-input"
-                  className={cm.cn(inputCls, 'text-lg')}
-                />
-              </label>
-              {lookupError ? (
-                <p
-                  className={cm.cn(cm.textSize('sm'), 'text-error font-medium')}
-                  data-mol-id="rsvp-lookup-error"
-                  role="alert"
-                >
-                  {lookupError}
-                </p>
-              ) : null}
-              <button
-                type="submit"
-                disabled={busy || !name.trim()}
-                data-mol-id="rsvp-lookup-submit"
-                className={cm.cn('px-5 py-3 rounded-xl font-bold text-white disabled:opacity-50')}
-                style={{ background: 'var(--color-primary)' }}
+              <p
+                className={cm.cn('text-xs font-black uppercase tracking-widest mb-3')}
+                style={{ color: 'var(--color-accent)' }}
               >
-                {busy
-                  ? t('rsvp.looking', {}, { defaultValue: 'Looking…' })
-                  : t('rsvp.findMe', {}, { defaultValue: 'Find my invitation' })}
-              </button>
-            </form>
-          </section>
+                {t('rsvp.eyebrow', {}, { defaultValue: 'You’re invited' })}
+              </p>
+              <h1
+                className={cm.cn(
+                  'text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-3',
+                )}
+                style={{ fontFamily: 'var(--font-headline)' }}
+              >
+                {t(
+                  'rsvp.title',
+                  { a: info.partner_a_name, b: info.partner_b_name },
+                  { defaultValue: '{{a}} & {{b}} are getting married' },
+                )}
+              </h1>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mb-8')}>
+                {formatDate(info.wedding_date)}
+                {info.venue ? ` · ${info.venue}` : ''}
+              </p>
+
+              <form onSubmit={findGuest} className={cm.cn(cm.stack(3))}>
+                <label className={cm.cn(cm.stack(1))}>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      'font-black uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {t(
+                      'rsvp.findName',
+                      {},
+                      { defaultValue: 'Your name (as written on the invitation)' },
+                    )}
+                  </span>
+                  <input
+                    type="text"
+                    required
+                    maxLength={200}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    data-mol-id="rsvp-name-input"
+                    className={cm.cn(inputCls, 'text-lg')}
+                  />
+                </label>
+                {lookupError ? (
+                  <p
+                    className={cm.cn(cm.textSize('sm'), 'text-error font-medium')}
+                    data-mol-id="rsvp-lookup-error"
+                    role="alert"
+                  >
+                    {lookupError}
+                  </p>
+                ) : null}
+                <button
+                  type="submit"
+                  disabled={busy || !name.trim()}
+                  data-mol-id="rsvp-lookup-submit"
+                  className={cm.cn('px-5 py-3 rounded-xl font-bold text-white disabled:opacity-50')}
+                  style={{ background: 'var(--color-primary)' }}
+                >
+                  {busy
+                    ? t('rsvp.looking', {}, { defaultValue: 'Looking…' })
+                    : t('rsvp.findMe', {}, { defaultValue: 'Find my invitation' })}
+                </button>
+              </form>
+            </section>
+
+            {/* Celebration details & travel notes (per the design's concierge block) */}
+            <section
+              className={cm.cn(
+                cm.sp('p', 8),
+                'mt-6 rounded-3xl bg-surface-container-low border border-outline-variant/40',
+              )}
+              data-mol-id="rsvp-travel-notes"
+            >
+              <h2 className={cm.cn('text-2xl font-extrabold tracking-tight mb-1')}>
+                {t('rsvp.travel.title', {}, { defaultValue: 'Celebration Details & Travel Notes' })}
+              </h2>
+              <h3
+                className={cm.cn(
+                  cm.textSize('base'),
+                  cm.fontWeight('semibold'),
+                  'text-on-surface-variant mb-5',
+                )}
+              >
+                {t('rsvp.travel.subtitle', {}, { defaultValue: 'Everything for your journey' })}
+              </h3>
+              <ul className={cm.cn('grid gap-4 sm:grid-cols-3')}>
+                <li
+                  className={cm.cn(
+                    cm.sp('p', 4),
+                    'rounded-2xl bg-surface border border-outline-variant/40',
+                  )}
+                >
+                  <span
+                    className="material-symbols-outlined text-xl text-primary mb-2 block"
+                    aria-hidden="true"
+                  >
+                    checkroom
+                  </span>
+                  <p className={cm.cn(cm.textSize('sm'), 'font-bold mb-1')}>
+                    {t('rsvp.travel.dressTitle', {}, { defaultValue: 'Sartorial guide' })}
+                  </p>
+                  <p
+                    className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant leading-relaxed')}
+                  >
+                    {t(
+                      'rsvp.travel.dressBody',
+                      {},
+                      {
+                        defaultValue:
+                          'Dress code and palette notes from the couple come printed on your invitation — flat shoes are wise for garden cobblestones.',
+                      },
+                    )}
+                  </p>
+                </li>
+                <li
+                  className={cm.cn(
+                    cm.sp('p', 4),
+                    'rounded-2xl bg-surface border border-outline-variant/40',
+                  )}
+                >
+                  <span
+                    className="material-symbols-outlined text-xl text-primary mb-2 block"
+                    aria-hidden="true"
+                  >
+                    hotel
+                  </span>
+                  <p className={cm.cn(cm.textSize('sm'), 'font-bold mb-1')}>
+                    {t('rsvp.travel.lodgingTitle', {}, { defaultValue: 'Preferred lodging' })}
+                  </p>
+                  <p
+                    className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant leading-relaxed')}
+                  >
+                    {t(
+                      'rsvp.travel.lodgingBody',
+                      {},
+                      {
+                        defaultValue:
+                          'Room blocks and shuttle departures, when the couple has arranged them, are included on your invitation insert.',
+                      },
+                    )}
+                  </p>
+                </li>
+                <li
+                  className={cm.cn(
+                    cm.sp('p', 4),
+                    'rounded-2xl bg-surface border border-outline-variant/40',
+                  )}
+                >
+                  <span
+                    className="material-symbols-outlined text-xl text-primary mb-2 block"
+                    aria-hidden="true"
+                  >
+                    support_agent
+                  </span>
+                  <p className={cm.cn(cm.textSize('sm'), 'font-bold mb-1')}>
+                    {t('rsvp.travel.conciergeTitle', {}, { defaultValue: 'Live assistance' })}
+                  </p>
+                  <p
+                    className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant leading-relaxed')}
+                  >
+                    {t(
+                      'rsvp.travel.conciergeBody',
+                      {},
+                      {
+                        defaultValue:
+                          'Need to change the names in your party or arrange accessible transit? Reply to your invitation email and the couple’s planner will help.',
+                      },
+                    )}
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </>
         ) : (
           /* Step 2 — respond */
           <section
@@ -393,7 +480,7 @@ export function Rsvp() {
             <h1 className={cm.cn('text-3xl font-extrabold tracking-tight mb-1')}>
               {t('rsvp.greeting', { name: lookup.name }, { defaultValue: 'Hello, {{name}}!' })}
             </h1>
-            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mb-8')}>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mb-6')}>
               {t(
                 'rsvp.respondBody',
                 { a: info.partner_a_name, b: info.partner_b_name },
@@ -402,6 +489,9 @@ export function Rsvp() {
             </p>
 
             <form onSubmit={respond} className={cm.cn(cm.stack(5))}>
+              <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+                {t('rsvp.attendanceHeading', {}, { defaultValue: 'Attendance Confirmation' })}
+              </h2>
               <div
                 className={cm.cn('grid gap-3 sm:grid-cols-3')}
                 role="radiogroup"
@@ -452,32 +542,41 @@ export function Rsvp() {
               {choice === 'yes' || choice === 'maybe' ? (
                 <>
                   {info.meals.length > 0 ? (
-                    <label className={cm.cn(cm.stack(1))}>
-                      <span
-                        className={cm.cn(
-                          cm.textSize('xs'),
-                          'font-black uppercase tracking-widest text-on-surface-variant',
+                    <div className={cm.cn(cm.stack(1))}>
+                      <h3 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>
+                        {t(
+                          'rsvp.mealsHeading',
+                          {},
+                          { defaultValue: 'Dinner & Culinary Selections' },
                         )}
-                      >
-                        {t('rsvp.mealChoice', {}, { defaultValue: 'Meal choice' })}
-                      </span>
-                      <select
-                        value={meal}
-                        onChange={(e) => setMeal(e.target.value)}
-                        data-mol-id="rsvp-meal-select"
-                        className={inputCls}
-                      >
-                        <option value="">
-                          {t('rsvp.mealNone', {}, { defaultValue: 'No preference' })}
-                        </option>
-                        {info.meals.map((m) => (
-                          <option key={m.name} value={m.name}>
-                            {m.name}
-                            {m.description ? ` — ${m.description}` : ''}
+                      </h3>
+                      <label className={cm.cn(cm.stack(1))}>
+                        <span
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            'font-black uppercase tracking-widest text-on-surface-variant',
+                          )}
+                        >
+                          {t('rsvp.mealChoice', {}, { defaultValue: 'Meal choice' })}
+                        </span>
+                        <select
+                          value={meal}
+                          onChange={(e) => setMeal(e.target.value)}
+                          data-mol-id="rsvp-meal-select"
+                          className={inputCls}
+                        >
+                          <option value="">
+                            {t('rsvp.mealNone', {}, { defaultValue: 'No preference' })}
                           </option>
-                        ))}
-                      </select>
-                    </label>
+                          {info.meals.map((m) => (
+                            <option key={m.name} value={m.name}>
+                              {m.name}
+                              {m.description ? ` — ${m.description}` : ''}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+                    </div>
                   ) : null}
 
                   {lookup.plus_ones_allowed ? (

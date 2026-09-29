@@ -148,7 +148,7 @@ export function Guests() {
             {t('guests.eyebrow', {}, { defaultValue: 'Guest list' })}
           </p>
           <h1 className={cm.cn('text-4xl font-extrabold tracking-tight')}>
-            {t('guests.title', {}, { defaultValue: 'Guests' })}
+            {t('guests.title', {}, { defaultValue: 'Guest list & attendance' })}
           </h1>
           <p className={cm.cn(cm.textSize('sm'), 'mt-2 text-on-surface-variant max-w-xl')}>
             {t(

@@ -117,17 +117,17 @@ export function PlanUpdated() {
       title={t(
         'planUpdated.heading',
         { plan: planLabel },
-        { defaultValue: 'Welcome to {{plan}}.' },
+        { defaultValue: 'Your celebration workspace is now unlimited.' },
       )}
       subtitle={
         loading
           ? t('planUpdated.loading', {}, { defaultValue: 'Confirming your subscription…' })
           : t(
               'planUpdated.thankYou',
-              {},
+              { plan: planLabel },
               {
                 defaultValue:
-                  'Your account has been updated. You can return to the dashboard or get back to the checklist.',
+                  'Welcome to the {{plan}} suite. All limits on your guest list, RSVPs, and seating studio have been lifted — you can return to the dashboard or get back to the checklist.',
               },
             )
       }
@@ -155,6 +155,131 @@ export function PlanUpdated() {
           </Link>
         </Flex>
       </div>
+
+      {/* Immediate next steps in your suite */}
+      <section className={cm.cn(cm.stack(3), 'mt-4')} data-mol-id="plan-updated-next-steps">
+        <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
+          {t(
+            'planUpdated.nextStepsTitle',
+            {},
+            { defaultValue: 'Immediate next steps in your suite' },
+          )}
+        </h2>
+        <ul className={cm.cn('grid gap-3 sm:grid-cols-2')}>
+          {(
+            [
+              {
+                key: 'guests',
+                to: '/guests',
+                icon: 'group',
+                defaultTitle: 'Unlimited guest list & RSVPs',
+                defaultBody: 'Keep adding guests — the free-tier cap is gone from your account.',
+              },
+              {
+                key: 'seating',
+                to: '/seating',
+                icon: 'table_restaurant',
+                defaultTitle: 'Interactive seating studio',
+                defaultBody:
+                  'Draw every table and seat the full guest list with live capacity checks.',
+              },
+              {
+                key: 'vendors',
+                to: '/vendors',
+                icon: 'storefront',
+                defaultTitle: 'Vendor pipeline & milestones',
+                defaultBody: 'Track every artisan from first research to the final paid invoice.',
+              },
+              {
+                key: 'budget',
+                to: '/budget',
+                icon: 'savings',
+                defaultBody: 'Log deposits and installments against every estimate as they land.',
+                defaultTitle: 'Budget & installment tracker',
+              },
+            ] as const
+          ).map((step) => (
+            <li key={step.key}>
+              <Link
+                to={step.to}
+                data-mol-id={`plan-updated-step-${step.key}`}
+                className={cm.cn(
+                  cm.sp('p', 5),
+                  'flex items-start gap-3 rounded-2xl bg-surface border border-outline-variant/40 shadow-sm hover:border-primary/50 transition-colors',
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'w-10 h-10 shrink-0 rounded-xl bg-primary-fixed/40 text-primary',
+                  )}
+                >
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">
+                    {step.icon}
+                  </span>
+                </span>
+                <span className="min-w-0 text-left">
+                  <span className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'), 'block')}>
+                    {t(
+                      `planUpdated.step.${step.key}.title`,
+                      {},
+                      { defaultValue: step.defaultTitle },
+                    )}
+                  </span>
+                  <span
+                    className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant block mt-0.5')}
+                  >
+                    {t(`planUpdated.step.${step.key}.body`, {}, { defaultValue: step.defaultBody })}
+                  </span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Atelier suite details — the plan on record */}
+      <section className={cm.cn(cm.stack(2), 'mt-4')} data-mol-id="plan-updated-suite">
+        <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+          {t('planUpdated.suiteTitle', {}, { defaultValue: 'Everly Atelier Suite Details' })}
+        </h3>
+        <dl
+          className={cm.cn(
+            cm.sp('p', 5),
+            'rounded-2xl bg-surface-container-low border border-outline-variant/40',
+          )}
+        >
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', wrap: 'wrap' }),
+              'gap-2',
+            )}
+          >
+            <dt className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t('planUpdated.suitePlan', {}, { defaultValue: 'Plan' })}
+            </dt>
+            <dd className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}>{planLabel}</dd>
+          </div>
+          {!loading && status ? (
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'between', wrap: 'wrap' }),
+                'gap-2 mt-2',
+              )}
+            >
+              <dt className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t('planUpdated.suiteStatus', {}, { defaultValue: 'Status' })}
+              </dt>
+              <dd
+                className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}
+                style={{ color: 'var(--color-success)' }}
+              >
+                {t('planUpdated.suiteActive', {}, { defaultValue: 'Active' })}
+              </dd>
+            </div>
+          ) : null}
+        </dl>
+      </section>
     </ContentPageShell>
   )
 }

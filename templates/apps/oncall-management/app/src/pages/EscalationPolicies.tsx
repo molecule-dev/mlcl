@@ -423,7 +423,7 @@ export function EscalationPolicies() {
           className={cm.cn('text-lg font-bold tracking-tight mb-4')}
           style={{ color: 'var(--color-text)' }}
         >
-          {t('policies.createNew', {}, { defaultValue: 'New escalation policy' })}
+          {t('policies.createNew', {}, { defaultValue: 'Create Escalation Ladder' })}
         </h2>
         <div className={cm.cn('grid gap-4 md:grid-cols-2 mb-4')}>
           <div>

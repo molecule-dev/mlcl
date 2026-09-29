@@ -1,0 +1,48 @@
+{
+  "screens": {
+    "/issues": {
+      "allow": [
+        {
+          "heading": "On the Lost Architecture of Silence: Monastic Hours in the Digital Age",
+          "reason": "sample-data issue title from the design mock; the list section is real and renders the signed-in creator's own seeded/created issues"
+        },
+        {
+          "heading": "The Architecture of Solitude and Attention: Monastic Gardens & Analog Blocks",
+          "reason": "sample-data issue title from the design mock; the list section is real and renders the signed-in creator's own issues"
+        },
+        {
+          "heading": "The Solitary Reader: Vol. II Syllabus & Winter Reading Curations",
+          "reason": "sample-data issue title from the design mock; the list section is real and renders the signed-in creator's own issues"
+        }
+      ]
+    },
+    "/issues/new": {
+      "allow": [
+        {
+          "heading": "On the Lost Architecture of Silence: Monastic Hours in the Digital Age",
+          "reason": "the design shows a composed draft's title; /issues/new is the empty editor and that text is the #issue-subject field's content once typed, not a page section"
+        }
+      ]
+    },
+    "/issues/:id": {
+      "allow": [
+        {
+          "heading": "The Architecture of Solitude and Attention: Monastic Gardens & Analog Blocks",
+          "reason": "sample article title; the page renders the real issue's own subject as its h1 (asserted by e2e public-issue.spec)"
+        },
+        {
+          "heading": "I. The Monastic Cloister as Cognitive Shield",
+          "reason": "sample body content; the page renders the author's own markdown sections as headings, so design prose cannot be hardcoded"
+        },
+        {
+          "heading": "II. The Anatomy of Analog Regimens",
+          "reason": "sample body content; the page renders the author's own markdown sections as headings"
+        },
+        {
+          "heading": "III. Building the Interior Cloister",
+          "reason": "sample body content; the page renders the author's own markdown sections as headings"
+        }
+      ]
+    }
+  }
+}

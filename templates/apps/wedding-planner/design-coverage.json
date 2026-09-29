@@ -1,0 +1,205 @@
+{
+  "_comment": "Design-coverage divergences for wedding-planner (Everly). Each entry records where the Stitch design's heading is deliberately NOT copied verbatim because it is sample data the app renders from its own records, or a feature/cclaim the template does not ship. Sections themselves are implemented; only the sample-data names / unshipped features are allowlisted. Reviewed 2026-09-28.",
+  "screens": {
+    "/rsvp/:code": {
+      "allow": [
+        {
+          "heading": "Clara Vance & Julian Hastings",
+          "reason": "Sample couple names in the design; the page renders the wedding's real partner names from the couple's own record ({{a}} & {{b}} are getting married)."
+        },
+        {
+          "heading": "The Harrington Household",
+          "reason": "Sample household/Party name in the design; guests are looked up by their own name from the couple's guest list, not a fixed household."
+        },
+        {
+          "heading": "Everything for your journey to Sovicille",
+          "reason": "Design's travel-notes heading names the sample venue's town; the implemented 'Celebration Details & Travel Notes' section carries the evergreen 'Everything for your journey' subtitle since the venue is per-wedding data."
+        },
+        {
+          "heading": "Attendance Confirmation",
+          "reason": "Implemented verbatim as the respond-step heading; it appears after a guest finds their name, while the rendered audit navigates the literal '/rsvp/:code' URL which shows the code-not-found screen."
+        },
+        {
+          "heading": "Dinner & Culinary Selections",
+          "reason": "Implemented verbatim above the meal selector in the respond step; hidden behind name lookup (by design — guests must identify themselves first), which the audit's literal ':code' navigation never reaches."
+        },
+        {
+          "heading": "Celebration Details & Travel Notes",
+          "reason": "Implemented verbatim on the lookup step; the audit's literal ':code' URL renders the not-found screen instead of a real wedding."
+        }
+      ]
+    },
+    "/dashboard": {
+      "allow": [
+        {
+          "heading": "Good morning, Clara & Julian",
+          "reason": "The headline renders a real time-of-day greeting (good morning/afternoon/evening) with the wedding's actual partner names — 'Clara & Julian' is the design's sample couple."
+        }
+      ]
+    },
+    "/guests": {
+      "allow": [
+        {
+          "heading": "Marcus Harrington",
+          "reason": "Sample guest name in the design; the table renders the couple's real guest rows from their own seeded/entered data."
+        }
+      ]
+    },
+    "/vendors": {
+      "allow": [
+        {
+          "heading": "Villa Cetinale Estate",
+          "reason": "Sample vendor name (design's venue); the app renders its own seeded vendor records (e.g. Linden Hall Estate) and user-entered vendors."
+        },
+        {
+          "heading": "Chianti Vineyards Catering & Banquets",
+          "reason": "Sample vendor name (design's caterer); the app renders its own seeded catering vendor records."
+        },
+        {
+          "heading": "Matteo V. Visuals & Film",
+          "reason": "Sample vendor name (design's photographer); the app renders its own seeded photography vendor records."
+        },
+        {
+          "heading": "Fiori di Siena Studio",
+          "reason": "Sample vendor name (design's florist); the app renders its own seeded floral vendor records."
+        },
+        {
+          "heading": "Siena Candle & Atmospheric Lighting",
+          "reason": "Sample vendor name (design's lighting supplier); lighting vendors appear under Floral Architecture & Scenography / Other artisans when the couple adds them."
+        },
+        {
+          "heading": "Florence Acoustic String Quartet & DJ Collective",
+          "reason": "Sample vendor name (design's music act); the app renders its own seeded music vendor records."
+        },
+        {
+          "heading": "Chianti Bridal Atelier (Elena S.)",
+          "reason": "Sample vendor name (design's beauty/attire atelier); the app renders its own seeded attire vendor records."
+        }
+      ]
+    },
+    "/tasks": {
+      "allow": [
+        {
+          "heading": "Needs Immediate Attention",
+          "reason": "title-case divergence only: the section is implemented ('Needs immediate attention') and lists overdue tasks; the static gate matched on word overlap so no suppression is needed, recorded here for rendered-audit traceability."
+        },
+        {
+          "heading": "Submit Final Tasting Menu Selection to Chianti Catering",
+          "reason": "Sample task title in the design; the sections render the couple's real seeded/entered tasks (e.g. 'Book caterer + menu tasting')."
+        },
+        {
+          "heading": "Sign Loggia Acoustic Curfew & SIAE Music Permit",
+          "reason": "Sample task title in the design; tasks render from the couple's own checklist."
+        },
+        {
+          "heading": "Review 3 Centerpiece Physical Mockups with Fiori di Siena",
+          "reason": "Sample task title in the design; tasks render from the couple's own checklist."
+        },
+        {
+          "heading": "Finalize Florence SMN Station Shuttle Pickup Schedule",
+          "reason": "Sample task title in the design; tasks render from the couple's own checklist."
+        },
+        {
+          "heading": "Confirm Villa Cetinale Second Deposit Wire Transfer",
+          "reason": "Sample task title in the design; tasks render from the couple's own checklist."
+        },
+        {
+          "heading": "Upcoming Milestones (Late Summer)",
+          "reason": "Season-specific design copy tied to the sample October wedding; the implemented section is the evergreen 'Upcoming milestones' with a live scheduled count."
+        },
+        {
+          "heading": "Chianti Catering Tasting Menu Selection",
+          "reason": "Sample milestone card in the design's milestones panel; milestones render from the couple's own future-dated tasks."
+        }
+      ]
+    },
+    "/seating": {
+      "allow": [
+        {
+          "heading": "Cypress Loggia & Garden Vista",
+          "reason": "Sample venue space name in the design; the studio header carries the couple's real venue and live seated/capacity stats."
+        },
+        {
+          "heading": "Head Table — Loggia Vista",
+          "reason": "Sample table name; tables render from the couple's own records (seeded e.g. 'Table 1 — Sweetheart')."
+        },
+        {
+          "heading": "Cypress Arch — Family Heritage",
+          "reason": "Sample table name; tables render from the couple's own records."
+        },
+        {
+          "heading": "Olive Grove — Oxford & London Alumni",
+          "reason": "Sample table name; tables render from the couple's own records."
+        },
+        {
+          "heading": "Terrace Fountain — University Circle",
+          "reason": "Sample table name; tables render from the couple's own records."
+        },
+        {
+          "heading": "Lemon Garden — Creatives & Photographers",
+          "reason": "Sample table name; tables render from the couple's own records."
+        },
+        {
+          "heading": "Loggia Wine Bar — Cocktail Lounge",
+          "reason": "Sample high-top lounge name; lounge tables appear when the couple adds them (any capacity, incl. high-top)."
+        },
+        {
+          "heading": "Table 03: Olive Grove",
+          "reason": "Sample detail-panel caption for a design table card; the app's table cards carry the real table name and live seat counts."
+        }
+      ]
+    },
+    "/settings": {
+      "allow": [
+        {
+          "heading": "Notification Cadence & Peaceful Digests",
+          "reason": "Implemented verbatim as the Notifications panel heading; it renders inside that tab's panel, which is not mounted until the tab is opened (the audit never clicks tabs)."
+        },
+        {
+          "heading": "Subscription & Atelier Plan",
+          "reason": "Implemented as the Subscription panel heading ('Subscription & Atelier plan'); renders inside the tab panel, not on the default Profile tab paint."
+        },
+        {
+          "heading": "Danger Zone & Archive Safeguards",
+          "reason": "Implemented as the danger-zone card heading inside the Subscription panel with the real cancel-plan action; renders inside the tab panel, not on initial paint."
+        },
+        {
+          "heading": "Shared Partner & Planner Co-Access",
+          "reason": "The template's account model is single-owner (one login per wedding suite); a partner/planner co-access invite flow is not implemented, so no such section is faked."
+        },
+        {
+          "heading": "Security & Passkey",
+          "reason": "The template ships password auth only (change-password form lives in the Security panel); no passkey/2FA management exists in the API, so the design's passkey framing is not claimed."
+        }
+      ]
+    },
+    "/plan-updated": {
+      "allow": [
+        {
+          "heading": "Artisan & Vendor Contract Vault",
+          "reason": "No contract escrow/vault feature exists in the template; the implemented next-steps grid only names real destinations (guest list, seating studio, vendor pipeline, budget tracker)."
+        },
+        {
+          "heading": "Dedicated Tuscan Concierge Sync",
+          "reason": "No concierge/messaging feature exists in the template; not claimed."
+        },
+        {
+          "heading": "Interactive 3D Seating Studio",
+          "reason": "The seating studio is 2D; the card is titled 'Interactive seating studio' to stay factual, and the design's '3D' wording is not claimed."
+        },
+        {
+          "heading": "Immediate Next Steps in Your Suite",
+          "reason": "title-case divergence only: implemented as 'Immediate next steps in your suite'; recorded here for rendered-audit traceability."
+        }
+      ]
+    },
+    "/reset-password": {
+      "allow": [
+        {
+          "heading": "256-Bit Protection",
+          "reason": "Design badge makes a specific cryptography claim the template cannot verify; the page states what is true instead (TLS in transit, salted-hashed passwords, single-use reset code) and the badge is not copied."
+        }
+      ]
+    }
+  }
+}

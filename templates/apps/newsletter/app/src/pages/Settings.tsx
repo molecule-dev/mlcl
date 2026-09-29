@@ -6,6 +6,7 @@ import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
 import SettingsAppearanceSection from '../components/SettingsAppearanceSection.js'
 import SettingsDangerZoneSection from '../components/SettingsDangerZoneSection.js'
+import SettingsDeliverabilitySection from '../components/SettingsDeliverabilitySection.js'
 import SettingsFormFooter from '../components/SettingsFormFooter.js'
 import SettingsNotificationsSection from '../components/SettingsNotificationsSection.js'
 import SettingsPageHeader from '../components/SettingsPageHeader.js'
@@ -290,6 +291,7 @@ function Settings() {
           onToggleVisibility={(checked) => setProfileVisible(checked)}
           onToggleShowEmail={(checked) => setShowEmail(checked)}
         />
+        <SettingsDeliverabilitySection />
         <SettingsDangerZoneSection onDelete={handleDeleteAccount} />
       </div>
       <SettingsFormFooter onSave={handleSave} loading={loading} onCancel={handleCancel} />

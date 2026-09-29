@@ -1,8 +1,39 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+
+const TELEMETRY_ROWS = [
+  {
+    id: 'client',
+    icon: 'memory',
+    titleKey: 'settings.telemetry.client.title',
+    titleDefault: 'Client-side "when to walk" computation',
+    bodyKey: 'settings.telemetry.client.body',
+    bodyDefault:
+      'Walk-buffer alarms are computed in this browser from the published schedule — your position never leaves the device for the math.',
+  },
+  {
+    id: 'cache',
+    icon: 'storage',
+    titleKey: 'settings.telemetry.cache.title',
+    titleDefault: 'Open GTFS telemetry cache',
+    bodyKey: 'settings.telemetry.cache.body',
+    bodyDefault:
+      'Schedules and line geometry are cached from the open GTFS feed so boards render fast; the cache holds public data only.',
+  },
+  {
+    id: 'session',
+    icon: 'devices',
+    titleKey: 'settings.telemetry.session.title',
+    titleDefault: 'Sessions on this device',
+    bodyKey: 'settings.telemetry.session.body',
+    bodyDefault:
+      "You are signed in on this device only unless you signed in elsewhere; signing out revokes this session's token.",
+  },
+] as const
 
 const PREFERENCES = [
   {
@@ -285,7 +316,11 @@ export function Settings() {
                 'uppercase tracking-[0.25em] text-on-surface-variant',
               )}
             >
-              {t('settings.profile.heading', {}, { defaultValue: 'Personal details' })}
+              {t(
+                'settings.profile.heading',
+                {},
+                { defaultValue: 'Commuter identity & SmartPass card' },
+              )}
             </h2>
             <div className={cm.cn('grid grid-cols-1 md:grid-cols-2 gap-4')}>
               <Field
@@ -299,6 +334,35 @@ export function Settings() {
                 onChange={setEmail}
                 type="email"
               />
+              {/* Design's "Commute Hubs & Default Stations" — the rider's
+                  anchor stops. Sits between the identity fields and the hub
+                  fields; the input ORDER here is an e2e contract (inputs 2
+                  and 3 are home stop and currency), so add headings only. */}
+              <div className={cm.cn('md:col-span-2', cm.sp('mt', 2))}>
+                <h3
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.fontWeight('bold'),
+                    'uppercase tracking-[0.25em] text-on-surface-variant',
+                  )}
+                >
+                  {t(
+                    'settings.profile.hubsHeading',
+                    {},
+                    { defaultValue: 'Commute hubs & default stations' },
+                  )}
+                </h3>
+                <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+                  {t(
+                    'settings.profile.hubsBody',
+                    {},
+                    {
+                      defaultValue:
+                        'Home stop leads the boards you see first; currency formats fares in the planner.',
+                    },
+                  )}
+                </p>
+              </div>
               <Field
                 label={t('settings.profile.home', {}, { defaultValue: 'Home stop' })}
                 value={home}
@@ -447,6 +511,84 @@ export function Settings() {
           </p>
         </div>
         <ThemeToggle />
+      </section>
+      {/* Design's "Telemetry Engine & System Security" — what the engine is
+          and the privacy line it holds. Deliberately display-only: no inputs
+          or toggles here (the preferences e2e addresses toggles page-wide). */}
+      <section
+        data-mol-id="settings-telemetry-security"
+        className={cm.cn(cm.sp('mt', 6), cm.sp('p', 8), 'bg-surface-container-low rounded-2xl')}
+      >
+        <div className={cm.flex({ align: 'center', gap: 'md' })}>
+          <span
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              cm.w(10),
+              cm.h(10),
+              'shrink-0 rounded-xl bg-primary/10 text-primary ring-1 ring-primary/20',
+            )}
+            aria-hidden="true"
+          >
+            <span className="material-symbols-outlined text-xl">security</span>
+          </span>
+          <div>
+            <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
+              {t(
+                'settings.telemetry.heading',
+                {},
+                { defaultValue: 'Telemetry engine & system security' },
+              )}
+            </h3>
+            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+              {t(
+                'settings.telemetry.sub',
+                {},
+                { defaultValue: 'Open transit telemetry, zero-surveillance standards.' },
+              )}
+            </p>
+          </div>
+        </div>
+        <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), cm.sp('mt', 5))}>
+          {TELEMETRY_ROWS.map((row) => (
+            <li
+              key={row.id}
+              data-mol-id={`settings-telemetry-${row.id}`}
+              className={cm.cn(
+                cm.flex({ align: 'start', gap: 'md' }),
+                cm.sp('p', 4),
+                'bg-surface rounded-xl ring-1 ring-outline-variant/40',
+              )}
+            >
+              <span className={'material-symbols-outlined text-lg text-primary'} aria-hidden="true">
+                {row.icon}
+              </span>
+              <div className="min-w-0">
+                <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                  {t(row.titleKey, {}, { defaultValue: row.titleDefault })}
+                </p>
+                <p
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.sp('mt', 0.5),
+                    'text-on-surface-variant leading-relaxed',
+                  )}
+                >
+                  {t(row.bodyKey, {}, { defaultValue: row.bodyDefault })}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p className={cm.cn(cm.textSize('xs'), cm.sp('mt', 4), 'text-on-surface-variant')}>
+          {t('settings.telemetry.privacyLead', {}, { defaultValue: 'The full charter:' })}{' '}
+          <Link
+            to="/privacy"
+            data-mol-id="settings-telemetry-privacy-link"
+            className={cm.cn(cm.fontWeight('semibold'), 'text-primary hover:underline')}
+          >
+            {t('nav.privacy', {}, { defaultValue: 'Privacy policy' })}
+          </Link>
+        </p>
       </section>
     </div>
   )

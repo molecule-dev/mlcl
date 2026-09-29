@@ -1,0 +1,37 @@
+{
+  "_comment": "Accepted divergences from the Stitch designs. Each entry is a reviewed decision; anything not listed here fails verify:design-coverage.",
+  "screens": {
+    "/lines/:code": {
+      "allow": [
+        {
+          "heading": "Consist #704 Telemetry",
+          "reason": "Design sample-data vehicle id (a specific train consist). The Stringline & Rolling Stock Telematics section is implemented and renders the line's real schedule-derived fleet facts (station count, headway control, stock kind); the specific consist number is the design mock's data, not app copy."
+        }
+      ]
+    },
+    "/plan": {
+      "allow": [
+        {
+          "heading": "Line M1 Northbound: Averton Central → Highlands Junction",
+          "reason": "Design sample-data leg title (fictional Averton line and stops). Every itinerary leg renders the same structure with the app's own data — line name, board → alight stops, ride time — plus an expandable station progression (the design's turnout manifest)."
+        }
+      ]
+    },
+    "/alerts": {
+      "allow": [
+        {
+          "heading": "Bus B14: Crosstown Arterial",
+          "reason": "Design sample-data alert headline. The alert list renders the API's own seeded alerts (title, severity, line) via ServiceAlertCard; the corridor status matrix, commuter alert dispatch panel, and operations dispatch log are implemented around the same real data."
+        }
+      ]
+    },
+    "/saved": {
+      "allow": [
+        {
+          "heading": "University Quad & Medical Campus #ST-0112",
+          "reason": "Design sample-data stop name and code. The Pinned Transit Stations section renders the rider's real saved stops from the API; the design's Averton stop names are the mock's data, not app copy."
+        }
+      ]
+    }
+  }
+}

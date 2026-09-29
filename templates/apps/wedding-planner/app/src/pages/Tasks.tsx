@@ -142,6 +142,20 @@ export function Tasks() {
     filter === 'all' ? tasks : tasks.filter((x) => (filter === 'done' ? x.done : !x.done))
   const pct = data && data.total > 0 ? Math.round((data.done / data.total) * 100) : 0
 
+  // Triage buckets for the design's three planning sections. Open tasks only;
+  // each bucket renders as a summary panel above the full checklist below.
+  const inSevenDays = (() => {
+    const d = new Date()
+    d.setDate(d.getDate() + 7)
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+  })()
+  const openTasks = tasks.filter((x) => !x.done)
+  const attention = openTasks.filter((x) => isOverdue(x))
+  const thisWeek = openTasks.filter(
+    (x) => !isOverdue(x) && x.due_date != null && x.due_date <= inSevenDays,
+  )
+  const upcoming = openTasks.filter((x) => !attention.includes(x) && !thisWeek.includes(x))
+
   return (
     <div
       className={cm.cn(cm.sp('p', 6), cm.sp('px', 8), 'max-w-4xl w-full mx-auto')}
@@ -155,7 +169,7 @@ export function Tasks() {
           {t('tasks.eyebrow', {}, { defaultValue: 'Timeline' })}
         </p>
         <h1 className={cm.cn('text-4xl font-extrabold tracking-tight')}>
-          {t('tasks.title', {}, { defaultValue: 'Tasks' })}
+          {t('tasks.title', {}, { defaultValue: 'Tasks & master timeline' })}
         </h1>
         <p className={cm.cn(cm.textSize('sm'), 'mt-2 text-on-surface-variant max-w-xl')}>
           {t(
@@ -317,6 +331,165 @@ export function Tasks() {
             {t(`tasks.filter.${key}`, {}, { defaultValue: key })}
           </button>
         ))}
+      </div>
+
+      {/* Design triage sections — attention / this week / milestones */}
+      <div className={cm.cn('mt-6 grid gap-4 lg:grid-cols-2')} data-mol-id="tasks-triage">
+        <section
+          className={cm.cn(
+            cm.sp('p', 5),
+            'rounded-2xl bg-surface border border-outline-variant/40 shadow-sm',
+          )}
+          data-mol-id="tasks-attention"
+        >
+          <h2 className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'text-lg font-bold')}>
+            <span
+              className="material-symbols-outlined text-xl"
+              style={{ color: 'var(--color-error)' }}
+              aria-hidden="true"
+            >
+              priority_high
+            </span>
+            {t('tasks.attentionTitle', {}, { defaultValue: 'Needs immediate attention' })}
+          </h2>
+          {attention.length === 0 ? (
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mt-2')}>
+              {t(
+                'tasks.attentionEmpty',
+                {},
+                { defaultValue: 'Nothing overdue — the timeline is calm.' },
+              )}
+            </p>
+          ) : (
+            <ul className={cm.cn(cm.stack(2), 'mt-3')}>
+              {attention.map((task) => (
+                <li
+                  key={task.id}
+                  data-mol-id={`tasks-attention-${task.id}`}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                    'px-3 py-2 rounded-lg bg-surface-container',
+                  )}
+                  style={{ borderInlineStart: '3px solid var(--color-error)' }}
+                >
+                  <span className={cm.cn(cm.textSize('sm'), 'font-medium truncate')}>
+                    {task.title}
+                  </span>
+                  <span
+                    className={cm.cn(cm.textSize('xs'), 'shrink-0 font-bold')}
+                    style={{ color: 'var(--color-error)' }}
+                  >
+                    {formatDate(task.due_date)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+        <section
+          className={cm.cn(
+            cm.sp('p', 5),
+            'rounded-2xl bg-surface border border-outline-variant/40 shadow-sm',
+          )}
+          data-mol-id="tasks-week"
+        >
+          <h2 className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'text-lg font-bold')}>
+            <span
+              className="material-symbols-outlined text-xl"
+              style={{ color: 'var(--color-accent)' }}
+              aria-hidden="true"
+            >
+              event_upcoming
+            </span>
+            {t('tasks.weekTitle', {}, { defaultValue: "This week's focus" })}
+          </h2>
+          {thisWeek.length === 0 ? (
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mt-2')}>
+              {t('tasks.weekEmpty', {}, { defaultValue: 'Nothing due in the next seven days.' })}
+            </p>
+          ) : (
+            <ul className={cm.cn(cm.stack(2), 'mt-3')}>
+              {thisWeek.map((task) => (
+                <li
+                  key={task.id}
+                  data-mol-id={`tasks-week-${task.id}`}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                    'px-3 py-2 rounded-lg bg-surface-container',
+                  )}
+                >
+                  <span className={cm.cn(cm.textSize('sm'), 'font-medium truncate')}>
+                    {task.title}
+                  </span>
+                  <span className={cm.cn(cm.textSize('xs'), 'shrink-0 text-on-surface-variant')}>
+                    {formatDate(task.due_date)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
+        {/* Later milestones */}
+        <section
+          className={cm.cn(
+            cm.sp('p', 5),
+            'rounded-2xl bg-surface border border-outline-variant/40 shadow-sm lg:col-span-2',
+          )}
+          data-mol-id="tasks-milestones"
+        >
+          <h2 className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'text-lg font-bold')}>
+            <span
+              className="material-symbols-outlined text-xl"
+              style={{ color: 'var(--color-secondary)' }}
+              aria-hidden="true"
+            >
+              flag
+            </span>
+            {t('tasks.milestonesTitle', {}, { defaultValue: 'Upcoming milestones' })}
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                'font-black uppercase tracking-widest text-on-surface-variant',
+              )}
+            >
+              {t(
+                'tasks.milestonesCount',
+                { count: upcoming.length },
+                { defaultValue: '{{count}} scheduled' },
+              )}
+            </span>
+          </h2>
+          {upcoming.length === 0 ? (
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mt-2')}>
+              {t(
+                'tasks.milestonesEmpty',
+                {},
+                { defaultValue: 'Nothing scheduled further out yet.' },
+              )}
+            </p>
+          ) : (
+            <ul className={cm.cn('mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3')}>
+              {upcoming.slice(0, 6).map((task) => (
+                <li
+                  key={task.id}
+                  data-mol-id={`tasks-milestone-${task.id}`}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                    'px-3 py-2 rounded-lg bg-surface-container',
+                  )}
+                >
+                  <span className={cm.cn(cm.textSize('sm'), 'font-medium truncate')}>
+                    {task.title}
+                  </span>
+                  <span className={cm.cn(cm.textSize('xs'), 'shrink-0 text-on-surface-variant')}>
+                    {formatDate(task.due_date)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
       </div>
 
       {/* List */}

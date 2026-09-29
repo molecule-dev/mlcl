@@ -12,6 +12,34 @@ import LoginOAuthButtons from '../components/LoginOAuthButtons.js'
 import LoginPasswordField from '../components/LoginPasswordField.js'
 import LoginTopNavBar from '../components/LoginTopNavBar.js'
 
+/** The signup-side guarantees (design: The Dispatch Guarantees panel). */
+const GUARANTEES = [
+  {
+    id: 'cut',
+    icon: 'percent',
+    title: '0% Platform Cut on Direct Subscriptions',
+    body: 'Keep 100% of reader patronage flowing straight to your connected payment account.',
+  },
+  {
+    id: 'sovereignty',
+    icon: 'lock_open',
+    title: 'Cryptographic Subscriber Sovereignty',
+    body: 'Instant 1-click full CSV & JSON export anytime. Your audience is forever yours.',
+  },
+  {
+    id: 'typography',
+    icon: 'menu_book',
+    title: 'Bespoke Typography & 680px Reading Measure',
+    body: 'Optical serifs, custom footnote marginalia, and zero banner distraction.',
+  },
+  {
+    id: 'delivery',
+    icon: 'verified',
+    title: 'Dedicated Warm IP Delivery',
+    body: 'High primary-inbox delivery with authenticated custom DKIM and DMARC keys.',
+  },
+]
+
 function Signup() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -107,7 +135,7 @@ function Signup() {
                 'font-headline text-[2.5rem] leading-tight tracking-tight text-on-surface',
               )}
             >
-              {t('signup.title', {}, { defaultValue: 'Join us.' })}
+              {t('signup.title', {}, { defaultValue: 'Begin your sovereign publication.' })}
             </h1>
             <p
               className={cm.cn(
@@ -209,6 +237,61 @@ function Signup() {
               </p>
             </div>
           </form>
+          {/* The Dispatch Guarantees (design: the side panel beside the form) */}
+          <section
+            data-mol-id="signup-guarantees"
+            aria-label={t(
+              'signup.guarantees.title',
+              {},
+              { defaultValue: 'The Dispatch Guarantees' },
+            )}
+            className={cm.cn(
+              cm.sp('mt', 10),
+              cm.sp('p', 6),
+              'rounded-xl bg-surface-container-lowest border border-surface-container-highest',
+            )}
+          >
+            <h2
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                'uppercase tracking-widest text-primary',
+                cm.sp('mb', 4),
+              )}
+            >
+              {t('signup.guarantees.title', {}, { defaultValue: 'The Dispatch Guarantees' })}
+            </h2>
+            <ul className={cm.stack(4)}>
+              {GUARANTEES.map((g) => (
+                <li key={g.id} className={cm.cn(cm.flex({ align: 'start', gap: 'sm' }))}>
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'w-8 h-8 shrink-0 rounded-sm bg-primary-fixed text-primary',
+                    )}
+                  >
+                    <span className={cm.fv5b245ffa} aria-hidden>
+                      {g.icon}
+                    </span>
+                  </span>
+                  <div>
+                    <h3
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('semibold'),
+                        'text-on-surface',
+                      )}
+                    >
+                      {t(`signup.guarantees.${g.id}.title`, {}, { defaultValue: g.title })}
+                    </h3>
+                    <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      {t(`signup.guarantees.${g.id}.body`, {}, { defaultValue: g.body })}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
         </div>
       </main>
       <LoginFooter />

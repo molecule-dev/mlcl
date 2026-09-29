@@ -96,6 +96,10 @@
   --color-budget-ok-bg: #e4ecc9;
   --color-budget-ok: #3f6212;
   --color-toggle-off: #e7e1e1;
+  /* Auth brand panel — glass invitation card backing. The gradient stays
+     rose/plum in BOTH modes (brand surface, like the design), so the card
+     darkens it in light and dark alike to keep white text at AA. */
+  --color-auth-panel-card: rgba(0, 0, 0, 0.25);
 
   --font-family:
     'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;

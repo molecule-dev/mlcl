@@ -75,6 +75,14 @@ function IssueDetail() {
 
   const opens = stats?.opens_over_time ?? []
   const maxOpens = Math.max(...opens.map((o) => o.count), 1)
+  // The link trajectory: every external reference the issue body carries
+  // (design: "Link & Citation Trajectory"), extracted from the same markdown
+  // the public page renders — real data, never sample links.
+  const trackedLinks = [
+    ...new Set(
+      Array.from((issue?.body_md ?? '').matchAll(/\]\((https?:\/\/[^)\s]+)\)/g)).map((m) => m[1]),
+    ),
+  ].slice(0, 6)
   const sections = (issue?.body_md ?? '')
     .split(/\n\n+/g)
     .map((p) => p.trim())
@@ -234,11 +242,18 @@ function IssueDetail() {
                 className={cm.cn(
                   cm.textSize('lg'),
                   cm.fontWeight('semibold'),
-                  'text-on-surface mb-4',
+                  'text-on-surface mb-1',
                 )}
               >
-                {t('issueDetail.opensOverTime', {}, { defaultValue: 'Opens over time' })}
+                {t(
+                  'issueDetail.circulation',
+                  {},
+                  { defaultValue: 'Circulation Velocity & Open Trajectory' },
+                )}
               </h3>
+              <p className={cm.cn(cm.textSize('xs'), cm.sp('mb', 4), 'text-on-surface-variant')}>
+                {t('issueDetail.opensOverTime', {}, { defaultValue: 'Opens over time' })}
+              </p>
               <div
                 className={cm.cn(cm.flex({ align: 'end', gap: 'sm' }), cm.h(24))}
                 role="img"
@@ -256,6 +271,68 @@ function IssueDetail() {
                   />
                 ))}
               </div>
+            </div>
+
+            {/* Link & Citation Trajectory — the issue's tracked references */}
+            <div
+              data-mol-id="issue-detail-links"
+              className={cm.cn(
+                cm.sp('p', 6),
+                'rounded-xl bg-surface-container-lowest',
+                cm.stack(3),
+              )}
+            >
+              <h3
+                className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), 'text-on-surface')}
+              >
+                {t('issueDetail.links', {}, { defaultValue: 'Link & Citation Trajectory' })}
+              </h3>
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                {t(
+                  'issueDetail.linksHint',
+                  { count: trackedLinks.length },
+                  {
+                    defaultValue: '{{count}} tracked reference(s) cited in this issue’s body.',
+                  },
+                )}
+              </p>
+              {trackedLinks.length === 0 ? (
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t(
+                    'issueDetail.linksEmpty',
+                    {},
+                    { defaultValue: 'No external links in this issue yet.' },
+                  )}
+                </p>
+              ) : (
+                <ol className={cm.cn(cm.stack(2))}>
+                  {trackedLinks.map((link, i) => (
+                    <li
+                      key={link}
+                      className={cm.cn(cm.flex({ align: 'start', gap: 'sm' }), cm.textSize('sm'))}
+                    >
+                      <span
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          cm.fontWeight('semibold'),
+                          'shrink-0 w-6 h-6 rounded-sm bg-surface-container text-tertiary flex items-center justify-center',
+                        )}
+                        aria-hidden
+                      >
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <a
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline break-all"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              )}
             </div>
           </aside>
         </div>

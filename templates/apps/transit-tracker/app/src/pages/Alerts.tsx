@@ -4,7 +4,12 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { LineBadge, type LineBadgeLine } from '../components/LineBadge.js'
 import { type ServiceAlert, ServiceAlertCard } from '../components/ServiceAlertCard.js'
+
+interface LineRow extends LineBadgeLine {
+  stops?: string[]
+}
 
 /**
  * Service alerts: active-by-default list (line-specific + system-wide),
@@ -17,6 +22,7 @@ export function Alerts() {
   const http = useHttpClient()
 
   const [alerts, setAlerts] = useState<ServiceAlert[]>([])
+  const [lines, setLines] = useState<LineRow[]>([])
   const [loading, setLoading] = useState(true)
   const [showAll, setShowAll] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -25,12 +31,17 @@ export function Alerts() {
   useEffect(() => {
     let cancelled = false
     setLoading(true)
-    http
-      .get(`/api/alerts${showAll ? '?all=1' : ''}`)
-      .then((res) => {
+    Promise.all([
+      http.get(`/api/alerts${showAll ? '?all=1' : ''}`),
+      // Corridor matrix needs the line roster; failure is non-fatal.
+      http.get('/api/network/lines').catch(() => ({ data: [] as LineRow[] })),
+    ])
+      .then(([alertsRes, linesRes]) => {
         if (cancelled) return
-        const data = (res as { data?: unknown }).data ?? res
-        setAlerts(Array.isArray(data) ? (data as ServiceAlert[]) : [])
+        const alertData = (alertsRes as { data?: unknown }).data ?? alertsRes
+        setAlerts(Array.isArray(alertData) ? (alertData as ServiceAlert[]) : [])
+        const lineData = (linesRes as { data?: unknown }).data ?? linesRes
+        setLines(Array.isArray(lineData) ? (lineData as LineRow[]) : [])
         setError(null)
       })
       .catch((err: unknown) => {
@@ -49,6 +60,18 @@ export function Alerts() {
   }, [http, showAll, t, nonce])
 
   const severeCount = alerts.filter((a) => a.severity === 'severe').length
+
+  // Corridor status matrix: each line's worst active alert decides its
+  // status; lines with no alert run normally.
+  const corridorStatus = (lineCode: string): 'severe' | 'warning' | 'normal' => {
+    if (alerts.some((a) => a.line_code === lineCode && a.severity === 'severe')) return 'severe'
+    if (alerts.some((a) => a.line_code === lineCode && a.severity === 'warning')) return 'warning'
+    return 'normal'
+  }
+
+  // Design's dispatch log: the active alerts re-presented as an operations
+  // timeline (most recent first, as the API already orders them).
+  const dispatchLog = alerts.slice(0, 6)
 
   return (
     <div className={cm.cn(cm.maxW('3xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
@@ -155,6 +178,209 @@ export function Alerts() {
           ))}
         </div>
       )}
+
+      {/* Design's "Corridor Status Matrix" — every line with its worst
+          active alert folded into one status. */}
+      {lines.length > 0 ? (
+        <section data-mol-id="alerts-corridor-matrix" className={cm.sp('mt', 10)}>
+          <div
+            className={cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' })}
+          >
+            <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+              {t('alerts.corridorHeading', {}, { defaultValue: 'Corridor status matrix' })}
+            </h2>
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-widest text-on-surface-variant tabular-nums',
+              )}
+            >
+              {t(
+                'alerts.corridorCount',
+                { active: lines.length, total: lines.length },
+                { defaultValue: '{{active}} of {{total}} lines' },
+              )}
+            </span>
+          </div>
+          <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), cm.sp('mt', 3))}>
+            {lines.map((line) => {
+              const status = corridorStatus(line.code)
+              const statusColor =
+                status === 'severe'
+                  ? 'var(--color-severe)'
+                  : status === 'warning'
+                    ? 'var(--color-warning)'
+                    : 'var(--color-live)'
+              return (
+                <li
+                  key={line.code}
+                  data-mol-id={`alerts-corridor-${line.code}`}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }),
+                    cm.sp('px', 4),
+                    cm.sp('py', 3),
+                    'bg-surface rounded-xl ring-1 ring-outline-variant/40',
+                  )}
+                >
+                  <LineBadge line={line} size="sm" />
+                  <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                    {line.name}
+                  </span>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('bold'),
+                      'ml-auto inline-flex items-center gap-1.5 uppercase tracking-widest',
+                    )}
+                    style={{ color: statusColor }}
+                  >
+                    <span
+                      className={cm.cn(cm.w(2), cm.h(2), cm.roundedFull)}
+                      style={{ backgroundColor: statusColor }}
+                      aria-hidden="true"
+                    />
+                    {status === 'normal'
+                      ? t('alerts.corridorNormal', {}, { defaultValue: 'Normal service' })
+                      : status === 'warning'
+                        ? t('alerts.corridorWarning', {}, { defaultValue: 'Delay buffer' })
+                        : t('alerts.corridorSevere', {}, { defaultValue: 'Disruption' })}
+                  </span>
+                </li>
+              )
+            })}
+          </ul>
+        </section>
+      ) : null}
+
+      {/* Design's "Commuter Alert Dispatch" — how the alerts above reach the
+          rider. Delivery toggles live in Settings → Preferences. */}
+      <section
+        data-mol-id="alerts-dispatch"
+        className={cm.cn(
+          cm.sp('p', 5),
+          cm.sp('mt', 10),
+          'bg-surface-container-low rounded-2xl ring-1 ring-outline-variant/40',
+        )}
+      >
+        <div className={cm.flex({ align: 'center', gap: 'md' })}>
+          <span
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              cm.w(10),
+              cm.h(10),
+              'shrink-0 rounded-xl bg-primary/10 text-primary ring-1 ring-primary/20',
+            )}
+            aria-hidden="true"
+          >
+            <span className="material-symbols-outlined text-xl">tune</span>
+          </span>
+          <div className="min-w-0">
+            <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'))}>
+              {t('alerts.dispatchHeading', {}, { defaultValue: 'Commuter alert dispatch' })}
+            </h2>
+            <p
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.sp('mt', 1),
+                'text-on-surface-variant leading-relaxed',
+              )}
+            >
+              {t(
+                'alerts.dispatchBody',
+                {},
+                {
+                  defaultValue:
+                    'Delay alerts ride the same channel as the board clock: disruption and departure reminders are dispatched the moment a corridor status changes. Choose which alerts reach you in Preferences.',
+                },
+              )}
+            </p>
+          </div>
+        </div>
+        <Link
+          to="/settings"
+          data-mol-id="alerts-dispatch-settings"
+          className={cm.cn(
+            'inline-block',
+            cm.sp('mt', 4),
+            cm.sp('px', 5),
+            cm.sp('py', 2),
+            cm.textSize('sm'),
+            cm.fontWeight('bold'),
+            'rounded-full bg-primary text-on-primary hover:bg-primary-dark transition-colors',
+          )}
+        >
+          {t('alerts.dispatchSettingsCta', {}, { defaultValue: 'Alert preferences' })}
+        </Link>
+      </section>
+
+      {/* Design's "AMTA Operations Dispatch Log" — the active alerts rendered
+          as the operations timeline they are. */}
+      {dispatchLog.length > 0 ? (
+        <section data-mol-id="alerts-dispatch-log" className={cm.sp('mt', 10)}>
+          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+            {t('alerts.logHeading', {}, { defaultValue: 'AMTA operations dispatch log' })}
+          </h2>
+          <ol className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.sp('mt', 3))}>
+            {dispatchLog.map((alert) => (
+              <li
+                key={alert.id}
+                data-mol-id={`alerts-log-${alert.id}`}
+                className={cm.cn(
+                  cm.flex({ align: 'start', gap: 'sm' }),
+                  cm.sp('px', 4),
+                  cm.sp('py', 3),
+                  'bg-surface rounded-xl ring-1 ring-outline-variant/40',
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.fontWeight('bold'),
+                    'shrink-0 tabular-nums uppercase tracking-widest text-on-surface-variant',
+                    cm.sp('mt', 0.5),
+                  )}
+                >
+                  {new Date(alert.starts_at).toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                </span>
+                <span
+                  className={cm.cn(cm.w(2), cm.h(2), cm.roundedFull, 'shrink-0', cm.sp('mt', 1.5))}
+                  style={{
+                    backgroundColor:
+                      alert.severity === 'severe'
+                        ? 'var(--color-severe)'
+                        : alert.severity === 'warning'
+                          ? 'var(--color-warning)'
+                          : 'var(--color-secondary)',
+                  }}
+                  aria-hidden="true"
+                />
+                <span className="min-w-0">
+                  <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                    {alert.line ? `${alert.line.code} · ` : ''}
+                    {alert.title}
+                  </span>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      'block text-on-surface-variant leading-relaxed',
+                    )}
+                  >
+                    {t(
+                      'alerts.logEntry',
+                      { severity: alert.severity },
+                      { defaultValue: '{{severity}} · dispatched to corridor boards' },
+                    )}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ) : null}
 
       <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 8), 'text-on-surface-variant')}>
         {t(

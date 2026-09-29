@@ -5,7 +5,8 @@ import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { useLogin, usePasswordReset, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const SURFACE_DARK = 'var(--color-background)'
 const PANEL = 'var(--color-surface)'
@@ -110,11 +111,8 @@ export function ResetPassword() {
                 </span>
               </div>
             </div>
-            <h1
-              className={cm.cn('text-4xl font-extrabold tracking-tight')}
-              style={{ color: 'var(--color-text)' }}
-            >
-              {APP_NAME}
+            <h1 className={cm.cn(cm.flex({ justify: 'center' }))}>
+              <BrandWordmark as="span" size="lg" />
             </h1>
             <p
               className={cm.cn('mt-1 font-mono text-xs')}
@@ -135,7 +133,7 @@ export function ResetPassword() {
           >
             <div>
               <h2 className={cm.cn('text-lg font-bold')} style={{ color: 'var(--color-text)' }}>
-                {t('auth.resetPassword.setNewPassword', {}, { defaultValue: 'Set a new password' })}
+                {t('resetPassword.masterHeading', {}, { defaultValue: 'Set New Master Password' })}
               </h2>
               <p className={cm.cn('mt-1 text-sm')} style={{ color: 'var(--color-text-secondary)' }}>
                 {t(

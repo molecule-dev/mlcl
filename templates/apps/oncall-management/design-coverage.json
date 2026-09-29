@@ -1,0 +1,40 @@
+{
+  "screens": {
+    "/schedules": {
+      "allow": [
+        {
+          "heading": "SRE Core Mesh — Tier 1 (Primary)",
+          "reason": "design sample-data schedule name; the rotation-cards section exists and renders the app's own seeded schedules (Platform Primary / API Services / Weekend Cover) from the API"
+        },
+        {
+          "heading": "Payments & Checkout SRE — Tier 1",
+          "reason": "design sample-data schedule name; same rotation-cards section renders the seeded schedules instead of the design's fictional names"
+        },
+        {
+          "heading": "Database & Kafka Cluster Reliability",
+          "reason": "design sample-data schedule name; the seeded fleet covers the same domain via the kafka/billing-events incident and schedule cards"
+        },
+        {
+          "heading": "Identity & Auth Gateway Services",
+          "reason": "design sample-data schedule name; the seeded API Services schedule plays the same role in the rotation-cards section"
+        }
+      ]
+    },
+    "/schedules/:id": {
+      "allow": [
+        {
+          "heading": "SRE Core Mesh — Tier 1 (Primary)",
+          "reason": "detail h1 renders the schedule's own name from the API (e.g. Platform Primary); the design name is sample data for the same section"
+        }
+      ]
+    },
+    "/pricing": {
+      "allow": [
+        {
+          "heading": "Developer",
+          "reason": "tier cards render the billing bond's own tier names (Free / Pro / Team) from tiers.ts; the entry tier is labeled 'Developer (Free)' in the Technical Specification Matrix below the cards"
+        }
+      ]
+    }
+  }
+}

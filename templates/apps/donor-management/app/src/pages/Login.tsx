@@ -6,6 +6,7 @@ import { useLogin, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BRAND_COLOR } from '../branding.js'
+import { AuthAsidePanel } from '../components/AuthAsidePanel.js'
 import { AuthBrandHeader } from '../components/AuthBrandHeader.js'
 import { Footer } from '../components/Footer.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
@@ -70,6 +71,12 @@ export function Login() {
         className={cm.cn(cm.flex({ align: 'center', justify: 'center' }), cm.flex1, cm.sp('p', 6))}
       >
         <div className={cm.cn(cm.w('full'), cm.maxW('md'))}>
+          <AuthAsidePanel
+            eyebrowKey="auth.aside.eyebrow"
+            eyebrowDefault="IRS 170(f)(8) & SOC-2 compliant platform"
+            headlineKey="login.aside.headline"
+            headlineDefault="Cultivate deeper donor relationships. Automate every year-end receipt."
+          />
           <div
             className={cm.cn(
               cm.flex({ direction: 'col', gap: 'xl' }),

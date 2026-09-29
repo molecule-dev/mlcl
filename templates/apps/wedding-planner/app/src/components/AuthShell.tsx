@@ -7,6 +7,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 
 /**
@@ -28,6 +29,31 @@ interface AuthShellProps {
   bottomLinkText: string
   bottomLinkTo: string
 }
+
+/** The design's four studio pillars, shown on the brand panel of every
+ *  auth view. */
+const STUDIO_PILLARS = [
+  {
+    key: 'guests',
+    icon: 'group',
+    defaultLabel: 'Interactive Guest & RSVP Studio',
+  },
+  {
+    key: 'seating',
+    icon: 'table_restaurant',
+    defaultLabel: 'Drag-and-Drop Seating Studio',
+  },
+  {
+    key: 'vendors',
+    icon: 'storefront',
+    defaultLabel: 'Collaborative Vendor & Master Timeline',
+  },
+  {
+    key: 'budget',
+    icon: 'savings',
+    defaultLabel: 'Calm Budget & Milestone Vault',
+  },
+] as const
 
 export function AuthShell({
   eyebrow,
@@ -67,21 +93,7 @@ export function AuthShell({
         />
 
         <Link to="/" className={cm.cn('relative z-10 flex items-center gap-3')}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'w-10 h-10 rounded-xl bg-surface/15 backdrop-blur-md',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-2xl text-white')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-              aria-hidden="true"
-            >
-              favorite
-            </span>
-          </span>
-          <span className={cm.cn('text-3xl font-extrabold tracking-tighter')}>{APP_NAME}</span>
+          <BrandWordmark as="span" size="lg" invert withTagline />
         </Link>
 
         <div className={cm.cn('relative z-10 stack-y space-y-6')}>
@@ -111,7 +123,7 @@ export function AuthShell({
           className={cm.cn(
             'relative z-10 p-6 rounded-2xl backdrop-blur-md border border-surface/10',
           )}
-          style={{ background: 'rgba(0,0,0,0.25)' }}
+          style={{ background: 'var(--color-auth-panel-card, rgba(0, 0, 0, 0.25))' }}
         >
           <div
             className={cm.cn(
@@ -127,13 +139,9 @@ export function AuthShell({
             </span>
             <span className="text-white/60 font-mono">WEDD1NG202</span>
           </div>
-          <p className={cm.cn('text-base font-bold leading-snug mb-1')}>
-            {t(
-              'authShell.inviteNames',
-              {},
-              { defaultValue: 'Partner A & Partner B are getting married' },
-            )}
-          </p>
+          <h2 className={cm.cn('text-base font-bold leading-snug mb-1')}>
+            {t('authShell.inviteNames', {}, { defaultValue: 'Clara & Julian' })}
+          </h2>
           <p className={cm.cn('text-xs font-medium text-white/70 mb-4')}>
             {t(
               'authShell.inviteWhen',
@@ -151,13 +159,32 @@ export function AuthShell({
               },
             )}
           </p>
-          <figcaption className={cm.cn('text-xs font-semibold opacity-80')}>
+          <figcaption className={cm.cn('text-xs font-semibold mb-5')}>
             {t(
               'authShell.testimonialAttribution',
               {},
               { defaultValue: '— Priya & Sam, married August 2026' },
             )}
           </figcaption>
+          <ul className={cm.cn(cm.stack(2), 'border-t border-surface/15 pt-4')}>
+            {STUDIO_PILLARS.map((pillar) => (
+              <li key={pillar.key} className="flex items-center gap-2.5">
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'w-7 h-7 shrink-0 rounded-lg bg-surface/15',
+                  )}
+                >
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                    {pillar.icon}
+                  </span>
+                </span>
+                <span className="text-xs font-semibold tracking-wide">
+                  {t(`authShell.studio.${pillar.key}`, {}, { defaultValue: pillar.defaultLabel })}
+                </span>
+              </li>
+            ))}
+          </ul>
         </figure>
       </AuthShellPanel>
 
@@ -167,25 +194,7 @@ export function AuthShell({
           to="/"
           className={cm.cn('lg:hidden absolute top-6 left-6 inline-flex items-center gap-2')}
         >
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'w-9 h-9 rounded-lg text-white',
-            )}
-            style={{
-              background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-            }}
-          >
-            <span className={cm.cn('material-symbols-outlined text-xl')} aria-hidden="true">
-              favorite
-            </span>
-          </span>
-          <span
-            className={cm.cn('text-2xl font-extrabold tracking-tighter')}
-            style={{ color: 'var(--color-primary)' }}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="md" />
         </Link>
 
         <div

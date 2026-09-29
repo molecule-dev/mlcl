@@ -1,52 +1,62 @@
 [
-  {
-    "id": "ntf-1",
-    "kind": "page",
-    "severity": "critical",
-    "title": "Page: checkout-api returning 503",
-    "detail": "Paged Riley Carter (on call, Platform Primary) via Platform P1.",
-    "href": "/incidents/inc-1",
-    "read": false,
-    "created_at": "2026-09-19T13:51:00Z"
-  },
-  {
-    "id": "ntf-2",
-    "kind": "ack",
-    "severity": "info",
-    "title": "Acknowledged: payment authorization latency",
-    "detail": "Morgan Reyes acknowledged 23 minutes after the page.",
-    "href": "/incidents/inc-2",
-    "read": false,
-    "created_at": "2026-09-19T13:08:00Z"
-  },
-  {
-    "id": "ntf-3",
-    "kind": "escalate",
-    "severity": "warning",
-    "title": "Escalated to layer 2: payment authorization latency",
-    "detail": "No ack within 15 minutes — paged Morgan Reyes, then #platform-incidents.",
-    "href": "/incidents/inc-2",
-    "read": false,
-    "created_at": "2026-09-19T13:20:00Z"
-  },
-  {
-    "id": "ntf-4",
-    "kind": "resolve",
-    "severity": "info",
-    "title": "Resolved: SSO login throttling",
-    "detail": "Jordan Park resolved after 2h 10m.",
-    "href": "/incidents/inc-4",
-    "read": true,
-    "created_at": "2026-09-18T15:00:00Z"
-  },
-  {
-    "id": "ntf-5",
-    "kind": "page",
-    "severity": "warning",
-    "title": "Page: search relevance degraded",
-    "detail": "Paged Sasha Lin (on call, API Services) via Services P2.",
-    "href": "/incidents/inc-3",
-    "read": true,
-    "created_at": "2026-09-19T10:52:00Z"
-  }
+ {
+  "id": "ntf-9482",
+  "kind": "page",
+  "severity": "critical",
+  "title": "Page: Latency Spike p99 > 1850ms (Database connection pool exhaustion)",
+  "detail": "Paged Riley Carter (on call, Platform Primary) via Platform P1 \u2014 phone delivery confirmed, 0 carrier drops.",
+  "href": "/incidents/inc-9482",
+  "read": false,
+  "created_at": "2026-09-19T14:22:00Z"
+ },
+ {
+  "id": "ntf-1",
+  "kind": "page",
+  "severity": "critical",
+  "title": "Page: checkout-api returning 503",
+  "detail": "Paged Riley Carter (on call, Platform Primary) via Platform P1.",
+  "href": "/incidents/inc-1",
+  "read": false,
+  "created_at": "2026-09-19T13:51:00Z"
+ },
+ {
+  "id": "ntf-2",
+  "kind": "ack",
+  "severity": "info",
+  "title": "Acknowledged: payment authorization latency",
+  "detail": "Morgan Reyes acknowledged 23 minutes after the page.",
+  "href": "/incidents/inc-2",
+  "read": false,
+  "created_at": "2026-09-19T13:08:00Z"
+ },
+ {
+  "id": "ntf-3",
+  "kind": "escalate",
+  "severity": "warning",
+  "title": "Escalated to layer 2: payment authorization latency",
+  "detail": "No ack within 15 minutes \u2014 paged Morgan Reyes, then #platform-incidents.",
+  "href": "/incidents/inc-2",
+  "read": false,
+  "created_at": "2026-09-19T13:20:00Z"
+ },
+ {
+  "id": "ntf-4",
+  "kind": "resolve",
+  "severity": "info",
+  "title": "Resolved: SSO login throttling",
+  "detail": "Jordan Park resolved after 2h 10m.",
+  "href": "/incidents/inc-4",
+  "read": true,
+  "created_at": "2026-09-18T15:00:00Z"
+ },
+ {
+  "id": "ntf-5",
+  "kind": "page",
+  "severity": "warning",
+  "title": "Page: search relevance degraded",
+  "detail": "Paged Sasha Lin (on call, API Services) via Services P2.",
+  "href": "/incidents/inc-3",
+  "read": true,
+  "created_at": "2026-09-19T10:52:00Z"
+ }
 ]

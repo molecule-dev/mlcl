@@ -6,6 +6,7 @@ import { useLogin, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { AuthFeaturePanel } from '../components/AuthFeaturePanel.js'
 import { MetroPulseAuthShell } from '../components/MetroPulseAuthShell.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
 
@@ -165,6 +166,59 @@ export function Login() {
       </form>
 
       <OAuthButtons />
+
+      {/* Design's "Why sign in to MetroPulse?" companion card — the rider
+          features an account unlocks, presented under the form. */}
+      <AuthFeaturePanel
+        title={t('login.whyTitle', { app: APP_NAME }, { defaultValue: 'Why sign in to {{app}}?' })}
+        badge={t('login.whyBadge', {}, { defaultValue: 'Commuter features' })}
+        items={[
+          {
+            icon: 'directions_walk',
+            title: t(
+              'login.feature.walkBuffer.title',
+              {},
+              { defaultValue: 'Millisecond walk-buffer alarms' },
+            ),
+            body: t(
+              'login.feature.walkBuffer.body',
+              {},
+              {
+                defaultValue:
+                  'Boards compute your pacing to the platform and warn you when the walk buffer tightens — leave the office at the right second, not ten minutes early.',
+              },
+            ),
+          },
+          {
+            icon: 'contactless',
+            title: t(
+              'login.feature.fareCard.title',
+              {},
+              { defaultValue: 'Commuter pass & SmartCard balance' },
+            ),
+            body: t(
+              'login.feature.fareCard.body',
+              {},
+              {
+                defaultValue:
+                  'Keep your fare media and travel preferences in sync across every device you check boards from — phone, tablet, or a concourse kiosk.',
+              },
+            ),
+          },
+          {
+            icon: 'notifications_active',
+            title: t('login.feature.alertPing.title', {}, { defaultValue: 'Service alert ping' }),
+            body: t(
+              'login.feature.alertPing.body',
+              {},
+              {
+                defaultValue:
+                  'Detours, delays, and platform changes surface before you reach the stairs — the alert feed watches the lines behind your saved stops.',
+              },
+            ),
+          },
+        ]}
+      />
     </MetroPulseAuthShell>
   )
 }

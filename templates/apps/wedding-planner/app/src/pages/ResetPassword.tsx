@@ -60,7 +60,7 @@ export function ResetPassword() {
   return (
     <AuthShell
       eyebrow={t('resetPassword.eyebrow', {}, { defaultValue: 'Almost there' })}
-      heading={t('auth.resetPassword.setNewPassword', {}, { defaultValue: 'Set a new password' })}
+      heading={t('resetPassword.heading', {}, { defaultValue: 'Set a fresh, secure password.' })}
       subtext={t(
         'resetPassword.subtext',
         {},
@@ -273,6 +273,36 @@ export function ResetPassword() {
             ? t('common.resettingEllipsis', {}, { defaultValue: 'Resetting…' })
             : t('auth.resetPassword.button', {}, { defaultValue: 'Reset password' })}
         </button>
+
+        {/* Trust chips (per the design): partner sync + reset hygiene */}
+        <ul className={cm.cn(cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }), 'pt-1')}>
+          <li
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-container/40 border border-secondary/20',
+            )}
+          >
+            <span className="material-symbols-outlined text-sm text-secondary" aria-hidden="true">
+              sync_lock
+            </span>
+            <span className={cm.cn(cm.textSize('xs'), 'font-bold text-secondary')}>
+              {t('resetPassword.chipPartnerSync', {}, { defaultValue: 'Partner Sync' })}
+            </span>
+          </li>
+          <li
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-container/40 border border-secondary/20',
+            )}
+          >
+            <span className="material-symbols-outlined text-sm text-secondary" aria-hidden="true">
+              timer
+            </span>
+            <span className={cm.cn(cm.textSize('xs'), 'font-bold text-secondary')}>
+              {t('resetPassword.chipSingleUse', {}, { defaultValue: 'Single-use reset code' })}
+            </span>
+          </li>
+        </ul>
       </form>
     </AuthShell>
   )

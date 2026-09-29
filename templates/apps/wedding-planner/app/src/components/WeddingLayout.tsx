@@ -5,7 +5,7 @@ import { Link, Outlet, useLocation } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -116,12 +116,8 @@ export function WeddingLayout(): ReactElement {
     })
 
   const brand = (onClick?: () => void): ReactElement => (
-    <Link
-      to={safeTarget('/dashboard')}
-      onClick={onClick}
-      className="block text-xl font-bold text-on-surface"
-    >
-      {APP_NAME}
+    <Link to={safeTarget('/dashboard')} onClick={onClick} className="block">
+      <BrandWordmark as="span" size="sm" />
     </Link>
   )
 

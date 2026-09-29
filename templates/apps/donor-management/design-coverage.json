@@ -1,0 +1,13 @@
+{
+  "_comment": "Accepted divergences from the Stitch designs. Each entry is a reviewed decision; anything not listed here fails verify:design-coverage.",
+  "screens": {
+    "/campaigns": {
+      "allow": [
+        {
+          "heading": "2024 Wildlife Sanctuary & Medical Clinic Capital Acquisition",
+          "reason": "Design sample-data name (the demo capital campaign). Campaign cards render the app's own seeded campaigns dynamically from /api/campaigns; the screen's structure (goal progress, stewardship cohorts, recent contributions) is implemented."
+        }
+      ]
+    }
+  }
+}

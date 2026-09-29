@@ -74,7 +74,7 @@ export function ForgotPassword() {
   return (
     <AuthShell
       eyebrow={t('forgotPassword.eyebrow', {}, { defaultValue: 'Account help' })}
-      heading={t('auth.resetPassword.title', {}, { defaultValue: 'Reset your password' })}
+      heading={t('forgotPassword.heading', {}, { defaultValue: 'Recover your serene workspace.' })}
       subtext={t(
         'forgotPassword.subtext',
         { appName: APP_NAME },

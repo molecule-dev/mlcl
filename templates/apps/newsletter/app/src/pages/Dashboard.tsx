@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { SafeLink } from '../components/SafeLink.js'
@@ -37,10 +37,27 @@ interface Overview {
 function Dashboard() {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const { user } = useAuth()
   const pageTitle = t('nav.dashboard', {}, { defaultValue: 'Dashboard' })
   useEffect(() => {
     document.title = pageTitle
   }, [pageTitle])
+
+  // The design's "Good morning, {name}." greeting — time-of-day aware,
+  // addressed to the signed-in creator (display name, else email stem).
+  const authUser = user as { email?: string; name?: string } | null
+  const firstName = (authUser?.name || authUser?.email?.split('@')[0] || '')
+    .split(/[.\s_-]/)[0]
+    .replace(/^\w/, (c) => c.toUpperCase())
+  const hour = new Date().getHours()
+  const greetingWord = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'
+  const greeting = firstName
+    ? t(
+        'dashboard.greetingNamed',
+        { greeting: greetingWord, name: firstName },
+        { defaultValue: '{{greeting}}, {{name}}.' },
+      )
+    : t('dashboard.greeting', { greeting: greetingWord }, { defaultValue: '{{greeting}}.' })
 
   const [overview, setOverview] = useState<Overview | null>(null)
   const [loading, setLoading] = useState(true)
@@ -93,13 +110,16 @@ function Dashboard() {
               "font-['Newsreader'] text-on-background",
             )}
           >
-            {t('dashboard.welcome', {}, { defaultValue: 'Publication overview' })}
+            {greeting}
           </h2>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
             {t(
               'dashboard.subhead',
               {},
-              { defaultValue: 'Subscriber growth and how your last issue landed.' },
+              {
+                defaultValue:
+                  'Publication overview — subscriber growth and how your last issue landed.',
+              },
             )}
           </p>
         </div>
@@ -204,16 +224,19 @@ function Dashboard() {
                   className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), 'text-on-surface')}
                 >
                   {t(
-                    'dashboard.subscriberGrowth',
+                    'dashboard.circulation',
                     {},
-                    { defaultValue: 'Subscribers, last 30 days' },
+                    { defaultValue: 'Circulation Velocity & Reading Depth' },
                   )}
                 </h3>
                 <p className={cm.cn(cm.textSize('xs'), cm.sp('mb', 6), 'text-on-surface-variant')}>
                   {t(
                     'dashboard.growthHint',
                     {},
-                    { defaultValue: 'Cumulative signups per day, all sources.' },
+                    {
+                      defaultValue:
+                        'Subscribers, last 30 days — cumulative signups per day, all sources.',
+                    },
                   )}
                 </p>
                 <div

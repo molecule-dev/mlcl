@@ -12,6 +12,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const PIPELINE = [
   {
@@ -240,22 +241,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'shrink-0')}>
-            <span
-              className={cm.cn(
-                cm.w(8),
-                cm.h(8),
-                'rounded-lg bg-primary text-on-primary flex items-center justify-center shadow-sm',
-              )}
-            >
-              <span className="material-symbols-outlined text-[18px]" aria-hidden="true">
-                build
-              </span>
-            </span>
-            <span className={cm.cn('text-xl font-extrabold tracking-tight whitespace-nowrap')}>
-              {APP_NAME}
-            </span>
-          </Link>
+          <BrandWordmark />
           <div
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'lg' }),
@@ -1419,24 +1405,7 @@ export function Landing() {
           <div className={cm.cn('grid gap-8 grid-cols-1 md:grid-cols-4')}>
             <div>
               <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'mb-3')}>
-                <span
-                  className={cm.cn(
-                    cm.w(6),
-                    cm.h(6),
-                    'rounded-md bg-primary text-on-primary flex items-center justify-center',
-                  )}
-                >
-                  <span
-                    className="material-symbols-outlined text-sm"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                    aria-hidden="true"
-                  >
-                    build
-                  </span>
-                </span>
-                <span className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'))}>
-                  {APP_NAME}
-                </span>
+                <BrandWordmark as="span" size="sm" footer />
               </div>
               <span
                 className={cm.cn(

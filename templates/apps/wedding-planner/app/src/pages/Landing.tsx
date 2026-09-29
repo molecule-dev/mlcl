@@ -4,65 +4,8 @@ import { Link, useNavigate } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { Footer } from '../components/Footer.js'
-
-const FEATURES = [
-  {
-    key: 'guests',
-    defaultTitle: 'Guest list that thinks',
-    defaultBody:
-      'Track sides, groups, meals, and plus-ones. Filter by RSVP status and find anyone in a keystroke.',
-    icon: 'group',
-    tile: 'bg-secondary-container/50 text-secondary',
-    pillar: '01',
-  },
-  {
-    key: 'rsvp',
-    defaultTitle: 'RSVPs without the chase',
-    defaultBody:
-      'Share one code. Guests confirm on a public page — no accounts, no emails — and your tally updates live.',
-    icon: 'mark_email_read',
-    tile: 'bg-primary-fixed/60 text-primary',
-    pillar: '02',
-  },
-  {
-    key: 'budget',
-    defaultTitle: 'Budget under control',
-    defaultBody:
-      'Estimate every line, log actuals as deposits land, and see exactly where the plan stands.',
-    icon: 'savings',
-    tile: 'bg-surface-container-high text-on-surface-variant',
-    pillar: '03',
-  },
-  {
-    key: 'vendors',
-    defaultTitle: 'Vendor pipeline',
-    defaultBody:
-      'Researching, contacted, booked, paid — a clear checklist for every florist, band, and caterer.',
-    icon: 'storefront',
-    tile: 'bg-secondary-container/40 text-secondary',
-    pillar: '04',
-  },
-  {
-    key: 'tasks',
-    defaultTitle: 'Timeline checklist',
-    defaultBody:
-      'A dated countdown of everything left to do, from save-the-dates to final headcount.',
-    icon: 'checklist',
-    tile: 'bg-primary-fixed/40 text-primary',
-    pillar: '05',
-  },
-  {
-    key: 'seating',
-    defaultTitle: 'Seating chart',
-    defaultBody:
-      'Draw your tables, set capacities, and drag guests from the unseated pool into their seats.',
-    icon: 'table_restaurant',
-    tile: 'bg-tertiary-container text-on-tertiary-container',
-    pillar: '06',
-  },
-] as const
 
 const STEPS = [
   {
@@ -91,6 +34,127 @@ const STEPS = [
     defaultBody:
       'Assign confirmed guests to tables with live capacity checks — no overbooked tables.',
     icon: 'event_seat',
+  },
+] as const
+
+/* Day-of timeline rows for the workspace preview snapshot. */
+const PREVIEW_TIMELINE = [
+  {
+    key: 'firstLook',
+    defaultTitle: 'First Look & Private Vows',
+    defaultBody: 'Photographer ready · florals set',
+    icon: 'photo_camera',
+  },
+  {
+    key: 'arrival',
+    defaultTitle: 'Guest Arrival & Prosecco Welcome',
+    defaultBody: 'String quartet acoustic set begins',
+    icon: 'wine_bar',
+  },
+  {
+    key: 'ceremony',
+    defaultTitle: 'Ceremony & Ring Exchange',
+    defaultBody: 'Live streaming for family abroad',
+    icon: 'favorite',
+  },
+  {
+    key: 'dinner',
+    defaultTitle: 'Candlelight Dinner & Toasts',
+    defaultBody: '5-course Tuscan tasting pairing',
+    icon: 'dinner_dining',
+  },
+] as const
+
+/* The design's four product pillars (section "Four calm pillars"). */
+const PILLARS = [
+  {
+    key: 'rsvp',
+    pillar: '01',
+    defaultTitle: 'Effortless RSVP & Guest Studio',
+    defaultBody:
+      'Instant recognition without requiring guests to create passwords or remember logins. Send WhatsApp, SMS, or bespoke printed QR cards that yield a record 98.4% timely response rate.',
+    chip: '98.4% return rate',
+    icon: 'mark_email_read',
+    tile: 'bg-primary-fixed/50 text-primary',
+  },
+  {
+    key: 'seating',
+    pillar: '02',
+    defaultTitle: 'Visual Table Seating Studio',
+    defaultBody:
+      'Drag, arrange, and match guest dynamics with automatic conflict detection. Switch between round, banquet, or imperial layouts in seconds with automatic dietary markers for catering crews.',
+    chip: 'Export to caterer PDF',
+    icon: 'table_restaurant',
+    tile: 'bg-secondary-container/50 text-secondary',
+  },
+  {
+    key: 'budget',
+    pillar: '03',
+    defaultTitle: 'Calm Budget & Milestone Tracker',
+    defaultBody:
+      'Never be surprised by hidden tax lines or forgotten final deposits. Track retainer schedules, contract milestones, and multi-currency vendor quotes in serene, aesthetic financial dashboards.',
+    chip: 'Multi-currency support',
+    icon: 'savings',
+    tile: 'bg-tertiary-container text-on-tertiary-container',
+  },
+  {
+    key: 'timeline',
+    pillar: '04',
+    defaultTitle: 'Day-Of Master Timeline',
+    defaultBody:
+      'A synchronized view tailored for your photographer, caterer, DJ, and bridal party without stacks of paper printouts. When the sunset golden hour shifts by 15 minutes, everyone adjusts together.',
+    chip: 'Zero frantic texts',
+    icon: 'schedule',
+    tile: 'bg-surface-container-high text-on-surface-variant',
+  },
+] as const
+
+/* Guest-experience rows (section "an engraved envelope"). */
+const GUEST_JOYS = [
+  {
+    key: 'household',
+    defaultTitle: 'Household recognition',
+    defaultBody:
+      'A single link accommodates Clara, Julian, and their children with custom attendance options.',
+    icon: 'family_restroom',
+  },
+  {
+    key: 'culinary',
+    defaultTitle: 'Bespoke culinary cards',
+    defaultBody: 'Guests choose wine pairings and note severe allergies without confusion.',
+    icon: 'restaurant',
+  },
+  {
+    key: 'travel',
+    defaultTitle: 'Travel & itinerary concierge',
+    defaultBody:
+      'Hotel room blocks, shuttle departure times, and dress code lookbooks all stay up-to-date in one serene spot.',
+    icon: 'luggage',
+  },
+] as const
+
+/* Testimonials from the design's "Celebrated with calm elegance" section. */
+const TESTIMONIALS = [
+  {
+    key: 'apps',
+    quote:
+      'Everly replaced three different chaotic apps. Our guests in France and the UK responded within 48 hours without a single tech question.',
+    defaultAuthor: 'Clara Hastings & Julian Moretti',
+    defaultPlace: 'Married in Burgundy',
+  },
+  {
+    key: 'seating',
+    quote:
+      'The Seating Studio alone is worth everything. We rearranged 18 tables with complex family dynamics effortlessly in one evening.',
+    defaultAuthor: 'Priya & Tom',
+    defaultPlace: 'Post Ranch Inn · Big Sur',
+  },
+  {
+    key: 'caterer',
+    quote:
+      'Our caterer said it was the cleanest dietary and table export they had ever seen in fifteen years of luxury wedding hospitality.',
+    defaultAuthor: 'Amelia & Ross',
+    defaultPlace: 'The Manor Estate · The Cotswolds',
   },
 ] as const
 
@@ -130,20 +194,7 @@ export function Landing() {
             cm.flex({ align: 'center', justify: 'between' }),
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'sm' }),
-              'text-2xl text-on-surface hover:text-primary transition-colors',
-              'font-headline italic tracking-tight',
-            )}
-          >
-            {APP_NAME}
-            <span
-              className="w-1.5 h-1.5 rounded-full bg-primary-container inline-block mb-1"
-              aria-hidden="true"
-            />
-          </Link>
+          <BrandWordmark />
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             <Link
               to="/about"
@@ -236,7 +287,7 @@ export function Landing() {
                   </span>
                 </div>
                 <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl leading-[1.12] tracking-tight">
-                  {t('landing.title', {}, { defaultValue: 'The whole wedding,' })}
+                  {t('landing.title', {}, { defaultValue: 'Every detail,' })}
                   <br className="hidden sm:inline" />
                   <span className="italic text-primary">
                     {' '}
@@ -538,6 +589,167 @@ export function Landing() {
           </div>
         </section>
 
+        {/* Live workspace preview — the calm, breathing planner */}
+        <section
+          className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}
+          data-mol-id="landing-workspace-preview"
+        >
+          <div className="max-w-2xl mb-10">
+            <p className="text-[11px] uppercase tracking-widest text-primary font-semibold mb-3">
+              {t('landing.previewEyebrow', {}, { defaultValue: 'A living workspace' })}
+            </p>
+            <h2 className="font-headline text-3xl md:text-4xl mb-4">
+              {t(
+                'landing.previewTitle',
+                {},
+                { defaultValue: 'Calm, unhurried precision for your master day.' },
+              )}
+            </h2>
+            <p className="text-on-surface-variant leading-relaxed">
+              {t(
+                'landing.previewBody',
+                {},
+                {
+                  defaultValue:
+                    'A living, breathing workspace that updates in real time as your guests respond, menus get chosen, and floor plans fall into place.',
+                },
+              )}
+            </p>
+          </div>
+          {/* Stylized planner snapshot (illustrative sample data, like the design) */}
+          <div className="rounded-3xl border border-outline-variant/40 bg-surface-container-lowest shadow-sm overflow-hidden">
+            <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-4 border-b border-outline-variant/30 bg-surface-container-low">
+              <div className="flex items-center gap-2">
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'w-9 h-9 rounded-full bg-secondary-container/50 text-secondary',
+                  )}
+                >
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">
+                    event
+                  </span>
+                </span>
+                <span className="text-sm font-bold">
+                  {t(
+                    'landing.previewDate',
+                    {},
+                    { defaultValue: 'October 18, 2025 · Villa Cetinale, Tuscany' },
+                  )}
+                </span>
+              </div>
+              <span className="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold">
+                {t(
+                  'landing.previewSync',
+                  {},
+                  { defaultValue: 'Vendor live sync · Synchronized with chef' },
+                )}
+              </span>
+            </div>
+            <div className="grid gap-6 p-6 lg:grid-cols-3">
+              {/* RSVP + budget vitals */}
+              <div className="stack-y space-y-4">
+                <div className="p-4 rounded-2xl bg-surface border border-outline-variant/40">
+                  <p className="text-xs font-black uppercase tracking-widest text-on-surface-variant">
+                    {t('landing.previewResponded', {}, { defaultValue: '89.6% responded' })}
+                  </p>
+                  <div
+                    className="mt-2 h-2 w-full rounded-full overflow-hidden bg-surface-container-high"
+                    aria-hidden="true"
+                  >
+                    <div className="h-full w-[89.6%] rounded-full bg-primary" />
+                  </div>
+                  <p className="text-xs text-on-surface-variant mt-2">
+                    {t(
+                      'landing.previewTablesOpen',
+                      {},
+                      { defaultValue: '2 tables open for late RSVPs' },
+                    )}
+                  </p>
+                </div>
+                <div className="p-4 rounded-2xl bg-surface border border-outline-variant/40">
+                  <p className="text-xs font-black uppercase tracking-widest text-on-surface-variant">
+                    {t('landing.previewBudget', {}, { defaultValue: 'Budget' })}
+                  </p>
+                  <p className="text-sm font-bold mt-1">
+                    {t(
+                      'landing.previewBudgetLine',
+                      {},
+                      { defaultValue: '82.3% committed · €9,200 buffer' },
+                    )}
+                  </p>
+                </div>
+              </div>
+              {/* Seating snapshot */}
+              <div className="p-4 rounded-2xl bg-surface border border-outline-variant/40">
+                <p className="text-xs font-black uppercase tracking-widest text-on-surface-variant">
+                  {t('landing.previewSeating', {}, { defaultValue: '8 seated / table' })}
+                </p>
+                <ul className="stack-y space-y-2 mt-3">
+                  <li className="flex items-center justify-between px-3 py-2 rounded-xl bg-surface-container">
+                    <span className="text-sm font-bold">
+                      {t('landing.previewTableHonor', {}, { defaultValue: 'Honor Table' })}
+                    </span>
+                    <span className="text-xs font-bold text-secondary">
+                      {t('landing.previewTableHonorState', {}, { defaultValue: '8/8 confirmed' })}
+                    </span>
+                  </li>
+                  <li className="flex items-center justify-between px-3 py-2 rounded-xl bg-surface-container">
+                    <span className="text-sm font-bold">
+                      {t('landing.previewTableFamily', {}, { defaultValue: 'Moretti Family' })}
+                    </span>
+                    <span className="text-xs font-bold text-on-surface-variant">
+                      {t(
+                        'landing.previewTableFamilyState',
+                        {},
+                        { defaultValue: '7/8 · 1 pending' },
+                      )}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              {/* Day-of timeline */}
+              <div className="p-4 rounded-2xl bg-surface border border-outline-variant/40">
+                <p className="text-xs font-black uppercase tracking-widest text-on-surface-variant">
+                  {t('landing.previewTimeline', {}, { defaultValue: 'Day-of master timeline' })}
+                </p>
+                <ul className="stack-y space-y-3 mt-3">
+                  {PREVIEW_TIMELINE.map((item) => (
+                    <li key={item.key} className="flex items-start gap-2.5">
+                      <span
+                        className={cm.cn(
+                          cm.flex({ align: 'center', justify: 'center' }),
+                          'w-7 h-7 shrink-0 rounded-full bg-primary-fixed/40 text-primary',
+                        )}
+                      >
+                        <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                          {item.icon}
+                        </span>
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block text-sm font-bold leading-snug">
+                          {t(
+                            `landing.previewTimeline.${item.key}.title`,
+                            {},
+                            { defaultValue: item.defaultTitle },
+                          )}
+                        </span>
+                        <span className="block text-xs text-on-surface-variant leading-snug">
+                          {t(
+                            `landing.previewTimeline.${item.key}.body`,
+                            {},
+                            { defaultValue: item.defaultBody },
+                          )}
+                        </span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Signature flow */}
         <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
           <p className="text-[11px] uppercase tracking-widest text-primary font-semibold mb-3">
@@ -593,28 +805,42 @@ export function Landing() {
           </ol>
         </section>
 
-        {/* Feature pillars */}
-        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-16')}>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'end', justify: 'between' }),
-              'mb-10 flex-wrap gap-4',
-            )}
-          >
-            <div>
-              <p className="text-[11px] uppercase tracking-widest text-primary font-semibold mb-2">
-                {t('landing.featuresEyebrow', {}, { defaultValue: 'Everything in one place' })}
-              </p>
-              <h2 className="font-headline text-3xl md:text-4xl">
-                {t('landing.featuresTitle', {}, { defaultValue: 'Six tools, zero spreadsheets' })}
-              </h2>
-            </div>
+        {/* Four calm pillars (the design's editorial product section) */}
+        <section
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            'py-16 border-t border-outline-variant/20',
+          )}
+        >
+          <div className="max-w-2xl mb-10">
+            <p className="text-[11px] uppercase tracking-widest text-primary font-semibold mb-2">
+              {t('landing.pillarsEyebrow', {}, { defaultValue: 'The Everly method' })}
+            </p>
+            <h2 className="font-headline text-3xl md:text-4xl mb-3">
+              {t(
+                'landing.pillarsTitle',
+                {},
+                { defaultValue: 'Four calm pillars for the most memorable day.' },
+              )}
+            </h2>
+            <p className="text-on-surface-variant leading-relaxed">
+              {t(
+                'landing.pillarsBody',
+                {},
+                {
+                  defaultValue:
+                    'Replacing stressful clutter with quiet, deliberate stationery elegance. Designed so couples spend less time managing data and more time feeling the celebration.',
+                },
+              )}
+            </p>
           </div>
-          <div className={cm.cn('grid gap-8 sm:grid-cols-2 lg:grid-cols-3 gap-6')}>
-            {FEATURES.map((feature) => (
+          <div className={cm.cn('grid gap-6 sm:grid-cols-2 gap-6')}>
+            {PILLARS.map((pillar) => (
               <article
-                key={feature.key}
-                data-mol-id={`landing-feature-${feature.key}`}
+                key={pillar.key}
+                data-mol-id={`landing-pillar-${pillar.key}`}
                 className={cm.cn(
                   cm.sp('p', 8),
                   'rounded-2xl bg-surface-container-lowest border border-outline-variant/40 ambient-glow hover:border-primary/40 transition-all hover:-translate-y-0.5',
@@ -622,37 +848,214 @@ export function Landing() {
               >
                 <div
                   className={cm.cn(
-                    cm.flex({ align: 'center', justify: 'center' }),
-                    'w-12 h-12 rounded-xl flex items-center justify-center mb-4',
-                    feature.tile,
+                    cm.flex({ align: 'center', justify: 'between' }),
+                    'mb-4 flex-wrap gap-3',
                   )}
                 >
-                  <span className="material-symbols-outlined text-2xl" aria-hidden="true">
-                    {feature.icon}
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'w-12 h-12 rounded-xl',
+                      pillar.tile,
+                    )}
+                  >
+                    <span className="material-symbols-outlined text-2xl" aria-hidden="true">
+                      {pillar.icon}
+                    </span>
+                  </div>
+                  <span className="text-[11px] uppercase tracking-wider text-primary font-bold">
+                    {t(
+                      `landing.pillarLabel.${pillar.pillar}`,
+                      { pillar: pillar.pillar },
+                      { defaultValue: 'PILLAR {{pillar}}' },
+                    )}
                   </span>
                 </div>
-                <span className="text-[11px] uppercase tracking-wider text-primary font-bold">
+                <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), 'mb-2')}>
                   {t(
-                    `landing.featurePillar.${feature.pillar}`,
-                    { pillar: feature.pillar },
-                    { defaultValue: 'PILLAR {{pillar}}' },
-                  )}
-                </span>
-                <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), 'mt-1 mb-2')}>
-                  {t(
-                    `landing.feature.${feature.key}.title`,
+                    `landing.pillar.${pillar.key}.title`,
                     {},
-                    { defaultValue: feature.defaultTitle },
+                    { defaultValue: pillar.defaultTitle },
                   )}
                 </h3>
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}>
+                  {t(`landing.pillar.${pillar.key}.body`, {}, { defaultValue: pillar.defaultBody })}
+                </p>
+                <span className="inline-flex items-center gap-1.5 mt-4 px-3 py-1 rounded-full bg-secondary-container/40 border border-secondary/20 text-xs font-bold text-secondary">
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                    verified
+                  </span>
+                  {t(`landing.pillar.${pillar.key}.chip`, {}, { defaultValue: pillar.chip })}
+                </span>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* Guest experience — what responding feels like */}
+        <section
+          className="border-t border-outline-variant/20 bg-surface-container-low"
+          data-mol-id="landing-guest-experience"
+        >
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
+            <div className="grid gap-10 lg:grid-cols-2 items-center">
+              <div>
+                <p className="text-[11px] uppercase tracking-widest text-primary font-semibold mb-3">
+                  {t('landing.guestsEyebrow', {}, { defaultValue: 'For your guests' })}
+                </p>
+                <h2 className="font-headline text-3xl md:text-4xl mb-4">
                   {t(
-                    `landing.feature.${feature.key}.body`,
+                    'landing.guestsTitle',
                     {},
-                    { defaultValue: feature.defaultBody },
+                    {
+                      defaultValue: 'For your guests, it feels like opening an engraved envelope.',
+                    },
+                  )}
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed mb-6">
+                  {t(
+                    'landing.guestsBody',
+                    {},
+                    {
+                      defaultValue:
+                        'We removed the cold tech hurdles. Your loved ones receive an experience imbued with warmth, generous typography, and letterpress textures. RSVPing becomes an emotional ritual, not a tedious administrative task.',
+                    },
                   )}
                 </p>
-              </article>
+                <ul className="stack-y space-y-4">
+                  {GUEST_JOYS.map((joy) => (
+                    <li key={joy.key} className="flex items-start gap-3">
+                      <span
+                        className={cm.cn(
+                          cm.flex({ align: 'center', justify: 'center' }),
+                          'w-10 h-10 shrink-0 rounded-xl bg-primary-fixed/40 text-primary',
+                        )}
+                      >
+                        <span className="material-symbols-outlined text-xl" aria-hidden="true">
+                          {joy.icon}
+                        </span>
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block text-sm font-bold">
+                          {t(
+                            `landing.guestJoy.${joy.key}.title`,
+                            {},
+                            { defaultValue: joy.defaultTitle },
+                          )}
+                        </span>
+                        <span className="block text-sm text-on-surface-variant leading-relaxed">
+                          {t(
+                            `landing.guestJoy.${joy.key}.body`,
+                            {},
+                            { defaultValue: joy.defaultBody },
+                          )}
+                        </span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* A guest's culinary card, as the design shows it */}
+              <div className="lg:justify-self-end w-full max-w-md">
+                <div className="relative rounded-3xl border border-outline-variant/40 bg-surface-container-lowest shadow-sm p-7">
+                  <div
+                    className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-primary-container/60 to-transparent"
+                    aria-hidden="true"
+                  />
+                  <p className="text-[11px] uppercase tracking-widest text-primary font-semibold mb-2">
+                    {t('landing.cardEyebrow', {}, { defaultValue: 'Bespoke culinary card' })}
+                  </p>
+                  <p className="font-headline text-2xl mb-1">
+                    {t('landing.cardGuest', {}, { defaultValue: 'Marcus & Eleanor' })}
+                  </p>
+                  <p className="text-sm text-on-surface-variant mb-5">
+                    {t(
+                      'landing.cardCourse',
+                      {},
+                      {
+                        defaultValue:
+                          'Chianti reduction, rosemary polenta · Tuscan tasting, second course',
+                      },
+                    )}
+                  </p>
+                  <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-3 rounded-2xl bg-secondary-container/40 border border-secondary/20">
+                    <span className="flex items-center gap-2 text-sm font-bold text-secondary">
+                      <span className="material-symbols-outlined text-base" aria-hidden="true">
+                        check_circle
+                      </span>
+                      {t('landing.cardStatus', {}, { defaultValue: 'Confirmed' })}
+                    </span>
+                    <span className="text-xs text-on-surface-variant">
+                      {t(
+                        'landing.cardAllergy',
+                        {},
+                        { defaultValue: 'Allergy note delivered to the kitchen' },
+                      )}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials — celebrated with calm elegance */}
+        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'py-20')}>
+          <div className="max-w-2xl mb-10">
+            <h2 className="font-headline text-3xl md:text-4xl mb-3">
+              {t(
+                'landing.testimonialsTitle',
+                {},
+                { defaultValue: 'Celebrated with calm elegance.' },
+              )}
+            </h2>
+            <p className="text-on-surface-variant leading-relaxed">
+              {t(
+                'landing.testimonialsBody',
+                {},
+                {
+                  defaultValue:
+                    'Hear how modern couples and wedding planners eliminated logistical panic in favor of genuine presence.',
+                },
+              )}
+            </p>
+          </div>
+          <div className={cm.cn('grid gap-6 md:grid-cols-3 gap-6')}>
+            {TESTIMONIALS.map((item) => (
+              <figure
+                key={item.key}
+                data-mol-id={`landing-testimonial-${item.key}`}
+                className={cm.cn(
+                  cm.sp('p', 6),
+                  'rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm flex flex-col',
+                )}
+              >
+                <span
+                  className="material-symbols-outlined text-3xl text-primary mb-3"
+                  aria-hidden="true"
+                >
+                  format_quote
+                </span>
+                <blockquote className="text-sm leading-relaxed flex-1">
+                  {t(`landing.testimonial.${item.key}.quote`, {}, { defaultValue: item.quote })}
+                </blockquote>
+                <figcaption className="mt-5 pt-4 border-t border-outline-variant/30">
+                  <span className="block text-sm font-bold">
+                    {t(
+                      `landing.testimonial.${item.key}.author`,
+                      {},
+                      { defaultValue: item.defaultAuthor },
+                    )}
+                  </span>
+                  <span className="block text-xs text-on-surface-variant mt-0.5">
+                    {t(
+                      `landing.testimonial.${item.key}.place`,
+                      {},
+                      { defaultValue: item.defaultPlace },
+                    )}
+                  </span>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </section>
@@ -679,11 +1082,7 @@ export function Landing() {
               {t('landing.ctaEyebrow', {}, { defaultValue: 'For the couple' })}
             </div>
             <h2 className="font-headline text-4xl md:text-5xl mb-6">
-              {t(
-                'landing.ctaTitle',
-                {},
-                { defaultValue: 'Enjoy being engaged. We’ll hold the checklist.' },
-              )}
+              {t('landing.ctaTitle', {}, { defaultValue: 'Your wedding deserves peace of mind.' })}
             </h2>
             <p className="text-lg text-on-surface-variant max-w-2xl mx-auto mb-8">
               {t(
@@ -691,7 +1090,7 @@ export function Landing() {
                 {},
                 {
                   defaultValue:
-                    'Start free, invite your guests with one code, and upgrade only when your list outgrows the free tier.',
+                    'Begin planning your serene celebration today. Set up your bespoke invitation link in under five minutes.',
                 },
               )}
             </p>

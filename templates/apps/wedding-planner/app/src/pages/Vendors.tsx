@@ -54,6 +54,21 @@ const CATEGORIES = [
   'other',
 ] as const
 
+/** Category ledger headings (the design groups its collective under
+ *  editorial names rather than bare category keys). */
+const CATEGORY_LABELS: Record<(typeof CATEGORIES)[number], string> = {
+  venue: 'Venue & Reception',
+  catering: 'Catering, Wine & Gastronomy',
+  photography: 'Photography & Cinematography',
+  videography: 'Film & Videography',
+  attire: 'Beauty, Hair & Attire',
+  flowers: 'Floral Architecture & Scenography',
+  music: 'Music & Atmosphere',
+  beauty: 'Beauty & Glamour',
+  transportation: 'Transportation & Logistics',
+  other: 'Other artisans',
+}
+
 const EMPTY_FORM = {
   name: '',
   category: 'other' as (typeof CATEGORIES)[number],
@@ -172,7 +187,7 @@ export function Vendors() {
             {t('vendors.eyebrow', {}, { defaultValue: 'Suppliers' })}
           </p>
           <h1 className={cm.cn('text-4xl font-extrabold tracking-tight')}>
-            {t('vendors.title', {}, { defaultValue: 'Vendors' })}
+            {t('vendors.title', {}, { defaultValue: 'Vendor Pipeline & Collective' })}
           </h1>
           <p className={cm.cn(cm.textSize('sm'), 'mt-2 text-on-surface-variant max-w-xl')}>
             {t(
@@ -285,7 +300,11 @@ export function Vendors() {
             >
               {CATEGORIES.map((category) => (
                 <option key={category} value={category}>
-                  {t(`vendors.category.${category}`, {}, { defaultValue: category })}
+                  {t(
+                    `vendors.category.${category}`,
+                    {},
+                    { defaultValue: CATEGORY_LABELS[category] },
+                  )}
                 </option>
               ))}
             </select>
@@ -350,7 +369,14 @@ export function Vendors() {
               )}
             >
               <h2 className={cm.cn('text-lg font-bold mb-4')}>
-                {t(`vendors.category.${category}`, {}, { defaultValue: category })}{' '}
+                {t(
+                  `vendors.category.${category}`,
+                  {},
+                  {
+                    defaultValue:
+                      CATEGORY_LABELS[category as (typeof CATEGORIES)[number]] ?? category,
+                  },
+                )}{' '}
                 <span className={cm.cn(cm.textSize('sm'), 'font-bold text-on-surface-variant')}>
                   ({vendors.length})
                 </span>

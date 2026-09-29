@@ -146,7 +146,7 @@ export function SeatingChart() {
           {t('seating.eyebrow', {}, { defaultValue: 'Reception' })}
         </p>
         <h1 className={cm.cn('text-4xl font-extrabold tracking-tight')}>
-          {t('seating.title', {}, { defaultValue: 'Seating chart' })}
+          {t('seating.title', {}, { defaultValue: 'Seating Studio & Floorplan Arrangement' })}
         </h1>
         <p className={cm.cn(cm.textSize('sm'), 'mt-2 text-on-surface-variant max-w-xl')}>
           {t(
@@ -398,7 +398,7 @@ export function SeatingChart() {
           data-mol-id="seating-pool"
         >
           <h2 className={cm.cn('text-lg font-bold')}>
-            {t('seating.poolTitle', {}, { defaultValue: 'Unseated guests' })}
+            {t('seating.poolTitle', {}, { defaultValue: 'Unseated guest pool' })}
             <span className={cm.cn('ml-2 text-sm font-bold text-on-surface-variant tabular-nums')}>
               {pool.length}
             </span>

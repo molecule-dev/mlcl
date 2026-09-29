@@ -272,7 +272,7 @@ export function Schedules() {
           className={cm.cn('text-lg font-bold tracking-tight mb-4')}
           style={{ color: 'var(--color-text)' }}
         >
-          {t('schedules.createNew', {}, { defaultValue: 'New rotation schedule' })}
+          {t('schedules.createNew', {}, { defaultValue: 'Create Rotation Schedule' })}
         </h2>
         <div className={cm.cn('grid gap-4 md:grid-cols-3')}>
           <div>

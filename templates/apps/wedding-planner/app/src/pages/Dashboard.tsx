@@ -31,6 +31,35 @@ interface DashboardSummary {
   vendors: { total: number; booked: number }
 }
 
+interface GuestRow {
+  id: string
+  name: string
+  rsvp_status: string
+  responded_at: string | null
+}
+
+interface SeatingTable {
+  id: string
+  name: string
+  capacity: number
+  seated_count: number
+  over_capacity: boolean
+}
+
+interface SeatingResponse {
+  tables: SeatingTable[]
+}
+
+/** Time-of-day greeting for the dashboard headline (the design opens with
+ *  "Good morning, Clara & Julian" — the salutation follows the viewer's
+ *  clock, the names follow the wedding record). */
+function timeGreeting(): string {
+  const h = new Date().getHours()
+  if (h < 12) return 'Good morning'
+  if (h < 18) return 'Good afternoon'
+  return 'Good evening'
+}
+
 function formatMoney(cents: number): string {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -83,6 +112,8 @@ export function Dashboard() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [regenerating, setRegenerating] = useState(false)
+  const [recentResponses, setRecentResponses] = useState<GuestRow[]>([])
+  const [seatingTables, setSeatingTables] = useState<SeatingTable[]>([])
 
   const load = useCallback(async () => {
     setLoading(true)
@@ -100,6 +131,41 @@ export function Dashboard() {
   useEffect(() => {
     load()
   }, [load])
+
+  // Live-activity + seating snapshots. Non-fatal: the dashboard renders
+  // without them (each panel carries its own empty state).
+  useEffect(() => {
+    let cancelled = false
+    const cutoff = Date.now() - 48 * 60 * 60 * 1000
+    async function loadSide() {
+      try {
+        const [guestsRes, seatingRes] = await Promise.all([
+          http.get('/api/guests'),
+          http.get('/api/seating').catch(() => ({ data: { tables: [] } })),
+        ])
+        if (cancelled) return
+        const guests = (guestsRes.data as GuestRow[]) ?? []
+        setRecentResponses(
+          guests.filter(
+            (g) =>
+              g.responded_at &&
+              g.rsvp_status !== 'pending' &&
+              new Date(g.responded_at).getTime() >= cutoff,
+          ),
+        )
+        setSeatingTables(((seatingRes.data as SeatingResponse)?.tables ?? []).slice(0, 4))
+      } catch {
+        if (!cancelled) {
+          setRecentResponses([])
+          setSeatingTables([])
+        }
+      }
+    }
+    loadSide()
+    return () => {
+      cancelled = true
+    }
+  }, [http, summary])
 
   async function regenerateCode() {
     setRegenerating(true)
@@ -170,9 +236,9 @@ export function Dashboard() {
           style={{ fontFamily: 'var(--font-headline)' }}
         >
           {t(
-            'dashboard.title',
-            { a: wedding.partner_a_name, b: wedding.partner_b_name },
-            { defaultValue: '{{a}} & {{b}}' },
+            'dashboard.greeting',
+            { greeting: timeGreeting(), a: wedding.partner_a_name, b: wedding.partner_b_name },
+            { defaultValue: '{{greeting}}, {{a}} & {{b}}' },
           )}
         </h1>
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
@@ -198,9 +264,16 @@ export function Dashboard() {
         data-mol-id="dashboard-rsvp-share"
       >
         <div>
+          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+            {t(
+              'dashboard.portalHeading',
+              {},
+              { defaultValue: 'Guest RSVP portal & live activity' },
+            )}
+          </h2>
           <p
             className={cm.cn(
-              'text-xs font-black uppercase tracking-widest text-on-surface-variant',
+              'text-xs font-black uppercase tracking-widest text-on-surface-variant mt-2',
             )}
           >
             {t('dashboard.rsvpCodeLabel', {}, { defaultValue: 'Your RSVP code' })}
@@ -373,7 +446,7 @@ export function Dashboard() {
         >
           <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
             <h2 className={cm.cn('text-lg font-bold')}>
-              {t('dashboard.budgetTitle', {}, { defaultValue: 'Budget vs spent' })}
+              {t('dashboard.budgetTitle', {}, { defaultValue: 'Budget health' })}
             </h2>
             <Link
               to="/budget"
@@ -444,7 +517,7 @@ export function Dashboard() {
         >
           <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
             <h2 className={cm.cn('text-lg font-bold')}>
-              {t('dashboard.tasksTitle', {}, { defaultValue: 'Next up' })}
+              {t('dashboard.tasksTitle', {}, { defaultValue: 'Tasks & priorities this month' })}
             </h2>
             <Link
               to="/tasks"
@@ -511,7 +584,7 @@ export function Dashboard() {
         >
           <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
             <h2 className={cm.cn('text-lg font-bold')}>
-              {t('dashboard.vendorsTitle', {}, { defaultValue: 'Vendor pipeline' })}
+              {t('dashboard.vendorsTitle', {}, { defaultValue: 'Vendor milestones' })}
             </h2>
             <Link
               to="/vendors"
@@ -556,6 +629,121 @@ export function Dashboard() {
               { defaultValue: 'Researching → contacted → booked → paid' },
             )}
           </p>
+        </section>
+
+        {/* Recent responses — the live activity feed (past 48 hours) */}
+        <section
+          className={cm.cn(
+            cm.sp('p', 6),
+            'rounded-2xl bg-surface border border-outline-variant/40 shadow-sm',
+          )}
+          data-mol-id="dashboard-recent-responses"
+        >
+          <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
+            <h2 className={cm.cn('text-lg font-bold')}>
+              {t('dashboard.recentTitle', {}, { defaultValue: 'Recent responses (past 48 hours)' })}
+            </h2>
+            <span
+              className={cm.cn('w-2.5 h-2.5 rounded-full bg-success inline-block shrink-0')}
+              aria-hidden="true"
+            />
+          </div>
+          {recentResponses.length === 0 ? (
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mt-3')}>
+              {t(
+                'dashboard.recentEmpty',
+                {},
+                {
+                  defaultValue:
+                    'No responses in the last two days — new RSVPs will land here the moment guests answer.',
+                },
+              )}
+            </p>
+          ) : (
+            <ul className={cm.cn(cm.stack(2), 'mt-4')}>
+              {recentResponses.slice(0, 5).map((guest) => (
+                <li
+                  key={guest.id}
+                  data-mol-id={`dashboard-recent-${guest.id}`}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                    'px-3 py-2 rounded-lg bg-surface-container',
+                  )}
+                >
+                  <span className={cm.cn(cm.textSize('sm'), 'font-medium truncate')}>
+                    {guest.name}
+                  </span>
+                  <span
+                    className={cm.cn(
+                      'px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wide shrink-0',
+                    )}
+                    style={{
+                      background: RSVP_CHIP_STYLES[guest.rsvp_status]?.bg,
+                      color: RSVP_CHIP_STYLES[guest.rsvp_status]?.fg,
+                    }}
+                  >
+                    {t(`rsvp.status.${guest.rsvp_status}`, {}, { defaultValue: guest.rsvp_status })}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
+        {/* Seating studio snapshot — the floorplan at a glance */}
+        <section
+          className={cm.cn(
+            cm.sp('p', 6),
+            'rounded-2xl bg-surface border border-outline-variant/40 shadow-sm',
+          )}
+          data-mol-id="dashboard-seating"
+        >
+          <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
+            <h2 className={cm.cn('text-lg font-bold')}>
+              {t('dashboard.seatingTitle', {}, { defaultValue: 'Seating studio & terrace layout' })}
+            </h2>
+            <Link
+              to="/seating"
+              className={cm.cn(
+                cm.textSize('sm'),
+                'inline-flex items-center min-h-[36px] px-1 font-bold text-primary hover:underline',
+              )}
+            >
+              {t('dashboard.openSeating', {}, { defaultValue: 'Seating →' })}
+            </Link>
+          </div>
+          {seatingTables.length === 0 ? (
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mt-3')}>
+              {t(
+                'dashboard.seatingEmpty',
+                {},
+                { defaultValue: 'No tables yet — open the seating studio to draw the floorplan.' },
+              )}
+            </p>
+          ) : (
+            <ul className={cm.cn('mt-4 grid gap-2 sm:grid-cols-2')}>
+              {seatingTables.map((table) => (
+                <li
+                  key={table.id}
+                  data-mol-id={`dashboard-table-${table.id}`}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                    'px-3 py-2 rounded-lg bg-surface-container',
+                  )}
+                >
+                  <span className={cm.cn(cm.textSize('sm'), 'font-medium truncate')}>
+                    {table.name}
+                  </span>
+                  <span
+                    className={cm.cn(cm.textSize('xs'), 'font-bold tabular-nums')}
+                    style={{ color: table.over_capacity ? 'var(--color-error)' : undefined }}
+                  >
+                    {table.seated_count}/{table.capacity}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
         </section>
       </div>
     </div>

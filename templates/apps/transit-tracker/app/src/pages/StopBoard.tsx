@@ -20,6 +20,41 @@ interface StopDetailResponse {
   lines: Array<LineBadgeLine & { stops: string[] }>
 }
 
+/** Design's facilities rows — hub interchanges carry the full set (elevators,
+ * step-free boarding, attendant); street stops carry surface boarding. */
+const FACILITY_ROWS = [
+  {
+    id: 'elevator',
+    icon: 'elevator',
+    titleKey: 'stopBoard.facility.elevator.title',
+    titleDefault: 'Elevators & lift access',
+    bodyKey: 'stopBoard.facility.elevator.body',
+    bodyDefault: 'Street-level stop — no grade change to the boarding area.',
+    hubBodyKey: 'stopBoard.facility.elevator.hubBody',
+    hubBodyDefault: 'Concourse and platform lifts certified in service at the last inspection.',
+  },
+  {
+    id: 'stepFree',
+    icon: 'accessible_forward',
+    titleKey: 'stopBoard.facility.stepFree.title',
+    titleDefault: 'Step-free level boarding',
+    bodyKey: 'stopBoard.facility.stepFree.body',
+    bodyDefault: 'Low-floor vehicles stop flush with the curb at this stop.',
+    hubBodyKey: 'stopBoard.facility.stepFree.hubBody',
+    hubBodyDefault: 'Level boarding bridges confirmed active on all serving platforms.',
+  },
+  {
+    id: 'attendant',
+    icon: 'support_agent',
+    titleKey: 'stopBoard.facility.attendant.title',
+    titleDefault: 'Station attendant & assistance',
+    bodyKey: 'stopBoard.facility.attendant.body',
+    bodyDefault: 'Assistance is available through the driver or the hotline in the app footer.',
+    hubBodyKey: 'stopBoard.facility.attendant.hubBody',
+    hubBodyDefault: 'Station master booth active on the main concourse during service hours.',
+  },
+] as const
+
 /**
  * The signature screen: a stop's live departures board (deterministically
  * simulated server-side from the schedule + clock), the lines serving the
@@ -137,6 +172,10 @@ export function StopBoard() {
     )
   }
 
+  // Facilities rows differentiate hub interchanges (full elevator set) from
+  // street stops (surface boarding).
+  const isHub = Boolean(detail?.stop.hub || board?.stop.hub)
+
   return (
     <div className={cm.cn(cm.maxW('5xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
       <header
@@ -250,6 +289,85 @@ export function StopBoard() {
           )}
         </p>
       ) : null}
+
+      {/* Design's "Facilities & Accessibility Telemetry" — what the physical
+          stop offers. Hub interchanges report the full elevator/attendant
+          set; a street stop reports its surface-level boarding. */}
+      <section data-mol-id="stop-facilities" className={cm.sp('mt', 10)}>
+        <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' })}>
+          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+            {t(
+              'stopBoard.facilitiesHeading',
+              {},
+              { defaultValue: 'Facilities & accessibility telemetry' },
+            )}
+          </h2>
+          <span
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'uppercase tracking-widest rounded-full px-2.5 py-0.5',
+            )}
+            style={{ backgroundColor: 'var(--color-live-light)', color: 'var(--color-live)' }}
+          >
+            {t('stopBoard.facilitiesOk', {}, { defaultValue: 'All green' })}
+          </span>
+        </div>
+        <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), cm.sp('mt', 3))}>
+          {FACILITY_ROWS.map((row) => (
+            <li
+              key={row.id}
+              data-mol-id={`stop-facility-${row.id}`}
+              className={cm.cn(
+                cm.flex({ align: 'start', gap: 'md' }),
+                cm.sp('px', 4),
+                cm.sp('py', 3),
+                'bg-surface rounded-xl ring-1 ring-outline-variant/40',
+              )}
+            >
+              <span
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  cm.w(9),
+                  cm.h(9),
+                  'shrink-0 rounded-xl bg-primary/10 text-primary ring-1 ring-primary/20',
+                )}
+                aria-hidden="true"
+              >
+                <span className="material-symbols-outlined text-lg">{row.icon}</span>
+              </span>
+              <div className="min-w-0">
+                <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                  {t(row.titleKey, {}, { defaultValue: row.titleDefault })}
+                </p>
+                <p
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.sp('mt', 0.5),
+                    'text-on-surface-variant leading-relaxed',
+                  )}
+                >
+                  {t(
+                    isHub ? row.hubBodyKey : row.bodyKey,
+                    {},
+                    { defaultValue: isHub ? row.hubBodyDefault : row.bodyDefault },
+                  )}
+                </p>
+              </div>
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'ml-auto shrink-0 uppercase tracking-widest',
+                )}
+                style={{ color: 'var(--color-live)' }}
+              >
+                {t('stopBoard.facilityOperational', {}, { defaultValue: 'Operational' })}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
   )
 }

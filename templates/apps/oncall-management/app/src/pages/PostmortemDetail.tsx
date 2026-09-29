@@ -37,6 +37,14 @@ interface PostmortemDetailData {
   open_action_items: number
 }
 
+interface IncidentEvent {
+  id: string
+  kind: string
+  actor: string
+  text: string
+  at: string
+}
+
 const STATUS_TONE: Record<ActionItem['status'], { color: string; bg: string }> = {
   open: { color: 'var(--color-severity-critical)', bg: 'var(--color-severity-critical-light)' },
   in_progress: {
@@ -65,6 +73,24 @@ export function PostmortemDetail() {
   const [summary, setSummary] = useState('')
   const [factorsText, setFactorsText] = useState('')
   const [newItem, setNewItem] = useState('')
+  const [events, setEvents] = useState<IncidentEvent[]>([])
+
+  /** Pull the linked incident's timeline so the response audit is real data. */
+  useEffect(() => {
+    if (!pm?.incident_id) return
+    let cancelled = false
+    http
+      .get(`/api/incidents/${pm.incident_id}`)
+      .then((res) => {
+        if (cancelled) return
+        const single = unwrapSingle<{ events?: IncidentEvent[] }>(res)
+        if (Array.isArray(single?.events)) setEvents(single.events)
+      })
+      .catch(() => {})
+    return () => {
+      cancelled = true
+    }
+  }, [http, pm?.incident_id])
 
   const reload = useCallback(async () => {
     if (!id) return
@@ -355,7 +381,11 @@ export function PostmortemDetail() {
               className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest mb-3')}
               style={{ color: 'var(--color-text-secondary)' }}
             >
-              {t('postmortemDetail.summary', {}, { defaultValue: 'Summary' })}
+              {t(
+                'postmortemDetail.summary',
+                {},
+                { defaultValue: 'Executive Summary & Customer Impact' },
+              )}
             </h2>
             <textarea
               value={summary}
@@ -386,9 +416,19 @@ export function PostmortemDetail() {
               {t(
                 'postmortemDetail.contributingFactors',
                 {},
-                { defaultValue: 'Contributing factors (one per line)' },
+                { defaultValue: 'Contributing Factors & Swiss Cheese Model' },
               )}
             </h2>
+            <p
+              className={cm.cn('font-mono text-[10px] mb-2')}
+              style={{ color: 'var(--color-text-tertiary)' }}
+            >
+              {t(
+                'postmortemDetail.contributingFactorsHint',
+                {},
+                { defaultValue: 'One defensive layer per line — where did each fail?' },
+              )}
+            </p>
             <textarea
               value={factorsText}
               onChange={(e) => setFactorsText(e.target.value)}
@@ -422,7 +462,11 @@ export function PostmortemDetail() {
               className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest mb-3')}
               style={{ color: 'var(--color-text-secondary)' }}
             >
-              {t('postmortemDetail.actionItems', {}, { defaultValue: 'Action items' })}
+              {t(
+                'postmortemDetail.actionItems',
+                {},
+                { defaultValue: 'Preventative Action Items & Remediation Tracking' },
+              )}
             </h2>
             <ul className={cm.cn('space-y-2 mb-4')}>
               {pm.action_items.map((item) => (
@@ -526,6 +570,285 @@ export function PostmortemDetail() {
           </div>
         </section>
       </div>
+
+      {/* Chronological telemetry & response timeline — real events from the linked incident */}
+      <section className={cm.cn('grid gap-6 lg:grid-cols-12 mt-6')}>
+        <section className={cm.cn('min-w-0 lg:col-span-7')}>
+          <div
+            className={cm.cn('rounded-xl p-5')}
+            style={{
+              backgroundColor: 'var(--color-surface)',
+              border: '1px solid var(--color-border)',
+            }}
+            data-mol-id="postmortem-timeline"
+          >
+            <h2
+              className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest mb-3')}
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
+              {t(
+                'postmortemDetail.timelineHeading',
+                {},
+                { defaultValue: 'Chronological Telemetry & Response Timeline' },
+              )}
+            </h2>
+            {events.length === 0 ? (
+              <p
+                className={cm.cn('font-mono text-xs')}
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                {t(
+                  'postmortemDetail.timelineEmpty',
+                  {},
+                  { defaultValue: 'No dispatch telemetry recorded for the linked incident yet.' },
+                )}
+              </p>
+            ) : (
+              <ol className={cm.cn('space-y-3')}>
+                {events.map((e) => (
+                  <li key={e.id} className={cm.cn('flex items-start gap-3')}>
+                    <span
+                      className={cm.cn(
+                        'px-2 py-0.5 rounded font-mono text-[9px] font-black uppercase tracking-widest shrink-0 mt-0.5',
+                      )}
+                      style={{
+                        backgroundColor: 'var(--color-background-tertiary)',
+                        color:
+                          e.kind === 'trigger'
+                            ? 'var(--color-severity-critical)'
+                            : e.kind === 'ack'
+                              ? 'var(--color-severity-warning)'
+                              : 'var(--color-severity-resolved)',
+                      }}
+                    >
+                      {e.kind}
+                    </span>
+                    <div className={cm.cn('min-w-0')}>
+                      <p className={cm.cn('text-sm')} style={{ color: 'var(--color-text)' }}>
+                        {e.text}
+                      </p>
+                      <p
+                        className={cm.cn('font-mono text-[11px]')}
+                        style={{ color: 'var(--color-text-tertiary)' }}
+                      >
+                        {e.actor} · {new Date(e.at).toLocaleString()}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            )}
+          </div>
+        </section>
+
+        <section className={cm.cn('min-w-0 lg:col-span-5 space-y-4')}>
+          {/* Telemetry snapshot at time of incident — facts from the linked record */}
+          <div
+            className={cm.cn('rounded-xl p-5')}
+            style={{
+              backgroundColor: 'var(--color-surface)',
+              border: '1px solid var(--color-border)',
+            }}
+            data-mol-id="postmortem-telemetry"
+          >
+            <h2
+              className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest mb-3')}
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
+              {t(
+                'postmortemDetail.telemetryHeading',
+                {},
+                { defaultValue: 'Telemetry At Time of Incident' },
+              )}
+            </h2>
+            {pm.incident ? (
+              <dl className={cm.cn('grid grid-cols-2 gap-3')}>
+                {[
+                  {
+                    label: t('postmortemDetail.telemetryService', {}, { defaultValue: 'Service' }),
+                    value: pm.incident.service,
+                  },
+                  {
+                    label: t(
+                      'postmortemDetail.telemetrySeverity',
+                      {},
+                      { defaultValue: 'Severity' },
+                    ),
+                    value: pm.incident.severity,
+                  },
+                  {
+                    label: t('postmortemDetail.telemetryStatus', {}, { defaultValue: 'Status' }),
+                    value: pm.incident.status,
+                  },
+                  {
+                    label: t(
+                      'postmortemDetail.telemetryTriggered',
+                      {},
+                      { defaultValue: 'Triggered' },
+                    ),
+                    value: fmtDate(pm.incident.triggered_at),
+                  },
+                  {
+                    label: t(
+                      'postmortemDetail.telemetryResolved',
+                      {},
+                      { defaultValue: 'Resolved' },
+                    ),
+                    value: fmtDate(pm.incident.resolved_at),
+                  },
+                  {
+                    label: t('postmortemDetail.telemetryItems', {}, { defaultValue: 'Open items' }),
+                    value: String(pm.open_action_items),
+                  },
+                ].map((row) => (
+                  <div key={row.label}>
+                    <dt
+                      className={cm.cn('font-mono text-[9px] uppercase tracking-widest')}
+                      style={{ color: 'var(--color-text-tertiary)' }}
+                    >
+                      {row.label}
+                    </dt>
+                    <dd
+                      className={cm.cn('text-sm font-bold truncate')}
+                      style={{ color: 'var(--color-text)' }}
+                    >
+                      {row.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            ) : (
+              <p
+                className={cm.cn('font-mono text-xs')}
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                {t(
+                  'postmortemDetail.telemetryNone',
+                  {},
+                  { defaultValue: 'This retrospective is not linked to an incident record.' },
+                )}
+              </p>
+            )}
+          </div>
+
+          {/* Required reviewers — derived from action-item owners */}
+          <div
+            className={cm.cn('rounded-xl p-5')}
+            style={{
+              backgroundColor: 'var(--color-surface)',
+              border: '1px solid var(--color-border)',
+            }}
+            data-mol-id="postmortem-reviewers"
+          >
+            <h2
+              className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest mb-3')}
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
+              {t('postmortemDetail.reviewersHeading', {}, { defaultValue: 'Required Reviewers' })}
+            </h2>
+            <div className={cm.cn('flex flex-wrap gap-2')}>
+              {(Array.from(
+                new Set(
+                  pm.action_items.map((i) => i.owner_name).filter((n): n is string => Boolean(n)),
+                ),
+              ).length > 0
+                ? Array.from(
+                    new Set(
+                      pm.action_items
+                        .map((i) => i.owner_name)
+                        .filter((n): n is string => Boolean(n)),
+                    ),
+                  )
+                : [
+                    t(
+                      'postmortemDetail.reviewersFallback',
+                      {},
+                      { defaultValue: 'Assign action-item owners to build the review roster' },
+                    ),
+                  ]
+              ).map((name) => (
+                <span
+                  key={name}
+                  className={cm.cn('px-2.5 py-1 rounded-full font-mono text-[11px] border')}
+                  style={{
+                    borderColor: 'var(--color-border-secondary)',
+                    color: 'var(--color-text)',
+                  }}
+                >
+                  {name}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* War room artifacts — the real records this retrospective draws on */}
+          <div
+            className={cm.cn('rounded-xl p-5')}
+            style={{
+              backgroundColor: 'var(--color-surface)',
+              border: '1px solid var(--color-border)',
+            }}
+            data-mol-id="postmortem-artifacts"
+          >
+            <h2
+              className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest mb-3')}
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
+              {t('postmortemDetail.artifactsHeading', {}, { defaultValue: 'War Room Artifacts' })}
+            </h2>
+            <ul className={cm.cn('space-y-2 text-sm')}>
+              {pm.incident ? (
+                <li>
+                  <Link
+                    to={`/incidents/${pm.incident.id}`}
+                    data-mol-id="postmortem-artifact-incident"
+                    className={cm.cn('inline-flex items-center gap-1.5 hover:opacity-80')}
+                    style={{ color: BRAND_COLOR }}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-base')}
+                      aria-hidden="true"
+                    >
+                      menu_book
+                    </span>
+                    {t(
+                      'postmortemDetail.artifactIncident',
+                      {},
+                      { defaultValue: 'Incident record & full dispatch timeline' },
+                    )}
+                  </Link>
+                </li>
+              ) : null}
+              <li
+                className={cm.cn('inline-flex items-center gap-1.5')}
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                  article
+                </span>
+                {t(
+                  'postmortemDetail.artifactDoc',
+                  { status: pm.status },
+                  { defaultValue: 'This document — auto-compiled markdown ({{status}})' },
+                )}
+              </li>
+              <li
+                className={cm.cn('inline-flex items-center gap-1.5')}
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                  fact_check
+                </span>
+                {t(
+                  'postmortemDetail.artifactFactors',
+                  { count: pm.contributing_factors.length },
+                  { defaultValue: '{{count}} contributing factor(s) on record' },
+                )}
+              </li>
+            </ul>
+          </div>
+        </section>
+      </section>
     </div>
   )
 }

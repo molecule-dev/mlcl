@@ -32,6 +32,7 @@ interface Quote {
   title: string
   status: string
   total_cents: number
+  items: Array<{ id: string; description: string; qty: number; unit: string; rate_cents: number }>
 }
 
 interface Invoice {
@@ -126,13 +127,6 @@ export function CustomerDetail() {
             {customer.email ?? '—'}
             {customer.phone ? ` · ${customer.phone}` : ''}
           </p>
-          {customer.notes ? (
-            <p
-              className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2), 'italic text-on-surface-variant')}
-            >
-              {customer.notes}
-            </p>
-          ) : null}
         </div>
         <div className={cm.flex({ gap: 'sm' })}>
           <Link
@@ -175,7 +169,21 @@ export function CustomerDetail() {
             'border-b border-outline-variant',
           )}
         >
-          {t('customers.detail.serviceHistory', {}, { defaultValue: 'Service history' })}
+          {t(
+            'customers.detail.serviceOrders',
+            {},
+            { defaultValue: 'Active Service & Work Orders' },
+          )}
+          <span
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('normal'),
+              cm.sp('ml', 2),
+              'text-on-surface-variant',
+            )}
+          >
+            {t('customers.detail.serviceHistory', {}, { defaultValue: 'Service history' })}
+          </span>
         </h2>
         {jobs.length === 0 ? (
           <p className={cm.cn(cm.sp('p', 8), cm.textCenter, 'text-on-surface-variant text-sm')}>
@@ -214,6 +222,183 @@ export function CustomerDetail() {
           </ul>
         )}
       </section>
+
+      <section
+        data-mol-id="customer-jobsite-logistics"
+        className={cm.cn(cm.card(), cm.sp('p', 5), cm.stack(2))}
+      >
+        <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), 'font-display')}>
+          <span
+            className="material-symbols-outlined text-base align-middle mr-2 text-warning"
+            aria-hidden="true"
+          >
+            fmd_bad
+          </span>
+          {t(
+            'customers.detail.logisticsHeading',
+            {},
+            { defaultValue: 'Jobsite Logistics & Technician Field Notes' },
+          )}
+        </h2>
+        {customer.notes ? (
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>{customer.notes}</p>
+        ) : (
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'customers.detail.noNotes',
+              {},
+              {
+                defaultValue:
+                  'No site logistics on record — add gate codes, parking, and pet notes on the next visit.',
+              },
+            )}
+          </p>
+        )}
+      </section>
+
+      <div className={cm.grid({ cols: 2, gap: 'lg' })}>
+        <section
+          data-mol-id="customer-property-telemetry"
+          className={cm.cn(cm.card(), cm.stack(3))}
+        >
+          <h2
+            className={cm.cn(
+              cm.sp('px', 5),
+              cm.sp('py', 4),
+              cm.textSize('lg'),
+              cm.fontWeight('semibold'),
+              'border-b border-outline-variant',
+            )}
+          >
+            <span
+              className="material-symbols-outlined text-base align-middle mr-2 text-primary"
+              aria-hidden="true"
+            >
+              home_work
+            </span>
+            {t(
+              'customers.detail.gisHeading',
+              {},
+              { defaultValue: 'County GIS & Property Telemetry' },
+            )}
+          </h2>
+          <dl className={cm.cn(cm.stack(3), cm.sp('p', 5))}>
+            <div>
+              <dt
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  'text-on-surface-variant uppercase tracking-wider',
+                )}
+              >
+                {t('customers.detail.gisAddress', {}, { defaultValue: 'Service address on file' })}
+              </dt>
+              <dd className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                {customer.address}
+              </dd>
+            </div>
+            <div>
+              <dt
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  'text-on-surface-variant uppercase tracking-wider',
+                )}
+              >
+                {t(
+                  'customers.detail.gisJobs',
+                  {},
+                  { defaultValue: 'Work orders at this property' },
+                )}
+              </dt>
+              <dd className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                {t(
+                  'customers.detail.gisJobsValue',
+                  { count: jobs.length },
+                  { defaultValue: '{{count}} logged' },
+                )}
+              </dd>
+            </div>
+            <div>
+              <dt
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  'text-on-surface-variant uppercase tracking-wider',
+                )}
+              >
+                {t('customers.detail.gisBilled', {}, { defaultValue: 'Lifetime billed' })}
+              </dt>
+              <dd className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'font-mono')}>
+                {formatMoney(lifetimeBilled)}
+              </dd>
+            </div>
+          </dl>
+        </section>
+
+        <section data-mol-id="customer-equipment" className={cm.cn(cm.card(), cm.stack(3))}>
+          <h2
+            className={cm.cn(
+              cm.sp('px', 5),
+              cm.sp('py', 4),
+              cm.textSize('lg'),
+              cm.fontWeight('semibold'),
+              'border-b border-outline-variant',
+            )}
+          >
+            <span
+              className="material-symbols-outlined text-base align-middle mr-2 text-primary"
+              aria-hidden="true"
+            >
+              precision_manufacturing
+            </span>
+            {t(
+              'customers.detail.equipmentHeading',
+              {},
+              { defaultValue: 'Installed Equipment Ledger' },
+            )}
+          </h2>
+          {(() => {
+            const equipment = quotes.flatMap((q) =>
+              q.items.map((it) => ({ quoteId: q.id, quoteTitle: q.title, ...it })),
+            )
+            if (equipment.length === 0) {
+              return (
+                <p className={cm.cn(cm.sp('p', 5), cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t(
+                    'customers.detail.equipmentEmpty',
+                    {},
+                    {
+                      defaultValue:
+                        'No equipment on record yet — units quoted for this address land here.',
+                    },
+                  )}
+                </p>
+              )
+            }
+            return (
+              <ul>
+                {equipment.map((item) => (
+                  <li
+                    key={item.id}
+                    className={cm.cn(
+                      cm.sp('px', 5),
+                      cm.sp('py', 3),
+                      'border-b border-outline-variant last:border-b-0',
+                    )}
+                  >
+                    <Link to={`/quotes/${item.quoteId}`} className={cm.stack(1)}>
+                      <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                        {item.description}
+                      </span>
+                      <span className={cm.cn(cm.textSize('xs'), 'block text-on-surface-variant')}>
+                        {item.quoteTitle} · {item.qty} {item.unit} · {formatMoney(item.rate_cents)}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )
+          })()}
+        </section>
+      </div>
 
       <div className={cm.grid({ cols: 2, gap: 'lg' })}>
         <section className={cm.card()}>

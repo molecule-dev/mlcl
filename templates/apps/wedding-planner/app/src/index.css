@@ -5,6 +5,10 @@
 @source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
 @source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
 @source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+/* AuthShellPanel renders `hidden lg:flex` from the auth-shell package —
+   without this source the lg:flex variant is never generated and the whole
+   brand panel stays display:none at every viewport. */
+@source "../../../../../../node_modules/@molecule/app-auth-shell-react/dist";
 
 /*
  * Safelist for dynamically-generated UIClassMap utility classes.

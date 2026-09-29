@@ -6,6 +6,7 @@ import { usePasswordReset, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BRAND_COLOR } from '../branding.js'
+import { AuthAsidePanel } from '../components/AuthAsidePanel.js'
 import { AuthBrandHeader } from '../components/AuthBrandHeader.js'
 import { Footer } from '../components/Footer.js'
 
@@ -61,6 +62,12 @@ export function ForgotPassword() {
         className={cm.cn(cm.flex({ align: 'center', justify: 'center' }), cm.flex1, cm.sp('p', 6))}
       >
         <div className={cm.cn(cm.w('full'), cm.maxW('md'))}>
+          <AuthAsidePanel
+            eyebrowKey="auth.aside.eyebrow"
+            eyebrowDefault="IRS 170(f)(8) & SOC-2 compliant platform"
+            headlineKey="forgotPassword.aside.headline"
+            headlineDefault="Protecting your donor database and tax compliance data."
+          />
           <div
             className={cm.cn(
               cm.flex({ direction: 'col', gap: 'xl' }),

@@ -115,6 +115,7 @@ export function RouteDetail() {
 
   const schedule = (direction: 0 | 1): ScheduleRow | undefined =>
     detail?.schedules.find((s) => s.direction === direction)
+  const firstSchedule = schedule(0)
   const terminus0 = detail?.stops[detail.stops.length - 1]
   const terminus1 = detail?.stops[0]
 
@@ -214,6 +215,122 @@ export function RouteDetail() {
                 </div>
               )
             })}
+          </section>
+
+          {/* Design's "Line Stringline & Rolling Stock Telematics" — the
+              stringline diagram above plus schedule-derived fleet facts. */}
+          <section data-mol-id="line-telematics" className={cm.sp('mb', 8)}>
+            <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), cm.sp('mb', 3))}>
+              {t(
+                'routeDetail.telematicsHeading',
+                {},
+                { defaultValue: 'Stringline & rolling stock telematics' },
+              )}
+            </h2>
+            <div className={cm.cn('grid grid-cols-1 sm:grid-cols-3 gap-4')}>
+              <div
+                className={cm.cn(
+                  cm.sp('p', 4),
+                  'bg-surface rounded-2xl ring-1 ring-outline-variant/40',
+                )}
+              >
+                <p
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.fontWeight('bold'),
+                    'uppercase tracking-widest text-on-surface-variant',
+                  )}
+                >
+                  {t('routeDetail.telematics.stringline', {}, { defaultValue: 'Stringline' })}
+                </p>
+                <p className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), cm.sp('mt', 1))}>
+                  {t(
+                    'routeDetail.telematics.stopsCount',
+                    { count: detail.stops.length },
+                    { defaultValue: '{{count}} stations' },
+                  )}
+                </p>
+                <p className={cm.cn(cm.textSize('xs'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+                  {t(
+                    'routeDetail.telematics.stringlineBody',
+                    {},
+                    {
+                      defaultValue:
+                        'The route diagram plots every stop in order along the line geometry.',
+                    },
+                  )}
+                </p>
+              </div>
+              <div
+                className={cm.cn(
+                  cm.sp('p', 4),
+                  'bg-surface rounded-2xl ring-1 ring-outline-variant/40',
+                )}
+              >
+                <p
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.fontWeight('bold'),
+                    'uppercase tracking-widest text-on-surface-variant',
+                  )}
+                >
+                  {t('routeDetail.telematics.headway', {}, { defaultValue: 'Headway control' })}
+                </p>
+                <p className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), cm.sp('mt', 1))}>
+                  {firstSchedule ? formatHeadway(firstSchedule.headway_seconds) : '—'}
+                </p>
+                <p className={cm.cn(cm.textSize('xs'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+                  {t(
+                    'routeDetail.telematics.headwayBody',
+                    {},
+                    {
+                      defaultValue:
+                        'Automated headway control holds trains evenly spaced across the line.',
+                    },
+                  )}
+                </p>
+              </div>
+              <div
+                className={cm.cn(
+                  cm.sp('p', 4),
+                  'bg-surface rounded-2xl ring-1 ring-outline-variant/40',
+                )}
+              >
+                <p
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.fontWeight('bold'),
+                    'uppercase tracking-widest text-on-surface-variant',
+                  )}
+                >
+                  {t('routeDetail.telematics.rollingStock', {}, { defaultValue: 'Rolling stock' })}
+                </p>
+                <p className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), cm.sp('mt', 1))}>
+                  {t(
+                    `routeDetail.telematics.fleet.${detail.line.kind}`,
+                    {},
+                    {
+                      defaultValue:
+                        detail.line.kind === 'bus'
+                          ? 'City buses'
+                          : detail.line.kind === 'tram'
+                            ? 'Tramsets'
+                            : 'Trainsets',
+                    },
+                  )}
+                </p>
+                <p className={cm.cn(cm.textSize('xs'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+                  {t(
+                    'routeDetail.telematics.rollingStockBody',
+                    {},
+                    {
+                      defaultValue:
+                        'Vehicles report position through the open transponder feed — the board clock and the fleet clock are one and the same.',
+                    },
+                  )}
+                </p>
+              </div>
+            </div>
           </section>
 
           <section data-mol-id="line-stop-list">

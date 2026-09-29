@@ -490,13 +490,20 @@ export function Settings() {
             <>
               <header className={cm.stack(1)}>
                 <h2 className={cm.cn('text-2xl font-extrabold tracking-tight')}>
-                  {t('settings.notifications', {}, { defaultValue: 'Notifications' })}
+                  {t(
+                    'settings.notifications.heading',
+                    {},
+                    { defaultValue: 'Notification cadence & peaceful digests' },
+                  )}
                 </h2>
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                   {t(
                     'settings.notifications.body',
                     {},
-                    { defaultValue: 'Choose which alerts you want — push, email, or both.' },
+                    {
+                      defaultValue:
+                        'Choose which alerts reach you — batched into one calm daily digest, never a drip of pings.',
+                    },
                   )}
                 </p>
               </header>
@@ -511,11 +518,19 @@ export function Settings() {
                       )}
                     >
                       <span
-                        className={cm.cn('material-symbols-outlined text-xl')}
-                        style={{ color: 'var(--color-primary)' }}
-                        aria-hidden="true"
+                        className={cm.cn(
+                          cm.flex({ align: 'center', justify: 'center' }),
+                          'w-9 h-9 shrink-0 rounded-lg',
+                        )}
+                        style={{ background: 'var(--color-rsvp-pending-bg)' }}
                       >
-                        notifications_active
+                        <span
+                          className="material-symbols-outlined text-xl"
+                          style={{ color: 'var(--color-accent-dark)' }}
+                          aria-hidden="true"
+                        >
+                          notifications_active
+                        </span>
                       </span>
                       <div className={cm.cn('flex-1 min-w-0 stack-y space-y-0.5')}>
                         <p className={cm.cn(cm.textSize('sm'), 'font-bold')}>
@@ -642,7 +657,11 @@ export function Settings() {
             <>
               <header className={cm.stack(1)}>
                 <h2 className={cm.cn('text-2xl font-extrabold tracking-tight')}>
-                  {t('nav.planAndBilling', {}, { defaultValue: 'Plan & billing' })}
+                  {t(
+                    'settings.subscription.heading',
+                    {},
+                    { defaultValue: 'Subscription & Atelier plan' },
+                  )}
                 </h2>
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                   {t(
@@ -761,6 +780,83 @@ export function Settings() {
                     : t('settings.subscription.cancel', {}, { defaultValue: 'Cancel plan' })}
                 </button>
               ) : null}
+
+              {/* Danger zone — archive safeguards (per the design; the real
+                  destructive lever here is cancelling billing, and it is
+                  confirm-safe by construction: cancelling never deletes data) */}
+              <section
+                className={cm.cn(cm.sp('p', 6), 'rounded-2xl border-2')}
+                style={{ borderColor: 'var(--color-budget-over)' }}
+                data-mol-id="danger-zone"
+              >
+                <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+                  {t(
+                    'settings.danger.heading',
+                    {},
+                    { defaultValue: 'Danger zone & archive safeguards' },
+                  )}
+                </h3>
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mt-2')}>
+                  {t(
+                    'settings.danger.body',
+                    {},
+                    {
+                      defaultValue:
+                        'Actions here affect your live guest experience and saved wedding data. Cancelling your plan stops future billing — your guest list, RSVPs, and seating stay intact and read-only. Export or copy anything you need before you go.',
+                    },
+                  )}
+                </p>
+                <ul className={cm.cn(cm.stack(2), 'mt-3')}>
+                  <li className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'text-sm')}>
+                    <span
+                      className="material-symbols-outlined text-lg"
+                      style={{ color: 'var(--color-success)' }}
+                      aria-hidden="true"
+                    >
+                      shield
+                    </span>
+                    {t(
+                      'settings.danger.guestsSafe',
+                      {},
+                      { defaultValue: 'Guest responses are never deleted by a plan change' },
+                    )}
+                  </li>
+                  <li className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'text-sm')}>
+                    <span
+                      className="material-symbols-outlined text-lg"
+                      style={{ color: 'var(--color-success)' }}
+                      aria-hidden="true"
+                    >
+                      shield
+                    </span>
+                    {t(
+                      'settings.danger.codeSafe',
+                      {},
+                      { defaultValue: 'Your RSVP code keeps working while any plan is active' },
+                    )}
+                  </li>
+                </ul>
+                {billingStatus && !billingStatus.isFree ? (
+                  <button
+                    type="button"
+                    disabled={billingBusy}
+                    onClick={cancelPlan}
+                    data-mol-id="danger-cancel-plan"
+                    className={cm.cn(
+                      cm.sp('px', 5),
+                      cm.sp('py', 2.5),
+                      'mt-4 rounded-full text-sm font-bold text-white disabled:opacity-50',
+                    )}
+                    style={{ background: 'var(--color-error)' }}
+                  >
+                    {t(
+                      'settings.danger.cancelCta',
+                      {},
+                      { defaultValue: 'Cancel plan & archive the suite' },
+                    )}
+                  </button>
+                ) : null}
+              </section>
             </>
           ) : null}
         </section>

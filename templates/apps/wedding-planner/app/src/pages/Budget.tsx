@@ -451,6 +451,60 @@ export function Budget() {
         </section>
       ) : null}
 
+      {/* Upcoming installments — remaining balances, largest first */}
+      {data && data.items.some((item) => item.estimated_cents - (item.actual_cents ?? 0) > 0) ? (
+        <section className={cm.cn('mt-8')} data-mol-id="budget-installments">
+          <h2 className={cm.cn('text-lg font-bold mb-1')}>
+            {t('budget.installmentsTitle', {}, { defaultValue: 'Upcoming installments' })}
+          </h2>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mb-3')}>
+            {t(
+              'budget.installmentsHelp',
+              {},
+              {
+                defaultValue:
+                  'Balances still owed on estimated lines — deposits, retainers, and final payments to schedule.',
+              },
+            )}
+          </p>
+          <ul className={cm.cn('grid gap-3 sm:grid-cols-2 lg:grid-cols-3')}>
+            {data.items
+              .map((item) => ({ item, remaining: item.estimated_cents - (item.actual_cents ?? 0) }))
+              .filter(({ remaining }) => remaining > 0)
+              .sort((a, b) => b.remaining - a.remaining)
+              .slice(0, 6)
+              .map(({ item, remaining }) => (
+                <li
+                  key={item.id}
+                  data-mol-id={`budget-installment-${item.id}`}
+                  className={cm.cn(
+                    cm.sp('p', 4),
+                    'rounded-2xl bg-surface border border-outline-variant/40 shadow-sm',
+                  )}
+                >
+                  <p className={cm.cn(cm.textSize('sm'), 'font-bold')}>{item.label}</p>
+                  <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                    {t(`budget.category.${item.category}`, {}, { defaultValue: item.category })}
+                  </p>
+                  <p
+                    className={cm.cn('mt-2 text-lg font-extrabold tabular-nums')}
+                    data-mol-id={`budget-installment-amount-${item.id}`}
+                  >
+                    {formatMoney(remaining)}
+                  </p>
+                  <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant mt-1')}>
+                    {t(
+                      'budget.installmentsBalance',
+                      { paid: formatMoney(item.actual_cents ?? 0) },
+                      { defaultValue: '{{paid}} paid so far' },
+                    )}
+                  </p>
+                </li>
+              ))}
+          </ul>
+        </section>
+      ) : null}
+
       {/* Line items table */}
       <div
         className={cm.cn(

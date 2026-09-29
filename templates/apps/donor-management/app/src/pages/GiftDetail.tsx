@@ -56,7 +56,7 @@ export function GiftDetail() {
   }
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('3xl'), cm.mxAuto)}>
+    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('3xl'), cm.mxAuto, 'space-y-6')}>
       <nav className={cm.sp('mb', 4)}>
         <Link to="/gifts" className={cm.cn(cm.textSize('sm'), 'text-primary hover:underline')}>
           ← {t('gifts.backToList', {}, { defaultValue: 'Back to gifts' })}
@@ -67,7 +67,10 @@ export function GiftDetail() {
         <div className={cm.flex({ align: 'start', justify: 'between' })}>
           <div>
             <p className={cm.cn(cm.textSize('4xl'), cm.fontWeight('bold'))}>
-              {formatMoney(gift.amount_cents)}
+              {formatMoney(gift.amount_cents)}{' '}
+              <span className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant')}>
+                {t('gifts.detail.usd', {}, { defaultValue: 'USD' })}
+              </span>
             </p>
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {gift.gift_date} ·{' '}
@@ -110,28 +113,111 @@ export function GiftDetail() {
               {gift.donor_name}
             </Link>
           </Row>
+          <Row label={t('gifts.detail.note', {}, { defaultValue: 'Note' })}>{gift.note || '—'}</Row>
+        </dl>
+      </div>
+
+      <section className={cm.cn(cm.card(), cm.sp('p', 6), cm.stack(3))}>
+        <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+          {t('gifts.detail.allocationHeading', {}, { defaultValue: 'Financial & Fund Allocation' })}
+        </h2>
+        <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+          {t(
+            'gifts.detail.allocationSubtitle',
+            {},
+            {
+              defaultValue:
+                'How the contribution is booked — gross amount, designation, and campaign attribution.',
+            },
+          )}
+        </p>
+        <dl className={cm.stack(2)}>
+          <Row label={t('gifts.detail.gross', {}, { defaultValue: 'Gross amount' })}>
+            {formatMoney(gift.amount_cents)}
+          </Row>
+          <Row label={t('gifts.detail.fundDesignation', {}, { defaultValue: 'Fund designation' })}>
+            {t(`gift.fund.${gift.fund}`, {}, { defaultValue: gift.fund })}
+          </Row>
           <Row label={t('gifts.detail.campaign', {}, { defaultValue: 'Campaign' })}>
             {gift.campaign_name ?? '—'}
           </Row>
-          <Row label={t('gifts.detail.note', {}, { defaultValue: 'Note' })}>{gift.note || '—'}</Row>
-          <Row label={t('gifts.detail.recorded', {}, { defaultValue: 'Recorded' })}>
-            {gift.created_at.slice(0, 10)}
+          <Row label={t('gifts.detail.method', {}, { defaultValue: 'Payment channel' })}>
+            {t(`gift.method.${gift.method}`, {}, { defaultValue: gift.method })}
           </Row>
         </dl>
+      </section>
 
-        {!gift.receipted ? (
-          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-            {t(
-              'gifts.detail.receiptHint',
-              {},
-              {
-                defaultValue:
-                  'Year-end: generate this donor’s tax receipt from the Receipts page — this gift will be included.',
-              },
-            )}
-          </p>
-        ) : null}
-      </div>
+      <section className={cm.cn(cm.card(), cm.sp('p', 6), cm.stack(3))}>
+        <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+          {t('gifts.detail.auditHeading', {}, { defaultValue: 'Cryptographic IRS Audit Trail' })}
+        </h2>
+        <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+          {t(
+            'gifts.detail.auditSubtitle',
+            {},
+            {
+              defaultValue:
+                'Append-only record trail: entries are timestamped and never silently rewritten — receipts cite them verbatim.',
+            },
+          )}
+        </p>
+        <ol className={cm.stack(2)}>
+          <li className={cm.cn(cm.flex({ align: 'start', gap: 2 }), cm.textSize('sm'))}>
+            <span className="material-symbols-outlined text-primary text-base" aria-hidden="true">
+              edit_note
+            </span>
+            <span>
+              {t(
+                'gifts.detail.auditRecorded',
+                { date: gift.created_at.slice(0, 10) },
+                {
+                  defaultValue:
+                    'Gift recorded on {{date}} and locked into the contribution ledger.',
+                },
+              )}
+            </span>
+          </li>
+          <li className={cm.cn(cm.flex({ align: 'start', gap: 2 }), cm.textSize('sm'))}>
+            <span className="material-symbols-outlined text-primary text-base" aria-hidden="true">
+              {gift.receipted ? 'verified' : 'schedule'}
+            </span>
+            <span>
+              {gift.receipted
+                ? t(
+                    'gifts.detail.auditReceipted',
+                    {},
+                    {
+                      defaultValue:
+                        'Included in an issued year-end receipt — the acknowledgment is stored verbatim.',
+                    },
+                  )
+                : t(
+                    'gifts.detail.auditPending',
+                    {},
+                    {
+                      defaultValue:
+                        'Awaiting substantiation — the next year-end batch will issue this gift’s acknowledgment.',
+                    },
+                  )}
+            </span>
+          </li>
+          <li className={cm.cn(cm.flex({ align: 'start', gap: 2 }), cm.textSize('sm'))}>
+            <span className="material-symbols-outlined text-primary text-base" aria-hidden="true">
+              policy
+            </span>
+            <span>
+              {t(
+                'gifts.detail.auditDisclosure',
+                {},
+                {
+                  defaultValue:
+                    'Receipt language carries the § 170(f)(8) goods-or-services disclosure on every issuance.',
+                },
+              )}
+            </span>
+          </li>
+        </ol>
+      </section>
     </div>
   )
 }

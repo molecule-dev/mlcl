@@ -11,12 +11,12 @@
  */
 
 import type { ReactNode } from 'react'
-import { Link } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 interface MetroPulseAuthShellProps {
@@ -77,34 +77,7 @@ export function MetroPulseAuthShell({
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                cm.w(8),
-                cm.h(8),
-                cm.roundedFull,
-                'bg-primary text-on-primary',
-              )}
-              aria-hidden="true"
-            >
-              <span
-                className={'material-symbols-outlined text-lg'}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                directions_transit
-              </span>
-            </span>
-            <span
-              className={cm.cn(
-                cm.textSize('xl'),
-                cm.fontWeight('bold'),
-                'text-primary tracking-tight',
-              )}
-            >
-              {APP_NAME}
-            </span>
-          </Link>
+          <BrandWordmark />
           <ThemeToggle />
         </div>
       </header>
