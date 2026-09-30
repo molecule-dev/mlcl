@@ -118,7 +118,13 @@ export function SmartHomeDashboardLayout() {
       <ResponsiveAppShell.Sidebar
         navLabel={navAria}
         className={cm.sp('p', 4)}
-        footer={<UserMenu dataMolId="user-menu-drawer" />}
+        footer={
+          /* Hover-styled chrome wrapper — the menu trigger must not sit
+             bare on the shell's bordered footer row. */
+          <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+            <UserMenu dataMolId="user-menu-drawer" />
+          </div>
+        }
       >
         {brandLink}
         {navLinks}
@@ -135,7 +141,11 @@ export function SmartHomeDashboardLayout() {
         // `h-full` restores the documented full-height left-panel geometry.
         className="h-full"
         header={brandLink}
-        footer={<UserMenu dataMolId="user-menu-drawer" />}
+        footer={
+          <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+            <UserMenu dataMolId="user-menu-drawer" />
+          </div>
+        }
       >
         {navLinks}
       </ResponsiveAppShell.Drawer>

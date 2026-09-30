@@ -175,9 +175,16 @@ export function StudentPortalLayout() {
   )
 
   // Desktop user row — re-homed from the old fixed top bar into the sidebar
-  // footer (the shared Sidebar has no header slot).
+  // footer (the shared Sidebar has no header slot). The border-t separator
+  // + hover-styled menu wrapper keep the chrome from rendering as bare
+  // controls bolted onto the styled sidebar.
   const sidebarUser = (
-    <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mt', 4), cm.sp('pt', 4))}>
+    <div
+      className={cm.cn(
+        cm.flex({ align: 'center', gap: 'sm' }),
+        'mt-4 border-t border-outline-variant/40 pt-3',
+      )}
+    >
       {unreadMessages > 0 && (
         <NavLink
           to="/messages"
@@ -215,7 +222,9 @@ export function StudentPortalLayout() {
             : t('topbar.studentRole', {}, { defaultValue: 'Student' })}
         </p>
       </div>
-      <UserMenu />
+      <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+        <UserMenu />
+      </div>
     </div>
   )
 

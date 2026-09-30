@@ -52,7 +52,13 @@ export function StatusPageLayout() {
       appName={APP_NAME}
       logoTo="/dashboard"
       navItems={navItems}
-      userMenu={<UserMenu />}
+      userMenu={
+        /* Hover-styled chrome wrapper — the menu trigger must not sit bare
+           on the sidebar's bordered footer row. */
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+          <UserMenu />
+        </div>
+      }
       navAriaLabel={t(
         'statusPageLayout.primaryNavLabel',
         {},
