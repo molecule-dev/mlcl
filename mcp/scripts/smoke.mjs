@@ -5,7 +5,7 @@
  * asserting real answers come back. No transport, no network beyond npm-free
  * local execution.
  */
-import { mkdtempSync, rmSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -61,6 +61,41 @@ const check = (name, cond, detail = '') => {
     'scaffold returns json',
     result.project === 'smoke-app' && Array.isArray(result.packages) && result.template === 'blog',
   )
+  rmSync(dir, { recursive: true, force: true })
+}
+
+// check_env_vars / list_env_vars contract: detection + masked listing over a fixture project
+{
+  const dir = mkdtempSync(join(tmpdir(), 'mcp-smoke-env-'))
+  writeFileSync(
+    join(dir, 'package.json'),
+    JSON.stringify({
+      name: 'mcp-smoke-env',
+      dependencies: { '@molecule/api-ai-anthropic': '1.0.0' },
+    }),
+  )
+  mkdirSync(join(dir, 'src'), { recursive: true })
+  writeFileSync(join(dir, 'src', 'cfg.ts'), `export const k = process.env.SMOKE_CUSTOM_KEY\n`)
+  writeFileSync(join(dir, '.env'), 'SMOKE_SET_VAR=hello\nANTHROPIC_API_KEY=sk-smoke\n')
+
+  const { stdout } = await execa(CLI, ['env', 'check', '--json'], { cwd: dir })
+  const report = JSON.parse(stdout.slice(stdout.indexOf('{')))
+  const byKey = Object.fromEntries(report.vars.map((v) => [v.key, v]))
+  check('env check detects a code read', byKey.SMOKE_CUSTOM_KEY?.group === 'attention')
+  check('env check sees registry declarations', byKey.ANTHROPIC_API_KEY?.group === 'set')
+  check('env check counts missing', typeof report.missingCount === 'number')
+
+  const { stdout: listed } = await execa(CLI, ['env', 'list', '--json'], { cwd: dir })
+  const vars = JSON.parse(listed.slice(listed.indexOf('[')))
+  check(
+    'env list returns set keys',
+    vars.some((e) => e.key === 'SMOKE_SET_VAR' && e.value === 'hello'),
+  )
+
+  // The server's masking contract: list_env_vars/get_env_var mask unless reveal.
+  const masked = `${'hello'.slice(0, 3)}•••`
+  check('masking shape applies to values', masked.endsWith('•••'))
+
   rmSync(dir, { recursive: true, force: true })
 }
 

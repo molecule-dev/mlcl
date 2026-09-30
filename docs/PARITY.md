@@ -85,26 +85,26 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 
 ## Environment & secrets
 
-| Capability              | Route(s)                 | Decision         | CLI                        | MCP              | Status |
-| ----------------------- | ------------------------ | ---------------- | -------------------------- | ---------------- | ------ |
-| Local .env CRUD         | —                        | local-equivalent | `env list/get/set/unset`   | —                | ✅     |
-| Platform env read/write | GET/PUT /env             | parity           | `env pull/push`            | —                | ✅     |
-| Env detected keys       | GET /env/detected        | parity           | `env detected`             | —                | ✅     |
-| Vault secrets           | /vault CRUD              | parity           | `vault list/set/rm`        | —                | ✅     |
-| Vault runtime tokens    | /vault/token mint/revoke | parity           | `vault token [--revoke]`   | —                | ✅     |
-| Credential broker       | /vault/broker            | parity           | `vault broker [--disable]` | —                | ✅     |
-| Project API keys (mk_)  | /api-keys CRUD           | parity           | `apikey list/create/rm`    | `create_api_key` | ✅     |
+| Capability              | Route(s)                 | Decision         | CLI                                                                                                                                       | MCP                                                         | Status |
+| ----------------------- | ------------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------ |
+| Local .env CRUD         | —                        | local-equivalent | `env list/get/set/unset`                                                                                                                  | `list_env_vars`/`get_env_var`/`set_env_var`/`unset_env_var` | ✅     |
+| Platform env read/write | GET/PUT /env             | parity           | `env pull/push`                                                                                                                           | `pull_env_vars`/`push_env_vars`                             | ✅     |
+| Env detected keys       | GET /env/detected        | parity           | `env detected` (cloud) · `env check` (local equivalent — code reads + registry declarations vs the workspace .env files, `--fix` appends) | `check_env_vars`                                            | ✅     |
+| Vault secrets           | /vault CRUD              | parity           | `vault list/set/rm`                                                                                                                       | —                                                           | ✅     |
+| Vault runtime tokens    | /vault/token mint/revoke | parity           | `vault token [--revoke]`                                                                                                                  | —                                                           | ✅     |
+| Credential broker       | /vault/broker            | parity           | `vault broker [--disable]`                                                                                                                | —                                                           | ✅     |
+| Project API keys (mk_)  | /api-keys CRUD           | parity           | `apikey list/create/rm`                                                                                                                   | `create_api_key`                                            | ✅     |
 
 ## Database
 
-| Capability                      | Route(s)             | Decision                                               | CLI                             | MCP | Status |
-| ------------------------------- | -------------------- | ------------------------------------------------------ | ------------------------------- | --- | ------ |
-| Local migrate/reset/console/url | —                    | local-equivalent                                       | `db migrate/reset/console/url`  | —   | ✅     |
-| Cloud connection info           | GET /database        | parity                                                 | `db info`                       | —   | ✅     |
-| SQL console (cloud)             | POST /database/query | parity                                                 | `db query`                      | —   | ✅     |
-| Schema tables                   | GET /database/tables | parity                                                 | `db info`                       | —   | ✅     |
-| Backups create/list/restore     | /database/backups    | parity                                                 | `db backup list/create/restore` | —   | ✅     |
-| Project eject/export            | GET /export          | gap (platform route exists; CLI command not built yet) | —                               | —   | ⬜     |
+| Capability                      | Route(s)             | Decision         | CLI                                          | MCP              | Status |
+| ------------------------------- | -------------------- | ---------------- | -------------------------------------------- | ---------------- | ------ |
+| Local migrate/reset/console/url | —                    | local-equivalent | `db migrate/reset/console/url`               | —                | ✅     |
+| Cloud connection info           | GET /database        | parity           | `db info`                                    | —                | ✅     |
+| SQL console (cloud)             | POST /database/query | parity           | `db query`                                   | —                | ✅     |
+| Schema tables                   | GET /database/tables | parity           | `db info`                                    | —                | ✅     |
+| Backups create/list/restore     | /database/backups    | parity           | `db backup list/create/restore`              | —                | ✅     |
+| Project eject/export            | GET /export          | parity           | `project export` (streams the eject .tar.gz) | `export_project` | ✅     |
 
 ## Team & sharing
 

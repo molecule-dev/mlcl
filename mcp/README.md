@@ -77,6 +77,10 @@ registry listings (one-click), and for Claude Code the full plugin —
 | `whoami` / `logout`    | Login status / clear the token                                        |
 | `list_projects`        | Your molecule.dev projects (ids for `create_api_key`)                 |
 | `create_api_key`       | Mint a project API key into the project `.env` (never shown in chat)  |
+| `check_env_vars`       | Which env vars the app needs (code reads + package declarations) and which are missing |
+| `list_env_vars` / `get_env_var` / `set_env_var` / `unset_env_var` | Local `.env` CRUD (values masked unless revealed) |
+| `push_env_vars` / `pull_env_vars` | Sync local `.env` with the molecule.dev project env        |
+| `export_project`       | Download the no-lock-in eject bundle (.tar.gz: code + db dump + .env) |
 | `embed_text`           | Embeddings on molecule.dev, billed to the project — no OpenAI account |
 | `text_to_speech`       | Speech audio from text on molecule.dev, written to a local file       |
 | `transcribe_audio`     | Text from a local audio file on molecule.dev (whisper-1)              |

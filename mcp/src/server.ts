@@ -17,6 +17,9 @@ import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { basename, dirname, extname, join, resolve } from 'node:path'
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
+import { execa } from 'execa'
+import { z } from 'zod'
 
 import {
   clearCredentials,
@@ -34,9 +37,6 @@ import {
   ServiceCallError,
 } from './services.js'
 import { tracked } from './telemetry.js'
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
-import { execa } from 'execa'
-import { z } from 'zod'
 
 const CLI = process.env.MOLECULE_MCP_CLI ?? 'mlcl'
 
@@ -443,6 +443,179 @@ server.registerTool(
       ),
     ),
   ),
+)
+
+// ── Environment variables ─────────────────────────────────────────────────────
+// Same surface the IDE's env panel offers, over the local project: what the
+// app needs (code reads + installed-package declarations), what is set, what
+// is missing. Values stay in local .env files; get_env_var masks unless the
+// caller explicitly reveals, so a secret never lands in chat by accident.
+
+server.registerTool(
+  'check_env_vars',
+  {
+    title: 'Check the project env vars',
+    description:
+      "Report which environment variables a molecule project on disk needs — from `process.env`/`import.meta.env` reads in the code PLUS the declarations of every installed @molecule/* package — classified against the workspace's .env files: needs-attention (required and missing, with where to get each value), optional (code or registry supplies a fallback), set, and provided-by-molecule (injected on deploy). The local equivalent of the IDE's env panel. Run this after adding packages and before deploying.",
+    inputSchema: {
+      directory: z.string().optional().describe('Project directory (default cwd)'),
+    },
+  },
+  tracked('check_env_vars', async ({ directory }) =>
+    text(await runCli(['env', 'check', '--json'], directory)),
+  ),
+)
+
+server.registerTool(
+  'list_env_vars',
+  {
+    title: 'List the project .env',
+    description:
+      'List the environment variables set in the project .env (values MASKED — pass reveal only when the caller truly needs a value, e.g. to hand to a process env). Targets api/.env in a full-stack scaffold, .env otherwise; pass app=true for app/.env.',
+    inputSchema: {
+      app: z.boolean().optional().describe('Target app/.env instead of api/.env'),
+      reveal: z
+        .boolean()
+        .optional()
+        .describe('Return unmasked values (default false — keep secrets out of the chat)'),
+      directory: z.string().optional().describe('Project directory (default cwd)'),
+    },
+  },
+  tracked('list_env_vars', async ({ app, reveal, directory }) => {
+    const raw = parseJsonOut<{ key: string; value: string }[]>(
+      await runCli(['env', 'list', '--json', ...(app ? ['--app'] : [])], directory),
+    )
+    return text(
+      JSON.stringify(
+        raw.map((e) => ({
+          key: e.key,
+          value: reveal ? e.value : `${e.value.slice(0, 3)}•••`,
+        })),
+        null,
+        2,
+      ),
+    )
+  }),
+)
+
+server.registerTool(
+  'get_env_var',
+  {
+    title: 'Read one env var from the project .env',
+    description:
+      'Return one variable from the project .env (api/.env in a full-stack scaffold; app=true targets app/.env). MASKED by default — pass reveal=true only when the caller truly needs the value (e.g. to hand to a spawned process), so secrets stay out of the chat.',
+    inputSchema: {
+      key: z.string().describe('Variable name'),
+      app: z.boolean().optional().describe('Target app/.env instead of api/.env'),
+      reveal: z.boolean().optional().describe('Return the unmasked value (default false)'),
+      directory: z.string().optional().describe('Project directory (default cwd)'),
+    },
+  },
+  tracked('get_env_var', async ({ key, app, reveal, directory }) => {
+    const raw = parseJsonOut<{ key: string; value: string }[]>(
+      await runCli(['env', 'list', '--json', ...(app ? ['--app'] : [])], directory),
+    )
+    const entry = raw.find((e) => e.key === key)
+    if (!entry)
+      return text(
+        `"${key}" is not set in that .env — run check_env_vars to see what the app needs.`,
+      )
+    return text(
+      JSON.stringify({ key, value: reveal ? entry.value : `${entry.value.slice(0, 3)}•••` }),
+    )
+  }),
+)
+
+server.registerTool(
+  'set_env_var',
+  {
+    title: 'Set an env var in the project .env',
+    description:
+      'Create or update one KEY=VALUE in the project .env (api/.env in a full-stack scaffold, .env otherwise; app=true targets app/.env). Use check_env_vars first to see which keys the app actually needs.',
+    inputSchema: {
+      key: z.string().describe('Variable name, e.g. STRIPE_SECRET_KEY'),
+      value: z.string().describe('Value (single line)'),
+      app: z.boolean().optional().describe('Target app/.env instead of api/.env'),
+      directory: z.string().optional().describe('Project directory (default cwd)'),
+    },
+  },
+  tracked('set_env_var', async ({ key, value, app, directory }) =>
+    text(await runCli(['env', 'set', key, value, ...(app ? ['--app'] : [])], directory)),
+  ),
+)
+
+server.registerTool(
+  'unset_env_var',
+  {
+    title: 'Remove an env var from the project .env',
+    description:
+      'Comment out one variable in the project .env (the value stays in the file as a comment, so it is recoverable by hand).',
+    inputSchema: {
+      key: z.string().describe('Variable name to remove'),
+      app: z.boolean().optional().describe('Target app/.env instead of api/.env'),
+      directory: z.string().optional().describe('Project directory (default cwd)'),
+    },
+  },
+  tracked('unset_env_var', async ({ key, app, directory }) =>
+    text(await runCli(['env', 'unset', key, ...(app ? ['--app'] : [])], directory)),
+  ),
+)
+
+server.registerTool(
+  'push_env_vars',
+  {
+    title: 'Push local .env to molecule.dev',
+    description:
+      "Push the project's local .env values up to the molecule.dev project's env store (the same store the IDE env editor and the deploys read). Requires login and a project id (list_projects).",
+    inputSchema: {
+      project_id: z.string().describe('Project id from list_projects'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env to push (default cwd)'),
+    },
+  },
+  tracked('push_env_vars', async ({ project_id, directory }) =>
+    text(await runCli(['env', 'push', '--project', project_id], directory)),
+  ),
+)
+
+server.registerTool(
+  'pull_env_vars',
+  {
+    title: 'Pull molecule.dev env into local .env',
+    description:
+      "Pull the molecule.dev project's env values into the local .env. Server-side write-only values arrive masked and are skipped with a warning (they cannot be round-tripped). Requires login and a project id (list_projects).",
+    inputSchema: {
+      project_id: z.string().describe('Project id from list_projects'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory to write .env into (default cwd)'),
+    },
+  },
+  tracked('pull_env_vars', async ({ project_id, directory }) =>
+    text(await runCli(['env', 'pull', '--project', project_id], directory)),
+  ),
+)
+
+server.registerTool(
+  'export_project',
+  {
+    title: 'Export (eject) a molecule.dev project',
+    description:
+      "Download a project's no-lock-in eject bundle: a single .tar.gz with the source, a pg_dump of its dev database, the resolved .env files, a MANIFEST, and step-by-step instructions for running it anywhere else. Writes <out> (default ./molecule-export-<projectId>.tar.gz) under directory. Requires login (project owner).",
+    inputSchema: {
+      project_id: z.string().describe('Project id from list_projects'),
+      out: z.string().optional().describe('Output path for the .tar.gz'),
+      directory: z.string().optional().describe('Directory to write the bundle into (default cwd)'),
+    },
+  },
+  tracked('export_project', async ({ project_id, out, directory }) => {
+    const args = ['project', 'export', project_id]
+    if (out) args.push('-o', out)
+    return text(await runCli(args, directory))
+  }),
 )
 
 server.registerTool(

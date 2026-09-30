@@ -14110,6 +14110,356 @@
         "stub endpoints for e2e"
       ]
     },
+    "@molecule/api-model-hosting": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "model-hosting",
+      "label": "Model hosting",
+      "description": "Model hosting for molecule.dev — run a model server container on rented GPUs or CPUs (Cloud Run, Modal, RunPod, Koyeb) or your own Docker host, and get an HTTPS URL plus auth headers, behind swappable bonds",
+      "stack": "api",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "getProviderByName",
+        "getAllProviders",
+        "hasProvider",
+        "requireProvider",
+        "ENDPOINT_NAME_RE",
+        "assertDeployable",
+        "Accelerator",
+        "EndpointScaling",
+        "ModelEndpointSpec",
+        "EndpointStatus",
+        "ModelEndpoint",
+        "ProviderCapabilities",
+        "DeployOptions",
+        "ModelHostingProvider",
+        "ExpectedLoad",
+        "CostEstimate"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "path": "packages/api/core/model-hosting",
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ]
+    },
+    "@molecule/api-model-hosting-cloud-run": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "model-hosting",
+      "label": "Cloud Run model host",
+      "description": "Google Cloud Run model hosting for molecule.dev — run a model server container on CPU or an NVIDIA L4, scale to zero, and call it with a Google-signed ID token",
+      "stack": "api",
+      "implements": "@molecule/api-model-hosting",
+      "exports": [
+        "CLOUD_RUN_API",
+        "GOOGLE_TOKEN_URL",
+        "CLOUD_PLATFORM_SCOPE",
+        "CloudRunApiError",
+        "parseServiceAccountKey",
+        "signServiceAccountJwt",
+        "GoogleTokenSource",
+        "CloudRunClient",
+        "CLOUD_RUN_GPU_REGIONS",
+        "MANAGED_LABEL",
+        "CLOUD_RUN_CAPABILITIES",
+        "toRunService",
+        "fromRunService",
+        "createProvider",
+        "provider",
+        "modelHostingCloudRunSecretDefinitions",
+        "CloudRunConfig",
+        "ServiceAccountKey",
+        "RunCondition",
+        "RunService"
+      ],
+      "secrets": [
+        {
+          "name": "GOOGLE_CLOUD_PROJECT",
+          "required": true,
+          "label": "google cloud project",
+          "setupUrl": "https://console.cloud.google.com/projectselector2/home/dashboard",
+          "instructions": "Google Cloud project — The project id the model endpoints run in (Cloud Run API enabled, billing on).",
+          "example": "acme-models-123456"
+        },
+        {
+          "name": "GOOGLE_SERVICE_ACCOUNT_JSON",
+          "required": true,
+          "label": "google service account json",
+          "setupUrl": "https://console.cloud.google.com/iam-admin/serviceaccounts",
+          "instructions": "Google service account key — The key file contents (JSON) of a service account with the Cloud Run Admin role, and Cloud Run Invoker on the services it calls.",
+          "example": "{\"type\":\"service_account\",\"client_email\":\"…\",\"project_id\":\"acme-models\"}"
+        }
+      ],
+      "egressHosts": [
+        "run.googleapis.com",
+        "oauth2.googleapis.com"
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n",
+        "@molecule/api-model-hosting",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/model-hosting/cloud-run",
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n",
+        "@molecule/api-model-hosting",
+        "@molecule/api-secrets"
+      ]
+    },
+    "@molecule/api-model-hosting-docker": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "model-hosting",
+      "label": "Docker model host",
+      "description": "Self-hosted model hosting for molecule.dev — run a model server container on your own Docker host, with NVIDIA GPUs through the NVIDIA container runtime",
+      "stack": "api",
+      "implements": "@molecule/api-model-hosting",
+      "exports": [
+        "DockerApiError",
+        "socketTransport",
+        "dockerCall",
+        "MANAGED_LABEL",
+        "CONTAINER_PREFIX",
+        "DOCKER_CAPABILITIES",
+        "splitImage",
+        "toCreateBody",
+        "createProvider",
+        "provider",
+        "modelHostingDockerSecretDefinitions",
+        "DockerResponse",
+        "DockerTransport",
+        "DockerModelHostingConfig",
+        "ContainerInspect"
+      ],
+      "secrets": [
+        {
+          "name": "DOCKER_SOCKET",
+          "required": false,
+          "label": "docker socket",
+          "setupUrl": "https://docs.docker.com/engine/security/protect-access/",
+          "instructions": "Docker engine socket — Path to the engine socket the model containers run on. Defaults to /var/run/docker.sock.",
+          "example": "/var/run/docker.sock"
+        },
+        {
+          "name": "MODEL_HOST_PUBLIC_HOST",
+          "required": false,
+          "label": "model host public host",
+          "setupUrl": "https://docs.docker.com/engine/network/",
+          "instructions": "Model host name — The host name endpoint URLs use (the machine running the containers). Defaults to localhost.",
+          "example": "gpu-box.internal"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n",
+        "@molecule/api-model-hosting",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/model-hosting/docker",
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n",
+        "@molecule/api-model-hosting",
+        "@molecule/api-secrets"
+      ]
+    },
+    "@molecule/api-model-hosting-koyeb": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "model-hosting",
+      "label": "Koyeb model host",
+      "description": "Koyeb model hosting for molecule.dev — run a model server container on CPU or an RTX 4000 / L4 GPU in the EU or US, with sleep when idle",
+      "stack": "api",
+      "implements": "@molecule/api-model-hosting",
+      "exports": [
+        "KOYEB_API",
+        "KoyebApiError",
+        "KoyebClient",
+        "KOYEB_GPUS",
+        "KOYEB_CAPABILITIES",
+        "instanceTypeFor",
+        "toDefinition",
+        "statusOf",
+        "createProvider",
+        "provider",
+        "modelHostingKoyebSecretDefinitions",
+        "KoyebConfig",
+        "KoyebDefinition",
+        "KoyebApp",
+        "KoyebService"
+      ],
+      "secrets": [
+        {
+          "name": "KOYEB_API_TOKEN",
+          "required": true,
+          "label": "koyeb api token",
+          "setupUrl": "https://app.koyeb.com/user/settings/api",
+          "instructions": "Koyeb API token — An organization API token (Settings → API). GPU instances need a paid plan and a card on file.",
+          "example": "koyeb-api-token"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n",
+        "@molecule/api-model-hosting",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/model-hosting/koyeb",
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n",
+        "@molecule/api-model-hosting",
+        "@molecule/api-secrets"
+      ]
+    },
+    "@molecule/api-model-hosting-modal": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "model-hosting",
+      "label": "Modal model host",
+      "description": "Modal model hosting for molecule.dev — run a model server container on a T4/L4/A10 GPU or CPU with per-second billing, behind Modal proxy auth",
+      "stack": "api",
+      "implements": "@molecule/api-model-hosting",
+      "exports": [
+        "appSource",
+        "gpuFor",
+        "MODAL_GPUS",
+        "toPython",
+        "endpointUrl",
+        "MODAL_FUNCTION_NAME",
+        "ModalClient",
+        "resolveModalConfig",
+        "createProvider",
+        "fromAppRow",
+        "MODAL_CAPABILITIES",
+        "MODAL_PRICES",
+        "provider",
+        "regionMultiplier",
+        "modelHostingModalSecretDefinitions",
+        "RunResult",
+        "ModalRunner",
+        "ModalConfig",
+        "ModalAppRow"
+      ],
+      "secrets": [
+        {
+          "name": "MODAL_TOKEN_ID",
+          "required": true,
+          "label": "modal token id",
+          "setupUrl": "https://modal.com/settings",
+          "instructions": "Modal token id — authenticates the `modal` CLI this bond deploys with (modal.com/settings → API tokens → \"New token\" prints both parts).",
+          "example": "ak-XXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        {
+          "name": "MODAL_TOKEN_SECRET",
+          "required": true,
+          "label": "modal token secret",
+          "setupUrl": "https://modal.com/settings",
+          "instructions": "Modal token secret — the other half of the Modal CLI token.",
+          "example": "as-XXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        {
+          "name": "MODAL_WORKSPACE",
+          "required": true,
+          "label": "modal workspace",
+          "setupUrl": "https://modal.com/settings",
+          "instructions": "Modal workspace name — the first part of every endpoint URL (https://<workspace>--<label>.modal.run). Shown top-left of the Modal dashboard.",
+          "example": "my-workspace"
+        },
+        {
+          "name": "MODAL_PROXY_TOKEN_ID",
+          "required": false,
+          "label": "modal proxy token id",
+          "setupUrl": "https://modal.com/docs/guide/webhook-proxy-auth",
+          "instructions": "Modal proxy-auth token id — required to CALL endpoints deployed with access \"private\" (sent as the Modal-Key header).",
+          "example": "epk-XXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        {
+          "name": "MODAL_PROXY_TOKEN_SECRET",
+          "required": false,
+          "label": "modal proxy token secret",
+          "setupUrl": "https://modal.com/docs/guide/webhook-proxy-auth",
+          "instructions": "Modal proxy-auth token secret — sent as the Modal-Secret header.",
+          "example": "eps-XXXXXXXXXXXXXXXXXXXXXXXX"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n",
+        "@molecule/api-model-hosting",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/model-hosting/modal",
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n",
+        "@molecule/api-model-hosting",
+        "@molecule/api-secrets"
+      ]
+    },
+    "@molecule/api-model-hosting-runpod": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "model-hosting",
+      "label": "RunPod model host",
+      "description": "RunPod Serverless model hosting for molecule.dev — run a model server container on a load-balancing GPU endpoint that scales to zero",
+      "stack": "api",
+      "implements": "@molecule/api-model-hosting",
+      "exports": [
+        "RUNPOD_REST",
+        "RUNPOD_GRAPHQL",
+        "RunPodApiError",
+        "toGraphQLLiteral",
+        "RunPodClient",
+        "RUNPOD_GPU_POOLS",
+        "RUNPOD_CAPABILITIES",
+        "gpuIdsFor",
+        "toTemplate",
+        "createProvider",
+        "provider",
+        "modelHostingRunPodSecretDefinitions",
+        "RunPodConfig",
+        "RunPodTemplate",
+        "RunPodEndpoint"
+      ],
+      "secrets": [
+        {
+          "name": "RUNPOD_API_KEY",
+          "required": true,
+          "label": "runpod api key",
+          "setupUrl": "https://www.console.runpod.io/user/settings",
+          "instructions": "RunPod API key — Manages templates and serverless endpoints, and authorizes calls to them (Settings → API Keys). Workers stop when the account balance reaches $0.",
+          "example": "rpa_XXXXXXXXXXXXXXXXXXXXXXXX"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n",
+        "@molecule/api-model-hosting",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/model-hosting/runpod",
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n",
+        "@molecule/api-model-hosting",
+        "@molecule/api-secrets"
+      ]
+    },
     "@molecule/api-monitoring": {
       "language": "typescript",
       "runtime": "node",
@@ -57146,6 +57496,12 @@
       "@molecule/api-middleware-request-logging": "1.0.2",
       "@molecule/api-middleware-validation": "1.0.2",
       "@molecule/api-mock-server": "1.1.1",
+      "@molecule/api-model-hosting": "1.0.0",
+      "@molecule/api-model-hosting-cloud-run": "1.0.0",
+      "@molecule/api-model-hosting-docker": "1.0.0",
+      "@molecule/api-model-hosting-koyeb": "1.0.0",
+      "@molecule/api-model-hosting-modal": "1.0.0",
+      "@molecule/api-model-hosting-runpod": "1.0.0",
       "@molecule/api-monitoring": "1.0.2",
       "@molecule/api-monitoring-default": "1.0.2",
       "@molecule/api-multi-tenancy": "1.0.2",
