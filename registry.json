@@ -56922,7 +56922,7 @@
       "@molecule/api-ai-decisions": "1.1.0",
       "@molecule/api-ai-decisions-intern-decision": "1.0.0",
       "@molecule/api-ai-decisions-jeff": "1.0.0",
-      "@molecule/api-ai-decisions-llm": "1.1.0",
+      "@molecule/api-ai-decisions-llm": "1.2.0",
       "@molecule/api-ai-deepseek": "1.0.4",
       "@molecule/api-ai-document-extraction": "1.0.2",
       "@molecule/api-ai-email-composer": "1.0.2",
