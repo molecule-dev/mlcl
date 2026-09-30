@@ -14,7 +14,7 @@ covers every supported harness and every wiring method, with examples.
 paste the prompt block from the README into any agent. Then ask your agent to
 build something. URL-only clients (Lovable/v0/bolt connectors, and any harness
 wanting a one-line install) use the hosted read-only endpoint instead:
-`https://mcp.molecule.dev/mcp` (live at launch).
+`https://mcp.molecule.dev/mcp`.
 
 ---
 
@@ -126,14 +126,14 @@ MCP server, updated through the marketplace. Skills trigger on intent
 ## Method 5 — the hosted remote endpoint (no local install)
 
 The read-only face of the server, served over HTTP at
-`https://mcp.molecule.dev/mcp` (live at launch — see [../mcp/DEPLOY.md](../mcp/DEPLOY.md)). Tools:
+`https://mcp.molecule.dev/mcp` (see [../mcp/DEPLOY.md](../mcp/DEPLOY.md)). Tools:
 `search_packages`, `list_templates`, `read_package_doc`, and the
 `molecule://conventions` resource; the catalog streams live from the public
 repo and docs from npm.
 
 ```bash
 # any HTTP-transport harness — one URL, no local process:
-claude mcp add --transport https https://mcp.molecule.dev/mcp
+claude mcp add --transport http molecule https://mcp.molecule.dev/mcp
 ```
 
 And the URL goes straight into the connector forms of the vibecoding

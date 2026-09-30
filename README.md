@@ -196,7 +196,7 @@ OpenCode, Windsurf, Cline, Zed, …). Four ways to wire molecule in — pick any
 | **Zero setup** | paste the block below into any agent chat | the agent scaffolds + follows conventions via the CLI |
 | **One command** | `npx mlcl agent init` | conventions written into the files your harness reads (AGENTS.md, Cursor rules, Claude skill, Gemini extension, Windsurf rule) |
 | **MCP tools** | `npx mlcl mcp install` | the `molecule` MCP server (search/scaffold/add/swap/docs) registered with your harness — works across Claude Code, Codex, Cursor, Gemini CLI, OpenCode, Windsurf, Kiro, Trae, Zed, Amp, Crush, Cline, VS Code, … |
-| **Hosted URL** (at launch) | `claude mcp add --transport https https://mcp.molecule.dev/mcp` — or paste the URL into Lovable / v0 / bolt.new connectors | the read tools (search/templates/docs/conventions) with no local install |
+| **Hosted URL** | `claude mcp add --transport http molecule https://mcp.molecule.dev/mcp` — or paste the URL into Lovable / v0 / bolt.new connectors | the read tools (search/templates/docs/conventions) with no local install |
 | **Claude Code plugin** (at launch) | `/plugin marketplace add molecule-dev/molecule-claude-code` → `/plugin install molecule@molecule` | skills + MCP bundled, marketplace-updated |
 
 The full guide with every harness, config path, and example workflow:

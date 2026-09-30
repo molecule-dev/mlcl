@@ -3,62 +3,48 @@
 The remote, read-only face of `molecule-mcp` (`src/remote.ts` + `src/http.ts`)
 serves URL-based MCP clients: Lovable chat connectors, v0 MCP integrations,
 bolt.new Connectors, and any harness's short install
-(`claude mcp add --transport https https://mcp.molecule.dev/mcp`).
+(`claude mcp add --transport http molecule https://mcp.molecule.dev/mcp`).
 
 ## What it serves
 
 Read tools only — `search_packages`, `list_templates`, `read_package_doc`,
 and the `molecule://conventions` resource. No writes, no user data, no
-secrets: the catalog comes from the public mlcl repo (raw GitHub, 10-min
-cache) and docs from the npm registry API. Stateless per request.
+secrets. The package and template catalogs are baked into the image
+(`MOLECULE_REGISTRY_FILE` / `MOLECULE_TEMPLATES_FILE`) because the mlcl repo
+is private — the raw-GitHub default URLs 404 — so the catalog updates on each
+redeploy. Package docs come from the npm registry API. Stateless per request.
 
-## Deploy (Fly, matching the rest of molecule.dev)
+## Where it runs
 
-```dockerfile
-# mcp/Dockerfile
-FROM node:22-slim
-WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci --omit=dev
-COPY . .
-RUN npm run build
-ENV PORT=3000
-EXPOSE 3000
-CMD ["node", "dist/http.js"]
-```
+Fly app `molecule-mcp` (org personal, region iad), on Fly's default network —
+it serves the public internet unauthenticated, so it shares no private network
+with the platform. `mcp.molecule.dev` has A/AAAA records in Netlify DNS
+(zone molecule.dev) pointing at the app's IPs; the Fly certificate is issued.
+Each client address gets `MCP_RATE_PER_MIN` requests a minute (default 120,
+`src/http.ts`); beyond that it answers 429.
 
-```toml
-# fly.toml sketch
-app = "molecule-mcp"
-primary_region = "ewr"
-[http_service]
-  internal_port = 3000
-  force_https_domains = ["mcp.molecule.dev"]
-[[http_service.checks]]
-  path = "/health"
-```
+## Deploy
 
 ```bash
-cd mcp && fly deploy
-fly certs add mcp.molecule.dev   # + DNS CNAME → <app>.fly.dev
+bash mcp/scripts/deploy-remote.sh    # from the mlcl root
 ```
 
-Env knobs (all optional): `MOLECULE_REGISTRY_URL` / `MOLECULE_TEMPLATES_URL`
-(default: raw.githubusercontent of the public mlcl repo — requires the repo
-public, which is a launch-day step), `PORT`.
+The script assembles a small build context (this package + the two catalogs)
+and runs `flyctl deploy --remote-only` with `mcp/Dockerfile` and
+`mcp/fly.toml`. Redeploy after catalog changes that users should see.
 
-## Launch checklist (in order)
+## Verify
 
-1. mlcl repo public + `mlcl`/`molecule-mcp` published (the default URLs depend
-   on the public repo).
-   1b. Platform deploy carries the `/v1/telemetry/cli` ingestion route
-   (molecule-dev api — Resource/Telemetry) so CLI/MCP telemetry lands in the
-   analyticsEvents dashboards from day one.
-2. `fly deploy` + cert + DNS for `mcp.molecule.dev`.
-3. Verify: `claude mcp add --transport https https://mcp.molecule.dev/mcp`
-   then `/mcp` shows `molecule-remote` with the read tools.
-4. Submit the HTTPS URL to Lovable connectors / v0 / bolt.new (see
-   ../docs/LISTINGS.md) — their forms take the URL directly.
-5. Consider rate limiting at the edge (fly proxy or a tiny middleware) once
-   traffic justifies it; the tool set is read-only and cache-backed, so the
-   blast radius of abuse is bandwidth, not state.
+```bash
+curl -s -X POST https://mcp.molecule.dev/mcp -H content-type:application/json \
+  -H accept:application/json,text/event-stream \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+claude mcp add --transport http molecule https://mcp.molecule.dev/mcp
+```
+
+## Still open
+
+- Submit the URL to Lovable connectors / v0 / bolt.new (see ../docs/LISTINGS.md).
+- The local stdio server (`npx -y molecule-mcp`, what `mlcl mcp install`
+  registers) needs `molecule-mcp` published to npm — dispatch the mlcl
+  Release with `mcp_publish` alongside mlcl itself.

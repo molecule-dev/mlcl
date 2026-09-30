@@ -191,7 +191,7 @@ publishes to npm at launch.** `molecule-mcp` is a thin structured wrapper over
 these same `mlcl` operations: a local stdio mode (full tool set, wraps the
 local CLI — what `mlcl mcp install` registers) and a hosted read-only HTTP
 mode at `https://mcp.molecule.dev/mcp` (search/templates/docs/conventions;
-deploys at launch — the surface URL-based clients like Lovable/v0/bolt
+live now — the surface URL-based clients like Lovable/v0/bolt
 connectors use). The CLI remains the source of truth and the most universal
 surface; the MCP server serves agents that prefer structured tools over
 shelling out. Everything in this guide still applies unchanged — see

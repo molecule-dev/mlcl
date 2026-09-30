@@ -54,8 +54,8 @@ Cline/Kilo, Continue, Aider) it prints the exact snippet instead of risking a
 mangled config.
 
 Why the long form? A stdio MCP server is a local process the client spawns, so
-the client needs its launch command. Shorter paths (all at launch): the hosted endpoint —
-`claude mcp add --transport https https://mcp.molecule.dev/mcp`, one URL for
+the client needs its launch command. Shorter paths: the hosted endpoint —
+`claude mcp add --transport http molecule https://mcp.molecule.dev/mcp`, one URL for
 any HTTP-capable client, or paste it into Lovable/v0/bolt connector forms —
 the [Smithery](https://smithery.ai)/[Glama](https://glama.ai)/[PulseMCP](https://www.pulsemcp.com)
 registry listings (one-click), and for Claude Code the full plugin —
@@ -135,11 +135,11 @@ app code reaches the same service through a normal, swappable bond.
 - **Local stdio** (default, `molecule-mcp`): full tool set, wraps the local
   `mlcl` CLI. What every CLI harness registers.
 - **Hosted HTTP** (`molecule-mcp-serve` / `node dist/http.js`): the read-only
-  face, slated for `https://mcp.molecule.dev/mcp` (deploys at launch) —
+  face, live at `https://mcp.molecule.dev/mcp` —
   search/templates/docs/conventions served from the live registry and npm, no
   local install needed. This is the surface URL-based clients use: Lovable
   chat connectors, v0 MCP integrations, bolt.new Connectors, and the short
-  install (`claude mcp add --transport https https://mcp.molecule.dev/mcp`).
+  install (`claude mcp add --transport http molecule https://mcp.molecule.dev/mcp`).
   Deploy runbook: [DEPLOY.md](DEPLOY.md).
 
 ## Login (platform features)
