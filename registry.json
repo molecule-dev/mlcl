@@ -57871,7 +57871,6 @@
       "@molecule/app-whiteboard-canvas-react": "1.0.2",
       "@molecule/app-wiki-page-header-react": "1.0.2",
       "@molecule/app-word-cloud-react": "1.0.2",
-      "@molecule/api-agent-transcript-opencode": "1.0.0",
       "@molecule/api-ocr-teleocr": "1.0.0",
       "@molecule/api-ai-speech-audio8": "1.0.0",
       "@molecule/api-ai-speech-nemo-speech": "1.0.0",
