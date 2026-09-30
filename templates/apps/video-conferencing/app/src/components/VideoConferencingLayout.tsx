@@ -20,6 +20,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -123,59 +124,17 @@ export function VideoConferencingLayout() {
   // Brand — leads the desktop sidebar and rides in the mobile-only TopBar.
   // Breakpoint-exclusive mounts, so never duplicated on one screen.
   const desktopBrand = (
-    <Link to="/dashboard" className={cm.cn(cm.flex({ align: 'center', gap: 3 }), cm.sp('p', 6))}>
-      <div
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'center' }),
-          'w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary shadow-lg shadow-primary/30',
-        )}
-      >
-        <span className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined text-on-primary')}>
-          videocam
-        </span>
-      </div>
-      <div>
-        <h1
-          className={cm.cn(
-            cm.textSize('xl'),
-            'font-extrabold tracking-tight leading-none text-on-surface',
-          )}
-        >
-          {APP_NAME}
-        </h1>
-        <p
-          className={cm.cn(
-            cm.fontWeight('semibold'),
-            cm.sp('mt', 1),
-            'text-[10px] uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {t('nav.organization', {}, { defaultValue: 'Acme Workspace' })}
-        </p>
-      </div>
+    <Link to="/dashboard" className={cm.cn(cm.flex({ align: 'center' }), cm.sp('p', 6))}>
+      <BrandWordmark
+        as="span"
+        subline={t('nav.organization', {}, { defaultValue: 'Acme Workspace' })}
+      />
     </Link>
   )
 
   const mobileBrand = (
     <Link to="/dashboard" className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-      <div
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'center' }),
-          'w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary shadow-md shadow-primary/30',
-        )}
-      >
-        <span
-          className={cm.cn(
-            cm.textSize('lg'),
-            'material-symbols-outlined text-[18px] text-on-primary',
-          )}
-        >
-          videocam
-        </span>
-      </div>
-      <span className={cm.cn(cm.textSize('base'), 'font-extrabold tracking-tight text-on-surface')}>
-        {APP_NAME}
-      </span>
+      <BrandWordmark as="span" size="sm" />
     </Link>
   )
 

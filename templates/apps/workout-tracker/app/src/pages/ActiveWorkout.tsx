@@ -6,7 +6,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { ForjaTopBar } from '../components/ForjaTopBar.js'
-import { getWeightUnit, toDisplayWeight, toStorageKg } from '../lib/weight.js'
+import { getWeightUnit, toDisplayWeight, toStorageKg, type WeightUnit } from '../lib/weight.js'
 
 interface ApiExercise {
   id: string
@@ -76,6 +76,43 @@ function elapsedString(startedAt: string, nowMs: number): string {
   return `${m}:${s.toString().padStart(2, '0')}`
 }
 
+// Standard bar + plate inventory for the plate calculator (per display unit).
+const BAR_WEIGHT: Record<WeightUnit, number> = { kg: 20, lbs: 45 }
+const PLATE_SET: Record<WeightUnit, number[]> = {
+  kg: [25, 20, 15, 10, 5, 2.5, 1.25],
+  lbs: [45, 35, 25, 10, 5, 2.5],
+}
+// Competition-style plate tones rendered with theme tokens (no raw hex).
+const PLATE_TONE: Record<string, string> = {
+  '25': 'bg-error',
+  '45': 'bg-error',
+  '20': 'bg-info',
+  '35': 'bg-info',
+  '15': 'bg-warning',
+  '10': 'bg-success',
+  '5': 'bg-secondary',
+}
+
+function plateTone(plate: number): string {
+  return PLATE_TONE[String(plate)] ?? 'bg-surface-variant'
+}
+
+/** Greedy per-side plate breakdown for a target total weight (display unit). */
+function platesFor(total: number, unit: WeightUnit): { plates: number[]; leftover: number } {
+  const perSide = (total - BAR_WEIGHT[unit]) / 2
+  if (!Number.isFinite(perSide) || perSide <= 0) return { plates: [], leftover: 0 }
+  const plates: number[] = []
+  let remaining = Math.round(perSide * 100) / 100
+  for (const p of PLATE_SET[unit]) {
+    while (remaining >= p - 1e-9 && plates.length < 12) {
+      plates.push(p)
+      remaining = Math.round((remaining - p) * 100) / 100
+    }
+    if (plates.length >= 12) break
+  }
+  return { plates, leftover: remaining }
+}
+
 export function ActiveWorkout() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -94,6 +131,20 @@ export function ActiveWorkout() {
   const [pendingReps, setPendingReps] = useState('')
   const [adding, setAdding] = useState(false)
   const [finishing, setFinishing] = useState(false)
+  const [plateTotal, setPlateTotal] = useState('')
+
+  // Prefill the plate calculator with the heaviest logged set, like the
+  // design's "Total Weight 65.0 kg" default; the user can retype any target.
+  useEffect(() => {
+    if (!workout) return
+    const weights = (workout.sets ?? [])
+      .filter((s) => !s.is_warmup)
+      .map((s) => toDisplayWeight(num(s.weight_kg ?? s.weight)))
+      .filter((w) => w > 0)
+    if (weights.length > 0) {
+      setPlateTotal((current) => (current === '' ? Math.max(...weights).toFixed(1) : current))
+    }
+  }, [workout])
 
   useEffect(() => {
     const id = window.setInterval(() => setNow(Date.now()), 1000)
@@ -316,6 +367,14 @@ export function ActiveWorkout() {
     }
     return v
   }, [workout])
+
+  // Plate calculator breakdown for the typed/derived target weight.
+  const unit = getWeightUnit()
+  const plateBreakdown = useMemo(() => {
+    const total = Number(plateTotal)
+    if (!Number.isFinite(total) || total <= 0) return null
+    return { total, ...platesFor(total, unit) }
+  }, [plateTotal, unit])
 
   return (
     <>
@@ -652,6 +711,163 @@ export function ActiveWorkout() {
                   : t('forja.active.addSet', {}, { defaultValue: 'Add set' })}
               </button>
             </form>
+          </section>
+
+          <section
+            data-testid="plate-calculator"
+            className={cm.cn(
+              cm.flex({ direction: 'col', gap: 'sm' }),
+              cm.sp('p', 5),
+              'rounded-2xl bg-surface border border-outline/40 shadow-sm',
+            )}
+          >
+            <h3
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 2 }),
+                'text-sm font-bold text-on-surface',
+              )}
+            >
+              <span
+                aria-hidden="true"
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  cm.w(7),
+                  cm.h(7),
+                  cm.roundedFull,
+                  'bg-primary/15 text-primary shrink-0',
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-base')}>calculate</span>
+              </span>
+              {t('forja.active.plateCalculator.title', {}, { defaultValue: 'Plate Calculator' })}
+            </h3>
+            <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }))}>
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  'uppercase tracking-widest text-on-surface-variant',
+                )}
+              >
+                {t(
+                  'forja.active.plateCalculator.totalWeight',
+                  { unit },
+                  { defaultValue: 'Total weight ({{unit}})' },
+                )}
+              </span>
+              <input
+                data-testid="plate-total"
+                type="number"
+                inputMode="decimal"
+                step="2.5"
+                min="0"
+                value={plateTotal}
+                onChange={(e) => setPlateTotal(e.target.value)}
+                className={cm.cn(
+                  cm.sp('px', 3),
+                  cm.sp('py', 1),
+                  cm.textSize('sm'),
+                  cm.fontWeight('bold'),
+                  'w-28 tabular-nums rounded-lg border border-outline bg-input-background text-on-surface text-right',
+                )}
+                aria-label={t(
+                  'forja.active.plateCalculator.totalWeight',
+                  { unit },
+                  { defaultValue: 'Total weight ({{unit}})' },
+                )}
+              />
+            </div>
+            {/* Visual barbell: bar, collars, and the computed plates per side. */}
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center', gap: 1 }),
+                cm.sp('py', 2),
+              )}
+              role="img"
+              aria-label={t(
+                'forja.active.plateCalculator.visualLabel',
+                {},
+                { defaultValue: 'Loaded barbell visualization' },
+              )}
+            >
+              <span
+                aria-hidden="true"
+                className={cm.cn('h-1.5 flex-1 rounded bg-surface-variant')}
+              />
+              {(plateBreakdown?.plates ?? [])
+                .slice()
+                .reverse()
+                .map((p, i) => (
+                  <span
+                    key={`left-${p}-${i}`}
+                    aria-hidden="true"
+                    className={cm.cn(
+                      plateTone(p),
+                      'rounded-sm',
+                      p >= 10 ? 'w-3 h-9' : p >= 5 ? 'w-2.5 h-6' : 'w-1.5 h-4',
+                    )}
+                  />
+                ))}
+              <span
+                aria-hidden="true"
+                className={cm.cn('w-1.5 h-3 rounded-sm bg-surface-variant shrink-0')}
+              />
+              <span
+                aria-hidden="true"
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'px-2 tabular-nums text-on-surface shrink-0',
+                )}
+              >
+                {plateBreakdown ? plateBreakdown.total.toFixed(1) : '—'} {unit}
+              </span>
+              <span
+                aria-hidden="true"
+                className={cm.cn('w-1.5 h-3 rounded-sm bg-surface-variant shrink-0')}
+              />
+              {(plateBreakdown?.plates ?? []).map((p, i) => (
+                <span
+                  key={`right-${p}-${i}`}
+                  aria-hidden="true"
+                  className={cm.cn(
+                    plateTone(p),
+                    'rounded-sm',
+                    p >= 10 ? 'w-3 h-9' : p >= 5 ? 'w-2.5 h-6' : 'w-1.5 h-4',
+                  )}
+                />
+              ))}
+              <span
+                aria-hidden="true"
+                className={cm.cn('h-1.5 flex-1 rounded bg-surface-variant')}
+              />
+            </div>
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                'text-center text-on-surface-variant tabular-nums',
+              )}
+            >
+              {!plateBreakdown || plateBreakdown.plates.length === 0
+                ? t(
+                    'forja.active.plateCalculator.belowBar',
+                    { unit, bar: BAR_WEIGHT[unit] },
+                    {
+                      defaultValue:
+                        'Enter a total above the bar ({{bar}} {{unit}}) to see the plates per side.',
+                    },
+                  )
+                : t(
+                    'forja.active.plateCalculator.perSide',
+                    {
+                      plates:
+                        plateBreakdown.plates.map((p) => `${p}${unit}`).join(', ') +
+                        (plateBreakdown.leftover > 0
+                          ? ` (+${plateBreakdown.leftover.toFixed(2)}${unit})`
+                          : ''),
+                    },
+                    { defaultValue: 'Per side: {{plates}}' },
+                  )}
+            </p>
           </section>
 
           <section

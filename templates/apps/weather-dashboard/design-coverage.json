@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/dashboard": {
+      "allow": [
+        {
+          "heading": "Small Craft Advisory",
+          "reason": "Sample-data alert title from the design mock's alert banner. The /dashboard section exists and renders live alert banners (AlertBanner above the hero, fed by GET /api/alerts/location/:id) with severity tinting, the effective-until window, and dismiss; the headline is the dynamic alert record's title, never hardcoded copy."
+        }
+      ]
+    }
+  }
+}

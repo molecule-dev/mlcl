@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/dashboard": {
+      "allow": [
+        {
+          "heading": "Good morning, Alex.",
+          "reason": "The design's welcome-row greeting. The section exists (h1 with dynamic signed-in user name) but its copy is pinned by the app's e2e contract — e2e/dashboard.spec.ts asserts /good day/i on the heading — and spec copy wins over design sample copy. 'Alex' is design-sample user data; the app greets the real signed-in user."
+        }
+      ]
+    }
+  }
+}

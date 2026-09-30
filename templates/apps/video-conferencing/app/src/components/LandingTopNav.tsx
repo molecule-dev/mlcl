@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Public marketing chrome — the top navigation shared by the Landing page and
@@ -30,19 +30,7 @@ export function LandingTopNav({ showSectionLinks = false }: { showSectionLinks?:
       )}
     >
       <Link to="/" data-mol-id="nav-brand" className={cm.flex({ align: 'center', gap: 3 })}>
-        <div
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            'w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary shadow-lg shadow-primary/30',
-          )}
-        >
-          <span className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined text-on-primary')}>
-            videocam
-          </span>
-        </div>
-        <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
-          {APP_NAME}
-        </span>
+        <BrandWordmark as="span" />
       </Link>
 
       <nav className={cm.cn(cm.flex({ align: 'center', gap: 6 }), 'hidden md:flex')}>

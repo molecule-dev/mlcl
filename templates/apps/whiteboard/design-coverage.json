@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/boards": {
+      "allow": [
+        {
+          "heading": "Target Audience Mapping",
+          "reason": "Sample-data board name from the design mock's boards grid. The /boards section exists and renders board cards (thumbnail, title, group, relative updated time) fed by GET /api/boards; board titles are user-created data, never hardcoded copy."
+        }
+      ]
+    }
+  }
+}

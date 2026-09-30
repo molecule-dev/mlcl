@@ -1,5 +1,7 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
 
+import { APP_NAME } from '../src/branding.js'
+
 import { APP_BASE, captureNetwork, getAccessToken, signup, uniqueEmail } from './_helpers.js'
 
 test.describe('/login page', () => {
@@ -25,7 +27,7 @@ test.describe('/login page', () => {
 
   test('"schedule Chrono" landing logo link navigates to /', async ({ page }) => {
     await page.goto(APP_BASE + '/login')
-    await page.getByRole('link', { name: /schedule chrono/i }).click()
+    await page.getByRole('link', { name: APP_NAME }).click()
     await expect(page).toHaveURL(/\/$/)
   })
 

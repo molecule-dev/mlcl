@@ -102,7 +102,9 @@ export function WeatherDashboardLayout() {
 
   const brand = (
     <Link to="/dashboard" className={cm.cn(cm.sp('mb', 6))}>
-      <BrandWordmark size="md" />
+      {/* as="span": the slot already provides its own Link — a nested
+          BrandWordmark link would render <a> inside <a>. */}
+      <BrandWordmark as="span" size="md" />
     </Link>
   )
 
@@ -112,7 +114,7 @@ export function WeatherDashboardLayout() {
         mobileOnly
         brand={
           <Link to="/dashboard">
-            <BrandWordmark size="md" />
+            <BrandWordmark as="span" size="md" />
           </Link>
         }
         actions={<UserMenu />}

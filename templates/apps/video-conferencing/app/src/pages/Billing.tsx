@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -16,6 +16,18 @@ interface ApiStatus {
   name: string
   isFree: boolean
   limits: Record<string, number | boolean>
+}
+
+interface ApiMeeting {
+  id: string
+  starts_at?: string | null
+  ends_at?: string | null
+}
+
+interface UsageBucket {
+  label: string
+  minutes: number
+  inProgress: boolean
 }
 
 function unwrap<T>(value: unknown, fallback: T): T {
@@ -57,14 +69,19 @@ export function Billing() {
   const http = useHttpClient()
   const [tiers, setTiers] = useState<ApiTier[]>([])
   const [status, setStatus] = useState<ApiStatus | null>(null)
+  const [meetings, setMeetings] = useState<ApiMeeting[]>([])
   const [loading, setLoading] = useState(true)
   const [submitting, setSubmitting] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
-    Promise.allSettled([http.get('/api/billing/tiers'), http.get('/api/billing/status')])
-      .then(([tiersRes, statusRes]) => {
+    Promise.allSettled([
+      http.get('/api/billing/tiers'),
+      http.get('/api/billing/status'),
+      http.get('/api/meetings'),
+    ])
+      .then(([tiersRes, statusRes, meetingsRes]) => {
         if (cancelled) return
         if (tiersRes.status === 'fulfilled') {
           setTiers(unwrap<ApiTier[]>(tiersRes.value, []))
@@ -72,6 +89,9 @@ export function Billing() {
         if (statusRes.status === 'fulfilled') {
           const s = unwrapOne<ApiStatus | null>(statusRes.value, null)
           if (s && typeof s === 'object' && 'planKey' in s) setStatus(s)
+        }
+        if (meetingsRes.status === 'fulfilled') {
+          setMeetings(unwrap<ApiMeeting[]>(meetingsRes.value, []))
         }
       })
       .finally(() => {
@@ -81,6 +101,42 @@ export function Billing() {
       cancelled = true
     }
   }, [http])
+
+  // Usage forecast: meeting minutes per month over the trailing six months,
+  // with the current month still in progress (mirrors the design's dashed bar).
+  const usage = useMemo<{ buckets: UsageBucket[]; projectedHours: number }>(() => {
+    const now = new Date()
+    const months: UsageBucket[] = []
+    for (let i = 5; i >= 0; i--) {
+      const d = new Date(now.getFullYear(), now.getMonth() - i, 1)
+      months.push({
+        label: d.toLocaleString(undefined, { month: 'short' }),
+        minutes: 0,
+        inProgress: i === 0,
+      })
+    }
+    for (const m of meetings) {
+      if (!m.starts_at) continue
+      const start = new Date(m.starts_at).getTime()
+      const end = m.ends_at ? new Date(m.ends_at).getTime() : start
+      const minutes = Math.max(0, Math.round((end - start) / 60_000))
+      const d = new Date(m.starts_at)
+      const idx = (now.getFullYear() - d.getFullYear()) * 12 + (now.getMonth() - d.getMonth())
+      if (idx >= 0 && idx < months.length) months[months.length - 1 - idx].minutes += minutes
+    }
+    const complete = months.filter((b) => !b.inProgress && b.minutes > 0)
+    const avg =
+      complete.length > 0 ? complete.reduce((acc, b) => acc + b.minutes, 0) / complete.length : 0
+    const monthsLeft = 12 - (now.getMonth() + 1)
+    const yearSoFar = months.reduce((acc, b) => acc + b.minutes, 0)
+    const projectedHours = Math.round((yearSoFar + avg * monthsLeft) / 60)
+    return { buckets: months, projectedHours }
+  }, [meetings])
+
+  const usageMax = useMemo(
+    () => Math.max(1, ...usage.buckets.map((b) => b.minutes)),
+    [usage.buckets],
+  )
 
   const startCheckout = useCallback(
     async (priceId: string | null) => {
@@ -290,6 +346,96 @@ export function Billing() {
             })}
           </div>
         )}
+      </section>
+
+      <section
+        data-testid="usage-forecast"
+        className={cm.cn(
+          cm.stack(4),
+          cm.sp('p', 6),
+          'rounded-2xl border border-outline-variant/40 bg-surface-secondary shadow-sm',
+        )}
+      >
+        <h3
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 2 }),
+            cm.textSize('sm'),
+            cm.fontWeight('semibold'),
+            'text-on-surface',
+          )}
+        >
+          <span
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              cm.w(8),
+              cm.h(8),
+              cm.roundedFull,
+              'bg-primary/15 text-primary shrink-0',
+            )}
+            aria-hidden="true"
+          >
+            <span className={cm.cn(cm.textSize('base'), 'material-symbols-outlined')}>
+              trending_up
+            </span>
+          </span>
+          {t('billing.usageForecast', {}, { defaultValue: 'Usage forecast' })}
+        </h3>
+        <div
+          className={cm.cn(cm.flex({ align: 'end', gap: 2 }), cm.h(24))}
+          role="img"
+          aria-label={t(
+            'billing.usageChartLabel',
+            {},
+            { defaultValue: 'Meeting minutes per month, last six months' },
+          )}
+        >
+          {usage.buckets.map((b) => (
+            <div
+              key={b.label + b.minutes}
+              className={cm.cn(
+                cm.flex1,
+                'rounded-t-sm bg-primary/30 min-h-[6px]',
+                b.inProgress && 'border-t-2 border-dashed border-primary',
+              )}
+              style={{ height: `${Math.max(8, Math.round((b.minutes / usageMax) * 100))}%` }}
+              title={`${b.label}: ${b.minutes}`}
+            />
+          ))}
+        </div>
+        <div className={cm.flex({ justify: 'between', gap: 2 })}>
+          {usage.buckets.map((b) => (
+            <span
+              key={`label-${b.label}`}
+              className={cm.cn(
+                cm.flex1,
+                cm.textCenter,
+                cm.textSize('xs'),
+                'text-on-surface-variant',
+              )}
+            >
+              {b.label}
+            </span>
+          ))}
+        </div>
+        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+          {usage.buckets.every((b) => b.minutes === 0)
+            ? t(
+                'billing.usageEmpty',
+                {},
+                {
+                  defaultValue:
+                    'No meetings in the last six months yet — your forecast will appear as you meet.',
+                },
+              )
+            : t(
+                'billing.usageProjected',
+                { hours: usage.projectedHours },
+                {
+                  defaultValue:
+                    'Projected to reach ~{{hours}} h of meetings by year end based on current growth.',
+                },
+              )}
+        </p>
       </section>
     </div>
   )

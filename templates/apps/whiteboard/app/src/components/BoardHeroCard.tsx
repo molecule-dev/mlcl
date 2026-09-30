@@ -45,7 +45,7 @@ function LiveCursor({
         <path d="M7 2l12 11.2-5.8.5 3.3 7.3-2.2.9-3.2-7.4-4.4 5.2z" />
       </svg>
       <span
-        className="text-white text-xs font-bold px-1.5 py-0.5 rounded shadow-sm"
+        className="text-on-cursor text-xs font-bold px-1.5 py-0.5 rounded shadow-sm"
         style={{ backgroundColor: `var(${color})` }}
       >
         {name}
@@ -265,7 +265,7 @@ export function BoardHeroCard({ board }: BoardHeroCardProps) {
               cm.roundedFull,
               cm.textSize('xs'),
               cm.fontWeight('bold'),
-              'bg-surface-container-high text-on-surface-variant hidden sm:flex',
+              'bg-surface-container-high text-on-surface hidden sm:flex',
             )}
           >
             <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>

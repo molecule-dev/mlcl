@@ -33,7 +33,9 @@ export function LandingNav() {
         )}
       >
         <Link to="/" data-mol-id="landing-nav-home" className={cm.cn('group shrink-0')}>
-          <BrandWordmark size="md" />
+          {/* as="span": the slot already provides its own Link — a nested
+              BrandWordmark link would render <a> inside <a>. */}
+          <BrandWordmark as="span" size="md" />
         </Link>
         <div className={cm.flex({ align: 'center', gap: 'md' })}>
           {isAuthenticated ? (

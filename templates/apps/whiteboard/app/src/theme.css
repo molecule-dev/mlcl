@@ -7,7 +7,9 @@
   --color-secondary: #00c4a8;
   --color-secondary-hover: #00dbbe;
   --color-secondary-dark: #00a88e;
-  --color-canvas-accent: #a855f7;
+  /* Violet-600 — #a855f7 carried only 3.6:1 as text on canvas surfaces
+     (axe color-contrast serious); #9333ea clears 4.5:1 on every light surface. */
+  --color-canvas-accent: #9333ea;
 
   /* Canvas */
   --color-canvas-bg: #fafafa;
@@ -27,6 +29,9 @@
   --color-cursor-orange: #f97316;
   --color-cursor-cyan: #06b6d4;
   --color-cursor-pink: #ec4899;
+  /* Ink for text ON the cursor chips — the saturated hues carry white text
+     below 4.5:1 (axe color-contrast), so chips use this dark ink instead. */
+  --color-on-cursor: #160040;
 
   /* Background */
   --color-bg: #ffffff;
@@ -174,6 +179,8 @@
   --color-cursor-orange: #fb923c;
   --color-cursor-cyan: #22d3ee;
   --color-cursor-pink: #f472b6;
+  /* Brighter cursor hues still pair with the dark ink (≥ 5:1 on all three). */
+  --color-on-cursor: #160040;
 
   /* Background */
   --color-bg: #0f0f17;

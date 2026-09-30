@@ -5,7 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const DEVICES = {
   microphones: ['Default — MacBook Pro Mic', 'AirPods Pro', 'External USB Mic'],
@@ -82,15 +82,7 @@ export function Lobby() {
       />
 
       <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }), cm.sp('mb', 8), 'relative z-10')}>
-        <div
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            'w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary shadow-lg shadow-primary/40',
-          )}
-        >
-          <span className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}>videocam</span>
-        </div>
-        <h1 className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>{APP_NAME}</h1>
+        <BrandWordmark as="span" invert heading />
       </div>
 
       <div

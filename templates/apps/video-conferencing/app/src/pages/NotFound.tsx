@@ -36,7 +36,7 @@ export function NotFound() {
             'uppercase tracking-widest text-secondary',
           )}
         >
-          404 · {APP_NAME}
+          {t('notFound.brand', { app: APP_NAME }, { defaultValue: '404 · {{app}}' })}
         </p>
         <h1 className={cm.cn('text-5xl font-extrabold tracking-tight')}>
           {t('notFound.title', {}, { defaultValue: 'Page not found' })}

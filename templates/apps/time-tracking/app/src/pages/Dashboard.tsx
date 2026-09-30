@@ -187,6 +187,7 @@ export function Dashboard() {
         <div className={cm.stack(2)}>
           <h1
             className={cm.cn(cm.textSize('4xl'), 'font-extrabold tracking-tight text-foreground')}
+            data-test="dashboard-greeting"
           >
             {t(
               'dashboard.greeting',
@@ -197,8 +198,8 @@ export function Dashboard() {
           <p className={cm.cn(cm.textSize('lg'), 'text-foreground-secondary')}>
             {t(
               'dashboard.subtitle',
-              {},
-              { defaultValue: "Here's what your day looks like. Keep the timer running." },
+              { hours: formatHourMinute(stats.trackedToday) },
+              { defaultValue: "Ready to focus? You've logged {{hours}} today." },
             )}
           </p>
         </div>

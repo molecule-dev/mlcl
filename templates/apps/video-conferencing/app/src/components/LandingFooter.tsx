@@ -5,6 +5,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 
 /**
@@ -38,16 +39,9 @@ export function LandingFooter() {
       )}
     >
       <div className={cm.cn(cm.mxAuto, 'max-w-[1400px]')}>
-        <span
-          className={cm.cn(
-            cm.textSize('xl'),
-            cm.fontWeight('bold'),
-            cm.sp('mb', 10),
-            'font-headline tracking-tight text-primary',
-          )}
-        >
-          {APP_NAME}
-        </span>
+        <div className={cm.sp('mb', 10)}>
+          <BrandWordmark as="span" footer />
+        </div>
         <div className={cm.cn('grid grid-cols-2 gap-10 md:grid-cols-4', cm.sp('mt', 8))}>
           <div>
             <h4 className={columnHeading}>

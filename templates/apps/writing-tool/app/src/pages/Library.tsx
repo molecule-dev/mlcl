@@ -100,6 +100,17 @@ export function Library() {
     return pinned ?? docs[0] ?? null
   }, [docs])
 
+  // Continue Writing — the manuscript touched most recently, resumed in one
+  // click (the design's "Resume: Chapter 3 — …" banner, fed by live data).
+  const continueDoc = useMemo(
+    () =>
+      docs
+        .slice()
+        .sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())[0] ??
+      null,
+    [docs],
+  )
+
   const handleNewDoc = useCallback(async () => {
     if (creating) return
     setCreating(true)
@@ -353,6 +364,74 @@ export function Library() {
               tags={tagsOf(featuredDoc)}
               ctaHref={`/editor/${featuredDoc.id}`}
             />
+          ) : null}
+
+          {continueDoc ? (
+            <aside
+              data-testid="continue-writing"
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+                cm.sp('p', 4),
+                'rounded-xl bg-primary/5 border border-primary/10 shadow-sm',
+              )}
+            >
+              <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0')}>
+                <span
+                  aria-hidden="true"
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    cm.w(10),
+                    cm.h(10),
+                    'rounded-lg bg-surface text-primary border border-primary/10 shrink-0',
+                  )}
+                >
+                  <span
+                    className={cm.cn('material-symbols-outlined text-[20px]')}
+                    style={{ fontVariationSettings: "'FILL' 1" }}
+                  >
+                    bookmark
+                  </span>
+                </span>
+                <div className={cm.cn('min-w-0')}>
+                  <p
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'text-primary uppercase tracking-wider mb-0.5',
+                    )}
+                  >
+                    {t('library.continueWriting', {}, { defaultValue: 'Continue Writing' })}
+                  </p>
+                  <h3
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('semibold'),
+                      'text-on-surface truncate',
+                    )}
+                  >
+                    {t(
+                      'library.resume',
+                      { title: continueDoc.title },
+                      { defaultValue: 'Resume: {{title}}' },
+                    )}
+                  </h3>
+                </div>
+              </div>
+              <Link
+                to={`/editor/${continueDoc.id}`}
+                data-mol-id="continue-writing-open"
+                data-testid="continue-writing-open"
+                className={cm.cn(
+                  cm.sp('px', 4),
+                  cm.sp('py', 2),
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  'text-primary hover:bg-primary/10 rounded-lg transition-colors shrink-0',
+                )}
+              >
+                {t('library.open', {}, { defaultValue: 'Open' })}
+              </Link>
+            </aside>
           ) : null}
 
           <section>

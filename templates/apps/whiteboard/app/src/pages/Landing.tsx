@@ -126,7 +126,9 @@ export function Landing() {
           )}
         >
           <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-            <BrandWordmark size="md" />
+            {/* as="span": the slot already provides its own Link — a nested
+                BrandWordmark link would render <a> inside <a>. */}
+            <BrandWordmark as="span" size="md" />
             <span
               className={cm.cn(
                 'font-handwriting text-canvas-accent text-2xl font-bold leading-none',
@@ -222,7 +224,7 @@ export function Landing() {
                   cm.roundedFull,
                   cm.textSize('sm'),
                   cm.fontWeight('medium'),
-                  'self-start bg-primary-light text-primary border border-primary/10',
+                  'self-start bg-primary-light text-primary-dark border border-primary/10',
                 )}
               >
                 <span

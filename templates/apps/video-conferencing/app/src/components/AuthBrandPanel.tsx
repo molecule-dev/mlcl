@@ -12,6 +12,8 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 
+import { BrandWordmark } from './BrandWordmark.js'
+
 export function AuthBrandPanel() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -25,29 +27,17 @@ export function AuthBrandPanel() {
       )}
     >
       <div className={cm.cn('relative z-10', cm.stack(6))}>
-        <div className={cm.flex({ align: 'center', gap: 3 })}>
-          <div
+        <div className={cm.stack(2)}>
+          <p
             className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'w-12 h-12 rounded-2xl bg-surface/20 backdrop-blur-md',
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'uppercase tracking-widest text-on-primary/70',
             )}
           >
-            <span className={cm.cn(cm.textSize('2xl'), 'material-symbols-outlined')}>videocam</span>
-          </div>
-          <div>
-            <p
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                'uppercase tracking-widest text-on-primary/70',
-              )}
-            >
-              {t('auth.eyebrow', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
-            </p>
-            <h1 className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
-              {APP_NAME}
-            </h1>
-          </div>
+            {t('auth.eyebrow', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
+          </p>
+          <BrandWordmark as="span" invert />
         </div>
         <h2 className={cm.cn('text-4xl font-extrabold leading-[1.1] tracking-tight max-w-md')}>
           {t('app.tagline', {}, { defaultValue: 'Where teams come alive' })}
