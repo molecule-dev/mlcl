@@ -35,10 +35,7 @@ export function BrandWordmark({
   const mark = (
     <span
       data-mol-id={footer ? 'brand-wordmark-footer' : 'brand-wordmark'}
-      className={cm.cn(
-        'font-black tracking-tighter text-primary leading-none truncate',
-        textSize,
-      )}
+      className={cm.cn('font-black tracking-tighter text-primary leading-none truncate', textSize)}
     >
       {APP_NAME}
     </span>

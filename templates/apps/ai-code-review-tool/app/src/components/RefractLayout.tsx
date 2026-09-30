@@ -192,11 +192,7 @@ function MobileTopBar({ onOpenMenu }: { onOpenMenu: () => void }) {
           menu
         </span>
       </button>
-      <Link
-        to="/dashboard"
-        className={cm.cn('shrink-0 min-w-0 truncate')}
-        aria-label={APP_NAME}
-      >
+      <Link to="/dashboard" className={cm.cn('shrink-0 min-w-0 truncate')} aria-label={APP_NAME}>
         <BrandWordmark as="span" size="sm" />
       </Link>
       <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-1 shrink-0')}>

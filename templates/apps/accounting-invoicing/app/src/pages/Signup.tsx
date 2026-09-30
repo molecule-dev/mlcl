@@ -87,9 +87,7 @@ export function Signup() {
           'w-full md:w-[45%] lg:p-12 relative',
         )}
       >
-        <div
-          className={cm.cn('md:hidden self-start mb-10')}
-        >
+        <div className={cm.cn('md:hidden self-start mb-10')}>
           <BrandWordmark as="span" size="lg" />
         </div>
 

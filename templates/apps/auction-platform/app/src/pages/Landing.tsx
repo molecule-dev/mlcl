@@ -155,10 +155,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link
-            to="/#top"
-            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
-          >
+          <Link to="/#top" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
             <BrandWordmark as="span" size="md" />
           </Link>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>

@@ -97,11 +97,7 @@ export function ClarionMobileShell({ navItems, userMenu }: ClarionMobileShellPro
               menu
             </span>
           </button>
-          <Link
-            to="/dashboard"
-            className={cm.cn('truncate', FOCUS_RING)}
-            aria-label={APP_NAME}
-          >
+          <Link to="/dashboard" className={cm.cn('truncate', FOCUS_RING)} aria-label={APP_NAME}>
             <BrandWordmark as="span" size="md" />
           </Link>
         </div>

@@ -136,7 +136,11 @@ export function SignetLayout() {
           overflowY: 'auto',
         }}
       >
-        <Link to="/dashboard" className={cm.cn('inline-block', cm.sp('mb', 2))} aria-label={APP_NAME}>
+        <Link
+          to="/dashboard"
+          className={cm.cn('inline-block', cm.sp('mb', 2))}
+          aria-label={APP_NAME}
+        >
           <BrandWordmark as="span" size="md" />
         </Link>
         <nav className={cm.cn(cm.flex({ direction: 'col' }), 'gap-1')}>

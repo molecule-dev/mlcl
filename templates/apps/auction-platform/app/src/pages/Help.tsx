@@ -103,10 +103,7 @@ export function Help() {
             cm.mxAuto,
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
-          >
+          <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
             <BrandWordmark as="span" size="md" />
           </Link>
           <Link

@@ -56,9 +56,7 @@ export function BrandWordmark({
         )}
       >
         {/* Tile owns the sizing/centering — never the glyph span. */}
-        <span className={cm.cn('material-symbols-outlined', glyphSize)}>
-          local_fire_department
-        </span>
+        <span className={cm.cn('material-symbols-outlined', glyphSize)}>local_fire_department</span>
       </span>
       <span className="flex flex-col min-w-0">
         <span

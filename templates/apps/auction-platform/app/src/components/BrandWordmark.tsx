@@ -38,13 +38,7 @@ export function BrandWordmark({
 }) {
   const cm = getClassMap()
   const tile =
-    size === 'sm'
-      ? 'w-7 h-7'
-      : size === 'md'
-        ? 'w-8 h-8'
-        : size === 'lg'
-          ? 'w-9 h-9'
-          : 'w-10 h-10'
+    size === 'sm' ? 'w-7 h-7' : size === 'md' ? 'w-8 h-8' : size === 'lg' ? 'w-9 h-9' : 'w-10 h-10'
   const glyph =
     size === 'sm'
       ? cm.textSize('base')

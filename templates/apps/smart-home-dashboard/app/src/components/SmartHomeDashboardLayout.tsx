@@ -89,10 +89,7 @@ export function SmartHomeDashboardLayout() {
   })
 
   const brandLink = (
-    <Link
-      to="/overview"
-      className={cm.cn(cm.sp('mb', 6), cm.sp('px', 4), cm.displayBlock)}
-    >
+    <Link to="/overview" className={cm.cn(cm.sp('mb', 6), cm.sp('px', 4), cm.displayBlock)}>
       <BrandWordmark as="span" size="md" />
     </Link>
   )

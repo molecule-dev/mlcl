@@ -78,9 +78,7 @@ export function ResetPassword() {
           'w-full md:w-[45%] lg:p-16 relative',
         )}
       >
-        <div
-          className={cm.cn('md:hidden self-start mb-12')}
-        >
+        <div className={cm.cn('md:hidden self-start mb-12')}>
           <BrandWordmark as="span" size="lg" />
         </div>
 
