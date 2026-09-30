@@ -19,7 +19,7 @@
     "code-generation",
     "mcp"
   ],
-  "homepage": "https://molecule.dev",
+  "homepage": "https://www.molecule.dev/mlcl",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/molecule-dev/mlcl.git"
