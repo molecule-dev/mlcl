@@ -98,7 +98,11 @@ function ModelLibraryHeader({ search, onSearch }: HeaderProps) {
               {t('header.uploadModel', {}, { defaultValue: 'Upload Model' })}
             </span>
           </Link>
-          <UserMenu />
+          {/* Styled host for the shared control — bare, it reads as an
+              unstyled browser widget bolted onto the styled header. */}
+          <div className="text-on-surface-variant hover:text-on-surface hover:bg-surface/5 rounded-lg transition-colors">
+            <UserMenu />
+          </div>
         </div>
       </div>
     </header>

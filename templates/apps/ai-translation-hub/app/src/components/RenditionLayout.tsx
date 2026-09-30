@@ -123,7 +123,17 @@ export function RenditionLayout() {
         }
         actions={<ThemeToggle />}
       />
-      <ResponsiveAppShell.Sidebar navLabel={navAriaLabel} footer={<UserMenu />}>
+      {/* Sidebar bottom bar — styled to match the sidebar. Without the
+          wrapper, UserMenu renders as a bare browser control bolted onto a
+          styled sidebar. */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navAriaLabel}
+        footer={
+          <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+            <UserMenu />
+          </div>
+        }
+      >
         {nav}
       </ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer

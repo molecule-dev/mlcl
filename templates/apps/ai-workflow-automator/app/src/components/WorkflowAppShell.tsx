@@ -128,8 +128,14 @@ export function WorkflowAppShell({
                 {t('workflowAppShell.newWorkflowShort', {}, { defaultValue: 'New' })}
               </span>
             </SafeLink>
-            <ThemeToggle />
-            <UserMenu />
+            {/* Styled hosts for the shared controls — bare, they read as
+                unstyled browser widgets bolted onto the styled top bar. */}
+            <div className="text-foreground-secondary hover:text-foreground transition-colors rounded-lg hover:bg-surface/10">
+              <ThemeToggle />
+            </div>
+            <div className="text-foreground-secondary hover:text-foreground transition-colors">
+              <UserMenu />
+            </div>
           </div>
         </header>
 

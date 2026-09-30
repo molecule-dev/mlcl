@@ -86,8 +86,14 @@ export function AiImageGeneratorTopBar({
             <span className={cm.cn('font-mono')}>{credits.toLocaleString()}</span>
           </span>
         )}
-        <ThemeToggle />
-        <UserMenu />
+        {/* Styled hosts for the shared controls — bare, they read as
+            unstyled browser widgets bolted onto the styled bar. */}
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+          <ThemeToggle />
+        </div>
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+          <UserMenu />
+        </div>
       </div>
     </header>
   )

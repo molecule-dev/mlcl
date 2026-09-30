@@ -113,7 +113,11 @@ export function TopAppBar({ title, ctaLabel, ctaTo, onCta }: TopAppBarProps) {
             </ul>
           )}
         </div>
-        <ThemeToggle />
+        {/* Styled hosts for the shared controls — bare, they read as
+            unstyled browser widgets bolted onto the styled bar. */}
+        <div className="text-foreground-tertiary rounded transition-colors hover:bg-surface/10">
+          <ThemeToggle />
+        </div>
         <button
           aria-label={t('settings.notifications', {}, { defaultValue: 'Notifications' })}
           className={
@@ -129,7 +133,9 @@ export function TopAppBar({ title, ctaLabel, ctaTo, onCta }: TopAppBarProps) {
             notifications
           </span>
         </button>
-        <UserMenu />
+        <div className="text-foreground-tertiary rounded transition-colors hover:bg-surface/10">
+          <UserMenu />
+        </div>
         {ctaLabel && (
           <button
             className={cm.cn(

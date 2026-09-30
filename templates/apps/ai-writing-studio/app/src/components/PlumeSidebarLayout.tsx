@@ -124,11 +124,21 @@ export function PlumeSidebarLayout() {
         navLabel={navLabel}
         className={cm.sp('p', 4)}
         footer={
-          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
-            <div className={cm.cn(cm.flex({ justify: 'end' }))}>
+          /* Sidebar bottom bar — styled to match the sidebar's serif editorial
+             design. Without this, UserMenu + ThemeToggle render as bare
+             browser controls bolted onto a styled sidebar. */
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
               <ThemeToggle />
             </div>
-            <UserMenu />
           </div>
         }
       >

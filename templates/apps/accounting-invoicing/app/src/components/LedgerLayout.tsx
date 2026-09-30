@@ -119,10 +119,17 @@ export function LedgerLayout() {
         shared Sidebar has no header slot, so it rides inside `children`; the
         user menu sits in the bordered footer row.
       */}
+      {/* Sidebar bottom bar — styled to match the sidebar. Without the
+          wrapper, UserMenu renders as a bare browser control bolted onto a
+          styled sidebar. */}
       <ResponsiveAppShell.Sidebar
         navLabel={navLabel}
         className={cm.sp('p', 4)}
-        footer={<UserMenu />}
+        footer={
+          <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+            <UserMenu />
+          </div>
+        }
       >
         <div
           className={cm.cn(
@@ -137,7 +144,9 @@ export function LedgerLayout() {
           >
             <BrandWordmark as="span" size="md" />
           </Link>
-          <ThemeToggle />
+          <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+            <ThemeToggle />
+          </div>
         </div>
         <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>{navItems}</ul>
       </ResponsiveAppShell.Sidebar>

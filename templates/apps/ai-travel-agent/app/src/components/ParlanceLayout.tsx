@@ -82,7 +82,13 @@ export function ParlanceLayout() {
         appName={APP_NAME}
         logoTo="/talk"
         navItems={navItems}
-        userMenu={<UserMenu />}
+        // Styled host for the shared control — bare, it reads as an unstyled
+        // browser widget in the shared shell's bordered footer row.
+        userMenu={
+          <div className="w-full text-on-surface-variant hover:text-on-surface transition-colors">
+            <UserMenu />
+          </div>
+        }
         navAriaLabel={t(
           'parlanceLayout.primaryNavLabel',
           {},

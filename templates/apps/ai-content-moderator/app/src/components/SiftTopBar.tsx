@@ -136,8 +136,14 @@ export function SiftTopBarActions({ actions, showSearch = true }: SiftTopBarActi
           notifications
         </span>
       </SafeLink>
-      <ThemeToggle />
-      <UserMenu />
+      {/* Styled hosts for the shared controls — bare, they read as unstyled
+          browser widgets bolted onto the styled console top bar. */}
+      <div className="text-foreground-secondary hover:text-primary transition-colors rounded-md">
+        <ThemeToggle />
+      </div>
+      <div className="text-foreground-secondary hover:text-primary transition-colors rounded-md">
+        <UserMenu />
+      </div>
     </>
   )
 }
