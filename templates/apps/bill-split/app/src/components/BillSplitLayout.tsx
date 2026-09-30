@@ -119,10 +119,13 @@ export function BillSplitLayout() {
   // Shell chrome actions — each control wrapped so UserMenu + ThemeToggle
   // never render as bare browser controls bolted onto a styled sidebar
   // (token text colors + hover, matching the app's M3 design language).
+  // These mount in the left sidebar's footer row (and the mobile drawer's
+  // footer — the same left-panel geometry), so the user drawer opens from
+  // the LEFT, adjacent to the trigger.
   const actions = (
     <>
       <div className="text-on-surface-variant hover:text-on-surface transition-colors">
-        <UserMenu />
+        <UserMenu side="left" />
       </div>
       <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
         <ThemeToggle />

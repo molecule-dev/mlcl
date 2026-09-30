@@ -16,7 +16,7 @@ function UserMenuPanel() {
  * Terms, Privacy) share the same header — logged-out visitors get auth
  * entry points instead of the signed-in panel.
  */
-export function UserMenu() {
+export function UserMenu({ side }: { side?: 'left' | 'right' }) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const isAuthenticated = useIsAuthenticated()
@@ -53,7 +53,7 @@ export function UserMenu() {
   }
 
   return (
-    <MoleculeUserMenu>
+    <MoleculeUserMenu side={side}>
       <UserMenuPanel />
     </MoleculeUserMenu>
   )

@@ -94,7 +94,7 @@ export function FugueLayout() {
         <ResponsiveAppShell.Sidebar
           navLabel={navAriaLabel}
           className={cm.sp('p', 4)}
-          footer={<UserMenu />}
+          footer={<UserMenu side="left" />}
         >
           <Link to="/dashboard" className={cm.cn(cm.sp('mb', 6), cm.displayBlock)}>
             <BrandWordmark as="span" />

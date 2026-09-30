@@ -124,7 +124,7 @@ export function DigitalGoodsStoreLayout() {
             )}
           >
             <div className="text-on-surface-variant hover:text-on-surface transition-colors">
-              <UserMenu />
+              <UserMenu side="left" />
             </div>
           </div>
         </div>

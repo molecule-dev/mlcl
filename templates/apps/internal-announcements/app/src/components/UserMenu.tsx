@@ -6,9 +6,9 @@ function UserMenuPanel() {
   return <SettingsPanel onClose={usePanelClose()} />
 }
 
-export function UserMenu() {
+export function UserMenu({ side }: { side?: 'left' | 'right' }) {
   return (
-    <MoleculeUserMenu>
+    <MoleculeUserMenu side={side}>
       <UserMenuPanel />
     </MoleculeUserMenu>
   )

@@ -46,11 +46,11 @@ function SignedOutLinks() {
   )
 }
 
-export function UserMenu() {
+export function UserMenu({ side }: { side?: 'left' | 'right' }) {
   const isAuthenticated = useIsAuthenticated()
   if (!isAuthenticated) return <SignedOutLinks />
   return (
-    <MoleculeUserMenu>
+    <MoleculeUserMenu side={side}>
       <UserMenuPanel />
     </MoleculeUserMenu>
   )

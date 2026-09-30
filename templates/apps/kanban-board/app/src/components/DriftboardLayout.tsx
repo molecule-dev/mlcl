@@ -266,7 +266,7 @@ export function DriftboardLayout(): ReactElement {
                   cm.sp('pt', 4),
                 )}
               >
-                <UserMenu />
+                <UserMenu side="left" />
               </div>
             </div>
           </div>
@@ -284,7 +284,7 @@ export function DriftboardLayout(): ReactElement {
       appName={APP_NAME}
       logoTo="/dashboard"
       navItems={navItems}
-      userMenu={<UserMenu />}
+      userMenu={<UserMenu side="left" />}
       navAriaLabel={navAriaLabel}
     />
   )

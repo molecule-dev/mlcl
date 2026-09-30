@@ -10,7 +10,7 @@ function UserMenuPanel() {
   return <SettingsPanel onClose={usePanelClose()} />
 }
 
-export function UserMenu() {
+export function UserMenu({ side }: { side?: 'left' | 'right' }) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const isAuthenticated = useIsAuthenticated()
@@ -49,7 +49,7 @@ export function UserMenu() {
   }
 
   return (
-    <MoleculeUserMenu>
+    <MoleculeUserMenu side={side}>
       <UserMenuPanel />
     </MoleculeUserMenu>
   )

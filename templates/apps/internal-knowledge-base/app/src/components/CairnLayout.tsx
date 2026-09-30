@@ -113,7 +113,7 @@ export function CairnLayout() {
             )}
           >
             <div className="text-on-surface-variant hover:text-on-surface transition-colors">
-              <UserMenu />
+              <UserMenu side="left" />
             </div>
             <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
               <ThemeToggle />

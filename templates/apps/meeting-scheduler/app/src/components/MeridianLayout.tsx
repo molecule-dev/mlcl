@@ -111,7 +111,7 @@ export function MeridianLayout() {
     <ResponsiveAppShell sidebarWidth="md" className="text-on-surface antialiased">
       {/* Mobile-only: the desktop sidebar carries the brand and the user menu. */}
       <ResponsiveAppShell.TopBar mobileOnly brand={<BrandMark cm={cm} />} actions={<UserMenu />} />
-      <ResponsiveAppShell.Sidebar navLabel={navAriaLabel} footer={<UserMenu />}>
+      <ResponsiveAppShell.Sidebar navLabel={navAriaLabel} footer={<UserMenu side="left" />}>
         <div className={cm.sp('p', 3)}>
           <BrandMark cm={cm} />
         </div>

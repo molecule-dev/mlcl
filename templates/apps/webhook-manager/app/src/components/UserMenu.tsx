@@ -8,7 +8,7 @@ function UserMenuPanel() {
 
 export function UserMenu() {
   return (
-    <MoleculeUserMenu>
+    <MoleculeUserMenu side="left">
       <UserMenuPanel />
     </MoleculeUserMenu>
   )

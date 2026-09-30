@@ -8,7 +8,7 @@ function UserMenuPanel() {
 
 export function UserMenu() {
   return (
-    <MoleculeUserMenu className="min-h-[36px] min-w-[36px]">
+    <MoleculeUserMenu className="min-h-[36px] min-w-[36px]" side="left">
       <UserMenuPanel />
     </MoleculeUserMenu>
   )

@@ -102,10 +102,11 @@ export function EnergyMonitoringLayout() {
     </div>
   )
 
-  // Nudge the shared UserMenu trigger to a 36px+ tap target.
+  // Nudge the shared UserMenu trigger to a 36px+ tap target. The menu lives
+  // in the left sidebar/drawer footer, so its panel opens from the left too.
   const userMenu = (
     <span className="inline-flex [&_button]:min-h-[36px] [&_button]:min-w-[36px]">
-      <UserMenu />
+      <UserMenu side="left" />
     </span>
   )
 

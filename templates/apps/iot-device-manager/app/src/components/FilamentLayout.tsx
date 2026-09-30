@@ -40,7 +40,7 @@ export function FilamentLayout() {
       appName={APP_NAME}
       logoTo="/dashboard"
       navItems={navItems}
-      userMenu={<UserMenu />}
+      userMenu={<UserMenu side="left" />}
       navAriaLabel={t('filamentLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })}
     />
   )

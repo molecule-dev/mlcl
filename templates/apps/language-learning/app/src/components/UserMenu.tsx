@@ -8,7 +8,9 @@ function UserMenuPanel() {
 
 export function UserMenu() {
   return (
-    <MoleculeUserMenu>
+    // Sidebar-only trigger (bottom-left of the shared SidebarLayout aside):
+    // open the panel from the left, adjacent to the trigger.
+    <MoleculeUserMenu side="left">
       <UserMenuPanel />
     </MoleculeUserMenu>
   )

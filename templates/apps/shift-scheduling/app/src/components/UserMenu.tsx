@@ -50,7 +50,8 @@ export function UserMenu() {
   const isAuthenticated = useIsAuthenticated()
   if (!isAuthenticated) return <SignedOutLinks />
   return (
-    <MoleculeUserMenu>
+    // Left-sidebar trigger: the panel opens adjacent to it, not across the screen.
+    <MoleculeUserMenu side="left">
       <UserMenuPanel />
     </MoleculeUserMenu>
   )

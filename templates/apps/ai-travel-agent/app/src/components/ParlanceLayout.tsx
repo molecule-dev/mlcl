@@ -83,10 +83,12 @@ export function ParlanceLayout() {
         logoTo="/talk"
         navItems={navItems}
         // Styled host for the shared control — bare, it reads as an unstyled
-        // browser widget in the shared shell's bordered footer row.
+        // browser widget in the shared shell's bordered footer row. The
+        // trigger sits at the sidebar's bottom-LEFT, so the drawer opens
+        // from the left (`side="left"`), adjacent to it.
         userMenu={
           <div className="w-full text-on-surface-variant hover:text-on-surface transition-colors">
-            <UserMenu />
+            <UserMenu side="left" />
           </div>
         }
         navAriaLabel={t(

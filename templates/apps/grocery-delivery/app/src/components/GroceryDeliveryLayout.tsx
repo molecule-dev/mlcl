@@ -112,7 +112,7 @@ export function GroceryDeliveryLayout() {
           >
             <div className="text-on-surface-variant hover:text-on-surface transition-colors">
               <span className="inline-flex">
-                <UserMenu />
+                <UserMenu side="left" />
               </span>
             </div>
           </div>

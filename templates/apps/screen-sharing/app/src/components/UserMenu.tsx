@@ -8,7 +8,8 @@ function UserMenuPanel() {
 
 export function UserMenu() {
   return (
-    <MoleculeUserMenu>
+    // Left-sidebar trigger: the panel opens adjacent to it, not across the screen.
+    <MoleculeUserMenu side="left">
       <UserMenuPanel />
     </MoleculeUserMenu>
   )

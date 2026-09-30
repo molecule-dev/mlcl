@@ -196,7 +196,7 @@ export function MentalHealthJournalLayout() {
       appName={APP_NAME}
       logoTo="/home"
       navItems={navItems}
-      userMenu={<UserMenu />}
+      userMenu={<UserMenu side="left" />}
       navAriaLabel={t(
         'mentalHealthJournalLayout.primaryNavLabel',
         {},

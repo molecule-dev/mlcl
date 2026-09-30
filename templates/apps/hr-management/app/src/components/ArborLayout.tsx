@@ -228,7 +228,7 @@ export function ArborLayout(): ReactElement {
                     control inside the styled drawer footer (fleet chrome
                     pattern). */}
                 <div className="text-on-surface-variant hover:text-on-surface transition-colors">
-                  <UserMenu />
+                  <UserMenu side="left" />
                 </div>
               </div>
             </div>
@@ -247,7 +247,7 @@ export function ArborLayout(): ReactElement {
       appName={APP_NAME}
       logoTo="/dashboard"
       navItems={navItems}
-      userMenu={<UserMenu />}
+      userMenu={<UserMenu side="left" />}
       navAriaLabel={navAriaLabel}
     />
   )

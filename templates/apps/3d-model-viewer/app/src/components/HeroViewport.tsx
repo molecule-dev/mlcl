@@ -152,6 +152,9 @@ function HeroViewport() {
         )}
       >
         <button
+          type="button"
+          aria-label={t('heroViewport.rotateTool', {}, { defaultValue: 'Rotate view' })}
+          aria-pressed={activeTool === 'rotate'}
           className={
             activeTool === 'rotate'
               ? 'text-primary hover:text-primary-container transition-colors p-1.5 rounded-md'
@@ -162,6 +165,9 @@ function HeroViewport() {
           <span className="material-symbols-outlined text-[20px]">360</span>
         </button>
         <button
+          type="button"
+          aria-label={t('heroViewport.panTool', {}, { defaultValue: 'Pan view' })}
+          aria-pressed={activeTool === 'pan'}
           className={
             activeTool === 'pan'
               ? 'text-primary hover:text-primary-container transition-colors p-1.5 rounded-md'
@@ -172,6 +178,9 @@ function HeroViewport() {
           <span className="material-symbols-outlined text-[20px]">pan_tool</span>
         </button>
         <button
+          type="button"
+          aria-label={t('heroViewport.zoomTool', {}, { defaultValue: 'Zoom view' })}
+          aria-pressed={activeTool === 'zoom'}
           className={
             activeTool === 'zoom'
               ? 'text-primary hover:text-primary-container transition-colors p-1.5 rounded-md'
@@ -182,6 +191,9 @@ function HeroViewport() {
           <span className="material-symbols-outlined text-[20px]">zoom_in</span>
         </button>
         <button
+          type="button"
+          aria-label={t('heroViewport.layersTool', {}, { defaultValue: 'Toggle layers' })}
+          aria-pressed={activeTool === 'layers'}
           className={
             activeTool === 'layers'
               ? 'text-primary hover:text-primary-container transition-colors p-1.5 rounded-md'

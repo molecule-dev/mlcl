@@ -133,7 +133,7 @@ export function SignalinkLayout() {
             )}
           >
             <div className="text-on-surface-variant hover:text-on-surface transition-colors">
-              <UserMenu />
+              <UserMenu side="left" />
             </div>
           </div>
         }
@@ -151,7 +151,7 @@ export function SignalinkLayout() {
             )}
           >
             <div className="text-on-surface-variant hover:text-on-surface transition-colors">
-              <UserMenu />
+              <UserMenu side="left" />
             </div>
           </div>
         }

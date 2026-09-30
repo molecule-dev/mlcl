@@ -129,7 +129,7 @@ export function NewsAggregatorLayout() {
       <ResponsiveAppShell.Sidebar
         navLabel={navLabel}
         className={cm.sp('p', 4)}
-        footer={<UserMenu />}
+        footer={<UserMenu side="left" />}
       >
         <Link to="/home" className={cm.cn(cm.sp('mb', 6), 'block')}>
           <BrandWordmark as="span" />
@@ -152,7 +152,7 @@ export function NewsAggregatorLayout() {
             <BrandWordmark as="span" />
           </Link>
         }
-        footer={<UserMenu />}
+        footer={<UserMenu side="left" />}
       >
         {navItems}
       </ResponsiveAppShell.Drawer>

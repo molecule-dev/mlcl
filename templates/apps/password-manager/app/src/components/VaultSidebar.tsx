@@ -298,7 +298,7 @@ export function VaultSidebarFooter({ vaultStrength }: VaultSidebarFooterProps) {
             )}
           </span>
         </div>
-        <UserMenu />
+        <UserMenu side="left" />
       </div>
     </div>
   )
