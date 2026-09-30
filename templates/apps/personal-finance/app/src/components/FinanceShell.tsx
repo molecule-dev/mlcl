@@ -8,6 +8,8 @@ import { ResponsiveAppShell, SidebarUserCard, usePanelClose } from '@molecule/ap
 
 import { APP_NAME } from '../branding.js'
 import { SettingsPanel } from './SettingsPanel.js'
+import { ThemeToggle } from './ThemeToggle.js'
+import { UserMenu } from './UserMenu.js'
 
 function UserMenuPanel() {
   return <SettingsPanel onClose={usePanelClose()} />
@@ -159,6 +161,7 @@ interface FinanceShellProps {
  * bar stay inside the page.
  */
 export default function FinanceShell({ children }: FinanceShellProps) {
+  const cm = getClassMap()
   const { t } = useTranslation()
   const navLabel = t('sideNavBar.primaryNav', {}, { defaultValue: 'Primary navigation' })
   const nav = <ShellNavLinks />
@@ -175,7 +178,27 @@ export default function FinanceShell({ children }: FinanceShellProps) {
         <ShellBrand />
         {nav}
       </ResponsiveAppShell.Sidebar>
-      <ResponsiveAppShell.Drawer navLabel={navLabel} header={<ShellBrand />}>
+      <ResponsiveAppShell.Drawer
+        navLabel={navLabel}
+        header={<ShellBrand />}
+        footer={
+          /* Drawer bottom bar — the user menu + theme toggle in a styled
+             bordered row, matching the desktop sidebar's user card. */
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+          </div>
+        }
+      >
         {nav}
       </ResponsiveAppShell.Drawer>
       <ResponsiveAppShell.Content>{children}</ResponsiveAppShell.Content>

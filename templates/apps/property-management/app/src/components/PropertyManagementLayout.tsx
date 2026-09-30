@@ -130,16 +130,26 @@ export function PropertyManagementLayout() {
 
       {/* Desktop sidebar (≥768px): the brand row leads the nav column (the
           shared Sidebar has no header slot, so it rides inside `children`),
-          with the theme toggle + user menu in the bordered footer row. */}
+          with the theme toggle + user menu in the styled footer row. */}
       <ResponsiveAppShell.Sidebar
         navLabel={primaryNavLabel}
         footer={
-          <>
-            <div className={cm.flex({ align: 'center', justify: 'end' })}>
+          /* Sidebar bottom bar — styled to match the sidebar. Without this,
+             UserMenu + ThemeToggle render as bare browser controls bolted
+             onto a styled sidebar. */
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
               <ThemeToggle />
             </div>
-            <UserMenu />
-          </>
+          </div>
         }
       >
         <Link
@@ -152,14 +162,24 @@ export function PropertyManagementLayout() {
         {nav}
       </ResponsiveAppShell.Sidebar>
 
-      {/* Mobile drawer (<768px): the full dialog panel over the same nav. */}
+      {/* Mobile drawer (<768px): the full dialog panel over the same nav,
+          with the user menu + theme toggle in the styled footer row. */}
       <ResponsiveAppShell.Drawer
         navLabel={primaryNavLabel}
         header={<BrandWordmark as="span" />}
         footer={
-          <div className={cm.flex({ align: 'center', justify: 'between' })}>
-            <ThemeToggle />
-            <UserMenu />
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
           </div>
         }
       >

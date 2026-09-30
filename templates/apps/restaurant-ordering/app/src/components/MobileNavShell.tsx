@@ -200,7 +200,9 @@ export function MobileNavShell({
             >
               {/* The sidebar UserMenu card fits the 288px drawer; it never
                   fits a 390px top bar (long emails force page overflow). */}
-              <UserMenu />
+              <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+                <UserMenu />
+              </div>
             </div>
           </div>
         </div>

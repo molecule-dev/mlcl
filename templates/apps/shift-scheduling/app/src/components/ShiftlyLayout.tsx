@@ -229,7 +229,9 @@ export function ShiftlyLayout(): ReactElement {
                   cm.sp('pt', 4),
                 )}
               >
-                <UserMenu />
+                <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+                  <UserMenu />
+                </div>
               </div>
             </div>
           </div>

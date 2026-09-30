@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { BrandWordmark } from './BrandWordmark.js'
+import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
@@ -152,10 +153,29 @@ export function PayrollManagerLayout() {
       />
 
       {/* Desktop sidebar (>= md) — brand row leads the nav column (the shared
-          Sidebar has no header slot, so it rides inside children). */}
+          Sidebar has no header slot, so it rides inside children), with the
+          user menu + theme toggle in the styled footer row. */}
       <ResponsiveAppShell.Sidebar
         navLabel={navLabel}
         className={cm.cn(cm.sp('p', 4), 'bg-[var(--color-sidebar)]')}
+        footer={
+          /* Sidebar bottom bar — styled to match the navy sidebar. Without
+             this, UserMenu + ThemeToggle render as bare browser controls
+             bolted onto a styled sidebar. */
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+          </div>
+        }
       >
         <div className={cm.cn(cm.sp('mb', 4))}>
           <BrandRow size="sidebar" />
@@ -164,12 +184,27 @@ export function PayrollManagerLayout() {
       </ResponsiveAppShell.Sidebar>
 
       {/* Mobile drawer (< md) — the same nav over the navy brand, with the
-          user menu in the footer so every destination stays reachable. */}
+          user menu + theme toggle in the styled footer row so every
+          destination stays reachable. */}
       <ResponsiveAppShell.Drawer
         navLabel={navLabel}
         className="h-full bg-[var(--color-sidebar)]"
         header={<BrandRow size="drawer" />}
-        footer={<UserMenu />}
+        footer={
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+          </div>
+        }
       >
         {navItems}
       </ResponsiveAppShell.Drawer>

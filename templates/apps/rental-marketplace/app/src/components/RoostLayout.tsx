@@ -19,6 +19,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { BrandWordmark } from './BrandWordmark.js'
+import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -101,12 +102,30 @@ export function RoostLayout() {
       {/*
         Desktop sidebar (>=768px): the brand row leads the nav column (the
         shared Sidebar has no header slot, so it rides inside `children`),
-        and the user menu lives in the footer row below the nav.
+        and the user menu + theme toggle live in the styled footer row below
+        the nav.
       */}
       <ResponsiveAppShell.Sidebar
         navLabel={navLabel}
         className={cm.sp('p', 4)}
-        footer={<UserMenu />}
+        footer={
+          /* Sidebar bottom bar — styled to match the sidebar. Without this,
+             UserMenu + ThemeToggle render as bare browser controls bolted
+             onto a styled sidebar. */
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+          </div>
+        }
       >
         <Link to="/" className={cm.cn('block whitespace-nowrap', cm.sp('px', 3), cm.sp('mb', 4))}>
           <BrandWordmark as="span" />

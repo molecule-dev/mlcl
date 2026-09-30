@@ -7,13 +7,15 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 import { BrandWordmark } from './BrandWordmark.js'
+import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
  * Authenticated shell.
  *
  * Desktop (>768px): the shared `SidebarLayout` — left sidebar nav +
- * UserMenu in the chrome slot. Seven primary nav entries map to the
+ * UserMenu + ThemeToggle in the bordered chrome footer. Seven primary nav
+ * entries map to the
  * visually-prominent screens in screen-map.json; the remaining auth'd
  * routes (PhotoDetail, AlbumDetail, Profile) are deep-linked from
  * inside their parent index pages.
@@ -108,6 +110,7 @@ export function PhotoSharingLayout() {
         logoTo="/explore"
         navItems={navItems}
         userMenu={<UserMenu />}
+        themeToggle={<ThemeToggle />}
         navAriaLabel={navAriaLabel}
       />
     )

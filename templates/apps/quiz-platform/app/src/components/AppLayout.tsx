@@ -81,9 +81,21 @@ export function AppLayout() {
         navLabel={navLabel}
         className={cm.sp('p', 4)}
         footer={
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            <ThemeToggle />
-            <UserMenu />
+          /* Sidebar bottom bar — styled to match the sidebar. Without this,
+             UserMenu + ThemeToggle render as bare browser controls bolted
+             onto a styled sidebar. */
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
           </div>
         }
       >
