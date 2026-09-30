@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { BrandWordmark } from './BrandWordmark.js'
+import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -119,7 +120,26 @@ export function WeatherDashboardLayout() {
         }
         actions={<UserMenu />}
       />
-      <ResponsiveAppShell.Sidebar navLabel={navLabel} footer={<UserMenu />}>
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        footer={
+          /* Sidebar bottom bar — styled so UserMenu + ThemeToggle don't
+             render as bare browser controls bolted onto the sidebar. */
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+          </div>
+        }
+      >
         {brand}
         {nav}
       </ResponsiveAppShell.Sidebar>

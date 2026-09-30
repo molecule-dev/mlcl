@@ -5,6 +5,7 @@ import { APP_NAME } from '../branding.js'
 import { useIsMobile } from '../lib/use-is-mobile.js'
 import { MobileNavShell } from './MobileNavShell.js'
 import { buildNavItems } from './nav-items.js'
+import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 export function VotingPollingLayout() {
@@ -25,7 +26,18 @@ export function VotingPollingLayout() {
       appName={APP_NAME}
       logoTo="/dashboard"
       navItems={navItems}
-      userMenu={<UserMenu />}
+      // Both slots styled — without the wrappers the sidebar footer renders
+      // the controls as bare browser controls on the bordered row.
+      userMenu={
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+          <UserMenu />
+        </div>
+      }
+      themeToggle={
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+          <ThemeToggle />
+        </div>
+      }
       navAriaLabel={t(
         'votingPollingLayout.primaryNavLabel',
         {},

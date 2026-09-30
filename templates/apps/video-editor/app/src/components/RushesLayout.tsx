@@ -25,6 +25,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { BrandWordmark } from './BrandWordmark.js'
+import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 interface AccountUser {
@@ -335,7 +336,21 @@ export function RushesLayout({
                 <span>⌘K</span>
               </button>
             </div>
-            <UserMenu />
+            {/* Theme + account chrome — styled so they don't render as bare
+                browser controls on the Rushes dark app bar. */}
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 2 }),
+                'border-l border-[var(--video-border-subtle)] pl-3',
+              )}
+            >
+              <div className="text-[var(--video-text-muted-alt)] hover:text-[var(--video-text-primary)] transition-colors rounded-lg hover:bg-[var(--video-panel-bg-alt)]">
+                <ThemeToggle />
+              </div>
+              <div className="text-[var(--video-text-muted-alt)] hover:text-[var(--video-text-primary)] transition-colors">
+                <UserMenu />
+              </div>
+            </div>
           </div>
         </header>
 

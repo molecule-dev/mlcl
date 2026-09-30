@@ -120,7 +120,23 @@ export function SpoolLayout() {
       <ResponsiveAppShell.Sidebar
         navLabel={navAriaLabel}
         className={cm.sp('p', 4)}
-        footer={<UserMenu />}
+        footer={
+          /* Sidebar bottom bar — styled so UserMenu + ThemeToggle don't
+             render as bare browser controls bolted onto the sidebar. */
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+          </div>
+        }
       >
         <Link to="/home" className={cm.cn(cm.sp('mb', 6))}>
           <BrandWordmark as="span" />
@@ -130,12 +146,18 @@ export function SpoolLayout() {
 
       {/* Mobile drawer (< md): full-height dialog panel over the same nav,
           brand in the header row, close button shell-rendered. The theme
-          toggle keeps its old drawer-footer home. */}
+          toggle keeps its old drawer-footer home, styled the same way. */}
       <ResponsiveAppShell.Drawer
         navLabel={navAriaLabel}
         className={cm.cn('h-full', cm.sp('p', 4))}
         header={<BrandWordmark as="span" />}
-        footer={<ThemeToggle />}
+        footer={
+          <div className={cm.cn(cm.flex({ justify: 'center' }), 'w-full')}>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+          </div>
+        }
       >
         {nav}
       </ResponsiveAppShell.Drawer>

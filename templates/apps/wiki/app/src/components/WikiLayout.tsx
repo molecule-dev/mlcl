@@ -132,7 +132,29 @@ export function WikiLayout() {
           </>
         }
       />
-      <ResponsiveAppShell.Sidebar footer={userRow}>{sidebar}</ResponsiveAppShell.Sidebar>
+      {/* Sidebar footer (≥768px) — styled so the theme/user controls don't
+          render as bare browser controls bolted onto the sidebar. The mobile
+          TopBar keeps the shared bare `userRow` (its actions slot needs no
+          footer chrome). */}
+      <ResponsiveAppShell.Sidebar
+        footer={
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+          </div>
+        }
+      >
+        {sidebar}
+      </ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer>{sidebar}</ResponsiveAppShell.Drawer>
       <ResponsiveAppShell.Content className="px-4 py-6 sm:px-10 sm:py-10">
         <div className={cm.cn('mx-auto max-w-6xl')}>

@@ -6,6 +6,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BrandWordmark } from './BrandWordmark.js'
+import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -191,8 +192,13 @@ export function WeddingLayout(): ReactElement {
               <nav className="flex flex-1 flex-col gap-1" aria-label="Primary navigation">
                 {renderNavLinks(closeDrawer)}
               </nav>
-              <div className="mt-4 flex items-center border-t border-outline-variant pt-4">
-                <UserMenu />
+              <div className="mt-4 flex w-full items-center justify-between gap-2 border-t border-outline-variant pt-4">
+                <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+                  <UserMenu />
+                </div>
+                <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-variant">
+                  <ThemeToggle />
+                </div>
               </div>
             </div>
           </div>
@@ -212,8 +218,13 @@ export function WeddingLayout(): ReactElement {
         <nav className="mt-6 flex flex-1 flex-col gap-1" aria-label="Primary navigation">
           {renderNavLinks()}
         </nav>
-        <div className="mt-4 flex items-center border-t border-outline-variant pt-4">
-          <UserMenu />
+        <div className="mt-4 flex w-full items-center justify-between gap-2 border-t border-outline-variant pt-4">
+          <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+            <UserMenu />
+          </div>
+          <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-variant">
+            <ThemeToggle />
+          </div>
         </div>
       </aside>
       <main className="min-w-0 flex-1">

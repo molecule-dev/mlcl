@@ -5,6 +5,8 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { BrandWordmark } from './BrandWordmark.js'
+import { ThemeToggle } from './ThemeToggle.js'
+import { UserMenu } from './UserMenu.js'
 
 /**
  * Sorthaus shell layout — the shared `ResponsiveAppShell` from
@@ -347,7 +349,30 @@ export function WarehouseFulfillmentLayout() {
         Desktop sidebar (≥768px): the navy rail with the brand row leading the
         nav column and the operator block in the bordered footer row.
       */}
-      <ResponsiveAppShell.Sidebar className={navy} footer={operatorBlock}>
+      <ResponsiveAppShell.Sidebar
+        className={navy}
+        footer={
+          /* Operator block + a styled theme/account row — white-on-navy
+             tokens so the controls don't render bare (or invisible) on the
+             navy rail. */
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), 'w-full')}>
+            {operatorBlock}
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                'w-full border-t border-white/15 pt-3',
+              )}
+            >
+              <div className="text-white/70 hover:text-white transition-colors">
+                <UserMenu />
+              </div>
+              <div className="text-white/70 hover:text-white transition-colors rounded-lg hover:bg-white/10">
+                <ThemeToggle />
+              </div>
+            </div>
+          </div>
+        }
+      >
         <div className={cm.cn(cm.sp('px', 6), cm.sp('pt', 6), cm.sp('pb', 2))}>{brandBlock}</div>
         {/* The shell's Sidebar already renders the <nav> landmark; this wrapper
             only carries the rail's padding + internal scroll. */}

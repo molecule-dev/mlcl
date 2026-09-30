@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { BrandWordmark } from './BrandWordmark.js'
+import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_ITEMS = [
@@ -130,13 +131,28 @@ export function VersalLayout() {
       {/*
         Desktop sidebar (>= 768px): brand row leads the nav column — the
         shared Sidebar has no header slot, so it rides inside `children` —
-        and the user menu sits in the footer slot, as SidebarLayout rendered
-        it before.
+        and the footer slot carries a styled theme/account row (without it
+        UserMenu + ThemeToggle render as bare browser controls bolted onto
+        the sidebar).
       */}
       <ResponsiveAppShell.Sidebar
         navLabel={navLabel}
         className={cm.sp('p', 4)}
-        footer={<UserMenu />}
+        footer={
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+          </div>
+        }
       >
         <div className={cm.sp('mb', 6)}>{brand}</div>
         {navList}

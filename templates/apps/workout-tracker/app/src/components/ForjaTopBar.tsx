@@ -56,8 +56,21 @@ export function ForjaTopBar({ title, eyebrow, actions }: ForjaTopBarProps) {
       </div>
       <div className={cm.flex({ align: 'center', gap: 'sm' })}>
         {actions}
-        <ThemeToggle />
-        <UserMenu />
+        {/* Theme + account chrome — styled so they don't render as bare
+            browser controls on the page-header bar. */}
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'sm' }),
+            'border-l border-outline-variant/40 pl-3',
+          )}
+        >
+          <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+            <ThemeToggle />
+          </div>
+          <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+            <UserMenu />
+          </div>
+        </div>
       </div>
     </div>
   )

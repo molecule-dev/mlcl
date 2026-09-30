@@ -13,6 +13,7 @@ import {
 import { APP_NAME } from '../branding.js'
 import { BrandWordmark } from './BrandWordmark.js'
 import { SettingsPanel } from './SettingsPanel.js'
+import { ThemeToggle } from './ThemeToggle.js'
 
 /**
  * Account drawer body for the sidebar user card — the app's shared
@@ -142,13 +143,18 @@ export function WhiteboardLayout({
   // Compact brand for the mobile-only top bar and the drawer header.
   const brandCompact = <BrandWordmark as="span" size="sm" />
 
-  // Below-nav content — user card, New board and Sign out; the same element
-  // serves the sidebar footer and the drawer footer.
+  // Below-nav content — user card, theme toggle, New board and Sign out; the
+  // same element serves the sidebar footer and the drawer footer.
   const shellFooter = (
     <>
       <SidebarUserCard dataMolId="user-menu" ariaLabelKey="userMenu.open">
         <UserMenuPanel />
       </SidebarUserCard>
+      {/* Theme toggle — styled so it doesn't render as a bare floating icon
+          next to the user card. */}
+      <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+        <ThemeToggle />
+      </div>
       <button
         type="button"
         onClick={() => navigate('/boards?new=1')}

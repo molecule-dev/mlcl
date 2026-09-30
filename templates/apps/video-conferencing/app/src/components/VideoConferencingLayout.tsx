@@ -225,8 +225,21 @@ export function VideoConferencingLayout() {
                 )}
               />
             </div>
-            <ThemeToggle />
-            <UserMenu />
+            {/* Theme + account chrome — styled so they don't render as bare
+                browser controls on the glass header. */}
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                'border-l border-outline-variant/40 pl-3',
+              )}
+            >
+              <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+                <ThemeToggle />
+              </div>
+              <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+                <UserMenu />
+              </div>
+            </div>
           </div>
         </header>
         <div className={cm.cn('w-full p-4 md:p-8')}>

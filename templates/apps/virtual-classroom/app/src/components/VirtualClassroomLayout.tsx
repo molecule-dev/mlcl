@@ -58,7 +58,32 @@ export function VirtualClassroomLayout(): ReactElement {
           </>
         }
       />
-      <ResponsiveAppShell.Sidebar navLabel={navLabel} className={cm.sp('p', 6)} footer={footer}>
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        className={cm.sp('p', 6)}
+        footer={
+          /* Quota card + a styled theme/account row — without the row the
+             desktop sidebar has no theme toggle or user menu at all (the
+             mobile TopBar carries them below md), and bare controls would
+             sit unstyled under the quota card. */
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), 'w-full')}>
+            {footer}
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                'w-full border-t border-outline-variant/40 pt-3',
+              )}
+            >
+              <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+                <UserMenu />
+              </div>
+              <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+                <ThemeToggle />
+              </div>
+            </div>
+          </div>
+        }
+      >
         <div className={cm.sp('mb', 6)}>{brand}</div>
         {nav}
       </ResponsiveAppShell.Sidebar>
