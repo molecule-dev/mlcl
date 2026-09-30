@@ -48,11 +48,23 @@ jobs:
           fi
           echo "auth path: $([ "$OIDC_ON" = "true" ] && echo OIDC || echo token)"
 
+      # ci.yml's layout: mlcl in its own dir + the molecule SIBLING beside it —
+      # DATA for the sibling-dependent gates (scanner, egressHosts coverage,
+      # external-state coverage, toolchain drift), which run FOR REAL here, not
+      # skipped. molecule is public; nothing installs or compiles it.
       - uses: actions/checkout@v4
+        with:
+          path: mlcl
+      - name: Check out molecule (DATA for the sibling-dependent test gates)
+        uses: actions/checkout@v4
+        with:
+          repository: molecule-dev/molecule
+          path: molecule
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: mlcl/package-lock.json
           registry-url: https://registry.npmjs.org
 
       # OIDC trusted publishing needs npm ≥11.5.1; Node 22 bundles 10.x.
@@ -60,18 +72,22 @@ jobs:
       - run: npm --version
 
       - run: npm ci
+        working-directory: mlcl
 
       # ---- GATE 1: Build ----------------------------------------------------
       - name: Build mlcl
         run: npm run build
+        working-directory: mlcl
 
       # ---- GATE 2: Test suite ------------------------------------------------
       - name: Run full test suite
         run: npm test
+        working-directory: mlcl
 
       # ---- GATE 3: Prepublish verification (tarball hygiene) ----------------
       - name: Prepublish gate
         run: node scripts/prepublish-verify.mjs
+        working-directory: mlcl
         env:
           MLCL_ALLOW_PUBLISH: '1' # CI IS the authorized publish path
 
@@ -79,6 +95,7 @@ jobs:
       # This is best-effort in CI — the molecule-dev sibling isn't always a
       # CI checkout. Run it when present, skip with a notice when not.
       - name: Parity coverage gate
+        working-directory: mlcl
         run: |
           if [ -f ../molecule-dev/api/src/App/router.ts ]; then
             node scripts/check-parity-coverage.mjs
@@ -88,6 +105,7 @@ jobs:
 
       # ---- PUBLISH mlcl ------------------------------------------------------
       - name: Publish mlcl
+        working-directory: mlcl
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -95,8 +113,8 @@ jobs:
       # ---- PUBLISH molecule-mcp (optional) ------------------------------------
       - name: Publish molecule-mcp
         if: inputs.mcp_publish
+        working-directory: mlcl/mcp
         run: |
-          cd mcp
           # Flip private → publishable for this run only (no commit needed).
           node -e "const p=require('./package.json'); delete p.private; require('fs').writeFileSync('./package.json', JSON.stringify(p,null,2)+'\n')"
           npm install
@@ -106,6 +124,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish summary
+        working-directory: mlcl
         run: |
           echo "✓ mlcl@$(node -e "console.log(require('./package.json').version)") published"
           if [ "${{ inputs.mcp_publish }}" = "true" ]; then
