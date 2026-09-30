@@ -232,9 +232,15 @@ export function ExpenseReportLayout() {
               {t('layout.workspace', {}, { defaultValue: 'Finance Workspace' })}
             </div>
           </div>
+          {/* Top-bar controls — styled so they don't read as bare browser
+              controls bolted onto the chrome. */}
           <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <ThemeToggle />
-            <UserMenu />
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
           </div>
         </header>
         <main

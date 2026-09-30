@@ -113,8 +113,20 @@ export function DigitalGoodsStoreLayout() {
           ))}
         </nav>
 
-        <div className={cm.cn(cm.sp('p', 4), 'border-t border-border')}>
-          <UserMenu />
+        {/* Sidebar bottom bar — styled to match the sidebar. Without this,
+            UserMenu renders as a bare browser control bolted onto the
+            styled sidebar. */}
+        <div className={cm.cn(cm.sp('p', 4))}>
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              'w-full border-t border-border pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+          </div>
         </div>
       </aside>
 

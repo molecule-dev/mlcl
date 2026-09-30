@@ -20,9 +20,17 @@ export function Header({ extraActions }: HeaderProps) {
     <AppHeader
       appName={APP_NAME}
       logoSize={LOGO_SIZE}
-      themeToggle={<ThemeToggle />}
+      themeToggle={
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+          <ThemeToggle />
+        </div>
+      }
       extraActions={extraActions}
-      userMenu={<UserMenu />}
+      userMenu={
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+          <UserMenu />
+        </div>
+      }
     />
   )
 }

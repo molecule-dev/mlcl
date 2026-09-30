@@ -95,7 +95,14 @@ export function EventTicketingLayout() {
 
   return (
     <ResponsiveAppShell sidebarWidth="md" className="antialiased">
-      <ResponsiveAppShell.TopBar brand={<BrandMark />} actions={<UserMenu />} />
+      <ResponsiveAppShell.TopBar
+        brand={<BrandMark />}
+        actions={
+          <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+            <UserMenu />
+          </div>
+        }
+      />
       <ResponsiveAppShell.Sidebar navLabel={navAriaLabel}>{nav}</ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer navLabel={navAriaLabel} header={<BrandMark />}>
         {nav}

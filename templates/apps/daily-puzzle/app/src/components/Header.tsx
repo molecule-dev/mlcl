@@ -9,8 +9,16 @@ export function Header() {
     <AppHeader
       appName={APP_NAME}
       logoSize={LOGO_SIZE}
-      themeToggle={<ThemeToggle />}
-      userMenu={<UserMenu />}
+      themeToggle={
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+          <ThemeToggle />
+        </div>
+      }
+      userMenu={
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+          <UserMenu />
+        </div>
+      }
     />
   )
 }

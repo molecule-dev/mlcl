@@ -119,11 +119,21 @@ export function EnergyMonitoringLayout() {
       <ResponsiveAppShell.Sidebar
         navLabel={navLabel}
         footer={
+          /* Sidebar bottom bar — styled to match the sidebar. Without the
+             separator + hover wrappers, UserMenu + ThemeToggle render as
+             bare browser controls bolted onto a styled sidebar. */
           <div
-            className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }), 'w-full')}
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
           >
-            {userMenu}
-            <ThemeToggle />
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              {userMenu}
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
           </div>
         }
       >

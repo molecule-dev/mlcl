@@ -166,8 +166,12 @@ export function DiscussionBoardsLayout() {
         brand={<BrandWordmark />}
         actions={
           <>
-            <ThemeToggle />
-            <UserMenu />
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
           </>
         }
       />

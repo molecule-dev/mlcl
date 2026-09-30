@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { BrandWordmark } from './BrandWordmark.js'
+import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -94,13 +95,29 @@ export function QuillonLayout() {
 
       {/*
         Desktop sidebar (>= md). The brand row leads the nav column — the
-        shared Sidebar has no header slot, so it rides inside `children`; the
-        user menu sits in the bordered footer row.
+        shared Sidebar has no header slot, so it rides inside `children`.
+        Sidebar bottom bar — styled to match the sidebar's design. Without
+        this, UserMenu + ThemeToggle render as bare browser controls bolted
+        onto a styled sidebar.
       */}
       <ResponsiveAppShell.Sidebar
         navLabel={navLabel}
         className={cm.sp('p', 4)}
-        footer={<UserMenu />}
+        footer={
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+          </div>
+        }
       >
         <div className={cm.cn(cm.sp('mb', 6), cm.displayBlock)}>
           <BrandWordmark to="/dashboard" />
@@ -111,14 +128,29 @@ export function QuillonLayout() {
       {/*
         Mobile drawer (< md): the same nav in a full APG dialog panel
         (focus trap, Escape, backdrop click, body-scroll lock), with the
-        user menu in the footer.
+        user menu + theme toggle in the footer — the same styled bottom bar
+        the desktop sidebar carries.
       */}
       <ResponsiveAppShell.Drawer
         navLabel={navLabel}
         // The shared panel ships no height token (its content would size it);
         // `h-full` restores the documented full-height left-panel geometry.
         className="h-full"
-        footer={<UserMenu />}
+        footer={
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+          </div>
+        }
       >
         {navItems}
       </ResponsiveAppShell.Drawer>

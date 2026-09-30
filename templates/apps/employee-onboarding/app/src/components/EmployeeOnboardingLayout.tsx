@@ -287,9 +287,15 @@ export function EmployeeOnboardingLayout() {
               />
             </form>
           )}
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
-            <ThemeToggle />
-            <UserMenu />
+          {/* Top-bar controls — styled so they don't read as bare browser
+              controls bolted onto the chrome. */}
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
           </div>
         </header>
 

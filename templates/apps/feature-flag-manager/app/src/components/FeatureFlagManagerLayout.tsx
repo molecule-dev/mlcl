@@ -386,7 +386,9 @@ export function FeatureFlagManagerLayout({ children }: LayoutProps) {
           {t('layout.adminRole', {}, { defaultValue: 'Admin · acme' })}
         </span>
       </div>
-      <UserMenu />
+      <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+        <UserMenu />
+      </div>
     </div>
   )
 

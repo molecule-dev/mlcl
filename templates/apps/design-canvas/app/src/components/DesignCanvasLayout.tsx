@@ -125,7 +125,9 @@ export function DesignCanvasLayout({
             <Link to="/dashboard" className="min-w-0">
               <BrandWordmark as="span" size="sm" />
             </Link>
-            <UserMenu />
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
           </div>
         </header>
         <main className={cm.cn(cm.flex1, 'min-w-0')}>
@@ -389,7 +391,9 @@ export function DesignCanvasLayout({
               )}
             >
               {actions}
-              <UserMenu />
+              <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+                <UserMenu />
+              </div>
             </div>
           </header>
         )}

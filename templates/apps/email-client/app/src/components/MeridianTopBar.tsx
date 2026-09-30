@@ -183,7 +183,9 @@ export function MeridianTopBar({ avatarInitials, onMenuClick }: MeridianTopBarPr
           'min-w-0 md:min-w-[200px] justify-end shrink-0',
         )}
       >
-        <UserMenu />
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+          <UserMenu />
+        </div>
         <Link
           to="/settings"
           aria-label={t('settings.account', {}, { defaultValue: 'Account' })}
