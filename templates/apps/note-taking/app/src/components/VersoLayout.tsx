@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { BrandWordmark } from './BrandWordmark.js'
+import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 const FOCUS_RING =
@@ -163,11 +164,28 @@ export function VersoLayout() {
       />
 
       {/* Desktop sidebar (≥768px) — wordmark rides inside the nav children
-          (the shared Sidebar has no header slot). */}
+          (the shared Sidebar has no header slot). The identity footer wraps
+          UserMenu + ThemeToggle in a bordered row so they do not render as
+          bare controls bolted onto the styled rail; it is also the authed
+          shell's only theme control. */}
       <ResponsiveAppShell.Sidebar
         navLabel={navAriaLabel}
         className={cm.sp('p', 4)}
-        footer={<UserMenu />}
+        footer={
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+          </div>
+        }
       >
         {brandBlock}
         {nav}

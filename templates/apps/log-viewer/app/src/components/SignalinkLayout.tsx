@@ -119,10 +119,43 @@ export function SignalinkLayout() {
           </>
         }
       />
-      <ResponsiveAppShell.Sidebar navLabel={navLabel} footer={<UserMenu />}>
+      {/* Identity footer (both breakpoints) — wrapped in a bordered row so
+          the UserMenu does not render as a bare control bolted onto the
+          styled rail (terminal aesthetic: secondary text + hover tint). The
+          theme toggle stays in the TopBar, which mounts at every width. */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        footer={
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+          </div>
+        }
+      >
         {nav}
       </ResponsiveAppShell.Sidebar>
-      <ResponsiveAppShell.Drawer navLabel={navLabel} header={brand} footer={<UserMenu />}>
+      <ResponsiveAppShell.Drawer
+        navLabel={navLabel}
+        header={brand}
+        footer={
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+          </div>
+        }
+      >
         {nav}
       </ResponsiveAppShell.Drawer>
       <ResponsiveAppShell.Content dataMolId="signalink-main" style={{ overflowX: 'hidden' }}>

@@ -174,27 +174,43 @@ export function LinkAggregatorLayout() {
   )
 
   // Identity + sign out — the footer of both the desktop sidebar and the
-  // drawer (the shell provides the border + padding row).
+  // drawer. Styled to match the sidebar's editorial design: without the
+  // bordered row, ThemeToggle + UserMenu render as bare browser controls
+  // bolted onto a styled sidebar.
   const userFooter = (
     <>
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-        <Link
-          to={`/users/${userId}`}
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+          'w-full border-t border-outline-variant/40 pt-3',
+        )}
+      >
+        <div
           className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            cm.w(10),
-            cm.h(10),
-            cm.roundedFull,
-            cm.fontWeight('bold'),
-            cm.textSize('sm'),
-            'bg-secondary/15 text-secondary hover:bg-secondary/25 transition-colors',
+            cm.flex({ align: 'center', gap: 'xs' }),
+            'text-on-surface-variant hover:text-on-surface transition-colors',
           )}
-          aria-label={t('nav.profile', {}, { defaultValue: 'Profile' })}
         >
-          {(userName || 'A').slice(0, 1).toUpperCase()}
-        </Link>
-        <ThemeToggle />
-        <UserMenu />
+          <Link
+            to={`/users/${userId}`}
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              cm.w(10),
+              cm.h(10),
+              cm.roundedFull,
+              cm.fontWeight('bold'),
+              cm.textSize('sm'),
+              'bg-secondary/15 text-secondary hover:bg-secondary/25 transition-colors',
+            )}
+            aria-label={t('nav.profile', {}, { defaultValue: 'Profile' })}
+          >
+            {(userName || 'A').slice(0, 1).toUpperCase()}
+          </Link>
+          <UserMenu />
+        </div>
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+          <ThemeToggle />
+        </div>
       </div>
       <button
         type="button"

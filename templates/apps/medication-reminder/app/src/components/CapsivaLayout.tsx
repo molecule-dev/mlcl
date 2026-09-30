@@ -138,7 +138,6 @@ function MobileShell() {
 }
 
 export function CapsivaLayout() {
-  const cm = getClassMap()
   const { t } = useTranslation()
   const navItems = useNavItems()
   const isDesktop = useIsDesktop()
@@ -148,12 +147,11 @@ export function CapsivaLayout() {
       appName={APP_NAME}
       logoTo="/dashboard"
       navItems={navItems}
-      userMenu={
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <ThemeToggle />
-          <UserMenu />
-        </div>
-      }
+      // One control per slot — the shared shell renders them in its bordered
+      // footer row (UserMenu left, ThemeToggle right). Cramming both into
+      // `userMenu` rendered them as a bare control blob.
+      userMenu={<UserMenu />}
+      themeToggle={<ThemeToggle />}
       navAriaLabel={t('capsivaLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })}
     />
   )
