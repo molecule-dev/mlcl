@@ -316,11 +316,23 @@ export function MeetingDetail() {
             <div className={cm.stack(2)}>
               <h2
                 className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
                   cm.textSize('sm'),
                   'font-bold uppercase tracking-widest text-on-surface-variant',
                 )}
               >
-                {t('meetingDetail.notes', {}, { defaultValue: 'Invitee notes' })}
+                <span
+                  className={cm.cn(
+                    cm.sp('p', 1),
+                    cm.roundedFull,
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'bg-primary/10 text-primary',
+                  )}
+                  aria-hidden="true"
+                >
+                  <span className="material-symbols-outlined text-[14px]">question_answer</span>
+                </span>
+                {t('meetingDetail.guestAnswers', {}, { defaultValue: 'Guest answers' })}
               </h2>
               <p
                 className={cm.cn(

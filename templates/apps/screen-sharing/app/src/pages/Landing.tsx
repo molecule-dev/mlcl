@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { RecordingCard } from '../components/RecordingCard.js'
 
 const SAMPLE_RECORDINGS = [
@@ -59,16 +60,7 @@ export function Landing() {
           'sticky top-0 z-30 backdrop-blur-md bg-surface/80 border-b border-outline-variant',
         )}
       >
-        <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
-          <span
-            className={cm.cn(
-              cm.fontWeight('extrabold'),
-              'text-2xl tracking-tighter font-display bg-gradient-to-r from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)] bg-clip-text text-transparent',
-            )}
-          >
-            {APP_NAME}
-          </span>
-        </Link>
+        <BrandWordmark size="lg" />
         <nav
           className={cm.cn(
             cm.flex({ align: 'center', gap: 6 }),
@@ -432,15 +424,9 @@ export function Landing() {
             cm.textSize('sm'),
           )}
         >
-          <span
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              cm.textSize('xl'),
-              'text-on-surface font-display',
-            )}
-          >
-            {APP_NAME}
-          </span>
+          {/* footer lockup: shared BrandWordmark (footer variant keeps the
+              per-page brand-wordmark e2e contract header-scoped) */}
+          <BrandWordmark as="span" size="md" footer />
           <nav className={cm.cn(cm.flex({ align: 'center', gap: 4, wrap: 'wrap' }))}>
             <a
               href="#features"

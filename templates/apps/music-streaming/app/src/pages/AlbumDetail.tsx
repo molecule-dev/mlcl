@@ -39,6 +39,7 @@ export function AlbumDetail() {
   const { id = '' } = useParams<{ id: string }>()
   const [album, setAlbum] = useState<Album | null>(null)
   const [tracks, setTracks] = useState<Track[]>([])
+  const [moreByArtist, setMoreByArtist] = useState<Album[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -46,11 +47,25 @@ export function AlbumDetail() {
     if (!id) return
     let cancelled = false
     setLoading(true)
-    Promise.all([http.get(`/api/albums/${id}`), http.get(`/api/tracks?album_id=${id}`)])
-      .then(([a, ts]) => {
+    Promise.all([
+      http.get(`/api/albums/${id}`),
+      http.get(`/api/tracks?album_id=${id}`),
+      http.get('/api/albums'),
+    ])
+      .then(([a, ts, all]) => {
         if (cancelled) return
-        setAlbum(unwrapSingle<Album>(a))
+        const current = unwrapSingle<Album>(a)
+        setAlbum(current)
         setTracks(unwrapList<Track>(ts))
+        // "More by <artist>" — other albums from the same artist (design's
+        // More-by section). Empty for single-album artists.
+        setMoreByArtist(
+          current
+            ? unwrapList<Album>(all).filter(
+                (al) => al.artist_id === current.artist_id && al.id !== current.id,
+              )
+            : [],
+        )
       })
       .catch(() => {
         if (!cancelled)
@@ -206,6 +221,54 @@ export function AlbumDetail() {
           </li>
         ))}
       </ul>
+
+      {moreByArtist.length > 0 ? (
+        <section className={cm.stack(3)}>
+          <h2 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'tracking-tight')}>
+            {t(
+              'albumDetail.moreBy',
+              { artist: album.artist },
+              { defaultValue: 'More by {{artist}}' },
+            )}
+          </h2>
+          <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-2 md:grid-cols-5')}>
+            {moreByArtist.slice(0, 5).map((al) => (
+              <Link
+                key={al.id}
+                to={`/albums/${al.id}`}
+                data-mol-id="album-more-card"
+                className={cm.cn(cm.stack(2), 'group')}
+              >
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'aspect-square rounded shadow-lg group-hover:scale-[1.03] transition-transform',
+                  )}
+                  style={{ background: `var(--color-cover-${al.cover_index})` }}
+                  aria-hidden="true"
+                >
+                  <span
+                    className="material-symbols-outlined text-on-primary text-3xl"
+                    aria-hidden="true"
+                  >
+                    album
+                  </span>
+                </span>
+                <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'truncate')}>
+                  {al.title}
+                </span>
+                <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {t(
+                    'albumDetail.yearAlbum',
+                    { year: al.year },
+                    { defaultValue: '{{year}} · Album' },
+                  )}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
         {t('albumDetail.label.label', {}, { defaultValue: 'Label:' })} {album.label}

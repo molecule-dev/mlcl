@@ -60,6 +60,9 @@ export function TransactionDetail() {
   const [saving, setSaving] = useState(false)
   const [editError, setEditError] = useState<string | null>(null)
 
+  // Attachments (design's Attachments card) — files picked this session.
+  const [attachments, setAttachments] = useState<{ name: string; size: string }[]>([])
+
   useEffect(() => {
     let cancelled = false
     setLoading(true)
@@ -492,6 +495,126 @@ export function TransactionDetail() {
           icon={isInflow ? 'south_west' : 'north_east'}
           tone={isInflow ? 'success' : 'neutral'}
         />
+      </section>
+
+      {/* Attachments (design's Attachments card): dropzone + picked-file rows.
+          Receipts live for this session; a persistence bond can replace the
+          local state without touching the layout. */}
+      <section
+        data-mol-id="tx-attachments"
+        className={cm.cn(cm.sp('p', 6), 'bg-surface-container-lowest rounded-2xl shadow-sm')}
+      >
+        <h2 className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), cm.sp('mb', 3))}>
+          <span
+            className={cm.cn(
+              cm.sp('p', 1),
+              cm.roundedFull,
+              cm.flex({ align: 'center', justify: 'center' }),
+              'bg-primary/10 text-primary',
+            )}
+            aria-hidden="true"
+          >
+            <span className="material-symbols-outlined text-[14px]">attach_file</span>
+          </span>
+          <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+            {t('transactionDetail.attachments', {}, { defaultValue: 'Attachments' })}
+          </span>
+        </h2>
+        <label
+          className={cm.cn(
+            cm.flex({ direction: 'col', align: 'center', justify: 'center', gap: 'xs' }),
+            cm.sp('p', 4),
+            cm.sp('mb', 3),
+            'border-2 border-dashed border-outline-variant rounded-lg bg-surface-container hover:bg-surface-container-low transition-colors cursor-pointer',
+          )}
+        >
+          <span className="material-symbols-outlined text-on-surface-variant" aria-hidden="true">
+            cloud_upload
+          </span>
+          <span
+            className={cm.cn(cm.textSize('xs'), cm.fontWeight('medium'), 'text-on-surface-variant')}
+          >
+            {t(
+              'transactionDetail.attachments.dropzone',
+              {},
+              { defaultValue: 'Click or drag to upload a receipt' },
+            )}
+          </span>
+          <input
+            type="file"
+            multiple
+            className="sr-only"
+            data-testid="tx-attachment-input"
+            onChange={(e) => {
+              const picked = Array.from(e.target.files ?? []).map((f) => ({
+                name: f.name,
+                size: `${Math.max(0.1, f.size / 1_048_576).toFixed(1)} MB`,
+              }))
+              setAttachments((prev) => [...prev, ...picked])
+              e.target.value = ''
+            }}
+          />
+        </label>
+        {attachments.length === 0 ? (
+          <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+            {t(
+              'transactionDetail.attachments.empty',
+              {},
+              { defaultValue: 'No receipts attached yet.' },
+            )}
+          </p>
+        ) : (
+          <ul className={cm.stack(2)}>
+            {attachments.map((a, i) => (
+              <li
+                key={`${a.name}-${i}`}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'sm' }),
+                  cm.sp('p', 2),
+                  'border border-outline-variant rounded-lg bg-surface',
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    cm.w(10),
+                    cm.h(10),
+                    'rounded bg-primary/10 flex items-center justify-center shrink-0',
+                  )}
+                  aria-hidden="true"
+                >
+                  <span
+                    className={cm.cn(cm.textSize('base'), 'material-symbols-outlined text-primary')}
+                  >
+                    description
+                  </span>
+                </span>
+                <span className={cm.cn(cm.flex1, 'min-w-0')}>
+                  <span
+                    className={cm.cn(cm.textSize('xs'), cm.fontWeight('medium'), 'block truncate')}
+                  >
+                    {a.name}
+                  </span>
+                  <span className={'text-[10px] text-on-surface-variant'}>{a.size}</span>
+                </span>
+                <button
+                  type="button"
+                  aria-label={t(
+                    'transactionDetail.attachments.remove',
+                    { name: a.name },
+                    { defaultValue: 'Remove {{name}}' },
+                  )}
+                  data-mol-id="tx-attachment-remove"
+                  onClick={() => setAttachments((prev) => prev.filter((_, j) => j !== i))}
+                  className={cm.cn(cm.sp('p', 1), 'text-on-surface-variant hover:text-error')}
+                >
+                  <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>
+                    delete
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
 
       {related.length > 0 ? (

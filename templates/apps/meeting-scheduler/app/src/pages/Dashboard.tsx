@@ -138,6 +138,16 @@ export function Dashboard() {
   const sparkline = useMemo(() => buildSparkline(bookings), [bookings])
   const weekCount = sparkline.reduce((sum, p) => sum + p.bookings, 0)
 
+  // Time-aware welcome, per the design's "Good morning, Alex" row.
+  const hour = new Date().getHours()
+  const greetingKey =
+    hour < 12
+      ? 'dashboard.greeting.morning'
+      : hour < 18
+        ? 'dashboard.greeting.afternoon'
+        : 'dashboard.greeting.evening'
+  const greetingDefault = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'
+
   const kpis: KpiTone[] = [
     {
       label: t('dashboard.kpis.bookedToday', {}, { defaultValue: 'Booked today' }),
@@ -179,7 +189,7 @@ export function Dashboard() {
             data-testid="dashboard-greeting"
             className={cm.cn(cm.textSize('4xl'), 'font-extrabold tracking-tight text-on-surface')}
           >
-            {t('dashboard.greeting', {}, { defaultValue: 'Your schedule, at a glance' })}
+            {t(greetingKey, {}, { defaultValue: greetingDefault })}
           </h1>
           <p
             className={cm.cn(
@@ -190,10 +200,14 @@ export function Dashboard() {
           >
             {t(
               'dashboard.subtitle',
-              {},
+              {
+                today: todayBookings.length,
+                week: weekCount,
+                total: bookings.length,
+              },
               {
                 defaultValue:
-                  "Today's meetings, upcoming requests, and how the week is shaping up.",
+                  'You have {{today}} meetings today · {{week}} this week · {{total}} bookings all time.',
               },
             )}
           </p>

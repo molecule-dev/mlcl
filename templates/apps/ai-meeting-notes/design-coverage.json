@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/search": {
+      "allow": [
+        {
+          "heading": "Q4 Quarterly Roadmap Alignment",
+          "reason": "Design sample-data meeting title: /search renders live transcript matches whose meeting titles come from the app's seeded meetings ('Customer call — Acme Corp QBR', 'Q3 Roadmap Review', ...); the design's placeholder meeting is not in the app's data. The result-card section itself (title link, speaker, timestamp, highlighted snippet) is implemented."
+        }
+      ]
+    }
+  }
+}

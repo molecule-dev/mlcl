@@ -4,6 +4,7 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const FEATURES = [
   {
@@ -71,8 +72,8 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
-            <Link to="/" className={'text-2xl font-bold tracking-tighter'}>
-              {APP_NAME}
+            <Link to="/" className={'shrink-0'} aria-label={APP_NAME}>
+              <BrandWordmark as="span" size="lg" />
             </Link>
             <div
               className={cm.cn(
@@ -533,7 +534,7 @@ export function Landing() {
               'justify-center',
             )}
           >
-            <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>{APP_NAME}</span>
+            <BrandWordmark as="span" size="sm" footer />
             <span className={cm.cn('text-outline-variant hidden md:inline')} aria-hidden="true">
               |
             </span>

@@ -16,7 +16,7 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { Footer } from './Footer.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
@@ -86,36 +86,11 @@ export function ScreenSharingLayout() {
   const nav = (
     <>
       <Link to="/library" className={cm.cn(cm.flex({ align: 'center', gap: 3 }), cm.sp('p', 6))}>
-        <div
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            cm.w(10),
-            cm.h(10),
-            'rounded-xl bg-gradient-to-br from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)] shadow-lg shadow-[var(--color-brand-gradient-from)]/30',
-          )}
-        >
-          <span className={cm.cn('material-symbols-outlined text-white text-2xl')}>graphic_eq</span>
-        </div>
-        <div>
-          <h1
-            className={cm.cn(
-              cm.textSize('xl'),
-              cm.fontWeight('bold'),
-              'text-on-surface tracking-tight leading-none',
-            )}
-          >
-            {APP_NAME}
-          </h1>
-          <p
-            className={cm.cn(
-              cm.fontWeight('semibold'),
-              cm.sp('mt', 1),
-              'text-[10px] uppercase tracking-[0.2em] text-on-surface-variant',
-            )}
-          >
-            {t('nav.tagline', {}, { defaultValue: 'Async Screencasts' })}
-          </p>
-        </div>
+        <BrandWordmark
+          as="span"
+          size="lg"
+          tagline={t('nav.tagline', {}, { defaultValue: 'Async Screencasts' })}
+        />
       </Link>
 
       <div className={cm.cn(cm.sp('px', 4), cm.sp('mb', 4))}>
@@ -209,25 +184,7 @@ export function ScreenSharingLayout() {
         className="bg-surface-container-lowest/95 backdrop-blur border-outline-variant"
         brand={
           <Link to="/library" className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'w-7 h-7 shrink-0 rounded-lg bg-gradient-to-br from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)]',
-              )}
-            >
-              <span className={cm.cn('material-symbols-outlined text-white text-lg')}>
-                graphic_eq
-              </span>
-            </span>
-            <span
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                cm.textSize('lg'),
-                'text-on-surface tracking-tight truncate',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" size="sm" />
           </Link>
         }
         actions={

@@ -7,6 +7,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 import { RecordingIndicator } from '../components/RecordingIndicator.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 interface PublicRecording {
   id: string
@@ -124,30 +125,12 @@ export function PublicShare() {
         )}
       >
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(10),
-              cm.h(10),
-              'rounded-xl bg-gradient-to-br from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)] shadow-md shadow-[var(--color-brand-gradient-from)]/30',
-            )}
-          >
-            <span className={cm.cn('material-symbols-outlined text-white text-2xl')}>
-              graphic_eq
-            </span>
-          </span>
-          <div className={cm.cn(cm.flex({ direction: 'col' }))}>
-            <span className={cm.cn(cm.fontWeight('bold'), 'text-lg tracking-tight leading-none')}>
-              {APP_NAME}
-            </span>
-            <span
-              className={cm.cn(
-                'text-[10px] uppercase tracking-[0.25em] text-white/60 font-semibold',
-              )}
-            >
-              {t('publicShare.tagline', {}, { defaultValue: 'Public clip' })}
-            </span>
-          </div>
+          <BrandWordmark
+            as="span"
+            size="lg"
+            invert
+            tagline={t('publicShare.tagline', {}, { defaultValue: 'Public clip' })}
+          />
         </Link>
         <Link
           to="/signup"

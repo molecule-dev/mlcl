@@ -4,7 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { NowPlayingBar } from './NowPlayingBar.js'
 import { MobileUserMenu, UserMenu } from './UserMenu.js'
 
@@ -116,15 +116,8 @@ export function ReverbLayout() {
         <ResponsiveAppShell.TopBar
           mobileOnly
           brand={
-            <Link
-              to={safeTarget('/home', pathname)}
-              className={cm.cn(
-                cm.textSize('lg'),
-                cm.fontWeight('extrabold'),
-                'tracking-tight text-on-background truncate',
-              )}
-            >
-              {APP_NAME}
+            <Link to={safeTarget('/home', pathname)} className="truncate">
+              <BrandWordmark as="span" size="sm" />
             </Link>
           }
           actions={<MobileUserMenu />}
@@ -139,14 +132,9 @@ export function ReverbLayout() {
         >
           <Link
             to={safeTarget('/home', pathname)}
-            className={cm.cn(
-              cm.textSize('xl'),
-              cm.fontWeight('bold'),
-              cm.sp('mb', 6),
-              cm.displayBlock,
-            )}
+            className={cm.cn(cm.sp('mb', 6), cm.displayBlock)}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" />
           </Link>
           {nav}
         </ResponsiveAppShell.Sidebar>
@@ -157,14 +145,8 @@ export function ReverbLayout() {
           navLabel={navAriaLabel}
           className={cm.cn('h-full', cm.sp('p', 4))}
           header={
-            <span
-              className={cm.cn(
-                cm.textSize('2xl'),
-                cm.fontWeight('extrabold'),
-                'text-on-background',
-              )}
-            >
-              {APP_NAME}
+            <span>
+              <BrandWordmark as="span" size="lg" />
             </span>
           }
         >

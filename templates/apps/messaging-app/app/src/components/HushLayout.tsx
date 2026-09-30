@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -44,32 +45,8 @@ function useNavItems() {
 function BrandLink() {
   const cm = getClassMap()
   return (
-    <Link
-      to="/inbox"
-      className={cm.cn(
-        cm.flex({ align: 'center', gap: 'sm' }),
-        cm.fontWeight('bold'),
-        cm.textSize('lg'),
-        'tracking-tight min-w-0',
-      )}
-    >
-      <span
-        className={cm.cn(
-          cm.w(8),
-          cm.h(8),
-          cm.flex({ align: 'center', justify: 'center' }),
-          'rounded-xl bg-gradient-to-br from-primary to-secondary text-white shrink-0',
-        )}
-      >
-        <span
-          className="material-symbols-outlined text-base"
-          style={{ fontVariationSettings: "'FILL' 1" }}
-          aria-hidden="true"
-        >
-          lock
-        </span>
-      </span>
-      <span className="truncate">{APP_NAME}</span>
+    <Link to="/inbox" className={cm.cn('min-w-0 shrink-0')} aria-label={APP_NAME}>
+      <BrandWordmark as="span" size="md" />
     </Link>
   )
 }

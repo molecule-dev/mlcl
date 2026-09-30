@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/profile": {
+      "allow": [
+        {
+          "heading": "Sprint Planning: Design Tasks Breakdown",
+          "reason": "Design sample-data recording title: the profile's Featured recordings grid renders the viewer's real recordings from /api/recordings (seeded titles like 'Design crit — checkout v2', 'Monthly product review — June'); the design's placeholder recording is not in the app's data."
+        }
+      ]
+    }
+  }
+}

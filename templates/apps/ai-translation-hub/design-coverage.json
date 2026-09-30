@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/dashboard": {
+      "allow": [
+        {
+          "heading": "Marketing Campaign \"Summer Breeze\"",
+          "reason": "Design sample-data project name: the dashboard's Active projects grid renders the viewer's real translation projects from /api/projects (projects are created by the user, none are seeded); the design's placeholder project is not in the app's data."
+        }
+      ]
+    }
+  }
+}

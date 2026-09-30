@@ -457,9 +457,15 @@ export function Landing() {
                   cm.sp('px', 6),
                   cm.sp('py', 3),
                   cm.fontWeight('medium'),
-                  'rounded-lg text-white whitespace-nowrap transition-opacity hover:opacity-90 text-center',
+                  'rounded-lg whitespace-nowrap transition-opacity hover:opacity-90 text-center',
                 )}
-                style={{ background: 'var(--color-tertiary)' }}
+                style={{
+                  background: 'var(--color-tertiary)',
+                  // --color-on-tertiary is the contrast-corrected pair token
+                  // (#3b1a00 on light / #78350f on dark); white on the amber
+                  // CTA measured 3.19:1 and fails WCAG AA at this size.
+                  color: 'var(--color-on-tertiary)',
+                }}
               >
                 {t('landing.ctaButton', {}, { defaultValue: 'Start free' })}
               </Link>

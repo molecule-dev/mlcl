@@ -363,7 +363,58 @@ export function Billing() {
         </div>
       </section>
 
+      {/* Design's "Need more headroom?" upsell strip — points at the full
+          plan table right below instead of duplicating it. */}
       <section
+        data-mol-id="billing-headroom"
+        className={cm.cn(
+          cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
+          cm.sp('p', 6),
+          'rounded-2xl border border-outline-variant bg-surface-secondary shadow-sm',
+        )}
+      >
+        <div className={cm.stack(1)}>
+          <h2
+            className={cm.cn(
+              cm.fontWeight('bold'),
+              cm.textSize('xl'),
+              'tracking-tight text-on-surface',
+            )}
+          >
+            {t('billing.headroom.title', {}, { defaultValue: 'Need more headroom?' })}
+          </h2>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'billing.headroom.subtitle',
+              { tier: upgradablePrices[upgradablePrices.length - 1]?.name ?? 'Pro' },
+              {
+                defaultValue:
+                  'Upgrade to {{tier}} for unlimited recordings, longer retention, and priority encoding.',
+              },
+            )}
+          </p>
+        </div>
+        <a
+          href="#billing-pricing"
+          data-mol-id="billing-headroom-cta"
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.sp('px', 5),
+            cm.sp('py', 2.5),
+            cm.fontWeight('bold'),
+            cm.textSize('sm'),
+            'rounded-full bg-gradient-to-r from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)] text-white hover:opacity-90 transition-opacity',
+          )}
+        >
+          <span className="material-symbols-outlined text-base" aria-hidden="true">
+            rocket_launch
+          </span>
+          {t('billing.headroom.cta', {}, { defaultValue: 'Compare plans' })}
+        </a>
+      </section>
+
+      <section
+        id="billing-pricing"
         data-mol-id="billing-pricing"
         className={cm.cn(
           cm.sp('p', 6),

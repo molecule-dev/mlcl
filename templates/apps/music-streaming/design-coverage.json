@@ -1,0 +1,20 @@
+{
+  "screens": {
+    "/playlists/:id": {
+      "allow": [
+        {
+          "heading": "Late Night Study Beats",
+          "reason": "Design sample-data playlist name: the playlist hero renders the seeded playlist's real title (fixtures include 'Late Night Drive', 'Deep Focus', 'Rainy Day', ...); the design's placeholder playlist is not in the app's data."
+        }
+      ]
+    },
+    "/albums/:id": {
+      "allow": [
+        {
+          "heading": "More by Neon Mirage",
+          "reason": "The 'More by <artist>' section IS implemented on the album detail (fetches /api/albums and lists other albums by the same artist as cover cards); 'Neon Mirage' is the design's placeholder artist name and not in the app's seeded artist roster."
+        }
+      ]
+    }
+  }
+}

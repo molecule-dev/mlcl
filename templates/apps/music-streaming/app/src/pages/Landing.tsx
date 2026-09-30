@@ -3,7 +3,8 @@ import { Link } from 'react-router'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { Footer } from '../components/Footer.js'
 
 const FEATURES = [
@@ -78,7 +79,7 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <span className="text-2xl font-black tracking-tighter text-on-surface">{APP_NAME}</span>
+          <BrandWordmark size="lg" />
           <div className={cm.flex({ align: 'center', gap: 'lg' })}>
             <Link
               to="/pricing"

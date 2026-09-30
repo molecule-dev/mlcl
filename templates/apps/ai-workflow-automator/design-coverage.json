@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/templates/:id": {
+      "allow": [
+        {
+          "heading": "Customer onboarding sequence",
+          "reason": "Template-detail name is served data: GET /api/templates/:id returns the catalog entry and the page renders tpl.name dynamically (same class as fixture-rendered names). The design's template was also ADDED to the shipped catalog (api handlers/templates.ts, id 'customer-onboarding', webhook trigger, CRM sync + success-team alert nodes) so it is a real, installable template — but the static gate only scans app/src + fixtures, so the runtime-served name cannot register there."
+        }
+      ]
+    }
+  }
+}

@@ -30,7 +30,7 @@ interface TemplateNode {
 interface TemplateBlueprint {
   id: string
   name: string
-  category: 'Sales' | 'Support' | 'Ops' | 'Marketing' | 'Engineering'
+  category: 'Sales' | 'Support' | 'Ops' | 'Marketing' | 'Engineering' | 'Customer Success'
   description: string
   highlights: string[]
   installs: number
@@ -222,6 +222,59 @@ const CATALOG: TemplateBlueprint[] = [
       {
         type: 'email',
         config: { to: 'oncall@example.com', subject: 'Anomaly detected', body: 'See dashboard.' },
+      },
+    ],
+    triggerType: 'webhook',
+  },
+  {
+    id: 'customer-onboarding',
+    name: 'Customer onboarding sequence',
+    category: 'Customer Success',
+    description:
+      'Automatically welcome new enterprise customers, sync to CRM, and alert the success team.',
+    highlights: [
+      'Welcome email + CRM contact sync',
+      'Account tier detected from company size',
+      'Success-team alert with context bundle',
+    ],
+    installs: 1204,
+    rating: 4.9,
+    badge: 'popular',
+    connections: [
+      { name: 'Webhook', icon: 'webhook', required: true },
+      { name: 'CRM', icon: 'hub', required: true },
+      { name: 'Email', icon: 'mail', required: true },
+    ],
+    nodes: [
+      {
+        kind: 'trigger',
+        icon: 'webhook',
+        title: 'When form is submitted',
+        subtitle: 'Typeform webhook',
+      },
+      { kind: 'action', icon: 'hub', title: 'Sync to CRM', subtitle: 'Upsert account + contact' },
+      {
+        kind: 'action',
+        icon: 'notifications',
+        title: 'Alert success team',
+        subtitle: 'Channel post with context',
+      },
+    ],
+    steps: [
+      {
+        type: 'ai',
+        config: {
+          system: 'Account summarizer',
+          prompt: 'Summarize this signup for the success team in 3 bullets.',
+        },
+      },
+      {
+        type: 'email',
+        config: {
+          to: 'success@example.com',
+          subject: 'New enterprise customer onboarded',
+          body: 'A new customer just signed up — see the summary.',
+        },
       },
     ],
     triggerType: 'webhook',

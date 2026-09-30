@@ -1,0 +1,20 @@
+{
+  "screens": {
+    "/inbox": {
+      "allow": [
+        {
+          "heading": "Elena Lopez lock",
+          "reason": "Design sample-data row: the inbox conversation list renders each seeded conversation's real name with the end-to-end encryption lock glyph (ConversationList.tsx renders 'lock' for every encrypted conversation), but 'Elena Lopez' is a design placeholder that is not in the app's seeded contacts."
+        }
+      ]
+    },
+    "/search": {
+      "allow": [
+        {
+          "heading": "Project Atlas Launch",
+          "reason": "Design sample-data group name: /search renders live group/conversation/contact hits from the viewer's own data (api handlers/search.ts); the seeded groups are 'Climbing crew', 'Family' and 'Quarterly review', so the placeholder group never appears in results."
+        }
+      ]
+    }
+  }
+}
