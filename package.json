@@ -1,7 +1,7 @@
 {
   "name": "mlcl",
   "version": "2.1.0",
-  "description": "The Molecule.dev CLI — scaffold and manage production full-stack apps from 900+ composable, swappable @molecule/* packages",
+  "description": "The Molecule.dev CLI — scaffold and manage production full-stack apps from a composable, swappable @molecule/* package library",
   "author": "Molecule Dev, Inc. (https://molecule.dev)",
   "license": "Apache-2.0",
   "type": "module",
@@ -154,7 +154,7 @@
     "lint": "eslint src/ scripts/ --max-warnings 0",
     "lint:fix": "eslint src/ --fix --max-warnings 0",
     "postpack": "shx rm -f oclif.manifest.json",
-    "prepack": "npm run build && oclif manifest && oclif readme",
+    "prepack": "npm run build && oclif manifest && oclif readme && node scripts/inject-fleet-counts.mjs",
     "prepublishOnly": "node scripts/prepublish-verify.mjs",
     "prepare": "husky",
     "registry:check": "node bin/run.js sync-registry --check",
@@ -170,7 +170,8 @@
     "verify:template-e2e-demo-data": "node scripts/verify-template-e2e-demo-data.mjs",
     "verify:template-lint": "node scripts/verify-template-lint.mjs",
     "verify:template-locales": "node scripts/check-template-locale-placeholders.js",
-    "verify:template-types": "node scripts/verify-template-types.mjs"
+    "verify:template-types": "node scripts/verify-template-types.mjs",
+    "sync:fleet-counts": "node scripts/inject-fleet-counts.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "0.115.0",
