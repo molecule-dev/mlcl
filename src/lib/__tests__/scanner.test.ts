@@ -8,7 +8,7 @@
  * @module
  */
 
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -39,6 +39,13 @@ const GRADE_PATH = join(PACKAGES_ROOT, 'api', 'resources', 'grade')
 const CORS_PATH = join(PACKAGES_ROOT, 'api', 'middleware', 'cors')
 const PASSWORD_PATH = join(PACKAGES_ROOT, 'api', 'core', 'password')
 const BOND_PATH = join(PACKAGES_ROOT, 'api', 'infrastructure', 'bond')
+
+// The real-molecule-package tests need the molecule SIBLING checkout, which a
+// standalone mlcl clone (its own CI) does not have — same posture as the
+// egress suite's guard: skipped there rather than failed; the workspace run
+// covers them.
+const hasMoleculeSibling = existsSync(PACKAGES_ROOT)
+const itWithSibling = hasMoleculeSibling ? it : it.skip
 
 // ---------------------------------------------------------------------------
 // Temporary fixtures for edge cases
@@ -98,7 +105,7 @@ describe('scanPackage', () => {
   // Core package (logger)
   // --------------------------------------------------------------------------
   describe('core package (logger)', () => {
-    it('scans name, version, and type correctly', async () => {
+    itWithSibling('scans name, version, and type correctly', async () => {
       const result = await scanPackage(LOGGER_PATH)
       expect(result.name).toBe('@molecule/api-logger')
       // Read the real manifest rather than hardcoding — this asserts the scanner
@@ -108,22 +115,22 @@ describe('scanPackage', () => {
       expect(result.type).toBe('core')
     })
 
-    it('has no routes (core packages do not produce routes)', async () => {
+    itWithSibling('has no routes (core packages do not produce routes)', async () => {
       const result = await scanPackage(LOGGER_PATH)
       expect(result.routes).toEqual([])
     })
 
-    it('has no tables', async () => {
+    itWithSibling('has no tables', async () => {
       const result = await scanPackage(LOGGER_PATH)
       expect(result.tables).toEqual([])
     })
 
-    it('has a src path', async () => {
+    itWithSibling('has a src path', async () => {
       const result = await scanPackage(LOGGER_PATH)
       expect(result.srcPath).toBe(join(LOGGER_PATH, 'src'))
     })
 
-    it('has molecule metadata from package.json', async () => {
+    itWithSibling('has molecule metadata from package.json', async () => {
       const result = await scanPackage(LOGGER_PATH)
       expect(result.molecule).toBeDefined()
       expect(result.molecule!.type).toBe('core')
@@ -136,19 +143,19 @@ describe('scanPackage', () => {
   // Bond package (oauth-github)
   // --------------------------------------------------------------------------
   describe('bond package (oauth-github)', () => {
-    it('scans name and type correctly', async () => {
+    itWithSibling('scans name and type correctly', async () => {
       const result = await scanPackage(GITHUB_OAUTH_PATH)
       expect(result.name).toBe('@molecule/api-oauth-github')
       expect(result.type).toBe('bond')
     })
 
-    it('has README.md content', async () => {
+    itWithSibling('has README.md content', async () => {
       const result = await scanPackage(GITHUB_OAUTH_PATH)
       expect(result.moleculeMd).toBeDefined()
       expect(result.moleculeMd!.length).toBeGreaterThan(0)
     })
 
-    it('has molecule metadata from package.json', async () => {
+    itWithSibling('has molecule metadata from package.json', async () => {
       const result = await scanPackage(GITHUB_OAUTH_PATH)
       expect(result.molecule).toBeDefined()
       expect(result.molecule!.type).toBe('provider')
@@ -162,7 +169,7 @@ describe('scanPackage', () => {
       )
     })
 
-    it('has no routes (bonds do not produce routes)', async () => {
+    itWithSibling('has no routes (bonds do not produce routes)', async () => {
       const result = await scanPackage(GITHUB_OAUTH_PATH)
       expect(result.routes).toEqual([])
     })
@@ -172,18 +179,18 @@ describe('scanPackage', () => {
   // Resource package (user)
   // --------------------------------------------------------------------------
   describe('resource package (user)', () => {
-    it('scans name and type correctly', async () => {
+    itWithSibling('scans name and type correctly', async () => {
       const result = await scanPackage(USER_PATH)
       expect(result.name).toBe('@molecule/api-resource-user')
       expect(result.type).toBe('resource')
     })
 
-    it('has routes parsed from routes.ts', async () => {
+    itWithSibling('has routes parsed from routes.ts', async () => {
       const result = await scanPackage(USER_PATH)
       expect(result.routes.length).toBeGreaterThan(0)
     })
 
-    it('has tables from SQL setup files', async () => {
+    itWithSibling('has tables from SQL setup files', async () => {
       const result = await scanPackage(USER_PATH)
       expect(result.tables.length).toBeGreaterThanOrEqual(2)
       const tableNames = result.tables.map((t) => t.name)
@@ -191,19 +198,19 @@ describe('scanPackage', () => {
       expect(tableNames).toContain('usersSecrets')
     })
 
-    it('has exports from index.ts', async () => {
+    itWithSibling('has exports from index.ts', async () => {
       const result = await scanPackage(USER_PATH)
       expect(result.exports.length).toBeGreaterThan(0)
     })
 
-    it('has molecule metadata', async () => {
+    itWithSibling('has molecule metadata', async () => {
       const result = await scanPackage(USER_PATH)
       expect(result.molecule).toBeDefined()
       expect(result.molecule!.type).toBe('resource')
       expect(result.molecule!.category).toBe('auth')
     })
 
-    it('has README.md content', async () => {
+    itWithSibling('has README.md content', async () => {
       const result = await scanPackage(USER_PATH)
       expect(result.moleculeMd).toBeDefined()
     })
@@ -213,18 +220,18 @@ describe('scanPackage', () => {
   // Resource package (device)
   // --------------------------------------------------------------------------
   describe('resource package (device)', () => {
-    it('scans name and type correctly', async () => {
+    itWithSibling('scans name and type correctly', async () => {
       const result = await scanPackage(DEVICE_PATH)
       expect(result.name).toBe('@molecule/api-resource-device')
       expect(result.type).toBe('resource')
     })
 
-    it('has routes parsed from routes.ts', async () => {
+    itWithSibling('has routes parsed from routes.ts', async () => {
       const result = await scanPackage(DEVICE_PATH)
       expect(result.routes.length).toBeGreaterThan(0)
     })
 
-    it('has tables from SQL setup', async () => {
+    itWithSibling('has tables from SQL setup', async () => {
       const result = await scanPackage(DEVICE_PATH)
       const tableNames = result.tables.map((t) => t.name)
       expect(tableNames).toContain('devices')
@@ -235,18 +242,18 @@ describe('scanPackage', () => {
   // Middleware package (cors)
   // --------------------------------------------------------------------------
   describe('middleware package (cors)', () => {
-    it('scans name and type correctly', async () => {
+    itWithSibling('scans name and type correctly', async () => {
       const result = await scanPackage(CORS_PATH)
       expect(result.name).toBe('@molecule/api-middleware-cors')
       expect(result.type).toBe('middleware')
     })
 
-    it('has no routes', async () => {
+    itWithSibling('has no routes', async () => {
       const result = await scanPackage(CORS_PATH)
       expect(result.routes).toEqual([])
     })
 
-    it('has molecule metadata', async () => {
+    itWithSibling('has molecule metadata', async () => {
       const result = await scanPackage(CORS_PATH)
       expect(result.molecule).toBeDefined()
       expect(result.molecule!.type).toBe('middleware')
@@ -258,7 +265,7 @@ describe('scanPackage', () => {
   // molecule metadata edge cases
   // --------------------------------------------------------------------------
   describe('molecule metadata', () => {
-    it('reads molecule metadata from package.json when present', async () => {
+    itWithSibling('reads molecule metadata from package.json when present', async () => {
       const result = await scanPackage(LOGGER_PATH)
       expect(result.molecule).toBeDefined()
       expect(result.molecule!.label).toBe('Logger')
@@ -283,7 +290,7 @@ describe('scanPackage', () => {
 // findMoleculePackages
 // ============================================================================
 describe('findMoleculePackages', () => {
-  it('finds all packages under packages/api', async () => {
+  itWithSibling('finds all packages under packages/api', async () => {
     const apiDir = join(PACKAGES_ROOT, 'api')
     const packages = await findMoleculePackages(apiDir)
     // There are many packages across core, bonds, infrastructure, resources, middleware, utilities
@@ -295,7 +302,7 @@ describe('findMoleculePackages', () => {
     }
   })
 
-  it('finds packages under packages/app', async () => {
+  itWithSibling('finds packages under packages/app', async () => {
     const appDir = join(PACKAGES_ROOT, 'app')
     const packages = await findMoleculePackages(appDir)
     expect(packages.length).toBeGreaterThanOrEqual(50)
@@ -341,7 +348,7 @@ describe('findMoleculePackages', () => {
 // Route scanning (via scanPackage)
 // ============================================================================
 describe('route scanning', () => {
-  it('user resource has routes parsed from routes.ts', async () => {
+  itWithSibling('user resource has routes parsed from routes.ts', async () => {
     const result = await scanPackage(USER_PATH)
     const paths = result.routes.map((r) => `${r.method.toUpperCase()} ${r.path}`)
 
@@ -352,21 +359,21 @@ describe('route scanning', () => {
     expect(paths).toContain('DELETE /users/:id')
   })
 
-  it('user resource has optional routes for OAuth', async () => {
+  itWithSibling('user resource has optional routes for OAuth', async () => {
     const result = await scanPackage(USER_PATH)
     const oauthRoute = result.routes.find((r) => r.path === '/users/log-in/oauth')
     expect(oauthRoute).toBeDefined()
     expect(oauthRoute!.optional).toBe('oauth')
   })
 
-  it('user resource has optional routes for payments', async () => {
+  itWithSibling('user resource has optional routes for payments', async () => {
     const result = await scanPackage(USER_PATH)
     const paymentRoute = result.routes.find((r) => r.path === '/users/:id/verify-payment/:provider')
     expect(paymentRoute).toBeDefined()
     expect(paymentRoute!.optional).toBe('payments')
   })
 
-  it('device resource has routes parsed from routes.ts', async () => {
+  itWithSibling('device resource has routes parsed from routes.ts', async () => {
     const result = await scanPackage(DEVICE_PATH)
     const paths = result.routes.map((r) => `${r.method.toUpperCase()} ${r.path}`)
 
@@ -376,12 +383,12 @@ describe('route scanning', () => {
     expect(paths).toContain('DELETE /devices/:id')
   })
 
-  it('core package returns empty routes array', async () => {
+  itWithSibling('core package returns empty routes array', async () => {
     const result = await scanPackage(LOGGER_PATH)
     expect(result.routes).toEqual([])
   })
 
-  it('route objects have method, path, handler, and middlewares fields', async () => {
+  itWithSibling('route objects have method, path, handler, and middlewares fields', async () => {
     const result = await scanPackage(DEVICE_PATH)
     for (const route of result.routes) {
       expect(route).toHaveProperty('method')
@@ -395,7 +402,7 @@ describe('route scanning', () => {
     }
   })
 
-  it('device routes include correct middlewares', async () => {
+  itWithSibling('device routes include correct middlewares', async () => {
     const result = await scanPackage(DEVICE_PATH)
     const queryRoute = result.routes.find((r) => r.handler === 'query')
     expect(queryRoute).toBeDefined()
@@ -411,52 +418,64 @@ describe('route scanning', () => {
   // `sync-registry --scan-routes` keeps every resource's entry populated, a
   // scanPackage-based assertion would pass on registry data without ever
   // exercising the handler-map filter it exists to test.
-  it('drops the shared `authenticate` middleware (not a handler-map key) to prevent boot crash', async () => {
-    // activity-feed routes declare middlewares: ['authenticate'], but `authenticate`
-    // is the GLOBAL auth (applied app-wide via verifyMiddleware()), not in the
-    // resource's requestHandlerMap. Emitting `Activity.authenticate` was `undefined`
-    // → "argument handler must be a function" → the whole API failed to boot. It must
-    // be filtered out; the route handlers (real map keys) must remain.
-    const routes = await scanForRoutes(join(ACTIVITY_FEED_PATH, 'src'))
-    expect(routes.length).toBeGreaterThan(0)
-    for (const route of routes) {
-      expect(route.middlewares).not.toContain('authenticate')
-    }
-    expect(routes.find((r) => r.handler === 'feed')).toBeDefined()
-    expect(routes.find((r) => r.handler === 'logActivity')).toBeDefined()
-  })
+  itWithSibling(
+    'drops the shared `authenticate` middleware (not a handler-map key) to prevent boot crash',
+    async () => {
+      // activity-feed routes declare middlewares: ['authenticate'], but `authenticate`
+      // is the GLOBAL auth (applied app-wide via verifyMiddleware()), not in the
+      // resource's requestHandlerMap. Emitting `Activity.authenticate` was `undefined`
+      // → "argument handler must be a function" → the whole API failed to boot. It must
+      // be filtered out; the route handlers (real map keys) must remain.
+      const routes = await scanForRoutes(join(ACTIVITY_FEED_PATH, 'src'))
+      expect(routes.length).toBeGreaterThan(0)
+      for (const route of routes) {
+        expect(route.middlewares).not.toContain('authenticate')
+      }
+      expect(routes.find((r) => r.handler === 'feed')).toBeDefined()
+      expect(routes.find((r) => r.handler === 'logActivity')).toBeDefined()
+    },
+  )
 
-  it('drops `authenticate` while keeping the resource-local `authUser` on the same package (project)', async () => {
-    // project mixes both on one routes.ts: create/list mark `authenticate`
-    // (global), read/update/del mark `authUser` (a real map key). The filter
-    // must be per-name, not per-file.
-    const routes = await scanForRoutes(join(PROJECT_PATH, 'src'))
-    const create = routes.find((r) => r.method === 'post' && r.path === '/projects')
-    const read = routes.find((r) => r.method === 'get' && r.path === '/projects/:id')
-    expect(create).toBeDefined()
-    expect(read).toBeDefined()
-    expect(create!.middlewares).toEqual([])
-    expect(read!.middlewares).toEqual(['authUser'])
-  })
+  itWithSibling(
+    'drops `authenticate` while keeping the resource-local `authUser` on the same package (project)',
+    async () => {
+      // project mixes both on one routes.ts: create/list mark `authenticate`
+      // (global), read/update/del mark `authUser` (a real map key). The filter
+      // must be per-name, not per-file.
+      const routes = await scanForRoutes(join(PROJECT_PATH, 'src'))
+      const create = routes.find((r) => r.method === 'post' && r.path === '/projects')
+      const read = routes.find((r) => r.method === 'get' && r.path === '/projects/:id')
+      expect(create).toBeDefined()
+      expect(read).toBeDefined()
+      expect(create!.middlewares).toEqual([])
+      expect(read!.middlewares).toEqual(['authUser'])
+    },
+  )
 
-  it('keeps resource-local authorizers that ARE handler-map keys (authSelf in User map)', async () => {
-    const routes = await scanForRoutes(join(USER_PATH, 'src'))
-    const readUser = routes.find((r) => r.path === '/users/:id' && r.method === 'get')
-    expect(readUser).toBeDefined()
-    expect(readUser!.middlewares).toContain('authSelf') // authSelf IS in User's map → kept
-  })
+  itWithSibling(
+    'keeps resource-local authorizers that ARE handler-map keys (authSelf in User map)',
+    async () => {
+      const routes = await scanForRoutes(join(USER_PATH, 'src'))
+      const readUser = routes.find((r) => r.path === '/users/:id' && r.method === 'get')
+      expect(readUser).toBeDefined()
+      expect(readUser!.middlewares).toContain('authSelf') // authSelf IS in User's map → kept
+    },
+  )
 
-  it('filters by map membership, not by name: grade keys its own `authenticate` authorizer and keeps it', async () => {
-    // grade's requestHandlerMap has `authenticate: authenticate()` — a
-    // resource-local authorizer that happens to share the global marker's
-    // name. It is a real key, so `Grade.authenticate` resolves and must stay.
-    const routes = await scanForRoutes(join(GRADE_PATH, 'src'))
-    const list = routes.find((r) => r.method === 'get' && r.path === '/grades')
-    expect(list).toBeDefined()
-    expect(list!.middlewares).toEqual(['authenticate'])
-  })
+  itWithSibling(
+    'filters by map membership, not by name: grade keys its own `authenticate` authorizer and keeps it',
+    async () => {
+      // grade's requestHandlerMap has `authenticate: authenticate()` — a
+      // resource-local authorizer that happens to share the global marker's
+      // name. It is a real key, so `Grade.authenticate` resolves and must stay.
+      const routes = await scanForRoutes(join(GRADE_PATH, 'src'))
+      const list = routes.find((r) => r.method === 'get' && r.path === '/grades')
+      expect(list).toBeDefined()
+      expect(list!.middlewares).toEqual(['authenticate'])
+    },
+  )
 
-  it('user routes include correct middlewares', async () => {
+  itWithSibling('user routes include correct middlewares', async () => {
     const result = await scanPackage(USER_PATH)
     const readRoute = result.routes.find((r) => r.method === 'get' && r.path === '/users/:id')
     expect(readRoute).toBeDefined()
@@ -472,32 +491,32 @@ describe('route scanning', () => {
 // Table scanning (via scanPackage)
 // ============================================================================
 describe('table scanning', () => {
-  it('user resource has users and usersSecrets tables', async () => {
+  itWithSibling('user resource has users and usersSecrets tables', async () => {
     const result = await scanPackage(USER_PATH)
     const tableNames = result.tables.map((t) => t.name)
     expect(tableNames).toContain('users')
     expect(tableNames).toContain('usersSecrets')
   })
 
-  it('user resource tables reference their SQL files', async () => {
+  itWithSibling('user resource tables reference their SQL files', async () => {
     const result = await scanPackage(USER_PATH)
     for (const table of result.tables) {
       expect(table.sqlFile).toMatch(/\.sql$/)
     }
   })
 
-  it('device resource has devices table', async () => {
+  itWithSibling('device resource has devices table', async () => {
     const result = await scanPackage(DEVICE_PATH)
     const tableNames = result.tables.map((t) => t.name)
     expect(tableNames).toContain('devices')
   })
 
-  it('core package returns empty tables array', async () => {
+  itWithSibling('core package returns empty tables array', async () => {
     const result = await scanPackage(LOGGER_PATH)
     expect(result.tables).toEqual([])
   })
 
-  it('middleware package returns empty tables array', async () => {
+  itWithSibling('middleware package returns empty tables array', async () => {
     const result = await scanPackage(CORS_PATH)
     expect(result.tables).toEqual([])
   })
@@ -507,7 +526,7 @@ describe('table scanning', () => {
 // Export scanning (via scanPackage)
 // ============================================================================
 describe('export scanning', () => {
-  it('logger package exports known names', async () => {
+  itWithSibling('logger package exports known names', async () => {
     const result = await scanPackage(LOGGER_PATH)
     // logger.ts exports: logger, setLogger, hasLogger
     // types.ts exports: LogLevel (type), Logger (interface)
@@ -517,7 +536,7 @@ describe('export scanning', () => {
     expect(result.exports).toContain('hasLogger')
   })
 
-  it('bond infrastructure package exports known names', async () => {
+  itWithSibling('bond infrastructure package exports known names', async () => {
     const result = await scanPackage(BOND_PATH)
     // bond.ts exports: bond, get, require, unbond, isBonded
     expect(result.exports).toContain('bond')
@@ -527,7 +546,7 @@ describe('export scanning', () => {
     expect(result.exports).toContain('isBonded')
   })
 
-  it('github oauth bond exports known names', async () => {
+  itWithSibling('github oauth bond exports known names', async () => {
     const result = await scanPackage(GITHUB_OAUTH_PATH)
     // provider.ts exports: serverName, verify
     // Note: `export type { ... } from` re-exports in types.ts are not captured
@@ -537,7 +556,7 @@ describe('export scanning', () => {
     expect(result.exports).toContain('verify')
   })
 
-  it('password core exports known names', async () => {
+  itWithSibling('password core exports known names', async () => {
     const result = await scanPackage(PASSWORD_PATH)
     // provider.ts exports: setProvider, getProvider, hasProvider, hash, compare
     expect(result.exports).toContain('hash')
@@ -545,14 +564,14 @@ describe('export scanning', () => {
     expect(result.exports).toContain('setProvider')
   })
 
-  it('cors middleware exports known names', async () => {
+  itWithSibling('cors middleware exports known names', async () => {
     const result = await scanPackage(CORS_PATH)
     // cors.ts exports: cors, createCorsMiddleware
     expect(result.exports).toContain('cors')
     expect(result.exports).toContain('createCorsMiddleware')
   })
 
-  it('exports are deduplicated', async () => {
+  itWithSibling('exports are deduplicated', async () => {
     const result = await scanPackage(LOGGER_PATH)
     const uniqueExports = [...new Set(result.exports)]
     expect(result.exports.length).toBe(uniqueExports.length)
