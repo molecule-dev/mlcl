@@ -5,8 +5,8 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
 import { useSecurityFindings, useVaultItems } from '../lib/api.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 import {
   type VaultCategory,
@@ -88,14 +88,7 @@ function BrandLink() {
         FOCUS_RING.concat(' rounded-md'),
       )}
     >
-      <span
-        className="material-symbols-outlined text-[20px]"
-        style={{ fontVariationSettings: "'FILL' 1" }}
-        aria-hidden="true"
-      >
-        diamond
-      </span>
-      <span className="font-extrabold tracking-tighter text-[18px]">{APP_NAME}</span>
+      <BrandWordmark as="span" size="sm" />
     </Link>
   )
 }

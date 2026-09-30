@@ -25,4 +25,4 @@ export const WEBSITE_URL = ''
 export const APP_DESCRIPTION = 'Live auctions for collectors who know what they want.'
 
 /** Primary brand color (PWA manifest, meta theme-color). */
-export const BRAND_COLOR = '#e05a2b'
+export const BRAND_COLOR = '#c2410c' /* sync of theme.css --mol-color-primary (contrast fix) */

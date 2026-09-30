@@ -5,7 +5,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -51,11 +51,8 @@ export function NuzzleLayout(): JSX.Element {
   const navLabel = t('nuzzleLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
 
   const brand = (
-    <Link
-      to="/dashboard"
-      className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight text-primary')}
-    >
-      {APP_NAME}
+    <Link to="/dashboard">
+      <BrandWordmark as="span" />
     </Link>
   )
 

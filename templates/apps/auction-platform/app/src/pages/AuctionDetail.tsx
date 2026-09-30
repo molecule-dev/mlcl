@@ -76,6 +76,7 @@ export function AuctionDetail() {
     kind: 'idle' | 'success' | 'error'
     message?: string
   }>({ kind: 'idle' })
+  const [showAllBids, setShowAllBids] = useState(false)
   const [watching, setWatching] = useState(false)
   const [watchPending, setWatchPending] = useState(false)
   const [watchStatus, setWatchStatus] = useState<{
@@ -555,42 +556,182 @@ export function AuctionDetail() {
         </section>
       </div>
 
-      {/* Description + bid history */}
+      {/* Provenance & history · Specifications · Latest bids */}
       <section className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-8')}>
-        <article
-          className={cm.cn(
-            cm.sp('p', 6),
-            'lg:col-span-7 rounded-xl bg-surface border border-outline-variant/40 stack-y space-y-3',
-          )}
-        >
-          <h2 className={cm.cn('text-xl font-extrabold tracking-tight')}>
-            {t('auctionDetail.descriptionHeading', {}, { defaultValue: 'About this lot' })}
-          </h2>
-          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}>
-            {data.description ||
-              t(
-                'auctionDetail.noDescription',
-                {},
-                { defaultValue: 'No description provided yet.' },
+        <div className={cm.cn('lg:col-span-7 stack-y space-y-6')}>
+          <article
+            className={cm.cn(
+              cm.sp('p', 6),
+              'rounded-xl bg-surface border border-outline-variant/40 stack-y space-y-3',
+            )}
+          >
+            <h3 className={cm.cn('text-xl font-extrabold tracking-tight')}>
+              {t('auctionDetail.provenanceHeading', {}, { defaultValue: 'Provenance & History' })}
+            </h3>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}>
+              {data.description ||
+                t(
+                  'auctionDetail.noDescription',
+                  {},
+                  { defaultValue: 'No description provided yet.' },
+                )}
+            </p>
+            <dl
+              className={cm.cn(
+                'grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm pt-3 border-t border-outline-variant/40',
               )}
-          </p>
-        </article>
+            >
+              <div>
+                <dt
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.textMuted,
+                    'uppercase font-bold tracking-widest',
+                  )}
+                >
+                  {t('auctionDetail.provenanceConsignor', {}, { defaultValue: 'Consignor' })}
+                </dt>
+                <dd className={cm.cn('font-semibold')}>
+                  <Link to={`/sellers/${data.seller.handle}`} className="hover:underline">
+                    {data.seller.name}
+                  </Link>
+                </dd>
+              </div>
+              <div>
+                <dt
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    cm.textMuted,
+                    'uppercase font-bold tracking-widest',
+                  )}
+                >
+                  {t('auctionDetail.provenanceDocs', {}, { defaultValue: 'Documentation' })}
+                </dt>
+                <dd className={cm.cn('font-semibold')}>
+                  {t(
+                    'auctionDetail.provenanceDocsValue',
+                    {},
+                    { defaultValue: 'Available on request' },
+                  )}
+                </dd>
+              </div>
+            </dl>
+          </article>
+
+          <article
+            className={cm.cn(
+              cm.sp('p', 6),
+              'rounded-xl bg-surface border border-outline-variant/40 stack-y space-y-3',
+            )}
+          >
+            <h3 className={cm.cn('text-xl font-extrabold tracking-tight')}>
+              {t('auctionDetail.specificationsHeading', {}, { defaultValue: 'Specifications' })}
+            </h3>
+            <dl
+              className={cm.cn(
+                'rounded-lg overflow-hidden border border-outline-variant/40 text-sm',
+              )}
+            >
+              {(
+                [
+                  {
+                    dt: t('auctionDetail.specCategory', {}, { defaultValue: 'Category' }),
+                    dd: data.category,
+                  },
+                  {
+                    dt: t('auctionDetail.specLot', {}, { defaultValue: 'Lot' }),
+                    dd: data.lot,
+                  },
+                  {
+                    dt: t('auctionDetail.specEnds', {}, { defaultValue: 'Auction ends' }),
+                    dd: new Date(data.ends_at).toLocaleString(undefined, {
+                      dateStyle: 'medium',
+                      timeStyle: 'short',
+                    }),
+                  },
+                  {
+                    dt: t('auctionDetail.specIncrement', {}, { defaultValue: 'Bid increment' }),
+                    dd: fmt(data.bid_increment_cents),
+                  },
+                  {
+                    dt: t('auctionDetail.specBuyNow', {}, { defaultValue: 'Buy now' }),
+                    dd: data.buy_now_cents
+                      ? fmt(data.buy_now_cents)
+                      : t('auctionDetail.specBuyNowOff', {}, { defaultValue: 'Disabled' }),
+                  },
+                  {
+                    dt: t('auctionDetail.shippingFrom', {}, { defaultValue: 'Ships from' }),
+                    dd: data.shipping_from,
+                  },
+                  {
+                    dt: t('auctionDetail.returnWindow', {}, { defaultValue: 'Returns' }),
+                    dd: t(
+                      'auctionDetail.returnDays',
+                      { count: data.return_window_days },
+                      { defaultValue: '{{count}} days' },
+                    ),
+                  },
+                ] as const
+              ).map((row, i) => (
+                <div
+                  key={row.dt}
+                  className={cm.cn(
+                    cm.grid({ gap: 'sm' }),
+                    'grid-cols-3',
+                    i % 2 === 0 ? 'bg-surface-container-low' : '',
+                    i > 0 ? 'border-t border-outline-variant/40' : '',
+                  )}
+                >
+                  <dt className={cm.cn(cm.sp('p', 3), 'font-semibold text-on-surface-variant')}>
+                    {row.dt}
+                  </dt>
+                  <dd
+                    className={cm.cn(
+                      cm.sp('p', 3),
+                      'col-span-2 text-on-surface border-l border-outline-variant/40',
+                    )}
+                  >
+                    {row.dd}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </article>
+        </div>
+
         <article
           className={cm.cn(
             cm.sp('p', 6),
-            'lg:col-span-5 rounded-xl bg-surface border border-outline-variant/40 stack-y space-y-3',
+            'lg:col-span-5 rounded-xl bg-surface border border-outline-variant/40 stack-y space-y-3 self-start',
           )}
         >
-          <h2 className={cm.cn('text-xl font-extrabold tracking-tight')}>
-            {t('auctionDetail.bidHistoryHeading', {}, { defaultValue: 'Bid history' })}
-          </h2>
+          <header className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
+            <h3 className={cm.cn('text-xl font-extrabold tracking-tight')}>
+              {t('auctionDetail.latestBidsHeading', {}, { defaultValue: 'Latest Bids' })}
+            </h3>
+            {data.bid_count > 0 ? (
+              <button
+                type="button"
+                onClick={() => setShowAllBids((v) => !v)}
+                aria-expanded={showAllBids}
+                data-mol-id="auction-detail-bids-view-all"
+                className={cm.cn(cm.textSize('sm'), 'font-bold text-primary hover:underline')}
+              >
+                {t(
+                  'auctionDetail.viewAllBids',
+                  { count: data.bid_count },
+                  { defaultValue: 'View all ({{count}})' },
+                )}
+              </button>
+            ) : null}
+          </header>
           {data.bid_history.length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
               {t('auctionDetail.noBids', {}, { defaultValue: 'No bids yet — be the first.' })}
             </p>
           ) : (
             <ul className={cm.cn('divide-y divide-outline-variant')}>
-              {data.bid_history.map((b) => (
+              {(showAllBids ? data.bid_history : data.bid_history.slice(0, 5)).map((b) => (
                 <li
                   key={b.id}
                   className={cm.cn(

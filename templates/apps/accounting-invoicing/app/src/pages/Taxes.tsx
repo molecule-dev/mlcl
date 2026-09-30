@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapSingle } from '../lib/unwrap.js'
+
+const DAY_MS = 86_400_000
 
 interface JurisdictionRow {
   jurisdiction: string
@@ -317,7 +320,172 @@ export function Taxes() {
           ))}
         </ul>
       </section>
+
+      <div className={cm.cn(cm.grid({ cols: 12, gap: 'md' }))}>
+        <UpcomingDeadlines estimates={data.quarterly_estimates} />
+        <QuickLinks />
+      </div>
     </div>
+  )
+}
+
+/**
+ * "Upcoming deadlines" — unpaid/unfiled quarterly estimates with their due
+ * dates rendered as month/day tiles, soonest first (the design's deadline
+ * rail). Paid and already-passed filings drop off.
+ */
+function UpcomingDeadlines({ estimates }: { estimates: QuarterlyEstimate[] }) {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const now = new Date()
+  const upcoming = estimates
+    .filter((q) => q.status !== 'paid' && Date.parse(q.due_date) >= now.getTime() - DAY_MS)
+    .sort((a, b) => Date.parse(a.due_date) - Date.parse(b.due_date))
+    .slice(0, 3)
+
+  return (
+    <section
+      className={cm.cn('col-span-12 lg:col-span-7', cm.card(), cm.sp('p', 6))}
+      aria-labelledby="taxes-deadlines"
+    >
+      <h2 id="taxes-deadlines" className={cm.cn(cm.sectionHeading, cm.sp('mb', 4))}>
+        {t('taxes.deadlinesHeading', {}, { defaultValue: 'Upcoming deadlines' })}
+      </h2>
+      {upcoming.length === 0 ? (
+        <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-on-surface-variant')}>
+          {t('taxes.deadlinesEmpty', {}, { defaultValue: 'No filings due right now.' })}
+        </p>
+      ) : (
+        <ul className={cm.cn('space-y-3')}>
+          {upcoming.map((q) => {
+            const due = new Date(q.due_date)
+            return (
+              <li key={q.quarter} className={cm.flex({ align: 'center', gap: 'md' })}>
+                <div
+                  className={cm.cn(
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    'rounded-lg bg-surface-container text-center min-w-[3.5rem]',
+                  )}
+                  aria-hidden="true"
+                >
+                  <p
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('bold'),
+                      'uppercase text-on-surface-variant',
+                    )}
+                  >
+                    {due.toLocaleDateString(undefined, { month: 'short' })}
+                  </p>
+                  <p className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tabular-nums')}>
+                    {due.getUTCDate()}
+                  </p>
+                </div>
+                <div>
+                  <p className={cm.cn(cm.fontWeight('semibold'), cm.textSize('sm'))}>
+                    {t(
+                      'taxes.deadlineItem',
+                      { quarter: q.quarter },
+                      { defaultValue: '{{quarter}} estimated tax due' },
+                    )}
+                  </p>
+                  <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                    {t(
+                      'taxes.deadlineSubtitle',
+                      {},
+                      { defaultValue: 'Federal & state payments required.' },
+                    )}
+                  </p>
+                </div>
+                <span className="ml-auto">
+                  <span
+                    className={cm.cn(
+                      cm.sp('px', 2),
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      cm.roundedFull,
+                      ESTIMATE_COLOR[q.status],
+                    )}
+                  >
+                    {q.status}
+                  </span>
+                </span>
+              </li>
+            )
+          })}
+        </ul>
+      )}
+    </section>
+  )
+}
+
+/** "Quick links" — shortcuts to the tax-related surfaces in this app. */
+function QuickLinks() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const links = [
+    {
+      icon: 'settings',
+      label: t('taxes.quickLink.settings', {}, { defaultValue: 'Tax settings' }),
+      to: '/settings',
+      molId: 'taxes-quick-link-settings',
+    },
+    {
+      icon: 'assessment',
+      label: t('taxes.quickLink.reports', {}, { defaultValue: 'Tax reports' }),
+      to: '/reports',
+      molId: 'taxes-quick-link-reports',
+    },
+  ]
+  return (
+    <section
+      className={cm.cn('col-span-12 lg:col-span-5', cm.card(), cm.sp('p', 6))}
+      aria-labelledby="taxes-quick-links"
+    >
+      <h2 id="taxes-quick-links" className={cm.cn(cm.sectionHeading, cm.sp('mb', 4))}>
+        {t('taxes.quickLinksHeading', {}, { defaultValue: 'Quick links' })}
+      </h2>
+      <ul className={cm.cn('space-y-2')}>
+        {links.map((l) => (
+          <li key={l.to}>
+            <Link
+              to={l.to}
+              data-mol-id={l.molId}
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'between' }),
+                cm.sp('px', 3),
+                cm.sp('py', 3),
+                'rounded-md hover:bg-surface-container',
+              )}
+            >
+              <span className={cm.flex({ align: 'center', gap: 'sm' })}>
+                <span
+                  className={cm.cn(
+                    cm.sp('p', 1),
+                    'rounded-md bg-surface-container flex items-center justify-center',
+                  )}
+                  aria-hidden="true"
+                >
+                  <span
+                    className={cm.cn('material-symbols-outlined text-base text-on-surface-variant')}
+                  >
+                    {l.icon}
+                  </span>
+                </span>
+                <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>{l.label}</span>
+              </span>
+              <span
+                className={cm.cn('material-symbols-outlined text-base text-on-surface-variant')}
+                aria-hidden="true"
+              >
+                chevron_right
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
   )
 }
 

@@ -12,6 +12,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /** Same shape the shared SidebarLayout's navItems prop carries. */
 export interface AuctionNavItem {
@@ -99,15 +100,14 @@ export function AuctionMobileShell({ navItems, userMenu }: AuctionMobileShellPro
           <Link
             to="/auctions"
             className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('bold'),
               // h-11 keeps the wordmark a 44px tap target next to the hamburger.
               cm.flex({ align: 'center' }),
-              'h-11 px-1 font-headline tracking-tight text-on-surface truncate',
+              'h-11 px-1 truncate',
               FOCUS_RING,
             )}
+            aria-label={APP_NAME}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </Link>
         </div>
         <div
@@ -150,15 +150,7 @@ export function AuctionMobileShell({ navItems, userMenu }: AuctionMobileShellPro
                 'pt-5 pb-2',
               )}
             >
-              <span
-                className={cm.cn(
-                  cm.textSize('xl'),
-                  cm.fontWeight('bold'),
-                  'font-headline tracking-tight text-on-surface',
-                )}
-              >
-                {APP_NAME}
-              </span>
+              <BrandWordmark as="span" size="md" />
               <button
                 type="button"
                 aria-label={t('mobileNav.closeMenu', {}, { defaultValue: 'Close navigation menu' })}

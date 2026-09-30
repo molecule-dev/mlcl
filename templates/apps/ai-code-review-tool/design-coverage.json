@@ -1,0 +1,56 @@
+{
+  "screens": {
+    "/dashboard": {
+      "allow": [
+        {
+          "heading": "Refactor authentication flow & add OAuth2",
+          "reason": "Design sample PR title. The Recent pull requests section is real: it renders the signed-in user's actual PRs from GET /api/pull-requests."
+        },
+        {
+          "heading": "Fix memory leak in background worker pool",
+          "reason": "Design sample PR title — see the sibling entry; list content is live API data, not fixtures."
+        }
+      ]
+    },
+    "/repos": {
+      "allow": [
+        {
+          "heading": "acme/payment-gateway",
+          "reason": "Design sample repository name. The page renders the user's real connected repositories from GET /api/repositories."
+        }
+      ]
+    },
+    "/prs/:id": {
+      "allow": [
+        {
+          "heading": "Add idempotency keys to webhook handler",
+          "reason": "Design sample PR title. The H1 renders the actual pull request title for the requested id."
+        }
+      ]
+    },
+    "/search": {
+      "allow": [
+        {
+          "heading": "Pull Requests (18)",
+          "reason": "Sample result count. The e2e contract pins the group heading's accessible name to exactly 'PR'; the live result count is rendered immediately adjacent to it."
+        },
+        {
+          "heading": "Implement webhook idempotency keys for Stripe events",
+          "reason": "Design sample PR title. Search results list the user's real PRs."
+        },
+        {
+          "heading": "Files (12)",
+          "reason": "File-match results are design mock data; the search index covers PRs, repositories, and rules via the live API, and no file-text index exists in this app."
+        }
+      ]
+    },
+    "/profile": {
+      "allow": [
+        {
+          "heading": "Sarah Chen",
+          "reason": "Design sample user. The profile H1 renders the signed-in user's real name from the auth session."
+        }
+      ]
+    }
+  }
+}

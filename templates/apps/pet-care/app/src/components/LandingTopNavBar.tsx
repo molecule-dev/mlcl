@@ -4,7 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ThemeToggle } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 const heroGradient = 'linear-gradient(135deg, var(--mol-color-primary), var(--mol-color-secondary))'
 
@@ -40,25 +40,7 @@ export function LandingTopNavBar() {
           data-mol-id="nav-brand"
           className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
         >
-          <div
-            className={cm.cn(
-              cm.w(8),
-              cm.h(8),
-              cm.roundedFull,
-              cm.flex({ align: 'center', justify: 'center' }),
-            )}
-            style={{ background: heroGradient }}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-white text-base')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              pets
-            </span>
-          </div>
-          <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" />
         </Link>
         <nav className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden md:flex')}>
           <a

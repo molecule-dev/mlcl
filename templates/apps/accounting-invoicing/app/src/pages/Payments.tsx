@@ -101,15 +101,15 @@ export function Payments() {
 
       <div className={cm.grid({ cols: 4, gap: 'md' })}>
         <Stat
-          label={t('payments.kpi.received', {}, { defaultValue: 'Received MTD' })}
+          label={t('payments.kpi.received', {}, { defaultValue: 'Total received MTD' })}
           value={fmtUsd(received)}
         />
         <Stat
-          label={t('status.pending', {}, { defaultValue: 'Pending' })}
+          label={t('payments.kpi.pendingDeposits', {}, { defaultValue: 'Pending deposits' })}
           value={fmtUsd(pending)}
         />
         <Stat
-          label={t('payments.kpi.refunded', {}, { defaultValue: 'Refunded' })}
+          label={t('payments.kpi.refundedThisMonth', {}, { defaultValue: 'Refunded this month' })}
           value={fmtUsd(refunded)}
         />
         <Stat

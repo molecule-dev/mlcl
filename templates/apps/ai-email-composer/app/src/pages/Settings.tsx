@@ -11,7 +11,7 @@ import { TonePillRow } from '../components/TonePillRow.js'
 import { loadPreferences, savePreferences } from '../lib/preferences.js'
 
 interface IntegrationDef {
-  key: 'gmail' | 'outlook' | 'hubspot' | 'notion'
+  key: 'gmail' | 'outlook' | 'slack' | 'hubspot' | 'notion'
   defaultLabel: string
   icon: string
   metaConnected: string
@@ -21,17 +21,24 @@ interface IntegrationDef {
 const INTEGRATIONS: ReadonlyArray<IntegrationDef> = [
   {
     key: 'gmail',
-    defaultLabel: 'Gmail',
+    defaultLabel: 'Google Workspace',
     icon: 'mail',
     metaConnected: 'Connected',
     metaDisconnected: 'Connect to send via Gmail',
   },
   {
     key: 'outlook',
-    defaultLabel: 'Outlook',
+    defaultLabel: 'Microsoft Outlook',
     icon: 'inbox',
     metaConnected: 'Connected',
     metaDisconnected: 'Connect to send via Outlook',
+  },
+  {
+    key: 'slack',
+    defaultLabel: 'Slack',
+    icon: 'forum',
+    metaConnected: 'Sharing to channels enabled',
+    metaDisconnected: 'Send drafts to a channel',
   },
   {
     key: 'hubspot',
@@ -150,7 +157,7 @@ export function Settings() {
         )}
       >
         <h2 className={cm.cn(cm.textSize('xl'), cm.sp('mb', 2), 'font-bold tracking-tight')}>
-          {t('settings.signatureHeading', {}, { defaultValue: 'Email signature' })}
+          {t('settings.signatureHeading', {}, { defaultValue: 'Email Signature' })}
         </h2>
         <p className={cm.cn(cm.textSize('sm'), cm.sp('mb', 4), 'text-on-surface-variant')}>
           {t(
@@ -159,6 +166,13 @@ export function Settings() {
             { defaultValue: 'Appended to every outgoing message. Plain text or markdown.' },
           )}
         </p>
+        <h3
+          className={cm.cn(
+            'text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2',
+          )}
+        >
+          {t('settings.defaultSignature', {}, { defaultValue: 'Default Signature' })}
+        </h3>
         <textarea
           data-mol-id="settings-signature"
           value={signature}

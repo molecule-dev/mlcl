@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { InsightHeroCard } from '../components/InsightHeroCard.js'
 import { KpiTileGrid } from '../components/KpiTileGrid.js'
 import { PublicFooter } from '../components/PublicFooter.js'
@@ -129,15 +130,8 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 8 }))}>
-            <SafeLink
-              to="/"
-              className={cm.cn(
-                cm.textSize('xl'),
-                cm.fontWeight('extrabold'),
-                'tracking-tighter text-primary',
-              )}
-            >
-              {APP_NAME}
+            <SafeLink to="/" className={cm.cn('shrink-0')} aria-label={APP_NAME}>
+              <BrandWordmark as="span" size="lg" />
             </SafeLink>
             <div className={cm.cn(cm.flex({ align: 'center', gap: 6 }), cm.hiddenBelow('md'))}>
               <a

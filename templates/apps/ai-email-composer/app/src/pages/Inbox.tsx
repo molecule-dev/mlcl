@@ -41,6 +41,16 @@ interface SentRow {
 
 type FolderKey = 'inbox' | 'starred' | 'drafts' | 'scheduled' | 'sent' | 'archive'
 
+// Design filter chips (All / Unread / AI-Drafted) — client-side filters on the
+// active folder's items.
+type ListFilter = 'all' | 'unread' | 'ai'
+
+const LIST_FILTERS: ReadonlyArray<{ key: ListFilter; defaultLabel: string; icon?: string }> = [
+  { key: 'all', defaultLabel: 'All' },
+  { key: 'unread', defaultLabel: 'Unread' },
+  { key: 'ai', defaultLabel: 'AI-Drafted', icon: 'auto_awesome' },
+]
+
 const FOLDERS: ReadonlyArray<{ key: FolderKey; defaultLabel: string; icon: string }> = [
   { key: 'inbox', defaultLabel: 'Inbox', icon: 'inbox' },
   { key: 'starred', defaultLabel: 'Starred', icon: 'star' },
@@ -106,6 +116,7 @@ export function Inbox() {
 
   const folderParam = (params.get('folder') as FolderKey | null) ?? 'inbox'
   const [activeFolder, setActiveFolder] = useState<FolderKey>(folderParam)
+  const [listFilter, setListFilter] = useState<ListFilter>('all')
   const [drafts, setDrafts] = useState<DraftRow[]>([])
   const [sent, setSent] = useState<SentRow[]>([])
   const [archiveBusy, setArchiveBusy] = useState(false)
@@ -148,7 +159,7 @@ export function Inbox() {
     }
   }, [http])
 
-  const folderItems = useMemo<InboxEmail[]>(() => {
+  const allFolderItems = useMemo<InboxEmail[]>(() => {
     if (activeFolder === 'drafts') {
       return drafts
         .filter((d) => d.status === 'draft' && !d.archived_at)
@@ -255,6 +266,12 @@ export function Inbox() {
         }
       })
   }, [activeFolder, drafts, sent, t])
+
+  const folderItems = useMemo<InboxEmail[]>(() => {
+    if (listFilter === 'unread') return allFolderItems.filter((e) => e.unread)
+    if (listFilter === 'ai') return allFolderItems.filter((e) => Boolean(e.ai_generated))
+    return allFolderItems
+  }, [allFolderItems, listFilter])
 
   const folderCounts = useMemo<Record<FolderKey, number>>(() => {
     const draftsCount = drafts.filter((d) => d.status === 'draft' && !d.archived_at).length
@@ -472,6 +489,41 @@ export function Inbox() {
               { defaultValue: '{{count}} item(s)' },
             )}
           </p>
+          <div
+            data-mol-id="inbox-filters"
+            className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), cm.sp('mt', 3))}
+          >
+            {LIST_FILTERS.map((filter) => {
+              const active = filter.key === listFilter
+              return (
+                <button
+                  key={filter.key}
+                  type="button"
+                  data-mol-id={`inbox-filter-${filter.key}`}
+                  onClick={() => setListFilter(filter.key)}
+                  aria-pressed={active}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.sp('px', 3),
+                    cm.sp('py', 1),
+                    cm.textSize('xs'),
+                    cm.roundedFull,
+                    'border transition-colors',
+                    active
+                      ? 'bg-primary text-white border-transparent font-bold'
+                      : 'bg-surface-container-low text-on-surface-variant border-outline-variant/40 font-semibold hover:bg-surface-container',
+                  )}
+                >
+                  {filter.icon && (
+                    <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+                      {filter.icon}
+                    </span>
+                  )}
+                  {t(`inbox.filter.${filter.key}`, {}, { defaultValue: filter.defaultLabel })}
+                </button>
+              )
+            })}
+          </div>
         </header>
         <div className={cm.cn('flex-1 overflow-y-auto divide-y divide-outline-variant/40')}>
           {loading ? (

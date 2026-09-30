@@ -26,7 +26,29 @@ const companySchema = z.object({
   default_tax_rate_pct: z.number().optional(),
   filing_method: z.string().optional(),
   fiscal_year_start: z.string().optional(),
+  // Invoice-default preferences (migration 0012). The Settings page's
+  // "Invoice defaults" section and the new-invoice rail persist these.
+  currency: z.string().optional(),
+  payment_terms: z.string().optional(),
+  invoice_late_fee_enabled: z.boolean().optional(),
+  invoice_recurring_enabled: z.boolean().optional(),
 })
+
+// Fallback shape for GET before the user has ever saved a profile, and the
+// seed for create on first PUT. Must mirror the migration's column defaults.
+const COMPANY_DEFAULTS = {
+  legal_name: '',
+  billing_email: '',
+  tax_id: '',
+  address: '',
+  default_tax_rate_pct: 0,
+  filing_method: 'cash',
+  fiscal_year_start: 'January',
+  currency: 'USD',
+  payment_terms: 'net_30',
+  invoice_late_fee_enabled: false,
+  invoice_recurring_enabled: false,
+}
 
 router.get('/company', async (_req: Request, res: Response) => {
   try {
@@ -36,18 +58,7 @@ router.get('/company', async (_req: Request, res: Response) => {
     // apply (it queries by `id`). Use findOne with a user_id filter instead.
     const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
     const row = await findOne<Record<string, unknown>>('company_profile', where)
-    res.json(
-      row ?? {
-        user_id: userId,
-        legal_name: '',
-        billing_email: '',
-        tax_id: '',
-        address: '',
-        default_tax_rate_pct: 0,
-        filing_method: 'cash',
-        fiscal_year_start: 'January',
-      },
-    )
+    res.json(row ?? { user_id: userId, ...COMPANY_DEFAULTS })
   } catch (err) {
     console.error('GET /settings/company failed:', err)
     res.status(500).json({ error: t('errors.internalServer') })
@@ -76,13 +87,7 @@ router.put('/company', validateBody(companySchema), async (req: Request, res: Re
     } else {
       const result = await create('company_profile', {
         user_id: userId,
-        legal_name: '',
-        billing_email: '',
-        tax_id: '',
-        address: '',
-        default_tax_rate_pct: 0,
-        filing_method: 'cash',
-        fiscal_year_start: 'January',
+        ...COMPANY_DEFAULTS,
         ...req.body,
         created_at: new Date(),
         updated_at: new Date(),

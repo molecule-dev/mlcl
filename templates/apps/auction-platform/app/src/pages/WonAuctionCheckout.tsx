@@ -200,7 +200,7 @@ export function WonAuctionCheckout() {
             {t(
               'wonAuctionCheckout.bannerTitle',
               {},
-              { defaultValue: 'You won! Pay to claim your lot.' },
+              { defaultValue: 'You won this auction — pay to claim your lot.' },
             )}
           </h1>
           <p className={cm.cn('text-sm opacity-90 mt-2')}>
@@ -295,8 +295,19 @@ export function WonAuctionCheckout() {
               'rounded-xl bg-surface border border-outline-variant/40',
             )}
           >
-            <h2 className={cm.cn('text-lg font-extrabold tracking-tight')}>
-              {t('wonAuctionCheckout.shippingHeading', {}, { defaultValue: 'Shipping address' })}
+            <h2
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                'text-lg font-extrabold tracking-tight',
+              )}
+            >
+              <span
+                className={cm.cn('material-symbols-outlined text-primary text-xl')}
+                aria-hidden="true"
+              >
+                local_shipping
+              </span>
+              {t('wonAuctionCheckout.shippingHeading', {}, { defaultValue: 'Shipping Address' })}
             </h2>
             {data.shipping_addresses.length === 0 ? (
               <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
@@ -409,8 +420,19 @@ export function WonAuctionCheckout() {
               'rounded-xl bg-surface border border-outline-variant/40',
             )}
           >
-            <h2 className={cm.cn('text-lg font-extrabold tracking-tight')}>
-              {t('nav.paymentMethod', {}, { defaultValue: 'Payment method' })}
+            <h2
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                'text-lg font-extrabold tracking-tight',
+              )}
+            >
+              <span
+                className={cm.cn('material-symbols-outlined text-primary text-xl')}
+                aria-hidden="true"
+              >
+                payment
+              </span>
+              {t('nav.paymentMethod', {}, { defaultValue: 'Payment Method' })}
             </h2>
             {data.payment_options.length === 0 ? (
               <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>

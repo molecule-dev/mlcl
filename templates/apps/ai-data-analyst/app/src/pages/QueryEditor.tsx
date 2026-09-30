@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
@@ -26,6 +27,54 @@ const SAMPLE_QUESTIONS = [
   'Correlation between session_duration and event_count',
 ] as const
 
+/** Prompt the worked example below actually runs when its CTA is pressed. */
+const EXAMPLE_PROMPT = 'Average order value by segment for this quarter vs the prior two quarters'
+
+/**
+ * Worked example mirroring the QueryEditor design: AOV per customer segment
+ * across the last three quarters. Purely presentational sample data — the
+ * "Run this example" CTA replaces it with the real query result.
+ */
+const EXAMPLE_SEGMENTS = ['Enterprise', 'Mid-Market', 'SMB', 'Self-Serve'] as const
+const EXAMPLE_QUARTERS = [
+  { key: 'q3', label: 'Q3 2025', values: [3845, 1250, 425, 45] },
+  { key: 'q2', label: 'Q2 2025', values: [3425, 1155, 434, 39] },
+  { key: 'q1', label: 'Q1 2025', values: [3100, 1080, 452, 36] },
+] as const
+const EXAMPLE_SERIES_TONE = ['var(--chart-color-1)', 'var(--chart-color-2)', 'var(--chart-color-6)']
+
+/**
+ * Sample insights shown in the empty-state "Generated Insights" gallery — the
+ * same three annotations the design mock carries, so the surface demos the
+ * insight shapes before the first real query runs.
+ */
+const EXAMPLE_INSIGHTS = [
+  {
+    id: 'enterprise-growth',
+    tone: 'bg-success/10 text-success',
+    icon: 'trending_up',
+    tag: 'Trend',
+    headline: 'Enterprise segment shows 23% YoY growth',
+    body: 'Driven primarily by the new Q2 product launch, enterprise AOV has outpaced all other segments.',
+  },
+  {
+    id: 'smb-decline',
+    tone: 'bg-tertiary-container/15 text-tertiary-container',
+    icon: 'priority_high',
+    tag: 'Anomaly',
+    headline: 'SMB AOV decline warrants attention',
+    body: 'Despite volume growth, average order value in the SMB tier dropped 2.1% vs Q2.',
+  },
+  {
+    id: 'self-serve-mix',
+    tone: 'bg-secondary/10 text-secondary',
+    icon: 'lightbulb',
+    tag: 'Recommendation',
+    headline: 'Self-Serve volume masking lower AOV',
+    body: 'Self-serve accounts for 75% of customer count but only 15% of total revenue. Consider up-sell campaigns.',
+  },
+] as const
+
 const BAR_TONE = [
   'var(--chart-color-1)',
   'var(--chart-color-2)',
@@ -43,6 +92,7 @@ export function QueryEditor() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const [searchParams] = useSearchParams()
   const [result, setResult] = useState<QueryResult | null>(null)
   const [running, setRunning] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -175,7 +225,12 @@ export function QueryEditor() {
         </p>
       </header>
 
-      <AskClarionBar suggestions={SAMPLE_QUESTIONS} loading={running} onSubmit={ask} />
+      <AskClarionBar
+        value={searchParams.get('q') ?? ''}
+        suggestions={SAMPLE_QUESTIONS}
+        loading={running}
+        onSubmit={ask}
+      />
 
       {error ? (
         <div
@@ -190,56 +245,263 @@ export function QueryEditor() {
       ) : null}
 
       {!result ? (
-        <section
-          className={cm.cn(
-            cm.flex({ direction: 'col', align: 'center', gap: 4 }),
-            cm.sp('p', 12),
-            cm.textCenter,
-            'rounded-3xl bg-surface-container-low border border-dashed border-outline-variant',
-          )}
-        >
-          <span
+        <>
+          <section
             className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(16),
-              cm.h(16),
-              cm.roundedFull,
-              'bg-gradient-to-br from-primary/15 to-secondary/15 text-primary',
+              cm.flex({ direction: 'col', align: 'center', gap: 4 }),
+              cm.sp('p', 12),
+              cm.textCenter,
+              'rounded-3xl bg-surface-container-low border border-dashed border-outline-variant',
             )}
           >
             <span
-              className={cm.cn('material-symbols-outlined', cm.textSize('3xl'))}
-              aria-hidden="true"
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                cm.w(16),
+                cm.h(16),
+                cm.roundedFull,
+                'bg-gradient-to-br from-primary/15 to-secondary/15 text-primary',
+              )}
             >
-              auto_awesome
+              <span
+                className={cm.cn('material-symbols-outlined', cm.textSize('3xl'))}
+                aria-hidden="true"
+              >
+                auto_awesome
+              </span>
             </span>
-          </span>
-          <h2
+            <h2
+              className={cm.cn(
+                cm.textSize('lg'),
+                cm.fontWeight('bold'),
+                'font-headline tracking-tight text-on-surface',
+              )}
+            >
+              {t(
+                'queryEditor.emptyHeading',
+                {},
+                { defaultValue: 'Pick a suggestion or type your own' },
+              )}
+            </h2>
+            <p
+              className={cm.cn(
+                cm.textSize('sm'),
+                'text-on-surface-variant max-w-md leading-relaxed',
+              )}
+            >
+              {t(
+                'queryEditor.emptyBody',
+                { appName: APP_NAME },
+                {
+                  defaultValue:
+                    '{{appName}} answers in three pieces: a chart, the underlying data table, and the SQL that ran.',
+                },
+              )}
+            </p>
+          </section>
+
+          {/* Worked example — the design's sample analysis, runnable for real.
+              Rendered only before the first result so it never competes with
+              live output. */}
+          <section
+            aria-labelledby="query-example-heading"
             className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('bold'),
-              'font-headline tracking-tight text-on-surface',
+              cm.flex({ direction: 'col', gap: 5 }),
+              cm.sp('p', 6),
+              'rounded-3xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm',
             )}
           >
-            {t(
-              'queryEditor.emptyHeading',
-              {},
-              { defaultValue: 'Pick a suggestion or type your own' },
-            )}
-          </h2>
-          <p
-            className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-md leading-relaxed')}
+            <header
+              className={cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 3 })}
+            >
+              <div className={cm.flex({ direction: 'col', gap: 1 })}>
+                <span
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 1 }),
+                    cm.sp('px', 2),
+                    cm.sp('py', 1),
+                    cm.roundedFull,
+                    'text-[10px] uppercase tracking-widest font-black bg-primary/10 text-primary self-start',
+                  )}
+                >
+                  <span
+                    className={cm.cn('material-symbols-outlined', cm.textSize('xs'))}
+                    aria-hidden="true"
+                  >
+                    auto_awesome
+                  </span>
+                  {t('queryEditor.exampleBadge', {}, { defaultValue: 'Example analysis' })}
+                </span>
+                <h3
+                  id="query-example-heading"
+                  className={cm.cn(
+                    cm.textSize('xl'),
+                    cm.fontWeight('semibold'),
+                    'font-headline text-on-surface tracking-tight',
+                  )}
+                >
+                  {t(
+                    'queryEditor.exampleChartTitle',
+                    {},
+                    { defaultValue: 'Average Order Value by Segment Q3 2025' },
+                  )}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => void ask(EXAMPLE_PROMPT)}
+                disabled={running}
+                data-mol-id="query-example-run"
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 2 }),
+                  cm.sp('px', 4),
+                  cm.sp('py', 2),
+                  cm.textSize('sm'),
+                  cm.fontWeight('bold'),
+                  cm.roundedFull,
+                  'bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-sm hover:opacity-90 disabled:opacity-50 transition-opacity flex-shrink-0',
+                )}
+              >
+                <span
+                  className={cm.cn('material-symbols-outlined', cm.textSize('base'))}
+                  aria-hidden="true"
+                >
+                  play_arrow
+                </span>
+                {running
+                  ? t('askClarionBar.thinking', {}, { defaultValue: 'Thinking…' })
+                  : t('queryEditor.exampleRunCta', {}, { defaultValue: 'Run this example' })}
+              </button>
+            </header>
+
+            <div className={cm.flex({ align: 'center', gap: 4, wrap: 'wrap' })}>
+              {EXAMPLE_QUARTERS.map((q, i) => (
+                <span
+                  key={q.key}
+                  className={cm.cn(cm.flex({ align: 'center', gap: 2 }), cm.textSize('xs'))}
+                >
+                  <span
+                    aria-hidden="true"
+                    className={'inline-block h-2.5 w-2.5 rounded-sm'}
+                    style={{ background: EXAMPLE_SERIES_TONE[i] }}
+                  />
+                  {q.label}
+                </span>
+              ))}
+            </div>
+
+            {/* Grouped bars: one column per segment, one bar per quarter,
+                scaled against the largest AOV in the example series. */}
+            <div className={cm.flex({ align: 'end', gap: 6 })} aria-hidden="true">
+              {EXAMPLE_SEGMENTS.map((seg, si) => (
+                <div
+                  key={seg}
+                  className={cm.cn(
+                    cm.flex({ direction: 'col', align: 'center', gap: 2 }),
+                    'flex-1 min-w-0',
+                  )}
+                >
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'end', justify: 'center', gap: 1 }),
+                      'h-36 w-full',
+                    )}
+                  >
+                    {EXAMPLE_QUARTERS.map((q, qi) => {
+                      const maxAov = Math.max(...EXAMPLE_QUARTERS[0].values)
+                      const pct = Math.max(4, Math.round((q.values[si] / maxAov) * 100))
+                      return (
+                        <div
+                          key={q.key}
+                          className={cm.cn('w-4 rounded-t-md transition-all duration-500')}
+                          style={{ height: `${pct}%`, background: EXAMPLE_SERIES_TONE[qi] }}
+                        />
+                      )
+                    })}
+                  </div>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'text-on-surface-variant truncate',
+                    )}
+                  >
+                    {seg}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Generated Insights — the sample annotations from the design, so
+              the insight shapes are visible before the first real run. */}
+          <section
+            aria-labelledby="query-insights-heading"
+            className={cm.flex({ direction: 'col', gap: 4 })}
           >
-            {t(
-              'queryEditor.emptyBody',
-              { appName: APP_NAME },
-              {
-                defaultValue:
-                  '{{appName}} answers in three pieces: a chart, the underlying data table, and the SQL that ran.',
-              },
-            )}
-          </p>
-        </section>
+            <h2
+              id="query-insights-heading"
+              className={cm.cn(
+                'text-[10px] uppercase tracking-[0.22em] font-black text-on-surface',
+              )}
+            >
+              {t(
+                'queryEditor.generatedInsightsHeading',
+                {},
+                { defaultValue: 'Generated Insights' },
+              )}
+            </h2>
+            <div className={cm.cn(cm.grid({ cols: 1, gap: 4 }), 'md:grid-cols-3')}>
+              {EXAMPLE_INSIGHTS.map((ix) => (
+                <article
+                  key={ix.id}
+                  className={cm.cn(
+                    cm.flex({ direction: 'col', gap: 2 }),
+                    cm.sp('p', 5),
+                    'rounded-xl bg-surface-container-lowest shadow-sm',
+                  )}
+                >
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 1 }),
+                      cm.sp('px', 2),
+                      cm.sp('py', 1),
+                      cm.roundedFull,
+                      'text-[10px] uppercase tracking-widest font-black self-start',
+                      ix.tone,
+                    )}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined', cm.textSize('xs'))}
+                      aria-hidden="true"
+                    >
+                      {ix.icon}
+                    </span>
+                    {t(`queryEditor.exampleInsight.${ix.id}.tag`, {}, { defaultValue: ix.tag })}
+                  </span>
+                  <h3
+                    className={cm.cn(
+                      cm.textSize('base'),
+                      cm.fontWeight('semibold'),
+                      'text-on-surface leading-snug',
+                    )}
+                  >
+                    {t(
+                      `queryEditor.exampleInsight.${ix.id}.headline`,
+                      {},
+                      { defaultValue: ix.headline },
+                    )}
+                  </h3>
+                  <p
+                    className={cm.cn(cm.textSize('sm'), 'leading-relaxed text-on-surface-variant')}
+                  >
+                    {t(`queryEditor.exampleInsight.${ix.id}.body`, {}, { defaultValue: ix.body })}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+        </>
       ) : (
         <>
           {/* Result hero — gradient frame containing the chart */}

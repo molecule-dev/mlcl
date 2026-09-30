@@ -38,7 +38,19 @@ export async function signup(
   const userId = body.props?.id || ''
   // [M1-1] Token is now an httpOnly cookie set by the server; no
   // localStorage injection needed.
+  // Signup sets the `mol_auth` presence hint, so the app's first boot after
+  // signup probes /api/users/me to restore the session. If the caller's next
+  // goto() lands while that probe is still in flight, the aborted fetch is
+  // read by the auth client as "no session" and it CLEARS the hint — every
+  // later guarded route then bounces to /login (flaky auth-bounce class).
+  // Arm the listener BEFORE the navigation and let the probe land: signup
+  // always leaves the hint, so the probe always fires and this never waits
+  // out the timeout on the happy path.
+  const probe = page
+    .waitForResponse((r) => /\/api\/users\/me(?:\?|$)/.test(r.url()), { timeout: 8000 })
+    .catch(() => null)
   await page.goto(APP_BASE + '/')
+  await probe
   return { email, password, userId, accessToken }
 }
 

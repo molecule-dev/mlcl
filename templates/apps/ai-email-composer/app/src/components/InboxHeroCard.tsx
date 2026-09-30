@@ -111,17 +111,27 @@ export function InboxHeroCard({ sent, changePct, history }: InboxHeroCardProps) 
 
       <div
         className={cm.cn(
-          cm.sp('mt', 12),
-          cm.h(24),
+          cm.sp('mt', 10),
           cm.w('full'),
-          cm.flex({ align: 'end' }),
+          cm.flex({ direction: 'col' }),
           'relative z-10',
         )}
       >
+        <h3
+          className={cm.cn(
+            cm.textSize('sm'),
+            cm.fontWeight('bold'),
+            cm.sp('mb', 2),
+            'uppercase tracking-widest text-white/70',
+          )}
+        >
+          {t('inboxHeroCard.trendHeading', {}, { defaultValue: 'Engagement Trend' })}
+        </h3>
         <svg
-          className={cm.cn(cm.w('full'), cm.h('full'))}
+          className={cm.cn(cm.w('full'), cm.h(16))}
           viewBox="0 0 400 100"
           preserveAspectRatio="none"
+          aria-hidden="true"
         >
           <defs>
             <linearGradient id="signet-spark" x1="0" x2="0" y1="0" y2="1">

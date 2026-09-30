@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 const FEATURES = [
   {
@@ -113,26 +114,9 @@ export function Landing() {
           <Link
             to="/"
             data-mol-id="nav-brand"
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'sm' }),
-              cm.textSize('xl'),
-              'font-black tracking-tighter text-lm-glow',
-            )}
+            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
           >
-            <span
-              className={cm.cn(
-                cm.w(8),
-                cm.h(8),
-                cm.roundedFull,
-                cm.flex({ align: 'center', justify: 'center' }),
-                'bg-lm-glow text-lm-on-glow shadow-md',
-              )}
-              aria-hidden="true"
-            >
-              {/* Tile owns the sizing/centering — never the glyph span. */}
-              <span className={'material-symbols-outlined text-xl'}>local_fire_department</span>
-            </span>
-            {APP_NAME}
+            <BrandWordmark as="span" size="md" />
           </Link>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
@@ -537,8 +521,10 @@ export function Landing() {
             'md:flex-row md:justify-between',
           )}
         >
+          {/* footer lockup: shared BrandWordmark (footer variant keeps the
+              per-page brand-wordmark e2e contract header-scoped) */}
           <div className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface')}>
-            {APP_NAME}
+            <BrandWordmark as="span" size="md" footer />
           </div>
           <nav className={cm.cn(cm.flex({ wrap: 'wrap', align: 'center', gap: 'lg' }))}>
             <Link to="/about" className={cm.cn('hover:text-primary transition-colors')}>

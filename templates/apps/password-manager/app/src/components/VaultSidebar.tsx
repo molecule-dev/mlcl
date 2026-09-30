@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate, useSearchParams } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 export interface VaultCategory {
@@ -119,14 +119,7 @@ export function VaultSidebarContent({ categories, folders }: VaultSidebarContent
           'text-[22px] tracking-tight text-primary',
         )}
       >
-        <span
-          className={cm.cn('material-symbols-outlined')}
-          style={{ fontVariationSettings: "'FILL' 1" }}
-          aria-hidden="true"
-        >
-          diamond
-        </span>
-        <span className="font-extrabold tracking-tighter">{APP_NAME}</span>
+        <BrandWordmark as="span" size="md" />
       </Link>
 
       <form

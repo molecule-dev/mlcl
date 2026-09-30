@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { SafeLink } from './SafeLink.js'
 
 /**
@@ -33,33 +34,8 @@ export function PublicTopNav() {
           cm.mxAuto,
         )}
       >
-        <SafeLink to="/" className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(8),
-              cm.h(8),
-              cm.roundedFull,
-              'bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-sm',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined', cm.textSize('base'))}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-              aria-hidden="true"
-            >
-              auto_awesome
-            </span>
-          </span>
-          <span
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('bold'),
-              'font-headline tracking-tight',
-            )}
-          >
-            {APP_NAME}
-          </span>
+        <SafeLink to="/" className={cm.cn('shrink-0')} aria-label={APP_NAME}>
+          <BrandWordmark as="span" size="md" />
         </SafeLink>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }))}>
           <Link

@@ -5,6 +5,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 
 /**
@@ -31,25 +32,7 @@ export function PublicFooter() {
         )}
       >
         <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(7),
-              cm.h(7),
-              cm.roundedFull,
-              'bg-gradient-to-br from-primary to-primary-container text-on-primary',
-            )}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined', cm.textSize('sm'))}
-              aria-hidden="true"
-            >
-              auto_awesome
-            </span>
-          </span>
-          <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'font-headline')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="sm" footer />
           <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>·</span>
           <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>{APP_TAGLINE}</span>
         </div>

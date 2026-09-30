@@ -5,196 +5,195 @@ run the script to regenerate after source changes.
 
 Totals — pages: 19, elements: 112, forms: 10, routes: 32
 
-
 ## Pages (19)
 
-| id | path | component | file |
-| --- | --- | --- | --- |
-| page-landing | / | Landing | app/src/pages/Landing.tsx |
-| page-about | /about | About | app/src/pages/About.tsx |
-| page-assetlibrary | /assets | AssetLibrary | app/src/pages/AssetLibrary.tsx |
-| page-assetdetail | /assets/:id | AssetDetail | app/src/pages/AssetDetail.tsx |
-| page-dashboard | /dashboard | Dashboard | app/src/pages/Dashboard.tsx |
-| page-editor | /editor/:id | Editor | app/src/pages/Editor.tsx |
-| page-exportqueue | /export | ExportQueue | app/src/pages/ExportQueue.tsx |
-| page-exportdetail | /export/:id | ExportDetail | app/src/pages/ExportDetail.tsx |
+| id                  | path             | component      | file                             |
+| ------------------- | ---------------- | -------------- | -------------------------------- |
+| page-landing        | /                | Landing        | app/src/pages/Landing.tsx        |
+| page-about          | /about           | About          | app/src/pages/About.tsx          |
+| page-assetlibrary   | /assets          | AssetLibrary   | app/src/pages/AssetLibrary.tsx   |
+| page-assetdetail    | /assets/:id      | AssetDetail    | app/src/pages/AssetDetail.tsx    |
+| page-dashboard      | /dashboard       | Dashboard      | app/src/pages/Dashboard.tsx      |
+| page-editor         | /editor/:id      | Editor         | app/src/pages/Editor.tsx         |
+| page-exportqueue    | /export          | ExportQueue    | app/src/pages/ExportQueue.tsx    |
+| page-exportdetail   | /export/:id      | ExportDetail   | app/src/pages/ExportDetail.tsx   |
 | page-forgotpassword | /forgot-password | ForgotPassword | app/src/pages/ForgotPassword.tsx |
-| page-login | /login | Login | app/src/pages/Login.tsx |
-| page-privacy | /privacy | Privacy | app/src/pages/Privacy.tsx |
-| page-projectdetail | /projects/:id | ProjectDetail | app/src/pages/ProjectDetail.tsx |
-| page-newproject | /projects/new | NewProject | app/src/pages/NewProject.tsx |
-| page-resetpassword | /reset-password | ResetPassword | app/src/pages/ResetPassword.tsx |
-| page-settings | /settings | Settings | app/src/pages/Settings.tsx |
-| page-signup | /signup | Signup | app/src/pages/Signup.tsx |
-| page-templates | /templates | Templates | app/src/pages/Templates.tsx |
-| page-templatedetail | /templates/:id | TemplateDetail | app/src/pages/TemplateDetail.tsx |
-| page-terms | /terms | Terms | app/src/pages/Terms.tsx |
+| page-login          | /login           | Login          | app/src/pages/Login.tsx          |
+| page-privacy        | /privacy         | Privacy        | app/src/pages/Privacy.tsx        |
+| page-projectdetail  | /projects/:id    | ProjectDetail  | app/src/pages/ProjectDetail.tsx  |
+| page-newproject     | /projects/new    | NewProject     | app/src/pages/NewProject.tsx     |
+| page-resetpassword  | /reset-password  | ResetPassword  | app/src/pages/ResetPassword.tsx  |
+| page-settings       | /settings        | Settings       | app/src/pages/Settings.tsx       |
+| page-signup         | /signup          | Signup         | app/src/pages/Signup.tsx         |
+| page-templates      | /templates       | Templates      | app/src/pages/Templates.tsx      |
+| page-templatedetail | /templates/:id   | TemplateDetail | app/src/pages/TemplateDetail.tsx |
+| page-terms          | /terms           | Terms          | app/src/pages/Terms.tsx          |
 
 ## Forms (10)
 
-| id | label | file:line |
-| --- | --- | --- |
-| form-assetlibrary-220 | form at app/src/pages/AssetLibrary.tsx:220 | app/src/pages/AssetLibrary.tsx:220 |
-| form-exportqueue-220 | form at app/src/pages/ExportQueue.tsx:220 | app/src/pages/ExportQueue.tsx:220 |
+| id                     | label                                       | file:line                           |
+| ---------------------- | ------------------------------------------- | ----------------------------------- |
+| form-assetlibrary-220  | form at app/src/pages/AssetLibrary.tsx:220  | app/src/pages/AssetLibrary.tsx:220  |
+| form-exportqueue-220   | form at app/src/pages/ExportQueue.tsx:220   | app/src/pages/ExportQueue.tsx:220   |
 | form-forgotpassword-92 | form at app/src/pages/ForgotPassword.tsx:92 | app/src/pages/ForgotPassword.tsx:92 |
-| form-login-62 | form at app/src/pages/Login.tsx:62 | app/src/pages/Login.tsx:62 |
-| form-newproject-205 | form at app/src/pages/NewProject.tsx:205 | app/src/pages/NewProject.tsx:205 |
-| form-resetpassword-73 | form at app/src/pages/ResetPassword.tsx:73 | app/src/pages/ResetPassword.tsx:73 |
-| form-settings-443 | form at app/src/pages/Settings.tsx:443 | app/src/pages/Settings.tsx:443 |
-| form-settings-577 | form at app/src/pages/Settings.tsx:577 | app/src/pages/Settings.tsx:577 |
-| form-settings-714 | form at app/src/pages/Settings.tsx:714 | app/src/pages/Settings.tsx:714 |
-| form-signup-89 | form at app/src/pages/Signup.tsx:89 | app/src/pages/Signup.tsx:89 |
+| form-login-62          | form at app/src/pages/Login.tsx:62          | app/src/pages/Login.tsx:62          |
+| form-newproject-205    | form at app/src/pages/NewProject.tsx:205    | app/src/pages/NewProject.tsx:205    |
+| form-resetpassword-73  | form at app/src/pages/ResetPassword.tsx:73  | app/src/pages/ResetPassword.tsx:73  |
+| form-settings-443      | form at app/src/pages/Settings.tsx:443      | app/src/pages/Settings.tsx:443      |
+| form-settings-577      | form at app/src/pages/Settings.tsx:577      | app/src/pages/Settings.tsx:577      |
+| form-settings-714      | form at app/src/pages/Settings.tsx:714      | app/src/pages/Settings.tsx:714      |
+| form-signup-89         | form at app/src/pages/Signup.tsx:89         | app/src/pages/Signup.tsx:89         |
 
 ## Elements (112)
 
-| id | role | label | file:line |
-| --- | --- | --- | --- |
-| link-brandwordmark-57---app-name--home | link | ${APP_NAME} home | app/src/components/BrandWordmark.tsx:57 |
-| link-projectthumbcard-49--div-classname--cm-c | link | <div className={cm.cn( absolute inset-0 bg-[radial-gradient( | app/src/components/ProjectThumbCard.tsx:49 |
-| link-publicnav-42----- | link | , )} | app/src/components/PublicNav.tsx:42 |
-| link-publicnav-47----- | link | , )} | app/src/components/PublicNav.tsx:47 |
-| link-publicnav-56----- | link | , )} | app/src/components/PublicNav.tsx:56 |
-| link-renderjobcard-154----- | link | , )} | app/src/components/RenderJobCard.tsx:154 |
-| link-rushesauthshell-171----- | link | , )} | app/src/components/RushesAuthShell.tsx:171 |
-| link-rushesauthshell-174----- | link | , )} | app/src/components/RushesAuthShell.tsx:174 |
-| link-rusheslayout-168 | link | link at app/src/components/RushesLayout.tsx:168 | app/src/components/RushesLayout.tsx:168 |
-| link-rusheslayout-191 | link | link at app/src/components/RushesLayout.tsx:191 | app/src/components/RushesLayout.tsx:191 |
-| button-rusheslayout-321 | button | button at app/src/components/RushesLayout.tsx:321 | app/src/components/RushesLayout.tsx:321 |
-| link-about-189----- | link | , )} | app/src/pages/About.tsx:189 |
-| link-assetdetail-141------- | link | ← , )} | app/src/pages/AssetDetail.tsx:141 |
-| link-assetdetail-266 | link | link at app/src/pages/AssetDetail.tsx:266 | app/src/pages/AssetDetail.tsx:266 |
-| button-assetdetail-283 | button | button at app/src/pages/AssetDetail.tsx:283 | app/src/pages/AssetDetail.tsx:283 |
-| button-assetlibrary-195 | button | button at app/src/pages/AssetLibrary.tsx:195 | app/src/pages/AssetLibrary.tsx:195 |
-| input-assetlibrary-258 | input | input at app/src/pages/AssetLibrary.tsx:258 | app/src/pages/AssetLibrary.tsx:258 |
-| select-assetlibrary-280 | select | select at app/src/pages/AssetLibrary.tsx:280 | app/src/pages/AssetLibrary.tsx:280 |
-| input-assetlibrary-312 | input | input at app/src/pages/AssetLibrary.tsx:312 | app/src/pages/AssetLibrary.tsx:312 |
-| button-assetlibrary-328 | button | button at app/src/pages/AssetLibrary.tsx:328 | app/src/pages/AssetLibrary.tsx:328 |
-| button-assetlibrary-363 | button | button at app/src/pages/AssetLibrary.tsx:363 | app/src/pages/AssetLibrary.tsx:363 |
-| input-assetlibrary-390 | input | input at app/src/pages/AssetLibrary.tsx:390 | app/src/pages/AssetLibrary.tsx:390 |
-| link-assetlibrary-449 | link | link at app/src/pages/AssetLibrary.tsx:449 | app/src/pages/AssetLibrary.tsx:449 |
-| link-dashboard-205 | link | link at app/src/pages/Dashboard.tsx:205 | app/src/pages/Dashboard.tsx:205 |
-| link-dashboard-287----- | link | , )} | app/src/pages/Dashboard.tsx:287 |
-| link-dashboard-315 | link | link at app/src/pages/Dashboard.tsx:315 | app/src/pages/Dashboard.tsx:315 |
-| link-dashboard-442-- | link | → | app/src/pages/Dashboard.tsx:442 |
-| link-editor-231------- | link | ← , )} | app/src/pages/Editor.tsx:231 |
-| link-editor-281-info----- | link | info , )} | app/src/pages/Editor.tsx:281 |
-| button-editor-294 | button | button at app/src/pages/Editor.tsx:294 | app/src/pages/Editor.tsx:294 |
-| link-editor-330-add | link | add | app/src/pages/Editor.tsx:330 |
-| input-editor-345 | input | input at app/src/pages/Editor.tsx:345 | app/src/pages/Editor.tsx:345 |
-| button-editor-360 | button | button at app/src/pages/Editor.tsx:360 | app/src/pages/Editor.tsx:360 |
-| button-editor-402 | button | button at app/src/pages/Editor.tsx:402 | app/src/pages/Editor.tsx:402 |
-| button-editor-502 | button | button at app/src/pages/Editor.tsx:502 | app/src/pages/Editor.tsx:502 |
-| link-exportdetail-135------- | link | ← , )} | app/src/pages/ExportDetail.tsx:135 |
-| link-exportdetail-214-- | link | ↗ | app/src/pages/ExportDetail.tsx:214 |
-| button-exportdetail-392 | button | button at app/src/pages/ExportDetail.tsx:392 | app/src/pages/ExportDetail.tsx:392 |
-| link-exportdetail-412 | link | link at app/src/pages/ExportDetail.tsx:412 | app/src/pages/ExportDetail.tsx:412 |
-| link-exportdetail-431------- | link | ← , )} | app/src/pages/ExportDetail.tsx:431 |
-| select-exportqueue-247 | select | select at app/src/pages/ExportQueue.tsx:247 | app/src/pages/ExportQueue.tsx:247 |
-| select-exportqueue-277 | select | select at app/src/pages/ExportQueue.tsx:277 | app/src/pages/ExportQueue.tsx:277 |
-| select-exportqueue-300 | select | select at app/src/pages/ExportQueue.tsx:300 | app/src/pages/ExportQueue.tsx:300 |
-| button-exportqueue-320 | button | button at app/src/pages/ExportQueue.tsx:320 | app/src/pages/ExportQueue.tsx:320 |
-| link-exportqueue-517----- | link | , )} | app/src/pages/ExportQueue.tsx:517 |
-| link-forgotpassword-48----- | link | , )} | app/src/pages/ForgotPassword.tsx:48 |
-| link-forgotpassword-82----- | link | , )} | app/src/pages/ForgotPassword.tsx:82 |
-| input-forgotpassword-103 | input | input at app/src/pages/ForgotPassword.tsx:103 | app/src/pages/ForgotPassword.tsx:103 |
-| button-forgotpassword-130 | button | button at app/src/pages/ForgotPassword.tsx:130 | app/src/pages/ForgotPassword.tsx:130 |
-| link-landing-158----- | link | , )} | app/src/pages/Landing.tsx:158 |
-| link-landing-173----- | link | , )} | app/src/pages/Landing.tsx:173 |
-| link-landing-314----- | link | , )} | app/src/pages/Landing.tsx:314 |
-| link-landing-352----- | link | , )} | app/src/pages/Landing.tsx:352 |
-| link-landing-355----- | link | , )} | app/src/pages/Landing.tsx:355 |
-| link-landing-358-------- | link | , } })} | app/src/pages/Landing.tsx:358 |
-| link-landing-372-molecule-dev | link | Molecule.dev | app/src/pages/Landing.tsx:372 |
-| link-login-51----- | link | , )} | app/src/pages/Login.tsx:51 |
-| input-login-74 | input | input at app/src/pages/Login.tsx:74 | app/src/pages/Login.tsx:74 |
-| link-login-107----- | link | , )} | app/src/pages/Login.tsx:107 |
-| input-login-117 | input | input at app/src/pages/Login.tsx:117 | app/src/pages/Login.tsx:117 |
-| button-login-134 | button | button at app/src/pages/Login.tsx:134 | app/src/pages/Login.tsx:134 |
-| button-login-164 | button | button at app/src/pages/Login.tsx:164 | app/src/pages/Login.tsx:164 |
-| input-newproject-222 | input | input at app/src/pages/NewProject.tsx:222 | app/src/pages/NewProject.tsx:222 |
-| button-newproject-258 | button | button at app/src/pages/NewProject.tsx:258 | app/src/pages/NewProject.tsx:258 |
-| button-newproject-323 | button | button at app/src/pages/NewProject.tsx:323 | app/src/pages/NewProject.tsx:323 |
-| link-newproject-372----- | link | , )} | app/src/pages/NewProject.tsx:372 |
-| link-newproject-395----- | link | , )} | app/src/pages/NewProject.tsx:395 |
-| button-newproject-407 | button | button at app/src/pages/NewProject.tsx:407 | app/src/pages/NewProject.tsx:407 |
-| link-notfound-72-home----- | link | home , )} | app/src/pages/NotFound.tsx:72 |
-| link-notfound-85-dashboard----- | link | dashboard , )} | app/src/pages/NotFound.tsx:85 |
-| link-projectdetail-235------- | link | ← , )} | app/src/pages/ProjectDetail.tsx:235 |
-| link-projectdetail-259 | link | link at app/src/pages/ProjectDetail.tsx:259 | app/src/pages/ProjectDetail.tsx:259 |
-| input-projectdetail-317 | input | input at app/src/pages/ProjectDetail.tsx:317 | app/src/pages/ProjectDetail.tsx:317 |
-| button-projectdetail-329----- | button | , )} | app/src/pages/ProjectDetail.tsx:329 |
-| button-projectdetail-342 | button | button at app/src/pages/ProjectDetail.tsx:342 | app/src/pages/ProjectDetail.tsx:342 |
-| button-projectdetail-370-edit | button | edit | app/src/pages/ProjectDetail.tsx:370 |
-| button-projectdetail-410 | button | button at app/src/pages/ProjectDetail.tsx:410 | app/src/pages/ProjectDetail.tsx:410 |
-| button-projectdetail-426 | button | button at app/src/pages/ProjectDetail.tsx:426 | app/src/pages/ProjectDetail.tsx:426 |
-| link-projectdetail-502----- | link | , )} | app/src/pages/ProjectDetail.tsx:502 |
-| link-projectdetail-535-- | link | . | app/src/pages/ProjectDetail.tsx:535 |
-| link-resetpassword-63----- | link | , )} | app/src/pages/ResetPassword.tsx:63 |
-| input-resetpassword-78 | input | input at app/src/pages/ResetPassword.tsx:78 | app/src/pages/ResetPassword.tsx:78 |
-| input-resetpassword-99 | input | input at app/src/pages/ResetPassword.tsx:99 | app/src/pages/ResetPassword.tsx:99 |
-| button-resetpassword-144 | button | button at app/src/pages/ResetPassword.tsx:144 | app/src/pages/ResetPassword.tsx:144 |
-| button-settings-370 | button | button at app/src/pages/Settings.tsx:370 | app/src/pages/Settings.tsx:370 |
-| input-settings-476 | input | input at app/src/pages/Settings.tsx:476 | app/src/pages/Settings.tsx:476 |
-| input-settings-497 | input | input at app/src/pages/Settings.tsx:497 | app/src/pages/Settings.tsx:497 |
-| button-settings-512 | button | button at app/src/pages/Settings.tsx:512 | app/src/pages/Settings.tsx:512 |
-| button-settings-558 | button | button at app/src/pages/Settings.tsx:558 | app/src/pages/Settings.tsx:558 |
-| input-settings-602 | input | input at app/src/pages/Settings.tsx:602 | app/src/pages/Settings.tsx:602 |
-| input-settings-625 | input | input at app/src/pages/Settings.tsx:625 | app/src/pages/Settings.tsx:625 |
-| button-settings-641 | button | button at app/src/pages/Settings.tsx:641 | app/src/pages/Settings.tsx:641 |
-| button-settings-661 | button | button at app/src/pages/Settings.tsx:661 | app/src/pages/Settings.tsx:661 |
-| button-settings-699 | button | button at app/src/pages/Settings.tsx:699 | app/src/pages/Settings.tsx:699 |
-| input-settings-750 | input | input at app/src/pages/Settings.tsx:750 | app/src/pages/Settings.tsx:750 |
-| button-settings-766 | button | button at app/src/pages/Settings.tsx:766 | app/src/pages/Settings.tsx:766 |
-| button-settings-782 | button | button at app/src/pages/Settings.tsx:782 | app/src/pages/Settings.tsx:782 |
-| button-settings-1046 | button | button at app/src/pages/Settings.tsx:1046 | app/src/pages/Settings.tsx:1046 |
-| button-settings-1161 | button | button at app/src/pages/Settings.tsx:1161 | app/src/pages/Settings.tsx:1161 |
-| button-settings-1182 | button | button at app/src/pages/Settings.tsx:1182 | app/src/pages/Settings.tsx:1182 |
-| link-signup-78----- | link | , )} | app/src/pages/Signup.tsx:78 |
-| input-signup-95 | input | input at app/src/pages/Signup.tsx:95 | app/src/pages/Signup.tsx:95 |
-| input-signup-110 | input | input at app/src/pages/Signup.tsx:110 | app/src/pages/Signup.tsx:110 |
-| input-signup-127 | input | input at app/src/pages/Signup.tsx:127 | app/src/pages/Signup.tsx:127 |
-| input-signup-143 | input | input at app/src/pages/Signup.tsx:143 | app/src/pages/Signup.tsx:143 |
-| input-signup-164 | input | input at app/src/pages/Signup.tsx:164 | app/src/pages/Signup.tsx:164 |
-| button-signup-197 | button | button at app/src/pages/Signup.tsx:197 | app/src/pages/Signup.tsx:197 |
-| link-templatedetail-120------- | link | ← , )} | app/src/pages/TemplateDetail.tsx:120 |
-| button-templatedetail-237 | button | button at app/src/pages/TemplateDetail.tsx:237 | app/src/pages/TemplateDetail.tsx:237 |
-| link-templatedetail-257------- | link | ← , )} | app/src/pages/TemplateDetail.tsx:257 |
-| button-templates-152 | button | button at app/src/pages/Templates.tsx:152 | app/src/pages/Templates.tsx:152 |
-| link-templates-212 | link | link at app/src/pages/Templates.tsx:212 | app/src/pages/Templates.tsx:212 |
+| id                                            | role   | label                                                        | file:line                                  |
+| --------------------------------------------- | ------ | ------------------------------------------------------------ | ------------------------------------------ |
+| link-brandwordmark-57---app-name--home        | link   | ${APP_NAME} home                                             | app/src/components/BrandWordmark.tsx:57    |
+| link-projectthumbcard-49--div-classname--cm-c | link   | <div className={cm.cn( absolute inset-0 bg-[radial-gradient( | app/src/components/ProjectThumbCard.tsx:49 |
+| link-publicnav-42-----                        | link   | , )}                                                         | app/src/components/PublicNav.tsx:42        |
+| link-publicnav-47-----                        | link   | , )}                                                         | app/src/components/PublicNav.tsx:47        |
+| link-publicnav-56-----                        | link   | , )}                                                         | app/src/components/PublicNav.tsx:56        |
+| link-renderjobcard-154-----                   | link   | , )}                                                         | app/src/components/RenderJobCard.tsx:154   |
+| link-rushesauthshell-171-----                 | link   | , )}                                                         | app/src/components/RushesAuthShell.tsx:171 |
+| link-rushesauthshell-174-----                 | link   | , )}                                                         | app/src/components/RushesAuthShell.tsx:174 |
+| link-rusheslayout-168                         | link   | link at app/src/components/RushesLayout.tsx:168              | app/src/components/RushesLayout.tsx:168    |
+| link-rusheslayout-191                         | link   | link at app/src/components/RushesLayout.tsx:191              | app/src/components/RushesLayout.tsx:191    |
+| button-rusheslayout-321                       | button | button at app/src/components/RushesLayout.tsx:321            | app/src/components/RushesLayout.tsx:321    |
+| link-about-189-----                           | link   | , )}                                                         | app/src/pages/About.tsx:189                |
+| link-assetdetail-141-------                   | link   | ← , )}                                                       | app/src/pages/AssetDetail.tsx:141          |
+| link-assetdetail-266                          | link   | link at app/src/pages/AssetDetail.tsx:266                    | app/src/pages/AssetDetail.tsx:266          |
+| button-assetdetail-283                        | button | button at app/src/pages/AssetDetail.tsx:283                  | app/src/pages/AssetDetail.tsx:283          |
+| button-assetlibrary-195                       | button | button at app/src/pages/AssetLibrary.tsx:195                 | app/src/pages/AssetLibrary.tsx:195         |
+| input-assetlibrary-258                        | input  | input at app/src/pages/AssetLibrary.tsx:258                  | app/src/pages/AssetLibrary.tsx:258         |
+| select-assetlibrary-280                       | select | select at app/src/pages/AssetLibrary.tsx:280                 | app/src/pages/AssetLibrary.tsx:280         |
+| input-assetlibrary-312                        | input  | input at app/src/pages/AssetLibrary.tsx:312                  | app/src/pages/AssetLibrary.tsx:312         |
+| button-assetlibrary-328                       | button | button at app/src/pages/AssetLibrary.tsx:328                 | app/src/pages/AssetLibrary.tsx:328         |
+| button-assetlibrary-363                       | button | button at app/src/pages/AssetLibrary.tsx:363                 | app/src/pages/AssetLibrary.tsx:363         |
+| input-assetlibrary-390                        | input  | input at app/src/pages/AssetLibrary.tsx:390                  | app/src/pages/AssetLibrary.tsx:390         |
+| link-assetlibrary-449                         | link   | link at app/src/pages/AssetLibrary.tsx:449                   | app/src/pages/AssetLibrary.tsx:449         |
+| link-dashboard-205                            | link   | link at app/src/pages/Dashboard.tsx:205                      | app/src/pages/Dashboard.tsx:205            |
+| link-dashboard-287-----                       | link   | , )}                                                         | app/src/pages/Dashboard.tsx:287            |
+| link-dashboard-315                            | link   | link at app/src/pages/Dashboard.tsx:315                      | app/src/pages/Dashboard.tsx:315            |
+| link-dashboard-442--                          | link   | →                                                            | app/src/pages/Dashboard.tsx:442            |
+| link-editor-231-------                        | link   | ← , )}                                                       | app/src/pages/Editor.tsx:231               |
+| link-editor-281-info-----                     | link   | info , )}                                                    | app/src/pages/Editor.tsx:281               |
+| button-editor-294                             | button | button at app/src/pages/Editor.tsx:294                       | app/src/pages/Editor.tsx:294               |
+| link-editor-330-add                           | link   | add                                                          | app/src/pages/Editor.tsx:330               |
+| input-editor-345                              | input  | input at app/src/pages/Editor.tsx:345                        | app/src/pages/Editor.tsx:345               |
+| button-editor-360                             | button | button at app/src/pages/Editor.tsx:360                       | app/src/pages/Editor.tsx:360               |
+| button-editor-402                             | button | button at app/src/pages/Editor.tsx:402                       | app/src/pages/Editor.tsx:402               |
+| button-editor-502                             | button | button at app/src/pages/Editor.tsx:502                       | app/src/pages/Editor.tsx:502               |
+| link-exportdetail-135-------                  | link   | ← , )}                                                       | app/src/pages/ExportDetail.tsx:135         |
+| link-exportdetail-214--                       | link   | ↗                                                            | app/src/pages/ExportDetail.tsx:214         |
+| button-exportdetail-392                       | button | button at app/src/pages/ExportDetail.tsx:392                 | app/src/pages/ExportDetail.tsx:392         |
+| link-exportdetail-412                         | link   | link at app/src/pages/ExportDetail.tsx:412                   | app/src/pages/ExportDetail.tsx:412         |
+| link-exportdetail-431-------                  | link   | ← , )}                                                       | app/src/pages/ExportDetail.tsx:431         |
+| select-exportqueue-247                        | select | select at app/src/pages/ExportQueue.tsx:247                  | app/src/pages/ExportQueue.tsx:247          |
+| select-exportqueue-277                        | select | select at app/src/pages/ExportQueue.tsx:277                  | app/src/pages/ExportQueue.tsx:277          |
+| select-exportqueue-300                        | select | select at app/src/pages/ExportQueue.tsx:300                  | app/src/pages/ExportQueue.tsx:300          |
+| button-exportqueue-320                        | button | button at app/src/pages/ExportQueue.tsx:320                  | app/src/pages/ExportQueue.tsx:320          |
+| link-exportqueue-517-----                     | link   | , )}                                                         | app/src/pages/ExportQueue.tsx:517          |
+| link-forgotpassword-48-----                   | link   | , )}                                                         | app/src/pages/ForgotPassword.tsx:48        |
+| link-forgotpassword-82-----                   | link   | , )}                                                         | app/src/pages/ForgotPassword.tsx:82        |
+| input-forgotpassword-103                      | input  | input at app/src/pages/ForgotPassword.tsx:103                | app/src/pages/ForgotPassword.tsx:103       |
+| button-forgotpassword-130                     | button | button at app/src/pages/ForgotPassword.tsx:130               | app/src/pages/ForgotPassword.tsx:130       |
+| link-landing-158-----                         | link   | , )}                                                         | app/src/pages/Landing.tsx:158              |
+| link-landing-173-----                         | link   | , )}                                                         | app/src/pages/Landing.tsx:173              |
+| link-landing-314-----                         | link   | , )}                                                         | app/src/pages/Landing.tsx:314              |
+| link-landing-352-----                         | link   | , )}                                                         | app/src/pages/Landing.tsx:352              |
+| link-landing-355-----                         | link   | , )}                                                         | app/src/pages/Landing.tsx:355              |
+| link-landing-358--------                      | link   | , } })}                                                      | app/src/pages/Landing.tsx:358              |
+| link-landing-372-molecule-dev                 | link   | Molecule.dev                                                 | app/src/pages/Landing.tsx:372              |
+| link-login-51-----                            | link   | , )}                                                         | app/src/pages/Login.tsx:51                 |
+| input-login-74                                | input  | input at app/src/pages/Login.tsx:74                          | app/src/pages/Login.tsx:74                 |
+| link-login-107-----                           | link   | , )}                                                         | app/src/pages/Login.tsx:107                |
+| input-login-117                               | input  | input at app/src/pages/Login.tsx:117                         | app/src/pages/Login.tsx:117                |
+| button-login-134                              | button | button at app/src/pages/Login.tsx:134                        | app/src/pages/Login.tsx:134                |
+| button-login-164                              | button | button at app/src/pages/Login.tsx:164                        | app/src/pages/Login.tsx:164                |
+| input-newproject-222                          | input  | input at app/src/pages/NewProject.tsx:222                    | app/src/pages/NewProject.tsx:222           |
+| button-newproject-258                         | button | button at app/src/pages/NewProject.tsx:258                   | app/src/pages/NewProject.tsx:258           |
+| button-newproject-323                         | button | button at app/src/pages/NewProject.tsx:323                   | app/src/pages/NewProject.tsx:323           |
+| link-newproject-372-----                      | link   | , )}                                                         | app/src/pages/NewProject.tsx:372           |
+| link-newproject-395-----                      | link   | , )}                                                         | app/src/pages/NewProject.tsx:395           |
+| button-newproject-407                         | button | button at app/src/pages/NewProject.tsx:407                   | app/src/pages/NewProject.tsx:407           |
+| link-notfound-72-home-----                    | link   | home , )}                                                    | app/src/pages/NotFound.tsx:72              |
+| link-notfound-85-dashboard-----               | link   | dashboard , )}                                               | app/src/pages/NotFound.tsx:85              |
+| link-projectdetail-235-------                 | link   | ← , )}                                                       | app/src/pages/ProjectDetail.tsx:235        |
+| link-projectdetail-259                        | link   | link at app/src/pages/ProjectDetail.tsx:259                  | app/src/pages/ProjectDetail.tsx:259        |
+| input-projectdetail-317                       | input  | input at app/src/pages/ProjectDetail.tsx:317                 | app/src/pages/ProjectDetail.tsx:317        |
+| button-projectdetail-329-----                 | button | , )}                                                         | app/src/pages/ProjectDetail.tsx:329        |
+| button-projectdetail-342                      | button | button at app/src/pages/ProjectDetail.tsx:342                | app/src/pages/ProjectDetail.tsx:342        |
+| button-projectdetail-370-edit                 | button | edit                                                         | app/src/pages/ProjectDetail.tsx:370        |
+| button-projectdetail-410                      | button | button at app/src/pages/ProjectDetail.tsx:410                | app/src/pages/ProjectDetail.tsx:410        |
+| button-projectdetail-426                      | button | button at app/src/pages/ProjectDetail.tsx:426                | app/src/pages/ProjectDetail.tsx:426        |
+| link-projectdetail-502-----                   | link   | , )}                                                         | app/src/pages/ProjectDetail.tsx:502        |
+| link-projectdetail-535--                      | link   | .                                                            | app/src/pages/ProjectDetail.tsx:535        |
+| link-resetpassword-63-----                    | link   | , )}                                                         | app/src/pages/ResetPassword.tsx:63         |
+| input-resetpassword-78                        | input  | input at app/src/pages/ResetPassword.tsx:78                  | app/src/pages/ResetPassword.tsx:78         |
+| input-resetpassword-99                        | input  | input at app/src/pages/ResetPassword.tsx:99                  | app/src/pages/ResetPassword.tsx:99         |
+| button-resetpassword-144                      | button | button at app/src/pages/ResetPassword.tsx:144                | app/src/pages/ResetPassword.tsx:144        |
+| button-settings-370                           | button | button at app/src/pages/Settings.tsx:370                     | app/src/pages/Settings.tsx:370             |
+| input-settings-476                            | input  | input at app/src/pages/Settings.tsx:476                      | app/src/pages/Settings.tsx:476             |
+| input-settings-497                            | input  | input at app/src/pages/Settings.tsx:497                      | app/src/pages/Settings.tsx:497             |
+| button-settings-512                           | button | button at app/src/pages/Settings.tsx:512                     | app/src/pages/Settings.tsx:512             |
+| button-settings-558                           | button | button at app/src/pages/Settings.tsx:558                     | app/src/pages/Settings.tsx:558             |
+| input-settings-602                            | input  | input at app/src/pages/Settings.tsx:602                      | app/src/pages/Settings.tsx:602             |
+| input-settings-625                            | input  | input at app/src/pages/Settings.tsx:625                      | app/src/pages/Settings.tsx:625             |
+| button-settings-641                           | button | button at app/src/pages/Settings.tsx:641                     | app/src/pages/Settings.tsx:641             |
+| button-settings-661                           | button | button at app/src/pages/Settings.tsx:661                     | app/src/pages/Settings.tsx:661             |
+| button-settings-699                           | button | button at app/src/pages/Settings.tsx:699                     | app/src/pages/Settings.tsx:699             |
+| input-settings-750                            | input  | input at app/src/pages/Settings.tsx:750                      | app/src/pages/Settings.tsx:750             |
+| button-settings-766                           | button | button at app/src/pages/Settings.tsx:766                     | app/src/pages/Settings.tsx:766             |
+| button-settings-782                           | button | button at app/src/pages/Settings.tsx:782                     | app/src/pages/Settings.tsx:782             |
+| button-settings-1046                          | button | button at app/src/pages/Settings.tsx:1046                    | app/src/pages/Settings.tsx:1046            |
+| button-settings-1161                          | button | button at app/src/pages/Settings.tsx:1161                    | app/src/pages/Settings.tsx:1161            |
+| button-settings-1182                          | button | button at app/src/pages/Settings.tsx:1182                    | app/src/pages/Settings.tsx:1182            |
+| link-signup-78-----                           | link   | , )}                                                         | app/src/pages/Signup.tsx:78                |
+| input-signup-95                               | input  | input at app/src/pages/Signup.tsx:95                         | app/src/pages/Signup.tsx:95                |
+| input-signup-110                              | input  | input at app/src/pages/Signup.tsx:110                        | app/src/pages/Signup.tsx:110               |
+| input-signup-127                              | input  | input at app/src/pages/Signup.tsx:127                        | app/src/pages/Signup.tsx:127               |
+| input-signup-143                              | input  | input at app/src/pages/Signup.tsx:143                        | app/src/pages/Signup.tsx:143               |
+| input-signup-164                              | input  | input at app/src/pages/Signup.tsx:164                        | app/src/pages/Signup.tsx:164               |
+| button-signup-197                             | button | button at app/src/pages/Signup.tsx:197                       | app/src/pages/Signup.tsx:197               |
+| link-templatedetail-120-------                | link   | ← , )}                                                       | app/src/pages/TemplateDetail.tsx:120       |
+| button-templatedetail-237                     | button | button at app/src/pages/TemplateDetail.tsx:237               | app/src/pages/TemplateDetail.tsx:237       |
+| link-templatedetail-257-------                | link   | ← , )}                                                       | app/src/pages/TemplateDetail.tsx:257       |
+| button-templates-152                          | button | button at app/src/pages/Templates.tsx:152                    | app/src/pages/Templates.tsx:152            |
+| link-templates-212                            | link   | link at app/src/pages/Templates.tsx:212                      | app/src/pages/Templates.tsx:212            |
 
 ## Backend Routes (32)
 
-| id | method | path | handler |
-| --- | --- | --- | --- |
-| route-delete-assets--id | DELETE | /assets/:id | api/src/handlers/assets.ts:149 |
-| route-delete-clips--id | DELETE | /clips/:id | api/src/handlers/clips.ts:191 |
-| route-delete-effects--id | DELETE | /effects/:id | api/src/handlers/effects.ts:134 |
-| route-delete-projects--id | DELETE | /projects/:id | api/src/handlers/projects.ts:156 |
-| route-delete-timeline-tracks--id | DELETE | /timeline/tracks/:id | api/src/handlers/timeline.ts:156 |
+| id                                    | method | path                      | handler                          |
+| ------------------------------------- | ------ | ------------------------- | -------------------------------- |
+| route-delete-assets--id               | DELETE | /assets/:id               | api/src/handlers/assets.ts:149   |
+| route-delete-clips--id                | DELETE | /clips/:id                | api/src/handlers/clips.ts:191    |
+| route-delete-effects--id              | DELETE | /effects/:id              | api/src/handlers/effects.ts:134  |
+| route-delete-projects--id             | DELETE | /projects/:id             | api/src/handlers/projects.ts:156 |
+| route-delete-timeline-tracks--id      | DELETE | /timeline/tracks/:id      | api/src/handlers/timeline.ts:156 |
 | route-delete-timeline-transitions--id | DELETE | /timeline/transitions/:id | api/src/handlers/timeline.ts:248 |
-| route-get-assets- | GET | /assets | api/src/handlers/assets.ts:43 |
-| route-get-assets--id | GET | /assets/:id | api/src/handlers/assets.ts:66 |
-| route-get-clips- | GET | /clips | api/src/handlers/clips.ts:51 |
-| route-get-clips--id | GET | /clips/:id | api/src/handlers/clips.ts:82 |
-| route-get-effects- | GET | /effects | api/src/handlers/effects.ts:36 |
-| route-get-exports- | GET | /exports | api/src/handlers/exports.ts:38 |
-| route-get-exports--id | GET | /exports/:id | api/src/handlers/exports.ts:69 |
-| route-get-projects- | GET | /projects | api/src/handlers/projects.ts:45 |
-| route-get-projects--id | GET | /projects/:id | api/src/handlers/projects.ts:62 |
-| route-get-templates- | GET | /templates | api/src/handlers/templates.ts:35 |
-| route-get-templates--id | GET | /templates/:id | api/src/handlers/templates.ts:55 |
-| route-get-timeline-tracks | GET | /timeline/tracks | api/src/handlers/timeline.ts:47 |
-| route-get-timeline-transitions | GET | /timeline/transitions | api/src/handlers/timeline.ts:176 |
-| route-post-assets- | POST | /assets | api/src/handlers/assets.ts:85 |
-| route-post-clips- | POST | /clips | api/src/handlers/clips.ts:101 |
-| route-post-effects- | POST | /effects | api/src/handlers/effects.ts:67 |
-| route-post-exports- | POST | /exports | api/src/handlers/exports.ts:97 |
-| route-post-projects- | POST | /projects | api/src/handlers/projects.ts:90 |
-| route-post-templates--id-use | POST | /templates/:id/use | api/src/handlers/templates.ts:73 |
-| route-post-timeline-tracks | POST | /timeline/tracks | api/src/handlers/timeline.ts:78 |
-| route-post-timeline-transitions | POST | /timeline/transitions | api/src/handlers/timeline.ts:209 |
-| route-put-assets--id | PUT | /assets/:id | api/src/handlers/assets.ts:118 |
-| route-put-clips--id | PUT | /clips/:id | api/src/handlers/clips.ts:151 |
-| route-put-effects--id | PUT | /effects/:id | api/src/handlers/effects.ts:103 |
-| route-put-projects--id | PUT | /projects/:id | api/src/handlers/projects.ts:125 |
-| route-put-timeline-tracks--id | PUT | /timeline/tracks/:id | api/src/handlers/timeline.ts:125 |
+| route-get-assets-                     | GET    | /assets                   | api/src/handlers/assets.ts:43    |
+| route-get-assets--id                  | GET    | /assets/:id               | api/src/handlers/assets.ts:66    |
+| route-get-clips-                      | GET    | /clips                    | api/src/handlers/clips.ts:51     |
+| route-get-clips--id                   | GET    | /clips/:id                | api/src/handlers/clips.ts:82     |
+| route-get-effects-                    | GET    | /effects                  | api/src/handlers/effects.ts:36   |
+| route-get-exports-                    | GET    | /exports                  | api/src/handlers/exports.ts:38   |
+| route-get-exports--id                 | GET    | /exports/:id              | api/src/handlers/exports.ts:69   |
+| route-get-projects-                   | GET    | /projects                 | api/src/handlers/projects.ts:45  |
+| route-get-projects--id                | GET    | /projects/:id             | api/src/handlers/projects.ts:62  |
+| route-get-templates-                  | GET    | /templates                | api/src/handlers/templates.ts:35 |
+| route-get-templates--id               | GET    | /templates/:id            | api/src/handlers/templates.ts:55 |
+| route-get-timeline-tracks             | GET    | /timeline/tracks          | api/src/handlers/timeline.ts:47  |
+| route-get-timeline-transitions        | GET    | /timeline/transitions     | api/src/handlers/timeline.ts:176 |
+| route-post-assets-                    | POST   | /assets                   | api/src/handlers/assets.ts:85    |
+| route-post-clips-                     | POST   | /clips                    | api/src/handlers/clips.ts:101    |
+| route-post-effects-                   | POST   | /effects                  | api/src/handlers/effects.ts:67   |
+| route-post-exports-                   | POST   | /exports                  | api/src/handlers/exports.ts:97   |
+| route-post-projects-                  | POST   | /projects                 | api/src/handlers/projects.ts:90  |
+| route-post-templates--id-use          | POST   | /templates/:id/use        | api/src/handlers/templates.ts:73 |
+| route-post-timeline-tracks            | POST   | /timeline/tracks          | api/src/handlers/timeline.ts:78  |
+| route-post-timeline-transitions       | POST   | /timeline/transitions     | api/src/handlers/timeline.ts:209 |
+| route-put-assets--id                  | PUT    | /assets/:id               | api/src/handlers/assets.ts:118   |
+| route-put-clips--id                   | PUT    | /clips/:id                | api/src/handlers/clips.ts:151    |
+| route-put-effects--id                 | PUT    | /effects/:id              | api/src/handlers/effects.ts:103  |
+| route-put-projects--id                | PUT    | /projects/:id             | api/src/handlers/projects.ts:125 |
+| route-put-timeline-tracks--id         | PUT    | /timeline/tracks/:id      | api/src/handlers/timeline.ts:125 |

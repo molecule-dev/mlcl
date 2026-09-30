@@ -4,6 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 
 interface HelpEntry {
   q: string
@@ -104,27 +105,9 @@ export function Help() {
         >
           <Link
             to="/"
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'sm' }),
-              cm.textSize('xl'),
-              'font-extrabold tracking-tighter',
-            )}
+            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
           >
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'w-8 h-8 rounded-lg text-white',
-              )}
-              style={{
-                background:
-                  'linear-gradient(135deg, var(--mol-color-primary), var(--color-primary-gradient-end))',
-              }}
-            >
-              <span className={cm.cn('material-symbols-outlined text-lg')} aria-hidden="true">
-                gavel
-              </span>
-            </span>
-            <span style={{ color: 'var(--color-primary)' }}>{APP_NAME}</span>
+            <BrandWordmark as="span" size="md" />
           </Link>
           <Link
             to="/auctions"

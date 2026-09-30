@@ -54,6 +54,7 @@ export function Search() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [q, setQ] = useState('')
+  const [typeFilter, setTypeFilter] = useState<'all' | SearchHit['type']>('all')
   const [prs, setPrs] = useState<PullRequestRow[]>([])
   const [repos, setRepos] = useState<RepositoryRow[]>([])
   const [rules, setRules] = useState<CustomRuleRow[]>([])
@@ -160,6 +161,28 @@ export function Search() {
     }))
   }, [hits])
 
+  const visibleGrouped = useMemo(
+    () => (typeFilter === 'all' ? grouped : grouped.filter((g) => g.type === typeFilter)),
+    [grouped, typeFilter],
+  )
+
+  const typeCounts = useMemo(
+    () => ({
+      all: hits.length,
+      pr: hits.filter((h) => h.type === 'pr').length,
+      repo: hits.filter((h) => h.type === 'repo').length,
+      rule: hits.filter((h) => h.type === 'rule').length,
+    }),
+    [hits],
+  )
+
+  const FILTER_CHIPS = [
+    { key: 'all' as const, label: 'All' },
+    { key: 'pr' as const, label: 'Pull requests' },
+    { key: 'repo' as const, label: 'Repositories' },
+    { key: 'rule' as const, label: 'Rules' },
+  ]
+
   return (
     <div className={cm.cn(cm.flex1, cm.sp('px', 8), cm.sp('py', 8), cm.stack(6))}>
       <header>
@@ -232,91 +255,168 @@ export function Search() {
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.textMuted)}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </p>
-      ) : hits.length === 0 ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.textMuted)}>
-          {q
-            ? t('search.empty', {}, { defaultValue: 'No results match your query.' })
-            : t(
-                'search.indexEmpty',
-                {},
-                { defaultValue: 'Connect a repository or add custom rules to start indexing.' },
-              )}
-        </p>
       ) : (
-        grouped.map((group) => {
-          const tint = TYPE_TINT[group.type]
-          if (group.items.length === 0) return null
-          return (
-            <section key={group.type} className={cm.stack(3)}>
-              <h2
-                className={cm.cn(
-                  cm.flex({ align: 'center', gap: 'sm' }),
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest text-on-surface-variant font-mono',
-                )}
-              >
-                <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
-                  {tint.icon}
-                </span>
-                {t(`search.group.${group.type}`, {}, { defaultValue: tint.label })}
-              </h2>
-              <ul
-                className={cm.cn(
-                  'divide-y divide-outline-variant/30 bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30',
-                )}
-              >
-                {group.items.map((item) => (
-                  <li key={item.id}>
-                    <Link
-                      to={item.href}
+        <>
+          <section
+            className={cm.cn(
+              cm.sp('p', 4),
+              'rounded-2xl border border-outline-variant/40 bg-surface-container-lowest shadow-sm',
+            )}
+            aria-labelledby="search-result-type-heading"
+            data-mol-id="search-result-type"
+          >
+            <h3
+              id="search-result-type-heading"
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                cm.sp('mb', 3),
+                'uppercase tracking-widest text-on-surface-variant font-mono',
+              )}
+            >
+              {t('search.resultTypeHeading', {}, { defaultValue: 'Result type' })}
+            </h3>
+            <div className={cm.cn(cm.flex({ gap: 'xs', wrap: 'wrap' }))} role="group">
+              {FILTER_CHIPS.map((chip) => {
+                const active = typeFilter === chip.key
+                const count = typeCounts[chip.key]
+                return (
+                  <button
+                    key={chip.key}
+                    type="button"
+                    onClick={() => setTypeFilter(chip.key)}
+                    aria-pressed={active}
+                    disabled={chip.key !== 'all' && count === 0}
+                    data-mol-id={`search-filter-${chip.key}`}
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 'xs' }),
+                      cm.sp('px', 3),
+                      'min-h-[36px] text-[10px] font-extrabold uppercase tracking-widest font-mono rounded-md transition-colors disabled:opacity-40',
+                      active
+                        ? 'bg-primary text-white'
+                        : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',
+                    )}
+                  >
+                    {t(`search.filter.${chip.key}`, {}, { defaultValue: chip.label })}
+                    <span
                       className={cm.cn(
-                        cm.flex({ direction: 'col', gap: 'sm' }),
-                        cm.sp('px', 5),
-                        cm.sp('py', 4),
-                        'group hover:bg-surface-container-low transition-colors',
+                        'px-1.5 py-0.5 rounded tabular-nums',
+                        active ? 'bg-white/20' : 'bg-surface-container',
                       )}
                     >
-                      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-                        <span
+                      {count}
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          </section>
+
+          {hits.length === 0 ? (
+            <p className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.textMuted)}>
+              {q
+                ? t('search.empty', {}, { defaultValue: 'No results match your query.' })
+                : t(
+                    'search.indexEmpty',
+                    {},
+                    { defaultValue: 'Connect a repository or add custom rules to start indexing.' },
+                  )}
+            </p>
+          ) : visibleGrouped.every((group) => group.items.length === 0) ? (
+            <p className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.textMuted)}>
+              {t('search.empty', {}, { defaultValue: 'No results match your query.' })}
+            </p>
+          ) : (
+            visibleGrouped.map((group) => {
+              const tint = TYPE_TINT[group.type]
+              if (group.items.length === 0) return null
+              return (
+                <section key={group.type} className={cm.stack(3)}>
+                  <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+                    <h2
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 'sm' }),
+                        cm.textSize('xs'),
+                        cm.fontWeight('bold'),
+                        'uppercase tracking-widest text-on-surface-variant font-mono',
+                      )}
+                    >
+                      <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
+                        {tint.icon}
+                      </span>
+                      {t(`search.group.${group.type}`, {}, { defaultValue: tint.label })}
+                    </h2>
+                    <span
+                      className={cm.cn(
+                        'text-[10px] font-mono tabular-nums text-on-surface-variant',
+                      )}
+                      data-mol-id={`search-count-${group.type}`}
+                    >
+                      {t(
+                        'search.groupCount',
+                        { count: group.items.length },
+                        { defaultValue: '({{count}})' },
+                      )}
+                    </span>
+                  </div>
+                  <ul
+                    className={cm.cn(
+                      'divide-y divide-outline-variant/30 bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30',
+                    )}
+                  >
+                    {group.items.map((item) => (
+                      <li key={item.id}>
+                        <Link
+                          to={item.href}
                           className={cm.cn(
-                            'px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-widest font-mono',
-                            tint.bg,
-                            tint.fg,
+                            cm.flex({ direction: 'col', gap: 'sm' }),
+                            cm.sp('px', 5),
+                            cm.sp('py', 4),
+                            'group hover:bg-surface-container-low transition-colors',
                           )}
                         >
-                          {t(`search.type.${item.type}`, {}, { defaultValue: tint.label })}
-                        </span>
-                        <span
-                          className={cm.cn(
-                            cm.textSize('sm'),
-                            cm.fontWeight('bold'),
-                            'group-hover:text-primary transition-colors text-on-surface truncate',
-                          )}
-                        >
-                          {item.title}
-                        </span>
-                        {item.meta ? (
-                          <span className="ml-auto text-[10px] font-mono text-on-surface-variant">
-                            {item.meta}
-                          </span>
-                        ) : null}
-                      </div>
-                      <p
-                        className={cm.cn(
-                          cm.textSize('xs'),
-                          'text-on-surface-variant leading-relaxed',
-                        )}
-                      >
-                        {item.excerpt}
-                      </p>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )
-        })
+                          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                            <span
+                              className={cm.cn(
+                                'px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-widest font-mono',
+                                tint.bg,
+                                tint.fg,
+                              )}
+                            >
+                              {t(`search.type.${item.type}`, {}, { defaultValue: tint.label })}
+                            </span>
+                            <span
+                              className={cm.cn(
+                                cm.textSize('sm'),
+                                cm.fontWeight('bold'),
+                                'group-hover:text-primary transition-colors text-on-surface truncate',
+                              )}
+                            >
+                              {item.title}
+                            </span>
+                            {item.meta ? (
+                              <span className="ml-auto text-[10px] font-mono text-on-surface-variant">
+                                {item.meta}
+                              </span>
+                            ) : null}
+                          </div>
+                          <p
+                            className={cm.cn(
+                              cm.textSize('xs'),
+                              'text-on-surface-variant leading-relaxed',
+                            )}
+                          >
+                            {item.excerpt}
+                          </p>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )
+            })
+          )}
+        </>
       )}
     </div>
   )

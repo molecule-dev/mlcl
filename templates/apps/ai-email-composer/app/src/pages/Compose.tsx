@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
@@ -101,6 +101,11 @@ export function Compose() {
   const [statusMessage, setStatusMessage] = useState<string | null>(null)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [summary, setSummary] = useState<string | null>(null)
+  // Smart Rewrites — one AI-rewritten variant per style. The variant is kept
+  // OUT of the editor until "Use this version" adopts it, so the user can
+  // compare before overwriting their draft.
+  const [rewrites, setRewrites] = useState<Partial<Record<'formal' | 'concise', string>>>({})
+  const [pendingRewrite, setPendingRewrite] = useState<'formal' | 'concise' | null>(null)
 
   // Hydrate from `?draft=ID` (continue editing), `?reply=SENT_ID` (follow up
   // to a previously-sent email — same recipient, "Re:" subject, quoted body),
@@ -309,6 +314,32 @@ export function Compose() {
     }
   }
 
+  const handleRewrite = async (style: 'formal' | 'concise') => {
+    if (!body.trim()) return
+    setPendingRewrite(style)
+    setRewrites((prev) => ({ ...prev, [style]: undefined }))
+    setErrorMessage(null)
+    try {
+      // adjust-tone persists the rewrite on the saved draft; the returned body
+      // is parked as a variant until "Use this version" adopts it into the
+      // editor (saving afterwards stores the adopted text).
+      const draft = await ensureDraftSaved()
+      const response = await http.post<AdjustToneResponse>(`/drafts/${draft.id}/adjust-tone`, {
+        tone: style,
+      })
+      setRewrites((prev) => ({ ...prev, [style]: response.data.draft?.body ?? '' }))
+    } catch (err) {
+      setErrorMessage(
+        getErrorMessage(
+          err,
+          t('compose.rewriteFailed', {}, { defaultValue: 'Could not rewrite draft' }),
+        ),
+      )
+    } finally {
+      setPendingRewrite(null)
+    }
+  }
+
   const handleSend = async () => {
     flushRecipientInput()
     if (recipients.length === 0) {
@@ -351,6 +382,76 @@ export function Compose() {
       setIsSending(false)
     }
   }
+
+  // Predictive Insights — deterministic draft heuristics computed from the
+  // current editor state (subject length, body size, reading time, audience).
+  const insights = useMemo<Array<{ icon: string; text: string; positive: boolean }>>(() => {
+    const trimmedBody = body.trim()
+    if (!trimmedBody) return []
+    const wordCount = trimmedBody.split(/\s+/).length
+    const subjectWordCount = subject.trim() ? subject.trim().split(/\s+/).length : 0
+    const readMinutes = Math.max(1, Math.round(wordCount / 200))
+    const rows: Array<{ icon: string; text: string; positive: boolean }> = []
+    rows.push(
+      subjectWordCount > 0 && subjectWordCount <= 9
+        ? {
+            icon: 'check_circle',
+            positive: true,
+            text: t(
+              'compose.insight.subjectGood',
+              { count: subjectWordCount },
+              {
+                defaultValue:
+                  'Subject length looks strong — {{count}} words is the sweet spot for opens.',
+              },
+            ),
+          }
+        : {
+            icon: 'lightbulb',
+            positive: false,
+            text: t(
+              'compose.insight.subjectLong',
+              {},
+              {
+                defaultValue: 'Shorten the subject to ~6-9 words — long subjects get opened less.',
+              },
+            ),
+          },
+    )
+    rows.push({
+      icon: 'schedule',
+      positive: true,
+      text: t(
+        'compose.insight.readTime',
+        { minutes: readMinutes, words: wordCount },
+        {
+          defaultValue: '{{words}} words ≈ a {{minutes}}-minute read — quick replies get answers.',
+        },
+      ),
+    })
+    rows.push(
+      recipients.length === 1
+        ? {
+            icon: 'person',
+            positive: true,
+            text: t(
+              'compose.insight.personal',
+              {},
+              { defaultValue: 'One recipient — personal emails reply roughly 2× more often.' },
+            ),
+          }
+        : {
+            icon: 'group',
+            positive: false,
+            text: t(
+              'compose.insight.audience',
+              { count: recipients.length },
+              { defaultValue: '{{count}} recipients — consider a personal line for each.' },
+            ),
+          },
+    )
+    return rows
+  }, [body, recipients, subject, t])
 
   return (
     <div
@@ -657,6 +758,7 @@ export function Compose() {
 
       <aside className={cm.cn('lg:col-span-4', cm.flex({ direction: 'col', gap: 'lg' }))}>
         <AiSuggestionPanel
+          title={t('compose.aiAssistantTitle', {}, { defaultValue: 'AI Assistant' })}
           subtitle={t(
             'compose.copilotSubtitle',
             { app: APP_NAME },
@@ -664,13 +766,13 @@ export function Compose() {
           )}
         >
           <div>
-            <p
+            <h3
               className={cm.cn(
                 'text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2',
               )}
             >
-              {t('compose.toneLabel', {}, { defaultValue: 'Tone' })}
-            </p>
+              {t('compose.documentTone', {}, { defaultValue: 'Document Tone' })}
+            </h3>
             <TonePillRow value={tone} onChange={(next) => void handleAdjustTone(next)} />
             {isAdjusting && (
               <p
@@ -747,7 +849,7 @@ export function Compose() {
         </AiSuggestionPanel>
 
         <AiSuggestionPanel
-          title={t('compose.suggestionsTitle', {}, { defaultValue: 'Smart suggestions' })}
+          title={t('compose.quickActionsTitle', {}, { defaultValue: 'Quick Actions' })}
           subtitle={t(
             'compose.suggestionsSubtitle',
             {},
@@ -803,11 +905,7 @@ export function Compose() {
               >
                 translate
               </span>
-              {t(
-                'compose.suggestion.friendly',
-                {},
-                { defaultValue: 'Translate to a Friendly tone' },
-              )}
+              {t('compose.suggestion.friendly', {}, { defaultValue: 'Soften tone' })}
             </button>
             <button
               type="button"
@@ -829,13 +927,171 @@ export function Compose() {
               >
                 rule
               </span>
-              {t(
-                'compose.suggestion.concise',
-                {},
-                { defaultValue: 'Tighten and shorten the draft' },
-              )}
+              {t('compose.suggestion.concise', {}, { defaultValue: 'Make more concise' })}
             </button>
           </div>
+        </AiSuggestionPanel>
+
+        <AiSuggestionPanel
+          title={t('compose.rewritesTitle', {}, { defaultValue: 'Smart Rewrites' })}
+          subtitle={t(
+            'compose.rewritesSubtitle',
+            {},
+            { defaultValue: 'Generate an alternate version, then apply it if it lands better.' },
+          )}
+        >
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+            {(['formal', 'concise'] as const).map((style) => {
+              const variant = rewrites[style]
+              const busy = pendingRewrite === style
+              return (
+                <div
+                  key={style}
+                  data-mol-id={`compose-rewrite-${style}`}
+                  className={cm.cn(
+                    cm.sp('p', 4),
+                    'rounded-xl bg-surface-container-lowest border border-outline-variant/30',
+                  )}
+                >
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                      cm.sp('mb', 2),
+                    )}
+                  >
+                    <span
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        cm.fontWeight('bold'),
+                        'uppercase tracking-widest text-primary',
+                      )}
+                    >
+                      {style === 'formal'
+                        ? t('compose.rewrite.formalLabel', {}, { defaultValue: 'Formal version' })
+                        : t(
+                            'compose.rewrite.conciseLabel',
+                            {},
+                            { defaultValue: 'Concise version' },
+                          )}
+                    </span>
+                    {variant == null && !busy && (
+                      <button
+                        type="button"
+                        data-mol-id={`compose-rewrite-generate-${style}`}
+                        onClick={() => void handleRewrite(style)}
+                        disabled={!body.trim()}
+                        className={cm.cn(
+                          cm.sp('px', 3),
+                          cm.sp('py', 1),
+                          cm.textSize('xs'),
+                          cm.fontWeight('bold'),
+                          cm.roundedFull,
+                          'bg-primary/10 text-primary hover:bg-primary/20 transition-colors disabled:opacity-50',
+                        )}
+                      >
+                        {t('compose.rewrite.generate', {}, { defaultValue: 'Rewrite' })}
+                      </button>
+                    )}
+                  </div>
+                  {busy ? (
+                    <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                      {t('compose.rewrite.working', {}, { defaultValue: 'Rewriting…' })}
+                    </p>
+                  ) : variant != null ? (
+                    <>
+                      <p
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          'text-on-surface-variant whitespace-pre-wrap line-clamp-4 leading-relaxed',
+                        )}
+                      >
+                        {variant}
+                      </p>
+                      <button
+                        type="button"
+                        data-mol-id={`compose-rewrite-apply-${style}`}
+                        onClick={() => {
+                          setBody(variant)
+                          setRewrites((prev) => ({ ...prev, [style]: undefined }))
+                          setStatusMessage(
+                            t(
+                              'compose.rewrite.applied',
+                              {},
+                              { defaultValue: 'Rewrite applied to the draft.' },
+                            ),
+                          )
+                        }}
+                        className={cm.cn(
+                          cm.sp('px', 3),
+                          cm.sp('py', 2),
+                          cm.sp('mt', 3),
+                          cm.textSize('xs'),
+                          cm.fontWeight('bold'),
+                          cm.roundedFull,
+                          'bg-primary text-white hover:opacity-90 transition-opacity',
+                        )}
+                      >
+                        {t('compose.rewrite.use', {}, { defaultValue: 'Use this version' })}
+                      </button>
+                    </>
+                  ) : (
+                    <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      {t(
+                        'compose.rewrite.hint',
+                        {},
+                        {
+                          defaultValue:
+                            'Write or generate a draft first — the rewrite works on the current body.',
+                        },
+                      )}
+                    </p>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </AiSuggestionPanel>
+
+        <AiSuggestionPanel
+          title={t('compose.insightsTitle', {}, { defaultValue: 'Predictive Insights' })}
+          subtitle={t(
+            'compose.insightsSubtitle',
+            {},
+            { defaultValue: 'Signals about the current draft, updated as you type.' },
+          )}
+        >
+          {insights.length === 0 ? (
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'compose.insightsEmpty',
+                {},
+                { defaultValue: 'Start writing (or compose with AI) to see live predictions.' },
+              )}
+            </p>
+          ) : (
+            <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+              {insights.map((row) => (
+                <li
+                  key={row.text}
+                  data-mol-id="compose-insight-row"
+                  className={cm.cn(cm.flex({ align: 'start', gap: 'sm' }))}
+                >
+                  <span
+                    className={cm.cn(
+                      'material-symbols-outlined text-base',
+                      row.positive ? 'text-success' : 'text-secondary-dark',
+                    )}
+                    aria-hidden="true"
+                  >
+                    {row.icon}
+                  </span>
+                  <span className={cm.cn(cm.textSize('sm'), 'text-on-surface leading-snug')}>
+                    {row.text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
         </AiSuggestionPanel>
       </aside>
     </div>

@@ -132,7 +132,7 @@ export function SellerDashboard() {
             {t('sellerDashboard.eyebrow', {}, { defaultValue: 'Seller hub' })}
           </p>
           <h1 className={cm.cn('text-4xl font-extrabold tracking-tight')}>
-            {t('sellerDashboard.heading', {}, { defaultValue: 'Your command center' })}
+            {t('sellerDashboard.heading', {}, { defaultValue: 'Seller Dashboard' })}
           </h1>
           <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
             {t(

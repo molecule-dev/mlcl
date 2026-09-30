@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { SafeLink } from '../components/SafeLink.js'
 
 const FEATURES = [
@@ -27,6 +28,13 @@ const FEATURES = [
     defaultBody:
       'Flag n+1 queries, memory leaks, and inefficient algorithms with actionable optimization suggestions.',
     icon: 'speed',
+  },
+  {
+    key: 'style',
+    defaultTitle: 'Style Consistency',
+    defaultBody:
+      'Enforce your formatting and convention rules on every diff, so style debates end at the review gate — not in the comments.',
+    icon: 'palette',
   },
   {
     key: 'rules',
@@ -78,8 +86,8 @@ export function Landing() {
             'h-20',
           )}
         >
-          <SafeLink to="/" className={cm.cn('text-2xl font-black tracking-tighter text-primary')}>
-            {APP_NAME}
+          <SafeLink to="/" className={cm.cn('shrink-0')} aria-label={APP_NAME}>
+            <BrandWordmark as="span" size="lg" />
           </SafeLink>
           <nav className={cm.cn('hidden md:flex gap-8')}>
             <a
@@ -466,6 +474,70 @@ export function Landing() {
           </div>
         </section>
 
+        {/* Pillars — the four promises every surface of the product is held to */}
+        <section className={cm.cn('py-20 border-t border-surface-variant/60')} id="pillars">
+          <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6))}>
+            <h2
+              className={cm.cn(
+                'text-2xl md:text-3xl font-bold tracking-tight text-center mb-12 text-on-surface',
+              )}
+            >
+              {t('landing.pillarsHeading', {}, { defaultValue: 'Built to be trusted on main' })}
+            </h2>
+            <div
+              className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}
+            >
+              {(
+                [
+                  {
+                    key: 'scoring',
+                    icon: 'fact_check',
+                    title: 'AI quality scoring on every PR',
+                    body: 'A 0–10 score per pull request, with findings cited to the exact offending line.',
+                  },
+                  {
+                    key: 'flow',
+                    icon: 'account_tree',
+                    title: 'GitHub-native flow',
+                    body: 'Reviews land as inline PR comments on every push — no new dashboard to babysit.',
+                  },
+                  {
+                    key: 'rules',
+                    icon: 'rule',
+                    title: 'Bring your rules',
+                    body: 'Team conventions and severity tuning, enforced automatically on every diff.',
+                  },
+                  {
+                    key: 'reports',
+                    icon: 'analytics',
+                    title: 'Reports your team reads',
+                    body: 'Weekly digests and trend charts people open — not another wall of graphs.',
+                  },
+                ] as const
+              ).map((p) => (
+                <div key={p.key} className={cm.cn('flex flex-col gap-3 text-center sm:text-left')}>
+                  <div
+                    className={cm.cn(
+                      'w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center mx-auto sm:mx-0',
+                    )}
+                    aria-hidden="true"
+                  >
+                    <span className={cm.cn('material-symbols-outlined fill text-primary text-xl')}>
+                      {p.icon}
+                    </span>
+                  </div>
+                  <h3 className={cm.cn('text-base font-bold text-on-surface leading-snug')}>
+                    {t(`landing.pillar.${p.key}`, {}, { defaultValue: p.title })}
+                  </h3>
+                  <p className={cm.cn('text-sm text-on-surface-variant leading-relaxed')}>
+                    {t(`landing.pillar.${p.key}.body`, {}, { defaultValue: p.body })}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className={cm.cn('py-24')}>
           <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), 'text-center')}>
@@ -513,7 +585,9 @@ export function Landing() {
           )}
         >
           <div>
-            <div className={cm.cn('text-lg font-bold text-on-surface mb-6')}>{APP_NAME}</div>
+            <div className={cm.cn('mb-6')}>
+              <BrandWordmark as="span" size="sm" footer />
+            </div>
             <p className={cm.cn('text-sm leading-relaxed text-on-surface-variant')}>
               {t(
                 'common.copyrightBuiltWithMolecule',

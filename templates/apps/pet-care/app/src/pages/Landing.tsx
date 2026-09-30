@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { type PetChip, PetSnapshotHero } from '../components/PetSnapshotHero.js'
 
 const heroGradient = 'linear-gradient(135deg, var(--mol-color-primary), var(--mol-color-secondary))'
@@ -124,31 +125,7 @@ export function Landing() {
           )}
         >
           <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            <div
-              className={cm.cn(
-                cm.w(8),
-                cm.h(8),
-                cm.roundedFull,
-                cm.flex({ align: 'center', justify: 'center' }),
-              )}
-              style={{ background: heroGradient }}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-white text-base')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                pets
-              </span>
-            </div>
-            <span
-              className={cm.cn(
-                cm.textSize('xl'),
-                cm.fontWeight('bold'),
-                'tracking-tight font-headline',
-              )}
-            >
-              {APP_NAME}
-            </span>
+            <BrandWordmark as="span" />
           </Link>
           <nav className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'hidden md:flex')}>
             <a
@@ -857,23 +834,7 @@ export function Landing() {
                 'tracking-tight',
               )}
             >
-              <div
-                className={cm.cn(
-                  cm.w(8),
-                  cm.h(8),
-                  cm.roundedFull,
-                  cm.flex({ align: 'center', justify: 'center' }),
-                )}
-                style={{ background: heroGradient }}
-              >
-                <span
-                  className={cm.cn('material-symbols-outlined text-white text-base')}
-                  style={{ fontVariationSettings: "'FILL' 1" }}
-                >
-                  pets
-                </span>
-              </div>
-              {APP_NAME}
+              <BrandWordmark as="span" size="sm" footer />
             </Link>
             <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
               {t('landing.footer.tagline', {}, { defaultValue: APP_TAGLINE })}

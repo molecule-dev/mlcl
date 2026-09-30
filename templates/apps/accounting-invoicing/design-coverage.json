@@ -1,0 +1,28 @@
+{
+  "screens": {
+    "/expenses/:id": {
+      "allow": [
+        {
+          "heading": "Adobe Creative Cloud",
+          "reason": "Sample-data merchant name from the design mock. The expense-detail section exists and renders the real merchant (h1) from the loaded record; a design fixture vendor name can never appear for an arbitrary id."
+        }
+      ]
+    },
+    "/customers/:id": {
+      "allow": [
+        {
+          "heading": "Acme Industries Ltd",
+          "reason": "Sample-data customer company name from the design mock. The detail page renders the real customer's company (h1) from the loaded record; all structural sections (balance stats, recent invoices, billing address/terms) are implemented."
+        }
+      ]
+    },
+    "/invoices/new": {
+      "allow": [
+        {
+          "heading": "Coffer Ltd.",
+          "reason": "Sample-data issuer name from the design mock (the demo business issuing the invoice). The 'From' issuer section is implemented and renders the real company legal name from Settings; the design's fixture business name is not hardcoded."
+        }
+      ]
+    }
+  }
+}

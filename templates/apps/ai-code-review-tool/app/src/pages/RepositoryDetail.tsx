@@ -49,6 +49,13 @@ interface ReviewApiRow {
   completed_at: string | null
 }
 
+interface CustomRuleRow {
+  id: string
+  name: string
+  severity: string
+  enabled: boolean
+}
+
 function toPR(row: PullRequestApiRow, repoName: string): PullRequest {
   return {
     id: row.id,
@@ -73,6 +80,7 @@ export function RepositoryDetail() {
   const [repo, setRepo] = useState<RepositoryRow | null>(null)
   const [prs, setPrs] = useState<PullRequestApiRow[]>([])
   const [reviews, setReviews] = useState<ReviewApiRow[]>([])
+  const [rules, setRules] = useState<CustomRuleRow[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState<TabKey>('prs')
@@ -86,12 +94,14 @@ export function RepositoryDetail() {
       http.get(`/api/repositories/${id}`).catch(() => null),
       http.get(`/api/pull-requests?repository_id=${id}`).catch(() => null),
       http.get('/api/reviews').catch(() => null),
+      http.get('/api/custom-rules').catch(() => null),
     ])
-      .then(([repoRes, prRes, reviewRes]) => {
+      .then(([repoRes, prRes, reviewRes, rulesRes]) => {
         if (cancelled) return
         setRepo(unwrapSingle<RepositoryRow>(repoRes))
         setPrs(unwrapList<PullRequestApiRow>(prRes))
         setReviews(unwrapList<ReviewApiRow>(reviewRes))
+        setRules(unwrapList<CustomRuleRow>(rulesRes))
       })
       .catch(() => {
         if (!cancelled)
@@ -169,6 +179,41 @@ export function RepositoryDetail() {
     }
     return [...by.values()].sort((a, b) => b.prs - a.prs).slice(0, 6)
   }, [prs])
+
+  // Health trend — per-review quality scores over time (oldest → newest).
+  const healthTrend = useMemo(() => {
+    return reviewsForRepo
+      .filter((r) => r.quality_score !== null && r.quality_score !== undefined && r.completed_at)
+      .sort((a, b) => new Date(a.completed_at!).getTime() - new Date(b.completed_at!).getTime())
+      .map((r) => Math.min(10, Math.max(0, (r.quality_score ?? 0) / 10)))
+  }, [reviewsForRepo])
+
+  const trendPoints = useMemo(() => {
+    if (healthTrend.length === 0) return ''
+    const stepX = 200 / Math.max(1, healthTrend.length - 1)
+    return healthTrend
+      .map((v, i) => `${(i * stepX).toFixed(1)},${(58 - (v / 10) * 54).toFixed(1)}`)
+      .join(' ')
+  }, [healthTrend])
+
+  // Issue hotspots — the PRs that collect the most failed reviews.
+  const hotspots = useMemo(() => {
+    const byFailed = new Map<string, number>()
+    for (const r of reviewsForRepo) {
+      if (r.status !== 'failed') continue
+      byFailed.set(r.pr_id, (byFailed.get(r.pr_id) ?? 0) + 1)
+    }
+    return [...byFailed.entries()]
+      .map(([prId, count]) => ({
+        prId,
+        count,
+        title: prs.find((p) => p.id === prId)?.title ?? prId,
+      }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 3)
+  }, [reviewsForRepo, prs])
+
+  const activeRules = useMemo(() => rules.filter((r) => r.enabled).slice(0, 4), [rules])
 
   return (
     <div className={cm.cn(cm.flex1, cm.sp('px', 8), cm.sp('py', 8), cm.stack(6))}>
@@ -497,6 +542,200 @@ export function RepositoryDetail() {
               },
             ]}
           />
+          <article
+            className={cm.cn(
+              cm.sp('p', 5),
+              'rounded-2xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm',
+            )}
+            data-mol-id="repo-health-trend"
+          >
+            <h3
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                cm.sp('mb', 3),
+                'uppercase tracking-widest text-on-surface-variant font-mono',
+              )}
+            >
+              {t('repositoryDetail.healthTrendHeading', {}, { defaultValue: 'Code health trend' })}
+            </h3>
+            {healthTrend.length === 0 ? (
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                {t(
+                  'repositoryDetail.healthTrendEmpty',
+                  {},
+                  {
+                    defaultValue:
+                      'No scored reviews yet — the trend appears after the first review.',
+                  },
+                )}
+              </p>
+            ) : (
+              <>
+                <svg
+                  viewBox="0 0 200 60"
+                  className={cm.cn('w-full h-16')}
+                  aria-label={t(
+                    'repositoryDetail.healthTrendAria',
+                    {},
+                    { defaultValue: 'Code health trend chart' },
+                  )}
+                >
+                  <polyline
+                    points={trendPoints}
+                    fill="none"
+                    stroke="var(--color-chart-primary)"
+                    strokeWidth="2.5"
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <p className={cm.cn('text-xs font-mono tabular-nums text-on-surface-variant')}>
+                  {t(
+                    'repositoryDetail.healthTrendRange',
+                    {
+                      first: healthTrend[0]!.toFixed(1),
+                      last: healthTrend[healthTrend.length - 1]!.toFixed(1),
+                    },
+                    { defaultValue: '{{first}} → {{last}} avg score' },
+                  )}
+                </p>
+              </>
+            )}
+          </article>
+
+          <article
+            className={cm.cn(
+              cm.sp('p', 5),
+              'rounded-2xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm',
+            )}
+            data-mol-id="repo-issue-hotspots"
+          >
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 3))}>
+              <span
+                className={cm.cn(
+                  'w-7 h-7 rounded-md bg-red-500/10 inline-flex items-center justify-center',
+                )}
+                aria-hidden="true"
+              >
+                <span className="material-symbols-outlined text-[16px] text-error">
+                  local_fire_department
+                </span>
+              </span>
+              <h3
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'uppercase tracking-widest text-on-surface-variant font-mono',
+                )}
+              >
+                {t('repositoryDetail.hotspotsHeading', {}, { defaultValue: 'Issue hotspots' })}
+              </h3>
+            </div>
+            {hotspots.length === 0 ? (
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                {t(
+                  'repositoryDetail.hotspotsEmpty',
+                  {},
+                  {
+                    defaultValue:
+                      'No recurring issue hotspots — nothing is collecting failed reviews.',
+                  },
+                )}
+              </p>
+            ) : (
+              <ul className={cm.stack(3)}>
+                {hotspots.map((h) => (
+                  <li key={h.prId} className={cm.stack(1)}>
+                    <Link
+                      to={`/prs/${h.prId}`}
+                      className={cm.cn(
+                        'text-xs font-medium text-on-surface truncate block hover:text-primary transition-colors',
+                      )}
+                    >
+                      {h.title}
+                    </Link>
+                    <span className={cm.cn('text-[10px] font-mono text-error')}>
+                      {t(
+                        'repositoryDetail.hotspotFailedCount',
+                        { count: h.count },
+                        { defaultValue: '{{count}} failed reviews' },
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </article>
+
+          <article
+            className={cm.cn(
+              cm.sp('p', 5),
+              'rounded-2xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm',
+            )}
+            data-mol-id="repo-active-rules"
+          >
+            <h3
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                cm.sp('mb', 3),
+                'uppercase tracking-widest text-on-surface-variant font-mono',
+              )}
+            >
+              {t('repositoryDetail.activeRulesHeading', {}, { defaultValue: 'Active rules' })}
+            </h3>
+            {activeRules.length === 0 ? (
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                {t(
+                  'repositoryDetail.activeRulesEmpty',
+                  {},
+                  {
+                    defaultValue: 'No custom rules enabled — the built-in engine defaults apply.',
+                  },
+                )}
+              </p>
+            ) : (
+              <ul className={cm.stack(2)}>
+                {activeRules.map((r) => (
+                  <li key={r.id} className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                    <span
+                      className={cm.cn('w-1.5 h-1.5 rounded-full bg-success shrink-0')}
+                      aria-hidden="true"
+                    />
+                    <span
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        'font-mono text-on-surface truncate flex-1',
+                      )}
+                    >
+                      {r.name}
+                    </span>
+                    <span
+                      className={cm.cn(
+                        'text-[9px] font-extrabold uppercase tracking-widest font-mono text-on-surface-variant',
+                      )}
+                    >
+                      {r.severity}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <Link
+              to="/rules"
+              data-mol-id="repo-detail-manage-rules"
+              className={cm.cn(
+                'inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline mt-3',
+              )}
+            >
+              {t('repositoryDetail.manageRulesCta', {}, { defaultValue: 'Manage rules' })}
+              <span className="material-symbols-outlined text-[14px]" aria-hidden="true">
+                arrow_forward
+              </span>
+            </Link>
+          </article>
+
           <article
             className={cm.cn(
               cm.sp('p', 5),

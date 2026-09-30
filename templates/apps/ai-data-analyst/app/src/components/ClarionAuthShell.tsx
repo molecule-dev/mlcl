@@ -24,6 +24,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { loadContent } from '../config.js'
 
 export interface ClarionAuthShellProps {
@@ -76,43 +77,16 @@ export function ClarionAuthShell({ heading, subheading, children, footer }: Clar
         <header
           className={cm.cn(cm.flex({ direction: 'col', align: 'center', gap: 3 }), cm.sp('mb', 8))}
         >
-          <span
+          <BrandWordmark as="span" size="xl" layout="stacked" />
+          <p
             className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(14),
-              cm.h(14),
-              cm.roundedFull,
-              'bg-gradient-to-br from-primary to-primary-container shadow-[0_18px_36px_rgba(53,37,205,0.28)]',
+              cm.textSize('xs'),
+              cm.fontWeight('semibold'),
+              'uppercase tracking-[0.22em] text-on-surface-variant',
             )}
           >
-            <span
-              className={cm.cn(cm.textSize('2xl'), 'material-symbols-outlined text-on-primary')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-              aria-hidden="true"
-            >
-              auto_awesome
-            </span>
-          </span>
-          <div className={cm.flex({ direction: 'col', align: 'center', gap: 1 })}>
-            <h1
-              className={cm.cn(
-                cm.textSize('3xl'),
-                cm.fontWeight('bold'),
-                'font-headline tracking-tighter text-on-surface',
-              )}
-            >
-              {APP_NAME}
-            </h1>
-            <p
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('semibold'),
-                'uppercase tracking-[0.22em] text-on-surface-variant',
-              )}
-            >
-              {APP_TAGLINE}
-            </p>
-          </div>
+            {APP_TAGLINE}
+          </p>
         </header>
 
         <div

@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { VaultHeroCard } from '../components/VaultHeroCard.js'
 
 const HERO_CHIPS = [
@@ -66,23 +67,7 @@ export function Landing() {
           'sticky top-0 z-30 bg-surface/80 backdrop-blur-md border-b border-primary-light/40',
         )}
       >
-        <Link
-          to="/"
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'sm' }),
-            cm.fontWeight('bold'),
-            'text-2xl tracking-tighter text-primary',
-          )}
-        >
-          <span
-            className={cm.cn(cm.textSize('2xl'), 'material-symbols-outlined')}
-            style={{ fontVariationSettings: "'FILL' 1" }}
-            aria-hidden="true"
-          >
-            diamond
-          </span>
-          <span className="font-extrabold">{APP_NAME}</span>
-        </Link>
+        <BrandWordmark size="lg" />
         <div
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'lg' }),
@@ -452,23 +437,7 @@ export function Landing() {
             'mx-auto gap-6 flex-col md:flex-row',
           )}
         >
-          <Link
-            to="/"
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'sm' }),
-              cm.fontWeight('bold'),
-              'text-lg text-on-surface',
-            )}
-          >
-            <span
-              className="material-symbols-outlined text-primary"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-              aria-hidden="true"
-            >
-              diamond
-            </span>
-            <span className="font-extrabold tracking-tighter">{APP_NAME}</span>
-          </Link>
+          <BrandWordmark size="sm" footer />
           <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
             {t(
               'landing.footer.copyright',

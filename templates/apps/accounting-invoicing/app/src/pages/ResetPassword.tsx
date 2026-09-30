@@ -4,7 +4,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { AuthBrandPanel } from '../components/AuthBrandPanel.js'
 import { authConfig } from '../config.js'
 
@@ -79,20 +79,9 @@ export function ResetPassword() {
         )}
       >
         <div
-          className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'md:hidden self-start mb-12')}
+          className={cm.cn('md:hidden self-start mb-12')}
         >
-          <span
-            className="material-symbols-outlined text-3xl"
-            style={{ color: 'var(--mol-color-primary-dark)' }}
-          >
-            account_balance
-          </span>
-          <span
-            className={cm.cn('text-2xl font-black tracking-tight')}
-            style={{ color: 'var(--mol-color-primary-dark)' }}
-          >
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="lg" />
         </div>
 
         <div className={cm.cn(cm.w('full'), 'max-w-[440px]')}>

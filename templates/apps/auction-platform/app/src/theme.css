@@ -3,7 +3,7 @@
      (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
   --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
   /* === @theme bridge — feeds ClassMap via index.css === */
-  --mol-color-primary: #e05a2b;
+  --mol-color-primary: #c2410c; /* was #e05a2b — 3.7:1 under white CTA text (axe color-contrast, serious); orange-700 = 5.18:1 */
   --mol-color-primary-light: #fde8e0;
   --mol-color-primary-dark: #9a3412; /* was #c04a1e — 4.19:1 as badge ink on primary-light #fde8e0; orange-800 = 6.19:1 */
   --mol-color-secondary: #1a9a6c;
@@ -104,7 +104,7 @@
      at brand stop (#e05a2b) for accents/badges; emerald accent stays
      vibrant for live/winning states. `--color-on-primary` is near-black
      (#160400) — orange cannot carry white text at 4.5:1 (3.71:1). */
-  --mol-color-primary: #e05a2b;
+  --mol-color-primary: #c2410c; /* was #e05a2b — 3.7:1 under white CTA text (axe color-contrast, serious); orange-700 = 5.18:1 */
   --mol-color-primary-light: #4a2517;
   --mol-color-primary-dark: #c04a1e;
   --mol-color-secondary: #34d399;

@@ -7,11 +7,16 @@ import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 
-const SECTIONS = ['profile', 'payments', 'shipping', 'notifications', 'language'] as const
+// The Stitch settings design stacks Profile, Payment methods, and Shipping
+// addresses on ONE page; Notifications and Language stay as tabs. The legacy
+// #payments/#shipping hashes map onto the profile view so old links land on
+// the sections they named.
+const SECTIONS = ['profile', 'notifications', 'language'] as const
 type Section = (typeof SECTIONS)[number]
 
 function parseSection(hash: string): Section {
   const v = hash.replace(/^#/, '')
+  if (v === 'payments' || v === 'shipping') return 'profile'
   return (SECTIONS as readonly string[]).includes(v) ? (v as Section) : 'profile'
 }
 
@@ -108,12 +113,12 @@ export function Settings() {
   }, [http, t])
 
   useEffect(() => {
-    if (section !== 'payments' || payments !== null) return
+    if (section !== 'profile' || payments !== null) return
     setPayments([])
   }, [section, payments])
 
   useEffect(() => {
-    if (section !== 'shipping' || addresses !== null) return
+    if (section !== 'profile' || addresses !== null) return
     setAddresses([])
   }, [section, addresses])
 
@@ -375,7 +380,9 @@ export function Settings() {
         </form>
       ) : null}
 
-      {section === 'payments' ? (
+      {/* Payment methods — the Stitch design stacks this card directly under
+          the Profile form on the same page. */}
+      {section === 'profile' ? (
         <section
           className={cm.cn(
             cm.sp('p', 6),
@@ -458,7 +465,8 @@ export function Settings() {
         </section>
       ) : null}
 
-      {section === 'shipping' ? (
+      {/* Shipping addresses — same stacked page as the design. */}
+      {section === 'profile' ? (
         <section
           className={cm.cn(
             cm.sp('p', 6),

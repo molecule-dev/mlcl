@@ -89,7 +89,7 @@ export function RecentInvoicesCard({ invoices }: RecentInvoicesCardProps) {
               'text-on-surface',
             )}
           >
-            {t('recentInvoicesCard.title', {}, { defaultValue: 'Recent invoices' })}
+            {t('recentInvoicesCard.title', {}, { defaultValue: 'Recent transactions' })}
           </h3>
         </div>
         {/* Max-w keeps the desktop 16rem footprint; w-full stops the fixed

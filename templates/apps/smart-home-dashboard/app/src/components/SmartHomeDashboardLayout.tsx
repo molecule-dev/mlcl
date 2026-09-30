@@ -16,7 +16,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -91,15 +91,9 @@ export function SmartHomeDashboardLayout() {
   const brandLink = (
     <Link
       to="/overview"
-      className={cm.cn(
-        cm.textSize('xl'),
-        cm.fontWeight('bold'),
-        cm.sp('mb', 6),
-        cm.sp('px', 4),
-        cm.displayBlock,
-      )}
+      className={cm.cn(cm.sp('mb', 6), cm.sp('px', 4), cm.displayBlock)}
     >
-      {APP_NAME}
+      <BrandWordmark as="span" size="md" />
     </Link>
   )
 
@@ -112,11 +106,8 @@ export function SmartHomeDashboardLayout() {
       <ResponsiveAppShell.TopBar
         mobileOnly
         brand={
-          <Link
-            to="/overview"
-            className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'min-w-0 truncate')}
-          >
-            {APP_NAME}
+          <Link to="/overview" className={cm.cn('min-w-0 truncate')}>
+            <BrandWordmark as="span" size="sm" />
           </Link>
         }
         actions={<UserMenu />}

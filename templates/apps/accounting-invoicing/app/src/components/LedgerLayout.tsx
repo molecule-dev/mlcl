@@ -5,6 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -104,9 +105,10 @@ export function LedgerLayout() {
         brand={
           <Link
             to={safeTarget('/dashboard', pathname)}
-            className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'tracking-tight')}
+            className={cm.cn('shrink-0')}
+            aria-label={APP_NAME}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </Link>
         }
         actions={<ThemeToggle />}
@@ -130,9 +132,10 @@ export function LedgerLayout() {
         >
           <Link
             to={safeTarget('/dashboard', pathname)}
-            className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'block')}
+            className={cm.cn('block shrink-0')}
+            aria-label={APP_NAME}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="md" />
           </Link>
           <ThemeToggle />
         </div>

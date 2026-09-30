@@ -32,8 +32,13 @@ export function Home() {
       {/* No site-name h1: the site header above already carries the name —
           repeating it here pushed every list down. The tagline stays. An
           h1 still exists (visually hidden): every other page opens at h1,
-          and a page whose first heading is a card's h2 skips a level. */}
-      <h1 className="sr-only">{APP_NAME}</h1>
+          and a page whose first heading is a card's h2 skips a level.
+          The brand itself renders ONLY in the shared AppHeader; this is
+          the outline text, through i18n with the name interpolated so no
+          second site renders APP_NAME directly. */}
+      <h1 className="sr-only">
+        {t('home.siteTitle', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
+      </h1>
       <p className={cm.cn(cm.sp('pb', 8), cm.textMuted)}>
         {t('home.tagline', undefined, { defaultValue: APP_DESCRIPTION })}
       </p>

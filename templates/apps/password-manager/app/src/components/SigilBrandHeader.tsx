@@ -2,6 +2,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 interface SigilBrandHeaderProps {
   /** Optional override of the heading shown beneath the brand mark. */
@@ -35,14 +36,7 @@ export function SigilBrandHeader({ heading, subhead, showHeading = true }: Sigil
           'text-[26px] tracking-tight text-primary',
         )}
       >
-        <span
-          className={cm.cn(cm.textSize('3xl'), 'material-symbols-outlined text-primary')}
-          style={{ fontVariationSettings: "'FILL' 1" }}
-          aria-hidden="true"
-        >
-          diamond
-        </span>
-        <span className="font-extrabold tracking-tighter">{APP_NAME}</span>
+        <BrandWordmark as="span" size="lg" />
       </div>
       {showHeading && (
         <div className={cm.cn(cm.stack(2), cm.textCenter)}>

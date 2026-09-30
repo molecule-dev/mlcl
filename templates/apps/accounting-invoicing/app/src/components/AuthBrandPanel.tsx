@@ -11,6 +11,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 export function AuthBrandPanel() {
   const cm = getClassMap()
@@ -25,19 +26,8 @@ export function AuthBrandPanel() {
       style={{ backgroundColor: 'var(--mol-color-primary-dark)' }}
       aria-label={t('authBrandPanel.label', {}, { defaultValue: 'Brand showcase' })}
     >
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'relative z-10')}>
-        <div
-          className={cm.cn(
-            cm.w(10),
-            cm.h(10),
-            'rounded-xl',
-            cm.flex({ align: 'center', justify: 'center' }),
-            'bg-surface/10 backdrop-blur-md',
-          )}
-        >
-          <span className="material-symbols-outlined text-white text-3xl">account_balance</span>
-        </div>
-        <span className={cm.cn('text-white text-2xl font-black tracking-tight')}>{APP_NAME}</span>
+      <div className={cm.cn('relative z-10')}>
+        <BrandWordmark as="span" size="lg" invert />
       </div>
 
       <div className={cm.cn(cm.maxW('2xl'), 'relative z-10')}>

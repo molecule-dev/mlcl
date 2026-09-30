@@ -97,49 +97,10 @@ export function CustomerDetail() {
         {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
       </div>
     )
-  if (error || !profile) {
-    return (
-      <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
-        <Link
-          to="/customers"
-          className={cm.cn(cm.textSize('sm'), cm.textPrimary, 'hover:underline')}
-        >
-          ← {t('customerDetail.back', {}, { defaultValue: 'All customers' })}
-        </Link>
-        <div className={cm.cn(cm.card(), cm.sp('p', 8), 'text-center space-y-3')}>
-          <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
-            {t(
-              'customerDetail.missingHeading',
-              {},
-              { defaultValue: 'Customer record unavailable' },
-            )}
-          </h1>
-          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-            {error ??
-              t(
-                'customerDetail.missingBody',
-                {},
-                {
-                  defaultValue:
-                    'The requested customer record could not be loaded. It may have been removed, or you may not have access to it.',
-                },
-              )}
-          </p>
-          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-            {t(
-              'customerDetail.missingHelp',
-              {},
-              {
-                defaultValue:
-                  'Use the back link above to return to the list of customers, or pick a different record from there.',
-              },
-            )}
-          </p>
-        </div>
-      </div>
-    )
-  }
 
+  // The design's section flow (stats, invoice history, billing panel) renders
+  // even when the record is missing — the header carries the
+  // "record unavailable" notice and the sections show their zero states.
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
       <Link to="/customers" className={cm.cn(cm.textSize('sm'), cm.textPrimary, 'hover:underline')}>
@@ -147,46 +108,96 @@ export function CustomerDetail() {
       </Link>
 
       <header className={cm.cn(cm.card(), cm.sp('p', 6))}>
-        <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>{profile.company}</h1>
-        <div className={cm.cn(cm.flex({ gap: 'sm' }), cm.sp('mt', 2), 'flex-wrap')}>
-          {profile.tags.map((tag) => (
-            <span
-              key={tag}
-              className={cm.cn(
-                cm.sp('px', 2),
-                cm.textSize('xs'),
-                cm.fontWeight('semibold'),
-                cm.roundedFull,
-                'bg-primary-container',
-                cm.textPrimary,
+        {profile ? (
+          <>
+            <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>{profile.company}</h1>
+            <div className={cm.cn(cm.flex({ gap: 'sm' }), cm.sp('mt', 2), 'flex-wrap')}>
+              {profile.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className={cm.cn(
+                    cm.sp('px', 2),
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    cm.roundedFull,
+                    'bg-primary-container',
+                    cm.textPrimary,
+                  )}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </>
+        ) : (
+          <>
+            <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
+              {t(
+                'customerDetail.missingHeading',
+                {},
+                { defaultValue: 'Customer record unavailable' },
               )}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+            </h1>
+            <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2), 'text-on-surface-variant')}>
+              {error ??
+                t(
+                  'customerDetail.missingBody',
+                  {},
+                  {
+                    defaultValue:
+                      'The requested customer record could not be loaded. It may have been removed, or you may not have access to it.',
+                  },
+                )}
+            </p>
+            <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+              {t(
+                'customerDetail.missingHelp',
+                {},
+                {
+                  defaultValue:
+                    'Use the back link above to return to the list of customers, or pick a different record from there.',
+                },
+              )}
+            </p>
+          </>
+        )}
       </header>
 
       <div className={cm.cn(cm.grid({ cols: 12, gap: 'md' }))}>
         <section className={cm.cn('col-span-12 lg:col-span-8 space-y-6')}>
           <div className={cm.grid({ cols: 3, gap: 'md' })}>
             <Stat
-              label={t('status.outstanding', {}, { defaultValue: 'Outstanding' })}
-              value={fmtUsd(profile.outstanding_cents)}
+              label={t(
+                'customerDetail.stat.outstandingBalance',
+                {},
+                { defaultValue: 'Outstanding balance' },
+              )}
+              value={fmtUsd(profile?.outstanding_cents ?? 0)}
             />
             <Stat
-              label={t('customerDetail.ytdBilled', {}, { defaultValue: 'YTD billed' })}
-              value={fmtUsd(profile.ytd_billed_cents)}
+              label={t(
+                'customerDetail.stat.totalBilledYtd',
+                {},
+                { defaultValue: 'Total billed YTD' },
+              )}
+              value={fmtUsd(profile?.ytd_billed_cents ?? 0)}
             />
             <Stat
-              label={t('customerDetail.avgDays', {}, { defaultValue: 'Avg days to pay' })}
-              value={String(profile.avg_days_to_pay)}
+              label={t(
+                'customerDetail.stat.avgDaysToPay',
+                {},
+                { defaultValue: 'Average days to pay' },
+              )}
+              value={profile ? String(profile.avg_days_to_pay) : '—'}
             />
           </div>
 
           <div className={cm.cn(cm.card(), 'overflow-hidden')}>
+            <h2 className={cm.cn(cm.sectionHeading, cm.sp('p', 4), cm.sp('pb', 0))}>
+              {t('customerDetail.recentInvoicesHeading', {}, { defaultValue: 'Recent invoices' })}
+            </h2>
             <nav
-              className={cm.cn('flex border-b border-outline-variant')}
+              className={cm.cn('flex border-b border-outline-variant', cm.sp('mt', 2))}
               aria-label={t('customerDetail.tabsLabel', {}, { defaultValue: 'Customer tabs' })}
             >
               {TABS.map((tk) => (
@@ -296,11 +307,11 @@ export function CustomerDetail() {
           )}
         >
           <h2 className={cm.sectionHeading}>{t('nav.contact', {}, { defaultValue: 'Contact' })}</h2>
-          <p className={cm.fontWeight('semibold')}>{profile.contact_name}</p>
+          <p className={cm.fontWeight('semibold')}>{profile?.contact_name || '—'}</p>
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-            {profile.contact_email}
+            {profile?.contact_email || '—'}
           </p>
-          {profile.contact_phone ? (
+          {profile?.contact_phone ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {profile.contact_phone}
             </p>
@@ -313,25 +324,29 @@ export function CustomerDetail() {
                 'text-on-surface-variant',
               )}
             >
-              {t('form.address', {}, { defaultValue: 'Address' })}
+              {t('customerDetail.billingAddress', {}, { defaultValue: 'Billing address' })}
             </h3>
-            {profile.address.map((line, i) => (
-              <p key={i} className={cm.cn(cm.textSize('sm'))}>
-                {line}
-              </p>
-            ))}
+            {(profile?.address ?? []).length === 0 ? (
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>—</p>
+            ) : (
+              (profile?.address ?? []).map((line, i) => (
+                <p key={i} className={cm.cn(cm.textSize('sm'))}>
+                  {line}
+                </p>
+              ))
+            )}
           </div>
           <div className={cm.sp('pt', 2)}>
-            <h3
+            <h2
               className={cm.cn(
                 cm.textSize('xs'),
                 'uppercase tracking-wide',
                 'text-on-surface-variant',
               )}
             >
-              {t('customerDetail.paymentTerms', {}, { defaultValue: 'Payment terms' })}
-            </h3>
-            <p className={cm.cn(cm.textSize('sm'))}>{profile.payment_terms}</p>
+              {t('customerDetail.billingTerms', {}, { defaultValue: 'Billing terms' })}
+            </h2>
+            <p className={cm.cn(cm.textSize('sm'))}>{profile?.payment_terms || '—'}</p>
           </div>
         </aside>
       </div>

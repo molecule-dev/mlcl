@@ -1,0 +1,101 @@
+{
+  "_comment": "Accepted divergences from the Stitch designs. Each entry is a reviewed decision; anything not listed here fails verify:design-coverage.",
+  "screens": {
+    "/dashboard": {
+      "allow": [
+        {
+          "heading": "Customer Tenure vs. LTV",
+          "reason": "Design sample insight headline. The AI Generated Insights section renders the signed-in user's live insight feed from /api/insights (6 seeded), never a hardcoded catalog."
+        },
+        {
+          "heading": "Spike in API Errors",
+          "reason": "Design sample insight headline. The AI Generated Insights section renders the signed-in user's live insight feed from /api/insights (6 seeded), never a hardcoded catalog."
+        },
+        {
+          "heading": "Upward Sales Growth",
+          "reason": "Design sample insight headline. The AI Generated Insights section renders the signed-in user's live insight feed from /api/insights (6 seeded), never a hardcoded catalog."
+        }
+      ]
+    },
+    "/datasets": {
+      "allow": [
+        {
+          "heading": "sales_orders_2025",
+          "reason": "Design sample dataset name. The Data Repository grid renders the account's real /api/datasets rows (seeded demo datasets with their own names)."
+        },
+        {
+          "heading": "customer_signups",
+          "reason": "Design sample dataset name. The Data Repository grid renders the account's real /api/datasets rows (seeded demo datasets with their own names)."
+        },
+        {
+          "heading": "product_inventory",
+          "reason": "Design sample dataset name. The Data Repository grid renders the account's real /api/datasets rows (seeded demo datasets with their own names)."
+        }
+      ]
+    },
+    "/datasets/:id": {
+      "allow": [
+        {
+          "heading": "sales_orders_2025.csv",
+          "reason": "Design sample file name. The page h1 renders the loaded dataset's actual name + format; the coverage audit visits the /datasets/:id route literally, so no dataset loads there (real ids are covered by e2e 13-datasets__id.spec.ts)."
+        },
+        {
+          "heading": "AI Insights",
+          "reason": "The AI Insights aside renders for any real dataset id (asserted by e2e 13-datasets__id.spec.ts); the coverage audit visits the literal /datasets/:id URL, where the API correctly 404s."
+        }
+      ]
+    },
+    "/reports": {
+      "allow": [
+        {
+          "heading": "Q3 Revenue Breakdown by Region",
+          "reason": "Design sample report title. Thumbnails render the account's real saved reports from /api/saved_reports, never a hardcoded catalog."
+        },
+        {
+          "heading": "Customer Churn Analysis",
+          "reason": "Design sample report title. Thumbnails render the account's real saved reports from /api/saved_reports, never a hardcoded catalog."
+        },
+        {
+          "heading": "Marketing Campaign ROI",
+          "reason": "Design sample report title. Thumbnails render the account's real saved reports from /api/saved_reports, never a hardcoded catalog."
+        },
+        {
+          "heading": "Cohort Retention Heatmap",
+          "reason": "Design sample report title. Thumbnails render the account's real saved reports from /api/saved_reports, never a hardcoded catalog."
+        },
+        {
+          "heading": "Product SKU Performance",
+          "reason": "Design sample report title. Thumbnails render the account's real saved reports from /api/saved_reports, never a hardcoded catalog."
+        }
+      ]
+    },
+    "/reports/:id": {
+      "allow": [
+        {
+          "heading": "Q3 Revenue Breakdown by Region",
+          "reason": "Design sample report title. The page h1 renders the loaded report's actual title; the coverage audit visits the /reports/:id route literally, so no report loads there (real ids are covered by e2e 15-reports__id.spec.ts)."
+        },
+        {
+          "heading": "AI Summary",
+          "reason": "The AI Summary aside renders for any real report id (asserted by e2e 15-reports__id.spec.ts); the coverage audit visits the literal /reports/:id URL, where the API correctly 404s."
+        },
+        {
+          "heading": "Revenue by Region — Q3 2025",
+          "reason": "Design sample chart title. The hero chart renders the loaded report's stored hero series and type, not the design's mock data."
+        },
+        {
+          "heading": "Revenue by Channel",
+          "reason": "Design sample sub-chart title. Sub-chart cards render the loaded report's stored sub_charts titles and series."
+        },
+        {
+          "heading": "WoW Growth",
+          "reason": "Design sample sub-chart title. Sub-chart cards render the loaded report's stored sub_charts titles and series."
+        },
+        {
+          "heading": "Regional Detail",
+          "reason": "Design sample table section title. The full data table renders the loaded report's stored data_table columns and rows."
+        }
+      ]
+    }
+  }
+}

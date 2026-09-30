@@ -6,6 +6,7 @@ import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -135,11 +136,8 @@ export function SignetLayout() {
           overflowY: 'auto',
         }}
       >
-        <Link
-          to="/dashboard"
-          className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 2))}
-        >
-          {APP_NAME}
+        <Link to="/dashboard" className={cm.cn('inline-block', cm.sp('mb', 2))} aria-label={APP_NAME}>
+          <BrandWordmark as="span" size="md" />
         </Link>
         <nav className={cm.cn(cm.flex({ direction: 'col' }), 'gap-1')}>
           {navItems.map((item) => {
@@ -204,14 +202,10 @@ export function SignetLayout() {
           </button>
           <Link
             to="/dashboard"
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('bold'),
-              cm.sp('py', 2),
-              'min-w-0 truncate',
-            )}
+            className={cm.cn(cm.sp('py', 2), 'min-w-0 truncate')}
+            aria-label={APP_NAME}
           >
-            {APP_NAME}
+            <BrandWordmark as="span" size="sm" />
           </Link>
         </div>
         {/* Compact trigger: no email line, capped width so the brand

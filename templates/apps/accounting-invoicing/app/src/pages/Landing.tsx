@@ -5,6 +5,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { CashHeroCard } from '../components/CashHeroCard.js'
 import { SafeLink } from '../components/SafeLink.js'
 import { loadContent } from '../config.js'
@@ -79,8 +80,8 @@ export function Landing() {
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'xl' }))}>
-            <SafeLink to="/" className={cm.cn('text-2xl font-bold tracking-tight text-primary')}>
-              {APP_NAME}
+            <SafeLink to="/" className={cm.cn('shrink-0')} aria-label={APP_NAME}>
+              <BrandWordmark as="span" size="lg" />
             </SafeLink>
             <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), cm.hiddenBelow('md'))}>
               <SafeLink
@@ -488,17 +489,9 @@ export function Landing() {
           )}
         >
           <div>
-            <span
-              className={cm.cn(
-                cm.textSize('xl'),
-                cm.fontWeight('extrabold'),
-                'text-primary',
-                cm.sp('mb', 4),
-                cm.displayBlock,
-              )}
-            >
-              {APP_NAME}
-            </span>
+            <div className={cm.cn(cm.sp('mb', 4), cm.displayBlock)}>
+              <BrandWordmark as="span" size="md" footer />
+            </div>
             <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
               {t(
                 'landing.footerTagline',

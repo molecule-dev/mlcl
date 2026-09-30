@@ -1,0 +1,164 @@
+{
+  "screens": {
+    "/auctions": {
+      "allow": [
+        {
+          "heading": "\"Urban Rhapsody\" Abstract Composition",
+          "reason": "Stitch sample lot; the browse grid renders the live listings feed (/api/auctions), never a hardcoded catalog."
+        },
+        {
+          "heading": "\"The Thinker\" Modern Bronze Interpretation",
+          "reason": "Stitch sample lot; the browse grid renders the live listings feed (/api/auctions), never a hardcoded catalog."
+        },
+        {
+          "heading": "Misty Mountain Lake Reflection",
+          "reason": "Stitch sample lot; the browse grid renders the live listings feed (/api/auctions), never a hardcoded catalog."
+        },
+        {
+          "heading": "Neon Dreams Pop Art Portrait Series #4",
+          "reason": "Stitch sample lot; the browse grid renders the live listings feed (/api/auctions), never a hardcoded catalog."
+        }
+      ]
+    },
+    "/auctions/:id": {
+      "allow": [
+        {
+          "heading": "Vintage Omega Seamaster 300M",
+          "reason": "Stitch sample lot; the detail h1 renders the actual listing's title from /api/auctions/:id."
+        }
+      ]
+    },
+    "/my-bids": {
+      "allow": [
+        {
+          "heading": "Vintage Rolex Submariner",
+          "reason": "Stitch sample lot; the table renders the signed-in bidder's own bids from /api/my-bids."
+        },
+        {
+          "heading": "Mid-Century Abstract Canvas",
+          "reason": "Stitch sample lot; the table renders the signed-in bidder's own bids from /api/my-bids."
+        },
+        {
+          "heading": "Leica M3 Single Stroke",
+          "reason": "Stitch sample lot; the table renders the signed-in bidder's own bids from /api/my-bids."
+        },
+        {
+          "heading": "1st Edition Charizard PSA 9",
+          "reason": "Stitch sample lot; the table renders the signed-in bidder's own bids from /api/my-bids."
+        },
+        {
+          "heading": "19th Century Terrestrial Globe",
+          "reason": "Stitch sample lot; the table renders the signed-in bidder's own bids from /api/my-bids."
+        },
+        {
+          "heading": "Lot of 5 Gold Sovereigns",
+          "reason": "Stitch sample lot; the table renders the signed-in bidder's own bids from /api/my-bids."
+        }
+      ]
+    },
+    "/watchlist": {
+      "allow": [
+        {
+          "heading": "Vintage 1978 Rolex Submariner 5513",
+          "reason": "Stitch sample lot; watched cards render the user's actual /api/watchlist rows."
+        },
+        {
+          "heading": "Original Eames Lounge Chair & Ottoman",
+          "reason": "Stitch sample lot; watched cards render the user's actual /api/watchlist rows."
+        },
+        {
+          "heading": "Leica M6 TTL 0.72 Silver Chrome",
+          "reason": "Stitch sample lot; watched cards render the user's actual /api/watchlist rows."
+        },
+        {
+          "heading": "1962 Fender Stratocaster Sunburst",
+          "reason": "Stitch sample lot; watched cards render the user's actual /api/watchlist rows."
+        }
+      ]
+    },
+    "/seller": {
+      "allow": [
+        {
+          "heading": "Mid-Century Modern Eames Lounge Chair",
+          "reason": "Stitch sample lot; the listings table renders the signed-in seller's own listings from /api/seller/listings."
+        },
+        {
+          "heading": "Original Watercolor Landscape by R. Holloway",
+          "reason": "Stitch sample lot; the listings table renders the signed-in seller's own listings from /api/seller/listings."
+        },
+        {
+          "heading": "Vintage Rolex Submariner 5513 (1969)",
+          "reason": "Stitch sample lot; the listings table renders the signed-in seller's own listings from /api/seller/listings."
+        },
+        {
+          "heading": "Signed First Edition - Dune by Frank Herbert",
+          "reason": "Stitch sample lot; the listings table renders the signed-in seller's own listings from /api/seller/listings."
+        }
+      ]
+    },
+    "/notifications": {
+      "allow": [
+        {
+          "heading": "Vintage Rolex Submariner 5513",
+          "reason": "Stitch sample notification subject; rows render the user's real notifications from /api/notifications."
+        },
+        {
+          "heading": "Original Watercolor by R. Holloway",
+          "reason": "Stitch sample notification subject; rows render the user's real notifications from /api/notifications."
+        },
+        {
+          "heading": "Banksy Limited Print",
+          "reason": "Stitch sample notification subject; rows render the user's real notifications from /api/notifications."
+        },
+        {
+          "heading": "Mid-Century Eames Lounge Chair",
+          "reason": "Stitch sample notification subject; rows render the user's real notifications from /api/notifications."
+        },
+        {
+          "heading": "Antique Persian Heriz Rug",
+          "reason": "Stitch sample notification subject; rows render the user's real notifications from /api/notifications."
+        },
+        {
+          "heading": "Signed First Edition - Dune",
+          "reason": "Stitch sample notification subject; rows render the user's real notifications from /api/notifications."
+        },
+        {
+          "heading": "1969 Chevrolet Camaro Z/28",
+          "reason": "Stitch sample notification subject; rows render the user's real notifications from /api/notifications."
+        }
+      ]
+    },
+    "/sellers/:handle": {
+      "allow": [
+        {
+          "heading": "Marcus Holloway",
+          "reason": "Stitch sample seller; the h1 renders the real seller's name from /api/sellers/:handle."
+        },
+        {
+          "heading": "Original Watercolor Landscape",
+          "reason": "Stitch sample lot; active listings render the seller's real /api/sellers/:handle payload."
+        },
+        {
+          "heading": "Vintage Leica M3 Camera (1954)",
+          "reason": "Stitch sample lot; active listings render the seller's real /api/sellers/:handle payload."
+        },
+        {
+          "heading": "Signed Hemingway First Edition",
+          "reason": "Stitch sample lot; active listings render the seller's real /api/sellers/:handle payload."
+        },
+        {
+          "heading": "Antique French Brass Compass",
+          "reason": "Stitch sample lot; active listings render the seller's real /api/sellers/:handle payload."
+        }
+      ]
+    },
+    "/my-bids/won/:id/checkout": {
+      "allow": [
+        {
+          "heading": "Vintage Rolex Submariner 5513 (1969)",
+          "reason": "Stitch sample lot; the summary h2 renders the actual won listing's title from /api/checkout/:id."
+        }
+      ]
+    }
+  }
+}

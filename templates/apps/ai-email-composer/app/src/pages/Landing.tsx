@@ -4,46 +4,40 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { Footer } from '../components/Footer.js'
 import { PublicNav } from '../components/PublicNav.js'
 
+// The three design feature cards — titles/copy mirror the Stitch design
+// ("AI Tone Tuning" / "Smart Templates" / "Performance Analytics").
 const FEATURES = [
   {
-    key: 'compose',
-    defaultTitle: 'Compose with intent',
-    defaultBody: `Tell ${APP_NAME} what you're trying to say — it returns a polished draft in your voice, every time.`,
-    icon: 'auto_awesome',
+    key: 'tone',
+    defaultTitle: 'AI Tone Tuning',
+    defaultBody: `Adjust the nuance of your message. From Assertive to Empathetic, ensure your intent is perfectly captured.`,
+    icon: 'tune',
     accent: 'primary' as const,
   },
   {
-    key: 'tone',
-    defaultTitle: 'Tune the tone',
-    defaultBody: `Switch between Formal, Friendly, and Persuasive with one tap. ${APP_NAME} rewrites without losing your meaning.`,
-    icon: 'tune',
+    key: 'templates',
+    defaultTitle: 'Smart Templates',
+    defaultBody:
+      'Access a library of high-converting structures for sales, recruiting, and internal communications.',
+    icon: 'article',
     accent: 'secondary' as const,
   },
   {
-    key: 'templates',
-    defaultTitle: 'Ready-to-send templates',
-    defaultBody:
-      'Start from sales, recruiting, and executive playbooks battle-tested by top performers.',
-    icon: 'dashboard_customize',
-    accent: 'tertiary' as const,
-  },
-  {
     key: 'analytics',
-    defaultTitle: 'Open and reply analytics',
-    defaultBody: `See which templates land and which fall flat. ${APP_NAME} learns from your wins and improves every draft.`,
+    defaultTitle: 'Performance Analytics',
+    defaultBody: `Gain insights into readability, clarity, and engagement metrics before you hit send.`,
     icon: 'insights',
-    accent: 'success' as const,
+    accent: 'primary' as const,
   },
 ] as const
 
 const ACCENT_BG = {
   primary: 'bg-primary/10 text-primary',
   secondary: 'bg-secondary/10 text-secondary',
-  tertiary: 'bg-tertiary/10 text-tertiary',
-  success: 'bg-success/10 text-success',
 }
 
 /* Decorative wordmarks for the social-proof band (stand-ins for the design's
@@ -359,20 +353,21 @@ export function Landing() {
         >
           <div className={cm.cn(cm.textCenter, cm.sp('mb', 16))}>
             <h2 className={cm.cn('text-3xl md:text-4xl font-bold tracking-tight', cm.sp('mb', 4))}>
-              {t('landing.featuresHeading', {}, { defaultValue: 'Built for high-stakes outreach' })}
+              {t('landing.featuresHeading', {}, { defaultValue: 'Precision in every paragraph.' })}
             </h2>
             <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant max-w-2xl mx-auto')}>
               {t(
                 'landing.featuresSubheading',
                 { app: APP_NAME },
                 {
-                  defaultValue: `${APP_NAME} handles the wording so you can focus on the relationship.`,
+                  defaultValue:
+                    'Elevate your communication with tools designed for the modern professional.',
                 },
               )}
             </p>
           </div>
           <div
-            className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}
+            className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3')}
           >
             {FEATURES.map((f) => (
               <div
@@ -410,7 +405,7 @@ export function Landing() {
             className={cm.cn('text-3xl md:text-5xl font-bold tracking-tight', cm.sp('mb', 6))}
             style={{ color: 'var(--color-on-primary)' }}
           >
-            {t('landing.ctaHeading', {}, { defaultValue: 'Send your next reply with confidence' })}
+            {t('landing.ctaHeading', {}, { defaultValue: 'Ready to perfect every word?' })}
           </h2>
           <p
             className={cm.cn(cm.textSize('lg'), cm.sp('mb', 10), 'max-w-2xl mx-auto')}
@@ -420,9 +415,9 @@ export function Landing() {
           >
             {t(
               'landing.ctaBody',
-              {},
+              { app: APP_NAME },
               {
-                defaultValue: 'Free for the first 50 sends. No credit card required.',
+                defaultValue: `Join thousands of professionals who have elevated their communication with ${APP_NAME}.`,
               },
             )}
           </p>
@@ -446,14 +441,9 @@ export function Landing() {
         <div className={cm.cn(cm.maxW('7xl'), 'mx-auto', cm.sp('px', 6), 'py-16')}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             <div className="col-span-2 md:col-span-1">
-              <span
-                className={cm.cn(
-                  'text-xl font-bold tracking-tighter text-primary block',
-                  cm.sp('mb', 4),
-                )}
-              >
-                {APP_NAME}
-              </span>
+              <div className={cm.cn('block', cm.sp('mb', 4))}>
+                <BrandWordmark as="span" size="sm" footer />
+              </div>
               <p className={cm.cn('text-on-surface-variant', cm.textSize('sm'))}>
                 {t(
                   'landing.copyright',

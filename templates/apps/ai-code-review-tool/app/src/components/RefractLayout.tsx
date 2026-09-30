@@ -7,6 +7,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 import { useIsMobile } from '../lib/use-is-mobile.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -102,9 +103,7 @@ function MobileDrawerNav({
         )}
       >
         <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('p', 4))}>
-          <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'tracking-tight')}>
-            {APP_NAME}
-          </span>
+          <BrandWordmark as="span" size="sm" />
           <button
             type="button"
             onClick={onClose}
@@ -195,13 +194,10 @@ function MobileTopBar({ onOpenMenu }: { onOpenMenu: () => void }) {
       </button>
       <Link
         to="/dashboard"
-        className={cm.cn(
-          cm.textSize('lg'),
-          cm.fontWeight('bold'),
-          'tracking-tight shrink-0 min-w-0 truncate',
-        )}
+        className={cm.cn('shrink-0 min-w-0 truncate')}
+        aria-label={APP_NAME}
       >
-        {APP_NAME}
+        <BrandWordmark as="span" size="sm" />
       </Link>
       <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-1 shrink-0')}>
         <ThemeToggle className="w-11 h-11 shrink-0" />

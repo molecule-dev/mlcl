@@ -93,16 +93,41 @@ export function ExpenseDetail() {
         {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
       </div>
     )
-  if (error || !expense) {
-    return (
-      <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
-        <Link
-          to="/expenses"
-          className={cm.cn(cm.textSize('sm'), cm.textPrimary, 'hover:underline')}
+
+  // The design's section flow (header, transaction details, receipt, audit
+  // trail) renders even when the record is missing — the header carries the
+  // "record unavailable" notice and each section shows its zero state.
+  return (
+    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
+      <Link to="/expenses" className={cm.cn(cm.textSize('sm'), cm.textPrimary, 'hover:underline')}>
+        ← {t('expenseDetail.back', {}, { defaultValue: 'Expenses' })}
+      </Link>
+
+      {expense ? (
+        <header
+          className={cm.cn(cm.card(), cm.sp('p', 6), cm.accentCard({ tone: 'custom' }))}
+          style={{ ['--mol-accent' as string]: expense.category_color }}
         >
-          ← {t('expenseDetail.back', {}, { defaultValue: 'Expenses' })}
-        </Link>
-        <div className={cm.cn(cm.card(), cm.sp('p', 8), 'text-center space-y-3')}>
+          <p className={cm.accentCardLabel({ tone: 'custom' })}>{expense.category}</p>
+          <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), cm.sp('mt', 1))}>
+            {expense.merchant}
+          </h1>
+          <p
+            className={cm.cn(
+              cm.textSize('4xl'),
+              cm.fontWeight('bold'),
+              cm.sp('mt', 4),
+              'tabular-nums text-error',
+            )}
+          >
+            -{fmtUsd(expense.amount_cents)}
+          </p>
+          <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+            {fmtDate(expense.occurred_at)}
+          </p>
+        </header>
+      ) : (
+        <header className={cm.cn(cm.card(), cm.sp('p', 6), 'space-y-2')}>
           <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
             {t('expenseDetail.missingHeading', {}, { defaultValue: 'Expense record unavailable' })}
           </h1>
@@ -117,39 +142,8 @@ export function ExpenseDetail() {
                 },
               )}
           </p>
-        </div>
-      </div>
-    )
-  }
-
-  return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
-      <Link to="/expenses" className={cm.cn(cm.textSize('sm'), cm.textPrimary, 'hover:underline')}>
-        ← {t('expenseDetail.back', {}, { defaultValue: 'Expenses' })}
-      </Link>
-
-      <header
-        className={cm.cn(cm.card(), cm.sp('p', 6), cm.accentCard({ tone: 'custom' }))}
-        style={{ ['--mol-accent' as string]: expense.category_color }}
-      >
-        <p className={cm.accentCardLabel({ tone: 'custom' })}>{expense.category}</p>
-        <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), cm.sp('mt', 1))}>
-          {expense.merchant}
-        </h1>
-        <p
-          className={cm.cn(
-            cm.textSize('4xl'),
-            cm.fontWeight('bold'),
-            cm.sp('mt', 4),
-            'tabular-nums text-error',
-          )}
-        >
-          -{fmtUsd(expense.amount_cents)}
-        </p>
-        <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
-          {fmtDate(expense.occurred_at)}
-        </p>
-      </header>
+        </header>
+      )}
 
       <div className={cm.cn(cm.grid({ cols: 12, gap: 'md' }))}>
         <section
@@ -160,33 +154,37 @@ export function ExpenseDetail() {
           </h2>
           <Row
             label={t('form.amount', {}, { defaultValue: 'Amount' })}
-            value={fmtUsd(expense.amount_cents)}
+            value={expense ? fmtUsd(expense.amount_cents) : '—'}
           />
           <Row
             label={t('form.tax', {}, { defaultValue: 'Tax' })}
-            value={fmtUsd(expense.tax_cents)}
+            value={expense ? fmtUsd(expense.tax_cents) : '—'}
           />
           <Row
             label={t('expenseDetail.deductible', {}, { defaultValue: 'Deductible' })}
             value={
-              expense.is_deductible
-                ? t('common.yes', {}, { defaultValue: 'Yes' })
-                : t('common.no', {}, { defaultValue: 'No' })
+              expense
+                ? expense.is_deductible
+                  ? t('common.yes', {}, { defaultValue: 'Yes' })
+                  : t('common.no', {}, { defaultValue: 'No' })
+                : '—'
             }
           />
           <Row
             label={t('expenseDetail.reconciled', {}, { defaultValue: 'Reconciled' })}
             value={
-              expense.reconciled
-                ? t(
-                    'expenseDetail.matched',
-                    { description: expense.reconciled_match_description ?? '' },
-                    { defaultValue: 'Matched · {{description}}' },
-                  )
-                : t('expenseDetail.unreconciled', {}, { defaultValue: 'Unreconciled' })
+              expense
+                ? expense.reconciled
+                  ? t(
+                      'expenseDetail.matched',
+                      { description: expense.reconciled_match_description ?? '' },
+                      { defaultValue: 'Matched · {{description}}' },
+                    )
+                  : t('expenseDetail.unreconciled', {}, { defaultValue: 'Unreconciled' })
+                : '—'
             }
           />
-          {expense.notes ? (
+          {expense?.notes ? (
             <Row label={t('form.notes', {}, { defaultValue: 'Notes' })} value={expense.notes} />
           ) : null}
         </section>
@@ -197,7 +195,7 @@ export function ExpenseDetail() {
           <h2 className={cm.sectionHeading}>
             {t('expenseDetail.receiptHeading', {}, { defaultValue: 'Receipt' })}
           </h2>
-          {expense.receipt_url ? (
+          {expense?.receipt_url ? (
             <img
               src={expense.receipt_url}
               alt={t('expenseDetail.receiptAlt', {}, { defaultValue: 'Receipt' })}
@@ -227,17 +225,25 @@ export function ExpenseDetail() {
         <h2 className={cm.cn(cm.sectionHeading, cm.sp('mb', 4))}>
           {t('expenseDetail.auditHeading', {}, { defaultValue: 'Audit trail' })}
         </h2>
-        <ol className={cm.cn('space-y-2 text-sm')}>
-          {expense.audit_log.map((ev) => (
-            <li key={ev.id} className={cm.flex({ align: 'baseline', gap: 'sm' })}>
-              <span className={cm.cn('text-on-surface-variant', 'tabular-nums whitespace-nowrap')}>
-                {fmtDateTime(ev.occurred_at)}
-              </span>
-              <span className={cm.fontWeight('medium')}>{ev.actor}</span>
-              <span className={'text-on-surface-variant'}>{ev.action}</span>
-            </li>
-          ))}
-        </ol>
+        {(expense?.audit_log ?? []).length === 0 ? (
+          <p className={cm.cn(cm.sp('py', 4), 'text-on-surface-variant', cm.textSize('sm'))}>
+            {t('expenseDetail.auditEmpty', {}, { defaultValue: 'No activity recorded yet.' })}
+          </p>
+        ) : (
+          <ol className={cm.cn('space-y-2 text-sm')}>
+            {(expense?.audit_log ?? []).map((ev) => (
+              <li key={ev.id} className={cm.flex({ align: 'baseline', gap: 'sm' })}>
+                <span
+                  className={cm.cn('text-on-surface-variant', 'tabular-nums whitespace-nowrap')}
+                >
+                  {fmtDateTime(ev.occurred_at)}
+                </span>
+                <span className={cm.fontWeight('medium')}>{ev.actor}</span>
+                <span className={'text-on-surface-variant'}>{ev.action}</span>
+              </li>
+            ))}
+          </ol>
+        )}
       </section>
     </div>
   )

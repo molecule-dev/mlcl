@@ -4,7 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import { SignetWordmark } from './SignetWordmark.js'
+import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Shared public top navigation for Signet's marketing surfaces (Landing,
@@ -38,7 +38,7 @@ export function PublicNav() {
           'mx-auto',
         )}
       >
-        <SignetWordmark to="/" size="md" />
+        <BrandWordmark size="md" />
         <div className={cm.flex({ align: 'center', gap: 'md' })}>
           {isAuthenticated ? (
             <Link

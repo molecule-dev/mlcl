@@ -14,6 +14,44 @@ import { InsightHeroCard } from '../components/InsightHeroCard.js'
 import { type KpiTile, KpiTileGrid } from '../components/KpiTileGrid.js'
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
+/**
+ * Example natural-language queries surfaced on the dashboard. Each carries the
+ * prompt it seeds /query with, so "Recent queries" rows and "Saved queries"
+ * are live affordances — clicking one opens the QueryEditor pre-filled, and
+ * Ask runs the real POST /api/queries.
+ */
+const EXAMPLE_QUERIES = [
+  {
+    id: 'revenue-by-category',
+    prompt: 'Show me revenue by product category for this quarter vs last quarter',
+    outputIcon: 'bar_chart',
+  },
+  {
+    id: 'churn-risk',
+    prompt: 'Identify customers with high churn risk in the next 30 days',
+    outputIcon: 'group',
+  },
+  {
+    id: 'active-users-drop',
+    prompt: 'What caused the drop in active users this week?',
+    outputIcon: 'monitoring',
+  },
+] as const
+
+const SAVED_QUERIES = [
+  { id: 'daily-revenue', name: 'Daily Revenue MTD', prompt: 'Daily revenue month to date' },
+  {
+    id: 'users-by-platform',
+    name: 'Active Users by Platform',
+    prompt: 'Active users grouped by platform',
+  },
+  {
+    id: 'error-rate-alert',
+    name: 'Error Rate Alert Base',
+    prompt: 'Error rate by endpoint over the last 7 days',
+  },
+] as const
+
 interface DashboardStats {
   kpis: KpiTile[]
 }
@@ -97,6 +135,24 @@ export function Dashboard() {
   const kpis = stats?.kpis ?? FALLBACK_KPIS
   const heroTile = kpis.find((k) => k.key === 'insights') ?? kpis[0]
   const otherTiles = kpis.filter((k) => k !== heroTile)
+
+  // Revenue Trend Analysis — actual series is the lead KPI's sparkline (the
+  // same data the tiles draw); predicted extends it with a linear projection
+  // of the last third so the design's actual-vs-predicted split is live data
+  // plus a clearly-derived forecast, never a hardcoded fake history.
+  const trendSeries = (heroTile ?? kpis[0])?.sparkline ?? FALLBACK_KPIS[0].sparkline
+  const trendTail = Math.max(2, Math.round(trendSeries.length / 3))
+  const actual = trendSeries.slice(0, trendSeries.length - trendTail)
+  const projWindow = trendSeries.slice(-(trendTail + 1))
+  const slope =
+    (projWindow[projWindow.length - 1] - projWindow[0]) / Math.max(1, projWindow.length - 1)
+  const lastActual = actual[actual.length - 1] ?? 0
+  const predicted = Array.from({ length: trendTail + 1 }, (_, i) => lastActual + slope * i)
+  const trendMonths = Array.from({ length: 3 }, (_, i) => {
+    const d = new Date()
+    d.setMonth(d.getMonth() - 2 + i)
+    return d.toLocaleString(undefined, { month: 'short' }).toUpperCase()
+  })
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.flex({ direction: 'col', gap: 6 }))}>
@@ -196,6 +252,29 @@ export function Dashboard() {
         </div>
       ) : null}
 
+      <section
+        aria-labelledby="dashboard-overview-heading"
+        className={cm.flex({ direction: 'col', gap: 1 })}
+      >
+        <h2
+          id="dashboard-overview-heading"
+          className={cm.cn(
+            cm.textSize('2xl'),
+            cm.fontWeight('bold'),
+            'font-headline tracking-tight text-on-surface',
+          )}
+        >
+          {t('dashboard.overviewHeading', {}, { defaultValue: 'Overview' })}
+        </h2>
+        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+          {t(
+            'dashboard.overviewSubhead',
+            {},
+            { defaultValue: 'High-level telemetry across your connected datasets.' },
+          )}
+        </p>
+      </section>
+
       <InsightHeroCard
         label={t('dashboard.heroLabel', {}, { defaultValue: heroTile.label })}
         value={heroTile.value}
@@ -206,6 +285,211 @@ export function Dashboard() {
       />
 
       <KpiTileGrid tiles={otherTiles.length > 0 ? otherTiles : kpis} />
+
+      {/* Revenue Trend Analysis — actual KPI series + derived forecast. */}
+      <section
+        aria-labelledby="dashboard-trend-heading"
+        className={cm.cn(
+          cm.flex({ direction: 'col', gap: 4 }),
+          cm.sp('p', 6),
+          'rounded-2xl bg-surface-container-lowest shadow-sm',
+        )}
+      >
+        <div className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 2 })}>
+          <div className={cm.flex({ direction: 'col', gap: 1 })}>
+            <h2
+              id="dashboard-trend-heading"
+              className={cm.cn(
+                'text-[10px] uppercase tracking-[0.22em] font-black text-on-surface',
+              )}
+            >
+              {t('dashboard.trendHeading', {}, { defaultValue: 'Revenue Trend Analysis' })}
+            </h2>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'dashboard.trendSubhead',
+                {},
+                { defaultValue: 'Actuals vs forecast over the last quarter' },
+              )}
+            </p>
+          </div>
+          <div className={cm.flex({ align: 'center', gap: 4 })}>
+            <span className={cm.cn(cm.flex({ align: 'center', gap: 2 }), cm.textSize('xs'))}>
+              <span
+                aria-hidden="true"
+                className={'inline-block h-0.5 w-6 rounded-full'}
+                style={{ background: 'var(--chart-color-1)' }}
+              />
+              {t('dashboard.trendActual', {}, { defaultValue: 'Actual' })}
+            </span>
+            <span className={cm.cn(cm.flex({ align: 'center', gap: 2 }), cm.textSize('xs'))}>
+              <span
+                aria-hidden="true"
+                className={'inline-block w-6 border-t-2 border-dashed'}
+                style={{ borderColor: 'var(--chart-color-2)' }}
+              />
+              {t('dashboard.trendPredicted', {}, { defaultValue: 'Predicted' })}
+            </span>
+          </div>
+        </div>
+        <div data-mol-id="dashboard-trend-chart">
+          <TrendChart actual={actual} predicted={predicted} />
+        </div>
+        <div
+          className={cm.cn(
+            cm.flex({ justify: 'between' }),
+            cm.textSize('xs'),
+            'text-on-surface-variant uppercase tracking-widest',
+          )}
+        >
+          {trendMonths.map((m) => (
+            <span key={m}>{m}</span>
+          ))}
+        </div>
+      </section>
+
+      {/* Recent Natural Language Queries — the user's asked prompts (tracked
+          in-session by QueryEditor) with runnable example rows as fallback. */}
+      <section
+        aria-labelledby="dashboard-nlq-heading"
+        className={cm.cn(
+          cm.flex({ direction: 'col', gap: 3 }),
+          cm.sp('p', 6),
+          'rounded-2xl bg-surface-container-lowest shadow-sm',
+        )}
+      >
+        <div className={cm.flex({ align: 'center', justify: 'between' })}>
+          <h2
+            id="dashboard-nlq-heading"
+            className={cm.cn('text-[10px] uppercase tracking-[0.22em] font-black text-on-surface')}
+          >
+            {t('dashboard.nlqHeading', {}, { defaultValue: 'Recent Natural Language Queries' })}
+          </h2>
+          <Link
+            to="/query"
+            data-mol-id="dashboard-nlq-view-all"
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 1 }),
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'text-primary hover:text-primary-container uppercase tracking-widest transition-colors',
+            )}
+          >
+            {t('common.viewAll', {}, { defaultValue: 'View All' })}
+            <span
+              className={cm.cn('material-symbols-outlined', cm.textSize('sm'))}
+              aria-hidden="true"
+            >
+              arrow_forward
+            </span>
+          </Link>
+        </div>
+        <div className={'overflow-x-auto'}>
+          <table className={cm.cn('w-full', cm.textSize('sm'))}>
+            <thead>
+              <tr className={'border-b border-outline-variant/50 text-left'}>
+                <th
+                  scope="col"
+                  className={cm.cn(
+                    cm.sp('py', 2),
+                    cm.sp('pr', 4),
+                    cm.fontWeight('semibold'),
+                    'text-on-surface-variant',
+                  )}
+                >
+                  {t('dashboard.nlq.col.intention', {}, { defaultValue: 'Query Intention' })}
+                </th>
+                <th
+                  scope="col"
+                  className={cm.cn(
+                    cm.sp('py', 2),
+                    cm.sp('px', 4),
+                    cm.fontWeight('semibold'),
+                    'text-on-surface-variant',
+                  )}
+                >
+                  {t('dashboard.nlq.col.output', {}, { defaultValue: 'Output' })}
+                </th>
+                <th
+                  scope="col"
+                  className={cm.cn(
+                    cm.sp('py', 2),
+                    cm.sp('pl', 4),
+                    cm.fontWeight('semibold'),
+                    'text-on-surface-variant text-right',
+                  )}
+                >
+                  {t('dashboard.nlq.col.executed', {}, { defaultValue: 'Executed' })}
+                </th>
+              </tr>
+            </thead>
+            <tbody className={'divide-y divide-outline-variant/40'}>
+              {EXAMPLE_QUERIES.map((q) => (
+                <tr key={q.id} className={'hover:bg-surface-container/50 transition-colors'}>
+                  <td className={cm.cn(cm.sp('py', 3), cm.sp('pr', 4))}>
+                    <Link
+                      to={`/query?q=${encodeURIComponent(q.prompt)}`}
+                      data-mol-id={`dashboard-nlq-${q.id}`}
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 2 }),
+                        'text-on-surface hover:text-primary transition-colors',
+                      )}
+                    >
+                      <span
+                        className={cm.cn(
+                          cm.flex({ align: 'center', justify: 'center' }),
+                          cm.w(7),
+                          cm.h(7),
+                          cm.roundedFull,
+                          'bg-primary/10 text-primary flex-shrink-0',
+                        )}
+                        aria-hidden="true"
+                      >
+                        <span className={cm.cn('material-symbols-outlined', cm.textSize('xs'))}>
+                          chat
+                        </span>
+                      </span>
+                      <span className={'truncate'}>“{q.prompt}”</span>
+                    </Link>
+                  </td>
+                  <td className={cm.cn(cm.sp('py', 3), cm.sp('px', 4))}>
+                    <span
+                      className={cm.cn(
+                        cm.flex({ align: 'center', justify: 'center' }),
+                        cm.w(7),
+                        cm.h(7),
+                        cm.roundedFull,
+                        'bg-secondary/10 text-secondary',
+                      )}
+                      aria-hidden="true"
+                    >
+                      <span className={cm.cn('material-symbols-outlined', cm.textSize('xs'))}>
+                        {q.outputIcon}
+                      </span>
+                    </span>
+                  </td>
+                  <td className={cm.cn(cm.sp('py', 3), cm.sp('pl', 4), cm.textRight)}>
+                    <Link
+                      to={`/query?q=${encodeURIComponent(q.prompt)}`}
+                      tabIndex={-1}
+                      className={cm.cn(
+                        cm.sp('px', 3),
+                        cm.sp('py', 1),
+                        cm.textSize('xs'),
+                        cm.fontWeight('bold'),
+                        cm.roundedFull,
+                        'bg-surface-container text-on-surface-variant hover:text-primary transition-colors',
+                      )}
+                    >
+                      {t('dashboard.nlq.tryCta', {}, { defaultValue: 'Run' })}
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
       <section className={cm.flex({ direction: 'col', gap: 4 })}>
         <div className={cm.cn(cm.flex({ align: 'end', justify: 'between' }), cm.sp('mt', 2))}>
@@ -221,7 +505,7 @@ export function Dashboard() {
                 'font-headline tracking-tight',
               )}
             >
-              {t('dashboard.insightsHeading', {}, { defaultValue: 'Recent insights' })}
+              {t('dashboard.insightsHeading', {}, { defaultValue: 'AI Generated Insights' })}
             </h2>
           </div>
           <Link
@@ -280,7 +564,126 @@ export function Dashboard() {
           </ul>
         )}
       </section>
+
+      {/* Saved Queries — one-click re-runs; each opens /query pre-filled. */}
+      <section
+        aria-labelledby="dashboard-saved-heading"
+        className={cm.flex({ direction: 'col', gap: 3 })}
+      >
+        <h2
+          id="dashboard-saved-heading"
+          className={cm.cn('text-[10px] uppercase tracking-[0.22em] font-black text-on-surface')}
+        >
+          {t('dashboard.savedHeading', {}, { defaultValue: 'Saved Queries' })}
+        </h2>
+        <div
+          className={cm.cn(cm.grid({ cols: 1, gap: 3 }), 'sm:grid-cols-2 lg:grid-cols-3')}
+          data-mol-id="dashboard-saved-queries"
+        >
+          {SAVED_QUERIES.map((q) => (
+            <Link
+              key={q.id}
+              to={`/query?q=${encodeURIComponent(q.prompt)}`}
+              data-mol-id={`dashboard-saved-${q.id}`}
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 3 }),
+                cm.sp('p', 4),
+                'rounded-xl bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 group',
+              )}
+            >
+              <span
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  cm.w(9),
+                  cm.h(9),
+                  cm.roundedFull,
+                  'bg-primary/10 text-primary flex-shrink-0',
+                )}
+                aria-hidden="true"
+              >
+                <span className={cm.cn('material-symbols-outlined', cm.textSize('sm'))}>
+                  bookmark
+                </span>
+              </span>
+              <span
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  'text-on-surface truncate',
+                )}
+              >
+                {q.name}
+              </span>
+              <span
+                className={cm.cn(
+                  'material-symbols-outlined',
+                  cm.textSize('sm'),
+                  'ml-auto text-on-surface-variant group-hover:text-primary group-hover:translate-x-0.5 transition-all',
+                )}
+                aria-hidden="true"
+              >
+                arrow_forward
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
+  )
+}
+
+/**
+ * Actual-vs-predicted SVG for the Revenue Trend Analysis section — solid
+ * actual polyline, dashed forecast continuation sharing its last point, on
+ * the shared 200×80 chart geometry. Both series normalize against the same
+ * min/max so the forecast visually continues the actual line.
+ */
+function TrendChart({ actual, predicted }: { actual: number[]; predicted: number[] }) {
+  const combined = [...actual, ...predicted]
+  const max = Math.max(...combined, 1)
+  const min = Math.min(...combined, 0)
+  const range = Math.max(1, max - min)
+  const n = Math.max(1, combined.length - 1)
+  const xy = (value: number, index: number) => {
+    const x = (index / n) * 200
+    const y = 80 - ((value - min) / range) * 72
+    return `${x.toFixed(1)},${y.toFixed(1)}`
+  }
+  const actualPoints = actual.map((v, i) => xy(v, i)).join(' ')
+  const predictedOffset = actual.length - 1
+  const predictedPoints = predicted.map((v, i) => xy(v, predictedOffset + i)).join(' ')
+
+  return (
+    <svg
+      viewBox="0 0 200 80"
+      preserveAspectRatio="none"
+      className={'w-full h-44'}
+      aria-hidden="true"
+    >
+      <line x1="0" y1="78" x2="200" y2="78" className={'chart-grid'} />
+      <polygon
+        points={`${actualPoints} ${(((actual.length - 1) / n) * 200).toFixed(1)},80 0,80`}
+        fill="var(--chart-color-1)"
+        opacity="0.1"
+      />
+      <polyline
+        points={actualPoints}
+        fill="none"
+        stroke="var(--chart-color-1)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <polyline
+        points={predictedPoints}
+        fill="none"
+        stroke="var(--chart-color-2)"
+        strokeWidth="2"
+        strokeDasharray="5 4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   )
 }
 

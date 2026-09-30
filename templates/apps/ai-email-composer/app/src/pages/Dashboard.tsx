@@ -297,7 +297,7 @@ export function Dashboard() {
       <section className={cm.stack(4)}>
         <div className={cm.flex({ align: 'baseline', justify: 'between' })}>
           <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
-            {t('dashboard.recentHeading', {}, { defaultValue: 'Recent sends' })}
+            {t('dashboard.recentHeading', {}, { defaultValue: 'Recent Sent' })}
           </h2>
           <Link
             to="/inbox"

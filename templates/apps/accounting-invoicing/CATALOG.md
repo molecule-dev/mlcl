@@ -27,7 +27,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **notifications** — id, user_id, type, title, body, href, unread, created_at
 - **payments** — id, createdAt, updatedAt, userId, transactionId, productId, platformKey, data, receipt
 - **tax_rates** — id, user_id, name, rate_pct, region, is_default, created_at
-- **company_profile** — user_id, legal_name, billing_email, tax_id, address, default_tax_rate_pct, filing_method, fiscal_year_start, created_at, updated_at
+- **company_profile** — user_id, legal_name, billing_email, tax_id, address, default_tax_rate_pct, filing_method, fiscal_year_start, created_at, updated_at, currency
 - **integrations** — id, user_id, name, status, last_synced_at, created_at, updated_at
 - **team_members** — id, user_id, name, email, role, created_at
 

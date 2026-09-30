@@ -326,6 +326,147 @@ export function SellerProfile() {
         )
       ) : null}
 
+      {/* About + recent reviews — the design shows these beside the active
+          listings, so the default tab carries both (full lists stay on their
+          tabs below). */}
+      {tab === 'active' ? (
+        <section className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-6')}>
+          <article
+            className={cm.cn(
+              cm.sp('p', 6),
+              'lg:col-span-5 rounded-xl bg-surface border border-outline-variant/40 stack-y space-y-3',
+            )}
+          >
+            <h3
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                'text-lg font-extrabold tracking-tight',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-primary')} aria-hidden="true">
+                info
+              </span>
+              {t('sellerProfile.aboutSellerHeading', {}, { defaultValue: 'About Seller' })}
+            </h3>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant leading-relaxed')}>
+              {data.bio ||
+                t(
+                  'sellerProfile.aboutEmpty',
+                  {},
+                  { defaultValue: 'This seller has not added a bio yet.' },
+                )}
+            </p>
+            <dl
+              className={cm.cn(
+                'grid grid-cols-2 gap-3 text-sm pt-2 border-t border-outline-variant/40',
+              )}
+            >
+              <div>
+                <dt
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    'font-bold uppercase tracking-widest text-on-surface-variant',
+                  )}
+                >
+                  {t('sellerProfile.aboutSales', {}, { defaultValue: 'Sales completed' })}
+                </dt>
+                <dd className={cm.cn('font-extrabold tabular-nums text-lg')}>
+                  {fmtCount(data.total_sales)}
+                </dd>
+              </div>
+              <div>
+                <dt
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    'font-bold uppercase tracking-widest text-on-surface-variant',
+                  )}
+                >
+                  {t('sellerProfile.aboutMember', {}, { defaultValue: 'Member since' })}
+                </dt>
+                <dd className={cm.cn('font-extrabold text-lg')}>
+                  {data.member_since ? new Date(data.member_since).toLocaleDateString() : '—'}
+                </dd>
+              </div>
+            </dl>
+          </article>
+
+          <article
+            className={cm.cn(
+              cm.sp('p', 6),
+              'lg:col-span-7 rounded-xl bg-surface border border-outline-variant/40 stack-y space-y-3',
+            )}
+          >
+            <header className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
+              <h3
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'sm' }),
+                  'text-lg font-extrabold tracking-tight',
+                )}
+              >
+                <span
+                  className={cm.cn('material-symbols-outlined text-primary')}
+                  aria-hidden="true"
+                >
+                  reviews
+                </span>
+                {t('sellerProfile.recentReviewsHeading', {}, { defaultValue: 'Recent Reviews' })}
+              </h3>
+              {data.reviews.length > 2 ? (
+                <button
+                  type="button"
+                  onClick={() => setTab('reviews')}
+                  data-mol-id="seller-profile-reviews-view-all"
+                  className={cm.cn(cm.textSize('sm'), 'font-bold text-primary hover:underline')}
+                >
+                  {t('sellerProfile.reviewsViewAll', {}, { defaultValue: 'View all →' })}
+                </button>
+              ) : null}
+            </header>
+            {data.reviews.length === 0 ? (
+              <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
+                {t('sellerProfile.reviewsEmpty', {}, { defaultValue: 'No reviews yet.' })}
+              </p>
+            ) : (
+              <ul className={cm.cn(cm.stack(3))}>
+                {data.reviews.slice(0, 2).map((r) => (
+                  <li
+                    key={r.id}
+                    className={cm.cn(cm.flex({ align: 'start', gap: 'sm' }), cm.stack(1))}
+                  >
+                    <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+                      <div
+                        className={cm.cn(
+                          'w-7 h-7 rounded-full text-white text-xs font-bold flex items-center justify-center shrink-0',
+                        )}
+                        style={{ background: 'var(--color-accent)' }}
+                        aria-hidden="true"
+                      >
+                        {r.bidder.charAt(0).toUpperCase()}
+                      </div>
+                      <span className={cm.cn(cm.textSize('sm'), 'font-bold')}>{r.bidder}</span>
+                      <span
+                        className={cm.cn(cm.textSize('sm'), 'font-bold tabular-nums')}
+                        style={{ color: 'var(--color-ending-soon)' }}
+                      >
+                        ★ {r.stars.toFixed(1)}
+                      </span>
+                    </div>
+                    <p
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        'text-on-surface-variant leading-relaxed line-clamp-2',
+                      )}
+                    >
+                      {r.body}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </article>
+        </section>
+      ) : null}
+
       {tab === 'sold' ? (
         <section className={cm.cn(cm.sp('py', 12), cm.textCenter, cm.stack(2))}>
           <span
