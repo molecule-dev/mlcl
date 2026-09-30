@@ -243,6 +243,27 @@ describe('generateMoleculeMd — standard packages', () => {
     expect(result).toContain('@molecule/api-database-postgresql')
   })
 
+  it('generates Available Providers for non-core abstractions with providers', () => {
+    // feature/middleware/native packages that provider bonds implement get the
+    // same table as cores — the section keys off providers existing, not type.
+    const result = generateMoleculeMd(
+      makeExtracted(),
+      makeRegistryEntry({ type: 'feature' }),
+      makePackageJson(),
+      makeOptions({
+        providers: [
+          {
+            name: '@molecule/app-charts-chartjs',
+            entry: makeRegistryEntry({ type: 'provider', label: 'Chart.js' }),
+          },
+        ],
+      }),
+    )
+    expect(result).toContain('## Available Providers')
+    expect(result).toContain('Chart.js')
+    expect(result).toContain('@molecule/app-charts-chartjs')
+  })
+
   it('generates Core Interface section for provider packages', () => {
     const result = generateMoleculeMd(
       makeExtracted(),

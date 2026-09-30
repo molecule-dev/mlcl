@@ -195,8 +195,11 @@ function generateStandardMd(
     sections.push(generateApiSection(extracted.exports))
   }
 
-  // 7. Available Providers (for core packages)
-  if (entry.type === 'core' && options.providers && options.providers.length > 0) {
+  // 7. Available Providers — ANY package with registered providers lists them,
+  // not just type 'core': feature/middleware/native abstractions (app-charts,
+  // app-clipboard, api-middleware-*) have provider bonds implementing them too,
+  // and their docs must name the choices the same way cores do.
+  if (options.providers && options.providers.length > 0) {
     sections.push(generateProvidersSection(options.providers))
   }
 
