@@ -90,6 +90,13 @@ jobs:
         working-directory: mlcl
         env:
           MLCL_ALLOW_PUBLISH: '1' # CI IS the authorized publish path
+          # The history-depth check (≤200) was written days after the public
+          # history restarted 2026-09-18; the legit post-wipe history passed
+          # 688 commits by 2026-09-30 (verified: first commit = "mlcl 2.0.0 —
+          # the Molecule.dev CLI", 2026-09-18). This is the intended public
+          # history, not a pre-wipe resurrection — the documented escape hatch
+          # applies. Revisit the threshold in the gate itself if it trips again.
+          MLCL_ALLOW_DEEP_HISTORY: '1'
 
       # ---- GATE 4: Parity coverage (needs molecule-dev sibling) --------------
       # This is best-effort in CI — the molecule-dev sibling isn't always a

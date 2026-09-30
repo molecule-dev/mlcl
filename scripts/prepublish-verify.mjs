@@ -113,13 +113,64 @@ for (const f of ['LICENSE', 'README.md', 'bin/run.js']) {
 
 // ── 2. tarball structure ─────────────────────────────────────────────────────
 console.log('tarball contents:')
-// prepack script output (build/oclif chatter) precedes the JSON array — take
-// everything from the first top-level '[' and parse that.
+// prepack script output (build/oclif chatter) surrounds the JSON array — and
+// some of that chatter carries ANSI escapes whose `ESC[` would defeat a naive
+// indexOf('['), while trailing notices after the closing bracket defeat a
+// whole-slice parse. Walk candidate '[' positions; accept the first that
+// yields a parseable JSON ARRAY (string-aware balanced-bracket scan).
 const rawPack = execFileSync('npm', ['pack', '--dry-run', '--json'], {
   encoding: 'utf8',
   maxBuffer: 1 << 28,
 })
-const pack = JSON.parse(rawPack.slice(rawPack.indexOf('[')))[0]
+
+/**
+ * Extract the balanced JSON array starting at `start`, honoring string
+ * literals (a ']' inside a quoted filename must not close the scan).
+ *
+ * @param {string} text - The raw npm output.
+ * @param {number} start - Index of the candidate '['.
+ * @returns {string | null} The array slice, or null when unbalanced.
+ */
+function balancedArrayAt(text, start) {
+  let depth = 0
+  let inString = false
+  let escape = false
+  for (let i = start; i < text.length; i++) {
+    const ch = text[i]
+    if (inString) {
+      if (escape) escape = false
+      else if (ch === '\\') escape = true
+      else if (ch === '"') inString = false
+      continue
+    }
+    if (ch === '"') inString = true
+    else if (ch === '[') depth++
+    else if (ch === ']') {
+      depth--
+      if (depth === 0) return text.slice(start, i + 1)
+    }
+  }
+  return null
+}
+
+let pack
+for (let idx = rawPack.indexOf('['); idx !== -1; idx = rawPack.indexOf('[', idx + 1)) {
+  const slice = balancedArrayAt(rawPack, idx)
+  if (slice === null) continue
+  try {
+    const parsed = JSON.parse(slice)
+    if (Array.isArray(parsed) && parsed[0]?.files) {
+      pack = parsed[0]
+      break
+    }
+  } catch (_error) {
+    // Chatter bracket — try the next candidate.
+  }
+}
+if (!pack) {
+  console.error('  ✗ could not extract the npm pack JSON document from its own output chatter')
+  process.exit(1)
+}
 const files = pack.files.map((f) => f.path)
 let structural = true
 for (const p of files) {
