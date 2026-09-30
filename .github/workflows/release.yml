@@ -116,6 +116,10 @@ jobs:
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # package.json's prepublishOnly re-runs prepublish-verify.mjs — the
+          # same authorized-CI-publisher + history switches GATE 3 sets.
+          MLCL_ALLOW_PUBLISH: '1'
+          MLCL_ALLOW_DEEP_HISTORY: '1'
 
       # ---- PUBLISH molecule-mcp (optional) ------------------------------------
       - name: Publish molecule-mcp
