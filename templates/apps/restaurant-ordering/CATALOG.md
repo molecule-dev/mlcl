@@ -13,7 +13,7 @@ Toast-like POS with table-side QR ordering, menu management, kitchen display, an
 
 `auth`, `payments`, `realtime`, `image-upload`, `notifications`
 
-## Data model (10 domain tables)
+## Data model (11 domain tables)
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
@@ -27,6 +27,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **payments** — id, createdAt, updatedAt, userId, transactionId, productId, platformKey, data, receipt
 - **reservations** — id, user_id, customer_id, table_id, party_size, scheduled_for, status, notes, created_at, updated_at
 - **tables** — id, user_id, table_number, seats, section, status, created_at, updated_at
+- **emergency_contacts** — id, user_id, contact_name, contact_phone, created_at, updated_at
 
 ## API surface (handlers)
 
@@ -35,6 +36,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **\_debug** — `api/src/handlers/_debug.ts`
 - **analytics** — `api/src/handlers/analytics.ts`
 - **customers** — `api/src/handlers/customers.ts`
+- **emergency-contact** — `api/src/handlers/emergency-contact.ts`
 - **guest** — `api/src/handlers/guest.ts`
 - **kitchen** — `api/src/handlers/kitchen.ts`
 - **menu** — `api/src/handlers/menu.ts`
