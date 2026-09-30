@@ -63,7 +63,7 @@
     "@molecule/api-permissions-custom": "1.0.2",
     "@molecule/api-push-notifications": "1.0.2",
     "@molecule/api-realtime": "1.0.2",
-    "@molecule/api-realtime-socketio": "1.0.2",
+    "@molecule/api-realtime-socketio": "1.0.3",
     "@molecule/api-resource": "1.0.2",
     "@molecule/api-resource-activity-feed": "1.0.3",
     "@molecule/api-resource-bookmark": "1.0.3",

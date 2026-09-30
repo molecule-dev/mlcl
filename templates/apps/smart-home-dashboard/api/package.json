@@ -56,7 +56,7 @@
     "@molecule/api-push-notifications": "1.0.2",
     "@molecule/api-push-notifications-web-push": "1.0.2",
     "@molecule/api-realtime": "1.0.2",
-    "@molecule/api-realtime-socketio": "1.0.2",
+    "@molecule/api-realtime-socketio": "1.0.3",
     "@molecule/api-resource": "1.0.2",
     "@molecule/api-resource-device": "1.0.3",
     "@molecule/api-resource-payment": "1.0.2",

@@ -57210,7 +57210,7 @@
       "@molecule/api-rate-limit-redis": "1.0.2",
       "@molecule/api-realtime": "1.0.2",
       "@molecule/api-realtime-rooms": "1.0.2",
-      "@molecule/api-realtime-socketio": "1.0.2",
+      "@molecule/api-realtime-socketio": "1.0.3",
       "@molecule/api-realtime-sse": "1.0.2",
       "@molecule/api-realtime-ws": "1.0.2",
       "@molecule/api-realtime-yjs": "1.0.2",
@@ -57222,7 +57222,7 @@
       "@molecule/api-resource-activity-feed": "1.0.3",
       "@molecule/api-resource-address": "1.0.2",
       "@molecule/api-resource-ai-conversation": "1.0.2",
-      "@molecule/api-resource-ai-models": "1.10.0",
+      "@molecule/api-resource-ai-models": "1.11.0",
       "@molecule/api-resource-api-key": "1.0.2",
       "@molecule/api-resource-booking": "1.0.2",
       "@molecule/api-resource-bookmark": "1.0.3",
@@ -57871,17 +57871,13 @@
       "@molecule/app-whiteboard-canvas-react": "1.0.2",
       "@molecule/app-wiki-page-header-react": "1.0.2",
       "@molecule/app-word-cloud-react": "1.0.2",
-      "@molecule/api-agent-transcript-gemini-cli": "1.0.0",
-      "@molecule/api-agent-transcript-aider": "1.0.0",
-      "@molecule/api-agent-transcript-cursor": "1.0.0",
-      "@molecule/api-agent-transcript-cline": "1.0.0",
       "@molecule/api-agent-transcript-opencode": "1.0.0",
       "@molecule/api-ocr-teleocr": "1.0.0",
       "@molecule/api-ai-speech-audio8": "1.0.0",
       "@molecule/api-ai-speech-nemo-speech": "1.0.0",
       "@molecule/api-ai-speech-llm": "1.0.0",
       "@molecule/api-ai-speech-confucius4": "1.0.0",
-      "@molecule/api-agent-transcript-autodetect": "1.1.1"
+      "@molecule/api-agent-transcript-autodetect": "1.1.2"
     }
   }
 }
