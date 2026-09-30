@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { t as translate } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 import { PageHeader } from '../components/PageHeader.js'
 import { useFetchOne } from '../lib/use-fetch.js'
@@ -82,6 +83,7 @@ export function Profile() {
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [twoFactor, setTwoFactor] = useState(true)
   const [busy, setBusy] = useState(false)
   const [feedback, setFeedback] = useState<{ kind: 'ok' | 'error'; text: string } | null>(null)
 
@@ -304,6 +306,81 @@ export function Profile() {
           </div>
         </section>
       </form>
+
+      <section
+        data-mol-id="profile-security"
+        className={cm.cn(
+          cm.flex({ direction: 'col', gap: 'md' }),
+          cm.sp('p', 6),
+          'rounded-xl bg-surface-container-lowest border border-outline-variant/40',
+        )}
+      >
+        <h2
+          className={cm.cn(
+            cm.textSize('xs'),
+            cm.fontWeight('bold'),
+            'uppercase tracking-widest text-on-surface-variant font-mono',
+          )}
+        >
+          {t('profile.securityHeading', {}, { defaultValue: 'Password & security' })}
+        </h2>
+        <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'md' }))}>
+          <div>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+              <h3
+                className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'text-on-surface')}
+              >
+                {t('profile.twoFactorTitle', {}, { defaultValue: 'Two-factor authentication' })}
+              </h3>
+              <span
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  cm.sp('px', 2),
+                  'rounded-full uppercase tracking-widest font-mono',
+                )}
+                style={
+                  twoFactor
+                    ? { background: 'var(--color-icon-success)', color: 'var(--color-background)' }
+                    : {
+                        background: 'var(--color-surface-active)',
+                        color: 'var(--color-on-surface-variant)',
+                      }
+                }
+              >
+                {twoFactor
+                  ? t('profile.twoFactorEnabled', {}, { defaultValue: 'Enabled' })
+                  : t('profile.twoFactorDisabled', {}, { defaultValue: 'Off' })}
+              </span>
+            </div>
+            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant mt-1')}>
+              {t(
+                'profile.twoFactorDescription',
+                {},
+                { defaultValue: 'Add an extra layer of security to your account.' },
+              )}
+            </p>
+          </div>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+            <a
+              href="#profile-security"
+              className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'text-primary')}
+            >
+              {t('profile.recoveryCodes', {}, { defaultValue: 'Recovery codes' })}
+            </a>
+            <Switch
+              checked={twoFactor}
+              onChange={() => setTwoFactor((v) => !v)}
+              data-mol-id="profile-two-factor-switch"
+              aria-label={t(
+                'profile.twoFactorTitle',
+                {},
+                { defaultValue: 'Two-factor authentication' },
+              )}
+            />
+          </div>
+        </div>
+      </section>
 
       <section>
         <h2

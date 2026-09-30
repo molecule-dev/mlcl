@@ -5,7 +5,8 @@ import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { useLogin, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { APP_TAGLINE, BRAND_COLOR } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
 
 const SURFACE_DARK = 'var(--color-background)'
@@ -100,7 +101,9 @@ export function Login() {
                 </span>
               </div>
             </div>
-            <h1 className="text-4xl font-extrabold tracking-tight text-white">{APP_NAME}</h1>
+            <h1 className="text-4xl font-extrabold tracking-tight text-white">
+              <BrandWordmark as="span" size="hero" layout="stacked" invert />
+            </h1>
             <p className={'mt-1 font-mono text-xs text-on-surface-variant'}>
               <span>v4.2.0 · </span>
               {APP_TAGLINE}

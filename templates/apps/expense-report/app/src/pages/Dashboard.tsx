@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import type { UserProfile } from '@molecule/app-auth'
+import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { ApprovalBadge, type ApprovalStatus } from '../components/ApprovalBadge.js'
@@ -87,8 +88,10 @@ export function Dashboard() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const { user } = useAuth<UserProfile & { username?: string }>()
   const [snapshot, setSnapshot] = useState<DashboardSnapshot | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const firstName = (user?.name || user?.username || '').trim().split(/\s+/)[0] || null
 
   useEffect(() => {
     let cancelled = false
@@ -135,8 +138,21 @@ export function Dashboard() {
           <h1
             className={cm.cn(cm.textSize('3xl'), cm.sp('mt', 1), 'font-extrabold tracking-tight')}
           >
-            {t('dashboard.title', {}, { defaultValue: 'Reimbursement workspace' })}
+            {firstName
+              ? t(
+                  'dashboard.welcomeBack',
+                  { name: firstName },
+                  { defaultValue: 'Welcome back, {{name}}' },
+                )
+              : t('dashboard.title', {}, { defaultValue: 'Reimbursement workspace' })}
           </h1>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.sp('mt', 1))}>
+            {t(
+              'dashboard.subtitle',
+              {},
+              { defaultValue: "Here's a summary of your expense reports and approvals." },
+            )}
+          </p>
         </div>
         <div className={cm.flex({ align: 'center', gap: 'sm' })}>
           <Link

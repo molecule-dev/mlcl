@@ -110,5 +110,19 @@
     "owner_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
     "created_at": "2026-03-28T09:00:00Z",
     "updated_at": "2026-03-28T09:00:00Z"
+  },
+  {
+    "id": "act09c0d-1e2f-4a3b-8c5d-e6f7a8b9c0d1",
+    "type": "task",
+    "subject": "Support Ticket Escalation",
+    "description": "Sarah reported a latency spike in the staging environment. Resolved within 2 hours by the DevOps team.",
+    "contact_id": "con01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "deal_id": null,
+    "company_id": "comp01a2-b3c4-4d5e-f6a7-b8c9d0e1f2a3",
+    "due_date": "2026-02-05T09:00:00Z",
+    "completed": true,
+    "owner_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "created_at": "2026-02-05T09:15:00Z",
+    "updated_at": "2026-02-05T11:20:00Z"
   }
 ]

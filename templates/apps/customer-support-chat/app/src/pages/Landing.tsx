@@ -274,7 +274,10 @@ function Landing() {
             <div
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 6 }),
-                'sm:gap-10 opacity-60 grayscale flex-wrap',
+                // No opacity-* on text: at 60% the slate-500 wordmarks drop to
+                // ~2.3:1 contrast (axe color-contrast serious). `grayscale`
+                // alone carries the muted treatment and passes AA.
+                'sm:gap-10 grayscale flex-wrap',
               )}
             >
               {TRUSTED_LOGOS.map((logo) => (
@@ -818,7 +821,11 @@ function Landing() {
       {/* Footer — dark four-column band */}
       <footer
         className={cm.cn(
-          'bg-[color:var(--color-footer)] text-[color:var(--color-text-secondary)] py-12 w-full border-t border-[color:var(--color-border)]',
+          // footer-muted (not text-secondary): the footer band is dark in BOTH
+          // themes, and the surface-tuned secondary (#71717a) lands at 3.5:1
+          // on it (axe color-contrast serious). footer-muted is tuned per
+          // theme for the band and passes AA.
+          'bg-[color:var(--color-footer)] text-[color:var(--color-footer-muted)] py-12 w-full border-t border-[color:var(--color-border)]',
         )}
       >
         <div

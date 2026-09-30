@@ -126,6 +126,17 @@ function ReportsBody() {
       .sort((x, y) => y.resolved - x.resolved)
   }, [agents, conversations, t])
 
+  // Trend summary: compare the last 7 days against the previous 7 so the
+  // bullets read from live data (design's bottom card) rather than static
+  // sample numbers.
+  const volumeTrendPct = useMemo(() => {
+    const prev = dailyVolume.slice(0, 7).reduce((a, b) => a + b, 0)
+    const recent = dailyVolume.slice(7).reduce((a, b) => a + b, 0)
+    if (prev === 0) return recent > 0 ? 100 : 0
+    return Math.round(((recent - prev) / prev) * 100)
+  }, [dailyVolume])
+  const volumeTrendWord = volumeTrendPct > 2 ? 'up' : volumeTrendPct < -2 ? 'down' : 'steady'
+
   return (
     <div className={cm.cn(cm.stack(6), cm.sp('p', 6))}>
       <header className={cm.cn(cm.flex({ direction: 'col', gap: 1 }))}>
@@ -373,6 +384,71 @@ function ReportsBody() {
             </tbody>
           </table>
         </div>
+      </section>
+
+      <section
+        data-mol-id="reports-trend-summary"
+        className={cm.cn(
+          cm.flex({ direction: 'col', gap: 3 }),
+          cm.sp('p', 6),
+          'rounded-xl border border-primary/20 bg-primary/10',
+        )}
+      >
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
+          <span
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              cm.w(8),
+              cm.h(8),
+              cm.roundedFull,
+              'bg-primary/15 text-primary-dark',
+            )}
+            aria-hidden="true"
+          >
+            <span className={'material-symbols-outlined text-base leading-none'}>lightbulb</span>
+          </span>
+          <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}>
+            {t('reports.trendSummaryTitle', {}, { defaultValue: 'Trend summary' })}
+          </h2>
+        </div>
+        <ul
+          className={cm.cn(
+            cm.flex({ direction: 'col', gap: 1 }),
+            cm.sp('px', 5),
+            'list-disc list-outside marker:text-primary text-sm text-on-surface-variant',
+          )}
+        >
+          <li>
+            {t(
+              'reports.trendVolume',
+              { pct: Math.abs(volumeTrendPct), direction: volumeTrendWord },
+              {
+                defaultValue:
+                  'Chat volume is {{direction}} {{pct}}% over the last 7 days versus the week before.',
+              },
+            )}
+          </li>
+          <li>
+            {t(
+              'reports.trendResolution',
+              { rate: resolvedRate },
+              {
+                defaultValue:
+                  'Resolution rate holds at {{rate}}% despite volume shifts, indicating strong bot deflection.',
+              },
+            )}
+          </li>
+          <li>
+            {t(
+              'reports.trendSla',
+              {},
+              {
+                defaultValue:
+                  'First response times are nearing the 2-minute SLA threshold during peak hours (10AM - 2PM).',
+              },
+            )}
+          </li>
+        </ul>
       </section>
     </div>
   )

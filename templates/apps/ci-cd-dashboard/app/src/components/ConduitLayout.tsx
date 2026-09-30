@@ -17,7 +17,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -94,12 +94,8 @@ export function ConduitLayout(): ReactElement {
   )
 
   const brand = (
-    <Link
-      to={safeTarget('/pipelines')}
-      data-mol-id="nav-brand"
-      className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'block text-on-surface')}
-    >
-      {APP_NAME}
+    <Link to={safeTarget('/pipelines')} data-mol-id="nav-brand" className={cm.cn('block shrink-0')}>
+      <BrandWordmark as="span" size="md" />
     </Link>
   )
 

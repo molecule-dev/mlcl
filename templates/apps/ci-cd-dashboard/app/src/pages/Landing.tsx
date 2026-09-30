@@ -4,6 +4,7 @@ import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, BRAND_COLOR } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import type { PipelineRowData } from '../components/PipelineRow.js'
 import { PipelineRow } from '../components/PipelineRow.js'
 
@@ -172,20 +173,8 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link
-            to="/"
-            className={
-              'flex items-center gap-2 text-xl font-extrabold tracking-tight text-on-surface'
-            }
-          >
-            <span
-              className={'inline-flex h-8 w-8 items-center justify-center rounded-lg'}
-              style={{ backgroundColor: BRAND_COLOR, color: 'var(--color-on-primary)' }}
-              aria-hidden="true"
-            >
-              <span className="material-symbols-outlined text-[20px]">deployed_code</span>
-            </span>
-            <span>{APP_NAME}</span>
+          <Link to="/" className={'flex items-center gap-2 shrink-0'} aria-label={APP_NAME}>
+            <BrandWordmark as="span" size="md" />
           </Link>
           <div
             className={cm.flex({ align: 'center', gap: 'lg' })}
@@ -676,9 +665,9 @@ export function Landing() {
           )}
         >
           <div className={'col-span-1 md:col-span-2'}>
-            <span className={'text-lg font-bold text-on-surface font-mono mb-4 block'}>
-              {APP_NAME}
-            </span>
+            <div className={'mb-4 block'}>
+              <BrandWordmark as="span" size="sm" footer />
+            </div>
             <p>
               {t(
                 'landing.copyright',

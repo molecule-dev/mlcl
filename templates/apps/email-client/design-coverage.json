@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "/starred": {
+      "allow": [
+        {
+          "heading": "Weekly Critique Notes",
+          "reason": "Design sample-data row (a read starred email in the mock list). The /starred list section is implemented and renders starred threads dynamically from the per-user demo seed; the e2e seeding contract (e2e/seeding.spec.ts) pins the seeded starred count at exactly 1 and inbox at 5, so adding this design sample as a second starred seed row would break the suite. The list renders whatever the mailbox actually contains."
+        }
+      ]
+    }
+  }
+}

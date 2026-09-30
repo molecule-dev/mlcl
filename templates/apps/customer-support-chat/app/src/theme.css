@@ -20,6 +20,9 @@
 
   /* Landing footer band (Stitch: parlance-footer #1a1838) */
   --color-footer: #1a1838;
+  /* muted text ON the dark footer band — AA (≥7:1) against #1a1838, where
+     the surface-tuned --color-text-secondary is only 3.5:1 */
+  --color-footer-muted: #b9b5d8;
 
   /* Surfaces */
   --color-bg: #f5f3ff;
@@ -134,6 +137,7 @@
 
   /* Landing footer band — light */
   --color-footer: #1a1838;
+  --color-footer-muted: #b9b5d8;
 
   --shadow-sm: 0 1px 2px rgba(99, 91, 255, 0.06);
   --shadow-md: 0 4px 12px -2px rgba(99, 91, 255, 0.1);
@@ -203,6 +207,7 @@
 
   /* Landing footer band — dark */
   --color-footer: #131127;
+  --color-footer-muted: #a9a5c9;
 
   /* Stitch / Material-3 token dark variants — override the @theme block
      so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.

@@ -69,6 +69,7 @@ export function Insights() {
         <div className={'space-y-6'}>
           <div className={cm.grid({ cols: 4, gap: 'md' })}>
             <Kpi
+              icon="rocket_launch"
               label={t('insights.deployFrequency', {}, { defaultValue: 'Deploys / day' })}
               value={data.deploy_frequency_per_day.toFixed(1)}
             />
@@ -167,16 +168,27 @@ export function Insights() {
   )
 }
 
-function Kpi({ label, value }: { label: string; value: string }) {
+function Kpi({ label, value, icon }: { label: string; value: string; icon?: string }) {
   const cm = getClassMap()
   return (
     <div className={cm.cn(cm.sp('p', 5), 'bg-surface rounded-md border border-outline-variant')}>
-      <p className={cm.cn(cm.textSize('xs'), 'uppercase tracking-wider text-on-surface-variant')}>
-        {label}
-      </p>
-      <p className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), 'font-mono', cm.sp('mt', 1))}>
-        {value}
-      </p>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 1))}>
+        {icon ? (
+          <span
+            className={cm.cn(
+              'inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md',
+              'bg-surface-secondary text-primary',
+            )}
+            aria-hidden="true"
+          >
+            <span className={'material-symbols-outlined text-base leading-none'}>{icon}</span>
+          </span>
+        ) : null}
+        <p className={cm.cn(cm.textSize('xs'), 'uppercase tracking-wider text-on-surface-variant')}>
+          {label}
+        </p>
+      </div>
+      <p className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), 'font-mono')}>{value}</p>
     </div>
   )
 }

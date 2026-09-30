@@ -14,7 +14,28 @@
     "release": "4.2.1",
     "assignee": "Riley",
     "is_regression": true,
-    "frequency": [3, 4, 6, 8, 12, 9, 14, 22, 28, 31, 27, 35, 42, 51, 47, 39, 44, 58, 71, 82],
+    "frequency": [
+      3,
+      4,
+      6,
+      8,
+      12,
+      9,
+      14,
+      22,
+      28,
+      31,
+      27,
+      35,
+      42,
+      51,
+      47,
+      39,
+      44,
+      58,
+      71,
+      82
+    ],
     "exception_type": "TypeError",
     "exception_value": "Cannot read properties of undefined (reading 'amount')",
     "recent_events": [
@@ -23,7 +44,10 @@
         "environment": "production",
         "release": "4.2.1",
         "timestamp": "2026-04-27T15:57:00Z",
-        "user": { "id": "u-1", "email": "leah@acme.com" },
+        "user": {
+          "id": "u-1",
+          "email": "leah@acme.com"
+        },
         "user_agent": "Mozilla/5.0 (Macintosh; Intel) Chrome/126"
       },
       {
@@ -31,7 +55,10 @@
         "environment": "production",
         "release": "4.2.1",
         "timestamp": "2026-04-27T15:48:00Z",
-        "user": { "id": "u-2", "email": "priya@example.com" },
+        "user": {
+          "id": "u-2",
+          "email": "priya@example.com"
+        },
         "user_agent": "Mozilla/5.0 (X11; Linux) Firefox/130"
       },
       {
@@ -39,7 +66,10 @@
         "environment": "production",
         "release": "4.2.1",
         "timestamp": "2026-04-27T15:21:00Z",
-        "user": { "id": "u-3", "email": "morgan@acme.com" },
+        "user": {
+          "id": "u-3",
+          "email": "morgan@acme.com"
+        },
         "user_agent": "Mozilla/5.0 (iPhone; iOS 17) Safari"
       },
       {
@@ -47,7 +77,10 @@
         "environment": "staging",
         "release": "4.2.1",
         "timestamp": "2026-04-27T14:53:00Z",
-        "user": { "id": "u-4", "email": "sasha@acme.com" },
+        "user": {
+          "id": "u-4",
+          "email": "sasha@acme.com"
+        },
         "user_agent": "Node/20.5.1"
       }
     ],
@@ -80,7 +113,7 @@
           "  const tax = subtotal * region.taxRate",
           "  const shipping = quote.shipping ?? 0"
         ],
-        "context_line": "  const discount = coupon.amount ?? 0  // ← coupon may be undefined",
+        "context_line": "  const discount = coupon.amount ?? 0  // \u2190 coupon may be undefined",
         "context_post": [
           "  return subtotal + tax + shipping - discount",
           "}",
@@ -110,7 +143,28 @@
     "release": "4.2.1",
     "assignee": null,
     "is_regression": false,
-    "frequency": [12, 14, 11, 9, 8, 7, 9, 11, 12, 10, 9, 8, 11, 13, 12, 14, 13, 11, 10, 12]
+    "frequency": [
+      12,
+      14,
+      11,
+      9,
+      8,
+      7,
+      9,
+      11,
+      12,
+      10,
+      9,
+      8,
+      11,
+      13,
+      12,
+      14,
+      13,
+      11,
+      10,
+      12
+    ]
   },
   {
     "id": "iss-3",
@@ -127,7 +181,28 @@
     "release": "4.2.1",
     "assignee": "Sasha",
     "is_regression": false,
-    "frequency": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 15, 22, 29, 31, 27, 24, 26, 32]
+    "frequency": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      8,
+      15,
+      22,
+      29,
+      31,
+      27,
+      24,
+      26,
+      32
+    ]
   },
   {
     "id": "iss-4",
@@ -144,7 +219,28 @@
     "release": "4.2.0",
     "assignee": "Jordan",
     "is_regression": false,
-    "frequency": [8, 6, 5, 4, 3, 4, 5, 6, 5, 4, 3, 2, 1, 1, 0, 0, 0, 0, 0, 0]
+    "frequency": [
+      8,
+      6,
+      5,
+      4,
+      3,
+      4,
+      5,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
   },
   {
     "id": "iss-5",
@@ -161,6 +257,65 @@
     "release": "4.2.1",
     "assignee": "Morgan",
     "is_regression": false,
-    "frequency": [4, 6, 9, 12, 10, 8, 11, 13, 15, 19, 22, 25, 28, 31, 27, 24, 26, 33, 36, 41]
+    "frequency": [
+      4,
+      6,
+      9,
+      12,
+      10,
+      8,
+      11,
+      13,
+      15,
+      19,
+      22,
+      25,
+      28,
+      31,
+      27,
+      24,
+      26,
+      33,
+      36,
+      41
+    ]
+  },
+  {
+    "id": "iss-6",
+    "title": "System maintenance scheduled",
+    "culprit": "system/cron.ts in scheduleMaintenance",
+    "level": "info",
+    "status": "unresolved",
+    "event_count": 1,
+    "user_count": 0,
+    "first_seen": "2026-04-27T14:55:00Z",
+    "last_seen": "2026-04-27T14:58:00Z",
+    "fingerprint": "b8c4d3e2f1a09b78",
+    "environment": "production",
+    "release": "4.2.1",
+    "assignee": null,
+    "is_regression": false,
+    "frequency": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
   }
 ]
