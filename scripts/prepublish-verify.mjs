@@ -113,25 +113,30 @@ for (const f of ['LICENSE', 'README.md', 'bin/run.js']) {
 
 // ── 2. tarball structure ─────────────────────────────────────────────────────
 console.log('tarball contents:')
-// prepack script output (build/oclif chatter) surrounds the JSON array — and
-// some of that chatter carries ANSI escapes whose `ESC[` would defeat a naive
-// indexOf('['), while trailing notices after the closing bracket defeat a
-// whole-slice parse. Walk candidate '[' positions; accept the first that
-// yields a parseable JSON ARRAY (string-aware balanced-bracket scan).
+// prepack script output (build/oclif chatter) surrounds the JSON document —
+// and some of that chatter carries ANSI escapes whose `ESC[` would defeat a
+// naive indexOf('['), while trailing notices after the closing bracket defeat
+// a whole-slice parse. npm also changed the shape across majors: an array of
+// pack results (≤ npm 11.5) or a bare pack object (npm 11.6+ — which is also
+// why slicing the FIRST '[' grabbed the nested "files": [ array). Walk
+// candidate '{' and '[' positions; accept the first that yields a parseable
+// document with the expected shape.
 const rawPack = execFileSync('npm', ['pack', '--dry-run', '--json'], {
   encoding: 'utf8',
   maxBuffer: 1 << 28,
 })
 
 /**
- * Extract the balanced JSON array starting at `start`, honoring string
- * literals (a ']' inside a quoted filename must not close the scan).
+ * Extract the balanced JSON document starting at `start`, honoring string
+ * literals (a close inside a quoted filename must not end the scan).
  *
  * @param {string} text - The raw npm output.
- * @param {number} start - Index of the candidate '['.
- * @returns {string | null} The array slice, or null when unbalanced.
+ * @param {number} start - Index of the candidate '{' or '['.
+ * @returns {string | null} The document slice, or null when unbalanced.
  */
-function balancedArrayAt(text, start) {
+function balancedJsonAt(text, start) {
+  const open = text[start]
+  const close = open === '{' ? '}' : ']'
   let depth = 0
   let inString = false
   let escape = false
@@ -144,8 +149,8 @@ function balancedArrayAt(text, start) {
       continue
     }
     if (ch === '"') inString = true
-    else if (ch === '[') depth++
-    else if (ch === ']') {
+    else if (ch === open) depth++
+    else if (ch === close) {
       depth--
       if (depth === 0) return text.slice(start, i + 1)
     }
@@ -154,13 +159,16 @@ function balancedArrayAt(text, start) {
 }
 
 let pack
-for (let idx = rawPack.indexOf('['); idx !== -1; idx = rawPack.indexOf('[', idx + 1)) {
-  const slice = balancedArrayAt(rawPack, idx)
+for (let idx = 0; idx < rawPack.length; idx++) {
+  const ch = rawPack[idx]
+  if (ch !== '{' && ch !== '[') continue
+  const slice = balancedJsonAt(rawPack, idx)
   if (slice === null) continue
   try {
     const parsed = JSON.parse(slice)
-    if (Array.isArray(parsed) && parsed[0]?.files) {
-      pack = parsed[0]
+    const doc = Array.isArray(parsed) ? parsed[0] : parsed
+    if (doc && typeof doc === 'object' && Array.isArray(doc.files)) {
+      pack = doc
       break
     }
   } catch (_error) {
