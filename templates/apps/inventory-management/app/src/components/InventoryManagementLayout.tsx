@@ -301,9 +301,17 @@ export function InventoryManagementLayout() {
   const drawerFooter = (
     <>
       <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }))}>
-        <span className={cm.cn('inline-flex [&_button]:min-h-[36px] [&_button]:min-w-[36px]')}>
+        {/* Styled cell so the menu doesn't render as a bare browser control in
+            the drawer footer — same navy pairing as the theme button beside it. */}
+        <div
+          className={cm.cn(
+            'inline-flex rounded-lg text-white/70 transition-colors',
+            'hover:bg-surface/5 hover:text-white',
+            '[&_button]:min-h-[36px] [&_button]:min-w-[36px]',
+          )}
+        >
           <UserMenu />
-        </span>
+        </div>
         <button
           type="button"
           onClick={toggleTheme}

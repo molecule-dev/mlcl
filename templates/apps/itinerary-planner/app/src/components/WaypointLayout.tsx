@@ -111,7 +111,23 @@ export function WaypointLayout() {
   return (
     <ResponsiveAppShell sidebarWidth="lg">
       <ResponsiveAppShell.TopBar mobileOnly brand={brand} actions={<UserMenu />} />
-      <ResponsiveAppShell.Sidebar navLabel={navAriaLabel} footer={<UserMenu />}>
+      <ResponsiveAppShell.Sidebar
+        navLabel={navAriaLabel}
+        // Sidebar bottom bar — styled so the UserMenu doesn't render as a bare
+        // browser control bolted onto a styled sidebar (fleet chrome pattern).
+        footer={
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+          </div>
+        }
+      >
         <div className={cm.cn(cm.sp('px', 3), cm.sp('py', 2))}>{brand}</div>
         {nav}
       </ResponsiveAppShell.Sidebar>

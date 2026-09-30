@@ -219,12 +219,17 @@ export function ArborLayout(): ReactElement {
               <div
                 className={cm.cn(
                   cm.sp('mt', 4),
-                  cm.flex({ align: 'center' }),
+                  cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
                   cm.borderT,
                   cm.sp('pt', 4),
                 )}
               >
-                <UserMenu />
+                {/* Styled cell so the menu doesn't render as a bare browser
+                    control inside the styled drawer footer (fleet chrome
+                    pattern). */}
+                <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+                  <UserMenu />
+                </div>
               </div>
             </div>
           </div>

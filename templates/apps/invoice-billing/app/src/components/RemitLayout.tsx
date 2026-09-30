@@ -337,8 +337,14 @@ export function RemitLayout() {
                 }}
               />
             </Link>
-            <ThemeToggle />
-            <UserMenu />
+            {/* Styled cells so the toggle + menu don't render as bare browser
+                controls inside the styled top bar (fleet chrome pattern). */}
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+              <ThemeToggle />
+            </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
           </div>
         </header>
 

@@ -77,7 +77,9 @@ export function FlightSearchLayout() {
             ))}
           </nav>
 
-          <div className="flex min-w-0 shrink-0 items-center">
+          {/* Styled cell so the menu doesn't render as a bare browser control
+              in the styled header row (fleet chrome pattern). */}
+          <div className="flex min-w-0 shrink-0 items-center rounded-lg text-on-surface-variant transition-colors hover:bg-surface-container hover:text-on-surface">
             <UserMenu />
           </div>
         </div>

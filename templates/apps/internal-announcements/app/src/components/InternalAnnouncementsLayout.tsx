@@ -327,8 +327,14 @@ export function InternalAnnouncementsLayout() {
             {t('settings.logOut', {}, { defaultValue: 'Sign out' })}
           </span>
         </button>
-        <UserMenu />
-        <ThemeToggle />
+        {/* Styled cells so the menu + toggle don't render as bare browser
+            controls inside the styled footer row (fleet chrome pattern). */}
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+          <UserMenu />
+        </div>
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+          <ThemeToggle />
+        </div>
       </div>
     </>
   )

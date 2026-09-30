@@ -99,12 +99,23 @@ export function GroceryDeliveryLayout() {
       <ResponsiveAppShell.Sidebar
         navLabel={navLabel}
         className={cm.sp('p', 4)}
-        // inline-flex keeps the menu button hugging its content instead of
-        // stretching across the footer row (the footer is a flex-col).
+        // Sidebar bottom bar — styled so the UserMenu doesn't render as a
+        // bare browser control bolted onto a styled sidebar (fleet chrome
+        // pattern). inline-flex keeps the menu button hugging its content
+        // instead of stretching across the footer row.
         footer={
-          <span className="inline-flex">
-            <UserMenu />
-          </span>
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <span className="inline-flex">
+                <UserMenu />
+              </span>
+            </div>
+          </div>
         }
       >
         <Link to="/shop" className={cm.cn('block')}>
