@@ -238,7 +238,10 @@ export function Landing() {
             <div
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'lg', wrap: 'wrap' }),
-                'pt-4 text-on-surface-variant opacity-70',
+                // No opacity de-emphasis here: on-surface-variant at 70%
+                // measured 3.94:1 on the surface (axe serious). The token
+                // color alone keeps the muted look and passes 4.5:1.
+                'pt-4 text-on-surface-variant',
               )}
             >
               {TRUST_CHIPS.map((chip) => (

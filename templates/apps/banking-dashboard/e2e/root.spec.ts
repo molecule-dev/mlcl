@@ -16,7 +16,7 @@ test.describe('landing page', () => {
       await expect(page.locator('h1').first()).toBeVisible()
       await expect(page.getByText(/Total Balance/i).first()).toBeVisible()
       await expect(
-        page.getByText(/Banking that respects your time|Multi-account view/i).first(),
+        page.getByText(/Money in motion, always clear|Unified accounts/i).first(),
       ).toBeVisible()
       await expect(page.getByText(/Member FDIC/i)).toBeVisible()
     })
@@ -46,9 +46,9 @@ test.describe('landing page', () => {
 
   test('feature grid renders all 4 cards', async ({ page }) => {
     await page.goto(APP_BASE + '/')
-    await expect(page.getByRole('heading', { name: /Multi-account view/i })).toBeVisible()
-    await expect(page.getByRole('heading', { name: /Transparent transfers/i })).toBeVisible()
-    await expect(page.getByRole('heading', { name: /Clean statements/i })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /Unified accounts/i })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /Instant transfers/i })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /Intelligent insights/i })).toBeVisible()
     await expect(page.getByRole('heading', { name: /Audit-grade security/i })).toBeVisible()
   })
 
@@ -61,14 +61,14 @@ test.describe('landing page', () => {
 
   test('hero subheading renders without placeholder copy', async ({ page }) => {
     await page.goto(APP_BASE + '/')
-    const subheading = page.getByText(/Multi-account banking with transparent transfers/i).first()
+    const subheading = page.getByText(/architectural ledger for modern institutions/i).first()
     await expect(subheading).toBeVisible()
     await expect(subheading).not.toContainText(/Lorem ipsum|placeholder|TBD/i)
   })
 
   test('sample balance card renders mock total + sparkline svg', async ({ page }) => {
     await page.goto(APP_BASE + '/')
-    await expect(page.getByText('$48,290.50')).toBeVisible()
+    await expect(page.getByText('$12,450,000.00')).toBeVisible()
     expect(await page.locator('section svg').count()).toBeGreaterThanOrEqual(1)
   })
 

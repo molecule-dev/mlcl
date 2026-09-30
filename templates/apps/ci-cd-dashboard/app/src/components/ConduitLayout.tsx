@@ -117,7 +117,20 @@ export function ConduitLayout(): ReactElement {
       <ResponsiveAppShell.Sidebar
         navLabel={navAriaLabel}
         className={cm.sp('p', 4)}
-        footer={<UserMenu />}
+        footer={
+          /* Footer bar — styled to match the sidebar. Without this, UserMenu
+             renders as a bare browser control bolted onto a styled sidebar. */
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+          </div>
+        }
       >
         <div className={cm.cn(cm.flex({ direction: 'col' }), cm.sp('mb', 6))}>{brand}</div>
         {nav}
@@ -129,7 +142,18 @@ export function ConduitLayout(): ReactElement {
         navLabel={navAriaLabel}
         className={cm.sp('p', 4)}
         header={brand}
-        footer={<UserMenu />}
+        footer={
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <UserMenu />
+            </div>
+          </div>
+        }
       >
         {nav}
       </ResponsiveAppShell.Drawer>

@@ -1,6 +1,5 @@
 import { useTranslation } from '@molecule/app-react'
 import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
-import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 import { useIsMobile } from '../lib/use-is-mobile.js'
@@ -35,7 +34,6 @@ export const NAV_KEYS = [
 ] as const
 
 export function PylonShell() {
-  const cm = getClassMap()
   const { t } = useTranslation()
   const isMobile = useIsMobile()
   const navItems = NAV_KEYS.map((item) => ({
@@ -52,12 +50,8 @@ export function PylonShell() {
       appName={APP_NAME}
       logoTo="/workspace"
       navItems={navItems}
-      userMenu={
-        <div className={cm.cn('flex items-center gap-2')}>
-          <ThemeToggle />
-          <UserMenu />
-        </div>
-      }
+      userMenu={<UserMenu />}
+      themeToggle={<ThemeToggle />}
       navAriaLabel={t('pylonShell.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })}
     />
   )

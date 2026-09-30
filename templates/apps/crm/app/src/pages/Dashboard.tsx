@@ -229,13 +229,16 @@ export function DashboardPage() {
           label={t('dashboard.wonDeals', {}, { defaultValue: 'Won deals' }) as string}
           value={loading ? '…' : String(stats?.won_count ?? 0)}
           molId="kpi-won-deals"
-          accent="var(--color-emerald-500)"
+          // emerald-500 measured under 4.5:1 on the card surface at this
+          // 11px label size (axe serious) — emerald-700 is the same hue,
+          // AA-compliant.
+          accent="var(--color-emerald-700)"
         />
         <Kpi
           label={t('dashboard.wonValue', {}, { defaultValue: 'Won value' }) as string}
           value={loading ? '…' : formatCurrency(stats?.won_value)}
           molId="kpi-won-value"
-          accent="var(--color-emerald-500)"
+          accent="var(--color-emerald-700)"
         />
         <Kpi
           label={t('dashboard.conversion', {}, { defaultValue: 'Win rate' }) as string}

@@ -116,10 +116,17 @@ export function BillSplitLayout() {
     </>
   )
 
+  // Shell chrome actions — each control wrapped so UserMenu + ThemeToggle
+  // never render as bare browser controls bolted onto a styled sidebar
+  // (token text colors + hover, matching the app's M3 design language).
   const actions = (
     <>
-      <ThemeToggle />
-      <UserMenu />
+      <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+        <UserMenu />
+      </div>
+      <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+        <ThemeToggle />
+      </div>
     </>
   )
 
@@ -146,7 +153,16 @@ export function BillSplitLayout() {
       */}
       <ResponsiveAppShell.Sidebar
         className={cm.cn(cm.sp('px', 4), cm.sp('py', 6))}
-        footer={<div className={cm.flex({ align: 'center', gap: 'sm' })}>{actions}</div>}
+        footer={
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            {actions}
+          </div>
+        }
       >
         <NavLink
           to="/dashboard"
@@ -165,7 +181,16 @@ export function BillSplitLayout() {
       */}
       <ResponsiveAppShell.Drawer
         header={<BrandWordmark as="span" />}
-        footer={<div className={cm.flex({ align: 'center', justify: 'between' })}>{actions}</div>}
+        footer={
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'w-full border-t border-outline-variant/40 pt-3',
+            )}
+          >
+            {actions}
+          </div>
+        }
       >
         {nav}
       </ResponsiveAppShell.Drawer>
