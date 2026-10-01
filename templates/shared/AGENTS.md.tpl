@@ -25,3 +25,26 @@ npm test        # vitest suites
 The project-root `.npmrc` sets `legacy-peer-deps=true` on purpose (one pinned
 dev dependency's peer range lags the toolchain; the file's comment says when
 to delete it) — do not "clean it up".
+
+## Verifying a change
+
+- **Run the e2e specs** — every scaffold ships `app/e2e/` (or `e2e/`) with a
+  working `playwright.config.ts` and a real browser via
+  `@molecule/app-e2e-playwright` (Chromium downloads on first run; no preview
+  tab needed — the specs run against the dev server or a built preview):
+  `npx playwright test e2e/<file>.spec.ts`. A requirement about an
+  interaction or a painted state (hover, focus, scroll, a sticky bar, a
+  phone-width layout) is proven only by driving the interaction and measuring
+  the paint (`getComputedStyle`, `boundingBox`) — reading the component's
+  source or its class names proves nothing.
+- **See the render, not just the DOM.** For anything visual (overlap,
+  clipping, a phone-width overflow, a broken image, contrast), take a
+  screenshot with the same Playwright (`page.screenshot({ path, fullPage:
+  true })` at the right viewport — mobile is 390×844), then LOOK at the image
+  before concluding. The workflow for a visual bug: screenshot before, fix,
+  screenshot the same path+viewport after, and compare. Specs remain the tool
+  for assertions; screenshots are judgment evidence.
+- `npx mlcl check` runs everything at once (typecheck, lint on changed files,
+  build, unit, e2e — discovered from this project's own scripts) and prints
+  one compact report with the first actionable errors. Use it before handing
+  work back.

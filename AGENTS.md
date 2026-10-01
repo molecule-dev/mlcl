@@ -38,7 +38,7 @@ Repo layout beyond `src/` (agent-facing surfaces — keep their docs in sync):
 
 - `mcp/` — the `molecule-mcp` package (own package.json, not an npm workspace
   member). stdio mode wraps this CLI; `remote.ts`/`http.ts` are the hosted
-  read-only face slated for `mcp.molecule.dev` — NOT yet deployed; see mcp/DEPLOY.md).
+  read-only face, live at `https://mcp.molecule.dev/mcp` (Fly app `molecule-mcp`; deploy: mcp/DEPLOY.md).
   **Invariant:** `mcp/assets/conventions.md` is a copy of
   `templates/shared/agent-init-section.md.tpl` — update both together.
 - `integrations/claude-code/` — the Claude Code plugin + marketplace skeleton;

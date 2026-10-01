@@ -211,7 +211,7 @@ server.registerTool(
           if (doc.length > 200_000)
             return text(`${doc.slice(0, 200_000)}\n\n[…truncated — full doc at ${p}]`)
           return text(doc)
-        } catch {
+        } catch (_error) {
           /* try next path */
         }
       }
@@ -253,6 +253,45 @@ server.registerTool(
   tracked('agent_init', async ({ directory }) =>
     text(await runCli(['agent', 'init'], directory ?? process.cwd())),
   ),
+)
+
+server.registerTool(
+  'check_project',
+  {
+    title: 'Run the project’s checks',
+    description:
+      'Run the project’s own checks — typecheck, lint (changed files only), build, unit tests, e2e — discovered from its package.json scripts, concurrently with e2e after the build, and get ONE compact report back: per step passed/failed with duration, the first actionable errors (tsc/eslint/vitest/Playwright shapes), and the build’s output manifest. The whole verification loop in one call instead of hand-running each script and grepping its output. The full log of a failed step is kept at node_modules/.cache/mlcl-check/.',
+    inputSchema: {
+      directory: z.string().optional().describe('Project root (default cwd)'),
+      steps: z
+        .string()
+        .optional()
+        .describe('Only these steps, comma-separated: typecheck, lint, build, unit, e2e'),
+      e2e: z
+        .string()
+        .optional()
+        .describe('Extra arguments for the e2e run (spec files, `--grep …`)'),
+    },
+  },
+  tracked('check_project', async ({ directory, steps, e2e }) => {
+    const args = ['check']
+    if (steps) args.push('--steps', steps)
+    if (e2e) args.push('--e2e', e2e)
+    // A FAILED check exits non-zero, which runCli surfaces as a throw whose
+    // message is the JSON stdout — the report is the result either way.
+    let out: string
+    try {
+      out = await runCli([...args, '--json'], directory ?? process.cwd())
+    } catch (error) {
+      out = error instanceof Error ? error.message : String(error)
+    }
+    const parsed = parseJsonOut<{ ok: boolean; results: unknown[] }>(out)
+    return text(
+      parsed
+        ? `${parsed.ok ? 'PASSED' : 'FAILED'}\n${JSON.stringify(parsed.results, null, 2)}`
+        : out,
+    )
+  }),
 )
 
 server.registerResource(

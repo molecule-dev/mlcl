@@ -121,14 +121,15 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 
 ## Builds & tests
 
-| Capability        | Route(s)                    | Decision                                        | CLI                 | MCP | Status |
-| ----------------- | --------------------------- | ----------------------------------------------- | ------------------- | --- | ------ |
-| Mobile build      | POST /builds/mobile         | parity                                          | `build mobile`      | —   | ✅     |
-| Desktop build     | POST /builds/desktop        | parity                                          | `build desktop`     | —   | ✅     |
-| Build list/detail | GET /builds(/:id)           | parity                                          | `build list/status` | —   | ✅     |
-| Test discovery    | GET /tests                  | local-equivalent (scaffolded vitest/playwright) | —                   | —   | ➖     |
-| Test run (SSE)    | POST /tests/run             | local-equivalent                                | —                   | —   | ➖     |
-| Scheduled tasks   | GET/DELETE /scheduled-tasks | parity                                          | `tasks list/cancel` | —   | ✅     |
+| Capability        | Route(s)                    | Decision                                        | CLI                 | MCP             | Status |
+| ----------------- | --------------------------- | ----------------------------------------------- | ------------------- | --------------- | ------ |
+| Mobile build      | POST /builds/mobile         | parity                                          | `build mobile`      | —               | ✅     |
+| Desktop build     | POST /builds/desktop        | parity                                          | `build desktop`     | —               | ✅     |
+| Build list/detail | GET /builds(/:id)           | parity                                          | `build list/status` | —               | ✅     |
+| Test discovery    | GET /tests                  | local-equivalent (scaffolded vitest/playwright) | —                   | —               | ➖     |
+| Test run (SSE)    | POST /tests/run             | local-equivalent                                | —                   | —               | ➖     |
+| One-call check    | — (local execution)         | local-equivalent (the IDE `check` tool, ported) | `check`             | `check_project` | ✅     |
+| Scheduled tasks   | GET/DELETE /scheduled-tasks | parity                                          | `tasks list/cancel` | —               | ✅     |
 
 ## AI / chat (Synthase)
 
