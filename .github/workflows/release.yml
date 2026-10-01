@@ -3,8 +3,9 @@ name: Release
 # ⛔ ON HOLD (owner decision, 2026-09-30): mlcl v2 does NOT release until the
 # fleet audit/polish session finishes. Do NOT dispatch this workflow until the
 # owner lifts the hold. When it lifts, the runbook is:
-#   1. npm trust github mlcl --repo molecule-dev/mlcl --file release.yml -y
-#      (one-time OIDC link — the 2022 publishes predate trusted publishing)
+#   1. ✅ DONE + verified (2026-10-01): the mlcl ⇄ GitHub Actions OIDC trust
+#      link exists (github / release.yml / molecule-dev/mlcl — `npm trust
+#      list mlcl`). Nothing to do.
 #   2. cd mcp && npm run build && npm publish --access public   (owner session;
 #      molecule-mcp's first publish has no OIDC path — npm/cli#8544)
 #      then: npm trust github molecule-mcp --repo molecule-dev/mlcl --file release.yml -y
