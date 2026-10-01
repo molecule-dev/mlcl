@@ -197,6 +197,8 @@ export const messages: LocaleMessages = {
   'commands.inject.messages.conflictsFound': 'Found {count} conflict(s). Use --force to overwrite.',
   'commands.inject.messages.dryRunComplete': 'Dry run complete - no changes made',
   'commands.inject.prompts.proceed': 'Proceed with injection?',
+  'commands.inject.messages.nonInteractiveProceed':
+    'Non-interactive stdin — proceeding with injection (pass --force to also overwrite conflicts)',
   'commands.inject.prompts.cancelled': 'Operation cancelled',
   'commands.inject.spinners.executing': 'Executing injection...',
   'commands.inject.spinners.complete': 'Injection complete',

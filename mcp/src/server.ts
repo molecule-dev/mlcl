@@ -41,12 +41,22 @@ import { tracked } from './telemetry.js'
 const CLI = process.env.MOLECULE_MCP_CLI ?? 'mlcl'
 
 async function runCli(args: string[], cwd?: string): Promise<string> {
-  const { stdout, failed, stderr } = await execa(CLI, args, {
+  if (cwd && !existsSync(cwd)) throw new Error(`mlcl ${args[0]}: directory does not exist: ${cwd}`)
+  const { stdout, failed, stderr, originalMessage } = await execa(CLI, args, {
     cwd,
     reject: false,
+    // The CLI's interactive confirms read stdin; spawned from the server, an
+    // execa-default stdin is an open pipe nothing writes — a `Yes / No` prompt
+    // would wait forever (add_package hung 10 min this way). 'ignore' makes
+    // mlcl take its non-interactive defaults instead.
+    stdin: 'ignore',
     timeout: 10 * 60_000,
   })
-  if (failed) throw new Error(stderr.trim() || stdout.trim() || `mlcl ${args.join(' ')} failed`)
+  if (failed) {
+    const detail =
+      stderr.trim() || stdout.trim() || originalMessage || `mlcl ${args.join(' ')} failed`
+    throw new Error(detail)
+  }
   return stdout
 }
 

@@ -120,14 +120,10 @@ export default class Add extends Command {
         )
       }
 
-      // --inject: hand off to `mlcl inject`, which installs and wires the package
-      // into the project's bonds. inject prints its own summary and next steps.
-      if (flags.inject) {
-        p.outro(chalk.green(`✓ ${t('commands.add.messages.success', { name: moleculeName })}`))
-        await this.config.runCommand('inject', ['--molecule', moleculeName])
-        return
-      }
-
+      // Install BEFORE the --inject handoff: inject's plan validation resolves
+      // the package through node_modules (it warns "Run 'npm install' first"
+      // otherwise), and an unattended `add --inject` (agents, the molecule MCP
+      // server) must end with the dependency actually on disk.
       if (!flags['no-install']) {
         spinner.start(t('commands.add.spinners.installing'))
 
@@ -140,6 +136,14 @@ export default class Add extends Command {
           this.log('')
           this.log(chalk.yellow(t('commands.add.messages.installNote')))
         }
+      }
+
+      // --inject: hand off to `mlcl inject`, which wires the package into the
+      // project's bonds. inject prints its own summary and next steps.
+      if (flags.inject) {
+        p.outro(chalk.green(`✓ ${t('commands.add.messages.success', { name: moleculeName })}`))
+        await this.config.runCommand('inject', ['--molecule', moleculeName])
+        return
       }
 
       p.outro(chalk.green(`✓ ${t('commands.add.messages.success', { name: moleculeName })}`))

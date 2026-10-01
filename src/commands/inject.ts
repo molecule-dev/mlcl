@@ -356,8 +356,12 @@ export default class Inject extends Command {
       return
     }
 
-    // Confirm
-    if (!flags.force) {
+    // Confirm. A confirm can never be answered when stdin isn't a TTY (agents,
+    // CI, the molecule MCP server) — a piped-open stdin hangs the prompt
+    // forever, an ignored one never resolves, so proceed with a logged notice.
+    if (!flags.force && !process.stdin.isTTY) {
+      this.log(chalk.dim(t('commands.inject.messages.nonInteractiveProceed')))
+    } else if (!flags.force) {
       const proceed = await p.confirm({
         message: t('commands.inject.prompts.proceed'),
       })
