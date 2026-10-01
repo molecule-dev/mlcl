@@ -16,16 +16,28 @@ import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
 import './bonds.js'
 
+/** `/` may legitimately redirect before anything renders (an AuthGuard sending
+ * a signed-out visit to /login, a locale or onboarding hop) — and Playwright's
+ * goto resolves on the initial document's `load`, BEFORE the client-side
+ * redirect has painted. Poll until the page the router actually landed on has
+ * text; reading one frame earlier measures the teardown, not the app. */
+const settledText = (page: { locator: (selector: string) => { innerText(): Promise<string> } }) =>
+  page.locator('body').innerText()
+
 test('the home page renders visible content', async ({ page }) => {
   await page.goto('/')
   await expect(page.locator('body')).toBeVisible()
-  const text = (await page.locator('body').innerText()).trim()
-  expect(text.length).toBeGreaterThan(0)
+  await expect
+    .poll(async () => (await settledText(page)).trim().length, { timeout: 15_000 })
+    .toBeGreaterThan(0)
 })
 
 test('the home page still renders at phone width', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 }).catch(() => undefined) // a plain tab cannot resize; the IDE can
   await page.goto('/')
+  await expect
+    .poll(async () => (await settledText(page)).trim().length, { timeout: 15_000 })
+    .toBeGreaterThan(0)
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth - window.innerWidth,
   )
