@@ -99,7 +99,7 @@ server.registerTool(
   {
     title: 'Scaffold a molecule project',
     description:
-      'Create a new project with mlcl — either from a flagship template (preferred) or a custom package stack. Runs fully unattended and returns a JSON result (path, packages, secrets to fill in .env). Requires Node >= 22.',
+      'Create a new project with mlcl — either from a flagship template (preferred) or a custom package stack. Runs fully unattended and returns a JSON result (path, packages, secrets to fill in .env). Requires Node >= 22. SLOW BY DESIGN: with an install it can take several minutes — call it once and wait; a slow response is not a failure, do not retry. `directory` must already exist (it becomes the spawn cwd).',
     inputSchema: {
       name: z.string().describe('Project name (lowercase slug)'),
       template: z.string().optional().describe('Template slug from list_templates (preferred)'),
@@ -139,7 +139,7 @@ server.registerTool(
   {
     title: 'Add a package to this project',
     description:
-      'Install and wire a @molecule/* package into the project at directory (mlcl add --inject: writes the dependency, generates the bond wiring, peers, migrations, routes).',
+      'Install and wire a @molecule/* package into the project at directory (mlcl add --inject: writes the dependency, generates the bond wiring, peers, migrations, routes). SLOW BY DESIGN: it runs a real `npm install` (typically 1–3 minutes) — call it once and wait; a slow response is not a failure, do not retry.',
     inputSchema: {
       name: z.string().describe('Full package name, e.g. @molecule/api-emails-mailgun'),
       directory: z

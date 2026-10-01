@@ -2888,7 +2888,7 @@ export async function createApiProject(
   }
 
   await writeFile(join(projectPath, 'package.json'), JSON.stringify(packageJson, null, 2) + '\n')
-  await writeFile(join(projectPath, '.npmrc'), 'save-exact=true\n')
+  await writeFile(join(projectPath, '.npmrc'), await loadTemplate('shared/npmrc.tpl'))
 
   const tsconfig = {
     compilerOptions: {
@@ -4073,7 +4073,7 @@ export async function createAppProject(
   // The e2e runner + bonds the vite config's preview plugin file imports (one place
   // for custom apps; templates get the same through copyTemplateInstance).
   await ensureE2EManifest(projectPath)
-  await writeFile(join(projectPath, '.npmrc'), 'save-exact=true\n')
+  await writeFile(join(projectPath, '.npmrc'), await loadTemplate('shared/npmrc.tpl'))
 
   // tsconfig.json (framework-specific)
   const tsconfigBase = {
@@ -5898,7 +5898,7 @@ export async function createStatusPageEdgeProject(
     }
 
     await writeFile(join(projectPath, 'package.json'), JSON.stringify(packageJson, null, 2) + '\n')
-    await writeFile(join(projectPath, '.npmrc'), 'save-exact=true\n')
+    await writeFile(join(projectPath, '.npmrc'), await loadTemplate('shared/npmrc.tpl'))
 
     const tsconfig = {
       compilerOptions: {

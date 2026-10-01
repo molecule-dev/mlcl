@@ -2,5 +2,7 @@
 # release and still declares `peer eslint ^9`, so a default strict-peer
 # `npm install` fails on resolution alone. Install with legacy peer
 # resolution until eslint-plugin-jsx-a11y ships a version accepting eslint 10
-# — then delete this line (and this file, if nothing else is added to it).
+# — then delete that line (and this file, if nothing else is added to it).
 legacy-peer-deps=true
+# Pin every install to the exact versions package.json records.
+save-exact=true
