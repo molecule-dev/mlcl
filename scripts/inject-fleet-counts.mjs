@@ -28,21 +28,42 @@ if (!packages) {
   process.exit(1)
 }
 const templatesDir = join(root, 'templates', 'apps')
-// Same definition as the site catalog (generate-template-catalog.mjs): every
-// directory holding a template.json, minus those marked "unlisted": true.
-const templates = existsSync(templatesDir)
-  ? readdirSync(templatesDir).filter((slug) => {
-      const manifest = join(templatesDir, slug, 'template.json')
-      if (!existsSync(manifest)) return false
-      try {
-        return JSON.parse(readFileSync(manifest, 'utf8')).unlisted !== true
-      } catch (_error) {
-        // Malformed manifest — not countable (the site catalog throws instead;
-        // a count script has no business failing the release over it).
-        return false
-      }
-    }).length
-  : null
+// Prefer the generated site catalog (molecule-dev sibling) — the user-visible
+// count: dirs with a template.json minus "unlisted", PLUS the blank-react
+// marketplace preset the catalog generator declares. Fall back to the dir
+// filter alone (the marketplace preset costs one template of precision).
+function countTemplates() {
+  const catalogPath = resolve(
+    root,
+    '..',
+    'molecule-dev',
+    'app',
+    'src',
+    'data',
+    'templates-catalog.json',
+  )
+  if (existsSync(catalogPath)) {
+    try {
+      const catalog = JSON.parse(readFileSync(catalogPath, 'utf8'))
+      if (Array.isArray(catalog)) return catalog.length
+    } catch (_error) {
+      // Fall through to the dir filter.
+    }
+  }
+  if (!existsSync(templatesDir)) return null
+  return readdirSync(templatesDir).filter((slug) => {
+    const manifest = join(templatesDir, slug, 'template.json')
+    if (!existsSync(manifest)) return false
+    try {
+      return JSON.parse(readFileSync(manifest, 'utf8')).unlisted !== true
+    } catch (_error) {
+      // Malformed manifest — not countable (the site catalog throws instead;
+      // a count script has no business failing the release over it).
+      return false
+    }
+  }).length
+}
+const templates = countTemplates()
 
 /** Replace every count claim with the true count; staleness = the text changed. */
 function syncClaims(text, path) {

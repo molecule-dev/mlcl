@@ -9,7 +9,7 @@ is a package behind a **bond** (a swappable provider interface), so you can
 change PostgreSQL for MySQL, Mailgun for SES, or one OAuth provider for
 another by changing one wiring file, not rewriting your app.
 
-- **Start from a working app**: 151+ flagship templates (blog, CRM, team chat,
+- **Start from a working app**: 152+ flagship templates (blog, CRM, team chat,
   online store, …) — real screens, real handlers, real data models.
 - **Stay decoupled**: cores define interfaces; bonds implement them. Your code
   talks to `bond('email')`, never to a vendor SDK.
