@@ -868,6 +868,23 @@ export function deleteProject(projectId: string, token?: string): Promise<unknow
   return request(`/projects/${projectId}`, { method: 'DELETE', token })
 }
 
+/**
+ * PUT /projects/:id/protection — refuse deletion of the project until an
+ * owner removes protection. For named, irreplaceable projects that a cleanup
+ * of disposable run projects must never sweep up.
+ */
+export function putProjectProtection(
+  projectId: string,
+  enabled: boolean,
+  token?: string,
+): Promise<{ enabled: boolean }> {
+  return request(`/projects/${projectId}/protection`, {
+    method: 'PUT',
+    body: { enabled },
+    token,
+  })
+}
+
 // ── Cloud DB inspection ──────────────────────────────────────────────────────
 
 export interface DatabaseInfo {
