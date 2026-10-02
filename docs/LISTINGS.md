@@ -33,8 +33,8 @@ staged with exact copy so submission is paste-and-click.
 
 ## Vibecoding platforms (hosted remote MCP — built, deploys with launch)
 
-Lovable (chat connectors), v0 (MCP integrations), and bolt.new (Connectors)
-all accept MCP servers — but REMOTE (HTTP URL) ones. molecule-mcp's hosted
+Lovable (chat connectors), v0 (MCP integrations), bolt.new (Connectors),
+and Base44 all accept MCP servers — but REMOTE (HTTP URL) ones. molecule-mcp's hosted
 read-only face is built (`mcp/src/http.ts` + `remote.ts`; deploy runbook in
 `mcp/DEPLOY.md`): `https://mcp.molecule.dev/mcp` serving the read tools
 (search/templates/docs + the conventions resource). Deploying it unlocks all
