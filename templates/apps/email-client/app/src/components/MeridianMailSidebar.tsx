@@ -168,10 +168,10 @@ export function MeridianMailSidebar({ refreshKey = 0 }: MeridianMailSidebarProps
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'between' }),
                 cm.sp('px', 3),
-                cm.sp('py', 2),
                 cm.textSize('sm'),
                 cm.fontWeight(active ? 'semibold' : 'medium'),
-                'rounded-xl transition-colors',
+                // 44px — the fleet's minimum tap target (mobile drawer).
+                'min-h-[44px] rounded-xl transition-colors',
                 active
                   ? 'bg-primary/10 text-primary-dark'
                   : 'text-on-surface hover:bg-surface-container-low',
@@ -240,11 +240,11 @@ export function MeridianMailSidebar({ refreshKey = 0 }: MeridianMailSidebarProps
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'sm' }),
                   cm.sp('px', 3),
-                  cm.sp('py', 2),
                   cm.w('full'),
                   cm.textSize('sm'),
                   cm.fontWeight('medium'),
-                  'rounded-xl text-on-surface hover:bg-surface-container-low transition-colors text-left',
+                  // 44px — the fleet's minimum tap target (mobile drawer).
+                  'min-h-[44px] rounded-xl text-on-surface hover:bg-surface-container-low transition-colors text-left',
                 )}
               >
                 <span

@@ -85,7 +85,12 @@ export function MeridianAppShell({
   const brand = (
     <Link
       to="/inbox"
-      className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0 shrink-0')}
+      className={cm.cn(
+        cm.flex({ align: 'center', gap: 'sm' }),
+        // 44px — the fleet's minimum tap target; below sm only the 32px
+        // mail tile renders, so the link itself carries the height.
+        'min-h-[44px] shrink-0',
+      )}
     >
       <span
         className={cm.cn(
