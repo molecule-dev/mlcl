@@ -34,12 +34,14 @@ function useNavItems() {
 }
 
 /**
- * Authenticated app chrome — the shared ResponsiveAppShell. The top bar
- * (brand + new-message action) renders on every breakpoint; the nav lives in
- * a desktop sidebar (≥768px) and in the mobile dialog drawer (<768px, opened
- * by the shell-owned menu trigger), with the UserMenu in whichever nav
- * container is mounted. The shell owns the breakpoint signal, drawer state,
- * focus trap, and close-on-navigation.
+ * Authenticated app chrome — the shared ResponsiveAppShell. The TopBar is
+ * `mobileOnly` (brand + new-message action + the shell's menu trigger, below
+ * 768px only — the shell suppresses any bar rendered beside the Sidebar on
+ * desktop); the nav lives in a desktop sidebar (≥768px: brand above the nav,
+ * new-message + UserMenu in the footer) and in the mobile dialog drawer
+ * (<768px, opened by the shell-owned menu trigger, UserMenu footer). The
+ * shell owns the breakpoint signal, drawer state, focus trap, and
+ * close-on-navigation.
  */
 
 function BrandLink() {
@@ -110,13 +112,36 @@ function HushNav() {
 }
 
 export function HushLayout() {
+  const cm = getClassMap()
   const { t } = useTranslation()
   const navAriaLabel = t('hushLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
 
+  // Brand block — mounted by the mobile TopBar AND the desktop Sidebar (never
+  // simultaneously: the Sidebar is unmounted below 768px and the mobileOnly
+  // TopBar returns null above it).
+  const brand = <BrandLink />
+
   return (
     <ResponsiveAppShell sidebarWidth="md">
-      <ResponsiveAppShell.TopBar brand={<BrandLink />} actions={<NewMessageLink />} />
-      <ResponsiveAppShell.Sidebar navLabel={navAriaLabel} footer={<UserMenu />}>
+      <ResponsiveAppShell.TopBar mobileOnly brand={brand} actions={<NewMessageLink />} />
+      {/* Desktop keeps brand + user affordances in the Sidebar: brand above
+          the nav; new-message action beside the UserMenu in the shell's
+          bordered footer row. */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navAriaLabel}
+        footer={
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              cm.w('full'),
+            )}
+          >
+            <UserMenu />
+            <NewMessageLink />
+          </div>
+        }
+      >
+        <div className={cm.sp('px', 3)}>{brand}</div>
         <HushNav />
       </ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer navLabel={navAriaLabel} footer={<UserMenu />}>
