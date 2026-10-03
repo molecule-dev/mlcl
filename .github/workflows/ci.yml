@@ -116,8 +116,11 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      # Fail on a moderate-or-higher dependency advisory.
-      - run: npm audit --audit-level=moderate
+      # Fail on a moderate-or-higher dependency advisory, EXCEPT ones with a
+      # documented, expiring entry in .audit-allowlist.json (ported from
+      # molecule 2026-10-03 — a bare audit went permanently red on advisories
+      # with no upstream fix, which trains everyone to ignore the signal).
+      - run: node scripts/audit-gate.mjs
       # Working-tree secret scan via gitleaks (Docker on the runner — no
       # marketplace-action license needed). `--no-git` catches a leaked
       # credential in an open PR before it is merged.
