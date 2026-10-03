@@ -12,7 +12,7 @@ import {
   ThisDeviceSection,
 } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { SURFACE_PANEL } from '../branding.js'
 
@@ -323,34 +323,18 @@ export function Settings() {
               )}
             </p>
           </div>
-          <button
-            type="button"
-            role="switch"
-            aria-checked={verifySsl}
+          <Switch
+            checked={verifySsl}
+            onChange={(e) => setVerifySsl((e.target as HTMLInputElement).checked)}
+            size="sm"
+            color="success"
             aria-label={t(
               'settings.ssl.verifyLabel',
               {},
               { defaultValue: 'Verify SSL certificates' },
             )}
-            onClick={() => setVerifySsl((v) => !v)}
             data-mol-id="settings-ssl-toggle"
-            className={cm.cn(
-              'relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition-colors',
-            )}
-            style={{
-              backgroundColor: verifySsl
-                ? 'var(--color-status-success)'
-                : 'var(--color-surface-elevated)',
-            }}
-          >
-            <span
-              className={cm.cn('inline-block h-3 w-3 transform rounded-full transition-transform')}
-              style={{
-                backgroundColor: 'var(--color-background)',
-                transform: verifySsl ? 'translateX(22px)' : 'translateX(4px)',
-              }}
-            />
-          </button>
+          />
         </header>
         <div className={cm.cn('px-6 py-4 flex flex-col gap-4')}>
           <div>

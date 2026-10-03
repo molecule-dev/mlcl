@@ -5,12 +5,12 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { SURFACE_PANEL } from '../branding.js'
 import {
   type CollectionRequest,
   type CollectionTreeData,
   CollectionTreeItem,
 } from '../components/CollectionTreeItem.js'
-import { SURFACE_PANEL } from '../branding.js'
 import type { HttpMethod } from '../components/MethodBadge.js'
 import { MetricStatCard } from '../components/MetricStatCard.js'
 
