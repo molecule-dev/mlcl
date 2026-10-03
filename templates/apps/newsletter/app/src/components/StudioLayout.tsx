@@ -24,11 +24,14 @@ interface CurrentUser {
 
 /**
  * StudioLayout — the authenticated creator shell, composed from the shared
- * `ResponsiveAppShell`: the Sidebar mounts only ≥768px, the mobile Drawer
- * (same nav element, full dialog contract — focus trap, Escape/backdrop
- * close, scroll lock) only below it, and the TopBar renders the menu trigger
- * itself. The shell owns the breakpoint split, the drawer open state, and
- * the auto-close-on-navigation; this component only supplies nav + brand.
+ * `ResponsiveAppShell`: the Sidebar mounts only ≥768px (brand above the nav;
+ * new-issue/theme/user chrome + identity card in its footer), the mobile
+ * Drawer (same nav element, full dialog contract — focus trap, Escape/
+ * backdrop close, scroll lock) only below it, and the `mobileOnly` TopBar
+ * (brand + the same chrome + the menu trigger) renders below 768px only —
+ * the shell suppresses any bar rendered beside the Sidebar on desktop. The
+ * shell owns the breakpoint split, the drawer open state, and the
+ * auto-close-on-navigation; this component only supplies nav + brand.
  */
 export function StudioLayout() {
   const cm = getClassMap()
@@ -98,8 +101,27 @@ export function StudioLayout() {
 
   // The old fixed TopNavBar surfaced a "New issue" action on every studio
   // page except the dashboard — kept 1:1 so the create path (and its e2e id)
-  // survives the migration.
+  // survives the migration. Rendered in the TopBar actions on mobile and in
+  // the Sidebar footer on desktop (different mounts — never both in the DOM).
   const showNewIssue = pathname !== '/dashboard'
+  const newIssueButton = showNewIssue ? (
+    <button
+      type="button"
+      onClick={() => navigate('/issues/new')}
+      aria-label={t('issues.newIssue', {}, { defaultValue: 'New issue' })}
+      className={cm.cn(
+        cm.sp('px', 4),
+        cm.sp('py', 2),
+        cm.roundedFull,
+        cm.textSize('xs'),
+        cm.fontWeight('semibold'),
+        'bg-primary text-on-primary uppercase tracking-widest hover:bg-primary-container transition-all',
+      )}
+      data-mol-id="topnav-new-issue"
+    >
+      {t('issues.newIssue', {}, { defaultValue: 'New issue' })}
+    </button>
+  ) : null
 
   const handleSignOut = async (): Promise<void> => {
     await logout()
@@ -162,46 +184,50 @@ export function StudioLayout() {
     </div>
   )
 
+  // Brand block — mounted by the mobile TopBar AND the desktop Sidebar (never
+  // simultaneously: the Sidebar is unmounted below 768px and the mobileOnly
+  // TopBar returns null above it).
+  const brand = (
+    <SafeLink
+      className={cm.cn(cm.textSize('2xl'), "font-['Newsreader'] font-black text-on-background")}
+      to="/dashboard"
+    >
+      {t('sideNavBar.dispatch', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
+    </SafeLink>
+  )
+
+  // Sidebar footer: the relocated top-bar chrome (new-issue, theme toggle,
+  // user menu) above the identity card + sign-out the shell already carried.
+  const sidebarFooter = (
+    <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), cm.w('full'))}>
+      <div
+        className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }), cm.w('full'))}
+      >
+        {newIssueButton}
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'text-on-surface-variant')}>
+          <ThemeToggle />
+          <UserMenu dataMolId="topnav-account" />
+        </div>
+      </div>
+      {footer}
+    </div>
+  )
+
   return (
     <ResponsiveAppShell sidebarWidth="md">
       <ResponsiveAppShell.TopBar
-        brand={
-          <SafeLink
-            className={cm.cn(
-              cm.textSize('2xl'),
-              "font-['Newsreader'] font-black text-on-background",
-            )}
-            to="/dashboard"
-          >
-            {t('sideNavBar.dispatch', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
-          </SafeLink>
-        }
+        mobileOnly
+        brand={brand}
         actions={
           <>
-            {showNewIssue && (
-              <button
-                type="button"
-                onClick={() => navigate('/issues/new')}
-                aria-label={t('issues.newIssue', {}, { defaultValue: 'New issue' })}
-                className={cm.cn(
-                  cm.sp('px', 4),
-                  cm.sp('py', 2),
-                  cm.roundedFull,
-                  cm.textSize('xs'),
-                  cm.fontWeight('semibold'),
-                  'bg-primary text-on-primary uppercase tracking-widest hover:bg-primary-container transition-all',
-                )}
-                data-mol-id="topnav-new-issue"
-              >
-                {t('issues.newIssue', {}, { defaultValue: 'New issue' })}
-              </button>
-            )}
+            {newIssueButton}
             <ThemeToggle />
             <UserMenu dataMolId="topnav-account" />
           </>
         }
       />
-      <ResponsiveAppShell.Sidebar className={cm.sp('p', 6)} footer={footer}>
+      <ResponsiveAppShell.Sidebar className={cm.sp('p', 6)} footer={sidebarFooter}>
+        {brand}
         {nav}
       </ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer
