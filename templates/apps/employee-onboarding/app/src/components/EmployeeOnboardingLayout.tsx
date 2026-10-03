@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
-import { NavLink, Outlet, useLocation, useNavigate } from 'react-router'
+import type { FormEvent, ReactElement } from 'react'
+import { Link, NavLink, Outlet, useNavigate } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell, useIsDesktop } from '@molecule/app-ui-react'
 
 import { APP_TAGLINE } from '../branding.js'
 import { BrandWordmark } from './BrandWordmark.js'
@@ -10,16 +11,22 @@ import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
- * Sidebar + top bar shell shared by all authed Embark screens.
+ * Sidebar + top bar shell shared by all authed Embark screens — the SHARED
+ * `ResponsiveAppShell` compound from `@molecule/app-ui-react`.
  *
- * Translated from crm/AppLayout.tsx + DashboardSideNavBar.tsx — sidebar nav with
- * primary/accent active rail, top bar with greeting + user menu. Embark teal/purple
- * palette and Material Symbols glyphs throughout.
+ * The shell owns the breakpoint split (768px, one chrome mounted per
+ * breakpoint): the desktop sidebar and the mobile drawer (full APG dialog —
+ * focus trap, Escape/backdrop close, scroll lock, auto-close on navigation)
+ * render the SAME nav element, and the mobile-only top bar renders the 44px
+ * menu trigger itself. The former always-mounted off-canvas sidebar (CSS
+ * translate, so its links stayed tab-reachable while hidden), the local
+ * drawer state machine, the matchMedia effect and the missing
+ * `aria-controls`/scroll-lock are all deleted with it.
  *
- * Mobile (≤768px): the sidebar becomes a slide-in drawer (hamburger in the top
- * bar, overlay, Escape + route-change close) and the global search input is
- * hidden — the Team directory page carries its own search. Follows the fleet
- * mobile-shell pattern from crm/CrmLayout.tsx.
+ * Nav items/labels (i18n), `layout-sidebar` / `layout-search-input`
+ * data-mol-ids, the Embark teal/purple palette and the UserMenu/ThemeToggle
+ * placement are preserved from the previous shell. The global search form is
+ * desktop-only (the Team directory page carries its own search on phones).
  */
 
 interface NavItem {
@@ -59,21 +66,9 @@ const NAV_PEOPLE: NavItem[] = [
   { to: '/settings', iconKey: 'settings', labelKey: 'nav.settings', defaultLabel: 'Settings' },
 ]
 
-const MOBILE_MQ = '(max-width: 768px)'
-
-function NavSection({
-  cm,
-  t,
-  heading,
-  items,
-  onNavigate,
-}: {
-  cm: ReturnType<typeof getClassMap>
-  t: ReturnType<typeof useTranslation>['t']
-  heading: string
-  items: NavItem[]
-  onNavigate: () => void
-}) {
+function NavSection({ heading, items }: { heading: string; items: NavItem[] }): ReactElement {
+  const cm = getClassMap()
+  const { t } = useTranslation()
   return (
     <div className={cm.sp('mb', 6)}>
       <p
@@ -90,13 +85,11 @@ function NavSection({
           <li key={item.to}>
             <NavLink
               to={item.to}
-              onClick={onNavigate}
               className={({ isActive }) =>
                 cm.cn(
                   cm.flex({ align: 'center', gap: 'sm' }),
                   cm.sp('px', 3),
-                  cm.sp('py', 2),
-                  'rounded-lg text-sm font-medium transition-all duration-150',
+                  'min-h-[44px] rounded-lg text-sm font-medium transition-all duration-150',
                   isActive
                     ? 'bg-primary/10 text-primary border-l-[3px] border-primary'
                     : 'text-on-surface hover:bg-surface-container-low',
@@ -115,197 +108,124 @@ function NavSection({
   )
 }
 
-export function EmployeeOnboardingLayout() {
+export function EmployeeOnboardingLayout(): ReactElement {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const location = useLocation()
-  const [isMobile, setIsMobile] = useState(false)
-  const [drawerOpen, setDrawerOpen] = useState(false)
+  const isDesktop = useIsDesktop()
 
-  useEffect(() => {
-    const mq = window.matchMedia(MOBILE_MQ)
-    setIsMobile(mq.matches)
-    const handler = (e: MediaQueryListEvent) => {
-      setIsMobile(e.matches)
-      if (!e.matches) setDrawerOpen(false)
+  const onSearchSubmit = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault()
+    const q = new FormData(e.currentTarget).get('q')
+    if (typeof q === 'string' && q.trim()) {
+      navigate(`/team?q=${encodeURIComponent(q.trim())}`)
+      e.currentTarget.reset()
     }
-    mq.addEventListener('change', handler)
-    return () => mq.removeEventListener('change', handler)
-  }, [])
+  }
 
-  // Any route change closes the mobile drawer.
-  useEffect(() => {
-    setDrawerOpen(false)
-  }, [location.pathname])
+  const brand = (
+    <Link
+      to="/dashboard"
+      data-mol-id="nav-brand"
+      className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('px', 5), cm.sp('py', 5))}
+    >
+      <div>
+        <BrandWordmark as="span" />
+        <p className="text-[10px] uppercase tracking-[0.18em] text-on-surface-variant">
+          {t('layout.tagline', {}, { defaultValue: APP_TAGLINE })}
+        </p>
+      </div>
+    </Link>
+  )
 
-  // Escape closes the drawer.
-  useEffect(() => {
-    if (!drawerOpen) return
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setDrawerOpen(false)
-    }
-    document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
-  }, [drawerOpen])
+  // One nav element for BOTH mounts — the shell instantiates only the
+  // breakpoint's copy, so the links are never in the DOM twice.
+  const nav = (
+    <div className={cm.sp('py', 4)}>
+      <NavSection
+        heading={t('layout.section.onboarding', {}, { defaultValue: 'Onboarding' })}
+        items={NAV_PRIMARY}
+      />
+      <NavSection heading={t('nav.you', {}, { defaultValue: 'You' })} items={NAV_PEOPLE} />
+    </div>
+  )
 
-  const closeDrawer = () => setDrawerOpen(false)
+  const searchForm = isDesktop ? (
+    <form
+      className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
+      role="search"
+      onSubmit={onSearchSubmit}
+    >
+      <span
+        className="material-symbols-outlined text-on-surface-variant"
+        style={{ fontSize: '20px' }}
+      >
+        search
+      </span>
+      <input
+        type="search"
+        name="q"
+        data-mol-id="layout-search-input"
+        placeholder={t(
+          'layout.searchTeammates',
+          {},
+          { defaultValue: 'Search teammates by name or role…' },
+        )}
+        className="bg-transparent outline-none"
+        style={{ width: '320px' }}
+      />
+    </form>
+  ) : null
 
   return (
-    <div
-      className={cm.cn(cm.flex(), cm.minH('screen'), 'bg-background text-on-surface antialiased')}
-    >
-      {/* Mobile overlay */}
-      {isMobile && drawerOpen && (
-        <div
-          role="presentation"
-          onClick={closeDrawer}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(15, 23, 42, 0.4)',
-            zIndex: 40,
-            backdropFilter: 'blur(2px)',
-          }}
-        />
-      )}
+    <ResponsiveAppShell sidebarWidth={260}>
+      {/*
+        Mobile top bar (<768px): the shell's 44px menu trigger + theme +
+        user menu — the hand-rolled header it replaces, one for one.
+        Desktop returns null (mobileOnly).
+      */}
+      <ResponsiveAppShell.TopBar mobileOnly actions={<ThemeToggle />} />
 
-      {/* Sidebar */}
-      <aside
-        data-mol-id="layout-sidebar"
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          'bg-surface border-r border-outline-variant',
+      {/*
+        Desktop sidebar (>=768px): brand + the sectioned nav. Null below
+        768px — the drawer carries the same nav there.
+      */}
+      <ResponsiveAppShell.Sidebar dataMolId="layout-sidebar">
+        {brand}
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+
+      {/*
+        Mobile drawer (<768px): the shell's APG dialog over the SAME nav
+        element. `h-full` restores the full-height left-panel geometry (the
+        shared panel ships no height token). Same `layout-sidebar` locator
+        as the sidebar — the two never mount together.
+      */}
+      <ResponsiveAppShell.Drawer dataMolId="layout-sidebar" header={brand} className="h-full">
+        {nav}
+      </ResponsiveAppShell.Drawer>
+
+      {/*
+        Content column: on desktop the top bar (search + actions) sits above
+        the routed page; on mobile the wrapper passes the shell column's
+        Content straight through.
+      */}
+      <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
+        {isDesktop && (
+          <ResponsiveAppShell.TopBar
+            actions={
+              <>
+                {searchForm}
+                <ThemeToggle />
+                <UserMenu />
+              </>
+            }
+          />
         )}
-        style={{
-          width: '260px',
-          flexShrink: 0,
-          ...(isMobile
-            ? {
-                position: 'fixed',
-                top: 0,
-                bottom: 0,
-                left: drawerOpen ? 0 : '-280px',
-                zIndex: 50,
-                transition: 'left 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-                boxShadow: drawerOpen ? '8px 0 24px rgba(15, 23, 42, 0.2)' : 'none',
-                overflowY: 'auto',
-              }
-            : {}),
-        }}
-      >
-        <div
-          className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('px', 5), cm.sp('py', 5))}
-        >
-          <div>
-            <BrandWordmark as="span" />
-            <p className="text-[10px] uppercase tracking-[0.18em] text-on-surface-variant">
-              {t('layout.tagline', {}, { defaultValue: APP_TAGLINE })}
-            </p>
-          </div>
-        </div>
-        <nav className={cm.cn(cm.flex1, cm.sp('py', 4))}>
-          <NavSection
-            cm={cm}
-            t={t}
-            heading={t('layout.section.onboarding', {}, { defaultValue: 'Onboarding' })}
-            items={NAV_PRIMARY}
-            onNavigate={closeDrawer}
-          />
-          <NavSection
-            cm={cm}
-            t={t}
-            heading={t('nav.you', {}, { defaultValue: 'You' })}
-            items={NAV_PEOPLE}
-            onNavigate={closeDrawer}
-          />
-        </nav>
-      </aside>
-
-      {/* Main column */}
-      <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1)} style={{ minWidth: 0 }}>
-        <header
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between' }),
-            cm.sp('px', 8),
-            'bg-surface border-b border-outline-variant',
-          )}
-          style={{
-            height: '64px',
-            flexShrink: 0,
-            ...(isMobile ? { padding: '0 12px' } : {}),
-          }}
-        >
-          {isMobile && (
-            <button
-              type="button"
-              data-mol-id="layout-menu-toggle"
-              aria-label={t('layout.openMenu', {}, { defaultValue: 'Open navigation menu' })}
-              aria-expanded={drawerOpen}
-              onClick={() => setDrawerOpen(true)}
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'border-0 bg-transparent text-on-surface hover:text-primary cursor-pointer',
-              )}
-              style={{ width: '40px', height: '40px', flexShrink: 0 }}
-            >
-              <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>
-                menu
-              </span>
-            </button>
-          )}
-          {!isMobile && (
-            <form
-              className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
-              role="search"
-              onSubmit={(e) => {
-                e.preventDefault()
-                const q = new FormData(e.currentTarget).get('q')
-                if (typeof q === 'string' && q.trim()) {
-                  navigate(`/team?q=${encodeURIComponent(q.trim())}`)
-                  e.currentTarget.reset()
-                }
-              }}
-            >
-              <span
-                className="material-symbols-outlined text-on-surface-variant"
-                style={{ fontSize: '20px' }}
-              >
-                search
-              </span>
-              <input
-                type="search"
-                name="q"
-                data-mol-id="layout-search-input"
-                placeholder={t(
-                  'layout.searchTeammates',
-                  {},
-                  { defaultValue: 'Search teammates by name or role…' },
-                )}
-                className="bg-transparent outline-none"
-                style={{ width: '320px' }}
-              />
-            </form>
-          )}
-          {/* Top-bar controls — styled so they don't read as bare browser
-              controls bolted onto the chrome. */}
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
-              <ThemeToggle />
-            </div>
-            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
-              <UserMenu />
-            </div>
-          </div>
-        </header>
-
-        <main
-          className={cm.cn(cm.flex1, 'eo-page-pad')}
-          style={{ overflowY: 'auto', minHeight: 0 }}
-        >
+        <ResponsiveAppShell.Content className="eo-page-pad">
           <Outlet />
-        </main>
+        </ResponsiveAppShell.Content>
       </div>
-    </div>
+    </ResponsiveAppShell>
   )
 }

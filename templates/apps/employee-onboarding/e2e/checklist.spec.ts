@@ -104,9 +104,18 @@ test.describe('checklist', () => {
     await page.waitForLoadState('networkidle')
     const toggle = page.locator('[data-mol-id="task-toggle-button"]').first()
     await expect(toggle).toBeVisible()
+    // Arm the wait BEFORE the click: under parallel load, networkidle can
+    // settle while the toggle's PUT is still in flight, so the API re-read
+    // below races it and sees the old status.
+    const togglePut = page.waitForResponse(
+      (r) =>
+        /\/api\/tasks\//.test(r.url()) &&
+        (r.request().method() === 'PUT' || r.request().method() === 'PATCH'),
+      { timeout: 15_000 },
+    )
     await toggle.click()
-    // Wait for the network call + reload.
-    await page.waitForLoadState('networkidle')
+    const put = await togglePut
+    expect(put.status(), 'task toggle should persist').toBe(200)
     const after = await page.request.get(`${API_BASE}/tasks/${pending.id}`, {
       headers: authHeaders(accessToken),
     })
