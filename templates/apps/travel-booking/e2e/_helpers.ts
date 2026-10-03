@@ -29,21 +29,27 @@ export function uniqueEmail(prefix = 'test') {
  * the app was right, the fixture was self-colliding.
  *
  * Handing each booking its own nights removes the contention entirely, in any
- * order and at any suite size. Two things matter:
+ * order and at any suite size. Three things matter:
  *  - a per-call counter, so no two bookings in a run share a window (a retried
  *    test also takes fresh nights rather than re-consuming its own unit);
  *  - a per-run base, so repeated runs against a database that ISN'T reset in
  *    between don't refill the same windows and exhaust the 4 units after a few
  *    runs. Scaling the minute spreads back-to-back runs far apart in slot space
- *    instead of letting their ranges overlap.
+ *    instead of letting their ranges overlap;
+ *  - a per-WORKER band, because the runner is fullyParallel and every worker
+ *    gets a FRESH module instance — the bare counter restarted from 0 in each
+ *    worker, so two workers could take the same slot simultaneously (observed
+ *    as intermittent 409s in trips__id under a busy machine). 32 slots per
+ *    worker is far beyond the per-worker test count; 32 workers wrap at most.
  * Slots sit 4 days apart for a 3-night stay, so neighbours stay disjoint even
  * when two calls land on opposite sides of midnight UTC.
  */
 const STAY_SLOTS = 1024
 const STAY_RUN_BASE = Math.floor(Date.now() / 60_000) * 97
+const STAY_WORKER_BAND = (Number(process.env.TEST_WORKER_INDEX ?? '0') % 32) * 32
 let staySlot = 0
 export function uniqueStayWindow(): { checkIn: string; checkOut: string } {
-  const slot = (STAY_RUN_BASE + staySlot++) % STAY_SLOTS
+  const slot = (STAY_RUN_BASE + STAY_WORKER_BAND + staySlot++) % STAY_SLOTS
   const startDay = 30 + slot * 4
   const dayFromNow = (n: number) => new Date(Date.now() + n * 86_400_000).toISOString().slice(0, 10)
   return { checkIn: dayFromNow(startDay), checkOut: dayFromNow(startDay + 3) }

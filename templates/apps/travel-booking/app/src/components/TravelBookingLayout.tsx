@@ -1,35 +1,29 @@
 /**
- * Sojourn travel-booking shell — consumed by every authed route
+ * Sojourn travel-booking shell — the SHARED `ResponsiveAppShell` compound
+ * from `@molecule/app-ui-react`, consumed by every authed route
  * (Search/Trips/Favorites/Notifications/Account).
  *
- * Two shells, one breakpoint, never both mounted (a CSS `hidden` pair would
- * mount the page's <Outlet> twice — double fetches + duplicate data-mol-ids):
+ * The shell owns the breakpoint split (768px, one chrome mounted per
+ * breakpoint): the desktop Sidebar + the mobile Drawer (full APG dialog —
+ * focus trap, Escape/backdrop close, scroll lock, auto-close on navigation)
+ * render the SAME nav element, and the mobile-only TopBar renders the 44px
+ * menu trigger itself. The former pair — the shared `TopNavLayout` (whose
+ * brand + 4 icon links + UserMenu overflow a 390px header) and the
+ * template-local chip `MobileShell` — are deleted with it.
  *
- * - ≥768px: delegates to the Sweep 1 `@molecule/app-top-nav-layout-react`
- *   package, supplying the brand nav items (Search, Trips, Favorites,
- *   Notifications) and the bespoke `UserMenu` slot.
- * - <768px: template-local mobile shell (fleet pattern). The shared
- *   TopNavLayout's brand + 4 icon links + UserMenu overflow a 390px header
- *   (measured scrollWidth 426 vs 390 — the UserMenu avatar was pushed half
- *   off-canvas, unreachable). Here the nav collapses into a horizontally
- *   scrollable chip row under a compact top bar; chips keep their labels
- *   (icons alone lost the labels below md) and stay ≥44px tall.
- *
- * Translated from hotel-booking's SojournLayout.tsx — same nav rhythm,
- * but `Search` is the primary call-to-action because travel-booking's
+ * Nav targets/labels (i18n), longest-prefix active highlighting,
+ * `aria-current="page"` and the `nav-*` data-mol-ids are preserved from the
+ * previous shells. `Search` stays the first item because travel-booking's
  * funnel begins with discovery rather than with a destination already
  * picked.
  */
-
-import type { JSX } from 'react'
-import { useEffect, useState } from 'react'
-import { NavLink, Outlet } from 'react-router'
+import type { ReactElement } from 'react'
+import { Link, Outlet, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
-import { TopNavLayout } from '@molecule/app-top-nav-layout-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
 import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -45,102 +39,111 @@ const NAV_KEYS = [
   },
 ] as const
 
-function useIsDesktop(): boolean {
-  const [isDesktop, setIsDesktop] = useState(
-    () => typeof window === 'undefined' || window.matchMedia('(min-width: 768px)').matches,
-  )
-  useEffect(() => {
-    const mql = window.matchMedia('(min-width: 768px)')
-    const onChange = (e: MediaQueryListEvent): void => setIsDesktop(e.matches)
-    mql.addEventListener('change', onChange)
-    return () => mql.removeEventListener('change', onChange)
-  }, [])
-  return isDesktop
-}
-
-function MobileShell(): JSX.Element {
-  const cm = getClassMap()
+export function TravelBookingLayout(): ReactElement {
   const { t } = useTranslation()
+  const cm = getClassMap()
+  const { pathname } = useLocation()
+
+  // Single-active-item resolution: highlight the nav item whose `to` is the
+  // longest prefix-match of the current pathname (never highlight every
+  // ancestor).
+  const activeKey = NAV_KEYS.reduce<string | null>((bestKey, item) => {
+    const isMatch = pathname === item.to || pathname.startsWith(`${item.to}/`)
+    if (!isMatch) return bestKey
+    if (bestKey === null) return item.key
+    const best = NAV_KEYS.find((i) => i.key === bestKey)
+    return best && item.to.length > best.to.length ? item.key : bestKey
+  }, null)
+
+  // Same-route clicks append `#top` so the URL still changes (no dead links).
+  const safeTarget = (to: string): string => {
+    const samePath = pathname === to || pathname + '/' === to
+    return samePath ? `${to.replace(/\/$/, '')}#top` : to
+  }
+
+  const renderNavLinks = (): ReactElement[] =>
+    NAV_KEYS.map((item) => {
+      const isActive = item.key === activeKey
+      return (
+        <Link
+          key={item.key}
+          to={safeTarget(item.to)}
+          data-mol-id={`nav-${item.key}`}
+          aria-current={isActive ? 'page' : undefined}
+          className={cm.cn(
+            'flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium min-h-[44px]',
+            isActive
+              ? // The container pair, NOT bgPrimarySubtle + textPrimary — brand
+                // on a 10% tint of itself fails the 4.5:1 AA floor.
+                cm.cn(cm.bgPrimaryContainer, cm.textOnPrimaryContainer)
+              : cm.cn('text-on-surface-variant hover:bg-surface-variant', cm.link),
+          )}
+        >
+          <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
+            {item.icon}
+          </span>
+          <span>
+            {t(`travelBookingLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel })}
+          </span>
+        </Link>
+      )
+    })
+
+  const brand = (
+    <Link to={safeTarget('/search')} data-mol-id="nav-brand" className={cm.cn('block')}>
+      <BrandWordmark as="span" size="md" />
+    </Link>
+  )
+
+  // One nav element for BOTH mounts — the shell instantiates only the
+  // breakpoint's copy, so the links are never in the DOM twice.
+  const nav = (
+    <div className={cm.cn(cm.flex1, cm.flex({ direction: 'col', gap: 'sm' }), cm.sp('p', 2))}>
+      {renderNavLinks()}
+    </div>
+  )
+
   const navAriaLabel = t(
     'travelBookingLayout.primaryNavLabel',
     {},
     { defaultValue: 'Primary navigation' },
   )
-  return (
-    <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
-      <header className={cm.cn('sticky top-0 z-40 bg-surface shadow-sm')}>
-        <div
-          className={cm.cn(
-            cm.maxW('7xl'),
-            cm.mxAuto,
-            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
-            'px-4 py-2',
-          )}
-        >
-          <BrandWordmark />
-          <UserMenu />
-        </div>
-        <nav
-          aria-label={navAriaLabel}
-          className={cm.cn(
-            cm.maxW('7xl'),
-            cm.mxAuto,
-            cm.flex({ align: 'center', gap: 'xs' }),
-            'px-2 pb-1.5 overflow-x-auto',
-          )}
-        >
-          {NAV_KEYS.map((item) => (
-            <NavLink
-              key={item.key}
-              to={item.to}
-              className={({ isActive }) =>
-                cm.cn(
-                  cm.flex({ align: 'center', gap: 'xs', wrap: 'nowrap' }),
-                  cm.textSize('sm'),
-                  cm.fontWeight('semibold'),
-                  'min-h-[44px] shrink-0 items-center rounded-full px-3 transition-colors',
-                  isActive
-                    ? cm.cn('bg-primary-container', cm.textPrimary)
-                    : cm.cn(cm.textMuted, 'hover:bg-surface-container hover:text-on-surface'),
-                )
-              }
-            >
-              <span className="material-symbols-outlined text-xl" aria-hidden="true">
-                {item.icon}
-              </span>
-              {t(`travelBookingLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel })}
-            </NavLink>
-          ))}
-        </nav>
-      </header>
-      <main>
-        <Outlet />
-      </main>
-    </div>
-  )
-}
 
-export function TravelBookingLayout() {
-  const { t } = useTranslation()
-  const isDesktop = useIsDesktop()
-  const navItems = NAV_KEYS.map((item) => ({
-    to: item.to,
-    key: item.key,
-    icon: item.icon,
-    label: t(`travelBookingLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
-  }))
-  if (!isDesktop) return <MobileShell />
   return (
-    <TopNavLayout
-      appName={APP_NAME}
-      logoTo="/"
-      navItems={navItems}
-      userMenu={<UserMenu />}
-      navAriaLabel={t(
-        'travelBookingLayout.primaryNavLabel',
-        {},
-        { defaultValue: 'Primary navigation' },
-      )}
-    />
+    <ResponsiveAppShell sidebarWidth="md">
+      {/*
+        Mobile top bar (<768px): the shell's 44px menu trigger + brand +
+        user menu — the hand-rolled header it replaces, one for one.
+        Desktop returns null (mobileOnly): the Sidebar carries the shell.
+      */}
+      <ResponsiveAppShell.TopBar mobileOnly brand={brand} actions={<UserMenu />} />
+
+      {/*
+        Desktop sidebar (>=768px): brand + nav + the UserMenu in the
+        bordered footer row.
+      */}
+      <ResponsiveAppShell.Sidebar navLabel={navAriaLabel} footer={<UserMenu />}>
+        {brand}
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+
+      {/*
+        Mobile drawer (<768px): the shell's APG dialog over the SAME nav
+        element. `h-full` restores the full-height left-panel geometry (the
+        shared panel ships no height token).
+      */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navAriaLabel}
+        header={brand}
+        footer={<UserMenu />}
+        className="h-full"
+      >
+        {nav}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content>
+        <Outlet />
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
