@@ -95,18 +95,25 @@ export function BranchesLayout() {
   const nav = <BranchesNav navItems={navItems} />
   const navLabel = t('branchesLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
 
+  // Brand block — mounted by the mobile TopBar AND the desktop Sidebar (never
+  // simultaneously: the Sidebar is unmounted below 768px and the mobileOnly
+  // TopBar returns null above it).
+  const brand = (
+    <Link to="/tree" className={cm.cn(cm.flex({ align: 'center' }), 'text-on-surface')}>
+      <BrandWordmark as="span" />
+    </Link>
+  )
+
   return (
     // The old shell rendered a 256px sidebar (`w-64`) — `lg` keeps that width.
     <ResponsiveAppShell sidebarWidth="lg">
-      <ResponsiveAppShell.TopBar
-        brand={
-          <Link to="/tree" className={cm.cn(cm.flex({ align: 'center' }), 'text-on-surface')}>
-            <BrandWordmark as="span" />
-          </Link>
-        }
-        actions={<UserMenu />}
-      />
-      <ResponsiveAppShell.Sidebar navLabel={navLabel}>{nav}</ResponsiveAppShell.Sidebar>
+      <ResponsiveAppShell.TopBar mobileOnly brand={brand} actions={<UserMenu />} />
+      {/* Desktop keeps brand + user affordances in the Sidebar: brand above
+          the nav, UserMenu in the shell's bordered footer row. */}
+      <ResponsiveAppShell.Sidebar navLabel={navLabel} footer={<UserMenu />}>
+        <div className={cm.cn(cm.sp('px', 3), cm.sp('py', 2))}>{brand}</div>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer navLabel={navLabel} header={<BrandWordmark as="span" />}>
         {nav}
       </ResponsiveAppShell.Drawer>

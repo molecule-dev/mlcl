@@ -1,5 +1,6 @@
-import { ContentPageShell, PlanUpdatedPage } from '@molecule/app-legal-pages-react'
 import { Link } from 'react-router'
+
+import { ContentPageShell, PlanUpdatedPage } from '@molecule/app-legal-pages-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
