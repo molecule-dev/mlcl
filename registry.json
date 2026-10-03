@@ -173,6 +173,51 @@
         "ephemeral sandbox agent"
       ]
     },
+    "@molecule/api-agent-runtime-pi": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "agent-run",
+      "label": "Agent Run",
+      "description": "Pi coding-agent runtime — unattended runs on any Pi-supported model provider in ephemeral cloud sandboxes; artifacts-only return, per-run credentials, deny-by-default egress",
+      "stack": "api",
+      "implements": "@molecule/api-agent-run",
+      "exports": [
+        "PiRunSummary",
+        "splitJsonlRecords",
+        "summarizePiEvents",
+        "PI_PROVIDERS",
+        "DEFAULT_MODEL_MAP",
+        "ResolvedPiModel",
+        "resolvePiModel",
+        "RUNTIME_ALLOWED_HOSTS",
+        "DEFAULT_PI_CLI_PACKAGE",
+        "PiAgentRuntime",
+        "createProvider",
+        "provider",
+        "PiProviderAccess",
+        "PiRuntimeConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-run",
+        "@molecule/api-ai-tools",
+        "@molecule/api-code-sandbox"
+      ],
+      "moleculePeers": [
+        "@molecule/api-agent-run",
+        "@molecule/api-ai-tools",
+        "@molecule/api-code-sandbox"
+      ],
+      "path": "packages/api/bonds/agent-runtime/pi",
+      "intentHints": [
+        "pi coding agent runtime",
+        "run pi agent unattended",
+        "multi-provider agent run",
+        "deepseek coding agent sandbox",
+        "earendil pi agent"
+      ]
+    },
     "@molecule/api-agent-transcript": {
       "language": "typescript",
       "runtime": "node",
@@ -248,7 +293,7 @@
       "type": "provider",
       "category": "agent-transcript",
       "label": "Agent transcript autodetect",
-      "description": "Picks the reader that recognizes a transcript and delegates to it; bundles readers for Claude Code, Codex CLI, the Molecule IDE, Gemini CLI, Cline / Roo Code, OpenCode, GitHub Copilot Chat, Cursor and Aider, plus a generic Markdown chat reader",
+      "description": "Picks the reader that recognizes a transcript and delegates to it; bundles readers for Claude Code, Codex CLI, the Molecule IDE, Gemini CLI, Cline / Roo Code, OpenCode, Pi, GitHub Copilot Chat, Cursor and Aider, plus a generic Markdown chat reader",
       "stack": "api",
       "implements": "@molecule/api-agent-transcript",
       "exports": [
@@ -268,7 +313,8 @@
         "@molecule/api-agent-transcript-gemini-cli",
         "@molecule/api-agent-transcript-markdown-chat",
         "@molecule/api-agent-transcript-molecule-ide",
-        "@molecule/api-agent-transcript-opencode"
+        "@molecule/api-agent-transcript-opencode",
+        "@molecule/api-agent-transcript-pi"
       ],
       "moleculePeers": [
         "@molecule/api-agent-transcript"
@@ -532,6 +578,34 @@
       "intentHints": [
         "opencode export session",
         "opencode session json"
+      ]
+    },
+    "@molecule/api-agent-transcript-pi": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "agent-transcript",
+      "label": "Pi transcript reader",
+      "description": "Reads Pi coding-agent session files and pi --mode json output into a normalized agent session",
+      "stack": "api",
+      "implements": "@molecule/api-agent-transcript",
+      "exports": [
+        "provider",
+        "looksLikePiSession",
+        "readPiSession"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-transcript"
+      ],
+      "moleculePeers": [
+        "@molecule/api-agent-transcript"
+      ],
+      "path": "packages/api/bonds/agent-transcript/pi",
+      "intentHints": [
+        "pi session jsonl",
+        "pi coding agent transcript",
+        "pi mode json events"
       ]
     },
     "@molecule/api-ai": {
