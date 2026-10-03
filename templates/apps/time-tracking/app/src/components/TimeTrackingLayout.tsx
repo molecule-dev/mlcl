@@ -570,14 +570,22 @@ function MobileShell() {
     setDrawerOpen(false)
   }, [pathname])
 
-  // Escape closes the drawer while it is open.
+  // While open: Escape closes the drawer, background scroll locks (the one
+  // gap the shell family's drawer contract names that this hand-rolled
+  // shell was missing — the APG dialog behavior itself is otherwise
+  // equivalent, so the shell stays template-local).
   useEffect(() => {
     if (!drawerOpen) return
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setDrawerOpen(false)
     }
     window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      document.body.style.overflow = prevOverflow
+    }
   }, [drawerOpen])
 
   // Same longest-prefix active resolution the desktop sidebar applies.
