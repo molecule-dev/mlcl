@@ -90,7 +90,7 @@
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@molecule/app-e2e": "1.2.0",
-    "@molecule/app-e2e-fixtures-default": "1.2.0",
+    "@molecule/app-e2e-fixtures-default": "1.2.1",
     "@molecule/app-e2e-playwright": "1.0.2",
     "@molecule/app-e2e-preview": "1.0.8",
     "@playwright/test": "1.63.0",

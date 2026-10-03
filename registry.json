@@ -57790,7 +57790,7 @@
       "@molecule/app-drag-drop-dndkit": "1.0.2",
       "@molecule/app-drawing-toolbar-react": "1.0.2",
       "@molecule/app-e2e": "1.2.0",
-      "@molecule/app-e2e-fixtures-default": "1.2.0",
+      "@molecule/app-e2e-fixtures-default": "1.2.1",
       "@molecule/app-e2e-playwright": "1.0.2",
       "@molecule/app-e2e-preview": "1.0.8",
       "@molecule/app-editor-layout-react": "1.0.2",
