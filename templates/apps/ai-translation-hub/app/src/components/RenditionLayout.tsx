@@ -31,11 +31,14 @@ const FOCUS_RING =
 /**
  * Rendition app shell — the shared `ResponsiveAppShell` family.
  *
- * `.TopBar` carries the brand + theme toggle and renders the mobile menu
- * trigger itself; `.Sidebar` (≥768px) and `.Drawer` (<768px, full APG dialog
- * contract) receive the SAME nav element, so only the mounted breakpoint
- * instantiates it and nav `data-mol-id`s never duplicate in the DOM. The shell
- * owns the drawer open state, Escape/backdrop handling and nav auto-close.
+ * `.TopBar` is `mobileOnly` (brand + theme toggle + the shell's menu trigger,
+ * below 768px only — the Sidebar owns desktop, so the shell suppresses any
+ * non-mobile bar beside it); `.Sidebar` (≥768px) carries the brand above the
+ * nav and the theme toggle + UserMenu in its footer; `.Drawer` (<768px, full
+ * APG dialog contract) receives the SAME nav element, so only the mounted
+ * breakpoint instantiates it and nav `data-mol-id`s never duplicate in the
+ * DOM. The shell owns the drawer open state, Escape/backdrop handling and
+ * nav auto-close.
  */
 export function RenditionLayout() {
   const cm = getClassMap()
@@ -105,35 +108,45 @@ export function RenditionLayout() {
     navigate('/login')
   }
 
+  // Brand block — mounted by the mobile TopBar AND the desktop Sidebar (never
+  // simultaneously: the Sidebar is unmounted below 768px and the mobileOnly
+  // TopBar returns null above it).
+  const brand = (
+    <Link
+      to="/dashboard"
+      className={cm.cn(
+        cm.textSize('lg'),
+        cm.fontWeight('extrabold'),
+        'tracking-tight text-on-background truncate font-headline rounded',
+        FOCUS_RING,
+      )}
+    >
+      <BrandWordmark as="span" size="sm" />
+    </Link>
+  )
+
   return (
     <ResponsiveAppShell sidebarWidth="md">
-      <ResponsiveAppShell.TopBar
-        brand={
-          <Link
-            to="/dashboard"
-            className={cm.cn(
-              cm.textSize('lg'),
-              cm.fontWeight('extrabold'),
-              'tracking-tight text-on-background truncate font-headline rounded',
-              FOCUS_RING,
-            )}
-          >
-            <BrandWordmark as="span" size="sm" />
-          </Link>
-        }
-        actions={<ThemeToggle />}
-      />
-      {/* Sidebar bottom bar — styled to match the sidebar. Without the
-          wrapper, UserMenu renders as a bare browser control bolted onto a
-          styled sidebar. */}
+      <ResponsiveAppShell.TopBar mobileOnly brand={brand} actions={<ThemeToggle />} />
+      {/* Sidebar bottom bar — theme toggle beside the UserMenu, styled to
+          match the sidebar. Without the wrapper, the controls render as bare
+          browser widgets bolted onto a styled sidebar. */}
       <ResponsiveAppShell.Sidebar
         navLabel={navAriaLabel}
         footer={
-          <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              cm.w('full'),
+              'text-on-surface-variant hover:text-on-surface transition-colors',
+            )}
+          >
+            <ThemeToggle />
             <UserMenu />
           </div>
         }
       >
+        <div className={cm.cn(cm.sp('px', 3), cm.sp('py', 2))}>{brand}</div>
         {nav}
       </ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer
