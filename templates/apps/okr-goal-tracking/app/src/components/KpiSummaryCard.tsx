@@ -17,11 +17,14 @@ interface KpiSummaryCardProps {
 
 /** The tone's accent color: the inset bar and the label (DESIGN.md → "Accent bars"). */
 const TONE_ACCENT: Record<NonNullable<KpiSummaryCardProps['tone']>, string> = {
+  // 700/800/600 stops: the accent doubles as the 11px uppercase label's
+  // text color (accentCardLabel tone custom), and the 500 stops fail the
+  // 4.5:1 AA floor on the card background (axe serious on the a11y gate).
   primary: 'var(--color-primary)',
-  success: 'var(--color-emerald-500)',
-  warning: 'var(--color-amber-500)',
-  danger: 'var(--color-red-500)',
-  neutral: 'var(--color-slate-400)',
+  success: 'var(--color-emerald-700)',
+  warning: 'var(--color-amber-800)',
+  danger: 'var(--color-red-700)',
+  neutral: 'var(--color-slate-600)',
 }
 
 const TONE_ICON_BG: Record<NonNullable<KpiSummaryCardProps['tone']>, string> = {

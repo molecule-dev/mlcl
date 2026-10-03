@@ -42,11 +42,15 @@ const STATUS_PILL: Record<RingStatus, string> = {
 
 /** The status accent color: the inset bar and the period label (DESIGN.md → "Accent bars"). */
 const STATUS_ACCENT: Record<RingStatus, string> = {
-  'on-track': 'var(--color-emerald-500)',
-  'at-risk': 'var(--color-amber-500)',
-  behind: 'var(--color-red-500)',
-  'not-started': 'var(--color-slate-400)',
-  completed: 'var(--color-violet-500)',
+  // 700/800/600 stops: the accent doubles as the 11px uppercase period
+  // label's text color (accentCardLabel tone custom), and the 500 stops
+  // fail the 4.5:1 AA floor on the card background (axe serious on the
+  // landing/dashboard a11y gate). The accent bar just reads slightly deeper.
+  'on-track': 'var(--color-emerald-700)',
+  'at-risk': 'var(--color-amber-800)',
+  behind: 'var(--color-red-700)',
+  'not-started': 'var(--color-slate-600)',
+  completed: 'var(--color-violet-700)',
 }
 
 /**

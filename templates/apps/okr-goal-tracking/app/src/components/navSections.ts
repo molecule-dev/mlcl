@@ -1,7 +1,7 @@
 /**
  * Single source of truth for the app's primary navigation, shared by the
- * desktop AscentSideNav rail and the mobile MobileNav drawer so the two
- * chrome variants can never drift apart.
+ * desktop sidebar and the mobile drawer of the shared ResponsiveAppShell so
+ * the two chrome variants can never drift apart.
  */
 export interface NavItem {
   to: string

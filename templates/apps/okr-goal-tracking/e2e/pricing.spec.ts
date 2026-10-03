@@ -19,13 +19,19 @@ test.describe('Pricing /pricing', () => {
   })
 
   test('initial GET /api/billing/tiers fires and returns ≥3 tiers', async ({ page }) => {
-    const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/pricing')
-      await page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {})
-    })
-    const tiers = reqs.find((r) => r.method === 'GET' && /\/api\/billing\/tiers/.test(r.url))
-    expect(tiers, 'GET /api/billing/tiers should fire on Pricing render').toBeTruthy()
-    expect(tiers!.status).toBe(200)
+    // Arm the wait BEFORE the goto: under parallel workers the dev server's
+    // on-demand module compile can push the app's mount (and the fetch it
+    // fires) past any fixed networkidle window, so a post-hoc capture list
+    // misses the response entirely. A pre-armed waitForResponse cannot.
+    const tiersResponse = page.waitForResponse(
+      (r) => r.request().method() === 'GET' && /\/api\/billing\/tiers/.test(r.url()),
+      { timeout: 30_000 },
+    )
+    await page.goto(APP_BASE + '/pricing')
+    const resp = await tiersResponse
+    expect(resp.status(), 'GET /api/billing/tiers should fire on Pricing render').toBe(200)
+    const body = (await resp.json()) as { data?: unknown[] } | unknown[]
+    expect((Array.isArray(body) ? body : body.data)?.length ?? 0).toBeGreaterThanOrEqual(3)
   })
 
   test('Upgrade to Pro (auth) creates a real Stripe Checkout session and redirects', async ({
