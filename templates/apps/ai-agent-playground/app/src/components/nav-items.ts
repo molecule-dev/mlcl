@@ -1,7 +1,7 @@
-// Single source of truth for the authenticated nav targets. Shared by the
-// desktop SideNavBar and the mobile drawer (MobileNavShell) so the two shells
-// can never drift — only one renders at a time (matchMedia-conditioned), so
-// their data-mol-ids stay unique in the DOM.
+// Single source of truth for the authenticated nav targets. Consumed by the
+// shared ResponsiveAppShell composition (NeuronLayout) — the same nav element
+// feeds the desktop Sidebar and the mobile Drawer, and only the mounted
+// breakpoint instantiates it, so data-mol-ids stay unique in the DOM.
 import type { useTranslation } from '@molecule/app-react'
 
 export interface NavItem {
