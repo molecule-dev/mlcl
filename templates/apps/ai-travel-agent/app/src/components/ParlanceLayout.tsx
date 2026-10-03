@@ -1,11 +1,29 @@
-import { useEffect, useState } from 'react'
+/**
+ * ParlanceLayout — shell for all authed routes, built on the SHARED
+ * `ResponsiveAppShell` compound from `@molecule/app-ui-react`.
+ *
+ * The shell owns the breakpoint split (768px, one chrome mounted per
+ * breakpoint): the desktop Sidebar (where `SidebarLayout` used to carry the
+ * Wayfarer nav set) + the mobile Drawer (full APG dialog — focus trap,
+ * Escape/backdrop close, scroll lock, auto-close on navigation) render the
+ * SAME nav element, and the mobile-only TopBar renders the 44px menu trigger
+ * itself. The former template-local hamburger/drawer state machine is deleted
+ * with it.
+ *
+ * Nav targets/labels (i18n), longest-prefix active highlighting,
+ * `aria-current="page"`, the `nav-*` data-mol-ids and the UserMenu placement
+ * (sidebar footer on desktop, opening leftward adjacent to its trigger; top
+ * bar + drawer footer on mobile) are preserved from the previous shells.
+ * Brand link points back to `/talk` so the active surface is always one tap
+ * away.
+ */
+import type { ReactElement } from 'react'
 import { Link, Outlet, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
-import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
 import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -18,227 +36,114 @@ const NAV_KEYS = [
   { to: '/settings/billing', key: 'billing', defaultLabel: 'Billing', icon: 'credit_card' },
 ] as const
 
-interface NavItem {
-  to: string
-  key: string
-  icon: string
-  label: string
-}
-
-function useNavItems(): NavItem[] {
+export function ParlanceLayout(): ReactElement {
   const { t } = useTranslation()
-  return NAV_KEYS.map((item) => ({
-    to: item.to,
-    key: item.key,
-    icon: item.icon,
-    label: t(`parlanceLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
-  }))
-}
-
-/** True at the `md` breakpoint and up — where the shared sidebar fits. */
-function useIsDesktop(): boolean {
-  const [isDesktop, setIsDesktop] = useState(() => {
-    if (typeof window === 'undefined' || !window.matchMedia) return true
-    return window.matchMedia('(min-width: 768px)').matches
-  })
-  useEffect(() => {
-    if (typeof window === 'undefined' || !window.matchMedia) return
-    const mq = window.matchMedia('(min-width: 768px)')
-    const onChange = (e: MediaQueryListEvent) => setIsDesktop(e.matches)
-    mq.addEventListener('change', onChange)
-    return () => mq.removeEventListener('change', onChange)
-  }, [])
-  return isDesktop
-}
-
-function isActive(pathname: string, to: string): boolean {
-  // Same longest-prefix rule the shared sidebar uses: /settings/billing is
-  // active while on it, /settings is not active ON /settings/billing.
-  if (to === pathname) return true
-  return pathname.startsWith(to + '/')
-}
-
-/**
- * ParlanceLayout — shell for all authed routes.
- *
- * Two shapes, one nav set (Talk / Trips / Bills / Profile / Settings / Billing):
- *   - md+ (768px and up): the shared `SidebarLayout` with the Wayfarer nav set.
- *     Brand link points back to `/talk` so the active surface is
- *     always one tap away.
- *   - below md: a template-local mobile shell — a sticky top bar (brand +
- *     hamburger + user menu) and a slide-in drawer with the same nav. The
- *     shared sidebar has no mobile collapse; rendering it at 390px crushed
- *     every page to ~40% width, so the fleet pattern (top bar + drawer)
- *     lives here.
- */
-export function ParlanceLayout() {
-  const { t } = useTranslation()
-  const navItems = useNavItems()
-  const isDesktop = useIsDesktop()
-
-  if (isDesktop) {
-    return (
-      <SidebarLayout
-        appName={APP_NAME}
-        logoTo="/talk"
-        navItems={navItems}
-        // Styled host for the shared control — bare, it reads as an unstyled
-        // browser widget in the shared shell's bordered footer row. The
-        // trigger sits at the sidebar's bottom-LEFT, so the drawer opens
-        // from the left (`side="left"`), adjacent to it.
-        userMenu={
-          <div className="w-full text-on-surface-variant hover:text-on-surface transition-colors">
-            <UserMenu side="left" />
-          </div>
-        }
-        navAriaLabel={t(
-          'parlanceLayout.primaryNavLabel',
-          {},
-          { defaultValue: 'Primary navigation' },
-        )}
-      />
-    )
-  }
-  return <MobileShell navItems={navItems} />
-}
-
-function MobileShell({ navItems }: { navItems: NavItem[] }) {
   const cm = getClassMap()
-  const { t } = useTranslation()
   const { pathname } = useLocation()
-  const [drawerOpen, setDrawerOpen] = useState(false)
 
-  // Any navigation closes the drawer — same contract the shared UserMenu
-  // drawer honors ("closes on any route change, back/forward included").
-  useEffect(() => {
-    setDrawerOpen(false)
-  }, [pathname])
+  // Single-active-item resolution: highlight the nav item whose `to` is the
+  // longest prefix-match of the current pathname (never highlight every
+  // ancestor) — /settings/billing is active while on it, /settings is not.
+  const activeKey = NAV_KEYS.reduce<string | null>((bestKey, item) => {
+    const isMatch = pathname === item.to || pathname.startsWith(`${item.to}/`)
+    if (!isMatch) return bestKey
+    if (bestKey === null) return item.key
+    const best = NAV_KEYS.find((i) => i.key === bestKey)
+    return best && item.to.length > best.to.length ? item.key : bestKey
+  }, null)
 
-  // Escape closes the drawer; focus returns to the hamburger so keyboard
-  // users are not stranded behind the overlay.
-  useEffect(() => {
-    if (!drawerOpen) return
-    function onKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
-        setDrawerOpen(false)
-        document.getElementById('wayfarer-mobile-nav-toggle')?.focus()
-      }
-    }
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [drawerOpen])
+  // Same-route clicks append `#top` so the URL still changes (no dead links).
+  const safeTarget = (to: string): string => {
+    const samePath = pathname === to || pathname + '/' === to
+    return samePath ? `${to.replace(/\/$/, '')}#top` : to
+  }
+
+  const renderNavLinks = (): ReactElement[] =>
+    NAV_KEYS.map((item) => {
+      const isActive = item.key === activeKey
+      return (
+        <Link
+          key={item.key}
+          to={safeTarget(item.to)}
+          data-mol-id={`nav-${item.key}`}
+          aria-current={isActive ? 'page' : undefined}
+          className={cm.cn(
+            'flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium min-h-[44px]',
+            isActive
+              ? // The container pair, NOT bgPrimarySubtle + textPrimary — brand
+                // on a 10% tint of itself fails the 4.5:1 AA floor.
+                cm.cn(cm.bgPrimaryContainer, cm.textOnPrimaryContainer)
+              : cm.cn('text-on-surface-variant hover:bg-surface-variant', cm.link),
+          )}
+        >
+          <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
+            {item.icon}
+          </span>
+          <span>
+            {t(`parlanceLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel })}
+          </span>
+        </Link>
+      )
+    })
+
+  const brand = (
+    <Link to={safeTarget('/talk')} data-mol-id="nav-brand" className={cm.cn('block')}>
+      <BrandWordmark as="span" size="md" />
+    </Link>
+  )
+
+  // One nav element for BOTH mounts — the shell instantiates only the
+  // breakpoint's copy, so the links are never in the DOM twice.
+  const nav = (
+    <div className={cm.cn(cm.flex1, cm.flex({ direction: 'col', gap: 'sm' }), cm.sp('p', 2))}>
+      {renderNavLinks()}
+    </div>
+  )
+
+  const navAriaLabel = t(
+    'parlanceLayout.primaryNavLabel',
+    {},
+    { defaultValue: 'Primary navigation' },
+  )
 
   return (
-    <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-h-screen bg-background')}>
-      <header
-        data-mol-id="mobile-top-bar"
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
-          'sticky top-0 z-40 h-14 shrink-0 border-b border-border bg-background/90 px-3 backdrop-blur-md',
-        )}
+    <ResponsiveAppShell sidebarWidth="md">
+      {/*
+        Mobile top bar (<768px): the shell's 44px menu trigger + brand +
+        user menu — the hand-rolled header it replaces, one for one.
+        Desktop returns null (mobileOnly): the Sidebar carries the shell.
+      */}
+      <ResponsiveAppShell.TopBar mobileOnly brand={brand} actions={<UserMenu />} />
+
+      {/*
+        Desktop sidebar (>=768px): brand + nav + the UserMenu in the
+        bordered footer row, opening LEFT — the trigger sits at the
+        sidebar's bottom-LEFT, so the panel opens adjacent to it, not
+        across the screen.
+      */}
+      <ResponsiveAppShell.Sidebar navLabel={navAriaLabel} footer={<UserMenu side="left" />}>
+        {brand}
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+
+      {/*
+        Mobile drawer (<768px): the shell's APG dialog over the SAME nav
+        element, footer UserMenu opening leftward inside the left-anchored
+        panel. `h-full` restores the full-height left-panel geometry (the
+        shared panel ships no height token).
+      */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navAriaLabel}
+        header={brand}
+        footer={<UserMenu side="left" />}
+        className="h-full"
       >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'min-w-0')}>
-          <button
-            id="wayfarer-mobile-nav-toggle"
-            type="button"
-            aria-label={t('parlanceLayout.openMenu', {}, { defaultValue: 'Open navigation menu' })}
-            aria-expanded={drawerOpen}
-            aria-controls="wayfarer-mobile-drawer"
-            data-mol-id="mobile-nav-toggle"
-            onClick={() => setDrawerOpen(true)}
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.roundedFull,
-              'h-11 w-11 shrink-0 text-foreground hover:bg-surface-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50',
-            )}
-          >
-            <span className="material-symbols-outlined text-[24px]">menu</span>
-          </button>
-          <Link
-            to="/talk"
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              cm.textSize('lg'),
-              'min-w-0 truncate tracking-tight text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded px-1',
-            )}
-          >
-            <BrandWordmark as="span" size="sm" />
-          </Link>
-        </div>
-        <UserMenu />
-      </header>
+        {nav}
+      </ResponsiveAppShell.Drawer>
 
-      <main className={cm.cn(cm.flex1, 'min-w-0')}>
+      <ResponsiveAppShell.Content>
         <Outlet />
-      </main>
-
-      {drawerOpen ? (
-        <div className={cm.cn('fixed inset-0 z-50 md:hidden')}>
-          {/* Full-screen dismiss layer: a real button so tap-outside and
-              keyboard focus both close the drawer without mouse-only
-              handlers. */}
-          <button
-            type="button"
-            data-mol-id="mobile-drawer-backdrop"
-            aria-label={t('parlanceLayout.closeMenu', {}, { defaultValue: 'Close menu' })}
-            onClick={() => setDrawerOpen(false)}
-            className="absolute inset-0 h-full w-full cursor-default bg-black/40 backdrop-blur-sm"
-          />
-          <nav
-            id="wayfarer-mobile-drawer"
-            aria-label={t(
-              'parlanceLayout.primaryNavLabel',
-              {},
-              { defaultValue: 'Primary navigation' },
-            )}
-            className={cm.cn(
-              cm.flex({ direction: 'col' }),
-              cm.stack(1),
-              'absolute inset-y-0 left-0 w-[280px] max-w-[82vw] overflow-y-auto border-r border-border bg-background p-3 shadow-2xl',
-            )}
-          >
-            <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'px-2 py-2')}>
-              <BrandWordmark as="span" size="sm" />
-              <button
-                type="button"
-                aria-label={t('parlanceLayout.closeMenu', {}, { defaultValue: 'Close menu' })}
-                data-mol-id="mobile-nav-close"
-                onClick={() => setDrawerOpen(false)}
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  cm.roundedFull,
-                  'h-11 w-11 text-foreground hover:bg-surface-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50',
-                )}
-              >
-                <span className="material-symbols-outlined text-[24px]">close</span>
-              </button>
-            </div>
-            {navItems.map((item) => {
-              const active = isActive(pathname, item.to)
-              return (
-                <Link
-                  key={item.key}
-                  to={item.to}
-                  aria-current={active ? 'page' : undefined}
-                  data-mol-id={`mobile-nav-${item.key}`}
-                  className={cm.cn(
-                    cm.flex({ align: 'center', gap: 'sm' }),
-                    cm.fontWeight('medium'),
-                    cm.sp('px', 3),
-                    'min-h-[44px] rounded-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50',
-                    active
-                      ? 'bg-primary/15 text-primary'
-                      : 'text-foreground hover:bg-surface-secondary',
-                  )}
-                >
-                  <span className="material-symbols-outlined text-[22px]">{item.icon}</span>
-                  {item.label}
-                </Link>
-              )
-            })}
-          </nav>
-        </div>
-      ) : null}
-    </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }

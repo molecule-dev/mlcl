@@ -5,8 +5,8 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import { BrandWordmark } from '../components/BrandWordmark.js'
 import { AmbientOrbs } from '../components/AmbientOrbs.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { API_BASE_URL } from '../config.js'
 import { formatDateTime, formatMoney } from '../lib/format.js'
 
