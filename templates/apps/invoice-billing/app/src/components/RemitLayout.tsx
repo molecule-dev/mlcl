@@ -1,46 +1,52 @@
-import { useEffect, useState } from 'react'
-import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router'
+import { Link, Outlet, useLocation, useNavigate } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
-import { useIsMobile } from './useIsMobile.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
- * Persistent dashboard shell — dark teal sidebar (#0a5c5f) + sticky topbar +
- * "New Invoice" coral CTA in the sidebar header. Money-focused layout from
- * DESIGN.md: 240px sidebar, 56px topbar, max-1360px content well.
+ * Persistent dashboard shell — the shared `ResponsiveAppShell`
+ * (`@molecule/app-ui-react`) composed to Remit's money-focused shape from
+ * DESIGN.md: dark-teal 240px sidebar with the "New Invoice" coral CTA, and
+ * the sticky 56px top bar (search + notifications + theme + user) mounted on
+ * BOTH breakpoints via the shell's `md:flex-wrap` + `w-full` pattern, so it
+ * sits on its own full-width row above [Sidebar, Content] on desktop.
  *
- * Mobile (≤768px): the fixed sidebar becomes a slide-in drawer — hamburger in
- * the sticky top bar, dimmed overlay, Escape + route-change close — following
- * the fleet mobile-shell pattern (expense-report/EmployeeOnboardingLayout).
+ * Mobile (<768px): the sidebar becomes the shell's slide-in dialog drawer —
+ * focus trap, Escape/backdrop close, body scroll lock, auto-close on
+ * navigation, and the 44px menu trigger rendered by the TopBar itself. The
+ * former hand-rolled drawer state machine, matchMedia gate and off-canvas
+ * fixed sidebar are deleted with it, and the `marginLeft: 240px` flow hack
+ * goes with them (the shell root is a real flex row on desktop).
  *
- * Translated from personal-finance/FinanceLayout.tsx; brand-tinted to teal.
+ * data-mol-id discipline: `remit-shell`, `remit-topbar`, `remit-sidebar`,
+ * `remit-main`, `sidebar-cta-new-invoice` and every `sidebar-nav-*` id are
+ * preserved. The sidebar and the drawer receive the SAME `nav` element, and
+ * only the mounted breakpoint instantiates it, so ids are never duplicated;
+ * the shell's `shell-drawer-open` / `shell-drawer` ids replace the former
+ * `remit-menu-toggle` / `remit-drawer-overlay` ids.
  */
 export function RemitLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const location = useLocation()
-  const isMobile = useIsMobile()
-  const [drawerOpen, setDrawerOpen] = useState(false)
+  const { pathname } = useLocation()
 
   const navItems: Array<{
     to: string
     icon: string
     key: string
     defaultValue: string
-    end?: boolean
   }> = [
     {
       to: '/dashboard',
       icon: 'dashboard',
       key: 'remitLayout.nav.dashboard',
       defaultValue: 'Dashboard',
-      end: true,
     },
     {
       to: '/invoices',
@@ -64,208 +70,131 @@ export function RemitLayout() {
     },
   ]
 
-  // Any route change closes the mobile drawer.
-  useEffect(() => {
-    setDrawerOpen(false)
-  }, [location.pathname])
+  // Single-active-item resolution: highlight the nav item whose `to` is the
+  // longest prefix-match of the current pathname (never every ancestor).
+  const activeTo = navItems.reduce<string | null>((best, item) => {
+    const isMatch = pathname === item.to || pathname.startsWith(`${item.to}/`)
+    if (!isMatch) return best
+    if (best === null || item.to.length > best.length) return item.to
+    return best
+  }, null)
 
-  // Escape closes the drawer.
-  useEffect(() => {
-    if (!drawerOpen) return
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setDrawerOpen(false)
-    }
-    document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
-  }, [drawerOpen])
+  // Same-route clicks append `#top` so the URL still changes (no dead links).
+  const safeTarget = (to: string): string => {
+    const samePath = pathname === to || pathname + '/' === to
+    return samePath ? `${to.replace(/\/$/, '')}#top` : to
+  }
 
-  const closeDrawer = () => setDrawerOpen(false)
-
-  return (
-    <div
-      data-mol-id="remit-shell"
-      className={cm.cn(cm.flex({ direction: 'row' }), cm.minH('screen'))}
-      style={{ backgroundColor: 'var(--mol-color-primary-light)' }}
-    >
-      {/* Mobile drawer overlay */}
-      {isMobile && drawerOpen ? (
-        <div
-          role="presentation"
-          data-mol-id="remit-drawer-overlay"
-          onClick={closeDrawer}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(15, 23, 42, 0.45)',
-            zIndex: 40,
-            backdropFilter: 'blur(2px)',
-          }}
-        />
-      ) : null}
-
-      <aside
-        data-mol-id="remit-sidebar"
-        className={cm.cn(cm.flex({ direction: 'col' }))}
+  // ONE nav element for both breakpoints — the Sidebar and the Drawer receive
+  // the same element, and only the mounted breakpoint instantiates it. The
+  // drawer closes itself on navigation (shell-owned), so links carry no
+  // onClick close.
+  const nav = (
+    <>
+      <Link
+        to={safeTarget('/invoices/new')}
+        data-mol-id="sidebar-cta-new-invoice"
+        className={cm.cn(
+          cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
+          'min-h-[44px] rounded-[10px] px-3.5 py-2.5 text-sm font-bold',
+        )}
         style={{
-          width: '240px',
-          flexShrink: 0,
-          backgroundColor: 'var(--color-primary-dark)',
-          color: 'var(--color-sidebar-text)',
-          padding: '20px 14px',
-          ...(isMobile
-            ? {
-                position: 'fixed',
-                top: 0,
-                bottom: 0,
-                left: drawerOpen ? 0 : '-260px',
-                height: '100vh',
-                overflowY: 'auto',
-                zIndex: 50,
-                transition: 'left 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-                boxShadow: drawerOpen ? '8px 0 24px rgba(15, 23, 42, 0.25)' : 'none',
-              }
-            : {
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                height: '100vh',
-                zIndex: 50,
-              }),
+          backgroundColor: 'var(--color-accent)',
+          color: 'var(--color-sidebar-text-active)',
+          textDecoration: 'none',
+          boxShadow: '0 2px 6px var(--color-accent-shadow)',
+          margin: '0 4px 16px 4px',
         }}
       >
-        <div style={{ padding: '4px 10px 22px 10px' }}>
+        <span className="material-symbols-outlined" style={{ fontSize: '18px' }} aria-hidden="true">
+          add
+        </span>
+        {t('remitLayout.newInvoice', {}, { defaultValue: 'New Invoice' })}
+      </Link>
+
+      {navItems.map((item) => {
+        const isActive = item.to === activeTo
+        return (
           <Link
-            to="/dashboard"
-            onClick={closeDrawer}
-            style={{ color: 'var(--color-sidebar-text-active)', textDecoration: 'none' }}
+            key={item.to}
+            to={safeTarget(item.to)}
+            data-mol-id={`sidebar-nav-${item.to.slice(1).replace(/\//g, '-')}`}
+            aria-current={isActive ? 'page' : undefined}
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              'min-h-[44px] rounded-lg px-3.5 py-2.5 text-sm',
+              isActive ? cm.fontWeight('semibold') : cm.fontWeight('medium'),
+            )}
+            style={{
+              color: isActive ? 'var(--color-sidebar-text-active)' : 'var(--color-sidebar-text)',
+              backgroundColor: isActive ? 'rgba(255,255,255,0.12)' : 'transparent',
+              borderLeft: isActive ? '3px solid var(--color-accent)' : '3px solid transparent',
+              textDecoration: 'none',
+              transition: 'background-color 0.15s, color 0.15s',
+            }}
           >
-            <BrandWordmark as="span" size="sm" invert />
-          </Link>
-        </div>
-
-        <NavLink
-          to="/invoices/new"
-          onClick={closeDrawer}
-          data-mol-id="sidebar-cta-new-invoice"
-          className={cm.cn(cm.flex({ align: 'center', justify: 'center', gap: 'xs' }))}
-          style={{
-            backgroundColor: 'var(--color-accent)',
-            color: 'var(--color-sidebar-text-active)',
-            borderRadius: '10px',
-            padding: '10px 14px',
-            fontWeight: 700,
-            fontSize: '14px',
-            textDecoration: 'none',
-            boxShadow: '0 2px 6px var(--color-accent-shadow)',
-            margin: '0 4px 16px 4px',
-          }}
-        >
-          <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
-            add
-          </span>
-          {t('remitLayout.newInvoice', {}, { defaultValue: 'New Invoice' })}
-        </NavLink>
-
-        <nav className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.flex1)}>
-          {navItems.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.end}
-              onClick={closeDrawer}
-              data-mol-id={`sidebar-nav-${item.to.slice(1).replace(/\//g, '-')}`}
-              className={({ isActive }) =>
-                cm.cn(
-                  cm.flex({ align: 'center', gap: 'sm' }),
-                  isActive ? cm.fontWeight('semibold') : cm.fontWeight('medium'),
-                )
-              }
-              style={({ isActive }) => ({
-                color: isActive ? 'var(--color-sidebar-text-active)' : 'var(--color-sidebar-text)',
-                backgroundColor: isActive ? 'rgba(255,255,255,0.12)' : 'transparent',
-                borderLeft: isActive ? '3px solid var(--color-accent)' : '3px solid transparent',
-                padding: '10px 14px',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                fontSize: '14px',
-                transition: 'background-color 0.15s, color 0.15s',
-              })}
+            <span
+              className="material-symbols-outlined"
+              style={{ fontSize: '20px' }}
+              aria-hidden="true"
             >
-              <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>
-                {item.icon}
-              </span>
-              {t(item.key, {}, { defaultValue: item.defaultValue })}
-            </NavLink>
-          ))}
-        </nav>
+              {item.icon}
+            </span>
+            {t(item.key, {}, { defaultValue: item.defaultValue })}
+          </Link>
+        )
+      })}
+    </>
+  )
 
-        <div
-          style={{
-            marginTop: '12px',
-            padding: '12px 14px',
-            borderTop: '1px solid rgba(255,255,255,0.08)',
-            // white@0.55 was 3.53:1 on the #0a5c5f sidebar (axe serious); 0.75 = 5.1:1
-            color: 'rgba(255,255,255,0.75)',
-            fontSize: '11px',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-          }}
-        >
-          {t('remitLayout.tagline', {}, { defaultValue: 'Get paid, faster' })}
-        </div>
-      </aside>
+  const brand = (
+    <Link
+      to={safeTarget('/dashboard')}
+      style={{ color: 'var(--color-sidebar-text-active)', textDecoration: 'none' }}
+    >
+      <BrandWordmark as="span" size="sm" invert />
+    </Link>
+  )
 
-      <div
-        className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1)}
-        style={{ minWidth: 0, marginLeft: isMobile ? 0 : '240px' }}
-      >
-        <header
-          data-mol-id="remit-topbar"
-          className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}
-          style={{
-            height: '56px',
-            padding: isMobile ? '0 12px' : '0 28px',
-            position: 'sticky',
-            top: 0,
-            zIndex: 40,
-            backgroundColor: 'color-mix(in srgb, var(--mol-color-surface) 85%, transparent)',
-            borderBottom: '1px solid var(--mol-color-border)',
-            backdropFilter: 'blur(12px)',
-            WebkitBackdropFilter: 'blur(12px)',
-          }}
-        >
-          <div
-            className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}
-            style={{ flex: 1, maxWidth: isMobile ? 'none' : '420px', minWidth: 0 }}
-          >
-            {isMobile ? (
-              <button
-                type="button"
-                data-mol-id="remit-menu-toggle"
-                aria-label={t('remitLayout.openMenu', {}, { defaultValue: 'Open navigation menu' })}
-                aria-expanded={drawerOpen}
-                onClick={() => setDrawerOpen(true)}
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  'border-0 bg-transparent cursor-pointer',
-                )}
-                style={{
-                  width: '40px',
-                  height: '40px',
-                  flexShrink: 0,
-                  marginLeft: '-8px',
-                  color: 'var(--mol-color-text-secondary)',
-                }}
-              >
-                <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>
-                  menu
-                </span>
-              </button>
-            ) : null}
-            <div
+  // Sidebar footer — the uppercase tagline strip that closed the old rail.
+  const tagline = (
+    <span
+      style={{
+        color: 'rgba(255,255,255,0.75)',
+        fontSize: '11px',
+        letterSpacing: '0.08em',
+        textTransform: 'uppercase',
+      }}
+    >
+      {t('remitLayout.tagline', {}, { defaultValue: 'Get paid, faster' })}
+    </span>
+  )
+
+  const navAriaLabel = t('remitLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
+
+  return (
+    <ResponsiveAppShell sidebarWidth="md" dataMolId="remit-shell" className="md:flex-wrap">
+      {/*
+        Top bar (both breakpoints, full-width row on desktop): the shell's
+        menu trigger renders itself below 768px; brand lives in the sidebar,
+        like the old design.
+      */}
+      <ResponsiveAppShell.TopBar
+        dataMolId="remit-topbar"
+        className="w-full"
+        actions={
+          <>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault()
+                const q = new FormData(e.currentTarget).get('q')
+                const query = typeof q === 'string' ? q.trim() : ''
+                navigate(query ? `/invoices?q=${encodeURIComponent(query)}` : '/invoices')
+              }}
               className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}
               style={{
                 width: '100%',
+                maxWidth: '240px',
                 backgroundColor: 'var(--mol-color-surface-secondary)',
                 borderRadius: '10px',
                 padding: '8px 14px',
@@ -276,11 +205,13 @@ export function RemitLayout() {
               <span
                 className="material-symbols-outlined"
                 style={{ fontSize: '18px', color: 'var(--mol-color-text-secondary)' }}
+                aria-hidden="true"
               >
                 search
               </span>
               <input
                 type="search"
+                name="q"
                 placeholder={t(
                   'remitLayout.searchPlaceholder',
                   {},
@@ -291,11 +222,6 @@ export function RemitLayout() {
                   {},
                   { defaultValue: 'Search invoices, clients...' },
                 )}
-                onKeyDown={(e) => {
-                  if (e.key !== 'Enter') return
-                  const q = e.currentTarget.value.trim()
-                  navigate(q ? `/invoices?q=${encodeURIComponent(q)}` : '/invoices')
-                }}
                 style={{
                   flex: 1,
                   background: 'transparent',
@@ -306,10 +232,7 @@ export function RemitLayout() {
                   minWidth: 0,
                 }}
               />
-            </div>
-          </div>
-
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))} style={{ flexShrink: 0 }}>
+            </form>
             <Link
               to="/notifications"
               aria-label={t('settings.notifications', {}, { defaultValue: 'Notifications' })}
@@ -345,20 +268,43 @@ export function RemitLayout() {
             <div className="text-on-surface-variant hover:text-on-surface transition-colors">
               <UserMenu />
             </div>
-          </div>
-        </header>
+          </>
+        }
+      />
 
-        <main
-          data-mol-id="remit-main"
-          className={cm.flex1}
-          style={{ overflow: 'auto', padding: isMobile ? '16px 12px' : '28px' }}
-        >
-          <div style={{ maxWidth: '1360px', margin: '0 auto' }}>
-            <Outlet />
-          </div>
-        </main>
-      </div>
-    </div>
+      {/*
+        Desktop sidebar (≥768px): the dark-teal rail — brand, New-Invoice
+        CTA, nav — via the payroll-manager `bg-[var(--…)]` className pattern.
+      */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navAriaLabel}
+        dataMolId="remit-sidebar"
+        className={cm.cn('bg-[var(--color-primary-dark)]', cm.sp('py', 5), cm.sp('px', 3))}
+        footer={tagline}
+      >
+        <div style={{ padding: '4px 10px 22px 10px' }}>{brand}</div>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+
+      {/*
+        Mobile drawer (<768px): the same rail as a full dialog panel (focus
+        trap, Escape, backdrop click, body-scroll lock) over the same nav.
+      */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navAriaLabel}
+        className={cm.cn('h-full bg-[var(--color-primary-dark)]')}
+        header={brand}
+        footer={tagline}
+      >
+        {nav}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content dataMolId="remit-main" className="overflow-x-auto">
+        <div style={{ maxWidth: '1360px', margin: '0 auto' }} className="px-3 py-4 md:p-7">
+          <Outlet />
+        </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
 
