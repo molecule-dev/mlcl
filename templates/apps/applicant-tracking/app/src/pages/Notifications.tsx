@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { type FeedItem, NotificationFeed } from '@molecule/app-notification-feed-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -100,9 +101,9 @@ export function Notifications() {
     }
   }, [])
 
-  const toggleQuickPref = (storageKey: string) => {
+  const setQuickPref = (storageKey: string, value: boolean) => {
     setQuickPrefs((prev) => {
-      const next = { ...prev, [storageKey]: !prev[storageKey] }
+      const next = { ...prev, [storageKey]: value }
       try {
         window.localStorage.setItem(PREFS_STORAGE_KEY, JSON.stringify(next))
       } catch (_error) {
@@ -273,26 +274,16 @@ export function Notifications() {
                   <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
                     {t(p.key, {}, { defaultValue: p.label })}
                   </span>
-                  <button
-                    type="button"
-                    role="switch"
-                    aria-checked={quickPrefs[p.storageKey]}
+                  <Switch
+                    checked={quickPrefs[p.storageKey]}
+                    size="sm"
                     aria-label={t(p.key, {}, { defaultValue: p.label })}
-                    data-testid={`quick-pref-${p.storageKey}`}
+                    testId={`quick-pref-${p.storageKey}`}
                     data-mol-id="notifications-quick-pref"
-                    onClick={() => toggleQuickPref(p.storageKey)}
-                    className={cm.cn(
-                      'relative w-9 h-5 rounded-full transition-colors shrink-0',
-                      quickPrefs[p.storageKey] ? 'bg-primary' : 'bg-surface-container-high',
-                    )}
-                  >
-                    <span
-                      className={cm.cn(
-                        'absolute top-0.5 w-4 h-4 rounded-full bg-surface-container-lowest shadow-sm transition-all',
-                      )}
-                      style={{ left: quickPrefs[p.storageKey] ? '18px' : '2px' }}
-                    />
-                  </button>
+                    onChange={(e) =>
+                      setQuickPref(p.storageKey, (e.target as HTMLInputElement).checked)
+                    }
+                  />
                 </li>
               ))}
             </ul>
