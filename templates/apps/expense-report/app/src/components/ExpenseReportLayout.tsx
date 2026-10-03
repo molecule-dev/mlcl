@@ -1,260 +1,204 @@
-import { useEffect, useState } from 'react'
-import { NavLink, Outlet, useLocation } from 'react-router'
+import { Link, Outlet, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { Footer } from './Footer.js'
 import { BrandWordmark } from './BrandWordmark.js'
+import { Footer } from './Footer.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
- * Shell layout for all auth'd Recoup pages.
+ * Shell layout for all auth'd Recoup pages — the shared `ResponsiveAppShell`
+ * (`@molecule/app-ui-react`) composed to this app's shape: a mobile-only top
+ * bar (<768px; brand + the shell's own 44px menu trigger), a ≥768px sidebar
+ * (brand + workspace label + nav + actions in the footer row), and a <768px
+ * dialog drawer carrying the SAME nav element. The shell owns the breakpoint,
+ * the drawer open state, focus/Escape/backdrop handling, the body scroll
+ * lock, and auto-close-on-navigation — the former hand-rolled hamburger,
+ * drawer state machine, matchMedia gate and off-canvas sidebar are deleted
+ * with it, and the sidebar is never mounted on both breakpoints at once.
  *
- * Translated from crm/CrmLayout.tsx — sidebar + main column with sticky topbar.
- * Sidebar uses Recoup's primary teal accent for the active nav item, mirroring
- * the §13.7 brand-mark treatment used on auth pages.
- *
- * Mobile (≤768px): the fixed sidebar becomes a slide-in drawer — hamburger in
- * the sticky top bar, dimmed overlay, Escape + route-change close — following
- * the fleet mobile-shell pattern (employee-onboarding/EmployeeOnboardingLayout).
+ * data-mol-id discipline: the `nav-*` ids and the i18n `nav.*` keys are
+ * preserved; the sidebar and the drawer receive the same `nav` element, and
+ * only the mounted breakpoint instantiates it, so ids are never duplicated.
+ * The shell's own chrome ids (`shell-topbar`, `shell-drawer-open`,
+ * `shell-drawer`, `shell-drawer-close`) replace the former `recoup-topbar` /
+ * `recoup-menu-toggle` / `recoup-drawer-overlay` ids.
  */
-const NAV_ITEMS = [
-  {
-    to: '/dashboard',
-    icon: 'space_dashboard',
-    key: 'nav.dashboard',
-    fallback: 'Dashboard',
-    end: true,
-  },
-  { to: '/expenses', icon: 'receipt_long', key: 'nav.expenses', fallback: 'Expenses', end: false },
-  { to: '/reports', icon: 'description', key: 'nav.reports', fallback: 'Reports', end: false },
-  {
-    to: '/reports/list',
-    icon: 'folder_open',
-    key: 'nav.reportsList',
-    fallback: 'Report Library',
-    end: false,
-  },
-  {
-    to: '/approvals',
-    icon: 'approval',
-    key: 'nav.approvals',
-    fallback: 'Approvals',
-    end: false,
-  },
-  {
-    to: '/notifications',
-    icon: 'notifications',
-    key: 'nav.notifications',
-    fallback: 'Activity',
-    end: false,
-  },
+const NAV_KEYS = [
+  { to: '/dashboard', key: 'dashboard', fallback: 'Dashboard', icon: 'space_dashboard' },
+  { to: '/expenses', key: 'expenses', fallback: 'Expenses', icon: 'receipt_long' },
+  { to: '/reports', key: 'reports', fallback: 'Reports', icon: 'description' },
+  { to: '/reports/list', key: 'reportsList', fallback: 'Report Library', icon: 'folder_open' },
+  { to: '/approvals', key: 'approvals', fallback: 'Approvals', icon: 'approval' },
+  { to: '/notifications', key: 'notifications', fallback: 'Activity', icon: 'notifications' },
 ] as const
-
-const MOBILE_MQ = '(max-width: 768px)'
 
 export function ExpenseReportLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const location = useLocation()
-  const [isMobile, setIsMobile] = useState(false)
-  const [drawerOpen, setDrawerOpen] = useState(false)
+  const { pathname } = useLocation()
 
-  useEffect(() => {
-    const mq = window.matchMedia(MOBILE_MQ)
-    setIsMobile(mq.matches)
-    const handler = (e: MediaQueryListEvent) => {
-      setIsMobile(e.matches)
-      if (!e.matches) setDrawerOpen(false)
-    }
-    mq.addEventListener('change', handler)
-    return () => mq.removeEventListener('change', handler)
-  }, [])
+  // Single-active-item resolution: highlight the nav item whose `to` is the
+  // longest prefix-match of the current pathname (/reports/list activates
+  // Report Library, never both Reports rows).
+  const activeKey = NAV_KEYS.reduce<string | null>((bestKey, item) => {
+    const isMatch = pathname === item.to || pathname.startsWith(`${item.to}/`)
+    if (!isMatch) return bestKey
+    if (bestKey === null) return item.key
+    const best = NAV_KEYS.find((i) => i.key === bestKey)
+    return best && item.to.length > best.to.length ? item.key : bestKey
+  }, null)
 
-  // Any route change closes the mobile drawer.
-  useEffect(() => {
-    setDrawerOpen(false)
-  }, [location.pathname])
+  // Same-route clicks append `#top` so the URL still changes (no dead links).
+  const safeTarget = (to: string): string => {
+    const samePath = pathname === to || pathname + '/' === to
+    return samePath ? `${to.replace(/\/$/, '')}#top` : to
+  }
 
-  // Escape closes the drawer.
-  useEffect(() => {
-    if (!drawerOpen) return
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setDrawerOpen(false)
-    }
-    document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
-  }, [drawerOpen])
+  const settingsActive = pathname === '/settings' || pathname.startsWith('/settings/')
 
-  const closeDrawer = () => setDrawerOpen(false)
-
-  const navLinkClass = ({ isActive }: { isActive: boolean }) =>
+  const navLinkClass = (isActive: boolean): string =>
     cm.cn(
       cm.flex({ align: 'center', gap: 'sm' }),
       cm.sp('px', 3),
       'py-2.5',
       cm.textSize('sm'),
       cm.fontWeight('medium'),
-      'rounded-xl transition-colors',
+      'min-h-[44px] rounded-xl transition-colors',
       isActive
         ? 'bg-primary-container text-on-primary-container font-bold'
         : 'text-on-surface-variant hover:bg-surface-container-low',
     )
 
-  return (
-    <div
-      data-mol-id="recoup-layout"
-      className={cm.cn(cm.flex(), cm.minH('screen'), 'bg-surface-container-low text-on-surface')}
-    >
-      {/* Mobile drawer overlay */}
-      {isMobile && drawerOpen && (
-        <div
-          role="presentation"
-          data-mol-id="recoup-drawer-overlay"
-          onClick={closeDrawer}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(15, 23, 42, 0.4)',
-            zIndex: 40,
-            backdropFilter: 'blur(2px)',
-          }}
-        />
-      )}
-
-      <aside
-        data-mol-id="recoup-sidebar"
+  // ONE nav element for both breakpoints — the Sidebar and the Drawer receive
+  // the same element, and only the mounted breakpoint instantiates it. The
+  // drawer closes itself on navigation (shell-owned), so links carry no
+  // onClick close.
+  const nav = (
+    <>
+      <div
         className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          cm.sp('px', 4),
-          cm.sp('py', 6),
-          'bg-surface',
+          cm.textSize('xs'),
+          cm.fontWeight('semibold'),
+          cm.sp('mb', 2),
+          'uppercase tracking-widest text-on-surface-variant',
         )}
-        style={{
-          width: '260px',
-          flexShrink: 0,
-          ...(isMobile
-            ? {
-                position: 'fixed',
-                top: 0,
-                bottom: 0,
-                left: drawerOpen ? 0 : '-280px',
-                zIndex: 50,
-                transition: 'left 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-                boxShadow: drawerOpen ? '8px 0 24px rgba(15, 23, 42, 0.2)' : 'none',
-                overflowY: 'auto',
-              }
-            : {
-                position: 'sticky',
-                top: 0,
-                height: '100vh',
-                borderRight: '1px solid rgba(0,0,0,0.08)',
-              }),
-        }}
       >
-        <NavLink
-          to="/dashboard"
-          onClick={closeDrawer}
-          className={cm.cn(cm.sp('px', 3), cm.sp('mb', 8), 'block')}
+        {t('layout.workspace', {}, { defaultValue: 'Finance Workspace' })}
+      </div>
+      {NAV_KEYS.map((item) => {
+        const isActive = item.key === activeKey
+        return (
+          <Link
+            key={item.key}
+            to={safeTarget(item.to)}
+            data-mol-id={`nav-${item.to.replace(/\//g, '-').slice(1)}`}
+            aria-current={isActive ? 'page' : undefined}
+            className={navLinkClass(isActive)}
+          >
+            <span className={cm.cn('material-symbols-outlined text-xl')} aria-hidden="true">
+              {item.icon}
+            </span>
+            <span>{t(`nav.${item.key}`, {}, { defaultValue: item.fallback })}</span>
+          </Link>
+        )
+      })}
+      <Link
+        to={safeTarget('/settings')}
+        data-mol-id="nav-settings"
+        aria-current={settingsActive ? 'page' : undefined}
+        className={cm.cn(navLinkClass(settingsActive), 'mt-auto')}
+      >
+        <span className={cm.cn('material-symbols-outlined text-xl')} aria-hidden="true">
+          settings
+        </span>
+        <span>{t('nav.settings', {}, { defaultValue: 'Settings' })}</span>
+      </Link>
+    </>
+  )
+
+  // Shell chrome actions — styled cells so UserMenu + ThemeToggle never
+  // render as bare browser controls bolted onto the chrome. Mounted in the
+  // sidebar's footer row (desktop) and the drawer's footer (mobile).
+  const actions = (
+    <>
+      <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+        <ThemeToggle />
+      </div>
+      <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+        <UserMenu />
+      </div>
+    </>
+  )
+
+  const actionsFooter = (
+    <div
+      className={cm.cn(
+        cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+        'w-full border-t border-outline-variant/40 pt-3',
+      )}
+    >
+      {actions}
+    </div>
+  )
+
+  const navAriaLabel = t('layout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
+
+  return (
+    <ResponsiveAppShell sidebarWidth="md" dataMolId="recoup-layout">
+      {/*
+        Mobile top bar (<768px): brand + the shell's menu trigger. Desktop is
+        brandless up top — the sidebar carries the brand row.
+      */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={
+          <Link to={safeTarget('/dashboard')} data-mol-id="mobile-brand" className="block">
+            <BrandWordmark as="span" />
+          </Link>
+        }
+      />
+
+      {/*
+        Desktop sidebar (≥768px). The brand row leads the nav column — the
+        shared Sidebar has no header slot, so it rides inside `children`.
+      */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navAriaLabel}
+        className={cm.cn(cm.sp('px', 4), cm.sp('py', 6))}
+        footer={actionsFooter}
+      >
+        <Link
+          to={safeTarget('/dashboard')}
           data-mol-id="sidebar-brand"
+          className={cm.cn(cm.sp('px', 3), cm.sp('mb', 8), 'block')}
         >
           <BrandWordmark as="span" withTagline />
-        </NavLink>
+        </Link>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
 
-        <nav className={cm.cn(cm.stack(1), cm.flex1)}>
-          {NAV_ITEMS.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.end}
-              onClick={closeDrawer}
-              data-mol-id={`nav-${item.to.replace(/\//g, '-').slice(1)}`}
-              className={navLinkClass}
-            >
-              <span className={cm.cn('material-symbols-outlined text-xl')} aria-hidden="true">
-                {item.icon}
-              </span>
-              <span>{t(item.key, {}, { defaultValue: item.fallback })}</span>
-            </NavLink>
-          ))}
-        </nav>
+      {/*
+        Mobile drawer (<768px): a full dialog panel (focus trap, Escape,
+        backdrop click, body-scroll lock) over the same nav, with the brand
+        in the header row and the actions in the footer.
+      */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navAriaLabel}
+        className="h-full"
+        header={<BrandWordmark as="span" withTagline />}
+        footer={actionsFooter}
+      >
+        {nav}
+      </ResponsiveAppShell.Drawer>
 
-        <NavLink
-          to="/settings"
-          onClick={closeDrawer}
-          data-mol-id="nav-settings"
-          className={({ isActive }) => cm.cn(navLinkClass({ isActive }), 'mt-auto')}
-        >
-          <span className={cm.cn('material-symbols-outlined text-xl')} aria-hidden="true">
-            settings
-          </span>
-          <span>{t('nav.settings', {}, { defaultValue: 'Settings' })}</span>
-        </NavLink>
-      </aside>
-
-      <div className={cm.cn('flex flex-col flex-1 min-w-0 w-full')}>
-        <header
-          data-mol-id="recoup-topbar"
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between' }),
-            cm.sp('px', 8),
-            'sticky top-0 z-30 h-14 border-b border-outline-variant/40 bg-surface/80 backdrop-blur-md',
-          )}
-        >
-          <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-            {isMobile ? (
-              <button
-                type="button"
-                data-mol-id="recoup-menu-toggle"
-                aria-label={t('layout.openMenu', {}, { defaultValue: 'Open navigation menu' })}
-                aria-expanded={drawerOpen}
-                onClick={() => setDrawerOpen(true)}
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  'border-0 bg-transparent text-on-surface hover:text-primary cursor-pointer',
-                )}
-                style={{ width: '40px', height: '40px', flexShrink: 0, marginLeft: '-8px' }}
-              >
-                <span className={cm.cn('material-symbols-outlined text-2xl')} aria-hidden="true">
-                  menu
-                </span>
-              </button>
-            ) : null}
-            <div
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('semibold'),
-                'uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
-              {t('layout.workspace', {}, { defaultValue: 'Finance Workspace' })}
-            </div>
-          </div>
-          {/* Top-bar controls — styled so they don't read as bare browser
-              controls bolted onto the chrome. */}
-          <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-            <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
-              <ThemeToggle />
-            </div>
-            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
-              <UserMenu />
-            </div>
-          </div>
-        </header>
-        <main
-          className={cm.cn(
-            cm.flex1,
-            cm.sp('px', 8),
-            cm.sp('py', 8),
-            'overflow-x-hidden max-md:px-4 max-md:py-5',
-          )}
-        >
-          <Outlet />
-        </main>
+      <ResponsiveAppShell.Content className="overflow-x-hidden px-4 py-5 md:px-8 md:py-8">
+        <Outlet />
         <Footer />
-      </div>
-    </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
