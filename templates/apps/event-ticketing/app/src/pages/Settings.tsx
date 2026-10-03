@@ -540,6 +540,11 @@ export function Settings() {
                             [p.key]: (e.target as HTMLInputElement).checked,
                           } as Partial<ProfileShape['notifications']>)
                         }
+                        aria-label={t(
+                          `settings.notifications.${p.key}.label`,
+                          {},
+                          { defaultValue: p.defaultLabel },
+                        )}
                         data-mol-id={`pref-${p.key}`}
                       />
                     </li>

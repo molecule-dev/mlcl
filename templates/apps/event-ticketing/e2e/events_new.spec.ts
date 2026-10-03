@@ -1,22 +1,31 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
 
-import {
-  APP_BASE,
-  apiHeaders,
-  API_BASE,
-  captureNetwork,
-  expectNoConsoleErrors,
-  login,
-  logout,
-  seedEvent,
-  seedOrder,
-  seedTier,
-  signup,
-  uniqueEmail,
-} from './_helpers.js'
+import { APP_BASE, signup } from './_helpers.js'
+
+/**
+ * Collecting `page.on('response')` attached at TEST START. Responses are
+ * pushed as they arrive — no arming round-trip to lose a race against a fast
+ * POST, and `expect.poll` below absorbs any delivery hiccup under heavy
+ * parallel load (a `waitForResponse` armed right before the click can miss a
+ * response that lands within its install window on a busy machine).
+ */
+function collectApiResponses(page: {
+  on: (
+    event: 'response',
+    listener: (r: { request(): { method(): string }; url(): string; status(): number }) => void,
+  ) => unknown
+}): { method: string; url: string; status: number }[] {
+  const apiResponses: { method: string; url: string; status: number }[] = []
+  page.on('response', (r) => {
+    if (/\/api\//.test(r.url()))
+      apiResponses.push({ method: r.request().method(), url: r.url(), status: r.status() })
+  })
+  return apiResponses
+}
 
 test.describe('/events/new page', () => {
   test('happy path: fill form + publish creates an event then navigates', async ({ page }) => {
+    const apiResponses = collectApiResponses(page)
     await signup(page)
     await page.goto(APP_BASE + '/events/new')
     await page.locator('[data-mol-id="field-title"]').fill('E2E Created Event')
@@ -29,16 +38,24 @@ test.describe('/events/new page', () => {
     await page.locator('[data-mol-id="tier-0-price"]').fill('25')
     await page.locator('[data-mol-id="tier-0-total"]').fill('100')
     await page.getByRole('button', { name: /^next$/i }).click()
-    const reqs = await captureNetwork(page, async () => {
-      await page.locator('[data-mol-id="event-publish"]').click()
-      await page.waitForLoadState('networkidle')
-    })
-    const post = reqs.find((r) => r.method === 'POST' && /\/api\/events(?!\/[\w-]+\/)/.test(r.url))
-    expect(post, 'POST /api/events').toBeTruthy()
-    expect(post?.status).toBeLessThan(400)
+    await page.locator('[data-mol-id="event-publish"]').click()
+    await expect
+      .poll(
+        () =>
+          apiResponses.some(
+            (r) => r.method === 'POST' && /\/api\/events(?!\/[\w-]+\/)/.test(r.url),
+          ),
+        { message: 'POST /api/events' },
+      )
+      .toBeTruthy()
+    const post = apiResponses.find(
+      (r) => r.method === 'POST' && /\/api\/events(?!\/[\w-]+\/)/.test(r.url),
+    )
+    expect(post?.status, 'POST /api/events status').toBeLessThan(400)
   })
 
   test('save draft button persists and lands on /events/:id', async ({ page }) => {
+    const apiResponses = collectApiResponses(page)
     await signup(page)
     await page.goto(APP_BASE + '/events/new')
     await page.locator('[data-mol-id="field-title"]').fill('Draft Event')
@@ -49,12 +66,12 @@ test.describe('/events/new page', () => {
     await page.locator('[data-mol-id="tier-0-name"]').fill('GA')
     await page.locator('[data-mol-id="tier-0-price"]').fill('10')
     await page.locator('[data-mol-id="tier-0-total"]').fill('25')
-    const reqs = await captureNetwork(page, async () => {
-      await page.locator('[data-mol-id="event-save-draft"]').click()
-      await page.waitForLoadState('networkidle')
-    })
-    const post = reqs.find((r) => r.method === 'POST' && /\/api\/events/.test(r.url))
-    expect(post).toBeTruthy()
+    await page.locator('[data-mol-id="event-save-draft"]').click()
+    await expect
+      .poll(() => apiResponses.some((r) => r.method === 'POST' && /\/api\/events/.test(r.url)), {
+        message: 'POST /api/events',
+      })
+      .toBeTruthy()
   })
 
   test('add another tier appends a new tier row', async ({ page }) => {

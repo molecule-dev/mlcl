@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface TierDraft {
   id: string
@@ -86,16 +87,6 @@ export function CreateEvent({
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState<string | null>(null)
   const [loadingExisting, setLoadingExisting] = useState(mode === 'edit')
-  // Destructive actions arm first, fire on the second click (fleet rule:
-  // destructive actions are confirmed inline — never on a single tap).
-  const [armedAction, setArmedAction] = useState<'none' | 'cancel' | 'delete'>('none')
-
-  // A pending armed state disarms itself so a stray first tap can't lurk.
-  useEffect(() => {
-    if (armedAction === 'none') return
-    const timer = window.setTimeout(() => setArmedAction('none'), 5000)
-    return () => window.clearTimeout(timer)
-  }, [armedAction])
 
   useEffect(() => {
     if (mode !== 'edit' || !routeId) return
@@ -293,24 +284,6 @@ export function CreateEvent({
     } finally {
       setBusy(false)
     }
-  }
-
-  function handleCancelClick(): void {
-    if (armedAction !== 'cancel') {
-      setArmedAction('cancel')
-      return
-    }
-    setArmedAction('none')
-    void cancelEvent()
-  }
-
-  function handleDeleteClick(): void {
-    if (armedAction !== 'delete') {
-      setArmedAction('delete')
-      return
-    }
-    setArmedAction('none')
-    void deleteEvent()
   }
 
   async function cancelEvent() {
@@ -1099,67 +1072,44 @@ export function CreateEvent({
                 )}
               </p>
               <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-                <button
-                  type="button"
+                <ConfirmButton
                   disabled={busy}
-                  onClick={handleCancelClick}
+                  variant="outline"
+                  color="error"
+                  label={t('createEvent.danger.cancel', {}, { defaultValue: 'Cancel event' })}
+                  confirmLabel={t(
+                    'createEvent.danger.confirmCancel',
+                    {},
+                    { defaultValue: 'Tap again to cancel' },
+                  )}
+                  pendingLabel={t(
+                    'createEvent.danger.confirmCancel',
+                    {},
+                    { defaultValue: 'Tap again to cancel' },
+                  )}
+                  disarmSeconds={5}
+                  onConfirm={cancelEvent}
                   data-mol-id="event-cancel"
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 2),
-                    'rounded-full text-sm font-bold border disabled:opacity-50',
-                    armedAction === 'cancel'
-                      ? 'border-error bg-error text-white'
-                      : 'border-error text-error hover:bg-error/10',
-                  )}
-                >
-                  {armedAction === 'cancel'
-                    ? t(
-                        'createEvent.danger.confirmCancel',
-                        {},
-                        { defaultValue: 'Tap again to cancel' },
-                      )
-                    : t('createEvent.danger.cancel', {}, { defaultValue: 'Cancel event' })}
-                </button>
-                <button
-                  type="button"
+                />
+                <ConfirmButton
                   disabled={busy}
-                  onClick={handleDeleteClick}
-                  data-mol-id="event-delete"
-                  aria-label={
-                    armedAction === 'delete'
-                      ? t(
-                          'createEvent.danger.confirmDeleteLabel',
-                          {},
-                          { defaultValue: 'Tap again to permanently delete this event' },
-                        )
-                      : undefined
-                  }
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 2),
-                    'rounded-full text-sm font-bold bg-error text-white disabled:opacity-50',
-                    armedAction === 'delete' ? 'ring-2 ring-error ring-offset-2' : '',
+                  color="error"
+                  label={t('createEvent.danger.delete', {}, { defaultValue: 'Delete event' })}
+                  confirmLabel={t(
+                    'createEvent.danger.confirmDelete',
+                    {},
+                    { defaultValue: 'Tap again to delete' },
                   )}
-                >
-                  {armedAction === 'delete'
-                    ? t(
-                        'createEvent.danger.confirmDelete',
-                        {},
-                        { defaultValue: 'Tap again to delete' },
-                      )
-                    : t('createEvent.danger.delete', {}, { defaultValue: 'Delete event' })}
-                </button>
+                  pendingLabel={t(
+                    'createEvent.danger.confirmDelete',
+                    {},
+                    { defaultValue: 'Tap again to delete' },
+                  )}
+                  disarmSeconds={5}
+                  onConfirm={deleteEvent}
+                  data-mol-id="event-delete"
+                />
               </div>
-              <p aria-live="polite" className={cm.cn(cm.textSize('xs'), 'text-error font-bold')}>
-                {armedAction !== 'none'
-                  ? t(
-                      'createEvent.danger.armedHint',
-                      {},
-                      { defaultValue: 'Tap again to confirm — this cannot be undone.' },
-                    )
-                  : null}
-              </p>
             </article>
           ) : null}
         </aside>

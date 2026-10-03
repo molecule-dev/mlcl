@@ -4,7 +4,6 @@ import {
   APP_BASE,
   apiHeaders,
   API_BASE,
-  captureNetwork,
   expectNoConsoleErrors,
   login,
   logout,
@@ -45,12 +44,22 @@ test.describe('/ landing', () => {
   })
 
   test('hits GET /api/events to populate the on-sale strip', async ({ page }) => {
-    const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/')
-      await page.waitForLoadState('networkidle')
+    // Collecting listener attached at TEST START: responses are pushed as
+    // they arrive, and expect.poll absorbs any delivery hiccup under heavy
+    // parallel load (an armed waitForResponse can miss a response that lands
+    // within its install window on a busy machine).
+    const apiResponses: { method: string; url: string; status: number }[] = []
+    page.on('response', (r) => {
+      if (/\/api\//.test(r.url()))
+        apiResponses.push({ method: r.request().method(), url: r.url(), status: r.status() })
     })
-    const ev = reqs.find((r) => r.method === 'GET' && /\/api\/events/.test(r.url))
-    expect(ev, 'GET /api/events should fire on landing').toBeTruthy()
-    expect(ev?.status).toBeLessThan(500)
+    await page.goto(APP_BASE + '/')
+    await expect
+      .poll(() => apiResponses.some((r) => r.method === 'GET' && /\/api\/events/.test(r.url)), {
+        message: 'GET /api/events should fire on landing',
+      })
+      .toBeTruthy()
+    const ev = apiResponses.find((r) => r.method === 'GET' && /\/api\/events/.test(r.url))
+    expect(ev?.status, 'GET /api/events status').toBeLessThan(500)
   })
 })

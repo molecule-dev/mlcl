@@ -4,7 +4,6 @@ import {
   APP_BASE,
   apiHeaders,
   API_BASE,
-  captureNetwork,
   expectNoConsoleErrors,
   login,
   logout,
@@ -27,16 +26,27 @@ test.describe('/reset-password page', () => {
     // A bogus token is rejected with 401 — the console resource error is the
     // expected server response this test exists to exercise.
     test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
-    const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/reset-password?token=invalid-token')
-      const pw = page.locator('input[type="password"]')
-      await pw.nth(0).fill('NewPass!1234')
-      if ((await pw.count()) > 1) await pw.nth(1).fill('NewPass!1234')
-      await page.locator('form button[type="submit"]').first().click()
-      await page.waitForLoadState('networkidle')
+    // Collecting listener attached at TEST START: responses are pushed as
+    // they arrive, and expect.poll absorbs any delivery hiccup under heavy
+    // parallel load (an armed waitForResponse can miss a response that lands
+    // within its install window on a busy machine).
+    const apiResponses: { method: string; url: string; status: number }[] = []
+    page.on('response', (r) => {
+      if (/\/api\//.test(r.url()))
+        apiResponses.push({ method: r.request().method(), url: r.url(), status: r.status() })
     })
-    const c = reqs.find((r) => r.method === 'POST' && /reset-password/.test(r.url))
-    expect(c, 'POST /api/users/reset-password').toBeTruthy()
+    await page.goto(APP_BASE + '/reset-password?token=invalid-token')
+    const pw = page.locator('input[type="password"]')
+    await pw.nth(0).fill('NewPass!1234')
+    if ((await pw.count()) > 1) await pw.nth(1).fill('NewPass!1234')
+    await page.locator('form button[type="submit"]').first().click()
+    await expect
+      .poll(() => apiResponses.some((r) => r.method === 'POST' && /reset-password/.test(r.url)), {
+        message: 'POST /api/users/reset-password',
+      })
+      .toBeTruthy()
+    const c = apiResponses.find((r) => r.method === 'POST' && /reset-password/.test(r.url))
+    expect(c?.status, 'POST /api/users/reset-password status').toBeLessThan(500)
   })
 
   test('password input is masked by default', async ({ page }) => {
