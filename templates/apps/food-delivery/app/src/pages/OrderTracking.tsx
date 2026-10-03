@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { StatusTimeline } from '@molecule/app-status-timeline-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -94,9 +95,9 @@ export function OrderTracking() {
       )}
     >
       {error ? (
-        <p className={cm.cn('col-span-12', cm.sp('py', 16), cm.textCenter, 'text-error')}>
-          {error}
-        </p>
+        // Display-only: tracking polls on its own; a failed poll keeps the
+        // last known state, so the banner never needs its own Retry button.
+        <LoadErrorBanner message={error} className="col-span-12" />
       ) : loading ? (
         <p className={cm.cn('col-span-12', cm.sp('py', 16), cm.textCenter, cm.textMuted)}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}

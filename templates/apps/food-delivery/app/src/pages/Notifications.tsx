@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -48,10 +49,10 @@ export function Notifications() {
   const [error, setError] = useState<string | null>(null)
   const [readAllBusy, setReadAllBusy] = useState(false)
 
-  const reload = useCallback((): void => {
+  const reload = useCallback((): Promise<void> => {
     setLoading(true)
     setError(null)
-    http
+    return http
       .get('/api/notifications')
       .then((res) => setNotifs(unwrapList<Notification>(res)))
       .catch(() =>
@@ -177,7 +178,7 @@ export function Notifications() {
       </header>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <LoadErrorBanner message={error} onRetry={reload} />
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.textMuted)}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}

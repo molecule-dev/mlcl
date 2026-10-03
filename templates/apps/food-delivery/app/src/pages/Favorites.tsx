@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -33,12 +34,13 @@ export function Favorites() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  function reload(): void {
-    http
+  function reload(): Promise<void> {
+    return http
       .get('/api/favorites')
       .then((res) => {
         const payload = unwrapSingle<FavoritesResponse>(res)
         setFavorites(payload?.restaurants ?? [])
+        setError(null)
       })
       .catch(() =>
         setError(t('favorites.loadError', {}, { defaultValue: 'Failed to load favorites.' })),
@@ -86,12 +88,7 @@ export function Favorites() {
       </header>
 
       {error ? (
-        <p
-          data-testid="favorites-error"
-          className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}
-        >
-          {error}
-        </p>
+        <LoadErrorBanner message={error} onRetry={reload} data-testid="favorites-error" />
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.textMuted)}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}

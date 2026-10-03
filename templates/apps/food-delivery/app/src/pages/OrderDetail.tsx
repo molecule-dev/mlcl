@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -52,11 +53,11 @@ export function OrderDetail() {
   const [ratedAt, setRatedAt] = useState<number | null>(null)
   const [rateError, setRateError] = useState<string | null>(null)
 
-  const reload = useCallback((): void => {
-    if (!id) return
+  const reload = useCallback((): Promise<void> => {
+    if (!id) return Promise.resolve()
     setLoading(true)
     setError(null)
-    http
+    return http
       .get(`/api/orders/${id}`)
       .then((res) => setOrder(unwrapSingle<Order>(res)))
       .catch(() =>
@@ -131,7 +132,7 @@ export function OrderDetail() {
       </Link>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <LoadErrorBanner message={error} onRetry={reload} />
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textMuted)}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}

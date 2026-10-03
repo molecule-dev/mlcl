@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { CartHero } from '../components/CartHero.js'
 import { CategoryChips } from '../components/CategoryChips.js'
@@ -173,7 +174,7 @@ export function Restaurants() {
                 : t(`restaurants.category.${activeCategory}`, {}, { defaultValue: activeCategory })}
             </h2>
             {error ? (
-              <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+              <LoadErrorBanner message={error} />
             ) : loading ? (
               <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
                 {t('restaurants.loading', {}, { defaultValue: 'Loading…' })}

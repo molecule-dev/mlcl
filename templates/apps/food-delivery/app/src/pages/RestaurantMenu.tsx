@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 import { useCart } from '../lib/useCart.js'
@@ -204,7 +205,7 @@ export function RestaurantMenu() {
         </Link>
 
         {error ? (
-          <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+          <LoadErrorBanner message={error} />
         ) : loading ? (
           <p className={cm.cn(cm.sp('py', 16), cm.textMuted)}>
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
