@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import type { DocumentVisibility } from '../components/DocumentVisibilityPill.js'
 import { QuillonDocumentCard } from '../components/QuillonDocumentCard.js'
@@ -33,16 +34,6 @@ export function Trash() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)
-  // Destructive actions arm on the first click and commit on the second —
-  // the armed state auto-resets after 4s so a stray click can't linger.
-  const [armedDeleteId, setArmedDeleteId] = useState<string | null>(null)
-  const [armedEmpty, setArmedEmpty] = useState(false)
-  const disarmTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  const scheduleDisarm = (disarm: () => void): void => {
-    if (disarmTimerRef.current) clearTimeout(disarmTimerRef.current)
-    disarmTimerRef.current = setTimeout(disarm, 4000)
-  }
 
   useEffect(() => {
     let cancelled = false
@@ -106,28 +97,6 @@ export function Trash() {
     void track({ name: 'trash.emptied', properties: { count } })
   }
 
-  const onDeleteForeverClick = (id: string): void => {
-    if (armedDeleteId !== id) {
-      setArmedDeleteId(id)
-      setArmedEmpty(false)
-      scheduleDisarm(() => setArmedDeleteId(null))
-      return
-    }
-    setArmedDeleteId(null)
-    void deleteForever(id)
-  }
-
-  const onEmptyTrashClick = (): void => {
-    if (!armedEmpty) {
-      setArmedEmpty(true)
-      setArmedDeleteId(null)
-      scheduleDisarm(() => setArmedEmpty(false))
-      return
-    }
-    setArmedEmpty(false)
-    void emptyTrash()
-  }
-
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')} data-testid="trash-root">
       <header className={cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' })}>
@@ -159,24 +128,20 @@ export function Trash() {
             )}
           </p>
         </div>
-        <button
-          type="button"
-          onClick={onEmptyTrashClick}
-          disabled={docs.length === 0}
-          className={cm.cn(
-            cm.sp('px', 4),
-            cm.sp('py', 2),
-            cm.fontWeight('extrabold'),
-            cm.textSize('sm'),
-            'rounded-full shadow-sm transition-transform hover:-translate-y-0.5 disabled:opacity-40 disabled:hover:translate-y-0',
-            armedEmpty ? 'bg-error text-white ring-2 ring-error/40' : 'bg-error text-white',
+        {/* Shared two-step confirm: first click arms, second commits, 4s
+            auto-disarm + Escape (data-testid preserved for the e2e specs). */}
+        <ConfirmButton
+          label={t('trash.emptyAll', {}, { defaultValue: 'Empty trash' })}
+          confirmLabel={t(
+            'trash.confirmEmpty',
+            {},
+            { defaultValue: 'Confirm — delete everything' },
           )}
-          data-testid="trash-empty-all"
-        >
-          {armedEmpty
-            ? t('trash.confirmEmpty', {}, { defaultValue: 'Confirm — delete everything' })
-            : t('trash.emptyAll', {}, { defaultValue: 'Empty trash' })}
-        </button>
+          onConfirm={emptyTrash}
+          disabled={docs.length === 0}
+          color="error"
+          testId="trash-empty-all"
+        />
       </header>
 
       {error ? (
@@ -233,25 +198,15 @@ export function Trash() {
                   >
                     {t('trash.restore', {}, { defaultValue: 'Restore' })}
                   </button>
-                  <button
-                    type="button"
-                    onClick={() => onDeleteForeverClick(d.id)}
+                  <ConfirmButton
+                    label={t('trash.deleteForever', {}, { defaultValue: 'Delete forever' })}
+                    confirmLabel={t('trash.confirmDelete', {}, { defaultValue: 'Confirm delete' })}
+                    onConfirm={() => deleteForever(d.id)}
                     disabled={busyId === d.id}
-                    className={cm.cn(
-                      cm.sp('px', 3),
-                      cm.sp('py', 1),
-                      cm.fontWeight('extrabold'),
-                      'rounded-full text-[10px] uppercase tracking-widest hover:bg-error/10 disabled:opacity-50',
-                      armedDeleteId === d.id
-                        ? 'bg-error/10 text-error ring-1 ring-error'
-                        : 'text-error',
-                    )}
-                    data-testid={`trash-delete-${d.id}`}
-                  >
-                    {armedDeleteId === d.id
-                      ? t('trash.confirmDelete', {}, { defaultValue: 'Confirm delete' })
-                      : t('trash.deleteForever', {}, { defaultValue: 'Delete forever' })}
-                  </button>
+                    color="error"
+                    size="sm"
+                    testId={`trash-delete-${d.id}`}
+                  />
                 </div>
               }
             />
