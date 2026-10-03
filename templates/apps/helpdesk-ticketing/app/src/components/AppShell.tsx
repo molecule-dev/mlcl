@@ -19,10 +19,11 @@ import { SettingsPanel } from './SettingsPanel.js'
  * drawer store and escape/backdrop handlers are deleted with it.
  *
  * Composition notes:
- * - `flex-wrap` on the root + `w-full` on each page's TopBar keeps the top
+ * - `md:flex-wrap` on the root + `w-full` on each page's TopBar keeps the top
  *   bar a full-width row ABOVE the sidebar/content row (the shell root is a
- *   flex row on desktop — without `flex-wrap` the bar renders as a squeezed
- *   column beside the sidebar).
+ *   flex row on desktop — a non-wrap bar beside the sidebar renders as a
+ *   squeezed column and is suppressed by the shell outright; `md:flex-wrap`
+ *   is the exact token the shell's wrap-layout detection matches).
  * - The SAME nav element goes to `Sidebar` and `Drawer`, so only the mounted
  *   breakpoint instantiates it — no duplicate nav landmarks, no duplicate
  *   `data-mol-id`s.
@@ -172,7 +173,7 @@ function DrawerUserFooter() {
 interface AppShellProps {
   /**
    * The page's top bar — a `<ResponsiveAppShell.TopBar>` element with
-   * `className="w-full …"` (the shell root is `flex-wrap`, so a full-width
+   * `className="w-full …"` (the shell root is `md:flex-wrap`, so a full-width
    * TopBar takes its own row above the sidebar/content row). Omit on pages
    * with no desktop bar and pass `mobileTitle` instead.
    */
@@ -198,7 +199,7 @@ export default function AppShell({ topBar, mobileTitle, contentMolId, children }
   const nav = <ShellNavLinks />
 
   return (
-    <ResponsiveAppShell sidebarWidth="md" className={cm.cn('flex-wrap')}>
+    <ResponsiveAppShell sidebarWidth="md" className={cm.cn('md:flex-wrap')}>
       {topBar}
       {mobileTitle ? (
         <ResponsiveAppShell.TopBar
