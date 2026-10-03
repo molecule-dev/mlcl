@@ -8,7 +8,6 @@ import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton, LoadErrorBanner } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
 import { BrandWordmark } from '../components/BrandWordmark.js'
 import MobileNavMenu, { useMainNavItems } from '../components/MobileNavMenu.js'
 import UserMenu from '../components/UserMenu.js'
