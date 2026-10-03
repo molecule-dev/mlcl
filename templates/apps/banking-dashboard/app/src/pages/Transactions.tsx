@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -32,34 +33,30 @@ export function TransactionsPage() {
   const [filterStart, setFilterStart] = useState('')
   const [filterEnd, setFilterEnd] = useState('')
 
-  useEffect(() => {
+  // Extracted so the shared LoadErrorBanner's Retry can re-run the same
+  // fetch the mount/filter effect uses (the banner owns the retry pending
+  // state).
+  const load = useCallback(async () => {
     const params = new URLSearchParams()
     if (filterStart) params.set('start', filterStart)
     if (filterEnd) params.set('end', filterEnd)
-    let cancelled = false
     setLoading(true)
     setError(null)
-    http
-      .get(`/api/transactions?${params.toString()}`)
-      .then((res) => {
-        if (cancelled) return
-        setRows(unwrapList<Transaction>(res))
-      })
-      .catch(() => {
-        // Local state (NOT the top-level error boundary — a rejected page
-        // fetch here would otherwise render as a silent, empty table).
-        if (!cancelled)
-          setError(
-            t('transactions.loadError', {}, { defaultValue: 'Failed to load transactions.' }),
-          )
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
-    return () => {
-      cancelled = true
+    try {
+      const res = await http.get(`/api/transactions?${params.toString()}`)
+      setRows(unwrapList<Transaction>(res))
+    } catch (_error) {
+      // Local state (NOT the top-level error boundary — a rejected page
+      // fetch here would otherwise render as a silent, empty table).
+      setError(t('transactions.loadError', {}, { defaultValue: 'Failed to load transactions.' }))
+    } finally {
+      setLoading(false)
     }
   }, [http, t, filterStart, filterEnd])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   return (
     <div data-mol-id="page-transactions" className={cm.cn(cm.sp('px', 8), cm.sp('py', 8))}>
@@ -109,7 +106,7 @@ export function TransactionsPage() {
       </div>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <LoadErrorBanner message={error} onRetry={load} />
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.textMuted)}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}

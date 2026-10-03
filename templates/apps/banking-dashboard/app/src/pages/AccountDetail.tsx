@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { formatMoney } from '../lib/money.js'
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
@@ -53,31 +54,29 @@ export function AccountDetail() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
+  // Extracted so the shared LoadErrorBanner's Retry can re-run the same
+  // fetch the mount effect uses (the banner owns the retry pending state).
+  const load = useCallback(async () => {
     if (!id) return
-    let cancelled = false
     setLoading(true)
     setError(null)
-    Promise.all([
-      http.get(`/api/accounts/${id}`).catch(() => null),
-      http.get('/api/transactions').catch(() => null),
-    ])
-      .then(([aRes, tRes]) => {
-        if (cancelled) return
-        setAccount(unwrapSingle<Account>(aRes))
-        setTxs(unwrapList<Transaction>(tRes).filter((t) => t.account_id === id))
-      })
-      .catch(() => {
-        if (!cancelled)
-          setError(t('accountDetail.loadError', {}, { defaultValue: 'Failed to load account.' }))
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
-    return () => {
-      cancelled = true
+    try {
+      const [aRes, tRes] = await Promise.all([
+        http.get(`/api/accounts/${id}`).catch(() => null),
+        http.get('/api/transactions').catch(() => null),
+      ])
+      setAccount(unwrapSingle<Account>(aRes))
+      setTxs(unwrapList<Transaction>(tRes).filter((t) => t.account_id === id))
+    } catch (_error) {
+      setError(t('accountDetail.loadError', {}, { defaultValue: 'Failed to load account.' }))
+    } finally {
+      setLoading(false)
     }
   }, [id, http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   // Posted vs pending split for summary
   const postedCount = txs.filter((t) => t.status === 'posted').length
@@ -106,7 +105,7 @@ export function AccountDetail() {
       </Link>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <LoadErrorBanner message={error} onRetry={load} />
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textMuted)}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}

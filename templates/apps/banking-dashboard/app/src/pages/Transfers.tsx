@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -47,32 +48,30 @@ export function Transfers() {
   // still produces an observable DOM change.
   const [toTypeTick, setToTypeTick] = useState(0)
 
-  useEffect(() => {
-    let cancelled = false
+  // Extracted so the shared LoadErrorBanner's Retry can re-run the same
+  // fetch the mount effect uses (the banner owns the retry pending state).
+  const load = useCallback(async () => {
     setLoading(true)
     setError(null)
-    Promise.all([
-      http.get('/api/accounts').catch(() => null),
-      http.get('/api/recipients').catch(() => null),
-    ])
-      .then(([aRes, rRes]) => {
-        if (cancelled) return
-        const a = unwrapList<Account>(aRes)
-        setAccounts(a)
-        setRecipients(unwrapList<Recipient>(rRes))
-        if (a.length > 0 && !from) setFrom(a[0].id)
-      })
-      .catch(() => {
-        if (!cancelled)
-          setError(t('transfers.loadError', {}, { defaultValue: 'Failed to load accounts.' }))
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
-    return () => {
-      cancelled = true
+    try {
+      const [aRes, rRes] = await Promise.all([
+        http.get('/api/accounts').catch(() => null),
+        http.get('/api/recipients').catch(() => null),
+      ])
+      const a = unwrapList<Account>(aRes)
+      setAccounts(a)
+      setRecipients(unwrapList<Recipient>(rRes))
+      if (a.length > 0 && !from) setFrom(a[0].id)
+    } catch (_error) {
+      setError(t('transfers.loadError', {}, { defaultValue: 'Failed to load accounts.' }))
+    } finally {
+      setLoading(false)
     }
   }, [http, t, from])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   async function submit(e: React.FormEvent) {
     e.preventDefault()
@@ -195,7 +194,7 @@ export function Transfers() {
       ) : null}
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <LoadErrorBanner message={error} onRetry={load} />
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.textMuted)}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}

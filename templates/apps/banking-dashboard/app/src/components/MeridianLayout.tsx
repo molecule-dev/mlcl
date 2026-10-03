@@ -116,7 +116,11 @@ export function MeridianLayout() {
         Desktop sidebar (>= md). The brand row leads the nav column — the
         shared Sidebar has no header slot, so it rides inside `children`.
       */}
-      <ResponsiveAppShell.Sidebar navLabel={navLabel} className={cm.sp('p', 4)}>
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        className={cm.sp('p', 4)}
+        footer={<UserMenu />}
+      >
         <div
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),

@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { formatMoney } from '../lib/money.js'
 import { unwrapList } from '../lib/unwrap.js'
@@ -33,26 +34,24 @@ export function Accounts() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    let cancelled = false
+  // Extracted so the shared LoadErrorBanner's Retry can re-run the same
+  // fetch the mount effect uses (the banner owns the retry pending state).
+  const load = useCallback(async () => {
     setLoading(true)
     setError(null)
-    http
-      .get('/api/accounts')
-      .then((res) => {
-        if (!cancelled) setAccounts(unwrapList<Account>(res))
-      })
-      .catch(() => {
-        if (!cancelled)
-          setError(t('accounts.loadError', {}, { defaultValue: 'Failed to load accounts.' }))
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
-    return () => {
-      cancelled = true
+    try {
+      const res = await http.get('/api/accounts')
+      setAccounts(unwrapList<Account>(res))
+    } catch (_error) {
+      setError(t('accounts.loadError', {}, { defaultValue: 'Failed to load accounts.' }))
+    } finally {
+      setLoading(false)
     }
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   const totalBalance = accounts.reduce((sum, a) => sum + a.balance_cents, 0)
   const activeCount = accounts.filter((a) => a.status === 'active').length
@@ -114,7 +113,7 @@ export function Accounts() {
       </header>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <LoadErrorBanner message={error} onRetry={load} />
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.textMuted)}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}

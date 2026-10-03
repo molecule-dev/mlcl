@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { type FeedItem, NotificationFeed } from '@molecule/app-notification-feed-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -41,32 +42,26 @@ export function Notifications() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    let cancelled = false
+  // Extracted so the shared LoadErrorBanner's Retry can re-run the same
+  // fetch the mount effect uses (the banner owns the retry pending state).
+  const load = useCallback(async () => {
     setLoading(true)
     setError(null)
-    http
-      .get('/api/notifications')
-      .then((res) => {
-        if (!cancelled) setNotifs(unwrapList<Notification>(res.data))
-      })
-      .catch(() => {
-        if (!cancelled)
-          setError(
-            t(
-              'nav.failedToLoadNotifications',
-              {},
-              { defaultValue: 'Failed to load notifications.' },
-            ),
-          )
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
-    return () => {
-      cancelled = true
+    try {
+      const res = await http.get('/api/notifications')
+      setNotifs(unwrapList<Notification>(res.data))
+    } catch (_error) {
+      setError(
+        t('nav.failedToLoadNotifications', {}, { defaultValue: 'Failed to load notifications.' }),
+      )
+    } finally {
+      setLoading(false)
     }
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   const items: FeedItem[] = notifs.map((n) => ({
     id: n.id,
@@ -166,7 +161,7 @@ export function Notifications() {
       </header>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <LoadErrorBanner message={error} onRetry={load} />
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.textMuted)}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}

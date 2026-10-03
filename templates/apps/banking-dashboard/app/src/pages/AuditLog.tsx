@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -46,26 +47,24 @@ export function AuditLog() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    let cancelled = false
+  // Extracted so the shared LoadErrorBanner's Retry can re-run the same
+  // fetch the mount effect uses (the banner owns the retry pending state).
+  const load = useCallback(async () => {
     setLoading(true)
     setError(null)
-    http
-      .get('/api/audit_events')
-      .then((res) => {
-        if (!cancelled) setEvents(unwrapList<AuditEvent>(res.data))
-      })
-      .catch(() => {
-        if (!cancelled)
-          setError(t('audit.loadError', {}, { defaultValue: 'Failed to load audit log.' }))
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
-    return () => {
-      cancelled = true
+    try {
+      const res = await http.get('/api/audit_events')
+      setEvents(unwrapList<AuditEvent>(res.data))
+    } catch (_error) {
+      setError(t('audit.loadError', {}, { defaultValue: 'Failed to load audit log.' }))
+    } finally {
+      setLoading(false)
     }
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   const successCount = events.filter((e) => e.status === 'success').length
   const failedCount = events.filter((e) => e.status === 'failed').length
@@ -150,7 +149,7 @@ export function AuditLog() {
       </header>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <LoadErrorBanner message={error} onRetry={load} />
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.textMuted)}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}

@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
 import { DataTableCard } from '@molecule/app-data-table-ui-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { AccountsTriad } from '../components/AccountsTriad.js'
 import { BalanceHeroCard } from '../components/BalanceHeroCard.js'
@@ -67,44 +68,46 @@ export function Dashboard() {
   const tOk = ok.t
   const sOk = ok.s
 
-  useEffect(() => {
-    let cancelled = false
+  // Extracted so the shared LoadErrorBanner's Retry can re-run the same
+  // fetches the mount effect uses (the banner owns the retry pending state).
+  const load = useCallback(async () => {
     setLoading(true)
     setError(null)
-    Promise.all([
-      http.get('/api/accounts').catch(() => null),
-      http.get('/api/transactions').catch(() => null),
-      http.get('/api/reports/dashboard_stats').catch(() => null),
-    ])
-      .then(([aRes, tRes, sRes]) => {
-        if (cancelled) return
-        // Per-request success flags: every GET above swallows its own failure,
-        // so "all three failed" is the only reliable total-failure signal and
-        // must surface the error state instead of a silent empty dashboard.
-        setOk({ a: aRes !== null, t: tRes !== null, s: sRes !== null })
-        setAccounts(unwrapList<Account>(aRes))
-        setRecent(unwrapList<Transaction>(tRes).slice(0, 5))
-        setStats(unwrapSingle<DashboardStats>(sRes))
-      })
-      .catch(() => {
-        if (!cancelled)
-          setError(
-            t('nav.failedToLoadDashboard', {}, { defaultValue: 'Failed to load dashboard.' }),
-          )
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
-    return () => {
-      cancelled = true
+    try {
+      // Per-request success flags: every GET below swallows its own failure,
+      // so "all three failed" is the only reliable total-failure signal and
+      // must surface the error state instead of a silent empty dashboard.
+      const [aRes, tRes, sRes] = await Promise.all([
+        http.get('/api/accounts').catch(() => null),
+        http.get('/api/transactions').catch(() => null),
+        http.get('/api/reports/dashboard_stats').catch(() => null),
+      ])
+      setOk({ a: aRes !== null, t: tRes !== null, s: sRes !== null })
+      setAccounts(unwrapList<Account>(aRes))
+      setRecent(unwrapList<Transaction>(tRes).slice(0, 5))
+      setStats(unwrapSingle<DashboardStats>(sRes))
+    } catch (_error) {
+      setError(t('nav.failedToLoadDashboard', {}, { defaultValue: 'Failed to load dashboard.' }))
+    } finally {
+      setLoading(false)
     }
   }, [http, t])
 
+  useEffect(() => {
+    void load()
+  }, [load])
+
   if (error || (!loading && !aOk && !tOk && !sOk)) {
     return (
-      <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>
-        {error ?? t('nav.failedToLoadDashboard', {}, { defaultValue: 'Failed to load dashboard.' })}
-      </p>
+      <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8))}>
+        <LoadErrorBanner
+          message={
+            error ??
+            t('nav.failedToLoadDashboard', {}, { defaultValue: 'Failed to load dashboard.' })
+          }
+          onRetry={load}
+        />
+      </div>
     )
   }
   if (loading) {
