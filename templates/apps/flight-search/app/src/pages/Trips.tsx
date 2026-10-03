@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { type TripItinerary, TripItineraryCard } from '../components/TripItineraryCard.js'
 
@@ -146,7 +147,9 @@ export function Trips() {
       </div>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        // Shared load-failure banner (display-only — the initial load owns
+        // no retry handler; refetch happens on next mount).
+        <LoadErrorBanner message={error} />
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('trips.loading', {}, { defaultValue: 'Loading itineraries…' })}

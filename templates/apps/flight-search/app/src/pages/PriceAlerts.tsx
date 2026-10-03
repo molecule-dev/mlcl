@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { PriceAlertCard, type PriceAlertSummary } from '../components/PriceAlertCard.js'
@@ -469,7 +470,9 @@ export function PriceAlerts() {
           {t('priceAlerts.listHeading', {}, { defaultValue: 'Watching' })}
         </h2>
         {error ? (
-          <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+          // Shared load-failure banner (display-only — the initial load owns
+          // no retry handler; refetch happens on next mount).
+          <LoadErrorBanner message={error} />
         ) : loading ? (
           <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
             {t('priceAlerts.loading', {}, { defaultValue: 'Loading alerts…' })}

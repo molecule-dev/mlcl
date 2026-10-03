@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { FlightResultCard, type FlightSummary } from '../components/FlightResultCard.js'
 
@@ -315,7 +316,8 @@ export function Results() {
 
         <section className={cm.cn(cm.sp('mt', 6), cm.flex({ direction: 'col', gap: 'lg' }))}>
           {error ? (
-            <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+            // Shared load-failure banner, display-only (multi-city branch).
+            <LoadErrorBanner message={error} />
           ) : loading ? (
             <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
               {t('results.loading', {}, { defaultValue: 'Searching live fares…' })}
@@ -527,7 +529,8 @@ export function Results() {
       {/* Result list */}
       <section className={cm.cn(cm.sp('mt', 6), cm.flex({ direction: 'col', gap: 'md' }))}>
         {error ? (
-          <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+          // Shared load-failure banner, display-only (one-way/roundtrip list).
+          <LoadErrorBanner message={error} />
         ) : loading ? (
           <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
             {t('results.loading', {}, { defaultValue: 'Searching live fares…' })}
