@@ -8,7 +8,7 @@ import { LoadErrorBanner } from '@molecule/app-ui-react'
 import { QuizCard, type QuizCardProps } from '../components/QuizCard.js'
 
 const CATEGORIES = [
-  { key: 'all', label: 'All', glyph: 'sparkles' },
+  { key: 'all', label: 'All', glyph: 'auto_awesome' },
   { key: 'science', label: 'Science', glyph: 'science' },
   { key: 'geography', label: 'Geography', glyph: 'public' },
   { key: 'history', label: 'History', glyph: 'menu_book' },
@@ -24,7 +24,7 @@ const CATEGORY_GLYPH: Record<string, string> = {
   arts: 'palette',
   sports: 'sports_soccer',
   pop: 'theater_comedy',
-  general: 'sparkles',
+  general: 'auto_awesome',
 }
 const CATEGORY_HUE: Record<string, NonNullable<QuizCardProps['hue']>> = {
   geography: 'sky',
@@ -65,7 +65,7 @@ function quizRowToCard(q: QuizRow): QuizCardProps & { categoryKey: string } {
     plays: q.play_count ?? 0,
     durationMinutes: Math.max(1, Math.round(((q.time_per_question_s ?? 20) * 5) / 60)),
     difficulty: 'medium',
-    iconGlyph: CATEGORY_GLYPH[cat] ?? 'sparkles',
+    iconGlyph: CATEGORY_GLYPH[cat] ?? 'auto_awesome',
     hue: CATEGORY_HUE[cat] ?? 'sky',
     ctaTo: `/quiz/${q.id}`,
   }

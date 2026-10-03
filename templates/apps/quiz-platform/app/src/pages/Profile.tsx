@@ -32,7 +32,7 @@ const CATEGORY_GLYPH: Record<string, string> = {
   arts: 'palette',
   sports: 'sports_soccer',
   pop: 'theater_comedy',
-  general: 'sparkles',
+  general: 'auto_awesome',
 }
 const CATEGORY_HUE: Record<string, NonNullable<QuizCardProps['hue']>> = {
   geography: 'sky',
@@ -61,7 +61,7 @@ function quizRowToCard(q: QuizRow): QuizCardProps {
     plays: q.play_count ?? 0,
     durationMinutes: Math.max(1, Math.round(((q.time_per_question_s ?? 20) * 5) / 60)),
     difficulty: 'medium',
-    iconGlyph: CATEGORY_GLYPH[cat] ?? 'sparkles',
+    iconGlyph: CATEGORY_GLYPH[cat] ?? 'auto_awesome',
     hue: CATEGORY_HUE[cat] ?? 'sky',
     ctaTo: `/quiz/${q.id}`,
   }

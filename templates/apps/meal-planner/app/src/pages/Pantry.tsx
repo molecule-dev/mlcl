@@ -451,7 +451,7 @@ export function Pantry() {
             )}
           >
             <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-primary')}>
-              restock
+              inventory_2
             </span>
             {t('simmer.pantry.restock.title', {}, { defaultValue: 'Pantry Restock Queue' })}
           </h2>

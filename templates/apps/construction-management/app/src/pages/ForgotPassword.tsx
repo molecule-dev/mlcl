@@ -276,7 +276,7 @@ function ForgotPassword() {
                     className="material-symbols-outlined"
                     style={{ fontVariationSettings: "'FILL' 1" }}
                   >
-                    recovery
+                    restore
                   </span>
                 </span>
                 <div>

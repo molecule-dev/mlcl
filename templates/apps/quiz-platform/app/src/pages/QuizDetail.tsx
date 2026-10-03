@@ -49,7 +49,7 @@ const CATEGORY_GLYPH: Record<string, string> = {
   arts: 'palette',
   sports: 'sports_soccer',
   pop: 'theater_comedy',
-  general: 'sparkles',
+  general: 'auto_awesome',
 }
 
 const CATEGORY_HUE: Record<string, NonNullable<QuizCardProps['hue']>> = {
@@ -142,7 +142,7 @@ export function QuizDetail() {
   }
 
   const cat = (quiz.category ?? 'general').toLowerCase()
-  const glyph = CATEGORY_GLYPH[cat] ?? 'sparkles'
+  const glyph = CATEGORY_GLYPH[cat] ?? 'auto_awesome'
   const totalPlays = quiz.play_count ?? 0
   const durationMin = Math.max(
     1,
@@ -388,7 +388,7 @@ export function QuizDetail() {
                     Math.round(((q.time_per_question_s ?? 20) * 5) / 60),
                   )}
                   difficulty="medium"
-                  iconGlyph={CATEGORY_GLYPH[qCat] ?? 'sparkles'}
+                  iconGlyph={CATEGORY_GLYPH[qCat] ?? 'auto_awesome'}
                   hue={CATEGORY_HUE[qCat] ?? 'sky'}
                   ctaTo={`/quiz/${q.id}`}
                 />

@@ -253,7 +253,7 @@ export function Settings() {
             {},
             { defaultValue: 'Sunday morning summary of duration, score, and standout nights.' },
           )}
-          icon="forwarded_email"
+          icon="forward_to_inbox"
           enabled={weeklyReport}
           onToggle={() => setWeeklyReport((v) => !v)}
         />
