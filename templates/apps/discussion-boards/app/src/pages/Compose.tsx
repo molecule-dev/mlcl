@@ -422,7 +422,7 @@ export function Compose() {
           )}
           <button
             type="submit"
-            disabled={submitting || !title.trim() || !body.trim()}
+            disabled={submitting || !title.trim() || !body.trim() || !categoryId}
             className={cm.cn(
               cm.sp('px', 5),
               cm.sp('py', 2),

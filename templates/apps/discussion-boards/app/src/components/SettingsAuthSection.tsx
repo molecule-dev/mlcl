@@ -26,7 +26,8 @@
  * on the Settings page (per-page spec asserts on the first switch).
  */
 import type { JSX } from 'react'
-import { FormEvent, useEffect, useState } from 'react'
+import type { FormEvent } from 'react'
+import { useEffect, useState } from 'react'
 
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useChangePassword, useHttpClient, useTranslation } from '@molecule/app-react'
@@ -129,6 +130,11 @@ export function SettingsAuthSection(): JSX.Element | null {
               checked={twoFactorEnabled}
               onChange={handleToggleTwoFactor}
               size="sm"
+              aria-label={t(
+                'settings.twoFactor',
+                {},
+                { defaultValue: 'Two-factor authentication' },
+              )}
               data-mol-id="two-factor-switch"
             />
           </Flex>
