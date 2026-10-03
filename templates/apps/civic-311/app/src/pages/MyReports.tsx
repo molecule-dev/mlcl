@@ -132,196 +132,204 @@ export function MyReportsPage() {
 
   return (
     <div className={cm.cn(cm.surface, 'text-on-surface')}>
-      <SideNavBar />
-      <main className={cm.cn(cm.minH('screen'), 'md:ml-[240px]')}>
-        <div className={cm.cn(cm.mxAuto, 'max-w-4xl', cm.sp('px', 6), cm.sp('py', 8), cm.stack(6))}>
-          <PageHeader
-            molId="my-reports-title"
-            title={t(
-              'myReports.title',
-              {},
-              { defaultValue: 'My Civic Reports & Service Requests' },
-            )}
-            subtitle={t(
-              'myReports.subtitle',
-              {},
-              { defaultValue: 'Everything you have reported, and where it stands.' },
-            )}
-            action={
-              <Link
-                data-mol-id="my-reports-new"
-                to="/report"
-                className={cm.cn(
-                  cm.sp('px', 4),
-                  'rounded-lg py-2 text-sm font-semibold shrink-0',
-                  'bg-primary text-on-primary hover:opacity-90',
-                )}
-              >
-                {t('myReports.newReport', {}, { defaultValue: 'New report' })}
-              </Link>
-            }
-          />
-
+      <SideNavBar>
+        <main className={cm.cn(cm.minH('screen'))}>
           <div
-            data-mol-id="my-reports-stats"
-            className={cm.cn(cm.flex({ gap: 6 }), cm.textSize('sm'), 'text-on-surface-variant')}
+            className={cm.cn(cm.mxAuto, 'max-w-4xl', cm.sp('px', 6), cm.sp('py', 8), cm.stack(6))}
           >
-            <span>
-              <strong className="text-on-surface">{counts.total}</strong>{' '}
-              {t('myReports.statTotal', {}, { defaultValue: 'total' })}
-            </span>
-            <span>
-              <strong className="text-on-surface">{counts.open}</strong>{' '}
-              {t('myReports.statOpen', {}, { defaultValue: 'still open' })}
-            </span>
-            <span>
-              <strong className="text-on-surface">{counts.resolved}</strong>{' '}
-              {t('myReports.statResolved', {}, { defaultValue: 'resolved' })}
-            </span>
-          </div>
-
-          <div className={cm.flex({ align: 'center', gap: 3 })}>
-            <label
-              htmlFor="my-reports-status-filter"
-              className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}
-            >
-              {t('myReports.filterLabel', {}, { defaultValue: 'Status' })}
-            </label>
-            <select
-              id="my-reports-status-filter"
-              data-mol-id="my-reports-status-filter"
-              className={cm.cn(
-                cm.sp('px', 3),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                'rounded-lg border border-outline-variant bg-surface-container-lowest',
+            <PageHeader
+              molId="my-reports-title"
+              title={t(
+                'myReports.title',
+                {},
+                { defaultValue: 'My Civic Reports & Service Requests' },
               )}
-              value={statusFilter}
-              onChange={(e) => setStatusFilter(e.target.value)}
-            >
-              <option value="">
-                {t('myReports.filterAll', {}, { defaultValue: 'All statuses' })}
-              </option>
-              {['submitted', 'acknowledged', 'in_review', 'resolved', 'dismissed'].map((s) => (
-                <option key={s} value={s}>
-                  {s.replace('_', ' ')}
-                </option>
-              ))}
-            </select>
-          </div>
+              subtitle={t(
+                'myReports.subtitle',
+                {},
+                { defaultValue: 'Everything you have reported, and where it stands.' },
+              )}
+              action={
+                <Link
+                  data-mol-id="my-reports-new"
+                  to="/report"
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    'rounded-lg py-2 text-sm font-semibold shrink-0',
+                    'bg-primary text-on-primary hover:opacity-90',
+                  )}
+                >
+                  {t('myReports.newReport', {}, { defaultValue: 'New report' })}
+                </Link>
+              }
+            />
 
-          <section data-mol-id="my-reports-list" className={cm.stack(3)}>
-            {loading ? (
-              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
-              </p>
-            ) : loadError ? (
-              <p className={cm.cn(cm.textSize('sm'), 'text-error')} data-mol-id="my-reports-error">
-                {loadError}
-              </p>
-            ) : (
-              <>
-                {/* Active dispatch section (design: Active Work Orders in
+            <div
+              data-mol-id="my-reports-stats"
+              className={cm.cn(cm.flex({ gap: 6 }), cm.textSize('sm'), 'text-on-surface-variant')}
+            >
+              <span>
+                <strong className="text-on-surface">{counts.total}</strong>{' '}
+                {t('myReports.statTotal', {}, { defaultValue: 'total' })}
+              </span>
+              <span>
+                <strong className="text-on-surface">{counts.open}</strong>{' '}
+                {t('myReports.statOpen', {}, { defaultValue: 'still open' })}
+              </span>
+              <span>
+                <strong className="text-on-surface">{counts.resolved}</strong>{' '}
+                {t('myReports.statResolved', {}, { defaultValue: 'resolved' })}
+              </span>
+            </div>
+
+            <div className={cm.flex({ align: 'center', gap: 3 })}>
+              <label
+                htmlFor="my-reports-status-filter"
+                className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}
+              >
+                {t('myReports.filterLabel', {}, { defaultValue: 'Status' })}
+              </label>
+              <select
+                id="my-reports-status-filter"
+                data-mol-id="my-reports-status-filter"
+                className={cm.cn(
+                  cm.sp('px', 3),
+                  cm.sp('py', 2),
+                  cm.textSize('sm'),
+                  'rounded-lg border border-outline-variant bg-surface-container-lowest',
+                )}
+                value={statusFilter}
+                onChange={(e) => setStatusFilter(e.target.value)}
+              >
+                <option value="">
+                  {t('myReports.filterAll', {}, { defaultValue: 'All statuses' })}
+                </option>
+                {['submitted', 'acknowledged', 'in_review', 'resolved', 'dismissed'].map((s) => (
+                  <option key={s} value={s}>
+                    {s.replace('_', ' ')}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <section data-mol-id="my-reports-list" className={cm.stack(3)}>
+              {loading ? (
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+                </p>
+              ) : loadError ? (
+                <p
+                  className={cm.cn(cm.textSize('sm'), 'text-error')}
+                  data-mol-id="my-reports-error"
+                >
+                  {loadError}
+                </p>
+              ) : (
+                <>
+                  {/* Active dispatch section (design: Active Work Orders in
                     Dispatch) — heading renders even for a brand-new account so
                     the docket structure is always visible. */}
-                <div className={cm.stack(3)}>
-                  <h2
-                    className={cm.cn(
-                      cm.flex({ align: 'center', gap: 2 }),
-                      cm.textSize('base'),
-                      cm.fontWeight('bold'),
-                    )}
-                  >
-                    <span
-                      className="material-symbols-outlined text-[18px] text-primary"
-                      aria-hidden
-                    >
-                      local_shipping
-                    </span>
-                    {t(
-                      'myReports.activeSection',
-                      {},
-                      { defaultValue: 'Active Work Orders in Dispatch' },
-                    )}
-                  </h2>
-                  {filtered.length === 0 ? (
-                    <div
-                      data-mol-id="my-reports-empty"
+                  <div className={cm.stack(3)}>
+                    <h2
                       className={cm.cn(
-                        cm.stack(3),
-                        cm.sp('p', 8),
-                        'rounded-xl border border-dashed border-outline-variant text-center',
+                        cm.flex({ align: 'center', gap: 2 }),
+                        cm.textSize('base'),
+                        cm.fontWeight('bold'),
                       )}
                     >
-                      <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                        {t(
-                          'myReports.empty',
-                          {},
-                          { defaultValue: 'Nothing reported yet. Spotted something broken?' },
-                        )}
-                      </p>
-                      <Link
-                        data-mol-id="my-reports-empty-cta"
-                        to="/report"
+                      <span
+                        className="material-symbols-outlined text-[18px] text-primary"
+                        aria-hidden
+                      >
+                        local_shipping
+                      </span>
+                      {t(
+                        'myReports.activeSection',
+                        {},
+                        { defaultValue: 'Active Work Orders in Dispatch' },
+                      )}
+                    </h2>
+                    {filtered.length === 0 ? (
+                      <div
+                        data-mol-id="my-reports-empty"
                         className={cm.cn(
-                          cm.sp('px', 4),
-                          'self-center rounded-lg py-2 text-sm font-semibold',
-                          'bg-primary text-on-primary hover:opacity-90',
+                          cm.stack(3),
+                          cm.sp('p', 8),
+                          'rounded-xl border border-dashed border-outline-variant text-center',
                         )}
                       >
-                        {t('myReports.emptyCta', {}, { defaultValue: 'Report your first issue' })}
-                      </Link>
-                    </div>
-                  ) : activeRows.length > 0 ? (
-                    activeRows.map(renderRow)
-                  ) : (
-                    <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                      {t(
-                        'myReports.noActive',
-                        {},
-                        { defaultValue: 'No active work orders in this view.' },
-                      )}
-                    </p>
-                  )}
-                </div>
-                {/* Resolved ledger section (design: Recently Resolved & Sealed) */}
-                <div className={cm.stack(3)}>
-                  <h3
-                    className={cm.cn(
-                      cm.flex({ align: 'center', gap: 2 }),
-                      cm.textSize('base'),
-                      cm.fontWeight('bold'),
+                        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                          {t(
+                            'myReports.empty',
+                            {},
+                            { defaultValue: 'Nothing reported yet. Spotted something broken?' },
+                          )}
+                        </p>
+                        <Link
+                          data-mol-id="my-reports-empty-cta"
+                          to="/report"
+                          className={cm.cn(
+                            cm.sp('px', 4),
+                            'self-center rounded-lg py-2 text-sm font-semibold',
+                            'bg-primary text-on-primary hover:opacity-90',
+                          )}
+                        >
+                          {t('myReports.emptyCta', {}, { defaultValue: 'Report your first issue' })}
+                        </Link>
+                      </div>
+                    ) : activeRows.length > 0 ? (
+                      activeRows.map(renderRow)
+                    ) : (
+                      <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                        {t(
+                          'myReports.noActive',
+                          {},
+                          { defaultValue: 'No active work orders in this view.' },
+                        )}
+                      </p>
                     )}
-                  >
-                    <span
-                      className="material-symbols-outlined text-[18px] text-[var(--color-status-resolved)]"
-                      aria-hidden
+                  </div>
+                  {/* Resolved ledger section (design: Recently Resolved & Sealed) */}
+                  <div className={cm.stack(3)}>
+                    <h3
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 2 }),
+                        cm.textSize('base'),
+                        cm.fontWeight('bold'),
+                      )}
                     >
-                      task_alt
-                    </span>
-                    {t(
-                      'myReports.resolvedSection',
-                      { count: resolvedRows.length },
-                      { defaultValue: 'Recently Resolved & Sealed ({{count}} Total)' },
-                    )}
-                  </h3>
-                  {resolvedRows.length > 0 ? (
-                    resolvedRows.map(renderRow)
-                  ) : (
-                    <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                      <span
+                        className="material-symbols-outlined text-[18px] text-[var(--color-status-resolved)]"
+                        aria-hidden
+                      >
+                        task_alt
+                      </span>
                       {t(
-                        'myReports.noResolved',
-                        {},
-                        { defaultValue: 'No sealed reports yet — resolved work orders land here.' },
+                        'myReports.resolvedSection',
+                        { count: resolvedRows.length },
+                        { defaultValue: 'Recently Resolved & Sealed ({{count}} Total)' },
                       )}
-                    </p>
-                  )}
-                </div>
-              </>
-            )}
-          </section>
-        </div>
-      </main>
+                    </h3>
+                    {resolvedRows.length > 0 ? (
+                      resolvedRows.map(renderRow)
+                    ) : (
+                      <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                        {t(
+                          'myReports.noResolved',
+                          {},
+                          {
+                            defaultValue: 'No sealed reports yet — resolved work orders land here.',
+                          },
+                        )}
+                      </p>
+                    )}
+                  </div>
+                </>
+              )}
+            </section>
+          </div>
+        </main>
+      </SideNavBar>
     </div>
   )
 }

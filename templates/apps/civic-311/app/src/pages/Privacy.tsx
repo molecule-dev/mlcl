@@ -8,9 +8,12 @@
  *
  * @returns The rendered privacy page.
  */
+import { useState } from 'react'
+
 import { ContentPageShell } from '@molecule/app-legal-pages-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Modal } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { Footer } from '../components/Footer.js'
@@ -155,6 +158,9 @@ const RETENTION: Array<{ id: string; title: string; note: string; window: string
 export function Privacy() {
   const { t } = useTranslation()
   const cm = getClassMap()
+  // RTKL intake confirmation — a shared Modal dialog (the former native
+  // window.alert read as an unstyled browser widget and blocked the thread).
+  const [rtklConfirmOpen, setRtklConfirmOpen] = useState(false)
   const tr = (key: string, def: string, values?: Record<string, string>): string =>
     t(key, values ?? {}, { defaultValue: def })
   const h2 = cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface')
@@ -873,12 +879,7 @@ export function Privacy() {
                   className={cm.stack(3)}
                   onSubmit={(e) => {
                     e.preventDefault()
-                    window.alert(
-                      tr(
-                        'privacy.rtkl.confirm',
-                        'Your Right-to-Know docket query has been assigned tracking key RTK-2025-901. A formal response will be dispatched within 5 statutory business days.',
-                      ),
-                    )
+                    setRtklConfirmOpen(true)
                   }}
                 >
                   <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
@@ -1025,6 +1026,31 @@ export function Privacy() {
           </div>
         </div>
       </div>
+
+      {/* RTKL submission confirmation — shared Modal (replaces the former
+          native window.alert). */}
+      <Modal
+        open={rtklConfirmOpen}
+        onClose={() => setRtklConfirmOpen(false)}
+        title={tr('privacy.rtkl.confirmTitle', 'RTKL request received')}
+        data-mol-id="rtkl-confirm-modal"
+        footer={
+          <button
+            type="button"
+            className="rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-on-primary transition-colors hover:bg-primary-container"
+            onClick={() => setRtklConfirmOpen(false)}
+          >
+            {tr('privacy.rtkl.confirmOk', 'Acknowledge')}
+          </button>
+        }
+      >
+        <p className={body}>
+          {tr(
+            'privacy.rtkl.confirm',
+            'Your Right-to-Know docket query has been assigned tracking key RTK-2025-901. A formal response will be dispatched within 5 statutory business days.',
+          )}
+        </p>
+      </Modal>
     </ContentPageShell>
   )
 }

@@ -92,7 +92,7 @@ function Settings() {
             ? (res as { data: WatchAreaRow[] }).data
             : []
         if (!cancelled) setZones(raw)
-      } catch {
+      } catch (_error) {
         // Summary is a nice-to-have — settings save flows don't depend on it.
       }
     }
@@ -269,241 +269,246 @@ function Settings() {
       {/* Shell Layout — column on mobile (top bar stacks above content),
           sidebar row from md up. */}
       <div className={cm.cn(cm.flex({ direction: 'col' }), 'md:flex-row', cm.minH('screen'))}>
-        <SideNavBar />
-        {/* Main Content Area */}
-        <main className={cm.cn(cm.flex1, cm.minH('screen'), 'md:ml-[240px] bg-surface')}>
-          {/* TopAppBar */}
-          <SettingsTopBar />
-          <div
-            className={cm.cn(
-              cm.mxAuto,
-              cm.sp('px', 8),
-              cm.sp('py', 12),
-              cm.maxW('4xl'),
-              cm.stack(10),
-            )}
-          >
-            <SettingsPageHeader />
-            {message && (
-              <div
-                data-mol-id="settings-message"
-                data-mol-message-type={message.type}
-                className={cm.cn(
-                  cm.sp('px', 4),
-                  cm.sp('py', 3),
-                  cm.textSize('sm'),
-                  'rounded-lg',
-                  message.type === 'success'
-                    ? 'bg-tertiary-container text-on-tertiary-container'
-                    : 'bg-error-container text-on-error-container',
-                  cm.flex({ justify: 'between', align: 'center' }),
-                )}
-              >
-                {message.text}
-                <button
-                  onClick={() => setMessage(null)}
-                  className={cm.cn(
-                    cm.sp('ml', 4),
-                    cm.textSize('xs'),
-                    'underline opacity-80 hover:opacity-100',
-                  )}
-                >
-                  {t('common.dismiss', {}, { defaultValue: 'Dismiss' })}
-                </button>
-              </div>
-            )}
-            {/* 1. Profile Settings */}
-            <SettingsProfileSection
-              name={name}
-              setName={setName}
-              email={email}
-              setEmail={setEmail}
-              jobTitle={jobTitle}
-              setJobTitle={setJobTitle}
-              timezone={timezone}
-              setTimezone={setTimezone}
-              saving={saving}
-              onSave={handleProfileSave}
-            />
-            {/* 2. Notification Preferences */}
-            <SettingsNotificationsSection
-              statusEmail={statusEmail}
-              setStatusEmail={setStatusEmail}
-              watchAreaEmail={watchAreaEmail}
-              setWatchAreaEmail={setWatchAreaEmail}
-              confirmationsEmail={confirmationsEmail}
-              setConfirmationsEmail={setConfirmationsEmail}
-              commentEmail={commentEmail}
-              setCommentEmail={setCommentEmail}
-              weeklyDigest={weeklyDigest}
-              setWeeklyDigest={setWeeklyDigest}
-              digestFrequency={digestFrequency}
-              setDigestFrequency={setDigestFrequency}
-              saving={savingNotifications}
-              onSave={handleNotificationsSave}
-            />
-            {/* 3. Appearance */}
-            <SettingsAppearanceSection
-              theme={theme}
-              setTheme={setTheme}
-              language={language}
-              setLanguage={setLanguage}
-              compactMode={compactMode}
-              setCompactMode={setCompactMode}
-              saving={savingAppearance}
-              onSave={handleAppearanceSave}
-            />
-            {/* 3b. Geofence & Spatial Watch Presets (design) — read-only
-                mirror of the caller's watch areas; editing lives on
-                /watch-areas so the geofence CRUD has one home. */}
-            <section
-              data-mol-id="settings-geofence-presets"
+        <SideNavBar>
+          {/* Main Content Area */}
+          <main className={cm.cn(cm.flex1, cm.minH('screen'), 'bg-surface')}>
+            {/* TopAppBar */}
+            <SettingsTopBar />
+            <div
               className={cm.cn(
-                cm.stack(3),
-                cm.sp('p', 8),
-                'bg-surface-container-lowest rounded-xl shadow-sm',
+                cm.mxAuto,
+                cm.sp('px', 8),
+                cm.sp('py', 12),
+                cm.maxW('4xl'),
+                cm.stack(10),
               )}
             >
-              <h3 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}>
-                {t(
-                  'settings.geofenceTitle',
-                  {},
-                  { defaultValue: 'Geofence & Spatial Watch Presets' },
-                )}
-              </h3>
-              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                {t(
-                  'settings.geofenceBody',
-                  {},
-                  {
-                    defaultValue:
-                      'Named circles on the city grid that scope your dispatch telemetry. Create or edit them from the Watch Areas screen.',
-                  },
-                )}
-              </p>
-              {zones.length === 0 ? (
-                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                  {t('settings.geofenceEmpty', {}, { defaultValue: 'No geofence presets yet.' })}{' '}
-                  <Link
-                    data-mol-id="settings-geofence-link"
-                    className="text-primary underline"
-                    to="/watch-areas"
+              <SettingsPageHeader />
+              {message && (
+                <div
+                  data-mol-id="settings-message"
+                  data-mol-message-type={message.type}
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 3),
+                    cm.textSize('sm'),
+                    'rounded-lg',
+                    message.type === 'success'
+                      ? 'bg-tertiary-container text-on-tertiary-container'
+                      : 'bg-error-container text-on-error-container',
+                    cm.flex({ justify: 'between', align: 'center' }),
+                  )}
+                >
+                  {message.text}
+                  <button
+                    onClick={() => setMessage(null)}
+                    className={cm.cn(
+                      cm.sp('ml', 4),
+                      cm.textSize('xs'),
+                      'underline opacity-80 hover:opacity-100',
+                    )}
                   >
-                    {t('settings.geofenceCta', {}, { defaultValue: 'Create a watch area' })}
-                  </Link>
+                    {t('common.dismiss', {}, { defaultValue: 'Dismiss' })}
+                  </button>
+                </div>
+              )}
+              {/* 1. Profile Settings */}
+              <SettingsProfileSection
+                name={name}
+                setName={setName}
+                email={email}
+                setEmail={setEmail}
+                jobTitle={jobTitle}
+                setJobTitle={setJobTitle}
+                timezone={timezone}
+                setTimezone={setTimezone}
+                saving={saving}
+                onSave={handleProfileSave}
+              />
+              {/* 2. Notification Preferences */}
+              <SettingsNotificationsSection
+                statusEmail={statusEmail}
+                setStatusEmail={setStatusEmail}
+                watchAreaEmail={watchAreaEmail}
+                setWatchAreaEmail={setWatchAreaEmail}
+                confirmationsEmail={confirmationsEmail}
+                setConfirmationsEmail={setConfirmationsEmail}
+                commentEmail={commentEmail}
+                setCommentEmail={setCommentEmail}
+                weeklyDigest={weeklyDigest}
+                setWeeklyDigest={setWeeklyDigest}
+                digestFrequency={digestFrequency}
+                setDigestFrequency={setDigestFrequency}
+                saving={savingNotifications}
+                onSave={handleNotificationsSave}
+              />
+              {/* 3. Appearance */}
+              <SettingsAppearanceSection
+                theme={theme}
+                setTheme={setTheme}
+                language={language}
+                setLanguage={setLanguage}
+                compactMode={compactMode}
+                setCompactMode={setCompactMode}
+                saving={savingAppearance}
+                onSave={handleAppearanceSave}
+              />
+              {/* 3b. Geofence & Spatial Watch Presets (design) — read-only
+                mirror of the caller's watch areas; editing lives on
+                /watch-areas so the geofence CRUD has one home. */}
+              <section
+                data-mol-id="settings-geofence-presets"
+                className={cm.cn(
+                  cm.stack(3),
+                  cm.sp('p', 8),
+                  'bg-surface-container-lowest rounded-xl shadow-sm',
+                )}
+              >
+                <h3 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}>
+                  {t(
+                    'settings.geofenceTitle',
+                    {},
+                    { defaultValue: 'Geofence & Spatial Watch Presets' },
+                  )}
+                </h3>
+                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t(
+                    'settings.geofenceBody',
+                    {},
+                    {
+                      defaultValue:
+                        'Named circles on the city grid that scope your dispatch telemetry. Create or edit them from the Watch Areas screen.',
+                    },
+                  )}
                 </p>
-              ) : (
+                {zones.length === 0 ? (
+                  <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                    {t('settings.geofenceEmpty', {}, { defaultValue: 'No geofence presets yet.' })}{' '}
+                    <Link
+                      data-mol-id="settings-geofence-link"
+                      className="text-primary underline"
+                      to="/watch-areas"
+                    >
+                      {t('settings.geofenceCta', {}, { defaultValue: 'Create a watch area' })}
+                    </Link>
+                  </p>
+                ) : (
+                  <ul className={cm.stack(2)}>
+                    {zones.map((zone) => (
+                      <li
+                        key={zone.id}
+                        className={cm.cn(
+                          cm.flex({ align: 'center', justify: 'between', gap: 3 }),
+                          cm.sp('p', 3),
+                          'rounded-lg border border-outline-variant/40 bg-surface-container-low',
+                        )}
+                      >
+                        <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                          {zone.name}
+                        </span>
+                        <span
+                          className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant truncate')}
+                        >
+                          {zone.derived_address}
+                        </span>
+                        <span
+                          className={cm.cn(cm.textSize('xs'), 'shrink-0 text-on-surface-variant')}
+                        >
+                          {t(
+                            'settings.geofenceRadius',
+                            { radius: zone.radius },
+                            { defaultValue: '{{radius}} blocks' },
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+              {/* 3c. Civic Transparency & Privacy Safeguards (design) — the
+                public-record statements and the legal links. */}
+              <section
+                data-mol-id="settings-transparency"
+                className={cm.cn(
+                  cm.stack(3),
+                  cm.sp('p', 8),
+                  'bg-surface-container-lowest rounded-xl shadow-sm',
+                )}
+              >
+                <h3 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}>
+                  {t(
+                    'settings.transparencyTitle',
+                    {},
+                    { defaultValue: 'Civic Transparency & Privacy Safeguards' },
+                  )}
+                </h3>
                 <ul className={cm.stack(2)}>
-                  {zones.map((zone) => (
+                  {(
+                    [
+                      [
+                        'settings.transparencyItem1',
+                        'Public docket:',
+                        ' your reports are part of the open municipal ledger; your identity is never shown on it.',
+                      ],
+                      [
+                        'settings.transparencyItem2',
+                        'PII redaction:',
+                        ' phone numbers, emails, and precise home addresses are stripped from public exports.',
+                      ],
+                      [
+                        'settings.transparencyItem3',
+                        'No data sale:',
+                        ' 311 telemetry is never sold, licensed to brokers, or used for ad targeting.',
+                      ],
+                    ] as const
+                  ).map(([key, bold, rest]) => (
                     <li
-                      key={zone.id}
+                      key={key}
                       className={cm.cn(
-                        cm.flex({ align: 'center', justify: 'between', gap: 3 }),
-                        cm.sp('p', 3),
-                        'rounded-lg border border-outline-variant/40 bg-surface-container-low',
+                        cm.flex({ align: 'start', gap: 2 }),
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
                       )}
                     >
-                      <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
-                        {zone.name}
-                      </span>
                       <span
-                        className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant truncate')}
+                        className="material-symbols-outlined mt-0.5 shrink-0 text-[16px] text-primary"
+                        aria-hidden
                       >
-                        {zone.derived_address}
+                        verified_user
                       </span>
-                      <span
-                        className={cm.cn(cm.textSize('xs'), 'shrink-0 text-on-surface-variant')}
-                      >
-                        {t(
-                          'settings.geofenceRadius',
-                          { radius: zone.radius },
-                          { defaultValue: '{{radius}} blocks' },
-                        )}
+                      <span>
+                        <strong className="text-on-surface">
+                          {t(`${key}.bold`, {}, { defaultValue: bold })}
+                        </strong>
+                        {t(key, {}, { defaultValue: rest })}
                       </span>
                     </li>
                   ))}
                 </ul>
-              )}
-            </section>
-            {/* 3c. Civic Transparency & Privacy Safeguards (design) — the
-                public-record statements and the legal links. */}
-            <section
-              data-mol-id="settings-transparency"
-              className={cm.cn(
-                cm.stack(3),
-                cm.sp('p', 8),
-                'bg-surface-container-lowest rounded-xl shadow-sm',
-              )}
-            >
-              <h3 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}>
-                {t(
-                  'settings.transparencyTitle',
-                  {},
-                  { defaultValue: 'Civic Transparency & Privacy Safeguards' },
-                )}
-              </h3>
-              <ul className={cm.stack(2)}>
-                {(
-                  [
-                    [
-                      'settings.transparencyItem1',
-                      'Public docket:',
-                      ' your reports are part of the open municipal ledger; your identity is never shown on it.',
-                    ],
-                    [
-                      'settings.transparencyItem2',
-                      'PII redaction:',
-                      ' phone numbers, emails, and precise home addresses are stripped from public exports.',
-                    ],
-                    [
-                      'settings.transparencyItem3',
-                      'No data sale:',
-                      ' 311 telemetry is never sold, licensed to brokers, or used for ad targeting.',
-                    ],
-                  ] as const
-                ).map(([key, bold, rest]) => (
-                  <li
-                    key={key}
-                    className={cm.cn(
-                      cm.flex({ align: 'start', gap: 2 }),
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                    )}
+                <div className={cm.flex({ gap: 3, wrap: 'wrap' })}>
+                  <Link
+                    data-mol-id="settings-privacy-link"
+                    to="/privacy"
+                    className={cnLegalLink(cm)}
                   >
-                    <span
-                      className="material-symbols-outlined mt-0.5 shrink-0 text-[16px] text-primary"
-                      aria-hidden
-                    >
-                      verified_user
-                    </span>
-                    <span>
-                      <strong className="text-on-surface">
-                        {t(`${key}.bold`, {}, { defaultValue: bold })}
-                      </strong>
-                      {t(key, {}, { defaultValue: rest })}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <div className={cm.flex({ gap: 3, wrap: 'wrap' })}>
-                <Link data-mol-id="settings-privacy-link" to="/privacy" className={cnLegalLink(cm)}>
-                  {t(
-                    'settings.privacyLink',
-                    {},
-                    { defaultValue: 'Privacy & Public Records Policy' },
-                  )}
-                </Link>
-                <Link data-mol-id="settings-terms-link" to="/terms" className={cnLegalLink(cm)}>
-                  {t('settings.termsLink', {}, { defaultValue: 'Terms of Service' })}
-                </Link>
-              </div>
-            </section>
-            <SettingsSecuritySection />
-            <SettingsTeamSection />
-            {/* Danger Zone */}
-            <SettingsDangerZone onDeactivate={handleDeactivate} deactivating={deactivating} />
-          </div>
-        </main>
+                    {t(
+                      'settings.privacyLink',
+                      {},
+                      { defaultValue: 'Privacy & Public Records Policy' },
+                    )}
+                  </Link>
+                  <Link data-mol-id="settings-terms-link" to="/terms" className={cnLegalLink(cm)}>
+                    {t('settings.termsLink', {}, { defaultValue: 'Terms of Service' })}
+                  </Link>
+                </div>
+              </section>
+              <SettingsSecuritySection />
+              <SettingsTeamSection />
+              {/* Danger Zone */}
+              <SettingsDangerZone onDeactivate={handleDeactivate} deactivating={deactivating} />
+            </div>
+          </main>
+        </SideNavBar>
       </div>
     </div>
   )
