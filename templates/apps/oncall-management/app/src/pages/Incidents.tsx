@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME, BRAND_COLOR } from '../branding.js'
 import { IncidentRow, type IncidentRowData } from '../components/IncidentRow.js'
@@ -18,6 +19,7 @@ export function Incidents() {
   const [error, setError] = useState<string | null>(null)
   const [filter, setFilter] = useState<StatusFilter>('open')
   const [query, setQuery] = useState('')
+  const [reloadKey, setReloadKey] = useState(0)
   const searchRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
@@ -51,7 +53,9 @@ export function Incidents() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, t, reloadKey])
+
+  const retry = useCallback(() => setReloadKey((k) => k + 1), [])
 
   const counts = useMemo(() => {
     return incidents.reduce(
@@ -207,16 +211,11 @@ export function Incidents() {
       </div>
 
       {error ? (
-        <p
-          className={cm.cn(cm.sp('py', 4), cm.sp('px', 4), 'rounded-md text-xs mb-4')}
-          style={{
-            color: 'var(--color-severity-warning)',
-            backgroundColor: 'var(--color-severity-warning-light)',
-            border: '1px solid var(--color-severity-warning)',
-          }}
-        >
-          {error}
-        </p>
+        <LoadErrorBanner
+          message={error}
+          retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+          onRetry={retry}
+        />
       ) : null}
 
       {loading ? (

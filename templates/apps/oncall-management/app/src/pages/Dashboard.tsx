@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME, BRAND_COLOR } from '../branding.js'
 import { FrequencySparkline } from '../components/FrequencySparkline.js'
@@ -104,6 +105,7 @@ export function Dashboard() {
   const [incidents, setIncidents] = useState<IncidentRowData[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
@@ -130,7 +132,9 @@ export function Dashboard() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, t, reloadKey])
+
+  const retry = useCallback(() => setReloadKey((k) => k + 1), [])
 
   const openIncidents = useMemo(
     () => incidents.filter((i) => i.status !== 'resolved').slice(0, 5),
@@ -198,16 +202,11 @@ export function Dashboard() {
       </header>
 
       {error ? (
-        <p
-          className={cm.cn(cm.sp('py', 4), cm.sp('px', 4), 'rounded-md text-xs mb-6')}
-          style={{
-            color: 'var(--color-severity-warning)',
-            backgroundColor: 'var(--color-severity-warning-light)',
-            border: '1px solid var(--color-severity-warning)',
-          }}
-        >
-          {error}
-        </p>
+        <LoadErrorBanner
+          message={error}
+          retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+          onRetry={retry}
+        />
       ) : null}
 
       {/* Unacknowledged critical incidents — the in-app pager banner */}

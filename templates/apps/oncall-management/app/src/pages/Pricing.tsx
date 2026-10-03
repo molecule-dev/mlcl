@@ -1,9 +1,9 @@
 import { Link } from 'react-router'
 
 import { LimitsItem, LimitsList, PricingPage } from '@molecule/app-billing-react'
+import { ContentPageShell } from '@molecule/app-legal-pages-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { ContentPageShell } from '@molecule/app-legal-pages-react'
 
 import { APP_NAME, BRAND_COLOR } from '../branding.js'
 import { Footer } from '../components/Footer.js'

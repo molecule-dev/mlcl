@@ -29,6 +29,7 @@ export default {
     add: 'Add',
     create: 'Create',
     update: 'Update',
+    retry: 'Retry',
   },
   dashboard: {
     title: 'Error Dashboard',
