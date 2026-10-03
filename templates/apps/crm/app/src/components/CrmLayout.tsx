@@ -1,6 +1,6 @@
 import type { CSSProperties, FormEvent, ReactElement } from 'react'
 import { useState } from 'react'
-import { NavLink, Outlet, useLocation, useNavigate } from 'react-router'
+import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router'
 
 import { useAuth, useTheme, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -56,6 +56,9 @@ const NAV_LINK_STYLE = (isActive: boolean): CSSProperties => ({
   alignItems: 'center',
   gap: '12px',
   padding: '10px 16px',
+  // 44px — the fleet's minimum tap target (the drawer carries these links
+  // on mobile; desktop just renders the slightly taller row).
+  minHeight: '44px',
   // primary #2563eb was 4.23:1 on primary-light #dbeafe (axe serious); primary-dark = 5.5:1
   color: isActive ? 'var(--mol-color-primary-dark)' : 'var(--mol-color-text-secondary)',
   backgroundColor: isActive ? 'var(--mol-color-primary-light)' : 'transparent',
@@ -90,8 +93,15 @@ export function CrmLayout(): ReactElement {
   }
 
   const brand = (
-    <div className={cm.cn(cm.flex({ align: 'center' }))} style={{ gap: '12px', padding: '0 8px' }}>
-      <BrandWordmark size="sm" />
+    // Exemplar shell pattern: ONE Link wraps the wordmark (rendered
+    // pass-through via as="span") + subtitle, at the 44px tap-target floor.
+    <Link
+      to="/"
+      data-mol-id="nav-brand"
+      className={cm.cn(cm.flex({ align: 'center' }))}
+      style={{ gap: '12px', padding: '0 8px', minHeight: '44px' }}
+    >
+      <BrandWordmark size="sm" as="span" />
       <div>
         <span
           // outline (#94a3b8) was 2.56:1 on white (axe serious) — use the muted-text token
@@ -104,7 +114,7 @@ export function CrmLayout(): ReactElement {
           {t('app.subtitle', {}, { defaultValue: 'Enterprise Workspace' })}
         </span>
       </div>
-    </div>
+    </Link>
   )
 
   // One nav element for BOTH mounts — the shell instantiates only the
