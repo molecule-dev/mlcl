@@ -154,7 +154,9 @@ export function Dashboard() {
           ),
         )
         setSeatingTables(((seatingRes.data as SeatingResponse)?.tables ?? []).slice(0, 4))
-      } catch {
+      } catch (_error) {
+        // Intentional noop: the side widgets simply stay empty when their
+        // supplemental fetch fails — the page's own load path reports errors.
         if (!cancelled) {
           setRecentResponses([])
           setSeatingTables([])

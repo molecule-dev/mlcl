@@ -32,8 +32,16 @@ test.describe('/reset-password page', () => {
       const pw = page.locator('input[type="password"]')
       await pw.nth(0).fill('NewPass!1234')
       if ((await pw.count()) > 1) await pw.nth(1).fill('NewPass!1234')
+      // Arm the response wait BEFORE the click: networkidle can resolve while
+      // the submit handler is still queued under load, closing the capture
+      // window before the POST response arrives (playbook: arm the wait
+      // before the click).
+      const resetResponse = page.waitForResponse(
+        (r) => /reset-password/.test(r.url()) && r.request().method() === 'POST',
+        { timeout: 30000 },
+      )
       await page.locator('form button[type="submit"]').first().click()
-      await page.waitForLoadState('networkidle')
+      await resetResponse
     })
     const c = reqs.find((r) => r.method === 'POST' && /reset-password/.test(r.url))
     expect(c, 'POST /api/users/reset-password').toBeTruthy()

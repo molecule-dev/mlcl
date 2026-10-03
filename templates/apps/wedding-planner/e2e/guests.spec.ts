@@ -62,10 +62,20 @@ test.describe('/guests page', () => {
     await page.goto(APP_BASE + '/guests')
     await expect(page.locator('[data-mol-id="page-guests"]')).toBeVisible({ timeout: 15000 })
 
-    const all = (await (
-      await page.request.get(`${API_BASE}/guests`, { headers: apiHeaders(accessToken) })
-    ).json()) as Array<{ rsvp_status: string }>
-    const pending = all.filter((g) => g.rsvp_status === 'pending')
+    // The starter kit seeds lazily when the wedding row is created, so a
+    // readback that races the seed commit computes the expected count from a
+    // partial list — poll until seeded rows exist, then derive from API data.
+    let pending: Array<{ rsvp_status: string }> = []
+    await expect
+      .poll(async () => {
+        const res = await page.request.get(`${API_BASE}/guests`, {
+          headers: apiHeaders(accessToken),
+        })
+        const all = (await res.json()) as Array<{ rsvp_status: string }>
+        pending = all.filter((g) => g.rsvp_status === 'pending')
+        return all.length
+      })
+      .toBeGreaterThan(0)
 
     await page.locator('[data-mol-id="guests-filter-status"]').selectOption('pending')
     await expect(page.locator('[data-mol-id="guests-count"]')).toContainText(

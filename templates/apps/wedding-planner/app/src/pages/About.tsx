@@ -1,5 +1,6 @@
-import { ContentPageShell } from '@molecule/app-legal-pages-react'
 import { Link } from 'react-router'
+
+import { ContentPageShell } from '@molecule/app-legal-pages-react'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 

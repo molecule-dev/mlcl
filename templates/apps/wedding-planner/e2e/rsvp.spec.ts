@@ -60,14 +60,23 @@ test.describe('/rsvp/:code public collection', () => {
     const { accessToken } = await signup(page, email)
     const wedding = await getWedding(page, accessToken)
 
-    // Pick a real pending guest from the API.
-    const guests = (await (
-      await page.request.get(`${API_BASE}/guests?status=pending`, {
-        headers: apiHeaders(accessToken),
+    // Pick a real pending guest from the API. The starter kit is seeded
+    // lazily when the wedding row is created, so the first readback can race
+    // the seed commit under load — poll until a pending guest exists.
+    let guest: { id: string; name: string } | undefined
+    await expect
+      .poll(async () => {
+        const res = await page.request.get(`${API_BASE}/guests?status=pending`, {
+          headers: apiHeaders(accessToken),
+        })
+        const guests = (await res.json()) as Array<{ id: string; name: string }>
+        guest = guests[0]
+        return guest ?? null
       })
-    ).json()) as Array<{ id: string; name: string }>
-    const guest = guests[0]
-    expect(guest, 'starter kit should include at least one pending guest').toBeTruthy()
+      .toBeTruthy()
+    if (!guest) {
+      throw new Error('starter kit should include at least one pending guest')
+    }
 
     await page.goto(APP_BASE + `/rsvp/${wedding.rsvp_code}`)
     await page.locator('[data-mol-id="rsvp-name-input"]').fill(guest.name)
