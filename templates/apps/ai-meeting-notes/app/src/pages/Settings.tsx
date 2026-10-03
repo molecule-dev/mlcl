@@ -12,6 +12,7 @@ import { getClassMap } from '@molecule/app-ui'
 import {
   Alert,
   Button,
+  ConfirmButton,
   Input,
   LanguagePicker,
   Modal,
@@ -497,8 +498,6 @@ function AccountManagementSection() {
 
   const [devices, setDevices] = useState<DeviceRow[]>([])
   const [devicesLoading, setDevicesLoading] = useState(true)
-  const [confirmingDeviceId, setConfirmingDeviceId] = useState<string | null>(null)
-  const [revokingDeviceId, setRevokingDeviceId] = useState<string | null>(null)
 
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [deletePassword, setDeletePassword] = useState('')
@@ -522,15 +521,11 @@ function AccountManagementSection() {
   }, [loadDevices])
 
   const revokeDevice = async (id: string) => {
-    setRevokingDeviceId(id)
     try {
       await http.delete(`/api/devices/${id}`)
-      setConfirmingDeviceId(null)
       await loadDevices()
     } catch (_error) {
       // Best-effort — keep the row so the user can retry the revoke.
-    } finally {
-      setRevokingDeviceId(null)
     }
   }
 
@@ -688,50 +683,25 @@ function AccountManagementSection() {
                       </span>
                     ) : null}
                   </span>
-                  {device.isCurrent ? null : confirmingDeviceId === device.id ? (
-                    <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        disabled={revokingDeviceId === device.id}
-                        onClick={() => setConfirmingDeviceId(null)}
-                      >
-                        {t('common.cancel', {}, { defaultValue: 'Cancel' })}
-                      </Button>
-                      <Button
-                        color="error"
-                        size="sm"
-                        loading={revokingDeviceId === device.id}
-                        onClick={() => revokeDevice(device.id)}
-                        data-mol-id="device-revoke-confirm"
-                      >
-                        {t('settings.signOutDevice', {}, { defaultValue: 'Sign out' })}
-                      </Button>
-                    </div>
-                  ) : (
-                    <Button
+                  {device.isCurrent ? null : (
+                    /* Shared two-step confirm (arm -> "Confirm sign-out?" ->
+                       commit, Escape/auto-disarm) replacing the hand-rolled
+                       Cancel + Confirm pair. One element for all states, so
+                       the e2e contract collapses onto `device-revoke`. */
+                    <ConfirmButton
                       variant="ghost"
                       size="sm"
-                      onClick={() => setConfirmingDeviceId(device.id)}
+                      label={t('settings.signOutDevice', {}, { defaultValue: 'Sign out' })}
+                      confirmLabel={t(
+                        'settings.signOutDeviceConfirm',
+                        {},
+                        { defaultValue: 'Confirm sign-out?' },
+                      )}
+                      onConfirm={() => revokeDevice(device.id)}
                       data-mol-id="device-revoke"
-                    >
-                      {t('settings.signOutDevice', {}, { defaultValue: 'Sign out' })}
-                    </Button>
+                    />
                   )}
                 </div>
-                {confirmingDeviceId === device.id ? (
-                  <p
-                    className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mt', 1))}
-                  >
-                    {t(
-                      'settings.revokeDeviceWarning',
-                      {},
-                      {
-                        defaultValue: "This device's access will be revoked shortly. Sign it out?",
-                      },
-                    )}
-                  </p>
-                ) : null}
               </li>
             ))}
           </ul>
