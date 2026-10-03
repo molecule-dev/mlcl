@@ -202,9 +202,25 @@ export default function AppShell({
 
   const nav = <ShellNav />
 
+  // Brand block — the Sidebar's above-nav mount (desktop). The mobile Drawer
+  // header carries the same wordmark; only the mounted breakpoint's copy
+  // instantiates.
+  const brand = (
+    <span
+      className={cm.cn(cm.textSize('2xl'), "font-['Newsreader'] font-black text-on-background")}
+    >
+      {t('sideNavBar.writeflow', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
+    </span>
+  )
+
   return (
-    <ResponsiveAppShell sidebarWidth="md">
+    // md:flex-wrap = the shell's wrap-bar layout: the TopBar (w-full) carries
+    // the per-page title/search + notification bell + actions, which are real
+    // per-page desktop chrome — it spans its own full-width row ABOVE the
+    // sidebar instead of rendering beside it (which the shell suppresses).
+    <ResponsiveAppShell sidebarWidth="md" className="md:flex-wrap">
       <ResponsiveAppShell.TopBar
+        className="w-full"
         brand={
           search ? (
             <label className={cm.cn(cm.flex1, cm.w('full'), 'relative group')}>
@@ -269,20 +285,11 @@ export default function AppShell({
           </>
         }
       />
-      <ResponsiveAppShell.Sidebar footer={shellFooter}>{nav}</ResponsiveAppShell.Sidebar>
-      <ResponsiveAppShell.Drawer
-        header={
-          <span
-            className={cm.cn(
-              cm.textSize('2xl'),
-              "font-['Newsreader'] font-black text-on-background",
-            )}
-          >
-            {t('sideNavBar.writeflow', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
-          </span>
-        }
-        footer={shellFooter}
-      >
+      <ResponsiveAppShell.Sidebar footer={shellFooter}>
+        <div className={cm.cn(cm.sp('px', 3), cm.sp('py', 3), cm.sp('mb', 2))}>{brand}</div>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+      <ResponsiveAppShell.Drawer header={brand} footer={shellFooter}>
         {nav}
       </ResponsiveAppShell.Drawer>
       <ResponsiveAppShell.Content className={contentClassName} dataMolId={contentMolId}>
