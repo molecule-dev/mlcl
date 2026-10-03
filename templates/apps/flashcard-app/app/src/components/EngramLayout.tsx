@@ -35,7 +35,9 @@ const FOCUS_RING =
  *
  * The account affordances keep their pre-migration slots: `UserMenu` sits in
  * the Sidebar footer (as `SidebarLayout` rendered it) and the Drawer footer
- * carries a plain sign-out button. `UserMenu` must NOT go in the TopBar
+ * carries a plain sign-out button. The TopBar is `mobileOnly` — brand +
+ * menu trigger below 768px only, since the shell suppresses any bar rendered
+ * beside the Sidebar on desktop. `UserMenu` must NOT go in the TopBar
  * actions slot — `SidebarUserCard`'s name+email trigger is wider than a 390px
  * top bar, and its `shrink-0` actions group then overlaps the menu trigger,
  * swallowing taps on phones (the exact squeeze `MobileNavShell` documented).
@@ -99,7 +101,7 @@ export function EngramLayout() {
 
   return (
     <ResponsiveAppShell sidebarWidth="md">
-      <ResponsiveAppShell.TopBar brand={brand} />
+      <ResponsiveAppShell.TopBar mobileOnly brand={brand} />
       <ResponsiveAppShell.Sidebar footer={<UserMenu />}>{nav}</ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer
         header={brand}
