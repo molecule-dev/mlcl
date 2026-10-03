@@ -3,21 +3,27 @@ import { Link, useLocation, useNavigate, useSearchParams } from 'react-router'
 
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell, useIsDesktop } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { ArcanumBrandMark } from './ArcanumBrandMark.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
- * Top-bar + sidebar + main shell shared by every authenticated Arcanum
- * page (Vaults, VaultDetail, SecretDetail, AuditLog, Rotations,
- * Integrations, Team, ApiTokens, Notifications, Profile, Settings).
+ * Shell for every authenticated Arcanum page (Vaults, VaultDetail,
+ * SecretDetail, AuditLog, Rotations, Integrations, Team, ApiTokens,
+ * Notifications, Profile, Settings) — the SHARED `ResponsiveAppShell` from
+ * `@molecule/app-ui-react`, composed to Arcanum's idiom: a full-width search
+ * top bar (with `/` focus shortcut), the mono-uppercase sidebar nav in a
+ * bordered rail, environment-switcher slot, and the `▮ ENCRYPTED` status
+ * footer.
  *
- * Translated from database-admin's DatabaseAdminLayout.tsx (search +
- * sidebar nav with active-route bordering + user footer + status bar)
- * into Arcanum's brand idiom: ArcanumBrandMark in the sidebar header,
- * mono uppercase labels, environment switcher slot in the top bar, and
- * a status-bar with a `▮ ENCRYPTED` indicator instead of `Online`.
+ * The shell owns the breakpoint split (768px, one chrome mounted per
+ * breakpoint): the desktop Sidebar and the mobile Drawer (full APG dialog —
+ * focus trap, Escape/backdrop close, scroll lock, auto-close on navigation)
+ * receive the SAME nav element, and the mobile-only menu trigger is rendered
+ * by the shell's TopBar itself. The former hand-rolled hamburger + portal
+ * drawer pair is deleted with the migration.
  */
 
 interface NavLink {
@@ -51,9 +57,6 @@ export function SecretsManagerLayout({
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState(searchParams.get('q') ?? '')
   const searchRef = useRef<HTMLInputElement>(null)
-  // Mobile drawer nav — the fixed 260px sidebar is hidden below md (768px);
-  // the same links render in a slide-over drawer opened from the top bar.
-  const [menuOpen, setMenuOpen] = useState(false)
 
   // Keep the search input in sync when the URL changes (e.g. user clicks
   // a different page or hits back). Without this, the box shows stale
@@ -61,21 +64,6 @@ export function SecretsManagerLayout({
   useEffect(() => {
     setSearchQuery(searchParams.get('q') ?? '')
   }, [searchParams])
-
-  // Close the mobile drawer whenever the route changes (nav link tap) or
-  // Escape is pressed while it is open.
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [pathname])
-
-  useEffect(() => {
-    if (!menuOpen) return
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMenuOpen(false)
-    }
-    document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
-  }, [menuOpen])
 
   // "/" focuses the search box from anywhere — matches the visible kbd
   // hint to the right of the input. Skip when typing in another field.
@@ -151,279 +139,223 @@ export function SecretsManagerLayout({
   ]
 
   const userEmail = user?.email ?? 'admin@arcanum.dev'
+  const navLabel = t('secretsManagerLayout.navLabel', {}, { defaultValue: 'Primary navigation' })
+
+  // One nav element for BOTH mounts — the shell instantiates only the
+  // breakpoint's copy, so the nav links are never in the DOM twice.
+  const nav = (
+    <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.sp('px', 2), 'py-3')}>
+      {links.map((link) => {
+        const active = link.match(pathname)
+        return (
+          <Link
+            key={link.to}
+            to={link.to}
+            data-mol-id={`nav-${link.to.slice(1)}`}
+            aria-current={active ? 'page' : undefined}
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              'min-h-[44px] mx-2 rounded-md border-l-2 px-3 py-2 font-mono text-xs uppercase tracking-widest transition-colors',
+              active
+                ? 'border-primary bg-primary/10 font-bold text-primary'
+                : 'border-transparent text-muted hover:bg-surface hover:text-text',
+            )}
+          >
+            <span
+              aria-hidden="true"
+              className={cm.cn('material-symbols-outlined text-lg shrink-0')}
+            >
+              {link.icon}
+            </span>
+            {link.label}
+          </Link>
+        )
+      })}
+    </div>
+  )
+
+  // Profile row — the sidebar/drawer footer (was a bare Link in both).
+  const profileFooter = (
+    <Link
+      to="/profile"
+      className={cm.cn(
+        cm.flex({ align: 'center', gap: 'sm' }),
+        'w-full transition-colors hover:bg-surface',
+      )}
+    >
+      <span
+        aria-hidden="true"
+        className={cm.cn(
+          'inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border bg-surface font-mono text-sm font-bold text-primary',
+        )}
+      >
+        {userEmail.charAt(0).toUpperCase()}
+      </span>
+      <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-0')}>
+        <span className={cm.cn('truncate font-body text-sm font-medium text-text')}>
+          {userEmail}
+        </span>
+        <span className={cm.cn('font-mono text-[10px] text-muted')}>
+          {t(
+            'secretsManagerLayout.adminRole',
+            { appName: APP_NAME },
+            { defaultValue: 'Admin · {{appName}} workspace' },
+          )}
+        </span>
+      </div>
+    </Link>
+  )
+
+  // Search box — the top bar's leading slot on BOTH breakpoints (the shell
+  // renders its menu trigger before it below 768px).
+  const searchBox = (
+    <div className={cm.cn('relative min-w-0 flex-1 max-w-xl')}>
+      <span
+        aria-hidden="true"
+        className={cm.cn(
+          'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted',
+        )}
+      >
+        search
+      </span>
+      <input
+        ref={searchRef}
+        type="text"
+        data-mol-id="layout-search"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault()
+            applySearch(searchQuery)
+          } else if (e.key === 'Escape') {
+            setSearchQuery('')
+            applySearch('')
+            ;(e.target as HTMLInputElement).blur()
+          }
+        }}
+        placeholder={t(
+          'secretsManagerLayout.searchPlaceholder',
+          {},
+          { defaultValue: 'Search secrets by key, path, or tag…' },
+        )}
+        aria-label={t('secretsManagerLayout.search', {}, { defaultValue: 'Search secrets' })}
+        className={cm.cn(
+          'h-9 w-full rounded-md border border-border bg-background pl-9 pr-10 py-1 font-mono text-sm text-text',
+          'placeholder:font-mono placeholder:text-xs placeholder:text-muted/60',
+          'transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary',
+        )}
+      />
+      <kbd
+        aria-hidden="true"
+        className={cm.cn(
+          'absolute right-2 top-1/2 -translate-y-1/2 rounded border border-border bg-surface-secondary px-1.5 py-0.5 font-mono text-[10px] text-muted',
+        )}
+      >
+        /
+      </kbd>
+    </div>
+  )
+
+  // Desktop top strip — the shell's TopBar is mobile-only (a non-mobileOnly
+  // TopBar becomes a squeezed flex-row COLUMN on desktop; the shared shell's
+  // documented composition is mobileOnly + sidebar/desktop chrome). The same
+  // search + action cluster therefore renders as the content column's header
+  // strip on desktop. Only one copy mounts per breakpoint.
+  const topActions = (
+    <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), 'shrink-0')}>
+      {environmentSwitcher}
+      {topAction ?? (
+        <Link
+          to="/vaults"
+          className={cm.cn(
+            'inline-flex h-8 items-center gap-1 rounded bg-primary px-3 font-headline text-[12px] font-bold text-on-primary',
+            'transition-colors hover:bg-primary/90',
+          )}
+        >
+          <span aria-hidden="true" className="material-symbols-outlined text-sm">
+            add
+          </span>
+          <span className="hidden sm:inline">
+            {t('secretsManagerLayout.newVault', {}, { defaultValue: 'New vault' })}
+          </span>
+          <span className="sm:hidden" aria-hidden="true">
+            {t('secretsManagerLayout.newVaultShort', {}, { defaultValue: 'New' })}
+          </span>
+        </Link>
+      )}
+      <UserMenu />
+    </div>
+  )
+  const isDesktop = useIsDesktop()
 
   return (
     <div
       data-mol-id="secrets-manager-layout"
       className={cm.cn('flex min-h-screen flex-col font-body antialiased bg-background text-text')}
     >
-      <nav
-        className={cm.cn(
-          'sticky top-0 z-20 flex h-12 w-full shrink-0 items-center justify-between gap-2 border-b border-border bg-surface px-3 sm:gap-4 sm:px-4',
-        )}
-      >
-        <div className={cm.cn('flex flex-1 items-center gap-2 sm:gap-3')}>
-          <button
-            type="button"
-            onClick={() => setMenuOpen(true)}
-            data-mol-id="layout-menu-button"
-            aria-label={t(
-              'secretsManagerLayout.openMenu',
-              {},
-              { defaultValue: 'Open navigation menu' },
-            )}
-            aria-expanded={menuOpen}
-            className={cm.cn(
-              'inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border text-muted transition-colors hover:border-primary hover:text-primary md:hidden',
-            )}
-          >
-            <span aria-hidden="true" className="material-symbols-outlined text-[20px]">
-              menu
-            </span>
-          </button>
-          <div className={cm.cn('relative min-w-0 flex-1 max-w-xl')}>
-            <span
-              aria-hidden="true"
-              className={cm.cn(
-                'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted',
-              )}
-            >
-              search
-            </span>
-            <input
-              ref={searchRef}
-              type="text"
-              data-mol-id="layout-search"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  e.preventDefault()
-                  applySearch(searchQuery)
-                } else if (e.key === 'Escape') {
-                  setSearchQuery('')
-                  applySearch('')
-                  ;(e.target as HTMLInputElement).blur()
-                }
-              }}
-              placeholder={t(
-                'secretsManagerLayout.searchPlaceholder',
-                {},
-                { defaultValue: 'Search secrets by key, path, or tag…' },
-              )}
-              aria-label={t('secretsManagerLayout.search', {}, { defaultValue: 'Search secrets' })}
-              className={cm.cn(
-                'h-8 w-full rounded-md border border-border bg-background pl-9 pr-12 py-1 font-mono text-sm text-text',
-                'placeholder:font-mono placeholder:text-xs placeholder:text-muted/60',
-                'transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary',
-              )}
-            />
-            <kbd
-              aria-hidden="true"
-              className={cm.cn(
-                'absolute right-2 top-1/2 -translate-y-1/2 rounded border border-border bg-surface-secondary px-1.5 py-0.5 font-mono text-[10px] text-muted',
-              )}
-            >
-              /
-            </kbd>
-          </div>
-        </div>
-        <div className={cm.cn('flex shrink-0 items-center gap-2 sm:gap-3')}>
-          {environmentSwitcher}
-          {topAction ?? (
-            <Link
-              to="/vaults"
-              className={cm.cn(
-                'inline-flex h-8 items-center gap-1 rounded bg-primary px-3 font-headline text-[12px] font-bold text-on-primary',
-                'transition-colors hover:bg-primary/90',
-              )}
-            >
-              <span aria-hidden="true" className="material-symbols-outlined text-[14px]">
-                add
-              </span>
-              <span className="hidden sm:inline">
-                {t('secretsManagerLayout.newVault', {}, { defaultValue: 'New vault' })}
-              </span>
-              <span className="sm:hidden" aria-hidden="true">
-                {t('secretsManagerLayout.newVaultShort', {}, { defaultValue: 'New' })}
-              </span>
-            </Link>
-          )}
-          <UserMenu />
-        </div>
-      </nav>
+      <ResponsiveAppShell sidebarWidth={260} className="flex-1">
+        <ResponsiveAppShell.TopBar
+          mobileOnly
+          brand={searchBox}
+          className="bg-surface border-border"
+          actions={topActions}
+        />
 
-      {/* Mobile drawer nav + backdrop (hidden at md+, where the sidebar shows). */}
-      {menuOpen ? (
-        <div className={cm.cn('md:hidden')} data-mol-id="layout-mobile-nav">
-          <div
-            role="presentation"
-            onClick={() => setMenuOpen(false)}
-            className={cm.cn('fixed inset-0 z-30 bg-black/60 backdrop-blur-sm')}
-          />
-          <aside
-            aria-label={t(
-              'secretsManagerLayout.navLabel',
-              {},
-              { defaultValue: 'Primary navigation' },
-            )}
-            className={cm.cn(
-              'fixed inset-y-0 left-0 z-40 flex w-[280px] max-w-[85vw] flex-col border-r border-border bg-background shadow-2xl',
-            )}
-          >
-            <div
-              className={cm.cn('flex items-center justify-between border-b border-border/50 p-4')}
-            >
-              <Link to="/vaults" className={cm.cn('inline-flex items-baseline')}>
-                <ArcanumBrandMark size="md" />
-              </Link>
-              <button
-                type="button"
-                onClick={() => setMenuOpen(false)}
-                aria-label={t(
-                  'secretsManagerLayout.closeMenu',
-                  {},
-                  { defaultValue: 'Close navigation menu' },
-                )}
-                className={cm.cn(
-                  'inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted transition-colors hover:border-primary hover:text-primary',
-                )}
-              >
-                <span aria-hidden="true" className="material-symbols-outlined text-[20px]">
-                  close
-                </span>
-              </button>
-            </div>
-
-            <div className={cm.cn('flex flex-1 flex-col gap-1 overflow-y-auto py-3')}>
-              {links.map((link) => {
-                const active = link.match(pathname)
-                return (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    data-mol-id={`mnav-${link.to.slice(1)}`}
-                    aria-current={active ? 'page' : undefined}
-                    className={cm.cn(
-                      'mx-2 flex items-center gap-3 rounded-md px-3 py-2.5 font-mono text-xs uppercase tracking-widest transition-colors',
-                      active
-                        ? 'bg-primary/10 font-bold text-primary'
-                        : 'text-muted hover:bg-surface hover:text-text',
-                    )}
-                  >
-                    <span aria-hidden="true" className="material-symbols-outlined text-[18px]">
-                      {link.icon}
-                    </span>
-                    {link.label}
-                  </Link>
-                )
-              })}
-            </div>
-
-            <Link
-              to="/profile"
-              className={cm.cn(
-                'flex items-center gap-3 border-t border-border p-4 transition-colors hover:bg-surface',
-              )}
-            >
-              <span
-                aria-hidden="true"
-                className={cm.cn(
-                  'inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border bg-surface font-mono text-sm font-bold text-primary',
-                )}
-              >
-                {userEmail.charAt(0).toUpperCase()}
-              </span>
-              <div className={cm.cn('flex min-w-0 flex-col')}>
-                <span className={cm.cn('truncate font-body text-sm font-medium text-text')}>
-                  {userEmail}
-                </span>
-                <span className={cm.cn('font-mono text-[10px] text-muted')}>
-                  {t(
-                    'secretsManagerLayout.adminRole',
-                    { appName: APP_NAME },
-                    { defaultValue: 'Admin · {{appName}} workspace' },
-                  )}
-                </span>
-              </div>
-            </Link>
-          </aside>
-        </div>
-      ) : null}
-
-      <div className={cm.cn('flex flex-1 overflow-hidden')}>
-        <aside
-          className={cm.cn(
-            'hidden h-auto w-[260px] shrink-0 flex-col border-r border-border bg-background md:flex',
-          )}
+        {/*
+          Desktop sidebar (>=768px): brand + mono nav + contextual extra +
+          the profile row in the shell's bordered footer.
+        */}
+        <ResponsiveAppShell.Sidebar
+          navLabel={navLabel}
+          dataMolId="layout-sidebar"
+          className="bg-background border-border border-r"
+          footer={profileFooter}
         >
-          <div className={cm.cn('border-b border-border/50 p-4')}>
+          <div className={cm.cn('border-b border-border/50 px-4 py-3')}>
             <Link to="/vaults" className={cm.cn('inline-flex items-baseline')}>
               <ArcanumBrandMark size="md" />
             </Link>
           </div>
-
-          <div className={cm.cn('flex flex-col py-3 gap-1')}>
-            {links.map((link) => {
-              const active = link.match(pathname)
-              return (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  data-mol-id={`nav-${link.to.slice(1)}`}
-                  className={cm.cn(
-                    'flex items-center gap-3 border-l-2 px-4 py-2 font-mono text-xs uppercase tracking-widest transition-colors',
-                    active
-                      ? 'border-primary bg-primary/10 font-bold text-primary'
-                      : 'border-transparent text-muted hover:bg-surface hover:text-text',
-                  )}
-                >
-                  <span aria-hidden="true" className="material-symbols-outlined text-[18px]">
-                    {link.icon}
-                  </span>
-                  {link.label}
-                </Link>
-              )
-            })}
-          </div>
-
+          {nav}
           {sidebarExtra ? (
-            <div className={cm.cn('flex-1 overflow-y-auto px-4 py-2')}>{sidebarExtra}</div>
-          ) : (
-            <div className={cm.cn('flex-1')} />
-          )}
+            <div className={cm.cn('min-h-0 overflow-y-auto px-4 py-2')}>{sidebarExtra}</div>
+          ) : null}
+        </ResponsiveAppShell.Sidebar>
 
-          <Link
-            to="/profile"
-            className={cm.cn(
-              'mt-auto flex items-center gap-3 border-t border-border p-4 transition-colors hover:bg-surface',
-            )}
-          >
-            <span
-              aria-hidden="true"
+        {/*
+          Mobile drawer (<768px): the shell's APG dialog over the SAME nav
+          element; brand in the header, profile row in the footer.
+        */}
+        <ResponsiveAppShell.Drawer
+          navLabel={navLabel}
+          header={
+            <Link to="/vaults" className={cm.cn('inline-flex items-baseline')}>
+              <ArcanumBrandMark size="md" />
+            </Link>
+          }
+          footer={profileFooter}
+          className="h-full bg-background border-border border-r"
+        >
+          {nav}
+        </ResponsiveAppShell.Drawer>
+
+        <ResponsiveAppShell.Content className="bg-background">
+          {isDesktop && (
+            <div
               className={cm.cn(
-                'inline-flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface font-mono text-sm font-bold text-primary',
+                cm.flex({ align: 'center', gap: 3 }),
+                cm.sp('px', 4),
+                'h-12 shrink-0 items-center justify-between border-b border-border bg-surface',
               )}
             >
-              {userEmail.charAt(0).toUpperCase()}
-            </span>
-            <div className={cm.cn(cm.flex({ direction: 'col' }))}>
-              <span className={cm.cn('font-body text-sm font-medium text-text')}>{userEmail}</span>
-              <span className={cm.cn('font-mono text-[10px] text-muted')}>
-                {t(
-                  'secretsManagerLayout.adminRole',
-                  { appName: APP_NAME },
-                  { defaultValue: 'Admin · {{appName}} workspace' },
-                )}
-              </span>
+              {searchBox}
+              {topActions}
             </div>
-          </Link>
-        </aside>
-
-        <main className={cm.cn('flex h-auto flex-1 flex-col overflow-y-auto bg-background')}>
+          )}
           {children}
-        </main>
-      </div>
+        </ResponsiveAppShell.Content>
+      </ResponsiveAppShell>
 
       <footer
         className={cm.cn(
