@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -48,28 +49,27 @@ export function Onboarding() {
   const [error, setError] = useState<string | null>(null)
   const [activeId, setActiveId] = useState<string | null>(null)
 
-  useEffect(() => {
-    let cancelled = false
+  const load = useCallback((): Promise<void> => {
     setLoading(true)
-    http
+    return http
       .get('/api/onboarding')
       .then((res) => {
         const list = unwrapList<OnboardingJourney>(res)
-        if (cancelled) return
         setJourneys(list)
         const inProgress = list.find((j) => j.progress_pct < 100)
         setActiveId(inProgress?.id ?? list[0]?.id ?? null)
       })
       .catch(() => {
-        if (!cancelled) setError(t('nav.failedToLoad', {}, { defaultValue: 'Failed to load.' }))
+        setError(t('nav.failedToLoad', {}, { defaultValue: 'Failed to load.' }))
       })
       .finally(() => {
-        if (!cancelled) setLoading(false)
+        setLoading(false)
       })
-    return () => {
-      cancelled = true
-    }
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   const active = journeys.find((j) => j.id === activeId) ?? null
 
@@ -102,7 +102,7 @@ export function Onboarding() {
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </p>
       ) : error ? (
-        <p className={cm.cn(cm.sp('p', 8), 'text-error')}>{error}</p>
+        <LoadErrorBanner message={error} onRetry={load} />
       ) : (
         <div className={cm.cn('grid gap-6 lg:grid-cols-12')}>
           <ul className={cm.cn('lg:col-span-5 stack gap-3 flex flex-col')}>

@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { HeadcountHeroCard } from '../components/HeadcountHeroCard.js'
@@ -65,16 +66,14 @@ export function Dashboard() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    let cancelled = false
+  const load = useCallback((): Promise<void> => {
     setLoading(true)
-    Promise.all([
+    return Promise.all([
       http.get('/api/dashboard-stats').catch(() => null),
       http.get('/api/pto').catch(() => null),
       http.get('/api/notifications').catch(() => null),
     ])
       .then(([sRes, pRes, nRes]) => {
-        if (cancelled) return
         setStats(unwrapSingle<DashboardStats>(sRes))
         setPto(
           unwrapList<PtoRequest>(pRes)
@@ -84,18 +83,16 @@ export function Dashboard() {
         setActivity(unwrapList<NotificationEvent>(nRes).slice(0, 6))
       })
       .catch(() => {
-        if (!cancelled)
-          setError(
-            t('nav.failedToLoadDashboard', {}, { defaultValue: 'Failed to load dashboard.' }),
-          )
+        setError(t('nav.failedToLoadDashboard', {}, { defaultValue: 'Failed to load dashboard.' }))
       })
       .finally(() => {
-        if (!cancelled) setLoading(false)
+        setLoading(false)
       })
-    return () => {
-      cancelled = true
-    }
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   if (loading)
     return (
@@ -103,10 +100,11 @@ export function Dashboard() {
         {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
       </div>
     )
-  if (error || !stats)
+  if (error) return <LoadErrorBanner message={error} onRetry={load} className={cm.sp('p', 8)} />
+  if (!stats)
     return (
-      <div className={cm.cn(cm.sp('p', 8), 'text-error')}>
-        {error ?? t('dashboard.empty', {}, { defaultValue: 'No data yet.' })}
+      <div className={cm.cn(cm.sp('p', 8), cm.textCenter, 'text-on-surface-variant')}>
+        {t('dashboard.empty', {}, { defaultValue: 'No data yet.' })}
       </div>
     )
 

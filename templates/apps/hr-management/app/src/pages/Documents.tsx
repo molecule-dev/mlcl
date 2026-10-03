@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
@@ -63,24 +64,24 @@ export function Documents() {
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
 
-  useEffect(() => {
-    let cancelled = false
+  const load = useCallback((): Promise<void> => {
     setLoading(true)
-    http
+    return http
       .get('/api/documents')
       .then((res) => {
-        if (!cancelled) setDocs(unwrapList<Document>(res))
+        setDocs(unwrapList<Document>(res))
       })
       .catch(() => {
-        if (!cancelled) setError(t('nav.failedToLoad', {}, { defaultValue: 'Failed to load.' }))
+        setError(t('nav.failedToLoad', {}, { defaultValue: 'Failed to load.' }))
       })
       .finally(() => {
-        if (!cancelled) setLoading(false)
+        setLoading(false)
       })
-    return () => {
-      cancelled = true
-    }
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   async function submitNew() {
     setSubmitError(null)
@@ -369,7 +370,7 @@ export function Documents() {
             {t('documents.loading', {}, { defaultValue: 'Loading…' })}
           </p>
         ) : error ? (
-          <p className={cm.cn(cm.sp('p', 8), 'text-error')}>{error}</p>
+          <LoadErrorBanner message={error} onRetry={load} />
         ) : filtered.length === 0 ? (
           <p className={cm.cn(cm.sp('p', 8), cm.textCenter, 'text-on-surface-variant')}>
             {t('documents.empty', {}, { defaultValue: 'No documents match.' })}

@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { KpiCard } from '../components/KpiCard.js'
 import { unwrapList } from '../lib/unwrap.js'
@@ -54,24 +55,24 @@ export function Performance() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    let cancelled = false
+  const load = useCallback((): Promise<void> => {
     setLoading(true)
-    http
+    return http
       .get('/api/performance')
       .then((res) => {
-        if (!cancelled) setReviews(unwrapList<Review>(res))
+        setReviews(unwrapList<Review>(res))
       })
       .catch(() => {
-        if (!cancelled) setError(t('nav.failedToLoad', {}, { defaultValue: 'Failed to load.' }))
+        setError(t('nav.failedToLoad', {}, { defaultValue: 'Failed to load.' }))
       })
       .finally(() => {
-        if (!cancelled) setLoading(false)
+        setLoading(false)
       })
-    return () => {
-      cancelled = true
-    }
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   const counts = useMemo(() => {
     const total = reviews.length
@@ -166,7 +167,7 @@ export function Performance() {
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </p>
         ) : error ? (
-          <p className={cm.cn(cm.sp('p', 8), 'text-error')}>{error}</p>
+          <LoadErrorBanner message={error} onRetry={load} />
         ) : reviews.length === 0 ? (
           <p className={cm.cn(cm.sp('p', 8), cm.textCenter, 'text-on-surface-variant')}>
             {t('performance.empty', {}, { defaultValue: 'No reviews scheduled.' })}

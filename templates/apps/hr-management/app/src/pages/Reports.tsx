@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { HeadcountHeroCard } from '../components/HeadcountHeroCard.js'
@@ -28,24 +29,24 @@ export function Reports() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    let cancelled = false
+  const load = useCallback((): Promise<void> => {
     setLoading(true)
-    http
+    return http
       .get('/api/dashboard-stats')
       .then((res) => {
-        if (!cancelled) setStats(unwrapSingle<DashboardStats>(res))
+        setStats(unwrapSingle<DashboardStats>(res))
       })
       .catch(() => {
-        if (!cancelled) setError(t('nav.failedToLoad', {}, { defaultValue: 'Failed to load.' }))
+        setError(t('nav.failedToLoad', {}, { defaultValue: 'Failed to load.' }))
       })
       .finally(() => {
-        if (!cancelled) setLoading(false)
+        setLoading(false)
       })
-    return () => {
-      cancelled = true
-    }
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   if (loading)
     return (
@@ -53,10 +54,11 @@ export function Reports() {
         {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
       </div>
     )
-  if (error || !stats)
+  if (error) return <LoadErrorBanner message={error} onRetry={load} className={cm.sp('p', 8)} />
+  if (!stats)
     return (
-      <div className={cm.cn(cm.sp('p', 8), 'text-error')}>
-        {error ?? t('reports.empty', {}, { defaultValue: 'No data yet.' })}
+      <div className={cm.cn(cm.sp('p', 8), cm.textCenter, 'text-on-surface-variant')}>
+        {t('reports.empty', {}, { defaultValue: 'No data yet.' })}
       </div>
     )
 

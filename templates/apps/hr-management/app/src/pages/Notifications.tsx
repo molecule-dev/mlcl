@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -38,24 +39,24 @@ export function Notifications() {
   const [error, setError] = useState<string | null>(null)
   const [marking, setMarking] = useState(false)
 
-  useEffect(() => {
-    let cancelled = false
+  const load = useCallback((): Promise<void> => {
     setLoading(true)
-    http
+    return http
       .get('/api/notifications')
       .then((res) => {
-        if (!cancelled) setItems(unwrapList<NotificationEvent>(res))
+        setItems(unwrapList<NotificationEvent>(res))
       })
       .catch(() => {
-        if (!cancelled) setError(t('nav.failedToLoad', {}, { defaultValue: 'Failed to load.' }))
+        setError(t('nav.failedToLoad', {}, { defaultValue: 'Failed to load.' }))
       })
       .finally(() => {
-        if (!cancelled) setLoading(false)
+        setLoading(false)
       })
-    return () => {
-      cancelled = true
-    }
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   const unreadCount = items.filter((i) => i.unread).length
 
@@ -143,7 +144,7 @@ export function Notifications() {
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </p>
         ) : error ? (
-          <p className={cm.cn(cm.sp('p', 8), 'text-error')}>{error}</p>
+          <LoadErrorBanner message={error} onRetry={load} />
         ) : items.length === 0 ? (
           <p className={cm.cn(cm.sp('p', 8), cm.textCenter, 'text-on-surface-variant')}>
             {t('notifications.empty', {}, { defaultValue: 'You’re all caught up.' })}

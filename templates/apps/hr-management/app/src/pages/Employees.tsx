@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import type { EmployeeStatus } from '../components/EmployeeStatusPill.js'
 import { EmployeeStatusPill } from '../components/EmployeeStatusPill.js'
@@ -41,25 +42,24 @@ export function Employees() {
   const [query, setQuery] = useState('')
   const [filter, setFilter] = useState<(typeof FILTERS)[number]['key']>('all')
 
-  useEffect(() => {
-    let cancelled = false
+  const load = useCallback((): Promise<void> => {
     setLoading(true)
-    http
+    return http
       .get('/api/employees')
       .then((res) => {
-        if (!cancelled) setEmployees(unwrapList<Employee>(res))
+        setEmployees(unwrapList<Employee>(res))
       })
       .catch(() => {
-        if (!cancelled)
-          setError(t('employees.loadError', {}, { defaultValue: 'Failed to load employees.' }))
+        setError(t('employees.loadError', {}, { defaultValue: 'Failed to load employees.' }))
       })
       .finally(() => {
-        if (!cancelled) setLoading(false)
+        setLoading(false)
       })
-    return () => {
-      cancelled = true
-    }
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -187,7 +187,7 @@ export function Employees() {
             {t('employees.loading', {}, { defaultValue: 'Loading…' })}
           </p>
         ) : error ? (
-          <p className={cm.cn(cm.sp('p', 8), 'text-error')}>{error}</p>
+          <LoadErrorBanner message={error} onRetry={load} />
         ) : filtered.length === 0 ? (
           <p className={cm.cn(cm.sp('p', 8), cm.textCenter, 'text-on-surface-variant')}>
             {t('employees.empty', {}, { defaultValue: 'No matches.' })}

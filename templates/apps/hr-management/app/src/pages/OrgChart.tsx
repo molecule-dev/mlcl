@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { unwrapSingle } from '../lib/unwrap.js'
@@ -24,24 +25,24 @@ export function OrgChart() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    let cancelled = false
+  const load = useCallback((): Promise<void> => {
     setLoading(true)
-    http
+    return http
       .get('/api/org-tree')
       .then((res) => {
-        if (!cancelled) setTree(unwrapSingle<OrgNode>(res))
+        setTree(unwrapSingle<OrgNode>(res))
       })
       .catch(() => {
-        if (!cancelled) setError(t('nav.failedToLoad', {}, { defaultValue: 'Failed to load.' }))
+        setError(t('nav.failedToLoad', {}, { defaultValue: 'Failed to load.' }))
       })
       .finally(() => {
-        if (!cancelled) setLoading(false)
+        setLoading(false)
       })
-    return () => {
-      cancelled = true
-    }
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
@@ -80,9 +81,11 @@ export function OrgChart() {
           <p className={cm.cn('text-on-surface-variant')}>
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </p>
-        ) : error || !tree ? (
-          <p className={cm.cn('text-error')}>
-            {error ?? t('orgChart.empty', {}, { defaultValue: 'No structure yet.' })}
+        ) : error ? (
+          <LoadErrorBanner message={error} onRetry={load} />
+        ) : !tree ? (
+          <p className={cm.cn(cm.textCenter, 'text-on-surface-variant')}>
+            {t('orgChart.empty', {}, { defaultValue: 'No structure yet.' })}
           </p>
         ) : (
           <div className={cm.cn('mx-auto', 'min-w-fit')}>
