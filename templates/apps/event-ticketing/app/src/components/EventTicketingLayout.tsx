@@ -24,12 +24,13 @@ const NAV_KEYS = [
 /**
  * Authed app shell — the shared `ResponsiveAppShell`.
  *
- * One composition serves both breakpoints: the top bar (brand + user menu)
- * mounts everywhere and renders the mobile menu trigger itself; the sidebar
- * mounts ≥768px and the dialog drawer <768px. The same nav element is passed
- * to `Sidebar` and `Drawer`, so only the mounted breakpoint ever instantiates
- * it. The shell owns the drawer open state, Escape/backdrop handling, the
- * SPA-navigation close, and the root flex direction — no app-side shims.
+ * The TopBar is `mobileOnly` (brand + user menu + the shell's menu trigger,
+ * below 768px only); the sidebar mounts ≥768px carrying the brand above the
+ * nav and the UserMenu in its bordered footer, and the dialog drawer <768px.
+ * The same nav element is passed to `Sidebar` and `Drawer`, so only the
+ * mounted breakpoint ever instantiates it. The shell owns the drawer open
+ * state, Escape/backdrop handling, the SPA-navigation close, and the root
+ * flex direction — no app-side shims.
  */
 
 function BrandMark() {
@@ -96,6 +97,7 @@ export function EventTicketingLayout() {
   return (
     <ResponsiveAppShell sidebarWidth="md" className="antialiased">
       <ResponsiveAppShell.TopBar
+        mobileOnly
         brand={<BrandMark />}
         actions={
           <div className="text-on-surface-variant hover:text-on-surface transition-colors">
@@ -103,7 +105,22 @@ export function EventTicketingLayout() {
           </div>
         }
       />
-      <ResponsiveAppShell.Sidebar navLabel={navAriaLabel}>{nav}</ResponsiveAppShell.Sidebar>
+      {/* Desktop keeps brand + user affordances in the Sidebar: the brand mark
+          above the nav (same `layout-brand` id the TopBar mount uses — never
+          in the DOM together), UserMenu in the shell's bordered footer row. */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navAriaLabel}
+        footer={
+          <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+            <UserMenu />
+          </div>
+        }
+      >
+        <div className={cm.cn(cm.sp('px', 3), cm.sp('py', 2))}>
+          <BrandMark />
+        </div>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer navLabel={navAriaLabel} header={<BrandMark />}>
         {nav}
       </ResponsiveAppShell.Drawer>
