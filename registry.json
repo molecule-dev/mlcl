@@ -58264,7 +58264,7 @@
       "@molecule/app-timeline": "1.0.2",
       "@molecule/app-timeline-default": "1.0.2",
       "@molecule/app-timeline-react": "1.0.2",
-      "@molecule/app-top-nav-layout-react": "1.0.2",
+      "@molecule/app-top-nav-layout-react": "1.0.3",
       "@molecule/app-tour": "1.0.2",
       "@molecule/app-tour-shepherd": "1.0.3",
       "@molecule/app-trace-waterfall-react": "1.0.2",
@@ -58276,7 +58276,7 @@
       "@molecule/app-ui": "1.3.4",
       "@molecule/app-ui-angular": "1.0.2",
       "@molecule/app-ui-nativewind": "1.2.0",
-      "@molecule/app-ui-react": "1.3.0",
+      "@molecule/app-ui-react": "1.3.1",
       "@molecule/app-ui-react-native": "1.0.2",
       "@molecule/app-ui-showcase": "1.0.3",
       "@molecule/app-ui-solid": "1.0.2",
@@ -58306,7 +58306,7 @@
       "@molecule/api-ai-speech-nemo-speech": "1.0.0",
       "@molecule/api-ai-speech-llm": "1.0.0",
       "@molecule/api-ai-speech-confucius4": "1.0.0",
-      "@molecule/api-agent-transcript-autodetect": "1.2.1",
+      "@molecule/api-agent-transcript-autodetect": "1.2.2",
       "@molecule/api-ai-decisions-jev": "1.1.0",
       "@molecule/api-ai-decisions-laya": "1.1.0"
     }
