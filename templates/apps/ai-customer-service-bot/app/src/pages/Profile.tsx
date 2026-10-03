@@ -85,7 +85,8 @@ function Profile() {
       setRoutingTopics(
         [...new Set(rows.map((r) => r.category).filter((c): c is string => Boolean(c)))].sort(),
       )
-    } catch {
+    } catch (_error) {
+      // Intentional noop: a failed fetch just leaves the section empty.
       setRoutingTopics([])
     }
   }

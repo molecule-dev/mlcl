@@ -10,7 +10,9 @@
  *
  * Brand placement is fleet-canonical: the brand lives in the Sidebar; the
  * always-mounted TopBar carries the breadcrumbs + page actions (search,
- * notifications, help) which are real functionality on every breakpoint.
+ * notifications, help) which are real functionality on every breakpoint —
+ * kept on desktop via the shell's wrap-bar layout (`md:flex-wrap` root +
+ * `w-full` bar, its own full-width row above the sidebar).
  */
 import type { ReactNode } from 'react'
 
@@ -39,12 +41,13 @@ function RapportLayout({ children, bare = false }: RapportLayoutProps) {
     <ResponsiveAppShell
       // 260px — the rail width this app has always used.
       sidebarWidth={260}
-      // flex-wrap + w-full on the TopBar: the shell root is a flex ROW on
-      // desktop, so the always-mounted bar has to wrap onto its own
-      // full-width row or it renders as a squeezed column beside the
-      // sidebar (the SiftLayout composition).
+      // md:flex-wrap (the shell's wrap-bar detection token) + w-full on the
+      // TopBar: the shell root is a flex ROW on desktop, so the always-mounted
+      // bar wraps onto its own full-width row or it renders as a squeezed
+      // column beside the sidebar — and a non-wrap bar beside a sidebar is
+      // SUPPRESSED by the shell outright.
       className={cm.cn(
-        'flex-wrap bg-background text-on-background antialiased selection:bg-primary selection:text-on-primary',
+        'md:flex-wrap bg-background text-on-background antialiased selection:bg-primary selection:text-on-primary',
       )}
     >
       <ResponsiveAppShell.TopBar

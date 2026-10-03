@@ -91,7 +91,8 @@ function KnowledgeArticleDetail() {
       const response = await get<ArticleRow[]>('/api/knowledge')
       const rows = Array.isArray(response.data) ? response.data : []
       setRelated(rows.filter((r) => r.id !== excludeId && r.category === category).slice(0, 3))
-    } catch {
+    } catch (_error) {
+      // Intentional noop: a failed fetch just leaves the section empty.
       setRelated([])
     }
   }
