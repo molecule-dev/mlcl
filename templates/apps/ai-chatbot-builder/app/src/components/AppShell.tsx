@@ -20,7 +20,7 @@ import { Link, useLocation } from 'react-router'
 
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { ResponsiveAppShell } from '@molecule/app-ui-react'
+import { ResponsiveAppShell, useIsDesktop } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { UserMenu } from './UserMenu.js'
@@ -210,9 +210,34 @@ export function AppShell({
     </>
   )
 
+  // The shell's TopBar is mobile-only: a non-mobileOnly TopBar becomes a
+  // squeezed flex-row COLUMN on desktop (the shared shell's documented
+  // composition is mobileOnly + desktop chrome elsewhere). On desktop the
+  // brand + leading + actions render as the content column's header strip —
+  // only one copy mounts per breakpoint.
+  const isDesktop = useIsDesktop()
+  const desktopStrip = isDesktop ? (
+    <div
+      className={cm.cn(
+        cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+        cm.sp('px', 6),
+        'h-14 shrink-0 border-b border-outline-variant/10 bg-surface/80 backdrop-blur-xl',
+      )}
+    >
+      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4 min-w-0')}>
+        <BrandLink />
+        {leading}
+      </div>
+      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4 shrink-0')}>
+        {actions ?? defaultActions}
+      </div>
+    </div>
+  ) : null
+
   return (
     <ResponsiveAppShell sidebarWidth={240} className={className}>
       <ResponsiveAppShell.TopBar
+        mobileOnly
         brand={
           <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4 min-w-0')}>
             <BrandLink />
@@ -248,6 +273,7 @@ export function AppShell({
       </ResponsiveAppShell.Drawer>
 
       <ResponsiveAppShell.Content className={contentClassName}>
+        {desktopStrip}
         {children}
       </ResponsiveAppShell.Content>
     </ResponsiveAppShell>
