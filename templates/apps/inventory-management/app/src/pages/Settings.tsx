@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 
@@ -626,28 +626,13 @@ export function Settings() {
                           {t(def.hintKey, {}, { defaultValue: def.hintDefault })}
                         </p>
                       </div>
-                      <label className={cm.cn('inline-flex items-center cursor-pointer')}>
-                        <input
-                          type="checkbox"
-                          aria-label={t(def.labelKey, {}, { defaultValue: def.labelDefault })}
-                          data-testid={`settings-rule-${def.id}`}
-                          checked={enabled}
-                          disabled={savingRule === def.id}
-                          onChange={(e) => toggleRule(def, e.target.checked)}
-                          className={cm.cn('peer sr-only')}
-                        />
-                        <span
-                          className={cm.cn(
-                            'h-6 w-10 rounded-full bg-outline-variant peer-checked:bg-primary transition-colors flex items-center px-1',
-                          )}
-                        >
-                          <span
-                            className={cm.cn(
-                              'h-4 w-4 rounded-full bg-white shadow transform peer-checked:translate-x-4 transition-transform',
-                            )}
-                          />
-                        </span>
-                      </label>
+                      <Switch
+                        checked={enabled}
+                        disabled={savingRule === def.id}
+                        onChange={(e) => toggleRule(def, (e.target as HTMLInputElement).checked)}
+                        testId={`settings-rule-${def.id}`}
+                        aria-label={t(def.labelKey, {}, { defaultValue: def.labelDefault })}
+                      />
                     </li>
                   )
                 })}
@@ -833,30 +818,16 @@ function TwoFactorRow() {
           )}
         </p>
       </div>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={enabled}
+      <Switch
+        checked={enabled}
+        onChange={(e) => setEnabled((e.target as HTMLInputElement).checked)}
         data-mol-id="two-factor-toggle"
         aria-label={t(
           'settings.security.twoFactor',
           {},
           { defaultValue: 'Two-Factor Authentication' },
         )}
-        onClick={() => setEnabled((v) => !v)}
-        className={cm.cn(
-          'relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200',
-          enabled ? 'bg-primary' : 'bg-outline-variant',
-        )}
-      >
-        <span
-          aria-hidden="true"
-          className={cm.cn(
-            'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200',
-            enabled ? 'translate-x-5' : 'translate-x-0',
-          )}
-        />
-      </button>
+      />
     </div>
   )
 }

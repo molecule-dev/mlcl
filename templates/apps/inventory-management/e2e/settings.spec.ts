@@ -97,8 +97,14 @@ test.describe('settings', () => {
     await page.getByRole('button', { name: /alert rules/i }).click()
     const toggle = page.getByTestId('settings-rule-low')
     await expect(toggle).toBeVisible()
-    // Default-on; flip off and verify a backing rule was created/updated.
-    await toggle.uncheck()
+    // The shared Switch is a role="switch" button — click + assert aria-checked.
+    // The first low_stock row on a seeded account may start on or off; assert
+    // the CLICK FLIPS it and that flipped value persists (never a vacuous
+    // click on an already-target-state control).
+    const before = (await toggle.getAttribute('aria-checked')) === 'true'
+    await toggle.click()
+    await expect(toggle).toHaveAttribute('aria-checked', before ? 'false' : 'true')
+    const expectedEnabled = !before
     // Wait briefly for the network round-trip + state update.
     await page.waitForTimeout(500)
     const rulesResp = await request.get(`${API_BASE}/alerts/rules`, {
@@ -108,12 +114,15 @@ test.describe('settings', () => {
     const rules = (await rulesResp.json()) as Array<{ type: string; enabled: boolean }>
     const lowRule = rules.find((r) => r.type === 'low_stock')
     expect(lowRule, 'no low_stock rule materialized after toggle').toBeTruthy()
-    expect(lowRule!.enabled).toBe(false)
+    expect(lowRule!.enabled).toBe(expectedEnabled)
 
     // Reload and confirm the visible toggle still reflects the persisted state.
     await page.reload()
     await page.getByRole('button', { name: /alert rules/i }).click()
-    await expect(page.getByTestId('settings-rule-low')).not.toBeChecked()
+    await expect(page.getByTestId('settings-rule-low')).toHaveAttribute(
+      'aria-checked',
+      expectedEnabled ? 'true' : 'false',
+    )
   })
 
   test('Billing tab renders REAL plan pulled from /billing/status (not "Locus Operator $399/mo")', async ({
