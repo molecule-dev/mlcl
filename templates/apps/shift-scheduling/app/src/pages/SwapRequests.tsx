@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { RequestStatusPill } from '../components/RequestStatusPill.js'
 import { unwrapList } from '../lib/unwrap.js'
@@ -196,7 +197,7 @@ export function SwapRequests() {
               {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
             </p>
           ) : error ? (
-            <p className={cm.cn('text-error')}>{error}</p>
+            <LoadErrorBanner message={error} onRetry={refresh} />
           ) : (
             <div className={cm.cn(cm.stack(8))}>
               {mineStaffId ? (

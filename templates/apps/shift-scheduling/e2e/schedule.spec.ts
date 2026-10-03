@@ -22,7 +22,16 @@ test.describe('schedule page', () => {
     const { accessToken } = await signup(page)
     await seedShift(page, accessToken, { staff_id: (await pickStaff(page, accessToken)).id })
     const reqs = await captureNetwork(page, async () => {
+      // Arm BEFORE goto (playbook hygiene): the page header renders in the
+      // loading state, so the heading alone can become visible before the
+      // mount fetch's /api/shifts RESPONSE arrives — under parallel-suite
+      // API contention that closed the capture window early and flaked the
+      // request assertion. Waiting for the response keeps the window honest.
+      const shiftsLoaded = page.waitForResponse(
+        (r) => /\/api\/shifts(?:\?|$)/.test(r.url()) && r.request().method() === 'GET',
+      )
       await page.goto(APP_BASE + '/schedule')
+      await shiftsLoaded
       await expect(page.getByRole('heading', { name: /weekly schedule/i })).toBeVisible()
     })
     expect(reqs.find((r) => /\/api\/shifts(?:\?|$)/.test(r.url) && r.method === 'GET')).toBeTruthy()

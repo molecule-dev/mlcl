@@ -22,7 +22,16 @@ test.describe('staff page', () => {
       last_name: 'Checkly',
     })
     const reqs = await captureNetwork(page, async () => {
+      // Arm BEFORE goto (playbook hygiene): the roster header renders in the
+      // loading state, so the heading alone can become visible before the
+      // mount fetch's /api/staff RESPONSE arrives — under parallel-suite API
+      // contention that closed the capture window early and flaked the
+      // request assertion. Waiting for the response keeps the window honest.
+      const staffLoaded = page.waitForResponse(
+        (r) => /\/api\/staff(?:\?|$)/.test(r.url()) && r.request().method() === 'GET',
+      )
       await page.goto(APP_BASE + '/staff')
+      await staffLoaded
       await expect(page.getByRole('heading', { name: /staff roster/i })).toBeVisible()
     })
     expect(reqs.find((r) => /\/api\/staff(?:\?|$)/.test(r.url) && r.method === 'GET')).toBeTruthy()

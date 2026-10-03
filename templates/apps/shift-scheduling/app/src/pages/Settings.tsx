@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { AuthSection } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, LoadErrorBanner, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
@@ -528,7 +528,7 @@ export function Settings() {
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </p>
         ) : error ? (
-          <p className={cm.cn(cm.sp('mt', 4), 'text-error')}>{error}</p>
+          <LoadErrorBanner message={error} />
         ) : audit.length === 0 ? (
           <p className={cm.cn(cm.sp('mt', 4), cm.textCenter, 'text-on-surface-variant')}>
             {t('settings.audit.empty', {}, { defaultValue: 'No changes yet.' })}

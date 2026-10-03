@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -269,7 +270,7 @@ export function Timesheets() {
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </p>
         ) : error ? (
-          <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-error')}>{error}</p>
+          <LoadErrorBanner message={error} />
         ) : !payload || payload.staff.length === 0 ? (
           <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-on-surface-variant')}>
             {t('timesheets.empty', {}, { defaultValue: 'No completed shifts this week yet.' })}

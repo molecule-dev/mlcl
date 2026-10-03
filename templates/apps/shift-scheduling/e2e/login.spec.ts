@@ -36,8 +36,14 @@ test.describe('login page', () => {
     await page.locator('input#email').fill(email)
     await page.locator('input#password').fill('totally wrong')
     const reqs = await captureNetwork(page, async () => {
+      // Arm BEFORE the click (playbook hygiene): the rejected login's 403
+      // response can take longer than any fixed sleep under parallel-suite
+      // API contention — wait for the response instead of a fixed timeout.
+      const rejected = page.waitForResponse(
+        (r) => /\/api\/users\/log-in/.test(r.url()) && r.request().method() === 'POST',
+      )
       await page.locator('form button[type="submit"]').first().click()
-      await page.waitForTimeout(800)
+      await rejected
     })
     await expect(page).toHaveURL(/\/login/)
     const failed = reqs.find((r) => /\/api\/users\/log-in/.test(r.url) && r.method === 'POST')

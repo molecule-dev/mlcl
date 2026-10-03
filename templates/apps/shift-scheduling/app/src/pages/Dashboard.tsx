@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { KpiCard } from '../components/KpiCard.js'
@@ -102,8 +103,10 @@ export function Dashboard() {
     )
   if (error || !stats)
     return (
-      <div className={cm.cn(cm.sp('p', 8), 'text-error')}>
-        {error ?? t('dashboard.empty', {}, { defaultValue: 'No data yet.' })}
+      <div className={cm.cn(cm.sp('p', 8))}>
+        <LoadErrorBanner
+          message={error ?? t('dashboard.empty', {}, { defaultValue: 'No data yet.' })}
+        />
       </div>
     )
 

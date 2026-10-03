@@ -41,8 +41,14 @@ test.describe('reset-password page', () => {
     await page.locator('input#password').fill('GoodPass!12345')
     await page.locator('input#confirm').fill('GoodPass!12345')
     const reqs = await captureNetwork(page, async () => {
+      // Arm BEFORE the click (playbook hygiene): the POST's response can
+      // take longer than any fixed sleep under parallel-suite API
+      // contention — wait for the response instead of a fixed timeout.
+      const posted = page.waitForResponse(
+        (r) => /\/api\/users\/reset-password/.test(r.url()) && r.request().method() === 'POST',
+      )
       await page.locator('form button[type="submit"]').first().click()
-      await page.waitForTimeout(1_000)
+      await posted
     })
     const post = reqs.find((r) => /\/api\/users\/reset-password/.test(r.url) && r.method === 'POST')
     expect(post, 'POST /api/users/reset-password call').toBeTruthy()

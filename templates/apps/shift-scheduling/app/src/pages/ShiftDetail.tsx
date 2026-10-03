@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { RequestStatusPill } from '../components/RequestStatusPill.js'
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
@@ -294,7 +295,9 @@ export function ShiftDetail() {
             target_staff_id: worker.id,
             note: t('shiftDetail.backupNote', {}, { defaultValue: 'Backup reassignment request' }),
           })
-        } catch {
+        } catch (_error) {
+          // Intentional per-worker noop: a failed broadcast is counted and
+          // surfaced once below as shiftDetail.broadcastPartial.
           failures += 1
         }
       }
@@ -325,20 +328,21 @@ export function ShiftDetail() {
     )
   if (error || !shift)
     return (
-      <div className={cm.cn(cm.sp('p', 8), cm.stack(4))}>
-        <p className={cm.cn('text-error')}>
-          {error ?? t('shiftDetail.notFound', {}, { defaultValue: 'Shift not found.' })}
-        </p>
-        <Link
-          to="/schedule"
-          className={cm.cn(
-            cm.textSize('sm'),
-            cm.fontWeight('semibold'),
-            'text-primary-dark hover:underline',
-          )}
+      <div className={cm.cn(cm.sp('p', 8))}>
+        <LoadErrorBanner
+          message={error ?? t('shiftDetail.notFound', {}, { defaultValue: 'Shift not found.' })}
         >
-          {t('shiftDetail.backToSchedule', {}, { defaultValue: '← Back to schedule' })}
-        </Link>
+          <Link
+            to="/schedule"
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'text-primary-dark hover:underline',
+            )}
+          >
+            {t('shiftDetail.backToSchedule', {}, { defaultValue: '← Back to schedule' })}
+          </Link>
+        </LoadErrorBanner>
       </div>
     )
 
