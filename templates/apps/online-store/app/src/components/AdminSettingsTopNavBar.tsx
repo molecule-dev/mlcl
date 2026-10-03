@@ -23,7 +23,10 @@ function AdminSettingsTopNavBar() {
   return (
     <header
       className={cm.cn(
-        'bg-surface font-sans antialiased shadow-sm border-b border-border top-0 z-50 sticky',
+        // In-flow page header (AdminLayout's shared shell owns the sticky
+        // chrome) — was `sticky top-0 z-50`, which would cover the shell's
+        // own top bar when scrolled.
+        'bg-surface font-sans antialiased shadow-sm border-b border-border',
       )}
     >
       <div

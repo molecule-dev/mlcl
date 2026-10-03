@@ -26,9 +26,11 @@ test.describe('/admin/settings', () => {
     await signup(page)
     await promoteToAdmin(page)
     await page.goto(APP_BASE + '/admin/settings')
-    // Sidebar links point at the four admin routes that actually exist.
+    // Sidebar links point at the four admin routes that actually exist. The
+    // shell's same-route safe target appends `#top` (so the URL still changes
+    // on a re-click), so accept the bare href OR its #top form.
     for (const href of ['/admin', '/admin/products', '/admin/orders', '/admin/settings']) {
-      await expect(page.locator(`a[href="${href}"]`)).toBeVisible()
+      await expect(page.locator(`a[href="${href}"], a[href="${href}#top"]`)).toBeVisible()
     }
   })
 

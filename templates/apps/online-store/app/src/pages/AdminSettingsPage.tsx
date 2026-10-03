@@ -6,13 +6,13 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import AdminGeneralSettingsCard from '../components/AdminGeneralSettingsCard.js'
+import { AdminLayout } from '../components/AdminLayout.js'
 import AdminNotificationsSettingsCard from '../components/AdminNotificationsSettingsCard.js'
 import AdminPaymentSettingsCard from '../components/AdminPaymentSettingsCard.js'
 import AdminSettingsPageHeader from '../components/AdminSettingsPageHeader.js'
 import AdminSettingsSaveBar from '../components/AdminSettingsSaveBar.js'
 import AdminSettingsTopNavBar from '../components/AdminSettingsTopNavBar.js'
 import AdminShippingSettingsCard from '../components/AdminShippingSettingsCard.js'
-import AdminSideNav from '../components/AdminSideNav.js'
 import AdminTaxSettingsCard from '../components/AdminTaxSettingsCard.js'
 function AdminSettingsPage() {
   const { t } = useTranslation()
@@ -80,20 +80,15 @@ function AdminSettingsPage() {
     }
   }
   return (
-    <div className={cm.cn('bg-surface-secondary text-foreground')}>
-      {/* TopNavBar Shell */}
-      <AdminSettingsTopNavBar />
-      <div className={cm.cn(cm.flex(), cm.minH('screen'), cm.maxW('[1440px]'), cm.mxAuto)}>
-        <AdminSideNav />
+    <AdminLayout>
+      <div className={cm.cn('bg-surface-secondary text-foreground')}>
+        {/* Page header bar (chrome — the nav shell lives in AdminLayout) */}
+        <AdminSettingsTopNavBar />
         {/* Main Content Canvas */}
-        <main
+        <section
           aria-label={t('admin.settings.regionLabel', {}, { defaultValue: 'Admin settings' })}
-          className={cm.cn(
-            cm.flex1,
-            cm.sp('p', 8),
-            cm.minH('full'),
-            'ml-[260px] bg-surface-secondary pb-24',
-          )}
+          className={cm.cn(cm.flex1, cm.sp('p', 8), cm.minH('full'), 'bg-surface-secondary pb-24')}
+          data-mol-id="main-content"
         >
           <div className={cm.stack(8)}>
             <AdminSettingsPageHeader />
@@ -115,9 +110,9 @@ function AdminSettingsPage() {
             {/* Save Changes Footer */}
             <AdminSettingsSaveBar onSave={saveAll} saving={saving} savedAt={savedAt} />
           </div>
-        </main>
+        </section>
       </div>
-    </div>
+    </AdminLayout>
   )
 }
 

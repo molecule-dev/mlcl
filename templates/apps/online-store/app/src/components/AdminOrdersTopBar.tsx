@@ -28,7 +28,10 @@ export default function AdminOrdersTopBar() {
         cm.flex({ justify: 'between', align: 'center' }),
         cm.sp('px', 6),
         cm.h(16),
-        'bg-surface border-b border-border shadow-sm fixed top-0 right-0 left-[260px] z-50',
+        // In-flow page header (AdminLayout's shared shell owns the sticky
+        // chrome) — was `fixed top-0 right-0 left-[260px]`, which orphaned it
+        // on phones once the fixed rail went away.
+        'bg-surface border-b border-border shadow-sm',
       )}
       data-mol-id="admin-header"
     >

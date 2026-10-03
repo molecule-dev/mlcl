@@ -20,6 +20,13 @@ test.describe('/ (storefront)', () => {
   test('storefront fetches real products from /api/products', async ({ page }) => {
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/')
+      // Arm the wait for the actual storefront response: under a cold vite /
+      // busy machine the first mount fetch can land after a fixed
+      // networkidle timeout has already closed the capture window (observed
+      // as a deterministic-looking empty capture on fresh scaffolds).
+      await page
+        .waitForResponse((r) => /\/api\/(storefront|products)/.test(r.url()), { timeout: 30_000 })
+        .catch(() => {})
       await page.waitForLoadState('networkidle', { timeout: 10_000 }).catch(() => {})
     })
     expect(

@@ -91,142 +91,146 @@ function AdminDashboardRecentOrdersTable() {
             {t('common.viewAll', {}, { defaultValue: 'View All' })}
           </Link>
         </div>
-        <table className={cm.w('full')}>
-          <thead>
-            <tr
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                'text-left text-foreground-tertiary uppercase tracking-wider bg-surface-secondary/50',
-              )}
-            >
-              <th className={cm.cn(cm.sp('px', 6), cm.sp('py', 4))}>
-                {t('nav.customer', {}, { defaultValue: 'Customer' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 6), cm.sp('py', 4))}>
-                {t('nav.product', {}, { defaultValue: 'Product' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 6), cm.sp('py', 4))}>
-                {t('form.amount', {}, { defaultValue: 'Amount' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 6), cm.sp('py', 4))}>
-                {t('nav.status', {}, { defaultValue: 'Status' })}
-              </th>
-            </tr>
-          </thead>
-          <tbody className={cm.cn('divide-y divide-border')} data-mol-id="recent-orders-tbody">
-            {!loading && orders.length === 0 && (
-              <tr>
-                <td
-                  colSpan={4}
-                  className={cm.cn(
-                    cm.sp('px', 6),
-                    cm.sp('py', 8),
-                    cm.textCenter,
-                    cm.textSize('sm'),
-                    'text-foreground-secondary',
-                  )}
-                >
-                  {t(
-                    'recentOrdersTable.empty',
-                    {},
-                    {
-                      defaultValue:
-                        'No orders yet — orders will appear here once customers check out.',
-                    },
-                  )}
-                </td>
+        {/* overflow-x-auto: the 4-column table is wider than a 390px phone —
+            let it scroll inside the card instead of widening the page. */}
+        <div className={cm.cn('overflow-x-auto')}>
+          <table className={cm.w('full')}>
+            <thead>
+              <tr
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'text-left text-foreground-tertiary uppercase tracking-wider bg-surface-secondary/50',
+                )}
+              >
+                <th className={cm.cn(cm.sp('px', 6), cm.sp('py', 4))}>
+                  {t('nav.customer', {}, { defaultValue: 'Customer' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 6), cm.sp('py', 4))}>
+                  {t('nav.product', {}, { defaultValue: 'Product' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 6), cm.sp('py', 4))}>
+                  {t('form.amount', {}, { defaultValue: 'Amount' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 6), cm.sp('py', 4))}>
+                  {t('nav.status', {}, { defaultValue: 'Status' })}
+                </th>
               </tr>
-            )}
-            {orders.map((order) => {
-              const s = statusMap[order.status] ?? {
-                bg: 'bg-surface-secondary',
-                text: 'text-foreground',
-                label: order.status || t('settings.unknown', {}, { defaultValue: 'Unknown' }),
-              }
-              const customerDisplay =
-                order.customer_name ||
-                order.customer ||
-                t('settings.unknown', {}, { defaultValue: 'Unknown' })
-              const initial = customerDisplay.charAt(0).toUpperCase()
-              return (
-                <tr
-                  key={order.id}
-                  className={cm.cn(
-                    cm.cursorPointer,
-                    'hover:bg-surface-secondary transition-colors',
-                  )}
-                  onClick={() => navigate(`/orders/${order.id}`)}
-                >
-                  <td className={cm.cn(cm.sp('px', 6), cm.sp('py', 4))}>
-                    <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-3')}>
-                      <div
-                        className={cm.cn(
-                          cm.w(8),
-                          cm.h(8),
-                          cm.roundedFull,
-                          cm.flex({ align: 'center', justify: 'center' }),
-                          cm.textSize('xs'),
-                          cm.fontWeight('bold'),
-                          'bg-border text-foreground-secondary',
-                        )}
-                      >
-                        {initial}
-                      </div>
-                      <span
-                        className={cm.cn(
-                          cm.textSize('sm'),
-                          cm.fontWeight('medium'),
-                          'text-foreground',
-                        )}
-                      >
-                        {customerDisplay}
-                      </span>
-                    </div>
-                  </td>
+            </thead>
+            <tbody className={cm.cn('divide-y divide-border')} data-mol-id="recent-orders-tbody">
+              {!loading && orders.length === 0 && (
+                <tr>
                   <td
+                    colSpan={4}
                     className={cm.cn(
                       cm.sp('px', 6),
-                      cm.sp('py', 4),
+                      cm.sp('py', 8),
+                      cm.textCenter,
                       cm.textSize('sm'),
                       'text-foreground-secondary',
                     )}
                   >
-                    {order.product_name ||
-                      order.product ||
-                      t('common.empty', {}, { defaultValue: '—' })}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 6),
-                      cm.sp('py', 4),
-                      cm.textSize('sm'),
-                      cm.fontWeight('bold'),
-                      'tabular-nums',
+                    {t(
+                      'recentOrdersTable.empty',
+                      {},
+                      {
+                        defaultValue:
+                          'No orders yet — orders will appear here once customers check out.',
+                      },
                     )}
-                  >
-                    {fmt(order.total || 0)}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 6), cm.sp('py', 4))}>
-                    <span
-                      className={cm.cn(
-                        cm.sp('px', 3),
-                        cm.sp('py', 1),
-                        cm.fontWeight('bold'),
-                        cm.roundedFull,
-                        s.bg,
-                        s.text,
-                        'text-[10px] uppercase',
-                      )}
-                    >
-                      {s.label}
-                    </span>
                   </td>
                 </tr>
-              )
-            })}
-          </tbody>
-        </table>
+              )}
+              {orders.map((order) => {
+                const s = statusMap[order.status] ?? {
+                  bg: 'bg-surface-secondary',
+                  text: 'text-foreground',
+                  label: order.status || t('settings.unknown', {}, { defaultValue: 'Unknown' }),
+                }
+                const customerDisplay =
+                  order.customer_name ||
+                  order.customer ||
+                  t('settings.unknown', {}, { defaultValue: 'Unknown' })
+                const initial = customerDisplay.charAt(0).toUpperCase()
+                return (
+                  <tr
+                    key={order.id}
+                    className={cm.cn(
+                      cm.cursorPointer,
+                      'hover:bg-surface-secondary transition-colors',
+                    )}
+                    onClick={() => navigate(`/orders/${order.id}`)}
+                  >
+                    <td className={cm.cn(cm.sp('px', 6), cm.sp('py', 4))}>
+                      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-3')}>
+                        <div
+                          className={cm.cn(
+                            cm.w(8),
+                            cm.h(8),
+                            cm.roundedFull,
+                            cm.flex({ align: 'center', justify: 'center' }),
+                            cm.textSize('xs'),
+                            cm.fontWeight('bold'),
+                            'bg-border text-foreground-secondary',
+                          )}
+                        >
+                          {initial}
+                        </div>
+                        <span
+                          className={cm.cn(
+                            cm.textSize('sm'),
+                            cm.fontWeight('medium'),
+                            'text-foreground',
+                          )}
+                        >
+                          {customerDisplay}
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 6),
+                        cm.sp('py', 4),
+                        cm.textSize('sm'),
+                        'text-foreground-secondary',
+                      )}
+                    >
+                      {order.product_name ||
+                        order.product ||
+                        t('common.empty', {}, { defaultValue: '—' })}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 6),
+                        cm.sp('py', 4),
+                        cm.textSize('sm'),
+                        cm.fontWeight('bold'),
+                        'tabular-nums',
+                      )}
+                    >
+                      {fmt(order.total || 0)}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 6), cm.sp('py', 4))}>
+                      <span
+                        className={cm.cn(
+                          cm.sp('px', 3),
+                          cm.sp('py', 1),
+                          cm.fontWeight('bold'),
+                          cm.roundedFull,
+                          s.bg,
+                          s.text,
+                          'text-[10px] uppercase',
+                        )}
+                      >
+                        {s.label}
+                      </span>
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   )

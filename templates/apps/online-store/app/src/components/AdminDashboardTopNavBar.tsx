@@ -36,7 +36,10 @@ function AdminDashboardTopNavBar() {
         cm.sp('px', 6),
         cm.w('full'),
         cm.h(16),
-        'fixed top-0 right-0 left-64 bg-surface border-b border-border shadow-sm z-50',
+        // In-flow page header (AdminLayout's shared shell owns the sticky
+        // chrome) — was `fixed top-0 right-0 left-64`, which orphaned it on
+        // phones once the fixed rail went away.
+        'bg-surface border-b border-border shadow-sm',
       )}
     >
       <div className={cm.cn(cm.flex({ align: 'center' }), cm.flex1, 'gap-8')}>

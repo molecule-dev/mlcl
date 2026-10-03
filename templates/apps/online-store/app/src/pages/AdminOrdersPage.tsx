@@ -3,29 +3,25 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { AdminLayout } from '../components/AdminLayout.js'
 import AdminOrdersFiltersBar from '../components/AdminOrdersFiltersBar.js'
 import AdminOrdersPageHeader from '../components/AdminOrdersPageHeader.js'
 import AdminOrdersStatsGrid from '../components/AdminOrdersStatsGrid.js'
 import AdminOrdersTable from '../components/AdminOrdersTable.js'
 import AdminOrdersTopBar from '../components/AdminOrdersTopBar.js'
-import AdminSideNav from '../components/AdminSideNav.js'
 function AdminOrdersPage() {
   const { t } = useTranslation()
   const cm = getClassMap()
   return (
-    <div className={cm.cn('bg-surface-secondary text-foreground antialiased')}>
-      {/* Top Header Bar (Shared Component: TopNavBar) */}
-      <AdminOrdersTopBar />
-      <div className={cm.cn(cm.flex(), 'min-h-screen')}>
-        <AdminSideNav />
+    <AdminLayout>
+      <div className={cm.cn('bg-surface-secondary text-foreground antialiased')}>
+        {/* Page header bar (search/notifications chrome — the nav shell lives
+            in AdminLayout) */}
+        <AdminOrdersTopBar />
         {/* Main Content Canvas */}
-        <main
+        <section
           aria-label={t('admin.orders.regionLabel', {}, { defaultValue: 'Admin orders' })}
-          className={cm.cn(
-            cm.flex1,
-            cm.sp('p', 8),
-            'ml-0 md:ml-[260px] bg-surface-secondary min-h-screen',
-          )}
+          className={cm.cn(cm.flex1, cm.sp('p', 8), 'bg-surface-secondary')}
           data-mol-id="main-content"
         >
           <div className={cm.stack(8)}>
@@ -38,9 +34,9 @@ function AdminOrdersPage() {
             {/* Orders Table */}
             <AdminOrdersTable />
           </div>
-        </main>
+        </section>
       </div>
-    </div>
+    </AdminLayout>
   )
 }
 
