@@ -135,35 +135,55 @@ export function DiscussionBoardsLayout() {
     </>
   )
 
-  // Below-nav community guidelines card — desktop sidebar footer only (the
-  // mobile drawer never carried it).
+  // Below-nav community guidelines card + the relocated top-bar chrome
+  // (theme toggle + user menu) — desktop sidebar footer only. The mobile
+  // drawer never carried the card; its UserMenu lives in the mobileOnly
+  // TopBar.
   const sidebarFooter: ReactElement = (
-    <div
-      className={cm.cn(
-        cm.sp('p', 4),
-        cm.stack(2),
-        'rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/15',
-      )}
-    >
-      <p className={cm.cn(cm.fontWeight('bold'), cm.textSize('sm'), 'text-primary')}>
-        {t('nav.communityGuidelinesTitle', {}, { defaultValue: 'Community guidelines' })}
-      </p>
-      <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-        {t(
-          'nav.communityGuidelinesBody',
-          {},
-          {
-            defaultValue: 'Be considered. Quote sources. Mark solutions. Lift the conversation.',
-          },
+    <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), cm.w('full'))}>
+      <div
+        className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }), cm.w('full'))}
+      >
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
+          <ThemeToggle />
+        </div>
+        <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+          <UserMenu />
+        </div>
+      </div>
+      <div
+        className={cm.cn(
+          cm.sp('p', 4),
+          cm.stack(2),
+          'rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/15',
         )}
-      </p>
+      >
+        <p className={cm.cn(cm.fontWeight('bold'), cm.textSize('sm'), 'text-primary')}>
+          {t('nav.communityGuidelinesTitle', {}, { defaultValue: 'Community guidelines' })}
+        </p>
+        <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+          {t(
+            'nav.communityGuidelinesBody',
+            {},
+            {
+              defaultValue: 'Be considered. Quote sources. Mark solutions. Lift the conversation.',
+            },
+          )}
+        </p>
+      </div>
     </div>
   )
+
+  // Brand block — mounted by the mobile TopBar AND the desktop Sidebar (never
+  // simultaneously: the Sidebar is unmounted below 768px and the mobileOnly
+  // TopBar returns null above it).
+  const brand = <BrandWordmark />
 
   return (
     <ResponsiveAppShell sidebarWidth="md">
       <ResponsiveAppShell.TopBar
-        brand={<BrandWordmark />}
+        mobileOnly
+        brand={brand}
         actions={
           <>
             <div className="text-on-surface-variant hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container">
@@ -180,6 +200,7 @@ export function DiscussionBoardsLayout() {
         footer={sidebarFooter}
         className="p-4 gap-6"
       >
+        <div className={cm.cn(cm.sp('px', 3), cm.sp('py', 1))}>{brand}</div>
         {navSections}
       </ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer
