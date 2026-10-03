@@ -6,11 +6,11 @@ import { useParams } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { AppShell } from '../components/AppShell.js'
 import BotAnalyticsChartsRow from '../components/BotAnalyticsChartsRow.js'
 import BotAnalyticsKPIRow from '../components/BotAnalyticsKpiRow.js'
 import BotAnalyticsRecentConversationsTable from '../components/BotAnalyticsRecentConversationsTable.js'
-import BotAnalyticsSideNavBar from '../components/BotAnalyticsSideNavBar.js'
-import BotAnalyticsTopBar from '../components/BotAnalyticsTopBar.js'
+import { BotAnalyticsTopActions } from '../components/BotAnalyticsTopActions.js'
 import BotAnalyticsTopIntentsPanel from '../components/BotAnalyticsTopIntentsPanel.js'
 
 type AnalyticsSummary = {
@@ -58,16 +58,22 @@ function BotAnalytics() {
   }, [id, http])
 
   return (
-    <div
-      className={cm.cn('bg-background text-on-surface antialiased')}
-      aria-label={t('botAnalytics.pageLabel', {}, { defaultValue: 'Bot analytics' })}
+    <AppShell
+      className="bg-background text-on-surface antialiased"
+      leading={
+        <h1
+          className={cm.cn(
+            cm.textSize('lg'),
+            'font-extrabold bg-gradient-to-r from-primary to-tertiary-fixed-dim bg-clip-text text-transparent whitespace-nowrap',
+          )}
+        >
+          {t('botAnalyticsTopBar.title', {}, { defaultValue: 'Analytics Dashboard' })}
+        </h1>
+      }
+      actions={<BotAnalyticsTopActions />}
     >
-      {/* SideNavBar Shell */}
-      <BotAnalyticsSideNavBar />
-      {/* TopNavBar Shell */}
-      <BotAnalyticsTopBar />
       {/* Main Content Canvas */}
-      <main className={cm.cn(cm.sp('pt', 16), cm.minH('screen'), 'pl-64')}>
+      <main>
         <div className={cm.cn(cm.sp('p', 8), 'max-w-[1600px]', cm.mxAuto, cm.stack(8))}>
           {/* KPI Row */}
           <BotAnalyticsKPIRow analytics={analytics} />
@@ -95,7 +101,7 @@ function BotAnalytics() {
           'fixed bottom-0 left-64 -z-10 bg-tertiary-fixed-dim/10 blur-[100px] -translate-x-1/2 translate-y-1/2',
         )}
       ></div>
-    </div>
+    </AppShell>
   )
 }
 

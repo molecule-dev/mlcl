@@ -5,13 +5,12 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { AppShell } from '../components/AppShell.js'
 import BotSettingsAccessSection from '../components/BotSettingsAccessSection.js'
 import BotSettingsAiBehaviorSection from '../components/BotSettingsAiBehaviorSection.js'
 import BotSettingsAppearanceSection from '../components/BotSettingsAppearanceSection.js'
 import BotSettingsFooter from '../components/BotSettingsFooter.js'
 import BotSettingsGeneralSection from '../components/BotSettingsGeneralSection.js'
-import BotSettingsSideNavBar from '../components/BotSettingsSideNavBar.js'
-import BotSettingsTopBar from '../components/BotSettingsTopBar.js'
 
 // Server-shaped record (snake_case, matches /api/bots/:id payload).
 interface BotRecord {
@@ -171,17 +170,8 @@ function BotSettings() {
 
   if (loading)
     return (
-      <div className={cm.cn('bg-background font-body text-on-surface overflow-hidden')}>
-        <BotSettingsSideNavBar />
-        <BotSettingsTopBar botName={name} />
-        <main
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            cm.sp('pt', 16),
-            cm.h('screen'),
-            'ml-0 md:ml-64 bg-background',
-          )}
-        >
+      <AppShell className="bg-background font-body text-on-surface overflow-hidden">
+        <main className={cm.cn(cm.flex({ align: 'center', justify: 'center' }), cm.h('screen'))}>
           <div className={cm.cn(cm.stack(4), cm.w('full'), 'max-w-5xl', cm.sp('px', 12))}>
             {Array.from({ length: 4 }).map((_, i) => (
               <div
@@ -192,20 +182,12 @@ function BotSettings() {
             ))}
           </div>
         </main>
-      </div>
+      </AppShell>
     )
 
   return (
-    <div className={cm.cn('bg-background font-body text-on-surface overflow-hidden')}>
-      <BotSettingsSideNavBar />
-      <BotSettingsTopBar botName={name} />
-      <main
-        className={cm.cn(
-          cm.sp('pt', 16),
-          cm.h('screen'),
-          'ml-0 md:ml-64 overflow-y-auto no-scrollbar bg-background',
-        )}
-      >
+    <AppShell className="bg-background font-body text-on-surface overflow-hidden">
+      <main className={cm.cn('overflow-y-auto no-scrollbar bg-background')}>
         <div
           className={cm.cn(
             'max-w-5xl',
@@ -267,7 +249,7 @@ function BotSettings() {
         saving={saving}
         savedAt={savedAt}
       />
-    </div>
+    </AppShell>
   )
 }
 

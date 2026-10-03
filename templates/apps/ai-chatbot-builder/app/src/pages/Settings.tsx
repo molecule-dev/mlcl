@@ -12,14 +12,13 @@ import {
 import { getClassMap } from '@molecule/app-ui'
 import { Button, ThemeToggle } from '@molecule/app-ui-react'
 
+import { AppShell } from '../components/AppShell.js'
 import SettingsBillingSection from '../components/SettingsBillingSection.js'
 import SettingsDangerZoneSection from '../components/SettingsDangerZoneSection.js'
 import SettingsFooter from '../components/SettingsFooter.js'
 import SettingsPageHeader from '../components/SettingsPageHeader.js'
 import SettingsProfileSection from '../components/SettingsProfileSection.js'
-import SettingsSideNavBar from '../components/SettingsSideNavBar.js'
 import SettingsTabsBar, { type SettingsTabId } from '../components/SettingsTabsBar.js'
-import SettingsTopBar from '../components/SettingsTopBar.js'
 
 interface ProfileResponse {
   id: string
@@ -123,115 +122,104 @@ function Settings() {
   void profileLoaded
 
   return (
-    <div className={cm.cn('text-on-surface antialiased overflow-x-hidden')}>
-      {/* SideNavBar Shell */}
-      <SettingsSideNavBar />
-      {/* Main Content Wrapper */}
-      <div className={cm.cn(cm.minH('screen'), 'ml-0 md:ml-64')}>
-        {/* TopNavBar Shell */}
-        <SettingsTopBar />
-        {/* Main Content Canvas */}
-        <main className={cm.cn(cm.sp('px', 8), 'max-w-5xl', cm.mxAuto, 'pt-24 pb-32')}>
+    <AppShell className="text-on-surface antialiased overflow-x-hidden">
+      {/* Main Content Canvas — the shared shell carries the top bar + nav */}
+      <main className={cm.cn(cm.sp('px', 8), 'max-w-5xl', cm.mxAuto, 'pt-8 pb-32')}>
+        <div className={cm.stack(8)}>
+          <SettingsPageHeader />
+          <SettingsTabsBar active={settingsTab} onChange={setSettingsTab} />
           <div className={cm.stack(8)}>
-            <SettingsPageHeader />
-            <SettingsTabsBar active={settingsTab} onChange={setSettingsTab} />
-            <div className={cm.stack(8)}>
-              {settingsTab === 'profile' && (
-                <>
-                  <SettingsProfileSection
-                    name={name}
-                    onNameChange={setName}
-                    email={email}
-                    onEmailChange={setEmail}
-                    organization={organization}
-                    onOrganizationChange={setOrganization}
-                    timezone={timezone}
-                    onTimezoneChange={setTimezone}
-                    language={language}
-                    onLanguageChange={setLanguage}
-                  />
-                  <SettingsBillingSection />
-                  <SettingsDangerZoneSection />
-                </>
-              )}
-              {settingsTab === 'security' && (
-                <div
-                  className={cm.cn(
-                    cm.sp('p', 8),
-                    'bg-surface-container-lowest rounded-3xl ambient-shadow',
-                    cm.stack(8),
-                  )}
-                >
-                  <AuthSection />
-                  <DevicesSection />
-                  <ThisDeviceSection />
-                  <section className={cm.stack(3)}>
-                    <h3 className={cm.cn(cm.sectionHeading)}>
-                      {t('settings.session', {}, { defaultValue: 'Session' })}
-                    </h3>
-                    <Button
-                      variant="outline"
-                      onClick={handleSignOut}
-                      data-mol-id="user-menu-logout"
-                    >
-                      {t('settings.logOut', {}, { defaultValue: 'Sign out' })}
-                    </Button>
-                  </section>
-                </div>
-              )}
-              {settingsTab === 'billing' && <SettingsBillingSection />}
-              {settingsTab === 'notifications' && (
-                <div
-                  className={cm.cn(
-                    cm.sp('p', 8),
-                    'bg-surface-container-lowest rounded-3xl ambient-shadow',
-                  )}
-                >
-                  <NotificationsSection />
-                </div>
-              )}
-              {settingsTab === 'apiKeys' && (
-                <p
-                  className={cm.cn(
-                    cm.textSize('sm'),
-                    'text-on-surface-variant rounded-2xl bg-surface-container-lowest px-6 py-8 ambient-shadow',
-                  )}
-                >
-                  {t(
-                    'settingsTabs.apiKeysPlaceholder',
-                    {},
-                    { defaultValue: 'Create and revoke API keys for integrations and automation.' },
-                  )}
-                </p>
-              )}
-            </div>
-            <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>
-              <div className={cm.sp('mb', 6)}>
-                <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
-                  {t('settings.appearance.title', {}, { defaultValue: 'Appearance' })}
-                </h3>
-                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                  {t(
-                    'settings.appearance.description',
-                    {},
-                    { defaultValue: 'Toggle between light and dark mode.' },
-                  )}
-                </p>
+            {settingsTab === 'profile' && (
+              <>
+                <SettingsProfileSection
+                  name={name}
+                  onNameChange={setName}
+                  email={email}
+                  onEmailChange={setEmail}
+                  organization={organization}
+                  onOrganizationChange={setOrganization}
+                  timezone={timezone}
+                  onTimezoneChange={setTimezone}
+                  language={language}
+                  onLanguageChange={setLanguage}
+                />
+                <SettingsBillingSection />
+                <SettingsDangerZoneSection />
+              </>
+            )}
+            {settingsTab === 'security' && (
+              <div
+                className={cm.cn(
+                  cm.sp('p', 8),
+                  'bg-surface-container-lowest rounded-3xl ambient-shadow',
+                  cm.stack(8),
+                )}
+              >
+                <AuthSection />
+                <DevicesSection />
+                <ThisDeviceSection />
+                <section className={cm.stack(3)}>
+                  <h3 className={cm.cn(cm.sectionHeading)}>
+                    {t('settings.session', {}, { defaultValue: 'Session' })}
+                  </h3>
+                  <Button variant="outline" onClick={handleSignOut} data-mol-id="user-menu-logout">
+                    {t('settings.logOut', {}, { defaultValue: 'Sign out' })}
+                  </Button>
+                </section>
               </div>
-              <ThemeToggle />
-            </section>
-            {/* Footer Actions */}
-            <SettingsFooter
-              onSave={handleSave}
-              onCancel={handleCancel}
-              saving={saving}
-              savedAt={savedAt}
-              saveError={saveError}
-            />
+            )}
+            {settingsTab === 'billing' && <SettingsBillingSection />}
+            {settingsTab === 'notifications' && (
+              <div
+                className={cm.cn(
+                  cm.sp('p', 8),
+                  'bg-surface-container-lowest rounded-3xl ambient-shadow',
+                )}
+              >
+                <NotificationsSection />
+              </div>
+            )}
+            {settingsTab === 'apiKeys' && (
+              <p
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  'text-on-surface-variant rounded-2xl bg-surface-container-lowest px-6 py-8 ambient-shadow',
+                )}
+              >
+                {t(
+                  'settingsTabs.apiKeysPlaceholder',
+                  {},
+                  { defaultValue: 'Create and revoke API keys for integrations and automation.' },
+                )}
+              </p>
+            )}
           </div>
-        </main>
-      </div>
-    </div>
+          <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>
+            <div className={cm.sp('mb', 6)}>
+              <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
+                {t('settings.appearance.title', {}, { defaultValue: 'Appearance' })}
+              </h3>
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                {t(
+                  'settings.appearance.description',
+                  {},
+                  { defaultValue: 'Toggle between light and dark mode.' },
+                )}
+              </p>
+            </div>
+            <ThemeToggle />
+          </section>
+          {/* Footer Actions */}
+          <SettingsFooter
+            onSave={handleSave}
+            onCancel={handleCancel}
+            saving={saving}
+            savedAt={savedAt}
+            saveError={saveError}
+          />
+        </div>
+      </main>
+    </AppShell>
   )
 }
 

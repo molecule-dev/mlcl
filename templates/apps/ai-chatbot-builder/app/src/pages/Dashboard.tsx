@@ -2,16 +2,15 @@
 // Do not hand-edit; Phase 2 will extract sections one at a time.
 import { useEffect, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useHttpClient } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { AppShell } from '../components/AppShell.js'
 import BotsGrid from '../components/BotsGrid.js'
 import DashboardPageHeader from '../components/DashboardPageHeader.js'
 import KPIGrid from '../components/KPIGrid.js'
 import MyBotsSectionHeader from '../components/MyBotsSectionHeader.js'
 import RecentIntelligencePanel from '../components/RecentIntelligencePanel.js'
-import SideNavBar from '../components/SideNavBar.js'
-import TopNavBar from '../components/TopNavBar.js'
 
 type Bot = {
   id: string
@@ -32,7 +31,6 @@ type Conversation = {
 
 function Dashboard() {
   const cm = getClassMap()
-  const { t } = useTranslation()
   const http = useHttpClient()
   const [bots, setBots] = useState<Bot[]>([])
   const [conversations, setConversations] = useState<Conversation[]>([])
@@ -57,33 +55,24 @@ function Dashboard() {
   }, [http])
 
   return (
-    <div
-      className={cm.cn('bg-surface text-on-surface flex min-h-screen')}
-      aria-label={t('dashboard.pageLabel', {}, { defaultValue: 'Chatbot dashboard' })}
-    >
-      {/* SideNavBar Component */}
-      <SideNavBar />
-      <main className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }), 'min-w-0')}>
-        {/* TopNavBar Component */}
-        <TopNavBar />
-        <div className={cm.cn(cm.sp('p', 8), cm.stack(8), 'overflow-y-auto')}>
-          {/* Page Header */}
-          <DashboardPageHeader />
-          {/* KPI Cards */}
-          <KPIGrid bots={bots} conversations={conversations} />
-          {/* Content Area: Bento Style */}
-          <div className={cm.grid({ cols: 12, gap: 'xl' })}>
-            {/* My Bots Grid */}
-            <div className={cm.cn(cm.stack(6), 'col-span-12 lg:col-span-8')}>
-              <MyBotsSectionHeader />
-              <BotsGrid bots={bots} loading={botsLoading} />
-            </div>
-            {/* Recent Conversations Preview */}
-            <RecentIntelligencePanel conversations={conversations} loading={convsLoading} />
+    <AppShell>
+      <div className={cm.cn(cm.sp('p', 8), cm.stack(8), 'overflow-y-auto')}>
+        {/* Page Header */}
+        <DashboardPageHeader />
+        {/* KPI Cards */}
+        <KPIGrid bots={bots} conversations={conversations} />
+        {/* Content Area: Bento Style */}
+        <div className={cm.grid({ cols: 12, gap: 'xl' })}>
+          {/* My Bots Grid */}
+          <div className={cm.cn(cm.stack(6), 'col-span-12 lg:col-span-8')}>
+            <MyBotsSectionHeader />
+            <BotsGrid bots={bots} loading={botsLoading} />
           </div>
+          {/* Recent Conversations Preview */}
+          <RecentIntelligencePanel conversations={conversations} loading={convsLoading} />
         </div>
-      </main>
-    </div>
+      </div>
+    </AppShell>
   )
 }
 

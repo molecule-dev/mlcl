@@ -1,20 +1,20 @@
 // Phase 1 baseline — verbatim JSX of design-ai-chatbot-builder-bot-deploy.html
 // Do not hand-edit; Phase 2 will extract sections one at a time.
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
+import { Link, useParams } from 'react-router'
 
 import { unwrapSingle } from '@molecule/app-http'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BRAND_COLOR } from '../branding.js'
+import { AppShell } from '../components/AppShell.js'
 import BotDeployAnalyticsTeaser from '../components/BotDeployAnalyticsTeaser.js'
 import BotDeployApiAccessCard from '../components/BotDeployApiAccessCard.js'
 import BotDeployChannelIntegrationsCard from '../components/BotDeployChannelIntegrationsCard.js'
 import BotDeployPageHeader from '../components/BotDeployPageHeader.js'
 import BotDeployShareLinkCard from '../components/BotDeployShareLinkCard.js'
-import BotDeploySideNavBar from '../components/BotDeploySideNavBar.js'
-import BotDeployTopBar from '../components/BotDeployTopBar.js'
+import UserMenu from '../components/UserMenu.js'
 
 interface BotResponse {
   id?: string
@@ -87,19 +87,34 @@ function BotDeploy() {
       })
   }
 
-  return (
-    <div className={cm.cn('flex min-h-screen')}>
-      <BotDeploySideNavBar />
-      <BotDeployTopBar />
-      {/* Main Content Area */}
-      <main
+  // The former BotDeployTopBar, folded into the shared shell's top bar:
+  // help link + Deploy Bot CTA beside the user menu.
+  const shellActions = (
+    <>
+      <Link
         className={cm.cn(
-          cm.sp('mt', 16),
-          cm.sp('p', 4),
-          cm.flex1,
-          'ml-0 md:ml-64 md:p-10 overflow-x-hidden',
+          'text-foreground-secondary hover:text-primary transition-colors text-sm font-medium',
         )}
+        to="/help"
       >
+        {t('botDeployTopBar.help', {}, { defaultValue: 'Help' })}
+      </Link>
+      <Link
+        className={cm.cn(
+          'bg-primary px-5 py-2 rounded-lg text-on-primary font-semibold shadow-sm hover:opacity-90 active:opacity-80 transition-all',
+        )}
+        to="/bots"
+      >
+        {t('botDeployTopNavBar.deployBot', {}, { defaultValue: 'Deploy Bot' })}
+      </Link>
+      <UserMenu />
+    </>
+  )
+
+  return (
+    <AppShell className="bg-background text-on-surface" actions={shellActions}>
+      {/* Main Content Area */}
+      <main className={cm.cn(cm.sp('p', 4), 'md:p-10 overflow-x-hidden')}>
         <div className={cm.cn('max-w-6xl', cm.mxAuto)}>
           <BotDeployPageHeader />
           <div className={cm.cn(cm.grid({ cols: 1, gap: 'xl' }), 'lg:grid-cols-2')}>
@@ -391,7 +406,7 @@ function BotDeploy() {
           <BotDeployAnalyticsTeaser />
         </div>
       </main>
-    </div>
+    </AppShell>
   )
 }
 

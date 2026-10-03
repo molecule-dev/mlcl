@@ -3,7 +3,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import TopNavBar from '../components/TopNavBar.js'
+import { AppShell } from '../components/AppShell.js'
 
 interface Feature {
   id: string
@@ -71,69 +71,74 @@ export function About() {
   const cm = getClassMap()
   const { t } = useTranslation()
   return (
-    <ContentPageShell
-      dataMolId="page-about"
-      header={<TopNavBar />}
-      eyebrow={t('nav.about', {}, { defaultValue: 'About' })}
-      title={t('about.title', { appName: APP_NAME }, { defaultValue: `About ${APP_NAME}` })}
-      subtitle={t(
-        'about.intro',
-        { appName: APP_NAME },
-        {
-          defaultValue: `${APP_NAME} is a visual chatbot builder for teams who want production-grade conversational AI without writing glue code.`,
-        },
-      )}
-    >
-      <div className={cm.cn(cm.stack(10))}>
-        <section data-mol-id="about-mission" className={cm.cn(cm.stack(2))}>
-          <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'font-display')}>
-            {t('about.missionTitle', {}, { defaultValue: 'Our mission' })}
-          </h2>
-          <p className={cm.cn(cm.prose, 'text-on-surface-variant')}>
-            {t(
-              'about.mission',
-              { appName: APP_NAME },
-              {
-                defaultValue: `${APP_NAME} exists to make conversational AI approachable. Design branching flows, ground answers in your own knowledge base, train intents on real conversations, and deploy across every channel — all from a single workspace.`,
-              },
-            )}
-          </p>
-        </section>
+    <AppShell sidebar={false}>
+      <ContentPageShell
+        dataMolId="page-about"
+        eyebrow={t('nav.about', {}, { defaultValue: 'About' })}
+        title={t('about.title', { appName: APP_NAME }, { defaultValue: `About ${APP_NAME}` })}
+        subtitle={t(
+          'about.intro',
+          { appName: APP_NAME },
+          {
+            defaultValue: `${APP_NAME} is a visual chatbot builder for teams who want production-grade conversational AI without writing glue code.`,
+          },
+        )}
+      >
+        <div className={cm.cn(cm.stack(10))}>
+          <section data-mol-id="about-mission" className={cm.cn(cm.stack(2))}>
+            <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'font-display')}>
+              {t('about.missionTitle', {}, { defaultValue: 'Our mission' })}
+            </h2>
+            <p className={cm.cn(cm.prose, 'text-on-surface-variant')}>
+              {t(
+                'about.mission',
+                { appName: APP_NAME },
+                {
+                  defaultValue: `${APP_NAME} exists to make conversational AI approachable. Design branching flows, ground answers in your own knowledge base, train intents on real conversations, and deploy across every channel — all from a single workspace.`,
+                },
+              )}
+            </p>
+          </section>
 
-        <section data-mol-id="about-features" className={cm.cn(cm.stack(4))}>
-          <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'font-display')}>
-            {t('about.featuresTitle', {}, { defaultValue: 'What you get' })}
-          </h2>
-          <div className={cm.cn(cm.stack(6))}>
-            {FEATURES.map((f) => (
-              <div key={f.id} data-mol-id={`about-feature-${f.id}`} className={cm.cn(cm.stack(1))}>
-                <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
-                  {t(f.titleKey, {}, { defaultValue: f.titleDefault })}
-                </h3>
-                <p className={cm.cn(cm.prose, 'text-on-surface-variant')}>
-                  {t(f.bodyKey, {}, { defaultValue: f.bodyDefault })}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+          <section data-mol-id="about-features" className={cm.cn(cm.stack(4))}>
+            <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'font-display')}>
+              {t('about.featuresTitle', {}, { defaultValue: 'What you get' })}
+            </h2>
+            <div className={cm.cn(cm.stack(6))}>
+              {FEATURES.map((f) => (
+                <div
+                  key={f.id}
+                  data-mol-id={`about-feature-${f.id}`}
+                  className={cm.cn(cm.stack(1))}
+                >
+                  <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+                    {t(f.titleKey, {}, { defaultValue: f.titleDefault })}
+                  </h3>
+                  <p className={cm.cn(cm.prose, 'text-on-surface-variant')}>
+                    {t(f.bodyKey, {}, { defaultValue: f.bodyDefault })}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
 
-        <section data-mol-id="about-contact" className={cm.cn(cm.stack(2))}>
-          <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'font-display')}>
-            {t('about.contactTitle', {}, { defaultValue: 'Get in touch' })}
-          </h2>
-          <p className={cm.cn(cm.prose, 'text-on-surface-variant')}>
-            {t(
-              'about.contact',
-              { appName: APP_NAME },
-              {
-                defaultValue: `Questions, feedback, or partnership ideas? Reach the ${APP_NAME} team from the Help center or your account settings — we'd love to hear what you're building.`,
-              },
-            )}
-          </p>
-        </section>
-      </div>
-    </ContentPageShell>
+          <section data-mol-id="about-contact" className={cm.cn(cm.stack(2))}>
+            <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'font-display')}>
+              {t('about.contactTitle', {}, { defaultValue: 'Get in touch' })}
+            </h2>
+            <p className={cm.cn(cm.prose, 'text-on-surface-variant')}>
+              {t(
+                'about.contact',
+                { appName: APP_NAME },
+                {
+                  defaultValue: `Questions, feedback, or partnership ideas? Reach the ${APP_NAME} team from the Help center or your account settings — we'd love to hear what you're building.`,
+                },
+              )}
+            </p>
+          </section>
+        </div>
+      </ContentPageShell>
+    </AppShell>
   )
 }
 

@@ -3,7 +3,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import TopNavBar from '../components/TopNavBar.js'
+import { AppShell } from '../components/AppShell.js'
 
 interface Section {
   id: string
@@ -44,32 +44,34 @@ export function Privacy() {
   const cm = getClassMap()
   const { t } = useTranslation()
   return (
-    <ContentPageShell
-      dataMolId="page-privacy"
-      header={<TopNavBar />}
-      eyebrow={t('nav.legal', {}, { defaultValue: 'Legal' })}
-      title={t('privacy.title', {}, { defaultValue: 'Privacy policy' })}
-      subtitle={t(
-        'privacy.intro',
-        { appName: APP_NAME },
-        {
-          defaultValue: '{{appName}} takes the privacy of your data and your end users seriously.',
-        },
-      )}
-    >
-      <div className={cm.cn(cm.stack(8))}>
-        {SECTIONS.map((s) => (
-          <section key={s.id} data-mol-id={`privacy-${s.id}`} className={cm.cn(cm.stack(2))}>
-            <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'font-display')}>
-              {t(s.titleKey, {}, { defaultValue: s.titleDefault })}
-            </h2>
-            <p className={cm.cn(cm.prose, 'text-on-surface-variant')}>
-              {t(s.bodyKey, {}, { defaultValue: s.bodyDefault })}
-            </p>
-          </section>
-        ))}
-      </div>
-    </ContentPageShell>
+    <AppShell sidebar={false}>
+      <ContentPageShell
+        dataMolId="page-privacy"
+        eyebrow={t('nav.legal', {}, { defaultValue: 'Legal' })}
+        title={t('privacy.title', {}, { defaultValue: 'Privacy policy' })}
+        subtitle={t(
+          'privacy.intro',
+          { appName: APP_NAME },
+          {
+            defaultValue:
+              '{{appName}} takes the privacy of your data and your end users seriously.',
+          },
+        )}
+      >
+        <div className={cm.cn(cm.stack(8))}>
+          {SECTIONS.map((s) => (
+            <section key={s.id} data-mol-id={`privacy-${s.id}`} className={cm.cn(cm.stack(2))}>
+              <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'font-display')}>
+                {t(s.titleKey, {}, { defaultValue: s.titleDefault })}
+              </h2>
+              <p className={cm.cn(cm.prose, 'text-on-surface-variant')}>
+                {t(s.bodyKey, {}, { defaultValue: s.bodyDefault })}
+              </p>
+            </section>
+          ))}
+        </div>
+      </ContentPageShell>
+    </AppShell>
   )
 }
 

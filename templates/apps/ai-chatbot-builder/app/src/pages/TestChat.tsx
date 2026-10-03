@@ -14,9 +14,9 @@ import { ChatbotTester, type TesterMessage } from '@molecule/app-chatbot-tester-
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import SideNavBar from '../components/SideNavBar.js'
+import { AppShell } from '../components/AppShell.js'
 import TestChatBotConfigPanel from '../components/TestChatBotConfigPanel.js'
-import TestChatTopBar from '../components/TestChatTopBar.js'
+import UserMenu from '../components/UserMenu.js'
 
 interface BotSummary {
   id: string
@@ -187,95 +187,129 @@ function TestChat() {
     }
   }
 
-  return (
+  // The former TestChatTopBar header, folded into the shared shell's top
+  // bar: bot chip in the leading slot, Test/Deploy + user menu in actions.
+  const shellLeading = (
     <div
-      className={cm.cn('bg-surface text-on-surface min-h-screen flex overflow-hidden')}
-      aria-label={t('testChat.pageLabel', {}, { defaultValue: 'Test chat with bot' })}
+      className={cm.cn(cm.flex({ align: 'center' }), 'gap-2 text-indigo-600 dark:text-indigo-400')}
     >
-      <SideNavBar />
-      <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
-        <TestChatTopBar botName={botName} botId={botId} />
-        <section className={cm.cn(cm.flex(), cm.flex1, 'overflow-hidden')}>
-          {/*
+      <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')} data-icon="robot_2">
+        robot_2
+      </span>
+      <span className="truncate">
+        {botName ?? t('testChatTopBar.defaultBotName', {}, { defaultValue: 'Untitled bot' })}
+      </span>
+    </div>
+  )
+
+  const shellActions = (
+    <>
+      <span
+        className={cm.cn(
+          'px-4 py-1.5 rounded text-indigo-600 dark:text-indigo-400 font-semibold hidden sm:block',
+        )}
+      >
+        {t('common.test', {}, { defaultValue: 'Test' })}
+      </span>
+      <Link
+        className={cm.cn(
+          'px-4 py-1.5 rounded-lg bg-primary text-on-primary shadow-sm hover:opacity-90 transition-all',
+        )}
+        to={botId ? `/bots/${botId}/deploy` : '/bots'}
+      >
+        {t('common.deploy', {}, { defaultValue: 'Deploy' })}
+      </Link>
+      <UserMenu />
+    </>
+  )
+
+  return (
+    <AppShell
+      className="bg-surface text-on-surface"
+      leading={shellLeading}
+      actions={shellActions}
+      contentClassName="overflow-hidden"
+    >
+      <section className={cm.cn(cm.flex(), cm.flex1, 'overflow-hidden h-full')}>
+        {/*
             No-bots empty state: a bare chat box with nothing in it reads as
             broken — point the builder at creating their first bot instead.
           */}
-          {!loading && bots.length === 0 && !error ? (
+        {!loading && bots.length === 0 && !error ? (
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
+              cm.flex1,
+              cm.stack(4),
+              cm.sp('p', 8),
+              'text-center',
+            )}
+          >
             <div
               className={cm.cn(
-                cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
-                cm.flex1,
-                cm.stack(4),
-                cm.sp('p', 8),
-                'text-center',
+                cm.w(16),
+                cm.h(16),
+                cm.roundedFull,
+                cm.flex({ align: 'center', justify: 'center' }),
+                'bg-primary/10',
+              )}
+              aria-hidden="true"
+            >
+              <span
+                className={cm.cn(cm.textSize('3xl'), 'material-symbols-outlined text-primary')}
+                data-icon="smart_toy"
+              >
+                smart_toy
+              </span>
+            </div>
+            <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-on-surface')}>
+              {t('testChat.emptyTitle', {}, { defaultValue: 'No bots to test yet' })}
+            </h2>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-sm')}>
+              {t(
+                'testChat.emptyBody',
+                {},
+                {
+                  defaultValue:
+                    'Create your first bot, then come back here to try it out in a sandboxed chat.',
+                },
+              )}
+            </p>
+            <Link
+              to="/bots/new"
+              className={cm.cn(
+                cm.sp('px', 5),
+                cm.sp('py', 3),
+                cm.textSize('sm'),
+                cm.fontWeight('bold'),
+                cm.roundedFull,
+                'bg-primary text-on-primary shadow-md hover:opacity-90 transition-opacity',
               )}
             >
-              <div
-                className={cm.cn(
-                  cm.w(16),
-                  cm.h(16),
-                  cm.roundedFull,
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  'bg-primary/10',
-                )}
-                aria-hidden="true"
-              >
-                <span
-                  className={cm.cn(cm.textSize('3xl'), 'material-symbols-outlined text-primary')}
-                  data-icon="smart_toy"
-                >
-                  smart_toy
-                </span>
-              </div>
-              <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-on-surface')}>
-                {t('testChat.emptyTitle', {}, { defaultValue: 'No bots to test yet' })}
-              </h2>
-              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-sm')}>
-                {t(
-                  'testChat.emptyBody',
-                  {},
-                  {
-                    defaultValue:
-                      'Create your first bot, then come back here to try it out in a sandboxed chat.',
-                  },
-                )}
-              </p>
-              <Link
-                to="/bots/new"
-                className={cm.cn(
-                  cm.sp('px', 5),
-                  cm.sp('py', 3),
-                  cm.textSize('sm'),
-                  cm.fontWeight('bold'),
-                  cm.roundedFull,
-                  'bg-primary text-on-primary shadow-md hover:opacity-90 transition-opacity',
-                )}
-              >
-                {t('botsList.createBot', {}, { defaultValue: 'Create Bot' })}
-              </Link>
-            </div>
-          ) : (
-            <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'bg-surface relative')}>
-              <ChatbotTester
-                messages={messages}
-                loading={loading}
-                onSend={handleSend}
-                bots={bots}
-                botId={botId}
-                onBotChange={(id) => {
-                  startedFor.current = null
-                  setConversationId(undefined)
-                  setBotId(id)
-                }}
-                error={error}
-                botPickerLabel={t('testChat.botPickerLabel', {}, { defaultValue: 'Test bot' })}
-              />
-            </div>
-          )}
-          <TestChatBotConfigPanel />
-        </section>
-      </main>
-    </div>
+              {t('botsList.createBot', {}, { defaultValue: 'Create Bot' })}
+            </Link>
+          </div>
+        ) : (
+          <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'bg-surface relative')}>
+            <ChatbotTester
+              messages={messages}
+              loading={loading}
+              onSend={handleSend}
+              bots={bots}
+              botId={botId}
+              onBotChange={(id) => {
+                startedFor.current = null
+                setConversationId(undefined)
+                setBotId(id)
+              }}
+              error={error}
+              botPickerLabel={t('testChat.botPickerLabel', {}, { defaultValue: 'Test bot' })}
+            />
+          </div>
+        )}
+        <TestChatBotConfigPanel />
+      </section>
+    </AppShell>
   )
 }
 

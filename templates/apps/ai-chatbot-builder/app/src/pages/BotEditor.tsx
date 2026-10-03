@@ -1,15 +1,15 @@
 import { type FormEvent, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router'
+import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import AiFlowPulseIndicator from '../components/AiFlowPulseIndicator.js'
+import { AppShell } from '../components/AppShell.js'
 import BotEditorCanvas from '../components/BotEditorCanvas.js'
 import BotEditorNodePropertiesPanel from '../components/BotEditorNodePropertiesPanel.js'
-import BotEditorSideNavBar from '../components/BotEditorSideNavBar.js'
-import BotEditorTopBar from '../components/BotEditorTopBar.js'
+import UserMenu from '../components/UserMenu.js'
 
 interface NewBotResponse {
   id?: string
@@ -240,6 +240,7 @@ function BotEditor() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { id } = useParams<{ id: string }>()
+  const navigate = useNavigate()
   const http = useHttpClient()
   const [loadError, setLoadError] = useState<string | null>(null)
   const [botName, setBotName] = useState<string | undefined>(undefined)
@@ -275,42 +276,84 @@ function BotEditor() {
     return <CreateBotForm />
   }
 
+  // The former BotEditorTopBar, folded into the shared shell's top bar:
+  // bot name in the leading slot, Test/Deploy + bot settings + user menu in
+  // actions. The editor canvas fills the content column (h-screen, internal
+  // overflow) exactly as before.
+  const shellLeading = (
+    <h1 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface truncate')}>
+      {botName ?? t('botEditorTopBar.untitledBot', {}, { defaultValue: 'Untitled bot' })}
+    </h1>
+  )
+  const shellActions = (
+    <>
+      <Link
+        className={cm.cn(
+          'text-foreground-tertiary dark:text-outline-variant hover:text-indigo-300 dark:hover:text-[var(--mol-color-primary-light)] transition-all flex items-center gap-2',
+        )}
+        to={`/test-chat?botId=${id}`}
+      >
+        <span
+          className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}
+          data-icon="play_circle"
+        >
+          play_circle
+        </span>
+        {t('botEditorTopBar.test', {}, { defaultValue: 'Test' })}
+      </Link>
+      <Link
+        className={cm.cn(
+          'bg-primary px-5 py-1.5 rounded-lg text-on-primary font-semibold hover:opacity-90 active:opacity-80 transition-all',
+        )}
+        to={`/bots/${id}/deploy`}
+      >
+        {t('botEditorTopBar.deploy', {}, { defaultValue: 'Deploy' })}
+      </Link>
+      <button
+        type="button"
+        aria-label={t('botEditorTopBar.botSettings', {}, { defaultValue: 'Bot settings' })}
+        className={cm.cn(
+          cm.cursorPointer,
+          'material-symbols-outlined hover:text-indigo-300 transition-colors',
+        )}
+        data-icon="settings"
+        onClick={() => navigate(`/bots/${id}/settings`)}
+      >
+        settings
+      </button>
+      <UserMenu />
+    </>
+  )
+
   return (
-    <div
-      className={cm.cn(
-        'dark bg-background text-on-surface font-body selection:bg-primary/30 antialiased overflow-hidden',
-      )}
+    <AppShell
+      className="dark bg-background text-on-surface font-body selection:bg-primary/30 antialiased overflow-hidden"
+      leading={shellLeading}
+      actions={shellActions}
+      contentClassName="h-screen overflow-hidden"
     >
-      {/* Shell Layout Wrapper */}
-      <div className={cm.cn(cm.flex(), cm.h('screen'), cm.w('full'))}>
-        {/* SideNavBar Component */}
-        <BotEditorSideNavBar />
-        {/* Main Content Area */}
-        <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'ml-0 md:ml-60 relative')}>
-          {/* TopAppBar Component */}
-          <BotEditorTopBar botName={botName} />
-          {/* Workspace Content: Canvas + Right Panel */}
-          <div className={cm.cn(cm.sp('mt', 16), cm.flex(), cm.flex1, 'overflow-hidden')}>
-            {/* Main Canvas (Visual Flow Editor) */}
-            <BotEditorCanvas />
-            {/* Right Panel (Node Properties) */}
-            <BotEditorNodePropertiesPanel />
+      <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'relative h-full')}>
+        {/* Workspace Content: Canvas + Right Panel */}
+        <div className={cm.cn(cm.flex(), cm.flex1, 'overflow-hidden')}>
+          {/* Main Canvas (Visual Flow Editor) */}
+          <BotEditorCanvas />
+          {/* Right Panel (Node Properties) */}
+          <BotEditorNodePropertiesPanel />
+        </div>
+        {loadError && (
+          <div
+            role="alert"
+            className={cm.cn(
+              'absolute bottom-4 right-4 max-w-xs px-3 py-2 rounded text-sm bg-error-container text-on-error-container shadow',
+            )}
+          >
+            {loadError}
           </div>
-          {loadError && (
-            <div
-              role="alert"
-              className={cm.cn(
-                'absolute bottom-4 right-4 max-w-xs px-3 py-2 rounded text-sm bg-error-container text-on-error-container shadow',
-              )}
-            >
-              {loadError}
-            </div>
-          )}
-        </main>
-      </div>
+        )}
+      </main>
       {/* Floating AI Pulse Indicator (Center Bottom) */}
       <AiFlowPulseIndicator />
-    </div>
+    </AppShell>
   )
 }
 

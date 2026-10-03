@@ -4,14 +4,13 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { AppShell } from '../components/AppShell.js'
 import KnowledgeBaseDataHealthWidget from '../components/KnowledgeBaseDataHealthWidget.js'
 import KnowledgeBaseModelInsightPanel from '../components/KnowledgeBaseModelInsightPanel.js'
 import KnowledgeBaseNeuralTopologyVisual from '../components/KnowledgeBaseNeuralTopologyVisual.js'
 import KnowledgeBasePageHeader from '../components/KnowledgeBasePageHeader.js'
-import KnowledgeBaseSideNavBar from '../components/KnowledgeBaseSideNavBar.js'
 import KnowledgeBaseSourcesHeader from '../components/KnowledgeBaseSourcesHeader.js'
 import KnowledgeBaseStatsBar from '../components/KnowledgeBaseStatsBar.js'
-import KnowledgeBaseTopBar from '../components/KnowledgeBaseTopBar.js'
 import KnowledgeSourceCard from '../components/KnowledgeSourceCard.js'
 
 interface KnowledgeDocument {
@@ -164,212 +163,204 @@ function KnowledgeBase() {
   )
 
   return (
-    <div className={cm.cn('bg-surface text-on-surface antialiased flex min-h-screen')}>
-      <KnowledgeBaseSideNavBar />
-      <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
-        <KnowledgeBaseTopBar />
-        <div className={cm.cn(cm.sp('p', 8), 'max-w-7xl', cm.mxAuto, cm.w('full'), cm.stack(8))}>
-          <KnowledgeBasePageHeader onAddSource={() => setAdding(true)} />
-          <KnowledgeBaseStatsBar />
-          {bots.length > 1 && (
-            <div
+    <AppShell className="bg-surface text-on-surface antialiased">
+      <div className={cm.cn(cm.sp('p', 8), 'max-w-7xl', cm.mxAuto, cm.w('full'), cm.stack(8))}>
+        <KnowledgeBasePageHeader onAddSource={() => setAdding(true)} />
+        <KnowledgeBaseStatsBar />
+        {bots.length > 1 && (
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center' }),
+              cm.sp('p', 4),
+              'gap-3 bg-surface-container-low rounded-2xl',
+            )}
+          >
+            <label
+              htmlFor="kb-bot-select"
+              className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}
+            >
+              {t('knowledgeBase.botPickerLabel', {}, { defaultValue: 'Bot' })}
+            </label>
+            <select
+              id="kb-bot-select"
+              value={selectedBotId}
+              onChange={(e) => setSelectedBotId(e.target.value)}
               className={cm.cn(
-                cm.flex({ align: 'center' }),
-                cm.sp('p', 4),
-                'gap-3 bg-surface-container-low rounded-2xl',
+                cm.textSize('sm'),
+                'bg-surface-container-high border-none rounded-xl px-3 py-2 focus:ring-2 focus:ring-primary/40',
               )}
             >
-              <label
-                htmlFor="kb-bot-select"
-                className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}
-              >
-                {t('knowledgeBase.botPickerLabel', {}, { defaultValue: 'Bot' })}
-              </label>
-              <select
-                id="kb-bot-select"
-                value={selectedBotId}
-                onChange={(e) => setSelectedBotId(e.target.value)}
-                className={cm.cn(
-                  cm.textSize('sm'),
-                  'bg-surface-container-high border-none rounded-xl px-3 py-2 focus:ring-2 focus:ring-primary/40',
-                )}
-              >
-                {bots.map((b) => (
-                  <option key={b.id} value={b.id}>
-                    {b.name || b.id}
-                  </option>
-                ))}
-              </select>
-            </div>
-          )}
-          <div className={cm.cn(cm.grid({ cols: 1, gap: 'xl' }), 'lg:grid-cols-12')}>
-            <div className={cm.cn(cm.stack(6), 'lg:col-span-8')}>
-              <div className={cm.flex({ align: 'center', justify: 'between' })}>
-                <KnowledgeBaseSourcesHeader />
-                {selectedBotId && (
-                  <button
-                    type="button"
-                    onClick={() => setAdding((v) => !v)}
-                    className={cm.cn(
-                      cm.fontWeight('bold'),
-                      cm.textSize('sm'),
-                      'btn-gradient text-on-primary px-4 py-2 rounded-lg',
-                    )}
-                  >
-                    {adding
-                      ? t('common.cancel', {}, { defaultValue: 'Cancel' })
-                      : t('knowledgeBase.addDocument', {}, { defaultValue: 'Add document' })}
-                  </button>
-                )}
-              </div>
-              {adding && selectedBotId && (
-                <form
-                  onSubmit={handleAdd}
+              {bots.map((b) => (
+                <option key={b.id} value={b.id}>
+                  {b.name || b.id}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+        <div className={cm.cn(cm.grid({ cols: 1, gap: 'xl' }), 'lg:grid-cols-12')}>
+          <div className={cm.cn(cm.stack(6), 'lg:col-span-8')}>
+            <div className={cm.flex({ align: 'center', justify: 'between' })}>
+              <KnowledgeBaseSourcesHeader />
+              {selectedBotId && (
+                <button
+                  type="button"
+                  onClick={() => setAdding((v) => !v)}
                   className={cm.cn(
-                    cm.sp('p', 6),
-                    cm.stack(4),
-                    'bg-surface-container-lowest rounded-2xl ambient-shadow',
-                  )}
-                  aria-label={t(
-                    'knowledgeBase.addFormLabel',
-                    {},
-                    { defaultValue: 'Add knowledge document' },
+                    cm.fontWeight('bold'),
+                    cm.textSize('sm'),
+                    'btn-gradient text-on-primary px-4 py-2 rounded-lg',
                   )}
                 >
-                  <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                    {selectedBotName
-                      ? t(
-                          'knowledgeBase.addingFor',
-                          { name: selectedBotName },
-                          { defaultValue: 'Adding to: {{name}}' },
-                        )
-                      : null}
+                  {adding
+                    ? t('common.cancel', {}, { defaultValue: 'Cancel' })
+                    : t('knowledgeBase.addDocument', {}, { defaultValue: 'Add document' })}
+                </button>
+              )}
+            </div>
+            {adding && selectedBotId && (
+              <form
+                onSubmit={handleAdd}
+                className={cm.cn(
+                  cm.sp('p', 6),
+                  cm.stack(4),
+                  'bg-surface-container-lowest rounded-2xl ambient-shadow',
+                )}
+                aria-label={t(
+                  'knowledgeBase.addFormLabel',
+                  {},
+                  { defaultValue: 'Add knowledge document' },
+                )}
+              >
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {selectedBotName
+                    ? t(
+                        'knowledgeBase.addingFor',
+                        { name: selectedBotName },
+                        { defaultValue: 'Adding to: {{name}}' },
+                      )
+                    : null}
+                </p>
+                <input
+                  required
+                  aria-label={t('form.title', {}, { defaultValue: 'Title' })}
+                  placeholder={t(
+                    'knowledgeBase.titlePlaceholder',
+                    {},
+                    { defaultValue: 'Title (e.g. "Refund policy")' },
+                  )}
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  maxLength={500}
+                  className={cm.cn(
+                    cm.w('full'),
+                    'bg-surface-container-high border-none rounded-xl px-4 py-3',
+                  )}
+                />
+                <input
+                  aria-label={t(
+                    'knowledgeBase.sourceUrlLabel',
+                    {},
+                    { defaultValue: 'Source URL (optional)' },
+                  )}
+                  placeholder={t(
+                    'knowledgeBase.sourceUrlPlaceholder',
+                    {},
+                    { defaultValue: 'https://… (optional)' },
+                  )}
+                  value={sourceUrl}
+                  onChange={(e) => setSourceUrl(e.target.value)}
+                  type="url"
+                  className={cm.cn(
+                    cm.w('full'),
+                    'bg-surface-container-high border-none rounded-xl px-4 py-3',
+                  )}
+                />
+                <textarea
+                  required
+                  aria-label={t('knowledgeBase.contentLabel', {}, { defaultValue: 'Content' })}
+                  placeholder={t(
+                    'knowledgeBase.contentPlaceholder',
+                    {},
+                    {
+                      defaultValue: 'Paste reference text the bot should learn (FAQ, doc, policy)…',
+                    },
+                  )}
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                  rows={8}
+                  maxLength={100000}
+                  className={cm.cn(
+                    cm.w('full'),
+                    'bg-surface-container-high border-none rounded-xl px-4 py-3 font-mono text-sm',
+                  )}
+                />
+                {addError && (
+                  <p role="alert" className={cm.cn(cm.textSize('sm'), 'text-error')}>
+                    {addError}
                   </p>
-                  <input
-                    required
-                    aria-label={t('form.title', {}, { defaultValue: 'Title' })}
-                    placeholder={t(
-                      'knowledgeBase.titlePlaceholder',
-                      {},
-                      { defaultValue: 'Title (e.g. "Refund policy")' },
-                    )}
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    maxLength={500}
-                    className={cm.cn(
-                      cm.w('full'),
-                      'bg-surface-container-high border-none rounded-xl px-4 py-3',
-                    )}
-                  />
-                  <input
-                    aria-label={t(
-                      'knowledgeBase.sourceUrlLabel',
-                      {},
-                      { defaultValue: 'Source URL (optional)' },
-                    )}
-                    placeholder={t(
-                      'knowledgeBase.sourceUrlPlaceholder',
-                      {},
-                      { defaultValue: 'https://… (optional)' },
-                    )}
-                    value={sourceUrl}
-                    onChange={(e) => setSourceUrl(e.target.value)}
-                    type="url"
-                    className={cm.cn(
-                      cm.w('full'),
-                      'bg-surface-container-high border-none rounded-xl px-4 py-3',
-                    )}
-                  />
-                  <textarea
-                    required
-                    aria-label={t('knowledgeBase.contentLabel', {}, { defaultValue: 'Content' })}
-                    placeholder={t(
-                      'knowledgeBase.contentPlaceholder',
-                      {},
-                      {
-                        defaultValue:
-                          'Paste reference text the bot should learn (FAQ, doc, policy)…',
-                      },
-                    )}
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                    rows={8}
-                    maxLength={100000}
-                    className={cm.cn(
-                      cm.w('full'),
-                      'bg-surface-container-high border-none rounded-xl px-4 py-3 font-mono text-sm',
-                    )}
-                  />
-                  {addError && (
-                    <p role="alert" className={cm.cn(cm.textSize('sm'), 'text-error')}>
-                      {addError}
-                    </p>
+                )}
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className={cm.cn(
+                    cm.fontWeight('bold'),
+                    'btn-gradient text-on-primary px-5 py-3 rounded-xl disabled:opacity-50',
                   )}
-                  <button
-                    type="submit"
-                    disabled={submitting}
-                    className={cm.cn(
-                      cm.fontWeight('bold'),
-                      'btn-gradient text-on-primary px-5 py-3 rounded-xl disabled:opacity-50',
-                    )}
-                  >
-                    {submitting
-                      ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
-                      : t('knowledgeBase.saveDocument', {}, { defaultValue: 'Save document' })}
-                  </button>
-                </form>
-              )}
-              {(loading || docsLoading) &&
-                Array.from({ length: 3 }).map((_, i) => (
-                  <div
-                    key={i}
-                    aria-hidden="true"
-                    className={cm.cn(
-                      cm.h(24),
-                      'rounded-2xl bg-surface-container-low animate-pulse',
-                    )}
-                  />
-                ))}
-              {fetchError && (
-                <p role="alert" className={cm.cn(cm.textSize('sm'), cm.sp('px', 2), 'text-error')}>
-                  {fetchError}
-                </p>
-              )}
-              {!loading && !docsLoading && bots.length === 0 && (
-                <p className={cm.cn(cm.textSize('sm'), cm.sp('px', 2), 'text-on-surface-variant')}>
-                  {t(
-                    'knowledgeBase.noBots',
-                    {},
-                    { defaultValue: 'Create a bot first to start adding knowledge.' },
-                  )}
-                </p>
-              )}
-              {!loading && !docsLoading && !fetchError && bots.length > 0 && docs.length === 0 && (
-                <p className={cm.cn(cm.textSize('sm'), cm.sp('px', 2), 'text-on-surface-variant')}>
-                  {t(
-                    'knowledgeBase.emptyState',
-                    {},
-                    { defaultValue: 'No knowledge documents yet for this bot.' },
-                  )}
-                </p>
-              )}
-              {docs.map((doc) => (
-                <KnowledgeSourceCard
-                  key={doc.id}
-                  doc={doc}
-                  onDelete={(id) => setDocs((ds) => ds.filter((d) => d.id !== id))}
+                >
+                  {submitting
+                    ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
+                    : t('knowledgeBase.saveDocument', {}, { defaultValue: 'Save document' })}
+                </button>
+              </form>
+            )}
+            {(loading || docsLoading) &&
+              Array.from({ length: 3 }).map((_, i) => (
+                <div
+                  key={i}
+                  aria-hidden="true"
+                  className={cm.cn(cm.h(24), 'rounded-2xl bg-surface-container-low animate-pulse')}
                 />
               ))}
-            </div>
-            <div className={cm.cn(cm.stack(6), 'lg:col-span-4')}>
-              <KnowledgeBaseDataHealthWidget />
-              <KnowledgeBaseModelInsightPanel />
-              <KnowledgeBaseNeuralTopologyVisual />
-            </div>
+            {fetchError && (
+              <p role="alert" className={cm.cn(cm.textSize('sm'), cm.sp('px', 2), 'text-error')}>
+                {fetchError}
+              </p>
+            )}
+            {!loading && !docsLoading && bots.length === 0 && (
+              <p className={cm.cn(cm.textSize('sm'), cm.sp('px', 2), 'text-on-surface-variant')}>
+                {t(
+                  'knowledgeBase.noBots',
+                  {},
+                  { defaultValue: 'Create a bot first to start adding knowledge.' },
+                )}
+              </p>
+            )}
+            {!loading && !docsLoading && !fetchError && bots.length > 0 && docs.length === 0 && (
+              <p className={cm.cn(cm.textSize('sm'), cm.sp('px', 2), 'text-on-surface-variant')}>
+                {t(
+                  'knowledgeBase.emptyState',
+                  {},
+                  { defaultValue: 'No knowledge documents yet for this bot.' },
+                )}
+              </p>
+            )}
+            {docs.map((doc) => (
+              <KnowledgeSourceCard
+                key={doc.id}
+                doc={doc}
+                onDelete={(id) => setDocs((ds) => ds.filter((d) => d.id !== id))}
+              />
+            ))}
+          </div>
+          <div className={cm.cn(cm.stack(6), 'lg:col-span-4')}>
+            <KnowledgeBaseDataHealthWidget />
+            <KnowledgeBaseModelInsightPanel />
+            <KnowledgeBaseNeuralTopologyVisual />
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </AppShell>
   )
 }
 

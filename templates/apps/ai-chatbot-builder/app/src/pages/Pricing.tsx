@@ -3,7 +3,7 @@ import { ContentPageShell } from '@molecule/app-legal-pages-react'
 import { useTranslation } from '@molecule/app-react'
 
 import { APP_NAME } from '../branding.js'
-import TopNavBar from '../components/TopNavBar.js'
+import { AppShell } from '../components/AppShell.js'
 
 /**
  * Public pricing page. Renders the tier ladder declared in the API's
@@ -19,52 +19,55 @@ import TopNavBar from '../components/TopNavBar.js'
 export function Pricing() {
   const { t } = useTranslation()
   return (
-    <ContentPageShell bare containerSize="xl" header={<TopNavBar />}>
-      <PricingPage
-        period="month"
-        headlineFontFamily="var(--font-display)"
-        headingDefault={t(
-          'pricing.heading',
-          { appName: APP_NAME },
-          { defaultValue: `Choose your ${APP_NAME} plan` },
-        )}
-        renderLimits={(limits) => (
-          <LimitsList>
-            <LimitsItem>
-              {formatNum(read(limits, 'maxBots'))} {t('pricing.bots', {}, { defaultValue: 'bots' })}
-            </LimitsItem>
-            <LimitsItem>
-              {formatNum(read(limits, 'maxAiMessagesPerMonth'))}{' '}
-              {t('pricing.aiMessagesPerMonth', {}, { defaultValue: 'AI messages / month' })}
-            </LimitsItem>
-            <LimitsItem>
-              {formatNum(read(limits, 'maxIntents'))}{' '}
-              {t('pricing.intents', {}, { defaultValue: 'intents' })}
-            </LimitsItem>
-            <LimitsItem>
-              {formatNum(read(limits, 'maxTrainingDocsMb'))}{' '}
-              {t('pricing.trainingDocsMb', {}, { defaultValue: 'MB training docs' })}
-            </LimitsItem>
-            <LimitsItem>
-              {t('pricing.sentiment', {}, { defaultValue: 'Sentiment analysis' })}:{' '}
-              {read(limits, 'sentiment') ? '✓' : '—'}
-            </LimitsItem>
-            <LimitsItem>
-              {t('pricing.multilingual', {}, { defaultValue: 'Multilingual' })}:{' '}
-              {read(limits, 'multilingual') ? '✓' : '—'}
-            </LimitsItem>
-            <LimitsItem>
-              {t('pricing.integrations', {}, { defaultValue: 'Third-party integrations' })}:{' '}
-              {read(limits, 'integrations') ? '✓' : '—'}
-            </LimitsItem>
-            <LimitsItem>
-              {t('pricing.advancedAnalytics', {}, { defaultValue: 'Advanced analytics' })}:{' '}
-              {read(limits, 'advancedAnalytics') ? '✓' : '—'}
-            </LimitsItem>
-          </LimitsList>
-        )}
-      />
-    </ContentPageShell>
+    <AppShell sidebar={false}>
+      <ContentPageShell bare containerSize="xl">
+        <PricingPage
+          period="month"
+          headlineFontFamily="var(--font-display)"
+          headingDefault={t(
+            'pricing.heading',
+            { appName: APP_NAME },
+            { defaultValue: `Choose your ${APP_NAME} plan` },
+          )}
+          renderLimits={(limits) => (
+            <LimitsList>
+              <LimitsItem>
+                {formatNum(read(limits, 'maxBots'))}{' '}
+                {t('pricing.bots', {}, { defaultValue: 'bots' })}
+              </LimitsItem>
+              <LimitsItem>
+                {formatNum(read(limits, 'maxAiMessagesPerMonth'))}{' '}
+                {t('pricing.aiMessagesPerMonth', {}, { defaultValue: 'AI messages / month' })}
+              </LimitsItem>
+              <LimitsItem>
+                {formatNum(read(limits, 'maxIntents'))}{' '}
+                {t('pricing.intents', {}, { defaultValue: 'intents' })}
+              </LimitsItem>
+              <LimitsItem>
+                {formatNum(read(limits, 'maxTrainingDocsMb'))}{' '}
+                {t('pricing.trainingDocsMb', {}, { defaultValue: 'MB training docs' })}
+              </LimitsItem>
+              <LimitsItem>
+                {t('pricing.sentiment', {}, { defaultValue: 'Sentiment analysis' })}:{' '}
+                {read(limits, 'sentiment') ? '✓' : '—'}
+              </LimitsItem>
+              <LimitsItem>
+                {t('pricing.multilingual', {}, { defaultValue: 'Multilingual' })}:{' '}
+                {read(limits, 'multilingual') ? '✓' : '—'}
+              </LimitsItem>
+              <LimitsItem>
+                {t('pricing.integrations', {}, { defaultValue: 'Third-party integrations' })}:{' '}
+                {read(limits, 'integrations') ? '✓' : '—'}
+              </LimitsItem>
+              <LimitsItem>
+                {t('pricing.advancedAnalytics', {}, { defaultValue: 'Advanced analytics' })}:{' '}
+                {read(limits, 'advancedAnalytics') ? '✓' : '—'}
+              </LimitsItem>
+            </LimitsList>
+          )}
+        />
+      </ContentPageShell>
+    </AppShell>
   )
 }
 

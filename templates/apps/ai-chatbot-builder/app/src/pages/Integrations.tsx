@@ -1,36 +1,88 @@
 // Phase 1 baseline — verbatim JSX of design-ai-chatbot-builder-integrations.html
 // Do not hand-edit; Phase 2 will extract sections one at a time.
 import { useState } from 'react'
+import { Link } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { AppShell } from '../components/AppShell.js'
 import IntegrationsAnalyticsSection from '../components/IntegrationsAnalyticsSection.js'
 import IntegrationsCategoryFilters from '../components/IntegrationsCategoryFilters.js'
 import IntegrationsCRMSection from '../components/IntegrationsCrmSection.js'
 import IntegrationsCustomSection from '../components/IntegrationsCustomSection.js'
 import IntegrationsMessagingSection from '../components/IntegrationsMessagingSection.js'
 import IntegrationsPageHeader from '../components/IntegrationsPageHeader.js'
-import IntegrationsSideNavBar from '../components/IntegrationsSideNavBar.js'
-import IntegrationsTopBar from '../components/IntegrationsTopBar.js'
+import UserMenu from '../components/UserMenu.js'
+
 type Category = 'all' | 'messaging' | 'crm' | 'analytics' | 'developer'
+
 function Integrations() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const [activeCategory, setActiveCategory] = useState<Category>('all')
   const [search, setSearch] = useState('')
+  // The former IntegrationsTopBar, folded into the shared shell's top bar:
+  // docs/support/API links + the Deploy Bot CTA beside the user menu.
+  const shellActions = (
+    <>
+      <div
+        className={cm.cn(
+          cm.textSize('sm'),
+          cm.fontWeight('medium'),
+          'hidden lg:flex items-center gap-6',
+        )}
+      >
+        <Link
+          className={cm.cn('text-foreground-secondary hover:text-primary transition-colors')}
+          to="/help"
+        >
+          {t('integrationsTopBar.documentation', {}, { defaultValue: 'Documentation' })}
+        </Link>
+        <Link
+          className={cm.cn('text-foreground-secondary hover:text-primary transition-colors')}
+          to="/settings"
+        >
+          {t('integrationsTopBar.support', {}, { defaultValue: 'Support' })}
+        </Link>
+        <Link
+          className={cm.cn('text-foreground-secondary hover:text-primary transition-colors')}
+          to="/help#api"
+        >
+          {t('integrationsTopBar.api', {}, { defaultValue: 'API' })}
+        </Link>
+      </div>
+      <div className={cm.cn('w-px h-6 bg-outline-variant/30')}></div>
+      <Link
+        className={cm.cn(
+          'ai-gradient-bg text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all',
+        )}
+        to="/bots"
+      >
+        {t('integrationsTopBar.deployBot', {}, { defaultValue: 'Deploy Bot' })}
+      </Link>
+      <UserMenu />
+    </>
+  )
+
   return (
-    <div
-      className={cm.cn(
-        'bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed',
-      )}
-      aria-label={t('integrations.pageLabel', {}, { defaultValue: 'Channel integrations' })}
+    <AppShell
+      className="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed"
+      leading={
+        <h1
+          className={cm.cn(
+            cm.textSize('lg'),
+            cm.fontWeight('bold'),
+            'text-on-surface font-headline',
+          )}
+        >
+          {t('nav.integrations', {}, { defaultValue: 'Integrations' })}
+        </h1>
+      }
+      actions={shellActions}
     >
-      {/* SideNavBar Shell */}
-      <IntegrationsSideNavBar />
-      <IntegrationsTopBar />
       {/* Main Content Canvas */}
-      <main className={cm.cn(cm.sp('p', 4), cm.minH('screen'), 'ml-0 md:ml-64 md:p-8')}>
+      <main className={cm.cn(cm.sp('p', 4), 'md:p-8')}>
         <div className={cm.stack(8)}>
           {/* Header & Search Section */}
           <IntegrationsPageHeader search={search} onSearchChange={setSearch} />
@@ -71,7 +123,7 @@ function Integrations() {
           'fixed bottom-0 left-64 -z-10 bg-tertiary/5 blur-[100px] pointer-events-none',
         )}
       ></div>
-    </div>
+    </AppShell>
   )
 }
 

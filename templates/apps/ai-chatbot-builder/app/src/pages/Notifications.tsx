@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import SideNavBar from '../components/SideNavBar.js'
-import TopNavBar from '../components/TopNavBar.js'
+import { AppShell } from '../components/AppShell.js'
 
 interface NotificationItem {
   id: string
@@ -55,67 +54,63 @@ export function Notifications() {
   }
 
   return (
-    <div className={cm.cn(cm.flex(), cm.minH('screen'), 'bg-surface text-on-surface')}>
-      <SideNavBar />
-      <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
-        <TopNavBar />
-        <main
-          data-mol-id="page-notifications"
-          className={cm.cn(
-            cm.flex1,
-            cm.mxAuto,
-            cm.w('full'),
-            'max-w-3xl',
-            cm.sp('px', 6),
-            cm.sp('py', 8),
-          )}
-        >
-          <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 6))}>
-            {t('settings.notifications', {}, { defaultValue: 'Notifications' })}
-          </h1>
-          {loading ? (
-            <p data-mol-id="notifications-loading" className={cm.textMuted}>
-              {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
-            </p>
-          ) : items.length === 0 ? (
-            <p data-mol-id="notifications-empty" className={cm.textMuted}>
-              {t('notifications.empty', {}, { defaultValue: "You're all caught up." })}
-            </p>
-          ) : (
-            <ul data-mol-id="notifications-list" className={cm.cn(cm.stack(3))}>
-              {items.map((n) => (
-                <li
-                  key={n.id}
-                  data-mol-id="notification-item"
-                  className={cm.cn(
-                    cm.sp('p', 4),
-                    'rounded-md border border-outline bg-elevated',
-                    n.read ? 'opacity-60' : '',
-                  )}
-                >
-                  <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }))}>
-                    <div>
-                      <div className={cm.fontWeight('semibold')}>{n.title}</div>
-                      {n.body ? <div className={cm.textMuted}>{n.body}</div> : null}
-                    </div>
-                    {!n.read && (
-                      <button
-                        type="button"
-                        data-mol-id="notification-mark-read"
-                        onClick={() => markRead(n.id)}
-                        className={cm.cn('text-xs', cm.textMuted)}
-                      >
-                        {t('common.markRead', {}, { defaultValue: 'Mark read' })}
-                      </button>
-                    )}
+    <AppShell>
+      <main
+        data-mol-id="page-notifications"
+        className={cm.cn(
+          cm.flex1,
+          cm.mxAuto,
+          cm.w('full'),
+          'max-w-3xl',
+          cm.sp('px', 6),
+          cm.sp('py', 8),
+        )}
+      >
+        <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 6))}>
+          {t('settings.notifications', {}, { defaultValue: 'Notifications' })}
+        </h1>
+        {loading ? (
+          <p data-mol-id="notifications-loading" className={cm.textMuted}>
+            {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+          </p>
+        ) : items.length === 0 ? (
+          <p data-mol-id="notifications-empty" className={cm.textMuted}>
+            {t('notifications.empty', {}, { defaultValue: "You're all caught up." })}
+          </p>
+        ) : (
+          <ul data-mol-id="notifications-list" className={cm.cn(cm.stack(3))}>
+            {items.map((n) => (
+              <li
+                key={n.id}
+                data-mol-id="notification-item"
+                className={cm.cn(
+                  cm.sp('p', 4),
+                  'rounded-md border border-outline bg-elevated',
+                  n.read ? 'opacity-60' : '',
+                )}
+              >
+                <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }))}>
+                  <div>
+                    <div className={cm.fontWeight('semibold')}>{n.title}</div>
+                    {n.body ? <div className={cm.textMuted}>{n.body}</div> : null}
                   </div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </main>
-      </div>
-    </div>
+                  {!n.read && (
+                    <button
+                      type="button"
+                      data-mol-id="notification-mark-read"
+                      onClick={() => markRead(n.id)}
+                      className={cm.cn('text-xs', cm.textMuted)}
+                    >
+                      {t('common.markRead', {}, { defaultValue: 'Mark read' })}
+                    </button>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </main>
+    </AppShell>
   )
 }
 
