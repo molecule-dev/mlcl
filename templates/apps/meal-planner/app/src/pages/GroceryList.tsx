@@ -29,7 +29,8 @@ function pantryBadgesEnabled(): boolean {
   try {
     const raw = window.localStorage.getItem(PANTRY_BADGES_KEY)
     return raw === null ? true : raw === 'on'
-  } catch {
+  } catch (_error) {
+    // Private mode / storage unavailable: badges default to on.
     return true
   }
 }

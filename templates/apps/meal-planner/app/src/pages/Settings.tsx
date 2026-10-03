@@ -11,7 +11,7 @@ import {
   ThisDeviceSection,
 } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { SimmerTopBar } from '../components/SimmerTopBar.js'
@@ -96,7 +96,8 @@ function readStoredFlag(key: string, fallback: boolean): boolean {
   try {
     const raw = window.localStorage.getItem(key)
     return raw === null ? fallback : raw === 'on'
-  } catch {
+  } catch (_error) {
+    // Private mode / storage unavailable: the flag just starts at its default.
     return fallback
   }
 }
@@ -106,7 +107,8 @@ function readStoredThreshold(fallback: number): number {
     const raw = window.localStorage.getItem(RESTOCK_THRESHOLD_KEY)
     const n = raw === null ? NaN : Number.parseInt(raw, 10)
     return Number.isFinite(n) && n >= 1 ? Math.min(n, 10) : fallback
-  } catch {
+  } catch (_error) {
+    // Private mode / storage unavailable: the threshold just starts at its default.
     return fallback
   }
 }
@@ -543,40 +545,25 @@ export function Settings() {
                 )}
               </p>
             </div>
-            <button
-              type="button"
-              role="switch"
-              aria-checked={pantryBadges}
-              data-mol-id="settings-automation-dedup"
-              onClick={() => {
-                const next = !pantryBadges
+            <Switch
+              checked={pantryBadges}
+              onChange={(e) => {
+                const next = (e.target as HTMLInputElement).checked
                 setPantryBadges(next)
                 try {
                   window.localStorage.setItem(PANTRY_BADGES_KEY, next ? 'on' : 'off')
-                } catch {
+                } catch (_error) {
                   // Private mode: the toggle still holds for this view.
                 }
               }}
-              className={cm.cn(
-                'relative w-12 h-7 rounded-full transition-colors flex-none',
-                pantryBadges ? 'bg-primary' : 'bg-outline',
+              size="md"
+              data-mol-id="settings-automation-dedup"
+              aria-label={t(
+                'simmer.settings.automation.dedup.toggleLabel',
+                {},
+                { defaultValue: 'Toggle pantry deduplication' },
               )}
-            >
-              <span
-                className={cm.cn(
-                  'absolute top-1 w-5 h-5 rounded-full bg-surface shadow transition-all',
-                  pantryBadges ? 'left-6' : 'left-1',
-                )}
-                aria-hidden="true"
-              />
-              <span className={cm.cn('sr-only')}>
-                {t(
-                  'simmer.settings.automation.dedup.toggleLabel',
-                  {},
-                  { defaultValue: 'Toggle pantry deduplication' },
-                )}
-              </span>
-            </button>
+            />
           </li>
           <li
             className={cm.cn(
@@ -611,7 +598,7 @@ export function Settings() {
                 setRestockThreshold(next)
                 try {
                   window.localStorage.setItem(RESTOCK_THRESHOLD_KEY, String(next))
-                } catch {
+                } catch (_error) {
                   // Private mode: the select still holds for this view.
                 }
               }}

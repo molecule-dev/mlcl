@@ -27,7 +27,8 @@ function readRestockThreshold(): number {
     const raw = window.localStorage.getItem(RESTOCK_THRESHOLD_KEY)
     const n = raw === null ? NaN : Number.parseInt(raw, 10)
     return Number.isFinite(n) && n >= 1 ? Math.min(n, 10) : 1
-  } catch {
+  } catch (_error) {
+    // Private mode / storage unavailable: the threshold starts at its default.
     return 1
   }
 }
