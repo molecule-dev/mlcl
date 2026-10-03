@@ -212,53 +212,6 @@ export default tseslint.config(
     },
   },
   {
-    // public/*.js ships to the browser as written (no bundler): it runs with
-    // the browser's globals. Without them the template's own site.js failed
-    // lint with `'document' is not defined` as soon as a build edited it, and
-    // the builder spent a fix round on the lint config (x440, 2026-09-29).
-    files: ['public/**/*.js'],
-    languageOptions: {
-      sourceType: 'script',
-      globals: {
-        window: 'readonly',
-        document: 'readonly',
-        navigator: 'readonly',
-        location: 'readonly',
-        history: 'readonly',
-        console: 'readonly',
-        setTimeout: 'readonly',
-        clearTimeout: 'readonly',
-        setInterval: 'readonly',
-        clearInterval: 'readonly',
-        requestAnimationFrame: 'readonly',
-        cancelAnimationFrame: 'readonly',
-        getComputedStyle: 'readonly',
-        matchMedia: 'readonly',
-        fetch: 'readonly',
-        URL: 'readonly',
-        URLSearchParams: 'readonly',
-        localStorage: 'readonly',
-        sessionStorage: 'readonly',
-        IntersectionObserver: 'readonly',
-        ResizeObserver: 'readonly',
-        MutationObserver: 'readonly',
-        CustomEvent: 'readonly',
-        Event: 'readonly',
-        HTMLElement: 'readonly',
-        Element: 'readonly',
-        innerWidth: 'readonly',
-        innerHeight: 'readonly',
-        scrollX: 'readonly',
-        scrollY: 'readonly',
-        scrollTo: 'readonly',
-        scrollBy: 'readonly',
-      },
-    },
-    rules: {
-      '@typescript-eslint/explicit-function-return-type': 'off',
-    },
-  },
-  {
     ignores: ['dist/', 'node_modules/', '.svelte-kit/'],
   },
 )
