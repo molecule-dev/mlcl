@@ -82,14 +82,20 @@ export function FoodDeliveryLayout() {
   )
   const nav = <FoodDeliveryNav />
 
+  // Brand block — mounted by the mobile TopBar AND the desktop Sidebar (never
+  // simultaneously: the Sidebar is unmounted below 768px and the mobileOnly
+  // TopBar returns null above it).
+  const brand = (
+    <Link to="/restaurants" className={cm.cn('shrink-0')}>
+      <BrandWordmark as="span" />
+    </Link>
+  )
+
   return (
     <ResponsiveAppShell sidebarWidth="md">
       <ResponsiveAppShell.TopBar
-        brand={
-          <Link to="/restaurants" className={cm.cn('shrink-0')}>
-            <BrandWordmark as="span" />
-          </Link>
-        }
+        mobileOnly
+        brand={brand}
         actions={
           <>
             <ThemeToggle />
@@ -97,7 +103,26 @@ export function FoodDeliveryLayout() {
           </>
         }
       />
-      <ResponsiveAppShell.Sidebar navLabel={navLabel}>{nav}</ResponsiveAppShell.Sidebar>
+      {/* Desktop keeps brand + user affordances in the Sidebar: brand above
+          the nav, theme toggle + UserMenu in the shell's bordered footer row. */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        footer={
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              cm.w('full'),
+              'text-on-surface-variant hover:text-on-surface transition-colors',
+            )}
+          >
+            <ThemeToggle />
+            <UserMenu />
+          </div>
+        }
+      >
+        <div className={cm.cn(cm.sp('px', 3), cm.sp('py', 2))}>{brand}</div>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer navLabel={navLabel} header={<BrandWordmark as="span" />}>
         {nav}
       </ResponsiveAppShell.Drawer>
