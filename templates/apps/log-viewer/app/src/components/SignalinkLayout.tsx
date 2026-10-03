@@ -4,9 +4,9 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
-import { BrandWordmark } from './BrandWordmark.js'
 
 /**
  * Authenticated shell — the shared `ResponsiveAppShell`: brand top bar
@@ -88,30 +88,29 @@ export function SignalinkLayout() {
     </Link>
   )
 
+  // Desktop-only tagline — lives in the Sidebar (which mounts ≥768px only),
+  // so no responsive hiding is needed.
+  const tagline = (
+    <span
+      style={{
+        fontFamily: 'var(--font-mono, monospace)',
+        fontSize: '10px',
+        fontWeight: 800,
+        letterSpacing: '0.14em',
+        textTransform: 'uppercase',
+        color: 'var(--color-text-secondary)',
+      }}
+    >
+      {t('signalinkLayout.tagline', {}, { defaultValue: '$ signalink --live' })}
+    </span>
+  )
+
   return (
     <ResponsiveAppShell sidebarWidth="md" dataMolId="signalink-shell">
       <ResponsiveAppShell.TopBar
+        mobileOnly
         dataMolId="signalink-topbar"
-        brand={
-          <>
-            {brand}
-            {/* Desktop-only tagline — a non-duplicating surface swap, the
-                breakpoint pair the shell docs carve out for this case. */}
-            <span
-              className={cm.hiddenBelow('md')}
-              style={{
-                fontFamily: 'var(--font-mono, monospace)',
-                fontSize: '10px',
-                fontWeight: 800,
-                letterSpacing: '0.14em',
-                textTransform: 'uppercase',
-                color: 'var(--color-text-secondary)',
-              }}
-            >
-              {t('signalinkLayout.tagline', {}, { defaultValue: '$ signalink --live' })}
-            </span>
-          </>
-        }
+        brand={brand}
         actions={
           <>
             <ThemeToggle />
@@ -119,10 +118,11 @@ export function SignalinkLayout() {
           </>
         }
       />
-      {/* Identity footer (both breakpoints) — wrapped in a bordered row so
-          the UserMenu does not render as a bare control bolted onto the
-          styled rail (terminal aesthetic: secondary text + hover tint). The
-          theme toggle stays in the TopBar, which mounts at every width. */}
+      {/* Desktop keeps brand + user affordances in the Sidebar: brand + the
+          terminal tagline above the nav; theme toggle beside the UserMenu in
+          the identity footer. Wrapped in a bordered row so the controls do
+          not render as bare widgets bolted onto the styled rail (terminal
+          aesthetic: secondary text + hover tint). */}
       <ResponsiveAppShell.Sidebar
         navLabel={navLabel}
         footer={
@@ -135,9 +135,16 @@ export function SignalinkLayout() {
             <div className="text-on-surface-variant hover:text-on-surface transition-colors">
               <UserMenu side="left" />
             </div>
+            <div className="text-on-surface-variant hover:text-on-surface transition-colors">
+              <ThemeToggle />
+            </div>
           </div>
         }
       >
+        <div className={cm.cn('inline-flex items-center gap-2', cm.sp('px', 3), cm.sp('py', 3))}>
+          {brand}
+          {tagline}
+        </div>
         {nav}
       </ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer
