@@ -20,11 +20,6 @@ interface MeridianMailSidebarProps {
    * mutations (send / delete / move) so badges stay fresh.
    */
   refreshKey?: number
-  /**
-   * Invoked after any sidebar navigation — the mobile drawer uses this to
-   * close itself when a destination is chosen.
-   */
-  onNavigate?: () => void
 }
 
 function formatBytes(bytes: number): string {
@@ -105,8 +100,13 @@ const LABEL_DOT_TONES: Record<string, string> = {
  * navigation backed by /api/emails/counts + /api/labels, plus a per-user
  * storage usage gauge computed from /api/emails/storage. Brand-blue
  * active state, pill counts, semantic colored dots for labels.
+ *
+ * Rendered by MeridianAppShell inside the shared ResponsiveAppShell's
+ * `<aside>`/`<nav>` landmarks on BOTH breakpoints (desktop sidebar, mobile
+ * drawer) — so this root is a plain `<div>` sized by the shell panel, and
+ * the shared shell closes the drawer on navigation (no onNavigate prop).
  */
-export function MeridianMailSidebar({ refreshKey = 0, onNavigate }: MeridianMailSidebarProps) {
+export function MeridianMailSidebar({ refreshKey = 0 }: MeridianMailSidebarProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const location = useLocation()
@@ -125,19 +125,18 @@ export function MeridianMailSidebar({ refreshKey = 0, onNavigate }: MeridianMail
     : ''
 
   return (
-    <aside
+    <div
       className={cm.cn(
         cm.flex({ direction: 'col' }),
         cm.sp('py', 5),
         cm.sp('px', 3),
-        'w-[240px] h-full bg-surface-container-lowest border-r border-outline-variant/40 shrink-0 overflow-y-auto',
+        'h-full w-full bg-surface-container-lowest overflow-y-auto',
       )}
       data-mol-id="sidebar"
     >
       <Link
         to="/compose"
         data-mol-id="sidebar-compose"
-        onClick={onNavigate}
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
           cm.fontWeight('semibold'),
@@ -156,7 +155,8 @@ export function MeridianMailSidebar({ refreshKey = 0, onNavigate }: MeridianMail
         {t('meridian.sidebar.compose', {}, { defaultValue: 'Compose' })}
       </Link>
 
-      <nav className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+      {/* Folder links live inside the shell's `<nav aria-label>` landmark. */}
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
         {FOLDERS.map((f) => {
           const active = location.pathname === f.to
           const count = counts && f.countKey ? counts[f.countKey] : 0
@@ -165,7 +165,6 @@ export function MeridianMailSidebar({ refreshKey = 0, onNavigate }: MeridianMail
               key={f.to}
               to={f.to}
               data-mol-id={`sidebar-${f.to.replace(/\W+/g, '')}`}
-              onClick={onNavigate}
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'between' }),
                 cm.sp('px', 3),
@@ -209,7 +208,7 @@ export function MeridianMailSidebar({ refreshKey = 0, onNavigate }: MeridianMail
             </Link>
           )
         })}
-      </nav>
+      </div>
 
       <div className={cm.cn(cm.sp('mt', 6), cm.sp('pt', 4), 'border-t border-outline-variant/40')}>
         <p
@@ -238,7 +237,6 @@ export function MeridianMailSidebar({ refreshKey = 0, onNavigate }: MeridianMail
             <li key={l.id}>
               <Link
                 to={`/inbox?label=${encodeURIComponent(l.id)}`}
-                onClick={onNavigate}
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'sm' }),
                   cm.sp('px', 3),
@@ -304,6 +302,6 @@ export function MeridianMailSidebar({ refreshKey = 0, onNavigate }: MeridianMail
           </div>
         </div>
       )}
-    </aside>
+    </div>
   )
 }
