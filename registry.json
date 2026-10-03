@@ -58306,7 +58306,7 @@
       "@molecule/api-ai-speech-nemo-speech": "1.0.0",
       "@molecule/api-ai-speech-llm": "1.0.0",
       "@molecule/api-ai-speech-confucius4": "1.0.0",
-      "@molecule/api-agent-transcript-autodetect": "1.2.0",
+      "@molecule/api-agent-transcript-autodetect": "1.1.2",
       "@molecule/api-ai-decisions-jev": "1.1.0",
       "@molecule/api-ai-decisions-laya": "1.1.0"
     }
