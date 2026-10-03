@@ -31,6 +31,11 @@ interface SiftLayoutProps {
  * dialog contract) only below it, and the TopBar renders the menu trigger
  * itself — the app's own hamburger, drawer state and escape/backdrop
  * handlers are deleted.
+ *
+ * The TopBar stays on EVERY breakpoint via the shell's wrap-bar layout
+ * (`md:flex-wrap` root + `w-full` bar): its breadcrumbs/search/actions are
+ * real desktop chrome, so the bar spans its own full-width row ABOVE the
+ * sidebar instead of rendering beside it (which the shell suppresses).
  */
 export function SiftLayout({ children, crumbs, actions, hideSearch }: SiftLayoutProps) {
   const cm = getClassMap()
@@ -42,9 +47,15 @@ export function SiftLayout({ children, crumbs, actions, hideSearch }: SiftLayout
   const drawerBrand = <BrandWordmark as="span" invert />
 
   return (
-    <ResponsiveAppShell sidebarWidth={260} className="bg-background text-on-surface antialiased">
+    <ResponsiveAppShell
+      sidebarWidth={260}
+      // md:flex-wrap = the shell's wrap-bar layout: the always-mounted TopBar
+      // (w-full below) wraps onto its own full-width row ABOVE the sidebar on
+      // desktop instead of being suppressed as a squeezed flex-row column.
+      className="md:flex-wrap bg-background text-on-surface antialiased"
+    >
       <ResponsiveAppShell.TopBar
-        className="h-16 bg-surface/80 backdrop-blur-xl border-b border-surface-container shadow-sm shadow-slate-200/40 md:px-8"
+        className="w-full h-16 bg-surface/80 backdrop-blur-xl border-b border-surface-container shadow-sm shadow-slate-200/40 md:px-8"
         brand={<SiftCrumbs crumbs={crumbs} />}
         actions={<SiftTopBarActions showSearch={!hideSearch} actions={actions} />}
       />
