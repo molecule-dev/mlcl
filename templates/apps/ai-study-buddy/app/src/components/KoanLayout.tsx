@@ -6,8 +6,8 @@ import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import { BrandWordmark } from './BrandWordmark.js'
 import { useIsMobile } from '../lib/use-is-mobile.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
