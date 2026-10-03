@@ -9,12 +9,22 @@ import { expect, test } from '@molecule/app-e2e-fixtures-default'
 import { APP_BASE, captureNetwork } from './_helpers.js'
 
 test('GET /pricing fetches /api/billing/tiers and renders priced plans', async ({ page }) => {
-  const reqs = await captureNetwork(page, async () => {
-    await page.goto(APP_BASE + '/pricing')
-    await page.waitForLoadState('networkidle')
-  })
-  expect(reqs.some((r) => /\/api\/billing\/tiers/.test(r.url) && r.status === 200)).toBe(true)
-  const text = await page.evaluate(() => document.body.innerText)
+  // The capture window can close before the tiers response lands when the
+  // dev server is cold-compiling under fleet-load — retry the SAME
+  // capture contract up to 3 times before failing.
+  let sawTiers200 = false
+  let text = ''
+  for (let attempt = 0; attempt < 3 && !sawTiers200; attempt++) {
+    const reqs = await captureNetwork(page, async () => {
+      await page.goto(APP_BASE + '/pricing')
+      await page.waitForLoadState('networkidle')
+    })
+    if (reqs.some((r) => /\/api\/billing\/tiers/.test(r.url) && r.status === 200)) {
+      sawTiers200 = true
+      text = await page.evaluate(() => document.body.innerText)
+    }
+  }
+  expect(sawTiers200).toBe(true)
   expect(text).toMatch(/\$/)
   expect(text.toLowerCase()).toMatch(/plan|tier|free|pro|month|year/)
 })

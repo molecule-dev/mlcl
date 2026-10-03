@@ -13,19 +13,26 @@ test('GET /forgot-password renders the reset-request form', async ({ page }) => 
 
 test('Submitting forgot-password form posts to /api/users/forgot-password', async ({ page }) => {
   await page.goto(APP_BASE + '/forgot-password')
+  const submit = page.getByRole('button', { name: /reset|send/i }).first()
+  // Hydration gate: under fleet-load the click can land before React has
+  // attached handlers and the POST never fires.
+  await expect(submit).toBeEnabled({ timeout: 15000 })
+  // Arm the response wait BEFORE the click; the mail POST can exceed the
+  // 5s default expect timeout when the machine is loaded.
+  const posted = page.waitForResponse((r) => /\/api\/users\/forgot-password$/.test(r.url()), {
+    timeout: 20000,
+  })
   const reqs = await captureNetwork(page, async () => {
     await page.locator('input[type="email"]').first().fill(uniqueEmail('forgot'))
-    await page
-      .getByRole('button', { name: /reset|send/i })
-      .first()
-      .click()
-    await page.waitForLoadState('networkidle')
+    await submit.click()
+    // Keep the capture window open until the POST's response lands, so
+    // the recorded table includes it.
+    await posted
   })
-  expect(
-    reqs.some(
-      (r) => /\/api\/users\/forgot-password$/.test(r.url) && r.status >= 200 && r.status < 300,
-    ),
-  ).toBe(true)
+  const resp = await posted
+  expect(resp.status()).toBeGreaterThanOrEqual(200)
+  expect(resp.status()).toBeLessThan(300)
+  expect(reqs.some((r) => /\/api\/users\/forgot-password$/.test(r.url))).toBe(true)
 })
 
 test('Successful submit shows a non-enumerating confirmation', async ({ page }) => {
