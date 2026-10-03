@@ -269,6 +269,13 @@ export function postPage({
   // either one highlights the other. Do not add a second list of prompts (a
   // "Prompts" section, a <details> of every prompt, a footer list): each prompt
   // then appears twice on the page, and the copy has none of that behaviour.
+  //
+  // `marginNotesScriptTag()` below is the package's own script, as it ships.
+  // Never a patched copy of it, a wrapper around it, or tap/toggle handlers of
+  // your own in public/site.js: the script, the stylesheet and the HTML it
+  // attaches to move together, and a build that hand-patched the script broke
+  // the phone bar (two separate switches, no panel). If a behaviour of the
+  // notes looks wrong, say so in your report rather than re-implementing it.
   return layout({
     site,
     path: postPath(post.slug),

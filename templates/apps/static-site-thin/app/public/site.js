@@ -2,8 +2,11 @@
 // build step. The pages work without it; it adds small conveniences.
 //
 // Add behaviour here the same way: find elements by a data attribute or class
-// the page templates (src/pages.mjs) write, and leave the page usable when
-// this file fails to load.
+// the page templates (src/pages.ts) write, and leave the page usable when
+// this file fails to load. The post page's margin notes are not yours to
+// script: @molecule/app-margin-notes-html ships their switches, taps, hover
+// and phone panel in its own tag (see src/post-notes.ts) — do not add tap or
+// toggle handlers for them here, and do not patch that package's script.
 ;(function () {
   'use strict'
   document.documentElement.setAttribute('data-js', '')
