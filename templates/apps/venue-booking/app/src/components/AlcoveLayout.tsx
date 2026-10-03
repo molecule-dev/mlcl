@@ -1,18 +1,29 @@
 /**
- * Alcove layout wrapper. Below `lg` (1024px) a template-local shell
- * (sticky top bar + slide-in drawer) renders INSTEAD of the shared
- * `<TopNavLayout>` — its five labeled nav items need ~830px and overflow
- * a 390px phone (scrollWidth 476) and a 768px tablet (825). Both shells
- * are conditionally RENDERED off matchMedia (never CSS-hidden) so nav
- * landmarks and `data-mol-id`s are never duplicated.
+ * App shell for the auth'd Alcove surface — the SHARED `ResponsiveAppShell`
+ * compound from `@molecule/app-ui-react`.
+ *
+ * The shell owns the breakpoint split (768px, one chrome mounted per
+ * breakpoint): the desktop Sidebar + the mobile Drawer (full APG dialog —
+ * focus trap, Escape/backdrop close, scroll lock, auto-close on navigation)
+ * render the SAME nav element, and the mobile-only TopBar renders the 44px
+ * menu trigger itself. The former hand-rolled hamburger/drawer shell
+ * (`AlcoveMobileShell`) and the desktop `TopNavLayout` — whose five labeled
+ * items needed ~830px and overflowed both a 390px phone and a 768px tablet —
+ * are deleted with it.
+ *
+ * Nav targets/labels (i18n), longest-prefix active highlighting,
+ * `aria-current="page"`, the `nav-*` data-mol-ids and the UserMenu placement
+ * (sidebar footer on desktop; top bar + drawer footer on mobile) are
+ * preserved from the previous shells.
  */
+import type { ReactElement } from 'react'
+import { Link, Outlet, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
-import { TopNavLayout } from '@molecule/app-top-nav-layout-react'
+import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
-import { useMediaQuery } from '../lib/use-is-mobile.js'
-import { AlcoveMobileShell } from './AlcoveMobileShell.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -28,32 +39,105 @@ const NAV_KEYS = [
   },
 ] as const
 
-export function AlcoveLayout() {
+export function AlcoveLayout(): ReactElement {
   const { t } = useTranslation()
-  // The shared top nav (5 labeled items + brand + user menu) needs ~830px:
-  // it overflows a 390px phone (scrollWidth 476) AND a 768px tablet (825),
-  // so the drawer shell covers everything below `lg` (1024px).
-  const isCompact = useMediaQuery('(max-width: 1023.98px)')
-  const navItems = NAV_KEYS.map((item) => ({
-    to: item.to,
-    key: item.key,
-    icon: item.icon,
-    label: t(`alcoveLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
-  }))
+  const cm = getClassMap()
+  const { pathname } = useLocation()
+
+  // Single-active-item resolution: highlight the nav item whose `to` is the
+  // longest prefix-match of the current pathname (never highlight every
+  // ancestor).
+  const activeKey = NAV_KEYS.reduce<string | null>((bestKey, item) => {
+    const isMatch = pathname === item.to || pathname.startsWith(`${item.to}/`)
+    if (!isMatch) return bestKey
+    if (bestKey === null) return item.key
+    const best = NAV_KEYS.find((i) => i.key === bestKey)
+    return best && item.to.length > best.to.length ? item.key : bestKey
+  }, null)
+
+  // Same-route clicks append `#top` so the URL still changes (no dead links).
+  const safeTarget = (to: string): string => {
+    const samePath = pathname === to || pathname + '/' === to
+    return samePath ? `${to.replace(/\/$/, '')}#top` : to
+  }
+
+  const renderNavLinks = (): ReactElement[] =>
+    NAV_KEYS.map((item) => {
+      const isActive = item.key === activeKey
+      return (
+        <Link
+          key={item.key}
+          to={safeTarget(item.to)}
+          data-mol-id={`nav-${item.key}`}
+          aria-current={isActive ? 'page' : undefined}
+          className={cm.cn(
+            'flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium min-h-[44px]',
+            isActive
+              ? // The container pair, NOT bgPrimarySubtle + textPrimary — brand
+                // on a 10% tint of itself fails the 4.5:1 AA floor.
+                cm.cn(cm.bgPrimaryContainer, cm.textOnPrimaryContainer)
+              : cm.cn('text-on-surface-variant hover:bg-surface-variant', cm.link),
+          )}
+        >
+          <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
+            {item.icon}
+          </span>
+          <span>{t(`alcoveLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel })}</span>
+        </Link>
+      )
+    })
+
+  const brand = (
+    <Link to={safeTarget('/search')} data-mol-id="nav-brand" className={cm.cn('block')}>
+      <BrandWordmark as="span" size="md" />
+    </Link>
+  )
+
+  // One nav element for BOTH mounts — the shell instantiates only the
+  // breakpoint's copy, so the links are never in the DOM twice.
+  const nav = (
+    <div className={cm.cn(cm.flex1, cm.flex({ direction: 'col', gap: 'sm' }), cm.sp('p', 2))}>
+      {renderNavLinks()}
+    </div>
+  )
 
   const navAriaLabel = t('alcoveLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
 
-  if (isCompact) {
-    return <AlcoveMobileShell navItems={navItems} userMenu={<UserMenu />} />
-  }
-
   return (
-    <TopNavLayout
-      appName={APP_NAME}
-      logoTo="/"
-      navItems={navItems}
-      userMenu={<UserMenu />}
-      navAriaLabel={navAriaLabel}
-    />
+    <ResponsiveAppShell sidebarWidth="md">
+      {/*
+        Mobile top bar (<768px): the shell's 44px menu trigger + brand +
+        user menu — the hand-rolled header it replaces, one for one.
+        Desktop returns null (mobileOnly): the Sidebar carries the shell.
+      */}
+      <ResponsiveAppShell.TopBar mobileOnly brand={brand} actions={<UserMenu />} />
+
+      {/*
+        Desktop sidebar (>=768px): brand + nav + the UserMenu in the
+        bordered footer row.
+      */}
+      <ResponsiveAppShell.Sidebar navLabel={navAriaLabel} footer={<UserMenu />}>
+        {brand}
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+
+      {/*
+        Mobile drawer (<768px): the shell's APG dialog over the SAME nav
+        element. `h-full` restores the full-height left-panel geometry (the
+        shared panel ships no height token).
+      */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navAriaLabel}
+        header={brand}
+        footer={<UserMenu />}
+        className="h-full"
+      >
+        {nav}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content>
+        <Outlet />
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
