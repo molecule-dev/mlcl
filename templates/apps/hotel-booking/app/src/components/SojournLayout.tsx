@@ -1,13 +1,29 @@
-import type { JSX } from 'react'
-import { useEffect, useState } from 'react'
-import { NavLink, Outlet } from 'react-router'
+/**
+ * Sojourn layout wrapper — the SHARED `ResponsiveAppShell` compound from
+ * `@molecule/app-ui-react`, consumed by every authed route
+ * (Search/Trips/Favorites/Notifications/Account).
+ *
+ * The shell owns the breakpoint split (768px, one chrome mounted per
+ * breakpoint): the desktop Sidebar + the mobile Drawer (full APG dialog —
+ * focus trap, Escape/backdrop close, scroll lock, auto-close on navigation)
+ * render the SAME nav element, and the mobile-only TopBar renders the 44px
+ * menu trigger itself. The former pair — the shared `TopNavLayout` (whose
+ * brand + 4 icon links + UserMenu overflowed a 390px header, measured
+ * scrollWidth 426 vs 390) and the template-local chip `MobileShell` — are
+ * deleted with it.
+ *
+ * Nav targets/labels (i18n), longest-prefix active highlighting,
+ * `aria-current="page"`, the `nav-*` data-mol-ids, the theme/language/user
+ * controls and the `Search`-first nav rhythm are preserved from the previous
+ * shells.
+ */
+import type { ReactElement } from 'react'
+import { Link, Outlet, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
-import { TopNavLayout } from '@molecule/app-top-nav-layout-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker } from '@molecule/app-ui-react'
+import { LanguagePicker, ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
 import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
@@ -24,133 +40,118 @@ const NAV_KEYS = [
   },
 ] as const
 
-const MOBILE_QUERY = '(max-width: 767px)'
-
-/**
- * Shared-module matchMedia listener. TopNavLayout (the shared shell) renders
- * brand + icon nav + user menu in ONE row, which overflows a 390px viewport —
- * below 768px this app renders its own shell instead: a sticky top bar
- * (brand + controls) with the nav as a horizontally scrollable chip row
- * underneath, per the fleet mobile pattern.
- */
-function useIsMobile(): boolean {
-  const [isMobile, setIsMobile] = useState(() => window.matchMedia(MOBILE_QUERY).matches)
-  useEffect(() => {
-    const mq = window.matchMedia(MOBILE_QUERY)
-    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches)
-    mq.addEventListener('change', onChange)
-    return () => mq.removeEventListener('change', onChange)
-  }, [])
-  return isMobile
-}
-
-function MobileShell({
-  navItems,
-  navAriaLabel,
-}: {
-  navItems: Array<{ to: string; key: string; icon?: string; label: string }>
-  navAriaLabel: string
-}): JSX.Element {
+export function SojournLayout(): ReactElement {
+  const { t } = useTranslation()
   const cm = getClassMap()
-  return (
-    <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
-      <header className={cm.cn('sticky top-0 z-40 bg-surface shadow-sm')}>
-        <div
+  const { pathname } = useLocation()
+
+  // Single-active-item resolution: highlight the nav item whose `to` is the
+  // longest prefix-match of the current pathname (never highlight every
+  // ancestor).
+  const activeKey = NAV_KEYS.reduce<string | null>((bestKey, item) => {
+    const isMatch = pathname === item.to || pathname.startsWith(`${item.to}/`)
+    if (!isMatch) return bestKey
+    if (bestKey === null) return item.key
+    const best = NAV_KEYS.find((i) => i.key === bestKey)
+    return best && item.to.length > best.to.length ? item.key : bestKey
+  }, null)
+
+  // Same-route clicks append `#top` so the URL still changes (no dead links).
+  const safeTarget = (to: string): string => {
+    const samePath = pathname === to || pathname + '/' === to
+    return samePath ? `${to.replace(/\/$/, '')}#top` : to
+  }
+
+  const renderNavLinks = (): ReactElement[] =>
+    NAV_KEYS.map((item) => {
+      const isActive = item.key === activeKey
+      return (
+        <Link
+          key={item.key}
+          to={safeTarget(item.to)}
+          data-mol-id={`nav-${item.key}`}
+          aria-current={isActive ? 'page' : undefined}
           className={cm.cn(
-            cm.sp('px', 4),
-            cm.sp('py', 3),
-            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+            'flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium min-h-[44px]',
+            isActive
+              ? // The container pair, NOT bgPrimarySubtle + textPrimary — brand
+                // on a 10% tint of itself fails the 4.5:1 AA floor.
+                cm.cn(cm.bgPrimaryContainer, cm.textOnPrimaryContainer)
+              : cm.cn('text-on-surface-variant hover:bg-surface-variant', cm.link),
           )}
         >
-          <NavLink
-            to="/"
-            className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-primary shrink-0')}
-          >
-            <BrandWordmark as="span" size="sm" />
-          </NavLink>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}>
-            <ThemeToggle />
-            <LanguagePicker display="icon" />
-            <UserMenu />
-          </div>
-        </div>
-        {/* Chip nav — scrollable so four destinations always fit a 390px bar */}
-        <nav aria-label={navAriaLabel}>
-          <div
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('pb', 2),
-              cm.flex({ align: 'center', gap: 'sm' }),
-              'overflow-x-auto',
-            )}
-          >
-            {navItems.map((item) => (
-              <NavLink
-                key={item.key}
-                to={item.to}
-                className={({ isActive }) =>
-                  cm.cn(
-                    cm.flex({ align: 'center', gap: 'xs' }),
-                    cm.sp('px', 4),
-                    cm.textSize('sm'),
-                    cm.fontWeight('semibold'),
-                    'min-h-10 shrink-0 items-center rounded-full whitespace-nowrap transition-colors',
-                    isActive
-                      ? 'bg-primary text-on-primary'
-                      : cm.cn(cm.textMuted, 'bg-surface-container-low hover:bg-surface-container'),
-                  )
-                }
-              >
-                {item.icon ? (
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">
-                    {item.icon}
-                  </span>
-                ) : null}
-                {item.label}
-              </NavLink>
-            ))}
-          </div>
-        </nav>
-      </header>
-      <main>
-        <Outlet />
-      </main>
+          <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
+            {item.icon}
+          </span>
+          <span>{t(`sojournLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel })}</span>
+        </Link>
+      )
+    })
+
+  const brand = (
+    <Link to={safeTarget('/search')} data-mol-id="nav-brand" className={cm.cn('block')}>
+      <BrandWordmark as="span" size="md" />
+    </Link>
+  )
+
+  // The chrome both breakpoints carried before: theme, language, user menu.
+  const controls = (
+    <>
+      <ThemeToggle />
+      <LanguagePicker display="icon" />
+      <UserMenu />
+    </>
+  )
+
+  // One nav element for BOTH mounts — the shell instantiates only the
+  // breakpoint's copy, so the links are never in the DOM twice.
+  const nav = (
+    <div className={cm.cn(cm.flex1, cm.flex({ direction: 'col', gap: 'sm' }), cm.sp('p', 2))}>
+      {renderNavLinks()}
     </div>
   )
-}
 
-export function SojournLayout() {
-  const { t } = useTranslation()
-  const isMobile = useIsMobile()
-  const navItems = NAV_KEYS.map((item) => ({
-    to: item.to,
-    key: item.key,
-    icon: item.icon,
-    label: t(`sojournLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
-  }))
   const navAriaLabel = t(
     'sojournLayout.primaryNavLabel',
     {},
     { defaultValue: 'Primary navigation' },
   )
 
-  if (isMobile) {
-    return <MobileShell navItems={navItems} navAriaLabel={navAriaLabel} />
-  }
-
   return (
-    <TopNavLayout
-      appName={APP_NAME}
-      logoTo="/"
-      navItems={navItems}
-      userMenu={
-        <>
-          <ThemeToggle />
-          <LanguagePicker display="icon" />
-          <UserMenu />
-        </>
-      }
-      navAriaLabel={navAriaLabel}
-    />
+    <ResponsiveAppShell sidebarWidth="md">
+      {/*
+        Mobile top bar (<768px): the shell's 44px menu trigger + brand +
+        theme/language/user controls. Desktop returns null (mobileOnly):
+        the Sidebar carries the shell.
+      */}
+      <ResponsiveAppShell.TopBar mobileOnly brand={brand} actions={controls} />
+
+      {/*
+        Desktop sidebar (>=768px): brand + nav + the controls in the
+        bordered footer row.
+      */}
+      <ResponsiveAppShell.Sidebar navLabel={navAriaLabel} footer={controls}>
+        {brand}
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+
+      {/*
+        Mobile drawer (<768px): the shell's APG dialog over the SAME nav
+        element. `h-full` restores the full-height left-panel geometry (the
+        shared panel ships no height token).
+      */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navAriaLabel}
+        header={brand}
+        footer={controls}
+        className="h-full"
+      >
+        {nav}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content>
+        <Outlet />
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }

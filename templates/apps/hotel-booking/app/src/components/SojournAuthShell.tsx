@@ -15,10 +15,10 @@ import { useLegalModals } from '@molecule/app-legal-pages-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker } from '@molecule/app-ui-react'
-import { BrandWordmark } from './BrandWordmark.js'
 
 import { APP_NAME } from '../branding.js'
 import { loadContent } from '../config.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 
 interface SojournAuthShellProps {

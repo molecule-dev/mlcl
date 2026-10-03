@@ -16,7 +16,17 @@ import {
 // the file failed on setup. Walk the window forward per call instead. The band
 // starts at 200 because the other spec files hand-partition offsets below 100
 // (booking 30-62, trips 95-98, property 15-25) against the same seeded rooms.
-let nextCheckIn = 200
+// The runner is fullyParallel: every WORKER gets a fresh module instance, so a
+// bare module counter restarted from 200 in each worker and two workers booked
+// the identical window. Offset the band per worker (512 apart — far beyond any
+// file's test count, so the 200/300 per-file bases stay distinct under the same
+// offset). A per-run base (minute-scaled, like travel-booking's
+// uniqueStayWindow) shifts the whole band on every run so repeated suites
+// against a DB that was NOT reset in between never re-fill the same windows —
+// reservations persist, and an overlapping stay is a 409.
+const WORKER_BASE = Number(process.env.TEST_WORKER_INDEX ?? '0') * 512
+const RUN_BASE = (Math.floor(Date.now() / 60_000) % 1024) * 4
+let nextCheckIn = 200 + WORKER_BASE + RUN_BASE
 async function createReservationViaApi(page: import('@playwright/test').Page) {
   const properties = await listProperties(page)
   const rooms = await listRooms(page, properties[0].id)
