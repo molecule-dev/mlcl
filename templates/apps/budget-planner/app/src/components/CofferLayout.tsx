@@ -4,8 +4,8 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { BrandWordmark } from './BrandWordmark.js'
 import { usePreferences } from '../lib/format.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -92,8 +92,9 @@ function CofferNav({ navItems }: { navItems: ReadonlyArray<CofferNavItem> }) {
  * The shared ResponsiveAppShell owns the breakpoint split: the Sidebar mounts
  * only ≥768px, the mobile Drawer (same nav element, full dialog contract —
  * focus trap, Escape/backdrop close, scroll lock) only below it, and the
- * TopBar renders the menu trigger itself. Page padding stays inside the
- * pages; `.Content` is a bare `<main>`.
+ * `mobileOnly` TopBar (brand + UserMenu + the shell's menu trigger) renders
+ * below 768px only — the Sidebar carries the brand and the UserMenu on
+ * desktop. Page padding stays inside the pages; `.Content` is a bare `<main>`.
  */
 export function CofferLayout() {
   const cm = getClassMap()
@@ -110,20 +111,27 @@ export function CofferLayout() {
   }))
   const nav = <CofferNav navItems={navItems} />
 
+  // Brand block — mounted by the mobile TopBar AND the desktop Sidebar (never
+  // simultaneously: the Sidebar is unmounted below 768px and the mobileOnly
+  // TopBar returns null above it).
+  const brand = (
+    <Link
+      to="/dashboard"
+      className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}
+    >
+      <BrandWordmark as="span" size="sm" />
+    </Link>
+  )
+
   return (
     <ResponsiveAppShell sidebarWidth="md">
-      <ResponsiveAppShell.TopBar
-        brand={
-          <Link
-            to="/dashboard"
-            className={cm.cn(cm.fontWeight('bold'), cm.textSize('base'), 'text-on-surface')}
-          >
-            <BrandWordmark as="span" size="sm" />
-          </Link>
-        }
-        actions={<UserMenu />}
-      />
-      <ResponsiveAppShell.Sidebar>{nav}</ResponsiveAppShell.Sidebar>
+      <ResponsiveAppShell.TopBar mobileOnly brand={brand} actions={<UserMenu />} />
+      {/* Desktop keeps brand + user affordances in the Sidebar: brand above
+          the nav, UserMenu in the shell's bordered footer row. */}
+      <ResponsiveAppShell.Sidebar footer={<UserMenu />}>
+        <div className={cm.cn(cm.sp('px', 3), cm.sp('py', 2))}>{brand}</div>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer header={<BrandWordmark as="span" />}>
         {nav}
       </ResponsiveAppShell.Drawer>
