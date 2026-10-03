@@ -1,4 +1,4 @@
-import { lookup as dnsLookup } from 'node:dns'
+import { lookup as dnsLookup, type LookupAddress, type LookupOptions } from 'node:dns'
 import net from 'node:net'
 
 import { Agent } from 'undici'
@@ -60,7 +60,13 @@ export function isPrivateAddress(ip: string): boolean {
  */
 const ssrfSafeAgent = new Agent({
   connect: {
-    lookup(hostname, options, callback): void {
+    // Explicit param types — a fresh scaffold's @types/node resolution does
+    // not give these a contextual signature (tsc TS7006 on `callback`).
+    lookup(
+      hostname: string,
+      options: LookupOptions,
+      callback: (err: Error | null, address: string | LookupAddress[], family?: number) => void,
+    ): void {
       dnsLookup(hostname, { ...(options ?? {}), all: true, verbatim: true }, (err, addresses) => {
         if (err) {
           callback(err, '', 0)
