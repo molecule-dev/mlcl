@@ -60,6 +60,11 @@ function SettingsNotificationsSection() {
           <Switch
             checked={emailNotif}
             onChange={(e) => setEmailNotif((e.target as HTMLInputElement).checked)}
+            aria-label={t(
+              'settingsNotifications.emailTitle',
+              {},
+              { defaultValue: 'Email Notifications' },
+            )}
           />
         </div>
         {/* Toggle Item 2 */}
@@ -91,6 +96,11 @@ function SettingsNotificationsSection() {
           <Switch
             checked={pushNotif}
             onChange={(e) => setPushNotif((e.target as HTMLInputElement).checked)}
+            aria-label={t(
+              'settingsNotifications.pushTitle',
+              {},
+              { defaultValue: 'Push Notifications' },
+            )}
           />
         </div>
         {/* Toggle Item 3 */}
@@ -122,6 +132,11 @@ function SettingsNotificationsSection() {
           <Switch
             checked={dealUpdates}
             onChange={(e) => setDealUpdates((e.target as HTMLInputElement).checked)}
+            aria-label={t(
+              'settingsNotifications.dealUpdatesTitle',
+              {},
+              { defaultValue: 'Deal Updates' },
+            )}
           />
         </div>
         {/* Toggle Item 4 */}
@@ -156,6 +171,11 @@ function SettingsNotificationsSection() {
           <Switch
             checked={activityReminders}
             onChange={(e) => setActivityReminders((e.target as HTMLInputElement).checked)}
+            aria-label={t(
+              'settingsNotifications.activityRemindersTitle',
+              {},
+              { defaultValue: 'Activity Reminders' },
+            )}
           />
         </div>
       </div>

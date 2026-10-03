@@ -28,6 +28,11 @@ function TasksFollowupsCard() {
           type="checkbox"
           checked={done1}
           onChange={() => setDone1((c) => !c)}
+          aria-label={t(
+            'tasksFollowupsCard.overdueTaskTitle',
+            {},
+            { defaultValue: 'Call David Foster' },
+          )}
         />
         <div className={cm.flex1}>
           <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-on-surface')}>
@@ -53,6 +58,11 @@ function TasksFollowupsCard() {
           type="checkbox"
           checked={done2}
           onChange={() => setDone2((c) => !c)}
+          aria-label={t(
+            'tasksFollowupsCard.dueTodayTaskTitle',
+            {},
+            { defaultValue: 'Review NexGen Contract' },
+          )}
         />
         <div className={cm.flex1}>
           <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-on-surface')}>
@@ -77,6 +87,11 @@ function TasksFollowupsCard() {
           )}
           type="checkbox"
           onChange={() => setDone3((c) => !c)}
+          aria-label={t(
+            'tasksFollowupsCard.completedTaskTitle',
+            {},
+            { defaultValue: 'Draft Pitch Deck' },
+          )}
         />
         <div className={cm.flex1}>
           <p
