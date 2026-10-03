@@ -591,7 +591,7 @@ export function Landing() {
             <div
               className={cm.cn(
                 cm.flex({ wrap: 'wrap', justify: 'center', gap: 8 }),
-                'opacity-60 grayscale',
+                'opacity-70 grayscale',
                 cm.sp('mb', 8),
               )}
             >

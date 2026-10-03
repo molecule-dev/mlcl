@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
@@ -70,26 +71,27 @@ export function DatasetDetail() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
+  // Extracted so the LoadErrorBanner's Retry re-runs the same load the mount
+  // effect uses (the banner owns the retry's pending/disabled state).
+  const load = useCallback(async (): Promise<void> => {
     if (!id) return
-    let cancelled = false
     setLoading(true)
-    http
-      .get(`/api/datasets/${id}`)
-      .then((res) => {
-        if (!cancelled) setDataset(unwrapSingle<DatasetDetail>(res))
-      })
-      .catch(() => {
-        if (!cancelled)
-          setError(t('datasetDetail.loadError', {}, { defaultValue: 'Failed to load dataset.' }))
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
-    return () => {
-      cancelled = true
+    setError(null)
+    try {
+      const res = await http.get(`/api/datasets/${id}`)
+      setDataset(unwrapSingle<DatasetDetail>(res))
+    } catch (_error) {
+      // The request failed — the LoadErrorBanner carries the localized
+      // message; nothing further to do with the thrown value.
+      setError(t('datasetDetail.loadError', {}, { defaultValue: 'Failed to load dataset.' }))
+    } finally {
+      setLoading(false)
     }
   }, [http, id, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   useEffect(() => {
     if (!id || tab !== 'sample' || preview.length > 0) return
@@ -117,10 +119,16 @@ export function DatasetDetail() {
         {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
       </div>
     )
-  if (error || !dataset)
+  if (error)
+    return (
+      <div className={cm.sp('p', 8)}>
+        <LoadErrorBanner data-mol-id="dataset-detail-load-error" message={error} onRetry={load} />
+      </div>
+    )
+  if (!dataset)
     return (
       <div className={cm.cn(cm.sp('p', 8), 'text-error')}>
-        {error ?? t('datasetDetail.notFound', {}, { defaultValue: 'Dataset not found.' })}
+        {t('datasetDetail.notFound', {}, { defaultValue: 'Dataset not found.' })}
       </div>
     )
 

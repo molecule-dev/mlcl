@@ -17,8 +17,10 @@ test.describe('/ (Landing)', () => {
 
   test('"Try free" CTA navigates to /signup', async ({ page }) => {
     await page.goto(APP_BASE + '/')
+    // The hero CTA reads "Try {{appName}} free for 14 days" — the app name
+    // sits between "Try" and "free", hence the wildcard in the locator.
     await page
-      .getByRole('link', { name: /try free/i })
+      .getByRole('link', { name: /try .* free/i })
       .first()
       .click()
     await expect(page).toHaveURL(/\/signup$/)

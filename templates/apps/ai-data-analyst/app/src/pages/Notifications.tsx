@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { type FeedItem, NotificationFeed } from '@molecule/app-notification-feed-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -35,31 +36,28 @@ export function Notifications() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    let cancelled = false
+  // Extracted so the LoadErrorBanner's Retry re-runs the same load the mount
+  // effect uses (the banner owns the retry's pending/disabled state).
+  const load = useCallback(async (): Promise<void> => {
     setLoading(true)
-    http
-      .get('/api/notifications')
-      .then((res) => {
-        if (!cancelled) setNotifs(unwrapList<Notification>(res))
-      })
-      .catch(() => {
-        if (!cancelled)
-          setError(
-            t(
-              'nav.failedToLoadNotifications',
-              {},
-              { defaultValue: 'Failed to load notifications.' },
-            ),
-          )
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
-    return () => {
-      cancelled = true
+    setError(null)
+    try {
+      const res = await http.get('/api/notifications')
+      setNotifs(unwrapList<Notification>(res))
+    } catch (_error) {
+      // The request failed — the LoadErrorBanner carries the localized
+      // message; nothing further to do with the thrown value.
+      setError(
+        t('nav.failedToLoadNotifications', {}, { defaultValue: 'Failed to load notifications.' }),
+      )
+    } finally {
+      setLoading(false)
     }
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   const items: FeedItem[] = notifs.map((n) => ({
     id: n.id,
@@ -77,7 +75,7 @@ export function Notifications() {
         {t('settings.notifications', {}, { defaultValue: 'Notifications' })}
       </h1>
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <LoadErrorBanner data-mol-id="notifications-load-error" message={error} onRetry={load} />
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}

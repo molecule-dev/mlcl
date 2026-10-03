@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import {
@@ -99,38 +100,37 @@ export function Dashboard() {
   const u = user as { name?: string; email?: string } | null
   const greetingName = u?.name?.split(' ')[0] ?? u?.email?.split('@')[0] ?? 'there'
 
-  useEffect(() => {
-    let cancelled = false
+  // Extracted so the LoadErrorBanner's Retry re-runs the same load the mount
+  // effect uses (the banner owns the retry's pending/disabled state).
+  const load = useCallback(async (): Promise<void> => {
     setLoading(true)
-    Promise.all([
-      http.get('/api/reports/dashboard_stats').catch(() => null),
-      http.get('/api/insights').catch(() => null),
-    ])
-      .then(([sRes, iRes]) => {
-        if (cancelled) return
-        setStats(unwrapSingle<DashboardStats>(sRes))
-        setInsights(
-          unwrapList<{ type: string } & Omit<InsightCardData, 'type'>>(iRes).map((i) => ({
-            ...i,
-            type: (['trend', 'anomaly', 'correlation', 'summary'].includes(i.type)
-              ? i.type
-              : 'summary') as InsightType,
-          })),
-        )
-      })
-      .catch(() => {
-        if (!cancelled)
-          setError(
-            t('nav.failedToLoadDashboard', {}, { defaultValue: 'Failed to load dashboard.' }),
-          )
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
-    return () => {
-      cancelled = true
+    setError(null)
+    try {
+      const [sRes, iRes] = await Promise.all([
+        http.get('/api/reports/dashboard_stats').catch(() => null),
+        http.get('/api/insights').catch(() => null),
+      ])
+      setStats(unwrapSingle<DashboardStats>(sRes))
+      setInsights(
+        unwrapList<{ type: string } & Omit<InsightCardData, 'type'>>(iRes).map((i) => ({
+          ...i,
+          type: (['trend', 'anomaly', 'correlation', 'summary'].includes(i.type)
+            ? i.type
+            : 'summary') as InsightType,
+        })),
+      )
+    } catch (_error) {
+      // The request failed — the LoadErrorBanner carries the localized
+      // message; nothing further to do with the thrown value.
+      setError(t('nav.failedToLoadDashboard', {}, { defaultValue: 'Failed to load dashboard.' }))
+    } finally {
+      setLoading(false)
     }
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   const kpis = stats?.kpis ?? FALLBACK_KPIS
   const heroTile = kpis.find((k) => k.key === 'insights') ?? kpis[0]
@@ -242,14 +242,7 @@ export function Dashboard() {
       </div>
 
       {error ? (
-        <div
-          className={cm.cn(
-            cm.sp('p', 6),
-            'rounded-2xl bg-error-container/30 text-error text-center',
-          )}
-        >
-          {error}
-        </div>
+        <LoadErrorBanner data-mol-id="dashboard-load-error" message={error} onRetry={load} />
       ) : null}
 
       <section
@@ -557,7 +550,7 @@ export function Dashboard() {
             )}
           >
             {insights.map((ix) => (
-              <li key={ix.id}>
+              <li key={ix.id} className="min-w-0">
                 <InsightFeedCard insight={ix} />
               </li>
             ))}

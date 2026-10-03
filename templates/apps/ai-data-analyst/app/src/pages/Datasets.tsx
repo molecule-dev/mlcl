@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { DatasetCard, type DatasetCardData } from '../components/DatasetCard.js'
@@ -16,25 +17,26 @@ export function Datasets() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    let cancelled = false
+  // Extracted so the LoadErrorBanner's Retry re-runs the same load the mount
+  // effect uses (the banner owns the retry's pending/disabled state).
+  const load = useCallback(async (): Promise<void> => {
     setLoading(true)
-    http
-      .get('/api/datasets')
-      .then((res) => {
-        if (!cancelled) setDatasets(unwrapList<DatasetCardData>(res))
-      })
-      .catch(() => {
-        if (!cancelled)
-          setError(t('datasets.loadError', {}, { defaultValue: 'Failed to load datasets.' }))
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
-    return () => {
-      cancelled = true
+    setError(null)
+    try {
+      const res = await http.get('/api/datasets')
+      setDatasets(unwrapList<DatasetCardData>(res))
+    } catch (_error) {
+      // The request failed — the LoadErrorBanner carries the localized
+      // message; nothing further to do with the thrown value.
+      setError(t('datasets.loadError', {}, { defaultValue: 'Failed to load datasets.' }))
+    } finally {
+      setLoading(false)
     }
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   const totalRows = datasets.reduce((acc, d) => acc + d.rows, 0)
 
@@ -99,7 +101,7 @@ export function Datasets() {
       </div>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <LoadErrorBanner data-mol-id="datasets-load-error" message={error} onRetry={load} />
       ) : loading ? (
         <div className={cm.cn(cm.grid({ cols: 1, gap: 4 }), 'sm:grid-cols-2 xl:grid-cols-3')}>
           {Array.from({ length: 6 }).map((_, i) => (

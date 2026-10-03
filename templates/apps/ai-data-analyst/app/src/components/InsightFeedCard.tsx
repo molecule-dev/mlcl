@@ -133,7 +133,10 @@ export function InsightFeedCard({ insight }: InsightFeedCardProps) {
             cm.roundedFull,
             cm.textSize('xs'),
             cm.fontWeight('medium'),
-            'bg-surface-container font-mono text-on-surface-variant',
+            // min-w-0 lets the chip shrink inside a narrow grid track; the
+            // name truncates instead of poking the card past its column
+            // (mono dataset ids like qk_revenue_by_segment are unbreakable).
+            'min-w-0 bg-surface-container font-mono text-on-surface-variant',
           )}
         >
           <span
@@ -142,7 +145,7 @@ export function InsightFeedCard({ insight }: InsightFeedCardProps) {
           >
             database
           </span>
-          {insight.dataset_name}
+          <span className="min-w-0 truncate">{insight.dataset_name}</span>
         </span>
         <Link
           to={insight.href}

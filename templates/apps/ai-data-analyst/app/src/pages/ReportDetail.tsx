@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -32,26 +33,27 @@ export function ReportDetail() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
+  // Extracted so the LoadErrorBanner's Retry re-runs the same load the mount
+  // effect uses (the banner owns the retry's pending/disabled state).
+  const load = useCallback(async (): Promise<void> => {
     if (!id) return
-    let cancelled = false
     setLoading(true)
-    http
-      .get(`/api/saved_reports/${id}`)
-      .then((res) => {
-        if (!cancelled) setReport(unwrapSingle<ReportDetail>(res))
-      })
-      .catch(() => {
-        if (!cancelled)
-          setError(t('reportDetail.loadError', {}, { defaultValue: 'Failed to load report.' }))
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
-    return () => {
-      cancelled = true
+    setError(null)
+    try {
+      const res = await http.get(`/api/saved_reports/${id}`)
+      setReport(unwrapSingle<ReportDetail>(res))
+    } catch (_error) {
+      // The request failed — the LoadErrorBanner carries the localized
+      // message; nothing further to do with the thrown value.
+      setError(t('reportDetail.loadError', {}, { defaultValue: 'Failed to load report.' }))
+    } finally {
+      setLoading(false)
     }
   }, [http, id, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   if (loading)
     return (
@@ -59,10 +61,16 @@ export function ReportDetail() {
         {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
       </div>
     )
-  if (error || !report)
+  if (error)
+    return (
+      <div className={cm.sp('p', 8)}>
+        <LoadErrorBanner data-mol-id="report-detail-load-error" message={error} onRetry={load} />
+      </div>
+    )
+  if (!report)
     return (
       <div className={cm.cn(cm.sp('p', 8), 'text-error')}>
-        {error ?? t('reportDetail.notFound', {}, { defaultValue: 'Report not found.' })}
+        {t('reportDetail.notFound', {}, { defaultValue: 'Report not found.' })}
       </div>
     )
 
