@@ -1,6 +1,7 @@
+import * as p from '@clack/prompts'
 import { Command, Flags } from '@oclif/core'
 
-import { deleteAccount } from '../../lib/platform.js'
+import { deleteAccount, PlatformApiError } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
 import { projectFlag, requireAuth } from '../../shared/project-flag.js'
 
@@ -32,7 +33,35 @@ export default class AccountDeleteCmd extends Command {
         return
       }
     }
-    await deleteAccount()
+    const entered = await p.password({
+      message: 'Your password (leave blank if you sign in with a provider):',
+    })
+    if (p.isCancel(entered)) {
+      this.log('Aborted.')
+      return
+    }
+    try {
+      await deleteAccount(entered || undefined)
+    } catch (error) {
+      const message = accountDeleteErrorMessage(error)
+      if (message) this.error(message)
+      throw error
+    }
     this.log(ui.check('Account deleted. The stored token is now dead.'))
+  }
+}
+
+/** Plain one-line messages for the platform's account-deletion refusals. */
+export function accountDeleteErrorMessage(error: unknown): string | undefined {
+  if (!(error instanceof PlatformApiError)) return undefined
+  switch (error.errorKey) {
+    case 'user.error.passwordMismatch':
+      return 'That password is not right.'
+    case 'user.error.passwordRequired':
+      return 'Enter your password to delete your account.'
+    case 'service.busy':
+      return 'We could not cancel your subscription, so nothing was deleted. Try again in a minute.'
+    default:
+      return undefined
   }
 }

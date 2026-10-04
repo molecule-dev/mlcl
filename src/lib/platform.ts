@@ -925,8 +925,18 @@ export function queryDatabase(
 
 // ── Account deletion + GDPR export ──────────────────────────────────────────
 
-export function deleteAccount(token?: string): Promise<unknown> {
-  return whoami(token).then((me) => request(`/users/${me.id}`, { method: 'DELETE', token }))
+/**
+ * DELETE /users/:id. Accounts with a password must send it; OAuth-only
+ * accounts omit it.
+ */
+export function deleteAccount(password?: string, token?: string): Promise<unknown> {
+  return whoami(token).then((me) =>
+    request(`/users/${me.id}`, {
+      method: 'DELETE',
+      body: password ? { data: { password } } : undefined,
+      token,
+    }),
+  )
 }
 
 export function exportAccountData(token?: string): Promise<unknown> {
