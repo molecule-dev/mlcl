@@ -11,6 +11,8 @@
  *     populated, otherwise renders inline via `@molecule/api-pdf`.
  */
 
+import { randomBytes } from 'node:crypto'
+
 import { type Request, type Response, Router } from 'express'
 import { z } from 'zod'
 
@@ -38,6 +40,28 @@ const courseIdParamSchema = z.object({ courseId: z.string().uuid() })
 const createCertificateSchema = z.object({
   course_id: z.string().uuid(),
 })
+
+/**
+ * 8 random chars from [0-9A-Z] (36-symbol alphabet) via crypto.randomBytes +
+ * rejection sampling — 36 is not a power of two, so a naive `% 36` over raw
+ * bytes would bias the leading symbols; bytes ≥ 252 are rejected to keep
+ * every symbol equiprobable. Replaces the old Math.random suffix: a
+ * certificate number is the identifier printed on a credential, so it must
+ * be unguessable (Math.random is predictable and seed-recoverable).
+ */
+const randomCertSuffix = (length = 8): string => {
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+  const max = 256 - (256 % alphabet.length) // 252 — the largest multiple of 36 in a byte
+  let out = ''
+  while (out.length < length) {
+    for (const byte of randomBytes(length * 2)) {
+      if (byte >= max) continue // rejection sample
+      out += alphabet[byte % alphabet.length]
+      if (out.length === length) break
+    }
+  }
+  return out
+}
 
 router.get('/', async (_req: Request, res: Response) => {
   try {
@@ -133,7 +157,9 @@ router.post('/', validateBody(createCertificateSchema), async (req: Request, res
       res.status(200).json(existing)
       return
     }
-    const certificateNumber = `CERT-${Date.now()}-${Math.random().toString(36).slice(2, 10).toUpperCase()}`
+    // SECURITY: the random suffix comes from crypto.randomBytes (unguessable),
+    // not Math.random (predictable) — same CERT-<ts>-<8 chars> shape as before.
+    const certificateNumber = `CERT-${Date.now()}-${randomCertSuffix()}`
     const result = await create('certificates', {
       user_id: userId,
       course_id: body.course_id,
