@@ -26,13 +26,16 @@ async function canAccessBooking(
   return Boolean(sitter && sitter.user_id === userId)
 }
 
+// SECURITY: no `price_cents` field here — the price is ALWAYS computed
+// server-side from the sitter's rate × duration (see the create handler).
+// Accepting a client-supplied price would let a caller book at an arbitrary
+// rate (under/over-charge) — same class as a client-trusted order total.
 const createBookingSchema = z.object({
   sitter_id: z.string().min(1),
   pet_ids: z.array(z.string().min(1)).min(1),
   service: z.string().min(1),
   starts_at: z.string().min(1),
   ends_at: z.string().min(1),
-  price_cents: z.number().int().nonnegative().optional(),
   notes: z.string().optional(),
 })
 
@@ -254,12 +257,15 @@ router.post(
       }
     }
 
-    // Compute price from sitter rate + duration when caller didn't pass one.
+    // SECURITY: price is computed server-side UNCONDITIONALLY from the
+    // sitter's hourly rate × booked duration. A client-sent `price_cents` is
+    // never read (dropped from the schema above; unknown keys are ignored here
+    // too as defense in depth) — otherwise callers could book at any rate.
     const start = new Date(req.body.starts_at)
     const end = new Date(req.body.ends_at)
     const minutes = Math.max(0, Math.round((end.getTime() - start.getTime()) / 60000))
     const rateCents = Number(sitter.hourly_rate_cents ?? 0)
-    const computedPriceCents = req.body.price_cents ?? Math.round((rateCents * minutes) / 60)
+    const computedPriceCents = Math.round((rateCents * minutes) / 60)
 
     const result = await create('bookings', {
       owner_user_id: userId,
