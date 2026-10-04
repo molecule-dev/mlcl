@@ -164,6 +164,16 @@ const EXEMPT_PROVIDERS = [
     reason:
       "the bucket belongs to the deployment, which mirrors it server-side; a generic bond cannot tell WHICH objects are one project's (upload() takes no key — both bonds mint a bare uuid at the root)",
   },
+  {
+    package: '@molecule/api-uploads-mirror',
+    reason:
+      'holds no state of its own: it writes every file to its target upload providers, each covered or exempt in its own right',
+  },
+  {
+    package: '@molecule/api-uploads-encrypted',
+    reason:
+      'holds no state of its own: it encrypts and hands every file to its inner upload provider, covered or exempt in its own right',
+  },
 ]
 
 /**
