@@ -32,6 +32,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 _These endpoints already exist — open and extend the named file, never recreate it._
 
 - **\_seed** — `api/src/handlers/_seed.ts`
+- **\_test** — `api/src/handlers/_test.ts`
 - **bookings** — `api/src/handlers/bookings.ts`
 - **conversations** — `api/src/handlers/conversations.ts`
 - **flights** — `api/src/handlers/flights.ts`
