@@ -3644,6 +3644,7 @@
       "implements": "@molecule/api-analytics",
       "exports": [
         "AXIOM_DEFAULT_API_URL",
+        "retryAfterMs",
         "safeStringify",
         "axiomIngestUrl",
         "createAxiomIngester",
