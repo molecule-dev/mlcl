@@ -7499,7 +7499,12 @@
         "verify",
         "rotateKey",
         "EncryptionConfig",
-        "EncryptionProvider"
+        "EncryptionProvider",
+        "ENCRYPTED_STREAM_FORMAT",
+        "ENCRYPTION_STREAM_ERROR_NAME",
+        "EncryptionStreamError",
+        "hasStreamEncryption",
+        "EncryptStreamOptions"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -7537,7 +7542,8 @@
         "encryptionAesSecretDefinitions",
         "PriorKey",
         "AesConfig",
-        "AesEncryptionProvider"
+        "AesEncryptionProvider",
+        "AesEncryptStreamOptions"
       ],
       "secrets": [
         {
