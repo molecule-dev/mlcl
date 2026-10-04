@@ -24660,6 +24660,10 @@
       "stack": "api",
       "implements": "@molecule/api-uploads",
       "exports": [
+        "S3FileHead",
+        "S3UploadProvider",
+        "configFromEnv",
+        "createProvider",
         "s3Client",
         "upload",
         "abortUpload",
@@ -24668,7 +24672,8 @@
         "provider",
         "uploadsS3SecretDefinitions",
         "ProcessEnv",
-        "File"
+        "File",
+        "S3UploadsConfig"
       ],
       "secrets": [
         {
