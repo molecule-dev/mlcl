@@ -18,7 +18,7 @@
     "format:check": "prettier --check 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
-    "@molecule/app-ai-chat": "1.5.0",
+    "@molecule/app-ai-chat": "1.5.1",
     "@molecule/app-ai-models": "1.4.0",
     "@molecule/app-analytics": "1.0.2",
     "@molecule/app-analytics-posthog": "1.0.2",

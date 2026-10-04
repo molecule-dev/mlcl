@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@molecule/app-ai-assistant": "1.0.2",
-    "@molecule/app-ai-chat": "1.5.0",
+    "@molecule/app-ai-chat": "1.5.1",
     "@molecule/app-ai-copilot": "1.0.2",
     "@molecule/app-ai-models": "1.4.0",
     "@molecule/app-analytics": "1.0.2",
