@@ -2,7 +2,7 @@
  * The CLI's HTTP helper against a local mock of api.molecule.dev: non-JSON
  * error pages, Retry-After, account-export truncation and the slow project delete.
  */
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs'
+import { chmodSync, mkdtempSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { createServer, type Server } from 'node:http'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -69,6 +69,27 @@ describe('platform HTTP errors and commands', () => {
     })
     const error = (await listProjects().catch((e: unknown) => e)) as PlatformApiError
     expect(error.message).toBe('Service busy. Try again in a minute.')
+  })
+
+  it('tightens an existing --out file to 0600 and accepts the hidden --project flag', async () => {
+    handler = (url) =>
+      url === '/users/me'
+        ? { status: 200, headers: { 'content-type': 'application/json' }, body: '{"id":"u1"}' }
+        : { status: 200, headers: { 'content-type': 'application/json' }, body: '{"ok":true}' }
+    const dir = mkdtempSync(join(tmpdir(), 'mlcl-export-'))
+    try {
+      const file = join(dir, 'out.json')
+      writeFileSync(file, 'old')
+      chmodSync(file, 0o644)
+      const config = await Config.load(MLCL_ROOT)
+      const cmd = new AccountExport(['--out', file, '--project', 'p_1'], config)
+      vi.spyOn(cmd, 'logToStderr').mockImplementation(() => undefined)
+      await cmd.run()
+      expect(JSON.parse(readFileSync(file, 'utf8'))).toEqual({ ok: true })
+      if (process.platform !== 'win32') expect(statSync(file).mode & 0o777).toBe(0o600)
+    } finally {
+      rmSync(dir, { recursive: true, force: true })
+    }
   })
 
   it('warns on stderr when the export is truncated, and writes --out', async () => {

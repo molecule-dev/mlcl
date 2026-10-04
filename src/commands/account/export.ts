@@ -1,4 +1,4 @@
-import { writeFileSync } from 'node:fs'
+import { chmodSync, writeFileSync } from 'node:fs'
 
 import { Command, Flags } from '@oclif/core'
 
@@ -16,6 +16,9 @@ export default class AccountExportCmd extends Command {
 
   static override flags = {
     out: Flags.string({ description: 'write the JSON to this file instead of stdout' }),
+    // Accepted and ignored: an export is always the signed-in account's data.
+    // Kept so scripts that still pass --project do not break.
+    project: Flags.string({ hidden: true, char: 'p', description: 'ignored' }),
   }
 
   public async run(): Promise<void> {
@@ -35,6 +38,12 @@ export default class AccountExportCmd extends Command {
     const json = JSON.stringify(data, null, 2)
     if (flags.out) {
       writeFileSync(flags.out, `${json}\n`, { mode: 0o600 })
+      // `mode` applies only when the file is created; tighten one that already existed.
+      try {
+        chmodSync(flags.out, 0o600)
+      } catch (_error) {
+        // Windows has no POSIX modes; nothing to tighten there.
+      }
       this.logToStderr(ui.check(`Wrote ${flags.out}.`))
       return
     }
