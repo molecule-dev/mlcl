@@ -65,7 +65,7 @@
     "@molecule/app-markdown-marked": "1.0.2",
     "@molecule/app-platform": "1.0.2",
     "@molecule/app-push": "1.0.2",
-    "@molecule/app-react": "1.6.1",
+    "@molecule/app-react": "1.6.2",
     "@molecule/app-routing": "1.0.2",
     "@molecule/app-routing-react-router": "1.0.2",
     "@molecule/app-shell-layout-react": "1.0.2",
