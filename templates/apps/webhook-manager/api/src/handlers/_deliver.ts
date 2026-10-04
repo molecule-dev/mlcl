@@ -19,6 +19,7 @@
 
 import { createHmac } from 'node:crypto'
 
+import { decrypt } from '@molecule/api-encryption'
 import { findById, findMany, updateById } from '@molecule/api-database'
 import { logger } from '@molecule/api-logger'
 import { send, subscribe } from '@molecule/api-queue'
@@ -130,7 +131,21 @@ export const processDelivery = async (deliveryId: string): Promise<void> => {
     'X-Relay-Delivery-Id': deliveryId,
   }
   if (typeof webhook.secret === 'string' && webhook.secret) {
-    headers['X-Relay-Signature'] = createHmac('sha256', webhook.secret)
+    // The stored secret is AES-256-GCM ciphertext (webhooks.ts encrypts at
+    // rest) — decrypt it for signing. A decrypt failure on a row written
+    // before encryption landed means the value is legacy plaintext: fall back
+    // to signing with it as-is so existing endpoints keep verifying (the
+    // ciphertext is upgraded on the next rotation).
+    let signingSecret = webhook.secret
+    try {
+      signingSecret = await decrypt(webhook.secret, 'webhook.secret')
+    } catch (error) {
+      logger.warn(
+        `webhook delivery ${deliveryId}: secret decrypt failed — signing with legacy plaintext value (rotate to upgrade)`,
+        { error },
+      )
+    }
+    headers['X-Relay-Signature'] = createHmac('sha256', signingSecret)
       .update(requestBody)
       .digest('hex')
   }

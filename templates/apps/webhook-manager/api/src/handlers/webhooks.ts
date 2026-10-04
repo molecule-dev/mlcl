@@ -17,6 +17,7 @@ import { type Request, type Response, Router } from 'express'
 import { z } from 'zod'
 
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
+import { encrypt } from '@molecule/api-encryption'
 import type { OrderBy, WhereCondition } from '@molecule/api-database'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
@@ -28,8 +29,35 @@ import { recordAudit } from './_audit.js'
 
 const router = Router()
 
-const maskSecret = (secret: string): string =>
-  secret.length <= 8 ? '*'.repeat(secret.length) : `${secret.slice(0, 4)}…${secret.slice(-4)}`
+/**
+ * Masked form shown by EVERY read path (list, get, rotation response) — the
+ * same `whsec_••••last4` shape the fixtures + UI use. Only the last 4
+ * characters leak — enough for a user to recognize which secret a row
+ * carries, never enough to replay it. The raw secret is returned exactly
+ * once, in the POST / (create) response, matching the UI copy ("reveal the
+ * secret once the endpoint is created").
+ */
+const maskSecret = (secret: string): string => `whsec_••••${secret.slice(-4)}`
+
+/**
+ * SECURITY: the signing secret is encrypted at rest with the bonded
+ * `@molecule/api-encryption` AES-256-GCM provider — the `secret` column holds
+ * ciphertext, never plaintext. Read paths replace the ciphertext with the
+ * masked form (a UI must never receive the material it cannot have); the
+ * delivery worker (`_deliver.ts`) is the ONLY consumer that decrypts, at
+ * signing time.
+ */
+const encryptSecret = async (secret: string): Promise<string> => encrypt(secret, 'webhook.secret')
+
+/**
+ * Response-safe view of a webhook row: the encrypted ciphertext is replaced
+ * by the mask (list/get), so no raw or encrypted secret ever round-trips to
+ * the client after create.
+ */
+const sanitizeWebhook = (row: Record<string, unknown>): Record<string, unknown> => {
+  if (typeof row.secret !== 'string' || !row.secret) return row
+  return { ...row, secret: row.secret_masked ?? 'whsec_••••' }
+}
 
 const listWebhooksQuerySchema = z.object({
   page: z.coerce.number().int().min(1).default(1),
@@ -85,7 +113,8 @@ router.get('/', validateQuery(listWebhooksQuerySchema), async (req: Request, res
       limit: q.limit,
       offset: (q.page - 1) * q.limit,
     })
-    res.json(webhooks)
+    // Never return the stored (encrypted) secret on a read path — masked only.
+    res.json((webhooks as Array<Record<string, unknown>>).map(sanitizeWebhook))
   } catch (err) {
     logger.error({ err }, 'webhooks.list')
     res
@@ -111,7 +140,8 @@ router.get('/:id', async (req: Request, res: Response) => {
         .json({ error: t('webhooks.notFound', {}, { defaultValue: 'Webhook not found' }) })
       return
     }
-    res.json(webhook)
+    // Never return the stored (encrypted) secret on a read path — masked only.
+    res.json(sanitizeWebhook(webhook))
   } catch (err) {
     logger.error({ err }, 'webhooks.get')
     res
@@ -131,6 +161,9 @@ router.post('/', validateBody(createWebhookSchema), async (req: Request, res: Re
     }
     const body = req.body as z.infer<typeof createWebhookSchema>
     const secret = body.secret ?? randomBytes(24).toString('hex')
+    // Encrypt at rest — the `secret` column carries AES-256-GCM ciphertext from
+    // day one; only `_deliver.ts` ever decrypts it (at signing time).
+    const encryptedSecret = await encryptSecret(secret)
     const result = await create('webhooks', {
       user_id: userId,
       name: body.name,
@@ -138,7 +171,7 @@ router.post('/', validateBody(createWebhookSchema), async (req: Request, res: Re
       url: body.url,
       content_type: body.content_type ?? 'application/json',
       events: JSON.stringify(body.events ?? ['*']),
-      secret,
+      secret: encryptedSecret,
       secret_masked: maskSecret(secret),
       retry_count: body.retry_count ?? 3,
       is_active: body.is_active ?? true,
@@ -147,6 +180,11 @@ router.post('/', validateBody(createWebhookSchema), async (req: Request, res: Re
       updated_at: new Date(),
     })
     const created = result.data as Record<string, unknown> | null
+    // The raw secret is returned EXACTLY ONCE — here, in the create response —
+    // matching the UI copy ("reveal the secret once the endpoint is created").
+    // Every later read path returns only secret_masked.
+    const createdWithSecretOnce =
+      created && typeof created === 'object' ? { ...created, secret } : created
     await recordAudit({
       userId,
       action: 'endpoint.created',
@@ -154,7 +192,7 @@ router.post('/', validateBody(createWebhookSchema), async (req: Request, res: Re
       metadata: { name: body.name, url: body.url },
       req,
     })
-    res.status(201).json(created)
+    res.status(201).json(createdWithSecretOnce)
   } catch (err) {
     logger.error({ err }, 'webhooks.create')
     res
@@ -191,11 +229,13 @@ router.put('/:id', validateBody(updateWebhookSchema), async (req: Request, res: 
     if (body.is_active !== undefined) update.is_active = body.is_active
     let secretRotated = false
     if (body.secret !== undefined) {
-      update.secret = body.secret
+      // Encrypt the rotated secret at rest; the response carries the mask only.
+      update.secret = await encryptSecret(body.secret)
       update.secret_masked = maskSecret(body.secret)
       secretRotated = true
     }
     const result = await updateById('webhooks', id, update)
+    const updated = (result.data ?? {}) as Record<string, unknown>
     if (secretRotated) {
       await recordAudit({
         userId,
@@ -229,7 +269,8 @@ router.put('/:id', validateBody(updateWebhookSchema), async (req: Request, res: 
         req,
       })
     }
-    res.json(result.data)
+    // Rotation/update responses never echo the stored secret — masked only.
+    res.json(sanitizeWebhook(updated))
   } catch (err) {
     logger.error({ err }, 'webhooks.update')
     res

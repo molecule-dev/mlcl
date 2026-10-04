@@ -37,6 +37,7 @@ export async function setupBonds(): Promise<void> {
   await resolveAll([
     'DATABASE_URL',
     'REDIS_URL',
+    'ENCRYPTION_KEY',
     'JWT_PRIVATE_KEY',
     'JWT_PUBLIC_KEY',
     'STRIPE_SECRET_KEY',
