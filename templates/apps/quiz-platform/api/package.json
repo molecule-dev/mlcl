@@ -77,7 +77,7 @@
     "@molecule/api-two-factor": "1.0.2",
     "@molecule/api-two-factor-otplib": "1.0.3",
     "@molecule/api-uploads": "1.0.2",
-    "@molecule/api-uploads-s3": "1.0.6",
+    "@molecule/api-uploads-s3": "1.0.7",
     "@molecule/api-utilities-validation": "1.0.2",
     "bcryptjs": "3.0.3",
     "connect-busboy": "1.0.0",
