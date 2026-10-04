@@ -15,8 +15,8 @@ import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vites
 process.env.ADMIN_EMAILS = 'owner@wayfarer.example'
 
 const db = {
-  findById: vi.fn(),
-  updateById: vi.fn(async () => ({})),
+  findById: vi.fn(async (..._args: unknown[]): Promise<unknown> => null),
+  updateById: vi.fn(async (..._args: unknown[]): Promise<Record<string, unknown>> => ({})),
 }
 vi.mock('@molecule/api-database', () => ({
   findById: (...a: unknown[]) => db.findById(...a),
@@ -82,8 +82,8 @@ afterAll(async () => {
 beforeEach(() => {
   vi.clearAllMocks()
   // Default: a plain user row (role 'user', not allow-listed).
-  db.findById.mockImplementation(async (_table: string, id: string) => ({
-    id,
+  db.findById.mockImplementation(async (...args: unknown[]) => ({
+    id: args[1],
     email: 'traveler@example.com',
     role: 'user',
   }))
@@ -114,8 +114,8 @@ describe('POST /flights/:id/delay requires an inventory operator', () => {
   })
 
   it('lets a role=admin user delay the flight and runs their delay watcher', async () => {
-    db.findById.mockImplementation(async (_table: string, id: string) => ({
-      id,
+    db.findById.mockImplementation(async (...args: unknown[]) => ({
+      id: args[1],
       email: 'ops@wayfarer.example',
       role: 'admin',
     }))
@@ -128,8 +128,8 @@ describe('POST /flights/:id/delay requires an inventory operator', () => {
   })
 
   it('lazily promotes an ADMIN_EMAILS-designated owner (durable role write) and lets them through', async () => {
-    db.findById.mockImplementation(async (_table: string, id: string) => ({
-      id,
+    db.findById.mockImplementation(async (...args: unknown[]) => ({
+      id: args[1],
       email: 'owner@wayfarer.example', // on the ADMIN_EMAILS allow-list, role still 'user'
       role: 'user',
     }))
