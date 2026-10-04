@@ -11,6 +11,7 @@ import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 
+import { requireAdmin } from '../middleware/require-admin.js'
 import { checkDelays, simulateDelay } from '../lib/delay-watch.js'
 import { findFlights, normalizeCabin } from '../lib/flights.js'
 
@@ -59,8 +60,20 @@ router.get('/search', validateQuery(searchSchema), async (req, res) => {
 /**
  * Mark an inventory flight delayed by `minutes` (0 puts it back on time), then
  * run the delay watcher for the caller so a qualifying delay rebooks at once.
+ *
+ * SECURITY: this mutates SHARED inventory — a flight row every traveler sees,
+ * and delaying it forces every booking on that flight through the automatic
+ * rebooking flow (other users' confirmed trips get moved). The endpoint is
+ * therefore gated behind `requireAdmin` (401 no session / 403 non-operator).
+ *
+ * DEMO AFFORDANCE: the "Simulate a 90-minute delay" button on /trips/:id is
+ * the showpiece of the rebooking demo. To use it, the demo/e2e operator
+ * elevates their OWN session via the dev-only `POST /_test/promote-admin`
+ * (fail-closed on ENABLE_E2E_TEST_ENDPOINTS=true — see handlers/_test.ts), or
+ * sets `ADMIN_EMAILS` to their address for the durable allow-list path.
+ * Ordinary travelers keep read-only access to inventory.
  */
-router.post('/:id/delay', validateBody(delaySchema), async (req, res) => {
+router.post('/:id/delay', requireAdmin, validateBody(delaySchema), async (req, res) => {
   try {
     const userId = getUserId(res)
     if (!userId) {

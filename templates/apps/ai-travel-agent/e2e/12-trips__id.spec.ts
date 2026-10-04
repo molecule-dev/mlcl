@@ -1,6 +1,6 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { apiGet, APP_BASE, type Booking, bookViaApi, signup } from './_helpers.js'
+import { apiGet, APP_BASE, type Booking, bookViaApi, promoteToAdmin, signup } from './_helpers.js'
 
 interface TripDetail {
   bookings: Array<Booking & { splits: Array<{ name: string; status: string }> }>
@@ -11,6 +11,10 @@ test.describe('/trips/:id (one trip: delay, rebook, split)', () => {
 
   test('a 90-minute delay rebooks the trip onto the next flight', async ({ page }) => {
     await signup(page)
+    // POST /flights/:id/delay mutates SHARED inventory and is gated behind
+    // requireAdmin — elevate THIS e2e user via the dev-only fail-closed
+    // endpoint so the delay demo affordance is exercisable.
+    await promoteToAdmin(page)
     const booking = await bookViaApi(page, 1)
     await page.goto(APP_BASE + `/trips/${booking.trip_id}`)
     await expect(page.locator('[data-mol-id="trip-booking"]')).toBeVisible({ timeout: 15_000 })

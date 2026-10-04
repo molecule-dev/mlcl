@@ -176,6 +176,29 @@ export async function apiGet<T>(page: Page, path: string): Promise<T> {
   return (await res.json()) as T
 }
 
+/**
+ * Elevate the current (already-authed) session to the inventory operator.
+ *
+ * `POST /flights/:id/delay` — the demo affordance that drives the automatic
+ * rebooking flow — mutates SHARED inventory and is gated behind
+ * `requireAdmin`, which reads `users.role` (defaulting to the non-operator
+ * 'user' on a fresh signup). This calls the dev-only
+ * `POST /api/_test/promote-admin` endpoint (404 in production; served only
+ * when `ENABLE_E2E_TEST_ENDPOINTS=true`, which the harness sets) to elevate
+ * the caller's OWN row to `role = 'admin'` — exercising the real demo
+ * affordance without weakening the gate for ordinary travelers.
+ */
+export async function promoteToAdmin(page: Page): Promise<void> {
+  const token = await getAccessToken(page)
+  const res = await page.request.post(`${API_BASE}/_test/promote-admin`, {
+    headers: token
+      ? { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }
+      : { 'Content-Type': 'application/json' },
+    failOnStatusCode: false,
+  })
+  expect(res.status(), `POST /api/_test/promote-admin → ${res.status()}`).toBeLessThan(400)
+}
+
 export async function apiPost<T>(page: Page, path: string, body: unknown): Promise<T> {
   const token = await getAccessToken(page)
   const headers: Record<string, string> = {
