@@ -24742,6 +24742,8 @@
       "implements": "@molecule/api-uploads",
       "exports": [
         "S3FileHead",
+        "BucketProtection",
+        "bucketProtectionMeets",
         "S3UploadProvider",
         "configFromEnv",
         "createProvider",
@@ -24752,6 +24754,7 @@
         "getFile",
         "provider",
         "uploadsS3SecretDefinitions",
+        "ObjectLockRetentionMode",
         "ProcessEnv",
         "File",
         "S3UploadsConfig"
