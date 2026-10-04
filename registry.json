@@ -24612,6 +24612,46 @@
         "profile picture upload"
       ]
     },
+    "@molecule/api-uploads-encrypted": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "storage",
+      "label": "Encrypted (wraps another store)",
+      "description": "Encrypting upload provider for molecule.dev — encrypts every file before another upload provider stores it, decrypts on read.",
+      "stack": "api",
+      "implements": "@molecule/api-uploads",
+      "exports": [
+        "ENCRYPTED_ID_PREFIX",
+        "ENCRYPTION_UNAVAILABLE_ERROR_NAME",
+        "ENCRYPTION_CONTEXT_MISMATCH_ERROR_NAME",
+        "INVALID_ENCRYPTION_CONTEXT_ERROR_NAME",
+        "encodeEncryptedId",
+        "parseEncryptedId",
+        "createProvider",
+        "EncryptedUploadContextInfo",
+        "EncryptedUploadsConfig",
+        "EncryptedGetFileOptions",
+        "ParsedEncryptedId",
+        "EncryptedUploadProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-analytics",
+        "@molecule/api-encryption",
+        "@molecule/api-uploads"
+      ],
+      "moleculePeers": [
+        "@molecule/api-encryption",
+        "@molecule/api-uploads"
+      ],
+      "path": "packages/api/bonds/uploads/encrypted",
+      "intentHints": [
+        "encrypted uploads",
+        "encrypt files at rest",
+        "client-side encrypted file storage"
+      ]
+    },
     "@molecule/api-uploads-filesystem": {
       "language": "typescript",
       "runtime": "node",
