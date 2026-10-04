@@ -3651,6 +3651,7 @@
         "createProvider",
         "provider",
         "AxiomIngesterOptions",
+        "AxiomShutdownOptions",
         "AxiomIngesterStats",
         "AxiomIngester",
         "AxiomAnalyticsOptions",
