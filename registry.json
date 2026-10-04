@@ -57592,7 +57592,7 @@
       "@molecule/api-oauth-apple": "1.0.3",
       "@molecule/api-oauth-client": "1.0.2",
       "@molecule/api-oauth-client-generic": "1.0.2",
-      "@molecule/api-oauth-github": "1.2.0",
+      "@molecule/api-oauth-github": "1.2.1",
       "@molecule/api-oauth-gitlab": "1.2.0",
       "@molecule/api-oauth-google": "1.2.0",
       "@molecule/api-oauth-microsoft": "1.0.2",
@@ -57691,7 +57691,7 @@
       "@molecule/api-resource-task": "1.0.2",
       "@molecule/api-resource-template": "1.0.3",
       "@molecule/api-resource-thread": "1.0.3",
-      "@molecule/api-resource-user": "1.4.2",
+      "@molecule/api-resource-user": "1.4.3",
       "@molecule/api-resource-version-history": "1.0.3",
       "@molecule/api-resource-wiki-page": "1.0.2",
       "@molecule/api-resource-workspace": "1.0.3",
@@ -57946,7 +57946,7 @@
       "@molecule/app-icons-molecule": "1.0.2",
       "@molecule/app-ide": "1.0.2",
       "@molecule/app-ide-default": "1.0.2",
-      "@molecule/app-ide-react": "1.19.5",
+      "@molecule/app-ide-react": "1.19.6",
       "@molecule/app-image-crop": "1.0.2",
       "@molecule/app-image-crop-cropperjs": "1.0.2",
       "@molecule/app-image-gallery-editor-react": "1.0.3",
@@ -58308,7 +58308,9 @@
       "@molecule/api-ai-speech-confucius4": "1.0.0",
       "@molecule/api-agent-transcript-autodetect": "1.2.2",
       "@molecule/api-ai-decisions-jev": "1.1.0",
-      "@molecule/api-ai-decisions-laya": "1.1.0"
+      "@molecule/api-ai-decisions-laya": "1.1.0",
+      "@molecule/api-agent-runtime-pi": "1.0.0",
+      "@molecule/api-agent-transcript-pi": "1.0.0"
     }
   }
 }
