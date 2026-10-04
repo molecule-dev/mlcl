@@ -3633,6 +3633,72 @@
       },
       "path": "packages/api/core/analytics"
     },
+    "@molecule/api-analytics-axiom": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "analytics",
+      "label": "Axiom",
+      "description": "Axiom analytics provider for molecule.dev — batches tracked events into an Axiom dataset over the ingest API, never blocking the caller.",
+      "stack": "api",
+      "implements": "@molecule/api-analytics",
+      "exports": [
+        "AXIOM_DEFAULT_API_URL",
+        "safeStringify",
+        "axiomIngestUrl",
+        "createAxiomIngester",
+        "createProvider",
+        "provider",
+        "AxiomIngesterOptions",
+        "AxiomIngesterStats",
+        "AxiomIngester",
+        "AxiomAnalyticsOptions",
+        "AxiomAnalyticsProvider"
+      ],
+      "secrets": [
+        {
+          "name": "AXIOM_TOKEN",
+          "required": false,
+          "label": "Axiom API token",
+          "setupUrl": "https://app.axiom.co/settings/api-tokens",
+          "instructions": "Create an API token with ingest permission for the dataset in Axiom → Settings → API tokens. Unset disables sending.",
+          "example": "xaat-..."
+        },
+        {
+          "name": "AXIOM_DATASET",
+          "required": false,
+          "label": "Axiom dataset",
+          "instructions": "Name of the Axiom dataset events are sent to. Unset disables sending.",
+          "example": "my-app-prod"
+        },
+        {
+          "name": "AXIOM_ORG_ID",
+          "required": false,
+          "label": "Axiom org id",
+          "instructions": "Only needed with a personal token; API tokens carry their org."
+        },
+        {
+          "name": "AXIOM_EDGE_URL",
+          "required": false,
+          "label": "Axiom edge URL",
+          "instructions": "Edge deployment base URL for region-local ingest; unset uses https://api.axiom.co.",
+          "example": "https://eu-central-1.aws.edge.axiom.co"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-analytics"
+      ],
+      "moleculePeers": [
+        "@molecule/api-analytics"
+      ],
+      "path": "packages/api/bonds/analytics/axiom",
+      "intentHints": [
+        "axiom analytics",
+        "axiom events",
+        "send events to axiom",
+        "observability events"
+      ]
+    },
     "@molecule/api-analytics-http": {
       "language": "typescript",
       "runtime": "node",
@@ -13615,6 +13681,68 @@
         "json logs",
         "backend logging",
         "request logging"
+      ]
+    },
+    "@molecule/api-logger-axiom": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "logger",
+      "label": "Axiom",
+      "description": "Axiom logger provider for molecule.dev — mirrors log lines with structured fields into an Axiom dataset while still printing them locally.",
+      "stack": "api",
+      "implements": "@molecule/api-logger",
+      "exports": [
+        "splitLogArgs",
+        "createLogger",
+        "provider",
+        "AxiomLogFieldsMode",
+        "AxiomLoggerOptions",
+        "AxiomLogger"
+      ],
+      "secrets": [
+        {
+          "name": "AXIOM_TOKEN",
+          "required": false,
+          "label": "Axiom API token",
+          "setupUrl": "https://app.axiom.co/settings/api-tokens",
+          "instructions": "Create an API token with ingest permission for the dataset in Axiom → Settings → API tokens. Unset disables sending.",
+          "example": "xaat-..."
+        },
+        {
+          "name": "AXIOM_DATASET",
+          "required": false,
+          "label": "Axiom dataset",
+          "instructions": "Name of the Axiom dataset events are sent to. Unset disables sending.",
+          "example": "my-app-prod"
+        },
+        {
+          "name": "AXIOM_ORG_ID",
+          "required": false,
+          "label": "Axiom org id",
+          "instructions": "Only needed with a personal token; API tokens carry their org."
+        },
+        {
+          "name": "AXIOM_EDGE_URL",
+          "required": false,
+          "label": "Axiom edge URL",
+          "instructions": "Edge deployment base URL for region-local ingest; unset uses https://api.axiom.co.",
+          "example": "https://eu-central-1.aws.edge.axiom.co"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-analytics-axiom",
+        "@molecule/api-logger"
+      ],
+      "moleculePeers": [
+        "@molecule/api-logger"
+      ],
+      "path": "packages/api/bonds/logger/axiom",
+      "intentHints": [
+        "axiom logger",
+        "axiom logs",
+        "ship logs to axiom",
+        "structured log shipping"
       ]
     },
     "@molecule/api-logger-console": {
@@ -58320,7 +58448,9 @@
       "@molecule/api-ai-decisions-jev": "1.1.0",
       "@molecule/api-ai-decisions-laya": "1.1.0",
       "@molecule/api-agent-transcript-pi": "1.0.0",
-      "@molecule/api-emails-resend": "1.0.2"
+      "@molecule/api-emails-resend": "1.0.2",
+      "@molecule/api-analytics-axiom": "1.0.0",
+      "@molecule/api-logger-axiom": "1.0.0"
     }
   }
 }
