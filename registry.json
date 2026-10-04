@@ -7498,13 +7498,15 @@
         "hash",
         "verify",
         "rotateKey",
-        "EncryptionConfig",
-        "EncryptionProvider",
         "ENCRYPTED_STREAM_FORMAT",
         "ENCRYPTION_STREAM_ERROR_NAME",
+        "EncryptionStreamErrorCode",
         "EncryptionStreamError",
+        "isEncryptionStreamError",
         "hasStreamEncryption",
-        "EncryptStreamOptions"
+        "EncryptionConfig",
+        "EncryptStreamOptions",
+        "EncryptionProvider"
       ],
       "secrets": [],
       "runtimeDependencies": [
