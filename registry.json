@@ -58450,7 +58450,9 @@
       "@molecule/api-ai-decisions-jev": "1.1.0",
       "@molecule/api-ai-decisions-laya": "1.1.0",
       "@molecule/api-agent-transcript-pi": "1.0.0",
-      "@molecule/api-emails-resend": "1.0.2"
+      "@molecule/api-emails-resend": "1.0.2",
+      "@molecule/api-analytics-axiom": "1.0.2",
+      "@molecule/api-logger-axiom": "1.0.2"
     }
   }
 }
