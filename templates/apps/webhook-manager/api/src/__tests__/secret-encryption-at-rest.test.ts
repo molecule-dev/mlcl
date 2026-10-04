@@ -23,10 +23,14 @@ vi.mock('@molecule/api-encryption', () => ({
 }))
 
 const db = {
-  create: vi.fn(async () => ({ data: { id: 'w1' } })),
-  findById: vi.fn(),
-  findMany: vi.fn(async () => []),
-  updateById: vi.fn(async () => ({ data: { id: 'w1' } })),
+  create: vi.fn(async (..._args: unknown[]): Promise<Record<string, unknown>> => ({
+    data: { id: 'w1' },
+  })),
+  findById: vi.fn(async (..._args: unknown[]): Promise<unknown> => null),
+  findMany: vi.fn(async (..._args: unknown[]) => [] as unknown[]),
+  updateById: vi.fn(async (..._args: unknown[]): Promise<Record<string, unknown>> => ({
+    data: { id: 'w1' },
+  })),
 }
 vi.mock('@molecule/api-database', () => ({
   create: (...a: unknown[]) => db.create(...a),
