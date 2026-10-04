@@ -3615,7 +3615,9 @@
         "page",
         "group",
         "reset",
-        "flush"
+        "flush",
+        "trackBondFailure",
+        "resetBondFailureThrottleForTests"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -5314,6 +5316,8 @@
       "implements": "@molecule/api-code-sandbox",
       "exports": [
         "E2BSandboxProvider",
+        "EgressProbeCodes",
+        "classifyEgressProbe",
         "createProvider",
         "provider",
         "E2BConfig",
@@ -7168,6 +7172,7 @@
         }
       ],
       "runtimeDependencies": [
+        "@molecule/api-analytics",
         "@molecule/api-bond",
         "@molecule/api-emails",
         "@molecule/api-secrets",
@@ -7231,6 +7236,7 @@
         }
       ],
       "runtimeDependencies": [
+        "@molecule/api-analytics",
         "@molecule/api-bond",
         "@molecule/api-emails",
         "@molecule/api-secrets"
@@ -7280,6 +7286,7 @@
         }
       ],
       "runtimeDependencies": [
+        "@molecule/api-analytics",
         "@molecule/api-bond",
         "@molecule/api-emails",
         "@molecule/api-secrets",
@@ -7323,6 +7330,7 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/api-analytics",
         "@molecule/api-bond",
         "@molecule/api-emails",
         "nodemailer"
@@ -7384,6 +7392,7 @@
       "runtimeDependencies": [
         "@aws-sdk/client-sesv2",
         "@aws-sdk/credential-provider-node",
+        "@molecule/api-analytics",
         "@molecule/api-bond",
         "@molecule/api-emails",
         "@molecule/api-proxy-agent",
@@ -14217,11 +14226,11 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
-      "path": "packages/api/core/model-hosting",
       "moleculePeers": [
         "@molecule/api-bond",
         "@molecule/api-i18n"
-      ]
+      ],
+      "path": "packages/api/core/model-hosting"
     },
     "@molecule/api-model-hosting-cloud-run": {
       "language": "typescript",
@@ -14272,22 +14281,22 @@
           "example": "{\"type\":\"service_account\",\"client_email\":\"…\",\"project_id\":\"acme-models\"}"
         }
       ],
-      "egressHosts": [
-        "run.googleapis.com",
-        "oauth2.googleapis.com"
-      ],
       "runtimeDependencies": [
         "@molecule/api-bond",
         "@molecule/api-i18n",
         "@molecule/api-model-hosting",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/model-hosting/cloud-run",
       "moleculePeers": [
         "@molecule/api-bond",
         "@molecule/api-i18n",
         "@molecule/api-model-hosting",
         "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/model-hosting/cloud-run",
+      "egressHosts": [
+        "run.googleapis.com",
+        "oauth2.googleapis.com"
       ]
     },
     "@molecule/api-model-hosting-docker": {
@@ -14340,13 +14349,13 @@
         "@molecule/api-model-hosting",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/model-hosting/docker",
       "moleculePeers": [
         "@molecule/api-bond",
         "@molecule/api-i18n",
         "@molecule/api-model-hosting",
         "@molecule/api-secrets"
-      ]
+      ],
+      "path": "packages/api/bonds/model-hosting/docker"
     },
     "@molecule/api-model-hosting-koyeb": {
       "language": "typescript",
@@ -14390,13 +14399,13 @@
         "@molecule/api-model-hosting",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/model-hosting/koyeb",
       "moleculePeers": [
         "@molecule/api-bond",
         "@molecule/api-i18n",
         "@molecule/api-model-hosting",
         "@molecule/api-secrets"
-      ]
+      ],
+      "path": "packages/api/bonds/model-hosting/koyeb"
     },
     "@molecule/api-model-hosting-modal": {
       "language": "typescript",
@@ -14476,13 +14485,13 @@
         "@molecule/api-model-hosting",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/model-hosting/modal",
       "moleculePeers": [
         "@molecule/api-bond",
         "@molecule/api-i18n",
         "@molecule/api-model-hosting",
         "@molecule/api-secrets"
-      ]
+      ],
+      "path": "packages/api/bonds/model-hosting/modal"
     },
     "@molecule/api-model-hosting-runpod": {
       "language": "typescript",
@@ -14526,13 +14535,13 @@
         "@molecule/api-model-hosting",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/model-hosting/runpod",
       "moleculePeers": [
         "@molecule/api-bond",
         "@molecule/api-i18n",
         "@molecule/api-model-hosting",
         "@molecule/api-secrets"
-      ]
+      ],
+      "path": "packages/api/bonds/model-hosting/runpod"
     },
     "@molecule/api-monitoring": {
       "language": "typescript",
@@ -16507,6 +16516,7 @@
         }
       ],
       "runtimeDependencies": [
+        "@molecule/api-analytics",
         "@molecule/api-bond",
         "@molecule/api-i18n",
         "@molecule/api-jwt",
@@ -24574,6 +24584,7 @@
       "runtimeDependencies": [
         "@aws-sdk/client-s3",
         "@aws-sdk/lib-storage",
+        "@molecule/api-analytics",
         "@molecule/api-bond",
         "@molecule/api-i18n",
         "@molecule/api-proxy-agent",
