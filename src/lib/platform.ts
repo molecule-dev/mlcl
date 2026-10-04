@@ -75,9 +75,19 @@ export class PlatformApiError extends Error {
     message: string,
     /** The platform's machine-readable reason (e.g. `workspace.sleeping`), when it sent one. */
     readonly errorKey?: string,
+    /** Seconds the platform asked us to wait (`Retry-After`), when it sent the header. */
+    readonly retryAfterSeconds?: number,
   ) {
     super(message)
   }
+}
+
+/** The "try again" hint for a 429/503: the `Retry-After` seconds, or a minute for `service.busy`. */
+function retryHint(retryAfterSeconds: number | undefined, errorKey: string | undefined): string {
+  if (retryAfterSeconds !== undefined) {
+    return ` Try again in ${retryAfterSeconds} second${retryAfterSeconds === 1 ? '' : 's'}.`
+  }
+  return errorKey === 'service.busy' ? ' Try again in a minute.' : ''
 }
 
 async function request<T>(
@@ -96,11 +106,35 @@ async function request<T>(
     signal: AbortSignal.timeout(init.timeoutMs ?? 30_000),
   })
   const text = await response.text()
-  const data: unknown = text ? JSON.parse(text) : null
+  const header = Number(response.headers.get('retry-after'))
+  const retryAfter = Number.isFinite(header) && header > 0 ? Math.ceil(header) : undefined
+  let data: unknown
+  try {
+    data = text ? JSON.parse(text) : null
+  } catch (_error) {
+    // A proxy error page (Fly 502/503/504) is not JSON: report the status, not a SyntaxError.
+    if (!response.ok) {
+      throw new PlatformApiError(
+        response.status,
+        `molecule.dev returned ${response.status} (not JSON).${retryHint(retryAfter, undefined)}`,
+        undefined,
+        retryAfter,
+      )
+    }
+    throw new PlatformApiError(
+      response.status,
+      'molecule.dev returned a response that is not JSON.',
+    )
+  }
   if (!response.ok) {
     const body = data as { error?: string; errorKey?: string } | null
     const message = body?.error ?? `API responded ${response.status}`
-    throw new PlatformApiError(response.status, message, body?.errorKey)
+    throw new PlatformApiError(
+      response.status,
+      `${message.replace(/\s+$/, '')}${retryHint(retryAfter, body?.errorKey)}`,
+      body?.errorKey,
+      retryAfter,
+    )
   }
   return data as T
 }
@@ -864,8 +898,16 @@ export function updateProject(
   return request(`/projects/${projectId}`, { method: 'PATCH', body: settings, token })
 }
 
+/** How long `deleteProject` waits for the server to finish tearing a project down. */
+export const DELETE_PROJECT_TIMEOUT_MS = 5 * 60_000
+
 export function deleteProject(projectId: string, token?: string): Promise<unknown> {
-  return request(`/projects/${projectId}`, { method: 'DELETE', token })
+  // The server aborts running turns/agent runs and tears down production before it answers.
+  return request(`/projects/${projectId}`, {
+    method: 'DELETE',
+    token,
+    timeoutMs: DELETE_PROJECT_TIMEOUT_MS,
+  })
 }
 
 /**
@@ -941,7 +983,16 @@ export function deleteAccount(password?: string, token?: string): Promise<unknow
   )
 }
 
-export function exportAccountData(token?: string): Promise<unknown> {
+/** The export bundle's `meta` block (see the platform's DataExport resource). */
+export interface AccountExportMeta {
+  notice?: string
+  sectionLimits?: Record<string, number>
+  truncatedSections?: Record<string, { truncated: boolean; limit: number }>
+}
+
+export function exportAccountData(
+  token?: string,
+): Promise<Record<string, unknown> & { meta?: AccountExportMeta }> {
   return whoami(token).then((me) => request(`/users/${me.id}/data-export`, { token }))
 }
 

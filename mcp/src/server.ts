@@ -1102,7 +1102,7 @@ server.registerTool(
   {
     title: 'Submit an unattended agent run (molecule.dev)',
     description:
-      'Run a coding agent UNATTENDED against a GitHub repo on molecule.dev: the agent works in an ephemeral cloud sandbox that holds nothing sensitive, with per-run scoped credentials and deny-by-default egress. Returns a runId immediately (runs take minutes) — poll with get_agent_run. When finished, the artifact carries a unified diff (patch) the HOST applies — scan it for secrets first. Requires a GitHub fine-grained token scoped to THE ONE repo (contents:read/write, expiry ≈ timeout) via github_token; metered to the project whose MOLECULE_API_KEY is used.',
+      'Run a coding agent UNATTENDED against a GitHub repo on molecule.dev: the agent works in an ephemeral cloud sandbox that holds nothing sensitive, with per-run scoped credentials and deny-by-default egress. Returns a runId immediately (runs take minutes) — poll with get_agent_run. When finished, the artifact carries a unified diff (patch) the HOST applies — scan it for secrets first. Requires a GitHub fine-grained token scoped to THE ONE repo (contents:read/write, expiry ≈ timeout) via github_token; metered to the project whose MOLECULE_API_KEY is used. A 503 broker.error.capacityPaused means new runs are paused for capacity: retry later (the error says when). You may supply your own model provider key instead of using the platform broker.',
     inputSchema: {
       repo_url: z
         .string()
@@ -1162,7 +1162,7 @@ server.registerTool(
   {
     title: 'Check an agent run (molecule.dev)',
     description:
-      'Poll a molecule.dev agent run submitted with submit_agent_run. While queued/running, returns status only; when finished, returns the artifact: exitStatus, patch (unified diff — apply host-side after scanning for secrets), logs and token usage.',
+      'Poll a molecule.dev agent run submitted with submit_agent_run. Statuses: queued, running, succeeded, failed, cancelled. While queued/running it returns status only. For succeeded AND failed runs it returns the artifact: exitStatus, patch (unified diff — apply host-side after scanning for secrets), logs and token usage; a failed run also carries its reason in a top-level error field. A cancelled run returns status only. Polling never cancels a run: use cancel_agent_run.',
     inputSchema: {
       run_id: z.string().describe('runId from submit_agent_run'),
       directory: z
@@ -1177,6 +1177,28 @@ server.registerTool(
       // POST-equivalent semantics via the same auth; use the generic caller on
       // the dedicated status operation.
       const result = await callHostedService('agent-runs', 'status', { runId: run_id }, directory)
+      return JSON.stringify(result)
+    }),
+  ),
+)
+
+server.registerTool(
+  'cancel_agent_run',
+  {
+    title: 'Cancel an agent run (molecule.dev)',
+    description:
+      'Cancel a queued or running molecule.dev agent run submitted with submit_agent_run: its sandbox is destroyed and its credentials revoked. A run that already finished or was cancelled cannot be cancelled (409).',
+    inputSchema: {
+      run_id: z.string().describe('runId from submit_agent_run'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('cancel_agent_run', async ({ run_id, directory }) =>
+    serviceResult(async () => {
+      const result = await callHostedService('agent-runs', 'cancel', { runId: run_id }, directory)
       return JSON.stringify(result)
     }),
   ),

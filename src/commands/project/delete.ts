@@ -32,7 +32,22 @@ export default class ProjectDeleteCmd extends Command {
         return
       }
     }
-    await deleteProject(flags.project)
+    try {
+      await deleteProject(flags.project)
+    } catch (error) {
+      if (
+        error instanceof Error &&
+        (error.name === 'TimeoutError' || error.name === 'AbortError')
+      ) {
+        this.log(
+          ui.warn(
+            'Deletion started and is still running on the server. Check `mlcl project list` in a minute.',
+          ),
+        )
+        return
+      }
+      throw error
+    }
     this.log(ui.check('Deleted.'))
   }
 }

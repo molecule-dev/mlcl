@@ -57,7 +57,27 @@ export function resolveServiceKey(directory?: string): ServiceKey | null {
 }
 
 /** Thrown with a message an agent can act on. */
-export class ServiceCallError extends Error {}
+export class ServiceCallError extends Error {
+  constructor(
+    message: string,
+    /** Seconds the platform asked us to wait (`Retry-After`), when it sent the header. */
+    readonly retryAfterSeconds?: number,
+  ) {
+    super(message)
+  }
+}
+
+/** Seconds from a `Retry-After` header, or undefined. */
+function retryAfterOf(response: Response): number | undefined {
+  const value = Number(response.headers.get('retry-after'))
+  return Number.isFinite(value) && value > 0 ? Math.ceil(value) : undefined
+}
+
+/** The "try again" hint: the header's seconds, or a minute for `service.busy`. */
+function retryHint(seconds: number | undefined, errorKey: string | undefined): string {
+  if (seconds !== undefined) return ` Try again in ${seconds} second${seconds === 1 ? '' : 's'}.`
+  return errorKey === 'service.busy' ? ' Try again in a minute.' : ''
+}
 
 /**
  * POST /v1/services/<service>/<operation> with the project key.
@@ -92,7 +112,11 @@ export async function callHostedService(
     data = text ? JSON.parse(text) : {}
   } catch (_error) {
     // Non-JSON body (a proxy error page): report the status, not the body.
-    throw new ServiceCallError(`molecule.dev returned ${response.status} (not JSON).`)
+    const seconds = retryAfterOf(response)
+    throw new ServiceCallError(
+      `molecule.dev returned ${response.status} (not JSON).${retryHint(seconds, undefined)}`,
+      seconds,
+    )
   }
   if (!response.ok) {
     const err = data as { error?: string; errorKey?: string }
@@ -102,8 +126,10 @@ export async function callHostedService(
         : response.status === 402
           ? ' The project owner has used their included allowance; they can enable usage billing on molecule.dev.'
           : ''
+    const seconds = retryAfterOf(response)
     throw new ServiceCallError(
-      `${service}/${operation} failed (${response.status} ${err.errorKey ?? ''}): ${(err.error ?? 'error').replace(/[.\s]+$/, '')}.${hint}`,
+      `${service}/${operation} failed (${response.status} ${err.errorKey ?? ''}): ${(err.error ?? 'error').replace(/[.\s]+$/, '')}.${hint}${retryHint(seconds, err.errorKey)}`,
+      seconds,
     )
   }
   return data
@@ -126,9 +152,22 @@ async function sessionRequest<T>(
     signal: AbortSignal.timeout(15_000),
   })
   const text = await response.text()
-  const data = (text ? JSON.parse(text) : {}) as T & { error?: string }
+  const seconds = retryAfterOf(response)
+  let data: T & { error?: string; errorKey?: string }
+  try {
+    data = (text ? JSON.parse(text) : {}) as T & { error?: string; errorKey?: string }
+  } catch (_error) {
+    // Non-JSON body (a proxy error page): report the status, not a SyntaxError.
+    throw new ServiceCallError(
+      `molecule.dev returned ${response.status} (not JSON).${retryHint(seconds, undefined)}`,
+      seconds,
+    )
+  }
   if (!response.ok) {
-    throw new ServiceCallError(`${path} failed (${response.status}): ${data.error ?? 'error'}`)
+    throw new ServiceCallError(
+      `${path} failed (${response.status}): ${data.error ?? 'error'}${retryHint(seconds, data.errorKey)}`,
+      seconds,
+    )
   }
   return data
 }
