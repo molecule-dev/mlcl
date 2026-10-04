@@ -24690,6 +24690,45 @@
         "file storage"
       ]
     },
+    "@molecule/api-uploads-mirror": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "storage",
+      "label": "Mirrored (several stores)",
+      "description": "Mirrored upload provider for molecule.dev — writes every file to several upload providers and reads it back from whichever has it.",
+      "stack": "api",
+      "implements": "@molecule/api-uploads",
+      "exports": [
+        "MIRROR_ID_PREFIX",
+        "MIRROR_TARGET_NAME_PATTERN",
+        "encodeMirrorId",
+        "decodeMirrorId",
+        "createProvider",
+        "MirrorTarget",
+        "MirrorOperation",
+        "MirrorTargetFailure",
+        "MirrorUploadsConfig",
+        "MirrorCopy",
+        "MirrorCopyLocation",
+        "HeadFileHandler",
+        "MirrorUploadProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-analytics",
+        "@molecule/api-uploads"
+      ],
+      "moleculePeers": [
+        "@molecule/api-uploads"
+      ],
+      "path": "packages/api/bonds/uploads/mirror",
+      "intentHints": [
+        "mirror uploads",
+        "replicate uploads across stores",
+        "redundant file storage"
+      ]
+    },
     "@molecule/api-uploads-s3": {
       "language": "typescript",
       "runtime": "node",
