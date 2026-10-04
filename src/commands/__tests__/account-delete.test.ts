@@ -62,11 +62,9 @@ describe('account delete', () => {
     await new AccountDelete(['-p', 'p_1', '--force'], config).run()
   }
 
-  it('sends the entered password as { data: { password } }', async () => {
+  it('sends the entered password as { password }, the shape the server reads', async () => {
     await run()
-    expect(requests).toEqual([
-      { method: 'DELETE', path: '/users/u_1', body: { data: { password: 'pw' } } },
-    ])
+    expect(requests).toEqual([{ method: 'DELETE', path: '/users/u_1', body: { password: 'pw' } }])
   })
 
   it('sends no body when the password is left blank', async () => {

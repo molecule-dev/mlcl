@@ -933,7 +933,9 @@ export function deleteAccount(password?: string, token?: string): Promise<unknow
   return whoami(token).then((me) =>
     request(`/users/${me.id}`, {
       method: 'DELETE',
-      body: password ? { data: { password } } : undefined,
+      // The server reads req.body.password; the IDE http client wraps its own
+      // DELETE payload as { data } on the wire, this fetch client does not.
+      body: password ? { password } : undefined,
       token,
     }),
   )
