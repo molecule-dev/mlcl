@@ -8826,6 +8826,85 @@
         "api.mapbox.com"
       ]
     },
+    "@molecule/api-geolocation-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "geolocation",
+      "label": "Molecule (hosted)",
+      "description": "molecule.dev hosted geocoding provider \u2014 address lookups billed to your molecule project, no vendor account",
+      "stack": "api",
+      "implements": "@molecule/api-geolocation",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "GEOCODING_SERVICE_LIMITS",
+        "MoleculeServiceError",
+        "MoleculeGeolocationProvider",
+        "createProvider",
+        "geolocationMoleculeSecretDefinitions",
+        "MoleculeGeolocationConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-geolocation",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-geolocation",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/geolocation/molecule",
+      "intentHints": [
+        "hosted geocoding",
+        "geocode without an api key",
+        "address lookup without a vendor account"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
+      ]
+    },
+    "@molecule/api-geolocation-photon": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "geolocation",
+      "label": "Photon (OpenStreetMap, self-hosted)",
+      "description": "Photon (OpenStreetMap) geolocation provider for molecule.dev \u2014 point it at your own instance",
+      "stack": "api",
+      "implements": "@molecule/api-geolocation",
+      "exports": [
+        "createProvider",
+        "provider",
+        "PhotonGeolocationConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-geolocation"
+      ],
+      "moleculePeers": [
+        "@molecule/api-geolocation"
+      ],
+      "path": "packages/api/bonds/geolocation/photon",
+      "intentHints": [
+        "photon geocoder",
+        "self-hosted geocoder",
+        "photon openstreetmap geocoding"
+      ],
+      "egressHosts": [
+        "photon.komoot.io"
+      ]
+    },
     "@molecule/api-geolocation-nominatim": {
       "language": "typescript",
       "runtime": "node",

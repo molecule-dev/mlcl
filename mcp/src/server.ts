@@ -1016,6 +1016,51 @@ server.registerTool(
 )
 
 server.registerTool(
+  'geocode',
+  {
+    title: 'Geocode an address with molecule.dev',
+    description:
+      'Geocode an address to coordinates and structured components on molecule.dev (self-hosted OpenStreetMap geocoder, no maps-vendor account; metered per request to the project whose MOLECULE_API_KEY is used). Coverage is the region molecule.dev has loaded (an OSM extract, growing region by region) — an unmatched or unloaded query returns an empty array, which means "not found", not an error. Results carry OpenStreetMap data: show "© OpenStreetMap contributors" wherever they are displayed, and treat them as suggestions to confirm, not verified addresses. The same service backs @molecule/api-geolocation-molecule in app code.',
+    inputSchema: {
+      address: z.string().min(1).max(300).describe('The address or place name'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('geocode', async ({ address, directory }) =>
+    serviceResult(async () => {
+      const result = await callHostedService('geocoding', 'geocode', { address }, directory)
+      return JSON.stringify(result)
+    }),
+  ),
+)
+
+server.registerTool(
+  'reverse_geocode',
+  {
+    title: 'Reverse geocode coordinates with molecule.dev',
+    description:
+      'Reverse geocode lat/lng to the nearest address on molecule.dev (self-hosted OpenStreetMap geocoder, no maps-vendor account; metered per request to the project whose MOLECULE_API_KEY is used). Coverage is the region molecule.dev has loaded — an unloaded point returns an empty array, which means "not found", not an error. Results carry OpenStreetMap data: show "© OpenStreetMap contributors" wherever they are displayed. The same service backs @molecule/api-geolocation-molecule in app code.',
+    inputSchema: {
+      lat: z.number().min(-90).max(90).describe('Latitude in decimal degrees'),
+      lng: z.number().min(-180).max(180).describe('Longitude in decimal degrees'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('reverse_geocode', async ({ lat, lng, directory }) =>
+    serviceResult(async () => {
+      const result = await callHostedService('geocoding', 'reverse', { lat, lng }, directory)
+      return JSON.stringify(result)
+    }),
+  ),
+)
+
+server.registerTool(
   'generate_image',
   {
     title: 'Generate an image with molecule.dev',

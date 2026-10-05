@@ -166,17 +166,18 @@ Capabilities molecule runs on its own vendor accounts for a project —
 `@molecule/*` bonds (e.g. `@molecule/api-ai-embeddings-molecule`). Metered to
 the project whose `MOLECULE_API_KEY` the tool call uses.
 
-| Capability            | Route(s)                                    | Decision | CLI | MCP                                                     | Status |
-| --------------------- | ------------------------------------------- | -------- | --- | ------------------------------------------------------- | ------ |
-| Embeddings            | POST /v1/services/embeddings/embed          | parity   | —   | `embed_text`                                            | ✅     |
-| Translation           | POST /v1/services/translation/translate     | parity   | —   | `translate`                                             | ✅     |
-| Text-to-speech        | POST /v1/services/speech/synthesize         | parity   | —   | `text_to_speech`                                        | ✅     |
-| Transcription (STT)   | POST /v1/services/speech/transcribe         | parity   | —   | `transcribe_audio`                                      | ✅     |
-| Moderation            | POST /v1/services/moderation/*              | parity   | —   | `moderate_content`                                      | ✅     |
-| OCR / text extract    | POST /v1/services/ocr/recognize             | parity   | —   | `extract_text`                                          | ✅     |
-| Web search            | POST /v1/services/web-search/search         | parity   | —   | `web_search`                                            | ✅     |
-| Image generation      | POST /v1/services/image-generation/generate | parity   | —   | `generate_image`                                        | ✅     |
-| Unattended agent runs | POST /v1/agent-runs, GET /:id, /:id/cancel  | parity   | —   | `submit_agent_run`, `get_agent_run`, `cancel_agent_run` | ✅     |
+| Capability            | Route(s)                                      | Decision | CLI | MCP                                                     | Status |
+| --------------------- | --------------------------------------------- | -------- | --- | ------------------------------------------------------- | ------ |
+| Embeddings            | POST /v1/services/embeddings/embed            | parity   | —   | `embed_text`                                            | ✅     |
+| Translation           | POST /v1/services/translation/translate       | parity   | —   | `translate`                                             | ✅     |
+| Text-to-speech        | POST /v1/services/speech/synthesize           | parity   | —   | `text_to_speech`                                        | ✅     |
+| Transcription (STT)   | POST /v1/services/speech/transcribe           | parity   | —   | `transcribe_audio`                                      | ✅     |
+| Moderation            | POST /v1/services/moderation/*                | parity   | —   | `moderate_content`                                      | ✅     |
+| OCR / text extract    | POST /v1/services/ocr/recognize               | parity   | —   | `extract_text`                                          | ✅     |
+| Web search            | POST /v1/services/web-search/search           | parity   | —   | `web_search`                                            | ✅     |
+| Geocoding             | POST /v1/services/geocoding/geocode, /reverse | parity   | —   | `geocode`, `reverse_geocode`                            | ✅     |
+| Image generation      | POST /v1/services/image-generation/generate   | parity   | —   | `generate_image`                                        | ✅     |
+| Unattended agent runs | POST /v1/agent-runs, GET /:id, /:id/cancel    | parity   | —   | `submit_agent_run`, `get_agent_run`, `cancel_agent_run` | ✅     |
 
 ## Ops
 
