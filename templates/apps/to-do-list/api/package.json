@@ -23,7 +23,7 @@
     "@molecule/api-cron": "1.0.2",
     "@molecule/api-cron-node-cron": "1.0.2",
     "@molecule/api-database": "1.0.2",
-    "@molecule/api-database-postgresql": "1.0.4",
+    "@molecule/api-database-postgresql": "1.0.5",
     "@molecule/api-entitlements": "1.1.0",
     "@molecule/api-i18n": "1.0.3",
     "@molecule/api-jwt": "1.0.3",

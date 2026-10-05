@@ -23,7 +23,7 @@
     "@molecule/api-config": "1.0.2",
     "@molecule/api-config-env": "1.0.2",
     "@molecule/api-database": "1.0.2",
-    "@molecule/api-database-postgresql": "1.0.4",
+    "@molecule/api-database-postgresql": "1.0.5",
     "@molecule/api-entitlements": "1.1.0",
     "@molecule/api-feature-flags": "1.0.2",
     "@molecule/api-feature-flags-database": "1.0.2",
