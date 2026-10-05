@@ -1242,6 +1242,54 @@
         "llm triage"
       ]
     },
+    "@molecule/api-ai-decisions-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-decisions",
+      "label": "Molecule (hosted)",
+      "description": "molecule.dev hosted AI decisions — typed choice/score/yes-no answers with probabilities, billed to your molecule project",
+      "stack": "api",
+      "implements": "@molecule/api-ai-decisions",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "DECISIONS_SERVICE_LIMITS",
+        "MoleculeServiceError",
+        "MoleculeDecisionsProvider",
+        "createProvider",
+        "aiDecisionsMoleculeSecretDefinitions",
+        "MoleculeDecisionsConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-decisions",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-decisions",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-decisions/molecule",
+      "intentHints": [
+        "hosted ai decisions",
+        "classify text without an api key",
+        "typed ai answers without a vendor account"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
+      ]
+    },
     "@molecule/api-ai-deepseek": {
       "language": "typescript",
       "runtime": "node",
@@ -8882,134 +8930,6 @@
         "api.molecule.dev"
       ]
     },
-    "@molecule/api-geolocation-photon": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "provider",
-      "category": "geolocation",
-      "label": "Photon (OpenStreetMap, self-hosted)",
-      "description": "Photon (OpenStreetMap) geolocation provider for molecule.dev — point it at your own instance",
-      "stack": "api",
-      "implements": "@molecule/api-geolocation",
-      "exports": [
-        "createProvider",
-        "provider",
-        "PhotonGeolocationConfig"
-      ],
-      "secrets": [],
-      "runtimeDependencies": [
-        "@molecule/api-geolocation"
-      ],
-      "moleculePeers": [
-        "@molecule/api-geolocation"
-      ],
-      "path": "packages/api/bonds/geolocation/photon",
-      "intentHints": [
-        "photon geocoder",
-        "self-hosted geocoder",
-        "photon openstreetmap geocoding"
-      ],
-      "egressHosts": [
-        "photon.komoot.io"
-      ]
-    },
-    "@molecule/api-ai-decisions-molecule": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "provider",
-      "category": "ai-decisions",
-      "label": "Molecule (hosted)",
-      "description": "molecule.dev hosted AI decisions — typed choice/score/yes-no answers with probabilities, billed to your molecule project",
-      "stack": "api",
-      "implements": "@molecule/api-ai-decisions",
-      "exports": [
-        "provider",
-        "DEFAULT_SERVICES_URL",
-        "DECISIONS_SERVICE_LIMITS",
-        "MoleculeServiceError",
-        "MoleculeDecisionsProvider",
-        "createProvider",
-        "aiDecisionsMoleculeSecretDefinitions",
-        "MoleculeDecisionsConfig",
-        "ProcessEnv"
-      ],
-      "secrets": [
-        {
-          "name": "MOLECULE_API_KEY",
-          "required": true,
-          "label": "molecule.dev project API key",
-          "setupUrl": "https://www.molecule.dev",
-          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
-          "example": "mk_..."
-        }
-      ],
-      "runtimeDependencies": [
-        "@molecule/api-ai-decisions",
-        "@molecule/api-secrets"
-      ],
-      "moleculePeers": [
-        "@molecule/api-ai-decisions",
-        "@molecule/api-secrets"
-      ],
-      "path": "packages/api/bonds/ai-decisions/molecule",
-      "intentHints": [
-        "hosted ai decisions",
-        "classify text without an api key",
-        "typed ai answers without a vendor account"
-      ],
-      "egressHosts": [
-        "api.molecule.dev"
-      ]
-    },
-    "@molecule/api-image-molecule": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "provider",
-      "category": "image",
-      "label": "Molecule (hosted)",
-      "description": "molecule.dev hosted image transformation — resize/crop/rotate/optimize/convert billed to your molecule project",
-      "stack": "api",
-      "implements": "@molecule/api-image",
-      "exports": [
-        "provider",
-        "DEFAULT_SERVICES_URL",
-        "IMAGE_SERVICE_LIMITS",
-        "MoleculeServiceError",
-        "MoleculeImageProvider",
-        "TransformResult",
-        "createProvider",
-        "imageMoleculeSecretDefinitions",
-        "MoleculeImageConfig",
-        "ProcessEnv"
-      ],
-      "secrets": [
-        {
-          "name": "MOLECULE_API_KEY",
-          "required": true,
-          "label": "molecule.dev project API key",
-          "setupUrl": "https://www.molecule.dev",
-          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
-          "example": "mk_..."
-        }
-      ],
-      "runtimeDependencies": [
-        "@molecule/api-image",
-        "@molecule/api-secrets"
-      ],
-      "moleculePeers": [
-        "@molecule/api-image",
-        "@molecule/api-secrets"
-      ],
-      "path": "packages/api/bonds/image/molecule",
-      "intentHints": [
-        "hosted image transformation",
-        "resize images without a server",
-        "optimize images without a vendor account"
-      ],
-      "egressHosts": [
-        "api.molecule.dev"
-      ]
-    },
     "@molecule/api-geolocation-nominatim": {
       "language": "typescript",
       "runtime": "node",
@@ -9039,6 +8959,37 @@
       ],
       "egressHosts": [
         "nominatim.openstreetmap.org"
+      ]
+    },
+    "@molecule/api-geolocation-photon": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "geolocation",
+      "label": "Photon (OpenStreetMap, self-hosted)",
+      "description": "Photon (OpenStreetMap) geolocation provider for molecule.dev — point it at your own instance",
+      "stack": "api",
+      "implements": "@molecule/api-geolocation",
+      "exports": [
+        "createProvider",
+        "provider",
+        "PhotonGeolocationConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-geolocation"
+      ],
+      "moleculePeers": [
+        "@molecule/api-geolocation"
+      ],
+      "path": "packages/api/bonds/geolocation/photon",
+      "intentHints": [
+        "photon geocoder",
+        "self-hosted geocoder",
+        "photon openstreetmap geocoding"
+      ],
+      "egressHosts": [
+        "photon.komoot.io"
       ]
     },
     "@molecule/api-git-provider": {
@@ -9651,6 +9602,55 @@
         "jimp",
         "jimp image processing",
         "pure js image"
+      ]
+    },
+    "@molecule/api-image-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "image",
+      "label": "Molecule (hosted)",
+      "description": "molecule.dev hosted image transformation — resize/crop/rotate/optimize/convert billed to your molecule project",
+      "stack": "api",
+      "implements": "@molecule/api-image",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "IMAGE_SERVICE_LIMITS",
+        "MoleculeServiceError",
+        "MoleculeImageProvider",
+        "TransformResult",
+        "createProvider",
+        "imageMoleculeSecretDefinitions",
+        "MoleculeImageConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-image",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-image",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/image/molecule",
+      "intentHints": [
+        "hosted image transformation",
+        "resize images without a server",
+        "optimize images without a vendor account"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
       ]
     },
     "@molecule/api-image-sharp": {
@@ -24811,6 +24811,8 @@
         "ENCRYPTED_ID_PREFIX",
         "ENCRYPTION_UNAVAILABLE_ERROR_NAME",
         "ENCRYPTION_CONTEXT_MISMATCH_ERROR_NAME",
+        "UPLOAD_TOO_LARGE_ERROR_NAME",
+        "UPLOAD_SOURCE_CLOSED_ERROR_NAME",
         "INVALID_ENCRYPTION_CONTEXT_ERROR_NAME",
         "encodeEncryptedId",
         "parseEncryptedId",
