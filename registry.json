@@ -3699,6 +3699,9 @@
         "axiom events",
         "send events to axiom",
         "observability events"
+      ],
+      "egressHosts": [
+        "api.axiom.co"
       ]
     },
     "@molecule/api-analytics-http": {
