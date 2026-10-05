@@ -8250,12 +8250,17 @@
       ],
       "path": "packages/api/bonds/feature-flags/database",
       "intentHints": [
-        "feature flags",
+    "feature flag",
+    "feature flags",
         "feature toggles",
         "ab flags",
         "a/b testing flags",
         "ab test variant"
-      ]
+      ,
+    "canary rollout",
+    "gradual rollout",
+    "percentage rollout",
+    "release flags"]
     },
     "@molecule/api-feed-podcast": {
       "language": "typescript",
