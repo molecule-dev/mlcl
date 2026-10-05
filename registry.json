@@ -8250,17 +8250,17 @@
       ],
       "path": "packages/api/bonds/feature-flags/database",
       "intentHints": [
-    "feature flag",
-    "feature flags",
+        "feature flag",
+        "feature flags",
         "feature toggles",
         "ab flags",
         "a/b testing flags",
-        "ab test variant"
-      ,
-    "canary rollout",
-    "gradual rollout",
-    "percentage rollout",
-    "release flags"]
+        "ab test variant",
+        "canary rollout",
+        "gradual rollout",
+        "percentage rollout",
+        "release flags"
+      ]
     },
     "@molecule/api-feed-podcast": {
       "language": "typescript",
@@ -8840,7 +8840,7 @@
       "type": "provider",
       "category": "geolocation",
       "label": "Molecule (hosted)",
-      "description": "molecule.dev hosted geocoding provider \u2014 address lookups billed to your molecule project, no vendor account",
+      "description": "molecule.dev hosted geocoding provider — address lookups billed to your molecule project, no vendor account",
       "stack": "api",
       "implements": "@molecule/api-geolocation",
       "exports": [
@@ -8888,7 +8888,7 @@
       "type": "provider",
       "category": "geolocation",
       "label": "Photon (OpenStreetMap, self-hosted)",
-      "description": "Photon (OpenStreetMap) geolocation provider for molecule.dev \u2014 point it at your own instance",
+      "description": "Photon (OpenStreetMap) geolocation provider for molecule.dev — point it at your own instance",
       "stack": "api",
       "implements": "@molecule/api-geolocation",
       "exports": [
@@ -8919,7 +8919,7 @@
       "type": "provider",
       "category": "ai-decisions",
       "label": "Molecule (hosted)",
-      "description": "molecule.dev hosted AI decisions \u2014 typed choice/score/yes-no answers with probabilities, billed to your molecule project",
+      "description": "molecule.dev hosted AI decisions — typed choice/score/yes-no answers with probabilities, billed to your molecule project",
       "stack": "api",
       "implements": "@molecule/api-ai-decisions",
       "exports": [
@@ -8967,7 +8967,7 @@
       "type": "provider",
       "category": "image",
       "label": "Molecule (hosted)",
-      "description": "molecule.dev hosted image transformation \u2014 resize/crop/rotate/optimize/convert billed to your molecule project",
+      "description": "molecule.dev hosted image transformation — resize/crop/rotate/optimize/convert billed to your molecule project",
       "stack": "api",
       "implements": "@molecule/api-image",
       "exports": [
@@ -9010,7 +9010,7 @@
         "api.molecule.dev"
       ]
     },
-"@molecule/api-geolocation-nominatim": {
+    "@molecule/api-geolocation-nominatim": {
       "language": "typescript",
       "runtime": "node",
       "type": "provider",
@@ -57841,7 +57841,7 @@
       "@molecule/api-ci-github-actions": "1.0.2",
       "@molecule/api-code-sandbox": "1.3.0",
       "@molecule/api-code-sandbox-docker": "1.1.4",
-      "@molecule/api-code-sandbox-e2b": "1.2.5",
+      "@molecule/api-code-sandbox-e2b": "1.2.7",
       "@molecule/api-code-sandbox-flyio": "1.2.3",
       "@molecule/api-code-sandbox-flyio-sprites": "1.0.2",
       "@molecule/api-compliance": "1.0.2",
@@ -57879,8 +57879,8 @@
       "@molecule/api-emails-sendgrid": "1.0.3",
       "@molecule/api-emails-sendmail": "1.0.7",
       "@molecule/api-emails-ses": "1.0.7",
-      "@molecule/api-encryption": "1.0.2",
-      "@molecule/api-encryption-aes": "1.0.2",
+      "@molecule/api-encryption": "1.1.0",
+      "@molecule/api-encryption-aes": "1.1.1",
       "@molecule/api-entitlements": "1.1.0",
       "@molecule/api-equity-prices": "1.0.2",
       "@molecule/api-equity-prices-alpha-vantage": "1.0.2",
@@ -58155,7 +58155,7 @@
       "@molecule/api-two-factor-otplib": "1.0.3",
       "@molecule/api-uploads": "1.0.2",
       "@molecule/api-uploads-filesystem": "1.0.3",
-      "@molecule/api-uploads-s3": "1.0.8",
+      "@molecule/api-uploads-s3": "1.1.1",
       "@molecule/api-utilities-validation": "1.0.2",
       "@molecule/api-video-meetings": "1.0.2",
       "@molecule/api-video-meetings-zoom": "1.0.2",
@@ -58731,7 +58731,13 @@
       "@molecule/api-agent-transcript-pi": "1.0.0",
       "@molecule/api-emails-resend": "1.0.2",
       "@molecule/api-analytics-axiom": "1.0.2",
-      "@molecule/api-logger-axiom": "1.0.2"
+      "@molecule/api-logger-axiom": "1.0.2",
+      "@molecule/api-ai-decisions-molecule": "1.1.0",
+      "@molecule/api-image-molecule": "1.1.0",
+      "@molecule/api-uploads-encrypted": "1.1.1",
+      "@molecule/api-uploads-mirror": "1.1.1",
+      "@molecule/api-geolocation-photon": "1.1.0",
+      "@molecule/api-geolocation-molecule": "1.1.0"
     }
   }
 }
