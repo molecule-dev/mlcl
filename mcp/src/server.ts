@@ -1061,6 +1061,186 @@ server.registerTool(
 )
 
 server.registerTool(
+  'ai_decision',
+  {
+    title: 'Answer typed questions with molecule.dev',
+    description:
+      'AI decisions on molecule.dev (no AI-vendor account; metered per request to the project whose MOLECULE_API_KEY is used). Ask typed questions about a piece of text or JSON — pick one option (choice), rate on an ordered scale (score), or test a statement (yesNo) — and get probability distributions back, not just a label. Returns one typed answer per question id with confidences. The same service backs @molecule/api-ai-decisions-molecule in app code.',
+    inputSchema: {
+      state: z.string().min(1).max(100000).describe('The text the questions are about'),
+      questions: z
+        .record(
+          z.string(),
+          z.object({
+            type: z.enum(['choice', 'score', 'yesNo']),
+            instructions: z.string().min(1).max(2000),
+            criteria: z.unknown().optional(),
+          }),
+        )
+        .describe(
+          'Questions keyed by an id you choose; answers come back under the same ids. choice: criteria = {optionLabel: whenItApplies}; score: criteria = [levels, lowest first]; yesNo: criteria = {yes?, no?} optional',
+        ),
+      min_confidence: z
+        .number()
+        .min(0)
+        .max(1)
+        .optional()
+        .describe('Mark answers below this confidence with lowConfidence: true'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('ai_decision', async ({ state, questions, min_confidence, directory }) =>
+    serviceResult(async () => {
+      const result = await callHostedService(
+        'ai-decisions',
+        'decide',
+        {
+          state,
+          questions,
+          ...(min_confidence !== undefined ? { minConfidence: min_confidence } : {}),
+        },
+        directory,
+      )
+      return JSON.stringify(result)
+    }),
+  ),
+)
+
+server.registerTool(
+  'transform_image',
+  {
+    title: 'Transform an image with molecule.dev',
+    description:
+      'Image transformation on molecule.dev (self-hosted, no vendor account; metered per image to the project whose MOLECULE_API_KEY is used). Reads the image at input_file, runs an operation pipeline — resize, crop, rotate, flip, flop, thumbnail, optimize, convert (jpeg/png/webp/avif/gif/tiff) — and writes the result to output_file (never overwritten). Up to 6 operations per request, 8 MB input. The same service backs @molecule/api-image-molecule in app code.',
+    inputSchema: {
+      input_file: z.string().describe('Path of the image to read (png/jpeg/webp/avif/gif/tiff)'),
+      output_file: z.string().describe('Where to write the transformed image (must not exist yet)'),
+      ops: z
+        .array(
+          z.object({
+            op: z.enum([
+              'resize',
+              'crop',
+              'rotate',
+              'flip',
+              'flop',
+              'thumbnail',
+              'optimize',
+              'convert',
+            ]),
+            width: z.number().int().optional(),
+            height: z.number().int().optional(),
+            fit: z.enum(['cover', 'contain', 'fill', 'inside', 'outside']).optional(),
+            left: z.number().int().optional(),
+            top: z.number().int().optional(),
+            angle: z.number().int().optional(),
+            size: z.number().int().optional(),
+            format: z.enum(['jpeg', 'png', 'webp', 'avif', 'gif', 'tiff']).optional(),
+            quality: z.number().int().min(1).max(100).optional(),
+            background: z.string().optional(),
+            without_enlargement: z.boolean().optional(),
+          }),
+        )
+        .min(1)
+        .max(6)
+        .describe('The operation pipeline, in order'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('transform_image', async ({ input_file, output_file, ops, directory }) =>
+    serviceResult(async () => {
+      let input: Buffer
+      try {
+        input = readFileSync(resolve(input_file))
+      } catch {
+        throw new ServiceCallError(`Cannot read ${input_file}.`)
+      }
+      const mimeByExt: Record<string, string> = {
+        '.png': 'image/png',
+        '.jpg': 'image/jpeg',
+        '.jpeg': 'image/jpeg',
+        '.webp': 'image/webp',
+        '.avif': 'image/avif',
+        '.gif': 'image/gif',
+        '.tif': 'image/tiff',
+        '.tiff': 'image/tiff',
+      }
+      const mimeType = mimeByExt[extname(input_file).toLowerCase()]
+      if (!mimeType) {
+        throw new ServiceCallError(
+          `Unsupported image extension "${extname(input_file)}" — use png, jpg, webp, avif, gif or tiff.`,
+        )
+      }
+      const target = resolve(output_file)
+      if (existsSync(target)) {
+        throw new ServiceCallError(
+          `${target} already exists. Pick a fresh name — the tool never overwrites.`,
+        )
+      }
+      const pipeline = ops.map((o) => ({
+        op: o.op,
+        ...(o.width !== undefined ? { width: o.width } : {}),
+        ...(o.height !== undefined ? { height: o.height } : {}),
+        ...(o.fit ? { fit: o.fit } : {}),
+        ...(o.left !== undefined ? { left: o.left } : {}),
+        ...(o.top !== undefined ? { top: o.top } : {}),
+        ...(o.angle !== undefined ? { angle: o.angle } : {}),
+        ...(o.size !== undefined ? { size: o.size } : {}),
+        ...(o.format ? { format: o.format } : {}),
+        ...(o.quality !== undefined ? { quality: o.quality } : {}),
+        ...(o.background ? { background: o.background } : {}),
+        ...(o.without_enlargement === true ? { withoutEnlargement: true } : {}),
+      }))
+      const result = (await callHostedService(
+        'image',
+        'transform',
+        { image: input.toString('base64'), mimeType, ops: pipeline },
+        directory,
+      )) as {
+        data?: string
+        mimeType?: string
+        width?: number
+        height?: number
+        format?: string
+        bytes?: number
+      }
+      if (typeof result.data !== 'string') {
+        throw new ServiceCallError('The service returned no image data.')
+      }
+      const extByMime: Record<string, string> = {
+        'image/jpeg': '.jpg',
+        'image/png': '.png',
+        'image/webp': '.webp',
+        'image/avif': '.avif',
+        'image/gif': '.gif',
+        'image/tiff': '.tiff',
+      }
+      const outPath =
+        target.slice(0, target.length - extname(target).length) +
+        (extByMime[result.mimeType ?? ''] ?? (extname(target) || '.png'))
+      if (existsSync(outPath)) {
+        throw new ServiceCallError(`${outPath} already exists. Pick a fresh name.`)
+      }
+      writeFileSync(outPath, Buffer.from(result.data, 'base64'), { mode: 0o644 })
+      return JSON.stringify({
+        file: outPath,
+        mimeType: result.mimeType,
+        width: result.width,
+        height: result.height,
+        format: result.format,
+        bytes: result.bytes,
+      })
+    }),
+  ),
+)
+
+server.registerTool(
   'generate_image',
   {
     title: 'Generate an image with molecule.dev',

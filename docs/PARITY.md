@@ -176,6 +176,8 @@ the project whose `MOLECULE_API_KEY` the tool call uses.
 | OCR / text extract    | POST /v1/services/ocr/recognize               | parity   | —   | `extract_text`                                          | ✅     |
 | Web search            | POST /v1/services/web-search/search           | parity   | —   | `web_search`                                            | ✅     |
 | Geocoding             | POST /v1/services/geocoding/geocode, /reverse | parity   | —   | `geocode`, `reverse_geocode`                            | ✅     |
+| AI decisions          | POST /v1/services/ai-decisions/decide         | parity   | —   | `ai_decision`                                           | ✅     |
+| Image transformation  | POST /v1/services/image/transform             | parity   | —   | `transform_image`                                       | ✅     |
 | Image generation      | POST /v1/services/image-generation/generate   | parity   | —   | `generate_image`                                        | ✅     |
 | Unattended agent runs | POST /v1/agent-runs, GET /:id, /:id/cancel    | parity   | —   | `submit_agent_run`, `get_agent_run`, `cancel_agent_run` | ✅     |
 
