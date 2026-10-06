@@ -1,0 +1,532 @@
+{
+  "budget/": {
+    "items": [
+      {
+        "id": "bud-001",
+        "wedding_id": "wd-001",
+        "category": "venue",
+        "label": "Ceremony + reception venue",
+        "estimated_cents": 950000,
+        "actual_cents": 950000,
+        "vendor": "Linden Hall Estate",
+        "notes": null
+      },
+      {
+        "id": "bud-002",
+        "wedding_id": "wd-001",
+        "category": "catering",
+        "label": "Plated dinner (120 guests)",
+        "estimated_cents": 720000,
+        "actual_cents": null,
+        "vendor": "Golden Fig Catering",
+        "notes": null
+      },
+      {
+        "id": "bud-003",
+        "wedding_id": "wd-001",
+        "category": "catering",
+        "label": "Bar package",
+        "estimated_cents": 180000,
+        "actual_cents": null,
+        "vendor": null,
+        "notes": null
+      },
+      {
+        "id": "bud-004",
+        "wedding_id": "wd-001",
+        "category": "photography",
+        "label": "Photographer (10h)",
+        "estimated_cents": 320000,
+        "actual_cents": 295000,
+        "vendor": "Alder & Lens Studio",
+        "notes": "Booked at a winter-rate discount"
+      },
+      {
+        "id": "bud-005",
+        "wedding_id": "wd-001",
+        "category": "attire",
+        "label": "Wedding attire + alterations",
+        "estimated_cents": 240000,
+        "actual_cents": null,
+        "vendor": null,
+        "notes": null
+      },
+      {
+        "id": "bud-006",
+        "wedding_id": "wd-001",
+        "category": "flowers",
+        "label": "Florals + ceremony arch",
+        "estimated_cents": 140000,
+        "actual_cents": null,
+        "vendor": null,
+        "notes": null
+      },
+      {
+        "id": "bud-007",
+        "wedding_id": "wd-001",
+        "category": "music",
+        "label": "Band + DJ",
+        "estimated_cents": 260000,
+        "actual_cents": null,
+        "vendor": null,
+        "notes": null
+      },
+      {
+        "id": "bud-008",
+        "wedding_id": "wd-001",
+        "category": "stationery",
+        "label": "Invitations + RSVP cards",
+        "estimated_cents": 45000,
+        "actual_cents": 41250,
+        "vendor": null,
+        "notes": null
+      },
+      {
+        "id": "bud-009",
+        "wedding_id": "wd-001",
+        "category": "other",
+        "label": "Hair + makeup",
+        "estimated_cents": 60000,
+        "actual_cents": null,
+        "vendor": null,
+        "notes": null
+      }
+    ],
+    "estimated_total_cents": 2915000,
+    "actual_total_cents": 1286250,
+    "by_category": [
+      {
+        "category": "venue",
+        "estimated_cents": 950000,
+        "actual_cents": 950000,
+        "count": 1
+      },
+      {
+        "category": "catering",
+        "estimated_cents": 900000,
+        "actual_cents": 0,
+        "count": 2
+      },
+      {
+        "category": "photography",
+        "estimated_cents": 320000,
+        "actual_cents": 295000,
+        "count": 1
+      },
+      {
+        "category": "attire",
+        "estimated_cents": 240000,
+        "actual_cents": 0,
+        "count": 1
+      },
+      {
+        "category": "flowers",
+        "estimated_cents": 140000,
+        "actual_cents": 0,
+        "count": 1
+      },
+      {
+        "category": "music",
+        "estimated_cents": 260000,
+        "actual_cents": 0,
+        "count": 1
+      },
+      {
+        "category": "stationery",
+        "estimated_cents": 45000,
+        "actual_cents": 41250,
+        "count": 1
+      },
+      {
+        "category": "other",
+        "estimated_cents": 60000,
+        "actual_cents": 0,
+        "count": 1
+      }
+    ]
+  },
+  "tasks/": {
+    "tasks": [
+      {
+        "id": "tsk-001",
+        "wedding_id": "wd-001",
+        "title": "Set the wedding date",
+        "category": "planning",
+        "due_date": "2026-05-20",
+        "done": true
+      },
+      {
+        "id": "tsk-002",
+        "wedding_id": "wd-001",
+        "title": "Book ceremony + reception venue",
+        "category": "venue",
+        "due_date": "2026-06-20",
+        "done": true
+      },
+      {
+        "id": "tsk-003",
+        "wedding_id": "wd-001",
+        "title": "Finalize guest list",
+        "category": "guests",
+        "due_date": "2026-08-20",
+        "done": true
+      },
+      {
+        "id": "tsk-004",
+        "wedding_id": "wd-001",
+        "title": "Send save-the-dates",
+        "category": "stationery",
+        "due_date": "2026-09-05",
+        "done": true
+      },
+      {
+        "id": "tsk-005",
+        "wedding_id": "wd-001",
+        "title": "Book caterer + menu tasting",
+        "category": "catering",
+        "due_date": "2026-09-29",
+        "done": false
+      },
+      {
+        "id": "tsk-006",
+        "wedding_id": "wd-001",
+        "title": "Order invitations",
+        "category": "stationery",
+        "due_date": "2026-10-13",
+        "done": false
+      },
+      {
+        "id": "tsk-007",
+        "wedding_id": "wd-001",
+        "title": "Book photographer",
+        "category": "photography",
+        "due_date": "2026-10-24",
+        "done": false
+      },
+      {
+        "id": "tsk-008",
+        "wedding_id": "wd-001",
+        "title": "Reserve room block for guests",
+        "category": "logistics",
+        "due_date": "2026-11-07",
+        "done": false
+      },
+      {
+        "id": "tsk-009",
+        "wedding_id": "wd-001",
+        "title": "Choose and order florals",
+        "category": "flowers",
+        "due_date": "2026-11-28",
+        "done": false
+      },
+      {
+        "id": "tsk-010",
+        "wedding_id": "wd-001",
+        "title": "Finalize seating chart",
+        "category": "guests",
+        "due_date": "2027-01-17",
+        "done": false
+      },
+      {
+        "id": "tsk-011",
+        "wedding_id": "wd-001",
+        "title": "Confirm final headcount with caterer",
+        "category": "catering",
+        "due_date": "2027-02-16",
+        "done": false
+      }
+    ],
+    "total": 11,
+    "done": 4
+  },
+  "vendors/": {
+    "vendors": [
+      {
+        "id": "ven-001",
+        "wedding_id": "wd-001",
+        "category": "venue",
+        "name": "Linden Hall Estate",
+        "contact": "events@lindenhall.example",
+        "status": "paid",
+        "notes": "Deposit + balance both settled"
+      },
+      {
+        "id": "ven-002",
+        "wedding_id": "wd-001",
+        "category": "catering",
+        "name": "Golden Fig Catering",
+        "contact": "hello@goldenfig.example",
+        "status": "booked",
+        "notes": "Tasting confirmed for October"
+      },
+      {
+        "id": "ven-003",
+        "wedding_id": "wd-001",
+        "category": "photography",
+        "name": "Alder & Lens Studio",
+        "contact": "studio@alderlens.example",
+        "status": "booked",
+        "notes": null
+      },
+      {
+        "id": "ven-004",
+        "wedding_id": "wd-001",
+        "category": "flowers",
+        "name": "Petal + Stem",
+        "contact": "orders@petalstem.example",
+        "status": "contacted",
+        "notes": "Awaiting seasonal quote"
+      },
+      {
+        "id": "ven-005",
+        "wedding_id": "wd-001",
+        "category": "music",
+        "name": "The Nightingale Quartet",
+        "contact": null,
+        "status": "contacted",
+        "notes": null
+      },
+      {
+        "id": "ven-006",
+        "wedding_id": "wd-001",
+        "category": "attire",
+        "name": "Maison Blanche Bridal",
+        "contact": null,
+        "status": "researching",
+        "notes": null
+      }
+    ],
+    "status_counts": {
+      "researching": 1,
+      "contacted": 2,
+      "booked": 2,
+      "paid": 1
+    }
+  },
+  "seating/": {
+    "tables": [
+      {
+        "id": "tbl-001",
+        "wedding_id": "wd-001",
+        "name": "Table 1 — Sweetheart",
+        "capacity": 2,
+        "guests": [],
+        "seated_count": 0,
+        "over_capacity": false
+      },
+      {
+        "id": "tbl-002",
+        "wedding_id": "wd-001",
+        "name": "Table 2 — Family",
+        "capacity": 10,
+        "guests": [
+          {
+            "id": "gst-001",
+            "name": "Alice Whitfield",
+            "rsvp_status": "yes",
+            "group_name": "Whitfield family",
+            "side": "partner_a"
+          },
+          {
+            "id": "gst-002",
+            "name": "Bernard Whitfield",
+            "rsvp_status": "yes",
+            "group_name": "Whitfield family",
+            "side": "partner_a"
+          },
+          {
+            "id": "gst-003",
+            "name": "Clara Whitfield",
+            "rsvp_status": "pending",
+            "group_name": "Whitfield family",
+            "side": "partner_a"
+          }
+        ],
+        "seated_count": 3,
+        "over_capacity": false
+      },
+      {
+        "id": "tbl-003",
+        "wedding_id": "wd-001",
+        "name": "Table 3 — Family",
+        "capacity": 10,
+        "guests": [],
+        "seated_count": 0,
+        "over_capacity": false
+      },
+      {
+        "id": "tbl-004",
+        "wedding_id": "wd-001",
+        "name": "Table 4 — Friends",
+        "capacity": 8,
+        "guests": [
+          {
+            "id": "gst-004",
+            "name": "Devon Marsh",
+            "rsvp_status": "yes",
+            "group_name": "College friends",
+            "side": "partner_a"
+          },
+          {
+            "id": "gst-005",
+            "name": "Elena Marsh",
+            "rsvp_status": "yes",
+            "group_name": "College friends",
+            "side": "partner_a"
+          }
+        ],
+        "seated_count": 2,
+        "over_capacity": false
+      },
+      {
+        "id": "tbl-005",
+        "wedding_id": "wd-001",
+        "name": "Table 5 — Friends",
+        "capacity": 8,
+        "guests": [],
+        "seated_count": 0,
+        "over_capacity": false
+      }
+    ],
+    "unassigned": [
+      {
+        "id": "gst-006",
+        "name": "Farid Okafor",
+        "rsvp_status": "yes",
+        "group_name": "Okafor family",
+        "side": "partner_b"
+      },
+      {
+        "id": "gst-007",
+        "name": "Grace Okafor",
+        "rsvp_status": "yes",
+        "group_name": "Okafor family",
+        "side": "partner_b"
+      },
+      {
+        "id": "gst-008",
+        "name": "Hana Sato",
+        "rsvp_status": "maybe",
+        "group_name": "Work friends",
+        "side": "partner_b"
+      },
+      {
+        "id": "gst-009",
+        "name": "Iris Delacroix",
+        "rsvp_status": "pending",
+        "group_name": "Work friends",
+        "side": "partner_b"
+      }
+    ]
+  },
+  "dashboard/summary": {
+    "wedding": {
+      "id": "wd-001",
+      "partner_a_name": "June",
+      "partner_b_name": "Thea",
+      "wedding_date": "2027-06-12",
+      "venue": "Linden Hall Estate",
+      "rsvp_code": "WEDD1NG202"
+    },
+    "days_until": 249,
+    "guests_total": 10,
+    "rsvp_tally": {
+      "yes": 6,
+      "no": 1,
+      "maybe": 1,
+      "pending": 2
+    },
+    "plus_ones_confirmed": 1,
+    "headcount_confirmed": 7,
+    "budget": {
+      "estimated_total_cents": 2915000,
+      "actual_total_cents": 1286250,
+      "line_item_count": 9
+    },
+    "tasks": {
+      "total": 11,
+      "done": 4,
+      "overdue": 1,
+      "upcoming": [
+        {
+          "id": "tsk-005",
+          "title": "Book caterer + menu tasting",
+          "category": "catering",
+          "due_date": "2026-09-29"
+        },
+        {
+          "id": "tsk-006",
+          "title": "Order invitations",
+          "category": "stationery",
+          "due_date": "2026-10-13"
+        },
+        {
+          "id": "tsk-007",
+          "title": "Book photographer",
+          "category": "photography",
+          "due_date": "2026-10-24"
+        },
+        {
+          "id": "tsk-008",
+          "title": "Reserve room block for guests",
+          "category": "logistics",
+          "due_date": "2026-11-07"
+        },
+        {
+          "id": "tsk-009",
+          "title": "Choose and order florals",
+          "category": "flowers",
+          "due_date": "2026-11-28"
+        }
+      ]
+    },
+    "vendors": {
+      "total": 6,
+      "booked": 3
+    }
+  },
+  "profile/me": {
+    "firstName": "June",
+    "lastName": "Ellis",
+    "displayName": "June Ellis",
+    "bio": "",
+    "theme": "system",
+    "language": "en",
+    "notifications": {
+      "rsvpUpdates": true,
+      "taskReminders": true,
+      "budgetAlerts": false,
+      "marketing": false
+    },
+    "email": "june@example.com"
+  },
+  "public/rsvp/:code": {
+    "partner_a_name": "June",
+    "partner_b_name": "Thea",
+    "wedding_date": "2027-06-12",
+    "venue": "Linden Hall Estate",
+    "plus_ones_allowed": true,
+    "meals": [
+      {
+        "id": "meal-001",
+        "name": "Herb chicken",
+        "description": "Roasted half chicken, thyme jus, seasonal vegetables"
+      },
+      {
+        "id": "meal-002",
+        "name": "Seared salmon",
+        "description": "Atlantic salmon, lemon beurre blanc, herb rice"
+      },
+      {
+        "id": "meal-003",
+        "name": "Mushroom risotto",
+        "description": "Carnaroli rice, wild mushrooms, parmesan (vegetarian)"
+      },
+      {
+        "id": "meal-004",
+        "name": "Beef tenderloin",
+        "description": "Grass-fed tenderloin, red wine reduction, potato gratin"
+      }
+    ]
+  }
+}
