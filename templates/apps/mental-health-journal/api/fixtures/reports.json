@@ -1,0 +1,640 @@
+{
+  "journal/today": {
+    "mood": "good",
+    "streak_days": 12,
+    "entries_this_week": 5,
+    "reflection_prompt": "What is one small thing you are grateful for today?",
+    "trend": [
+      {
+        "day": "M",
+        "score": 0.55
+      },
+      {
+        "day": "T",
+        "score": 0.58
+      },
+      {
+        "day": "W",
+        "score": 0.62
+      },
+      {
+        "day": "T",
+        "score": 0.65
+      },
+      {
+        "day": "F",
+        "score": 0.7
+      },
+      {
+        "day": "S",
+        "score": 0.74
+      },
+      {
+        "day": "S",
+        "score": 0.77
+      },
+      {
+        "day": "M",
+        "score": 0.81
+      },
+      {
+        "day": "T",
+        "score": 0.78
+      },
+      {
+        "day": "W",
+        "score": 0.85
+      },
+      {
+        "day": "T",
+        "score": 0.82
+      },
+      {
+        "day": "F",
+        "score": 0.88
+      },
+      {
+        "day": "S",
+        "score": 0.84
+      },
+      {
+        "day": "S",
+        "score": 0.91
+      }
+    ],
+    "sleep_hours": 7.4,
+    "sleep_goal": 8,
+    "mindfulness_minutes": 18,
+    "mindfulness_goal": 20,
+    "journal_streak": 12,
+    "journal_goal": 30
+  },
+  "journal/insights": {
+    "mood_trend": [
+      {
+        "date": "Apr 16",
+        "score": 0.55
+      },
+      {
+        "date": "Apr 17",
+        "score": 0.6
+      },
+      {
+        "date": "Apr 18",
+        "score": 0.58
+      },
+      {
+        "date": "Apr 19",
+        "score": 0.7
+      },
+      {
+        "date": "Apr 20",
+        "score": 0.62
+      },
+      {
+        "date": "Apr 21",
+        "score": 0.74
+      },
+      {
+        "date": "Apr 22",
+        "score": 0.68
+      },
+      {
+        "date": "Apr 23",
+        "score": 0.78
+      },
+      {
+        "date": "Apr 24",
+        "score": 0.74
+      },
+      {
+        "date": "Apr 25",
+        "score": 0.82
+      },
+      {
+        "date": "Apr 26",
+        "score": 0.79
+      },
+      {
+        "date": "Apr 27",
+        "score": 0.86
+      },
+      {
+        "date": "Apr 28",
+        "score": 0.83
+      },
+      {
+        "date": "Apr 29",
+        "score": 0.91
+      }
+    ],
+    "top_themes": [
+      {
+        "tag": "gratitude",
+        "count": 18,
+        "sentiment": "positive"
+      },
+      {
+        "tag": "work",
+        "count": 15,
+        "sentiment": "neutral"
+      },
+      {
+        "tag": "family",
+        "count": 12,
+        "sentiment": "positive"
+      },
+      {
+        "tag": "anxiety",
+        "count": 9,
+        "sentiment": "negative"
+      },
+      {
+        "tag": "rest",
+        "count": 8,
+        "sentiment": "positive"
+      },
+      {
+        "tag": "connection",
+        "count": 7,
+        "sentiment": "positive"
+      },
+      {
+        "tag": "loneliness",
+        "count": 5,
+        "sentiment": "negative"
+      },
+      {
+        "tag": "therapy",
+        "count": 4,
+        "sentiment": "positive"
+      }
+    ],
+    "triggers": [
+      {
+        "trigger": "Late nights",
+        "frequency": 6,
+        "mood_delta": -0.34
+      },
+      {
+        "trigger": "Skipped walk",
+        "frequency": 5,
+        "mood_delta": -0.21
+      },
+      {
+        "trigger": "Long meetings",
+        "frequency": 4,
+        "mood_delta": -0.18
+      },
+      {
+        "trigger": "Morning sunlight",
+        "frequency": 9,
+        "mood_delta": 0.27
+      },
+      {
+        "trigger": "Honest convo",
+        "frequency": 3,
+        "mood_delta": 0.31
+      }
+    ],
+    "ai_summary": "Your reflections this month carry a quiet upward trend — especially after morning light and honest conversations. Anxiety still surfaces, often around long meetings and short sleep. Mornings are your most reliably grounding window.",
+    "ai_summary_generated_at": "2026-04-30T06:00:00Z"
+  },
+  "journal/profile-stats": {
+    "total_entries": 142,
+    "longest_streak": 47,
+    "current_streak": 12,
+    "member_since": "2025-09-01T00:00:00Z",
+    "total_words": 38204,
+    "mood_counts": {
+      "radiant": 32,
+      "good": 64,
+      "neutral": 28,
+      "low": 12,
+      "struggling": 6
+    },
+    "milestones": [
+      {
+        "id": "m1",
+        "label": "First entry",
+        "date": "2025-09-01T00:00:00Z",
+        "icon": "edit"
+      },
+      {
+        "id": "m2",
+        "label": "7-day streak",
+        "date": "2025-10-01T00:00:00Z",
+        "icon": "local_fire_department"
+      },
+      {
+        "id": "m3",
+        "label": "30-day streak",
+        "date": "2025-12-15T00:00:00Z",
+        "icon": "event_available"
+      },
+      {
+        "id": "m4",
+        "label": "100 entries",
+        "date": "2026-03-01T00:00:00Z",
+        "icon": "auto_stories"
+      }
+    ]
+  },
+  "journal/entries": [
+    {
+      "ai_summary": null,
+      "ai_themes": [],
+      "prompt": null,
+      "id": "entry-1",
+      "date": "2026-04-30T07:30:00Z",
+      "title": "A quiet morning walk",
+      "preview": "I noticed the way the light moved through the leaves today. There was a small bird I had never seen before — a tiny moment of wonder before the day got loud.",
+      "body": "I noticed the way the light moved through the leaves today. There was a small bird I had never seen before — a tiny moment of wonder before the day got loud.\n\nI am trying to do this more often: notice the small things before the noise of doing arrives. The walks help. The journal helps. Even the quiet ten minutes after, where I do nothing in particular, helps.",
+      "mood": "radiant",
+      "tags": [
+        "gratitude",
+        "nature",
+        "morning"
+      ],
+      "word_count": 142
+    },
+    {
+      "ai_summary": null,
+      "ai_themes": [],
+      "prompt": null,
+      "id": "entry-2",
+      "date": "2026-04-29T19:45:00Z",
+      "title": "A hard conversation, but honest",
+      "preview": "Talked with my sister about how I have been feeling lately. It was uncomfortable to admit but afterwards I felt lighter. We do not talk enough about the small heavy things.",
+      "body": "Talked with my sister about how I have been feeling lately. It was uncomfortable to admit but afterwards I felt lighter.\n\nWe do not talk enough about the small heavy things. I forget how much honesty actually helps until I practice it.",
+      "mood": "good",
+      "tags": [
+        "family",
+        "honesty",
+        "connection"
+      ],
+      "word_count": 218
+    },
+    {
+      "ai_summary": null,
+      "ai_themes": [],
+      "prompt": null,
+      "id": "entry-3",
+      "date": "2026-04-28T22:10:00Z",
+      "title": "Tired but okay",
+      "preview": "A long day at work that ended in nothing dramatic. I am learning that \"okay\" is a perfectly acceptable mood. Not every entry needs an epiphany.",
+      "body": "A long day at work that ended in nothing dramatic. I am learning that \"okay\" is a perfectly acceptable mood. Not every entry needs an epiphany.",
+      "mood": "neutral",
+      "tags": [
+        "work",
+        "rest"
+      ],
+      "word_count": 96
+    },
+    {
+      "ai_summary": null,
+      "ai_themes": [],
+      "prompt": null,
+      "id": "entry-4",
+      "date": "2026-04-27T20:00:00Z",
+      "title": "Cold and a little lonely",
+      "preview": "The apartment felt too quiet. I am noticing I do better when I plan one small social thing each week.",
+      "body": "The apartment felt too quiet. I am noticing I do better when I plan one small social thing each week. Tomorrow I'll text Maya and ask if she wants to grab coffee.",
+      "mood": "low",
+      "tags": [
+        "loneliness",
+        "self-care"
+      ],
+      "word_count": 132
+    },
+    {
+      "ai_summary": null,
+      "ai_themes": [],
+      "prompt": null,
+      "id": "entry-5",
+      "date": "2026-04-26T18:15:00Z",
+      "title": "Therapy session — something clicked",
+      "preview": "We talked about the way I tend to apologize before stating what I actually want. Naming it out loud felt enormous.",
+      "body": "We talked about the way I tend to apologize before stating what I actually want. Naming it out loud felt enormous. I have homework: practice asking for one thing this week, plainly, without the cushion.",
+      "mood": "good",
+      "tags": [
+        "therapy",
+        "breakthrough"
+      ],
+      "word_count": 304
+    }
+  ],
+  "journal/recent": [
+    {
+      "ai_summary": null,
+      "ai_themes": [],
+      "prompt": null,
+      "id": "entry-1",
+      "date": "2026-04-30T07:30:00Z",
+      "title": "A quiet morning walk",
+      "preview": "I noticed the way the light moved through the leaves today. There was a small bird I had never seen before — a tiny moment of wonder before the day got loud.",
+      "body": "I noticed the way the light moved through the leaves today. There was a small bird I had never seen before — a tiny moment of wonder before the day got loud.\n\nI am trying to do this more often: notice the small things before the noise of doing arrives. The walks help. The journal helps. Even the quiet ten minutes after, where I do nothing in particular, helps.",
+      "mood": "radiant",
+      "tags": [
+        "gratitude",
+        "nature",
+        "morning"
+      ],
+      "word_count": 142
+    },
+    {
+      "ai_summary": null,
+      "ai_themes": [],
+      "prompt": null,
+      "id": "entry-2",
+      "date": "2026-04-29T19:45:00Z",
+      "title": "A hard conversation, but honest",
+      "preview": "Talked with my sister about how I have been feeling lately. It was uncomfortable to admit but afterwards I felt lighter. We do not talk enough about the small heavy things.",
+      "body": "Talked with my sister about how I have been feeling lately. It was uncomfortable to admit but afterwards I felt lighter.\n\nWe do not talk enough about the small heavy things. I forget how much honesty actually helps until I practice it.",
+      "mood": "good",
+      "tags": [
+        "family",
+        "honesty",
+        "connection"
+      ],
+      "word_count": 218
+    },
+    {
+      "ai_summary": null,
+      "ai_themes": [],
+      "prompt": null,
+      "id": "entry-3",
+      "date": "2026-04-28T22:10:00Z",
+      "title": "Tired but okay",
+      "preview": "A long day at work that ended in nothing dramatic. I am learning that \"okay\" is a perfectly acceptable mood. Not every entry needs an epiphany.",
+      "body": "A long day at work that ended in nothing dramatic. I am learning that \"okay\" is a perfectly acceptable mood. Not every entry needs an epiphany.",
+      "mood": "neutral",
+      "tags": [
+        "work",
+        "rest"
+      ],
+      "word_count": 96
+    },
+    {
+      "ai_summary": null,
+      "ai_themes": [],
+      "prompt": null,
+      "id": "entry-4",
+      "date": "2026-04-27T20:00:00Z",
+      "title": "Cold and a little lonely",
+      "preview": "The apartment felt too quiet. I am noticing I do better when I plan one small social thing each week.",
+      "body": "The apartment felt too quiet. I am noticing I do better when I plan one small social thing each week. Tomorrow I'll text Maya and ask if she wants to grab coffee.",
+      "mood": "low",
+      "tags": [
+        "loneliness",
+        "self-care"
+      ],
+      "word_count": 132
+    },
+    {
+      "ai_summary": null,
+      "ai_themes": [],
+      "prompt": null,
+      "id": "entry-5",
+      "date": "2026-04-26T18:15:00Z",
+      "title": "Therapy session — something clicked",
+      "preview": "We talked about the way I tend to apologize before stating what I actually want. Naming it out loud felt enormous.",
+      "body": "We talked about the way I tend to apologize before stating what I actually want. Naming it out loud felt enormous. I have homework: practice asking for one thing this week, plainly, without the cushion.",
+      "mood": "good",
+      "tags": [
+        "therapy",
+        "breakthrough"
+      ],
+      "word_count": 304
+    }
+  ],
+  "journal/prompts": [
+    {
+      "id": "p1",
+      "slug": "gratitude-small-thing",
+      "text": "What is one small thing you are grateful for today?",
+      "category": "gratitude",
+      "is_favorite": true
+    },
+    {
+      "id": "p2",
+      "slug": "feeling-present",
+      "text": "Describe a moment today when you felt fully present.",
+      "category": "feeling",
+      "is_favorite": false
+    },
+    {
+      "id": "p3",
+      "slug": "kindness-witness",
+      "text": "Where did you witness kindness — yours or someone else’s?",
+      "category": "kindness",
+      "is_favorite": true
+    },
+    {
+      "id": "p4",
+      "slug": "learn-self",
+      "text": "What is something you are learning about yourself this season?",
+      "category": "learn",
+      "is_favorite": false
+    },
+    {
+      "id": "p5",
+      "slug": "release-sleep",
+      "text": "What can you let go of, gently, before sleep?",
+      "category": "release",
+      "is_favorite": false
+    },
+    {
+      "id": "p6",
+      "slug": "connection-missing",
+      "text": "Who are you missing today, and what would you tell them?",
+      "category": "connection",
+      "is_favorite": true
+    },
+    {
+      "id": "p7",
+      "slug": "feeling-body",
+      "text": "Where in your body do you feel today’s mood?",
+      "category": "feeling",
+      "is_favorite": false
+    },
+    {
+      "id": "p8",
+      "slug": "learn-surprise",
+      "text": "What did you do today that surprised you?",
+      "category": "learn",
+      "is_favorite": false
+    },
+    {
+      "id": "p9",
+      "slug": "gratitude-witness",
+      "text": "Recall a small joy from this week. Describe it in detail.",
+      "category": "gratitude",
+      "is_favorite": false
+    },
+    {
+      "id": "p10",
+      "slug": "kindness-boundary",
+      "text": "What is one boundary you are proud of holding lately?",
+      "category": "kindness",
+      "is_favorite": false
+    }
+  ],
+  "journal/calendar/:year/:month": [
+    {
+      "date": "2026-04-01T00:00:00.000Z",
+      "mood": "good",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-02T00:00:00.000Z",
+      "mood": "neutral",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-03T00:00:00.000Z",
+      "mood": "good",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-04T00:00:00.000Z",
+      "mood": "low",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-05T00:00:00.000Z",
+      "mood": "neutral",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-06T00:00:00.000Z",
+      "mood": "good",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-07T00:00:00.000Z",
+      "mood": "radiant",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-08T00:00:00.000Z",
+      "mood": "good",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-09T00:00:00.000Z",
+      "mood": "neutral",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-10T00:00:00.000Z",
+      "mood": "low",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-11T00:00:00.000Z",
+      "mood": "neutral",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-12T00:00:00.000Z",
+      "mood": "good",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-13T00:00:00.000Z",
+      "mood": "good",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-14T00:00:00.000Z",
+      "mood": "radiant",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-15T00:00:00.000Z",
+      "mood": "good",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-16T00:00:00.000Z",
+      "mood": "neutral",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-17T00:00:00.000Z",
+      "mood": "good",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-18T00:00:00.000Z",
+      "mood": "low",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-19T00:00:00.000Z",
+      "mood": "neutral",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-20T00:00:00.000Z",
+      "mood": "good",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-21T00:00:00.000Z",
+      "mood": "good",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-22T00:00:00.000Z",
+      "mood": "radiant",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-23T00:00:00.000Z",
+      "mood": "good",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-24T00:00:00.000Z",
+      "mood": "neutral",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-25T00:00:00.000Z",
+      "mood": "good",
+      "has_entry": true
+    },
+    {
+      "date": "2026-04-26T00:00:00.000Z",
+      "mood": "good",
+      "has_entry": true,
+      "preview": "Therapy session — something clicked"
+    },
+    {
+      "date": "2026-04-27T00:00:00.000Z",
+      "mood": "low",
+      "has_entry": true,
+      "preview": "Cold and a little lonely"
+    },
+    {
+      "date": "2026-04-28T00:00:00.000Z",
+      "mood": "neutral",
+      "has_entry": true,
+      "preview": "Tired but okay"
+    },
+    {
+      "date": "2026-04-29T00:00:00.000Z",
+      "mood": "good",
+      "has_entry": true,
+      "preview": "A hard conversation, but honest"
+    },
+    {
+      "date": "2026-04-30T00:00:00.000Z",
+      "mood": "radiant",
+      "has_entry": true,
+      "preview": "A quiet morning walk"
+    }
+  ]
+}
