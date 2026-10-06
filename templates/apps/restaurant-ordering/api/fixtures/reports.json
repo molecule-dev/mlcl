@@ -1,0 +1,85 @@
+{
+  "analytics/snapshot": {
+    "todayRevenueCents": 369000,
+    "coversCount": 142,
+    "avgCheckCents": 6049,
+    "tipsAvgPct": 19,
+    "busiestHour": {
+      "hour": 19,
+      "cents": 78400
+    },
+    "firstSeating": "2026-10-06T11:02:00.000Z",
+    "lastTicket": "2026-10-06T21:48:00.000Z",
+    "hourly": [
+      {
+        "hour": 11,
+        "cents": 18400
+      },
+      {
+        "hour": 12,
+        "cents": 46200
+      },
+      {
+        "hour": 13,
+        "cents": 38800
+      },
+      {
+        "hour": 14,
+        "cents": 12100
+      },
+      {
+        "hour": 17,
+        "cents": 22900
+      },
+      {
+        "hour": 18,
+        "cents": 51300
+      },
+      {
+        "hour": 19,
+        "cents": 78400
+      },
+      {
+        "hour": 20,
+        "cents": 69200
+      },
+      {
+        "hour": 21,
+        "cents": 31700
+      }
+    ],
+    "topItems": [
+      {
+        "id": null,
+        "name": "Margherita pizza",
+        "sold": 38,
+        "grossCents": 62700
+      },
+      {
+        "id": null,
+        "name": "Bistecca alla fiorentina",
+        "sold": 17,
+        "grossCents": 71400
+      },
+      {
+        "id": null,
+        "name": "Linguine alle vongole",
+        "sold": 24,
+        "grossCents": 48000
+      },
+      {
+        "id": null,
+        "name": "Caesar salad",
+        "sold": 29,
+        "grossCents": 31900
+      },
+      {
+        "id": null,
+        "name": "Tiramisu",
+        "sold": 26,
+        "grossCents": 20800
+      }
+    ],
+    "orderCount": 61
+  }
+}
