@@ -1,0 +1,15 @@
+[
+  {
+    "id": "inst-1",
+    "name": "Sarah Dillard",
+    "username": "sarah-dillard",
+    "bio": "Product designer and engineer with 12 years of teaching experience across design, front-end and data.",
+    "avatar_url": "https://picsum.photos/seed/sarah-dillard/160/160",
+    "is_instructor": true,
+    "total_students": 41200,
+    "total_courses": 13,
+    "average_rating": 4.7,
+    "total_reviews": 5120,
+    "created_at": "2024-04-19T12:00:00.000Z"
+  }
+]

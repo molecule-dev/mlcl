@@ -1,0 +1,35 @@
+[
+  {
+    "id": "notif-1",
+    "user_id": "user-1",
+    "type": "lesson",
+    "title": "New lesson available",
+    "body": "A new lesson was added to your course.",
+    "href": "/my-learning",
+    "unread": true,
+    "read_at": null,
+    "created_at": "2026-10-06T07:12:00.000Z"
+  },
+  {
+    "id": "notif-2",
+    "user_id": "user-1",
+    "type": "certificate",
+    "title": "Your certificate is ready",
+    "body": "You completed the Python bootcamp.",
+    "href": "/my-learning",
+    "unread": true,
+    "read_at": null,
+    "created_at": "2026-10-03T12:00:00.000Z"
+  },
+  {
+    "id": "notif-3",
+    "user_id": "user-1",
+    "type": "review",
+    "title": "A student reviewed your course",
+    "body": "Clear and practical: 5 stars.",
+    "href": "/instructor",
+    "unread": false,
+    "read_at": "2026-09-28T12:00:00.000Z",
+    "created_at": "2026-09-27T12:00:00.000Z"
+  }
+]

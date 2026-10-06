@@ -22,8 +22,8 @@ test.describe('browse page', () => {
     await page.waitForLoadState('networkidle')
     const allBtn = page.getByRole('button', { name: 'All', exact: true })
     await expect(allBtn).toBeVisible()
-    // At least one category beyond "All" should appear (seed catalog has Design,
-    // Development, Business, Data Science).
+    // At least one category beyond "All" should appear (the seed catalog spans
+    // several categories).
     const categoryButtons = page.locator('aside button, complementary button')
     expect(await categoryButtons.count()).toBeGreaterThan(1)
   })
