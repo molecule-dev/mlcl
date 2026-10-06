@@ -16568,6 +16568,88 @@
         "sandbox.itunes.apple.com"
       ]
     },
+    "@molecule/api-payments-capture": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "payments",
+      "label": "Payments Capture",
+      "description": "In-memory payments provider for the dev, browser and offline profile — simulates a hosted-checkout vendor with no network calls: checkouts complete, subscriptions activate, refunds record, and signed webhook events can be built locally. Answers to the stripe name by default so app code is identical; production swaps the stripe bond in.",
+      "stack": "api",
+      "implements": "@molecule/api-payments",
+      "exports": [
+        "PaymentsCaptureErrorKey",
+        "PaymentsCaptureError",
+        "isPaymentsCaptureError",
+        "PaymentsCaptureLedger",
+        "defaultPaymentsCaptureLedger",
+        "getCapturedPayments",
+        "clearCapturedPayments",
+        "createPaymentsCaptureProvider",
+        "provider",
+        "paymentProvider",
+        "CaptureSubscriptionStatus",
+        "CaptureInterval",
+        "CapturePrice",
+        "CapturedCustomer",
+        "CapturedCheckoutSession",
+        "CapturedSubscription",
+        "CapturedSetupIntent",
+        "CapturedPaymentMethod",
+        "CapturedRefund",
+        "CapturedPortalSession",
+        "CapturedWebhookEvent",
+        "CapturedWebhookDelivery",
+        "CapturedOperation",
+        "CapturedPayments",
+        "PaymentsCaptureOptions",
+        "PaymentsCaptureLedgerStore",
+        "BuildWebhookRequestInput",
+        "CaptureWebhookRequest",
+        "CaptureCardInput",
+        "CaptureRefundInput",
+        "PaymentsCaptureProvider",
+        "CAPTURE_SIGNATURE_HEADER",
+        "DEFAULT_CAPTURE_WEBHOOK_SECRET",
+        "DEFAULT_WEBHOOK_TOLERANCE_SECONDS",
+        "signCaptureWebhookPayload",
+        "VerifyCaptureWebhookOptions",
+        "verifyCaptureWebhookSignature",
+        "mapCaptureEventType",
+        "normalizeCaptureStatus",
+        "parseCaptureWebhookEvent"
+      ],
+      "secrets": [
+        {
+          "name": "PAYMENTS_CAPTURE_WEBHOOK_SECRET",
+          "required": false,
+          "default": "whsec_capture_dev_secret",
+          "label": "Local webhook signing secret",
+          "instructions": "Signs and verifies the webhook events the capture provider builds locally. Dev only.",
+          "example": "whsec_capture_dev_secret"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-payments"
+      ],
+      "moleculePeers": [
+        "@molecule/api-payments"
+      ],
+      "bondWiring": {
+        "type": "named",
+        "bondCategory": "payments",
+        "providerExports": [
+          "paymentProvider"
+        ]
+      },
+      "path": "packages/api/bonds/payments/capture",
+      "intentHints": [
+        "fake payments",
+        "payments without stripe",
+        "test payments offline",
+        "simulate checkout"
+      ]
+    },
     "@molecule/api-payments-google": {
       "language": "typescript",
       "runtime": "node",
