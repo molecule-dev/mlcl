@@ -1,82 +1,114 @@
 [
- {
-  "id": "evt-1",
-  "product_id": "p1",
-  "product_name": "Sony WH-1000XM6 Wireless Noise Cancelling Headphones",
-  "retailer": "BestBuy",
-  "kind": "drop",
-  "old_price_cents": 39999,
-  "new_price_cents": 32999,
-  "ts": "2026-04-27T15:25:00Z"
- },
- {
-  "id": "evt-2",
-  "product_id": "p2",
-  "product_name": "Apple MacBook Air 13\" M3 8GB / 256GB",
-  "retailer": "Amazon",
-  "kind": "alert",
-  "old_price_cents": 109900,
-  "new_price_cents": 94900,
-  "ts": "2026-04-27T12:00:00Z"
- },
- {
-  "id": "evt-3",
-  "product_id": "p3",
-  "product_name": "Dyson V15 Detect Cordless Vacuum",
-  "retailer": "Costco",
-  "kind": "restock",
-  "old_price_cents": 64999,
-  "new_price_cents": 64999,
-  "ts": "2026-04-27T07:00:00Z"
- },
- {
-  "id": "evt-4",
-  "product_id": "p1",
-  "product_name": "Sony WH-1000XM6 Wireless Noise Cancelling Headphones",
-  "retailer": "Target",
-  "kind": "drop",
-  "old_price_cents": 37499,
-  "new_price_cents": 33999,
-  "ts": "2026-04-26T18:00:00Z"
- },
- {
-  "id": "evt-5",
-  "product_id": "p2",
-  "product_name": "Apple MacBook Air 13\" M3 8GB / 256GB",
-  "retailer": "Walmart",
-  "kind": "rise",
-  "old_price_cents": 99900,
-  "new_price_cents": 104900,
-  "ts": "2026-04-26T10:00:00Z"
- },
- {
-  "id": "evt-6",
-  "product_id": "p3",
-  "product_name": "Dyson V15 Detect Cordless Vacuum",
-  "retailer": "Amazon",
-  "kind": "drop",
-  "old_price_cents": 74999,
-  "new_price_cents": 59999,
-  "ts": "2026-04-26T02:00:00Z"
- },
- {
-  "id": "evt-7",
-  "product_id": "p1",
-  "product_name": "Sony WH-1000XM6 Wireless Noise Cancelling Headphones",
-  "retailer": "B&H Photo",
-  "kind": "alert",
-  "old_price_cents": 35999,
-  "new_price_cents": 31999,
-  "ts": "2026-04-25T14:00:00Z"
- },
- {
-  "id": "evt-8",
-  "product_id": "p9",
-  "product_name": "KitchenAid Artisan",
-  "retailer": "Target",
-  "kind": "rise",
-  "old_price_cents": 39900,
-  "new_price_cents": 44900,
-  "ts": "2026-09-29T11:55:41Z"
- }
+  {
+    "id": "evt-1",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "type": "drop",
+    "payload": {
+      "product_id": "p1",
+      "product_name": "Sony WH-1000XM6 Wireless Noise Cancelling Headphones",
+      "retailer": "BestBuy",
+      "old_price_cents": 39999,
+      "new_price_cents": 32999
+    },
+    "read_at": null,
+    "created_at": "2026-04-27T15:25:00Z"
+  },
+  {
+    "id": "evt-2",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "type": "alert",
+    "payload": {
+      "product_id": "p2",
+      "product_name": "Apple MacBook Air 13\" M3 8GB / 256GB",
+      "retailer": "Amazon",
+      "old_price_cents": 109900,
+      "new_price_cents": 94900
+    },
+    "read_at": null,
+    "created_at": "2026-04-27T12:00:00Z"
+  },
+  {
+    "id": "evt-3",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "type": "restock",
+    "payload": {
+      "product_id": "p3",
+      "product_name": "Dyson V15 Detect Cordless Vacuum",
+      "retailer": "Costco",
+      "old_price_cents": 64999,
+      "new_price_cents": 64999
+    },
+    "read_at": null,
+    "created_at": "2026-04-27T07:00:00Z"
+  },
+  {
+    "id": "evt-4",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "type": "drop",
+    "payload": {
+      "product_id": "p1",
+      "product_name": "Sony WH-1000XM6 Wireless Noise Cancelling Headphones",
+      "retailer": "Target",
+      "old_price_cents": 37499,
+      "new_price_cents": 33999
+    },
+    "read_at": "2026-04-26T18:00:00Z",
+    "created_at": "2026-04-26T18:00:00Z"
+  },
+  {
+    "id": "evt-5",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "type": "rise",
+    "payload": {
+      "product_id": "p2",
+      "product_name": "Apple MacBook Air 13\" M3 8GB / 256GB",
+      "retailer": "Walmart",
+      "old_price_cents": 99900,
+      "new_price_cents": 104900
+    },
+    "read_at": "2026-04-26T10:00:00Z",
+    "created_at": "2026-04-26T10:00:00Z"
+  },
+  {
+    "id": "evt-6",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "type": "drop",
+    "payload": {
+      "product_id": "p3",
+      "product_name": "Dyson V15 Detect Cordless Vacuum",
+      "retailer": "Amazon",
+      "old_price_cents": 74999,
+      "new_price_cents": 59999
+    },
+    "read_at": "2026-04-26T02:00:00Z",
+    "created_at": "2026-04-26T02:00:00Z"
+  },
+  {
+    "id": "evt-7",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "type": "alert",
+    "payload": {
+      "product_id": "p1",
+      "product_name": "Sony WH-1000XM6 Wireless Noise Cancelling Headphones",
+      "retailer": "B&H Photo",
+      "old_price_cents": 35999,
+      "new_price_cents": 31999
+    },
+    "read_at": "2026-04-25T14:00:00Z",
+    "created_at": "2026-04-25T14:00:00Z"
+  },
+  {
+    "id": "evt-8",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "type": "rise",
+    "payload": {
+      "product_id": "p9",
+      "product_name": "KitchenAid Artisan",
+      "retailer": "Target",
+      "old_price_cents": 39900,
+      "new_price_cents": 44900
+    },
+    "read_at": "2026-09-29T11:55:41Z",
+    "created_at": "2026-09-29T11:55:41Z"
+  }
 ]

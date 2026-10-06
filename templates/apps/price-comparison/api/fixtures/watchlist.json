@@ -1,46 +1,62 @@
 [
- {
-  "id": "w1",
-  "product_id": "p1",
-  "title": "Sony WH-1000XM6",
-  "image_url": "https://picsum.photos/seed/sift-w1/200/200",
-  "current_price_cents": 32999,
-  "target_price_cents": 29999,
-  "lowest_price_cents": 32999,
-  "drop_pct": 12,
-  "added_at": "2026-04-15T12:00:00Z"
- },
- {
-  "id": "w2",
-  "product_id": "p2",
-  "title": "MacBook Air 13\" M3",
-  "image_url": "https://picsum.photos/seed/sift-w2/200/200",
-  "current_price_cents": 99900,
-  "target_price_cents": 94900,
-  "lowest_price_cents": 99900,
-  "drop_pct": 8,
-  "added_at": "2026-04-22T09:11:00Z"
- },
- {
-  "id": "w3",
-  "product_id": "p8",
-  "title": "Apple Watch Series 9 GPS 41mm Midnight Aluminum",
-  "image_url": "https://picsum.photos/seed/sift-w3/200/200",
-  "current_price_cents": 37900,
-  "target_price_cents": 34900,
-  "lowest_price_cents": 32900,
-  "drop_pct": 18,
-  "added_at": "2026-09-28T00:55:41Z"
- },
- {
-  "id": "w4",
-  "product_id": "p10",
-  "title": "Bose QuietComfort Ultra",
-  "image_url": "https://picsum.photos/seed/sift-w4/200/200",
-  "current_price_cents": 39900,
-  "target_price_cents": 35900,
-  "lowest_price_cents": 37900,
-  "drop_pct": 6,
-  "added_at": "2026-09-27T12:56:11Z"
- }
+  {
+    "id": "w1",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "product_id": "p1",
+    "target_price": 29999,
+    "created_at": "2026-04-15T12:00:00Z",
+    "product": {
+      "id": "p1",
+      "name": "Sony WH-1000XM6 Wireless Noise Cancelling Headphones",
+      "brand": "Sony",
+      "category": "Audio",
+      "best_price": 32999,
+      "price": 39999
+    }
+  },
+  {
+    "id": "w2",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "product_id": "p2",
+    "target_price": 94900,
+    "created_at": "2026-04-22T09:11:00Z",
+    "product": {
+      "id": "p2",
+      "name": "Apple MacBook Air 13\" M3 8GB / 256GB",
+      "brand": "Apple",
+      "category": "Laptops",
+      "best_price": 99900,
+      "price": 119900
+    }
+  },
+  {
+    "id": "w3",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "product_id": "p8",
+    "target_price": 34900,
+    "created_at": "2026-09-28T00:55:41Z",
+    "product": {
+      "id": "p8",
+      "name": "Apple Watch Series 9 GPS 41mm Midnight Aluminum",
+      "brand": "Apple",
+      "category": "Wearables",
+      "best_price": 32900,
+      "price": 42900
+    }
+  },
+  {
+    "id": "w4",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "product_id": "p10",
+    "target_price": 35900,
+    "created_at": "2026-09-27T12:56:11Z",
+    "product": {
+      "id": "p10",
+      "name": "Bose QuietComfort Ultra",
+      "brand": "Bose",
+      "category": "Audio",
+      "best_price": 37900,
+      "price": 42900
+    }
+  }
 ]

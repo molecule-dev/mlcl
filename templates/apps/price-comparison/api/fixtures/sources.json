@@ -1,0 +1,47 @@
+[
+  {
+    "id": "s1",
+    "slug": "amazon",
+    "name": "Amazon",
+    "base_url": "https://www.amazon.com",
+    "status": "active",
+    "fetch_config": {},
+    "created_at": "2026-01-01T00:00:00Z"
+  },
+  {
+    "id": "s2",
+    "slug": "bestbuy",
+    "name": "Best Buy",
+    "base_url": "https://www.bestbuy.com",
+    "status": "active",
+    "fetch_config": {},
+    "created_at": "2026-01-01T00:00:00Z"
+  },
+  {
+    "id": "s3",
+    "slug": "target",
+    "name": "Target",
+    "base_url": "https://www.target.com",
+    "status": "active",
+    "fetch_config": {},
+    "created_at": "2026-01-01T00:00:00Z"
+  },
+  {
+    "id": "s4",
+    "slug": "walmart",
+    "name": "Walmart",
+    "base_url": "https://www.walmart.com",
+    "status": "active",
+    "fetch_config": {},
+    "created_at": "2026-01-01T00:00:00Z"
+  },
+  {
+    "id": "s5",
+    "slug": "bh",
+    "name": "B&H Photo",
+    "base_url": "https://www.bhphotovideo.com",
+    "status": "active",
+    "fetch_config": {},
+    "created_at": "2026-01-01T00:00:00Z"
+  }
+]
