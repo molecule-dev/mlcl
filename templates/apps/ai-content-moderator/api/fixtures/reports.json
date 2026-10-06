@@ -1,0 +1,58 @@
+{
+  "moderation/stats/summary": {
+    "queued": 3,
+    "in_review": 2,
+    "decided": 2,
+    "escalated": 1,
+    "total": 8,
+    "approved": 1,
+    "rejected": 1
+  },
+  "moderation/stats/volume": {
+    "series": [
+      {
+        "date": "2026-09-24",
+        "label": "Mon",
+        "value": 34,
+        "height": 65
+      },
+      {
+        "date": "2026-09-25",
+        "label": "Tue",
+        "value": 41,
+        "height": 79
+      },
+      {
+        "date": "2026-09-26",
+        "label": "Wed",
+        "value": 28,
+        "height": 54
+      },
+      {
+        "date": "2026-09-27",
+        "label": "Thu",
+        "value": 52,
+        "height": 100
+      },
+      {
+        "date": "2026-09-28",
+        "label": "Fri",
+        "value": 47,
+        "height": 90
+      },
+      {
+        "date": "2026-09-29",
+        "label": "Sat",
+        "value": 39,
+        "height": 75
+      },
+      {
+        "date": "2026-09-30",
+        "label": "Sun",
+        "value": 44,
+        "height": 85
+      }
+    ],
+    "max": 52
+  }
+}

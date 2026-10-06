@@ -1,0 +1,46 @@
+[
+  {
+    "id": "000000c1-0000-4000-8000-000000000001",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "kind": "escalation",
+    "title": "Item escalated",
+    "body": "A harassment report was escalated for senior review.",
+    "link": null,
+    "read_at": null,
+    "createdAt": "2026-10-06T09:15:00Z"
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000002",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "kind": "assignment",
+    "title": "New assignment",
+    "body": "Three items were assigned to you.",
+    "link": null,
+    "read_at": null,
+    "createdAt": "2026-10-05T09:15:00Z"
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000003",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "kind": "rule-fired",
+    "title": "Rule fired",
+    "body": "Block known spam links rejected 12 posts today.",
+    "link": null,
+    "read_at": "2026-10-06T08:15:00Z",
+    "createdAt": "2026-10-04T09:15:00Z"
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000004",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "kind": "system",
+    "title": "Weekly digest ready",
+    "body": "Queue depth fell 18% this week.",
+    "link": null,
+    "read_at": "2026-10-06T08:15:00Z",
+    "createdAt": "2026-10-03T09:15:00Z"
+  }
+]

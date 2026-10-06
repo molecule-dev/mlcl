@@ -1,0 +1,58 @@
+[
+  {
+    "id": "000000a1-0000-4000-8000-000000000001",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Block known spam links",
+    "description": "Reject posts that contain URLs on the spam list.",
+    "kind": "regex",
+    "pattern_or_threshold": "https?://(bit\\.ly|tinyurl)\\S*",
+    "action": "auto_reject",
+    "enabled": true,
+    "language_scope": null,
+    "createdAt": "2026-10-01T09:15:00Z",
+    "updatedAt": "2026-10-01T09:15:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000002",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Escalate threats of violence",
+    "description": "Send messages with violent language to a senior reviewer.",
+    "kind": "classifier_threshold",
+    "pattern_or_threshold": "0.85",
+    "action": "escalate",
+    "enabled": true,
+    "language_scope": "en",
+    "createdAt": "2026-10-02T09:15:00Z",
+    "updatedAt": "2026-10-02T09:15:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000003",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Auto-approve trusted authors",
+    "description": "Skip the queue for authors with 50+ approved posts.",
+    "kind": "classifier_threshold",
+    "pattern_or_threshold": "0.95",
+    "action": "auto_approve",
+    "enabled": true,
+    "language_scope": null,
+    "createdAt": "2026-10-03T09:15:00Z",
+    "updatedAt": "2026-10-03T09:15:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000004",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Queue possible harassment",
+    "description": "Hostile language aimed at a named person goes to the queue.",
+    "kind": "embedding",
+    "pattern_or_threshold": "harassment-v2 > 0.6",
+    "action": "queue",
+    "enabled": false,
+    "language_scope": "en",
+    "createdAt": "2026-10-04T09:15:00Z",
+    "updatedAt": "2026-10-04T09:15:00Z"
+  }
+]
