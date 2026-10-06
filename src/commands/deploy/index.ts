@@ -43,10 +43,18 @@ export default class Deploy extends Command {
     for (let i = 0; i < 120; i++) {
       await new Promise((r) => setTimeout(r, 5_000))
       const state = await getDeployment(flags.project, deployment.id)
-      setTelemetryContext({ deployOutcome: 'succeeded' })
-      if (state.status === 'live' || state.status === 'running' || state.status === 'succeeded') {
+      // The platform's own states are pending | building | deploying | ready | failed | cancelled;
+      // the older names stay accepted for a platform build that still sends them.
+      if (
+        state.status === 'ready' ||
+        state.status === 'live' ||
+        state.status === 'running' ||
+        state.status === 'succeeded'
+      ) {
+        setTelemetryContext({ deployOutcome: 'succeeded' })
+        const liveUrl = state.url ?? state.liveUrl
         this.log(
-          `${ui.check('Live')} ${state.liveUrl ? ui.cmd(state.liveUrl) : ui.dim('(URL in the IDE dashboard)')}`,
+          `${ui.check('Live')} ${liveUrl ? ui.cmd(liveUrl) : ui.dim('(URL in the IDE dashboard)')}`,
         )
         return
       }

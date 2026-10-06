@@ -35,7 +35,7 @@ function openBrowser(url: string): void {
 export default class Login extends Command {
   static override aliases = ['login']
   static override description =
-    'Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 1-year token at ~/.mlcl/credentials.json'
+    'Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 90-day token at ~/.mlcl/credentials.json'
 
   static override examples = [
     '<%= config.bin %> login',

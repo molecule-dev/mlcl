@@ -588,7 +588,7 @@ _See code: [src/commands/apikey/rm.ts](https://github.com/molecule-dev/mlcl/blob
 
 ## `mlcl auth login`
 
-Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 1-year token at ~/.mlcl/credentials.json
+Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 90-day token at ~/.mlcl/credentials.json
 
 ```
 USAGE
@@ -601,7 +601,7 @@ FLAGS
   --with-token     Read the token from stdin (gh-style; safe for process lists).
 
 DESCRIPTION
-  Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 1-year token at
+  Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 90-day token at
   ~/.mlcl/credentials.json
 
 ALIASES
@@ -1829,7 +1829,7 @@ _See code: [src/commands/invitations/list.ts](https://github.com/molecule-dev/ml
 
 ## `mlcl login`
 
-Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 1-year token at ~/.mlcl/credentials.json
+Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 90-day token at ~/.mlcl/credentials.json
 
 ```
 USAGE
@@ -1842,7 +1842,7 @@ FLAGS
   --with-token     Read the token from stdin (gh-style; safe for process lists).
 
 DESCRIPTION
-  Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 1-year token at
+  Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 90-day token at
   ~/.mlcl/credentials.json
 
 ALIASES

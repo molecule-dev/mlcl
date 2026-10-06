@@ -205,6 +205,9 @@ export interface PlatformDeployment {
   id: string
   status: string
   createdAt?: string
+  /** The deployment's public address, set by the platform once it is ready. */
+  url?: string | null
+  /** @deprecated Older platform builds; read `url` first. */
   liveUrl?: string
 }
 
@@ -238,6 +241,22 @@ export interface DeviceCodeSession {
   interval: number
 }
 
+/**
+ * Parses a response body as JSON. A proxy error page (Fly 502/503/504) is not JSON: report the
+ * status, not a SyntaxError.
+ */
+async function readJsonBody(response: Response): Promise<unknown> {
+  const text = await response.text()
+  try {
+    return text ? JSON.parse(text) : {}
+  } catch (_error) {
+    throw new PlatformApiError(
+      response.status,
+      `molecule.dev returned ${response.status} (not JSON). Try again in a minute.`,
+    )
+  }
+}
+
 /** POST /cli/device-code — start the browser-based login dance (anonymous). */
 export async function requestDeviceCode(): Promise<DeviceCodeSession> {
   const response = await fetch(`${apiBaseUrl()}/cli/device-code`, {
@@ -246,7 +265,7 @@ export async function requestDeviceCode(): Promise<DeviceCodeSession> {
     body: '{}',
     signal: AbortSignal.timeout(15_000),
   })
-  const data = (await response.json()) as {
+  const data = (await readJsonBody(response)) as {
     deviceCode?: string
     userCode?: string
     verificationUrl?: string
@@ -285,7 +304,7 @@ export async function pollDeviceToken(deviceCode: string): Promise<string> {
     body: JSON.stringify({ deviceCode }),
     signal: AbortSignal.timeout(15_000),
   })
-  const data = (await response.json()) as { token?: string; error?: string }
+  const data = (await readJsonBody(response)) as { token?: string; error?: string }
   if (response.ok && data.token) return data.token
   if (data.error === 'authorization_pending') throw new AuthorizationPendingError('pending')
   throw new PlatformApiError(response.status, data.error ?? 'device-token poll failed')

@@ -16,6 +16,6 @@ export default class DeployListCmd extends Command {
     const { flags } = await this.parse(DeployListCmd)
     const deps = await listDeployments(flags.project)
     this.log(ui.heading(`${deps.length} deployments`))
-    for (const d of deps) this.log(`  ${d.id}  ${d.status ?? ''}  ${d.liveUrl ?? ''}`)
+    for (const d of deps) this.log(`  ${d.id}  ${d.status ?? ''}  ${d.url ?? d.liveUrl ?? ''}`)
   }
 }
