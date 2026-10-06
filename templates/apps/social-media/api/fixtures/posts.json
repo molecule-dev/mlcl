@@ -1,74 +1,307 @@
 [
   {
     "id": "post_dawn_river",
-    "author_id": "u_aria",
-    "caption": "Five minutes of usable light over the Sumida — the camera barely caught it.",
-    "media_urls": ["/img/posts/dawn_river.jpg"],
-    "tags": ["cityscape", "goldenhour", "tokyo"],
-    "location": "Sumida River, Tokyo",
+    "author": {
+      "id": "u_aria",
+      "display_name": "Aria Sato",
+      "handle": "ariasato",
+      "cover_index": 0,
+      "is_verified": true,
+      "bio": "Color theorist · slow-living photographer · Tokyo"
+    },
+    "caption": "Five minutes of usable light over the Sumida — the camera barely caught it. Sound on for the wind, off for the trains. ✨",
+    "cover_index": 0,
+    "aspect": "wide",
     "like_count": 12402,
     "comment_count": 318,
     "share_count": 86,
-    "created_at": "2026-04-29T05:18:00Z"
+    "liked": true,
+    "saved": false,
+    "location": "Sumida River, Tokyo",
+    "posted_at": "2026-04-29T05:18:00Z",
+    "tags": [
+      "cityscape",
+      "goldenhour",
+      "tokyo"
+    ],
+    "is_live": false
   },
   {
     "id": "post_studio_jam",
-    "author_id": "u_kelvin",
-    "caption": "Day three at the studio. We re-cut the bridge twice. I think it's done.",
-    "media_urls": ["/img/posts/studio_jam.jpg"],
-    "tags": ["music", "behindthescenes"],
-    "location": "Brava HQ, Lagos",
+    "author": {
+      "id": "u_kelvin",
+      "display_name": "Kelvin Okafor",
+      "handle": "kelvinokafor",
+      "cover_index": 1,
+      "is_verified": true,
+      "bio": "Director, Vivid Originals · Lagos · DM for collabs"
+    },
+    "caption": "Day three at the studio. We re-cut the bridge twice. I think it's done. (Reel up Friday.)",
+    "cover_index": 1,
+    "aspect": "square",
     "like_count": 9881,
     "comment_count": 542,
     "share_count": 121,
-    "created_at": "2026-04-29T01:42:00Z"
+    "liked": false,
+    "saved": true,
+    "location": "Brava HQ, Lagos",
+    "posted_at": "2026-04-29T01:42:00Z",
+    "tags": [
+      "music",
+      "behindthescenes"
+    ],
+    "is_live": true
   },
   {
     "id": "post_studio_floor",
-    "author_id": "u_sienna",
+    "author": {
+      "id": "u_sienna",
+      "display_name": "Sienna Park",
+      "handle": "siennapark",
+      "cover_index": 2,
+      "is_verified": false,
+      "bio": "Studio days, late nights · Seoul ↔ NYC"
+    },
     "caption": "Floor-day. Three rolls of film, six bruised knees, one decent self-portrait.",
-    "media_urls": ["/img/posts/studio_floor.jpg"],
-    "tags": ["portrait", "film"],
-    "location": "Seoul",
+    "cover_index": 2,
+    "aspect": "tall",
     "like_count": 4220,
     "comment_count": 142,
     "share_count": 22,
-    "created_at": "2026-04-28T22:10:00Z"
+    "liked": false,
+    "saved": false,
+    "location": "Seoul",
+    "posted_at": "2026-04-28T22:10:00Z",
+    "tags": [
+      "portrait",
+      "film"
+    ]
   },
   {
     "id": "post_croissants",
-    "author_id": "u_amelie",
-    "caption": "Lamination day. Ninety-six layers, very serious.",
-    "media_urls": ["/img/posts/croissants.jpg"],
-    "tags": ["baking", "food", "pastry"],
-    "location": "Pâtisserie Lefèvre, Lyon",
+    "author": {
+      "id": "u_amelie",
+      "display_name": "Amélie Lefèvre",
+      "handle": "amelielefevre",
+      "cover_index": 3,
+      "is_verified": true,
+      "bio": "Pâtissière. I post croissants and feelings."
+    },
+    "caption": "Lamination day. Ninety-six layers, very serious. Tag a friend who would steal one.",
+    "cover_index": 3,
+    "aspect": "square",
     "like_count": 21050,
     "comment_count": 1020,
     "share_count": 415,
-    "created_at": "2026-04-28T16:00:00Z"
+    "liked": true,
+    "saved": true,
+    "location": "Pâtisserie Lefèvre, Lyon",
+    "posted_at": "2026-04-28T16:00:00Z",
+    "tags": [
+      "baking",
+      "food",
+      "pastry"
+    ]
   },
   {
     "id": "post_skate_curb",
-    "author_id": "u_dominic",
-    "caption": "First curb of the season. Teeth-rattling. 10/10 would do again.",
-    "media_urls": ["/img/posts/skate_curb.jpg"],
-    "tags": ["skate", "film", "sandiego"],
-    "location": "San Diego",
+    "author": {
+      "id": "u_dominic",
+      "display_name": "Dominic Vega",
+      "handle": "dominicvega",
+      "cover_index": 4,
+      "is_verified": false,
+      "bio": "Skater, dad, occasional film camera enjoyer."
+    },
+    "caption": "First curb of the season. Teeth-rattling. 10/10 would do again. Soundtrack by my creaky knees.",
+    "cover_index": 4,
+    "aspect": "wide",
     "like_count": 1412,
     "comment_count": 88,
     "share_count": 12,
-    "created_at": "2026-04-28T11:25:00Z"
+    "liked": false,
+    "saved": false,
+    "location": "San Diego",
+    "posted_at": "2026-04-28T11:25:00Z",
+    "tags": [
+      "skate",
+      "film",
+      "sandiego"
+    ]
   },
   {
     "id": "post_studio_paint",
-    "author_id": "u_jade",
+    "author": {
+      "id": "u_jade",
+      "display_name": "Jade Whitlock",
+      "handle": "jadewhitlock",
+      "cover_index": 5,
+      "is_verified": true,
+      "bio": "Mixed-media artist · open studios · Brooklyn"
+    },
     "caption": "Studio open Sat. Six new pieces. Cobalt phase officially over (probably).",
-    "media_urls": ["/img/posts/studio_paint.jpg"],
-    "tags": ["art", "studio"],
-    "location": "Williamsburg, BK",
+    "cover_index": 5,
+    "aspect": "square",
     "like_count": 3980,
     "comment_count": 207,
     "share_count": 45,
-    "created_at": "2026-04-28T08:00:00Z"
+    "liked": false,
+    "saved": true,
+    "location": "Williamsburg, BK",
+    "posted_at": "2026-04-28T08:00:00Z",
+    "tags": [
+      "art",
+      "studio"
+    ]
+  },
+  {
+    "id": "post_bike_dawn",
+    "author": {
+      "id": "u_milo",
+      "display_name": "Milo Aaltonen",
+      "handle": "milo",
+      "cover_index": 6,
+      "is_verified": false,
+      "bio": "Helsinki cyclist. Sauna evangelist. ~1500 km/yr."
+    },
+    "caption": "Up at 5, on the road by 5:20, sauna by 8. The math works.",
+    "cover_index": 6,
+    "aspect": "tall",
+    "like_count": 612,
+    "comment_count": 28,
+    "share_count": 3,
+    "liked": false,
+    "saved": false,
+    "location": "Helsinki",
+    "posted_at": "2026-04-27T05:30:00Z",
+    "tags": [
+      "cycling",
+      "sunrise"
+    ]
+  },
+  {
+    "id": "post_studio_session",
+    "author": {
+      "id": "u_naomi",
+      "display_name": "Naomi Cabrera",
+      "handle": "naomicab",
+      "cover_index": 0,
+      "is_verified": true,
+      "bio": "Producer · Brava Records · cdmx based · she/her"
+    },
+    "caption": "session 14. nina just laid down a top line that made me cry. ETA: TBD.",
+    "cover_index": 0,
+    "aspect": "wide",
+    "like_count": 6204,
+    "comment_count": 188,
+    "share_count": 60,
+    "liked": true,
+    "saved": false,
+    "location": "CDMX",
+    "posted_at": "2026-04-26T23:55:00Z",
+    "tags": [
+      "music",
+      "studio",
+      "inprogress"
+    ]
+  },
+  {
+    "id": "post_dawn_paddle",
+    "author": {
+      "id": "u_freddie",
+      "display_name": "Freddie Wells",
+      "handle": "freddiewells",
+      "cover_index": 1,
+      "is_verified": false,
+      "bio": "Surf shaper, dawn paddler, occasional poet."
+    },
+    "caption": "Glass at sunrise. Five guys, no words, one wave each. Then breakfast.",
+    "cover_index": 1,
+    "aspect": "wide",
+    "like_count": 2204,
+    "comment_count": 64,
+    "share_count": 18,
+    "liked": false,
+    "saved": false,
+    "location": "Byron Bay",
+    "posted_at": "2026-04-26T07:10:00Z",
+    "tags": [
+      "surf",
+      "sunrise"
+    ]
+  },
+  {
+    "id": "post_sewing",
+    "author": {
+      "id": "u_priya",
+      "display_name": "Priya Anand",
+      "handle": "priyaanand",
+      "cover_index": 2,
+      "is_verified": true,
+      "bio": "Costume designer · west end · sews on her lunch break"
+    },
+    "caption": "Six bespoke seams in 30 minutes. The lunch hour is undefeated.",
+    "cover_index": 2,
+    "aspect": "square",
+    "like_count": 880,
+    "comment_count": 41,
+    "share_count": 9,
+    "liked": false,
+    "saved": true,
+    "location": "West End, London",
+    "posted_at": "2026-04-25T13:20:00Z",
+    "tags": [
+      "theatre",
+      "costume"
+    ]
+  },
+  {
+    "id": "post_facade",
+    "author": {
+      "id": "u_theo",
+      "display_name": "Theo van der Meer",
+      "handle": "theovandermeer",
+      "cover_index": 3,
+      "is_verified": false,
+      "bio": "Architectural photography. Daylight-only."
+    },
+    "caption": "Façade study. South Rotterdam, 14:02. Daylight is the only filter.",
+    "cover_index": 3,
+    "aspect": "tall",
+    "like_count": 1124,
+    "comment_count": 30,
+    "share_count": 11,
+    "liked": false,
+    "saved": false,
+    "location": "Rotterdam",
+    "posted_at": "2026-04-24T14:02:00Z",
+    "tags": [
+      "architecture"
+    ]
+  },
+  {
+    "id": "post_editorial",
+    "author": {
+      "id": "u_elena",
+      "display_name": "Elena Iovine",
+      "handle": "elenaiovine",
+      "cover_index": 4,
+      "is_verified": true,
+      "bio": "Editor-in-chief · La Pagina · Florence"
+    },
+    "caption": "Florence issue is on press. Pre-order link in bio. Thank you to every contributor.",
+    "cover_index": 4,
+    "aspect": "square",
+    "like_count": 5402,
+    "comment_count": 112,
+    "share_count": 80,
+    "liked": true,
+    "saved": true,
+    "location": "Florence",
+    "posted_at": "2026-04-23T19:30:00Z",
+    "tags": [
+      "editorial",
+      "magazine"
+    ]
   }
 ]

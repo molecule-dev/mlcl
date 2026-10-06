@@ -1,0 +1,162 @@
+[
+  {
+    "id": "n1",
+    "kind": "like",
+    "actor": {
+      "id": "u_kelvin",
+      "display_name": "Kelvin Okafor",
+      "handle": "kelvinokafor",
+      "cover_index": 1,
+      "is_verified": true,
+      "bio": "Director, Vivid Originals · Lagos · DM for collabs"
+    },
+    "also": [
+      {
+        "id": "u_amelie",
+        "display_name": "Amélie Lefèvre",
+        "handle": "amelielefevre",
+        "cover_index": 3,
+        "is_verified": true,
+        "bio": "Pâtissière. I post croissants and feelings."
+      },
+      {
+        "id": "u_jade",
+        "display_name": "Jade Whitlock",
+        "handle": "jadewhitlock",
+        "cover_index": 5,
+        "is_verified": true,
+        "bio": "Mixed-media artist · open studios · Brooklyn"
+      }
+    ],
+    "post_id": "post_dawn_river",
+    "post_cover_index": 0,
+    "posted_at": "2026-04-29T07:48:00Z",
+    "unread": true
+  },
+  {
+    "id": "n2",
+    "kind": "comment",
+    "actor": {
+      "id": "u_amelie",
+      "display_name": "Amélie Lefèvre",
+      "handle": "amelielefevre",
+      "cover_index": 3,
+      "is_verified": true,
+      "bio": "Pâtissière. I post croissants and feelings."
+    },
+    "also": [],
+    "post_id": "post_dawn_river",
+    "post_cover_index": 0,
+    "excerpt": "That sky is unreal. What time was the shot?",
+    "posted_at": "2026-04-29T05:42:00Z",
+    "unread": true
+  },
+  {
+    "id": "n3",
+    "kind": "follow",
+    "actor": {
+      "id": "u_naomi",
+      "display_name": "Naomi Cabrera",
+      "handle": "naomicab",
+      "cover_index": 0,
+      "is_verified": true,
+      "bio": "Producer · Brava Records · cdmx based · she/her"
+    },
+    "also": [],
+    "posted_at": "2026-04-29T05:00:00Z",
+    "unread": true
+  },
+  {
+    "id": "n4",
+    "kind": "mention",
+    "actor": {
+      "id": "u_jade",
+      "display_name": "Jade Whitlock",
+      "handle": "jadewhitlock",
+      "cover_index": 5,
+      "is_verified": true,
+      "bio": "Mixed-media artist · open studios · Brooklyn"
+    },
+    "also": [],
+    "post_id": "post_studio_paint",
+    "post_cover_index": 5,
+    "excerpt": "…and shoutout to @ariasato for the cobalt — perfect light.",
+    "posted_at": "2026-04-28T20:15:00Z",
+    "unread": false
+  },
+  {
+    "id": "n5",
+    "kind": "live",
+    "actor": {
+      "id": "u_kelvin",
+      "display_name": "Kelvin Okafor",
+      "handle": "kelvinokafor",
+      "cover_index": 1,
+      "is_verified": true,
+      "bio": "Director, Vivid Originals · Lagos · DM for collabs"
+    },
+    "also": [],
+    "excerpt": "is live now: Day three: re-cutting the bridge.",
+    "posted_at": "2026-04-28T15:00:00Z",
+    "unread": false
+  },
+  {
+    "id": "n6",
+    "kind": "tag",
+    "actor": {
+      "id": "u_elena",
+      "display_name": "Elena Iovine",
+      "handle": "elenaiovine",
+      "cover_index": 4,
+      "is_verified": true,
+      "bio": "Editor-in-chief · La Pagina · Florence"
+    },
+    "also": [],
+    "post_id": "post_editorial",
+    "post_cover_index": 4,
+    "excerpt": "tagged you in a cover credit",
+    "posted_at": "2026-04-28T10:00:00Z",
+    "unread": false
+  },
+  {
+    "id": "n7",
+    "kind": "like",
+    "actor": {
+      "id": "u_freddie",
+      "display_name": "Freddie Wells",
+      "handle": "freddiewells",
+      "cover_index": 1,
+      "is_verified": false,
+      "bio": "Surf shaper, dawn paddler, occasional poet."
+    },
+    "also": [
+      {
+        "id": "u_priya",
+        "display_name": "Priya Anand",
+        "handle": "priyaanand",
+        "cover_index": 2,
+        "is_verified": true,
+        "bio": "Costume designer · west end · sews on her lunch break"
+      }
+    ],
+    "post_id": "post_skate_curb",
+    "post_cover_index": 4,
+    "posted_at": "2026-04-27T22:30:00Z",
+    "unread": false
+  },
+  {
+    "id": "n8",
+    "kind": "follow",
+    "actor": {
+      "id": "u_theo",
+      "display_name": "Theo van der Meer",
+      "handle": "theovandermeer",
+      "cover_index": 3,
+      "is_verified": false,
+      "bio": "Architectural photography. Daylight-only."
+    },
+    "also": [],
+    "posted_at": "2026-04-26T11:00:00Z",
+    "unread": false
+  }
+]
