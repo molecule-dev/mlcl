@@ -1,0 +1,107 @@
+{
+  "cart/": {
+    "groups": [
+      {
+        "vendor_id": "vnd-001",
+        "vendor_slug": "mira-co-ceramics",
+        "vendor_name": "Mira & Co. Ceramics",
+        "vendor_verified": true,
+        "shipping_cents": 800,
+        "estimated_delivery": "3-5 business days",
+        "items": [
+          {
+            "id": "cart-prd-0010",
+            "product_id": "prd-001",
+            "variant_id": "var-001-sand",
+            "name": "Stoneware Breakfast Bowl — Sand",
+            "image": "https://picsum.photos/seed/prd001a/800/800",
+            "unit_price_cents": 4200,
+            "quantity": 2
+          },
+          {
+            "id": "cart-prd-0021",
+            "product_id": "prd-002",
+            "variant_id": "var-002-char",
+            "name": "Pour-Over Carafe — Charcoal",
+            "image": "https://picsum.photos/seed/prd002a/800/800",
+            "unit_price_cents": 8800,
+            "quantity": 1
+          }
+        ],
+        "subtotal_cents": 17200
+      },
+      {
+        "vendor_id": "vnd-002",
+        "vendor_slug": "atlas-textiles",
+        "vendor_name": "Atlas Textiles",
+        "vendor_verified": true,
+        "shipping_cents": 600,
+        "estimated_delivery": "5-7 business days",
+        "items": [
+          {
+            "id": "cart-prd-0030",
+            "product_id": "prd-003",
+            "variant_id": "var-003-sahara",
+            "name": "Hand-loomed Wool Throw — Sahara Stripe",
+            "image": "https://picsum.photos/seed/prd003a/800/800",
+            "unit_price_cents": 14900,
+            "quantity": 1
+          }
+        ],
+        "subtotal_cents": 14900
+      }
+    ],
+    "item_count": 4,
+    "item_subtotal_cents": 32100,
+    "shipping_total_cents": 1400,
+    "total_cents": 33500,
+    "currency": "USD"
+  },
+  "vendors/me": {
+    "id": "vnd-001",
+    "name": "Mira & Co. Ceramics",
+    "slug": "mira-co-ceramics"
+  },
+  "vendors/me/dashboard": {
+    "gross_sales_cents": 1284000,
+    "gross_sales_change_pct": 12.4,
+    "net_payout_cents": 1130000,
+    "net_payout_change_pct": 9.8,
+    "orders_count": 184,
+    "orders_change_pct": 6.2,
+    "pending_payout_cents": 214000,
+    "conversion_rate_pct": 3.8
+  },
+  "profile/me": {
+    "id": "usr-001",
+    "name": "Helena Souza",
+    "email": "helena@example.com",
+    "username": "helena",
+    "prefs": {
+      "firstName": "Helena",
+      "lastName": "Souza",
+      "username": "helena",
+      "addresses": [
+        {
+          "id": "addr-1",
+          "label": "Home",
+          "street": "742 Linden Ave",
+          "city": "Brooklyn",
+          "state": "NY",
+          "postal": "11215",
+          "primary": true
+        }
+      ],
+      "notificationPrefs": {
+        "orders": true,
+        "reviews": true,
+        "promos": false,
+        "payouts": true
+      },
+      "payoutAccount": {
+        "account": "•••• 4242",
+        "currency": "USD"
+      }
+    }
+  }
+}
