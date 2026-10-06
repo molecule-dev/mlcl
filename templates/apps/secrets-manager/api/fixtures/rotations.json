@@ -1,0 +1,38 @@
+[
+  {
+    "id": "rot_1",
+    "secret_id": "sec_adyen_signing",
+    "scheduled_at": "2026-10-08T09:00:00Z",
+    "completed_at": null,
+    "status": "pending",
+    "mode": "cron",
+    "by_actor": null
+  },
+  {
+    "id": "rot_2",
+    "secret_id": "sec_stripe_live_key",
+    "scheduled_at": "2026-09-09T09:00:00Z",
+    "completed_at": "2026-09-09T09:02:11Z",
+    "status": "completed",
+    "mode": "cron",
+    "by_actor": "rotation-bot"
+  },
+  {
+    "id": "rot_3",
+    "secret_id": "sec_datadog_app",
+    "scheduled_at": "2026-09-22T14:30:00Z",
+    "completed_at": "2026-09-22T14:31:40Z",
+    "status": "completed",
+    "mode": "manual",
+    "by_actor": "ada@arcanum.dev"
+  },
+  {
+    "id": "rot_4",
+    "secret_id": "sec_snowflake_dwh",
+    "scheduled_at": "2026-10-02T09:00:00Z",
+    "completed_at": null,
+    "status": "failed",
+    "mode": "cron",
+    "by_actor": "rotation-bot"
+  }
+]

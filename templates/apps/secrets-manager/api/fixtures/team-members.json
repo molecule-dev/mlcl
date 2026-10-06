@@ -4,7 +4,12 @@
     "name": "Ada Patel",
     "email": "ada@arcanum.dev",
     "role": "owner",
-    "vaults": ["vault_payments", "vault_internal", "vault_observability", "vault_data_pipelines"],
+    "vaults": [
+      "vault_payments",
+      "vault_internal",
+      "vault_observability",
+      "vault_data_pipelines"
+    ],
     "sso_group": "okta:platform",
     "last_active_at": "2026-04-30T02:54:11Z",
     "status": "active"
@@ -14,7 +19,9 @@
     "name": "Noah Olu",
     "email": "noah@arcanum.dev",
     "role": "editor",
-    "vaults": ["vault_observability"],
+    "vaults": [
+      "vault_observability"
+    ],
     "sso_group": "okta:sre",
     "last_active_at": "2026-04-30T02:01:22Z",
     "status": "active"
@@ -24,7 +31,10 @@
     "name": "Imani Reyes",
     "email": "imani@arcanum.dev",
     "role": "viewer",
-    "vaults": ["vault_payments", "vault_data_pipelines"],
+    "vaults": [
+      "vault_payments",
+      "vault_data_pipelines"
+    ],
     "sso_group": "okta:audit",
     "last_active_at": "2026-04-29T22:11:00Z",
     "status": "active"
@@ -34,7 +44,9 @@
     "name": "Kit Tanaka",
     "email": "kit@arcanum.dev",
     "role": "editor",
-    "vaults": ["vault_internal"],
+    "vaults": [
+      "vault_internal"
+    ],
     "sso_group": "okta:dx",
     "last_active_at": "2026-04-29T18:42:00Z",
     "status": "invited"

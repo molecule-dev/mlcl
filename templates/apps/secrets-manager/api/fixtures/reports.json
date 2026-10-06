@@ -1,0 +1,23 @@
+{
+  "billing/status": {
+    "planKey": "free",
+    "category": "free",
+    "name": "Free",
+    "isFree": true,
+    "limits": {
+      "maxSecrets": 5,
+      "maxAccessPolicies": 5,
+      "maxAuditLog": 5,
+      "advancedFeatures": false,
+      "canExport": false,
+      "retentionDays": 90
+    }
+  },
+  "settings/me": {
+    "settings": {
+      "org": {
+        "name": "Arcanum"
+      }
+    }
+  }
+}

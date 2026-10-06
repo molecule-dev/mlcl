@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ntf_1",
+    "kind": "rotation",
+    "title": "Rotation failed for DATABASE_URL",
+    "body": "The scheduled rotation could not reach the database. Retry from the Rotations page.",
+    "read_at": null,
+    "created_at": "2026-10-02T09:01:00Z",
+    "meta": {}
+  },
+  {
+    "id": "ntf_2",
+    "kind": "expiry",
+    "title": "STRIPE_WEBHOOK_SECRET expires in 6 days",
+    "body": "Rotate it before it expires to avoid failed webhooks.",
+    "read_at": null,
+    "created_at": "2026-10-01T08:00:00Z",
+    "meta": {}
+  },
+  {
+    "id": "ntf_3",
+    "kind": "team",
+    "title": "Priya Raman was invited to Payments",
+    "body": "Invitation sent by Ada Patel.",
+    "read_at": "2026-09-30T12:00:00Z",
+    "created_at": "2026-09-29T15:20:00Z",
+    "meta": {}
+  }
+]
