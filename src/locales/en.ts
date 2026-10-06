@@ -372,6 +372,54 @@ export const messages: LocaleMessages = {
   'lib.injector.errors.injectionFailed': 'Injection failed: {error}',
   'lib.injector.errors.fileExists': 'File already exists: {path}',
 
+  // ─── commands/token ─────────────────────────────────────────────
+  'commands.token.create.description':
+    'Create a personal API token for CI and scripts. The token is printed once, by itself, on stdout.',
+  'commands.token.create.args.name': 'A name for the token, 1 to 60 characters (e.g. ci)',
+  'commands.token.create.flags.expiresInDays': 'Days until the token expires, 1 to 365',
+  'commands.token.create.created': 'Created token "{name}". It expires on {expires}.',
+  'commands.token.create.shownOnce':
+    'This is the only time the token is shown. Store it somewhere safe.',
+  'commands.token.create.useIt':
+    'Use it: export MOLECULE_TOKEN=<token>  (or send the header Authorization: Bearer <token>)',
+  'commands.token.create.revokeIt': 'Revoke it: mlcl token revoke {name}',
+  'commands.token.list.description':
+    'List your personal API tokens. Token values are never shown again after creation.',
+  'commands.token.list.heading_one': '{count} API token',
+  'commands.token.list.heading_other': '{count} API tokens',
+  'commands.token.list.empty': 'No API tokens. Create one with: mlcl token create <name>',
+  'commands.token.list.revokeHint': '(revoke with: mlcl token revoke <id-or-name>)',
+  'commands.token.list.columns.id': 'ID',
+  'commands.token.list.columns.name': 'NAME',
+  'commands.token.list.columns.created': 'CREATED',
+  'commands.token.list.columns.expires': 'EXPIRES',
+  'commands.token.list.columns.lastUsed': 'LAST USED',
+  'commands.token.list.never': 'never',
+  'commands.token.list.expired': '{date} (expired)',
+  'commands.token.revoke.description':
+    'Revoke a personal API token by id or by name. It stops working.',
+  'commands.token.revoke.args.ref': 'The token id, or its name (from mlcl token list)',
+  'commands.token.revoke.revoked': 'Revoked token "{name}" ({id}).',
+  'commands.token.errors.invalidName': 'A token name must be 1 to 60 characters.',
+  'commands.token.errors.invalidExpiry': '--expires-in-days must be a whole number from 1 to 365.',
+  'commands.token.errors.nameTaken':
+    'You already have a token named "{name}". Pick another name, or revoke that one first.',
+  'commands.token.errors.sessionRequired':
+    'An API token cannot create, list or revoke tokens. Run `mlcl login` to sign in, then try again.',
+  'commands.token.errors.emailNotConfirmed':
+    'Confirm your email address first, using the link molecule.dev sent you.',
+  'commands.token.errors.limit':
+    'You have 25 active tokens, the most allowed. Revoke one you no longer use (mlcl token list).',
+  'commands.token.errors.dailyLimit': 'You can create 10 tokens a day. Try again tomorrow.',
+  'commands.token.errors.notFound':
+    'That token no longer exists. Run `mlcl token list` to see your tokens.',
+  'commands.token.errors.noMatch':
+    'No token has the id or name "{ref}". Run `mlcl token list` to see your tokens.',
+  'commands.token.errors.ambiguous':
+    'More than one token is named "{name}". Revoke it by id instead: {ids}',
+  'commands.token.errors.noToken':
+    'molecule.dev did not return the token. Revoke it (mlcl token revoke {name}) and create another.',
+
   // ─── lib/registry ───────────────────────────────────────────────
   'lib.registry.errors.notFound':
     'Molecule packages directory not found: {path}\nSet MOLECULE_PACKAGES_DIR or ensure ../molecule/packages exists.',

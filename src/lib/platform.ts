@@ -352,6 +352,60 @@ export function revokeDevice(deviceId: string, token?: string): Promise<unknown>
   return request(`/devices/${deviceId}`, { method: 'DELETE', token })
 }
 
+/** A personal API token as the platform lists it. The token value itself is never listed. */
+export interface PlatformApiToken {
+  id: string
+  name: string
+  createdAt: string
+  expiresAt: string
+  /** Null until the token is first used. */
+  lastUsedAt: string | null
+}
+
+/** The create response: the listed fields plus the token value, which is returned this once. */
+export interface CreatedApiToken extends PlatformApiToken {
+  token: string
+}
+
+/** Copy only the listed fields, so a token value can never travel through a list result. */
+function apiTokenRow(row: PlatformApiToken): PlatformApiToken {
+  return {
+    id: row.id,
+    name: row.name,
+    createdAt: row.createdAt,
+    expiresAt: row.expiresAt,
+    lastUsedAt: row.lastUsedAt ?? null,
+  }
+}
+
+/** GET /account/api-tokens — the caller's personal API tokens. */
+export async function listApiTokens(token?: string): Promise<PlatformApiToken[]> {
+  const raw = await request<{ data?: PlatformApiToken[] }>('/account/api-tokens', { token })
+  return (raw?.data ?? []).map(apiTokenRow)
+}
+
+/** POST /account/api-tokens — mint a named token; the response carries the token value once. */
+export async function createApiToken(
+  input: { name: string; expiresInDays?: number },
+  token?: string,
+): Promise<CreatedApiToken> {
+  const raw = await request<{ data: CreatedApiToken }>('/account/api-tokens', {
+    method: 'POST',
+    body: input,
+    token,
+  })
+  return raw.data
+}
+
+/** DELETE /account/api-tokens/:id — revoke a token; it stops authenticating. */
+export async function revokeApiToken(id: string, token?: string): Promise<{ revoked: boolean }> {
+  const raw = await request<{ data?: { revoked?: boolean } }>(
+    `/account/api-tokens/${encodeURIComponent(id)}`,
+    { method: 'DELETE', token },
+  )
+  return { revoked: raw?.data?.revoked === true }
+}
+
 /** Decode the LOCAL token's deviceId claim (no network) — which row is this machine. */
 export function localDeviceId(): string | null {
   const token = process.env.MOLECULE_TOKEN ?? readCredentials()?.token

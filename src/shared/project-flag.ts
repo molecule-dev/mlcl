@@ -10,6 +10,8 @@ export const projectFlag = Flags.string({
 
 export function requireAuth(): void {
   if (!readCredentials() && !process.env.MOLECULE_TOKEN) {
-    throw new Error('Not logged in — run `mlcl login` first (or set MOLECULE_TOKEN for CI).')
+    throw new Error(
+      'Not logged in. Run `mlcl login`, or for CI and scripts set MOLECULE_TOKEN to a token from `mlcl token create`.',
+    )
   }
 }

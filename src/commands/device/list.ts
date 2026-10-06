@@ -1,13 +1,8 @@
 import { Command } from '@oclif/core'
 
-import { listDevices, localDeviceId, readCredentials } from '../../lib/platform.js'
+import { listDevices, localDeviceId } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
-
-export function requireAuth(): void {
-  if (!readCredentials() && !process.env.MOLECULE_TOKEN) {
-    throw new Error('Not logged in — run `mlcl login` first (or set MOLECULE_TOKEN for CI).')
-  }
-}
+import { requireAuth } from '../../shared/project-flag.js'
 
 export default class DeviceList extends Command {
   static override description =

@@ -81,6 +81,9 @@
       "device": {
         "description": "Manage molecule.dev devices/sessions (list, revoke, rename)"
       },
+      "token": {
+        "description": "Personal API tokens for CI and scripts (create, list, revoke)"
+      },
       "sandbox": {
         "description": "Manage project sandboxes (status, start, stop, exec)"
       },

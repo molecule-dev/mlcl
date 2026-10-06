@@ -2,7 +2,7 @@ import { Args, Command } from '@oclif/core'
 
 import { renameDevice } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
-import { requireAuth } from './list.js'
+import { requireAuth } from '../../shared/project-flag.js'
 
 export default class DeviceRename extends Command {
   static override description = 'Rename a device (how it appears in the IDE session list)'

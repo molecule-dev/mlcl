@@ -35,10 +35,16 @@ async function main() {
   check('P0 login', login.ok)
 
   const home = mkdtempSync(join(tmpdir(), 'mlcl-parity-'))
-  const run = (args, input = '') =>
+  const run = (args, input = '', extraEnv = {}) =>
     new Promise((resolve) => {
       const p = spawn(process.execPath, [join(MLCL, 'bin/run.js'), ...args], {
-        env: { ...process.env, HOME: home, MOLECULE_ENV: 'local', MOLECULE_TELEMETRY: '0' },
+        env: {
+          ...process.env,
+          HOME: home,
+          MOLECULE_ENV: 'local',
+          MOLECULE_TELEMETRY: '0',
+          ...extraEnv,
+        },
         stdio: ['pipe', 'pipe', 'pipe'],
       })
       let out = ''
@@ -197,6 +203,43 @@ async function main() {
   // ── devices (already security-matrix-tested; quick re-check) ──
   const dl = await run(['device', 'list'])
   check('P25 device list', dl.code === 0, dl.out.slice(-120))
+
+  // ── personal API tokens: mint, use, refuse management from a token session, revoke ──
+  const tokenName = `parity-${Date.now()}`
+  const tc = await run(['token', 'create', tokenName, '--expires-in-days', '1', '--json'])
+  let minted
+  try {
+    minted = JSON.parse(tc.out)
+  } catch (_error) {
+    // Not JSON: the create failed, and P26 reports its output.
+    minted = null
+  }
+  check('P26 token create --json', tc.code === 0 && Boolean(minted?.token), tc.out.slice(-140))
+  const tl = await run(['token', 'list', '--json'])
+  check(
+    'P27 token list',
+    tl.code === 0 && tl.out.includes(tokenName) && !tl.out.includes(minted?.token ?? '\u0000'),
+    tl.out.slice(-140),
+  )
+  if (minted?.token) {
+    const asToken = { MOLECULE_TOKEN: minted.token }
+    const who = await run(['whoami'], '', asToken)
+    check('P28 MOLECULE_TOKEN authenticates', who.code === 0, who.out.slice(-140))
+    const refused = await run(['token', 'list'], '', asToken)
+    check(
+      'P29 a token session cannot manage tokens',
+      refused.code !== 0 && refused.out.includes('mlcl login'),
+      refused.out.slice(-140),
+    )
+    const tr = await run(['token', 'revoke', tokenName])
+    check(
+      'P30 token revoke by name',
+      tr.code === 0 && tr.out.includes('Revoked'),
+      tr.out.slice(-140),
+    )
+    const dead = await run(['whoami'], '', asToken)
+    check('P31 a revoked token stops working', dead.code !== 0, dead.out.slice(-140))
+  }
 
   cli.kill()
   rmSync(home, { recursive: true, force: true })

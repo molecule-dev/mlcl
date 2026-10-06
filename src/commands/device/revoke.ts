@@ -2,7 +2,7 @@ import { Args, Command, Flags } from '@oclif/core'
 
 import { listDevices, localDeviceId, revokeDevice } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
-import { requireAuth } from './list.js'
+import { requireAuth } from '../../shared/project-flag.js'
 
 export default class DeviceRevoke extends Command {
   static override description =

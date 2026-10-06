@@ -128,6 +128,7 @@ npx mlcl project list                  # your projects + roles
 npx mlcl env push --project <id>       # local .env → the project's env (IDE editor route)
 npx mlcl env pull --project <id>       # project env → local (secrets skipped, write-only)
 npx mlcl deploy --project <id> --follow  # production deploy, same pipeline as the IDE button
+MOLECULE_TOKEN=<token> npx mlcl …         # CI/scripts: a token from `mlcl token create` (below)
 
 # Platform operations against a project (mlcl project open <id> first for URLs):
 npx mlcl sandbox status|start|stop|restart --project <id>
@@ -167,7 +168,41 @@ npx mlcl device current                # this machine's device id (offline)
 npx mlcl device rename <id> "laptop"   # label it in the IDE session list
 npx mlcl device revoke <id>            # kills that token (~10s)
 npx mlcl device revoke --all-but-current   # sign out everywhere except here
+
+# Personal API tokens (CI and scripts — named, revocable, expiring):
+npx mlcl token create ci               # prints the token once, alone on stdout
+npx mlcl token list                    # name, created, expires, last used (never the value)
+npx mlcl token revoke ci               # by name or id; it stops working
 ```
+
+### Programmatic access (CI and scripts)
+
+`mlcl login` is for a person at a keyboard. For CI and scripts, create a
+personal API token: it has a name, expires, and can be revoked on its own
+without signing anything else out.
+
+```bash
+mlcl token create ci --expires-in-days 30   # shown once — store it as a CI secret
+export MOLECULE_TOKEN=<token>                # every mlcl command then uses it
+mlcl deploy --project <id> --follow
+
+TOKEN=$(mlcl token create nightly --json | jq -r .token)   # scripted
+
+mlcl token list
+mlcl token revoke ci
+```
+
+The token goes to stdout by itself; the expiry date and how to use it go to
+stderr, so `$(mlcl token create ci)` captures only the token. Any HTTP
+client can send it as `Authorization: Bearer <token>`.
+
+- **Expiry:** 1 to 365 days (`--expires-in-days`), 90 by default.
+- **Limits:** 25 active tokens per account; 10 created per day. Names are 1 to 60
+  characters and unique among your tokens.
+- **What a token cannot do:** change your password or email, set up two-factor
+  sign-in, create, list or revoke tokens, manage devices, or delete your
+  account. Those need a signed-in session (`mlcl login`).
+- **If one leaks:** `mlcl token revoke <name>`.
 
 Read any installed package's usage reference — generated, always current:
 
@@ -299,6 +334,7 @@ USAGE
 * [`mlcl build list`](#mlcl-build-list)
 * [`mlcl build mobile`](#mlcl-build-mobile)
 * [`mlcl build status`](#mlcl-build-status)
+* [`mlcl check`](#mlcl-check)
 * [`mlcl create [NAME]`](#mlcl-create-name)
 * [`mlcl db backup`](#mlcl-db-backup)
 * [`mlcl db backup-list`](#mlcl-db-backup-list)
@@ -360,6 +396,7 @@ USAGE
 * [`mlcl project get ID`](#mlcl-project-get-id)
 * [`mlcl project list`](#mlcl-project-list)
 * [`mlcl project open NAMEORID`](#mlcl-project-open-nameorid)
+* [`mlcl project protect`](#mlcl-project-protect)
 * [`mlcl project settings`](#mlcl-project-settings)
 * [`mlcl sandbox exec`](#mlcl-sandbox-exec)
 * [`mlcl sandbox restart`](#mlcl-sandbox-restart)
@@ -392,6 +429,9 @@ USAGE
 * [`mlcl team rm MEMBERID`](#mlcl-team-rm-memberid)
 * [`mlcl team set-role MEMBERID ROLE`](#mlcl-team-set-role-memberid-role)
 * [`mlcl templates`](#mlcl-templates)
+* [`mlcl token create NAME`](#mlcl-token-create-name)
+* [`mlcl token list`](#mlcl-token-list)
+* [`mlcl token revoke REF`](#mlcl-token-revoke-ref)
 * [`mlcl transcripts import [FILES]`](#mlcl-transcripts-import-files)
 * [`mlcl transcripts list`](#mlcl-transcripts-list)
 * [`mlcl transcripts rm TRANSCRIPTID`](#mlcl-transcripts-rm-transcriptid)
@@ -433,16 +473,18 @@ GDPR data export (all your data as JSON)
 
 ```
 USAGE
-  $ mlcl account export -p <value>
+  $ mlcl account export [--out <value>]
 
 FLAGS
-  -p, --project=<value>  (required) molecule.dev project id
+  --out=<value>  write the JSON to this file instead of stdout
 
 DESCRIPTION
   GDPR data export (all your data as JSON)
 
 EXAMPLES
   $ mlcl account export
+
+  $ mlcl account export --out my-data.json
 ```
 
 _See code: [src/commands/account/export.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/account/export.ts)_
@@ -590,7 +632,7 @@ _See code: [src/commands/apikey/rm.ts](https://github.com/molecule-dev/mlcl/blob
 
 ## `mlcl auth login`
 
-Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 90-day token at ~/.mlcl/credentials.json
+Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 90-day token at ~/.mlcl/credentials.json. For CI and scripts, create a named, revocable token with `mlcl token create <name>` and set it as MOLECULE_TOKEN.
 
 ```
 USAGE
@@ -604,7 +646,8 @@ FLAGS
 
 DESCRIPTION
   Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 90-day token at
-  ~/.mlcl/credentials.json
+  ~/.mlcl/credentials.json. For CI and scripts, create a named, revocable token with `mlcl token create <name>` and set
+  it as MOLECULE_TOKEN.
 
 ALIASES
   $ mlcl login
@@ -737,6 +780,35 @@ EXAMPLES
 
 _See code: [src/commands/build/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/build/status.ts)_
 
+## `mlcl check`
+
+Run the project’s checks (typecheck, lint, build, unit, e2e — discovered from its scripts) and print one compact report with the first errors
+
+```
+USAGE
+  $ mlcl check [--json] [--steps <value>] [--e2e <value>]
+
+FLAGS
+  --e2e=<value>    Extra arguments for the e2e run (spec files, `--grep …`)
+  --json           Machine-readable report
+  --steps=<value>  Only these steps, comma-separated (default: all of typecheck, lint, build, unit, e2e)
+
+DESCRIPTION
+  Run the project’s checks (typecheck, lint, build, unit, e2e — discovered from its scripts) and print one compact
+  report with the first errors
+
+EXAMPLES
+  $ mlcl check
+
+  $ mlcl check --steps typecheck,lint
+
+  $ mlcl check --e2e "e2e/auth.spec.ts --grep login"
+
+  $ mlcl check --json
+```
+
+_See code: [src/commands/check.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/check.ts)_
+
 ## `mlcl create [NAME]`
 
 Create a new project
@@ -744,12 +816,14 @@ Create a new project
 ```
 USAGE
   $ mlcl create [NAME] [--skip-install] [--type api|app|full-stack|static|status-page|status-page-edge]
-    [--framework <value>] [--packages <value>] [--theme <value>] [--no-interactive] [--json] [--template <value>]
+    [--framework <value>] [--packages <value>] [--theme <value>] [--no-interactive] [--json] [--force] [--template
+    <value>]
 
 ARGUMENTS
   [NAME]  Project name
 
 FLAGS
+  --force              Scaffold into a directory that already holds a project (existing files are overwritten)
   --framework=<value>  Frontend framework (app only)
   --json               Print a machine-readable JSON result instead of progress output (implies --no-interactive)
   --no-interactive     Run without interactive prompts (requires --type and name arg)
@@ -1831,7 +1905,7 @@ _See code: [src/commands/invitations/list.ts](https://github.com/molecule-dev/ml
 
 ## `mlcl login`
 
-Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 90-day token at ~/.mlcl/credentials.json
+Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 90-day token at ~/.mlcl/credentials.json. For CI and scripts, create a named, revocable token with `mlcl token create <name>` and set it as MOLECULE_TOKEN.
 
 ```
 USAGE
@@ -1845,7 +1919,8 @@ FLAGS
 
 DESCRIPTION
   Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 90-day token at
-  ~/.mlcl/credentials.json
+  ~/.mlcl/credentials.json. For CI and scripts, create a named, revocable token with `mlcl token create <name>` and set
+  it as MOLECULE_TOKEN.
 
 ALIASES
   $ mlcl login
@@ -2129,6 +2204,32 @@ EXAMPLES
 ```
 
 _See code: [src/commands/project/open.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/project/open.ts)_
+
+## `mlcl project protect`
+
+Protect a project from deletion (DELETE answers 409 until --off) — for named, irreplaceable projects
+
+```
+USAGE
+  $ mlcl project protect -p <value> [--json] [--off]
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+      --off              remove deletion protection
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  Protect a project from deletion (DELETE answers 409 until --off) — for named, irreplaceable projects
+
+EXAMPLES
+  $ mlcl project protect --project <id>
+
+  $ mlcl project protect --project <id> --off
+```
+
+_See code: [src/commands/project/protect.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/project/protect.ts)_
 
 ## `mlcl project settings`
 
@@ -2870,6 +2971,85 @@ EXAMPLES
 ```
 
 _See code: [src/commands/templates.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/templates.ts)_
+
+## `mlcl token create NAME`
+
+Create a personal API token for CI and scripts. The token is printed once, by itself, on stdout.
+
+```
+USAGE
+  $ mlcl token create NAME [--json] [--expires-in-days <days>]
+
+ARGUMENTS
+  NAME  A name for the token, 1 to 60 characters (e.g. ci)
+
+FLAGS
+  --expires-in-days=<days>  [default: 90] Days until the token expires, 1 to 365
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  Create a personal API token for CI and scripts. The token is printed once, by itself, on stdout.
+
+EXAMPLES
+  $ mlcl token create ci
+
+  $ mlcl token create nightly-backup --expires-in-days 30
+
+  TOKEN=$(mlcl token create ci --json | jq -r .token)
+```
+
+_See code: [src/commands/token/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/token/create.ts)_
+
+## `mlcl token list`
+
+List your personal API tokens. Token values are never shown again after creation.
+
+```
+USAGE
+  $ mlcl token list [--json]
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  List your personal API tokens. Token values are never shown again after creation.
+
+EXAMPLES
+  $ mlcl token list
+
+  $ mlcl token list --json
+```
+
+_See code: [src/commands/token/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/token/list.ts)_
+
+## `mlcl token revoke REF`
+
+Revoke a personal API token by id or by name. It stops working.
+
+```
+USAGE
+  $ mlcl token revoke REF [--json]
+
+ARGUMENTS
+  REF  The token id, or its name (from mlcl token list)
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  Revoke a personal API token by id or by name. It stops working.
+
+EXAMPLES
+  $ mlcl token revoke ci
+
+  $ mlcl token revoke <id>
+
+  $ mlcl token revoke ci --json
+```
+
+_See code: [src/commands/token/revoke.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/token/revoke.ts)_
 
 ## `mlcl transcripts import [FILES]`
 

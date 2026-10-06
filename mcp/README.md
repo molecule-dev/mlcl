@@ -152,7 +152,9 @@ Deploy/env-push/project tools need molecule.dev auth, and the login is the
 SAME one the CLI uses — call the `login` tool, show the returned URL + code
 to the user, poll with `login_poll` until `logged_in`. The token lands in
 `~/.mlcl/credentials.json` and covers every surface at once (this server,
-the mlcl CLI, and any CLI process it spawns). CI: set `MOLECULE_TOKEN`.
+the mlcl CLI, and any CLI process it spawns). CI: set `MOLECULE_TOKEN` to a
+personal API token from `mlcl token create <name>`. This server has no
+token-minting tool on purpose: a person creates tokens, an agent does not.
 
 ## Configuration
 
