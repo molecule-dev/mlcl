@@ -1,0 +1,28 @@
+[
+  {
+    "id": "fav_1",
+    "team_id": "team_atl",
+    "team": {
+      "id": "team_atl",
+      "name": "Atlas United",
+      "abbreviation": "ATL",
+      "primary_color": "#0e7490",
+      "wins": 18,
+      "losses": 4,
+      "draws": 2
+    }
+  },
+  {
+    "id": "fav_2",
+    "team_id": "team_chi",
+    "team": {
+      "id": "team_chi",
+      "name": "Chicago Surge",
+      "abbreviation": "CHI",
+      "primary_color": "#16a34a",
+      "wins": 14,
+      "losses": 7,
+      "draws": 3
+    }
+  }
+]
