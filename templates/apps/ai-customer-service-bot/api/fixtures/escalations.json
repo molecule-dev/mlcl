@@ -1,0 +1,22 @@
+[
+  {
+    "id": "000000e1-0000-4000-8000-000000000001",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "conversation_id": "000000c1-0000-4000-8000-000000000002",
+    "summary": "Customer was double charged and needs a billing review.",
+    "requested_at": "2026-10-06T11:00:00Z",
+    "resolved_at": null,
+    "created_at": "2026-10-06T11:00:00Z"
+  },
+  {
+    "id": "000000e1-0000-4000-8000-000000000002",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "conversation_id": "000000c1-0000-4000-8000-000000000004",
+    "summary": "Refund request over the automatic approval limit.",
+    "requested_at": "2026-10-05T11:00:00Z",
+    "resolved_at": "2026-10-06T15:00:00Z",
+    "created_at": "2026-10-05T11:00:00Z"
+  }
+]

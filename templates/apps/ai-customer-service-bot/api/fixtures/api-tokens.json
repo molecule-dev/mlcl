@@ -1,0 +1,24 @@
+[
+  {
+    "id": "000000t1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "label": "Website widget",
+    "scopes_json": [
+      "chat:write"
+    ],
+    "created_at": "2026-10-02T09:00:00Z",
+    "last_used_at": "2026-10-06T10:00:00Z",
+    "revoked_at": null
+  },
+  {
+    "id": "000000t1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "label": "Zapier integration",
+    "scopes_json": [
+      "conversations:read"
+    ],
+    "created_at": "2026-10-03T09:00:00Z",
+    "last_used_at": "2026-10-06T10:00:00Z",
+    "revoked_at": null
+  }
+]

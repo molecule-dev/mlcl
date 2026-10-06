@@ -1,0 +1,172 @@
+[
+  {
+    "id": "000000c1-0000-4000-8000-000000000001",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "customer_name": "Hannah Lopez",
+    "customer_email": "hannah.lopez@example.com",
+    "channel": "web",
+    "status": "open",
+    "escalated": false,
+    "message_count": 2,
+    "csat": null,
+    "satisfaction_score": null,
+    "started_at": "2026-10-06T09:00:00Z",
+    "last_message_at": "2026-10-06T09:12:00Z",
+    "created_at": "2026-10-06T09:00:00Z",
+    "messages": [
+      {
+        "id": "000000m1-0000-4000-8000-000000000001",
+        "conversation_id": "000000c1-0000-4000-8000-000000000001",
+        "sender": "Hannah Lopez",
+        "role": "customer",
+        "content": "Where is my order #4821? It was due Friday.",
+        "created_at": "2026-10-06T09:00:00Z"
+      },
+      {
+        "id": "000000m1-0000-4000-8000-000000000002",
+        "conversation_id": "000000c1-0000-4000-8000-000000000001",
+        "sender": "Rapport Bot",
+        "role": "assistant",
+        "content": "Let me check the carrier status for you right now.",
+        "created_at": "2026-10-06T09:02:00Z"
+      }
+    ]
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000002",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "customer_name": "Marcus Reid",
+    "customer_email": "marcus.reid@example.com",
+    "channel": "email",
+    "status": "escalated",
+    "escalated": true,
+    "message_count": 2,
+    "csat": null,
+    "satisfaction_score": null,
+    "started_at": "2026-10-06T10:00:00Z",
+    "last_message_at": "2026-10-06T10:12:00Z",
+    "created_at": "2026-10-06T10:00:00Z",
+    "messages": [
+      {
+        "id": "000000m1-0000-4000-8000-000000000003",
+        "conversation_id": "000000c1-0000-4000-8000-000000000002",
+        "sender": "Marcus Reid",
+        "role": "customer",
+        "content": "I was charged twice for my subscription.",
+        "created_at": "2026-10-06T10:00:00Z"
+      },
+      {
+        "id": "000000m1-0000-4000-8000-000000000004",
+        "conversation_id": "000000c1-0000-4000-8000-000000000002",
+        "sender": "Rapport Bot",
+        "role": "assistant",
+        "content": "I can see the duplicate charge and have flagged it for our billing team.",
+        "created_at": "2026-10-06T10:02:00Z"
+      }
+    ]
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000003",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "customer_name": "Aisha Khan",
+    "customer_email": "aisha.khan@example.com",
+    "channel": "chat",
+    "status": "resolved",
+    "escalated": false,
+    "message_count": 2,
+    "csat": 5,
+    "satisfaction_score": 5,
+    "started_at": "2026-10-05T11:00:00Z",
+    "last_message_at": "2026-10-05T11:12:00Z",
+    "created_at": "2026-10-05T11:00:00Z",
+    "messages": [
+      {
+        "id": "000000m1-0000-4000-8000-000000000005",
+        "conversation_id": "000000c1-0000-4000-8000-000000000003",
+        "sender": "Aisha Khan",
+        "role": "customer",
+        "content": "How do I reset my two-factor device?",
+        "created_at": "2026-10-05T11:00:00Z"
+      },
+      {
+        "id": "000000m1-0000-4000-8000-000000000006",
+        "conversation_id": "000000c1-0000-4000-8000-000000000003",
+        "sender": "Rapport Bot",
+        "role": "assistant",
+        "content": "Done! You can now scan a new QR code from Settings.",
+        "created_at": "2026-10-05T11:02:00Z"
+      }
+    ]
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000004",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "customer_name": "Tom Becker",
+    "customer_email": "tom.becker@example.com",
+    "channel": "web",
+    "status": "open",
+    "escalated": false,
+    "message_count": 2,
+    "csat": null,
+    "satisfaction_score": null,
+    "started_at": "2026-10-05T12:00:00Z",
+    "last_message_at": "2026-10-05T12:12:00Z",
+    "created_at": "2026-10-05T12:00:00Z",
+    "messages": [
+      {
+        "id": "000000m1-0000-4000-8000-000000000007",
+        "conversation_id": "000000c1-0000-4000-8000-000000000004",
+        "sender": "Tom Becker",
+        "role": "customer",
+        "content": "Do you ship to Canada?",
+        "created_at": "2026-10-05T12:00:00Z"
+      },
+      {
+        "id": "000000m1-0000-4000-8000-000000000008",
+        "conversation_id": "000000c1-0000-4000-8000-000000000004",
+        "sender": "Rapport Bot",
+        "role": "assistant",
+        "content": "Yes, we ship to Canada with delivery in 5 to 8 business days.",
+        "created_at": "2026-10-05T12:02:00Z"
+      }
+    ]
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000005",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "customer_name": "Yuki Tanaka",
+    "customer_email": "yuki.tanaka@example.com",
+    "channel": "email",
+    "status": "resolved",
+    "escalated": false,
+    "message_count": 2,
+    "csat": 4,
+    "satisfaction_score": 4,
+    "started_at": "2026-10-04T13:00:00Z",
+    "last_message_at": "2026-10-04T13:12:00Z",
+    "created_at": "2026-10-04T13:00:00Z",
+    "messages": [
+      {
+        "id": "000000m1-0000-4000-8000-000000000009",
+        "conversation_id": "000000c1-0000-4000-8000-000000000005",
+        "sender": "Yuki Tanaka",
+        "role": "customer",
+        "content": "Can I change the email on my account?",
+        "created_at": "2026-10-04T13:00:00Z"
+      },
+      {
+        "id": "000000m1-0000-4000-8000-0000000000010",
+        "conversation_id": "000000c1-0000-4000-8000-000000000005",
+        "sender": "Rapport Bot",
+        "role": "assistant",
+        "content": "I have updated it. Please check your new inbox for a confirmation.",
+        "created_at": "2026-10-04T13:02:00Z"
+      }
+    ]
+  }
+]

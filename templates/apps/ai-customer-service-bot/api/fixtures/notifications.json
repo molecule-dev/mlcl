@@ -1,0 +1,62 @@
+[
+  {
+    "id": "000000n1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "type": "escalation",
+    "title": "Conversation escalated",
+    "body": "Marcus Reid needs a billing specialist.",
+    "metadata_json": {
+      "conversationId": "000000c1-0000-4000-8000-000000000001",
+      "actor": "Rapport Bot",
+      "initials": "RB"
+    },
+    "read_at": null,
+    "created_at": "2026-10-06T09:00:00Z"
+  },
+  {
+    "id": "000000n1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "type": "reply",
+    "title": "New customer reply",
+    "body": "Hannah Lopez replied in a conversation.",
+    "metadata_json": {
+      "conversationId": "000000c1-0000-4000-8000-000000000002",
+      "actor": "Rapport Bot",
+      "initials": "RB"
+    },
+    "read_at": null,
+    "created_at": "2026-10-05T09:00:00Z"
+  },
+  {
+    "id": "000000n1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "type": "assignment",
+    "title": "Conversation assigned",
+    "body": "Tom Becker was assigned to you.",
+    "metadata_json": {
+      "conversationId": "000000c1-0000-4000-8000-000000000003",
+      "actor": "Rapport Bot",
+      "initials": "RB"
+    },
+    "read_at": "2026-10-06T08:00:00Z",
+    "created_at": "2026-10-04T09:00:00Z"
+  },
+  {
+    "id": "000000n1-0000-4000-8000-000000000004",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "type": "system",
+    "title": "Weekly report ready",
+    "body": "Resolution rate rose to 78% this week.",
+    "metadata_json": {
+      "conversationId": "000000c1-0000-4000-8000-000000000004",
+      "actor": "Rapport Bot",
+      "initials": "RB"
+    },
+    "read_at": "2026-10-06T08:00:00Z",
+    "created_at": "2026-10-03T09:00:00Z"
+  }
+]
