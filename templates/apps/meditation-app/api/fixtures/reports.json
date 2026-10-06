@@ -1,0 +1,51 @@
+{
+  "stats/streak": {
+    "current_streak": 5,
+    "longest_streak": 12,
+    "total_sessions": 48,
+    "total_days": 31
+  },
+  "stats/summary": {
+    "total_sessions": 6,
+    "total_minutes": 78,
+    "avg_duration_minutes": 13,
+    "unique_days": 5
+  },
+  "stats/daily": [
+    {
+      "date": "2026-09-30",
+      "sessions": 2,
+      "minutes": 10
+    },
+    {
+      "date": "2026-10-01",
+      "sessions": 1,
+      "minutes": 13
+    },
+    {
+      "date": "2026-10-02",
+      "sessions": 1,
+      "minutes": 16
+    },
+    {
+      "date": "2026-10-03",
+      "sessions": 2,
+      "minutes": 19
+    },
+    {
+      "date": "2026-10-04",
+      "sessions": 1,
+      "minutes": 22
+    },
+    {
+      "date": "2026-10-05",
+      "sessions": 1,
+      "minutes": 25
+    },
+    {
+      "date": "2026-10-06",
+      "sessions": 2,
+      "minutes": 28
+    }
+  ]
+}

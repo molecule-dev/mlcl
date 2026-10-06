@@ -1,0 +1,22 @@
+[
+  {
+    "id": "f1000000-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "kind": "streak",
+    "payload": {
+      "message": "You are on a 5 day streak. Keep it going."
+    },
+    "read_at": null,
+    "created_at": "2026-10-06T07:30:00.000Z"
+  },
+  {
+    "id": "f1000000-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "kind": "new_session",
+    "payload": {
+      "message": "New session added: Anchoring Through Anxiety"
+    },
+    "read_at": "2026-10-05T07:30:00.000Z",
+    "created_at": "2026-10-05T07:30:00.000Z"
+  }
+]

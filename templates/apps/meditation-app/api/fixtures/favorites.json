@@ -1,0 +1,42 @@
+[
+  {
+    "id": "a1000000-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "session_id": "a1000000-0000-4000-8000-000000000001",
+    "created_at": "2026-08-27T07:30:00.000Z",
+    "category_id": "c1000000-0000-4000-8000-000000000001",
+    "slug": "morning-breath",
+    "title": "Morning Breath Awareness",
+    "description": "Begin the day with ten minutes of steady, unhurried breathing.",
+    "duration_seconds": 600,
+    "difficulty": "beginner",
+    "instructor_name": "Maya Chen",
+    "audio_s3_key": null,
+    "transcript_text": null,
+    "hero_image_key": null,
+    "language": "en",
+    "is_premium": false,
+    "is_published": true,
+    "published_at": "2026-08-27T07:30:00.000Z"
+  },
+  {
+    "id": "a1000000-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "session_id": "a1000000-0000-4000-8000-000000000003",
+    "created_at": "2026-08-29T07:30:00.000Z",
+    "category_id": "c1000000-0000-4000-8000-000000000003",
+    "slug": "deep-focus-reset",
+    "title": "Deep Focus Reset",
+    "description": "Clear mental clutter and prepare for a focused work block.",
+    "duration_seconds": 720,
+    "difficulty": "intermediate",
+    "instructor_name": "Priya Nair",
+    "audio_s3_key": null,
+    "transcript_text": null,
+    "hero_image_key": null,
+    "language": "en",
+    "is_premium": false,
+    "is_published": true,
+    "published_at": "2026-08-29T07:30:00.000Z"
+  }
+]

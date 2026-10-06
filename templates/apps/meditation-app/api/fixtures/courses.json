@@ -1,0 +1,176 @@
+[
+  {
+    "id": "b1000000-0000-4000-8000-000000000001",
+    "slug": "seven-days-of-calm",
+    "title": "Seven Days of Calm",
+    "description": "A week-long introduction to daily meditation.",
+    "day_count": 7,
+    "hero_image_key": null,
+    "is_premium": false,
+    "is_published": true,
+    "created_at": "2026-08-17T07:30:00.000Z",
+    "days": [
+      {
+        "id": "b2000000-0000-4000-8000-000000000001",
+        "course_id": "b1000000-0000-4000-8000-000000000001",
+        "day_number": 1,
+        "session_id": "a1000000-0000-4000-8000-000000000001",
+        "title": "Day 1: Morning Breath Awareness",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      },
+      {
+        "id": "b2000000-0000-4000-8000-000000000002",
+        "course_id": "b1000000-0000-4000-8000-000000000001",
+        "day_number": 2,
+        "session_id": "a1000000-0000-4000-8000-000000000002",
+        "title": "Day 2: Body Scan for Sleep",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      },
+      {
+        "id": "b2000000-0000-4000-8000-000000000003",
+        "course_id": "b1000000-0000-4000-8000-000000000001",
+        "day_number": 3,
+        "session_id": "a1000000-0000-4000-8000-000000000003",
+        "title": "Day 3: Deep Focus Reset",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      },
+      {
+        "id": "b2000000-0000-4000-8000-000000000004",
+        "course_id": "b1000000-0000-4000-8000-000000000001",
+        "day_number": 4,
+        "session_id": "a1000000-0000-4000-8000-000000000004",
+        "title": "Day 4: Five Minute Calm",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      },
+      {
+        "id": "b2000000-0000-4000-8000-000000000005",
+        "course_id": "b1000000-0000-4000-8000-000000000001",
+        "day_number": 5,
+        "session_id": "a1000000-0000-4000-8000-000000000005",
+        "title": "Day 5: Loving Kindness",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "b1000000-0000-4000-8000-000000000002",
+    "slug": "better-sleep-course",
+    "title": "Better Sleep in Five Nights",
+    "description": "Build a wind-down routine that lasts.",
+    "day_count": 5,
+    "hero_image_key": null,
+    "is_premium": false,
+    "is_published": true,
+    "created_at": "2026-08-17T07:30:00.000Z",
+    "days": [
+      {
+        "id": "b2000000-0000-4000-8000-000000000011",
+        "course_id": "b1000000-0000-4000-8000-000000000002",
+        "day_number": 1,
+        "session_id": "a1000000-0000-4000-8000-000000000002",
+        "title": "Day 1: Body Scan for Sleep",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      },
+      {
+        "id": "b2000000-0000-4000-8000-000000000012",
+        "course_id": "b1000000-0000-4000-8000-000000000002",
+        "day_number": 2,
+        "session_id": "a1000000-0000-4000-8000-000000000003",
+        "title": "Day 2: Deep Focus Reset",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      },
+      {
+        "id": "b2000000-0000-4000-8000-000000000013",
+        "course_id": "b1000000-0000-4000-8000-000000000002",
+        "day_number": 3,
+        "session_id": "a1000000-0000-4000-8000-000000000004",
+        "title": "Day 3: Five Minute Calm",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      },
+      {
+        "id": "b2000000-0000-4000-8000-000000000014",
+        "course_id": "b1000000-0000-4000-8000-000000000002",
+        "day_number": 4,
+        "session_id": "a1000000-0000-4000-8000-000000000005",
+        "title": "Day 4: Loving Kindness",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      },
+      {
+        "id": "b2000000-0000-4000-8000-000000000015",
+        "course_id": "b1000000-0000-4000-8000-000000000002",
+        "day_number": 5,
+        "session_id": "a1000000-0000-4000-8000-000000000006",
+        "title": "Day 5: Gentle Stretch and Breathe",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "b1000000-0000-4000-8000-000000000003",
+    "slug": "focus-foundations",
+    "title": "Focus Foundations",
+    "description": "Train attention with short daily practices.",
+    "day_count": 7,
+    "hero_image_key": null,
+    "is_premium": true,
+    "is_published": true,
+    "created_at": "2026-08-17T07:30:00.000Z",
+    "days": [
+      {
+        "id": "b2000000-0000-4000-8000-000000000021",
+        "course_id": "b1000000-0000-4000-8000-000000000003",
+        "day_number": 1,
+        "session_id": "a1000000-0000-4000-8000-000000000003",
+        "title": "Day 1: Deep Focus Reset",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      },
+      {
+        "id": "b2000000-0000-4000-8000-000000000022",
+        "course_id": "b1000000-0000-4000-8000-000000000003",
+        "day_number": 2,
+        "session_id": "a1000000-0000-4000-8000-000000000004",
+        "title": "Day 2: Five Minute Calm",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      },
+      {
+        "id": "b2000000-0000-4000-8000-000000000023",
+        "course_id": "b1000000-0000-4000-8000-000000000003",
+        "day_number": 3,
+        "session_id": "a1000000-0000-4000-8000-000000000005",
+        "title": "Day 3: Loving Kindness",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      },
+      {
+        "id": "b2000000-0000-4000-8000-000000000024",
+        "course_id": "b1000000-0000-4000-8000-000000000003",
+        "day_number": 4,
+        "session_id": "a1000000-0000-4000-8000-000000000006",
+        "title": "Day 4: Gentle Stretch and Breathe",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      },
+      {
+        "id": "b2000000-0000-4000-8000-000000000025",
+        "course_id": "b1000000-0000-4000-8000-000000000003",
+        "day_number": 5,
+        "session_id": "a1000000-0000-4000-8000-000000000007",
+        "title": "Day 5: Night Rain Soundscape",
+        "prep_text": "Find a quiet spot and settle in.",
+        "created_at": "2026-08-17T07:30:00.000Z"
+      }
+    ]
+  }
+]
