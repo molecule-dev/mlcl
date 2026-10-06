@@ -1,0 +1,147 @@
+[
+  {
+    "id": "tpl-1",
+    "owner_id": null,
+    "name": "Blank document",
+    "description": "Start from an empty page.",
+    "category": "writing",
+    "is_system": true,
+    "content": {
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Untitled document"
+        },
+        {
+          "type": "paragraph",
+          "text": ""
+        }
+      ]
+    },
+    "created_at": "2026-03-20T12:00:00.000Z"
+  },
+  {
+    "id": "tpl-2",
+    "owner_id": null,
+    "name": "Meeting notes",
+    "description": "Agenda, decisions and action items.",
+    "category": "team",
+    "is_system": true,
+    "content": {
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Meeting notes"
+        },
+        {
+          "type": "paragraph",
+          "text": "Agenda"
+        },
+        {
+          "type": "paragraph",
+          "text": "Decisions"
+        },
+        {
+          "type": "paragraph",
+          "text": "Action items"
+        }
+      ]
+    },
+    "created_at": "2026-03-20T12:00:00.000Z"
+  },
+  {
+    "id": "tpl-3",
+    "owner_id": null,
+    "name": "Technical design doc",
+    "description": "Context, proposal, alternatives and rollout.",
+    "category": "engineering",
+    "is_system": true,
+    "content": {
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Design doc"
+        },
+        {
+          "type": "paragraph",
+          "text": "Context"
+        },
+        {
+          "type": "paragraph",
+          "text": "Proposal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Alternatives"
+        },
+        {
+          "type": "paragraph",
+          "text": "Rollout"
+        }
+      ]
+    },
+    "created_at": "2026-03-20T12:00:00.000Z"
+  },
+  {
+    "id": "tpl-4",
+    "owner_id": null,
+    "name": "Weekly journal",
+    "description": "Wins, lessons and next week.",
+    "category": "personal",
+    "is_system": true,
+    "content": {
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Weekly journal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Wins"
+        },
+        {
+          "type": "paragraph",
+          "text": "Lessons"
+        },
+        {
+          "type": "paragraph",
+          "text": "Next week"
+        }
+      ]
+    },
+    "created_at": "2026-03-20T12:00:00.000Z"
+  },
+  {
+    "id": "tpl-5",
+    "owner_id": null,
+    "name": "Project brief",
+    "description": "Goal, scope, owners and timeline.",
+    "category": "team",
+    "is_system": true,
+    "content": {
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Project brief"
+        },
+        {
+          "type": "paragraph",
+          "text": "Goal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Scope"
+        },
+        {
+          "type": "paragraph",
+          "text": "Owners"
+        },
+        {
+          "type": "paragraph",
+          "text": "Timeline"
+        }
+      ]
+    },
+    "created_at": "2026-03-20T12:00:00.000Z"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "n-1",
+    "type": "comment_added",
+    "actor": "Priya Nair",
+    "description": "commented on Q4 product strategy",
+    "href": "/doc/doc-1/comments",
+    "unread": true,
+    "created_at": "2026-10-06T10:00:00.000Z"
+  },
+  {
+    "id": "n-2",
+    "type": "mention",
+    "actor": "Tom Becker",
+    "description": "mentioned you in Weekly sync notes",
+    "href": "/doc/doc-4",
+    "unread": true,
+    "created_at": "2026-10-06T05:20:00.000Z"
+  },
+  {
+    "id": "n-3",
+    "type": "shared",
+    "actor": "Lena Fischer",
+    "description": "shared Brand voice guidelines with you",
+    "href": "/shared",
+    "unread": false,
+    "created_at": "2026-10-05T11:00:00.000Z"
+  },
+  {
+    "id": "n-4",
+    "type": "edited",
+    "actor": "Omar Haddad",
+    "description": "edited Launch announcement",
+    "href": "/doc/doc-2",
+    "unread": false,
+    "created_at": "2026-10-04T11:40:00.000Z"
+  }
+]

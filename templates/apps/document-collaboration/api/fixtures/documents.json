@@ -1,0 +1,121 @@
+[
+  {
+    "id": "doc-1",
+    "owner_id": "user-1",
+    "title": "Q4 product strategy",
+    "status": "draft",
+    "is_template": false,
+    "version": 3,
+    "trashed_at": null,
+    "content": {
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Q4 product strategy"
+        },
+        {
+          "type": "paragraph",
+          "text": "Focus on activation: shorten onboarding to three steps and measure week-one retention."
+        },
+        {
+          "type": "paragraph",
+          "text": "Owners: Priya (growth), Tom (platform)."
+        }
+      ]
+    },
+    "updated_at": "2026-10-06T11:35:00.000Z",
+    "created_at": "2026-10-03T00:15:00.000Z"
+  },
+  {
+    "id": "doc-2",
+    "owner_id": "user-1",
+    "title": "Launch announcement",
+    "status": "published",
+    "is_template": false,
+    "version": 3,
+    "trashed_at": null,
+    "content": {
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Launch announcement"
+        },
+        {
+          "type": "paragraph",
+          "text": "Today we are releasing real-time collaboration for every plan."
+        }
+      ]
+    },
+    "updated_at": "2026-10-06T09:00:00.000Z",
+    "created_at": "2026-10-02T21:40:00.000Z"
+  },
+  {
+    "id": "doc-3",
+    "owner_id": "user-1",
+    "title": "Engineering onboarding guide",
+    "status": "published",
+    "is_template": false,
+    "version": 3,
+    "trashed_at": null,
+    "content": {
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Engineering onboarding guide"
+        },
+        {
+          "type": "paragraph",
+          "text": "Clone the monorepo, run the bootstrap script, and open your first pull request in week one."
+        }
+      ]
+    },
+    "updated_at": "2026-10-05T21:00:00.000Z",
+    "created_at": "2026-10-02T09:40:00.000Z"
+  },
+  {
+    "id": "doc-4",
+    "owner_id": "user-1",
+    "title": "Weekly sync notes",
+    "status": "draft",
+    "is_template": false,
+    "version": 3,
+    "trashed_at": null,
+    "content": {
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Weekly sync notes"
+        },
+        {
+          "type": "paragraph",
+          "text": "Decisions: ship the editor beta on Friday. Risks: comment threading on mobile."
+        }
+      ]
+    },
+    "updated_at": "2026-10-04T16:40:00.000Z",
+    "created_at": "2026-10-01T05:20:00.000Z"
+  },
+  {
+    "id": "doc-5",
+    "owner_id": "user-1",
+    "title": "Hiring plan 2027",
+    "status": "draft",
+    "is_template": false,
+    "version": 3,
+    "trashed_at": null,
+    "content": {
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Hiring plan 2027"
+        },
+        {
+          "type": "paragraph",
+          "text": "Two designers, three engineers, one support lead."
+        }
+      ]
+    },
+    "updated_at": "2026-10-02T21:20:00.000Z",
+    "created_at": "2026-09-29T10:00:00.000Z"
+  }
+]

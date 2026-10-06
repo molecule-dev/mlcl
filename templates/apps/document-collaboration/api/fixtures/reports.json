@@ -1,0 +1,292 @@
+{
+  "documents/shared": [
+    {
+      "id": "doc-s1",
+      "owner_id": "user-2",
+      "title": "Brand voice guidelines",
+      "status": "published",
+      "is_template": false,
+      "version": 3,
+      "trashed_at": null,
+      "content": {
+        "blocks": [
+          {
+            "type": "heading",
+            "text": "Brand voice guidelines"
+          },
+          {
+            "type": "paragraph",
+            "text": "Plain words, short sentences, no jargon."
+          }
+        ]
+      },
+      "updated_at": "2026-10-06T05:20:00.000Z",
+      "created_at": "2026-10-02T18:00:00.000Z",
+      "share_role": "commenter"
+    },
+    {
+      "id": "doc-s2",
+      "owner_id": "user-3",
+      "title": "Customer interview synthesis",
+      "status": "draft",
+      "is_template": false,
+      "version": 3,
+      "trashed_at": null,
+      "content": {
+        "blocks": [
+          {
+            "type": "heading",
+            "text": "Customer interview synthesis"
+          },
+          {
+            "type": "paragraph",
+            "text": "Teams want faster review cycles and clearer ownership."
+          }
+        ]
+      },
+      "updated_at": "2026-10-05T11:00:00.000Z",
+      "created_at": "2026-10-01T23:40:00.000Z",
+      "share_role": "editor"
+    }
+  ],
+  "documents/trash": [
+    {
+      "id": "doc-t1",
+      "owner_id": "user-1",
+      "title": "Old roadmap draft",
+      "status": "draft",
+      "is_template": false,
+      "version": 3,
+      "trashed_at": "2026-10-04T12:00:00.000Z",
+      "content": {
+        "blocks": [
+          {
+            "type": "heading",
+            "text": "Old roadmap draft"
+          },
+          {
+            "type": "paragraph",
+            "text": "Superseded by the Q4 strategy."
+          }
+        ]
+      },
+      "updated_at": "2026-10-03T12:00:00.000Z",
+      "created_at": "2026-09-30T00:40:00.000Z"
+    }
+  ],
+  "documents/doc-s1": {
+    "id": "doc-s1",
+    "owner_id": "user-2",
+    "title": "Brand voice guidelines",
+    "status": "published",
+    "is_template": false,
+    "version": 3,
+    "trashed_at": null,
+    "content": {
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Brand voice guidelines"
+        },
+        {
+          "type": "paragraph",
+          "text": "Plain words, short sentences, no jargon."
+        }
+      ]
+    },
+    "updated_at": "2026-10-06T05:20:00.000Z",
+    "created_at": "2026-10-02T18:00:00.000Z",
+    "share_role": "commenter"
+  },
+  "documents/doc-s2": {
+    "id": "doc-s2",
+    "owner_id": "user-3",
+    "title": "Customer interview synthesis",
+    "status": "draft",
+    "is_template": false,
+    "version": 3,
+    "trashed_at": null,
+    "content": {
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Customer interview synthesis"
+        },
+        {
+          "type": "paragraph",
+          "text": "Teams want faster review cycles and clearer ownership."
+        }
+      ]
+    },
+    "updated_at": "2026-10-05T11:00:00.000Z",
+    "created_at": "2026-10-01T23:40:00.000Z",
+    "share_role": "editor"
+  },
+  "documents/doc-t1": {
+    "id": "doc-t1",
+    "owner_id": "user-1",
+    "title": "Old roadmap draft",
+    "status": "draft",
+    "is_template": false,
+    "version": 3,
+    "trashed_at": "2026-10-04T12:00:00.000Z",
+    "content": {
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Old roadmap draft"
+        },
+        {
+          "type": "paragraph",
+          "text": "Superseded by the Q4 strategy."
+        }
+      ]
+    },
+    "updated_at": "2026-10-03T12:00:00.000Z",
+    "created_at": "2026-09-30T00:40:00.000Z"
+  },
+  "comments/doc-1": [
+    {
+      "id": "cm-1",
+      "document_id": "doc-1",
+      "author_id": "user-2",
+      "parent_id": null,
+      "body": "Can we add a success metric for activation?",
+      "is_resolved": false,
+      "created_at": "2026-10-06T10:00:00.000Z"
+    },
+    {
+      "id": "cm-2",
+      "document_id": "doc-1",
+      "author_id": "user-1",
+      "parent_id": "cm-1",
+      "body": "Yes, adding week-one retention as the target.",
+      "is_resolved": false,
+      "created_at": "2026-10-06T10:40:00.000Z"
+    },
+    {
+      "id": "cm-3",
+      "document_id": "doc-1",
+      "author_id": "user-3",
+      "parent_id": null,
+      "body": "Typo in the second paragraph.",
+      "is_resolved": true,
+      "created_at": "2026-10-06T07:00:00.000Z"
+    }
+  ],
+  "versions/doc-1": [
+    {
+      "id": "ver-3",
+      "document_id": "doc-1",
+      "author_id": "user-1",
+      "version": 3,
+      "change_summary": "Added owners",
+      "content": {
+        "blocks": [
+          {
+            "type": "heading",
+            "text": "Q4 product strategy"
+          },
+          {
+            "type": "paragraph",
+            "text": "Focus on activation: shorten onboarding to three steps and measure week-one retention."
+          },
+          {
+            "type": "paragraph",
+            "text": "Owners: Priya (growth), Tom (platform)."
+          }
+        ]
+      },
+      "created_at": "2026-10-06T11:35:00.000Z"
+    },
+    {
+      "id": "ver-2",
+      "document_id": "doc-1",
+      "author_id": "user-1",
+      "version": 2,
+      "change_summary": "Reworked the activation goal",
+      "content": {
+        "blocks": [
+          {
+            "type": "heading",
+            "text": "Q4 product strategy"
+          },
+          {
+            "type": "paragraph",
+            "text": "Focus on activation: shorten onboarding to three steps and measure week-one retention."
+          },
+          {
+            "type": "paragraph",
+            "text": "Owners: Priya (growth), Tom (platform)."
+          }
+        ]
+      },
+      "created_at": "2026-10-06T07:00:00.000Z"
+    },
+    {
+      "id": "ver-1",
+      "document_id": "doc-1",
+      "author_id": "user-1",
+      "version": 1,
+      "change_summary": "First draft",
+      "content": {
+        "blocks": [
+          {
+            "type": "heading",
+            "text": "Q4 product strategy"
+          },
+          {
+            "type": "paragraph",
+            "text": "Focus on activation: shorten onboarding to three steps and measure week-one retention."
+          },
+          {
+            "type": "paragraph",
+            "text": "Owners: Priya (growth), Tom (platform)."
+          }
+        ]
+      },
+      "created_at": "2026-10-05T11:00:00.000Z"
+    }
+  ],
+  "sharing/doc-1": [
+    {
+      "id": "share-1",
+      "document_id": "doc-1",
+      "shared_by": "user-1",
+      "shared_with_user_id": "user-2",
+      "email": "priya@example.com",
+      "role": "editor"
+    },
+    {
+      "id": "share-2",
+      "document_id": "doc-1",
+      "shared_by": "user-1",
+      "shared_with_user_id": null,
+      "email": "tom@example.com",
+      "role": "viewer"
+    }
+  ],
+  "profile/me": {
+    "user_id": "user-1",
+    "email": "alex@example.com",
+    "display_name": "Alex Morgan",
+    "handle": "alexm",
+    "pronouns": "they/them",
+    "role": "Product lead",
+    "location": "Berlin",
+    "bio": "Writes the plans other people execute.",
+    "cursor_color": "#4f46e5",
+    "public_profile": true,
+    "editor_prefs": {
+      "spellcheck": true,
+      "autosave": true,
+      "focusMode": false
+    },
+    "notification_prefs": {
+      "comments": true,
+      "mentions": true,
+      "shares": true,
+      "digest": false
+    }
+  }
+}
