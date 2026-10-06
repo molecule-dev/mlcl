@@ -1,0 +1,82 @@
+[
+  {
+    "id": "000000r1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "workflow_id": "000000w1-0000-4000-8000-000000000001",
+    "workflow_name": "New signup to CRM and Slack",
+    "trigger_source": "webhook",
+    "status": "success",
+    "started_at": "2026-10-06T14:00:00Z",
+    "finished_at": "2026-10-06T14:01:00Z"
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "workflow_id": "000000w1-0000-4000-8000-000000000002",
+    "workflow_name": "Daily revenue digest",
+    "trigger_source": "cron",
+    "status": "success",
+    "started_at": "2026-10-06T13:00:00Z",
+    "finished_at": "2026-10-06T13:01:00Z"
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "workflow_id": "000000w1-0000-4000-8000-000000000003",
+    "workflow_name": "Invoice overdue reminder",
+    "trigger_source": "manual",
+    "status": "failure",
+    "started_at": "2026-10-06T12:00:00Z",
+    "finished_at": "2026-10-06T12:01:00Z"
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000004",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "workflow_id": "000000w1-0000-4000-8000-000000000004",
+    "workflow_name": "Support ticket triage",
+    "trigger_source": "webhook",
+    "status": "success",
+    "started_at": "2026-10-05T11:00:00Z",
+    "finished_at": "2026-10-05T11:01:00Z"
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000005",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "workflow_id": "000000w1-0000-4000-8000-000000000005",
+    "workflow_name": "Weekly churn report",
+    "trigger_source": "webhook",
+    "status": "running",
+    "started_at": "2026-10-05T10:00:00Z",
+    "finished_at": null
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000006",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "workflow_id": "000000w1-0000-4000-8000-000000000001",
+    "workflow_name": "New signup to CRM and Slack",
+    "trigger_source": "cron",
+    "status": "success",
+    "started_at": "2026-10-05T09:00:00Z",
+    "finished_at": "2026-10-05T09:01:00Z"
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000007",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "workflow_id": "000000w1-0000-4000-8000-000000000002",
+    "workflow_name": "Daily revenue digest",
+    "trigger_source": "manual",
+    "status": "queued",
+    "started_at": "2026-10-04T08:00:00Z",
+    "finished_at": null
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000008",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "workflow_id": "000000w1-0000-4000-8000-000000000003",
+    "workflow_name": "Invoice overdue reminder",
+    "trigger_source": "webhook",
+    "status": "success",
+    "started_at": "2026-10-04T07:00:00Z",
+    "finished_at": "2026-10-04T07:01:00Z"
+  }
+]

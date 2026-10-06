@@ -1,0 +1,97 @@
+[
+  {
+    "id": "000000w1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "New signup to CRM and Slack",
+    "description": "Create a CRM contact and ping #sales when someone signs up.",
+    "trigger_type": "webhook",
+    "cron_expression": null,
+    "enabled": true,
+    "run_count": 128,
+    "success_count": 124,
+    "failure_count": 4,
+    "last_run_at": "2026-10-06T12:00:00Z",
+    "last_run": {
+      "status": "success",
+      "started_at": "2026-10-06T12:00:00Z",
+      "finished_at": "2026-10-06T12:01:00Z"
+    },
+    "created_at": "2026-10-01T09:00:00Z"
+  },
+  {
+    "id": "000000w1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Daily revenue digest",
+    "description": "Summarise yesterday revenue and email the team at 8am.",
+    "trigger_type": "cron",
+    "cron_expression": "0 8 * * *",
+    "enabled": true,
+    "run_count": 62,
+    "success_count": 61,
+    "failure_count": 1,
+    "last_run_at": "2026-10-06T11:00:00Z",
+    "last_run": {
+      "status": "success",
+      "started_at": "2026-10-06T11:00:00Z",
+      "finished_at": "2026-10-06T11:01:00Z"
+    },
+    "created_at": "2026-10-02T09:00:00Z"
+  },
+  {
+    "id": "000000w1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Invoice overdue reminder",
+    "description": "Remind customers when an invoice is seven days late.",
+    "trigger_type": "schedule",
+    "cron_expression": null,
+    "enabled": true,
+    "run_count": 34,
+    "success_count": 30,
+    "failure_count": 4,
+    "last_run_at": "2026-10-06T10:00:00Z",
+    "last_run": {
+      "status": "failure",
+      "started_at": "2026-10-06T10:00:00Z",
+      "finished_at": "2026-10-06T10:01:00Z"
+    },
+    "created_at": "2026-10-03T09:00:00Z"
+  },
+  {
+    "id": "000000w1-0000-4000-8000-000000000004",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Support ticket triage",
+    "description": "Classify new tickets and route urgent ones to on-call.",
+    "trigger_type": "webhook",
+    "cron_expression": null,
+    "enabled": true,
+    "run_count": 210,
+    "success_count": 198,
+    "failure_count": 12,
+    "last_run_at": "2026-10-06T09:00:00Z",
+    "last_run": {
+      "status": "success",
+      "started_at": "2026-10-06T09:00:00Z",
+      "finished_at": "2026-10-06T09:01:00Z"
+    },
+    "created_at": "2026-10-04T09:00:00Z"
+  },
+  {
+    "id": "000000w1-0000-4000-8000-000000000005",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Weekly churn report",
+    "description": "Pull churned accounts and post the list in #growth.",
+    "trigger_type": "cron",
+    "cron_expression": "0 9 * * 1",
+    "enabled": false,
+    "run_count": 9,
+    "success_count": 9,
+    "failure_count": 0,
+    "last_run_at": "2026-10-06T08:00:00Z",
+    "last_run": {
+      "status": "success",
+      "started_at": "2026-10-06T08:00:00Z",
+      "finished_at": "2026-10-06T08:01:00Z"
+    },
+    "created_at": "2026-10-05T09:00:00Z"
+  }
+]

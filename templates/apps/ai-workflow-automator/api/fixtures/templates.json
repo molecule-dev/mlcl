@@ -1,0 +1,97 @@
+[
+  {
+    "id": "000000t1-0000-4000-8000-000000000001",
+    "name": "Lead enrichment and routing",
+    "category": "sales",
+    "description": "Enrich new leads and route them to the right owner.",
+    "installs": 1840,
+    "rating": 4.7,
+    "badge": "popular",
+    "thumb": {
+      "nodes": [
+        {
+          "kind": "trigger",
+          "icon": "bolt"
+        },
+        {
+          "kind": "action",
+          "icon": "send"
+        },
+        {
+          "kind": "condition",
+          "icon": "call_split"
+        }
+      ]
+    }
+  },
+  {
+    "id": "000000t1-0000-4000-8000-000000000002",
+    "name": "Invoice approval chain",
+    "category": "finance",
+    "description": "Route invoices above a limit to a manager for approval.",
+    "installs": 920,
+    "rating": 4.5,
+    "badge": "new",
+    "thumb": {
+      "nodes": [
+        {
+          "kind": "trigger",
+          "icon": "bolt"
+        },
+        {
+          "kind": "condition",
+          "icon": "call_split"
+        },
+        {
+          "kind": "action",
+          "icon": "send"
+        }
+      ]
+    }
+  },
+  {
+    "id": "000000t1-0000-4000-8000-000000000003",
+    "name": "Daily standup summary",
+    "category": "productivity",
+    "description": "Collect updates from chat and post a digest each morning.",
+    "installs": 2310,
+    "rating": 4.8,
+    "badge": "popular",
+    "thumb": {
+      "nodes": [
+        {
+          "kind": "trigger",
+          "icon": "bolt"
+        },
+        {
+          "kind": "action",
+          "icon": "send"
+        }
+      ]
+    }
+  },
+  {
+    "id": "000000t1-0000-4000-8000-000000000004",
+    "name": "Failed payment recovery",
+    "category": "finance",
+    "description": "Email customers and retry the charge after a failed payment.",
+    "installs": 760,
+    "rating": 4.4,
+    "thumb": {
+      "nodes": [
+        {
+          "kind": "trigger",
+          "icon": "bolt"
+        },
+        {
+          "kind": "action",
+          "icon": "send"
+        },
+        {
+          "kind": "action",
+          "icon": "send"
+        }
+      ]
+    }
+  }
+]
