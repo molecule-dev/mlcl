@@ -1,0 +1,24 @@
+[
+  {
+    "id": "d1000000-0000-4000-8000-000000000001",
+    "assignment_id": "a1000000-0000-4000-8000-000000000004",
+    "student_id": "f1000000-0000-4000-8000-000000000009",
+    "course_id": "c1000000-0000-4000-8000-000000000002",
+    "score": 92,
+    "max_score": 100,
+    "letter_grade": "A",
+    "feedback": "Sharp close reading and a confident thesis.",
+    "graded_at": "2026-10-01T10:00:00.000Z"
+  },
+  {
+    "id": "d1000000-0000-4000-8000-000000000002",
+    "assignment_id": "a1000000-0000-4000-8000-000000000003",
+    "student_id": "f1000000-0000-4000-8000-000000000009",
+    "course_id": "c1000000-0000-4000-8000-000000000004",
+    "score": 21,
+    "max_score": 25,
+    "letter_grade": "B+",
+    "feedback": "Good draft. Tighten the volta.",
+    "graded_at": "2026-10-03T10:00:00.000Z"
+  }
+]

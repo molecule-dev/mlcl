@@ -1,0 +1,298 @@
+{
+  "me/dashboard": {
+    "stats": {
+      "courses": 4,
+      "enrolled": 3,
+      "teaching": 1,
+      "assignments": 4,
+      "unreadNotifications": 2
+    },
+    "upcomingRoom": {
+      "id": "b1000000-0000-4000-8000-000000000001",
+      "course_id": "c1000000-0000-4000-8000-000000000001",
+      "host_id": "f1000000-0000-4000-8000-000000000001",
+      "name": "Lecture 14 — Vector fields & flux",
+      "join_code": "AULA-100",
+      "status": "live",
+      "participant_count": 28,
+      "scheduled_at": "2026-10-06T13:00:00.000Z",
+      "started_at": "2026-10-06T13:00:00.000Z",
+      "ended_at": null,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-04-30T13:00:00Z"
+    },
+    "upcomingRooms": [
+      {
+        "id": "b1000000-0000-4000-8000-000000000001",
+        "course_id": "c1000000-0000-4000-8000-000000000001",
+        "host_id": "f1000000-0000-4000-8000-000000000001",
+        "name": "Lecture 14 — Vector fields & flux",
+        "join_code": "AULA-100",
+        "status": "live",
+        "participant_count": 28,
+        "scheduled_at": "2026-10-06T13:00:00.000Z",
+        "started_at": "2026-10-06T13:00:00.000Z",
+        "ended_at": null,
+        "created_at": "2026-01-15T10:00:00Z",
+        "updated_at": "2026-04-30T13:00:00Z"
+      },
+      {
+        "id": "b1000000-0000-4000-8000-000000000002",
+        "course_id": "c1000000-0000-4000-8000-000000000002",
+        "host_id": "f1000000-0000-4000-8000-000000000002",
+        "name": "Magical realism — Borges & Murakami",
+        "join_code": "AULA-101",
+        "status": "scheduled",
+        "participant_count": 22,
+        "scheduled_at": "2026-10-06T15:00:00.000Z",
+        "started_at": null,
+        "ended_at": null,
+        "created_at": "2026-01-15T10:00:00Z",
+        "updated_at": "2026-04-30T11:00:00Z"
+      },
+      {
+        "id": "b1000000-0000-4000-8000-000000000003",
+        "course_id": "c1000000-0000-4000-8000-000000000003",
+        "host_id": "f1000000-0000-4000-8000-000000000003",
+        "name": "Mitochondrial structure",
+        "join_code": "AULA-102",
+        "status": "scheduled",
+        "participant_count": 18,
+        "scheduled_at": "2026-10-06T18:00:00.000Z",
+        "started_at": null,
+        "ended_at": null,
+        "created_at": "2026-01-15T10:00:00Z",
+        "updated_at": "2026-04-30T11:00:00Z"
+      }
+    ],
+    "courses": [
+      {
+        "id": "c1000000-0000-4000-8000-000000000001",
+        "instructor_id": "f1000000-0000-4000-8000-000000000001",
+        "code": "MTH 202",
+        "title": "Calculus II",
+        "term": "Spring 2026",
+        "description": "Multivariable calculus: vector fields, flux, and the big integral theorems.",
+        "is_published": true,
+        "created_at": "2026-01-10T08:00:00Z",
+        "updated_at": "2026-04-29T12:00:00Z",
+        "instructor_name": "Prof. Maya Okafor",
+        "level": "INTERMEDIATE",
+        "image_seed": "aula-mth-202",
+        "progress_percent": 68
+      },
+      {
+        "id": "c1000000-0000-4000-8000-000000000002",
+        "instructor_id": "f1000000-0000-4000-8000-000000000002",
+        "code": "LIT 240",
+        "title": "World Literature",
+        "term": "Spring 2026",
+        "description": "Close reading across traditions, from Borges to Murakami.",
+        "is_published": true,
+        "created_at": "2026-01-10T08:00:00Z",
+        "updated_at": "2026-04-29T12:00:00Z",
+        "instructor_name": "Prof. Imani Davies",
+        "level": "ADVANCED",
+        "image_seed": "aula-lit-240",
+        "progress_percent": 42
+      },
+      {
+        "id": "c1000000-0000-4000-8000-000000000003",
+        "instructor_id": "f1000000-0000-4000-8000-000000000003",
+        "code": "BIO 211",
+        "title": "Cellular Biology",
+        "term": "Spring 2026",
+        "description": "How cells build, power and copy themselves.",
+        "is_published": true,
+        "created_at": "2026-01-10T08:00:00Z",
+        "updated_at": "2026-04-29T12:00:00Z",
+        "instructor_name": "Dr. Eun-ji Park",
+        "level": "INTERMEDIATE",
+        "image_seed": "aula-bio-211",
+        "progress_percent": 91
+      },
+      {
+        "id": "c1000000-0000-4000-8000-000000000004",
+        "instructor_id": "f1000000-0000-4000-8000-000000000009",
+        "code": "ENG 220",
+        "title": "Creative Writing",
+        "term": "Fall 2026",
+        "description": "A workshop for short fiction and poetry.",
+        "is_published": true,
+        "created_at": "2026-09-06T09:00:00.000Z",
+        "updated_at": "2026-10-05T09:00:00.000Z",
+        "instructor_name": "You",
+        "level": "INTERMEDIATE",
+        "image_seed": "aula-eng-220",
+        "progress_percent": 0
+      }
+    ],
+    "assignments": [
+      {
+        "id": "a1000000-0000-4000-8000-000000000001",
+        "course_id": "c1000000-0000-4000-8000-000000000003",
+        "title": "Lab report — Mitochondrial DNA",
+        "description": "Lab report — Mitochondrial DNA (Cell Biology I).",
+        "due_date": "2026-10-08T23:59:00.000Z",
+        "points": 100,
+        "type": "lab",
+        "created_at": "2026-04-15T08:00:00Z",
+        "updated_at": "2026-04-29T15:00:00Z"
+      },
+      {
+        "id": "a1000000-0000-4000-8000-000000000002",
+        "course_id": "c1000000-0000-4000-8000-000000000001",
+        "title": "Vector field flux problem set",
+        "description": "Vector field flux problem set (Calculus II).",
+        "due_date": "2026-10-10T23:59:00.000Z",
+        "points": 50,
+        "type": "problem_set",
+        "created_at": "2026-04-20T08:00:00Z",
+        "updated_at": "2026-04-29T12:00:00Z"
+      },
+      {
+        "id": "a1000000-0000-4000-8000-000000000003",
+        "course_id": "c1000000-0000-4000-8000-000000000004",
+        "title": "Sonnet workshop draft",
+        "description": "Sonnet workshop draft (Creative Writing).",
+        "due_date": "2026-10-05T23:59:00.000Z",
+        "points": 25,
+        "type": "essay",
+        "created_at": "2026-04-10T08:00:00Z",
+        "updated_at": "2026-04-28T16:00:00Z"
+      },
+      {
+        "id": "a1000000-0000-4000-8000-000000000004",
+        "course_id": "c1000000-0000-4000-8000-000000000002",
+        "title": "Magical realism close-read",
+        "description": "Magical realism close-read (World Literature).",
+        "due_date": "2026-09-30T23:59:00.000Z",
+        "points": 60,
+        "type": "quiz",
+        "created_at": "2026-04-05T08:00:00Z",
+        "updated_at": "2026-04-26T10:00:00Z"
+      }
+    ],
+    "grades": [
+      {
+        "id": "d1000000-0000-4000-8000-000000000001",
+        "assignment_id": "a1000000-0000-4000-8000-000000000004",
+        "student_id": "f1000000-0000-4000-8000-000000000009",
+        "course_id": "c1000000-0000-4000-8000-000000000002",
+        "score": 92,
+        "max_score": 100,
+        "letter_grade": "A",
+        "feedback": "Sharp close reading and a confident thesis.",
+        "graded_at": "2026-10-01T10:00:00.000Z"
+      },
+      {
+        "id": "d1000000-0000-4000-8000-000000000002",
+        "assignment_id": "a1000000-0000-4000-8000-000000000003",
+        "student_id": "f1000000-0000-4000-8000-000000000009",
+        "course_id": "c1000000-0000-4000-8000-000000000004",
+        "score": 21,
+        "max_score": 25,
+        "letter_grade": "B+",
+        "feedback": "Good draft. Tighten the volta.",
+        "graded_at": "2026-10-03T10:00:00.000Z"
+      }
+    ],
+    "notifications": [
+      {
+        "id": "e1000000-0000-4000-8000-000000000001",
+        "user_id": "f1000000-0000-4000-8000-000000000009",
+        "type": "assignment",
+        "title": "New assignment: Vector field flux problem set",
+        "body": "Due in 4 days.",
+        "link": "/assignments/a1000000-0000-4000-8000-000000000002",
+        "read_at": null,
+        "created_at": "2026-10-06T12:00:00.000Z"
+      },
+      {
+        "id": "e1000000-0000-4000-8000-000000000002",
+        "user_id": "f1000000-0000-4000-8000-000000000009",
+        "type": "class",
+        "title": "Lecture 14 is live",
+        "body": "Prof. Maya Okafor started the class.",
+        "link": "/class/b1000000-0000-4000-8000-000000000001",
+        "read_at": null,
+        "created_at": "2026-10-06T11:00:00.000Z"
+      },
+      {
+        "id": "e1000000-0000-4000-8000-000000000003",
+        "user_id": "f1000000-0000-4000-8000-000000000009",
+        "type": "grade",
+        "title": "Your grade is in",
+        "body": "Magical realism close-read: A (92%).",
+        "link": "/grades",
+        "read_at": "2026-10-02T09:00:00.000Z",
+        "created_at": "2026-10-06T10:00:00.000Z"
+      }
+    ]
+  },
+  "me/calendar": [
+    {
+      "id": "a1000000-0000-4000-8000-000000000001",
+      "kind": "assignment",
+      "title": "Lab report — Mitochondrial DNA",
+      "course_id": "c1000000-0000-4000-8000-000000000003",
+      "starts_at": "2026-10-08T23:59:00.000Z",
+      "ends_at": "2026-10-08T23:59:00.000Z",
+      "url": "/assignments/a1000000-0000-4000-8000-000000000001"
+    },
+    {
+      "id": "a1000000-0000-4000-8000-000000000002",
+      "kind": "assignment",
+      "title": "Vector field flux problem set",
+      "course_id": "c1000000-0000-4000-8000-000000000001",
+      "starts_at": "2026-10-10T23:59:00.000Z",
+      "ends_at": "2026-10-10T23:59:00.000Z",
+      "url": "/assignments/a1000000-0000-4000-8000-000000000002"
+    },
+    {
+      "id": "a1000000-0000-4000-8000-000000000003",
+      "kind": "assignment",
+      "title": "Sonnet workshop draft",
+      "course_id": "c1000000-0000-4000-8000-000000000004",
+      "starts_at": "2026-10-05T23:59:00.000Z",
+      "ends_at": "2026-10-05T23:59:00.000Z",
+      "url": "/assignments/a1000000-0000-4000-8000-000000000003"
+    },
+    {
+      "id": "a1000000-0000-4000-8000-000000000004",
+      "kind": "assignment",
+      "title": "Magical realism close-read",
+      "course_id": "c1000000-0000-4000-8000-000000000002",
+      "starts_at": "2026-09-30T23:59:00.000Z",
+      "ends_at": "2026-09-30T23:59:00.000Z",
+      "url": "/assignments/a1000000-0000-4000-8000-000000000004"
+    },
+    {
+      "id": "b1000000-0000-4000-8000-000000000001",
+      "kind": "class",
+      "title": "Lecture 14 — Vector fields & flux",
+      "course_id": "c1000000-0000-4000-8000-000000000001",
+      "starts_at": "2026-10-06T13:00:00.000Z",
+      "ends_at": "2026-10-06T15:00:00.000Z",
+      "url": "/class/b1000000-0000-4000-8000-000000000001"
+    },
+    {
+      "id": "b1000000-0000-4000-8000-000000000002",
+      "kind": "class",
+      "title": "Magical realism — Borges & Murakami",
+      "course_id": "c1000000-0000-4000-8000-000000000002",
+      "starts_at": "2026-10-06T15:00:00.000Z",
+      "ends_at": "2026-10-06T15:00:00.000Z",
+      "url": "/class/b1000000-0000-4000-8000-000000000002"
+    },
+    {
+      "id": "b1000000-0000-4000-8000-000000000003",
+      "kind": "class",
+      "title": "Mitochondrial structure",
+      "course_id": "c1000000-0000-4000-8000-000000000003",
+      "starts_at": "2026-10-06T18:00:00.000Z",
+      "ends_at": "2026-10-06T15:00:00.000Z",
+      "url": "/class/b1000000-0000-4000-8000-000000000003"
+    }
+  ]
+}

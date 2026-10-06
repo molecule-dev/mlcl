@@ -1,0 +1,44 @@
+[
+  {
+    "id": "b1000000-0000-4000-8000-000000000001",
+    "course_id": "c1000000-0000-4000-8000-000000000001",
+    "host_id": "f1000000-0000-4000-8000-000000000001",
+    "name": "Lecture 14 — Vector fields & flux",
+    "join_code": "AULA-100",
+    "status": "live",
+    "participant_count": 28,
+    "scheduled_at": "2026-10-06T13:00:00.000Z",
+    "started_at": "2026-10-06T13:00:00.000Z",
+    "ended_at": null,
+    "created_at": "2026-01-15T10:00:00Z",
+    "updated_at": "2026-04-30T13:00:00Z"
+  },
+  {
+    "id": "b1000000-0000-4000-8000-000000000002",
+    "course_id": "c1000000-0000-4000-8000-000000000002",
+    "host_id": "f1000000-0000-4000-8000-000000000002",
+    "name": "Magical realism — Borges & Murakami",
+    "join_code": "AULA-101",
+    "status": "scheduled",
+    "participant_count": 22,
+    "scheduled_at": "2026-10-06T15:00:00.000Z",
+    "started_at": null,
+    "ended_at": null,
+    "created_at": "2026-01-15T10:00:00Z",
+    "updated_at": "2026-04-30T11:00:00Z"
+  },
+  {
+    "id": "b1000000-0000-4000-8000-000000000003",
+    "course_id": "c1000000-0000-4000-8000-000000000003",
+    "host_id": "f1000000-0000-4000-8000-000000000003",
+    "name": "Mitochondrial structure",
+    "join_code": "AULA-102",
+    "status": "scheduled",
+    "participant_count": 18,
+    "scheduled_at": "2026-10-06T18:00:00.000Z",
+    "started_at": null,
+    "ended_at": null,
+    "created_at": "2026-01-15T10:00:00Z",
+    "updated_at": "2026-04-30T11:00:00Z"
+  }
+]

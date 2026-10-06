@@ -1,0 +1,32 @@
+[
+  {
+    "id": "e1000000-0000-4000-8000-000000000001",
+    "user_id": "f1000000-0000-4000-8000-000000000009",
+    "type": "assignment",
+    "title": "New assignment: Vector field flux problem set",
+    "body": "Due in 4 days.",
+    "link": "/assignments/a1000000-0000-4000-8000-000000000002",
+    "read_at": null,
+    "created_at": "2026-10-06T12:00:00.000Z"
+  },
+  {
+    "id": "e1000000-0000-4000-8000-000000000002",
+    "user_id": "f1000000-0000-4000-8000-000000000009",
+    "type": "class",
+    "title": "Lecture 14 is live",
+    "body": "Prof. Maya Okafor started the class.",
+    "link": "/class/b1000000-0000-4000-8000-000000000001",
+    "read_at": null,
+    "created_at": "2026-10-06T11:00:00.000Z"
+  },
+  {
+    "id": "e1000000-0000-4000-8000-000000000003",
+    "user_id": "f1000000-0000-4000-8000-000000000009",
+    "type": "grade",
+    "title": "Your grade is in",
+    "body": "Magical realism close-read: A (92%).",
+    "link": "/grades",
+    "read_at": "2026-10-02T09:00:00.000Z",
+    "created_at": "2026-10-06T10:00:00.000Z"
+  }
+]
