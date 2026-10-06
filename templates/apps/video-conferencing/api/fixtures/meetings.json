@@ -11,15 +11,44 @@
     "day_label": "Mon Apr 29",
     "starts_at_label": "2:00 PM",
     "attendees": [
-      { "id": "u1", "name": "Sarah Kim" },
-      { "id": "u2", "name": "David Park" },
-      { "id": "u3", "name": "Maya Reyes" },
-      { "id": "u4", "name": "Jose Lopez" },
-      { "id": "u5", "name": "Asha Bose" },
-      { "id": "u6", "name": "Ryan Tan" },
-      { "id": "u7", "name": "Mei Wang" },
-      { "id": "u8", "name": "Liam Ortiz" }
-    ]
+      {
+        "id": "u1",
+        "name": "Sarah Kim"
+      },
+      {
+        "id": "u2",
+        "name": "David Park"
+      },
+      {
+        "id": "u3",
+        "name": "Maya Reyes"
+      },
+      {
+        "id": "u4",
+        "name": "Jose Lopez"
+      },
+      {
+        "id": "u5",
+        "name": "Asha Bose"
+      },
+      {
+        "id": "u6",
+        "name": "Ryan Tan"
+      },
+      {
+        "id": "u7",
+        "name": "Mei Wang"
+      },
+      {
+        "id": "u8",
+        "name": "Liam Ortiz"
+      }
+    ],
+    "description": "Q4 Strategy Sync, hosted by Sarah Kim.",
+    "starts_at": "2026-10-06T14:00:00.000Z",
+    "ends_at": "2026-10-06T15:00:00.000Z",
+    "join_code": "conv-1000",
+    "host_id": "u1"
   },
   {
     "id": "m2",
@@ -31,10 +60,24 @@
     "day_label": "Mon Apr 29",
     "starts_at_label": "3:30 PM",
     "attendees": [
-      { "id": "u3", "name": "Maya Reyes" },
-      { "id": "u9", "name": "Priya Shah" },
-      { "id": "u10", "name": "Tom Becker" }
-    ]
+      {
+        "id": "u3",
+        "name": "Maya Reyes"
+      },
+      {
+        "id": "u9",
+        "name": "Priya Shah"
+      },
+      {
+        "id": "u10",
+        "name": "Tom Becker"
+      }
+    ],
+    "description": "Design crit — Onboarding flow, hosted by Maya Reyes.",
+    "starts_at": "2026-10-06T16:30:00.000Z",
+    "ends_at": "2026-10-06T17:15:00.000Z",
+    "join_code": "conv-1137",
+    "host_id": "u1"
   },
   {
     "id": "m3",
@@ -47,12 +90,32 @@
     "day_label": "Tue Apr 30",
     "starts_at_label": "9:00 AM",
     "attendees": [
-      { "id": "u2", "name": "David Park" },
-      { "id": "u4", "name": "Jose Lopez" },
-      { "id": "u11", "name": "Naomi Park" },
-      { "id": "u12", "name": "Yuri Sato" },
-      { "id": "u13", "name": "Ben Chen" }
-    ]
+      {
+        "id": "u2",
+        "name": "David Park"
+      },
+      {
+        "id": "u4",
+        "name": "Jose Lopez"
+      },
+      {
+        "id": "u11",
+        "name": "Naomi Park"
+      },
+      {
+        "id": "u12",
+        "name": "Yuri Sato"
+      },
+      {
+        "id": "u13",
+        "name": "Ben Chen"
+      }
+    ],
+    "description": "Weekly engineering standup, hosted by David Park.",
+    "starts_at": "2026-10-07T09:30:00.000Z",
+    "ends_at": "2026-10-07T10:00:00.000Z",
+    "join_code": "conv-1274",
+    "host_id": "u1"
   },
   {
     "id": "m4",
@@ -64,9 +127,20 @@
     "day_label": "Tue Apr 30",
     "starts_at_label": "4:00 PM",
     "attendees": [
-      { "id": "u1", "name": "Sarah Kim" },
-      { "id": "u13", "name": "Ben Chen" }
-    ]
+      {
+        "id": "u1",
+        "name": "Sarah Kim"
+      },
+      {
+        "id": "u13",
+        "name": "Ben Chen"
+      }
+    ],
+    "description": "Customer kickoff — Acme Corp, hosted by Sarah Kim.",
+    "starts_at": "2026-10-08T11:00:00.000Z",
+    "ends_at": "2026-10-08T12:00:00.000Z",
+    "join_code": "conv-1411",
+    "host_id": "u1"
   },
   {
     "id": "m5",
@@ -78,12 +152,35 @@
     "day_label": "Thu May 02",
     "starts_at_label": "10:00 AM",
     "attendees": [
-      { "id": "u1", "name": "Sarah Kim" },
-      { "id": "u2", "name": "David Park" },
-      { "id": "u3", "name": "Maya Reyes" },
-      { "id": "u4", "name": "Jose Lopez" },
-      { "id": "u5", "name": "Asha Bose" },
-      { "id": "u6", "name": "Ryan Tan" }
-    ]
+      {
+        "id": "u1",
+        "name": "Sarah Kim"
+      },
+      {
+        "id": "u2",
+        "name": "David Park"
+      },
+      {
+        "id": "u3",
+        "name": "Maya Reyes"
+      },
+      {
+        "id": "u4",
+        "name": "Jose Lopez"
+      },
+      {
+        "id": "u5",
+        "name": "Asha Bose"
+      },
+      {
+        "id": "u6",
+        "name": "Ryan Tan"
+      }
+    ],
+    "description": "Quarterly all-hands, hosted by Sarah Kim.",
+    "starts_at": "2026-10-10T15:00:00.000Z",
+    "ends_at": "2026-10-10T16:30:00.000Z",
+    "join_code": "conv-1548",
+    "host_id": "u1"
   }
 ]

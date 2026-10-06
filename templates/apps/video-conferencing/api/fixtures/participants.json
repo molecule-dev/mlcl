@@ -1,8 +1,81 @@
 [
-  { "id": "me", "user_name": "You", "audio_enabled": true, "video_enabled": true, "role": "Host", "is_speaking": true },
-  { "id": "p1", "user_name": "Sarah Kim", "audio_enabled": true, "video_enabled": true, "role": "Co-host" },
-  { "id": "p2", "user_name": "David Park", "audio_enabled": false, "video_enabled": true, "role": "Attendee" },
-  { "id": "p3", "user_name": "Maya Reyes", "audio_enabled": true, "video_enabled": false, "hand_raised": true, "role": "Attendee" },
-  { "id": "p4", "user_name": "Jose Lopez", "audio_enabled": true, "video_enabled": true, "is_pinned": true, "role": "Attendee" },
-  { "id": "p5", "user_name": "Asha Bose", "audio_enabled": true, "video_enabled": true, "role": "Attendee" }
+  {
+    "id": "me",
+    "user_name": "You",
+    "audio_enabled": true,
+    "video_enabled": true,
+    "role": "Host",
+    "is_speaking": true,
+    "user_id": "me",
+    "guest_name": "You",
+    "joined_at": "2026-10-06T14:00:00.000Z",
+    "left_at": null,
+    "hand_raised": false,
+    "is_pinned": false
+  },
+  {
+    "id": "p1",
+    "user_name": "Sarah Kim",
+    "audio_enabled": true,
+    "video_enabled": true,
+    "role": "Co-host",
+    "user_id": "p1",
+    "guest_name": "Sarah Kim",
+    "joined_at": "2026-10-06T14:01:00.000Z",
+    "left_at": null,
+    "hand_raised": false,
+    "is_pinned": false
+  },
+  {
+    "id": "p2",
+    "user_name": "David Park",
+    "audio_enabled": false,
+    "video_enabled": true,
+    "role": "Attendee",
+    "user_id": "p2",
+    "guest_name": "David Park",
+    "joined_at": "2026-10-06T14:02:00.000Z",
+    "left_at": null,
+    "hand_raised": false,
+    "is_pinned": false
+  },
+  {
+    "id": "p3",
+    "user_name": "Maya Reyes",
+    "audio_enabled": true,
+    "video_enabled": false,
+    "hand_raised": false,
+    "role": "Attendee",
+    "user_id": "p3",
+    "guest_name": "Maya Reyes",
+    "joined_at": "2026-10-06T14:03:00.000Z",
+    "left_at": null,
+    "is_pinned": false
+  },
+  {
+    "id": "p4",
+    "user_name": "Jose Lopez",
+    "audio_enabled": true,
+    "video_enabled": true,
+    "is_pinned": false,
+    "role": "Attendee",
+    "user_id": "p4",
+    "guest_name": "Jose Lopez",
+    "joined_at": "2026-10-06T14:04:00.000Z",
+    "left_at": null,
+    "hand_raised": false
+  },
+  {
+    "id": "p5",
+    "user_name": "Asha Bose",
+    "audio_enabled": true,
+    "video_enabled": true,
+    "role": "Attendee",
+    "user_id": "p5",
+    "guest_name": "Asha Bose",
+    "joined_at": "2026-10-06T14:05:00.000Z",
+    "left_at": null,
+    "hand_raised": false,
+    "is_pinned": false
+  }
 ]

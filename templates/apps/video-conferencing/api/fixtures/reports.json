@@ -1,0 +1,60 @@
+{
+  "workspace-members/ws_acme": [
+    {
+      "id": "wm_1",
+      "workspace_id": "ws_acme",
+      "user_id": "sarah-kim",
+      "role": "owner",
+      "joined_at": "2026-08-07T09:00:00.000Z"
+    },
+    {
+      "id": "wm_2",
+      "workspace_id": "ws_acme",
+      "user_id": "david-park",
+      "role": "admin",
+      "joined_at": "2026-08-08T09:00:00.000Z"
+    },
+    {
+      "id": "wm_3",
+      "workspace_id": "ws_acme",
+      "user_id": "maya-reyes",
+      "role": "admin",
+      "joined_at": "2026-08-09T09:00:00.000Z"
+    },
+    {
+      "id": "wm_4",
+      "workspace_id": "ws_acme",
+      "user_id": "jose-lopez",
+      "role": "member",
+      "joined_at": "2026-08-10T09:00:00.000Z"
+    },
+    {
+      "id": "wm_5",
+      "workspace_id": "ws_acme",
+      "user_id": "asha-bose",
+      "role": "member",
+      "joined_at": "2026-08-11T09:00:00.000Z"
+    },
+    {
+      "id": "wm_6",
+      "workspace_id": "ws_acme",
+      "user_id": "ryan-tan",
+      "role": "member",
+      "joined_at": "2026-08-12T09:00:00.000Z"
+    },
+    {
+      "id": "wm_7",
+      "workspace_id": "ws_acme",
+      "user_id": "mei-wang",
+      "role": "member",
+      "joined_at": "2026-08-13T09:00:00.000Z"
+    },
+    {
+      "id": "wm_8",
+      "workspace_id": "ws_acme",
+      "user_id": "liam-ortiz",
+      "role": "member",
+      "joined_at": "2026-08-14T09:00:00.000Z"
+    }
+  ]
+}

@@ -1,9 +1,79 @@
 [
-  { "id": "a1", "type": "invited",         "actor_name": "Sarah Kim",  "context_title": "Q4 Strategy Sync",       "timestamp_label": "5 min ago",        "unread": true,  "cta_label": "Respond", "cta_path": "/meeting/m1/details", "group": "today" },
-  { "id": "a2", "type": "recording_ready", "actor_name": "Convoke",    "context_title": "Pricing kickoff",        "timestamp_label": "1 hour ago",       "cta_label": "Watch",   "cta_path": "/recordings/r1",       "group": "today" },
-  { "id": "a3", "type": "mentioned",       "actor_name": "David Park", "context_title": "engineering · standup",  "timestamp_label": "2 hours ago",      "unread": true,  "cta_label": "View",    "cta_path": "/meeting/m3/details", "group": "today" },
-  { "id": "a4", "type": "transcript_ready","actor_name": "Convoke",    "context_title": "Q3 retro",                "timestamp_label": "4 hours ago",      "cta_label": "Open",    "cta_path": "/recordings/r2",       "group": "today" },
-  { "id": "a5", "type": "hand_raised",     "actor_name": "Maya Reyes", "context_title": "Design crit",             "timestamp_label": "Yesterday, 11:18 AM",                                                                          "group": "yesterday" },
-  { "id": "a6", "type": "invited",         "actor_name": "Jose Lopez", "context_title": "Customer onboarding",     "timestamp_label": "Yesterday, 9:42 AM", "cta_label": "Respond","cta_path": "/meeting/m4/details", "group": "yesterday" },
-  { "id": "a7", "type": "recording_ready", "actor_name": "Convoke",    "context_title": "Weekly all-hands",        "timestamp_label": "3 days ago",       "cta_label": "Watch",   "cta_path": "/recordings/r5",       "group": "earlier" }
+  {
+    "id": "a1",
+    "type": "invited",
+    "title": "Sarah Kim",
+    "body": "Q4 Strategy Sync",
+    "data": {
+      "path": "/meeting/m1/details"
+    },
+    "read_at": null,
+    "created_at": "2026-10-06T13:00:00.000Z"
+  },
+  {
+    "id": "a2",
+    "type": "recording_ready",
+    "title": "Convoke",
+    "body": "Pricing kickoff",
+    "data": {
+      "path": "/recordings/r1"
+    },
+    "read_at": "2026-10-05T12:00:00.000Z",
+    "created_at": "2026-10-06T12:00:00.000Z"
+  },
+  {
+    "id": "a3",
+    "type": "mentioned",
+    "title": "David Park",
+    "body": "engineering · standup",
+    "data": {
+      "path": "/meeting/m3/details"
+    },
+    "read_at": null,
+    "created_at": "2026-10-06T11:00:00.000Z"
+  },
+  {
+    "id": "a4",
+    "type": "transcript_ready",
+    "title": "Convoke",
+    "body": "Q3 retro",
+    "data": {
+      "path": "/recordings/r2"
+    },
+    "read_at": "2026-10-05T12:00:00.000Z",
+    "created_at": "2026-10-06T10:00:00.000Z"
+  },
+  {
+    "id": "a5",
+    "type": "hand_raised",
+    "title": "Maya Reyes",
+    "body": "Design crit",
+    "data": {
+      "path": null
+    },
+    "read_at": "2026-10-05T12:00:00.000Z",
+    "created_at": "2026-10-06T09:00:00.000Z"
+  },
+  {
+    "id": "a6",
+    "type": "invited",
+    "title": "Jose Lopez",
+    "body": "Customer onboarding",
+    "data": {
+      "path": "/meeting/m4/details"
+    },
+    "read_at": "2026-10-05T12:00:00.000Z",
+    "created_at": "2026-10-06T08:00:00.000Z"
+  },
+  {
+    "id": "a7",
+    "type": "recording_ready",
+    "title": "Convoke",
+    "body": "Weekly all-hands",
+    "data": {
+      "path": "/recordings/r5"
+    },
+    "read_at": "2026-10-05T12:00:00.000Z",
+    "created_at": "2026-10-06T07:00:00.000Z"
+  }
 ]
