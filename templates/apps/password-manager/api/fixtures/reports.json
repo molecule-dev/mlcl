@@ -1,0 +1,112 @@
+{
+  "security/findings": [
+    {
+      "id": "f_1",
+      "owner_id": "u_ada",
+      "item_id": "vi_4",
+      "kind": "weak",
+      "severity": "high",
+      "detected_at": "2026-04-29T18:00:00Z",
+      "dismissed": false
+    },
+    {
+      "id": "f_2",
+      "owner_id": "u_ada",
+      "item_id": "vi_5",
+      "kind": "weak",
+      "severity": "high",
+      "detected_at": "2026-04-29T18:00:00Z",
+      "dismissed": false
+    },
+    {
+      "id": "f_3",
+      "owner_id": "u_ada",
+      "item_id": "vi_9",
+      "kind": "weak",
+      "severity": "high",
+      "detected_at": "2026-04-29T18:00:00Z",
+      "dismissed": false
+    },
+    {
+      "id": "f_4",
+      "owner_id": "u_ada",
+      "item_id": "vi_2",
+      "kind": "reused",
+      "severity": "medium",
+      "detected_at": "2026-04-29T18:00:00Z",
+      "dismissed": false
+    },
+    {
+      "id": "f_5",
+      "owner_id": "u_ada",
+      "item_id": "vi_3",
+      "kind": "reused",
+      "severity": "medium",
+      "detected_at": "2026-04-29T18:00:00Z",
+      "dismissed": false
+    },
+    {
+      "id": "f_6",
+      "owner_id": "u_ada",
+      "item_id": "vi_1",
+      "kind": "breached",
+      "severity": "critical",
+      "detected_at": "2026-04-29T18:00:00Z",
+      "dismissed": false
+    },
+    {
+      "id": "f_7",
+      "owner_id": "u_ada",
+      "item_id": "vi_4",
+      "kind": "old",
+      "severity": "low",
+      "detected_at": "2026-04-29T18:00:00Z",
+      "dismissed": false
+    }
+  ],
+  "shares/incoming": [
+    {
+      "id": "sh_in_1",
+      "vault_id": "vault_design",
+      "shared_by": "u_grace",
+      "shared_with_user_id": "u_ada",
+      "permission": "edit",
+      "created_at": "2026-03-01T10:00:00Z",
+      "accepted_at": "2026-03-02T10:00:00Z"
+    },
+    {
+      "id": "sh_in_2",
+      "vault_id": "vault_growth",
+      "shared_by": "u_katherine",
+      "shared_with_user_id": "u_ada",
+      "permission": "view",
+      "created_at": "2026-03-01T10:00:00Z",
+      "accepted_at": "2026-03-02T10:00:00Z"
+    }
+  ],
+  "shares/outgoing": [
+    {
+      "id": "sh_out_1",
+      "vault_id": "vault_work",
+      "shared_by": "u_ada",
+      "shared_with_user_id": "u_grace",
+      "permission": "edit",
+      "created_at": "2026-03-05T10:00:00Z",
+      "accepted_at": "2026-03-06T10:00:00Z"
+    },
+    {
+      "id": "sh_out_2",
+      "vault_id": "vault_finance",
+      "shared_by": "u_ada",
+      "shared_with_user_id": "u_grace",
+      "permission": "edit",
+      "created_at": "2026-03-05T10:00:00Z",
+      "accepted_at": "2026-03-06T10:00:00Z"
+    }
+  ],
+  "two-factor/status": {
+    "enrolled": true,
+    "method": "totp",
+    "verified_at": "2026-02-01T10:00:00Z"
+  }
+}
