@@ -91,7 +91,7 @@
     "@molecule/app-realtime": "1.0.2",
     "@molecule/app-realtime-socketio": "1.0.2",
     "@molecule/app-rich-text": "1.0.4",
-    "@molecule/app-rich-text-quill": "1.0.4",
+    "@molecule/app-rich-text-quill": "1.0.5",
     "@molecule/app-root-error-boundary-react": "1.0.2",
     "@molecule/app-routing": "1.0.2",
     "@molecule/app-routing-react-router": "1.0.2",

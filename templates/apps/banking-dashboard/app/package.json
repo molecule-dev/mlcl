@@ -84,7 +84,7 @@
     "@molecule/app-root-error-boundary-react": "1.0.2",
     "@molecule/app-routing": "1.0.2",
     "@molecule/app-routing-react-router": "1.0.2",
-    "@molecule/app-safe-link-react": "1.0.2",
+    "@molecule/app-safe-link-react": "1.0.3",
     "@molecule/app-service-worker-default": "1.0.2",
     "@molecule/app-sidebar-layout-react": "1.0.2",
     "@molecule/app-state": "1.0.2",
