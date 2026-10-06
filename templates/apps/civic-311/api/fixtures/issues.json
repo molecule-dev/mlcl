@@ -14,40 +14,84 @@
     ],
     "events": [
       {
+        "id": "aaaaaaaa-1111-4111-8111-111111111111-ev1",
         "kind": "status_change",
         "actor_index": 0,
         "from": null,
         "to": "submitted",
-        "days_ago": 9
+        "days_ago": 9,
+        "actor_id": "11111111-1111-4111-8111-111111111111",
+        "actor_name": "Maya Okafor",
+        "text": null,
+        "from_status": null,
+        "to_status": "submitted",
+        "created_at": "2026-09-27T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-1111-4111-8111-111111111111-ev2",
         "kind": "status_change",
         "actor_index": 3,
         "from": "submitted",
         "to": "acknowledged",
-        "days_ago": 8
+        "days_ago": 8,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "text": null,
+        "from_status": "submitted",
+        "to_status": "acknowledged",
+        "created_at": "2026-09-28T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-1111-4111-8111-111111111111-ev3",
         "kind": "note",
         "actor_index": 3,
         "text": "Streets crew has inspected the site. Scheduled for a hot-mix patch this week; full repave goes on next season's list.",
-        "days_ago": 8
+        "days_ago": 8,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "from_status": null,
+        "to_status": null,
+        "created_at": "2026-09-28T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-1111-4111-8111-111111111111-ev4",
         "kind": "comment",
         "actor_index": 1,
         "text": "Hit this on my commute Monday — it bent my front rim. Please prioritize.",
-        "days_ago": 7
+        "days_ago": 7,
+        "actor_id": "22222222-2222-4222-8222-222222222222",
+        "actor_name": "Dan Alvarez",
+        "from_status": null,
+        "to_status": null,
+        "created_at": "2026-09-29T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-1111-4111-8111-111111111111-ev5",
         "kind": "status_change",
         "actor_index": 3,
         "from": "acknowledged",
         "to": "in_review",
-        "days_ago": 2
+        "days_ago": 2,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "text": null,
+        "from_status": "acknowledged",
+        "to_status": "in_review",
+        "created_at": "2026-10-04T12:00:00.000Z"
       }
     ],
-    "official_note": "Streets crew has inspected the site. Scheduled for a hot-mix patch this week; full repave goes on next season's list."
+    "official_note": "Streets crew has inspected the site. Scheduled for a hot-mix patch this week; full repave goes on next season's list.",
+    "reporter_id": "11111111-1111-4111-8111-111111111111",
+    "reporter_name": "Maya Okafor",
+    "photo_url": null,
+    "derived_address": "3rd Ave & W 11th St",
+    "created_at": "2026-09-27T12:00:00.000Z",
+    "updated_at": "2026-10-04T12:00:00.000Z",
+    "resolved_at": null,
+    "confirmation_count": 2,
+    "confirmed_by_me": false,
+    "is_mine": true,
+    "is_staff": false
   },
   {
     "id": "aaaaaaaa-2222-4222-8222-222222222222",
@@ -64,47 +108,98 @@
     ],
     "events": [
       {
+        "id": "aaaaaaaa-2222-4222-8222-222222222222-ev1",
         "kind": "status_change",
         "actor_index": 1,
         "from": null,
         "to": "submitted",
-        "days_ago": 21
+        "days_ago": 21,
+        "actor_id": "22222222-2222-4222-8222-222222222222",
+        "actor_name": "Dan Alvarez",
+        "text": null,
+        "from_status": null,
+        "to_status": "submitted",
+        "created_at": "2026-09-15T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-2222-4222-8222-222222222222-ev2",
         "kind": "status_change",
         "actor_index": 3,
         "from": "submitted",
         "to": "acknowledged",
-        "days_ago": 19
+        "days_ago": 19,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "text": null,
+        "from_status": "submitted",
+        "to_status": "acknowledged",
+        "created_at": "2026-09-17T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-2222-4222-8222-222222222222-ev3",
         "kind": "comment",
         "actor_index": 2,
         "text": "Also noticed the next light south is flickering — same circuit?",
-        "days_ago": 12
+        "days_ago": 12,
+        "actor_id": "33333333-3333-4333-8333-333333333333",
+        "actor_name": "Priya Raman",
+        "from_status": null,
+        "to_status": null,
+        "created_at": "2026-09-24T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-2222-4222-8222-222222222222-ev4",
         "kind": "status_change",
         "actor_index": 3,
         "from": "acknowledged",
         "to": "in_review",
-        "days_ago": 10
+        "days_ago": 10,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "text": null,
+        "from_status": "acknowledged",
+        "to_status": "in_review",
+        "created_at": "2026-09-26T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-2222-4222-8222-222222222222-ev5",
         "kind": "status_change",
         "actor_index": 3,
         "from": "in_review",
         "to": "resolved",
-        "days_ago": 3
+        "days_ago": 3,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "text": null,
+        "from_status": "in_review",
+        "to_status": "resolved",
+        "created_at": "2026-10-03T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-2222-4222-8222-222222222222-ev6",
         "kind": "note",
         "actor_index": 3,
         "text": "Replaced the photocell and the fixture. Both lights on that circuit are confirmed working tonight. Thanks for the report!",
-        "days_ago": 3
+        "days_ago": 3,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "from_status": null,
+        "to_status": null,
+        "created_at": "2026-10-03T12:00:00.000Z"
       }
     ],
-    "official_note": "Replaced the photocell and the fixture. Both lights on that circuit are confirmed working tonight. Thanks for the report!"
+    "official_note": "Replaced the photocell and the fixture. Both lights on that circuit are confirmed working tonight. Thanks for the report!",
+    "reporter_id": "22222222-2222-4222-8222-222222222222",
+    "reporter_name": "Dan Alvarez",
+    "photo_url": null,
+    "derived_address": "6th Ave & E 20th St",
+    "created_at": "2026-09-15T12:00:00.000Z",
+    "updated_at": "2026-10-03T12:00:00.000Z",
+    "resolved_at": "2026-10-03T12:00:00.000Z",
+    "confirmation_count": 1,
+    "confirmed_by_me": false,
+    "is_mine": false,
+    "is_staff": false
   },
   {
     "id": "aaaaaaaa-3333-4333-8333-333333333333",
@@ -118,27 +213,58 @@
     "confirmations_from": [],
     "events": [
       {
+        "id": "aaaaaaaa-3333-4333-8333-333333333333-ev1",
         "kind": "status_change",
         "actor_index": 2,
         "from": null,
         "to": "submitted",
-        "days_ago": 4
+        "days_ago": 4,
+        "actor_id": "33333333-3333-4333-8333-333333333333",
+        "actor_name": "Priya Raman",
+        "text": null,
+        "from_status": null,
+        "to_status": "submitted",
+        "created_at": "2026-10-02T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-3333-4333-8333-333333333333-ev2",
         "kind": "status_change",
         "actor_index": 3,
         "from": "submitted",
         "to": "acknowledged",
-        "days_ago": 3
+        "days_ago": 3,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "text": null,
+        "from_status": "submitted",
+        "to_status": "acknowledged",
+        "created_at": "2026-10-03T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-3333-4333-8333-333333333333-ev3",
         "kind": "note",
         "actor_index": 3,
         "text": "Logged with the abatement contractor. Crews typically paint over new tags within 10 business days.",
-        "days_ago": 3
+        "days_ago": 3,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "from_status": null,
+        "to_status": null,
+        "created_at": "2026-10-03T12:00:00.000Z"
       }
     ],
-    "official_note": "Logged with the abatement contractor. Crews typically paint over new tags within 10 business days."
+    "official_note": "Logged with the abatement contractor. Crews typically paint over new tags within 10 business days.",
+    "reporter_id": "33333333-3333-4333-8333-333333333333",
+    "reporter_name": "Priya Raman",
+    "photo_url": null,
+    "derived_address": "7th Ave & E 7th St",
+    "created_at": "2026-10-02T12:00:00.000Z",
+    "updated_at": "2026-10-03T12:00:00.000Z",
+    "resolved_at": null,
+    "confirmation_count": 0,
+    "confirmed_by_me": false,
+    "is_mine": false,
+    "is_staff": false
   },
   {
     "id": "aaaaaaaa-4444-4444-8444-444444444444",
@@ -154,13 +280,32 @@
     ],
     "events": [
       {
+        "id": "aaaaaaaa-4444-4444-8444-444444444444-ev1",
         "kind": "status_change",
         "actor_index": 0,
         "from": null,
         "to": "submitted",
-        "days_ago": 1
+        "days_ago": 1,
+        "actor_id": "11111111-1111-4111-8111-111111111111",
+        "actor_name": "Maya Okafor",
+        "text": null,
+        "from_status": null,
+        "to_status": "submitted",
+        "created_at": "2026-10-05T12:00:00.000Z"
       }
-    ]
+    ],
+    "reporter_id": "11111111-1111-4111-8111-111111111111",
+    "reporter_name": "Maya Okafor",
+    "photo_url": null,
+    "derived_address": "5th Ave & W 26th St",
+    "official_note": null,
+    "created_at": "2026-10-05T12:00:00.000Z",
+    "updated_at": "2026-10-05T12:00:00.000Z",
+    "resolved_at": null,
+    "confirmation_count": 1,
+    "confirmed_by_me": false,
+    "is_mine": true,
+    "is_staff": false
   },
   {
     "id": "aaaaaaaa-5555-4555-8555-555555555555",
@@ -177,33 +322,72 @@
     ],
     "events": [
       {
+        "id": "aaaaaaaa-5555-4555-8555-555555555555-ev1",
         "kind": "status_change",
         "actor_index": 1,
         "from": null,
         "to": "submitted",
-        "days_ago": 6
+        "days_ago": 6,
+        "actor_id": "22222222-2222-4222-8222-222222222222",
+        "actor_name": "Dan Alvarez",
+        "text": null,
+        "from_status": null,
+        "to_status": "submitted",
+        "created_at": "2026-09-30T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-5555-4555-8555-555555555555-ev2",
         "kind": "status_change",
         "actor_index": 3,
         "from": "submitted",
         "to": "acknowledged",
-        "days_ago": 5
+        "days_ago": 5,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "text": null,
+        "from_status": "submitted",
+        "to_status": "acknowledged",
+        "created_at": "2026-10-01T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-5555-4555-8555-555555555555-ev3",
         "kind": "comment",
         "actor_index": 0,
         "text": "Walked under it this morning — it's sagging noticeably lower than yesterday.",
-        "days_ago": 4
+        "days_ago": 4,
+        "actor_id": "11111111-1111-4111-8111-111111111111",
+        "actor_name": "Maya Okafor",
+        "from_status": null,
+        "to_status": null,
+        "created_at": "2026-10-02T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-5555-4555-8555-555555555555-ev4",
         "kind": "status_change",
         "actor_index": 3,
         "from": "acknowledged",
         "to": "in_review",
-        "days_ago": 1
+        "days_ago": 1,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "text": null,
+        "from_status": "acknowledged",
+        "to_status": "in_review",
+        "created_at": "2026-10-05T12:00:00.000Z"
       }
-    ]
+    ],
+    "reporter_id": "22222222-2222-4222-8222-222222222222",
+    "reporter_name": "Dan Alvarez",
+    "photo_url": null,
+    "derived_address": "2nd Ave & W 18th St",
+    "official_note": null,
+    "created_at": "2026-09-30T12:00:00.000Z",
+    "updated_at": "2026-10-05T12:00:00.000Z",
+    "resolved_at": null,
+    "confirmation_count": 2,
+    "confirmed_by_me": false,
+    "is_mine": false,
+    "is_staff": false
   },
   {
     "id": "aaaaaaaa-6666-4666-8666-666666666666",
@@ -217,13 +401,32 @@
     "confirmations_from": [],
     "events": [
       {
+        "id": "aaaaaaaa-6666-4666-8666-666666666666-ev1",
         "kind": "status_change",
         "actor_index": 2,
         "from": null,
         "to": "submitted",
-        "days_ago": 2
+        "days_ago": 2,
+        "actor_id": "33333333-3333-4333-8333-333333333333",
+        "actor_name": "Priya Raman",
+        "text": null,
+        "from_status": null,
+        "to_status": "submitted",
+        "created_at": "2026-10-04T12:00:00.000Z"
       }
-    ]
+    ],
+    "reporter_id": "33333333-3333-4333-8333-333333333333",
+    "reporter_name": "Priya Raman",
+    "photo_url": null,
+    "derived_address": "6th Ave & E 13th St",
+    "official_note": null,
+    "created_at": "2026-10-04T12:00:00.000Z",
+    "updated_at": "2026-10-04T12:00:00.000Z",
+    "resolved_at": null,
+    "confirmation_count": 0,
+    "confirmed_by_me": false,
+    "is_mine": false,
+    "is_staff": false
   },
   {
     "id": "aaaaaaaa-7777-4777-8777-777777777777",
@@ -237,20 +440,46 @@
     "confirmations_from": [],
     "events": [
       {
+        "id": "aaaaaaaa-7777-4777-8777-777777777777-ev1",
         "kind": "status_change",
         "actor_index": 0,
         "from": null,
         "to": "submitted",
-        "days_ago": 5
+        "days_ago": 5,
+        "actor_id": "11111111-1111-4111-8111-111111111111",
+        "actor_name": "Maya Okafor",
+        "text": null,
+        "from_status": null,
+        "to_status": "submitted",
+        "created_at": "2026-10-01T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-7777-4777-8777-777777777777-ev2",
         "kind": "status_change",
         "actor_index": 3,
         "from": "submitted",
         "to": "acknowledged",
-        "days_ago": 4
+        "days_ago": 4,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "text": null,
+        "from_status": "submitted",
+        "to_status": "acknowledged",
+        "created_at": "2026-10-02T12:00:00.000Z"
       }
-    ]
+    ],
+    "reporter_id": "11111111-1111-4111-8111-111111111111",
+    "reporter_name": "Maya Okafor",
+    "photo_url": null,
+    "derived_address": "4th Ave & W 10th St",
+    "official_note": null,
+    "created_at": "2026-10-01T12:00:00.000Z",
+    "updated_at": "2026-10-02T12:00:00.000Z",
+    "resolved_at": null,
+    "confirmation_count": 0,
+    "confirmed_by_me": false,
+    "is_mine": true,
+    "is_staff": false
   },
   {
     "id": "aaaaaaaa-8888-4888-8888-888888888888",
@@ -265,34 +494,72 @@
     "confirmations_from": [],
     "events": [
       {
+        "id": "aaaaaaaa-8888-4888-8888-888888888888-ev1",
         "kind": "status_change",
         "actor_index": 1,
         "from": null,
         "to": "submitted",
-        "days_ago": 15
+        "days_ago": 15,
+        "actor_id": "22222222-2222-4222-8222-222222222222",
+        "actor_name": "Dan Alvarez",
+        "text": null,
+        "from_status": null,
+        "to_status": "submitted",
+        "created_at": "2026-09-21T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-8888-4888-8888-888888888888-ev2",
         "kind": "status_change",
         "actor_index": 3,
         "from": "submitted",
         "to": "in_review",
-        "days_ago": 12
+        "days_ago": 12,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "text": null,
+        "from_status": "submitted",
+        "to_status": "in_review",
+        "created_at": "2026-09-24T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-8888-4888-8888-888888888888-ev3",
         "kind": "note",
         "actor_index": 3,
         "text": "This intersection is on the county system, not the city's — re-filed with the county roads desk on your behalf (ref CR-2291).",
-        "days_ago": 10
+        "days_ago": 10,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "from_status": null,
+        "to_status": null,
+        "created_at": "2026-09-26T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-8888-4888-8888-888888888888-ev4",
         "kind": "status_change",
         "actor_index": 3,
         "from": "in_review",
         "to": "dismissed",
-        "days_ago": 10
+        "days_ago": 10,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "text": null,
+        "from_status": "in_review",
+        "to_status": "dismissed",
+        "created_at": "2026-09-26T12:00:00.000Z"
       }
     ],
-    "official_note": "This intersection is on the county system, not the city's — re-filed with the county roads desk on your behalf (ref CR-2291)."
+    "official_note": "This intersection is on the county system, not the city's — re-filed with the county roads desk on your behalf (ref CR-2291).",
+    "reporter_id": "22222222-2222-4222-8222-222222222222",
+    "reporter_name": "Dan Alvarez",
+    "photo_url": null,
+    "derived_address": "8th Ave & E 28th St",
+    "created_at": "2026-09-21T12:00:00.000Z",
+    "updated_at": "2026-09-26T12:00:00.000Z",
+    "resolved_at": null,
+    "confirmation_count": 0,
+    "confirmed_by_me": false,
+    "is_mine": false,
+    "is_staff": false
   },
   {
     "id": "aaaaaaaa-9999-4999-8999-999999999999",
@@ -310,41 +577,86 @@
     ],
     "events": [
       {
+        "id": "aaaaaaaa-9999-4999-8999-999999999999-ev1",
         "kind": "status_change",
         "actor_index": 2,
         "from": null,
         "to": "submitted",
-        "days_ago": 11
+        "days_ago": 11,
+        "actor_id": "33333333-3333-4333-8333-333333333333",
+        "actor_name": "Priya Raman",
+        "text": null,
+        "from_status": null,
+        "to_status": "submitted",
+        "created_at": "2026-09-25T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-9999-4999-8999-999999999999-ev2",
         "kind": "status_change",
         "actor_index": 3,
         "from": "submitted",
         "to": "acknowledged",
-        "days_ago": 10
+        "days_ago": 10,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "text": null,
+        "from_status": "submitted",
+        "to_status": "acknowledged",
+        "created_at": "2026-09-26T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-9999-4999-8999-999999999999-ev3",
         "kind": "status_change",
         "actor_index": 3,
         "from": "acknowledged",
         "to": "in_review",
-        "days_ago": 9
+        "days_ago": 9,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "text": null,
+        "from_status": "acknowledged",
+        "to_status": "in_review",
+        "created_at": "2026-09-27T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-9999-4999-8999-999999999999-ev4",
         "kind": "status_change",
         "actor_index": 3,
         "from": "in_review",
         "to": "resolved",
-        "days_ago": 8
+        "days_ago": 8,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "text": null,
+        "from_status": "in_review",
+        "to_status": "resolved",
+        "created_at": "2026-09-28T12:00:00.000Z"
       },
       {
+        "id": "aaaaaaaa-9999-4999-8999-999999999999-ev5",
         "kind": "note",
         "actor_index": 3,
         "text": "Route had a truck breakdown — collection completed this morning including the backlog. Credit applied to the block's accounts.",
-        "days_ago": 8
+        "days_ago": 8,
+        "actor_id": "44444444-4444-4444-8444-444444444444",
+        "actor_name": "Riverton 311 Operations",
+        "from_status": null,
+        "to_status": null,
+        "created_at": "2026-09-28T12:00:00.000Z"
       }
     ],
-    "official_note": "Route had a truck breakdown — collection completed this morning including the backlog. Credit applied to the block's accounts."
+    "official_note": "Route had a truck breakdown — collection completed this morning including the backlog. Credit applied to the block's accounts.",
+    "reporter_id": "33333333-3333-4333-8333-333333333333",
+    "reporter_name": "Priya Raman",
+    "photo_url": null,
+    "derived_address": "3rd Ave & W 29th St",
+    "created_at": "2026-09-25T12:00:00.000Z",
+    "updated_at": "2026-09-28T12:00:00.000Z",
+    "resolved_at": "2026-09-28T12:00:00.000Z",
+    "confirmation_count": 2,
+    "confirmed_by_me": false,
+    "is_mine": false,
+    "is_staff": false
   },
   {
     "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
@@ -358,12 +670,31 @@
     "confirmations_from": [],
     "events": [
       {
+        "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa-ev1",
         "kind": "status_change",
         "actor_index": 0,
         "from": null,
         "to": "submitted",
-        "days_ago": 1
+        "days_ago": 1,
+        "actor_id": "11111111-1111-4111-8111-111111111111",
+        "actor_name": "Maya Okafor",
+        "text": null,
+        "from_status": null,
+        "to_status": "submitted",
+        "created_at": "2026-10-05T12:00:00.000Z"
       }
-    ]
+    ],
+    "reporter_id": "11111111-1111-4111-8111-111111111111",
+    "reporter_name": "Maya Okafor",
+    "photo_url": null,
+    "derived_address": "5th Ave & E 16th St",
+    "official_note": null,
+    "created_at": "2026-10-05T12:00:00.000Z",
+    "updated_at": "2026-10-05T12:00:00.000Z",
+    "resolved_at": null,
+    "confirmation_count": 0,
+    "confirmed_by_me": false,
+    "is_mine": true,
+    "is_staff": false
   }
 ]

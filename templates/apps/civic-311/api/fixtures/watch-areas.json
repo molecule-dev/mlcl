@@ -1,23 +1,32 @@
 [
   {
+    "id": "watch-1",
     "user_index": 0,
     "name": "Around home",
     "x": 34,
     "y": 27,
-    "radius": 8
+    "radius": 8,
+    "derived_address": "3rd Ave & W 11th St",
+    "created_at": "2026-09-06T12:00:00.000Z"
   },
   {
+    "id": "watch-2",
     "user_index": 0,
     "name": "Library corridor",
     "x": 50,
     "y": 40,
-    "radius": 5
+    "radius": 5,
+    "derived_address": "5th Ave & E 16th St",
+    "created_at": "2026-09-06T12:00:00.000Z"
   },
   {
+    "id": "watch-3",
     "user_index": 1,
     "name": "School route",
     "x": 56,
     "y": 33,
-    "radius": 10
+    "radius": 10,
+    "derived_address": "6th Ave & E 13th St",
+    "created_at": "2026-09-06T12:00:00.000Z"
   }
 ]
