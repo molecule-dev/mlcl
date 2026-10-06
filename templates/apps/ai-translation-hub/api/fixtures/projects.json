@@ -1,0 +1,67 @@
+[
+  {
+    "id": "000000p1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Mobile app 4.2 release notes",
+    "source_lang": "en",
+    "target_langs": [
+      "es",
+      "fr",
+      "de"
+    ],
+    "status": "in_progress",
+    "created_at": "2026-10-01T09:00:00Z",
+    "updated_at": "2026-10-06T10:00:00Z"
+  },
+  {
+    "id": "000000p1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Help centre: billing articles",
+    "source_lang": "en",
+    "target_langs": [
+      "pt",
+      "ja"
+    ],
+    "status": "in_review",
+    "created_at": "2026-10-02T09:00:00Z",
+    "updated_at": "2026-10-05T10:00:00Z"
+  },
+  {
+    "id": "000000p1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Marketing site spring campaign",
+    "source_lang": "en",
+    "target_langs": [
+      "fr",
+      "it",
+      "nl"
+    ],
+    "status": "approved",
+    "created_at": "2026-10-03T09:00:00Z",
+    "updated_at": "2026-10-04T10:00:00Z"
+  },
+  {
+    "id": "000000p1-0000-4000-8000-000000000004",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Onboarding emails",
+    "source_lang": "en",
+    "target_langs": [
+      "es"
+    ],
+    "status": "draft",
+    "created_at": "2026-10-04T09:00:00Z",
+    "updated_at": "2026-10-03T10:00:00Z"
+  },
+  {
+    "id": "000000p1-0000-4000-8000-000000000005",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Legacy docs 2024",
+    "source_lang": "en",
+    "target_langs": [
+      "de"
+    ],
+    "status": "archived",
+    "created_at": "2026-10-05T09:00:00Z",
+    "updated_at": "2026-10-02T10:00:00Z"
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Alex Morgan",
+    "email": "alex@example.com",
+    "role": "owner",
+    "createdAt": "2026-10-01T09:00:00Z"
+  }
+]

@@ -1,0 +1,83 @@
+{
+  "dashboard_stats": {
+    "active_projects": 3,
+    "words_translated_30d": 184200,
+    "words_change_30d": 12,
+    "avg_quality_score": 91,
+    "team_members": 4,
+    "ai_confidence": 95,
+    "volume_history": [
+      8,
+      11,
+      9,
+      14,
+      12,
+      16,
+      13,
+      18,
+      15,
+      20
+    ]
+  },
+  "billing_usage": {
+    "words": {
+      "used": 184200,
+      "limit": 250000
+    },
+    "projects": {
+      "used": 3,
+      "limit": 25
+    },
+    "seats": {
+      "used": 4,
+      "limit": 5
+    }
+  },
+  "review_queue": [
+    {
+      "id": "000000s1-0000-4000-8000-000000000001",
+      "user_id": "00000000-0000-4000-8000-0000000000aa",
+      "project_id": "000000p1-0000-4000-8000-000000000001",
+      "source_lang": "en",
+      "target_lang": "es",
+      "source_text": "Your changes were saved.",
+      "target_text": "Tus cambios se guardaron.",
+      "machine_translation": "Se guardaron sus cambios.",
+      "position": 1,
+      "reviewer_id": null,
+      "status": "needs_review",
+      "created_at": "2026-10-05T09:00:00Z",
+      "updated_at": "2026-10-06T11:00:00Z"
+    },
+    {
+      "id": "000000s1-0000-4000-8000-000000000002",
+      "user_id": "00000000-0000-4000-8000-0000000000aa",
+      "project_id": "000000p1-0000-4000-8000-000000000002",
+      "source_lang": "en",
+      "target_lang": "es",
+      "source_text": "Invite a teammate to review this draft.",
+      "target_text": "Invita a un compañero a revisar este borrador.",
+      "machine_translation": "Invite a un colega a revisar este borrador.",
+      "position": 2,
+      "reviewer_id": null,
+      "status": "needs_review",
+      "created_at": "2026-10-05T09:00:00Z",
+      "updated_at": "2026-10-05T11:00:00Z"
+    },
+    {
+      "id": "000000s1-0000-4000-8000-000000000003",
+      "user_id": "00000000-0000-4000-8000-0000000000aa",
+      "project_id": "000000p1-0000-4000-8000-000000000001",
+      "source_lang": "en",
+      "target_lang": "es",
+      "source_text": "Payment failed. Update your card to continue.",
+      "target_text": "El pago falló. Actualiza tu tarjeta para continuar.",
+      "machine_translation": "No se pudo procesar el pago. Actualice su tarjeta para continuar.",
+      "position": 3,
+      "reviewer_id": null,
+      "status": "needs_review",
+      "created_at": "2026-10-05T09:00:00Z",
+      "updated_at": "2026-10-04T11:00:00Z"
+    }
+  ]
+}

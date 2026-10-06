@@ -1,0 +1,38 @@
+[
+  {
+    "id": "000000a1-0000-4000-8000-000000000001",
+    "actor": "Maria Sanchez",
+    "actor_initials": "MS",
+    "kind": "review_requested",
+    "text": "requested a review on 12 segments",
+    "project": {
+      "id": "000000p1-0000-4000-8000-000000000001",
+      "name": "Mobile app 4.2 release notes"
+    },
+    "timestamp": "2026-10-06T14:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000002",
+    "actor": "Jonas Keller",
+    "actor_initials": "JK",
+    "kind": "commented",
+    "text": "left a comment on a glossary term",
+    "project": {
+      "id": "000000p1-0000-4000-8000-000000000002",
+      "name": "Help centre: billing articles"
+    },
+    "timestamp": "2026-10-05T14:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000003",
+    "actor": "Yuna Sato",
+    "actor_initials": "YS",
+    "kind": "approved",
+    "text": "approved the final translations",
+    "project": {
+      "id": "000000p1-0000-4000-8000-000000000003",
+      "name": "Marketing site spring campaign"
+    },
+    "timestamp": "2026-10-04T14:00:00Z"
+  }
+]

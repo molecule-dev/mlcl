@@ -1,0 +1,32 @@
+[
+  {
+    "id": "000000n1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "kind": "review_requested",
+    "title": "Review requested",
+    "body": "Maria asked you to review 12 segments in Mobile app 4.2.",
+    "link": null,
+    "read_at": null,
+    "created_at": "2026-10-06T09:00:00Z"
+  },
+  {
+    "id": "000000n1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "kind": "approved",
+    "title": "Project approved",
+    "body": "Marketing site spring campaign was approved.",
+    "link": null,
+    "read_at": "2026-10-06T08:00:00Z",
+    "created_at": "2026-10-05T09:00:00Z"
+  },
+  {
+    "id": "000000n1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "kind": "commented",
+    "title": "New comment",
+    "body": "Jonas commented on a segment in Help centre.",
+    "link": null,
+    "read_at": "2026-10-06T08:00:00Z",
+    "created_at": "2026-10-04T09:00:00Z"
+  }
+]
