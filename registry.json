@@ -58739,7 +58739,7 @@
       "@molecule/api-ai-decisions-molecule": "1.1.0",
       "@molecule/api-image-molecule": "1.1.0",
       "@molecule/api-uploads-encrypted": "1.1.1",
-      "@molecule/api-uploads-mirror": "1.1.1",
+      "@molecule/api-uploads-mirror": "1.1.2",
       "@molecule/api-geolocation-photon": "1.1.0",
       "@molecule/api-geolocation-molecule": "1.1.0"
     }
