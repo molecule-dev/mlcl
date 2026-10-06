@@ -1,0 +1,1092 @@
+{
+  "puzzles/today": {
+    "date": "2026-10-06",
+    "puzzleNumber": 475,
+    "practice": false,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "correct",
+          "absent",
+          "present"
+        ]
+      },
+      {
+        "word": "pride",
+        "feedback": [
+          "absent",
+          "present",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      }
+    ],
+    "status": "playing",
+    "attempts": 2
+  },
+  "puzzles/2026-10-05": {
+    "date": "2026-10-05",
+    "puzzleNumber": 474,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "present",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "grace",
+        "feedback": [
+          "correct",
+          "correct",
+          "correct",
+          "correct",
+          "correct"
+        ]
+      }
+    ],
+    "status": "won",
+    "attempts": 3,
+    "answer": "grace"
+  },
+  "puzzles/2026-10-04": {
+    "date": "2026-10-04",
+    "puzzleNumber": 473,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "correct",
+          "present",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "pride",
+        "feedback": [
+          "correct",
+          "correct",
+          "correct",
+          "correct",
+          "correct"
+        ]
+      }
+    ],
+    "status": "won",
+    "attempts": 3,
+    "answer": "pride"
+  },
+  "puzzles/2026-10-03": {
+    "date": "2026-10-03",
+    "puzzleNumber": 472,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "present",
+          "absent",
+          "correct"
+        ]
+      },
+      {
+        "word": "pride",
+        "feedback": [
+          "correct",
+          "absent",
+          "present",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "grace",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "story",
+        "feedback": [
+          "absent",
+          "present",
+          "present",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "present",
+          "absent",
+          "correct"
+        ]
+      }
+    ],
+    "status": "lost",
+    "attempts": 5,
+    "answer": "pilot"
+  },
+  "puzzles/2026-10-02": {
+    "date": "2026-10-02",
+    "puzzleNumber": 471,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "correct",
+          "correct",
+          "correct",
+          "correct",
+          "correct"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "present",
+          "correct"
+        ]
+      }
+    ],
+    "status": "won",
+    "attempts": 2,
+    "answer": "about"
+  },
+  "puzzles/2026-10-01": {
+    "date": "2026-10-01",
+    "puzzleNumber": 470,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "correct",
+          "absent",
+          "present"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "present",
+          "present"
+        ]
+      },
+      {
+        "word": "story",
+        "feedback": [
+          "correct",
+          "correct",
+          "correct",
+          "correct",
+          "correct"
+        ]
+      }
+    ],
+    "status": "won",
+    "attempts": 3,
+    "answer": "story"
+  },
+  "puzzles/2026-09-30": {
+    "date": "2026-09-30",
+    "puzzleNumber": 469,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "present",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "pride",
+        "feedback": [
+          "absent",
+          "correct",
+          "absent",
+          "absent",
+          "correct"
+        ]
+      },
+      {
+        "word": "story",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "present",
+          "absent"
+        ]
+      },
+      {
+        "word": "about",
+        "feedback": [
+          "present",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      }
+    ],
+    "status": "lost",
+    "attempts": 5,
+    "answer": "grace"
+  },
+  "puzzles/2026-09-29": {
+    "date": "2026-09-29",
+    "puzzleNumber": 468,
+    "practice": true,
+    "guesses": [],
+    "status": "playing",
+    "attempts": 0
+  },
+  "puzzles/2026-09-28": {
+    "date": "2026-09-28",
+    "puzzleNumber": 467,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "present",
+          "absent",
+          "correct"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "correct",
+          "correct",
+          "correct",
+          "correct",
+          "correct"
+        ]
+      }
+    ],
+    "status": "won",
+    "attempts": 2,
+    "answer": "pilot"
+  },
+  "puzzles/2026-09-27": {
+    "date": "2026-09-27",
+    "puzzleNumber": 466,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "pilot",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "present",
+          "correct"
+        ]
+      },
+      {
+        "word": "pride",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "grace",
+        "feedback": [
+          "absent",
+          "absent",
+          "present",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "story",
+        "feedback": [
+          "absent",
+          "present",
+          "correct",
+          "absent",
+          "absent"
+        ]
+      }
+    ],
+    "status": "lost",
+    "attempts": 4,
+    "answer": "about"
+  },
+  "puzzles/2026-09-26": {
+    "date": "2026-09-26",
+    "puzzleNumber": 465,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "correct",
+          "absent",
+          "present"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "present",
+          "present"
+        ]
+      },
+      {
+        "word": "story",
+        "feedback": [
+          "correct",
+          "correct",
+          "correct",
+          "correct",
+          "correct"
+        ]
+      }
+    ],
+    "status": "won",
+    "attempts": 3,
+    "answer": "story"
+  },
+  "puzzles/2026-09-25": {
+    "date": "2026-09-25",
+    "puzzleNumber": 464,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "present",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "grace",
+        "feedback": [
+          "correct",
+          "correct",
+          "correct",
+          "correct",
+          "correct"
+        ]
+      }
+    ],
+    "status": "won",
+    "attempts": 3,
+    "answer": "grace"
+  },
+  "puzzles/2026-09-24": {
+    "date": "2026-09-24",
+    "puzzleNumber": 463,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "correct",
+          "present",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "grace",
+        "feedback": [
+          "absent",
+          "correct",
+          "absent",
+          "absent",
+          "correct"
+        ]
+      },
+      {
+        "word": "story",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "present",
+          "absent"
+        ]
+      },
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      }
+    ],
+    "status": "lost",
+    "attempts": 5,
+    "answer": "pride"
+  },
+  "puzzles/2026-09-23": {
+    "date": "2026-09-23",
+    "puzzleNumber": 462,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "present",
+          "absent",
+          "correct"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "correct",
+          "correct",
+          "correct",
+          "correct",
+          "correct"
+        ]
+      }
+    ],
+    "status": "won",
+    "attempts": 2,
+    "answer": "pilot"
+  },
+  "puzzles/2026-09-22": {
+    "date": "2026-09-22",
+    "puzzleNumber": 461,
+    "practice": true,
+    "guesses": [],
+    "status": "playing",
+    "attempts": 0
+  },
+  "puzzles/2026-09-21": {
+    "date": "2026-09-21",
+    "puzzleNumber": 460,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "correct",
+          "absent",
+          "present"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "present",
+          "present"
+        ]
+      },
+      {
+        "word": "pride",
+        "feedback": [
+          "absent",
+          "present",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "grace",
+        "feedback": [
+          "absent",
+          "present",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "correct",
+          "absent",
+          "present"
+        ]
+      }
+    ],
+    "status": "lost",
+    "attempts": 5,
+    "answer": "story"
+  },
+  "puzzles/2026-09-20": {
+    "date": "2026-09-20",
+    "puzzleNumber": 459,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "present",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "grace",
+        "feedback": [
+          "correct",
+          "correct",
+          "correct",
+          "correct",
+          "correct"
+        ]
+      }
+    ],
+    "status": "won",
+    "attempts": 3,
+    "answer": "grace"
+  },
+  "puzzles/2026-09-19": {
+    "date": "2026-09-19",
+    "puzzleNumber": 458,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "correct",
+          "present",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "pride",
+        "feedback": [
+          "correct",
+          "correct",
+          "correct",
+          "correct",
+          "correct"
+        ]
+      }
+    ],
+    "status": "won",
+    "attempts": 3,
+    "answer": "pride"
+  },
+  "puzzles/2026-09-18": {
+    "date": "2026-09-18",
+    "puzzleNumber": 457,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "present",
+          "absent",
+          "correct"
+        ]
+      },
+      {
+        "word": "pride",
+        "feedback": [
+          "correct",
+          "absent",
+          "present",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "grace",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "story",
+        "feedback": [
+          "absent",
+          "present",
+          "present",
+          "absent",
+          "absent"
+        ]
+      },
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "present",
+          "absent",
+          "correct"
+        ]
+      }
+    ],
+    "status": "lost",
+    "attempts": 5,
+    "answer": "pilot"
+  },
+  "puzzles/2026-09-17": {
+    "date": "2026-09-17",
+    "puzzleNumber": 456,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "correct",
+          "correct",
+          "correct",
+          "correct",
+          "correct"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "present",
+          "correct"
+        ]
+      }
+    ],
+    "status": "won",
+    "attempts": 2,
+    "answer": "about"
+  },
+  "puzzles/2026-09-16": {
+    "date": "2026-09-16",
+    "puzzleNumber": 455,
+    "practice": true,
+    "guesses": [
+      {
+        "word": "about",
+        "feedback": [
+          "absent",
+          "absent",
+          "correct",
+          "absent",
+          "present"
+        ]
+      },
+      {
+        "word": "pilot",
+        "feedback": [
+          "absent",
+          "absent",
+          "absent",
+          "present",
+          "present"
+        ]
+      },
+      {
+        "word": "story",
+        "feedback": [
+          "correct",
+          "correct",
+          "correct",
+          "correct",
+          "correct"
+        ]
+      }
+    ],
+    "status": "won",
+    "attempts": 3,
+    "answer": "story"
+  },
+  "puzzles/archive": {
+    "days": [
+      {
+        "date": "2026-10-05",
+        "puzzleNumber": 474,
+        "practice": true,
+        "played": true,
+        "solved": true,
+        "attempts": 3
+      },
+      {
+        "date": "2026-10-04",
+        "puzzleNumber": 473,
+        "practice": true,
+        "played": true,
+        "solved": true,
+        "attempts": 3
+      },
+      {
+        "date": "2026-10-03",
+        "puzzleNumber": 472,
+        "practice": true,
+        "played": true,
+        "solved": false,
+        "attempts": 5
+      },
+      {
+        "date": "2026-10-02",
+        "puzzleNumber": 471,
+        "practice": true,
+        "played": true,
+        "solved": true,
+        "attempts": 2
+      },
+      {
+        "date": "2026-10-01",
+        "puzzleNumber": 470,
+        "practice": true,
+        "played": true,
+        "solved": true,
+        "attempts": 3
+      },
+      {
+        "date": "2026-09-30",
+        "puzzleNumber": 469,
+        "practice": true,
+        "played": true,
+        "solved": false,
+        "attempts": 5
+      },
+      {
+        "date": "2026-09-29",
+        "puzzleNumber": 468,
+        "practice": true,
+        "played": false,
+        "solved": false,
+        "attempts": 0
+      },
+      {
+        "date": "2026-09-28",
+        "puzzleNumber": 467,
+        "practice": true,
+        "played": true,
+        "solved": true,
+        "attempts": 2
+      },
+      {
+        "date": "2026-09-27",
+        "puzzleNumber": 466,
+        "practice": true,
+        "played": true,
+        "solved": false,
+        "attempts": 4
+      },
+      {
+        "date": "2026-09-26",
+        "puzzleNumber": 465,
+        "practice": true,
+        "played": true,
+        "solved": true,
+        "attempts": 3
+      },
+      {
+        "date": "2026-09-25",
+        "puzzleNumber": 464,
+        "practice": true,
+        "played": true,
+        "solved": true,
+        "attempts": 3
+      },
+      {
+        "date": "2026-09-24",
+        "puzzleNumber": 463,
+        "practice": true,
+        "played": true,
+        "solved": false,
+        "attempts": 5
+      },
+      {
+        "date": "2026-09-23",
+        "puzzleNumber": 462,
+        "practice": true,
+        "played": true,
+        "solved": true,
+        "attempts": 2
+      },
+      {
+        "date": "2026-09-22",
+        "puzzleNumber": 461,
+        "practice": true,
+        "played": false,
+        "solved": false,
+        "attempts": 0
+      },
+      {
+        "date": "2026-09-21",
+        "puzzleNumber": 460,
+        "practice": true,
+        "played": true,
+        "solved": false,
+        "attempts": 5
+      },
+      {
+        "date": "2026-09-20",
+        "puzzleNumber": 459,
+        "practice": true,
+        "played": true,
+        "solved": true,
+        "attempts": 3
+      },
+      {
+        "date": "2026-09-19",
+        "puzzleNumber": 458,
+        "practice": true,
+        "played": true,
+        "solved": true,
+        "attempts": 3
+      },
+      {
+        "date": "2026-09-18",
+        "puzzleNumber": 457,
+        "practice": true,
+        "played": true,
+        "solved": false,
+        "attempts": 5
+      },
+      {
+        "date": "2026-09-17",
+        "puzzleNumber": 456,
+        "practice": true,
+        "played": true,
+        "solved": true,
+        "attempts": 2
+      },
+      {
+        "date": "2026-09-16",
+        "puzzleNumber": 455,
+        "practice": true,
+        "played": true,
+        "solved": true,
+        "attempts": 3
+      }
+    ]
+  },
+  "stats/me": {
+    "played": 42,
+    "wins": 37,
+    "winRate": 88,
+    "currentStreak": 6,
+    "maxStreak": 14,
+    "distribution": {
+      "1": 0,
+      "2": 3,
+      "3": 12,
+      "4": 14,
+      "5": 6,
+      "6": 2
+    }
+  },
+  "leaderboard/": {
+    "date": "2026-10-06",
+    "daily": {
+      "date": "2026-10-06",
+      "players": 1284,
+      "solves": 1021,
+      "solvesByAttempt": [
+        {
+          "attempts": 1,
+          "players": 12
+        },
+        {
+          "attempts": 2,
+          "players": 94
+        },
+        {
+          "attempts": 3,
+          "players": 318
+        },
+        {
+          "attempts": 4,
+          "players": 351
+        },
+        {
+          "attempts": 5,
+          "players": 180
+        },
+        {
+          "attempts": 6,
+          "players": 66
+        }
+      ]
+    },
+    "streakLeaders": [
+      {
+        "rank": 1,
+        "name": "claire_b",
+        "played": 212,
+        "wins": 190,
+        "currentStreak": 61,
+        "maxStreak": 88
+      },
+      {
+        "rank": 2,
+        "name": "morning_thinker",
+        "played": 340,
+        "wins": 301,
+        "currentStreak": 44,
+        "maxStreak": 90
+      },
+      {
+        "rank": 3,
+        "name": "dad_crosswords",
+        "played": 180,
+        "wins": 151,
+        "currentStreak": 31,
+        "maxStreak": 52
+      },
+      {
+        "rank": 4,
+        "name": "timmy_t",
+        "played": 96,
+        "wins": 80,
+        "currentStreak": 23,
+        "maxStreak": 30
+      },
+      {
+        "rank": 5,
+        "name": "sophie_k",
+        "played": 120,
+        "wins": 99,
+        "currentStreak": 18,
+        "maxStreak": 41
+      }
+    ]
+  }
+}
