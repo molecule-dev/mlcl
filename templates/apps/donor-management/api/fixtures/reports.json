@@ -1,0 +1,193 @@
+{
+  "dashboard/summary": {
+    "year": 2026,
+    "raised_ytd_cents": 1892500,
+    "donor_count": 8,
+    "gifts_ytd": 6,
+    "avg_gift_cents": 315417,
+    "recent_gifts": [
+      {
+        "id": "gft-3003",
+        "donor_id": "don-1001",
+        "donor_name": "Margaret Osei",
+        "amount_cents": 750000,
+        "gift_date": "2026-11-18",
+        "method": "check",
+        "fund": "capital",
+        "campaign_id": "cam-2001",
+        "campaign_name": "Year-End Appeal",
+        "receipt_id": null,
+        "receipted": false,
+        "note": "",
+        "created_at": "2026-11-18T18:00:00Z"
+      },
+      {
+        "id": "gft-3008",
+        "donor_id": "don-1005",
+        "donor_name": "Peter Kowalski",
+        "amount_cents": 100000,
+        "gift_date": "2026-11-05",
+        "method": "check",
+        "fund": "endowment",
+        "campaign_id": null,
+        "campaign_name": null,
+        "receipt_id": null,
+        "receipted": false,
+        "note": "",
+        "created_at": "2026-11-05T18:00:00Z"
+      },
+      {
+        "id": "gft-3009",
+        "donor_id": "don-1006",
+        "donor_name": "Sofia Márquez",
+        "amount_cents": 35000,
+        "gift_date": "2026-10-29",
+        "method": "card",
+        "fund": "general",
+        "campaign_id": "cam-2001",
+        "campaign_name": "Year-End Appeal",
+        "receipt_id": null,
+        "receipted": false,
+        "note": "",
+        "created_at": "2026-10-29T18:00:00Z"
+      },
+      {
+        "id": "gft-3004",
+        "donor_id": "don-1002",
+        "donor_name": "Daniel Reyes",
+        "amount_cents": 5000,
+        "gift_date": "2026-09-02",
+        "method": "card",
+        "fund": "general",
+        "campaign_id": "cam-2003",
+        "campaign_name": "Monthly Sustainers",
+        "receipt_id": null,
+        "receipted": false,
+        "note": "",
+        "created_at": "2026-09-02T08:00:00Z"
+      },
+      {
+        "id": "gft-3011",
+        "donor_id": "don-1008",
+        "donor_name": "Grace Nakamura",
+        "amount_cents": 2500,
+        "gift_date": "2026-08-11",
+        "method": "cash",
+        "fund": "general",
+        "campaign_id": null,
+        "campaign_name": null,
+        "receipt_id": null,
+        "receipted": false,
+        "note": "",
+        "created_at": "2026-08-11T18:00:00Z"
+      },
+      {
+        "id": "gft-3010",
+        "donor_id": "don-1007",
+        "donor_name": "Riverside Family Fund",
+        "amount_cents": 1000000,
+        "gift_date": "2026-06-30",
+        "method": "check",
+        "fund": "programs",
+        "campaign_id": null,
+        "campaign_name": null,
+        "receipt_id": null,
+        "receipted": false,
+        "note": "Annual community grant",
+        "created_at": "2026-06-30T18:00:00Z"
+      },
+      {
+        "id": "gft-3007",
+        "donor_id": "don-1004",
+        "donor_name": "Helen Larsen",
+        "amount_cents": 10000,
+        "gift_date": "2025-12-03",
+        "method": "check",
+        "fund": "general",
+        "campaign_id": "cam-2001",
+        "campaign_name": "Year-End Appeal",
+        "receipt_id": "rct-4001",
+        "receipted": true,
+        "note": "",
+        "created_at": "2025-12-03T18:00:00Z"
+      },
+      {
+        "id": "gft-3002",
+        "donor_id": "don-1001",
+        "donor_name": "Margaret Osei",
+        "amount_cents": 500000,
+        "gift_date": "2025-11-30",
+        "method": "check",
+        "fund": "capital",
+        "campaign_id": "cam-2001",
+        "campaign_name": "Year-End Appeal",
+        "receipt_id": null,
+        "receipted": false,
+        "note": "",
+        "created_at": "2025-11-30T18:00:00Z"
+      }
+    ],
+    "campaigns": [
+      {
+        "id": "cam-2001",
+        "name": "Year-End Appeal",
+        "description": "Annual year-end giving drive across mail, email and social.",
+        "goal_cents": 5000000,
+        "starts_on": "2026-10-01",
+        "ends_on": "2026-12-31",
+        "status": "active",
+        "created_at": "2026-09-15T10:00:00Z",
+        "raised_cents": 1310000,
+        "gift_count": 3
+      },
+      {
+        "id": "cam-2002",
+        "name": "Spring Gala",
+        "description": "Evening fundraiser with dinner, auction and program.",
+        "goal_cents": 2500000,
+        "starts_on": "2025-03-01",
+        "ends_on": "2025-05-31",
+        "status": "completed",
+        "created_at": "2025-02-20T10:00:00Z",
+        "raised_cents": 262000,
+        "gift_count": 2
+      },
+      {
+        "id": "cam-2003",
+        "name": "Monthly Sustainers",
+        "description": "Recurring monthly giving program — steady support for general operations.",
+        "goal_cents": 1800000,
+        "starts_on": "2025-01-01",
+        "ends_on": null,
+        "status": "active",
+        "created_at": "2025-01-02T10:00:00Z",
+        "raised_cents": 120000,
+        "gift_count": 10
+      }
+    ]
+  },
+  "receipts/preview": {
+    "donor_id": "don-1001",
+    "donor_name": "Margaret Osei",
+    "year": 2026,
+    "gift_count": 2,
+    "total_cents": 850000,
+    "gifts": [
+      {
+        "id": "gft-3003",
+        "donor_id": "don-1001",
+        "donor_name": "Margaret Osei",
+        "amount_cents": 750000,
+        "gift_date": "2026-11-18",
+        "method": "check",
+        "fund": "capital",
+        "campaign_id": "cam-2001",
+        "campaign_name": "Year-End Appeal",
+        "receipt_id": null,
+        "receipted": false,
+        "note": "",
+        "created_at": "2026-11-18T18:00:00Z"
+      }
+    ]
+  }
+}
