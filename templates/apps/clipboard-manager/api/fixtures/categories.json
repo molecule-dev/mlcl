@@ -1,0 +1,42 @@
+[
+  {
+    "id": "cat-1",
+    "name": "Snippets",
+    "icon": "code",
+    "color": "#2563eb",
+    "position": 0,
+    "clip_count": 2,
+    "created_at": "2026-09-06T12:00:00.000Z",
+    "updated_at": "2026-09-06T12:00:00.000Z"
+  },
+  {
+    "id": "cat-2",
+    "name": "Links",
+    "icon": "link",
+    "color": "#0d9488",
+    "position": 1,
+    "clip_count": 2,
+    "created_at": "2026-09-06T12:00:00.000Z",
+    "updated_at": "2026-09-06T12:00:00.000Z"
+  },
+  {
+    "id": "cat-3",
+    "name": "Work",
+    "icon": "work",
+    "color": "#7c3aed",
+    "position": 2,
+    "clip_count": 2,
+    "created_at": "2026-09-06T12:00:00.000Z",
+    "updated_at": "2026-09-06T12:00:00.000Z"
+  },
+  {
+    "id": "cat-4",
+    "name": "Credentials",
+    "icon": "lock",
+    "color": "#db2777",
+    "position": 3,
+    "clip_count": 2,
+    "created_at": "2026-09-06T12:00:00.000Z",
+    "updated_at": "2026-09-06T12:00:00.000Z"
+  }
+]

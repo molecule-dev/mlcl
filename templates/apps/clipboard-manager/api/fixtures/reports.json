@@ -1,0 +1,16 @@
+{
+  "profile/me": {
+    "id": "user-1",
+    "email": "alex@example.com",
+    "name": "Alex Morgan",
+    "planKey": "pro",
+    "theme": "system",
+    "toggles": {
+      "sync": true,
+      "autoEncrypt": true,
+      "desktopOverlay": false,
+      "menuBar": true,
+      "startAtLogin": true
+    }
+  }
+}

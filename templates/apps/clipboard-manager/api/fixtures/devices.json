@@ -1,0 +1,32 @@
+[
+  {
+    "id": "dev-1",
+    "userId": "user-1",
+    "name": "MacBook Pro",
+    "pushPlatform": "web",
+    "hasPushSubscription": true,
+    "isCurrent": true,
+    "createdAt": "2026-08-07T12:00:00.000Z",
+    "updatedAt": "2026-10-06T11:58:00.000Z"
+  },
+  {
+    "id": "dev-2",
+    "userId": "user-1",
+    "name": "Windows desktop",
+    "pushPlatform": "web",
+    "hasPushSubscription": false,
+    "isCurrent": false,
+    "createdAt": "2026-08-27T12:00:00.000Z",
+    "updatedAt": "2026-10-06T07:00:00.000Z"
+  },
+  {
+    "id": "dev-3",
+    "userId": "user-1",
+    "name": "iPhone",
+    "pushPlatform": "apns",
+    "hasPushSubscription": true,
+    "isCurrent": false,
+    "createdAt": "2026-09-24T12:00:00.000Z",
+    "updatedAt": "2026-10-05T16:00:00.000Z"
+  }
+]
