@@ -1,0 +1,142 @@
+[
+  {
+    "id": "shp-1",
+    "manifest_number": "MAN-2610",
+    "tracking_number": "1Z990W90362000",
+    "carrier": "UPS",
+    "service": "Ground",
+    "dock": "Dock 1",
+    "weight_oz": 420,
+    "status": "loaded",
+    "cutoff_at": "2026-10-06T16:00:00.000Z",
+    "created_at": "2026-10-06T09:00:00.000Z",
+    "events": [
+      {
+        "id": "shp-1-e1",
+        "status": "manifested",
+        "description": "Label created",
+        "location": "Reno, NV",
+        "created_at": "2026-10-06T09:00:00.000Z"
+      },
+      {
+        "id": "shp-1-e2",
+        "status": "loaded",
+        "description": "Loaded on truck",
+        "location": "Reno, NV",
+        "created_at": "2026-10-06T14:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "shp-2",
+    "manifest_number": "MAN-2611",
+    "tracking_number": "1Z991W90362001",
+    "carrier": "FedEx",
+    "service": "2-Day",
+    "dock": "Dock 2",
+    "weight_oz": 180,
+    "status": "in_transit",
+    "cutoff_at": "2026-10-06T17:00:00.000Z",
+    "created_at": "2026-10-05T09:00:00.000Z",
+    "events": [
+      {
+        "id": "shp-2-e1",
+        "status": "manifested",
+        "description": "Label created",
+        "location": "Reno, NV",
+        "created_at": "2026-10-05T09:00:00.000Z"
+      },
+      {
+        "id": "shp-2-e2",
+        "status": "loaded",
+        "description": "Loaded on truck",
+        "location": "Reno, NV",
+        "created_at": "2026-10-05T14:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "shp-3",
+    "manifest_number": "MAN-2612",
+    "tracking_number": "1Z992W90362002",
+    "carrier": "USPS",
+    "service": "Priority",
+    "dock": "Dock 3",
+    "weight_oz": 96,
+    "status": "in_transit",
+    "cutoff_at": "2026-10-06T16:00:00.000Z",
+    "created_at": "2026-10-04T09:00:00.000Z",
+    "events": [
+      {
+        "id": "shp-3-e1",
+        "status": "manifested",
+        "description": "Label created",
+        "location": "Reno, NV",
+        "created_at": "2026-10-04T09:00:00.000Z"
+      },
+      {
+        "id": "shp-3-e2",
+        "status": "loaded",
+        "description": "Loaded on truck",
+        "location": "Reno, NV",
+        "created_at": "2026-10-04T14:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "shp-4",
+    "manifest_number": "MAN-2613",
+    "tracking_number": "1Z993W90362003",
+    "carrier": "UPS",
+    "service": "Next Day",
+    "dock": "Dock 1",
+    "weight_oz": 610,
+    "status": "manifested",
+    "cutoff_at": "2026-10-06T17:00:00.000Z",
+    "created_at": "2026-10-03T09:00:00.000Z",
+    "events": [
+      {
+        "id": "shp-4-e1",
+        "status": "manifested",
+        "description": "Label created",
+        "location": "Reno, NV",
+        "created_at": "2026-10-03T09:00:00.000Z"
+      },
+      {
+        "id": "shp-4-e2",
+        "status": "loaded",
+        "description": "Loaded on truck",
+        "location": "Reno, NV",
+        "created_at": "2026-10-03T14:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "shp-5",
+    "manifest_number": "MAN-2614",
+    "tracking_number": "1Z994W90362004",
+    "carrier": "FedEx",
+    "service": "Ground",
+    "dock": "Dock 2",
+    "weight_oz": 240,
+    "status": "delivered",
+    "cutoff_at": "2026-10-06T16:00:00.000Z",
+    "created_at": "2026-10-02T09:00:00.000Z",
+    "events": [
+      {
+        "id": "shp-5-e1",
+        "status": "manifested",
+        "description": "Label created",
+        "location": "Reno, NV",
+        "created_at": "2026-10-02T09:00:00.000Z"
+      },
+      {
+        "id": "shp-5-e2",
+        "status": "loaded",
+        "description": "Loaded on truck",
+        "location": "Reno, NV",
+        "created_at": "2026-10-02T14:00:00.000Z"
+      }
+    ]
+  }
+]

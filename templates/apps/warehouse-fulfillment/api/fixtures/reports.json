@@ -1,0 +1,18 @@
+{
+  "orders/stats/counts": {
+    "pending": 1,
+    "picking": 2,
+    "packed": 2,
+    "shipped": 2,
+    "cancelled": 0,
+    "returned": 0,
+    "rush": 2,
+    "total": 8
+  },
+  "inventory/stats": {
+    "total": 8,
+    "units": 956,
+    "lowStock": 3,
+    "outOfStock": 1
+  }
+}

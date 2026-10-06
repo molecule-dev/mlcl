@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ntf-1",
+    "kind": "low_stock",
+    "title": "Low stock: Wool throw, charcoal",
+    "body": "18 units left, reorder point is 20.",
+    "link": "/inventory",
+    "read_at": null,
+    "created_at": "2026-10-06T09:00:00.000Z"
+  },
+  {
+    "id": "ntf-2",
+    "kind": "order",
+    "title": "Rush order WF-10428 needs picking",
+    "body": "Promised for tomorrow 5 PM.",
+    "link": "/orders",
+    "read_at": null,
+    "created_at": "2026-10-06T08:00:00.000Z"
+  },
+  {
+    "id": "ntf-3",
+    "kind": "receiving",
+    "title": "PO-7741 arrives today",
+    "body": "320 units expected at the receiving dock.",
+    "link": "/receiving",
+    "read_at": "2026-10-05T09:00:00.000Z",
+    "created_at": "2026-10-06T07:00:00.000Z"
+  }
+]

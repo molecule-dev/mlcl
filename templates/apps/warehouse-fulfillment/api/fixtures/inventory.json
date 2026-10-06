@@ -1,0 +1,210 @@
+[
+  {
+    "id": "inv-001",
+    "sku": "WH-1001",
+    "name": "Ceramic pour-over set",
+    "bin": "A-01-03",
+    "onHand": 142,
+    "reorderPoint": 40,
+    "price": 4800,
+    "description": "Ceramic pour-over set, stored in bin A-01-03.",
+    "movements": [
+      {
+        "id": "mv-0-1",
+        "type": "in",
+        "quantity": 162,
+        "reason": "PO receipt",
+        "createdAt": "2026-09-22T10:00:00.000Z"
+      },
+      {
+        "id": "mv-0-2",
+        "type": "out",
+        "quantity": 20,
+        "reason": "Order fulfilment",
+        "createdAt": "2026-10-03T15:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "inv-002",
+    "sku": "WH-1002",
+    "name": "Merino hiking socks (pair)",
+    "bin": "A-02-01",
+    "onHand": 388,
+    "reorderPoint": 120,
+    "price": 1850,
+    "description": "Merino hiking socks (pair), stored in bin A-02-01.",
+    "movements": [
+      {
+        "id": "mv-1-1",
+        "type": "in",
+        "quantity": 408,
+        "reason": "PO receipt",
+        "createdAt": "2026-09-22T10:00:00.000Z"
+      },
+      {
+        "id": "mv-1-2",
+        "type": "out",
+        "quantity": 20,
+        "reason": "Order fulfilment",
+        "createdAt": "2026-10-03T15:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "inv-003",
+    "sku": "WH-1003",
+    "name": "Stainless trail mug 12oz",
+    "bin": "B-01-04",
+    "onHand": 64,
+    "reorderPoint": 80,
+    "price": 2200,
+    "description": "Stainless trail mug 12oz, stored in bin B-01-04.",
+    "movements": [
+      {
+        "id": "mv-2-1",
+        "type": "in",
+        "quantity": 84,
+        "reason": "PO receipt",
+        "createdAt": "2026-09-22T10:00:00.000Z"
+      },
+      {
+        "id": "mv-2-2",
+        "type": "out",
+        "quantity": 20,
+        "reason": "Order fulfilment",
+        "createdAt": "2026-10-03T15:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "inv-004",
+    "sku": "WH-1004",
+    "name": "Wax-canvas zip pouch",
+    "bin": "B-02-02",
+    "onHand": 0,
+    "reorderPoint": 25,
+    "price": 1600,
+    "description": "Wax-canvas zip pouch, stored in bin B-02-02.",
+    "movements": [
+      {
+        "id": "mv-3-1",
+        "type": "in",
+        "quantity": 20,
+        "reason": "PO receipt",
+        "createdAt": "2026-09-22T10:00:00.000Z"
+      },
+      {
+        "id": "mv-3-2",
+        "type": "out",
+        "quantity": 20,
+        "reason": "Order fulfilment",
+        "createdAt": "2026-10-03T15:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "inv-005",
+    "sku": "WH-1005",
+    "name": "Linen journal, A5",
+    "bin": "C-01-01",
+    "onHand": 211,
+    "reorderPoint": 60,
+    "price": 1400,
+    "description": "Linen journal, A5, stored in bin C-01-01.",
+    "movements": [
+      {
+        "id": "mv-4-1",
+        "type": "in",
+        "quantity": 231,
+        "reason": "PO receipt",
+        "createdAt": "2026-09-22T10:00:00.000Z"
+      },
+      {
+        "id": "mv-4-2",
+        "type": "out",
+        "quantity": 20,
+        "reason": "Order fulfilment",
+        "createdAt": "2026-10-03T15:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "inv-006",
+    "sku": "WH-1006",
+    "name": "Soy candle, cedarwood",
+    "bin": "C-03-02",
+    "onHand": 37,
+    "reorderPoint": 50,
+    "price": 2400,
+    "description": "Soy candle, cedarwood, stored in bin C-03-02.",
+    "movements": [
+      {
+        "id": "mv-5-1",
+        "type": "in",
+        "quantity": 57,
+        "reason": "PO receipt",
+        "createdAt": "2026-09-22T10:00:00.000Z"
+      },
+      {
+        "id": "mv-5-2",
+        "type": "out",
+        "quantity": 20,
+        "reason": "Order fulfilment",
+        "createdAt": "2026-10-03T15:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "inv-007",
+    "sku": "WH-1007",
+    "name": "Wool throw, charcoal",
+    "bin": "D-01-01",
+    "onHand": 18,
+    "reorderPoint": 20,
+    "price": 8900,
+    "description": "Wool throw, charcoal, stored in bin D-01-01.",
+    "movements": [
+      {
+        "id": "mv-6-1",
+        "type": "in",
+        "quantity": 38,
+        "reason": "PO receipt",
+        "createdAt": "2026-09-22T10:00:00.000Z"
+      },
+      {
+        "id": "mv-6-2",
+        "type": "out",
+        "quantity": 20,
+        "reason": "Order fulfilment",
+        "createdAt": "2026-10-03T15:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "inv-008",
+    "sku": "WH-1008",
+    "name": "Glazed mug, terracotta",
+    "bin": "D-02-03",
+    "onHand": 96,
+    "reorderPoint": 40,
+    "price": 1900,
+    "description": "Glazed mug, terracotta, stored in bin D-02-03.",
+    "movements": [
+      {
+        "id": "mv-7-1",
+        "type": "in",
+        "quantity": 116,
+        "reason": "PO receipt",
+        "createdAt": "2026-09-22T10:00:00.000Z"
+      },
+      {
+        "id": "mv-7-2",
+        "type": "out",
+        "quantity": 20,
+        "reason": "Order fulfilment",
+        "createdAt": "2026-10-03T15:00:00.000Z"
+      }
+    ]
+  }
+]

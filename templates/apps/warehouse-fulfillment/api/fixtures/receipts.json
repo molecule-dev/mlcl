@@ -1,0 +1,38 @@
+[
+  {
+    "id": "rcp-1",
+    "supplier": "Hearthware Co.",
+    "po_number": "PO-7741",
+    "expected_units": 320,
+    "expected_at": "2026-10-06T09:00:00.000Z",
+    "received_at": null,
+    "status": "expected"
+  },
+  {
+    "id": "rcp-2",
+    "supplier": "Northbound Textiles",
+    "po_number": "PO-7738",
+    "expected_units": 500,
+    "expected_at": "2026-10-05T09:00:00.000Z",
+    "received_at": "2026-10-05T11:00:00.000Z",
+    "status": "received"
+  },
+  {
+    "id": "rcp-3",
+    "supplier": "Kiln & Co.",
+    "po_number": "PO-7735",
+    "expected_units": 240,
+    "expected_at": "2026-10-04T09:00:00.000Z",
+    "received_at": "2026-10-04T13:00:00.000Z",
+    "status": "received"
+  },
+  {
+    "id": "rcp-4",
+    "supplier": "Paper Mill Supply",
+    "po_number": "PO-7742",
+    "expected_units": 180,
+    "expected_at": "2026-10-08T09:00:00.000Z",
+    "received_at": null,
+    "status": "expected"
+  }
+]

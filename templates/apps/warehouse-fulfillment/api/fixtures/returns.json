@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ret-1",
+    "rma_number": "RMA-2041",
+    "reason": "Wrong size",
+    "status": "received",
+    "resolution": "restock",
+    "received_at": "2026-10-04T10:00:00.000Z",
+    "created_at": "2026-10-03T09:00:00.000Z"
+  },
+  {
+    "id": "ret-2",
+    "rma_number": "RMA-2042",
+    "reason": "Arrived damaged",
+    "status": "inspecting",
+    "resolution": null,
+    "received_at": null,
+    "created_at": "2026-10-02T09:00:00.000Z"
+  },
+  {
+    "id": "ret-3",
+    "rma_number": "RMA-2043",
+    "reason": "Changed mind",
+    "status": "requested",
+    "resolution": null,
+    "received_at": null,
+    "created_at": "2026-10-01T09:00:00.000Z"
+  }
+]

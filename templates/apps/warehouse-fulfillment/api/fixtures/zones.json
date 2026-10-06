@@ -1,0 +1,42 @@
+[
+  {
+    "id": "zone-1",
+    "kind": "receiving",
+    "name": "Receiving",
+    "code": "R",
+    "bins": 8,
+    "utilization_pct": 34
+  },
+  {
+    "id": "zone-2",
+    "kind": "picking",
+    "name": "Picking A",
+    "code": "A",
+    "bins": 48,
+    "utilization_pct": 76
+  },
+  {
+    "id": "zone-3",
+    "kind": "picking",
+    "name": "Picking B",
+    "code": "B",
+    "bins": 48,
+    "utilization_pct": 62
+  },
+  {
+    "id": "zone-4",
+    "kind": "packing",
+    "name": "Packing",
+    "code": "P",
+    "bins": 12,
+    "utilization_pct": 58
+  },
+  {
+    "id": "zone-5",
+    "kind": "shipping",
+    "name": "Shipping dock",
+    "code": "S",
+    "bins": 6,
+    "utilization_pct": 81
+  }
+]

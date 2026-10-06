@@ -1,114 +1,382 @@
 [
   {
     "id": "ord-001",
-    "external_order_id": "WF-10428",
-    "customer_name": "Margot Aldridge",
-    "item_count": 4,
-    "weight_lb": 12.4,
-    "shipping_method": "Express Ground",
+    "userId": "u_demo",
+    "externalOrderId": "WF-10428",
+    "customerName": "Margot Aldridge",
+    "customerEmail": "margot.aldridge@example.com",
     "status": "picking",
     "priority": "rush",
-    "created_at": "2026-04-30T01:14:00Z",
-    "ship_to_city": "Portland, OR",
-    "carrier": "UPS",
-    "service_level": "Next Day"
+    "shippingMethod": "Express Ground",
+    "shippingAddress": {
+      "city": "Portland, OR"
+    },
+    "weightLb": 12.4,
+    "total": 16000,
+    "promisedAt": "2026-10-07T17:00:00.000Z",
+    "createdAt": "2026-10-06T01:14:00Z",
+    "items": [
+      {
+        "id": "ord-001-it1",
+        "productId": "inv-001",
+        "name": "Ceramic pour-over set",
+        "price": 4800,
+        "quantity": 3
+      },
+      {
+        "id": "ord-001-it2",
+        "productId": "inv-004",
+        "name": "Wax-canvas zip pouch",
+        "price": 1600,
+        "quantity": 1
+      }
+    ],
+    "events": [
+      {
+        "id": "ord-001-ev1",
+        "status": "pending",
+        "createdAt": "2026-10-06T08:00:00.000Z"
+      },
+      {
+        "id": "ord-001-ev2",
+        "status": "picking",
+        "createdAt": "2026-10-06T09:00:00.000Z"
+      }
+    ]
   },
   {
     "id": "ord-002",
-    "external_order_id": "WF-10427",
-    "customer_name": "Idris Kovacic",
-    "item_count": 2,
-    "weight_lb": 5.8,
-    "shipping_method": "Two-Day Air",
+    "userId": "u_demo",
+    "externalOrderId": "WF-10427",
+    "customerName": "Idris Kovacic",
+    "customerEmail": "idris.kovacic@example.com",
     "status": "packed",
     "priority": "express",
-    "created_at": "2026-04-30T00:42:00Z",
-    "ship_to_city": "Brooklyn, NY",
-    "carrier": "FedEx",
-    "service_level": "2-Day"
+    "shippingMethod": "Two-Day Air",
+    "shippingAddress": {
+      "city": "Brooklyn, NY"
+    },
+    "weightLb": 5.8,
+    "total": 3250,
+    "promisedAt": "2026-10-07T17:00:00.000Z",
+    "createdAt": "2026-10-06T00:42:00Z",
+    "items": [
+      {
+        "id": "ord-002-it1",
+        "productId": "inv-002",
+        "name": "Merino hiking socks (pair)",
+        "price": 1850,
+        "quantity": 1
+      },
+      {
+        "id": "ord-002-it2",
+        "productId": "inv-005",
+        "name": "Linen journal, A5",
+        "price": 1400,
+        "quantity": 1
+      }
+    ],
+    "events": [
+      {
+        "id": "ord-002-ev1",
+        "status": "pending",
+        "createdAt": "2026-10-06T08:00:00.000Z"
+      },
+      {
+        "id": "ord-002-ev2",
+        "status": "picking",
+        "createdAt": "2026-10-06T09:00:00.000Z"
+      },
+      {
+        "id": "ord-002-ev3",
+        "status": "packed",
+        "createdAt": "2026-10-06T10:00:00.000Z"
+      }
+    ]
   },
   {
     "id": "ord-003",
-    "external_order_id": "WF-10426",
-    "customer_name": "Bea Halverson",
-    "item_count": 7,
-    "weight_lb": 22.1,
-    "shipping_method": "Standard Ground",
+    "userId": "u_demo",
+    "externalOrderId": "WF-10426",
+    "customerName": "Bea Halverson",
+    "customerEmail": "bea.halverson@example.com",
     "status": "pending",
     "priority": "standard",
-    "created_at": "2026-04-30T00:18:00Z",
-    "ship_to_city": "Austin, TX",
-    "carrier": "USPS",
-    "service_level": "Ground"
+    "shippingMethod": "Standard Ground",
+    "shippingAddress": {
+      "city": "Austin, TX"
+    },
+    "weightLb": 22.1,
+    "total": 15600,
+    "promisedAt": "2026-10-07T17:00:00.000Z",
+    "createdAt": "2026-10-06T00:18:00Z",
+    "items": [
+      {
+        "id": "ord-003-it1",
+        "productId": "inv-003",
+        "name": "Stainless trail mug 12oz",
+        "price": 2200,
+        "quantity": 6
+      },
+      {
+        "id": "ord-003-it2",
+        "productId": "inv-006",
+        "name": "Soy candle, cedarwood",
+        "price": 2400,
+        "quantity": 1
+      }
+    ],
+    "events": [
+      {
+        "id": "ord-003-ev1",
+        "status": "pending",
+        "createdAt": "2026-10-06T08:00:00.000Z"
+      }
+    ]
   },
   {
     "id": "ord-004",
-    "external_order_id": "WF-10425",
-    "customer_name": "Tomás Ribeiro",
-    "item_count": 1,
-    "weight_lb": 0.9,
-    "shipping_method": "Express Ground",
+    "userId": "u_demo",
+    "externalOrderId": "WF-10425",
+    "customerName": "Tomás Ribeiro",
+    "customerEmail": "tom.s.ribeiro@example.com",
     "status": "shipped",
     "priority": "rush",
-    "created_at": "2026-04-29T23:52:00Z",
-    "ship_to_city": "Seattle, WA",
-    "carrier": "UPS",
-    "service_level": "Next Day"
+    "shippingMethod": "Express Ground",
+    "shippingAddress": {
+      "city": "Seattle, WA"
+    },
+    "weightLb": 0.9,
+    "total": 10500,
+    "promisedAt": "2026-10-07T17:00:00.000Z",
+    "createdAt": "2026-04-29T23:52:00Z",
+    "items": [
+      {
+        "id": "ord-004-it1",
+        "productId": "inv-004",
+        "name": "Wax-canvas zip pouch",
+        "price": 1600,
+        "quantity": 1
+      },
+      {
+        "id": "ord-004-it2",
+        "productId": "inv-007",
+        "name": "Wool throw, charcoal",
+        "price": 8900,
+        "quantity": 1
+      }
+    ],
+    "events": [
+      {
+        "id": "ord-004-ev1",
+        "status": "pending",
+        "createdAt": "2026-10-06T08:00:00.000Z"
+      },
+      {
+        "id": "ord-004-ev2",
+        "status": "picking",
+        "createdAt": "2026-10-06T09:00:00.000Z"
+      },
+      {
+        "id": "ord-004-ev3",
+        "status": "packed",
+        "createdAt": "2026-10-06T10:00:00.000Z"
+      },
+      {
+        "id": "ord-004-ev4",
+        "status": "shipped",
+        "createdAt": "2026-10-06T11:00:00.000Z"
+      }
+    ]
   },
   {
     "id": "ord-005",
-    "external_order_id": "WF-10424",
-    "customer_name": "Hana Okafor",
-    "item_count": 3,
-    "weight_lb": 8.3,
-    "shipping_method": "Standard Ground",
+    "userId": "u_demo",
+    "externalOrderId": "WF-10424",
+    "customerName": "Hana Okafor",
+    "customerEmail": "hana.okafor@example.com",
     "status": "delivered",
     "priority": "standard",
-    "created_at": "2026-04-29T22:10:00Z",
-    "ship_to_city": "Chicago, IL",
-    "carrier": "USPS",
-    "service_level": "Ground"
+    "shippingMethod": "Standard Ground",
+    "shippingAddress": {
+      "city": "Chicago, IL"
+    },
+    "weightLb": 8.3,
+    "total": 4700,
+    "promisedAt": "2026-10-07T17:00:00.000Z",
+    "createdAt": "2026-04-29T22:10:00Z",
+    "items": [
+      {
+        "id": "ord-005-it1",
+        "productId": "inv-005",
+        "name": "Linen journal, A5",
+        "price": 1400,
+        "quantity": 2
+      },
+      {
+        "id": "ord-005-it2",
+        "productId": "inv-008",
+        "name": "Glazed mug, terracotta",
+        "price": 1900,
+        "quantity": 1
+      }
+    ],
+    "events": [
+      {
+        "id": "ord-005-ev1",
+        "status": "pending",
+        "createdAt": "2026-10-06T08:00:00.000Z"
+      }
+    ]
   },
   {
     "id": "ord-006",
-    "external_order_id": "WF-10423",
-    "customer_name": "Quinn Devereux",
-    "item_count": 5,
-    "weight_lb": 14.7,
-    "shipping_method": "Two-Day Air",
+    "userId": "u_demo",
+    "externalOrderId": "WF-10423",
+    "customerName": "Quinn Devereux",
+    "customerEmail": "quinn.devereux@example.com",
     "status": "picking",
     "priority": "express",
-    "created_at": "2026-04-29T21:45:00Z",
-    "ship_to_city": "Denver, CO",
-    "carrier": "FedEx",
-    "service_level": "2-Day"
+    "shippingMethod": "Two-Day Air",
+    "shippingAddress": {
+      "city": "Denver, CO"
+    },
+    "weightLb": 14.7,
+    "total": 14400,
+    "promisedAt": "2026-10-07T17:00:00.000Z",
+    "createdAt": "2026-04-29T21:45:00Z",
+    "items": [
+      {
+        "id": "ord-006-it1",
+        "productId": "inv-006",
+        "name": "Soy candle, cedarwood",
+        "price": 2400,
+        "quantity": 4
+      },
+      {
+        "id": "ord-006-it2",
+        "productId": "inv-001",
+        "name": "Ceramic pour-over set",
+        "price": 4800,
+        "quantity": 1
+      }
+    ],
+    "events": [
+      {
+        "id": "ord-006-ev1",
+        "status": "pending",
+        "createdAt": "2026-10-06T08:00:00.000Z"
+      },
+      {
+        "id": "ord-006-ev2",
+        "status": "picking",
+        "createdAt": "2026-10-06T09:00:00.000Z"
+      }
+    ]
   },
   {
     "id": "ord-007",
-    "external_order_id": "WF-10422",
-    "customer_name": "Saoirse Whelan",
-    "item_count": 2,
-    "weight_lb": 3.2,
-    "shipping_method": "Standard Ground",
+    "userId": "u_demo",
+    "externalOrderId": "WF-10422",
+    "customerName": "Saoirse Whelan",
+    "customerEmail": "saoirse.whelan@example.com",
     "status": "packed",
     "priority": "standard",
-    "created_at": "2026-04-29T20:30:00Z",
-    "ship_to_city": "Atlanta, GA",
-    "carrier": "USPS",
-    "service_level": "Ground"
+    "shippingMethod": "Standard Ground",
+    "shippingAddress": {
+      "city": "Atlanta, GA"
+    },
+    "weightLb": 3.2,
+    "total": 10750,
+    "promisedAt": "2026-10-07T17:00:00.000Z",
+    "createdAt": "2026-04-29T20:30:00Z",
+    "items": [
+      {
+        "id": "ord-007-it1",
+        "productId": "inv-007",
+        "name": "Wool throw, charcoal",
+        "price": 8900,
+        "quantity": 1
+      },
+      {
+        "id": "ord-007-it2",
+        "productId": "inv-002",
+        "name": "Merino hiking socks (pair)",
+        "price": 1850,
+        "quantity": 1
+      }
+    ],
+    "events": [
+      {
+        "id": "ord-007-ev1",
+        "status": "pending",
+        "createdAt": "2026-10-06T08:00:00.000Z"
+      },
+      {
+        "id": "ord-007-ev2",
+        "status": "picking",
+        "createdAt": "2026-10-06T09:00:00.000Z"
+      },
+      {
+        "id": "ord-007-ev3",
+        "status": "packed",
+        "createdAt": "2026-10-06T10:00:00.000Z"
+      }
+    ]
   },
   {
     "id": "ord-008",
-    "external_order_id": "WF-10421",
-    "customer_name": "Niko Brennan",
-    "item_count": 9,
-    "weight_lb": 31.8,
-    "shipping_method": "Freight",
+    "userId": "u_demo",
+    "externalOrderId": "WF-10421",
+    "customerName": "Niko Brennan",
+    "customerEmail": "niko.brennan@example.com",
     "status": "shipped",
     "priority": "standard",
-    "created_at": "2026-04-29T19:12:00Z",
-    "ship_to_city": "Phoenix, AZ",
-    "carrier": "Old Dominion",
-    "service_level": "LTL"
+    "shippingMethod": "Freight",
+    "shippingAddress": {
+      "city": "Phoenix, AZ"
+    },
+    "weightLb": 31.8,
+    "total": 17400,
+    "promisedAt": "2026-10-07T17:00:00.000Z",
+    "createdAt": "2026-04-29T19:12:00Z",
+    "items": [
+      {
+        "id": "ord-008-it1",
+        "productId": "inv-008",
+        "name": "Glazed mug, terracotta",
+        "price": 1900,
+        "quantity": 8
+      },
+      {
+        "id": "ord-008-it2",
+        "productId": "inv-003",
+        "name": "Stainless trail mug 12oz",
+        "price": 2200,
+        "quantity": 1
+      }
+    ],
+    "events": [
+      {
+        "id": "ord-008-ev1",
+        "status": "pending",
+        "createdAt": "2026-10-06T08:00:00.000Z"
+      },
+      {
+        "id": "ord-008-ev2",
+        "status": "picking",
+        "createdAt": "2026-10-06T09:00:00.000Z"
+      },
+      {
+        "id": "ord-008-ev3",
+        "status": "packed",
+        "createdAt": "2026-10-06T10:00:00.000Z"
+      },
+      {
+        "id": "ord-008-ev4",
+        "status": "shipped",
+        "createdAt": "2026-10-06T11:00:00.000Z"
+      }
+    ]
   }
 ]
