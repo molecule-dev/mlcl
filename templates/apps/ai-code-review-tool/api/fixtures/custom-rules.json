@@ -1,0 +1,50 @@
+[
+  {
+    "id": "000000d1-0000-4000-8000-000000000001",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "No console.log in production code",
+    "description": "Flags stray debug logging.",
+    "language": "typescript",
+    "pattern": "console\\.log\\(",
+    "severity": "low",
+    "enabled": true,
+    "createdAt": "2026-10-01T10:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000002",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Avoid raw SQL string concatenation",
+    "description": "Use parameterised queries.",
+    "language": "any",
+    "pattern": "SELECT .* \\+",
+    "severity": "high",
+    "enabled": true,
+    "createdAt": "2026-10-02T10:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000003",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Require error handling on fetch",
+    "description": "Every fetch needs a catch or try block.",
+    "language": "typescript",
+    "pattern": "fetch\\(",
+    "severity": "med",
+    "enabled": true,
+    "createdAt": "2026-10-03T10:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000004",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Prefer const over let",
+    "description": "Style nit for reassigned bindings.",
+    "language": "javascript",
+    "pattern": "\\blet\\s",
+    "severity": "info",
+    "enabled": false,
+    "createdAt": "2026-10-04T10:00:00Z"
+  }
+]

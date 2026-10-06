@@ -1,0 +1,102 @@
+[
+  {
+    "id": "000000c1-0000-4000-8000-000000000001",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "pr_id": "000000b1-0000-4000-8000-000000000001",
+    "status": "completed",
+    "quality_score": 82,
+    "severity_summary_json": {
+      "high": 0,
+      "med": 1,
+      "low": 2,
+      "info": 1
+    },
+    "tokens_used": 12000,
+    "cost_cents": 9,
+    "started_at": "2026-10-06T10:00:00Z",
+    "completed_at": "2026-10-06T11:00:00Z",
+    "createdAt": "2026-10-06T10:00:00Z",
+    "updatedAt": "2026-10-06T10:00:00Z"
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000002",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "pr_id": "000000b1-0000-4000-8000-000000000002",
+    "status": "completed",
+    "quality_score": 91,
+    "severity_summary_json": {
+      "high": 0,
+      "med": 2,
+      "low": 2,
+      "info": 1
+    },
+    "tokens_used": 15100,
+    "cost_cents": 11,
+    "started_at": "2026-10-05T10:00:00Z",
+    "completed_at": "2026-10-05T11:00:00Z",
+    "createdAt": "2026-10-05T10:00:00Z",
+    "updatedAt": "2026-10-05T10:00:00Z"
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000003",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "pr_id": "000000b1-0000-4000-8000-000000000003",
+    "status": "completed",
+    "quality_score": 67,
+    "severity_summary_json": {
+      "high": 2,
+      "med": 3,
+      "low": 2,
+      "info": 1
+    },
+    "tokens_used": 18200,
+    "cost_cents": 13,
+    "started_at": "2026-10-04T10:00:00Z",
+    "completed_at": "2026-10-04T11:00:00Z",
+    "createdAt": "2026-10-04T10:00:00Z",
+    "updatedAt": "2026-10-04T10:00:00Z"
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000004",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "pr_id": "000000b1-0000-4000-8000-000000000004",
+    "status": "running",
+    "quality_score": null,
+    "severity_summary_json": {
+      "high": 0,
+      "med": 4,
+      "low": 2,
+      "info": 1
+    },
+    "tokens_used": 21300,
+    "cost_cents": 15,
+    "started_at": "2026-10-03T10:00:00Z",
+    "completed_at": null,
+    "createdAt": "2026-10-03T10:00:00Z",
+    "updatedAt": "2026-10-03T10:00:00Z"
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000005",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "pr_id": "000000b1-0000-4000-8000-000000000005",
+    "status": "failed",
+    "quality_score": null,
+    "severity_summary_json": {
+      "high": 0,
+      "med": 5,
+      "low": 2,
+      "info": 1
+    },
+    "tokens_used": 24400,
+    "cost_cents": 17,
+    "started_at": "2026-10-02T10:00:00Z",
+    "completed_at": null,
+    "createdAt": "2026-10-02T10:00:00Z",
+    "updatedAt": "2026-10-02T10:00:00Z"
+  }
+]

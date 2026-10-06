@@ -1,0 +1,60 @@
+{
+  "summary": {
+    "openPrs": 2,
+    "mergedPrs": 2,
+    "criticalReviews": 2,
+    "totalReviews": 5,
+    "totalRepos": 4,
+    "avgScore": 8
+  },
+  "top-repos": [
+    {
+      "repository_id": "000000r1-0000-4000-8000-000000000001",
+      "full_name": "acme/payments-api",
+      "prs": 3
+    },
+    {
+      "repository_id": "000000r1-0000-4000-8000-000000000002",
+      "full_name": "acme/web-dashboard",
+      "prs": 2
+    },
+    {
+      "repository_id": "000000r1-0000-4000-8000-000000000003",
+      "full_name": "acme/mobile-app",
+      "prs": 1
+    }
+  ],
+  "leaderboard": [
+    {
+      "author_login": "priya",
+      "reviews": 9
+    },
+    {
+      "author_login": "maria",
+      "reviews": 6
+    },
+    {
+      "author_login": "devon",
+      "reviews": 4
+    }
+  ],
+  "severity-counts": {
+    "critical": 2,
+    "changes_requested": 9,
+    "suggestion": 14,
+    "approved": 2,
+    "total": 25
+  },
+  "trend": {
+    "series": [
+      6,
+      7,
+      6,
+      8,
+      7,
+      9,
+      8
+    ],
+    "days": 7
+  }
+}
