@@ -1,0 +1,42 @@
+[
+  {
+    "id": "000000c1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "kind": "success",
+    "title": "Run finished",
+    "body": "Research Summarizer finished in 6.2s.",
+    "link": null,
+    "read_at": null,
+    "created_at": "2026-10-06T10:00:00Z"
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "kind": "failed",
+    "title": "Agent error",
+    "body": "SQL Analyst: tool http_search timed out.",
+    "link": null,
+    "read_at": null,
+    "created_at": "2026-10-05T10:00:00Z"
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "kind": "info",
+    "title": "New model available",
+    "body": "Claude Sonnet is now selectable in the model catalogue.",
+    "link": null,
+    "read_at": "2026-10-05T10:00:00Z",
+    "created_at": "2026-10-04T10:00:00Z"
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000004",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "kind": "tool-alert",
+    "title": "Tool needs attention",
+    "body": "send_email has not been verified yet.",
+    "link": null,
+    "read_at": "2026-10-05T10:00:00Z",
+    "created_at": "2026-10-03T10:00:00Z"
+  }
+]

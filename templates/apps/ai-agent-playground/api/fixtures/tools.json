@@ -1,0 +1,47 @@
+[
+  {
+    "id": "000000f1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "web_search",
+    "description": "Search the web and return top results.",
+    "type": "builtin",
+    "created_at": "2026-10-01T10:00:00Z",
+    "updated_at": "2026-10-02T10:00:00Z"
+  },
+  {
+    "id": "000000f1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "http_request",
+    "description": "Call any REST endpoint with headers and a JSON body.",
+    "type": "http",
+    "created_at": "2026-10-02T10:00:00Z",
+    "updated_at": "2026-10-03T10:00:00Z"
+  },
+  {
+    "id": "000000f1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "calculate_discount",
+    "description": "Pure function: price and tier in, discounted price out.",
+    "type": "function",
+    "created_at": "2026-10-03T10:00:00Z",
+    "updated_at": "2026-10-04T10:00:00Z"
+  },
+  {
+    "id": "000000f1-0000-4000-8000-000000000004",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "github_mcp",
+    "description": "Read issues and pull requests through an MCP server.",
+    "type": "mcp",
+    "created_at": "2026-10-04T10:00:00Z",
+    "updated_at": "2026-10-05T10:00:00Z"
+  },
+  {
+    "id": "000000f1-0000-4000-8000-000000000005",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "send_email",
+    "description": "Send a plain-text email to a verified address.",
+    "type": "http",
+    "created_at": "2026-10-05T10:00:00Z",
+    "updated_at": "2026-10-06T10:00:00Z"
+  }
+]

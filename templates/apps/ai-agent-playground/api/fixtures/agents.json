@@ -1,0 +1,74 @@
+[
+  {
+    "id": "000000a1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Support Triage Agent",
+    "description": "Reads inbound tickets, tags urgency and drafts first replies.",
+    "provider": "anthropic",
+    "status": "published",
+    "run_count": 42,
+    "last_run_at": "2026-10-03T09:00:00Z",
+    "created_at": "2026-10-01T10:00:00Z",
+    "updated_at": "2026-10-02T10:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Research Summarizer",
+    "description": "Searches the web and condenses sources into a cited brief.",
+    "provider": "anthropic",
+    "status": "published",
+    "run_count": 27,
+    "last_run_at": "2026-10-04T09:00:00Z",
+    "created_at": "2026-10-02T10:00:00Z",
+    "updated_at": "2026-10-03T10:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "SQL Analyst",
+    "description": "Answers questions by writing and running read-only SQL.",
+    "provider": "openai",
+    "status": "published",
+    "run_count": 18,
+    "last_run_at": "2026-10-05T09:00:00Z",
+    "created_at": "2026-10-03T10:00:00Z",
+    "updated_at": "2026-10-04T10:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000004",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Code Reviewer",
+    "description": "Reviews pull requests for bugs, style and missing tests.",
+    "provider": "anthropic",
+    "status": "published",
+    "run_count": 9,
+    "last_run_at": "2026-10-06T09:00:00Z",
+    "created_at": "2026-10-04T10:00:00Z",
+    "updated_at": "2026-10-05T10:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000005",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Meeting Notes Bot",
+    "description": "Turns transcripts into action items and follow-up emails.",
+    "provider": "google",
+    "status": "draft",
+    "run_count": 0,
+    "last_run_at": null,
+    "created_at": "2026-10-05T10:00:00Z",
+    "updated_at": "2026-10-06T10:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000006",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Legacy FAQ Bot",
+    "description": "Answers FAQ questions from the old help centre.",
+    "provider": "openai",
+    "status": "archived",
+    "run_count": 64,
+    "last_run_at": "2026-10-07T09:00:00Z",
+    "created_at": "2026-10-06T10:00:00Z",
+    "updated_at": "2026-10-07T10:00:00Z"
+  }
+]
