@@ -4249,7 +4249,6 @@
       "description": "Default API bond setup for Express apps — per-concern setup functions plus a consolidated setup, wiring the byte-identical bond configuration (config-env, database, jwt, middleware, password, secrets, device, two-factor, and more) shared across the molecule fleet.",
       "stack": "api",
       "exports": [
-        "setupConfigEnv",
         "createBillingRouter",
         "getUserId",
         "requireUser",
@@ -4261,6 +4260,7 @@
         "validationError",
         "internalError",
         "trackAuthEvent",
+        "createMigratorPglite",
         "createMigrator",
         "userRequestHandlerMap",
         "deviceRequestHandlerMap",
@@ -4276,7 +4276,9 @@
         "mountDefaultUserVerifyPaymentRoutes",
         "idParamSchema",
         "uuidParamSchema",
+        "setupConfigEnv",
         "setupDatabasePostgresql",
+        "setupDatabasePglite",
         "setupJwtJsonwebtoken",
         "setupMiddlewareBodyParserExpress",
         "setupMiddlewareCookieParserExpress",
@@ -4286,7 +4288,9 @@
         "setupServiceDevice",
         "setupTwoFactorOtplib",
         "setupEmailsMailgun",
+        "setupEmailsCapture",
         "setupPaymentsStripe",
+        "setupPaymentsCapture",
         "setupServicePayment",
         "setupSearchMeilisearch",
         "setupUploadsS3",
@@ -4344,6 +4348,7 @@
         "@molecule/api-cron",
         "@molecule/api-cron-node-cron",
         "@molecule/api-database",
+        "@molecule/api-database-pglite",
         "@molecule/api-database-postgresql",
         "@molecule/api-emails",
         "@molecule/api-emails-capture",
@@ -4381,6 +4386,7 @@
         "@molecule/api-password",
         "@molecule/api-password-bcrypt",
         "@molecule/api-payments",
+        "@molecule/api-payments-capture",
         "@molecule/api-payments-stripe",
         "@molecule/api-pdf",
         "@molecule/api-pdf-pdfkit",
@@ -9444,6 +9450,77 @@
         "native fetch",
         "undici",
         "fetch client"
+      ]
+    },
+    "@molecule/api-http-relay": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "http",
+      "label": "Egress Relay",
+      "description": "HTTP client that sends outbound requests through the molecule.dev egress relay, for runtimes that cannot dial out (a server running in the browser): the relay applies the project egress allowlist, follows no redirect past its checks, and returns the upstream status in a header. Includes installRelayFetch, which routes the runtime's global fetch through it.",
+      "stack": "api",
+      "implements": "@molecule/api-http",
+      "exports": [
+        "RelayErrorKind",
+        "RelayError",
+        "isRelayError",
+        "createRelayClient",
+        "relayClient",
+        "provider",
+        "createRelayFetch",
+        "installRelayFetch",
+        "httpRelaySecretDefinitions",
+        "RelayOptions",
+        "RelayFetch",
+        "RelayFetchInstallation",
+        "RELAY_URL_ENV",
+        "RELAY_CREDENTIAL_ENV",
+        "DEFAULT_MAX_REDIRECTS",
+        "REDIRECT_STATUSES",
+        "NULL_BODY_STATUSES",
+        "statusTextFor",
+        "readEnv",
+        "bytesToBase64",
+        "authorizationFor",
+        "ResolvedRelayConfig",
+        "resolveRelayConfig",
+        "isRelayEndpoint",
+        "upstreamHeaders",
+        "dropBodyHeaders",
+        "dropCrossOriginHeaders",
+        "abortReason"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_EGRESS_RELAY_URL",
+          "required": true,
+          "label": "Egress relay URL",
+          "instructions": "The molecule.dev egress relay endpoint outbound HTTP is sent to.",
+          "example": "https://api.molecule.dev/api/egress-relay"
+        },
+        {
+          "name": "MOLECULE_EGRESS_CREDENTIAL",
+          "required": true,
+          "label": "Project egress credential",
+          "instructions": "The credential the platform minted for this sandbox (<projectId>:<mac>). Never commit it.",
+          "example": "<projectId>:<mac>"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-http",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-http",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/http/relay",
+      "intentHints": [
+        "http through a relay",
+        "outbound http from the browser",
+        "egress relay",
+        "call apis from a browser runtime"
       ]
     },
     "@molecule/api-i18n": {
