@@ -1,0 +1,288 @@
+{
+  "stats/overview": {
+    "subscriberCounts": {
+      "subscribed": 20,
+      "unsubscribed": 2,
+      "pending": 2,
+      "paid": 5,
+      "free": 15,
+      "total": 24
+    },
+    "growthSeries": [
+      {
+        "date": "2026-09-07",
+        "total": 13
+      },
+      {
+        "date": "2026-09-08",
+        "total": 13
+      },
+      {
+        "date": "2026-09-09",
+        "total": 13
+      },
+      {
+        "date": "2026-09-10",
+        "total": 14
+      },
+      {
+        "date": "2026-09-11",
+        "total": 14
+      },
+      {
+        "date": "2026-09-12",
+        "total": 14
+      },
+      {
+        "date": "2026-09-13",
+        "total": 15
+      },
+      {
+        "date": "2026-09-14",
+        "total": 15
+      },
+      {
+        "date": "2026-09-15",
+        "total": 15
+      },
+      {
+        "date": "2026-09-16",
+        "total": 16
+      },
+      {
+        "date": "2026-09-17",
+        "total": 16
+      },
+      {
+        "date": "2026-09-18",
+        "total": 16
+      },
+      {
+        "date": "2026-09-19",
+        "total": 17
+      },
+      {
+        "date": "2026-09-20",
+        "total": 17
+      },
+      {
+        "date": "2026-09-21",
+        "total": 17
+      },
+      {
+        "date": "2026-09-22",
+        "total": 18
+      },
+      {
+        "date": "2026-09-23",
+        "total": 18
+      },
+      {
+        "date": "2026-09-24",
+        "total": 18
+      },
+      {
+        "date": "2026-09-25",
+        "total": 19
+      },
+      {
+        "date": "2026-09-26",
+        "total": 19
+      },
+      {
+        "date": "2026-09-27",
+        "total": 19
+      },
+      {
+        "date": "2026-09-28",
+        "total": 20
+      },
+      {
+        "date": "2026-09-29",
+        "total": 20
+      },
+      {
+        "date": "2026-09-30",
+        "total": 20
+      },
+      {
+        "date": "2026-10-01",
+        "total": 21
+      },
+      {
+        "date": "2026-10-02",
+        "total": 21
+      },
+      {
+        "date": "2026-10-03",
+        "total": 21
+      },
+      {
+        "date": "2026-10-04",
+        "total": 22
+      },
+      {
+        "date": "2026-10-05",
+        "total": 22
+      },
+      {
+        "date": "2026-10-06",
+        "total": 22
+      }
+    ],
+    "issueCounts": {
+      "draft": 1,
+      "scheduled": 1,
+      "published": 4
+    },
+    "lastIssue": {
+      "id": "10000000-0000-4000-8000-000000000001",
+      "subject": "Issue #12 — The compounding newsletter",
+      "publish_at": "2026-09-12T12:00:00Z",
+      "delivered": 18,
+      "opened": 12,
+      "clicked": 2,
+      "open_rate": 66.7
+    },
+    "totals": {
+      "delivered": 58,
+      "opened": 38,
+      "clicked": 5,
+      "open_rate": 65.5,
+      "click_rate": 8.6
+    }
+  },
+  "issues/:id/stats": {
+    "issue_id": "10000000-0000-4000-8000-000000000001",
+    "subject": "Issue #12 — The compounding newsletter",
+    "status": "published",
+    "publish_at": "2026-09-12T12:00:00Z",
+    "delivered": 18,
+    "opened": 12,
+    "clicked": 2,
+    "open_rate": 66.7,
+    "click_rate": 11.1,
+    "opens_over_time": [
+      {
+        "date": "2026-09-07",
+        "count": 0
+      },
+      {
+        "date": "2026-09-08",
+        "count": 1
+      },
+      {
+        "date": "2026-09-09",
+        "count": 0
+      },
+      {
+        "date": "2026-09-10",
+        "count": 2
+      },
+      {
+        "date": "2026-09-11",
+        "count": 3
+      },
+      {
+        "date": "2026-09-12",
+        "count": 1
+      },
+      {
+        "date": "2026-09-13",
+        "count": 0
+      },
+      {
+        "date": "2026-09-14",
+        "count": 0
+      },
+      {
+        "date": "2026-09-15",
+        "count": 1
+      },
+      {
+        "date": "2026-09-16",
+        "count": 2
+      },
+      {
+        "date": "2026-09-17",
+        "count": 4
+      },
+      {
+        "date": "2026-09-18",
+        "count": 2
+      },
+      {
+        "date": "2026-09-19",
+        "count": 1
+      },
+      {
+        "date": "2026-09-20",
+        "count": 0
+      },
+      {
+        "date": "2026-09-21",
+        "count": 0
+      },
+      {
+        "date": "2026-09-22",
+        "count": 1
+      },
+      {
+        "date": "2026-09-23",
+        "count": 0
+      },
+      {
+        "date": "2026-09-24",
+        "count": 2
+      },
+      {
+        "date": "2026-09-25",
+        "count": 1
+      },
+      {
+        "date": "2026-09-26",
+        "count": 0
+      },
+      {
+        "date": "2026-09-27",
+        "count": 0
+      },
+      {
+        "date": "2026-09-28",
+        "count": 0
+      },
+      {
+        "date": "2026-09-29",
+        "count": 1
+      },
+      {
+        "date": "2026-09-30",
+        "count": 0
+      },
+      {
+        "date": "2026-10-01",
+        "count": 0
+      },
+      {
+        "date": "2026-10-02",
+        "count": 1
+      },
+      {
+        "date": "2026-10-03",
+        "count": 0
+      },
+      {
+        "date": "2026-10-04",
+        "count": 0
+      },
+      {
+        "date": "2026-10-05",
+        "count": 0
+      },
+      {
+        "date": "2026-10-06",
+        "count": 0
+      }
+    ]
+  }
+}
