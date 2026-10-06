@@ -1,0 +1,185 @@
+{
+  "stats/": {
+    "totalFiles": 10,
+    "totalFolders": 4,
+    "starredFiles": 3,
+    "collaborators": 3,
+    "usedBytes": 264450867
+  },
+  "storage/": {
+    "usedBytes": 264450867,
+    "breakdown": {
+      "documents": 13212057,
+      "images": 9227469,
+      "videos": 155189248,
+      "archives": 67108864,
+      "code": 0,
+      "audio": 7130317,
+      "other": 12582912
+    }
+  },
+  "activity/": {
+    "data": [
+      {
+        "id": "edit-file-1",
+        "kind": "edit",
+        "fileId": "file-1",
+        "fileName": "Q3 roadmap.pdf",
+        "mimeType": "application/pdf",
+        "timestamp": "2026-10-06T11:25:00.000Z"
+      },
+      {
+        "id": "edit-file-2",
+        "kind": "edit",
+        "fileId": "file-2",
+        "fileName": "Brand guidelines.pdf",
+        "mimeType": "application/pdf",
+        "timestamp": "2026-10-06T10:00:00.000Z"
+      },
+      {
+        "id": "edit-file-12",
+        "kind": "edit",
+        "fileId": "file-12",
+        "fileName": "Homepage v3.fig",
+        "mimeType": "application/octet-stream",
+        "timestamp": "2026-10-06T08:00:00.000Z"
+      },
+      {
+        "id": "share-share-1",
+        "kind": "share",
+        "fileId": "file-1",
+        "fileName": "Q3 roadmap.pdf",
+        "mimeType": "application/pdf",
+        "timestamp": "2026-10-06T07:00:00.000Z"
+      },
+      {
+        "id": "edit-file-3",
+        "kind": "edit",
+        "fileId": "file-3",
+        "fileName": "Team offsite.jpg",
+        "mimeType": "image/jpeg",
+        "timestamp": "2026-10-06T05:20:00.000Z"
+      },
+      {
+        "id": "edit-file-4",
+        "kind": "edit",
+        "fileId": "file-4",
+        "fileName": "Beach sunset.png",
+        "mimeType": "image/png",
+        "timestamp": "2026-10-05T11:00:00.000Z"
+      },
+      {
+        "id": "share-share-2",
+        "kind": "share",
+        "fileId": "file-3",
+        "fileName": "Team offsite.jpg",
+        "mimeType": "image/jpeg",
+        "timestamp": "2026-10-05T02:40:00.000Z"
+      },
+      {
+        "id": "edit-file-5",
+        "kind": "edit",
+        "fileId": "file-5",
+        "fileName": "Budget 2026.xlsx",
+        "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "timestamp": "2026-10-04T13:20:00.000Z"
+      },
+      {
+        "id": "upload-file-1",
+        "kind": "upload",
+        "fileId": "file-1",
+        "fileName": "Q3 roadmap.pdf",
+        "mimeType": "application/pdf",
+        "timestamp": "2026-10-04T09:25:00.000Z"
+      },
+      {
+        "id": "upload-file-2",
+        "kind": "upload",
+        "fileId": "file-2",
+        "fileName": "Brand guidelines.pdf",
+        "mimeType": "application/pdf",
+        "timestamp": "2026-10-04T08:00:00.000Z"
+      },
+      {
+        "id": "upload-file-12",
+        "kind": "upload",
+        "fileId": "file-12",
+        "fileName": "Homepage v3.fig",
+        "mimeType": "application/octet-stream",
+        "timestamp": "2026-10-04T06:00:00.000Z"
+      },
+      {
+        "id": "upload-file-3",
+        "kind": "upload",
+        "fileId": "file-3",
+        "fileName": "Team offsite.jpg",
+        "mimeType": "image/jpeg",
+        "timestamp": "2026-10-04T03:20:00.000Z"
+      },
+      {
+        "id": "edit-file-6",
+        "kind": "edit",
+        "fileId": "file-6",
+        "fileName": "Demo recording.mp4",
+        "mimeType": "video/mp4",
+        "timestamp": "2026-10-03T17:20:00.000Z"
+      },
+      {
+        "id": "upload-file-4",
+        "kind": "upload",
+        "fileId": "file-4",
+        "fileName": "Beach sunset.png",
+        "mimeType": "image/png",
+        "timestamp": "2026-10-03T09:00:00.000Z"
+      },
+      {
+        "id": "upload-file-5",
+        "kind": "upload",
+        "fileId": "file-5",
+        "fileName": "Budget 2026.xlsx",
+        "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "timestamp": "2026-10-02T11:20:00.000Z"
+      },
+      {
+        "id": "upload-file-6",
+        "kind": "upload",
+        "fileId": "file-6",
+        "fileName": "Demo recording.mp4",
+        "mimeType": "video/mp4",
+        "timestamp": "2026-10-01T15:20:00.000Z"
+      },
+      {
+        "id": "edit-file-7",
+        "kind": "edit",
+        "fileId": "file-7",
+        "fileName": "Source backup.zip",
+        "mimeType": "application/zip",
+        "timestamp": "2026-10-01T15:20:00.000Z"
+      },
+      {
+        "id": "edit-file-8",
+        "kind": "edit",
+        "fileId": "file-8",
+        "fileName": "Podcast intro.mp3",
+        "mimeType": "audio/mpeg",
+        "timestamp": "2026-09-30T06:00:00.000Z"
+      },
+      {
+        "id": "upload-file-7",
+        "kind": "upload",
+        "fileId": "file-7",
+        "fileName": "Source backup.zip",
+        "mimeType": "application/zip",
+        "timestamp": "2026-09-29T13:20:00.000Z"
+      },
+      {
+        "id": "upload-file-8",
+        "kind": "upload",
+        "fileId": "file-8",
+        "fileName": "Podcast intro.mp3",
+        "mimeType": "audio/mpeg",
+        "timestamp": "2026-09-28T04:00:00.000Z"
+      }
+    ]
+  }
+}

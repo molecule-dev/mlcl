@@ -1,0 +1,30 @@
+[
+  {
+    "id": "fold-1",
+    "name": "Projects",
+    "parent_id": null,
+    "created_at": "2026-10-02T14:40:00.000Z",
+    "updated_at": "2026-10-06T02:00:00.000Z"
+  },
+  {
+    "id": "fold-2",
+    "name": "Photos",
+    "parent_id": null,
+    "created_at": "2026-10-01T18:40:00.000Z",
+    "updated_at": "2026-10-05T06:00:00.000Z"
+  },
+  {
+    "id": "fold-3",
+    "name": "Tax documents",
+    "parent_id": null,
+    "created_at": "2026-09-26T18:40:00.000Z",
+    "updated_at": "2026-09-30T06:00:00.000Z"
+  },
+  {
+    "id": "fold-4",
+    "name": "Q3 designs",
+    "parent_id": "fold-1",
+    "created_at": "2026-10-02T19:40:00.000Z",
+    "updated_at": "2026-10-06T07:00:00.000Z"
+  }
+]
