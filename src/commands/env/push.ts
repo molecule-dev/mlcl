@@ -2,8 +2,9 @@ import { Flags } from '@oclif/core'
 import { Command } from '@oclif/core'
 
 import { defaultEnvPath, loadEnvFile } from '../../lib/env-store.js'
-import { putProjectEnv, readCredentials } from '../../lib/platform.js'
+import { putProjectEnv } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
+import { requireAuth } from '../../shared/project-flag.js'
 
 export default class EnvPush extends Command {
   static override description =
@@ -28,9 +29,7 @@ export default class EnvPush extends Command {
 
   public async run(): Promise<void> {
     const { flags } = await this.parse(EnvPush)
-    if (!readCredentials() && !process.env.MOLECULE_TOKEN) {
-      this.error('Not logged in — run `mlcl login` first.', { exit: 1 })
-    }
+    requireAuth()
     const file = loadEnvFile(defaultEnvPath())
     const allow = flags.keys ? new Set(flags.keys.split(',').map((k) => k.trim())) : null
     const values: Record<string, string> = {}

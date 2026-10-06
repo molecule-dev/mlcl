@@ -1,8 +1,9 @@
 import { Command, Flags } from '@oclif/core'
 
-import { createDeployment, getDeployment, readCredentials } from '../../lib/platform.js'
+import { createDeployment, getDeployment } from '../../lib/platform.js'
 import { setTelemetryContext } from '../../lib/telemetry.js'
 import { ui } from '../../lib/ui.js'
+import { requireAuth } from '../../shared/project-flag.js'
 
 export default class Deploy extends Command {
   static override description =
@@ -23,7 +24,7 @@ export default class Deploy extends Command {
 
   public async run(): Promise<void> {
     const { flags } = await this.parse(Deploy)
-    if (!readCredentials()) this.error('Not logged in — run `mlcl login` first.', { exit: 1 })
+    requireAuth()
 
     this.log(ui.dim('Triggering deploy…'))
     const deployment = await createDeployment(flags.project)

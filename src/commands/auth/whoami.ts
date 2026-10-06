@@ -1,7 +1,8 @@
 import { Command } from '@oclif/core'
 
-import { readCredentials, whoami } from '../../lib/platform.js'
+import { whoami } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
+import { requireAuth } from '../../shared/project-flag.js'
 
 export default class Whoami extends Command {
   static override aliases = ['whoami']
@@ -10,10 +11,7 @@ export default class Whoami extends Command {
   static override enableJsonFlag = true
 
   public async run(): Promise<{ id: string; email?: string }> {
-    if (!readCredentials() && !process.env.MOLECULE_TOKEN)
-      this.error('Not logged in — run `mlcl login` first (or set MOLECULE_TOKEN for CI).', {
-        exit: 1,
-      })
+    requireAuth()
     const me = await whoami()
     this.log(`${ui.id(me.email ?? me.id)} ${ui.dim(`(${me.id})`)}`)
     return me

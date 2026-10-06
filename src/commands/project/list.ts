@@ -1,7 +1,8 @@
 import { Command, Flags } from '@oclif/core'
 
-import { listProjects, readCredentials } from '../../lib/platform.js'
+import { listProjects } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
+import { requireAuth } from '../../shared/project-flag.js'
 
 export default class ProjectList extends Command {
   static override description = 'List your molecule.dev projects (owned + team, with roles)'
@@ -15,7 +16,7 @@ export default class ProjectList extends Command {
   }
 
   public async run(): Promise<Array<{ id: string; name: string; role?: string }>> {
-    if (!readCredentials()) this.error('Not logged in — run `mlcl login` first.', { exit: 1 })
+    requireAuth()
     const projects = await listProjects()
     const rows = projects.map((p) => ({ id: p.id, name: p.name, role: p.role }))
     const { flags } = await this.parse(ProjectList)

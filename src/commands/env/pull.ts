@@ -2,8 +2,9 @@ import { Flags } from '@oclif/core'
 import { Command } from '@oclif/core'
 
 import { defaultEnvPath, loadEnvFile, saveEnvFile, setEnvValue } from '../../lib/env-store.js'
-import { getProjectEnv, readCredentials } from '../../lib/platform.js'
+import { getProjectEnv } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
+import { requireAuth } from '../../shared/project-flag.js'
 
 export default class EnvPull extends Command {
   static override description =
@@ -17,9 +18,7 @@ export default class EnvPull extends Command {
 
   public async run(): Promise<void> {
     const { flags } = await this.parse(EnvPull)
-    if (!readCredentials() && !process.env.MOLECULE_TOKEN) {
-      this.error('Not logged in — run `mlcl login` first.', { exit: 1 })
-    }
+    requireAuth()
     const remote = await getProjectEnv(flags.project)
     const file = loadEnvFile(defaultEnvPath())
     let applied = 0
