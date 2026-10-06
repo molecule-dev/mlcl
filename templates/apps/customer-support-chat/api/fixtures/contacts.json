@@ -1,0 +1,52 @@
+[
+  {
+    "id": "contact-1",
+    "name": "Marta Alvarez",
+    "email": "marta@brightlane.example",
+    "phone": "+1 555 0142",
+    "company": "Brightlane",
+    "total_conversations": 6,
+    "last_seen_at": "2026-10-06T11:48:00.000Z",
+    "first_seen_at": "2026-07-08T12:00:00.000Z"
+  },
+  {
+    "id": "contact-2",
+    "name": "Jonas Weber",
+    "email": "jonas@weber-gmbh.example",
+    "phone": "+49 30 5550123",
+    "company": "Weber GmbH",
+    "total_conversations": 3,
+    "last_seen_at": "2026-10-06T10:25:00.000Z",
+    "first_seen_at": "2026-07-08T12:00:00.000Z"
+  },
+  {
+    "id": "contact-3",
+    "name": "Aisha Rahman",
+    "email": "aisha@finchlabs.example",
+    "phone": null,
+    "company": "Finch Labs",
+    "total_conversations": 9,
+    "last_seen_at": "2026-10-06T07:00:00.000Z",
+    "first_seen_at": "2026-07-08T12:00:00.000Z"
+  },
+  {
+    "id": "contact-4",
+    "name": "Peter Novak",
+    "email": "peter@novak.example",
+    "phone": "+420 555 014",
+    "company": null,
+    "total_conversations": 1,
+    "last_seen_at": "2026-10-05T11:00:00.000Z",
+    "first_seen_at": "2026-07-08T12:00:00.000Z"
+  },
+  {
+    "id": "contact-5",
+    "name": "Sofia Rossi",
+    "email": "sofia@tavola.example",
+    "phone": "+39 055 5550",
+    "company": "Tavola",
+    "total_conversations": 4,
+    "last_seen_at": "2026-10-06T11:20:00.000Z",
+    "first_seen_at": "2026-07-08T12:00:00.000Z"
+  }
+]

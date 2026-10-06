@@ -1,0 +1,20 @@
+[
+  {
+    "id": "agent-1",
+    "name": "Dana Whitfield",
+    "email": "dana@acme-support.example",
+    "status": "online"
+  },
+  {
+    "id": "agent-2",
+    "name": "Ravi Menon",
+    "email": "ravi@acme-support.example",
+    "status": "away"
+  },
+  {
+    "id": "agent-3",
+    "name": "Chloe Bernard",
+    "email": "chloe@acme-support.example",
+    "status": "offline"
+  }
+]

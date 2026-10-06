@@ -1,0 +1,68 @@
+[
+  {
+    "id": "conv-1",
+    "subject": "Cannot reset my password",
+    "visitor_name": "Marta Alvarez",
+    "visitor_email": "marta@brightlane.example",
+    "status": "open",
+    "priority": "high",
+    "agent_id": null,
+    "last_message_at": "2026-10-06T11:54:00.000Z",
+    "created_at": "2026-10-06T07:54:00.000Z"
+  },
+  {
+    "id": "conv-2",
+    "subject": "Invoice shows the wrong VAT number",
+    "visitor_name": "Jonas Weber",
+    "visitor_email": "jonas@weber-gmbh.example",
+    "status": "assigned",
+    "priority": "normal",
+    "agent_id": "agent-1",
+    "last_message_at": "2026-10-06T11:35:00.000Z",
+    "created_at": "2026-10-06T07:35:00.000Z"
+  },
+  {
+    "id": "conv-3",
+    "subject": "Does the Team plan include SSO?",
+    "visitor_name": "Aisha Rahman",
+    "visitor_email": "aisha@finchlabs.example",
+    "status": "open",
+    "priority": "normal",
+    "agent_id": null,
+    "last_message_at": "2026-10-06T10:50:00.000Z",
+    "created_at": "2026-10-06T06:50:00.000Z"
+  },
+  {
+    "id": "conv-4",
+    "subject": "Export to CSV is timing out",
+    "visitor_name": "Aisha Rahman",
+    "visitor_email": "aisha@finchlabs.example",
+    "status": "assigned",
+    "priority": "urgent",
+    "agent_id": "agent-2",
+    "last_message_at": "2026-10-06T09:50:00.000Z",
+    "created_at": "2026-10-06T05:50:00.000Z"
+  },
+  {
+    "id": "conv-5",
+    "subject": "How do I add a teammate?",
+    "visitor_name": "Sofia Rossi",
+    "visitor_email": "sofia@tavola.example",
+    "status": "closed",
+    "priority": "low",
+    "agent_id": "agent-1",
+    "last_message_at": "2026-10-06T02:00:00.000Z",
+    "created_at": "2026-10-05T22:00:00.000Z"
+  },
+  {
+    "id": "conv-6",
+    "subject": "Widget does not load on Safari",
+    "visitor_name": "Peter Novak",
+    "visitor_email": "peter@novak.example",
+    "status": "closed",
+    "priority": "normal",
+    "agent_id": "agent-3",
+    "last_message_at": "2026-10-05T01:00:00.000Z",
+    "created_at": "2026-10-04T21:00:00.000Z"
+  }
+]

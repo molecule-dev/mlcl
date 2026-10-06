@@ -1,0 +1,49 @@
+[
+  {
+    "id": "rule-1",
+    "name": "Auto-assign urgent to Ravi",
+    "trigger": "conversation.created",
+    "conditions": {
+      "priority": "urgent"
+    },
+    "actions": [
+      {
+        "type": "assign",
+        "agent_id": "agent-2"
+      }
+    ],
+    "enabled": true,
+    "created_at": "2026-09-16T12:00:00.000Z"
+  },
+  {
+    "id": "rule-2",
+    "name": "Close idle chats after 3 days",
+    "trigger": "conversation.idle",
+    "conditions": {
+      "idle_hours": 72
+    },
+    "actions": [
+      {
+        "type": "close"
+      }
+    ],
+    "enabled": true,
+    "created_at": "2026-09-22T12:00:00.000Z"
+  },
+  {
+    "id": "rule-3",
+    "name": "Tag billing questions",
+    "trigger": "message.received",
+    "conditions": {
+      "contains": "invoice"
+    },
+    "actions": [
+      {
+        "type": "tag",
+        "tag": "billing"
+      }
+    ],
+    "enabled": false,
+    "created_at": "2026-10-01T12:00:00.000Z"
+  }
+]

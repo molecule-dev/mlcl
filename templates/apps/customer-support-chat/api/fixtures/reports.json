@@ -1,0 +1,239 @@
+{
+  "messages/conv-1": [
+    {
+      "id": "conv-1-m1",
+      "conversation_id": "conv-1",
+      "sender_type": "visitor",
+      "sender_name": "Marta Alvarez",
+      "content": "Hi, I tried the reset link twice and it says the token expired. (Cannot reset my password)",
+      "type": "text",
+      "created_at": "2026-10-06T11:24:00.000Z"
+    },
+    {
+      "id": "conv-1-m2",
+      "conversation_id": "conv-1",
+      "sender_type": "agent",
+      "sender_name": "Dana Whitfield",
+      "content": "Thanks for reaching out. I am checking your account now.",
+      "type": "text",
+      "created_at": "2026-10-06T11:32:00.000Z"
+    },
+    {
+      "id": "conv-1-m3",
+      "conversation_id": "conv-1",
+      "sender_type": "visitor",
+      "sender_name": "Marta Alvarez",
+      "content": "I can wait, I just need access before a 3pm meeting.",
+      "type": "text",
+      "created_at": "2026-10-06T11:40:00.000Z"
+    },
+    {
+      "id": "conv-1-m4",
+      "conversation_id": "conv-1",
+      "sender_type": "agent",
+      "sender_name": "Dana Whitfield",
+      "content": "I sent a fresh link. It is valid for the next 30 minutes.",
+      "type": "text",
+      "created_at": "2026-10-06T11:48:00.000Z"
+    }
+  ],
+  "messages/conv-2": [
+    {
+      "id": "conv-2-m1",
+      "conversation_id": "conv-2",
+      "sender_type": "visitor",
+      "sender_name": "Jonas Weber",
+      "content": "Hi, I tried the reset link twice and it says the token expired. (Invoice shows the wrong VAT number)",
+      "type": "text",
+      "created_at": "2026-10-06T11:05:00.000Z"
+    },
+    {
+      "id": "conv-2-m2",
+      "conversation_id": "conv-2",
+      "sender_type": "agent",
+      "sender_name": "Dana Whitfield",
+      "content": "Thanks for reaching out. I am checking your account now.",
+      "type": "text",
+      "created_at": "2026-10-06T11:13:00.000Z"
+    },
+    {
+      "id": "conv-2-m3",
+      "conversation_id": "conv-2",
+      "sender_type": "visitor",
+      "sender_name": "Jonas Weber",
+      "content": "I can wait, I just need access before a 3pm meeting.",
+      "type": "text",
+      "created_at": "2026-10-06T11:21:00.000Z"
+    },
+    {
+      "id": "conv-2-m4",
+      "conversation_id": "conv-2",
+      "sender_type": "agent",
+      "sender_name": "Dana Whitfield",
+      "content": "I sent a fresh link. It is valid for the next 30 minutes.",
+      "type": "text",
+      "created_at": "2026-10-06T11:29:00.000Z"
+    }
+  ],
+  "messages/conv-3": [
+    {
+      "id": "conv-3-m1",
+      "conversation_id": "conv-3",
+      "sender_type": "visitor",
+      "sender_name": "Aisha Rahman",
+      "content": "Hi, I tried the reset link twice and it says the token expired. (Does the Team plan include SSO?)",
+      "type": "text",
+      "created_at": "2026-10-06T10:20:00.000Z"
+    },
+    {
+      "id": "conv-3-m2",
+      "conversation_id": "conv-3",
+      "sender_type": "agent",
+      "sender_name": "Dana Whitfield",
+      "content": "Thanks for reaching out. I am checking your account now.",
+      "type": "text",
+      "created_at": "2026-10-06T10:28:00.000Z"
+    },
+    {
+      "id": "conv-3-m3",
+      "conversation_id": "conv-3",
+      "sender_type": "visitor",
+      "sender_name": "Aisha Rahman",
+      "content": "I can wait, I just need access before a 3pm meeting.",
+      "type": "text",
+      "created_at": "2026-10-06T10:36:00.000Z"
+    },
+    {
+      "id": "conv-3-m4",
+      "conversation_id": "conv-3",
+      "sender_type": "agent",
+      "sender_name": "Dana Whitfield",
+      "content": "I sent a fresh link. It is valid for the next 30 minutes.",
+      "type": "text",
+      "created_at": "2026-10-06T10:44:00.000Z"
+    }
+  ],
+  "messages/conv-4": [
+    {
+      "id": "conv-4-m1",
+      "conversation_id": "conv-4",
+      "sender_type": "visitor",
+      "sender_name": "Aisha Rahman",
+      "content": "Hi, I tried the reset link twice and it says the token expired. (Export to CSV is timing out)",
+      "type": "text",
+      "created_at": "2026-10-06T09:20:00.000Z"
+    },
+    {
+      "id": "conv-4-m2",
+      "conversation_id": "conv-4",
+      "sender_type": "agent",
+      "sender_name": "Dana Whitfield",
+      "content": "Thanks for reaching out. I am checking your account now.",
+      "type": "text",
+      "created_at": "2026-10-06T09:28:00.000Z"
+    },
+    {
+      "id": "conv-4-m3",
+      "conversation_id": "conv-4",
+      "sender_type": "visitor",
+      "sender_name": "Aisha Rahman",
+      "content": "I can wait, I just need access before a 3pm meeting.",
+      "type": "text",
+      "created_at": "2026-10-06T09:36:00.000Z"
+    },
+    {
+      "id": "conv-4-m4",
+      "conversation_id": "conv-4",
+      "sender_type": "agent",
+      "sender_name": "Dana Whitfield",
+      "content": "I sent a fresh link. It is valid for the next 30 minutes.",
+      "type": "text",
+      "created_at": "2026-10-06T09:44:00.000Z"
+    }
+  ],
+  "messages/conv-5": [
+    {
+      "id": "conv-5-m1",
+      "conversation_id": "conv-5",
+      "sender_type": "visitor",
+      "sender_name": "Sofia Rossi",
+      "content": "Hi, I tried the reset link twice and it says the token expired. (How do I add a teammate?)",
+      "type": "text",
+      "created_at": "2026-10-06T01:30:00.000Z"
+    },
+    {
+      "id": "conv-5-m2",
+      "conversation_id": "conv-5",
+      "sender_type": "agent",
+      "sender_name": "Dana Whitfield",
+      "content": "Thanks for reaching out. I am checking your account now.",
+      "type": "text",
+      "created_at": "2026-10-06T01:38:00.000Z"
+    },
+    {
+      "id": "conv-5-m3",
+      "conversation_id": "conv-5",
+      "sender_type": "visitor",
+      "sender_name": "Sofia Rossi",
+      "content": "I can wait, I just need access before a 3pm meeting.",
+      "type": "text",
+      "created_at": "2026-10-06T01:46:00.000Z"
+    },
+    {
+      "id": "conv-5-m4",
+      "conversation_id": "conv-5",
+      "sender_type": "agent",
+      "sender_name": "Dana Whitfield",
+      "content": "I sent a fresh link. It is valid for the next 30 minutes.",
+      "type": "text",
+      "created_at": "2026-10-06T01:54:00.000Z"
+    }
+  ],
+  "messages/conv-6": [
+    {
+      "id": "conv-6-m1",
+      "conversation_id": "conv-6",
+      "sender_type": "visitor",
+      "sender_name": "Peter Novak",
+      "content": "Hi, I tried the reset link twice and it says the token expired. (Widget does not load on Safari)",
+      "type": "text",
+      "created_at": "2026-10-05T00:30:00.000Z"
+    },
+    {
+      "id": "conv-6-m2",
+      "conversation_id": "conv-6",
+      "sender_type": "agent",
+      "sender_name": "Dana Whitfield",
+      "content": "Thanks for reaching out. I am checking your account now.",
+      "type": "text",
+      "created_at": "2026-10-05T00:38:00.000Z"
+    },
+    {
+      "id": "conv-6-m3",
+      "conversation_id": "conv-6",
+      "sender_type": "visitor",
+      "sender_name": "Peter Novak",
+      "content": "I can wait, I just need access before a 3pm meeting.",
+      "type": "text",
+      "created_at": "2026-10-05T00:46:00.000Z"
+    },
+    {
+      "id": "conv-6-m4",
+      "conversation_id": "conv-6",
+      "sender_type": "agent",
+      "sender_name": "Dana Whitfield",
+      "content": "I sent a fresh link. It is valid for the next 30 minutes.",
+      "type": "text",
+      "created_at": "2026-10-05T00:54:00.000Z"
+    }
+  ],
+  "billing/status": {
+    "planKey": "free",
+    "category": "free",
+    "name": "Free",
+    "limits": {
+      "maxConversations": 50
+    },
+    "isFree": true
+  }
+}
