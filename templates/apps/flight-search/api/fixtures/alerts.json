@@ -7,9 +7,21 @@
     "destination_city": "Paris",
     "target_price": 480,
     "current_lowest": 462,
-    "departure_date": "2026-05-12",
-    "history": [612, 588, 552, 510, 491, 482, 462],
-    "active": true
+    "departure_date": "2027-03-08",
+    "history": [
+      612,
+      588,
+      552,
+      510,
+      491,
+      482,
+      462
+    ],
+    "active": true,
+    "origin_iata": "JFK",
+    "destination_iata": "CDG",
+    "target_price_cents": 48000,
+    "current_lowest_cents": 46200
   },
   {
     "id": "a2",
@@ -19,9 +31,21 @@
     "destination_city": "Tokyo",
     "target_price": 950,
     "current_lowest": 1080,
-    "departure_date": "2026-06-04",
-    "history": [1180, 1150, 1130, 1110, 1080, 1080, 1080],
-    "active": true
+    "departure_date": "2027-03-31",
+    "history": [
+      1180,
+      1150,
+      1130,
+      1110,
+      1080,
+      1080,
+      1080
+    ],
+    "active": true,
+    "origin_iata": "SFO",
+    "destination_iata": "NRT",
+    "target_price_cents": 95000,
+    "current_lowest_cents": 108000
   },
   {
     "id": "a3",
@@ -31,9 +55,21 @@
     "destination_city": "London",
     "target_price": 700,
     "current_lowest": 668,
-    "departure_date": "2026-07-08",
-    "history": [892, 845, 798, 740, 712, 690, 668],
-    "active": true
+    "departure_date": "2027-05-04",
+    "history": [
+      892,
+      845,
+      798,
+      740,
+      712,
+      690,
+      668
+    ],
+    "active": true,
+    "origin_iata": "LAX",
+    "destination_iata": "LHR",
+    "target_price_cents": 70000,
+    "current_lowest_cents": 66800
   },
   {
     "id": "a4",
@@ -43,8 +79,20 @@
     "destination_city": "Barcelona",
     "target_price": 540,
     "current_lowest": 580,
-    "departure_date": "2026-09-18",
-    "history": [612, 600, 595, 588, 582, 580, 580],
-    "active": false
+    "departure_date": "2027-07-15",
+    "history": [
+      612,
+      600,
+      595,
+      588,
+      582,
+      580,
+      580
+    ],
+    "active": false,
+    "origin_iata": "ORD",
+    "destination_iata": "BCN",
+    "target_price_cents": 54000,
+    "current_lowest_cents": 58000
   }
 ]

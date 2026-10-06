@@ -1,0 +1,11 @@
+{
+  "preferences/": {
+    "home_airport": "JFK",
+    "currency": "USD",
+    "notifications": {
+      "price_drops": true,
+      "trip_reminders": true,
+      "deals": false
+    }
+  }
+}
