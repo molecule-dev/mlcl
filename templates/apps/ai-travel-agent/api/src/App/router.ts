@@ -10,6 +10,7 @@ import {
   mountDefaultUserVerifyPaymentRoutes,
 } from '@molecule/api-bonds-default-express'
 
+import testEndpoints from '../handlers/_test.js'
 import bookingsRouter from '../handlers/bookings.js'
 import conversationsRouter from '../handlers/conversations.js'
 import flightsRouter from '../handlers/flights.js'
@@ -18,7 +19,6 @@ import preferencesRouter from '../handlers/preferences.js'
 import profileRouter from '../handlers/profile.js'
 import speechRouter from '../handlers/speech.js'
 import { payRouter, splitsRouter } from '../handlers/splits.js'
-import testEndpoints from '../handlers/_test.js'
 import tripsRouter from '../handlers/trips.js'
 import billingRouter from '../routes/billing.js'
 import { requestHandlerMap as Device } from './Resource/Device/index.js'

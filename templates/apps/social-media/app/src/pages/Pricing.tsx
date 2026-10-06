@@ -1,7 +1,7 @@
 import { LimitsItem, LimitsList, PricingPage } from '@molecule/app-billing-react'
 import { ContentPageShell } from '@molecule/app-legal-pages-react'
-import { getClassMap } from '@molecule/app-ui'
 import { useTranslation } from '@molecule/app-react'
+import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 import { Footer } from '../components/Footer.js'

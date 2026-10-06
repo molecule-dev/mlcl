@@ -21,8 +21,8 @@ import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 
-import { listDecoratedArtifacts, readDecoratedArtifact } from './decorators.js'
 import { seedDemoForUser } from './_seed.js'
+import { listDecoratedArtifacts, readDecoratedArtifact } from './decorators.js'
 
 const router = Router()
 

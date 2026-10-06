@@ -412,7 +412,8 @@ export function Settings() {
         try {
           await http.post('/books', { title, author, page_count: pageCount, shelf })
           imported++
-        } catch {
+        } catch (_error) {
+          // Counted as failed below; the loop carries on with the next one.
           failed++
         }
       }

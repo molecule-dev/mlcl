@@ -98,7 +98,12 @@ export function GridPreview({ columns, rows, formula, selectedCellRef }: GridPre
       </div>
       {/* tabIndex: scrollable-region-focusable (axe serious) — a scroll-only
           region must be keyboard-reachable */}
-      <div className="overflow-x-auto" tabIndex={0}>
+      <div
+        className="overflow-x-auto"
+        tabIndex={0}
+        role="region"
+        aria-label={t('gridPreview.region', undefined, { defaultValue: 'Grid preview' })}
+      >
         <table className={'w-full text-[13px] font-mono tabular-nums border-collapse'}>
           <thead>
             <tr className="bg-surface-container-low">

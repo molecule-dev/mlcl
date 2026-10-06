@@ -1,13 +1,13 @@
 import { Link } from 'react-router'
 
+import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 
 import { APP_NAME, APP_TAGLINE, BRAND_GRADIENT } from '../branding.js'
 import { BrandWordmark } from '../components/BrandWordmark.js'
-import { loadContent } from '../config.js'
 import { PublicTopNav } from '../components/PublicTopNav.js'
+import { loadContent } from '../config.js'
 
 const FEATURES = [
   {

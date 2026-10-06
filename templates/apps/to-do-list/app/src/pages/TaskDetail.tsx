@@ -127,7 +127,7 @@ export function TaskDetail() {
       track({ name: 'task.comment_added', properties: { task_id: id } })
       setComments((prev) => [...(prev ?? []), r.data])
       setCommentDraft('')
-    } catch {
+    } catch (_error) {
       // keep the draft so the text isn't lost; the next submit can retry
     } finally {
       setPostingComment(false)

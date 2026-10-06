@@ -6,8 +6,8 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import { BrandWordmark } from '../components/BrandWordmark.js'
 import { AuthBrandPanel } from '../components/AuthBrandPanel.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
 
 export function Login() {

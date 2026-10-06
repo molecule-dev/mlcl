@@ -1,6 +1,7 @@
+import { Link } from 'react-router'
+
 import { LimitsItem, LimitsList, PricingPage } from '@molecule/app-billing-react'
 import { ContentPageShell } from '@molecule/app-legal-pages-react'
-import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 

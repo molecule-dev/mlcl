@@ -5,8 +5,8 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { ChallengeHeroCard, type ChallengeSnapshot } from '../components/ChallengeHeroCard.js'
 import { BookCover } from '../components/BookCover.js'
+import { ChallengeHeroCard, type ChallengeSnapshot } from '../components/ChallengeHeroCard.js'
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface Book {

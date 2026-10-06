@@ -1,7 +1,8 @@
+import { Link } from 'react-router'
+
 import { ContentPageShell, PlanUpdatedPage } from '@molecule/app-legal-pages-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { Link } from 'react-router'
 
 import { APP_NAME } from '../branding.js'
 import { AuthBrandHeader } from '../components/AuthBrandHeader.js'

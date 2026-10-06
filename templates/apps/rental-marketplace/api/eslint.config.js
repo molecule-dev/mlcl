@@ -180,6 +180,18 @@ export default tseslint.config(
       // depth-2 scan can't see even though screen readers read it fine. A
       // label with NO text at any depth still fails.
       'jsx-a11y/label-has-associated-control': ['error', { depth: 25 }],
+      // A scrolling container must be keyboard-reachable (axe `scrollable-region-focusable`),
+      // and the WCAG pattern for it is `tabIndex={0}` on a NAMED `role="region"`. The rule's default
+      // allows tabIndex on no non-interactive role but `tabpanel`, so that pattern would not lint;
+      // `region` is added and nothing else — a tabIndex on a bare div or any other role still fails.
+      'jsx-a11y/no-noninteractive-tabindex': [
+        'error',
+        {
+          roles: ['tabpanel', 'region'],
+          tags: [],
+          allowExpressionValues: true,
+        },
+      ],
     },
   },
   {
@@ -205,6 +217,53 @@ export default tseslint.config(
       globals: {
         console: 'readonly',
         process: 'readonly',
+      },
+    },
+    rules: {
+      '@typescript-eslint/explicit-function-return-type': 'off',
+    },
+  },
+  {
+    // public/*.js ships to the browser as written (no bundler): it runs with
+    // the browser's globals. Without them the template's own site.js failed
+    // lint with `'document' is not defined` as soon as a build edited it, and
+    // the builder spent a fix round on the lint config (x440, 2026-09-29).
+    files: ['public/**/*.js'],
+    languageOptions: {
+      sourceType: 'script',
+      globals: {
+        window: 'readonly',
+        document: 'readonly',
+        navigator: 'readonly',
+        location: 'readonly',
+        history: 'readonly',
+        console: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        requestAnimationFrame: 'readonly',
+        cancelAnimationFrame: 'readonly',
+        getComputedStyle: 'readonly',
+        matchMedia: 'readonly',
+        fetch: 'readonly',
+        URL: 'readonly',
+        URLSearchParams: 'readonly',
+        localStorage: 'readonly',
+        sessionStorage: 'readonly',
+        IntersectionObserver: 'readonly',
+        ResizeObserver: 'readonly',
+        MutationObserver: 'readonly',
+        CustomEvent: 'readonly',
+        Event: 'readonly',
+        HTMLElement: 'readonly',
+        Element: 'readonly',
+        innerWidth: 'readonly',
+        innerHeight: 'readonly',
+        scrollX: 'readonly',
+        scrollY: 'readonly',
+        scrollTo: 'readonly',
+        scrollBy: 'readonly',
       },
     },
     rules: {

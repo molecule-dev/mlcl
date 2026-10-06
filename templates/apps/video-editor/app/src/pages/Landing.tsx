@@ -4,9 +4,9 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { type ProjectSummary, ProjectThumbCard } from '../components/ProjectThumbCard.js'
 import { PublicNav } from '../components/PublicNav.js'
-import { BrandWordmark } from '../components/BrandWordmark.js'
 import { TimelinePreview } from '../components/TimelinePreview.js'
 
 interface FeatureBlock {

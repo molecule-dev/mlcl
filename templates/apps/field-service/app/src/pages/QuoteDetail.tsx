@@ -60,7 +60,8 @@ export function QuoteDetail() {
           setCustomer(
             unwrapSingle<CustomerRecord>(await http.get(`/api/customers/${shaped.customer_id}`)),
           )
-        } catch {
+        } catch (_error) {
+          // The customer lookup failed: show the quote without one.
           setCustomer(null)
         }
       }

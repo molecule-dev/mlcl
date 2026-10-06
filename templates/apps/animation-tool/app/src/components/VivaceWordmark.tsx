@@ -5,10 +5,9 @@
  * the brand itself renders through the one shared component
  * (scripts/verify-brand-consistency.mjs greps for exactly that).
  */
+import { APP_NAME } from '../branding.js'
 import { BrandWordmark } from './BrandWordmark.js'
 import { SafeLink } from './SafeLink.js'
-
-import { APP_NAME } from '../branding.js'
 
 interface VivaceWordmarkProps {
   size?: 'sm' | 'md' | 'lg' | 'xl'

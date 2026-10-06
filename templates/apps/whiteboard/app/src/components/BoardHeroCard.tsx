@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-
 import { Link } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'

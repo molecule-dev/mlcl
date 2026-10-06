@@ -6,8 +6,8 @@ import { useLogin, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_TAGLINE } from '../branding.js'
-import { OAuthButtons } from '../components/OAuthButtons.js'
 import { BrandWordmark } from '../components/BrandWordmark.js'
+import { OAuthButtons } from '../components/OAuthButtons.js'
 
 const SURFACE_DARK = 'var(--color-background)'
 const PANEL = 'var(--color-surface)'

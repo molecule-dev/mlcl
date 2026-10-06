@@ -180,6 +180,18 @@ export default tseslint.config(
       // depth-2 scan can't see even though screen readers read it fine. A
       // label with NO text at any depth still fails.
       'jsx-a11y/label-has-associated-control': ['error', { depth: 25 }],
+      // A scrolling container must be keyboard-reachable (axe `scrollable-region-focusable`),
+      // and the WCAG pattern for it is `tabIndex={0}` on a NAMED `role="region"`. The rule's default
+      // allows tabIndex on no non-interactive role but `tabpanel`, so that pattern would not lint;
+      // `region` is added and nothing else — a tabIndex on a bare div or any other role still fails.
+      'jsx-a11y/no-noninteractive-tabindex': [
+        'error',
+        {
+          roles: ['tabpanel', 'region'],
+          tags: [],
+          allowExpressionValues: true,
+        },
+      ],
     },
   },
   {

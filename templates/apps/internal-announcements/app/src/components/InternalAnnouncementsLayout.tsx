@@ -22,7 +22,6 @@ import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { BrandWordmark } from './BrandWordmark.js'
 import {
   type ApiAcknowledgment,
   type ApiAnnouncement,
@@ -30,6 +29,7 @@ import {
   categoryColor,
   categorySlug,
 } from '../lib/announcements.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 

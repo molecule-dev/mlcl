@@ -6,8 +6,8 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import { RecordingIndicator } from '../components/RecordingIndicator.js'
 import { BrandWordmark } from '../components/BrandWordmark.js'
+import { RecordingIndicator } from '../components/RecordingIndicator.js'
 
 interface PublicRecording {
   id: string

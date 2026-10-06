@@ -156,7 +156,8 @@ export function BookDetail() {
     try {
       const raw = window.localStorage.getItem(marginStorageKey)
       setMarginNotes(raw ? (JSON.parse(raw) as MarginNote[]) : [])
-    } catch {
+    } catch (_error) {
+      // Notes unreadable: start from an empty list rather than failing the page.
       setMarginNotes([])
     }
     setMarginFormOpen(false)
@@ -168,7 +169,7 @@ export function BookDetail() {
     setMarginNotes(notes)
     try {
       window.localStorage.setItem(marginStorageKey, JSON.stringify(notes))
-    } catch {
+    } catch (_error) {
       // Storage unavailable (private mode) — keep the note visible this session.
     }
   }

@@ -6,8 +6,8 @@ import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import { BrandWordmark } from './BrandWordmark.js'
 import { useMediaQuery } from '../lib/useMediaQuery.js'
+import { BrandWordmark } from './BrandWordmark.js'
 import { UserMenu } from './UserMenu.js'
 
 /**

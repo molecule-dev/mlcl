@@ -5,8 +5,8 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { UserMenu } from './UserMenu.js'
 import { BrandWordmark } from './BrandWordmark.js'
+import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
   { to: '/dashboard', key: 'dashboard', defaultLabel: 'Dashboard', icon: 'dashboard' },

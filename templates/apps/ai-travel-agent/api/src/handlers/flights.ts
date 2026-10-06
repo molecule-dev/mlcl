@@ -11,9 +11,9 @@ import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 
-import { requireAdmin } from '../middleware/require-admin.js'
 import { checkDelays, simulateDelay } from '../lib/delay-watch.js'
 import { findFlights, normalizeCabin } from '../lib/flights.js'
+import { requireAdmin } from '../middleware/require-admin.js'
 
 const router = Router()
 

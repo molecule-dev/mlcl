@@ -402,7 +402,12 @@ export function Team() {
             )}
           </div>
         ) : (
-          <div className="overflow-x-auto" tabIndex={0}>
+          <div
+            className="overflow-x-auto"
+            tabIndex={0}
+            role="region"
+            aria-label={t('team.membersRegion', undefined, { defaultValue: 'Team members' })}
+          >
             <table className={'w-full text-sm'}>
               <thead>
                 <tr className="bg-surface-container-low">

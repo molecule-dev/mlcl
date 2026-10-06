@@ -17,8 +17,8 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BoardCard } from '../components/BoardCard.js'
-import { type ApiPost, authorName, timeAgo } from '../utils/posts.js'
 import type { ApiBoardSummary } from '../utils/posts.js'
+import { type ApiPost, authorName, timeAgo } from '../utils/posts.js'
 
 const HOW_STEPS = [
   {

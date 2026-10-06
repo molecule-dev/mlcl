@@ -1,8 +1,8 @@
 import { Link } from 'react-router'
 
+import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
 import { BrandWordmark } from '../components/BrandWordmark.js'

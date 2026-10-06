@@ -474,7 +474,8 @@ async function assertOwnedTask(taskId: string, ownerId: string): Promise<boolean
       { field: 'owner_id', operator: '=', value: ownerId },
     ])
     return Boolean(task)
-  } catch {
+  } catch (_error) {
+    // Not a usable value: report false rather than throwing.
     return false
   }
 }

@@ -6,8 +6,8 @@ import { useLogin, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE, BRAND_COLOR } from '../branding.js'
-import { OAuthButtons } from '../components/OAuthButtons.js'
 import { BrandWordmark } from '../components/BrandWordmark.js'
+import { OAuthButtons } from '../components/OAuthButtons.js'
 
 export function Login() {
   const cm = getClassMap()

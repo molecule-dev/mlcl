@@ -4,8 +4,8 @@ import { Link, useNavigate, useSearchParams } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { BrandWordmark } from '../components/BrandWordmark.js'
 import { AuthBrandPanel } from '../components/AuthBrandPanel.js'
+import { BrandWordmark } from '../components/BrandWordmark.js'
 import { authConfig } from '../config.js'
 
 export function ResetPassword() {

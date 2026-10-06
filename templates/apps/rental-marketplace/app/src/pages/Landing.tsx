@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
-import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { LegalModalLinks } from '@molecule/app-legal-pages-react'
+import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 import { BrandWordmark } from '../components/BrandWordmark.js'
-import { loadContent } from '../config.js'
 import { DestinationDiscoveryCard } from '../components/DestinationDiscoveryCard.js'
 import { RoostHeroSearchCard } from '../components/RoostHeroSearchCard.js'
 import { RoostListingCard } from '../components/RoostListingCard.js'
+import { loadContent } from '../config.js'
 import { unwrapList } from '../lib/unwrap.js'
 
 const FEATURED_DESTINATIONS = [

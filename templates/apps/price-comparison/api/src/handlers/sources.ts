@@ -41,8 +41,8 @@ import { get as httpGet } from '@molecule/api-http'
 import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
 
-import { requireAdmin } from '../middleware/require-admin.js'
 import { isPrivateHost } from '../lib/private-hosts.js'
+import { requireAdmin } from '../middleware/require-admin.js'
 
 const router = Router()
 
@@ -58,8 +58,10 @@ async function assertFetchableEndpoint(endpoint: string): Promise<void> {
   let url: URL
   try {
     url = new URL(endpoint)
-  } catch {
-    throw new Error('Source endpoint is not a valid URL')
+  } catch (error) {
+    // The URL constructor's message echoes the input, so the caller gets our own sentence; the
+    // original error stays attached as the cause.
+    throw new Error('Source endpoint is not a valid URL', { cause: error })
   }
   if (url.protocol !== 'http:' && url.protocol !== 'https:') {
     throw new Error('Only http(s) endpoints can be fetched')
