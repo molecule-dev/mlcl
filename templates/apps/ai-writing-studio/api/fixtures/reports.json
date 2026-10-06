@@ -1,0 +1,336 @@
+{
+  "dashboard/": {
+    "kpis": {
+      "totalDocuments": 6,
+      "publishedThisMonth": 3,
+      "avgSeoScore": 76,
+      "aiWordsUsed": 42350,
+      "aiWordsLimit": 100000
+    },
+    "streak": {
+      "dayStreak": 5,
+      "wordsThisWeek": 6120,
+      "heatmap": [
+        {
+          "date": "2026-09-09",
+          "intensity": 0
+        },
+        {
+          "date": "2026-09-10",
+          "intensity": 1
+        },
+        {
+          "date": "2026-09-11",
+          "intensity": 2
+        },
+        {
+          "date": "2026-09-12",
+          "intensity": 3
+        },
+        {
+          "date": "2026-09-13",
+          "intensity": 1
+        },
+        {
+          "date": "2026-09-14",
+          "intensity": 0
+        },
+        {
+          "date": "2026-09-15",
+          "intensity": 2
+        },
+        {
+          "date": "2026-09-16",
+          "intensity": 0
+        },
+        {
+          "date": "2026-09-17",
+          "intensity": 1
+        },
+        {
+          "date": "2026-09-18",
+          "intensity": 2
+        },
+        {
+          "date": "2026-09-19",
+          "intensity": 3
+        },
+        {
+          "date": "2026-09-20",
+          "intensity": 1
+        },
+        {
+          "date": "2026-09-21",
+          "intensity": 0
+        },
+        {
+          "date": "2026-09-22",
+          "intensity": 2
+        },
+        {
+          "date": "2026-09-23",
+          "intensity": 0
+        },
+        {
+          "date": "2026-09-24",
+          "intensity": 1
+        },
+        {
+          "date": "2026-09-25",
+          "intensity": 2
+        },
+        {
+          "date": "2026-09-26",
+          "intensity": 3
+        },
+        {
+          "date": "2026-09-27",
+          "intensity": 1
+        },
+        {
+          "date": "2026-09-28",
+          "intensity": 0
+        },
+        {
+          "date": "2026-09-29",
+          "intensity": 2
+        },
+        {
+          "date": "2026-09-30",
+          "intensity": 0
+        },
+        {
+          "date": "2026-10-01",
+          "intensity": 1
+        },
+        {
+          "date": "2026-10-02",
+          "intensity": 2
+        },
+        {
+          "date": "2026-10-03",
+          "intensity": 3
+        },
+        {
+          "date": "2026-10-04",
+          "intensity": 1
+        },
+        {
+          "date": "2026-10-05",
+          "intensity": 0
+        },
+        {
+          "date": "2026-10-06",
+          "intensity": 2
+        }
+      ]
+    },
+    "recentDocuments": [
+      {
+        "id": "000000d1-0000-4000-8000-000000000001",
+        "title": "How we cut onboarding time in half",
+        "excerpt": "A walkthrough of the three changes that moved activation from 41% to 63%.",
+        "status": "published",
+        "wordCount": 1840,
+        "readingMinutes": 8,
+        "seoScore": 86,
+        "updatedAt": "2026-10-06T11:00:00Z"
+      },
+      {
+        "id": "000000d1-0000-4000-8000-000000000002",
+        "title": "A field guide to async standups",
+        "excerpt": "What to write, what to skip, and how to keep updates short.",
+        "status": "published",
+        "wordCount": 1260,
+        "readingMinutes": 6,
+        "seoScore": 78,
+        "updatedAt": "2026-10-05T11:00:00Z"
+      },
+      {
+        "id": "000000d1-0000-4000-8000-000000000003",
+        "title": "Notes on pricing page experiments",
+        "excerpt": "Draft: results from the annual-plan toggle test.",
+        "status": "draft",
+        "wordCount": 720,
+        "readingMinutes": 4,
+        "seoScore": null,
+        "updatedAt": "2026-10-04T11:00:00Z"
+      },
+      {
+        "id": "000000d1-0000-4000-8000-000000000004",
+        "title": "The case for boring technology",
+        "excerpt": "Why a small stack ships faster than a clever one.",
+        "status": "draft",
+        "wordCount": 2100,
+        "readingMinutes": 10,
+        "seoScore": 71,
+        "updatedAt": "2026-10-03T11:00:00Z"
+      }
+    ]
+  },
+  "analytics/": {
+    "totals": {
+      "totalWords": 9870,
+      "totalReadMinutes": 47,
+      "publishedCount": 3,
+      "draftCount": 2
+    },
+    "series": [
+      {
+        "date": "2026-09-23",
+        "value": 420
+      },
+      {
+        "date": "2026-09-24",
+        "value": 0
+      },
+      {
+        "date": "2026-09-25",
+        "value": 880
+      },
+      {
+        "date": "2026-09-26",
+        "value": 1200
+      },
+      {
+        "date": "2026-09-27",
+        "value": 300
+      },
+      {
+        "date": "2026-09-28",
+        "value": 0
+      },
+      {
+        "date": "2026-09-29",
+        "value": 650
+      },
+      {
+        "date": "2026-09-30",
+        "value": 940
+      },
+      {
+        "date": "2026-10-01",
+        "value": 0
+      },
+      {
+        "date": "2026-10-02",
+        "value": 1500
+      },
+      {
+        "date": "2026-10-03",
+        "value": 780
+      },
+      {
+        "date": "2026-10-04",
+        "value": 360
+      },
+      {
+        "date": "2026-10-05",
+        "value": 0
+      },
+      {
+        "date": "2026-10-06",
+        "value": 1100
+      }
+    ],
+    "topArticles": [
+      {
+        "id": "000000d1-0000-4000-8000-000000000001",
+        "title": "How we cut onboarding time in half",
+        "wordCount": 1840,
+        "readingMinutes": 8
+      },
+      {
+        "id": "000000d1-0000-4000-8000-000000000002",
+        "title": "A field guide to async standups",
+        "wordCount": 1260,
+        "readingMinutes": 6
+      },
+      {
+        "id": "000000d1-0000-4000-8000-000000000005",
+        "title": "Q3 product update",
+        "wordCount": 950,
+        "readingMinutes": 5
+      }
+    ],
+    "trafficSources": [],
+    "geography": []
+  },
+  "profile/": {
+    "name": "Alex Morgan",
+    "handle": "alexmorgan",
+    "email": "alex@example.com",
+    "stats": {
+      "published": 3,
+      "drafts": 2,
+      "total": 6
+    },
+    "published": [
+      {
+        "id": "000000d1-0000-4000-8000-000000000001",
+        "title": "How we cut onboarding time in half",
+        "excerpt": "A walkthrough of the three changes that moved activation from 41% to 63%.",
+        "status": "published",
+        "wordCount": 1840,
+        "readingMinutes": 8,
+        "seoScore": 86,
+        "updatedAt": "2026-10-06T11:00:00Z"
+      },
+      {
+        "id": "000000d1-0000-4000-8000-000000000002",
+        "title": "A field guide to async standups",
+        "excerpt": "What to write, what to skip, and how to keep updates short.",
+        "status": "published",
+        "wordCount": 1260,
+        "readingMinutes": 6,
+        "seoScore": 78,
+        "updatedAt": "2026-10-05T11:00:00Z"
+      },
+      {
+        "id": "000000d1-0000-4000-8000-000000000005",
+        "title": "Q3 product update",
+        "excerpt": "Highlights from the quarter and what is coming next.",
+        "status": "published",
+        "wordCount": 950,
+        "readingMinutes": 5,
+        "seoScore": 82,
+        "updatedAt": "2026-10-02T11:00:00Z"
+      }
+    ]
+  },
+  "billing/summary": {
+    "plan": {
+      "planKey": "free",
+      "name": "Free",
+      "category": "free",
+      "limits": {},
+      "isFree": true
+    },
+    "invoices": []
+  },
+  "integrations/": {
+    "integrations": [
+      {
+        "key": "wordpress",
+        "label": "WordPress",
+        "icon": "language",
+        "connected": true,
+        "credentialId": "000000c1-0000-4000-8000-000000000001"
+      },
+      {
+        "key": "ghost",
+        "label": "Ghost",
+        "icon": "article",
+        "connected": false,
+        "credentialId": null
+      }
+    ]
+  },
+  "preferences/": {
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "default_tone": "Professional",
+    "auto_save": true,
+    "ai_suggestions": true,
+    "notify_email": false
+  }
+}

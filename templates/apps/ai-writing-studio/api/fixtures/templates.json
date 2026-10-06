@@ -1,0 +1,46 @@
+[
+  {
+    "id": "000000t1-0000-4000-8000-000000000001",
+    "name": "Product launch announcement",
+    "description": "Announce a feature with a clear problem, solution and call to action.",
+    "category": "announcement",
+    "body_template": "# {{title}}\n\n{{intro}}\n",
+    "placeholder_vars": [
+      "title",
+      "intro"
+    ]
+  },
+  {
+    "id": "000000t1-0000-4000-8000-000000000002",
+    "name": "How-to guide",
+    "description": "Step by step tutorial with a short intro and a summary.",
+    "category": "guide",
+    "body_template": "# {{title}}\n\n{{intro}}\n",
+    "placeholder_vars": [
+      "title",
+      "intro"
+    ]
+  },
+  {
+    "id": "000000t1-0000-4000-8000-000000000003",
+    "name": "Case study",
+    "description": "Customer challenge, approach and measurable results.",
+    "category": "case-study",
+    "body_template": "# {{title}}\n\n{{intro}}\n",
+    "placeholder_vars": [
+      "title",
+      "intro"
+    ]
+  },
+  {
+    "id": "000000t1-0000-4000-8000-000000000004",
+    "name": "Weekly newsletter",
+    "description": "A friendly roundup with three highlights and one link.",
+    "category": "newsletter",
+    "body_template": "# {{title}}\n\n{{intro}}\n",
+    "placeholder_vars": [
+      "title",
+      "intro"
+    ]
+  }
+]
