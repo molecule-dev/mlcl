@@ -1,0 +1,298 @@
+{
+  "subscriptions/mine": {
+    "id": "sub-current",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "plan_id": "box-cozy-evenings",
+    "status": "active",
+    "payment_subscription_id": null,
+    "stripe_subscription_id": null,
+    "preferences": {},
+    "current_period_start": "2026-09-12T00:00:00Z",
+    "current_period_end": "2026-10-12T00:00:00Z",
+    "next_billing_date": "2026-10-12T00:00:00Z",
+    "paused_at": null,
+    "cancelled_at": null,
+    "cancel_reason": null,
+    "trial_end": null,
+    "created_at": "2025-09-01T00:00:00Z",
+    "plan": {
+      "id": "box-cozy-evenings",
+      "name": "Cozy Evenings",
+      "slug": "cozy-evenings",
+      "description": "Wrap up in warmth and small luxuries.",
+      "price": 3900,
+      "currency": "USD",
+      "interval": "month",
+      "interval_count": 1,
+      "features": [
+        "5–6 curated items each month",
+        "Free shipping anywhere in the US",
+        "Skip or pause any time",
+        "Themed editions every season"
+      ],
+      "included_items": [
+        "Hand-poured soy candle (cedarwood + amber)",
+        "Wool-blend throw, charcoal heather",
+        "Single-origin Ethiopian pour-over coffee",
+        "Glazed ceramic mug, terracotta",
+        "Wildflower honey, 3oz",
+        "Linen-bound pocket journal"
+      ],
+      "max_customizations": 1,
+      "stripe_price_id": null,
+      "status": "active",
+      "sort_order": 1
+    }
+  },
+  "boxes/mine/upcoming": {
+    "id": "box-upcoming",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "subscription_id": "sub-current",
+    "theme": "Cozy Evenings",
+    "billing_period": "2026-10",
+    "scheduled_for": "2026-10-14T00:00:00Z",
+    "status": "customizing",
+    "customizations": {},
+    "items": [
+      {
+        "id": "box-upcoming-it1",
+        "box_id": "box-upcoming",
+        "product_id": null,
+        "product_variant_id": null,
+        "name": "Hand-poured soy candle (cedarwood + amber)",
+        "quantity": 1,
+        "is_custom": false,
+        "created_at": "2026-09-20T10:00:00Z"
+      },
+      {
+        "id": "box-upcoming-it2",
+        "box_id": "box-upcoming",
+        "product_id": null,
+        "product_variant_id": null,
+        "name": "Wool-blend throw, charcoal heather",
+        "quantity": 1,
+        "is_custom": false,
+        "created_at": "2026-09-20T10:00:00Z"
+      },
+      {
+        "id": "box-upcoming-it3",
+        "box_id": "box-upcoming",
+        "product_id": null,
+        "product_variant_id": null,
+        "name": "Single-origin Ethiopian pour-over coffee",
+        "quantity": 1,
+        "is_custom": false,
+        "created_at": "2026-09-20T10:00:00Z"
+      },
+      {
+        "id": "box-upcoming-it4",
+        "box_id": "box-upcoming",
+        "product_id": null,
+        "product_variant_id": null,
+        "name": "Glazed ceramic mug, terracotta",
+        "quantity": 1,
+        "is_custom": false,
+        "created_at": "2026-09-20T10:00:00Z"
+      },
+      {
+        "id": "box-upcoming-it5",
+        "box_id": "box-upcoming",
+        "product_id": null,
+        "product_variant_id": null,
+        "name": "Wildflower honey, 3oz",
+        "quantity": 1,
+        "is_custom": false,
+        "created_at": "2026-09-20T10:00:00Z"
+      },
+      {
+        "id": "box-upcoming-it6",
+        "box_id": "box-upcoming",
+        "product_id": null,
+        "product_variant_id": null,
+        "name": "Linen-bound pocket journal",
+        "quantity": 1,
+        "is_custom": true,
+        "created_at": "2026-09-20T10:00:00Z"
+      }
+    ],
+    "created_at": "2026-09-20T10:00:00Z"
+  },
+  "boxes/mine/history": {
+    "data": [
+      {
+        "id": "box-rainy-day-reads",
+        "user_id": "00000000-0000-4000-8000-0000000000a1",
+        "subscription_id": "sub-current",
+        "theme": "Rainy Day Reads",
+        "billing_period": "2026-04",
+        "scheduled_for": "2026-04-15T00:00:00Z",
+        "status": "delivered",
+        "customizations": {},
+        "items": [
+          {
+            "id": "box-rainy-day-reads-it1",
+            "box_id": "box-rainy-day-reads",
+            "product_id": null,
+            "product_variant_id": null,
+            "name": "Seasonal selection",
+            "quantity": 1,
+            "is_custom": false,
+            "created_at": "2026-09-20T10:00:00Z"
+          },
+          {
+            "id": "box-rainy-day-reads-it2",
+            "box_id": "box-rainy-day-reads",
+            "product_id": null,
+            "product_variant_id": null,
+            "name": "Maker spotlight card",
+            "quantity": 1,
+            "is_custom": false,
+            "created_at": "2026-09-20T10:00:00Z"
+          },
+          {
+            "id": "box-rainy-day-reads-it3",
+            "box_id": "box-rainy-day-reads",
+            "product_id": null,
+            "product_variant_id": null,
+            "name": "Surprise extra",
+            "quantity": 1,
+            "is_custom": true,
+            "created_at": "2026-09-20T10:00:00Z"
+          }
+        ],
+        "created_at": "2026-04-13T16:42:00Z"
+      },
+      {
+        "id": "box-spring-stirrings",
+        "user_id": "00000000-0000-4000-8000-0000000000a1",
+        "subscription_id": "sub-current",
+        "theme": "Spring Stirrings",
+        "billing_period": "2026-03",
+        "scheduled_for": "2026-03-15T00:00:00Z",
+        "status": "delivered",
+        "customizations": {},
+        "items": [
+          {
+            "id": "box-spring-stirrings-it1",
+            "box_id": "box-spring-stirrings",
+            "product_id": null,
+            "product_variant_id": null,
+            "name": "Seasonal selection",
+            "quantity": 1,
+            "is_custom": false,
+            "created_at": "2026-09-20T10:00:00Z"
+          },
+          {
+            "id": "box-spring-stirrings-it2",
+            "box_id": "box-spring-stirrings",
+            "product_id": null,
+            "product_variant_id": null,
+            "name": "Maker spotlight card",
+            "quantity": 1,
+            "is_custom": false,
+            "created_at": "2026-09-20T10:00:00Z"
+          },
+          {
+            "id": "box-spring-stirrings-it3",
+            "box_id": "box-spring-stirrings",
+            "product_id": null,
+            "product_variant_id": null,
+            "name": "Surprise extra",
+            "quantity": 1,
+            "is_custom": true,
+            "created_at": "2026-09-20T10:00:00Z"
+          }
+        ],
+        "created_at": "2026-03-12T10:15:00Z"
+      },
+      {
+        "id": "box-winter-warmers",
+        "user_id": "00000000-0000-4000-8000-0000000000a1",
+        "subscription_id": "sub-current",
+        "theme": "Winter Warmers",
+        "billing_period": "2026-02",
+        "scheduled_for": "2026-02-15T00:00:00Z",
+        "status": "delivered",
+        "customizations": {},
+        "items": [
+          {
+            "id": "box-winter-warmers-it1",
+            "box_id": "box-winter-warmers",
+            "product_id": null,
+            "product_variant_id": null,
+            "name": "Seasonal selection",
+            "quantity": 1,
+            "is_custom": false,
+            "created_at": "2026-09-20T10:00:00Z"
+          },
+          {
+            "id": "box-winter-warmers-it2",
+            "box_id": "box-winter-warmers",
+            "product_id": null,
+            "product_variant_id": null,
+            "name": "Maker spotlight card",
+            "quantity": 1,
+            "is_custom": false,
+            "created_at": "2026-09-20T10:00:00Z"
+          },
+          {
+            "id": "box-winter-warmers-it3",
+            "box_id": "box-winter-warmers",
+            "product_id": null,
+            "product_variant_id": null,
+            "name": "Surprise extra",
+            "quantity": 1,
+            "is_custom": true,
+            "created_at": "2026-09-20T10:00:00Z"
+          }
+        ],
+        "created_at": "2026-02-14T11:30:00Z"
+      }
+    ],
+    "page": 1,
+    "limit": 20
+  },
+  "billing/status": {
+    "planKey": "free",
+    "category": "free",
+    "name": "Free",
+    "limits": {},
+    "isFree": true
+  },
+  "shipments/box/box-rainy-day-reads": {
+    "id": "ship-2026-04",
+    "box_id": "box-rainy-day-reads",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "carrier": "UPS",
+    "tracking_number": "1Z9990W90362345678",
+    "label_url": null,
+    "estimated_delivery": "2026-04-15T00:00:00Z",
+    "status": "delivered",
+    "shipped_at": "2026-04-15T00:00:00Z",
+    "delivered_at": "2026-04-13T16:42:00Z"
+  },
+  "shipments/box/box-spring-stirrings": {
+    "id": "ship-2026-03",
+    "box_id": "box-spring-stirrings",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "carrier": "UPS",
+    "tracking_number": "1Z9990W90362345001",
+    "label_url": null,
+    "estimated_delivery": "2026-03-15T00:00:00Z",
+    "status": "delivered",
+    "shipped_at": "2026-03-15T00:00:00Z",
+    "delivered_at": "2026-03-12T10:15:00Z"
+  },
+  "shipments/box/box-winter-warmers": {
+    "id": "ship-2026-02",
+    "box_id": "box-winter-warmers",
+    "user_id": "00000000-0000-4000-8000-0000000000a1",
+    "carrier": "UPS",
+    "tracking_number": "1Z9990W90362344902",
+    "label_url": null,
+    "estimated_delivery": "2026-02-15T00:00:00Z",
+    "status": "delivered",
+    "shipped_at": "2026-02-15T00:00:00Z",
+    "delivered_at": "2026-02-14T11:30:00Z"
+  }
+}

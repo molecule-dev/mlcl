@@ -1,0 +1,114 @@
+[
+  {
+    "id": "box-cozy-evenings",
+    "name": "Cozy Evenings",
+    "slug": "cozy-evenings",
+    "description": "Wrap up in warmth and small luxuries.",
+    "price": 3900,
+    "currency": "USD",
+    "interval": "month",
+    "interval_count": 1,
+    "features": [
+      "5–6 curated items each month",
+      "Free shipping anywhere in the US",
+      "Skip or pause any time",
+      "Themed editions every season"
+    ],
+    "included_items": [
+      "Hand-poured soy candle (cedarwood + amber)",
+      "Wool-blend throw, charcoal heather",
+      "Single-origin Ethiopian pour-over coffee",
+      "Glazed ceramic mug, terracotta",
+      "Wildflower honey, 3oz",
+      "Linen-bound pocket journal"
+    ],
+    "max_customizations": 1,
+    "stripe_price_id": null,
+    "status": "active",
+    "sort_order": 1
+  },
+  {
+    "id": "box-summer-citrus",
+    "name": "Summer Citrus",
+    "slug": "summer-citrus",
+    "description": "Bright, breezy, briefly perfect.",
+    "price": 3900,
+    "currency": "USD",
+    "interval": "month",
+    "interval_count": 1,
+    "features": [
+      "5–6 curated items each month",
+      "Free shipping anywhere in the US",
+      "Skip or pause any time",
+      "Themed editions every season"
+    ],
+    "included_items": [
+      "Cold-pressed yuzu soda, 4-pack",
+      "Lemon-rosemary soap bar",
+      "Beach-bag tote, natural canvas",
+      "Mini sunscreen stick, SPF 50",
+      "Citrus + sea salt dark chocolate"
+    ],
+    "max_customizations": 1,
+    "stripe_price_id": null,
+    "status": "active",
+    "sort_order": 2
+  },
+  {
+    "id": "box-quiet-mornings",
+    "name": "Quiet Mornings",
+    "slug": "quiet-mornings",
+    "description": "Slow rituals, sharper days.",
+    "price": 5900,
+    "currency": "USD",
+    "interval": "month",
+    "interval_count": 1,
+    "features": [
+      "7–8 hand-picked items each month",
+      "Limited-edition collaborations",
+      "Two member-only swaps per box",
+      "Free returns + early access to drops"
+    ],
+    "included_items": [
+      "Stoneware drip kettle",
+      "Loose-leaf jasmine pearl tea, 4oz",
+      "Bamboo tea strainer",
+      "Linen-bound morning pages journal",
+      "Brass uniball pen",
+      "Eucalyptus pillow mist",
+      "Hand-thrown teacup, sand"
+    ],
+    "max_customizations": 2,
+    "stripe_price_id": null,
+    "status": "active",
+    "sort_order": 3
+  },
+  {
+    "id": "box-trail-essentials",
+    "name": "Trail Essentials",
+    "slug": "trail-essentials",
+    "description": "Pack light. Go far.",
+    "price": 5900,
+    "currency": "USD",
+    "interval": "month",
+    "interval_count": 1,
+    "features": [
+      "7–8 hand-picked items each month",
+      "Limited-edition collaborations",
+      "Two member-only swaps per box",
+      "Free returns + early access to drops"
+    ],
+    "included_items": [
+      "Merino wool hiking socks",
+      "Stainless trail mug, 12oz",
+      "Wax-canvas zip pouch",
+      "Trail-mix variety pack, 4 flavors",
+      "Compact LED head torch",
+      "Field-notes pocket notebook"
+    ],
+    "max_customizations": 2,
+    "stripe_price_id": null,
+    "status": "active",
+    "sort_order": 4
+  }
+]
