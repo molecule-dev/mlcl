@@ -1,0 +1,1617 @@
+{
+  "people/walter": {
+    "id": "walter",
+    "key": "walter",
+    "first_name": "Walter",
+    "last_name": "Hutchins",
+    "gender": "male",
+    "birth_date": "1938-04-12",
+    "birth_place": "Portland, Maine, USA",
+    "death_date": "2016-11-03",
+    "death_place": "Portland, Maine, USA",
+    "notes": "Shipyard electrician for 38 years. Kept a hand-drawn family chart pinned above his desk.",
+    "photo_url": null,
+    "relatives": {
+      "parents": [],
+      "partners": [
+        {
+          "id": "margaret",
+          "key": "margaret",
+          "first_name": "Margaret",
+          "last_name": "Hutchins",
+          "maiden_name": "Doyle",
+          "gender": "female",
+          "birth_date": "1941-09-22",
+          "birth_place": "Galway, Ireland",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Emigrated from Galway in 1962. Family recipe book spans three generations.",
+          "photo_url": null
+        }
+      ],
+      "children": [
+        {
+          "id": "david",
+          "key": "david",
+          "first_name": "David",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1965-03-14",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Civil engineer. Retraced Walter's chart with archival records in 2019.",
+          "photo_url": null
+        },
+        {
+          "id": "susan",
+          "key": "susan",
+          "first_name": "Susan",
+          "last_name": "Reed",
+          "maiden_name": "Hutchins",
+          "gender": "female",
+          "birth_date": "1968-11-19",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "High-school history teacher in Burlington.",
+          "photo_url": null
+        }
+      ],
+      "siblings": []
+    },
+    "timeline": [
+      {
+        "date": "1938-04-12",
+        "kind": "birth",
+        "detail": "Portland, Maine, USA"
+      },
+      {
+        "date": "1965-03-14",
+        "kind": "child",
+        "detail": "David Hutchins"
+      },
+      {
+        "date": "1968-11-19",
+        "kind": "child",
+        "detail": "Susan Reed"
+      },
+      {
+        "date": "2016-11-03",
+        "kind": "death",
+        "detail": "Portland, Maine, USA"
+      },
+      {
+        "date": null,
+        "kind": "partnership",
+        "detail": "Margaret Hutchins"
+      }
+    ]
+  },
+  "people/margaret": {
+    "id": "margaret",
+    "key": "margaret",
+    "first_name": "Margaret",
+    "last_name": "Hutchins",
+    "maiden_name": "Doyle",
+    "gender": "female",
+    "birth_date": "1941-09-22",
+    "birth_place": "Galway, Ireland",
+    "death_date": null,
+    "death_place": null,
+    "notes": "Emigrated from Galway in 1962. Family recipe book spans three generations.",
+    "photo_url": null,
+    "relatives": {
+      "parents": [],
+      "partners": [
+        {
+          "id": "walter",
+          "key": "walter",
+          "first_name": "Walter",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1938-04-12",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": "2016-11-03",
+          "death_place": "Portland, Maine, USA",
+          "notes": "Shipyard electrician for 38 years. Kept a hand-drawn family chart pinned above his desk.",
+          "photo_url": null
+        }
+      ],
+      "children": [
+        {
+          "id": "david",
+          "key": "david",
+          "first_name": "David",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1965-03-14",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Civil engineer. Retraced Walter's chart with archival records in 2019.",
+          "photo_url": null
+        },
+        {
+          "id": "susan",
+          "key": "susan",
+          "first_name": "Susan",
+          "last_name": "Reed",
+          "maiden_name": "Hutchins",
+          "gender": "female",
+          "birth_date": "1968-11-19",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "High-school history teacher in Burlington.",
+          "photo_url": null
+        }
+      ],
+      "siblings": []
+    },
+    "timeline": [
+      {
+        "date": "1941-09-22",
+        "kind": "birth",
+        "detail": "Galway, Ireland"
+      },
+      {
+        "date": "1965-03-14",
+        "kind": "child",
+        "detail": "David Hutchins"
+      },
+      {
+        "date": "1968-11-19",
+        "kind": "child",
+        "detail": "Susan Reed"
+      },
+      {
+        "date": null,
+        "kind": "partnership",
+        "detail": "Walter Hutchins"
+      }
+    ]
+  },
+  "people/frank": {
+    "id": "frank",
+    "key": "frank",
+    "first_name": "Frank",
+    "last_name": "Moretti",
+    "gender": "male",
+    "birth_date": "1936-01-30",
+    "birth_place": "Bologna, Italy",
+    "death_date": "2018-06-17",
+    "death_place": "Providence, Rhode Island, USA",
+    "notes": "Carpenter. Built the dining table still used every Thanksgiving.",
+    "photo_url": null,
+    "relatives": {
+      "parents": [],
+      "partners": [
+        {
+          "id": "rosa",
+          "key": "rosa",
+          "first_name": "Rosa",
+          "last_name": "Moretti",
+          "maiden_name": "Bellini",
+          "gender": "female",
+          "birth_date": "1940-05-08",
+          "birth_place": "Bologna, Italy",
+          "death_date": "2020-02-11",
+          "death_place": "Providence, Rhode Island, USA",
+          "notes": "Seamstress. Quilted a family tree wall hanging for every new grandchild.",
+          "photo_url": null
+        }
+      ],
+      "children": [
+        {
+          "id": "lucia",
+          "key": "lucia",
+          "first_name": "Lucia",
+          "last_name": "Hutchins",
+          "maiden_name": "Moretti",
+          "gender": "female",
+          "birth_date": "1967-07-02",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Librarian. The family's unofficial archivist.",
+          "photo_url": null
+        }
+      ],
+      "siblings": []
+    },
+    "timeline": [
+      {
+        "date": "1936-01-30",
+        "kind": "birth",
+        "detail": "Bologna, Italy"
+      },
+      {
+        "date": "1967-07-02",
+        "kind": "child",
+        "detail": "Lucia Hutchins"
+      },
+      {
+        "date": "2018-06-17",
+        "kind": "death",
+        "detail": "Providence, Rhode Island, USA"
+      },
+      {
+        "date": null,
+        "kind": "partnership",
+        "detail": "Rosa Moretti"
+      }
+    ]
+  },
+  "people/rosa": {
+    "id": "rosa",
+    "key": "rosa",
+    "first_name": "Rosa",
+    "last_name": "Moretti",
+    "maiden_name": "Bellini",
+    "gender": "female",
+    "birth_date": "1940-05-08",
+    "birth_place": "Bologna, Italy",
+    "death_date": "2020-02-11",
+    "death_place": "Providence, Rhode Island, USA",
+    "notes": "Seamstress. Quilted a family tree wall hanging for every new grandchild.",
+    "photo_url": null,
+    "relatives": {
+      "parents": [],
+      "partners": [
+        {
+          "id": "frank",
+          "key": "frank",
+          "first_name": "Frank",
+          "last_name": "Moretti",
+          "gender": "male",
+          "birth_date": "1936-01-30",
+          "birth_place": "Bologna, Italy",
+          "death_date": "2018-06-17",
+          "death_place": "Providence, Rhode Island, USA",
+          "notes": "Carpenter. Built the dining table still used every Thanksgiving.",
+          "photo_url": null
+        }
+      ],
+      "children": [
+        {
+          "id": "lucia",
+          "key": "lucia",
+          "first_name": "Lucia",
+          "last_name": "Hutchins",
+          "maiden_name": "Moretti",
+          "gender": "female",
+          "birth_date": "1967-07-02",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Librarian. The family's unofficial archivist.",
+          "photo_url": null
+        }
+      ],
+      "siblings": []
+    },
+    "timeline": [
+      {
+        "date": "1940-05-08",
+        "kind": "birth",
+        "detail": "Bologna, Italy"
+      },
+      {
+        "date": "1967-07-02",
+        "kind": "child",
+        "detail": "Lucia Hutchins"
+      },
+      {
+        "date": "2020-02-11",
+        "kind": "death",
+        "detail": "Providence, Rhode Island, USA"
+      },
+      {
+        "date": null,
+        "kind": "partnership",
+        "detail": "Frank Moretti"
+      }
+    ]
+  },
+  "people/david": {
+    "id": "david",
+    "key": "david",
+    "first_name": "David",
+    "last_name": "Hutchins",
+    "gender": "male",
+    "birth_date": "1965-03-14",
+    "birth_place": "Portland, Maine, USA",
+    "death_date": null,
+    "death_place": null,
+    "notes": "Civil engineer. Retraced Walter's chart with archival records in 2019.",
+    "photo_url": null,
+    "relatives": {
+      "parents": [
+        {
+          "id": "walter",
+          "key": "walter",
+          "first_name": "Walter",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1938-04-12",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": "2016-11-03",
+          "death_place": "Portland, Maine, USA",
+          "notes": "Shipyard electrician for 38 years. Kept a hand-drawn family chart pinned above his desk.",
+          "photo_url": null
+        },
+        {
+          "id": "margaret",
+          "key": "margaret",
+          "first_name": "Margaret",
+          "last_name": "Hutchins",
+          "maiden_name": "Doyle",
+          "gender": "female",
+          "birth_date": "1941-09-22",
+          "birth_place": "Galway, Ireland",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Emigrated from Galway in 1962. Family recipe book spans three generations.",
+          "photo_url": null
+        }
+      ],
+      "partners": [
+        {
+          "id": "lucia",
+          "key": "lucia",
+          "first_name": "Lucia",
+          "last_name": "Hutchins",
+          "maiden_name": "Moretti",
+          "gender": "female",
+          "birth_date": "1967-07-02",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Librarian. The family's unofficial archivist.",
+          "photo_url": null
+        }
+      ],
+      "children": [
+        {
+          "id": "elena",
+          "key": "elena",
+          "first_name": "Elena",
+          "last_name": "Hutchins",
+          "gender": "female",
+          "birth_date": "1992-02-27",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Lives in Lisbon; researching the Doyle line's Atlantic crossings.",
+          "photo_url": null
+        },
+        {
+          "id": "jordan",
+          "key": "jordan",
+          "first_name": "Jordan",
+          "last_name": "Hutchins",
+          "gender": "nonbinary",
+          "birth_date": "1994-06-09",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Started this tree after Margaret shared the Galway parish records.",
+          "photo_url": null
+        },
+        {
+          "id": "marcus",
+          "key": "marcus",
+          "first_name": "Marcus",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1996-10-05",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Botanist. Named the backyard apple orchard rows after relatives.",
+          "photo_url": null
+        }
+      ],
+      "siblings": [
+        {
+          "id": "susan",
+          "key": "susan",
+          "first_name": "Susan",
+          "last_name": "Reed",
+          "maiden_name": "Hutchins",
+          "gender": "female",
+          "birth_date": "1968-11-19",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "High-school history teacher in Burlington.",
+          "photo_url": null
+        }
+      ]
+    },
+    "timeline": [
+      {
+        "date": "1965-03-14",
+        "kind": "birth",
+        "detail": "Portland, Maine, USA"
+      },
+      {
+        "date": "1992-02-27",
+        "kind": "child",
+        "detail": "Elena Hutchins"
+      },
+      {
+        "date": "1994-06-09",
+        "kind": "child",
+        "detail": "Jordan Hutchins"
+      },
+      {
+        "date": "1996-10-05",
+        "kind": "child",
+        "detail": "Marcus Hutchins"
+      },
+      {
+        "date": null,
+        "kind": "partnership",
+        "detail": "Lucia Hutchins"
+      }
+    ]
+  },
+  "people/lucia": {
+    "id": "lucia",
+    "key": "lucia",
+    "first_name": "Lucia",
+    "last_name": "Hutchins",
+    "maiden_name": "Moretti",
+    "gender": "female",
+    "birth_date": "1967-07-02",
+    "birth_place": "Providence, Rhode Island, USA",
+    "death_date": null,
+    "death_place": null,
+    "notes": "Librarian. The family's unofficial archivist.",
+    "photo_url": null,
+    "relatives": {
+      "parents": [
+        {
+          "id": "frank",
+          "key": "frank",
+          "first_name": "Frank",
+          "last_name": "Moretti",
+          "gender": "male",
+          "birth_date": "1936-01-30",
+          "birth_place": "Bologna, Italy",
+          "death_date": "2018-06-17",
+          "death_place": "Providence, Rhode Island, USA",
+          "notes": "Carpenter. Built the dining table still used every Thanksgiving.",
+          "photo_url": null
+        },
+        {
+          "id": "rosa",
+          "key": "rosa",
+          "first_name": "Rosa",
+          "last_name": "Moretti",
+          "maiden_name": "Bellini",
+          "gender": "female",
+          "birth_date": "1940-05-08",
+          "birth_place": "Bologna, Italy",
+          "death_date": "2020-02-11",
+          "death_place": "Providence, Rhode Island, USA",
+          "notes": "Seamstress. Quilted a family tree wall hanging for every new grandchild.",
+          "photo_url": null
+        }
+      ],
+      "partners": [
+        {
+          "id": "david",
+          "key": "david",
+          "first_name": "David",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1965-03-14",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Civil engineer. Retraced Walter's chart with archival records in 2019.",
+          "photo_url": null
+        }
+      ],
+      "children": [
+        {
+          "id": "elena",
+          "key": "elena",
+          "first_name": "Elena",
+          "last_name": "Hutchins",
+          "gender": "female",
+          "birth_date": "1992-02-27",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Lives in Lisbon; researching the Doyle line's Atlantic crossings.",
+          "photo_url": null
+        },
+        {
+          "id": "jordan",
+          "key": "jordan",
+          "first_name": "Jordan",
+          "last_name": "Hutchins",
+          "gender": "nonbinary",
+          "birth_date": "1994-06-09",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Started this tree after Margaret shared the Galway parish records.",
+          "photo_url": null
+        },
+        {
+          "id": "marcus",
+          "key": "marcus",
+          "first_name": "Marcus",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1996-10-05",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Botanist. Named the backyard apple orchard rows after relatives.",
+          "photo_url": null
+        }
+      ],
+      "siblings": []
+    },
+    "timeline": [
+      {
+        "date": "1967-07-02",
+        "kind": "birth",
+        "detail": "Providence, Rhode Island, USA"
+      },
+      {
+        "date": "1992-02-27",
+        "kind": "child",
+        "detail": "Elena Hutchins"
+      },
+      {
+        "date": "1994-06-09",
+        "kind": "child",
+        "detail": "Jordan Hutchins"
+      },
+      {
+        "date": "1996-10-05",
+        "kind": "child",
+        "detail": "Marcus Hutchins"
+      },
+      {
+        "date": null,
+        "kind": "partnership",
+        "detail": "David Hutchins"
+      }
+    ]
+  },
+  "people/susan": {
+    "id": "susan",
+    "key": "susan",
+    "first_name": "Susan",
+    "last_name": "Reed",
+    "maiden_name": "Hutchins",
+    "gender": "female",
+    "birth_date": "1968-11-19",
+    "birth_place": "Portland, Maine, USA",
+    "death_date": null,
+    "death_place": null,
+    "notes": "High-school history teacher in Burlington.",
+    "photo_url": null,
+    "relatives": {
+      "parents": [
+        {
+          "id": "walter",
+          "key": "walter",
+          "first_name": "Walter",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1938-04-12",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": "2016-11-03",
+          "death_place": "Portland, Maine, USA",
+          "notes": "Shipyard electrician for 38 years. Kept a hand-drawn family chart pinned above his desk.",
+          "photo_url": null
+        },
+        {
+          "id": "margaret",
+          "key": "margaret",
+          "first_name": "Margaret",
+          "last_name": "Hutchins",
+          "maiden_name": "Doyle",
+          "gender": "female",
+          "birth_date": "1941-09-22",
+          "birth_place": "Galway, Ireland",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Emigrated from Galway in 1962. Family recipe book spans three generations.",
+          "photo_url": null
+        }
+      ],
+      "partners": [
+        {
+          "id": "alan",
+          "key": "alan",
+          "first_name": "Alan",
+          "last_name": "Reed",
+          "gender": "male",
+          "birth_date": "1966-08-25",
+          "birth_place": "Burlington, Vermont, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Lighthouse restoration contractor.",
+          "photo_url": null
+        }
+      ],
+      "children": [
+        {
+          "id": "nathan",
+          "key": "nathan",
+          "first_name": "Nathan",
+          "last_name": "Reed",
+          "gender": "male",
+          "birth_date": "1999-04-16",
+          "birth_place": "Burlington, Vermont, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Studying maritime history — the lighthouse connection runs deep.",
+          "photo_url": null
+        }
+      ],
+      "siblings": [
+        {
+          "id": "david",
+          "key": "david",
+          "first_name": "David",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1965-03-14",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Civil engineer. Retraced Walter's chart with archival records in 2019.",
+          "photo_url": null
+        }
+      ]
+    },
+    "timeline": [
+      {
+        "date": "1968-11-19",
+        "kind": "birth",
+        "detail": "Portland, Maine, USA"
+      },
+      {
+        "date": "1999-04-16",
+        "kind": "child",
+        "detail": "Nathan Reed"
+      },
+      {
+        "date": null,
+        "kind": "partnership",
+        "detail": "Alan Reed"
+      }
+    ]
+  },
+  "people/alan": {
+    "id": "alan",
+    "key": "alan",
+    "first_name": "Alan",
+    "last_name": "Reed",
+    "gender": "male",
+    "birth_date": "1966-08-25",
+    "birth_place": "Burlington, Vermont, USA",
+    "death_date": null,
+    "death_place": null,
+    "notes": "Lighthouse restoration contractor.",
+    "photo_url": null,
+    "relatives": {
+      "parents": [],
+      "partners": [
+        {
+          "id": "susan",
+          "key": "susan",
+          "first_name": "Susan",
+          "last_name": "Reed",
+          "maiden_name": "Hutchins",
+          "gender": "female",
+          "birth_date": "1968-11-19",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "High-school history teacher in Burlington.",
+          "photo_url": null
+        }
+      ],
+      "children": [
+        {
+          "id": "nathan",
+          "key": "nathan",
+          "first_name": "Nathan",
+          "last_name": "Reed",
+          "gender": "male",
+          "birth_date": "1999-04-16",
+          "birth_place": "Burlington, Vermont, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Studying maritime history — the lighthouse connection runs deep.",
+          "photo_url": null
+        }
+      ],
+      "siblings": []
+    },
+    "timeline": [
+      {
+        "date": "1966-08-25",
+        "kind": "birth",
+        "detail": "Burlington, Vermont, USA"
+      },
+      {
+        "date": "1999-04-16",
+        "kind": "child",
+        "detail": "Nathan Reed"
+      },
+      {
+        "date": null,
+        "kind": "partnership",
+        "detail": "Susan Reed"
+      }
+    ]
+  },
+  "people/jordan": {
+    "id": "jordan",
+    "key": "jordan",
+    "first_name": "Jordan",
+    "last_name": "Hutchins",
+    "gender": "nonbinary",
+    "birth_date": "1994-06-09",
+    "birth_place": "Providence, Rhode Island, USA",
+    "death_date": null,
+    "death_place": null,
+    "notes": "Started this tree after Margaret shared the Galway parish records.",
+    "photo_url": null,
+    "relatives": {
+      "parents": [
+        {
+          "id": "david",
+          "key": "david",
+          "first_name": "David",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1965-03-14",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Civil engineer. Retraced Walter's chart with archival records in 2019.",
+          "photo_url": null
+        },
+        {
+          "id": "lucia",
+          "key": "lucia",
+          "first_name": "Lucia",
+          "last_name": "Hutchins",
+          "maiden_name": "Moretti",
+          "gender": "female",
+          "birth_date": "1967-07-02",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Librarian. The family's unofficial archivist.",
+          "photo_url": null
+        }
+      ],
+      "partners": [
+        {
+          "id": "maya",
+          "key": "maya",
+          "first_name": "Maya",
+          "last_name": "Hutchins",
+          "maiden_name": "Chen",
+          "gender": "female",
+          "birth_date": "1995-12-01",
+          "birth_place": "Oakland, California, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Documentary editor. Scanning and dating the family photo boxes.",
+          "photo_url": null
+        }
+      ],
+      "children": [
+        {
+          "id": "ava",
+          "key": "ava",
+          "first_name": "Ava",
+          "last_name": "Hutchins",
+          "gender": "female",
+          "birth_date": "2022-08-30",
+          "birth_place": "Boston, Massachusetts, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Fourth generation on this chart; loves the quilt Rosa made.",
+          "photo_url": null
+        }
+      ],
+      "siblings": [
+        {
+          "id": "elena",
+          "key": "elena",
+          "first_name": "Elena",
+          "last_name": "Hutchins",
+          "gender": "female",
+          "birth_date": "1992-02-27",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Lives in Lisbon; researching the Doyle line's Atlantic crossings.",
+          "photo_url": null
+        },
+        {
+          "id": "marcus",
+          "key": "marcus",
+          "first_name": "Marcus",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1996-10-05",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Botanist. Named the backyard apple orchard rows after relatives.",
+          "photo_url": null
+        }
+      ]
+    },
+    "timeline": [
+      {
+        "date": "1994-06-09",
+        "kind": "birth",
+        "detail": "Providence, Rhode Island, USA"
+      },
+      {
+        "date": "2022-08-30",
+        "kind": "child",
+        "detail": "Ava Hutchins"
+      },
+      {
+        "date": null,
+        "kind": "partnership",
+        "detail": "Maya Hutchins"
+      }
+    ]
+  },
+  "people/maya": {
+    "id": "maya",
+    "key": "maya",
+    "first_name": "Maya",
+    "last_name": "Hutchins",
+    "maiden_name": "Chen",
+    "gender": "female",
+    "birth_date": "1995-12-01",
+    "birth_place": "Oakland, California, USA",
+    "death_date": null,
+    "death_place": null,
+    "notes": "Documentary editor. Scanning and dating the family photo boxes.",
+    "photo_url": null,
+    "relatives": {
+      "parents": [],
+      "partners": [
+        {
+          "id": "jordan",
+          "key": "jordan",
+          "first_name": "Jordan",
+          "last_name": "Hutchins",
+          "gender": "nonbinary",
+          "birth_date": "1994-06-09",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Started this tree after Margaret shared the Galway parish records.",
+          "photo_url": null
+        }
+      ],
+      "children": [
+        {
+          "id": "ava",
+          "key": "ava",
+          "first_name": "Ava",
+          "last_name": "Hutchins",
+          "gender": "female",
+          "birth_date": "2022-08-30",
+          "birth_place": "Boston, Massachusetts, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Fourth generation on this chart; loves the quilt Rosa made.",
+          "photo_url": null
+        }
+      ],
+      "siblings": []
+    },
+    "timeline": [
+      {
+        "date": "1995-12-01",
+        "kind": "birth",
+        "detail": "Oakland, California, USA"
+      },
+      {
+        "date": "2022-08-30",
+        "kind": "child",
+        "detail": "Ava Hutchins"
+      },
+      {
+        "date": null,
+        "kind": "partnership",
+        "detail": "Jordan Hutchins"
+      }
+    ]
+  },
+  "people/elena": {
+    "id": "elena",
+    "key": "elena",
+    "first_name": "Elena",
+    "last_name": "Hutchins",
+    "gender": "female",
+    "birth_date": "1992-02-27",
+    "birth_place": "Providence, Rhode Island, USA",
+    "death_date": null,
+    "death_place": null,
+    "notes": "Lives in Lisbon; researching the Doyle line's Atlantic crossings.",
+    "photo_url": null,
+    "relatives": {
+      "parents": [
+        {
+          "id": "david",
+          "key": "david",
+          "first_name": "David",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1965-03-14",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Civil engineer. Retraced Walter's chart with archival records in 2019.",
+          "photo_url": null
+        },
+        {
+          "id": "lucia",
+          "key": "lucia",
+          "first_name": "Lucia",
+          "last_name": "Hutchins",
+          "maiden_name": "Moretti",
+          "gender": "female",
+          "birth_date": "1967-07-02",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Librarian. The family's unofficial archivist.",
+          "photo_url": null
+        }
+      ],
+      "partners": [],
+      "children": [],
+      "siblings": [
+        {
+          "id": "jordan",
+          "key": "jordan",
+          "first_name": "Jordan",
+          "last_name": "Hutchins",
+          "gender": "nonbinary",
+          "birth_date": "1994-06-09",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Started this tree after Margaret shared the Galway parish records.",
+          "photo_url": null
+        },
+        {
+          "id": "marcus",
+          "key": "marcus",
+          "first_name": "Marcus",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1996-10-05",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Botanist. Named the backyard apple orchard rows after relatives.",
+          "photo_url": null
+        }
+      ]
+    },
+    "timeline": [
+      {
+        "date": "1992-02-27",
+        "kind": "birth",
+        "detail": "Providence, Rhode Island, USA"
+      }
+    ]
+  },
+  "people/marcus": {
+    "id": "marcus",
+    "key": "marcus",
+    "first_name": "Marcus",
+    "last_name": "Hutchins",
+    "gender": "male",
+    "birth_date": "1996-10-05",
+    "birth_place": "Providence, Rhode Island, USA",
+    "death_date": null,
+    "death_place": null,
+    "notes": "Botanist. Named the backyard apple orchard rows after relatives.",
+    "photo_url": null,
+    "relatives": {
+      "parents": [
+        {
+          "id": "david",
+          "key": "david",
+          "first_name": "David",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1965-03-14",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Civil engineer. Retraced Walter's chart with archival records in 2019.",
+          "photo_url": null
+        },
+        {
+          "id": "lucia",
+          "key": "lucia",
+          "first_name": "Lucia",
+          "last_name": "Hutchins",
+          "maiden_name": "Moretti",
+          "gender": "female",
+          "birth_date": "1967-07-02",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Librarian. The family's unofficial archivist.",
+          "photo_url": null
+        }
+      ],
+      "partners": [],
+      "children": [],
+      "siblings": [
+        {
+          "id": "elena",
+          "key": "elena",
+          "first_name": "Elena",
+          "last_name": "Hutchins",
+          "gender": "female",
+          "birth_date": "1992-02-27",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Lives in Lisbon; researching the Doyle line's Atlantic crossings.",
+          "photo_url": null
+        },
+        {
+          "id": "jordan",
+          "key": "jordan",
+          "first_name": "Jordan",
+          "last_name": "Hutchins",
+          "gender": "nonbinary",
+          "birth_date": "1994-06-09",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Started this tree after Margaret shared the Galway parish records.",
+          "photo_url": null
+        }
+      ]
+    },
+    "timeline": [
+      {
+        "date": "1996-10-05",
+        "kind": "birth",
+        "detail": "Providence, Rhode Island, USA"
+      }
+    ]
+  },
+  "people/nathan": {
+    "id": "nathan",
+    "key": "nathan",
+    "first_name": "Nathan",
+    "last_name": "Reed",
+    "gender": "male",
+    "birth_date": "1999-04-16",
+    "birth_place": "Burlington, Vermont, USA",
+    "death_date": null,
+    "death_place": null,
+    "notes": "Studying maritime history — the lighthouse connection runs deep.",
+    "photo_url": null,
+    "relatives": {
+      "parents": [
+        {
+          "id": "alan",
+          "key": "alan",
+          "first_name": "Alan",
+          "last_name": "Reed",
+          "gender": "male",
+          "birth_date": "1966-08-25",
+          "birth_place": "Burlington, Vermont, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Lighthouse restoration contractor.",
+          "photo_url": null
+        },
+        {
+          "id": "susan",
+          "key": "susan",
+          "first_name": "Susan",
+          "last_name": "Reed",
+          "maiden_name": "Hutchins",
+          "gender": "female",
+          "birth_date": "1968-11-19",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "High-school history teacher in Burlington.",
+          "photo_url": null
+        }
+      ],
+      "partners": [],
+      "children": [],
+      "siblings": []
+    },
+    "timeline": [
+      {
+        "date": "1999-04-16",
+        "kind": "birth",
+        "detail": "Burlington, Vermont, USA"
+      }
+    ]
+  },
+  "people/ava": {
+    "id": "ava",
+    "key": "ava",
+    "first_name": "Ava",
+    "last_name": "Hutchins",
+    "gender": "female",
+    "birth_date": "2022-08-30",
+    "birth_place": "Boston, Massachusetts, USA",
+    "death_date": null,
+    "death_place": null,
+    "notes": "Fourth generation on this chart; loves the quilt Rosa made.",
+    "photo_url": null,
+    "relatives": {
+      "parents": [
+        {
+          "id": "jordan",
+          "key": "jordan",
+          "first_name": "Jordan",
+          "last_name": "Hutchins",
+          "gender": "nonbinary",
+          "birth_date": "1994-06-09",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Started this tree after Margaret shared the Galway parish records.",
+          "photo_url": null
+        },
+        {
+          "id": "maya",
+          "key": "maya",
+          "first_name": "Maya",
+          "last_name": "Hutchins",
+          "maiden_name": "Chen",
+          "gender": "female",
+          "birth_date": "1995-12-01",
+          "birth_place": "Oakland, California, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Documentary editor. Scanning and dating the family photo boxes.",
+          "photo_url": null
+        }
+      ],
+      "partners": [],
+      "children": [],
+      "siblings": []
+    },
+    "timeline": [
+      {
+        "date": "2022-08-30",
+        "kind": "birth",
+        "detail": "Boston, Massachusetts, USA"
+      }
+    ]
+  },
+  "tree/": {
+    "rootId": "walter",
+    "nodes": [
+      {
+        "id": "frank",
+        "generation": 0,
+        "x": 0,
+        "person": {
+          "id": "frank",
+          "key": "frank",
+          "first_name": "Frank",
+          "last_name": "Moretti",
+          "gender": "male",
+          "birth_date": "1936-01-30",
+          "birth_place": "Bologna, Italy",
+          "death_date": "2018-06-17",
+          "death_place": "Providence, Rhode Island, USA",
+          "notes": "Carpenter. Built the dining table still used every Thanksgiving.",
+          "photo_url": null
+        },
+        "isRoot": false
+      },
+      {
+        "id": "rosa",
+        "generation": 0,
+        "x": 1,
+        "person": {
+          "id": "rosa",
+          "key": "rosa",
+          "first_name": "Rosa",
+          "last_name": "Moretti",
+          "maiden_name": "Bellini",
+          "gender": "female",
+          "birth_date": "1940-05-08",
+          "birth_place": "Bologna, Italy",
+          "death_date": "2020-02-11",
+          "death_place": "Providence, Rhode Island, USA",
+          "notes": "Seamstress. Quilted a family tree wall hanging for every new grandchild.",
+          "photo_url": null
+        },
+        "isRoot": false
+      },
+      {
+        "id": "walter",
+        "generation": 0,
+        "x": 2,
+        "person": {
+          "id": "walter",
+          "key": "walter",
+          "first_name": "Walter",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1938-04-12",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": "2016-11-03",
+          "death_place": "Portland, Maine, USA",
+          "notes": "Shipyard electrician for 38 years. Kept a hand-drawn family chart pinned above his desk.",
+          "photo_url": null
+        },
+        "isRoot": true
+      },
+      {
+        "id": "margaret",
+        "generation": 0,
+        "x": 3,
+        "person": {
+          "id": "margaret",
+          "key": "margaret",
+          "first_name": "Margaret",
+          "last_name": "Hutchins",
+          "maiden_name": "Doyle",
+          "gender": "female",
+          "birth_date": "1941-09-22",
+          "birth_place": "Galway, Ireland",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Emigrated from Galway in 1962. Family recipe book spans three generations.",
+          "photo_url": null
+        },
+        "isRoot": false
+      },
+      {
+        "id": "lucia",
+        "generation": 1,
+        "x": 0,
+        "person": {
+          "id": "lucia",
+          "key": "lucia",
+          "first_name": "Lucia",
+          "last_name": "Hutchins",
+          "maiden_name": "Moretti",
+          "gender": "female",
+          "birth_date": "1967-07-02",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Librarian. The family's unofficial archivist.",
+          "photo_url": null
+        },
+        "isRoot": false
+      },
+      {
+        "id": "david",
+        "generation": 1,
+        "x": 1,
+        "person": {
+          "id": "david",
+          "key": "david",
+          "first_name": "David",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1965-03-14",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Civil engineer. Retraced Walter's chart with archival records in 2019.",
+          "photo_url": null
+        },
+        "isRoot": false
+      },
+      {
+        "id": "alan",
+        "generation": 1,
+        "x": 2,
+        "person": {
+          "id": "alan",
+          "key": "alan",
+          "first_name": "Alan",
+          "last_name": "Reed",
+          "gender": "male",
+          "birth_date": "1966-08-25",
+          "birth_place": "Burlington, Vermont, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Lighthouse restoration contractor.",
+          "photo_url": null
+        },
+        "isRoot": false
+      },
+      {
+        "id": "susan",
+        "generation": 1,
+        "x": 3,
+        "person": {
+          "id": "susan",
+          "key": "susan",
+          "first_name": "Susan",
+          "last_name": "Reed",
+          "maiden_name": "Hutchins",
+          "gender": "female",
+          "birth_date": "1968-11-19",
+          "birth_place": "Portland, Maine, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "High-school history teacher in Burlington.",
+          "photo_url": null
+        },
+        "isRoot": false
+      },
+      {
+        "id": "elena",
+        "generation": 2,
+        "x": 0,
+        "person": {
+          "id": "elena",
+          "key": "elena",
+          "first_name": "Elena",
+          "last_name": "Hutchins",
+          "gender": "female",
+          "birth_date": "1992-02-27",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Lives in Lisbon; researching the Doyle line's Atlantic crossings.",
+          "photo_url": null
+        },
+        "isRoot": false
+      },
+      {
+        "id": "jordan",
+        "generation": 2,
+        "x": 1,
+        "person": {
+          "id": "jordan",
+          "key": "jordan",
+          "first_name": "Jordan",
+          "last_name": "Hutchins",
+          "gender": "nonbinary",
+          "birth_date": "1994-06-09",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Started this tree after Margaret shared the Galway parish records.",
+          "photo_url": null
+        },
+        "isRoot": false
+      },
+      {
+        "id": "maya",
+        "generation": 2,
+        "x": 2,
+        "person": {
+          "id": "maya",
+          "key": "maya",
+          "first_name": "Maya",
+          "last_name": "Hutchins",
+          "maiden_name": "Chen",
+          "gender": "female",
+          "birth_date": "1995-12-01",
+          "birth_place": "Oakland, California, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Documentary editor. Scanning and dating the family photo boxes.",
+          "photo_url": null
+        },
+        "isRoot": false
+      },
+      {
+        "id": "marcus",
+        "generation": 2,
+        "x": 3,
+        "person": {
+          "id": "marcus",
+          "key": "marcus",
+          "first_name": "Marcus",
+          "last_name": "Hutchins",
+          "gender": "male",
+          "birth_date": "1996-10-05",
+          "birth_place": "Providence, Rhode Island, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Botanist. Named the backyard apple orchard rows after relatives.",
+          "photo_url": null
+        },
+        "isRoot": false
+      },
+      {
+        "id": "nathan",
+        "generation": 2,
+        "x": 4,
+        "person": {
+          "id": "nathan",
+          "key": "nathan",
+          "first_name": "Nathan",
+          "last_name": "Reed",
+          "gender": "male",
+          "birth_date": "1999-04-16",
+          "birth_place": "Burlington, Vermont, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Studying maritime history — the lighthouse connection runs deep.",
+          "photo_url": null
+        },
+        "isRoot": false
+      },
+      {
+        "id": "ava",
+        "generation": 3,
+        "x": 0,
+        "person": {
+          "id": "ava",
+          "key": "ava",
+          "first_name": "Ava",
+          "last_name": "Hutchins",
+          "gender": "female",
+          "birth_date": "2022-08-30",
+          "birth_place": "Boston, Massachusetts, USA",
+          "death_date": null,
+          "death_place": null,
+          "notes": "Fourth generation on this chart; loves the quilt Rosa made.",
+          "photo_url": null
+        },
+        "isRoot": false
+      }
+    ],
+    "edges": [
+      {
+        "kind": "parent",
+        "fromId": "david",
+        "toId": "walter"
+      },
+      {
+        "kind": "parent",
+        "fromId": "david",
+        "toId": "margaret"
+      },
+      {
+        "kind": "parent",
+        "fromId": "susan",
+        "toId": "walter"
+      },
+      {
+        "kind": "parent",
+        "fromId": "susan",
+        "toId": "margaret"
+      },
+      {
+        "kind": "parent",
+        "fromId": "lucia",
+        "toId": "frank"
+      },
+      {
+        "kind": "parent",
+        "fromId": "lucia",
+        "toId": "rosa"
+      },
+      {
+        "kind": "parent",
+        "fromId": "jordan",
+        "toId": "david"
+      },
+      {
+        "kind": "parent",
+        "fromId": "jordan",
+        "toId": "lucia"
+      },
+      {
+        "kind": "parent",
+        "fromId": "elena",
+        "toId": "david"
+      },
+      {
+        "kind": "parent",
+        "fromId": "elena",
+        "toId": "lucia"
+      },
+      {
+        "kind": "parent",
+        "fromId": "marcus",
+        "toId": "david"
+      },
+      {
+        "kind": "parent",
+        "fromId": "marcus",
+        "toId": "lucia"
+      },
+      {
+        "kind": "parent",
+        "fromId": "nathan",
+        "toId": "susan"
+      },
+      {
+        "kind": "parent",
+        "fromId": "nathan",
+        "toId": "alan"
+      },
+      {
+        "kind": "parent",
+        "fromId": "ava",
+        "toId": "jordan"
+      },
+      {
+        "kind": "parent",
+        "fromId": "ava",
+        "toId": "maya"
+      },
+      {
+        "kind": "partner",
+        "fromId": "walter",
+        "toId": "margaret"
+      },
+      {
+        "kind": "partner",
+        "fromId": "frank",
+        "toId": "rosa"
+      },
+      {
+        "kind": "partner",
+        "fromId": "david",
+        "toId": "lucia"
+      },
+      {
+        "kind": "partner",
+        "fromId": "susan",
+        "toId": "alan"
+      },
+      {
+        "kind": "partner",
+        "fromId": "jordan",
+        "toId": "maya"
+      }
+    ],
+    "stats": {
+      "people": 14,
+      "generations": 4
+    }
+  },
+  "profile/me": {
+    "name": "Jordan Hutchins",
+    "email": "jordan@example.com",
+    "twoFactorEnabled": false,
+    "profile": {
+      "displayName": "Jordan Hutchins",
+      "location": "Portland, Maine"
+    },
+    "preferences": {
+      "emailUpdates": true,
+      "showLiving": true
+    }
+  }
+}

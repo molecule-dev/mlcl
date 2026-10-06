@@ -1,23 +1,170 @@
 [
-  { "from_key": "david", "to_key": "walter", "kind": "parent" },
-  { "from_key": "david", "to_key": "margaret", "kind": "parent" },
-  { "from_key": "susan", "to_key": "walter", "kind": "parent" },
-  { "from_key": "susan", "to_key": "margaret", "kind": "parent" },
-  { "from_key": "lucia", "to_key": "frank", "kind": "parent" },
-  { "from_key": "lucia", "to_key": "rosa", "kind": "parent" },
-  { "from_key": "jordan", "to_key": "david", "kind": "parent" },
-  { "from_key": "jordan", "to_key": "lucia", "kind": "parent" },
-  { "from_key": "elena", "to_key": "david", "kind": "parent" },
-  { "from_key": "elena", "to_key": "lucia", "kind": "parent" },
-  { "from_key": "marcus", "to_key": "david", "kind": "parent" },
-  { "from_key": "marcus", "to_key": "lucia", "kind": "parent" },
-  { "from_key": "nathan", "to_key": "susan", "kind": "parent" },
-  { "from_key": "nathan", "to_key": "alan", "kind": "parent" },
-  { "from_key": "ava", "to_key": "jordan", "kind": "parent" },
-  { "from_key": "ava", "to_key": "maya", "kind": "parent" },
-  { "from_key": "walter", "to_key": "margaret", "kind": "partner" },
-  { "from_key": "frank", "to_key": "rosa", "kind": "partner" },
-  { "from_key": "david", "to_key": "lucia", "kind": "partner" },
-  { "from_key": "susan", "to_key": "alan", "kind": "partner" },
-  { "from_key": "jordan", "to_key": "maya", "kind": "partner" }
+  {
+    "id": "rel-1",
+    "from_key": "david",
+    "to_key": "walter",
+    "kind": "parent",
+    "from_person": "david",
+    "to_person": "walter"
+  },
+  {
+    "id": "rel-2",
+    "from_key": "david",
+    "to_key": "margaret",
+    "kind": "parent",
+    "from_person": "david",
+    "to_person": "margaret"
+  },
+  {
+    "id": "rel-3",
+    "from_key": "susan",
+    "to_key": "walter",
+    "kind": "parent",
+    "from_person": "susan",
+    "to_person": "walter"
+  },
+  {
+    "id": "rel-4",
+    "from_key": "susan",
+    "to_key": "margaret",
+    "kind": "parent",
+    "from_person": "susan",
+    "to_person": "margaret"
+  },
+  {
+    "id": "rel-5",
+    "from_key": "lucia",
+    "to_key": "frank",
+    "kind": "parent",
+    "from_person": "lucia",
+    "to_person": "frank"
+  },
+  {
+    "id": "rel-6",
+    "from_key": "lucia",
+    "to_key": "rosa",
+    "kind": "parent",
+    "from_person": "lucia",
+    "to_person": "rosa"
+  },
+  {
+    "id": "rel-7",
+    "from_key": "jordan",
+    "to_key": "david",
+    "kind": "parent",
+    "from_person": "jordan",
+    "to_person": "david"
+  },
+  {
+    "id": "rel-8",
+    "from_key": "jordan",
+    "to_key": "lucia",
+    "kind": "parent",
+    "from_person": "jordan",
+    "to_person": "lucia"
+  },
+  {
+    "id": "rel-9",
+    "from_key": "elena",
+    "to_key": "david",
+    "kind": "parent",
+    "from_person": "elena",
+    "to_person": "david"
+  },
+  {
+    "id": "rel-10",
+    "from_key": "elena",
+    "to_key": "lucia",
+    "kind": "parent",
+    "from_person": "elena",
+    "to_person": "lucia"
+  },
+  {
+    "id": "rel-11",
+    "from_key": "marcus",
+    "to_key": "david",
+    "kind": "parent",
+    "from_person": "marcus",
+    "to_person": "david"
+  },
+  {
+    "id": "rel-12",
+    "from_key": "marcus",
+    "to_key": "lucia",
+    "kind": "parent",
+    "from_person": "marcus",
+    "to_person": "lucia"
+  },
+  {
+    "id": "rel-13",
+    "from_key": "nathan",
+    "to_key": "susan",
+    "kind": "parent",
+    "from_person": "nathan",
+    "to_person": "susan"
+  },
+  {
+    "id": "rel-14",
+    "from_key": "nathan",
+    "to_key": "alan",
+    "kind": "parent",
+    "from_person": "nathan",
+    "to_person": "alan"
+  },
+  {
+    "id": "rel-15",
+    "from_key": "ava",
+    "to_key": "jordan",
+    "kind": "parent",
+    "from_person": "ava",
+    "to_person": "jordan"
+  },
+  {
+    "id": "rel-16",
+    "from_key": "ava",
+    "to_key": "maya",
+    "kind": "parent",
+    "from_person": "ava",
+    "to_person": "maya"
+  },
+  {
+    "id": "rel-17",
+    "from_key": "walter",
+    "to_key": "margaret",
+    "kind": "partner",
+    "from_person": "walter",
+    "to_person": "margaret"
+  },
+  {
+    "id": "rel-18",
+    "from_key": "frank",
+    "to_key": "rosa",
+    "kind": "partner",
+    "from_person": "frank",
+    "to_person": "rosa"
+  },
+  {
+    "id": "rel-19",
+    "from_key": "david",
+    "to_key": "lucia",
+    "kind": "partner",
+    "from_person": "david",
+    "to_person": "lucia"
+  },
+  {
+    "id": "rel-20",
+    "from_key": "susan",
+    "to_key": "alan",
+    "kind": "partner",
+    "from_person": "susan",
+    "to_person": "alan"
+  },
+  {
+    "id": "rel-21",
+    "from_key": "jordan",
+    "to_key": "maya",
+    "kind": "partner",
+    "from_person": "jordan",
+    "to_person": "maya"
+  }
 ]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "dev-1",
+    "name": "Laptop (this browser)",
+    "isCurrent": true,
+    "createdAt": "2026-09-20T10:00:00Z"
+  },
+  {
+    "id": "dev-2",
+    "name": "Phone",
+    "isCurrent": false,
+    "createdAt": "2026-08-02T18:30:00Z"
+  }
+]
