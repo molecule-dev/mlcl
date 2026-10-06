@@ -1,0 +1,26 @@
+[
+  {
+    "id": "000000c1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Payments API",
+    "description": "Charge, refund and webhook checks for the payments service.",
+    "created_at": "2026-10-01T09:00:00Z",
+    "updated_at": "2026-10-05T10:00:00Z"
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Auth service",
+    "description": "Sign-in, token refresh and logout flows.",
+    "created_at": "2026-10-02T09:00:00Z",
+    "updated_at": "2026-10-04T10:00:00Z"
+  },
+  {
+    "id": "000000c1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Public catalogue",
+    "description": "Read-only product and search endpoints.",
+    "created_at": "2026-10-03T09:00:00Z",
+    "updated_at": "2026-10-03T10:00:00Z"
+  }
+]

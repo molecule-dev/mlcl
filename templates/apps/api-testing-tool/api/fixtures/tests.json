@@ -1,0 +1,68 @@
+[
+  {
+    "id": "000000t1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Charge returns 201",
+    "request_id": "000000r1-0000-4000-8000-000000000001",
+    "assertions": [
+      {
+        "type": "status",
+        "op": "equals",
+        "value": 200
+      }
+    ],
+    "last_run_at": "2026-10-06T09:00:00Z",
+    "last_status": "passed",
+    "last_results": [
+      {
+        "name": "status",
+        "passed": true
+      }
+    ],
+    "updated_at": "2026-10-06T09:00:00Z"
+  },
+  {
+    "id": "000000t1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Login returns a token",
+    "request_id": "000000r1-0000-4000-8000-000000000003",
+    "assertions": [
+      {
+        "type": "status",
+        "op": "equals",
+        "value": 200
+      }
+    ],
+    "last_run_at": "2026-10-06T10:00:00Z",
+    "last_status": "failed",
+    "last_results": [
+      {
+        "name": "status",
+        "passed": false
+      }
+    ],
+    "updated_at": "2026-10-06T10:00:00Z"
+  },
+  {
+    "id": "000000t1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Catalogue responds under 300ms",
+    "request_id": "000000r1-0000-4000-8000-000000000005",
+    "assertions": [
+      {
+        "type": "status",
+        "op": "equals",
+        "value": 200
+      }
+    ],
+    "last_run_at": "2026-10-06T11:00:00Z",
+    "last_status": "passed",
+    "last_results": [
+      {
+        "name": "status",
+        "passed": true
+      }
+    ],
+    "updated_at": "2026-10-06T11:00:00Z"
+  }
+]

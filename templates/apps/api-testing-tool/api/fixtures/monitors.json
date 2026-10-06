@@ -1,0 +1,41 @@
+[
+  {
+    "id": "000000o1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Payments health",
+    "test_id": "000000t1-0000-4000-8000-000000000001",
+    "cron_schedule": "*/5 * * * *",
+    "is_active": true,
+    "last_run_at": "2026-10-06T12:00:00Z",
+    "last_status": "passed",
+    "success_rate_24h": 99.6,
+    "p95_latency_ms": 220,
+    "created_at": "2026-10-01T09:00:00Z"
+  },
+  {
+    "id": "000000o1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Auth latency",
+    "test_id": "000000t1-0000-4000-8000-000000000002",
+    "cron_schedule": "*/15 * * * *",
+    "is_active": true,
+    "last_run_at": "2026-10-06T12:00:00Z",
+    "last_status": "failed",
+    "success_rate_24h": 92.1,
+    "p95_latency_ms": 640,
+    "created_at": "2026-10-02T09:00:00Z"
+  },
+  {
+    "id": "000000o1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Catalogue smoke",
+    "test_id": "000000t1-0000-4000-8000-000000000003",
+    "cron_schedule": "0 * * * *",
+    "is_active": false,
+    "last_run_at": null,
+    "last_status": null,
+    "success_rate_24h": null,
+    "p95_latency_ms": null,
+    "created_at": "2026-10-03T09:00:00Z"
+  }
+]

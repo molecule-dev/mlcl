@@ -1,0 +1,122 @@
+[
+  {
+    "id": "000000r1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "collection_id": "000000c1-0000-4000-8000-000000000001",
+    "name": "Create charge",
+    "method": "POST",
+    "url": "https://api.example.com/v1/charges",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "query_params": {},
+    "body_type": "json",
+    "body_content": "{\"amount\":2400,\"currency\":\"usd\"}",
+    "auth_type": "bearer",
+    "auth_config": {
+      "token": "{{token}}"
+    },
+    "updated_at": "2026-10-06T11:00:00Z",
+    "created_at": "2026-10-01T09:00:00Z"
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "collection_id": "000000c1-0000-4000-8000-000000000001",
+    "name": "Refund charge",
+    "method": "POST",
+    "url": "https://api.example.com/v1/refunds",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "query_params": {},
+    "body_type": "json",
+    "body_content": "{\"charge\":\"ch_123\"}",
+    "auth_type": "bearer",
+    "auth_config": {
+      "token": "{{token}}"
+    },
+    "updated_at": "2026-10-05T11:00:00Z",
+    "created_at": "2026-10-02T09:00:00Z"
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "collection_id": "000000c1-0000-4000-8000-000000000002",
+    "name": "Log in request",
+    "method": "POST",
+    "url": "https://auth.example.com/v1/sign-in",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "query_params": {},
+    "body_type": "json",
+    "body_content": "{\"email\":\"alex@example.com\",\"password\":\"secret\"}",
+    "auth_type": "bearer",
+    "auth_config": {
+      "token": "{{token}}"
+    },
+    "updated_at": "2026-10-04T11:00:00Z",
+    "created_at": "2026-10-03T09:00:00Z"
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000004",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "collection_id": "000000c1-0000-4000-8000-000000000002",
+    "name": "Refresh token",
+    "method": "POST",
+    "url": "https://auth.example.com/v1/refresh",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "query_params": {},
+    "body_type": "json",
+    "body_content": "{}",
+    "auth_type": "bearer",
+    "auth_config": {
+      "token": "{{token}}"
+    },
+    "updated_at": "2026-10-03T11:00:00Z",
+    "created_at": "2026-10-04T09:00:00Z"
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000005",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "collection_id": "000000c1-0000-4000-8000-000000000003",
+    "name": "List products",
+    "method": "GET",
+    "url": "https://shop.example.com/v1/products?limit=20",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "query_params": {},
+    "body_type": "none",
+    "body_content": "",
+    "auth_type": "bearer",
+    "auth_config": {
+      "token": "{{token}}"
+    },
+    "updated_at": "2026-10-02T11:00:00Z",
+    "created_at": "2026-10-05T09:00:00Z"
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000006",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "collection_id": "000000c1-0000-4000-8000-000000000003",
+    "name": "Search products",
+    "method": "GET",
+    "url": "https://shop.example.com/v1/search?q=lamp",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "query_params": {},
+    "body_type": "none",
+    "body_content": "",
+    "auth_type": "bearer",
+    "auth_config": {
+      "token": "{{token}}"
+    },
+    "updated_at": "2026-10-01T11:00:00Z",
+    "created_at": "2026-10-06T09:00:00Z"
+  }
+]
