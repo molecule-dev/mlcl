@@ -1,0 +1,122 @@
+[
+  {
+    "id": "000000d1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "template_id": "000000t1-0000-4000-8000-000000000001",
+    "subject": "Quick idea for your platform team",
+    "body": "Hi,\n\nQuick idea for your platform team. This message was drafted with Signet and reviewed before sending.\n\nBest,\nAlex",
+    "status": "sent",
+    "tone": "persuasive",
+    "recipients": [
+      "maya@northwind.example"
+    ],
+    "cc": [],
+    "bcc": [],
+    "ai_generated": true,
+    "scheduled_at": null,
+    "sent_at": "2026-10-05T10:00:00Z",
+    "archived_at": null,
+    "created_at": "2026-10-01T09:00:00Z",
+    "updated_at": "2026-10-05T09:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "template_id": "000000t1-0000-4000-8000-000000000002",
+    "subject": "Interview for the Senior Engineer role",
+    "body": "Hi,\n\nInterview for the Senior Engineer role. This message was drafted with Signet and reviewed before sending.\n\nBest,\nAlex",
+    "status": "sent",
+    "tone": "warm",
+    "recipients": [
+      "dev.patel@example.com"
+    ],
+    "cc": [],
+    "bcc": [],
+    "ai_generated": true,
+    "scheduled_at": null,
+    "sent_at": "2026-10-04T10:00:00Z",
+    "archived_at": null,
+    "created_at": "2026-10-02T09:00:00Z",
+    "updated_at": "2026-10-04T09:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "template_id": "000000t1-0000-4000-8000-000000000003",
+    "subject": "Weekly update: wins, risks, asks",
+    "body": "Hi,\n\nWeekly update: wins, risks, asks. This message was drafted with Signet and reviewed before sending.\n\nBest,\nAlex",
+    "status": "draft",
+    "tone": "concise",
+    "recipients": [
+      "leadership@acme.example"
+    ],
+    "cc": [],
+    "bcc": [],
+    "ai_generated": true,
+    "scheduled_at": null,
+    "sent_at": null,
+    "archived_at": null,
+    "created_at": "2026-10-03T09:00:00Z",
+    "updated_at": "2026-10-06T09:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000004",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "template_id": "000000t1-0000-4000-8000-000000000004",
+    "subject": "Following up on Tuesday's demo",
+    "body": "Hi,\n\nFollowing up on Tuesday's demo. This message was drafted with Signet and reviewed before sending.\n\nBest,\nAlex",
+    "status": "scheduled",
+    "tone": "friendly",
+    "recipients": [
+      "tom@harbor.example"
+    ],
+    "cc": [],
+    "bcc": [],
+    "ai_generated": true,
+    "scheduled_at": "2026-10-09T09:00:00Z",
+    "sent_at": null,
+    "archived_at": null,
+    "created_at": "2026-10-04T09:00:00Z",
+    "updated_at": "2026-10-06T09:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000005",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "template_id": "000000t1-0000-4000-8000-000000000005",
+    "subject": "Apologies for the delay",
+    "body": "Hi,\n\nApologies for the delay. This message was drafted with Signet and reviewed before sending.\n\nBest,\nAlex",
+    "status": "sent",
+    "tone": "formal",
+    "recipients": [
+      "jules@brightlane.example"
+    ],
+    "cc": [],
+    "bcc": [],
+    "ai_generated": false,
+    "scheduled_at": null,
+    "sent_at": "2026-10-03T10:00:00Z",
+    "archived_at": null,
+    "created_at": "2026-10-05T09:00:00Z",
+    "updated_at": "2026-10-03T09:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000006",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "template_id": null,
+    "subject": "Intro: partnership with Signet",
+    "body": "Hi,\n\nIntro: partnership with Signet. This message was drafted with Signet and reviewed before sending.\n\nBest,\nAlex",
+    "status": "draft",
+    "tone": "persuasive",
+    "recipients": [
+      "sam@lumen.example"
+    ],
+    "cc": [],
+    "bcc": [],
+    "ai_generated": true,
+    "scheduled_at": null,
+    "sent_at": null,
+    "archived_at": null,
+    "created_at": "2026-10-06T09:00:00Z",
+    "updated_at": "2026-10-06T09:00:00Z"
+  }
+]

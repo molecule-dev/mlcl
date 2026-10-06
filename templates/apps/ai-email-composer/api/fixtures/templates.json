@@ -1,0 +1,57 @@
+[
+  {
+    "id": "000000t1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Cold outreach to a technical buyer",
+    "description": "Short first touch that leads with their problem.",
+    "subject": "Quick idea for your platform team",
+    "category": "sales",
+    "body": "Hi {{name}},\n\nI noticed your team is scaling deploys. We cut release time by 40% for teams like yours. Worth a 15 minute chat?\n\nBest,\nAlex",
+    "created_at": "2026-10-01T09:00:00Z",
+    "updated_at": "2026-10-02T09:00:00Z"
+  },
+  {
+    "id": "000000t1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Interview invitation",
+    "description": "Warm invite with three time options.",
+    "subject": "Interview for the Senior Engineer role",
+    "category": "recruiting",
+    "body": "Hi {{name}},\n\nThanks for applying. Could you do Tuesday, Wednesday or Thursday afternoon for a 45 minute interview?\n\nAlex",
+    "created_at": "2026-10-02T09:00:00Z",
+    "updated_at": "2026-10-03T09:00:00Z"
+  },
+  {
+    "id": "000000t1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Weekly executive update",
+    "description": "One-screen summary for leadership.",
+    "subject": "Weekly update: wins, risks, asks",
+    "category": "executive",
+    "body": "Team,\n\nWins: shipped billing v2. Risks: vendor delay. Asks: approval for two hires.\n\nAlex",
+    "created_at": "2026-10-03T09:00:00Z",
+    "updated_at": "2026-10-04T09:00:00Z"
+  },
+  {
+    "id": "000000t1-0000-4000-8000-000000000004",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Follow up after a demo",
+    "description": "Polite nudge two days after a demo.",
+    "subject": "Following up on Tuesday's demo",
+    "category": "follow_up",
+    "body": "Hi {{name}},\n\nThanks for your time on Tuesday. Happy to answer questions or share the pricing deck.\n\nAlex",
+    "created_at": "2026-10-04T09:00:00Z",
+    "updated_at": "2026-10-05T09:00:00Z"
+  },
+  {
+    "id": "000000t1-0000-4000-8000-000000000005",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Apology for a missed deadline",
+    "description": "Own the miss, give a new date.",
+    "subject": "Apologies for the delay",
+    "category": "apology",
+    "body": "Hi {{name}},\n\nI am sorry we missed the Friday deadline. The corrected report will reach you by Wednesday noon.\n\nAlex",
+    "created_at": "2026-10-05T09:00:00Z",
+    "updated_at": "2026-10-06T09:00:00Z"
+  }
+]

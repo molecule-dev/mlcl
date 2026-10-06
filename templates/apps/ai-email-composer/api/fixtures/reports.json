@@ -1,0 +1,15 @@
+{
+  "sent-emails/analytics/summary": {
+    "total_sent": 122,
+    "total_delivered": 118,
+    "total_opened": 74,
+    "total_clicked": 21,
+    "total_bounced": 4,
+    "total_replied": 19,
+    "open_rate": 63,
+    "reply_rate": 16,
+    "click_rate": 18,
+    "bounce_rate": 3,
+    "delivery_rate": 97
+  }
+}
