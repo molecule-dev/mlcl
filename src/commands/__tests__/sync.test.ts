@@ -12,7 +12,7 @@ import { join } from 'node:path'
 import { Command, Config } from '@oclif/core'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import Sync, { isSecretPath } from '../sync.js'
+import Sync, { isSecretPath, visibleFromGit } from '../sync.js'
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
 
@@ -33,6 +33,26 @@ describe('isSecretPath', () => {
     'allows %s',
     (rel) => expect(isSecretPath(rel)).toBe(false),
   )
+})
+
+describe('visibleFromGit', () => {
+  const none = (): boolean => false
+
+  it('covers every file under a directory git lists as one entry (nested repo, submodule)', () => {
+    const visible = visibleFromGit(['src/a.ts', 'vendor-lib/', 'sub'], (entry) => entry === 'sub')
+    expect(visible('src/a.ts')).toBe(true)
+    expect(visible('vendor-lib/index.js')).toBe(true)
+    expect(visible('sub/deep/file.txt')).toBe(true)
+    expect(visible('other/file.txt')).toBe(false)
+    expect(visible('vendor-lib-x/file.txt')).toBe(false)
+  })
+
+  it('compares names normalised, so a decomposed name from macOS still matches', () => {
+    const decomposed = 'caf\u0065\u0301.txt'
+    const composed = 'caf\u00e9.txt'
+    expect(visibleFromGit([decomposed], none)(composed)).toBe(true)
+    expect(visibleFromGit([composed], none)(decomposed)).toBe(true)
+  })
 })
 
 describe('sync — what gets uploaded', () => {
@@ -83,6 +103,15 @@ describe('sync — what gets uploaded', () => {
     write('big.txt', 'a'.repeat(2 * 1024 * 1024))
     await run()
     expect(sent.sort()).toEqual(['.gitignore', 'src/index.ts'])
+  })
+
+  it('sends the files of a nested repository instead of dropping them', async () => {
+    execFileSync('git', ['init', '-q'], { cwd: dir })
+    write('src/index.ts', 'export {}\n')
+    write('vendor-lib/lib.js', 'module.exports = 1\n')
+    execFileSync('git', ['init', '-q'], { cwd: join(dir, 'vendor-lib') })
+    await run()
+    expect(sent.sort()).toEqual(['src/index.ts', 'vendor-lib/lib.js'])
   })
 
   it('without a git repository still refuses credential files', async () => {

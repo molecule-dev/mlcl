@@ -73,20 +73,60 @@ export function isSecretPath(rel: string): boolean {
 }
 
 /**
+ * Turn `git ls-files` output into a "may this file be sent" test.
+ *
+ * Two things the plain set comparison got wrong, each dropping files without a word:
+ * - git lists an untracked nested repository as one `dir/` entry and a submodule as its path, not
+ *   their files; every file under such a directory is part of the project, so the directory entry
+ *   covers them.
+ * - git reports a name in the form it was stored; a file whose name came from macOS (decomposed
+ *   Unicode) never equalled the composed name the walk produced. Both sides are compared
+ *   normalised.
+ *
+ * @param entries - Paths exactly as `git ls-files -z` printed them.
+ * @param isDirectory - Whether a listed path is a directory on disk (a submodule or nested repo).
+ * @returns The test, taking a project-relative POSIX path.
+ */
+export function visibleFromGit(
+  entries: readonly string[],
+  isDirectory: (entry: string) => boolean,
+): (rel: string) => boolean {
+  const files = new Set<string>()
+  const directories: string[] = []
+  for (const entry of entries) {
+    if (entry.endsWith('/') || isDirectory(entry)) {
+      directories.push(`${entry.replace(/\/+$/, '').normalize('NFC')}/`)
+    } else {
+      files.add(entry.normalize('NFC'))
+    }
+  }
+  return (rel) => {
+    const normal = rel.normalize('NFC')
+    return files.has(normal) || directories.some((dir) => normal.startsWith(dir))
+  }
+}
+
+/**
  * The files git would track or could add in `root` (tracked + untracked, minus everything
  * .gitignore excludes) — `.gitignore` is already how the user says which files are not source.
  *
  * @param root - Project root.
  * @returns The set of project-relative POSIX paths, or null when `root` is not in a git work tree.
  */
-function gitVisibleFiles(root: string): Set<string> | null {
+function gitVisibleFiles(root: string): ((rel: string) => boolean) | null {
   try {
     const out = execFileSync('git', ['-C', root, 'ls-files', '-co', '--exclude-standard', '-z'], {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
       maxBuffer: 64 * 1024 * 1024,
     })
-    return new Set(out.split('\0').filter(Boolean))
+    return visibleFromGit(out.split('\0').filter(Boolean), (entry) => {
+      try {
+        return statSync(join(root, entry)).isDirectory()
+      } catch (_error) {
+        return false // listed but gone: not a directory we can walk
+      }
+    })
   } catch (_error) {
     // Not a git work tree (or git is missing): the walk's own skip lists apply.
     return null
@@ -183,7 +223,7 @@ export default class Sync extends Command {
     const files = [...walk(root, root)].filter(
       (rel) =>
         !isSecretPath(rel) &&
-        (visible === null || visible.has(rel)) &&
+        (visible === null || visible(rel)) &&
         (only.length === 0 || only.some((o) => rel === o || rel.startsWith(`${o}/`))),
     )
     const skippedBinary: string[] = []
