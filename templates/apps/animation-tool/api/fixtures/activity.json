@@ -1,0 +1,38 @@
+[
+  {
+    "id": "000000v1-0000-4000-8000-000000000001",
+    "type": "export",
+    "text": "Export finished",
+    "detail": "Onboarding hero loop rendered to MP4",
+    "ago": "2h ago",
+    "occurredAt": "2026-10-06T12:00:00Z",
+    "projectId": "000000p1-0000-4000-8000-000000000001"
+  },
+  {
+    "id": "000000v1-0000-4000-8000-000000000002",
+    "type": "edit",
+    "text": "Keyframes edited",
+    "detail": "Logo reveal: 3 tracks updated",
+    "ago": "5h ago",
+    "occurredAt": "2026-10-06T11:00:00Z",
+    "projectId": "000000p1-0000-4000-8000-000000000002"
+  },
+  {
+    "id": "000000v1-0000-4000-8000-000000000003",
+    "type": "create",
+    "text": "Project created",
+    "detail": "Loading spinner set",
+    "ago": "1d ago",
+    "occurredAt": "2026-10-05T10:00:00Z",
+    "projectId": "000000p1-0000-4000-8000-000000000003"
+  },
+  {
+    "id": "000000v1-0000-4000-8000-000000000004",
+    "type": "asset",
+    "text": "Asset uploaded",
+    "detail": "intro-clip.mp4",
+    "ago": "2d ago",
+    "occurredAt": "2026-10-04T09:00:00Z",
+    "projectId": "000000p1-0000-4000-8000-000000000004"
+  }
+]

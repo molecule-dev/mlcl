@@ -1,0 +1,131 @@
+{
+  "library/easings": [
+    {
+      "id": "ease-out-quint",
+      "name": "Quint Out Curve",
+      "expression": "cubic-bezier(0.22, 1, 0.36, 1)",
+      "bezier": [
+        0.22,
+        1,
+        0.36,
+        1
+      ]
+    },
+    {
+      "id": "ease-in-out",
+      "name": "Smooth In-Out Curve",
+      "expression": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "bezier": [
+        0.4,
+        0,
+        0.2,
+        1
+      ]
+    },
+    {
+      "id": "spring",
+      "name": "Springy Overshoot",
+      "expression": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      "bezier": [
+        0.34,
+        1.56,
+        0.64,
+        1
+      ]
+    },
+    {
+      "id": "snap",
+      "name": "Snappy Cut",
+      "expression": "cubic-bezier(0.87, 0, 0.13, 1)",
+      "bezier": [
+        0.87,
+        0,
+        0.13,
+        1
+      ]
+    },
+    {
+      "id": "gentle",
+      "name": "Soft Settle",
+      "expression": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+      "bezier": [
+        0.25,
+        0.1,
+        0.25,
+        1
+      ]
+    },
+    {
+      "id": "bounce",
+      "name": "Rubber Rebound",
+      "expression": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+      "bezier": [
+        0.68,
+        -0.55,
+        0.265,
+        1.55
+      ]
+    }
+  ],
+  "library/templates": [
+    {
+      "id": "fade-in",
+      "name": "Slide-up Fade",
+      "description": "20px translate + opacity, 480ms",
+      "trackCount": 2,
+      "duration": "00:00:48",
+      "category": "fades"
+    },
+    {
+      "id": "cross-fade",
+      "name": "Layer Cross-dissolve",
+      "description": "Two-layer A/B opacity swap",
+      "trackCount": 2,
+      "duration": "00:00:32",
+      "category": "fades"
+    },
+    {
+      "id": "wobble",
+      "name": "Playful Wobble",
+      "description": "Rotation 3-step ±6° with spring",
+      "trackCount": 1,
+      "duration": "00:00:24",
+      "category": "transforms"
+    },
+    {
+      "id": "pulse",
+      "name": "Heartbeat Pulse",
+      "description": "Scale 1 → 1.06 → 1, infinite",
+      "trackCount": 1,
+      "duration": "00:00:16",
+      "category": "micro"
+    },
+    {
+      "id": "pressed",
+      "name": "Press Feedback",
+      "description": "Scale + drop-shadow on press",
+      "trackCount": 2,
+      "duration": "00:00:12",
+      "category": "states"
+    },
+    {
+      "id": "state-flip",
+      "name": "Hover Cycle",
+      "description": "Idle → Hover → Active → Idle",
+      "trackCount": 4,
+      "duration": "00:00:30",
+      "category": "states"
+    }
+  ],
+  "assets/summary": {
+    "total": 5,
+    "totalSizeBytes": 11560400,
+    "counts": {
+      "image": 1,
+      "svg": 1,
+      "video": 1,
+      "audio": 1,
+      "font": 1
+    }
+  }
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "000000a1-0000-4000-8000-000000000001",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "hero-background.png",
+    "kind": "image",
+    "size_bytes": 1840000,
+    "url": "https://picsum.photos/seed/vivace-1/640/360",
+    "created_at": "2026-10-01T10:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000002",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "logo-mark.svg",
+    "kind": "svg",
+    "size_bytes": 12400,
+    "url": "https://picsum.photos/seed/vivace-2/640/360",
+    "created_at": "2026-10-02T10:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000003",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "intro-clip.mp4",
+    "kind": "video",
+    "size_bytes": 9200000,
+    "url": "https://picsum.photos/seed/vivace-3/640/360",
+    "created_at": "2026-10-03T10:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000004",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "whoosh.wav",
+    "kind": "audio",
+    "size_bytes": 410000,
+    "url": "https://picsum.photos/seed/vivace-4/640/360",
+    "created_at": "2026-10-04T10:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000005",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Inter-Bold.woff2",
+    "kind": "font",
+    "size_bytes": 98000,
+    "url": "https://picsum.photos/seed/vivace-5/640/360",
+    "created_at": "2026-10-05T10:00:00Z"
+  }
+]
