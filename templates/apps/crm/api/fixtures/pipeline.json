@@ -1,122 +1,114 @@
-{
-  "stages": [
-    {
-      "stage": "lead",
-      "label": "Lead",
-      "deals": [
-        {
-          "id": "deal04d5-e6f7-4a8b-c9d0-e1f2a3b4c5d6",
-          "title": "Velocity Cloud Infrastructure Deal",
-          "value": 250000,
-          "stage": "lead",
-          "probability": 10,
-          "expected_close_date": "2026-08-01T00:00:00Z"
-        }
-      ],
-      "total": 250000,
-      "count": 1
-    },
-    {
-      "stage": "qualified",
-      "label": "Qualified",
-      "deals": [
-        {
-          "id": "deal03c4-d5e6-4f7a-b8c9-d0e1f2a3b4c5",
-          "title": "GreenLeaf Starter Plan",
-          "value": 12000,
-          "stage": "qualified",
-          "probability": 30,
-          "expected_close_date": "2026-06-01T00:00:00Z"
-        }
-      ],
-      "total": 12000,
-      "count": 1
-    },
-    {
-      "stage": "proposal",
-      "label": "Proposal",
-      "deals": [
-        {
-          "id": "deal02b3-c4d5-4e6f-a7b8-c9d0e1f2a3b4",
-          "title": "DataFlow Analytics Platform Migration",
-          "value": 85000,
-          "stage": "proposal",
-          "probability": 50,
-          "expected_close_date": "2026-05-15T00:00:00Z"
-        },
-        {
-          "id": "deal08b9-c0d1-4e2f-a3b4-c5d6e7f8a9b0",
-          "title": "SmartLogix Premium Support",
-          "value": 18000,
-          "stage": "proposal",
-          "probability": 60,
-          "expected_close_date": "2026-05-01T00:00:00Z"
-        }
-      ],
-      "total": 103000,
-      "count": 2
-    },
-    {
-      "stage": "negotiation",
-      "label": "Negotiation",
-      "deals": [
-        {
-          "id": "deal01a2-b3c4-4d5e-f6a7-b8c9d0e1f2a3",
-          "title": "Technovate Enterprise License",
-          "value": 125000,
-          "stage": "negotiation",
-          "probability": 75,
-          "expected_close_date": "2026-04-30T00:00:00Z"
-        }
-      ],
-      "total": 125000,
-      "count": 1
-    },
-    {
-      "stage": "closed_won",
-      "label": "Closed Won",
-      "deals": [
-        {
-          "id": "deal05e6-f7a8-4b9c-d0e1-f2a3b4c5d6e7",
-          "title": "SmartLogix Custom Integration",
-          "value": 45000,
-          "stage": "closed_won",
-          "probability": 100,
-          "expected_close_date": "2026-03-15T00:00:00Z"
-        },
-        {
-          "id": "deal06f7-a8b9-4c0d-e1f2-a3b4c5d6e7f8",
-          "title": "NorthStar Annual Subscription",
-          "value": 36000,
-          "stage": "closed_won",
-          "probability": 100,
-          "expected_close_date": "2026-02-28T00:00:00Z"
-        }
-      ],
-      "total": 81000,
-      "count": 2
-    },
-    {
-      "stage": "closed_lost",
-      "label": "Closed Lost",
-      "deals": [
-        {
-          "id": "deal07a8-b9c0-4d1e-f2a3-b4c5d6e7f8a9",
-          "title": "Velocity Cloud Expansion (Lost)",
-          "value": 180000,
-          "stage": "closed_lost",
-          "probability": 0,
-          "expected_close_date": "2026-03-01T00:00:00Z"
-        }
-      ],
-      "total": 180000,
-      "count": 1
-    }
-  ],
-  "stats": {
-    "total_open": 5,
-    "total_value": 490000,
-    "won_count": 2,
-    "won_value": 81000
+[
+  {
+    "stage": "lead",
+    "label": "Lead",
+    "deals": [
+      {
+        "id": "deal04d5-e6f7-4a8b-c9d0-e1f2a3b4c5d6",
+        "title": "Velocity Cloud Infrastructure Deal",
+        "value": 250000,
+        "stage": "lead",
+        "probability": 10,
+        "expected_close_date": "2026-08-01T00:00:00Z"
+      }
+    ],
+    "total": 250000,
+    "count": 1
+  },
+  {
+    "stage": "qualified",
+    "label": "Qualified",
+    "deals": [
+      {
+        "id": "deal03c4-d5e6-4f7a-b8c9-d0e1f2a3b4c5",
+        "title": "GreenLeaf Starter Plan",
+        "value": 12000,
+        "stage": "qualified",
+        "probability": 30,
+        "expected_close_date": "2026-06-01T00:00:00Z"
+      }
+    ],
+    "total": 12000,
+    "count": 1
+  },
+  {
+    "stage": "proposal",
+    "label": "Proposal",
+    "deals": [
+      {
+        "id": "deal02b3-c4d5-4e6f-a7b8-c9d0e1f2a3b4",
+        "title": "DataFlow Analytics Platform Migration",
+        "value": 85000,
+        "stage": "proposal",
+        "probability": 50,
+        "expected_close_date": "2026-05-15T00:00:00Z"
+      },
+      {
+        "id": "deal08b9-c0d1-4e2f-a3b4-c5d6e7f8a9b0",
+        "title": "SmartLogix Premium Support",
+        "value": 18000,
+        "stage": "proposal",
+        "probability": 60,
+        "expected_close_date": "2026-05-01T00:00:00Z"
+      }
+    ],
+    "total": 103000,
+    "count": 2
+  },
+  {
+    "stage": "negotiation",
+    "label": "Negotiation",
+    "deals": [
+      {
+        "id": "deal01a2-b3c4-4d5e-f6a7-b8c9d0e1f2a3",
+        "title": "Technovate Enterprise License",
+        "value": 125000,
+        "stage": "negotiation",
+        "probability": 75,
+        "expected_close_date": "2026-04-30T00:00:00Z"
+      }
+    ],
+    "total": 125000,
+    "count": 1
+  },
+  {
+    "stage": "closed_won",
+    "label": "Closed Won",
+    "deals": [
+      {
+        "id": "deal05e6-f7a8-4b9c-d0e1-f2a3b4c5d6e7",
+        "title": "SmartLogix Custom Integration",
+        "value": 45000,
+        "stage": "closed_won",
+        "probability": 100,
+        "expected_close_date": "2026-03-15T00:00:00Z"
+      },
+      {
+        "id": "deal06f7-a8b9-4c0d-e1f2-a3b4c5d6e7f8",
+        "title": "NorthStar Annual Subscription",
+        "value": 36000,
+        "stage": "closed_won",
+        "probability": 100,
+        "expected_close_date": "2026-02-28T00:00:00Z"
+      }
+    ],
+    "total": 81000,
+    "count": 2
+  },
+  {
+    "stage": "closed_lost",
+    "label": "Closed Lost",
+    "deals": [
+      {
+        "id": "deal07a8-b9c0-4d1e-f2a3-b4c5d6e7f8a9",
+        "title": "Velocity Cloud Expansion (Lost)",
+        "value": 180000,
+        "stage": "closed_lost",
+        "probability": 0,
+        "expected_close_date": "2026-03-01T00:00:00Z"
+      }
+    ],
+    "total": 180000,
+    "count": 1
   }
-}
+]
