@@ -1,0 +1,35 @@
+[
+  {
+    "id": "n_1",
+    "user_id": "u_demo",
+    "kind": "coach",
+    "title": "New coaching article: Build a Wind-Down Routine",
+    "body": "Thirty minutes of calm before bed can lift tonight's score.",
+    "href": "/coaching/wind-down-routine",
+    "read": false,
+    "read_at": null,
+    "created_at": "2026-10-05T18:00:00Z"
+  },
+  {
+    "id": "n_2",
+    "user_id": "u_demo",
+    "kind": "device",
+    "title": "Oura ring synced",
+    "body": "Last night's sleep stages were imported.",
+    "href": "/devices",
+    "read": false,
+    "read_at": null,
+    "created_at": "2026-10-06T06:50:00Z"
+  },
+  {
+    "id": "n_3",
+    "user_id": "u_demo",
+    "kind": "achievement",
+    "title": "Seven nights logged in a row",
+    "body": "Nice streak. Keep it going.",
+    "href": "/trends",
+    "read": true,
+    "read_at": "2026-10-04T09:00:00Z",
+    "created_at": "2026-10-03T08:00:00Z"
+  }
+]

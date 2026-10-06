@@ -1,0 +1,41 @@
+[
+  {
+    "id": "art_wind-down-routine",
+    "slug": "wind-down-routine",
+    "title": "Build a Wind-Down Routine",
+    "body_markdown": "# Build a Wind-Down Routine\n\nA consistent 30-minute pre-sleep ritual signals your body that it is time to rest. Dim the lights, put devices away, and try a calming activity like reading.",
+    "category": "sleep-hygiene",
+    "hero_image_key": null,
+    "is_premium": false,
+    "is_published": true,
+    "published_at": "2026-09-10T08:00:00Z",
+    "created_at": "2026-09-10T08:00:00Z",
+    "updated_at": "2026-09-10T08:00:00Z"
+  },
+  {
+    "id": "art_caffeine-cutoff",
+    "slug": "caffeine-cutoff",
+    "title": "Caffeine Cutoff Times",
+    "body_markdown": "# Caffeine Cutoff Times\n\nCaffeine has a half-life of 5-7 hours. Stop intake by 2pm to give it time to clear before bedtime.",
+    "category": "lifestyle",
+    "hero_image_key": null,
+    "is_premium": false,
+    "is_published": true,
+    "published_at": "2026-09-12T08:00:00Z",
+    "created_at": "2026-09-12T08:00:00Z",
+    "updated_at": "2026-09-12T08:00:00Z"
+  },
+  {
+    "id": "art_sleep-debt-recovery",
+    "slug": "sleep-debt-recovery",
+    "title": "Recovering from Sleep Debt",
+    "body_markdown": "# Recovering from Sleep Debt\n\nA guide to staged recovery from chronic short sleep, with weekly catch-up plans.",
+    "category": "recovery",
+    "hero_image_key": null,
+    "is_premium": true,
+    "is_published": true,
+    "published_at": "2026-09-15T08:00:00Z",
+    "created_at": "2026-09-15T08:00:00Z",
+    "updated_at": "2026-09-15T08:00:00Z"
+  }
+]

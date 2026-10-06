@@ -1,0 +1,27 @@
+[
+  {
+    "id": "wc_1",
+    "user_id": "u_demo",
+    "provider": "oura",
+    "external_user_id": "oura-84213",
+    "is_active": true,
+    "last_synced_at": "2026-10-06T06:50:00Z",
+    "scopes": [
+      "sleep",
+      "heartrate"
+    ],
+    "created_at": "2026-08-20T10:00:00Z"
+  },
+  {
+    "id": "wc_2",
+    "user_id": "u_demo",
+    "provider": "fitbit",
+    "external_user_id": "fitbit-5521",
+    "is_active": false,
+    "last_synced_at": "2026-09-18T07:12:00Z",
+    "scopes": [
+      "sleep"
+    ],
+    "created_at": "2026-07-02T10:00:00Z"
+  }
+]
