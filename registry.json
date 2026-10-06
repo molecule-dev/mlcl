@@ -29006,6 +29006,8 @@
       "implements": "@molecule/app-code-editor",
       "exports": [
         "provider",
+        "LSP_MAX_DOCUMENT_CHARS",
+        "lspCanCarry",
         "MonacoEditorProvider",
         "createProvider",
         "preloadMonaco",
