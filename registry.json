@@ -4168,12 +4168,14 @@
       ],
       "runtimeDependencies": [
         "@molecule/api-bond",
+        "@molecule/api-logger",
         "@molecule/api-payments",
         "@molecule/api-secrets",
         "express"
       ],
       "moleculePeers": [
         "@molecule/api-bond",
+        "@molecule/api-logger",
         "@molecule/api-payments",
         "@molecule/api-secrets"
       ],
@@ -4407,6 +4409,7 @@
         "@molecule/api-search-postgres",
         "@molecule/api-secrets",
         "@molecule/api-secrets-env",
+        "@molecule/api-server-default-express",
         "@molecule/api-two-factor",
         "@molecule/api-two-factor-otplib",
         "@molecule/api-uploads",
@@ -4415,7 +4418,9 @@
         "@molecule/api-webhook",
         "@molecule/api-webhook-http",
         "@molecule/api-workflow",
-        "@molecule/api-workflow-database"
+        "@molecule/api-workflow-database",
+        "express",
+        "zod"
       ],
       "moleculePeers": [
         "@molecule/api-analytics",
@@ -4457,6 +4462,7 @@
         "@molecule/api-search-postgres",
         "@molecule/api-secrets",
         "@molecule/api-secrets-env",
+        "@molecule/api-server-default-express",
         "@molecule/api-two-factor",
         "@molecule/api-two-factor-otplib",
         "@molecule/api-uploads",
@@ -19487,6 +19493,7 @@
         "@molecule/api-i18n",
         "@molecule/api-locales-device",
         "@molecule/api-resource",
+        "uuid",
         "zod"
       ],
       "moleculePeers": [
@@ -22499,6 +22506,7 @@
         "@molecule/api-resource-device",
         "@molecule/api-secrets",
         "@molecule/api-two-factor",
+        "uuid",
         "zod"
       ],
       "moleculePeers": [
@@ -23596,7 +23604,8 @@
         "@molecule/api-middleware-cookie-parser",
         "@molecule/api-middleware-cors",
         "@molecule/api-secrets",
-        "express"
+        "express",
+        "pem"
       ],
       "moleculePeers": [
         "@molecule/api-error-tracking",
@@ -26145,12 +26154,14 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react"
@@ -26869,12 +26880,14 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react"
@@ -33874,12 +33887,14 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react"
@@ -51894,11 +51909,13 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui"
       ],
@@ -52301,7 +52318,9 @@
         "@molecule/app-i18n",
         "@molecule/app-logger",
         "@molecule/app-push",
-        "expo-notifications"
+        "expo-constants",
+        "expo-notifications",
+        "react-native"
       ],
       "moleculePeers": [],
       "framework": "react-native",
@@ -53078,7 +53097,8 @@
       "runtimeDependencies": [
         "@molecule/app-rich-text",
         "dompurify",
-        "quill"
+        "quill",
+        "quill-delta"
       ],
       "moleculePeers": [
         "@molecule/app-rich-text"
@@ -53959,12 +53979,14 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react"
@@ -57299,12 +57321,14 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react"
