@@ -1,0 +1,35 @@
+[
+  {
+    "id": "conn-1",
+    "name": "Production Postgres",
+    "host": "db.prod.internal",
+    "port": 5432,
+    "database_name": "app_production",
+    "username": "readonly",
+    "ssl": true,
+    "color": "#2563eb",
+    "driver": "postgresql"
+  },
+  {
+    "id": "conn-2",
+    "name": "Staging Postgres",
+    "host": "db.staging.internal",
+    "port": 5432,
+    "database_name": "app_staging",
+    "username": "app",
+    "ssl": true,
+    "color": "#16a34a",
+    "driver": "postgresql"
+  },
+  {
+    "id": "conn-3",
+    "name": "Analytics MySQL",
+    "host": "mysql.analytics.internal",
+    "port": 3306,
+    "database_name": "analytics",
+    "username": "reporter",
+    "ssl": false,
+    "color": "#f59e0b",
+    "driver": "mysql"
+  }
+]

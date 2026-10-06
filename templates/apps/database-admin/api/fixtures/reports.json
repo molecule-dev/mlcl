@@ -1,0 +1,550 @@
+{
+  "schema/tables": [
+    {
+      "schema": "public",
+      "name": "users",
+      "type": "table"
+    },
+    {
+      "schema": "public",
+      "name": "orders",
+      "type": "table"
+    },
+    {
+      "schema": "public",
+      "name": "products",
+      "type": "table"
+    },
+    {
+      "schema": "public",
+      "name": "sessions",
+      "type": "table"
+    },
+    {
+      "schema": "public",
+      "name": "active_users",
+      "type": "view"
+    }
+  ],
+  "schema/tables/users/columns": [
+    {
+      "name": "id",
+      "dataType": "uuid",
+      "nullable": false,
+      "primaryKey": true,
+      "defaultValue": "gen_random_uuid()"
+    },
+    {
+      "name": "email",
+      "dataType": "text",
+      "nullable": false,
+      "primaryKey": false
+    },
+    {
+      "name": "name",
+      "dataType": "text",
+      "nullable": true,
+      "primaryKey": false
+    },
+    {
+      "name": "created_at",
+      "dataType": "timestamptz",
+      "nullable": false,
+      "primaryKey": false,
+      "defaultValue": "now()"
+    }
+  ],
+  "schema/tables/users/indexes": [
+    {
+      "name": "users_pkey",
+      "columns": [
+        "id"
+      ],
+      "unique": true
+    },
+    {
+      "name": "users_email_key",
+      "columns": [
+        "email"
+      ],
+      "unique": true
+    }
+  ],
+  "schema/tables/users/foreign-keys": [],
+  "schema/tables/users/data": {
+    "rows": [
+      {
+        "id": "u-1",
+        "email": "ana@example.com",
+        "name": "Ana Silva",
+        "created_at": "2026-07-08T12:00:00.000Z"
+      },
+      {
+        "id": "u-2",
+        "email": "ben@example.com",
+        "name": "Ben Okoye",
+        "created_at": "2026-07-17T12:00:00.000Z"
+      },
+      {
+        "id": "u-3",
+        "email": "carla@example.com",
+        "name": "Carla Mendes",
+        "created_at": "2026-07-26T12:00:00.000Z"
+      },
+      {
+        "id": "u-4",
+        "email": "dev@example.com",
+        "name": null,
+        "created_at": "2026-08-04T12:00:00.000Z"
+      }
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "dataType": "uuid"
+      },
+      {
+        "name": "email",
+        "dataType": "text"
+      },
+      {
+        "name": "name",
+        "dataType": "text"
+      },
+      {
+        "name": "created_at",
+        "dataType": "timestamptz"
+      }
+    ],
+    "row_count": 4,
+    "limit": 50,
+    "offset": 0
+  },
+  "schema/tables/orders/columns": [
+    {
+      "name": "id",
+      "dataType": "uuid",
+      "nullable": false,
+      "primaryKey": true,
+      "defaultValue": "gen_random_uuid()"
+    },
+    {
+      "name": "user_id",
+      "dataType": "uuid",
+      "nullable": false,
+      "primaryKey": false
+    },
+    {
+      "name": "total_cents",
+      "dataType": "integer",
+      "nullable": false,
+      "primaryKey": false
+    },
+    {
+      "name": "status",
+      "dataType": "text",
+      "nullable": false,
+      "primaryKey": false,
+      "defaultValue": "'pending'"
+    },
+    {
+      "name": "created_at",
+      "dataType": "timestamptz",
+      "nullable": false,
+      "primaryKey": false,
+      "defaultValue": "now()"
+    }
+  ],
+  "schema/tables/orders/indexes": [
+    {
+      "name": "orders_pkey",
+      "columns": [
+        "id"
+      ],
+      "unique": true
+    },
+    {
+      "name": "orders_user_id_idx",
+      "columns": [
+        "user_id"
+      ],
+      "unique": false
+    }
+  ],
+  "schema/tables/orders/foreign-keys": [
+    {
+      "name": "orders_user_id_fkey",
+      "columns": [
+        "user_id"
+      ],
+      "referencedSchema": "public",
+      "referencedTable": "users",
+      "referencedColumns": [
+        "id"
+      ]
+    }
+  ],
+  "schema/tables/orders/data": {
+    "rows": [
+      {
+        "id": "o-1",
+        "user_id": "u-1",
+        "total_cents": 4999,
+        "status": "paid",
+        "created_at": "2026-10-06T07:00:00.000Z"
+      },
+      {
+        "id": "o-2",
+        "user_id": "u-2",
+        "total_cents": 12900,
+        "status": "paid",
+        "created_at": "2026-10-05T19:20:00.000Z"
+      },
+      {
+        "id": "o-3",
+        "user_id": "u-1",
+        "total_cents": 2500,
+        "status": "pending",
+        "created_at": "2026-10-05T07:40:00.000Z"
+      },
+      {
+        "id": "o-4",
+        "user_id": "u-3",
+        "total_cents": 7800,
+        "status": "refunded",
+        "created_at": "2026-10-04T20:00:00.000Z"
+      }
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "dataType": "uuid"
+      },
+      {
+        "name": "user_id",
+        "dataType": "uuid"
+      },
+      {
+        "name": "total_cents",
+        "dataType": "integer"
+      },
+      {
+        "name": "status",
+        "dataType": "text"
+      },
+      {
+        "name": "created_at",
+        "dataType": "timestamptz"
+      }
+    ],
+    "row_count": 4,
+    "limit": 50,
+    "offset": 0
+  },
+  "schema/tables/products/columns": [
+    {
+      "name": "id",
+      "dataType": "uuid",
+      "nullable": false,
+      "primaryKey": true,
+      "defaultValue": "gen_random_uuid()"
+    },
+    {
+      "name": "title",
+      "dataType": "text",
+      "nullable": false,
+      "primaryKey": false
+    },
+    {
+      "name": "price_cents",
+      "dataType": "integer",
+      "nullable": false,
+      "primaryKey": false
+    },
+    {
+      "name": "stock",
+      "dataType": "integer",
+      "nullable": false,
+      "primaryKey": false,
+      "defaultValue": "0"
+    }
+  ],
+  "schema/tables/products/indexes": [
+    {
+      "name": "products_pkey",
+      "columns": [
+        "id"
+      ],
+      "unique": true
+    }
+  ],
+  "schema/tables/products/foreign-keys": [],
+  "schema/tables/products/data": {
+    "rows": [
+      {
+        "id": "p-1",
+        "title": "Standing desk",
+        "price_cents": 59900,
+        "stock": 14
+      },
+      {
+        "id": "p-2",
+        "title": "Mechanical keyboard",
+        "price_cents": 14900,
+        "stock": 62
+      },
+      {
+        "id": "p-3",
+        "title": "Monitor arm",
+        "price_cents": 8900,
+        "stock": 0
+      }
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "dataType": "uuid"
+      },
+      {
+        "name": "title",
+        "dataType": "text"
+      },
+      {
+        "name": "price_cents",
+        "dataType": "integer"
+      },
+      {
+        "name": "stock",
+        "dataType": "integer"
+      }
+    ],
+    "row_count": 3,
+    "limit": 50,
+    "offset": 0
+  },
+  "schema/tables/sessions/columns": [
+    {
+      "name": "id",
+      "dataType": "uuid",
+      "nullable": false,
+      "primaryKey": true
+    },
+    {
+      "name": "user_id",
+      "dataType": "uuid",
+      "nullable": false,
+      "primaryKey": false
+    },
+    {
+      "name": "expires_at",
+      "dataType": "timestamptz",
+      "nullable": false,
+      "primaryKey": false
+    }
+  ],
+  "schema/tables/sessions/indexes": [
+    {
+      "name": "sessions_pkey",
+      "columns": [
+        "id"
+      ],
+      "unique": true
+    }
+  ],
+  "schema/tables/sessions/foreign-keys": [
+    {
+      "name": "sessions_user_id_fkey",
+      "columns": [
+        "user_id"
+      ],
+      "referencedSchema": "public",
+      "referencedTable": "users",
+      "referencedColumns": [
+        "id"
+      ]
+    }
+  ],
+  "schema/tables/sessions/data": {
+    "rows": [
+      {
+        "id": "s-1",
+        "user_id": "u-1",
+        "expires_at": "2026-10-06T22:00:00.000Z"
+      },
+      {
+        "id": "s-2",
+        "user_id": "u-2",
+        "expires_at": "2026-10-06T23:00:00.000Z"
+      }
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "dataType": "uuid"
+      },
+      {
+        "name": "user_id",
+        "dataType": "uuid"
+      },
+      {
+        "name": "expires_at",
+        "dataType": "timestamptz"
+      }
+    ],
+    "row_count": 2,
+    "limit": 50,
+    "offset": 0
+  },
+  "schema/tables/active_users/columns": [
+    {
+      "name": "id",
+      "dataType": "uuid",
+      "nullable": false,
+      "primaryKey": false
+    },
+    {
+      "name": "email",
+      "dataType": "text",
+      "nullable": false,
+      "primaryKey": false
+    },
+    {
+      "name": "last_seen_at",
+      "dataType": "timestamptz",
+      "nullable": true,
+      "primaryKey": false
+    }
+  ],
+  "schema/tables/active_users/indexes": [
+    {
+      "name": "active_users_pkey",
+      "columns": [
+        "id"
+      ],
+      "unique": true
+    }
+  ],
+  "schema/tables/active_users/foreign-keys": [],
+  "schema/tables/active_users/data": {
+    "rows": [
+      {
+        "id": "u-1",
+        "email": "ana@example.com",
+        "last_seen_at": "2026-10-06T11:55:00.000Z"
+      },
+      {
+        "id": "u-2",
+        "email": "ben@example.com",
+        "last_seen_at": "2026-10-06T11:35:00.000Z"
+      }
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "dataType": "uuid"
+      },
+      {
+        "name": "email",
+        "dataType": "text"
+      },
+      {
+        "name": "last_seen_at",
+        "dataType": "timestamptz"
+      }
+    ],
+    "row_count": 2,
+    "limit": 50,
+    "offset": 0
+  },
+  "queries/history": [
+    {
+      "id": "hist-1",
+      "sql": "SELECT count(*) FROM users;",
+      "status": "success",
+      "row_count": 1,
+      "duration_ms": 12,
+      "error_message": null,
+      "created_at": "2026-10-06T11:52:00.000Z"
+    },
+    {
+      "id": "hist-2",
+      "sql": "SELECT * FROM orders WHERE status = 'pending' ORDER BY created_at DESC;",
+      "status": "success",
+      "row_count": 1,
+      "duration_ms": 34,
+      "error_message": null,
+      "created_at": "2026-10-06T11:05:00.000Z"
+    },
+    {
+      "id": "hist-3",
+      "sql": "UPDATE products SET stock = stock - 1 WHERE id = 'p-2';",
+      "status": "success",
+      "row_count": 1,
+      "duration_ms": 9,
+      "error_message": null,
+      "created_at": "2026-10-06T08:50:00.000Z"
+    },
+    {
+      "id": "hist-4",
+      "sql": "SELECT * FROM missing_table;",
+      "status": "error",
+      "row_count": 0,
+      "duration_ms": 3,
+      "error_message": "relation \"missing_table\" does not exist",
+      "created_at": "2026-10-06T01:20:00.000Z"
+    },
+    {
+      "id": "hist-5",
+      "sql": "SELECT u.email, sum(o.total_cents) FROM users u JOIN orders o ON o.user_id = u.id GROUP BY 1;",
+      "status": "success",
+      "row_count": 3,
+      "duration_ms": 58,
+      "error_message": null,
+      "created_at": "2026-10-05T12:40:00.000Z"
+    }
+  ],
+  "queries/saved": [
+    {
+      "id": "saved-1",
+      "name": "Pending orders",
+      "sql": "SELECT * FROM orders WHERE status = 'pending';",
+      "description": "Orders waiting for payment",
+      "updated_at": "2026-10-06T02:00:00.000Z"
+    },
+    {
+      "id": "saved-2",
+      "name": "Revenue by customer",
+      "sql": "SELECT u.email, sum(o.total_cents) AS revenue FROM users u JOIN orders o ON o.user_id = u.id GROUP BY 1 ORDER BY 2 DESC;",
+      "description": "Lifetime revenue per user",
+      "updated_at": "2026-10-05T01:00:00.000Z"
+    },
+    {
+      "id": "saved-3",
+      "name": "Out of stock products",
+      "sql": "SELECT title FROM products WHERE stock = 0;",
+      "description": "Needs a restock",
+      "updated_at": "2026-10-04T00:00:00.000Z"
+    }
+  ],
+  "queries/saved/saved-1": {
+    "id": "saved-1",
+    "name": "Pending orders",
+    "sql": "SELECT * FROM orders WHERE status = 'pending';",
+    "description": "Orders waiting for payment",
+    "updated_at": "2026-10-06T02:00:00.000Z"
+  },
+  "queries/saved/saved-2": {
+    "id": "saved-2",
+    "name": "Revenue by customer",
+    "sql": "SELECT u.email, sum(o.total_cents) AS revenue FROM users u JOIN orders o ON o.user_id = u.id GROUP BY 1 ORDER BY 2 DESC;",
+    "description": "Lifetime revenue per user",
+    "updated_at": "2026-10-05T01:00:00.000Z"
+  },
+  "queries/saved/saved-3": {
+    "id": "saved-3",
+    "name": "Out of stock products",
+    "sql": "SELECT title FROM products WHERE stock = 0;",
+    "description": "Needs a restock",
+    "updated_at": "2026-10-04T00:00:00.000Z"
+  }
+}
