@@ -1,174 +1,862 @@
 [
   {
     "id": "cccccccc-0000-4000-8000-000000000001",
-    "board": "feature-requests",
-    "author": 3,
+    "slug": "recurring-revenue-dashboard-with-per-plan-cohort-breakdown",
     "title": "Recurring revenue dashboard with per-plan cohort breakdown",
     "body": "We currently eyeball MRR in a spreadsheet. A dashboard that splits active subscriptions by plan, with a 30/60/90-day retention cohort view, would replace three manual exports a week. Bonus points for a CSV of the underlying rows.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000001",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000003",
     "status": "planned",
-    "roadmap_label": "Q1 2027",
     "admin_response": "Cohorts are the single most requested analytics feature — slotted for the analytics revamp. Design preview lands in the changelog first.",
-    "days_ago": 41
+    "admin_responded_at": "2026-08-28T12:00:00.000Z",
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 5,
+    "comment_count": 3,
+    "roadmap_label": "Q1 2027",
+    "shipped_at": null,
+    "created_at": "2026-08-26T12:00:00.000Z",
+    "updated_at": "2026-08-27T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000001",
+      "slug": "feature-requests",
+      "name": "Feature Requests",
+      "description": "New capabilities you want to see on the roadmap. Vote to signal demand.",
+      "color": "#5046e5",
+      "icon": "💡",
+      "post_count": 9
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000003",
+      "username": "hana",
+      "name": "Hana Okafor",
+      "role": "member"
+    },
+    "viewer_voted": true,
+    "comments": [
+      {
+        "id": "cmt-1-1",
+        "post_id": "cccccccc-0000-4000-8000-000000000001",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000004",
+        "body": "The cohort view alone would justify the plan. We currently paste screenshots of the spreadsheet into a slide nobody trusts.",
+        "created_at": "2026-08-27T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000004",
+          "username": "tomas",
+          "name": "Tomas Lindqvist",
+          "role": "member"
+        }
+      },
+      {
+        "id": "cmt-1-2",
+        "post_id": "cccccccc-0000-4000-8000-000000000001",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000006",
+        "body": "Please include net revenue retention — churn and expansion in one line is the number our board asks for first.",
+        "created_at": "2026-08-29T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000006",
+          "username": "june",
+          "name": "June Park",
+          "role": "member"
+        }
+      },
+      {
+        "id": "cmt-1-3",
+        "post_id": "cccccccc-0000-4000-8000-000000000001",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000002",
+        "body": "Confirmed for the analytics revamp. CSV export rides along — no point building a dashboard you cannot audit.",
+        "created_at": "2026-09-06T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000002",
+          "username": "marcus",
+          "name": "Marcus Bell",
+          "role": "admin"
+        }
+      }
+    ]
   },
   {
     "id": "cccccccc-0000-4000-8000-000000000002",
-    "board": "feature-requests",
-    "author": 5,
+    "slug": "slack-notifications-when-a-post-i-voted-on-changes-status",
     "title": "Slack notifications when a post I voted on changes status",
     "body": "I want to know the moment something I upvoted moves to Planned or Shipped. Email works but a Slack message with the status badge and a deep link would land where the team already lives.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000001",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000005",
     "status": "in_progress",
-    "roadmap_label": "Q4 2026",
     "admin_response": "Under active build. Webhook plumbing is done; the Slack app review is the long pole.",
-    "days_ago": 36
+    "admin_responded_at": "2026-09-02T12:00:00.000Z",
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 3,
+    "comment_count": 1,
+    "roadmap_label": "Q4 2026",
+    "shipped_at": null,
+    "created_at": "2026-08-31T12:00:00.000Z",
+    "updated_at": "2026-09-01T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000001",
+      "slug": "feature-requests",
+      "name": "Feature Requests",
+      "description": "New capabilities you want to see on the roadmap. Vote to signal demand.",
+      "color": "#5046e5",
+      "icon": "💡",
+      "post_count": 9
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000005",
+      "username": "wren",
+      "name": "Wren Castillo",
+      "role": "member"
+    },
+    "viewer_voted": false,
+    "comments": [
+      {
+        "id": "cmt-2-1",
+        "post_id": "cccccccc-0000-4000-8000-000000000002",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000003",
+        "body": "Would love a per-board opt-in. I do not need every integration board ping, but feature requests should page me.",
+        "created_at": "2026-09-03T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000003",
+          "username": "hana",
+          "name": "Hana Okafor",
+          "role": "member"
+        }
+      }
+    ]
   },
   {
     "id": "cccccccc-0000-4000-8000-000000000003",
-    "board": "feature-requests",
-    "author": 6,
+    "slug": "design-token-theming-for-customer-facing-boards",
     "title": "Design token theming for customer-facing boards",
     "body": "Let me point the public board at my own token set — brand color, radius, font — so the feedback page stops looking like it belongs to a different product. A simple CSS variable override panel would be enough.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000001",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000006",
     "status": "shipped",
-    "roadmap_label": "Q3 2026",
     "admin_response": "Shipped as Board Theming in the appearance tab of board settings.",
-    "shipped_days_ago": 6,
-    "days_ago": 64
+    "admin_responded_at": "2026-08-05T12:00:00.000Z",
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 5,
+    "comment_count": 1,
+    "roadmap_label": "Q3 2026",
+    "shipped_at": "2026-09-30T12:00:00.000Z",
+    "created_at": "2026-08-03T12:00:00.000Z",
+    "updated_at": "2026-08-04T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000001",
+      "slug": "feature-requests",
+      "name": "Feature Requests",
+      "description": "New capabilities you want to see on the roadmap. Vote to signal demand.",
+      "color": "#5046e5",
+      "icon": "💡",
+      "post_count": 9
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000006",
+      "username": "june",
+      "name": "June Park",
+      "role": "member"
+    },
+    "viewer_voted": false,
+    "comments": [
+      {
+        "id": "cmt-3-1",
+        "post_id": "cccccccc-0000-4000-8000-000000000003",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000003",
+        "body": "Shipped and it is glorious. Our board now matches our brand kit without a support ticket.",
+        "created_at": "2026-10-01T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000003",
+          "username": "hana",
+          "name": "Hana Okafor",
+          "role": "member"
+        }
+      }
+    ]
   },
   {
     "id": "cccccccc-0000-4000-8000-000000000004",
-    "board": "feature-requests",
-    "author": 4,
+    "slug": "merge-duplicate-posts-automatically-before-they-split-the-vo",
     "title": "Merge duplicate posts automatically before they split the vote",
     "body": "Three people filed 'dark mode' three ways this month and each collected votes. Suggesting near-duplicates at submit time — or a one-click merge for admins that pools the votes — would keep demand signal honest.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000001",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000004",
     "status": "shipped",
-    "roadmap_label": "Q3 2026",
     "admin_response": "Shipped: duplicate suggestions at submit time plus admin merge with vote pooling.",
-    "shipped_days_ago": 19,
-    "days_ago": 55
+    "admin_responded_at": "2026-08-14T12:00:00.000Z",
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 6,
+    "comment_count": 1,
+    "roadmap_label": "Q3 2026",
+    "shipped_at": "2026-09-17T12:00:00.000Z",
+    "created_at": "2026-08-12T12:00:00.000Z",
+    "updated_at": "2026-08-13T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000001",
+      "slug": "feature-requests",
+      "name": "Feature Requests",
+      "description": "New capabilities you want to see on the roadmap. Vote to signal demand.",
+      "color": "#5046e5",
+      "icon": "💡",
+      "post_count": 9
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000004",
+      "username": "tomas",
+      "name": "Tomas Lindqvist",
+      "role": "member"
+    },
+    "viewer_voted": false,
+    "comments": [
+      {
+        "id": "cmt-4-1",
+        "post_id": "cccccccc-0000-4000-8000-000000000004",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000003",
+        "body": "Used the merge for the first time this week — three dark-mode duplicates became one post with the votes pooled. Exactly right.",
+        "created_at": "2026-09-18T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000003",
+          "username": "hana",
+          "name": "Hana Okafor",
+          "role": "member"
+        }
+      }
+    ]
   },
   {
     "id": "cccccccc-0000-4000-8000-000000000005",
-    "board": "feature-requests",
-    "author": 3,
+    "slug": "custom-fields-on-feedback-posts",
     "title": "Custom fields on feedback posts",
     "body": "Let admins add structured fields — account tier, product area, severity — so the board can be filtered like a real database instead of searched like a mailbox.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000001",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000003",
     "status": "open",
-    "days_ago": 12
+    "admin_response": null,
+    "admin_responded_at": null,
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 2,
+    "comment_count": 1,
+    "roadmap_label": null,
+    "shipped_at": null,
+    "created_at": "2026-09-24T12:00:00.000Z",
+    "updated_at": "2026-09-25T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000001",
+      "slug": "feature-requests",
+      "name": "Feature Requests",
+      "description": "New capabilities you want to see on the roadmap. Vote to signal demand.",
+      "color": "#5046e5",
+      "icon": "💡",
+      "post_count": 9
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000003",
+      "username": "hana",
+      "name": "Hana Okafor",
+      "role": "member"
+    },
+    "viewer_voted": true,
+    "comments": [
+      {
+        "id": "cmt-5-1",
+        "post_id": "cccccccc-0000-4000-8000-000000000005",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000005",
+        "body": "Seconded. A single 'account tier' dropdown would let us weight votes from enterprise separately.",
+        "created_at": "2026-09-26T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000005",
+          "username": "wren",
+          "name": "Wren Castillo",
+          "role": "member"
+        }
+      }
+    ]
   },
   {
     "id": "cccccccc-0000-4000-8000-000000000006",
-    "board": "feature-requests",
-    "author": 5,
+    "slug": "weekly-digest-email-of-top-open-posts",
     "title": "Weekly digest email of top open posts",
     "body": "A Monday digest with the five highest-voted open requests and anything that just moved on the roadmap. Enough to keep the team subscribed without another Slack channel.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000001",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000005",
     "status": "open",
-    "days_ago": 9
+    "admin_response": null,
+    "admin_responded_at": null,
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 3,
+    "comment_count": 1,
+    "roadmap_label": null,
+    "shipped_at": null,
+    "created_at": "2026-09-27T12:00:00.000Z",
+    "updated_at": "2026-09-28T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000001",
+      "slug": "feature-requests",
+      "name": "Feature Requests",
+      "description": "New capabilities you want to see on the roadmap. Vote to signal demand.",
+      "color": "#5046e5",
+      "icon": "💡",
+      "post_count": 9
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000005",
+      "username": "wren",
+      "name": "Wren Castillo",
+      "role": "member"
+    },
+    "viewer_voted": false,
+    "comments": [
+      {
+        "id": "cmt-6-1",
+        "post_id": "cccccccc-0000-4000-8000-000000000006",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000004",
+        "body": "Monday 9am local time, please. Anything later is Tuesday in practice.",
+        "created_at": "2026-09-28T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000004",
+          "username": "tomas",
+          "name": "Tomas Lindqvist",
+          "role": "member"
+        }
+      }
+    ]
   },
   {
     "id": "cccccccc-0000-4000-8000-000000000007",
-    "board": "feature-requests",
-    "author": 6,
+    "slug": "public-api-with-webhook-subscription-for-status-changes",
     "title": "Public API with webhook subscription for status changes",
     "body": "Everything the Slack integration does, but as a documented REST API plus outgoing webhooks, so we can wire feedback events into our own tooling.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000001",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000006",
     "status": "declined",
     "admin_response": "Declined for now — the current single-tenant data model makes safe multi-customer API scopes a rewrite, not a feature. Revisiting after the multi-workspace split.",
-    "days_ago": 33
+    "admin_responded_at": "2026-09-05T12:00:00.000Z",
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 2,
+    "comment_count": 2,
+    "roadmap_label": null,
+    "shipped_at": null,
+    "created_at": "2026-09-03T12:00:00.000Z",
+    "updated_at": "2026-09-04T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000001",
+      "slug": "feature-requests",
+      "name": "Feature Requests",
+      "description": "New capabilities you want to see on the roadmap. Vote to signal demand.",
+      "color": "#5046e5",
+      "icon": "💡",
+      "post_count": 9
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000006",
+      "username": "june",
+      "name": "June Park",
+      "role": "member"
+    },
+    "viewer_voted": false,
+    "comments": [
+      {
+        "id": "cmt-7-1",
+        "post_id": "cccccccc-0000-4000-8000-000000000007",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000005",
+        "body": "Understood, but even read-only API scopes would unblock us in the meantime.",
+        "created_at": "2026-09-07T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000005",
+          "username": "wren",
+          "name": "Wren Castillo",
+          "role": "member"
+        }
+      },
+      {
+        "id": "cmt-7-2",
+        "post_id": "cccccccc-0000-4000-8000-000000000007",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000001",
+        "body": "Fair ask — we will revisit read-only endpoints after the multi-workspace split lands. Not forgotten.",
+        "created_at": "2026-09-08T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000001",
+          "username": "priya",
+          "name": "Priya Nair",
+          "role": "admin"
+        }
+      }
+    ]
   },
   {
     "id": "cccccccc-0000-4000-8000-000000000008",
-    "board": "bug-reports",
-    "author": 4,
+    "slug": "vote-count-desyncs-between-board-list-and-post-detail",
     "title": "Vote count desyncs between board list and post detail",
     "body": "The board list showed 214 votes, clicking through showed 209, a refresh showed 214 again. Looks like a cached aggregate racing the live count on the detail endpoint.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000002",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000004",
     "status": "in_progress",
-    "roadmap_label": "Q4 2026",
     "admin_response": "Reproduced — the list reads a denormalized counter while detail recomputes. Fix rides along with the vote-event pipeline.",
-    "days_ago": 7
+    "admin_responded_at": "2026-10-01T12:00:00.000Z",
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 4,
+    "comment_count": 2,
+    "roadmap_label": "Q4 2026",
+    "shipped_at": null,
+    "created_at": "2026-09-29T12:00:00.000Z",
+    "updated_at": "2026-09-30T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000002",
+      "slug": "bug-reports",
+      "name": "Bug Reports",
+      "description": "Something broken? Reproduction steps and screenshots earn a faster fix.",
+      "color": "#dc2626",
+      "icon": "🐞",
+      "post_count": 4
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000004",
+      "username": "tomas",
+      "name": "Tomas Lindqvist",
+      "role": "member"
+    },
+    "viewer_voted": false,
+    "comments": [
+      {
+        "id": "cmt-8-1",
+        "post_id": "cccccccc-0000-4000-8000-000000000008",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000003",
+        "body": "Seeing the same drift on the roadmap cards. Repro: vote from the list view, then open detail.",
+        "created_at": "2026-09-30T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000003",
+          "username": "hana",
+          "name": "Hana Okafor",
+          "role": "member"
+        }
+      },
+      {
+        "id": "cmt-8-2",
+        "post_id": "cccccccc-0000-4000-8000-000000000008",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000002",
+        "body": "Root cause found — counter write and event read race on the same row. Fix in the pipeline branch now.",
+        "created_at": "2026-10-03T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000002",
+          "username": "marcus",
+          "name": "Marcus Bell",
+          "role": "admin"
+        }
+      }
+    ]
   },
   {
     "id": "cccccccc-0000-4000-8000-000000000009",
-    "board": "bug-reports",
-    "author": 5,
+    "slug": "comment-box-loses-draft-when-the-session-expires-mid-typing",
     "title": "Comment box loses draft when the session expires mid-typing",
     "body": "Wrote a three-paragraph reply, hit submit, got logged out, and the text was gone. Either warn before expiry or keep the draft in localStorage and restore it after re-login.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000002",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000005",
     "status": "open",
-    "days_ago": 4
+    "admin_response": null,
+    "admin_responded_at": null,
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 2,
+    "comment_count": 1,
+    "roadmap_label": null,
+    "shipped_at": null,
+    "created_at": "2026-10-02T12:00:00.000Z",
+    "updated_at": "2026-10-03T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000002",
+      "slug": "bug-reports",
+      "name": "Bug Reports",
+      "description": "Something broken? Reproduction steps and screenshots earn a faster fix.",
+      "color": "#dc2626",
+      "icon": "🐞",
+      "post_count": 4
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000005",
+      "username": "wren",
+      "name": "Wren Castillo",
+      "role": "member"
+    },
+    "viewer_voted": true,
+    "comments": [
+      {
+        "id": "cmt-9-1",
+        "post_id": "cccccccc-0000-4000-8000-000000000009",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000006",
+        "body": "Lost a comment the same way. localStorage draft restore would have saved it.",
+        "created_at": "2026-10-03T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000006",
+          "username": "june",
+          "name": "June Park",
+          "role": "member"
+        }
+      }
+    ]
   },
   {
     "id": "cccccccc-0000-4000-8000-00000000000a",
-    "board": "bug-reports",
-    "author": 3,
+    "slug": "board-slug-collisions-on-rename-create-dead-links",
     "title": "Board slug collisions on rename create dead links",
     "body": "Renaming a board to a slug that an archived board already held silently broke every external link to the old slug. Either reject the rename or redirect.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000002",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000003",
     "status": "shipped",
-    "roadmap_label": "Q3 2026",
     "admin_response": "Shipped: renames now generate a collision-free slug and the old slug 308-redirects.",
-    "shipped_days_ago": 27,
-    "days_ago": 48
+    "admin_responded_at": "2026-08-21T12:00:00.000Z",
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 4,
+    "comment_count": 0,
+    "roadmap_label": "Q3 2026",
+    "shipped_at": "2026-09-09T12:00:00.000Z",
+    "created_at": "2026-08-19T12:00:00.000Z",
+    "updated_at": "2026-08-20T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000002",
+      "slug": "bug-reports",
+      "name": "Bug Reports",
+      "description": "Something broken? Reproduction steps and screenshots earn a faster fix.",
+      "color": "#dc2626",
+      "icon": "🐞",
+      "post_count": 4
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000003",
+      "username": "hana",
+      "name": "Hana Okafor",
+      "role": "member"
+    },
+    "viewer_voted": false,
+    "comments": []
   },
   {
     "id": "cccccccc-0000-4000-8000-00000000000b",
-    "board": "integrations",
-    "author": 6,
+    "slug": "two-way-github-link-roadmap-item-to-pull-request",
     "title": "Two-way GitHub link: roadmap item to pull request",
     "body": "When a planned post has a tracking issue, show the PR/issue state right on the roadmap card, and post back to the issue when the feature ships. Closed-loop from request to release note.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000003",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000006",
     "status": "planned",
-    "roadmap_label": "Q1 2027",
     "admin_response": "Confirmed with the platform team — the roadmap card gets a live issue chip, shipping posts a closing comment.",
-    "days_ago": 28
+    "admin_responded_at": "2026-09-10T12:00:00.000Z",
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 5,
+    "comment_count": 1,
+    "roadmap_label": "Q1 2027",
+    "shipped_at": null,
+    "created_at": "2026-09-08T12:00:00.000Z",
+    "updated_at": "2026-09-09T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000003",
+      "slug": "integrations",
+      "name": "Integrations",
+      "description": "The tools you want Loopwork to plug into — and how you'd wire them.",
+      "color": "#0369a1",
+      "icon": "🔌",
+      "post_count": 3
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000006",
+      "username": "june",
+      "name": "June Park",
+      "role": "member"
+    },
+    "viewer_voted": false,
+    "comments": [
+      {
+        "id": "cmt-11-1",
+        "post_id": "cccccccc-0000-4000-8000-00000000000b",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000004",
+        "body": "The issue chip on the roadmap card is the part that sells it internally — execs click through to GitHub and believe it.",
+        "created_at": "2026-09-12T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000004",
+          "username": "tomas",
+          "name": "Tomas Lindqvist",
+          "role": "member"
+        }
+      }
+    ]
   },
   {
     "id": "cccccccc-0000-4000-8000-00000000000c",
-    "board": "integrations",
-    "author": 4,
+    "slug": "import-historical-feedback-from-a-csv",
     "title": "Import historical feedback from a CSV",
     "body": "We have two years of feature requests in a spreadsheet. An importer that maps columns to boards and preserves original dates would let us start with real signal instead of a blank board.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000003",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000004",
     "status": "open",
-    "days_ago": 15
+    "admin_response": null,
+    "admin_responded_at": null,
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 5,
+    "comment_count": 1,
+    "roadmap_label": null,
+    "shipped_at": null,
+    "created_at": "2026-09-21T12:00:00.000Z",
+    "updated_at": "2026-09-22T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000003",
+      "slug": "integrations",
+      "name": "Integrations",
+      "description": "The tools you want Loopwork to plug into — and how you'd wire them.",
+      "color": "#0369a1",
+      "icon": "🔌",
+      "post_count": 3
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000004",
+      "username": "tomas",
+      "name": "Tomas Lindqvist",
+      "role": "member"
+    },
+    "viewer_voted": false,
+    "comments": [
+      {
+        "id": "cmt-12-1",
+        "post_id": "cccccccc-0000-4000-8000-00000000000c",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000003",
+        "body": "Column mapping is the whole game: board, title, body, date, and a vote-count column would cover our sheet exactly.",
+        "created_at": "2026-09-24T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000003",
+          "username": "hana",
+          "name": "Hana Okafor",
+          "role": "member"
+        }
+      }
+    ]
   },
   {
     "id": "cccccccc-0000-4000-8000-00000000000d",
-    "board": "integrations",
-    "author": 3,
+    "slug": "linear-sync-for-the-in-progress-column",
     "title": "Linear sync for the in-progress column",
     "body": "Anything an admin marks in-progress should appear as a Linear issue in the project we pick, and status changes should flow both directions.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000003",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000003",
     "status": "open",
-    "days_ago": 2
+    "admin_response": null,
+    "admin_responded_at": null,
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 2,
+    "comment_count": 0,
+    "roadmap_label": null,
+    "shipped_at": null,
+    "created_at": "2026-10-04T12:00:00.000Z",
+    "updated_at": "2026-10-05T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000003",
+      "slug": "integrations",
+      "name": "Integrations",
+      "description": "The tools you want Loopwork to plug into — and how you'd wire them.",
+      "color": "#0369a1",
+      "icon": "🔌",
+      "post_count": 3
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000003",
+      "username": "hana",
+      "name": "Hana Okafor",
+      "role": "member"
+    },
+    "viewer_voted": true,
+    "comments": []
   },
   {
     "id": "cccccccc-0000-4000-8000-00000000000e",
-    "board": "praise",
-    "author": 5,
+    "slug": "the-changelog-page-is-the-first-one-my-execs-actually-read",
     "title": "The changelog page is the first one my execs actually read",
     "body": "Shipped items with dates and plain-language summaries have replaced our quarterly 'what did product even do' deck. Please never remove it.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000004",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000005",
     "status": "open",
-    "days_ago": 11
+    "admin_response": null,
+    "admin_responded_at": null,
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 3,
+    "comment_count": 1,
+    "roadmap_label": null,
+    "shipped_at": null,
+    "created_at": "2026-09-25T12:00:00.000Z",
+    "updated_at": "2026-09-26T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000004",
+      "slug": "praise",
+      "name": "Praise",
+      "description": "What is working so well it deserves to be protected? Tell us what not to break.",
+      "color": "#16a34a",
+      "icon": "💚",
+      "post_count": 1
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000005",
+      "username": "wren",
+      "name": "Wren Castillo",
+      "role": "member"
+    },
+    "viewer_voted": false,
+    "comments": [
+      {
+        "id": "cmt-14-1",
+        "post_id": "cccccccc-0000-4000-8000-00000000000e",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000001",
+        "body": "This made my week. The changelog stays.",
+        "created_at": "2026-09-26T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000001",
+          "username": "priya",
+          "name": "Priya Nair",
+          "role": "admin"
+        }
+      }
+    ]
   },
   {
     "id": "cccccccc-0000-4000-8000-00000000000f",
-    "board": "feature-requests",
-    "author": 6,
+    "slug": "dark-theme-for-the-whole-app",
     "title": "Dark theme for the whole app",
     "body": "Please add a proper dark theme across the boards, roadmap, and admin views — my eyes at 11pm beg you.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000001",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000006",
     "status": "open",
-    "merged_into": "cccccccc-0000-4000-8000-000000000011",
-    "days_ago": 5
+    "admin_response": null,
+    "admin_responded_at": null,
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 0,
+    "comment_count": 0,
+    "roadmap_label": null,
+    "shipped_at": null,
+    "created_at": "2026-10-01T12:00:00.000Z",
+    "updated_at": "2026-10-02T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000001",
+      "slug": "feature-requests",
+      "name": "Feature Requests",
+      "description": "New capabilities you want to see on the roadmap. Vote to signal demand.",
+      "color": "#5046e5",
+      "icon": "💡",
+      "post_count": 9
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000006",
+      "username": "june",
+      "name": "June Park",
+      "role": "member"
+    },
+    "viewer_voted": false,
+    "comments": []
   },
   {
     "id": "cccccccc-0000-4000-8000-000000000011",
-    "board": "feature-requests",
-    "author": 4,
+    "slug": "add-dark-mode-to-the-web-app",
     "title": "Add dark mode to the web app",
     "body": "A system-following dark mode for boards, roadmap, and the admin views. Every tool I live in all day has one; this is the last bright tab.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000001",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000004",
     "status": "open",
-    "days_ago": 18
+    "admin_response": null,
+    "admin_responded_at": null,
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 6,
+    "comment_count": 1,
+    "roadmap_label": null,
+    "shipped_at": null,
+    "created_at": "2026-09-18T12:00:00.000Z",
+    "updated_at": "2026-09-19T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000001",
+      "slug": "feature-requests",
+      "name": "Feature Requests",
+      "description": "New capabilities you want to see on the roadmap. Vote to signal demand.",
+      "color": "#5046e5",
+      "icon": "💡",
+      "post_count": 9
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000004",
+      "username": "tomas",
+      "name": "Tomas Lindqvist",
+      "role": "member"
+    },
+    "viewer_voted": false,
+    "comments": [
+      {
+        "id": "cmt-16-1",
+        "post_id": "cccccccc-0000-4000-8000-000000000011",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000003",
+        "body": "Amplifying this one — last bright tab left in my workspace.",
+        "created_at": "2026-09-22T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000003",
+          "username": "hana",
+          "name": "Hana Okafor",
+          "role": "member"
+        }
+      }
+    ]
   },
   {
     "id": "cccccccc-0000-4000-8000-000000000010",
-    "board": "bug-reports",
-    "author": 6,
+    "slug": "mobile-vote-button-requires-two-taps-on-ios-safari",
     "title": "Mobile: vote button requires two taps on iOS Safari",
     "body": "First tap focuses, second tap registers. Suspect the touch target is behind a sticky header on small viewports.",
+    "board_id": "bbbbbbbb-0000-4000-8000-000000000002",
+    "author_id": "aaaaaaaa-0000-4000-8000-000000000006",
     "status": "open",
-    "days_ago": 1
+    "admin_response": null,
+    "admin_responded_at": null,
+    "merged_into_id": null,
+    "merged_into": null,
+    "vote_count": 1,
+    "comment_count": 1,
+    "roadmap_label": null,
+    "shipped_at": null,
+    "created_at": "2026-10-05T12:00:00.000Z",
+    "updated_at": "2026-10-06T12:00:00.000Z",
+    "board": {
+      "id": "bbbbbbbb-0000-4000-8000-000000000002",
+      "slug": "bug-reports",
+      "name": "Bug Reports",
+      "description": "Something broken? Reproduction steps and screenshots earn a faster fix.",
+      "color": "#dc2626",
+      "icon": "🐞",
+      "post_count": 4
+    },
+    "author": {
+      "id": "aaaaaaaa-0000-4000-8000-000000000006",
+      "username": "june",
+      "name": "June Park",
+      "role": "member"
+    },
+    "viewer_voted": true,
+    "comments": [
+      {
+        "id": "cmt-17-1",
+        "post_id": "cccccccc-0000-4000-8000-000000000010",
+        "author_id": "aaaaaaaa-0000-4000-8000-000000000005",
+        "body": "Repro'd on iPhone 14, Safari 17. Works fine in Chrome.",
+        "created_at": "2026-10-05T12:00:00.000Z",
+        "author": {
+          "id": "aaaaaaaa-0000-4000-8000-000000000005",
+          "username": "wren",
+          "name": "Wren Castillo",
+          "role": "member"
+        }
+      }
+    ]
   }
 ]

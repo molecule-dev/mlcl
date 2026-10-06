@@ -6,7 +6,8 @@
     "description": "New capabilities you want to see on the roadmap. Vote to signal demand.",
     "color": "#5046e5",
     "icon": "💡",
-    "sort_order": 0
+    "sort_order": 0,
+    "post_count": 9
   },
   {
     "id": "bbbbbbbb-0000-4000-8000-000000000002",
@@ -15,7 +16,8 @@
     "description": "Something broken? Reproduction steps and screenshots earn a faster fix.",
     "color": "#dc2626",
     "icon": "🐞",
-    "sort_order": 1
+    "sort_order": 1,
+    "post_count": 4
   },
   {
     "id": "bbbbbbbb-0000-4000-8000-000000000003",
@@ -24,7 +26,8 @@
     "description": "The tools you want Loopwork to plug into — and how you'd wire them.",
     "color": "#0369a1",
     "icon": "🔌",
-    "sort_order": 2
+    "sort_order": 2,
+    "post_count": 3
   },
   {
     "id": "bbbbbbbb-0000-4000-8000-000000000004",
@@ -33,6 +36,7 @@
     "description": "What is working so well it deserves to be protected? Tell us what not to break.",
     "color": "#16a34a",
     "icon": "💚",
-    "sort_order": 3
+    "sort_order": 3,
+    "post_count": 1
   }
 ]

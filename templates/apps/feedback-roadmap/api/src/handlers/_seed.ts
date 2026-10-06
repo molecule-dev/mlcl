@@ -3,8 +3,10 @@
  * feedback portal for the equally fictional "Loopwork" product).
  *
  * Idempotent: guarded by a row-count check on feedback_boards, so server
- * restarts never double-seed. Loads api/fixtures/{users,boards,posts,votes,
- * comments}.json:
+ * restarts never double-seed. Loads api/fixtures/seed/{users,boards,posts,votes,
+ * comments}.json (a subdirectory, so the mock API server — which serves the
+ * top-level api/fixtures/*.json as API responses — never mistakes these
+ * seed rows for response bodies):
  *
  * - 6 demo accounts (2 product-team admins + 4 customers),
  * - 4 boards,
@@ -26,8 +28,8 @@ import { readFile } from 'node:fs/promises'
 
 import { count, create, findById, updateById } from '@molecule/api-database'
 
-/** Resolves api/fixtures/*.json from BOTH src/ (tsx watch) and dist/. */
-const fixture = (name: string): URL => new URL(`../../fixtures/${name}.json`, import.meta.url)
+/** Resolves api/fixtures/seed/*.json from BOTH src/ (tsx watch) and dist/. */
+const fixture = (name: string): URL => new URL(`../../fixtures/seed/${name}.json`, import.meta.url)
 
 interface UserFixture {
   user_id: string
