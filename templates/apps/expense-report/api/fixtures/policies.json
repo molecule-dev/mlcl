@@ -1,0 +1,39 @@
+[
+  {
+    "id": "pol-1",
+    "name": "Meals",
+    "description": "Daily meal cap for client and team meals.",
+    "max_amount": 80,
+    "categories": [
+      "meals"
+    ],
+    "requires_receipt_above": 25,
+    "auto_approve_below": 25,
+    "is_active": true
+  },
+  {
+    "id": "pol-2",
+    "name": "Travel",
+    "description": "Airfare and lodging need a receipt.",
+    "max_amount": 2000,
+    "categories": [
+      "travel",
+      "lodging"
+    ],
+    "requires_receipt_above": 0,
+    "auto_approve_below": null,
+    "is_active": true
+  },
+  {
+    "id": "pol-3",
+    "name": "Software",
+    "description": "Subscriptions under the cap are auto-approved.",
+    "max_amount": 150,
+    "categories": [
+      "supplies"
+    ],
+    "requires_receipt_above": 50,
+    "auto_approve_below": 50,
+    "is_active": true
+  }
+]

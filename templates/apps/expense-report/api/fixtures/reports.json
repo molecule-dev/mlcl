@@ -1,0 +1,241 @@
+{
+  "reports/": [
+    {
+      "id": "rpt-2026-04",
+      "title": "April 2026 client travel",
+      "status": "submitted",
+      "total_amount_cents": 110999,
+      "reimbursable_cents": 110999,
+      "expense_count": 6,
+      "submitter_name": "Maya Okafor",
+      "submitter_role": "Account Executive · Sales",
+      "submitted_at": "2026-04-27T09:14:00Z",
+      "date_range": "Apr 12 – Apr 26",
+      "policy_violation": "One meal exceeds the daily $80 cap and needs manager justification."
+    },
+    {
+      "id": "rpt-2026-03",
+      "title": "March 2026 expenses",
+      "status": "reimbursed",
+      "total_amount_cents": 35835,
+      "reimbursable_cents": 10960,
+      "expense_count": 3,
+      "submitter_name": "Maya Okafor",
+      "submitter_role": "Account Executive · Sales",
+      "submitted_at": "2026-03-30T10:00:00Z",
+      "date_range": "Mar 3 – Mar 28",
+      "policy_violation": null
+    }
+  ],
+  "reports/rpt-2026-04": {
+    "id": "rpt-2026-04",
+    "title": "April 2026 client travel",
+    "status": "submitted",
+    "total_amount_cents": 110999,
+    "reimbursable_cents": 110999,
+    "expense_count": 6,
+    "submitter_name": "Maya Okafor",
+    "submitter_role": "Account Executive · Sales",
+    "submitted_at": "2026-04-27T09:14:00Z",
+    "date_range": "Apr 12 – Apr 26",
+    "policy_violation": "One meal exceeds the daily $80 cap and needs manager justification.",
+    "expenses": [
+      {
+        "id": "exp-001",
+        "merchant": "United Airlines",
+        "category": "travel",
+        "date": "2026-04-22T12:00:00Z",
+        "amountCents": 48250,
+        "receiptUrl": "/receipts/exp-001.jpg",
+        "status": "approved"
+      },
+      {
+        "id": "exp-002",
+        "merchant": "The Stanford Hotel",
+        "category": "lodging",
+        "date": "2026-04-22T12:00:00Z",
+        "amountCents": 31200,
+        "receiptUrl": "/receipts/exp-002.jpg",
+        "status": "approved"
+      },
+      {
+        "id": "exp-003",
+        "merchant": "Blue Bottle Coffee",
+        "category": "meals",
+        "date": "2026-04-23T12:00:00Z",
+        "amountCents": 2840,
+        "receiptUrl": "/receipts/exp-003.jpg",
+        "status": "approved"
+      },
+      {
+        "id": "exp-004",
+        "merchant": "Uber",
+        "category": "transport",
+        "date": "2026-04-23T12:00:00Z",
+        "amountCents": 6480,
+        "receiptUrl": "/receipts/exp-004.jpg",
+        "status": "approved"
+      },
+      {
+        "id": "exp-005",
+        "merchant": "Adobe Creative Cloud",
+        "category": "software",
+        "date": "2026-04-18T12:00:00Z",
+        "amountCents": 7999,
+        "receiptUrl": null,
+        "status": "pending"
+      },
+      {
+        "id": "exp-006",
+        "merchant": "Office Depot",
+        "category": "supplies",
+        "date": "2026-04-15T12:00:00Z",
+        "amountCents": 14230,
+        "receiptUrl": "/receipts/exp-006.jpg",
+        "status": "submitted"
+      }
+    ],
+    "timeline": [
+      {
+        "id": "t-1",
+        "label": "Drafted",
+        "actor": "Maya Okafor",
+        "timestamp": "Apr 24",
+        "state": "completed"
+      },
+      {
+        "id": "t-2",
+        "label": "Submitted for review",
+        "actor": "Maya Okafor",
+        "timestamp": "Apr 27",
+        "state": "completed"
+      },
+      {
+        "id": "t-3",
+        "label": "Manager review",
+        "actor": "Sarah Chen",
+        "timestamp": "In progress",
+        "state": "active",
+        "note": "Review the policy flag before final approval."
+      },
+      {
+        "id": "t-4",
+        "label": "Finance reimbursement",
+        "timestamp": "Pending",
+        "state": "pending"
+      }
+    ]
+  },
+  "reports/rpt-2026-03": {
+    "id": "rpt-2026-03",
+    "title": "March 2026 expenses",
+    "status": "reimbursed",
+    "total_amount_cents": 35835,
+    "reimbursable_cents": 10960,
+    "expense_count": 3,
+    "submitter_name": "Maya Okafor",
+    "submitter_role": "Account Executive · Sales",
+    "submitted_at": "2026-03-30T10:00:00Z",
+    "date_range": "Mar 3 – Mar 28",
+    "policy_violation": null,
+    "expenses": [
+      {
+        "id": "exp-007",
+        "merchant": "Slack",
+        "category": "software",
+        "date": "2026-04-12T12:00:00Z",
+        "amountCents": 8750,
+        "receiptUrl": "/receipts/exp-007.jpg",
+        "status": "reimbursed"
+      },
+      {
+        "id": "exp-008",
+        "merchant": "Lyft",
+        "category": "transport",
+        "date": "2026-04-10T12:00:00Z",
+        "amountCents": 2210,
+        "receiptUrl": "/receipts/exp-008.jpg",
+        "status": "reimbursed"
+      },
+      {
+        "id": "exp-009",
+        "merchant": "AWS",
+        "category": "software",
+        "date": "2026-04-05T12:00:00Z",
+        "amountCents": 24875,
+        "receiptUrl": "/receipts/exp-009.jpg",
+        "status": "rejected"
+      }
+    ],
+    "timeline": [
+      {
+        "id": "t-5",
+        "label": "Submitted for review",
+        "actor": "Maya Okafor",
+        "timestamp": "Mar 30",
+        "state": "completed"
+      },
+      {
+        "id": "t-6",
+        "label": "Manager approved",
+        "actor": "Sarah Chen",
+        "timestamp": "Apr 2",
+        "state": "completed"
+      },
+      {
+        "id": "t-7",
+        "label": "Reimbursed",
+        "actor": "Finance",
+        "timestamp": "Apr 5",
+        "state": "completed"
+      }
+    ]
+  },
+  "dashboard/summary": {
+    "recovered_cents": 4829050,
+    "recovered_change_cents": 124000,
+    "pending_count": 1,
+    "approved_this_month": 4,
+    "rejected_this_month": 1,
+    "reimbursed_this_month_cents": 1125,
+    "awaiting_receipts": 1,
+    "recent_reports": [
+      {
+        "id": "rpt-2026-04",
+        "title": "April 2026 client travel",
+        "status": "submitted",
+        "total_amount_cents": 110999,
+        "submitter_name": "Maya Okafor",
+        "submitted_at": "2026-04-27T09:14:00Z"
+      },
+      {
+        "id": "rpt-2026-03",
+        "title": "March 2026 expenses",
+        "status": "reimbursed",
+        "total_amount_cents": 35835,
+        "submitter_name": "Maya Okafor",
+        "submitted_at": "2026-03-30T10:00:00Z"
+      }
+    ]
+  },
+  "approvals/pending": [
+    {
+      "id": "rpt-2026-04",
+      "title": "April 2026 client travel",
+      "submitter_name": "Maya Okafor",
+      "submitter_role": "Account Executive · Sales",
+      "total_amount_cents": 110999,
+      "submitted_at": "2026-04-27T09:14:00Z",
+      "policy_violation": "One meal exceeds the daily $80 cap and needs manager justification.",
+      "expense_count": 6
+    }
+  ],
+  "preferences/": {
+    "user_id": "user-1",
+    "payout_method": "ach",
+    "notify_submitted": true,
+    "notify_reviewed": true,
+    "notify_reimbursed": true,
+    "notify_policy": false
+  }
+}
