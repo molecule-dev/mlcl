@@ -58112,7 +58112,7 @@
       "@molecule/api-resource-task": "1.0.2",
       "@molecule/api-resource-template": "1.0.3",
       "@molecule/api-resource-thread": "1.0.3",
-      "@molecule/api-resource-user": "1.4.4",
+      "@molecule/api-resource-user": "1.4.5",
       "@molecule/api-resource-version-history": "1.0.3",
       "@molecule/api-resource-wiki-page": "1.0.2",
       "@molecule/api-resource-workspace": "1.0.3",
