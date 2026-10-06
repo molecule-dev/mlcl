@@ -1,0 +1,52 @@
+[
+  {
+    "id": "c3d5e7f9-3333-4c7d-8e8f-000000000001",
+    "booking_id": "9b2e4f6a-2222-4b6c-9d7e-000000000001",
+    "user_id": "00000000-0000-4000-8000-000000000001",
+    "name": "Ana",
+    "contact": "+15550001111",
+    "amount_cents": 48900,
+    "currency": "USD",
+    "status": "pending",
+    "pay_token": "demo_ana_share_token",
+    "notified_at": "2030-04-12T09:15:00Z",
+    "paid_at": null,
+    "card_last4": null,
+    "created_at": "2030-04-12T09:15:00Z",
+    "booking": {
+      "id": "9b2e4f6a-2222-4b6c-9d7e-000000000001",
+      "trip_id": "7f1d2c3a-1111-4a5b-8c6d-000000000001",
+      "flight_number": "NS 412",
+      "origin_iata": "JFK",
+      "destination_iata": "LHR",
+      "depart_at": "2030-05-12T07:00:00Z",
+      "total_cents": 97800,
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "c3d5e7f9-3333-4c7d-8e8f-000000000002",
+    "booking_id": "9b2e4f6a-2222-4b6c-9d7e-000000000001",
+    "user_id": "00000000-0000-4000-8000-000000000001",
+    "name": "Sam",
+    "contact": null,
+    "amount_cents": 48900,
+    "currency": "USD",
+    "status": "paid",
+    "pay_token": "demo_sam_share_token",
+    "notified_at": null,
+    "paid_at": "2030-04-12T09:20:00Z",
+    "card_last4": "4242",
+    "created_at": "2030-04-12T09:15:00Z",
+    "booking": {
+      "id": "9b2e4f6a-2222-4b6c-9d7e-000000000001",
+      "trip_id": "7f1d2c3a-1111-4a5b-8c6d-000000000001",
+      "flight_number": "NS 412",
+      "origin_iata": "JFK",
+      "destination_iata": "LHR",
+      "depart_at": "2030-05-12T07:00:00Z",
+      "total_cents": 97800,
+      "currency": "USD"
+    }
+  }
+]
