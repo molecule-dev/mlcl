@@ -1,0 +1,20 @@
+[
+  {
+    "id": "label-1",
+    "user_id": "user-1",
+    "name": "Work",
+    "color": "#2563eb"
+  },
+  {
+    "id": "label-2",
+    "user_id": "user-1",
+    "name": "Personal",
+    "color": "#16a34a"
+  },
+  {
+    "id": "label-3",
+    "user_id": "user-1",
+    "name": "Receipts",
+    "color": "#f59e0b"
+  }
+]

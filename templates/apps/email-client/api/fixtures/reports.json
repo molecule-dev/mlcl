@@ -1,0 +1,247 @@
+{
+  "emails/counts": {
+    "inbox": 8,
+    "sent": 14,
+    "drafts": 2,
+    "trash": 3,
+    "spam": 1,
+    "archive": 27,
+    "starred": 2,
+    "unread": 5,
+    "total": 60
+  },
+  "emails/storage": {
+    "used_bytes": 412000000,
+    "quota_bytes": 15000000000,
+    "email_count": 60
+  },
+  "emails/em-1/thread": [
+    {
+      "id": "em-1",
+      "user_id": "user-1",
+      "thread_id": "thread-em-1",
+      "from": "Priya Nair <priya@brightlane.example>",
+      "to": [
+        "alex@example.com"
+      ],
+      "cc": null,
+      "bcc": null,
+      "subject": "Q4 roadmap review on Thursday",
+      "body": "Hi Alex,\n\nCan we review the Q4 roadmap on Thursday at 10:00? I added the open questions to the doc.\n\nThanks,\nPriya",
+      "folder": "inbox",
+      "is_read": false,
+      "is_starred": true,
+      "label_id": "label-1",
+      "attachments": null,
+      "sent_at": "2026-10-06T11:42:00.000Z",
+      "read_at": null,
+      "created_at": "2026-10-06T11:42:00.000Z",
+      "updated_at": "2026-10-06T11:42:00.000Z",
+      "message_id": "<em-1@mail.example.com>"
+    }
+  ],
+  "emails/em-2/thread": [
+    {
+      "id": "em-2",
+      "user_id": "user-1",
+      "thread_id": "thread-em-2",
+      "from": "GitHub <noreply@github.example>",
+      "to": [
+        "alex@example.com"
+      ],
+      "cc": null,
+      "bcc": null,
+      "subject": "[acme/web] Pull request #482 was merged",
+      "body": "Your pull request \"Fix sidebar scroll on Safari\" was merged into main.",
+      "folder": "inbox",
+      "is_read": true,
+      "is_starred": false,
+      "label_id": null,
+      "attachments": null,
+      "sent_at": "2026-10-06T11:05:00.000Z",
+      "read_at": "2026-10-06T11:10:00.000Z",
+      "created_at": "2026-10-06T11:05:00.000Z",
+      "updated_at": "2026-10-06T11:05:00.000Z",
+      "message_id": "<em-2@mail.example.com>"
+    }
+  ],
+  "emails/em-3/thread": [
+    {
+      "id": "em-3",
+      "user_id": "user-1",
+      "thread_id": "thread-em-3",
+      "from": "Tom Becker <tom@weber-gmbh.example>",
+      "to": [
+        "alex@example.com"
+      ],
+      "cc": null,
+      "bcc": null,
+      "subject": "Invoice 2026-0143",
+      "body": "Please find the invoice for September attached. Payment is due in 14 days.",
+      "folder": "inbox",
+      "is_read": false,
+      "is_starred": false,
+      "label_id": "label-3",
+      "attachments": [
+        {
+          "name": "invoice-2026-0143.pdf",
+          "size_label": "84 KB",
+          "url": "data:application/pdf;base64,JVBERi0xLjQK"
+        }
+      ],
+      "sent_at": "2026-10-06T09:40:00.000Z",
+      "read_at": null,
+      "created_at": "2026-10-06T09:40:00.000Z",
+      "updated_at": "2026-10-06T09:40:00.000Z",
+      "message_id": "<em-3@mail.example.com>"
+    }
+  ],
+  "emails/em-4/thread": [
+    {
+      "id": "em-4",
+      "user_id": "user-1",
+      "thread_id": "thread-em-4",
+      "from": "Lena Fischer <lena@finchlabs.example>",
+      "to": [
+        "alex@example.com"
+      ],
+      "cc": null,
+      "bcc": null,
+      "subject": "Lunch next week?",
+      "body": "It has been a while. Are you free on Tuesday or Wednesday for lunch?",
+      "folder": "inbox",
+      "is_read": false,
+      "is_starred": false,
+      "label_id": "label-2",
+      "attachments": null,
+      "sent_at": "2026-10-06T05:00:00.000Z",
+      "read_at": null,
+      "created_at": "2026-10-06T05:00:00.000Z",
+      "updated_at": "2026-10-06T05:00:00.000Z",
+      "message_id": "<em-4@mail.example.com>"
+    }
+  ],
+  "emails/em-5/thread": [
+    {
+      "id": "em-5",
+      "user_id": "user-1",
+      "thread_id": "thread-em-5",
+      "from": "Acme Billing <billing@acme.example>",
+      "to": [
+        "alex@example.com"
+      ],
+      "cc": null,
+      "bcc": null,
+      "subject": "Your receipt from Acme",
+      "body": "Thanks for your payment of $49.00. This receipt is for your records.",
+      "folder": "inbox",
+      "is_read": true,
+      "is_starred": false,
+      "label_id": "label-3",
+      "attachments": null,
+      "sent_at": "2026-10-05T21:00:00.000Z",
+      "read_at": "2026-10-05T21:20:00.000Z",
+      "created_at": "2026-10-05T21:00:00.000Z",
+      "updated_at": "2026-10-05T21:00:00.000Z",
+      "message_id": "<em-5@mail.example.com>"
+    }
+  ],
+  "emails/em-6/thread": [
+    {
+      "id": "em-6",
+      "user_id": "user-1",
+      "thread_id": "thread-em-6",
+      "from": "Omar Haddad <omar@tavola.example>",
+      "to": [
+        "alex@example.com"
+      ],
+      "cc": null,
+      "bcc": null,
+      "subject": "Design handoff for the checkout flow",
+      "body": "The Figma file is ready. I left notes on the edge cases for failed payments.",
+      "folder": "inbox",
+      "is_read": false,
+      "is_starred": true,
+      "label_id": "label-1",
+      "attachments": null,
+      "sent_at": "2026-10-05T11:00:00.000Z",
+      "read_at": null,
+      "created_at": "2026-10-05T11:00:00.000Z",
+      "updated_at": "2026-10-05T11:00:00.000Z",
+      "message_id": "<em-6@mail.example.com>"
+    }
+  ],
+  "emails/em-7/thread": [
+    {
+      "id": "em-7",
+      "user_id": "user-1",
+      "thread_id": "thread-em-7",
+      "from": "Newsletter <news@indie.example>",
+      "to": [
+        "alex@example.com"
+      ],
+      "cc": null,
+      "bcc": null,
+      "subject": "This week in product design",
+      "body": "Five articles on onboarding, pricing pages and empty states.",
+      "folder": "inbox",
+      "is_read": true,
+      "is_starred": false,
+      "label_id": null,
+      "attachments": null,
+      "sent_at": "2026-10-04T16:40:00.000Z",
+      "read_at": "2026-10-04T18:20:00.000Z",
+      "created_at": "2026-10-04T16:40:00.000Z",
+      "updated_at": "2026-10-04T16:40:00.000Z",
+      "message_id": "<em-7@mail.example.com>"
+    }
+  ],
+  "emails/em-8/thread": [
+    {
+      "id": "em-8a",
+      "user_id": "user-1",
+      "thread_id": "thread-contract",
+      "from": "Alex Morgan <alex@example.com>",
+      "to": [
+        "sofia@tavola.example"
+      ],
+      "cc": null,
+      "bcc": null,
+      "subject": "Contract draft",
+      "body": "Sharing the draft for review. Let me know what you think.",
+      "folder": "sent",
+      "is_read": true,
+      "is_starred": false,
+      "label_id": null,
+      "attachments": null,
+      "sent_at": "2026-10-02T23:00:00.000Z",
+      "read_at": null,
+      "created_at": "2026-10-02T23:00:00.000Z",
+      "updated_at": "2026-10-02T23:00:00.000Z",
+      "message_id": "<em-8a@mail.example.com>"
+    },
+    {
+      "id": "em-8",
+      "user_id": "user-1",
+      "thread_id": "thread-contract",
+      "from": "Sofia Rossi <sofia@tavola.example>",
+      "to": [
+        "alex@example.com"
+      ],
+      "cc": null,
+      "bcc": null,
+      "subject": "Re: Contract draft",
+      "body": "I reviewed the draft and added two comments on section 4.",
+      "folder": "inbox",
+      "is_read": false,
+      "is_starred": false,
+      "label_id": null,
+      "attachments": null,
+      "sent_at": "2026-10-03T12:20:00.000Z",
+      "read_at": null,
+      "created_at": "2026-10-03T12:20:00.000Z",
+      "updated_at": "2026-10-03T12:20:00.000Z",
+      "message_id": "<em-8@mail.example.com>"
+    }
+  ]
+}
