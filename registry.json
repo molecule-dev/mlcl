@@ -6500,6 +6500,67 @@
         "mysql driver"
       ]
     },
+    "@molecule/api-database-pglite": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "database",
+      "label": "PGlite",
+      "description": "PGlite database provider for molecule.dev — real Postgres compiled to WebAssembly, in-process: in memory, on disk, or in the browser (IndexedDB). The dev and browser profile; production swaps the postgresql bond in with the same app code. One connection at a time.",
+      "stack": "api",
+      "implements": "@molecule/api-database",
+      "exports": [
+        "getPoolInstance",
+        "pool",
+        "store",
+        "MEMORY_DATA_DIR",
+        "DEFAULT_NODE_DATA_DIR",
+        "PgliteInstance",
+        "chooseDataDir",
+        "acquireInstance",
+        "releaseInstance",
+        "PgliteMigration",
+        "isIdempotencyError",
+        "applyMigrations",
+        "createMigrator",
+        "createPool",
+        "ConnectionLock",
+        "databasePgliteSecretDefinitions",
+        "createStore",
+        "PgliteConfig",
+        "PglitePool",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "PGLITE_DATA_DIR",
+          "required": false,
+          "default": "./data/pglite",
+          "label": "PGlite data directory",
+          "instructions": "A filesystem path (Node), idb://<name> (browser IndexedDB), or memory:// (in memory, lost on exit).",
+          "example": "./data/pglite"
+        }
+      ],
+      "runtimeDependencies": [
+        "@electric-sql/pglite",
+        "@molecule/api-bond",
+        "@molecule/api-database",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-database",
+        "@molecule/api-secrets"
+      ],
+      "providerExportName": "pool",
+      "path": "packages/api/bonds/database/pglite",
+      "intentHints": [
+        "pglite",
+        "postgres in the browser",
+        "in browser database",
+        "wasm postgres"
+      ]
+    },
     "@molecule/api-database-postgresql": {
       "language": "typescript",
       "runtime": "node",
@@ -17291,6 +17352,56 @@
         "archive project mysql database",
         "restore project mysql data",
         "mysqldump project database"
+      ]
+    },
+    "@molecule/api-project-archive-external-state-pglite": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "project-archive-external-state",
+      "label": "PGlite Data Directory",
+      "description": "Back up and restore a project's PGlite database as part of a project archive — captures it with PGlite's own dumpDataDir, proves the dump loads back with the same row counts before the caller destroys anything, and restores it with loadDataDir after a checksum check. In-memory databases are declared, never inferred.",
+      "stack": "api",
+      "implements": "@molecule/api-project-archive",
+      "exports": [
+        "TableCounts",
+        "DataDirDump",
+        "sha256Hex",
+        "countTables",
+        "canonicalCounts",
+        "dumpDataDir",
+        "inflateDump",
+        "countLoadedDump",
+        "LoadOutcome",
+        "loadDataDir",
+        "JoinedInstanceError",
+        "KIND",
+        "DUMP_FORMAT",
+        "createPgliteExternalStateProvider",
+        "PgliteExternalStateConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-database-pglite",
+        "@molecule/api-project-archive"
+      ],
+      "moleculePeers": [
+        "@molecule/api-database-pglite",
+        "@molecule/api-project-archive"
+      ],
+      "bondWiring": {
+        "type": "named",
+        "bondCategory": "project-archive-external-state",
+        "providerExports": [
+          "provider"
+        ]
+      },
+      "path": "packages/api/bonds/project-archive-external-state/pglite",
+      "intentHints": [
+        "back up my pglite database",
+        "archive project pglite database",
+        "restore project pglite data",
+        "snapshot pglite data directory"
       ]
     },
     "@molecule/api-project-archive-external-state-postgresql": {
