@@ -1,1 +1,152 @@
-[]
+[
+  {
+    "id": "00000000-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Damaged Helmet",
+    "description": "Battle-worn sci-fi helmet with PBR textures.",
+    "file_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/DamagedHelmet/glTF-Binary/DamagedHelmet.glb",
+    "file_size": 3800000,
+    "format": "glb",
+    "thumbnail_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/DamagedHelmet/screenshot/screenshot.jpg",
+    "polygon_count": 70000,
+    "visibility": "public",
+    "camera_position": {
+      "x": 0,
+      "y": 1,
+      "z": 3
+    },
+    "environment": "studio",
+    "category": "characters",
+    "tags": [
+      "characters",
+      "glb"
+    ],
+    "created_at": "2026-09-20T10:00:00Z",
+    "updated_at": "2026-09-25T12:00:00Z"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Flight Helmet",
+    "description": "Leather and glass aviator helmet, multi-material.",
+    "file_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/FlightHelmet/glTF-Binary/FlightHelmet.glb",
+    "file_size": 2900000,
+    "format": "gltf",
+    "thumbnail_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/FlightHelmet/screenshot/screenshot.jpg",
+    "polygon_count": 51000,
+    "visibility": "public",
+    "camera_position": {
+      "x": 0,
+      "y": 1,
+      "z": 3
+    },
+    "environment": "studio",
+    "category": "props",
+    "tags": [
+      "props",
+      "gltf"
+    ],
+    "created_at": "2026-09-19T10:00:00Z",
+    "updated_at": "2026-09-24T12:00:00Z"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Antique Camera",
+    "description": "Vintage bellows camera, detailed brass fittings.",
+    "file_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/AntiqueCamera/glTF-Binary/AntiqueCamera.glb",
+    "file_size": 1500000,
+    "format": "glb",
+    "thumbnail_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/AntiqueCamera/screenshot/screenshot.jpg",
+    "polygon_count": 18000,
+    "visibility": "unlisted",
+    "camera_position": {
+      "x": 0,
+      "y": 1,
+      "z": 3
+    },
+    "environment": "studio",
+    "category": "props",
+    "tags": [
+      "props",
+      "glb"
+    ],
+    "created_at": "2026-09-18T10:00:00Z",
+    "updated_at": "2026-09-23T12:00:00Z"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000004",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Sci-Fi Hover Car",
+    "description": "Stylised hover car with glass canopy.",
+    "file_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/ToyCar/glTF-Binary/ToyCar.glb",
+    "file_size": 2400000,
+    "format": "glb",
+    "thumbnail_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/ToyCar/screenshot/screenshot.jpg",
+    "polygon_count": 32000,
+    "visibility": "public",
+    "camera_position": {
+      "x": 0,
+      "y": 1,
+      "z": 3
+    },
+    "environment": "studio",
+    "category": "vehicles",
+    "tags": [
+      "vehicles",
+      "glb"
+    ],
+    "created_at": "2026-09-17T10:00:00Z",
+    "updated_at": "2026-09-22T12:00:00Z"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000005",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Sheen Chair",
+    "description": "Upholstered armchair with velvet sheen.",
+    "file_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/SheenChair/glTF-Binary/SheenChair.glb",
+    "file_size": 1800000,
+    "format": "glb",
+    "thumbnail_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/SheenChair/screenshot/screenshot.jpg",
+    "polygon_count": 24000,
+    "visibility": "public",
+    "camera_position": {
+      "x": 0,
+      "y": 1,
+      "z": 3
+    },
+    "environment": "studio",
+    "category": "architecture",
+    "tags": [
+      "architecture",
+      "glb"
+    ],
+    "created_at": "2026-09-16T10:00:00Z",
+    "updated_at": "2026-09-21T12:00:00Z"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000006",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Boom Box",
+    "description": "Retro boombox, game-ready.",
+    "file_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/BoomBox/glTF-Binary/BoomBox.glb",
+    "file_size": 1100000,
+    "format": "glb",
+    "thumbnail_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/BoomBox/screenshot/screenshot.jpg",
+    "polygon_count": 12000,
+    "visibility": "unlisted",
+    "camera_position": {
+      "x": 0,
+      "y": 1,
+      "z": 3
+    },
+    "environment": "studio",
+    "category": "props",
+    "tags": [
+      "props",
+      "glb"
+    ],
+    "created_at": "2026-09-15T10:00:00Z",
+    "updated_at": "2026-09-20T12:00:00Z"
+  }
+]
