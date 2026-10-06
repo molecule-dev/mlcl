@@ -51,7 +51,11 @@ function resolveDatabaseUrl(): string {
   process.exit(1)
 }
 
-const DATABASE_URL = resolveDatabaseUrl()
+// MOL_BOND_PROFILE=browser runs the app on in-process PGlite (no Postgres server, no DATABASE_URL): the
+// migrations below are applied to that database instead (see runMigrations).
+const BROWSER_PROFILE = process.env.MOL_BOND_PROFILE === 'browser'
+
+const DATABASE_URL = BROWSER_PROFILE ? '' : resolveDatabaseUrl()
 const migrationsDir = join(new URL('.', import.meta.url).pathname, '../../migrations')
 // `__setup__/` is populated at scaffold time from registry-known table SQL
 // (see mlcl scaffold.ts copySqlSetupScripts) so resource packages bring
@@ -64,7 +68,7 @@ const setupDir = join(new URL('.', import.meta.url).pathname, '../../__setup__')
 // operator opt-out (DATABASE_SSL_REJECT_UNAUTHORIZED=false / sslmode=no-verify),
 // with PGSSLROOTCERT supported for private-CA managed providers. Reusing the
 // bond helper keeps the secure default in one place for every scaffolded app.
-const sslConfig = deriveSsl(DATABASE_URL)
+const sslConfig = BROWSER_PROFILE ? false : deriveSsl(DATABASE_URL)
 
 // Extract database name from URL
 let dbName = 'myapp'
@@ -75,6 +79,16 @@ try {
 }
 
 export async function runMigrations(): Promise<void> {
+  if (BROWSER_PROFILE) {
+    // The same migrations, then the scaffold-time __setup__/ DDL, on the pglite bond's default pool (the
+    // one the app is bonded to, so an in-memory database is shared). Needs @molecule/api-database-pglite.
+    const { createMigrator } = await import('@molecule/api-database-pglite')
+    await createMigrator(migrationsDir)()
+    if (existsSync(setupDir)) await createMigrator(setupDir)()
+    console.log('Migrations complete (PGlite).')
+    return
+  }
+
   // Step 1: Try to create the database (connects to 'postgres' db as admin)
   try {
     const adminUrl = new URL(DATABASE_URL)
