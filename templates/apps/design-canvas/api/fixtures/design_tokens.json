@@ -1,0 +1,121 @@
+[
+  {
+    "id": "token-1",
+    "section": "colors",
+    "name": "Primary",
+    "value": "#7c3aed",
+    "role": "Brand"
+  },
+  {
+    "id": "token-2",
+    "section": "colors",
+    "name": "Accent",
+    "value": "#ec4899",
+    "role": "Highlight"
+  },
+  {
+    "id": "token-3",
+    "section": "colors",
+    "name": "Info",
+    "value": "#06b6d4",
+    "role": "Status"
+  },
+  {
+    "id": "token-4",
+    "section": "colors",
+    "name": "Warning",
+    "value": "#f59e0b",
+    "role": "Status"
+  },
+  {
+    "id": "token-5",
+    "section": "colors",
+    "name": "Success",
+    "value": "#10b981",
+    "role": "Status"
+  },
+  {
+    "id": "token-6",
+    "section": "colors",
+    "name": "Ink",
+    "value": "#1e1535",
+    "role": "Text"
+  },
+  {
+    "id": "token-7",
+    "section": "typography",
+    "name": "Display",
+    "value": "Inter 48/56 Bold",
+    "role": "Headings"
+  },
+  {
+    "id": "token-8",
+    "section": "typography",
+    "name": "Title",
+    "value": "Inter 28/36 Semibold",
+    "role": "Headings"
+  },
+  {
+    "id": "token-9",
+    "section": "typography",
+    "name": "Body",
+    "value": "Inter 16/24 Regular",
+    "role": "Paragraphs"
+  },
+  {
+    "id": "token-10",
+    "section": "typography",
+    "name": "Caption",
+    "value": "Inter 12/16 Medium",
+    "role": "Labels"
+  },
+  {
+    "id": "token-11",
+    "section": "components",
+    "name": "Button",
+    "value": "Primary, secondary, ghost",
+    "role": "Action"
+  },
+  {
+    "id": "token-12",
+    "section": "components",
+    "name": "Input",
+    "value": "Text, select, toggle",
+    "role": "Form"
+  },
+  {
+    "id": "token-13",
+    "section": "components",
+    "name": "Card",
+    "value": "Flat and raised",
+    "role": "Surface"
+  },
+  {
+    "id": "token-14",
+    "section": "components",
+    "name": "Modal",
+    "value": "Dialog and sheet",
+    "role": "Overlay"
+  },
+  {
+    "id": "token-15",
+    "section": "effects",
+    "name": "Shadow small",
+    "value": "0 1px 2px rgba(30,21,53,0.08)",
+    "role": "Elevation"
+  },
+  {
+    "id": "token-16",
+    "section": "effects",
+    "name": "Shadow large",
+    "value": "0 12px 32px rgba(30,21,53,0.16)",
+    "role": "Elevation"
+  },
+  {
+    "id": "token-17",
+    "section": "effects",
+    "name": "Blur",
+    "value": "Backdrop 12px",
+    "role": "Glass"
+  }
+]

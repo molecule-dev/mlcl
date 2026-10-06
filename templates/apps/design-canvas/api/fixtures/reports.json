@@ -1,0 +1,143 @@
+{
+  "team/": {
+    "members": [
+      {
+        "id": "usr-001",
+        "name": "You",
+        "email": "you@atelier.design",
+        "role": "owner",
+        "avatarColor": "#7c3aed",
+        "joined": "2026-01-10",
+        "online": true,
+        "projectsShared": 2
+      },
+      {
+        "id": "usr-002",
+        "name": "Mara Vieira",
+        "email": "mara@atelier.design",
+        "role": "admin",
+        "avatarColor": "#ec4899",
+        "joined": "2026-02-11",
+        "online": true,
+        "projectsShared": 3
+      },
+      {
+        "id": "usr-003",
+        "name": "Iris Cho",
+        "email": "iris@atelier.design",
+        "role": "editor",
+        "avatarColor": "#06b6d4",
+        "joined": "2026-03-12",
+        "online": true,
+        "projectsShared": 4
+      },
+      {
+        "id": "usr-004",
+        "name": "Diego Ramos",
+        "email": "diego@atelier.design",
+        "role": "editor",
+        "avatarColor": "#10b981",
+        "joined": "2026-04-13",
+        "online": false,
+        "projectsShared": 5
+      },
+      {
+        "id": "usr-005",
+        "name": "Aiko Nakamura",
+        "email": "aiko@atelier.design",
+        "role": "viewer",
+        "avatarColor": "#f59e0b",
+        "joined": "2026-05-14",
+        "online": false,
+        "projectsShared": 6
+      },
+      {
+        "id": "usr-006",
+        "name": "Sam Patel",
+        "email": "sam@atelier.design",
+        "role": "viewer",
+        "avatarColor": "#a855f7",
+        "joined": "2026-06-15",
+        "online": true,
+        "projectsShared": 7
+      }
+    ],
+    "pending": [
+      {
+        "id": "inv-1",
+        "email": "new.designer@example.com",
+        "invitedBy": "You",
+        "role": "editor",
+        "invitedAt": "2026-10-05T16:00:00.000Z"
+      }
+    ],
+    "stats": {
+      "members": 6,
+      "pending": 1,
+      "online": 4,
+      "seatsRemaining": 4,
+      "byRole": {
+        "owner": 1,
+        "admin": 1,
+        "editor": 2,
+        "viewer": 2
+      }
+    }
+  },
+  "profile/me": {
+    "id": "usr-001",
+    "name": "You",
+    "email": "you@atelier.design",
+    "username": "you",
+    "planKey": "pro",
+    "prefs": {
+      "displayName": "You",
+      "bio": "Product designer. Systems, type and a lot of violet.",
+      "location": "Lisbon",
+      "pronouns": "they/them",
+      "publicUrl": "atelier.design/you",
+      "cursorColor": "#7c3aed",
+      "theme": "system"
+    },
+    "stats": {
+      "projects": 6,
+      "shapes": 128,
+      "exports": 14,
+      "unreadNotifications": 2
+    }
+  },
+  "search/": {
+    "results": [
+      {
+        "id": "prj-001",
+        "title": "Northwind · Brand Refresh",
+        "snippet": "Marketing site and design system",
+        "category": "project",
+        "href": "/editor/prj-001",
+        "meta": "Project · You",
+        "accentColor": "#7c3aed"
+      },
+      {
+        "id": "tmpl-tpl-001",
+        "title": "SaaS Pricing Page",
+        "snippet": "Tiered pricing table with a monthly and yearly toggle.",
+        "category": "template",
+        "href": "/templates",
+        "meta": "Marketing · 2680 uses",
+        "accentColor": "#ec4899"
+      },
+      {
+        "id": "cmp-token-11",
+        "title": "Button",
+        "snippet": "Action · used across the workspace.",
+        "category": "component",
+        "href": "/library",
+        "meta": "Library · Action",
+        "accentColor": "#06b6d4"
+      }
+    ],
+    "total": 3,
+    "q": "",
+    "category": "all"
+  }
+}

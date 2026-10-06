@@ -1,0 +1,54 @@
+[
+  {
+    "id": "notif-1",
+    "kind": "comment",
+    "actor_name": "Mara Vieira",
+    "actor_color": "#ec4899",
+    "sentence": "commented on",
+    "target_label": "Northwind · Brand Refresh",
+    "target_href": "/editor/prj-001",
+    "preview": "The new logo lockup feels stronger at small sizes.",
+    "bucket": "today",
+    "unread": true,
+    "created_at": "2026-10-06T11:48:00.000Z"
+  },
+  {
+    "id": "notif-2",
+    "kind": "invite",
+    "actor_name": "Iris Cho",
+    "actor_color": "#06b6d4",
+    "sentence": "invited you to",
+    "target_label": "Mobile Onboarding · v2",
+    "target_href": "/editor/prj-004",
+    "preview": null,
+    "bucket": "today",
+    "unread": true,
+    "created_at": "2026-10-06T10:30:00.000Z"
+  },
+  {
+    "id": "notif-3",
+    "kind": "mention",
+    "actor_name": "Diego Ramos",
+    "actor_color": "#f59e0b",
+    "sentence": "mentioned you in",
+    "target_label": "Atelier Design System v3",
+    "target_href": "/editor/prj-002",
+    "preview": "@you can you check the spacing tokens?",
+    "bucket": "week",
+    "unread": false,
+    "created_at": "2026-10-05T10:00:00.000Z"
+  },
+  {
+    "id": "notif-4",
+    "kind": "export",
+    "actor_name": "Atelier",
+    "actor_color": "#7c3aed",
+    "sentence": "finished exporting",
+    "target_label": "Pricing Page · Explorations",
+    "target_href": "/editor/prj-003",
+    "preview": null,
+    "bucket": "week",
+    "unread": false,
+    "created_at": "2026-10-04T10:00:00.000Z"
+  }
+]
