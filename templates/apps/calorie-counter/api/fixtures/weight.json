@@ -1,0 +1,42 @@
+[
+  {
+    "id": "weight-8",
+    "weight_kg": 80.6,
+    "recorded_at": "2026-10-06T08:00:00.000Z"
+  },
+  {
+    "id": "weight-7",
+    "weight_kg": 80.9,
+    "recorded_at": "2026-10-02T08:00:00.000Z"
+  },
+  {
+    "id": "weight-6",
+    "weight_kg": 81.2,
+    "recorded_at": "2026-09-28T08:00:00.000Z"
+  },
+  {
+    "id": "weight-5",
+    "weight_kg": 81.3,
+    "recorded_at": "2026-09-24T08:00:00.000Z"
+  },
+  {
+    "id": "weight-4",
+    "weight_kg": 81.6,
+    "recorded_at": "2026-09-20T08:00:00.000Z"
+  },
+  {
+    "id": "weight-3",
+    "weight_kg": 81.9,
+    "recorded_at": "2026-09-16T08:00:00.000Z"
+  },
+  {
+    "id": "weight-2",
+    "weight_kg": 82.1,
+    "recorded_at": "2026-09-12T08:00:00.000Z"
+  },
+  {
+    "id": "weight-1",
+    "weight_kg": 82.4,
+    "recorded_at": "2026-09-08T08:00:00.000Z"
+  }
+]

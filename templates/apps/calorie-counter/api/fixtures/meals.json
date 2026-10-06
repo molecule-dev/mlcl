@@ -1,0 +1,88 @@
+[
+  {
+    "id": "meal-1",
+    "name": "Power breakfast bowl",
+    "total_calories": 420,
+    "total_protein": 24,
+    "total_carbs": 52,
+    "total_fat": 12,
+    "items": [
+      {
+        "id": "mi-1",
+        "food_id": "food-2",
+        "servings": 1,
+        "serving_unit": "serving",
+        "calories": 158,
+        "food_name": "Oatmeal, cooked"
+      },
+      {
+        "id": "mi-2",
+        "food_id": "food-3",
+        "servings": 1,
+        "serving_unit": "serving",
+        "calories": 105,
+        "food_name": "Banana"
+      },
+      {
+        "id": "mi-3",
+        "food_id": "food-1",
+        "servings": 1.5,
+        "serving_unit": "serving",
+        "calories": 150,
+        "food_name": "Greek yogurt, plain"
+      }
+    ]
+  },
+  {
+    "id": "meal-2",
+    "name": "Chicken and rice plate",
+    "total_calories": 610,
+    "total_protein": 52,
+    "total_carbs": 58,
+    "total_fat": 15,
+    "items": [
+      {
+        "id": "mi-4",
+        "food_id": "food-4",
+        "servings": 1,
+        "serving_unit": "serving",
+        "calories": 231,
+        "food_name": "Grilled chicken breast"
+      },
+      {
+        "id": "mi-5",
+        "food_id": "food-5",
+        "servings": 1.5,
+        "serving_unit": "serving",
+        "calories": 324,
+        "food_name": "Brown rice, cooked"
+      }
+    ]
+  },
+  {
+    "id": "meal-3",
+    "name": "Salmon and avocado salad",
+    "total_calories": 520,
+    "total_protein": 28,
+    "total_carbs": 16,
+    "total_fat": 40,
+    "items": [
+      {
+        "id": "mi-6",
+        "food_id": "food-8",
+        "servings": 1,
+        "serving_unit": "serving",
+        "calories": 206,
+        "food_name": "Salmon fillet"
+      },
+      {
+        "id": "mi-7",
+        "food_id": "food-6",
+        "servings": 1,
+        "serving_unit": "serving",
+        "calories": 240,
+        "food_name": "Avocado"
+      }
+    ]
+  }
+]
