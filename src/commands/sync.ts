@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process'
 import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, relative, resolve, sep } from 'node:path'
 
@@ -47,6 +48,51 @@ const BINARY_EXT = new Set([
   '.wasm',
 ])
 
+/** Largest file sent; anything bigger is listed and skipped (the files API is not for bulk data). */
+const MAX_FILE_BYTES = 1024 * 1024
+
+/**
+ * Files and folders that hold credentials or machine-local state by convention. Used when the
+ * project is not a git repository (so there is no .gitignore to ask), and ALSO on top of git's
+ * answer, because a secret that was committed is still a secret.
+ *
+ * @param rel - Project-relative POSIX path.
+ * @returns True when the file must never be uploaded.
+ */
+export function isSecretPath(rel: string): boolean {
+  const segments = rel.split('/')
+  const name = segments[segments.length - 1]
+  if (segments.some((seg) => seg === '.keys' || seg === '.ssh' || seg.startsWith('.mol-')))
+    return true
+  return (
+    /\.(pem|key|p12|pfx)$/i.test(name) ||
+    /^id_(rsa|dsa|ecdsa|ed25519)(\.pub)?$/.test(name) ||
+    ['.npmrc', '.envrc', '.dev.vars', '.netrc'].includes(name) ||
+    /\.log$/i.test(name)
+  )
+}
+
+/**
+ * The files git would track or could add in `root` (tracked + untracked, minus everything
+ * .gitignore excludes) — `.gitignore` is already how the user says which files are not source.
+ *
+ * @param root - Project root.
+ * @returns The set of project-relative POSIX paths, or null when `root` is not in a git work tree.
+ */
+function gitVisibleFiles(root: string): Set<string> | null {
+  try {
+    const out = execFileSync('git', ['-C', root, 'ls-files', '-co', '--exclude-standard', '-z'], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+      maxBuffer: 64 * 1024 * 1024,
+    })
+    return new Set(out.split('\0').filter(Boolean))
+  } catch (_error) {
+    // Not a git work tree (or git is missing): the walk's own skip lists apply.
+    return null
+  }
+}
+
 /** Files that are local state, never project source. */
 const SKIP_FILES = new Set(['.DS_Store'])
 
@@ -80,8 +126,9 @@ function* walk(root: string, dir: string): Generator<string> {
 /**
  * Push a local project tree into a project's sandbox — every text file under
  * the directory is written through the files API (`PUT /projects/:id/files/*`),
- * so what the sandbox holds is what you have on disk. Installs, builds, VCS
- * metadata and `.env` files stay local; binary files are skipped (the API is
+ * so what the sandbox holds is what you have on disk. Whatever .gitignore excludes stays
+ * local (and, with no git repository, installs, builds, VCS metadata, `.env` files and common
+ * credential files such as keys and `.npmrc`); binary files are skipped (the API is
  * text-only) and listed so you can put them in place another way.
  *
  * It never deletes: a file removed locally stays in the sandbox until you
@@ -132,13 +179,22 @@ export default class Sync extends Command {
     const only = (flags.only ?? []).map((p) =>
       p.replace(/\\/g, '/').replace(/^\.\//, '').replace(/\/+$/, ''),
     )
+    const visible = gitVisibleFiles(root)
     const files = [...walk(root, root)].filter(
-      (rel) => only.length === 0 || only.some((o) => rel === o || rel.startsWith(`${o}/`)),
+      (rel) =>
+        !isSecretPath(rel) &&
+        (visible === null || visible.has(rel)) &&
+        (only.length === 0 || only.some((o) => rel === o || rel.startsWith(`${o}/`))),
     )
     const skippedBinary: string[] = []
+    const skippedLarge: string[] = []
     const queue: Array<{ rel: string; content: string }> = []
     for (const rel of files) {
       const ext = rel.slice(rel.lastIndexOf('.')).toLowerCase()
+      if (statSync(join(root, rel)).size > MAX_FILE_BYTES) {
+        skippedLarge.push(rel)
+        continue
+      }
       const buf = readFileSync(join(root, rel))
       if (BINARY_EXT.has(ext) || !looksLikeText(buf)) {
         skippedBinary.push(rel)
@@ -178,6 +234,12 @@ export default class Sync extends Command {
         for (const f of failed) this.log(`  ${ui.dim('failed')} ${f}`)
         this.error(`${failed.length} file(s) failed`, { exit: 1 })
       }
+    }
+    if (skippedLarge.length) {
+      this.log(
+        ui.dim(`\nSkipped ${skippedLarge.length} file(s) over ${MAX_FILE_BYTES / 1024 / 1024} MB:`),
+      )
+      for (const f of skippedLarge) this.log(ui.dim(`  ${f}`))
     }
     if (skippedBinary.length) {
       this.log(

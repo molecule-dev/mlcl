@@ -109,6 +109,10 @@ export default class Create extends Command {
         'Print a machine-readable JSON result instead of progress output (implies --no-interactive)',
       default: false,
     }),
+    force: Flags.boolean({
+      description: t('commands.create.flags.force'),
+      default: false,
+    }),
     template: Flags.string({
       description:
         'App template slug (e.g., blog, crm, online-store). Run `mlcl templates` to list all available templates.',
@@ -283,6 +287,22 @@ export default class Create extends Command {
         ? process.cwd()
         : join(process.cwd(), projectName)
     projectName = basename(projectPath)
+
+    // A second `create` into a directory that already holds a project used to rewrite it silently:
+    // every file the scaffold owns was overwritten, `api/.env` was regenerated with a new JWT keypair
+    // (so the copy in `.keys/` no longer matched) and the user's own keys were blanked, all with exit
+    // code 0 — and an agent that retries a slow scaffold does exactly this. An empty or new directory
+    // is the normal case; an existing project needs an explicit --force.
+    if (!flags.force) {
+      const { existsSync } = await import('node:fs')
+      const markers = ['package.json', '.env', join('api', '.env'), join('app', 'package.json')]
+      const found = markers.find((marker) => existsSync(join(projectPath, marker)))
+      if (found) {
+        this.error(t('commands.create.errors.projectExists', { path: projectPath, found }), {
+          exit: 2,
+        })
+      }
+    }
 
     // Fast path: --template <app> with a fully-baked instance at
     // mlcl/templates/apps/<app>/. Skip the package-driven scaffold flow

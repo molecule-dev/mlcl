@@ -96,15 +96,27 @@ async function request<T>(
 ): Promise<T> {
   // Precedence: explicit arg > CI env var (MOLECULE_TOKEN) > stored credentials file.
   const token = init.token ?? process.env.MOLECULE_TOKEN ?? readCredentials()?.token
-  const response = await fetch(`${apiBaseUrl()}${path}`, {
-    method: init.method ?? 'GET',
-    headers: {
-      ...(init.body !== undefined ? { 'content-type': 'application/json' } : {}),
-      ...(token ? { authorization: `Bearer ${token}` } : {}),
-    },
-    body: init.body !== undefined ? JSON.stringify(init.body) : undefined,
-    signal: AbortSignal.timeout(init.timeoutMs ?? 30_000),
-  })
+  let response: Response
+  try {
+    response = await fetch(`${apiBaseUrl()}${path}`, {
+      method: init.method ?? 'GET',
+      headers: {
+        ...(init.body !== undefined ? { 'content-type': 'application/json' } : {}),
+        ...(token ? { authorization: `Bearer ${token}` } : {}),
+      },
+      body: init.body !== undefined ? JSON.stringify(init.body) : undefined,
+      signal: AbortSignal.timeout(init.timeoutMs ?? 30_000),
+    })
+  } catch (error) {
+    // A timeout or abort is rethrown as it was: callers tell "still running" from "failed" by its name.
+    const name = (error as Error)?.name
+    if (name === 'TimeoutError' || name === 'AbortError') throw error
+    // `TypeError: fetch failed` tells a person nothing; say what could not be reached and what to check.
+    throw new Error(
+      `Cannot reach ${apiBaseUrl()}. Check your network connection, or MOLECULE_API_URL if you set it.`,
+      { cause: error },
+    )
+  }
   const text = await response.text()
   const header = Number(response.headers.get('retry-after'))
   const retryAfter = Number.isFinite(header) && header > 0 ? Math.ceil(header) : undefined

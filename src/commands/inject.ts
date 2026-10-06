@@ -559,6 +559,10 @@ export default class Inject extends Command {
         `  ${t('commands.inject.messages.runTest', { num: stepNum, command: chalk.cyan('npm test') })}`,
       )
     }
+
+    // The errors are printed above; the exit status has to say so too, or an agent or CI job
+    // reading it takes a failed injection for a success.
+    if (errors.length > 0) this.exit(1)
   }
 
   private async hasTestFiles(projectPath: string): Promise<boolean> {

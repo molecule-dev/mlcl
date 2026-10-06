@@ -6,7 +6,8 @@
  * molecule.dev's first-party ingestion route.
  *
  * Posture (see README "Telemetry"):
- *   - OPT-OUT: on by default; `MOLECULE_TELEMETRY=0` disables entirely.
+ *   - OPT-OUT: on by default; `MOLECULE_TELEMETRY=0` or the standard `DO_NOT_TRACK=1`
+ *     disables entirely.
  *   - ANONYMOUS: no accounts, no paths, no argument values, no project names.
  *     Events carry: command name, outcome, duration, CLI/Node versions,
  *     platform/arch, and a random install id (uuid in ~/.mlcl/telemetry-id —
@@ -24,6 +25,8 @@ const DEFAULT_URL = 'https://api.molecule.dev/v1/telemetry/cli'
 const ID_FILE = join(homedir(), '.mlcl', 'telemetry-id')
 
 export function telemetryEnabled(): boolean {
+  // The cross-tool opt-out convention (https://consoledonottrack.com).
+  if (process.env.DO_NOT_TRACK === '1') return false
   // Local-dev runs never report — MOLECULE_ENV=local implies opt-out unless
   // telemetry is EXPLICITLY re-enabled (MOLECULE_TELEMETRY=1).
   if (process.env.MOLECULE_ENV === 'local') return process.env.MOLECULE_TELEMETRY === '1'
@@ -85,6 +88,22 @@ export interface TelemetryEventProps {
   swapTo?: string
 }
 
+/**
+ * Keep only the names of PUBLIC molecule packages from a comma-separated list. A package name is
+ * product metadata when it is one of ours; a private or personal package a user adds is theirs.
+ *
+ * @param value - A comma-separated list of package names.
+ * @returns The `@molecule/*` names, comma-separated, or undefined when none remain.
+ */
+export function publicPackageNames(value: string | undefined): string | undefined {
+  if (!value) return undefined
+  const kept = value
+    .split(',')
+    .map((name) => name.trim())
+    .filter((name) => /^@molecule\/[a-z0-9-]+$/.test(name))
+  return kept.length > 0 ? kept.join(',') : undefined
+}
+
 /** Fire-and-forget event emission — resolves immediately; never throws. */
 export function trackCliEvent(props: TelemetryEventProps): void {
   if (!telemetryEnabled()) return
@@ -101,15 +120,15 @@ export function trackCliEvent(props: TelemetryEventProps): void {
           durationMs: Math.round(props.durationMs),
           errorName: props.errorName,
           template: props.template,
-          packages: props.packages?.slice(0, 200),
-          searchQuery: props.searchQuery?.slice(0, 100),
+          packages: publicPackageNames(props.packages)?.slice(0, 200),
+          // A search query is free text a person typed: never sent.
           harness: props.harness,
           projectType: props.projectType,
           framework: props.framework,
           loginMethod: props.loginMethod,
           deployOutcome: props.deployOutcome,
-          swapFrom: props.swapFrom?.slice(0, 80),
-          swapTo: props.swapTo?.slice(0, 80),
+          swapFrom: publicPackageNames(props.swapFrom)?.slice(0, 80),
+          swapTo: publicPackageNames(props.swapTo)?.slice(0, 80),
           cliVersion: '2.0.0',
           nodeMajor: Number.parseInt(process.versions.node.split('.')[0] ?? '0', 10),
           platform: process.platform,

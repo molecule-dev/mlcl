@@ -242,11 +242,13 @@ long they take. The pipeline is molecule dogfooding itself — the CLI bonds the
 same `@molecule/api-analytics` interface scaffolded apps use.
 
 - **What's collected:** command/tool name, outcome (ok/failed), duration,
-  CLI/server version, Node major version, platform/arch — nothing else. No
-  paths, no project names, no argument values, no user identity, no code.
+  CLI/server version, Node major version, platform/arch, and — for the
+  commands that take them — the template name and the names of public
+  `@molecule/*` packages. No paths, no project names, no search text, no
+  private package names, no user identity, no code.
 - **The only identifier** is a random per-install id (a UUID at
   `~/.mlcl/telemetry-id`). Delete the file to rotate it.
-- **Opt out:** `MOLECULE_TELEMETRY=0` (env var, checked per run). Point it
+- **Opt out:** `MOLECULE_TELEMETRY=0` or `DO_NOT_TRACK=1` (env vars, checked per run). Point it
   elsewhere with `MOLECULE_TELEMETRY_URL`, or inspect traffic yourself with
   `MLCL_DEBUG=1` (emit failures are logged).
 - **Never breaks anything:** emission is fire-and-forget with a 5s timeout;

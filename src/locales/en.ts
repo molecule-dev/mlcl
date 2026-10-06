@@ -50,6 +50,16 @@ export const messages: LocaleMessages = {
   'commands.create.flags.framework': 'Frontend framework (app only)',
   'commands.create.flags.packages': 'Comma-separated list of @molecule package names to include',
   'commands.create.flags.theme': 'Theme preset name (e.g. liquid-glass)',
+  'commands.create.flags.force':
+    'Scaffold into a directory that already holds a project (existing files are overwritten)',
+  'commands.create.errors.projectExists':
+    '{path} already holds a project (found {found}). Creating here would overwrite your code and .env. Pick another name, or pass --force if you mean to overwrite it.',
+  'commands.add.errors.workspaceUnknown':
+    'This is a full-stack project root, and {name} is not an api or app package, so it is unclear which of api/ and app/ it belongs in. Run the command from inside that folder.',
+  'commands.add.errors.notFound':
+    '{name} was not found on npm or in the molecule registry, so nothing was added. Check the spelling (`mlcl search <words>` lists real packages).',
+  'commands.add.errors.installFailed':
+    'The package was added to package.json, but `npm install` failed. Fix the error above and run `npm install`.',
   'commands.create.flags.noInteractive':
     'Run without interactive prompts (requires --type and name arg)',
   'commands.create.args.name': 'Project name',
