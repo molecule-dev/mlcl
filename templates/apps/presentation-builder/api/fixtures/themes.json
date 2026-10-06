@@ -1,0 +1,74 @@
+[
+  {
+    "id": "aurora-stage",
+    "owner_id": null,
+    "name": "Aurora Stage",
+    "colors": {
+      "primary": "#7c3aed"
+    },
+    "fonts": {},
+    "background_image": null,
+    "is_system": true,
+    "created_at": "2026-01-01T00:00:00Z"
+  },
+  {
+    "id": "midnight-studio",
+    "owner_id": null,
+    "name": "Midnight Studio",
+    "colors": {
+      "primary": "#1e1b4b"
+    },
+    "fonts": {},
+    "background_image": null,
+    "is_system": true,
+    "created_at": "2026-01-01T00:00:00Z"
+  },
+  {
+    "id": "sunrise-stage",
+    "owner_id": null,
+    "name": "Sunrise Stage",
+    "colors": {
+      "primary": "#f59e0b"
+    },
+    "fonts": {},
+    "background_image": null,
+    "is_system": true,
+    "created_at": "2026-01-01T00:00:00Z"
+  },
+  {
+    "id": "neon-rally",
+    "owner_id": null,
+    "name": "Neon Rally",
+    "colors": {
+      "primary": "#ec4899"
+    },
+    "fonts": {},
+    "background_image": null,
+    "is_system": true,
+    "created_at": "2026-01-01T00:00:00Z"
+  },
+  {
+    "id": "horizon-mono",
+    "owner_id": null,
+    "name": "Horizon Mono",
+    "colors": {
+      "primary": "#0f172a"
+    },
+    "fonts": {},
+    "background_image": null,
+    "is_system": true,
+    "created_at": "2026-01-01T00:00:00Z"
+  },
+  {
+    "id": "atlas-cyan",
+    "owner_id": null,
+    "name": "Atlas Cyan",
+    "colors": {
+      "primary": "#06b6d4"
+    },
+    "fonts": {},
+    "background_image": null,
+    "is_system": true,
+    "created_at": "2026-01-01T00:00:00Z"
+  }
+]

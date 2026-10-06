@@ -1,0 +1,104 @@
+[
+  {
+    "id": "slide-1",
+    "presentation_id": "lumen-series-b",
+    "layout": "title",
+    "content": {
+      "title": "Lumen Capital, Series B",
+      "body": "Investor update · Q4 2026"
+    },
+    "speaker_notes": "Open with the one-line story: we doubled revenue and halved churn.",
+    "background": null,
+    "transition": "fade",
+    "position": 0,
+    "created_at": "2026-03-12T10:00:00Z",
+    "updated_at": "2026-04-30T15:48:00Z"
+  },
+  {
+    "id": "slide-2",
+    "presentation_id": "lumen-series-b",
+    "layout": "title-content",
+    "content": {
+      "title": "Where we are today",
+      "bullets": [
+        "$4.2M annual recurring revenue",
+        "212 paying teams across 14 countries",
+        "Net revenue retention at 128%"
+      ]
+    },
+    "speaker_notes": "Pause on retention; it is the number investors ask about.",
+    "background": null,
+    "transition": "fade",
+    "position": 1,
+    "created_at": "2026-03-12T10:00:00Z",
+    "updated_at": "2026-04-30T15:48:00Z"
+  },
+  {
+    "id": "slide-3",
+    "presentation_id": "lumen-series-b",
+    "layout": "two-column",
+    "content": {
+      "title": "Problem and solution",
+      "bullets": [
+        "Teams lose a day a week to scattered tools",
+        "One workspace replaces five subscriptions"
+      ],
+      "body": "Customers move their projects in under an hour."
+    },
+    "speaker_notes": "Keep this to 90 seconds.",
+    "background": null,
+    "transition": "fade",
+    "position": 2,
+    "created_at": "2026-03-12T10:00:00Z",
+    "updated_at": "2026-04-30T15:48:00Z"
+  },
+  {
+    "id": "slide-4",
+    "presentation_id": "lumen-series-b",
+    "layout": "chart",
+    "content": {
+      "title": "Revenue growth",
+      "body": "Quarter-over-quarter ARR, last eight quarters"
+    },
+    "speaker_notes": "Point at the inflection in Q2.",
+    "background": null,
+    "transition": "fade",
+    "position": 3,
+    "created_at": "2026-03-12T10:00:00Z",
+    "updated_at": "2026-04-30T15:48:00Z"
+  },
+  {
+    "id": "slide-5",
+    "presentation_id": "lumen-series-b",
+    "layout": "title-content",
+    "content": {
+      "title": "The ask",
+      "bullets": [
+        "Raising $18M Series B",
+        "Hire 24 across engineering and support",
+        "Extend runway to 36 months"
+      ]
+    },
+    "speaker_notes": "Close on the use of funds.",
+    "background": null,
+    "transition": "fade",
+    "position": 4,
+    "created_at": "2026-03-12T10:00:00Z",
+    "updated_at": "2026-04-30T15:48:00Z"
+  },
+  {
+    "id": "slide-6",
+    "presentation_id": "lumen-series-b",
+    "layout": "image",
+    "content": {
+      "title": "Thank you",
+      "body": "questions@lumen.example"
+    },
+    "speaker_notes": "Leave this slide up during Q&A.",
+    "background": null,
+    "transition": "fade",
+    "position": 5,
+    "created_at": "2026-03-12T10:00:00Z",
+    "updated_at": "2026-04-30T15:48:00Z"
+  }
+]
