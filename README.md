@@ -200,8 +200,11 @@ client can send it as `Authorization: Bearer <token>`.
 - **Limits:** 25 active tokens per account; 10 created per day. Names are 1 to 60
   characters and unique among your tokens.
 - **What a token cannot do:** change your password or email, set up two-factor
-  sign-in, create, list or revoke tokens, manage devices, or delete your
-  account. Those need a signed-in session (`mlcl login`).
+  sign-in, create, list or revoke tokens, manage devices, invite teammates or
+  change their role, add model providers or project hooks, change billing or
+  top up the balance, push to or import from a repository with your stored
+  GitHub or GitLab credential, or delete your account. Those need a signed-in
+  session (`mlcl login`).
 - **If one leaks:** `mlcl token revoke <name>`.
 
 Read any installed package's usage reference — generated, always current:
