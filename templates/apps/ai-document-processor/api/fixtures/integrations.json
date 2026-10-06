@@ -1,0 +1,18 @@
+[
+  {
+    "id": "gdrive",
+    "provider": "google-drive",
+    "name": "Google Drive",
+    "icon": "cloud",
+    "description": "Auto-file extracted documents into Drive folders.",
+    "connected": true
+  },
+  {
+    "id": "dbox",
+    "provider": "dropbox",
+    "name": "Dropbox",
+    "icon": "cloud_circle",
+    "description": "Sync filed documents to a Dropbox folder.",
+    "connected": false
+  }
+]

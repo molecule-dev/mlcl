@@ -1,0 +1,60 @@
+[
+  {
+    "id": "000000r1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Invoices to Finance",
+    "matchedType": "invoice",
+    "conditions": [
+      "Document type is invoice",
+      "Confidence above 90%"
+    ],
+    "action": "move_to_folder",
+    "destination": "/Finance/Invoices",
+    "enabled": true,
+    "matched_count_30d": 41,
+    "created_at": "2026-10-01T09:00:00Z"
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Receipts to expenses",
+    "matchedType": "receipt",
+    "conditions": [
+      "Document type is receipt"
+    ],
+    "action": "move_to_folder",
+    "destination": "/Finance/Receipts",
+    "enabled": true,
+    "matched_count_30d": 27,
+    "created_at": "2026-10-02T09:00:00Z"
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Contracts to Legal",
+    "matchedType": "contract",
+    "conditions": [
+      "Document type is contract"
+    ],
+    "action": "notify",
+    "destination": "#legal-review",
+    "enabled": true,
+    "matched_count_30d": 6,
+    "created_at": "2026-10-03T09:00:00Z"
+  },
+  {
+    "id": "000000r1-0000-4000-8000-000000000004",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Forms needing review",
+    "matchedType": "form",
+    "conditions": [
+      "Document type is form",
+      "Confidence below 70%"
+    ],
+    "action": "route_to_user",
+    "destination": "Operations",
+    "enabled": false,
+    "matched_count_30d": 3,
+    "created_at": "2026-10-04T09:00:00Z"
+  }
+]

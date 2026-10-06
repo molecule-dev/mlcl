@@ -1,0 +1,398 @@
+[
+  {
+    "id": "000000d1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "original_name": "Acme Corp invoice 2041.pdf",
+    "title": "Acme Corp invoice 2041.pdf",
+    "document_type": "invoice",
+    "doc_class": "invoice",
+    "processing_status": "complete",
+    "status": "ready",
+    "classification_confidence": 0.97,
+    "classification_reasoning": "Layout and key phrases match the invoice template.",
+    "suggested_filing_path": "/Finance/Invoices/2026",
+    "detected_language": "en",
+    "language": "en",
+    "page_count": 2,
+    "file_size": 184000,
+    "size_bytes": 184000,
+    "source_type": "upload",
+    "mime": "application/pdf",
+    "s3_key": null,
+    "summary": "Invoice from Acme Corp for 12 hosting seats, total 2,400.00 USD, due 30 days.",
+    "summary_md": "Invoice from Acme Corp for 12 hosting seats, total 2,400.00 USD, due 30 days.",
+    "folder_id": null,
+    "tags": [
+      "invoice"
+    ],
+    "download_url": null,
+    "preview_url": null,
+    "extracted_fields": [
+      {
+        "id": "000000f1-0000-4000-8000-000000000001",
+        "field_name": "Vendor",
+        "field_value": "Acme Corp",
+        "confidence": 0.99,
+        "group": "Header",
+        "reviewed": true
+      },
+      {
+        "id": "000000f1-0000-4000-8000-000000000002",
+        "field_name": "Invoice number",
+        "field_value": "INV-2041",
+        "confidence": 0.98,
+        "group": "Header",
+        "reviewed": true
+      },
+      {
+        "id": "000000f1-0000-4000-8000-000000000003",
+        "field_name": "Total",
+        "field_value": "2,400.00 USD",
+        "confidence": 0.96,
+        "group": "Totals",
+        "reviewed": true
+      },
+      {
+        "id": "000000f1-0000-4000-8000-000000000004",
+        "field_name": "Due date",
+        "field_value": "2026-11-05",
+        "confidence": 0.91,
+        "group": "Totals",
+        "reviewed": true
+      }
+    ],
+    "events": [
+      {
+        "id": "000000e1-0000-4000-8000-000000000001",
+        "event_type": "uploaded",
+        "kind": "uploaded",
+        "actor": "system",
+        "details": "File received",
+        "created_at": "2026-10-06T09:00:00Z"
+      },
+      {
+        "id": "000000e1-0000-4000-8000-000000000002",
+        "event_type": "classified",
+        "kind": "classified",
+        "actor": "system",
+        "details": "Classified as invoice",
+        "created_at": "2026-10-06T09:02:00Z"
+      }
+    ],
+    "uploaded_at": "2026-10-06T09:00:00Z",
+    "processed_at": "2026-10-06T09:03:00Z",
+    "created_at": "2026-10-06T09:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "original_name": "Lunch receipt Blue Door Cafe.jpg",
+    "title": "Lunch receipt Blue Door Cafe.jpg",
+    "document_type": "receipt",
+    "doc_class": "receipt",
+    "processing_status": "complete",
+    "status": "ready",
+    "classification_confidence": 0.93,
+    "classification_reasoning": "Layout and key phrases match the receipt template.",
+    "suggested_filing_path": "/Finance/Receipts",
+    "detected_language": "en",
+    "language": "en",
+    "page_count": 1,
+    "file_size": 92000,
+    "size_bytes": 92000,
+    "source_type": "upload",
+    "mime": "image/png",
+    "s3_key": null,
+    "summary": "Cafe receipt for 38.40 USD paid by card.",
+    "summary_md": "Cafe receipt for 38.40 USD paid by card.",
+    "folder_id": null,
+    "tags": [
+      "receipt"
+    ],
+    "download_url": null,
+    "preview_url": null,
+    "extracted_fields": [
+      {
+        "id": "000000f2-0000-4000-8000-000000000001",
+        "field_name": "Merchant",
+        "field_value": "Blue Door Cafe",
+        "confidence": 0.95,
+        "group": "Header",
+        "reviewed": true
+      },
+      {
+        "id": "000000f2-0000-4000-8000-000000000002",
+        "field_name": "Total",
+        "field_value": "38.40 USD",
+        "confidence": 0.94,
+        "group": "Totals",
+        "reviewed": true
+      }
+    ],
+    "events": [
+      {
+        "id": "000000e2-0000-4000-8000-000000000001",
+        "event_type": "uploaded",
+        "kind": "uploaded",
+        "actor": "system",
+        "details": "File received",
+        "created_at": "2026-10-05T10:00:00Z"
+      },
+      {
+        "id": "000000e2-0000-4000-8000-000000000002",
+        "event_type": "classified",
+        "kind": "classified",
+        "actor": "system",
+        "details": "Classified as receipt",
+        "created_at": "2026-10-05T10:02:00Z"
+      }
+    ],
+    "uploaded_at": "2026-10-05T10:00:00Z",
+    "processed_at": "2026-10-05T10:03:00Z",
+    "created_at": "2026-10-05T10:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "original_name": "Office lease agreement.pdf",
+    "title": "Office lease agreement.pdf",
+    "document_type": "contract",
+    "doc_class": "contract",
+    "processing_status": "classified",
+    "status": "extracting",
+    "classification_confidence": 0.88,
+    "classification_reasoning": "Layout and key phrases match the contract template.",
+    "suggested_filing_path": "/Legal/Contracts",
+    "detected_language": "en",
+    "language": "en",
+    "page_count": 14,
+    "file_size": 902000,
+    "size_bytes": 902000,
+    "source_type": "upload",
+    "mime": "application/pdf",
+    "s3_key": null,
+    "summary": "Three-year office lease with a renewal option and a 60-day notice clause.",
+    "summary_md": "Three-year office lease with a renewal option and a 60-day notice clause.",
+    "folder_id": null,
+    "tags": [
+      "contract"
+    ],
+    "download_url": null,
+    "preview_url": null,
+    "extracted_fields": [
+      {
+        "id": "000000f3-0000-4000-8000-000000000001",
+        "field_name": "Parties",
+        "field_value": "Parcela Inc. and Harbor Properties",
+        "confidence": 0.9,
+        "group": "Parties",
+        "reviewed": false
+      },
+      {
+        "id": "000000f3-0000-4000-8000-000000000002",
+        "field_name": "Term",
+        "field_value": "36 months",
+        "confidence": 0.87,
+        "group": "Terms",
+        "reviewed": false
+      }
+    ],
+    "events": [
+      {
+        "id": "000000e3-0000-4000-8000-000000000001",
+        "event_type": "uploaded",
+        "kind": "uploaded",
+        "actor": "system",
+        "details": "File received",
+        "created_at": "2026-10-04T11:00:00Z"
+      },
+      {
+        "id": "000000e3-0000-4000-8000-000000000002",
+        "event_type": "classified",
+        "kind": "classified",
+        "actor": "system",
+        "details": "Classified as contract",
+        "created_at": "2026-10-04T11:02:00Z"
+      }
+    ],
+    "uploaded_at": "2026-10-04T11:00:00Z",
+    "processed_at": null,
+    "created_at": "2026-10-04T11:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000004",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "original_name": "W-9 form Jane Rivera.pdf",
+    "title": "W-9 form Jane Rivera.pdf",
+    "document_type": "form",
+    "doc_class": "form",
+    "processing_status": "extracted",
+    "status": "extracting",
+    "classification_confidence": 0.64,
+    "classification_reasoning": "Layout and key phrases match the form template.",
+    "suggested_filing_path": "/HR/Forms",
+    "detected_language": "en",
+    "language": "en",
+    "page_count": 1,
+    "file_size": 74000,
+    "size_bytes": 74000,
+    "source_type": "upload",
+    "mime": "application/pdf",
+    "s3_key": null,
+    "summary": "Tax form with taxpayer name and ID. Needs review: low confidence on the ID field.",
+    "summary_md": "Tax form with taxpayer name and ID. Needs review: low confidence on the ID field.",
+    "folder_id": null,
+    "tags": [
+      "form"
+    ],
+    "download_url": null,
+    "preview_url": null,
+    "extracted_fields": [
+      {
+        "id": "000000f4-0000-4000-8000-000000000001",
+        "field_name": "Filer name",
+        "field_value": "Jane Rivera",
+        "confidence": 0.92,
+        "group": "Filer",
+        "reviewed": true
+      },
+      {
+        "id": "000000f4-0000-4000-8000-000000000002",
+        "field_name": "Filer ID",
+        "field_value": "***-**-4421",
+        "confidence": 0.52,
+        "group": "Filer",
+        "reviewed": false
+      }
+    ],
+    "events": [
+      {
+        "id": "000000e4-0000-4000-8000-000000000001",
+        "event_type": "uploaded",
+        "kind": "uploaded",
+        "actor": "system",
+        "details": "File received",
+        "created_at": "2026-10-06T12:00:00Z"
+      },
+      {
+        "id": "000000e4-0000-4000-8000-000000000002",
+        "event_type": "classified",
+        "kind": "classified",
+        "actor": "system",
+        "details": "Classified as form",
+        "created_at": "2026-10-06T12:02:00Z"
+      }
+    ],
+    "uploaded_at": "2026-10-06T12:00:00Z",
+    "processed_at": null,
+    "created_at": "2026-10-06T12:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000005",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "original_name": "Q3 sales report.pdf",
+    "title": "Q3 sales report.pdf",
+    "document_type": "report",
+    "doc_class": "report",
+    "processing_status": "processing",
+    "status": "extracting",
+    "classification_confidence": null,
+    "classification_reasoning": null,
+    "suggested_filing_path": null,
+    "detected_language": "en",
+    "language": "en",
+    "page_count": 9,
+    "file_size": 410000,
+    "size_bytes": 410000,
+    "source_type": "upload",
+    "mime": "application/pdf",
+    "s3_key": null,
+    "summary": null,
+    "summary_md": null,
+    "folder_id": null,
+    "tags": [
+      "report"
+    ],
+    "download_url": null,
+    "preview_url": null,
+    "extracted_fields": [],
+    "events": [
+      {
+        "id": "000000e5-0000-4000-8000-000000000001",
+        "event_type": "uploaded",
+        "kind": "uploaded",
+        "actor": "system",
+        "details": "File received",
+        "created_at": "2026-10-05T13:00:00Z"
+      },
+      {
+        "id": "000000e5-0000-4000-8000-000000000002",
+        "event_type": "classified",
+        "kind": "classified",
+        "actor": "system",
+        "details": "Classified as report",
+        "created_at": "2026-10-05T13:02:00Z"
+      }
+    ],
+    "uploaded_at": "2026-10-05T13:00:00Z",
+    "processed_at": null,
+    "created_at": "2026-10-05T13:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000006",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "owner_id": "00000000-0000-4000-8000-0000000000aa",
+    "original_name": "Passport scan.png",
+    "title": "Passport scan.png",
+    "document_type": "identification",
+    "doc_class": "identification",
+    "processing_status": "error",
+    "status": "failed",
+    "classification_confidence": null,
+    "classification_reasoning": null,
+    "suggested_filing_path": null,
+    "detected_language": "en",
+    "language": "en",
+    "page_count": 1,
+    "file_size": 530000,
+    "size_bytes": 530000,
+    "source_type": "upload",
+    "mime": "image/png",
+    "s3_key": null,
+    "summary": null,
+    "summary_md": null,
+    "folder_id": null,
+    "tags": [
+      "identification"
+    ],
+    "download_url": null,
+    "preview_url": null,
+    "extracted_fields": [],
+    "events": [
+      {
+        "id": "000000e6-0000-4000-8000-000000000001",
+        "event_type": "uploaded",
+        "kind": "uploaded",
+        "actor": "system",
+        "details": "File received",
+        "created_at": "2026-10-04T14:00:00Z"
+      },
+      {
+        "id": "000000e6-0000-4000-8000-000000000002",
+        "event_type": "classified",
+        "kind": "classified",
+        "actor": "system",
+        "details": "Classified as identification",
+        "created_at": "2026-10-04T14:02:00Z"
+      }
+    ],
+    "uploaded_at": "2026-10-04T14:00:00Z",
+    "processed_at": null,
+    "created_at": "2026-10-04T14:00:00Z"
+  }
+]
