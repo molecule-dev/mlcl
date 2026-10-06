@@ -1,0 +1,49 @@
+[
+  {
+    "id": "reverie-xl-v3",
+    "name": "Reverie Studio 3",
+    "vendor": "Reverie Labs",
+    "description": "Flagship diffusion model — best for portraiture and editorial work.",
+    "capabilities": [
+      "Photoreal",
+      "Portrait",
+      "Long-form prompts"
+    ],
+    "active": true
+  },
+  {
+    "id": "reverie-flash",
+    "name": "Reverie Turbo",
+    "vendor": "Reverie Labs",
+    "description": "Sub-second drafts — ideal for ideation and live exploration.",
+    "capabilities": [
+      "Fast",
+      "Iterative",
+      "Sketch"
+    ],
+    "active": false
+  },
+  {
+    "id": "reverie-print",
+    "name": "Reverie Poster",
+    "vendor": "Reverie Labs",
+    "description": "High-resolution print-ready output for posters and packaging.",
+    "capabilities": [
+      "Print",
+      "300 DPI",
+      "CMYK aware"
+    ],
+    "active": false
+  },
+  {
+    "id": "helio-realtime",
+    "name": "Helio Live",
+    "vendor": "Helio Open",
+    "description": "Open-source realtime diffusion — community fine-tunes welcome.",
+    "capabilities": [
+      "Realtime",
+      "Open source"
+    ],
+    "active": false
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "id": "000000p1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "landscape",
+    "prompt_text": "Cinematic landscape with golden hour light, ultra detailed",
+    "negative_prompt": "blurry, low quality",
+    "tags": [
+      "landscape",
+      "cinematic"
+    ],
+    "last_used_at": "2026-10-06T12:00:00Z",
+    "created_at": "2026-10-01T09:00:00Z"
+  },
+  {
+    "id": "000000p1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "product",
+    "prompt_text": "Studio product photo on a seamless backdrop, soft shadows",
+    "negative_prompt": "text, watermark",
+    "tags": [
+      "product"
+    ],
+    "last_used_at": "2026-10-05T12:00:00Z",
+    "created_at": "2026-10-02T09:00:00Z"
+  },
+  {
+    "id": "000000p1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "watercolor",
+    "prompt_text": "Whimsical watercolor animal portrait, loose brush strokes",
+    "negative_prompt": null,
+    "tags": [
+      "watercolor",
+      "animals"
+    ],
+    "last_used_at": "2026-10-04T12:00:00Z",
+    "created_at": "2026-10-03T09:00:00Z"
+  }
+]

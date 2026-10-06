@@ -1,0 +1,37 @@
+[
+  {
+    "id": "000000s1-0000-4000-8000-000000000001",
+    "name": "Photoreal",
+    "description": "Natural light, lifelike texture and lens depth.",
+    "prompt_modifier": "photorealistic, 35mm, natural light, sharp focus",
+    "active": true
+  },
+  {
+    "id": "000000s1-0000-4000-8000-000000000002",
+    "name": "Anime",
+    "description": "Clean line art with soft cel shading.",
+    "prompt_modifier": "anime, cel shading, pastel palette, clean lines",
+    "active": false
+  },
+  {
+    "id": "000000s1-0000-4000-8000-000000000003",
+    "name": "Watercolor",
+    "description": "Loose washes and paper grain.",
+    "prompt_modifier": "watercolor, wet on wet, paper texture, soft edges",
+    "active": false
+  },
+  {
+    "id": "000000s1-0000-4000-8000-000000000004",
+    "name": "Cyberpunk",
+    "description": "Neon signage, rain and dense city glow.",
+    "prompt_modifier": "cyberpunk, neon, rain, high contrast",
+    "active": false
+  },
+  {
+    "id": "000000s1-0000-4000-8000-000000000005",
+    "name": "Isometric",
+    "description": "Tiny diorama scenes on a clean grid.",
+    "prompt_modifier": "isometric, miniature, soft studio light",
+    "active": false
+  }
+]
