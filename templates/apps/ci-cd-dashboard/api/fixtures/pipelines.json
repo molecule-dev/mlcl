@@ -1,5 +1,6 @@
 [
   {
+    "id": "pl1",
     "repo_slug": "frontend-app",
     "name": "frontend-app · main",
     "branch": "main",
@@ -15,20 +16,114 @@
       "coverage_pct": 87.4
     },
     "stages": [
-      { "name": "checkout",   "status": "success", "duration_seconds": 4,   "log_excerpt": ["Cloning into 'frontend-app'…", "Checked out 8f3a91c2d7e4 on branch main", "Submodules synced."] },
-      { "name": "install",    "status": "success", "duration_seconds": 38,  "log_excerpt": ["npm WARN deprecated some@1.0.0", "added 1843 packages, and audited 1844 packages in 38s", "found 0 vulnerabilities"] },
-      { "name": "lint",       "status": "success", "duration_seconds": 14,  "log_excerpt": ["▸ eslint .", "✓ 0 errors, 2 warnings", "▸ tsc --noEmit", "✓ no type errors"] },
-      { "name": "test",       "status": "success", "duration_seconds": 96,  "log_excerpt": ["▸ vitest run --coverage", "✓ src/checkout/CheckoutForm.test.tsx (12 tests)", "✓ src/cart/Cart.test.tsx (6 tests)", "Test Files  84 passed (84)", "Tests       412 passed (412)", "Coverage: 87.4%"] },
-      { "name": "build",      "status": "success", "duration_seconds": 84,  "log_excerpt": ["▸ vite build", "✓ 1247 modules transformed.", "dist/assets/index-9abc123.js   245.32 kB │ gzip: 78.18 kB", "✓ built in 84.3s"] },
-      { "name": "deploy:edge","status": "success", "duration_seconds": 76,  "log_excerpt": ["▸ wrangler deploy", "Total Upload: 257 KiB / gzip: 79 KiB", "Deployed cf-frontend-app to https://app.example.com (current version 8f3a91c)"] }
+      {
+        "name": "checkout",
+        "status": "success",
+        "duration_seconds": 4,
+        "log_excerpt": [
+          "Cloning into 'frontend-app'…",
+          "Checked out 8f3a91c2d7e4 on branch main",
+          "Submodules synced."
+        ]
+      },
+      {
+        "name": "install",
+        "status": "success",
+        "duration_seconds": 38,
+        "log_excerpt": [
+          "npm WARN deprecated some@1.0.0",
+          "added 1843 packages, and audited 1844 packages in 38s",
+          "found 0 vulnerabilities"
+        ]
+      },
+      {
+        "name": "lint",
+        "status": "success",
+        "duration_seconds": 14,
+        "log_excerpt": [
+          "▸ eslint .",
+          "✓ 0 errors, 2 warnings",
+          "▸ tsc --noEmit",
+          "✓ no type errors"
+        ]
+      },
+      {
+        "name": "test",
+        "status": "success",
+        "duration_seconds": 96,
+        "log_excerpt": [
+          "▸ vitest run --coverage",
+          "✓ src/checkout/CheckoutForm.test.tsx (12 tests)",
+          "✓ src/cart/Cart.test.tsx (6 tests)",
+          "Test Files  84 passed (84)",
+          "Tests       412 passed (412)",
+          "Coverage: 87.4%"
+        ]
+      },
+      {
+        "name": "build",
+        "status": "success",
+        "duration_seconds": 84,
+        "log_excerpt": [
+          "▸ vite build",
+          "✓ 1247 modules transformed.",
+          "dist/assets/index-9abc123.js   245.32 kB │ gzip: 78.18 kB",
+          "✓ built in 84.3s"
+        ]
+      },
+      {
+        "name": "deploy:edge",
+        "status": "success",
+        "duration_seconds": 76,
+        "log_excerpt": [
+          "▸ wrangler deploy",
+          "Total Upload: 257 KiB / gzip: 79 KiB",
+          "Deployed cf-frontend-app to https://app.example.com (current version 8f3a91c)"
+        ]
+      }
     ],
     "artifacts": [
-      { "name": "frontend-app-bundle.tar.gz", "filename": "frontend-app-bundle.tar.gz", "mime_type": "application/gzip",      "size_bytes": 8462336,  "type": "tarball",   "retention_days": 30 },
-      { "name": "coverage-report.html",       "filename": "coverage-report.html",       "mime_type": "text/html",            "size_bytes": 184320,   "type": "log",       "retention_days": 14 },
-      { "name": "sourcemap-bundle.zip",       "filename": "sourcemap-bundle.zip",       "mime_type": "application/zip",      "size_bytes": 1429504,  "type": "sourcemap", "retention_days": 7  }
-    ]
+      {
+        "id": "pl1-art-1",
+        "name": "frontend-app-bundle.tar.gz",
+        "filename": "frontend-app-bundle.tar.gz",
+        "mime_type": "application/gzip",
+        "size_bytes": 8462336,
+        "type": "tarball",
+        "retention_days": 30
+      },
+      {
+        "id": "pl1-art-2",
+        "name": "coverage-report.html",
+        "filename": "coverage-report.html",
+        "mime_type": "text/html",
+        "size_bytes": 184320,
+        "type": "log",
+        "retention_days": 14
+      },
+      {
+        "id": "pl1-art-3",
+        "name": "sourcemap-bundle.zip",
+        "filename": "sourcemap-bundle.zip",
+        "mime_type": "application/zip",
+        "size_bytes": 1429504,
+        "type": "sourcemap",
+        "retention_days": 7
+      }
+    ],
+    "repository": "frontend-app",
+    "repository_id": "repo-1",
+    "repository_slug": "frontend-app",
+    "commit_sha": "8f3a91c2d7e4b6f105d2c3a8b4e6d9f1a2b3c4d5",
+    "commit_message": "feat(checkout): split shipping address into separate component",
+    "author": "Riley K.",
+    "commit_author": "Riley K.",
+    "started_at": "2026-10-06T11:52:00.000Z",
+    "duration_seconds": 312,
+    "coverage_pct": 87.4
   },
   {
+    "id": "pl2",
     "repo_slug": "frontend-app",
     "name": "frontend-app · feat/checkout-redesign",
     "branch": "feat/checkout-redesign",
@@ -44,16 +139,70 @@
       "coverage_pct": null
     },
     "stages": [
-      { "name": "checkout",   "status": "success", "duration_seconds": 4,  "log_excerpt": ["Cloning into 'frontend-app'…", "Checked out 5d7e9f1a3b5c on branch feat/checkout-redesign"] },
-      { "name": "install",    "status": "success", "duration_seconds": 41, "log_excerpt": ["added 1843 packages, audited 1844 packages in 41s", "found 0 vulnerabilities"] },
-      { "name": "lint",       "status": "success", "duration_seconds": 14, "log_excerpt": ["✓ 0 errors, 0 warnings"] },
-      { "name": "test",       "status": "running", "duration_seconds": 51, "log_excerpt": ["▸ vitest run --coverage", "RUN  src/checkout/CheckoutForm.test.tsx", "RUN  src/checkout/ShippingAddress.test.tsx", "  ⏳  running…"] },
-      { "name": "build",      "status": "queued",  "duration_seconds": null, "log_excerpt": [] },
-      { "name": "deploy:edge","status": "queued",  "duration_seconds": null, "log_excerpt": [] }
+      {
+        "name": "checkout",
+        "status": "success",
+        "duration_seconds": 4,
+        "log_excerpt": [
+          "Cloning into 'frontend-app'…",
+          "Checked out 5d7e9f1a3b5c on branch feat/checkout-redesign"
+        ]
+      },
+      {
+        "name": "install",
+        "status": "success",
+        "duration_seconds": 41,
+        "log_excerpt": [
+          "added 1843 packages, audited 1844 packages in 41s",
+          "found 0 vulnerabilities"
+        ]
+      },
+      {
+        "name": "lint",
+        "status": "success",
+        "duration_seconds": 14,
+        "log_excerpt": [
+          "✓ 0 errors, 0 warnings"
+        ]
+      },
+      {
+        "name": "test",
+        "status": "running",
+        "duration_seconds": 51,
+        "log_excerpt": [
+          "▸ vitest run --coverage",
+          "RUN  src/checkout/CheckoutForm.test.tsx",
+          "RUN  src/checkout/ShippingAddress.test.tsx",
+          "  ⏳  running…"
+        ]
+      },
+      {
+        "name": "build",
+        "status": "queued",
+        "duration_seconds": null,
+        "log_excerpt": []
+      },
+      {
+        "name": "deploy:edge",
+        "status": "queued",
+        "duration_seconds": null,
+        "log_excerpt": []
+      }
     ],
-    "artifacts": []
+    "artifacts": [],
+    "repository": "frontend-app",
+    "repository_id": "repo-1",
+    "repository_slug": "frontend-app",
+    "commit_sha": "5d7e9f1a3b5c7d9e1f3a5b7c9d1e3f5a7b9c1d3e",
+    "commit_message": "wip: redesign checkout flow with new shipping address picker",
+    "author": "Sam T.",
+    "commit_author": "Sam T.",
+    "started_at": "2026-10-06T11:58:00.000Z",
+    "duration_seconds": null,
+    "coverage_pct": null
   },
   {
+    "id": "pl3",
     "repo_slug": "api-gateway",
     "name": "api-gateway · fix/auth-leak",
     "branch": "fix/auth-leak",
@@ -69,19 +218,99 @@
       "coverage_pct": 81.2
     },
     "stages": [
-      { "name": "checkout",    "status": "success", "duration_seconds": 5,  "log_excerpt": ["Cloning into 'api-gateway'…", "Checked out 1a3b5c7d9e1f on branch fix/auth-leak"] },
-      { "name": "install",     "status": "success", "duration_seconds": 22, "log_excerpt": ["added 412 packages, audited 412 packages in 22s", "found 0 vulnerabilities"] },
-      { "name": "lint",        "status": "success", "duration_seconds": 8,  "log_excerpt": ["✓ 0 errors, 4 warnings"] },
-      { "name": "test",        "status": "success", "duration_seconds": 184,"log_excerpt": ["▸ vitest run --coverage", "Test Files  64 passed (64)", "Tests       287 passed (287)", "Coverage: 81.2%"] },
-      { "name": "integration", "status": "failed",  "duration_seconds": 312,"log_excerpt": ["▸ pnpm run test:integration", "FAIL  test/integration/rate-limit.test.ts", "  ✗ should not include session cookie in log line", "    AssertionError: expected log line to not contain 'session='", "    + expected", "Tests       62 passed | 1 failed (63)", "exit code 1"] },
-      { "name": "deploy:prod", "status": "skipped", "duration_seconds": null, "log_excerpt": ["⏭  Skipped because integration failed"] }
+      {
+        "name": "checkout",
+        "status": "success",
+        "duration_seconds": 5,
+        "log_excerpt": [
+          "Cloning into 'api-gateway'…",
+          "Checked out 1a3b5c7d9e1f on branch fix/auth-leak"
+        ]
+      },
+      {
+        "name": "install",
+        "status": "success",
+        "duration_seconds": 22,
+        "log_excerpt": [
+          "added 412 packages, audited 412 packages in 22s",
+          "found 0 vulnerabilities"
+        ]
+      },
+      {
+        "name": "lint",
+        "status": "success",
+        "duration_seconds": 8,
+        "log_excerpt": [
+          "✓ 0 errors, 4 warnings"
+        ]
+      },
+      {
+        "name": "test",
+        "status": "success",
+        "duration_seconds": 184,
+        "log_excerpt": [
+          "▸ vitest run --coverage",
+          "Test Files  64 passed (64)",
+          "Tests       287 passed (287)",
+          "Coverage: 81.2%"
+        ]
+      },
+      {
+        "name": "integration",
+        "status": "failed",
+        "duration_seconds": 312,
+        "log_excerpt": [
+          "▸ pnpm run test:integration",
+          "FAIL  test/integration/rate-limit.test.ts",
+          "  ✗ should not include session cookie in log line",
+          "    AssertionError: expected log line to not contain 'session='",
+          "    + expected",
+          "Tests       62 passed | 1 failed (63)",
+          "exit code 1"
+        ]
+      },
+      {
+        "name": "deploy:prod",
+        "status": "skipped",
+        "duration_seconds": null,
+        "log_excerpt": [
+          "⏭  Skipped because integration failed"
+        ]
+      }
     ],
     "artifacts": [
-      { "name": "api-gateway-test-results.json", "filename": "api-gateway-test-results.json", "mime_type": "application/json",  "size_bytes": 41984,  "type": "log", "retention_days": 30 },
-      { "name": "coverage-summary.json",         "filename": "coverage-summary.json",         "mime_type": "application/json",  "size_bytes": 6144,   "type": "log", "retention_days": 14 }
-    ]
+      {
+        "id": "pl3-art-1",
+        "name": "api-gateway-test-results.json",
+        "filename": "api-gateway-test-results.json",
+        "mime_type": "application/json",
+        "size_bytes": 41984,
+        "type": "log",
+        "retention_days": 30
+      },
+      {
+        "id": "pl3-art-2",
+        "name": "coverage-summary.json",
+        "filename": "coverage-summary.json",
+        "mime_type": "application/json",
+        "size_bytes": 6144,
+        "type": "log",
+        "retention_days": 14
+      }
+    ],
+    "repository": "api-gateway",
+    "repository_id": "repo-2",
+    "repository_slug": "api-gateway",
+    "commit_sha": "1a3b5c7d9e1f3a5b7c9d1e3f5a7b9c1d3e5f7a9b",
+    "commit_message": "fix(auth): plug session-cookie leak into rate-limit log",
+    "author": "Jordan M.",
+    "commit_author": "Jordan M.",
+    "started_at": "2026-10-06T11:36:00.000Z",
+    "duration_seconds": 612,
+    "coverage_pct": 81.2
   },
   {
+    "id": "pl4",
     "repo_slug": "api-gateway",
     "name": "api-gateway · main",
     "branch": "main",
@@ -94,22 +323,98 @@
       "author": "Riley K.",
       "duration_ms": 540000,
       "exit_code": 0,
-      "coverage_pct": 91.0
+      "coverage_pct": 91
     },
     "stages": [
-      { "name": "checkout",    "status": "success", "duration_seconds": 5,   "log_excerpt": ["Cloning into 'api-gateway'…", "Checked out 9b1c2d3e4f5a on branch main"] },
-      { "name": "install",     "status": "success", "duration_seconds": 22,  "log_excerpt": ["added 412 packages, audited 412 packages in 22s", "found 0 vulnerabilities"] },
-      { "name": "lint",        "status": "success", "duration_seconds": 8,   "log_excerpt": ["✓ 0 errors, 0 warnings"] },
-      { "name": "test",        "status": "success", "duration_seconds": 167, "log_excerpt": ["Test Files  64 passed (64)", "Tests       287 passed (287)", "Coverage: 91.0%"] },
-      { "name": "integration", "status": "success", "duration_seconds": 246, "log_excerpt": ["Test Files  21 passed (21)", "Tests       63 passed (63)"] },
-      { "name": "deploy:prod", "status": "success", "duration_seconds": 92,  "log_excerpt": ["▸ kubectl apply -f deploy.yaml", "deployment.apps/api-gateway configured", "deployment.apps/api-gateway successfully rolled out"] }
+      {
+        "name": "checkout",
+        "status": "success",
+        "duration_seconds": 5,
+        "log_excerpt": [
+          "Cloning into 'api-gateway'…",
+          "Checked out 9b1c2d3e4f5a on branch main"
+        ]
+      },
+      {
+        "name": "install",
+        "status": "success",
+        "duration_seconds": 22,
+        "log_excerpt": [
+          "added 412 packages, audited 412 packages in 22s",
+          "found 0 vulnerabilities"
+        ]
+      },
+      {
+        "name": "lint",
+        "status": "success",
+        "duration_seconds": 8,
+        "log_excerpt": [
+          "✓ 0 errors, 0 warnings"
+        ]
+      },
+      {
+        "name": "test",
+        "status": "success",
+        "duration_seconds": 167,
+        "log_excerpt": [
+          "Test Files  64 passed (64)",
+          "Tests       287 passed (287)",
+          "Coverage: 91.0%"
+        ]
+      },
+      {
+        "name": "integration",
+        "status": "success",
+        "duration_seconds": 246,
+        "log_excerpt": [
+          "Test Files  21 passed (21)",
+          "Tests       63 passed (63)"
+        ]
+      },
+      {
+        "name": "deploy:prod",
+        "status": "success",
+        "duration_seconds": 92,
+        "log_excerpt": [
+          "▸ kubectl apply -f deploy.yaml",
+          "deployment.apps/api-gateway configured",
+          "deployment.apps/api-gateway successfully rolled out"
+        ]
+      }
     ],
     "artifacts": [
-      { "name": "api-gateway-image.tar", "filename": "api-gateway-image.tar", "mime_type": "application/x-tar", "size_bytes": 124813312, "type": "docker",  "retention_days": 60 },
-      { "name": "sbom.spdx.json",        "filename": "sbom.spdx.json",        "mime_type": "application/json",  "size_bytes": 38912,     "type": "sbom",    "retention_days": 365 }
-    ]
+      {
+        "id": "pl4-art-1",
+        "name": "api-gateway-image.tar",
+        "filename": "api-gateway-image.tar",
+        "mime_type": "application/x-tar",
+        "size_bytes": 124813312,
+        "type": "docker",
+        "retention_days": 60
+      },
+      {
+        "id": "pl4-art-2",
+        "name": "sbom.spdx.json",
+        "filename": "sbom.spdx.json",
+        "mime_type": "application/json",
+        "size_bytes": 38912,
+        "type": "sbom",
+        "retention_days": 365
+      }
+    ],
+    "repository": "api-gateway",
+    "repository_id": "repo-2",
+    "repository_slug": "api-gateway",
+    "commit_sha": "9b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c",
+    "commit_message": "perf(rate-limit): switch to sliding window with Redis ZADD",
+    "author": "Riley K.",
+    "commit_author": "Riley K.",
+    "started_at": "2026-10-06T10:24:00.000Z",
+    "duration_seconds": 540,
+    "coverage_pct": 91
   },
   {
+    "id": "pl5",
     "repo_slug": "infra-terraform",
     "name": "infra-terraform · main",
     "branch": "main",
@@ -125,15 +430,58 @@
       "coverage_pct": null
     },
     "stages": [
-      { "name": "validate", "status": "success", "duration_seconds": 12, "log_excerpt": ["▸ terraform validate", "Success! The configuration is valid."] },
-      { "name": "plan",     "status": "success", "duration_seconds": 67, "log_excerpt": ["▸ terraform plan", "Plan: 1 to add, 0 to change, 0 to destroy."] },
-      { "name": "apply",    "status": "success", "duration_seconds": 108,"log_excerpt": ["▸ terraform apply -auto-approve", "Apply complete! Resources: 1 added, 0 changed, 0 destroyed."] }
+      {
+        "name": "validate",
+        "status": "success",
+        "duration_seconds": 12,
+        "log_excerpt": [
+          "▸ terraform validate",
+          "Success! The configuration is valid."
+        ]
+      },
+      {
+        "name": "plan",
+        "status": "success",
+        "duration_seconds": 67,
+        "log_excerpt": [
+          "▸ terraform plan",
+          "Plan: 1 to add, 0 to change, 0 to destroy."
+        ]
+      },
+      {
+        "name": "apply",
+        "status": "success",
+        "duration_seconds": 108,
+        "log_excerpt": [
+          "▸ terraform apply -auto-approve",
+          "Apply complete! Resources: 1 added, 0 changed, 0 destroyed."
+        ]
+      }
     ],
     "artifacts": [
-      { "name": "terraform.tfstate", "filename": "terraform.tfstate", "mime_type": "application/json", "size_bytes": 184320, "type": "log", "retention_days": 365 }
-    ]
+      {
+        "id": "pl5-art-1",
+        "name": "terraform.tfstate",
+        "filename": "terraform.tfstate",
+        "mime_type": "application/json",
+        "size_bytes": 184320,
+        "type": "log",
+        "retention_days": 365
+      }
+    ],
+    "repository": "infra-terraform",
+    "repository_id": "repo-3",
+    "repository_slug": "infra-terraform",
+    "commit_sha": "0c2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e",
+    "commit_message": "chore(prod): bump RDS storage to 200GB",
+    "author": "Casey D.",
+    "commit_author": "Casey D.",
+    "started_at": "2026-10-06T05:10:00.000Z",
+    "duration_seconds": 187,
+    "coverage_pct": null
   },
   {
+    "id": "pl6",
     "repo_slug": "mobile-ios",
     "name": "mobile-ios · feat/login",
     "branch": "feat/login",
@@ -149,10 +497,35 @@
       "coverage_pct": null
     },
     "stages": [
-      { "name": "build",  "status": "queued", "duration_seconds": null, "log_excerpt": [] },
-      { "name": "test",   "status": "queued", "duration_seconds": null, "log_excerpt": [] },
-      { "name": "deploy", "status": "queued", "duration_seconds": null, "log_excerpt": [] }
+      {
+        "name": "build",
+        "status": "queued",
+        "duration_seconds": null,
+        "log_excerpt": []
+      },
+      {
+        "name": "test",
+        "status": "queued",
+        "duration_seconds": null,
+        "log_excerpt": []
+      },
+      {
+        "name": "deploy",
+        "status": "queued",
+        "duration_seconds": null,
+        "log_excerpt": []
+      }
     ],
-    "artifacts": []
+    "artifacts": [],
+    "repository": "mobile-ios",
+    "repository_id": "repo-4",
+    "repository_slug": "mobile-ios",
+    "commit_sha": "6a8c0d2e4f6a8c0e2d4f6a8c0e2d4f6a8c0e2d4f",
+    "commit_message": "feat(login): add SIWA flow + biometric unlock",
+    "author": "Avery L.",
+    "commit_author": "Avery L.",
+    "started_at": "2026-10-06T11:59:00.000Z",
+    "duration_seconds": null,
+    "coverage_pct": null
   }
 ]

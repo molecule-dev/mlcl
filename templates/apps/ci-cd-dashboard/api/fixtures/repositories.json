@@ -1,5 +1,6 @@
 [
   {
+    "id": "repo-1",
     "slug": "frontend-app",
     "name": "frontend-app",
     "description": "Customer-facing React + Vite SPA. Edge deploys to Cloudflare.",
@@ -9,16 +10,72 @@
     "is_public": false,
     "config_yml": "name: ci\non: [push, pull_request]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - run: npm ci\n      - run: npm test\n      - run: npm run build\n",
     "webhooks": [
-      { "id": "wh-1", "url": "https://hooks.slack.com/services/T0000/B0000/abcdef", "events": ["pipeline.failed", "deploy.complete"], "active": true }
+      {
+        "id": "wh-1",
+        "url": "https://hooks.slack.com/services/T0000/B0000/abcdef",
+        "events": [
+          "pipeline.failed",
+          "deploy.complete"
+        ],
+        "active": true
+      }
     ],
-    "stats": { "total_builds": 487, "success_rate_pct": 94.6, "mean_duration_seconds": 312 },
+    "stats": {
+      "total_builds": 487,
+      "success_rate_pct": 94.6,
+      "mean_duration_seconds": 312
+    },
     "branches": [
-      { "name": "main",         "last_commit": "8f3a91c2d7e4b6f105d2c3a8b4e6d9f1a2b3c4d5", "ahead": 0, "behind": 0 },
-      { "name": "release/v2.4", "last_commit": "2a4b6c8d0e2f4a6b8c0d2e4f6a8b0c2d4e6f8a0b", "ahead": 3, "behind": 0 },
-      { "name": "feat/checkout-redesign", "last_commit": "5d7e9f1a3b5c7d9e1f3a5b7c9d1e3f5a7b9c1d3e", "ahead": 12, "behind": 4 }
+      {
+        "name": "main",
+        "last_commit": "8f3a91c2d7e4b6f105d2c3a8b4e6d9f1a2b3c4d5",
+        "ahead": 0,
+        "behind": 0
+      },
+      {
+        "name": "release/v2.4",
+        "last_commit": "2a4b6c8d0e2f4a6b8c0d2e4f6a8b0c2d4e6f8a0b",
+        "ahead": 3,
+        "behind": 0
+      },
+      {
+        "name": "feat/checkout-redesign",
+        "last_commit": "5d7e9f1a3b5c7d9e1f3a5b7c9d1e3f5a7b9c1d3e",
+        "ahead": 12,
+        "behind": 4
+      }
+    ],
+    "last_build_status": "success",
+    "last_build_at": "2026-10-06T11:52:00.000Z",
+    "recent_build_durations": [
+      312,
+      298,
+      305,
+      341,
+      290,
+      322,
+      310,
+      287
+    ],
+    "created_at": "2026-07-08T12:00:00.000Z",
+    "updated_at": "2026-10-06T11:52:00.000Z",
+    "recent_pipelines": [
+      {
+        "id": "pl1",
+        "name": "frontend-app · main",
+        "status": "success",
+        "started_at": "2026-10-06T11:52:00.000Z"
+      },
+      {
+        "id": "pl2",
+        "name": "frontend-app · feat/checkout-redesign",
+        "status": "running",
+        "started_at": "2026-10-06T11:58:00.000Z"
+      }
     ]
   },
   {
+    "id": "repo-2",
     "slug": "api-gateway",
     "name": "api-gateway",
     "description": "Edge API gateway (Node + Fastify). Auth, rate-limit, multi-region.",
@@ -28,16 +85,74 @@
     "is_public": false,
     "config_yml": "stages:\n  - lint\n  - test\n  - integration\n  - deploy\n\nlint:\n  script: npm run lint\ntest:\n  script: npm test -- --coverage\nintegration:\n  script: npm run test:integration\ndeploy:\n  script: ./deploy.sh\n  only: [main]\n",
     "webhooks": [
-      { "id": "wh-2", "url": "https://events.pagerduty.com/integration/abc/enqueue", "events": ["pipeline.failed"], "active": true },
-      { "id": "wh-3", "url": "https://example.com/internal/build-feed", "events": ["pipeline.success", "pipeline.failed"], "active": false }
+      {
+        "id": "wh-2",
+        "url": "https://events.pagerduty.com/integration/abc/enqueue",
+        "events": [
+          "pipeline.failed"
+        ],
+        "active": true
+      },
+      {
+        "id": "wh-3",
+        "url": "https://example.com/internal/build-feed",
+        "events": [
+          "pipeline.success",
+          "pipeline.failed"
+        ],
+        "active": false
+      }
     ],
-    "stats": { "total_builds": 1264, "success_rate_pct": 88.2, "mean_duration_seconds": 540 },
+    "stats": {
+      "total_builds": 1264,
+      "success_rate_pct": 88.2,
+      "mean_duration_seconds": 540
+    },
     "branches": [
-      { "name": "main",          "last_commit": "9b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c", "ahead": 0, "behind": 0 },
-      { "name": "fix/auth-leak", "last_commit": "1a3b5c7d9e1f3a5b7c9d1e3f5a7b9c1d3e5f7a9b", "ahead": 5, "behind": 1 }
+      {
+        "name": "main",
+        "last_commit": "9b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c",
+        "ahead": 0,
+        "behind": 0
+      },
+      {
+        "name": "fix/auth-leak",
+        "last_commit": "1a3b5c7d9e1f3a5b7c9d1e3f5a7b9c1d3e5f7a9b",
+        "ahead": 5,
+        "behind": 1
+      }
+    ],
+    "last_build_status": "failed",
+    "last_build_at": "2026-10-06T11:36:00.000Z",
+    "recent_build_durations": [
+      319,
+      305,
+      312,
+      348,
+      297,
+      329,
+      317,
+      294
+    ],
+    "created_at": "2026-07-08T12:00:00.000Z",
+    "updated_at": "2026-10-06T11:36:00.000Z",
+    "recent_pipelines": [
+      {
+        "id": "pl3",
+        "name": "api-gateway · fix/auth-leak",
+        "status": "failed",
+        "started_at": "2026-10-06T11:36:00.000Z"
+      },
+      {
+        "id": "pl4",
+        "name": "api-gateway · main",
+        "status": "success",
+        "started_at": "2026-10-06T10:24:00.000Z"
+      }
     ]
   },
   {
+    "id": "repo-3",
     "slug": "infra-terraform",
     "name": "infra-terraform",
     "description": "All cloud infra (GKE, RDS, S3) modeled in Terraform modules.",
@@ -47,12 +162,44 @@
     "is_public": false,
     "config_yml": "include:\n  - template: terraform/Base.gitlab-ci.yml\n\nstages:\n  - validate\n  - plan\n  - apply\n\nvalidate:\n  extends: .terraform:validate\nplan:\n  extends: .terraform:plan\napply:\n  extends: .terraform:apply\n  when: manual\n  only: [main]\n",
     "webhooks": [],
-    "stats": { "total_builds": 86, "success_rate_pct": 76.7, "mean_duration_seconds": 187 },
+    "stats": {
+      "total_builds": 86,
+      "success_rate_pct": 76.7,
+      "mean_duration_seconds": 187
+    },
     "branches": [
-      { "name": "main", "last_commit": "0c2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e", "ahead": 0, "behind": 0 }
+      {
+        "name": "main",
+        "last_commit": "0c2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e",
+        "ahead": 0,
+        "behind": 0
+      }
+    ],
+    "last_build_status": "success",
+    "last_build_at": "2026-10-06T05:10:00.000Z",
+    "recent_build_durations": [
+      326,
+      312,
+      319,
+      355,
+      304,
+      336,
+      324,
+      301
+    ],
+    "created_at": "2026-07-08T12:00:00.000Z",
+    "updated_at": "2026-10-06T05:10:00.000Z",
+    "recent_pipelines": [
+      {
+        "id": "pl5",
+        "name": "infra-terraform · main",
+        "status": "success",
+        "started_at": "2026-10-06T05:10:00.000Z"
+      }
     ]
   },
   {
+    "id": "repo-4",
     "slug": "mobile-ios",
     "name": "mobile-ios",
     "description": "Native iOS app (Swift). TestFlight + AppStore deploys.",
@@ -62,12 +209,56 @@
     "is_public": false,
     "config_yml": "name: iOS\non: [push]\njobs:\n  build:\n    runs-on: macos-14\n    steps:\n      - uses: actions/checkout@v4\n      - run: bundle install\n      - run: bundle exec fastlane test\n      - run: bundle exec fastlane beta\n",
     "webhooks": [
-      { "id": "wh-4", "url": "https://hooks.slack.com/services/T0000/B1111/mobiledev", "events": ["pipeline.failed", "pipeline.success"], "active": true }
+      {
+        "id": "wh-4",
+        "url": "https://hooks.slack.com/services/T0000/B1111/mobiledev",
+        "events": [
+          "pipeline.failed",
+          "pipeline.success"
+        ],
+        "active": true
+      }
     ],
-    "stats": { "total_builds": 233, "success_rate_pct": 91.4, "mean_duration_seconds": 1420 },
+    "stats": {
+      "total_builds": 233,
+      "success_rate_pct": 91.4,
+      "mean_duration_seconds": 1420
+    },
     "branches": [
-      { "name": "main",       "last_commit": "3e5f7a9b1c3d5e7f9a1b3c5d7e9f1a3b5c7d9e1f", "ahead": 0, "behind": 0 },
-      { "name": "feat/login", "last_commit": "6a8c0d2e4f6a8c0e2d4f6a8c0e2d4f6a8c0e2d4f", "ahead": 8, "behind": 0 }
+      {
+        "name": "main",
+        "last_commit": "3e5f7a9b1c3d5e7f9a1b3c5d7e9f1a3b5c7d9e1f",
+        "ahead": 0,
+        "behind": 0
+      },
+      {
+        "name": "feat/login",
+        "last_commit": "6a8c0d2e4f6a8c0e2d4f6a8c0e2d4f6a8c0e2d4f",
+        "ahead": 8,
+        "behind": 0
+      }
+    ],
+    "last_build_status": "queued",
+    "last_build_at": "2026-10-06T11:59:00.000Z",
+    "recent_build_durations": [
+      333,
+      319,
+      326,
+      362,
+      311,
+      343,
+      331,
+      308
+    ],
+    "created_at": "2026-07-08T12:00:00.000Z",
+    "updated_at": "2026-10-06T11:59:00.000Z",
+    "recent_pipelines": [
+      {
+        "id": "pl6",
+        "name": "mobile-ios · feat/login",
+        "status": "queued",
+        "started_at": "2026-10-06T11:59:00.000Z"
+      }
     ]
   }
 ]

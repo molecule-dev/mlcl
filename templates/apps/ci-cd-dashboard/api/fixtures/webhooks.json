@@ -1,5 +1,37 @@
 [
-  { "name": "Slack #releases",     "url": "https://hooks.slack.com/services/T0000/B0000/abcdef", "events": ["pipeline.failed", "deploy.complete"], "active": true,  "last_delivery_status": "success" },
-  { "name": "PagerDuty oncall",    "url": "https://events.pagerduty.com/integration/abc/enqueue", "events": ["pipeline.failed"],                     "active": true,  "last_delivery_status": "success" },
-  { "name": "Internal build feed", "url": "https://example.com/internal/build-feed",            "events": ["pipeline.success", "pipeline.failed"], "active": false, "last_delivery_status": "404"     }
+  {
+    "id": "hook-1",
+    "name": "Slack #releases",
+    "url": "https://hooks.slack.com/services/T0000/B0000/abcdef",
+    "events": [
+      "pipeline.failed",
+      "deploy.complete"
+    ],
+    "active": true,
+    "last_delivery_status": "success",
+    "last_delivery_at": "2026-10-06T11:00:00.000Z"
+  },
+  {
+    "id": "hook-2",
+    "name": "PagerDuty oncall",
+    "url": "https://events.pagerduty.com/integration/abc/enqueue",
+    "events": [
+      "pipeline.failed"
+    ],
+    "active": true,
+    "last_delivery_status": "success",
+    "last_delivery_at": "2026-10-06T11:00:00.000Z"
+  },
+  {
+    "id": "hook-3",
+    "name": "Internal build feed",
+    "url": "https://example.com/internal/build-feed",
+    "events": [
+      "pipeline.success",
+      "pipeline.failed"
+    ],
+    "active": false,
+    "last_delivery_status": "404",
+    "last_delivery_at": "2026-10-06T11:00:00.000Z"
+  }
 ]
