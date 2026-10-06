@@ -1,0 +1,283 @@
+{
+  "dashboard/": {
+    "stats": {
+      "streak_days": 7,
+      "hours_this_week": 5.6,
+      "cards_mastered": 142,
+      "avg_quiz_score": 84
+    },
+    "mastery": {
+      "cards_mastered": 142,
+      "cards_total": 320,
+      "history": [
+        {
+          "date": "2026-09-24",
+          "hours": 0.6
+        },
+        {
+          "date": "2026-09-25",
+          "hours": 0.8
+        },
+        {
+          "date": "2026-09-26",
+          "hours": 0.3
+        },
+        {
+          "date": "2026-09-27",
+          "hours": 1.1
+        },
+        {
+          "date": "2026-09-28",
+          "hours": 0.8
+        },
+        {
+          "date": "2026-09-29",
+          "hours": 1.3
+        },
+        {
+          "date": "2026-09-30",
+          "hours": 0.7
+        }
+      ],
+      "segments": {
+        "mastered": 142,
+        "reviewing": 88,
+        "learning": 62,
+        "not_started": 28
+      }
+    },
+    "recommended": [
+      {
+        "id": "000000t1-0000-4000-8000-000000000001",
+        "title": "Organic chemistry reactions",
+        "subtitle": "Mechanisms, functional groups and named reactions.",
+        "mastery_pct": 62,
+        "material_count": 14,
+        "subject": "sciences",
+        "color": "teal",
+        "to": "/courses/000000t1-0000-4000-8000-000000000001"
+      },
+      {
+        "id": "000000t1-0000-4000-8000-000000000002",
+        "title": "Linear algebra essentials",
+        "subtitle": "Vectors, matrices, eigenvalues and transforms.",
+        "mastery_pct": 48,
+        "material_count": 9,
+        "subject": "math",
+        "color": "indigo",
+        "to": "/courses/000000t1-0000-4000-8000-000000000002"
+      },
+      {
+        "id": "000000t1-0000-4000-8000-000000000003",
+        "title": "World history: 1900 to 1950",
+        "subtitle": "Wars, empires and the shape of the modern map.",
+        "mastery_pct": 81,
+        "material_count": 11,
+        "subject": "humanities",
+        "color": "amber",
+        "to": "/courses/000000t1-0000-4000-8000-000000000003"
+      }
+    ],
+    "review_queue": [
+      {
+        "id": "000000d1-0000-4000-8000-000000000001",
+        "title": "Organic chemistry named reactions",
+        "card_count": 48,
+        "due_count": 12,
+        "last_reviewed_at": "2026-10-05T19:00:00Z"
+      },
+      {
+        "id": "000000d1-0000-4000-8000-000000000002",
+        "title": "Linear algebra definitions",
+        "card_count": 36,
+        "due_count": 9,
+        "last_reviewed_at": "2026-10-05T19:00:00Z"
+      },
+      {
+        "id": "000000d1-0000-4000-8000-000000000003",
+        "title": "Spanish verbs: present and preterite",
+        "card_count": 60,
+        "due_count": 18,
+        "last_reviewed_at": "2026-10-05T19:00:00Z"
+      }
+    ],
+    "timeline": [
+      {
+        "id": "000000l1-0000-4000-8000-000000000001",
+        "created_at": "2026-10-06T08:00:00Z",
+        "topic_title": "Organic chemistry reactions",
+        "cards_reviewed": 24,
+        "ai_messages_count": 6,
+        "session_type": "flashcards"
+      },
+      {
+        "id": "000000l1-0000-4000-8000-000000000002",
+        "created_at": "2026-10-05T19:00:00Z",
+        "topic_title": "Spanish conversation",
+        "cards_reviewed": 30,
+        "ai_messages_count": 2,
+        "session_type": "flashcards"
+      },
+      {
+        "id": "000000l1-0000-4000-8000-000000000003",
+        "created_at": "2026-10-04T20:00:00Z",
+        "topic_title": "Linear algebra essentials",
+        "cards_reviewed": 0,
+        "ai_messages_count": 12,
+        "session_type": "tutor"
+      }
+    ]
+  },
+  "progress/": {
+    "weekly": [
+      {
+        "day": "Mon",
+        "minutes": 35
+      },
+      {
+        "day": "Tue",
+        "minutes": 50
+      },
+      {
+        "day": "Wed",
+        "minutes": 20
+      },
+      {
+        "day": "Thu",
+        "minutes": 65
+      },
+      {
+        "day": "Fri",
+        "minutes": 45
+      },
+      {
+        "day": "Sat",
+        "minutes": 80
+      },
+      {
+        "day": "Sun",
+        "minutes": 40
+      }
+    ],
+    "kpis": {
+      "week_minutes": 335,
+      "avg_mastery": 59,
+      "recall_rate": 82,
+      "streak_days": 7
+    },
+    "overall_mastery": 59,
+    "subject_trends": [
+      {
+        "id": "000000t1-0000-4000-8000-000000000001",
+        "name": "Sciences",
+        "mastery": 62,
+        "delta": 6,
+        "tone": "success"
+      },
+      {
+        "id": "000000t1-0000-4000-8000-000000000002",
+        "name": "Math",
+        "mastery": 48,
+        "delta": -3,
+        "tone": "warning"
+      },
+      {
+        "id": "000000t1-0000-4000-8000-000000000003",
+        "name": "Humanities",
+        "mastery": 81,
+        "delta": 4,
+        "tone": "success"
+      },
+      {
+        "id": "000000t1-0000-4000-8000-000000000004",
+        "name": "Languages",
+        "mastery": 35,
+        "delta": -1,
+        "tone": "warning"
+      }
+    ]
+  },
+  "billing/summary": {
+    "plan": {
+      "key": "free",
+      "label": "Free",
+      "price": "$0",
+      "expires_at": null,
+      "auto_renews": false
+    },
+    "history": []
+  },
+  "billing/tiers": {
+    "data": [
+      {
+        "key": "free",
+        "name": "Free",
+        "prices": [
+          {
+            "period": "month",
+            "price": "$0",
+            "stripePriceId": null
+          }
+        ]
+      },
+      {
+        "key": "pro",
+        "name": "Pro",
+        "prices": [
+          {
+            "period": "month",
+            "price": "$9",
+            "stripePriceId": null
+          },
+          {
+            "period": "year",
+            "price": "$90",
+            "stripePriceId": null,
+            "savings": "Save 17%"
+          }
+        ]
+      }
+    ]
+  },
+  "profile/": {
+    "profile": {
+      "id": "00000000-0000-4000-8000-0000000000aa",
+      "name": "Alex Morgan",
+      "email": "alex@example.com",
+      "initials": "AM",
+      "created_at": "2026-10-01T09:00:00Z",
+      "streak_days": 7
+    },
+    "kpis": {
+      "active_subjects": 5,
+      "total_hours": 48,
+      "quizzes_taken": 12,
+      "decks": 4,
+      "badges_total": 6,
+      "badges_unlocked": 3
+    },
+    "achievements": [
+      {
+        "id": "streak7",
+        "label": "Seven day streak",
+        "description": "Study seven days in a row.",
+        "icon": "local_fire_department",
+        "unlocked": true
+      },
+      {
+        "id": "cards100",
+        "label": "Century of cards",
+        "description": "Master 100 flashcards.",
+        "icon": "style",
+        "unlocked": true
+      },
+      {
+        "id": "quiz90",
+        "label": "Sharp mind",
+        "description": "Score 90% on a quiz.",
+        "icon": "psychology",
+        "unlocked": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "000000d1-0000-4000-8000-000000000001",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Organic chemistry named reactions",
+    "description": "Reagents and products for the 30 reactions on the exam.",
+    "topic_id": "000000t1-0000-4000-8000-000000000001",
+    "card_count": 48,
+    "due_count": 12,
+    "mastery_pct": 62,
+    "created_at": "2026-10-01T09:00:00Z",
+    "updated_at": "2026-10-04T09:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000002",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Linear algebra definitions",
+    "description": "Key terms and theorems with one-line examples.",
+    "topic_id": "000000t1-0000-4000-8000-000000000002",
+    "card_count": 36,
+    "due_count": 9,
+    "mastery_pct": 48,
+    "created_at": "2026-10-02T09:00:00Z",
+    "updated_at": "2026-10-05T09:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000003",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Spanish verbs: present and preterite",
+    "description": "Regular and irregular conjugations.",
+    "topic_id": "000000t1-0000-4000-8000-000000000004",
+    "card_count": 60,
+    "due_count": 18,
+    "mastery_pct": 35,
+    "created_at": "2026-10-03T09:00:00Z",
+    "updated_at": "2026-10-06T09:00:00Z"
+  },
+  {
+    "id": "000000d1-0000-4000-8000-000000000004",
+    "user_id": "00000000-0000-4000-8000-0000000000aa",
+    "name": "Big-O cheat sheet",
+    "description": "Complexity of common operations.",
+    "topic_id": "000000t1-0000-4000-8000-000000000005",
+    "card_count": 24,
+    "due_count": 3,
+    "mastery_pct": 78,
+    "created_at": "2026-10-04T09:00:00Z",
+    "updated_at": "2026-10-07T09:00:00Z"
+  }
+]
