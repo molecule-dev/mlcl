@@ -29,7 +29,7 @@
     "@molecule/api-entitlements": "1.1.0",
     "@molecule/api-i18n": "1.0.3",
     "@molecule/api-image": "1.0.2",
-    "@molecule/api-image-sharp": "1.0.3",
+    "@molecule/api-image-sharp": "1.0.4",
     "@molecule/api-jwt": "1.0.3",
     "@molecule/api-jwt-jsonwebtoken": "1.0.2",
     "@molecule/api-locales-body-parser": "1.0.2",
