@@ -1,0 +1,38 @@
+[
+  {
+    "id": "000000n1-0000-4000-8000-000000000001",
+    "kind": "outbid",
+    "title": "You were outbid",
+    "body": "Someone bid higher on the Omega Seamaster.",
+    "when": "2026-10-06T12:00:00Z",
+    "unread": true,
+    "to": "/auctions"
+  },
+  {
+    "id": "000000n1-0000-4000-8000-000000000002",
+    "kind": "ending",
+    "title": "Ending soon",
+    "body": "The Hobbit first edition ends in under 24 hours.",
+    "when": "2026-10-05T12:00:00Z",
+    "unread": true,
+    "to": "/auctions"
+  },
+  {
+    "id": "000000n1-0000-4000-8000-000000000003",
+    "kind": "won",
+    "title": "Winning bid confirmed",
+    "body": "Congratulations, your bid on the Persian rug won.",
+    "when": "2026-10-04T12:00:00Z",
+    "unread": false,
+    "to": "/auctions"
+  },
+  {
+    "id": "000000n1-0000-4000-8000-000000000004",
+    "kind": "system",
+    "title": "Welcome to Gavl",
+    "body": "Add items to your watchlist to get alerts.",
+    "when": "2026-10-03T12:00:00Z",
+    "unread": false,
+    "to": "/auctions"
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "000000m1-0000-4000-8000-000000000001",
+    "auction_id": "000000a1-0000-4000-8000-000000000001",
+    "title": "1962 Omega Seamaster wristwatch",
+    "category": "Watches",
+    "my_bid_cents": 482000,
+    "current_bid_cents": 482000,
+    "bid_count": 23,
+    "ends_at": "2027-01-14T18:00:00Z",
+    "status": "winning"
+  },
+  {
+    "id": "000000m1-0000-4000-8000-000000000002",
+    "auction_id": "000000a1-0000-4000-8000-000000000002",
+    "title": "Mid-century teak sideboard",
+    "category": "Furniture",
+    "my_bid_cents": 91000,
+    "current_bid_cents": 96000,
+    "bid_count": 11,
+    "ends_at": "2027-01-09T20:00:00Z",
+    "status": "outbid"
+  },
+  {
+    "id": "000000m1-0000-4000-8000-000000000003",
+    "auction_id": "000000a1-0000-4000-8000-000000000003",
+    "title": "First edition: The Hobbit (1937)",
+    "category": "Books",
+    "my_bid_cents": 1250000,
+    "current_bid_cents": 1250000,
+    "bid_count": 41,
+    "ends_at": "2027-01-06T19:00:00Z",
+    "status": "won"
+  },
+  {
+    "id": "000000m1-0000-4000-8000-000000000004",
+    "auction_id": "000000a1-0000-4000-8000-000000000004",
+    "title": "Hand-knotted Persian Heriz rug, 3x4m",
+    "category": "Rugs",
+    "my_bid_cents": 214000,
+    "current_bid_cents": 214000,
+    "bid_count": 16,
+    "ends_at": "2027-02-02T17:00:00Z",
+    "status": "lost"
+  }
+]

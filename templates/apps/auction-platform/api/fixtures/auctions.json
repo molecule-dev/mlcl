@@ -1,0 +1,314 @@
+[
+  {
+    "id": "000000a1-0000-4000-8000-000000000001",
+    "title": "1962 Omega Seamaster wristwatch",
+    "lot": "LOT 0412",
+    "category": "Watches",
+    "description": "Serviced automatic with original dial and a later steel bracelet.",
+    "seller": {
+      "handle": "atelier-nord",
+      "name": "Atelier Nord",
+      "rating": 4.6,
+      "sales": 120
+    },
+    "current_bid_cents": 482000,
+    "bid_count": 23,
+    "bid_increment_cents": 2500,
+    "buy_now_cents": 590000,
+    "ends_at": "2027-01-14T18:00:00Z",
+    "status": "live",
+    "image_url": "https://picsum.photos/seed/gavl-1/960/720",
+    "image_alt": "1962 Omega Seamaster wristwatch",
+    "images": [
+      {
+        "url": "https://picsum.photos/seed/gavl-1/960/720",
+        "alt": "1962 Omega Seamaster wristwatch"
+      }
+    ],
+    "bid_history": [
+      {
+        "id": "000000b1-0000-4000-8000-000000000001",
+        "bidder": "m***a",
+        "amount_cents": 482000,
+        "placed_at": "2026-10-06T18:00:00Z"
+      },
+      {
+        "id": "000000b1-0000-4000-8000-000000000002",
+        "bidder": "j***n",
+        "amount_cents": 479500,
+        "placed_at": "2026-10-05T17:00:00Z"
+      },
+      {
+        "id": "000000b1-0000-4000-8000-000000000003",
+        "bidder": "k***r",
+        "amount_cents": 477000,
+        "placed_at": "2026-10-04T16:00:00Z"
+      }
+    ],
+    "shipping_from": "Geneva, CH",
+    "return_window_days": 14,
+    "reserve_met": true,
+    "is_watched": true,
+    "created_at": "2026-10-01T09:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000002",
+    "title": "Mid-century teak sideboard",
+    "lot": "LOT 0187",
+    "category": "Furniture",
+    "description": "Danish teak with sliding doors and tapered legs. Light wear on the top.",
+    "seller": {
+      "handle": "vintage-lane",
+      "name": "Vintage Lane",
+      "rating": 4.699999999999999,
+      "sales": 157
+    },
+    "current_bid_cents": 96000,
+    "bid_count": 11,
+    "bid_increment_cents": 2500,
+    "buy_now_cents": null,
+    "ends_at": "2027-01-09T20:00:00Z",
+    "status": "live",
+    "image_url": "https://picsum.photos/seed/gavl-2/960/720",
+    "image_alt": "Mid-century teak sideboard",
+    "images": [
+      {
+        "url": "https://picsum.photos/seed/gavl-2/960/720",
+        "alt": "Mid-century teak sideboard"
+      }
+    ],
+    "bid_history": [
+      {
+        "id": "000000b2-0000-4000-8000-000000000001",
+        "bidder": "m***a",
+        "amount_cents": 96000,
+        "placed_at": "2026-10-06T18:00:00Z"
+      },
+      {
+        "id": "000000b2-0000-4000-8000-000000000002",
+        "bidder": "j***n",
+        "amount_cents": 93500,
+        "placed_at": "2026-10-05T17:00:00Z"
+      },
+      {
+        "id": "000000b2-0000-4000-8000-000000000003",
+        "bidder": "k***r",
+        "amount_cents": 91000,
+        "placed_at": "2026-10-04T16:00:00Z"
+      }
+    ],
+    "shipping_from": "Copenhagen, DK",
+    "return_window_days": 14,
+    "reserve_met": true,
+    "is_watched": true,
+    "created_at": "2026-10-02T09:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000003",
+    "title": "First edition: The Hobbit (1937)",
+    "lot": "LOT 0099",
+    "category": "Books",
+    "description": "Second impression in a later dust jacket. Binding tight, foxing to endpapers.",
+    "seller": {
+      "handle": "rare-pages",
+      "name": "Rare Pages",
+      "rating": 4.8,
+      "sales": 194
+    },
+    "current_bid_cents": 1250000,
+    "bid_count": 41,
+    "bid_increment_cents": 10000,
+    "buy_now_cents": null,
+    "ends_at": "2027-01-06T19:00:00Z",
+    "status": "ending",
+    "image_url": "https://picsum.photos/seed/gavl-3/960/720",
+    "image_alt": "First edition: The Hobbit (1937)",
+    "images": [
+      {
+        "url": "https://picsum.photos/seed/gavl-3/960/720",
+        "alt": "First edition: The Hobbit (1937)"
+      }
+    ],
+    "bid_history": [
+      {
+        "id": "000000b3-0000-4000-8000-000000000001",
+        "bidder": "m***a",
+        "amount_cents": 1250000,
+        "placed_at": "2026-10-06T18:00:00Z"
+      },
+      {
+        "id": "000000b3-0000-4000-8000-000000000002",
+        "bidder": "j***n",
+        "amount_cents": 1240000,
+        "placed_at": "2026-10-05T17:00:00Z"
+      },
+      {
+        "id": "000000b3-0000-4000-8000-000000000003",
+        "bidder": "k***r",
+        "amount_cents": 1230000,
+        "placed_at": "2026-10-04T16:00:00Z"
+      }
+    ],
+    "shipping_from": "London, UK",
+    "return_window_days": 14,
+    "reserve_met": true,
+    "is_watched": false,
+    "created_at": "2026-10-03T09:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000004",
+    "title": "Hand-knotted Persian Heriz rug, 3x4m",
+    "lot": "LOT 0233",
+    "category": "Rugs",
+    "description": "Wool pile on cotton foundation, natural dyes, even wear.",
+    "seller": {
+      "handle": "silk-road",
+      "name": "Silk Road Rugs",
+      "rating": 4.8999999999999995,
+      "sales": 231
+    },
+    "current_bid_cents": 214000,
+    "bid_count": 16,
+    "bid_increment_cents": 2500,
+    "buy_now_cents": null,
+    "ends_at": "2027-02-02T17:00:00Z",
+    "status": "live",
+    "image_url": "https://picsum.photos/seed/gavl-4/960/720",
+    "image_alt": "Hand-knotted Persian Heriz rug, 3x4m",
+    "images": [
+      {
+        "url": "https://picsum.photos/seed/gavl-4/960/720",
+        "alt": "Hand-knotted Persian Heriz rug, 3x4m"
+      }
+    ],
+    "bid_history": [
+      {
+        "id": "000000b4-0000-4000-8000-000000000001",
+        "bidder": "m***a",
+        "amount_cents": 214000,
+        "placed_at": "2026-10-06T18:00:00Z"
+      },
+      {
+        "id": "000000b4-0000-4000-8000-000000000002",
+        "bidder": "j***n",
+        "amount_cents": 211500,
+        "placed_at": "2026-10-05T17:00:00Z"
+      },
+      {
+        "id": "000000b4-0000-4000-8000-000000000003",
+        "bidder": "k***r",
+        "amount_cents": 209000,
+        "placed_at": "2026-10-04T16:00:00Z"
+      }
+    ],
+    "shipping_from": "Istanbul, TR",
+    "return_window_days": 14,
+    "reserve_met": true,
+    "is_watched": false,
+    "created_at": "2026-10-04T09:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000005",
+    "title": "Fender Stratocaster, 1978",
+    "lot": "LOT 0551",
+    "category": "Instruments",
+    "description": "All original hardware, refinished neck, includes hard case.",
+    "seller": {
+      "handle": "six-string",
+      "name": "Six String Co",
+      "rating": 4.6,
+      "sales": 268
+    },
+    "current_bid_cents": 365000,
+    "bid_count": 29,
+    "bid_increment_cents": 2500,
+    "buy_now_cents": 420000,
+    "ends_at": "2027-02-11T21:00:00Z",
+    "status": "live",
+    "image_url": "https://picsum.photos/seed/gavl-5/960/720",
+    "image_alt": "Fender Stratocaster, 1978",
+    "images": [
+      {
+        "url": "https://picsum.photos/seed/gavl-5/960/720",
+        "alt": "Fender Stratocaster, 1978"
+      }
+    ],
+    "bid_history": [
+      {
+        "id": "000000b5-0000-4000-8000-000000000001",
+        "bidder": "m***a",
+        "amount_cents": 365000,
+        "placed_at": "2026-10-06T18:00:00Z"
+      },
+      {
+        "id": "000000b5-0000-4000-8000-000000000002",
+        "bidder": "j***n",
+        "amount_cents": 362500,
+        "placed_at": "2026-10-05T17:00:00Z"
+      },
+      {
+        "id": "000000b5-0000-4000-8000-000000000003",
+        "bidder": "k***r",
+        "amount_cents": 360000,
+        "placed_at": "2026-10-04T16:00:00Z"
+      }
+    ],
+    "shipping_from": "Nashville, US",
+    "return_window_days": 14,
+    "reserve_met": true,
+    "is_watched": false,
+    "created_at": "2026-10-05T09:00:00Z"
+  },
+  {
+    "id": "000000a1-0000-4000-8000-000000000006",
+    "title": "Studio ceramic vase by A. Lindqvist",
+    "lot": "LOT 0302",
+    "category": "Ceramics",
+    "description": "Stoneware with a reactive glaze, signed on the base.",
+    "seller": {
+      "handle": "kiln-house",
+      "name": "Kiln House",
+      "rating": 4.699999999999999,
+      "sales": 305
+    },
+    "current_bid_cents": 18500,
+    "bid_count": 6,
+    "bid_increment_cents": 2500,
+    "buy_now_cents": null,
+    "ends_at": "2027-01-28T16:00:00Z",
+    "status": "live",
+    "image_url": "https://picsum.photos/seed/gavl-6/960/720",
+    "image_alt": "Studio ceramic vase by A. Lindqvist",
+    "images": [
+      {
+        "url": "https://picsum.photos/seed/gavl-6/960/720",
+        "alt": "Studio ceramic vase by A. Lindqvist"
+      }
+    ],
+    "bid_history": [
+      {
+        "id": "000000b6-0000-4000-8000-000000000001",
+        "bidder": "m***a",
+        "amount_cents": 18500,
+        "placed_at": "2026-10-06T18:00:00Z"
+      },
+      {
+        "id": "000000b6-0000-4000-8000-000000000002",
+        "bidder": "j***n",
+        "amount_cents": 16000,
+        "placed_at": "2026-10-05T17:00:00Z"
+      },
+      {
+        "id": "000000b6-0000-4000-8000-000000000003",
+        "bidder": "k***r",
+        "amount_cents": 13500,
+        "placed_at": "2026-10-04T16:00:00Z"
+      }
+    ],
+    "shipping_from": "Malmo, SE",
+    "return_window_days": 14,
+    "reserve_met": false,
+    "is_watched": false,
+    "created_at": "2026-10-06T09:00:00Z"
+  }
+]
