@@ -44,6 +44,7 @@
     "@molecule/api-middleware-cookie-parser-express": "1.0.2",
     "@molecule/api-middleware-cors": "1.0.2",
     "@molecule/api-middleware-cors-express": "1.0.2",
+    "@molecule/api-middleware-validation": "1.0.3",
     "@molecule/api-password": "1.0.2",
     "@molecule/api-password-bcrypt": "1.0.3",
     "@molecule/api-payments": "1.2.1",
