@@ -16,6 +16,7 @@
     "format:check": "prettier --check 'src/**/*.ts'"
   },
   "dependencies": {
+    "@molecule/api-activity": "1.0.2",
     "@molecule/api-bond": "1.0.2",
     "@molecule/api-bonds-default-express": "1.1.0",
     "@molecule/api-cache": "1.0.2",
@@ -32,6 +33,7 @@
     "@molecule/api-emails-mailgun": "1.0.7",
     "@molecule/api-entitlements": "1.1.0",
     "@molecule/api-error-tracking": "1.0.3",
+    "@molecule/api-geolocation": "1.0.3",
     "@molecule/api-geolocation-nominatim": "1.0.2",
     "@molecule/api-http": "1.0.2",
     "@molecule/api-http-axios": "1.0.2",
