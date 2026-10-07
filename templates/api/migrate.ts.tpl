@@ -82,7 +82,12 @@ export async function runMigrations(): Promise<void> {
   if (BROWSER_PROFILE) {
     // The same migrations, then the scaffold-time __setup__/ DDL, on the pglite bond's default pool (the
     // one the app is bonded to, so an in-memory database is shared). Needs @molecule/api-database-pglite.
-    const { createMigrator } = await import('@molecule/api-database-pglite')
+    // A variable specifier on purpose: only a browser-profile app installs this package, and a literal
+    // specifier makes tsc demand it from EVERY scaffold (TS2307 broke every new template build).
+    const pglitePackage = '@molecule/api-database-pglite'
+    const { createMigrator } = (await import(pglitePackage)) as {
+      createMigrator: (dir: string) => () => Promise<void>
+    }
     await createMigrator(migrationsDir)()
     if (existsSync(setupDir)) await createMigrator(setupDir)()
     console.log('Migrations complete (PGlite).')
