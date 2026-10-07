@@ -58129,7 +58129,7 @@
       "@molecule/api-audit-file": "1.0.2",
       "@molecule/api-billing-routes": "1.1.2",
       "@molecule/api-bond": "1.0.2",
-      "@molecule/api-bonds-default-express": "1.0.3",
+      "@molecule/api-bonds-default-express": "1.1.0",
       "@molecule/api-breach-check": "1.0.2",
       "@molecule/api-cache": "1.0.2",
       "@molecule/api-cache-memcached": "1.0.3",
@@ -59049,7 +59049,8 @@
       "@molecule/api-text-provenance": "1.0.2",
       "@molecule/api-payments-capture": "1.0.0",
       "@molecule/api-database-pglite": "1.0.0",
-      "@molecule/api-project-archive-external-state-pglite": "1.0.0"
+      "@molecule/api-project-archive-external-state-pglite": "1.0.0",
+      "@molecule/api-http-relay": "1.0.0"
     }
   }
 }
