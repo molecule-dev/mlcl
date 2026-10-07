@@ -1505,5 +1505,267 @@ server.registerTool(
   }),
 )
 
+// ── Operate a running project — wrappers over the mlcl CLI's cloud surfaces.
+//    Every tool takes the project id (from list_projects) and requires login;
+//    the read/list surfaces print human-readable text (no --json flag there),
+//    which is what an agent wants anyway. ──
+
+server.registerTool(
+  'deploy_project',
+  {
+    title: 'Deploy a molecule.dev project',
+    description:
+      "Ship a project to production — the same pipeline as the IDE's Deploy button. Follows the deploy until it finishes and returns the outcome with the live URL; a full deploy takes minutes. Requires login.",
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+    },
+  },
+  tracked('deploy_project', async ({ project_id }) =>
+    text(await runCli(['deploy', '--project', project_id, '--follow'])),
+  ),
+)
+
+server.registerTool(
+  'deploy_status',
+  {
+    title: "Check a project's latest deploy",
+    description:
+      'The latest deploy of a project and its state (building / live / failed). See also list_deploys and cancel_deploy. Requires login.',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+    },
+  },
+  tracked('deploy_status', async ({ project_id }) =>
+    text(await runCli(['deploy', 'status', '--project', project_id])),
+  ),
+)
+
+server.registerTool(
+  'list_deploys',
+  {
+    title: "List a project's deploys",
+    description: 'Recent deploys of a project, newest first. Requires login.',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+    },
+  },
+  tracked('list_deploys', async ({ project_id }) =>
+    text(await runCli(['deploy', 'list', '--project', project_id])),
+  ),
+)
+
+server.registerTool(
+  'cancel_deploy',
+  {
+    title: 'Cancel a running deploy',
+    description: 'Abort one of a project\u2019s deploys. Requires login.',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+      deployment_id: z.string().describe('The deployment id (from list_deploys)'),
+    },
+  },
+  tracked('cancel_deploy', async ({ project_id, deployment_id }) =>
+    text(
+      await runCli(['deploy', 'cancel', '--project', project_id, '--deployment', deployment_id]),
+    ),
+  ),
+)
+
+server.registerTool(
+  'sandbox_status',
+  {
+    title: "Check a project's sandbox",
+    description:
+      "The project sandbox's state (running / hibernating / stopped) and resources. See also sandbox_start / sandbox_stop / sandbox_restart / sandbox_exec. Requires login.",
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+    },
+  },
+  tracked('sandbox_status', async ({ project_id }) =>
+    text(await runCli(['sandbox', 'status', '--project', project_id])),
+  ),
+)
+
+server.registerTool(
+  'sandbox_start',
+  {
+    title: 'Start a project sandbox',
+    description: 'Boot the project sandbox (no-op if already running). Requires login.',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+    },
+  },
+  tracked('sandbox_start', async ({ project_id }) =>
+    text(await runCli(['sandbox', 'start', '--project', project_id])),
+  ),
+)
+
+server.registerTool(
+  'sandbox_stop',
+  {
+    title: 'Stop a project sandbox',
+    description: 'Hibernate the project sandbox. Requires login.',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+    },
+  },
+  tracked('sandbox_stop', async ({ project_id }) =>
+    text(await runCli(['sandbox', 'stop', '--project', project_id])),
+  ),
+)
+
+server.registerTool(
+  'sandbox_restart',
+  {
+    title: 'Restart a project sandbox',
+    description: 'Restart the project sandbox (a fresh boot of the same volume). Requires login.',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+    },
+  },
+  tracked('sandbox_restart', async ({ project_id }) =>
+    text(await runCli(['sandbox', 'restart', '--project', project_id])),
+  ),
+)
+
+server.registerTool(
+  'sandbox_exec',
+  {
+    title: 'Run a command in the project sandbox',
+    description:
+      'Execute a shell command inside the running project sandbox (e.g. "npm test", "cat package.json") and return its output. Requires login.',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+      command: z.string().describe('The command to run, e.g. "npm test"'),
+    },
+  },
+  tracked('sandbox_exec', async ({ project_id, command }) =>
+    text(await runCli(['sandbox', 'exec', '--project', project_id, command])),
+  ),
+)
+
+server.registerTool(
+  'project_logs',
+  {
+    title: "Read a project's runtime logs",
+    description:
+      'Recent runtime logs of the deployed project (the deployed app\u2019s stdout). Requires login.',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+      lines: z.number().int().min(1).max(1000).optional().describe('How many lines (default 100)'),
+    },
+  },
+  tracked('project_logs', async ({ project_id, lines }) => {
+    const args = ['logs', '--project', project_id, '--tail', String(lines ?? 100)]
+    return text(await runCli(args))
+  }),
+)
+
+server.registerTool(
+  'db_info',
+  {
+    title: "Inspect a project's cloud database",
+    description:
+      "The project database's connection info and settings. See also db_tables / db_query / db_backup. Requires login.",
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+    },
+  },
+  tracked('db_info', async ({ project_id }) =>
+    text(await runCli(['db', 'info', '--project', project_id])),
+  ),
+)
+
+server.registerTool(
+  'db_tables',
+  {
+    title: "List a project database's tables",
+    description: 'The tables of the project database. Requires login.',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+    },
+  },
+  tracked('db_tables', async ({ project_id }) =>
+    text(await runCli(['db', 'tables', '--project', project_id])),
+  ),
+)
+
+server.registerTool(
+  'db_query',
+  {
+    title: 'Query a project database',
+    description:
+      'Run a SQL statement (SELECT) against the project database and return the rows as JSON. Requires login.',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+      sql: z.string().describe('The SQL statement, e.g. "select * from users limit 10"'),
+    },
+  },
+  tracked('db_query', async ({ project_id, sql }) =>
+    text(await runCli(['db', 'query', '--project', project_id, sql])),
+  ),
+)
+
+server.registerTool(
+  'domain_list',
+  {
+    title: "List a project's custom domains",
+    description:
+      'Custom domains with their DNS state and certificates. See also domain_add / domain_verify / domain_remove. Requires login.',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+    },
+  },
+  tracked('domain_list', async ({ project_id }) =>
+    text(await runCli(['domain', 'list', '--project', project_id])),
+  ),
+)
+
+server.registerTool(
+  'domain_add',
+  {
+    title: 'Add a custom domain to a project',
+    description:
+      'Register a custom domain and learn the DNS records to set. Follow with domain_verify. Requires login.',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+      domain: z.string().describe('The domain, e.g. app.example.com'),
+    },
+  },
+  tracked('domain_add', async ({ project_id, domain }) =>
+    text(await runCli(['domain', 'add', domain, '--project', project_id])),
+  ),
+)
+
+server.registerTool(
+  'domain_verify',
+  {
+    title: "Verify a project's custom domain",
+    description: 'Check the domain\u2019s DNS records and issue its certificate. Requires login.',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+      domain: z.string().describe('The domain to verify'),
+    },
+  },
+  tracked('domain_verify', async ({ project_id, domain }) =>
+    text(await runCli(['domain', 'verify', domain, '--project', project_id])),
+  ),
+)
+
+server.registerTool(
+  'domain_remove',
+  {
+    title: 'Remove a custom domain',
+    description: 'Detach a custom domain from the project. Requires login.',
+    inputSchema: {
+      project_id: z.string().describe('molecule.dev project id'),
+      domain: z.string().describe('The domain to remove'),
+    },
+  },
+  tracked('domain_remove', async ({ project_id, domain }) =>
+    text(await runCli(['domain', 'rm', domain, '--project', project_id])),
+  ),
+)
+
 /** The configured server — exported so tests can link an in-memory client to it. */
 export { server as moleculeServer }
