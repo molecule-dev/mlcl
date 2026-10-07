@@ -1435,6 +1435,12 @@
         "getProvider",
         "hasProvider",
         "requireProvider",
+        "EmbeddingTask",
+        "EmbeddingInputType",
+        "EmbeddingModality",
+        "EmbedMediaSource",
+        "EmbedContentInput",
+        "EmbedContentParams",
         "EmbedParams",
         "EmbeddingUsage",
         "EmbeddingResult",
@@ -1457,6 +1463,109 @@
         "semantic similarity",
         "embedding api",
         "embedding model"
+      ]
+    },
+    "@molecule/api-ai-embeddings-embeddinggemma": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-embeddings",
+      "label": "EmbeddingGemma 2",
+      "description": "EmbeddingGemma 2 ai-embeddings provider for molecule.dev — Google's open (Apache-2.0) multimodal embedding model run in-process via Transformers.js (ONNX): text, images and audio in one 768-d space, task prefixes applied for you, Matryoshka 512/256/128",
+      "stack": "api",
+      "implements": "@molecule/api-ai-embeddings",
+      "exports": [
+        "MATRYOSHKA_DIMENSIONS",
+        "truncateEmbedding",
+        "AUDIO_SAMPLE_RATE",
+        "DecodedAudio",
+        "unwrapMediaSource",
+        "readMediaBytes",
+        "decodeWav",
+        "resample",
+        "loadAudio",
+        "applyTaskPrefix",
+        "isEmbeddingTask",
+        "EMBEDDINGGEMMA_DEFAULT_MODEL",
+        "createProvider",
+        "provider",
+        "EmbeddingGemmaDtype",
+        "EmbeddingGemmaDevice",
+        "EmbeddingGemmaDimensions",
+        "EmbeddingGemmaModality",
+        "EmbeddingGemmaConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@huggingface/transformers",
+        "@molecule/api-ai-embeddings"
+      ],
+      "path": "packages/api/bonds/ai-embeddings/embeddinggemma",
+      "moleculePeers": [
+        "@molecule/api-ai-embeddings"
+      ],
+      "egressHosts": [
+        "*.hf.co",
+        "huggingface.co"
+      ],
+      "intentHints": [
+        "embeddinggemma",
+        "embedding gemma",
+        "open source multimodal embeddings",
+        "local image embeddings",
+        "multilingual embeddings",
+        "code embeddings"
+      ]
+    },
+    "@molecule/api-ai-embeddings-gemini": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-embeddings",
+      "label": "Gemini API",
+      "description": "Gemini API ai-embeddings provider for molecule.dev — hosted gemini-embedding-2: text, images, audio and video in one vector space (REST via fetch, zero dependencies)",
+      "stack": "api",
+      "implements": "@molecule/api-ai-embeddings",
+      "exports": [
+        "applyTaskPrefix",
+        "isEmbeddingTask",
+        "GEMINI_EMBEDDINGS_DEFAULT_BASE_URL",
+        "GEMINI_EMBEDDINGS_DEFAULT_MODEL",
+        "GeminiEmbeddingsError",
+        "createProvider",
+        "provider",
+        "aiEmbeddingsGeminiSecretDefinitions",
+        "GeminiEmbeddingsConfig"
+      ],
+      "secrets": [
+        {
+          "name": "GOOGLE_AI_API_KEY",
+          "required": true,
+          "label": "Google AI (Gemini) API key",
+          "setupUrl": "https://aistudio.google.com/apikey",
+          "instructions": "Create a Gemini API key in Google AI Studio.",
+          "example": "AIza..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-embeddings",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-embeddings/gemini",
+      "moleculePeers": [
+        "@molecule/api-ai-embeddings",
+        "@molecule/api-secrets"
+      ],
+      "egressHosts": [
+        "generativelanguage.googleapis.com"
+      ],
+      "intentHints": [
+        "gemini embeddings",
+        "gemini-embedding-2",
+        "multimodal embeddings",
+        "image embeddings",
+        "video embeddings",
+        "audio embeddings"
       ]
     },
     "@molecule/api-ai-embeddings-local": {
@@ -59050,7 +59159,9 @@
       "@molecule/api-payments-capture": "1.0.0",
       "@molecule/api-database-pglite": "1.0.0",
       "@molecule/api-project-archive-external-state-pglite": "1.0.0",
-      "@molecule/api-http-relay": "1.0.0"
+      "@molecule/api-http-relay": "1.0.0",
+      "@molecule/api-ai-embeddings-embeddinggemma": "1.0.0",
+      "@molecule/api-ai-embeddings-gemini": "1.0.0"
     }
   }
 }
