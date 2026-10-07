@@ -42,19 +42,42 @@ const CLI = process.env.MOLECULE_MCP_CLI ?? 'mlcl'
 
 async function runCli(args: string[], cwd?: string): Promise<string> {
   if (cwd && !existsSync(cwd)) throw new Error(`mlcl ${args[0]}: directory does not exist: ${cwd}`)
-  const { stdout, failed, stderr, originalMessage } = await execa(CLI, args, {
-    cwd,
-    reject: false,
-    // The CLI's interactive confirms read stdin; spawned from the server, an
-    // execa-default stdin is an open pipe nothing writes — a `Yes / No` prompt
-    // would wait forever (add_package hung 10 min this way). 'ignore' makes
-    // mlcl take its non-interactive defaults instead.
-    stdin: 'ignore',
-    timeout: 10 * 60_000,
-  })
+  let stdout: string
+  let failed: boolean
+  let stderr: string
+  let originalMessage: string | undefined
+  try {
+    ;({ stdout, failed, stderr, originalMessage } = await execa(CLI, args, {
+      cwd,
+      reject: false,
+      // The CLI's interactive confirms read stdin; spawned from the server, an
+      // execa-default stdin is an open pipe nothing writes — a `Yes / No` prompt
+      // would wait forever (add_package hung 10 min this way). 'ignore' makes
+      // mlcl take its non-interactive defaults instead.
+      stdin: 'ignore',
+      timeout: 10 * 60_000,
+    }))
+  } catch (error) {
+    // execa rejects on a spawn failure even with reject:false — a missing CLI
+    // must read as the fixable setup step it is, not `spawn mlcl ENOENT`.
+    if ((error as { code?: string }).code === 'ENOENT') {
+      throw new Error(
+        `The mlcl CLI was not found on PATH. Install it with \`npm install -g mlcl\` (then run \`mlcl login\` for cloud tools), or point MOLECULE_MCP_CLI at its entry script.`,
+      )
+    }
+    throw error
+  }
   if (failed) {
     const detail =
       stderr.trim() || stdout.trim() || originalMessage || `mlcl ${args.join(' ')} failed`
+    // With reject:false execa resolves a spawn failure (ENOENT) as a failed
+    // result, originalMessage carrying `spawn mlcl ENOENT` — a missing CLI
+    // must read as the fixable setup step it is.
+    if (/ENOENT/.test(detail)) {
+      throw new Error(
+        `The mlcl CLI was not found on PATH. Install it with \`npm install -g mlcl\` (then run \`mlcl login\` for cloud tools), or point MOLECULE_MCP_CLI at its entry script.`,
+      )
+    }
     throw new Error(detail)
   }
   return stdout
