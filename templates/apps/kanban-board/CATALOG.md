@@ -13,7 +13,7 @@ Trello-like boards with lists, cards, labels, drag-drop, and real-time collabora
 
 `auth`, `realtime`, `drag-drop`, `labels`, `comments`
 
-## Data model (17 domain tables)
+## Data model (18 domain tables)
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
@@ -34,6 +34,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **notifications** — id, user_id, type, title, body, data, read_at, created_at
 - **resource_tags** — id, tagId, resourceType, resourceId, createdAt
 - **tags** — id, name, slug, color, description, createdAt, updatedAt
+- **payments** — id, createdAt, updatedAt, userId, transactionId, productId, platformKey, data, receipt
 
 ## API surface (handlers)
 

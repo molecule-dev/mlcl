@@ -85,6 +85,8 @@
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
+    "@molecule/api-database-pglite": "1.0.0",
+    "@molecule/api-payments-capture": "1.0.0",
     "@types/express": "5.0.6",
     "@types/node": "26.1.2",
     "@types/pg": "8.20.0",

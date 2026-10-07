@@ -3,13 +3,16 @@ import { resolveAll } from '@molecule/api-secrets'
 import { registerRealtimeJoinGuard } from '../lib/realtime-guard.js'
 import { setupEntitlements } from '../tiers.js'
 import { setupConfigEnv } from './config-env.js'
+import { setupDatabasePglite } from './database-pglite.js'
 import { setupDatabasePostgresql } from './database-postgresql.js'
+import { setupEmailsCapture } from './emails-capture.js'
 import { setupEmailsMailgun } from './emails-mailgun.js'
 import { setupJwtJsonwebtoken } from './jwt-jsonwebtoken.js'
 import { setupMiddlewareBodyParserExpress } from './middleware-body-parser-express.js'
 import { setupMiddlewareCookieParserExpress } from './middleware-cookie-parser-express.js'
 import { setupMiddlewareCorsExpress } from './middleware-cors-express.js'
 import { setupPasswordBcrypt } from './password-bcrypt.js'
+import { setupPaymentsCapture } from './payments-capture.js'
 import { setupPaymentsStripe } from './payments-stripe.js'
 import { setupRateLimitMemory } from './rate-limit-memory.js'
 import { setupRealtimeSocketio } from './realtime-socketio.js'
@@ -49,12 +52,21 @@ export async function setupBonds(): Promise<void> {
   setupServiceDevice()
   setupServicePayment()
   setupConfigEnv()
-  setupDatabasePostgresql()
-  setupEmailsMailgun()
+  if (process.env.MOL_BOND_PROFILE === 'browser') {
+    // Zero-server profile (no Postgres, no network credentials): in-process
+    // Postgres (PGlite), captured emails, and simulated payments answering to
+    // 'stripe'. Same app code; scripts/migrate.ts switches its migrator too.
+    await setupDatabasePglite()
+    setupEmailsCapture()
+    await setupPaymentsCapture()
+  } else {
+    setupDatabasePostgresql()
+    setupEmailsMailgun()
+    setupPaymentsStripe()
+  }
   setupMiddlewareBodyParserExpress()
   setupMiddlewareCookieParserExpress()
   setupMiddlewareCorsExpress()
-  setupPaymentsStripe()
   setupRealtimeSocketio()
   // Guard per-board realtime rooms: without an onJoinRequest guard the realtime
   // core lets any client join any `board:<id>` room by name (a realtime IDOR).
