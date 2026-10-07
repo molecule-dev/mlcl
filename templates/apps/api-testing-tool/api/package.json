@@ -28,7 +28,6 @@
     "@molecule/api-encryption": "1.1.1",
     "@molecule/api-encryption-aes": "1.1.1",
     "@molecule/api-entitlements": "1.1.0",
-    "@molecule/api-error-tracking": "1.0.3",
     "@molecule/api-http": "1.0.2",
     "@molecule/api-http-fetch": "1.0.2",
     "@molecule/api-i18n": "1.0.3",

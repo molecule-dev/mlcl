@@ -36,7 +36,6 @@
     "@molecule/api-emails": "1.0.2",
     "@molecule/api-emails-mailgun": "1.0.7",
     "@molecule/api-entitlements": "1.1.0",
-    "@molecule/api-error-tracking": "1.0.3",
     "@molecule/api-i18n": "1.0.3",
     "@molecule/api-import-export": "1.0.3",
     "@molecule/api-import-export-csv": "1.0.2",
