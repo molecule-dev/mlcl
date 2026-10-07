@@ -1152,6 +1152,68 @@
         "api.typesafe.ai"
       ]
     },
+    "@molecule/api-ai-decisions-kev": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-decisions",
+      "label": "Kev",
+      "description": "Kev decisions provider for molecule.dev — typed choice/score/yes-no answers from the open-weights Kev models (Qwen-based, 0.8B–27B) on your own kev.serve host",
+      "stack": "api",
+      "implements": "@molecule/api-ai-decisions",
+      "exports": [
+        "DEFAULT_KEV_URL",
+        "DEFAULT_KEV_MODEL",
+        "DEFAULT_KEV_MAX_OPTIONS",
+        "DEFAULT_KEV_TIMEOUT_MS",
+        "createProvider",
+        "provider",
+        "aiDecisionsKevSecretDefinitions",
+        "KevConfig",
+        "WireQuestion",
+        "WireAnswer",
+        "WireResponse",
+        "toWireQuestions",
+        "fromWireAnswer",
+        "fromWireResponse",
+        "PostOptions",
+        "postSystemOne"
+      ],
+      "secrets": [
+        {
+          "name": "KEV_URL",
+          "required": false,
+          "label": "Kev server URL",
+          "setupUrl": "https://github.com/jaredpalmer/kev#readme",
+          "instructions": "The base URL of your kev.serve host (clone github.com/jaredpalmer/kev, uv sync --extra serve, then uv run --extra serve python -m kev.serve --run jaredpalmer/kev-4b@v1.0). Defaults to http://localhost:8008.",
+          "example": "http://localhost:8008"
+        },
+        {
+          "name": "KEV_API_KEY",
+          "required": false,
+          "label": "Kev server API key",
+          "setupUrl": "https://github.com/jaredpalmer/kev#readme",
+          "instructions": "The bearer token your kev.serve host requires, if you set KEV_API_KEY on the server.",
+          "example": "a-long-random-string"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-decisions",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-decisions",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-decisions/kev",
+      "intentHints": [
+        "kev",
+        "kev decision model",
+        "kev serve",
+        "self-hosted kev",
+        "jaredpalmer kev"
+      ]
+    },
     "@molecule/api-ai-decisions-laya": {
       "language": "typescript",
       "runtime": "node",
