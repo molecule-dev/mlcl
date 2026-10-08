@@ -11,6 +11,7 @@ import { join } from 'path'
 import pg from 'pg'
 import { fileURLToPath } from 'url'
 
+import { createMigratorPglite } from '@molecule/api-bonds-default-express'
 import { deriveSsl } from '@molecule/api-database-postgresql'
 
 /**
@@ -50,7 +51,51 @@ function resolveDatabaseUrl(): string {
   process.exit(1)
 }
 
-const DATABASE_URL = resolveDatabaseUrl()
+/**
+ * Redact credentials from a connection string before logging it. CI and
+ * deploy logs are retained and read broadly, and the connect-failure hint
+ * below is the one place the URL would otherwise reach them. Keeps the
+ * protocol, username, host and database name — the parts that make the
+ * hint diagnosable — and drops everything after the password marker.
+ */
+function redactDatabaseUrl(raw: string): string {
+  try {
+    const url = new URL(raw)
+    const userInfo = url.username ? `${url.username}:***@` : ''
+    return `${url.protocol}//${userInfo}${url.host}${url.pathname}`
+  } catch (_error) {
+    // Not a parseable URL — say so without echoing any part of it.
+    return '(unparseable DATABASE_URL)'
+  }
+}
+
+/**
+ * Whether a failed migration query is safe to continue past. Re-running a
+ * migration whose objects already exist fails the file with a duplicate_*
+ * pg error code (42P07 table, 42710 object, 42P06 schema) — and ONLY those
+ * codes are benign here. Any other failure (a syntax error, a missing
+ * permission, a mid-file error: each file runs as ONE query, so the whole
+ * file rolled back) must fail the run — reporting success and exiting 0 on a
+ * broken schema ships the failure to runtime as a "relation does not exist"
+ * far from the cause.
+ */
+function isBenignMigrationError(err: unknown): boolean {
+  const code = typeof err === 'object' && err !== null && 'code' in err ? err.code : undefined
+  return code === '42P07' || code === '42710' || code === '42P06'
+}
+
+// MOL_BOND_PROFILE=browser runs the app on in-process PGlite (no Postgres server, no DATABASE_URL): the
+// migrations below are applied to that database instead (see runMigrations). The MIGRATE_PGLITE scaffold flag
+// is substituted by mlcl with `true` only when the app's api manifest declares
+// @molecule/api-database-pglite (either dependency key) — every other app gets `false`, so the
+// browser branch below is unreachable code instead of an ERR_MODULE_NOT_FOUND crash waiting on an
+// env var. When the manifest declares PGlite but NOT @molecule/api-database-postgresql, mlcl also strips the
+// whole Postgres machinery at render time: PGlite is then the app's only database, so the runner
+// migrates it in every profile (the gate renders as a bare `true` and no `pg` / postgres-bond
+// import remains for a swap to prune).
+const BROWSER_PROFILE = false
+
+const DATABASE_URL = BROWSER_PROFILE ? '' : resolveDatabaseUrl()
 const migrationsDir = join(new URL('.', import.meta.url).pathname, '../../migrations')
 // `__setup__/` is populated at scaffold time from registry-known table SQL
 // (see mlcl scaffold.ts copySqlSetupScripts) so resource packages bring
@@ -63,7 +108,7 @@ const setupDir = join(new URL('.', import.meta.url).pathname, '../../__setup__')
 // operator opt-out (DATABASE_SSL_REJECT_UNAUTHORIZED=false / sslmode=no-verify),
 // with PGSSLROOTCERT supported for private-CA managed providers. Reusing the
 // bond helper keeps the secure default in one place for every scaffolded app.
-const sslConfig = deriveSsl(DATABASE_URL)
+const sslConfig = BROWSER_PROFILE ? false : deriveSsl(DATABASE_URL)
 
 // Extract database name from URL
 let dbName = 'myapp'
@@ -74,6 +119,16 @@ try {
 }
 
 export async function runMigrations(): Promise<void> {
+  if (BROWSER_PROFILE) {
+    // The same migrations, then the scaffold-time __setup__/ DDL (a missing directory counts as
+    // empty), on the pglite bond's default pool — the one the app is bonded to, so an in-memory
+    // database is shared. createMigratorPglite keeps the lazy @molecule/api-database-pglite import
+    // behind its optional peer, so tsc never demands the package from non-browser scaffolds.
+    await createMigratorPglite(migrationsDir, setupDir)()
+    console.log('Migrations complete (PGlite).')
+    return
+  }
+
   // Step 1: Try to create the database (connects to 'postgres' db as admin)
   try {
     const adminUrl = new URL(DATABASE_URL)
@@ -112,7 +167,7 @@ export async function runMigrations(): Promise<void> {
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err)
     console.error(`✗ Could not connect to database: ${msg}`)
-    console.error(`  Check DATABASE_URL in .env: ${DATABASE_URL}`)
+    console.error(`  Check DATABASE_URL in .env: ${redactDatabaseUrl(DATABASE_URL)}`)
     throw err
   }
 
@@ -129,9 +184,14 @@ export async function runMigrations(): Promise<void> {
         await client.query(sql)
         console.log(`✓ ${file}`)
       } catch (err) {
+        // IF NOT EXISTS objects that already exist fail with a duplicate_*
+        // code — that re-run is benign and the run continues. Everything
+        // else fails the run (see isBenignMigrationError): a swallowed
+        // failure here used to print "Migrations complete." and exit 0 with
+        // the schema broken.
+        if (!isBenignMigrationError(err)) throw err
         const msg = err instanceof Error ? err.message : String(err)
-        // IF NOT EXISTS tables are idempotent — log but don't fail
-        console.warn(`⚠ ${file}: ${msg}`)
+        console.warn(`⚠ ${file}: ${msg} (already applied — continuing)`)
       }
     }
   }
