@@ -59272,7 +59272,8 @@
       "@molecule/api-http-relay": "1.0.0",
       "@molecule/api-ai-embeddings-embeddinggemma": "1.0.0",
       "@molecule/api-ai-embeddings-gemini": "1.0.0",
-      "@molecule/api-ai-decisions-kev": "1.0.0"
+      "@molecule/api-ai-decisions-kev": "1.0.0",
+      "@molecule/api-push-notifications-molecule": "1.1.0"
     }
   }
 }
