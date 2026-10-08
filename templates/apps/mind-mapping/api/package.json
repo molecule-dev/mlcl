@@ -64,6 +64,7 @@
     "@molecule/api-queue": "1.0.2",
     "@molecule/api-queue-memory": "1.0.3",
     "@molecule/api-rate-limit": "1.0.3",
+    "@molecule/api-rate-limit-memory": "1.0.2",
     "@molecule/api-realtime": "1.0.3",
     "@molecule/api-realtime-socketio": "1.0.3",
     "@molecule/api-resource": "1.0.2",

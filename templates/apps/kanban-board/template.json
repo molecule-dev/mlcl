@@ -5,6 +5,7 @@
   "type": "full-stack",
   "framework": "react",
   "packages": [
+    "@molecule/api-database-pglite",
     "@molecule/api-database-postgresql",
     "@molecule/api-resource-user",
     "@molecule/api-resource-comment",
@@ -17,6 +18,7 @@
     "@molecule/app-realtime-socketio",
     "@molecule/app-keyboard-shortcuts-hotkeys",
     "@molecule/api-resource-payment",
+    "@molecule/api-payments-capture",
     "@molecule/api-payments-stripe",
     "@molecule/api-entitlements",
     "@molecule/api-email-templates",

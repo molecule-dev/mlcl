@@ -12,6 +12,7 @@ import { fileURLToPath } from 'url'
 
 import pg from 'pg'
 
+import { createMigratorPglite } from '@molecule/api-bonds-default-express'
 import { deriveSsl } from '@molecule/api-database-postgresql'
 
 /**
@@ -52,8 +53,12 @@ function resolveDatabaseUrl(): string {
 }
 
 // MOL_BOND_PROFILE=browser runs the app on in-process PGlite (no Postgres server, no DATABASE_URL): the
-// migrations below are applied to that database instead (see runMigrations).
-const BROWSER_PROFILE = process.env.MOL_BOND_PROFILE === 'browser'
+// migrations below are applied to that database instead (see runMigrations). {{MIGRATE_PGLITE}} is
+// substituted by mlcl (migrate-runner.ts) with `true` only when the app's api manifest declares
+// @molecule/api-database-pglite as a production dependency — every other app gets `false`, so the
+// browser branch below is unreachable code instead of an ERR_MODULE_NOT_FOUND crash waiting on an
+// env var. Production deploys prune devDependencies, so a devDependencies-only pin is NOT enough.
+const BROWSER_PROFILE = {{MIGRATE_PGLITE}} && process.env.MOL_BOND_PROFILE === 'browser'
 
 const DATABASE_URL = BROWSER_PROFILE ? '' : resolveDatabaseUrl()
 const migrationsDir = join(new URL('.', import.meta.url).pathname, '../../migrations')
@@ -80,16 +85,11 @@ try {
 
 export async function runMigrations(): Promise<void> {
   if (BROWSER_PROFILE) {
-    // The same migrations, then the scaffold-time __setup__/ DDL, on the pglite bond's default pool (the
-    // one the app is bonded to, so an in-memory database is shared). Needs @molecule/api-database-pglite.
-    // A variable specifier on purpose: only a browser-profile app installs this package, and a literal
-    // specifier makes tsc demand it from EVERY scaffold (TS2307 broke every new template build).
-    const pglitePackage = '@molecule/api-database-pglite'
-    const { createMigrator } = (await import(pglitePackage)) as {
-      createMigrator: (dir: string) => () => Promise<void>
-    }
-    await createMigrator(migrationsDir)()
-    if (existsSync(setupDir)) await createMigrator(setupDir)()
+    // The same migrations, then the scaffold-time __setup__/ DDL (a missing directory counts as
+    // empty), on the pglite bond's default pool — the one the app is bonded to, so an in-memory
+    // database is shared. createMigratorPglite keeps the lazy @molecule/api-database-pglite import
+    // behind its optional peer, so tsc never demands the package from non-browser scaffolds.
+    await createMigratorPglite(migrationsDir, setupDir)()
     console.log('Migrations complete (PGlite).')
     return
   }

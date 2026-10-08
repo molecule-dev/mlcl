@@ -31,6 +31,7 @@ import { collectSecrets } from './features.js'
 import { sortImportStatements } from './format.js'
 import type { InferredMetadata } from './infer.js'
 import { injectLogo } from './logo-injector.js'
+import { readMigrateRunner, readMigrateRunnerForManifest } from './migrate-runner.js'
 import {
   detectAppFramework,
   getMoleculeVersion,
@@ -2291,11 +2292,14 @@ export async function copyTemplateInstance(
     // and silently skip resource-package DDL we just dropped above. By
     // re-emitting from the template at scaffold time, every fresh smoke-
     // app picks up new mechanics in the .tpl without us having to re-poll
-    // every frozen template copy.
+    // every frozen template copy. The render carries the template's own
+    // manifest decision: the browser-profile (PGlite) branch is emitted
+    // reachable only when the api manifest declares the pglite bond as a
+    // production dependency.
     const migrateScriptPath = join(apiPathForSetup, 'src', 'scripts', 'migrate.ts')
     if (existsSync(migrateScriptPath)) {
       try {
-        const fresh = await loadTemplate('api/migrate.ts.tpl')
+        const fresh = await readMigrateRunnerForManifest(apiPathForSetup)
         await writeFile(migrateScriptPath, fresh)
       } catch (err) {
         const msg = err instanceof Error ? err.message : String(err)
@@ -2928,10 +2932,10 @@ export async function createApiProject(
     await loadTemplate('api/bonds-index.ts.tpl'),
   )
   await writeFile(join(projectPath, 'src', 'server.ts'), await loadTemplate('api/server.ts.tpl'))
-  await writeFile(
-    join(projectPath, 'src', 'scripts', 'migrate.ts'),
-    await loadTemplate('api/migrate.ts.tpl'),
-  )
+  // `false` for the PGlite flag: this skeleton's package selection is not known
+  // yet, and injecting database packages later regenerates the runner through
+  // readMigrateRunner() with the real selection.
+  await writeFile(join(projectPath, 'src', 'scripts', 'migrate.ts'), await readMigrateRunner([]))
   await writeFile(
     join(projectPath, 'eslint.config.js'),
     await loadTemplate('shared/eslint.config.js.tpl'),
