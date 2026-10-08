@@ -146,6 +146,11 @@ function renderPostgresSections(raw: string, include: boolean): string {
  * resolution, CREATE DATABASE, the SQL steps) is stripped and the gate renders
  * as a bare `true`, because PGlite is that app's only database — a swapped-in
  * PGlite must not keep importing a PostgreSQL bond the swap just removed.
+ * The section decision keys on the PostgreSQL declaration itself, never on
+ * "is this PGlite-only": a manifest declaring NEITHER database gets the
+ * machinery stripped too, so the emitted runner imports no `pg` /
+ * postgresql-bond package the manifest does not declare (the module doc's
+ * rule — emit the machinery only when the manifest declares the bond).
  *
  * @param raw - Template source, `{{…}}` placeholders intact.
  * @param render - What the target manifest declares.
@@ -160,7 +165,7 @@ export function renderMigrateRunner(raw: string, render: MigrateRunnerRender): s
   // verbatim, so their lint gate fails on the user's first `npm run lint`).
   const profileGate =
     pgliteOnly || !render.pgliteDeclared ? '' : " && process.env.MOL_BOND_PROFILE === 'browser'"
-  return renderPostgresSections(raw, !pgliteOnly)
+  return renderPostgresSections(raw, postgresMachinery)
     .replaceAll('{{MIGRATE_PGLITE}}', render.pgliteDeclared ? 'true' : 'false')
     .replaceAll('{{MIGRATE_PROFILE_GATE}}', profileGate)
 }

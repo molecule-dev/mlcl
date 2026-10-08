@@ -37,14 +37,29 @@
  *
  * The failure-semantics tests pin the runner's per-file catches — the
  * migrations loop AND the `__setup__/*.sql` replay: only already-applied
- * duplicate_* pg codes may continue; every other failure must fail `db:setup`
- * instead of exiting 0 over a broken schema (the __setup__ swallow used to do
- * exactly that: one warn line, boot green, resource tables missing, and every
- * request to them 500s with "relation does not exist").
+ * idempotency failures may continue, and the recognized class is the BOND
+ * migrator's whole one (its IDEMPOTENT_PG_CODES plus message fallback —
+ * duplicate columns and the 42P16 "multiple primary keys" re-run included).
+ * The predicate used to whitelist three codes while the frozen delegates it
+ * replaced called the bond's `createMigrator`, so the first restart against a
+ * persistent database raised 42701/42P16, `runMigrations()` threw before the
+ * server could listen, and the app crash-looped. A drift guard reads the
+ * bond's own list so the two implementations cannot diverge again. Every
+ * other failure must fail `db:setup` instead of exiting 0 over a broken
+ * schema (the __setup__ swallow used to do exactly that: one warn line, boot
+ * green, resource tables missing, and every request to them 500s with
+ * "relation does not exist").
+ *
+ * The admin-lifecycle tests pin the step-1 connection: a failed pg_database
+ * probe or CREATE DATABASE (role without CREATEDB, a duplicate-database race
+ * between two booting replicas) must still close the admin socket — an open
+ * one kept the Node event loop alive, so `npm run db:setup` hung forever at
+ * exit right after printing "Migrations complete."
  *
  * @module
  */
 
+import { existsSync } from 'node:fs'
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -61,6 +76,27 @@ import {
   syncMigrateRunner,
 } from '../migrate-runner.js'
 import { getMoleculeVersion, loadRegistry } from '../registry.js'
+
+/**
+ * The PostgreSQL bond's migrator — the implementation this template's
+ * predicate must stay aligned with (see the failure-semantics tests). Only
+ * present in a workspace checkout; mlcl-only clones skip the drift guard.
+ */
+const BOND_MIGRATOR_SOURCE = join(
+  import.meta.dirname,
+  '..',
+  '..',
+  '..',
+  '..',
+  'molecule',
+  'packages',
+  'api',
+  'bonds',
+  'database',
+  'postgresql',
+  'src',
+  'migrator.ts',
+)
 
 let dir: string | null = null
 afterEach(async () => {
@@ -84,6 +120,24 @@ async function readManifest(): Promise<{
   devDependencies?: Record<string, string>
 }> {
   return JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8'))
+}
+
+/**
+ * Execute the RENDERED `isBenignMigrationError` — the exact code a scaffold
+ * ships, not a copy. `new Function` parses plain JS, so only the signature's
+ * type annotations are dropped; the body (and its inlined idempotency-code
+ * set) runs verbatim.
+ */
+async function renderedIsBenign(): Promise<(err: unknown) => boolean> {
+  const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
+  const source = runner.match(/function isBenignMigrationError[\s\S]*?\n}/)?.[0]
+  expect(source).toBeDefined()
+  expect(source).toContain('function isBenignMigrationError(err: unknown): boolean {')
+  const jsSource = source!.replace(
+    'function isBenignMigrationError(err: unknown): boolean {',
+    'function isBenignMigrationError(err) {',
+  )
+  return new Function(`${jsSource}; return isBenignMigrationError`)() as (err: unknown) => boolean
 }
 
 describe('migrateTemplateFor', () => {
@@ -140,6 +194,19 @@ describe('renderMigrateRunner', () => {
       { pgliteDeclared: false, postgresDeclared: true },
     )
     expect(runner).toBe('a\npg\nb\nderiveSsl\nc')
+  })
+
+  it('strips the Postgres machinery when NEITHER database is declared', () => {
+    // The section decision keys on the PostgreSQL declaration itself, not on
+    // "is this PGlite-only" — with both flags false the old
+    // `renderPostgresSections(raw, !pgliteOnly)` KEPT the machinery, emitting
+    // `pg` / deriveSsl imports a manifest declaring neither bond cannot
+    // resolve (TS2307 / ERR_MODULE_NOT_FOUND on a real install).
+    const runner = renderMigrateRunner(
+      "a\n{{#MIGRATE_POSTGRES}}\nimport pg from 'pg'\n{{/MIGRATE_POSTGRES}}\nb",
+      { pgliteDeclared: false, postgresDeclared: false },
+    )
+    expect(runner).toBe('a\nb')
   })
 })
 
@@ -435,26 +502,34 @@ describe('migration failure semantics', () => {
     expect(attempted).toHaveLength(1)
   })
 
-  it('isBenignMigrationError whitelists only the duplicate_* pg codes', async () => {
-    const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
-    const source = runner.match(/function isBenignMigrationError[\s\S]*?\n}/)?.[0]
-    expect(source).toBeDefined()
-    // Execute the RENDERED helper — the exact code a scaffold ships, not a
-    // copy. new Function parses plain JS, so drop only the signature type
-    // annotations; the body runs verbatim.
-    expect(source).toContain('function isBenignMigrationError(err: unknown): boolean {')
-    const jsSource = source!.replace(
-      'function isBenignMigrationError(err: unknown): boolean {',
-      'function isBenignMigrationError(err) {',
-    )
-    const isBenign = new Function(`${jsSource}; return isBenignMigrationError`)() as (
-      err: unknown,
-    ) => boolean
-    // Re-running an already-applied object: duplicate table / object /
-    // schema — the benign re-run class, logged and skipped.
-    for (const code of ['42P07', '42710', '42P06']) {
-      expect(isBenign(Object.assign(new Error('already exists'), { code }))).toBe(true)
+  it('isBenignMigrationError recognizes the whole idempotency re-run class a second boot raises', async () => {
+    const isBenign = await renderedIsBenign()
+    // Every boot re-runs every migration file, so an already-applied file
+    // fails again — and that class is wider than duplicate objects: a bare
+    // ADD COLUMN re-run raises 42701, and an already-applied
+    // ADD CONSTRAINT ... PRIMARY KEY raises 42P16 (Postgres checks the
+    // has-a-primary-key rule BEFORE the constraint name, so the pg_dump shape
+    // most schemas ship reports "multiple primary keys", not 42710). The old
+    // three-code whitelist let the run rethrow those, and the boot-time
+    // caller awaits runMigrations() before listen() — status-page,
+    // accounting-invoicing, applicant-tracking and weather-dashboard started
+    // once, then crash-looped forever against a persistent database.
+    for (const [code, message] of [
+      ['42P07', 'relation "payments" already exists'],
+      ['42701', 'column "seats" of relation "users" already exists'],
+      ['42710', 'type "plan_tier" already exists'],
+      ['42P06', 'schema "analytics" already exists'],
+      ['42P04', 'database "myapp" already exists'],
+      ['42723', 'function update_totals() already exists with same argument types'],
+      ['42P16', 'multiple primary keys for table "alert_preferences" are not allowed'],
+    ] as const) {
+      expect(isBenign(Object.assign(new Error(message), { code }))).toBe(true)
     }
+    // Message fallback (same three shapes the bond migrator matches): a
+    // hand-written migration that wraps the pg error keeps its phrasing.
+    expect(isBenign(new Error('ALTER TABLE: relation "statuses" already exists'))).toBe(true)
+    expect(isBenign(new Error('duplicate column name "currency"'))).toBe(true)
+    expect(isBenign(new Error('multiple primary keys for table "t" are not allowed'))).toBe(true)
     // Everything else must fail the run: a SQL syntax error, a permission
     // denial — and a non-pg error with no code at all (or a bare string).
     expect(
@@ -462,6 +537,9 @@ describe('migration failure semantics', () => {
     ).toBe(false)
     expect(
       isBenign(Object.assign(new Error('password authentication failed'), { code: '28P01' })),
+    ).toBe(false)
+    expect(
+      isBenign(Object.assign(new Error('permission denied for schema public'), { code: '42501' })),
     ).toBe(false)
     expect(isBenign(new Error('ECONNREFUSED 127.0.0.1:5432'))).toBe(false)
     expect(isBenign('42P07')).toBe(false)
@@ -471,6 +549,122 @@ describe('migration failure semantics', () => {
     expect(await readMigrateRunner(['@molecule/api-database-pglite'])).not.toContain(
       'isBenignMigrationError',
     )
+  })
+
+  it.runIf(existsSync(BOND_MIGRATOR_SOURCE))(
+    'never drifts narrower than the bond migrator’s IDEMPOTENT_PG_CODES',
+    async () => {
+      // The scaffold renders THIS template over the frozen delegates to the
+      // bond's createMigrator, so the two implementations of the same
+      // predicate must agree: a code the bond treats as idempotent but this
+      // helper rethrew is exactly how 42701/42P16 boot-looped the fleet. Read
+      // the bond's own list and probe the rendered helper with each of its
+      // codes (mlcl-only clones without the sibling repo skip this test).
+      const isBenign = await renderedIsBenign()
+      const bond = await readFile(BOND_MIGRATOR_SOURCE, 'utf-8')
+      const block = bond.match(/const IDEMPOTENT_PG_CODES = new Set\(\[([\s\S]*?)\]\)/)?.[1]
+      expect(block).toBeDefined()
+      const codes = [...block!.matchAll(/'([0-9A-Z]{5})'/g)].map((m) => m[1])
+      // The scan must actually read the bond's list, or the guard is vacuous.
+      expect(codes.length).toBeGreaterThanOrEqual(7)
+      for (const code of codes) {
+        // The message is deliberately inert — this probes the code path only.
+        expect(isBenign(Object.assign(new Error(`probe ${code}`), { code }))).toBe(true)
+      }
+    },
+  )
+})
+
+describe('admin connection lifecycle', () => {
+  /**
+   * Execute the RENDERED step-1 block (the exact code a scaffold ships): the
+   * pg.Client, DATABASE_URL, sslConfig, dbName and console it closes over are
+   * injected; the declaration's one TS annotation is stripped the same way
+   * the predicate's signature is, and the body runs verbatim.
+   */
+  async function runStep1(stub: {
+    connect: () => Promise<void>
+    query: (sql: string) => Promise<unknown>
+    end: () => Promise<void>
+  }): Promise<{ logs: string[]; warns: string[]; clients: Array<{ ends: number }> }> {
+    const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
+    const start = runner.indexOf('// Step 1: Try to create the database')
+    const end = runner.indexOf('// Step 2: Run migrations')
+    expect(start).toBeGreaterThan(-1)
+    expect(end).toBeGreaterThan(start)
+    const step1 = runner
+      .slice(start, end)
+      .replace('let adminClient: pg.Client | null = null', 'let adminClient = null')
+    expect(step1).not.toContain(': pg.Client')
+    const clients: Array<{ ends: number }> = []
+    class StubAdminClient {
+      ends = 0
+      constructor() {
+        clients.push(this)
+      }
+      connect = stub.connect
+      query = stub.query
+      end = async (): Promise<void> => {
+        this.ends++
+        await stub.end()
+      }
+    }
+    const logs: string[] = []
+    const warns: string[] = []
+    const run = new Function(
+      'pg',
+      'DATABASE_URL',
+      'sslConfig',
+      'dbName',
+      'console',
+      `return (async () => {\n${step1}\n})()`,
+    ) as (...args: unknown[]) => Promise<void>
+    await run({ Client: StubAdminClient }, 'postgres://db.example.com:5432/myapp', false, 'myapp', {
+      log: (m: string) => logs.push(m),
+      warn: (m: string) => warns.push(m),
+    })
+    return { logs, warns, clients }
+  }
+
+  it('closes the admin connection when the CREATE DATABASE probe fails — db:setup must still exit', async () => {
+    // The probe failure paths (the role lacks CREATEDB; a 42P04
+    // duplicate-database race between two simultaneously booting replicas)
+    // warn and continue — but the OPEN SOCKET kept the Node event loop alive,
+    // so `npm run db:setup` hung forever after printing "Migrations
+    // complete.", and every server boot left one idle connection behind.
+    const { warns, clients } = await runStep1({
+      connect: async () => {},
+      query: () =>
+        Promise.reject(
+          Object.assign(new Error('permission denied to create database'), { code: '42501' }),
+        ),
+      end: async () => {},
+    })
+    expect(warns.some((w) => w.includes('Could not auto-create database'))).toBe(true)
+    expect(clients[0]?.ends).toBe(1)
+  })
+
+  it('survives a failed connect() with an end() that has nothing to close', async () => {
+    // Worst case: connect() itself fails and pg's end() rejects too. The
+    // cleanup is guarded, so step 1 still resolves (warn + continue) instead
+    // of throwing a SECOND error over the one already reported.
+    const { warns, clients } = await runStep1({
+      connect: () => Promise.reject(new Error('ECONNREFUSED 127.0.0.1:5432')),
+      query: async () => {},
+      end: () => Promise.reject(new Error('Connection terminated')),
+    })
+    expect(warns.some((w) => w.includes('Could not auto-create database'))).toBe(true)
+    expect(clients).toHaveLength(1)
+  })
+
+  it('still closes the admin connection on the happy path', async () => {
+    const { logs, clients } = await runStep1({
+      connect: async () => {},
+      query: (sql: string) => Promise.resolve(sql.startsWith('SELECT') ? { rows: [] } : undefined),
+      end: async () => {},
+    })
+    expect(logs).toContain("✓ Created database 'myapp'")
+    expect(clients[0]?.ends).toBe(1)
   })
 })
 
