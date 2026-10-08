@@ -5868,13 +5868,16 @@ export async function copySqlSetupScripts(
     }
   }
 
-  // The migration runner `mlcl inject` just wrote (custom builds — the
-  // --template fast path never reaches this call) statically imports its
-  // PGlite migrator from @molecule/api-bonds-default-express; declare that
-  // package so a real install resolves it and `tsc`/`db:setup` work outside
-  // this hoisted workspace. No-op for database-less builds (no runner) and
-  // idempotent for manifests that already declare it. This runs after the
-  // inject step in the create flow, so the runner on disk is the final one.
+  // The migration runner statically imports its PGlite migrator from
+  // @molecule/api-bonds-default-express; declare that package so a real
+  // install resolves it and `tsc`/`db:setup` work outside this hoisted
+  // workspace. Both paths here carry such a runner: the custom create flow
+  // runs this AFTER `mlcl inject` wrote the runner (so the runner on disk is
+  // the final one), and the --template fast path (copyTemplateInstance) calls
+  // this BEFORE re-rendering the runner from migrate.ts.tpl — which declares
+  // the import again itself, so the order there is not load-bearing. No-op
+  // for database-less builds (no runner) and idempotent for manifests that
+  // already declare it.
   await ensureMigrateRunnerImports(projectPath)
 }
 
