@@ -587,6 +587,45 @@ describe('synthesizeProjectFiles', () => {
     expect(migrate!.content).not.toContain('@molecule/api-database-mysql')
   })
 
+  it('renders migrate.ts from the target manifest ∪ the injected list — one injected database never erases a declared one', async () => {
+    // `mlcl add @molecule/api-database-pglite --inject` into an existing
+    // Postgres project: add writes the pglite dep into the api manifest
+    // BEFORE the handoff, then runs `inject --molecule
+    // @molecule/api-database-pglite` — so the injector's list is that ONE
+    // package while the manifest still declares the project's real database.
+    // Rendering from the list alone shipped a PGlite-only runner that
+    // silently stopped migrating Postgres (and the reverse injection
+    // dead-gated a browser-profile app's only database).
+    const postgresProject = await mkdtemp(join(tmpdir(), 'mlcl-injector-manifest-'))
+    try {
+      await writeFile(
+        join(postgresProject, 'package.json'),
+        JSON.stringify({
+          dependencies: {
+            '@molecule/api-database-postgresql': '1.0.5',
+            '@molecule/api-database-pglite': '1.0.0',
+          },
+        }),
+      )
+      const files = await synthesizeProjectFiles(
+        [userPlan],
+        ['@molecule/api-database-pglite', '@molecule/api-database'],
+        postgresProject,
+        registryPackages,
+      )
+
+      const migrate = files.find((f) => f.targetPath.endsWith('scripts/migrate.ts'))
+      expect(migrate).toBeDefined()
+      // The dual runner: the manifest's Postgres machinery is kept…
+      expect(migrate!.content).toContain("import pg from 'pg'")
+      expect(migrate!.content).toContain('CREATE DATABASE')
+      // …and the injected PGlite's browser branch is reachable, not dead-gated.
+      expect(migrate!.content).toContain('true && process.env.MOL_BOND_PROFILE')
+    } finally {
+      await rm(postgresProject, { recursive: true, force: true })
+    }
+  })
+
   it('generates bonds/index.ts', async () => {
     const oauthPlan = {
       ...userPlan,

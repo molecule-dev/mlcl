@@ -1879,9 +1879,14 @@ export function setupEntitlements(): void {
     (p) => p.molecule?.category === 'database' && allMolecules.includes(p.name),
   )
   if (hasDatabase) {
-    // The runner matching the chosen database provider — `mlcl swap` rewrites
-    // it through the same helper when the database changes.
-    const migrateContent = await readMigrateRunner(allMolecules)
+    // The runner matching the project's databases — `mlcl swap` rewrites it
+    // through the same helper when the database changes. Rendered from the
+    // project's own manifest (union the injected list): every inject flow
+    // finds a manifest that already declares the injected packages AND the
+    // project's earlier ones, so injecting one database into a project that
+    // declares another keeps the dual runner instead of silently re-rendering
+    // for the injected database alone.
+    const migrateContent = await readMigrateRunner(allMolecules, projectPath)
     files.push({
       action: 'create',
       targetPath: join(projectPath, 'src', 'scripts', 'migrate.ts'),
