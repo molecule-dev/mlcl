@@ -1562,14 +1562,10 @@
         "@huggingface/transformers",
         "@molecule/api-ai-embeddings"
       ],
-      "path": "packages/api/bonds/ai-embeddings/embeddinggemma",
       "moleculePeers": [
         "@molecule/api-ai-embeddings"
       ],
-      "egressHosts": [
-        "*.hf.co",
-        "huggingface.co"
-      ],
+      "path": "packages/api/bonds/ai-embeddings/embeddinggemma",
       "intentHints": [
         "embeddinggemma",
         "embedding gemma",
@@ -1577,6 +1573,10 @@
         "local image embeddings",
         "multilingual embeddings",
         "code embeddings"
+      ],
+      "egressHosts": [
+        "*.hf.co",
+        "huggingface.co"
       ]
     },
     "@molecule/api-ai-embeddings-gemini": {
@@ -1613,14 +1613,11 @@
         "@molecule/api-ai-embeddings",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/ai-embeddings/gemini",
       "moleculePeers": [
         "@molecule/api-ai-embeddings",
         "@molecule/api-secrets"
       ],
-      "egressHosts": [
-        "generativelanguage.googleapis.com"
-      ],
+      "path": "packages/api/bonds/ai-embeddings/gemini",
       "intentHints": [
         "gemini embeddings",
         "gemini-embedding-2",
@@ -1628,6 +1625,9 @@
         "image embeddings",
         "video embeddings",
         "audio embeddings"
+      ],
+      "egressHosts": [
+        "generativelanguage.googleapis.com"
       ]
     },
     "@molecule/api-ai-embeddings-local": {
@@ -3655,6 +3655,189 @@
       "egressHosts": [
         "*.pinecone.io",
         "api.pinecone.io"
+      ]
+    },
+    "@molecule/api-ai-video-generation": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "ai-video-generation",
+      "label": "Ai Video Generation",
+      "description": "AI video-generation core interface — generate short video clips with audio from text prompts and first-frame images, job-based, via swappable providers.",
+      "stack": "api",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "requireProvider",
+        "VideoCameraMotion",
+        "VideoGenerateParams",
+        "VideoJob",
+        "VideoJobState",
+        "VideoJobError",
+        "VideoJobResult",
+        "VideoJobStatus",
+        "VideoUpscaleParams",
+        "AIVideoGenerationProvider",
+        "AIVideoGenerationConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond"
+      ],
+      "path": "packages/api/core/ai-video-generation",
+      "moleculePeers": [
+        "@molecule/api-bond"
+      ],
+      "intentHints": [
+        "ai video generation",
+        "text to video",
+        "video generation api",
+        "image to video",
+        "generate video clips",
+        "video with audio generation",
+        "video synthesis backend"
+      ]
+    },
+    "@molecule/api-ai-video-generation-kandinsky": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-video-generation",
+      "label": "Kandinsky",
+      "description": "Kandinsky 6.0 video generation provider for molecule.dev — self-hosted open-weight text/image-to-video-with-audio over a vLLM-Omni server's /v1/videos API",
+      "stack": "api",
+      "implements": "@molecule/api-ai-video-generation",
+      "exports": [
+        "KANDINSKY_6_LITE_DISTILL_MODEL",
+        "KANDINSKY_6_DEFAULT_SIZE",
+        "KANDINSKY_6_FPS",
+        "KANDINSKY_6_DISTILL_STEPS",
+        "KANDINSKY_6_DISTILL_GUIDANCE_SCALE",
+        "KANDINSKY_6_DIMENSION_MULTIPLE",
+        "isKandinskyDistilled",
+        "kandinskyDimension",
+        "framesForDuration",
+        "DEFAULT_TIMEOUT_MS",
+        "KandinskyVideoError",
+        "createProvider",
+        "provider",
+        "aiVideoGenerationKandinskySecretDefinitions",
+        "KandinskyVideoGenerationConfig"
+      ],
+      "secrets": [
+        {
+          "name": "KANDINSKY_BASE_URL",
+          "required": true,
+          "label": "Kandinsky server URL",
+          "setupUrl": "https://github.com/kandinskylab/kandinsky-6",
+          "instructions": "The base URL of your own vLLM-Omni server serving Kandinsky 6.0 (started with vllm serve kandinskylab/Kandinsky-6.0-… --omni --port <port>), without the /v1 path.",
+          "example": "http://localhost:8091"
+        },
+        {
+          "name": "KANDINSKY_API_KEY",
+          "required": false,
+          "label": "Kandinsky API key",
+          "setupUrl": "https://github.com/vllm-project/vllm-omni",
+          "instructions": "Only if your vLLM-Omni server is started with an API key; sent as a Bearer token. Leave unset for a server without auth.",
+          "example": "my-server-key"
+        },
+        {
+          "name": "KANDINSKY_MODEL",
+          "required": false,
+          "label": "Kandinsky model id",
+          "setupUrl": "https://huggingface.co/kandinskylab",
+          "instructions": "The checkpoint your vLLM-Omni server serves. Defaults to kandinskylab/Kandinsky-6.0-Lite-distill-5s-Diffusers.",
+          "example": "kandinskylab/Kandinsky-6.0-Lite-distill-5s-Diffusers"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-video-generation",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-video-generation/kandinsky",
+      "moleculePeers": [
+        "@molecule/api-ai-video-generation",
+        "@molecule/api-secrets"
+      ],
+      "intentHints": [
+        "kandinsky",
+        "kandinsky 6",
+        "kandinsky video",
+        "open weights video generation",
+        "self-hosted video generation",
+        "vllm-omni videos",
+        "text to video with audio self-hosted"
+      ]
+    },
+    "@molecule/api-ai-video-generation-ltx": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-video-generation",
+      "label": "LTX (hosted)",
+      "description": "LTX video generation provider for molecule.dev — Lightricks' hosted LTX-2.5/LTX-2.3 text/image-to-video-with-audio over the async V2 job API",
+      "stack": "api",
+      "implements": "@molecule/api-ai-video-generation",
+      "exports": [
+        "DEFAULT_BASE_URL",
+        "DEFAULT_MODEL",
+        "DEFAULT_RESOLUTION",
+        "LTX_MODELS",
+        "LTX_CAMERA_MOTIONS",
+        "DEFAULT_TIMEOUT_MS",
+        "LtxVideoError",
+        "createProvider",
+        "provider",
+        "aiVideoGenerationLtxSecretDefinitions",
+        "LtxVideoGenerationConfig"
+      ],
+      "secrets": [
+        {
+          "name": "LTXV_API_KEY",
+          "required": true,
+          "label": "LTX API key",
+          "setupUrl": "https://console.ltx.video",
+          "instructions": "Create one in the LTX developer console (console.ltx.video); sent as a Bearer token on every request. This is the env-var name the LTX docs themselves use.",
+          "example": "ltx-..."
+        },
+        {
+          "name": "LTX_MODEL",
+          "required": false,
+          "label": "LTX model id",
+          "setupUrl": "https://docs.ltx.io/models",
+          "instructions": "One of ltx-2-5-fast, ltx-2-5-pro, ltx-2-3-fast, ltx-2-3-pro. Defaults to ltx-2-5-fast.",
+          "example": "ltx-2-5-fast"
+        },
+        {
+          "name": "LTX_BASE_URL",
+          "required": false,
+          "label": "LTX API base URL",
+          "setupUrl": "https://docs.ltx.io",
+          "instructions": "Override only for a broker or compatible endpoint. Defaults to https://api.ltx.io.",
+          "example": "https://api.ltx.io"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-video-generation",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-video-generation/ltx",
+      "moleculePeers": [
+        "@molecule/api-ai-video-generation",
+        "@molecule/api-secrets"
+      ],
+      "intentHints": [
+        "ltx",
+        "ltx-2",
+        "ltx video",
+        "lightricks video",
+        "hosted text to video",
+        "hosted video generation",
+        "video with audio hosted api"
+      ],
+      "egressHosts": [
+        "api.ltx.io"
       ]
     },
     "@molecule/api-ai-workflow-engine": {
