@@ -3170,7 +3170,8 @@ Resources exporting 'authorization': include verifyMiddleware as no-op middlewar
 Middleware packages (type: middleware): Proxy returning no-op middleware for any export.
 OAuth provider packages (implements @molecule/api-oauth): mock with testMock data below.
 ${testMockInstructions}
-Other packages: mock as empty object.`,
+Other packages: mock every camelCase registry export as vi.fn() — never an empty object
+(module-scope calls like expectBond() crash on import against an empty mock).`,
   )
 }
 
@@ -3262,7 +3263,21 @@ function generateMoleculeViMocksHeuristic(
       lines.push(`  get: () => () => (_req: unknown, _res: unknown, next: () => void) => next(),`)
       lines.push(`}))`)
     } else {
-      lines.push(`vi.mock('${pkg}', () => ({}))`)
+      // Registry-driven surface for every other package: a module-scope call
+      // into an empty `{}` mock crashes the test on import. Core packages call
+      // `expectBond(type)` at module scope (see @molecule/api-bond), and the
+      // migration runner's typed-wrapper import pulls such cores into the
+      // smoke test's module graph — the scaffold's own suite then died on
+      // `No "expectBond" export is defined on the "@molecule/api-bond" mock`.
+      // Mock each registry export (camelCase values; type exports carry no
+      // runtime surface) as a vi.fn() instead.
+      const camelExports = (registry.packages[pkg]?.exports ?? []).filter(
+        (e: string) => /^[a-z]/.test(e) && e !== 'default' && !e.endsWith('Schema'),
+      )
+      const entries = camelExports.map((e: string) => `  ${e}: vi.fn(),`).join('\n')
+      lines.push(`vi.mock('${pkg}', () => ({`)
+      if (entries) lines.push(entries)
+      lines.push(`}))`)
     }
     lines.push('')
   }
@@ -3303,6 +3318,14 @@ async function generateServerSmokeTest(
 // Mock bonds to avoid requiring real connections
 vi.mock('../bonds/index.js', () => ({
   setupBonds: vi.fn(),
+}))
+
+// Mock the migration runner: server.ts imports it at module scope, and the
+// runner's typed-wrapper import (@molecule/api-bonds-default-express) would
+// otherwise drag every provider bond's module graph — and its module-scope
+// bond calls — into this smoke test.
+vi.mock('../scripts/migrate.js', () => ({
+  runMigrations: vi.fn(),
 }))
 
 // Mock middleware to avoid loading @molecule/* middleware packages
