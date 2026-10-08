@@ -18,6 +18,18 @@
  * re-render the runner PGlite-only instead of keeping imports of the
  * PostgreSQL bond the swap removed.
  *
+ * The union tests pin the render-input contract end to end: the runner is
+ * rendered from what the target manifest declares (either dependency key —
+ * `mlcl swap` writes the new database into the key the old one occupied) PLUS
+ * the injected list, never from the injected list alone — `mlcl add
+ * @molecule/api-database-pglite --inject` into a Postgres project used to ship
+ * a PGlite-only runner that silently stopped migrating the real database, and
+ * the reverse injection dead-gated a browser-profile app's only database.
+ *
+ * The coverage test pins MIGRATE_RUNNER_PROVIDERS against the registry: a
+ * database provider missing from it (D1 was) strands the old runner's imports
+ * on swap — TS2307 / ERR_MODULE_NOT_FOUND on a real install.
+ *
  * @module
  */
 
@@ -30,13 +42,14 @@ import { afterEach, describe, expect, it } from 'vitest'
 import {
   ensureMigrateRunnerImports,
   manifestDeclaresPglite,
+  MIGRATE_RUNNER_PROVIDERS,
   migrateTemplateFor,
   readMigrateRunner,
   readMigrateRunnerForManifest,
   renderMigrateRunner,
   syncMigrateRunner,
 } from '../migrate-runner.js'
-import { getMoleculeVersion } from '../registry.js'
+import { getMoleculeVersion, loadRegistry } from '../registry.js'
 
 let dir: string | null = null
 afterEach(async () => {
@@ -66,6 +79,14 @@ describe('migrateTemplateFor', () => {
     expect(migrateTemplateFor(['@molecule/api-database-postgresql'])).toBe('api/migrate.ts.tpl')
     // PGlite shares the Postgres runner — its browser branch is the PGlite half.
     expect(migrateTemplateFor(['@molecule/api-database-pglite'])).toBe('api/migrate.ts.tpl')
+    // D1 has no filesystem migrator on Workers — an out-of-band guidance
+    // runner, never one that opens a local driver.
+    expect(migrateTemplateFor(['@molecule/api-database-d1'])).toBe('api/migrate-outofband.ts.tpl')
+    // …and it wins even next to a declared server database: a D1 project must
+    // not run the SQLite/Postgres runner against a Workers binding.
+    expect(migrateTemplateFor(['@molecule/api-database-d1', '@molecule/api-database-sqlite'])).toBe(
+      'api/migrate-outofband.ts.tpl',
+    )
   })
 })
 
@@ -183,16 +204,22 @@ describe('readMigrateRunner PGlite gating', () => {
     await writeManifest({ '@molecule/api-database-pglite': '1.0.0' })
     // PGlite declared, Postgres not → PGlite-only runner.
     expect(await readMigrateRunnerForManifest(dir)).toContain('const BROWSER_PROFILE = true\n')
-    // A devDependencies-only pin still counts as not declared.
+    // A devDependencies pin counts too: `mlcl swap` (applyBondSwap) writes the
+    // new database into the SAME dep key the old one occupied, which can be
+    // devDependencies — a production-only reader would see NEITHER database
+    // and keep the imports of the very bond the swap just removed.
     await writeFile(
       join(dir, 'package.json'),
-      JSON.stringify({ devDependencies: { '@molecule/api-database-pglite': '1.0.0' } }),
+      JSON.stringify({
+        dependencies: { '@molecule/api-database-pglite': '1.0.0' },
+        devDependencies: { '@molecule/api-database-postgresql': '1.0.5' },
+      }),
     )
-    expect(await readMigrateRunnerForManifest(dir)).toContain(
-      'false && process.env.MOL_BOND_PROFILE',
-    )
-    // Both declared → the dual-profile runner (Postgres machinery + reachable
-    // browser branch), the shape the flagship templates ship.
+    const mixed = await readMigrateRunnerForManifest(dir)
+    expect(mixed).toContain("import pg from 'pg'")
+    expect(mixed).toContain('true && process.env.MOL_BOND_PROFILE')
+    // Both in dependencies → the dual-profile runner (Postgres machinery +
+    // reachable browser branch), the shape the flagship templates ship.
     await writeManifest({
       '@molecule/api-database-pglite': '1.0.0',
       '@molecule/api-database-postgresql': '1.0.5',
@@ -200,6 +227,34 @@ describe('readMigrateRunner PGlite gating', () => {
     const both = await readMigrateRunnerForManifest(dir)
     expect(both).toContain('true && process.env.MOL_BOND_PROFILE')
     expect(both).toContain("import pg from 'pg'")
+  })
+
+  it('renders from the manifest ∪ injected list — one injected database never erases a declared one', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
+    // `mlcl add @molecule/api-database-pglite --inject` into an existing
+    // Postgres project: the manifest already declares postgresql (add wrote
+    // the new dep before inject runs), while the injector's list is the one
+    // injected package. The runner must stay dual-profile — rendering it from
+    // the list alone shipped a PGlite-only runner that silently stopped
+    // migrating the real database.
+    await writeManifest({ '@molecule/api-database-postgresql': '1.0.5' })
+    const addPglite = await readMigrateRunner(['@molecule/api-database-pglite'], dir)
+    expect(addPglite).toContain("import pg from 'pg'")
+    expect(addPglite).toContain('CREATE DATABASE')
+    expect(addPglite).toContain('true && process.env.MOL_BOND_PROFILE')
+    // The reverse — injecting PostgreSQL into a PGlite-only (browser-profile)
+    // project — must keep the browser branch reachable: a dead gate made boot
+    // resolve DATABASE_URL on a database the app does not use and exit(1).
+    await writeManifest({ '@molecule/api-database-pglite': '1.0.0' })
+    const addPostgres = await readMigrateRunner(['@molecule/api-database-postgresql'], dir)
+    expect(addPostgres).toContain('true && process.env.MOL_BOND_PROFILE')
+    expect(addPostgres).toContain("import pg from 'pg'")
+    // No manifest to read (a fresh selection) → the list is the whole truth,
+    // exactly as before: PGlite alone still renders the PGlite-only runner.
+    await rm(join(dir, 'package.json'), { force: true })
+    const fresh = await readMigrateRunner(['@molecule/api-database-pglite'], dir)
+    expect(fresh).toContain('const BROWSER_PROFILE = true\n')
+    expect(fresh).not.toContain("import pg from 'pg'")
   })
 
   it('keeps a declaring project’s branch across a Postgres re-swap', async () => {
@@ -370,6 +425,43 @@ describe('syncMigrateRunner', () => {
     )
   })
 
+  it('follows a swap whose old database sat in devDependencies', async () => {
+    const project = await projectWithRunner('@molecule/api-database-postgresql')
+    // `mlcl add --dev @molecule/api-database-postgresql` put the old database
+    // in devDependencies, so applyBondSwap writes the swapped-in PGlite there
+    // too (same dep key as the old one). A production-only manifest reader
+    // saw NEITHER database: the runner kept its `pg`/deriveSsl imports of the
+    // bond the swap just removed (TS2307 / ERR_MODULE_NOT_FOUND on a real
+    // install) with the new bond's branch dead behind a false gate.
+    await writeFile(
+      join(project, 'package.json'),
+      JSON.stringify({ devDependencies: { '@molecule/api-database-pglite': '1.0.0' } }),
+    )
+    expect((await syncMigrateRunner(project, '@molecule/api-database-pglite'))?.updated).toBe(true)
+    const runner = await readFile(join(project, 'src', 'scripts', 'migrate.ts'), 'utf-8')
+    expect(runner).toContain('const BROWSER_PROFILE = true\n')
+    expect(runner).not.toContain("from 'pg'")
+    expect(runner).not.toContain("from '@molecule/api-database-postgresql'")
+    expect(runner).not.toContain('deriveSsl')
+  })
+
+  it('swaps onto D1 ship the out-of-band runner — no import of the removed bond survives', async () => {
+    const project = await projectWithRunner('@molecule/api-database-postgresql')
+    // applyBondSwap removed postgresql and added d1 in dependencies.
+    await writeManifest({ '@molecule/api-database-d1': '1.0.0' })
+    expect((await syncMigrateRunner(project, '@molecule/api-database-d1'))?.updated).toBe(true)
+    const runner = await readFile(join(project, 'src', 'scripts', 'migrate.ts'), 'utf-8')
+    // D1 runs on Workers — no filesystem for a migrator — so the runner is a
+    // guidance no-op that keeps server.ts's boot import and db:setup
+    // resolving while importing no database package at all.
+    expect(runner).toContain('out of band')
+    expect(runner).toContain('export async function runMigrations(): Promise<void> {')
+    expect(runner).not.toContain('@molecule/api-database-postgresql')
+    expect(runner).not.toContain('@molecule/api-bonds-default-express')
+    expect(runner).not.toContain("from 'pg'")
+    expect(runner).not.toContain("from '@molecule/api-database-sqlite'")
+  })
+
   it('leaves a runner that already matches alone', async () => {
     const project = await projectWithRunner('@molecule/api-database-mysql')
     expect((await syncMigrateRunner(project, '@molecule/api-database-mysql'))?.updated).toBe(false)
@@ -379,6 +471,23 @@ describe('syncMigrateRunner', () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
     expect(await syncMigrateRunner(dir, '@molecule/api-database-sqlite')).toBeNull()
     const project = await projectWithRunner('@molecule/api-database-postgresql')
-    expect(await syncMigrateRunner(project, '@molecule/api-database-remote')).toBeNull()
+    // A HYPOTHETICAL future provider — not in the registry (the coverage test
+    // below pins that every registry database provider IS covered, so this
+    // name cannot be mistaken for a real gap like D1 once was). Swapping onto
+    // it leaves the runner alone rather than guessing a template.
+    expect(await syncMigrateRunner(project, '@molecule/api-database-hypothetical')).toBeNull()
+  })
+})
+
+describe('MIGRATE_RUNNER_PROVIDERS registry coverage', () => {
+  it('covers every database provider in the registry', () => {
+    const dbProviders = loadRegistry('api')
+      .filter((p) => p.molecule?.category === 'database' && p.type === 'provider')
+      .map((p) => p.name)
+    // The registry is the source of truth; a provider missing here (D1 was,
+    // until it stranded swapped projects on a runner importing the bond the
+    // swap removed) must fail this test, not the first user to swap onto it.
+    expect(dbProviders.length).toBeGreaterThan(0)
+    expect(dbProviders.filter((name) => !MIGRATE_RUNNER_PROVIDERS.includes(name))).toEqual([])
   })
 })

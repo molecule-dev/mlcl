@@ -83,10 +83,9 @@ function redactDatabaseUrl(raw: string): string {
 // MOL_BOND_PROFILE=browser runs the app on in-process PGlite (no Postgres server, no DATABASE_URL): the
 // migrations below are applied to that database instead (see runMigrations). The MIGRATE_PGLITE scaffold flag
 // is substituted by mlcl with `true` only when the app's api manifest declares
-// @molecule/api-database-pglite as a production dependency — every other app gets `false`, so the
+// @molecule/api-database-pglite (either dependency key) — every other app gets `false`, so the
 // browser branch below is unreachable code instead of an ERR_MODULE_NOT_FOUND crash waiting on an
-// env var. Production deploys prune devDependencies, so a devDependencies-only pin is NOT enough.
-// When the manifest declares PGlite but NOT @molecule/api-database-postgresql, mlcl also strips the
+// env var. When the manifest declares PGlite but NOT @molecule/api-database-postgresql, mlcl also strips the
 // whole Postgres machinery at render time: PGlite is then the app's only database, so the runner
 // migrates it in every profile (the gate renders as a bare `true` and no `pg` / postgres-bond
 // import remains for a swap to prune).

@@ -7,11 +7,14 @@
  *
  * The runner is rendered from the target project's own api manifest, not from
  * whatever package list the caller happens to hold: the PGlite branch is
- * reachable only when the manifest declares the PGlite bond as a production
- * dependency, and the Postgres machinery is emitted only when the manifest
- * declares the PostgreSQL bond (a PGlite-only manifest gets a PGlite-only
- * runner). Whatever the render, the package the runner statically imports its
- * PGlite migrator from is declared too — see
+ * reachable only when the manifest declares the PGlite bond, and the Postgres
+ * machinery is emitted only when the manifest declares the PostgreSQL bond (a
+ * PGlite-only manifest gets a PGlite-only runner). A manifest's `dependencies`
+ * AND `devDependencies` both count: `mlcl swap` writes the new database into
+ * the same dep key the old one occupied, which can be `devDependencies`, and a
+ * production-only reader would then see NEITHER database — keeping the imports
+ * of the very bond the swap just removed. Whatever the render, the package the
+ * runner statically imports its PGlite migrator from is declared too — see
  * {@link ensureMigrateRunnerImports}.
  *
  * @module
@@ -29,14 +32,29 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 /**
  * The database providers {@link syncMigrateRunner} re-renders a runner for.
  * PGlite ships no template of its own — it shares the Postgres runner, whose
- * browser-profile branch migrates PGlite.
+ * browser-profile branch migrates PGlite. Every database PROVIDER in the
+ * registry must be listed here: a swap onto an unlisted provider returns null
+ * and strands the old database's runner, whose imports the swap just removed
+ * from the manifest (TS2307 / ERR_MODULE_NOT_FOUND on a real install). The
+ * test suite pins this against the registry.
  */
 export const MIGRATE_RUNNER_PROVIDERS: readonly string[] = [
   '@molecule/api-database-postgresql',
   '@molecule/api-database-pglite',
   '@molecule/api-database-sqlite',
   '@molecule/api-database-mysql',
+  '@molecule/api-database-d1',
 ]
+
+/**
+ * Providers whose bond runs where no filesystem migrator can (Workers): they
+ * apply migrations OUT OF BAND with their own tooling (D1: `wrangler d1
+ * migrations apply` — see the bond's README), so their runner is a guidance
+ * no-op that imports no database package at all. Keeping server.ts's boot
+ * import and `db:setup` resolving is the point — a runner that crashed, or one
+ * still importing the provider the swap removed, would take the API down.
+ */
+const OUT_OF_BAND_TEMPLATE_PROVIDERS: readonly string[] = ['@molecule/api-database-d1']
 
 /** The providers rendered from the Postgres template (PGlite included, via its browser branch). */
 const POSTGRES_TEMPLATE_PROVIDERS: readonly string[] = [
@@ -58,7 +76,10 @@ export const MIGRATE_RUNNER_BONDS_PACKAGE = '@molecule/api-bonds-default-express
 
 /** What the target manifest says about the two Postgres-flavored bonds. */
 export interface MigrateRunnerRender {
-  /** Whether the manifest declares the PGlite bond as a production dependency. */
+  /**
+   * Whether the manifest declares the PGlite bond (either dependency key — a
+   * `mlcl swap` lands the new database in whatever key the old one occupied).
+   */
   pgliteDeclared: boolean
   /**
    * Whether the manifest declares the PostgreSQL bond. Omitted when unknown —
@@ -108,10 +129,10 @@ function renderPostgresSections(raw: string, include: boolean): string {
  *
  * `{{MIGRATE_PGLITE}}` decides whether the emitted runner's
  * `MOL_BOND_PROFILE=browser` branch is reachable at all: only an app whose api
- * manifest declares the PGlite bond as a production dependency may run it.
- * Everyone else gets `false && …` — unreachable code instead of a deferred
- * `ERR_MODULE_NOT_FOUND` (production deploys run `npm prune --omit=dev`, so a
- * devDependencies-only pin is not enough; see templates/api/migrate.ts.tpl).
+ * manifest declares the PGlite bond may run it. Everyone else gets `false &&
+ * …` — unreachable code instead of a deferred `ERR_MODULE_NOT_FOUND` (the
+ * browser-profile bonds lazily import the package at call time; see
+ * templates/api/migrate.ts.tpl).
  *
  * A manifest that declares PGlite but NOT the PostgreSQL bond gets a
  * PGlite-only runner: the Postgres machinery (driver import, DATABASE_URL
@@ -137,6 +158,12 @@ export function renderMigrateRunner(raw: string, render: MigrateRunnerRender): s
 /**
  * Read the `dependencies` names of a manifest.
  *
+ * Production-only on purpose: {@link manifestDeclaresPglite} uses it to pin
+ * the browser-profile deployment rule (production deploys prune
+ * devDependencies, so a `dependencies` pin is what makes the branch safe to
+ * reach). The runner RENDER must not use it — see
+ * {@link manifestDeclaredPackages}.
+ *
  * @param manifestPath - Path to the api workspace's package.json.
  * @returns The declared production dependency names, or null when the manifest
  *   is missing or unparseable.
@@ -148,8 +175,8 @@ async function manifestDependencies(manifestPath: string): Promise<Set<string> |
     }
     return new Set(Object.keys(manifest.dependencies ?? {}))
   } catch (_error) {
-    // A missing or unparseable manifest declares nothing — callers fall back
-    // to the conservative render (no PGlite branch, Postgres machinery kept).
+    // A missing or unparseable manifest declares nothing — callers treat that
+    // as "not declared" (the conservative answer for both readers here).
     return null
   }
 }
@@ -168,17 +195,54 @@ export async function manifestDeclaresPglite(manifestPath: string): Promise<bool
 }
 
 /**
+ * Read every package name a manifest declares in `dependencies` OR
+ * `devDependencies`.
+ *
+ * Both keys count for the runner render: `applyBondSwap` (`mlcl swap`) writes
+ * the new database into the SAME key the old one occupied, which can be
+ * `devDependencies`, and the injector's `mlcl add --inject` flow honors the
+ * caller's `--dev` the same way. A production-only reader would then see
+ * neither the old nor the new database and render a runner whose imports the
+ * manifest no longer backs.
+ *
+ * @param manifestPath - Path to the api workspace's package.json.
+ * @returns The declared package names across both dependency keys, or null
+ *   when the manifest is missing or unparseable.
+ */
+async function manifestDeclaredPackages(manifestPath: string): Promise<Set<string> | null> {
+  try {
+    const manifest = JSON.parse(await readFile(manifestPath, 'utf-8')) as {
+      dependencies?: Record<string, string>
+      devDependencies?: Record<string, string>
+    }
+    return new Set([
+      ...Object.keys(manifest.dependencies ?? {}),
+      ...Object.keys(manifest.devDependencies ?? {}),
+    ])
+  } catch (_error) {
+    // A missing or unparseable manifest declares nothing — callers fall back
+    // to the conservative render (no PGlite branch, Postgres machinery kept).
+    return null
+  }
+}
+
+/**
  * Pick the migration-runner template for a project's packages. The default is
  * Postgres (pg.Client + CREATE DATABASE); SQLite needs no server-side database
  * and applies files via better-sqlite3 `exec()`; MySQL creates the schema and
  * applies files over a multi-statement connection. PGlite shares the Postgres
- * template — its browser-profile branch is the PGlite half. Each delegates to
- * its bond's `createMigrator`.
+ * template — its browser-profile branch is the PGlite half. An out-of-band
+ * provider (D1) wins over everything: its bond runs where no filesystem
+ * migrator exists, so it must not inherit a runner that opens a local driver.
+ * Each of the others delegates to its bond's `createMigrator`.
  *
  * @param packageNames - The project's `@molecule/*` package names.
  * @returns The template path, relative to mlcl's `templates/` directory.
  */
 export function migrateTemplateFor(packageNames: readonly string[]): string {
+  if (OUT_OF_BAND_TEMPLATE_PROVIDERS.some((p) => packageNames.includes(p))) {
+    return 'api/migrate-outofband.ts.tpl'
+  }
   if (packageNames.includes('@molecule/api-database-sqlite')) return 'api/migrate-sqlite.ts.tpl'
   if (packageNames.includes('@molecule/api-database-mysql')) return 'api/migrate-mysql.ts.tpl'
   return 'api/migrate.ts.tpl'
@@ -186,27 +250,48 @@ export function migrateTemplateFor(packageNames: readonly string[]): string {
 
 /**
  * Read the migration-runner template for a project's packages, placeholders
- * substituted from that same package list.
+ * substituted from what the project will actually declare: the manifest's own
+ * entries UNION the caller's list.
  *
- * @param packageNames - The project's `@molecule/*` package names.
+ * The caller's list is additive evidence, never subtractive — on every inject
+ * flow the target manifest already declares the injected packages (`mlcl add`
+ * writes the dependency before handing off; a bare `mlcl inject` reads its
+ * pending molecules FROM the manifest; `mlcl create` runs addPackages first),
+ * but it also declares everything the project had BEFORE this injection. A
+ * render from the list alone would decide, from one injected package, that the
+ * project's other database does not exist: injecting PGlite into a Postgres
+ * project shipped a PGlite-only runner that silently stopped migrating the
+ * real database, and injecting PostgreSQL into a browser-profile (PGlite-only)
+ * project dead-gated its only database's branch.
+ *
+ * @param packageNames - The `@molecule/*` package names being injected.
+ * @param apiDir - The api workspace receiving them (the directory holding
+ *   package.json). Omitted by callers with no target manifest (the swap path
+ *   for single-provider templates), which renders from the list alone.
  * @returns The runner source.
  */
-export async function readMigrateRunner(packageNames: readonly string[]): Promise<string> {
+export async function readMigrateRunner(
+  packageNames: readonly string[],
+  apiDir?: string,
+): Promise<string> {
+  const declared = apiDir ? await manifestDeclaredPackages(join(apiDir, 'package.json')) : null
+  const render = declared ? [...new Set([...declared, ...packageNames])] : [...packageNames]
   const raw = await readFile(
-    join(__dirname, '..', '..', 'templates', migrateTemplateFor(packageNames)),
+    join(__dirname, '..', '..', 'templates', migrateTemplateFor(render)),
     'utf-8',
   )
   return renderMigrateRunner(raw, {
-    pgliteDeclared: packageNames.includes(PGLITE_PACKAGE),
-    postgresDeclared: packageNames.includes(POSTGRES_PACKAGE),
+    pgliteDeclared: render.includes(PGLITE_PACKAGE),
+    postgresDeclared: render.includes(POSTGRES_PACKAGE),
   })
 }
 
 /**
  * Read the default (Postgres) migration runner for an EXISTING project,
- * substituting both render inputs from the project's own api manifest — the
- * scaffold refresh and database-swap paths, where the package list that drove
- * the original scaffold is no longer the truth.
+ * substituting both render inputs from the project's own api manifest (both
+ * dependency keys — see {@link manifestDeclaredPackages}) — the scaffold
+ * refresh and database-swap paths, where the package list that drove the
+ * original scaffold is no longer the truth.
  *
  * @param apiDir - The api workspace (the directory holding package.json).
  * @returns The runner source.
@@ -216,7 +301,7 @@ export async function readMigrateRunnerForManifest(apiDir: string): Promise<stri
     join(__dirname, '..', '..', 'templates', 'api/migrate.ts.tpl'),
     'utf-8',
   )
-  const deps = await manifestDependencies(join(apiDir, 'package.json'))
+  const deps = await manifestDeclaredPackages(join(apiDir, 'package.json'))
   return renderMigrateRunner(raw, {
     pgliteDeclared: deps?.has(PGLITE_PACKAGE) ?? false,
     postgresDeclared: deps === null ? true : deps.has(POSTGRES_PACKAGE),
@@ -295,6 +380,11 @@ export interface MigrateRunnerSync {
  * @param newDatabasePackage - The database provider swapped in.
  * @returns What was done, or null when the project has no runner or the new
  *   provider ships no runner template.
+ *
+ * A swap onto an out-of-band provider (D1) swaps in the guidance no-op runner:
+ * the alternative — leaving the old provider's runner — keeps imports of a
+ * bond the swap just removed from the manifest, so `tsc` and `db:setup` break
+ * on a real install.
  */
 export async function syncMigrateRunner(
   projectPath: string,
