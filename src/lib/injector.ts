@@ -585,6 +585,32 @@ async function planMiddlewareInjection(
 }
 
 /**
+ * Capture a file's pre-injection content for rollback, before any write
+ * touches it.
+ *
+ * The FIRST capture for a path wins — a plan may write the same target more
+ * than once (a create followed by a transform), and rollback must land on the
+ * state BEFORE the injection, not on an intermediate one. A `null` entry marks
+ * a file the injection itself created: rollback removes it, while a captured
+ * Buffer (binary-safe — no utf-8 round trip) is restored verbatim. Without the
+ * snapshot, rollback `rm`'d every target — including files like `server.ts` or
+ * `src/scripts/migrate.ts` that predate the injection and were only
+ * OVERWRITTEN, so a failed inject left the project strictly worse than before.
+ */
+async function snapshotForRollback(
+  path: string,
+  snapshots: Map<string, Buffer | null>,
+): Promise<void> {
+  if (snapshots.has(path)) return
+  try {
+    snapshots.set(path, await readFile(path))
+  } catch (_error) {
+    // ENOENT — the file does not exist yet; the injection creates it.
+    snapshots.set(path, null)
+  }
+}
+
+/**
  * Execute the injection plan
  */
 export async function executeInjection(
@@ -605,7 +631,7 @@ export async function executeInjection(
     return result
   }
 
-  const rollbackFiles: string[] = []
+  const rollbackSnapshots = new Map<string, Buffer | null>()
 
   try {
     // Execute file operations
@@ -623,6 +649,7 @@ export async function executeInjection(
       await mkdir(dirname(op.targetPath), { recursive: true })
 
       if (op.action === 'copy' && op.sourcePath) {
+        await snapshotForRollback(op.targetPath, rollbackSnapshots)
         if (op.transformations && op.transformations.length > 0) {
           // Read, transform, and write
           let content = await readFile(op.sourcePath, 'utf-8')
@@ -633,16 +660,16 @@ export async function executeInjection(
         } else {
           await copyFile(op.sourcePath, op.targetPath)
         }
-        rollbackFiles.push(op.targetPath)
         result.filesCreated.push(op.targetPath)
       } else if (op.action === 'create' && op.content) {
+        await snapshotForRollback(op.targetPath, rollbackSnapshots)
         const content = /\.(ts|tsx|mjs)$/.test(op.targetPath)
           ? sortImportStatements(op.content)
           : op.content
         await writeFile(op.targetPath, content)
-        rollbackFiles.push(op.targetPath)
         result.filesCreated.push(op.targetPath)
       } else if (op.action === 'transform' && op.sourcePath) {
+        await snapshotForRollback(op.targetPath, rollbackSnapshots)
         let content = await readFile(op.sourcePath, 'utf-8')
         if (op.transformations) {
           for (const transform of op.transformations) {
@@ -650,13 +677,13 @@ export async function executeInjection(
           }
         }
         await writeFile(op.targetPath, content)
-        rollbackFiles.push(op.targetPath)
         result.filesCreated.push(op.targetPath)
       } else if (op.action === 'modify') {
         // Append content if file exists, create if not
         try {
           const existing = await readFile(op.targetPath, 'utf-8')
           if (op.content && !existing.includes(op.content.trim())) {
+            await snapshotForRollback(op.targetPath, rollbackSnapshots)
             await writeFile(op.targetPath, existing + op.content)
             result.filesModified.push(op.targetPath)
           }
@@ -664,8 +691,8 @@ export async function executeInjection(
           // ENOENT is expected here: readFile failing means the file doesn't exist yet.
           // Any other I/O error will be surfaced by the writeFile below.
           if (op.content) {
+            await snapshotForRollback(op.targetPath, rollbackSnapshots)
             await writeFile(op.targetPath, op.content)
-            rollbackFiles.push(op.targetPath)
             result.filesCreated.push(op.targetPath)
           }
         }
@@ -679,8 +706,8 @@ export async function executeInjection(
 
       for (const migration of plan.migrations) {
         const migrationPath = join(migrationsDir, migration.name)
+        await snapshotForRollback(migrationPath, rollbackSnapshots)
         await writeFile(migrationPath, migration.content)
-        rollbackFiles.push(migrationPath)
         result.filesCreated.push(migrationPath)
       }
     }
@@ -703,14 +730,19 @@ export async function executeInjection(
     result.success = false
     result.errors.push(t('lib.injector.errors.injectionFailed', { error: String(error) }))
 
-    // Rollback created files on failure
+    // Roll back file writes: files the injection CREATED are removed, files
+    // that existed before are restored to their pre-injection content.
     if (!options.dryRun) {
-      for (const file of rollbackFiles) {
+      for (const [file, priorContent] of rollbackSnapshots) {
         try {
-          await rm(file, { force: true })
+          if (priorContent === null) {
+            await rm(file, { force: true })
+          } else {
+            await writeFile(file, priorContent)
+          }
         } catch (_error) {
-          // Rollback is best-effort; if the rm fails the file may linger but
-          // the primary error is already recorded in result.errors above.
+          // Rollback is best-effort; if the restore fails the file may linger
+          // but the primary error is already recorded in result.errors above.
         }
       }
     }
