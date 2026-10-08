@@ -126,6 +126,7 @@ const REAL_BONDS: Record<string, string[]> = {
   d1: [],
   mysql: [],
   postgresql: [],
+  pglite: [],
   sqlite: [],
 }
 
