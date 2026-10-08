@@ -1273,6 +1273,73 @@
         "laya-serve"
       ]
     },
+    "@molecule/api-ai-decisions-liquid-d1": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-decisions",
+      "label": "Liquid d1",
+      "description": "Liquid d1 decisions provider for molecule.dev — typed choice/score/yes-no answers with images from Liquid AI's d1 decision models, hosted or self-hosted via llama-server",
+      "stack": "api",
+      "implements": "@molecule/api-ai-decisions",
+      "exports": [
+        "DEFAULT_LIQUID_D1_URL",
+        "DEFAULT_LIQUID_D1_MODEL",
+        "HOSTED_LIQUID_D1_PATH",
+        "SELF_HOSTED_D1_PATH",
+        "LIQUID_D1_LIMITS",
+        "LIQUID_D1_IMAGE_TYPES",
+        "createProvider",
+        "provider",
+        "aiDecisionsLiquidD1SecretDefinitions",
+        "LiquidD1Config",
+        "WireQuestion",
+        "WireAnswer",
+        "WireResponse",
+        "toWireQuestions",
+        "fromWireAnswer",
+        "fromWireResponse",
+        "PostOptions",
+        "postSystemOne"
+      ],
+      "secrets": [
+        {
+          "name": "LIQUID_API_KEY",
+          "required": false,
+          "label": "Liquid AI API key",
+          "setupUrl": "https://console.liquid.ai",
+          "instructions": "Create a key at console.liquid.ai (Dashboard > API Keys; keys start with liquid_); it is sent as a bearer token to the Liquid d1 decisions API. Required for the hosted API; not needed when LIQUID_DECISIONS_URL points at your own llama-server.",
+          "example": "liquid_..."
+        },
+        {
+          "name": "LIQUID_DECISIONS_URL",
+          "required": false,
+          "label": "Self-hosted d1 server URL",
+          "setupUrl": "https://docs.liquid.ai/lfm/models/d1-3b",
+          "instructions": "Base URL of a llama-server running the open d1 weights (llama-server -hf LiquidAI/d1-3B-GGUF:Q8_0 binds http://127.0.0.1:8080); the bond calls its /v1/systemone route with no API key. Leave unset to use the hosted Liquid API.",
+          "example": "http://127.0.0.1:8080"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-decisions",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-decisions",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-decisions/liquid-d1",
+      "intentHints": [
+        "liquid d1",
+        "liquid ai",
+        "d1 decision model",
+        "decision model with images",
+        "llama-server decision model"
+      ],
+      "egressHosts": [
+        "api.liquid.ai"
+      ]
+    },
     "@molecule/api-ai-decisions-llm": {
       "language": "typescript",
       "runtime": "node",
