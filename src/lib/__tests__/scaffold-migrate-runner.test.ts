@@ -60,6 +60,35 @@ describe('custom-create migration-runner wiring', () => {
     )
   })
 
+  it('copySqlSetupScripts promotes a reachable PGlite branch out of devDependencies', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-scaffold-migrate-'))
+    // A PGlite selection the user installed with --dev: the injected runner's
+    // branch fires at boot in every profile, but production deploys prune
+    // devDependencies — the pin must move before the project ships.
+    await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
+    await writeFile(
+      join(dir, 'src', 'scripts', 'migrate.ts'),
+      await readMigrateRunner(['@molecule/api-database-pglite']),
+    )
+    await writeFile(
+      join(dir, 'package.json'),
+      JSON.stringify({
+        name: 'demo-api',
+        dependencies: { '@molecule/api-bonds-default-express': '1.1.0' },
+        devDependencies: { '@molecule/api-database-pglite': '1.0.3' },
+      }),
+    )
+
+    await copySqlSetupScripts(dir, [], [])
+
+    const manifest = JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8')) as {
+      dependencies: Record<string, string>
+      devDependencies?: Record<string, string>
+    }
+    expect(manifest.dependencies['@molecule/api-database-pglite']).toBe('1.0.3')
+    expect(manifest.devDependencies?.['@molecule/api-database-pglite']).toBeUndefined()
+  })
+
   it('copySqlSetupScripts leaves a database-less project alone', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-scaffold-migrate-'))
     await writeFile(

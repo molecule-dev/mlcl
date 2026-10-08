@@ -13,9 +13,12 @@
  * AND `devDependencies` both count: `mlcl swap` writes the new database into
  * the same dep key the old one occupied, which can be `devDependencies`, and a
  * production-only reader would then see NEITHER database — keeping the imports
- * of the very bond the swap just removed. Whatever the render, the package the
- * runner statically imports its PGlite migrator from is declared too — see
- * {@link ensureMigrateRunnerImports}.
+ * of the very bond the swap just removed. The render only decides
+ * REACHABILITY; backing the emitted runner is {@link ensureMigrateRunnerImports}'
+ * job — it declares the bond-setup package behind the runner's typed PGlite
+ * import and promotes the PGlite bond to a production pin whenever the branch
+ * is emitted reachable, so a live branch never rides on a devDependencies pin
+ * that production deploys prune.
  *
  * @module
  */
@@ -79,6 +82,10 @@ export interface MigrateRunnerRender {
   /**
    * Whether the manifest declares the PGlite bond (either dependency key — a
    * `mlcl swap` lands the new database in whatever key the old one occupied).
+   * Decides only whether the branch is EMITTED reachable; wherever the runner
+   * lands, {@link ensureMigrateRunnerImports} also promotes the bond to a
+   * production pin so the live branch survives a devDependencies-pruning
+   * production deploy.
    */
   pgliteDeclared: boolean
   /**
@@ -156,45 +163,6 @@ export function renderMigrateRunner(raw: string, render: MigrateRunnerRender): s
 }
 
 /**
- * Read the `dependencies` names of a manifest.
- *
- * Production-only on purpose: {@link manifestDeclaresPglite} uses it to pin
- * the browser-profile deployment rule (production deploys prune
- * devDependencies, so a `dependencies` pin is what makes the branch safe to
- * reach). The runner RENDER must not use it — see
- * {@link manifestDeclaredPackages}.
- *
- * @param manifestPath - Path to the api workspace's package.json.
- * @returns The declared production dependency names, or null when the manifest
- *   is missing or unparseable.
- */
-async function manifestDependencies(manifestPath: string): Promise<Set<string> | null> {
-  try {
-    const manifest = JSON.parse(await readFile(manifestPath, 'utf-8')) as {
-      dependencies?: Record<string, string>
-    }
-    return new Set(Object.keys(manifest.dependencies ?? {}))
-  } catch (_error) {
-    // A missing or unparseable manifest declares nothing — callers treat that
-    // as "not declared" (the conservative answer for both readers here).
-    return null
-  }
-}
-
-/**
- * Whether a manifest declares the PGlite bond as a production dependency.
- *
- * Only `dependencies` counts: devDependencies are pruned from production
- * deploy trees, so the browser-profile branch must not rely on them.
- *
- * @param manifestPath - Path to the api workspace's package.json.
- * @returns True when `dependencies` carries the PGlite bond.
- */
-export async function manifestDeclaresPglite(manifestPath: string): Promise<boolean> {
-  return (await manifestDependencies(manifestPath))?.has(PGLITE_PACKAGE) ?? false
-}
-
-/**
  * Read every package name a manifest declares in `dependencies` OR
  * `devDependencies`.
  *
@@ -203,7 +171,10 @@ export async function manifestDeclaresPglite(manifestPath: string): Promise<bool
  * `devDependencies`, and the injector's `mlcl add --inject` flow honors the
  * caller's `--dev` the same way. A production-only reader would then see
  * neither the old nor the new database and render a runner whose imports the
- * manifest no longer backs.
+ * manifest no longer backs. (Reachability is only half the rule — the other
+ * half is {@link ensureMigrateRunnerImports} promoting a reachable PGlite
+ * branch's pin into `dependencies`, so counting `devDependencies` here never
+ * leaves a live branch on a pruned pin.)
  *
  * @param manifestPath - Path to the api workspace's package.json.
  * @returns The declared package names across both dependency keys, or null
@@ -236,6 +207,15 @@ async function manifestDeclaredPackages(manifestPath: string): Promise<Set<strin
  * migrator exists, so it must not inherit a runner that opens a local driver.
  * Each of the others delegates to its bond's `createMigrator`.
  *
+ * Only the Postgres template carries a SECOND database's branch in one runner
+ * (PGlite's, behind the browser-profile gate) — the SQLite/MySQL/D1 templates
+ * each cover their one database. A package set that mixes template-
+ * incompatible server databases therefore resolves to a single database's
+ * runner by the precedence above (D1 > SQLite > MySQL > Postgres): injecting
+ * an additional server database into a project that declares another re-points
+ * the runner at the injected one. Changing the project's database wholesale is
+ * `mlcl swap`'s job — it rewrites the runner AND the manifest together.
+ *
  * @param packageNames - The project's `@molecule/*` package names.
  * @returns The template path, relative to mlcl's `templates/` directory.
  */
@@ -262,7 +242,10 @@ export function migrateTemplateFor(packageNames: readonly string[]): string {
  * project's other database does not exist: injecting PGlite into a Postgres
  * project shipped a PGlite-only runner that silently stopped migrating the
  * real database, and injecting PostgreSQL into a browser-profile (PGlite-only)
- * project dead-gated its only database's branch.
+ * project dead-gated its only database's branch. That union keeps BOTH
+ * databases only where one runner can carry them — the Postgres pair; a mix of
+ * template-incompatible server databases still resolves to a single runner
+ * (see {@link migrateTemplateFor}).
  *
  * @param packageNames - The `@molecule/*` package names being injected.
  * @param apiDir - The api workspace receiving them (the directory holding
@@ -309,19 +292,32 @@ export async function readMigrateRunnerForManifest(apiDir: string): Promise<stri
 }
 
 /**
- * Declare {@link MIGRATE_RUNNER_BONDS_PACKAGE} in an api manifest whose
- * migration runner statically imports it.
+ * Make the api manifest back the migration runner on disk.
  *
- * The Postgres-flavor runner imports `createMigratorPglite` from
- * `@molecule/api-bonds-default-express` unconditionally, so any project that
- * carries the runner must declare the package — otherwise `tsc` fails TS2307
- * and `db:setup` dies with ERR_MODULE_NOT_FOUND on a real install (the
- * workspace's hoisted node_modules hides exactly this class of hole). The
- * flagship templates declare it in their manifests; this closes the custom
- * `mlcl create` and `mlcl swap` paths the same way. Idempotent.
+ * Two runtime imports must sit in `dependencies` (production deploys prune
+ * `devDependencies` — `--omit=dev` — and the workspace's hoisted node_modules
+ * hides exactly this class of hole):
+ *
+ * - {@link MIGRATE_RUNNER_BONDS_PACKAGE}, which the Postgres-flavor runner
+ *   imports `createMigratorPglite` from unconditionally — without it `tsc`
+ *   fails TS2307 and `db:setup` dies with ERR_MODULE_NOT_FOUND on a real
+ *   install. Declared at the registry pin when missing.
+ * - {@link PGLITE_PACKAGE}, whenever the runner's browser branch is emitted
+ *   reachable — the wrapper imports that bond LAZILY at call time, so a
+ *   devDependencies-only pin (from `mlcl add --dev`, or a swap out of
+ *   `devDependencies`) leaves a branch that crashes boot-time
+ *   `runMigrations()` with ERR_MODULE_NOT_FOUND exactly where it fires, after
+ *   the production prune. The pin is MOVED into `dependencies` (keeping the
+ *   version the manifest already carries), or added at the registry pin.
+ *
+ * The flagship templates declare both in their manifests; this closes the
+ * custom `mlcl create` and `mlcl swap` paths the same way. Idempotent, and a
+ * no-op for runners that reach neither (SQLite/MySQL/D1 templates, or no
+ * runner at all).
  *
  * @param apiDir - The api workspace (the directory holding package.json).
- * @returns The dependency names added (empty when nothing needed doing).
+ * @returns The dependency names gained in `dependencies` (empty when nothing
+ *   needed doing).
  */
 export async function ensureMigrateRunnerImports(apiDir: string): Promise<string[]> {
   let runner: string
@@ -332,30 +328,62 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
     // nothing whose imports need declaring.
     return []
   }
-  if (!runner.includes(`from '${MIGRATE_RUNNER_BONDS_PACKAGE}'`)) {
-    // A SQLite/MySQL runner (or a hand-written one) does not import it.
+  const importsWrapper = runner.includes(`from '${MIGRATE_RUNNER_BONDS_PACKAGE}'`)
+  // The browser branch is reachable only in renders mlcl emits with the flag
+  // `true` — bare for a PGlite-only runner, profile-gated for the dual one
+  // (`true && process.env.MOL_BOND_PROFILE === 'browser'`). The `false && …`
+  // render can never call it, so its manifest needs no PGlite pin.
+  const pgliteBranchReachable = runner.includes('const BROWSER_PROFILE = true')
+  if (!importsWrapper && !pgliteBranchReachable) {
+    // A SQLite/MySQL/out-of-band runner (or a hand-written one) needs neither.
     return []
   }
   const manifestPath = join(apiDir, 'package.json')
-  let manifest: { dependencies?: Record<string, string> }
+  let manifest: {
+    dependencies?: Record<string, string>
+    devDependencies?: Record<string, string>
+  }
   try {
     manifest = JSON.parse(await readFile(manifestPath, 'utf-8')) as typeof manifest
   } catch (error) {
     console.warn(
-      `[migrate-runner] ${manifestPath} is missing or unparseable — cannot declare ` +
-        `${MIGRATE_RUNNER_BONDS_PACKAGE}, which src/scripts/migrate.ts imports: ` +
+      `[migrate-runner] ${manifestPath} is missing or unparseable — cannot back ` +
+        `src/scripts/migrate.ts's imports (${MIGRATE_RUNNER_BONDS_PACKAGE}` +
+        `${importsWrapper ? '' : ' not needed'}, ${PGLITE_PACKAGE}` +
+        `${pgliteBranchReachable ? '' : ' not needed'}): ` +
         `${error instanceof Error ? error.message : String(error)}`,
     )
     return []
   }
   const deps = manifest.dependencies ?? {}
-  if (deps[MIGRATE_RUNNER_BONDS_PACKAGE]) return []
-  deps[MIGRATE_RUNNER_BONDS_PACKAGE] = getMoleculeVersion(MIGRATE_RUNNER_BONDS_PACKAGE)
+  const devDeps = manifest.devDependencies
+  const gained: string[] = []
+
+  if (importsWrapper && !deps[MIGRATE_RUNNER_BONDS_PACKAGE]) {
+    deps[MIGRATE_RUNNER_BONDS_PACKAGE] = getMoleculeVersion(MIGRATE_RUNNER_BONDS_PACKAGE)
+    gained.push(MIGRATE_RUNNER_BONDS_PACKAGE)
+  }
+
+  if (pgliteBranchReachable && !deps[PGLITE_PACKAGE]) {
+    // Keep the version the manifest already pins (an explicit `mlcl add`
+    // resolved it from npm); only the KEY moves. A manifest with no pin at
+    // all gets the registry pin — same rule the wrapper follows.
+    deps[PGLITE_PACKAGE] = devDeps?.[PGLITE_PACKAGE] ?? getMoleculeVersion(PGLITE_PACKAGE)
+    if (devDeps?.[PGLITE_PACKAGE]) {
+      delete devDeps[PGLITE_PACKAGE]
+      manifest.devDependencies = Object.fromEntries(
+        Object.entries(devDeps).sort(([a], [b]) => a.localeCompare(b)),
+      )
+    }
+    gained.push(PGLITE_PACKAGE)
+  }
+
+  if (gained.length === 0) return []
   manifest.dependencies = Object.fromEntries(
     Object.entries(deps).sort(([a], [b]) => a.localeCompare(b)),
   )
   await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + '\n')
-  return [MIGRATE_RUNNER_BONDS_PACKAGE]
+  return gained
 }
 
 /** What {@link syncMigrateRunner} did. */
@@ -374,7 +402,9 @@ export interface MigrateRunnerSync {
  * ONTO PGlite emits the PGlite-only runner (no imports of the PostgreSQL bond
  * the swap just removed) and a swap onto PostgreSQL keeps a browser-profile
  * app's PGlite branch. The bond-setup package the runner imports is declared
- * either way (see {@link ensureMigrateRunnerImports}).
+ * either way, and a reachable PGlite branch gets its pin promoted into
+ * `dependencies` — even when the swap landed it in `devDependencies` (see
+ * {@link ensureMigrateRunnerImports}).
  *
  * @param projectPath - The API workspace (the directory holding package.json).
  * @param newDatabasePackage - The database provider swapped in.

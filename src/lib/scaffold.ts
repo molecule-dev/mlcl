@@ -2294,8 +2294,10 @@ export async function copyTemplateInstance(
     // app picks up new mechanics in the .tpl without us having to re-poll
     // every frozen template copy. The render carries the template's own
     // manifest decision: the browser-profile (PGlite) branch is emitted
-    // reachable only when the api manifest declares the pglite bond as a
-    // production dependency.
+    // reachable when the api manifest declares the pglite bond in either
+    // dependency key — and the ensureMigrateRunnerImports call right below
+    // then promotes it to a production pin, so the live branch never rides on
+    // a devDependencies pin that production deploys prune.
     const migrateScriptPath = join(apiPathForSetup, 'src', 'scripts', 'migrate.ts')
     if (existsSync(migrateScriptPath)) {
       try {
@@ -5871,13 +5873,16 @@ export async function copySqlSetupScripts(
   // The migration runner statically imports its PGlite migrator from
   // @molecule/api-bonds-default-express; declare that package so a real
   // install resolves it and `tsc`/`db:setup` work outside this hoisted
-  // workspace. Both paths here carry such a runner: the custom create flow
-  // runs this AFTER `mlcl inject` wrote the runner (so the runner on disk is
-  // the final one), and the --template fast path (copyTemplateInstance) calls
-  // this BEFORE re-rendering the runner from migrate.ts.tpl — which declares
-  // the import again itself, so the order there is not load-bearing. No-op
-  // for database-less builds (no runner) and idempotent for manifests that
-  // already declare it.
+  // workspace — and when the runner's browser branch is emitted reachable,
+  // promote the PGlite bond's pin into `dependencies` (a devDependencies pin
+  // is pruned from production deploy trees, crashing boot-time migrations
+  // where the branch fires). Both paths here carry such a runner: the custom
+  // create flow runs this AFTER `mlcl inject` wrote the runner (so the runner
+  // on disk is the final one), and the --template fast path
+  // (copyTemplateInstance) calls this BEFORE re-rendering the runner from
+  // migrate.ts.tpl — which declares the import again itself, so the order
+  // there is not load-bearing. No-op for database-less builds (no runner) and
+  // idempotent for manifests that already back the runner.
   await ensureMigrateRunnerImports(projectPath)
 }
 

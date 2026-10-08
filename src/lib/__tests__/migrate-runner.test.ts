@@ -7,9 +7,14 @@
  * The PGlite flag tests pin the 2026-10-08 browser-profile defect: the runner
  * reached `@molecule/api-database-pglite` through a variable-specifier dynamic
  * import that no gate could see, in apps that declared the package only as a
- * devDependency — which production deploys prune. The flag must be true ONLY
- * for a `dependencies` pin, and the emitted runner must have no raw lazy
- * import left to misdeclare.
+ * devDependency — which production deploys prune. The flag counts either
+ * dependency key (a `mlcl swap` writes the new database into the key the old
+ * one occupied — a production-only render reader would keep the removed
+ * bond's imports), the emitted runner has no raw lazy import left to
+ * misdeclare, and the production half is closed by `ensureMigrateRunnerImports`:
+ * wherever the runner lands, a REACHABLE branch gets its PGlite pin promoted
+ * into `dependencies` — the flag is never live without a production pin
+ * behind it.
  *
  * The manifest tests pin the same-day follow-ups: the runner's typed wrapper
  * import (`createMigratorPglite` from `@molecule/api-bonds-default-express`)
@@ -41,7 +46,6 @@ import { afterEach, describe, expect, it } from 'vitest'
 
 import {
   ensureMigrateRunnerImports,
-  manifestDeclaresPglite,
   MIGRATE_RUNNER_PROVIDERS,
   migrateTemplateFor,
   readMigrateRunner,
@@ -68,7 +72,10 @@ async function writeManifest(dependencies: Record<string, string>): Promise<void
   await writeFile(join(dir, 'package.json'), JSON.stringify({ dependencies }))
 }
 
-async function readManifest(): Promise<{ dependencies: Record<string, string> }> {
+async function readManifest(): Promise<{
+  dependencies: Record<string, string>
+  devDependencies?: Record<string, string>
+}> {
   return JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8'))
 }
 
@@ -110,36 +117,6 @@ describe('renderMigrateRunner', () => {
       { pgliteDeclared: false, postgresDeclared: true },
     )
     expect(runner).toBe('a\npg\nb\nderiveSsl\nc')
-  })
-})
-
-describe('manifestDeclaresPglite', () => {
-  it('counts only production dependencies — a devDependency pin is NOT enough', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
-    const manifest = join(dir, 'package.json')
-    await writeFile(
-      manifest,
-      JSON.stringify({
-        dependencies: { '@molecule/api-database-postgresql': '1.0.5' },
-        devDependencies: { '@molecule/api-database-pglite': '1.0.0' },
-      }),
-    )
-    expect(await manifestDeclaresPglite(manifest)).toBe(false)
-    await writeFile(
-      manifest,
-      JSON.stringify({
-        dependencies: {
-          '@molecule/api-database-postgresql': '1.0.5',
-          '@molecule/api-database-pglite': '1.0.0',
-        },
-      }),
-    )
-    expect(await manifestDeclaresPglite(manifest)).toBe(true)
-  })
-
-  it('treats a missing manifest as declaring nothing', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
-    expect(await manifestDeclaresPglite(join(dir, 'package.json'))).toBe(false)
   })
 })
 
@@ -354,6 +331,104 @@ describe('ensureMigrateRunnerImports', () => {
     expect(await ensureMigrateRunnerImports(dir)).toEqual(['@molecule/api-bonds-default-express'])
   })
 
+  it('promotes a devDependencies-only PGlite pin when the branch is reachable — a pruned pin is the boot crash', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
+    await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
+    // What `mlcl add --dev @molecule/api-database-pglite --inject` (or a swap
+    // out of devDependencies) leaves: a runner whose branch fires at boot,
+    // backed by a pin production deploys prune. The wrapper import the runner
+    // also needs is declared here so the assertion isolates the promotion.
+    await writeFile(
+      join(dir, 'src', 'scripts', 'migrate.ts'),
+      await readMigrateRunner(['@molecule/api-database-pglite']),
+    )
+    await writeFile(
+      join(dir, 'package.json'),
+      JSON.stringify({
+        dependencies: { '@molecule/api-bonds-default-express': '1.1.0' },
+        devDependencies: { '@molecule/api-database-pglite': '1.0.3' },
+      }),
+    )
+    expect(await ensureMigrateRunnerImports(dir)).toEqual(['@molecule/api-database-pglite'])
+    const manifest = await readManifest()
+    // The pin MOVED (version kept — an explicit `mlcl add` resolved it), it
+    // did not duplicate across keys.
+    expect(manifest.dependencies['@molecule/api-database-pglite']).toBe('1.0.3')
+    expect(manifest.devDependencies?.['@molecule/api-database-pglite']).toBeUndefined()
+  })
+
+  it('promotes the pin for the dual runner too — the gated branch still fires in browser-profile deploys', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
+    await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
+    // The kanban shape: Postgres server profile + PGlite browser profile in
+    // one runner, with PGlite declared only as a devDependency.
+    await writeFile(
+      join(dir, 'src', 'scripts', 'migrate.ts'),
+      await readMigrateRunner([
+        '@molecule/api-database-postgresql',
+        '@molecule/api-database-pglite',
+      ]),
+    )
+    await writeFile(
+      join(dir, 'package.json'),
+      JSON.stringify({
+        dependencies: {
+          '@molecule/api-bonds-default-express': '1.1.0',
+          '@molecule/api-database-postgresql': '1.0.5',
+        },
+        devDependencies: { '@molecule/api-database-pglite': '1.0.3' },
+      }),
+    )
+    await ensureMigrateRunnerImports(dir)
+    const manifest = await readManifest()
+    expect(manifest.dependencies['@molecule/api-database-pglite']).toBe('1.0.3')
+    expect(manifest.devDependencies?.['@molecule/api-database-pglite']).toBeUndefined()
+  })
+
+  it('adds the registry pin when a reachable branch has no pin at all', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
+    await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
+    await writeFile(
+      join(dir, 'src', 'scripts', 'migrate.ts'),
+      await readMigrateRunner(['@molecule/api-database-pglite']),
+    )
+    await writeManifest({ '@molecule/api-bonds-default-express': '1.1.0' })
+    expect(await ensureMigrateRunnerImports(dir)).toEqual(['@molecule/api-database-pglite'])
+    expect((await readManifest()).dependencies['@molecule/api-database-pglite']).toBe(
+      getMoleculeVersion('@molecule/api-database-pglite'),
+    )
+  })
+
+  it('leaves the PGlite pin alone when the branch is unreachable, or the runner covers another database', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
+    await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
+    // Postgres-only render: the flag is `false && …` — the branch can never
+    // fire, so a dev-only PGlite pin is none of the runner's business.
+    await writeFile(
+      join(dir, 'src', 'scripts', 'migrate.ts'),
+      await readMigrateRunner(['@molecule/api-database-postgresql']),
+    )
+    await writeFile(
+      join(dir, 'package.json'),
+      JSON.stringify({
+        dependencies: { '@molecule/api-bonds-default-express': '1.1.0' },
+        devDependencies: { '@molecule/api-database-pglite': '1.0.3' },
+      }),
+    )
+    expect(await ensureMigrateRunnerImports(dir)).toEqual([])
+    let manifest = await readManifest()
+    expect(manifest.dependencies['@molecule/api-database-pglite']).toBeUndefined()
+    expect(manifest.devDependencies?.['@molecule/api-database-pglite']).toBe('1.0.3')
+    // A SQLite runner has no PGlite branch either.
+    await writeFile(
+      join(dir, 'src', 'scripts', 'migrate.ts'),
+      await readMigrateRunner(['@molecule/api-database-sqlite']),
+    )
+    expect(await ensureMigrateRunnerImports(dir)).toEqual([])
+    manifest = await readManifest()
+    expect(manifest.devDependencies?.['@molecule/api-database-pglite']).toBe('1.0.3')
+  })
+
   it('is a no-op when already declared, when there is no runner, or for runners that do not import it', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
     // No runner at all.
@@ -443,6 +518,18 @@ describe('syncMigrateRunner', () => {
     expect(runner).not.toContain("from 'pg'")
     expect(runner).not.toContain("from '@molecule/api-database-postgresql'")
     expect(runner).not.toContain('deriveSsl')
+    // And because that bare-true branch fires in EVERY profile, the swapped-in
+    // pin is promoted out of devDependencies — a production prune must not
+    // leave boot-time runMigrations() crashing on the bond it needs.
+    const swapped = JSON.parse(await readFile(join(project, 'package.json'), 'utf-8')) as {
+      dependencies: Record<string, string>
+      devDependencies?: Record<string, string>
+    }
+    expect(swapped.dependencies['@molecule/api-database-pglite']).toBe('1.0.0')
+    expect(swapped.devDependencies?.['@molecule/api-database-pglite']).toBeUndefined()
+    expect(swapped.dependencies['@molecule/api-bonds-default-express']).toBe(
+      getMoleculeVersion('@molecule/api-bonds-default-express'),
+    )
   })
 
   it('swaps onto D1 ship the out-of-band runner — no import of the removed bond survives', async () => {
