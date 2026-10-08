@@ -1084,6 +1084,66 @@ server.registerTool(
 )
 
 server.registerTool(
+  'push_public_key',
+  {
+    title: "Get molecule.dev's web push VAPID public key",
+    description:
+      "Returns molecule.dev's public VAPID key (no vendor account; one request metered to the project whose MOLECULE_API_KEY is used) — the applicationServerKey a browser's pushManager.subscribe() must be given so the resulting subscriptions can be sent through molecule.dev's push_send. Cache it per app; it only changes when molecule.dev rotates its identity. The same service backs @molecule/api-push-notifications-molecule in app code.",
+    inputSchema: {
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('push_public_key', async ({ directory }) =>
+    serviceResult(async () => {
+      const result = await callHostedService('push', 'vapid-key', {}, directory)
+      return JSON.stringify(result)
+    }),
+  ),
+)
+
+server.registerTool(
+  'push_send',
+  {
+    title: 'Send a web push notification with molecule.dev',
+    description:
+      "Send a web push notification to one subscription on molecule.dev (VAPID handled for you, no vendor account; one send metered to the project whose MOLECULE_API_KEY is used). The subscription must come from pushManager.subscribe() called with molecule.dev's public VAPID key (push_public_key). Returns the push service's answer: statusCode 201 delivered; 404/410 the subscription is dead — tell the user to prune it. Payload stays under the Web Push protocol's encrypted-size cap (keep it small). The same service backs @molecule/api-push-notifications-molecule in app code.",
+    inputSchema: {
+      endpoint: z.string().url().describe('The push subscription endpoint URL'),
+      p256dh: z.string().min(1).describe("The subscription's p256dh key (base64url)"),
+      auth: z.string().min(1).describe("The subscription's auth secret (base64url)"),
+      title: z.string().min(1).max(500).describe('Notification title'),
+      body: z.string().max(2000).optional().describe('Notification body text'),
+      tag: z
+        .string()
+        .max(100)
+        .optional()
+        .describe('Replacement tag — one visible notification per tag'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('push_send', async ({ endpoint, p256dh, auth, title, body, tag, directory }) =>
+    serviceResult(async () => {
+      const result = await callHostedService(
+        'push',
+        'send',
+        {
+          subscription: { endpoint, keys: { p256dh, auth } },
+          payload: { title, options: { ...(body ? { body } : {}), ...(tag ? { tag } : {}) } },
+        },
+        directory,
+      )
+      return JSON.stringify(result)
+    }),
+  ),
+)
+
+server.registerTool(
   'ai_decision',
   {
     title: 'Answer typed questions with molecule.dev',

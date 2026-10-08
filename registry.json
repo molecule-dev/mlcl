@@ -18050,6 +18050,54 @@
         "web.push.apple.com"
       ]
     },
+    "@molecule/api-push-notifications-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "push-notifications",
+      "label": "Molecule (hosted)",
+      "description": "molecule.dev hosted push notifications provider — web push delivered through your molecule project, VAPID handled for you",
+      "stack": "api",
+      "implements": "@molecule/api-push-notifications",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "PUSH_SERVICE_LIMITS",
+        "MoleculeServiceError",
+        "MoleculePushProvider",
+        "createProvider",
+        "pushNotificationsMoleculeSecretDefinitions",
+        "MoleculePushConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-push-notifications",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-push-notifications",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/push-notifications/molecule",
+      "intentHints": [
+        "hosted push notifications",
+        "send push without a vendor account",
+        "web push without vapid keys"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
+      ]
+    },
     "@molecule/api-qr-code": {
       "language": "typescript",
       "runtime": "node",
