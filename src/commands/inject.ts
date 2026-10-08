@@ -18,6 +18,7 @@ import {
   synthesizeAppProjectFiles,
   synthesizeProjectFiles,
 } from '../lib/injector.js'
+import { ensureMigrateRunnerImports } from '../lib/migrate-runner.js'
 import {
   detectAppFramework,
   getAppFrameworkDeps,
@@ -415,6 +416,25 @@ export default class Inject extends Command {
         }
         errors.push(`Failed to write ${file.targetPath}: ${error}`)
         break
+      }
+    }
+
+    // Back the migration runner the synthesized files may just have written
+    // (API projects only — the app synthesis ships no runner). The runner
+    // statically imports its PGlite migrator from
+    // @molecule/api-bonds-default-express — never a peer of a database bond,
+    // so no inject plan declares it — and its browser-profile branch lazily
+    // imports @molecule/api-database-pglite: a `mlcl add --dev … --inject`
+    // hands over a manifest whose PGlite pin sits in devDependencies, which
+    // production deploys prune. The create (`copySqlSetupScripts`) and swap
+    // paths already route through ensureMigrateRunnerImports; this command is
+    // the remaining writer of the runner. No-op for database-less projects
+    // and manifests that already back the runner.
+    if (!isAppProject) {
+      try {
+        await ensureMigrateRunnerImports(projectPath)
+      } catch (error) {
+        warnings.push(`Could not back src/scripts/migrate.ts's imports: ${error}`)
       }
     }
 

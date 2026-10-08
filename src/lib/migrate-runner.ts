@@ -314,9 +314,9 @@ export async function readMigrateRunnerForManifest(apiDir: string): Promise<stri
  *   version the manifest already carries), or added at the registry pin.
  *
  * The flagship templates declare both in their manifests; this closes the
- * custom `mlcl create` and `mlcl swap` paths the same way. Idempotent, and a
- * no-op for runners that reach neither (SQLite/MySQL/D1 templates, or no
- * runner at all).
+ * custom `mlcl create`, `mlcl inject`/`mlcl add --inject` and `mlcl swap`
+ * paths the same way. Idempotent, and a no-op for runners that reach neither
+ * (SQLite/MySQL/D1 templates, or no runner at all).
  *
  * @param apiDir - The api workspace (the directory holding package.json).
  * @returns The dependency names gained in `dependencies` (empty when nothing
