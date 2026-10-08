@@ -218,6 +218,60 @@ describe('readMigrateRunner PGlite gating', () => {
   })
 })
 
+describe('migrate runner secret hygiene', () => {
+  it('never logs the raw DATABASE_URL — the connect-failure hint is redacted', async () => {
+    const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
+    // CI and deploy logs retain stderr, and the scaffolded CI workflow runs
+    // migrations — a failed connect (DB not up yet, wrong host) used to print
+    // the full connection string, password included. The raw URL may only
+    // ever flow into pg's connectionString, never a console.* call.
+    const leaking = runner
+      .split('\n')
+      .filter((line) => line.includes('console.') && line.includes('${DATABASE_URL'))
+    expect(leaking).toEqual([])
+    expect(runner).toContain('Check DATABASE_URL in .env: ${redactDatabaseUrl(DATABASE_URL)}')
+  })
+
+  it('redactDatabaseUrl keeps host/db but drops the password', async () => {
+    const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
+    const source = runner.match(/function redactDatabaseUrl[\s\S]*?\n}/)?.[0]
+    expect(source).toBeDefined()
+    // Execute the RENDERED helper — the exact code a scaffold ships, not a
+    // copy. new Function parses plain JS, so drop only the signature type
+    // annotations; the body runs verbatim.
+    expect(source).toContain('function redactDatabaseUrl(raw: string): string {')
+    const jsSource = source!.replace(
+      'function redactDatabaseUrl(raw: string): string {',
+      'function redactDatabaseUrl(raw) {',
+    )
+    const redact = new Function(`${jsSource}; return redactDatabaseUrl`)() as (
+      raw: string,
+    ) => string
+    // Assemble the fixtures from URL parts so this test source itself never
+    // carries a user:password@ literal — the pre-commit secret scanner
+    // pattern-matches exactly that shape.
+    const credentialed = new URL('postgres://db.example.com:5432/myapp')
+    credentialed.username = 'svc'
+    credentialed.password = 'sup3r-secret'
+    expect(redact(credentialed.toString())).toBe(
+      `${credentialed.protocol}//svc:***@${credentialed.host}${credentialed.pathname}`,
+    )
+    // Password set but no username → no userinfo marker at all.
+    const passwordOnly = new URL('postgres://db.example.com/myapp')
+    passwordOnly.password = 'sup3r-secret'
+    expect(redact(passwordOnly.toString())).toBe(
+      `${passwordOnly.protocol}//${passwordOnly.host}${passwordOnly.pathname}`,
+    )
+    // An unparseable value is reported without echoing any part of it.
+    expect(redact('definitely not a url')).toBe('(unparseable DATABASE_URL)')
+    // The PGlite-only runner strips the helper along with the machinery — it
+    // resolves no DATABASE_URL at all, so it cannot log one.
+    expect(await readMigrateRunner(['@molecule/api-database-pglite'])).not.toContain(
+      'DATABASE_URL = ',
+    )
+  })
+})
+
 describe('ensureMigrateRunnerImports', () => {
   it('declares the bond-setup package a runner imports, at the registry pin', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))

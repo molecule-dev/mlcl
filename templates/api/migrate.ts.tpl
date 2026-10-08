@@ -59,6 +59,26 @@ function resolveDatabaseUrl(): string {
   process.exit(1)
 }
 {{/MIGRATE_POSTGRES}}
+{{#MIGRATE_POSTGRES}}
+
+/**
+ * Redact credentials from a connection string before logging it. CI and
+ * deploy logs are retained and read broadly, and the connect-failure hint
+ * below is the one place the URL would otherwise reach them. Keeps the
+ * protocol, username, host and database name — the parts that make the
+ * hint diagnosable — and drops everything after the password marker.
+ */
+function redactDatabaseUrl(raw: string): string {
+  try {
+    const url = new URL(raw)
+    const userInfo = url.username ? `${url.username}:***@` : ''
+    return `${url.protocol}//${userInfo}${url.host}${url.pathname}`
+  } catch (_error) {
+    // Not a parseable URL — say so without echoing any part of it.
+    return '(unparseable DATABASE_URL)'
+  }
+}
+{{/MIGRATE_POSTGRES}}
 
 // MOL_BOND_PROFILE=browser runs the app on in-process PGlite (no Postgres server, no DATABASE_URL): the
 // migrations below are applied to that database instead (see runMigrations). The MIGRATE_PGLITE scaffold flag
@@ -149,7 +169,7 @@ export async function runMigrations(): Promise<void> {
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err)
     console.error(`✗ Could not connect to database: ${msg}`)
-    console.error(`  Check DATABASE_URL in .env: ${DATABASE_URL}`)
+    console.error(`  Check DATABASE_URL in .env: ${redactDatabaseUrl(DATABASE_URL)}`)
     throw err
   }
 
