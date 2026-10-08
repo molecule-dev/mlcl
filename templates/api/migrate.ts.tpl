@@ -6,14 +6,21 @@
  * or directly via: npm run db:setup
  */
 
+{{#MIGRATE_POSTGRES}}
 import { existsSync, readFileSync, readdirSync } from 'fs'
+{{/MIGRATE_POSTGRES}}
 import { join } from 'path'
 import { fileURLToPath } from 'url'
+{{#MIGRATE_POSTGRES}}
 
 import pg from 'pg'
 
+{{/MIGRATE_POSTGRES}}
 import { createMigratorPglite } from '@molecule/api-bonds-default-express'
+{{#MIGRATE_POSTGRES}}
 import { deriveSsl } from '@molecule/api-database-postgresql'
+{{/MIGRATE_POSTGRES}}
+{{#MIGRATE_POSTGRES}}
 
 /**
  * Resolve DATABASE_URL: process.env first, then read the project's `.env`
@@ -51,21 +58,29 @@ function resolveDatabaseUrl(): string {
   )
   process.exit(1)
 }
+{{/MIGRATE_POSTGRES}}
 
 // MOL_BOND_PROFILE=browser runs the app on in-process PGlite (no Postgres server, no DATABASE_URL): the
-// migrations below are applied to that database instead (see runMigrations). {{MIGRATE_PGLITE}} is
-// substituted by mlcl (migrate-runner.ts) with `true` only when the app's api manifest declares
+// migrations below are applied to that database instead (see runMigrations). The MIGRATE_PGLITE scaffold flag
+// is substituted by mlcl with `true` only when the app's api manifest declares
 // @molecule/api-database-pglite as a production dependency — every other app gets `false`, so the
 // browser branch below is unreachable code instead of an ERR_MODULE_NOT_FOUND crash waiting on an
 // env var. Production deploys prune devDependencies, so a devDependencies-only pin is NOT enough.
-const BROWSER_PROFILE = {{MIGRATE_PGLITE}} && process.env.MOL_BOND_PROFILE === 'browser'
+// When the manifest declares PGlite but NOT @molecule/api-database-postgresql, mlcl also strips the
+// whole Postgres machinery at render time: PGlite is then the app's only database, so the runner
+// migrates it in every profile (the gate renders as a bare `true` and no `pg` / postgres-bond
+// import remains for a swap to prune).
+const BROWSER_PROFILE = {{MIGRATE_PGLITE}}{{MIGRATE_PROFILE_GATE}}
+{{#MIGRATE_POSTGRES}}
 
 const DATABASE_URL = BROWSER_PROFILE ? '' : resolveDatabaseUrl()
+{{/MIGRATE_POSTGRES}}
 const migrationsDir = join(new URL('.', import.meta.url).pathname, '../../migrations')
 // `__setup__/` is populated at scaffold time from registry-known table SQL
 // (see mlcl scaffold.ts copySqlSetupScripts) so resource packages bring
 // their own DDL even when the squashed app migration forgets to include it.
 const setupDir = join(new URL('.', import.meta.url).pathname, '../../__setup__')
+{{#MIGRATE_POSTGRES}}
 
 // SSL is verify-by-default via the postgresql bond's shared `deriveSsl` helper:
 // local connections skip TLS, remote connections verify the server certificate
@@ -82,6 +97,7 @@ try {
 } catch {
   // fallback
 }
+{{/MIGRATE_POSTGRES}}
 
 export async function runMigrations(): Promise<void> {
   if (BROWSER_PROFILE) {
@@ -93,6 +109,7 @@ export async function runMigrations(): Promise<void> {
     console.log('Migrations complete (PGlite).')
     return
   }
+{{#MIGRATE_POSTGRES}}
 
   // Step 1: Try to create the database (connects to 'postgres' db as admin)
   try {
@@ -177,6 +194,7 @@ export async function runMigrations(): Promise<void> {
 
   await client.end()
   console.log('Migrations complete.')
+{{/MIGRATE_POSTGRES}}
 }
 
 // Allow running directly: npm run db:setup

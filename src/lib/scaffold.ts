@@ -31,7 +31,7 @@ import { collectSecrets } from './features.js'
 import { sortImportStatements } from './format.js'
 import type { InferredMetadata } from './infer.js'
 import { injectLogo } from './logo-injector.js'
-import { readMigrateRunner, readMigrateRunnerForManifest } from './migrate-runner.js'
+import { ensureMigrateRunnerImports, readMigrateRunnerForManifest } from './migrate-runner.js'
 import {
   detectAppFramework,
   getMoleculeVersion,
@@ -2301,6 +2301,10 @@ export async function copyTemplateInstance(
       try {
         const fresh = await readMigrateRunnerForManifest(apiPathForSetup)
         await writeFile(migrateScriptPath, fresh)
+        // The refreshed runner statically imports its PGlite migrator from
+        // @molecule/api-bonds-default-express; make sure the copied manifest
+        // declares it (idempotent — the flagship manifests already do).
+        await ensureMigrateRunnerImports(apiPathForSetup)
       } catch (err) {
         const msg = err instanceof Error ? err.message : String(err)
         mlclDebug(`[scaffold] migrate.ts refresh skipped: ${msg}`)
@@ -2932,10 +2936,15 @@ export async function createApiProject(
     await loadTemplate('api/bonds-index.ts.tpl'),
   )
   await writeFile(join(projectPath, 'src', 'server.ts'), await loadTemplate('api/server.ts.tpl'))
-  // `false` for the PGlite flag: this skeleton's package selection is not known
-  // yet, and injecting database packages later regenerates the runner through
-  // readMigrateRunner() with the real selection.
-  await writeFile(join(projectPath, 'src', 'scripts', 'migrate.ts'), await readMigrateRunner([]))
+  // No migrate.ts placeholder here. The skeleton's package selection is not
+  // known yet, and the runner statically imports the database bond's pieces
+  // (`pg`, `deriveSsl`, the PGlite migrator wrapper) — a placeholder would
+  // import packages the manifest cannot declare yet, failing `typecheck` on a
+  // real install (the workspace's hoisted node_modules hides exactly this
+  // hole). `mlcl inject` writes the real runner, rendered from the real
+  // selection, the moment a database package lands; a database-less project
+  // never gets a file whose imports nothing declares (its `db:setup` script
+  // then fails loudly only if run).
   await writeFile(
     join(projectPath, 'eslint.config.js'),
     await loadTemplate('shared/eslint.config.js.tpl'),
@@ -5858,6 +5867,15 @@ export async function copySqlSetupScripts(
       }
     }
   }
+
+  // The migration runner `mlcl inject` just wrote (custom builds — the
+  // --template fast path never reaches this call) statically imports its
+  // PGlite migrator from @molecule/api-bonds-default-express; declare that
+  // package so a real install resolves it and `tsc`/`db:setup` work outside
+  // this hoisted workspace. No-op for database-less builds (no runner) and
+  // idempotent for manifests that already declare it. This runs after the
+  // inject step in the create flow, so the runner on disk is the final one.
+  await ensureMigrateRunnerImports(projectPath)
 }
 
 /**
