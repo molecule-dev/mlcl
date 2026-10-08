@@ -93,10 +93,22 @@ function redactDatabaseUrl(raw: string): string {
  * rendered runner replaced the frozen delegates to that bond's
  * `createMigrator`, and a narrower predicate boot-looped templates whose
  * second boot raised 42701/42P16 — the app started once, then refused to boot
- * ever again against a persistent database. Anything outside that class (a
- * syntax error, a missing permission, a mid-file error: each file runs as ONE
- * query, so the whole file rolled back) must fail the run — reporting success
- * and exiting 0 on a broken schema ships the failure to runtime as a
+ * ever again against a persistent database.
+ *
+ * The cost of that parity, stated plainly: a recognized SQLSTATE returns true
+ * BEFORE the message is read, and these codes name whole error CLASSES, not
+ * just their re-run members — 42P16 is invalid_table_definition as a whole,
+ * 42701 any duplicate column. A FIRST-run migration failing with one of them
+ * (a partitioned-table primary key that omits the partition column; two
+ * migrations adding the same column name) is therefore logged as "already
+ * applied", the run exits 0, and the server boots on the broken schema the
+ * error described. Tightening this gate starts in the bond migrator
+ * (message-confirm 42701/42P16 there first, then let the drift guard carry
+ * the change here) — narrowing it in this template alone re-creates the boot
+ * loop the parity exists to prevent. Anything outside the recognized classes
+ * (a syntax error, a missing permission, a mid-file error: each file runs as
+ * ONE query, so the whole file rolled back) must fail the run — reporting
+ * success and exiting 0 on a broken schema ships the failure to runtime as a
  * "relation does not exist" far from the cause.
  */
 function isBenignMigrationError(err: unknown): boolean {
@@ -104,12 +116,12 @@ function isBenignMigrationError(err: unknown): boolean {
   // self-contained unit.
   const IDEMPOTENT_PG_CODES = new Set([
     '42P07', // duplicate_table
-    '42701', // duplicate_column
+    '42701', // duplicate_column — whole class, code-only match (see above)
     '42710', // duplicate_object
     '42P06', // duplicate_schema
     '42P04', // duplicate_database
     '42723', // duplicate_function
-    '42P16', // invalid_table_definition — "multiple primary keys" (see above)
+    '42P16', // invalid_table_definition — whole class, code-only match (see above)
   ])
   const code =
     typeof err === 'object' && err !== null && 'code' in err && typeof err.code === 'string'
