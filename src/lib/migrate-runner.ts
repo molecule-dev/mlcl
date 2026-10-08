@@ -16,9 +16,10 @@
  * of the very bond the swap just removed. The render only decides
  * REACHABILITY; backing the emitted runner is {@link ensureMigrateRunnerImports}'
  * job — it declares the bond-setup package behind the runner's typed PGlite
- * import and promotes the PGlite bond to a production pin whenever the branch
- * is emitted reachable, so a live branch never rides on a devDependencies pin
- * that production deploys prune.
+ * import and promotes every bond the render emitted on a devDependencies pin
+ * (the reachable PGlite branch, and the Postgres machinery's own bond) into
+ * `dependencies`, so a live import never rides on a pin that production
+ * deploys prune.
  *
  * @module
  */
@@ -305,26 +306,33 @@ export async function readMigrateRunnerForManifest(apiDir: string): Promise<stri
 /**
  * Make the api manifest back the migration runner on disk.
  *
- * Two runtime imports must sit in `dependencies` (production deploys prune
- * `devDependencies` — `--omit=dev` — and the workspace's hoisted node_modules
- * hides exactly this class of hole):
+ * Every runtime import the emitted runner can carry must sit in
+ * `dependencies` (production deploys prune `devDependencies` — `--omit=dev` —
+ * and the workspace's hoisted node_modules hides exactly this class of hole):
  *
  * - {@link MIGRATE_RUNNER_BONDS_PACKAGE}, which the Postgres-flavor runner
  *   imports `createMigratorPglite` from unconditionally — without it `tsc`
  *   fails TS2307 and `db:setup` dies with ERR_MODULE_NOT_FOUND on a real
- *   install. Declared at the registry pin when missing.
+ *   install.
  * - {@link PGLITE_PACKAGE}, whenever the runner's browser branch is emitted
  *   reachable — the wrapper imports that bond LAZILY at call time, so a
  *   devDependencies-only pin (from `mlcl add --dev`, or a swap out of
  *   `devDependencies`) leaves a branch that crashes boot-time
  *   `runMigrations()` with ERR_MODULE_NOT_FOUND exactly where it fires, after
- *   the production prune. The pin is MOVED into `dependencies` (keeping the
- *   version the manifest already carries), or added at the registry pin.
+ *   the production prune.
+ * - {@link POSTGRES_PACKAGE}, whenever the runner emits the Postgres
+ *   machinery (`import pg from 'pg'` and the bond's `deriveSsl`). The render
+ *   counts a devDependencies declaration as declaring the database — a swap
+ *   lands the new database in the SAME key the old one occupied — so a
+ *   dev-key postgresql renders a full Postgres runner whose bond, and with it
+ *   the `pg` driver the bond depends on, a production prune would drop.
  *
- * The flagship templates declare both in their manifests; this closes the
- * custom `mlcl create`, `mlcl inject`/`mlcl add --inject` and `mlcl swap`
- * paths the same way. Idempotent, and a no-op for runners that reach neither
- * (SQLite/MySQL/D1 templates, or no runner at all).
+ * Each pin is MOVED into `dependencies` (keeping the version the manifest
+ * already carries), or added at the registry pin when the manifest carries
+ * none. The flagship templates declare all three in their manifests; this
+ * closes the custom `mlcl create`, `mlcl inject`/`mlcl add --inject` and
+ * `mlcl swap` paths the same way. Idempotent, and a no-op for runners that
+ * need none of them (SQLite/MySQL/D1 templates, or no runner at all).
  *
  * @param apiDir - The api workspace (the directory holding package.json).
  * @returns The dependency names gained in `dependencies` (empty when nothing
@@ -345,8 +353,20 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
   // (`true && process.env.MOL_BOND_PROFILE === 'browser'`). A bare-`false`
   // render can never call it, so its manifest needs no PGlite pin.
   const pgliteBranchReachable = runner.includes('const BROWSER_PROFILE = true')
-  if (!importsWrapper && !pgliteBranchReachable) {
-    // A SQLite/MySQL/out-of-band runner (or a hand-written one) needs neither.
+  // The Postgres machinery imports the PostgreSQL bond itself (`deriveSsl`).
+  // The render emits it whenever the manifest declared the bond in EITHER
+  // key, so a dev-key declaration produces a runner whose import a production
+  // prune breaks exactly like the PGlite branch it sits next to.
+  const importsPostgres = runner.includes(`from '${POSTGRES_PACKAGE}'`)
+  // Every import the runner on disk needs backed — also the list named when
+  // the manifest cannot be read.
+  const needed = [
+    importsWrapper ? MIGRATE_RUNNER_BONDS_PACKAGE : null,
+    pgliteBranchReachable ? PGLITE_PACKAGE : null,
+    importsPostgres ? POSTGRES_PACKAGE : null,
+  ].filter((name): name is string => name !== null)
+  if (needed.length === 0) {
+    // A SQLite/MySQL/out-of-band runner (or a hand-written one) needs none.
     return []
   }
   const manifestPath = join(apiDir, 'package.json')
@@ -359,9 +379,7 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
   } catch (error) {
     console.warn(
       `[migrate-runner] ${manifestPath} is missing or unparseable — cannot back ` +
-        `src/scripts/migrate.ts's imports (${MIGRATE_RUNNER_BONDS_PACKAGE}` +
-        `${importsWrapper ? '' : ' not needed'}, ${PGLITE_PACKAGE}` +
-        `${pgliteBranchReachable ? '' : ' not needed'}): ` +
+        `src/scripts/migrate.ts's imports (${needed.join(', ')}): ` +
         `${error instanceof Error ? error.message : String(error)}`,
     )
     return []
@@ -369,25 +387,24 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
   const deps = manifest.dependencies ?? {}
   const devDeps = manifest.devDependencies
   const gained: string[] = []
-
-  if (importsWrapper && !deps[MIGRATE_RUNNER_BONDS_PACKAGE]) {
-    deps[MIGRATE_RUNNER_BONDS_PACKAGE] = getMoleculeVersion(MIGRATE_RUNNER_BONDS_PACKAGE)
-    gained.push(MIGRATE_RUNNER_BONDS_PACKAGE)
-  }
-
-  if (pgliteBranchReachable && !deps[PGLITE_PACKAGE]) {
+  const promote = (name: string): void => {
+    if (deps[name]) return
     // Keep the version the manifest already pins (an explicit `mlcl add`
     // resolved it from npm); only the KEY moves. A manifest with no pin at
-    // all gets the registry pin — same rule the wrapper follows.
-    deps[PGLITE_PACKAGE] = devDeps?.[PGLITE_PACKAGE] ?? getMoleculeVersion(PGLITE_PACKAGE)
-    if (devDeps?.[PGLITE_PACKAGE]) {
-      delete devDeps[PGLITE_PACKAGE]
+    // all gets the registry pin — the same rule every backed import follows.
+    deps[name] = devDeps?.[name] ?? getMoleculeVersion(name)
+    if (devDeps?.[name]) {
+      delete devDeps[name]
       manifest.devDependencies = Object.fromEntries(
         Object.entries(devDeps).sort(([a], [b]) => a.localeCompare(b)),
       )
     }
-    gained.push(PGLITE_PACKAGE)
+    gained.push(name)
   }
+
+  if (importsWrapper) promote(MIGRATE_RUNNER_BONDS_PACKAGE)
+  if (pgliteBranchReachable) promote(PGLITE_PACKAGE)
+  if (importsPostgres) promote(POSTGRES_PACKAGE)
 
   if (gained.length === 0) return []
   manifest.dependencies = Object.fromEntries(
@@ -412,9 +429,9 @@ export interface MigrateRunnerSync {
  * are re-derived from the project's own (already-swapped) manifest, so a swap
  * ONTO PGlite emits the PGlite-only runner (no imports of the PostgreSQL bond
  * the swap just removed) and a swap onto PostgreSQL keeps a browser-profile
- * app's PGlite branch. The bond-setup package the runner imports is declared
- * either way, and a reachable PGlite branch gets its pin promoted into
- * `dependencies` — even when the swap landed it in `devDependencies` (see
+ * app's PGlite branch. Every import the re-rendered runner carries is
+ * declared either way — the bond-setup package, and any bond the swap landed
+ * on a devDependencies pin gets MOVED into `dependencies` (see
  * {@link ensureMigrateRunnerImports}).
  *
  * @param projectPath - The API workspace (the directory holding package.json).
