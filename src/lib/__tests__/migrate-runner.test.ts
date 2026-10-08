@@ -35,9 +35,12 @@
  * database provider missing from it (D1 was) strands the old runner's imports
  * on swap — TS2307 / ERR_MODULE_NOT_FOUND on a real install.
  *
- * The failure-semantics tests pin the runner's per-file catch: only
- * already-applied duplicate_* pg codes may continue; every other failed
- * migration must fail `db:setup` instead of exiting 0 over a broken schema.
+ * The failure-semantics tests pin the runner's per-file catches — the
+ * migrations loop AND the `__setup__/*.sql` replay: only already-applied
+ * duplicate_* pg codes may continue; every other failure must fail `db:setup`
+ * instead of exiting 0 over a broken schema (the __setup__ swallow used to do
+ * exactly that: one warn line, boot green, resource tables missing, and every
+ * request to them 500s with "relation does not exist").
  *
  * @module
  */
@@ -98,6 +101,22 @@ describe('migrateTemplateFor', () => {
     expect(migrateTemplateFor(['@molecule/api-database-d1', '@molecule/api-database-sqlite'])).toBe(
       'api/migrate-outofband.ts.tpl',
     )
+  })
+
+  it('a mixed server-database set follows the precedence, not the injection order', () => {
+    // SQLite declared + PostgreSQL injected (`mlcl add
+    // @molecule/api-database-postgresql --inject`): the union still declares
+    // SQLite, so the runner stays on the SQLite file — the precedence winner —
+    // even though the injected bond is what the regenerated wiring uses. The
+    // runner follows the precedence list; only an injection that itself wins
+    // re-points it (`mlcl add` does not guard a second server database).
+    expect(
+      migrateTemplateFor(['@molecule/api-database-postgresql', '@molecule/api-database-sqlite']),
+    ).toBe('api/migrate-sqlite.ts.tpl')
+    // Same rule between the two file-based servers: SQLite beats MySQL.
+    expect(
+      migrateTemplateFor(['@molecule/api-database-mysql', '@molecule/api-database-sqlite']),
+    ).toBe('api/migrate-sqlite.ts.tpl')
   })
 })
 
@@ -320,6 +339,100 @@ describe('migration failure semantics', () => {
     // rolled back) used to print "Migrations complete.", exit 0, and ship the
     // failure to runtime as a "relation does not exist" far from the cause.
     expect(runner).toContain('if (!isBenignMigrationError(err)) throw err')
+  })
+
+  it('fails the run on a real __setup__ error too — only already-applied DDL continues', async () => {
+    const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
+    // Step 3's `__setup__/*.sql` replay must gate on the same benign-code
+    // predicate as step 2: a duplicate_* is the expected re-run there (the
+    // squashed app migration may already own the resource tables), but the
+    // unconditional swallow let a real failure — the app role lacking CREATE
+    // on the schema, a typo, a referenced-but-absent enum — print one warn
+    // line, resolve, exit 0, and boot the server to 500 on every request to
+    // the missing tables. Executes the RENDERED block with the RENDERED
+    // helper — the exact code a scaffold ships, not a copy.
+    const helperSource = runner.match(/function isBenignMigrationError[\s\S]*?\n}/)?.[0]
+    const blockSource = runner.match(/if \(existsSync\(setupDir\)\)[\s\S]*?\n {2}\}/)?.[0]
+    expect(helperSource).toBeDefined()
+    expect(blockSource).toBeDefined()
+    expect(blockSource).toContain('if (!isBenignMigrationError(err)) throw err')
+    // new Function parses plain JS, so drop only the signature's type
+    // annotations; the bodies run verbatim.
+    const jsHelper = helperSource!.replace(
+      'function isBenignMigrationError(err: unknown): boolean {',
+      'function isBenignMigrationError(err) {',
+    )
+    const runSetup = new Function(
+      'existsSync',
+      'readdirSync',
+      'readFileSync',
+      'join',
+      'setupDir',
+      'client',
+      'console',
+      `${jsHelper}; return (async () => { ${blockSource} })()`,
+    ) as (
+      ...args: [
+        existsSync: (path: string) => boolean,
+        readdirSync: (path: string) => string[],
+        readFileSync: (path: string, encoding: string) => string,
+        join: (...parts: string[]) => string,
+        setupDir: string,
+        client: { query: (sql: string) => Promise<unknown> },
+        console: { log: (msg: string) => void; warn: (msg: string) => void },
+      ]
+    ) => Promise<void>
+    const logs: string[] = []
+    const warns: string[] = []
+    const stubConsole = {
+      log: (msg: string) => logs.push(msg),
+      warn: (msg: string) => warns.push(msg),
+    }
+    const stubFs = [
+      () => true,
+      () => ['payments.sql', 'todos.sql'],
+      (_path: string, _encoding: string) => 'CREATE TABLE IF NOT EXISTS payments ()',
+      (dir: string, file: string) => `${dir}/${file}`,
+      '__setup__',
+    ] as const
+
+    // A duplicate_* failure on the first file is logged and the replay
+    // CONTINUES to the remaining files.
+    const benign = Object.assign(new Error('relation "payments" already exists'), { code: '42P07' })
+    const replayed: string[] = []
+    await runSetup(
+      ...stubFs,
+      {
+        query: (sql: string) => {
+          replayed.push(sql)
+          return replayed.length === 1 ? Promise.reject(benign) : Promise.resolve(undefined)
+        },
+      },
+      stubConsole,
+    )
+    expect(replayed).toHaveLength(2)
+    expect(warns.some((w) => w.includes('payments.sql') && w.includes('already exists'))).toBe(true)
+    expect(logs).toContain('✓ __setup__/todos.sql')
+
+    // Any other code fails the run — the boot-time caller (the injector's
+    // awaited runMigrations) sees the rejection instead of a green exit.
+    const denied = Object.assign(new Error('permission denied for schema public'), {
+      code: '42501',
+    })
+    const attempted: string[] = []
+    await expect(
+      runSetup(
+        ...stubFs,
+        {
+          query: (sql: string) => {
+            attempted.push(sql)
+            return Promise.reject(denied)
+          },
+        },
+        stubConsole,
+      ),
+    ).rejects.toBe(denied)
+    expect(attempted).toHaveLength(1)
   })
 
   it('isBenignMigrationError whitelists only the duplicate_* pg codes', async () => {

@@ -226,8 +226,16 @@ export async function runMigrations(): Promise<void> {
         await client.query(sql)
         console.log(`✓ __setup__/${file}`)
       } catch (err) {
+        // Same gate as step 2 (see isBenignMigrationError): a duplicate_* code
+        // is the expected re-run here — the squashed app migration may already
+        // own these tables — so it is logged and skipped. Anything else (the
+        // app role lacks CREATE on the schema, a typo, a referenced-but-absent
+        // enum) must fail the run: a swallowed failure printed "Migrations
+        // complete.", exited 0, and the server booted to 500 on every request
+        // with "relation does not exist", far from the cause.
+        if (!isBenignMigrationError(err)) throw err
         const msg = err instanceof Error ? err.message : String(err)
-        console.warn(`⚠ __setup__/${file}: ${msg}`)
+        console.warn(`⚠ __setup__/${file}: ${msg} (already applied — continuing)`)
       }
     }
   }

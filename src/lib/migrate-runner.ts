@@ -214,10 +214,13 @@ async function manifestDeclaredPackages(manifestPath: string): Promise<Set<strin
  * (PGlite's, behind the browser-profile gate) — the SQLite/MySQL/D1 templates
  * each cover their one database. A package set that mixes template-
  * incompatible server databases therefore resolves to a single database's
- * runner by the precedence above (D1 > SQLite > MySQL > Postgres): injecting
- * an additional server database into a project that declares another re-points
- * the runner at the injected one. Changing the project's database wholesale is
- * `mlcl swap`'s job — it rewrites the runner AND the manifest together.
+ * runner by the precedence above (D1 > SQLite > MySQL > Postgres): the
+ * highest-precedence database in the set wins, whether it was declared first
+ * or injected last. Injecting SQLite into a Postgres project re-points the
+ * runner at the SQLite file; injecting Postgres into a SQLite project leaves
+ * the runner on the SQLite file the injected wiring no longer reads (`mlcl
+ * add` does not guard a second server database). Rewriting the runner AND the
+ * manifest to ONE database together is `mlcl swap`'s job.
  *
  * @param packageNames - The project's `@molecule/*` package names.
  * @returns The template path, relative to mlcl's `templates/` directory.
