@@ -7,15 +7,14 @@
  */
 
 {{#MIGRATE_POSTGRES}}
-import { existsSync, readFileSync, readdirSync } from 'fs'
+import { existsSync, readdirSync, readFileSync } from 'fs'
 {{/MIGRATE_POSTGRES}}
 import { join } from 'path'
-import { fileURLToPath } from 'url'
 {{#MIGRATE_POSTGRES}}
-
 import pg from 'pg'
-
 {{/MIGRATE_POSTGRES}}
+import { fileURLToPath } from 'url'
+
 import { createMigratorPglite } from '@molecule/api-bonds-default-express'
 {{#MIGRATE_POSTGRES}}
 import { deriveSsl } from '@molecule/api-database-postgresql'
@@ -48,7 +47,7 @@ function resolveDatabaseUrl(): string {
           .trim()
           .replace(/^["']|["']$/g, '')
       }
-    } catch {
+    } catch (_error) {
       // try the next candidate path
     }
   }
@@ -77,6 +76,23 @@ function redactDatabaseUrl(raw: string): string {
     // Not a parseable URL — say so without echoing any part of it.
     return '(unparseable DATABASE_URL)'
   }
+}
+{{/MIGRATE_POSTGRES}}
+{{#MIGRATE_POSTGRES}}
+
+/**
+ * Whether a failed migration query is safe to continue past. Re-running a
+ * migration whose objects already exist fails the file with a duplicate_*
+ * pg error code (42P07 table, 42710 object, 42P06 schema) — and ONLY those
+ * codes are benign here. Any other failure (a syntax error, a missing
+ * permission, a mid-file error: each file runs as ONE query, so the whole
+ * file rolled back) must fail the run — reporting success and exiting 0 on a
+ * broken schema ships the failure to runtime as a "relation does not exist"
+ * far from the cause.
+ */
+function isBenignMigrationError(err: unknown): boolean {
+  const code = typeof err === 'object' && err !== null && 'code' in err ? err.code : undefined
+  return code === '42P07' || code === '42710' || code === '42P06'
 }
 {{/MIGRATE_POSTGRES}}
 
@@ -113,7 +129,7 @@ const sslConfig = BROWSER_PROFILE ? false : deriveSsl(DATABASE_URL)
 let dbName = 'myapp'
 try {
   dbName = new URL(DATABASE_URL).pathname.replace(/^\//, '') || 'myapp'
-} catch {
+} catch (_error) {
   // fallback
 }
 {{/MIGRATE_POSTGRES}}
@@ -185,9 +201,14 @@ export async function runMigrations(): Promise<void> {
         await client.query(sql)
         console.log(`✓ ${file}`)
       } catch (err) {
+        // IF NOT EXISTS objects that already exist fail with a duplicate_*
+        // code — that re-run is benign and the run continues. Everything
+        // else fails the run (see isBenignMigrationError): a swallowed
+        // failure here used to print "Migrations complete." and exit 0 with
+        // the schema broken.
+        if (!isBenignMigrationError(err)) throw err
         const msg = err instanceof Error ? err.message : String(err)
-        // IF NOT EXISTS tables are idempotent — log but don't fail
-        console.warn(`⚠ ${file}: ${msg}`)
+        console.warn(`⚠ ${file}: ${msg} (already applied — continuing)`)
       }
     }
   }

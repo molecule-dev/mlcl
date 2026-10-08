@@ -136,8 +136,8 @@ function renderPostgresSections(raw: string, include: boolean): string {
  *
  * `{{MIGRATE_PGLITE}}` decides whether the emitted runner's
  * `MOL_BOND_PROFILE=browser` branch is reachable at all: only an app whose api
- * manifest declares the PGlite bond may run it. Everyone else gets `false &&
- * …` — unreachable code instead of a deferred `ERR_MODULE_NOT_FOUND` (the
+ * manifest declares the PGlite bond may run it. Everyone else gets a bare
+ * `false` — unreachable code instead of a deferred `ERR_MODULE_NOT_FOUND` (the
  * browser-profile bonds lazily import the package at call time; see
  * templates/api/migrate.ts.tpl).
  *
@@ -154,12 +154,15 @@ function renderPostgresSections(raw: string, include: boolean): string {
 export function renderMigrateRunner(raw: string, render: MigrateRunnerRender): string {
   const postgresMachinery = render.postgresDeclared ?? true
   const pgliteOnly = render.pgliteDeclared && !postgresMachinery
+  // A PGlite-absent render gets a BARE `false` — `false && <gate>` keeps the
+  // comparison as documentation but is a `no-constant-binary-expression`
+  // lint error in every project the runner lands in (templates copy out
+  // verbatim, so their lint gate fails on the user's first `npm run lint`).
+  const profileGate =
+    pgliteOnly || !render.pgliteDeclared ? '' : " && process.env.MOL_BOND_PROFILE === 'browser'"
   return renderPostgresSections(raw, !pgliteOnly)
     .replaceAll('{{MIGRATE_PGLITE}}', render.pgliteDeclared ? 'true' : 'false')
-    .replaceAll(
-      '{{MIGRATE_PROFILE_GATE}}',
-      pgliteOnly ? '' : " && process.env.MOL_BOND_PROFILE === 'browser'",
-    )
+    .replaceAll('{{MIGRATE_PROFILE_GATE}}', profileGate)
 }
 
 /**
@@ -331,7 +334,7 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
   const importsWrapper = runner.includes(`from '${MIGRATE_RUNNER_BONDS_PACKAGE}'`)
   // The browser branch is reachable only in renders mlcl emits with the flag
   // `true` — bare for a PGlite-only runner, profile-gated for the dual one
-  // (`true && process.env.MOL_BOND_PROFILE === 'browser'`). The `false && …`
+  // (`true && process.env.MOL_BOND_PROFILE === 'browser'`). A bare-`false`
   // render can never call it, so its manifest needs no PGlite pin.
   const pgliteBranchReachable = runner.includes('const BROWSER_PROFILE = true')
   if (!importsWrapper && !pgliteBranchReachable) {

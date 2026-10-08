@@ -35,6 +35,10 @@
  * database provider missing from it (D1 was) strands the old runner's imports
  * on swap — TS2307 / ERR_MODULE_NOT_FOUND on a real install.
  *
+ * The failure-semantics tests pin the runner's per-file catch: only
+ * already-applied duplicate_* pg codes may continue; every other failed
+ * migration must fail `db:setup` instead of exiting 0 over a broken schema.
+ *
  * @module
  */
 
@@ -123,7 +127,10 @@ describe('renderMigrateRunner', () => {
 describe('readMigrateRunner PGlite gating', () => {
   it('emits an unreachable browser branch unless the PGlite bond is selected', async () => {
     const without = await readMigrateRunner(['@molecule/api-database-postgresql'])
-    expect(without).toContain('false && process.env.MOL_BOND_PROFILE')
+    // A bare `false` — the `false && <gate>` shape is a
+    // no-constant-binary-expression lint error in the projects this lands in.
+    expect(without).toContain('const BROWSER_PROFILE = false\n')
+    expect(without).not.toContain('false && process.env.MOL_BOND_PROFILE')
     const withPglite = await readMigrateRunner([
       '@molecule/api-database-postgresql',
       '@molecule/api-database-pglite',
@@ -304,6 +311,56 @@ describe('migrate runner secret hygiene', () => {
   })
 })
 
+describe('migration failure semantics', () => {
+  it('fails the run on a real migration error — only already-applied objects continue', async () => {
+    const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
+    // The per-file catch must rethrow everything the benign-code predicate
+    // does not whitelist: each file runs as ONE query, so a swallowed failure
+    // (syntax error, missing permission, mid-file abort — the whole file
+    // rolled back) used to print "Migrations complete.", exit 0, and ship the
+    // failure to runtime as a "relation does not exist" far from the cause.
+    expect(runner).toContain('if (!isBenignMigrationError(err)) throw err')
+  })
+
+  it('isBenignMigrationError whitelists only the duplicate_* pg codes', async () => {
+    const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
+    const source = runner.match(/function isBenignMigrationError[\s\S]*?\n}/)?.[0]
+    expect(source).toBeDefined()
+    // Execute the RENDERED helper — the exact code a scaffold ships, not a
+    // copy. new Function parses plain JS, so drop only the signature type
+    // annotations; the body runs verbatim.
+    expect(source).toContain('function isBenignMigrationError(err: unknown): boolean {')
+    const jsSource = source!.replace(
+      'function isBenignMigrationError(err: unknown): boolean {',
+      'function isBenignMigrationError(err) {',
+    )
+    const isBenign = new Function(`${jsSource}; return isBenignMigrationError`)() as (
+      err: unknown,
+    ) => boolean
+    // Re-running an already-applied object: duplicate table / object /
+    // schema — the benign re-run class, logged and skipped.
+    for (const code of ['42P07', '42710', '42P06']) {
+      expect(isBenign(Object.assign(new Error('already exists'), { code }))).toBe(true)
+    }
+    // Everything else must fail the run: a SQL syntax error, a permission
+    // denial — and a non-pg error with no code at all (or a bare string).
+    expect(
+      isBenign(Object.assign(new Error('syntax error at or near "FROM"'), { code: '42601' })),
+    ).toBe(false)
+    expect(
+      isBenign(Object.assign(new Error('password authentication failed'), { code: '28P01' })),
+    ).toBe(false)
+    expect(isBenign(new Error('ECONNREFUSED 127.0.0.1:5432'))).toBe(false)
+    expect(isBenign('42P07')).toBe(false)
+    expect(isBenign(null)).toBe(false)
+    // The PGlite-only runner has no Postgres migration loop — the helper is
+    // stripped along with the machinery, not shipped dead.
+    expect(await readMigrateRunner(['@molecule/api-database-pglite'])).not.toContain(
+      'isBenignMigrationError',
+    )
+  })
+})
+
 describe('ensureMigrateRunnerImports', () => {
   it('declares the bond-setup package a runner imports, at the registry pin', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
@@ -402,7 +459,7 @@ describe('ensureMigrateRunnerImports', () => {
   it('leaves the PGlite pin alone when the branch is unreachable, or the runner covers another database', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
     await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
-    // Postgres-only render: the flag is `false && …` — the branch can never
+    // Postgres-only render: the flag is a bare `false` — the branch can never
     // fire, so a dev-only PGlite pin is none of the runner's business.
     await writeFile(
       join(dir, 'src', 'scripts', 'migrate.ts'),
