@@ -68,4 +68,24 @@ describe('generated smoke-test mocks', () => {
       "vi.mock('../scripts/migrate.js', () => ({\n  runMigrations: vi.fn(),\n}))",
     )
   })
+
+  it('asserts the bonds/index export surface against the REAL module, not the mock', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-smoke-mocks-'))
+    const files = await synthesizeProjectFiles([], ['@molecule/api-database-postgresql'], dir)
+    const serverTest = files.find((f) => f.targetPath.endsWith('__tests__/server.test.ts'))
+    expect(serverTest).toBeDefined()
+    // The mock header must stay: it shields server.ts's import of bonds/index.
+    expect(serverTest!.content).toContain(
+      "vi.mock('../bonds/index.js', () => ({\n  setupBonds: vi.fn(),\n}))",
+    )
+    // …but the suite's own bonds/index assertion must drive the REAL module.
+    // It used to import the mocked path and assert `typeof ... === 'function'`
+    // — an assertion that could never fail, so a generated bonds/index.ts that
+    // did not export setupBonds (or failed to load) passed its own smoke suite
+    // and crashed the server at boot instead.
+    expect(serverTest!.content).toContain(
+      "const bonds = (await vi.importActual('../bonds/index.js')) as Record<string, unknown>",
+    )
+    expect(serverTest!.content.match(/await import\('\.\.\/bonds\/index\.js'\)/)).toBeNull()
+  })
 })

@@ -3438,7 +3438,10 @@ async function generateServerSmokeTest(
 
   return `import { describe, it, expect, vi } from 'vitest'
 
-// Mock bonds to avoid requiring real connections
+// Mock bonds to avoid requiring real connections when server.ts is imported
+// below. The bonds/index block further down reads the REAL module through
+// vi.importActual — this mock exists to shield server.ts's import, not to
+// hide the generated bonds/index.ts from its own smoke test.
 vi.mock('../bonds/index.js', () => ({
   setupBonds: vi.fn(),
 }))
@@ -3465,7 +3468,11 @@ describe('server', () => {
 
 describe('bonds/index', () => {
   it('exports setupBonds function', async () => {
-    const bonds = await import('../bonds/index.js') as Record<string, unknown>
+    // The REAL module — the vi.mock above only shields server.ts's import.
+    // Asserting against the mock could never fail: a generated bonds/index.ts
+    // that did not export setupBonds (or failed to load at all) passed its own
+    // smoke suite and crashed the server at boot instead.
+    const bonds = (await vi.importActual('../bonds/index.js')) as Record<string, unknown>
     expect(typeof bonds.setupBonds).toBe('function')
   })
 })

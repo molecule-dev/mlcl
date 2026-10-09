@@ -118,7 +118,15 @@ describe('mlcl inject runs the deferred npm install', () => {
 
     // A failed install must not fail the command: the files landed, and the
     // warning names the failure (the user runs npm install by hand).
-    await expect(runInject(project, [])).resolves.toBeInstanceOf(Inject)
+    const cmd = await runInject(project, [])
     expect(execaMock).toHaveBeenCalledTimes(1)
+    // The failure is WARNED, not swallowed: the command's output names the
+    // failed install. (The run resolving proves only the "completes" half —
+    // a silent swallow would pass without this.)
+    const logged = vi
+      .mocked(cmd.log)
+      .mock.calls.map((args) => args.map(String).join(' '))
+      .join('\n')
+    expect(logged).toContain('npm install failed')
   })
 })

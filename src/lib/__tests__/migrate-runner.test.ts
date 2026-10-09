@@ -341,6 +341,28 @@ describe('readMigrateRunner PGlite gating', () => {
     expect(both).toContain("import pg from 'pg'")
   })
 
+  it('readMigrateRunnerForManifest falls back to the conservative shape on an unreadable manifest', async () => {
+    // manifestDeclaredPackages returns null for a missing OR unparseable
+    // manifest, and this reader's documented fallback is the conservative
+    // render: no PGlite branch, Postgres machinery kept (the safe default
+    // shape — see the manifestDeclaredPackages doc). This is the path the
+    // template scaffold's refresh walks when a manifest is unreadable, so a
+    // regression here (throwing, or rendering the wrong shape) must fail a
+    // test, not the first scaffold.
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
+    // No manifest at all.
+    let runner = await readMigrateRunnerForManifest(dir)
+    expect(runner).toContain('const BROWSER_PROFILE = false\n')
+    expect(runner).not.toContain('true && process.env.MOL_BOND_PROFILE')
+    expect(runner).toContain("import pg from 'pg'")
+    expect(runner).toContain('CREATE DATABASE')
+    // A corrupt manifest — same fallback.
+    await writeFile(join(dir, 'package.json'), '{ this is not json')
+    runner = await readMigrateRunnerForManifest(dir)
+    expect(runner).toContain('const BROWSER_PROFILE = false\n')
+    expect(runner).toContain("import pg from 'pg'")
+  })
+
   it('renders from the manifest ∪ injected list — one injected database never erases a declared one', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
     // `mlcl add @molecule/api-database-pglite --inject` into an existing
@@ -1114,6 +1136,32 @@ describe('ensureMigrateRunnerImports', () => {
     expect(await ensureMigrateRunnerImports(dir)).toEqual([])
     manifest = await readManifest()
     expect(manifest.devDependencies?.['@molecule/api-database-pglite']).toBe('1.0.3')
+  })
+
+  it('warns and backs nothing when the manifest is unreadable — and leaves it untouched', async () => {
+    // The runner needs its imports backed but the manifest cannot be parsed:
+    // the step warns (naming the file and the missing pins) and returns []
+    // instead of throwing — and the manifest must never be written over.
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
+    await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
+    await writeFile(
+      join(dir, 'src', 'scripts', 'migrate.ts'),
+      await readMigrateRunner(['@molecule/api-database-postgresql']),
+    )
+    const corrupt = '{ this is not json'
+    await writeFile(join(dir, 'package.json'), corrupt)
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => undefined)
+    try {
+      expect(await ensureMigrateRunnerImports(dir)).toEqual([])
+      // Assert BEFORE mockRestore — restoring resets the recorded calls.
+      expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('missing or unparseable'))
+      expect(warnSpy).toHaveBeenCalledWith(
+        expect.stringContaining('@molecule/api-bonds-default-express'),
+      )
+    } finally {
+      warnSpy.mockRestore()
+    }
+    expect(await readFile(join(dir, 'package.json'), 'utf-8')).toBe(corrupt)
   })
 
   it('is a no-op when already declared, when there is no runner, or for runners that do not import it', async () => {
