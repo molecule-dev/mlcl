@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs'
 import { access, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
@@ -182,6 +183,47 @@ export default class Inject extends Command {
       }
     }
 
+    // A plan whose package could not be resolved (not found in node_modules,
+    // the file: path, or the registry; or unreadable) has no files, no
+    // dependencies and no bond setup — it contributes NOTHING to execution or
+    // to the synthesized holistic files. Executing it anyway reported a full
+    // success while it injected nothing. Record why each failed and drop it
+    // from the plan set. This runs after the default-provider and locale plans
+    // are added too — an auto-added bond whose package is not installed fails
+    // resolution the same way and must not slip past the filter.
+    //
+    // The `molecules` list is NOT filtered: it is what the target manifest
+    // DECLARES, and the steps below that are derived from the manifest rather
+    // than from the plans — above all the migration runner — must still run for
+    // a declared-but-unresolved package. `mlcl add --dev <database> --no-install`
+    // (or a failed install) leaves exactly that state, and the runner has to
+    // land and be backed there or the project does not boot.
+    const resolutionFailures: string[] = []
+    const resolvablePlans = plans.filter((plan) => {
+      if (plan.moleculePackage) return true
+      resolutionFailures.push(
+        plan.conflicts.map((c) => `${c.path}: ${c.message}`).join('; ') || plan.molecule,
+      )
+      return false
+    })
+    plans.length = 0
+    plans.push(...resolvablePlans)
+    for (const failure of resolutionFailures) {
+      this.warn(
+        `Could not resolve ${failure} — its files, dependencies and bond wiring were NOT injected. ` +
+          'Install it (npm install) and re-run `mlcl inject`.',
+      )
+    }
+    // With a request unresolved, the holistic files are NOT regenerated:
+    // router.ts is synthesized from the resource PLANS and bonds/index.ts from
+    // the PLANS' bond setups, so regenerating them from a plan set missing a
+    // requested package would silently drop that package's routes and bond
+    // wiring from a project that already has them — and with nothing resolved
+    // at all they came back as empty shells over a working project. Only the
+    // manifest-derived migration runner is safe to write in that state (see
+    // `filesToWrite` below).
+    const holisticSynthesisAllowed = resolutionFailures.length === 0
+
     // Filter excluded peer dependencies (e.g. react-native aliased to DOM shim)
     if (framework) {
       const excludedPeers = loadAppFrameworks()[framework]?.excludePeerDependencies
@@ -214,8 +256,24 @@ export default class Inject extends Command {
         )
       : await synthesizeProjectFiles(plans, molecules, projectPath, registryPackages)
 
+    // Only the manifest-derived migration runner may be REWRITTEN while a
+    // request is unresolved: every other synthesized file is derived from the
+    // plans, so regenerating it would drop the unresolved package's routes /
+    // bond wiring from a project that already has them (with nothing resolved
+    // at all, server.ts / router.ts / bonds/index.ts came back as empty shells
+    // over a working project). Files that do not exist yet are still created —
+    // nothing to lose, and the post-injection validator requires them — and the
+    // runner is rendered from the target project's own manifest (see
+    // synthesizeProjectFiles), so it is correct regardless of what resolved.
+    const migrateRunnerPath = join(projectPath, 'src', 'scripts', 'migrate.ts')
+    const filesToWrite = holisticSynthesisAllowed
+      ? syntheticFiles
+      : syntheticFiles.filter(
+          (f) => f.targetPath === migrateRunnerPath || !existsSync(f.targetPath),
+        )
+
     // Add build tooling devDependencies when a service worker was generated
-    if (syntheticFiles.some((f) => f.targetPath.endsWith('service-worker.ts'))) {
+    if (filesToWrite.some((f) => f.targetPath.endsWith('service-worker.ts'))) {
       // Find the plan whose package generates the service worker (registry-driven)
       const swPlan = plans.find((p) => {
         const regPkg = registryPackages?.find((rp) => rp.name === p.molecule)
@@ -308,11 +366,12 @@ export default class Inject extends Command {
       this.log('')
     }
 
-    // Show synthesized holistic files
-    if (syntheticFiles.length > 0) {
+    // Show synthesized holistic files — the ones that will actually be
+    // written, so an unresolved request never previews files it will skip.
+    if (filesToWrite.length > 0) {
       this.log(chalk.cyan(`  ${t('commands.inject.labels.generatedFiles')}`))
       this.log(chalk.gray(`    ${t('commands.inject.labels.files')}`))
-      for (const file of syntheticFiles) {
+      for (const file of filesToWrite) {
         this.log(`      ${chalk.green('+')} ${file.targetPath}`)
         this.log(chalk.gray(`        ${file.description}`))
       }
@@ -422,9 +481,16 @@ export default class Inject extends Command {
     // the rollback just removed, a TS2307 the project cannot compile. The
     // errors below fail the command (exit 1); the successful plans' files stay
     // but nothing references a missing module.
+    //
+    // `filesToWrite` is `syntheticFiles` except when a requested package could
+    // not be resolved, where it narrows to the manifest-derived migration
+    // runner — see `holisticSynthesisAllowed`.
     if (errors.length === 0) {
-      const synthesized = await writeSynthesizedFiles(syntheticFiles)
-      totalCreated += synthesized.written.length
+      const synthesized = await writeSynthesizedFiles(filesToWrite)
+      // `written` names the files the loop wrote BEFORE the failing one; on a
+      // failure those were all rolled back (they no longer exist), so they
+      // must not count toward the summary's created total.
+      if (!synthesized.error) totalCreated += synthesized.written.length
       if (synthesized.error) {
         errors.push(synthesized.error)
       }
@@ -575,6 +641,15 @@ export default class Inject extends Command {
         this.log(`  ${chalk.yellow('!')} ${warning}`)
       }
     }
+
+    // A request that could not fully resolve is a failed injection, not a
+    // partial success: the unresolved package's files, dependencies and bond
+    // wiring did NOT land (only the manifest-derived migration runner may have,
+    // see `filesToWrite`). This merge sits AFTER the synthesis gate on purpose —
+    // the survivors' holistic files are correct without the unresolved plan (it
+    // contributed nothing to them) — so the survivors still synthesize, and the
+    // exit status still says the request failed.
+    errors.push(...resolutionFailures)
 
     if (errors.length > 0) {
       this.log('')

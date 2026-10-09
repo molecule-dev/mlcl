@@ -85,7 +85,15 @@ async function writeApiProject(withPgliteInstalled: boolean): Promise<string> {
   return dir
 }
 
-async function runInject(projectPath: string): Promise<void> {
+/**
+ * Run the command and return its outcome: null when it resolved, the thrown
+ * error otherwise — `this.exit(1)` rejects with oclif's ExitError ("EEXIT: 1").
+ * The two tests share the helper and pin OPPOSITE outcomes: an installed
+ * package resolves; a declared-but-uninstalled one fails the command (an
+ * unwired package is never a success) — but only AFTER the whole flow ran,
+ * so the runner landed and the manifest was backed either way.
+ */
+async function runInject(projectPath: string): Promise<unknown> {
   const config = await Config.load(MLCL_ROOT)
   const cmd = new Inject(
     [
@@ -102,7 +110,12 @@ async function runInject(projectPath: string): Promise<void> {
   )
   vi.spyOn(cmd, 'warn').mockImplementation((input) => input)
   vi.spyOn(cmd, 'log').mockImplementation(() => undefined)
-  await cmd.run()
+  try {
+    await cmd.run()
+    return null
+  } catch (error) {
+    return error
+  }
 }
 
 async function readManifest(): Promise<{
@@ -115,7 +128,7 @@ async function readManifest(): Promise<{
 describe('mlcl inject backs the migration runner it writes', () => {
   it('declares the wrapper package the runner statically imports', async () => {
     const project = await writeApiProject(true)
-    await runInject(project)
+    expect(await runInject(project)).toBeNull()
 
     // The runner was rewritten with a reachable browser branch…
     const runner = await readFile(join(project, 'src', 'scripts', 'migrate.ts'), 'utf-8')
@@ -145,7 +158,8 @@ describe('mlcl inject backs the migration runner it writes', () => {
     clearRegistryCache()
     try {
       const project = await writeApiProject(false)
-      await runInject(project)
+      // The unresolved package fails the command — after the flow completed.
+      expect(String(await runInject(project))).toMatch(/EEXIT: 1/)
 
       const manifest = await readManifest()
       // The pin MOVED (keeping the version the manifest carried)…
