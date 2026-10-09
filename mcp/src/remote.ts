@@ -30,6 +30,18 @@ const TEMPLATES_URL =
 const TEMPLATES_FILE = process.env.MOLECULE_TEMPLATES_FILE
 const CACHE_TTL_MS = 10 * 60_000
 
+/**
+ * Bound on every outbound fetch this server makes (the mlcl repo's
+ * registry/templates and the npm registry's package metadata). Node's undici
+ * defaults let an upstream that accepts and then stalls hold the call — and
+ * with it the client's whole HTTP request — for ~5 minutes; a hung
+ * raw.githubusercontent.com must fail the tool call in seconds instead. The
+ * failure is the caller's to surface: a timed-out fetch leaves the cache
+ * untouched, so the next call retries the network (and a stale entry keeps
+ * serving until its TTL, never a failed one).
+ */
+export const FETCH_TIMEOUT_MS = 15_000
+
 interface RegistryEntry {
   description?: string
   type?: string
@@ -41,13 +53,26 @@ interface RegistryEntry {
 
 const cache = new Map<string, { at: number; data: unknown }>()
 
-async function fetchJson<T>(url: string, file?: string): Promise<T> {
+/**
+ * Fetch (and cache) the registry/templates JSON, or read it from a local file.
+ *
+ * The network branch is bounded by {@link FETCH_TIMEOUT_MS}; `timeoutMs`
+ * shortens that bound — the timeout regression test drives a never-responding
+ * local server through it, which the 15 s default would make a 5-minute test.
+ * A failed (timed-out or rejected) fetch throws without touching the cache,
+ * so the next call retries the network.
+ */
+export async function fetchJson<T>(
+  url: string,
+  file?: string,
+  timeoutMs: number = FETCH_TIMEOUT_MS,
+): Promise<T> {
   const key = file ?? url
   const hit = cache.get(key)
   if (hit && Date.now() - hit.at < CACHE_TTL_MS) return hit.data as T
   const data: T = file
     ? (JSON.parse(readFileSync(file, 'utf8')) as T)
-    : ((await (await fetch(url)).json()) as T)
+    : ((await (await fetch(url, { signal: AbortSignal.timeout(timeoutMs) })).json()) as T)
   cache.set(key, { at: Date.now(), data })
   return data
 }
@@ -161,7 +186,9 @@ export function buildRemoteServer(): McpServer {
       }
       try {
         const meta = (await (
-          await fetch(`https://registry.npmjs.org/@molecule%2F${short}`)
+          await fetch(`https://registry.npmjs.org/@molecule%2F${short}`, {
+            signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+          })
         ).json()) as {
           readme?: string
         }
