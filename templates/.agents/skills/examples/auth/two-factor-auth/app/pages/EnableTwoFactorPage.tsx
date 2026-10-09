@@ -36,17 +36,24 @@ export function EnableTwoFactorPage() {
     e.preventDefault()
     setVerifying(true)
     setError(null)
-    const res = await fetch('/api/2fa/verify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ code }),
-    })
-    setVerifying(false)
-    if (!res.ok) {
-      setError(t('totp.wrongCode', undefined, { defaultValue: 'Wrong code — try again' }))
-      return
+    // finally clears the busy state on EVERY path — a rejected fetch (offline,
+    // server restart) must not leave the button disabled forever.
+    try {
+      const res = await fetch('/api/2fa/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code }),
+      })
+      if (!res.ok) {
+        setError(t('totp.wrongCode', undefined, { defaultValue: 'Wrong code — try again' }))
+        return
+      }
+      setEnabled(true)
+    } catch (_error) {
+      setError(t('totp.networkError', undefined, { defaultValue: 'Network error — try again' }))
+    } finally {
+      setVerifying(false)
     }
-    setEnabled(true)
   }
 
   if (enabled) {

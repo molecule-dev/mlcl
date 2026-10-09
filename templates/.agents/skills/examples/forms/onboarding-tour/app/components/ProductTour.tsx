@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -38,28 +38,38 @@ export function ProductTour() {
       })
   }, [])
 
-  if (!active) return null
-
-  async function finish(): Promise<void> {
+  // Hooks first — no early return may sit above them.
+  const finish = useCallback(async (): Promise<void> => {
     setActive(false)
     await fetch('/api/me', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ tour_completed_at: new Date().toISOString() }),
     })
-  }
+  }, [])
+
+  // Skip steps whose target isn't on screen, and finish the tour when the last
+  // one's target is missing too. This decision lives in an EFFECT, not the
+  // render body: the render-phase version called setState — and, on the last
+  // step, `finish()`, whose PATCH /api/me fired DURING render. React may
+  // render a component twice (StrictMode, concurrent rendering), so the
+  // completion PATCH could run twice, and a discarded render must never reach
+  // the network.
+  useEffect(() => {
+    if (!active) return
+    if (document.querySelector(STEPS[stepIdx].selector)) return
+    if (stepIdx < STEPS.length - 1) {
+      setStepIdx((s) => s + 1)
+      return
+    }
+    void finish()
+  }, [active, stepIdx, finish])
+
+  if (!active) return null
 
   const step = STEPS[stepIdx]
   const target = typeof document !== 'undefined' ? document.querySelector(step.selector) : null
-  if (!target) {
-    // Skip steps whose target isn't on screen.
-    if (stepIdx < STEPS.length - 1) {
-      setStepIdx((s) => s + 1)
-      return null
-    }
-    void finish()
-    return null
-  }
+  if (!target) return null
 
   return (
     <div

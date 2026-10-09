@@ -18,23 +18,33 @@ export function LoginPage() {
     setState('submitting')
     setErrorMsg(null)
 
-    const res = await fetch('/api/auth/magic-link/request', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email }),
-    })
+    // finally leaves the `error` state on EVERY failure path — a rejected
+    // fetch (offline, server restart) must not leave the form stuck on
+    // "Sending…" with the button disabled forever.
+    try {
+      const res = await fetch('/api/auth/magic-link/request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
 
-    if (res.ok || res.status === 202) {
-      // Always show "check your email" regardless — the API never reveals
-      // whether the address is registered.
-      setState('sent')
-    } else {
-      const body = await res.json().catch(() => ({}))
+      if (res.ok || res.status === 202) {
+        // Always show "check your email" regardless — the API never reveals
+        // whether the address is registered.
+        setState('sent')
+      } else {
+        const body = await res.json().catch(() => ({}))
+        setErrorMsg(
+          body.error ??
+            t('magicLink.error.generic', undefined, {
+              defaultValue: 'Something went wrong. Try again.',
+            }),
+        )
+        setState('error')
+      }
+    } catch (_error) {
       setErrorMsg(
-        body.error ??
-          t('magicLink.error.generic', undefined, {
-            defaultValue: 'Something went wrong. Try again.',
-          }),
+        t('magicLink.error.network', undefined, { defaultValue: 'Network error. Try again.' }),
       )
       setState('error')
     }

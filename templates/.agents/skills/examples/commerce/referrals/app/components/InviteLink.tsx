@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -17,6 +17,16 @@ export function InviteLink() {
   const { t } = useTranslation()
   const [code, setCode] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
+  // Held so a second click RESETS the "Copied!" window instead of letting an
+  // earlier timeout clear it early, and so unmount clears a pending one.
+  const copiedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(
+    () => () => {
+      if (copiedTimer.current) clearTimeout(copiedTimer.current)
+    },
+    [],
+  )
 
   useEffect(() => {
     fetch('/api/referrals/code')
@@ -49,7 +59,8 @@ export function InviteLink() {
   async function copy(): Promise<void> {
     await navigator.clipboard.writeText(link)
     setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+    if (copiedTimer.current) clearTimeout(copiedTimer.current)
+    copiedTimer.current = setTimeout(() => setCopied(false), 2000)
   }
 
   return (

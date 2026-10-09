@@ -47,6 +47,11 @@ export function VideoPlayerView({
         }
         player = instance
       },
+      (error: unknown) => {
+        // A rejected createPlayer must not vanish as an unhandled rejection —
+        // the container would just stay blank with nothing to diagnose.
+        console.error('video player failed to initialize', error)
+      },
     )
 
     return () => {

@@ -19,24 +19,32 @@ export function ContactPage() {
     e.preventDefault()
     setStatus('submitting')
     setError(null)
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, message }),
-    })
-    if (!res.ok) {
-      const body = await res.json().catch(() => ({}))
-      setError(
-        body.error ??
-          t('contact.failed', undefined, { defaultValue: 'Could not send your message' }),
-      )
+    // finally leaves the `error` state on EVERY failure path — a rejected
+    // fetch (offline, server restart) must not leave the form stuck on
+    // "Sending…" with the button disabled forever.
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      })
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}))
+        setError(
+          body.error ??
+            t('contact.failed', undefined, { defaultValue: 'Could not send your message' }),
+        )
+        setStatus('error')
+        return
+      }
+      setStatus('sent')
+      setName('')
+      setEmail('')
+      setMessage('')
+    } catch (_error) {
+      setError(t('contact.failed', undefined, { defaultValue: 'Could not send your message' }))
       setStatus('error')
-      return
     }
-    setStatus('sent')
-    setName('')
-    setEmail('')
-    setMessage('')
   }
 
   return (

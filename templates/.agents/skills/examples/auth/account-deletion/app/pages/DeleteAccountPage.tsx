@@ -29,22 +29,33 @@ export function DeleteAccountPage() {
     if (!matches) return
     setDeleting(true)
     setError(null)
-    const res = await fetch('/api/me', {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ confirm_email: confirmEmail.trim() }),
-    })
-    setDeleting(false)
-    if (!res.ok) {
-      const body = await res.json().catch(() => ({}))
+    // finally clears the busy state on EVERY path — a rejected fetch (offline,
+    // server restart) must not leave the button disabled forever.
+    try {
+      const res = await fetch('/api/me', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ confirm_email: confirmEmail.trim() }),
+      })
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}))
+        setError(
+          body.error ??
+            t('account.deleteFailed', undefined, {
+              defaultValue: 'Could not delete your account',
+            }),
+        )
+        return
+      }
+      // The server has revoked every device session, so we are now signed out.
+      setDeleted(true)
+    } catch (_error) {
       setError(
-        body.error ??
-          t('account.deleteFailed', undefined, { defaultValue: 'Could not delete your account' }),
+        t('account.deleteFailed', undefined, { defaultValue: 'Could not delete your account' }),
       )
-      return
+    } finally {
+      setDeleting(false)
     }
-    // The server has revoked every device session, so we are now signed out.
-    setDeleted(true)
   }
 
   if (deleted) {

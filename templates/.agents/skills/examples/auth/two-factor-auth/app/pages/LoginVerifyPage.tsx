@@ -19,21 +19,28 @@ export function LoginVerifyPage() {
     e.preventDefault()
     setSubmitting(true)
     setError(null)
-    const res = await fetch('/api/login/verify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ code }),
-    })
-    setSubmitting(false)
-    if (!res.ok) {
-      // 401 = wrong code. Surface a retry counter so the user knows attempts are limited
-      // (the verify endpoint is rate-limited to ≤5/min to prevent brute force).
-      setAttempts((n) => n + 1)
-      setError(t('totp.wrongCode', undefined, { defaultValue: 'Wrong code — try again' }))
-      return
+    // finally clears the busy state on EVERY path — a rejected fetch (offline,
+    // server restart) must not leave the button disabled forever.
+    try {
+      const res = await fetch('/api/login/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code }),
+      })
+      if (!res.ok) {
+        // 401 = wrong code. Surface a retry counter so the user knows attempts are limited
+        // (the verify endpoint is rate-limited to ≤5/min to prevent brute force).
+        setAttempts((n) => n + 1)
+        setError(t('totp.wrongCode', undefined, { defaultValue: 'Wrong code — try again' }))
+        return
+      }
+      // Second factor accepted — the session is now fully authenticated.
+      window.location.href = '/'
+    } catch (_error) {
+      setError(t('totp.networkError', undefined, { defaultValue: 'Network error — try again' }))
+    } finally {
+      setSubmitting(false)
     }
-    // Second factor accepted — the session is now fully authenticated.
-    window.location.href = '/'
   }
 
   return (

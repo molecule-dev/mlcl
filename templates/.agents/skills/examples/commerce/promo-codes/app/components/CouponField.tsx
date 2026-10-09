@@ -18,23 +18,45 @@ export function CouponField({ onApply }: { onApply: (code: string | null) => voi
 
   async function apply(): Promise<void> {
     setBusy(true)
-    const res = await fetch('/api/coupons/validate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ code }),
-    })
-    setBusy(false)
-    const body = await res.json()
-    if (!res.ok || !body.valid) {
+    // finally clears the busy state on EVERY path — a rejected fetch (offline,
+    // server restart, a non-JSON error body) must not leave the button
+    // disabled forever.
+    try {
+      const res = await fetch('/api/coupons/validate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code }),
+      })
+      const body = (await res.json().catch(() => ({}))) as {
+        valid?: boolean
+        reason?: string
+        percent_off?: number
+        amount_off?: number
+      }
+      if (!res.ok || !body.valid) {
+        setResult({
+          state: 'error',
+          reason: body.reason ?? t('coupons.invalid', undefined, { defaultValue: 'Invalid code' }),
+        })
+        onApply(null)
+        return
+      }
+      setResult({
+        state: 'applied',
+        code,
+        percentOff: body.percent_off,
+        amountOff: body.amount_off,
+      })
+      onApply(code)
+    } catch (_error) {
       setResult({
         state: 'error',
-        reason: body.reason ?? t('coupons.invalid', undefined, { defaultValue: 'Invalid code' }),
+        reason: t('coupons.invalid', undefined, { defaultValue: 'Invalid code' }),
       })
       onApply(null)
-      return
+    } finally {
+      setBusy(false)
     }
-    setResult({ state: 'applied', code, percentOff: body.percent_off, amountOff: body.amount_off })
-    onApply(code)
   }
 
   return (

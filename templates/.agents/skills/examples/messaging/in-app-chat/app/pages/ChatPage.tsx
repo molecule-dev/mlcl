@@ -33,6 +33,11 @@ export function ChatPage({ channelId }: { channelId: string }) {
   const [draft, setDraft] = useState('')
   const [typing, setTyping] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
+  // The hide-typing timeout is held so the next `typing` event RESETS it
+  // instead of stacking a second one (an earlier timer would otherwise flip
+  // the indicator off while the peer is still typing), and so cleanup can
+  // clear a pending one on unmount / channel switch.
+  const typingTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     fetch(`/api/messages?channel_id=${channelId}`)
@@ -55,9 +60,16 @@ export function ChatPage({ channelId }: { channelId: string }) {
     // composer's onChange (throttled); filter out your own id so you don't see it.
     events.addEventListener('typing', () => {
       setTyping(true)
-      setTimeout(() => setTyping(false), 2000)
+      if (typingTimer.current) clearTimeout(typingTimer.current)
+      typingTimer.current = setTimeout(() => setTyping(false), 2000)
     })
-    return () => events.close()
+    return () => {
+      events.close()
+      // No timer outlives the room: without this, a `typing` event that
+      // arrived just before unmount (or a channel switch) fires its timeout
+      // into a stale component.
+      if (typingTimer.current) clearTimeout(typingTimer.current)
+    }
   }, [channelId])
 
   useEffect(() => {

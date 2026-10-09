@@ -21,6 +21,7 @@ export function OnboardingWizard() {
   const [data, setData] = useState<WizardData>(EMPTY)
   const [submitting, setSubmitting] = useState(false)
   const [done, setDone] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const canAdvance = (() => {
     if (step === 0) return data.name.trim().length > 0
@@ -31,13 +32,32 @@ export function OnboardingWizard() {
 
   async function finish(): Promise<void> {
     setSubmitting(true)
-    const res = await fetch('/api/onboarding', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    })
-    setSubmitting(false)
-    if (res.ok) setDone(true)
+    setError(null)
+    // finally clears the busy state on EVERY path — a rejected fetch (offline,
+    // server restart) must not leave the button disabled forever; the catch
+    // surfaces the failure instead of silently returning to the same step.
+    try {
+      const res = await fetch('/api/onboarding', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      if (!res.ok) {
+        setError(
+          t('wizard.submitFailed', undefined, {
+            defaultValue: 'Could not submit — try again.',
+          }),
+        )
+        return
+      }
+      setDone(true)
+    } catch (_error) {
+      setError(
+        t('wizard.submitFailed', undefined, { defaultValue: 'Could not submit — try again.' }),
+      )
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (done) {
@@ -140,6 +160,8 @@ export function OnboardingWizard() {
           </span>
         </label>
       ) : null}
+
+      {error ? <p className={cm.textError}>{error}</p> : null}
 
       <div className={cm.flex({ direction: 'row', gap: 'sm', justify: 'between' })}>
         <button

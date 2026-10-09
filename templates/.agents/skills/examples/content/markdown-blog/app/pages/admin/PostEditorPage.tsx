@@ -81,24 +81,32 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
     e.preventDefault()
     setStatus('saving')
     setError(null)
-    const editing = postId !== null
-    const res = await fetch(editing ? `/api/posts/${postId}` : '/api/posts', {
-      method: editing ? 'PUT' : 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, slug, body_markdown: bodyMarkdown, draft }),
-    })
-    if (!res.ok) {
-      const body = await res.json().catch(() => ({}))
-      setError(
-        body.error ??
-          t('postEditor.saveFailed', undefined, { defaultValue: 'Could not save the post' }),
-      )
+    // finally leaves the `error` state on EVERY failure path — a rejected
+    // fetch (offline, server restart) must not leave the form stuck on
+    // "Saving…" with the button disabled forever.
+    try {
+      const editing = postId !== null
+      const res = await fetch(editing ? `/api/posts/${postId}` : '/api/posts', {
+        method: editing ? 'PUT' : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, slug, body_markdown: bodyMarkdown, draft }),
+      })
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}))
+        setError(
+          body.error ??
+            t('postEditor.saveFailed', undefined, { defaultValue: 'Could not save the post' }),
+        )
+        setStatus('error')
+        return
+      }
+      const saved = (await res.json().catch(() => null)) as { id?: string } | null
+      if (saved?.id) setPostId(saved.id)
+      setStatus('saved')
+    } catch (_error) {
+      setError(t('postEditor.saveFailed', undefined, { defaultValue: 'Could not save the post' }))
       setStatus('error')
-      return
     }
-    const saved = (await res.json().catch(() => null)) as { id?: string } | null
-    if (saved?.id) setPostId(saved.id)
-    setStatus('saved')
   }
 
   if (status === 'loading') {

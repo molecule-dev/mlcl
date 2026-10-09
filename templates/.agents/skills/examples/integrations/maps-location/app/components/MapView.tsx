@@ -65,6 +65,11 @@ export function MapView({ pins, height = 400 }: { pins: Pin[]; height?: number }
           map?.addMarker(marker)
         })
       },
+      (error: unknown) => {
+        // A rejected createMap must not vanish as an unhandled rejection —
+        // the container would just stay blank with nothing to diagnose.
+        console.error('map failed to initialize', error)
+      },
     )
 
     return () => {

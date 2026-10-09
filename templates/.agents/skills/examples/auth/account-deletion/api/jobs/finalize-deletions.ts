@@ -54,7 +54,17 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
         }
       }
 
-      await deleteById('users', user.id)
+      // The final hard delete is wrapped like the purges above: ONE user whose
+      // row cannot be deleted (an FK from an app table not in APP_TABLES is the
+      // usual cause) must not abort the loop — every user after it would sit in
+      // the grace period FOREVER, because each nightly run fails at the same
+      // row. Its purges already ran and are idempotent, so logging and moving
+      // on lets the rest of the batch clear; the failed user retries next run.
+      try {
+        await deleteById('users', user.id)
+      } catch (err) {
+        console.error('finalize-deletions: users row delete failed', { userId: user.id, err })
+      }
     }
   })
 }

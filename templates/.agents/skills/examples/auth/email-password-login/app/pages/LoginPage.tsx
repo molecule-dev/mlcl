@@ -19,19 +19,26 @@ export function LoginPage() {
     // @molecule/api-resource-user mounts login at /api/users/log-in (via
     // mountDefaultUserAuthRoutes) — NOT /api/login. `credentials: 'include'` so the
     // httpOnly session cookie the server sets is stored for subsequent requests.
-    const res = await fetch('/api/users/log-in', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({ email, password }),
-    })
-    setSubmitting(false)
-    if (!res.ok) {
-      const body = await res.json().catch(() => ({}))
-      setError(body.error ?? t('auth.failed', {}, { defaultValue: 'Login failed' }))
-      return
+    // finally clears the busy state on EVERY path — a rejected fetch (offline,
+    // server restart) must not leave the button disabled forever.
+    try {
+      const res = await fetch('/api/users/log-in', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ email, password }),
+      })
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}))
+        setError(body.error ?? t('auth.failed', {}, { defaultValue: 'Login failed' }))
+        return
+      }
+      window.location.href = '/'
+    } catch (_error) {
+      setError(t('auth.networkError', {}, { defaultValue: 'Network error — try again' }))
+    } finally {
+      setSubmitting(false)
     }
-    window.location.href = '/'
   }
 
   return (

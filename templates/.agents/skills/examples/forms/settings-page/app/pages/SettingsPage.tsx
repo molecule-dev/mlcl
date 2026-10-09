@@ -44,25 +44,33 @@ export function SettingsPage() {
     if (!draft || !dirty) return
     setStatus('saving')
     setError(null)
-    const res = await fetch('/api/me', {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: draft.name,
-        email: draft.email,
-        timezone: draft.timezone,
-      }),
-    })
-    if (!res.ok) {
-      const body = await res.json().catch(() => ({}))
-      setError(body.error ?? t('settings.saveFailed', undefined, { defaultValue: 'Save failed' }))
+    // finally leaves the `error` state on EVERY failure path — a rejected
+    // fetch (offline, server restart) must not leave the form stuck on
+    // "Saving…" with the button disabled forever.
+    try {
+      const res = await fetch('/api/me', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: draft.name,
+          email: draft.email,
+          timezone: draft.timezone,
+        }),
+      })
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}))
+        setError(body.error ?? t('settings.saveFailed', undefined, { defaultValue: 'Save failed' }))
+        setStatus('error')
+        return
+      }
+      const updated = (await res.json()) as Profile
+      setOriginal(updated)
+      setDraft(updated)
+      setStatus('saved')
+    } catch (_error) {
+      setError(t('settings.saveFailed', undefined, { defaultValue: 'Save failed' }))
       setStatus('error')
-      return
     }
-    const updated = (await res.json()) as Profile
-    setOriginal(updated)
-    setDraft(updated)
-    setStatus('saved')
   }
 
   if (!draft) return <p>{t('common.loading', undefined, { defaultValue: 'Loading…' })}</p>
