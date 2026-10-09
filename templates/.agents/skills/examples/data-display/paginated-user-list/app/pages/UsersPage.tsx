@@ -38,17 +38,30 @@ export default function UsersPage() {
   const [loadFailed, setLoadFailed] = useState(false)
 
   useEffect(() => {
+    // A page change starts a NEW request while the previous one may still be in
+    // flight (two quick "Next" clicks). Without this guard the LATE response
+    // wins: the older page's rows land after the newer page's, so the table
+    // shows page 2 while the paginator reads page 3 — and the stale response's
+    // `.finally` clears `loading` for the request the user is still waiting on.
+    let cancelled = false
     setLoading(true)
     setLoadFailed(false)
     http
       .get<UsersResponse>(`/users?page=${page}&limit=${PAGE_SIZE}`)
-      .then((res) => setData(res.data))
+      .then((res) => {
+        if (!cancelled) setData(res.data)
+      })
       .catch(() => {
         // Without this catch the rejection escapes the effect AND `data`
         // stays null, so the page renders as a bare header forever.
-        setLoadFailed(true)
+        if (!cancelled) setLoadFailed(true)
       })
-      .finally(() => setLoading(false))
+      .finally(() => {
+        if (!cancelled) setLoading(false)
+      })
+    return () => {
+      cancelled = true
+    }
   }, [http, page])
 
   const totalPages = data ? Math.max(1, Math.ceil(data.total / data.limit)) : 1
