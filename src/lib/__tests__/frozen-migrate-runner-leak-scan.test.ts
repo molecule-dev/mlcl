@@ -8,11 +8,17 @@
  * the fleet is "leak-free as it sits in the repo". This file re-scans the
  * same fleet on the value-flow shapes themselves, regardless of line breaks:
  *
- * - the raw URL is never interpolated (`${DATABASE_URL}` — including the
- *   `.toString()` and `String(...)` wrapped forms of that interpolation),
- *   never passed through a stringify call (`String(DATABASE_URL)`), and never
- *   concatenated (`+ DATABASE_URL`) anywhere — building a leaky string is
- *   caught even when the console call that prints it stays clean;
+ * - the raw URL is never interpolated — every `${…}` interpolation that
+ *   references it must be exactly the sanctioned `redactDatabaseUrl(…)` call
+ *   (a plain `${DATABASE_URL}`, a `.toString()`/`String(...)` wrap, a
+ *   `'x' + DATABASE_URL` concatenation or an arbitrary helper wrap inside the
+ *   interpolation all build the same leaky string), never passed through a
+ *   stringify call (`String(DATABASE_URL)`), and never concatenated
+ *   (`+ DATABASE_URL`) anywhere — building a leaky string is caught even when
+ *   the console call that prints it stays clean. The interpolation scan runs
+ *   on the raw source because the string/comment blanker below drops a
+ *   template literal's interior — interpolations included — so a leak built
+ *   inside one is invisible to every blanked-code rule;
  * - every `console.*(...)` call — however its arguments wrap across lines —
  *   may reference the URL only through `redactDatabaseUrl(...)` (string
  *   literals and comments are blanked first, so prose like "DATABASE_URL is
@@ -126,14 +132,25 @@ function leakingRunners(runners: Array<[string, string]>): {
   let consoleSites = 0
   for (const [app, source] of runners) {
     if (/const DATABASE_URL\b/.test(source)) withRawUrl++
-    // Rule 1 — the raw value never enters a template literal or a
-    // concatenation, on any line: this kills multi-line console
-    // interpolations AND intermediate hint variables in one rule. The
-    // interpolation arm matches any interpolation that BEGINS with the raw
-    // identifier (`${DATABASE_URL}`, `${DATABASE_URL.trim()}`) or wraps it in
-    // String() (`${String(DATABASE_URL)}`) — a `.toString()`/`String()` wrap
-    // produces the same leaky string the plain shape does.
-    if (/\$\{\s*(?:String\s*\(\s*)?DATABASE_URL\b/.test(source)) leaking.push(app)
+    // Rule 1 — the raw value never enters a template literal: EVERY `${…}`
+    // interpolation that references DATABASE_URL must be exactly the
+    // sanctioned redactor call. This runs on the RAW source because
+    // blankStringsAndComments drops a template literal's whole interior
+    // (interpolations included), hiding it from the blanked-code rules below —
+    // a leak built inside one (`${'x' + DATABASE_URL}`, a
+    // `${formatUrl(DATABASE_URL)}` wrap) must still be caught. The exact-match
+    // sanction keeps the redacted hint clean; every other content — plain,
+    // member, String()-wrapped, concatenated, helper-wrapped — is the same
+    // leaky string the rule exists to kill.
+    for (const interpolation of source.matchAll(/\$\{([^}]*)\}/g)) {
+      const inner = interpolation[1]
+      if (
+        /\bDATABASE_URL\b/.test(inner) &&
+        !/^\s*redactDatabaseUrl\s*\(\s*DATABASE_URL\s*\)\s*$/.test(inner)
+      ) {
+        leaking.push(app)
+      }
+    }
     const code = blankStringsAndComments(source).replace(/\s+/g, ' ')
     if (
       /\bString\s*\(\s*DATABASE_URL\b\s*\)/.test(code) ||
@@ -229,6 +246,21 @@ describe('frozen migration runners — value-flow leak scan', () => {
       "const hint = 'connection: ' + String(DATABASE_URL)",
       "console.error('hint: ' + 'built elsewhere')",
     ].join('\n')
+    // …and the shapes only the raw interpolation rule can see: the blanker
+    // drops a template literal's whole interior, so an interpolation whose
+    // content merely CONTAINS the identifier — a concatenation or an
+    // arbitrary-helper wrap, neither of which BEGINS with it — shipped green
+    // on every other rule while building the same leaky string.
+    const concatInInterpolation = [
+      'const DATABASE_URL = resolveDatabaseUrl()',
+      'const hint = `connection: ${"jdbc:" + DATABASE_URL}`',
+      "console.error('hint: ' + 'built elsewhere')",
+    ].join('\n')
+    const wrappedInInterpolation = [
+      'const DATABASE_URL = resolveDatabaseUrl()',
+      'const hint = `connection: ${formatUrl(DATABASE_URL)}`',
+      "console.error('hint: ' + 'built elsewhere')",
+    ].join('\n')
     // …and the sanctioned shapes it must NOT flag: the redacted hint
     // (interpolating the REDACTED value across lines, or passing it as a bare
     // argument) and prose that merely names the variable.
@@ -245,6 +277,8 @@ describe('frozen migration runners — value-flow leak scan', () => {
     expect(leakingRunners(asRunner(indirect)).leaking).toEqual(['fixture'])
     expect(leakingRunners(asRunner(memberInterpolation)).leaking).toEqual(['fixture'])
     expect(leakingRunners(asRunner(stringWrapped)).leaking).toEqual(['fixture'])
+    expect(leakingRunners(asRunner(concatInInterpolation)).leaking).toEqual(['fixture'])
+    expect(leakingRunners(asRunner(wrappedInInterpolation)).leaking).toEqual(['fixture'])
     expect(leakingRunners(asRunner(redacted)).leaking).toEqual([])
   })
 })
