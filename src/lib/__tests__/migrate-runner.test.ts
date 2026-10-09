@@ -73,7 +73,7 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import {
   ensureMigrateRunnerImports,
@@ -107,8 +107,41 @@ const BOND_MIGRATOR_SOURCE = join(
   'migrator.ts',
 )
 
+/**
+ * One-shot intercept for the guarded manifest write: armed, the next
+ * `writeFile` to a package.json truncates it to garbage and THEN throws —
+ * the shape of a short write on ENOSPC, which no stub of the inputs can
+ * produce. `ensureMigrateRunnerImports` must restore the pre-write bytes
+ * (the same policy executeInjection's rollback enforces for its manifest).
+ */
+const manifestIntercept = vi.hoisted(() => ({ armed: false }))
+
+vi.mock('node:fs/promises', async (importOriginal) => {
+  const actual = await importOriginal()
+  type WriteFileArgs = Parameters<(typeof actual)['writeFile']>
+  return {
+    ...actual,
+    writeFile: async (
+      path: WriteFileArgs[0],
+      data: WriteFileArgs[1],
+      options?: WriteFileArgs[2],
+    ): Promise<void> => {
+      if (manifestIntercept.armed && typeof path === 'string' && path.endsWith('package.json')) {
+        // Partial write first, then the failure — the corrupt-manifest shape.
+        // The intercept fires ONCE: the guard's own restore write must go
+        // through (a transient ENOSPC does not repeat).
+        manifestIntercept.armed = false
+        await actual.writeFile(path, '{ "corrupted')
+        throw new Error('write failed mid-flight (simulated ENOSPC)')
+      }
+      return actual.writeFile(path, data, options)
+    },
+  }
+})
+
 let dir: string | null = null
 afterEach(async () => {
+  manifestIntercept.armed = false
   if (dir) await rm(dir, { recursive: true, force: true })
   dir = null
 })
@@ -979,6 +1012,33 @@ describe('ensureMigrateRunnerImports', () => {
     expect(manifest.dependencies['@molecule/api-database-pglite']).toBe('1.0.3')
     expect(manifest.dependencies['@molecule/api-database-postgresql']).toBe('1.0.2')
     expect(manifest.devDependencies).toEqual({})
+  })
+
+  it('restores the manifest when its write fails mid-flight — a partial write must not corrupt package.json', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
+    await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
+    await writeFile(
+      join(dir, 'src', 'scripts', 'migrate.ts'),
+      await readMigrateRunner(['@molecule/api-database-postgresql']),
+    )
+    // A devDependencies pin guarantees the write has something to do (the pin
+    // moves into dependencies).
+    const original =
+      JSON.stringify(
+        {
+          name: 'demo-api',
+          dependencies: {},
+          devDependencies: { '@molecule/api-database-postgresql': '1.0.5' },
+        },
+        null,
+        2,
+      ) + '\n'
+    await writeFile(join(dir, 'package.json'), original)
+    manifestIntercept.armed = true
+    await expect(ensureMigrateRunnerImports(dir)).rejects.toThrow(/simulated ENOSPC/)
+    // The manifest holds the pre-write bytes again — not the corrupt partial
+    // the failing write left behind.
+    expect(await readFile(join(dir, 'package.json'), 'utf-8')).toBe(original)
   })
 
   it('a swap that lands PostgreSQL in devDependencies keeps the machinery AND a production pin', async () => {

@@ -200,8 +200,11 @@ async function manifestDeclaredPackages(manifestPath: string): Promise<Set<strin
       ...Object.keys(manifest.devDependencies ?? {}),
     ])
   } catch (_error) {
-    // A missing or unparseable manifest declares nothing — callers fall back
-    // to the conservative render (no PGlite branch, Postgres machinery kept).
+    // A missing or unparseable manifest declares nothing. The two callers fall
+    // back differently: readMigrateRunnerForManifest renders the conservative
+    // shape (no PGlite branch, Postgres machinery kept), while readMigrateRunner
+    // falls back to the caller's list alone — the injection's own truth, whose
+    // emitted imports ensureMigrateRunnerImports then backs in the manifest.
     return null
   }
 }
@@ -332,7 +335,10 @@ export async function readMigrateRunnerForManifest(apiDir: string): Promise<stri
  * none. The flagship templates declare all three in their manifests; this
  * closes the custom `mlcl create`, `mlcl inject`/`mlcl add --inject` and
  * `mlcl swap` paths the same way. Idempotent, and a no-op for runners that
- * need none of them (SQLite/MySQL/D1 templates, or no runner at all).
+ * need none of them (SQLite/MySQL/D1 templates, or no runner at all). The
+ * manifest write is guarded: a failed write restores the bytes the manifest
+ * was parsed from, so a partial write cannot leave a corrupt package.json
+ * behind.
  *
  * @param apiDir - The api workspace (the directory holding package.json).
  * @returns The dependency names gained in `dependencies` (empty when nothing
@@ -370,12 +376,14 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
     return []
   }
   const manifestPath = join(apiDir, 'package.json')
+  let manifestBytes: Buffer
   let manifest: {
     dependencies?: Record<string, string>
     devDependencies?: Record<string, string>
   }
   try {
-    manifest = JSON.parse(await readFile(manifestPath, 'utf-8')) as typeof manifest
+    manifestBytes = await readFile(manifestPath)
+    manifest = JSON.parse(manifestBytes.toString('utf-8')) as typeof manifest
   } catch (error) {
     console.warn(
       `[migrate-runner] ${manifestPath} is missing or unparseable — cannot back ` +
@@ -410,7 +418,21 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
   manifest.dependencies = Object.fromEntries(
     Object.entries(deps).sort(([a], [b]) => a.localeCompare(b)),
   )
-  await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + '\n')
+  try {
+    await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + '\n')
+  } catch (error) {
+    // A failed write may have landed PARTIALLY (a full disk), leaving a
+    // corrupt package.json — strictly worse than before this step ran, and
+    // unparseable for every later step. Restore the bytes the manifest was
+    // parsed from (the same policy executeInjection's rollback enforces for
+    // its own manifest write), best-effort, then surface the failure.
+    try {
+      await writeFile(manifestPath, manifestBytes)
+    } catch (_restoreError) {
+      // Nothing further to do — the primary failure is rethrown below.
+    }
+    throw error
+  }
   return gained
 }
 
@@ -425,11 +447,14 @@ export interface MigrateRunnerSync {
 /**
  * After a database swap, rewrite `src/scripts/migrate.ts` for the new database
  * when the project has one and it differs from the matching template. A project
- * with no runner is left alone — it never had one to break. Both render inputs
- * are re-derived from the project's own (already-swapped) manifest, so a swap
- * ONTO PGlite emits the PGlite-only runner (no imports of the PostgreSQL bond
- * the swap just removed) and a swap onto PostgreSQL keeps a browser-profile
- * app's PGlite branch. Every import the re-rendered runner carries is
+ * with no runner is left alone — it never had one to break. A swap onto either
+ * Postgres-template provider (PostgreSQL, PGlite) re-derives both render inputs
+ * from the project's own (already-swapped) manifest: a swap ONTO PGlite then
+ * emits the PGlite-only runner (no imports of the PostgreSQL bond the swap just
+ * removed) and a swap onto PostgreSQL keeps a browser-profile app's PGlite
+ * branch. The SQLite/MySQL/out-of-band templates carry no render inputs, so
+ * those swaps render from the swapped-in package alone. Every import the
+ * re-rendered runner carries is
  * declared either way — the bond-setup package, and any bond the swap landed
  * on a devDependencies pin gets MOVED into `dependencies` (see
  * {@link ensureMigrateRunnerImports}).
