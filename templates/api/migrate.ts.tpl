@@ -246,61 +246,76 @@ export async function runMigrations(): Promise<void> {
     throw err
   }
 
-  const sqlFiles = readdirSync(migrationsDir)
-    .filter((f) => f.endsWith('.sql'))
-    .sort()
-
-  if (sqlFiles.length === 0) {
-    console.log('No migration files found.')
-  } else {
-    for (const file of sqlFiles) {
-      const sql = readFileSync(join(migrationsDir, file), 'utf-8')
-      try {
-        await client.query(sql)
-        console.log(`✓ ${file}`)
-      } catch (err) {
-        // An already-applied migration fails its re-run with one of the
-        // idempotency codes (or message phrasings) isBenignMigrationError
-        // recognizes — that re-run is benign and the run continues.
-        // Everything else fails the run (see isBenignMigrationError): a
-        // swallowed failure here used to print "Migrations complete." and
-        // exit 0 with the schema broken.
-        if (!isBenignMigrationError(err)) throw err
-        const msg = err instanceof Error ? err.message : String(err)
-        console.warn(`⚠ ${file}: ${msg} (already applied — continuing)`)
-      }
-    }
-  }
-
-  // Step 3: Run idempotent __setup__/*.sql so resource-package DDL (e.g.
-  // payments.sql from @molecule/api-resource-payment) is always present
-  // even if the squashed app migration omits it.
-  if (existsSync(setupDir)) {
-    const setupFiles = readdirSync(setupDir)
+  // The migration connection is closed on EVERY path (finally), the same
+  // policy as the admin connection above: a non-benign migration failure used
+  // to rethrow with the socket still open — an open socket keeps the Node
+  // event loop alive, so a boot supervisor that catches the rejection and
+  // retries leaked one idle connection per attempt, and `npm run db:setup`
+  // could hang at exit instead of reporting the failure.
+  try {
+    const sqlFiles = readdirSync(migrationsDir)
       .filter((f) => f.endsWith('.sql'))
       .sort()
-    for (const file of setupFiles) {
-      const sql = readFileSync(join(setupDir, file), 'utf-8')
-      try {
-        await client.query(sql)
-        console.log(`✓ __setup__/${file}`)
-      } catch (err) {
-        // Same gate as step 2 (see isBenignMigrationError): an already-applied
-        // error is the expected re-run here — the squashed app migration may
-        // already own these tables — so it is logged and skipped. Anything
-        // else (the app role lacks CREATE on the schema, a typo, a
-        // referenced-but-absent enum) must fail the run: a swallowed failure
-        // printed "Migrations complete.", exited 0, and the server booted to
-        // 500 on every request with "relation does not exist", far from the
-        // cause.
-        if (!isBenignMigrationError(err)) throw err
-        const msg = err instanceof Error ? err.message : String(err)
-        console.warn(`⚠ __setup__/${file}: ${msg} (already applied — continuing)`)
+
+    if (sqlFiles.length === 0) {
+      console.log('No migration files found.')
+    } else {
+      for (const file of sqlFiles) {
+        const sql = readFileSync(join(migrationsDir, file), 'utf-8')
+        try {
+          await client.query(sql)
+          console.log(`✓ ${file}`)
+        } catch (err) {
+          // An already-applied migration fails its re-run with one of the
+          // idempotency codes (or message phrasings) isBenignMigrationError
+          // recognizes — that re-run is benign and the run continues.
+          // Everything else fails the run (see isBenignMigrationError): a
+          // swallowed failure here used to print "Migrations complete." and
+          // exit 0 with the schema broken.
+          if (!isBenignMigrationError(err)) throw err
+          const msg = err instanceof Error ? err.message : String(err)
+          console.warn(`⚠ ${file}: ${msg} (already applied — continuing)`)
+        }
       }
+    }
+
+    // Step 3: Run idempotent __setup__/*.sql so resource-package DDL (e.g.
+    // payments.sql from @molecule/api-resource-payment) is always present
+    // even if the squashed app migration omits it.
+    if (existsSync(setupDir)) {
+      const setupFiles = readdirSync(setupDir)
+        .filter((f) => f.endsWith('.sql'))
+        .sort()
+      for (const file of setupFiles) {
+        const sql = readFileSync(join(setupDir, file), 'utf-8')
+        try {
+          await client.query(sql)
+          console.log(`✓ __setup__/${file}`)
+        } catch (err) {
+          // Same gate as step 2 (see isBenignMigrationError): an already-applied
+          // error is the expected re-run here — the squashed app migration may
+          // already own these tables — so it is logged and skipped. Anything
+          // else (the app role lacks CREATE on the schema, a typo, a
+          // referenced-but-absent enum) must fail the run: a swallowed failure
+          // printed "Migrations complete.", exited 0, and the server booted to
+          // 500 on every request with "relation does not exist", far from the
+          // cause.
+          if (!isBenignMigrationError(err)) throw err
+          const msg = err instanceof Error ? err.message : String(err)
+          console.warn(`⚠ __setup__/${file}: ${msg} (already applied — continuing)`)
+        }
+      }
+    }
+  } finally {
+    try {
+      await client.end()
+    } catch (_error) {
+      // The real failure (if any) is rethrown above; this cleanup must never
+      // throw over it — not even when the failure already broke the
+      // connection and end() has nothing left to close.
     }
   }
 
-  await client.end()
   console.log('Migrations complete.')
 {{/MIGRATE_POSTGRES}}
 }

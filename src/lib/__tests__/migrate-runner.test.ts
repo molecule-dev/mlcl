@@ -428,7 +428,10 @@ describe('migration failure semantics', () => {
     // the missing tables. Executes the RENDERED block with the RENDERED
     // helper — the exact code a scaffold ships, not a copy.
     const helperSource = runner.match(/function isBenignMigrationError[\s\S]*?\n}/)?.[0]
-    const blockSource = runner.match(/if \(existsSync\(setupDir\)\)[\s\S]*?\n {2}\}/)?.[0]
+    // Steps 2–3 sit inside one try/finally (the connection closes on every
+    // path), so this block is indented one level deeper than it used to be —
+    // `{4}` matches the block's own close, not the enclosing try's.
+    const blockSource = runner.match(/if \(existsSync\(setupDir\)\)[\s\S]*?\n {4}\}/)?.[0]
     expect(helperSource).toBeDefined()
     expect(blockSource).toBeDefined()
     expect(blockSource).toContain('if (!isBenignMigrationError(err)) throw err')
@@ -509,6 +512,18 @@ describe('migration failure semantics', () => {
       ),
     ).rejects.toBe(denied)
     expect(attempted).toHaveLength(1)
+  })
+
+  it('keeps the __setup__ block inside the client-closing try/finally — the guard stays on the block itself', async () => {
+    // Steps 2–3 sit inside one try/finally (the connection closes on every
+    // path), so the block is indented one level deeper; this pins that the
+    // slice above still captures the block itself — not the enclosing try's
+    // finally — and that the benign-error guard survived the re-indent.
+    const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
+    const blockSource = runner.match(/if \(existsSync\(setupDir\)\)[\s\S]*?\n {4}\}/)?.[0]
+    expect(blockSource).toBeDefined()
+    expect(blockSource).toContain('if (!isBenignMigrationError(err)) throw err')
+    expect(blockSource).not.toContain('finally')
   })
 
   it('isBenignMigrationError recognizes the whole idempotency re-run class a second boot raises', async () => {
@@ -673,6 +688,150 @@ describe('admin connection lifecycle', () => {
       end: async () => {},
     })
     expect(logs).toContain("✓ Created database 'myapp'")
+    expect(clients[0]?.ends).toBe(1)
+  })
+})
+
+describe('migration connection lifecycle', () => {
+  /**
+   * Execute the RENDERED steps 2–3 (the exact code a scaffold ships): the pg
+   * client, DATABASE_URL, sslConfig, the fs helpers, directories and console
+   * it closes over are injected; the benign-error helper is extracted from
+   * the same render and inlined, its one TS annotation stripped, the body
+   * verbatim.
+   */
+  async function runSteps(
+    stub: {
+      connect: () => Promise<void>
+      query: (sql: string) => Promise<unknown>
+      end: () => Promise<void>
+    },
+    clients: Array<{ ends: number }>,
+  ): Promise<{ logs: string[]; warns: string[] }> {
+    const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
+    const helperSource = runner.match(/function isBenignMigrationError[\s\S]*?\n}/)?.[0]
+    expect(helperSource).toBeDefined()
+    const start = runner.indexOf('// Step 2: Run migrations')
+    const end = runner.indexOf("console.log('Migrations complete.')")
+    expect(start).toBeGreaterThan(-1)
+    expect(end).toBeGreaterThan(start)
+    const steps = runner.slice(start, end)
+    const jsHelper = helperSource!.replace(
+      'function isBenignMigrationError(err: unknown): boolean {',
+      'function isBenignMigrationError(err) {',
+    )
+    class StubClient {
+      ends = 0
+      constructor() {
+        clients.push(this)
+      }
+      connect = stub.connect
+      query = stub.query
+      end = async (): Promise<void> => {
+        this.ends++
+        await stub.end()
+      }
+    }
+    const logs: string[] = []
+    const warns: string[] = []
+    const run = new Function(
+      'pg',
+      'DATABASE_URL',
+      'sslConfig',
+      'existsSync',
+      'readdirSync',
+      'readFileSync',
+      'join',
+      'migrationsDir',
+      'setupDir',
+      'console',
+      `${jsHelper}; return (async () => {\n${steps}\n})()`,
+    ) as (...args: unknown[]) => Promise<{ logs: string[]; warns: string[] }>
+    await run(
+      { Client: StubClient },
+      'postgres://db.example.com:5432/myapp',
+      false,
+      (path: string) => path === '__setup__',
+      (path: string) => (path === 'migrations' ? ['0001_tables.sql'] : ['payments.sql']),
+      (path: string, _encoding: string) =>
+        path.startsWith('__setup__') ? 'SETUP DDL' : 'MIGRATION DDL',
+      (dir: string, file: string) => `${dir}/${file}`,
+      'migrations',
+      '__setup__',
+      { log: (m: string) => logs.push(m), warn: (m: string) => warns.push(m) },
+    )
+    return { logs, warns }
+  }
+
+  it('closes the migration connection when a non-benign migration fails — the throw must not leak the socket', async () => {
+    // A non-benign failure rethrows to the boot-time caller — and used to
+    // leave the step-2 client OPEN (no finally): an open socket keeps the
+    // Node event loop alive, so a boot supervisor that catches the rejection
+    // and retries leaked one idle connection per attempt, and `npm run
+    // db:setup` could hang at exit instead of reporting the failure. The
+    // same policy the step-1 admin connection already follows.
+    const denied = Object.assign(new Error('syntax error at or near "FROM"'), { code: '42601' })
+    const clients: Array<{ ends: number }> = []
+    await expect(
+      runSteps(
+        {
+          connect: async () => {},
+          query: () => Promise.reject(denied),
+          end: async () => {},
+        },
+        clients,
+      ),
+    ).rejects.toBe(denied)
+    expect(clients[0]?.ends).toBe(1)
+  })
+
+  it('closes the migration connection when a __setup__ replay fails', async () => {
+    // The migration files apply, then the __setup__ replay fails — the throw
+    // happens after the loop, on the OTHER side of the run, and the client
+    // must still be closed on the way out.
+    const denied = Object.assign(new Error('permission denied for schema public'), {
+      code: '42501',
+    })
+    const clients: Array<{ ends: number }> = []
+    await expect(
+      runSteps(
+        {
+          connect: async () => {},
+          query: (sql: string) =>
+            // The stub fs marks __setup__ files' content, so the failing
+            // query is the replay's — after every migration file applied.
+            sql.startsWith('SETUP') ? Promise.reject(denied) : Promise.resolve(undefined),
+          end: async () => {},
+        },
+        clients,
+      ),
+    ).rejects.toBe(denied)
+    expect(clients[0]?.ends).toBe(1)
+  })
+
+  it('closes the migration connection on the happy path and after a benign re-run', async () => {
+    const clients: Array<{ ends: number }> = []
+    let first = true
+    const { logs, warns } = await runSteps(
+      {
+        connect: async () => {},
+        query: () => {
+          // The first migration's re-run raises a duplicate-table error —
+          // benign, the run continues to the __setup__ replay.
+          if (first) {
+            first = false
+            return Promise.reject(
+              Object.assign(new Error('relation "t" already exists'), { code: '42P07' }),
+            )
+          }
+          return Promise.resolve(undefined)
+        },
+        end: async () => {},
+      },
+      clients,
+    )
+    expect(warns.some((w) => w.includes('already applied'))).toBe(true)
+    expect(logs).toContain('✓ __setup__/payments.sql')
     expect(clients[0]?.ends).toBe(1)
   })
 })

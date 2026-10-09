@@ -70,18 +70,61 @@ function redactDatabaseUrl(raw: string): string {
 }
 
 /**
- * Whether a failed migration query is safe to continue past. Re-running a
- * migration whose objects already exist fails the file with a duplicate_*
- * pg error code (42P07 table, 42710 object, 42P06 schema) — and ONLY those
- * codes are benign here. Any other failure (a syntax error, a missing
- * permission, a mid-file error: each file runs as ONE query, so the whole
- * file rolled back) must fail the run — reporting success and exiting 0 on a
- * broken schema ships the failure to runtime as a "relation does not exist"
- * far from the cause.
+ * Whether a failed migration query is safe to continue past. Every boot
+ * re-runs every migration file, so an already-applied file fails again — and
+ * that failure class is wider than duplicate objects: a bare `ADD COLUMN`
+ * re-run raises 42701, and an already-applied `ADD CONSTRAINT ... PRIMARY KEY`
+ * raises 42P16 (Postgres checks "does this table already have a primary key"
+ * BEFORE the constraint name, so the pg_dump-shaped statement most schemas
+ * ship reports "multiple primary keys", not 42710). Codes and message
+ * fallback are kept IDENTICAL to the PostgreSQL bond's migrator
+ * (molecule/packages/api/bonds/database/postgresql/src/migrator.ts): this
+ * rendered runner replaced the frozen delegates to that bond's
+ * `createMigrator`, and a narrower predicate boot-looped templates whose
+ * second boot raised 42701/42P16 — the app started once, then refused to boot
+ * ever again against a persistent database.
+ *
+ * The cost of that parity, stated plainly: a recognized SQLSTATE returns true
+ * BEFORE the message is read, and these codes name whole error CLASSES, not
+ * just their re-run members — 42P16 is invalid_table_definition as a whole,
+ * 42701 any duplicate column. A FIRST-run migration failing with one of them
+ * (a partitioned-table primary key that omits the partition column; two
+ * migrations adding the same column name) is therefore logged as "already
+ * applied", the run exits 0, and the server boots on the broken schema the
+ * error described. Tightening this gate starts in the bond migrator
+ * (message-confirm 42701/42P16 there first, then let the drift guard carry
+ * the change here) — narrowing it in this template alone re-creates the boot
+ * loop the parity exists to prevent. Anything outside the recognized classes
+ * (a syntax error, a missing permission, a mid-file error: each file runs as
+ * ONE query, so the whole file rolled back) must fail the run — reporting
+ * success and exiting 0 on a broken schema ships the failure to runtime as a
+ * "relation does not exist" far from the cause.
  */
 function isBenignMigrationError(err: unknown): boolean {
-  const code = typeof err === 'object' && err !== null && 'code' in err ? err.code : undefined
-  return code === '42P07' || code === '42710' || code === '42P06'
+  // Inline on purpose: the render and the test suite execute this helper as a
+  // self-contained unit.
+  const IDEMPOTENT_PG_CODES = new Set([
+    '42P07', // duplicate_table
+    '42701', // duplicate_column — whole class, code-only match (see above)
+    '42710', // duplicate_object
+    '42P06', // duplicate_schema
+    '42P04', // duplicate_database
+    '42723', // duplicate_function
+    '42P16', // invalid_table_definition — whole class, code-only match (see above)
+  ])
+  const code =
+    typeof err === 'object' && err !== null && 'code' in err && typeof err.code === 'string'
+      ? err.code
+      : undefined
+  if (code && IDEMPOTENT_PG_CODES.has(code)) return true
+  // Message fallback: hand-written migrations that wrap the pg error (or trip
+  // no recognized code) are still matched by their "already applied" phrasing.
+  const msg = err instanceof Error ? err.message : String(err)
+  return (
+    /already exists/i.test(msg) ||
+    /duplicate (column|key|object) name/i.test(msg) ||
+    /multiple primary keys for table/i.test(msg)
+  )
 }
 
 // MOL_BOND_PROFILE=browser runs the app on in-process PGlite (no Postgres server, no DATABASE_URL): the
@@ -129,11 +172,18 @@ export async function runMigrations(): Promise<void> {
     return
   }
 
-  // Step 1: Try to create the database (connects to 'postgres' db as admin)
+  // Step 1: Try to create the database (connects to 'postgres' db as admin).
+  // The admin connection is closed on EVERY path (finally): an open socket
+  // keeps the Node event loop alive, so a failed pg_database probe or CREATE
+  // DATABASE (the role lacks CREATEDB; a duplicate-database race between two
+  // simultaneously booting replicas) used to leave `npm run db:setup` hanging
+  // forever after printing "Migrations complete." — and left one idle
+  // connection per server boot.
+  let adminClient: pg.Client | null = null
   try {
     const adminUrl = new URL(DATABASE_URL)
     adminUrl.pathname = '/postgres'
-    const adminClient = new pg.Client({
+    adminClient = new pg.Client({
       connectionString: adminUrl.toString(),
       ssl: sslConfig,
     })
@@ -148,12 +198,20 @@ export async function runMigrations(): Promise<void> {
     } else {
       console.log(`✓ Database '${dbName}' already exists`)
     }
-
-    await adminClient.end()
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err)
     console.warn(`⚠ Could not auto-create database: ${msg}`)
     console.warn(`  If '${dbName}' doesn't exist, run: createdb ${dbName}`)
+  } finally {
+    if (adminClient) {
+      try {
+        await adminClient.end()
+      } catch (_error) {
+        // The real failure (if any) is already reported above; this cleanup
+        // must never throw on its way out — not even when connect() itself
+        // failed and end() has no connection to close.
+      }
+    }
   }
 
   // Step 2: Run migrations
@@ -171,51 +229,76 @@ export async function runMigrations(): Promise<void> {
     throw err
   }
 
-  const sqlFiles = readdirSync(migrationsDir)
-    .filter((f) => f.endsWith('.sql'))
-    .sort()
-
-  if (sqlFiles.length === 0) {
-    console.log('No migration files found.')
-  } else {
-    for (const file of sqlFiles) {
-      const sql = readFileSync(join(migrationsDir, file), 'utf-8')
-      try {
-        await client.query(sql)
-        console.log(`✓ ${file}`)
-      } catch (err) {
-        // IF NOT EXISTS objects that already exist fail with a duplicate_*
-        // code — that re-run is benign and the run continues. Everything
-        // else fails the run (see isBenignMigrationError): a swallowed
-        // failure here used to print "Migrations complete." and exit 0 with
-        // the schema broken.
-        if (!isBenignMigrationError(err)) throw err
-        const msg = err instanceof Error ? err.message : String(err)
-        console.warn(`⚠ ${file}: ${msg} (already applied — continuing)`)
-      }
-    }
-  }
-
-  // Step 3: Run idempotent __setup__/*.sql so resource-package DDL (e.g.
-  // payments.sql from @molecule/api-resource-payment) is always present
-  // even if the squashed app migration omits it.
-  if (existsSync(setupDir)) {
-    const setupFiles = readdirSync(setupDir)
+  // The migration connection is closed on EVERY path (finally), the same
+  // policy as the admin connection above: a non-benign migration failure used
+  // to rethrow with the socket still open — an open socket keeps the Node
+  // event loop alive, so a boot supervisor that catches the rejection and
+  // retries leaked one idle connection per attempt, and `npm run db:setup`
+  // could hang at exit instead of reporting the failure.
+  try {
+    const sqlFiles = readdirSync(migrationsDir)
       .filter((f) => f.endsWith('.sql'))
       .sort()
-    for (const file of setupFiles) {
-      const sql = readFileSync(join(setupDir, file), 'utf-8')
-      try {
-        await client.query(sql)
-        console.log(`✓ __setup__/${file}`)
-      } catch (err) {
-        const msg = err instanceof Error ? err.message : String(err)
-        console.warn(`⚠ __setup__/${file}: ${msg}`)
+
+    if (sqlFiles.length === 0) {
+      console.log('No migration files found.')
+    } else {
+      for (const file of sqlFiles) {
+        const sql = readFileSync(join(migrationsDir, file), 'utf-8')
+        try {
+          await client.query(sql)
+          console.log(`✓ ${file}`)
+        } catch (err) {
+          // An already-applied migration fails its re-run with one of the
+          // idempotency codes (or message phrasings) isBenignMigrationError
+          // recognizes — that re-run is benign and the run continues.
+          // Everything else fails the run (see isBenignMigrationError): a
+          // swallowed failure here used to print "Migrations complete." and
+          // exit 0 with the schema broken.
+          if (!isBenignMigrationError(err)) throw err
+          const msg = err instanceof Error ? err.message : String(err)
+          console.warn(`⚠ ${file}: ${msg} (already applied — continuing)`)
+        }
       }
+    }
+
+    // Step 3: Run idempotent __setup__/*.sql so resource-package DDL (e.g.
+    // payments.sql from @molecule/api-resource-payment) is always present
+    // even if the squashed app migration omits it.
+    if (existsSync(setupDir)) {
+      const setupFiles = readdirSync(setupDir)
+        .filter((f) => f.endsWith('.sql'))
+        .sort()
+      for (const file of setupFiles) {
+        const sql = readFileSync(join(setupDir, file), 'utf-8')
+        try {
+          await client.query(sql)
+          console.log(`✓ __setup__/${file}`)
+        } catch (err) {
+          // Same gate as step 2 (see isBenignMigrationError): an already-applied
+          // error is the expected re-run here — the squashed app migration may
+          // already own these tables — so it is logged and skipped. Anything
+          // else (the app role lacks CREATE on the schema, a typo, a
+          // referenced-but-absent enum) must fail the run: a swallowed failure
+          // printed "Migrations complete.", exited 0, and the server booted to
+          // 500 on every request with "relation does not exist", far from the
+          // cause.
+          if (!isBenignMigrationError(err)) throw err
+          const msg = err instanceof Error ? err.message : String(err)
+          console.warn(`⚠ __setup__/${file}: ${msg} (already applied — continuing)`)
+        }
+      }
+    }
+  } finally {
+    try {
+      await client.end()
+    } catch (_error) {
+      // The real failure (if any) is rethrown above; this cleanup must never
+      // throw over it — not even when the failure already broke the
+      // connection and end() has nothing left to close.
     }
   }
 
-  await client.end()
   console.log('Migrations complete.')
 }
 
