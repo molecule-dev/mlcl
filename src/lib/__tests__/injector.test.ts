@@ -7,6 +7,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import type { BondSetup, InjectionPlan } from '../injector.js'
 import {
   executeInjection,
+  filterExcludedPeerDependencies,
   findMoleculePackage,
   generateBondSetupCode,
   generateBondsIndexContent,
@@ -156,82 +157,76 @@ describe('planInjection', () => {
 // excludePeerDependencies filtering (inject command logic)
 // ============================================================================
 
-describe('excludePeerDependencies filtering', () => {
-  it('should filter excluded peer dependencies from plans', () => {
-    const plans: InjectionPlan[] = [
-      {
-        molecule: '@molecule/app-ui-react-native',
-        moleculePackage: {
-          name: '@molecule/app-ui-react-native',
-          version: '1.0.0',
-          dependencies: {},
-          peerDependencies: { 'react-native': '*' },
-          type: 'bond',
-          routes: [],
-          tables: [],
-          exports: [],
-          path: '/fake',
-        },
-        files: [],
-        dependencies: [
-          { name: '@molecule/app-ui-react-native', version: '1.0.0', type: 'dependency' },
-          { name: 'react-native', version: '0.79.5', type: 'peerDependency' },
-          { name: 'react', version: '19.2.4', type: 'peerDependency' },
-        ],
-        routeWiring: [],
-        migrations: [],
-        bondSetup: null,
-        conflicts: [],
+describe('filterExcludedPeerDependencies', () => {
+  /**
+   * The same plan shape the react-native-web flow produces: the package
+   * itself as a dependency plus its peer suggestions.
+   */
+  function planWithDeps(dependencies: InjectionPlan['dependencies']): InjectionPlan {
+    return {
+      molecule: '@molecule/app-ui-react-native',
+      moleculePackage: {
+        name: '@molecule/app-ui-react-native',
+        version: '1.0.0',
+        dependencies: {},
+        peerDependencies: { 'react-native': '*' },
+        type: 'bond',
+        routes: [],
+        tables: [],
+        exports: [],
+        path: '/fake',
       },
-    ]
-
-    const excludedPeers = ['react-native']
-    for (const plan of plans) {
-      plan.dependencies = plan.dependencies.filter(
-        (dep) => dep.type !== 'peerDependency' || !excludedPeers.includes(dep.name),
-      )
+      files: [],
+      dependencies,
+      routeWiring: [],
+      migrations: [],
+      bondSetup: null,
+      conflicts: [],
     }
+  }
 
-    expect(plans[0].dependencies).toHaveLength(2)
-    expect(plans[0].dependencies.map((d) => d.name)).toContain('@molecule/app-ui-react-native')
-    expect(plans[0].dependencies.map((d) => d.name)).toContain('react')
-    expect(plans[0].dependencies.map((d) => d.name)).not.toContain('react-native')
+  it('filters excluded peer dependencies across every plan, keeping the package and other peers', () => {
+    const excluded = ['react-native']
+    const filtered = planWithDeps([
+      { name: '@molecule/app-ui-react-native', version: '1.0.0', type: 'dependency' },
+      { name: 'react-native', version: '0.79.5', type: 'peerDependency' },
+      { name: 'react', version: '19.2.4', type: 'peerDependency' },
+    ])
+    const untouched = planWithDeps([
+      { name: 'react-native', version: '0.79.5', type: 'peerDependency' },
+    ])
+
+    // The REAL function the inject command runs after planning — a local
+    // reimplementation here would pin nothing.
+    filterExcludedPeerDependencies([filtered, untouched], excluded)
+
+    expect(filtered.dependencies).toHaveLength(2)
+    expect(filtered.dependencies.map((d) => d.name)).toContain('@molecule/app-ui-react-native')
+    expect(filtered.dependencies.map((d) => d.name)).toContain('react')
+    expect(filtered.dependencies.map((d) => d.name)).not.toContain('react-native')
+    // Every plan in the call is filtered, not just the first.
+    expect(untouched.dependencies).toHaveLength(0)
   })
 
-  it('should not filter non-peer dependencies even if in excludedPeers', () => {
-    const plans: InjectionPlan[] = [
-      {
-        molecule: '@molecule/test',
-        moleculePackage: {
-          name: '@molecule/test',
-          version: '1.0.0',
-          dependencies: {},
-          peerDependencies: {},
-          type: 'utility',
-          routes: [],
-          tables: [],
-          exports: [],
-          path: '/fake',
-        },
-        files: [],
-        dependencies: [{ name: 'react-native', version: '0.79.5', type: 'dependency' }],
-        routeWiring: [],
-        migrations: [],
-        bondSetup: null,
-        conflicts: [],
-      },
-    ]
+  it('does not filter non-peer dependencies even if in excludedPeers', () => {
+    const plan = planWithDeps([
+      { name: 'react-native', version: '0.79.5', type: 'dependency' },
+      { name: 'react-native', version: '0.79.5', type: 'devDependency' },
+    ])
 
-    const excludedPeers = ['react-native']
-    for (const plan of plans) {
-      plan.dependencies = plan.dependencies.filter(
-        (dep) => dep.type !== 'peerDependency' || !excludedPeers.includes(dep.name),
-      )
-    }
+    filterExcludedPeerDependencies([plan], ['react-native'])
 
-    // Regular dependency should NOT be filtered, only peer deps
-    expect(plans[0].dependencies).toHaveLength(1)
-    expect(plans[0].dependencies[0].name).toBe('react-native')
+    // Regular/dev dependencies are NOT filtered, only peer deps.
+    expect(plan.dependencies).toHaveLength(2)
+    expect(plan.dependencies.map((d) => d.type)).toEqual(['dependency', 'devDependency'])
+  })
+
+  it('leaves the plans untouched when the exclusion list is empty', () => {
+    const plan = planWithDeps([{ name: 'react-native', version: '0.79.5', type: 'peerDependency' }])
+
+    filterExcludedPeerDependencies([plan], [])
+
+    expect(plan.dependencies).toHaveLength(1)
   })
 })
 

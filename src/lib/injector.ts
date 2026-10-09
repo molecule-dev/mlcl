@@ -896,6 +896,28 @@ async function runNpmInstall(projectPath: string): Promise<void> {
   })
 }
 
+/**
+ * Drop the peer dependencies a framework's `excludePeerDependencies` names
+ * from every plan's dependency list — `react-native` for the frameworks that
+ * alias it to a DOM shim, per the registry's appFrameworks entry. Mutates the
+ * plans in place (the inject command calls this right after planning, before
+ * execution). Only `peerDependency` entries are filtered: a REGULAR
+ * dependency that merely shares the name stays — the exclusion names what the
+ * FRAMEWORK tolerates dropping when it arrives as a peer suggestion, not a
+ * ban on the package itself.
+ */
+export function filterExcludedPeerDependencies(
+  plans: InjectionPlan[],
+  excludedPeers: readonly string[],
+): void {
+  if (excludedPeers.length === 0) return
+  for (const plan of plans) {
+    plan.dependencies = plan.dependencies.filter(
+      (dep) => dep.type !== 'peerDependency' || !excludedPeers.includes(dep.name),
+    )
+  }
+}
+
 // Helper functions
 
 /**

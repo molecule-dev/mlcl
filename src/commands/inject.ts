@@ -12,6 +12,7 @@ import { formatGeneratedFiles } from '../lib/format.js'
 import { t } from '../lib/i18n.js'
 import {
   executeInjection,
+  filterExcludedPeerDependencies,
   type InjectionPlan,
   planInjection,
   resolveDefaultProvidersFromPlans,
@@ -167,11 +168,7 @@ export default class Inject extends Command {
     if (framework) {
       const excludedPeers = loadAppFrameworks()[framework]?.excludePeerDependencies
       if (excludedPeers?.length) {
-        for (const plan of plans) {
-          plan.dependencies = plan.dependencies.filter(
-            (dep) => dep.type !== 'peerDependency' || !excludedPeers.includes(dep.name),
-          )
-        }
+        filterExcludedPeerDependencies(plans, excludedPeers)
       }
     }
 
