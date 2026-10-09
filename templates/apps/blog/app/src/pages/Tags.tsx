@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import AppShell from '../components/AppShell.js'
 
@@ -96,9 +97,6 @@ export function Tags() {
   // (or appeared to do nothing) with no feedback. Surface them inline.
   const [modalError, setModalError] = useState<string | null>(null)
   const [actionError, setActionError] = useState<string | null>(null)
-  // Two-step delete: the first click arms the row's delete button, the
-  // second performs it.
-  const [confirmingDeleteId, setConfirmingDeleteId] = useState<string | null>(null)
 
   // Close the create/edit modal on browser navigation (popstate / back-forward
   // / programmatic SPA pushes). Without this the modal becomes a sticky
@@ -234,8 +232,6 @@ export function Tags() {
     } catch (_error) {
       // The tag stays in the list; say so instead of failing silently.
       setActionError(t('tags.deleteError', {}, { defaultValue: 'Could not delete tag.' }))
-    } finally {
-      setConfirmingDeleteId(null)
     }
   }
 
@@ -978,50 +974,22 @@ export function Tags() {
                                     edit
                                   </span>
                                 </button>
-                                <button
+                                <ConfirmButton
                                   data-mol-id={`button-delete-${tag.id}`}
-                                  onClick={() =>
-                                    confirmingDeleteId === tag.id
-                                      ? void handleDelete(tag.id)
-                                      : setConfirmingDeleteId(tag.id)
-                                  }
-                                  aria-label={
-                                    confirmingDeleteId === tag.id
-                                      ? t('tags.confirmDelete', {}, { defaultValue: 'Yes, delete' })
-                                      : t('common.delete', {}, { defaultValue: 'Delete' })
-                                  }
-                                  style={{
-                                    padding: '0.5rem 0.75rem',
-                                    fontSize: '12px',
-                                    fontWeight: 700,
-                                    color:
-                                      confirmingDeleteId === tag.id
-                                        ? 'var(--color-on-error, #fff)'
-                                        : 'var(--mol-color-text-tertiary)',
-                                    backgroundColor:
-                                      confirmingDeleteId === tag.id
-                                        ? 'var(--color-error, #b3261e)'
-                                        : 'transparent',
-                                    border: 'none',
-                                    borderRadius: '0.5rem',
-                                    cursor: 'pointer',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    transition: 'color 0.15s, background-color 0.15s',
-                                  }}
-                                >
-                                  {confirmingDeleteId === tag.id ? (
-                                    t('tags.confirmDelete', {}, { defaultValue: 'Yes, delete' })
-                                  ) : (
-                                    <span
-                                      className="material-symbols-outlined"
-                                      style={{ fontSize: '18px' }}
-                                    >
-                                      delete
-                                    </span>
+                                  label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                                  confirmLabel={t(
+                                    'tags.confirmDelete',
+                                    {},
+                                    { defaultValue: 'Yes, delete' },
                                   )}
-                                </button>
+                                  pendingLabel={t(
+                                    'tags.deleting',
+                                    {},
+                                    { defaultValue: 'Deleting…' },
+                                  )}
+                                  onConfirm={() => void handleDelete(tag.id)}
+                                  size="sm"
+                                />
                               </div>
                             </td>
                           </tr>

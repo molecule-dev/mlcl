@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 interface PostListItemProps {
   id?: string
   title?: string
@@ -28,14 +29,11 @@ export default function PostListItem({
   const { t } = useTranslation()
   const navigate = useNavigate()
   const http = useHttpClient()
-  const [isDeleting, setIsDeleting] = useState(false)
   const [isDeleted, setIsDeleted] = useState(false)
   const [deleteError, setDeleteError] = useState<string | null>(null)
-  const [confirmingDelete, setConfirmingDelete] = useState(false)
 
   const handleDelete = async () => {
-    if (!id || isDeleting) return
-    setIsDeleting(true)
+    if (!id) return
     setDeleteError(null)
     try {
       await http.delete(`/api/posts/${id}`)
@@ -48,9 +46,6 @@ export default function PostListItem({
         t('postListItem.deleteFailed', {}, { defaultValue: 'Delete failed — try again.' }),
       )
       console.error('Failed to delete post:', error)
-    } finally {
-      setIsDeleting(false)
-      setConfirmingDelete(false)
     }
   }
 
@@ -177,54 +172,15 @@ export default function PostListItem({
         >
           <span className={cm.fv5b245ffa}>edit</span>
         </Link>
-        {confirmingDelete ? (
-          <span
-            data-mol-id="post-delete-confirm"
-            className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}
-          >
-            <button
-              type="button"
-              data-mol-id="post-delete-confirm-yes"
-              onClick={handleDelete}
-              disabled={isDeleting}
-              aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
-              className={cm.cn(
-                cm.sp('px', 3),
-                'py-1.5 text-xs font-bold rounded-lg bg-error text-on-error hover:opacity-90 transition-opacity disabled:opacity-50',
-              )}
-            >
-              {isDeleting ? (
-                <span className={cm.fv5b245ffa}>hourglass_empty</span>
-              ) : (
-                t('postListItem.deleteYes', {}, { defaultValue: 'Yes, delete' })
-              )}
-            </button>
-            <button
-              type="button"
-              data-mol-id="post-delete-confirm-no"
-              onClick={() => setConfirmingDelete(false)}
-              className={cm.cn(
-                cm.sp('p', 2),
-                cm.roundedFull,
-                'text-on-surface-variant hover:bg-surface-container transition-colors',
-              )}
-            >
-              <span className={cm.fv5b245ffa}>close</span>
-            </button>
-          </span>
-        ) : (
-          <button
-            onClick={() => setConfirmingDelete(true)}
-            aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
-            className={cm.cn(
-              cm.sp('p', 2),
-              cm.roundedFull,
-              'text-on-surface-variant/40 hover:text-error hover:bg-error/10 transition-colors',
-            )}
-          >
-            <span className={cm.fv5b245ffa}>delete</span>
-          </button>
-        )}
+        <ConfirmButton
+          data-mol-id="post-delete-confirm"
+          label={t('common.delete', {}, { defaultValue: 'Delete' })}
+          confirmLabel={t('postListItem.deleteYes', {}, { defaultValue: 'Yes, delete' })}
+          pendingLabel={t('postListItem.deleting', {}, { defaultValue: 'Deleting…' })}
+          onConfirm={handleDelete}
+          disabled={!id}
+          size="sm"
+        />
       </div>
     </div>
   )
