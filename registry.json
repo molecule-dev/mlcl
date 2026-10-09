@@ -3071,6 +3071,106 @@
         "api.openai.com"
       ]
     },
+    "@molecule/api-ai-speech-whistle": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-speech",
+      "label": "Whistle (in-process)",
+      "description": "Whistle speech provider for molecule.dev — Cactus Compute’s 16.9 MB seven-language speech-to-text running in-process on CPU via the needle WASM engine (no server, no key)",
+      "stack": "api",
+      "implements": "@molecule/api-ai-speech",
+      "exports": [
+        "DEFAULT_WHISTLE_ENGINE_URL",
+        "DEFAULT_WHISTLE_WEIGHTS_URL",
+        "WHISTLE_SAMPLE_RATE",
+        "WHISTLE_MAX_CLIP_SECONDS",
+        "WhistleEngineError",
+        "ModelProgressEvent",
+        "WhistleWord",
+        "WhistleTranscript",
+        "WhistleStreamResult",
+        "WhistleEngineSource",
+        "WhistleEngineCallOptions",
+        "WhistleEngine",
+        "normalizeKeywords",
+        "loadWhistleEngine",
+        "createProvider",
+        "provider",
+        "aiSpeechWhistleSecretDefinitions",
+        "WhistleLanguage",
+        "WHISTLE_LANGUAGES",
+        "WhistleSpeechConfig",
+        "WhistleWavError",
+        "DecodedWav",
+        "resampleLinear",
+        "FloatBlockResampler",
+        "decodeWavToMono16k"
+      ],
+      "secrets": [
+        {
+          "name": "WHISTLE_ENGINE_URL",
+          "required": false,
+          "label": "Whistle engine URL",
+          "setupUrl": "https://cactuscompute.com/blog/whistle",
+          "instructions": "URL of the Cactus needle.js WASM glue; needle.wasm is resolved from the same directory. Defaults to the Hugging Face copy.",
+          "example": "https://huggingface.co/Cactus-Compute/needle3/resolve/main/wasm/needle.js"
+        },
+        {
+          "name": "WHISTLE_WEIGHTS_URL",
+          "required": false,
+          "label": "Whistle weights URL",
+          "setupUrl": "https://huggingface.co/Cactus-Compute/whistle",
+          "instructions": "URL of the 16.9 MB whistle.cact model file. Defaults to the Hugging Face copy.",
+          "example": "https://huggingface.co/Cactus-Compute/whistle/resolve/main/whistle.cact"
+        },
+        {
+          "name": "NEEDLE_WHISTLE_WEIGHTS",
+          "required": false,
+          "label": "Whistle weights path",
+          "setupUrl": "https://cactuscompute.com/blog/needle-python-docs",
+          "instructions": "Local path to whistle.cact (the vendor Python layer uses the same variable). Wins over WHISTLE_WEIGHTS_URL.",
+          "example": "/opt/models/whistle.cact"
+        },
+        {
+          "name": "NEEDLE_ENGINE_PATH",
+          "required": false,
+          "label": "Whistle engine JS path",
+          "setupUrl": "https://cactuscompute.com/blog/needle-supported-devices",
+          "instructions": "Local path to needle.js; set together with NEEDLE_WASM_PATH to run fully offline.",
+          "example": "/opt/needle/wasm/needle.js"
+        },
+        {
+          "name": "NEEDLE_WASM_PATH",
+          "required": false,
+          "label": "Whistle engine wasm path",
+          "setupUrl": "https://cactuscompute.com/blog/needle-supported-devices",
+          "instructions": "Local path to needle.wasm; set together with NEEDLE_ENGINE_PATH to run fully offline.",
+          "example": "/opt/needle/wasm/needle.wasm"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-speech",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-speech",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-speech/whistle",
+      "intentHints": [
+        "in-process speech to text",
+        "cpu transcription without a server",
+        "whistle transcription",
+        "keyword biasing transcription",
+        "word timestamps transcription",
+        "self-hosted speech to text",
+        "speech to text without an api key"
+      ],
+      "egressHosts": [
+        "huggingface.co"
+      ]
+    },
     "@molecule/api-ai-summarization": {
       "language": "typescript",
       "runtime": "node",
@@ -27601,6 +27701,55 @@
         "offline voice input",
         "whisper transcription in browser",
         "dictation without cloud services",
+        "private voice recognition"
+      ]
+    },
+    "@molecule/app-ai-voice-whistle": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-voice",
+      "label": "Whistle (on-device)",
+      "description": "On-device Whistle ai-voice provider for molecule.dev — Cactus Compute’s 16.9 MB seven-language speech-to-text in the browser via the needle WASM engine (CPU-only, no WebGPU)",
+      "stack": "app",
+      "implements": "@molecule/app-ai-voice",
+      "exports": [
+        "DEFAULT_WHISTLE_ENGINE_URL",
+        "DEFAULT_WHISTLE_WEIGHTS_URL",
+        "WHISTLE_SAMPLE_RATE",
+        "WHISTLE_MAX_CLIP_SECONDS",
+        "WhistleEngineError",
+        "WhistleWord",
+        "WhistleTranscript",
+        "WhistleStreamResult",
+        "WhistleEngineSource",
+        "WhistleEngineCallOptions",
+        "WhistleEngine",
+        "normalizeKeywords",
+        "loadWhistleEngine",
+        "supportsRecognitionLanguage",
+        "WhistleVoiceProvider",
+        "createProvider",
+        "provider",
+        "ModelProgressEvent",
+        "WhistleLanguage",
+        "WHISTLE_LANGUAGES",
+        "WhistleVoiceConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ai-voice"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ai-voice"
+      ],
+      "path": "packages/app/bonds/ai-voice/whistle",
+      "intentHints": [
+        "on-device speech to text",
+        "offline voice input",
+        "whistle transcription in browser",
+        "small stt model download",
+        "cpu speech recognition",
         "private voice recognition"
       ]
     },
