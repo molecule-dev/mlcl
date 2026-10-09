@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
+import { FileDropzone } from '@molecule/app-file-dropzone-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { FileDropzone } from '@molecule/app-file-dropzone-react'
 
 const cm = getClassMap()
 

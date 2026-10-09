@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
-import { EmojiReactions, type EmojiReaction } from '@molecule/app-emoji-reactions-react'
+import { type EmojiReaction, EmojiReactions } from '@molecule/app-emoji-reactions-react'
 import { useHttpClient } from '@molecule/app-react'
 
 /**

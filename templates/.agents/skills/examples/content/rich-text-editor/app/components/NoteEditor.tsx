@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
-import { type RichTextValue } from '@molecule/app-rich-text'
+import type { RichTextValue } from '@molecule/app-rich-text'
 import { getClassMap } from '@molecule/app-ui'
 
 import { RichTextField } from './RichTextField.js'

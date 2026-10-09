@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-import { type ChartConfig } from '@molecule/app-charts'
+import type { ChartConfig } from '@molecule/app-charts'
 import { useTranslation } from '@molecule/app-react'
 
 import { ChartPanel } from './ChartPanel.js'

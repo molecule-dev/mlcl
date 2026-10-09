@@ -1,7 +1,7 @@
-import { useEffect, useRef, type ReactNode } from 'react'
+import { type ReactNode, useEffect, useRef } from 'react'
 
-import { createChart, type ChartConfig, type ChartInstance } from '@molecule/app-charts'
 import { ChartCard } from '@molecule/app-chart-wrapper-react'
+import { type ChartConfig, type ChartInstance, createChart } from '@molecule/app-charts'
 
 /**
  * Renders a chart from a `@molecule/app-charts` `ChartConfig`, wrapped in the

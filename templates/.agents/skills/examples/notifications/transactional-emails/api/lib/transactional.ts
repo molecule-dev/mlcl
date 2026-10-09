@@ -1,5 +1,5 @@
-import { t } from '@molecule/api-i18n'
 import { sendMail } from '@molecule/api-emails'
+import { t } from '@molecule/api-i18n'
 
 // The sender address, defined ONCE. `EMAIL_FROM` is the canonical var (see the
 // api-patterns env table + the framework's own reset emails). The default DERIVES

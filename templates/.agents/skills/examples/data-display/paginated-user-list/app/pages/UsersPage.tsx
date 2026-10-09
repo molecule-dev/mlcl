@@ -7,9 +7,10 @@
  * URL params via @molecule/app-routing so deep-links work.
  */
 import { useEffect, useState } from 'react'
+
+import { PaginationBar } from '@molecule/app-pagination-bar-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { PaginationBar } from '@molecule/app-pagination-bar-react'
 
 interface User {
   id: string

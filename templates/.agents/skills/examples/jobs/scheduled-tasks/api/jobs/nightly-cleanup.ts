@@ -1,5 +1,5 @@
-import { deleteMany } from '@molecule/api-database'
 import { schedule } from '@molecule/api-cron'
+import { deleteMany } from '@molecule/api-database'
 
 // The cron PATTERN is the point of this example — the workload below is a PLACEHOLDER.
 // `CLEANUP_TABLE`/`EXPIRY_COLUMN` are NOT framework tables: a molecule app has no `sessions`

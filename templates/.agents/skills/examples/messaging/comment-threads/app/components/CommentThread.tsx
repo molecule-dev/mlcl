@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
-import { ThreadTree, type Comment } from '@molecule/app-feature-thread-tree-react'
+import { type Comment, ThreadTree } from '@molecule/app-feature-thread-tree-react'
 import { unwrapList } from '@molecule/app-http'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'

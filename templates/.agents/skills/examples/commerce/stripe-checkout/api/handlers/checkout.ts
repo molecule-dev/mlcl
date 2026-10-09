@@ -5,11 +5,12 @@
  * Stripe-hosted checkout URL, and redirects the browser to it. Stripe
  * handles the card form, 3DS, etc. We never see the card.
  */
-import { Router } from 'express'
 import type { Request, Response } from 'express'
-import { createCheckoutSession } from '@molecule/api-payments-stripe'
-import { validateBody } from '@molecule/api-middleware-validation'
+import { Router } from 'express'
 import { z } from 'zod'
+
+import { validateBody } from '@molecule/api-middleware-validation'
+import { createCheckoutSession } from '@molecule/api-payments-stripe'
 
 const router = Router()
 

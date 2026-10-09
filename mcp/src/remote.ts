@@ -16,9 +16,9 @@
 import { readFileSync } from 'node:fs'
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
+import { z } from 'zod'
 
 import { tracked } from './telemetry.js'
-import { z } from 'zod'
 
 const REGISTRY_URL =
   process.env.MOLECULE_REGISTRY_URL ??

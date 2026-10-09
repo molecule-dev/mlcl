@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react'
+import { type FormEvent, useEffect, useRef, useState } from 'react'
 
+import type { MessageData } from '@molecule/app-message-bubble-react'
 import { MessageBubble } from '@molecule/app-message-bubble-react'
+import { useTranslation } from '@molecule/app-react'
 import { TypingIndicator } from '@molecule/app-typing-indicator-react'
 import { getClassMap } from '@molecule/app-ui'
-import { useTranslation } from '@molecule/app-react'
-import type { MessageData } from '@molecule/app-message-bubble-react'
 
 type ApiMessage = {
   id: string

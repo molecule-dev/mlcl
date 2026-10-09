@@ -1,6 +1,6 @@
+import { OAuthProviderLogo } from '@molecule/app-oauth-logos-react'
 import { useOAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { OAuthProviderLogo } from '@molecule/app-oauth-logos-react'
 
 function SocialLoginButtons() {
   const cm = getClassMap()

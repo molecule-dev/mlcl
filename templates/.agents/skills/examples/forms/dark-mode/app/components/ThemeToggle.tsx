@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { getClassMap } from '@molecule/app-ui'
 import { useTranslation } from '@molecule/app-react'
+import { getClassMap } from '@molecule/app-ui'
 
 import { applyTheme, getThemeMode } from '../lib/theme.js'
 

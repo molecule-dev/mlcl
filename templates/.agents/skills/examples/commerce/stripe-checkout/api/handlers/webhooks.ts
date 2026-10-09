@@ -13,10 +13,11 @@
  * (it conflicts with the already-global JSON parser, and req.body here is the
  * PARSED object — passing it to verifyWebhookSignature fails the HMAC every time).
  */
-import { Router } from 'express'
 import type { Request, Response } from 'express'
-import { verifyWebhookSignature } from '@molecule/api-payments-stripe'
+import { Router } from 'express'
+
 import { updateById } from '@molecule/api-database'
+import { verifyWebhookSignature } from '@molecule/api-payments-stripe'
 
 const router = Router()
 

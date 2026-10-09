@@ -1,6 +1,6 @@
+import { parse } from 'csv-parse/sync'
 import express, { type NextFunction, type Request, type Response } from 'express'
 import { Router } from 'express'
-import { parse } from 'csv-parse/sync'
 import { z } from 'zod'
 
 import { create, findMany } from '@molecule/api-database'

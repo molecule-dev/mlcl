@@ -5,8 +5,8 @@ import { Router } from 'express'
 import { z } from 'zod'
 
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
-import { t } from '@molecule/api-i18n'
 import { sendMail } from '@molecule/api-emails'
+import { t } from '@molecule/api-i18n'
 import { consume } from '@molecule/api-rate-limit'
 
 const TOKEN_TTL_MS = 24 * 60 * 60 * 1000

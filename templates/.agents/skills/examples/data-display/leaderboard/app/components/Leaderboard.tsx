@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { LeaderboardList } from '@molecule/app-leaderboard-list-react'
 import { LeaderboardRow } from '@molecule/app-leaderboard-row-react'
+import { useHttpClient, useTranslation } from '@molecule/app-react'
 
 /** One row from `GET /api/leaderboard` (see api/handlers/leaderboard.ts). */
 type Entry = { userId: string; rank: number; score: number; name: string }

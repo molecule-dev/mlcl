@@ -1,9 +1,9 @@
 import { Router } from 'express'
 import { z } from 'zod'
 
-import { getLogger } from '@molecule/api-bond'
 import { answerQuestion, deleteDocument, indexDocument, retrieve } from '@molecule/api-ai-rag-qa'
 import type { MetadataFilter } from '@molecule/api-ai-vector-store'
+import { getLogger } from '@molecule/api-bond'
 import { t } from '@molecule/api-i18n'
 import { consume } from '@molecule/api-rate-limit'
 

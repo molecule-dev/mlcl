@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
 
 import {
-  createMap,
   type Coordinates,
+  createMap,
   type MapInstance,
   type MarkerConfig,
 } from '@molecule/app-maps'

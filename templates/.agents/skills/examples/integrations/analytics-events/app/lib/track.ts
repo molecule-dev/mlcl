@@ -1,4 +1,4 @@
-import { track as bondTrack, identify as bondIdentify } from '@molecule/app-analytics'
+import { identify as bondIdentify, track as bondTrack } from '@molecule/app-analytics'
 
 /**
  * Strongly-typed event catalog. Add new events here so the rest of

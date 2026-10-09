@@ -10,10 +10,10 @@
  * per-install id in ~/.mlcl/telemetry-id, shared with the CLI), fire-and-
  * forget with a 5s timeout, no-op without a reachable endpoint.
  */
+import { randomUUID } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
-import { randomUUID } from 'node:crypto'
 
 const DEFAULT_URL = 'https://api.molecule.dev/v1/telemetry/cli'
 const ID_FILE = join(homedir(), '.mlcl', 'telemetry-id')

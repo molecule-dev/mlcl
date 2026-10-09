@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
-import { createPlayer, type VideoPlayer, type VideoSource } from '@molecule/app-video'
 import { getClassMap } from '@molecule/app-ui'
+import { createPlayer, type VideoPlayer, type VideoSource } from '@molecule/app-video'
 
 const cm = getClassMap()
 

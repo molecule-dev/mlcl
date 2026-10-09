@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
+import { useTranslation } from '@molecule/app-react'
 import { SearchAutocomplete, type SuggestionItem } from '@molecule/app-search-autocomplete-react'
 import { getClassMap } from '@molecule/app-ui'
-import { useTranslation } from '@molecule/app-react'
 
 const cm = getClassMap()
 

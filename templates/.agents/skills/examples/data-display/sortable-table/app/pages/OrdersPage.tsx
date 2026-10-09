@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 
 import { DataTableCard } from '@molecule/app-data-table-ui-react'
 import { PaginationBar } from '@molecule/app-pagination-bar-react'
-import { getClassMap } from '@molecule/app-ui'
 import { useTranslation } from '@molecule/app-react'
+import { getClassMap } from '@molecule/app-ui'
 
 const cm = getClassMap()
 const PAGE_SIZE = 25

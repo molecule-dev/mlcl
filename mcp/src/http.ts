@@ -7,9 +7,8 @@
  * Stateless mode: every POST gets a fresh transport/server pair (the SDK's
  * documented pattern for serverless-style deployments).
  */
-import express from 'express'
-
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js'
+import express from 'express'
 
 import { buildRemoteServer } from './remote.js'
 
