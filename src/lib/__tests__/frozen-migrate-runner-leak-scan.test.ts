@@ -8,9 +8,11 @@
  * the fleet is "leak-free as it sits in the repo". This file re-scans the
  * same fleet on the value-flow shapes themselves, regardless of line breaks:
  *
- * - the raw URL is never interpolated (`${DATABASE_URL}`) or concatenated
- *   (`+ DATABASE_URL`) anywhere — building a leaky string is caught even when
- *   the console call that prints it stays clean;
+ * - the raw URL is never interpolated (`${DATABASE_URL}` — including the
+ *   `.toString()` and `String(...)` wrapped forms of that interpolation),
+ *   never passed through a stringify call (`String(DATABASE_URL)`), and never
+ *   concatenated (`+ DATABASE_URL`) anywhere — building a leaky string is
+ *   caught even when the console call that prints it stays clean;
  * - every `console.*(...)` call — however its arguments wrap across lines —
  *   may reference the URL only through `redactDatabaseUrl(...)` (string
  *   literals and comments are blanked first, so prose like "DATABASE_URL is
@@ -126,10 +128,19 @@ function leakingRunners(runners: Array<[string, string]>): {
     if (/const DATABASE_URL\b/.test(source)) withRawUrl++
     // Rule 1 — the raw value never enters a template literal or a
     // concatenation, on any line: this kills multi-line console
-    // interpolations AND intermediate hint variables in one rule.
-    if (/\$\{\s*DATABASE_URL\s*\}/.test(source)) leaking.push(app)
+    // interpolations AND intermediate hint variables in one rule. The
+    // interpolation arm matches any interpolation that BEGINS with the raw
+    // identifier (`${DATABASE_URL}`, `${DATABASE_URL.trim()}`) or wraps it in
+    // String() (`${String(DATABASE_URL)}`) — a `.toString()`/`String()` wrap
+    // produces the same leaky string the plain shape does.
+    if (/\$\{\s*(?:String\s*\(\s*)?DATABASE_URL\b/.test(source)) leaking.push(app)
     const code = blankStringsAndComments(source).replace(/\s+/g, ' ')
-    if (/\+\s*DATABASE_URL\b/.test(code) || /\bDATABASE_URL\b\s*\+/.test(code)) leaking.push(app)
+    if (
+      /\bString\s*\(\s*DATABASE_URL\b\s*\)/.test(code) ||
+      /\+\s*DATABASE_URL\b/.test(code) ||
+      /\bDATABASE_URL\b\s*\+/.test(code)
+    )
+      leaking.push(app)
     // Rule 2 — inside a console call (however its arguments wrap), every
     // DATABASE_URL reference must flow through the redactor (strings and
     // comments are blanked, so prose naming the variable is not a reference).
@@ -205,6 +216,19 @@ describe('frozen migration runners — value-flow leak scan', () => {
       'const hint = `connection: ${DATABASE_URL}`',
       "console.error('hint: ' + 'DATABASE_URL is not set')",
     ].join('\n')
+    // The value-flow shapes past the plain `${DATABASE_URL}`: an interpolation
+    // that only STARTS with the identifier, and a String() wrap — both build
+    // the same leaky intermediate string the rule exists to kill.
+    const memberInterpolation = [
+      'const DATABASE_URL = resolveDatabaseUrl()',
+      'const hint = `connection: ${DATABASE_URL.toString()}`',
+      "console.error('hint: ' + 'built elsewhere')",
+    ].join('\n')
+    const stringWrapped = [
+      'const DATABASE_URL = resolveDatabaseUrl()',
+      "const hint = 'connection: ' + String(DATABASE_URL)",
+      "console.error('hint: ' + 'built elsewhere')",
+    ].join('\n')
     // …and the sanctioned shapes it must NOT flag: the redacted hint
     // (interpolating the REDACTED value across lines, or passing it as a bare
     // argument) and prose that merely names the variable.
@@ -219,6 +243,8 @@ describe('frozen migration runners — value-flow leak scan', () => {
     const asRunner = (source: string): Array<[string, string]> => [['fixture', source]]
     expect(leakingRunners(asRunner(multiLine)).leaking).toEqual(['fixture'])
     expect(leakingRunners(asRunner(indirect)).leaking).toEqual(['fixture'])
+    expect(leakingRunners(asRunner(memberInterpolation)).leaking).toEqual(['fixture'])
+    expect(leakingRunners(asRunner(stringWrapped)).leaking).toEqual(['fixture'])
     expect(leakingRunners(asRunner(redacted)).leaking).toEqual([])
   })
 })

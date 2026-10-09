@@ -2637,9 +2637,11 @@ async function syncIdentityFromBranding(destDir: string, projectName: string): P
  * Generate fresh .env files in the user sandbox by introspecting the
  * template's `package.json` deps, looking each `@molecule/*` package up in
  * the registry, and collecting its declared `secrets`. The `.env` content
- * is fully derived from package metadata — no regex sanitization, no
- * shipped `.env.example`. Adding a new env var means adding a `secrets`
- * entry to the relevant package's registry record; nothing else.
+ * is fully derived from package metadata — no regex sanitization. Adding a
+ * new env var means adding a `secrets` entry to the relevant package's
+ * registry record; nothing else. A `.env.example` is generated only when the
+ * copied template ships none — a curated one (static-site's VITE_SITE_URL /
+ * BASE_PATH schema doc) is preserved, never overwritten.
  *
  * The end-user sandbox gets exactly the env vars its actual deps need,
  * with declared defaults where present and empty values otherwise.
@@ -5236,11 +5238,19 @@ export async function generateEnvFile(
   // which made a FILE named `api` for a template with no api/ workspace and then
   // failed the scaffold with ENOTDIR (static-site-thin, 2026-09-26).
   const examplePath = join(projectPath, '.env.example')
-  const exampleContent = lines.concat(secrets.map((s) => `${s.name}=`)).join('\n')
-  try {
-    await writeFile(examplePath, exampleContent)
-  } catch (_error) {
-    // .env.example is best-effort — a failure to write it should never block the scaffold.
+  // An example that ALREADY exists is kept: the copy step above deliberately
+  // preserves a template's curated `.env.example` (shouldSkipDuringCopy), and an
+  // unconditional write clobbered it — every scaffolded static-site /
+  // static-site-thin lost its VITE_SITE_URL / BASE_PATH schema doc here. Same
+  // never-clobber policy as ensureRootNpmrc / ensureAgentsMd: the generated
+  // key-name example only fills an absence.
+  if (!existsSync(examplePath)) {
+    const exampleContent = lines.concat(secrets.map((s) => `${s.name}=`)).join('\n')
+    try {
+      await writeFile(examplePath, exampleContent)
+    } catch (_error) {
+      // .env.example is best-effort — a failure to write it should never block the scaffold.
+    }
   }
 
   if (projectType === 'app') {
