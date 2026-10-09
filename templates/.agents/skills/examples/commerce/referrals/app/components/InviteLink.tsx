@@ -17,6 +17,7 @@ export function InviteLink() {
   const { t } = useTranslation()
   const [code, setCode] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
+  const [copyFailed, setCopyFailed] = useState(false)
   // Held so a second click RESETS the "Copied!" window instead of letting an
   // earlier timeout clear it early, and so unmount clears a pending one.
   const copiedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -57,7 +58,18 @@ export function InviteLink() {
   const whatsapp = `https://wa.me/?text=${encodeURIComponent(shareText)}`
 
   async function copy(): Promise<void> {
-    await navigator.clipboard.writeText(link)
+    setCopyFailed(false)
+    // clipboard.writeText REJECTS when the document is not focused (an iframe,
+    // a background tab) or permission is denied — a common case, not an edge
+    // case. Without this catch the rejection escapes the click handler and the
+    // button silently does nothing.
+    try {
+      await navigator.clipboard.writeText(link)
+    } catch (_error) {
+      setCopied(false)
+      setCopyFailed(true)
+      return
+    }
     setCopied(true)
     if (copiedTimer.current) clearTimeout(copiedTimer.current)
     copiedTimer.current = setTimeout(() => setCopied(false), 2000)
@@ -82,6 +94,13 @@ export function InviteLink() {
             : t('referrals.copy', undefined, { defaultValue: 'Copy' })}
         </button>
       </div>
+      {copyFailed ? (
+        <p className={cm.cn(cm.textSize('sm'), cm.textError)}>
+          {t('referrals.copyFailed', undefined, {
+            defaultValue: 'Could not copy — select the link and copy it manually.',
+          })}
+        </p>
+      ) : null}
       <div className={cm.flex({ direction: 'row', gap: 'sm' })}>
         <a
           data-mol-id="referral-share-email"

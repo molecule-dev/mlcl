@@ -64,6 +64,7 @@ export function CommentThread({
   const [comments, setComments] = useState<Comment[]>([])
   const [draft, setDraft] = useState('')
   const [replyTo, setReplyTo] = useState<string | null>(null)
+  const [postError, setPostError] = useState(false)
 
   const load = useCallback(async () => {
     // The list endpoint returns a RICH pagination envelope { data, total, limit, offset }.
@@ -75,21 +76,36 @@ export function CommentThread({
   }, [http, resourceType, resourceId])
 
   useEffect(() => {
-    void load()
+    void load().catch(() => {
+      // A failed load (offline, 401, 500) keeps the empty thread; the composer
+      // still works. The rejection must not escape the effect unhandled.
+    })
   }, [load])
 
   const post = async (): Promise<void> => {
     if (!draft.trim()) {
       return
     }
-    // parentId nests the reply; null posts a top-level comment.
-    await http.post(`/api/${resourceType}/${resourceId}/comments`, {
-      body: draft,
-      parentId: replyTo,
-    })
+    setPostError(false)
+    // On a failed post the draft is KEPT — clearing it before the server
+    // accepted the comment would silently discard the user's text.
+    try {
+      // parentId nests the reply; null posts a top-level comment.
+      await http.post(`/api/${resourceType}/${resourceId}/comments`, {
+        body: draft,
+        parentId: replyTo,
+      })
+    } catch (_error) {
+      setPostError(true)
+      return
+    }
     setDraft('')
     setReplyTo(null)
-    await load() // refetch so the new comment lands in the right place in the tree
+    // Refetch so the new comment lands in the right place in the tree; a
+    // failed refetch must not reject out of the click handler.
+    await load().catch(() => {
+      setPostError(true)
+    })
   }
 
   return (
@@ -106,6 +122,13 @@ export function CommentThread({
         }
         className={cm.textarea({})}
       />
+      {postError ? (
+        <p className={cm.textError}>
+          {t('comments.postFailed', undefined, {
+            defaultValue: 'Could not post the comment — try again.',
+          })}
+        </p>
+      ) : null}
       <button
         type="button"
         data-mol-id="post-comment"

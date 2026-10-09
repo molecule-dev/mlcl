@@ -31,6 +31,7 @@ export function ChatPage({ channelId }: { channelId: string }) {
   const { t } = useTranslation()
   const [messages, setMessages] = useState<ApiMessage[]>([])
   const [draft, setDraft] = useState('')
+  const [sendError, setSendError] = useState(false)
   const [typing, setTyping] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
   // The hide-typing timeout is held so the next `typing` event RESETS it
@@ -82,12 +83,24 @@ export function ChatPage({ channelId }: { channelId: string }) {
   async function send(e: FormEvent): Promise<void> {
     e.preventDefault()
     if (!draft.trim()) return
-    await fetch('/api/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ channel_id: channelId, content: draft }),
-    })
-    setDraft('')
+    setSendError(false)
+    // The draft is cleared only after the server accepted the message: a
+    // rejected or !ok POST (offline, validation) must keep the user's text in
+    // the composer, not silently discard it.
+    try {
+      const res = await fetch('/api/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ channel_id: channelId, content: draft }),
+      })
+      if (!res.ok) {
+        setSendError(true)
+        return
+      }
+      setDraft('')
+    } catch (_error) {
+      setSendError(true)
+    }
   }
 
   return (
@@ -115,6 +128,13 @@ export function ChatPage({ channelId }: { channelId: string }) {
         className={cm.flex({ direction: 'row', gap: 'sm' })}
         style={{ padding: '1rem' }}
       >
+        {sendError ? (
+          <p className={cm.textError}>
+            {t('chat.sendFailed', undefined, {
+              defaultValue: 'Message not sent — try again.',
+            })}
+          </p>
+        ) : null}
         <input
           value={draft}
           onChange={(e) => setDraft(e.target.value)}

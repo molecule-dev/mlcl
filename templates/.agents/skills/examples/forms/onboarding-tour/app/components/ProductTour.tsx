@@ -36,16 +36,25 @@ export function ProductTour() {
       .then((u: { tour_completed_at?: string | null }) => {
         if (!u.tour_completed_at) setActive(true)
       })
+      .catch(() => {
+        // A failed /api/me reads the same as "tour already completed": the
+        // tour simply stays hidden. The rejection must not escape the effect.
+      })
   }, [])
 
   // Hooks first — no early return may sit above them.
   const finish = useCallback(async (): Promise<void> => {
     setActive(false)
-    await fetch('/api/me', {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ tour_completed_at: new Date().toISOString() }),
-    })
+    try {
+      await fetch('/api/me', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tour_completed_at: new Date().toISOString() }),
+      })
+    } catch (_error) {
+      // The tour is already dismissed; a failed PATCH only means it re-offers
+      // on the next visit. The rejection must not escape the click handler.
+    }
   }, [])
 
   // Skip steps whose target isn't on screen, and finish the tour when the last

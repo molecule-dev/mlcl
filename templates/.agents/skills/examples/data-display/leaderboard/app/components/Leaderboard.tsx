@@ -22,11 +22,18 @@ export function Leaderboard({ currentUserId }: { currentUserId?: string }) {
 
   useEffect(() => {
     let cancelled = false
-    void http.get<Entry[]>('/api/leaderboard').then((res) => {
-      if (!cancelled) {
-        setEntries(Array.isArray(res.data) ? res.data : [])
-      }
-    })
+    void http
+      .get<Entry[]>('/api/leaderboard')
+      .then((res) => {
+        if (!cancelled) {
+          setEntries(Array.isArray(res.data) ? res.data : [])
+        }
+      })
+      .catch(() => {
+        // A failed load (offline, 500) keeps the empty list — the shared list
+        // component renders its empty state; the rejection itself must not
+        // escape the effect as an unhandled promise rejection.
+      })
     return () => {
       cancelled = true
     }

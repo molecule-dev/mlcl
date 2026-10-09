@@ -65,16 +65,33 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
   }, [open])
 
   async function markRead(id: string): Promise<void> {
-    await fetch(`/api/notifications/${id}/read`, { method: 'POST' })
-    setItems((prev) =>
-      prev.map((n) => (n.id === id ? { ...n, read_at: new Date().toISOString() } : n)),
-    )
+    // Apply the local "read" state only AFTER the server accepted it: a failed
+    // POST (offline, 500) must not clear the unread badge while the row is
+    // still unread server-side. The shared center calls this from a void
+    // onClick, so an escaping rejection would be unhandled.
+    try {
+      const res = await fetch(`/api/notifications/${id}/read`, { method: 'POST' })
+      if (!res.ok) return
+      setItems((prev) =>
+        prev.map((n) => (n.id === id ? { ...n, read_at: new Date().toISOString() } : n)),
+      )
+    } catch (_error) {
+      // Network failure — the notification stays unread; the next SSE event or
+      // reload resyncs the badge.
+    }
   }
 
   async function markAllRead(): Promise<void> {
-    await fetch('/api/notifications/mark-all-read', { method: 'POST' })
-    setUnread(0)
-    setItems((prev) => prev.map((n) => ({ ...n, read_at: n.read_at ?? new Date().toISOString() })))
+    try {
+      const res = await fetch('/api/notifications/mark-all-read', { method: 'POST' })
+      if (!res.ok) return
+      setUnread(0)
+      setItems((prev) =>
+        prev.map((n) => ({ ...n, read_at: n.read_at ?? new Date().toISOString() })),
+      )
+    } catch (_error) {
+      // Network failure — the badge keeps its count; nothing was marked read.
+    }
   }
 
   const centerItems: NotificationItem[] = items.map((n) => ({

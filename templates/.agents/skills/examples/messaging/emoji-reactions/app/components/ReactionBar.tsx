@@ -44,20 +44,33 @@ export function ReactionBar({
   }, [http, resourceType, resourceId])
 
   useEffect(() => {
-    void load()
+    void load().catch(() => {
+      // A failed initial load keeps the empty chip list. The rejection must
+      // not escape the effect as an unhandled promise rejection.
+    })
   }, [load])
 
   const toggle = async (emoji: string): Promise<void> => {
     const mine = reactions.find((r) => r.emoji === emoji)?.reactedByMe
     const base = `/api/${resourceType}/${resourceId}/reactions`
-    // The server derives the reacting user from the SESSION. POST adds; DELETE with
-    // `?type=` removes only that emoji (a body-less DELETE, so the type goes in the query).
-    if (mine) {
-      await http.delete(`${base}?type=${encodeURIComponent(emoji)}`)
-    } else {
-      await http.post(base, { type: emoji })
+    try {
+      // The server derives the reacting user from the SESSION. POST adds; DELETE with
+      // `?type=` removes only that emoji (a body-less DELETE, so the type goes in the query).
+      if (mine) {
+        await http.delete(`${base}?type=${encodeURIComponent(emoji)}`)
+      } else {
+        await http.post(base, { type: emoji })
+      }
+    } catch (_error) {
+      // A failed toggle (offline, 401) must not reject into the shared
+      // component — its `onToggle` prop discards the returned promise, so an
+      // escaping rejection is unhandled. Fall through to the reload below.
     }
-    await load()
+    // Resync from the server either way: chips reflect what actually landed
+    // (a toggle that did land is not double-counted by a retry).
+    await load().catch(() => {
+      // The summary is unreachable too — chips keep their last synced state.
+    })
   }
 
   return (

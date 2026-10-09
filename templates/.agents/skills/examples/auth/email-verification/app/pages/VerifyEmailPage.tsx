@@ -10,6 +10,7 @@ type Status = 'verifying' | 'success' | 'expired' | 'invalid' | 'resent'
 export function VerifyEmailPage() {
   const { t } = useTranslation()
   const [status, setStatus] = useState<Status>('verifying')
+  const [resendFailed, setResendFailed] = useState(false)
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -28,8 +29,19 @@ export function VerifyEmailPage() {
   }, [])
 
   async function resend(): Promise<void> {
-    const res = await fetch('/api/verify/request', { method: 'POST' })
-    if (res.ok) setStatus('resent')
+    setResendFailed(false)
+    // A rejected resend (offline, server restart) must not reject out of the
+    // click handler with the button silently doing nothing — surface it.
+    try {
+      const res = await fetch('/api/verify/request', { method: 'POST' })
+      if (!res.ok) {
+        setResendFailed(true)
+        return
+      }
+      setStatus('resent')
+    } catch (_error) {
+      setResendFailed(true)
+    }
   }
 
   return (
@@ -57,6 +69,13 @@ export function VerifyEmailPage() {
           <button onClick={resend} className={cm.button({ variant: 'solid' })}>
             {t('verifyEmail.resend', undefined, { defaultValue: 'Send a new link' })}
           </button>
+          {resendFailed ? (
+            <p className={cm.textError}>
+              {t('verifyEmail.resendFailed', undefined, {
+                defaultValue: 'Could not send a new link — try again.',
+              })}
+            </p>
+          ) : null}
         </>
       ) : null}
       {status === 'invalid' ? (

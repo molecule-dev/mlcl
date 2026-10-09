@@ -28,7 +28,17 @@ export function SettingsPage() {
         setOriginal(p)
         setDraft(p)
       })
-  }, [])
+      .catch(() => {
+        // Without this the draft stays null and the page shows "Loading…"
+        // forever — surface the failure instead.
+        setError(
+          t('settings.loadFailed', undefined, {
+            defaultValue: 'Could not load your profile — refresh to try again.',
+          }),
+        )
+        setStatus('error')
+      })
+  }, [t])
 
   const dirty = useMemo(() => {
     if (!original || !draft) return false
@@ -73,7 +83,13 @@ export function SettingsPage() {
     }
   }
 
-  if (!draft) return <p>{t('common.loading', undefined, { defaultValue: 'Loading…' })}</p>
+  if (!draft) {
+    return status === 'error' && error ? (
+      <p className={cm.textError}>{error}</p>
+    ) : (
+      <p>{t('common.loading', undefined, { defaultValue: 'Loading…' })}</p>
+    )
+  }
 
   return (
     <form

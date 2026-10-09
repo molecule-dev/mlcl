@@ -19,8 +19,17 @@ export function DeleteAccountPage() {
   useEffect(() => {
     fetch('/api/me')
       .then((r) => r.json())
-      .then((p: { email: string }) => setEmail(p.email))
-  }, [])
+      .then((p: { email?: string }) => setEmail(p.email ?? null))
+      .catch(() => {
+        // A failed load (offline, signed out) must not leave the form
+        // unexplained: the button stays disabled and the error below says why.
+        setError(
+          t('account.loadFailed', undefined, {
+            defaultValue: 'Could not load your account — sign in and try again.',
+          }),
+        )
+      })
+  }, [t])
 
   const matches = email != null && confirmEmail.trim().toLowerCase() === email.toLowerCase()
 

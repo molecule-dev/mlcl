@@ -17,19 +17,30 @@ export function EnableTwoFactorPage() {
   const { t } = useTranslation()
   const [enrollment, setEnrollment] = useState<EnrollResponse | null>(null)
   const [code, setCode] = useState('')
+  const [enrolling, setEnrolling] = useState(false)
   const [verifying, setVerifying] = useState(false)
   const [enabled, setEnabled] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   async function startEnroll(): Promise<void> {
+    setEnrolling(true)
     setError(null)
-    const res = await fetch('/api/2fa/enroll', { method: 'POST' })
-    if (!res.ok) {
+    // Every failure path clears the busy flag — a rejected enroll fetch
+    // (offline, server restart) must not leave the click handler rejecting
+    // into the void with a button that just looks dead.
+    try {
+      const res = await fetch('/api/2fa/enroll', { method: 'POST' })
+      if (!res.ok) {
+        setError(t('totp.enrollFailed', undefined, { defaultValue: 'Could not enroll' }))
+        return
+      }
+      const body = (await res.json()) as EnrollResponse
+      setEnrollment(body)
+    } catch (_error) {
       setError(t('totp.enrollFailed', undefined, { defaultValue: 'Could not enroll' }))
-      return
+    } finally {
+      setEnrolling(false)
     }
-    const body = (await res.json()) as EnrollResponse
-    setEnrollment(body)
   }
 
   async function verify(e: FormEvent): Promise<void> {
@@ -83,8 +94,14 @@ export function EnableTwoFactorPage() {
             defaultValue: 'Add a second factor to protect your account.',
           })}
         </p>
-        <button onClick={startEnroll} className={cm.button({ variant: 'solid' })}>
-          {t('totp.start', undefined, { defaultValue: 'Get started' })}
+        <button
+          onClick={startEnroll}
+          disabled={enrolling}
+          className={cm.button({ variant: 'solid' })}
+        >
+          {enrolling
+            ? t('totp.starting', undefined, { defaultValue: 'Starting…' })
+            : t('totp.start', undefined, { defaultValue: 'Get started' })}
         </button>
         {error ? <p className={cm.cn('text-error')}>{error}</p> : null}
       </div>

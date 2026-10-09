@@ -16,11 +16,17 @@ type Post = {
 export function BlogIndexPage() {
   const { t } = useTranslation()
   const [posts, setPosts] = useState<Post[]>([])
+  const [loadFailed, setLoadFailed] = useState(false)
 
   useEffect(() => {
     fetch('/api/posts')
       .then((r) => r.json())
       .then(setPosts)
+      .catch(() => {
+        // A failed load must be visible: a silent catch would render an empty
+        // list that reads as "the blog has no posts".
+        setLoadFailed(true)
+      })
   }, [])
 
   return (
@@ -31,6 +37,13 @@ export function BlogIndexPage() {
       <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
         {t('blog.title', undefined, { defaultValue: 'Latest posts' })}
       </h1>
+      {loadFailed ? (
+        <p className={cm.textError}>
+          {t('blog.loadFailed', undefined, {
+            defaultValue: 'Could not load posts — refresh to try again.',
+          })}
+        </p>
+      ) : null}
       {/* Each post is a padded card, not a bare link: breathing room between
           title/excerpt/date, a surface + border + rounding so the list reads
           as discrete items, and hover feedback. Copy this shape whenever you

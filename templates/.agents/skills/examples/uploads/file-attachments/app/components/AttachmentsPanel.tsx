@@ -35,10 +35,16 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
   const [error, setError] = useState<string | null>(null)
 
   const load = useCallback(async () => {
-    const res = await fetch(`/api/attachments?parent_id=${encodeURIComponent(parentId)}`, {
-      credentials: 'include',
-    })
-    if (res.ok) setItems((await res.json()) as Attachment[])
+    // A failed load (offline, 500) keeps the current list; the rejection must
+    // not escape — the effect and the post-upload refresh both fire-and-forget.
+    try {
+      const res = await fetch(`/api/attachments?parent_id=${encodeURIComponent(parentId)}`, {
+        credentials: 'include',
+      })
+      if (res.ok) setItems((await res.json()) as Attachment[])
+    } catch (_error) {
+      // Keep the last synced list.
+    }
   }, [parentId])
 
   useEffect(() => {
@@ -85,8 +91,17 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
   async function remove(id: string): Promise<void> {
     if (!confirm(t('attachments.confirmDelete', {}, { defaultValue: 'Delete this attachment?' })))
       return
-    const res = await fetch(`/api/attachments/${id}`, { method: 'DELETE', credentials: 'include' })
-    if (res.ok) setItems((prev) => prev.filter((a) => a.id !== id))
+    // The row is dropped only after the server deleted it: a failed or !ok
+    // DELETE keeps the attachment listed instead of silently pretending.
+    try {
+      const res = await fetch(`/api/attachments/${id}`, {
+        method: 'DELETE',
+        credentials: 'include',
+      })
+      if (res.ok) setItems((prev) => prev.filter((a) => a.id !== id))
+    } catch (_error) {
+      // Network failure — the attachment stays; the user can retry the delete.
+    }
   }
 
   return (

@@ -35,12 +35,19 @@ export default function UsersPage() {
   const [page, setPage] = useState(1)
   const [data, setData] = useState<UsersResponse | null>(null)
   const [loading, setLoading] = useState(true)
+  const [loadFailed, setLoadFailed] = useState(false)
 
   useEffect(() => {
     setLoading(true)
+    setLoadFailed(false)
     http
       .get<UsersResponse>(`/users?page=${page}&limit=${PAGE_SIZE}`)
       .then((res) => setData(res.data))
+      .catch(() => {
+        // Without this catch the rejection escapes the effect AND `data`
+        // stays null, so the page renders as a bare header forever.
+        setLoadFailed(true)
+      })
       .finally(() => setLoading(false))
   }, [http, page])
 
@@ -53,6 +60,12 @@ export default function UsersPage() {
       </h1>
 
       {loading && <p>{t('users.loading', {}, { defaultValue: 'Loading…' })}</p>}
+
+      {loadFailed && !loading ? (
+        <p className={cm.textError}>
+          {t('users.loadFailed', {}, { defaultValue: 'Could not load users — try again.' })}
+        </p>
+      ) : null}
 
       {data && (
         <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
