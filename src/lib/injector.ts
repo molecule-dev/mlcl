@@ -815,11 +815,49 @@ export async function executeInjection(
 }
 
 /**
- * Strip semver range prefixes (^, ~, >=) to produce a pinned exact version.
- * peerDependencies use ranges for npm compatibility, but target projects must pin.
+ * Derive the exact version a range is pinned to in the target project: the
+ * range's floor.
+ *
+ * peerDependencies use ranges for npm compatibility, but target projects must
+ * pin. A range may be a `||` union (`^4.0.0 || ^5.0.0` — how express, react
+ * and vite peers are declared across the fleet), so stripping one leading
+ * operator is not enough: `4.0.0 || ^5.0.0` is still a range, and npm would
+ * resolve it at install time in a manifest that must pin exact. The floor of
+ * a union is the lowest concrete version any alternative admits, and every
+ * alternative the fleet declares carries its floor as a literal — so take the
+ * lowest literal. A range with no concrete floor (`*`, `latest`, `1.x`) is
+ * REFUSED rather than shipped: the caller's rollback reports the failure and
+ * the target manifest is never left with an unpinned dependency.
+ *
+ * @param version - The declared range (single comparator, bare version, or
+ *   `||` union of those).
+ * @returns The exact version to pin.
+ * @throws When the range carries no concrete version to pin.
  */
 function pinVersion(version: string): string {
-  return version.replace(/^[\^~>=]+/, '')
+  const floors: Array<readonly [number, number, number]> = []
+  for (const alternative of version.split('||')) {
+    const literal = alternative
+      .trim()
+      .replace(/^[\^~>=v]+\s*/, '')
+      .match(/(\d+)\.(\d+)\.(\d+)/)
+    if (literal) {
+      floors.push([Number(literal[1]), Number(literal[2]), Number(literal[3])])
+    }
+  }
+  if (floors.length === 0) {
+    throw new Error(
+      `Cannot pin the dependency declared with the range '${version}': it has no concrete ` +
+        `version floor to pin exactly. Declare it with concrete versions (e.g. '^1.0.0').`,
+    )
+  }
+  const lowest = floors.reduce((min, floor) =>
+    floor[0] < min[0] ||
+    (floor[0] === min[0] && (floor[1] < min[1] || (floor[1] === min[1] && floor[2] < min[2])))
+      ? floor
+      : min,
+  )
+  return `${lowest[0]}.${lowest[1]}.${lowest[2]}`
 }
 
 /**

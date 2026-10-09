@@ -1280,4 +1280,48 @@ describe('peerDependency pinning', () => {
     expect(pkg.dependencies.react).toBe('19.2.4')
     expect(pkg.dependencies.express).toBe('5.0.0')
   })
+
+  it('pins a union peer range to its lowest floor — never ships a range as the pin', async () => {
+    const projectDir = join(tempDir, 'exec-test-peer-pin-union')
+    await mkdir(projectDir, { recursive: true })
+    await writeFile(join(projectDir, 'package.json'), JSON.stringify({ name: 'test' }))
+
+    // The shapes the fleet actually declares (express `^4 || ^5`, vite's
+    // four-way union): stripping ONE leading operator left `4.0.0 || ^5.0.0`
+    // in the target's dependencies — still a range, so npm resolved it at
+    // install time in a manifest that must pin exact.
+    const plan = makeDepsPlan([
+      { name: 'express', version: '^4.0.0 || ^5.0.0', type: 'peerDependency' },
+      { name: 'vite', version: '^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0', type: 'peerDependency' },
+    ])
+
+    const result = await executeInjection(plan, projectDir, { autoInstall: false })
+    expect(result.success).toBe(true)
+
+    const pkg = JSON.parse(await readFile(join(projectDir, 'package.json'), 'utf-8'))
+    // The floor of a union is the lowest concrete version any alternative
+    // admits — 4.0.0 for express, 5.0.0 for vite.
+    expect(pkg.dependencies.express).toBe('4.0.0')
+    expect(pkg.dependencies.vite).toBe('5.0.0')
+    // Whatever the shape, the pin is a bare exact version — no operator, no `||`.
+    for (const pin of [pkg.dependencies.express, pkg.dependencies.vite]) {
+      expect(pin).toMatch(/^\d+\.\d+\.\d+$/)
+    }
+  })
+
+  it('refuses a non-@molecule peer whose range has no concrete floor — no range is shipped', async () => {
+    const projectDir = join(tempDir, 'exec-test-peer-pin-unpinnable')
+    await mkdir(projectDir, { recursive: true })
+    const original = JSON.stringify({ name: 'test', dependencies: {} }, null, 2) + '\n'
+    await writeFile(join(projectDir, 'package.json'), original)
+
+    const plan = makeDepsPlan([{ name: 'left-pad', version: '*', type: 'peerDependency' }])
+
+    const result = await executeInjection(plan, projectDir, { autoInstall: false })
+    expect(result.success).toBe(false)
+    expect(result.errors.join('\n')).toContain('no concrete version floor')
+    // The refusal rolls back: the manifest is the pre-injection bytes — an
+    // unpinnable peer never lands as a range.
+    expect(await readFile(join(projectDir, 'package.json'), 'utf-8')).toBe(original)
+  })
 })
