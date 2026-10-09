@@ -25,7 +25,7 @@
  */
 
 import { existsSync } from 'node:fs'
-import { readFile, writeFile } from 'node:fs/promises'
+import { readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -436,6 +436,59 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
   return gained
 }
 
+/**
+ * Write the migration runner, restoring the previous bytes when the write
+ * fails mid-flight. A short write (a full disk) truncates the file — and
+ * `src/scripts/migrate.ts` is server.ts's boot import, so a truncated runner
+ * does not just fail the step, it takes the API down on the next boot. The
+ * same policy {@link ensureMigrateRunnerImports} applies to the manifest it
+ * backs the runner with: a failed write leaves the file as it was, never
+ * worse. When no previous bytes could be read (the runner did not exist yet),
+ * a failure after the truncating open removes the partial file instead.
+ *
+ * @param path - The runner's path.
+ * @param next - The rendered runner source.
+ */
+export async function writeMigrateRunnerGuarded(path: string, next: string): Promise<void> {
+  let prior: Buffer | null
+  try {
+    prior = await readFile(path)
+  } catch (_error) {
+    prior = null
+  }
+  try {
+    await writeFile(path, next, 'utf-8')
+  } catch (error) {
+    try {
+      if (prior === null) await rm(path, { force: true })
+      else await writeFile(path, prior)
+    } catch (_restoreError) {
+      // Best-effort restore; the primary failure is rethrown below.
+    }
+    throw error
+  }
+}
+
+/**
+ * Re-render an EXISTING project's migration runner from its own manifest and
+ * back its imports — the refresh `copyTemplateInstance` runs on every template
+ * scaffold (`mlcl create --template`), where the checked-in copy predates the
+ * current template mechanics. A project with no runner is left alone — it
+ * never had one to refresh. The write is guarded
+ * ({@link writeMigrateRunnerGuarded}): a failed write restores the copied
+ * bytes, so the "refresh skipped" log the caller prints on failure cannot
+ * describe a truncated runner the failed write left behind.
+ *
+ * @param apiDir - The api workspace (the directory holding package.json).
+ */
+export async function refreshMigrateRunnerForManifest(apiDir: string): Promise<void> {
+  const path = join(apiDir, 'src', 'scripts', 'migrate.ts')
+  if (!existsSync(path)) return
+  const next = await readMigrateRunnerForManifest(apiDir)
+  await writeMigrateRunnerGuarded(path, next)
+  await ensureMigrateRunnerImports(apiDir)
+}
+
 /** What {@link syncMigrateRunner} did. */
 export interface MigrateRunnerSync {
   /** The runner's path. */
@@ -480,7 +533,11 @@ export async function syncMigrateRunner(
     ? await readMigrateRunnerForManifest(projectPath)
     : await readMigrateRunner([newDatabasePackage])
   const current = await readFile(path, 'utf-8')
-  if (current !== next) await writeFile(path, next, 'utf-8')
+  // The write is guarded: a short write (a full disk) must not leave a
+  // truncated runner behind — server.ts imports it at boot, so a corrupt
+  // runner is a project that never boots again (see
+  // writeMigrateRunnerGuarded).
+  if (current !== next) await writeMigrateRunnerGuarded(path, next)
   // Even an unchanged runner must have its imports declared — a swap target
   // that never declared the bond-setup package gets it now.
   await ensureMigrateRunnerImports(projectPath)

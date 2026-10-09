@@ -31,7 +31,7 @@ import { collectSecrets } from './features.js'
 import { sortImportStatements } from './format.js'
 import type { InferredMetadata } from './infer.js'
 import { injectLogo } from './logo-injector.js'
-import { ensureMigrateRunnerImports, readMigrateRunnerForManifest } from './migrate-runner.js'
+import { ensureMigrateRunnerImports, refreshMigrateRunnerForManifest } from './migrate-runner.js'
 import {
   detectAppFramework,
   getMoleculeVersion,
@@ -2292,25 +2292,18 @@ export async function copyTemplateInstance(
     // and silently skip resource-package DDL we just dropped above. By
     // re-emitting from the template at scaffold time, every fresh smoke-
     // app picks up new mechanics in the .tpl without us having to re-poll
-    // every frozen template copy. The render carries the template's own
-    // manifest decision: the browser-profile (PGlite) branch is emitted
-    // reachable when the api manifest declares the pglite bond in either
-    // dependency key — and the ensureMigrateRunnerImports call right below
-    // then promotes it to a production pin, so the live branch never rides on
-    // a devDependencies pin that production deploys prune.
-    const migrateScriptPath = join(apiPathForSetup, 'src', 'scripts', 'migrate.ts')
-    if (existsSync(migrateScriptPath)) {
-      try {
-        const fresh = await readMigrateRunnerForManifest(apiPathForSetup)
-        await writeFile(migrateScriptPath, fresh)
-        // The refreshed runner statically imports its PGlite migrator from
-        // @molecule/api-bonds-default-express; make sure the copied manifest
-        // declares it (idempotent — the flagship manifests already do).
-        await ensureMigrateRunnerImports(apiPathForSetup)
-      } catch (err) {
-        const msg = err instanceof Error ? err.message : String(err)
-        mlclDebug(`[scaffold] migrate.ts refresh skipped: ${msg}`)
-      }
+    // every frozen template copy. The refresh re-renders from the template's
+    // own manifest (the browser-profile PGlite branch is emitted reachable
+    // when that manifest declares the pglite bond in either dependency key,
+    // then promoted to a production pin) and its write is GUARDED: a failed
+    // write restores the copied bytes, so the "skipped" log below cannot
+    // describe the truncated runner a mid-flight write failure would
+    // otherwise leave as the file a scaffolded project boots from.
+    try {
+      await refreshMigrateRunnerForManifest(apiPathForSetup)
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err)
+      mlclDebug(`[scaffold] migrate.ts refresh skipped: ${msg}`)
     }
   }
 
