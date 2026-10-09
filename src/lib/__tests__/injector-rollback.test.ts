@@ -9,6 +9,11 @@
  * the pre-injection content instead: a failed inject may leave the project
  * unchanged, never worse.
  *
+ * The inject COMMAND's synthesized-file loop (`writeSynthesizedFiles`) had
+ * the same shape one fix later: it rolled back with a bare `rm` of everything
+ * it had written, so a failed write past the first file deleted a re-inject's
+ * overwritten server.ts outright. Its tests pin the same restore policy.
+ *
  * @module
  */
 
@@ -18,7 +23,12 @@ import { join } from 'node:path'
 
 import { afterEach, describe, expect, it } from 'vitest'
 
-import { executeInjection, type InjectionPlan } from '../injector.js'
+import {
+  executeInjection,
+  type FileOperation,
+  type InjectionPlan,
+  writeSynthesizedFiles,
+} from '../injector.js'
 
 let dir: string | null = null
 afterEach(async () => {
@@ -127,5 +137,70 @@ describe('executeInjection rollback', () => {
 
     expect(result.success).toBe(false)
     expect(await readFile(migrationPath, 'utf-8')).toBe('-- my applied migration\n')
+  })
+})
+
+describe('writeSynthesizedFiles rollback', () => {
+  it('restores overwritten pre-existing files instead of deleting them on a failed write', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-injector-rollback-'))
+    await mkdir(join(dir, 'src'), { recursive: true })
+    // The project's working entry point, as a previous scaffold left it — on
+    // a re-inject the synthesized list OVERWRITES it (no conflict guard).
+    const serverPath = join(dir, 'src', 'server.ts')
+    await writeFile(serverPath, '// my working server\n')
+    // A target that can never be written: its parent "directory" is a file,
+    // so the mkdir fails after the first two files landed — the exact
+    // ordering that used to rm the overwritten server.ts outright.
+    const blocker = join(dir, 'src', 'blocked')
+    await writeFile(blocker, 'x')
+    const createdPath = join(dir, 'src', 'bonds-index.ts')
+    const files: FileOperation[] = [
+      {
+        action: 'create',
+        targetPath: serverPath,
+        content: '// injected server\n',
+        description: 'overwrite server',
+      },
+      {
+        action: 'create',
+        targetPath: createdPath,
+        content: '// injected bonds\n',
+        description: 'new file',
+      },
+      {
+        action: 'create',
+        targetPath: join(blocker, 'child.ts'),
+        content: '// fails the loop\n',
+        description: 'fails the write loop',
+      },
+    ]
+
+    const result = await writeSynthesizedFiles(files)
+
+    expect(result.error).toContain('Failed to write')
+    expect(result.written).toEqual([serverPath, createdPath])
+    // The pre-existing file is RESTORED to its pre-injection content, not
+    // deleted with the rollback…
+    expect(await readFile(serverPath, 'utf-8')).toBe('// my working server\n')
+    // …and the file the inject itself created is removed again.
+    await expect(readFile(createdPath, 'utf-8')).rejects.toThrow(/ENOENT/)
+  })
+
+  it('writes every file and reports no error when all writes land', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-injector-rollback-'))
+    const files: FileOperation[] = [
+      {
+        action: 'create',
+        targetPath: join(dir, 'src', 'server.ts'),
+        content: '// server\n',
+        description: 'server',
+      },
+      // A file without content is skipped (never written, never rolled back).
+      { action: 'create', targetPath: join(dir, 'src', 'empty.ts'), description: 'no content' },
+    ]
+    const result = await writeSynthesizedFiles(files)
+    expect(result.error).toBeNull()
+    expect(result.written).toEqual([join(dir, 'src', 'server.ts')])
+    expect(await readFile(join(dir, 'src', 'server.ts'), 'utf-8')).toBe('// server\n')
   })
 })

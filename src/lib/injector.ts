@@ -610,6 +610,64 @@ async function snapshotForRollback(
   }
 }
 
+/** What {@link writeSynthesizedFiles} did. */
+export interface SynthesizedFilesWrite {
+  /** The files written before the loop ended (on success or on failure). */
+  written: string[]
+  /** The failure message when a write failed; null when every file landed. */
+  error: string | null
+}
+
+/**
+ * Write the synthesized project files (router.ts, server.ts, bonds/index.ts,
+ * src/scripts/migrate.ts, …) under the injector's rollback policy: a failed
+ * inject may leave the project unchanged, never worse.
+ *
+ * Each target's pre-write content is captured BEFORE the first write touches
+ * it (first capture wins, so a target the list writes twice rolls back to its
+ * pre-injection state). On the first failure, every file the loop already
+ * wrote is restored — files the injection itself created are removed, files
+ * that predate it are put back byte-for-byte — and the remaining files are
+ * not attempted.
+ *
+ * The command loop this replaces rolled back with a bare `rm` of everything
+ * it had written. On a re-inject that set includes server.ts, router.ts,
+ * bonds/index.ts and src/scripts/migrate.ts — files that PREDATE the
+ * injection and were only overwritten — so one failed write (a target whose
+ * parent path is a file, a full disk) deleted the project's working entry
+ * point and left it strictly worse than before: the exact bug the plan
+ * executor's rollback was fixed for.
+ */
+export async function writeSynthesizedFiles(
+  files: readonly FileOperation[],
+): Promise<SynthesizedFilesWrite> {
+  const snapshots = new Map<string, Buffer | null>()
+  const written: string[] = []
+  for (const file of files) {
+    try {
+      if (!file.content) continue
+      await mkdir(dirname(file.targetPath), { recursive: true })
+      await snapshotForRollback(file.targetPath, snapshots)
+      await writeFile(file.targetPath, file.content)
+      written.push(file.targetPath)
+    } catch (error) {
+      for (const [path, priorContent] of snapshots) {
+        try {
+          if (priorContent === null) {
+            await rm(path, { force: true })
+          } else {
+            await writeFile(path, priorContent)
+          }
+        } catch (_error) {
+          // Rollback is best-effort; the primary failure is reported below.
+        }
+      }
+      return { written, error: `Failed to write ${file.targetPath}: ${String(error)}` }
+    }
+  }
+  return { written, error: null }
+}
+
 /**
  * Execute the injection plan
  */
@@ -714,6 +772,11 @@ export async function executeInjection(
 
     // Update package.json dependencies
     if (plan.dependencies.length > 0) {
+      // Snapshotted like every other write: a manifest write that fails
+      // mid-flight (a full disk) must roll back to the pre-injection bytes,
+      // not leave the project a corrupt package.json — the one write that
+      // used to sit outside the rollback set.
+      await snapshotForRollback(join(projectPath, 'package.json'), rollbackSnapshots)
       await updatePackageJson(projectPath, plan.dependencies)
       result.filesModified.push(join(projectPath, 'package.json'))
     }

@@ -1,5 +1,5 @@
-import { access, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
-import { dirname, join } from 'node:path'
+import { access, readFile } from 'node:fs/promises'
+import { join } from 'node:path'
 
 import * as p from '@clack/prompts'
 import { Command, Flags } from '@oclif/core'
@@ -17,6 +17,7 @@ import {
   resolveDefaultProvidersFromPlans,
   synthesizeAppProjectFiles,
   synthesizeProjectFiles,
+  writeSynthesizedFiles,
 } from '../lib/injector.js'
 import { ensureMigrateRunnerImports } from '../lib/migrate-runner.js'
 import {
@@ -394,29 +395,15 @@ export default class Inject extends Command {
       warnings.push(...result.warnings)
     }
 
-    // Execute synthesized holistic files (router.ts, server.ts, wrappers, bonds/index.ts)
-    const synthesizedFiles: string[] = []
-    for (const file of syntheticFiles) {
-      try {
-        if (file.content) {
-          await mkdir(dirname(file.targetPath), { recursive: true })
-          await writeFile(file.targetPath, file.content)
-          synthesizedFiles.push(file.targetPath)
-          totalCreated++
-        }
-      } catch (error) {
-        // Rollback all synthesized files written so far
-        for (const written of synthesizedFiles) {
-          try {
-            await rm(written, { force: true })
-          } catch (_error) {
-            /* rollback best-effort — rm uses { force: true } so ENOENT is already suppressed;
-               any remaining error (e.g. permissions) is safely ignorable during rollback */
-          }
-        }
-        errors.push(`Failed to write ${file.targetPath}: ${error}`)
-        break
-      }
+    // Execute synthesized holistic files (router.ts, server.ts, wrappers, bonds/index.ts).
+    // The helper snapshots every target BEFORE the first write and restores on
+    // failure — created files removed, pre-existing files (server.ts,
+    // migrate.ts, … on a re-inject) put back — so a failed write leaves the
+    // project unchanged, never worse.
+    const synthesized = await writeSynthesizedFiles(syntheticFiles)
+    totalCreated += synthesized.written.length
+    if (synthesized.error) {
+      errors.push(synthesized.error)
     }
 
     // Back the migration runner the synthesized files may just have written
