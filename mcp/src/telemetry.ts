@@ -18,6 +18,30 @@ import { join } from 'node:path'
 const DEFAULT_URL = 'https://api.molecule.dev/v1/telemetry/cli'
 const ID_FILE = join(homedir(), '.mlcl', 'telemetry-id')
 
+let cachedVersion: string | null = null
+
+/**
+ * The server's own version, read once from mcp/package.json — the same field
+ * `bin/*` and the SDK's serverInfo report. A hardcoded copy here (and in the
+ * McpServer constructor) went stale the first time the package was bumped, so
+ * the telemetry's `serverVersion` described a server that was not deployed.
+ */
+export function serverVersion(): string {
+  if (cachedVersion === null) {
+    let resolved: string
+    try {
+      const manifest = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'))
+      resolved = typeof manifest.version === 'string' ? manifest.version : 'unknown'
+    } catch (_error) {
+      // A missing/unparseable manifest must not take the server down over a
+      // version string — report 'unknown' instead.
+      resolved = 'unknown'
+    }
+    cachedVersion = resolved
+  }
+  return cachedVersion
+}
+
 export function telemetryEnabled(): boolean {
   return process.env.MOLECULE_TELEMETRY !== '0'
 }
@@ -29,7 +53,9 @@ function installId(): string {
     mkdirSync(join(ID_FILE, '..'), { recursive: true, mode: 0o700 })
     writeFileSync(ID_FILE, id, { mode: 0o600 })
     return id
-  } catch {
+  } catch (_error) {
+    // Telemetry must never break a tool call over an unreadable id file —
+    // report the anonymous 'unknown' id and move on.
     return 'unknown'
   }
 }
@@ -49,7 +75,7 @@ export function trackToolCall(tool: string, ok: boolean, startedAt: number): voi
         tool,
         ok,
         durationMs: Math.round(Date.now() - startedAt),
-        serverVersion: '0.1.0',
+        serverVersion: serverVersion(),
         nodeMajor: Number.parseInt(process.versions.node.split('.')[0] ?? '0', 10),
         platform: process.platform,
         arch: process.arch,

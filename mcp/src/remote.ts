@@ -18,7 +18,7 @@ import { readFileSync } from 'node:fs'
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { z } from 'zod'
 
-import { tracked } from './telemetry.js'
+import { serverVersion, tracked } from './telemetry.js'
 
 const REGISTRY_URL =
   process.env.MOLECULE_REGISTRY_URL ??
@@ -69,10 +69,15 @@ function scoreEntry(name: string, entry: RegistryEntry, q: string): number {
   return score
 }
 
-const text = (t: string) => ({ content: [{ type: 'text' as const, text: t }] })
+const text = (t: string): { content: Array<{ type: 'text'; text: string }> } => ({
+  content: [{ type: 'text' as const, text: t }],
+})
 
 export function buildRemoteServer(): McpServer {
-  const server = new McpServer({ name: 'molecule-remote', version: '0.1.0' })
+  // The package.json version, not a hardcoded copy — the literal here went
+  // stale on the first package bump and every client's initialize response
+  // then reported a server that was not deployed.
+  const server = new McpServer({ name: 'molecule-remote', version: serverVersion() })
 
   server.registerTool(
     'search_packages',
