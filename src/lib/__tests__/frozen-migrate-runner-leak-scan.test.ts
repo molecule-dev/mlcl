@@ -219,6 +219,35 @@ describe('frozen migration runners — value-flow leak scan', () => {
     expect(checked.length).toBeGreaterThanOrEqual(1)
   })
 
+  it('the runner TEMPLATES the custom scaffold renders are leak-free under the same value-flow rules', async () => {
+    // migrate-runner.test.ts's rendered-runner check uses the same-line filter
+    // this file exists because of — and the fleet scan above reads only the
+    // frozen copies. The `templates/api/*.tpl` sources are the runners every
+    // custom `mlcl create` renders, so a wrapped template literal or an
+    // intermediate-string leak introduced THERE would ship green into every
+    // scaffolded project. Scan them with the same value-flow rules.
+    const templatesDir = join(import.meta.dirname, '..', '..', '..', 'templates', 'api')
+    const scanned: Array<[string, string]> = [
+      ['migrate.ts.tpl', await readFile(join(templatesDir, 'migrate.ts.tpl'), 'utf-8')],
+      [
+        'migrate-outofband.ts.tpl',
+        await readFile(join(templatesDir, 'migrate-outofband.ts.tpl'), 'utf-8'),
+      ],
+    ]
+    const { leaking, withRawUrl, consoleSites } = leakingRunners(scanned)
+    // Non-vacuousness: the Postgres template resolves a URL and carries
+    // console sites, so the rules above are matching real surface.
+    expect(withRawUrl).toBeGreaterThanOrEqual(1)
+    expect(consoleSites).toBeGreaterThanOrEqual(1)
+    expect(leaking).toEqual([])
+    // …and the Postgres template ships the redaction helper and routes the
+    // connect-failure hint through it (the sanctioned call site rule 1
+    // excepts), the same pin the rendered-runner test asserts.
+    const postgres = scanned.find(([name]) => name === 'migrate.ts.tpl')!
+    expect(postgres[1]).toContain('function redactDatabaseUrl')
+    expect(postgres[1]).toContain('redactDatabaseUrl(DATABASE_URL)')
+  })
+
   it('the scan catches the shapes the same-line filter missed', () => {
     // The two leak shapes frozen-migrate-runners.test.ts's line filter ships
     // green on (its `${DATABASE_URL` and `console.` must share a line):

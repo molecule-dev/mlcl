@@ -27,9 +27,15 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
   useEffect(() => {
     fetch('/api/notifications')
       .then((r) => r.json())
+      // Coerce the body to the state's shape: a 500's `{ error }` JSON would
+      // set items to undefined and crash the render's items.map.
       .then((p) => {
-        setItems(p.items)
-        setUnread(p.unread)
+        setItems(Array.isArray(p.items) ? p.items : [])
+        setUnread(typeof p.unread === 'number' ? p.unread : 0)
+      })
+      .catch(() => {
+        // A failed load leaves the bell at its initial empty state; the SSE
+        // subscription below still delivers live notifications.
       })
 
     // Subscribe to THIS user's room. The room is the trailing path segment

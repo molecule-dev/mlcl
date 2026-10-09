@@ -15,9 +15,14 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
   useEffect(() => {
     fetch(`/api/ratings/avg/${subjectId}`)
       .then((r) => r.json())
+      // Coerce the body to the state's shape: an error body's undefined
+      // average would crash the summary's toFixed on the next render.
       .then((d) => {
-        setAverage(d.average)
-        setCount(d.count)
+        setAverage(typeof d.average === 'number' ? d.average : null)
+        setCount(typeof d.count === 'number' ? d.count : 0)
+      })
+      .catch(() => {
+        // A failed load keeps the empty state (average stays null).
       })
   }, [subjectId])
 
@@ -29,8 +34,8 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
       body: JSON.stringify({ subject_id: subjectId, stars }),
     })
     const r = await fetch(`/api/ratings/avg/${subjectId}`).then((x) => x.json())
-    setAverage(r.average)
-    setCount(r.count)
+    setAverage(typeof r.average === 'number' ? r.average : null)
+    setCount(typeof r.count === 'number' ? r.count : 0)
   }
 
   const displayValue = myStars ?? Math.round(average ?? 0)

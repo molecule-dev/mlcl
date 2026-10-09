@@ -40,9 +40,12 @@ export function ChatPage({ channelId }: { channelId: string }) {
   const typingTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
+    // Coerce the body to an array: a 500's `{ error }` JSON (or any non-list
+    // payload) would otherwise reach the render and crash `messages.map`.
     fetch(`/api/messages?channel_id=${channelId}`)
       .then((r) => r.json())
-      .then(setMessages)
+      .then((body) => setMessages(Array.isArray(body) ? body : []))
+      .catch(() => setMessages([])) // a failed history load shows an empty room; SSE still delivers live messages
 
     // Join the room via the `?room=` query — the SSE bond's subscribe protocol.
     // (A `/channel:${id}` path SEGMENT does NOT join the room and never matches the
