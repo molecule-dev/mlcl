@@ -121,8 +121,26 @@ export default class Inject extends Command {
     // Step 2: Detect project type and framework
     const isAppProject = await this.detectAppProject(projectPath)
 
-    // Detect app framework to determine shared code directory (e.g. 'lib' for SvelteKit)
-    const projectPkg = JSON.parse(await readFile(join(projectPath, 'package.json'), 'utf-8'))
+    // The manifest is load-bearing from here on (framework detection, project
+    // name for the .env guidance) — and an injectable project always has one.
+    // Every other reader in this command treats a missing/unparseable manifest
+    // as a handled condition; proceeding past this read would plan and write
+    // into a directory that declares nothing, so fail with the reason instead
+    // of a raw ENOENT/SyntaxError stack.
+    let projectPkg: {
+      name?: string
+      molecule?: { framework?: string }
+      dependencies?: Record<string, string>
+      devDependencies?: Record<string, string>
+    }
+    try {
+      projectPkg = JSON.parse(await readFile(join(projectPath, 'package.json'), 'utf-8'))
+    } catch (error) {
+      this.error(
+        `Cannot inject into ${projectPath}: package.json is missing or unparseable (${String(error)})`,
+        { exit: 1 },
+      )
+    }
     const projectDeps = { ...projectPkg.dependencies, ...projectPkg.devDependencies }
     const framework = detectAppFramework(projectDeps, projectPkg.molecule)
     const sharedSubdir = framework ? getSharedCodeDir(framework) : undefined
@@ -419,6 +437,22 @@ export default class Inject extends Command {
         await ensureMigrateRunnerImports(projectPath)
       } catch (error) {
         warnings.push(`Could not back src/scripts/migrate.ts's imports: ${error}`)
+      }
+    }
+
+    // The deferred install: the per-plan autoInstall above is disabled so a
+    // multi-molecule inject runs npm ONCE, after every plan + synthesized file
+    // has landed and the manifest is final. Without it the `--install` flag
+    // (default true) promised an install that never ran — package.json named
+    // packages node_modules did not have, and the smoke tests below failed on
+    // the missing modules instead of the injection. A failure warns and
+    // continues (the same policy `mlcl add` uses); `--no-install` skips the
+    // step and the next-steps hint names the manual install.
+    if (flags.install) {
+      try {
+        await execa('npm', ['install'], { cwd: projectPath, stdio: 'pipe' })
+      } catch (error) {
+        warnings.push(`npm install failed: ${error}`)
       }
     }
 
