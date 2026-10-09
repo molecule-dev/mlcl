@@ -19,9 +19,9 @@ export function ContactPage() {
     e.preventDefault()
     setStatus('submitting')
     setError(null)
-    // finally leaves the `error` state on EVERY failure path — a rejected
-    // fetch (offline, server restart) must not leave the form stuck on
-    // "Sending…" with the button disabled forever.
+    // Every failure path sets the `error` status (which also clears the
+    // submitting flag) — a rejected fetch (offline, server restart) must not
+    // leave the form stuck on "Sending…" with the button disabled forever.
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',

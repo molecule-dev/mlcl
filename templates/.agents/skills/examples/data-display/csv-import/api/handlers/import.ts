@@ -3,7 +3,7 @@ import express, { type NextFunction, type Request, type Response } from 'express
 import { Router } from 'express'
 import { z } from 'zod'
 
-import { create, findMany } from '@molecule/api-database'
+import { create, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 
 // Accept text/csv, text/plain, and application/octet-stream so the client
@@ -61,7 +61,9 @@ router.post('/preview', requireAuth, csvUpload, (req, res) => {
   let rows: Row[]
   try {
     rows = parse(req.body, { columns: true, trim: true, skip_empty_lines: true }) as Row[]
-  } catch (err) {
+  } catch (_error) {
+    // csv-parse's message is parser-internal noise for the user — the 400 body
+    // names the outcome and the client shows it.
     return res
       .status(400)
       .json({ error: t('import.parseFailed', undefined, { defaultValue: 'Could not parse CSV' }) })
@@ -84,7 +86,8 @@ router.post('/commit', requireAuth, csvUpload, async (req, res) => {
   let rows: Row[]
   try {
     rows = parse(req.body, { columns: true, trim: true, skip_empty_lines: true }) as Row[]
-  } catch (err) {
+  } catch (_error) {
+    // Same policy as /preview: the parse failure is reported, not echoed.
     return res
       .status(400)
       .json({ error: t('import.parseFailed', undefined, { defaultValue: 'Could not parse CSV' }) })
@@ -110,7 +113,6 @@ router.post('/commit', requireAuth, csvUpload, async (req, res) => {
     })
     if (existing.length > 0) {
       // Upsert by email — natural key WITHIN this user's customers.
-      const { updateById } = await import('@molecule/api-database')
       await updateById('customers', (existing[0] as { id: string }).id, r.data)
       updated++
     } else {

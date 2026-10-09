@@ -18,6 +18,8 @@ function urlBase64ToUint8Array(base64: string): ArrayBuffer {
 export function EnablePushButton() {
   const { t } = useTranslation()
   const [status, setStatus] = useState<Status>('available')
+  const [busy, setBusy] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     if (
@@ -43,30 +45,54 @@ export function EnablePushButton() {
   }
 
   async function enable(): Promise<void> {
-    const reg = await navigator.serviceWorker.register('/sw.js')
-    const permission = await Notification.requestPermission()
-    if (permission !== 'granted') {
-      setStatus('denied')
-      return
+    setBusy(true)
+    setError(null)
+    try {
+      const reg = await navigator.serviceWorker.register('/sw.js')
+      const permission = await Notification.requestPermission()
+      if (permission !== 'granted') {
+        setStatus('denied')
+        return
+      }
+      // Fetch the server's VAPID PUBLIC key (public by design) — the browser needs
+      // it as applicationServerKey. Do NOT read it from a window global; nothing
+      // sets one. GET /api/push/public-key returns 503 until VAPID_PUBLIC_KEY is set —
+      // the exact case handled below, not an exception that dies in the console.
+      const keyRes = await fetch('/api/push/public-key', { credentials: 'include' })
+      const publicKey = keyRes.ok
+        ? ((await keyRes.json()) as { publicKey?: string }).publicKey
+        : undefined
+      if (!publicKey) {
+        setError(
+          t('push.noServerKey', undefined, {
+            defaultValue:
+              'Push is not configured on the server yet (VAPID_PUBLIC_KEY is missing) — try again later.',
+          }),
+        )
+        return
+      }
+      const sub = await reg.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array(publicKey),
+      })
+      await fetch('/api/push/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(sub.toJSON()),
+      })
+      setStatus('enabled')
+    } catch (_error) {
+      // A failed service-worker registration, a denied subscribe, or an offline
+      // subscribe POST must surface here — an exception escaping the click
+      // handler is an unhandled rejection and the button just looks dead.
+      setError(
+        t('push.enableFailed', undefined, {
+          defaultValue: 'Could not enable notifications — try again.',
+        }),
+      )
+    } finally {
+      setBusy(false)
     }
-    // Fetch the server's VAPID PUBLIC key (public by design) — the browser needs
-    // it as applicationServerKey. Do NOT read it from a window global; nothing
-    // sets one. GET /api/push/public-key returns 503 until VAPID_PUBLIC_KEY is set.
-    const keyRes = await fetch('/api/push/public-key', { credentials: 'include' })
-    const publicKey = keyRes.ok
-      ? ((await keyRes.json()) as { publicKey?: string }).publicKey
-      : undefined
-    if (!publicKey) throw new Error('VAPID public key not provided by the server')
-    const sub = await reg.pushManager.subscribe({
-      userVisibleOnly: true,
-      applicationServerKey: urlBase64ToUint8Array(publicKey),
-    })
-    await fetch('/api/push/subscribe', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(sub.toJSON()),
-    })
-    setStatus('enabled')
   }
 
   if (status === 'enabled') {
@@ -88,8 +114,11 @@ export function EnablePushButton() {
   }
 
   return (
-    <button onClick={enable} className={cm.button({ variant: 'solid' })}>
-      {t('push.enable', undefined, { defaultValue: 'Enable notifications' })}
-    </button>
+    <div className={cm.flex({ direction: 'col', gap: 'sm' })}>
+      <button onClick={enable} disabled={busy} className={cm.button({ variant: 'solid' })}>
+        {t('push.enable', undefined, { defaultValue: 'Enable notifications' })}
+      </button>
+      {error ? <p className={cm.textError}>{error}</p> : null}
+    </div>
   )
 }

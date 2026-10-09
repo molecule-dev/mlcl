@@ -18,9 +18,9 @@ export function LoginPage() {
     setState('submitting')
     setErrorMsg(null)
 
-    // finally leaves the `error` state on EVERY failure path — a rejected
-    // fetch (offline, server restart) must not leave the form stuck on
-    // "Sending…" with the button disabled forever.
+    // Every failure path sets the `error` state (which also clears the
+    // submitting flag) — a rejected fetch (offline, server restart) must not
+    // leave the form stuck on "Sending…" with the button disabled forever.
     try {
       const res = await fetch('/api/auth/magic-link/request', {
         method: 'POST',

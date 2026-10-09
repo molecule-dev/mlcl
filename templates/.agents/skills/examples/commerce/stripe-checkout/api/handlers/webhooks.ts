@@ -16,8 +16,11 @@
 import type { Request, Response } from 'express'
 import { Router } from 'express'
 
+import { getLogger } from '@molecule/api-bond'
 import { updateById } from '@molecule/api-database'
 import { verifyWebhookSignature } from '@molecule/api-payments-stripe'
+
+const logger = getLogger()
 
 const router = Router()
 
@@ -53,18 +56,23 @@ router.post('/', async (req: Request, res: Response) => {
         // twice for one payment. Setting status to a fixed value is idempotent, so
         // a re-delivery is a harmless no-op. If you change this to a NON-idempotent
         // action (credit a balance, ship, grant access, email a receipt), dedupe on
-        // `event.id` first — else a retry double-fulfills.
+        // `session.id` first — verifyWebhookSignature's result exposes only
+        // { type, data }, so the Stripe event id is not available to dedupe on —
+        // else a retry double-fulfills.
         await updateById('orders', session.metadata.orderId, { status: 'paid' })
       }
       break
     }
     case 'customer.subscription.updated':
     case 'customer.subscription.deleted': {
-      // Update the matching subscription row.
+      // Left to the app: update the matching subscription row here (see
+      // the subscription-management slice for the portal flow around it).
       break
     }
     default:
-      // Other event types: log + ignore.
+      // Other event types: log + ignore — the log is the only trace a
+      // misconfigured webhook endpoint leaves.
+      logger.info('stripe webhook ignored', { type: event.type })
       break
   }
 

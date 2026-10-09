@@ -81,9 +81,9 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
     e.preventDefault()
     setStatus('saving')
     setError(null)
-    // finally leaves the `error` state on EVERY failure path — a rejected
-    // fetch (offline, server restart) must not leave the form stuck on
-    // "Saving…" with the button disabled forever.
+    // Every failure path sets the `error` status (which also clears the
+    // saving flag) — a rejected fetch (offline, server restart) must not
+    // leave the form stuck on "Saving…" with the button disabled forever.
     try {
       const editing = postId !== null
       const res = await fetch(editing ? `/api/posts/${postId}` : '/api/posts', {

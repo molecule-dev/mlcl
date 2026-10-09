@@ -44,9 +44,9 @@ export function SettingsPage() {
     if (!draft || !dirty) return
     setStatus('saving')
     setError(null)
-    // finally leaves the `error` state on EVERY failure path — a rejected
-    // fetch (offline, server restart) must not leave the form stuck on
-    // "Saving…" with the button disabled forever.
+    // Every failure path sets the `error` status (which also clears the
+    // saving flag) — a rejected fetch (offline, server restart) must not
+    // leave the form stuck on "Saving…" with the button disabled forever.
     try {
       const res = await fetch('/api/me', {
         method: 'PATCH',
