@@ -415,10 +415,19 @@ export default class Inject extends Command {
     // failure — created files removed, pre-existing files (server.ts,
     // migrate.ts, … on a re-inject) put back — so a failed write leaves the
     // project unchanged, never worse.
-    const synthesized = await writeSynthesizedFiles(syntheticFiles)
-    totalCreated += synthesized.written.length
-    if (synthesized.error) {
-      errors.push(synthesized.error)
+    //
+    // Skipped when a plan FAILED: the failed plan rolled back its own writes
+    // (its bond file is gone again), and the synthesized bonds/index.ts was
+    // built from ALL plans — writing it would export `./<name>.js` of a file
+    // the rollback just removed, a TS2307 the project cannot compile. The
+    // errors below fail the command (exit 1); the successful plans' files stay
+    // but nothing references a missing module.
+    if (errors.length === 0) {
+      const synthesized = await writeSynthesizedFiles(syntheticFiles)
+      totalCreated += synthesized.written.length
+      if (synthesized.error) {
+        errors.push(synthesized.error)
+      }
     }
 
     // Back the migration runner the synthesized files may just have written
