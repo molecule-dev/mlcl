@@ -33,6 +33,12 @@ const intercept = vi.hoisted(() => ({ armed: false }))
 /** When set, the NEXT read of a `migrate.ts` path fails with EACCES. */
 const unreadable = vi.hoisted(() => ({ armed: false }))
 
+/**
+ * When set, the NEXT write of a `package.json` truncates and THEN throws — the
+ * shape of the manifest write that has to back a refreshed runner.
+ */
+const manifestWrite = vi.hoisted(() => ({ armed: false }))
+
 vi.mock('node:fs/promises', async (importOriginal) => {
   const actual = await importOriginal()
   type WriteFileArgs = Parameters<(typeof actual)['writeFile']>
@@ -66,6 +72,12 @@ vi.mock('node:fs/promises', async (importOriginal) => {
         await actual.writeFile(path, '// truncated')
         throw new Error('write failed mid-flight (simulated ENOSPC)')
       }
+      if (manifestWrite.armed && typeof path === 'string' && path.endsWith('package.json')) {
+        // Same shape for the manifest that has to back a refreshed runner.
+        manifestWrite.armed = false
+        await actual.writeFile(path, '{"truncated":')
+        throw new Error('write failed mid-flight (simulated ENOSPC)')
+      }
       return actual.writeFile(path, data, options)
     },
   }
@@ -75,6 +87,7 @@ let dir: string | null = null
 afterEach(async () => {
   intercept.armed = false
   unreadable.armed = false
+  manifestWrite.armed = false
   if (dir) await rm(dir, { recursive: true, force: true })
   dir = null
 })
@@ -195,6 +208,45 @@ describe('refreshMigrateRunnerForManifest', () => {
     await expect(readFile(join(project, 'src', 'scripts', 'migrate.ts'), 'utf-8')).rejects.toThrow(
       /ENOENT/,
     )
+  })
+
+  it('restores the copied runner when the manifest that must back it cannot be written', async () => {
+    // The refresh is TWO writes that must agree: the re-rendered runner imports
+    // `@molecule/api-bonds-default-express` (and, on a PGlite app, the PGlite
+    // bond), and the step right after the runner write is what declares them.
+    // When that manifest write fails, the runner that was just refreshed is the
+    // one artifact left behind — a boot import whose packages the manifest does
+    // not declare (TS2307 / ERR_MODULE_NOT_FOUND on a real install), which is
+    // strictly worse than the stale copy it replaced.
+    const project = (dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-guard-')))
+    const apiDir = join(project, 'api')
+    await mkdir(join(apiDir, 'src', 'scripts'), { recursive: true })
+    const path = join(apiDir, 'src', 'scripts', 'migrate.ts')
+    const stale = '// stale frozen runner\n'
+    await realWriteFile(path, stale)
+    await realWriteFile(
+      join(apiDir, 'package.json'),
+      JSON.stringify({ dependencies: { '@molecule/api-database-postgresql': '1.0.5' } }),
+    )
+
+    manifestWrite.armed = true
+    await expect(refreshMigrateRunnerForManifest(apiDir)).rejects.toThrow(/simulated ENOSPC/)
+
+    // The runner is put back, so the failed refresh leaves the project exactly
+    // as it was; the manifest step restored its own bytes (the mock fires once).
+    expect(await readFile(path, 'utf-8')).toBe(stale)
+    expect(JSON.parse(await readFile(join(apiDir, 'package.json'), 'utf-8'))).toMatchObject({
+      dependencies: { '@molecule/api-database-postgresql': '1.0.5' },
+    })
+
+    // …and the positive twin: with the manifest writable the same call lands
+    // both halves — the current render, and the package it imports declared.
+    await refreshMigrateRunnerForManifest(apiDir)
+    const manifest = JSON.parse(await readFile(join(apiDir, 'package.json'), 'utf-8')) as {
+      dependencies: Record<string, string>
+    }
+    expect(manifest.dependencies['@molecule/api-bonds-default-express']).toMatch(/^\d+\.\d+\.\d+$/)
+    expect(await readFile(path, 'utf-8')).toContain('createMigratorPglite')
   })
 
   it('restores the checked-in bytes when the refresh write fails mid-flight', async () => {

@@ -508,14 +508,40 @@ export async function writeMigrateRunnerGuarded(path: string, next: string): Pro
  * bytes, so the "refresh skipped" log the caller prints on failure cannot
  * describe a truncated runner the failed write left behind.
  *
+ * The two writes are ONE unit, the same rule the activity-capture wiring
+ * states: the re-rendered runner imports packages (the bond-setup wrapper, the
+ * PGlite branch's bond) that {@link ensureMigrateRunnerImports} declares in the
+ * manifest right after. That step restores the manifest and rethrows when its
+ * own write fails — and without the matching restore here the REFRESHED runner
+ * would survive it: a boot import of a package the manifest does not declare
+ * (TS2307, then ERR_MODULE_NOT_FOUND on a real install), strictly worse than
+ * the stale copy it replaced. So the runner's prior bytes are put back too, and
+ * a failed refresh leaves the project exactly as it was.
+ *
  * @param apiDir - The api workspace (the directory holding package.json).
  */
 export async function refreshMigrateRunnerForManifest(apiDir: string): Promise<void> {
   const path = join(apiDir, 'src', 'scripts', 'migrate.ts')
   if (!existsSync(path)) return
   const next = await readMigrateRunnerForManifest(apiDir)
+  // The pre-refresh bytes, for the rollback below. Read here rather than inside
+  // the guard because the guard's own snapshot is gone by the time the manifest
+  // step can fail.
+  const prior = await readFile(path, 'utf-8')
   await writeMigrateRunnerGuarded(path, next)
-  await ensureMigrateRunnerImports(apiDir)
+  try {
+    await ensureMigrateRunnerImports(apiDir)
+  } catch (error) {
+    try {
+      // Guarded like every other write here: restores the refreshed copy if
+      // this restore itself fails mid-flight, so the rollback is never the
+      // thing that leaves a truncated runner behind.
+      await writeMigrateRunnerGuarded(path, prior)
+    } catch (_restoreError) {
+      // Best-effort: the manifest step's own failure is rethrown below.
+    }
+    throw error
+  }
 }
 
 /** What {@link syncMigrateRunner} did. */
