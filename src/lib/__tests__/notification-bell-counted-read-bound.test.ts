@@ -52,9 +52,12 @@ vi.mock('@molecule/app-notification-badge-react', () => ({
 }))
 vi.mock('@molecule/app-notification-center-react', () => ({
   // The row buttons carry the item's onClick — the real center's contract, and
-  // the POST half of the counted-read race below.
+  // the POST half of the counted-read race below. The real center also renders
+  // each row's read/unread state from `read`; the double exposes it as
+  // `data-read` so a test can see WHICH state a row was rendered in without
+  // changing the row text the other assertions match on.
   NotificationCenter: (props: {
-    items: Array<{ id: string; title: string; onClick: () => void }>
+    items: Array<{ id: string; title: string; read: boolean; onClick: () => void }>
   }) =>
     createElement(
       'ul',
@@ -62,7 +65,7 @@ vi.mock('@molecule/app-notification-center-react', () => ({
       props.items.map((item) =>
         createElement(
           'li',
-          { key: item.id },
+          { key: item.id, ...({ 'data-read': String(item.read) } as Record<string, string>) },
           createElement(
             'button',
             { type: 'button', onClick: item.onClick },
@@ -149,6 +152,10 @@ async function mount(element: ReactNode): Promise<void> {
 }
 
 const text = (): string => container.textContent ?? ''
+
+/** The read/unread state the centre was handed for the one row on screen. */
+const rowState = (): string | null =>
+  container.querySelector('li')?.getAttribute('data-read') ?? null
 
 /** Fire one SSE frame at the bell's subscription. */
 async function frame(type: string, data: string): Promise<void> {
@@ -294,5 +301,41 @@ describe('the bell counted-read set', () => {
     await answerPost('/api/notifications/a1/read')
     await frame('notification:read', JSON.stringify({ id: 'a1' }))
     expect(text()).toContain('unread:0')
+  })
+
+  it('a frame with no read_at is unread in BOTH the badge and the row — and its click clears it', async () => {
+    // The parser requires only the `id`, so a hand-rolled broadcast (or another
+    // writer in the room) can deliver a frame with no `read_at`. `undefined` is
+    // not `null`: every `read_at !== null` check in the component read such a
+    // frame as already READ, so the badge counted it unread while the row
+    // rendered as read, and neither the click nor the SSE echo could ever
+    // decrement it. One notification, stuck in the badge for the life of the
+    // mount — the two representations of the same fact must agree.
+    await mount(createElement(NotificationBellWidget, { userId: 'u1' }))
+    await openBell()
+    await frame('notification:created', JSON.stringify({ id: 'm1', type: 'mention' }))
+
+    expect(text()).toContain('unread:1')
+    expect(rowState(), 'the badge counts it unread, so the row must render unread').toBe('false')
+
+    await clickRow('m1')
+    await answerPost('/api/notifications/m1/read')
+    expect(text()).toContain('unread:0')
+    expect(rowState()).toBe('true')
+  })
+
+  it('a frame that arrives already read is counted nowhere', async () => {
+    await mount(createElement(NotificationBellWidget, { userId: 'u1' }))
+    await openBell()
+    await frame(
+      'notification:created',
+      JSON.stringify({ id: 'r1', type: 'mention', read_at: '2026-01-01T00:00:00.000Z' }),
+    )
+
+    // No unread→read transition to count, and the row is read: offering it as
+    // unread left the badge one above the rows with nothing able to bring it
+    // down (the read guards return early for a row that is not unread).
+    expect(text()).toContain('unread:0')
+    expect(rowState()).toBe('true')
   })
 })

@@ -48,6 +48,16 @@ const NOTIFICATION_PAGE_SIZE = 20
  * failure here — `GET /api/notifications` is the durable record, and the live
  * feed is best-effort.
  *
+ * `read_at` is the one field the component reads as STATE, not for display, so
+ * the frame is normalized to the declared `RawNotification` shape at this
+ * boundary: a timestamp string, or null (= unread). A frame that omits it
+ * arrived as `undefined`, and `undefined !== null` — so every one of the three
+ * checks below (the two unread→read guards, and `centerItems`' `read` flag)
+ * read the row as already READ. The badge had just counted it unread, the row
+ * rendered as read, and neither the click nor the SSE echo could ever decrement
+ * (both guards return early): one notification stuck in the badge for the life
+ * of the mount.
+ *
  * @param data - The raw `event.data` string of one SSE frame.
  * @returns The frame's notification, or null when the frame is not one.
  */
@@ -60,9 +70,13 @@ function parseNotificationFrame(data: string): RawNotification | null {
     return null
   }
   if (typeof parsed !== 'object' || parsed === null) return null
-  const id = (parsed as { id?: unknown }).id
+  const { id, read_at: readAt } = parsed as { id?: unknown; read_at?: unknown }
   if (typeof id !== 'string' || id.length === 0) return null
-  return parsed as RawNotification
+  return {
+    ...(parsed as RawNotification),
+    id,
+    read_at: typeof readAt === 'string' ? readAt : null,
+  }
 }
 
 export function NotificationBellWidget({ userId }: { userId: string }) {
@@ -156,7 +170,13 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
       // Newest first, bounded to the page the panel was built from — see
       // NOTIFICATION_PAGE_SIZE. Unbounded, this list grows with the session.
       setItems((prev) => [n, ...prev].slice(0, NOTIFICATION_PAGE_SIZE))
-      setUnread((u) => u + 1)
+      // The badge is the number of UNREAD rows, so only a frame that arrives
+      // unread may raise it: a frame that is already read (a re-broadcast, a
+      // replay published by another writer) has no unread→read transition to
+      // count, and incrementing it left the badge one above the rows with
+      // nothing able to bring it down — the read guards return early for a row
+      // that is not unread.
+      if (n.read_at === null) setUnread((u) => u + 1)
     })
     events.addEventListener('notification:read', (e) => {
       // Only an unread→read transition this tab has not already counted may
