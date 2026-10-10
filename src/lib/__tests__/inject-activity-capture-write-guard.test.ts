@@ -16,8 +16,12 @@
  *
  * Both failure points now roll the whole step back: the index is restored to its
  * pre-injection bytes (the manifest by `writeGuarded`, the index by this
- * function's own rollback) and the module is removed, so a failed run leaves the
- * project exactly as it was.
+ * function's own rollback) and the module goes back to what it was — removed
+ * when this call created it, restored to its own bytes when it predated the
+ * call. The module's OWN write is guarded for the same reason (a truncated
+ * producer is a module `bonds/index.ts` imports): a failed write there restores
+ * the module instead of leaving the partial file behind. So a failed run leaves
+ * the project exactly as it was.
  *
  * @module
  */
@@ -112,6 +116,41 @@ describe('injectActivityCaptureBoot — a failed write rolls the wiring back', (
     expect(readFileSync(indexPath(), 'utf-8')).toBe(BONDS_INDEX)
     expect(existsSync(modulePath())).toBe(false)
     // … and the manifest is the bytes it started as, not a truncated file.
+    expect(readFileSync(manifestPath, 'utf-8')).toBe(manifestBefore)
+  })
+
+  it('restores the existing producer module when its own write fails mid-flight', async () => {
+    // The idempotent path: bonds/index.ts ALREADY imports the producer, so this
+    // call only refreshes the module. A write that failed mid-flight there used
+    // to leave a TRUNCATED `_activity-capture.ts` — a file the index (and so
+    // server.ts at boot) imports, i.e. a project that no longer starts.
+    const wired = BONDS_INDEX.replace(
+      "import { setupEmailsMailgun } from './emails-mailgun.js'",
+      "import { setupEmailsMailgun } from './emails-mailgun.js'\nimport { setupActivityCapture } from './_activity-capture.js'",
+    )
+    writeFileSync(indexPath(), wired)
+    writeFileSync(modulePath(), '// the producer this project shipped with\n')
+    shortWrite.path = modulePath()
+
+    await expect(injectActivityCaptureBoot(apiDir)).rejects.toThrow(/ENOSPC/)
+
+    expect(readFileSync(modulePath(), 'utf-8')).toBe('// the producer this project shipped with\n')
+    expect(readFileSync(indexPath(), 'utf-8')).toBe(wired)
+  })
+
+  it('puts a pre-existing producer module back — never deletes it — when a later write fails', async () => {
+    // The module already exists (an earlier run, or a template that ships it)
+    // but the index is not wired yet. The rollback must restore the module's own
+    // bytes; `rm` would delete a file this call only overwrote.
+    writeFileSync(modulePath(), '// the producer this project shipped with\n')
+    const manifestPath = join(apiDir, 'package.json')
+    const manifestBefore = readFileSync(manifestPath, 'utf-8')
+    shortWrite.path = manifestPath
+
+    await expect(injectActivityCaptureBoot(apiDir)).rejects.toThrow(/ENOSPC/)
+
+    expect(readFileSync(indexPath(), 'utf-8')).toBe(BONDS_INDEX)
+    expect(readFileSync(modulePath(), 'utf-8')).toBe('// the producer this project shipped with\n')
     expect(readFileSync(manifestPath, 'utf-8')).toBe(manifestBefore)
   })
 
