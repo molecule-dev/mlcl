@@ -2714,22 +2714,50 @@ Re-export any extra exports described in README.md (like authorization).`,
 }
 
 /**
+ * The accessor exports the GENERATED `router.ts` imports from a resource
+ * wrapper besides the handler map.
+ *
+ * `generateRouterContentHeuristic` emits the app-wide gate
+ * (`router.use(xAuthorization.verifyMiddleware())`) for every resource whose
+ * package `exports` include `authorization`, and imports it as
+ * `{ authorization as xAuthorization }` from that resource's wrapper. The
+ * wrapper is what has to export it, so this list is its contract — not a
+ * per-package special case: the router keys the import on the package's own
+ * scanned `exports`, while `molecule.reExports` is hand-maintained registry
+ * metadata, so a wrapper that re-exported only `reExports` produced a router
+ * importing a name that does not exist (TS2305) in every scaffolded project
+ * using such a resource. Registry `reExports` stays the place for ADDITIONAL
+ * accessors (e.g. Device's `deviceService`).
+ */
+const ROUTER_ACCESSOR_EXPORTS: readonly string[] = ['authorization']
+
+/** The accessor exports of `exports` the generated router will import from the wrapper. */
+function routerAccessorExports(exports: readonly string[]): string[] {
+  return exports.filter((e) => ROUTER_ACCESSOR_EXPORTS.includes(e))
+}
+
+/**
  * Heuristic resource wrapper generation (fallback).
  *
  * Detects whether the package exports a `createRequestHandlerMap` factory
  * or a static `requestHandlerMap` object and generates the appropriate code.
  * Extra exports a resource makes available to the app (e.g. `authorization`) are
  * re-exported when the registry entry names them in `molecule.reExports` — the
- * mapping is registry metadata, never a per-package special case here.
+ * mapping is registry metadata, never a per-package special case here — plus
+ * the accessors the generated router imports (see
+ * {@link ROUTER_ACCESSOR_EXPORTS}), which the wrapper must export for that
+ * import to resolve.
  */
 async function generateWrapperContentHeuristic(pkg: InferredPackage): Promise<string> {
   const exports = pkg.exports.length > 0 ? pkg.exports : await scanExportsFromPath(pkg.path)
+  const accessors = routerAccessorExports(exports)
 
   if (exports.includes('createRequestHandlerMap')) {
     const resourcePkg = requirePackageByRole('api', 'infrastructure', 'resource')
-    // Re-export special exports declared in registry metadata
+    // Re-export special exports declared in registry metadata, plus the
+    // accessors the generated router imports from this wrapper.
     const reExportList = (pkg.molecule?.reExports as string[] | undefined) ?? []
-    const extraExports = exports.filter((e) => reExportList.includes(e))
+    const extraExports = exports.filter((e) => reExportList.includes(e) || accessors.includes(e))
     const extraImports = extraExports.length > 0 ? `, ${extraExports.join(', ')}` : ''
     const extraReExports =
       extraExports.length > 0 ? extraExports.map((e) => `export { ${e} }`).join('\n') + '\n\n' : ''
@@ -2742,8 +2770,14 @@ ${extraReExports}export const requestHandlerMap = createRequestHandlerMap(create
   }
 
   if (exports.includes('requestHandlerMap')) {
+    // The accessor re-exports the generated router's
+    // `import { authorization as … }` resolves against.
+    const accessorReExports =
+      accessors.length > 0
+        ? accessors.map((e) => `export { ${e} } from '${pkg.name}'`).join('\n') + '\n'
+        : ''
     return `export { requestHandlerMap } from '${pkg.name}'
-`
+${accessorReExports}`
   }
 
   // Fallback: re-export individual handler functions (not types)
@@ -2752,13 +2786,23 @@ ${extraReExports}export const requestHandlerMap = createRequestHandlerMap(create
   )
 
   if (handlerExports.length === 0) {
+    // `export *` carries every accessor too.
     return `export * from '${pkg.name}'
 `
   }
 
+  // An accessor that is ALSO a handler export is already a local binding from
+  // the import below — re-export the binding rather than the module, so the
+  // file names it once.
+  const importedNames = new Set(handlerExports)
+  const accessorReExports =
+    accessors
+      .map((e) => (importedNames.has(e) ? `export { ${e} }` : `export { ${e} } from '${pkg.name}'`))
+      .join('\n') + (accessors.length > 0 ? '\n' : '')
+
   return `import { ${handlerExports.join(', ')} } from '${pkg.name}'
 
-export const requestHandlerMap = { ${handlerExports.join(', ')} } as const
+${accessorReExports}export const requestHandlerMap = { ${handlerExports.join(', ')} } as const
 `
 }
 

@@ -118,8 +118,17 @@ describe('the registry file is read+parsed once, not once per reader', () => {
     // Another process rewrites the registry (molecule's pre-commit doc regen,
     // mlcl sync-registry in a sibling invocation). Both readers must see it —
     // neither may serve the parse it took before the edit.
-    writeFileSync(registryPath, registryWith('After'))
-    expect(getRawRegistry().packages['@molecule/test-single-parse-probe']?.label).toBe('After')
-    expect(loadRegistry()[0]?.molecule?.label).toBe('After')
+    //
+    // The rewritten document must differ in SIZE, not only in mtime: the cache
+    // key is (mtimeMs, size), and a filesystem with coarse timestamp
+    // granularity reports the same mtime for two writes inside one tick — so a
+    // same-length rewrite would be invisible, and this test would fail on a
+    // machine whose filesystem is coarser than this one's (the sibling
+    // raw-cache suite states and follows the same rule).
+    writeFileSync(registryPath, registryWith('After-the-edit'))
+    expect(getRawRegistry().packages['@molecule/test-single-parse-probe']?.label).toBe(
+      'After-the-edit',
+    )
+    expect(loadRegistry()[0]?.molecule?.label).toBe('After-the-edit')
   })
 })
