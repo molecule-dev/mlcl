@@ -239,11 +239,30 @@ const originalEventSource = (globalThis as { EventSource?: unknown }).EventSourc
 
 class MockEventSource {
   static urls = eventSources.urls
+  /** Every subscription this render made, so a test can deliver a server event. */
+  static instances: MockEventSource[] = []
+
+  private readonly listeners = new Map<string, Array<(event: { data: string }) => void>>()
+
   constructor(url: string) {
     eventSources.urls.push(url)
+    MockEventSource.instances.push(this)
   }
-  addEventListener(): void {}
+
+  addEventListener(type: string, listener: (event: { data: string }) => void): void {
+    const forType = this.listeners.get(type) ?? []
+    forType.push(listener)
+    this.listeners.set(type, forType)
+  }
+
   close(): void {}
+
+  /** Deliver `data` to every listener of `type`, in the shape the handler reads. */
+  emit(type: string, data: unknown): void {
+    for (const listener of this.listeners.get(type) ?? []) {
+      listener({ data: JSON.stringify(data) })
+    }
+  }
 }
 
 let container: HTMLElement
@@ -305,10 +324,23 @@ async function respondHttp(fragment: string, body: unknown): Promise<void> {
 
 const text = (): string => container.textContent ?? ''
 
+/** The rendered list rows (the mocks render each item as an `<li>`), in order. */
+const rows = (): string[] =>
+  Array.from(container.querySelectorAll('li')).map((li) => li.textContent ?? '')
+
+/** Deliver a server-sent event to every open subscription. */
+async function emitSse(type: string, data: unknown): Promise<void> {
+  await act(async () => {
+    for (const source of MockEventSource.instances) source.emit(type, data)
+  })
+  await flush()
+}
+
 beforeEach(() => {
   fetches.requests.length = 0
   http.calls.length = 0
   eventSources.urls.length = 0
+  MockEventSource.instances.length = 0
   httpClient = null
   globalThis.fetch = ((input: unknown) =>
     new Promise((resolve) => {
@@ -508,5 +540,44 @@ describe('example slices — a request’s answer is validated before it is trus
     await respond('/api/referrals/code', 500, { error: 'boom' })
     expect(text()).toContain('Could not load your invite link')
     expect(text()).not.toContain('Loading your invite link')
+  })
+})
+
+describe('example slices — a live feed does not grow a list without bound', () => {
+  it('keeps the notification bell on one page while live events arrive', async () => {
+    const page = Array.from({ length: 20 }, (_, i) => ({
+      id: `n-${i + 1}`,
+      type: 'comment',
+      actor_name: 'Alice',
+      subject_title: `Subject #${i + 1}`,
+      created_at: '2026-01-01T00:00:00.000Z',
+      read_at: null,
+    }))
+
+    await mount(createElement(NotificationBellWidget, { userId: 'u-7' }))
+    // The server serves a PAGE (`?limit=`, default 20). A bell that prepends
+    // every live event to it grows past the page for the life of the tab — 25
+    // events on top of the loaded 20 rendered 45 rows.
+    await respond('/api/notifications', 200, { items: page, unread: 20 })
+    await clickByLabel('Notifications (20 unread)')
+    expect(rows()).toHaveLength(20)
+
+    for (let i = 21; i <= 45; i++) {
+      await emitSse('notification:created', {
+        id: `n-${i}`,
+        type: 'comment',
+        actor_name: 'Alice',
+        subject_title: `Subject #${i}`,
+        created_at: '2026-01-02T00:00:00.000Z',
+        read_at: null,
+      })
+    }
+
+    // Still one page, and it is the NEWEST one — what a reload would render.
+    expect(rows()).toHaveLength(20)
+    expect(rows()[0]).toContain('"Subject #45"')
+    expect(rows().some((row) => row.includes('"Subject #1"'))).toBe(false)
+    // The live feed still reached the badge and the list.
+    expect(rows()[19]).toContain('"Subject #26"')
   })
 })

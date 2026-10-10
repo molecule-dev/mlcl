@@ -16,6 +16,19 @@ type RawNotification = {
   read_at: string | null
 }
 
+/**
+ * Notifications the panel keeps: ONE page, the same one `GET
+ * /api/notifications` serves (api/handlers/notifications.ts clamps the list to
+ * `limit`, default 20), and the same number this component asks for.
+ *
+ * Live arrivals are PREPENDED by the SSE subscription below, so without a bound
+ * a long-lived tab accumulated every notification it ever saw — thousands of
+ * rows in the open dropdown — while the server's own page stayed at 20. Capping
+ * at the page size keeps the panel showing the NEWEST page, which is exactly
+ * what a reload renders.
+ */
+const NOTIFICATION_PAGE_SIZE = 20
+
 export function NotificationBellWidget({ userId }: { userId: string }) {
   const { t } = useTranslation()
   const cm = getClassMap()
@@ -34,7 +47,7 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
     // flight; without this guard the LATE response wins and the bell shows the
     // other user's notifications.
     let cancelled = false
-    fetch('/api/notifications')
+    fetch(`/api/notifications?limit=${NOTIFICATION_PAGE_SIZE}`)
       .then((r) => r.json())
       // Coerce the body to the state's shape: a 500's `{ error }` JSON would
       // set items to undefined and crash the render's items.map.
@@ -58,7 +71,9 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
     const events = new EventSource(`/api/realtime?room=${encodeURIComponent(`user:${userId}`)}`)
     events.addEventListener('notification:created', (e) => {
       const n = JSON.parse((e as MessageEvent).data) as RawNotification
-      setItems((prev) => [n, ...prev])
+      // Newest first, bounded to the page the panel was built from — see
+      // NOTIFICATION_PAGE_SIZE. Unbounded, this list grows with the session.
+      setItems((prev) => [n, ...prev].slice(0, NOTIFICATION_PAGE_SIZE))
       setUnread((u) => u + 1)
     })
     events.addEventListener('notification:read', () => setUnread((u) => Math.max(0, u - 1)))
