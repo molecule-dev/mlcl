@@ -128,14 +128,20 @@ function isBenignMigrationError(err: unknown): boolean {
 }
 
 // MOL_BOND_PROFILE=browser runs the app on in-process PGlite (no Postgres server, no DATABASE_URL): the
-// migrations below are applied to that database instead (see runMigrations). The MIGRATE_PGLITE scaffold flag
-// is substituted by mlcl with `true` only when the app's api manifest declares
-// @molecule/api-database-pglite (either dependency key) — every other app gets `false`, so the
-// browser branch below is unreachable code instead of an ERR_MODULE_NOT_FOUND crash waiting on an
-// env var. When the manifest declares PGlite but NOT @molecule/api-database-postgresql, mlcl also strips the
-// whole Postgres machinery at render time: PGlite is then the app's only database, so the runner
-// migrates it in every profile (the gate renders as a bare `true` and no `pg` / postgres-bond
-// import remains for a swap to prune).
+// migrations below are applied to that database instead (see runMigrations).
+// The MIGRATE_BROWSER_PROFILE scaffold placeholder is substituted by mlcl with the COMPLETE right-hand
+// side of the line, so what is emitted is always ONE expression:
+//   - `false` for an app whose api manifest does not declare @molecule/api-database-pglite (either
+//     dependency key) — the browser branch is then unreachable code instead of an
+//     ERR_MODULE_NOT_FOUND crash waiting on an env var;
+//   - `process.env.MOL_BOND_PROFILE === 'browser'` for one that declares BOTH databases;
+//   - a bare `true` for one that declares PGlite but NOT @molecule/api-database-postgresql, because
+//     mlcl also strips the whole Postgres machinery at render time for it: PGlite is then the app's
+//     only database, so the runner migrates it in every profile and no `pg` / postgres-bond import
+//     remains for a swap to prune.
+// A literal joined to the rest with `&&` (`true && …` / `false && …`) is a
+// `no-constant-binary-expression` error under the eslint config this project ships, so a generated
+// runner would fail its own `npm run lint`.
 const BROWSER_PROFILE = false
 
 const DATABASE_URL = BROWSER_PROFILE ? '' : resolveDatabaseUrl()

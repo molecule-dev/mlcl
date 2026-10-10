@@ -133,20 +133,44 @@ function renderPostgresSections(raw: string, include: boolean): string {
 }
 
 /**
- * Substitute the scaffold placeholders in a migration-runner template.
+ * The right-hand side of the emitted runner's `const BROWSER_PROFILE = …` line
+ * for the dual render (Postgres machinery present AND the PGlite bond
+ * declared): the app runs on Postgres normally and on PGlite in the browser
+ * profile. Exported so the reachability check in
+ * {@link ensureMigrateRunnerImports} reads the SAME literal the renderer
+ * writes, instead of repeating the phrasing.
+ */
+export const BROWSER_PROFILE_GATE = "process.env.MOL_BOND_PROFILE === 'browser'"
+
+/**
+ * Substitute the scaffold placeholder in a migration-runner template.
  *
- * `{{MIGRATE_PGLITE}}` decides whether the emitted runner's
- * `MOL_BOND_PROFILE=browser` branch is reachable at all: only an app whose api
- * manifest declares the PGlite bond may run it. Everyone else gets a bare
- * `false` — unreachable code instead of a deferred `ERR_MODULE_NOT_FOUND` (the
- * browser-profile bonds lazily import the package at call time; see
- * templates/api/migrate.ts.tpl).
+ * `{{MIGRATE_BROWSER_PROFILE}}` renders the WHOLE right-hand side of the
+ * runner's `const BROWSER_PROFILE = …`, because what the line expresses is a
+ * reachability decision, not a boolean literal:
  *
- * A manifest that declares PGlite but NOT the PostgreSQL bond gets a
- * PGlite-only runner: the Postgres machinery (driver import, DATABASE_URL
- * resolution, CREATE DATABASE, the SQL steps) is stripped and the gate renders
- * as a bare `true`, because PGlite is that app's only database — a swapped-in
- * PGlite must not keep importing a PostgreSQL bond the swap just removed.
+ * - `false` — the api manifest declares no PGlite bond, so the browser branch
+ *   is unreachable code instead of a deferred `ERR_MODULE_NOT_FOUND` (the
+ *   browser-profile bonds lazily import the package at call time; see
+ *   templates/api/migrate.ts.tpl).
+ * - a bare `true` — the manifest declares PGlite and NOT the PostgreSQL bond,
+ *   and the Postgres machinery is stripped ({@link renderPostgresSections}):
+ *   PGlite is that app's only database, so migrations run on it in every
+ *   profile. A swapped-in PGlite must not keep importing a PostgreSQL bond the
+ *   swap just removed.
+ * - `process.env.MOL_BOND_PROFILE === 'browser'`
+ *   ({@link BROWSER_PROFILE_GATE}) — the dual render: Postgres machinery
+ *   present, browser branch reachable.
+ *
+ * The rendered line is always ONE complete expression, never a literal glued
+ * to a gate with `&&`: `true && <gate>` and `false && <gate>` are both
+ * `no-constant-binary-expression` errors under the eslint config every
+ * scaffolded project ships (`eslint.configs.recommended` enables that rule as
+ * an error against the generated `src/scripts/migrate.ts`), so either shape
+ * made the project's very first `npm run lint` fail on a line mlcl wrote. The
+ * constant cases render the literal alone and the dual case renders the
+ * comparison alone — which is also exactly what `true && gate` USED to mean.
+ *
  * The section decision keys on the PostgreSQL declaration itself, never on
  * "is this PGlite-only": a manifest declaring NEITHER database gets the
  * machinery stripped too, so the emitted runner imports no `pg` /
@@ -159,16 +183,15 @@ function renderPostgresSections(raw: string, include: boolean): string {
  */
 export function renderMigrateRunner(raw: string, render: MigrateRunnerRender): string {
   const postgresMachinery = render.postgresDeclared ?? true
-  const pgliteOnly = render.pgliteDeclared && !postgresMachinery
-  // A PGlite-absent render gets a BARE `false` — `false && <gate>` keeps the
-  // comparison as documentation but is a `no-constant-binary-expression`
-  // lint error in every project the runner lands in (templates copy out
-  // verbatim, so their lint gate fails on the user's first `npm run lint`).
-  const profileGate =
-    pgliteOnly || !render.pgliteDeclared ? '' : " && process.env.MOL_BOND_PROFILE === 'browser'"
-  return renderPostgresSections(raw, postgresMachinery)
-    .replaceAll('{{MIGRATE_PGLITE}}', render.pgliteDeclared ? 'true' : 'false')
-    .replaceAll('{{MIGRATE_PROFILE_GATE}}', profileGate)
+  const browserProfile = !render.pgliteDeclared
+    ? 'false'
+    : postgresMachinery
+      ? BROWSER_PROFILE_GATE
+      : 'true'
+  return renderPostgresSections(raw, postgresMachinery).replaceAll(
+    '{{MIGRATE_BROWSER_PROFILE}}',
+    browserProfile,
+  )
 }
 
 /**
@@ -376,11 +399,14 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
     throw error
   }
   const importsWrapper = runner.includes(`from '${MIGRATE_RUNNER_BONDS_PACKAGE}'`)
-  // The browser branch is reachable only in renders mlcl emits with the flag
-  // `true` — bare for a PGlite-only runner, profile-gated for the dual one
-  // (`true && process.env.MOL_BOND_PROFILE === 'browser'`). A bare-`false`
-  // render can never call it, so its manifest needs no PGlite pin.
-  const pgliteBranchReachable = runner.includes('const BROWSER_PROFILE = true')
+  // The browser branch is reachable in the two renders mlcl emits with a live
+  // gate: the bare `true` of a PGlite-only runner, and the profile comparison
+  // of the dual one (`const BROWSER_PROFILE = process.env.MOL_BOND_PROFILE ===
+  // 'browser'` — see renderMigrateRunner). A bare-`false` render can never call
+  // it, so its manifest needs no PGlite pin.
+  const pgliteBranchReachable =
+    runner.includes('const BROWSER_PROFILE = true') ||
+    runner.includes(`const BROWSER_PROFILE = ${BROWSER_PROFILE_GATE}`)
   // The Postgres machinery imports the PostgreSQL bond itself (`deriveSsl`).
   // The render emits it whenever the manifest declared the bond in EITHER
   // key, so a dev-key declaration produces a runner whose import a production

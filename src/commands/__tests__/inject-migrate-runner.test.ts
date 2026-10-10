@@ -202,11 +202,13 @@ describe('mlcl inject backs the migration runner it writes', () => {
     // the historically shipped bug (the manifest's Postgres machinery
     // stripped, the project's real database silently unmigrated) passed every
     // assertion this shape allows — so the Postgres half is pinned explicitly.
+    // The gate is the runtime comparison ALONE: `true && <gate>` is a
+    // `no-constant-binary-expression` lint ERROR under the eslint config the
+    // scaffolded project ships, so a generated runner would fail its own
+    // `npm run lint`.
     const runner = await readFile(join(project, 'src', 'scripts', 'migrate.ts'), 'utf-8')
     expect(runner).toContain('createMigratorPglite')
-    expect(runner).toContain(
-      "const BROWSER_PROFILE = true && process.env.MOL_BOND_PROFILE === 'browser'",
-    )
+    expect(runner).toContain("const BROWSER_PROFILE = process.env.MOL_BOND_PROFILE === 'browser'")
     expect(runner).toContain('import pg from')
     expect(runner).toContain('CREATE DATABASE')
     // …and the manifest now backs its imports: the wrapper is never a peer of

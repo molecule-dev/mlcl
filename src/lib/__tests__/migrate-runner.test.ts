@@ -217,13 +217,30 @@ describe('migrateTemplateFor', () => {
 })
 
 describe('renderMigrateRunner', () => {
-  it('substitutes the PGlite flag both ways', () => {
-    expect(renderMigrateRunner('const B = {{MIGRATE_PGLITE}} && x', { pgliteDeclared: true })).toBe(
-      'const B = true && x',
-    )
-    expect(
-      renderMigrateRunner('const B = {{MIGRATE_PGLITE}} && x', { pgliteDeclared: false }),
-    ).toBe('const B = false && x')
+  it('renders the browser-profile line as ONE expression, never `true && …` / `false && …`', () => {
+    // The exact lint-error shape a scaffolded project's own `npm run lint`
+    // rejects (`no-constant-binary-expression`, enabled by the shared
+    // `eslint.configs.recommended`): a constant operand of `&&`. The substitute
+    // is the complete right-hand side, so neither constant case can produce it.
+    const template = 'const BROWSER_PROFILE = {{MIGRATE_BROWSER_PROFILE}}'
+    const dual = renderMigrateRunner(template, {
+      pgliteDeclared: true,
+      postgresDeclared: true,
+    })
+    expect(dual).toBe("const BROWSER_PROFILE = process.env.MOL_BOND_PROFILE === 'browser'")
+    const pgliteOnly = renderMigrateRunner(template, {
+      pgliteDeclared: true,
+      postgresDeclared: false,
+    })
+    expect(pgliteOnly).toBe('const BROWSER_PROFILE = true')
+    const neither = renderMigrateRunner(template, {
+      pgliteDeclared: false,
+      postgresDeclared: true,
+    })
+    expect(neither).toBe('const BROWSER_PROFILE = false')
+    for (const rendered of [dual, pgliteOnly, neither]) {
+      expect(rendered).not.toMatch(/BROWSER_PROFILE = (true|false) &&/)
+    }
   })
 
   it('is a no-op for templates without the placeholders', () => {
@@ -263,7 +280,14 @@ describe('readMigrateRunner PGlite gating', () => {
       '@molecule/api-database-postgresql',
       '@molecule/api-database-pglite',
     ])
-    expect(withPglite).toContain('true && process.env.MOL_BOND_PROFILE')
+    // The dual render: the runtime comparison alone, never `true && <gate>` —
+    // that shape is a `no-constant-binary-expression` lint ERROR under the
+    // eslint config every scaffolded project ships, so the generated runner
+    // failed the project's own `npm run lint`.
+    expect(withPglite).toContain(
+      "const BROWSER_PROFILE = process.env.MOL_BOND_PROFILE === 'browser'",
+    )
+    expect(withPglite).not.toMatch(/BROWSER_PROFILE = (true|false) &&/)
   })
 
   it('carries no raw variable-specifier @molecule import — only the typed wrapper', async () => {
@@ -277,12 +301,12 @@ describe('readMigrateRunner PGlite gating', () => {
 
   it('leaves no scaffold marker or garbled comment text in the output', async () => {
     const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
-    // Every {{…}} token — flag, gate, section markers — must be substituted or
-    // stripped; and the explanatory comment must not have the flag token
-    // rewritten inside it (it reads "The MIGRATE_PGLITE scaffold flag", not
-    // "…). false is substituted by mlcl …").
+    // Every {{…}} token — the flag and the section markers — must be
+    // substituted or stripped; and the explanatory comment must not have the
+    // flag token rewritten inside it (it reads "The MIGRATE_BROWSER_PROFILE
+    // scaffold placeholder", not "…). false scaffold placeholder …").
     expect(runner).not.toContain('{{')
-    expect(runner).toContain('The MIGRATE_PGLITE scaffold flag')
+    expect(runner).toContain('The MIGRATE_BROWSER_PROFILE scaffold placeholder')
   })
 
   it('keeps the Postgres machinery for a Postgres selection', async () => {
@@ -329,7 +353,7 @@ describe('readMigrateRunner PGlite gating', () => {
     )
     const mixed = await readMigrateRunnerForManifest(dir)
     expect(mixed).toContain("import pg from 'pg'")
-    expect(mixed).toContain('true && process.env.MOL_BOND_PROFILE')
+    expect(mixed).toContain("const BROWSER_PROFILE = process.env.MOL_BOND_PROFILE === 'browser'")
     // Both in dependencies → the dual-profile runner (Postgres machinery +
     // reachable browser branch), the shape the flagship templates ship.
     await writeManifest({
@@ -337,7 +361,7 @@ describe('readMigrateRunner PGlite gating', () => {
       '@molecule/api-database-postgresql': '1.0.5',
     })
     const both = await readMigrateRunnerForManifest(dir)
-    expect(both).toContain('true && process.env.MOL_BOND_PROFILE')
+    expect(both).toContain("const BROWSER_PROFILE = process.env.MOL_BOND_PROFILE === 'browser'")
     expect(both).toContain("import pg from 'pg'")
   })
 
@@ -353,7 +377,9 @@ describe('readMigrateRunner PGlite gating', () => {
     // No manifest at all.
     let runner = await readMigrateRunnerForManifest(dir)
     expect(runner).toContain('const BROWSER_PROFILE = false\n')
-    expect(runner).not.toContain('true && process.env.MOL_BOND_PROFILE')
+    expect(runner).not.toContain(
+      "const BROWSER_PROFILE = process.env.MOL_BOND_PROFILE === 'browser'",
+    )
     expect(runner).toContain("import pg from 'pg'")
     expect(runner).toContain('CREATE DATABASE')
     // A corrupt manifest — same fallback.
@@ -391,13 +417,17 @@ describe('readMigrateRunner PGlite gating', () => {
     const addPglite = await readMigrateRunner(['@molecule/api-database-pglite'], dir)
     expect(addPglite).toContain("import pg from 'pg'")
     expect(addPglite).toContain('CREATE DATABASE')
-    expect(addPglite).toContain('true && process.env.MOL_BOND_PROFILE')
+    expect(addPglite).toContain(
+      "const BROWSER_PROFILE = process.env.MOL_BOND_PROFILE === 'browser'",
+    )
     // The reverse — injecting PostgreSQL into a PGlite-only (browser-profile)
     // project — must keep the browser branch reachable: a dead gate made boot
     // resolve DATABASE_URL on a database the app does not use and exit(1).
     await writeManifest({ '@molecule/api-database-pglite': '1.0.0' })
     const addPostgres = await readMigrateRunner(['@molecule/api-database-postgresql'], dir)
-    expect(addPostgres).toContain('true && process.env.MOL_BOND_PROFILE')
+    expect(addPostgres).toContain(
+      "const BROWSER_PROFILE = process.env.MOL_BOND_PROFILE === 'browser'",
+    )
     expect(addPostgres).toContain("import pg from 'pg'")
     // No manifest to read (a fresh selection) → the list is the whole truth,
     // exactly as before: PGlite alone still renders the PGlite-only runner.
