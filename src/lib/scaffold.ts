@@ -69,7 +69,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
  * @param path - The file to write.
  * @param next - The full content to write.
  */
-async function writeGuarded(path: string, next: string): Promise<void> {
+async function writeGuarded(path: string, next: string | Uint8Array): Promise<void> {
   let prior: Buffer | null
   try {
     prior = await readFile(path)
@@ -3390,7 +3390,11 @@ export async function applyStaticSiteOverlay(
   const vitePlugin = fwConfig.vitePlugin?.usage ?? ''
   const plugins = [vitePlugin, buildTooling?.vitePlugin?.usage].filter(Boolean).join(', ')
   const extraConfig = fwConfig.viteExtraConfig ?? ''
-  await writeFile(
+  // Both writes below replace files the base scaffold already wrote — the
+  // build's entry config and its env types — so they go through the guarded
+  // write: a failure mid-flight restores the working bytes instead of leaving a
+  // truncated vite.config.ts that no longer parses.
+  await writeGuarded(
     join(appPath, 'vite.config.ts'),
     await loadTemplate('static/vite.config.ts.tpl', {
       TAILWIND_IMPORT: buildTooling?.vitePlugin?.import
@@ -3411,7 +3415,7 @@ export async function applyStaticSiteOverlay(
     await loadTemplate('static/prerender.mjs.tpl'),
   )
   const extraDecl = fwConfig.typeDeclarations ? '\n' + fwConfig.typeDeclarations : ''
-  await writeFile(
+  await writeGuarded(
     join(appPath, 'src', 'vite-env.d.ts'),
     await loadTemplate('static/vite-env.d.ts.tpl', { EXTRA_TYPE_DECLARATIONS: extraDecl }),
   )
@@ -3891,13 +3895,18 @@ export async function applyTemplatePostInjectOverrides(
         // The theme bond is the #1 mis-edit target for recoloring: in a template
         // app theme.css shadows it, so colors set here are dead. Stamp a redirect
         // header so the executor that opens it is sent to theme.css.
+        //
+        // Guarded either way: the destination PRE-EXISTS (the injector generated
+        // it moments ago, and a re-apply runs over an even older copy), so a
+        // write that fails mid-flight must restore those bytes, not truncate a
+        // bond file the app imports at boot.
         if (file === 'app-theme-css-variables.ts') {
-          await writeFile(
+          await writeGuarded(
             dest,
             withHeader(await readFile(src, 'utf-8'), THEME_BOND_REDIRECT_HEADER),
           )
         } else {
-          await copyFile(src, dest)
+          await writeGuarded(dest, await readFile(src))
         }
         totalCount++
       }
@@ -3975,7 +3984,12 @@ export async function wireTemplateApiRouters(apiPath: string): Promise<void> {
   if (!routerContent.endsWith('\n')) routerContent += '\n'
   routerContent += '\n' + mountLines.join('\n') + '\n'
 
-  await writeFile(apiRouterPath, routerContent)
+  // Guarded like every in-place rewrite in this module: the router PRE-EXISTS
+  // (this step only ever runs to modify it), and a write that fails mid-flight
+  // would otherwise leave a truncated `App/router.ts` — the file every route in
+  // the API resolves through, so the scaffold's failure also leaves a project
+  // that no longer compiles or boots.
+  await writeGuarded(apiRouterPath, routerContent)
   mlclDebug(
     `[scaffold] Wired template handlers/routes into App/router.ts (${mountLines.length} mounts)`,
   )
@@ -4009,7 +4023,11 @@ export async function ensureBaseHandlersIndex(apiPath: string): Promise<void> {
   const handlersIndex = join(handlersDir, 'index.ts')
   if (!existsSync(handlersIndex)) {
     await mkdir(handlersDir, { recursive: true })
-    await writeFile(
+    // Guarded: on a failed write the half-written aggregator is removed — it is
+    // a NEW file here, but a partial one is a syntax error in the project's
+    // test/lint surface, and the guard's rm-on-created-file failure path is
+    // exactly for that.
+    await writeGuarded(
       handlersIndex,
       `import { Router } from 'express'\n\n` +
         `/**\n` +
@@ -4055,7 +4073,9 @@ export async function ensureBaseHandlersIndex(apiPath: string): Promise<void> {
   if (!routerContent.endsWith('\n')) routerContent += '\n'
   routerContent += `\nrouter.use(handlers)\n`
 
-  await writeFile(apiRouterPath, routerContent)
+  // Guarded, same policy as wireTemplateApiRouters above: the router pre-exists,
+  // and a failed write must not leave a truncated route table behind.
+  await writeGuarded(apiRouterPath, routerContent)
   mlclDebug(`[scaffold] Wired base handlers/index.ts into App/router.ts`)
 }
 

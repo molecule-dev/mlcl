@@ -57,7 +57,10 @@ vi.mock('node:fs/promises', async (importOriginal) => {
 
 import {
   addPackages,
+  applyStaticSiteOverlay,
+  applyTemplatePostInjectOverrides,
   copyTemplateDomainFiles,
+  ensureBaseHandlersIndex,
   ensureE2EManifest,
   ensureMoleculePeerClosure,
   injectPreviewInteractBridge,
@@ -66,6 +69,7 @@ import {
   injectPreviewSnapshotBridge,
   stampDemoContentNotices,
   stampMoleculeMetadata,
+  wireTemplateApiRouters,
 } from '../scaffold.js'
 
 /** An entry document with a `</body>` for a bridge to anchor against. */
@@ -283,5 +287,107 @@ describe('scaffold in-place rewrites — a failed write restores the file', () =
     // The positive twin: the template's palette header does land.
     await copyTemplateDomainFiles('probe', 'react', appDir, null, cliRoot)
     expect(readFileSync(join(appDir, 'src', 'theme.css'), 'utf-8')).toContain('APP COLOR PALETTE')
+  })
+
+  // The create flow's API-side rewrites of the ROUTER — the file every route in
+  // the scaffolded API resolves through — were the last in-place rewrites still
+  // going through a bare `writeFile`.
+  const ROUTER_BEFORE = `import { Router } from 'express'\n\nexport const router = Router()\n`
+
+  it('wireTemplateApiRouters: a failed router write leaves the copied router intact', async () => {
+    const apiDir = join(dir, 'template-api')
+    mkdirSync(join(apiDir, 'src', 'App'), { recursive: true })
+    mkdirSync(join(apiDir, 'src', 'handlers'), { recursive: true })
+    const routerPath = join(apiDir, 'src', 'App', 'router.ts')
+    writeFileSync(routerPath, ROUTER_BEFORE)
+    writeFileSync(
+      join(apiDir, 'src', 'handlers', 'index.ts'),
+      `import { Router } from 'express'\n\nconst router = Router()\n\nexport default router\n`,
+    )
+
+    shortWrite.path = routerPath
+    await expect(wireTemplateApiRouters(apiDir)).rejects.toThrow(/ENOSPC/)
+    expect(readFileSync(routerPath, 'utf-8')).toBe(ROUTER_BEFORE)
+
+    // The positive twin: the handlers mount this step exists to add does land.
+    await wireTemplateApiRouters(apiDir)
+    const wired = readFileSync(routerPath, 'utf-8')
+    expect(wired).toContain(`from '../handlers/index.js'`)
+    expect(wired).toContain('router.use(templateHandlers)')
+  })
+
+  it('ensureBaseHandlersIndex: a failed router write leaves the router intact, and the aggregator lands', async () => {
+    const apiDir = join(dir, 'custom-api')
+    mkdirSync(join(apiDir, 'src', 'App'), { recursive: true })
+    const routerPath = join(apiDir, 'src', 'App', 'router.ts')
+    writeFileSync(routerPath, ROUTER_BEFORE)
+
+    shortWrite.path = routerPath
+    await expect(ensureBaseHandlersIndex(apiDir)).rejects.toThrow(/ENOSPC/)
+    expect(readFileSync(routerPath, 'utf-8')).toBe(ROUTER_BEFORE)
+
+    // The positive twin: the aggregator file and its mount both land.
+    await ensureBaseHandlersIndex(apiDir)
+    const wired = readFileSync(routerPath, 'utf-8')
+    expect(wired).toContain(`from '../handlers/index.js'`)
+    expect(wired).toContain('router.use(handlers)')
+    expect(readFileSync(join(apiDir, 'src', 'handlers', 'index.ts'), 'utf-8')).toContain(
+      'export default router',
+    )
+  })
+
+  it('applyTemplatePostInjectOverrides: a failed bond-override write leaves the generated bond intact', async () => {
+    const cliRoot = join(dir, 'override-cli')
+    const templateBonds = join(cliRoot, 'templates', 'apps', 'probe', 'app', 'src', 'bonds')
+    mkdirSync(templateBonds, { recursive: true })
+    writeFileSync(join(templateBonds, 'app-theme-css-variables.ts'), 'export const classMap = {}\n')
+    const appDir = join(dir, 'override-app')
+    mkdirSync(join(appDir, 'src', 'bonds'), { recursive: true })
+    const destPath = join(appDir, 'src', 'bonds', 'app-theme-css-variables.ts')
+    // What the injector generated a moment earlier — the file this step overwrites.
+    const generated = 'export const classMap = { from: "injector" }\n'
+    writeFileSync(destPath, generated)
+
+    shortWrite.path = destPath
+    await expect(applyTemplatePostInjectOverrides('probe', appDir, cliRoot)).rejects.toThrow(
+      /ENOSPC/,
+    )
+    expect(readFileSync(destPath, 'utf-8')).toBe(generated)
+
+    // The positive twin: the template's redirect header + override land.
+    await applyTemplatePostInjectOverrides('probe', appDir, cliRoot)
+    const stamped = readFileSync(destPath, 'utf-8')
+    expect(stamped).toContain('COLORS ARE NOT DEFINED HERE')
+    expect(stamped).toContain('export const classMap = {}')
+  })
+
+  it('applyStaticSiteOverlay: a failed vite.config.ts rewrite leaves the base config intact', async () => {
+    const appDir = join(dir, 'static-app')
+    mkdirSync(join(appDir, 'src'), { recursive: true })
+    writeFileSync(
+      join(appDir, 'package.json'),
+      `${JSON.stringify(
+        {
+          name: 'static-app',
+          scripts: { dev: 'vite' },
+          molecule: { projectType: 'app', framework: 'react' },
+        },
+        null,
+        2,
+      )}\n`,
+    )
+    const viteConfigPath = join(appDir, 'vite.config.ts')
+    // What createAppProject wrote earlier in the same create — the build's entry config.
+    const baseConfig = `import { defineConfig } from 'vite'\n\nexport default defineConfig({})\n`
+    writeFileSync(viteConfigPath, baseConfig)
+    writeFileSync(join(appDir, 'src', 'vite-env.d.ts'), '/// <reference types="vite/client" />\n')
+
+    shortWrite.path = viteConfigPath
+    await expect(applyStaticSiteOverlay(appDir, 'static-app')).rejects.toThrow(/ENOSPC/)
+    expect(readFileSync(viteConfigPath, 'utf-8')).toBe(baseConfig)
+
+    // The positive twin: the static config this overlay exists to write lands.
+    await applyStaticSiteOverlay(appDir, 'static-app')
+    expect(readFileSync(viteConfigPath, 'utf-8')).toContain('staticSitePlugin')
   })
 })
