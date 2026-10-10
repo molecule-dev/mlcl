@@ -15,6 +15,7 @@ import {
   synthesizeAppProjectFiles,
   synthesizeProjectFiles,
 } from '../injector.js'
+import { BROWSER_PROFILE_GATE } from '../migrate-runner.js'
 import { getMoleculeVersion, loadMoleculeVersions, loadRegistry } from '../registry.js'
 import { createTestProject } from './create-test-project.js'
 
@@ -631,8 +632,16 @@ describe('synthesizeProjectFiles', () => {
       // The dual runner: the manifest's Postgres machinery is kept…
       expect(migrate!.content).toContain("import pg from 'pg'")
       expect(migrate!.content).toContain('CREATE DATABASE')
-      // …and the injected PGlite's browser branch is reachable, not dead-gated.
-      expect(migrate!.content).toContain('true && process.env.MOL_BOND_PROFILE')
+      // …and the injected PGlite's browser branch is reachable, not dead-gated:
+      // the whole right-hand side is the profile comparison (the SAME literal
+      // the renderer exports, so this cannot drift from what it writes).
+      expect(migrate!.content).toContain(`const BROWSER_PROFILE = ${BROWSER_PROFILE_GATE}`)
+      expect(migrate!.content).not.toContain('const BROWSER_PROFILE = false')
+      // A literal glued to the gate with `&&` is a no-constant-binary-expression
+      // error under the eslint config every scaffolded project ships, so the
+      // emitted runner would fail its own `npm run lint`.
+      expect(migrate!.content).not.toContain('const BROWSER_PROFILE = true &&')
+      expect(migrate!.content).not.toContain('const BROWSER_PROFILE = false &&')
     } finally {
       await rm(postgresProject, { recursive: true, force: true })
     }
