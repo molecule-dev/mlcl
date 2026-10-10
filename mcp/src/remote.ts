@@ -111,18 +111,51 @@ export async function fetchPackageReadme(
 }
 
 /**
+ * A predicate a fetched payload must satisfy before it is handed to the caller
+ * as the shape that caller declared, or cached as one.
+ */
+export type PayloadCheck = (data: unknown) => boolean
+
+/** Whether `value` is a plain object — the shape of a registry/templates section. */
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+/** Whether a payload is the package registry: an object carrying a `packages` object. */
+export function isRegistryPayload(data: unknown): boolean {
+  return isRecord(data) && isRecord(data.packages)
+}
+
+/** Whether a payload is the templates index: an object carrying a `templates` object. */
+export function isTemplatesPayload(data: unknown): boolean {
+  return isRecord(data) && isRecord(data.templates)
+}
+
+/**
  * Fetch (and cache) the registry/templates JSON, or read it from a local file.
  *
  * The network branch is bounded by {@link FETCH_TIMEOUT_MS}; `timeoutMs`
  * shortens that bound — the timeout regression test drives a never-responding
  * local server through it, which the 15 s default would make a 5-minute test.
- * A failed (timed-out, rejected, or non-2xx) fetch throws without touching the
- * cache, so the next call retries the network.
+ * A failed (timed-out, rejected, non-2xx, or unrecognized) fetch throws without
+ * touching the cache, so the next call retries the network.
+ *
+ * `check` is what makes "recognized" mean anything. A 2xx (like a readable
+ * local file) proves only that bytes ARRIVED: `{"version":1}`, a proxy's
+ * 200 error page, a shrunken rewrite of the registry — each deserializes as
+ * happily as the real document and was then handed out as the caller's
+ * declared type and cached. The first reader of the missing section threw a
+ * bare `TypeError` from inside a tool handler (`search_packages` died on
+ * `Object.entries(undefined)`, reporting "Cannot convert undefined or null to
+ * object" to the client), and every call for the next 10 minutes was served
+ * the same non-payload. A payload that fails `check` is reported as the
+ * failure it is and caches nothing, exactly like a non-2xx answer.
  */
 export async function fetchJson<T>(
   url: string,
   file?: string,
   timeoutMs: number = FETCH_TIMEOUT_MS,
+  check?: PayloadCheck,
 ): Promise<T> {
   const key = file ?? url
   const hit = cache.get(key)
@@ -142,6 +175,12 @@ export async function fetchJson<T>(
       throw new Error(`GET ${url} failed: HTTP ${response.status}`)
     }
     data = (await response.json()) as T
+  }
+  // The same refusal one step later, for an answer that arrived but is not the
+  // document that was asked for — see the `check` note above. Nothing is cached,
+  // so the next call retries instead of serving the non-payload for 10 minutes.
+  if (check && !check(data)) {
+    throw new Error(`${key} did not return the expected payload`)
   }
   cache.set(key, { at: Date.now(), data })
   return data
@@ -186,9 +225,15 @@ export function buildRemoteServer(): McpServer {
       },
     },
     tracked('search_packages', async ({ query, limit }) => {
+      // `isRegistryPayload` is the gate the type below cannot provide on its
+      // own: without it a body carrying no `packages` map reached
+      // `Object.entries(undefined)` and the client was told "Cannot convert
+      // undefined or null to object" instead of what went wrong upstream.
       const registry = await fetchJson<{ packages: Record<string, RegistryEntry> }>(
         REGISTRY_URL,
         REGISTRY_FILE,
+        FETCH_TIMEOUT_MS,
+        isRegistryPayload,
       )
       const packages = registry.packages
       const hits = Object.entries(packages)
@@ -219,13 +264,17 @@ export function buildRemoteServer(): McpServer {
       inputSchema: {},
     },
     tracked('list_templates', async () => {
+      // Same gate as `search_packages`, and for the same reason: `t.templates
+      // ?? {}` used to answer an unrecognized payload with an EMPTY gallery —
+      // a wrong answer ("there are no templates") instead of the upstream
+      // failure, and one cached for 10 minutes.
       const t = await fetchJson<{
         templates: Record<
           string,
           { label?: string; description?: string; type?: string; packages?: string[] }
         >
-      }>(TEMPLATES_URL, TEMPLATES_FILE)
-      const list = Object.entries(t.templates ?? {})
+      }>(TEMPLATES_URL, TEMPLATES_FILE, FETCH_TIMEOUT_MS, isTemplatesPayload)
+      const list = Object.entries(t.templates)
         .sort(([a], [b]) => a.localeCompare(b))
         .map(([slug, e]) => ({
           slug,
