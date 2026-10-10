@@ -34,7 +34,17 @@ export function ProfilePhotoPage() {
       // `avatar` is a same-origin serve URL (/api/upload/avatar/<id>) — the browser sends
       // the session cookie with the <img> request, so the authenticated stream loads. It
       // changes on every upload (new file id), so no cache-busting is needed.
-      const data = (await res.json()) as { avatar: string }
+      //
+      // A 2xx proves the route ANSWERED, not that the body carries a URL: an
+      // endpoint with no fixture answers 200 with an empty object (the mock API
+      // server's unmatchedFixtureResponse). Installing that as the avatar left
+      // the page with no image AND no error — the upload looked like it had
+      // silently done nothing. Require the URL, and report it like any other
+      // upload failure.
+      const data = (await res.json().catch(() => ({}))) as { avatar?: unknown }
+      if (typeof data.avatar !== 'string' || data.avatar.length === 0) {
+        throw new Error(t('profilePhoto.error.generic', {}, { defaultValue: 'Upload failed' }))
+      }
       setUrl(data.avatar)
     } catch (err: unknown) {
       setError(

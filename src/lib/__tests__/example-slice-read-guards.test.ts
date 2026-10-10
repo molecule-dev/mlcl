@@ -40,7 +40,9 @@
  *   object was installed as the enrollment / the preview, and the next render
  *   ran `enrollment.recoveryCodes.map(...)` / iterated `preview.invalid` — a
  *   white screen where a retryable error belongs. `res.ok` is a statement about
- *   the status, never about the shape.
+ *   the status, never about the shape. `profile-photo-upload` read no `avatar`
+ *   out of the same empty body and reported nothing: the upload rendered no
+ *   image and no error, so it looked like it had silently done nothing.
  *
  * Everything is the shipped component: only the UI primitives, the ClassMap and
  * the network are stubbed, and responses are resolved by hand and out of order.
@@ -155,6 +157,22 @@ vi.mock('@molecule/app-feature-thread-tree-react', () => ({
     ),
 }))
 
+// The dropzone is not what is under test — one button hands the page a File
+// through the real `onFiles` prop.
+vi.mock('@molecule/app-file-dropzone-react', () => ({
+  FileDropzone: (props: { onFiles: (files: File[]) => void; disabled?: boolean }) =>
+    createElement(
+      'button',
+      {
+        type: 'button',
+        'aria-label': 'drop-files',
+        disabled: props.disabled,
+        onClick: () => props.onFiles([new File(['x'], 'avatar.png', { type: 'image/png' })]),
+      },
+      'drop',
+    ),
+}))
+
 // `unwrapList` normalizes the pagination envelope the handlers return.
 vi.mock('@molecule/app-http', () => ({
   unwrapList: (res: unknown) =>
@@ -260,6 +278,10 @@ const { EnableTwoFactorPage } =
 const { ImportPage } =
   (await import('../../../templates/.agents/skills/examples/data-display/csv-import/app/pages/ImportPage')) as {
     ImportPage: (props: object) => ReactNode
+  }
+const { ProfilePhotoPage } =
+  (await import('../../../templates/.agents/skills/examples/uploads/profile-photo-upload/app/pages/ProfilePhotoPage')) as {
+    ProfilePhotoPage: (props: object) => ReactNode
   }
 
 ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
@@ -687,6 +709,26 @@ describe('example slices — a 2xx body is validated before it becomes state', (
     await respond('/api/import/commit', 200, {})
     expect(text()).toContain('Import failed')
     expect(text()).not.toContain('undefined')
+  })
+
+  it('reports an avatar upload whose 200 carries no URL instead of succeeding silently', async () => {
+    await mount(createElement(ProfilePhotoPage, {}))
+    await clickByLabel('drop-files')
+
+    // The empty 200 was installed as the avatar: no <img> rendered AND no
+    // error was set, so the user's upload had visibly done nothing at all.
+    await respond('/api/upload/avatar', 200, {})
+    expect(text()).toContain('Upload failed')
+    expect(container.querySelector('img')).toBeNull()
+  })
+
+  it('renders the avatar a real upload carries (the positive twin)', async () => {
+    await mount(createElement(ProfilePhotoPage, {}))
+    await clickByLabel('drop-files')
+
+    await respond('/api/upload/avatar', 200, { avatar: '/api/upload/avatar/abc' })
+    expect(container.querySelector('img')?.getAttribute('src')).toBe('/api/upload/avatar/abc')
+    expect(text()).not.toContain('Upload failed')
   })
 })
 
