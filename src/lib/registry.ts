@@ -6,7 +6,7 @@
  * @module
  */
 
-import { existsSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import { readFileSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -228,14 +228,90 @@ export function requirePackageByRole(
 // Registry Mutation (used by mlcl init, sync-registry, etc.)
 // ============================================================================
 
-function readRegistry(): Registry {
-  if (existsSync(registryFilePath())) {
-    return RegistrySchema.parse(JSON.parse(readFileSync(registryFilePath(), 'utf-8')))
-  }
-  return { version: 1, packages: {} }
+/**
+ * The file state a read-modify-write cycle saw when it READ the registry, and
+ * the state the publish step therefore expects the file to still have. Keyed on
+ * `mtimeNs` (nanosecond — `mtimeMs` rounds to a millisecond, which two writes
+ * inside the same millisecond share) plus size, both read through the bigint
+ * stat variant so the nanosecond field is typed.
+ */
+interface RegistryStamp {
+  mtimeNs: bigint
+  size: bigint
 }
 
-function writeRegistry(registry: Registry): void {
+/** The registry file's current {@link RegistryStamp}, or null when it does not exist. */
+function registryStamp(path: string): RegistryStamp | null {
+  try {
+    const stat = statSync(path, { bigint: true })
+    return { mtimeNs: stat.mtimeNs, size: stat.size }
+  } catch (_error) {
+    // No registry file at this path.
+    return null
+  }
+}
+
+/**
+ * Read the registry for a read-modify-write cycle, together with the
+ * {@link RegistryStamp} the publish step will compare against.
+ *
+ * The stamp is taken BEFORE the read: a write that lands between the two is
+ * exactly the concurrent update the stamp comparison must catch (the read then
+ * returns bytes the stamp does not describe, so publishing is refused and the
+ * caller re-reads).
+ */
+function readRegistryWithStamp(): { registry: Registry; stamp: RegistryStamp | null } {
+  const path = registryFilePath()
+  const stamp = registryStamp(path)
+  if (stamp === null) {
+    return { registry: { version: 1, packages: {} }, stamp: null }
+  }
+  return { registry: RegistrySchema.parse(JSON.parse(readFileSync(path, 'utf-8'))), stamp }
+}
+
+/** Raised when the registry file changed between this caller's read and its publish. */
+class RegistryConcurrentUpdateError extends Error {}
+
+/** Read-modify-write attempts before a persistently contested registry fails loudly. */
+const REGISTRY_WRITE_ATTEMPTS = 5
+
+/**
+ * Apply a mutation to the registry with optimistic concurrency control.
+ *
+ * The naive cycle — read, mutate in memory, write — silently DROPS a concurrent
+ * writer's entry: two parallel `mlcl init` runs both read the same file, both
+ * add their package and publish, and the second rename replaces the first
+ * writer's entry with a file that never saw it. Every later
+ * `requirePackageByRole` for the dropped package then fails with "missing
+ * role". The publish step therefore re-checks the file's stamp immediately
+ * before the rename and refuses when another writer landed first; this loop
+ * answers that refusal by re-reading (picking up the other writer's entry) and
+ * re-applying, up to {@link REGISTRY_WRITE_ATTEMPTS} times — a persistently
+ * contested registry (a runaway writer) fails loudly instead of clobbering.
+ *
+ * @param apply - The mutation, applied to a freshly-read registry per attempt.
+ */
+function mutateRegistry(apply: (registry: Registry) => void): void {
+  let lastConflict: RegistryConcurrentUpdateError | null = null
+  for (let attempt = 0; attempt < REGISTRY_WRITE_ATTEMPTS; attempt++) {
+    const { registry, stamp } = readRegistryWithStamp()
+    apply(registry)
+    try {
+      writeRegistry(stamp, registry)
+      return
+    } catch (error) {
+      if (!(error instanceof RegistryConcurrentUpdateError)) throw error
+      lastConflict = error
+    }
+  }
+  throw new Error(
+    `${registryFilePath()} kept changing while the update was being applied ` +
+      `(${REGISTRY_WRITE_ATTEMPTS} attempts, last conflict: ${String(lastConflict)}) — ` +
+      `another mlcl process is writing it; re-run the command`,
+  )
+}
+
+function writeRegistry(stamp: RegistryStamp | null, registry: Registry): void {
   // Sort packages alphabetically for deterministic output
   const sorted: Registry = {
     version: registry.version,
@@ -257,10 +333,25 @@ function writeRegistry(registry: Registry): void {
   // rename is atomic on the same filesystem, so a failure before it leaves
   // the original bytes untouched. The pid in the temp name keeps parallel
   // mlcl processes from renaming each other's half-written file.
+  //
+  // The stamp check immediately before the rename is the optimistic-concurrency
+  // gate {@link mutateRegistry} retries on: the file must still be in the state
+  // the caller read it in, or the rename would silently REPLACE another
+  // process's just-published entry with a file that never saw it.
   const target = registryFilePath()
   const temp = `${target}.${process.pid}.tmp`
   try {
     writeFileSync(temp, JSON.stringify(sorted, null, 2) + '\n', 'utf-8')
+    const current = registryStamp(target)
+    const changed =
+      current === null
+        ? stamp !== null
+        : stamp === null || current.mtimeNs !== stamp.mtimeNs || current.size !== stamp.size
+    if (changed) {
+      throw new RegistryConcurrentUpdateError(
+        `${target} changed after it was read (${String(stamp)} → ${String(current)})`,
+      )
+    }
     renameSync(temp, target)
   } catch (error) {
     // The temp file may exist partially written (or not at all) — remove it so
@@ -279,20 +370,25 @@ function writeRegistry(registry: Registry): void {
 
 /**
  * Add or update a package entry in the registry.
+ *
+ * Runs through {@link mutateRegistry}: a concurrent writer's entry is picked up
+ * by the re-read instead of being dropped by this publish.
  */
 export function updateRegistryEntry(packageName: string, entry: RegistryEntry): void {
-  const registry = readRegistry()
-  registry.packages[packageName] = entry
-  writeRegistry(registry)
+  mutateRegistry((registry) => {
+    registry.packages[packageName] = entry
+  })
 }
 
 /**
  * Remove a package entry from the registry.
+ *
+ * Runs through {@link mutateRegistry} (see {@link updateRegistryEntry}).
  */
 export function removeRegistryEntry(packageName: string): void {
-  const registry = readRegistry()
-  delete registry.packages[packageName]
-  writeRegistry(registry)
+  mutateRegistry((registry) => {
+    delete registry.packages[packageName]
+  })
 }
 
 /**
