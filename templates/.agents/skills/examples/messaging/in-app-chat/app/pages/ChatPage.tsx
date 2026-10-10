@@ -173,10 +173,23 @@ export function ChatPage({ channelId }: { channelId: string }) {
     fetch(`/api/messages?channel_id=${channelId}`)
       .then((r) => r.json())
       .then((body) => {
+        if (cancelled) return
+        const history: ApiMessage[] = Array.isArray(body) ? body : []
         // The window bound applies to the history load too: the endpoint's page
         // size is the server's, and a room must not render an unbounded first
         // page either (see MAX_RENDERED_MESSAGES).
-        if (!cancelled) setMessages(newestWindow(Array.isArray(body) ? body : []))
+        //
+        // MERGE rather than replace: a `message:created` frame can land while
+        // this request is still in flight (the subscription is opened right
+        // after it, and the response is a snapshot of the room taken BEFORE
+        // that message existed), and `setMessages(history)` dropped it — the
+        // reader watched their message appear and then vanish until a reload.
+        // The live arrivals sitting in `prev` are the ones the history page
+        // does not have; a message both know about is kept once.
+        setMessages((prev) => {
+          const inHistory = new Set(history.map((m) => m.id))
+          return newestWindow([...history, ...prev.filter((m) => !inHistory.has(m.id))])
+        })
       })
       .catch(() => {
         // A failed history load shows an empty room; SSE still delivers live messages.

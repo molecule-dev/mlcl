@@ -300,3 +300,57 @@ describe('chat: a bubble is self-aligned by the SESSION user, not a placeholder'
     expect(text()).toContain('other:mine')
   })
 })
+
+describe('chat: a live frame that beats the history response is kept', () => {
+  it('merges the history page with the messages the live feed already delivered', async () => {
+    await mount(createElement(ChatPage, { channelId: 'c1' }))
+    expect(roomOf(0)).toBe('channel:c1')
+
+    // The reader's room opens: the history request is in flight…
+    const history = httpRequests.find((r) => r.url.includes('/api/messages?channel_id=c1'))
+    if (!history) throw new Error('the chat page never requested its history')
+
+    // …while a peer's message arrives over the live feed.
+    await frame(
+      0,
+      'message:created',
+      JSON.stringify({ id: 'live-1', user_id: 'u2', content: 'sent while loading' }),
+    )
+    expect(text()).toContain('sent while loading')
+
+    // The history response is a snapshot taken BEFORE that message existed.
+    // Replacing the list with it dropped the live message — the reader watched
+    // their message appear and then vanish until a reload.
+    history.respond([
+      { id: 'old-1', user_id: 'u1', content: 'older history', created_at: '2026-01-01T00:00:00Z' },
+    ])
+    await flush()
+
+    expect(text()).toContain('older history')
+    expect(text()).toContain('sent while loading')
+  })
+
+  it('keeps one copy when the history page already contains the live message', async () => {
+    await mount(createElement(ChatPage, { channelId: 'c1' }))
+    const history = httpRequests.find((r) => r.url.includes('/api/messages?channel_id=c1'))
+    if (!history) throw new Error('the chat page never requested its history')
+
+    await frame(
+      0,
+      'message:created',
+      JSON.stringify({ id: 'dup-1', user_id: 'u2', content: 'only once please' }),
+    )
+    history.respond([
+      {
+        id: 'dup-1',
+        user_id: 'u2',
+        content: 'only once please',
+        created_at: '2026-01-01T00:00:00Z',
+      },
+    ])
+    await flush()
+
+    // Rendered once, not twice (the frame and the page describe the same row).
+    expect(text().match(/only once please/g)?.length).toBe(1)
+  })
+})
