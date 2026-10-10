@@ -436,35 +436,35 @@
     "votes_over_time": [
       {
         "label": "W1",
-        "count": 4
+        "count": 3
       },
       {
         "label": "W2",
-        "count": 11
+        "count": 9
       },
       {
         "label": "W3",
-        "count": 7
+        "count": 5
       },
       {
         "label": "W4",
-        "count": 14
+        "count": 11
       },
       {
         "label": "W5",
-        "count": 10
+        "count": 8
       },
       {
         "label": "W6",
-        "count": 6
+        "count": 5
       },
       {
         "label": "W7",
-        "count": 13
+        "count": 10
       },
       {
         "label": "W8",
-        "count": 9
+        "count": 7
       }
     ],
     "recent_shipped": [
