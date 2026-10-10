@@ -30,8 +30,20 @@ export function DeleteAccountPage() {
     // sit there disabled with no email and no reason given.
     fetch('/api/me')
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
-      .then((p: { email?: string }) => {
-        if (!cancelled) setEmail(p.email ?? null)
+      .then((body: unknown) => {
+        if (cancelled) return
+        // `res.ok` alone is not enough: a 2xx proves the route ANSWERED, not
+        // that the body carries this user's email. An answer without one (an
+        // endpoint with no fixture returns 200 `{}`, a proxy rewrite, a
+        // mismatched route) left `email = null` with `loadFailed` still false —
+        // the form sat there disabled with no email and no reason given, the
+        // exact state the `res.ok` gate above exists to prevent.
+        const p = (body ?? {}) as { email?: unknown }
+        if (typeof p.email !== 'string' || p.email.length === 0) {
+          setLoadFailed(true)
+          return
+        }
+        setEmail(p.email)
       })
       .catch(() => {
         // A failed load (offline, signed out) must not leave the form

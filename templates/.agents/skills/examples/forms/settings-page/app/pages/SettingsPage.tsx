@@ -37,10 +37,27 @@ export function SettingsPage() {
     // `.catch` below (the only place the failure is surfaced) never ran.
     fetch('/api/me')
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
-      .then((p: Profile) => {
+      .then((body: unknown) => {
         if (cancelled) return
-        setOriginal(p)
-        setDraft(p)
+        // The same rule the save below applies to its own 2xx: a 200 proves the
+        // route ANSWERED, not that the body is a profile. An endpoint with no
+        // fixture answers 200 with an empty object (the mock API server's
+        // unmatchedFixtureResponse, a rewritten answer), and installing that as
+        // the draft rendered the form blank with no error — and Save would then
+        // PATCH those blank values over the real profile. Without a usable body,
+        // surface the load failure instead.
+        const p = (body ?? {}) as Partial<Profile>
+        if (
+          typeof p.name !== 'string' ||
+          typeof p.email !== 'string' ||
+          typeof p.timezone !== 'string'
+        ) {
+          setLoadFailed(true)
+          setStatus('error')
+          return
+        }
+        setOriginal(p as Profile)
+        setDraft(p as Profile)
       })
       .catch(() => {
         // Without this the draft stays null and the page shows "Loading…"

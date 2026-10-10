@@ -624,6 +624,21 @@ describe('example slices — a request’s answer is validated before it is trus
     expect(text()).toContain('Could not load your account')
   })
 
+  it('explains a 2xx body that carries no email instead of leaving the form disabled', async () => {
+    // `res.ok` says the route ANSWERED, not that the body is this user's row. A
+    // 200 `{}` (an endpoint with no fixture, a proxy rewrite) set no email and
+    // no failure, so the form sat disabled with nothing to explain why — the
+    // state the `res.ok` guard exists to prevent.
+    await mount(createElement(DeleteAccountPage, {}))
+    await respond('/api/me', 200, {})
+
+    expect(text()).toContain('Could not load your account')
+    const button = container.querySelector(
+      '[data-mol-id="delete-account-submit"]',
+    ) as HTMLButtonElement
+    expect(button.disabled).toBe(true)
+  })
+
   it('a REJECTED delete frees the form — never a button disabled forever', async () => {
     // submit()'s finally promises the busy state clears on EVERY path; no
     // fetch double could reject, so deleting the catch and the finally kept
@@ -653,6 +668,18 @@ describe('example slices — a request’s answer is validated before it is trus
     // The 401 body is not a Profile: before the guard it BECAME the profile, the
     // form rendered with empty fields, and the failure was never surfaced.
     await respond('/api/me', 401, { error: 'Authentication required' })
+    expect(text()).toContain('Could not load your profile')
+    expect(container.querySelectorAll('input')).toHaveLength(0)
+  })
+
+  it('keeps the settings form from adopting a 2xx body that is not a profile', async () => {
+    // The save path validates its own 2xx for exactly this reason; the LOAD
+    // path installed whatever it got. A 200 `{}` became the draft, the form
+    // rendered with empty fields and no error, and Save would then have PATCHed
+    // those blank values over the real profile.
+    await mount(createElement(SettingsPage, {}))
+    await respond('/api/me', 200, {})
+
     expect(text()).toContain('Could not load your profile')
     expect(container.querySelectorAll('input')).toHaveLength(0)
   })
