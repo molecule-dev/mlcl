@@ -46,6 +46,51 @@ import { generateSecretValues } from './secret-generate.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
+/**
+ * Write `next` to `path`, restoring the file's previous bytes when the write
+ * fails part-way.
+ *
+ * `writeFile` opens with the `w` flag, which TRUNCATES before it writes, so a
+ * failure mid-write (a full disk, EIO) replaces a good file with a partial one.
+ * For the files this module rewrites inside a project that ALREADY exists — the
+ * app's `index.html`, `src/bonds/index.ts`, a workspace `package.json` — that is
+ * strictly worse than not writing at all: the entry HTML no longer parses,
+ * `index.ts` imports a module the same step just removed, the manifest is
+ * unparseable for every later step. Same policy as
+ * `writeMigrateRunnerGuarded` (migrate-runner.ts): a failed write leaves the
+ * file as it was, never worse — previous bytes restored when there were any, a
+ * partial file this call created removed when there were not.
+ *
+ * An unreadable PRE-EXISTING file (EACCES) is NOT treated as "created by this
+ * call": recording it as absent would make the failure path `rm` a file that
+ * predates the write. That read failure is rethrown instead (the write behind it
+ * cannot succeed either), leaving the file exactly as it was.
+ *
+ * @param path - The file to write.
+ * @param next - The full content to write.
+ */
+async function writeGuarded(path: string, next: string): Promise<void> {
+  let prior: Buffer | null
+  try {
+    prior = await readFile(path)
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error
+    prior = null
+  }
+  try {
+    await writeFile(path, next, 'utf-8')
+  } catch (error) {
+    try {
+      if (prior === null) await rm(path, { force: true })
+      else await writeFile(path, prior)
+    } catch (_restoreError) {
+      // Best-effort restore: the primary failure is rethrown below, and the
+      // original bytes are already on disk unless the restore itself failed.
+    }
+    throw error
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Self-documenting headers for theme files
 //
@@ -1693,32 +1738,50 @@ export async function injectActivityCaptureBoot(apiPath: string): Promise<boolea
   //    below) never ran, so the scaffold failed tsc with TS2307 on a project
   //    that has no producer at all. And if the index write itself fails, remove
   //    the module again — nothing may be left importing undeclared packages.
+  //
+  //    Both writes below plus the manifest declaration are ONE transaction: the
+  //    step is only safe if the index, the module and the manifest agree.
+  //    - A failed index write restored the index's old bytes (writeGuarded), so
+  //      the module it would have imported is removed again.
+  //    - A failed MANIFEST write (step 3 — a full disk, an unparseable manifest)
+  //      used to leave the wiring in place with the module's
+  //      `@molecule/api-activity*` imports undeclared: exactly the TS2307 the
+  //      step exists to prevent. The index is put back to its pre-injection
+  //      bytes and the module removed, so a failed run leaves the project as it
+  //      was instead of half-wired.
   const modulePath = join(bondsDir, '_activity-capture.ts')
+  const priorIndex = await readFile(indexPath)
   await writeFile(modulePath, ACTIVITY_CAPTURE_BOOT_MODULE)
   try {
-    await writeFile(indexPath, src)
+    await writeGuarded(indexPath, src)
+    // 3. DECLARE what the module imports. `_activity-capture.ts` imports
+    //    `@molecule/api-activity` and `@molecule/api-activity-http`; writing the
+    //    file without adding them produced a scaffold that builds INSIDE the
+    //    molecule workspace (where every @molecule/* resolves through workspace
+    //    symlinks) and fails everywhere else with:
+    //
+    //      error TS2307: Cannot find module '@molecule/api-activity'
+    //
+    //    The imports are dynamic and env-guarded, so nothing fails at RUNTIME
+    //    outside the IDE — but `tsc` needs the types at build time regardless, so
+    //    `mlcl create && npm install && npm run build` was broken for every user.
+    //    Caught by scaffolding a flagship outside the workspace (2026-08-05).
+    await addActivityCaptureDependencies(apiPath)
   } catch (error) {
     try {
       await rm(modulePath, { force: true })
     } catch (_rmError) {
       // Best-effort cleanup; the primary failure is rethrown below.
     }
+    try {
+      await writeFile(indexPath, priorIndex)
+    } catch (_restoreError) {
+      // Best-effort: writeGuarded has already put the index back for an index
+      // write failure, this covers the manifest-write failure after a
+      // successful index write.
+    }
     throw error
   }
-
-  // 3. DECLARE what the module imports. `_activity-capture.ts` imports
-  //    `@molecule/api-activity` and `@molecule/api-activity-http`; writing the
-  //    file without adding them produced a scaffold that builds INSIDE the
-  //    molecule workspace (where every @molecule/* resolves through workspace
-  //    symlinks) and fails everywhere else with:
-  //
-  //      error TS2307: Cannot find module '@molecule/api-activity'
-  //
-  //    The imports are dynamic and env-guarded, so nothing fails at RUNTIME
-  //    outside the IDE — but `tsc` needs the types at build time regardless, so
-  //    `mlcl create && npm install && npm run build` was broken for every user.
-  //    Caught by scaffolding a flagship outside the workspace (2026-08-05).
-  await addActivityCaptureDependencies(apiPath)
 
   return true
 }
@@ -1779,7 +1842,9 @@ async function addActivityCaptureDependencies(apiPath: string): Promise<boolean>
   pkg.dependencies = Object.fromEntries(
     Object.entries(pkg.dependencies).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)),
   )
-  await writeFile(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
+  // Guarded: a short write must not leave an unparseable package.json behind
+  // (every later scaffold step, and every later mlcl command, parses it).
+  await writeGuarded(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
   return true
 }
 
@@ -5069,7 +5134,7 @@ async function updateHtmlFontBlock(
     }
   }
 
-  await writeFile(htmlPath, htmlContent)
+  await writeGuarded(htmlPath, htmlContent)
 }
 
 /**

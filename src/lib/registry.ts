@@ -44,7 +44,17 @@ function registryFilePath(): string {
 // Primary: Centralized Registry
 // ============================================================================
 
-let _cache: InferredPackage[] | null = null
+/**
+ * The parsed registry, keyed by the path it was parsed FROM.
+ *
+ * The path is part of the key because {@link registryFilePath} is resolved per
+ * call — the module's own contract is that a `MLCL_REGISTRY_PATH` set after
+ * module load (the multi-registry workflow the override exists for, and every
+ * test that points a reader at an alternate file) is respected. A bare
+ * `InferredPackage[] | null` answered the SECOND path from the FIRST path's
+ * cache: the caller asked one file and silently got another registry.
+ */
+let _cache: { path: string; packages: InferredPackage[] } | null = null
 
 function resolveMoleculeDir(): string {
   if (process.env.MOLECULE_PACKAGES_DIR) {
@@ -82,12 +92,14 @@ function loadFromRegistry(): InferredPackage[] {
  * @param projectType - 'api' or 'app' (optional — returns all if omitted)
  */
 export function loadRegistry(projectType?: 'api' | 'app'): InferredPackage[] {
-  if (!_cache) {
-    _cache = loadFromRegistry()
+  const path = registryFilePath()
+  if (!_cache || _cache.path !== path) {
+    _cache = { path, packages: loadFromRegistry() }
   }
 
-  if (!projectType) return _cache
-  return _cache.filter((entry) => {
+  const packages = _cache.packages
+  if (!projectType) return packages
+  return packages.filter((entry) => {
     const stack = entry.molecule?.stack
     return stack === projectType
   })

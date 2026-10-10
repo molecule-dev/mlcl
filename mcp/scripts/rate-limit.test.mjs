@@ -46,29 +46,59 @@ async function waitHealthy(url, child) {
   throw new Error('server never became healthy')
 }
 
-test('off Fly, rotating fly-client-ip headers cannot mint fresh rate budgets', async () => {
+async function startServer(env, { captureOutput = false } = {}) {
   const port = await freePort()
   const base = `http://127.0.0.1:${port}`
+  const child = spawn(process.execPath, [SERVER_JS], {
+    env: { ...env, PORT: String(port) },
+    stdio: captureOutput ? ['ignore', 'pipe', 'pipe'] : 'ignore',
+  })
+  let output = ''
+  if (captureOutput) {
+    child.stdout?.on('data', (chunk) => {
+      output += chunk.toString()
+    })
+    child.stderr?.on('data', (chunk) => {
+      output += chunk.toString()
+    })
+  }
+  try {
+    await waitHealthy(base, child)
+  } catch (error) {
+    if (child.exitCode === null) child.kill('SIGTERM')
+    throw error
+  }
+  return { child, base, getOutput: () => output }
+}
+
+async function stopServer(child) {
+  if (child.exitCode === null) child.kill('SIGTERM')
+  await new Promise((resolve) => {
+    child.once('exit', resolve)
+    setTimeout(resolve, 2000).unref()
+  })
+}
+
+const INITIALIZE_BODY = JSON.stringify({
+  jsonrpc: '2.0',
+  id: 1,
+  method: 'initialize',
+  params: {
+    protocolVersion: '2025-03-26',
+    capabilities: {},
+    clientInfo: { name: 'rate-limit-test', version: '0.0.0' },
+  },
+})
+
+test('off Fly, rotating fly-client-ip headers cannot mint fresh rate budgets', async () => {
   // Unset every Fly marker: this is the local-dev / non-Fly-host posture in
   // which the header is client-controlled and must be ignored.
-  const env = { ...process.env, PORT: String(port), MCP_RATE_PER_MIN: '5' }
+  const env = { ...process.env, MCP_RATE_PER_MIN: '5' }
   delete env.FLY_MACHINE_ID
   delete env.FLY_APP_NAME
   delete env.MOLECULE_REGISTRY_FILE
-  const child = spawn(process.execPath, [SERVER_JS], { env, stdio: 'ignore' })
+  const { child, base } = await startServer(env)
   try {
-    await waitHealthy(base, child)
-
-    const initialize = JSON.stringify({
-      jsonrpc: '2.0',
-      id: 1,
-      method: 'initialize',
-      params: {
-        protocolVersion: '2025-03-26',
-        capabilities: {},
-        clientInfo: { name: 'rate-limit-test', version: '0.0.0' },
-      },
-    })
     const statuses = []
     for (let i = 0; i < 7; i++) {
       // A DIFFERENT spoofed address on every request: under the old
@@ -80,7 +110,7 @@ test('off Fly, rotating fly-client-ip headers cannot mint fresh rate budgets', a
           'content-type': 'application/json',
           'fly-client-ip': `10.99.${Math.floor(i / 250)}.${(i % 250) + 1}`,
         },
-        body: initialize,
+        body: INITIALIZE_BODY,
       })
       statuses.push(res.status)
       await res.arrayBuffer() // drain so the socket is reusable
@@ -95,10 +125,44 @@ test('off Fly, rotating fly-client-ip headers cannot mint fresh rate budgets', a
       `the first five requests must be within budget, got ${statuses.join(',')}`,
     )
   } finally {
-    if (child.exitCode === null) child.kill('SIGTERM')
-    await new Promise((resolve) => {
-      child.once('exit', resolve)
-      setTimeout(resolve, 2000).unref()
-    })
+    await stopServer(child)
+  }
+})
+
+test('a malformed MCP_RATE_PER_MIN falls back to the default instead of being mis-read', async () => {
+  // `parseInt` reads a typo'd Fly secret by PREFIX ("2x" → 2) and returns NaN
+  // for anything it cannot start with — and a NaN budget is not a small budget:
+  // `NaN < 1` is false, so the bucket never reports "out of budget" and the
+  // public endpoint is left with NO limit at all, while /health stays green and
+  // nothing is logged. A malformed value must use the default and say so.
+  const { child, base, getOutput } = await startServer(
+    { ...process.env, MCP_RATE_PER_MIN: '2x' },
+    { captureOutput: true },
+  )
+  try {
+    const statuses = []
+    for (let i = 0; i < 5; i++) {
+      const res = await fetch(`${base}/mcp`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: INITIALIZE_BODY,
+      })
+      statuses.push(res.status)
+      await res.arrayBuffer() // drain so the socket is reusable
+    }
+    // "2x" used to become a budget of 2 — three requests then 429. The default
+    // (120/min) is not reached by five requests.
+    assert.ok(
+      statuses.every((s) => s !== 429),
+      `a malformed budget must fall back to the default, got ${statuses.join(',')}`,
+    )
+
+    const deadline = Date.now() + 2000
+    while (!getOutput().includes('MCP_RATE_PER_MIN') && Date.now() < deadline) {
+      await new Promise((r) => setTimeout(r, 50))
+    }
+    assert.match(getOutput(), /MCP_RATE_PER_MIN/, 'the invalid value must be reported at startup')
+  } finally {
+    await stopServer(child)
   }
 })

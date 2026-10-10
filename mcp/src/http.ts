@@ -29,7 +29,28 @@ app.get('/health', (_req, res) => res.json({ ok: true, server: 'molecule-mcp-rem
 // distinct addresses (a botnet, or a header-rotating client on an unguarded
 // proxy) cannot grow the map without bound; the sweeper prunes idle buckets
 // every minute.
-const RATE_PER_MIN = parseInt(process.env.MCP_RATE_PER_MIN ?? '120', 10)
+//
+// The budget itself is validated before it is used. `parseInt` reads a typo'd
+// secret by prefix ("2x" → 2, "1e3" → 1, "12 0" → 12) and yields NaN for
+// anything it cannot start with ("one hundred", "unlimited", a stray quote) —
+// and a NaN budget is not a small budget: `NaN < 1` is false, so the bucket
+// never reports "out of budget" and EVERY request is allowed. A typo silently
+// either tightened the limit to a number nobody chose or removed it entirely,
+// with /health still green and nothing in the logs. Only a plain integer is
+// accepted; anything else uses the default, with one startup line naming the
+// variable.
+const rawRatePerMin = process.env.MCP_RATE_PER_MIN
+const trimmedRatePerMin = rawRatePerMin?.trim()
+const parsedRatePerMin =
+  trimmedRatePerMin !== undefined && /^\d+$/.test(trimmedRatePerMin)
+    ? Number(trimmedRatePerMin)
+    : Number.NaN
+const RATE_PER_MIN = parsedRatePerMin > 0 ? parsedRatePerMin : 120
+if (rawRatePerMin !== undefined && RATE_PER_MIN !== parsedRatePerMin) {
+  console.warn(
+    `[mcp] MCP_RATE_PER_MIN="${rawRatePerMin}" is not a positive integer — using ${RATE_PER_MIN}/min`,
+  )
+}
 const MAX_BUCKETS = 10_000
 const ON_FLY = process.env.FLY_MACHINE_ID !== undefined || process.env.FLY_APP_NAME !== undefined
 const buckets = new Map<string, { tokens: number; at: number }>()
