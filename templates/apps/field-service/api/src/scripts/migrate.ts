@@ -193,7 +193,14 @@ export async function runMigrations(): Promise<void> {
       dbName,
     ])
     if (rows.length === 0) {
-      await adminClient.query(`CREATE DATABASE "${dbName}"`)
+      // The name is DATA (it came out of DATABASE_URL's path), so it is quoted
+      // as a Postgres IDENTIFIER — and inside those quotes an embedded `"` must
+      // be DOUBLED, which is the only escaping a quoted identifier has.
+      // Unescaped, a name containing `"` ends the identifier early and
+      // everything after it is parsed as SQL; this connection runs statements
+      // as the app's own role and the simple query protocol accepts several per
+      // call, so the escaping is what keeps this ONE `CREATE DATABASE`.
+      await adminClient.query(`CREATE DATABASE "${dbName.replace(/"/g, '""')}"`)
       console.log(`✓ Created database '${dbName}'`)
     } else {
       console.log(`✓ Database '${dbName}' already exists`)

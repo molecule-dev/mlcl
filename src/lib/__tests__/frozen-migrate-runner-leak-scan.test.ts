@@ -311,3 +311,56 @@ describe('frozen migration runners — value-flow leak scan', () => {
     expect(leakingRunners(asRunner(redacted)).leaking).toEqual([])
   })
 })
+
+/**
+ * `dbName` comes out of DATABASE_URL's path (`new URL(DATABASE_URL).pathname`),
+ * i.e. it is DATA, and the runners interpolate it into `CREATE DATABASE` on the
+ * ADMIN connection. Between the surrounding double quotes an embedded `"` must
+ * be DOUBLED — that is the whole escaping a quoted Postgres identifier has. The
+ * shipped shape, `CREATE DATABASE "${dbName}"`, put the raw name between the
+ * quotes, so a URL whose database name contains `"` ended the identifier early
+ * and everything after it was parsed as SQL: pg's simple query protocol accepts
+ * several statements per call, so `postgres://…/app"; DROP TABLE users; --`
+ * issued a second statement, and the whole fleet ships this file (the frozen
+ * copies are what run if the silent scaffold refresh ever fails).
+ *
+ * The escape has to sit INSIDE the interpolation the statement uses — a name
+ * escaped into a variable and interpolated unescaped is the same hole — so the
+ * assertion is on the CREATE DATABASE expression itself, in every runner that
+ * carries one.
+ */
+describe('frozen migration runners — the CREATE DATABASE identifier is escaped', () => {
+  it('doubles an embedded quote inside the quoted database name', async () => {
+    const runners: Array<[string, string]> = [
+      [
+        'migrate.ts.tpl',
+        await readFile(
+          join(import.meta.dirname, '..', '..', '..', 'templates', 'api', 'migrate.ts.tpl'),
+          'utf-8',
+        ),
+      ],
+    ]
+    for (const app of (await readdir(TEMPLATES_DIR)).sort()) {
+      const path = join(TEMPLATES_DIR, app, 'api', 'src', 'scripts', 'migrate.ts')
+      try {
+        runners.push([app, await readFile(path, 'utf-8')])
+      } catch (_error) {
+        // No runner in this template — see the fleet scans above.
+      }
+    }
+
+    const creating = runners.filter(([, source]) => source.includes('CREATE DATABASE'))
+    // Non-vacuousness: the template and at least one frozen copy create the
+    // database, so the assertion below is not scanning an empty set.
+    expect(creating.length).toBeGreaterThanOrEqual(2)
+
+    for (const [name, source] of creating) {
+      // A BARE identifier between the identifier's quotes is the shipped hole
+      // (`CREATE DATABASE "${dbName}"`): the name reaches the SQL unescaped.
+      expect(source, name).not.toMatch(/CREATE DATABASE "\$\{\s*[A-Za-z_$][\w$]*\s*\}"/)
+      // …and the name is built by doubling any embedded quote, inside the
+      // quotes of the identifier the statement uses.
+      expect(source, name).toMatch(/CREATE DATABASE "\$\{[^}]*\.replace\(\/"\/g, '""'\)[^}]*\}"/)
+    }
+  })
+})
