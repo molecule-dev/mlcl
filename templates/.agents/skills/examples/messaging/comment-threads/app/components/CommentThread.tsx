@@ -94,18 +94,42 @@ export function CommentThread({
     // `GET /comments/:commentId/replies`). Without fetching them, the nesting
     // pass below had nothing to nest — the tree always rendered flat, and a
     // reply posted here vanished on the refetch that should have shown it.
-    const roots = unwrapList<CommentRow>(res)
-    const replyPages = await Promise.all(
-      roots.map(
-        (root) =>
-          http
-            .get(`/api/comments/${root.id}/replies`)
-            .then((r) => unwrapList<CommentRow>(r))
-            .catch(() => [] as CommentRow[]), // one dead replies page → a flat thread, not a failed load
-      ),
-    )
-    if (ticket !== loadSeq.current) return // superseded while the replies loaded
-    setComments(buildTree([...roots, ...replyPages.flat()]))
+    const rows: CommentRow[] = [...unwrapList<CommentRow>(res)]
+    // …and the replies are fetched per PARENT, so the walk has to continue into
+    // what it finds: `GET /comments/:id/replies` answers a node's DIRECT
+    // children only (the resource filters `parentId = :id`, one page), and the
+    // UI lets the reader reply to ANY row (`ThreadTree`'s onReply). A pass that
+    // asked only the roots never requested a reply's own replies, so a reply to
+    // a reply stayed missing from the tree until a reload — the same "it
+    // vanished on the refetch" symptom the roots' pages were added for.
+    //
+    // Breadth-first, one parallel round per LEVEL: the roots' children first
+    // (in root order, the request order this loader has always issued), then
+    // their children, until a level brings back nothing new. `seen` bounds the
+    // walk against a row whose parentId points back up the tree.
+    const seen = new Set(rows.map((row) => row.id))
+    let frontier = rows.map((row) => row.id)
+    while (frontier.length > 0) {
+      const children = (
+        await Promise.all(
+          frontier.map(
+            (parentId) =>
+              http
+                .get(`/api/comments/${parentId}/replies`)
+                .then((r) => unwrapList<CommentRow>(r))
+                .catch(() => [] as CommentRow[]), // one dead replies page → a flat thread, not a failed load
+          ),
+        )
+      )
+        .flat()
+        .filter((child) => !seen.has(child.id))
+      if (ticket !== loadSeq.current) return // superseded while the replies loaded
+      if (children.length === 0) break
+      for (const child of children) seen.add(child.id)
+      rows.push(...children)
+      frontier = children.map((child) => child.id)
+    }
+    setComments(buildTree(rows))
   }, [http, resourceType, resourceId])
 
   useEffect(() => {

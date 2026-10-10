@@ -256,6 +256,13 @@ describe('a failed load for a new resource must not leave the previous resource 
         data: [{ id: 'r1', userId: 'u2', parentId: 'c1', body: 'nested reply', createdAt: 'y' }],
       })
     })
+    // The walk continues into what it found: `r1` is itself a parent (the UI
+    // lets the reader reply to any row), so its own page is read before the
+    // tree renders. Answering it empty is what a childless reply returns.
+    expect(httpCalls[2]?.path).toBe('/api/comments/r1/replies')
+    await act(async () => {
+      httpCalls[2]?.resolve({ data: [] })
+    })
     await flush()
     expect(text()).toContain('from-post-1')
     // The reply NESTS under its root — the whole point of the slice; the
@@ -265,9 +272,10 @@ describe('a failed load for a new resource must not leave the previous resource 
     // Navigate post 1 → post 2 while the thread stays mounted, and let the new
     // load FAIL (offline, 500). Post 1's comments must not stand in for post 2's.
     await rerender(createElement(CommentThread, { resourceType: 'post', resourceId: 'p2' }))
-    expect(httpCalls[2]?.path).toBe('/api/post/p2/comments')
+    // Found by path, not by index: the reply walk above issued pages of its own.
+    const p2List = httpCalls.find((c) => c.path === '/api/post/p2/comments')
     await act(async () => {
-      httpCalls[2]?.reject(new Error('HTTP 500'))
+      p2List?.reject(new Error('HTTP 500'))
     })
     await flush()
     expect(text()).not.toContain('from-post-1')
@@ -318,6 +326,12 @@ describe('a failed load for a new resource must not leave the previous resource 
       httpCalls[3]?.resolve({
         data: [{ id: 'r9', userId: 'u1', parentId: 'c1', body: 'the reply', createdAt: 'y' }],
       })
+    })
+    // …and the reply's own page, since the walk continues into it (empty = no
+    // reply to the reply).
+    expect(httpCalls[4]?.path).toBe('/api/comments/r9/replies')
+    await act(async () => {
+      httpCalls[4]?.resolve({ data: [] })
     })
     await flush()
     expect(text()).toContain('the reply')
@@ -476,5 +490,47 @@ describe('a mount-time profile load must not re-run (nor refill the form) on a l
 
     expect(fetchedUrls().length).toBe(1)
     expect(text()).toContain('ES Could not load your account')
+  })
+})
+
+describe('the comment thread nests replies at any depth, not just one level', () => {
+  it('loads a reply’s OWN replies — a reply to a reply is not left out of the tree', async () => {
+    // `GET /comments/:id/replies` answers a node's DIRECT children only, and the
+    // UI lets the reader reply to any row (`ThreadTree`'s onReply). A pass that
+    // asked only the roots never requested a reply's children, so a reply to a
+    // reply was missing from the tree until a reload — the same "it vanished on
+    // the refetch" symptom the roots' pages exist to prevent.
+    await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await act(async () => {
+      httpCalls[0]?.resolve({
+        data: [{ id: 'c1', userId: 'u1', parentId: null, body: 'root comment', createdAt: 'x' }],
+      })
+    })
+    expect(httpCalls[1]?.path).toBe('/api/comments/c1/replies')
+    await act(async () => {
+      httpCalls[1]?.resolve({
+        data: [{ id: 'r1', userId: 'u2', parentId: 'c1', body: 'first reply', createdAt: 'y' }],
+      })
+    })
+
+    // The walk continues into the row it just found…
+    expect(httpCalls[2]?.path).toBe('/api/comments/r1/replies')
+    await act(async () => {
+      httpCalls[2]?.resolve({
+        data: [
+          { id: 'r2', userId: 'u1', parentId: 'r1', body: 'reply to the reply', createdAt: 'z' },
+        ],
+      })
+    })
+    // …and into that row's children too, until a page comes back empty.
+    expect(httpCalls[3]?.path).toBe('/api/comments/r2/replies')
+    await act(async () => {
+      httpCalls[3]?.resolve({ data: [] })
+    })
+    await flush()
+
+    expect(text()).toContain('root comment')
+    expect(text()).toContain('first reply')
+    expect(text()).toContain('reply to the reply')
   })
 })
