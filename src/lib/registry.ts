@@ -6,7 +6,7 @@
  * @module
  */
 
-import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -187,7 +187,30 @@ function writeRegistry(registry: Registry): void {
     ...(registry.moleculeVersions ? { moleculeVersions: registry.moleculeVersions } : {}),
     ...(registry.themePresets ? { themePresets: registry.themePresets } : {}),
   }
-  writeFileSync(registryFilePath(), JSON.stringify(sorted, null, 2) + '\n', 'utf-8')
+  // Publish by rename from a temp file in the SAME directory, never by an
+  // in-place writeFileSync: an in-place write truncates registry.json first
+  // and then writes, so a crash (or a full disk) between the two leaves a
+  // truncated file that every mlcl command's parse fails on, with no backup.
+  // rename is atomic on the same filesystem, so a failure before it leaves
+  // the original bytes untouched. The pid in the temp name keeps parallel
+  // mlcl processes from renaming each other's half-written file.
+  const target = registryFilePath()
+  const temp = `${target}.${process.pid}.tmp`
+  try {
+    writeFileSync(temp, JSON.stringify(sorted, null, 2) + '\n', 'utf-8')
+    renameSync(temp, target)
+  } catch (error) {
+    // The temp file may exist partially written (or not at all) — remove it so
+    // a failed publish leaves no litter next to the registry.
+    try {
+      rmSync(temp, { force: true })
+    } catch (_cleanupError) {
+      // Cleanup of OUR OWN temp file is best-effort: the registry itself is
+      // intact (the destructive step never ran), and a leftover `${pid}.tmp`
+      // is inert. Failing here would only mask the original write error.
+    }
+    throw error
+  }
   clearRegistryCache()
 }
 
