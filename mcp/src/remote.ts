@@ -79,9 +79,11 @@ const readmeCache = new Map<string, { at: number; readme: string }>()
  * Fetch a package's published README from the npm registry, cached per package.
  *
  * The network branch is bounded by {@link FETCH_TIMEOUT_MS} (`timeoutMs`
- * shortens it for tests, like {@link fetchJson}). A rejection or a body with no
- * `readme` resolves to `undefined` — the caller's documented fallback — and
- * caches nothing.
+ * shortens it for tests, like {@link fetchJson}). A fetched body with no
+ * `readme` resolves to `undefined`; a rejected or aborted fetch REJECTS, the
+ * same as {@link fetchJson} — the caller's own try/catch is the fallback (see
+ * the `read_package_doc` handler). Neither case caches anything, so the next
+ * call retries the network.
  *
  * @param short - Package name WITHOUT the `@molecule/` scope.
  * @param timeoutMs - Abort bound for the outbound fetch.
