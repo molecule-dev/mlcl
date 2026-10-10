@@ -15,12 +15,14 @@ import { buildRemoteServer } from './remote.js'
 const PORT = parseInt(process.env.PORT ?? '3000', 10)
 
 const app = express()
-app.use(express.json({ limit: '1mb' }))
-app.get('/health', (_req, res) => res.json({ ok: true, server: 'molecule-mcp-remote' }))
 
 // The hosted server is public and unauthenticated, so each client address gets
 // a request budget: MCP_RATE_PER_MIN per minute (default 120 — a harness makes a
-// few calls a turn). The budget keys on the REAL client address: on a Fly
+// few calls a turn). It is mounted BEFORE the body parser on purpose: a request
+// the budget rejects must not cost the 1 MB JSON parse, or a flood pays the
+// parse on every request the budget never allows.
+//
+// The budget keys on the REAL client address: on a Fly
 // machine the platform proxy puts it in Fly-Client-IP (a client-supplied value
 // is overwritten), so the header is trusted only when the platform-injected
 // FLY_MACHINE_ID/FLY_APP_NAME are present; anywhere else — local dev, a host
@@ -104,6 +106,11 @@ app.use('/mcp', (req, res, next) => {
     error: { code: -32000, message: 'rate limited — retry in a minute' },
   })
 })
+
+// Body parsing sits BELOW the budget: the parser's output is only needed by the
+// POST handler, and a request the budget rejected must not be parsed first.
+app.use(express.json({ limit: '1mb' }))
+app.get('/health', (_req, res) => res.json({ ok: true, server: 'molecule-mcp-remote' }))
 
 app.post('/mcp', async (req, res) => {
   const server = buildRemoteServer()

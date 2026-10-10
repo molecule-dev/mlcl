@@ -180,3 +180,65 @@ test('a malformed MCP_RATE_PER_MIN falls back to the default instead of being mi
     await stopServer(child)
   }
 })
+
+test('an over-budget request is rejected before the body parser parses it', async () => {
+  // The budget exists to protect the work a request costs, and the 1 MB JSON
+  // parse is that work. Mounted after the parser, the budget never guarded it:
+  // every flooded request was parsed IN FULL and only then 429'd. A malformed
+  // body is the black-box probe for the order — the parser answers it 400, the
+  // budget answers it 429, so whichever status comes back names the winner.
+  const env = { ...process.env, MCP_RATE_PER_MIN: '2' }
+  delete env.FLY_MACHINE_ID
+  delete env.FLY_APP_NAME
+  const { child, base } = await startServer(env)
+  try {
+    for (let i = 0; i < 2; i++) {
+      const res = await fetch(`${base}/mcp`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          // The transport answers 406 without both content types accepted.
+          accept: 'application/json, text/event-stream',
+        },
+        body: INITIALIZE_BODY,
+      })
+      assert.equal(res.status, 200)
+      await res.arrayBuffer() // drain so the socket is reusable
+    }
+    // The budget is spent. A malformed body must meet the BUDGET (429), not
+    // the parser (400).
+    const res = await fetch(`${base}/mcp`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: '{"malformed',
+    })
+    assert.equal(
+      res.status,
+      429,
+      'an over-budget request must be rejected by the budget before the body parser can answer it 400',
+    )
+    const payload = await res.json()
+    assert.equal(payload.error?.code, -32000)
+  } finally {
+    await stopServer(child)
+  }
+})
+
+test('an in-budget malformed body still reaches the parser (400, not 429)', async () => {
+  // The other half of the ordering: for a request the budget ALLOWS, the parser
+  // must still run — the limiter must not stand in for body parsing.
+  const env = { ...process.env, MCP_RATE_PER_MIN: '5' }
+  delete env.FLY_MACHINE_ID
+  delete env.FLY_APP_NAME
+  const { child, base } = await startServer(env)
+  try {
+    const res = await fetch(`${base}/mcp`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: '{"malformed',
+    })
+    assert.equal(res.status, 400, 'an in-budget malformed body must be answered by the parser')
+  } finally {
+    await stopServer(child)
+  }
+})
