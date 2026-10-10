@@ -19,13 +19,20 @@
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { fetchPackageReadme } from '../../../mcp/src/remote.js'
+import { fetchPackageReadme, README_CACHE_LIMIT } from '../../../mcp/src/remote.js'
 
 /** A package name unique to one test, so the module-level cache cannot leak across them. */
 let seq = 0
 const uniqueName = (): string => `doc-cache-test-${seq++}`
 
-/** Answer the next `fetch` calls with an npm-shaped body. */
+/**
+ * Answer the next `fetch` calls with an npm-shaped body. The spy KEEPS its
+ * arguments: the request URL is part of this tool's contract (the README only
+ * exists in the FULL packument at the `%2F`-encoded scoped URL), and a stub
+ * that discards every argument let that contract regress invisibly — a
+ * stubbed 200 answers `registry.npmjs.org/<name>` exactly as cheerfully as
+ * the real endpoint 404s it.
+ */
 function stubRegistry(body: unknown, opts: { reject?: Error } = {}): ReturnType<typeof vi.fn> {
   const spy = vi.fn(async () => {
     if (opts.reject) throw opts.reject
@@ -53,6 +60,10 @@ describe('mcp remote package-doc fetch', () => {
 
     expect(first).toBe(readme)
     expect(second).toBe(readme)
+    // The README lives only in the FULL packument — the `%2F`-encoded scoped
+    // URL. An unscoped or unencoded URL is a 404 against the real registry,
+    // and this stub's 200 would have hidden the regression completely.
+    expect(fetchSpy.mock.calls[0]?.[0]).toBe(`https://registry.npmjs.org/@molecule%2F${name}`)
     // The assertion that fails without the cache: two lookups, ONE request.
     expect(fetchSpy).toHaveBeenCalledTimes(1)
   })
@@ -91,5 +102,45 @@ describe('mcp remote package-doc fetch', () => {
     const healthy = stubRegistry({ readme: '# Back' })
     expect(await fetchPackageReadme(name)).toBe('# Back')
     expect(healthy).toHaveBeenCalledTimes(1)
+  })
+
+  it('re-fetches once the cached entry is older than the 10-minute TTL', async () => {
+    // An entry that never expires would pass every count-based assertion
+    // above: the TTL is half the cache policy, and only the clock can reach it.
+    vi.useFakeTimers()
+    try {
+      const name = uniqueName()
+      const fetchSpy = stubRegistry({ readme: '# Ttl' })
+
+      await fetchPackageReadme(name)
+      await fetchPackageReadme(name)
+      expect(fetchSpy).toHaveBeenCalledTimes(1)
+
+      vi.setSystemTime(Date.now() + 10 * 60_000 + 1)
+      await fetchPackageReadme(name)
+      expect(fetchSpy, 'a stale entry must re-fetch').toHaveBeenCalledTimes(2)
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
+  it('evicts the oldest entry once the cache passes its cap', async () => {
+    // The cap keeps a long-lived server from holding one doc per fleet package.
+    // Fill past the limit, then ask for the OLDEST and the NEWEST: the oldest
+    // must have been evicted (a fresh network call), the newest must still be
+    // served from the cache.
+    const fetchSpy = stubRegistry({ readme: '# Cap' })
+    const names = Array.from({ length: README_CACHE_LIMIT + 1 }, () => uniqueName())
+    for (const name of names) await fetchPackageReadme(name)
+    const filled = fetchSpy.mock.calls.length
+    expect(filled).toBe(names.length)
+
+    await fetchPackageReadme(names[0])
+    expect(fetchSpy, 'the oldest entry must have been evicted at the cap').toHaveBeenCalledTimes(
+      filled + 1,
+    )
+
+    await fetchPackageReadme(names[names.length - 1])
+    expect(fetchSpy, 'the newest entry must still be cached').toHaveBeenCalledTimes(filled + 1)
   })
 })

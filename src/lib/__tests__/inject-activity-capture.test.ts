@@ -22,7 +22,15 @@
  * deploy gets) WRAPS it, so the real send happens and its real outcome is
  * recorded — a deployed app's emails must actually reach their recipients.
  */
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import {
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs'
 import { join } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -52,6 +60,16 @@ describe('injectActivityCaptureBoot (IDE8 producer wiring)', () => {
   let apiDir: string
 
   beforeEach(() => {
+    // The temp dir is deliberately IN this directory, not os.tmpdir(): the
+    // tests dynamically `import()` the GENERATED `src/bonds/_activity-capture.ts`
+    // so vitest transforms it, and files outside the workspace root are outside
+    // vite's serve allow list. The flip side is that the tree must not litter:
+    // sweep any dir a crashed or timed-out run left behind before making a new
+    // one.
+    for (const stale of readdirSync(import.meta.dirname)) {
+      if (stale.startsWith('ide8-tmp-'))
+        rmSync(join(import.meta.dirname, stale), { recursive: true, force: true })
+    }
     apiDir = mkdtempSync(join(import.meta.dirname, 'ide8-tmp-'))
     mkdirSync(join(apiDir, 'src', 'bonds'), { recursive: true })
     writeFileSync(join(apiDir, 'src', 'bonds', 'index.ts'), FIXTURE_BONDS_INDEX)

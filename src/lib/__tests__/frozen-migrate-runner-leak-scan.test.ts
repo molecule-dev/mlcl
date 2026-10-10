@@ -40,19 +40,33 @@ import { describe, expect, it } from 'vitest'
 const TEMPLATES_DIR = join(import.meta.dirname, '..', '..', '..', 'templates', 'apps')
 
 /**
- * Blank out string-literal AND comment CONTENTS (delimiters kept) so only
- * code structure remains: parens inside strings can no longer desync a
- * call-boundary scan, an apostrophe in a comment's prose ("isn't") can no
- * longer open a phantom string that swallows real code, and prose that merely
- * names DATABASE_URL can no longer read as a reference. Template-literal
- * interpolations are blanked with the literal — a leaky `${DATABASE_URL}`
- * inside one is the raw scan's job (rule 1), not this one's.
+ * Blank out string-literal, REGEX-LITERAL and comment CONTENTS (delimiters
+ * kept) so only code structure remains: parens inside strings can no longer
+ * desync a call-boundary scan, an apostrophe in a comment's prose ("isn't")
+ * can no longer open a phantom string that swallows real code, and prose that
+ * merely names DATABASE_URL can no longer read as a reference.
+ *
+ * Regex literals need their own state: the fleet's runners quote-strip with
+ * `.replace(/^["']|["']$/g, '')`, and a blanker that reads those quotes as
+ * string delimiters stays "inside a string" from the regex into the FOLLOWING
+ * code — the `console.error('[migrate] DATABASE_URL is not set …')` two lines
+ * later fell into that swallowed region and the rule-2 scan never saw it. A
+ * `/` opens a regex exactly where a value position follows a token boundary
+ * (after `(`, `,`, `=`, `:`, `return`, …); after a value (`)` — a division, an
+ * identifier — a string) it cannot. Template-literal interpolations are
+ * blanked with the literal — a leaky `${DATABASE_URL}` inside one is the raw
+ * scan's job (rule 1), not this one's.
  */
 function blankStringsAndComments(source: string): string {
   let out = ''
   let quote: string | null = null
   let inLineComment = false
   let inBlockComment = false
+  // Last code character outside comments/strings/regexes — the only context
+  // "is this slash a regex or a division" needs.
+  let lastCodeChar = ''
+  const regexAllowed = (): boolean =>
+    lastCodeChar === '' || '([{,;=:?!&|<>+-*%^~\n'.includes(lastCodeChar)
   for (let i = 0; i < source.length; i++) {
     const ch = source.charAt(i)
     const next = source.charAt(i + 1)
@@ -75,7 +89,10 @@ function blankStringsAndComments(source: string): string {
         i++ // skip the escaped character (a quote, a backslash, anything)
         continue
       }
-      if (ch === quote) quote = null
+      if (ch === quote) {
+        quote = null
+        lastCodeChar = ch // a value just ended — a following `/` is division
+      }
       continue
     }
     if (ch === '/' && next === '/') {
@@ -88,11 +105,33 @@ function blankStringsAndComments(source: string): string {
       i++
       continue
     }
+    if (ch === '/' && regexAllowed()) {
+      // Regex literal: keep the delimiters, blank the contents (a `/` inside a
+      // character class — `/[/]/` — does not close it), then the flags.
+      out += '/'
+      i++
+      let inClass = false
+      for (; i < source.length; i++) {
+        const rc = source.charAt(i)
+        if (rc === '\\') {
+          i++
+          continue
+        }
+        if (rc === '[') inClass = true
+        else if (rc === ']') inClass = false
+        else if (rc === '/' && !inClass) break
+      }
+      out += '/'
+      lastCodeChar = '/' // a value just ended — a following `/` is division
+      continue
+    }
     if (ch === '"' || ch === "'" || ch === '`') {
       quote = ch
       out += ch
+      lastCodeChar = ch
       continue
     }
+    if (!/\s/.test(ch)) lastCodeChar = ch
     out += ch
   }
   return out
@@ -196,6 +235,26 @@ describe('frozen migration runners — value-flow leak scan', () => {
     expect(withRawUrl).toBeGreaterThanOrEqual(1)
     expect(consoleSites).toBeGreaterThanOrEqual(1)
     expect(leaking).toEqual([])
+  })
+
+  it('the blanker survives the quote-strip regex literal — no console site is swallowed', async () => {
+    // Regression: blankStringsAndComments read the quotes inside the runners'
+    // `.replace(/^["']|["']$/g, '')` as a string opening, and the phantom
+    // string swallowed the FOLLOWING code — field-service's frozen runner
+    // showed 13 console sites on blanked code against 14 in the raw source,
+    // and the one invisible site was exactly
+    // `console.error('[migrate] DATABASE_URL is not set …')`. Every real call
+    // site must survive the blanking, whatever regex literals sit above it.
+    const source = await readFile(
+      join(TEMPLATES_DIR, 'field-service', 'api', 'src', 'scripts', 'migrate.ts'),
+      'utf-8',
+    )
+    const rawSites = [
+      ...source.matchAll(/\bconsole\s*\.\s*(?:log|warn|error|info|debug|trace)\s*\(/g),
+    ].length
+    expect(rawSites).toBeGreaterThanOrEqual(14)
+    const code = blankStringsAndComments(source).replace(/\s+/g, ' ')
+    expect(consoleCalls(code).length, 'the blanker swallowed a console site').toBe(rawSites)
   })
 
   it('every runner that resolves DATABASE_URL ships the redaction helper and routes the hint through it', async () => {

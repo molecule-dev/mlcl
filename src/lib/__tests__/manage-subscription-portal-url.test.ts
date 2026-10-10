@@ -23,6 +23,8 @@ interface Pending {
   method: string | undefined
   answered: boolean
   respond: (status: number, body: unknown) => void
+  /** Reject the request the way a failed network does. */
+  fail: (error: Error) => void
 }
 
 /** Every request the component made, in order, with a handle to answer it. */
@@ -79,10 +81,21 @@ async function respond(status: number, body: unknown): Promise<void> {
   await flush()
 }
 
+/** Reject the oldest unanswered request the way a failed network does. */
+async function rejectPending(): Promise<void> {
+  const request = pending.requests.find((r) => !r.answered)
+  if (!request) throw new Error('no pending request')
+  request.answered = true
+  await act(async () => {
+    request.fail(new Error('network down'))
+  })
+  await flush()
+}
+
 beforeEach(async () => {
   pending.requests.length = 0
   globalThis.fetch = ((input: unknown, init?: { method?: string }) =>
-    new Promise((resolve) => {
+    new Promise((resolve, reject) => {
       pending.requests.push({
         url: String(input),
         method: init?.method,
@@ -93,6 +106,7 @@ beforeEach(async () => {
             status,
             json: async () => body,
           }),
+        fail: reject,
       })
     })) as typeof globalThis.fetch
   container = document.createElement('div')
@@ -130,6 +144,25 @@ describe('ManageSubscriptionButton — the portal URL is validated before it is 
     await respond(200, { url: 42 })
 
     expect(text()).toContain('Could not open the billing portal')
+  })
+
+  it('a REJECTED fetch re-enables the button and surfaces the error — never a dead control', async () => {
+    // The component's own comment promises this: "finally clears the busy
+    // state on EVERY path — a rejected fetch must not leave the button
+    // disabled forever". No fetch double in this file could reject, so the
+    // promise was untested: deleting the catch and the finally kept every test
+    // green over a button that locked on the first network failure.
+    await clickManage()
+    expect(container.querySelector('button')?.disabled).toBe(true)
+
+    await rejectPending()
+
+    expect(text()).toContain('Could not open the billing portal')
+    const button = container.querySelector('button')
+    expect(button?.disabled).toBe(false)
+    // And a retry after the failure goes back out.
+    await clickManage()
+    expect(pending.requests).toHaveLength(2)
   })
 
   it('accepts a real portal url and answers it with the exact POST the route takes', async () => {

@@ -130,10 +130,19 @@ describe('mlcl inject backs the migration runner it writes', () => {
     const project = await writeApiProject(true)
     expect(await runInject(project)).toBeNull()
 
-    // The runner was rewritten with a reachable browser branch…
+    // The runner was rewritten as the DUAL render: the manifest's Postgres
+    // bond UNION the injected PGlite. `createMigratorPglite` and a bare
+    // `const BROWSER_PROFILE = true` are true of the PGlite-ONLY render too —
+    // the historically shipped bug (the manifest's Postgres machinery
+    // stripped, the project's real database silently unmigrated) passed every
+    // assertion this shape allows — so the Postgres half is pinned explicitly.
     const runner = await readFile(join(project, 'src', 'scripts', 'migrate.ts'), 'utf-8')
     expect(runner).toContain('createMigratorPglite')
-    expect(runner).toContain('const BROWSER_PROFILE = true')
+    expect(runner).toContain(
+      "const BROWSER_PROFILE = true && process.env.MOL_BOND_PROFILE === 'browser'",
+    )
+    expect(runner).toContain('import pg from')
+    expect(runner).toContain('CREATE DATABASE')
     // …and the manifest now backs its imports: the wrapper is never a peer of
     // a database bond, so without this the project failed tsc (TS2307) and
     // `db:setup` (ERR_MODULE_NOT_FOUND) on a real install.

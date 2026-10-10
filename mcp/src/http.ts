@@ -41,19 +41,29 @@ const app = express()
 // with /health still green and nothing in the logs. Only a plain integer is
 // accepted; anything else uses the default, with one startup line naming the
 // variable.
-const rawRatePerMin = process.env.MCP_RATE_PER_MIN
-const trimmedRatePerMin = rawRatePerMin?.trim()
-const parsedRatePerMin =
-  trimmedRatePerMin !== undefined && /^\d+$/.test(trimmedRatePerMin)
-    ? Number(trimmedRatePerMin)
-    : Number.NaN
+/** A plain positive integer from the environment, or NaN for anything else. */
+const positiveInt = (raw: string | undefined): number => {
+  const trimmed = raw?.trim()
+  return trimmed !== undefined && /^\d+$/.test(trimmed) ? Number(trimmed) : Number.NaN
+}
+
+const parsedRatePerMin = positiveInt(process.env.MCP_RATE_PER_MIN)
 const RATE_PER_MIN = parsedRatePerMin > 0 ? parsedRatePerMin : 120
-if (rawRatePerMin !== undefined && RATE_PER_MIN !== parsedRatePerMin) {
+if (process.env.MCP_RATE_PER_MIN !== undefined && RATE_PER_MIN !== parsedRatePerMin) {
   console.warn(
-    `[mcp] MCP_RATE_PER_MIN="${rawRatePerMin}" is not a positive integer — using ${RATE_PER_MIN}/min`,
+    `[mcp] MCP_RATE_PER_MIN="${process.env.MCP_RATE_PER_MIN}" is not a positive integer — using ${RATE_PER_MIN}/min`,
   )
 }
-const MAX_BUCKETS = 10_000
+// The bucket map's own bound. Overridable for the rate-limit regression suite
+// (which proves the eviction at a tiny cap instead of flooding 10 000
+// addresses) and for an operator under memory pressure; same validation rule.
+const parsedMaxBuckets = positiveInt(process.env.MCP_RATE_MAX_BUCKETS)
+const MAX_BUCKETS = parsedMaxBuckets > 0 ? parsedMaxBuckets : 10_000
+if (process.env.MCP_RATE_MAX_BUCKETS !== undefined && MAX_BUCKETS !== parsedMaxBuckets) {
+  console.warn(
+    `[mcp] MCP_RATE_MAX_BUCKETS="${process.env.MCP_RATE_MAX_BUCKETS}" is not a positive integer — using ${MAX_BUCKETS}`,
+  )
+}
 const ON_FLY = process.env.FLY_MACHINE_ID !== undefined || process.env.FLY_APP_NAME !== undefined
 const buckets = new Map<string, { tokens: number; at: number }>()
 const sweep = (): void => {

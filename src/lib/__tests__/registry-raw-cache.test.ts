@@ -21,13 +21,20 @@ import { join } from 'node:path'
 
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
 
-import { clearRegistryCache, getRawRegistry } from '../../lib/registry.js'
+import {
+  clearRegistryCache,
+  getRawRegistry,
+  loadRegistry,
+  RAW_REGISTRY_CACHE_LIMIT,
+} from '../../lib/registry.js'
 
 /**
- * Count (and pass through) readFileSync calls that hit the temp registry —
+ * Count (and pass through) readFileSync calls that hit the temp registries —
  * hoisted so registry.ts binds the counting wrapper before its own import.
+ * `scope` covers every registry file the suite creates under the temp dir, so
+ * a test can count reads across SEVERAL registry paths (the eviction pin).
  */
-const reads = vi.hoisted(() => ({ registryPath: '', count: 0 }))
+const reads = vi.hoisted(() => ({ registryPath: '', scope: '', count: 0 }))
 
 vi.mock('node:fs', async (importOriginal) => {
   const actual = (await importOriginal()) as Record<string, unknown>
@@ -35,7 +42,9 @@ vi.mock('node:fs', async (importOriginal) => {
   return {
     ...actual,
     readFileSync(path: unknown, ...rest: unknown[]): string {
-      if (path === reads.registryPath) reads.count++
+      const at = String(path)
+      if (at === reads.registryPath || (reads.scope !== '' && at.startsWith(reads.scope)))
+        reads.count++
       return realReadFileSync(path, ...rest)
     },
   }
@@ -69,6 +78,7 @@ beforeAll(() => {
   dir = mkdtempSync(join(tmpdir(), 'mlcl-raw-registry-cache-'))
   registryPath = join(dir, 'registry.json')
   reads.registryPath = registryPath
+  reads.scope = dir
   process.env.MLCL_REGISTRY_PATH = registryPath
 })
 
@@ -115,5 +125,47 @@ describe('getRawRegistry — parsed-registry cache', () => {
     clearRegistryCache()
     expect(getRawRegistry().packages['@molecule/test-raw-cache-probe']?.label).toBe(FIRST)
     expect(reads.count).toBe(2)
+  })
+
+  it('evicts the oldest path once the cache passes its path limit', () => {
+    // The map "holds at most RAW_REGISTRY_CACHE_LIMIT paths — never a growth
+    // surface". The eviction branch is otherwise dead in the suite (no test
+    // loaded a fifth path), so raising the limit, removing it, or evicting the
+    // NEW entry instead of the oldest all passed silently. Reads are the
+    // observable: an unmodified path answered from the cache does not hit the
+    // disk; an evicted one re-reads.
+    const paths = Array.from({ length: RAW_REGISTRY_CACHE_LIMIT + 1 }, (_unused, index) =>
+      join(dir, `registry-${index}.json`),
+    )
+    clearRegistryCache()
+    reads.count = 0
+    for (const path of paths) {
+      writeFileSync(path, marker(FIRST))
+      process.env.MLCL_REGISTRY_PATH = path
+      getRawRegistry()
+    }
+    expect(reads.count).toBe(paths.length)
+
+    // The FIRST-loaded path is the one the cap evicted: asking again re-reads.
+    process.env.MLCL_REGISTRY_PATH = paths[0]
+    getRawRegistry()
+    expect(reads.count, 'the oldest path must have been evicted at the cap').toBe(paths.length + 1)
+
+    // The last-loaded path is still cached: no additional read.
+    process.env.MLCL_REGISTRY_PATH = paths[paths.length - 1]
+    getRawRegistry()
+    expect(reads.count, 'the newest path must still be cached').toBe(paths.length + 1)
+  })
+
+  it('loadRegistry throws for a MISSING registry file while getRawRegistry answers empty', () => {
+    // The two readers split on `present` on purpose: an empty package list is
+    // a VALID registry, so getRawRegistry's accessors may answer an empty
+    // section — but loadRegistry must not confuse "no fleet" with "no registry
+    // file", or every resolution failure becomes silent "nothing to do".
+    const missing = join(dir, 'no-such-registry.json')
+    process.env.MLCL_REGISTRY_PATH = missing
+    clearRegistryCache()
+    expect(() => loadRegistry()).toThrow(new RegExp(`Registry not found: ${missing}`))
+    expect(getRawRegistry()).toEqual({ version: 1, packages: {} })
   })
 })

@@ -72,7 +72,8 @@ const cache = new Map<string, { at: number; data: unknown }>()
  * accumulate one cached doc per package name in the fleet.
  */
 const README_CACHE_TTL_MS = 10 * 60_000
-const README_CACHE_LIMIT = 50
+/** Cached packages kept before the oldest entry is evicted (see the cap logic below). */
+export const README_CACHE_LIMIT = 50
 const readmeCache = new Map<string, { at: number; readme: string }>()
 
 /**

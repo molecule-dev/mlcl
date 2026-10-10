@@ -60,8 +60,12 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 interface FetchRequest {
   url: string
+  /** The parsed request body, so a test can assert WHAT was sent. */
+  body?: unknown
   answered: boolean
   respond: (status: number, body: unknown) => void
+  /** Reject the request the way a failed network does. */
+  fail: (error: Error) => void
 }
 
 const fetches = vi.hoisted(() => ({ requests: [] as FetchRequest[] }))
@@ -374,6 +378,39 @@ async function respond(fragment: string, status: number, body: unknown): Promise
   await flush()
 }
 
+/** Reject the oldest unanswered request the way a failed network does. */
+async function rejectPending(fragment: string): Promise<void> {
+  const request = fetches.requests.find((r) => !r.answered && r.url.includes(fragment))
+  if (!request) throw new Error(`no pending request to reject for ${fragment}`)
+  request.answered = true
+  await act(async () => {
+    request.fail(new Error('network down'))
+  })
+  await flush()
+}
+
+/** Type into a text/numeric input the way a user does (native setter + input event). */
+async function typeIntoInput(selector: string, value: string): Promise<void> {
+  const input = container.querySelector(selector) as HTMLInputElement | null
+  if (!input) throw new Error(`no input matching ${selector}`)
+  const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set
+  await act(async () => {
+    setter?.call(input, value)
+    input.dispatchEvent(new Event('input', { bubbles: true }))
+  })
+  await flush()
+}
+
+/** Submit the page's one form (the real onSubmit path). */
+async function submitOnlyForm(): Promise<void> {
+  const form = container.querySelector('form')
+  if (!form) throw new Error('the page rendered no form')
+  await act(async () => {
+    form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }))
+  })
+  await flush()
+}
+
 /** Answer the oldest unanswered http-client call whose url contains `fragment`. */
 async function respondHttp(fragment: string, body: unknown): Promise<void> {
   const call = http.calls.find((c) => !c.answered && c.url.includes(fragment))
@@ -386,6 +423,40 @@ async function respondHttp(fragment: string, body: unknown): Promise<void> {
 }
 
 const text = (): string => container.textContent ?? ''
+
+/** Parse a captured request body, or null when it carried none / invalid JSON. */
+function safeJson(raw: unknown): unknown {
+  if (typeof raw !== 'string') return null
+  try {
+    return JSON.parse(raw) as unknown
+  } catch (_error) {
+    // A body this suite did not write as JSON (a raw string, an empty init) is
+    // "no parseable body" — exactly what the null return means to callers.
+    return null
+  }
+}
+
+/** Type into the chat composer the way a user does (native setter + input event). */
+async function typeDraft(value: string): Promise<void> {
+  const input = container.querySelector('input')
+  if (!input) throw new Error('the chat page rendered no composer')
+  const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set
+  await act(async () => {
+    setter?.call(input, value)
+    input.dispatchEvent(new Event('input', { bubbles: true }))
+  })
+  await flush()
+}
+
+/** Submit the chat composer's form (the real onSubmit path). */
+async function submitDraft(): Promise<void> {
+  const form = container.querySelector('form')
+  if (!form) throw new Error('the chat page rendered no composer form')
+  await act(async () => {
+    form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }))
+  })
+  await flush()
+}
 
 /** The rendered list rows (the mocks render each item as an `<li>`), in order. */
 const rows = (): string[] =>
@@ -405,10 +476,11 @@ beforeEach(() => {
   eventSources.urls.length = 0
   MockEventSource.instances.length = 0
   httpClient = null
-  globalThis.fetch = ((input: unknown) =>
-    new Promise((resolve) => {
+  globalThis.fetch = ((input: unknown, init?: { body?: unknown }) =>
+    new Promise((resolve, reject) => {
       fetches.requests.push({
         url: String(input),
+        body: safeJson(init?.body),
         answered: false,
         respond: (status, body) =>
           resolve({
@@ -416,6 +488,7 @@ beforeEach(() => {
             status,
             json: async () => body,
           }),
+        fail: reject,
       })
     })) as typeof globalThis.fetch
   ;(globalThis as { EventSource?: unknown }).EventSource = MockEventSource
@@ -551,6 +624,29 @@ describe('example slices — a request’s answer is validated before it is trus
     expect(text()).toContain('Could not load your account')
   })
 
+  it('a REJECTED delete frees the form — never a button disabled forever', async () => {
+    // submit()'s finally promises the busy state clears on EVERY path; no
+    // fetch double could reject, so deleting the catch and the finally kept
+    // every test green over a delete button locked by the first failure.
+    await mount(createElement(DeleteAccountPage, {}))
+    await respond('/api/me', 200, { email: 'ada@calc.dev' })
+
+    await typeIntoInput('[data-mol-id="delete-account-confirm-email"]', 'ada@calc.dev')
+    await submitOnlyForm()
+    await rejectPending('/api/me')
+
+    expect(text()).toContain('Could not delete your account')
+    const button = container.querySelector(
+      '[data-mol-id="delete-account-submit"]',
+    ) as HTMLButtonElement
+    expect(button.disabled).toBe(false)
+    expect(text()).not.toContain('Deleting…')
+    // The account still exists and a retry goes back out.
+    expect(text()).not.toContain('scheduled for deletion')
+    await submitOnlyForm()
+    expect(fetches.requests.filter((r) => r.url === '/api/me' && r.body !== null)).toHaveLength(2)
+  })
+
   it('keeps the settings form from adopting an error body as the profile', async () => {
     await mount(createElement(SettingsPage, {}))
 
@@ -684,6 +780,49 @@ describe('example slices — a 2xx body is validated before it becomes state', (
     expect(text()).toContain('JBSWY3DPEHPK3PXP')
     expect(text()).toContain('recoveryCode-1')
     expect(text()).not.toContain('Could not enroll')
+  })
+
+  it('completes a valid verify to the ENABLED terminus', async () => {
+    // `setEnabled(true)` and the enabled screen were never rendered by any
+    // test — coverage stopped at the error branches, so a dropped success
+    // branch (2FA enrollment that never completes) kept every test green.
+    await mount(createElement(EnableTwoFactorPage, {}))
+    await clickOnlyButton()
+    await respond('/api/2fa/enroll', 200, {
+      secret: 'JBSWY3DPEHPK3PXP',
+      QRImageUrl: '',
+      recoveryCodes: ['recoveryCode-1'],
+    })
+
+    await typeIntoInput('input[inputmode="numeric"]', '123456')
+    await submitOnlyForm()
+    await respond('/api/2fa/verify', 200, { ok: true })
+
+    expect(text()).toContain('Two-factor authentication enabled')
+    expect(text()).toContain('saved your recovery codes')
+  })
+
+  it('a REJECTED verify leaves the form usable, never a dead verify button', async () => {
+    // verify()'s comment promises the finally: "a rejected fetch must not
+    // leave the button disabled forever". No fetch double could reject, so
+    // deleting the catch and the finally kept every test green.
+    await mount(createElement(EnableTwoFactorPage, {}))
+    await clickOnlyButton()
+    await respond('/api/2fa/enroll', 200, {
+      secret: 'JBSWY3DPEHPK3PXP',
+      QRImageUrl: '',
+      recoveryCodes: ['recoveryCode-1'],
+    })
+    await typeIntoInput('input[inputmode="numeric"]', '123456')
+    await submitOnlyForm()
+    await rejectPending('/api/2fa/verify')
+
+    expect(text()).toContain('Network error')
+    const button = container.querySelector('form button[type="submit"]') as HTMLButtonElement
+    expect(button.disabled).toBe(false)
+    // A retry goes back out.
+    await submitOnlyForm()
+    expect(fetches.requests.filter((r) => r.url.includes('/api/2fa/verify'))).toHaveLength(2)
   })
 
   it('reports a preview answer that carries no preview instead of crashing the table', async () => {
@@ -838,6 +977,76 @@ describe('example slices — a live feed does not grow a list without bound', ()
     await rerender(createElement(ChatPage, { channelId: 'random' }))
     expect(eventSources.urls).toContain('/api/realtime?room=channel:random')
     expect(text()).not.toContain('typing')
+  })
+
+  it('sends a draft through the real composer: the POST carries the room, and success clears it', async () => {
+    // `send()` was dead code to the suite: nothing submitted the composer, so
+    // the room-scoping and draft-handling fixes rode untested.
+    await mount(createElement(ChatPage, { channelId: 'general' }))
+    await respond('/api/messages?channel_id=general', 200, [])
+
+    await typeDraft('first post')
+    await submitDraft()
+
+    const post = fetches.requests.find((r) => r.url === '/api/messages' && !r.answered)
+    expect(post, 'the submit must POST the message').toBeDefined()
+    expect(post?.body).toEqual({ channel_id: 'general', content: 'first post' })
+    await respond('/api/messages', 200, { ok: true })
+    // The server accepted it: the draft is cleared.
+    const input = container.querySelector('input')
+    expect((input as HTMLInputElement | null)?.value).toBe('')
+    expect(text()).not.toContain('Message not sent')
+  })
+
+  it('a rejected send keeps the draft and shows the retryable error', async () => {
+    await mount(createElement(ChatPage, { channelId: 'general' }))
+    await respond('/api/messages?channel_id=general', 200, [])
+
+    await typeDraft('keep me')
+    await submitDraft()
+    await respond('/api/messages', 503, { error: 'down' })
+
+    // The user's text survives a failed send — clearing it discarded the draft
+    // silently — and the failure is surfaced as retryable.
+    const input = container.querySelector('input')
+    expect((input as HTMLInputElement | null)?.value).toBe('keep me')
+    expect(text()).toContain('Message not sent')
+  })
+
+  it('a late send response belongs to the room it was sent FROM, not the room shown', async () => {
+    await mount(createElement(ChatPage, { channelId: 'general' }))
+    await respond('/api/messages?channel_id=general', 200, [])
+
+    await typeDraft('for general')
+    await submitDraft()
+    // The POST is in flight; the user switches rooms and types a new draft.
+    await rerender(createElement(ChatPage, { channelId: 'random' }))
+    await respond('/api/messages?channel_id=random', 200, [])
+    await typeDraft('for random')
+
+    // The late SUCCESS resolves: without the room-scope check it cleared the
+    // draft the user has since typed into room B's composer.
+    await respond('/api/messages', 200, { ok: true })
+    const input = container.querySelector('input')
+    expect((input as HTMLInputElement | null)?.value).toBe('for random')
+    expect(text()).not.toContain('Message not sent')
+  })
+
+  it('bounds the FIRST history page too — the window applies to the load, not just live events', async () => {
+    await mount(createElement(ChatPage, { channelId: 'general' }))
+    // A server answering more than the client's window must not grow the room
+    // unbounded either: the wrap on the history load is the same
+    // MAX_RENDERED_MESSAGES bound the live feed already had covered.
+    const page = Array.from({ length: 260 }, (_unused, i) => ({
+      id: `h-${i + 1}`,
+      user_id: 'u-1',
+      content: `history ${i + 1}`,
+      created_at: '2026-01-01T00:00:00.000Z',
+    }))
+    await respond('/api/messages?channel_id=general', 200, page)
+    expect(rows()).toHaveLength(200)
+    expect(rows()[0]).toBe('history 61')
+    expect(rows()[199]).toBe('history 260')
   })
 
   it('keeps the chat room on its newest window while live messages arrive', async () => {

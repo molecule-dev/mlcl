@@ -29,12 +29,13 @@ vi.mock('@molecule/api-i18n', () => ({
   t: (_key: string, _values?: unknown, options?: { defaultValue?: string }) =>
     options?.defaultValue ?? _key,
 }))
-vi.mock('@molecule/api-middleware-validation', () => ({
-  validateBody:
-    () =>
-    (_req: unknown, _res: unknown, next: () => void): void =>
-      next(),
-}))
+// `@molecule/api-middleware-validation` is deliberately NOT mocked: the header
+// above says the schema is the shipped code, and a validateBody that just
+// called next() let the real zod schema drift (a stripped `orderId`, a loosened
+// url/email check) invisibly — the handler's ownership check only ever saw the
+// body the mock forwarded. The REAL middleware parses req.body with the
+// handler's own schema and answers 400 on violation; the schema tests below
+// pin that.
 
 type Handle = (req: unknown, res: unknown, next?: () => void) => Promise<void> | void
 
@@ -186,5 +187,45 @@ describe('stripe-checkout POST /session — orderId is ownership-checked at sess
     expect(database.findById).not.toHaveBeenCalled()
     const arg = stripe.createCheckoutSession.mock.calls[0][0] as Record<string, unknown>
     expect(arg.metadata).toBeUndefined()
+  })
+
+  it('the SHIPPED schema rejects a body missing its required fields — before any session or lookup', async () => {
+    // The schema is the first middleware: a body without priceId/successUrl/
+    // cancelUrl never reaches the handler, so it can create no session and
+    // touch no order — the 400 (not 401) also proves the real zod validation
+    // ran, not a pass-through stand-in.
+    const res = await post({ userId: 'user-1', body: {} })
+    expect(res.statusCode).toBe(400)
+    expect(stripe.createCheckoutSession).not.toHaveBeenCalled()
+    expect(database.findById).not.toHaveBeenCalled()
+  })
+
+  it('the SHIPPED schema rejects a non-URL successUrl and a malformed email', async () => {
+    const res = await post({
+      userId: 'user-1',
+      body: {
+        priceId: 'price_1',
+        successUrl: 'not a url',
+        cancelUrl: 'https://a.test/no',
+        customerEmail: 'not-an-email',
+      },
+    })
+    expect(res.statusCode).toBe(400)
+    expect(stripe.createCheckoutSession).not.toHaveBeenCalled()
+    const payload = res.body as { errors?: Array<{ field?: string }> }
+    const fields = (payload.errors ?? []).map((e) => e.field)
+    expect(fields).toContain('successUrl')
+    expect(fields).toContain('customerEmail')
+  })
+
+  it('the SHIPPED schema still accepts a valid bare checkout', async () => {
+    // The other half of the pin: the 400s above prove the schema RUNS — this
+    // proves it did not over-tighten into rejecting the documented happy path.
+    const res = await post({
+      userId: 'user-1',
+      body: { priceId: 'price_1', successUrl: 'https://a.test/ok', cancelUrl: 'https://a.test/no' },
+    })
+    expect(res.statusCode).toBe(0)
+    expect(stripe.createCheckoutSession).toHaveBeenCalledTimes(1)
   })
 })

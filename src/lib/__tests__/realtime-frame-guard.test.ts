@@ -281,9 +281,13 @@ describe('chat: a bubble is self-aligned by the SESSION user, not a placeholder'
 
   it('an unresolvable self id degrades to other-alignment instead of mislabeling rows', async () => {
     await mount(createElement(ChatPage, { channelId: 'c1' }))
-    // The self probe fails (signed out, offline): no row may claim self.
+    // The self probe must actually have been MADE — with `?.` here, deleting
+    // the probe entirely left `meId` null, nothing was answered, and the
+    // degradation assertion passed over a test that had stopped exercising
+    // anything (the sibling above throws instead).
     const meRequest = httpRequests.find((r) => r.url.includes('/api/users/me'))
-    meRequest?.respond({ error: 'unauthorized' }, 401)
+    if (!meRequest) throw new Error('the chat page never asked who the viewer is')
+    meRequest.respond({ error: 'unauthorized' }, 401)
     await flush()
 
     await frame(0, 'message:created', JSON.stringify({ id: 'm1', user_id: 'u-9', content: 'mine' }))

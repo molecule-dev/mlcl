@@ -195,6 +195,11 @@ describe('writeRegistry — atomic publication', () => {
     expect(() => updateRegistryEntry('@molecule/test-write-probe', entry())).toThrow(
       /kept changing/,
     )
+    // Disarm the rival BEFORE the result read: with the interleave still
+    // armed, this very readFileSync performs one MORE rival write before
+    // returning, so the assertions below would describe the mock's next
+    // interference, not the end state the update left behind.
+    writes.interleaveSticky = false
 
     const parsed = JSON.parse(readFileSync(registryPath, 'utf-8')) as {
       packages: Record<string, { label: string }>
@@ -202,6 +207,13 @@ describe('writeRegistry — atomic publication', () => {
     // Every attempt re-read before re-applying, so the file only ever holds
     // what the rival wrote — this process never published a clobber over it.
     expect(parsed.packages['@molecule/concurrent-writer']?.label).toBe('concurrent')
+    // …and EVERY numbered rival entry the interleaves stacked up is intact:
+    // one rival write would hide a partial clobber.
+    const rivalEntries = Object.entries(parsed.packages).filter(([name]) =>
+      name.startsWith('@molecule/concurrent-writer'),
+    )
+    expect(rivalEntries.length).toBeGreaterThanOrEqual(2)
+    for (const [, value] of rivalEntries) expect(value.label).toBe('concurrent')
     // The seed entry is untouched too: this update's content never landed.
     expect(parsed.packages['@molecule/test-write-probe']?.label).toBe('before')
   })

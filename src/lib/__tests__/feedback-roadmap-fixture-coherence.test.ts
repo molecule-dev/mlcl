@@ -62,6 +62,8 @@ interface PostFixture {
 }
 interface VoteFixture {
   post: number
+  /** Age in days — `_seed.ts` writes `created_at = daysAgo(days_ago)`. */
+  days_ago: number
 }
 interface CommentFixture {
   post: number
@@ -140,6 +142,23 @@ describe('feedback-roadmap fixtures — the seed rows and the served reports agr
     expect(stats.total_votes).toBe(seedVotes.length)
   })
 
+  it('votes_over_time is the seed’s votes bucketed the way admin.ts buckets them', () => {
+    // Summing to the total (above) leaves the CHART SHAPE unchecked: a
+    // reports.json whose W1..W8 distribution drifted from the seed's
+    // `days_ago` spread passed while showing a chart that contradicts the
+    // seeded data — the exact self-contradiction class this file exists for.
+    // admin.ts buckets each vote's `created_at` (= now − days_ago days) into
+    // eight weekly buckets ending with the current week: bucket i holds votes
+    // aged [(7−i)·7, (8−i)·7) days.
+    const stats = reports['admin/stats']!
+    const expected = Array.from({ length: 8 }, (_unused, i) => {
+      const minAge = (7 - i) * 7
+      const maxAge = (8 - i) * 7
+      return seedVotes.filter((v) => v.days_ago >= minAge && v.days_ago < maxAge).length
+    })
+    expect(stats.votes_over_time.map((bucket) => bucket.count)).toEqual(expected)
+  })
+
   it('total_posts and counts_by_status describe the seeded posts the dashboard reads', () => {
     const stats = reports['admin/stats']!
     // The handler counts only the posts the app still shows (merged duplicates
@@ -160,6 +179,24 @@ describe('feedback-roadmap fixtures — the seed rows and the served reports agr
       // The seeded posts must reference a board the report set covers.
       expect(expected, `no seeded post on board ${slug}`).toBeGreaterThan(0)
       expect(body.post_count, `post_count for board ${slug}`).toBe(expected)
+    }
+  })
+
+  it('every board a seeded post references has a report — the demo never renders a dead board', () => {
+    // The loop over `reports` above walks report → seed; this is the other
+    // direction: a seeded post whose board has no `boards/by-slug/` report
+    // renders a board page the mock API cannot answer, and no report-side
+    // check ever noticed.
+    const slugs = new Set(
+      Object.keys(reports)
+        .filter((key) => key.startsWith('boards/by-slug/'))
+        .map((key) => key.slice('boards/by-slug/'.length)),
+    )
+    for (const post of seedPosts) {
+      expect(
+        slugs.has(post.board),
+        `seeded post ${post.id} references board "${post.board}", which the report set does not cover`,
+      ).toBe(true)
     }
   })
 

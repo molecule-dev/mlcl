@@ -26,8 +26,13 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 interface Pending {
   url: string
+  /** The parsed request body, so a test can assert WHAT was sent. */
+  body?: unknown
+  method: string | undefined
   answered: boolean
   respond: (status: number, body: unknown) => void
+  /** Reject the request the way a failed network does. */
+  fail: (error: Error) => void
 }
 
 /** Every request the editor made, in order, with a handle to answer it. */
@@ -102,6 +107,43 @@ const text = (): string => container.textContent ?? ''
 const titleInput = (): HTMLInputElement | null =>
   container.querySelector('[data-mol-id="post-title"]') as HTMLInputElement | null
 
+/** Reject the oldest unanswered request the way a failed network does. */
+async function rejectPending(): Promise<void> {
+  const request = pending.requests.find((r) => !r.answered)
+  if (!request) throw new Error('no pending request to reject')
+  request.answered = true
+  await act(async () => {
+    request.fail(new Error('network down'))
+  })
+  await flush()
+}
+
+/** Type into an editor field the way a user does (native setter + input event). */
+async function typeInto(selector: string, value: string): Promise<void> {
+  const input = container.querySelector(selector) as (HTMLInputElement | HTMLTextAreaElement) | null
+  if (!input) throw new Error(`no field matching ${selector}`)
+  const proto =
+    input instanceof HTMLTextAreaElement
+      ? window.HTMLTextAreaElement.prototype
+      : window.HTMLInputElement.prototype
+  const setter = Object.getOwnPropertyDescriptor(proto, 'value')?.set
+  await act(async () => {
+    setter?.call(input, value)
+    input.dispatchEvent(new Event('input', { bubbles: true }))
+  })
+  await flush()
+}
+
+/** Submit the editor form (the real onSubmit path). */
+async function submitEditor(): Promise<void> {
+  const form = container.querySelector('form')
+  if (!form) throw new Error('the editor rendered no form')
+  await act(async () => {
+    form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }))
+  })
+  await flush()
+}
+
 const post = (id: string, title: string, slug: string): Record<string, unknown> => ({
   id,
   title,
@@ -112,10 +154,12 @@ const post = (id: string, title: string, slug: string): Record<string, unknown> 
 
 beforeEach(() => {
   pending.requests.length = 0
-  globalThis.fetch = ((input: unknown) =>
-    new Promise((resolve) => {
+  globalThis.fetch = ((input: unknown, init?: { body?: unknown; method?: string }) =>
+    new Promise((resolve, reject) => {
       pending.requests.push({
         url: String(input),
+        body: safeJson(init?.body),
+        method: init?.method,
         answered: false,
         respond: (status, body) =>
           resolve({
@@ -123,9 +167,22 @@ beforeEach(() => {
             status,
             json: async () => body,
           }),
+        fail: reject,
       })
     })) as typeof globalThis.fetch
 })
+
+/** Parse a captured request body, or null when it carried none / invalid JSON. */
+function safeJson(raw: unknown): unknown {
+  if (typeof raw !== 'string') return null
+  try {
+    return JSON.parse(raw) as unknown
+  } catch (_error) {
+    // A body this suite did not write as JSON is "no parseable body" — what
+    // the null return means to callers.
+    return null
+  }
+}
 
 afterEach(async () => {
   globalThis.fetch = originalFetch
@@ -166,5 +223,67 @@ describe('PostEditorPage — an interrupted A → B → A navigation keeps worki
     await respond('/api/posts/a', 200, post('p-a', 'Post A', 'a'))
     expect(titleInput()?.value).toBe('Post A')
     expect(text()).not.toContain('Loading…')
+  })
+})
+
+describe('PostEditorPage — save()', () => {
+  it('creates a new post, then PUTs the second save to the id the create answered', async () => {
+    // save() was dead code to the suite: no test submitted the form, so the
+    // create-vs-PUT switch, the id it adopts from the response and the saved
+    // state were all unpinned.
+    await render(createElement(PostEditorPage, {}), true)
+    await typeInto('[data-mol-id="post-title"]', 'Fresh post')
+    await typeInto('[data-mol-id="post-body"]', '# Body')
+    await submitEditor()
+
+    const createRequest = pending.requests[0]
+    expect(createRequest?.url).toBe('/api/posts')
+    expect(createRequest?.method).toBe('POST')
+    expect(createRequest?.body).toEqual({
+      title: 'Fresh post',
+      slug: 'fresh-post',
+      body_markdown: '# Body',
+      draft: true,
+    })
+    await respond('/api/posts', 201, { id: 'p-new' })
+
+    expect(text()).toContain('Draft saved.')
+    // The second save must be a PUT to the id the create returned — the
+    // create/rename switch rides on that id being adopted.
+    await submitEditor()
+    const updateRequest = pending.requests[1]
+    expect(updateRequest?.url).toBe('/api/posts/p-new')
+    expect(updateRequest?.method).toBe('PUT')
+    await respond('/api/posts/p-new', 200, { id: 'p-new' })
+    expect(text()).toContain('Draft saved.')
+  })
+
+  it('surfaces an error body and clears the saving state on a failed save', async () => {
+    await render(createElement(PostEditorPage, { slug: 'a' }), true)
+    await respond('/api/posts/a', 200, post('p-a', 'Post A', 'a'))
+
+    await submitEditor()
+    await respond('/api/posts/p-a', 409, { error: 'slug already taken' })
+
+    expect(text()).toContain('slug already taken')
+    const button = container.querySelector('[data-mol-id="post-save"]') as HTMLButtonElement | null
+    expect(button?.disabled).toBe(false)
+    expect(text()).not.toContain('Saving…')
+  })
+
+  it('a REJECTED save frees the form — never stuck on "Saving…" forever', async () => {
+    // save()'s own comment promises the catch: "a rejected fetch must not
+    // leave the form stuck on 'Saving…'". No fetch double could reject, so
+    // deleting the catch kept every test green over a wedged editor.
+    await render(createElement(PostEditorPage, {}), true)
+    await typeInto('[data-mol-id="post-title"]', 'Offline post')
+    await typeInto('[data-mol-id="post-body"]', '# Body')
+    await submitEditor()
+    await rejectPending()
+
+    expect(text()).toContain('Could not save the post')
+    const button = container.querySelector('[data-mol-id="post-save"]') as HTMLButtonElement | null
+    expect(button?.disabled).toBe(false)
+    expect(text()).not.toContain('Saving…')
   })
 })

@@ -23,7 +23,7 @@
  */
 
 import { type ChildProcess, spawn } from 'node:child_process'
-import { existsSync } from 'node:fs'
+import { existsSync, readdirSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { describe, expect, it } from 'vitest'
@@ -32,6 +32,28 @@ const MCP_DIR = join(import.meta.dirname, '..', '..', '..', 'mcp')
 const SERVER_JS = join(MCP_DIR, 'dist', 'http.js')
 const TEST_FILE = join(MCP_DIR, 'scripts', 'rate-limit.test.mjs')
 const DEPS_MARKER = join(MCP_DIR, 'node_modules', 'express', 'package.json')
+
+/**
+ * Newest mtime across the TypeScript sources under `dir`, recursively.
+ *
+ * The spawned suite drives the COMPILED server, so a `dist/http.js` built
+ * before the last `mcp/src` edit would make every assertion below pass against
+ * behavior that no longer exists — the same lie a stale mock tells, just
+ * slower. Dist is not committed, so a fresh checkout has no mtime to compare;
+ * "missing" is handled by the caller.
+ *
+ * @param dir - Directory to scan.
+ * @returns The newest source mtime in milliseconds, 0 when the dir is empty.
+ */
+function newestSourceMtime(dir: string): number {
+  let newest = 0
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const full = join(dir, entry.name)
+    if (entry.isDirectory()) newest = Math.max(newest, newestSourceMtime(full))
+    else if (entry.name.endsWith('.ts')) newest = Math.max(newest, statSync(full).mtimeMs)
+  }
+  return newest
+}
 
 /** Run a child to completion, returning its exit code and captured output. */
 function run(
@@ -57,41 +79,60 @@ function run(
 }
 
 describe('molecule-mcp remote rate limit', () => {
-  it('passes its rate-limit regression suite — rotated fly-client-ip headers cannot mint budgets', async (ctx) => {
-    if (!existsSync(DEPS_MARKER)) {
-      // The one environment this suite cannot run in: mcp's own dependencies
-      // (express, the MCP SDK) are absent, so the server the node:test file
-      // spawns would exit before binding. Mark the test SKIPPED (not passed) and
-      // say why out loud: a `return` here reported a PASS for a guard that never
-      // ran, which is the failure mode this wrapper exists to close.
-      console.warn(
-        `[mcp-rate-limit] ${MCP_DIR}/node_modules is not installed — SKIPPING the rate-limit ` +
-          `regression suite. Install mcp's deps (cd mcp && npm install) so the suite runs.`,
+  // The body may rebuild mcp from scratch (a missing or source-stale dist) and
+  // then drive six server spawns through real HTTP — a cold CI-shaped checkout
+  // can exceed the 30 s default, and the guard must fail as a REGRESSION, not
+  // as a vitest timeout that reads like one.
+  it(
+    'passes its rate-limit regression suite — rotated fly-client-ip headers cannot mint budgets',
+    { timeout: 120_000 },
+    async (ctx) => {
+      if (!existsSync(DEPS_MARKER)) {
+        // The one environment this suite cannot run in: mcp's own dependencies
+        // (express, the MCP SDK) are absent, so the server the node:test file
+        // spawns would exit before binding. Mark the test SKIPPED (not passed) and
+        // say why out loud: a `return` here reported a PASS for a guard that never
+        // ran, which is the failure mode this wrapper exists to close.
+        console.warn(
+          `[mcp-rate-limit] ${MCP_DIR}/node_modules is not installed — SKIPPING the rate-limit ` +
+            `regression suite. Install mcp's deps (cd mcp && npm install) so the suite runs.`,
+        )
+        ctx.skip()
+        return
+      }
+
+      // The node:test file spawns dist/http.js. dist is not committed, so a
+      // fresh-but-installed mcp checkout builds it here — a plain local tsc
+      // build, no network, the same command `npm run build` runs. A dist that
+      // EXISTS but predates any mcp/src source is rebuilt too: the assertions
+      // below are only honest when the compiled server is the current source.
+      const distStale =
+        !existsSync(SERVER_JS) ||
+        statSync(SERVER_JS).mtimeMs < newestSourceMtime(join(MCP_DIR, 'src'))
+      if (distStale) {
+        const build = await run('npm', ['run', 'build'], MCP_DIR)
+        expect(build.code, `mcp build failed:\n${build.output}`).toBe(0)
+      }
+
+      const result = await run(process.execPath, ['--test', TEST_FILE], MCP_DIR)
+      expect(
+        result.code,
+        `mcp/scripts/rate-limit.test.mjs failed:\n${result.output.slice(-4000)}`,
+      ).toBe(0)
+      // The suite must actually have RUN. A count of executed tests is not
+      // evidence: node's reporter prints `# tests 1 / # pass 1` for an EMPTY file
+      // (the file itself counts as the test), so `/tests \d+/` matched the very
+      // "matches no tests" case its comment named. The suite's own test names are
+      // the honest signal — a renamed, emptied or truncated file loses them.
+      expect(result.output).toContain(
+        'rotating fly-client-ip headers cannot mint fresh rate budgets',
       )
-      ctx.skip()
-      return
-    }
-
-    // The node:test file spawns dist/http.js. dist is not committed, so a
-    // fresh-but-installed mcp checkout builds it here — a plain local tsc
-    // build, no network, the same command `npm run build` runs.
-    if (!existsSync(SERVER_JS)) {
-      const build = await run('npm', ['run', 'build'], MCP_DIR)
-      expect(build.code, `mcp build failed:\n${build.output}`).toBe(0)
-    }
-
-    const result = await run(process.execPath, ['--test', TEST_FILE], MCP_DIR)
-    expect(
-      result.code,
-      `mcp/scripts/rate-limit.test.mjs failed:\n${result.output.slice(-4000)}`,
-    ).toBe(0)
-    // The suite must actually have RUN. A count of executed tests is not
-    // evidence: node's reporter prints `# tests 1 / # pass 1` for an EMPTY file
-    // (the file itself counts as the test), so `/tests \d+/` matched the very
-    // "matches no tests" case its comment named. The suite's own test names are
-    // the honest signal — a renamed, emptied or truncated file loses them.
-    expect(result.output).toContain('rotating fly-client-ip headers cannot mint fresh rate budgets')
-    expect(result.output).toContain('falls back to the default instead of being mis-read')
-    expect(result.output).not.toMatch(/fail\s+[1-9]/)
-  })
+      expect(result.output).toContain('falls back to the default instead of being mis-read')
+      expect(result.output).toContain('the proxy-owned fly-client-ip is the rate key')
+      expect(result.output).toContain(
+        'a bucket map at its cap evicts the least-recently-seen address',
+      )
+      expect(result.output).not.toMatch(/fail\s+[1-9]/)
+    },
+  )
 })

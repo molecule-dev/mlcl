@@ -27,6 +27,30 @@ import Inject from '../inject.js'
 vi.mock('execa', () => ({ execa: vi.fn() }))
 const execaMock = vi.mocked(execa)
 
+/**
+ * The call ORDER between the injection's writes and the deferred install is
+ * the whole point of "after every plan and synthesized file has landed" — an
+ * install that ran BEFORE the writes (the old shape: over a half-written
+ * manifest) passed every count/argv assertion. Every fs/promises write is
+ * recorded through a passthrough mock, and the install event is appended by
+ * the mocked execa, so one list gives the ordering evidence.
+ */
+const order = vi.hoisted(() => ({ events: [] as string[] }))
+
+vi.mock('node:fs/promises', async (importOriginal) => {
+  const actual = (await importOriginal()) as Record<string, unknown>
+  const realWriteFile = actual.writeFile as (...args: unknown[]) => Promise<unknown>
+  return {
+    ...actual,
+    writeFile(path: unknown, ...rest: unknown[]): Promise<unknown> {
+      return realWriteFile(path, ...rest).then((result) => {
+        order.events.push(`write:${String(path)}`)
+        return result
+      })
+    },
+  }
+})
+
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
 
 let dir: string | null = null
@@ -96,6 +120,10 @@ async function runInject(projectPath: string, extraFlags: string[]): Promise<Inj
 describe('mlcl inject runs the deferred npm install', () => {
   it('installs once after every plan and synthesized file has landed', async () => {
     const project = await writeApiProject()
+    execaMock.mockImplementation((() => {
+      order.events.push('install:npm install')
+      return Promise.resolve({ stdout: '', stderr: '' }) as never
+    }) as never)
     await runInject(project, [])
 
     expect(execaMock).toHaveBeenCalledTimes(1)
@@ -103,6 +131,29 @@ describe('mlcl inject runs the deferred npm install', () => {
       cwd: project,
       stdio: 'pipe',
     })
+    // The ORDER is the claim: the install event comes after every PLAN and
+    // SYNTHESIZED file write — an install hoisted before the writes
+    // reintroduced installs over a half-written manifest and still passed a
+    // count check. The one documented exception is the `.env` secrets append,
+    // which the command deliberately runs AFTER the install (it is not a plan
+    // or synthesized file, and npm does not read it).
+    const installAt = order.events.findIndex((event) => event === 'install:npm install')
+    expect(installAt).toBeGreaterThanOrEqual(0)
+    const isPlanWrite = (event: string): boolean =>
+      event.startsWith('write:') && !event.endsWith('/.env')
+    const lastPlanWriteAt = order.events.reduce(
+      (last, event, index) => (isPlanWrite(event) ? index : last),
+      -1,
+    )
+    expect(order.events.filter(isPlanWrite).length).toBeGreaterThan(0)
+    expect(installAt, 'the deferred install must run after the writes, not before').toBeGreaterThan(
+      lastPlanWriteAt,
+    )
+    // …and the post-install writes must be ONLY the exempted ones.
+    const lateWrites = order.events.filter(
+      (event, index) => index > installAt && event.startsWith('write:'),
+    )
+    for (const event of lateWrites) expect(event.endsWith('/.env')).toBe(true)
   })
 
   it('skips the install under --no-install', async () => {

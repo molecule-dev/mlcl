@@ -52,11 +52,25 @@ describe('generateEnvFile .env.example', () => {
   it('writes the generated key-name example when none exists', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-env-example-'))
 
-    await generateEnvFile(dir, [{ name: 'STRIPE_SECRET_KEY', required: true }], 'api')
+    await generateEnvFile(
+      dir,
+      [
+        { name: 'STRIPE_SECRET_KEY', required: true },
+        { name: 'MAILGUN_API_KEY', required: false },
+      ],
+      'api',
+    )
 
     const example = await readFile(join(dir, '.env.example'), 'utf-8')
     expect(example).toContain('STRIPE_SECRET_KEY=')
-    // Key names only — the generated example never carries a value.
-    expect(example).not.toContain('STRIPE_SECRET_KEY=sk_')
+    // Key names ONLY, for EVERY declared secret: the generated example is the
+    // doc a user copies, and it must never carry a value — not a placeholder,
+    // not a default. (A `sk_`-literal negative here could practically never
+    // fail: the example only carries values if the generator started writing
+    // them, and then only for whatever default it picked.)
+    for (const secret of ['STRIPE_SECRET_KEY', 'MAILGUN_API_KEY']) {
+      expect(example).toMatch(new RegExp(`^${secret}=$`, 'm'))
+      expect(example).not.toMatch(new RegExp(`^${secret}=.+`, 'm'))
+    }
   })
 })

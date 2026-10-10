@@ -98,6 +98,14 @@ export function lazySetupHelpers(
  * ("// setupRateLimitMemory is wired below") cannot read as a call, and a
  * `//` inside a string ("https://…") cannot truncate the scan.
  *
+ * Regex literals are copied through verbatim with the same protection: the
+ * `//`-shaped or `/*`-shaped text INSIDE a regex (`/^https:\/\//`) is not a
+ * comment either, and treating it as one truncated the rest of that LINE — a
+ * `setupXxx(` call after the literal went unseen and the gate scanned around
+ * exactly the helper it exists to check. A `/` opens a regex only where a
+ * value position follows a token boundary (after `(`, `,`, `=`, `return`, …);
+ * after a value — `)` (division), an identifier, a string — it cannot.
+ *
  * @param source - TypeScript source.
  * @returns The source with comments removed.
  */
@@ -106,6 +114,11 @@ export function stripComments(source: string): string {
   let quote: string | null = null
   let inLineComment = false
   let inBlockComment = false
+  // Last code character outside comments/strings/regexes — the only context
+  // "is this slash a regex or a division" needs.
+  let lastCodeChar = ''
+  const regexAllowed = (): boolean =>
+    lastCodeChar === '' || '([{,;=:?!&|<>+-*%^~'.includes(lastCodeChar)
   for (let i = 0; i < source.length; i++) {
     const ch = source.charAt(i)
     const next = source.charAt(i + 1)
@@ -130,6 +143,7 @@ export function stripComments(source: string): string {
         i++
       } else if (ch === quote) {
         quote = null
+        lastCodeChar = ch
       }
       continue
     }
@@ -143,11 +157,34 @@ export function stripComments(source: string): string {
       i++
       continue
     }
+    if (ch === '/' && regexAllowed()) {
+      // Copy the literal verbatim — delimiters, body (a `/` inside a character
+      // class does not close it), flags — without comment-scanning its inside.
+      out += '/'
+      i++
+      let inClass = false
+      for (; i < source.length; i++) {
+        const rc = source.charAt(i)
+        out += rc
+        if (rc === '\\') {
+          out += source.charAt(i + 1) ?? ''
+          i++
+          continue
+        }
+        if (rc === '[') inClass = true
+        else if (rc === ']') inClass = false
+        else if (rc === '/' && !inClass) break
+      }
+      lastCodeChar = '/'
+      continue
+    }
     if (ch === '"' || ch === "'" || ch === '`') {
       quote = ch
       out += ch
+      lastCodeChar = ch
       continue
     }
+    if (!/\s/.test(ch)) lastCodeChar = ch
     out += ch
   }
   return out
@@ -240,6 +277,19 @@ describe('stripComments / unbackedProviders — the check can fail', () => {
     expect(code.includes('setupRateLimitMemory()')).toBe(true)
     expect(code).toContain('https://example.test')
     expect(code.includes('// setupRateLimitMemory is wired')).toBe(false)
+  })
+
+  it('keeps a `//`-shaped REGEX literal from truncating the line it sits on', () => {
+    // A `//` (or `/*`) inside a regex is not a comment: treating it as one
+    // truncated the rest of that line, and a setup call after the literal
+    // went unseen — the gate scanned around exactly the helper it checks.
+    const source = [
+      "const bare = host.replace(/^https:\\/\\//, '')",
+      'await setupRateLimitMemory()',
+    ].join('\n')
+    const code = stripComments(source)
+    expect(code).toContain('.replace(/^https:\\/\\//,')
+    expect(code.includes('setupRateLimitMemory()')).toBe(true)
   })
 
   it('flags a dev-only pin and a missing pin, passes a production pin', () => {

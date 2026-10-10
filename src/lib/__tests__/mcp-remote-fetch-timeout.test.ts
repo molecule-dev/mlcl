@@ -24,7 +24,8 @@ import { afterEach, describe, expect, it } from 'vitest'
 
 import { FETCH_TIMEOUT_MS, fetchJson } from '../../../mcp/src/remote.js'
 
-const MCP_REMOTE = join(import.meta.dirname, '..', '..', '..', 'mcp', 'src', 'remote.ts')
+const MCP_DIR = join(import.meta.dirname, '..', '..', '..', 'mcp')
+const MCP_TELEMETRY = join(MCP_DIR, 'src', 'telemetry.ts')
 
 /**
  * The full text of every `fetch(...)` call in `source`, scanned with balanced
@@ -136,23 +137,49 @@ describe('mcp remote outbound fetch timeout', () => {
     expect(FETCH_TIMEOUT_MS).toBeLessThanOrEqual(60_000)
   })
 
-  it('wires the bound into every outbound fetch in remote.ts', () => {
+  it('wires the bound into every outbound fetch in remote.ts and telemetry.ts', () => {
     // fetchJson's signal is driven by the two tests above; read_package_doc's
-    // inline npm fetch has no test seam, so its wiring is pinned at the
-    // source — the same shape the version test pins remote.ts with.
+    // inline npm fetch and telemetry's emit POST have no test seam, so their
+    // wiring is pinned at the source — the same shape the version test pins
+    // remote.ts with. telemetry.ts is scanned because this file's own header
+    // leans on it ("every other outbound path in this package bounds its calls
+    // at 5 s") — an unbounded emit fired on EVERY tool call, and deleting the
+    // signal there kept every assertion here green.
     //
     // The bound must be in THAT call's OWN argument list. Counting `fetch(`
     // against `signal: AbortSignal.timeout(` in isolation could be balanced by
     // an unrelated call carrying an extra inline signal, so an unbounded fetch
-    // added anywhere in the file stayed green — the exact ~5-minute stall this
+    // added anywhere in a file stayed green — the exact ~5-minute stall this
     // guard exists to prevent.
-    const source = readFileSync(MCP_REMOTE, 'utf-8')
-    const calls = fetchCallsIn(source)
-    expect(calls.length).toBeGreaterThanOrEqual(2)
-    for (const call of calls) {
-      expect(call, `an outbound fetch is missing its AbortSignal bound:\n${call}`).toMatch(
-        /signal: AbortSignal\.timeout\(/,
-      )
+    for (const file of ['src/remote.ts', 'src/telemetry.ts']) {
+      const source = readFileSync(join(MCP_DIR, file), 'utf-8')
+      const calls = fetchCallsIn(source)
+      expect(calls.length, `${file} declares no outbound fetch`).toBeGreaterThanOrEqual(1)
+      for (const call of calls) {
+        expect(
+          call,
+          `${file}: an outbound fetch is missing its AbortSignal bound:\n${call}`,
+        ).toMatch(/signal: AbortSignal\.timeout\(/)
+      }
+    }
+  })
+
+  it('bounds telemetry’s emit in the class the docs promise — seconds, not minutes', () => {
+    // Presence of a signal alone would allow `AbortSignal.timeout(600_000)` —
+    // a bound in name only. The posture is "fire-and-forget with a 5s timeout"
+    // (telemetry.ts header, the mlcl README it mirrors), so the millisecond
+    // literal must stay in the same class.
+    const source = readFileSync(MCP_TELEMETRY, 'utf-8')
+    const bounds = [...source.matchAll(/AbortSignal\.timeout\((\d[\d_]*)\)/g)].map((m) =>
+      Number(m[1].replaceAll('_', '')),
+    )
+    expect(bounds.length, 'telemetry.ts declares no AbortSignal bound').toBeGreaterThanOrEqual(1)
+    for (const ms of bounds) {
+      expect(ms).toBeGreaterThanOrEqual(1_000)
+      expect(
+        ms,
+        `telemetry’s emit bound ${ms}ms is not the documented seconds class`,
+      ).toBeLessThanOrEqual(10_000)
     }
   })
 })

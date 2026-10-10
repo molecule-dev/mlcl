@@ -1078,16 +1078,20 @@ async function checkConflict(path: string): Promise<Conflict | null> {
 /**
  * Find an existing migration covering a table, or null when none does.
  *
- * Matches the canonical filename THIS planner writes —
- * `${timestamp}_create_${table}_table.sql` — and nothing looser: a bare
- * substring match also hit files for a LONGER table name that merely contains
- * this one (`_create_post_comments_table.sql` for table `comments`), reported
- * a false "migration exists" conflict, and the real migration was silently
- * never planned — the table then did not exist at runtime ("relation does not
- * exist"), and `--force` could not override it because migrations bypass the
- * file-op conflict machinery (the skip happens here, at plan time). A missed
- * match is harmless by contrast: resource SQL is `CREATE TABLE IF NOT EXISTS`,
- * so a redundant second migration is a no-op at apply time.
+ * Matches the `_create_${table}_table.sql` TAIL of the canonical filename this
+ * planner writes — `${timestamp}_create_${table}_table.sql` — and nothing
+ * looser: a bare substring match also hit files for a LONGER table name that
+ * merely contains this one (`_create_post_comments_table.sql` for table
+ * `comments`), reported a false "migration exists" conflict, and the real
+ * migration was silently never planned — the table then did not exist at
+ * runtime ("relation does not exist"), and `--force` could not override it
+ * because migrations bypass the file-op conflict machinery (the skip happens
+ * here, at plan time). The anchor is a SUFFIX: any prefix before
+ * `_create_…` is accepted, so a hand-renamed migration for the same table
+ * (`legacy_create_comments_table.sql`) still counts as coverage — the safe
+ * direction, since resource SQL is `CREATE TABLE IF NOT EXISTS` and a
+ * redundant second migration would be a no-op at apply time. A missed match
+ * is the harmless one by the same token.
  */
 export async function checkMigrationExists(
   migrationsDir: string,

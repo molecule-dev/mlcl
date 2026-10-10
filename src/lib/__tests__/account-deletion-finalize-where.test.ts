@@ -101,13 +101,16 @@ beforeEach(() => {
   users = []
   devices = []
   vi.clearAllMocks()
-  // The mocked store: `users` answers the job's WHERE clause with SQL semantics;
-  // every other table is empty and reports its deletes as affected rows.
+  // The mocked store: `users` AND `devices` answer the job's WHERE clause with
+  // SQL semantics — a devices stub that returned every row regardless of the
+  // probe's `userId =` condition could not catch the probe matching ANOTHER
+  // user's device (in production that cancels every expired user's deletion).
   database.findMany.mockImplementation(
     async (table: string, options: { where?: Cond[] }): Promise<unknown[]> => {
-      if (table === 'devices') return devices
-      if (table !== 'users') return []
       const where = options.where ?? []
+      if (table === 'devices')
+        return devices.filter((row) => where.every((cond) => matches(row, cond)))
+      if (table !== 'users') return []
       return users.filter((row) => where.every((cond) => matches(row, cond)))
     },
   )
@@ -175,6 +178,24 @@ describe('finalize-deletions — the expired-user filter must actually match', (
     await runJob()
 
     expect(database.updateById).not.toHaveBeenCalled()
+    expect(database.deleteById).toHaveBeenCalledWith('users', 'u-gone')
+  })
+
+  it('the sign-back-in probe is scoped to the USER’s own devices, not any device row', async () => {
+    // Two expired users; the only devices row belongs to the user who DID sign
+    // back in. A probe that ignored its `userId =` condition found this row for
+    // EVERY user — it would cancel u-gone's deletion too, stranding an account
+    // the user asked to delete.
+    users = [
+      { id: 'u-returned', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() },
+      { id: 'u-gone', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() },
+    ]
+    devices = [{ id: 'd1', userId: 'u-returned' }]
+
+    await runJob()
+
+    expect(database.updateById).toHaveBeenCalledWith('users', 'u-returned', { deleted_at: null })
+    expect(database.updateById).not.toHaveBeenCalledWith('users', 'u-gone', expect.anything())
     expect(database.deleteById).toHaveBeenCalledWith('users', 'u-gone')
   })
 

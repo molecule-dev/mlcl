@@ -285,21 +285,35 @@ export async function readMigrateRunner(
 }
 
 /**
- * Read the default (Postgres) migration runner for an EXISTING project,
- * substituting both render inputs from the project's own api manifest (both
- * dependency keys — see {@link manifestDeclaredPackages}) — the scaffold
- * refresh and database-swap paths, where the package list that drove the
- * original scaffold is no longer the truth.
+ * Read the migration runner for an EXISTING project, substituting both render
+ * inputs from the project's own api manifest (both dependency keys — see
+ * {@link manifestDeclaredPackages}) — the scaffold refresh and database-swap
+ * paths, where the package list that drove the original scaffold is no longer
+ * the truth.
+ *
+ * The TEMPLATE follows the manifest too: rendering a SQLite- or MySQL-only
+ * manifest into the Postgres template strips every Postgres section (the
+ * manifest declares no PostgreSQL bond) and leaves a runner whose only
+ * branch is the unreachable browser profile — a silent no-op OVERWRITING the
+ * working runner the project already had. {@link migrateTemplateFor} resolves
+ * the same precedence the inject/swap paths use; an unreadable manifest keeps
+ * the conservative Postgres shape it always rendered.
  *
  * @param apiDir - The api workspace (the directory holding package.json).
  * @returns The runner source.
  */
 export async function readMigrateRunnerForManifest(apiDir: string): Promise<string> {
+  const deps = await manifestDeclaredPackages(join(apiDir, 'package.json'))
   const raw = await readFile(
-    join(__dirname, '..', '..', 'templates', 'api/migrate.ts.tpl'),
+    join(
+      __dirname,
+      '..',
+      '..',
+      'templates',
+      deps ? migrateTemplateFor([...deps]) : 'api/migrate.ts.tpl',
+    ),
     'utf-8',
   )
-  const deps = await manifestDeclaredPackages(join(apiDir, 'package.json'))
   return renderMigrateRunner(raw, {
     pgliteDeclared: deps?.has(PGLITE_PACKAGE) ?? false,
     postgresDeclared: deps === null ? true : deps.has(POSTGRES_PACKAGE),

@@ -242,3 +242,88 @@ test('an in-budget malformed body still reaches the parser (400, not 429)', asyn
     await stopServer(child)
   }
 })
+
+test('on Fly, the proxy-owned fly-client-ip is the rate key', async () => {
+  // The other half of the keying the first test pins: on a Fly machine the
+  // platform proxy OVERWRITES fly-client-ip, so the header is the honest
+  // per-client key there (the socket would key every client on the proxy).
+  // With FLY_MACHINE_ID set, seven rotated headers must each draw on their OWN
+  // budget — under socket keying they would share one 5-request budget and the
+  // 6th and 7th would 429. A deploy that trusts the header WITHOUT a proxy in
+  // front is the off-Fly test's subject, not this one.
+  const env = { ...process.env, MCP_RATE_PER_MIN: '5', FLY_MACHINE_ID: 'rate-limit-test-machine' }
+  delete env.FLY_APP_NAME
+  const { child, base } = await startServer(env)
+  try {
+    const statuses = []
+    for (let i = 0; i < 7; i++) {
+      const res = await fetch(`${base}/mcp`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          // The transport answers 406 without both content types accepted.
+          accept: 'application/json, text/event-stream',
+          'fly-client-ip': `10.98.${Math.floor(i / 250)}.${(i % 250) + 1}`,
+        },
+        body: INITIALIZE_BODY,
+      })
+      statuses.push(res.status)
+      await res.arrayBuffer() // drain so the socket is reusable
+    }
+    assert.ok(
+      statuses.every((s) => s === 200),
+      `on Fly each distinct client address carries its own budget, got ${statuses.join(',')}`,
+    )
+  } finally {
+    await stopServer(child)
+  }
+})
+
+test('a bucket map at its cap evicts the least-recently-seen address', async () => {
+  // The map of per-address buckets is capped so a flood of distinct addresses
+  // cannot grow it without bound; at the cap the least-recently-seen bucket is
+  // evicted. MCP_RATE_MAX_BUCKETS shrinks the cap to a size the suite can
+  // reach: budget 2, cap 3 — exhaust address a1, let two more addresses in,
+  // force a fourth (the eviction), then ask a1 again: its bucket was evicted,
+  // so it draws a FRESH budget (200) instead of staying drained (429).
+  const env = {
+    ...process.env,
+    MCP_RATE_PER_MIN: '2',
+    MCP_RATE_MAX_BUCKETS: '3',
+    FLY_MACHINE_ID: 'rate-limit-test-machine',
+  }
+  delete env.FLY_APP_NAME
+  const { child, base } = await startServer(env)
+  try {
+    const ask = async (ip) => {
+      const res = await fetch(`${base}/mcp`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          // The transport answers 406 without both content types accepted.
+          accept: 'application/json, text/event-stream',
+          'fly-client-ip': ip,
+        },
+        body: INITIALIZE_BODY,
+      })
+      await res.arrayBuffer() // drain so the socket is reusable
+      return res.status
+    }
+    // a1 draws twice (budget spent), a2 and a3 fill the map to the cap.
+    assert.equal(await ask('10.97.0.1'), 200)
+    assert.equal(await ask('10.97.0.1'), 200)
+    assert.equal(await ask('10.97.0.1'), 429)
+    assert.equal(await ask('10.97.0.2'), 200)
+    assert.equal(await ask('10.97.0.3'), 200)
+    // A fourth address at the cap: evicts a1 (least recently seen), then passes.
+    assert.equal(await ask('10.97.0.4'), 200, 'the cap must evict, not reject the new address')
+    // a1 is back with a fresh budget — the observable eviction.
+    assert.equal(
+      await ask('10.97.0.1'),
+      200,
+      'an evicted address must draw a fresh budget, not stay drained',
+    )
+  } finally {
+    await stopServer(child)
+  }
+})

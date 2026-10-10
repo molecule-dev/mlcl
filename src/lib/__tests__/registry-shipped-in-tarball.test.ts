@@ -37,7 +37,21 @@ function ships(pattern: string, relPath: string): boolean {
 
 describe('the tarball carries the registry the CLI reads', () => {
   it('names the registry file package.json resolves in its `files` array', () => {
+    // `registryFilePath()` is resolved per call, so a leftover override would
+    // re-point every later registry read in this process. Restore whatever the
+    // environment brought in — the same hygiene every registry cache test
+    // applies.
+    const originalPath = process.env.MLCL_REGISTRY_PATH
     delete process.env.MLCL_REGISTRY_PATH
+    try {
+      assertTarballShipsRegistry()
+    } finally {
+      if (originalPath === undefined) delete process.env.MLCL_REGISTRY_PATH
+      else process.env.MLCL_REGISTRY_PATH = originalPath
+    }
+  })
+
+  function assertTarballShipsRegistry(): void {
     const manifest = JSON.parse(readFileSync(join(PACKAGE_ROOT, 'package.json'), 'utf-8')) as {
       files?: string[]
     }
@@ -54,5 +68,5 @@ describe('the tarball carries the registry the CLI reads', () => {
       `package.json \`files\` does not ship ${rel} — an installed mlcl cannot find its ` +
         `registry; add "/${rel}" to the \`files\` array`,
     ).toBe(true)
-  })
+  }
 })

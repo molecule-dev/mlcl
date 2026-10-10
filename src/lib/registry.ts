@@ -410,7 +410,8 @@ export function removeRegistryEntry(packageName: string): void {
  * write: the sync-registry subcommands mutate it and then writeFileSync the
  * file (mtime changes → fresh parse next call). Every other caller only reads.
  */
-const RAW_REGISTRY_CACHE_LIMIT = 4
+/** Cached registry paths kept before the oldest is evicted (see the cap below). */
+export const RAW_REGISTRY_CACHE_LIMIT = 4
 
 const rawRegistryCache = new Map<string, { key: string; registry: Registry }>()
 

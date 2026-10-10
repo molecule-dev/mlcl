@@ -26,16 +26,12 @@ vi.mock('@molecule/api-i18n', () => ({
 vi.mock('@molecule/api-logger', () => ({
   logger: { info: vi.fn(), warn: vi.fn(), error: vi.fn() },
 }))
-vi.mock('@molecule/api-middleware-validation', () => ({
-  // Stand-in for the real middleware's contract: parsed query values land on
-  // req.query before next() — here the schema's own defaults.
-  validateQuery:
-    () =>
-    (req: { query: Record<string, unknown> }, _res: unknown, next: () => void): void => {
-      req.query = { page: 1, limit: 20 }
-      next()
-    },
-}))
+// `@molecule/api-middleware-validation` is deliberately NOT mocked: the header
+// above says the query validation is the shipped code, and a stand-in that
+// hard-coded `{ page: 1, limit: 20 }` let the real `listQuerySchema` drift
+// invisibly — page=0, page=abc and limit=1000 never met the shipped zod
+// schema. The REAL middleware coerces/defaults req.query through the handler's
+// own schema and answers 400 on violation; the query tests below pin that.
 
 type Handle = (req: unknown, res: unknown, next?: () => void) => Promise<void> | void
 
@@ -78,10 +74,13 @@ const makeRes = (): {
 }
 
 /** Run the full middleware chain and await the terminal handler. */
-async function get(args: { userId?: string }): Promise<ReturnType<typeof makeRes>> {
+async function get(args: {
+  userId?: string
+  query?: Record<string, string>
+}): Promise<ReturnType<typeof makeRes>> {
   const res = makeRes()
   if (args.userId !== undefined) res.locals.session = { userId: args.userId }
-  const req = { query: {} as Record<string, unknown> }
+  const req = { query: args.query ?? {} }
   let index = 0
   const runNext = async (): Promise<void> => {
     const handle = listMiddlewares[index++]
@@ -112,5 +111,24 @@ describe('paginated-user-list — the full user table is never served unauthenti
     expect(res.statusCode).toBe(0) // 200 — no status() call, json() only
     expect(database.findMany).toHaveBeenCalledTimes(1)
     expect(res.body).toEqual({ data: [{ id: 'u1' }], total: 1, page: 1, limit: 20 })
+  })
+
+  it('the SHIPPED query schema coerces ?page=2&limit=50 and offsets off them', async () => {
+    database.findMany.mockResolvedValue([])
+    database.count.mockResolvedValue(0)
+    const res = await get({ userId: 'user-1', query: { page: '2', limit: '50' } })
+    expect(res.statusCode).toBe(0)
+    // The handler saw the PARSED values the shipped schema produced — string
+    // query params coerced to numbers, offset derived from them.
+    expect(database.findMany.mock.calls[0]?.[1]).toMatchObject({ limit: 50, offset: 50 })
+    expect(res.body).toEqual({ data: [], total: 0, page: 2, limit: 50 })
+  })
+
+  it('the SHIPPED query schema rejects page=0 and an over-cap limit before the table is touched', async () => {
+    for (const query of [{ page: '0' }, { limit: '1000' }, { page: 'abc' }]) {
+      const res = await get({ userId: 'user-1', query })
+      expect(res.statusCode, `query ${JSON.stringify(query)} must be 400`).toBe(400)
+      expect(database.findMany).not.toHaveBeenCalled()
+    }
   })
 })

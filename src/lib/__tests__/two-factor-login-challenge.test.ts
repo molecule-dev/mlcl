@@ -42,6 +42,8 @@ interface FetchRequest {
   body: unknown
   answered: boolean
   respond: (status: number, body: unknown) => void
+  /** Reject the request the way a failed network does. */
+  fail: (error: Error) => void
 }
 
 const fetches = vi.hoisted(() => ({ requests: [] as FetchRequest[] }))
@@ -133,7 +135,7 @@ const text = (): string => container.textContent ?? ''
 beforeEach(() => {
   fetches.requests.length = 0
   globalThis.fetch = ((input: unknown, init?: { body?: unknown }) =>
-    new Promise((resolve) => {
+    new Promise((resolve, reject) => {
       fetches.requests.push({
         url: String(input),
         body: init?.body,
@@ -144,6 +146,7 @@ beforeEach(() => {
             status,
             json: async () => body,
           }),
+        fail: reject,
       })
     })) as typeof globalThis.fetch
 })
@@ -203,11 +206,15 @@ describe('email-password-login — a 2FA challenge is NOT a successful login', (
 
     await respond('/api/users/log-in', 200, { props: { id: 'u1' } })
     // A 200 DID issue the session, so it must not be reported as a wrong code
-    // or counted as a failed attempt. (The page's success action is the
-    // jsdom-unobservable navigation — see the module doc — so the completing
-    // half is pinned by the request assertions above plus this pair; the old
-    // assertion was `not.toContain('Wrong code')` alone, which every state that
-    // renders no error satisfies, including a dropped success branch.)
+    // or counted as a failed attempt. The success branch itself is a
+    // `window.location.href` navigation, which jsdom refuses — and the
+    // "Not implemented: navigation" report it makes is suppressed by vitest's
+    // virtual console (never reaches console.error — verified — so it cannot
+    // be spied either). The completing half is therefore pinned by the REQUEST
+    // assertions above: only the credentials+token POST can ever log this user
+    // in, so a dropped success branch would leave a session that never
+    // happens, which is the flow's failure, visible at the network boundary
+    // this suite controls.
     expect(text()).not.toContain('Wrong code')
     expect(text()).not.toContain('failed attempts')
   })
@@ -292,6 +299,34 @@ describe('two-factor-auth — the code step posts to the real log-in route', () 
 
     expect(text()).toContain('(failed attempts: 1)')
     expect(container.querySelector('[data-mol-id="totp-login-code"]')).not.toBeNull()
+  })
+
+  it('a REJECTED verify frees the form — never a dead verify button', async () => {
+    // submit()'s finally promises this on every path; no fetch double here
+    // could reject, so deleting the catch and the finally kept every test
+    // green over a verify button locked by the first network failure.
+    await mount(
+      createElement(LoginVerifyPage, { email: 'ada@calc.dev', password: 'hunter2-secret' }),
+    )
+
+    await typeInto('[data-mol-id="totp-login-code"]', '123456')
+    await submit()
+
+    const request = fetches.requests.find((r) => !r.answered && r.url.includes('/api/users/log-in'))
+    if (!request) throw new Error('no pending verify request to reject')
+    request.answered = true
+    await act(async () => {
+      request.fail(new Error('network down'))
+    })
+    await flush()
+
+    expect(text()).toContain('Network error')
+    expect(text()).not.toContain('failed attempts')
+    const button = container.querySelector('button') as HTMLButtonElement
+    expect(button.disabled).toBe(false)
+    // A retry goes back out.
+    await submit()
+    expect(fetches.requests.filter((r) => r.url.includes('/api/users/log-in'))).toHaveLength(2)
   })
 
   it('counts the challenge status itself (206) as a failed attempt, not a login', async () => {

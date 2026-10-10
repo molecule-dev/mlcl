@@ -77,6 +77,17 @@ describe('checkMigrationExists — table-name boundaries', () => {
     expect(await checkMigrationExists(dir, 'users')).toBeNull()
   })
 
+  it('counts a hand-renamed migration for the same table — the anchor is a suffix, not the timestamp', async () => {
+    // The real shape of the contract: ANY prefix before `_create_<table>_table`
+    // counts as coverage (a hand-written migration for the table suppresses
+    // planning — the safe direction, since resource SQL is IF NOT EXISTS);
+    // a differently-shaped file for the same name does not.
+    const renamed = await makeMigrationsDir(['legacy_create_comments_table.sql'])
+    expect(await checkMigrationExists(renamed, 'comments')).not.toBeNull()
+    const different = await makeMigrationsDir(['1748000000000_create_comments.sql'])
+    expect(await checkMigrationExists(different, 'comments')).toBeNull()
+  })
+
   it('returns null when the migrations directory does not exist yet', async () => {
     expect(await checkMigrationExists(join(tempDir, 'no-such-dir'), 'comments')).toBeNull()
   })

@@ -363,6 +363,22 @@ describe('readMigrateRunner PGlite gating', () => {
     expect(runner).toContain("import pg from 'pg'")
   })
 
+  it('readMigrateRunnerForManifest renders the template the manifest’s own database implies', async () => {
+    // A SQLite-only manifest must not be "refreshed" into the Postgres
+    // template: no PostgreSQL bond is declared, so every Postgres section is
+    // stripped and the output is a runner whose only branch is the UNREACHABLE
+    // browser profile — a silent no-op overwriting the working runner the
+    // project already had. The template follows the manifest, the same
+    // precedence the inject and swap paths resolve.
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
+    await writeManifest({ '@molecule/api-database-sqlite': '1.0.0' })
+    const sqlite = await readMigrateRunnerForManifest(dir)
+    expect(sqlite).toContain("from '@molecule/api-database-sqlite'")
+    expect(sqlite).not.toContain("import pg from 'pg'")
+    expect(sqlite).not.toContain('CREATE DATABASE')
+    expect(sqlite).not.toContain('{{')
+  })
+
   it('renders from the manifest ∪ injected list — one injected database never erases a declared one', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
     // `mlcl add @molecule/api-database-pglite --inject` into an existing
@@ -389,6 +405,12 @@ describe('readMigrateRunner PGlite gating', () => {
     const fresh = await readMigrateRunner(['@molecule/api-database-pglite'], dir)
     expect(fresh).toContain('const BROWSER_PROFILE = true\n')
     expect(fresh).not.toContain("import pg from 'pg'")
+    // An UNPARSEABLE manifest returns the same null (the read throws inside
+    // manifestDeclaredPackages) — the same list-alone fallback, not a crash.
+    await writeFile(join(dir, 'package.json'), '{ this is not json')
+    const corrupt = await readMigrateRunner(['@molecule/api-database-pglite'], dir)
+    expect(corrupt).toContain('const BROWSER_PROFILE = true\n')
+    expect(corrupt).not.toContain("import pg from 'pg'")
   })
 
   it('keeps a declaring project’s branch across a Postgres re-swap', async () => {
@@ -661,11 +683,19 @@ describe('admin connection lifecycle', () => {
    * injected; the declaration's one TS annotation is stripped the same way
    * the predicate's signature is, and the body runs verbatim.
    */
-  async function runStep1(stub: {
-    connect: () => Promise<void>
-    query: (sql: string) => Promise<unknown>
-    end: () => Promise<void>
-  }): Promise<{ logs: string[]; warns: string[]; clients: Array<{ ends: number }> }> {
+  async function runStep1(
+    stub: {
+      connect: () => Promise<void>
+      query: (sql: string) => Promise<unknown>
+      end: () => Promise<void>
+    },
+    dbName = 'myapp',
+  ): Promise<{
+    logs: string[]
+    warns: string[]
+    clients: Array<{ ends: number }>
+    queries: string[]
+  }> {
     const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
     const start = runner.indexOf('// Step 1: Try to create the database')
     const end = runner.indexOf('// Step 2: Run migrations')
@@ -690,6 +720,22 @@ describe('admin connection lifecycle', () => {
     }
     const logs: string[] = []
     const warns: string[] = []
+    const queries: string[] = []
+    const instrumented: typeof stub = {
+      ...stub,
+      query: (sql: string) => {
+        queries.push(sql)
+        return stub.query(sql)
+      },
+    }
+    class RecordingAdminClient extends StubAdminClient {
+      connect = instrumented.connect
+      query = instrumented.query
+      end = async (): Promise<void> => {
+        this.ends++
+        await instrumented.end()
+      }
+    }
     const run = new Function(
       'pg',
       'DATABASE_URL',
@@ -698,11 +744,17 @@ describe('admin connection lifecycle', () => {
       'console',
       `return (async () => {\n${step1}\n})()`,
     ) as (...args: unknown[]) => Promise<void>
-    await run({ Client: StubAdminClient }, 'postgres://db.example.com:5432/myapp', false, 'myapp', {
-      log: (m: string) => logs.push(m),
-      warn: (m: string) => warns.push(m),
-    })
-    return { logs, warns, clients }
+    await run(
+      { Client: RecordingAdminClient },
+      'postgres://db.example.com:5432/myapp',
+      false,
+      dbName,
+      {
+        log: (m: string) => logs.push(m),
+        warn: (m: string) => warns.push(m),
+      },
+    )
+    return { logs, warns, clients, queries }
   }
 
   it('closes the admin connection when the CREATE DATABASE probe fails — db:setup must still exit', async () => {
@@ -721,6 +773,26 @@ describe('admin connection lifecycle', () => {
     })
     expect(warns.some((w) => w.includes('Could not auto-create database'))).toBe(true)
     expect(clients[0]?.ends).toBe(1)
+  })
+
+  it('escapes a quote-bearing dbName in the CREATE DATABASE statement', async () => {
+    // The statement is a security-relevant data-to-identifier conversion, and
+    // a source-shape regex cannot pin what it PRODUCES — a correct-but-different
+    // escaping fails a shape pin while an arbitrary re-wrapping helper passes
+    // it. Executes the RENDERED statement with a name that tries to break out:
+    // the double quote must be doubled, so the identifier stays one database
+    // name and nothing after the injected quote becomes SQL.
+    const { queries } = await runStep1(
+      {
+        connect: async () => {},
+        query: (sql: string) =>
+          Promise.resolve(sql.startsWith('SELECT') ? { rows: [] } : undefined),
+        end: async () => {},
+      },
+      'app"; DROP TABLE users; --',
+    )
+    const created = queries.find((sql) => sql.startsWith('CREATE DATABASE'))
+    expect(created).toBe('CREATE DATABASE "app""; DROP TABLE users; --"')
   })
 
   it('survives a failed connect() with an end() that has nothing to close', async () => {

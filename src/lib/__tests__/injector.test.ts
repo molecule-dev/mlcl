@@ -121,11 +121,21 @@ describe('planInjection', () => {
 
     expect(plan.moleculePackage).toBeDefined()
     expect(plan.moleculePackage.type).toBe('middleware')
-    // Middleware packages don't produce file plans — they get wired
-    // into server.ts via synthesizeProjectFiles instead
     expect(plan.dependencies).toEqual(
       expect.arrayContaining([expect.objectContaining({ name: '@molecule/api-middleware-cors' })]),
     )
+    // Middleware packages ALSO produce a file plan: the always-emitted
+    // `src/middleware/<shortName>.ts` setup file (the wiring into server.ts
+    // comes from synthesizeProjectFiles on top of it). The old comment here
+    // claimed no file plan, and no assertion covered the op — the middleware
+    // setup file, its conflict check and the registry-declared companion
+    // config were all uncovered.
+    const middlewareFile = plan.files.find((op) =>
+      op.targetPath.replaceAll('\\', '/').endsWith('src/middleware/cors.ts'),
+    )
+    expect(middlewareFile, 'the middleware setup file must be planned').toBeDefined()
+    expect(middlewareFile?.action).toBe('create')
+    expect(middlewareFile?.content.length ?? 0).toBeGreaterThan(0)
   })
 
   it('adds the package as a dependency', async () => {
