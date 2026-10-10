@@ -2126,7 +2126,7 @@ async function addHuskyToPackageJson(packageJsonPath: string): Promise<void> {
       : 'husky'
   pkg.scripts = { ...(pkg.scripts ?? {}), prepare }
   pkg.devDependencies = sortKeys({ ...(pkg.devDependencies ?? {}), husky: '9.1.7' })
-  await writeFile(packageJsonPath, JSON.stringify(pkg, null, 2) + '\n')
+  await writeGuarded(packageJsonPath, JSON.stringify(pkg, null, 2) + '\n')
 }
 
 /**
@@ -2193,7 +2193,7 @@ export async function copyTemplateInstance(
   const eslintTpl = await loadTemplate('shared/eslint.config.js.tpl')
   for (const ws of ['api', 'app']) {
     const wsEslint = join(destDir, ws, 'eslint.config.js')
-    if (existsSync(join(destDir, ws))) await writeFile(wsEslint, eslintTpl)
+    if (existsSync(join(destDir, ws))) await writeGuarded(wsEslint, eslintTpl)
   }
 
   // Copy template-root e2e/ + playwright.config.ts into the scaffolded
@@ -2270,7 +2270,7 @@ export async function copyTemplateInstance(
       (_m) => `@source "${nmPrefix}/node_modules/`,
     )
     if (fixed !== css) {
-      await writeFile(indexCssPath, fixed)
+      await writeGuarded(indexCssPath, fixed)
       mlclDebug(
         `[scaffold] Rewrote @source node_modules paths in app/src/index.css to use nmPrefix="${nmPrefix}"`,
       )
@@ -2283,14 +2283,14 @@ export async function copyTemplateInstance(
   // editing a file requires opening it. Idempotent (withHeader skips if present).
   const themeCssPath = join(destDir, 'app', 'src', 'theme.css')
   if (existsSync(themeCssPath)) {
-    await writeFile(
+    await writeGuarded(
       themeCssPath,
       withHeader(await readFile(themeCssPath, 'utf-8'), THEME_CSS_HEADER_TEMPLATE),
     )
   }
   const themeBondPath = join(destDir, 'app', 'src', 'bonds', 'app-theme-css-variables.ts')
   if (existsSync(themeBondPath)) {
-    await writeFile(
+    await writeGuarded(
       themeBondPath,
       withHeader(await readFile(themeBondPath, 'utf-8'), THEME_BOND_REDIRECT_HEADER),
     )
@@ -2305,7 +2305,7 @@ export async function copyTemplateInstance(
     const brandingHeader = existsSync(join(destDir, 'app', 'index.html'))
       ? BRANDING_HEADER
       : BUILD_TIME_BRANDING_HEADER
-    await writeFile(
+    await writeGuarded(
       tplBrandingPath,
       withHeader(await readFile(tplBrandingPath, 'utf-8'), brandingHeader),
     )
@@ -2498,7 +2498,7 @@ export async function ensureE2EManifest(appPath: string): Promise<void> {
   manifest.devDependencies = Object.fromEntries(
     Object.entries(dev).sort(([a], [b]) => a.localeCompare(b)),
   )
-  await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + '\n')
+  await writeGuarded(manifestPath, JSON.stringify(manifest, null, 2) + '\n')
 }
 
 /**
@@ -2568,7 +2568,7 @@ export async function ensureMoleculePeerClosure(
     manifest.dependencies = Object.fromEntries(
       Object.entries(deps).sort(([a], [b]) => a.localeCompare(b)),
     )
-    await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + '\n')
+    await writeGuarded(manifestPath, JSON.stringify(manifest, null, 2) + '\n')
     added[rel] = missing.sort()
   }
   return added
@@ -2856,7 +2856,7 @@ async function declareTemplatePackages(
     pkg.dependencies = Object.fromEntries(
       Object.entries(pkg.dependencies).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)),
     )
-    await writeFile(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
+    await writeGuarded(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
     added[sub] = missing
   }
 
@@ -3334,7 +3334,7 @@ export async function applyStaticSiteOverlay(
   }
   for (const dep of STATIC_SITE_DROPPED_DEV_DEPS) delete pkg.devDependencies?.[dep]
   pkg.molecule = { ...(pkg.molecule ?? {}), projectType: 'static', framework: 'react' }
-  await writeFile(pkgPath, JSON.stringify(pkg, null, 2) + '\n')
+  await writeGuarded(pkgPath, JSON.stringify(pkg, null, 2) + '\n')
 
   // The static Vite config (base path, dev plugin, no proxy, no PWA) + its plugin.
   const viteImport = fwConfig.vitePlugin?.import ?? ''

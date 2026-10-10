@@ -56,6 +56,8 @@ vi.mock('node:fs/promises', async (importOriginal) => {
 })
 
 import {
+  ensureE2EManifest,
+  ensureMoleculePeerClosure,
   injectPreviewInteractBridge,
   injectPreviewNavBridge,
   injectPreviewRuntimeBridge,
@@ -137,5 +139,46 @@ describe('scaffold in-place rewrites — a failed write restores the file', () =
     const stamped = readFileSync(seedPath, 'utf-8')
     expect(stamped).toContain('DEMO SEED DATA')
     expect(stamped.endsWith(SEED_SOURCE)).toBe(true)
+  })
+
+  // The manifest rewrites are the other half of the same policy: `writeGuarded`
+  // names "a workspace package.json" among the files it protects, because a
+  // truncated manifest is unparseable for every later scaffold step.
+  it('ensureE2EManifest: a failed manifest write leaves the manifest parseable', async () => {
+    const appDir = join(dir, 'app')
+    mkdirSync(appDir, { recursive: true })
+    const manifestPath = join(appDir, 'package.json')
+    const before = `${JSON.stringify({ name: 'my-app', scripts: { dev: 'vite' } }, null, 2)}\n`
+    writeFileSync(manifestPath, before)
+
+    shortWrite.path = manifestPath
+    await expect(ensureE2EManifest(appDir)).rejects.toThrow(/ENOSPC/)
+    expect(readFileSync(manifestPath, 'utf-8')).toBe(before)
+
+    // The positive twin: the script this step exists to add does land.
+    await ensureE2EManifest(appDir)
+    const manifest = JSON.parse(readFileSync(manifestPath, 'utf-8')) as {
+      scripts: Record<string, string>
+    }
+    expect(manifest.scripts['test:e2e']).toBe('playwright test')
+  })
+
+  it('ensureMoleculePeerClosure: a failed manifest write leaves the manifest parseable', async () => {
+    const projectDir = join(dir, 'project')
+    mkdirSync(join(projectDir, 'api'), { recursive: true })
+    const manifestPath = join(projectDir, 'api', 'package.json')
+    const before = `${JSON.stringify({ dependencies: { '@molecule/api-database': '1.0.1' } }, null, 2)}\n`
+    writeFileSync(manifestPath, before)
+
+    shortWrite.path = manifestPath
+    await expect(ensureMoleculePeerClosure(projectDir)).rejects.toThrow(/ENOSPC/)
+    expect(readFileSync(manifestPath, 'utf-8')).toBe(before)
+
+    // The positive twin: the closure this step exists to add does land.
+    await ensureMoleculePeerClosure(projectDir)
+    const manifest = JSON.parse(readFileSync(manifestPath, 'utf-8')) as {
+      dependencies: Record<string, string>
+    }
+    expect(manifest.dependencies['@molecule/api-database-postgresql']).toBeTruthy()
   })
 })
