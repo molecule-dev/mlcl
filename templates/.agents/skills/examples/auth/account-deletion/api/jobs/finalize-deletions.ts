@@ -67,14 +67,22 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
       // data-retention / GDPR leak, the whole point of "delete my account". `devices`
       // (active sessions/push tokens) is keyed by `userId` (camelCase, NOT user_id).
       // Wrap each so one failure doesn't abort the batch and leave everyone undeleted.
+      // A FAILED purge is remembered: the final users delete below is skipped, because
+      // once the users row is gone the expired query can never select this user again
+      // — a purge that failed this run would be orphaned FOREVER (its retry rides on
+      // the user row still existing), and a skipped usersSecrets is exactly the leak
+      // above.
+      let purgeFailed = false
       try {
         await deleteById('usersSecrets', user.id)
       } catch (err) {
+        purgeFailed = true
         console.error('finalize-deletions: usersSecrets purge failed', { userId: user.id, err })
       }
       try {
         await deleteMany('devices', [{ field: 'userId', operator: '=', value: user.id }])
       } catch (err) {
+        purgeFailed = true
         console.error('finalize-deletions: devices purge failed', { userId: user.id, err })
       }
 
@@ -84,16 +92,30 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
         try {
           await deleteMany(table, [{ field: 'user_id', operator: '=', value: user.id }])
         } catch (err) {
+          purgeFailed = true
           console.error(`finalize-deletions: ${table} purge failed`, { userId: user.id, err })
         }
       }
 
-      // The final hard delete is wrapped like the purges above: ONE user whose
-      // row cannot be deleted (an FK from an app table not in APP_TABLES is the
-      // usual cause) must not abort the loop — every user after it would sit in
-      // the grace period FOREVER, because each nightly run fails at the same
-      // row. Its purges already ran and are idempotent, so logging and moving
-      // on lets the rest of the batch clear; the failed user retries next run.
+      // The final hard delete only runs when EVERY purge above succeeded: the
+      // purges are idempotent and the soft-delete marker is still set, so a user
+      // with a failed purge is re-selected next run and the failed purge retries.
+      // Skipping it is what keeps a transient purge failure recoverable — deleting
+      // the users row anyway would make the leftover permanent. A user whose purge
+      // fails EVERY night (an FK from an app table not in APP_TABLES is the usual
+      // cause) then stays in the grace period and logs every night — visible, and
+      // fixable by adding the table to APP_TABLES — instead of vanishing with its
+      // credentials still on disk.
+      //
+      // The delete itself is wrapped like the purges above, and ONE user whose
+      // row cannot be deleted must not abort the loop — every user after it would
+      // sit undeleted, because each nightly run fails at the same row.
+      if (purgeFailed) {
+        console.error(
+          `finalize-deletions: user ${user.id} kept — a purge failed; the users row stays so it retries next run`,
+        )
+        continue
+      }
       try {
         await deleteById('users', user.id)
       } catch (err) {

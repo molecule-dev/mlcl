@@ -177,4 +177,36 @@ describe('finalize-deletions — the expired-user filter must actually match', (
     expect(database.updateById).not.toHaveBeenCalled()
     expect(database.deleteById).toHaveBeenCalledWith('users', 'u-gone')
   })
+
+  // The purges are idempotent and the soft-delete marker is still set, so a
+  // failed purge can simply retry next run — but ONLY while the users row
+  // still exists: once the hard delete lands, the expired-user query can never
+  // select this user again, and a purge that failed this run (a transient
+  // store error is enough) is orphaned FOREVER. For usersSecrets that orphan
+  // is the passwordHash + twoFactorSecret row the module comment calls the
+  // data-retention leak the job exists to prevent.
+  it('a failed purge defers the hard delete so it retries, never orphaning the failed purge', async () => {
+    users = [{ id: 'u-partial', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
+    devices = []
+    database.deleteById.mockImplementation(async (table: string) => {
+      if (table === 'usersSecrets') throw new Error('connection reset')
+      return { data: null, affected: 1 }
+    })
+
+    await runJob()
+
+    // The users row SURVIVES this run: deleting it would strand the failed
+    // usersSecrets purge permanently.
+    expect(database.deleteById).not.toHaveBeenCalledWith('users', 'u-partial')
+    // …and the other purges still ran (each is independent and idempotent).
+    expect(database.deleteMany).toHaveBeenCalledWith('devices', [
+      { field: 'userId', operator: '=', value: 'u-partial' },
+    ])
+
+    // Next run, with the transient failure healed, the same user is re-selected
+    // (the soft-delete marker was never removed) and the deletion completes.
+    database.deleteById.mockResolvedValue({ data: null, affected: 1 })
+    await runJob()
+    expect(database.deleteById).toHaveBeenCalledWith('users', 'u-partial')
+  })
 })
