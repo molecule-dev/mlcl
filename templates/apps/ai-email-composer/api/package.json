@@ -93,7 +93,7 @@
     "cors": "2.8.6",
     "express": "5.2.1",
     "glob": "13.0.6",
-    "handlebars": "4.7.9",
+    "handlebars": "4.7.10",
     "jsonwebtoken": "9.0.3",
     "nodemailer": "10.0.12",
     "nodemailer-mailgun-transport": "2.1.5",
