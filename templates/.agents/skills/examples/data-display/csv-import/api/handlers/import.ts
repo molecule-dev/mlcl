@@ -103,25 +103,40 @@ router.post('/commit', requireAuth, csvUpload, async (req, res) => {
 
   let imported = 0
   let updated = 0
-  for (const r of valid) {
-    const existing = await findMany('customers', {
+  // Existence is resolved ONE `in` QUERY PER CHUNK instead of one findMany per
+  // row: the upload cap is 10mb — tens of thousands of rows — and a per-row
+  // probe costs two round-trips per row, holding the request (and a database
+  // connection) for minutes. Writes stay per-row: the abstract DataStore has no
+  // bulk write, and handlers never drop to raw SQL. Rows are processed in file
+  // order and every create records its new id in the map, so a duplicate email
+  // later in the SAME file updates the row the earlier row just created — the
+  // same outcome the old per-row find saw.
+  const CHUNK = 500
+  for (let start = 0; start < valid.length; start += CHUNK) {
+    const chunk = valid.slice(start, start + CHUNK)
+    const existingRows = (await findMany('customers', {
       where: [
         { field: 'user_id', operator: '=', value: userId },
-        { field: 'email', operator: '=', value: r.data.email },
+        { field: 'email', operator: 'in', value: [...new Set(chunk.map((r) => r.data.email))] },
       ],
-      limit: 1,
-    })
-    if (existing.length > 0) {
-      // Upsert by email — natural key WITHIN this user's customers.
-      await updateById('customers', (existing[0] as { id: string }).id, r.data)
-      updated++
-    } else {
-      await create('customers', {
-        ...r.data,
-        user_id: userId,
-        created_at: new Date().toISOString(),
-      })
-      imported++
+    })) as Array<{ id: string; email: string }>
+    const existingByEmail = new Map(existingRows.map((row) => [row.email, row.id]))
+    for (const r of chunk) {
+      const existingId = existingByEmail.get(r.data.email)
+      if (existingId !== undefined) {
+        // Upsert by email — natural key WITHIN this user's customers.
+        await updateById('customers', existingId, r.data)
+        updated++
+      } else {
+        const created = (await create('customers', {
+          ...r.data,
+          user_id: userId,
+          created_at: new Date().toISOString(),
+        })) as { data?: { id?: string } | null }
+        const newId = created?.data?.id
+        if (typeof newId === 'string') existingByEmail.set(r.data.email, newId)
+        imported++
+      }
     }
   }
   res.json({ imported, updated, skipped: invalid.length, invalid })
