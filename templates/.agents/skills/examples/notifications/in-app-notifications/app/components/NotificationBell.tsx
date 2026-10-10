@@ -85,6 +85,21 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
   const itemsRef = useRef<RawNotification[]>([])
   itemsRef.current = items
 
+  // Keep the counted-read set as small as its guards need: an id can only ever
+  // be re-counted while its row is on screen (both the SSE handler and markRead
+  // return early unless the row is present AND unread), and the list only
+  // PREPENDS, so an id that fell off the page can never come back this mount.
+  // Without this prune the set kept one entry per notification read for the
+  // whole life of the tab — unbounded growth in a component whose own panel is
+  // bounded to NOTIFICATION_PAGE_SIZE.
+  useEffect(() => {
+    if (countedReadRef.current.size === 0) return
+    const live = new Set(items.map((n) => n.id))
+    for (const id of countedReadRef.current) {
+      if (!live.has(id)) countedReadRef.current.delete(id)
+    }
+  }, [items])
+
   useEffect(() => {
     // Another user's bell must never show THIS user's rows: the state is cleared
     // up front (the load below fills it) instead of leaving the previous
