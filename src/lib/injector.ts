@@ -2718,7 +2718,9 @@ Re-export any extra exports described in README.md (like authorization).`,
  *
  * Detects whether the package exports a `createRequestHandlerMap` factory
  * or a static `requestHandlerMap` object and generates the appropriate code.
- * Also handles known special cases (User authorization, Device service).
+ * Extra exports a resource makes available to the app (e.g. `authorization`) are
+ * re-exported when the registry entry names them in `molecule.reExports` — the
+ * mapping is registry metadata, never a per-package special case here.
  */
 async function generateWrapperContentHeuristic(pkg: InferredPackage): Promise<string> {
   const exports = pkg.exports.length > 0 ? pkg.exports : await scanExportsFromPath(pkg.path)
