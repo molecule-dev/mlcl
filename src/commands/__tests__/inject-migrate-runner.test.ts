@@ -26,11 +26,42 @@ import { MOLECULE_PACKAGES } from '../../lib/__tests__/create-test-project.js'
 import { clearRegistryCache, getMoleculeVersion } from '../../lib/registry.js'
 import Inject from '../inject.js'
 
+/**
+ * Armed to make the MANIFEST write that has to back the runner fail mid-flight
+ * (the shape of a full disk on the write `ensureMigrateRunnerImports` performs):
+ * the flag is set when the synthesized `src/scripts/migrate.ts` lands, so the
+ * failing write is that step's, never the plan flow's earlier manifest write.
+ * The failure fires ONCE — the guard's own restore write must go through — and
+ * only while `armed`, so the sibling tests drive the real write path.
+ */
+const intercept = vi.hoisted(() => ({ armed: false, failNextManifestWrite: false }))
+
+vi.mock('node:fs/promises', async (importOriginal) => {
+  const actual = (await importOriginal()) as Record<string, unknown>
+  const realWriteFile = actual.writeFile as (...args: unknown[]) => Promise<unknown>
+  return {
+    ...actual,
+    writeFile(path: unknown, data: unknown, ...rest: unknown[]): Promise<unknown> {
+      const p = String(path)
+      if (intercept.armed) {
+        if (p.endsWith('migrate.ts')) intercept.failNextManifestWrite = true
+        else if (intercept.failNextManifestWrite && p.endsWith('package.json')) {
+          intercept.failNextManifestWrite = false
+          return Promise.reject(new Error('ENOSPC: simulated full disk writing the manifest'))
+        }
+      }
+      return realWriteFile(path, data, ...rest)
+    },
+  }
+})
+
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
 const PGLITE_SOURCE = join(MOLECULE_PACKAGES, 'api', 'bonds', 'database', 'pglite')
 
 let dir: string | null = null
 afterEach(async () => {
+  intercept.armed = false
+  intercept.failNextManifestWrite = false
   if (dir) await rm(dir, { recursive: true, force: true })
   dir = null
 })
@@ -118,6 +149,41 @@ async function runInject(projectPath: string): Promise<unknown> {
   }
 }
 
+/** {@link runInject} plus everything the command logged, for the message assertion. */
+async function runInjectCapturing(projectPath: string): Promise<{
+  outcome: unknown
+  logged: string
+}> {
+  const config = await Config.load(MLCL_ROOT)
+  const cmd = new Inject(
+    [
+      '-m',
+      '@molecule/api-database-pglite',
+      '-p',
+      projectPath,
+      '--no-install',
+      '--no-test',
+      '--no-format',
+      '--no-ai',
+    ],
+    config,
+  )
+  vi.spyOn(cmd, 'warn').mockImplementation((input) => input)
+  vi.spyOn(cmd, 'log').mockImplementation(() => undefined)
+  let outcome: unknown
+  try {
+    await cmd.run()
+    outcome = null
+  } catch (error) {
+    outcome = error
+  }
+  const logged = vi
+    .mocked(cmd.log)
+    .mock.calls.map((args) => args.map(String).join(' '))
+    .join('\n')
+  return { outcome, logged }
+}
+
 async function readManifest(): Promise<{
   dependencies: Record<string, string>
   devDependencies?: Record<string, string>
@@ -183,5 +249,32 @@ describe('mlcl inject backs the migration runner it writes', () => {
       else process.env.MOLECULE_PACKAGES_DIR = prevPackagesDir
       clearRegistryCache()
     }
+  })
+
+  it('fails the command when the manifest cannot back the runner it just wrote', async () => {
+    // The runner is on disk and server.ts imports it at boot, so a manifest write
+    // that fails mid-flight cannot be undone here — and that write is what
+    // declares the packages the runner imports. Warning and carrying on reported
+    // SUCCESS (exit 0) over exactly the project this step exists to prevent:
+    // tsc fails TS2307 on the undeclared wrapper and `db:setup` dies
+    // ERR_MODULE_NOT_FOUND on a real install. It is a failed injection.
+    const project = await writeApiProject(true)
+    intercept.armed = true
+    const { outcome, logged } = await runInjectCapturing(project)
+    intercept.armed = false
+
+    expect(String(outcome)).toMatch(/EEXIT: 1/)
+    // The failure is named, with the file and the consequence — a bare exit code
+    // would leave the user with a broken project and no cause.
+    expect(logged).toContain('Could not declare src/scripts/migrate.ts')
+    expect(logged).toMatch(/simulated full disk/)
+    // The runner it landed is still there (it cannot be taken back), and the
+    // manifest write was restored to its pre-write bytes by the guard.
+    expect(await readFile(join(project, 'src', 'scripts', 'migrate.ts'), 'utf-8')).toContain(
+      'createMigratorPglite',
+    )
+    expect(
+      (await readManifest()).dependencies['@molecule/api-bonds-default-express'],
+    ).toBeUndefined()
   })
 })

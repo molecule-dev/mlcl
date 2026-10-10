@@ -521,11 +521,26 @@ export default class Inject extends Command {
     // paths already route through ensureMigrateRunnerImports; this command is
     // the remaining writer of the runner. No-op for database-less projects
     // and manifests that already back the runner.
+    //
+    // A FAILURE here is an error, not a warning. The runner is already on disk
+    // (writeSynthesizedFiles just landed it) and server.ts imports it at boot,
+    // so it cannot be taken back — and the manifest write this step failed on
+    // is what declared the packages that runner imports. Warning and carrying
+    // on left exactly the project `8e1014958` fixed, with the exit status
+    // saying success: tsc fails TS2307 and `db:setup` dies
+    // ERR_MODULE_NOT_FOUND on a real install, far from the cause. The other
+    // two writers of this pair treat it the same way (copySqlSetupScripts
+    // lets it throw; syncMigrateRunner surfaces it from `mlcl swap`).
     if (!isAppProject) {
       try {
         await ensureMigrateRunnerImports(projectPath)
       } catch (error) {
-        warnings.push(`Could not back src/scripts/migrate.ts's imports: ${error}`)
+        errors.push(
+          `Could not declare src/scripts/migrate.ts's imports in ${join(projectPath, 'package.json')}: ` +
+            `${error instanceof Error ? error.message : String(error)}. The runner on disk imports ` +
+            'packages the manifest does not declare — fix the manifest (or its permissions) and re-run ' +
+            '`mlcl inject`; until then `npm run build` fails and the API cannot boot.',
+        )
       }
     }
 

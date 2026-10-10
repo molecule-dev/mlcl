@@ -242,6 +242,14 @@ async function mount(element: ReactNode): Promise<void> {
   await flush()
 }
 
+/** Re-render the mounted tree — how a prop change (e.g. a new chat channel) arrives. */
+async function rerender(element: ReactNode): Promise<void> {
+  await act(async () => {
+    root.render(element)
+  })
+  await flush()
+}
+
 async function clickByLabel(label: string): Promise<void> {
   const el = container.querySelector(`[aria-label="${label}"]`)
   if (!el) throw new Error(`no control labelled ${label}`)
@@ -562,5 +570,42 @@ describe('in-app-chat — a send is one message, and it clears only what it sent
     await respond('/api/messages', 200, { ok: true })
 
     expect((container.querySelector('input') as HTMLInputElement).value).toBe('first post and more')
+  })
+
+  it('a send abandoned by a channel switch does not unfreeze the new room’s send', async () => {
+    await mount(createElement(ChatPage, { channelId: 'general' }))
+    await respond('/api/messages?channel_id=general', 200, [])
+
+    // A send parked in the room the user is about to leave.
+    await typeIntoInput('sent from general')
+    await submitForm()
+    expect(fetches.calls.filter((c) => c.url === '/api/messages')).toHaveLength(1)
+
+    // The user switches rooms while it is in flight. The flag is released for
+    // the room being entered (the composer must not stay disabled awaiting a
+    // request that belongs to another room), and the new room's own send parks.
+    await rerender(createElement(ChatPage, { channelId: 'random' }))
+    await respond('/api/messages?channel_id=random', 200, [])
+    await typeIntoInput('sent from random')
+    await submitForm()
+    expect(fetches.calls.filter((c) => c.url === '/api/messages')).toHaveLength(2)
+
+    // The room we LEFT answers now. It no longer owns the in-flight flag, so it
+    // must not release it: the composer still has the new room's POST parked,
+    // and an early release lets a double Enter post the same message twice.
+    await respond('/api/messages', 200, { ok: true })
+    expect(
+      (container.querySelector('button[type="submit"]') as HTMLButtonElement).disabled,
+      'an abandoned send must not unfreeze the composer for the new room’s in-flight send',
+    ).toBe(true)
+
+    await submitForm()
+    expect(fetches.calls.filter((c) => c.url === '/api/messages')).toHaveLength(2)
+
+    // The new room's own send still releases the flag when it resolves.
+    await respond('/api/messages', 200, { ok: true })
+    expect((container.querySelector('button[type="submit"]') as HTMLButtonElement).disabled).toBe(
+      false,
+    )
   })
 })

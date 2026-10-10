@@ -106,6 +106,16 @@ export function ChatPage({ channelId }: { channelId: string }) {
   // the same room-scoping the effect below enforces for history and typing.
   const activeChannelRef = useRef(channelId)
   activeChannelRef.current = channelId
+  // The in-flight send's ticket. `sending` is ONE flag shared by every send, so
+  // only the send that still OWNS it may clear it: a channel switch releases the
+  // flag for the room being entered (the effect below), and the send left behind
+  // in the old room must not release it a second time while the new room's POST
+  // is still parked — that unfroze the composer mid-send and let a double Enter
+  // post the same message twice (the endpoint has no idempotency key). A
+  // monotonic ticket rather than a channel compare: switching A → B → A leaves an
+  // older A send in flight under the same channel name, and its late release
+  // would unfreeze the newer A send just the same.
+  const sendTicket = useRef(0)
 
   useEffect(() => {
     // Own messages align right only once the viewer's id is known. The row
@@ -139,7 +149,10 @@ export function ChatPage({ channelId }: { channelId: string }) {
     setTyping(false)
     setSendError(false)
     // The in-flight send belonged to the room being left; the new room's
-    // composer must not stay disabled waiting for it.
+    // composer must not stay disabled waiting for it. Bumping the ticket is what
+    // makes that release stick: the abandoned send's own completion path would
+    // otherwise clear the flag again (see sendTicket).
+    sendTicket.current += 1
     setSending(false)
     // A channel switch starts a NEW history request while the previous one may
     // still be in flight. Without this guard the LATE response wins and room A's
@@ -209,6 +222,9 @@ export function ChatPage({ channelId }: { channelId: string }) {
     if (!text || sending) return
     setSendError(false)
     setSending(true)
+    // This send owns the `sending` flag until a newer one (or a room switch)
+    // takes the ticket — see sendTicket.
+    const ticket = ++sendTicket.current
     const sentToChannel = channelId
     // The draft is cleared only after the server accepted the message: a
     // rejected or !ok POST (offline, validation) must keep the user's text in
@@ -235,7 +251,10 @@ export function ChatPage({ channelId }: { channelId: string }) {
       if (activeChannelRef.current !== sentToChannel) return
       setSendError(true)
     } finally {
-      setSending(false)
+      // Only the send that still owns the flag may release it: an abandoned
+      // send's late completion must not unfreeze the composer while a newer
+      // POST is parked (see sendTicket).
+      if (sendTicket.current === ticket) setSending(false)
     }
   }
 
