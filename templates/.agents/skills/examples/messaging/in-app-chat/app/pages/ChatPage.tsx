@@ -16,6 +16,25 @@ type ApiMessage = {
 
 const CURRENT_USER_ID = 'me'
 
+/**
+ * How many messages a room keeps rendered at once.
+ *
+ * `message:created` events are APPENDED by the SSE subscription below, so an
+ * open room that stays on screen accumulated every message it ever received —
+ * the array, the React tree and the DOM all grew with the session (a busy
+ * channel reaches thousands), while the initial history load stayed at one
+ * page. Keeping the NEWEST window bounds all three; that is the end of the
+ * conversation the reader is looking at, and a room's earlier history is the
+ * load above (`GET /api/messages?channel_id=`, see api/handlers/messages.ts),
+ * not the live feed's to accumulate.
+ */
+const MAX_RENDERED_MESSAGES = 200
+
+/** Keep only the newest `MAX_RENDERED_MESSAGES` — applied on every state write. */
+function newestWindow(messages: ApiMessage[]): ApiMessage[] {
+  return messages.slice(-MAX_RENDERED_MESSAGES)
+}
+
 function toMessageData(m: ApiMessage): MessageData {
   return {
     id: m.id,
@@ -55,7 +74,10 @@ export function ChatPage({ channelId }: { channelId: string }) {
     fetch(`/api/messages?channel_id=${channelId}`)
       .then((r) => r.json())
       .then((body) => {
-        if (!cancelled) setMessages(Array.isArray(body) ? body : [])
+        // The window bound applies to the history load too: the endpoint's page
+        // size is the server's, and a room must not render an unbounded first
+        // page either (see MAX_RENDERED_MESSAGES).
+        if (!cancelled) setMessages(newestWindow(Array.isArray(body) ? body : []))
       })
       .catch(() => {
         // A failed history load shows an empty room; SSE still delivers live messages.
@@ -70,7 +92,10 @@ export function ChatPage({ channelId }: { channelId: string }) {
     })
     events.addEventListener('message:created', (e) => {
       const msg = JSON.parse((e as MessageEvent).data) as ApiMessage
-      setMessages((prev) => [...prev, msg])
+      // Append, then keep the newest window: unbounded, this array (and the
+      // message list it renders) grew with the session — see
+      // MAX_RENDERED_MESSAGES.
+      setMessages((prev) => newestWindow([...prev, msg]))
     })
     // Extension point: lights up when the server broadcasts a `typing` event to
     // this room. To wire it, add a POST route that calls

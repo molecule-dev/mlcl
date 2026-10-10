@@ -179,6 +179,17 @@ vi.mock('@molecule/app-emoji-reactions-react', () => ({
     ),
 }))
 
+// Render each chat bubble's body as a row, so an assertion can COUNT the
+// messages a room renders and tell which ones they are.
+vi.mock('@molecule/app-message-bubble-react', () => ({
+  MessageBubble: (props: { message: { id: string; body: string } }) =>
+    createElement('li', { key: props.message.id }, props.message.body),
+}))
+
+vi.mock('@molecule/app-typing-indicator-react', () => ({
+  TypingIndicator: () => createElement('span', null, 'typing'),
+}))
+
 let httpClient: {
   get: (url: string) => Promise<unknown>
   post: (url: string, body?: unknown) => Promise<unknown>
@@ -231,8 +242,19 @@ const { InviteLink } =
   (await import('../../../templates/.agents/skills/examples/commerce/referrals/app/components/InviteLink')) as {
     InviteLink: (props: object) => ReactNode
   }
+const { ChatPage } =
+  (await import('../../../templates/.agents/skills/examples/messaging/in-app-chat/app/pages/ChatPage')) as {
+    ChatPage: (props: { channelId: string }) => ReactNode
+  }
 
 ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
+
+// jsdom implements no layout, so the scroll APIs the examples call do not
+// exist on its elements — the chat page's auto-scroll effect calls
+// `scrollTo` on every message it renders.
+Element.prototype.scrollTo = (): void => {
+  /* no layout to scroll in jsdom */
+}
 
 const originalFetch = globalThis.fetch
 const originalEventSource = (globalThis as { EventSource?: unknown }).EventSource
@@ -579,5 +601,35 @@ describe('example slices — a live feed does not grow a list without bound', ()
     expect(rows().some((row) => row.includes('"Subject #1"'))).toBe(false)
     // The live feed still reached the badge and the list.
     expect(rows()[19]).toContain('"Subject #26"')
+  })
+
+  it('keeps the chat room on its newest window while live messages arrive', async () => {
+    await mount(createElement(ChatPage, { channelId: 'general' }))
+
+    // The history load is one page — here, three messages.
+    await respond('/api/messages?channel_id=general', 200, [
+      { id: 'm-1', user_id: 'u-1', content: 'history 1', created_at: '2026-01-01T00:00:00.000Z' },
+      { id: 'm-2', user_id: 'u-1', content: 'history 2', created_at: '2026-01-01T00:00:01.000Z' },
+      { id: 'm-3', user_id: 'u-1', content: 'history 3', created_at: '2026-01-01T00:00:02.000Z' },
+    ])
+    expect(rows()).toHaveLength(3)
+
+    // A room that stays open APPENDED every live message forever: 257 events on
+    // top of the loaded 3 rendered 260 rows (and kept them all in memory).
+    for (let i = 4; i <= 260; i++) {
+      await emitSse('message:created', {
+        id: `m-${i}`,
+        user_id: 'u-2',
+        content: `live ${i}`,
+        created_at: '2026-01-02T00:00:00.000Z',
+      })
+    }
+
+    // Bounded to the newest window, and it is the newest one — the end of the
+    // conversation the reader is looking at.
+    expect(rows()).toHaveLength(200)
+    expect(rows()[199]).toBe('live 260')
+    expect(rows()[0]).toBe('live 61')
+    expect(rows().some((row) => row.startsWith('history'))).toBe(false)
   })
 })
