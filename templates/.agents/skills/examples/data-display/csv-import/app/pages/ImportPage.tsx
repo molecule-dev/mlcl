@@ -26,6 +26,27 @@ type CommitResult = {
 type Status = 'idle' | 'previewing' | 'ready' | 'committing' | 'done' | 'error'
 
 /**
+ * Whether a value from `previewRows` is a row the table can render (`row[col]`).
+ * A `null`/array entry would throw on the first column access.
+ */
+function isRow(value: unknown): value is Record<string, string> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+/**
+ * Whether a value from `invalid` is a validation-error row. The table joins
+ * `errors` and reads `row`, so anything else in the list is dropped rather
+ * than allowed to throw during render.
+ */
+function isImportError(value: unknown): value is ImportError {
+  if (typeof value !== 'object' || value === null) return false
+  const { row, errors } = value as Partial<ImportError>
+  return (
+    typeof row === 'number' && Array.isArray(errors) && errors.every((e) => typeof e === 'string')
+  )
+}
+
+/**
  * CSV import flow: pick a file → preview the first rows (invalid ones flagged
  * inline) → Cancel or Confirm → busy indicator during the commit → summary of
  * how many records were imported / updated / skipped. Posts the raw CSV bytes
@@ -74,8 +95,28 @@ export function ImportPage() {
             t('import.error.preview', undefined, { defaultValue: 'Could not read the file' }),
         )
       }
-      const data = (await res.json()) as PreviewResult
-      setPreview(data)
+      // A 2xx proves the route ANSWERED, not that the body is a preview. An
+      // endpoint with no fixture answers 200 with an empty object (the mock API
+      // server's unmatchedFixtureResponse), and a proxy can rewrite a failure
+      // into a 200 whose body is a `{ error }`. `preview.invalid` and
+      // `preview.previewRows` are iterated during render, so a body that is not
+      // the envelope is a white screen — validate the shape before it reaches
+      // state and report the failure like any other.
+      const data = (await res.json().catch(() => null)) as Partial<PreviewResult> | null
+      if (!data || !Array.isArray(data.previewRows) || !Array.isArray(data.invalid)) {
+        throw new Error(
+          t('import.error.preview', undefined, { defaultValue: 'Could not read the file' }),
+        )
+      }
+      const previewRows = data.previewRows.filter(isRow)
+      setPreview({
+        // The whole-file count is what the summary promises; fall back to the
+        // rows actually returned when the answer omits it.
+        totalRows: typeof data.totalRows === 'number' ? data.totalRows : previewRows.length,
+        previewRows,
+        valid: typeof data.valid === 'number' ? data.valid : 0,
+        invalid: data.invalid.filter(isImportError),
+      })
       setStatus('ready')
     } catch (err: unknown) {
       setError(
@@ -104,8 +145,20 @@ export function ImportPage() {
           body.error ?? t('import.error.commit', undefined, { defaultValue: 'Import failed' }),
         )
       }
-      const data = (await res.json()) as CommitResult
-      setResult(data)
+      // Same rule as the preview above: an empty 200 (`{}`) is not a commit
+      // result, and the summary line would render "Imported undefined, …
+      // skipped undefined" as if the import had reported counts. Require the
+      // one field that defines the result and default the rest.
+      const data = (await res.json().catch(() => null)) as Partial<CommitResult> | null
+      if (!data || typeof data.imported !== 'number') {
+        throw new Error(t('import.error.commit', undefined, { defaultValue: 'Import failed' }))
+      }
+      setResult({
+        imported: data.imported,
+        updated: typeof data.updated === 'number' ? data.updated : 0,
+        skipped: typeof data.skipped === 'number' ? data.skipped : 0,
+        invalid: Array.isArray(data.invalid) ? data.invalid.filter(isImportError) : [],
+      })
       setStatus('done')
     } catch (err: unknown) {
       setError(

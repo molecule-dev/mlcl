@@ -34,8 +34,29 @@ export function EnableTwoFactorPage() {
         setError(t('totp.enrollFailed', undefined, { defaultValue: 'Could not enroll' }))
         return
       }
-      const body = (await res.json()) as EnrollResponse
-      setEnrollment(body)
+      // A 2xx proves the route ANSWERED, not that the body is an enrollment. An
+      // endpoint with no fixture answers 200 with an empty object (the mock API
+      // server's unmatchedFixtureResponse), and a proxy can rewrite a failure
+      // into a 200. `enrollment` is what takes the page off the "Get started"
+      // step, and the very next render calls `enrollment.recoveryCodes.map(...)`
+      // — so an unvalidated body is a white screen instead of a retryable
+      // error. Validate the shape before it reaches state.
+      const body = (await res.json().catch(() => null)) as Partial<EnrollResponse> | null
+      if (!body || typeof body.secret !== 'string' || !Array.isArray(body.recoveryCodes)) {
+        setError(t('totp.enrollFailed', undefined, { defaultValue: 'Could not enroll' }))
+        return
+      }
+      setEnrollment({
+        secret: body.secret,
+        keyUrl: typeof body.keyUrl === 'string' ? body.keyUrl : '',
+        QRImageUrl: typeof body.QRImageUrl === 'string' ? body.QRImageUrl : '',
+        // The list renders one <li key={code}> per code; a non-string would
+        // reach the DOM, and a code repeated in the body would collide with
+        // itself as a React key.
+        recoveryCodes: [
+          ...new Set(body.recoveryCodes.filter((c): c is string => typeof c === 'string')),
+        ],
+      })
     } catch (_error) {
       setError(t('totp.enrollFailed', undefined, { defaultValue: 'Could not enroll' }))
     } finally {

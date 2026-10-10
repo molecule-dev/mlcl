@@ -34,6 +34,13 @@
  *   tour was offered to a signed-out visitor, and the invite link said
  *   "Loading…" forever. Each comment at those sites names the failure it means
  *   to surface; the guard below is what makes the comment true.
+ * - `two-factor-auth`'s enroll page and `csv-import`'s import page trusted a 2xx
+ *   BODY as well as a 2xx status: an unmatched endpoint answers 200 with an
+ *   empty object (the mock API server's `unmatchedFixtureResponse`), the empty
+ *   object was installed as the enrollment / the preview, and the next render
+ *   ran `enrollment.recoveryCodes.map(...)` / iterated `preview.invalid` — a
+ *   white screen where a retryable error belongs. `res.ok` is a statement about
+ *   the status, never about the shape.
  *
  * Everything is the shipped component: only the UI primitives, the ClassMap and
  * the network are stubbed, and responses are resolved by hand and out of order.
@@ -245,6 +252,14 @@ const { InviteLink } =
 const { ChatPage } =
   (await import('../../../templates/.agents/skills/examples/messaging/in-app-chat/app/pages/ChatPage')) as {
     ChatPage: (props: { channelId: string }) => ReactNode
+  }
+const { EnableTwoFactorPage } =
+  (await import('../../../templates/.agents/skills/examples/auth/two-factor-auth/app/pages/EnableTwoFactorPage')) as {
+    EnableTwoFactorPage: (props: object) => ReactNode
+  }
+const { ImportPage } =
+  (await import('../../../templates/.agents/skills/examples/data-display/csv-import/app/pages/ImportPage')) as {
+    ImportPage: (props: object) => ReactNode
   }
 
 ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
@@ -562,6 +577,116 @@ describe('example slices — a request’s answer is validated before it is trus
     await respond('/api/referrals/code', 500, { error: 'boom' })
     expect(text()).toContain('Could not load your invite link')
     expect(text()).not.toContain('Loading your invite link')
+  })
+})
+
+describe('example slices — a 2xx body is validated before it becomes state', () => {
+  /** Click the first button rendered — the enroll page labels its one by text. */
+  async function clickOnlyButton(): Promise<void> {
+    await act(async () => {
+      container.querySelector('button')?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+  }
+
+  /** Click a control by its `data-mol-id` (the import page's own selector). */
+  async function clickByMolId(id: string): Promise<void> {
+    const el = container.querySelector(`[data-mol-id="${id}"]`)
+    if (!el) throw new Error(`no control with data-mol-id ${id}`)
+    await act(async () => {
+      el.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+  }
+
+  /** Hand the file input a File and fire the change event the page listens for. */
+  async function chooseFile(contents: string, name: string): Promise<void> {
+    const input = container.querySelector('input[type="file"]') as HTMLInputElement | null
+    if (!input) throw new Error('the import page rendered no file input')
+    Object.defineProperty(input, 'files', {
+      value: [new File([contents], name, { type: 'text/csv' })],
+      configurable: true,
+    })
+    await act(async () => {
+      input.dispatchEvent(new Event('change', { bubbles: true }))
+    })
+    await flush()
+  }
+
+  it('reports an enroll answer that carries no enrollment instead of crashing the page', async () => {
+    await mount(createElement(EnableTwoFactorPage, {}))
+    await clickOnlyButton()
+
+    // An endpoint with no fixture answers 200 `{}`. Installed as the
+    // enrollment it moved the page past the "Get started" step, and the next
+    // render's `enrollment.recoveryCodes.map(...)` threw: a blank page instead
+    // of an error the user can retry.
+    await respond('/api/2fa/enroll', 200, {})
+    expect(text()).toContain('Could not enroll')
+    // Still on the "Get started" step — the page survived the bad body instead
+    // of unmounting on the render below it.
+    expect(text()).toContain('Get started')
+  })
+
+  it('renders the enrollment a real 200 carries (the positive twin)', async () => {
+    await mount(createElement(EnableTwoFactorPage, {}))
+    await clickOnlyButton()
+
+    await respond('/api/2fa/enroll', 200, {
+      secret: 'JBSWY3DPEHPK3PXP',
+      keyUrl: 'otpauth://totp/App?secret=JBSWY3DPEHPK3PXP',
+      QRImageUrl: 'data:image/png;base64,AAAA',
+      recoveryCodes: ['recoveryCode-1', 'recoveryCode-2'],
+    })
+    // The secret + codes the page exists to show, so the guard above is not
+    // satisfied by a page that renders nothing.
+    expect(text()).toContain('JBSWY3DPEHPK3PXP')
+    expect(text()).toContain('recoveryCode-1')
+    expect(text()).not.toContain('Could not enroll')
+  })
+
+  it('reports a preview answer that carries no preview instead of crashing the table', async () => {
+    await mount(createElement(ImportPage, {}))
+    await chooseFile('email,name\na@b.test,A\n', 'users.csv')
+
+    // Same empty 200: `preview` became `{}`, the page flipped to "ready", and
+    // the render's `for (const item of preview.invalid)` threw.
+    await respond('/api/import/preview', 200, {})
+    expect(text()).toContain('Could not read the file')
+    expect(container.querySelector('table')).toBeNull()
+  })
+
+  it('renders the rows a real preview carries (the positive twin)', async () => {
+    await mount(createElement(ImportPage, {}))
+    await chooseFile('email,name\na@b.test,A\n', 'users.csv')
+
+    await respond('/api/import/preview', 200, {
+      totalRows: 1,
+      previewRows: [{ email: 'a@b.test', name: 'A' }],
+      valid: 1,
+      invalid: [],
+    })
+    expect(text()).toContain('1 rows found')
+    expect(text()).toContain('a@b.test')
+    expect(text()).not.toContain('Could not read the file')
+  })
+
+  it('reports a commit answer with no counts instead of summarizing undefined', async () => {
+    await mount(createElement(ImportPage, {}))
+    await chooseFile('email,name\na@b.test,A\n', 'users.csv')
+    await respond('/api/import/preview', 200, {
+      totalRows: 1,
+      previewRows: [{ email: 'a@b.test', name: 'A' }],
+      valid: 1,
+      invalid: [],
+    })
+
+    await clickByMolId('import-confirm')
+    // The empty 200 would render "Imported undefined, updated undefined,
+    // skipped undefined." as if the import had reported its counts.
+    await respond('/api/import/commit', 200, {})
+    expect(text()).toContain('Import failed')
+    expect(text()).not.toContain('undefined')
   })
 })
 
