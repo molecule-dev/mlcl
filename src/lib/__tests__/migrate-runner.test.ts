@@ -1205,6 +1205,22 @@ describe('ensureMigrateRunnerImports', () => {
     expect(await readFile(join(dir, 'package.json'), 'utf-8')).toBe(corrupt)
   })
 
+  it('fails loudly when the runner exists but cannot be read — a silent no-op ships undeclared imports', async () => {
+    // A runner this call cannot READ is not a project without a runner: the
+    // old catch treated ANY read failure as "no runner on disk" and returned
+    // [], so the imports this step exists to declare stayed undeclared while
+    // the caller reported success — the project then failed `tsc`/boot with
+    // TS2307/ERR_MODULE_NOT_FOUND far from the cause. A directory at the
+    // runner's path makes the read fail with EISDIR deterministically (a
+    // mode-000 file would not, under a root test runner).
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
+    await writeManifest({})
+    await mkdir(join(dir, 'src', 'scripts', 'migrate.ts'), { recursive: true })
+    await expect(ensureMigrateRunnerImports(dir)).rejects.toThrow()
+    // The manifest was never touched.
+    expect(await readManifest()).toEqual({ dependencies: {} })
+  })
+
   it('is a no-op when already declared, when there is no runner, or for runners that do not import it', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
     // No runner at all.

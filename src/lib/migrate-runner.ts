@@ -348,10 +348,18 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
   let runner: string
   try {
     runner = await readFile(join(apiDir, 'src', 'scripts', 'migrate.ts'), 'utf-8')
-  } catch (_error) {
-    // No runner on disk — a database-less project never gets one, so there is
-    // nothing whose imports need declaring.
-    return []
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException)?.code === 'ENOENT') {
+      // No runner on disk — a database-less project never gets one, so there is
+      // nothing whose imports need declaring.
+      return []
+    }
+    // Any OTHER read failure (EACCES on a mode-000 runner, EISDIR) must not be
+    // recorded as "no runner": the imports this function exists to declare stay
+    // undeclared and the caller reports success over a project that fails
+    // `tsc`/boot with TS2307 far from the cause. Rethrow — the same
+    // ENOENT-only rule writeMigrateRunnerGuarded applies to this exact file.
+    throw error
   }
   const importsWrapper = runner.includes(`from '${MIGRATE_RUNNER_BONDS_PACKAGE}'`)
   // The browser branch is reachable only in renders mlcl emits with the flag
