@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { SearchAutocomplete, type SuggestionItem } from '@molecule/app-search-autocomplete-react'
@@ -19,24 +19,35 @@ export function SearchPage({ index }: { index: string }) {
   // holds (the "No matches for {{query}}" line then contradicts them).
   const searchSeq = useRef(0)
 
-  async function handleSearch(q: string): Promise<SuggestionItem<Hit>[]> {
-    if (!q.trim()) return []
-    const ticket = ++searchSeq.current
-    const res = await fetch(
-      `/api/search?index=${encodeURIComponent(index)}&q=${encodeURIComponent(q)}`,
-    )
-    // An error body ({ error }) carries no `hits` — never let it stand in for
-    // results. Coerce the shape so a non-array `hits` cannot reach `hits.map`.
-    const payload = (res.ok ? await res.json() : null) as { hits?: unknown } | null
-    const results: Hit[] = Array.isArray(payload?.hits) ? (payload.hits as Hit[]) : []
-    if (ticket === searchSeq.current) setHits(results)
-    return results.map((h) => ({
-      id: h.id,
-      label: h.title,
-      meta: h.excerpt,
-      data: h,
-    }))
-  }
+  // `SearchAutocomplete` runs its debounced search from an effect whose deps
+  // include `onSearch` ITSELF (`[value, onSearch, debounceMs, minChars]`), so
+  // this handler must keep ONE identity across renders. Handed a fresh closure
+  // each render — which is what an inline function is — every response
+  // (`setHits` with a new array) re-rendered the page, re-armed that effect and
+  // scheduled the SAME search again: typing one character fetched
+  // `/api/search` roughly every debounce interval, forever, until the field was
+  // cleared. `useCallback` keys it on the only real input, the `index` prop.
+  const handleSearch = useCallback(
+    async (q: string): Promise<SuggestionItem<Hit>[]> => {
+      if (!q.trim()) return []
+      const ticket = ++searchSeq.current
+      const res = await fetch(
+        `/api/search?index=${encodeURIComponent(index)}&q=${encodeURIComponent(q)}`,
+      )
+      // An error body ({ error }) carries no `hits` — never let it stand in for
+      // results. Coerce the shape so a non-array `hits` cannot reach `hits.map`.
+      const payload = (res.ok ? await res.json() : null) as { hits?: unknown } | null
+      const results: Hit[] = Array.isArray(payload?.hits) ? (payload.hits as Hit[]) : []
+      if (ticket === searchSeq.current) setHits(results)
+      return results.map((h) => ({
+        id: h.id,
+        label: h.title,
+        meta: h.excerpt,
+        data: h,
+      }))
+    },
+    [index],
+  )
 
   function handleSelect(item: SuggestionItem<Hit>): void {
     // Navigate to the selected item's detail page.

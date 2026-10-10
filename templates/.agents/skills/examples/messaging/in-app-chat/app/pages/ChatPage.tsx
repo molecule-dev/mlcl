@@ -84,6 +84,10 @@ export function ChatPage({ channelId }: { channelId: string }) {
   const [messages, setMessages] = useState<ApiMessage[]>([])
   const [draft, setDraft] = useState('')
   const [sendError, setSendError] = useState(false)
+  // A send in flight. Without it the composer stays live and a double Enter /
+  // double click fires two identical POSTs — two duplicate messages, since the
+  // endpoint has no idempotency key to collapse them.
+  const [sending, setSending] = useState(false)
   const [typing, setTyping] = useState(false)
   // The signed-in user's real id — the server stamps every message with the
   // SESSION's userId (see api/handlers/messages.ts), so `isSelf` must compare
@@ -134,6 +138,9 @@ export function ChatPage({ channelId }: { channelId: string }) {
     // off, so it stayed on screen until the next `typing` event or an unmount.
     setTyping(false)
     setSendError(false)
+    // The in-flight send belonged to the room being left; the new room's
+    // composer must not stay disabled waiting for it.
+    setSending(false)
     // A channel switch starts a NEW history request while the previous one may
     // still be in flight. Without this guard the LATE response wins and room A's
     // history is rendered under room B. Same guard as the paginated-user-list
@@ -195,8 +202,13 @@ export function ChatPage({ channelId }: { channelId: string }) {
 
   async function send(e: FormEvent): Promise<void> {
     e.preventDefault()
-    if (!draft.trim()) return
+    const text = draft.trim()
+    // `sending` is what makes a double submit idempotent: the second Enter
+    // while the first POST is parked would otherwise send the same content
+    // again (the endpoint has no key to dedupe on).
+    if (!text || sending) return
     setSendError(false)
+    setSending(true)
     const sentToChannel = channelId
     // The draft is cleared only after the server accepted the message: a
     // rejected or !ok POST (offline, validation) must keep the user's text in
@@ -205,7 +217,7 @@ export function ChatPage({ channelId }: { channelId: string }) {
       const res = await fetch('/api/messages', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ channel_id: channelId, content: draft }),
+        body: JSON.stringify({ channel_id: sentToChannel, content: text }),
       })
       // The user may have switched rooms while the POST was in flight. The
       // error belongs to the room it was sent FROM (and a late SUCCESS must not
@@ -216,10 +228,14 @@ export function ChatPage({ channelId }: { channelId: string }) {
         setSendError(true)
         return
       }
-      setDraft('')
+      // Clear only what was SENT: text typed while the POST was in flight
+      // (same room, so the channel guard above cannot help) must survive.
+      setDraft((current) => (current.trim() === text ? '' : current))
     } catch (_error) {
       if (activeChannelRef.current !== sentToChannel) return
       setSendError(true)
+    } finally {
+      setSending(false)
     }
   }
 
@@ -263,7 +279,7 @@ export function ChatPage({ channelId }: { channelId: string }) {
           })}
           className={cm.cn(cm.flex1, cm.input())}
         />
-        <button type="submit" className={cm.button()}>
+        <button type="submit" disabled={sending} className={cm.button()}>
           {t('chat.send', undefined, { defaultValue: 'Send' })}
         </button>
       </form>

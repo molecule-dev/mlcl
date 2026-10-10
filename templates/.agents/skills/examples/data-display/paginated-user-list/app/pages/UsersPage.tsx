@@ -54,7 +54,15 @@ export default function UsersPage() {
       .catch(() => {
         // Without this catch the rejection escapes the effect AND `data`
         // stays null, so the page renders as a bare header forever.
-        if (!cancelled) setLoadFailed(true)
+        if (cancelled) return
+        setLoadFailed(true)
+        // The rows on screen belong to the page the user LEFT: `data` is only
+        // ever written by a resolved request, and this one did not resolve, so
+        // keeping it rendered the previous page's rows under the new page
+        // number (`PaginationBar page={page}`) — a list contradicting the
+        // paginator, with the error text above it. A failed page has no rows to
+        // show, so none are shown.
+        setData(null)
       })
       .finally(() => {
         if (!cancelled) setLoading(false)

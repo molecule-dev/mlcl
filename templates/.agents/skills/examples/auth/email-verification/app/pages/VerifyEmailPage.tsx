@@ -7,12 +7,17 @@ const cm = getClassMap()
 
 type Status = 'verifying' | 'success' | 'expired' | 'invalid' | 'resent'
 /** Why the last resend failed, if it did. */
-type ResendFailure = 'failed' | 'signedOut'
+type ResendFailure = 'failed' | 'signedOut' | 'rateLimited'
 
 export function VerifyEmailPage() {
   const { t } = useTranslation()
   const [status, setStatus] = useState<Status>('verifying')
   const [resendFailure, setResendFailure] = useState<ResendFailure | null>(null)
+  // A resend in flight. The endpoint rate-limits per user, so without this a
+  // double click sent two requests: the first created and mailed a link, the
+  // second came back 429 and the page reported "Could not send a new link" —
+  // a failure the user is told to retry, for a link that WAS sent.
+  const [resending, setResending] = useState(false)
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -31,7 +36,10 @@ export function VerifyEmailPage() {
   }, [])
 
   async function resend(): Promise<void> {
+    // One resend at a time — see the state's comment.
+    if (resending) return
     setResendFailure(null)
+    setResending(true)
     // A rejected resend (offline, server restart) must not reject out of the
     // click handler with the button silently doing nothing — surface it.
     try {
@@ -41,12 +49,19 @@ export function VerifyEmailPage() {
         // opened signed out (a new device, a cleared cookie jar). "Try again"
         // then sends the user into a retry loop that cannot ever succeed —
         // name the sign-in requirement instead, like DeleteAccountPage does.
-        setResendFailure(res.status === 401 ? 'signedOut' : 'failed')
+        // A 429 is likewise not "try again" the way an outage is: the endpoint
+        // caps resends per user, so it says so instead of inviting a retry that
+        // will be refused the same way.
+        setResendFailure(
+          res.status === 401 ? 'signedOut' : res.status === 429 ? 'rateLimited' : 'failed',
+        )
         return
       }
       setStatus('resent')
     } catch (_error) {
       setResendFailure('failed')
+    } finally {
+      setResending(false)
     }
   }
 
@@ -72,13 +87,20 @@ export function VerifyEmailPage() {
           <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
             {t('verifyEmail.expiredTitle', undefined, { defaultValue: 'Link expired' })}
           </h2>
-          <button onClick={resend} className={cm.button({ variant: 'solid' })}>
+          <button onClick={resend} disabled={resending} className={cm.button({ variant: 'solid' })}>
             {t('verifyEmail.resend', undefined, { defaultValue: 'Send a new link' })}
           </button>
           {resendFailure === 'signedOut' ? (
             <p className={cm.textError}>
               {t('verifyEmail.resendSignedOut', undefined, {
                 defaultValue: 'Your session has expired — sign in, then resend the link.',
+              })}
+            </p>
+          ) : null}
+          {resendFailure === 'rateLimited' ? (
+            <p className={cm.textError}>
+              {t('verifyEmail.resendRateLimited', undefined, {
+                defaultValue: 'Too many link requests — wait a minute and try again.',
               })}
             </p>
           ) : null}

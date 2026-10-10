@@ -33,6 +33,23 @@ export type Pin = { lat: number; lng: number; label?: string }
  */
 export function MapView({ pins, height = 400 }: { pins: Pin[]; height?: number }) {
   const containerRef = useRef<HTMLDivElement>(null)
+  // The latest pins for the effect body below: the effect is keyed on the pins'
+  // CONTENT (see `pinsKey`), and a ref read keeps the body on the newest array
+  // without re-running when only the array's IDENTITY changed.
+  const pinsRef = useRef(pins)
+  pinsRef.current = pins
+  /**
+   * The pins' content, as the effect's dependency.
+   *
+   * Keyed on the array itself, the effect re-ran on every parent render that
+   * passed a fresh array — `<MapView pins={[{ lat, lng }]} />`, the usage this
+   * slice's README documents, is a new array each render. The cleanup called
+   * `map.destroy()` and the body built a new map: the reader's pan and zoom were
+   * thrown away and every tile was re-requested, on any unrelated state change
+   * in the parent (a keystroke in a sibling field, a poll, a toast). The
+   * CONTENT is what actually invalidates a map.
+   */
+  const pinsKey = JSON.stringify(pins)
 
   useEffect(() => {
     const container = containerRef.current
@@ -40,6 +57,7 @@ export function MapView({ pins, height = 400 }: { pins: Pin[]; height?: number }
       return
     }
 
+    const pins = pinsRef.current
     let map: MapInstance | undefined
     let cancelled = false
 
@@ -76,7 +94,7 @@ export function MapView({ pins, height = 400 }: { pins: Pin[]; height?: number }
       cancelled = true
       map?.destroy()
     }
-  }, [pins])
+  }, [pinsKey])
 
   return (
     <div

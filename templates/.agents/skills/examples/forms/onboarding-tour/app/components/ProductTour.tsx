@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -29,6 +29,19 @@ export function ProductTour() {
   const { t } = useTranslation()
   const [stepIdx, setStepIdx] = useState(0)
   const [active, setActive] = useState(false)
+  /**
+   * Whether a step was EVER on screen this mount.
+   *
+   * The walk below skips a step whose target is missing, and the last step's
+   * missing target means "walked off the end, the tour is over". A page that
+   * carries NONE of the anchors — the tour is mounted in a layout and the user
+   * lands somewhere without the navigation/CTA it points at — then walked all
+   * three steps and PERSISTED completion for a tour nobody saw: the dashboard
+   * that does have the anchors never offers it again, because
+   * `tour_completed_at` is now set. A tour that never appeared is not a tour
+   * that finished.
+   */
+  const showedStep = useRef(false)
 
   useEffect(() => {
     // `res.ok` gates the body: a 401 (signed out) or 500 still resolves with a
@@ -70,11 +83,19 @@ export function ProductTour() {
   // the network.
   useEffect(() => {
     if (!active) return
-    if (document.querySelector(STEPS[stepIdx].selector)) return
+    if (document.querySelector(STEPS[stepIdx].selector)) {
+      showedStep.current = true
+      return
+    }
     if (stepIdx < STEPS.length - 1) {
       setStepIdx((s) => s + 1)
       return
     }
+    // The LAST step's target is missing too. Persist completion only when the
+    // reader actually saw a step (see `showedStep`); otherwise this page simply
+    // does not carry the tour's anchors — leave the tour pending so a page that
+    // does still runs it, instead of burning it unseen.
+    if (!showedStep.current) return
     void finish()
   }, [active, stepIdx, finish])
 

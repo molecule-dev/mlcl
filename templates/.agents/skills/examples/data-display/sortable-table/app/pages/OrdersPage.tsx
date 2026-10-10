@@ -54,6 +54,17 @@ export function OrdersPage() {
   const [page, setPage] = useState<Page>({ rows: [], total: 0 })
   const [pageIndex, setPageIndex] = useState(1)
   const [loading, setLoading] = useState(false)
+  /**
+   * Whether the last request failed.
+   *
+   * The rows already on screen are KEPT when one does (see the catch below) —
+   * and the paginator is optimistic: it moves to the page the user asked for the
+   * moment they click, which is what lets two quick clicks request pages 2 and
+   * 3 (see the `cancelled` guard). So a failed load leaves page 1's rows under a
+   * paginator reading page 2, and nothing on screen used to say so. This flag is
+   * the missing disclosure.
+   */
+  const [loadFailed, setLoadFailed] = useState(false)
   const [sort, setSort] = useState<{ field: string; dir: SortDir }>({
     field: 'created_at',
     dir: 'desc',
@@ -70,6 +81,7 @@ export function OrdersPage() {
     // as the paginated-user-list example's page.
     let cancelled = false
     setLoading(true)
+    setLoadFailed(false)
     const params = new URLSearchParams({
       limit: String(PAGE_SIZE),
       offset: String((pageIndex - 1) * PAGE_SIZE),
@@ -96,8 +108,13 @@ export function OrdersPage() {
       .catch(() => {
         if (cancelled) return
         // The request failed (offline, 401, 500). Leave the rows already on
-        // screen — blanking them would read as "you have no orders" — and clear
-        // the spinner so the user is not stuck loading forever.
+        // screen — blanking them would read as "you have no orders" — clear the
+        // spinner so the user is not stuck loading forever, and SAY SO. The
+        // paginator has already moved to the page the user asked for (that
+        // optimism is what lets two quick clicks request pages 2 and 3), so
+        // without this line the page shows page 1's orders under a page-2
+        // header and reads as if they were page 2's.
+        setLoadFailed(true)
         setLoading(false)
       })
     return () => {
@@ -205,6 +222,14 @@ export function OrdersPage() {
           </button>
         ))}
       </div>
+      {loadFailed ? (
+        <p role="alert" data-mol-id="orders-load-failed" className={cm.textError}>
+          {t('orders.loadFailed', undefined, {
+            defaultValue:
+              'Could not load these orders — the rows below are the last page that loaded.',
+          })}
+        </p>
+      ) : null}
       <DataTableCard
         columns={columns}
         rows={page.rows}

@@ -29,6 +29,23 @@ export function VideoPlayerView({
   height?: number
 }) {
   const containerRef = useRef<HTMLDivElement>(null)
+  // The latest props for the effect body below: the effect is keyed on the
+  // sources' CONTENT (see `sourcesKey`), so the body reads them through a ref
+  // instead of re-running when only the array's IDENTITY changed.
+  const sourcesRef = useRef(sources)
+  sourcesRef.current = sources
+  /**
+   * The sources' content, as one of the effect's dependencies.
+   *
+   * Keyed on the array itself, the effect re-ran on every parent render that
+   * passed a fresh array — which is exactly the usage this slice's README
+   * documents (`sources={[{ src: '/media/lesson.mp4', type: 'video/mp4' }]}`).
+   * The cleanup called `destroy()` and the body built a new player: playback
+   * restarted and the media (or the hls.js stream) was re-fetched, on any
+   * unrelated state change in the parent. The CONTENT is what invalidates a
+   * player.
+   */
+  const sourcesKey = JSON.stringify(sources)
 
   useEffect(() => {
     const container = containerRef.current
@@ -36,6 +53,7 @@ export function VideoPlayerView({
       return
     }
 
+    const sources = sourcesRef.current
     let player: VideoPlayer | undefined
     let cancelled = false
 
@@ -58,7 +76,7 @@ export function VideoPlayerView({
       cancelled = true
       player?.destroy()
     }
-  }, [sources, poster])
+  }, [sourcesKey, poster])
 
   return (
     <div

@@ -30,8 +30,45 @@ export function EnablePushButton() {
       setStatus('unsupported')
       return
     }
-    if (Notification.permission === 'denied') setStatus('denied')
-    if (Notification.permission === 'granted') setStatus('enabled')
+    if (Notification.permission === 'denied') {
+      setStatus('denied')
+      return
+    }
+    // Permission alone is a BROWSER fact, and it is not "push works": the
+    // user can hold a granted permission while the browser has no live
+    // subscription (data cleared, subscription expired) or while the server
+    // never stored the one the browser created (the subscribe POST below
+    // failed, or the row was purged server-side). Treating 'granted' as
+    // "enabled" — as this mount check used to — hid the Enable control in
+    // exactly those states, so the user could not re-register and nothing was
+    // ever delivered; it contradicted the rule the `enable()` path states two
+    // screens down ("Reporting 'enabled' on one would tell the user push works
+    // while the server stored no subscription"). So reconcile instead of
+    // assuming: re-post the browser's OWN subscription (the endpoint dedupes
+    // by endpoint, so this is idempotent), and only call it enabled when the
+    // server answers ok. Anything else leaves the Enable control in place as
+    // the retry path.
+    let cancelled = false
+    void (async () => {
+      try {
+        const reg = await navigator.serviceWorker.register('/sw.js')
+        const sub = await reg.pushManager.getSubscription?.()
+        if (!sub) return // granted, but nothing is subscribed — the button is the way back
+        const saved = await fetch('/api/push/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(sub.toJSON()),
+        })
+        if (!cancelled && saved.ok) setStatus('enabled')
+      } catch (_error) {
+        // A failed reconcile (registration, getSubscription, network) leaves
+        // the status at 'available': the user can still press Enable, which
+        // reports the real reason.
+      }
+    })()
+    return () => {
+      cancelled = true
+    }
   }, [])
 
   if (status === 'unsupported') {

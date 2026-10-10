@@ -98,12 +98,6 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
           )
         }
       }
-      // The user switched records while the upload ran: the files landed on the
-      // record we LEFT, whose state this render no longer owns — refreshing
-      // here would take the newest ticket and render the old record's
-      // attachments under the new one (see mountedForRef).
-      if (mountedForRef.current !== parentId) return
-      await load()
     } catch (err: unknown) {
       // The failure belongs to the record it was uploaded to — a switch since
       // must not paste this error under the new record's panel.
@@ -115,6 +109,15 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
         )
       }
     } finally {
+      // The refresh runs on EVERY outcome, not just the happy one. A multi-file
+      // upload that fails on the third file has ALREADY stored the first two
+      // server-side, and the old refresh-only-on-success left them off the list
+      // until an unrelated reload — the panel reported the failure over a list
+      // the server had grown. The user switched records while the upload ran?
+      // Then the files landed on the record we LEFT, whose state this render no
+      // longer owns: refreshing here would take the newest ticket and render
+      // the old record's attachments under the new one (see mountedForRef).
+      if (mountedForRef.current === parentId) await load()
       setUploading(false)
     }
   }

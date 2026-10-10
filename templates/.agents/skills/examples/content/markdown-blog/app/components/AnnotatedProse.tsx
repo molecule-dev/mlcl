@@ -13,12 +13,17 @@ const cm = getClassMap()
  *   give the highlight vertical padding — `box-decoration-break: clone` plus
  *   horizontal padding only, so a highlight spanning several lines stays
  *   text-shaped instead of becoming a tall narrow box.
- * - The hover detail is a REAL child element with the prompt/model text in
- *   the DOM (never an empty container waiting for JS): positioned absolutely
- *   above the mark, `max-width` + `width: max-content` so it is as wide as
- *   its text and no wider, hidden until `:hover`/`:focus-within`. The text is
- *   in the HTML, so it works without JavaScript for the reveal styling and is
- *   readable by crawlers/tests.
+ * - The hover detail is a REAL child element with the MODEL text in the DOM
+ *   (never an empty container waiting for JS): positioned absolutely above the
+ *   mark, `max-width` + `width: max-content` so it is as wide as its text and
+ *   no wider, hidden until `:hover`/`:focus-within`. The text is in the HTML,
+ *   so it works without JavaScript for the reveal styling and is readable by
+ *   crawlers/tests.
+ * - The PROMPT is deliberately NOT repeated here. It has exactly one home —
+ *   the section's side block, which names it against the first paragraph it
+ *   produced (see AnnotatedBody's own rules) — and a hover popover carrying
+ *   the same sentence showed the reader the same words twice, with neither
+ *   copy explaining why. Hover reveals the model; the block holds the prompt.
  */
 export type ProvenanceSpan = {
   /** The text of this run. */
@@ -54,11 +59,10 @@ export function AnnotatedParagraph({
               data-mol-id={`prov-detail-${i}`}
               className="invisible absolute bottom-full left-0 z-10 mb-2 w-max max-w-sm rounded-lg border border-outline-variant bg-surface-container-highest p-3 text-left text-xs font-normal not-italic leading-normal text-on-surface shadow-lg group-hover:visible group-focus-within:visible"
             >
+              {/* Model only — the prompt lives once, in the section block (see
+                  the module rules above and AnnotatedBody). */}
               <span className="block font-semibold">
                 {t('provenance.model', undefined, { defaultValue: 'Model' })}: {s.model}
-              </span>
-              <span className="mt-1 block whitespace-pre-wrap">
-                {t('provenance.prompt', undefined, { defaultValue: 'Prompt' })}: {s.prompt}
               </span>
             </span>
           </mark>

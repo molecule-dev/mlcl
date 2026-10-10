@@ -4,7 +4,14 @@ import type { NextFunction, Request, Response } from 'express'
 import { Router } from 'express'
 import { z } from 'zod'
 
-import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
+import {
+  create,
+  deleteById,
+  deleteMany,
+  findById,
+  findMany,
+  updateById,
+} from '@molecule/api-database'
 import { sendMail } from '@molecule/api-emails'
 import { t } from '@molecule/api-i18n'
 import { consume } from '@molecule/api-rate-limit'
@@ -55,9 +62,10 @@ router.post('/request', requireAuth, async (_req, res) => {
     return res.json({ ok: true, alreadyVerified: true })
   }
   const plain = randomBytes(32).toString('hex')
+  const tokenHash = hashToken(plain)
   await create('email_verification_tokens', {
     user_id: userId,
-    token_hash: hashToken(plain),
+    token_hash: tokenHash,
     expires_at: new Date(Date.now() + TOKEN_TTL_MS).toISOString(),
     created_at: new Date().toISOString(),
   })
@@ -67,18 +75,40 @@ router.post('/request', requireAuth, async (_req, res) => {
   const origin = process.env.SITE_ORIGIN || 'http://localhost:3000'
   const link = `${origin}/verify?token=${encodeURIComponent(plain)}`
   const from = process.env.EMAIL_FROM ?? `noreply@${process.env.APP_DOMAIN ?? 'example.com'}`
-  await sendMail({
-    from,
-    to: user.email,
-    subject: t('verifyEmail.subject', undefined, { defaultValue: 'Verify your email' }),
-    text: t(
-      'verifyEmail.body',
-      { link },
-      {
-        defaultValue: 'Click here to verify your email (expires in 24 hours):\n\n{{link}}',
-      },
-    ),
-  })
+  try {
+    await sendMail({
+      from,
+      to: user.email,
+      subject: t('verifyEmail.subject', undefined, { defaultValue: 'Verify your email' }),
+      text: t(
+        'verifyEmail.body',
+        { link },
+        {
+          defaultValue: 'Click here to verify your email (expires in 24 hours):\n\n{{link}}',
+        },
+      ),
+    })
+  } catch (error) {
+    // The provider refused the message, so this link reaches nobody — and the
+    // row backing it would sit in the table (undelivered, unusable) for every
+    // failed resend, one per attempt. Roll it back: a request that fails leaves
+    // the database as it found it, and the NEXT request mints a fresh token
+    // instead of stacking orphans.
+    try {
+      await deleteMany('email_verification_tokens', [
+        { field: 'token_hash', operator: '=', value: tokenHash },
+      ])
+    } catch (cleanupError) {
+      // Best-effort: the send failure is what the caller must see. An orphan
+      // row is inert (the token was never delivered and expires on its TTL), so
+      // log it rather than replacing the real error with the cleanup's.
+      console.error('verify-email: could not drop the token for a failed send', {
+        userId,
+        cleanupError,
+      })
+    }
+    throw error
+  }
   res.json({ ok: true })
 })
 

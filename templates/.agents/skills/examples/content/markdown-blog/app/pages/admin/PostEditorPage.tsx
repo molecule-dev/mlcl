@@ -41,6 +41,10 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
   const [draft, setDraft] = useState(true)
   const [status, setStatus] = useState<Status>(editingSlug ? 'loading' : 'idle')
   const [error, setError] = useState<string | null>(null)
+  // Bumped by the "Try again" control below. The load effect keys on it, which
+  // is what makes a FAILED load retryable — `loadedSlug` is null after a
+  // failure, so without a changing dep nothing would ever re-run the fetch.
+  const [reloadKey, setReloadKey] = useState(0)
 
   // Edit mode: load the post's current values so the author edits, not clobbers.
   const loadedSlug = useRef<string | null>(null)
@@ -90,7 +94,7 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
     return () => {
       cancelled = true
     }
-  }, [editingSlug, t])
+  }, [editingSlug, t, reloadKey])
 
   // Auto-suggest a slug from the title until the author edits the slug directly.
   function onTitleChange(value: string): void {
@@ -140,6 +144,31 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
   if (status === 'loading') {
     return (
       <p className={cm.textMuted}>{t('common.loading', undefined, { defaultValue: 'Loading…' })}</p>
+    )
+  }
+
+  // An EDIT whose load failed has no post to edit: `postId` is still null, so
+  // rendering the form would offer a Save that takes the CREATE branch (POST
+  // /api/posts) — a half-empty duplicate inserted from the editor, with the
+  // original untouched. The page says what happened and offers the retry it
+  // needs instead of the form. (A CREATE — no `editingSlug` — has no load to
+  // fail; a SAVE failure keeps the form, so the author can fix and resubmit.)
+  if (editingSlug && postId === null && status === 'error') {
+    return (
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), cm.sp('p', 6))}>
+        <p className={cm.textError}>
+          {error ??
+            t('postEditor.loadFailed', undefined, { defaultValue: 'Could not load this post' })}
+        </p>
+        <button
+          type="button"
+          onClick={() => setReloadKey((k) => k + 1)}
+          className={cm.button({})}
+          data-mol-id="post-reload"
+        >
+          {t('postEditor.retryLoad', undefined, { defaultValue: 'Try again' })}
+        </button>
+      </div>
     )
   }
 
@@ -235,9 +264,15 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
           {draft
             ? t('postEditor.savedDraft', undefined, { defaultValue: 'Draft saved.' })
             : t('postEditor.published', undefined, { defaultValue: 'Post published.' })}{' '}
-          <a href={`/blog/${slug}`} data-mol-id="post-view-link">
-            {t('postEditor.viewPost', undefined, { defaultValue: 'View post' })}
-          </a>
+          {/* No "View post" link for a draft: the public route 404s one
+              (api/handlers/posts.ts answers 404 for `post.draft`) and the blog
+              index lists only published posts, so the link walked the author
+              straight into "Post not found" on the save they had just made. */}
+          {draft ? null : (
+            <a href={`/blog/${slug}`} data-mol-id="post-view-link">
+              {t('postEditor.viewPost', undefined, { defaultValue: 'View post' })}
+            </a>
+          )}
         </p>
       ) : null}
 

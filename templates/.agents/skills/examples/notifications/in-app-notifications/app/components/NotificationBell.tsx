@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { NotificationWrapper } from '@molecule/app-notification-badge-react'
 import type { NotificationItem } from '@molecule/app-notification-center-react'
@@ -85,6 +85,22 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
   const itemsRef = useRef<RawNotification[]>([])
   itemsRef.current = items
 
+  /**
+   * The mark-all-read transition, in ONE place.
+   *
+   * Two things trigger it: this tab's "mark all read" button, and the
+   * `notification:all-read` frame the handler broadcasts to the user's room
+   * (another tab of the same user marked everything read). They were written
+   * separately, and the frame's copy only zeroed the badge — the rows kept
+   * `read_at: null`, so the panel rendered every one of them as unread under a
+   * badge reading zero, with nothing to resync it until a reload. Both paths
+   * now apply the badge AND the rows together, so they cannot drift again.
+   */
+  const applyAllRead = useCallback((): void => {
+    setUnread(0)
+    setItems((prev) => prev.map((n) => ({ ...n, read_at: n.read_at ?? new Date().toISOString() })))
+  }, [])
+
   // Keep the counted-read set as small as its guards need: an id can only ever
   // be re-counted while its row is on screen (both the SSE handler and markRead
   // return early unless the row is present AND unread), and the list only
@@ -156,12 +172,12 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
         prev.map((n) => (n.id === frame.id ? { ...n, read_at: new Date().toISOString() } : n)),
       )
     })
-    events.addEventListener('notification:all-read', () => setUnread(0))
+    events.addEventListener('notification:all-read', () => applyAllRead())
     return () => {
       cancelled = true
       events.close()
     }
-  }, [userId])
+  }, [userId, applyAllRead])
 
   // Close panel when clicking outside
   useEffect(() => {
@@ -206,10 +222,7 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
     try {
       const res = await fetch('/api/notifications/mark-all-read', { method: 'POST' })
       if (!res.ok) return
-      setUnread(0)
-      setItems((prev) =>
-        prev.map((n) => ({ ...n, read_at: n.read_at ?? new Date().toISOString() })),
-      )
+      applyAllRead()
     } catch (_error) {
       // Network failure — the badge keeps its count; nothing was marked read.
     }
