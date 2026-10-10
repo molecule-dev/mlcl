@@ -192,8 +192,13 @@ export function ChatPage({ channelId }: { channelId: string }) {
         })
       })
       .catch(() => {
-        // A failed history load shows an empty room; SSE still delivers live messages.
-        if (!cancelled) setMessages([])
+        // A failed history load keeps whatever the live feed already delivered.
+        // The effect cleared the list UP FRONT, so the only rows in state are
+        // `message:created` frames that arrived for THIS room while the request
+        // was in flight — blanking them made a message the reader watched appear
+        // vanish until a reload, the same "it vanished" symptom the success
+        // path's merge above exists for. Nothing to restore when none arrived
+        // (the room renders empty, which is what the reset already said).
       })
 
     // Join the room via the `?room=` query — the SSE bond's subscribe protocol.

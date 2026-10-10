@@ -608,4 +608,33 @@ describe('in-app-chat — a send is one message, and it clears only what it sent
       false,
     )
   })
+
+  it('a failed history load keeps what the live feed already delivered', async () => {
+    await mount(createElement(ChatPage, { channelId: 'general' }))
+
+    // A `message:created` frame lands while the history request is still in
+    // flight — the room's history response is a snapshot taken before that
+    // message existed, so the live frame is the ONLY copy on this screen.
+    await emitSse('message:created', {
+      id: 'm-live',
+      user_id: 'u-2',
+      content: 'live hello',
+      created_at: 't',
+    })
+    expect(text()).toContain('live hello')
+
+    // The history request then fails (offline, a proxy's non-JSON 500). The
+    // failure path used to `setMessages([])`, erasing the message the reader
+    // had just watched arrive — the same "it vanished" symptom the success
+    // path's merge exists for. Nothing needs clearing: the effect cleared the
+    // list up front, so only this room's live frames are in state.
+    const history = fetches.calls.find((c) => c.url.includes('?channel_id=general'))
+    if (!history) throw new Error('no history request was made')
+    await act(async () => {
+      history.fail(new Error('network down'))
+    })
+    await flush()
+
+    expect(text()).toContain('live hello')
+  })
 })
