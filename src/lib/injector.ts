@@ -176,6 +176,14 @@ export interface InjectionPlan {
   migrations: MigrationFile[]
   bondSetup: BondSetup | null
   conflicts: Conflict[]
+  /**
+   * Resource migrations that could NOT be planned because the package's SQL
+   * file could not be read — one message per table. A migration absent from
+   * `migrations` for this reason must surface as a FAILED injection (the
+   * resource's table would be missing at runtime), not a silent success; the
+   * inject command warns on each and exits 1.
+   */
+  migrationFailures?: string[]
 }
 
 export interface FileOperation {
@@ -447,9 +455,16 @@ async function planResourceInjection(
           })
         }
       } catch (error) {
-        console.warn(
-          `[injector] Could not read SQL file for table '${table.name}': ${String(error)}`,
-        )
+        // A migration whose SQL file cannot be read must not vanish into a
+        // console.warn: the preview omits it, the injection exits 0, and the
+        // resource's table is missing at runtime ("relation does not exist").
+        // Record it on the plan — the inject command warns on each entry and
+        // fails the request with exit 1, the same policy an unresolvable
+        // package gets.
+        plan.migrationFailures = [
+          ...(plan.migrationFailures ?? []),
+          `${table.name}: could not read ${table.sqlFile} — ${String(error)}`,
+        ]
       }
     }
   }
@@ -824,6 +839,12 @@ export async function executeInjection(
           // but the primary error is already recorded in result.errors above.
         }
       }
+      // The rollback removed or restored every write recorded above, so none
+      // of them exist in their written state any more. The caller totals these
+      // arrays into the run summary — a failed plan's rolled-back writes
+      // counted there reported "Created N files" for files that are gone.
+      result.filesCreated.length = 0
+      result.filesModified.length = 0
     }
   }
 

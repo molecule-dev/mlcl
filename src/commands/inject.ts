@@ -224,6 +224,19 @@ export default class Inject extends Command {
     // `filesToWrite` below).
     const holisticSynthesisAllowed = resolutionFailures.length === 0
 
+    // A migration whose SQL the package could not provide fails the request
+    // too (its table would be missing at runtime), but it does NOT gate the
+    // holistic files: router.ts and bonds/index.ts are synthesized from the
+    // plans, and an unreadable SQL file changes no plan's routes or bond
+    // wiring — the survivors' output is correct as-is.
+    const migrationFailures = plans.flatMap((plan) => plan.migrationFailures ?? [])
+    for (const failure of migrationFailures) {
+      this.warn(
+        `Could not read a migration: ${failure} — its migration was NOT injected. ` +
+          'Reinstall the package (npm install) and re-run `mlcl inject`.',
+      )
+    }
+
     // Filter excluded peer dependencies (e.g. react-native aliased to DOM shim)
     if (framework) {
       const excludedPeers = loadAppFrameworks()[framework]?.excludePeerDependencies
@@ -650,6 +663,7 @@ export default class Inject extends Command {
     // contributed nothing to them) — so the survivors still synthesize, and the
     // exit status still says the request failed.
     errors.push(...resolutionFailures)
+    errors.push(...migrationFailures)
 
     if (errors.length > 0) {
       this.log('')

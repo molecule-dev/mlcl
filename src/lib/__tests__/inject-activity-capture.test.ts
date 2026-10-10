@@ -87,6 +87,31 @@ describe('injectActivityCaptureBoot (IDE8 producer wiring)', () => {
     expect(again.match(/from '\.\/_activity-capture\.js'/g)).toHaveLength(1)
   })
 
+  it('leaves no producer module behind when bonds/index.ts cannot be wired', async () => {
+    // Neither an import block to extend nor a `setupBonds()` to anchor the
+    // call against — the injection cannot proceed.
+    const unwireable = 'export const bonds: string[] = []\n'
+    writeFileSync(join(apiDir, 'src', 'bonds', 'index.ts'), unwireable)
+
+    expect(await injectActivityCaptureBoot(apiDir)).toBe(false)
+
+    // The module statically imports @molecule/api-activity* — a stray copy
+    // left behind here (written before the anchor checks, with no wiring and
+    // no declared dependencies) failed the project's tsc with TS2307.
+    expect(existsSync(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))).toBe(false)
+    expect(readFileSync(join(apiDir, 'src', 'bonds', 'index.ts'), 'utf-8')).toBe(unwireable)
+  })
+
+  it('leaves no producer module behind when there is no setupBonds to anchor the call', async () => {
+    writeFileSync(
+      join(apiDir, 'src', 'bonds', 'index.ts'),
+      "import { resolveAll } from '@molecule/api-secrets'\n\nexport const bonds = () => resolveAll([])\n",
+    )
+
+    expect(await injectActivityCaptureBoot(apiDir)).toBe(false)
+    expect(existsSync(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))).toBe(false)
+  })
+
   it('no-op when MOLECULE_ACTIVITY_URL is unset: no sink, real provider untouched', async () => {
     await injectActivityCaptureBoot(apiDir)
     const mod = await import(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))

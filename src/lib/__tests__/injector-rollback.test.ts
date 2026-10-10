@@ -138,6 +138,39 @@ describe('executeInjection rollback', () => {
     expect(result.success).toBe(false)
     expect(await readFile(migrationPath, 'utf-8')).toBe('-- my applied migration\n')
   })
+
+  it('reports no created/modified files for a plan whose writes were rolled back', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-injector-rollback-'))
+    await mkdir(join(dir, 'src'), { recursive: true })
+    await writeFile(join(dir, 'package.json'), JSON.stringify({ name: 'demo-api' }))
+    const serverPath = join(dir, 'src', 'server.ts')
+    await writeFile(serverPath, '// my working server\n')
+
+    const result = await executeInjection(
+      plan([
+        {
+          action: 'create',
+          targetPath: serverPath,
+          content: '// injected server\n',
+          description: 'overwrite server',
+        },
+        {
+          action: 'copy',
+          targetPath: join(dir, 'src', 'gone.ts'),
+          sourcePath: join(dir, 'no', 'such', 'source.ts'),
+          description: 'fails the apply loop',
+        },
+      ]),
+      dir,
+      { autoInstall: false },
+    )
+
+    expect(result.success).toBe(false)
+    // The rollback removed/restored every write above — the summary the
+    // command prints must not count them as created/modified.
+    expect(result.filesCreated).toEqual([])
+    expect(result.filesModified).toEqual([])
+  })
 })
 
 describe('writeSynthesizedFiles rollback', () => {

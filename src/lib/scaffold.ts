@@ -1644,12 +1644,15 @@ export async function injectActivityCaptureBoot(apiPath: string): Promise<boolea
   // App-only / non-standard layouts have no setupBonds to wire into.
   if (!existsSync(indexPath)) return false
 
-  // 1. Write the producer module (canonical content — overwrite is idempotent).
-  await writeFile(join(bondsDir, '_activity-capture.ts'), ACTIVITY_CAPTURE_BOOT_MODULE)
-
   let src = await readFile(indexPath, 'utf-8')
   // Idempotent: already wired (a re-run, or a future template that bakes it in).
-  if (src.includes("from './_activity-capture.js'")) return false
+  // Refresh the module to this mlcl's canonical content and re-declare its
+  // imports — both idempotent — then leave the wiring untouched.
+  if (src.includes("from './_activity-capture.js'")) {
+    await writeFile(join(bondsDir, '_activity-capture.ts'), ACTIVITY_CAPTURE_BOOT_MODULE)
+    await addActivityCaptureDependencies(apiPath)
+    return false
+  }
 
   // 2a. Add the import, then canonicalize the whole import block via the shared
   //     sorter (same grouping as the project's simple-import-sort) so the new
@@ -1683,7 +1686,25 @@ export async function injectActivityCaptureBoot(apiPath: string): Promise<boolea
     '  await setupActivityCapture()'
   src = src.slice(0, closeIdx) + callBlock + src.slice(closeIdx)
 
-  await writeFile(indexPath, src)
+  // 1. Write the producer module (canonical content — overwrite is idempotent)
+  //    — only AFTER the anchors above proved the wiring is possible. Writing it
+  //    first left the module behind on every early-return path above: a file
+  //    importing @molecule/api-activity* whose dependency declaration (step 3
+  //    below) never ran, so the scaffold failed tsc with TS2307 on a project
+  //    that has no producer at all. And if the index write itself fails, remove
+  //    the module again — nothing may be left importing undeclared packages.
+  const modulePath = join(bondsDir, '_activity-capture.ts')
+  await writeFile(modulePath, ACTIVITY_CAPTURE_BOOT_MODULE)
+  try {
+    await writeFile(indexPath, src)
+  } catch (error) {
+    try {
+      await rm(modulePath, { force: true })
+    } catch (_rmError) {
+      // Best-effort cleanup; the primary failure is rethrown below.
+    }
+    throw error
+  }
 
   // 3. DECLARE what the module imports. `_activity-capture.ts` imports
   //    `@molecule/api-activity` and `@molecule/api-activity-http`; writing the
@@ -4853,12 +4874,31 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
     }
   }
 
-  // Copy font files (clear old ones first to remove stale files from swapped providers)
+  // Copy font files, then clear the ones the new set does not name (the stale
+  // files of a swapped provider). The copy must come FIRST: deleting before
+  // copying meant a copy run that could not produce a file (the font package
+  // absent from every node_modules candidate, an unwritable target) left the
+  // project with that file GONE — public/fonts emptied, the @font-face block
+  // still pointing at files that no longer exist. Copying over the old set
+  // keeps every file the run cannot replace, and only true leftovers are
+  // removed afterwards.
   if (fontFiles.length > 0) {
+    await copyFontFiles(projectPath, fontFiles, publicDir)
     const fontsDir = join(projectPath, publicDir, 'fonts')
+    // The names copyFontFiles writes: the basename of each face whose
+    // metadata segments carry no path separators (those entries are skipped
+    // with a warning, never written — the same guard, so the same set).
+    const written = new Set(
+      fontFiles
+        .filter(
+          ({ fontsDir: pkgFontsDir, file }) => !/[\\/]/.test(pkgFontsDir) && !/[\\/]/.test(file),
+        )
+        .map(({ file }) => basename(file)),
+    )
     try {
       const existing = await readdir(fontsDir)
       for (const file of existing) {
+        if (written.has(file)) continue
         try {
           await rm(join(fontsDir, file))
         } catch (_error) {
@@ -4866,9 +4906,8 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
         }
       }
     } catch (_error) {
-      // Safe to skip: fonts dir may not exist yet; copyFontFiles will create it
+      // Safe to skip: fonts dir may not exist (nothing copied, nothing stale)
     }
-    await copyFontFiles(projectPath, fontFiles, publicDir)
   }
 
   // Update font style block in HTML
