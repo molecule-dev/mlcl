@@ -58,7 +58,16 @@ export function telemetryEnabled(): boolean {
 
 function installId(): string {
   try {
-    if (existsSync(ID_FILE)) return readFileSync(ID_FILE, 'utf8').trim()
+    if (existsSync(ID_FILE)) {
+      const existing = readFileSync(ID_FILE, 'utf8').trim()
+      // A ZERO-LENGTH id file must not become the permanent anonymous id:
+      // writeFileSync opens with O_TRUNC before it writes, so a crash or a full
+      // disk between the two leaves an empty file — and the early return below
+      // would then read that '' back on every later run, reporting a blank
+      // anonymousId for the life of the install. Fall through and mint one
+      // (the write below fills the empty file in).
+      if (existing) return existing
+    }
     const id = randomUUID()
     mkdirSync(join(ID_FILE, '..'), { recursive: true, mode: 0o700 })
     writeFileSync(ID_FILE, id, { mode: 0o600 })
