@@ -112,9 +112,11 @@ export function EnableTwoFactorPage() {
           {t('totp.enabledTitle', undefined, { defaultValue: 'Two-factor authentication enabled' })}
         </h2>
         <p>
+          {/* Same rule as the warning below: the codes are registered here, not
+              redeemable by this stack (see the note on `totp.recoveryWarning`),
+              so the copy does not tell the user they are a way back in. */}
           {t('totp.savedCodes', undefined, {
-            defaultValue:
-              'Make sure you saved your recovery codes — you will need them if you lose your phone.',
+            defaultValue: 'Make sure you saved your recovery codes somewhere safe.',
           })}
         </p>
       </div>
@@ -171,8 +173,15 @@ export function EnableTwoFactorPage() {
         ))}
       </ul>
       <p className={cm.cn(cm.textSize('sm'), 'text-warning')}>
+        {/* The copy must not promise a redemption this stack cannot perform:
+            `POST /2fa/enroll` stores the code HASHES (totp_recovery_codes) and
+            nothing consumes them — the framework's log-in route verifies a
+            TOTP token only, so "each code works once" described a way back in
+            that does not exist. Registration is the half this example owns;
+            redeeming a code belongs to the log-in path, where a locked-out
+            user can reach it. */}
         {t('totp.recoveryWarning', undefined, {
-          defaultValue: 'These will not be shown again. Each code works once.',
+          defaultValue: 'These will not be shown again — save them somewhere safe now.',
         })}
       </p>
       <input
