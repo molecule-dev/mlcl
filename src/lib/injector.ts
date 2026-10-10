@@ -604,9 +604,21 @@ async function snapshotForRollback(
   if (snapshots.has(path)) return
   try {
     snapshots.set(path, await readFile(path))
-  } catch (_error) {
-    // ENOENT — the file does not exist yet; the injection creates it.
-    snapshots.set(path, null)
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException)?.code === 'ENOENT') {
+      // ENOENT — the file does not exist yet; the injection creates it.
+      snapshots.set(path, null)
+      return
+    }
+    // Any OTHER read failure (EACCES on an unreadable file, EISDIR on a
+    // directory at that path) must NOT be recorded as `null` — that entry
+    // marks the file "created by this injection", so the rollback rm()s a
+    // file that PREDATES the inject, deleting content this inject never
+    // even read (verified 2026-10-10: a failed inject over a mode-000 file
+    // deleted it). Rethrow: the write this snapshot precedes cannot succeed
+    // either, so the caller reports the failure and the file is left
+    // exactly as it was — unchanged, never worse.
+    throw error
   }
 }
 
@@ -745,9 +757,13 @@ export async function executeInjection(
             await writeFile(op.targetPath, existing + op.content)
             result.filesModified.push(op.targetPath)
           }
-        } catch (_error) {
-          // ENOENT is expected here: readFile failing means the file doesn't exist yet.
-          // Any other I/O error will be surfaced by the writeFile below.
+        } catch (error) {
+          // Only ENOENT means "the file does not exist yet" and may be created
+          // from scratch. Any other read failure (EACCES on an unreadable file)
+          // must surface as a failed op: treating it as "create" would
+          // blind-overwrite content this inject could not read, and the
+          // rollback snapshot would then rm() a file that predates the inject.
+          if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error
           if (op.content) {
             await snapshotForRollback(op.targetPath, rollbackSnapshots)
             await writeFile(op.targetPath, op.content)
