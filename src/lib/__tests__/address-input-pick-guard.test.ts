@@ -193,3 +193,46 @@ describe('AddressInput — picking a suggestion whose text is already the query'
     expect(pending.requests).toHaveLength(1)
   })
 })
+
+describe('AddressInput — a 2xx body that is not a place', () => {
+  it.each([
+    ["an empty object (the mock API server's unmatchedFixtureResponse)", {}],
+    ['an error envelope a proxy rewrote into a 200', { error: 'geocoder down' }],
+    ['a place missing its coordinates', { formatted: '123 Main St' }],
+    ['a place with a null label', { lat: 1, lng: 2, formatted: null }],
+  ])('does not offer %s as a suggestion', async (_name, body) => {
+    await mount()
+
+    await type('123 Main')
+    await waitForRequest(0)
+    await respond(0, body)
+
+    // The unvalidated body was installed as the suggestion: an empty button
+    // rendered from `{}.formatted`, whose click handed `onSelect` — and the
+    // input's value — `undefined` coordinates. It must be dropped and surfaced
+    // as the same retryable failure a failed lookup gets.
+    expect(suggestionButton()).toBeNull()
+    expect(container.querySelector('[data-mol-id="address-input"]')?.getAttribute('value')).toBe(
+      '123 Main',
+    )
+    expect(container.textContent).toContain('No match for that address')
+  })
+
+  it('still renders the next valid answer after an invalid one', async () => {
+    await mount()
+
+    await type('123 Main')
+    await waitForRequest(0)
+    await respond(0, {})
+    expect(suggestionButton()).toBeNull()
+
+    // The next keystroke geocodes again and a well-formed place is offered —
+    // the dropped body must not wedge the component.
+    await type('123 Main Street')
+    await waitForRequest(1)
+    await respond(1, { lat: 1, lng: 2, formatted: '123 Main Street, Springfield' })
+    const suggestion = suggestionButton()
+    expect(suggestion, 'a valid place must be offered').not.toBeNull()
+    expect(suggestion?.textContent).toBe('123 Main Street, Springfield')
+  })
+})

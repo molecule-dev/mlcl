@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { type ReactElement, useEffect, useRef, useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -23,7 +23,7 @@ export type Place = { lat: number; lng: number; formatted: string }
  * secret token, and store `(lat, lng, formatted)` — not the raw typed string —
  * as the source of truth.
  */
-export function AddressInput({ onSelect }: { onSelect: (place: Place) => void }) {
+export function AddressInput({ onSelect }: { onSelect: (place: Place) => void }): ReactElement {
   const { t } = useTranslation()
   const [query, setQuery] = useState('')
   const [suggestion, setSuggestion] = useState<Place | null>(null)
@@ -65,8 +65,27 @@ export function AddressInput({ onSelect }: { onSelect: (place: Place) => void })
           setStatus('error')
           return
         }
-        const place = (await res.json()) as Place
-        setSuggestion(place)
+        // A 2xx proves the route ANSWERED, not that the body is a place: an
+        // endpoint with no fixture answers 200 with an empty object (the mock
+        // API server's unmatchedFixtureResponse), and a proxy can rewrite a
+        // failure into a 200 whose body is `{ error }`. Installed as the
+        // suggestion, that body rendered an empty button, and picking it handed
+        // `onSelect` — and the field — `undefined` coordinates. Same rule as the
+        // sibling slices: validate the shape before it reaches state and report
+        // the failure like any other lookup miss.
+        const body = (await res.json().catch(() => null)) as Partial<Place> | null
+        if (
+          !body ||
+          typeof body.lat !== 'number' ||
+          typeof body.lng !== 'number' ||
+          typeof body.formatted !== 'string' ||
+          body.formatted.length === 0
+        ) {
+          setSuggestion(null)
+          setStatus('error')
+          return
+        }
+        setSuggestion({ lat: body.lat, lng: body.lng, formatted: body.formatted })
         setStatus('idle')
       } catch (_error) {
         // A cancelled request (the user kept typing) is expected — ignore it.
