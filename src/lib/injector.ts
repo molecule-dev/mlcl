@@ -3821,16 +3821,18 @@ export async function resolveDefaultProvidersFromPlans(
 ): Promise<string[]> {
   const allNames = new Set(currentMolecules)
 
-  // Detect project framework from current molecules via registry
+  // Detect project framework from current molecules via registry. `loadRegistry()`
+  // ALWAYS returns an array — it throws for a missing registry file — so this used
+  // to sit behind an always-true `if (registry)`: dead code that implied a falsy
+  // registry takes some other path, the same shape the inject command dropped for
+  // its locale lookup. It does not: an empty registry simply matches no framework.
   const registry = loadRegistry()
   let projectFramework: string | undefined
-  if (registry) {
-    for (const name of allNames) {
-      const regPkg = registry.find((p) => p.name === name)
-      if (regPkg?.molecule?.category === 'framework' && regPkg.molecule.framework) {
-        projectFramework = regPkg.molecule.framework
-        break
-      }
+  for (const name of allNames) {
+    const regPkg = registry.find((p) => p.name === name)
+    if (regPkg?.molecule?.category === 'framework' && regPkg.molecule.framework) {
+      projectFramework = regPkg.molecule.framework
+      break
     }
   }
 
@@ -3875,7 +3877,8 @@ export async function resolveDefaultProvidersFromPlans(
 
     if (!hasProvider) {
       // Prefer a framework-specific provider when one exists in the registry
-      if (projectFramework && registry) {
+      // (`registry` is always the array loadRegistry returned — see above).
+      if (projectFramework) {
         const frameworkProvider = registry.find(
           (p) =>
             p.molecule?.implements === name &&
