@@ -443,8 +443,14 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
  * does not just fail the step, it takes the API down on the next boot. The
  * same policy {@link ensureMigrateRunnerImports} applies to the manifest it
  * backs the runner with: a failed write leaves the file as it was, never
- * worse. When no previous bytes could be read (the runner did not exist yet),
- * a failure after the truncating open removes the partial file instead.
+ * worse. When the runner did not exist yet (ENOENT — the ONLY read failure
+ * that means "no previous bytes"), a failure after the truncating open removes
+ * the partial file instead. Any OTHER read failure (EACCES on an unreadable
+ * file, EISDIR) is rethrown rather than recorded as "did not exist": that
+ * entry is what the failure path `rm`s, so a failed write over a file this
+ * call could not read would DELETE a runner that predates it — the same
+ * "never delete what you could not read" rule the injector's
+ * `snapshotForRollback` and scaffold's `writeGuarded` enforce.
  *
  * @param path - The runner's path.
  * @param next - The rendered runner source.
@@ -453,7 +459,8 @@ export async function writeMigrateRunnerGuarded(path: string, next: string): Pro
   let prior: Buffer | null
   try {
     prior = await readFile(path)
-  } catch (_error) {
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error
     prior = null
   }
   try {

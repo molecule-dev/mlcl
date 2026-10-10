@@ -30,11 +30,29 @@ import {
 
 const intercept = vi.hoisted(() => ({ armed: false }))
 
+/** When set, the NEXT read of a `migrate.ts` path fails with EACCES. */
+const unreadable = vi.hoisted(() => ({ armed: false }))
+
 vi.mock('node:fs/promises', async (importOriginal) => {
   const actual = await importOriginal()
   type WriteFileArgs = Parameters<(typeof actual)['writeFile']>
+  type ReadFileArgs = Parameters<(typeof actual)['readFile']>
   return {
     ...actual,
+    readFile: async (
+      path: ReadFileArgs[0],
+      options?: ReadFileArgs[1],
+    ): Promise<ReturnType<typeof actual.readFile>> => {
+      if (unreadable.armed && typeof path === 'string' && path.endsWith('migrate.ts')) {
+        // An unreadable PRE-EXISTING runner (mode 000, another owner) — a read
+        // failure that says nothing about whether the file is there.
+        unreadable.armed = false
+        throw Object.assign(new Error(`EACCES: permission denied, open '${path}'`), {
+          code: 'EACCES',
+        })
+      }
+      return actual.readFile(path, options)
+    },
     writeFile: async (
       path: WriteFileArgs[0],
       data: WriteFileArgs[1],
@@ -56,6 +74,7 @@ vi.mock('node:fs/promises', async (importOriginal) => {
 let dir: string | null = null
 afterEach(async () => {
   intercept.armed = false
+  unreadable.armed = false
   if (dir) await rm(dir, { recursive: true, force: true })
   dir = null
 })
@@ -95,6 +114,19 @@ describe('writeMigrateRunnerGuarded', () => {
     const path = await projectWithRunner('// old\n')
     await writeMigrateRunnerGuarded(path, '// new\n')
     expect(await readFile(path, 'utf-8')).toBe('// new\n')
+  })
+
+  it('never deletes a pre-existing runner it could not read', async () => {
+    const path = await projectWithRunner('// my working runner\n')
+    // The runner is there but unreadable (mode 000, another owner) — a read
+    // failure that is NOT "the runner did not exist yet". Recording it as
+    // absent makes the failure path rm() a file that predates this call: the
+    // project's boot import, deleted by a write that never even read it.
+    unreadable.armed = true
+    intercept.armed = true
+
+    await expect(writeMigrateRunnerGuarded(path, '// rendered\n')).rejects.toThrow(/EACCES/)
+    expect(await readFile(path, 'utf-8')).toBe('// my working runner\n')
   })
 })
 
