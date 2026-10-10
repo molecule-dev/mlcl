@@ -2514,20 +2514,7 @@ export async function copyTemplateInstance(
   await ensureMoleculePeerClosure(destDir)
 }
 
-/**
- * Add the full registry `moleculePeers` + `defaultProvider` closure of each
- * manifest's `@molecule/*` dependencies as DIRECT pinned dependencies.
- *
- * `defaultProvider` is part of the closure because cores lazily import their
- * default bond at runtime (e.g. `api-rate-limit` falls back to
- * `api-rate-limit-memory`) — a peers-only closure still crashed on that edge.
- * Versions come from the registry `moleculeVersions` map (exact pins).
- * Unknown names (not in the registry) are skipped defensively.
- *
- * @param destDir - The scaffolded project root (manifests at `package.json`,
- *   `api/package.json`, `app/package.json` are each closed independently).
- * @returns The package names added, per manifest (for logging/tests).
- */
+/** The `@molecule/*` packages an app's e2e setup imports (see {@link ensureE2EManifest}). */
 const E2E_PACKAGES = [
   '@molecule/app-e2e',
   '@molecule/app-e2e-fixtures-default',
@@ -2597,6 +2584,20 @@ export async function ensureE2EFiles(appPath: string): Promise<void> {
   }
 }
 
+/**
+ * Add the full registry `moleculePeers` + `defaultProvider` closure of each
+ * manifest's `@molecule/*` dependencies as DIRECT pinned dependencies.
+ *
+ * `defaultProvider` is part of the closure because cores lazily import their
+ * default bond at runtime (e.g. `api-rate-limit` falls back to
+ * `api-rate-limit-memory`) — a peers-only closure still crashed on that edge.
+ * Versions come from the registry `moleculeVersions` map (exact pins).
+ * Unknown names (not in the registry) are skipped defensively.
+ *
+ * @param destDir - The scaffolded project root (manifests at `package.json`,
+ *   `api/package.json`, `app/package.json` are each closed independently).
+ * @returns The package names added, per manifest (for logging/tests).
+ */
 export async function ensureMoleculePeerClosure(
   destDir: string,
 ): Promise<Record<string, string[]>> {
