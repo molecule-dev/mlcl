@@ -75,3 +75,105 @@ describe('syncProjectAssets font sync failure ordering', () => {
     expect(existsSync(join(projectDir, 'public', 'fonts', 'legacy-font.ttf'))).toBe(false)
   })
 })
+
+/**
+ * The sync owns only the families its DECLARED font packages provide.
+ *
+ * A template's `<!-- mol:fonts -->` block also carries curated families — a
+ * display serif, the icon font, the icon-healer script — that no declared package
+ * backs (every flagship template declares `app-fonts` + `app-fonts-arimo` while
+ * its block declares five families). Rewriting the block from package metadata and
+ * treating "the new set does not name it" as stale deleted those families'
+ * declarations from `index.html` AND their files from `public/fonts/`: one
+ * ordinary `mlcl add … --inject` left the app without its headline font and its
+ * icon font. The block is now merged per family, and a file the merged document
+ * still points at is never removed.
+ */
+const CURATED_INDEX_HTML = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- mol:fonts -->
+    <style>
+      @font-face {
+        font-family: 'Newsreader';
+        src: url('/fonts/Newsreader-VariableFont.ttf') format('truetype-variations');
+        font-weight: 400 700;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Arimo';
+        src: local('Arimo Regular'), url('/fonts/Arimo-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-display: swap;
+      }
+      @supports (font-variation-settings: normal) {
+        @font-face {
+          font-family: 'Arimo';
+          src: url('/fonts/Arimo-VariableFont_wght.ttf') format('truetype');
+          font-weight: 100 1000;
+          font-display: swap;
+        }
+      }
+    </style>
+    <!-- /mol:fonts -->
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+`
+
+describe('syncProjectAssets font ownership', () => {
+  let projectDir: string
+
+  beforeEach(() => {
+    projectDir = mkdtempSync(join(tmpdir(), 'mlcl-asset-merge-'))
+    mkdirSync(join(projectDir, 'public', 'fonts'), { recursive: true })
+    // The flagship shape: a declared sans bond, plus a display family the app
+    // ships and declares for itself.
+    writeFileSync(
+      join(projectDir, 'package.json'),
+      JSON.stringify({
+        name: 'font-app',
+        dependencies: { '@molecule/app-fonts-arimo': '1.0.0' },
+      }),
+    )
+    writeFileSync(
+      join(projectDir, 'public', 'fonts', 'Newsreader-VariableFont.ttf'),
+      'CURATED-SERIF',
+    )
+    // Unreferenced by the document — a genuine leftover.
+    writeFileSync(join(projectDir, 'public', 'fonts', 'Inter-Regular.ttf'), 'STALE')
+    writeFileSync(join(projectDir, 'index.html'), CURATED_INDEX_HTML)
+  })
+
+  afterEach(() => {
+    rmSync(projectDir, { recursive: true, force: true })
+  })
+
+  it('keeps a curated family the declared packages do not back', async () => {
+    await syncProjectAssets(projectDir)
+
+    const html = readFileSync(join(projectDir, 'index.html'), 'utf-8')
+    // The curated declaration and the file behind it survive.
+    expect(html).toContain("font-family: 'Newsreader'")
+    expect(html).toContain('/fonts/Newsreader-VariableFont.ttf')
+    expect(existsSync(join(projectDir, 'public', 'fonts', 'Newsreader-VariableFont.ttf'))).toBe(
+      true,
+    )
+    // The managed family is still emitted (the sync's own job) …
+    expect(html).toContain("font-family: 'Arimo'")
+    expect(html).toContain('/fonts/Arimo-VariableFont_wght.ttf')
+    // … and a file nothing points at is still cleared.
+    expect(existsSync(join(projectDir, 'public', 'fonts', 'Inter-Regular.ttf'))).toBe(false)
+  })
+
+  it('is idempotent — a second sync leaves the merged document byte-identical', async () => {
+    await syncProjectAssets(projectDir)
+    const first = readFileSync(join(projectDir, 'index.html'), 'utf-8')
+
+    await syncProjectAssets(projectDir)
+
+    expect(readFileSync(join(projectDir, 'index.html'), 'utf-8')).toBe(first)
+  })
+})

@@ -5016,20 +5016,33 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
     }
   }
 
-  // Copy font files, then clear the ones the new set does not name (the stale
-  // files of a swapped provider). The copy must come FIRST: deleting before
-  // copying meant a copy run that could not produce a file (the font package
-  // absent from every node_modules candidate, an unwritable target) left the
-  // project with that file GONE — public/fonts emptied, the @font-face block
-  // still pointing at files that no longer exist. Copying over the old set
-  // keeps every file the run cannot replace, and only true leftovers are
-  // removed afterwards.
+  // Copy the declared font packages' files FIRST, then merge their declarations
+  // into the project's font block, and only then clear what is left over. The
+  // copy must come first: deleting before copying meant a copy run that could not
+  // produce a file (the font package absent from every node_modules candidate, an
+  // unwritable target) left the project with that file GONE — public/fonts
+  // emptied, the @font-face block still pointing at files that no longer exist.
   if (fontFiles.length > 0) {
     await copyFontFiles(projectPath, fontFiles, publicDir)
+  }
+
+  // The sync OWNS only the families its declared font packages provide — never
+  // the whole `public/fonts/` directory nor the whole font block. A template's
+  // block also carries curated families (a display serif, the icon font) that no
+  // declared package backs, so treating "not named by the current package set" as
+  // "stale" deleted that family's files AND its @font-face rules from the entry
+  // document: an ordinary `mlcl add … --inject` on a scaffolded template left the
+  // app without its headline font and its icon font. The block is merged (see
+  // {@link updateHtmlFontBlock}) and the merged document decides what is still
+  // referenced, so the block write runs BEFORE the cleanup — and a failed block
+  // write (a full disk) throws out of here with every file still in place.
+  const html = fontMetas.length > 0 ? await updateHtmlFontBlock(projectPath, fontMetas) : null
+
+  if (fontFiles.length > 0) {
     const fontsDir = join(projectPath, publicDir, 'fonts')
-    // The names copyFontFiles writes: the basename of each face whose
-    // metadata segments carry no path separators (those entries are skipped
-    // with a warning, never written — the same guard, so the same set).
+    // The names copyFontFiles writes: the basename of each face whose metadata
+    // segments carry no path separators (those entries are skipped with a
+    // warning, never written — the same guard, so the same set).
     const written = new Set(
       fontFiles
         .filter(
@@ -5037,10 +5050,17 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
         )
         .map(({ file }) => basename(file)),
     )
+    // No HTML file (or none found at all): nothing is referenced, so the whole
+    // written set is the only protection — the pre-merge behavior.
+    const referenced = html === null ? null : referencedFontFiles(html)
     try {
       const existing = await readdir(fontsDir)
       for (const file of existing) {
         if (written.has(file)) continue
+        // Still pointed at by the document this sync just merged into: the file
+        // belongs to the app (or to a family no declared package backs), not to a
+        // swapped-out provider. Never remove what the document still needs.
+        if (referenced?.has(file)) continue
         try {
           await rm(join(fontsDir, file))
         } catch (_error) {
@@ -5051,18 +5071,94 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
       // Safe to skip: fonts dir may not exist (nothing copied, nothing stale)
     }
   }
-
-  // Update font style block in HTML
-  if (fontMetas.length > 0) {
-    await updateHtmlFontBlock(projectPath, fontMetas)
-  }
 }
 
 /**
- * Update the font `<style>` block in index.html (or app.html for Svelte).
+ * The font files a document points at (`/fonts/<name>`), as bare basenames.
  *
- * Finds the `<!-- mol:fonts -->...<!-- /mol:fonts -->` marker block and
- * replaces it with freshly generated font declarations.
+ * The leftover cleanup asks this of the newly merged document first: a file the
+ * document still references belongs to a family the sync does not manage, so it
+ * is not a swapped-out provider's stale file and must survive.
+ *
+ * @param html - The project's entry document.
+ * @returns The basenames referenced through a `/fonts/` URL or href.
+ */
+function referencedFontFiles(html: string): Set<string> {
+  const referenced = new Set<string>()
+  for (const match of html.matchAll(/\/fonts\/([^'"()\s?]+)/g)) {
+    const name = match[1]
+    if (name) referenced.add(name)
+  }
+  return referenced
+}
+
+/** The `<!-- mol:fonts --> … <!-- /mol:fonts -->` block of an entry document. */
+const MOL_FONTS_BLOCK = /\s*<!-- mol:fonts -->[\s\S]*?<!-- \/mol:fonts -->/
+
+/**
+ * Remove every `@font-face` declaration whose family the sync manages, leaving
+ * every other declaration — and the `@supports` wrapper, icon-gate CSS and
+ * healer script around them — exactly as it was.
+ *
+ * Per-family, not whole-block: the sync owns the declarations of the families its
+ * declared font packages provide, and nothing else. Markers always stand alone on
+ * their own line in the blocks mlcl writes and in the curated template blocks, but
+ * a hand-written one-line declaration is handled too.
+ *
+ * @param inner - The `<!-- mol:fonts -->` block's inner text.
+ * @param families - The family names the sync's font packages provide.
+ * @returns The block with the managed families' declarations removed, and any
+ *   `@supports` wrapper they emptied dropped with them.
+ */
+function stripManagedFontFaces(inner: string, families: ReadonlySet<string>): string {
+  const lines = inner.split('\n')
+  const kept: string[] = []
+  for (let i = 0; i < lines.length; i++) {
+    if (!/^\s*@font-face\b/.test(lines[i])) {
+      kept.push(lines[i])
+      continue
+    }
+    const declaration: string[] = []
+    let depth = 0
+    let family: string | null = null
+    let j = i
+    for (; j < lines.length; j++) {
+      const line = lines[j]
+      declaration.push(line)
+      depth += (line.match(/\{/g)?.length ?? 0) - (line.match(/\}/g)?.length ?? 0)
+      if (family === null) {
+        const match = line.match(/font-family:\s*'([^']+)'/)
+        if (match) family = match[1]
+      }
+      if (depth <= 0) break
+    }
+    i = j
+    if (family !== null && families.has(family)) continue
+    kept.push(...declaration)
+  }
+  // An `@supports` wrapper whose declarations were all managed families is empty
+  // now — drop it rather than leave an empty at-rule in the document.
+  return kept
+    .join('\n')
+    .replace(/\n[ \t]*@supports \(font-variation-settings: normal\) \{[ \t]*\n[ \t]*\}/g, '')
+}
+
+/**
+ * Merge the generated font declarations into the project's font block.
+ *
+ * The block is MERGED, never replaced. The sync owns only the families its
+ * declared font packages provide; a curated block (every flagship template's, and
+ * any app that added a family by hand) also carries families no declared package
+ * backs, plus the icon gate and the icon-healer script. Replacing the block from
+ * package metadata alone dropped those families from the entry document and left
+ * the cleanup to delete their files. So: the managed families' declarations are
+ * removed and re-emitted, and everything else in the block is left standing.
+ * Idempotent — a second run strips exactly what the first run added.
+ *
+ * @param projectPath - The app workspace (the directory holding index.html).
+ * @param fontMetas - The font metadata of the project's declared font packages.
+ * @returns The document's final content, or null when no HTML file was found
+ *   (so the caller knows there is nothing whose references could protect a file).
  */
 async function updateHtmlFontBlock(
   projectPath: string,
@@ -5074,7 +5170,7 @@ async function updateHtmlFontBlock(
     preconnect?: string[]
     utilityCss?: string
   }>,
-): Promise<void> {
+): Promise<string | null> {
   // Try index.html first, then src/app.html (Svelte)
   const candidates = [join(projectPath, 'index.html'), join(projectPath, 'src', 'app.html')]
 
@@ -5090,7 +5186,7 @@ async function updateHtmlFontBlock(
     }
   }
 
-  if (!htmlPath || !htmlContent) return
+  if (!htmlPath || !htmlContent) return null
 
   // Build the new font block
   const lines: string[] = []
@@ -5173,45 +5269,91 @@ async function updateHtmlFontBlock(
     )
   }
 
-  if (staticFaces.length > 0 || variableFaces.length > 0 || utilityCssBlocks.length > 0) {
-    lines.push('    <style>')
-    lines.push(...staticFaces)
-    if (variableFaces.length > 0) {
-      lines.push('      @supports (font-variation-settings: normal) {')
-      lines.push(...variableFaces)
-      lines.push('      }')
-    }
-    for (const css of utilityCssBlocks) {
-      lines.push(indentCssBlock(css))
-    }
-    // Icon gate: hide icon spans from first paint until the healer confirms
-    // coverage (ICON_FONT_HEALER_HTML adds .mol-icons-ready). Blank gap beats
-    // a raw ligature name ("360") flashing before the font lands.
-    if (utilityCssBlocks.some((css) => css.includes('material-symbols-outlined'))) {
-      lines.push(ICON_GATE_CSS)
-    }
-    lines.push('    </style>')
+  const iconFaces = utilityCssBlocks.some((css) => css.includes('material-symbols-outlined'))
+  // The healer is a script OUTSIDE the <style> element; a curated block already
+  // carries one (the sweep's copy differs textually from this constant, so the
+  // marker — not the exact bytes — is the idempotency key).
+  if (utilityCssBlocks.length > 0 && !htmlContent.includes('mol:icon-healer')) {
+    lines.push(ICON_FONT_HEALER_HTML)
   }
 
-  if (utilityCssBlocks.length > 0) lines.push(ICON_FONT_HEALER_HTML)
+  // The declarations the sync manages, kept separate from the `<link>`/`<script>`
+  // lines that live outside a `<style>` element.
+  const styleBody: string[] = [...staticFaces]
+  if (variableFaces.length > 0) {
+    styleBody.push('      @supports (font-variation-settings: normal) {')
+    styleBody.push(...variableFaces)
+    styleBody.push('      }')
+  }
+  for (const css of utilityCssBlocks) {
+    styleBody.push(indentCssBlock(css))
+  }
+  // Icon gate: hide icon spans from first paint until the healer confirms
+  // coverage (ICON_FONT_HEALER_HTML adds .mol-icons-ready). Blank gap beats
+  // a raw ligature name ("360") flashing before the font lands.
+  if (iconFaces && !htmlContent.includes('mol:icon-gate')) {
+    styleBody.push(ICON_GATE_CSS)
+  }
 
-  const inner = lines.join('\n')
+  const markerBlock = htmlContent.match(MOL_FONTS_BLOCK)
+  const managed = new Set(
+    fontMetas.filter((font) => font.source !== 'system').map((font) => font.family),
+  )
+  // The markers' own surrounding whitespace goes with them; the CONTENT keeps its
+  // indentation (a `.trim()` here stripped the first line's indent, so the emitted
+  // block no longer looked like the one it replaced).
+  let inner = markerBlock
+    ? stripManagedFontFaces(
+        markerBlock[0]
+          .replace(/^\s*<!-- mol:fonts -->/, '')
+          .replace(/<!-- \/mol:fonts -->\s*$/, ''),
+        managed,
+      )
+        .replace(/^\n+/, '')
+        .replace(/\s+$/, '')
+    : ''
+
+  // `lines` live outside the `<style>` element: each is added only when the block
+  // does not already carry it, so re-running the sync adds nothing.
+  for (const line of lines) {
+    if (!inner.includes(line)) inner = inner ? `${inner}\n${line}` : line
+  }
+
+  // The declarations go INSIDE the block's own `<style>` when it has one, so a
+  // curated block keeps a single style element; otherwise they bring their own.
+  const styleInner = styleBody.join('\n')
+  if (styleInner) {
+    const closeIdx = inner.lastIndexOf('</style>')
+    if (closeIdx === -1) {
+      inner = inner
+        ? `${inner}\n    <style>\n${styleInner}\n    </style>`
+        : `    <style>\n${styleInner}\n    </style>`
+    } else {
+      const head = inner.slice(0, closeIdx)
+      const indent = /[ \t]*$/.exec(head)?.[0] ?? ''
+      // Drop the closing tag's own indentation and any blank line before it: the
+      // insertion point must be byte-stable, or every re-run adds another blank
+      // line (a second sync is supposed to be a no-op).
+      const before = head.slice(0, head.length - indent.length).replace(/\n+$/, '')
+      inner = `${before}\n${styleInner}\n${indent}${inner.slice(closeIdx)}`
+    }
+  }
+
   const newBlock = inner ? `    <!-- mol:fonts -->\n${inner}\n    <!-- /mol:fonts -->` : ''
 
-  // Replace existing marker block, or insert before </head> if no markers
-  const markerRegex = /\s*<!-- mol:fonts -->[\s\S]*?<!-- \/mol:fonts -->/
-  if (markerRegex.test(htmlContent)) {
-    htmlContent = htmlContent.replace(markerRegex, newBlock ? '\n' + newBlock : '')
-  } else {
+  if (markerBlock) {
+    htmlContent = htmlContent.replace(MOL_FONTS_BLOCK, newBlock ? '\n' + newBlock : '')
+  } else if (newBlock) {
     // No markers — insert before the first <link> after the meta tags
     const insertPoint = htmlContent.indexOf('    <link rel="apple-touch-icon"')
-    if (insertPoint !== -1 && newBlock) {
+    if (insertPoint !== -1) {
       htmlContent =
         htmlContent.slice(0, insertPoint) + newBlock + '\n' + htmlContent.slice(insertPoint)
     }
   }
 
   await writeGuarded(htmlPath, htmlContent)
+  return htmlContent
 }
 
 /**
