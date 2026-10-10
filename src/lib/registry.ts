@@ -6,7 +6,7 @@
  * @module
  */
 
-import { existsSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -98,6 +98,7 @@ export function loadRegistry(projectType?: 'api' | 'app'): InferredPackage[] {
  */
 export function clearRegistryCache(): void {
   _cache = null
+  rawRegistryCache.clear()
 }
 
 /**
@@ -209,13 +210,50 @@ export function removeRegistryEntry(packageName: string): void {
 }
 
 /**
+ * Parsed-registry cache for {@link getRawRegistry}.
+ *
+ * Every framework/toolchain/version accessor funnels through getRawRegistry —
+ * {@link getMoleculeVersion} among them, which scaffold and inject call once
+ * per DEPENDENCY — and each call used to re-read and re-parse the whole
+ * registry file. At ~900 packages (1.5 MB) that is ~27 ms per call, so one
+ * scaffold paid seconds of pure re-parsing that grows with the fleet, not with
+ * the work. The key is (path, mtimeMs, size), so an edit from ANOTHER process
+ * (molecule's pre-commit doc regen writes this file) or an `MLCL_REGISTRY_PATH`
+ * flip is honored on the next call; in-process writes go through
+ * {@link writeRegistry}, which calls {@link clearRegistryCache}. The map holds
+ * at most {@link RAW_REGISTRY_CACHE_LIMIT} paths — alternate registries in a
+ * multi-registry workflow, never a growth surface.
+ *
+ * Callers must treat the returned object as READ-ONLY or finish in a registry
+ * write: the sync-registry subcommands mutate it and then writeFileSync the
+ * file (mtime changes → fresh parse next call). Every other caller only reads.
+ */
+const RAW_REGISTRY_CACHE_LIMIT = 4
+
+const rawRegistryCache = new Map<string, { key: string; registry: Registry }>()
+
+/**
  * Get the raw registry data (for AI context building).
  */
 export function getRawRegistry(): Registry {
-  if (existsSync(registryFilePath())) {
-    return RegistrySchema.parse(JSON.parse(readFileSync(registryFilePath(), 'utf-8')))
+  const path = registryFilePath()
+  let stat: { mtimeMs: number; size: number }
+  try {
+    stat = statSync(path)
+  } catch (_error) {
+    // No registry file at this path — same answer as before the cache existed.
+    return { version: 1, packages: {} }
   }
-  return { version: 1, packages: {} }
+  const key = `${stat.mtimeMs}:${stat.size}`
+  const hit = rawRegistryCache.get(path)
+  if (hit && hit.key === key) return hit.registry
+  const registry = RegistrySchema.parse(JSON.parse(readFileSync(path, 'utf-8')))
+  if (rawRegistryCache.size >= RAW_REGISTRY_CACHE_LIMIT && !rawRegistryCache.has(path)) {
+    const oldest = rawRegistryCache.keys().next().value
+    if (oldest !== undefined) rawRegistryCache.delete(oldest)
+  }
+  rawRegistryCache.set(path, { key, registry })
+  return registry
 }
 
 /**
