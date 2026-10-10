@@ -111,6 +111,10 @@ describe('syncProjectAssets — a failed index.html write', () => {
     const html = readFileSync(join(projectDir, 'index.html'), 'utf-8')
     expect(html).not.toBe(INDEX_HTML)
     expect(html).toContain("url('/fonts/Inter-Regular.ttf')")
-    expect(html).toContain('<!-- /mol:fonts -->')
+    // The declarations themselves are what the write produces: the fixture
+    // carries exactly ONE hand-written `@font-face` and the sync replaces it
+    // with the generated set. The closing marker this used to assert is already
+    // in the fixture, so that line passed for a sync that never wrote at all.
+    expect((html.match(/@font-face/g) ?? []).length).toBeGreaterThan(1)
   })
 })

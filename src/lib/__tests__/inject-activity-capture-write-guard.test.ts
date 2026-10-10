@@ -166,6 +166,10 @@ describe('injectActivityCaptureBoot — a failed write rolls the wiring back', (
     const manifest = JSON.parse(readFileSync(join(apiDir, 'package.json'), 'utf-8')) as {
       dependencies: Record<string, string>
     }
-    expect(manifest.dependencies['@molecule/api-activity']).toBeDefined()
+    // An exact pin, not merely a present key: the closure exists so a production
+    // install (`--omit=dev`, no hoisted workspace) resolves this import, and a
+    // range or a placeholder version would leave that broken while a
+    // presence-only assertion stayed green.
+    expect(manifest.dependencies['@molecule/api-activity']).toMatch(/^\d+\.\d+\.\d+$/)
   })
 })

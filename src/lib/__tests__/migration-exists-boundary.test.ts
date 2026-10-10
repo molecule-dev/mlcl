@@ -67,9 +67,14 @@ describe('checkMigrationExists — table-name boundaries', () => {
     expect(await checkMigrationExists(dir, 'comments')).toBeNull()
   })
 
-  it('does NOT mistake a table name this one contains for its migration', async () => {
-    const dir = await makeMigrationsDir(['1748000000000_create_users_table.sql'])
-    expect(await checkMigrationExists(dir, 'users_roles')).toBeNull()
+  it('does NOT mistake a table whose name merely starts with this one for its migration', async () => {
+    // `users` is a PREFIX of `users_roles`, so `files.find(f =>
+    // f.includes('users'))` returned this file and the real `users` migration
+    // was skipped. (The fixture must be the file for the LONGER table — asking
+    // for `users_roles` against a `_create_users_table.sql` file is a case
+    // `includes` gets right, so it pinned nothing.)
+    const dir = await makeMigrationsDir(['1748000000000_create_users_roles_table.sql'])
+    expect(await checkMigrationExists(dir, 'users')).toBeNull()
   })
 
   it('returns null when the migrations directory does not exist yet', async () => {

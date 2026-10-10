@@ -20,6 +20,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 interface Pending {
   url: string
+  method: string | undefined
   answered: boolean
   respond: (status: number, body: unknown) => void
 }
@@ -80,10 +81,11 @@ async function respond(status: number, body: unknown): Promise<void> {
 
 beforeEach(async () => {
   pending.requests.length = 0
-  globalThis.fetch = ((input: unknown) =>
+  globalThis.fetch = ((input: unknown, init?: { method?: string }) =>
     new Promise((resolve) => {
       pending.requests.push({
         url: String(input),
+        method: init?.method,
         answered: false,
         respond: (status, body) =>
           resolve({
@@ -130,11 +132,33 @@ describe('ManageSubscriptionButton — the portal URL is validated before it is 
     expect(text()).toContain('Could not open the billing portal')
   })
 
-  it('accepts a real portal url without reporting a failure', async () => {
+  it('accepts a real portal url and answers it with the exact POST the route takes', async () => {
+    // What is observable here, and what is not: the success path completes by
+    // assigning `window.location.href`, and jsdom's `location` is an
+    // unforgeable own property — `Object.defineProperty(window, 'location', …)`
+    // throws "Cannot redefine property: location", the assignment is never
+    // reflected back, and the navigation the assignment triggers does not reach
+    // console.error (vitest's jsdom keeps its virtual console to itself). A
+    // test therefore cannot see the navigation, and the two failure cases above
+    // are what pin the validation. The sibling two-factor test documents the
+    // same limit.
+    //
+    // What the success path DOES have to get right, and can be pinned: the
+    // request itself. Asserting only "exactly one request to /api/billing/portal"
+    // left the METHOD unpinned — a portal open turned into a GET, or a HEAD
+    // probe, would still satisfy the count.
     await clickManage()
+    expect(pending.requests[0]?.url).toBe('/api/billing/portal')
+    expect(pending.requests[0]?.method).toBe('POST')
+
     await respond(200, { url: 'https://billing.stripe.com/p/session/test' })
 
     expect(pending.requests).toHaveLength(1)
     expect(text()).not.toContain('Could not open the billing portal')
+    // A validated url leaves the button idle again — the busy state it entered
+    // while the request was in flight is cleared on every path.
+    const button = container.querySelector('button')
+    expect(button?.disabled).toBe(false)
+    expect(button?.textContent).not.toContain('Opening')
   })
 })

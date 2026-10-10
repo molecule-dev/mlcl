@@ -182,7 +182,10 @@ describe('scaffold in-place rewrites — a failed write restores the file', () =
     const manifest = JSON.parse(readFileSync(manifestPath, 'utf-8')) as {
       dependencies: Record<string, string>
     }
-    expect(manifest.dependencies['@molecule/api-database-postgresql']).toBeTruthy()
+    // An exact pin, not merely a present key — a range or placeholder version
+    // would satisfy `toBeTruthy()` while breaking the install this closure
+    // exists to fix.
+    expect(manifest.dependencies['@molecule/api-database-postgresql']).toMatch(/^\d+\.\d+\.\d+$/)
   })
 
   // The ROOT manifest is the other half of the same policy — and the last
@@ -256,7 +259,8 @@ describe('scaffold in-place rewrites — a failed write restores the file', () =
     const manifest = JSON.parse(readFileSync(manifestPath, 'utf-8')) as {
       dependencies: Record<string, string>
     }
-    expect(manifest.dependencies['@molecule/api-logger']).toBeTruthy()
+    // Exact pin, not bare presence: see the closure test above.
+    expect(manifest.dependencies['@molecule/api-logger']).toMatch(/^\d+\.\d+\.\d+$/)
   })
 
   it('copyTemplateDomainFiles: a failed theme.css rewrite leaves the file as copied', async () => {

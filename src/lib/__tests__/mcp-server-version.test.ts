@@ -27,12 +27,20 @@ describe('molecule-mcp version reporting', () => {
   })
 
   it('leaves no hardcoded version literal in the surfaces that report it', () => {
-    // Matches both shapes the drift took: `version: '0.1.0'` (the McpServer
-    // constructor) and `serverVersion: '0.1.0'` (the telemetry payload).
-    const hardcoded = /[vV]ersion['"]?\s*:\s*['"]\d+\.\d+\.\d+['"]/
+    // ANY quoted or backticked semver literal — not just the `version: '0.1.0'`
+    // shape the drift first took. Anchoring on `version` followed by a colon and
+    // a quoted literal left the obvious way to reintroduce the bug wide open:
+    // `const V = '0.1.0'` … `new McpServer({ version: V })` matched neither
+    // alternative, so a client was again told about a server that was not
+    // deployed and every guard here stayed green.
+    const semverLiteral = /['"`]\d+\.\d+\.\d+/
     for (const file of ['src/remote.ts', 'src/telemetry.ts']) {
       const source = readFileSync(join(MCP_DIR, file), 'utf-8')
-      expect(source, `${file} hardcodes a version literal again`).not.toMatch(hardcoded)
+      expect(source, `${file} hardcodes a version literal again`).not.toMatch(semverLiteral)
+      // …and the one legitimate source of the version stays wired.
+      expect(source, `${file} must report the version through serverVersion()`).toContain(
+        'serverVersion(',
+      )
     }
   })
 })

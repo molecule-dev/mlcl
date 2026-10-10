@@ -182,7 +182,11 @@ describe('refreshMigrateRunnerForManifest', () => {
     const manifest = JSON.parse(await readFile(join(apiDir, 'package.json'), 'utf-8')) as {
       dependencies: Record<string, string>
     }
-    expect(manifest.dependencies['@molecule/api-bonds-default-express']).toBeTruthy()
+    // Presence is not the contract. The pin must be EXACT: a `^`/`~` range here
+    // violates the repository's exact-version rule and a `latest`/garbage value
+    // breaks a production install — both sailed past the previous
+    // `toBeTruthy()`, which a key holding any non-empty string satisfies.
+    expect(manifest.dependencies['@molecule/api-bonds-default-express']).toMatch(/^\d+\.\d+\.\d+$/)
   })
 
   it('leaves a project with no runner alone', async () => {
