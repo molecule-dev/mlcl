@@ -86,6 +86,16 @@ export function CommentThread({
   }, [http, resourceType, resourceId])
 
   useEffect(() => {
+    // A different resource's thread must never stand in for this one's: the
+    // thread and the reply target are cleared UP FRONT (the load below refills
+    // them), exactly like the sibling slices (ChatPage, NotificationBell,
+    // AttachmentsPanel). Without the reset, a load for the new resource that
+    // fails left the PREVIOUS resource's comments rendered as this one's — and
+    // `replyTo` still held a comment id belonging to that other resource, so the
+    // next reply nested under a foreign id. The draft is the user's own text and
+    // is kept, like the chat composer's.
+    setComments([])
+    setReplyTo(null)
     void load().catch(() => {
       // A failed load (offline, 401, 500) keeps the empty thread; the composer
       // still works. The rejection must not escape the effect unhandled.

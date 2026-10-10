@@ -52,6 +52,12 @@ export function ReactionBar({
   }, [http, resourceType, resourceId])
 
   useEffect(() => {
+    // A different resource's chips must never stand in for this one's: the list
+    // is cleared UP FRONT (the load below refills it), exactly like the sibling
+    // slices (CommentThread, ChatPage, RatingWidget). Without the reset, a load
+    // for the new resource that fails left the PREVIOUS resource's counts — and
+    // its "you reacted" chips — on screen as if they belonged to this one.
+    setReactions([])
     void load().catch(() => {
       // A failed initial load keeps the empty chip list. The rejection must
       // not escape the effect as an unhandled promise rejection.

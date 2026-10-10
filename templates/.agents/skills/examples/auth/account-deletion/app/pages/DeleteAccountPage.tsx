@@ -12,28 +12,36 @@ export function DeleteAccountPage() {
   const [deleting, setDeleting] = useState(false)
   const [deleted, setDeleted] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [loadFailed, setLoadFailed] = useState(false)
 
   // Load the current user's email so we can gate the button on an exact
   // (case-insensitive) match before hitting the server. The DELETE handler
   // re-validates this server-side (see api/handlers/me.ts).
   useEffect(() => {
+    // Loaded ONCE, not per locale: `useTranslation`'s `t` changes identity on a
+    // locale switch, so a `[t]` dependency re-ran this fetch and the failure
+    // message stayed frozen in the locale it was fetched under. The failure is a
+    // FLAG translated at render instead — the message follows a locale switch
+    // with no re-fetch (see the i18n docs' render-time guidance).
+    let cancelled = false
     // `res.ok` gates the body: a 401 (signed out) or 500 still resolves with a
     // JSON body (`{ error }`), so `r.json()` succeeds and the `.catch` below —
     // the only place the failure is explained — would never run. The form would
     // sit there disabled with no email and no reason given.
     fetch('/api/me')
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
-      .then((p: { email?: string }) => setEmail(p.email ?? null))
+      .then((p: { email?: string }) => {
+        if (!cancelled) setEmail(p.email ?? null)
+      })
       .catch(() => {
         // A failed load (offline, signed out) must not leave the form
         // unexplained: the button stays disabled and the error below says why.
-        setError(
-          t('account.loadFailed', undefined, {
-            defaultValue: 'Could not load your account — sign in and try again.',
-          }),
-        )
+        if (!cancelled) setLoadFailed(true)
       })
-  }, [t])
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   const matches = email != null && confirmEmail.trim().toLowerCase() === email.toLowerCase()
 
@@ -141,6 +149,13 @@ export function DeleteAccountPage() {
         />
       </label>
 
+      {loadFailed ? (
+        <p className={cm.textError}>
+          {t('account.loadFailed', undefined, {
+            defaultValue: 'Could not load your account — sign in and try again.',
+          })}
+        </p>
+      ) : null}
       {error ? <p className={cm.textError}>{error}</p> : null}
 
       <button

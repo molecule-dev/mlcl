@@ -20,8 +20,17 @@ export function SettingsPage() {
   const [draft, setDraft] = useState<Profile | null>(null)
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState<string | null>(null)
+  const [loadFailed, setLoadFailed] = useState(false)
 
   useEffect(() => {
+    // The profile is loaded ONCE, not per locale. `useTranslation`'s `t` changes
+    // identity on a locale switch (it is memoized on the locale), so a `[t]`
+    // dependency re-ran this load and refilled the form from the server —
+    // silently discarding whatever the user had typed but not saved yet (the
+    // same clobber the markdown-blog editor guards against). The failure is a
+    // FLAG translated at render instead, so the message still follows a locale
+    // switch without re-fetching (see the i18n docs' render-time guidance).
+    let cancelled = false
     // `res.ok` gates the body: a 401 (signed out) or 500 still resolves with a
     // JSON body (`{ error }`), which `r.json()` parses happily — so without this
     // the ERROR OBJECT became the profile, the form rendered empty, and the
@@ -29,20 +38,21 @@ export function SettingsPage() {
     fetch('/api/me')
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
       .then((p: Profile) => {
+        if (cancelled) return
         setOriginal(p)
         setDraft(p)
       })
       .catch(() => {
         // Without this the draft stays null and the page shows "Loading…"
         // forever — surface the failure instead.
-        setError(
-          t('settings.loadFailed', undefined, {
-            defaultValue: 'Could not load your profile — refresh to try again.',
-          }),
-        )
+        if (cancelled) return
+        setLoadFailed(true)
         setStatus('error')
       })
-  }, [t])
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   const dirty = useMemo(() => {
     if (!original || !draft) return false
@@ -88,8 +98,12 @@ export function SettingsPage() {
   }
 
   if (!draft) {
-    return status === 'error' && error ? (
-      <p className={cm.textError}>{error}</p>
+    return status === 'error' && loadFailed ? (
+      <p className={cm.textError}>
+        {t('settings.loadFailed', undefined, {
+          defaultValue: 'Could not load your profile — refresh to try again.',
+        })}
+      </p>
     ) : (
       <p>{t('common.loading', undefined, { defaultValue: 'Loading…' })}</p>
     )
