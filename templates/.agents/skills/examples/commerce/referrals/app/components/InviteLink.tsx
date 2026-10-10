@@ -16,6 +16,7 @@ const cm = getClassMap()
 export function InviteLink() {
   const { t } = useTranslation()
   const [code, setCode] = useState<string | null>(null)
+  const [loadFailed, setLoadFailed] = useState(false)
   const [copied, setCopied] = useState(false)
   const [copyFailed, setCopyFailed] = useState(false)
   // Held so a second click RESETS the "Copied!" window instead of letting an
@@ -30,14 +31,26 @@ export function InviteLink() {
   )
 
   useEffect(() => {
+    // `res.ok` gates the body: a 401 (signed out) or 500 still resolves with a
+    // JSON body (`{ error }`) that carries no `code`, so without this check the
+    // page sat on "Loading your invite link…" forever with nothing to read.
     fetch('/api/referrals/code')
-      .then((r) => r.json())
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
       .then((body) => setCode(typeof body.code === 'string' ? body.code : null))
-      .catch(() => setCode(null))
+      .catch(() => {
+        setCode(null)
+        setLoadFailed(true)
+      })
   }, [])
 
   if (!code) {
-    return (
+    return loadFailed ? (
+      <p role="alert" className={cm.cn(cm.textSize('sm'), cm.textError)}>
+        {t('referrals.loadFailed', undefined, {
+          defaultValue: 'Could not load your invite link — try again later.',
+        })}
+      </p>
+    ) : (
       <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
         {t('referrals.loading', undefined, { defaultValue: 'Loading your invite link…' })}
       </p>

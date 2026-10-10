@@ -22,8 +22,12 @@ export function SettingsPage() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    // `res.ok` gates the body: a 401 (signed out) or 500 still resolves with a
+    // JSON body (`{ error }`), which `r.json()` parses happily — so without this
+    // the ERROR OBJECT became the profile, the form rendered empty, and the
+    // `.catch` below (the only place the failure is surfaced) never ran.
     fetch('/api/me')
-      .then((r) => r.json())
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
       .then((p: Profile) => {
         setOriginal(p)
         setDraft(p)

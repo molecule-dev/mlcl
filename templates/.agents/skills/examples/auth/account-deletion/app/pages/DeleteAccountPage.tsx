@@ -17,8 +17,12 @@ export function DeleteAccountPage() {
   // (case-insensitive) match before hitting the server. The DELETE handler
   // re-validates this server-side (see api/handlers/me.ts).
   useEffect(() => {
+    // `res.ok` gates the body: a 401 (signed out) or 500 still resolves with a
+    // JSON body (`{ error }`), so `r.json()` succeeds and the `.catch` below —
+    // the only place the failure is explained — would never run. The form would
+    // sit there disabled with no email and no reason given.
     fetch('/api/me')
-      .then((r) => r.json())
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
       .then((p: { email?: string }) => setEmail(p.email ?? null))
       .catch(() => {
         // A failed load (offline, signed out) must not leave the form

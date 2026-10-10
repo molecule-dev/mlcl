@@ -31,8 +31,12 @@ export function ProductTour() {
   const [active, setActive] = useState(false)
 
   useEffect(() => {
+    // `res.ok` gates the body: a 401 (signed out) or 500 still resolves with a
+    // JSON body (`{ error }`), which `r.json()` parses happily and which carries
+    // no `tour_completed_at` — so the tour would be OFFERED to a signed-out
+    // visitor instead of staying hidden as the `.catch` below intends.
     fetch('/api/me')
-      .then((r) => r.json())
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
       .then((u: { tour_completed_at?: string | null }) => {
         if (!u.tour_completed_at) setActive(true)
       })

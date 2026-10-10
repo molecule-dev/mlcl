@@ -115,6 +115,9 @@ vi.mock('@molecule/app-pagination-bar-react', () => ({
     ),
 }))
 
+// The dropzone is not what is under test — the panel's own list render is.
+vi.mock('@molecule/app-file-dropzone-react', () => ({ FileDropzone: () => null }))
+
 const { OrdersPage } =
   (await import('../../../templates/.agents/skills/examples/data-display/sortable-table/app/pages/OrdersPage')) as {
     OrdersPage: (props: object) => ReactNode
@@ -127,6 +130,19 @@ const { RatingWidget } =
   (await import('../../../templates/.agents/skills/examples/ratings/star-ratings/app/components/RatingWidget')) as {
     RatingWidget: (props: { subjectId: string; canRate: boolean }) => ReactNode
   }
+const { AttachmentsPanel } =
+  (await import('../../../templates/.agents/skills/examples/uploads/file-attachments/app/components/AttachmentsPanel')) as {
+    AttachmentsPanel: (props: { parentId: string }) => ReactNode
+  }
+
+/** One attachment row as `GET /api/attachments` returns it. */
+const attachment = (id: string, filename: string): Record<string, unknown> => ({
+  id,
+  filename,
+  mimetype: 'text/plain',
+  size: 12,
+  created_at: '2026-01-01T00:00:00.000Z',
+})
 
 // react-dom's act() requires this flag outside the React test renderer.
 ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
@@ -376,5 +392,34 @@ describe('a superseded fetch response must not win', () => {
     await respondTo('/api/ratings', 200, {})
     await respond('/api/ratings/avg/s', 200, { average: 5.0, count: 1 })
     expect(ratingValue()).toBe('5')
+  })
+
+  it('clears the previous record’s attachments when the record changes', async () => {
+    await mount(createElement(AttachmentsPanel, { parentId: 'a' }))
+    await respond('parent_id=a', 200, [attachment('a1', 'a.txt')])
+    expect(text()).toContain('a.txt')
+
+    // The panel stays mounted while the selected record changes: record A's
+    // files must not sit under record B.
+    await rerender(createElement(AttachmentsPanel, { parentId: 'b' }))
+    expect(text()).not.toContain('a.txt')
+
+    await respond('parent_id=b', 200, [attachment('b1', 'b.txt')])
+    expect(text()).toContain('b.txt')
+    expect(text()).not.toContain('a.txt')
+  })
+
+  it('drops the previous record’s attachment response when it lands last', async () => {
+    await mount(createElement(AttachmentsPanel, { parentId: 'a' }))
+    // Record B is selected while A's request is still in flight.
+    await rerender(createElement(AttachmentsPanel, { parentId: 'b' }))
+
+    await respond('parent_id=b', 200, [attachment('b1', 'b.txt')])
+    expect(text()).toContain('b.txt')
+
+    // A's superseded response lands after B's and must not fill the panel.
+    await respond('parent_id=a', 200, [attachment('a1', 'a.txt')])
+    expect(text()).toContain('b.txt')
+    expect(text()).not.toContain('a.txt')
   })
 })

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { FileDropzone } from '@molecule/app-file-dropzone-react'
 import { useTranslation } from '@molecule/app-react'
@@ -34,21 +34,41 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
   const [uploading, setUploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  // Every in-flight list request takes a ticket; only the newest may write
+  // state. The panel outlives a `parentId` change (switch the selected order /
+  // ticket while it stays mounted), so two loads overlap and the LATE response
+  // would otherwise win — showing another record's attachments under this one.
+  const loadSeq = useRef(0)
+
   const load = useCallback(async () => {
-    // A failed load (offline, 500) keeps the current list; the rejection must
-    // not escape — the effect and the post-upload refresh both fire-and-forget.
+    const ticket = ++loadSeq.current
+    // A failed load (offline, 500) keeps the current list for THIS record; the
+    // rejection must not escape — the effect and the post-upload refresh both
+    // fire-and-forget.
     try {
       const res = await fetch(`/api/attachments?parent_id=${encodeURIComponent(parentId)}`, {
         credentials: 'include',
       })
-      if (res.ok) setItems((await res.json()) as Attachment[])
+      if (!res.ok) return
+      // Coerce the body to the list's shape: a non-array payload would reach the
+      // render and crash `items.map`.
+      const body = (await res.json()) as unknown
+      if (ticket !== loadSeq.current) return // superseded by a newer request
+      setItems(Array.isArray(body) ? (body as Attachment[]) : [])
     } catch (_error) {
       // Keep the last synced list.
     }
   }, [parentId])
 
   useEffect(() => {
+    // A different record's attachments must never stand in for this one's while
+    // its own load is in flight — clear them (the load below refills them).
+    setItems([])
     void load()
+    return () => {
+      // Invalidate whatever this record still has in flight.
+      loadSeq.current++
+    }
   }, [load])
 
   async function upload(files: File[]): Promise<void> {

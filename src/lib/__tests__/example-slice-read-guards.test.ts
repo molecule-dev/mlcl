@@ -26,6 +26,14 @@
  *   no supersede guard, so a late response rendered the previous resource's
  *   comments/reactions under the new one — the same race the six sibling slices
  *   guard.
+ * - `account-deletion`, `settings-page`, `onboarding-tour` and `referrals` all
+ *   read `GET /api/me` (or `/referrals/code`) through `.then(r => r.json())`
+ *   with no `res.ok` check, so an HTTP failure (401 signed out, 500) resolved
+ *   with a JSON `{ error }` body and was treated as SUCCESS: the delete form sat
+ *   disabled and unexplained, the settings form rendered empty, the onboarding
+ *   tour was offered to a signed-out visitor, and the invite link said
+ *   "Loading…" forever. Each comment at those sites names the failure it means
+ *   to surface; the guard below is what makes the comment true.
  *
  * Everything is the shipped component: only the UI primitives, the ClassMap and
  * the network are stubbed, and responses are resolved by hand and out of order.
@@ -206,6 +214,22 @@ const { CommentThread } =
 const { ReactionBar } =
   (await import('../../../templates/.agents/skills/examples/messaging/emoji-reactions/app/components/ReactionBar')) as {
     ReactionBar: (props: { resourceType: string; resourceId: string }) => ReactNode
+  }
+const { DeleteAccountPage } =
+  (await import('../../../templates/.agents/skills/examples/auth/account-deletion/app/pages/DeleteAccountPage')) as {
+    DeleteAccountPage: (props: object) => ReactNode
+  }
+const { SettingsPage } =
+  (await import('../../../templates/.agents/skills/examples/forms/settings-page/app/pages/SettingsPage')) as {
+    SettingsPage: (props: object) => ReactNode
+  }
+const { ProductTour } =
+  (await import('../../../templates/.agents/skills/examples/forms/onboarding-tour/app/components/ProductTour')) as {
+    ProductTour: (props: object) => ReactNode
+  }
+const { InviteLink } =
+  (await import('../../../templates/.agents/skills/examples/commerce/referrals/app/components/InviteLink')) as {
+    InviteLink: (props: object) => ReactNode
   }
 
 ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
@@ -417,5 +441,72 @@ describe('example slices — a request’s answer is validated before it is trus
     })
     expect(text()).toContain('👍:1')
     expect(text()).not.toContain('🎉:9')
+  })
+
+  it('explains a failed account load instead of showing an unexplained disabled form', async () => {
+    await mount(createElement(DeleteAccountPage, {}))
+
+    // Signed out: GET /api/me answers 401 with `{ error }`. `r.json()` resolves,
+    // so without the `res.ok` guard neither the email nor the error was set and
+    // the form sat there disabled with no reason given.
+    await respond('/api/me', 401, { error: 'Authentication required' })
+    expect(text()).toContain('Could not load your account')
+  })
+
+  it('keeps the settings form from adopting an error body as the profile', async () => {
+    await mount(createElement(SettingsPage, {}))
+
+    // The 401 body is not a Profile: before the guard it BECAME the profile, the
+    // form rendered with empty fields, and the failure was never surfaced.
+    await respond('/api/me', 401, { error: 'Authentication required' })
+    expect(text()).toContain('Could not load your profile')
+    expect(container.querySelectorAll('input')).toHaveLength(0)
+  })
+
+  it('does not offer the onboarding tour when GET /api/me failed', async () => {
+    // The tour renders nothing when its step's anchor is absent (it walks to the
+    // next step, then finishes itself), so WITHOUT this anchor the assertion
+    // below would hold no matter what the effect decided. Anchoring step 0 makes
+    // the render depend on `active` alone.
+    const anchor = document.createElement('div')
+    anchor.setAttribute('data-tour', 'nav-search')
+    document.body.appendChild(anchor)
+
+    try {
+      await mount(createElement(ProductTour, {}))
+
+      // A 401 body carries no `tour_completed_at`, so the tour used to open for a
+      // signed-out visitor; a failed read must read as "already completed".
+      await respond('/api/me', 401, { error: 'Authentication required' })
+      expect(container.querySelector('[role="dialog"]')).toBeNull()
+    } finally {
+      anchor.remove()
+    }
+  })
+
+  it('still offers the tour to a signed-in user who has not completed it', async () => {
+    // The positive twin of the case above: it proves the anchor + harness CAN
+    // produce the dialog, so that assertion is not vacuous.
+    const anchor = document.createElement('div')
+    anchor.setAttribute('data-tour', 'nav-search')
+    document.body.appendChild(anchor)
+
+    try {
+      await mount(createElement(ProductTour, {}))
+      await respond('/api/me', 200, { id: 'u1', tour_completed_at: null })
+      expect(container.querySelector('[role="dialog"]')).not.toBeNull()
+    } finally {
+      anchor.remove()
+    }
+  })
+
+  it('stops claiming to load the invite link once the code request failed', async () => {
+    await mount(createElement(InviteLink, {}))
+
+    // A 500 body carries no `code`, so the component used to render
+    // "Loading your invite link…" forever.
+    await respond('/api/referrals/code', 500, { error: 'boom' })
+    expect(text()).toContain('Could not load your invite link')
+    expect(text()).not.toContain('Loading your invite link')
   })
 })
