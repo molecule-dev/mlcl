@@ -392,12 +392,12 @@
     ]
   },
   "admin/stats": {
-    "total_posts": 17,
+    "total_posts": 16,
     "counts_by_status": {
       "planned": 2,
       "in_progress": 2,
       "shipped": 3,
-      "open": 9,
+      "open": 8,
       "declined": 1
     },
     "total_votes": 58,
@@ -409,28 +409,28 @@
         "comment_count": 1
       },
       {
-        "id": "cccccccc-0000-4000-8000-000000000001",
-        "title": "Recurring revenue dashboard with per-plan cohort breakdown",
-        "vote_count": 5,
-        "comment_count": 3
-      },
-      {
-        "id": "cccccccc-0000-4000-8000-00000000000b",
-        "title": "Two-way GitHub link: roadmap item to pull request",
-        "vote_count": 5,
-        "comment_count": 1
-      },
-      {
         "id": "cccccccc-0000-4000-8000-00000000000c",
         "title": "Import historical feedback from a CSV",
         "vote_count": 5,
         "comment_count": 1
       },
       {
-        "id": "cccccccc-0000-4000-8000-000000000008",
-        "title": "Vote count desyncs between board list and post detail",
-        "vote_count": 4,
-        "comment_count": 2
+        "id": "cccccccc-0000-4000-8000-000000000006",
+        "title": "Weekly digest email of top open posts",
+        "vote_count": 3,
+        "comment_count": 1
+      },
+      {
+        "id": "cccccccc-0000-4000-8000-00000000000e",
+        "title": "The changelog page is the first one my execs actually read",
+        "vote_count": 3,
+        "comment_count": 1
+      },
+      {
+        "id": "cccccccc-0000-4000-8000-00000000000d",
+        "title": "Linear sync for the in-progress column",
+        "vote_count": 2,
+        "comment_count": 0
       }
     ],
     "votes_over_time": [
