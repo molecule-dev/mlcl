@@ -73,6 +73,29 @@ function formatRelativeDate(
   )
 }
 
+/**
+ * The page numbers the pagination control renders: the current page and its
+ * immediate neighbours, at most three of them.
+ *
+ * The control used to enumerate EVERY page — `Array.from({ length: totalPages })`
+ * — so the work it did per render scaled with the number of TAGS rather than
+ * with the size of the control: a blog with thousands of tags built (and
+ * mounted) thousands of buttons, each carrying its own inline style object, and
+ * it did that again on every keystroke in the search box, because the filter
+ * above re-renders this page. `PostListPagination` in this same app already
+ * bounds its numbers this way (it shows `page - 1 … page + 1`); this keeps the
+ * two paginators consistent and the render cost constant.
+ *
+ * @param totalPages - The last page number (always ≥ 1).
+ * @param current - The page being shown.
+ * @returns At most three page numbers, the current one in the middle.
+ */
+export function visiblePages(totalPages: number, current: number): number[] {
+  const first = Math.max(1, Math.min(current - 1, totalPages - 2))
+  const last = Math.min(totalPages, Math.max(current + 1, first + 2))
+  return Array.from({ length: Math.max(0, last - first + 1) }, (_unused, i) => first + i)
+}
+
 export function Tags() {
   const { t } = useTranslation()
   const http = useHttpClient()
@@ -1052,7 +1075,7 @@ export function Tags() {
                       {t('tags.pagination.previous', {}, { defaultValue: 'Previous' })}
                     </button>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                      {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+                      {visiblePages(totalPages, currentPage).map((p) => (
                         <button
                           key={p}
                           data-mol-id={`btn-page-${p}`}
