@@ -9,7 +9,19 @@ const GRACE_PERIOD_DAYS = 30
 // list a table this app doesn't have: none of the framework tables CASCADE on users delete,
 // and each purge is best-effort (a missing table is skipped, never aborting the run — see
 // the try/catch), but keeping the list accurate avoids noisy logs.
-const APP_TABLES = ['api_keys', 'notifications', 'attachments', 'audit_log'] as const
+//
+// A table listed here MUST carry a `user_id` column. A framework table keyed some OTHER way
+// does not fail as a missing table — it fails on the COLUMN (Postgres 42703 `column
+// "user_id" does not exist`), which `isMissingTableError` deliberately does not match,
+// because a column error is a real purge failure. Listing one therefore sets `purgeFailed`
+// every night, the users row is kept so the purge can retry, and the retry fails the same
+// way forever: the account is never hard-deleted and the page's "permanently deleted in 30
+// days" copy is never kept. The audit log shipped by @molecule/api-audit-database is
+// exactly that shape — it identifies the actor in `actor` (`user:<id>`) and has no
+// `user_id` — so it does NOT belong in this list. Purge a framework table that keys users
+// differently with its own explicit step below, the way `usersSecrets` and `devices` are
+// handled.
+const APP_TABLES = ['api_keys', 'notifications', 'attachments'] as const
 
 /**
  * Whether a failed APP-table purge means the table simply is not there.

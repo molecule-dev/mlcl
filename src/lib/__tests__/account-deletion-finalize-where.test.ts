@@ -211,11 +211,11 @@ describe('finalize-deletions — the expired-user filter must actually match', (
   // store error is enough) is orphaned FOREVER. For usersSecrets that orphan
   // is the passwordHash + twoFactorSecret row the module comment calls the
   // data-retention leak the job exists to prevent.
-  // The example's own APP_TABLES names four tables it never migrates
-  // (api_keys, notifications, attachments, audit_log), and the module comment
-  // promises "a missing table is skipped, never aborting the run". Counting the
-  // missing table as a purge failure broke exactly that promise: every purge
-  // threw 42P01, `purgeFailed` was set, and the hard delete was deferred — every
+  // The example's own APP_TABLES names three tables it never migrates
+  // (api_keys, notifications, attachments), and the module comment promises
+  // "a missing table is skipped, never aborting the run". Counting the missing
+  // table as a purge failure broke exactly that promise: every purge threw
+  // 42P01, `purgeFailed` was set, and the hard delete was deferred — every
   // night, for good — so the page's "permanently deleted in 30 days" copy and the
   // README's Verify step ("31 days later, the job hard-deletes the row") never
   // happened for a single account.
@@ -236,6 +236,39 @@ describe('finalize-deletions — the expired-user filter must actually match', (
 
     expect(database.deleteById).toHaveBeenCalledWith('usersSecrets', 'u-no-app-tables')
     expect(database.deleteById).toHaveBeenCalledWith('users', 'u-no-app-tables')
+  })
+
+  it('never purges a table that has no `user_id` column — that failure wedges the deletion', async () => {
+    // The framework audit table (@molecule/api-audit-database) identifies the
+    // actor in `actor` (`user:<id>`) and has NO `user_id`. Listing it in
+    // APP_TABLES does not fail as a missing TABLE — it fails on the COLUMN
+    // (42703, `column "user_id" does not exist`), which `isMissingTableError`
+    // deliberately does not match, because a column error is a real purge
+    // failure. `purgeFailed` then deferred the hard delete EVERY night, and the
+    // retry failed the same way forever: an account whose user asked to be
+    // deleted was never deleted, and the page's "permanently deleted in 30 days"
+    // copy was never kept.
+    users = [{ id: 'u-audited', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
+    devices = []
+    database.deleteMany.mockImplementation(async (table: string) => {
+      if (table === 'devices') return { data: [], affected: 1 }
+      if (table === 'audit_log') {
+        const err = new Error('column "user_id" does not exist') as Error & { code?: string }
+        err.code = '42703'
+        throw err
+      }
+      // The example's other app tables are absent from a bare app.
+      const err = new Error(`relation "${table}" does not exist`) as Error & { code?: string }
+      err.code = '42P01'
+      throw err
+    })
+
+    await runJob()
+
+    // The wrong-column prune is never attempted…
+    expect(database.deleteMany).not.toHaveBeenCalledWith('audit_log', expect.anything())
+    // …so the account is hard-deleted like any other.
+    expect(database.deleteById).toHaveBeenCalledWith('users', 'u-audited')
   })
 
   // …and the skip must be narrow: any failure that is NOT an absent table is
