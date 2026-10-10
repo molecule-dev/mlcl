@@ -171,15 +171,16 @@ export default class Inject extends Command {
       }
     }
 
-    // Resolve locale packages for all selected molecules
-    const registryForLocales = loadRegistry()
-    if (registryForLocales) {
-      const localeMolecules = resolveLocalePackages(molecules, registryForLocales)
-      for (const lp of localeMolecules) {
-        if (!molecules.includes(lp)) {
-          molecules.push(lp)
-          plans.push(await planInjection(lp, projectPath, sharedSubdir))
-        }
+    // Resolve locale packages for all selected molecules. `loadRegistry()`
+    // always returns an array (an empty one when the registry declares nothing),
+    // so this used to sit behind an always-true `if (registryForLocales)` —
+    // dead code that implied a missing registry takes some other path. It does
+    // not: an empty registry simply resolves no locale packages.
+    const localeMolecules = resolveLocalePackages(molecules, loadRegistry())
+    for (const lp of localeMolecules) {
+      if (!molecules.includes(lp)) {
+        molecules.push(lp)
+        plans.push(await planInjection(lp, projectPath, sharedSubdir))
       }
     }
 
