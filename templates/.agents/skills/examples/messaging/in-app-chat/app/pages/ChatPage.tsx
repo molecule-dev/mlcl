@@ -118,13 +118,22 @@ export function ChatPage({ channelId }: { channelId: string }) {
   const sendTicket = useRef(0)
 
   useEffect(() => {
-    // Own messages align right only once the viewer's id is known. The row
-    // shape is the framework user resource's readSelf (GET /users/me).
+    // Own messages align right only once the viewer's id is known. The body is
+    // the framework user resource's readSelf (GET /users/me), which WRAPS the
+    // row — `{ props: { id, … } }`, plus an optional `plan` /
+    // `twoFactorEnabled` — because createRequestHandler sends the handler's
+    // body verbatim. Reading a top-level `id` off that body left `meId` null and
+    // every message, the viewer's own included, rendered as the other party —
+    // the exact symptom this id is fetched to avoid. A flat body is still
+    // accepted, so a hand-rolled `/users/me` that returns the row directly (or
+    // its `{ id }`) keeps working.
     let cancelled = false
     fetch('/api/users/me')
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
-      .then((p: { id?: unknown }) => {
-        if (!cancelled && typeof p.id === 'string') setMeId(p.id)
+      .then((body: unknown) => {
+        const p = (body ?? {}) as { id?: unknown; props?: { id?: unknown } }
+        const id = p.props?.id ?? p.id
+        if (!cancelled && typeof id === 'string') setMeId(id)
       })
       .catch(() => {
         // Unresolvable (signed out, offline): every bubble renders as the other

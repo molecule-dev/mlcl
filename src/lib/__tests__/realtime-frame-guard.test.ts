@@ -266,7 +266,13 @@ describe('chat: a bubble is self-aligned by the SESSION user, not a placeholder'
     // party. The page learns the id from the framework's readSelf route.
     const meRequest = httpRequests.find((r) => r.url.includes('/api/users/me'))
     if (!meRequest) throw new Error('the chat page never asked who the viewer is')
-    meRequest.respond({ id: 'u-9' })
+    // The REAL readSelf body: the framework's GET /users/me answers
+    // `{ props: { …user } }` (createRequestHandler sends the handler's body
+    // verbatim), not a flat row. A stub answering the flat `{ id }` shape let
+    // the page's `p.id` read `undefined` in production while this test passed —
+    // meId stayed null and, as the second case below documents, every bubble
+    // rendered as the other party. The mock must answer what the route answers.
+    meRequest.respond({ props: { id: 'u-9' } })
     await flush()
 
     await frame(0, 'message:created', JSON.stringify({ id: 'm1', user_id: 'u-9', content: 'mine' }))
