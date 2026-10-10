@@ -57,17 +57,18 @@ function run(
 }
 
 describe('molecule-mcp remote rate limit', () => {
-  it('passes its rate-limit regression suite — rotated fly-client-ip headers cannot mint budgets', async () => {
+  it('passes its rate-limit regression suite — rotated fly-client-ip headers cannot mint budgets', async (ctx) => {
     if (!existsSync(DEPS_MARKER)) {
       // The one environment this suite cannot run in: mcp's own dependencies
       // (express, the MCP SDK) are absent, so the server the node:test file
-      // spawns would exit before binding. Skip LOUDLY rather than passing
-      // silently — a skip that looks like a pass is the failure mode this
-      // wrapper exists to close.
+      // spawns would exit before binding. Mark the test SKIPPED (not passed) and
+      // say why out loud: a `return` here reported a PASS for a guard that never
+      // ran, which is the failure mode this wrapper exists to close.
       console.warn(
         `[mcp-rate-limit] ${MCP_DIR}/node_modules is not installed — SKIPPING the rate-limit ` +
           `regression suite. Install mcp's deps (cd mcp && npm install) so the suite runs.`,
       )
+      ctx.skip()
       return
     }
 
