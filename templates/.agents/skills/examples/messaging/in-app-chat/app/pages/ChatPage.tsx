@@ -64,6 +64,13 @@ export function ChatPage({ channelId }: { channelId: string }) {
     // cleared up front (the fetch below fills it) instead of leaving room A's
     // messages on screen under room B.
     setMessages([])
+    // The typing indicator and a send failure are room-scoped for the same
+    // reason. The cleanup below clears the hide-typing TIMER, and clearing it
+    // without resetting the flag the timer exists to clear left room B showing
+    // "peer is typing" for a peer typing in A — with no timer left to turn it
+    // off, so it stayed on screen until the next `typing` event or an unmount.
+    setTyping(false)
+    setSendError(false)
     // A channel switch starts a NEW history request while the previous one may
     // still be in flight. Without this guard the LATE response wins and room A's
     // history is rendered under room B. Same guard as the paginated-user-list

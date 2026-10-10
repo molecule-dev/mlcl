@@ -43,6 +43,10 @@
  *   the status, never about the shape. `profile-photo-upload` read no `avatar`
  *   out of the same empty body and reported nothing: the upload rendered no
  *   image and no error, so it looked like it had silently done nothing.
+ * - `in-app-chat`'s `ChatPage` cleared its hide-typing TIMER on a room switch but
+ *   never the flag that timer exists to clear, so the previous room's "peer is
+ *   typing" indicator stayed on screen for the new room — for good, with the
+ *   timer that would have cleared it already gone.
  *
  * Everything is the shipped component: only the UI primitives, the ClassMap and
  * the network are stubbed, and responses are resolved by hand and out of order.
@@ -768,6 +772,23 @@ describe('example slices — a live feed does not grow a list without bound', ()
     expect(rows().some((row) => row.includes('"Subject #1"'))).toBe(false)
     // The live feed still reached the badge and the list.
     expect(rows()[19]).toContain('"Subject #26"')
+  })
+
+  it('clears the previous room’s typing indicator when the channel changes', async () => {
+    await mount(createElement(ChatPage, { channelId: 'general' }))
+    await respond('/api/messages?channel_id=general', 200, [])
+
+    await emitSse('typing', { userId: 'u-2' })
+    expect(text()).toContain('typing')
+
+    // A channel switch runs the effect's cleanup, which CLEARS the hide-typing
+    // timer — but nothing reset the flag that timer exists to clear, so the
+    // indicator stayed on screen for the new room with no timer left to turn it
+    // off (it outlived the room that reported it, until another `typing` event
+    // or an unmount).
+    await rerender(createElement(ChatPage, { channelId: 'random' }))
+    expect(eventSources.urls).toContain('/api/realtime?room=channel:random')
+    expect(text()).not.toContain('typing')
   })
 
   it('keeps the chat room on its newest window while live messages arrive', async () => {
