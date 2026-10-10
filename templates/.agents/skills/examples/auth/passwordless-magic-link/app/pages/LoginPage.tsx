@@ -28,7 +28,11 @@ export function LoginPage() {
         body: JSON.stringify({ email }),
       })
 
-      if (res.ok || res.status === 202) {
+      // `res.ok` is true for EVERY 2xx, 202 included — the status the
+      // `/auth/magic-link/request` handler always answers with. A separate
+      // `|| res.status === 202` clause can never change the outcome, and reading
+      // as if it could suggests a status the check would otherwise reject.
+      if (res.ok) {
         // Always show "check your email" regardless — the API never reveals
         // whether the address is registered.
         setState('sent')
