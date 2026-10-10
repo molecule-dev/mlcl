@@ -206,6 +206,53 @@ describe('finalize-deletions — the expired-user filter must actually match', (
   // store error is enough) is orphaned FOREVER. For usersSecrets that orphan
   // is the passwordHash + twoFactorSecret row the module comment calls the
   // data-retention leak the job exists to prevent.
+  // The example's own APP_TABLES names four tables it never migrates
+  // (api_keys, notifications, attachments, audit_log), and the module comment
+  // promises "a missing table is skipped, never aborting the run". Counting the
+  // missing table as a purge failure broke exactly that promise: every purge
+  // threw 42P01, `purgeFailed` was set, and the hard delete was deferred — every
+  // night, for good — so the page's "permanently deleted in 30 days" copy and the
+  // README's Verify step ("31 days later, the job hard-deletes the row") never
+  // happened for a single account.
+  it('skips a table this app does not have instead of deferring the deletion forever', async () => {
+    users = [
+      { id: 'u-no-app-tables', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() },
+    ]
+    devices = []
+    database.deleteMany.mockImplementation(async (table: string) => {
+      if (table === 'devices') return { data: [], affected: 1 }
+      // What the postgres bond rejects a DELETE against a missing relation with.
+      const err = new Error(`relation "${table}" does not exist`) as Error & { code?: string }
+      err.code = '42P01'
+      throw err
+    })
+
+    await runJob()
+
+    expect(database.deleteById).toHaveBeenCalledWith('usersSecrets', 'u-no-app-tables')
+    expect(database.deleteById).toHaveBeenCalledWith('users', 'u-no-app-tables')
+  })
+
+  // …and the skip must be narrow: any failure that is NOT an absent table is
+  // still a real failure (the transient/denied case above), or the fix would
+  // silently orphan the row the purge could not delete.
+  it('still defers the deletion when a purge fails for any reason other than a missing table', async () => {
+    users = [{ id: 'u-denied', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
+    devices = []
+    database.deleteMany.mockImplementation(async (table: string) => {
+      if (table === 'devices') return { data: [], affected: 1 }
+      // 42501 insufficient_privilege — the table is there, the purge did not run.
+      const err = new Error(`permission denied for table ${table}`) as Error & { code?: string }
+      err.code = '42501'
+      throw err
+    })
+
+    await runJob()
+
+    expect(database.deleteById).toHaveBeenCalledWith('usersSecrets', 'u-denied')
+    expect(database.deleteById).not.toHaveBeenCalledWith('users', 'u-denied')
+  })
+
   it('a failed purge defers the hard delete so it retries, never orphaning the failed purge', async () => {
     users = [{ id: 'u-partial', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
     devices = []

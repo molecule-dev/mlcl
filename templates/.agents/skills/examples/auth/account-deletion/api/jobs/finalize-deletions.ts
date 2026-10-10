@@ -11,6 +11,37 @@ const GRACE_PERIOD_DAYS = 30
 // the try/catch), but keeping the list accurate avoids noisy logs.
 const APP_TABLES = ['api_keys', 'notifications', 'attachments', 'audit_log'] as const
 
+/**
+ * Whether a failed APP-table purge means the table simply is not there.
+ *
+ * A table this app does not have holds NOTHING to purge, so it must not count as
+ * a purge failure. `purgeFailed` below defers the hard delete so the purge can
+ * retry, and a table that will never exist never stops deferring: the account is
+ * then never deleted and the page's "permanently deleted in 30 days" copy is
+ * never kept. APP_TABLES above names four tables this example does not migrate,
+ * so a verbatim copy hit exactly that. Every OTHER failure — a permission, a
+ * connection, an FK from a table not listed — is a real failure and still defers.
+ *
+ * Codes first (Postgres 42P01 undefined_table; MySQL ER_NO_SUCH_TABLE / errno
+ * 1146), then the phrasings the filesystem databases use (SQLite, PGlite, D1:
+ * "no such table"), because the store is a bond and the error shape is the
+ * provider's.
+ *
+ * @param err - The rejection from a purge `deleteMany`.
+ * @returns Whether the table's absence is why it failed.
+ */
+function isMissingTableError(err: unknown): boolean {
+  const code =
+    typeof err === 'object' && err !== null && 'code' in err
+      ? (err as { code?: unknown }).code
+      : undefined
+  if (code === '42P01' || code === 'ER_NO_SUCH_TABLE' || code === 1146) return true
+  const msg = err instanceof Error ? err.message : String(err)
+  return /no such table|unknown table|relation ".*" does not exist|table ".*" does not exist/i.test(
+    msg,
+  )
+}
+
 // Call this once at app startup (e.g. at the bottom of bonds.ts, after
 // bond('cron', provider)) to register the daily hard-delete job.
 export async function registerFinalizeDeletionsJob(): Promise<void> {
@@ -92,6 +123,16 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
         try {
           await deleteMany(table, [{ field: 'user_id', operator: '=', value: user.id }])
         } catch (err) {
+          // A table this app does not have is NOT a purge failure: there is
+          // nothing in it to purge, and counting it would defer this account's
+          // hard delete for good (see isMissingTableError). It is still logged,
+          // so a list that names tables the app never created stays visible.
+          if (isMissingTableError(err)) {
+            console.warn(`finalize-deletions: no ${table} table — nothing to purge`, {
+              userId: user.id,
+            })
+            continue
+          }
           purgeFailed = true
           console.error(`finalize-deletions: ${table} purge failed`, { userId: user.id, err })
         }
