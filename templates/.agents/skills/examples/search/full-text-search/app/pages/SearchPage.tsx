@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { SearchAutocomplete, type SuggestionItem } from '@molecule/app-search-autocomplete-react'
@@ -13,14 +13,23 @@ export function SearchPage({ index }: { index: string }) {
   const [query, setQuery] = useState('')
   const [hits, setHits] = useState<Hit[]>([])
 
+  // Every keystroke fires its own request; only the NEWEST may write the state
+  // the list below renders. Without this ticket a slow response for "ca" lands
+  // after "cat"'s and the list shows results for a query the input no longer
+  // holds (the "No matches for {{query}}" line then contradicts them).
+  const searchSeq = useRef(0)
+
   async function handleSearch(q: string): Promise<SuggestionItem<Hit>[]> {
     if (!q.trim()) return []
+    const ticket = ++searchSeq.current
     const res = await fetch(
       `/api/search?index=${encodeURIComponent(index)}&q=${encodeURIComponent(q)}`,
     )
-    const payload = await res.json()
-    const results: Hit[] = payload.hits ?? []
-    setHits(results)
+    // An error body ({ error }) carries no `hits` — never let it stand in for
+    // results. Coerce the shape so a non-array `hits` cannot reach `hits.map`.
+    const payload = (res.ok ? await res.json() : null) as { hits?: unknown } | null
+    const results: Hit[] = Array.isArray(payload?.hits) ? (payload.hits as Hit[]) : []
+    if (ticket === searchSeq.current) setHits(results)
     return results.map((h) => ({
       id: h.id,
       label: h.title,

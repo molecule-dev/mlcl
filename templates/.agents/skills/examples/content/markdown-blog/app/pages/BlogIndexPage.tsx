@@ -19,9 +19,14 @@ export function BlogIndexPage() {
   const [loadFailed, setLoadFailed] = useState(false)
 
   useEffect(() => {
+    // The response is checked AND coerced before it reaches state: a non-2xx
+    // answer (401, 500) still carries a JSON body (`{ error }`), which `r.json()`
+    // resolves happily — so a missing `res.ok` check neither rejects nor sets
+    // `loadFailed`; it stores that error object and the next render's
+    // `posts.map` throws. Same guard as the sibling ChatPage / NotificationBell.
     fetch('/api/posts')
-      .then((r) => r.json())
-      .then(setPosts)
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
+      .then((body: unknown) => setPosts(Array.isArray(body) ? (body as Post[]) : []))
       .catch(() => {
         // A failed load must be visible: a silent catch would render an empty
         // list that reads as "the blog has no posts".

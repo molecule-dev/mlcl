@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { type Comment, ThreadTree } from '@molecule/app-feature-thread-tree-react'
 import { unwrapList } from '@molecule/app-http'
@@ -66,12 +66,22 @@ export function CommentThread({
   const [replyTo, setReplyTo] = useState<string | null>(null)
   const [postError, setPostError] = useState(false)
 
+  // Every in-flight list request takes a ticket; only the newest may write
+  // state. Two overlap whenever `resourceId`/`resourceType` changes while the
+  // component stays mounted (navigate post A → post B) or a post-triggered
+  // refetch runs alongside the effect's load — and the LATE response would
+  // otherwise win, rendering post A's comments under post B (and letting the
+  // reader reply to a comment id that belongs to A).
+  const loadSeq = useRef(0)
+
   const load = useCallback(async () => {
+    const ticket = ++loadSeq.current
     // The list endpoint returns a RICH pagination envelope { data, total, limit, offset }.
     // Pass the whole HttpResponse to unwrapList — it normalizes a bare array, a { data }
     // envelope, AND this pagination shape → the flat CommentRow[]. (total/limit/offset are
     // there for wiring "load more" later; read res.data.total if you need them.)
     const res = await http.get(`/api/${resourceType}/${resourceId}/comments`)
+    if (ticket !== loadSeq.current) return // superseded by a newer request
     setComments(buildTree(unwrapList<CommentRow>(res)))
   }, [http, resourceType, resourceId])
 
@@ -80,6 +90,10 @@ export function CommentThread({
       // A failed load (offline, 401, 500) keeps the empty thread; the composer
       // still works. The rejection must not escape the effect unhandled.
     })
+    return () => {
+      // Invalidate whatever this resource still has in flight.
+      loadSeq.current++
+    }
   }, [load])
 
   const post = async (): Promise<void> => {

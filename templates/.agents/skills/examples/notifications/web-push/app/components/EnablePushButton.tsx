@@ -75,16 +75,31 @@ export function EnablePushButton() {
         userVisibleOnly: true,
         applicationServerKey: urlBase64ToUint8Array(publicKey),
       })
-      await fetch('/api/push/subscribe', {
+      const saved = await fetch('/api/push/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(sub.toJSON()),
       })
+      // `fetch` only rejects on a NETWORK failure — an HTTP error (401 expired
+      // session, 500, 503) resolves with `ok === false`. Reporting "enabled" on
+      // one would tell the user push works while the server stored no
+      // subscription, so nothing would ever be delivered. Same check as the
+      // public-key GET above.
+      if (!saved.ok) {
+        setError(
+          t('push.saveFailed', undefined, {
+            defaultValue: 'Could not save the subscription — try again.',
+          }),
+        )
+        return
+      }
       setStatus('enabled')
     } catch (_error) {
-      // A failed service-worker registration, a denied subscribe, or an offline
-      // subscribe POST must surface here — an exception escaping the click
-      // handler is an unhandled rejection and the button just looks dead.
+      // A failed service-worker registration, a denied subscribe, or a network
+      // failure on any of the fetches above must surface here — an exception
+      // escaping the click handler is an unhandled rejection and the button
+      // just looks dead. (An HTTP error from the subscribe POST is handled by
+      // the `saved.ok` check above, which `fetch` does not reject on.)
       setError(
         t('push.enableFailed', undefined, {
           defaultValue: 'Could not enable notifications — try again.',

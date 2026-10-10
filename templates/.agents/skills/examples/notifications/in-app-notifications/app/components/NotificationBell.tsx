@@ -48,10 +48,13 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
         // subscription below still delivers live notifications.
       })
 
-    // Subscribe to THIS user's room. The room is the trailing path segment
-    // and must match the handlers' `broadcast(`user:${userId}`, …)` exactly —
-    // a mismatch (e.g. a literal `/api/realtime/me`) silently receives nothing.
-    const events = new EventSource(`/api/realtime/user:${userId}`)
+    // Subscribe to THIS user's room, whose name must match the handlers'
+    // `broadcast(`user:${userId}`, …)` exactly. The room goes in the `?room=`
+    // QUERY PARAM — the SSE provider streams the configured path (`/api/realtime`,
+    // see api/bonds/realtime-sse.ts) and parses rooms from `?room=`/`?rooms=`
+    // only, so a trailing path segment (`/api/realtime/user:<id>`) never matches
+    // the stream path, is never parsed as a room, and silently receives nothing.
+    const events = new EventSource(`/api/realtime?room=${encodeURIComponent(`user:${userId}`)}`)
     events.addEventListener('notification:created', (e) => {
       const n = JSON.parse((e as MessageEvent).data) as RawNotification
       setItems((prev) => [n, ...prev])

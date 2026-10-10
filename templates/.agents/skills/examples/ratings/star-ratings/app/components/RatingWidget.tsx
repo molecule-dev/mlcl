@@ -19,6 +19,10 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
   // subject's average — or an average from before the rating the user just cast.
   const summarySeq = useRef(0)
 
+  // The same ticket discipline for the rating POSTs themselves: only the newest
+  // may roll its optimistic star back or report a failure (see `rate`).
+  const rateSeq = useRef(0)
+
   const loadSummary = useCallback(async (): Promise<void> => {
     const ticket = ++summarySeq.current
     try {
@@ -37,17 +41,30 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
   }, [subjectId])
 
   useEffect(() => {
-    // A different subject's summary must not be shown while its own loads.
+    // A different subject's state must not be shown while its own loads: the
+    // summary AND the viewer's own rating are per-subject. Leaving `myStars`
+    // set made the new subject display the PREVIOUS subject's stars as the
+    // viewer's rating (displayValue prefers myStars over the average).
     setAverage(null)
     setCount(0)
+    setMyStars(null)
+    setRateFailed(false)
     void loadSummary()
     return () => {
-      // Invalidate whatever this subject still has in flight.
+      // Invalidate whatever this subject still has in flight — including a
+      // rating POST, whose failure rollback must not reach the new subject.
       summarySeq.current++
+      rateSeq.current++
     }
   }, [loadSummary])
 
   async function rate(stars: number): Promise<void> {
+    // Every rating takes a ticket so a SUPERSEDED request cannot write state:
+    // clicking 3★ then 5★ starts two POSTs, and if the 3★ one fails last, its
+    // rollback would restore the value from before the 3★ click (often "no
+    // rating") even though the server recorded 5★. Only the newest may roll
+    // back or report the failure.
+    const ticket = ++rateSeq.current
     const previous = myStars
     setRateFailed(false)
     setMyStars(stars)
@@ -62,6 +79,7 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
         body: JSON.stringify({ subject_id: subjectId, stars }),
       })
       if (!res.ok) {
+        if (ticket !== rateSeq.current) return
         setMyStars(previous)
         setRateFailed(true)
         return
@@ -70,6 +88,7 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
       // refresh cannot be overtaken by — or overtake — another summary request.
       await loadSummary()
     } catch (_error) {
+      if (ticket !== rateSeq.current) return
       setMyStars(previous)
       setRateFailed(true)
     }

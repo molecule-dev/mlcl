@@ -78,14 +78,27 @@ export function OrdersPage() {
     })
     if (statusFilter) params.set('status', statusFilter)
     fetch(`/api/orders?${params.toString()}`)
-      .then((r) => r.json())
-      .then((data: Page) => {
+      // `res.ok` is checked and the body coerced before it reaches state: a
+      // non-2xx answer (401 expired session, 500) still resolves with a JSON
+      // body (`{ error }`), which `r.json()` parses happily — without these
+      // guards that object lands in `page`, `page.rows` is undefined, and
+      // DataTableCard's `rows.map` throws instead of the failure being visible.
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
+      .then((data: unknown) => {
         if (cancelled) return
-        setPage(data)
+        const body = (data ?? {}) as Partial<Page>
+        setPage({
+          rows: Array.isArray(body.rows) ? body.rows : [],
+          total: typeof body.total === 'number' ? body.total : 0,
+        })
         setLoading(false)
       })
       .catch(() => {
-        if (!cancelled) setLoading(false)
+        if (cancelled) return
+        // The request failed (offline, 401, 500). Leave the rows already on
+        // screen — blanking them would read as "you have no orders" — and clear
+        // the spinner so the user is not stuck loading forever.
+        setLoading(false)
       })
     return () => {
       cancelled = true

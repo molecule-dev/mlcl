@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { type EmojiReaction, EmojiReactions } from '@molecule/app-emoji-reactions-react'
 import { useHttpClient } from '@molecule/app-react'
@@ -31,8 +31,16 @@ export function ReactionBar({
   const http = useHttpClient()
   const [reactions, setReactions] = useState<EmojiReaction[]>([])
 
+  // Only the newest summary request may write state: a `resourceId` change (or
+  // a toggle's own resync) starts a new request while the previous one may
+  // still be in flight, and the LATE response would otherwise win — showing
+  // another resource's reaction summary under this one.
+  const loadSeq = useRef(0)
+
   const load = useCallback(async () => {
+    const ticket = ++loadSeq.current
     const res = await http.get<ReactionSummary>(`/api/${resourceType}/${resourceId}/reactions`)
+    if (ticket !== loadSeq.current) return // superseded by a newer request
     const { counts, userReactions } = res.data
     setReactions(
       Object.entries(counts).map(([emoji, count]) => ({
@@ -48,6 +56,10 @@ export function ReactionBar({
       // A failed initial load keeps the empty chip list. The rejection must
       // not escape the effect as an unhandled promise rejection.
     })
+    return () => {
+      // Invalidate whatever this resource still has in flight.
+      loadSeq.current++
+    }
   }, [load])
 
   const toggle = async (emoji: string): Promise<void> => {

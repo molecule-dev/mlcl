@@ -75,9 +75,30 @@ vi.mock('@molecule/app-data-table-ui-react', () => ({
     ),
 }))
 
-// The rating display is not what is under test; the stars are inert here.
+// The rating display is not what is under test; the value is rendered as text
+// (its own span, so an assertion can read exactly what the widget shows) and an
+// interactive star control drives the real `onChange`.
 vi.mock('@molecule/app-rating-display-react', () => ({
-  RatingDisplay: (props: { value: number }) => createElement('span', null, String(props.value)),
+  RatingDisplay: (props: { value: number; onChange?: (stars: number) => void }) =>
+    createElement(
+      'div',
+      null,
+      createElement('span', null, String(props.value)),
+      props.onChange
+        ? [1, 2, 3, 4, 5].map((stars) =>
+            createElement(
+              'button',
+              {
+                key: stars,
+                type: 'button',
+                'aria-label': `Rate ${stars}`,
+                onClick: () => props.onChange?.(stars),
+              },
+              `${stars}★`,
+            ),
+          )
+        : null,
+    ),
 }))
 
 // One reachable "Next page" control that drives the real onPageChange.
@@ -149,7 +170,35 @@ async function respond(fragment: string, status: number, body: unknown): Promise
   await flush()
 }
 
+/**
+ * Answer the oldest unanswered request whose URL is EXACTLY `url` — needed
+ * where a substring would be ambiguous (the rating POST `/api/ratings` is a
+ * prefix of the summary GET `/api/ratings/avg/<id>`).
+ */
+async function respondTo(url: string, status: number, body: unknown): Promise<void> {
+  const request = pending.requests.find((r) => !r.answered && r.url === url)
+  if (!request) throw new Error(`no pending request for ${url}`)
+  request.answered = true
+  await act(async () => {
+    request.respond(status, body)
+  })
+  await flush()
+}
+
 const text = (): string => container.textContent ?? ''
+
+/** What the rating display shows — the widget's first span. */
+const ratingValue = (): string => container.querySelector('span')?.textContent ?? ''
+
+/** Click a star in the (mocked but interactive) rating display. */
+async function clickRate(stars: number): Promise<void> {
+  await act(async () => {
+    container
+      .querySelector(`button[aria-label="Rate ${stars}"]`)
+      ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+  })
+  await flush()
+}
 
 const requestedOffsets = (): string[] =>
   pending.requests.map((r) => new URL(r.url, 'http://localhost').searchParams.get('offset') ?? '')
@@ -269,5 +318,63 @@ describe('a superseded fetch response must not win', () => {
     await respond('/api/ratings/avg/first', 200, { average: 1.2, count: 3 })
     expect(text()).toContain('4.5')
     expect(text()).not.toContain('1.2')
+  })
+
+  it('never lets an error body stand in for the orders page', async () => {
+    await mount(createElement(OrdersPage, {}))
+
+    // A 500 still carries JSON, so `r.json()` resolves with `{ error }` — no
+    // `rows`, no `total`. It must not reach state: DataTableCard would call
+    // `rows.map` on undefined and the paginator would compute `Math.ceil(NaN)`.
+    await respond('offset=0', 500, { error: 'boom' })
+    expect(container.querySelectorAll('li')).toHaveLength(0)
+    expect(text()).not.toContain('NaN')
+
+    // …and the page still works afterwards.
+    await act(async () => {
+      container
+        .querySelector('button[aria-label="Next page"]')
+        ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+    await respond('offset=25', 200, { rows: [{ id: 'b', total: 1, status: 'page-2' }], total: 60 })
+    expect(text()).toContain('page-2')
+  })
+
+  it('does not carry the viewer’s own rating across to another subject', async () => {
+    await mount(createElement(RatingWidget, { subjectId: 'first', canRate: true }))
+    await respond('/api/ratings/avg/first', 200, { average: 2.0, count: 1 })
+
+    // Rate the FIRST subject 4 stars: the display shows the viewer's rating.
+    await clickRate(4)
+    await respondTo('/api/ratings', 200, {})
+    await respond('/api/ratings/avg/first', 200, { average: 4.0, count: 2 })
+    expect(ratingValue()).toBe('4')
+
+    // Switching subject must drop it: `myStars` is per-subject, and the display
+    // prefers it over the average — leaving it set showed the previous
+    // subject's stars as the viewer's rating on the new one.
+    await rerender(createElement(RatingWidget, { subjectId: 'second', canRate: true }))
+    await respond('/api/ratings/avg/second', 200, { average: 3.0, count: 5 })
+    expect(ratingValue()).toBe('3')
+    expect(text()).toContain('3.0 (5 reviews)')
+  })
+
+  it('does not roll a rating back when a SUPERSEDED rating request fails', async () => {
+    await mount(createElement(RatingWidget, { subjectId: 's', canRate: true }))
+    await respond('/api/ratings/avg/s', 200, { average: 0, count: 0 })
+
+    // Two ratings in flight: 3★ then 5★ (the newer one wins).
+    await clickRate(3)
+    await clickRate(5)
+    expect(pending.requests.filter((r) => r.url === '/api/ratings')).toHaveLength(2)
+
+    // The 3★ POST fails AFTER the 5★ is recorded. Its rollback targets the
+    // state from before the 3★ click, so applying it would blank a rating the
+    // server did record.
+    await respondTo('/api/ratings', 500, { error: 'boom' })
+    await respondTo('/api/ratings', 200, {})
+    await respond('/api/ratings/avg/s', 200, { average: 5.0, count: 1 })
+    expect(ratingValue()).toBe('5')
   })
 })
