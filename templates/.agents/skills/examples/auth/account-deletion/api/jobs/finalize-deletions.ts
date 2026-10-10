@@ -20,7 +20,10 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
 
     const expired = (await findMany('users', {
       where: [
-        { field: 'deleted_at', operator: '!=' as const, value: null },
+        // `is_not_null`, NEVER `!= null`: SQL evaluates `deleted_at != NULL` as
+        // UNKNOWN (not true), so a `!=`-with-null condition matches NO row — the
+        // job then finds nobody and account hard-deletion silently never runs.
+        { field: 'deleted_at', operator: 'is_not_null' as const },
         { field: 'deleted_at', operator: '<' as const, value: cutoff },
       ],
       limit: 1000,
