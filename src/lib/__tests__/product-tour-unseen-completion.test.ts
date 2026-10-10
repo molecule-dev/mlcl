@@ -145,6 +145,27 @@ describe('product tour — a tour nobody saw is not marked completed', () => {
     expect(fetches.calls.filter((c) => c.url === '/api/me')).toHaveLength(1)
   })
 
+  it('a page that carries none of the anchors leaves the tour pending — the next page still runs it', async () => {
+    await mount(createElement(ProductTour, {}))
+    await respond('/api/me', 200, { id: 'u1', tour_completed_at: null })
+    expect(dialog()).toBeNull()
+
+    // The reader navigates to a route that DOES carry the first anchor. The
+    // tour is mounted in a layout, so that route change re-renders this
+    // component — which is what the "leave it pending" branch promises. The
+    // walk used to advance through the absent steps and pin itself on the LAST
+    // step, so this re-render could only ever offer the settings step (absent
+    // here) and the tour silently never appeared.
+    cleanups.push(anchor('nav-search', true))
+    await act(async () => {
+      root.render(createElement(ProductTour, {}))
+    })
+    await flush()
+
+    expect(dialog()).not.toBeNull()
+    expect(patchCount()).toBe(0)
+  })
+
   it('the positive twin: a page with the first anchor still shows the tour', async () => {
     cleanups.push(anchor('nav-search', true))
     await mount(createElement(ProductTour, {}))

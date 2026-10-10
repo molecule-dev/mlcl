@@ -83,6 +83,19 @@ export function ProductTour() {
   // the network.
   useEffect(() => {
     if (!active) return
+    // No anchor AT ALL on this page: the reader is on a route the tour cannot
+    // point at yet. Stay on the FIRST step and leave the tour pending — walking
+    // here advanced `stepIdx` through all three steps and pinned it at the LAST
+    // one, so the page the reader navigates to next could only ever render that
+    // last step (or nothing at all, when its anchor is the missing one): the
+    // "leave the tour pending so a page that does still runs it" this effect
+    // exists for never happened. The component is mounted in a LAYOUT, so the
+    // route change re-renders it and this check runs again with the new page's
+    // anchors.
+    if (!STEPS.some((step) => document.querySelector(step.selector))) {
+      setStepIdx(0)
+      return
+    }
     if (document.querySelector(STEPS[stepIdx].selector)) {
       showedStep.current = true
       return
@@ -91,10 +104,10 @@ export function ProductTour() {
       setStepIdx((s) => s + 1)
       return
     }
-    // The LAST step's target is missing too. Persist completion only when the
-    // reader actually saw a step (see `showedStep`); otherwise this page simply
-    // does not carry the tour's anchors — leave the tour pending so a page that
-    // does still runs it, instead of burning it unseen.
+    // The LAST step's target is missing too, on a page that DOES carry other
+    // anchors. Persist completion only when the reader actually saw a step (see
+    // `showedStep`) — the walk skipped past the ones that were absent, so a
+    // reader who saw none of them has not been shown the tour.
     if (!showedStep.current) return
     void finish()
   }, [active, stepIdx, finish])
