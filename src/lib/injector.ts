@@ -1964,9 +1964,14 @@ export async function synthesizeProjectFiles(
   // Derive optional features from registry metadata
   const optionalFeatures = deriveOptionalFeatures(allMolecules, registryPackages)
 
-  // Only generate wrappers for resources that have active routes
+  // Generate wrappers for resources that have active routes — plus any resource
+  // exporting `authorization`, whose wrapper the router imports for the global
+  // gate even when the resource's own routes are all inactive (see
+  // generateRouterContentHeuristic: without the wrapper that import is a missing
+  // module, TS2307).
   const routablePlans = resourcePlans.filter((plan) => {
     if (!plan.moleculePackage) return false
+    if (plan.moleculePackage.exports.includes('authorization')) return true
     return plan.moleculePackage.routes.some((r) => !r.optional || optionalFeatures.has(r.optional))
   })
 
@@ -2805,20 +2810,34 @@ function generateRouterContentHeuristic(
     }
   }
 
+  // A resource exporting `authorization` supplies the app's GLOBAL auth gate
+  // (`router.use(xAuthorization.verifyMiddleware())` below), which runs for every
+  // route in the app — so it must be imported even when none of its OWN routes
+  // are active. Gating that import on `resourcesWithRoutes` (while the `router.use`
+  // loop iterates every authorization resource) is what emitted a `router.use`
+  // for an identifier nothing had imported: a scaffolded project that cannot
+  // compile (TS2304). Dropping the middleware instead would silently un-gate every
+  // OTHER resource's routes, so the import is what has to follow the use.
+  const authorizationImports = new Set(authorizationResources.map((plan) => plan.molecule))
+  const resourceImports = new Set([...resourcesWithRoutes, ...authorizationImports])
+
   lines.push(fw.routerImport)
 
-  // Import from resource wrappers (only those with active routes)
+  // Import from resource wrappers: the handler map where the resource has active
+  // routes, the authorization accessor where its global gate is emitted below.
   for (const plan of resourcePlans) {
     if (!plan.moleculePackage) continue
-    if (!resourcesWithRoutes.has(plan.molecule)) continue
+    if (!resourceImports.has(plan.molecule)) continue
     const name = extractResourceName(plan.molecule)
     const camelName = name.charAt(0).toLowerCase() + name.slice(1)
-    if (authorizationResources.some((p) => p.molecule === plan.molecule)) {
+    if (authorizationImports.has(plan.molecule)) {
       lines.push(
         `import { authorization as ${camelName}Authorization } from './Resource/${name}/index.js'`,
       )
     }
-    lines.push(`import { requestHandlerMap as ${name} } from './Resource/${name}/index.js'`)
+    if (resourcesWithRoutes.has(plan.molecule)) {
+      lines.push(`import { requestHandlerMap as ${name} } from './Resource/${name}/index.js'`)
+    }
   }
 
   lines.push('')
