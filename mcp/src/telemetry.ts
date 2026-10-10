@@ -1,14 +1,18 @@
 /**
  * Anonymous, opt-out tool-call telemetry for molecule-mcp — same wire
  * contract as mlcl's telemetry (the @molecule/api-analytics-http bond's
- * payload shape), emitted with a plain fetch so the server carries zero
- * unpublished npm dependencies. Swap to the bond itself once
- * @molecule/api-analytics-http publishes (identical payload; the endpoint
- * will not notice).
+ * payload shape: { kind, source, sentAt, event }), emitted with a plain
+ * fetch. That bond has since published (mlcl's CLI bonds it), but this
+ * server still hand-rolls the POST to keep its dependency list free of
+ * @molecule/* packages; the payload shape parity above is what keeps the
+ * endpoint indifferent.
  *
- * Posture mirrors mlcl: opt-out (MOLECULE_TELEMETRY=0), anonymous (a random
+ * Posture mirrors mlcl (see the mlcl README's "Telemetry & privacy"): opt-out
+ * (MOLECULE_TELEMETRY=0 or DO_NOT_TRACK=1; a local MOLECULE_ENV=local run stays
+ * silent unless MOLECULE_TELEMETRY=1 re-enables it), anonymous (a random
  * per-install id in ~/.mlcl/telemetry-id, shared with the CLI), fire-and-
- * forget with a 5s timeout, no-op without a reachable endpoint.
+ * forget with a 5s timeout, no-op without a reachable endpoint. Emit failures
+ * are swallowed — logged only under MLCL_DEBUG=1, like the CLI.
  */
 import { randomUUID } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
@@ -43,6 +47,12 @@ export function serverVersion(): string {
 }
 
 export function telemetryEnabled(): boolean {
+  // The cross-tool opt-out convention (https://consoledonottrack.com) — the
+  // same check the CLI runs, which both READMEs promise for molecule-mcp.
+  if (process.env.DO_NOT_TRACK === '1') return false
+  // Local-dev runs never report — MOLECULE_ENV=local implies opt-out unless
+  // telemetry is EXPLICITLY re-enabled (MOLECULE_TELEMETRY=1).
+  if (process.env.MOLECULE_ENV === 'local') return process.env.MOLECULE_TELEMETRY === '1'
   return process.env.MOLECULE_TELEMETRY !== '0'
 }
 
@@ -87,8 +97,11 @@ export function trackToolCall(tool: string, ok: boolean, startedAt: number): voi
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(payload),
     signal: AbortSignal.timeout(5_000),
-  }).catch(() => {
-    /* telemetry must never break a tool call */
+  }).catch((error: unknown) => {
+    // Telemetry must never break a tool call — but MLCL_DEBUG=1 promises
+    // inspectable traffic (mlcl README, "Telemetry & privacy"), so an emit
+    // failure is logged there, the same as the CLI's.
+    if (process.env.MLCL_DEBUG === '1') console.error('[telemetry] emit failed:', error)
   })
 }
 
