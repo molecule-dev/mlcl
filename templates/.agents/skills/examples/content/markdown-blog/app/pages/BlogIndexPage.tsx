@@ -26,7 +26,19 @@ export function BlogIndexPage() {
     // `posts.map` throws. Same guard as the sibling ChatPage / NotificationBell.
     fetch('/api/posts')
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
-      .then((body: unknown) => setPosts(Array.isArray(body) ? (body as Post[]) : []))
+      .then((body: unknown) => {
+        // The 2xx half of the same rule the catch below states: a body that is
+        // not the list (an endpoint with no fixture answers 200 `{}`, a rewritten
+        // answer) was coerced to `[]` and rendered as an EMPTY blog — a silent
+        // "there are no posts", the state the catch exists to prevent. `GET
+        // /api/posts` answers with the array itself (api/handlers/posts.ts), so
+        // anything else is a failed load, not an empty blog.
+        if (!Array.isArray(body)) {
+          setLoadFailed(true)
+          return
+        }
+        setPosts(body as Post[])
+      })
       .catch(() => {
         // A failed load must be visible: a silent catch would render an empty
         // list that reads as "the blog has no posts".

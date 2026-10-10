@@ -516,6 +516,18 @@ describe('example slices — a request’s answer is validated before it is trus
     expect(container.querySelectorAll('a')).toHaveLength(0)
   })
 
+  it('reports a 2xx body that is not the list instead of rendering an empty blog', async () => {
+    await mount(createElement(BlogIndexPage, {}))
+
+    // A 200 `{}` (an endpoint with no fixture, a rewritten answer) is not the
+    // list. Coercing it to `[]` rendered an EMPTY blog — a silent "there are no
+    // posts", which is exactly the state the `.catch` below exists to prevent.
+    await respond('/api/posts', 200, {})
+
+    expect(text()).toContain('Could not load posts')
+    expect(container.querySelectorAll('a')).toHaveLength(0)
+  })
+
   it('renders the posts a successful GET /api/posts returns', async () => {
     await mount(createElement(BlogIndexPage, {}))
     await respond('/api/posts', 200, [

@@ -70,7 +70,26 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
     let cancelled = false
     fetch(`/api/posts/${editingSlug}`)
       .then((r) => (r.ok ? r.json() : Promise.reject(r)))
-      .then((post: LoadedPost) => {
+      .then((body: unknown) => {
+        // A 2xx proves the route ANSWERED, not that the body is a post: an
+        // endpoint with no fixture answers 200 `{}`, and installing that set
+        // `postId` to `undefined` — for which `postId !== null` is TRUE, so Save
+        // took the edit branch and PUT `/api/posts/undefined` with blank fields
+        // instead of landing on the "no post to edit" state the retry guard
+        // below guarantees. `GET /api/posts/:slug` answers with the post itself
+        // (api/handlers/posts.ts), so anything else is the failed load the catch
+        // below already handles.
+        const post = (body ?? {}) as Partial<LoadedPost>
+        if (
+          typeof post.id !== 'string' ||
+          typeof post.slug !== 'string' ||
+          typeof post.body_markdown !== 'string'
+        ) {
+          throw new Error('load-post: the response is not a post')
+        }
+        return post as LoadedPost
+      })
+      .then((post) => {
         if (cancelled) return
         // Recorded only once the values actually landed — an in-flight load that
         // a re-run supersedes (a locale switch) must not be marked done, or the

@@ -185,6 +185,21 @@ describe('post editor — an edit that could not load is not an edit that create
     )
   })
 
+  it('treats a 2xx body that is not a post as the failed load it is', async () => {
+    await mount(createElement(PostEditorPage, { slug: 'my-article' }))
+
+    // A 200 `{}` (an endpoint with no fixture, a rewritten answer) is not this
+    // post. Installing it left `postId` at `undefined` — and `postId !== null`
+    // is TRUE for undefined — so the form rendered with blank fields and Save
+    // would PUT `/api/posts/undefined`. It must land on the retry state the
+    // page already has for a failed load.
+    await respond('/api/posts/my-article', 200, {})
+
+    expect(text()).toContain('Could not load this post')
+    expect(container.querySelector('form')).toBeNull()
+    expect(container.querySelector('[data-mol-id="post-title"]')).toBeNull()
+  })
+
   it('still saves a NEW post from the form (no edit-mode load to fail)', async () => {
     await mount(createElement(PostEditorPage, {}))
     await submitForm()
