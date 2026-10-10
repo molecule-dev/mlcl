@@ -1267,17 +1267,20 @@ async function scanExportsFromPath(packagePath: string): Promise<string[]> {
 }
 
 /**
- * Generate bond setup code — dispatches between AI and heuristic.
+ * Generate bond setup code — deterministic, never AI.
  *
  * Dispatch order:
  * 1. Specialized generators (theme, i18n) — deterministic, always correct.
  *    These bonds must export specific named instances (themeProvider, i18nProvider)
  *    that bonds/index.ts re-exports for MoleculeProvider.
- * 2. App-stack bonds → heuristic directly. App bonds have well-defined patterns
- *    (utility re-export, singleton setter) fully handled by the heuristic.
- *    AI adds no value and may hallucinate non-existent imports.
- * 3. API-stack bonds → AI with heuristic fallback. Varied patterns (oauth, payments,
- *    resources) benefit from README.md context analysis.
+ * 2. Everything else → the heuristic, which scans the bond package's real exports
+ *    to find the correct setter/provider names.
+ *
+ * AI generation is NOT used here at all (the heuristic dispatches to the same
+ * specialized generators first, so both paths agree): it hallucinates setter
+ * names it cannot see, e.g. `setDatabase` instead of `setPool`, because it never
+ * reads the interface package's exports. Only the resource WRAPPER and the mock
+ * generator still consult the AI.
  */
 export async function generateBondSetupCode(
   pkg: InferredPackage,
@@ -2749,9 +2752,6 @@ export const requestHandlerMap = { ${handlerExports.join(', ')} } as const
 }
 
 /**
- * Generate router.ts — dispatches between AI and heuristic.
- */
-/**
  * Generate router.ts content.
  *
  * Uses the heuristic which derives routes from registry metadata —
@@ -2878,9 +2878,6 @@ function deriveOptionalFeatures(
   return features
 }
 
-/**
- * Generate server.ts — dispatches between AI and heuristic.
- */
 /**
  * Generate server.ts content.
  *
