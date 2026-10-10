@@ -191,7 +191,7 @@
     "@molecule/api-staging-state": "1.0.2",
     "@molecule/api-ci-github-actions": "1.0.2",
     "@molecule/api-analytics": "1.1.0",
-    "@molecule/api-analytics-http": "1.0.2"
+    "@molecule/api-analytics-http": "1.0.3"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
