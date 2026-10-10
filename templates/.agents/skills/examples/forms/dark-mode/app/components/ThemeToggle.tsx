@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { applyTheme, getThemeMode } from '../lib/theme.js'
+import { applyTheme, getThemeMode, initThemeListener } from '../lib/theme.js'
 
 const cm = getClassMap()
 
@@ -15,6 +15,15 @@ export function ThemeToggle() {
 
   useEffect(() => {
     setMode(getThemeMode())
+    // The OS-theme listener this slice documents: `initThemeListener()`
+    // re-applies the theme whenever the OS preference changes while the mode is
+    // 'system' ("Toggle to System + change OS theme → app follows along without
+    // reload", README → Verify). Nothing called it — the helper, and the
+    // `matchMedia` change subscription inside it, were dead code — so choosing
+    // System and then flipping the OS theme left the page on the old palette
+    // until a reload. Idempotent: it applies the saved preference once and a
+    // second call is a no-op.
+    initThemeListener()
   }, [])
 
   function pick(next: Mode): void {
