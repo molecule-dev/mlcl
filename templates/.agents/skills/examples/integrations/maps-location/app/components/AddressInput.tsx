@@ -29,14 +29,19 @@ export function AddressInput({ onSelect }: { onSelect: (place: Place) => void })
   const [suggestion, setSuggestion] = useState<Place | null>(null)
   const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle')
   // After the user picks a suggestion we set the field to its formatted address;
-  // this guard stops that programmatic change from re-triggering a lookup.
-  const justPicked = useRef(false)
+  // this guard stops that programmatic change from re-triggering a lookup. It
+  // holds the PICKED value rather than a bare boolean: a boolean is consumed by
+  // the effect, and when the picked address IS the current query the `setQuery`
+  // is a no-op, the effect never re-runs, and the still-set flag swallowed the
+  // reader's NEXT edit — no lookup and no suggestion until they typed again.
+  const justPicked = useRef<string | null>(null)
 
   useEffect(() => {
-    if (justPicked.current) {
-      justPicked.current = false
-      return
-    }
+    const picked = justPicked.current
+    // Consume the guard on every run, so a stale value can never suppress a
+    // later, unrelated edit.
+    justPicked.current = null
+    if (picked !== null && picked === query) return
 
     const address = query.trim()
     if (address.length < 3) {
@@ -80,7 +85,7 @@ export function AddressInput({ onSelect }: { onSelect: (place: Place) => void })
   }, [query])
 
   function choose(place: Place): void {
-    justPicked.current = true
+    justPicked.current = place.formatted
     setQuery(place.formatted)
     setSuggestion(null)
     setStatus('idle')
