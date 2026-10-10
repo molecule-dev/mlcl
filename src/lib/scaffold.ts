@@ -2158,8 +2158,10 @@ export async function scaffoldSecurityWorkflow(
  * Add husky (exact-pinned) + a `prepare: husky` script to a project's ROOT
  * package.json so the scaffolded `.husky/pre-commit` secret-scan hook activates on
  * the user's first `git init` + `npm install`. Idempotent; preserves any existing
- * `prepare` script by chaining; no-op if the file is absent (e.g. a bare-directory
- * unit-test call). husky is pinned exact per the workspace's no-range rule.
+ * `prepare` script by chaining (one that already ends with `husky` is kept as it
+ * is, never reduced to a bare `husky`); no-op if the file is absent (e.g. a
+ * bare-directory unit-test call). husky is pinned exact per the workspace's
+ * no-range rule.
  */
 async function addHuskyToPackageJson(packageJsonPath: string): Promise<void> {
   if (!existsSync(packageJsonPath)) return
@@ -2168,9 +2170,16 @@ async function addHuskyToPackageJson(packageJsonPath: string): Promise<void> {
     devDependencies?: Record<string, string>
     [key: string]: unknown
   }
-  const existingPrepare = pkg.scripts?.prepare
-  const prepare =
-    existingPrepare && !existingPrepare.split('&&').some((s) => s.trim() === 'husky')
+  const existingPrepare = pkg.scripts?.prepare?.trim()
+  // An existing script that already runs husky LAST is kept verbatim (chaining a
+  // second `husky` onto it would run the hook installer twice, and rewriting it
+  // as a bare `husky` silently DROPPED every step it carried —
+  // `"npm run build && husky"` lost the build). Anything else is chained onto.
+  const huskyIsLast =
+    existingPrepare !== undefined && existingPrepare.split('&&').at(-1)?.trim() === 'husky'
+  const prepare = huskyIsLast
+    ? (existingPrepare as string)
+    : existingPrepare
       ? `${existingPrepare} && husky`
       : 'husky'
   pkg.scripts = { ...(pkg.scripts ?? {}), prepare }
@@ -2222,6 +2231,17 @@ export async function copyTemplateInstance(
       const poolDir = join(templateDir, '..', '..', 'shared', 'fonts')
       for (const rel of fontFiles) {
         const dst = join(destDir, rel)
+        // `rel` is a template-shipped project-relative path, i.e. DATA: it must
+        // stay inside the project it is being materialized into. A `../…` entry
+        // (a mistyped path, a template edited by hand, a hostile manifest) would
+        // otherwise write a file anywhere on the filesystem — the same
+        // containment rule the sibling `copyFontFiles` applies to the font
+        // metadata it reads from packages.
+        const inside = relative(destDir, dst)
+        if (inside === '..' || inside.startsWith(`..${sep}`)) {
+          console.warn(`Skipping font outside the project: ${rel}`)
+          continue
+        }
         await mkdir(dirname(dst), { recursive: true })
         await copyFile(join(poolDir, basename(rel)), dst)
       }
@@ -2734,23 +2754,30 @@ async function syncIdentityFromBranding(destDir: string, projectName: string): P
     try {
       let html = await readFile(indexHtmlPath, 'utf-8')
       const before = html
+      // The brand values are DATA (they come from the app's own branding.ts), so
+      // every replacement goes through a FUNCTION: a `$` sequence in a value
+      // (`$$`, `$&`, `` $` ``, `$'`, `$1`) is special inside a replacement
+      // STRING — `APP_NAME = 'P$$G'` would render the title as "P$G" and
+      // `'A$&B'` would splice the whole matched `<title>…</title>` back in,
+      // silently corrupting the document (the same reason the capture groups are
+      // passed explicitly instead of via `$1`/`$2`).
       if (appName) {
-        html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${appName}</title>`)
+        html = html.replace(/<title>[\s\S]*?<\/title>/, () => `<title>${appName}</title>`)
         html = html.replace(
           /(<meta[^>]*(?:property="og:title"|name="twitter:title"|name="apple-mobile-web-app-title")[^>]*content=")[^"]*(")/g,
-          `$1${appName}$2`,
+          (_match, open: string, close: string) => `${open}${appName}${close}`,
         )
       }
       if (appDescription) {
         html = html.replace(
           /(<meta[^>]*(?:name="description"|property="og:description"|name="twitter:description")[^>]*content=")[^"]*(")/g,
-          `$1${appDescription}$2`,
+          (_match, open: string, close: string) => `${open}${appDescription}${close}`,
         )
       }
       if (brandColor) {
         html = html.replace(
           /(<meta[^>]*name="theme-color"[^>]*content=")[^"]*(")/g,
-          `$1${brandColor}$2`,
+          (_match, open: string, close: string) => `${open}${brandColor}${close}`,
         )
       }
       // Self-document the cross-file link so a later "rename the app" updates both.
