@@ -60,29 +60,43 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
       limit: 1000,
     })) as { id: string }[]
 
+    // WHICH expired users signed back in — the whole batch, in ONE query.
+    //
+    // THE CANCEL PATH the deletion page promises ("sign back in before then to
+    // cancel"): the DELETE flow signed the user out everywhere (every `devices`
+    // row deleted — see api/handlers/me.ts), and a successful log-in creates a
+    // new device row. So a `devices` row on a user whose grace period has
+    // elapsed IS the sign-back-in the page told them would cancel: clear the
+    // soft-delete marker and leave the account (and its data) alone. Without
+    // this the promise was only words — the job hard-deleted a user who had done
+    // exactly what the page said.
+    //
+    // ONE query for the batch, not one per user: the probe ran INSIDE the loop,
+    // so a full `limit` page of expired accounts paid a thousand sequential
+    // round-trips before a single purge — work that scales with the batch, per
+    // night, for an answer a single `in` lookup gives (the same
+    // resolve-the-set-in-one-read shape the other slices use; see the
+    // leaderboard handler's name join). No `limit` on it: a page that cut the
+    // answer short would report a user who IS signed back in as having no
+    // device, and this job HARD-DELETES on that answer.
+    if (expired.length === 0) return
+    let signedBackIn: Set<string>
+    try {
+      const devices = (await findMany<{ userId: string }>('devices', {
+        where: [{ field: 'userId', operator: 'in', value: expired.map((user) => user.id) }],
+      })) as { userId: string }[]
+      signedBackIn = new Set(devices.map((device) => device.userId))
+    } catch (err) {
+      // Cannot tell whether anyone signed back in? DO NOT purge on a guess: the
+      // whole batch retries next run (same policy as the per-purge catches
+      // below). A failed round-trip is a connection/permission failure, not a
+      // per-user one, so there is no narrower answer to defer.
+      console.error('finalize-deletions: sign-back-in check failed', { err })
+      return
+    }
+
     for (const user of expired) {
-      // THE CANCEL PATH the deletion page promises ("sign back in before then to
-      // cancel"): the DELETE flow signed the user out everywhere (every `devices`
-      // row deleted — see api/handlers/me.ts), and a successful log-in
-      // creates a new device row. So a `devices` row on a user whose grace
-      // period has elapsed IS the sign-back-in the page told them would cancel:
-      // clear the soft-delete marker and leave the account (and its data) alone.
-      // Without this the promise was only words — the job hard-deleted a user
-      // who had done exactly what the page said.
-      let signedBackIn: boolean
-      try {
-        const devices = await findMany<{ id: string }>('devices', {
-          where: [{ field: 'userId', operator: '=', value: user.id }],
-          limit: 1,
-        })
-        signedBackIn = devices.length > 0
-      } catch (err) {
-        // Cannot tell whether they signed back in? DO NOT purge on a guess: the
-        // user retries next run (same policy as the per-purge catches below).
-        console.error('finalize-deletions: sign-back-in check failed', { userId: user.id, err })
-        continue
-      }
-      if (signedBackIn) {
+      if (signedBackIn.has(user.id)) {
         try {
           await updateById('users', user.id, { deleted_at: null })
           console.log(`finalize-deletions: user ${user.id} signed back in — deletion cancelled`)

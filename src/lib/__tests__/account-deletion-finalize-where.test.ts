@@ -64,7 +64,8 @@ const DAY_MS = 24 * 60 * 60 * 1000
  * Evaluate one WHERE condition against a row the way SQL does — a comparison
  * against NULL is UNKNOWN, and UNKNOWN never satisfies a filter. Mirrors the
  * `buildWhere` switch in `@molecule/api-database-postgresql` (which renders
- * `!=`/`<` as ordinary comparisons and `is_not_null` as `IS NOT NULL`).
+ * `!=`/`<` as ordinary comparisons, `is_not_null` as `IS NOT NULL`, and `in` as
+ * `IN (…)` — the operator the sign-back-in probe resolves its batch with).
  */
 function matches(row: Row, cond: Cond): boolean {
   const value = (row as unknown as Record<string, unknown>)[cond.field]
@@ -73,6 +74,9 @@ function matches(row: Row, cond: Cond): boolean {
   // Every comparison operator: NULL on either side is UNKNOWN → filtered out.
   if (value === null || value === undefined) return false
   if (cond.value === null || cond.value === undefined) return false
+  // `x IN (…)` with NULL `x` is UNKNOWN too, which the guard above already
+  // filters — so this sits after it, like the comparisons below.
+  if (cond.operator === 'in') return Array.isArray(cond.value) && cond.value.includes(value)
   const left = cond.field === 'deleted_at' ? String(value) : value
   switch (cond.operator) {
     case '=':
@@ -103,8 +107,9 @@ beforeEach(() => {
   vi.clearAllMocks()
   // The mocked store: `users` AND `devices` answer the job's WHERE clause with
   // SQL semantics — a devices stub that returned every row regardless of the
-  // probe's `userId =` condition could not catch the probe matching ANOTHER
-  // user's device (in production that cancels every expired user's deletion).
+  // probe's `userId in (…)` condition could not catch the probe matching
+  // ANOTHER user's device (in production that cancels every expired user's
+  // deletion).
   database.findMany.mockImplementation(
     async (table: string, options: { where?: Cond[] }): Promise<unknown[]> => {
       const where = options.where ?? []
@@ -276,5 +281,47 @@ describe('finalize-deletions — the expired-user filter must actually match', (
     database.deleteById.mockResolvedValue({ data: null, affected: 1 })
     await runJob()
     expect(database.deleteById).toHaveBeenCalledWith('users', 'u-partial')
+  })
+
+  // The sign-back-in probe used to run INSIDE the per-user loop, so a full
+  // `limit` page of expired accounts paid one round-trip per account before a
+  // single purge — work that scales with the batch, every night, for an answer
+  // one `in` lookup gives.
+  it('resolves the sign-back-in set in ONE devices query for the whole batch', async () => {
+    const expired = new Date(Date.now() - 40 * DAY_MS).toISOString()
+    users = [
+      { id: 'u-a', deleted_at: expired },
+      { id: 'u-b', deleted_at: expired },
+      { id: 'u-returned', deleted_at: expired },
+    ]
+    devices = [{ id: 'd1', userId: 'u-returned' }]
+
+    await runJob()
+
+    const deviceQueries = database.findMany.mock.calls.filter((call) => call[0] === 'devices')
+    expect(deviceQueries).toHaveLength(1)
+    expect(deviceQueries[0]?.[1]).toEqual({
+      where: [{ field: 'userId', operator: 'in', value: ['u-a', 'u-b', 'u-returned'] }],
+    })
+    // …and the per-user outcome is unchanged: the account with a device row is
+    // cancelled, the other two hard-deleted.
+    expect(database.updateById).toHaveBeenCalledWith('users', 'u-returned', { deleted_at: null })
+    expect(database.deleteById).toHaveBeenCalledWith('users', 'u-a')
+    expect(database.deleteById).toHaveBeenCalledWith('users', 'u-b')
+  })
+
+  it('purges nobody when the batched sign-back-in probe itself fails', async () => {
+    users = [{ id: 'u-x', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
+    database.findMany.mockImplementation(async (table: string): Promise<unknown[]> => {
+      if (table === 'devices') throw new Error('connection reset')
+      return users
+    })
+
+    await runJob()
+
+    // The answer is unknown for the whole batch, so nothing is deleted — every
+    // user is re-selected next run (never a hard delete on a guess).
+    expect(database.deleteById).not.toHaveBeenCalled()
+    expect(database.deleteMany).not.toHaveBeenCalled()
   })
 })
