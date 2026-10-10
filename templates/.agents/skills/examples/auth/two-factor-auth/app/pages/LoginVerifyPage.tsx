@@ -5,10 +5,31 @@ import { getClassMap } from '@molecule/app-ui'
 
 const cm = getClassMap()
 
-// Shown after the password step returns `{ twoFactorRequired: true }` (2FA is enabled
-// on the account). Completes login by verifying the 6-digit TOTP code, then lands the
-// user in. The password alone did NOT create a session — the second factor does.
-export function LoginVerifyPage() {
+/**
+ * What the login form must hand this page. The framework mints NO session (and
+ * no pending-login handle) when it answers a 2FA challenge — the retry is the
+ * SAME `POST /users/log-in` with the credentials AND the code — so the second
+ * half of the flow has to carry them:
+ *
+ *   const res = await fetch('/api/users/log-in', { method: 'POST', …,
+ *     body: JSON.stringify({ email, password }) })
+ *   if (res.status === 206) navigate('/login/verify', { state: { email, password } })
+ */
+export interface LoginVerifyPageProps {
+  /** The email submitted on the password step. */
+  email: string
+  /** The password submitted on the password step. */
+  password: string
+}
+
+// Completes a login whose password step returned `206 { twoFactorRequired: true }`
+// (2FA is enabled on the account): the code is sent back to the SAME endpoint that
+// issued the challenge, together with the credentials, and only a 200 issues the
+// session. There is no `/login/verify` endpoint to POST to — the framework's
+// log-in route (@molecule/api-resource-user, mounted at `/api/users/log-in`) is
+// the only one that accepts a `twoFactorToken`, and it needs the credentials
+// alongside it because the challenge created no session to attach a bare code to.
+export function LoginVerifyPage({ email, password }: LoginVerifyPageProps) {
   const { t } = useTranslation()
   const [code, setCode] = useState('')
   const [submitting, setSubmitting] = useState(false)
@@ -22,20 +43,34 @@ export function LoginVerifyPage() {
     // finally clears the busy state on EVERY path — a rejected fetch (offline,
     // server restart) must not leave the button disabled forever.
     try {
-      const res = await fetch('/api/login/verify', {
+      const res = await fetch('/api/users/log-in', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code }),
+        credentials: 'include',
+        body: JSON.stringify({ email, password, twoFactorToken: code.trim() }),
       })
-      if (!res.ok) {
-        // 401 = wrong code. Surface a retry counter so the user knows attempts are limited
-        // (the verify endpoint is rate-limited to ≤5/min to prevent brute force).
-        setAttempts((n) => n + 1)
-        setError(t('totp.wrongCode', undefined, { defaultValue: 'Wrong code — try again' }))
+      if (res.ok) {
+        // Second factor accepted — the session is now fully authenticated.
+        window.location.href = '/'
         return
       }
-      // Second factor accepted — the session is now fully authenticated.
-      window.location.href = '/'
+      const body = (await res.json().catch(() => ({}))) as { error?: string }
+      if (res.status === 401 || res.status === 403) {
+        // Wrong/expired/replayed code. Surface a retry counter so the user knows
+        // attempts are limited (the log-in route is rate-limited to ≤5/min to
+        // prevent brute force).
+        setAttempts((n) => n + 1)
+        setError(
+          body.error ?? t('totp.wrongCode', undefined, { defaultValue: 'Wrong code — try again' }),
+        )
+        return
+      }
+      // Anything else (429 throttled, 5xx) is NOT a wrong code — say what it is
+      // rather than telling the user to retype a code that was probably fine.
+      setError(
+        body.error ??
+          t('totp.networkError', undefined, { defaultValue: 'Network error — try again' }),
+      )
     } catch (_error) {
       setError(t('totp.networkError', undefined, { defaultValue: 'Network error — try again' }))
     } finally {
@@ -66,7 +101,7 @@ export function LoginVerifyPage() {
         className={cm.input({})}
       />
       {error ? (
-        <p className={cm.cn('text-error')}>
+        <p className={cm.cn(cm.textError)}>
           {error}
           {attempts > 0
             ? ` ${t('totp.attempts', { count: attempts }, { defaultValue: '({{count}} failed attempts)' })}`
