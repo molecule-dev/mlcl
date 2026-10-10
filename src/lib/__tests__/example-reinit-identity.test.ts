@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 /**
- * Two imperative-embedding components re-created their instance whenever the
+ * Three imperative-embedding components re-created their instance whenever the
  * parent re-rendered.
  *
  * `MapView` (`maps-location`) and `VideoPlayerView` (`video-player`) both wrap a
@@ -14,7 +14,18 @@
  * away, the tiles were re-requested, and playback restarted. The effect is keyed
  * on the props' CONTENT now, so only a real change re-initializes.
  *
- * Both providers are stubbed; the components are the shipped ones.
+ * `ChartPanel` (`charts-dashboard`) is the third member of the class and keyed
+ * its effect on the `config` OBJECT (`[config]`), which a caller handing over a
+ * `ChartConfig` it built from state — or memoized on data, the way the slice's
+ * own `RevenueChart` does — changes on every render that touches the parent. The
+ * cleanup destroyed the chart and the body created a new one: the canvas was
+ * cleared, every dataset was drawn again, Chart.js replayed its intro animation
+ * and any hover/tooltip state was lost, for a chart whose content had not
+ * changed. It is keyed on the config's content now too — and, because a config
+ * can carry CALLBACKS (`onClick`/`onHover`, `tooltip.callbacks.*`, an axis tick
+ * formatter), the signature includes them, so a swapped handler still rebuilds.
+ *
+ * All three providers are stubbed; the components are the shipped ones.
  *
  * @module
  */
@@ -25,6 +36,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const maps = vi.hoisted(() => ({ createMap: vi.fn() }))
 const video = vi.hoisted(() => ({ createPlayer: vi.fn() }))
+const charts = vi.hoisted(() => ({ createChart: vi.fn() }))
 
 vi.mock('@molecule/app-ui', () => ({
   getClassMap: () => new Proxy({}, { get: () => () => undefined }),
@@ -38,6 +50,15 @@ vi.mock('@molecule/app-video', () => ({
   createPlayer: video.createPlayer,
 }))
 
+vi.mock('@molecule/app-charts', () => ({
+  createChart: charts.createChart,
+}))
+
+vi.mock('@molecule/app-chart-wrapper-react', () => ({
+  ChartCard: (props: { title?: ReactNode; children?: ReactNode }) =>
+    createElement('div', null, props.title ?? null, props.children),
+}))
+
 const { MapView } =
   (await import('../../../templates/.agents/skills/examples/integrations/maps-location/app/components/MapView.js')) as {
     MapView: (props: { pins: Array<{ lat: number; lng: number; label?: string }> }) => ReactNode
@@ -47,6 +68,18 @@ const { VideoPlayerView } =
     VideoPlayerView: (props: {
       sources: Array<{ src: string; type?: string }>
       poster?: string
+    }) => ReactNode
+  }
+const { ChartPanel } =
+  (await import('../../../templates/.agents/skills/examples/data-display/charts-dashboard/app/components/ChartPanel.js')) as {
+    ChartPanel: (props: {
+      title?: ReactNode
+      config: {
+        type: 'line' | 'bar'
+        labels?: Array<string | number>
+        datasets: Array<{ label: string; data: number[] }>
+        onClick?: () => void
+      }
     }) => ReactNode
   }
 
@@ -77,6 +110,7 @@ beforeEach(() => {
   vi.clearAllMocks()
   maps.createMap.mockImplementation(() => ({ addMarker: vi.fn(), destroy: vi.fn() }))
   video.createPlayer.mockImplementation(() => ({ destroy: vi.fn() }))
+  charts.createChart.mockImplementation(() => ({ destroy: vi.fn() }))
 })
 
 afterEach(async () => {
@@ -141,5 +175,77 @@ describe('video player view — a re-render with equal sources does not restart 
 
     expect(video.createPlayer).toHaveBeenCalledTimes(2)
     expect(first.destroy).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('chart panel — a re-render with an equal config does not rebuild the chart', () => {
+  /** A config as a caller building one from state hands it over: a FRESH object per render. */
+  const lineConfig = (
+    data: number[],
+    onClick?: () => void,
+  ): {
+    type: 'line'
+    labels: string[]
+    datasets: Array<{ label: string; data: number[] }>
+    onClick?: () => void
+  } => ({
+    type: 'line' as const,
+    labels: ['Jan', 'Feb'],
+    datasets: [{ label: 'Revenue', data }],
+    ...(onClick ? { onClick } : {}),
+  })
+
+  it('keeps one chart across parent renders that pass a fresh config object', async () => {
+    await render(createElement(ChartPanel, { title: 'Revenue', config: lineConfig([1, 2]) }))
+    expect(charts.createChart).toHaveBeenCalledTimes(1)
+    const first = charts.createChart.mock.results[0]?.value as { destroy: () => void }
+
+    // The parent re-renders (any state change at all) with an equal, freshly
+    // built config object — the identity churn the `[config]` dependency turned
+    // into a destroy + create of the whole chart.
+    await render(createElement(ChartPanel, { title: 'Revenue', config: lineConfig([1, 2]) }))
+
+    expect(charts.createChart).toHaveBeenCalledTimes(1)
+    expect(first.destroy).not.toHaveBeenCalled()
+  })
+
+  it('rebuilds when the config content really changes', async () => {
+    await render(createElement(ChartPanel, { title: 'Revenue', config: lineConfig([1, 2]) }))
+    const first = charts.createChart.mock.results[0]?.value as { destroy: () => void }
+
+    await render(createElement(ChartPanel, { title: 'Revenue', config: lineConfig([1, 9]) }))
+
+    expect(charts.createChart).toHaveBeenCalledTimes(2)
+    expect(first.destroy).toHaveBeenCalledTimes(1)
+    // The rebuilt chart is handed the NEW config.
+    const rebuilt = charts.createChart.mock.calls[1][1] as {
+      datasets: Array<{ data: number[] }>
+    }
+    expect(rebuilt.datasets[0]?.data).toEqual([1, 9])
+  })
+
+  it('ignores the SAME callback passed again, and rebuilds when the callback is swapped', async () => {
+    const handler = (): void => {}
+    await render(
+      createElement(ChartPanel, { title: 'Revenue', config: lineConfig([1, 2], handler) }),
+    )
+    expect(charts.createChart).toHaveBeenCalledTimes(1)
+
+    // Equal content AND the same handler, in a fresh object: nothing changed.
+    await render(
+      createElement(ChartPanel, { title: 'Revenue', config: lineConfig([1, 2], handler) }),
+    )
+    expect(charts.createChart).toHaveBeenCalledTimes(1)
+
+    // A swapped handler IS a change — `JSON.stringify` drops functions, so a
+    // signature built from the JSON alone would keep the handler the chart was
+    // created with and the new one would never fire.
+    const swapped = (): void => {}
+    await render(
+      createElement(ChartPanel, { title: 'Revenue', config: lineConfig([1, 2], swapped) }),
+    )
+    expect(charts.createChart).toHaveBeenCalledTimes(2)
+    const rebuilt = charts.createChart.mock.calls[1][1] as { onClick?: () => void }
+    expect(rebuilt.onClick).toBe(swapped)
   })
 })
