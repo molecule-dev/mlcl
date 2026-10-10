@@ -236,9 +236,18 @@ export async function runMigrations(): Promise<void> {
   // retries leaked one idle connection per attempt, and `npm run db:setup`
   // could hang at exit instead of reporting the failure.
   try {
-    const sqlFiles = readdirSync(migrationsDir)
-      .filter((f) => f.endsWith('.sql'))
-      .sort()
+    // A missing `migrations/` counts as empty, exactly like `__setup__/` below:
+    // this runner ships for any project that has a database package, and a
+    // project scaffolded without a resource package never creates the directory
+    // (only an injected resource migration does). `readdirSync` on it throws
+    // ENOENT — and from server.ts's boot-time `await runMigrations()` that is
+    // an API that cannot start, while `npm run db:setup` reports a raw stack
+    // trace instead of the empty-state line below.
+    const sqlFiles = existsSync(migrationsDir)
+      ? readdirSync(migrationsDir)
+          .filter((f) => f.endsWith('.sql'))
+          .sort()
+      : []
 
     if (sqlFiles.length === 0) {
       console.log('No migration files found.')

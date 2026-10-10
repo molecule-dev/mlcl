@@ -762,6 +762,8 @@ describe('migration connection lifecycle', () => {
       end: () => Promise<void>
     },
     clients: Array<{ ends: number }>,
+    /** Whether `migrationsDir` exists on the stub filesystem. */
+    migrationsDirExists = true,
   ): Promise<{ logs: string[]; warns: string[] }> {
     const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
     const helperSource = runner.match(/function isBenignMigrationError[\s\S]*?\n}/)?.[0]
@@ -806,8 +808,17 @@ describe('migration connection lifecycle', () => {
       { Client: StubClient },
       'postgres://db.example.com:5432/myapp',
       false,
-      (path: string) => path === '__setup__',
-      (path: string) => (path === 'migrations' ? ['0001_tables.sql'] : ['payments.sql']),
+      (path: string) => path === '__setup__' || (migrationsDirExists && path === 'migrations'),
+      (path: string) => {
+        if (path !== 'migrations') return ['payments.sql'] // __setup__
+        // node's own behaviour for a directory that is not there.
+        if (!migrationsDirExists)
+          throw Object.assign(
+            new Error("ENOENT: no such file or directory, scandir 'migrations'"),
+            { code: 'ENOENT' },
+          )
+        return ['0001_tables.sql']
+      },
       (path: string, _encoding: string) =>
         path.startsWith('__setup__') ? 'SETUP DDL' : 'MIGRATION DDL',
       (dir: string, file: string) => `${dir}/${file}`,
@@ -886,6 +897,36 @@ describe('migration connection lifecycle', () => {
       clients,
     )
     expect(warns.some((w) => w.includes('already applied'))).toBe(true)
+    expect(logs).toContain('✓ __setup__/payments.sql')
+    expect(clients[0]?.ends).toBe(1)
+  })
+
+  it('treats a MISSING migrations directory as empty instead of failing the run', async () => {
+    // mlcl emits this runner for any project that has a database package, and
+    // nothing creates `migrations/` for a project scaffolded without a resource
+    // (`mlcl create --type api --packages @molecule/api-database-postgresql`, or
+    // `mlcl add <database> --inject` into a project that never had one). The
+    // unguarded `readdirSync(migrationsDir)` then threw ENOENT — from
+    // server.ts's boot-time `await runMigrations()` an API that cannot start,
+    // and from `npm run db:setup` a raw stack trace instead of the empty-state
+    // line the branch below it prints.
+    const clients: Array<{ ends: number }> = []
+    const queries: string[] = []
+    const { logs } = await runSteps(
+      {
+        connect: async () => {},
+        query: (sql: string) => {
+          queries.push(sql)
+          return Promise.resolve(undefined)
+        },
+        end: async () => {},
+      },
+      clients,
+      false,
+    )
+    expect(logs).toContain('No migration files found.')
+    // The empty migration list must not skip the __setup__ replay after it.
+    expect(queries).toContain('SETUP DDL')
     expect(logs).toContain('✓ __setup__/payments.sql')
     expect(clients[0]?.ends).toBe(1)
   })
