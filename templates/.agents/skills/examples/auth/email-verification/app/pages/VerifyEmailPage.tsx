@@ -5,7 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 const cm = getClassMap()
 
-type Status = 'verifying' | 'success' | 'expired' | 'invalid' | 'resent'
+type Status = 'verifying' | 'success' | 'expired' | 'invalid' | 'resent' | 'alreadyVerified'
 /** Why the last resend failed, if it did. */
 type ResendFailure = 'failed' | 'signedOut' | 'rateLimited'
 
@@ -57,7 +57,16 @@ export function VerifyEmailPage() {
         )
         return
       }
-      setStatus('resent')
+      // A 2xx proves the route accepted the request, not that it MAILED
+      // anything: an already-verified account answers `{ ok: true,
+      // alreadyVerified: true }` without sending (the handler mints no token
+      // and calls no sendMail). Reading only the status told that user "We've
+      // sent a new link to your email" about a message that does not exist —
+      // reachable whenever the address was verified through a different link
+      // than the one that brought the reader here, since verifying does not
+      // invalidate a user's other outstanding tokens.
+      const body = (await res.json().catch(() => ({}))) as { alreadyVerified?: boolean }
+      setStatus(body.alreadyVerified === true ? 'alreadyVerified' : 'resent')
     } catch (_error) {
       setResendFailure('failed')
     } finally {
@@ -122,6 +131,13 @@ export function VerifyEmailPage() {
         <p className={cm.textSuccess}>
           {t('verifyEmail.resentBody', undefined, {
             defaultValue: "We've sent a new link to your email.",
+          })}
+        </p>
+      ) : null}
+      {status === 'alreadyVerified' ? (
+        <p className={cm.textSuccess}>
+          {t('verifyEmail.alreadyVerifiedBody', undefined, {
+            defaultValue: 'Your email is already verified.',
           })}
         </p>
       ) : null}

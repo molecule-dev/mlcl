@@ -313,6 +313,27 @@ describe('verify-email — a resend in flight is one resend', () => {
 
     expect(text()).toContain('sent a new link')
   })
+
+  it('a 2xx that mailed nothing (already verified) does not claim a link was sent', async () => {
+    // `/api/verify/request` answers `{ ok: true, alreadyVerified: true }`
+    // WITHOUT minting a token or calling sendMail when the account is already
+    // verified — reachable here because verifying through one link does not
+    // invalidate a user's other outstanding tokens, so a reader can arrive on
+    // this page (expired link in hand) with the address already proven. Reading
+    // only `res.ok` told them "We've sent a new link to your email" about a
+    // message nobody sent.
+    await mountExpiredPage()
+
+    const button = container.querySelector('button') as HTMLButtonElement
+    await act(async () => {
+      button.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+    await respond('/api/verify/request', 200, { ok: true, alreadyVerified: true })
+
+    expect(text()).toContain('already verified')
+    expect(text()).not.toContain('sent a new link')
+  })
 })
 
 // ---------------------------------------------------------------------------
