@@ -498,8 +498,15 @@ describe('synthesizeProjectFiles', () => {
 
     const server = files.find((f) => f.targetPath.includes('server.ts'))
     expect(server).toBeDefined()
-    // Should use express.json() as fallback when no body-parser is installed
-    expect(server!.content).toContain('express.json()')
+    // Should use express.json() as fallback when no body-parser is installed —
+    // with the parser's verify callback saving the RAW request bytes to
+    // req.rawBody: webhook signature verification (Stripe, GitHub, …) HMACs the
+    // exact bytes, which the parsed req.body no longer carries. A bare
+    // express.json() leaves every req.rawBody reader (the stripe-checkout
+    // example's webhook handler among them) rejecting legitimate deliveries
+    // with "Missing raw body".
+    expect(server!.content).toContain('express.json({ verify:')
+    expect(server!.content).toContain('.rawBody = buf.toString(')
     // Should not have middleware imports
     expect(server!.content).not.toContain('corsMiddleware')
   })

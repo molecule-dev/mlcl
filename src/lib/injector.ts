@@ -2971,6 +2971,11 @@ function generateServerContentHeuristic(
     lines.push(`  app.use(${mw.varName})`)
   }
   if (!middlewareNames.some((mw) => mw.shortName === 'body-parser')) {
+    // The parser's verify callback (part of the registry's jsonBodyParser
+    // expression — the CLI never hardcodes framework code) saves the RAW
+    // request bytes to req.rawBody before the stream is consumed: webhook
+    // signature verification (Stripe, GitHub, …) HMACs the exact bytes, which
+    // the parsed req.body no longer carries.
     lines.push(`  app.use(${fw.jsonBodyParser})`)
   }
   lines.push(``)

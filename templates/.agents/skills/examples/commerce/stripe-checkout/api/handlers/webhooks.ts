@@ -7,11 +7,15 @@
  * an attacker can fake "payment succeeded" by POSTing JSON.
  *
  * Stripe signs the RAW bytes of the body, so verification must see the unparsed
- * body. In a molecule app the global body-parser already captures it: its
- * express.json({ verify }) saves the raw body to `req.rawBody` (a string) on every
- * request. Read THAT — do NOT add a route-specific `express.raw(...)` middleware
- * (it conflicts with the already-global JSON parser, and req.body here is the
- * PARSED object — passing it to verifyWebhookSignature fails the HMAC every time).
+ * body. In a molecule app the generated server's global body-parser already
+ * captures it: its express.json({ verify }) saves the raw body to `req.rawBody`
+ * (a string) on every request. Read THAT — do NOT add a route-specific
+ * `express.raw(...)` middleware: by the time the request reaches this router the
+ * global parser has already consumed the stream, so a route-level parser cannot
+ * recover the raw bytes, and req.body here is the PARSED object — passing it to
+ * verifyWebhookSignature fails the HMAC every time. On a server generated before
+ * that verify callback existed, re-run `mlcl inject` or add the callback to the
+ * express.json call in src/server.ts — until then every delivery 400s below.
  */
 import type { Request, Response } from 'express'
 import { Router } from 'express'

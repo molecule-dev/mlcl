@@ -58375,7 +58375,7 @@
       "middlewareType": "RequestHandler",
       "serverImport": "import express from 'express'",
       "serverCreate": "express()",
-      "jsonBodyParser": "express.json()",
+      "jsonBodyParser": "express.json({ verify: (req, _res, buf, encoding) => { (req as { rawBody?: string }).rawBody = buf.toString(encoding as BufferEncoding) } })",
       "errorHandlerSignature": "(error: unknown, _req: express.Request, res: express.Response, _next: express.NextFunction)",
       "errorHandlerCast": "as express.ErrorRequestHandler",
       "serverType": "express.Express",
