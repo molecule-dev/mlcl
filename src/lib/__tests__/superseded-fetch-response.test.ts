@@ -390,6 +390,24 @@ describe('a superseded fetch response must not win', () => {
     expect(text()).toContain('3.0 (5 reviews)')
   })
 
+  it('keeps the last synced summary when the summary endpoint fails', async () => {
+    await mount(createElement(RatingWidget, { subjectId: 's', canRate: true }))
+    await respond('/api/ratings/avg/s', 200, { average: 4.2, count: 7 })
+    expect(text()).toContain('4.2 (7 reviews)')
+
+    // A rating resyncs the summary through the same loader. A 500 whose body is
+    // `{ error }` parses happily, so without an `res.ok` gate it reached state
+    // as "no average, no count" and the widget re-rendered "No ratings yet — be
+    // the first" over a subject the reader had just voted on. The loader's own
+    // contract is "a failed load keeps the last synced summary".
+    await clickRate(5)
+    await respondTo('/api/ratings', 200, {})
+    await respond('/api/ratings/avg/s', 500, { error: 'boom' })
+
+    expect(text()).toContain('4.2 (7 reviews)')
+    expect(text()).not.toContain('No ratings yet')
+  })
+
   it('does not roll a rating back when a SUPERSEDED rating request fails', async () => {
     await mount(createElement(RatingWidget, { subjectId: 's', canRate: true }))
     await respond('/api/ratings/avg/s', 200, { average: 0, count: 0 })

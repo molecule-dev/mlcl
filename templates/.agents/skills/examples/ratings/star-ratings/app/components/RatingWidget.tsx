@@ -34,13 +34,23 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
   const loadSummary = useCallback(async (): Promise<void> => {
     const ticket = ++summarySeq.current
     try {
-      const r = (await (await fetch(`/api/ratings/avg/${subjectId}`)).json()) as {
+      const res = await fetch(`/api/ratings/avg/${subjectId}`)
+      // A non-2xx is a FAILED load, not an empty subject: a 500 whose body is
+      // `{ error }` still parses, so without this gate its missing fields
+      // reached state as "no average, no count" and the widget replaced the
+      // summary with "No ratings yet — be the first" over a subject that has
+      // ratings (and that the reader may have just voted on). Same rule the
+      // sibling slices apply to their own loads, and the one the catch below
+      // documents.
+      if (!res.ok) return
+      const r = (await res.json()) as {
         average?: number
         count?: number
       }
       if (ticket !== summarySeq.current) return // superseded by a newer request
-      // Coerce the body to the state's shape: an error body's undefined
-      // average would crash the summary's toFixed on the next render.
+      // Coerce the body to the state's shape: a 2xx that is not the summary
+      // (a proxy's rewrite) must not crash the summary's toFixed on the next
+      // render.
       setAverage(typeof r.average === 'number' ? r.average : null)
       setCount(typeof r.count === 'number' ? r.count : 0)
     } catch (_error) {
