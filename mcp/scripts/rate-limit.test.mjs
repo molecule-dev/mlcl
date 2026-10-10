@@ -12,24 +12,12 @@
  * overwrites the header, so the trust flip is safe there (untestable here —
  * the assertion below is the OFF-Fly half).
  */
-import { once } from 'node:events'
-import { createServer } from 'node:net'
 import { spawn } from 'node:child_process'
 import { join } from 'node:path'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 
 const SERVER_JS = join(import.meta.dirname, '..', 'dist', 'http.js')
-
-/** Grab a free TCP port the way the server will too: bind :0, read, release. */
-async function freePort() {
-  const srv = createServer()
-  srv.listen(0, '127.0.0.1')
-  await once(srv, 'listening')
-  const port = srv.address().port
-  await new Promise((resolve) => srv.close(resolve))
-  return port
-}
 
 async function waitHealthy(url, child) {
   const deadline = Date.now() + 10_000
@@ -46,22 +34,48 @@ async function waitHealthy(url, child) {
   throw new Error('server never became healthy')
 }
 
-async function startServer(env, { captureOutput = false } = {}) {
-  const port = await freePort()
-  const base = `http://127.0.0.1:${port}`
+/**
+ * Start the server on an OS-assigned port and return its base URL and output.
+ *
+ * PORT=0 and the server's own `listening on :<port>` line are the whole point:
+ * picking a free port here (`bind :0`, read it, `close`) and handing the number
+ * to the child leaves that port UNHELD between our close() and the child's
+ * listen() — any other process on the machine can take it in that window, and
+ * the child then dies with EADDRINUSE (a spurious "server exited early").
+ */
+async function startServer(env) {
   const child = spawn(process.execPath, [SERVER_JS], {
-    env: { ...env, PORT: String(port) },
-    stdio: captureOutput ? ['ignore', 'pipe', 'pipe'] : 'ignore',
+    env: { ...env, PORT: '0' },
+    stdio: ['ignore', 'pipe', 'pipe'],
   })
   let output = ''
-  if (captureOutput) {
-    child.stdout?.on('data', (chunk) => {
-      output += chunk.toString()
-    })
-    child.stderr?.on('data', (chunk) => {
-      output += chunk.toString()
-    })
+  const onData = (chunk) => {
+    output += chunk.toString()
   }
+  child.stdout.on('data', onData)
+  child.stderr.on('data', onData)
+  const port = await new Promise((resolve, reject) => {
+    const deadline = Date.now() + 10_000
+    const poll = setInterval(() => {
+      const match = output.match(/listening on :(\d+)\/mcp/)
+      if (match) {
+        clearInterval(poll)
+        resolve(Number(match[1]))
+        return
+      }
+      if (child.exitCode !== null) {
+        clearInterval(poll)
+        reject(new Error(`server exited early (${child.exitCode})\n${output}`))
+        return
+      }
+      if (Date.now() > deadline) {
+        clearInterval(poll)
+        reject(new Error(`server never reported its port\n${output}`))
+      }
+    }, 25)
+    poll.unref()
+  })
+  const base = `http://127.0.0.1:${port}`
   try {
     await waitHealthy(base, child)
   } catch (error) {
@@ -135,10 +149,10 @@ test('a malformed MCP_RATE_PER_MIN falls back to the default instead of being mi
   // `NaN < 1` is false, so the bucket never reports "out of budget" and the
   // public endpoint is left with NO limit at all, while /health stays green and
   // nothing is logged. A malformed value must use the default and say so.
-  const { child, base, getOutput } = await startServer(
-    { ...process.env, MCP_RATE_PER_MIN: '2x' },
-    { captureOutput: true },
-  )
+  const { child, base, getOutput } = await startServer({
+    ...process.env,
+    MCP_RATE_PER_MIN: '2x',
+  })
   try {
     const statuses = []
     for (let i = 0; i < 5; i++) {

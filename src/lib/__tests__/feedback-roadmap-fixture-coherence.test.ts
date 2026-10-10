@@ -78,13 +78,13 @@ const votesByPost = countsByPostId(seedVotes)
 const commentsByPost = countsByPostId(seedComments)
 
 describe('feedback-roadmap fixtures — the seed rows and the served reports agree', () => {
-  it('the vote chart cannot total more votes than the report card says exist', () => {
+  it('the vote chart totals exactly the votes the report card says exist', () => {
     const stats = reports['admin/stats']!
     const charted = stats.votes_over_time.reduce((sum, bucket) => sum + bucket.count, 0)
     // A per-week breakdown of the same votes: every bucket is a disjoint slice
-    // of those rows, so the sum can never exceed the total (admin.ts buckets
-    // `votes` into 8 weekly windows).
-    expect(charted).toBeLessThanOrEqual(stats.total_votes)
+    // of those rows, so the sum must be EXACTLY the total (`<=` alone was
+    // subsumed — an equality check is strictly stronger, so the weaker line
+    // could never be the failing one).
     expect(charted).toBe(stats.total_votes)
   })
 

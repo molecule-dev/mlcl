@@ -85,9 +85,13 @@ describe('molecule-mcp remote rate limit', () => {
       result.code,
       `mcp/scripts/rate-limit.test.mjs failed:\n${result.output.slice(-4000)}`,
     ).toBe(0)
-    // The suite must actually have run — a file that matches no tests (a
-    // renamed/deleted path) exits 0 with zero tests executed.
-    expect(result.output).toMatch(/tests\s+\d+/)
+    // The suite must actually have RUN. A count of executed tests is not
+    // evidence: node's reporter prints `# tests 1 / # pass 1` for an EMPTY file
+    // (the file itself counts as the test), so `/tests \d+/` matched the very
+    // "matches no tests" case its comment named. The suite's own test names are
+    // the honest signal — a renamed, emptied or truncated file loses them.
+    expect(result.output).toContain('rotating fly-client-ip headers cannot mint fresh rate budgets')
+    expect(result.output).toContain('falls back to the default instead of being mis-read')
     expect(result.output).not.toMatch(/fail\s+[1-9]/)
   })
 })

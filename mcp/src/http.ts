@@ -120,6 +120,12 @@ app.post('/mcp', async (req, res) => {
 app.get('/mcp', (_req, res) => res.status(405).json({ error: 'stateless server — POST only' }))
 app.delete('/mcp', (_req, res) => res.status(405).json({ error: 'stateless server — POST only' }))
 
-app.listen(PORT, () => {
-  process.stdout.write(`molecule-mcp remote (HTTP) listening on :${PORT}/mcp\n`)
+const server = app.listen(PORT, () => {
+  // Print the port the socket is ACTUALLY bound to, not the PORT value: with
+  // PORT=0 (how the regression suite asks the OS for a free port instead of
+  // racing to take one) the literal is 0, and a client reading the startup line
+  // would be told a port nothing is listening on.
+  const address = server.address()
+  const boundPort = typeof address === 'object' && address !== null ? address.port : PORT
+  process.stdout.write(`molecule-mcp remote (HTTP) listening on :${boundPort}/mcp\n`)
 })

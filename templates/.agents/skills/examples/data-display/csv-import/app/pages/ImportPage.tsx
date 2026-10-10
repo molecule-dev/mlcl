@@ -171,7 +171,12 @@ export function ImportPage() {
                 shown: preview.previewRows.length,
               },
               {
-                defaultValue: `${preview.totalRows} rows found — ${preview.valid} valid, ${preview.invalid.length} with errors (showing first ${preview.previewRows.length}).`,
+                // The `/preview` endpoint validates only the rows it returns
+                // (`rows.slice(0, 50)`), so `valid`/`invalid` describe the
+                // PREVIEW — reporting them as the file's verdict told a user
+                // with 500 rows and errors only after row 50 that the file was
+                // clean. `totalRows` is the whole file; say which is which.
+                defaultValue: `${preview.totalRows} rows found — first ${preview.previewRows.length} checked: ${preview.valid} valid, ${preview.invalid.length} with errors.`,
               },
             )}
           </p>

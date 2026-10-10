@@ -50,9 +50,15 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
     // locale switch — see useTranslation), and an unguarded reload there would
     // discard the author's unsaved typing by refilling the form from the server.
     if (loadedSlug.current === editingSlug) return
-    // Entering a different post: go back to the loading state and forget the
-    // PREVIOUS post's id, so a save during the load cannot PUT the old post with
-    // the new one's half-loaded fields.
+    // Entering a different post: go back to the loading state, forget the
+    // PREVIOUS post's id (so a save during the load cannot PUT the old post with
+    // the new one's half-loaded fields) — and forget that the OLD slug was
+    // loaded. The marker means "the form currently holds THIS slug's values",
+    // and the resets below invalidate exactly that; without clearing it too,
+    // navigating A → B → A (with B still in flight) returned early on the trip
+    // back to A — `loadedSlug` still said A — and left the editor on
+    // "Loading…" forever, with nothing left to resolve it.
+    loadedSlug.current = null
     setStatus('loading')
     setPostId(null)
     // A superseded load must not populate the form: an older post's response can

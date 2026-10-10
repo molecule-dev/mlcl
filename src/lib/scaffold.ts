@@ -2055,7 +2055,18 @@ export async function stampMoleculeMetadata(projectRoot: string): Promise<void> 
   pkg.keywords = Array.from(
     new Set([...((pkg.keywords as string[]) ?? []), 'molecule', 'molecule.dev']),
   )
+  // MERGE into the existing block, never replace it. `create` writes the
+  // project's own marker first — `{ projectType: 'app' | 'api' | 'static',
+  // framework | apiFramework }` (createAppProject / createApiProject /
+  // createStaticProject) — and that marker is load-bearing: without it
+  // `detectAppFramework` falls back to probing `appFrameworks` IN ORDER, where
+  // `react` precedes `react-native-web` and matches its react/react-dom deps,
+  // so a react-native-web app is detected as react (skipping
+  // `excludePeerDependencies: ['react-native']` and the framework's shared-code
+  // dir / service-worker decisions), and `detectAppProject`'s explicit
+  // `projectType === 'app'` check stops matching.
   pkg.molecule = {
+    ...((pkg.molecule as Record<string, unknown> | undefined) ?? {}),
     generator: 'mlcl',
     version: mlclVersion(),
     docs: 'https://www.molecule.dev/llms.txt',
@@ -3705,7 +3716,10 @@ export async function copyTemplateDomainFiles(
   const themeCss = join(templateDir, 'theme.css')
   if (existsSync(themeCss)) {
     const themeCssContent = await readFile(themeCss, 'utf-8')
-    await writeFile(
+    // In-place rewrite of a file the create flow already wrote — guarded like
+    // every other one, so a failed write leaves the palette as it was instead
+    // of a truncated theme.css.
+    await writeGuarded(
       join(appPath, 'src', 'theme.css'),
       withHeader(themeCssContent, THEME_CSS_HEADER_TEMPLATE),
     )
@@ -3755,7 +3769,7 @@ export async function copyTemplateDomainFiles(
         `$1\n@source "./generatedVisualClassMap.ts";\n`,
       )
     }
-    await writeFile(indexCssPath, `${augmented.trimEnd()}\n\n${polishContent.trimEnd()}\n`)
+    await writeGuarded(indexCssPath, `${augmented.trimEnd()}\n\n${polishContent.trimEnd()}\n`)
     mlclDebug(`[scaffold] Appended polish-v2 CSS (${polishContent.length} bytes) to src/index.css`)
   }
 
@@ -3778,7 +3792,7 @@ export async function copyTemplateDomainFiles(
           re,
           `<!-- mol:design-resources -->\n    ${block}\n    <!-- /mol:design-resources -->`,
         )
-        await writeFile(indexHtmlPath, replaced)
+        await writeGuarded(indexHtmlPath, replaced)
         mlclDebug(
           `[scaffold] Injected design-resources HTML (${block.length} bytes) into index.html`,
         )
@@ -3824,7 +3838,7 @@ export async function copyTemplateDomainFiles(
           const before = ui.slice(0, closeIdx).replace(/\s+$/, '')
           const after = ui.slice(closeIdx)
           const merged = `${before}\n${partialContent}\n${after}`
-          await writeFile(targetUi, merged)
+          await writeGuarded(targetUi, merged)
         }
         mlclDebug(
           `[scaffold] Injected polish-v2 i18n extras (${partialContent.length} bytes) into ${locales.length} locale ui.ts files`,
@@ -5050,17 +5064,20 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
         )
         .map(({ file }) => basename(file)),
     )
-    // No HTML file (or none found at all): nothing is referenced, so the whole
-    // written set is the only protection — the pre-merge behavior.
-    const referenced = html === null ? null : referencedFontFiles(html)
+    // Still pointed at by the document this sync just merged into — or by one
+    // of the app's stylesheets — so the file belongs to the app (or to a family
+    // no declared package backs), not to a swapped-out provider. Never remove
+    // what they still need. (No HTML file at all: only the stylesheets can
+    // name a reference, and the written set protects everything else.)
+    const referenced = new Set<string>([
+      ...(html === null ? [] : referencedFontFiles(html)),
+      ...(await referencedFontFilesInStylesheets(projectPath)),
+    ])
     try {
       const existing = await readdir(fontsDir)
       for (const file of existing) {
         if (written.has(file)) continue
-        // Still pointed at by the document this sync just merged into: the file
-        // belongs to the app (or to a family no declared package backs), not to a
-        // swapped-out provider. Never remove what the document still needs.
-        if (referenced?.has(file)) continue
+        if (referenced.has(file)) continue
         try {
           await rm(join(fontsDir, file))
         } catch (_error) {
@@ -5088,6 +5105,48 @@ function referencedFontFiles(html: string): Set<string> {
   for (const match of html.matchAll(/\/fonts\/([^'"()\s?]+)/g)) {
     const name = match[1]
     if (name) referenced.add(name)
+  }
+  return referenced
+}
+
+/**
+ * The font files the app's STYLESHEETS point at (`/fonts/<name>`), as bare
+ * basenames.
+ *
+ * The cleanup deleted every file in `public/fonts` that neither this run wrote
+ * nor the entry document referenced — but an app's own font may be declared in
+ * a stylesheet (`@font-face { src: url('/fonts/App-Custom.ttf') }` in
+ * `src/index.css`) rather than in `index.html`, and that file is the app's, not
+ * a swapped-out provider's leftover. Every `.css` under the app workspace's
+ * `src/` and `public/` therefore counts as a reference source.
+ *
+ * @param projectPath - The app workspace (the directory holding index.html).
+ * @returns The basenames referenced by its stylesheets.
+ */
+async function referencedFontFilesInStylesheets(projectPath: string): Promise<Set<string>> {
+  const referenced = new Set<string>()
+  for (const root of ['src', 'public']) {
+    let entries: Array<{ parentPath: string; name: string; isFile: () => boolean }>
+    try {
+      entries = (await readdir(join(projectPath, root), {
+        recursive: true,
+        withFileTypes: true,
+      })) as unknown as Array<{ parentPath: string; name: string; isFile: () => boolean }>
+    } catch (_error) {
+      // The workspace has no such directory — nothing to scan there.
+      continue
+    }
+    for (const entry of entries) {
+      if (!entry.isFile() || !entry.name.endsWith('.css')) continue
+      try {
+        const css = await readFile(join(entry.parentPath, entry.name), 'utf-8')
+        for (const name of referencedFontFiles(css)) referenced.add(name)
+      } catch (_error) {
+        // An unreadable stylesheet protects nothing — and must not fail the
+        // sync (the file it would have protected is simply re-copied next time).
+        continue
+      }
+    }
   }
   return referenced
 }
@@ -5141,6 +5200,24 @@ function stripManagedFontFaces(inner: string, families: ReadonlySet<string>): st
   return kept
     .join('\n')
     .replace(/\n[ \t]*@supports \(font-variation-settings: normal\) \{[ \t]*\n[ \t]*\}/g, '')
+}
+
+/**
+ * Whether an entry document already carries `css`, comparing
+ * whitespace-collapsed — the copy a previous sync wrote is indented, so a
+ * byte-for-byte `includes` would miss it and append a duplicate.
+ *
+ * The icon fonts' utility class (`.material-symbols-outlined`) is the rule this
+ * guards: it is not an `@font-face`, so {@link stripManagedFontFaces} never
+ * removes it, and without the check every sync appended another copy.
+ *
+ * @param document - The entry document being merged into.
+ * @param css - The utility rule a declared font package provides.
+ * @returns True when the rule is already present.
+ */
+function cssRulePresent(document: string, css: string): boolean {
+  const collapse = (value: string): string => value.replace(/\s+/g, ' ').trim()
+  return collapse(document).includes(collapse(css))
 }
 
 /**
@@ -5286,6 +5363,13 @@ async function updateHtmlFontBlock(
     styleBody.push('      }')
   }
   for (const css of utilityCssBlocks) {
+    // Idempotency, like the `lines` just below: `generateFontHtml` emits this
+    // rule into the document at create time, and every later sync re-emits it —
+    // without this check each `mlcl inject` appended ANOTHER copy of the icon
+    // font's `.material-symbols-outlined` rule (the gate and healer beside it
+    // are already guarded by their markers; a utility class is not an
+    // `@font-face`, so stripManagedFontFaces never removes it).
+    if (cssRulePresent(htmlContent, css)) continue
     styleBody.push(indentCssBlock(css))
   }
   // Icon gate: hide icon spans from first paint until the healer confirms
@@ -5349,6 +5433,15 @@ async function updateHtmlFontBlock(
     if (insertPoint !== -1) {
       htmlContent =
         htmlContent.slice(0, insertPoint) + newBlock + '\n' + htmlContent.slice(insertPoint)
+    } else {
+      // No marker block AND no anchor to insert one against: the generated block
+      // cannot be placed. The document is returned unchanged (the caller reports
+      // success either way), so say it out loud — a document with no font wiring
+      // is otherwise indistinguishable from one that has it.
+      console.warn(
+        `[scaffold] ${htmlPath} has neither a <!-- mol:fonts --> block nor a ` +
+          `'<link rel="apple-touch-icon">' anchor — the font block was NOT written`,
+      )
     }
   }
 
@@ -5409,7 +5502,11 @@ export async function addPackages(
       return obj
     }, {})
 
-  await writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n')
+  // Guarded like every other in-place rewrite in this module: this manifest
+  // already exists (create wrote it moments earlier), and a write that fails
+  // mid-flight would leave a truncated package.json — unparseable for
+  // `npm install`, the inject steps and every later mlcl command.
+  await writeGuarded(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n')
 }
 
 /**

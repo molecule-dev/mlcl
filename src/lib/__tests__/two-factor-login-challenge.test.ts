@@ -3,6 +3,15 @@
  * The two-factor LOGIN half of the auth examples, driven against the real
  * components (only the ClassMap, i18n and the network are stubbed).
  *
+ * Note on what is observable: both pages signal success by assigning
+ * `window.location.href`, and jsdom's `location` is an unforgeable own property
+ * (`Object.getOwnPropertyDescriptor(window.location, 'href').configurable` is
+ * false; the prototype carries no `href`), so a test can neither stub it nor
+ * observe the assignment. The completion signals pinned below are therefore
+ * the ones jsdom CAN show: the exact request the second half sends, and that an
+ * answer which issued no session leaves a failed-attempt counter instead of a
+ * "no error rendered" state.
+ *
  * The framework's contract is narrow and easy to get wrong (see
  * `@molecule/api-resource-user`'s `logIn` handler):
  *
@@ -193,7 +202,14 @@ describe('email-password-login — a 2FA challenge is NOT a successful login', (
     })
 
     await respond('/api/users/log-in', 200, { props: { id: 'u1' } })
+    // A 200 DID issue the session, so it must not be reported as a wrong code
+    // or counted as a failed attempt. (The page's success action is the
+    // jsdom-unobservable navigation — see the module doc — so the completing
+    // half is pinned by the request assertions above plus this pair; the old
+    // assertion was `not.toContain('Wrong code')` alone, which every state that
+    // renders no error satisfies, including a dropped success branch.)
     expect(text()).not.toContain('Wrong code')
+    expect(text()).not.toContain('failed attempts')
   })
 
   it('keeps the code step and reports a rejected code', async () => {
@@ -257,5 +273,37 @@ describe('two-factor-auth — the code step posts to the real log-in route', () 
 
     expect(text()).toContain('Too many attempts')
     expect(text()).not.toContain('failed attempts')
+  })
+
+  it('does not treat a 2xx that issued no session as a completed login', async () => {
+    await mount(
+      createElement(LoginVerifyPage, { email: 'ada@calc.dev', password: 'hunter2-secret' }),
+    )
+
+    await typeInto('[data-mol-id="totp-login-code"]', '123456')
+    await submit()
+
+    // `res.ok` is true for ANY 2xx, and the challenge answer is the documented
+    // 206 `{ twoFactorRequired: true }` (or the same body behind a proxy that
+    // rewrote the status to 200 — the case email-password-login's LoginPage
+    // guards with the body flag). No session was issued, so this must NOT
+    // navigate: it is another failed attempt, and the code step stays.
+    await respond('/api/users/log-in', 200, { twoFactorRequired: true })
+
+    expect(text()).toContain('(1 failed attempts)')
+    expect(container.querySelector('[data-mol-id="totp-login-code"]')).not.toBeNull()
+  })
+
+  it('counts the challenge status itself (206) as a failed attempt, not a login', async () => {
+    await mount(
+      createElement(LoginVerifyPage, { email: 'ada@calc.dev', password: 'hunter2-secret' }),
+    )
+
+    await typeInto('[data-mol-id="totp-login-code"]', '123456')
+    await submit()
+    await respond('/api/users/log-in', 206, { twoFactorRequired: true })
+
+    expect(text()).toContain('(1 failed attempts)')
+    expect(text()).not.toContain('Wrong code — try again')
   })
 })

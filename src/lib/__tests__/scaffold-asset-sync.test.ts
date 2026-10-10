@@ -14,8 +14,9 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import { getRawRegistry } from '../registry.js'
 import { syncProjectAssets } from '../scaffold.js'
 
 describe('syncProjectAssets font sync failure ordering', () => {
@@ -175,5 +176,194 @@ describe('syncProjectAssets font ownership', () => {
     await syncProjectAssets(projectDir)
 
     expect(readFileSync(join(projectDir, 'index.html'), 'utf-8')).toBe(first)
+  })
+})
+
+/**
+ * The icon font's utility class is a RULE, not an `@font-face`, so the
+ * per-family strip never removes it — and it was re-emitted unguarded on every
+ * sync, while the gate and healer beside it were already deduped by their
+ * markers. `generateFontHtml` writes the rule into the document at create time,
+ * so the very first `mlcl inject` duplicated it and every later one added
+ * another copy, contradicting `updateHtmlFontBlock`'s "a second run strips
+ * exactly what the first run added".
+ */
+describe('syncProjectAssets icon-font utility CSS', () => {
+  const ICON_PACKAGE = '@molecule/app-fonts-material-symbols'
+  let projectDir: string
+  let utilityCss: string
+
+  /** How many times the utility rule appears, whitespace collapsed. */
+  const ruleCount = (html: string): number => {
+    const collapse = (value: string): string => value.replace(/\s+/g, ' ').trim()
+    const needle = collapse(utilityCss)
+    return collapse(html).split(needle).length - 1
+  }
+
+  beforeEach(() => {
+    projectDir = mkdtempSync(join(tmpdir(), 'mlcl-asset-icon-font-'))
+    mkdirSync(join(projectDir, 'public', 'fonts'), { recursive: true })
+    writeFileSync(
+      join(projectDir, 'package.json'),
+      JSON.stringify({ name: 'icon-app', dependencies: { [ICON_PACKAGE]: '1.0.0' } }),
+    )
+    // The block `generateFontHtml` wrote at create time: the icon font's
+    // `@font-face` and its utility rule inside the block's `<style>`.
+    const font = getRawRegistry().packages[ICON_PACKAGE]?.font as
+      { utilityCss?: string; faces?: Array<{ file: string }> } | undefined
+    utilityCss = font?.utilityCss ?? ''
+    expect(utilityCss).toContain('.material-symbols-outlined')
+    const indented = utilityCss
+      .split('\n')
+      .map((line) => `      ${line}`)
+      .join('\n')
+    writeFileSync(
+      join(projectDir, 'index.html'),
+      `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- mol:fonts -->
+    <style>
+${indented}
+    </style>
+    <!-- /mol:fonts -->
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+`,
+    )
+  })
+
+  afterEach(() => {
+    rmSync(projectDir, { recursive: true, force: true })
+  })
+
+  it('keeps the rule emitted once, however many times the sync runs', async () => {
+    await syncProjectAssets(projectDir)
+    const first = readFileSync(join(projectDir, 'index.html'), 'utf-8')
+
+    await syncProjectAssets(projectDir)
+    const second = readFileSync(join(projectDir, 'index.html'), 'utf-8')
+    await syncProjectAssets(projectDir)
+    const third = readFileSync(join(projectDir, 'index.html'), 'utf-8')
+
+    // The bug this pins: the utility rule is a plain rule (no `@font-face`), so
+    // the per-family strip never removed it and every sync appended another
+    // copy — unbounded growth in the entry document of an app that declares an
+    // icon font.
+    expect(ruleCount(first)).toBe(1)
+    expect(ruleCount(second)).toBe(1)
+    expect(ruleCount(third)).toBe(1)
+    // …and the managed rules are not duplicated either: one gate, one
+    // `@supports` for the managed family. (The `mol:icon-gate` marker itself is
+    // named twice by design — the healer's comment points at it.)
+    expect(
+      second.match(/html:not\(\.mol-icons-ready\) \.material-symbols-outlined/g) ?? [],
+    ).toHaveLength(1)
+    expect(second.match(/@supports \(font-variation-settings: normal\)/g) ?? []).toHaveLength(1)
+    // The sync CONVERGES: the first pass emits the managed `@supports` next to
+    // the gate it also emitted, so the second pass re-emits the `@supports`
+    // after that gate — the same rules in a different order inside `<style>`,
+    // which is semantically identical for both rules. From then on it is
+    // byte-stable (a third pass changes nothing).
+    expect(third).toBe(second)
+  })
+})
+
+/**
+ * The leftover cleanup deleted every file in `public/fonts` that the run did
+ * not write and the entry DOCUMENT did not reference — so an app's own font,
+ * declared with `@font-face` in a stylesheet (`src/index.css`) rather than in
+ * `index.html`, was deleted from the project on the next `mlcl inject`.
+ */
+describe('syncProjectAssets keeps a stylesheet-referenced font', () => {
+  let projectDir: string
+
+  beforeEach(() => {
+    projectDir = mkdtempSync(join(tmpdir(), 'mlcl-asset-css-font-'))
+    mkdirSync(join(projectDir, 'public', 'fonts'), { recursive: true })
+    mkdirSync(join(projectDir, 'src'), { recursive: true })
+    // A declared font package, so the cleanup runs at all (it is skipped when
+    // the project declares none).
+    writeFileSync(
+      join(projectDir, 'package.json'),
+      JSON.stringify({
+        name: 'css-font-app',
+        dependencies: { '@molecule/app-fonts-inter': '1.0.0' },
+      }),
+    )
+    writeFileSync(
+      join(projectDir, 'index.html'),
+      `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- mol:fonts -->
+    <!-- /mol:fonts -->
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+`,
+    )
+    // The app's OWN font: declared in CSS, referenced nowhere in index.html.
+    writeFileSync(join(projectDir, 'public', 'fonts', 'App-Custom.ttf'), 'CUSTOM')
+    writeFileSync(
+      join(projectDir, 'src', 'index.css'),
+      "@font-face { font-family: 'App Custom'; src: url('/fonts/App-Custom.ttf'); }\n",
+    )
+    // A genuine leftover — nothing points at it.
+    writeFileSync(join(projectDir, 'public', 'fonts', 'stale.ttf'), 'STALE')
+  })
+
+  afterEach(() => {
+    rmSync(projectDir, { recursive: true, force: true })
+  })
+
+  it('does not delete a font its stylesheets still point at', async () => {
+    await syncProjectAssets(projectDir)
+
+    expect(existsSync(join(projectDir, 'public', 'fonts', 'App-Custom.ttf'))).toBe(true)
+    // …while a file nothing references is still cleared.
+    expect(existsSync(join(projectDir, 'public', 'fonts', 'stale.ttf'))).toBe(false)
+  })
+})
+
+/**
+ * With neither the `<!-- mol:fonts -->` block nor the apple-touch-icon anchor
+ * to insert one before, the generated block was dropped and the document
+ * returned unchanged — a silent no-op the caller reports as a success.
+ */
+describe('syncProjectAssets reports a document it cannot place the block in', () => {
+  let projectDir: string
+
+  beforeEach(() => {
+    projectDir = mkdtempSync(join(tmpdir(), 'mlcl-asset-noanchor-'))
+    mkdirSync(join(projectDir, 'public', 'fonts'), { recursive: true })
+    writeFileSync(
+      join(projectDir, 'package.json'),
+      JSON.stringify({ name: 'bare-app', dependencies: { '@molecule/app-fonts-inter': '1.0.0' } }),
+    )
+    // No mol:fonts marker and no apple-touch-icon link.
+    writeFileSync(
+      join(projectDir, 'index.html'),
+      '<!DOCTYPE html>\n<html lang="en">\n  <head>\n  </head>\n  <body></body>\n</html>\n',
+    )
+  })
+
+  afterEach(() => {
+    rmSync(projectDir, { recursive: true, force: true })
+  })
+
+  it('warns instead of returning a document with no font wiring', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined)
+    try {
+      await syncProjectAssets(projectDir)
+      expect(warn.mock.calls.flat().map(String).join(' ')).toContain('font block was NOT written')
+    } finally {
+      warn.mockRestore()
+    }
   })
 })

@@ -101,11 +101,16 @@ describe('syncProjectAssets — a failed index.html write', () => {
 
   it('writes the font block when the write succeeds', async () => {
     // The positive twin: without it the assertion above would hold for a sync
-    // that simply never writes index.html at all.
+    // that simply never writes index.html at all. It must therefore assert what
+    // only a WRITE produces — the fixture already carries a one-line
+    // `@font-face { font-family: 'Inter'; }` and the closing marker, so
+    // asserting those proved nothing. The generated declaration (with its
+    // `src:` and the copied file's URL) is the write.
     await syncProjectAssets(projectDir)
 
     const html = readFileSync(join(projectDir, 'index.html'), 'utf-8')
-    expect(html).toContain("font-family: 'Inter'")
+    expect(html).not.toBe(INDEX_HTML)
+    expect(html).toContain("url('/fonts/Inter-Regular.ttf')")
     expect(html).toContain('<!-- /mol:fonts -->')
   })
 })

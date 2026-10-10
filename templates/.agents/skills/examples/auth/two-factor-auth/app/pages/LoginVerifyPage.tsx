@@ -49,12 +49,26 @@ export function LoginVerifyPage({ email, password }: LoginVerifyPageProps) {
         credentials: 'include',
         body: JSON.stringify({ email, password, twoFactorToken: code.trim() }),
       })
+      const body = (await res.json().catch(() => ({}))) as {
+        error?: string
+        twoFactorRequired?: boolean
+      }
+      // The challenge can still stand on a 2xx: `res.ok` is true for ANY 2xx
+      // (206 `{ twoFactorRequired: true }` is the documented no-session
+      // answer), and a proxy/edge that rewrites that status to 200 keeps the
+      // body flag as the only signal — the same pair email-password-login's
+      // LoginPage honours. Treating it as a completed login redirected with no
+      // session and never verified the second factor.
+      if (res.status === 206 || body.twoFactorRequired === true) {
+        setAttempts((n) => n + 1)
+        setError(body.error ?? t('totp.wrongCode', undefined, { defaultValue: 'Wrong code' }))
+        return
+      }
       if (res.ok) {
         // Second factor accepted — the session is now fully authenticated.
         window.location.href = '/'
         return
       }
-      const body = (await res.json().catch(() => ({}))) as { error?: string }
       if (res.status === 401 || res.status === 403) {
         // Wrong/expired/replayed code. Surface a retry counter so the user knows
         // attempts are limited (the log-in route is rate-limited to ≤5/min to

@@ -56,6 +56,8 @@ vi.mock('node:fs/promises', async (importOriginal) => {
 })
 
 import {
+  addPackages,
+  copyTemplateDomainFiles,
   ensureE2EManifest,
   ensureMoleculePeerClosure,
   injectPreviewInteractBridge,
@@ -191,7 +193,15 @@ describe('scaffold in-place rewrites — a failed write restores the file', () =
     const projectDir = join(dir, 'stamped')
     mkdirSync(projectDir, { recursive: true })
     const manifestPath = join(projectDir, 'package.json')
-    const before = `${JSON.stringify({ name: 'my-app' }, null, 2)}\n`
+    // The marker `create` wrote moments earlier (createAppProject) — the
+    // provenance is MERGED into it. Replacing the block dropped `framework`,
+    // and `detectAppFramework` then probes `appFrameworks` in order and reads a
+    // react-native-web app as `react` (skipping its peer-exclusion rules).
+    const before = `${JSON.stringify(
+      { name: 'my-app', molecule: { projectType: 'app', framework: 'react-native-web' } },
+      null,
+      2,
+    )}\n`
     writeFileSync(manifestPath, before)
 
     shortWrite.path = manifestPath
@@ -204,13 +214,70 @@ describe('scaffold in-place rewrites — a failed write restores the file', () =
     await stampMoleculeMetadata(projectDir)
     const manifest = JSON.parse(readFileSync(manifestPath, 'utf-8')) as {
       keywords: string[]
-      molecule: { generator: string; version: string; docs: string }
+      molecule: {
+        projectType?: string
+        framework?: string
+        generator: string
+        version: string
+        docs: string
+      }
     }
     expect(manifest.keywords).toContain('molecule')
+    // The project's OWN marker survives the provenance stamp…
+    expect(manifest.molecule.projectType).toBe('app')
+    expect(manifest.molecule.framework).toBe('react-native-web')
+    // …as does the provenance this step exists to stamp, carrying the CLI's OWN
+    // version — never a stale literal (`2.0.0` while the CLI shipped a later one
+    // described a generator that never ran).
     const cliManifest = JSON.parse(
       readFileSync(join(import.meta.dirname, '..', '..', '..', 'package.json'), 'utf-8'),
     ) as { version: string }
     expect(manifest.molecule.generator).toBe('mlcl')
     expect(manifest.molecule.version).toBe(cliManifest.version)
+  })
+
+  // The create flow's own in-place rewrites — a manifest it just wrote
+  // (`addPackages`), the app's theme.css / index.css / index.html and every
+  // locale `ui.ts` (copyTemplateDomainFiles) — were still going through a bare
+  // `writeFile`, the same truncating-open class the rest of this suite covers.
+  it('addPackages: a failed manifest write leaves it parseable', async () => {
+    const projectDir = join(dir, 'add-packages')
+    mkdirSync(projectDir, { recursive: true })
+    const manifestPath = join(projectDir, 'package.json')
+    const before = `${JSON.stringify({ name: 'my-api', dependencies: {} }, null, 2)}\n`
+    writeFileSync(manifestPath, before)
+
+    shortWrite.path = manifestPath
+    await expect(addPackages(projectDir, ['@molecule/api-logger'])).rejects.toThrow(/ENOSPC/)
+    expect(readFileSync(manifestPath, 'utf-8')).toBe(before)
+
+    // The positive twin: the dependency this step exists to add does land.
+    await addPackages(projectDir, ['@molecule/api-logger'])
+    const manifest = JSON.parse(readFileSync(manifestPath, 'utf-8')) as {
+      dependencies: Record<string, string>
+    }
+    expect(manifest.dependencies['@molecule/api-logger']).toBeTruthy()
+  })
+
+  it('copyTemplateDomainFiles: a failed theme.css rewrite leaves the file as copied', async () => {
+    const cliRoot = join(dir, 'cli-root')
+    const templateDir = join(cliRoot, 'templates', 'apps', 'probe')
+    const appDir = join(dir, 'probe-app')
+    mkdirSync(join(templateDir, 'app'), { recursive: true })
+    mkdirSync(join(appDir, 'src'), { recursive: true })
+    writeFileSync(join(templateDir, 'theme.css'), ':root { --color-primary: #123456; }\n')
+    // What createAppProject copied there first — the file this step rewrites.
+    const copied = ':root { --color-primary: #000000; }\n'
+    writeFileSync(join(appDir, 'src', 'theme.css'), copied)
+
+    shortWrite.path = join(appDir, 'src', 'theme.css')
+    await expect(copyTemplateDomainFiles('probe', 'react', appDir, null, cliRoot)).rejects.toThrow(
+      /ENOSPC/,
+    )
+    expect(readFileSync(join(appDir, 'src', 'theme.css'), 'utf-8')).toBe(copied)
+
+    // The positive twin: the template's palette header does land.
+    await copyTemplateDomainFiles('probe', 'react', appDir, null, cliRoot)
+    expect(readFileSync(join(appDir, 'src', 'theme.css'), 'utf-8')).toContain('APP COLOR PALETTE')
   })
 })

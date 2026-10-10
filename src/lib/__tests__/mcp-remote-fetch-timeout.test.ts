@@ -65,6 +65,28 @@ describe('mcp remote outbound fetch timeout', () => {
     await expect(fetchJson(url, undefined, 2_000)).resolves.toEqual({ packages: {} })
   })
 
+  it('treats a non-2xx JSON body as a failure and caches nothing — the next call retries', async () => {
+    // The shape no thrown fetch produces: the upstream ANSWERS, with an HTTP
+    // error and a JSON error body. `res.json()` resolves on it exactly as it
+    // would on the registry, so without the ok-gate the body was returned AS
+    // the registry AND cached — search_packages then threw
+    // `Object.entries(undefined)` and every call for the next 10 minutes got
+    // the same error body instead of retrying the network.
+    let hits = 0
+    const base = await listen((_req, res) => {
+      hits++
+      res.statusCode = 503
+      res.setHeader('content-type', 'application/json')
+      res.end('{"error":"service unavailable"}')
+    })
+    const url = `${base}/registry.json`
+
+    await expect(fetchJson(url, undefined, 2_000)).rejects.toThrow(/HTTP 503/)
+    await expect(fetchJson(url, undefined, 2_000)).rejects.toThrow(/HTTP 503/)
+    // Two attempts, two requests: a FAILED answer must never be cached.
+    expect(hits).toBe(2)
+  })
+
   it('serves a healthy upstream and caches it (the bound adds no overhead path)', async () => {
     let hits = 0
     const base = await listen((_req, res) => {
@@ -92,7 +114,13 @@ describe('mcp remote outbound fetch timeout', () => {
     // inline npm fetch has no test seam, so its wiring is pinned at the
     // source — the same shape the version test pins remote.ts with.
     const source = readFileSync(MCP_REMOTE, 'utf-8')
+    const calls = source.match(/\bfetch\s*\(/g) ?? []
     const wired = source.match(/signal: AbortSignal\.timeout\(/g) ?? []
-    expect(wired.length).toBeGreaterThanOrEqual(2)
+    // Non-vacuous on BOTH sides, and related to each other: the file does make
+    // outbound calls, and EVERY one of them carries the bound. A count-only
+    // assertion (`wired.length >= 2`) stayed green when a third, UNWIRED fetch
+    // was added — the exact ~5-minute stall this guard exists to prevent.
+    expect(calls.length).toBeGreaterThanOrEqual(2)
+    expect(wired.length).toBe(calls.length)
   })
 })

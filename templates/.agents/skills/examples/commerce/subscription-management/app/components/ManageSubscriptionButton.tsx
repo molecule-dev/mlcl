@@ -26,7 +26,21 @@ export function ManageSubscriptionButton() {
         )
         return
       }
-      const { url } = (await res.json()) as { url: string }
+      // `res.ok` proves only that the route answered. The body is not a
+      // contract: a route that is mounted without its handler (or a mock API
+      // server with no fixture for it) answers 200 with an empty object, and
+      // `window.location.href = undefined` navigates the browser to
+      // `/undefined` — the error state below is never reached. Validate the
+      // value before it becomes a navigation target.
+      const { url } = (await res.json().catch(() => ({}))) as { url?: unknown }
+      if (typeof url !== 'string' || url.length === 0) {
+        setError(
+          t('billing.portalFailed', undefined, {
+            defaultValue: 'Could not open the billing portal — try again.',
+          }),
+        )
+        return
+      }
       window.location.href = url
     } catch (_error) {
       setError(

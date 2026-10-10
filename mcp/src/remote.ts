@@ -59,8 +59,8 @@ const cache = new Map<string, { at: number; data: unknown }>()
  * The network branch is bounded by {@link FETCH_TIMEOUT_MS}; `timeoutMs`
  * shortens that bound — the timeout regression test drives a never-responding
  * local server through it, which the 15 s default would make a 5-minute test.
- * A failed (timed-out or rejected) fetch throws without touching the cache,
- * so the next call retries the network.
+ * A failed (timed-out, rejected, or non-2xx) fetch throws without touching the
+ * cache, so the next call retries the network.
  */
 export async function fetchJson<T>(
   url: string,
@@ -70,9 +70,22 @@ export async function fetchJson<T>(
   const key = file ?? url
   const hit = cache.get(key)
   if (hit && Date.now() - hit.at < CACHE_TTL_MS) return hit.data as T
-  const data: T = file
-    ? (JSON.parse(readFileSync(file, 'utf8')) as T)
-    : ((await (await fetch(url, { signal: AbortSignal.timeout(timeoutMs) })).json()) as T)
+  let data: T
+  if (file) {
+    data = JSON.parse(readFileSync(file, 'utf8')) as T
+  } else {
+    const response = await fetch(url, { signal: AbortSignal.timeout(timeoutMs) })
+    // A non-2xx answer is a FAILURE, not a payload. An error body deserializes
+    // as happily as the registry does — a 404 whose body is `{"error":"Not
+    // found"}`, a proxy's 503 `{"message":…}` — so without this gate that body
+    // is returned AS the registry/templates and cached, and every call for the
+    // next 10 minutes serves it (search_packages then dies on
+    // `Object.entries(undefined)` instead of reporting the upstream failure).
+    if (!response.ok) {
+      throw new Error(`GET ${url} failed: HTTP ${response.status}`)
+    }
+    data = (await response.json()) as T
+  }
   cache.set(key, { at: Date.now(), data })
   return data
 }
