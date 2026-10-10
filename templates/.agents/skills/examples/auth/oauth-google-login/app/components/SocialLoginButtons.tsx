@@ -9,9 +9,17 @@ function SocialLoginButtons() {
   // backend initiation route (GET /users/oauth/:provider via the /api proxy), which
   // 302s to the provider's consent screen and returns to the callback. No client-id
   // env var is needed here. baseURL + oauthEndpoint must resolve to the mounted route.
+  //
+  // The list must name the providers the app actually BONDS (see
+  // api/bonds/oauth-google.ts), and so must the buttons below: the initiation route
+  // resolves the provider through `get('oauth', name)`, so a button for an unwired
+  // name — a GitHub button in a project whose only bond is Google — sends the user
+  // to `user.error.oauthServerNotConfigured`. This slice therefore ships exactly the
+  // one button it wires; adding a provider means adding its bond (README → How to
+  // adapt) AND its entry here, together.
   const { redirect } = useOAuth({
     baseURL: '/api',
-    oauthProviders: ['google', 'github'],
+    oauthProviders: ['google'],
     oauthEndpoint: '/users/oauth',
   })
   const buttonClass = cm.cn(
@@ -22,7 +30,7 @@ function SocialLoginButtons() {
     'border border-outline-variant/40 hover:bg-surface-container-high transition-colors',
   )
   return (
-    <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }))}>
+    <div className={cm.cn(cm.grid({ cols: 1, gap: 'md' }))}>
       <button
         type="button"
         data-mol-id="oauth-google"
@@ -32,17 +40,6 @@ function SocialLoginButtons() {
         <OAuthProviderLogo provider="google" size={20} ariaLabel="" />
         <span className={cm.cn(cm.fontWeight('bold'), cm.textSize('sm'))}>
           {t('socialLoginButtons.google', {}, { defaultValue: 'Google' })}
-        </span>
-      </button>
-      <button
-        type="button"
-        data-mol-id="oauth-github"
-        onClick={() => redirect('github')}
-        className={buttonClass}
-      >
-        <OAuthProviderLogo provider="github" size={20} ariaLabel="" />
-        <span className={cm.cn(cm.fontWeight('bold'), cm.textSize('sm'))}>
-          {t('socialLoginButtons.github', {}, { defaultValue: 'GitHub' })}
         </span>
       </button>
     </div>
