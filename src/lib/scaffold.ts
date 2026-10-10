@@ -304,7 +304,9 @@ export async function stampDemoContentNotices(
         if (entry.name === 'node_modules' || entry.name === 'dist') continue
         await walk(full)
       } else if (entry.isFile() && SEED_FILE_RE.test(entry.name)) {
-        await writeFile(full, withHeader(await readFile(full, 'utf-8'), DEMO_SEED_HEADER))
+        // In-place rewrite of an existing file — through the guard, so a failed
+        // write restores the seed's bytes instead of truncating it.
+        await writeGuarded(full, withHeader(await readFile(full, 'utf-8'), DEMO_SEED_HEADER))
       }
     }
   }
@@ -525,7 +527,9 @@ export async function injectPreviewNavBridge(htmlPath: string): Promise<boolean>
   }
   const next =
     html.slice(0, closingBodyIndex) + PREVIEW_NAV_BRIDGE_SCRIPT + html.slice(closingBodyIndex)
-  await writeFile(htmlPath, next)
+  // A read-modify-write of the entry document that already exists: guarded,
+  // so a failed write restores its bytes instead of truncating index.html.
+  await writeGuarded(htmlPath, next)
   return true
 }
 
@@ -825,7 +829,9 @@ export async function injectPreviewSnapshotBridge(htmlPath: string): Promise<boo
   }
   const next =
     html.slice(0, closingBodyIndex) + PREVIEW_SNAPSHOT_BRIDGE_SCRIPT + html.slice(closingBodyIndex)
-  await writeFile(htmlPath, next)
+  // A read-modify-write of the entry document that already exists: guarded,
+  // so a failed write restores its bytes instead of truncating index.html.
+  await writeGuarded(htmlPath, next)
   return true
 }
 
@@ -989,7 +995,9 @@ export async function injectPreviewRuntimeBridge(htmlPath: string): Promise<bool
   }
   const next =
     html.slice(0, closingBodyIndex) + PREVIEW_RUNTIME_BRIDGE_SCRIPT + html.slice(closingBodyIndex)
-  await writeFile(htmlPath, next)
+  // A read-modify-write of the entry document that already exists: guarded,
+  // so a failed write restores its bytes instead of truncating index.html.
+  await writeGuarded(htmlPath, next)
   return true
 }
 
@@ -1465,7 +1473,9 @@ export async function injectPreviewInteractBridge(htmlPath: string): Promise<boo
   }
   const next =
     html.slice(0, closingBodyIndex) + PREVIEW_INTERACT_BRIDGE_SCRIPT + html.slice(closingBodyIndex)
-  await writeFile(htmlPath, next)
+  // A read-modify-write of the entry document that already exists: guarded,
+  // so a failed write restores its bytes instead of truncating index.html.
+  await writeGuarded(htmlPath, next)
   return true
 }
 
@@ -2700,7 +2710,7 @@ async function syncIdentityFromBranding(destDir: string, projectName: string): P
       if (!html.includes('mirrors app/src/branding.ts')) {
         html = html.replace(/(\n[ \t]*<title>)/, `\n    ${idComment}$1`)
       }
-      if (html !== before) await writeFile(indexHtmlPath, html)
+      if (html !== before) await writeGuarded(indexHtmlPath, html)
     } catch (_error) {
       // Intentional noop: never fail a scaffold over the cosmetic HTML identity sync.
     }
@@ -2721,7 +2731,7 @@ async function syncIdentityFromBranding(destDir: string, projectName: string): P
     const before = JSON.stringify(json)
     mutate(json)
     if (JSON.stringify(json) !== before) {
-      await writeFile(p, JSON.stringify(json, null, 2) + '\n')
+      await writeGuarded(p, JSON.stringify(json, null, 2) + '\n')
     }
   }
 
