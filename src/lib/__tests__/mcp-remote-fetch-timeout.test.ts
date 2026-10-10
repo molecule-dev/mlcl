@@ -26,6 +26,33 @@ import { FETCH_TIMEOUT_MS, fetchJson } from '../../../mcp/src/remote.js'
 
 const MCP_REMOTE = join(import.meta.dirname, '..', '..', '..', 'mcp', 'src', 'remote.ts')
 
+/**
+ * The full text of every `fetch(...)` call in `source`, scanned with balanced
+ * parentheses so each call's own arguments are inspected as a unit (a call
+ * wraps its URL and options across lines).
+ *
+ * @param source - Module source to scan.
+ * @returns Each call's text, from `fetch(` through its closing paren.
+ */
+function fetchCallsIn(source: string): string[] {
+  const calls: string[] = []
+  const re = /\bfetch\s*\(/g
+  let match: RegExpExecArray | null
+  while ((match = re.exec(source)) !== null) {
+    let depth = 0
+    let end = match.index + match[0].length - 1
+    for (; end < source.length; end++) {
+      if (source[end] === '(') depth++
+      else if (source[end] === ')') {
+        depth--
+        if (depth === 0) break
+      }
+    }
+    calls.push(source.slice(match.index, end + 1))
+  }
+  return calls
+}
+
 let server: Server | null = null
 
 afterEach(async () => {
@@ -113,14 +140,19 @@ describe('mcp remote outbound fetch timeout', () => {
     // fetchJson's signal is driven by the two tests above; read_package_doc's
     // inline npm fetch has no test seam, so its wiring is pinned at the
     // source — the same shape the version test pins remote.ts with.
+    //
+    // The bound must be in THAT call's OWN argument list. Counting `fetch(`
+    // against `signal: AbortSignal.timeout(` in isolation could be balanced by
+    // an unrelated call carrying an extra inline signal, so an unbounded fetch
+    // added anywhere in the file stayed green — the exact ~5-minute stall this
+    // guard exists to prevent.
     const source = readFileSync(MCP_REMOTE, 'utf-8')
-    const calls = source.match(/\bfetch\s*\(/g) ?? []
-    const wired = source.match(/signal: AbortSignal\.timeout\(/g) ?? []
-    // Non-vacuous on BOTH sides, and related to each other: the file does make
-    // outbound calls, and EVERY one of them carries the bound. A count-only
-    // assertion (`wired.length >= 2`) stayed green when a third, UNWIRED fetch
-    // was added — the exact ~5-minute stall this guard exists to prevent.
+    const calls = fetchCallsIn(source)
     expect(calls.length).toBeGreaterThanOrEqual(2)
-    expect(wired.length).toBe(calls.length)
+    for (const call of calls) {
+      expect(call, `an outbound fetch is missing its AbortSignal bound:\n${call}`).toMatch(
+        /signal: AbortSignal\.timeout\(/,
+      )
+    }
   })
 })

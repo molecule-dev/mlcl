@@ -11,7 +11,7 @@
  *     env-overridable (MOLECULE_REGISTRY_URL / MOLECULE_TEMPLATES_URL or
  *     *_FILE for local dev), cached 10 minutes
  *   - package docs from the npm registry API (the authoritative published
- *     README for each @molecule/* package)
+ *     README for each @molecule/* package), also cached 10 minutes
  */
 import { readFileSync } from 'node:fs'
 
@@ -52,6 +52,60 @@ interface RegistryEntry {
 }
 
 const cache = new Map<string, { at: number; data: unknown }>()
+
+/**
+ * Resolved package READMEs, keyed by the npm package name, with the same TTL as
+ * {@link cache}.
+ *
+ * The npm registry serves a README only inside the FULL packument for a package
+ * — `https://registry.npmjs.org/@molecule%2F<name>` — which nests one manifest
+ * per published VERSION (`/<name>/latest` carries no `readme`). At this fleet's
+ * release cadence that document is ~270 kB for a package with a few dozen
+ * versions, and it grows with every publish, while the tool only ever reads the
+ * one `readme` field (~64 kB). Without a cache, every `read_package_doc` call —
+ * a public, unauthenticated endpoint — re-downloaded and re-parsed the whole
+ * thing, so a client asking about the same package repeatedly paid the full
+ * egress and CPU each time (and the load on registry.npmjs.org scaled with the
+ * call rate rather than the package count). Only a SUCCESSFUL lookup is cached:
+ * a missing/unreadable README keeps the file's own policy — the next call
+ * retries the network — and the map is capped so a long-lived server cannot
+ * accumulate one cached doc per package name in the fleet.
+ */
+const README_CACHE_TTL_MS = 10 * 60_000
+const README_CACHE_LIMIT = 50
+const readmeCache = new Map<string, { at: number; readme: string }>()
+
+/**
+ * Fetch a package's published README from the npm registry, cached per package.
+ *
+ * The network branch is bounded by {@link FETCH_TIMEOUT_MS} (`timeoutMs`
+ * shortens it for tests, like {@link fetchJson}). A rejection or a body with no
+ * `readme` resolves to `undefined` — the caller's documented fallback — and
+ * caches nothing.
+ *
+ * @param short - Package name WITHOUT the `@molecule/` scope.
+ * @param timeoutMs - Abort bound for the outbound fetch.
+ * @returns The published README, or undefined when the registry has none.
+ */
+export async function fetchPackageReadme(
+  short: string,
+  timeoutMs: number = FETCH_TIMEOUT_MS,
+): Promise<string | undefined> {
+  const hit = readmeCache.get(short)
+  if (hit && Date.now() - hit.at < README_CACHE_TTL_MS) return hit.readme
+  const meta = (await (
+    await fetch(`https://registry.npmjs.org/@molecule%2F${short}`, {
+      signal: AbortSignal.timeout(timeoutMs),
+    })
+  ).json()) as { readme?: string }
+  if (typeof meta.readme !== 'string' || meta.readme.length === 0) return undefined
+  if (readmeCache.size >= README_CACHE_LIMIT && !readmeCache.has(short)) {
+    const oldest = readmeCache.keys().next().value
+    if (oldest !== undefined) readmeCache.delete(oldest)
+  }
+  readmeCache.set(short, { at: Date.now(), readme: meta.readme })
+  return meta.readme
+}
 
 /**
  * Fetch (and cache) the registry/templates JSON, or read it from a local file.
@@ -198,15 +252,8 @@ export function buildRemoteServer(): McpServer {
         return text(`Invalid package name "${short}" — expected @molecule/<name>.`)
       }
       try {
-        const meta = (await (
-          await fetch(`https://registry.npmjs.org/@molecule%2F${short}`, {
-            signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-          })
-        ).json()) as {
-          readme?: string
-        }
-        if (meta.readme && meta.readme.length > 0) {
-          const doc = meta.readme
+        const doc = await fetchPackageReadme(short)
+        if (doc) {
           if (doc.length > 100_000)
             return text(
               `${doc.slice(0, 100_000)}\n\n[…truncated — full doc: https://www.molecule.dev/packages/${short}]`,
