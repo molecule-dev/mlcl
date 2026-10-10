@@ -159,6 +159,19 @@ afterEach(async () => {
 })
 
 describe('paginated-user-list — a superseded page response must not win', () => {
+  it('requests the handler at the path it is actually mounted on', async () => {
+    // The app router is mounted at `/api` (`app.use('/api', router)`,
+    // templates/api/server.ts.tpl) and the handler registers at
+    // `router.use('/users', …)` — so the browser path is `/api/users`. Nothing
+    // bonds the http client with a '/api' baseURL (its default is ''), and the
+    // dev server proxies only `/api` and `/health`: a bare `/users` is served
+    // the SPA's index.html, whose HTML the client installs as the body, so
+    // `data.data.map` throws on the next render. The README's
+    // `GET /users?page=1&limit=20` is the ROUTER-relative path under that mount.
+    await mount()
+    expect(pending.requests[0]?.url).toBe('/api/users?page=1&limit=20')
+  })
+
   it('keeps the page the user is on when an older response lands last', async () => {
     await mount()
     await resolvePage(1, ['a', 'b'])

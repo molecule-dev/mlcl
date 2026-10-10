@@ -46,8 +46,15 @@ export default function UsersPage() {
     let cancelled = false
     setLoading(true)
     setLoadFailed(false)
+    // `/api/users` — the app router is mounted at `/api` (templates/api/server.ts.tpl:
+    // `app.use('/api', router)`) and the handler registers at `router.use('/users', …)`,
+    // so the browser path needs the prefix. The client's default baseURL is `''`
+    // (nothing bonds '/api'), and the dev server proxies only `/api` and `/health`:
+    // a bare `/users` is answered with the SPA's index.html, the client's JSON parse
+    // falls back to that HTML, and `data.data.map` throws on render. The README's
+    // `GET /users?page=1&limit=20` is the router-relative path, not the browser one.
     http
-      .get<UsersResponse>(`/users?page=${page}&limit=${PAGE_SIZE}`)
+      .get<UsersResponse>(`/api/users?page=${page}&limit=${PAGE_SIZE}`)
       .then((res) => {
         if (!cancelled) setData(res.data)
       })
