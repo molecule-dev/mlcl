@@ -2050,14 +2050,52 @@ export async function ensureReadmeMd(
  */
 export async function stampMoleculeMetadata(projectRoot: string): Promise<void> {
   const pkgPath = join(projectRoot, 'package.json')
-  const { existsSync, readFileSync, writeFileSync } = await import('node:fs')
   if (!existsSync(pkgPath)) return
-  const pkg = JSON.parse(readFileSync(pkgPath, 'utf8')) as Record<string, unknown>
+  const pkg = JSON.parse(await readFile(pkgPath, 'utf8')) as Record<string, unknown>
   pkg.keywords = Array.from(
     new Set([...((pkg.keywords as string[]) ?? []), 'molecule', 'molecule.dev']),
   )
-  pkg.molecule = { generator: 'mlcl', version: '2.0.0', docs: 'https://www.molecule.dev/llms.txt' }
-  writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
+  pkg.molecule = {
+    generator: 'mlcl',
+    version: mlclVersion(),
+    docs: 'https://www.molecule.dev/llms.txt',
+  }
+  // In-place rewrite of a manifest that ALREADY exists (the create command wrote
+  // it moments earlier) — through the guard, like every other rewrite in this
+  // module, so a write that fails mid-flight (a full disk, EIO) restores the
+  // previous bytes instead of leaving a truncated package.json that every later
+  // step — `npm install`, `mlcl inject` — fails to parse.
+  await writeGuarded(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
+}
+
+/** The mlcl version stamped into a generated project's provenance block. */
+let cachedCliVersion: string | null = null
+
+/**
+ * The CLI's own version, read from mlcl's `package.json`.
+ *
+ * The provenance block records WHICH generator produced the project, so the
+ * version must be the one that actually ran — a hardcoded literal here went
+ * stale the first time the CLI was bumped (`2.0.0` while the CLI shipped
+ * 2.1.0), making every generated project's `molecule.version` describe a
+ * generator that never ran. A missing or unreadable manifest must not fail a
+ * scaffold over a version string instead: report 'unknown', the same policy
+ * molecule-mcp's `serverVersion` follows.
+ */
+function mlclVersion(): string {
+  if (cachedCliVersion === null) {
+    try {
+      const manifest = JSON.parse(
+        readFileSync(new URL('../../package.json', import.meta.url), 'utf8'),
+      ) as { version?: unknown }
+      cachedCliVersion = typeof manifest.version === 'string' ? manifest.version : 'unknown'
+    } catch (_error) {
+      // A manifest that cannot be read is not a scaffold failure — 'unknown' is
+      // an honest answer for the provenance field.
+      cachedCliVersion = 'unknown'
+    }
+  }
+  return cachedCliVersion
 }
 
 export async function scaffoldSecurityWorkflow(

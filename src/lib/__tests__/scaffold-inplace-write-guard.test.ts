@@ -63,6 +63,7 @@ import {
   injectPreviewRuntimeBridge,
   injectPreviewSnapshotBridge,
   stampDemoContentNotices,
+  stampMoleculeMetadata,
 } from '../scaffold.js'
 
 /** An entry document with a `</body>` for a bridge to anchor against. */
@@ -180,5 +181,36 @@ describe('scaffold in-place rewrites — a failed write restores the file', () =
       dependencies: Record<string, string>
     }
     expect(manifest.dependencies['@molecule/api-database-postgresql']).toBeTruthy()
+  })
+
+  // The ROOT manifest is the other half of the same policy — and the last
+  // rewrite that was still going through a bare `writeFileSync`, which truncates
+  // before it writes just like `writeFile` (and which this suite's mock, being
+  // the promises one, would not even have caught).
+  it('stampMoleculeMetadata: a failed root-manifest write leaves it parseable, and stamps the real CLI version', async () => {
+    const projectDir = join(dir, 'stamped')
+    mkdirSync(projectDir, { recursive: true })
+    const manifestPath = join(projectDir, 'package.json')
+    const before = `${JSON.stringify({ name: 'my-app' }, null, 2)}\n`
+    writeFileSync(manifestPath, before)
+
+    shortWrite.path = manifestPath
+    await expect(stampMoleculeMetadata(projectDir)).rejects.toThrow(/ENOSPC/)
+    expect(readFileSync(manifestPath, 'utf-8')).toBe(before)
+
+    // The positive twin: the provenance this step exists to stamp does land —
+    // carrying the CLI's OWN version, never a stale literal (`2.0.0` while the
+    // CLI shipped a later one described a generator that never ran).
+    await stampMoleculeMetadata(projectDir)
+    const manifest = JSON.parse(readFileSync(manifestPath, 'utf-8')) as {
+      keywords: string[]
+      molecule: { generator: string; version: string; docs: string }
+    }
+    expect(manifest.keywords).toContain('molecule')
+    const cliManifest = JSON.parse(
+      readFileSync(join(import.meta.dirname, '..', '..', '..', 'package.json'), 'utf-8'),
+    ) as { version: string }
+    expect(manifest.molecule.generator).toBe('mlcl')
+    expect(manifest.molecule.version).toBe(cliManifest.version)
   })
 })
