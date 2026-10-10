@@ -29,6 +29,42 @@ type RawNotification = {
  */
 const NOTIFICATION_PAGE_SIZE = 20
 
+/**
+ * Parse one `notification:created` frame, or null when the frame carries no
+ * notification.
+ *
+ * A realtime frame is untrusted input: the SSE wire format puts ANYTHING after
+ * `data:` on the wire (a proxy keep-alive, a payload published by another
+ * writer), and this frame is PREPENDED to the panel's list. An unvalidated
+ * value is dereferenced when the panel renders (`centerItems` maps over
+ * `items` and reads `n.id`), so a frame whose payload is `null` — or any other
+ * non-object — threw `TypeError: Cannot read properties of null` out of the
+ * render, and React unmounts a component that throws: the whole page went
+ * blank. A frame that is not JSON at all threw `SyntaxError` out of the
+ * listener itself.
+ *
+ * So: drop anything that is not an object carrying the string `id` the list is
+ * keyed and addressed by (the read POST uses `n.id`). Dropping is the right
+ * failure here — `GET /api/notifications` is the durable record, and the live
+ * feed is best-effort.
+ *
+ * @param data - The raw `event.data` string of one SSE frame.
+ * @returns The frame's notification, or null when the frame is not one.
+ */
+function parseNotificationFrame(data: string): RawNotification | null {
+  let parsed: unknown
+  try {
+    parsed = JSON.parse(data)
+  } catch (_error) {
+    // Not JSON (a proxy keep-alive, a truncated payload) — nothing to render.
+    return null
+  }
+  if (typeof parsed !== 'object' || parsed === null) return null
+  const id = (parsed as { id?: unknown }).id
+  if (typeof id !== 'string' || id.length === 0) return null
+  return parsed as RawNotification
+}
+
 export function NotificationBellWidget({ userId }: { userId: string }) {
   const { t } = useTranslation()
   const cm = getClassMap()
@@ -70,7 +106,10 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
     // pass `path: '/api/realtime'` for this URL to reach the stream.
     const events = new EventSource(`/api/realtime?room=${encodeURIComponent(`user:${userId}`)}`)
     events.addEventListener('notification:created', (e) => {
-      const n = JSON.parse((e as MessageEvent).data) as RawNotification
+      // Untrusted frame — see parseNotificationFrame: an unvalidated payload
+      // crashed the render (null) or threw out of this listener (non-JSON).
+      const n = parseNotificationFrame((e as MessageEvent).data)
+      if (!n) return
       // Newest first, bounded to the page the panel was built from — see
       // NOTIFICATION_PAGE_SIZE. Unbounded, this list grows with the session.
       setItems((prev) => [n, ...prev].slice(0, NOTIFICATION_PAGE_SIZE))

@@ -35,6 +35,41 @@ function newestWindow(messages: ApiMessage[]): ApiMessage[] {
   return messages.slice(-MAX_RENDERED_MESSAGES)
 }
 
+/**
+ * Parse one `message:created` frame, or null when the frame carries no message.
+ *
+ * A realtime frame is untrusted input: the SSE wire format puts ANYTHING after
+ * `data:` on the wire (a `data: pong` keep-alive from a proxy, a payload
+ * published by another writer in the room), and this frame goes straight into
+ * the message list. An unvalidated value is dereferenced during render
+ * (`toMessageData` reads `m.id`), so a frame whose payload is `null` — or any
+ * other non-object — THREW `TypeError: Cannot read properties of null` out of
+ * the render, and React unmounts a component that throws: the whole page went
+ * blank, composer included. A frame that is not JSON at all threw `SyntaxError`
+ * out of the listener itself.
+ *
+ * So: drop anything that is not an object carrying the string `id` the list
+ * keys and maps on. Dropping is the right failure here — the history load
+ * (`GET /api/messages`) is the durable record, and the live feed is
+ * best-effort.
+ *
+ * @param data - The raw `event.data` string of one SSE frame.
+ * @returns The frame's message, or null when the frame is not one.
+ */
+function parseMessageFrame(data: string): ApiMessage | null {
+  let parsed: unknown
+  try {
+    parsed = JSON.parse(data)
+  } catch (_error) {
+    // Not JSON (a proxy keep-alive, a truncated payload) — nothing to render.
+    return null
+  }
+  if (typeof parsed !== 'object' || parsed === null) return null
+  const id = (parsed as { id?: unknown }).id
+  if (typeof id !== 'string' || id.length === 0) return null
+  return parsed as ApiMessage
+}
+
 function toMessageData(m: ApiMessage): MessageData {
   return {
     id: m.id,
@@ -98,7 +133,10 @@ export function ChatPage({ channelId }: { channelId: string }) {
       withCredentials: true,
     })
     events.addEventListener('message:created', (e) => {
-      const msg = JSON.parse((e as MessageEvent).data) as ApiMessage
+      // Untrusted frame — see parseMessageFrame: an unvalidated payload crashed
+      // the render (null) or threw out of this listener (non-JSON).
+      const msg = parseMessageFrame((e as MessageEvent).data)
+      if (!msg) return
       // Append, then keep the newest window: unbounded, this array (and the
       // message list it renders) grew with the session — see
       // MAX_RENDERED_MESSAGES.
