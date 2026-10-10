@@ -38,6 +38,7 @@
   "files": [
     "/bin",
     "/dist",
+    "/registry.json",
     "/templates",
     "/oclif.manifest.json",
     "/docs/AGENTS-AND-HARNESSES.md",
