@@ -23,6 +23,14 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
   // may roll its optimistic star back or report a failure (see `rate`).
   const rateSeq = useRef(0)
 
+  // The subject the CURRENT render belongs to. A rating cast on subject A must
+  // not resync into subject B's state when the user switches subjects while
+  // the POST is in flight: the ticket only serializes against EARLIER
+  // requests, so A's trailing summary refresh would take the NEWEST ticket and
+  // overwrite B's summary with A's average.
+  const mountedForRef = useRef(subjectId)
+  mountedForRef.current = subjectId
+
   const loadSummary = useCallback(async (): Promise<void> => {
     const ticket = ++summarySeq.current
     try {
@@ -84,6 +92,11 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
         setRateFailed(true)
         return
       }
+      // The user switched subjects while the POST ran: the rating landed on
+      // the subject we LEFT, whose state this render no longer owns —
+      // refreshing here would take the newest ticket and overwrite the new
+      // subject's summary with the old one's (see mountedForRef).
+      if (mountedForRef.current !== subjectId) return
       // Resync through the same ticketed loader the initial load uses, so this
       // refresh cannot be overtaken by — or overtake — another summary request.
       await loadSummary()

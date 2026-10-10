@@ -55,14 +55,26 @@ interface HttpCall {
   reject: (error: unknown) => void
 }
 
+/** The tree shape `<ThreadTree>` consumes (mirrors the shared package's `Comment`). */
+interface ThreadNode {
+  id: string
+  body: string
+  children?: ThreadNode[]
+}
+
 /** The `useHttpClient()` double: every GET parks until the test answers it. */
 const httpCalls = vi.hoisted(() => [] as HttpCall[])
+/** Same double for POST — a toggle's/post's write parks until the test answers it. */
+const postCalls = vi.hoisted(() => [] as HttpCall[])
 const http = vi.hoisted(() => ({
   get: (path: string) =>
     new Promise<unknown>((resolve, reject) => {
       httpCalls.push({ path, resolve, reject })
     }),
-  post: () => Promise.resolve(undefined),
+  post: (path: string) =>
+    new Promise<unknown>((resolve, reject) => {
+      postCalls.push({ path, resolve, reject })
+    }),
   delete: () => Promise.resolve(undefined),
 }))
 
@@ -78,22 +90,38 @@ vi.mock('@molecule/app-react', () => ({
 vi.mock('@molecule/app-http', () => ({
   unwrapList: (res: { data?: unknown }) => res.data ?? [],
 }))
-// The thread/tree widget is not what is under test: render each body plainly.
+// The thread/tree widget is not what is under test: render each body plainly —
+// but render the CHILDREN too, since nesting replies under their root is the
+// behavior the slice exists to pin.
 vi.mock('@molecule/app-feature-thread-tree-react', () => ({
-  ThreadTree: (props: { comments: Array<{ id: string; body: string }> }) =>
-    createElement(
-      'ul',
-      null,
-      props.comments.map((c) => createElement('li', { key: c.id }, c.body)),
-    ),
+  ThreadTree: (props: { comments: Array<ThreadNode> }) => {
+    const render = (node: ThreadNode): ReactNode =>
+      createElement('li', { key: node.id }, node.body, (node.children ?? []).map(render))
+    return createElement('ul', null, props.comments.map(render))
+  },
 }))
-// The chip row is not what is under test: render emoji + count honestly.
+// The chip row is not what is under test: render emoji + count honestly, with a
+// button per chip so a test can drive `onToggle`.
 vi.mock('@molecule/app-emoji-reactions-react', () => ({
-  EmojiReactions: (props: { reactions: Array<{ emoji: string; count: number }> }) =>
+  EmojiReactions: (props: {
+    reactions: Array<{ emoji: string; count: number }>
+    onToggle?: (emoji: string) => void
+  }) =>
     createElement(
       'ul',
       null,
-      props.reactions.map((r) => createElement('li', { key: r.emoji }, `${r.emoji}${r.count}`)),
+      props.reactions.map((r) =>
+        createElement(
+          'li',
+          { key: r.emoji },
+          `${r.emoji}${r.count}`,
+          createElement(
+            'button',
+            { onClick: () => props.onToggle?.(r.emoji), 'data-mol-id': `toggle-${r.emoji}` },
+            'toggle',
+          ),
+        ),
+      ),
     ),
 }))
 
@@ -170,6 +198,16 @@ async function type(input: HTMLInputElement, value: string): Promise<void> {
   await flush()
 }
 
+/** Same, for a textarea (the comment composer). */
+async function typeIntoTextarea(textarea: HTMLTextAreaElement, value: string): Promise<void> {
+  const setter = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value')?.set
+  await act(async () => {
+    setter?.call(textarea, value)
+    textarea.dispatchEvent(new Event('input', { bubbles: true }))
+  })
+  await flush()
+}
+
 beforeEach(() => {
   pending.requests.length = 0
   httpCalls.length = 0
@@ -210,18 +248,142 @@ describe('a failed load for a new resource must not leave the previous resource 
         data: [{ id: 'c1', userId: 'u1', parentId: null, body: 'from-post-1', createdAt: 'x' }],
       })
     })
+    // The list endpoint returns TOP-LEVEL rows only — the tree's reply pages
+    // load per root before anything renders.
+    expect(httpCalls[1]?.path).toBe('/api/comments/c1/replies')
+    await act(async () => {
+      httpCalls[1]?.resolve({
+        data: [{ id: 'r1', userId: 'u2', parentId: 'c1', body: 'nested reply', createdAt: 'y' }],
+      })
+    })
     await flush()
     expect(text()).toContain('from-post-1')
+    // The reply NESTS under its root — the whole point of the slice; the
+    // top-level-only list used to make the nesting pass dead code.
+    expect(text()).toContain('nested reply')
 
     // Navigate post 1 → post 2 while the thread stays mounted, and let the new
     // load FAIL (offline, 500). Post 1's comments must not stand in for post 2's.
     await rerender(createElement(CommentThread, { resourceType: 'post', resourceId: 'p2' }))
-    expect(httpCalls[1]?.path).toBe('/api/post/p2/comments')
+    expect(httpCalls[2]?.path).toBe('/api/post/p2/comments')
     await act(async () => {
-      httpCalls[1]?.reject(new Error('HTTP 500'))
+      httpCalls[2]?.reject(new Error('HTTP 500'))
     })
     await flush()
     expect(text()).not.toContain('from-post-1')
+    expect(text()).not.toContain('nested reply')
+  })
+
+  it('a posted comment survives the refetch — which re-reads the replies pages', async () => {
+    await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await act(async () => {
+      httpCalls[0]?.resolve({
+        data: [{ id: 'c1', userId: 'u1', parentId: null, body: 'root comment', createdAt: 'x' }],
+      })
+    })
+    await flush()
+    // The roots list drives one reply-page read per root, before anything renders.
+    expect(httpCalls[1]?.path).toBe('/api/comments/c1/replies')
+    await act(async () => {
+      httpCalls[1]?.resolve({ data: [] })
+    })
+    await flush()
+    expect(text()).toContain('root comment')
+
+    await typeIntoTextarea(container.querySelector('textarea') as HTMLTextAreaElement, 'a comment')
+    await act(async () => {
+      container
+        .querySelector('[data-mol-id="post-comment"]')
+        ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+
+    expect(postCalls[0]?.path).toBe('/api/post/p1/comments')
+    await act(async () => {
+      postCalls[0]?.resolve({ id: 'r9' })
+    })
+    await flush()
+    // The refetch re-reads the top-level list…
+    expect(httpCalls[2]?.path).toBe('/api/post/p1/comments')
+    await act(async () => {
+      httpCalls[2]?.resolve({
+        data: [{ id: 'c1', userId: 'u1', parentId: null, body: 'root comment', createdAt: 'x' }],
+      })
+    })
+    // …and the REPLIES page — where replies live. Without that second read,
+    // any reply (this user's or anyone else's) vanished from the tree the
+    // moment a refetch ran.
+    expect(httpCalls[3]?.path).toBe('/api/comments/c1/replies')
+    await act(async () => {
+      httpCalls[3]?.resolve({
+        data: [{ id: 'r9', userId: 'u1', parentId: 'c1', body: 'the reply', createdAt: 'y' }],
+      })
+    })
+    await flush()
+    expect(text()).toContain('the reply')
+    expect(text()).toContain('root comment')
+  })
+
+  it('a post that resolves after the resource changed does not overwrite the new thread', async () => {
+    await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await act(async () => {
+      httpCalls[0]?.resolve({
+        data: [
+          { id: 'c1', userId: 'u1', parentId: null, body: 'post-one comment', createdAt: 'x' },
+        ],
+      })
+    })
+    await flush()
+    expect(httpCalls[1]?.path).toBe('/api/comments/c1/replies')
+    await act(async () => {
+      httpCalls[1]?.resolve({ data: [] })
+    })
+    await flush()
+    expect(text()).toContain('post-one comment')
+
+    // Post on p1, but navigate to p2 while the POST is parked.
+    await typeIntoTextarea(container.querySelector('textarea') as HTMLTextAreaElement, 'a comment')
+    await act(async () => {
+      container
+        .querySelector('[data-mol-id="post-comment"]')
+        ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await rerender(createElement(CommentThread, { resourceType: 'post', resourceId: 'p2' }))
+    const p2Load = httpCalls.find((c) => c.path === '/api/post/p2/comments')
+    await act(async () => {
+      p2Load?.resolve({
+        data: [
+          { id: 'c2', userId: 'u1', parentId: null, body: 'post-two comment', createdAt: 'z' },
+        ],
+      })
+    })
+    await flush()
+    // Post 2's root's reply page is part of its load too.
+    const p2Replies = httpCalls.find((c) => c.path === '/api/comments/c2/replies')
+    await act(async () => {
+      p2Replies?.resolve({ data: [] })
+      postCalls[0]?.resolve({ id: 'r1' })
+    })
+    await flush()
+
+    // In the guarded flow the parked post fires NO trailing refetch. In the
+    // unguarded flow it re-loads post 1 with the newest ticket — answer that
+    // too, so the test is deterministic in both worlds, and the assertion
+    // below is what catches the bug.
+    for (const call of httpCalls.filter((c) => c.path === '/api/post/p1/comments')) {
+      await act(async () => {
+        call.resolve({
+          data: [
+            { id: 'c1', userId: 'u1', parentId: null, body: 'post-one comment', createdAt: 'x' },
+          ],
+        })
+      })
+    }
+    await flush()
+
+    // Post 2's thread stands; post 1's rows did not ride in on the stale post.
+    expect(text()).toContain('post-two comment')
+    expect(text()).not.toContain('post-one comment')
   })
 
   it('clears the previous resource’s reaction chips when the next load fails', async () => {
@@ -240,6 +402,43 @@ describe('a failed load for a new resource must not leave the previous resource 
     })
     await flush()
     expect(text()).not.toContain('👍2')
+  })
+
+  it('a toggle that resolves after the resource changed does not resync the old summary into the new resource', async () => {
+    await mount(createElement(ReactionBar, { resourceType: 'post', resourceId: 'p1' }))
+    await act(async () => {
+      httpCalls[0]?.resolve({ data: { total: 1, counts: { '👍': 1 }, userReactions: [] } })
+    })
+    await flush()
+
+    // Toggle on p1 (POST parks), then navigate to p2 while it is in flight.
+    await act(async () => {
+      container
+        .querySelector('[data-mol-id="toggle-👍"]')
+        ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await rerender(createElement(ReactionBar, { resourceType: 'post', resourceId: 'p2' }))
+    const p2Load = httpCalls.find((c) => c.path === '/api/post/p2/reactions')
+    await act(async () => {
+      p2Load?.resolve({ data: { total: 0, counts: {}, userReactions: [] } })
+      postCalls[0]?.resolve({ ok: true })
+    })
+    await flush()
+
+    // In the guarded flow the parked toggle fires NO trailing resync. In the
+    // unguarded flow it re-loads p1's summary with the newest ticket — answer
+    // that too, so the test is deterministic in both worlds, and the
+    // assertion below is what catches the bug.
+    for (const call of httpCalls.filter((c) => c.path === '/api/post/p1/reactions')) {
+      await act(async () => {
+        call.resolve({ data: { total: 1, counts: { '👍': 1 }, userReactions: [] } })
+      })
+    }
+    await flush()
+
+    // p2's (empty) summary stands; p1's 👍 chip did not ride in on the
+    // stale toggle.
+    expect(text()).not.toContain('👍1')
   })
 })
 

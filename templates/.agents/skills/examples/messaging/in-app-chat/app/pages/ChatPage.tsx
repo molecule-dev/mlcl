@@ -14,8 +14,6 @@ type ApiMessage = {
   user_name?: string
 }
 
-const CURRENT_USER_ID = 'me'
-
 /**
  * How many messages a room keeps rendered at once.
  *
@@ -87,12 +85,42 @@ export function ChatPage({ channelId }: { channelId: string }) {
   const [draft, setDraft] = useState('')
   const [sendError, setSendError] = useState(false)
   const [typing, setTyping] = useState(false)
+  // The signed-in user's real id — the server stamps every message with the
+  // SESSION's userId (see api/handlers/messages.ts), so `isSelf` must compare
+  // against that, never a placeholder: a literal like 'me' matches no row and
+  // every message, the viewer's own included, renders as the other party.
+  const [meId, setMeId] = useState<string | null>(null)
   const listRef = useRef<HTMLDivElement>(null)
   // The hide-typing timeout is held so the next `typing` event RESETS it
   // instead of stacking a second one (an earlier timer would otherwise flip
   // the indicator off while the peer is still typing), and so cleanup can
   // clear a pending one on unmount / channel switch.
   const typingTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  // The channel the CURRENT render belongs to. `send` captures the channel it
+  // was invoked for; comparing the two after the POST's await keeps a late
+  // response (error or success) from writing the room the user already left —
+  // the same room-scoping the effect below enforces for history and typing.
+  const activeChannelRef = useRef(channelId)
+  activeChannelRef.current = channelId
+
+  useEffect(() => {
+    // Own messages align right only once the viewer's id is known. The row
+    // shape is the framework user resource's readSelf (GET /users/me).
+    let cancelled = false
+    fetch('/api/users/me')
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
+      .then((p: { id?: unknown }) => {
+        if (!cancelled && typeof p.id === 'string') setMeId(p.id)
+      })
+      .catch(() => {
+        // Unresolvable (signed out, offline): every bubble renders as the other
+        // party until the fetch succeeds on a later mount — history and the
+        // live feed are unaffected.
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   useEffect(() => {
     // Switching rooms must never show the previous room's history: the state is
@@ -169,6 +197,7 @@ export function ChatPage({ channelId }: { channelId: string }) {
     e.preventDefault()
     if (!draft.trim()) return
     setSendError(false)
+    const sentToChannel = channelId
     // The draft is cleared only after the server accepted the message: a
     // rejected or !ok POST (offline, validation) must keep the user's text in
     // the composer, not silently discard it.
@@ -178,12 +207,18 @@ export function ChatPage({ channelId }: { channelId: string }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ channel_id: channelId, content: draft }),
       })
+      // The user may have switched rooms while the POST was in flight. The
+      // error belongs to the room it was sent FROM (and a late SUCCESS must not
+      // clear the draft they have since typed into the new room's composer) —
+      // the effect on a channel change already reset both.
+      if (activeChannelRef.current !== sentToChannel) return
       if (!res.ok) {
         setSendError(true)
         return
       }
       setDraft('')
     } catch (_error) {
+      if (activeChannelRef.current !== sentToChannel) return
       setSendError(true)
     }
   }
@@ -203,7 +238,7 @@ export function ChatPage({ channelId }: { channelId: string }) {
           <MessageBubble
             key={m.id}
             message={toMessageData(m)}
-            isSelf={m.user_id === CURRENT_USER_ID}
+            isSelf={meId !== null && m.user_id === meId}
           />
         ))}
         {typing && <TypingIndicator />}

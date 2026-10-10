@@ -21,7 +21,7 @@ type CommentRow = {
 
 /**
  * Nest the flat rows (linked by `parentId`) into ThreadTree's `children` tree.
- * This is the step to get right — the API returns a flat list; `<ThreadTree>`
+ * This is the step to get right — the API returns flat rows; `<ThreadTree>`
  * wants a tree. One pass to index by id, one pass to attach each node to its
  * parent (or the roots).
  */
@@ -73,6 +73,13 @@ export function CommentThread({
   // otherwise win, rendering post A's comments under post B (and letting the
   // reader reply to a comment id that belongs to A).
   const loadSeq = useRef(0)
+  // The resource the CURRENT render belongs to. A post/toggle flow that started
+  // on resource A must not refetch into the state of resource B when the user
+  // navigates while the POST is in flight: the ticket below only serializes
+  // against EARLIER requests, so A's trailing refetch would take the NEWEST
+  // ticket and overwrite B's thread with A's.
+  const mountedForRef = useRef({ resourceType, resourceId })
+  mountedForRef.current = { resourceType, resourceId }
 
   const load = useCallback(async () => {
     const ticket = ++loadSeq.current
@@ -82,7 +89,23 @@ export function CommentThread({
     // there for wiring "load more" later; read res.data.total if you need them.)
     const res = await http.get(`/api/${resourceType}/${resourceId}/comments`)
     if (ticket !== loadSeq.current) return // superseded by a newer request
-    setComments(buildTree(unwrapList<CommentRow>(res)))
+    // The list endpoint returns TOP-LEVEL comments ONLY (the resource filters
+    // `parentId IS NULL`; replies live behind
+    // `GET /comments/:commentId/replies`). Without fetching them, the nesting
+    // pass below had nothing to nest — the tree always rendered flat, and a
+    // reply posted here vanished on the refetch that should have shown it.
+    const roots = unwrapList<CommentRow>(res)
+    const replyPages = await Promise.all(
+      roots.map(
+        (root) =>
+          http
+            .get(`/api/comments/${root.id}/replies`)
+            .then((r) => unwrapList<CommentRow>(r))
+            .catch(() => [] as CommentRow[]), // one dead replies page → a flat thread, not a failed load
+      ),
+    )
+    if (ticket !== loadSeq.current) return // superseded while the replies loaded
+    setComments(buildTree([...roots, ...replyPages.flat()]))
   }, [http, resourceType, resourceId])
 
   useEffect(() => {
@@ -123,10 +146,17 @@ export function CommentThread({
       setPostError(true)
       return
     }
+    // The user navigated to another resource while the POST was in flight: the
+    // comment landed on the resource we LEFT, whose state this render no longer
+    // owns — refetching here would take the newest ticket and overwrite the
+    // new resource's thread with the old one's (see mountedForRef).
+    if (mountedForRef.current.resourceType !== resourceType) return
+    if (mountedForRef.current.resourceId !== resourceId) return
     setDraft('')
     setReplyTo(null)
-    // Refetch so the new comment lands in the right place in the tree; a
-    // failed refetch must not reject out of the click handler.
+    // Refetch so the new comment lands in the right place in the tree (the
+    // load above now merges the replies pages the tree nests); a failed
+    // refetch must not reject out of the click handler.
     await load().catch(() => {
       setPostError(true)
     })

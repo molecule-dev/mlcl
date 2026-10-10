@@ -1,5 +1,5 @@
 import { schedule } from '@molecule/api-cron'
-import { deleteById, deleteMany, findMany } from '@molecule/api-database'
+import { deleteById, deleteMany, findMany, updateById } from '@molecule/api-database'
 
 const GRACE_PERIOD_DAYS = 30
 
@@ -30,6 +30,37 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
     })) as { id: string }[]
 
     for (const user of expired) {
+      // THE CANCEL PATH the deletion page promises ("sign back in before then to
+      // cancel"): the DELETE flow signed the user out everywhere (every `devices`
+      // row deleted — see api/handlers/me.ts), and a successful log-in
+      // creates a new device row. So a `devices` row on a user whose grace
+      // period has elapsed IS the sign-back-in the page told them would cancel:
+      // clear the soft-delete marker and leave the account (and its data) alone.
+      // Without this the promise was only words — the job hard-deleted a user
+      // who had done exactly what the page said.
+      let signedBackIn: boolean
+      try {
+        const devices = await findMany<{ id: string }>('devices', {
+          where: [{ field: 'userId', operator: '=', value: user.id }],
+          limit: 1,
+        })
+        signedBackIn = devices.length > 0
+      } catch (err) {
+        // Cannot tell whether they signed back in? DO NOT purge on a guess: the
+        // user retries next run (same policy as the per-purge catches below).
+        console.error('finalize-deletions: sign-back-in check failed', { userId: user.id, err })
+        continue
+      }
+      if (signedBackIn) {
+        try {
+          await updateById('users', user.id, { deleted_at: null })
+          console.log(`finalize-deletions: user ${user.id} signed back in — deletion cancelled`)
+        } catch (err) {
+          console.error('finalize-deletions: deletion cancel failed', { userId: user.id, err })
+        }
+        continue
+      }
+
       // FRAMEWORK credential + session cleanup FIRST. These have NO `ON DELETE CASCADE`,
       // so deleting the users row alone orphans them. `usersSecrets.id` IS the user id
       // (1:1), and it holds `passwordHash` + `twoFactorSecret` — leaving it behind is a

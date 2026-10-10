@@ -36,6 +36,13 @@ export function ReactionBar({
   // still be in flight, and the LATE response would otherwise win — showing
   // another resource's reaction summary under this one.
   const loadSeq = useRef(0)
+  // The resource the CURRENT render belongs to. A toggle that started on
+  // resource A must not resync into B's state when the user navigates while
+  // the POST is in flight: the ticket only serializes against EARLIER
+  // requests, so A's trailing resync would take the NEWEST ticket and
+  // overwrite B's summary with A's.
+  const mountedForRef = useRef({ resourceType, resourceId })
+  mountedForRef.current = { resourceType, resourceId }
 
   const load = useCallback(async () => {
     const ticket = ++loadSeq.current
@@ -84,6 +91,12 @@ export function ReactionBar({
       // component — its `onToggle` prop discards the returned promise, so an
       // escaping rejection is unhandled. Fall through to the reload below.
     }
+    // The user navigated to another resource while the toggle was in flight:
+    // the write landed on the resource we LEFT, and resyncing here would take
+    // the newest ticket and overwrite the new resource's chips with the old
+    // one's summary (see mountedForRef).
+    if (mountedForRef.current.resourceType !== resourceType) return
+    if (mountedForRef.current.resourceId !== resourceId) return
     // Resync from the server either way: chips reflect what actually landed
     // (a toggle that did land is not double-counted by a retry).
     await load().catch(() => {

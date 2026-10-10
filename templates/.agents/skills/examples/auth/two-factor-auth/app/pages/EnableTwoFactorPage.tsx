@@ -6,9 +6,10 @@ import { getClassMap } from '@molecule/app-ui'
 const cm = getClassMap()
 
 // QRImageUrl is returned directly by the API (generated server-side by @molecule/api-two-factor).
+// The enroll body also carries `keyUrl` (the otpauth:// URI behind the QR) — this
+// page renders the QR image and the manual secret, so it keeps only what it shows.
 type EnrollResponse = {
   secret: string
-  keyUrl: string
   QRImageUrl: string
   recoveryCodes: string[]
 }
@@ -48,7 +49,6 @@ export function EnableTwoFactorPage() {
       }
       setEnrollment({
         secret: body.secret,
-        keyUrl: typeof body.keyUrl === 'string' ? body.keyUrl : '',
         QRImageUrl: typeof body.QRImageUrl === 'string' ? body.QRImageUrl : '',
         // The list renders one <li key={code}> per code; a non-string would
         // reach the DOM, and a code repeated in the body would collide with
@@ -76,8 +76,25 @@ export function EnableTwoFactorPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code }),
       })
+      // Every non-2xx answer carries `{ error }` (wrong code 401, bad format /
+      // not enrolled 400, throttled 429) — read it. Collapsing them all into
+      // "Wrong code — try again" told a user whose CORRECT code was refused by
+      // the rate limiter to retype it, the exact mislabel LoginVerifyPage
+      // documents below.
+      const body = (await res.json().catch(() => ({}))) as { error?: string }
+      if (res.status === 401 || res.status === 403) {
+        setError(
+          body.error ?? t('totp.wrongCode', undefined, { defaultValue: 'Wrong code — try again' }),
+        )
+        return
+      }
       if (!res.ok) {
-        setError(t('totp.wrongCode', undefined, { defaultValue: 'Wrong code — try again' }))
+        setError(
+          body.error ??
+            t('totp.verifyFailed', undefined, {
+              defaultValue: 'Could not verify the code — try again shortly.',
+            }),
+        )
         return
       }
       setEnabled(true)

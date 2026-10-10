@@ -39,6 +39,13 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
   // ticket while it stays mounted), so two loads overlap and the LATE response
   // would otherwise win — showing another record's attachments under this one.
   const loadSeq = useRef(0)
+  // The record the CURRENT render belongs to. An upload/delete that started on
+  // record A must not refresh (nor report its error) into record B's state when
+  // the user switches records while the request is in flight: the ticket only
+  // serializes against EARLIER requests, so A's trailing refresh would take the
+  // NEWEST ticket and overwrite B's list with A's.
+  const mountedForRef = useRef(parentId)
+  mountedForRef.current = parentId
 
   const load = useCallback(async () => {
     const ticket = ++loadSeq.current
@@ -91,13 +98,22 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
           )
         }
       }
+      // The user switched records while the upload ran: the files landed on the
+      // record we LEFT, whose state this render no longer owns — refreshing
+      // here would take the newest ticket and render the old record's
+      // attachments under the new one (see mountedForRef).
+      if (mountedForRef.current !== parentId) return
       await load()
     } catch (err: unknown) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : t('attachments.error.upload', {}, { defaultValue: 'Upload failed' }),
-      )
+      // The failure belongs to the record it was uploaded to — a switch since
+      // must not paste this error under the new record's panel.
+      if (mountedForRef.current === parentId) {
+        setError(
+          err instanceof Error
+            ? err.message
+            : t('attachments.error.upload', {}, { defaultValue: 'Upload failed' }),
+        )
+      }
     } finally {
       setUploading(false)
     }

@@ -50,8 +50,15 @@ export function EnablePushButton() {
     try {
       const reg = await navigator.serviceWorker.register('/sw.js')
       const permission = await Notification.requestPermission()
-      if (permission !== 'granted') {
+      if (permission === 'denied') {
         setStatus('denied')
+        return
+      }
+      if (permission !== 'granted') {
+        // 'default' — the prompt was DISMISSED, which is not a denial: the
+        // browser will ask again on the next click. Labelling it "denied" sent
+        // the user to browser settings for a permission that was still one
+        // click away, with the button gone until a remount.
         return
       }
       // Fetch the server's VAPID PUBLIC key (public by design) — the browser needs

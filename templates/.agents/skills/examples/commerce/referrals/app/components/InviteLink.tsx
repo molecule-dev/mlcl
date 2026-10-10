@@ -34,9 +34,16 @@ export function InviteLink() {
     // `res.ok` gates the body: a 401 (signed out) or 500 still resolves with a
     // JSON body (`{ error }`) that carries no `code`, so without this check the
     // page sat on "Loading your invite link…" forever with nothing to read.
+    // The same is true of a 2xx whose body is not an answer — an endpoint with
+    // no fixture answers 200 with an empty object (the mock API server's
+    // unmatchedFixtureResponse) — so a body without a string `code` is treated
+    // like the failure it is, not parked on the loading line.
     fetch('/api/referrals/code')
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
-      .then((body) => setCode(typeof body.code === 'string' ? body.code : null))
+      .then((body) => {
+        if (typeof body.code !== 'string') throw new Error('no code in body')
+        setCode(body.code)
+      })
       .catch(() => {
         setCode(null)
         setLoadFailed(true)

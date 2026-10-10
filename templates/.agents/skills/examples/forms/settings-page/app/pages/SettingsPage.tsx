@@ -87,7 +87,18 @@ export function SettingsPage() {
         setStatus('error')
         return
       }
-      const updated = (await res.json()) as Profile
+      // A 2xx proves the route ACCEPTED the save, not that the body is a
+      // profile: an endpoint with no fixture answers 200 with an empty object
+      // (the mock API server's unmatchedFixtureResponse), and installing that
+      // as the draft blanked the form the moment "Saved" appeared. The values
+      // we sent were accepted either way — fall back to them.
+      const body = (await res.json().catch(() => null)) as Partial<Profile> | null
+      const usable =
+        body &&
+        typeof body.name === 'string' &&
+        typeof body.email === 'string' &&
+        typeof body.timezone === 'string'
+      const updated: Profile = usable ? (body as Profile) : { ...draft }
       setOriginal(updated)
       setDraft(updated)
       setStatus('saved')

@@ -53,8 +53,14 @@ vi.mock('@molecule/app-react', () => ({
 // The bubble/indicator/center/badge are not what is under test — each renders
 // enough text that an assertion can read which rows survived a bad frame.
 vi.mock('@molecule/app-message-bubble-react', () => ({
-  MessageBubble: (props: { message: { body?: string } }) =>
-    createElement('div', { className: 'bubble' }, props.message?.body ?? ''),
+  // The self/other alignment is part of what a frame test can observe: render
+  // it as a prefix so an assertion can tell the viewer's own rows apart.
+  MessageBubble: (props: { message?: { body?: string }; isSelf?: boolean }) =>
+    createElement(
+      'div',
+      { className: 'bubble' },
+      `${props.isSelf === true ? 'self:' : 'other:'}${props.message?.body ?? ''}`,
+    ),
 }))
 vi.mock('@molecule/app-typing-indicator-react', () => ({ TypingIndicator: () => null }))
 vi.mock('@molecule/app-ui-react', () => ({
@@ -123,6 +129,11 @@ class FakeEventSource {
 const originalFetch = globalThis.fetch
 const originalEventSource = (globalThis as { EventSource?: unknown }).EventSource
 
+/** Every fetch() the components made, each with a handle to answer it. */
+const httpRequests = vi.hoisted(
+  () => [] as Array<{ url: string; respond: (body: unknown, status?: number) => void }>,
+)
+
 let container: HTMLElement
 let root: Root
 
@@ -163,10 +174,23 @@ async function frame(index: number, type: string, data: string): Promise<void> {
 
 beforeEach(() => {
   sources = []
+  httpRequests.length = 0
   ;(globalThis as { EventSource?: unknown }).EventSource = FakeEventSource
   // The history / notification loads are not what is under test; leaving them
-  // pending keeps the state purely what the frames below wrote.
-  globalThis.fetch = (() => new Promise(() => {})) as typeof globalThis.fetch
+  // pending keeps the state purely what the frames below wrote. Each request is
+  // still RECORDED, so a test that needs one (the self-id probe) can answer it.
+  globalThis.fetch = ((input: unknown) =>
+    new Promise((resolve) => {
+      httpRequests.push({
+        url: String(input),
+        respond: (body: unknown, status = 200) =>
+          resolve({
+            ok: status >= 200 && status < 300,
+            status,
+            json: async () => body,
+          }),
+      })
+    })) as typeof globalThis.fetch
   // jsdom has no Element.scrollTo — the chat page's auto-scroll effect would
   // otherwise throw where the frame handling is not.
   Element.prototype.scrollTo = (() => {}) as typeof Element.prototype.scrollTo
@@ -230,5 +254,39 @@ describe('a malformed realtime frame must not take the page down', () => {
     // count a frame that carried no notification.
     expect(text()).toContain('n1:')
     expect(text()).toContain('unread:1')
+  })
+})
+
+describe('chat: a bubble is self-aligned by the SESSION user, not a placeholder', () => {
+  it("the viewer's own messages align right once the self id resolves", async () => {
+    await mount(createElement(ChatPage, { channelId: 'c1' }))
+    // The server stamps every message with the session's userId, so `isSelf`
+    // must compare against that id — the shipped 'me' placeholder matched no
+    // row, and every message (the viewer's own included) rendered as the other
+    // party. The page learns the id from the framework's readSelf route.
+    const meRequest = httpRequests.find((r) => r.url.includes('/api/users/me'))
+    if (!meRequest) throw new Error('the chat page never asked who the viewer is')
+    meRequest.respond({ id: 'u-9' })
+    await flush()
+
+    await frame(0, 'message:created', JSON.stringify({ id: 'm1', user_id: 'u-9', content: 'mine' }))
+    await frame(
+      0,
+      'message:created',
+      JSON.stringify({ id: 'm2', user_id: 'u-2', content: 'theirs' }),
+    )
+    expect(text()).toContain('self:mine')
+    expect(text()).toContain('other:theirs')
+  })
+
+  it('an unresolvable self id degrades to other-alignment instead of mislabeling rows', async () => {
+    await mount(createElement(ChatPage, { channelId: 'c1' }))
+    // The self probe fails (signed out, offline): no row may claim self.
+    const meRequest = httpRequests.find((r) => r.url.includes('/api/users/me'))
+    meRequest?.respond({ error: 'unauthorized' }, 401)
+    await flush()
+
+    await frame(0, 'message:created', JSON.stringify({ id: 'm1', user_id: 'u-9', content: 'mine' }))
+    expect(text()).toContain('other:mine')
   })
 })

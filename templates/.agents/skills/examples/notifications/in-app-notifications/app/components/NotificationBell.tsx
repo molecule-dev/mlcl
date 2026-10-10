@@ -72,6 +72,18 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
   const [unread, setUnread] = useState(0)
   const [open, setOpen] = useState(false)
   const panelRef = useRef<HTMLDivElement>(null)
+  // The rows the badge has already counted a read for (this tab's own clicks,
+  // or an SSE echo that landed first). The read endpoint is IDEMPOTENT —
+  // re-reading an already-read row re-broadcasts `notification:read` — and the
+  // broadcast fires for every request, so the badge may only decrement on the
+  // unread→read TRANSITION, never per event: three clicks on a read row would
+  // otherwise drain a badge that still had three unread behind it, with no
+  // resync until a reload.
+  const countedReadRef = useRef<Set<string>>(new Set())
+  // Latest committed rows, for the SSE listener below (events arrive outside
+  // the render that would close over fresher state).
+  const itemsRef = useRef<RawNotification[]>([])
+  itemsRef.current = items
 
   useEffect(() => {
     // Another user's bell must never show THIS user's rows: the state is cleared
@@ -115,7 +127,20 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
       setItems((prev) => [n, ...prev].slice(0, NOTIFICATION_PAGE_SIZE))
       setUnread((u) => u + 1)
     })
-    events.addEventListener('notification:read', () => setUnread((u) => Math.max(0, u - 1)))
+    events.addEventListener('notification:read', (e) => {
+      // Only an unread→read transition this tab has not already counted may
+      // decrement — see countedReadRef. A frame without an id is not a read
+      // receipt at all.
+      const frame = parseNotificationFrame((e as MessageEvent).data)
+      if (!frame || countedReadRef.current.has(frame.id)) return
+      const row = itemsRef.current.find((n) => n.id === frame.id)
+      if (!row || row.read_at !== null) return
+      countedReadRef.current.add(frame.id)
+      setUnread((u) => Math.max(0, u - 1))
+      setItems((prev) =>
+        prev.map((n) => (n.id === frame.id ? { ...n, read_at: new Date().toISOString() } : n)),
+      )
+    })
     events.addEventListener('notification:all-read', () => setUnread(0))
     return () => {
       cancelled = true
@@ -143,6 +168,16 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
     try {
       const res = await fetch(`/api/notifications/${id}/read`, { method: 'POST' })
       if (!res.ok) return
+      // Count the transition HERE (the handler broadcasts, but this tab may
+      // apply it first), and only for a row that was actually unread — clicking
+      // an already-read row must not move the badge. `countedReadRef` then
+      // keeps the SSE echo of THIS write from counting it a second time (the
+      // echo can land before or after this line).
+      if (countedReadRef.current.has(id)) return
+      const row = itemsRef.current.find((n) => n.id === id)
+      if (!row || row.read_at !== null) return
+      countedReadRef.current.add(id)
+      setUnread((u) => Math.max(0, u - 1))
       setItems((prev) =>
         prev.map((n) => (n.id === id ? { ...n, read_at: new Date().toISOString() } : n)),
       )

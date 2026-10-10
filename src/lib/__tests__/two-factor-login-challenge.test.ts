@@ -259,7 +259,7 @@ describe('two-factor-auth — the code step posts to the real log-in route', () 
     await respond('/api/users/log-in', 403, { error: 'Wrong code' })
 
     expect(text()).toContain('Wrong code')
-    expect(text()).toContain('(1 failed attempts)')
+    expect(text()).toContain('(failed attempts: 1)')
   })
 
   it('does not report a throttled challenge as a wrong code', async () => {
@@ -290,7 +290,7 @@ describe('two-factor-auth — the code step posts to the real log-in route', () 
     // navigate: it is another failed attempt, and the code step stays.
     await respond('/api/users/log-in', 200, { twoFactorRequired: true })
 
-    expect(text()).toContain('(1 failed attempts)')
+    expect(text()).toContain('(failed attempts: 1)')
     expect(container.querySelector('[data-mol-id="totp-login-code"]')).not.toBeNull()
   })
 
@@ -303,7 +303,7 @@ describe('two-factor-auth — the code step posts to the real log-in route', () 
     await submit()
     await respond('/api/users/log-in', 206, { twoFactorRequired: true })
 
-    expect(text()).toContain('(1 failed attempts)')
+    expect(text()).toContain('(failed attempts: 1)')
     expect(text()).not.toContain('Wrong code — try again')
   })
 })

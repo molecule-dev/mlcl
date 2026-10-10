@@ -9,11 +9,20 @@ const cm = getClassMap()
  * What the login form must hand this page. The framework mints NO session (and
  * no pending-login handle) when it answers a 2FA challenge — the retry is the
  * SAME `POST /users/log-in` with the credentials AND the code — so the second
- * half of the flow has to carry them:
+ * half of the flow has to carry them, as PROPS on the route element:
  *
  *   const res = await fetch('/api/users/log-in', { method: 'POST', …,
  *     body: JSON.stringify({ email, password }) })
- *   if (res.status === 206) navigate('/login/verify', { state: { email, password } })
+ *   if (res.status === 206) navigate('/login/verify', {
+ *     state: { email, password }, // …then read it in the route element:
+ *   })
+ *   // <Route path="/login/verify" element={
+ *   //   <LoginVerifyPage email={location.state.email} password={location.state.password} />
+ *   // } />
+ *
+ * This component reads PROPS only — it never calls `useLocation()` itself, so
+ * router state alone will not reach it: pass the values down from the route
+ * element or the credentials are dropped and every verify fails 403.
  */
 export interface LoginVerifyPageProps {
   /** The email submitted on the password step. */
@@ -118,7 +127,7 @@ export function LoginVerifyPage({ email, password }: LoginVerifyPageProps) {
         <p className={cm.cn(cm.textError)}>
           {error}
           {attempts > 0
-            ? ` ${t('totp.attempts', { count: attempts }, { defaultValue: '({{count}} failed attempts)' })}`
+            ? ` ${t('totp.attempts', { count: attempts }, { defaultValue: '(failed attempts: {{count}})' })}`
             : ''}
         </p>
       ) : null}

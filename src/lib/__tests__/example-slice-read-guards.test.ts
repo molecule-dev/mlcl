@@ -512,9 +512,12 @@ describe('example slices — a request’s answer is validated before it is trus
     await respondHttp('/posts/b/comments', {
       data: [{ id: 'b1', userId: 'u', parentId: null, body: 'B comment', createdAt: 'x' }],
     })
+    // The tree's reply pages load per root before anything renders.
+    await respondHttp('/comments/b1/replies', { data: [] })
     expect(text()).toContain('B comment')
 
-    // Post A's slower response must not render under post B.
+    // Post A's slower response must not render under post B. It is dropped at
+    // the ticket — before its per-root reply page would ever load.
     await respondHttp('/posts/a/comments', {
       data: [{ id: 'a1', userId: 'u', parentId: null, body: 'A comment', createdAt: 'x' }],
     })
@@ -601,6 +604,18 @@ describe('example slices — a request’s answer is validated before it is trus
     // A 500 body carries no `code`, so the component used to render
     // "Loading your invite link…" forever.
     await respond('/api/referrals/code', 500, { error: 'boom' })
+    expect(text()).toContain('Could not load your invite link')
+    expect(text()).not.toContain('Loading your invite link')
+  })
+
+  it('stops claiming to load the invite link when a 2xx answer carries no code', async () => {
+    await mount(createElement(InviteLink, {}))
+
+    // An endpoint with no fixture answers 200 `{}`. `typeof body.code !==
+    // 'string'` used to resolve to `setCode(null)` with NO failure flag — the
+    // component kept rendering "Loading your invite link…" forever, with
+    // nothing left in flight to ever change it.
+    await respond('/api/referrals/code', 200, {})
     expect(text()).toContain('Could not load your invite link')
     expect(text()).not.toContain('Loading your invite link')
   })
@@ -734,6 +749,40 @@ describe('example slices — a 2xx body is validated before it becomes state', (
     expect(container.querySelector('img')?.getAttribute('src')).toBe('/api/upload/avatar/abc')
     expect(text()).not.toContain('Upload failed')
   })
+
+  it('keeps the settings form filled when the save answer carries no profile', async () => {
+    await mount(createElement(SettingsPage, {}))
+    await respond('/api/me', 200, {
+      id: 'u1',
+      name: 'Ada',
+      email: 'ada@test.dev',
+      timezone: 'UTC',
+    })
+    const nameInput = container.querySelector('form input') as HTMLInputElement
+    expect(nameInput.value).toBe('Ada')
+
+    // Edit, then save. The PATCH succeeds (2xx) but its body is `{}` — the
+    // mock API server's unmatchedFixtureResponse shape.
+    await act(async () => {
+      const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')?.set
+      setter?.call(nameInput, 'Grace')
+      nameInput.dispatchEvent(new Event('input', { bubbles: true }))
+    })
+    await flush()
+    await act(async () => {
+      container
+        .querySelector('form')
+        ?.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }))
+    })
+    await flush()
+
+    await respond('/api/me', 200, {})
+    // The empty body must not be installed as the profile: that blanked the
+    // form the moment "Saved" appeared. The values the server accepted — the
+    // ones the form already holds — stand in instead.
+    expect(text()).toContain('Saved')
+    expect((container.querySelector('form input') as HTMLInputElement).value).toBe('Grace')
+  })
 })
 
 describe('example slices — a live feed does not grow a list without bound', () => {
@@ -819,5 +868,117 @@ describe('example slices — a live feed does not grow a list without bound', ()
     expect(rows()[199]).toBe('live 260')
     expect(rows()[0]).toBe('live 61')
     expect(rows().some((row) => row.startsWith('history'))).toBe(false)
+  })
+})
+
+describe('example slices — the message a failure deserves', () => {
+  /** The bell's aria-label carries the live unread count the badge renders. */
+  const badgeLabel = (): string =>
+    container.querySelector('button')?.getAttribute('aria-label') ?? ''
+
+  it('a notification read twice (idempotent endpoint, re-broadcast) decrements the badge once', async () => {
+    await mount(createElement(NotificationBellWidget, { userId: 'u-9' }))
+    await respond('/api/notifications', 200, {
+      items: [
+        {
+          id: 'n-1',
+          type: 'comment',
+          actor_name: 'A',
+          subject_title: 'S',
+          created_at: 't',
+          read_at: null,
+        },
+        {
+          id: 'n-2',
+          type: 'comment',
+          actor_name: 'A',
+          subject_title: 'S',
+          created_at: 't',
+          read_at: null,
+        },
+      ],
+      unread: 2,
+    })
+    expect(badgeLabel()).toBe('Notifications (2 unread)')
+
+    // The read endpoint is idempotent and the handler re-broadcasts for every
+    // request: clicking an already-read row (or a second tab reading the same
+    // row) delivers `notification:read` for a row that is already read. Each
+    // event used to decrement, so three stray events drained a badge that
+    // still had unread rows behind it.
+    await emitSse('notification:read', { id: 'n-1' })
+    expect(badgeLabel()).toBe('Notifications (1 unread)')
+
+    await emitSse('notification:read', { id: 'n-1' })
+    await emitSse('notification:read', { id: 'n-1' })
+    expect(badgeLabel()).toBe('Notifications (1 unread)')
+
+    // The other row's read still counts — the transition, not the event.
+    await emitSse('notification:read', { id: 'n-2' })
+    expect(badgeLabel()).toBe('Notifications (0 unread)')
+  })
+
+  it('a 429 verify answer is not reported as "Wrong code" — the server says why', async () => {
+    await mount(createElement(EnableTwoFactorPage, {}))
+    // The enroll control is the page's only button at this point.
+    await act(async () => {
+      container.querySelector('button')?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+    await respond('/api/2fa/enroll', 200, {
+      secret: 'JBSWY3DPEHPK3PXP',
+      QRImageUrl: 'data:image/png;base64,AAAA',
+      recoveryCodes: ['code-1'],
+    })
+
+    const codeInput = container.querySelector('input') as HTMLInputElement
+    await act(async () => {
+      const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')?.set
+      setter?.call(codeInput, '123456')
+      codeInput.dispatchEvent(new Event('input', { bubbles: true }))
+    })
+    await flush()
+    await act(async () => {
+      container
+        .querySelector('form')
+        ?.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }))
+    })
+    await flush()
+
+    // The handler rate-limits /2fa/verify per user; the throttle's 429 body
+    // names the throttle. Collapsing every non-2xx into "Wrong code — try
+    // again" told the user to retype a code that was probably fine.
+    await respond('/api/2fa/verify', 429, { error: 'Too many attempts — try again shortly.' })
+    expect(text()).toContain('Too many attempts — try again shortly.')
+    expect(text()).not.toContain('Wrong code')
+  })
+
+  it('a dismissed push prompt stays enable-able — it is not a denial', async () => {
+    Object.defineProperty(navigator, 'serviceWorker', {
+      configurable: true,
+      value: { register: async () => ({ pushManager: {} }) },
+    })
+    Object.defineProperty(window, 'PushManager', { configurable: true, value: function P() {} })
+    Object.defineProperty(window, 'Notification', {
+      configurable: true,
+      value: {
+        permission: 'default',
+        // requestPermission resolves 'default' when the user DISMISSES the
+        // prompt — a state distinct from 'denied', and one the browser will
+        // re-ask for on the next click.
+        requestPermission: async () => 'default',
+      },
+    })
+
+    await mount(createElement(EnablePushButton, {}))
+    await act(async () => {
+      container.querySelector('button')?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+
+    // The enable button is still there to click again, and the page does not
+    // claim the browser settings need changing.
+    expect(text()).toContain('Enable notifications')
+    expect(text()).not.toContain('Push notifications were denied')
   })
 })

@@ -116,7 +116,21 @@ vi.mock('@molecule/app-pagination-bar-react', () => ({
 }))
 
 // The dropzone is not what is under test — the panel's own list render is.
-vi.mock('@molecule/app-file-dropzone-react', () => ({ FileDropzone: () => null }))
+vi.mock('@molecule/app-file-dropzone-react', () => ({
+  // One button hands the panel a File through the real `onFiles` prop, so a
+  // test can drive an upload.
+  FileDropzone: (props: { onFiles: (files: File[]) => void; disabled?: boolean }) =>
+    createElement(
+      'button',
+      {
+        type: 'button',
+        'aria-label': 'drop-files',
+        disabled: props.disabled,
+        onClick: () => props.onFiles([new File(['x'], 'new.txt', { type: 'text/plain' })]),
+      },
+      'drop',
+    ),
+}))
 
 const { OrdersPage } =
   (await import('../../../templates/.agents/skills/examples/data-display/sortable-table/app/pages/OrdersPage')) as {
@@ -394,6 +408,38 @@ describe('a superseded fetch response must not win', () => {
     expect(ratingValue()).toBe('5')
   })
 
+  it('a rating that lands after the subject changed does not repaint the old average', async () => {
+    await mount(createElement(RatingWidget, { subjectId: 'first', canRate: true }))
+    await respond('/api/ratings/avg/first', 200, { average: 2.0, count: 1 })
+
+    // Rate the FIRST subject — the POST parks — then switch subject.
+    await clickRate(4)
+    await rerender(createElement(RatingWidget, { subjectId: 'second', canRate: true }))
+    await respond('/api/ratings/avg/second', 200, { average: 3.0, count: 5 })
+    expect(text()).toContain('3.0 (5 reviews)')
+
+    // The parked POST lands now. The rating belongs to the subject we LEFT: a
+    // trailing summary refresh for it must not take the newest ticket and
+    // repaint first's average under second.
+    await respondTo('/api/ratings', 200, {})
+
+    // In the unguarded flow the trailing refresh for 'first' is now pending —
+    // answer it, so the test is deterministic in both worlds, and the
+    // assertion below is what catches the bug.
+    for (const request of pending.requests.filter(
+      (r) => !r.answered && r.url.includes('/api/ratings/avg/first'),
+    )) {
+      request.answered = true
+      await act(async () => {
+        request.respond(200, { average: 5.0, count: 1 })
+      })
+    }
+    await flush()
+
+    expect(text()).toContain('3.0 (5 reviews)')
+    expect(text()).not.toContain('5.0')
+  })
+
   it('clears the previous record’s attachments when the record changes', async () => {
     await mount(createElement(AttachmentsPanel, { parentId: 'a' }))
     await respond('parent_id=a', 200, [attachment('a1', 'a.txt')])
@@ -419,6 +465,46 @@ describe('a superseded fetch response must not win', () => {
 
     // A's superseded response lands after B's and must not fill the panel.
     await respond('parent_id=a', 200, [attachment('a1', 'a.txt')])
+    expect(text()).toContain('b.txt')
+    expect(text()).not.toContain('a.txt')
+  })
+
+  it('an upload that lands after the record changed does not repaint the old record’s files', async () => {
+    await mount(createElement(AttachmentsPanel, { parentId: 'a' }))
+    await respond('parent_id=a', 200, [attachment('a1', 'a.txt')])
+    expect(text()).toContain('a.txt')
+
+    // An upload starts on record A and parks mid-POST…
+    await act(async () => {
+      container
+        .querySelector('button[aria-label="drop-files"]')
+        ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+
+    // …and the user switches to record B while it is in flight.
+    await rerender(createElement(AttachmentsPanel, { parentId: 'b' }))
+    await respond('parent_id=b', 200, [attachment('b1', 'b.txt')])
+    expect(text()).toContain('b.txt')
+
+    // The upload POST then lands. The files belong to record A: a trailing
+    // refresh of A's list must not take the newest ticket and repaint A's
+    // files under B's panel.
+    await respondTo('/api/attachments?parent_id=a', 200, { id: 'a2' })
+
+    // In the unguarded flow the trailing refresh for A is now pending — answer
+    // it, so the test is deterministic in both worlds, and the assertion below
+    // is what catches the bug.
+    for (const request of pending.requests.filter(
+      (r) => !r.answered && r.url.includes('parent_id=a') && r.url.includes('attachments?'),
+    )) {
+      request.answered = true
+      await act(async () => {
+        request.respond(200, [attachment('a1', 'a.txt')])
+      })
+    }
+    await flush()
+
     expect(text()).toContain('b.txt')
     expect(text()).not.toContain('a.txt')
   })

@@ -6,11 +6,13 @@ import { getClassMap } from '@molecule/app-ui'
 const cm = getClassMap()
 
 type Status = 'verifying' | 'success' | 'expired' | 'invalid' | 'resent'
+/** Why the last resend failed, if it did. */
+type ResendFailure = 'failed' | 'signedOut'
 
 export function VerifyEmailPage() {
   const { t } = useTranslation()
   const [status, setStatus] = useState<Status>('verifying')
-  const [resendFailed, setResendFailed] = useState(false)
+  const [resendFailure, setResendFailure] = useState<ResendFailure | null>(null)
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -29,18 +31,22 @@ export function VerifyEmailPage() {
   }, [])
 
   async function resend(): Promise<void> {
-    setResendFailed(false)
+    setResendFailure(null)
     // A rejected resend (offline, server restart) must not reject out of the
     // click handler with the button silently doing nothing — surface it.
     try {
       const res = await fetch('/api/verify/request', { method: 'POST' })
       if (!res.ok) {
-        setResendFailed(true)
+        // The endpoint is session-gated, and an expired-link page is commonly
+        // opened signed out (a new device, a cleared cookie jar). "Try again"
+        // then sends the user into a retry loop that cannot ever succeed —
+        // name the sign-in requirement instead, like DeleteAccountPage does.
+        setResendFailure(res.status === 401 ? 'signedOut' : 'failed')
         return
       }
       setStatus('resent')
     } catch (_error) {
-      setResendFailed(true)
+      setResendFailure('failed')
     }
   }
 
@@ -69,7 +75,14 @@ export function VerifyEmailPage() {
           <button onClick={resend} className={cm.button({ variant: 'solid' })}>
             {t('verifyEmail.resend', undefined, { defaultValue: 'Send a new link' })}
           </button>
-          {resendFailed ? (
+          {resendFailure === 'signedOut' ? (
+            <p className={cm.textError}>
+              {t('verifyEmail.resendSignedOut', undefined, {
+                defaultValue: 'Your session has expired — sign in, then resend the link.',
+              })}
+            </p>
+          ) : null}
+          {resendFailure === 'failed' ? (
             <p className={cm.textError}>
               {t('verifyEmail.resendFailed', undefined, {
                 defaultValue: 'Could not send a new link — try again.',

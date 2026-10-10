@@ -40,6 +40,7 @@ vi.mock('@molecule/api-cron', () => ({
 
 const database = vi.hoisted(() => ({
   findMany: vi.fn(),
+  updateById: vi.fn(),
   deleteById: vi.fn(),
   deleteMany: vi.fn(),
 }))
@@ -92,20 +93,25 @@ function matches(row: Row, cond: Cond): boolean {
 }
 
 let users: Row[]
+/** The `devices` rows the job's sign-back-in probe finds, per test. */
+let devices: Array<{ id: string; userId: string }>
 
 beforeEach(() => {
   cron.handler = null
   users = []
+  devices = []
   vi.clearAllMocks()
   // The mocked store: `users` answers the job's WHERE clause with SQL semantics;
   // every other table is empty and reports its deletes as affected rows.
   database.findMany.mockImplementation(
     async (table: string, options: { where?: Cond[] }): Promise<unknown[]> => {
+      if (table === 'devices') return devices
       if (table !== 'users') return []
       const where = options.where ?? []
       return users.filter((row) => where.every((cond) => matches(row, cond)))
     },
   )
+  database.updateById.mockResolvedValue({ data: null, affected: 1 })
   database.deleteById.mockResolvedValue({ data: null, affected: 1 })
   database.deleteMany.mockResolvedValue({ data: [], affected: 1 })
 })
@@ -142,5 +148,33 @@ describe('finalize-deletions — the expired-user filter must actually match', (
 
     expect(database.deleteById).not.toHaveBeenCalled()
     expect(database.deleteMany).not.toHaveBeenCalled()
+  })
+
+  it('cancels the deletion of a user who signed back in — the page’s promise — instead of purging them', async () => {
+    // Past the grace period, but the DELETE flow had signed them out everywhere
+    // (every devices row deleted) and a log-in created a new one — exactly what
+    // DeleteAccountPage's copy says cancels the deletion. Before this path
+    // existed, the job hard-deleted the account of a user who had done exactly
+    // what the page told them to do.
+    users = [{ id: 'u-returned', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
+    devices = [{ id: 'd1', userId: 'u-returned' }]
+
+    await runJob()
+
+    // The soft-delete marker is cleared — the documented cancel — and nothing
+    // was purged.
+    expect(database.updateById).toHaveBeenCalledWith('users', 'u-returned', { deleted_at: null })
+    expect(database.deleteById).not.toHaveBeenCalled()
+    expect(database.deleteMany).not.toHaveBeenCalled()
+  })
+
+  it('still hard-deletes a user past the grace period who never signed back in', async () => {
+    users = [{ id: 'u-gone', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
+    devices = []
+
+    await runJob()
+
+    expect(database.updateById).not.toHaveBeenCalled()
+    expect(database.deleteById).toHaveBeenCalledWith('users', 'u-gone')
   })
 })
