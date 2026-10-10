@@ -45,7 +45,8 @@ function registryFilePath(): string {
 // ============================================================================
 
 /**
- * The parsed registry, keyed by the path it was parsed FROM.
+ * The derived `InferredPackage[]`, keyed by the parsed registry it came FROM
+ * (plus the path that parse belongs to).
  *
  * The path is part of the key because {@link registryFilePath} is resolved per
  * call — the module's own contract is that a `MLCL_REGISTRY_PATH` set after
@@ -53,8 +54,14 @@ function registryFilePath(): string {
  * test that points a reader at an alternate file) is respected. A bare
  * `InferredPackage[] | null` answered the SECOND path from the FIRST path's
  * cache: the caller asked one file and silently got another registry.
+ *
+ * `source` is the registry OBJECT {@link rawRegistryAt} handed back, so this
+ * cache follows that one's invalidation instead of tracking the file itself:
+ * one read, one `JSON.parse` and one zod validation of the fleet-sized registry
+ * per (path, mtime, size) — shared by every reader in the process, instead of
+ * one parse per READER (see {@link rawRegistryAt}).
  */
-let _cache: { path: string; packages: InferredPackage[] } | null = null
+let _cache: { source: Registry; path: string; packages: InferredPackage[] } | null = null
 
 function resolveMoleculeDir(): string {
   if (process.env.MOLECULE_PACKAGES_DIR) {
@@ -64,9 +71,8 @@ function resolveMoleculeDir(): string {
   return join(__dirname, '..', '..', '..', 'molecule')
 }
 
-function loadFromRegistry(): InferredPackage[] {
-  const raw = readFileSync(registryFilePath(), 'utf-8')
-  const registry = RegistrySchema.parse(JSON.parse(raw))
+/** Derive the `InferredPackage[]` view of an already-parsed registry. */
+function derivePackages(registry: Registry): InferredPackage[] {
   const moleculeDir = resolveMoleculeDir()
 
   return Object.entries(registry.packages)
@@ -89,12 +95,28 @@ function loadFromRegistry(): InferredPackage[] {
 /**
  * Load all packages for a given project type.
  *
+ * The returned packages are derived from {@link rawRegistryAt} — the single
+ * (path, mtime, size)-keyed parse of the registry file — so a process that
+ * reads both this and any {@link getRawRegistry} accessor (`loadAppFrameworks`,
+ * `getMoleculeVersion`, …) parses the file once, not once per reader.
+ *
+ * A MISSING registry file throws here (as it always has): an empty package list
+ * is a valid registry, so callers cannot tell "no fleet" from "no registry
+ * file", and every caller treats an empty list as a legitimate answer.
+ *
  * @param projectType - 'api' or 'app' (optional — returns all if omitted)
  */
 export function loadRegistry(projectType?: 'api' | 'app'): InferredPackage[] {
   const path = registryFilePath()
-  if (!_cache || _cache.path !== path) {
-    _cache = { path, packages: loadFromRegistry() }
+  const { registry, present } = rawRegistryAt(path)
+  if (!present) {
+    // Loud, as the readFileSync ENOENT this replaced was: mlcl without its
+    // registry is a broken install, and silently answering "no packages" would
+    // turn every resolution failure into "nothing to do".
+    throw new Error(`Registry not found: ${path}`)
+  }
+  if (!_cache || _cache.source !== registry || _cache.path !== path) {
+    _cache = { source: registry, path, packages: derivePackages(registry) }
   }
 
   const packages = _cache.packages
@@ -268,27 +290,45 @@ const RAW_REGISTRY_CACHE_LIMIT = 4
 const rawRegistryCache = new Map<string, { key: string; registry: Registry }>()
 
 /**
- * Get the raw registry data (for AI context building).
+ * The parsed registry and whether the FILE was there.
+ *
+ * THE single read + `JSON.parse` + zod validation of the registry file: every
+ * reader in this module goes through here, so a process pays for the
+ * fleet-sized file once per (path, mtime, size) no matter how many accessors
+ * it touches. `present` separates "the file is missing" from "the registry is
+ * empty": {@link getRawRegistry} answers an empty registry for a missing file
+ * (its callers only ever read an optional section), while
+ * {@link loadRegistry} must fail loudly — an empty package list is a valid
+ * registry, so it cannot stand in for a broken install.
+ *
+ * @param path - Registry file path (already resolved from the env override).
+ * @returns The parsed registry, and whether the file existed.
  */
-export function getRawRegistry(): Registry {
-  const path = registryFilePath()
+function rawRegistryAt(path: string): { registry: Registry; present: boolean } {
   let stat: { mtimeMs: number; size: number }
   try {
     stat = statSync(path)
   } catch (_error) {
-    // No registry file at this path — same answer as before the cache existed.
-    return { version: 1, packages: {} }
+    // No registry file at this path — the empty registry, flagged as absent.
+    return { registry: { version: 1, packages: {} }, present: false }
   }
   const key = `${stat.mtimeMs}:${stat.size}`
   const hit = rawRegistryCache.get(path)
-  if (hit && hit.key === key) return hit.registry
+  if (hit && hit.key === key) return { registry: hit.registry, present: true }
   const registry = RegistrySchema.parse(JSON.parse(readFileSync(path, 'utf-8')))
   if (rawRegistryCache.size >= RAW_REGISTRY_CACHE_LIMIT && !rawRegistryCache.has(path)) {
     const oldest = rawRegistryCache.keys().next().value
     if (oldest !== undefined) rawRegistryCache.delete(oldest)
   }
   rawRegistryCache.set(path, { key, registry })
-  return registry
+  return { registry, present: true }
+}
+
+/**
+ * Get the raw registry data (for AI context building).
+ */
+export function getRawRegistry(): Registry {
+  return rawRegistryAt(registryFilePath()).registry
 }
 
 /**

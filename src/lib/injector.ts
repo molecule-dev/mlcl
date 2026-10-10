@@ -2102,15 +2102,24 @@ export function setupEntitlements(): void {
     })
   }
 
-  // Generate smoke tests
+  // Generate smoke tests.
+  //
+  // BOTH smoke tests need the same `vi.mock()` block over the same packages,
+  // and the AI path (generateMoleculeViMocksAI) is a METERED request per call —
+  // generating it inside each test builder sent the same request twice (same
+  // packages, same registry mock data, same task), paying a second model call
+  // and its latency on every injection. It is built ONCE here and handed to
+  // both: one request per synthesis, and the two files can never disagree about
+  // how a package is mocked.
+  const moleculeMocks = await generateMoleculeViMocks(allMolecules, resourcePlans)
   files.push({
     action: 'create',
     targetPath: join(projectPath, 'src', '__tests__', 'server.test.ts'),
-    content: await generateServerSmokeTest(allMolecules, resourcePlans, registryPackages),
+    content: generateServerSmokeTest(allMolecules, registryPackages, moleculeMocks),
     description: 'Generate server smoke tests',
   })
 
-  const routeTestContent = await generateRouteSmokeTest(routablePlans, allMolecules)
+  const routeTestContent = generateRouteSmokeTest(routablePlans, moleculeMocks)
   if (routeTestContent) {
     files.push({
       action: 'create',
@@ -3470,14 +3479,17 @@ function generateMoleculeViMocksHeuristic(
  * - Server creates without crashing
  * - Health endpoint responds
  * - Exports are correct
+ *
+ * @param moleculeMocks - The `vi.mock()` block for every @molecule/* package,
+ *   built ONCE per synthesis by the caller (see synthesizeProjectFiles) — the
+ *   AI-backed builder is a metered request, so neither smoke test may rebuild
+ *   it.
  */
-async function generateServerSmokeTest(
+function generateServerSmokeTest(
   allMolecules: string[],
-  resourcePlans: InjectionPlan[] = [],
   registryPackages?: InferredPackage[],
-): Promise<string> {
-  const moleculeMocks = await generateMoleculeViMocks(allMolecules, resourcePlans)
-
+  moleculeMocks = '',
+): string {
   // Discover installed middleware from registry by type — plus router-factory
   // RESOURCES (e.g. api-resource-invoice) that mount as route sets via their
   // registry middlewareMountPath instead of the requestHandlerMap convention.
@@ -3547,14 +3559,14 @@ describe('router', () => {
  * Generate route smoke test that verifies:
  * - Each resource wrapper exports requestHandlerMap
  * - requestHandlerMap has expected handler keys
+ *
+ * @param moleculeMocks - The `vi.mock()` block for every @molecule/* package,
+ *   built ONCE per synthesis by the caller (see synthesizeProjectFiles) — the
+ *   AI-backed builder is a metered request, so neither smoke test may rebuild
+ *   it.
  */
-async function generateRouteSmokeTest(
-  resourcePlans: InjectionPlan[],
-  allMolecules: string[],
-): Promise<string | null> {
+function generateRouteSmokeTest(resourcePlans: InjectionPlan[], moleculeMocks = ''): string | null {
   if (resourcePlans.length === 0) return null
-
-  const moleculeMocks = await generateMoleculeViMocks(allMolecules, resourcePlans)
 
   const lines: string[] = []
 
