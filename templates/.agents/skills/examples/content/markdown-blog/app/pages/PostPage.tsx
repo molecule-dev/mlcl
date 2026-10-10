@@ -19,10 +19,29 @@ export function PostPage({ slug }: { slug: string }) {
   const [notFound, setNotFound] = useState(false)
 
   useEffect(() => {
+    // The slug can change while this component stays mounted (navigating from
+    // one post to another). Two things follow from that:
+    //
+    // - Reset BOTH outcomes up front. `notFound` used to be set once and never
+    //   cleared, so after a 404 the very next (valid) post still rendered "Post
+    //   not found" — and the previous post's body stayed on screen until the new
+    //   one loaded.
+    // - Drop the superseded response. An older post's request can resolve after
+    //   the newer one's, which would render the wrong post under the current URL.
+    let cancelled = false
+    setPost(null)
+    setNotFound(false)
     fetch(`/api/posts/${slug}`)
       .then((r) => (r.ok ? r.json() : Promise.reject(r)))
-      .then(setPost)
-      .catch(() => setNotFound(true))
+      .then((loaded: Post) => {
+        if (!cancelled) setPost(loaded)
+      })
+      .catch(() => {
+        if (!cancelled) setNotFound(true)
+      })
+    return () => {
+      cancelled = true
+    }
   }, [slug])
 
   // Render markdown to sanitised HTML via the bonded provider.

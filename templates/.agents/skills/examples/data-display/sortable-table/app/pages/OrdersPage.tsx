@@ -61,6 +61,14 @@ export function OrdersPage() {
   const [statusFilter, setStatusFilter] = useState<string | null>(null)
 
   useEffect(() => {
+    // A page/sort/filter change starts a NEW request while the previous one may
+    // still be in flight (two quick "Next" clicks, a filter click mid-load).
+    // Without this guard the LATE response wins: the older page's rows land
+    // after the newer page's, so the table shows page 1 while the paginator
+    // (driven by `pageIndex`) reads page 2 — and the stale response's handler
+    // clears `loading` for the request the user is still waiting on. Same guard
+    // as the paginated-user-list example's page.
+    let cancelled = false
     setLoading(true)
     const params = new URLSearchParams({
       limit: String(PAGE_SIZE),
@@ -72,10 +80,16 @@ export function OrdersPage() {
     fetch(`/api/orders?${params.toString()}`)
       .then((r) => r.json())
       .then((data: Page) => {
+        if (cancelled) return
         setPage(data)
         setLoading(false)
       })
-      .catch(() => setLoading(false))
+      .catch(() => {
+        if (!cancelled) setLoading(false)
+      })
+    return () => {
+      cancelled = true
+    }
   }, [pageIndex, sort, statusFilter])
 
   const handleSort = (next: { field: string; dir: SortDir }): void => {

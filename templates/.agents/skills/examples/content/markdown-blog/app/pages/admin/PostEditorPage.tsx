@@ -1,4 +1,4 @@
-import { type FormEvent, useEffect, useMemo, useState } from 'react'
+import { type FormEvent, useEffect, useMemo, useRef, useState } from 'react'
 
 import { requireProvider } from '@molecule/app-markdown'
 import { useTranslation } from '@molecule/app-react'
@@ -43,11 +43,29 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
   const [error, setError] = useState<string | null>(null)
 
   // Edit mode: load the post's current values so the author edits, not clobbers.
+  const loadedSlug = useRef<string | null>(null)
   useEffect(() => {
     if (!editingSlug) return
+    // Load each slug ONCE. This effect also re-runs when `t` changes identity (a
+    // locale switch — see useTranslation), and an unguarded reload there would
+    // discard the author's unsaved typing by refilling the form from the server.
+    if (loadedSlug.current === editingSlug) return
+    // Entering a different post: go back to the loading state and forget the
+    // PREVIOUS post's id, so a save during the load cannot PUT the old post with
+    // the new one's half-loaded fields.
+    setStatus('loading')
+    setPostId(null)
+    // A superseded load must not populate the form: an older post's response can
+    // land after a newer one's and refill the editor with the wrong content.
+    let cancelled = false
     fetch(`/api/posts/${editingSlug}`)
       .then((r) => (r.ok ? r.json() : Promise.reject(r)))
       .then((post: LoadedPost) => {
+        if (cancelled) return
+        // Recorded only once the values actually landed — an in-flight load that
+        // a re-run supersedes (a locale switch) must not be marked done, or the
+        // form would sit on "Loading…" with nothing left to fill it.
+        loadedSlug.current = editingSlug
         setPostId(post.id)
         setTitle(post.title)
         setSlug(post.slug)
@@ -57,11 +75,15 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
         setStatus('idle')
       })
       .catch(() => {
+        if (cancelled) return
         setError(
           t('postEditor.loadFailed', undefined, { defaultValue: 'Could not load this post' }),
         )
         setStatus('error')
       })
+    return () => {
+      cancelled = true
+    }
   }, [editingSlug, t])
 
   // Auto-suggest a slug from the title until the author edits the slug directly.

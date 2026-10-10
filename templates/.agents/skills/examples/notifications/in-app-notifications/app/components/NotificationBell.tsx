@@ -25,11 +25,21 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
   const panelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    // Another user's bell must never show THIS user's rows: the state is cleared
+    // up front (the load below fills it) instead of leaving the previous
+    // subscription's items and unread count on screen.
+    setItems([])
+    setUnread(0)
+    // A `userId` change starts a NEW load while the previous one may still be in
+    // flight; without this guard the LATE response wins and the bell shows the
+    // other user's notifications.
+    let cancelled = false
     fetch('/api/notifications')
       .then((r) => r.json())
       // Coerce the body to the state's shape: a 500's `{ error }` JSON would
       // set items to undefined and crash the render's items.map.
       .then((p) => {
+        if (cancelled) return
         setItems(Array.isArray(p.items) ? p.items : [])
         setUnread(typeof p.unread === 'number' ? p.unread : 0)
       })
@@ -49,7 +59,10 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
     })
     events.addEventListener('notification:read', () => setUnread((u) => Math.max(0, u - 1)))
     events.addEventListener('notification:all-read', () => setUnread(0))
-    return () => events.close()
+    return () => {
+      cancelled = true
+      events.close()
+    }
   }, [userId])
 
   // Close panel when clicking outside

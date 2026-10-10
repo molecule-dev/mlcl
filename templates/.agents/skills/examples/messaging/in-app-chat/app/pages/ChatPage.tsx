@@ -41,12 +41,26 @@ export function ChatPage({ channelId }: { channelId: string }) {
   const typingTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
+    // Switching rooms must never show the previous room's history: the state is
+    // cleared up front (the fetch below fills it) instead of leaving room A's
+    // messages on screen under room B.
+    setMessages([])
+    // A channel switch starts a NEW history request while the previous one may
+    // still be in flight. Without this guard the LATE response wins and room A's
+    // history is rendered under room B. Same guard as the paginated-user-list
+    // example's page.
+    let cancelled = false
     // Coerce the body to an array: a 500's `{ error }` JSON (or any non-list
     // payload) would otherwise reach the render and crash `messages.map`.
     fetch(`/api/messages?channel_id=${channelId}`)
       .then((r) => r.json())
-      .then((body) => setMessages(Array.isArray(body) ? body : []))
-      .catch(() => setMessages([])) // a failed history load shows an empty room; SSE still delivers live messages
+      .then((body) => {
+        if (!cancelled) setMessages(Array.isArray(body) ? body : [])
+      })
+      .catch(() => {
+        // A failed history load shows an empty room; SSE still delivers live messages.
+        if (!cancelled) setMessages([])
+      })
 
     // Join the room via the `?room=` query — the SSE bond's subscribe protocol.
     // (A `/channel:${id}` path SEGMENT does NOT join the room and never matches the
@@ -68,6 +82,7 @@ export function ChatPage({ channelId }: { channelId: string }) {
       typingTimer.current = setTimeout(() => setTyping(false), 2000)
     })
     return () => {
+      cancelled = true
       events.close()
       // No timer outlives the room: without this, a `typing` event that
       // arrived just before unmount (or a channel switch) fires its timeout
