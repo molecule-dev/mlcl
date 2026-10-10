@@ -60,8 +60,20 @@ function registryFilePath(): string {
  * one read, one `JSON.parse` and one zod validation of the fleet-sized registry
  * per (path, mtime, size) — shared by every reader in the process, instead of
  * one parse per READER (see {@link rawRegistryAt}).
+ *
+ * `moleculeDir` is part of the key for the SAME reason `path` is: the derived
+ * entries carry `path: join(moleculeDir, entry.path)`, and
+ * {@link resolveMoleculeDir} reads `MOLECULE_PACKAGES_DIR` per call — so a
+ * `MOLECULE_PACKAGES_DIR` set after a first load must re-derive, or the second
+ * caller is handed the FIRST directory's paths (an entry's `path` pointing into
+ * a packages tree the environment no longer names).
  */
-let _cache: { source: Registry; path: string; packages: InferredPackage[] } | null = null
+let _cache: {
+  source: Registry
+  path: string
+  moleculeDir: string
+  packages: InferredPackage[]
+} | null = null
 
 function resolveMoleculeDir(): string {
   if (process.env.MOLECULE_PACKAGES_DIR) {
@@ -71,10 +83,16 @@ function resolveMoleculeDir(): string {
   return join(__dirname, '..', '..', '..', 'molecule')
 }
 
-/** Derive the `InferredPackage[]` view of an already-parsed registry. */
-function derivePackages(registry: Registry): InferredPackage[] {
-  const moleculeDir = resolveMoleculeDir()
-
+/**
+ * Derive the `InferredPackage[]` view of an already-parsed registry.
+ *
+ * `moleculeDir` is passed in rather than resolved here so the caller can key
+ * its cache on the same value it derives from — see {@link loadRegistry}.
+ *
+ * @param registry - The parsed registry.
+ * @param moleculeDir - The molecule monorepo root the entries' paths hang off.
+ */
+function derivePackages(registry: Registry, moleculeDir: string): InferredPackage[] {
   return Object.entries(registry.packages)
     .map(([name, entry]) => ({
       name,
@@ -115,8 +133,19 @@ export function loadRegistry(projectType?: 'api' | 'app'): InferredPackage[] {
     // turn every resolution failure into "nothing to do".
     throw new Error(`Registry not found: ${path}`)
   }
-  if (!_cache || _cache.source !== registry || _cache.path !== path) {
-    _cache = { source: registry, path, packages: derivePackages(registry) }
+  const moleculeDir = resolveMoleculeDir()
+  if (
+    !_cache ||
+    _cache.source !== registry ||
+    _cache.path !== path ||
+    _cache.moleculeDir !== moleculeDir
+  ) {
+    _cache = {
+      source: registry,
+      path,
+      moleculeDir,
+      packages: derivePackages(registry, moleculeDir),
+    }
   }
 
   const packages = _cache.packages
