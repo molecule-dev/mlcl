@@ -55,21 +55,31 @@ vi.mock('@molecule/app-notification-center-react', () => ({
   // the POST half of the counted-read race below. The real center also renders
   // each row's read/unread state from `read`; the double exposes it as
   // `data-read` so a test can see WHICH state a row was rendered in without
-  // changing the row text the other assertions match on.
+  // changing the row text the other assertions match on. `onMarkAllRead` gets
+  // a button for the same reason: the mark-all POST is the other half of the
+  // response-ordering race further down.
   NotificationCenter: (props: {
     items: Array<{ id: string; title: string; read: boolean; onClick: () => void }>
+    onMarkAllRead?: () => void
   }) =>
     createElement(
-      'ul',
+      'div',
       null,
-      props.items.map((item) =>
-        createElement(
-          'li',
-          { key: item.id, ...({ 'data-read': String(item.read) } as Record<string, string>) },
+      props.onMarkAllRead
+        ? createElement('button', { type: 'button', onClick: props.onMarkAllRead }, 'mark-all')
+        : null,
+      createElement(
+        'ul',
+        null,
+        props.items.map((item) =>
           createElement(
-            'button',
-            { type: 'button', onClick: item.onClick },
-            `${item.id}:${item.title}`,
+            'li',
+            { key: item.id, ...({ 'data-read': String(item.read) } as Record<string, string>) },
+            createElement(
+              'button',
+              { type: 'button', onClick: item.onClick },
+              `${item.id}:${item.title}`,
+            ),
           ),
         ),
       ),
@@ -157,6 +167,16 @@ const text = (): string => container.textContent ?? ''
 const rowState = (): string | null =>
   container.querySelector('li')?.getAttribute('data-read') ?? null
 
+/** The read/unread state of EVERY rendered row, keyed by the row's id. */
+const rowStates = (): Map<string, string> => {
+  const states = new Map<string, string>()
+  for (const li of container.querySelectorAll('li')) {
+    const id = (li.querySelector('button')?.textContent ?? '').split(':')[0] ?? ''
+    states.set(id, li.getAttribute('data-read') ?? '')
+  }
+  return states
+}
+
 /** Fire one SSE frame at the bell's subscription. */
 async function frame(type: string, data: string): Promise<void> {
   const source = sources[0]
@@ -194,6 +214,18 @@ async function answerPost(suffix: string): Promise<void> {
   request.answered = true
   await act(async () => {
     request.respond({}, 200)
+  })
+  await flush()
+}
+
+/** Press the mark-all-read control (the centre's onMarkAllRead). */
+async function clickMarkAll(): Promise<void> {
+  const button = [...container.querySelectorAll('button')].find((b) =>
+    b.textContent?.includes('mark-all'),
+  )
+  if (!button) throw new Error('no mark-all button rendered')
+  await act(async () => {
+    button.dispatchEvent(new MouseEvent('click', { bubbles: true }))
   })
   await flush()
 }
@@ -376,5 +408,63 @@ describe('the bell counted-read set', () => {
     // over 20 rows of unread state).
     await frame('notification:read', JSON.stringify({ id: 'p1' }))
     expect(text()).toContain('unread:20')
+  })
+
+  it('a notification delivered while the mark-all POST is in flight stays unread', async () => {
+    // An HTTP response has no ordering: a notification created after the
+    // server's mark-all write is UNREAD server-side, but a response handler
+    // that marks "everything now on screen" read clobbers it anyway — the row
+    // rendered read under a badge it had just raised, and the reader missed it
+    // until a reload. The response may only flip the rows the request covered
+    // (the ones on screen when the button was pressed); the SSE
+    // `notification:all-read` frame needs no such scoping, because frames
+    // arrive in publish order.
+    await mount(createElement(NotificationBellWidget, { userId: 'u1' }))
+    await openBell()
+    await frame(
+      'notification:created',
+      JSON.stringify({ id: 'a1', type: 'mention', read_at: null }),
+    )
+    expect(text()).toContain('unread:1')
+
+    // The mark-all POST fires and stays pending. WHILE it is in flight, a new
+    // notification is created (after the server's write) and delivered.
+    await clickMarkAll()
+    await frame(
+      'notification:created',
+      JSON.stringify({ id: 'b1', type: 'mention', read_at: null }),
+    )
+    expect(text()).toContain('unread:2')
+
+    // The response lands AFTER that frame. It must flip exactly a1: the badge
+    // drops by one, b1 keeps its badge and renders unread.
+    await answerPost('/api/notifications/mark-all-read')
+    expect(text(), 'the covered row flipped; the late arrival did not').toContain('unread:1')
+    const states = rowStates()
+    expect(states.get('a1'), 'a1 was on screen when mark-all was pressed').toBe('true')
+    expect(states.get('b1'), 'b1 was created after the server marked all read').toBe('false')
+  })
+
+  it('a failed mark-all POST marks nothing read', async () => {
+    await mount(createElement(NotificationBellWidget, { userId: 'u1' }))
+    await openBell()
+    await frame(
+      'notification:created',
+      JSON.stringify({ id: 'a1', type: 'mention', read_at: null }),
+    )
+    expect(text()).toContain('unread:1')
+
+    await clickMarkAll()
+    const request = httpRequests.find(
+      (r) => r.url.endsWith('/api/notifications/mark-all-read') && !r.answered,
+    )
+    if (!request) throw new Error('no pending mark-all request')
+    request.answered = true
+    await act(async () => {
+      request.respond({ error: 'boom' }, 500)
+    })
+    await flush()
+    expect(text()).toContain('unread:1')
+    expect(rowStates().get('a1')).toBe('false')
   })
 })

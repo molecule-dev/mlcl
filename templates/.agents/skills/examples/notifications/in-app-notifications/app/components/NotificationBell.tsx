@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { type ReactElement, useCallback, useEffect, useRef, useState } from 'react'
 
 import { NotificationWrapper } from '@molecule/app-notification-badge-react'
 import type { NotificationItem } from '@molecule/app-notification-center-react'
@@ -79,7 +79,7 @@ function parseNotificationFrame(data: string): RawNotification | null {
   }
 }
 
-export function NotificationBellWidget({ userId }: { userId: string }) {
+export function NotificationBellWidget({ userId }: { userId: string }): ReactElement {
   const { t } = useTranslation()
   const cm = getClassMap()
   const [items, setItems] = useState<RawNotification[]>([])
@@ -102,17 +102,51 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
   /**
    * The mark-all-read transition, in ONE place.
    *
-   * Two things trigger it: this tab's "mark all read" button, and the
-   * `notification:all-read` frame the handler broadcasts to the user's room
-   * (another tab of the same user marked everything read). They were written
-   * separately, and the frame's copy only zeroed the badge — the rows kept
-   * `read_at: null`, so the panel rendered every one of them as unread under a
-   * badge reading zero, with nothing to resync it until a reload. Both paths
-   * now apply the badge AND the rows together, so they cannot drift again.
+   * This is the SSE path's copy: the `notification:all-read` frame the handler
+   * broadcasts to the user's room (this tab's button, or another tab of the
+   * same user marking everything read). Frames arrive in PUBLISH order, so a
+   * notification created after the server's mark-all write is delivered after
+   * this frame — marking everything on screen read here cannot clobber it.
+   * The button's own fetch path uses {@link applyAllReadFor}, whose response
+   * has no such ordering.
+   *
+   * The two copies were written separately, and this frame's copy only zeroed
+   * the badge — the rows kept `read_at: null`, so the panel rendered every one
+   * of them as unread under a badge reading zero, with nothing to resync it
+   * until a reload. Both apply the badge AND the rows together, so they cannot
+   * drift again.
    */
   const applyAllRead = useCallback((): void => {
     setUnread(0)
     setItems((prev) => prev.map((n) => ({ ...n, read_at: n.read_at ?? new Date().toISOString() })))
+  }, [])
+
+  /**
+   * The mark-all-read transition for the button's own POST response — scoped to
+   * the rows the request could have covered.
+   *
+   * An HTTP response carries no ordering: a notification delivered while the
+   * POST was in flight was CREATED after the server's mark-all write, so the
+   * server still holds it unread — but applying the blanket transform at
+   * response time marked it read here anyway, and zeroed the badge the frame
+   * had just raised. The reader missed a live notification until a reload (the
+   * same stale-response clobber the save paths guard against: the response
+   * describes the list as the request LEFT it, not as it stands now). So the
+   * rows on screen when the button was pressed are captured, and only those
+   * flip; the badge moves by the transitions that actually happened, not to
+   * zero (an unread row that is gone from the page keeps its count, the same
+   * incremental semantics the read path applies).
+   *
+   * @param ids - The notification ids on screen when the mark-all was issued.
+   */
+  const applyAllReadFor = useCallback((ids: ReadonlySet<string>): void => {
+    const now = new Date().toISOString()
+    let newlyRead = 0
+    for (const n of itemsRef.current) {
+      if (ids.has(n.id) && n.read_at === null) newlyRead += 1
+    }
+    if (newlyRead > 0) setUnread((u) => Math.max(0, u - newlyRead))
+    setItems((prev) => prev.map((n) => (ids.has(n.id) ? { ...n, read_at: n.read_at ?? now } : n)))
   }, [])
 
   // Keep the counted-read set as small as its guards need: an id can only ever
@@ -257,10 +291,14 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
   }
 
   async function markAllRead(): Promise<void> {
+    // The rows this click can mark read: the ones on screen when the request
+    // was ISSUED — see applyAllReadFor for why the response must not mark
+    // whatever is on screen by the time it lands.
+    const covered = new Set(itemsRef.current.map((n) => n.id))
     try {
       const res = await fetch('/api/notifications/mark-all-read', { method: 'POST' })
       if (!res.ok) return
-      applyAllRead()
+      applyAllReadFor(covered)
     } catch (_error) {
       // Network failure — the badge keeps its count; nothing was marked read.
     }
