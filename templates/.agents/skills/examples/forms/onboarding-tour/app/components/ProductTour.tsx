@@ -82,34 +82,48 @@ export function ProductTour() {
   // completion PATCH could run twice, and a discarded render must never reach
   // the network.
   useEffect(() => {
-    if (!active) return
-    // No anchor AT ALL on this page: the reader is on a route the tour cannot
-    // point at yet. Stay on the FIRST step and leave the tour pending — walking
-    // here advanced `stepIdx` through all three steps and pinned it at the LAST
-    // one, so the page the reader navigates to next could only ever render that
-    // last step (or nothing at all, when its anchor is the missing one): the
-    // "leave the tour pending so a page that does still runs it" this effect
-    // exists for never happened. The component is mounted in a LAYOUT, so the
-    // route change re-renders it and this check runs again with the new page's
-    // anchors.
-    if (!STEPS.some((step) => document.querySelector(step.selector))) {
-      setStepIdx(0)
-      return
+    if (!active || typeof document === 'undefined') return
+    const walk = (): void => {
+      // No anchor AT ALL on this page: the reader is on a route the tour cannot
+      // point at yet. Stay on the FIRST step and leave the tour pending — walking
+      // here advanced `stepIdx` through all three steps and pinned it at the LAST
+      // one, so the page the reader navigates to next could only ever render that
+      // last step (or nothing at all, when its anchor is the missing one): the
+      // "leave the tour pending so a page that does still runs it" this effect
+      // exists for never happened.
+      if (!STEPS.some((step) => document.querySelector(step.selector))) {
+        setStepIdx(0)
+        return
+      }
+      if (document.querySelector(STEPS[stepIdx].selector)) {
+        showedStep.current = true
+        return
+      }
+      if (stepIdx < STEPS.length - 1) {
+        setStepIdx((s) => s + 1)
+        return
+      }
+      // The LAST step's target is missing too, on a page that DOES carry other
+      // anchors. Persist completion only when the reader actually saw a step (see
+      // `showedStep`) — the walk skipped past the ones that were absent, so a
+      // reader who saw none of them has not been shown the tour.
+      if (!showedStep.current) return
+      void finish()
     }
-    if (document.querySelector(STEPS[stepIdx].selector)) {
-      showedStep.current = true
-      return
-    }
-    if (stepIdx < STEPS.length - 1) {
-      setStepIdx((s) => s + 1)
-      return
-    }
-    // The LAST step's target is missing too, on a page that DOES carry other
-    // anchors. Persist completion only when the reader actually saw a step (see
-    // `showedStep`) — the walk skipped past the ones that were absent, so a
-    // reader who saw none of them has not been shown the tour.
-    if (!showedStep.current) return
-    void finish()
+    walk()
+    // The walk's input is the DOM's anchors, and React cannot express "the page
+    // under this layout changed" as a dependency: the tour is mounted in a
+    // LAYOUT, so a route change re-renders it while `active` and `stepIdx` stay
+    // put — a dep-keyed effect (the previous shape) never re-ran, and once the
+    // reader had landed on a page without the anchors the tour stayed invisible
+    // for the rest of the session. Watching the document covers it: the anchors
+    // arrive when the route's element commits, or later when that element
+    // renders content it had to load. The walk converges — every branch either
+    // changes `stepIdx`/`active` (which re-runs this effect) or returns without
+    // touching state — so an observation cannot re-trigger itself.
+    const observer = new MutationObserver(walk)
+    observer.observe(document.body, { childList: true, subtree: true })
+    return () => observer.disconnect()
   }, [active, stepIdx, finish])
 
   if (!active) return null
