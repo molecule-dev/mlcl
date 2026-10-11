@@ -41,7 +41,12 @@ describe('the transactional-emails reset email names the real token TTL', () => 
     expect(ttlMs, 'the user resource stopped exporting RESET_TOKEN_TTL_MS').toBeTypeOf('number')
 
     const source = readFileSync(EXAMPLE_PATH, 'utf-8')
-    const match = source.match(/expires in (\d+) minutes/)
+    // Anchored on the `defaultValue` STRING, not on a bare `/expires in (\d+)
+    // minutes/`: the comment block above that string names the same window, so
+    // the bare pattern matched the COMMENT first and this pin stayed green
+    // while the sentence the reader actually receives drifted (`defaultValue:
+    // '… expires in 15 minutes …'`) — the exact drift it exists to catch.
+    const match = source.match(/defaultValue:\s*'[^']*expires in (\d+) minutes/)
     expect(
       match,
       'the reset email no longer states a validity in minutes — update this pin',

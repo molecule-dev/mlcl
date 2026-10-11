@@ -656,9 +656,20 @@ export default class Inject extends Command {
           )
         } else {
           spinner.stop(chalk.yellow(t('commands.inject.spinners.testsFailed')))
-          if (testResult.output) {
-            errors.push(`Smoke tests failed:\n${testResult.output}`)
-          }
+          // ALWAYS an error, never only when there is output to quote. A smoke
+          // run that failed WITHOUT captured output — a suite that hung and was
+          // killed at the 60 s timeout having printed nothing, or a child that
+          // never spawned (`runTests` reports both as `output: ''`) — left
+          // `errors` empty, so the `this.exit(1)` at the bottom never ran and
+          // the command exited 0 over a failed injection: exactly the failure
+          // the exit-status check exists to prevent (an agent or CI job reads
+          // the status, not the spinner line).
+          errors.push(
+            testResult.output
+              ? `Smoke tests failed:\n${testResult.output}`
+              : 'Smoke tests failed — the test run was killed or produced no output to quote. ' +
+                  'Run `npm test` in the project to see why.',
+          )
         }
       }
     }

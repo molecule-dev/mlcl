@@ -259,6 +259,14 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}): R
       if (!stillOnThisPost()) return
       if (!res.ok) {
         const body = await res.json().catch(() => ({}))
+        // The body read is a SECOND await, so the ownership guard has to be
+        // applied again here — the same re-check the success path below makes
+        // after its own `res.json()`. Without it a save that failed while the
+        // author moved to another post painted ITS error into the post they
+        // moved to: the editor was lifted off "Loading…" onto the load-failure
+        // screen (with the previous post's save error under the new one), for a
+        // save that belonged to a post nobody is looking at.
+        if (!stillOnThisPost()) return
         setError(
           body.error ??
             t('postEditor.saveFailed', undefined, { defaultValue: 'Could not save the post' }),
