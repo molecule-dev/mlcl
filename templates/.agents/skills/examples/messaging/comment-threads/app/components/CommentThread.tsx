@@ -65,6 +65,9 @@ export function CommentThread({
   const [draft, setDraft] = useState('')
   const [replyTo, setReplyTo] = useState<string | null>(null)
   const [postError, setPostError] = useState(false)
+  // A comment write in flight — see `post`. One flag for the whole composer:
+  // there is a single Post/Reply button, so only one write can be pending.
+  const [posting, setPosting] = useState(false)
 
   // Every in-flight list request takes a ticket; only the newest may write
   // state. Two overlap whenever `resourceId`/`resourceType` changes while the
@@ -154,12 +157,20 @@ export function CommentThread({
   }, [load])
 
   const post = async (): Promise<void> => {
-    if (!draft.trim()) {
+    // `posting` is what makes a repeated click idempotent. The draft is only
+    // cleared AFTER the server accepts it (on a failed post the text is KEPT —
+    // clearing it first would silently discard the user's words), so without
+    // this flag a second click while the first POST was parked fired the same
+    // request again and created two identical comments; the comments resource
+    // has no idempotency key to collapse them. Every sibling slice that writes
+    // carries the same guard (ChatPage's composer, AttachmentsPanel's uploader,
+    // ImportPage's commit). The `finally` releases it on EVERY path — including
+    // the abandoned-post returns below — so it can never stick.
+    if (!draft.trim() || posting) {
       return
     }
     setPostError(false)
-    // On a failed post the draft is KEPT — clearing it before the server
-    // accepted the comment would silently discard the user's text.
+    setPosting(true)
     try {
       // parentId nests the reply; null posts a top-level comment.
       await http.post(`/api/${resourceType}/${resourceId}/comments`, {
@@ -169,6 +180,8 @@ export function CommentThread({
     } catch (_error) {
       setPostError(true)
       return
+    } finally {
+      setPosting(false)
     }
     // The user navigated to another resource while the POST was in flight: the
     // comment landed on the resource we LEFT, whose state this render no longer
@@ -210,7 +223,7 @@ export function CommentThread({
       <button
         type="button"
         data-mol-id="post-comment"
-        disabled={!draft.trim()}
+        disabled={!draft.trim() || posting}
         onClick={post}
         className={cm.button({ variant: 'solid' })}
       >
