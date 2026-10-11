@@ -130,4 +130,28 @@ describe('generate_image — an n > 1 set lands whole or not at all', () => {
     expect(existsSync(target)).toBe(true)
     expect(existsSync(join(dir, 'fresh-2.png'))).toBe(true)
   })
+
+  it('writes under the requested name whatever the extension’s case', async (ctx) => {
+    if (skipped(ctx)) return
+
+    // The .png check above is CASE-INSENSITIVE (`extname(target).toLowerCase()`),
+    // so an uppercase extension is accepted — and the stem that feeds the
+    // suffixed names must be derived the same way. `basename(target, '.png')`
+    // matches its suffix case-SENSITIVELY, so it left 'Shouty.PNG' whole and
+    // every path became `Shouty.PNG…png`: image 1 landed at `Shouty.PNG.png`
+    // (nothing at the name the caller asked for, so a second call with the same
+    // output_file passed the "never overwritten" check and clobbered it) and the
+    // documented `-2` suffix named a third file again.
+    const target = join(dir, 'Shouty.PNG')
+    const result = await callTool('generate_image', {
+      prompt: 'a logo',
+      output_file: target,
+      n: 2,
+    })
+
+    expect(result.isError).toBeFalsy()
+    expect(existsSync(target), 'image 1 lands at the name the caller gave').toBe(true)
+    expect(existsSync(join(dir, 'Shouty-2.png'))).toBe(true)
+    expect(existsSync(join(dir, 'Shouty.PNG.png')), 'no second .png glued on').toBe(false)
+  })
 })

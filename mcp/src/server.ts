@@ -1603,8 +1603,17 @@ server.registerTool(
       // `logo-2.png`, so the call reported a failure (and never overwrote
       // anything) while having written image 1. The tool's own contract is that
       // a name it refuses is a name nothing was written to.
+      //
+      // The stem is stripped with `extname`, not a `'.png'` suffix literal:
+      // the extension check above is CASE-INSENSITIVE, and `basename`'s suffix
+      // match is not, so an `output_file` ending in `.PNG` kept its extension
+      // and every path gained a SECOND one (`Shouty.PNG.png`) — image 1 was
+      // never at the name the caller gave (so a later call with the same
+      // output_file passed the "never overwritten" check and clobbered those
+      // bytes) and the documented `-2` suffix named a different file.
+      const stem = basename(target, extname(target))
       const planned = images.map((image, i) => ({
-        path: join(dirname(target), basename(target, '.png') + suffix(i) + '.png'),
+        path: i === 0 ? target : join(dirname(target), stem + suffix(i) + '.png'),
         base64: image.base64 as string,
       }))
       for (const { path } of planned) {
