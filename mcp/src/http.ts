@@ -109,11 +109,19 @@ const allow = (ip: string): boolean => {
   } else {
     if (buckets.size >= MAX_BUCKETS) {
       // The cap is reached. The first key is the least-recently-seen bucket —
-      // the scan's victim, taken in one step. The interval sweeper still prunes
-      // idle buckets for memory, and a bucket idle long enough to count as
-      // stale has refilled to a FULL budget (a minute's worth of tokens at any
-      // rate this server allows) well before the sweeper's horizon, so dropping
-      // one here would change no request's outcome.
+      // the scan's victim, taken in one step.
+      //
+      // The victim is the least recently SEEN, not the oldest by the sweeper's
+      // clock: a bucket dropped here may have been exhausted seconds ago, so
+      // dropping it DOES hand that address a fresh budget (the sweeper below is
+      // what eventually makes eviction harmless, by converging the map on
+      // recently-seen addresses only). That is the deliberate trade: filling a
+      // per-address map past its cap means an address flood, and refusing the
+      // NEW address would let whoever floods the map deny service to everyone
+      // else. A per-address budget never stops a flood large enough to fill the
+      // map anyway — each address brings its own — so the eviction keeps
+      // legitimate new clients working and leaves the flood to the platform's
+      // own network-level controls.
       const oldestKey = buckets.keys().next().value
       if (oldestKey !== undefined) buckets.delete(oldestKey)
     }
