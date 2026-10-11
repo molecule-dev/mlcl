@@ -56,16 +56,29 @@ const CLI_NOT_FOUND =
  * {@link readEnvList} sets it; the failure still names the command and its exit
  * code so the caller can re-run it directly.
  *
+ * `label` names the command in that message instead of the argv. The message is
+ * the LAST resort of a failure with no output to quote (`stderr`, `stdout` and
+ * execa's own `originalMessage` all empty — a child that exited non-zero without
+ * saying anything, or one the OOM killer took), and argv is not always safe to
+ * repeat: `set_env_var` passes the var's value as an argument (`mlcl env set
+ * KEY VALUE`), so the fallback put the secret into the tool error — the same
+ * leak {@link readEnvList}'s `redactOutput` closes one tool over, reached
+ * through argv instead of output. The few call sites whose argv carries a secret
+ * pass a label naming the command without it; every other tool keeps the full
+ * argv, which is the more useful diagnostic.
+ *
  * @param args - The CLI argv.
  * @param cwd - Working directory for the child.
- * @param options - `redactOutput` suppresses the child's output in a failure message.
+ * @param options - `redactOutput` suppresses the child's output in a failure
+ *   message; `label` replaces the argv in it.
  * @returns The child's stdout.
  */
 async function runCli(
   args: string[],
   cwd?: string,
-  options: { redactOutput?: boolean } = {},
+  options: { redactOutput?: boolean; label?: string } = {},
 ): Promise<string> {
+  const labelled = options.label ?? `mlcl ${args.join(' ')}`
   if (cwd && !existsSync(cwd)) throw new Error(`mlcl ${args[0]}: directory does not exist: ${cwd}`)
   // `reject: false` makes execa RESOLVE a cannot-spawn failure rather than
   // reject it (verified against execa 10: `failed: true`, NO exit code, and its
@@ -94,13 +107,12 @@ async function runCli(
     }
     if (options.redactOutput === true) {
       throw new Error(
-        `mlcl ${args.join(' ')} failed${exitCode === undefined ? '' : ` (exit ${exitCode})`} — ` +
+        `${labelled} failed${exitCode === undefined ? '' : ` (exit ${exitCode})`} — ` +
           'its output is not repeated here because it carries values this tool keeps masked; ' +
           'run that command directly to see why.',
       )
     }
-    const detail =
-      stderr.trim() || stdout.trim() || originalMessage || `mlcl ${args.join(' ')} failed`
+    const detail = stderr.trim() || stdout.trim() || originalMessage || `${labelled} failed`
     throw new Error(detail)
   }
   return stdout
@@ -895,7 +907,13 @@ server.registerTool(
     },
   },
   tracked('set_env_var', async ({ key, value, app, directory }) =>
-    text(await runCli(['env', 'set', key, value, ...(app ? ['--app'] : [])], directory)),
+    // `label` keeps the VALUE out of a failure message that has no output to
+    // quote — see runCli. The key is a name, the value is the secret.
+    text(
+      await runCli(['env', 'set', key, value, ...(app ? ['--app'] : [])], directory, {
+        label: `mlcl env set ${key}${app ? ' --app' : ''}`,
+      }),
+    ),
   ),
 )
 

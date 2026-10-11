@@ -266,4 +266,30 @@ describe('a masked env value is never the value itself', () => {
       await close()
     }
   })
+
+  it('writes a secret without ever repeating it back in a failure that has no output to quote', async (ctx) => {
+    if (skipped(ctx)) return
+    // `set_env_var` passes the value as an ARGUMENT (`mlcl env set KEY VALUE`),
+    // and `runCli`'s last-resort failure message is built from argv — reached
+    // whenever the child exits non-zero with NOTHING to quote (no stderr, no
+    // stdout, and no execa `originalMessage`, which is exactly what a silent
+    // exit and a killed/hung child both look like). The tool then handed
+    // `mlcl env set STRIPE_SECRET_KEY <the secret> failed` to the client — the
+    // same leak the env-list tools guard on the OUTPUT side, one call site over.
+    // The stand-in CLI here exits 1 having written nothing, which is the shape
+    // the fallback exists for.
+    const { call, close } = await connect(fakeCli('', 1))
+    try {
+      const result = await call('set_env_var', { key: 'STRIPE_SECRET_KEY', value: LONG_SECRET })
+      expect(result.isError, 'the silent failure must be reported').toBe(true)
+      const message = textOf(result)
+      expect(message, 'the value must never ride back in the failure message').not.toContain(
+        LONG_SECRET,
+      )
+      // …while the failure still says which command to re-run, and for which key.
+      expect(message).toContain('mlcl env set STRIPE_SECRET_KEY')
+    } finally {
+      await close()
+    }
+  })
 })
