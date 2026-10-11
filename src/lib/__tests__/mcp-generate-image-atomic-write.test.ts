@@ -14,25 +14,34 @@
  *
  * @module
  */
-import { existsSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
+import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
 /** The `molecule-mcp` package — its own node_modules holds the MCP SDK + execa. */
 const MCP_DIR = join(import.meta.dirname, '..', '..', '..', 'mcp')
 const SDK_ESM = join(MCP_DIR, 'node_modules', '@modelcontextprotocol', 'sdk', 'dist', 'esm')
 const DEPS_MARKER = join(MCP_DIR, 'node_modules', 'execa', 'package.json')
 
-/** The hosted service's stand-in: two 1-byte png images, one call counted. */
-const hosted = vi.hoisted(() => ({ calls: 0 }))
+/**
+ * The hosted service's stand-in: two 1-byte png images, one call counted.
+ *
+ * `onCall` is the hook a test uses to simulate ANOTHER writer landing during the
+ * round-trip — the window between the tool's `existsSync` checks and its writes.
+ */
+const hosted = vi.hoisted(() => ({ calls: 0, onCall: null as null | (() => void) }))
 
 vi.mock('../../../mcp/src/services.js', () => ({
   /** A real class: `serviceResult` matches it with `instanceof`. */
   ServiceCallError: class ServiceCallError extends Error {},
-  callHostedService: async () => {
+  callHostedService: async (service: string) => {
     hosted.calls += 1
+    hosted.onCall?.()
+    if (service === 'pdf') {
+      return { data: Buffer.from('%PDF-fake').toString('base64'), pageCount: 1 }
+    }
     return {
       images: [
         { base64: Buffer.from('one').toString('base64') },
@@ -43,6 +52,10 @@ vi.mock('../../../mcp/src/services.js', () => ({
   createApiKeyIntoEnv: async () => ({}),
   listProjects: async () => [],
 }))
+
+beforeEach(() => {
+  hosted.onCall = null
+})
 
 interface ToolResult {
   isError?: boolean
@@ -153,5 +166,26 @@ describe('generate_image — an n > 1 set lands whole or not at all', () => {
     expect(existsSync(target), 'image 1 lands at the name the caller gave').toBe(true)
     expect(existsSync(join(dir, 'Shouty-2.png'))).toBe(true)
     expect(existsSync(join(dir, 'Shouty.PNG.png')), 'no second .png glued on').toBe(false)
+  })
+})
+
+describe('render_pdf — the output name is created, never replaced', () => {
+  it('refuses a name another writer took DURING the render', async (ctx) => {
+    if (skipped(ctx)) return
+
+    // `render_pdf` checks `existsSync(target)` BEFORE it calls the hosted
+    // service, so the check and the write are separated by the whole render
+    // round-trip (seconds): a concurrent call with the same output_file — or any
+    // other writer — takes the name in that window. A truncating write then
+    // silently replaced the winner's document under a name the tool had already
+    // promised was free.
+    const target = join(dir, 'raced.pdf')
+    hosted.onCall = () => writeFileSync(target, 'rival bytes')
+
+    const result = await callTool('render_pdf', { html: '<h1>hi</h1>', output_file: target })
+
+    expect(result.isError, 'a name taken during the render is refused').toBe(true)
+    expect(textOf(result)).toContain('already exists')
+    expect(readFileSync(target, 'utf-8')).toBe('rival bytes')
   })
 })

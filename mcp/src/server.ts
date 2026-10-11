@@ -13,7 +13,7 @@
  * Read-heavy tools are safe by construction; the scaffold tool only ever runs
  * `mlcl create --no-interactive` with explicit arguments.
  */
-import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { basename, dirname, extname, join, resolve } from 'node:path'
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
@@ -94,6 +94,38 @@ function parseJsonOut<T>(out: string): T {
 }
 
 const text = (t: string) => ({ content: [{ type: 'text' as const, text: t }] })
+
+/**
+ * Create a tool's output file, refusing a name that already exists.
+ *
+ * The file-writing tools check `existsSync(target)` BEFORE their call to the
+ * hosted service — and that check is not atomic with the write: the round-trip
+ * (seconds, for an image or a PDF) sits between them, so two overlapping calls
+ * with the same `output_file` both saw "does not exist" and the second write
+ * silently clobbered the first. That is exactly what their own contract ("never
+ * overwritten", quoted in the failure below) promises cannot happen.
+ *
+ * `flag: 'wx'` is `O_CREAT|O_EXCL`: the kernel refuses an existing name, so the
+ * loser of the race fails with the same already-exists message the pre-check
+ * gives — and, unlike a truncating write, never damages the winner's file.
+ *
+ * @param path - Destination path.
+ * @param data - The bytes to write.
+ * @param mode - File mode (0o644 for media, 0o600 for documents).
+ * @throws ServiceCallError when the path already exists.
+ */
+function writeNewFileSync(path: string, data: Buffer, mode: number): void {
+  try {
+    writeFileSync(path, data, { mode, flag: 'wx' })
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException)?.code === 'EEXIST') {
+      throw new ServiceCallError(
+        `${path} already exists. Pick a fresh name — the tool never overwrites.`,
+      )
+    }
+    throw error
+  }
+}
 
 // The package.json version, not a hardcoded copy: the literal here went stale
 // on the first package bump (moved 0.1.0 → 0.2.0) and every stdio client's
@@ -1221,7 +1253,7 @@ server.registerTool(
       if (typeof result.data !== 'string') {
         throw new ServiceCallError('The service returned no PDF data.')
       }
-      writeFileSync(target, Buffer.from(result.data, 'base64'), { mode: 0o600 })
+      writeNewFileSync(target, Buffer.from(result.data, 'base64'), 0o600)
       return JSON.stringify({
         file: target,
         pageCount: result.pageCount,
@@ -1274,7 +1306,7 @@ server.registerTool(
       if (typeof result.data !== 'string') {
         throw new ServiceCallError('The service returned no PDF data.')
       }
-      writeFileSync(target, Buffer.from(result.data, 'base64'), { mode: 0o600 })
+      writeNewFileSync(target, Buffer.from(result.data, 'base64'), 0o600)
       return JSON.stringify({
         file: target,
         pageCount: result.pageCount,
@@ -1345,7 +1377,7 @@ server.registerTool(
       if (typeof result.data !== 'string') {
         throw new ServiceCallError('The service returned no PDF data.')
       }
-      writeFileSync(target, Buffer.from(result.data, 'base64'), { mode: 0o600 })
+      writeNewFileSync(target, Buffer.from(result.data, 'base64'), 0o600)
       return JSON.stringify({ file: target, pageCount: result.pageCount })
     }),
   ),
@@ -1520,7 +1552,7 @@ server.registerTool(
       if (existsSync(outPath)) {
         throw new ServiceCallError(`${outPath} already exists. Pick a fresh name.`)
       }
-      writeFileSync(outPath, Buffer.from(result.data, 'base64'), { mode: 0o644 })
+      writeNewFileSync(outPath, Buffer.from(result.data, 'base64'), 0o644)
       return JSON.stringify({
         file: outPath,
         mimeType: result.mimeType,
@@ -1621,10 +1653,23 @@ server.registerTool(
           throw new ServiceCallError(`${path} already exists. Pick a fresh name.`)
         }
       }
-      const files = planned.map(({ path, base64 }) => {
-        writeFileSync(path, Buffer.from(base64, 'base64'), { mode: 0o644 })
-        return path
-      })
+      // Each file is CREATED exclusively (see writeNewFileSync): the checks above
+      // cannot be atomic with the writes, so a call racing this one on the same
+      // output_file would otherwise be clobbered. `written` is this call's own —
+      // every path in it was created with O_EXCL, so nothing else can own one —
+      // and is rolled back if a later image in the set loses such a race, keeping
+      // the whole-set-or-nothing contract under concurrency too.
+      const written: string[] = []
+      try {
+        for (const { path, base64 } of planned) {
+          writeNewFileSync(path, Buffer.from(base64, 'base64'), 0o644)
+          written.push(path)
+        }
+      } catch (error) {
+        for (const path of written) rmSync(path, { force: true })
+        throw error
+      }
+      const files = written
       return JSON.stringify({
         files,
         count: files.length,
