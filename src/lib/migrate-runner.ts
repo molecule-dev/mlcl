@@ -642,10 +642,19 @@ export interface MigrateRunnerSync {
  * removed) and a swap onto PostgreSQL keeps a browser-profile app's PGlite
  * branch. The SQLite/MySQL/out-of-band templates carry no render inputs, so
  * those swaps render from the swapped-in package alone. Every import the
- * re-rendered runner carries is
- * declared either way — the bond-setup package, and any bond the swap landed
- * on a devDependencies pin gets MOVED into `dependencies` (see
- * {@link ensureMigrateRunnerImports}).
+ * re-rendered runner carries is declared on the SUCCESS path — the bond-setup
+ * package, and any bond the swap landed on a devDependencies pin gets MOVED
+ * into `dependencies` (see {@link ensureMigrateRunnerImports}). When that
+ * backing step FAILS the runner write is deliberately NOT rolled back: the
+ * runner was re-rendered from the manifest the swap has ALREADY rewritten, so
+ * restoring the previous bytes would put back a runner importing the database
+ * package the same swap just removed (`tsc`: TS2307; `db:setup`:
+ * ERR_MODULE_NOT_FOUND) — strictly worse than a runner whose remaining
+ * undefined import is the bond-setup package the failed step could not
+ * declare. The failure is rethrown with the consequence and the remedy spelled
+ * out instead, because the caller (`mlcl swap`) reports whatever message
+ * reaches it with a WARNING: left as a bare `ENOSPC` the operator was told
+ * nothing about the runner on disk that will not build.
  *
  * @param projectPath - The API workspace (the directory holding package.json).
  * @param newDatabasePackage - The database provider swapped in.
@@ -674,7 +683,21 @@ export async function syncMigrateRunner(
   // writeMigrateRunnerGuarded).
   if (current !== next) await writeMigrateRunnerGuarded(path, next)
   // Even an unchanged runner must have its imports declared — a swap target
-  // that never declared the bond-setup package gets it now.
-  await ensureMigrateRunnerImports(projectPath)
+  // that never declared the bond-setup package gets it now. A failure here is
+  // rethrown with its consequence and remedy (the no-rollback decision and why:
+  // see the function doc) — `mlcl swap` turns this into a warning, so the
+  // message IS the operator's only account of the state the swap left.
+  try {
+    await ensureMigrateRunnerImports(projectPath)
+  } catch (error) {
+    const detail = error instanceof Error ? error.message : String(error)
+    throw new Error(
+      `${path} was re-rendered for ${newDatabasePackage}, but ${join(projectPath, 'package.json')} ` +
+        `could not be made to declare its imports: ${detail}. The runner on disk imports packages ` +
+        'the manifest does not declare — fix the manifest (or its permissions) and re-run `mlcl swap` ' +
+        '(or `mlcl inject`); until then `npm run build` fails with TS2307 and the API cannot boot.',
+      { cause: error },
+    )
+  }
   return { path, updated: current !== next }
 }

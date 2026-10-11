@@ -171,6 +171,57 @@ describe('syncMigrateRunner write guard', () => {
   })
 })
 
+describe('syncMigrateRunner failure reporting', () => {
+  it('names the runner, the manifest and the consequence when the imports cannot be declared', async () => {
+    // The swap path's runner write and the manifest that backs it are two
+    // halves of one unit, and `mlcl swap` reports a failure of the second half
+    // with a bare WARNING (swap.ts: `this.warn('Could not update the migration
+    // runner: …')`). A bare `ENOSPC` told the operator nothing about the runner
+    // the failed step left on disk — a boot import whose packages the manifest
+    // does not declare (TS2307 on the next build). The error must carry the
+    // consequence and the remedy, the way the inject command's own message for
+    // the identical hazard does.
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-guard-'))
+    await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
+    const path = join(dir, 'src', 'scripts', 'migrate.ts')
+    // A stale runner (any bytes that differ from the render) and a manifest
+    // that declares PostgreSQL but NOT the bond-setup package the Postgres
+    // render imports unconditionally — so `ensureMigrateRunnerImports` has a
+    // pin to add and its own manifest write is the step under test.
+    await realWriteFile(path, '// stale runner\n')
+    const manifestBefore = JSON.stringify({
+      dependencies: { '@molecule/api-database-postgresql': '1.0.5' },
+    })
+    await realWriteFile(join(dir, 'package.json'), manifestBefore)
+
+    manifestWrite.armed = true
+    let message = ''
+    try {
+      await syncMigrateRunner(dir, '@molecule/api-database-postgresql')
+    } catch (error) {
+      message = error instanceof Error ? error.message : String(error)
+    }
+
+    // The cause survives (an operator still needs the filesystem error)…
+    expect(message).toMatch(/simulated ENOSPC/)
+    // …and the message says WHICH file is now unbacked, WHY it matters and what
+    // to do — without this the swap's warning is the raw ENOSPC above.
+    expect(message).toMatch(/migrate\.ts/)
+    expect(message).toMatch(/imports packages the manifest does not declare/)
+    expect(message).toMatch(/npm run build/)
+
+    // The runner is deliberately NOT rolled back: it was re-rendered from the
+    // manifest the swap already rewrote, so the pre-swap bytes would import the
+    // database package that same swap removed (see syncMigrateRunner's doc).
+    expect(await readFile(path, 'utf-8')).toContain('createMigratorPglite')
+    // The manifest step restored its own bytes: the failure left it parseable,
+    // still missing only the pin it could not add.
+    expect(JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8'))).toMatchObject({
+      dependencies: { '@molecule/api-database-postgresql': '1.0.5' },
+    })
+  })
+})
+
 describe('refreshMigrateRunnerForManifest', () => {
   it('re-renders a stale frozen copy from its manifest and backs its imports', async () => {
     const project = (dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-guard-')))
