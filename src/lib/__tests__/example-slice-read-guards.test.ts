@@ -528,6 +528,21 @@ describe('example slices — a request’s answer is validated before it is trus
     expect(container.querySelectorAll('a')).toHaveLength(0)
   })
 
+  it('reports a 2xx list whose rows are not posts instead of rendering broken cards', async () => {
+    await mount(createElement(BlogIndexPage, {}))
+
+    // `[{}]` passes the `Array.isArray` container check while the card below
+    // dereferences the row: the page listed an empty-titled card linking to
+    // `/blog/undefined` with "Invalid Date" under it — a wrong list presented as
+    // a real one. A row that is not a post is the same failed load a non-array
+    // body is (PostPage gates the fields it renders for exactly this reason).
+    await respond('/api/posts', 200, [{}])
+
+    expect(text()).toContain('Could not load posts')
+    expect(container.querySelectorAll('a')).toHaveLength(0)
+    expect(text()).not.toContain('Invalid Date')
+  })
+
   it('renders the posts a successful GET /api/posts returns', async () => {
     await mount(createElement(BlogIndexPage, {}))
     await respond('/api/posts', 200, [

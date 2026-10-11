@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { type ReactElement, useEffect, useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -13,7 +13,7 @@ type Post = {
   published_at: string
 }
 
-export function BlogIndexPage() {
+export function BlogIndexPage(): ReactElement {
   const { t } = useTranslation()
   const [posts, setPosts] = useState<Post[]>([])
   const [loadFailed, setLoadFailed] = useState(false)
@@ -37,7 +37,24 @@ export function BlogIndexPage() {
           setLoadFailed(true)
           return
         }
-        setPosts(body as Post[])
+        // …and every ROW must be a post. `[{}]` passes `Array.isArray` and the
+        // card below dereferences each row: an empty-titled card linking to
+        // `/blog/undefined` with "Invalid Date" under it was presented as a real
+        // list (a shrunken rewrite, a partial answer). The three fields gated
+        // here are the ones the render cannot degrade without lying about the
+        // post — its key, its link and its headline; `excerpt`/`published_at`
+        // render as nothing rather than as a wrong value when they are absent.
+        const isPost = (row: unknown): row is Post =>
+          typeof row === 'object' &&
+          row !== null &&
+          typeof (row as Post).id === 'string' &&
+          typeof (row as Post).slug === 'string' &&
+          typeof (row as Post).title === 'string'
+        if (!body.every(isPost)) {
+          setLoadFailed(true)
+          return
+        }
+        setPosts(body)
       })
       .catch(() => {
         // A failed load must be visible: a silent catch would render an empty
