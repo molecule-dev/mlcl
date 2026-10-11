@@ -365,11 +365,14 @@ function sleepSync(ms: number): void {
  * So the removal goes through the one operation that can carry identity across
  * the gap: `rename` the lock aside (atomic), then compare the moved file's
  * identity against the one stat'ed before the move. The same identity is the
- * file we judged stale — remove it. A different one means a writer created a
- * fresh lock in the gap: put it back untouched (hard-linked, so a third party
- * that grabbed the path in the meantime keeps its own file rather than having
- * it replaced) and leave that holder alone — it is live, and the caller's next
- * loop iteration waits for it.
+ * file we judged stale — remove it, and report `true` so the caller retries its
+ * create immediately. Anything else — a different identity (a live writer
+ * created its own lock in the gap) or a moved file that cannot be stat'ed at
+ * all — is put back untouched (hard-linked, so a third party that grabbed the
+ * path in the meantime keeps its own file rather than having it replaced) and
+ * reported `false`: the caller then takes its ordinary wait path instead of
+ * retrying the steal, so an unverifiable lock can never turn this into a loop
+ * that spin-steals the same file for ever.
  *
  * The identity is the inode AND the nanosecond mtime, never the inode alone:
  * ext4 (verified on this machine) hands a freed inode straight back to the next
@@ -381,22 +384,24 @@ function sleepSync(ms: number): void {
  * clock, while anything a rival creates inside the gap is fresh.
  *
  * @param lockPath - The publish lock the caller judged stale.
+ * @returns True when the stale lock was removed (the caller may create its own);
+ *   false when nothing was taken over and the caller must wait instead.
  */
-function stealStaleLock(lockPath: string): void {
+function stealStaleLock(lockPath: string): boolean {
   let stale: { ino: bigint; mtimeNs: bigint }
   try {
     const stat = statSync(lockPath, { bigint: true })
     stale = { ino: stat.ino, mtimeNs: stat.mtimeNs }
   } catch (_error) {
     // Released between the caller's stat and this one — nothing to steal.
-    return
+    return false
   }
   const graveyard = `${lockPath}.stale.${process.pid}`
   try {
     renameSync(lockPath, graveyard)
   } catch (_error) {
     // Gone already (or unrenamable) — the caller retries the create.
-    return
+    return false
   }
   let moved: { ino: bigint; mtimeNs: bigint } | null
   try {
@@ -412,9 +417,10 @@ function stealStaleLock(lockPath: string): void {
     } catch (_error) {
       // Inert litter beside the registry; the lock itself is already released.
     }
-    return
+    return true
   }
-  // We moved a LIVE holder's fresh lock. Put it back without replacing whatever
+  // We moved a LIVE holder's fresh lock — or one we could not verify. Put it back
+  // without replacing whatever
   // is at the path now (link fails with EEXIST when someone re-took it), then
   // drop our extra name — the bytes and the inode are the holder's either way.
   try {
@@ -428,6 +434,7 @@ function stealStaleLock(lockPath: string): void {
   } catch (_error) {
     // Inert litter; see above.
   }
+  return false
 }
 
 /**
@@ -476,8 +483,8 @@ function acquireRegistryPublishLock(): void {
           { cause: statError },
         )
       }
-      if (heldMs > REGISTRY_LOCK_STEAL_MS) {
-        stealStaleLock(lockPath)
+      if (heldMs > REGISTRY_LOCK_STEAL_MS && stealStaleLock(lockPath)) {
+        // The stale leftover is gone — this process's own create is next.
         continue
       }
       if (Date.now() >= deadline) {
