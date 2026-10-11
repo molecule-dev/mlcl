@@ -23,7 +23,7 @@ import {
   symlink,
   writeFile,
 } from 'node:fs/promises'
-import { basename, dirname, join, relative, sep } from 'node:path'
+import { basename, dirname, isAbsolute, join, relative, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { filterEnvSecrets, renderEnvSecretLines, resolveDatabaseUrlValue } from './env-file.js'
@@ -89,6 +89,30 @@ async function writeGuarded(path: string, next: string | Uint8Array): Promise<vo
     }
     throw error
   }
+}
+
+/**
+ * Whether `candidate` resolves to a path strictly INSIDE `baseDir` (the
+ * directory itself does not count — it is not a file).
+ *
+ * The paths this module derives from package/registry METADATA and from a
+ * project's own manifest (a font package's `molecule.font.fontsDir`/`faces[].file`,
+ * the `@molecule/*` dependency keys that name the package) are data, and not
+ * necessarily trustworthy data: `scanPackage` reads a package's metadata from
+ * its own `package.json`, and `join()` resolves a `../…` happily — so an
+ * unchecked `join(nodeModules, name, fontsDir, file)` reads a file from
+ * anywhere the process can read and copies it into the project's SERVED static
+ * directory (`public/`). Both sides are compared as RESOLVED paths, which is
+ * also what catches an absolute `candidate` (`join(base, '/etc/passwd')` folds
+ * it into `base`, so a prefix check on the joined string would call it inside).
+ *
+ * @param baseDir - The directory the path must stay within.
+ * @param candidate - The path to check.
+ * @returns True when `candidate` is a path strictly inside `baseDir`.
+ */
+function isInsideDir(baseDir: string, candidate: string): boolean {
+  const inside = relative(baseDir, candidate)
+  return inside !== '' && inside !== '..' && !inside.startsWith(`..${sep}`) && !isAbsolute(inside)
 }
 
 // ---------------------------------------------------------------------------
@@ -2237,8 +2261,7 @@ export async function copyTemplateInstance(
         // otherwise write a file anywhere on the filesystem — the same
         // containment rule the sibling `copyFontFiles` applies to the font
         // metadata it reads from packages.
-        const inside = relative(destDir, dst)
-        if (inside === '..' || inside.startsWith(`..${sep}`)) {
+        if (!isInsideDir(destDir, dst)) {
           console.warn(`Skipping font outside the project: ${rel}`)
           continue
         }
@@ -4948,8 +4971,22 @@ export async function copyFontFiles(
     const destFile = basename(file)
     let copied = false
     for (const nm of nmCandidates) {
+      const source = join(nm, packageName, pkgFontsDir, file)
+      // `packageName` is metadata too, and it is the ONE segment the rule above
+      // does not cover — a `../…` in it walks out of node_modules and reads any
+      // file the process can open (`@molecule/../../..` from
+      // `<project>/node_modules` resolves the entry's base to the directory
+      // ABOVE the project, which only has to hold a readable
+      // `<fontsDir>/<file>`; `fontsDir: '.ssh'` + `file: 'id_rsa'` is that
+      // pair). The bytes land in `public/` — a SERVED
+      // directory — so this is a read of a file the app must never expose, not
+      // a cosmetic path bug. The relative escape is the same for every
+      // candidate, so the first failure ends the loop.
+      if (!isInsideDir(nm, source)) {
+        console.warn(`Skipping font outside node_modules: ${packageName}/${pkgFontsDir}/${file}`)
+        break
+      }
       try {
-        const source = join(nm, packageName, pkgFontsDir, file)
         await copyFile(source, join(fontsDir, destFile))
         copied = true
         break
@@ -5056,8 +5093,17 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
 
     // Fallback: read from package.json in node_modules (for non-registry packages)
     for (const nm of nmCandidates) {
+      const depPkgPath = join(nm, depName, 'package.json')
+      // `depName` is a manifest KEY, and nothing constrains it past the
+      // `@molecule/` prefix this loop filters on — `"@molecule/../../evil"` is a
+      // valid key and walks out of node_modules, making mlcl parse a file from
+      // anywhere as a package. Checked where the key becomes a path (see
+      // isInsideDir); the escape is identical for every candidate.
+      if (!isInsideDir(nm, depPkgPath)) {
+        console.warn(`Skipping package outside node_modules: ${depName}`)
+        break
+      }
       try {
-        const depPkgPath = join(nm, depName, 'package.json')
         const depPkg = JSON.parse(await readFile(depPkgPath, 'utf-8'))
         const pkgFont = depPkg.molecule?.font
         if (!pkgFont) break // Package found but has no font metadata
@@ -5105,8 +5151,11 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
   if (fontFiles.length > 0) {
     const fontsDir = join(projectPath, publicDir, 'fonts')
     // The names copyFontFiles writes: the basename of each face whose metadata
-    // segments carry no path separators (those entries are skipped with a
-    // warning, never written — the same guard, so the same set).
+    // segments carry no path separators. It is deliberately a SUPERSET — an
+    // entry copyFontFiles skipped (a separator in a segment, or a package name
+    // that escapes node_modules — see isInsideDir) still contributes its
+    // basename here, and sparing a file that was never copied is the safe
+    // direction: this set only ever PREVENTS a removal.
     const written = new Set(
       fontFiles
         .filter(
