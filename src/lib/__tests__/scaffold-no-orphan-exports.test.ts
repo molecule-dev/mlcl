@@ -135,7 +135,15 @@ describe('scaffold.ts exports no function nothing calls', () => {
       ).toBe(0)
     }
     // …and the exclusion must not have grown into "nothing is ever counted": a
-    // function with real callers still shows its references.
-    expect(mentionsOf('copyFontFiles', haystack)).toBeGreaterThanOrEqual(1)
+    // function with real callers still shows its references. The caller has to
+    // be OUTSIDE scaffold.ts for that to say anything — `copyFontFiles` is
+    // declared there, so a bare `>= 1` over the whole haystack was satisfied by
+    // the declaration line alone and stayed green even with every caller file
+    // dropped from the scan.
+    const outsideCaller = readFileSync(join(PACKAGE_ROOT, 'src', 'commands', 'create.ts'), 'utf-8')
+    expect(
+      mentionsOf('copyFontFiles', outsideCaller),
+      'a caller outside scaffold.ts must still be part of the scan',
+    ).toBeGreaterThanOrEqual(1)
   })
 })

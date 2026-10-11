@@ -66,15 +66,15 @@ let root: Root
 /**
  * Let real timers run.
  *
- * `SearchAutocomplete`'s debounce default is 200 ms (`debounceMs = 200` in
- * `@molecule/app-features-search-autocomplete-react`, and `SearchPage` passes no
- * override). A fixed sleep just past that (this file used 250 ms, and its
- * comment said 150) left a 50 ms margin on a real timer — under load the timer
- * fires late, no request has gone out, and `searchCalls()[0]` is `undefined`
- * (a TypeError) or the length assert sees zero. Anything that waits for the
- * DEBOUNCE to fire therefore polls for the request itself (see
- * {@link waitForSearches}); a fixed sleep is only used for a NEGATIVE window,
- * where the delay itself is the assertion.
+ * `SearchAutocomplete`'s own default is 200 ms (`debounceMs = 200` in
+ * `@molecule/app-features-search-autocomplete-react`), but this page OVERRIDES
+ * it: `SearchPage` passes `debounceMs={150}`. A fixed sleep just past it (this
+ * file used 250 ms, and its comment said 150 while the variable said 200) left a
+ * 50 ms margin on a real timer — under load the timer fires late, no request has
+ * gone out, and `searchCalls()[0]` is `undefined` (a TypeError) or the length
+ * assert sees zero. Anything that waits for the DEBOUNCE to fire therefore polls
+ * for the request itself (see {@link waitForSearches}); a fixed sleep is only
+ * used for a NEGATIVE window, where the delay itself is the assertion.
  */
 async function wait(ms: number): Promise<void> {
   await act(async () => {
@@ -99,7 +99,8 @@ const searchCalls = (): FetchCall[] => fetches.calls.filter((c) => c.url.include
  *
  * The debounce runs on REAL timers, so a fixed sleep past it is a race: poll
  * for the request the debounce fires instead of guessing how long it takes.
- * (Measured against the default the component applies, 200 ms.)
+ * (Measured against the 150 ms this page passes to the component — see
+ * {@link wait}.)
  *
  * @param count - How many `/api/search` requests must have been issued.
  */
@@ -170,12 +171,13 @@ describe('search page — one query is one search, however often the page re-ren
     await act(async () => {
       call.respond(200, { hits: [{ id: 'c', title: 'cat hit' }] })
     })
-    // Three debounce intervals (200 ms each): a re-armed search lands ~200 ms
-    // after the response, so this window is the assertion, not a wait for one.
+    // Four debounce intervals (150 ms each — the value SearchPage passes): a
+    // re-armed search lands ~150 ms after the response, so this window is the
+    // assertion, not a wait for one.
     await wait(600)
 
     // Still one. A second here is the unbounded loop: another every debounce
-    // interval (200 ms) for as long as the query stays in the box.
+    // interval (150 ms) for as long as the query stays in the box.
     expect(searchCalls()).toHaveLength(1)
     expect(container.textContent).toContain('cat hit')
   })

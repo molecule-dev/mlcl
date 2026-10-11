@@ -213,9 +213,9 @@ describe('injectActivityCaptureBoot (IDE8 producer wiring)', () => {
     expect(result.messageId).toMatch(/^captured-/)
 
     expect(fetchMock).toHaveBeenCalledTimes(1)
-    const call = fetchMock.mock.calls.at(0)
-    expect(call).toBeDefined()
-    const [url, init] = call as [string, RequestInit]
+    // The call-count check above IS the guard — `.toBeDefined()` on the result
+    // of `calls.at(0)` could never fail once it passed, and said nothing.
+    const [url, init] = fetchMock.mock.calls.at(0) as [string, RequestInit]
     expect(url).toBe('https://api.molecule.dev/v1/activity')
     expect(init.method).toBe('POST')
     const headers = init.headers as Record<string, string>
@@ -274,9 +274,8 @@ describe('injectActivityCaptureBoot (IDE8 producer wiring)', () => {
 
     // ...and the real delivery is still recorded, as 'sent' rather than 'captured'.
     expect(fetchMock).toHaveBeenCalledTimes(1)
-    const call = fetchMock.mock.calls.at(0)
-    expect(call).toBeDefined()
-    const [, init] = call as [string, RequestInit]
+    // As above: the count is the guard, so no `.toBeDefined()` on the entry.
+    const [, init] = fetchMock.mock.calls.at(0) as [string, RequestInit]
     const event = JSON.parse(init.body as string) as { type: string; status: string }
     expect(event.type).toBe('email')
     expect(event.status).toBe('sent')

@@ -52,12 +52,31 @@ vi.mock('@molecule/app-ui', () => ({
   getClassMap: () => new Proxy({}, { get: () => () => undefined }),
 }))
 
+/**
+ * The `useOAuth()` double: the redirect it was clicked into, and the provider
+ * list the component configured it with.
+ *
+ * Both are RECORDED, not thrown away. Asserting only on `data-mol-id` left the
+ * dead affordance reachable through the two other lists the component carries:
+ * a button whose `onClick` called `redirect('github')` (or a hook configured
+ * with `oauthProviders: ['github']`) while its id still read `oauth-google`
+ * navigated the reader to `user.error.oauthServerNotConfigured` — the exact
+ * failure this suite exists to prevent — with every assertion still green.
+ */
+const oauth = vi.hoisted(() => ({
+  redirect: vi.fn(),
+  configured: [] as Array<string[]>,
+}))
+
 vi.mock('@molecule/app-react', () => ({
   useTranslation: () => ({
     t: (_key: string, _values?: unknown, options?: { defaultValue?: string }) =>
       options?.defaultValue ?? _key,
   }),
-  useOAuth: () => ({ providers: [], redirect: () => undefined }),
+  useOAuth: (options?: { oauthProviders?: string[] }) => {
+    oauth.configured.push(options?.oauthProviders ?? [])
+    return { providers: [], redirect: oauth.redirect }
+  },
 }))
 
 vi.mock('@molecule/app-oauth-logos-react', () => ({
@@ -102,5 +121,42 @@ describe('oauth login buttons — a button always has a bond behind it', () => {
     // component would fail here rather than pass by having nothing to check.
     expect(bondedProviders().length).toBeGreaterThan(0)
     expect(rendered).toEqual(bondedProviders())
+  })
+
+  it('each button REDIRECTS to the provider it names, and only to a bonded one', async () => {
+    await act(async () => {
+      root.render(createElement(SocialLoginButtons))
+    })
+
+    const buttons = Array.from(
+      container.querySelectorAll('[data-mol-id^="oauth-"]'),
+    ) as HTMLButtonElement[]
+    // The premise: there is a button to click at all.
+    expect(buttons.length).toBeGreaterThan(0)
+
+    for (const button of buttons) {
+      const id = (button.getAttribute('data-mol-id') ?? '').slice('oauth-'.length)
+      oauth.redirect.mockClear()
+      await act(async () => {
+        button.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+      })
+
+      expect(oauth.redirect, `the ${id} button must start the OAuth dance`).toHaveBeenCalledTimes(1)
+      // The id the parity check reads and the provider the click actually
+      // navigates to are two independent lists in the component — this is what
+      // ties them together.
+      expect(
+        oauth.redirect.mock.calls[0]?.[0],
+        `the ${id} button navigates to a different provider than the one it names`,
+      ).toBe(id)
+      expect(bondedProviders(), `no bond is shipped for ${id}`).toContain(id)
+    }
+
+    // And the hook's own provider list — the third list the component carries —
+    // must name the bonded providers too: the component's doc says it must, and
+    // a hook configured for an unbonded provider is the same dead affordance
+    // one step earlier.
+    const configured = oauth.configured.at(-1) ?? []
+    expect([...configured].sort()).toEqual(bondedProviders())
   })
 })

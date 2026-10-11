@@ -292,7 +292,7 @@ describe('finalize-deletions — the expired-user filter must actually match', (
     expect(database.updateById).toHaveBeenCalledWith('users', 'u-race', { deleted_at: null })
   })
 
-  it('never purges a table that has no `user_id` column — that failure wedges the deletion', async () => {
+  it('treats a wrong-COLUMN error (42703) as a real purge failure, never as a missing table', async () => {
     // The framework audit table (@molecule/api-audit-database) identifies the
     // actor in `actor` (`user:<id>`) and has NO `user_id`. Listing it in
     // APP_TABLES does not fail as a missing TABLE — it fails on the COLUMN
@@ -301,12 +301,20 @@ describe('finalize-deletions — the expired-user filter must actually match', (
     // failure. `purgeFailed` then deferred the hard delete EVERY night, and the
     // retry failed the same way forever: an account whose user asked to be
     // deleted was never deleted, and the page's "permanently deleted in 30 days"
-    // copy was never kept.
+    // copy was never kept. The fix was to stop listing that table — so the
+    // classification it depends on is pinned here through a table that IS in
+    // APP_TABLES: a 42703 on `api_keys` must be a REAL failure that defers the
+    // hard delete, not a missing table that gets skipped.
+    //
+    // (This used to feed the 42703 for `audit_log`, which `APP_TABLES` never
+    // contains — so `deleteMany('audit_log', …)` was never issued and the
+    // assertion could not fail: reverting `isMissingTableError` to swallow
+    // 42703 as "absent table" left it green.)
     users = [{ id: 'u-audited', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
     devices = []
     database.deleteMany.mockImplementation(async (table: string) => {
       if (table === 'devices') return { data: [], affected: 1 }
-      if (table === 'audit_log') {
+      if (table === 'api_keys') {
         const err = new Error('column "user_id" does not exist') as Error & { code?: string }
         err.code = '42703'
         throw err
@@ -319,10 +327,13 @@ describe('finalize-deletions — the expired-user filter must actually match', (
 
     await runJob()
 
-    // The wrong-column prune is never attempted…
-    expect(database.deleteMany).not.toHaveBeenCalledWith('audit_log', expect.anything())
-    // …so the account is hard-deleted like any other.
-    expect(database.deleteById).toHaveBeenCalledWith('users', 'u-audited')
+    // The wrong-column purge really was attempted on a LISTED table…
+    expect(database.deleteMany).toHaveBeenCalledWith('api_keys', [
+      { field: 'user_id', operator: '=', value: 'u-audited' },
+    ])
+    // …and it is a real failure: the users row stays so the purge retries.
+    expect(database.deleteById).toHaveBeenCalledWith('usersSecrets', 'u-audited')
+    expect(database.deleteById).not.toHaveBeenCalledWith('users', 'u-audited')
   })
 
   // …and the skip must be narrow: any failure that is NOT an absent table is

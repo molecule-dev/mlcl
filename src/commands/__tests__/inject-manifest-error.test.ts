@@ -88,9 +88,13 @@ describe('mlcl inject refuses a target without a readable manifest', () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-inject-nomanifest-'))
     await writeFile(join(dir, 'package.json'), '{ this is not json')
 
-    await expect(runInjectWithoutMolecule(dir)).rejects.toThrow(
-      /missing or unparseable|Cannot read/,
-    )
+    await expect(runInjectWithoutMolecule(dir)).rejects.toThrow(/missing or unparseable/)
+    // …and the refusal still precedes every write. (The `|Cannot read/`
+    // alternative this used to accept also matched a bare `TypeError: Cannot
+    // read properties of undefined …` — the raw crash the command was fixed to
+    // replace — so the assertion could be satisfied by the very failure it
+    // exists to catch. Nothing may be written on this path either.)
+    expect(await readdir(dir)).toEqual(['package.json'])
   })
 
   it('keeps the friendly "nothing to inject" answer for a directory with no manifest at all', async () => {
@@ -100,6 +104,16 @@ describe('mlcl inject refuses a target without a readable manifest', () => {
     // success status, not an error.
     dir = await mkdtemp(join(tmpdir(), 'mlcl-inject-nomanifest-'))
 
-    await expect(runInjectWithoutMolecule(dir)).resolves.toBeDefined()
+    const cmd = await runInjectWithoutMolecule(dir)
+
+    // The answer is the HINT (reaching this line at all is the success status).
+    // `.resolves.toBeDefined()` alone asserted only that the command did not
+    // reject, so a run that printed nothing — or an error hint — passed.
+    const logged = vi
+      .mocked(cmd.log)
+      .mock.calls.map((args) => args.map(String).join(' '))
+      .join('\n')
+    expect(logged, 'the friendly hint must actually be printed').toContain('Add a molecule with:')
+    expect(logged).toContain('mlcl add')
   })
 })

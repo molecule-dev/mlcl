@@ -149,7 +149,12 @@ describe('injectLogo', () => {
     const result = await injectLogo({ appPath, appName: 'demo', brandColor: '#f00' })
     expect(result.written).toBe(false)
     expect(result.reason).toBe('no-public-dir')
-    expect(result.glyph).toBeDefined() // glyph picked even when skipped
+    // The glyph is chosen even when the write is skipped, and it is the same
+    // deterministic choice for this app name that a successful run uses — what
+    // the caller renders while the real logo is missing. (`glyph` is typed
+    // `string` and every return path sets it, so the `.toBeDefined()` this
+    // replaced could never fail.)
+    expect(result.glyph).toBe(pickGlyph('demo'))
   })
 
   it('writes a logo when publicDir exists + no existing logo', async () => {

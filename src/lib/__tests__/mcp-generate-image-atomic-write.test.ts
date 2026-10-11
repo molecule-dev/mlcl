@@ -174,11 +174,15 @@ describe('generate_image — an n > 1 set lands whole or not at all', () => {
     // The refusal is whole: the first image must not have been written under a
     // name the caller was told was not used.
     expect(existsSync(target), 'no partial set behind a failed call').toBe(false)
-    expect(existsSync(join(dir, 'collide-1.png'))).toBe(false)
+    // The other path this call would have touched is `<stem>-2.png` (the naming
+    // scheme is `<stem>.png`, `<stem>-2.png`, …, never `-1`) — it was there
+    // before the call and must still hold the same bytes: the refusal wrote
+    // nothing, and it did not clobber the file that caused it.
+    expect(readFileSync(join(dir, 'collide-2.png'), 'utf-8')).toBe('already here')
     expect(hosted.calls, 'the service was still asked for the images').toBe(1)
   })
 
-  it('leaves no partial file behind when a write fails mid-set', async (ctx) => {
+  it('rolls back the images already written when a later write fails mid-set', async (ctx) => {
     if (skipped(ctx)) return
 
     // `O_CREAT|O_EXCL` creates the empty file BEFORE the bytes are written, so a
@@ -186,8 +190,14 @@ describe('generate_image — an n > 1 set lands whole or not at all', () => {
     // caller's own output name — one this tool refuses on the next attempt
     // ("already exists. Pick a fresh name") and that the whole-set rollback
     // cannot see, because it only removes the paths it finished writing.
+    //
+    // The failure is injected on the SECOND image, after the first has landed:
+    // that is the mid-set case the rollback exists for. (Failing the FIRST
+    // write — what this test used to do — left the rollback's `written` list
+    // empty, so nothing was ever removed and the assertions could not fail.)
     const target = join(dir, 'poisoned.png')
-    failingWrite.path = target
+    const second = join(dir, 'poisoned-2.png')
+    failingWrite.path = second
     try {
       const result = await callTool('generate_image', {
         prompt: 'a logo',
@@ -196,8 +206,8 @@ describe('generate_image — an n > 1 set lands whole or not at all', () => {
       })
 
       expect(result.isError, 'a failed write fails the call').toBe(true)
-      expect(existsSync(target), 'no partial file under the refused name').toBe(false)
-      expect(existsSync(join(dir, 'poisoned-2.png'))).toBe(false)
+      expect(existsSync(second), 'no partial file under the failed write’s own name').toBe(false)
+      expect(existsSync(target), 'image 1 must be rolled back with the failed set').toBe(false)
     } finally {
       failingWrite.path = null
     }

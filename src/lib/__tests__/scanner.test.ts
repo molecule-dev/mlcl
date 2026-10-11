@@ -296,9 +296,11 @@ describe('findMoleculePackages', () => {
     // There are many packages across core, bonds, infrastructure, resources, middleware, utilities
     expect(packages.length).toBeGreaterThanOrEqual(50)
 
-    // Every result should be a path that was found
+    // Every result is a package directory that actually exists on disk — the
+    // claim the loop makes. (`typeof pkg === 'string'` was all it asserted, and
+    // the signature is `Promise<string[]>`, so it could not fail.)
     for (const pkg of packages) {
-      expect(typeof pkg).toBe('string')
+      expect(existsSync(pkg), `${pkg} must be a directory that was found`).toBe(true)
     }
   })
 

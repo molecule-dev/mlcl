@@ -45,10 +45,21 @@ describe('molecule-mcp version reporting', () => {
     for (const file of ['src/remote.ts', 'src/telemetry.ts', 'src/server.ts']) {
       const source = readFileSync(join(MCP_DIR, file), 'utf-8')
       expect(source, `${file} hardcodes a version literal again`).not.toMatch(semverLiteral)
-      // …and the one legitimate source of the version stays wired.
+    }
+    // …and the one legitimate source of the version stays wired. The two
+    // CONSUMERS must call the helper — but telemetry.ts is where it is DEFINED
+    // (`export function serverVersion(): string {`), so a bare `serverVersion(`
+    // substring is true for that file no matter what its payload reports, and
+    // the check said nothing there. Telemetry's own use is the payload field.
+    for (const file of ['src/remote.ts', 'src/server.ts']) {
+      const source = readFileSync(join(MCP_DIR, file), 'utf-8')
       expect(source, `${file} must report the version through serverVersion()`).toContain(
         'serverVersion(',
       )
     }
+    expect(
+      readFileSync(join(MCP_DIR, 'src/telemetry.ts'), 'utf-8'),
+      'telemetry must put serverVersion() in the emitted payload, not only define it',
+    ).toMatch(/serverVersion:\s*serverVersion\(\)/)
   })
 })
