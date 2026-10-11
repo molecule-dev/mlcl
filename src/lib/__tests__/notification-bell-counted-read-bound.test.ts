@@ -139,6 +139,8 @@ interface CapturedRequest {
   url: string
   answered: boolean
   respond: (body?: unknown, status?: number) => void
+  /** Reject the request the way a failed network does. */
+  fail: (error: Error) => void
 }
 const httpRequests: CapturedRequest[] = []
 
@@ -237,7 +239,7 @@ beforeEach(() => {
   // Every fetch stays pending until a test answers it, so state is only what
   // the frames / clicks below wrote.
   globalThis.fetch = ((input: unknown) =>
-    new Promise((resolve) => {
+    new Promise((resolve, reject) => {
       const entry: CapturedRequest = {
         url: String(input),
         answered: false,
@@ -247,6 +249,7 @@ beforeEach(() => {
             status,
             json: async () => body,
           }),
+        fail: (error: Error) => reject(error),
       }
       httpRequests.push(entry)
     })) as typeof globalThis.fetch
@@ -466,5 +469,66 @@ describe('the bell counted-read set', () => {
     await flush()
     expect(text()).toContain('unread:1')
     expect(rowStates().get('a1')).toBe('false')
+  })
+
+  it('a single-row read the server REFUSES leaves the row unread and the badge untouched', async () => {
+    // `markRead` applies the local read state only AFTER the server accepted it
+    // — the same rule the mark-all sibling above is pinned on, and the one the
+    // `!res.ok` branch exists for: a refused POST (500, a 404 for a row another
+    // tab already pruned) that fell through dropped the badge for a
+    // notification still unread server-side, and every reload brought the count
+    // back with no record of why. Nothing covered this path: the only
+    // single-row failure in the suite is a *superseded* response's, which is
+    // about ordering, not refusal.
+    await mount(createElement(NotificationBellWidget, { userId: 'u1' }))
+    await openBell()
+    await frame(
+      'notification:created',
+      JSON.stringify({ id: 'f1', type: 'mention', read_at: null }),
+    )
+    expect(text()).toContain('unread:1')
+
+    await clickRow('f1')
+    const request = httpRequests.find(
+      (r) => r.url.endsWith('/api/notifications/f1/read') && !r.answered,
+    )
+    if (!request) throw new Error('no pending row-read request')
+    request.answered = true
+    await act(async () => {
+      request.respond({ error: 'boom' }, 500)
+    })
+    await flush()
+
+    expect(text(), 'a refused read must not move the badge').toContain('unread:1')
+    expect(rowState(), 'and the row must still render unread').toBe('false')
+  })
+
+  it('a single-row read whose network fails leaves the row unread too', async () => {
+    // The other half of the same guard: `markRead`'s catch keeps the row
+    // unread (the next SSE event or reload resyncs). A future refactor that
+    // moved the optimistic update before the await — or dropped the catch —
+    // would clear a badge over a write that never happened, and no assertion
+    // here would have noticed.
+    await mount(createElement(NotificationBellWidget, { userId: 'u1' }))
+    await openBell()
+    await frame(
+      'notification:created',
+      JSON.stringify({ id: 'g1', type: 'mention', read_at: null }),
+    )
+    expect(text()).toContain('unread:1')
+
+    await clickRow('g1')
+    const request = httpRequests.find(
+      (r) => r.url.endsWith('/api/notifications/g1/read') && !r.answered,
+    )
+    if (!request) throw new Error('no pending row-read request')
+    request.answered = true
+    await act(async () => {
+      request.fail(new Error('offline'))
+    })
+    await flush()
+
+    expect(text(), 'an offline read must not move the badge').toContain('unread:1')
+    expect(rowState(), 'and the row must still render unread').toBe('false')
   })
 })

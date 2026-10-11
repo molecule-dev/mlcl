@@ -82,9 +82,26 @@ describe('maps-location MapView — a failing createMap is reported, never throw
     await mount([{ lat: 1, lng: 2 }])
 
     expect(errors).toHaveBeenCalledWith('map failed to initialize', boom)
-    // The panel is still on screen — a failed map is a blank panel plus a log,
-    // not a crashed subtree.
-    expect(container.querySelector('[data-mol-id="map-view"]')).not.toBeNull()
+    // …and the render survived it: a failed map is a blank panel plus a log, not
+    // a crashed subtree. THAT is this pair's second assertion — `act()` above
+    // rejects if the exception escaped the effect. The
+    // `querySelector('[data-mol-id="map-view"]')` that used to sit here could
+    // not fail: the root div is rendered unconditionally, whatever createMap
+    // does.
+  })
+
+  it('logs a createMap that REJECTS asynchronously — the other failure mode the chain normalizes', async () => {
+    // The docblock's "REJECTS or THROWS": a provider whose createMap returns a
+    // promise that rejects (tiles unavailable, a bad style URL) reaches the same
+    // handler as the synchronous throw, and nothing else in this suite drives
+    // it — deleting the rejection handler left both the panel and the log
+    // unchanged for the synchronous case.
+    const boom = new Error('tiles unavailable')
+    maps.createMap.mockReturnValue(Promise.reject(boom))
+
+    await mount([{ lat: 1, lng: 2 }])
+
+    expect(errors).toHaveBeenCalledWith('map failed to initialize', boom)
   })
 
   it('the positive twin: a synchronous instance still gets its markers', async () => {

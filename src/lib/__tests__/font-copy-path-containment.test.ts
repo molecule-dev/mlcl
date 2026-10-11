@@ -88,4 +88,58 @@ describe('copyFontFiles — a metadata path never leaves node_modules', () => {
     expect(existsSync(copiedFile('Fixture-Regular.woff2'))).toBe(true)
     expect(await readFile(copiedFile('Fixture-Regular.woff2'), 'utf-8')).toBe('woff2-fixture')
   })
+
+  it('refuses a fontsDir carrying a path separator, even one that stays inside the package', async () => {
+    // The other two metadata segments the header names. The resolved path here
+    // is INSIDE node_modules (so the containment check alone would allow it) —
+    // the separator rejection is the rule under test, and the file is really
+    // there, so removing it copies the file into the served directory.
+    const nested = join(
+      root,
+      'project',
+      'node_modules',
+      '@molecule',
+      'app-font-fixture',
+      'nested',
+      'fonts',
+    )
+    await mkdir(nested, { recursive: true })
+    await writeFile(join(nested, 'Nested.woff2'), 'nested-fixture')
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    await copyFontFiles(projectPath(), [
+      {
+        packageName: '@molecule/app-font-fixture',
+        fontsDir: 'nested/fonts',
+        file: 'Nested.woff2',
+      },
+    ])
+
+    expect(existsSync(copiedFile('Nested.woff2')), 'a joined fontsDir must be refused').toBe(false)
+    expect(
+      warn.mock.calls.some(([message]) => String(message).includes('path separators in metadata')),
+    ).toBe(true)
+  })
+
+  it('refuses a file carrying a path separator, even one that stays inside the package', async () => {
+    // `basename()` flattens the DESTINATION, which is why a joined `file` was
+    // easy to miss: the write lands in `public/fonts/`, the read does not.
+    const nested = join(root, 'project', 'node_modules', '@molecule', 'app-font-fixture', 'nested')
+    await mkdir(nested, { recursive: true })
+    await writeFile(join(nested, 'Inner.woff2'), 'inner-fixture')
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    await copyFontFiles(projectPath(), [
+      {
+        packageName: '@molecule/app-font-fixture',
+        fontsDir: 'fonts',
+        file: 'nested/Inner.woff2',
+      },
+    ])
+
+    expect(existsSync(copiedFile('Inner.woff2')), 'a joined file must be refused').toBe(false)
+    expect(
+      warn.mock.calls.some(([message]) => String(message).includes('path separators in metadata')),
+    ).toBe(true)
+  })
 })

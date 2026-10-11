@@ -64,6 +64,8 @@ let callTool: (name: string, args?: Record<string, unknown>) => Promise<ToolResu
 let closeClient: () => Promise<void>
 /** The module's cache reset — see the `beforeEach` below for why the suite needs it. */
 let clearCaches: (() => void) | null = null
+/** Restored in `afterAll` (the suite replaces it to catch any outbound request). */
+const originalFetch = globalThis.fetch
 
 /**
  * Where the fetched documents are cached, and why every test starts without one.
@@ -112,6 +114,19 @@ beforeAll(async () => {
   // Read at MODULE LOAD, so both overrides are set before the import below.
   process.env.MOLECULE_REGISTRY_FILE = registryFile
   process.env.MOLECULE_TEMPLATES_FILE = templatesFile
+  // NO outbound request may leave this suite. Every tool this server registers
+  // is wrapped in `tracked()`, and telemetry is ON by default (opt-out) — so a
+  // tool call here POSTed `mcp.tool_call` to the production telemetry endpoint
+  // and read (or minted) the developer's own `~/.mlcl/telemetry-id`, which is
+  // exactly the side effect the sibling mcp suites close with `DO_NOT_TRACK=1`.
+  // That opt-out is set here, and the fetch double below turns the outbound
+  // half into a FAILURE rather than a silent POST: the documents this suite
+  // reads come from the file overrides, so nothing here has any business
+  // dialing out at all.
+  process.env.DO_NOT_TRACK = '1'
+  globalThis.fetch = (() => {
+    throw new Error('this suite must not make an outbound request')
+  }) as unknown as typeof globalThis.fetch
 
   const { buildRemoteServer, clearRemoteCaches } = await import('../../../mcp/src/remote.js')
   clearCaches = clearRemoteCaches
@@ -128,6 +143,8 @@ beforeAll(async () => {
 
 afterAll(async () => {
   if (closeClient) await closeClient()
+  globalThis.fetch = originalFetch
+  delete process.env.DO_NOT_TRACK
   delete process.env.MOLECULE_REGISTRY_FILE
   delete process.env.MOLECULE_TEMPLATES_FILE
   if (dir) rmSync(dir, { recursive: true, force: true })

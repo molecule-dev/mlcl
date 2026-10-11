@@ -220,9 +220,13 @@ describe('an input over the advertised cap is refused from its size', () => {
     if (skipped(ctx)) return
     // The bound must not be one character tighter than the description: at
     // exactly 50,000 characters the call belongs to the service, so what comes
-    // back is the mocked service's own error, never the budget refusal.
+    // back is the mocked service's own error, never the budget refusal. Both
+    // halves are asserted — the mock's marker PROVES the call was admitted (a
+    // bare "not the refusal" also passes for a handler that short-circuits at
+    // the cap and answers something else, or an empty success).
     const result = await callTool('translate', { text: 'x'.repeat(50_000), target_lang: 'de' })
 
+    expect(textOf(result)).toContain('the hosted service must not be reached by a refused input')
     expect(textOf(result)).not.toContain('translate accepts up to 50000 characters')
   })
 

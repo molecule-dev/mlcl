@@ -18,6 +18,7 @@
  *
  * @module
  */
+import { symlinkSync } from 'node:fs'
 import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -90,5 +91,21 @@ describe('checkMigrationExists — table-name boundaries', () => {
 
   it('returns null when the migrations directory does not exist yet', async () => {
     expect(await checkMigrationExists(join(tempDir, 'no-such-dir'), 'comments')).toBeNull()
+  })
+
+  it('reports a migrations directory it cannot READ instead of planning a duplicate', async () => {
+    // Only ENOENT may mean "no migrations yet". Every other readdir failure
+    // (EACCES on an unreadable `migrations/`, EIO, ELOOP — the reproducible
+    // trigger here, a symlink whose target does not resolve) used to fall into
+    // the same `return null`: the planner then believed the table had no
+    // migration and planned a second one for it, beside the real file it could
+    // not look for. The caller records the failure by name and fails the inject,
+    // so the cause is the unreadable directory — not a duplicate migration.
+    const link = join(tempDir, 'unreadable-migrations')
+    symlinkSync('unreadable-migrations', link)
+
+    await expect(checkMigrationExists(link, 'comments')).rejects.toThrow(
+      expect.objectContaining({ code: 'ELOOP' }) as Error,
+    )
   })
 })

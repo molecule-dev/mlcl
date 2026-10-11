@@ -21,7 +21,7 @@ import { existsSync } from 'node:fs'
 import { type AddressInfo, createServer, type Server, type ServerResponse } from 'node:http'
 import { join } from 'node:path'
 
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 /**
  * mcp is not an npm workspace member, so `npm ci` in mlcl (which is how CI
@@ -72,8 +72,32 @@ function fetchCallsIn(source: string): string[] {
 
 let server: Server | null = null
 
+/**
+ * Start every test from a COLD `fetchJson` cache.
+ *
+ * `fetchJson` caches a successful payload by URL for ten minutes, in a
+ * process-global map this file never used to reset — and it leans on
+ * `listen(0)` for its ephemeral ports, so a port the OS hands to a later test
+ * is a URL a previous test cached under. Test 2 (a 503) and test 3 (a healthy
+ * same-path document) would then read the earlier entry instead of dialing the
+ * new server. The module exports the reset for exactly this; saying it out loud
+ * is what the sibling registry-shape suite does.
+ */
+beforeEach(async () => {
+  if (!existsSync(DEPS_MARKER)) return
+  const { clearRemoteCaches } = await import('../../../mcp/src/remote.js')
+  clearRemoteCaches()
+})
+
 afterEach(async () => {
   if (server) {
+    // Destroy the connections BEFORE closing: `close()` waits for idle
+    // keep-alive sockets, and undici's pool holds one for ~4 s after a request —
+    // the "aborted, then a healthy call on the same origin" sequence made this
+    // teardown cost that 4 s of real wall clock on every run, against a 10 s
+    // hook budget. Nothing observes the teardown, so the stall was invisible
+    // until it became a timeout.
+    server.closeAllConnections()
     await new Promise((resolve) => server!.close(resolve))
     server = null
   }
@@ -186,6 +210,34 @@ describe('mcp remote outbound fetch timeout', () => {
           `${file}: an outbound fetch is missing its AbortSignal bound:\n${call}`,
         ).toMatch(/signal: AbortSignal\.timeout\(/)
       }
+    }
+  })
+
+  it('drives fetchPackageReadme through its own timeoutMs seam, not the module default', async (ctx) => {
+    if (skipped(ctx)) return
+    // read_package_doc's npm fetch takes the SAME seam (`timeoutMs`), and
+    // nothing exercised it: the source gate above only checks that a signal is
+    // PRESENT, so a regression to `AbortSignal.timeout(FETCH_TIMEOUT_MS)` —
+    // ignoring the parameter, and with it the only way to bound that call
+    // tighter — kept every assertion green. The package URL is hardcoded to
+    // registry.npmjs.org, so the bound is observed at the module it is handed
+    // to rather than by stalling a real host.
+    const { fetchPackageReadme, FETCH_TIMEOUT_MS } = await import('../../../mcp/src/remote.js')
+    const timeoutSpy = vi.spyOn(AbortSignal, 'timeout')
+    const originalFetch = globalThis.fetch
+    globalThis.fetch = (() =>
+      Promise.resolve(new Response('{}', { status: 200 }))) as typeof globalThis.fetch
+    try {
+      await fetchPackageReadme(`timeout-seam-probe-${process.pid}-${Date.now()}`, 1_234)
+
+      expect(timeoutSpy, 'the per-call bound must reach the signal').toHaveBeenCalledWith(1_234)
+      expect(
+        timeoutSpy,
+        'the module default here is the regression this pins',
+      ).not.toHaveBeenCalledWith(FETCH_TIMEOUT_MS)
+    } finally {
+      globalThis.fetch = originalFetch
+      timeoutSpy.mockRestore()
     }
   })
 

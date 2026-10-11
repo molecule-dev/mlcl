@@ -336,6 +336,102 @@ describe('syncProjectAssets keeps a stylesheet-referenced font', () => {
  * to insert one before, the generated block was dropped and the document
  * returned unchanged — a silent no-op the caller reports as a success.
  */
+/**
+ * The manifest KEY is data: `syncProjectAssets` filters `@molecule/`-prefixed
+ * keys out of the project's dependencies and then joins each one under a
+ * `node_modules` candidate, so `"@molecule/../../../victim"` is a valid key
+ * that walks out of node_modules — mlcl would parse a package.json from
+ * anywhere on the machine as a package and splice its `molecule.font`
+ * metadata (family, `url`, faces) into the project's font block, and copy the
+ * files it names into the served `public/fonts/`. The guard is `isInsideDir`,
+ * and nothing drove it: every other asset-sync test uses a benign package
+ * name, so deleting the check left the suite green.
+ */
+describe('syncProjectAssets refuses a dependency key that escapes node_modules', () => {
+  let projectDir: string
+  let victimRoot: string
+
+  beforeEach(() => {
+    projectDir = mkdtempSync(join(tmpdir(), 'mlcl-asset-escape-'))
+    victimRoot = mkdtempSync(join(tmpdir(), 'mlcl-asset-victim-'))
+    mkdirSync(join(projectDir, 'public', 'fonts'), { recursive: true })
+    // The victim package, OUTSIDE any node_modules: three `..` steps from
+    // `<project>/node_modules/@molecule` is the tmpdir these two share.
+    writeFileSync(
+      join(victimRoot, 'package.json'),
+      JSON.stringify({
+        name: 'victim',
+        molecule: {
+          font: {
+            family: 'Victim Sans',
+            source: 'local',
+            fontsDir: 'fonts',
+            faces: [{ file: 'Victim.ttf', weight: 400 }],
+            url: 'https://victim.test/fonts.css',
+          },
+        },
+      }),
+    )
+    mkdirSync(join(victimRoot, 'fonts'), { recursive: true })
+    writeFileSync(join(victimRoot, 'fonts', 'Victim.ttf'), 'VICTIM-BYTES')
+    // A manifest whose dependency key walks out of node_modules into it.
+    writeFileSync(
+      join(projectDir, 'package.json'),
+      JSON.stringify({
+        name: 'escaping-app',
+        dependencies: { [`@molecule/../../../${victimRoot.split('/').pop()}`]: '1.0.0' },
+      }),
+    )
+    // The block markers a merged font block needs — so a leaked family would
+    // actually be written into the document.
+    writeFileSync(
+      join(projectDir, 'index.html'),
+      `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- mol:fonts -->
+    <!-- /mol:fonts -->
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+`,
+    )
+  })
+
+  afterEach(() => {
+    rmSync(projectDir, { recursive: true, force: true })
+    rmSync(victimRoot, { recursive: true, force: true })
+  })
+
+  it('skips the escaping key instead of reading and splicing what it points at', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined)
+    try {
+      await syncProjectAssets(projectDir)
+
+      // The refusal is announced, naming the key it refused…
+      const warnings = warn.mock.calls.flat().map(String).join(' ')
+      expect(warnings, 'the escape must be reported, not silently ignored').toContain(
+        'outside node_modules',
+      )
+      // …and nothing of the victim reached the project: not its declaration…
+      const html = readFileSync(join(projectDir, 'index.html'), 'utf-8')
+      expect(html, 'an escaping package must not be spliced into the font block').not.toContain(
+        'Victim Sans',
+      )
+      expect(html).not.toContain('victim.test')
+      // …and not its file, under the name the app would then serve.
+      expect(
+        existsSync(join(projectDir, 'public', 'fonts', 'Victim.ttf')),
+        'a file outside node_modules must never be copied into the app',
+      ).toBe(false)
+    } finally {
+      warn.mockRestore()
+    }
+  })
+})
+
 describe('syncProjectAssets reports a document it cannot place the block in', () => {
   let projectDir: string
 

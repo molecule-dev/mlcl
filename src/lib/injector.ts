@@ -1377,8 +1377,18 @@ export async function checkMigrationExists(
     const files = await readdir(migrationsDir)
     const existing = files.find((f) => canonical.test(f))
     return existing ? join(migrationsDir, existing) : null
-  } catch (_error) {
-    // readdir throws when the migrations dir doesn't exist yet — safe to return null (no existing migration)
+  } catch (error) {
+    // ONLY `ENOENT` means "there is no migrations directory yet" — the first
+    // inject into a project that has none, which is the case this returned null
+    // for. Any OTHER failure (EACCES on an unreadable `migrations/`, EIO, ELOOP
+    // — a symlinked directory whose target does not resolve) used to be read as
+    // absence too: the planner then believes the table has no migration and
+    // plans a second one for it, landing a duplicate beside the real file (the
+    // safe direction is a missed match, but a match it could not LOOK for is
+    // not that). Rethrow instead — the caller wraps this call and records the
+    // failure by name, so the inject reports the real cause rather than a
+    // migration nobody asked for.
+    if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error
     return null
   }
 }

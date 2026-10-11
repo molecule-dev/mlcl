@@ -36,6 +36,8 @@ interface Pending {
   method: string
   answered: boolean
   respond: (status: number, body: unknown) => void
+  /** Reject the request the way a failed network does. */
+  fail: (error: Error) => void
 }
 
 /** Every request the components made, in order, with a handle to answer it. */
@@ -246,7 +248,7 @@ const uploads = (fragment: string): Pending[] =>
 beforeEach(() => {
   pending.requests.length = 0
   globalThis.fetch = ((input: unknown, init?: { method?: string }) =>
-    new Promise((resolve) => {
+    new Promise((resolve, reject) => {
       pending.requests.push({
         url: String(input),
         method: init?.method ?? 'GET',
@@ -257,6 +259,7 @@ beforeEach(() => {
             status,
             json: async () => body,
           }),
+        fail: (error: Error) => reject(error),
       })
     })) as typeof globalThis.fetch
 })
@@ -569,6 +572,51 @@ describe('a superseded fetch response must not win', () => {
     await respondTo('/api/ratings', 200, {})
     await respond('/api/ratings/avg/s', 200, { average: 5.0, count: 1 })
     expect(ratingValue()).toBe('5')
+  })
+
+  it('rolls the star back and says so when the NEWEST rating request fails', async () => {
+    // The other half of the rule the sibling test above pins: the rollback and
+    // the "Not saved" banner belong to the NEWEST request. Neither was
+    // asserted anywhere — every rating POST in this suite that fails is a
+    // superseded one, where the opposite is required — so a widget that kept
+    // the optimistic star (or dropped the banner) after a refused write left
+    // the reader looking at a rating the server never recorded, with no error.
+    await mount(createElement(RatingWidget, { subjectId: 's', canRate: true }))
+    await respond('/api/ratings/avg/s', 200, { average: 0, count: 0 })
+    expect(ratingValue()).toBe('0')
+
+    await clickRate(4)
+    // The star lights optimistically while the write is in flight (the value
+    // the rollback must restore FROM).
+    expect(ratingValue(), 'the star lights optimistically').toBe('4')
+
+    await respondTo('/api/ratings', 500, { error: 'boom' })
+
+    expect(ratingValue(), 'a refused rating must not stay lit').toBe('0')
+    expect(text(), 'and the reader must be told it was not saved').toContain('Not saved')
+  })
+
+  it('rolls the star back when the rating POST rejects outright', async () => {
+    // The rejection half of the same rule: the shared display discards the
+    // returned promise, so the catch is what restores the star and reports the
+    // failure — a request that never answered is exactly the case a
+    // `!res.ok`-only handler gets wrong.
+    await mount(createElement(RatingWidget, { subjectId: 's', canRate: true }))
+    await respond('/api/ratings/avg/s', 200, { average: 0, count: 0 })
+
+    await clickRate(2)
+    expect(ratingValue(), 'the star lights optimistically').toBe('2')
+
+    const request = pending.requests.find((r) => !r.answered && r.url === '/api/ratings')
+    if (!request) throw new Error('no pending rating POST')
+    request.answered = true
+    await act(async () => {
+      request.fail(new Error('offline'))
+    })
+    await flush()
+
+    expect(ratingValue(), 'an offline rating must not stay lit').toBe('0')
+    expect(text(), 'and the reader must be told it was not saved').toContain('Not saved')
   })
 
   it('a rating that lands after the subject changed does not repaint the old average', async () => {

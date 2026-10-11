@@ -241,7 +241,17 @@ describe('email-password-login — a 2FA challenge is NOT a successful login', (
     // before `window.location` proved stubbable — could only pin the request.
     expect(locationStub.href, 'the 200 must complete the login by navigating').toBe('/')
     expect(text()).not.toContain('Wrong code')
-    expect(text()).not.toContain('failed attempts')
+    // A 200 must leave NO error on screen. `failed attempts` cannot be that
+    // signal on THIS page: the attempt counter lives on `two-factor-auth`'s
+    // LoginVerifyPage, while this page's only error surface renders `error` —
+    // the assertion was therefore true for every possible render and could
+    // never fail. What a mishandled 200 leaves behind here is one of this
+    // page's own failure strings (the `!res.ok` branch's defaults), and a
+    // navigation assertion cannot see it: a page that both navigated and
+    // rendered an error would pass that one.
+    expect(text(), 'a session-issuing 200 must not report a login failure').not.toMatch(
+      /Login failed|Network error/,
+    )
   })
 
   it('keeps the code step and reports a rejected code', async () => {
@@ -296,8 +306,14 @@ describe('two-factor-auth — the code step posts to the real log-in route', () 
     await respond('/api/users/log-in', 200, { props: { id: 'u1' } })
 
     expect(locationStub.href, 'the 200 must complete the login by navigating').toBe('/')
-    expect(text()).not.toContain('failed attempts')
-    expect(text()).not.toContain('Wrong code')
+    // The counter renders only INSIDE the error paragraph, and this test's 200
+    // increments nothing — so `failed attempts` (true here for a broken
+    // success branch too: the fall-through sets an error without touching the
+    // counter) is not the signal. What a mishandled 200 leaves on screen is one
+    // of the page's own failure strings.
+    expect(text(), 'the 200 must not be reported as a failure').not.toMatch(
+      /Network error|Wrong code|failed attempts/,
+    )
   })
 
   it('counts a rejected code as an attempt and shows the retry counter', async () => {

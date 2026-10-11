@@ -41,6 +41,13 @@ const hosted = vi.hoisted(() => ({
    */
   emptyPayload: null as null | 'pdf' | 'image',
   /**
+   * Answer the SPEECH service with a body that carries no `audio` field at all
+   * (the image shape). Off by default: the field-MISSING gate and the
+   * decoded-length gate are two different branches of `decodeServicePayload`,
+   * and a double that always omits the field can only ever reach the first one.
+   */
+  stripsAudio: false,
+  /**
    * Answer every payload field with a NON-EMPTY string that decodes to ZERO
    * bytes (`'x'` — one base64 character is an incomplete group, so the decoder
    * ignores it). The length-based gates all pass this, and the tools then write
@@ -129,6 +136,19 @@ vi.mock('../../../mcp/src/services.js', () => ({
             usage: { total_tokens: 2 },
           }
     }
+    if (service === 'speech') {
+      // The speech service's OWN shape. Without this branch every non-pdf
+      // service fell through to the image body, so `text_to_speech` never had
+      // an `audio` field and the decoded-length gate could not be reached for
+      // it at all (`stripsAudio` is the "no field" case that branch used to
+      // stand in for).
+      if (hosted.stripsAudio) return { contentType: 'audio/mpeg' }
+      return {
+        audio:
+          hosted.emptyPayload === 'image' ? '' : payload(Buffer.from('heard').toString('base64')),
+        contentType: 'audio/mpeg',
+      }
+    }
     const empty = hosted.emptyPayload === 'image'
     return {
       images: [
@@ -144,6 +164,7 @@ vi.mock('../../../mcp/src/services.js', () => ({
 beforeEach(() => {
   hosted.onCall = null
   hosted.emptyPayload = null
+  hosted.stripsAudio = false
   hosted.undecodablePayload = false
   hosted.stripEmbeddings = false
   failingRemove.path = null
@@ -360,12 +381,13 @@ describe('render_pdf — the output name is created, never replaced', () => {
 describe('text_to_speech — a 2xx body must carry audio before anything is written', () => {
   it('answers an audio-less body with the tool’s own failure, not a raw TypeError', async (ctx) => {
     if (skipped(ctx)) return
-    // Every non-pdf service in the double above answers with the IMAGE shape,
-    // which has no `audio` field — exactly what a shrunken rewrite, a proxy's
-    // 200 or a service bug leaves. Without the shape gate the handler reached
+    // The double answers the speech service with a body carrying NO `audio`
+    // field — exactly what a shrunken rewrite, a proxy's 200 or a service bug
+    // leaves. Without the shape gate the handler reached
     // `Buffer.from(undefined, 'base64')` and the client was handed Node's
     // "The first argument must be of type string …" instead of the failure
     // every sibling tool reports, and nothing said the audio never arrived.
+    hosted.stripsAudio = true
     const target = join(dir, 'speech.mp3')
 
     const result = await callTool('text_to_speech', { text: 'hello', output_file: target })
@@ -373,6 +395,19 @@ describe('text_to_speech — a 2xx body must carry audio before anything is writ
     expect(result.isError, 'an answer carrying no audio is a failure').toBe(true)
     expect(textOf(result)).toContain('no audio data')
     expect(existsSync(target), 'a failed call writes nothing').toBe(false)
+  })
+
+  it('writes real audio (the positive twin — the gate must not reject a payload)', async (ctx) => {
+    if (skipped(ctx)) return
+    // Without this the two failure tests above are satisfied by a handler that
+    // refuses EVERY speech answer; the gate has to admit the shape the service
+    // actually sends.
+    const target = join(dir, 'speech-ok.mp3')
+
+    const result = await callTool('text_to_speech', { text: 'hello', output_file: target })
+
+    expect(result.isError, 'a payload carrying audio is a success').toBeFalsy()
+    expect(readFileSync(target, 'utf-8'), 'the decoded bytes are written').toBe('heard')
   })
 })
 
