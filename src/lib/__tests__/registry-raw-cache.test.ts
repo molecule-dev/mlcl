@@ -1,6 +1,12 @@
 // @vitest-environment node
 /**
- * `getRawRegistry` caches the parsed registry per (path, mtime, size).
+ * `getRawRegistry` caches the parsed registry per (path, file IDENTITY).
+ *
+ * The identity is the nanosecond mtime, the size and the inode
+ * (`registryCacheKey`), so neither of the two ways the file changes in
+ * practice is invisible: a rename-in publish moves a new inode into place
+ * (even when the bytes are the same length and the millisecond is the same)
+ * and an in-place rewrite bumps the mtime.
  *
  * Every framework/toolchain/version accessor funnels through it —
  * `getMoleculeVersion` among them, which scaffold and inject call once per
@@ -8,7 +14,7 @@
  * 1.5 MB registry file (~27 ms; a scaffold pays that dozens of times over,
  * scaling with the fleet rather than with the work). The cache must still
  * honor an edit made OUTSIDE this process (molecule's pre-commit doc regen
- * writes registry.json), which is what the mtime/size key buys.
+ * writes registry.json), which is what the identity key buys.
  *
  * The read-count assertions below fail against an uncached getRawRegistry:
  * a second call with the file untouched must not hit the disk again.
@@ -65,8 +71,10 @@ const marker = (label: string): string =>
     },
   })
 
-// The two contents must differ in SIZE, not just mtime: filesystems with
-// coarse mtime granularity would make same-size rewrites look untouched.
+// The two contents also differ in SIZE, which is belt-and-braces rather than
+// the mechanism: the key is the file's identity (nanosecond mtime, size and
+// inode — see `registryCacheKey`), so a same-length rewrite is still a miss.
+// The third test below pins that with a rename at a pinned timestamp.
 const FIRST = 'one'
 const SECOND = 'two-with-a-different-length'
 
@@ -120,7 +128,7 @@ describe('getRawRegistry — parsed-registry cache', () => {
     expect(getRawRegistry().packages['@molecule/test-raw-cache-probe']?.label).toBe(FIRST)
 
     // External write (no clearRegistryCache in this process — the pre-commit
-    // doc regen case): the mtime/size key must miss and re-read.
+    // doc regen case): the identity key must miss and re-read.
     writeFileSync(registryPath, marker(SECOND))
     expect(getRawRegistry().packages['@molecule/test-raw-cache-probe']?.label).toBe(SECOND)
   })
