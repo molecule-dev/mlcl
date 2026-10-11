@@ -2,7 +2,7 @@ import type { NextFunction, Request, Response } from 'express'
 import { Router } from 'express'
 import { z } from 'zod'
 
-import { deleteById, findById, findMany, updateById } from '@molecule/api-database'
+import { deleteMany, findById, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 
 const requireAuth = (_req: Request, res: Response, next: NextFunction): void => {
@@ -70,12 +70,15 @@ router.delete('/', requireAuth, async (req, res) => {
   // Sign the user out everywhere by deleting their device sessions. Molecule is
   // JWT/device-token based — there is no req.session; each active session is a row
   // in `devices`.
-  const devices = await findMany<{ id: string }>('devices', {
-    where: [{ field: 'userId', operator: '=', value: userId }],
-  })
-  for (const device of devices) {
-    await deleteById('devices', device.id)
-  }
+  //
+  // ONE round-trip, not findMany + a per-row deleteById: the loop paid one query
+  // per device (a user with many sessions made the delete request wait on one
+  // sequential round-trip per row), and it removed only the rows the read happened
+  // to see — a device created between that read and the last delete survived the
+  // sign-out. The WHERE-based delete removes every row that matches when it runs.
+  // The same shape the nightly finalize-deletions job purges sessions with (see
+  // jobs/finalize-deletions.ts).
+  await deleteMany('devices', [{ field: 'userId', operator: '=', value: userId }])
   res.json({ ok: true, scheduled: 'hard delete in 30 days' })
 })
 
