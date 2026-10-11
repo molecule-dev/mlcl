@@ -481,7 +481,11 @@ export function buildRemoteServer(): McpServer {
     },
     tracked('read_package_doc', async ({ name }) => {
       const short = name.replace(/^@molecule\//, '')
-      if (!/^[A-Za-z0-9._-]+$/.test(short)) {
+      // The same package-name shape the stdio server's path guard enforces (see
+      // mcp/src/server.ts): a name is a single descending segment, so it cannot
+      // begin with `.` — `..` is a relative path, and this value is
+      // interpolated into an outbound URL and echoed back.
+      if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(short)) {
         return text(`Invalid package name "${short}" — expected @molecule/<name>.`)
       }
       try {

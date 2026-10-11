@@ -621,8 +621,15 @@ server.registerTool(
   },
   tracked('read_package_doc', async ({ name, directory }) => {
     const short = name.replace(/^@molecule\//, '')
-    // Path-join guard: a crafted name must not escape node_modules.
-    if (!/^[A-Za-z0-9._-]+$/.test(short)) {
+    // Path-join guard: a crafted name must not escape node_modules — and the
+    // character class alone did not say that. `..` is three characters from the
+    // old class, and `join()` RESOLVES it: `name: '..'` read
+    // `<dir>/node_modules/README.md` (and `<dir>/node_modules/dist/README.md`
+    // through the second candidate), a file belonging to no molecule package,
+    // returned as that package's doc. A package name is npm's shape — it cannot
+    // begin with `.` or `_` — so the first character is what keeps every name a
+    // single descending segment.
+    if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(short)) {
       return text(`Invalid package name "${short}" — expected a plain @molecule/<name>.`)
     }
     const base = directory ?? process.cwd()
