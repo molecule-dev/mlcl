@@ -538,6 +538,42 @@ test('the cap evicts by when an address was last SEEN, not by insertion order', 
   }
 })
 
+test('a body sent to a path with no handler is never parsed', async () => {
+  // The budget is mounted on /mcp alone, and the parser used to sit at the ROOT
+  // where it ran for every request: a POST to any other path was buffered in
+  // full (up to the 1 MB cap) and only then 404'd, at whatever rate the caller
+  // liked — the exact work the budget's own note says a flood must not be able
+  // to pay, reached by changing the path. Nothing outside the /mcp handler ever
+  // reads `req.body`, so the observable difference is the responder: a path
+  // with no handler is answered by the ROUTER (404), never by the parser's
+  // payload-too-large (413). The over-cap body is what tells the two apart —
+  // an unparsed request never notices its own size.
+  const { child, base } = await startServer({ ...process.env })
+  try {
+    const huge = JSON.stringify({ pad: 'x'.repeat(2 * 1024 * 1024) })
+    for (const path of ['/not-a-route', '/health']) {
+      const res = await fetch(`${base}${path}`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: huge,
+      })
+      assert.equal(res.status, 404, `${path} must be routed, not body-parsed`)
+      await res.arrayBuffer() // drain so the socket is reusable
+    }
+    // …and the parser still runs where its output IS read: the /mcp handler
+    // needs `req.body`, so the cap is enforced there as before.
+    const res = await fetch(`${base}/mcp`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: huge,
+    })
+    assert.equal(res.status, 413, 'POST /mcp must still enforce the body cap')
+    await res.arrayBuffer()
+  } finally {
+    await stopServer(child)
+  }
+})
+
 test('a server that never reports its port is killed before startServer rejects', async () => {
   // This pins the HARNESS, not the server: `startServer` hands the child to its
   // caller only by RETURNING it, so a rejection from inside the helper leaves

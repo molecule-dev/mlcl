@@ -145,7 +145,15 @@ app.use('/mcp', (req, res, next) => {
 
 // Body parsing sits BELOW the budget: the parser's output is only needed by the
 // POST handler, and a request the budget rejected must not be parsed first.
-app.use(express.json({ limit: '1mb' }))
+//
+// It is also mounted on /mcp ONLY, for the same reason one step further out.
+// Mounted at the root, the parser ran for EVERY request — but the budget runs
+// on /mcp alone, so a POST to any other path was parsed in full (up to the 1 MB
+// cap) and only then 404'd, at whatever rate the caller liked: the very work
+// the budget's own note says a flood must not be able to pay, reached by
+// changing the path. Nothing outside the /mcp handler ever reads `req.body`,
+// so nothing outside it needs to be parsed.
+app.use('/mcp', express.json({ limit: '1mb' }))
 app.get('/health', (_req, res) => res.json({ ok: true, server: 'molecule-mcp-remote' }))
 
 app.post('/mcp', async (req, res) => {

@@ -139,6 +139,7 @@ describe('molecule-mcp remote rate limit', () => {
       expect(result.output).toContain(
         'the cap evicts by when an address was last SEEN, not by insertion order',
       )
+      expect(result.output).toContain('a body sent to a path with no handler is never parsed')
       expect(result.output).not.toMatch(/fail\s+[1-9]/)
     },
   )
