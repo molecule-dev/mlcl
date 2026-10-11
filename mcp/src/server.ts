@@ -1075,14 +1075,27 @@ server.registerTool(
         'embed',
         { input, ...(model ? { model } : {}), ...(dimensions ? { dimensions } : {}) },
         directory,
-      )) as { embeddings: number[][]; model: string; usage: unknown }
+      )) as { embeddings?: unknown; model?: string; usage?: unknown }
+      // A 2xx proves the route ANSWERED, not that it embedded anything: an empty
+      // body deserializes as `{}` (services.ts answers `data = {}` for one), a
+      // shrunken rewrite or a service bug can leave the field absent — and the
+      // summary path then read `result.embeddings.length` off `undefined` and the
+      // client was handed a raw "Cannot read properties of undefined" naming
+      // neither the tool nor the round trip it paid for. The same refusal
+      // decodeServicePayload applies to every written payload, and for the same
+      // reason, covers the pass-through branch too: a body without the vectors is
+      // the failure, whoever reads it.
+      const embeddings = result.embeddings
+      if (!Array.isArray(embeddings) || embeddings.length === 0) {
+        throw new ServiceCallError('The service returned no embedding data.')
+      }
       return JSON.stringify(
         summary_only
           ? {
               model: result.model,
               usage: result.usage,
-              vectors: result.embeddings.length,
-              dimensions: result.embeddings[0]?.length ?? 0,
+              vectors: embeddings.length,
+              dimensions: (embeddings[0] as number[] | undefined)?.length ?? 0,
             }
           : result,
       )

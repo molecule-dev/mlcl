@@ -48,6 +48,13 @@ const hosted = vi.hoisted(() => ({
    * above exists to prevent, reached by a different shape.
    */
   undecodablePayload: false,
+  /**
+   * Answer the embeddings service with a 2xx body that carries NO `embeddings`
+   * field — the shape an empty body (`data = {}` in services.ts), a shrunken
+   * rewrite or a service bug leaves. The embed gate must report it as the
+   * failure it is instead of dereferencing the missing array.
+   */
+  stripEmbeddings: false,
 }))
 
 /**
@@ -110,6 +117,18 @@ vi.mock('../../../mcp/src/services.js', () => ({
         pageCount: 1,
       }
     }
+    if (service === 'embeddings') {
+      return hosted.stripEmbeddings
+        ? { model: 'text-embedding-3-small', usage: {} }
+        : {
+            embeddings: [
+              [0.1, 0.2],
+              [0.3, 0.4],
+            ],
+            model: 'text-embedding-3-small',
+            usage: { total_tokens: 2 },
+          }
+    }
     const empty = hosted.emptyPayload === 'image'
     return {
       images: [
@@ -126,6 +145,7 @@ beforeEach(() => {
   hosted.onCall = null
   hosted.emptyPayload = null
   hosted.undecodablePayload = false
+  hosted.stripEmbeddings = false
   failingRemove.path = null
   // Every test's assertions about how many times the service was asked are
   // meaningless against a counter that keeps running across tests: the
@@ -420,6 +440,59 @@ describe('a 2xx body carrying an EMPTY payload is the failure it is', () => {
     expect(textOf(image)).toContain('no image data')
     expect(existsSync(imageTarget), 'no 0-byte png under the caller’s name').toBe(false)
     expect(existsSync(join(dir, 'undecodable-2.png')), 'no second 0-byte png').toBe(false)
+  })
+})
+
+describe('embed_text — a 2xx body must carry the vectors it reports', () => {
+  it('answers a body without embeddings with the tool’s own failure, not a raw TypeError', async (ctx) => {
+    if (skipped(ctx)) return
+    // callHostedService hands every 2xx body through verbatim (`{}` for an empty
+    // one — services.ts answers `data = {}` there), and a shrunken rewrite, a
+    // proxy's 200 or a service bug can leave the `embeddings` field absent. With
+    // summary_only the handler read `result.embeddings.length` off `undefined`
+    // and the client was handed Node's "Cannot read properties of undefined …"
+    // naming neither the tool nor the metered round trip it paid for — where
+    // every sibling payload gate reports "The service returned no … data".
+    hosted.stripEmbeddings = true
+    try {
+      const summarized = await callTool('embed_text', {
+        input: 'hello',
+        summary_only: true,
+        directory: dir,
+      })
+      expect(summarized.isError, 'an answer carrying no vectors is a failure').toBe(true)
+      expect(textOf(summarized)).toContain('no embedding data')
+
+      // The pass-through branch is the same call with the same hole: a body with
+      // no embeddings reported success and handed the caller the bare non-answer.
+      const passed = await callTool('embed_text', { input: 'hello', directory: dir })
+      expect(passed.isError, 'the pass-through branch refuses the same body').toBe(true)
+      expect(textOf(passed)).toContain('no embedding data')
+    } finally {
+      hosted.stripEmbeddings = false
+    }
+  })
+
+  it('reports the vectors a real answer carries (no over-tightening)', async (ctx) => {
+    if (skipped(ctx)) return
+    const summarized = await callTool('embed_text', {
+      input: 'hello',
+      summary_only: true,
+      directory: dir,
+    })
+    expect(summarized.isError).toBeFalsy()
+    const summary = JSON.parse(textOf(summarized)) as {
+      vectors: number
+      dimensions: number
+      model: string
+    }
+    expect(summary.vectors).toBe(2)
+    expect(summary.dimensions).toBe(2)
+    expect(summary.model).toBe('text-embedding-3-small')
+
+    const passed = await callTool('embed_text', { input: 'hello', directory: dir })
+    expect(passed.isError).toBeFalsy()
+    expect(textOf(passed)).toContain('"embeddings"')
   })
 })
 
