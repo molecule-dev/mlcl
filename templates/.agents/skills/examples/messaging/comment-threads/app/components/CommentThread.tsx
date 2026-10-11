@@ -36,6 +36,25 @@ type CommentRow = {
 }
 
 /**
+ * Format the API's ISO `createdAt` for a reader.
+ *
+ * `ThreadTree` renders `createdAt` VERBATIM in a `<time>` element — its own type
+ * doc states it ("an ISO string will be shown raw to users") — so passing the
+ * raw column value put `2026-10-11T08:34:00.000Z` in every comment header. The
+ * formatter is `Intl` (locale-aware, no dependency, no per-language keys); a
+ * value the runtime cannot parse is passed through unchanged rather than
+ * rendered as "Invalid Date".
+ *
+ * @param value - The raw `createdAt` string from the API.
+ * @returns A display string for the comment header.
+ */
+function formatCommentTime(value: string): string {
+  const at = new Date(value)
+  if (Number.isNaN(at.getTime())) return value
+  return new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'short' }).format(at)
+}
+
+/**
  * Nest the flat rows (linked by `parentId`) into ThreadTree's `children` tree.
  * This is the step to get right — the API returns flat rows; `<ThreadTree>`
  * wants a tree. One pass to index by id, one pass to attach each node to its
@@ -49,7 +68,7 @@ function buildTree(rows: CommentRow[]): Comment[] {
       id: r.id,
       author: r.userId,
       body: r.body,
-      createdAt: r.createdAt,
+      createdAt: formatCommentTime(r.createdAt),
       children: [],
     })
   }
@@ -81,6 +100,15 @@ export function CommentThread({
   const [draft, setDraft] = useState('')
   const [replyTo, setReplyTo] = useState<string | null>(null)
   const [postError, setPostError] = useState(false)
+  /**
+   * The refetch that follows a SUCCESSFUL post failed.
+   *
+   * Distinct from `postError` on purpose: the comment IS stored server-side, and
+   * telling the reader the post failed sent them back to retype it (a duplicate —
+   * the resource has no idempotency key). This says what actually happened: the
+   * comment was posted, the thread could not be re-read.
+   */
+  const [refreshFailed, setRefreshFailed] = useState(false)
   // A comment write in flight — see `post`. One flag for the whole composer:
   // there is a single Post/Reply button, so only one write can be pending.
   const [posting, setPosting] = useState(false)
@@ -190,6 +218,7 @@ export function CommentThread({
     setComments([])
     setReplyTo(null)
     setPostError(false)
+    setRefreshFailed(false)
     // …and the composer's in-flight flag, which is the one piece of state a
     // parked POST from the resource we left still owns: left set, it froze the
     // NEW resource's composer (the button is `disabled={… || posting}` and
@@ -222,15 +251,26 @@ export function CommentThread({
       return
     }
     setPostError(false)
+    setRefreshFailed(false)
     setPosting(true)
     // This write's ticket — the reset above invalidates it on a resource
     // change, so its `finally` cannot clear a newer resource's flag.
     const ticket = ++postTicket.current
     try {
-      // parentId nests the reply; null posts a top-level comment.
+      // parentId nests the reply; a TOP-LEVEL comment must OMIT the key
+      // entirely, not send `parentId: null`.
+      //
+      // The resource's `createCommentSchema` declares it
+      // `z.string().uuid().optional()` (molecule's
+      // packages/api/resources/comment/src/validation.ts), and `.optional()`
+      // accepts a MISSING key but not a JSON `null` — zod answers "expected
+      // string, received null", the create handler 400s, and NO top-level
+      // comment could ever be posted (only replies, whose uuid passes). A
+      // conditional spread is what removes the key: `JSON.stringify` drops
+      // `undefined`, so the body is `{ body }` unless the user is replying.
       await http.post(`/api/${resourceType}/${resourceId}/comments`, {
         body: draft,
-        parentId: replyTo,
+        ...(replyTo ? { parentId: replyTo } : {}),
       })
     } catch (_error) {
       // The failure belongs to the resource the post was sent to. The user can
@@ -257,10 +297,17 @@ export function CommentThread({
     // The refetch belongs to the SAME post-write flow, so its failure obeys the
     // same ownership rule as every other state update here (see mountedForRef):
     // the reader can navigate while it is in flight, and this render then owns
-    // another resource's thread — the old resource's "could not post" banner
-    // there describes a post nobody attempted on it.
+    // another resource's thread — the old resource's failure banner there
+    // describes a post nobody attempted on it.
+    //
+    // It does NOT reuse `postError`: the write this follows ALREADY LANDED, and
+    // reporting it as "Could not post the comment — try again." told the reader
+    // their comment was lost (it is not in the rendered tree, because a failed
+    // load never calls setComments) — so they retype it and post again, and the
+    // resource has no idempotency key to collapse the duplicate. A refresh
+    // failure says exactly that instead.
     await load().catch(() => {
-      if (stillOnResource()) setPostError(true)
+      if (stillOnResource()) setRefreshFailed(true)
     })
   }
 
@@ -282,6 +329,14 @@ export function CommentThread({
         <p className={cm.textError}>
           {t('comments.postFailed', undefined, {
             defaultValue: 'Could not post the comment — try again.',
+          })}
+        </p>
+      ) : null}
+      {refreshFailed ? (
+        <p className={cm.textError}>
+          {t('comments.refreshFailed', undefined, {
+            defaultValue:
+              'Your comment was posted, but the thread could not be re-read — reload to see it.',
           })}
         </p>
       ) : null}

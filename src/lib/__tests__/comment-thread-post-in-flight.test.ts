@@ -20,6 +20,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 interface HttpCall {
   path: string
+  /** The request body, for the POST double — what the resource validates. */
+  body?: unknown
   resolve: (value: unknown) => void
   reject: (error: unknown) => void
 }
@@ -33,9 +35,9 @@ const http = vi.hoisted(() => ({
     new Promise<unknown>((resolve, reject) => {
       httpCalls.push({ path, resolve, reject })
     }),
-  post: (path: string) =>
+  post: (path: string, body?: unknown) =>
     new Promise<unknown>((resolve, reject) => {
-      postCalls.push({ path, resolve, reject })
+      postCalls.push({ path, body, resolve, reject })
     }),
   delete: () => Promise.resolve(undefined),
 }))
@@ -55,11 +57,27 @@ vi.mock('@molecule/app-http', () => ({
   unwrapList: (res: { data?: unknown }) => res.data ?? [],
 }))
 vi.mock('@molecule/app-feature-thread-tree-react', () => ({
-  ThreadTree: (props: { comments: Array<{ id: string; body: string }> }) =>
+  // Also exposes a reply affordance: `onReply(id)` is how the real tree sets the
+  // composer's target, and the request body it produces is under test.
+  ThreadTree: (props: {
+    comments: Array<{ id: string; body: string }>
+    onReply?: (id: string) => void
+  }) =>
     createElement(
       'ul',
       null,
-      props.comments.map((node) => createElement('li', { key: node.id }, node.body)),
+      props.comments.map((node) =>
+        createElement(
+          'li',
+          { key: node.id },
+          node.body,
+          createElement('button', {
+            type: 'button',
+            'aria-label': `reply-${node.id}`,
+            onClick: () => props.onReply?.(node.id),
+          }),
+        ),
+      ),
     ),
 }))
 
@@ -364,5 +382,79 @@ describe('the comment composer', () => {
       text(),
       'a previous resource’s failed post must not leave its banner on the new one',
     ).not.toContain('Could not post the comment')
+  })
+})
+
+describe('the comment body the resource validates', () => {
+  it('a top-level comment OMITS parentId — a JSON null is a 400, not a top-level comment', async () => {
+    // The resource's createCommentSchema is
+    // `z.object({ body, parentId: z.string().uuid().optional() })` — `.optional()`
+    // accepts a MISSING key, never a JSON `null`. Posting `parentId: null` for a
+    // top-level comment failed validation ("expected string, received null"), so
+    // the create handler answered 400 and NO top-level comment could ever be
+    // posted; only replies (whose uuid passes) worked.
+    await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await answerGet(0, {
+      data: [{ id: 'c1', userId: 'u1', parentId: null, body: 'root comment', createdAt: 'x' }],
+    })
+    await answerGet(1, { data: [] })
+
+    await typeIntoTextarea('a top-level comment')
+    await clickPost()
+
+    const posted = postCalls[0]?.body as Record<string, unknown>
+    expect(posted).toEqual({ body: 'a top-level comment' })
+    expect('parentId' in posted, 'the key must be absent, not null').toBe(false)
+  })
+
+  it('a reply carries the parent id', async () => {
+    await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await answerGet(0, {
+      data: [{ id: 'c1', userId: 'u1', parentId: null, body: 'root comment', createdAt: 'x' }],
+    })
+    await answerGet(1, { data: [] })
+
+    await act(async () => {
+      container
+        .querySelector('[aria-label="reply-c1"]')
+        ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+    await typeIntoTextarea('a reply')
+    await clickPost()
+
+    expect(postCalls[0]?.body).toEqual({ body: 'a reply', parentId: 'c1' })
+  })
+})
+
+describe('the comment composer — a post that LANDED is never reported as failed', () => {
+  it('a failed refetch after a successful post says the comment was posted', async () => {
+    await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await answerGet(0, {
+      data: [{ id: 'c1', userId: 'u1', parentId: null, body: 'root comment', createdAt: 'x' }],
+    })
+    await answerGet(1, { data: [] })
+
+    await typeIntoTextarea('shipping Friday?')
+    await clickPost()
+    // The server accepted it — the comment IS stored.
+    await act(async () => {
+      postCalls[0]?.resolve({ id: 'c2' })
+    })
+    await flush()
+
+    // …and the refetch that would have shown it fails.
+    const refetch = httpCalls.filter((c) => c.path === '/api/post/p1/comments').at(-1)
+    expect(refetch).toBeDefined()
+    await act(async () => {
+      refetch?.reject(new Error('network down'))
+    })
+    await flush()
+
+    // Reporting this as a failed POST sent the reader back to retype a comment
+    // that is already stored — and the resource has no idempotency key, so the
+    // retry creates a duplicate.
+    expect(text()).not.toContain('Could not post the comment')
+    expect(text()).toContain('Your comment was posted')
   })
 })
