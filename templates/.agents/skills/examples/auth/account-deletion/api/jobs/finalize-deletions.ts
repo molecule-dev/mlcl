@@ -1,5 +1,5 @@
 import { schedule } from '@molecule/api-cron'
-import { deleteById, deleteMany, findMany, updateById } from '@molecule/api-database'
+import { deleteById, deleteMany, findMany, findOne, updateById } from '@molecule/api-database'
 
 const GRACE_PERIOD_DAYS = 30
 
@@ -54,6 +54,37 @@ function isMissingTableError(err: unknown): boolean {
   )
 }
 
+/**
+ * Whether `userId` has signed back in since requesting deletion — the sign-in
+ * the deletion page's copy promises will cancel the deletion.
+ *
+ * The batch probe its caller runs first answers the whole page in one query, and
+ * a row it RETURNS is proof positive. Its silence is NOT proof of absence:
+ * `findMany` always applies a LIMIT (every database bond caps an un-limited read
+ * at MAX_DEFAULT_LIMIT — 10 000 rows), so a device row past that cap is missing
+ * from the result, and treating that as "no device" HARD-DELETES the account of
+ * a user who did exactly what the page told them to. Absence is therefore
+ * confirmed against that user's OWN rows, where the row count can never reach
+ * the cap.
+ *
+ * @param userId - The expired user being considered for hard deletion.
+ * @param batch - The ids the batch probe returned a device row for.
+ * @returns `true` signed back in, `false` proven not to have, `null` when the
+ *   store could not answer (never purge on a guess).
+ */
+async function hasSignedBackIn(
+  userId: string,
+  batch: ReadonlySet<string>,
+): Promise<boolean | null> {
+  if (batch.has(userId)) return true
+  try {
+    return (await findOne('devices', [{ field: 'userId', operator: '=', value: userId }])) !== null
+  } catch (err) {
+    console.error('finalize-deletions: sign-back-in re-check failed', { userId, err })
+    return null
+  }
+}
+
 // Call this once at app startup (e.g. at the bottom of bonds.ts, after
 // bond('cron', provider)) to register the daily hard-delete job.
 export async function registerFinalizeDeletionsJob(): Promise<void> {
@@ -83,14 +114,16 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
     // this the promise was only words — the job hard-deleted a user who had done
     // exactly what the page said.
     //
-    // ONE query for the batch, not one per user: the probe ran INSIDE the loop,
-    // so a full `limit` page of expired accounts paid a thousand sequential
-    // round-trips before a single purge — work that scales with the batch, per
-    // night, for an answer a single `in` lookup gives (the same
-    // resolve-the-set-in-one-read shape the other slices use; see the
-    // leaderboard handler's name join). No `limit` on it: a page that cut the
-    // answer short would report a user who IS signed back in as having no
-    // device, and this job HARD-DELETES on that answer.
+    // ONE query resolves the SET of users the batch can prove signed back in —
+    // good enough for the cancel path, which is the common shape of a large
+    // batch, and cheap (the same resolve-the-set-in-one-read shape the other
+    // slices use; see the leaderboard handler's name join). It is NOT the answer
+    // for a user the batch stayed silent about: an un-limited `findMany` is still
+    // capped by the store's own default LIMIT (every database bond applies
+    // MAX_DEFAULT_LIMIT — 10 000 rows), so a device row past the cap is missing
+    // from this result — and reading that silence as "no device" hard-deletes an
+    // account the user cancelled by signing back in. hasSignedBackIn below
+    // re-checks such a user against their OWN rows before anything is purged.
     if (expired.length === 0) return
     let signedBackIn: Set<string>
     try {
@@ -108,7 +141,12 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
     }
 
     for (const user of expired) {
-      if (signedBackIn.has(user.id)) {
+      // Presence from the batch, ABSENCE confirmed per user — a batch that was
+      // capped, or a re-check that could not reach the store, must never be read
+      // as "nobody signed back in" (see hasSignedBackIn).
+      const signedIn = await hasSignedBackIn(user.id, signedBackIn)
+      if (signedIn === null) continue
+      if (signedIn) {
         try {
           await updateById('users', user.id, { deleted_at: null })
           console.log(`finalize-deletions: user ${user.id} signed back in — deletion cancelled`)

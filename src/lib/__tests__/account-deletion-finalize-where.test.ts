@@ -40,6 +40,7 @@ vi.mock('@molecule/api-cron', () => ({
 
 const database = vi.hoisted(() => ({
   findMany: vi.fn(),
+  findOne: vi.fn(),
   updateById: vi.fn(),
   deleteById: vi.fn(),
   deleteMany: vi.fn(),
@@ -120,6 +121,13 @@ beforeEach(() => {
     },
   )
   database.updateById.mockResolvedValue({ data: null, affected: 1 })
+  // The per-user confirmation the job runs before purging anyone: `findOne`
+  // answers with THAT user's own row (SQL `LIMIT 1` semantics), so a device row
+  // the capped batch read could not return is still found here.
+  database.findOne.mockImplementation(async (table: string, where: Cond[]) => {
+    if (table !== 'devices') return null
+    return devices.find((row) => where.every((cond) => matches(row, cond))) ?? null
+  })
   database.deleteById.mockResolvedValue({ data: null, affected: 1 })
   database.deleteMany.mockResolvedValue({ data: [], affected: 1 })
 })
@@ -341,6 +349,51 @@ describe('finalize-deletions — the expired-user filter must actually match', (
     expect(database.updateById).toHaveBeenCalledWith('users', 'u-returned', { deleted_at: null })
     expect(database.deleteById).toHaveBeenCalledWith('users', 'u-a')
     expect(database.deleteById).toHaveBeenCalledWith('users', 'u-b')
+  })
+
+  // An un-limited `findMany` is NOT unbounded: every database bond applies its
+  // own default LIMIT (MAX_DEFAULT_LIMIT = 10 000 rows), so the batch probe's
+  // silence about a user may mean only that their device row fell past the cap.
+  // Reading that silence as "no device" HARD-DELETES the account of a user who
+  // signed back in — precisely the promise the deletion page makes.
+  it('cancels a sign-back-in the capped batch read could not return', async () => {
+    users = [{ id: 'u-returned', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
+    // The row exists in the store (findOne finds it below)…
+    devices = [{ id: 'd1', userId: 'u-returned' }]
+    // …but the batch read's result was cut at the store's cap, so the job sees
+    // no row for this user there. A per-user read is the only honest answer.
+    database.findMany.mockImplementation(
+      async (table: string, options: { where?: Cond[] }): Promise<unknown[]> => {
+        if (table === 'devices') return []
+        return users.filter((row) => (options.where ?? []).every((cond) => matches(row, cond)))
+      },
+    )
+
+    await runJob()
+
+    expect(database.updateById).toHaveBeenCalledWith('users', 'u-returned', { deleted_at: null })
+    expect(database.deleteById).not.toHaveBeenCalled()
+    expect(database.deleteMany).not.toHaveBeenCalled()
+  })
+
+  it('keeps the account when the per-user sign-back-in re-check cannot reach the store', async () => {
+    users = [{ id: 'u-unknown', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
+    // The batch read returned nothing for this user (capped, or the user simply
+    // has no device) and the confirmation query fails — the answer is unknown,
+    // and an unknown answer must never be purged (the users row stays, so the
+    // whole decision retries next run).
+    database.findMany.mockImplementation(
+      async (table: string, options: { where?: Cond[] }): Promise<unknown[]> => {
+        if (table === 'devices') return []
+        return users.filter((row) => (options.where ?? []).every((cond) => matches(row, cond)))
+      },
+    )
+    database.findOne.mockRejectedValue(new Error('connection reset'))
+
+    await runJob()
+
+    expect(database.deleteById).not.toHaveBeenCalled()
+    expect(database.deleteMany).not.toHaveBeenCalled()
   })
 
   it('purges nobody when the batched sign-back-in probe itself fails', async () => {
