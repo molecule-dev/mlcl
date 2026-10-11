@@ -43,7 +43,7 @@ vi.mock('@molecule/api-rate-limit', () => rateLimit)
 
 type Handle = (req: unknown, res: unknown, next?: () => void) => Promise<void> | void
 
-const { indexMiddlewares } = await (async () => {
+const { indexMiddlewares, deleteMiddlewares } = await (async () => {
   const mod =
     (await import('../../../templates/.agents/skills/examples/search/semantic-search/api/handlers/knowledge.js')) as {
       default: {
@@ -60,7 +60,15 @@ const { indexMiddlewares } = await (async () => {
     (l) => l.route?.path === '/documents' && l.route.methods?.post,
   )
   if (!layer?.route) throw new Error('knowledge router exported no POST /documents route')
-  return { indexMiddlewares: layer.route.stack.map((l) => l.handle) }
+  const deleteLayer = mod.default.stack.find(
+    (l) => l.route?.path === '/documents/:id' && l.route.methods?.delete,
+  )
+  if (!deleteLayer?.route)
+    throw new Error('knowledge router exported no DELETE /documents/:id route')
+  return {
+    indexMiddlewares: layer.route.stack.map((l) => l.handle),
+    deleteMiddlewares: deleteLayer.route.stack.map((l) => l.handle),
+  }
 })()
 
 const makeRes = (): {
@@ -69,17 +77,24 @@ const makeRes = (): {
   body: unknown
   status: (code: number) => unknown
   json: (payload: unknown) => unknown
+  end: () => unknown
+  ended: boolean
 } => {
   const res = {
     locals: {} as { session?: { userId: string } },
     statusCode: 0,
     body: undefined as unknown,
+    ended: false,
     status(code: number) {
       res.statusCode = code
       return res
     },
     json(payload: unknown) {
       res.body = payload
+      return res
+    },
+    end() {
+      res.ended = true
       return res
     },
   }
@@ -94,6 +109,22 @@ async function postDocument(body: Record<string, unknown>): Promise<ReturnType<t
   for (let i = 0; i < indexMiddlewares.length; i++) {
     let passedOn = false
     const result = indexMiddlewares[i](req, res, () => {
+      passedOn = true
+    })
+    await Promise.resolve(result)
+    if (!passedOn) break
+  }
+  return res
+}
+
+/** DELETE one document through the real route chain; the terminal handler is awaited. */
+async function requestDocumentDelete(id: string): Promise<ReturnType<typeof makeRes>> {
+  const res = makeRes()
+  res.locals.session = { userId: 'user-1' }
+  const req = { params: { id } }
+  for (let i = 0; i < deleteMiddlewares.length; i++) {
+    let passedOn = false
+    const result = deleteMiddlewares[i](req, res, () => {
       passedOn = true
     })
     await Promise.resolve(result)
@@ -186,6 +217,56 @@ describe('semantic-search POST /documents — a re-index replaces the document',
       'index:start',
       'index:end',
     ])
+  })
+
+  it('serializes a DELETE against an in-flight re-index of the same document', async () => {
+    // The delete is a THIRD writer of this document's chunks. Run beside a
+    // replace it landed between that pair's two calls (the clear above it, the
+    // index below it), and the index wrote every chunk back — the endpoint
+    // answered 204 over a document that was still searchable, and /ask kept
+    // citing the text the user deleted. Riding the same per-document chain puts
+    // the delete after the pair it raced, so it is the last write.
+    const events: string[] = []
+    const releaseIndex: Array<() => void> = []
+    rag.deleteDocument.mockImplementation(async () => {
+      events.push('delete')
+    })
+    rag.indexDocument.mockImplementation(async () => {
+      events.push('index:start')
+      await new Promise<void>((resolve) => releaseIndex.push(resolve))
+      events.push('index:end')
+      return ['chunk']
+    })
+
+    const flush = (): Promise<void> => new Promise((resolve) => setTimeout(resolve))
+    const indexing = postDocument({ documentId: 'd1', text: 'the text' })
+    await flush()
+    expect(events).toEqual(['delete', 'index:start'])
+
+    const deleting = requestDocumentDelete('d1')
+    // The parked replace is released in `finally`, whatever the assertion below
+    // does: the chain is MODULE-level state, so a test that leaves it parked
+    // wedges every later test that writes this document id.
+    try {
+      await flush()
+      // The delete has NOT cleared yet: clearing here would be undone by the
+      // index still parked above.
+      expect(
+        events,
+        'the delete must wait for the in-flight replace rather than clear under it',
+      ).toEqual(['delete', 'index:start'])
+    } finally {
+      releaseIndex.shift()?.()
+      await Promise.all([indexing, deleting])
+    }
+
+    // …and it runs LAST, so what the endpoint reported deleted stays deleted.
+    expect(events).toEqual(['delete', 'index:start', 'index:end', 'delete'])
+    // The delete addresses the owner-namespaced id.
+    expect(rag.deleteDocument).toHaveBeenLastCalledWith({
+      collection: 'knowledge',
+      documentId: 'user-1:d1',
+    })
   })
 
   it('does not let a DIFFERENT document be held up by a parked one', async () => {

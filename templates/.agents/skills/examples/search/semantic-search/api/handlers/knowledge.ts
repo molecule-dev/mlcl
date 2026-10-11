@@ -60,6 +60,11 @@ const router = Router()
  * previous one for the same document makes the replace atomic per document in
  * this process (a project's API runs as one Node process; the vector-store bond
  * offers no lock to use instead).
+ *
+ * `DELETE /documents/:id` is the THIRD writer of a document's chunks and rides
+ * the same chain for the same reason: a delete that landed between a replace's
+ * clear and its index was undone by that index, answering 204 over a document
+ * still searchable.
  */
 const indexing = new Map<string, Promise<unknown>>()
 
@@ -257,7 +262,18 @@ router.delete('/documents/:id', async (req, res) => {
   try {
     // The owner prefix is server-set, so a caller can only ever delete the chunks
     // of a document they own — deleting another tenant's is unaddressable here.
-    await deleteDocument({ collection: COLLECTION, documentId: `${userId}:${req.params.id}` })
+    //
+    // The delete is ONE MORE writer of this document's chunks, so it rides the
+    // SAME per-document chain the replace pair does (see serializePerDocument).
+    // Run beside an in-flight re-index it landed BETWEEN that pair's two calls —
+    // the clear above it, the index below it — and the index then wrote every
+    // chunk back: the endpoint answered 204 while the text the user deleted
+    // stayed searchable, and /ask kept citing it. Chained, the delete runs after
+    // the pair it raced, so the last write to the document is the delete.
+    const documentId = `${userId}:${req.params.id}`
+    await serializePerDocument(documentId, async () => {
+      await deleteDocument({ collection: COLLECTION, documentId })
+    })
     return res.status(204).end()
   } catch (error) {
     logger.error('kb delete failed', { error })
