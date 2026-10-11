@@ -32,8 +32,9 @@ async function waitHealthy(url, child) {
     try {
       const res = await fetch(`${url}/health`)
       if (res.ok) return
-    } catch {
-      // not up yet — retry
+    } catch (_error) {
+      // Not up yet — retry. The failure itself is the expected signal here, so
+      // it is bound and dropped rather than logged (AGENTS Rule 14).
     }
     await new Promise((r) => setTimeout(r, 100))
   }
