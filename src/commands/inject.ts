@@ -779,16 +779,42 @@ export default class Inject extends Command {
     }
   }
 
+  /**
+   * The `@molecule/*` packages the target manifest declares — what a bare
+   * `mlcl inject` (no `-m`) has to inject.
+   *
+   * A manifest that does not EXIST is a directory that declares nothing, which
+   * is what the friendly "no molecules to inject" path is for. A manifest that
+   * exists but cannot be READ or PARSED is a broken project, and reporting
+   * "no molecules to inject" for it is a wrong answer with a success status:
+   * the hint that follows points the user at `mlcl add`, which reads the same
+   * manifest and fails, so the real problem is never named. Fail with the
+   * reason instead — the same rule the bare read in `run()` enforces for the
+   * `-m` path (see inject-manifest-error.test.ts).
+   */
   private async findPendingMolecules(path: string): Promise<string[]> {
+    const packageJsonPath = join(path, 'package.json')
+    let raw: string
     try {
-      const packageJsonPath = join(path, 'package.json')
-      const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf-8'))
-      const deps = { ...packageJson.dependencies, ...packageJson.devDependencies }
-
-      return Object.keys(deps).filter((dep) => dep.startsWith('@molecule/'))
-    } catch (_error) {
-      // package.json absent or unreadable — no molecules to inject
-      return []
+      raw = await readFile(packageJsonPath, 'utf-8')
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException)?.code === 'ENOENT') return []
+      this.error(`Cannot read ${packageJsonPath}: ${String(error)}`, { exit: 1 })
     }
+    let packageJson: {
+      dependencies?: Record<string, string>
+      devDependencies?: Record<string, string>
+    }
+    try {
+      packageJson = JSON.parse(raw)
+    } catch (error) {
+      this.error(
+        `Cannot inject into ${path}: package.json is missing or unparseable (${String(error)})`,
+        { exit: 1 },
+      )
+    }
+    const deps = { ...packageJson.dependencies, ...packageJson.devDependencies }
+
+    return Object.keys(deps).filter((dep) => dep.startsWith('@molecule/'))
   }
 }

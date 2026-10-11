@@ -525,6 +525,40 @@ export async function writeMigrateRunnerGuarded(path: string, next: string): Pro
 }
 
 /**
+ * Whether the api manifest this refresh renders FROM — and backs the rendered
+ * runner in — can be read and parsed.
+ *
+ * The refresh is a TWO-write unit: it replaces `src/scripts/migrate.ts` and
+ * then declares the imports that runner carries in this manifest
+ * ({@link ensureMigrateRunnerImports}). That second step only WARNS when the
+ * manifest is unreadable (its own documented policy — see its doc), so it
+ * cannot undo the first one: a refresh that ran on an unreadable manifest left
+ * the runner REPLACED by a render derived from nothing (the conservative
+ * Postgres shape — `readMigrateRunnerForManifest`'s fallback) and unbacked,
+ * i.e. exactly the TS2307 / ERR_MODULE_NOT_FOUND at boot this function's own
+ * doc forbids, in place of the intact checked-in copy it started from. Read the
+ * manifest FIRST and refuse, so the runner is never replaced by a render the
+ * project's manifest cannot be made to back.
+ *
+ * A MISSING manifest counts as unreadable here: the refresh's whole job is to
+ * re-render from the project's OWN manifest, so a project that has none has
+ * nothing to refresh from (and nothing to declare the imports in).
+ *
+ * @param apiDir - The api workspace (the directory holding package.json).
+ * @returns True when the manifest can be read and parsed.
+ */
+async function manifestIsReadable(apiDir: string): Promise<boolean> {
+  try {
+    JSON.parse(await readFile(join(apiDir, 'package.json'), 'utf-8'))
+    return true
+  } catch (_error) {
+    // ENOENT (no manifest), EACCES, EISDIR or a JSON syntax error — all mean
+    // this refresh cannot do the job it exists for. Refuse.
+    return false
+  }
+}
+
+/**
  * Re-render an EXISTING project's migration runner from its own manifest and
  * back its imports — the refresh `copyTemplateInstance` runs on every template
  * scaffold (`mlcl create --template`), where the checked-in copy predates the
@@ -544,11 +578,31 @@ export async function writeMigrateRunnerGuarded(path: string, next: string): Pro
  * the stale copy it replaced. So the runner's prior bytes are put back too, and
  * a failed refresh leaves the project exactly as it was.
  *
+ * A manifest that cannot be READ is the same hazard one step earlier, so it is
+ * refused before the runner is touched ({@link manifestIsReadable}): the
+ * backing step warns instead of throwing there, which would leave the runner
+ * replaced by a render nothing can declare the imports of.
+ *
  * @param apiDir - The api workspace (the directory holding package.json).
+ * @throws When the project's package.json is missing or unparseable — the
+ *   refresh has nothing to render from, so the copied runner is kept as-is.
  */
 export async function refreshMigrateRunnerForManifest(apiDir: string): Promise<void> {
   const path = join(apiDir, 'src', 'scripts', 'migrate.ts')
   if (!existsSync(path)) return
+  // The manifest is this refresh's INPUT (the render follows it) and the place
+  // the refreshed runner's imports are declared straight after. Refuse before
+  // touching the runner when it cannot be read — see manifestIsReadable: the
+  // step that would back the new runner only warns in that state, so the
+  // replacement would be permanent (and the caller, which logs a skipped
+  // refresh, keeps the intact copy it shipped).
+  if (!(await manifestIsReadable(apiDir))) {
+    throw new Error(
+      `${join(apiDir, 'package.json')} is missing or unparseable — refusing to re-render ` +
+        'src/scripts/migrate.ts from a manifest that cannot be read (and that could not ' +
+        'declare the imports the refreshed runner carries)',
+    )
+  }
   const next = await readMigrateRunnerForManifest(apiDir)
   // The pre-refresh bytes, for the rollback below. Read here rather than inside
   // the guard because the guard's own snapshot is gone by the time the manifest

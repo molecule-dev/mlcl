@@ -49,6 +49,18 @@ async function runInject(projectPath: string): Promise<Inject> {
   return cmd
 }
 
+async function runInjectWithoutMolecule(projectPath: string): Promise<Inject> {
+  const config = await Config.load(MLCL_ROOT)
+  const cmd = new Inject(
+    ['-p', projectPath, '--no-install', '--no-test', '--no-format', '--no-ai'],
+    config,
+  )
+  vi.spyOn(cmd, 'warn').mockImplementation((input) => input)
+  vi.spyOn(cmd, 'log').mockImplementation(() => undefined)
+  await cmd.run()
+  return cmd
+}
+
 describe('mlcl inject refuses a target without a readable manifest', () => {
   it('fails with the reason when package.json is missing — and writes nothing', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-inject-nomanifest-'))
@@ -64,5 +76,30 @@ describe('mlcl inject refuses a target without a readable manifest', () => {
     await writeFile(join(dir, 'package.json'), '{ this is not json')
 
     await expect(runInject(dir)).rejects.toThrow(/package\.json is missing or unparseable/)
+  })
+
+  it('fails with the reason on the DEFAULT path too, where the manifest IS the molecule list', async () => {
+    // With no `-m`, the pending molecules are read FROM the manifest — so a
+    // manifest that cannot be parsed came back as "No molecules to inject" plus
+    // a hint to run `mlcl add`, which reads the same file and fails: a wrong
+    // answer carrying a SUCCESS exit status, and the real problem never named.
+    // The `-m` tests above cannot see this: the read they exercise happens
+    // after the "no molecules" early return.
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-inject-nomanifest-'))
+    await writeFile(join(dir, 'package.json'), '{ this is not json')
+
+    await expect(runInjectWithoutMolecule(dir)).rejects.toThrow(
+      /missing or unparseable|Cannot read/,
+    )
+  })
+
+  it('keeps the friendly "nothing to inject" answer for a directory with no manifest at all', async () => {
+    // The other half of the rule: a directory that declares NOTHING is not a
+    // broken project — `mlcl inject` in an empty (or non-project) directory
+    // must still answer with the friendly "no molecules to inject" hint and a
+    // success status, not an error.
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-inject-nomanifest-'))
+
+    await expect(runInjectWithoutMolecule(dir)).resolves.toBeDefined()
   })
 })

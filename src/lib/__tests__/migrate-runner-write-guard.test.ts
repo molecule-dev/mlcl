@@ -267,4 +267,34 @@ describe('refreshMigrateRunnerForManifest', () => {
       '// checked-in copy\n',
     )
   })
+
+  it('refuses to replace the runner when the manifest it must be backed by cannot be read', async () => {
+    // The refresh is two writes that must AGREE: the re-rendered runner, and the
+    // manifest declaration of every import that runner carries. The backing step
+    // only WARNS when the manifest is unreadable (ensureMigrateRunnerImports'
+    // documented policy — it cannot declare imports for a manifest it cannot
+    // read), so a refresh that ran anyway left the runner REPLACED by a render
+    // derived from nothing (the conservative Postgres shape — see
+    // readMigrateRunnerForManifest's fallback) and unbacked: a boot import whose
+    // packages the manifest cannot be made to declare (TS2307, then
+    // ERR_MODULE_NOT_FOUND on a real install), permanently, in place of the
+    // intact checked-in copy the template shipped. The refresh must refuse
+    // BEFORE the runner is touched.
+    const project = (dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-guard-')))
+    const apiDir = join(project, 'api')
+    await mkdir(join(apiDir, 'src', 'scripts'), { recursive: true })
+    const path = join(apiDir, 'src', 'scripts', 'migrate.ts')
+    const checkedIn = '// checked-in runner this template ships\n'
+    await realWriteFile(path, checkedIn)
+    // A corrupt manifest must not be silently treated as "no manifest": the
+    // refresh has nothing to render FROM and nothing to declare the imports in.
+    await realWriteFile(join(apiDir, 'package.json'), '{ this is not json')
+    await expect(refreshMigrateRunnerForManifest(apiDir)).rejects.toThrow(/missing or unparseable/)
+    expect(await readFile(path, 'utf-8')).toBe(checkedIn)
+
+    // The missing-manifest half: same refusal, same untouched runner.
+    await rm(join(apiDir, 'package.json'))
+    await expect(refreshMigrateRunnerForManifest(apiDir)).rejects.toThrow(/missing or unparseable/)
+    expect(await readFile(path, 'utf-8')).toBe(checkedIn)
+  })
 })
