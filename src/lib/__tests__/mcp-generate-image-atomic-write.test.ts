@@ -72,6 +72,20 @@ const hosted = vi.hoisted(() => ({
 const failingWrite = vi.hoisted(() => ({ path: null as string | null }))
 
 /**
+ * Every path `writeFileSync` was asked to write, in order — the only observable
+ * that tells the whole-set PRE-CHECK apart from the rollback.
+ *
+ * The tool's contract is that the planned paths are all resolved and checked
+ * "before the first byte is written", and the end state cannot say that: a
+ * version that writes image 1, fails on the taken image-2 path and rolls image 1
+ * back leaves the SAME empty target and the same "already exists" message as one
+ * that refused up front — so every `existsSync` assertion still held while the
+ * first byte really was written. Recording the writes makes "never wrote it" the
+ * assertion instead.
+ */
+const writes = vi.hoisted(() => ({ paths: [] as string[] }))
+
+/**
  * A path whose REMOVAL fails — the shape an EPERM/EBUSY/EIO cleanup leaves, and
  * the reason the whole-set rollback must not let its own failure replace the
  * write failure the client is owed.
@@ -85,6 +99,9 @@ vi.mock('node:fs', async (importOriginal) => {
   return {
     ...actual,
     writeFileSync(p: unknown, data: unknown, opts?: unknown): void {
+      // Recorded for every write, the injected-failure branch included: see
+      // `writes` — a path this call was refused never reaches here at all.
+      if (typeof p === 'string') writes.paths.push(p)
       if (typeof p === 'string' && failingWrite.path !== null && p === failingWrite.path) {
         // Fail the FIRST write to this path and no later one: a guarded writer's
         // RESTORE is a second write to the same path, and it is exactly the
@@ -174,6 +191,8 @@ beforeEach(() => {
   hosted.undecodablePayload = false
   hosted.stripEmbeddings = false
   failingRemove.path = null
+  // Each test's write record is its own — see `writes`.
+  writes.paths.length = 0
   // Every test's assertions about how many times the service was asked are
   // meaningless against a counter that keeps running across tests: the
   // collision case below asserts an ABSOLUTE `toBe(1)`, and a suite that ran it
@@ -258,6 +277,17 @@ describe('generate_image — an n > 1 set lands whole or not at all', () => {
     // nothing, and it did not clobber the file that caused it.
     expect(readFileSync(join(dir, 'collide-2.png'), 'utf-8')).toBe('already here')
     expect(hosted.calls, 'the service was still asked for the images').toBe(1)
+    // …and the refusal happened BEFORE the first byte: every planned path is
+    // resolved and checked up front, so the free one is never written at all.
+    // The end state cannot say that — a version that wrote image 1, failed on
+    // the taken path and rolled image 1 back leaves exactly the disk state and
+    // the same "already exists" message asserted above — so the WRITE RECORD is
+    // the assertion. Deleting the pre-check (`for (const { path } of planned) if
+    // (existsSync(path)) throw`) writes the target here first and this fails.
+    expect(
+      writes.paths,
+      'a refused set must never be written, not even for a moment (the rollback is not the contract)',
+    ).not.toContain(target)
   })
 
   it('rolls back the images already written when a later write fails mid-set', async (ctx) => {

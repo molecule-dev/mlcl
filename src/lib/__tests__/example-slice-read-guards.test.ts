@@ -543,6 +543,35 @@ describe('example slices — a request’s answer is validated before it is trus
     expect(text()).not.toContain('Invalid Date')
   })
 
+  it('treats a NON-2xx as the failure it is even when its body IS a list of posts', async () => {
+    await mount(createElement(BlogIndexPage, {}))
+
+    // `res.ok` is the status half of this slice's fix, and the shape gates below
+    // are only the body half: they see whatever arrived and nothing about the
+    // status that carried it. So a non-2xx whose body still holds a payload —
+    // a rewritten status, an upstream whose already-built answer a proxy passed
+    // through, a 401 that re-served a cached list — satisfies every check there
+    // is. A non-2xx is a FAILED load whatever it carries (the same rule
+    // `fetchJson` applies to its own non-2xx answers), so the post must not
+    // render. Every other case in this describe feeds a body the shape gates
+    // reject too, which is why the guard had no test of its own.
+    await respond('/api/posts', 401, [
+      {
+        id: '1',
+        slug: 'private',
+        title: 'Should not render',
+        excerpt: 'x',
+        published_at: '2026-01-01',
+      },
+    ])
+
+    expect(text(), 'a non-2xx answer is a failed load, not a list to render').toContain(
+      'Could not load posts',
+    )
+    expect(text()).not.toContain('Should not render')
+    expect(container.querySelectorAll('a')).toHaveLength(0)
+  })
+
   it('renders the posts a successful GET /api/posts returns', async () => {
     await mount(createElement(BlogIndexPage, {}))
     await respond('/api/posts', 200, [
@@ -625,6 +654,27 @@ describe('example slices — a request’s answer is validated before it is trus
     expect(text()).not.toContain('ca hit')
   })
 
+  it('answers a 200 whose `hits` is not a list instead of crashing on it', async () => {
+    await mount(createElement(SearchPage, { index: 'products' }))
+
+    await clickByLabel('set-query-cat')
+    await clickByLabel('search-cat')
+
+    // The module doc names "a non-array `hits` reached `hits.map`" as part of
+    // this slice's fix, and the coercion at the answer is the whole guard: the
+    // page reads `state.hits.length` and `state.hits.map` in its RENDER, so an
+    // answer that is not a list throws out of the render (a blank page) rather
+    // than being reported. Nothing else in this file — or in the sibling
+    // `search-page-stable-handler` suite — ever answers with a non-array, so the
+    // coercion could be deleted with the whole suite green.
+    await respond('q=cat', 200, { hits: {} })
+
+    expect(text(), 'a non-list `hits` is no hits, not a crashed render').toContain(
+      'No matches for "cat"',
+    )
+    expect(text()).not.toContain('Search failed')
+  })
+
   it('drops a superseded comments response when the resource changes', async () => {
     await mount(createElement(CommentThread, { resourceType: 'posts', resourceId: 'a' }))
     await rerender(createElement(CommentThread, { resourceType: 'posts', resourceId: 'b' }))
@@ -686,6 +736,21 @@ describe('example slices — a request’s answer is validated before it is trus
     expect(button.disabled).toBe(true)
   })
 
+  it('treats a non-2xx as a failed account load even when its body carries an email', async () => {
+    await mount(createElement(DeleteAccountPage, {}))
+
+    // The status half of the rule, isolated: the shape gate just below only
+    // inspects the body, so a 401/500 that still carries the row (a rewritten
+    // status, a cached payload re-served under a failure code) passes it and the
+    // page would load — offering a live Delete button — on a request that
+    // failed. The sibling case above answers a 401 whose body the shape gate
+    // rejects as well, so it passed with or without `res.ok`.
+    await respond('/api/me', 401, { email: 'ada@calc.dev' })
+
+    expect(text()).toContain('Could not load your account')
+    expect(text()).not.toContain('Type ada@calc.dev to confirm')
+  })
+
   it('a REJECTED delete frees the form — never a button disabled forever', async () => {
     // submit()'s finally promises the busy state clears on EVERY path; no
     // fetch double could reject, so deleting the catch and the finally kept
@@ -726,6 +791,24 @@ describe('example slices — a request’s answer is validated before it is trus
     // those blank values over the real profile.
     await mount(createElement(SettingsPage, {}))
     await respond('/api/me', 200, {})
+
+    expect(text()).toContain('Could not load your profile')
+    expect(container.querySelectorAll('input')).toHaveLength(0)
+  })
+
+  it('keeps the settings form off a non-2xx answer whose body IS a profile', async () => {
+    await mount(createElement(SettingsPage, {}))
+
+    // Same isolation as the account-deletion case: a rewritten status that still
+    // carries the row satisfies every shape check, so only the `res.ok` gate
+    // stands between a FAILED load and a form (with a working Save) built from
+    // an answer that never came. Without it the inputs below render.
+    await respond('/api/me', 500, {
+      id: 'u1',
+      name: 'Ada',
+      email: 'ada@test.dev',
+      timezone: 'UTC',
+    })
 
     expect(text()).toContain('Could not load your profile')
     expect(container.querySelectorAll('input')).toHaveLength(0)
@@ -776,6 +859,20 @@ describe('example slices — a request’s answer is validated before it is trus
     await respond('/api/referrals/code', 500, { error: 'boom' })
     expect(text()).toContain('Could not load your invite link')
     expect(text()).not.toContain('Loading your invite link')
+  })
+
+  it('reports a non-2xx as a failed load even when its body carries a code', async () => {
+    await mount(createElement(InviteLink, {}))
+
+    // The status half again: `typeof body.code !== 'string'` cannot see the
+    // status, so a failure answer that still carries a code — a rewritten
+    // status, a retry that re-served an earlier success body — would render the
+    // invite link as if the request had succeeded. Without `res.ok` the link and
+    // its Copy control appear here.
+    await respond('/api/referrals/code', 500, { code: 'ABC123' })
+
+    expect(text()).toContain('Could not load your invite link')
+    expect(container.querySelector('[data-mol-id="referral-copy-link"]')).toBeNull()
   })
 
   it('stops claiming to load the invite link when a 2xx answer carries no code', async () => {
@@ -1126,6 +1223,31 @@ describe('example slices — a live feed does not grow a list without bound', ()
     const input = container.querySelector('input')
     expect((input as HTMLInputElement | null)?.value).toBe('for random')
     expect(text()).not.toContain('Message not sent')
+  })
+
+  it('a late success leaves the NEW room’s draft alone even when it holds the SAME text', async () => {
+    await mount(createElement(ChatPage, { channelId: 'general' }))
+    await respond('/api/messages?channel_id=general', 200, [])
+
+    await typeDraft('same text')
+    await submitDraft()
+    // Switch rooms and type the SAME text again — re-sending a line, a paste, a
+    // run of identical notes — which the draft-clearing rule below CANNOT tell
+    // apart from the text that was sent (`current.trim() === text`): only the
+    // send's own ticket keeps the abandoned room's late 200 from emptying a
+    // composer the reader is using. The case above types different text, so the
+    // content compare alone passes it — the ticket line could be deleted with
+    // this file green.
+    await rerender(createElement(ChatPage, { channelId: 'random' }))
+    await respond('/api/messages?channel_id=random', 200, [])
+    await typeDraft('same text')
+
+    await respond('/api/messages', 200, { ok: true })
+
+    const input = container.querySelector('input')
+    expect((input as HTMLInputElement | null)?.value, 'the new room’s draft must survive').toBe(
+      'same text',
+    )
   })
 
   it('bounds the FIRST history page too — the window applies to the load, not just live events', async () => {

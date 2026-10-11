@@ -176,13 +176,24 @@ describe('mcp remote outbound fetch timeout', () => {
     expect(hits).toBe(1)
   })
 
-  it('ships a default bound in the same class as telemetry’s 5 s', async (ctx) => {
+  it('ships a default bound a client can wait out — seconds, not the undici default', async (ctx) => {
     if (skipped(ctx)) return
     const { FETCH_TIMEOUT_MS } = await import('../../../mcp/src/remote.js')
-    // Guards the export the two wiring sites name: a bound removed or raised
-    // to an undici-default-scale value fails here before any client waits on it.
+    // Guards the export the two wiring sites name: a bound removed or raised to
+    // an undici-default-scale value fails here before any client waits on it.
+    //
+    // The ceiling is the claim, not decoration. It used to be 60_000 — a
+    // MINUTE — while this test's own name said "the same class as telemetry's
+    // 5 s", so `FETCH_TIMEOUT_MS = 59_000` stayed green: a hung
+    // raw.githubusercontent.com then held the caller's whole HTTP request for a
+    // minute, the ~5-minute stall the module doc says must fail "in seconds
+    // instead", restored with every assertion here passing. 30 s keeps room for
+    // a deliberate future raise while still excluding the minute scale.
     expect(FETCH_TIMEOUT_MS).toBeGreaterThanOrEqual(1_000)
-    expect(FETCH_TIMEOUT_MS).toBeLessThanOrEqual(60_000)
+    expect(
+      FETCH_TIMEOUT_MS,
+      `the default outbound bound ${FETCH_TIMEOUT_MS}ms is not the seconds class the module documents`,
+    ).toBeLessThanOrEqual(30_000)
   })
 
   it('wires the bound into every outbound fetch in remote.ts and telemetry.ts', (ctx) => {

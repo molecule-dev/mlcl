@@ -13,7 +13,7 @@
  * @module
  */
 import type * as NodeFs from 'node:fs'
-import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import type * as NodeOs from 'node:os'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -162,8 +162,11 @@ afterEach(() => {
 
 describe('molecule-mcp install id', () => {
   it('mints and persists an id when the id file does not exist yet', () => {
-    expect(existsSync(ID_FILE)).toBe(false)
-
+    // The throwaway home `beforeEach` just emptied is the "does not exist yet"
+    // half, and the read below is the only assertion that can fail on it: an
+    // `expect(existsSync(ID_FILE)).toBe(false)` here asserted what the setup had
+    // itself just made true, so it could never fire. What this test is FOR is
+    // the id that lands on the event AND in the file.
     trackToolCall('search_packages', true, Date.now())
 
     // A fresh install: the path the empty-file case must fall back to.

@@ -106,9 +106,28 @@ vi.mock('@molecule/app-http', () => ({
 // but render the CHILDREN too, since nesting replies under their root is the
 // behavior the slice exists to pin.
 vi.mock('@molecule/app-feature-thread-tree-react', () => ({
-  ThreadTree: (props: { comments: Array<ThreadNode> }) => {
+  ThreadTree: (props: { comments: Array<ThreadNode>; onReply?: (id: string) => void }) => {
     const render = (node: ThreadNode): ReactNode =>
-      createElement('li', { key: node.id }, node.body, (node.children ?? []).map(render))
+      createElement(
+        'li',
+        { key: node.id },
+        node.body,
+        // The row's reply control, driving the REAL `onReply` the page wires to
+        // its composer (`onReply={(id) => setReplyTo(id)}`). A mock that rendered
+        // only bodies dropped that prop entirely, so `replyTo` was null for the
+        // whole suite and the reset the resource-change effect performs — the
+        // point of the reply-target case below — could not be observed at all.
+        createElement(
+          'button',
+          {
+            type: 'button',
+            'data-mol-id': `reply-${node.id}`,
+            onClick: () => props.onReply?.(node.id),
+          },
+          `reply to ${node.id}`,
+        ),
+        (node.children ?? []).map(render),
+      )
     return createElement('ul', null, props.comments.map(render))
   },
 }))
@@ -209,6 +228,13 @@ async function type(input: HTMLInputElement, value: string): Promise<void> {
   })
   await flush()
 }
+
+/**
+ * The composer's placeholder — how the page reports which comment a reply would
+ * nest under (`replyTo`'s only observable: `comments.replyPlaceholder`).
+ */
+const composerPlaceholder = (): string =>
+  (container.querySelector('textarea') as HTMLTextAreaElement | null)?.placeholder ?? ''
 
 /** Same, for a textarea (the comment composer). */
 async function typeIntoTextarea(textarea: HTMLTextAreaElement, value: string): Promise<void> {
@@ -324,6 +350,51 @@ describe('a failed load for a new resource must not leave the previous resource 
     await flush()
     expect(text()).not.toContain('from-post-1')
     expect(text()).not.toContain('nested reply')
+  })
+
+  it('drops the reply target when the resource changes — a reply cannot nest under the old post', async () => {
+    await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await act(async () => {
+      httpCalls[0]?.resolve({
+        data: [{ id: 'c1', userId: 'u1', parentId: null, body: 'from-post-1', createdAt: 'x' }],
+      })
+    })
+    // The tree's reply pages load per root before anything renders.
+    expect(httpCalls[1]?.path).toBe('/api/comments/c1/replies?limit=500')
+    await act(async () => {
+      httpCalls[1]?.resolve({ data: [] })
+    })
+    await flush()
+
+    // Target post 1's comment for a reply: the composer switches to reply mode,
+    // which is the state the resource change has to clear. Nothing in this suite
+    // could reach it before — the tree mock dropped `onReply`, so `replyTo` was
+    // null for every test and the reset below was dead weight nobody could
+    // observe.
+    const reply = [...container.querySelectorAll('button[data-mol-id]')].find(
+      (button) => button.getAttribute('data-mol-id') === 'reply-c1',
+    )
+    if (!reply) throw new Error('the thread rendered no reply control for c1')
+    await act(async () => {
+      reply.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+    expect(composerPlaceholder(), 'the composer now targets c1').toBe('Write a reply…')
+
+    // Navigate post 1 → post 2 and let the new load fail. The reply target is a
+    // comment of the post we LEFT: left set, the next reply the reader types
+    // under post 2 nests under post 1's comment — the write the composer's own
+    // `parentId` sends, aimed at a post the reader is no longer looking at.
+    await rerender(createElement(CommentThread, { resourceType: 'post', resourceId: 'p2' }))
+    const p2List = httpCalls.find((c) => c.path === '/api/post/p2/comments')
+    await act(async () => {
+      p2List?.reject(new Error('HTTP 500'))
+    })
+    await flush()
+
+    expect(composerPlaceholder(), 'a reply target of the post we left must not survive').toBe(
+      'Add a comment…',
+    )
   })
 
   it('a posted comment survives the refetch — which re-reads the replies pages', async () => {

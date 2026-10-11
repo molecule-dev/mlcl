@@ -7,8 +7,13 @@
  *    left `pageIndex` (the page the user asked for, and the number the paginator
  *    renders) out of step with `page` (the rows that are actually on screen),
  *    and said nothing at all. Clicking "Next" on a flaky connection showed page
- *    1's rows under the paginator's page 2. It now surfaces the failure and
- *    paginates the page whose rows are shown.
+ *    1's rows under the paginator's page 2 with nothing on screen saying so. It
+ *    now surfaces the failure, and the rows stay: the paginator is left on the
+ *    page the reader asked for (that optimism is what lets two quick clicks
+ *    request pages 2 and 3 — the shipped choice, asserted below), and the
+ *    notice is what discloses that the rows below are the last page that
+ *    loaded. Re-paginating the paginator back is NOT the fix and is not what
+ *    the code does.
  * 2. `email-verification`'s `VerifyEmailPage` — `resend()` had no in-flight
  *    guard, and the endpoint (api/handlers/verify-email.ts) rate-limits resends
  *    per user. A double click sent two: the first created and mailed a link, the
