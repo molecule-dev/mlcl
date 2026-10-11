@@ -11,8 +11,14 @@ const cm = getClassMap()
  *
  * `createPlayer()` is imperative — it takes a container element and returns a
  * `VideoPlayer` (which MAY be a promise, depending on the provider) — so this
- * wraps it in a ref + effect, normalizing with `Promise.resolve()`. Two gotchas
- * the package documents:
+ * wraps it in a ref + effect, normalizing with `Promise.resolve()`. The call
+ * itself is DEFERRED into the chain (`Promise.resolve().then(() => create…)`),
+ * never passed as `Promise.resolve`'s argument: a provider that throws
+ * SYNCHRONOUSLY (a container it refuses, a codec/element it cannot bind) would
+ * escape the effect before the rejection handler below exists — React surfaces
+ * the exception out of the passive effect (an error boundary, or a blank panel
+ * with nothing logged) instead of the logged, blank-panel failure. Deferring
+ * puts both failure modes on the same path. Two gotchas the package documents:
  *
  * - The container needs an explicit height (fills 100% of its parent); a
  *   zero-height parent renders an invisible player. `height` defaults to 360.
@@ -57,20 +63,24 @@ export function VideoPlayerView({
     let player: VideoPlayer | undefined
     let cancelled = false
 
-    void Promise.resolve(createPlayer({ container, sources, poster, controls: true })).then(
-      (instance) => {
-        if (cancelled) {
-          instance.destroy()
-          return
-        }
-        player = instance
-      },
-      (error: unknown) => {
-        // A rejected createPlayer must not vanish as an unhandled rejection —
-        // the container would just stay blank with nothing to diagnose.
-        console.error('video player failed to initialize', error)
-      },
-    )
+    // Deferred (see the note above): a synchronous throw must reach the
+    // rejection handler, not escape the effect.
+    void Promise.resolve()
+      .then(() => createPlayer({ container, sources, poster, controls: true }))
+      .then(
+        (instance) => {
+          if (cancelled) {
+            instance.destroy()
+            return
+          }
+          player = instance
+        },
+        (error: unknown) => {
+          // A rejected createPlayer must not vanish as an unhandled rejection —
+          // the container would just stay blank with nothing to diagnose.
+          console.error('video player failed to initialize', error)
+        },
+      )
 
     return () => {
       cancelled = true

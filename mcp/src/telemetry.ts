@@ -151,11 +151,11 @@ let inFlightEmits = 0
  * resolves with `isError: true` — which is how this server reports every
  * hosted-service failure (`serviceResult` turns a `ServiceCallError` into that
  * content block so the calling agent reads a sentence instead of a protocol
- * error). Watching only for the throw recorded every "no project API key", 401
- * "the key was rejected", 402 allowance, and "the service returned no …" answer
- * as a SUCCESS, so the flag that exists to make this server's failures visible
- * counted exactly those failures as good calls. The emitted flag follows what
- * the CLIENT sees.
+ * error). A wrapper that watched only for the throw recorded every "no project
+ * API key", 401 "the key was rejected", 402 allowance, and "the service returned
+ * no …" answer as a SUCCESS, so the flag that exists to make this server's
+ * failures visible counted exactly those failures as good calls. The emitted
+ * flag follows what the CLIENT sees.
  *
  * @param result - The value a wrapped handler resolved with.
  * @returns True when the result carries `isError: true`.
