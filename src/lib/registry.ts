@@ -381,17 +381,6 @@ export function updateRegistryEntry(packageName: string, entry: RegistryEntry): 
 }
 
 /**
- * Remove a package entry from the registry.
- *
- * Runs through {@link mutateRegistry} (see {@link updateRegistryEntry}).
- */
-export function removeRegistryEntry(packageName: string): void {
-  mutateRegistry((registry) => {
-    delete registry.packages[packageName]
-  })
-}
-
-/**
  * Parsed-registry cache for {@link getRawRegistry}.
  *
  * Every framework/toolchain/version accessor funnels through getRawRegistry —

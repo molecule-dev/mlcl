@@ -1963,13 +1963,6 @@ async function addActivityCaptureDependencies(apiPath: string): Promise<boolean>
  * polish-pipeline screen list (`screen-map.json`), node_modules, etc.
  */
 export const TEMPLATE_USER_COPY = ['app', 'api', 'package.json', '.gitignore', 'README.md']
-export const POLISH_ARTIFACTS = [
-  '.polish',
-  '.polish-complete',
-  '.stitch-complete',
-  'screen-map.json',
-  'template.json',
-]
 
 // Build/cache outputs only — DO NOT include node_modules. We deliberately
 // copy node_modules so the user sandbox is up and running without waiting
@@ -3313,7 +3306,8 @@ export async function createFullStackProject(
   await writeFile(join(projectPath, '.gitignore'), await loadTemplate('api/gitignore.tpl'))
   // No DESIGN.md is written here. DESIGN.md is a polish-pipeline artifact
   // — used only by the AI polish/stitch sessions inside this monorepo, not
-  // something a runnable user project needs. See POLISH_ARTIFACTS at top.
+  // something a runnable user project needs (the copy path takes exactly
+  // TEMPLATE_USER_COPY: app/, api/, package.json, .gitignore, README.md).
 
   // Scaffold both sub-projects
   mlclDebug(`[scaffold] Creating API project: ${join(projectPath, 'api')}`)
