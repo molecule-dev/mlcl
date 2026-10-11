@@ -221,6 +221,34 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
         )
         continue
       }
+      // …and ONE more sign-back-in check IMMEDIATELY before the irreversible
+      // step. The first check ran before the purges above (the devices purge
+      // among them), so a user who signed in DURING them had their new session
+      // row deleted and then their account — even though the deletion page
+      // promises that signing in cancels it, and losing an account (and
+      // everything in it) is not like losing a session. The two steps cannot be
+      // made atomic here, but this shrinks the window to the gap between this
+      // read and the single delete below.
+      const signedInNow = await hasSignedBackIn(user.id, signedBackIn)
+      if (signedInNow === null) {
+        // The store could not answer — never purge on a guess (the same rule the
+        // first check applies); the account survives to the next run.
+        console.error(
+          `finalize-deletions: user ${user.id} kept — could not re-confirm the sign-back-in state`,
+        )
+        continue
+      }
+      if (signedInNow) {
+        try {
+          await updateById('users', user.id, { deleted_at: null })
+          console.log(
+            `finalize-deletions: user ${user.id} signed back in during the purge — deletion cancelled`,
+          )
+        } catch (err) {
+          console.error('finalize-deletions: deletion cancel failed', { userId: user.id, err })
+        }
+        continue
+      }
       try {
         await deleteById('users', user.id)
       } catch (err) {

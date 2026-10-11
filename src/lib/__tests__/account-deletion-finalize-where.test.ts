@@ -246,6 +246,29 @@ describe('finalize-deletions — the expired-user filter must actually match', (
     expect(database.deleteById).toHaveBeenCalledWith('users', 'u-no-app-tables')
   })
 
+  it('cancels the deletion when the user signs back in DURING the purge', async () => {
+    // The first sign-back-in check runs BEFORE the purges (the devices purge
+    // among them), so a sign-in that lands after it — exactly the case where the
+    // new session row is then purged — used to end with the account hard-deleted
+    // anyway, against the page's promise. The check immediately before the
+    // irreversible delete is what catches it.
+    users = [{ id: 'u-race', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
+    database.findOne
+      .mockResolvedValueOnce(null) // the pre-purge check: no device yet
+      .mockResolvedValueOnce({ id: 'd-new', userId: 'u-race' }) // …and it appears during the purge
+
+    await runJob()
+
+    // The purge had already begun…
+    expect(database.deleteById).toHaveBeenCalledWith('usersSecrets', 'u-race')
+    expect(database.deleteMany).toHaveBeenCalledWith('devices', [
+      { field: 'userId', operator: '=', value: 'u-race' },
+    ])
+    // …but the account survives, and the soft-delete marker is cleared.
+    expect(database.deleteById).not.toHaveBeenCalledWith('users', 'u-race')
+    expect(database.updateById).toHaveBeenCalledWith('users', 'u-race', { deleted_at: null })
+  })
+
   it('never purges a table that has no `user_id` column — that failure wedges the deletion', async () => {
     // The framework audit table (@molecule/api-audit-database) identifies the
     // actor in `actor` (`user:<id>`) and has NO `user_id`. Listing it in
