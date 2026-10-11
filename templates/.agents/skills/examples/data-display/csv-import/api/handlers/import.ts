@@ -127,32 +127,52 @@ router.post('/commit', requireAuth, csvUpload, async (req, res) => {
   // later in the SAME file updates the row the earlier row just created — the
   // same outcome the old per-row find saw.
   const CHUNK = 500
-  for (let start = 0; start < valid.length; start += CHUNK) {
-    const chunk = valid.slice(start, start + CHUNK)
-    const existingRows = (await findMany('customers', {
-      where: [
-        { field: 'user_id', operator: '=', value: userId },
-        { field: 'email', operator: 'in', value: [...new Set(chunk.map((r) => r.data.email))] },
-      ],
-    })) as Array<{ id: string; email: string }>
-    const existingByEmail = new Map(existingRows.map((row) => [row.email, row.id]))
-    for (const r of chunk) {
-      const existingId = existingByEmail.get(r.data.email)
-      if (existingId !== undefined) {
-        // Upsert by email — natural key WITHIN this user's customers.
-        await updateById('customers', existingId, r.data)
-        updated++
-      } else {
-        const created = (await create('customers', {
-          ...r.data,
-          user_id: userId,
-          created_at: new Date().toISOString(),
-        })) as { data?: { id?: string } | null }
-        const newId = created?.data?.id
-        if (typeof newId === 'string') existingByEmail.set(r.data.email, newId)
-        imported++
+  try {
+    for (let start = 0; start < valid.length; start += CHUNK) {
+      const chunk = valid.slice(start, start + CHUNK)
+      const existingRows = (await findMany('customers', {
+        where: [
+          { field: 'user_id', operator: '=', value: userId },
+          { field: 'email', operator: 'in', value: [...new Set(chunk.map((r) => r.data.email))] },
+        ],
+      })) as Array<{ id: string; email: string }>
+      const existingByEmail = new Map(existingRows.map((row) => [row.email, row.id]))
+      for (const r of chunk) {
+        const existingId = existingByEmail.get(r.data.email)
+        if (existingId !== undefined) {
+          // Upsert by email — natural key WITHIN this user's customers.
+          await updateById('customers', existingId, r.data)
+          updated++
+        } else {
+          const created = (await create('customers', {
+            ...r.data,
+            user_id: userId,
+            created_at: new Date().toISOString(),
+          })) as { data?: { id?: string } | null }
+          const newId = created?.data?.id
+          if (typeof newId === 'string') existingByEmail.set(r.data.email, newId)
+          imported++
+        }
       }
     }
+  } catch (error) {
+    // A write can fail partway through the file (a dropped connection, a
+    // constraint, a full disk). The rows written BEFORE it stay — the abstract
+    // DataStore has no transaction, and this handler never drops to raw SQL for
+    // one — so a bare 500 reads as "nothing was imported" while the data is
+    // already stored: the next attempt re-upserts by email and converges, but in
+    // the meantime the answer is a lie. Report how far the import got, and log
+    // the cause (which is not user-facing detail).
+    console.error('[csv-import] commit stopped partway through', error)
+    return res.status(500).json({
+      error: t('import.commitFailed', undefined, {
+        defaultValue: 'The import stopped partway through — the rows already written were kept.',
+      }),
+      // The counts ARE the message: what the server holds now.
+      imported,
+      updated,
+      skipped: invalid.length,
+    })
   }
   res.json({
     imported,

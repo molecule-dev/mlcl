@@ -58,6 +58,13 @@ const invalidCsv = (count: number): Buffer => {
   return Buffer.from(lines.join('\n'))
 }
 
+/** `count` valid rows. */
+const validCsv = (count: number): Buffer => {
+  const lines = ['email,name,company']
+  for (let i = 0; i < count; i++) lines.push(`user${i}@example.test,name ${i},Acme`)
+  return Buffer.from(lines.join('\n'))
+}
+
 const makeRes = (): {
   locals: { session?: { userId: string } }
   statusCode: number
@@ -114,6 +121,38 @@ describe('csv-import POST /commit — the error detail is a bounded window', () 
     // No writes happened for an all-invalid file.
     expect(database.create).not.toHaveBeenCalled()
     expect(database.findMany).not.toHaveBeenCalled()
+  })
+
+  it('reports the rows a mid-file failure KEPT, instead of a bare 500', async () => {
+    // A write that fails partway down the file leaves the earlier rows stored
+    // (the abstract DataStore has no transaction). The error used to escape the
+    // handler, so the client got a 500 and read "the import failed" while the
+    // data was in the table — the counts below are the only honest answer.
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => undefined)
+    try {
+      database.findMany.mockResolvedValue([])
+      let writes = 0
+      database.create.mockImplementation(async () => {
+        writes += 1
+        if (writes === 3) throw new Error('connection reset')
+        return { data: { id: `id-${writes}` } }
+      })
+
+      const res = await commit(validCsv(5))
+      const body = res.body as { imported: number; updated: number; error: string }
+
+      expect(res.statusCode).toBe(500)
+      // Two rows landed before the failure — and the answer says so.
+      expect(body.imported).toBe(2)
+      expect(body.updated).toBe(0)
+      expect(body.error).toContain('partway')
+      // The cause is logged (never silently swallowed) …
+      expect(errorSpy).toHaveBeenCalled()
+      // …but not handed to the client as the message.
+      expect(body.error).not.toContain('connection reset')
+    } finally {
+      errorSpy.mockRestore()
+    }
   })
 
   it('still reports EVERY error when the file has fewer than the window', async () => {
