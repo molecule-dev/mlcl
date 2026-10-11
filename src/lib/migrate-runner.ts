@@ -407,17 +407,27 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
   const pgliteBranchReachable =
     runner.includes('const BROWSER_PROFILE = true') ||
     runner.includes(`const BROWSER_PROFILE = ${BROWSER_PROFILE_GATE}`)
-  // The Postgres machinery imports the PostgreSQL bond itself (`deriveSsl`).
-  // The render emits it whenever the manifest declared the bond in EITHER
-  // key, so a dev-key declaration produces a runner whose import a production
-  // prune breaks exactly like the PGlite branch it sits next to.
-  const importsPostgres = runner.includes(`from '${POSTGRES_PACKAGE}'`)
+  // Every database bond the runner imports STATICALLY is a boot import: the
+  // module load fails (TS2307, then ERR_MODULE_NOT_FOUND on a real install)
+  // unless the pin sits in `dependencies`, because a production deploy prunes
+  // `devDependencies` (`--omit=dev`) and the workspace's hoisted node_modules
+  // hides exactly this hole. Postgres was the only bond handled here, but it is
+  // not the only one a runner imports: `templates/api/migrate-sqlite.ts.tpl`
+  // and `migrate-mysql.ts.tpl` both import their own bond's `createMigrator` at
+  // the top level, so a swap — which writes the new database into the dependency
+  // KEY the old one occupied — or `mlcl add --dev <database> --inject` left
+  // those runners on a pin production drops. The list is derived from the
+  // runner SOURCE over the provider list, so a new provider's template is
+  // covered by the same check instead of needing another branch here.
+  const importedProviders = MIGRATE_RUNNER_PROVIDERS.filter((provider) =>
+    runner.includes(`from '${provider}'`),
+  )
   // Every import the runner on disk needs backed — also the list named when
   // the manifest cannot be read.
   const needed = [
     importsWrapper ? MIGRATE_RUNNER_BONDS_PACKAGE : null,
     pgliteBranchReachable ? PGLITE_PACKAGE : null,
-    importsPostgres ? POSTGRES_PACKAGE : null,
+    ...importedProviders,
   ].filter((name): name is string => name !== null)
   if (needed.length === 0) {
     // A SQLite/MySQL/out-of-band runner (or a hand-written one) needs none.
@@ -460,7 +470,7 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
 
   if (importsWrapper) promote(MIGRATE_RUNNER_BONDS_PACKAGE)
   if (pgliteBranchReachable) promote(PGLITE_PACKAGE)
-  if (importsPostgres) promote(POSTGRES_PACKAGE)
+  for (const provider of importedProviders) promote(provider)
 
   if (gained.length === 0) return []
   manifest.dependencies = Object.fromEntries(

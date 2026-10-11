@@ -1271,13 +1271,19 @@ describe('ensureMigrateRunnerImports', () => {
     expect(manifest.dependencies['@molecule/api-database-postgresql']).toBe(
       getMoleculeVersion('@molecule/api-database-postgresql'),
     )
-    // A SQLite runner has no PGlite branch and no Postgres machinery either.
+    // A SQLite runner has no PGlite branch and no Postgres machinery — but it
+    // DOES import the SQLite bond at its top level, so THAT is the pin this
+    // render needs backed (the manifest carries none, so it is added at the
+    // registry pin). The untouched PGlite dev pin is the point of this case.
     await writeFile(
       join(dir, 'src', 'scripts', 'migrate.ts'),
       await readMigrateRunner(['@molecule/api-database-sqlite']),
     )
-    expect(await ensureMigrateRunnerImports(dir)).toEqual([])
+    expect(await ensureMigrateRunnerImports(dir)).toEqual(['@molecule/api-database-sqlite'])
     manifest = await readManifest()
+    expect(manifest.dependencies['@molecule/api-database-sqlite']).toBe(
+      getMoleculeVersion('@molecule/api-database-sqlite'),
+    )
     expect(manifest.devDependencies?.['@molecule/api-database-pglite']).toBe('1.0.3')
   })
 
@@ -1328,11 +1334,13 @@ describe('ensureMigrateRunnerImports', () => {
     // No runner at all.
     await writeManifest({})
     expect(await ensureMigrateRunnerImports(dir)).toEqual([])
-    // A SQLite runner does not import the bond-setup package.
+    // An OUT-OF-BAND runner (D1) imports no database package at all — that is
+    // the shape this step is a no-op for. (A SQLite/MySQL runner DOES import its
+    // own bond at the top level and is backed; see the promotion cases.)
     await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
     await writeFile(
       join(dir, 'src', 'scripts', 'migrate.ts'),
-      await readMigrateRunner(['@molecule/api-database-sqlite']),
+      await readMigrateRunner(['@molecule/api-database-d1']),
     )
     expect(await ensureMigrateRunnerImports(dir)).toEqual([])
     // Already declared → untouched (the postgres render imports the wrapper
