@@ -48,6 +48,20 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
 
   // Edit mode: load the post's current values so the author edits, not clobbers.
   const loadedSlug = useRef<string | null>(null)
+  /**
+   * The slug the CURRENT render belongs to.
+   *
+   * The load effect already drops a superseded response (`cancelled`), but a SAVE
+   * is an equally long request and had no such guard: the editor outlives a slug
+   * change (the contract at the top of this file), so a save parked on post A
+   * that resolved AFTER the author moved to post B adopted A's id into a form
+   * holding B's fields (`if (saved?.id) setPostId(saved.id)`) — and the next Save
+   * then PUT `/api/posts/<A>` with B's title/slug/body, overwriting the post the
+   * author had left. Same ownership rule the sibling slices apply through their
+   * mounted-for refs.
+   */
+  const editingSlugRef = useRef(editingSlug)
+  editingSlugRef.current = editingSlug
   // The slug the PREVIOUS effect run saw. It separates the transition INTO create
   // mode (a slug, then no slug) from every other re-run of this effect (a locale
   // switch, the "Try again" button) — only the transition may reset the form.
@@ -169,6 +183,12 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
     e.preventDefault()
     setStatus('saving')
     setError(null)
+    // The editor this save belongs to (see editingSlugRef): every state write
+    // after the await below is skipped once the author has moved on, so a late
+    // save cannot adopt another post's id into this form — or paint its failure
+    // under a post nobody tried to save.
+    const slugAtSave = editingSlug
+    const stillOnThisPost = (): boolean => editingSlugRef.current === slugAtSave
     // Every failure path sets the `error` status (which also clears the
     // saving flag) — a rejected fetch (offline, server restart) must not
     // leave the form stuck on "Saving…" with the button disabled forever.
@@ -179,6 +199,7 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title, slug, body_markdown: bodyMarkdown, draft }),
       })
+      if (!stillOnThisPost()) return
       if (!res.ok) {
         const body = await res.json().catch(() => ({}))
         setError(
@@ -189,9 +210,11 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
         return
       }
       const saved = (await res.json().catch(() => null)) as { id?: string } | null
+      if (!stillOnThisPost()) return
       if (saved?.id) setPostId(saved.id)
       setStatus('saved')
     } catch (_error) {
+      if (!stillOnThisPost()) return
       setError(t('postEditor.saveFailed', undefined, { defaultValue: 'Could not save the post' }))
       setStatus('error')
     }

@@ -286,6 +286,34 @@ describe('PostEditorPage — save()', () => {
     expect(text()).toContain('Draft saved.')
   })
 
+  it('a save that resolves AFTER the editor moved to another slug is not adopted', async () => {
+    // The editor instance outlives a slug change (its own contract), so a save
+    // parked on post A can answer after the author has moved to post B. The
+    // response then adopted A's id into a form holding B's fields, and the next
+    // Save PUT A's id with B's title/slug/body — overwriting the post the author
+    // had left. The load effect already drops a superseded GET; a save needed the
+    // same ownership guard.
+    await render(createElement(PostEditorPage, { slug: 'a' }), true)
+    await respond('/api/posts/a', 200, post('p-a', 'Post A', 'a'))
+
+    // Save post A — the PUT parks.
+    await submitEditor()
+    expect(pending.requests.at(-1)?.url).toBe('/api/posts/p-a')
+
+    // Navigate to B; B's load resolves while A's PUT has not.
+    await render(createElement(PostEditorPage, { slug: 'b' }), false)
+    await respond('/api/posts/b', 200, post('p-b', 'Post B', 'b'))
+    expect(titleInput()?.value).toBe('Post B')
+
+    // A's PUT finally answers. It belongs to the post the author left.
+    await respond('/api/posts/p-a', 200, { id: 'p-a' })
+
+    // The proof: the next Save must PUT the post on screen, not the abandoned one.
+    await submitEditor()
+    const puts = pending.requests.filter((request) => request.method === 'PUT')
+    expect(puts.at(-1)?.url).toBe('/api/posts/p-b')
+  })
+
   it('surfaces an error body and clears the saving state on a failed save', async () => {
     await render(createElement(PostEditorPage, { slug: 'a' }), true)
     await respond('/api/posts/a', 200, post('p-a', 'Post A', 'a'))
