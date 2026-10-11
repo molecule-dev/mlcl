@@ -109,6 +109,29 @@ router.post('/request', requireAuth, async (_req, res) => {
     }
     throw error
   }
+  // The send succeeded, so THIS link supersedes every earlier one. Nothing else
+  // ever reclaims those rows: the TTL gates acceptance, it does not delete (an
+  // expired row goes away only when someone visits that exact link), so the
+  // table held one permanent row per resend request ever made — the rate limit
+  // above bounds the RATE of resends, never the total. Deleting the user's
+  // other tokens here leaves at most ONE outstanding link per user, and the
+  // just-minted one is spared by the `token_hash != …` condition.
+  //
+  // Housekeeping only, and AFTER the mail went out: the link is already
+  // delivered, so a store failure here must not turn a successful send into an
+  // error the page reports as "could not send" (the row that survives is inert
+  // — it expires on its TTL).
+  try {
+    await deleteMany('email_verification_tokens', [
+      { field: 'user_id', operator: '=', value: userId },
+      { field: 'token_hash', operator: '!=', value: tokenHash },
+    ])
+  } catch (cleanupError) {
+    console.error('verify-email: could not drop the superseded verification tokens', {
+      userId,
+      cleanupError,
+    })
+  }
   res.json({ ok: true })
 })
 

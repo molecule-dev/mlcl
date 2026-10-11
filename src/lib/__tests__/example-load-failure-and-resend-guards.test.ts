@@ -17,7 +17,10 @@
  *    instead of inviting a retry the endpoint will refuse again.
  * 3. `verify-email.ts`'s `POST /request` persisted the token row BEFORE the
  *    mail send, so a provider rejection (bad key, outage) left an undelivered
- *    token behind, one per failed attempt.
+ *    token behind, one per failed attempt. It also kept every row a send ever
+ *    minted — the TTL expires a token, it does not delete it — so a successful
+ *    resend now supersedes the user's earlier links instead of stacking one
+ *    more row per request.
  *
  * The components are the shipped ones (ClassMap + i18n + the two UI primitives
  * are stubbed); the handler is driven through its REAL router, with only the
@@ -447,7 +450,46 @@ describe('verify-email POST /request — a failed send leaves no token behind', 
     const res = await postRequest()
 
     expect(res.body).toEqual({ ok: true })
-    expect(database.deleteMany).not.toHaveBeenCalled()
+    // The DELIVERED token is never the one rolled back. (A successful send does
+    // delete the user's OTHER tokens — one link per user, see the supersede test
+    // below — so the assertion is scoped to this row's hash, not to "no delete
+    // at all".)
+    const created = database.create.mock.calls[0][1] as { token_hash: string }
+    expect(database.deleteMany).not.toHaveBeenCalledWith('email_verification_tokens', [
+      { field: 'token_hash', operator: '=', value: created.token_hash },
+    ])
+    expect(emails.sendMail).toHaveBeenCalledTimes(1)
+  })
+
+  it('a delivered resend supersedes the earlier links, so rows cannot accumulate', async () => {
+    // One row per resend request, kept forever: the TTL gates acceptance but
+    // deletes nothing (an expired row goes away only when someone visits that
+    // exact link), so without this the table grew with the number of resends
+    // ever made — the rate limit bounds the RATE, not the total. The new link
+    // replaces the old ones; the row just minted is spared.
+    database.findById.mockResolvedValue({ id: 'user-1', email: 'a@test.dev', emailVerified: false })
+    database.create.mockResolvedValue({ data: { id: 'tok-2' }, affected: 1 })
+
+    const res = await postRequest()
+
+    expect(res.body).toEqual({ ok: true })
+    const created = database.create.mock.calls[0][1] as { token_hash: string }
+    expect(database.deleteMany).toHaveBeenCalledWith('email_verification_tokens', [
+      { field: 'user_id', operator: '=', value: 'user-1' },
+      { field: 'token_hash', operator: '!=', value: created.token_hash },
+    ])
+  })
+
+  it('a supersede that fails does not fail the send it followed', async () => {
+    // The mail is already delivered: a store failure on the housekeeping delete
+    // must not reach the page as "could not send a new link".
+    database.findById.mockResolvedValue({ id: 'user-1', email: 'a@test.dev', emailVerified: false })
+    database.create.mockResolvedValue({ data: { id: 'tok-3' }, affected: 1 })
+    database.deleteMany.mockRejectedValue(new Error('store down'))
+
+    const res = await postRequest()
+
+    expect(res.body).toEqual({ ok: true })
     expect(emails.sendMail).toHaveBeenCalledTimes(1)
   })
 })
