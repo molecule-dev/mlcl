@@ -1154,28 +1154,84 @@ export function isPackageNameShaped(name: unknown): boolean {
 }
 
 /**
- * Whether `name` is safe to use as ONE path segment AND as a JavaScript
- * identifier fragment: a single run of `[A-Za-z0-9_-]` carrying at least one
- * alphanumeric character.
+ * Whether `name` is safe to use as ONE path segment AND as the source of a
+ * JavaScript identifier: a single run of `[A-Za-z0-9_-]` carrying at least one
+ * alphanumeric character, whose camelCase form ({@link camelizeShortName}) is
+ * ITSELF already a valid identifier.
  *
  * `molecule.shortName` is metadata (same trust story as {@link isPackageNameShaped}):
  * {@link scanPackage} reads it from the INSTALLED package's own `package.json`
  * for every package the registry does not list, so a third-party package
  * declares it. The middleware plan uses it VERBATIM as a path segment —
- * `join(projectPath, 'src', 'middleware', \`${name}.ts\`)` — and its camelCase
- * form as an identifier inside the generated file, so an unvalidated
+ * `join(projectPath, 'src', 'middleware', \`${name}.ts\`)` — so an unvalidated
  * `"shortName": "../../../../x"` turned `mlcl inject` into an arbitrary write
  * outside the project (the same escape {@link isPackageNameShaped} closes for
  * the package name, {@link containedProjectPath} for `configFile`, and
- * {@link isInside} for a table's `sqlFile`). Excluding `.` also keeps the
- * derived identifier a valid `const`/export name. A real short name
- * (`body-parser`, `cors`, `validation`) always passes; a path never can.
+ * {@link isInside} for a table's `sqlFile`). The name is ALSO the source of the
+ * identifier the generated setup declares (`export const
+ * ${camelizeShortName(name)}Middleware`), so a name whose camelCase is not a
+ * legal identifier — `x-` (a trailing separator), `9-lives` (a leading digit) —
+ * is refused here rather than emitted as `x-Middleware`, a syntax error the
+ * project cannot compile. A refusal costs nothing: the (validated) package name
+ * derives the fallback instead ({@link extractShortName}), and where that
+ * fallback is the ONLY source — no declared shortName — {@link
+ * middlewareIdentifier} makes the identifier valid by construction. A real
+ * short name (`body-parser`, `cors`, `validation`) always passes; a path never
+ * can.
  *
  * @param name - The candidate short name (package metadata; any value in).
  * @returns True when the name is a safe single-segment name.
  */
 export function isSafeShortName(name: unknown): name is string {
-  return typeof name === 'string' && /^[A-Za-z0-9_-]+$/.test(name) && /[A-Za-z0-9]/.test(name)
+  return (
+    typeof name === 'string' &&
+    /^[A-Za-z0-9_-]+$/.test(name) &&
+    /[A-Za-z0-9]/.test(name) &&
+    /^[A-Za-z_$][A-Za-z0-9_$]*$/.test(camelizeShortName(name))
+  )
+}
+
+/**
+ * kebab-case → camelCase, the rule every generator site already used
+ * (`body-parser` → `bodyParser`). Private because the derived form that reaches
+ * generated code is {@link middlewareIdentifier}, which sanitizes this result.
+ *
+ * @param name - The short name.
+ * @returns The camelCase form (possibly still not a valid identifier).
+ */
+function camelizeShortName(name: string): string {
+  return name.replace(/-(\w)/g, (_match: string, ch: string) => ch.toUpperCase())
+}
+
+/**
+ * The identifier fragment a middleware name contributes to generated code.
+ *
+ * Every generator site embeds it — `export const ${…}Middleware` in the setup
+ * file, `vi.mock('../middleware/<name>.js', () => ({ ${…}Middleware }))` and the
+ * server's dynamic-import destructure — so all of them must derive the SAME
+ * name, and it must always be a legal identifier:
+ *
+ * - kebab-case becomes camelCase (`body-parser` → `bodyParser`), the rule the
+ *   generators already used;
+ * - a digit-leading result is prefixed (`9-lives` → `_9Lives`) — `2fa` is a
+ *   plausible package name (`@molecule/api-middleware-2fa`), and the derived
+ *   name is used unconditionally when a package declares no `shortName`;
+ * - anything else that cannot appear in an identifier is replaced with `_`, so
+ *   the function is TOTAL: no name can make the generators emit a token the
+ *   project cannot compile (`x-` → `x_`, not `x-Middleware`).
+ *
+ * The two synthesis sites used `-(\w)` and the setup generator used `-([a-z])`,
+ * so a name with a dash before a digit (`my-2fa`) produced `my2faMiddleware`
+ * where the server imported it and `my-2faMiddleware` — a syntax error — in the
+ * file it pointed at.
+ *
+ * @param name - A short name (validated by {@link isSafeShortName} where it
+ *   becomes a path segment; the derivation is safe for any input).
+ * @returns A valid JavaScript identifier fragment.
+ */
+export function middlewareIdentifier(name: string): string {
+  const sanitized = camelizeShortName(name).replace(/[^A-Za-z0-9_$]/g, '_')
+  return /^[A-Za-z_$]/.test(sanitized) ? sanitized : `_${sanitized}`
 }
 
 /**
@@ -2002,8 +2058,9 @@ async function generateMiddlewareSetup(
   apiFramework: string = DEFAULT_API_FRAMEWORK,
 ): Promise<string> {
   const fw = getApiFrameworkConfig(apiFramework)
-  // Convert kebab-case to camelCase for valid JS identifiers
-  const camelName = middlewareName.replace(/-([a-z])/g, (_, c) => c.toUpperCase())
+  // One derivation, shared with every site that names this middleware in
+  // generated code — see middlewareIdentifier.
+  const camelName = middlewareIdentifier(middlewareName)
   const capitalizedName = camelName.charAt(0).toUpperCase() + camelName.slice(1)
 
   // Scan the package exports to find a pre-built middleware instance or factory function.
@@ -3210,7 +3267,7 @@ function generateServerContentHeuristic(
   const middlewareNames = installedMiddleware.map((p) => {
     const declared = p.molecule?.shortName
     const shortName = isSafeShortName(declared) ? declared : extractShortName(p.name)
-    const camelName = shortName.replace(/-(\w)/g, (_: string, c: string) => c.toUpperCase())
+    const camelName = middlewareIdentifier(shortName)
     // Packages whose "middleware" is really a route set (e.g. billing-routes →
     // /api/billing/*) declare their mount path in the registry. They mount
     // AFTER the /api router so the session annotation + body parsing are in
@@ -3777,7 +3834,7 @@ function generateServerSmokeTest(
   const middlewareMocks = installedMiddleware.map((p) => {
     const declared = p.molecule?.shortName
     const shortName = isSafeShortName(declared) ? declared : extractShortName(p.name)
-    const camelName = shortName.replace(/-(\w)/g, (_: string, c: string) => c.toUpperCase())
+    const camelName = middlewareIdentifier(shortName)
     return `vi.mock('../middleware/${shortName}.js', () => ({ ${camelName}Middleware: ${noopMiddleware} }))`
   })
 

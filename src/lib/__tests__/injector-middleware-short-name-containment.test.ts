@@ -20,7 +20,12 @@ import { join } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
-import { executeInjection, isSafeShortName, planInjection } from '../injector.js'
+import {
+  executeInjection,
+  isSafeShortName,
+  middlewareIdentifier,
+  planInjection,
+} from '../injector.js'
 
 /** A short name that reaches above the project: three `..` segments from `src/middleware`. */
 const ESCAPING_SHORT_NAME = '../../../evil'
@@ -88,6 +93,30 @@ describe('isSafeShortName — one path segment, one identifier', () => {
       expect(isSafeShortName(name), JSON.stringify(name)).toBe(false)
     }
   })
+
+  it('refuses a name whose camelCase is not a JavaScript identifier', () => {
+    // Every one of these passes the "one `[A-Za-z0-9_-]` run" shape above, and
+    // the generated setup file declares `export const <camelCase>Middleware` —
+    // so accepting them produced a file the project cannot compile:
+    // `x-` → `export const x-Middleware`, `9-lives` → `export const 9Lives…`.
+    for (const name of ['x-', '9-lives', '--x']) {
+      expect(isSafeShortName(name), name).toBe(false)
+    }
+  })
+
+  it('derives a VALID identifier from any name — the derived form is what generated code embeds', () => {
+    // The total derivation the guard's doc points at: whatever the metadata
+    // says, the fragment that reaches `const <name>Middleware` is a legal
+    // identifier, and every generator site derives it the same way.
+    expect(middlewareIdentifier('body-parser')).toBe('bodyParser')
+    expect(middlewareIdentifier('my-2fa')).toBe('my2fa')
+    expect(middlewareIdentifier('9-lives')).toBe('_9Lives')
+    expect(middlewareIdentifier('x-')).toBe('x_')
+    const identifier = /^[A-Za-z_$][A-Za-z0-9_$]*$/
+    for (const name of ['body-parser', 'my-2fa', '9-lives', 'x-', '../evil', 'a.b']) {
+      expect(middlewareIdentifier(name), name).toMatch(identifier)
+    }
+  })
 })
 
 describe('the injector keeps a declared shortName inside the project', () => {
@@ -128,5 +157,28 @@ describe('the injector keeps a declared shortName inside the project', () => {
     expect(plan.files.map((file) => file.targetPath)).toContain(
       join(project, 'src', 'middleware', 'custom-name.ts'),
     )
+  })
+
+  it('never writes an identifier the project cannot compile', async () => {
+    // `x-` is a single path segment, so the segment guard alone let it through —
+    // and the setup file it produced declared `export const x-Middleware`,
+    // which is a syntax error, not a middleware. It is refused now, so the
+    // package's own (validated) name derives `evil` — the same name a
+    // non-name shortName already gets.
+    makeProject('x-')
+
+    const plan = await planInjection('@molecule/api-middleware-evil', project)
+    const setup = plan.files.find(
+      (file) => file.targetPath === join(project, 'src', 'middleware', 'evil.ts'),
+    )
+
+    expect(plan.files.map((file) => file.targetPath)).not.toContain(
+      join(project, 'src', 'middleware', 'x-.ts'),
+    )
+    expect(setup?.content, 'the middleware setup must be planned under the derived name').toMatch(
+      /^export const evilMiddleware:/m,
+    )
+    // The exact shape the syntax error took: a `-` surviving into the identifier.
+    expect(setup?.content).not.toContain('x-Middleware')
   })
 })
