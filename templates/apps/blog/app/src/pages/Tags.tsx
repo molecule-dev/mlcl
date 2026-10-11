@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
@@ -141,6 +141,13 @@ export function Tags() {
   // (or appeared to do nothing) with no feedback. Surface them inline.
   const [modalError, setModalError] = useState<string | null>(null)
   const [actionError, setActionError] = useState<string | null>(null)
+  // A CREATE whose answer could not be confirmed: the POST may have created the
+  // tag, but the 2xx body carried no tag row, so the page cannot adopt one.
+  // `create` INSERTS, so re-POSTing the same name is not a retry — it is a
+  // second insert. Set when the answer carries no id; the Save button then
+  // refuses until the modal is closed (the "go look at the list" step the
+  // error names), and a deliberate re-open starts a fresh create.
+  const createUnconfirmed = useRef(false)
 
   // Close the create/edit modal on browser navigation (popstate / back-forward
   // / programmatic SPA pushes). Without this the modal becomes a sticky
@@ -250,6 +257,24 @@ export function Tags() {
 
   const handleCreate = async () => {
     if (!tagName.trim() || saving) return
+    // A create the PREVIOUS save could not confirm must not be POSTed again:
+    // `create` INSERTS, so a second Save of the same name is a duplicate, not a
+    // retry (the endpoint has no idempotency key). Refuse until the modal is
+    // closed — the "check the tag list" step the error names — so the reader
+    // decides with the list in front of them.
+    if (createUnconfirmed.current) {
+      setModalError(
+        t(
+          'tags.createUnconfirmed',
+          {},
+          {
+            defaultValue:
+              'Could not confirm the tag was created — check the tag list before saving again.',
+          },
+        ),
+      )
+      return
+    }
     setSaving(true)
     setModalError(null)
     try {
@@ -259,10 +284,32 @@ export function Tags() {
       const created = (res as unknown as Tag).id
         ? (res as unknown as Tag)
         : (res?.data as Tag | undefined)
-      if (created) setTags((prev) => [...prev, created])
+      // A 2xx proves the route ANSWERED, not that a tag came back: the handler
+      // answers 201 with the created row, but an unmocked route answers `200 {}`
+      // and a proxy can rewrite the answer — the same non-answer the load path
+      // above refuses to render. Adopting nothing is the quiet half; claiming
+      // the create (closing the modal over a list with no new row, and firing
+      // the `tag.created` event) was the loud one, for a write this page cannot
+      // confirm. The row's `id` is what the list keys, and what Edit and Delete
+      // address — nothing without one may enter state.
+      if (typeof created?.id !== 'string' || created.id.length === 0) {
+        createUnconfirmed.current = true
+        setModalError(
+          t(
+            'tags.createUnconfirmed',
+            {},
+            {
+              defaultValue:
+                'Could not confirm the tag was created — check the tag list before saving again.',
+            },
+          ),
+        )
+        return
+      }
+      setTags((prev) => [...prev, created])
       void track({
         name: 'tag.created',
-        properties: { ...(created?.id ? { tagId: created.id } : {}), name: tagName.trim() },
+        properties: { tagId: created.id, name: tagName.trim() },
       })
       closeModal()
     } catch (error) {
@@ -337,6 +384,9 @@ export function Tags() {
     setTagName('')
     setEditingTag(null)
     setModalError(null)
+    // Closing the modal is the "go check the tag list" step the unconfirmed
+    // create's error names — a deliberate re-open may create afresh.
+    createUnconfirmed.current = false
   }
 
   return (
