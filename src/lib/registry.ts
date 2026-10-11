@@ -6,7 +6,7 @@
  * @module
  */
 
-import { readFileSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import { linkSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -346,14 +346,106 @@ function sleepSync(ms: number): void {
 }
 
 /**
+ * Remove a presumed-dead holder's publish lock — but only the file that was
+ * judged stale, never one a live writer created in the meantime.
+ *
+ * The mtime that decides "this holder is a crashed leftover" is read from a
+ * `statSync` some microseconds before the removal, and that gap is a race: two
+ * processes that both see the SAME stale lock both decide to steal it, the
+ * first of them removes it and creates its own fresh lock, and the second — its
+ * stat already taken against the old file — then removed the FIRST'S fresh
+ * lock. Both then believed they held the lock, which reopens exactly the
+ * check-then-rename window the lock exists to close: each publisher's
+ * {@link writeRegistry} stamp check can pass before the other's rename and
+ * after it, and the second rename silently drops the first writer's entry —
+ * the outcome no retry can answer, because neither writer observed a conflict.
+ * A plain `rmSync(lockPath)` cannot tell the two files apart: it deletes
+ * whatever is there NOW.
+ *
+ * So the removal goes through the one operation that can carry identity across
+ * the gap: `rename` the lock aside (atomic), then compare the moved file's
+ * identity against the one stat'ed before the move. The same identity is the
+ * file we judged stale — remove it. A different one means a writer created a
+ * fresh lock in the gap: put it back untouched (hard-linked, so a third party
+ * that grabbed the path in the meantime keeps its own file rather than having
+ * it replaced) and leave that holder alone — it is live, and the caller's next
+ * loop iteration waits for it.
+ *
+ * The identity is the inode AND the nanosecond mtime, never the inode alone:
+ * ext4 (verified on this machine) hands a freed inode straight back to the next
+ * file created in the same directory, so a rival's freshly-created lock can
+ * carry the very inode number the removed stale one had — an inode-only check
+ * then reads "same file", deletes the live lock, and reopens the race. The
+ * mtime separates them because the age is what made the original look stale:
+ * the file we judged dead is at least {@link REGISTRY_LOCK_STEAL_MS} old by the
+ * clock, while anything a rival creates inside the gap is fresh.
+ *
+ * @param lockPath - The publish lock the caller judged stale.
+ */
+function stealStaleLock(lockPath: string): void {
+  let stale: { ino: bigint; mtimeNs: bigint }
+  try {
+    const stat = statSync(lockPath, { bigint: true })
+    stale = { ino: stat.ino, mtimeNs: stat.mtimeNs }
+  } catch (_error) {
+    // Released between the caller's stat and this one — nothing to steal.
+    return
+  }
+  const graveyard = `${lockPath}.stale.${process.pid}`
+  try {
+    renameSync(lockPath, graveyard)
+  } catch (_error) {
+    // Gone already (or unrenamable) — the caller retries the create.
+    return
+  }
+  let moved: { ino: bigint; mtimeNs: bigint } | null
+  try {
+    const stat = statSync(graveyard, { bigint: true })
+    moved = { ino: stat.ino, mtimeNs: stat.mtimeNs }
+  } catch (_error) {
+    moved = null
+  }
+  if (moved !== null && moved.ino === stale.ino && moved.mtimeNs === stale.mtimeNs) {
+    // The file we moved is the stale one: it holds nothing anyone needs.
+    try {
+      rmSync(graveyard, { force: true })
+    } catch (_error) {
+      // Inert litter beside the registry; the lock itself is already released.
+    }
+    return
+  }
+  // We moved a LIVE holder's fresh lock. Put it back without replacing whatever
+  // is at the path now (link fails with EEXIST when someone re-took it), then
+  // drop our extra name — the bytes and the inode are the holder's either way.
+  try {
+    linkSync(graveyard, lockPath)
+  } catch (_error) {
+    // The path is taken again (or the link failed): the holder will re-create
+    // its lock or a rival now owns the path; never overwrite either.
+  }
+  try {
+    rmSync(graveyard, { force: true })
+  } catch (_error) {
+    // Inert litter; see above.
+  }
+}
+
+/**
  * Take {@link registryLockPath} exclusively, waiting out a rival's live publish
  * and stealing a dead one.
  *
  * `wx` (O_CREAT|O_EXCL) is the atomic test-and-set: the loser of a race fails
  * with EEXIST instead of both believing they hold the lock. A held lock is
  * waited out up to {@link REGISTRY_LOCK_WAIT_MS}; one older than
- * {@link REGISTRY_LOCK_STEAL_MS} is a crashed holder's leftover and is removed
- * so it cannot wedge every future mutation behind it.
+ * {@link REGISTRY_LOCK_STEAL_MS} is a crashed holder's leftover and is taken
+ * over through {@link stealStaleLock}, so it cannot wedge every future mutation
+ * behind it — and a rival's own just-created lock is never the file that gets
+ * removed.
+ *
+ * Every path here is bounded: a lock that cannot be INSPECTED at all (a stat
+ * failure that is not the holder's ENOENT release — EACCES, ELOOP, EIO) is
+ * reported rather than retried, because retrying it would never reach the wait
+ * budget below and would spin this process without limit.
  *
  * @throws When the lock stays held past the wait budget — the caller is told
  *   which file to inspect, never left spinning.
@@ -370,12 +462,22 @@ function acquireRegistryPublishLock(): void {
       let heldMs: number
       try {
         heldMs = Date.now() - statSync(lockPath).mtimeMs
-      } catch (_statError) {
-        // The holder released it between our create and this stat — try again.
-        continue
+      } catch (statError) {
+        // ENOENT — the holder released it between our create and this stat, so
+        // retry immediately. Anything else means this path cannot be inspected:
+        // this process cannot tell a dead holder from a live one, and treating
+        // it as "released" retries at full speed forever (the write below keeps
+        // failing EEXIST on a file the stat keeps refusing to describe). Say so.
+        if ((statError as NodeJS.ErrnoException)?.code === 'ENOENT') continue
+        throw new Error(
+          `${lockPath} exists but cannot be inspected (${String(statError)}) — this process ` +
+            'cannot tell whether another mlcl publish is running. Check that file and its ' +
+            'directory, then re-run the command.',
+          { cause: statError },
+        )
       }
       if (heldMs > REGISTRY_LOCK_STEAL_MS) {
-        rmSync(lockPath, { force: true })
+        stealStaleLock(lockPath)
         continue
       }
       if (Date.now() >= deadline) {

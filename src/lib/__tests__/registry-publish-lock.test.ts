@@ -31,18 +31,58 @@ import { join } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-/** What the mocked `writeFileSync` observed about the lock's state. */
+/** What the mocked `writeFileSync`/`rmSync`/`renameSync` observed. */
 const observed = vi.hoisted(() => ({
   /** Whether the publish lock existed when the publish's TEMP file was written. */
   lockExistedAtTempWrite: null as boolean | null,
   /** The registry path under test (set per test; the factory reads it lazily). */
   registryPath: null as string | null,
+  /**
+   * The steal race, armed by the test below: while armed, the NEXT removal of
+   * the publish lock runs against a FRESH lock instead of the stale one the
+   * code stat'ed — a rival that won its own steal in the gap between this
+   * process's staleness stat and its removal.
+   */
+  stealRace: { armed: false, rivalPid: null as number | null },
+  /** Whether a FRESH (rival-owned) lock was present at the removal. */
+  removedFreshLock: false,
+  /**
+   * How many times the NEXT `statSync` of the publish lock throws instead of
+   * describing it. Bounded on purpose: the unbounded version of this state is
+   * the defect the test below pins (a caller that retries an uninspectable lock
+   * spins forever with no clock, so a test that reproduced it faithfully could
+   * never return).
+   */
+  uninspectableLock: { remaining: 0 },
 }))
 
 vi.mock('node:fs', async (importOriginal) => {
   const actual = (await importOriginal()) as Record<string, unknown>
   const realWriteFileSync = actual.writeFileSync as (path: unknown, ...rest: unknown[]) => void
   const realExistsSync = actual.existsSync as (path: unknown) => boolean
+  const realRmSync = actual.rmSync as (path: unknown, ...rest: unknown[]) => void
+  const realRenameSync = actual.renameSync as (from: unknown, to: unknown) => void
+  const realStatSync = actual.statSync as (path: unknown, ...rest: unknown[]) => unknown
+  /**
+   * Reproduce, deterministically, the window the removal must survive: the
+   * caller judged the lock stale from a stat, and by the time it removes that
+   * path a rival has already done the same — removed the stale file and created
+   * its OWN fresh one (a NEW inode, which is what makes the two files
+   * distinguishable) — so the path now holds the rival's lock. Fires once, only
+   * for the publish lock's own path.
+   *
+   * @param path - The path the removal is about to act on.
+   */
+  const simulateRivalInTheGap = (path: unknown): void => {
+    const p = typeof path === 'string' ? path : String(path)
+    const { stealRace, registryPath } = observed
+    if (!stealRace.armed || stealRace.rivalPid === null) return
+    if (registryPath === null || p !== `${registryPath}.publish.lock`) return
+    stealRace.armed = false
+    realRmSync(p, { force: true })
+    realWriteFileSync(p, `${stealRace.rivalPid}\n`)
+    observed.removedFreshLock = true
+  }
   return {
     ...actual,
     writeFileSync(path: unknown, ...rest: unknown[]): void {
@@ -53,6 +93,28 @@ vi.mock('node:fs', async (importOriginal) => {
         observed.lockExistedAtTempWrite = realExistsSync(`${observed.registryPath}.publish.lock`)
       }
       return realWriteFileSync(path, ...rest)
+    },
+    rmSync(path: unknown, ...rest: unknown[]): void {
+      simulateRivalInTheGap(path)
+      return realRmSync(path, ...rest)
+    },
+    renameSync(from: unknown, to: unknown): void {
+      simulateRivalInTheGap(from)
+      return realRenameSync(from, to)
+    },
+    statSync(path: unknown, ...rest: unknown[]): unknown {
+      const p = typeof path === 'string' ? path : String(path)
+      if (
+        observed.uninspectableLock.remaining > 0 &&
+        observed.registryPath !== null &&
+        p === `${observed.registryPath}.publish.lock`
+      ) {
+        observed.uninspectableLock.remaining--
+        const denied = new Error('EACCES: permission denied, stat') as NodeJS.ErrnoException
+        denied.code = 'EACCES'
+        throw denied
+      }
+      return realStatSync(path, ...rest)
     },
   }
 })
@@ -83,6 +145,10 @@ beforeEach(() => {
   lockPath = `${registryPath}.publish.lock`
   observed.registryPath = registryPath
   observed.lockExistedAtTempWrite = null
+  observed.stealRace.armed = false
+  observed.stealRace.rivalPid = null
+  observed.removedFreshLock = false
+  observed.uninspectableLock.remaining = 0
   if (originalWaitEnv === undefined) delete process.env.MLCL_REGISTRY_LOCK_WAIT_MS
   else process.env.MLCL_REGISTRY_LOCK_WAIT_MS = originalWaitEnv
   process.env.MLCL_REGISTRY_PATH = registryPath
@@ -169,5 +235,94 @@ describe('updateRegistryEntry — the publish lock', () => {
     ).toBeUndefined()
     expect(existsSync(lockPath), 'the rival’s lock must not have been removed').toBe(true)
     expect(existsSync(`${registryPath}.${process.pid}.tmp`), 'no temp litter').toBe(false)
+  })
+
+  it('never removes a rival’s fresh lock when both steal the same stale one', () => {
+    // The staleness that licenses a steal is read from a `statSync` some
+    // microseconds BEFORE the removal, and that gap is a race between two
+    // processes that both judged the SAME stale lock dead: the first removes it
+    // and creates its own fresh lock, and the second — its stat already taken
+    // against the old file — then removed the FIRST'S lock. Both then believed
+    // they held the lock, which reopens exactly the check-then-rename window
+    // the lock exists to close (two publishers can pass the stamp check and the
+    // second rename silently drops the first's entry).
+    //
+    // The mock above reproduces that window deterministically: it writes a
+    // fresh, rival-owned lock an instant before the removal touches that path.
+    // The removal must therefore act on the file it JUDGED stale (identity:
+    // the inode), not on whatever is at the path now — the rival's lock must
+    // survive, and this mutation must wait and then fail loudly rather than
+    // publish on top of a live holder.
+    process.env.MLCL_REGISTRY_LOCK_WAIT_MS = '50'
+    const rivalPid = process.pid + 1
+    writeFileSync(lockPath, '999999\n', 'utf-8')
+    const longGone = new Date(Date.now() - 65_000)
+    utimesSync(lockPath, longGone, longGone)
+    observed.stealRace.rivalPid = rivalPid
+    observed.stealRace.armed = true
+
+    let thrown: unknown
+    try {
+      updateRegistryEntry('@molecule/lock-steal-race-probe', probeEntry)
+    } catch (error) {
+      thrown = error
+    }
+
+    expect(observed.removedFreshLock, 'the race simulation must have fired').toBe(true)
+    const message = thrown instanceof Error ? thrown.message : String(thrown)
+    expect(message, 'a live holder must be waited for and reported, not published over').toMatch(
+      /publish\.lock has been held/,
+    )
+    expect(message, 'the failure names the rival whose lock was left in place').toContain(
+      String(rivalPid),
+    )
+    expect(
+      readFileSync(lockPath, 'utf-8').trim(),
+      'the rival’s fresh lock must still be on disk, untouched',
+    ).toBe(String(rivalPid))
+    const parsed = JSON.parse(readFileSync(registryPath, 'utf-8')) as {
+      packages: Record<string, unknown>
+    }
+    expect(
+      parsed.packages['@molecule/lock-steal-race-probe'],
+      'the mutation must not have published over the live holder',
+    ).toBeUndefined()
+    expect(existsSync(`${registryPath}.${process.pid}.tmp`), 'no temp litter').toBe(false)
+  })
+
+  it('reports a lock it cannot inspect instead of retrying it past the wait budget', () => {
+    // The holder-release case is `ENOENT` (retry immediately, correct). Any
+    // OTHER stat failure — EACCES on the directory, ELOOP, EIO — is not the
+    // lock being released: this process cannot tell a dead holder from a live
+    // one, and retrying it can never reach the wait budget below (it checks the
+    // clock only on the path a successful stat leads to), so the mutation spins
+    // without limit instead of reporting the one file the operator has to look
+    // at. The failure is BOUNDED here (three calls) purely because the faithful,
+    // unbounded version never returns — the assertion is on the first
+    // iteration's decision, which is the defect.
+    process.env.MLCL_REGISTRY_LOCK_WAIT_MS = '50'
+    writeFileSync(lockPath, `${process.pid + 1}\n`, 'utf-8')
+    observed.uninspectableLock.remaining = 3
+
+    let thrown: unknown
+    try {
+      updateRegistryEntry('@molecule/lock-uninspectable-probe', probeEntry)
+    } catch (error) {
+      thrown = error
+    }
+
+    const message = thrown instanceof Error ? thrown.message : String(thrown)
+    expect(message, 'an uninspectable lock must be reported, not retried as a release').toMatch(
+      /cannot be inspected/,
+    )
+    expect(message, 'the failure names the file to inspect').toContain(lockPath)
+    expect(existsSync(lockPath), 'the uninspectable lock must not be removed').toBe(true)
+    const parsed = JSON.parse(readFileSync(registryPath, 'utf-8')) as {
+      packages: Record<string, unknown>
+    }
+    expect(
+      parsed.packages['@molecule/lock-uninspectable-probe'],
+      'the mutation must not have published over a lock it could not inspect',
+    ).toBeUndefined()
   })
 })
