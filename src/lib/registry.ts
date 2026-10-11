@@ -346,6 +346,107 @@ function sleepSync(ms: number): void {
 }
 
 /**
+ * The identity of ONE lock file: the inode plus the nanosecond mtime that tell
+ * it apart from a different file created in its place. ext4 hands a freed inode
+ * straight back to the next file created in the same directory, so the inode
+ * alone is not enough — see {@link stealStaleLock}.
+ */
+interface LockIdentity {
+  ino: bigint
+  mtimeNs: bigint
+}
+
+/**
+ * The {@link LockIdentity} of the file at `path`, or null when it cannot be
+ * stat'ed (already gone, or uninspectable).
+ *
+ * @param path - The file to identify.
+ * @returns Its inode and nanosecond mtime, or null.
+ */
+function lockIdentityOf(path: string): LockIdentity | null {
+  try {
+    const stat = statSync(path, { bigint: true })
+    return { ino: stat.ino, mtimeNs: stat.mtimeNs }
+  } catch (_error) {
+    // Missing (already released, or renamed away by a rival) or unstattable —
+    // there is no file here to identify.
+    return null
+  }
+}
+
+/**
+ * Remove the lock at `lockPath` ONLY when the file there is the one `expected`
+ * identifies — never a different file a rival has since put in its place.
+ *
+ * Two callers need exactly this: {@link stealStaleLock}, taking over a
+ * presumed-dead holder's leftover, and {@link releaseRegistryPublishLock},
+ * dropping THIS process's own lock when its mutation finishes. Both stat the
+ * file they mean to remove some microseconds before they remove it, and that
+ * gap is a race: by the time the removal runs, a rival may have removed the
+ * file and created its OWN fresh one — a different inode. A plain `rmSync`
+ * cannot tell the two apart: it deletes whatever is at the path NOW, so it
+ * deletes the rival's lock, and the two processes both believe they hold it.
+ * That reopens the check-then-rename window the lock exists to close (each
+ * publisher's stamp check can pass before the other's rename and after it, and
+ * the second rename silently drops the first writer's entry).
+ *
+ * So the removal goes through the one operation that can carry identity across
+ * the gap: `rename` the lock aside (atomic), then compare the moved file's
+ * identity against `expected`. The same identity is the file we meant to remove
+ * — remove it. Anything else (a live writer's fresh lock, or a moved file that
+ * cannot be stat'ed at all) is put back untouched (hard-linked, so a third
+ * party that grabbed the path in the meantime keeps its own file rather than
+ * having it replaced).
+ *
+ * The identity is the inode AND the nanosecond mtime, never the inode alone: a
+ * freed inode can be handed straight back to the next file created in the same
+ * directory, so a rival's freshly-created lock can carry the very inode number
+ * the removed one had — an inode-only check then reads "same file" and deletes
+ * the live lock. The mtime separates them because whatever a rival creates in
+ * the gap is fresh.
+ *
+ * @param lockPath - The lock path to act on.
+ * @param expected - The identity of the file this caller owns or judged stale.
+ * @returns True when the identified file was removed; false when the path held
+ *   a different file (put back untouched) or nothing.
+ */
+function removeLockIfIdentity(lockPath: string, expected: LockIdentity): boolean {
+  const graveyard = `${lockPath}.graveyard.${process.pid}`
+  try {
+    renameSync(lockPath, graveyard)
+  } catch (_error) {
+    // Gone already (or unrenamable) — nothing to remove.
+    return false
+  }
+  const moved = lockIdentityOf(graveyard)
+  if (moved !== null && moved.ino === expected.ino && moved.mtimeNs === expected.mtimeNs) {
+    // The file we moved is the one we meant to remove: it holds nothing anyone needs.
+    try {
+      rmSync(graveyard, { force: true })
+    } catch (_error) {
+      // Inert litter beside the registry; the lock itself is already released.
+    }
+    return true
+  }
+  // We moved a LIVE holder's fresh lock — or one we could not verify. Put it back
+  // without replacing whatever is at the path now (link fails with EEXIST when
+  // someone re-took it), then drop our extra name — the bytes and the inode are
+  // the holder's either way.
+  try {
+    linkSync(graveyard, lockPath)
+  } catch (_error) {
+    // The path is taken again (or the link failed): the holder will re-create
+    // its lock or a rival now owns the path; never overwrite either.
+  }
+  try {
+    rmSync(graveyard, { force: true })
+  } catch (_error) {
+    // Inert litter; see above.
+  }
+  return false
+}
+
+/**
  * Remove a presumed-dead holder's publish lock — but only the file that was
  * judged stale, never one a live writer created in the meantime.
  *
@@ -388,54 +489,23 @@ function sleepSync(ms: number): void {
  *   false when nothing was taken over and the caller must wait instead.
  */
 function stealStaleLock(lockPath: string): boolean {
-  let stale: { ino: bigint; mtimeNs: bigint }
-  try {
-    const stat = statSync(lockPath, { bigint: true })
-    stale = { ino: stat.ino, mtimeNs: stat.mtimeNs }
-  } catch (_error) {
-    // Released between the caller's stat and this one — nothing to steal.
-    return false
-  }
-  const graveyard = `${lockPath}.stale.${process.pid}`
-  try {
-    renameSync(lockPath, graveyard)
-  } catch (_error) {
-    // Gone already (or unrenamable) — the caller retries the create.
-    return false
-  }
-  let moved: { ino: bigint; mtimeNs: bigint } | null
-  try {
-    const stat = statSync(graveyard, { bigint: true })
-    moved = { ino: stat.ino, mtimeNs: stat.mtimeNs }
-  } catch (_error) {
-    moved = null
-  }
-  if (moved !== null && moved.ino === stale.ino && moved.mtimeNs === stale.mtimeNs) {
-    // The file we moved is the stale one: it holds nothing anyone needs.
-    try {
-      rmSync(graveyard, { force: true })
-    } catch (_error) {
-      // Inert litter beside the registry; the lock itself is already released.
-    }
-    return true
-  }
-  // We moved a LIVE holder's fresh lock — or one we could not verify. Put it back
-  // without replacing whatever
-  // is at the path now (link fails with EEXIST when someone re-took it), then
-  // drop our extra name — the bytes and the inode are the holder's either way.
-  try {
-    linkSync(graveyard, lockPath)
-  } catch (_error) {
-    // The path is taken again (or the link failed): the holder will re-create
-    // its lock or a rival now owns the path; never overwrite either.
-  }
-  try {
-    rmSync(graveyard, { force: true })
-  } catch (_error) {
-    // Inert litter; see above.
-  }
-  return false
+  const stale = lockIdentityOf(lockPath)
+  // Released between the caller's stat and this one — nothing to steal.
+  if (stale === null) return false
+  return removeLockIfIdentity(lockPath, stale)
 }
+
+/**
+ * The identity of the lock file THIS process created and currently holds, or
+ * null when it holds none. Recorded the instant the create succeeds so
+ * {@link releaseRegistryPublishLock} can drop THAT file and nothing else: a
+ * holder stalled past {@link REGISTRY_LOCK_STEAL_MS} (a suspended process, a VM
+ * freeze — not only a crash) has its lock stolen and replaced by a rival's, and
+ * a release that removed whatever is at the path would then delete the rival's
+ * lock while the rival still believes it holds it, letting a third publisher in
+ * — the silent entry drop the lock exists to prevent.
+ */
+let heldLockIdentity: LockIdentity | null = null
 
 /**
  * Take {@link registryLockPath} exclusively, waiting out a rival's live publish
@@ -463,6 +533,8 @@ function acquireRegistryPublishLock(): void {
   for (;;) {
     try {
       writeFileSync(lockPath, `${process.pid}\n`, { flag: 'wx' })
+      // Record which file we just made, so the release drops exactly this one.
+      heldLockIdentity = lockIdentityOf(lockPath)
       return
     } catch (error) {
       if ((error as NodeJS.ErrnoException)?.code !== 'EEXIST') throw error
@@ -506,14 +578,24 @@ function acquireRegistryPublishLock(): void {
   }
 }
 
-/** Release the publish lock. Best-effort: a lock left behind is stolen after {@link REGISTRY_LOCK_STEAL_MS}. */
+/**
+ * Release the publish lock THIS process holds — and only the file it created.
+ *
+ * Best-effort: a lock left behind is stolen after {@link REGISTRY_LOCK_STEAL_MS}.
+ * The removal is identity-scoped ({@link removeLockIfIdentity}) rather than a
+ * plain `rmSync` because a holder stalled past the steal age has its lock taken
+ * over and replaced by a rival's: removing whatever is at the path would delete
+ * the RIVAL's lock, and the path would then look free to a third publisher while
+ * the rival still believed it held it — reopening the check-then-rename window
+ * this lock closes.
+ */
 function releaseRegistryPublishLock(): void {
-  try {
-    rmSync(registryLockPath(), { force: true })
-  } catch (_error) {
-    // The mutation itself has already completed (or failed) by here; a lock
-    // this call cannot remove is inert until the steal window opens.
-  }
+  const identity = heldLockIdentity
+  heldLockIdentity = null
+  // No recorded identity means this process created no lock it can prove it
+  // owns — remove nothing rather than a file that may belong to a rival.
+  if (identity === null) return
+  removeLockIfIdentity(registryLockPath(), identity)
 }
 
 /**

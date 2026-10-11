@@ -290,6 +290,43 @@ describe('updateRegistryEntry — the publish lock', () => {
     expect(existsSync(`${registryPath}.${process.pid}.tmp`), 'no temp litter').toBe(false)
   })
 
+  it('never removes a rival’s lock that replaced ours while we held it', () => {
+    // The mirror image of the steal race above, on the RELEASE side. A holder
+    // that stalls past the 60 s steal age (a suspended process, a VM freeze —
+    // not only a crash) has its lock stolen and replaced by a rival's fresh
+    // one; the stalled holder then finishes its mutation and releases. A release
+    // that removes whatever is at the path NOW deletes the rival's lock, and the
+    // path looks free to a third publisher while the rival still believes it
+    // holds it — reopening the check-then-rename window this lock closes.
+    //
+    // The same mock reproduces the window deterministically: while armed, the
+    // NEXT removal of the publish lock runs against a fresh, rival-owned lock
+    // written an instant before. That removal is now the release's — the mutation
+    // takes the lock normally (no steal) and the release is the first code to
+    // touch the lock path after the create. The release must drop the file THIS
+    // process created (identity: inode + nanosecond mtime), leaving the rival's
+    // lock untouched.
+    const rivalPid = process.pid + 1
+    observed.stealRace.rivalPid = rivalPid
+    observed.stealRace.armed = true
+
+    updateRegistryEntry('@molecule/lock-release-race-probe', probeEntry)
+
+    expect(observed.removedFreshLock, 'the race simulation must have fired').toBe(true)
+    expect(
+      readFileSync(lockPath, 'utf-8').trim(),
+      'a rival’s lock that replaced ours must survive OUR release',
+    ).toBe(String(rivalPid))
+    const parsed = JSON.parse(readFileSync(registryPath, 'utf-8')) as {
+      packages: Record<string, unknown>
+    }
+    expect(
+      parsed.packages['@molecule/lock-release-race-probe'],
+      'our own publish still landed',
+    ).toBeDefined()
+    expect(existsSync(`${registryPath}.${process.pid}.tmp`), 'no temp litter').toBe(false)
+  })
+
   it('reports a lock it cannot inspect instead of retrying it past the wait budget', () => {
     // The holder-release case is `ENOENT` (retry immediately, correct). Any
     // OTHER stat failure — EACCES on the directory, ELOOP, EIO — is not the
