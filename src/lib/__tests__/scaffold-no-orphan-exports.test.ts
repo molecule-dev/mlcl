@@ -28,11 +28,25 @@
 
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 import { describe, expect, it } from 'vitest'
 
 const PACKAGE_ROOT = join(import.meta.dirname, '..', '..', '..')
 const SCAFFOLD_PATH = join(PACKAGE_ROOT, 'src', 'lib', 'scaffold.ts')
+
+/**
+ * This gate's own file — excluded from the haystack.
+ *
+ * The JSDoc above NAMES the two orphans it documents (`generateFontLinks`,
+ * `resolveLocalPackagePaths`), and those names live inside `src/`, which the
+ * scan walks. Counting that prose as a reference made the gate PASS for exactly
+ * the exports it exists to catch: re-adding either `export function` would have
+ * put the declaration (1) plus this doc comment (1) over the `>= 2` bar, so the
+ * orphan the gate was written for stayed green. The gate is a READER of the
+ * tree, never a consumer of the exports.
+ */
+const GATE_PATH = fileURLToPath(import.meta.url)
 
 /**
  * Every directory that can hold a caller of — or a documented mention of — a
@@ -52,10 +66,35 @@ function collectFiles(dir: string, acc: string[] = []): string[] {
       if (SKIP_DIRS.has(entry.name)) continue
       collectFiles(join(dir, entry.name), acc)
     } else if (/\.(ts|tsx|mjs|js|md|json)$/.test(entry.name)) {
-      acc.push(join(dir, entry.name))
+      const file = join(dir, entry.name)
+      // The gate's own prose is not a consumer — see GATE_PATH.
+      if (file !== GATE_PATH) acc.push(file)
     }
   }
   return acc
+}
+
+/**
+ * Every scannable file under {@link SCAN_DIRS}, concatenated — the tree a
+ * scaffold export would be referenced from.
+ *
+ * @returns The scan haystack, this gate's own file excluded.
+ */
+function referenceHaystack(): string {
+  return SCAN_DIRS.flatMap((dir) => collectFiles(join(PACKAGE_ROOT, dir)))
+    .map((file) => readFileSync(file, 'utf-8'))
+    .join('\n')
+}
+
+/**
+ * How many times `name` appears as a whole word in `haystack`.
+ *
+ * @param name - The identifier to count.
+ * @param haystack - The tree to search.
+ * @returns The whole-word match count.
+ */
+function mentionsOf(name: string, haystack: string): number {
+  return haystack.match(new RegExp(`\\b${name}\\b`, 'g'))?.length ?? 0
 }
 
 describe('scaffold.ts exports no function nothing calls', () => {
@@ -66,21 +105,37 @@ describe('scaffold.ts exports no function nothing calls', () => {
     // none would be reading the wrong file (a rename, a moved module).
     expect(names.length).toBeGreaterThan(20)
 
-    const haystack = SCAN_DIRS.flatMap((dir) => collectFiles(join(PACKAGE_ROOT, dir)))
-      .map((file) => readFileSync(file, 'utf-8'))
-      .join('\n')
+    const haystack = referenceHaystack()
 
     // `>= 2` occurrences: the declaration line itself, plus at least one use,
     // test or documented mention.
-    const orphans = names.filter((name) => {
-      const matches = haystack.match(new RegExp(`\\b${name}\\b`, 'g'))
-      return (matches?.length ?? 0) < 2
-    })
+    const orphans = names.filter((name) => mentionsOf(name, haystack) < 2)
 
     expect(
       orphans,
       `scaffold.ts exports ${orphans.join(', ')} with no caller anywhere in mlcl ` +
         '(src, scripts, mcp, bin, .agents, docs) — delete it, or wire the caller its doc promises',
     ).toEqual([])
+  })
+
+  it('cannot be satisfied by this gate’s own prose — the names it documents do not count as callers', () => {
+    // The regression this gate was written for, and the one way it could not
+    // fire: re-adding `export function generateFontLinks()` (or
+    // `resolveLocalPackagePaths()`) to scaffold.ts. The JSDoc above NAMES both,
+    // so with this file in the haystack each name matched twice — the
+    // declaration plus this comment — and the orphan check that exists for them
+    // stayed green. The names must have ZERO references in the scanned tree, so
+    // re-declaring either one is reported as the orphan it is.
+    const haystack = referenceHaystack()
+    for (const documented of ['generateFontLinks', 'resolveLocalPackagePaths']) {
+      expect(
+        mentionsOf(documented, haystack),
+        `"${documented}" appears in the scanned tree outside scaffold.ts — the gate can no ` +
+          'longer fail for the orphan it documents; keep this gate’s own file out of the haystack',
+      ).toBe(0)
+    }
+    // …and the exclusion must not have grown into "nothing is ever counted": a
+    // function with real callers still shows its references.
+    expect(mentionsOf('copyFontFiles', haystack)).toBeGreaterThanOrEqual(1)
   })
 })
