@@ -152,7 +152,7 @@ describe('mcp remote outbound fetch timeout', () => {
     expect(hits).toBe(1)
   })
 
-  it('ships a default bound in the same class as telemetry’s 5 s', (ctx) => {
+  it('ships a default bound in the same class as telemetry’s 5 s', async (ctx) => {
     if (skipped(ctx)) return
     const { FETCH_TIMEOUT_MS } = await import('../../../mcp/src/remote.js')
     // Guards the export the two wiring sites name: a bound removed or raised
