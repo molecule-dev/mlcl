@@ -338,7 +338,12 @@ export function buildRemoteServer(): McpServer {
       description:
         "Fetch a @molecule/* package's generated usage reference (API, examples, wiring) — the authoritative published doc.",
       inputSchema: {
-        name: z.string().describe('Package name, with or without the @molecule/ scope'),
+        // Bounded, like the sibling `search_packages` query: this is a public,
+        // unauthenticated server, and the name is interpolated into the outbound
+        // npm registry URL verbatim — an unbounded name is an outbound request
+        // sized by the caller, up to the HTTP body cap, at the per-address
+        // budget's full rate. A package short name is under 100 characters.
+        name: z.string().max(200).describe('Package name, with or without the @molecule/ scope'),
       },
     },
     tracked('read_package_doc', async ({ name }) => {

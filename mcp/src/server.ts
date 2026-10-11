@@ -381,7 +381,13 @@ server.registerTool(
     description:
       'Read the generated usage reference for an installed @molecule/* package (API, examples, wiring) from node_modules — the authoritative doc for using it correctly.',
     inputSchema: {
-      name: z.string().describe('Package name without the @molecule/ scope or with it'),
+      // Bounded, like the sibling `search_packages` query: the name is joined
+      // into node_modules paths AND echoed verbatim into this tool's result
+      // (`Invalid package name "…"` / `No local README found for @molecule/…`),
+      // so an unbounded name is a node_modules walk over paths sized by the
+      // caller and up to a megabyte of it copied back into the transcript per
+      // call. A package short name is under 100 characters.
+      name: z.string().max(200).describe('Package name without the @molecule/ scope or with it'),
       directory: z
         .string()
         .optional()
@@ -679,7 +685,8 @@ server.registerTool(
         ),
       name: z.string().optional().describe('Label for the key (default mcp)'),
       scopes: z
-        .array(z.string())
+        .array(z.string().max(200))
+        .max(50)
         .optional()
         .describe('Limit the key, e.g. [broker:embeddings]. Default: every hosted service.'),
     },
@@ -943,7 +950,7 @@ server.registerTool(
   {
     title: 'Translate text with molecule.dev',
     description:
-      'Translate UI strings or other text into another language on molecule.dev (no translation-vendor account needed; metered per character to the project whose MOLECULE_API_KEY is used). Pass placeholders such as {{count}} in "protect" so they come back unchanged — then still check each result contains them. Up to 200 texts / 50,000 characters per call. The same service backs @molecule/api-ai-translation-molecule in app code.',
+      'Translate UI strings or other text into another language on molecule.dev (no translation-vendor account needed; metered per character to the project whose MOLECULE_API_KEY is used). Pass placeholders such as {{count}} in "protect" so they come back unchanged — then still check each result contains them. Up to 200 texts / 50,000 characters per call, and up to 50 protect entries of 200 characters each. The same service backs @molecule/api-ai-translation-molecule in app code.',
     inputSchema: {
       // Both halves of the advertised budget are enforced, because the input IS
       // the metered work (per character) and the body of the outbound request:
@@ -957,8 +964,14 @@ server.registerTool(
         .describe('Text or list of texts'),
       target_lang: z.string().describe('Target language code, e.g. "de", "pt-BR", "zh-TW"'),
       source_lang: z.string().optional().describe('Source language code; omit to auto-detect'),
+      // Bounded, like the text budget below: `protect` rides the SAME metered
+      // outbound body, and the budget the tool advertises said nothing while the
+      // array stayed unbounded — one call could carry a protect list sized by
+      // the caller, buffered here and shipped to the service, with `text`
+      // comfortably inside its own cap.
       protect: z
-        .array(z.string())
+        .array(z.string().max(200))
+        .max(50)
         .optional()
         .describe('Exact substrings to keep unchanged, e.g. ["{{count}}", "Acme"]'),
       context: z
@@ -1143,7 +1156,14 @@ server.registerTool(
         .describe(
           'Flag a category when its score is at least this (default: the provider decides)',
         ),
-      categories: z.array(z.string()).optional().describe('Only decide on these categories'),
+      // Bounded: the list rides the metered outbound body verbatim, and the
+      // moderation vendor's category set is fixed — a list past a few dozen
+      // names is a caller-sized body, not a filter.
+      categories: z
+        .array(z.string().max(100))
+        .max(50)
+        .optional()
+        .describe('Only decide on these categories'),
       directory: z
         .string()
         .optional()
@@ -1595,12 +1615,23 @@ server.registerTool(
   ),
 )
 
+/**
+ * How many questions one `ai_decision` call may carry.
+ *
+ * Every entry is one METERED AI decision, and the record was the one input of
+ * this tool with no bound on it: `state` is capped, each entry's instructions
+ * are capped, but the NUMBER of entries came straight off the wire — so the
+ * billed work per call was chosen by the caller, not by this tool. 50 is far
+ * past any real batch (a form's worth of typed questions about one state).
+ */
+const AI_DECISION_MAX_QUESTIONS = 50
+
 server.registerTool(
   'ai_decision',
   {
     title: 'Answer typed questions with molecule.dev',
     description:
-      'AI decisions on molecule.dev (no AI-vendor account; metered per request to the project whose MOLECULE_API_KEY is used). Ask typed questions about a piece of text or JSON — pick one option (choice), rate on an ordered scale (score), or test a statement (yesNo) — and get probability distributions back, not just a label. Returns one typed answer per question id with confidences. The same service backs @molecule/api-ai-decisions-molecule in app code.',
+      'AI decisions on molecule.dev (no AI-vendor account; metered per request to the project whose MOLECULE_API_KEY is used). Ask typed questions about a piece of text or JSON — pick one option (choice), rate on an ordered scale (score), or test a statement (yesNo) — and get probability distributions back, not just a label. Returns one typed answer per question id with confidences. Up to 50 questions per call. The same service backs @molecule/api-ai-decisions-molecule in app code.',
     inputSchema: {
       state: z.string().min(1).max(100000).describe('The text the questions are about'),
       questions: z
@@ -1613,7 +1644,7 @@ server.registerTool(
           }),
         )
         .describe(
-          'Questions keyed by an id you choose; answers come back under the same ids. choice: criteria = {optionLabel: whenItApplies}; score: criteria = [levels, lowest first]; yesNo: criteria = {yes?, no?} optional',
+          'Questions keyed by an id you choose (up to 50 per call); answers come back under the same ids. choice: criteria = {optionLabel: whenItApplies}; score: criteria = [levels, lowest first]; yesNo: criteria = {yes?, no?} optional',
         ),
       min_confidence: z
         .number()
@@ -1629,6 +1660,16 @@ server.registerTool(
   },
   tracked('ai_decision', async ({ state, questions, min_confidence, directory }) =>
     serviceResult(async () => {
+      // The advertised question cap, refused BEFORE the metered call — the same
+      // rule every other capped tool here follows (see `translate`'s character
+      // budget): the number of questions IS the number of billed decisions.
+      const questionCount = Object.keys(questions).length
+      if (questionCount > AI_DECISION_MAX_QUESTIONS) {
+        throw new ServiceCallError(
+          `${questionCount} questions; ai_decision accepts up to ` +
+            `${AI_DECISION_MAX_QUESTIONS} per call.`,
+        )
+      }
       const result = await callHostedService(
         'ai-decisions',
         'decide',
