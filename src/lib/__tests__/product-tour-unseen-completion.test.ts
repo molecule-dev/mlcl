@@ -175,6 +175,38 @@ describe('product tour — a tour nobody saw is not marked completed', () => {
     expect(patchCount()).toBe(0)
   })
 
+  it('persists completion ONCE however many mutations find the last target missing', async () => {
+    // The reader walks to the last step normally (every anchor is on the page),
+    // then that step's target unmounts. The walk runs on EVERY DOM mutation —
+    // that is what makes the tour follow a route change — and React commits the
+    // completion it schedules in a LATER task, so every mutation batch that
+    // arrives before that commit still finds the tour active and the target
+    // gone. Each one used to issue its own `PATCH /api/me`.
+    cleanups.push(anchor('nav-search', true))
+    cleanups.push(anchor('primary-cta', true))
+    const settings = anchor('settings', true)
+    cleanups.push(settings)
+    await mount(createElement(ProductTour, {}))
+    await respond('/api/me', 200, { id: 'u1', tour_completed_at: null })
+    await clickButtonWithText('Next')
+    await clickButtonWithText('Next')
+    expect(dialog(), 'on the last step with its target present').not.toBeNull()
+    expect(patchCount()).toBe(0)
+
+    // Drop the target, then keep mutating the page in the same task — two
+    // separate MutationObserver callbacks, neither preceded by React's commit.
+    settings()
+    await Promise.resolve()
+    document.body.appendChild(document.createElement('div'))
+    await Promise.resolve()
+
+    expect(patchCount(), 'the completion is written once').toBe(1)
+
+    // …and the dismissal still lands once React commits the update.
+    await flush()
+    expect(dialog()).toBeNull()
+  })
+
   it('still finishes a tour the reader SAW when the remaining targets are absent', async () => {
     // Steps 0 and 1 exist; the third's anchor does not (a short page). The
     // reader advances through the steps they can see, and reaching the end is

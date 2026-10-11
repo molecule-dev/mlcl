@@ -59,8 +59,24 @@ export function ProductTour() {
       })
   }, [])
 
+  /**
+   * Whether this mount already started the completion write.
+   *
+   * `finish` has two callers — the Skip/Done buttons and the walk effect below —
+   * and the walk runs on EVERY DOM mutation (that is what makes the tour follow
+   * a route change). React commits the `setActive(false)` this schedules in a
+   * LATER task, so every mutation batch that arrives before that commit still
+   * finds the tour active with the last step's target missing and calls `finish`
+   * again: a page that keeps mutating (a spinner, a poll, a toast) issued one
+   * `PATCH /api/me` per batch. The completion write is not per-trigger, it is
+   * per-mount.
+   */
+  const finishing = useRef(false)
+
   // Hooks first — no early return may sit above them.
   const finish = useCallback(async (): Promise<void> => {
+    if (finishing.current) return
+    finishing.current = true
     setActive(false)
     try {
       await fetch('/api/me', {
