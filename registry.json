@@ -59086,7 +59086,7 @@
       "@molecule/api-resource-task": "1.0.2",
       "@molecule/api-resource-template": "1.0.3",
       "@molecule/api-resource-thread": "1.0.3",
-      "@molecule/api-resource-user": "1.4.9",
+      "@molecule/api-resource-user": "1.4.10",
       "@molecule/api-resource-version-history": "1.0.3",
       "@molecule/api-resource-wiki-page": "1.0.2",
       "@molecule/api-resource-workspace": "1.0.3",
@@ -59341,7 +59341,7 @@
       "@molecule/app-icons-molecule": "1.0.2",
       "@molecule/app-ide": "1.0.2",
       "@molecule/app-ide-default": "1.0.2",
-      "@molecule/app-ide-react": "1.19.13",
+      "@molecule/app-ide-react": "1.20.0",
       "@molecule/app-image-crop": "1.0.2",
       "@molecule/app-image-crop-cropperjs": "1.0.2",
       "@molecule/app-image-gallery-editor-react": "1.0.3",
@@ -59448,7 +59448,7 @@
       "@molecule/app-locales-i18n": "1.0.2",
       "@molecule/app-locales-iap": "1.0.2",
       "@molecule/app-locales-icons": "1.0.2",
-      "@molecule/app-locales-ide": "1.10.5",
+      "@molecule/app-locales-ide": "1.10.6",
       "@molecule/app-locales-inline-edit": "1.0.2",
       "@molecule/app-locales-join-code": "1.0.2",
       "@molecule/app-locales-keyboard": "1.0.2",
@@ -59726,7 +59726,8 @@
       "@molecule/api-ai-video-generation": "1.2.0",
       "@molecule/api-analytics-http": "1.0.3",
       "@molecule/api-ai-speech-whistle": "1.1.2",
-      "@molecule/app-ai-voice-whistle": "1.1.2"
+      "@molecule/app-ai-voice-whistle": "1.1.2",
+      "@molecule/api-pdf-molecule": "1.1.0"
     }
   }
 }
