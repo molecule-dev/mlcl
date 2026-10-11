@@ -666,7 +666,14 @@ async function planMiddlewareInjection(
   pkg: InferredPackage,
   projectPath: string,
 ): Promise<void> {
-  const middlewareName = pkg.molecule?.shortName ?? extractShortName(pkg.name)
+  // `shortName` is package METADATA and becomes both a path segment and a
+  // generated identifier below, so it is only used when it is a safe single
+  // segment (see {@link isSafeShortName}); a declared value that is not names
+  // no file, and the (validated) package name derives the fallback instead.
+  const declaredShortName = pkg.molecule?.shortName
+  const middlewareName = isSafeShortName(declaredShortName)
+    ? declaredShortName
+    : extractShortName(pkg.name)
 
   // Create middleware setup file
   const setupPath = join(projectPath, 'src', 'middleware', `${middlewareName}.ts`)
@@ -1144,6 +1151,31 @@ export function isPackageNameShaped(name: unknown): boolean {
     const body = index === 0 ? segment.replace(/^@/, '') : segment
     return /^[A-Za-z0-9-._]+$/.test(body) && /[A-Za-z0-9]/.test(body)
   })
+}
+
+/**
+ * Whether `name` is safe to use as ONE path segment AND as a JavaScript
+ * identifier fragment: a single run of `[A-Za-z0-9_-]` carrying at least one
+ * alphanumeric character.
+ *
+ * `molecule.shortName` is metadata (same trust story as {@link isPackageNameShaped}):
+ * {@link scanPackage} reads it from the INSTALLED package's own `package.json`
+ * for every package the registry does not list, so a third-party package
+ * declares it. The middleware plan uses it VERBATIM as a path segment —
+ * `join(projectPath, 'src', 'middleware', \`${name}.ts\`)` — and its camelCase
+ * form as an identifier inside the generated file, so an unvalidated
+ * `"shortName": "../../../../x"` turned `mlcl inject` into an arbitrary write
+ * outside the project (the same escape {@link isPackageNameShaped} closes for
+ * the package name, {@link containedProjectPath} for `configFile`, and
+ * {@link isInside} for a table's `sqlFile`). Excluding `.` also keeps the
+ * derived identifier a valid `const`/export name. A real short name
+ * (`body-parser`, `cors`, `validation`) always passes; a path never can.
+ *
+ * @param name - The candidate short name (package metadata; any value in).
+ * @returns True when the name is a safe single-segment name.
+ */
+export function isSafeShortName(name: unknown): name is string {
+  return typeof name === 'string' && /^[A-Za-z0-9_-]+$/.test(name) && /[A-Za-z0-9]/.test(name)
 }
 
 /**
@@ -3176,7 +3208,8 @@ function generateServerContentHeuristic(
       allMolecules.includes(p.name),
   )
   const middlewareNames = installedMiddleware.map((p) => {
-    const shortName = p.molecule?.shortName ?? extractShortName(p.name)
+    const declared = p.molecule?.shortName
+    const shortName = isSafeShortName(declared) ? declared : extractShortName(p.name)
     const camelName = shortName.replace(/-(\w)/g, (_: string, c: string) => c.toUpperCase())
     // Packages whose "middleware" is really a route set (e.g. billing-routes →
     // /api/billing/*) declare their mount path in the registry. They mount
@@ -3742,7 +3775,8 @@ function generateServerSmokeTest(
   )
   const noopMiddleware = `(_req: unknown, _res: unknown, next: () => void) => next()`
   const middlewareMocks = installedMiddleware.map((p) => {
-    const shortName = p.molecule?.shortName ?? extractShortName(p.name)
+    const declared = p.molecule?.shortName
+    const shortName = isSafeShortName(declared) ? declared : extractShortName(p.name)
     const camelName = shortName.replace(/-(\w)/g, (_: string, c: string) => c.toUpperCase())
     return `vi.mock('../middleware/${shortName}.js', () => ({ ${camelName}Middleware: ${noopMiddleware} }))`
   })
