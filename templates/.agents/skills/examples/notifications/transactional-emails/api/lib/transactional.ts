@@ -71,7 +71,12 @@ export async function sendPasswordReset({
     'emails.reset.body',
     { link },
     {
-      defaultValue: 'Click here to reset your password (expires in 15 minutes):\n\n{{link}}',
+      // "(expires in 60 minutes)" is the reset token's real validity — the user
+      // resource enforces `RESET_TOKEN_TTL_MS` = one hour (molecule's
+      // `api-resource-user` handlers/resetPassword.ts). Copy that names a
+      // shorter window than the gate enforces makes readers give up on a link
+      // that still works.
+      defaultValue: 'Click here to reset your password (expires in 60 minutes):\n\n{{link}}',
     },
   )
   // This one we DO await — caller wants to know whether the email left.
