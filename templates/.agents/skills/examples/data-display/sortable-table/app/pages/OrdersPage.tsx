@@ -99,8 +99,19 @@ export function OrdersPage() {
       .then((data: unknown) => {
         if (cancelled) return
         const body = (data ?? {}) as Partial<Page>
+        // A 2xx proves the route ANSWERED, not that the body is a page: the mock
+        // server answers 200 `{}` for an endpoint with no fixture, and a proxy
+        // can rewrite a failure into a 200. Coerced silently that body cleared
+        // the spinner and rendered the EMPTY state — "No orders found." for a
+        // list nobody actually read — so it is reported as the failed load it is
+        // (the rule the sibling list slices apply).
+        if (!Array.isArray(body.rows)) {
+          setLoadFailed(true)
+          setLoading(false)
+          return
+        }
         setPage({
-          rows: Array.isArray(body.rows) ? body.rows : [],
+          rows: body.rows,
           total: typeof body.total === 'number' ? body.total : 0,
         })
         setLoading(false)

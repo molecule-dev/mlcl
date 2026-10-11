@@ -34,7 +34,15 @@ export function PostPage({ slug }: { slug: string }) {
     setNotFound(false)
     setLoadFailed(false)
     fetch(`/api/posts/${slug}`)
-      .then((r) => (r.ok ? r.json() : Promise.reject(r)))
+      .then((r) => {
+        // A 404 is the only answer that means "this post does not exist".
+        // EVERY other non-2xx (a 500, a 401, an offline network) is a FAILED
+        // load: it used to land in the same catch as the 404 and render "Post
+        // not found" for a post that exists — the opposite of what the outcome
+        // branch below documents.
+        if (!r.ok) throw r
+        return r.json() as Promise<unknown>
+      })
       .then((body: unknown) => {
         // A 2xx proves the route ANSWERED, not that the body is a post — the
         // same rule the sibling pages apply (BlogIndexPage checks the array,
@@ -56,8 +64,13 @@ export function PostPage({ slug }: { slug: string }) {
         }
         if (!cancelled) setPost(loaded as Post)
       })
-      .catch(() => {
-        if (!cancelled) setNotFound(true)
+      .catch((error: unknown) => {
+        if (cancelled) return
+        // The rejection carries the Response for a non-2xx answer (see above),
+        // a SyntaxError for a 2xx body that is not JSON, and a TypeError for a
+        // network failure. Only the 404 is "not found".
+        if ((error as { status?: number } | null)?.status === 404) setNotFound(true)
+        else setLoadFailed(true)
       })
     return () => {
       cancelled = true

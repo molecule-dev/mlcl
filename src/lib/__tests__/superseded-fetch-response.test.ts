@@ -324,6 +324,24 @@ describe('a superseded fetch response must not win', () => {
     expect(text()).not.toContain('Post not found')
   })
 
+  it('reports a 500 as a failed load, and only a 404 as "Post not found"', async () => {
+    // Every non-2xx rejects, and the rejection used to land in one catch that
+    // set `notFound` — so a 500, a 401 or an offline fetch told the reader "Post
+    // not found" about a post that exists. The page's own comment promises the
+    // two outcomes stay distinct.
+    await mount(createElement(PostPage, { slug: 'boom' }))
+    await respond('/api/posts/boom', 500, { error: 'boom' })
+    expect(text()).toContain('Could not load this post')
+    expect(text()).not.toContain('Post not found')
+
+    // The 404 keeps its own message — the distinction is not a blanket
+    // "everything is a failed load".
+    await rerender(createElement(PostPage, { slug: 'gone' }))
+    await respond('/api/posts/gone', 404, { error: 'not found' })
+    expect(text()).toContain('Post not found')
+    expect(text()).not.toContain('Could not load this post')
+  })
+
   it('drops an older slug response that lands after the newer slug', async () => {
     await mount(createElement(PostPage, { slug: 'first' }))
     await rerender(createElement(PostPage, { slug: 'second' }))
@@ -387,6 +405,35 @@ describe('a superseded fetch response must not win', () => {
     expect(text()).not.toContain('1.2')
   })
 
+  it('reports a 2xx body that is not a page instead of an authoritative empty table', async () => {
+    // `{}` is the mock server's answer for an endpoint with no fixture (200,
+    // not an error). Coerced silently it cleared the spinner and rendered the
+    // EMPTY state — "No orders found." — which reads as "you have no orders"
+    // rather than "the list was not read".
+    await mount(createElement(OrdersPage, {}))
+    await respond('offset=0', 200, {})
+
+    expect(
+      container.querySelector('[data-mol-id="orders-load-failed"]'),
+      'a 2xx body with no rows is a failed load, not an empty orders list',
+    ).not.toBeNull()
+    expect(container.querySelectorAll('li')).toHaveLength(0)
+
+    // The positive twin: a real page renders, still with no failure banner.
+    await act(async () => {
+      container
+        .querySelector('button[aria-label="Next page"]')
+        ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+    await respond('offset=25', 200, {
+      rows: [{ id: 'b', total: 100, status: 'page-2' }],
+      total: 60,
+    })
+    expect(container.querySelector('[data-mol-id="orders-load-failed"]')).toBeNull()
+    expect(text()).toContain('page-2')
+  })
+
   it('never lets an error body stand in for the orders page', async () => {
     await mount(createElement(OrdersPage, {}))
 
@@ -425,6 +472,32 @@ describe('a superseded fetch response must not win', () => {
     await respond('/api/ratings/avg/second', 200, { average: 3.0, count: 5 })
     expect(ratingValue()).toBe('3')
     expect(text()).toContain('3.0 (5 reviews)')
+  })
+
+  it('reports a failed summary load instead of "No ratings yet"', async () => {
+    // The widget had no failed state: a 500 on the FIRST load left the summary
+    // null, which renders the empty state — "No ratings yet — be the first" over
+    // a subject that has ratings — while the loader's own comment promises a
+    // non-2xx is "a FAILED load, not an empty subject".
+    await mount(createElement(RatingWidget, { subjectId: 's', canRate: true }))
+    await respond('/api/ratings/avg/s', 500, { error: 'boom' })
+
+    expect(text()).toContain('Could not load the ratings')
+    expect(text()).not.toContain('No ratings yet')
+
+    // A 2xx that is not a summary (the mock server's `{}`) is the same wrong
+    // answer and is reported the same way.
+    await rerender(createElement(RatingWidget, { subjectId: 's2', canRate: true }))
+    await respond('/api/ratings/avg/s2', 200, {})
+    expect(text()).toContain('Could not load the ratings')
+    expect(text()).not.toContain('No ratings yet')
+
+    // The positive twin: a real summary renders, and the failure message is gone.
+    await rerender(createElement(RatingWidget, { subjectId: 's3', canRate: true }))
+    await respond('/api/ratings/avg/s3', 200, { average: 4.0, count: 2 })
+    expect(text()).toContain('4.0 (2 reviews)')
+    expect(text()).not.toContain('Could not load the ratings')
+    expect(text()).not.toContain('No ratings yet')
   })
 
   it('keeps the last synced summary when the summary endpoint fails', async () => {

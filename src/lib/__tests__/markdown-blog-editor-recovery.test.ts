@@ -200,6 +200,26 @@ describe('post editor — an edit that could not load is not an edit that create
     expect(container.querySelector('[data-mol-id="post-title"]')).toBeNull()
   })
 
+  it('treats a post body with no title as the failed load it is', async () => {
+    // The shape gate checked id/slug/body_markdown but not `title`, so a body
+    // omitting it installed `undefined` into the form's `title` state: the
+    // controlled input silently became uncontrolled, and Save serialised
+    // `{"title": undefined}` — JSON.stringify DROPS the key, so the PUT cleared
+    // the existing title. `title` is a required part of the post the API
+    // returns (PostPage's gate requires it too).
+    await mount(createElement(PostEditorPage, { slug: 'my-article' }))
+
+    await respond('/api/posts/my-article', 200, {
+      id: 'p1',
+      slug: 'my-article',
+      body_markdown: 'Body',
+    })
+
+    expect(text()).toContain('Could not load this post')
+    expect(container.querySelector('form')).toBeNull()
+    expect(container.querySelector('[data-mol-id="post-title"]')).toBeNull()
+  })
+
   it('still saves a NEW post from the form (no edit-mode load to fail)', async () => {
     await mount(createElement(PostEditorPage, {}))
     await submitForm()

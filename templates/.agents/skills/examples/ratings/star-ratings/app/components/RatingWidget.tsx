@@ -12,6 +12,12 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
   const [count, setCount] = useState(0)
   const [myStars, setMyStars] = useState<number | null>(null)
   const [rateFailed, setRateFailed] = useState(false)
+  // Whether the last summary load FAILED. Without it a failed load was
+  // indistinguishable from an empty subject: the catch kept "the empty state",
+  // so a 500 (or an offline fetch) on the first load rendered "No ratings yet —
+  // be the first" over a subject that has ratings. The flag is only shown when
+  // there is no synced summary to keep (a failed REFRESH must not replace one).
+  const [summaryFailed, setSummaryFailed] = useState(false)
 
   // Every in-flight summary request takes a ticket; only the newest ticket may
   // write state. Two of these can overlap (a subject change, or the refresh a
@@ -42,19 +48,31 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
       // ratings (and that the reader may have just voted on). Same rule the
       // sibling slices apply to their own loads, and the one the catch below
       // documents.
-      if (!res.ok) return
+      if (!res.ok) {
+        if (ticket === summarySeq.current) setSummaryFailed(true)
+        return
+      }
       const r = (await res.json()) as {
         average?: number
         count?: number
       }
       if (ticket !== summarySeq.current) return // superseded by a newer request
-      // Coerce the body to the state's shape: a 2xx that is not the summary
-      // (a proxy's rewrite) must not crash the summary's toFixed on the next
-      // render.
-      setAverage(typeof r.average === 'number' ? r.average : null)
-      setCount(typeof r.count === 'number' ? r.count : 0)
+      // A 2xx proves the route ANSWERED, not that the body is the summary: `{}`
+      // (the mock server's unmatched-fixture answer) and a proxy's rewrite both
+      // parse. Installed as state they read as "no ratings" — the same wrong
+      // answer as the failed load above.
+      if (typeof r.average !== 'number' || typeof r.count !== 'number') {
+        setSummaryFailed(true)
+        return
+      }
+      setSummaryFailed(false)
+      setAverage(r.average)
+      setCount(r.count)
     } catch (_error) {
-      // A failed load keeps the last synced summary (or the empty state).
+      // A failed load keeps the last synced summary — and, when there is none to
+      // keep, says the load failed instead of "No ratings yet" (see
+      // summaryFailed).
+      if (ticket === summarySeq.current) setSummaryFailed(true)
     }
   }, [subjectId])
 
@@ -67,6 +85,7 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
     setCount(0)
     setMyStars(null)
     setRateFailed(false)
+    setSummaryFailed(false)
     void loadSummary()
     return () => {
       // Invalidate whatever this subject still has in flight — including a
@@ -127,7 +146,16 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
           {t('rating.rateFailed', undefined, { defaultValue: 'Not saved — try again' })}
         </span>
       ) : null}
-      {average === null ? (
+      {average === null && summaryFailed ? (
+        <span
+          className={cm.cn(cm.textSize('sm'), cm.textError)}
+          data-mol-id="rating-summary-failed"
+        >
+          {t('rating.summaryFailed', undefined, {
+            defaultValue: 'Could not load the ratings — refresh to try again.',
+          })}
+        </span>
+      ) : average === null ? (
         <span className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
           {t('rating.empty', undefined, { defaultValue: 'No ratings yet — be the first' })}
         </span>

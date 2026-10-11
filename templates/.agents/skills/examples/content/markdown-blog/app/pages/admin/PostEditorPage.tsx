@@ -113,6 +113,13 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
         if (
           typeof post.id !== 'string' ||
           typeof post.slug !== 'string' ||
+          // `title` belongs in the gate: it is a REQUIRED part of the post the
+          // API returns and the type of the form's `title` state. A body
+          // omitting it installed `undefined` into that state (React turns the
+          // controlled input uncontrolled) and `save()` then serialised
+          // `{"title": undefined}` — JSON.stringify DROPS the key, so the PUT
+          // silently cleared the existing title.
+          typeof post.title !== 'string' ||
           typeof post.body_markdown !== 'string'
         ) {
           throw new Error('load-post: the response is not a post')
