@@ -86,9 +86,15 @@ vi.mock('node:fs', async (importOriginal) => {
     ...actual,
     writeFileSync(p: unknown, data: unknown, opts?: unknown): void {
       if (typeof p === 'string' && failingWrite.path !== null && p === failingWrite.path) {
-        // Create the file exactly as `O_CREAT|O_EXCL` would, then fail the data
-        // write — verified against Node: the created file STAYS on disk when
-        // the write throws (nothing unlinks it).
+        // Fail the FIRST write to this path and no later one: a guarded writer's
+        // RESTORE is a second write to the same path, and it is exactly the
+        // behavior under test (text_to_speech puts the previous bytes back), so
+        // it has to be allowed to land.
+        failingWrite.path = null
+        // Create the file exactly as `O_CREAT|O_EXCL` would (or truncate it,
+        // for the default 'w' flag), then fail the data write — verified against
+        // Node: the created file STAYS on disk when the write throws (nothing
+        // unlinks it).
         realWriteFileSync(p, Buffer.alloc(0), opts)
         const error = new Error('ENOSPC: no space left on device, write') as NodeJS.ErrnoException
         error.code = 'ENOSPC'
@@ -397,6 +403,32 @@ describe('text_to_speech — a 2xx body must carry audio before anything is writ
     expect(existsSync(target), 'a failed call writes nothing').toBe(false)
   })
 
+  it('restores the previous audio when the write fails part-way through', async (ctx) => {
+    if (skipped(ctx)) return
+    // `text_to_speech` is the one file-writing tool that REPLACES what is at the
+    // path (its own output is regenerated on demand), and it did so with a bare
+    // `writeFileSync` — whose `w` flag TRUNCATES first. A write that then failed
+    // (a full disk, EIO) left the caller's previous file as a zero-length or
+    // half-written fragment while the call reported the failure: a failed
+    // operation damaged the state it was supposed to leave alone. The audio the
+    // payload decodes to IS what the tool writes, so the file must come back.
+    const target = join(dir, 'speech-existing.mp3')
+    writeFileSync(target, 'previous audio bytes')
+    failingWrite.path = target
+    try {
+      const result = await callTool('text_to_speech', { text: 'hello', output_file: target })
+
+      expect(result.isError, 'a failed write fails the call').toBe(true)
+      expect(
+        readFileSync(target, 'utf-8'),
+        'a failed write must leave the file that was already there',
+      ).toBe('previous audio bytes')
+    } finally {
+      failingWrite.path = null
+      rmSync(target, { force: true })
+    }
+  })
+
   it('writes real audio (the positive twin — the gate must not reject a payload)', async (ctx) => {
     if (skipped(ctx)) return
     // Without this the two failure tests above are satisfied by a handler that
@@ -648,5 +680,59 @@ describe('a missing output directory is refused BEFORE the metered call', () => 
     expect(result.isError).toBe(true)
     expect(textOf(result)).toContain('does not exist')
     expect(hosted.calls, 'the service is never asked to transform into it').toBe(before)
+  })
+})
+
+describe('transform_image refuses a taken output name BEFORE the metered call', () => {
+  // The tool writes under the extension of the format the service PRODUCED, not
+  // under the caller's `output_file` extension — so a pipeline that converts
+  // (`convert`/`optimize` with a `format`) names a different file. Only
+  // `output_file` was checked up front; the written path's own existence check
+  // sat after the transform, so a taken one billed the caller for a call that
+  // was certain to fail.
+  it('refuses when the CONVERTED name is taken, without asking the service', async (ctx) => {
+    if (skipped(ctx)) return
+    const input = join(dir, 'input-for-convert.png')
+    writeFileSync(input, 'not really a png')
+    // The pipeline converts to png, so the tool writes `<stem>.png` — the name
+    // that is taken. `output_file` itself (`.jpg`) is free, which is why the
+    // old up-front check passed.
+    writeFileSync(join(dir, 'converted.png'), 'already here')
+    const before = hosted.calls
+
+    const result = await callTool('transform_image', {
+      input_file: input,
+      output_file: join(dir, 'converted.jpg'),
+      ops: [{ op: 'convert', format: 'png' }],
+    })
+
+    expect(result.isError, 'a taken output name is refused').toBe(true)
+    expect(textOf(result)).toContain('already exists')
+    expect(hosted.calls, 'the service is never asked to run a doomed transform').toBe(before)
+    expect(
+      readFileSync(join(dir, 'converted.png'), 'utf-8'),
+      'the existing file is untouched',
+    ).toBe('already here')
+  })
+
+  it('still runs the transform when the CONVERTED name is free (no over-tightening)', async (ctx) => {
+    if (skipped(ctx)) return
+    // The refusal above must be about the TAKEN name, never about converting at
+    // all: the same call with a free `<stem>.png` has to reach the service.
+    const input = join(dir, 'input-for-convert-free.png')
+    writeFileSync(input, 'not really a png')
+    const before = hosted.calls
+
+    const result = await callTool('transform_image', {
+      input_file: input,
+      output_file: join(dir, 'convert-free.jpg'),
+      ops: [{ op: 'convert', format: 'png' }],
+    })
+
+    // The transform double answers the image service with the image-generation
+    // shape (no `data`), so the call reports no image data — what matters is
+    // that it was ASKED, i.e. the free converted name was not refused as taken.
+    expect(textOf(result)).not.toContain('already exists')
+    expect(hosted.calls, 'a free converted name must not be refused').toBe(before + 1)
   })
 })

@@ -134,6 +134,32 @@ describe('mlcl inject reports a smoke-test failure even when it captured no outp
     })
   })
 
+  it('runs the smoke suite with a timeout that kills the whole process tree', async () => {
+    // `npx` is a WRAPPER: the vitest runner and its workers are its children.
+    // execa's default kill signals the direct child only, so a suite that hangs
+    // and is killed at the timeout left those workers running — reparented to
+    // init, holding the project's ports and CPU — while `mlcl inject` reported
+    // the failure and exited, and a later run then started a SECOND suite
+    // against the same project. `killDescendants` is what makes the timeout
+    // take the tree (execa spawns the child as its own process-group leader and
+    // signals the group), so its absence is a leaked suite, not a style choice.
+    const project = await writeApiProjectWithTests()
+    execaMock.mockRejectedValue(new Error('vitest was killed'))
+    const { cmd } = await makeCmd(project)
+
+    await runToSettlement(cmd)
+
+    expect(execaMock).toHaveBeenCalledWith(
+      'npx',
+      ['vitest', 'run', '--reporter=verbose'],
+      expect.objectContaining({
+        cwd: project,
+        timeout: expect.any(Number),
+        killDescendants: true,
+      }),
+    )
+  })
+
   it('keeps quoting the output of a failing run that DID print some', async () => {
     // Non-vacuousness: the ordinary failure shape keeps its diagnostic, so the
     // fix cannot have replaced the quoted output with a generic sentence.

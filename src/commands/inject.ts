@@ -746,6 +746,15 @@ export default class Inject extends Command {
         cwd: projectPath,
         stdio: 'pipe',
         timeout: 60_000,
+        // The timeout must take the whole TREE, not just `npx`. execa's default
+        // kill signals the direct child only, and `npx` is a wrapper: the vitest
+        // runner and its workers are its children, so a suite that hangs and is
+        // killed at the timeout above left them running — reparented to init,
+        // holding the project's ports and CPU — while this command reported the
+        // failure and moved on. `killDescendants` spawns the child as its own
+        // process-group leader and signals the GROUP, so the workers die with
+        // the wrapper (execa 10; a no-op on Windows, which has no groups).
+        killDescendants: true,
       })
 
       // Extract summary from vitest output (e.g. "Tests  3 passed (3)")

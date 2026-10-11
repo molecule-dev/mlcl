@@ -45,6 +45,20 @@ const CLI_NOT_FOUND =
   'The mlcl CLI was not found on PATH. Install it with `npm install -g mlcl` (then run `mlcl login` for cloud tools), or point MOLECULE_MCP_CLI at its entry script.'
 
 /**
+ * How long one `mlcl` run may take before it is killed — ten minutes, the same
+ * bound `runCli` has always applied.
+ *
+ * `MOLECULE_MCP_CLI_TIMEOUT_MS` shortens it (a positive integer; anything else
+ * keeps the default). The seam exists for the regression suite: the descendant
+ * kill below can only be observed by letting a real CLI time out, which the
+ * production bound puts ten minutes away.
+ */
+const CLI_TIMEOUT_MS = ((): number => {
+  const parsed = Number(process.env.MOLECULE_MCP_CLI_TIMEOUT_MS)
+  return Number.isSafeInteger(parsed) && parsed > 0 ? parsed : 10 * 60_000
+})()
+
+/**
  * Run the `mlcl` CLI and return its stdout.
  *
  * `redactOutput` withholds the CHILD'S OUTPUT from the failure message. A
@@ -93,7 +107,16 @@ async function runCli(
     // would wait forever (add_package hung 10 min this way). 'ignore' makes
     // mlcl take its non-interactive defaults instead.
     stdin: 'ignore',
-    timeout: 10 * 60_000,
+    timeout: CLI_TIMEOUT_MS,
+    // A timeout must take the whole TREE, not just the `mlcl` process. execa's
+    // default kill signals the direct child only, and a CLI killed mid-`npm
+    // install` (or mid-migration, or mid-smoke-test) leaves that grandchild
+    // running: it keeps mutating the project's `node_modules` — and this tool
+    // has already answered "timed out", so the client may retry and race a
+    // second install against it. `killDescendants` spawns the child as its own
+    // process-group leader and signals the GROUP (execa 10; a no-op on Windows,
+    // which has no process groups).
+    killDescendants: true,
   })
   if (failed) {
     // A missing CLI is a SPAWN failure: no exit code, and execa's own
@@ -290,6 +313,56 @@ function writeNewFileSync(path: string, data: Buffer, mode: number): void {
       rmSync(path, { force: true })
     } catch (_cleanupError) {
       // Nothing further to do: the write failure is rethrown below.
+    }
+    throw error
+  }
+}
+
+/**
+ * Write `data` to `path`, replacing what is there, and restore the previous
+ * bytes when the write fails part-way.
+ *
+ * `writeNewFileSync` is the tool contract for everything that must NOT replace
+ * its output. `text_to_speech` is the one file-writing tool that deliberately
+ * does replace it — its own audio is regenerated on demand — and it wrote with
+ * a bare `writeFileSync`, which opens with the `w` flag: the existing file is
+ * TRUNCATED before the new bytes are written, so a failure mid-write (a full
+ * disk, EIO) left the caller's previous file as a zero-length or half-written
+ * fragment while the call reported the write error. A failed call must not
+ * damage what was there before it; the bytes the file is parsed from are read
+ * here so the failure path can put them back — the same policy the CLI's own
+ * guarded writes (`writeGuarded` in scaffold.ts, `writeMigrateRunnerGuarded`)
+ * apply, and the reason this is not just `writeFileSync`.
+ *
+ * A path that did not exist yet is REMOVED on failure rather than left as a
+ * partial file: it is provably this call's own (an unreadable pre-existing file
+ * is rethrown by the read, never recorded as absent), so nothing else can own it.
+ *
+ * @param path - Destination path.
+ * @param data - The bytes to write.
+ * @param mode - File mode used when the file is created (0o600 for documents).
+ * @throws Whatever the write threw, after the previous state is restored.
+ */
+function writeOverwritingGuarded(path: string, data: Buffer, mode: number): void {
+  let prior: Buffer | null
+  try {
+    prior = readFileSync(path)
+  } catch (error) {
+    // ONLY "there was no file" may be recorded as absent: an EACCES/EISDIR read
+    // failure means a file IS there and this call could not read it, so the
+    // failure path must not remove it (see writeNewFileSync's sibling rule).
+    if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error
+    prior = null
+  }
+  try {
+    writeFileSync(path, data, { mode })
+  } catch (error) {
+    try {
+      if (prior === null) rmSync(path, { force: true })
+      else writeFileSync(path, prior, { mode })
+    } catch (_restoreError) {
+      // Best-effort restore: the write failure is rethrown below, and a restore
+      // that itself fails must not replace the error the client is owed.
     }
     throw error
   }
@@ -1325,7 +1398,12 @@ server.registerTool(
         // the input), and an EMPTY audio string wrote a 0-byte file and reported
         // success over one.
         const audio = decodeServicePayload(result.audio, 'audio')
-        writeFileSync(target, audio)
+        // This is the one file-writing tool that REPLACES an existing file (its
+        // own output is regenerated on demand — see writeNewFileSync), and it
+        // does so through the guarded write: a bare `writeFileSync` truncates
+        // the previous file first, so a failure mid-write destroyed it. 0o644 —
+        // media, the same mode the other media tools create with.
+        writeOverwritingGuarded(target, audio, 0o644)
         return JSON.stringify({
           wroteTo: target,
           bytes: audio.length,
@@ -1994,6 +2072,77 @@ server.registerTool(
 /** The input cap `transform_image` advertises. */
 const TRANSFORM_MAX_INPUT_BYTES = 8 * 1024 * 1024
 
+/** The MIME type each accepted input extension declares. */
+const TRANSFORM_MIME_BY_EXT: Record<string, string> = {
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.avif': 'image/avif',
+  '.gif': 'image/gif',
+  '.tif': 'image/tiff',
+  '.tiff': 'image/tiff',
+}
+
+/** The extension each MIME type the service answers with is written under. */
+const TRANSFORM_EXT_BY_MIME: Record<string, string> = {
+  'image/jpeg': '.jpg',
+  'image/png': '.png',
+  'image/webp': '.webp',
+  'image/avif': '.avif',
+  'image/gif': '.gif',
+  'image/tiff': '.tiff',
+}
+
+/** The MIME type each format a pipeline op may request converts to. */
+const TRANSFORM_MIME_BY_FORMAT: Record<string, string> = {
+  jpeg: 'image/jpeg',
+  png: 'image/png',
+  webp: 'image/webp',
+  avif: 'image/avif',
+  gif: 'image/gif',
+  tiff: 'image/tiff',
+}
+
+/**
+ * The path `transform_image` will write, predicted from the REQUEST.
+ *
+ * The tool writes under the extension of the format the service actually
+ * produced (`result.mimeType`), not under the caller's `output_file`: a
+ * pipeline that converts (`convert`/`optimize` with a `format`) lands on that
+ * format's extension, and even a plain resize lands on the canonical one
+ * (`.jpeg` → `.jpg`, `.tif` → `.tiff`). The up-front "never overwritten" check
+ * ran on `output_file` alone, so when the PREDICTED path was the taken one, the
+ * tool paid for the metered transform — seconds long, billed — and only then
+ * reported "already exists" (the post-call check below). Predicting the path
+ * from the request moves that refusal in front of the spend.
+ *
+ * The prediction reads the REQUEST, never a guess about the service: the last
+ * op carrying a `format` is the format the pipeline ends in (ops apply in
+ * order, and only `convert`/`optimize` accept the field), and without one every
+ * other op preserves the input's format. The post-call check on the real
+ * `mimeType` stays as the authoritative backstop — if the service ever answers
+ * a format neither the request nor the input names, that check is what refuses
+ * it.
+ *
+ * @param target - The caller's `output_file`.
+ * @param inputFile - The caller's `input_file` (its extension is the input format).
+ * @param ops - The requested pipeline, in order.
+ * @returns The path the tool will most likely write.
+ */
+function predictedTransformOutput(
+  target: string,
+  inputFile: string,
+  ops: readonly { format?: string }[],
+): string {
+  const requestedFormat = [...ops].reverse().find((op) => op.format !== undefined)?.format
+  const mime = requestedFormat
+    ? TRANSFORM_MIME_BY_FORMAT[requestedFormat]
+    : (TRANSFORM_MIME_BY_EXT[extname(inputFile).toLowerCase()] ?? 'image/png')
+  const ext = ((mime ? TRANSFORM_EXT_BY_MIME[mime] : undefined) ?? extname(target)) || '.png'
+  return target.slice(0, target.length - extname(target).length) + ext
+}
+
 server.registerTool(
   'transform_image',
   {
@@ -2053,17 +2202,7 @@ server.registerTool(
         TRANSFORM_MAX_INPUT_BYTES,
         (bytes) => `${input_file} is ${bytes} bytes; the limit is 8 MB.`,
       )
-      const mimeByExt: Record<string, string> = {
-        '.png': 'image/png',
-        '.jpg': 'image/jpeg',
-        '.jpeg': 'image/jpeg',
-        '.webp': 'image/webp',
-        '.avif': 'image/avif',
-        '.gif': 'image/gif',
-        '.tif': 'image/tiff',
-        '.tiff': 'image/tiff',
-      }
-      const mimeType = mimeByExt[extname(input_file).toLowerCase()]
+      const mimeType = TRANSFORM_MIME_BY_EXT[extname(input_file).toLowerCase()]
       if (!mimeType) {
         throw new ServiceCallError(
           `Unsupported image extension "${extname(input_file)}" — use png, jpg, webp, avif, gif or tiff.`,
@@ -2073,6 +2212,19 @@ server.registerTool(
       if (existsSync(target)) {
         throw new ServiceCallError(
           `${target} already exists. Pick a fresh name — the tool never overwrites.`,
+        )
+      }
+      // The path this pipeline is going to LAND on, checked here as well as
+      // after the call: the written name follows the produced format, so a
+      // conversion (`convert`/`optimize` with a `format`), or a caller's
+      // non-canonical extension (`.jpeg`/`.tif`), names a different file from
+      // `output_file` — and a taken one was only discovered AFTER the metered
+      // transform, billing the caller for a call that was certain to fail (see
+      // predictedTransformOutput).
+      const predicted = predictedTransformOutput(target, input_file, ops)
+      if (predicted !== target && existsSync(predicted)) {
+        throw new ServiceCallError(
+          `${predicted} already exists. This pipeline writes a ${extname(predicted)} file — pick a fresh name.`,
         )
       }
       requireWritableParent(target)
@@ -2104,17 +2256,9 @@ server.registerTool(
         bytes?: number
       }
       const imageBytes = decodeServicePayload(result.data, 'image')
-      const extByMime: Record<string, string> = {
-        'image/jpeg': '.jpg',
-        'image/png': '.png',
-        'image/webp': '.webp',
-        'image/avif': '.avif',
-        'image/gif': '.gif',
-        'image/tiff': '.tiff',
-      }
       const outPath =
         target.slice(0, target.length - extname(target).length) +
-        (extByMime[result.mimeType ?? ''] ?? (extname(target) || '.png'))
+        (TRANSFORM_EXT_BY_MIME[result.mimeType ?? ''] ?? (extname(target) || '.png'))
       if (existsSync(outPath)) {
         throw new ServiceCallError(`${outPath} already exists. Pick a fresh name.`)
       }
