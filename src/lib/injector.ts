@@ -24,9 +24,6 @@ import {
   writeFile,
 } from 'node:fs/promises'
 import { dirname, isAbsolute, join, relative, sep } from 'node:path'
-import { fileURLToPath } from 'node:url'
-
-const __dirname = dirname(fileURLToPath(import.meta.url))
 
 /**
  * Whether `candidate` resolves to a path INSIDE `baseDir` (the directory itself
@@ -1419,34 +1416,31 @@ export async function generateBondSetupCode(
  */
 function readThemeCssColors(projectPath: string): Record<string, string> {
   const colors: Record<string, string> = {}
-  // Try template source first (during create, output files may not exist yet),
-  // then fall back to project output directory
-  // projectPath is the workspace path (e.g., blog/app), parent is the project root
-  const projectRoot = join(projectPath, '..')
-  const projectName = projectRoot.split('/').pop() ?? projectRoot.split('\\').pop() ?? ''
-  const templatesDir = join(__dirname, '..', '..', 'templates', 'apps')
-  const candidates = [
-    join(templatesDir, projectName, 'theme.css'),
-    join(projectPath, 'src', 'theme.css'),
-    join(projectRoot, 'app', 'src', 'theme.css'),
-  ]
-
-  for (const candidate of candidates) {
-    try {
-      const fullCss = readFileSync(candidate, 'utf-8')
-      // Only read from the first :root block (light theme) — stop at dark mode selectors
-      const rootEnd = fullCss.search(/@media|\.dark|html\.dark|\[data-theme|\[data-mol-mode/)
-      const css = rootEnd > 0 ? fullCss.slice(0, rootEnd) : fullCss
-      const re = /--mol-color-([\w-]+)\s*:\s*([^;]+)/g
-      let m: RegExpExecArray | null
-      while ((m = re.exec(css)) !== null) {
-        const name = m[1].replace(/-([a-z])/g, (_, c: string) => c.toUpperCase())
-        colors[name] = m[2].trim()
-      }
-      if (Object.keys(colors).length > 0) break
-    } catch (_error) {
-      // candidate file doesn't exist — safe to try the next path
+  // `projectPath` is the app WORKSPACE (e.g. `<project>/app`, or the project
+  // root for an app-only project), so its palette is exactly
+  // `<workspace>/src/theme.css` — the file the create flow writes and the
+  // template copies ship. Two other candidates used to be probed first/last:
+  // `<mlcl>/templates/apps/<workspace-parent-basename>/theme.css` (keyed on
+  // the USER's project name, not on a template — it matched nothing in the
+  // fleet, and would have silently adopted a flagship's palette for a custom
+  // app that happened to share its name) and `<parent>/app/src/theme.css`
+  // (which, for an app-only project with no palette of its own, read a SIBLING
+  // directory's theme.css and injected another project's colors). One path,
+  // the workspace's own.
+  try {
+    const fullCss = readFileSync(join(projectPath, 'src', 'theme.css'), 'utf-8')
+    // Only read from the first :root block (light theme) — stop at dark mode selectors
+    const rootEnd = fullCss.search(/@media|\.dark|html\.dark|\[data-theme|\[data-mol-mode/)
+    const css = rootEnd > 0 ? fullCss.slice(0, rootEnd) : fullCss
+    const re = /--mol-color-([\w-]+)\s*:\s*([^;]+)/g
+    let m: RegExpExecArray | null
+    while ((m = re.exec(css)) !== null) {
+      const name = m[1].replace(/-([a-z])/g, (_, c: string) => c.toUpperCase())
+      colors[name] = m[2].trim()
     }
+  } catch (_error) {
+    // No theme.css in the workspace — no overrides to apply; the provider's own
+    // default themes drive the palette.
   }
   return colors
 }

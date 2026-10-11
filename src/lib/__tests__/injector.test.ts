@@ -1092,6 +1092,52 @@ describe('synthesizeAppProjectFiles', () => {
     expect(content).not.toContain('import type { Theme }')
   })
 
+  it('reads the palette from the workspace theme.css, never a sibling directory', async () => {
+    // `projectPath` is the app WORKSPACE (see CLAUDE.md rule 7), so its palette
+    // is exactly `<workspace>/src/theme.css`. The two other candidates the
+    // reader used to probe were guesses: one keyed on the USER's project name
+    // inside mlcl's own `templates/apps/` (no template ships a root
+    // theme.css, so it matched nothing — and would have silently adopted a
+    // flagship's palette for a custom app that happened to share its name),
+    // the other `<parent>/app/src/theme.css`, which for an app-only project
+    // reads a SIBLING directory's palette.
+    const themePkg = registryPackages.find((p) => p.name === '@molecule/app-theme-css-variables')
+    expect(themePkg).toBeDefined()
+
+    const root = join(tempDir, 'theme-sibling')
+    const workspace = join(root, 'myapp')
+    await mkdir(join(root, 'app', 'src'), { recursive: true })
+    await mkdir(join(workspace, 'src'), { recursive: true })
+    // The sibling `app/` the removed `<parent>/app/src/theme.css` candidate
+    // resolved to.
+    await writeFile(
+      join(root, 'app', 'src', 'theme.css'),
+      ':root { --mol-color-primary: #abcdef; }\n',
+    )
+
+    const withoutOwnPalette = await generateBondSetupCode(
+      themePkg!,
+      'app-theme-css-variables',
+      '@molecule/app-theme',
+      workspace,
+    )
+    expect(withoutOwnPalette).not.toContain('#abcdef')
+
+    // The positive twin: the workspace's OWN palette is the one applied.
+    await writeFile(
+      join(workspace, 'src', 'theme.css'),
+      ':root { --mol-color-primary: #123456; }\n',
+    )
+    const withOwnPalette = await generateBondSetupCode(
+      themePkg!,
+      'app-theme-css-variables',
+      '@molecule/app-theme',
+      workspace,
+    )
+    expect(withOwnPalette).toContain("primary: '#123456'")
+    expect(withOwnPalette).not.toContain('#abcdef')
+  })
+
   it('emits the deferred-attach stub for realtime bonds (bondSetup.generatorType=realtime-deferred)', async () => {
     // Zero-config createProvider() binds nothing and silently waits for an
     // attach that only happens when the scaffolded server calls

@@ -3460,8 +3460,9 @@ export async function applyStaticSiteOverlay(
 }
 
 /**
- * Copy domain-specific template files (pages, handlers, locales, theme) from
- * a named app template into the generated project.
+ * Copy domain-specific template files (pages, handlers, routes, tiers, theme,
+ * and the template's locale extras) from a named app template into the
+ * generated project.
  *
  * For app pages, uses framework-specific directories when available:
  * - React/React Native Web: `pages/`
@@ -3603,19 +3604,14 @@ export async function copyTemplateDomainFiles(
     mlclDebug(`[scaffold] Copied ${files.length} template migrations`)
   }
 
-  // Copy locales
-  const localesDir = join(templateDir, 'locales')
-  if (existsSync(localesDir)) {
-    const localesDestDir = join(appPath, 'src', 'locales')
-    await mkdir(localesDestDir, { recursive: true })
-    const files = await readdir(localesDir)
-    for (const file of files) {
-      const src = join(localesDir, file)
-      if (statSync(src).isFile()) {
-        await copyFile(src, join(localesDestDir, file))
-      }
-    }
-  }
+  // Locales are not copied from the template here: the destination app's
+  // locale tree is GENERATED from the bonded locale packages, and every
+  // template's own tree lives at `<template>/app/src/locales/<locale>/ui.ts` —
+  // one folder per locale — which the flat, `isFile()`-filtered copy this
+  // used to be could not carry from ANY layout (it read `<template>/locales`,
+  // a path no template has). The template's app-specific keys reach the app
+  // through its `app/locales/en/ui-extras.ts.partial`, spliced into every
+  // generated locale below.
 
   // Copy App.tsx override (replaces the scaffold default if present).
   // Same dual-path lookup as handlers/pages — `app/src/App.tsx` is canonical.
@@ -3745,7 +3741,13 @@ export async function copyTemplateDomainFiles(
 
   // Copy theme.css — prepend the self-documenting "recolor here, not the bond"
   // header so the executor that opens it to recolor sees the truth in-file.
-  const themeCss = join(templateDir, 'theme.css')
+  //
+  // The palette lives at `<template>/app/src/theme.css` — the runtime layout
+  // every template in the fleet ships (the destination mirrors it at
+  // `<app>/src/theme.css`). Reading the bare `<template>/theme.css` (as this
+  // used to) matched NO template, so a build layered on a template silently
+  // kept the default palette the create flow had already written.
+  const themeCss = join(templateDir, 'app', 'src', 'theme.css')
   if (existsSync(themeCss)) {
     const themeCssContent = await readFile(themeCss, 'utf-8')
     // In-place rewrite of a file the create flow already wrote — guarded like

@@ -271,9 +271,16 @@ describe('scaffold in-place rewrites — a failed write restores the file', () =
     const cliRoot = join(dir, 'cli-root')
     const templateDir = join(cliRoot, 'templates', 'apps', 'probe')
     const appDir = join(dir, 'probe-app')
-    mkdirSync(join(templateDir, 'app'), { recursive: true })
+    // The layout every template in the fleet ships: the palette under
+    // `app/src/`. A fixture at the template ROOT (where this test used to put
+    // it) pinned a path no template has, so the copy could be broken — and it
+    // was — with this guard still green.
+    mkdirSync(join(templateDir, 'app', 'src'), { recursive: true })
     mkdirSync(join(appDir, 'src'), { recursive: true })
-    writeFileSync(join(templateDir, 'theme.css'), ':root { --color-primary: #123456; }\n')
+    writeFileSync(
+      join(templateDir, 'app', 'src', 'theme.css'),
+      ':root { --color-primary: #123456; }\n',
+    )
     // What createAppProject copied there first — the file this step rewrites.
     const copied = ':root { --color-primary: #000000; }\n'
     writeFileSync(join(appDir, 'src', 'theme.css'), copied)
@@ -284,9 +291,13 @@ describe('scaffold in-place rewrites — a failed write restores the file', () =
     )
     expect(readFileSync(join(appDir, 'src', 'theme.css'), 'utf-8')).toBe(copied)
 
-    // The positive twin: the template's palette header does land.
+    // The positive twin: the template's palette AND its header do land — the
+    // color value too, not just the header, so a copy that read the wrong file
+    // (or none) cannot pass.
     await copyTemplateDomainFiles('probe', 'react', appDir, null, cliRoot)
-    expect(readFileSync(join(appDir, 'src', 'theme.css'), 'utf-8')).toContain('APP COLOR PALETTE')
+    const theme = readFileSync(join(appDir, 'src', 'theme.css'), 'utf-8')
+    expect(theme).toContain('APP COLOR PALETTE')
+    expect(theme).toContain('--color-primary: #123456')
   })
 
   // The create flow's API-side rewrites of the ROUTER — the file every route in
