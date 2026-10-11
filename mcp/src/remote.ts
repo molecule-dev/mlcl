@@ -77,6 +77,23 @@ export const README_CACHE_LIMIT = 50
 const readmeCache = new Map<string, { at: number; readme: string }>()
 
 /**
+ * Drop every cached registry/templates payload and package README.
+ *
+ * Both maps are process-global ON PURPOSE — a long-lived hosted server pays one
+ * outbound fetch per document per TTL window instead of one per call — which
+ * also means the state survives between callers in one process, INCLUDING
+ * between the tests that point `MOLECULE_REGISTRY_FILE` at a rewritten file and
+ * then assert the new bytes are what the tool read. Those suites have to say
+ * that reset out loud rather than depend on the order they happen to run in, so
+ * this is the reset they call (the same affordance `clearRegistryCache` gives
+ * mlcl's own registry.ts, for the same reason).
+ */
+export function clearRemoteCaches(): void {
+  cache.clear()
+  readmeCache.clear()
+}
+
+/**
  * Fetch a package's published README from the npm registry, cached per package.
  *
  * The network branch is bounded by {@link FETCH_TIMEOUT_MS} (`timeoutMs`

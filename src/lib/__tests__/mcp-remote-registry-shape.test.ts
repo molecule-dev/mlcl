@@ -27,7 +27,7 @@ import { existsSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { afterAll, beforeAll, describe, expect, it } from 'vitest'
+import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest'
 
 /** The `molecule-mcp` package — its own node_modules holds the MCP SDK. */
 const MCP_DIR = join(import.meta.dirname, '..', '..', '..', 'mcp')
@@ -62,6 +62,25 @@ let registryFile: string
 let templatesFile: string
 let callTool: (name: string, args?: Record<string, unknown>) => Promise<ToolResult>
 let closeClient: () => Promise<void>
+/** The module's cache reset — see the `beforeEach` below for why the suite needs it. */
+let clearCaches: (() => void) | null = null
+
+/**
+ * Where the fetched documents are cached, and why every test starts without one.
+ *
+ * `fetchJson` caches a SUCCESSFUL payload for ten minutes — that is the whole
+ * point of it on the hosted server — so the state it holds survives into the
+ * NEXT test in this file, which points the same override at a rewritten file
+ * and then asserts the new bytes are read. Only a cold cache makes that
+ * assertion true, and a suite that relied on its own declaration order to get
+ * one passed under `vitest run` while failing under `--sequence.shuffle` (a
+ * cached VALID registry answered for three tests that had each just written an
+ * unrecognized one). The reset is therefore explicit, and the test below pins
+ * that it actually drops a cached payload.
+ */
+beforeEach(() => {
+  clearCaches?.()
+})
 
 /** Every text block of a tool's answer, joined — the client-visible message. */
 const textOf = (result: ToolResult): string =>
@@ -94,7 +113,8 @@ beforeAll(async () => {
   process.env.MOLECULE_REGISTRY_FILE = registryFile
   process.env.MOLECULE_TEMPLATES_FILE = templatesFile
 
-  const { buildRemoteServer } = await import('../../../mcp/src/remote.js')
+  const { buildRemoteServer, clearRemoteCaches } = await import('../../../mcp/src/remote.js')
+  clearCaches = clearRemoteCaches
   const { Client } = await import(join(SDK_ESM, 'client', 'index.js'))
   const { InMemoryTransport } = await import(join(SDK_ESM, 'inMemory.js'))
 
@@ -203,5 +223,32 @@ describe('remote registry-backed tools — an unrecognized payload is reported, 
     const ok = await callTool('search_packages', { query: 'payments' })
     expect(ok.isError).toBeFalsy()
     expect(textOf(ok)).toContain('@molecule/api-probe-payments')
+  })
+
+  it('the cache reset drops a cached payload — what keeps the suite order-independent', async (ctx) => {
+    if (skipped(ctx)) return
+    writeFileSync(registryFile, registryWith('Cached'))
+
+    const served = await callTool('search_packages', { query: 'payments' })
+    expect(served.isError).toBeFalsy()
+    expect(textOf(served)).toContain('@molecule/api-probe-payments')
+
+    // Within the TTL the CACHED document is still what the tool reads, even
+    // after the source is rewritten into one it must refuse. That is the
+    // cache's contract on the hosted server — and the reason every other test
+    // in this file (which rewrites the file and then asserts the new bytes)
+    // means something only from a cold cache.
+    writeFileSync(registryFile, JSON.stringify({ version: 1 }))
+    expect(
+      (await callTool('search_packages', { query: 'payments' })).isError,
+      'a cached payload is served until it is dropped',
+    ).toBeFalsy()
+
+    // The reset is what makes the rewrite visible — exactly the state the
+    // `beforeEach` above hands every other test in this file.
+    clearCaches?.()
+    const afterReset = await callTool('search_packages', { query: 'payments' })
+    expect(afterReset.isError, 'a reset must drop the cached payload').toBe(true)
+    expect(textOf(afterReset)).toContain('did not return the expected payload')
   })
 })

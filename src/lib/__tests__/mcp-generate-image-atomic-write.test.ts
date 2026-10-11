@@ -55,6 +55,14 @@ vi.mock('../../../mcp/src/services.js', () => ({
 
 beforeEach(() => {
   hosted.onCall = null
+  // Every test's assertions about how many times the service was asked are
+  // meaningless against a counter that keeps running across tests: the
+  // collision case below asserts an ABSOLUTE `toBe(1)`, and a suite that ran it
+  // after any other service call read that earlier total instead of its own —
+  // passing or failing on the order the file happened to run in. Each test now
+  // starts from its own zero, and the delta-style assertions elsewhere (which
+  // capture `before`) are unaffected.
+  hosted.calls = 0
 })
 
 interface ToolResult {

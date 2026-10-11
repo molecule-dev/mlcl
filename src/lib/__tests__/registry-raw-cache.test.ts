@@ -89,6 +89,15 @@ afterAll(() => {
 })
 
 afterEach(() => {
+  // Two tests below point the override at OTHER paths — the eviction pin walks
+  // one path per cache slot, and the missing-file case points at a path that
+  // does not exist — and neither restores it, so without this every test that
+  // ran AFTER them read a different registry than the one it wrote
+  // (`getRawRegistry` answered the other file's, or an absent file's,
+  // contents). The suite's assertions then held or failed purely on the order
+  // it happened to run in. The path is this suite's shared input, so it is
+  // re-asserted here rather than left to declaration order.
+  process.env.MLCL_REGISTRY_PATH = registryPath
   clearRegistryCache()
   reads.count = 0
 })
