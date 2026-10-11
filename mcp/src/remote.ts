@@ -170,7 +170,9 @@ export function isTemplatesPayload(data: unknown): boolean {
  *
  * The network branch is bounded by {@link FETCH_TIMEOUT_MS}; `timeoutMs`
  * shortens that bound — the timeout regression test drives a never-responding
- * local server through it, which the 15 s default would make a 5-minute test.
+ * local server through it with a 250 ms bound, well inside vitest's own 5 s
+ * default test timeout. The 15 s default would outlast that timeout, so the
+ * case could never pass without the seam.
  * A failed (timed-out, rejected, non-2xx, or unrecognized) fetch throws without
  * touching the cache, so the next call retries the network.
  *

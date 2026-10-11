@@ -430,7 +430,9 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
     ...importedProviders,
   ].filter((name): name is string => name !== null)
   if (needed.length === 0) {
-    // A SQLite/MySQL/out-of-band runner (or a hand-written one) needs none.
+    // Only the out-of-band runner (and a hand-written one that imports no
+    // provider package) needs none: the SQLite/MySQL templates DO import their
+    // own bond, so `importedProviders` above names them and they are backed.
     return []
   }
   const manifestPath = join(apiDir, 'package.json')

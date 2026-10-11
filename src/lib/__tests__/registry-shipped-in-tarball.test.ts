@@ -16,7 +16,7 @@
  * @module
  */
 
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join, relative, sep } from 'node:path'
 
 import { describe, expect, it } from 'vitest'
@@ -69,4 +69,39 @@ describe('the tarball carries the registry the CLI reads', () => {
         `registry; add "/${rel}" to the \`files\` array`,
     ).toBe(true)
   }
+})
+
+describe('the tarball carries only docs a consumer can reach', () => {
+  it('ships no doc the README does not link', () => {
+    // The guides the npm tarball carries are USER-FACING content — AGENTS.md:
+    // "docs/ — user-facing guides (…). These ship on GitHub and in the npm
+    // tarball — no internal narrative." So a doc named in `files` is a promise
+    // it is written for the package's consumers, and the README is where a
+    // consumer reaches the shipped docs from. An owner/ops doc left in the
+    // array (an internal spec, a maintainer runbook) then ships to every
+    // anonymous npm download with no reader — the exact "internal narrative in
+    // a public artifact" the promise rules out. `docs/DASHBOARDS.md` — an
+    // owner reminder + build spec nothing in the repo links — was shipped this
+    // way; this assertion is what keeps the array to the guides.
+    const manifest = JSON.parse(readFileSync(join(PACKAGE_ROOT, 'package.json'), 'utf-8')) as {
+      files?: string[]
+    }
+    const patterns = manifest.files ?? []
+    const readme = readFileSync(join(PACKAGE_ROOT, 'README.md'), 'utf-8')
+    const shippedDocs = readdirSync(join(PACKAGE_ROOT, 'docs'))
+      .filter((name) => name.endsWith('.md'))
+      .map((name) => `docs/${name}`)
+      .filter((rel) => patterns.some((pattern) => ships(pattern, rel)))
+
+    // The guides themselves must still ship — a `files` array that dropped
+    // them would satisfy the loop below vacuously.
+    expect(shippedDocs.length, 'the tarball ships no docs/ guide').toBeGreaterThan(0)
+    for (const rel of shippedDocs) {
+      expect(
+        readme.includes(rel),
+        `package.json \`files\` ships ${rel}, but README.md never links it — an ` +
+          `unreferenced doc is not user-facing content; drop "/${rel}" from \`files\``,
+      ).toBe(true)
+    }
+  })
 })

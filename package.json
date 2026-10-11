@@ -43,8 +43,7 @@
     "/oclif.manifest.json",
     "/docs/AGENTS-AND-HARNESSES.md",
     "/docs/INTEGRATE-EXISTING-APP.md",
-    "/docs/FROM-VIBECODING.md",
-    "/docs/DASHBOARDS.md"
+    "/docs/FROM-VIBECODING.md"
   ],
   "oclif": {
     "bin": "mlcl",
