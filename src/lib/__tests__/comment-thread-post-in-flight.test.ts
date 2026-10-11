@@ -353,6 +353,42 @@ describe('the comment composer', () => {
     )
   })
 
+  it('a parked post that resolves after p1 → p2 → p1 keeps the draft typed since', async () => {
+    // `stillOnResource` compares resource NAMES, so a navigation that CAME BACK
+    // is invisible to it: a POST parked across p1 → p2 → p1 passes the guard and
+    // ran its success path on return — where `setDraft('')` wiped whatever the
+    // reader had typed SINCE (the resource change keeps the draft on purpose),
+    // discarding text the accepted post had no claim on.
+    await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await answerGet(0, { data: [] })
+
+    await typeIntoTextarea('first comment')
+    await clickPost()
+    expect(postCalls).toHaveLength(1)
+
+    // The reader navigates away and BACK while the POST is parked…
+    await rerender(createElement(CommentThread, { resourceType: 'post', resourceId: 'p2' }))
+    await answerGet(1, { data: [] })
+    await rerender(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await answerGet(2, { data: [] })
+
+    // …and types a NEW draft.
+    await typeIntoTextarea('a newer draft')
+
+    // The parked POST lands. The comment it sent is stored; the new draft is not
+    // its to clear.
+    await act(async () => {
+      postCalls[0]?.resolve({ id: 'c1' })
+    })
+    await flush()
+
+    const textarea = container.querySelector('textarea') as HTMLTextAreaElement
+    expect(
+      textarea.value,
+      'the accepted post must clear only the text it sent, never the draft typed since',
+    ).toBe('a newer draft')
+  })
+
   it('a failed post does not leave its error banner on the next resource', async () => {
     // No race needed: the failure is recorded while the reader is still on the
     // old resource, and the resource change itself must retire it (the sibling

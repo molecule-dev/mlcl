@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { type ReactElement, useCallback, useEffect, useRef, useState } from 'react'
 
 import { type Comment, ThreadTree } from '@molecule/app-feature-thread-tree-react'
 import { unwrapList } from '@molecule/app-http'
@@ -110,7 +110,7 @@ export function CommentThread({
 }: {
   resourceType: string
   resourceId: string
-}) {
+}): ReactElement {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [comments, setComments] = useState<Comment[]>([])
@@ -305,8 +305,14 @@ export function CommentThread({
     // owns — refetching here would take the newest ticket and overwrite the
     // new resource's thread with the old one's (see mountedForRef).
     if (!stillOnResource()) return
-    setDraft('')
-    setReplyTo(null)
+    // Clear only what was SENT. `stillOnResource` compares NAMES, so a reader
+    // who went p1 → p2 → p1 while the POST was parked passes it — and may have
+    // typed a new draft (kept across the resource change) or picked a new reply
+    // target since. Wiping those discarded work the successful post had no claim
+    // on (the same rule ChatPage's composer applies to its own draft); the
+    // refetch below is still correct — it reads the thread this render owns.
+    setDraft((current) => (current === draft ? '' : current))
+    setReplyTo((current) => (current === replyTo ? null : current))
     // Refetch so the new comment lands in the right place in the tree (the
     // load above now merges the replies pages the tree nests); a failed
     // refetch must not reject out of the click handler.
