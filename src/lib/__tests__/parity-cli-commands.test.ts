@@ -85,6 +85,17 @@ function readTables(): Table[] {
 }
 
 /**
+ * The source file each declared ALIAS resolves to, filled by {@link commandIds}
+ * while it walks the tree (`login` → `auth/login.ts`).
+ *
+ * The id set alone is not enough for the flag rules: an alias is a NAME for a
+ * command that lives in another file, so `src/commands/<alias>.ts` does not
+ * exist and a source lookup that only tries the path shapes cannot check the
+ * alias's claims at all (see {@link commandSource}).
+ */
+const aliasSources = new Map<string, string>()
+
+/**
  * Every oclif command id in this repo, derived the way oclif derives it from
  * the command tree: `deploy/workflow-github.ts` → `deploy workflow-github`,
  * `logs/index.ts` → `logs`, `env/get.ts` → `env get`.
@@ -92,13 +103,22 @@ function readTables(): Table[] {
  * A command's declared `aliases` count too — three of them are the TOP-LEVEL
  * names the manifest uses (`auth/login.ts` carries `aliases = ['login']`, and
  * `mlcl login` is the documented invocation), so an alias-blind id set would
- * report the manifest's own commands as missing.
+ * report the manifest's own commands as missing. Each alias is recorded in
+ * {@link aliasSources} as it is found.
  */
 function commandIds(): Set<string> {
   const ids = new Set<string>()
   const addAliases = (source: string): void => {
     const declared = source.match(/static(?:\s+override)?\s+aliases\s*=\s*\[([^\]]*)\]/)
-    for (const alias of declared?.[1]?.matchAll(/'([^']+)'/g) ?? []) ids.add(alias[1] ?? '')
+    for (const alias of declared?.[1]?.matchAll(/'([^']+)'/g) ?? []) {
+      const name = alias[1] ?? ''
+      ids.add(name)
+      // Record WHERE the alias is declared, so {@link commandSource} can resolve
+      // it: an alias has no file at its own path (`src/commands/login.ts` does
+      // not exist — `auth/login.ts` declares the alias), and answering
+      // `undefined` there silently skipped the flag rules for it.
+      aliasSources.set(name, source)
+    }
   }
   const walk = (dir: string, prefix: string[]): void => {
     for (const entry of readdirSync(dir, { withFileTypes: true })) {
@@ -215,7 +235,16 @@ function spanClaim(span: string): SpanClaim {
   return { commands: [...commands], flags: [...flags], positionalOn: [...positionalOn] }
 }
 
-/** The source file an oclif command id resolves to, or undefined. */
+/**
+ * The source file an oclif command id resolves to, or undefined.
+ *
+ * A declared ALIAS is resolved through {@link aliasSources}: it names a command
+ * whose file sits at the command's own path (`auth/login.ts`), never at the
+ * alias's, so the path shapes below cannot find it. Without that fallback the
+ * alias answered `undefined` and every flag/placeholder rule skipped it while
+ * the existence rule passed (the alias is in the id set) — the one combination
+ * that reads as covered and is not.
+ */
 function commandSource(id: string): string | undefined {
   const parts = id.split(' ')
   for (const candidate of [
@@ -228,7 +257,56 @@ function commandSource(id: string): string | undefined {
       // Not this shape — try the next.
     }
   }
-  return undefined
+  // Filled by commandIds(); resolve it on demand so a caller that has not run
+  // the walk yet (a test driving one id) still gets the alias's file.
+  if (aliasSources.size === 0) commandIds()
+  return aliasSources.get(id)
+}
+
+/**
+ * The flag and placeholder violations one CLI cell carries, as messages.
+ *
+ * The rules the suite applies to every row of `docs/PARITY.md`'s CLI column,
+ * extracted so a SYNTHETIC cell can drive them (see the alias test below): a
+ * rule that only ever runs over the shipped manifest cannot be shown to fire.
+ *
+ * @param cell - The row's CLI cell (its backticked spans are the claims).
+ * @param line - The manifest line the messages name.
+ * @returns One message per claimed flag or positional the named command does not
+ *   declare.
+ */
+function cliClaimViolations(cell: string, line: number): string[] {
+  const violations: string[] = []
+  for (const span of codeSpans(cell)) {
+    const { commands, flags, positionalOn } = spanClaim(span)
+    for (const command of commands) {
+      const source = commandSource(command)
+      // An id that resolves to no file is the EXISTENCE rule's business — that
+      // rule reports it, and this one must not also (see the alias test: an
+      // alias is resolvable but has no file at its own path).
+      if (source === undefined) continue
+      for (const flag of flags) {
+        if (!source.includes(flag)) {
+          violations.push(
+            `docs/PARITY.md line ${line} shows "--${flag}" on "mlcl ${command}", ` +
+              'which declares no such flag',
+          )
+        }
+      }
+      if (
+        positionalOn.includes(command) &&
+        !source.includes('static override args') &&
+        !source.includes('static override strict')
+      ) {
+        violations.push(
+          `docs/PARITY.md line ${line} shows a positional argument on ` +
+            `"mlcl ${command}", which accepts none — a value shown positionally must be a ` +
+            'flag value (write it as `--flag <value>`)',
+        )
+      }
+    }
+  }
+  return violations
 }
 
 describe('docs/PARITY.md names real CLI commands', () => {
@@ -264,38 +342,45 @@ describe('docs/PARITY.md names real CLI commands', () => {
   })
 
   it('names flags the command declares, and uses placeholders the command accepts', () => {
+    const violations: string[] = []
     let checked = 0
     for (const table of tables) {
       const cliIndex = table.header.indexOf('CLI')
       if (cliIndex === -1) continue
       for (const row of table.rows) {
-        for (const span of codeSpans(row.cells[cliIndex] ?? '')) {
-          const { commands, flags, positionalOn } = spanClaim(span)
-          for (const command of commands) {
-            const source = commandSource(command)
-            if (source === undefined) continue // the existence test above reports it
-            checked++
-            for (const flag of flags) {
-              expect(
-                source.includes(flag),
-                `docs/PARITY.md line ${row.line} shows "--${flag}" on "mlcl ${command}", ` +
-                  'which declares no such flag',
-              ).toBe(true)
-            }
-            if (positionalOn.includes(command)) {
-              expect(
-                source.includes('static override args') ||
-                  source.includes('static override strict'),
-                `docs/PARITY.md line ${row.line} shows a positional argument on ` +
-                  `"mlcl ${command}", which accepts none — a value shown positionally must be a ` +
-                  'flag value (write it as `--flag <value>`)',
-              ).toBe(true)
-            }
-          }
+        const cell = row.cells[cliIndex] ?? ''
+        for (const span of codeSpans(cell)) {
+          checked += spanClaim(span).commands.filter((c) => commandSource(c) !== undefined).length
         }
+        violations.push(...cliClaimViolations(cell, row.line))
       }
     }
+    expect(violations).toEqual([])
     expect(checked, 'the CLI column must yield commands to check').toBeGreaterThan(30)
+  })
+
+  it('checks an ALIAS-named command’s flags — the existence rule does not cover it', () => {
+    // `login`, `whoami` and `logout` are ALIASES: oclif resolves each through
+    // `static aliases` on the file that declares it, so no `src/commands/login.ts`
+    // exists. The existence rule still passes for them — `commandIds()` adds
+    // every declared alias — so a `commandSource()` that only tried the path
+    // shapes answered `undefined`, and the flag/placeholder loop then hit its
+    // `continue`, whose comment claims "the existence test above reports it".
+    // That claim is false for an alias: nothing else looks at the command, so
+    // `login`/`whoami`/`logout` — the CLI's entire auth surface — were never
+    // checked against their declarations. A cell showing a flag none of them
+    // declares was silently accepted.
+    expect(
+      commandSource('login'),
+      'an alias must resolve to the file that declares it, or its claims are never checked',
+    ).toBeDefined()
+    expect(
+      cliClaimViolations('`login --definitely-not-a-flag`', 1),
+      'a flag the aliased command does not declare must be reported',
+    ).toEqual([expect.stringContaining('--definitely-not-a-flag')])
+    // …and the alias's REAL flags still pass, so the check is not a blanket
+    // refusal: `auth/login.ts` declares `--token` and `--with-token`.
+    expect(cliClaimViolations('`login --token/--with-token`', 1)).toEqual([])
   })
 })
 
