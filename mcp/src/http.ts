@@ -42,7 +42,11 @@ const app = express()
 // representable integer is accepted; anything else — including a digit run long
 // enough to overflow to `Infinity` — uses the default, with one startup line
 // naming the variable.
-/** A plain positive integer from the environment, or NaN for anything else. */
+/**
+ * A plain integer from the environment, or NaN for anything else — including a
+ * digit run too long for `Number`. Zero comes back as 0, not NaN; the callers'
+ * `> 0` gate is what makes non-positive values unusable (and warning-worthy).
+ */
 const positiveInt = (raw: string | undefined): number => {
   const trimmed = raw?.trim()
   if (trimmed === undefined || !/^\d+$/.test(trimmed)) return Number.NaN
