@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { type ReactElement, useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -10,7 +10,7 @@ type Result =
   | { state: 'applied'; code: string; percentOff?: number; amountOff?: number }
   | { state: 'error'; reason: string }
 
-export function CouponField({ onApply }: { onApply: (code: string | null) => void }) {
+export function CouponField({ onApply }: { onApply: (code: string | null) => void }): ReactElement {
   const { t } = useTranslation()
   const [code, setCode] = useState('')
   const [result, setResult] = useState<Result>({ state: 'idle' })
@@ -33,12 +33,29 @@ export function CouponField({ onApply }: { onApply: (code: string | null) => voi
         percent_off?: number
         amount_off?: number
       }
-      if (!res.ok || !body.valid) {
+      // The endpoint's VERDICT on a code is a 4xx carrying `{ valid: false,
+      // reason }` (coupons.ts answers 400 / 404 / 409 / 410 that way) — the only
+      // answer that is a judgement about the code.
+      if (!res.ok && body.valid === false) {
         setResult({
           state: 'error',
           reason: body.reason ?? t('coupons.invalid', undefined, { defaultValue: 'Invalid code' }),
         })
         onApply(null)
+        return
+      }
+      if (!res.ok || body.valid !== true) {
+        // Anything else — a 5xx, a 2xx whose body is not the endpoint's answer
+        // (an unmocked route answers 200 `{}`), a rewritten response — means the
+        // code was NOT judged. Reported as "Invalid code" it blamed the reader
+        // for a failure that was not theirs, and `onApply(null)` threw away a
+        // coupon they already had applied.
+        setResult({
+          state: 'error',
+          reason: t('coupons.checkFailed', undefined, {
+            defaultValue: 'Could not check that code — try again.',
+          }),
+        })
         return
       }
       setResult({
@@ -49,11 +66,14 @@ export function CouponField({ onApply }: { onApply: (code: string | null) => voi
       })
       onApply(code)
     } catch (_error) {
+      // A rejected fetch (offline, server restart) never reached a verdict
+      // either — so the coupon is NOT cleared and the code is not blamed.
       setResult({
         state: 'error',
-        reason: t('coupons.invalid', undefined, { defaultValue: 'Invalid code' }),
+        reason: t('coupons.checkFailed', undefined, {
+          defaultValue: 'Could not check that code — try again.',
+        }),
       })
-      onApply(null)
     } finally {
       setBusy(false)
     }
