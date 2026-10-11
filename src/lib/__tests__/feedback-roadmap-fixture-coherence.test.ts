@@ -25,6 +25,14 @@
  * against a seed that holds 16 live posts and 8 open ones, with three of its
  * five "Top Open Requests" rows already planned, in progress or shipped.
  *
+ * Cross-fixture REFERENCES are checked separately, against the seed loader's
+ * own rules (`_seed.ts`) rather than the handlers': a vote/comment `post` index
+ * or a post `board` slug the loader cannot resolve throws at boot, an
+ * out-of-range `author`/`voter` user index seeds a row owned by nobody, and an
+ * unresolvable `merged_into` writes a blank moved-note — none of which the
+ * counts here can see, because they resolve a row's post through the same
+ * lookup the loader does.
+ *
  * @module
  */
 
@@ -51,6 +59,8 @@ const read = <T>(...rel: string[]): T =>
 interface PostFixture {
   id: string
   board: string
+  /** 1-based index into `seed/users.json` — `_seed.ts` writes `users[author - 1]`. */
+  author: number
   title: string
   status: string
   /** Age in days — `_seed.ts` writes `created_at = daysAgo(days_ago)`. */
@@ -61,12 +71,24 @@ interface PostFixture {
   merged_into?: string
 }
 interface VoteFixture {
+  /** 1-based index into `seed/posts.json` — `_seed.ts` writes `postIds[post - 1]`. */
   post: number
+  /** 1-based index into `seed/users.json` — `_seed.ts` writes `users[voter - 1]`. */
+  voter: number
   /** Age in days — `_seed.ts` writes `created_at = daysAgo(days_ago)`. */
   days_ago: number
 }
 interface CommentFixture {
+  /** 1-based index into `seed/posts.json` — `_seed.ts` writes `postIds[post - 1]`. */
   post: number
+  /** 1-based index into `seed/users.json` — `_seed.ts` writes `users[author - 1]`. */
+  author: number
+}
+interface BoardFixture {
+  slug: string
+}
+interface UserFixture {
+  user_id: string
 }
 interface ReportBody {
   total_posts: number
@@ -77,17 +99,55 @@ interface ReportBody {
   recent_shipped: Array<{ id: string; vote_count: number }>
 }
 
+const seedUsers = read<UserFixture[]>('seed', 'users.json')
+const seedBoards = read<BoardFixture[]>('seed', 'boards.json')
 const seedPosts = read<PostFixture[]>('seed', 'posts.json')
 const seedVotes = read<VoteFixture[]>('seed', 'votes.json')
 const seedComments = read<CommentFixture[]>('seed', 'comments.json')
 const reports = read<Record<string, ReportBody & { post_count?: number }>>('reports.json')
 
-/** Votes/comments per SEED POST ID — the 1-based index is how the fixtures reference posts. */
+/**
+ * The rows whose `key` is not a 1-based index into `count` rows — the shape
+ * `_seed.ts` reads EVERY cross-fixture reference in (`postIds[v.post - 1]`,
+ * `users[v.voter - 1]`).
+ *
+ * A reference the loader cannot resolve is not a cosmetic problem: an
+ * out-of-range `post` index THROWS at boot ("seed: vote references unknown post
+ * index N", so the template never seeds), and an out-of-range user index seeds
+ * the row with `author_id: undefined` — a row owned by nobody. Both are exactly
+ * what the counts below must not be able to ignore.
+ *
+ * @param rows - The fixture rows to check.
+ * @param key - The 1-based-index field to check.
+ * @param count - How many rows the index may address.
+ * @returns The offending rows, in fixture order.
+ */
+function outOfRange(
+  rows: Array<Record<string, unknown>>,
+  key: string,
+  count: number,
+): Array<Record<string, unknown>> {
+  return rows.filter((row) => {
+    const index = row[key]
+    return !(typeof index === 'number' && Number.isInteger(index) && index >= 1 && index <= count)
+  })
+}
+
+/**
+ * Votes/comments per SEED POST ID — the 1-based index is how the fixtures reference posts.
+ *
+ * A row whose index resolves to no post THROWS instead of being dropped: the
+ * dropped shape answered "this row references nothing", which is the one input
+ * every assertion in this file is blind to (`total_votes` counts
+ * `seedVotes.length` regardless, and both sides of every per-post comparison
+ * come back through this same helper). `_seed.ts` throws on the same row.
+ */
 function countsByPostId(rows: Array<{ post: number }>): Map<string, number> {
   const counts = new Map<string, number>()
   for (const row of rows) {
     const id = seedPosts[row.post - 1]?.id
-    if (id) counts.set(id, (counts.get(id) ?? 0) + 1)
+    if (!id) throw new Error(`fixture references unknown post index ${row.post}`)
+    counts.set(id, (counts.get(id) ?? 0) + 1)
   }
   return counts
 }
@@ -226,5 +286,65 @@ describe('feedback-roadmap fixtures — the seed rows and the served reports agr
     for (const row of stats.recent_shipped) {
       expect(votesByPost.get(row.id) ?? 0, `votes for ${row.id}`).toBe(row.vote_count)
     }
+  })
+})
+
+describe('feedback-roadmap fixtures — every cross-fixture reference resolves', () => {
+  it('every vote and comment points at a seeded post index the seed loader can resolve', () => {
+    // `_seed.ts` reads `postIds[row.post - 1]` and THROWS when it resolves to
+    // nothing ("seed: vote references unknown post index N") — the template then
+    // never seeds at boot. The per-post counts used to DROP such a row, so a
+    // dangling index passed every assertion in this file.
+    expect(outOfRange(seedVotes, 'post', seedPosts.length)).toEqual([])
+    expect(outOfRange(seedComments, 'post', seedPosts.length)).toEqual([])
+  })
+
+  it('every author and voter points at a seeded user index', () => {
+    // `_seed.ts` reads `users[row.author - 1]?.user_id` — optional-chained, so an
+    // out-of-range index does NOT throw: it seeds the row with
+    // `author_id: undefined`, a row owned by nobody that the demo then renders.
+    expect(outOfRange(seedPosts, 'author', seedUsers.length)).toEqual([])
+    expect(outOfRange(seedVotes, 'voter', seedUsers.length)).toEqual([])
+    expect(outOfRange(seedComments, 'author', seedUsers.length)).toEqual([])
+  })
+
+  it('every post names a board the boards fixture declares — the loader throws otherwise', () => {
+    // `_seed.ts`: `if (!boardId) throw new Error('seed: unknown board slug …')`.
+    // This is the SEED fixture set, not the report keys the sibling test walks.
+    const slugs = new Set(seedBoards.map((board) => board.slug))
+    expect(seedBoards.length).toBeGreaterThan(0)
+    for (const post of seedPosts) {
+      expect(
+        slugs.has(post.board),
+        `seeded post ${post.id} references board "${post.board}", which seed/boards.json does not declare`,
+      ).toBe(true)
+    }
+  })
+
+  it('every merged_into names a post that exists — the loader writes a blank moved-note otherwise', () => {
+    // `_seed.ts` resolves the note as `posts.find((t) => t.id === p.merged_into)?.title ?? ''`
+    // and the merge path stamps `Merged into "<title>"`: an unresolvable target
+    // ships a merged duplicate whose note names nothing, and no assertion here
+    // would have seen it (the row is filtered out of every dashboard count).
+    const ids = new Set(seedPosts.map((post) => post.id))
+    const merged = seedPosts.filter((post) => post.merged_into !== undefined)
+    expect(merged.length, 'the seed must carry the merged-duplicate case').toBeGreaterThan(0)
+    for (const post of merged) {
+      expect(
+        ids.has(post.merged_into as string),
+        `seeded post ${post.id} merges into "${post.merged_into}", which is not a seeded post`,
+      ).toBe(true)
+    }
+  })
+
+  it('the reference check can fail — a dangling index is reported, never dropped', () => {
+    // Non-vacuousness for the three tests above: the same helper must flag a
+    // row whose index addresses nothing, and the count must refuse it rather
+    // than answering "no votes on that post".
+    const dangling = { post: seedPosts.length + 1 }
+    expect(outOfRange([dangling], 'post', seedPosts.length)).toEqual([dangling])
+    expect(outOfRange([{ post: 0 }], 'post', seedPosts.length)).toEqual([{ post: 0 }])
+    expect(outOfRange([{ post: 1 }], 'post', seedPosts.length)).toEqual([])
+    expect(() => countsByPostId([dangling])).toThrow(/unknown post index/)
   })
 })
