@@ -66,29 +66,39 @@ export function MapView({ pins, height = 400 }: { pins: Pin[]; height?: number }
       : { lat: 0, lng: 0 }
 
     // createMap() may return the instance synchronously or as a promise
-    // depending on the provider — normalize with Promise.resolve().
-    void Promise.resolve(createMap({ container, center, zoom: pins.length ? 12 : 1 })).then(
-      (instance) => {
-        if (cancelled) {
-          instance.destroy()
-          return
-        }
-        map = instance
-        pins.forEach((pin, i) => {
-          const marker: MarkerConfig = {
-            id: `pin-${i}`,
-            position: { lat: pin.lat, lng: pin.lng },
-            title: pin.label,
+    // depending on the provider — normalize with Promise.resolve(). It may also
+    // THROW synchronously (a provider rejecting a bad container, a style, or an
+    // element that already holds a map), so the call is deferred into the chain
+    // rather than evaluated as `Promise.resolve`'s ARGUMENT: there the throw
+    // escaped the effect and the rejection handler below was dead code for
+    // exactly the failure it was written for — React surfaced the exception out
+    // of the passive effect (an error boundary, or a blank panel with nothing
+    // logged) instead of the logged, blank-panel failure.
+    void Promise.resolve()
+      .then(() => createMap({ container, center, zoom: pins.length ? 12 : 1 }))
+      .then(
+        (instance) => {
+          if (cancelled) {
+            instance.destroy()
+            return
           }
-          map?.addMarker(marker)
-        })
-      },
-      (error: unknown) => {
-        // A rejected createMap must not vanish as an unhandled rejection —
-        // the container would just stay blank with nothing to diagnose.
-        console.error('map failed to initialize', error)
-      },
-    )
+          map = instance
+          pins.forEach((pin, i) => {
+            const marker: MarkerConfig = {
+              id: `pin-${i}`,
+              position: { lat: pin.lat, lng: pin.lng },
+              title: pin.label,
+            }
+            map?.addMarker(marker)
+          })
+        },
+        (error: unknown) => {
+          // A createMap that REJECTS or THROWS must not vanish as an unhandled
+          // rejection or escape the effect — the container would just stay blank
+          // with nothing to diagnose.
+          console.error('map failed to initialize', error)
+        },
+      )
 
     return () => {
       cancelled = true
