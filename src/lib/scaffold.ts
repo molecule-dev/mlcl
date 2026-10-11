@@ -5156,12 +5156,12 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
 
   if (fontFiles.length > 0) {
     const fontsDir = join(projectPath, publicDir, 'fonts')
-    // The names copyFontFiles writes: the basename of each face whose metadata
-    // segments carry no path separators. It is deliberately a SUPERSET — an
-    // entry copyFontFiles skipped (a separator in a segment, or a package name
-    // that escapes node_modules — see isInsideDir) still contributes its
-    // basename here, and sparing a file that was never copied is the safe
-    // direction: this set only ever PREVENTS a removal.
+    // The basenames of the faces whose metadata segments (`fontsDir`, `file`)
+    // carry no path separators — exactly the guard copyFontFiles copies under,
+    // so exactly the names it writes. A face whose PACKAGE NAME escapes
+    // node_modules is skipped by copyFontFiles too (see isInsideDir), yet still
+    // contributes its basename here; sparing a file that was never copied is
+    // the safe direction, because this set only ever PREVENTS a removal.
     const written = new Set(
       fontFiles
         .filter(
@@ -5874,8 +5874,9 @@ interface ScaffoldResult {
  * Generates the full package structure appropriate for the type:
  * - Core: types.ts, provider.ts, index.ts
  * - Provider/Bond: types.ts, provider.ts, index.ts (with implements)
- * - Resource: types.ts, schema.ts, routes.ts, requestHandlerMap.ts, handlers/, __setup__/
- * - Middleware/Utility: types.ts, index.ts
+ * - Resource: types.ts, routes.ts, requestHandlerMap.ts, handlers/, authorizers/index.ts,
+ *   __setup__/<table>.sql, index.ts
+ * - Middleware/Utility: index.ts
  *
  * @param targetDir - Directory to create the package in (created if missing)
  * @param meta - Inferred package metadata

@@ -500,6 +500,25 @@ describe('a superseded fetch response must not win', () => {
     expect(text()).not.toContain('No ratings yet')
   })
 
+  it('shows the empty state for the handler’s own "no ratings yet" body', async () => {
+    // What `GET /api/ratings/avg/:subject_id` really answers for a subject nobody
+    // has rated yet (`api/handlers/ratings.ts` → `{ average: null, count: 0 }`).
+    // The widget required a NUMBER average, so this legitimate 2xx was reported
+    // as a failed load: every unrated subject rendered "Could not load the
+    // ratings" and the empty state under it was unreachable.
+    await mount(createElement(RatingWidget, { subjectId: 'fresh', canRate: true }))
+    await respond('/api/ratings/avg/fresh', 200, { average: null, count: 0 })
+
+    expect(text()).toContain('No ratings yet')
+    expect(text()).not.toContain('Could not load the ratings')
+
+    // …and a real summary arriving later still replaces the empty state.
+    await rerender(createElement(RatingWidget, { subjectId: 'fresh2', canRate: true }))
+    await respond('/api/ratings/avg/fresh2', 200, { average: 4.0, count: 1 })
+    expect(text()).toContain('4.0 (1 reviews)')
+    expect(text()).not.toContain('No ratings yet')
+  })
+
   it('keeps the last synced summary when the summary endpoint fails', async () => {
     await mount(createElement(RatingWidget, { subjectId: 's', canRate: true }))
     await respond('/api/ratings/avg/s', 200, { average: 4.2, count: 7 })

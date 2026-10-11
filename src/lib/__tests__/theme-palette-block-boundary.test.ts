@@ -90,6 +90,19 @@ describe('the theme bond reads the light :root block of theme.css', () => {
     expect(content).not.toContain('#000000')
   })
 
+  it('does not read a dark-only palette as the light one (a match at index 0)', async () => {
+    // `css.search(darkStart)` returns 0 when the dark selector OPENS the file —
+    // what a hand-written, dark-only theme.css looks like. Reading that 0 as "no
+    // dark block found" (the old `rootEnd > 0`) made the whole file the light
+    // block, so the dark overrides were emitted as the app's light palette.
+    const css = `[data-mol-mode='dark'] {
+  --mol-color-primary: #999999;
+}
+`
+    const content = await bondFor(css)
+    expect(content, 'a dark block is never the light palette').not.toContain('#999999')
+  })
+
   it('reads a light palette declared on a :root, [data-mol-mode=light] selector list', async () => {
     const css = `:root,
 [data-mol-mode='light'] {

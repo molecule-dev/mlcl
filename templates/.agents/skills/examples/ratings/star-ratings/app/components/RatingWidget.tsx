@@ -53,7 +53,7 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
         return
       }
       const r = (await res.json()) as {
-        average?: number
+        average?: number | null
         count?: number
       }
       if (ticket !== summarySeq.current) return // superseded by a newer request
@@ -61,7 +61,14 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
       // (the mock server's unmatched-fixture answer) and a proxy's rewrite both
       // parse. Installed as state they read as "no ratings" — the same wrong
       // answer as the failed load above.
-      if (typeof r.average !== 'number' || typeof r.count !== 'number') {
+      //
+      // `average: null` with a numeric `count` is NOT one of those bodies: it is
+      // the real handler's answer for a subject nobody has rated yet
+      // (`api/handlers/ratings.ts` answers `{ average: null, count: 0 }`).
+      // Requiring a NUMBER average rejected it, so every unrated subject showed
+      // "Could not load the ratings — refresh to try again." and the empty state
+      // below it was unreachable.
+      if (typeof r.count !== 'number' || (r.average !== null && typeof r.average !== 'number')) {
         setSummaryFailed(true)
         return
       }

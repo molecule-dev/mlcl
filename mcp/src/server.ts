@@ -40,45 +40,39 @@ import { serverVersion, tracked } from './telemetry.js'
 
 const CLI = process.env.MOLECULE_MCP_CLI ?? 'mlcl'
 
+/** The fixable setup step a missing CLI is, not a raw `spawn mlcl ENOENT`. */
+const CLI_NOT_FOUND =
+  'The mlcl CLI was not found on PATH. Install it with `npm install -g mlcl` (then run `mlcl login` for cloud tools), or point MOLECULE_MCP_CLI at its entry script.'
+
 async function runCli(args: string[], cwd?: string): Promise<string> {
   if (cwd && !existsSync(cwd)) throw new Error(`mlcl ${args[0]}: directory does not exist: ${cwd}`)
-  let stdout: string
-  let failed: boolean
-  let stderr: string
-  let originalMessage: string | undefined
-  try {
-    ;({ stdout, failed, stderr, originalMessage } = await execa(CLI, args, {
-      cwd,
-      reject: false,
-      // The CLI's interactive confirms read stdin; spawned from the server, an
-      // execa-default stdin is an open pipe nothing writes — a `Yes / No` prompt
-      // would wait forever (add_package hung 10 min this way). 'ignore' makes
-      // mlcl take its non-interactive defaults instead.
-      stdin: 'ignore',
-      timeout: 10 * 60_000,
-    }))
-  } catch (error) {
-    // execa rejects on a spawn failure even with reject:false — a missing CLI
-    // must read as the fixable setup step it is, not `spawn mlcl ENOENT`.
-    if ((error as { code?: string }).code === 'ENOENT') {
-      throw new Error(
-        `The mlcl CLI was not found on PATH. Install it with \`npm install -g mlcl\` (then run \`mlcl login\` for cloud tools), or point MOLECULE_MCP_CLI at its entry script.`,
-        { cause: error },
-      )
-    }
-    throw error
-  }
+  // `reject: false` makes execa RESOLVE a cannot-spawn failure rather than
+  // reject it (verified against execa 10: `failed: true`, NO exit code, and its
+  // own `spawn <bin> ENOENT` in `originalMessage`), so a missing CLI arrives at
+  // the `failed` branch below like any other failure — there is nothing to
+  // catch, and a catch here would only hold dead code.
+  const { stdout, failed, stderr, originalMessage } = await execa(CLI, args, {
+    cwd,
+    reject: false,
+    // The CLI's interactive confirms read stdin; spawned from the server, an
+    // execa-default stdin is an open pipe nothing writes — a `Yes / No` prompt
+    // would wait forever (add_package hung 10 min this way). 'ignore' makes
+    // mlcl take its non-interactive defaults instead.
+    stdin: 'ignore',
+    timeout: 10 * 60_000,
+  })
   if (failed) {
+    // A missing CLI is a SPAWN failure: no exit code, and execa's own
+    // `spawn <bin> ENOENT` in `originalMessage`. Test THAT, never /ENOENT/ over
+    // the command's own output: mlcl reports a missing project file as
+    // `ENOENT: no such file or directory, open '…/package.json'`, so a
+    // substring match there rewrote a real, fixable failure into an install
+    // hint for a CLI that was running fine.
+    if (/^spawn\b[^\n]*\bENOENT\b/.test(originalMessage ?? '')) {
+      throw new Error(CLI_NOT_FOUND)
+    }
     const detail =
       stderr.trim() || stdout.trim() || originalMessage || `mlcl ${args.join(' ')} failed`
-    // With reject:false execa resolves a spawn failure (ENOENT) as a failed
-    // result, originalMessage carrying `spawn mlcl ENOENT` — a missing CLI
-    // must read as the fixable setup step it is.
-    if (/ENOENT/.test(detail)) {
-      throw new Error(
-        `The mlcl CLI was not found on PATH. Install it with \`npm install -g mlcl\` (then run \`mlcl login\` for cloud tools), or point MOLECULE_MCP_CLI at its entry script.`,
-      )
-    }
     throw new Error(detail)
   }
   return stdout
@@ -98,12 +92,20 @@ const text = (t: string) => ({ content: [{ type: 'text' as const, text: t }] })
 /**
  * Create a tool's output file, refusing a name that already exists.
  *
- * The file-writing tools check `existsSync(target)` BEFORE their call to the
- * hosted service — and that check is not atomic with the write: the round-trip
+ * The tools whose description promises the output "never overwritten"
+ * (`render_pdf`, `merge_pdfs`, `watermark_pdf`, `transform_image`,
+ * `generate_image`) check `existsSync(target)` BEFORE their call to the hosted
+ * service — and that check is not atomic with the write: the round-trip
  * (seconds, for an image or a PDF) sits between them, so two overlapping calls
  * with the same `output_file` both saw "does not exist" and the second write
  * silently clobbered the first. That is exactly what their own contract ("never
  * overwritten", quoted in the failure below) promises cannot happen.
+ *
+ * `text_to_speech` is the one file-writing tool NOT in that set: its description
+ * promises no such thing (its own output is regenerated on demand), so it
+ * writes over an existing file instead of calling this. Add it here — and say
+ * so in its description — before treating "the file tools never replace their
+ * output" as a property of the whole server.
  *
  * `flag: 'wx'` is `O_CREAT|O_EXCL`: the kernel refuses an existing name, so the
  * loser of the race fails with the same already-exists message the pre-check
@@ -294,7 +296,7 @@ server.registerTool(
   }),
 )
 
-/** base, base/.., base/../.. — bounded like node_modules lookup. */
+/** `base` and up to four of its ancestors — five entries at most (see the loop). */
 function candidateDirs(base: string): string[] {
   const dirs: string[] = []
   let cur = base
@@ -1263,6 +1265,10 @@ server.registerTool(
   ),
 )
 
+/** The input caps `merge_pdfs` advertises: 8 MB per file, 24 MB per call. */
+const MERGE_MAX_FILE_BYTES = 8 * 1024 * 1024
+const MERGE_MAX_TOTAL_BYTES = 24 * 1024 * 1024
+
 server.registerTool(
   'merge_pdfs',
   {
@@ -1287,17 +1293,35 @@ server.registerTool(
         )
       }
       const pdfs: string[] = []
+      let totalBytes = 0
       for (const path of input_files) {
+        let buf: Buffer
         try {
-          const buf = readFileSync(resolve(path))
-          if (buf.subarray(0, 5).toString('latin1') !== '%PDF-') {
-            throw new ServiceCallError(`${path} does not look like a PDF (no %PDF- header).`)
-          }
-          pdfs.push(buf.toString('base64'))
-        } catch (error) {
-          if (error instanceof ServiceCallError) throw error
+          buf = readFileSync(resolve(path))
+        } catch (_error) {
+          // Missing, a directory, unreadable — the caller gets the path, never a
+          // raw fs error.
           throw new ServiceCallError(`Cannot read ${path}.`)
         }
+        if (buf.subarray(0, 5).toString('latin1') !== '%PDF-') {
+          throw new ServiceCallError(`${path} does not look like a PDF (no %PDF- header).`)
+        }
+        // The caps this tool advertises ("Up to 20 files, 8 MB each, 24 MB
+        // total") are enforced HERE, like every sibling that advertises a size
+        // (transcribe_audio, extract_text, moderate_content check theirs
+        // locally): without this the limit was a sentence in the description
+        // and nothing else — an arbitrarily large input was read into memory
+        // and shipped to the service, which answered with an opaque failure.
+        if (buf.length > MERGE_MAX_FILE_BYTES) {
+          throw new ServiceCallError(`${path} is ${buf.length} bytes; the limit is 8 MB per file.`)
+        }
+        totalBytes += buf.length
+        if (totalBytes > MERGE_MAX_TOTAL_BYTES) {
+          throw new ServiceCallError(
+            `The files total ${totalBytes} bytes; the limit is 24 MB. Merge fewer or smaller PDFs.`,
+          )
+        }
+        pdfs.push(buf.toString('base64'))
       }
       const result = (await callHostedService('pdf', 'merge', { pdfs }, directory)) as {
         data?: string
@@ -1432,6 +1456,9 @@ server.registerTool(
   ),
 )
 
+/** The input cap `transform_image` advertises. */
+const TRANSFORM_MAX_INPUT_BYTES = 8 * 1024 * 1024
+
 server.registerTool(
   'transform_image',
   {
@@ -1485,6 +1512,12 @@ server.registerTool(
         throw new ServiceCallError(
           `Cannot read ${input_file}${error instanceof Error ? `: ${error.message}` : '.'}`,
         )
+      }
+      // The input cap this tool advertises ("8 MB input"), enforced here like
+      // every sibling that advertises one — without it the sentence was the
+      // only limit, and an arbitrarily large image was read and shipped.
+      if (input.length > TRANSFORM_MAX_INPUT_BYTES) {
+        throw new ServiceCallError(`${input_file} is ${input.length} bytes; the limit is 8 MB.`)
       }
       const mimeByExt: Record<string, string> = {
         '.png': 'image/png',

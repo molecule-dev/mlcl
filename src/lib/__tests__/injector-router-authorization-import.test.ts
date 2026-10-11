@@ -73,7 +73,6 @@ function resourcePlan(routes: InferredRoute[], exports?: string[]): InjectionPla
     },
     files: [],
     dependencies: [],
-    routeWiring: [],
     migrations: [],
     bondSetup: null,
     conflicts: [],

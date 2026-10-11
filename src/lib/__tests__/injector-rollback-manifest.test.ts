@@ -80,7 +80,6 @@ describe('executeInjection rolls back a failed manifest write', () => {
       },
       files: [],
       dependencies: [{ name: 'left-pad', version: '1.3.0', type: 'dependency' }],
-      routeWiring: [],
       migrations: [],
       bondSetup: null,
       conflicts: [],

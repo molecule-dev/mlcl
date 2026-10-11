@@ -189,3 +189,56 @@ describe('render_pdf — the output name is created, never replaced', () => {
     expect(readFileSync(target, 'utf-8')).toBe('rival bytes')
   })
 })
+
+describe('the size caps the descriptions advertise are enforced', () => {
+  it('merge_pdfs refuses a file over 8 MB before the service is asked', async (ctx) => {
+    if (skipped(ctx)) return
+    const big = join(dir, 'big.pdf')
+    writeFileSync(big, Buffer.concat([Buffer.from('%PDF-'), Buffer.alloc(9 * 1024 * 1024)]))
+    const before = hosted.calls
+
+    const result = await callTool('merge_pdfs', {
+      input_files: [big],
+      output_file: join(dir, 'merged.pdf'),
+    })
+
+    expect(result.isError, 'an over-size input is refused').toBe(true)
+    expect(textOf(result)).toContain('the limit is 8 MB per file')
+    expect(hosted.calls, 'the service is never asked to merge it').toBe(before)
+  })
+
+  it('merge_pdfs refuses a set that totals over 24 MB', async (ctx) => {
+    if (skipped(ctx)) return
+    const seven = join(dir, 'seven.pdf')
+    writeFileSync(seven, Buffer.concat([Buffer.from('%PDF-'), Buffer.alloc(7 * 1024 * 1024)]))
+    const before = hosted.calls
+
+    // 4 × 7 MB = 28 MB: every file is under the 8 MB per-file cap, so only the
+    // TOTAL cap can refuse this.
+    const result = await callTool('merge_pdfs', {
+      input_files: [seven, seven, seven, seven],
+      output_file: join(dir, 'merged-total.pdf'),
+    })
+
+    expect(result.isError, 'an over-total input is refused').toBe(true)
+    expect(textOf(result)).toContain('the limit is 24 MB')
+    expect(hosted.calls).toBe(before)
+  })
+
+  it('transform_image refuses an input over 8 MB before the service is asked', async (ctx) => {
+    if (skipped(ctx)) return
+    const big = join(dir, 'big.png')
+    writeFileSync(big, Buffer.alloc(9 * 1024 * 1024))
+    const before = hosted.calls
+
+    const result = await callTool('transform_image', {
+      input_file: big,
+      output_file: join(dir, 'transformed.png'),
+      ops: [{ op: 'resize', width: 10 }],
+    })
+
+    expect(result.isError, 'an over-size input is refused').toBe(true)
+    expect(textOf(result)).toContain('the limit is 8 MB')
+    expect(hosted.calls).toBe(before)
+  })
+})

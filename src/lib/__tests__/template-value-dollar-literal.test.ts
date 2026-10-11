@@ -80,7 +80,6 @@ const planWith = (files: InjectionPlan['files']): InjectionPlan => ({
   },
   files,
   dependencies: [],
-  routeWiring: [],
   migrations: [],
   bondSetup: null,
   conflicts: [],

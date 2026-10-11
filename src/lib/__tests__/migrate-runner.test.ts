@@ -238,8 +238,14 @@ describe('renderMigrateRunner', () => {
       postgresDeclared: true,
     })
     expect(neither).toBe('const BROWSER_PROFILE = false')
+    // Pin the MATCHER itself: applied only to the three strings pinned above,
+    // this check could never be the one that failed. An always-false regex would
+    // silently stop protecting a scaffolded project's `npm run lint`.
+    const forbidden = /BROWSER_PROFILE = (true|false) &&/
+    expect(forbidden.test('const BROWSER_PROFILE = true && process.env.X')).toBe(true)
+    expect(forbidden.test('const BROWSER_PROFILE = false && process.env.X')).toBe(true)
     for (const rendered of [dual, pgliteOnly, neither]) {
-      expect(rendered).not.toMatch(/BROWSER_PROFILE = (true|false) &&/)
+      expect(rendered).not.toMatch(forbidden)
     }
   })
 

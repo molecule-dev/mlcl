@@ -5,7 +5,7 @@
  * 1. Reads molecule package info via the scanner
  * 2. Copies source files to appropriate locations
  * 3. Transforms file content for target project structure
- * 4. Generates route wiring code (to be integrated by user/AI)
+ * 4. Generates route wiring code (synthesized straight into the project's router)
  * 5. Creates SQL migration files if needed
  * 6. Installs dependencies automatically
  *
@@ -227,7 +227,6 @@ export interface InjectionPlan {
   moleculePackage: InferredPackage
   files: FileOperation[]
   dependencies: DependencyChange[]
-  routeWiring: RouteWiring[]
   migrations: MigrationFile[]
   bondSetup: BondSetup | null
   conflicts: Conflict[]
@@ -262,15 +261,6 @@ export interface DependencyChange {
   type: 'dependency' | 'devDependency' | 'peerDependency'
 }
 
-export interface RouteWiring {
-  method: string
-  path: string
-  middlewares: string[]
-  handler: string
-  importStatement: string
-  importName: string
-}
-
 export interface MigrationFile {
   name: string
   content: string
@@ -294,7 +284,6 @@ export interface InjectionResult {
   success: boolean
   filesCreated: string[]
   filesModified: string[]
-  routeCode: string | null // Generated code to add to router.ts
   errors: string[]
   warnings: string[]
 }
@@ -407,7 +396,6 @@ export async function planInjection(
     moleculePackage: null as unknown as InferredPackage,
     files: [],
     dependencies: [],
-    routeWiring: [],
     migrations: [],
     bondSetup: null,
     conflicts: [],
@@ -833,7 +821,6 @@ export async function executeInjection(
     success: true,
     filesCreated: [],
     filesModified: [],
-    routeCode: null,
     errors: [],
     warnings: [],
   }
@@ -1144,7 +1131,9 @@ export function filterExcludedPeerDependencies(
 export function isPackageNameShaped(name: unknown): boolean {
   if (typeof name !== 'string') return false
   const segments = name.split('/')
-  if (segments.length === 0 || segments.length > 2) return false
+  // `split` always yields at least one element, so only the upper bound is a real
+  // check — an empty name is refused by the character test below.
+  if (segments.length > 2) return false
   if (segments.length === 2 && !segments[0]!.startsWith('@')) return false
   return segments.every((segment, index) => {
     // The scope's leading `@` is part of the name, not of the segment's body.
@@ -1248,14 +1237,12 @@ function extractShortName(packageName: string): string {
     .replace(/^app-/, '')
 }
 
-function extractResourceName(packageName: string, registryLabel?: string): string {
-  // Prefer registry label (e.g., "User", "Project", "Conversation")
-  if (registryLabel) {
-    // Use the first word of the label for the resource name
-    // e.g., "Authentication" -> "Authentication", "Device Sessions" -> "Device"
-    return registryLabel.split(' ')[0]
-  }
-  // Fallback: parse from package name
+function extractResourceName(packageName: string): string {
+  // The resource name comes from the PACKAGE NAME only. A "prefer the registry
+  // label" branch used to stand here, but no caller ever passed a label (all
+  // five call sites have always passed one argument), so it was unreachable
+  // code that read like a working preference.
+  // Parse from package name
   // @molecule/api-resource-user -> User
   const match = packageName.match(/@molecule\/api-resource-(\w+)/)
   if (match) {
@@ -1610,7 +1597,13 @@ function readThemeCssColors(projectPath: string): Record<string, string> {
     const darkStart =
       /\[data-mol-mode\s*=\s*['"]dark['"]\]|\[data-theme\s*=\s*['"]dark['"]\]|\.dark\b|@media[^{]*prefers-color-scheme/i
     const rootEnd = css.search(darkStart)
-    const lightBlock = rootEnd > 0 ? css.slice(0, rootEnd) : css
+    // `>= 0`, not `> 0`: `search` returns 0 for a dark selector that opens the
+    // (comment-stripped) file — a theme.css whose only block IS the dark
+    // override. Treating that 0 as "no dark block found" read the whole file as
+    // the LIGHT palette, so the dark overrides were emitted as the app's light
+    // colors; `-1` (no dark block at all) still keeps the whole file, and a
+    // match at 0 now cuts the light block to nothing, which is correct.
+    const lightBlock = rootEnd >= 0 ? css.slice(0, rootEnd) : css
     const re = /--mol-color-([\w-]+)\s*:\s*([^;]+)/g
     let m: RegExpExecArray | null
     while ((m = re.exec(lightBlock)) !== null) {
@@ -2251,6 +2244,19 @@ export async function synthesizeProjectFiles(
     if (!plan.moleculePackage) continue
     const resourceName = extractResourceName(plan.molecule)
     const wrapperPath = join(projectPath, 'src', 'App', 'Resource', resourceName, 'index.ts')
+    // `resourceName` is derived from the molecule NAME, which is data:
+    // {@link planInjection} refuses an escaping one up front, and that refusal is
+    // what normally keeps this path inside the project. This function is
+    // exported and takes whatever plans it is handed, so the containment is
+    // asserted here too — a name carrying `..` resolves this join ABOVE the
+    // project root (the wrapper would be written outside it, with the served
+    // tree as its only boundary). Skip loudly rather than write.
+    if (!isInside(projectPath, wrapperPath)) {
+      console.warn(
+        `[injector] skipping the ${resourceName} resource wrapper — it resolves outside ${projectPath}`,
+      )
+      continue
+    }
 
     const content = await generateWrapperContent(plan.moleculePackage)
 

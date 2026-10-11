@@ -155,8 +155,14 @@ describe('remote registry-backed tools — an unrecognized payload is reported, 
     const result = await callTool('list_templates')
 
     expect(result.isError, 'an unrecognized templates index must fail the call').toBe(true)
-    expect(textOf(result)).toContain('did not return the expected payload')
-    expect(textOf(result)).not.toBe('[]')
+    const message = textOf(result)
+    expect(message).toContain('did not return the expected payload')
+    // …and names the source the operator can fix, like its `search_packages`
+    // twin above. (The old line here was `expect(textOf(result)).not.toBe('[]')`,
+    // which the containment assertion above already implies — a string carrying
+    // "did not return the expected payload" can never equal `[]`, so it could
+    // never be the assertion that failed.)
+    expect(message).toContain(templatesFile)
   })
 
   it('serves the real documents when the payloads are the documents they claim (positive twin)', async (ctx) => {
