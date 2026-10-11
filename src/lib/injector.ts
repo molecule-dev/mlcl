@@ -987,14 +987,22 @@ export async function executeInjection(
  * resolve it at install time in a manifest that must pin exact. The floor of
  * a union is the lowest concrete version any alternative admits, and every
  * alternative the fleet declares carries its floor as a literal — so take the
- * lowest literal. A range with no concrete floor (`*`, `latest`, `1.x`) is
- * REFUSED rather than shipped: the caller's rollback reports the failure and
- * the target manifest is never left with an unpinned dependency.
+ * lowest literal.
+ *
+ * "Concrete" means the alternative STATES a full `x.y.z`: a comparator is
+ * stripped and the first three-part literal is the floor. An alternative that
+ * states less — `*`, `latest`, `1.x`, and equally a two-part `~1.2` — is
+ * REFUSED rather than shipped. npm gives the short forms a floor of their own
+ * (`~1.2` → 1.2.0, `1.x` → 1.0.0), but the declaration does not state it, and
+ * this pin is written into the target manifest as the version the project
+ * depends on: it must be the version the declaration named, not one this
+ * function inferred. The caller's rollback reports the refusal and the target
+ * manifest is never left with an unpinned dependency.
  *
  * @param version - The declared range (single comparator, bare version, or
  *   `||` union of those).
  * @returns The exact version to pin.
- * @throws When the range carries no concrete version to pin.
+ * @throws When no alternative states a full `x.y.z` literal to pin.
  */
 function pinVersion(version: string): string {
   const floors: Array<readonly [number, number, number]> = []
