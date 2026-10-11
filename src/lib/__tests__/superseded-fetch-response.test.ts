@@ -526,4 +526,50 @@ describe('a superseded fetch response must not win', () => {
     expect(text()).toContain('b.txt')
     expect(text()).not.toContain('a.txt')
   })
+
+  it('a list read already in flight does not resurrect a row the user just deleted', async () => {
+    // The delete is the newest truth this panel holds, but a list read that was
+    // issued BEFORE it committed carries the pre-delete snapshot — landing
+    // after, it puts the deleted attachment back on screen until the next load.
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
+    try {
+      await mount(createElement(AttachmentsPanel, { parentId: 'a' }))
+      await respond('parent_id=a', 200, [attachment('a1', 'a.txt')])
+      expect(text()).toContain('a.txt')
+
+      // An upload finishes, and the refresh IT starts is the read in flight…
+      await act(async () => {
+        container
+          .querySelector('button[aria-label="drop-files"]')
+          ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+      })
+      await flush()
+      await respond('parent_id=a', 200, { id: 'a2' }) // the upload POST
+
+      // …while the user deletes a row.
+      await act(async () => {
+        container
+          .querySelector('[data-mol-id="attachment-delete"]')
+          ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+      })
+      await flush()
+      await respond('/api/attachments/a1', 200, { ok: true })
+      expect(text(), 'the deleted row is gone as soon as the delete commits').not.toContain('a.txt')
+
+      // The refresh issued before the delete now lands with its stale snapshot.
+      const stale = pending.requests.find(
+        (r) => !r.answered && r.url.includes('attachments?parent_id=a'),
+      )
+      expect(stale, 'the upload’s refresh must still be in flight').toBeDefined()
+      stale!.answered = true
+      await act(async () => {
+        stale!.respond(200, [attachment('a1', 'a.txt')])
+      })
+      await flush()
+
+      expect(text(), 'a stale snapshot must not resurrect the deleted row').not.toContain('a.txt')
+    } finally {
+      confirmSpy.mockRestore()
+    }
+  })
 })

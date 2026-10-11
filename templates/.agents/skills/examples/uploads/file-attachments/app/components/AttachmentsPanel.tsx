@@ -137,7 +137,16 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
         method: 'DELETE',
         credentials: 'include',
       })
-      if (res.ok) setItems((prev) => prev.filter((a) => a.id !== id))
+      if (res.ok) {
+        // The delete is the newest truth this panel holds. A list read issued
+        // BEFORE it committed — an upload's trailing refresh is the reachable
+        // one — carries the pre-delete snapshot, and landing after this line
+        // it put the row the user just deleted back on screen until the next
+        // load. Invalidate those reads (see loadSeq): a read started after the
+        // delete still takes a newer ticket and is honored.
+        loadSeq.current++
+        setItems((prev) => prev.filter((a) => a.id !== id))
+      }
     } catch (_error) {
       // Network failure — the attachment stays; the user can retry the delete.
     }
