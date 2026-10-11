@@ -117,6 +117,14 @@ export function Tags() {
   const navigate = useNavigate()
   const [tags, setTags] = useState<Tag[]>([])
   const [loading, setLoading] = useState(true)
+  // Whether the taxonomy load FAILED. Without it the catch below left `tags` at
+  // `[]`, which renders the table's "No tags yet" empty state and its "Create
+  // your first tag" call to action — an offline / 500 answer presented as an
+  // authoritative, genuinely-empty taxonomy, and the same wrong answer the
+  // blog's own BlogIndexPage states at its catch. `loadAttempt` is the retry:
+  // the failure state has to be recoverable without a full page reload.
+  const [loadFailed, setLoadFailed] = useState(false)
+  const [loadAttempt, setLoadAttempt] = useState(0)
   const [searchQuery, setSearchQuery] = useState('')
   const [sortBy, setSortBy] = useState<'most-used' | 'alpha' | 'recent'>('most-used')
   const [filterIndicator, setFilterIndicator] = useState(0)
@@ -163,7 +171,13 @@ export function Tags() {
   }, [showModal])
 
   useEffect(() => {
+    // A retry must not be clobbered by the request it superseded: a slow failed
+    // load that lands after a successful retry would otherwise re-set the
+    // failure state over a page that already has its rows.
+    let cancelled = false
     async function load() {
+      setLoadFailed(false)
+      setLoading(true)
       try {
         // `GET /api/tags` is PAGINATED: it applies `limit`/`offset` and answers
         // `{ data, total, page, limit }`, with `limit` DEFAULTING to 100 and
@@ -186,16 +200,26 @@ export function Tags() {
           if (typeof res?.data?.total === 'number') total = res.data.total
           if (batch.length === 0 || collected.length >= total) break
         }
+        if (cancelled) return
         setTags(collected)
       } catch (_error) {
-        // Failed to load tags — show an empty list so the page still renders
+        // A failed load (offline, 500) must be VISIBLE, not empty: leaving the
+        // list at `[]` handed the reader the table's "No tags yet" state and its
+        // create CTA — a wrong answer that reads as an authoritative, empty
+        // taxonomy and is indistinguishable from one. The failure is surfaced
+        // with a retry instead (see `loadFailed` above).
+        if (cancelled) return
         setTags([])
+        setLoadFailed(true)
       } finally {
-        setLoading(false)
+        if (!cancelled) setLoading(false)
       }
     }
     void load()
-  }, [http])
+    return () => {
+      cancelled = true
+    }
+  }, [http, loadAttempt])
 
   const tagPostCount = (tag: Tag): number => tag.post_count ?? tag.postCount ?? 0
   const totalTaggedPosts = tags.reduce((sum, tag) => sum + tagPostCount(tag), 0)
@@ -343,6 +367,49 @@ export function Tags() {
         {loading ? (
           <div className={cm.cn(cm.flex({ align: 'center', justify: 'center' }), cm.sp('p', 16))}>
             <div className={cm.spinner()} />
+          </div>
+        ) : loadFailed ? (
+          <div
+            role="alert"
+            data-mol-id="tags-load-error"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '1rem',
+              padding: '3rem 1.5rem',
+              borderRadius: '12px',
+              backgroundColor: 'var(--color-error-container, #f9dedc)',
+              color: 'var(--color-on-error-container, #410e0b)',
+              textAlign: 'center',
+            }}
+          >
+            <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('medium'))}>
+              {t(
+                'tags.loadFailed',
+                {},
+                {
+                  defaultValue: 'Could not load tags — refresh to try again.',
+                },
+              )}
+            </span>
+            <button
+              type="button"
+              data-mol-id="btn-retry-tags"
+              onClick={() => setLoadAttempt((attempt) => attempt + 1)}
+              style={{
+                padding: '0.625rem 1.5rem',
+                borderRadius: '0.75rem',
+                border: 'none',
+                cursor: 'pointer',
+                fontSize: '14px',
+                fontWeight: 700,
+                backgroundColor: 'var(--color-primary)',
+                color: 'var(--color-on-primary)',
+              }}
+            >
+              {t('common.retry', {}, { defaultValue: 'Retry' })}
+            </button>
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
