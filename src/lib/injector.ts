@@ -1635,10 +1635,15 @@ function readThemeCssColors(projectPath: string): Record<string, string> {
     //    voting-polling's `:root,\n[data-mol-mode='light'] {` cut the block at
     //    index 7, before its first declaration.
     //
-    // So: strip comments first, then stop only at a DARK-mode override.
+    // So: strip comments first, then stop only at a DARK-mode override — and
+    // match only a dark one. The bare `\.dark\b` alternative also matched
+    // `.dark-mode-toggle` (a word boundary sits before the hyphen), and the
+    // `@media … prefers-color-scheme` alternative matched the LIGHT query too,
+    // so an app that declares either above its palette read ZERO overrides from
+    // a full one — defect 1's outcome, reached by a different token.
     const css = fullCss.replace(/\/\*[\s\S]*?\*\//g, '')
     const darkStart =
-      /\[data-mol-mode\s*=\s*['"]dark['"]\]|\[data-theme\s*=\s*['"]dark['"]\]|\.dark\b|@media[^{]*prefers-color-scheme/i
+      /\[data-mol-mode\s*=\s*['"]dark['"]\]|\[data-theme\s*=\s*['"]dark['"]\]|\.dark(?![\w-])|@media[^{]*prefers-color-scheme\s*:\s*['"]?dark/
     const rootEnd = css.search(darkStart)
     // `>= 0`, not `> 0`: `search` returns 0 for a dark selector that opens the
     // (comment-stripped) file — a theme.css whose only block IS the dark

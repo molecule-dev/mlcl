@@ -121,4 +121,47 @@ describe('the theme bond reads the light :root block of theme.css', () => {
     expect(content).toContain("secondary: '#059669'")
     expect(content).not.toContain('#67e8f9')
   })
+
+  it('reads past a LIGHT prefers-color-scheme query and a .dark-mode-toggle class', async () => {
+    // The same defect-1 outcome, reached by two other tokens the boundary
+    // accepted: `@media … prefers-color-scheme` matched the LIGHT query (only
+    // the value after the colon says which mode it is), and `\.dark\b` matched
+    // any class whose name starts with `dark-` — a word boundary sits before a
+    // hyphen, so `.dark-mode-toggle` was read as a dark-mode override. Either
+    // one above the palette sliced the light block to nothing and the app's
+    // declared colors were replaced by the provider's generic ones.
+    const css = `@media (prefers-color-scheme: light) {
+  :root {
+    --mol-color-surface: #fafafa;
+  }
+}
+
+.dark-mode-toggle {
+  color: var(--mol-color-text);
+}
+
+:root {
+  --mol-color-primary: #111111;
+}
+`
+    const content = await bondFor(css)
+    expect(content, 'a light-mode media query is not the dark boundary').toContain(
+      "primary: '#111111'",
+    )
+    expect(content, 'and neither is a dark-looking class name').toContain("surface: '#fafafa'")
+  })
+
+  it('still stops at a real .dark class — the fix is not a loosening', async () => {
+    const css = `.dark {
+  --mol-color-primary: #999999;
+}
+
+:root {
+  --mol-color-primary: #111111;
+}
+`
+    const content = await bondFor(css)
+    expect(content, 'a .dark block opening the file is a dark boundary').not.toContain('#111111')
+    expect(content).not.toContain('#999999')
+  })
 })
