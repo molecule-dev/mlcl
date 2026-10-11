@@ -390,6 +390,10 @@ describe('route scanning', () => {
 
   itWithSibling('route objects have method, path, handler, and middlewares fields', async () => {
     const result = await scanPackage(DEVICE_PATH)
+    // Non-vacuousness: every expect below is inside the loop, so a scan that
+    // regressed to `routes: []` skipped the body and passed having asserted
+    // nothing — the fields the title names were never checked.
+    expect(result.routes.length).toBeGreaterThan(0)
     for (const route of result.routes) {
       expect(route).toHaveProperty('method')
       expect(route).toHaveProperty('path')
@@ -500,6 +504,9 @@ describe('table scanning', () => {
 
   itWithSibling('user resource tables reference their SQL files', async () => {
     const result = await scanPackage(USER_PATH)
+    // Non-vacuousness: the only expect is inside the loop, so `tables: []`
+    // passed this test without checking a single sqlFile.
+    expect(result.tables.length).toBeGreaterThan(0)
     for (const table of result.tables) {
       expect(table.sqlFile).toMatch(/\.sql$/)
     }

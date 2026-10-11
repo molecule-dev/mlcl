@@ -136,8 +136,6 @@ afterEach(async () => {
 
 describe('blog Tags pagination', () => {
   it('renders at most three page buttons, however many pages the list has', async () => {
-    expect(TOTAL_PAGES, 'the fixture must reach far more pages than the bound').toBeGreaterThan(3)
-
     container = document.createElement('div')
     document.body.appendChild(container)
     root = createRoot(container)
@@ -158,6 +156,30 @@ describe('blog Tags pagination', () => {
     // The current page is among them, and a distant page is not.
     expect(pages).toContain(1)
     expect(pageButtons()).not.toContain(TOTAL_PAGES)
+
+    // The fixture must reach far more pages than the bound, so "a distant page
+    // is not rendered" above says something — and the count is the COMPONENT's,
+    // walked out, not a pair of test-local constants. (This replaced
+    // `expect(TOTAL_PAGES).toBeGreaterThan(3)`, which was computed from the
+    // test's own TAGS and PAGE_SIZE and so could never fail: changing the page's
+    // page size left it green.)
+    const next = (): HTMLButtonElement => {
+      const el = container.querySelector(
+        '[data-mol-id="btn-page-next"]',
+      ) as HTMLButtonElement | null
+      if (!el) throw new Error('no next-page control rendered')
+      return el
+    }
+    let steps = 0
+    while (steps < 500 && !next().disabled) {
+      await clickPageButton('btn-page-next')
+      steps += 1
+    }
+    expect(steps, 'the fixture must reach far more pages than the bound').toBe(TOTAL_PAGES - 1)
+    expect(steps).toBeGreaterThan(3)
+    // …and the control stays bounded at the far end of the list.
+    expect(pageButtons().length).toBeLessThanOrEqual(3)
+    expect(pageButtons()).toContain(TOTAL_PAGES)
   })
 
   it('windows the numbers onto the page being read', async () => {

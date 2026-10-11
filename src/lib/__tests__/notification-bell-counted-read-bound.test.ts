@@ -338,4 +338,43 @@ describe('the bell counted-read set', () => {
     expect(text()).toContain('unread:0')
     expect(rowState()).toBe('true')
   })
+
+  it('an id the prune dropped is counted again when its row returns to the page', async () => {
+    // The prune's observable half — it is not only a source-text promise. An id
+    // can only be re-counted while its row is on screen, so pruning is invisible
+    // for a read row that fell off the page … until that row comes BACK: a
+    // re-delivered `notification:created` frame puts it on screen unread, and its
+    // read receipt must then count the transition. Keeping the dropped id would
+    // make that echo return early and leave the badge stuck one above the rows —
+    // the defect the counted-read set exists to prevent, mirrored.
+    await mount(createElement(NotificationBellWidget, { userId: 'u1' }))
+    await openBell()
+    await frame(
+      'notification:created',
+      JSON.stringify({ id: 'p1', type: 'mention', read_at: null }),
+    )
+    await frame('notification:read', JSON.stringify({ id: 'p1' }))
+    expect(text()).toContain('unread:0')
+
+    // Push p1 off the page: a full page of new arrivals, each unread.
+    for (let i = 1; i <= 20; i++) {
+      await frame(
+        'notification:created',
+        JSON.stringify({ id: `q${i}`, type: 'mention', read_at: null }),
+      )
+    }
+    expect(text(), 'p1 is off the page now').toContain('unread:20')
+    // …p1 comes back (the re-delivery above) and is unread again.
+    await frame(
+      'notification:created',
+      JSON.stringify({ id: 'p1', type: 'mention', read_at: null }),
+    )
+    expect(text()).toContain('unread:21')
+
+    // Its read receipt must decrement: the id the prune dropped is what lets
+    // this count, and a set that kept it would refuse here (badge stuck at 21
+    // over 20 rows of unread state).
+    await frame('notification:read', JSON.stringify({ id: 'p1' }))
+    expect(text()).toContain('unread:20')
+  })
 })
