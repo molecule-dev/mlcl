@@ -5,6 +5,35 @@ import { getClassMap } from '@molecule/app-ui'
 
 const cm = getClassMap()
 
+/**
+ * Whether `value` may be assigned to `window.location.href`.
+ *
+ * The sink is a navigation: `javascript:` runs script in this page's origin
+ * (XSS), `data:` and `blob:` load attacker-authored documents, and a
+ * protocol-relative `//evil.example` leaves the site entirely while looking
+ * like a path. So exactly two shapes are accepted, both of which the billing
+ * route can legitimately answer with:
+ *
+ * - an ABSOLUTE `http:`/`https:` URL (Stripe's portal link is one), or
+ * - a same-origin path — a single leading `/` (a leading `//` is not a path).
+ *
+ * Everything else is refused and reported like any other failed portal open.
+ *
+ * @param value - The `url` field of the portal response.
+ * @returns True when the URL is a navigable http(s) destination.
+ */
+function isNavigableHttpUrl(value: string): boolean {
+  if (value.startsWith('/')) return !value.startsWith('//')
+  try {
+    const parsed = new URL(value)
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:'
+  } catch (_error) {
+    // Not an absolute URL at all (a stray string, a bare scheme) — refuse it
+    // rather than navigate.
+    return false
+  }
+}
+
 export function ManageSubscriptionButton() {
   const { t } = useTranslation()
   const [loading, setLoading] = useState(false)
@@ -32,8 +61,19 @@ export function ManageSubscriptionButton() {
       // `window.location.href = undefined` navigates the browser to
       // `/undefined` — the error state below is never reached. Validate the
       // value before it becomes a navigation target.
+      //
+      // "Validate" means the SCHEME too, not just "a non-empty string": this
+      // assignment is a navigation sink, and `location.href = 'javascript:…'`
+      // runs that script in THIS origin (an XSS the host page cannot see
+      // coming), while `data:` and a bare `//evil.example` send the reader
+      // somewhere the app never meant to. The body is already treated as
+      // untrusted a line above (a proxy can rewrite a failure into a 200), so
+      // the URL it carries gets the same treatment: only an absolute http(s)
+      // URL — the shape Stripe's billing portal answers with — is navigated
+      // to. Resolved against the page's origin so a same-origin path (the
+      // relative form) still counts.
       const { url } = (await res.json().catch(() => ({}))) as { url?: unknown }
-      if (typeof url !== 'string' || url.length === 0) {
+      if (typeof url !== 'string' || !isNavigableHttpUrl(url)) {
         setError(
           t('billing.portalFailed', undefined, {
             defaultValue: 'Could not open the billing portal — try again.',

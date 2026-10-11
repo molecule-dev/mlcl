@@ -146,6 +146,38 @@ describe('ManageSubscriptionButton — the portal URL is validated before it is 
     expect(text()).toContain('Could not open the billing portal')
   })
 
+  it('refuses a javascript: url instead of navigating to it', async () => {
+    // `window.location.href` is a navigation SINK: assigning a `javascript:` URL
+    // runs that script in THIS origin. The body is already treated as untrusted
+    // one line up (a proxy can rewrite a failure into a 200), so a hostile or
+    // rewritten `url` must not become a script — nor a `data:`/protocol-relative
+    // destination that leaves the site. Each is refused like any other failed
+    // portal open, which is observable here: the error text renders instead of
+    // the value being handed to `location`.
+    await clickManage()
+    await respond(200, { url: 'javascript:alert(document.cookie)' })
+
+    expect(text()).toContain('Could not open the billing portal')
+  })
+
+  it('refuses a data: url and a protocol-relative url', async () => {
+    for (const url of ['data:text/html,<script>alert(1)</script>', '//evil.example/portal']) {
+      await clickManage()
+      await respond(200, { url })
+
+      expect(text(), `url ${url} must be refused`).toContain('Could not open the billing portal')
+    }
+  })
+
+  it('accepts a same-origin portal path on the success path', async () => {
+    // The other half of the guard: the check must not over-tighten into
+    // refusing the relative shape a mounted route can answer with.
+    await clickManage()
+    await respond(200, { url: '/billing/portal/session' })
+
+    expect(text()).not.toContain('Could not open the billing portal')
+  })
+
   it('a REJECTED fetch re-enables the button and surfaces the error — never a dead control', async () => {
     // The component's own comment promises this: "finally clears the busy
     // state on EVERY path — a rejected fetch must not leave the button
