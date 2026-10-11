@@ -202,4 +202,40 @@ describe('blog Tags pagination', () => {
     expect(pages).toContain(4)
     expect(pages).not.toContain(1)
   })
+
+  it('reads the whole taxonomy, not just the endpoint’s first page', async () => {
+    // The double above answers EVERY request with all 400 tags, which is not
+    // what `GET /api/tags` does: the handler applies `limit`/`offset`, defaults
+    // `limit` to 100 and caps it at 200 (api/handlers/tags.ts). A single
+    // unparameterised request therefore returned the first page only — this
+    // page then filtered, sorted and paged THAT client-side, so the footer said
+    // "of 100 tags" over a taxonomy of 400, the control could not reach past
+    // the 100th tag, and the search box could never match one of the missing
+    // ones. The double below is the endpoint's real shape.
+    const urls: string[] = []
+    httpClient.get = (url: string) => {
+      urls.push(url)
+      const params = new URL(url, 'http://localhost').searchParams
+      const limit = Number(params.get('limit') ?? 100)
+      const page = Number(params.get('page') ?? 1)
+      const start = (page - 1) * limit
+      return Promise.resolve({
+        data: { data: TAGS.slice(start, start + limit), total: TAGS.length, page, limit },
+      })
+    }
+
+    container = document.createElement('div')
+    document.body.appendChild(container)
+    root = createRoot(container)
+    await act(async () => {
+      root.render(createElement(Tags))
+    })
+    await flush()
+
+    // The footer's count is the component's own arithmetic over what it read:
+    // it only reaches 400 if every page was fetched — a page that read one
+    // default page says "of 100 tags" here.
+    expect(container.textContent).toContain(`of ${TAGS.length} tags`)
+    expect(urls.length, 'a taxonomy past one page needs more than one read').toBeGreaterThan(1)
+  })
 })

@@ -21,6 +21,19 @@ const TAG_COLORS = [
 
 const PAGE_SIZE = 8
 
+/**
+ * How many tags one request reads from `GET /api/tags` — the endpoint caps
+ * `limit` at 200 (api/handlers/tags.ts), so this is its largest honest page.
+ */
+const TAGS_PAGE_LIMIT = 200
+
+/**
+ * Bound on the pages one taxonomy load walks: 50 × {@link TAGS_PAGE_LIMIT} is
+ * 10 000 tags, far past any real taxonomy, and the endpoint's own `total` ends
+ * the walk long before this for every list that fits.
+ */
+const MAX_TAG_PAGES = 50
+
 interface Tag {
   id: string
   name: string
@@ -152,9 +165,28 @@ export function Tags() {
   useEffect(() => {
     async function load() {
       try {
-        const res = await http.get<TagsListResponse>('/api/tags')
-        const list = Array.isArray(res?.data?.data) ? res.data.data : []
-        setTags(list)
+        // `GET /api/tags` is PAGINATED: it applies `limit`/`offset` and answers
+        // `{ data, total, page, limit }`, with `limit` DEFAULTING to 100 and
+        // capped at 200 (api/handlers/tags.ts). This page filters, sorts and
+        // pages the taxonomy CLIENT-side, so a single unparameterised request
+        // silently dropped every tag past the first 100 — the footer said
+        // "of 100 tags" over a blog with more, the control's last page was the
+        // 13th no matter how many tags existed, and the search box could never
+        // match a tag that was never fetched. Read the whole taxonomy in
+        // `limit`-capped pages, stopping when the endpoint's own `total` says
+        // the list is complete.
+        const collected: Tag[] = []
+        let total = Number.POSITIVE_INFINITY
+        for (let requestPage = 1; requestPage <= MAX_TAG_PAGES; requestPage++) {
+          const res = await http.get<TagsListResponse>(
+            `/api/tags?page=${requestPage}&limit=${TAGS_PAGE_LIMIT}`,
+          )
+          const batch = Array.isArray(res?.data?.data) ? res.data.data : []
+          collected.push(...batch)
+          if (typeof res?.data?.total === 'number') total = res.data.total
+          if (batch.length === 0 || collected.length >= total) break
+        }
+        setTags(collected)
       } catch (_error) {
         // Failed to load tags — show an empty list so the page still renders
         setTags([])
