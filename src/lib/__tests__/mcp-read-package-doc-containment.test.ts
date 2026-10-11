@@ -69,6 +69,10 @@ beforeAll(() => {
 
 afterAll(() => {
   if (project) rmSync(project, { recursive: true, force: true })
+  // The connect() below disables telemetry for the process (an emit would
+  // otherwise leave the worker). Restore it: vitest reuses a worker across test
+  // FILES, so a variable left set here changes what a later suite observes.
+  delete process.env.DO_NOT_TRACK
 })
 
 /** Skip out loud in the one environment this suite cannot run in. */
