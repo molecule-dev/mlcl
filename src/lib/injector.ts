@@ -1429,12 +1429,34 @@ function readThemeCssColors(projectPath: string): Record<string, string> {
   // the workspace's own.
   try {
     const fullCss = readFileSync(join(projectPath, 'src', 'theme.css'), 'utf-8')
-    // Only read from the first :root block (light theme) — stop at dark mode selectors
-    const rootEnd = fullCss.search(/@media|\.dark|html\.dark|\[data-theme|\[data-mol-mode/)
-    const css = rootEnd > 0 ? fullCss.slice(0, rootEnd) : fullCss
+    // Two defects lived in the block boundary, and both read an app WITH a
+    // palette as "no overrides at all":
+    //
+    // 1. The boundary search ran over the RAW file, comments included — and
+    //    this file's own self-documenting header NAMES the dark-mode selector
+    //    while explaining it (`*   [data-mol-mode='dark'] { … }     → dark
+    //    theme`). mlcl stamps that header itself (scaffold.ts's
+    //    THEME_CSS_HEADER_TEMPLATE for templates, THEME_CSS_HEADER_CUSTOM for
+    //    every custom app) and it sits ABOVE the palette, so the "light block"
+    //    was sliced down to the header and every `--mol-color-*` declaration
+    //    fell after the cut. Measured across the flagship fleet: 3d-model-viewer,
+    //    ai-writing-studio, ai-code-review-tool, field-service, webhook-manager
+    //    and music-daw each read ZERO color overrides from a full palette, and
+    //    every custom app's theme.css opens with the same header.
+    // 2. The bare `[data-mol-mode` alternative matched a LIGHT-mode selector
+    //    too, and apps commonly declare the light palette as a selector LIST —
+    //    voting-polling's `:root,\n[data-mol-mode='light'] {` cut the block at
+    //    index 7, before its first declaration.
+    //
+    // So: strip comments first, then stop only at a DARK-mode override.
+    const css = fullCss.replace(/\/\*[\s\S]*?\*\//g, '')
+    const darkStart =
+      /\[data-mol-mode\s*=\s*['"]dark['"]\]|\[data-theme\s*=\s*['"]dark['"]\]|\.dark\b|@media[^{]*prefers-color-scheme/i
+    const rootEnd = css.search(darkStart)
+    const lightBlock = rootEnd > 0 ? css.slice(0, rootEnd) : css
     const re = /--mol-color-([\w-]+)\s*:\s*([^;]+)/g
     let m: RegExpExecArray | null
-    while ((m = re.exec(css)) !== null) {
+    while ((m = re.exec(lightBlock)) !== null) {
       const name = m[1].replace(/-([a-z])/g, (_, c: string) => c.toUpperCase())
       colors[name] = m[2].trim()
     }
