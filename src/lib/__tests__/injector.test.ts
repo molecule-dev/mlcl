@@ -1,6 +1,6 @@
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join, resolve, sep } from 'node:path'
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
@@ -17,6 +17,7 @@ import {
 } from '../injector.js'
 import { BROWSER_PROFILE_GATE } from '../migrate-runner.js'
 import { getMoleculeVersion, loadMoleculeVersions, loadRegistry } from '../registry.js'
+import type { InferredPackage } from '../schema.js'
 import { createTestProject } from './create-test-project.js'
 
 // Load registry once — loadRegistry() caches internally
@@ -1063,6 +1064,117 @@ describe('synthesizeAppProjectFiles', () => {
     expect(bondsFile!.content).toContain(
       "export { themeProvider } from './app-theme-css-variables.js'",
     )
+  })
+
+  it('keeps every relative specifier of the smoke test under the shared-code root', () => {
+    // `lib` is SvelteKit's `sharedCodeDir` (registry): the scaffold writes
+    // config.ts / branding.ts / locales/ there (copyTemplateFiles) and the bonds
+    // land in `src/lib/bonds`. The smoke test was hardcoded to `src/__tests__`,
+    // one level ABOVE that root, so each `../…` it carries resolved to a module
+    // the run never wrote ('../bonds/index.js' → src/bonds/index.js).
+    const files = synthesizeAppProjectFiles(
+      [makePlan('@molecule/app-version')],
+      ['@molecule/app-version'],
+      '/tmp/test-app',
+      registryPackages,
+      'lib',
+    )
+    const smoke = files.find((f) => f.targetPath.endsWith('bonds.test.ts'))
+    expect(smoke, 'the smoke test is synthesized').toBeDefined()
+
+    const written = new Set(files.map((f) => f.targetPath))
+    const relative = [...(smoke!.content ?? '').matchAll(/'(\.\.?\/[^']+)'/g)].map((m) => m[1]!)
+    // '../bonds/index.js' (imported), '../config.js' and '../locales/en/ui.js'
+    // (mocked) — the references that made the scaffolded app's `npm test` fail.
+    expect(relative.length).toBeGreaterThan(0)
+    for (const spec of relative) {
+      const resolved = resolve(dirname(smoke!.targetPath), spec)
+      expect(
+        resolved.startsWith(join('/tmp/test-app', 'src', 'lib') + sep),
+        `${spec} named ${resolved}, outside the shared-code root`,
+      ).toBe(true)
+    }
+    // …and the one it IMPORTS is a file this same synthesis writes (the mocks
+    // name files the scaffold copies, so they are not in this set).
+    expect(written).toContain(join('/tmp/test-app', 'src', 'lib', 'bonds', 'index.ts'))
+  })
+
+  it('rewrites the named-provider list in the shared config the scaffold writes', async () => {
+    // Same root again: `copyTemplateFiles` puts config.ts under `src/lib` for
+    // SvelteKit. The rewrite read `src/config.ts`, hit ENOENT and its catch
+    // swallowed it — so the app's `oauthProviders` list stayed empty while the
+    // providers were bonded: a sign-in surface with no buttons.
+    const project = await mkdtemp(join(tmpdir(), 'mlcl-app-synth-'))
+    try {
+      const configPath = join(project, 'src', 'lib', 'config.ts')
+      await mkdir(dirname(configPath), { recursive: true })
+      await writeFile(configPath, 'export const config = {\n  oauthProviders: [],\n}\n')
+
+      const files = synthesizeAppProjectFiles(
+        [],
+        ['@molecule/api-oauth-github'],
+        project,
+        registryPackages,
+        'lib',
+      )
+
+      const updated = files.find((f) => f.targetPath.endsWith('config.ts'))
+      expect(updated?.targetPath).toBe(configPath)
+      expect(updated?.content).toContain("oauthProviders: ['github']")
+    } finally {
+      await rm(project, { recursive: true, force: true })
+    }
+  })
+
+  it('wires nothing for a defaultBond whose defaultBondSetup is missing', () => {
+    // `defaultBond` and `defaultBondSetup` are independent optionals. Registering
+    // the bond name before knowing a setup file would be written emitted
+    // `import { setupFakeBond } from './fake-bond.js'` into bonds/index.ts for a
+    // module nothing generates — TS2307, then ERR_MODULE_NOT_FOUND on boot.
+    const unpaired: InferredPackage = {
+      name: '@molecule/app-fake-default',
+      version: '1.0.0',
+      description: '',
+      dependencies: {},
+      peerDependencies: {},
+      type: 'core',
+      routes: [],
+      tables: [],
+      exports: [],
+      path: '/tmp/test-app',
+      molecule: {
+        type: 'core',
+        category: 'fake-cat',
+        label: 'Fake',
+        defaultBond: 'fake-bond',
+        // deliberately NO defaultBondSetup
+      },
+    }
+
+    const files = synthesizeAppProjectFiles([], ['@molecule/app-fake-default'], '/tmp/test-app', [
+      unpaired,
+    ])
+
+    expect(files.map((f) => f.targetPath)).not.toContain(
+      join('/tmp/test-app', 'src', 'bonds', 'fake-bond.ts'),
+    )
+    const index = files.find((f) => f.targetPath.endsWith('bonds/index.ts'))
+    expect(index?.content ?? '', 'no import of a file nothing generated').not.toContain(
+      './fake-bond.js',
+    )
+  })
+
+  it('leaves the default (no shared-code dir) layout on src/__tests__', () => {
+    // The other half: a framework with no sharedCodeDir keeps the paths it has
+    // always had — the fix must not move react/vue/svelte-like layouts around.
+    const files = synthesizeAppProjectFiles(
+      [makePlan('@molecule/app-version')],
+      ['@molecule/app-version'],
+      '/tmp/test-app',
+      registryPackages,
+    )
+    const smoke = files.find((f) => f.targetPath.endsWith('bonds.test.ts'))
+    expect(smoke?.targetPath).toBe(join('/tmp/test-app', 'src', '__tests__', 'bonds.test.ts'))
   })
 
   it('omits the Theme type import when the project has no theme.css color overrides', async () => {

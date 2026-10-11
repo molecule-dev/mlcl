@@ -703,6 +703,18 @@ async function planMiddlewareInjection(
         resolution: 'skip',
       })
     } else {
+      // Guarded like the sibling writes above. This file is the app's own DATA —
+      // the package's registry template tells the reader to "add/rename tiers
+      // freely" — and a re-run of `mlcl inject` (the CLI's own remedy for a
+      // failed install) re-plans EVERY `@molecule/*` dep the manifest declares,
+      // not just the unwired ones. Without a conflict here the stock template
+      // replaced whatever the user had edited, with no warning and no `--force`
+      // to opt in; with it the write is skipped and the user is told, exactly
+      // like the middleware/bond setup files beside it.
+      const configConflict = await checkConflict(configTarget)
+      if (configConflict) {
+        plan.conflicts.push(configConflict)
+      }
       plan.files.push({
         action: 'create',
         targetPath: configTarget,
@@ -2454,6 +2466,17 @@ export function synthesizeAppProjectFiles(
   const bondsDir = sharedCodeDir
     ? join(projectPath, 'src', sharedCodeDir, 'bonds')
     : join(projectPath, 'src', 'bonds')
+  // The SAME root the shared config/locales live in (`copyTemplateFiles` writes
+  // config.ts, branding.ts, locales/ … under `src/<sharedCodeDir>`). Everything
+  // synthesized here that reaches for `../config.js` / `../locales/en/ui.js` /
+  // `../bonds/index.js` must sit one level under it, or the relative import
+  // names a module the same run never wrote: the app bonds smoke test was
+  // hardcoded to `src/__tests__` (its imports point at `src/bonds`,
+  // `src/config.ts`, `src/locales`), so a SvelteKit scaffold — the one
+  // framework with a sharedCodeDir — shipped a test whose every import was
+  // dangling, and the config rewrite below silently read ENOENT and never
+  // populated the named-provider lists (oauth/payments) at all.
+  const sharedSrcDir = sharedCodeDir ? join('src', sharedCodeDir) : 'src'
 
   // Use registry metadata to detect feature generation needs
   const generates = new Set<string>()
@@ -2508,14 +2531,15 @@ export function synthesizeAppProjectFiles(
       if (!cat || bondCategories.has(cat)) continue
 
       const pascal = bondNameToPascal(defaultBond)
-      bondNames.push(defaultBond)
-      bondCategories.set(cat, defaultBond)
-
-      // Capture appBondSetup from core package for re-exports (only if no provider override)
-      const coreAppSetup = meta?.appBondSetup as
-        { exportName: string; reExport?: boolean } | undefined
-      if (coreAppSetup && !bondAppSetup.has(cat)) bondAppSetup.set(cat, coreAppSetup)
-
+      // The setup file's metadata is read FIRST, and a `defaultBond` with no
+      // `defaultBondSetup` registers nothing: the loops below emit
+      // `import { setup<Pascal> } from './<defaultBond>.js'` (and, when the core
+      // declares `appBondSetup`, an `export { … } from './<defaultBond>.js'`) for
+      // every registered name — so registering the name before knowing a file
+      // would be written shipped a bonds/index.ts importing a module nothing
+      // generated (TS2307, then ERR_MODULE_NOT_FOUND at boot). The two fields are
+      // independent optionals; a registry entry carrying only one is a data
+      // error, and the honest answer is to wire neither.
       const setupMeta = (meta?.defaultBondSetup ??
         registry.packages[pkg.name]?.defaultBondSetup) as
         | {
@@ -2526,14 +2550,22 @@ export function synthesizeAppProjectFiles(
             configExtend?: string[]
           }
         | undefined
-      if (setupMeta) {
-        files.push({
-          action: 'create',
-          targetPath: join(bondsDir, `${defaultBond}.ts`),
-          content: generateDefaultBondSetup(pkg.name, setupMeta, pascal, cat!, coreAppSetup),
-          description: `Generate default ${cat} bond setup`,
-        })
-      }
+      if (!setupMeta) continue
+
+      bondNames.push(defaultBond)
+      bondCategories.set(cat, defaultBond)
+
+      // Capture appBondSetup from core package for re-exports (only if no provider override)
+      const coreAppSetup = meta?.appBondSetup as
+        { exportName: string; reExport?: boolean } | undefined
+      if (coreAppSetup && !bondAppSetup.has(cat)) bondAppSetup.set(cat, coreAppSetup)
+
+      files.push({
+        action: 'create',
+        targetPath: join(bondsDir, `${defaultBond}.ts`),
+        content: generateDefaultBondSetup(pkg.name, setupMeta, pascal, cat!, coreAppSetup),
+        description: `Generate default ${cat} bond setup`,
+      })
     }
   }
 
@@ -2646,7 +2678,7 @@ ${setupCalls.join('\n') || '  // No providers configured'}
   const bondsTestContent = generateAppBondsSmokeTest([...bondMolecules], reExportNames)
   files.push({
     action: 'create',
-    targetPath: join(projectPath, 'src', '__tests__', 'bonds.test.ts'),
+    targetPath: join(projectPath, sharedSrcDir, '__tests__', 'bonds.test.ts'),
     content: bondsTestContent,
     description: 'Generate app bonds smoke tests',
   })
@@ -2683,7 +2715,8 @@ ${setupCalls.join('\n') || '  // No providers configured'}
     }
 
     if (namedProviders.size > 0) {
-      const configPath = join(projectPath, 'src', 'config.ts')
+      // Same root the file actually lives in — see sharedSrcDir.
+      const configPath = join(projectPath, sharedSrcDir, 'config.ts')
       try {
         let configContent = readFileSync(configPath, 'utf-8')
         for (const [category, providers] of namedProviders) {

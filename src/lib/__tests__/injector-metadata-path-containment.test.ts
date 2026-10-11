@@ -120,6 +120,43 @@ describe('injector — metadata-declared paths stay inside the directories they 
     )
   })
 
+  it('does not overwrite a middleware config file the user has edited on a re-run', async () => {
+    // The registry's own template for this file tells its reader to "add/rename
+    // tiers freely" — it is the APP's data, not the package's. A re-run of
+    // `mlcl inject` (the CLI's own remedy for a failed install) re-plans EVERY
+    // `@molecule/*` dep the manifest declares, and without a conflict on this
+    // path the stock template silently replaced the user's edits.
+    installPackage(project, '@molecule/api-middleware-billing', {
+      type: 'middleware',
+      category: 'test',
+      label: 'Billing middleware',
+      middlewareSetup: {
+        configFile: 'src/billing-tiers.ts',
+        configTemplate: 'export const tiers = ["free"]\n',
+        expression: 'createBilling()',
+      },
+    })
+    const tiersPath = join(project, 'src', 'billing-tiers.ts')
+
+    // First inject: the file does not exist yet, so it is created.
+    const first = await planInjection('@molecule/api-middleware-billing', project)
+    expect(first.conflicts.filter((c) => c.path === tiersPath)).toEqual([])
+    await executeInjection(first, project, {})
+    expect(readFileSync(tiersPath, 'utf-8')).toBe('export const tiers = ["free"]\n')
+
+    // The user adds a plan…
+    const edited = 'export const tiers = ["free", "pro"]\n'
+    writeFileSync(tiersPath, edited)
+
+    // …and re-runs the inject. The edit must survive: the plan carries the same
+    // conflict the sibling middleware/bond setup files get, and execution skips
+    // it unless `--force` (which stays the documented opt-in to overwrite).
+    const again = await planInjection('@molecule/api-middleware-billing', project)
+    expect(again.conflicts.map((c) => c.path)).toContain(tiersPath)
+    await executeInjection(again, project, {})
+    expect(readFileSync(tiersPath, 'utf-8')).toBe(edited)
+  })
+
   it('refuses a table whose SQL file is declared outside its own package', async () => {
     // Outside the PACKAGE (and outside the project): the read must not happen.
     const outsideSql = join(root, 'outside-secret.sql')

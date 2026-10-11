@@ -190,6 +190,25 @@ describe('render_pdf — the output name is created, never replaced', () => {
   })
 })
 
+describe('text_to_speech — a 2xx body must carry audio before anything is written', () => {
+  it('answers an audio-less body with the tool’s own failure, not a raw TypeError', async (ctx) => {
+    if (skipped(ctx)) return
+    // Every non-pdf service in the double above answers with the IMAGE shape,
+    // which has no `audio` field — exactly what a shrunken rewrite, a proxy's
+    // 200 or a service bug leaves. Without the shape gate the handler reached
+    // `Buffer.from(undefined, 'base64')` and the client was handed Node's
+    // "The first argument must be of type string …" instead of the failure
+    // every sibling tool reports, and nothing said the audio never arrived.
+    const target = join(dir, 'speech.mp3')
+
+    const result = await callTool('text_to_speech', { text: 'hello', output_file: target })
+
+    expect(result.isError, 'an answer carrying no audio is a failure').toBe(true)
+    expect(textOf(result)).toContain('no audio data')
+    expect(existsSync(target), 'a failed call writes nothing').toBe(false)
+  })
+})
+
 describe('the size caps the descriptions advertise are enforced', () => {
   it('merge_pdfs refuses a file over 8 MB before the service is asked', async (ctx) => {
     if (skipped(ctx)) return

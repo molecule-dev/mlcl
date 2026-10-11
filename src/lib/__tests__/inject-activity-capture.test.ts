@@ -73,6 +73,13 @@ describe('injectActivityCaptureBoot (IDE8 producer wiring)', () => {
     apiDir = mkdtempSync(join(import.meta.dirname, 'ide8-tmp-'))
     mkdirSync(join(apiDir, 'src', 'bonds'), { recursive: true })
     writeFileSync(join(apiDir, 'src', 'bonds', 'index.ts'), FIXTURE_BONDS_INDEX)
+    // …and the api manifest every real workspace has: it is where the producer
+    // module's `@molecule/api-activity*` imports are declared (see the suite's
+    // "no package.json" case below).
+    writeFileSync(
+      join(apiDir, 'package.json'),
+      `${JSON.stringify({ name: 'ide8-tmp' }, null, 2)}\n`,
+    )
   })
 
   afterEach(() => {
@@ -128,6 +135,22 @@ describe('injectActivityCaptureBoot (IDE8 producer wiring)', () => {
 
     expect(await injectActivityCaptureBoot(apiDir)).toBe(false)
     expect(existsSync(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))).toBe(false)
+  })
+
+  it('leaves no producer module behind when the api workspace has no package.json', async () => {
+    // The manifest is where the module's `@molecule/api-activity*` imports are
+    // DECLARED. `addActivityCaptureDependencies` reports "no manifest" by
+    // returning false rather than throwing, so without the up-front refusal the
+    // wiring landed with no rollback and no error: a project importing packages
+    // nothing can declare or install (TS2307 / ERR_MODULE_NOT_FOUND), silently.
+    rmSync(join(apiDir, 'package.json'))
+
+    expect(await injectActivityCaptureBoot(apiDir)).toBe(false)
+
+    expect(existsSync(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))).toBe(false)
+    expect(readFileSync(join(apiDir, 'src', 'bonds', 'index.ts'), 'utf-8')).toBe(
+      FIXTURE_BONDS_INDEX,
+    )
   })
 
   it('no-op when MOLECULE_ACTIVITY_URL is unset: no sink, real provider untouched', async () => {

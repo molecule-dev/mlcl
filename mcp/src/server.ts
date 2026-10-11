@@ -957,6 +957,18 @@ server.registerTool(
           },
           directory,
         )) as { audio: string; contentType: string }
+        // A 2xx proves the route ANSWERED, not that the body carries audio: a
+        // shrunken rewrite, a proxy's 200, or a service bug leaves `audio`
+        // undefined — and `Buffer.from(undefined, 'base64')` then threw a raw
+        // Node TypeError ("The first argument must be of type string …") out of
+        // the tool, naming neither the tool nor the input, instead of the
+        // readable failure every sibling reports (render_pdf / merge_pdfs /
+        // watermark_pdf / transform_image all gate the body before they write).
+        // An EMPTY audio string is refused too: it would write a 0-byte file and
+        // report success over one.
+        if (typeof result.audio !== 'string' || result.audio.length === 0) {
+          throw new ServiceCallError('The service returned no audio data.')
+        }
         const audio = Buffer.from(result.audio, 'base64')
         writeFileSync(target, audio)
         return JSON.stringify({

@@ -1712,7 +1712,8 @@ export async function setupActivityCapture(): Promise<void> {
  * package-driven path in \`create.ts\` (custom builds, whose \`bonds/index.ts\` the
  * injector has just generated). Idempotent — a re-run, or a template that bakes
  * the wiring in, is detected via the import sentinel and left untouched. A no-op
- * for app-only projects (no \`bonds/index.ts\`).
+ * for app-only projects (no \`bonds/index.ts\`) and for a workspace with no
+ * \`package.json\` to declare the producer's imports in (see below).
  *
  * @param apiPath - Absolute path to the API workspace (the dir holding \`src/\`).
  * @returns Whether the wiring was injected (false if absent/already present).
@@ -1722,6 +1723,15 @@ export async function injectActivityCaptureBoot(apiPath: string): Promise<boolea
   const indexPath = join(bondsDir, 'index.ts')
   // App-only / non-standard layouts have no setupBonds to wire into.
   if (!existsSync(indexPath)) return false
+  // The manifest is where this producer's imports are DECLARED, and a workspace
+  // without one cannot back them: `_activity-capture.ts` imports
+  // `@molecule/api-activity` statically (and the capture providers dynamically),
+  // while `addActivityCaptureDependencies` below reports "no manifest" by
+  // returning false rather than throwing — so the wiring would land with no
+  // rollback and no error, in exactly the TS2307 / ERR_MODULE_NOT_FOUND state the
+  // transaction below exists to prevent. Refuse BEFORE any write, the same rule
+  // refreshMigrateRunnerForManifest applies to the manifest its render needs.
+  if (!existsSync(join(apiPath, 'package.json'))) return false
 
   let src = await readFile(indexPath, 'utf-8')
   // Idempotent: already wired (a re-run, or a future template that bakes it in).

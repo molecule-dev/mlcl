@@ -119,6 +119,30 @@ export const MAX_IN_FLIGHT_EMITS = 8
 let inFlightEmits = 0
 
 /**
+ * Whether a RESOLVED tool result is the MCP SDK's declared failure shape.
+ *
+ * A tool can fail in two ways: it throws (the wrapper sees the rejection), or it
+ * resolves with `isError: true` — which is how this server reports every
+ * hosted-service failure (`serviceResult` turns a `ServiceCallError` into that
+ * content block so the calling agent reads a sentence instead of a protocol
+ * error). Watching only for the throw recorded every "no project API key", 401
+ * "the key was rejected", 402 allowance, and "the service returned no …" answer
+ * as a SUCCESS, so the flag that exists to make this server's failures visible
+ * counted exactly those failures as good calls. The emitted flag follows what
+ * the CLIENT sees.
+ *
+ * @param result - The value a wrapped handler resolved with.
+ * @returns True when the result carries `isError: true`.
+ */
+function isErrorResult(result: unknown): boolean {
+  return (
+    typeof result === 'object' &&
+    result !== null &&
+    (result as { isError?: unknown }).isError === true
+  )
+}
+
+/**
  * Fire-and-forget `mcp.tool_call` event — never throws, never blocks, and never
  * queues: once {@link MAX_IN_FLIGHT_EMITS} emits are in flight this call is
  * dropped.
@@ -177,7 +201,9 @@ export function tracked<Args, Result>(
     const startedAt = Date.now()
     try {
       const result = await handler(args)
-      trackToolCall(tool, true, startedAt)
+      // A resolved handler is not necessarily a SUCCESSFUL tool call: see
+      // isErrorResult — the hosted-service tools report their failures this way.
+      trackToolCall(tool, !isErrorResult(result), startedAt)
       return result
     } catch (error) {
       trackToolCall(tool, false, startedAt)
