@@ -150,6 +150,16 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
       // Presence from the batch, ABSENCE confirmed per user — a batch that was
       // capped, or a re-check that could not reach the store, must never be read
       // as "nobody signed back in" (see hasSignedBackIn).
+      //
+      // This read is the job's COMMIT POINT, and it sits BEFORE the purges
+      // below because a cancel is only honest while nothing has been destroyed.
+      // The copy the deletion page shows is "sign back in before then to cancel
+      // … After that, deletion is permanent and cannot be undone", so a read
+      // taken after the credential/app purges could only restore the marker
+      // over a user whose `usersSecrets` (password hash + two-factor secret)
+      // and app rows are already gone: the job logged "deletion cancelled" and
+      // left an account its owner could never log into again. Past this line
+      // the deletion is committed — no later branch may cancel it.
       const signedIn = await hasSignedBackIn(user.id, signedBackIn)
       if (signedIn === null) continue
       if (signedIn) {
@@ -171,8 +181,9 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
       // once the users row is gone the expired query can never select this user again
       // — a purge that failed this run would be orphaned FOREVER (its retry rides on
       // the user row still existing), and a skipped usersSecrets is exactly the leak
-      // above. The `devices` purge is deliberately NOT here: it deletes the rows the
-      // sign-back-in re-check below reads, so it runs only after that check.
+      // above. Every purge here is irreversible (see the commit point above), so the
+      // `devices` purge runs last of the three: it deletes the rows the sign-back-in
+      // read inspects.
       let purgeFailed = false
       try {
         await deleteById('usersSecrets', user.id)
@@ -202,45 +213,11 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
         }
       }
 
-      // …and ONE more sign-back-in check BEFORE the session purge — the last read
-      // that can still see one. The `devices` purge deletes exactly the rows that
-      // prove a sign-back-in, so a check placed after it can never confirm a
-      // sign-in that landed during the purges above: the purge erased the
-      // evidence and the account was then hard-deleted, against the page's
-      // "sign back in to cancel" promise. Reading the still-intact table here
-      // honors every sign-in up to this instant, including one that landed
-      // between the first check and now. The two steps still cannot be made
-      // atomic: the only remaining race is the gap between this read and the
-      // session purge + delete below.
-      const signedInNow = await hasSignedBackIn(user.id, signedBackIn)
-      if (signedInNow === null) {
-        // The store could not answer — never purge on a guess (the same rule the
-        // first check applies); the account survives to the next run, and the
-        // session purge waits with it (see below).
-        console.error(
-          `finalize-deletions: user ${user.id} kept — could not re-confirm the sign-back-in state`,
-        )
-        continue
-      }
-      if (signedInNow) {
-        try {
-          await updateById('users', user.id, { deleted_at: null })
-          console.log(
-            `finalize-deletions: user ${user.id} signed back in during the purge — deletion cancelled`,
-          )
-        } catch (err) {
-          console.error('finalize-deletions: deletion cancel failed', { userId: user.id, err })
-        }
-        // The devices purge below is skipped too: the session row IS the
-        // sign-back-in evidence, and the account just stayed.
-        continue
-      }
-
       // The session purge (`devices` — active sessions/push tokens, keyed by
-      // `userId`, camelCase NOT user_id) runs only once the re-check above has
-      // read the table, and still runs when a purge above already failed: each
-      // purge is independent and idempotent, and an account that is leaving this
-      // run or the next should not keep its sessions while it waits.
+      // `userId`, camelCase NOT user_id) runs only once the commit-point read
+      // above is past, and still runs when a purge already failed: each purge is
+      // independent and idempotent, and an account that is leaving this run or
+      // the next should not keep its sessions while it waits.
       try {
         await deleteMany('devices', [{ field: 'userId', operator: '=', value: user.id }])
       } catch (err) {

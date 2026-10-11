@@ -280,22 +280,24 @@ describe('finalize-deletions — the expired-user filter must actually match', (
     expect(database.deleteById).toHaveBeenCalledWith('users', 'u-mysql')
   })
 
-  it('cancels the deletion when the user signs back in DURING the purge — before the session purge can erase the evidence', async () => {
-    // The first sign-back-in check runs BEFORE the purges, so a sign-in that
-    // lands after it must still be honored. The store double above APPLIES the
-    // job's own `devices` deletion (a real store deletes exactly the rows that
-    // prove a sign-back-in), and the sign-in here is a row landing during the
-    // usersSecrets purge. A job that purged sessions BEFORE re-checking read an
-    // emptied table at the re-check, found nobody, and hard-deleted the account
-    // anyway — against the page's "sign back in to cancel" promise. (The
-    // scripted findOne double this test used to mock could not see that
-    // ordering: it answered from its script, not from the store the purge had
-    // emptied, so the assertion passed with the re-check placed after the purge
-    // that destroys what it reads.)
+  it('a sign-in landing after the commit point cannot leave a half-cancelled account', async () => {
+    // The purges are IRREVERSIBLE: `usersSecrets` holds the password hash and the
+    // two-factor secret, and the APP_TABLES purge destroys the user's own rows. A
+    // sign-back-in read taken AFTER them could only put the `deleted_at` marker
+    // back — the job logged "deletion cancelled" over an account whose owner can
+    // never log in again (no credential row), with its data gone: alive but
+    // destroyed, the worst of both outcomes, and directly against the page's copy
+    // ("After that, deletion is permanent and cannot be undone"). So the cancel
+    // decision is taken BEFORE anything is destroyed; a sign-in that lands after
+    // that point loses the race and the deletion completes, whole.
+    //
+    // The store double APPLIES the job's own `devices` deletion (a real store
+    // deletes exactly the rows that prove a sign-back-in), and the sign-in here
+    // is a row landing during the usersSecrets purge — i.e. after the read.
     users = [{ id: 'u-race', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
     database.deleteById.mockImplementation(async (table: string, id: string) => {
       if (table === 'usersSecrets') {
-        // The sign-back-in lands while the purge is running.
+        // The sign-back-in lands once the deletion is already under way.
         devices.push({ id: 'd-new', userId: id })
       }
       return { data: null, affected: 1 }
@@ -303,16 +305,43 @@ describe('finalize-deletions — the expired-user filter must actually match', (
 
     await runJob()
 
-    // The purge had begun (usersSecrets ran)…
     expect(database.deleteById).toHaveBeenCalledWith('usersSecrets', 'u-race')
-    // …but the re-check read the table BEFORE the session purge could delete
-    // the row it reads: the account survives, the marker is cleared, and the
-    // session row — the sign-back-in evidence itself — is not purged.
-    expect(database.deleteMany).not.toHaveBeenCalledWith('devices', [
+    // The row the sign-in created is purged with the deletion that was already
+    // committed…
+    expect(database.deleteMany).toHaveBeenCalledWith('devices', [
       { field: 'userId', operator: '=', value: 'u-race' },
     ])
-    expect(database.deleteById).not.toHaveBeenCalledWith('users', 'u-race')
-    expect(database.updateById).toHaveBeenCalledWith('users', 'u-race', { deleted_at: null })
+    // …and the account is deleted outright — never kept as a shell that reports
+    // "deletion cancelled" while its credentials are already gone.
+    expect(database.deleteById).toHaveBeenCalledWith('users', 'u-race')
+    expect(database.updateById).not.toHaveBeenCalled()
+  })
+
+  it('takes the last sign-back-in read before ANY irreversible purge', async () => {
+    // The order itself, and the invariant the half-cancel above follows from: the
+    // read that can still CANCEL must run before the first destructive call, so a
+    // cancel restores the account whole. With a re-check placed after
+    // `deleteById('usersSecrets')` (and after the APP_TABLES purges), the last
+    // read lands after the credentials and app rows are already destroyed —
+    // invocation order is the observable, and this fails on that shape.
+    users = [{ id: 'u-order', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
+    devices = []
+
+    await runJob()
+
+    const lastRead = database.findOne.mock.invocationCallOrder.at(-1) ?? 0
+    const firstDestructive = Math.min(
+      ...database.deleteById.mock.invocationCallOrder,
+      ...database.deleteMany.mock.invocationCallOrder,
+    )
+    expect(
+      lastRead,
+      'the last sign-back-in read must precede every purge that cannot be undone',
+    ).toBeLessThan(firstDestructive)
+    // …and with no sign-in to honor, the deletion is committed: the marker is
+    // never cleared and the account is deleted whole.
+    expect(database.updateById).not.toHaveBeenCalled()
+    expect(database.deleteById).toHaveBeenCalledWith('users', 'u-order')
   })
 
   it('re-checks the sign-back-in state BEFORE purging the sessions that read inspects', async () => {
