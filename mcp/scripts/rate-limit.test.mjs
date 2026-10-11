@@ -181,6 +181,32 @@ test('a malformed MCP_RATE_PER_MIN falls back to the default instead of being mi
   }
 })
 
+test('a budget too large for an integer falls back to the default instead of raising the limit', async () => {
+  // All-digits is not the same as usable: 400 digits overflow `Number` to
+  // Infinity, which is `> 0`, is NOT caught by the "was it accepted?" comparison
+  // (Infinity === Infinity, so no startup line is printed), and makes the
+  // bucket's `Math.min(RATE_PER_MIN, …)` a no-op — every request allowed, for
+  // ever, with /health green and nothing in the logs. The startup line naming
+  // the variable is the observable: it only appears when the value was refused.
+  const { child, getOutput } = await startServer({
+    ...process.env,
+    MCP_RATE_PER_MIN: '1'.repeat(400),
+  })
+  try {
+    const deadline = Date.now() + 2000
+    while (!getOutput().includes('MCP_RATE_PER_MIN') && Date.now() < deadline) {
+      await new Promise((r) => setTimeout(r, 50))
+    }
+    assert.match(
+      getOutput(),
+      /MCP_RATE_PER_MIN/,
+      'an unusable budget must be reported at startup, not silently accepted as Infinity',
+    )
+  } finally {
+    await stopServer(child)
+  }
+})
+
 test('an over-budget request is rejected before the body parser parses it', async () => {
   // The budget exists to protect the work a request costs, and the 1 MB JSON
   // parse is that work. Mounted after the parser, the budget never guarded it:

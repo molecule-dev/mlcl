@@ -38,13 +38,22 @@ const app = express()
 // and a NaN budget is not a small budget: `NaN < 1` is false, so the bucket
 // never reports "out of budget" and EVERY request is allowed. A typo silently
 // either tightened the limit to a number nobody chose or removed it entirely,
-// with /health still green and nothing in the logs. Only a plain integer is
-// accepted; anything else uses the default, with one startup line naming the
-// variable.
+// with /health still green and nothing in the logs. Only a plain, exactly
+// representable integer is accepted; anything else — including a digit run long
+// enough to overflow to `Infinity` — uses the default, with one startup line
+// naming the variable.
 /** A plain positive integer from the environment, or NaN for anything else. */
 const positiveInt = (raw: string | undefined): number => {
   const trimmed = raw?.trim()
-  return trimmed !== undefined && /^\d+$/.test(trimmed) ? Number(trimmed) : Number.NaN
+  if (trimmed === undefined || !/^\d+$/.test(trimmed)) return Number.NaN
+  // All-digits is not enough. A long enough run of digits overflows `Number` to
+  // Infinity, which passes `> 0`, is NEVER reported by the "was it accepted?"
+  // comparison below (Infinity === Infinity, so the warning does not fire), and
+  // makes the bucket's `Math.min(RATE_PER_MIN, …)` a no-op — i.e. the silent
+  // no-limit the note above says cannot happen, with /health green and nothing
+  // logged. Only an integer the bucket arithmetic can count is a budget.
+  const value = Number(trimmed)
+  return Number.isSafeInteger(value) ? value : Number.NaN
 }
 
 const parsedRatePerMin = positiveInt(process.env.MCP_RATE_PER_MIN)
