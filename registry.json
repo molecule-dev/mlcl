@@ -17718,6 +17718,56 @@
         "pdf from template"
       ]
     },
+    "@molecule/api-pdf-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "pdf",
+      "label": "Molecule (hosted)",
+      "description": "molecule.dev hosted PDF — HTML-to-PDF rendering, merge and watermark billed to your molecule project, no vendor account",
+      "stack": "api",
+      "implements": "@molecule/api-pdf",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "PDF_SERVICE_LIMITS",
+        "MoleculeServiceError",
+        "MoleculePdfProvider",
+        "PdfResult",
+        "createProvider",
+        "pdfMoleculeSecretDefinitions",
+        "MoleculePdfConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-pdf",
+        "@molecule/api-secrets",
+        "pdf-lib"
+      ],
+      "moleculePeers": [
+        "@molecule/api-pdf",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/pdf/molecule",
+      "intentHints": [
+        "hosted pdf rendering",
+        "generate a pdf from html without a server",
+        "merge pdf files without a vendor account"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
+      ]
+    },
     "@molecule/api-pdf-pdfkit": {
       "language": "typescript",
       "runtime": "node",

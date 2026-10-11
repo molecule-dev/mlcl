@@ -63,6 +63,7 @@ async function runCli(args: string[], cwd?: string): Promise<string> {
     if ((error as { code?: string }).code === 'ENOENT') {
       throw new Error(
         `The mlcl CLI was not found on PATH. Install it with \`npm install -g mlcl\` (then run \`mlcl login\` for cloud tools), or point MOLECULE_MCP_CLI at its entry script.`,
+        { cause: error },
       )
     }
     throw error
@@ -1144,6 +1145,193 @@ server.registerTool(
 )
 
 server.registerTool(
+  'render_pdf',
+  {
+    title: 'Render HTML to a PDF with molecule.dev',
+    description:
+      'HTML-to-PDF rendering on molecule.dev (headless Chrome, self-hosted, no vendor account; metered per document to the project whose MOLECULE_API_KEY is used). Writes a PDF to output_file (never overwritten). Page formats A3/A4/A5/Letter/Legal/Tabloid, margins, scale, header/footer; the renderer fetches HTTP(S) subresources from public addresses only. The same service backs @molecule/api-pdf-molecule in app code.',
+    inputSchema: {
+      html: z.string().min(1).max(2_000_000).describe('The HTML to render'),
+      output_file: z.string().describe('Where to write the PDF (must not exist yet)'),
+      format: z.enum(['A3', 'A4', 'A5', 'Letter', 'Legal', 'Tabloid']).optional(),
+      landscape: z.boolean().optional(),
+      print_background: z.boolean().optional().describe('Print background graphics'),
+      scale: z.number().min(0.1).max(2).optional(),
+      margin: z
+        .object({
+          top: z.string().max(32).optional(),
+          right: z.string().max(32).optional(),
+          bottom: z.string().max(32).optional(),
+          left: z.string().max(32).optional(),
+        })
+        .optional()
+        .describe('CSS lengths, e.g. "1cm", "0.5in", "20px"'),
+      header_template: z.string().max(8192).optional(),
+      footer_template: z.string().max(8192).optional(),
+      page_ranges: z.string().max(256).optional().describe('e.g. "1-5" or "1,3,5-7"'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('render_pdf', async ({ html, output_file, directory, ...opts }) =>
+    serviceResult(async () => {
+      const target = resolve(output_file)
+      if (existsSync(target)) {
+        throw new ServiceCallError(
+          `${target} already exists. Pick a fresh name — the tool never overwrites.`,
+        )
+      }
+      const options: Record<string, unknown> = {}
+      if (opts.format !== undefined) options.format = opts.format
+      if (opts.landscape !== undefined) options.landscape = opts.landscape
+      if (opts.print_background !== undefined) options.printBackground = opts.print_background
+      if (opts.scale !== undefined) options.scale = opts.scale
+      if (opts.margin !== undefined) options.margin = opts.margin
+      if (opts.header_template !== undefined) options.headerTemplate = opts.header_template
+      if (opts.footer_template !== undefined) options.footerTemplate = opts.footer_template
+      if (opts.page_ranges !== undefined) options.pageRanges = opts.page_ranges
+      const result = (await callHostedService(
+        'pdf',
+        'from-html',
+        { html, ...(Object.keys(options).length > 0 ? { options } : {}) },
+        directory,
+      )) as { data?: string; pageCount?: number }
+      if (typeof result.data !== 'string') {
+        throw new ServiceCallError('The service returned no PDF data.')
+      }
+      writeFileSync(target, Buffer.from(result.data, 'base64'), { mode: 0o600 })
+      return JSON.stringify({
+        file: target,
+        pageCount: result.pageCount,
+        bytes: Buffer.from(result.data, 'base64').length,
+      })
+    }),
+  ),
+)
+
+server.registerTool(
+  'merge_pdfs',
+  {
+    title: 'Merge PDFs with molecule.dev',
+    description:
+      'Merge PDF files, in order, into one document on molecule.dev (self-hosted, no vendor account; metered per document to the project whose MOLECULE_API_KEY is used). Up to 20 files, 8 MB each, 24 MB total; writes output_file (never overwritten). The same service backs @molecule/api-pdf-molecule in app code.',
+    inputSchema: {
+      input_files: z.array(z.string()).min(1).max(20).describe('PDF files to merge, in order'),
+      output_file: z.string().describe('Where to write the merged PDF (must not exist yet)'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('merge_pdfs', async ({ input_files, output_file, directory }) =>
+    serviceResult(async () => {
+      const target = resolve(output_file)
+      if (existsSync(target)) {
+        throw new ServiceCallError(
+          `${target} already exists. Pick a fresh name — the tool never overwrites.`,
+        )
+      }
+      const pdfs: string[] = []
+      for (const path of input_files) {
+        try {
+          const buf = readFileSync(resolve(path))
+          if (buf.subarray(0, 5).toString('latin1') !== '%PDF-') {
+            throw new ServiceCallError(`${path} does not look like a PDF (no %PDF- header).`)
+          }
+          pdfs.push(buf.toString('base64'))
+        } catch (error) {
+          if (error instanceof ServiceCallError) throw error
+          throw new ServiceCallError(`Cannot read ${path}.`)
+        }
+      }
+      const result = (await callHostedService('pdf', 'merge', { pdfs }, directory)) as {
+        data?: string
+        pageCount?: number
+      }
+      if (typeof result.data !== 'string') {
+        throw new ServiceCallError('The service returned no PDF data.')
+      }
+      writeFileSync(target, Buffer.from(result.data, 'base64'), { mode: 0o600 })
+      return JSON.stringify({
+        file: target,
+        pageCount: result.pageCount,
+        inputs: input_files.length,
+      })
+    }),
+  ),
+)
+
+server.registerTool(
+  'watermark_pdf',
+  {
+    title: 'Watermark a PDF with molecule.dev',
+    description:
+      'Add a text watermark to every page of a PDF on molecule.dev (self-hosted, no vendor account; metered per document to the project whose MOLECULE_API_KEY is used). Font size, color, rotation and opacity are yours; writes output_file (never overwritten). The same service backs @molecule/api-pdf-molecule in app code.',
+    inputSchema: {
+      input_file: z.string().describe('Path of the PDF to read'),
+      text: z.string().min(1).max(200).describe('The watermark text'),
+      output_file: z.string().describe('Where to write the watermarked PDF (must not exist yet)'),
+      font_size: z.number().int().min(1).max(500).optional(),
+      color: z
+        .string()
+        .max(40)
+        .optional()
+        .describe('CSS color, e.g. "#ff0000" or "rgba(0,0,0,0.15)"'),
+      rotation: z.number().int().min(-359).max(359).optional().describe('Degrees, default -45'),
+      opacity: z.number().min(0).max(1).optional().describe('Default 0.15'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('watermark_pdf', async ({ input_file, text, output_file, directory, ...opts }) =>
+    serviceResult(async () => {
+      const target = resolve(output_file)
+      if (existsSync(target)) {
+        throw new ServiceCallError(
+          `${target} already exists. Pick a fresh name — the tool never overwrites.`,
+        )
+      }
+      let pdf: Buffer
+      try {
+        pdf = readFileSync(resolve(input_file))
+      } catch (error) {
+        throw new ServiceCallError(
+          `Cannot read ${input_file}${error instanceof Error ? `: ${error.message}` : '.'}`,
+        )
+      }
+      if (pdf.subarray(0, 5).toString('latin1') !== '%PDF-') {
+        throw new ServiceCallError(`${input_file} does not look like a PDF (no %PDF- header).`)
+      }
+      const options: Record<string, unknown> = {}
+      if (opts.font_size !== undefined) options.fontSize = opts.font_size
+      if (opts.color !== undefined) options.color = opts.color
+      if (opts.rotation !== undefined) options.rotation = opts.rotation
+      if (opts.opacity !== undefined) options.opacity = opts.opacity
+      const result = (await callHostedService(
+        'pdf',
+        'watermark',
+        {
+          pdf: pdf.toString('base64'),
+          text,
+          ...(Object.keys(options).length > 0 ? { options } : {}),
+        },
+        directory,
+      )) as { data?: string; pageCount?: number }
+      if (typeof result.data !== 'string') {
+        throw new ServiceCallError('The service returned no PDF data.')
+      }
+      writeFileSync(target, Buffer.from(result.data, 'base64'), { mode: 0o600 })
+      return JSON.stringify({ file: target, pageCount: result.pageCount })
+    }),
+  ),
+)
+
+server.registerTool(
   'ai_decision',
   {
     title: 'Answer typed questions with molecule.dev',
@@ -1241,8 +1429,10 @@ server.registerTool(
       let input: Buffer
       try {
         input = readFileSync(resolve(input_file))
-      } catch {
-        throw new ServiceCallError(`Cannot read ${input_file}.`)
+      } catch (error) {
+        throw new ServiceCallError(
+          `Cannot read ${input_file}${error instanceof Error ? `: ${error.message}` : '.'}`,
+        )
       }
       const mimeByExt: Record<string, string> = {
         '.png': 'image/png',
