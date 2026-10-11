@@ -227,6 +227,30 @@ describe('post editor — an edit that could not load is not an edit that create
     expect(text()).toContain('Draft saved.')
     expect(fetches.calls.some((c) => c.method === 'POST')).toBe(true)
   })
+
+  it('does not report a create it could not confirm — and does not POST a duplicate', async () => {
+    // A CREATE is not idempotent: `editing` is only true once `postId` holds the
+    // created post's id, so a 2xx whose body carries no id left `postId` null —
+    // the editor said "Draft saved." over a create it could not adopt, and the
+    // next Save POSTed /api/posts AGAIN, inserting a second copy of the same
+    // post. `{}` is the shape the load path above already refuses (an endpoint
+    // with no fixture, a rewritten answer); the save path had no such gate.
+    await mount(createElement(PostEditorPage, {}))
+    await submitForm()
+    await respond('/api/posts', 201, {})
+
+    expect(text()).not.toContain('Draft saved.')
+    expect(text()).toContain('Could not confirm the save')
+    const postsAfterFirst = fetches.calls.filter((c) => c.method === 'POST').length
+    expect(postsAfterFirst).toBe(1)
+
+    // The retry the error message warns about must not insert the duplicate: the
+    // second submit sends nothing, and the editor is still waiting on the author
+    // to check whether the post exists.
+    await submitForm()
+    expect(fetches.calls.filter((c) => c.method === 'POST').length).toBe(postsAfterFirst)
+    expect(text()).not.toContain('Draft saved.')
+  })
 })
 
 describe('post editor — the saved-state line only links to a page that exists', () => {

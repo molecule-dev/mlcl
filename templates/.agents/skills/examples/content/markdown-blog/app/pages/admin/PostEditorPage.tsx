@@ -1,4 +1,4 @@
-import { type FormEvent, useEffect, useMemo, useRef, useState } from 'react'
+import { type FormEvent, type ReactElement, useEffect, useMemo, useRef, useState } from 'react'
 
 import { requireProvider } from '@molecule/app-markdown'
 import { useTranslation } from '@molecule/app-react'
@@ -49,7 +49,7 @@ function slugify(value: string): string {
  * `GET /api/posts/:slug`); omit it to create a new one. Saving POSTs
  * (create) or PUTs (edit) to the real posts endpoint in api/handlers/posts.ts.
  */
-export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
+export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}): ReactElement {
   const { t } = useTranslation()
   const [postId, setPostId] = useState<string | null>(null)
   const [title, setTitle] = useState('')
@@ -63,6 +63,17 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
   // is what makes a FAILED load retryable — `loadedSlug` is null after a
   // failure, so without a changing dep nothing would ever re-run the fetch.
   const [reloadKey, setReloadKey] = useState(0)
+  /**
+   * A CREATE whose answer could not be confirmed: the POST may have created a
+   * post, but the 2xx body carried no id, so the editor cannot adopt it.
+   *
+   * `save()` is not idempotent in create mode — it POSTs `/api/posts`, which
+   * INSERTS. With `postId` still null the next Save took the create branch again
+   * and inserted a SECOND copy of the same post: a create whose answer the
+   * editor did not understand was treated as one it could retry. Checked in
+   * `save()` before it POSTs, and set there when the body carries no id.
+   */
+  const createUnconfirmed = useRef(false)
 
   // Edit mode: load the post's current values so the author edits, not clobbers.
   const loadedSlug = useRef<string | null>(null)
@@ -101,6 +112,7 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
       // re-run that did not change the mode still cannot discard typed text.
       if (slugChanged) {
         loadedSlug.current = null
+        createUnconfirmed.current = false
         setPostId(null)
         setTitle('')
         setSlug('')
@@ -219,6 +231,21 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
     // under a post nobody tried to save.
     const slugAtSave = editingSlug
     const stillOnThisPost = (): boolean => editingSlugRef.current === slugAtSave
+    // A create the PREVIOUS save could not confirm must not be POSTed again:
+    // `editing` is false for as long as `postId` is null, so a retry takes the
+    // create branch again and INSERTs a duplicate of the post the first POST may
+    // already have created (see createUnconfirmed). Refuse until the author has
+    // checked whether the post exists (reloading the editor clears it).
+    if (postId === null && createUnconfirmed.current) {
+      setError(
+        t('postEditor.createUnconfirmed', undefined, {
+          defaultValue:
+            'Could not confirm the save — the post may or may not have been created. Check the post list before saving again.',
+        }),
+      )
+      setStatus('error')
+      return
+    }
     // Every failure path sets the `error` status (which also clears the
     // saving flag) — a rejected fetch (offline, server restart) must not
     // leave the form stuck on "Saving…" with the button disabled forever.
@@ -241,7 +268,29 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
       }
       const saved = (await res.json().catch(() => null)) as { id?: string } | null
       if (!stillOnThisPost()) return
-      if (saved?.id) setPostId(saved.id)
+      if (!editing) {
+        // A CREATE is confirmed only by the created post's OWN id — a 2xx
+        // proves the route answered, not that a body describing the new post
+        // came back (`{}`, a proxy's answer, a shim all parse as happily as the
+        // row does; the load path above refuses exactly that shape). The id is
+        // load-bearing here: it is what turns the NEXT save into an edit of the
+        // post just created instead of a second POST. Claiming "Draft saved." /
+        // "Post published." without it reported a write the editor could not
+        // confirm — and the retry the message invites inserted a duplicate.
+        const createdId = typeof saved?.id === 'string' && saved.id.length > 0 ? saved.id : null
+        if (createdId === null) {
+          createUnconfirmed.current = true
+          setError(
+            t('postEditor.createUnconfirmed', undefined, {
+              defaultValue:
+                'Could not confirm the save — the post may or may not have been created. Check the post list before saving again.',
+            }),
+          )
+          setStatus('error')
+          return
+        }
+        setPostId(createdId)
+      }
       setStatus('saved')
     } catch (_error) {
       if (!stillOnThisPost()) return
