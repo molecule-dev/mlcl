@@ -52,9 +52,18 @@ const INDEX_HTML = `<!doctype html>
 let root: string
 let project: string
 
+/**
+ * Every temp root this file created. A test below calls `makeProject` inside
+ * its body to re-fixture the project; that call reassigns `root`, so an
+ * `afterEach` that removed only the latest root leaked the directory
+ * `beforeEach` had just made.
+ */
+const createdRoots: string[] = []
+
 /** A project depending on a non-registry font package whose family carries `$&`. */
 function makeProject(family: string): void {
   root = mkdtempSync(join(tmpdir(), 'mlcl-font-block-'))
+  createdRoots.push(root)
   project = join(root, 'app')
   mkdirSync(project, { recursive: true })
   writeFileSync(
@@ -93,7 +102,8 @@ function makeProject(family: string): void {
 const occurrences = (haystack: string, needle: string): number => haystack.split(needle).length - 1
 
 afterEach(() => {
-  if (root) rmSync(root, { recursive: true, force: true })
+  // EVERY root, not just the latest — see `createdRoots`.
+  for (const dir of createdRoots.splice(0)) rmSync(dir, { recursive: true, force: true })
 })
 
 describe('the font block replacement is not corrupted by $ sequences in metadata', () => {

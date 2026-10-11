@@ -45,9 +45,18 @@ const payloadMolecule = (shortName: string): Record<string, unknown> => ({
 let root: string
 let project: string
 
+/**
+ * Every temp root this file created. Two tests below call `makeProject` inside
+ * their body to re-fixture the project; each call reassigns `root`, so an
+ * `afterEach` that removed only the latest root leaked the directory
+ * `beforeEach` had just made — one per such test, every run.
+ */
+const createdRoots: string[] = []
+
 /** A project depending on a `file:payload` package that declares `shortName` about itself. */
 function makeProject(shortName: string): void {
   root = mkdtempSync(join(tmpdir(), 'mlcl-short-name-containment-'))
+  createdRoots.push(root)
   project = join(root, 'app')
   mkdirSync(project, { recursive: true })
   writeFileSync(
@@ -78,7 +87,8 @@ function makeProject(shortName: string): void {
 }
 
 afterEach(() => {
-  if (root) rmSync(root, { recursive: true, force: true })
+  // EVERY root, not just the latest — see `createdRoots`.
+  for (const dir of createdRoots.splice(0)) rmSync(dir, { recursive: true, force: true })
 })
 
 describe('isSafeShortName — one path segment, one identifier', () => {

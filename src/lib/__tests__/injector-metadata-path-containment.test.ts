@@ -19,6 +19,15 @@
  * migration-failure suite uses), and each asserts on the FILESYSTEM after the
  * injection runs — not just on the plan.
  *
+ * Every `executeInjection` call passes `autoInstall: false`, like the sibling
+ * injector suites. `planInjection` always records the injected package as a
+ * dependency, and `executeInjection` runs `npm install` whenever the plan has
+ * dependencies unless that option is false — so without it each of these six
+ * calls shelled out to a REAL `npm install` against the registry (the fixture
+ * package does not exist on npm, so every one failed), making the suite
+ * network-dependent and slow, with the failure swallowed into `result.warnings`
+ * that nothing here asserts on.
+ *
  * @module
  */
 import {
@@ -94,7 +103,7 @@ describe('injector — metadata-declared paths stay inside the directories they 
 
     // The end-to-end assertion: running the injection (forced, so no conflict
     // short-circuit hides it) leaves the outside file exactly as it was.
-    await executeInjection(plan, project, { force: true })
+    await executeInjection(plan, project, { force: true, autoInstall: false })
     expect(readFileSync(sentinel, 'utf-8')).toBe('ORIGINAL')
   })
 
@@ -114,7 +123,7 @@ describe('injector — metadata-declared paths stay inside the directories they 
     expect(plan.conflicts.filter((c) => c.path === 'src/tiers.ts')).toEqual([])
     expect(plan.files.map((f) => f.targetPath)).toContain(join(project, 'src', 'tiers.ts'))
 
-    await executeInjection(plan, project, { force: true })
+    await executeInjection(plan, project, { force: true, autoInstall: false })
     expect(readFileSync(join(project, 'src', 'tiers.ts'), 'utf-8')).toBe(
       'export const tiers = []\n',
     )
@@ -141,7 +150,7 @@ describe('injector — metadata-declared paths stay inside the directories they 
     // First inject: the file does not exist yet, so it is created.
     const first = await planInjection('@molecule/api-middleware-billing', project)
     expect(first.conflicts.filter((c) => c.path === tiersPath)).toEqual([])
-    await executeInjection(first, project, {})
+    await executeInjection(first, project, { autoInstall: false })
     expect(readFileSync(tiersPath, 'utf-8')).toBe('export const tiers = ["free"]\n')
 
     // The user adds a plan…
@@ -153,7 +162,7 @@ describe('injector — metadata-declared paths stay inside the directories they 
     // it unless `--force` (which stays the documented opt-in to overwrite).
     const again = await planInjection('@molecule/api-middleware-billing', project)
     expect(again.conflicts.map((c) => c.path)).toContain(tiersPath)
-    await executeInjection(again, project, {})
+    await executeInjection(again, project, { autoInstall: false })
     expect(readFileSync(tiersPath, 'utf-8')).toBe(edited)
   })
 
@@ -174,7 +183,7 @@ describe('injector — metadata-declared paths stay inside the directories they 
     expect(plan.migrations).toEqual([])
     expect(plan.migrationFailures?.[0]).toContain('stolen')
 
-    await executeInjection(plan, project, { force: true })
+    await executeInjection(plan, project, { force: true, autoInstall: false })
     // The bytes outside the package were never copied into the project.
     expect(existsSync(join(project, 'migrations'))).toBe(false)
   })
@@ -196,7 +205,7 @@ describe('injector — metadata-declared paths stay inside the directories they 
     const name = plan.migrations[0]!.name
     expect(name).not.toMatch(/[\\/]/)
 
-    await executeInjection(plan, project, { force: true })
+    await executeInjection(plan, project, { force: true, autoInstall: false })
     expect(readdirSync(join(project, 'migrations'))).toEqual([name])
     // The uncontained write landed here (`migrations/…/../../pwn_table.sql`).
     expect(existsSync(join(project, 'pwn_table.sql'))).toBe(false)

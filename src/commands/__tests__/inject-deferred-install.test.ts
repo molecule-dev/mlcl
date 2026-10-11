@@ -20,7 +20,7 @@ import { join } from 'node:path'
 
 import { Config } from '@oclif/core'
 import { execa } from 'execa'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import Inject from '../inject.js'
 
@@ -34,6 +34,14 @@ const execaMock = vi.mocked(execa)
  * manifest) passed every count/argv assertion. Every fs/promises write is
  * recorded through a passthrough mock, and the install event is appended by
  * the mocked execa, so one list gives the ordering evidence.
+ *
+ * The list is cleared per test. It used to accumulate for the life of the
+ * module, so the ordering test's `findIndex('install:npm install')` — meant to
+ * locate THIS test's install — ranged over every earlier test's events too:
+ * under a shuffled sequence the install it found could belong to another test,
+ * and under vitest's retry the second attempt compared ITS install against the
+ * FIRST attempt's writes (a spurious ordering failure). Every `write:` a test
+ * issues also stayed in the list, growing it without bound.
  */
 const order = vi.hoisted(() => ({ events: [] as string[] }))
 
@@ -54,6 +62,10 @@ vi.mock('node:fs/promises', async (importOriginal) => {
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
 
 let dir: string | null = null
+beforeEach(() => {
+  // See `order`: each test's ordering evidence must be its own.
+  order.events.length = 0
+})
 afterEach(async () => {
   execaMock.mockReset()
   if (dir) await rm(dir, { recursive: true, force: true })

@@ -43,12 +43,23 @@ let root: string
 let project: string
 
 /**
+ * Every temp root this file created.
+ *
+ * An `afterEach` that removes only the latest `root` is not enough: two tests
+ * below call `makeProject` INSIDE their body to re-fixture the project, and
+ * each call reassigns `root` — so the directory `beforeEach` had just made was
+ * leaked, one per such test, every run.
+ */
+const createdRoots: string[] = []
+
+/**
  * A project manifest whose `@molecule/*` keys are the molecule names under
  * test, plus the `file:payload` package those keys resolve to — which declares
  * `declaredName` as ITS OWN name.
  */
 function makeProject(dependencies: Record<string, string>, declaredName: string): void {
   root = mkdtempSync(join(tmpdir(), 'mlcl-name-containment-'))
+  createdRoots.push(root)
   project = join(root, 'app')
   mkdirSync(project, { recursive: true })
   writeFileSync(
@@ -63,7 +74,8 @@ function makeProject(dependencies: Record<string, string>, declaredName: string)
 }
 
 afterEach(() => {
-  rmSync(root, { recursive: true, force: true })
+  // EVERY root, not just the latest — see `createdRoots`.
+  for (const dir of createdRoots.splice(0)) rmSync(dir, { recursive: true, force: true })
 })
 
 describe('the injector refuses a name that is not a package name', () => {
