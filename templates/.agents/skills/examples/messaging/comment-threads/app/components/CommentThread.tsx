@@ -210,8 +210,14 @@ export function CommentThread({
     // Refetch so the new comment lands in the right place in the tree (the
     // load above now merges the replies pages the tree nests); a failed
     // refetch must not reject out of the click handler.
+    //
+    // The refetch belongs to the SAME post-write flow, so its failure obeys the
+    // same ownership rule as every other state update here (see mountedForRef):
+    // the reader can navigate while it is in flight, and this render then owns
+    // another resource's thread — the old resource's "could not post" banner
+    // there describes a post nobody attempted on it.
     await load().catch(() => {
-      setPostError(true)
+      if (stillOnResource()) setPostError(true)
     })
   }
 

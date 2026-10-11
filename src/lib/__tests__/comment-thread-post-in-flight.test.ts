@@ -232,6 +232,50 @@ describe('the comment composer', () => {
     ).not.toContain('Could not post the comment')
   })
 
+  it('a post-save REFETCH that fails after a navigation stays off the new thread', async () => {
+    // The refetch the accepted post triggers is part of the same flow, so it
+    // obeys the same ownership rule as the rest of it. It did not: the reader
+    // could navigate while it was in flight, and a rejecting refetch then
+    // painted "could not post the comment" under a thread where the post had
+    // never been attempted — a comment that WAS posted, reported as failed.
+    await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await answerGet(0, {
+      data: [{ id: 'c1', userId: 'u1', parentId: null, body: 'root comment', createdAt: 'x' }],
+    })
+    await answerGet(1, { data: [] })
+
+    await typeIntoTextarea('a comment')
+    await clickPost()
+    // The server accepted it, so the flow continues into its refetch — parked
+    // at the next list GET for p1.
+    await act(async () => {
+      postCalls[0]?.resolve({ id: 'c2' })
+    })
+    await flush()
+
+    // The reader navigates to another post while that refetch is in flight…
+    await rerender(createElement(CommentThread, { resourceType: 'post', resourceId: 'p2' }))
+    // …and it fails (offline). The failure belongs to p1.
+    const staleRefetch = httpCalls[httpCalls.length - 2]
+    expect(staleRefetch?.path, 'the post-save refetch is parked before it fails').toBe(
+      '/api/post/p1/comments',
+    )
+    await act(async () => {
+      staleRefetch?.reject(new Error('offline'))
+    })
+    await flush()
+
+    await answerGet(httpCalls.length - 1, {
+      data: [{ id: 'c9', userId: 'u2', parentId: null, body: 'other thread', createdAt: 'x' }],
+    })
+    await answerGet(httpCalls.length - 1, { data: [] })
+    expect(text()).toContain('other thread')
+    expect(
+      text(),
+      'a refetch that failed after the reader left must not report the old thread’s post here',
+    ).not.toContain('Could not post the comment')
+  })
+
   it('a failed post does not leave its error banner on the next resource', async () => {
     // No race needed: the failure is recorded while the reader is still on the
     // old resource, and the resource change itself must retire it (the sibling
