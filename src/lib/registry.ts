@@ -863,15 +863,30 @@ export function loadAppFrameworks(): Record<string, AppFrameworkConfig> {
 
 /**
  * Get the set of npm dependency names that identify app projects.
- * Derived from all appFrameworks dependency keys in the registry.
+ *
+ * Derived from all appFrameworks dependency keys in the registry. A framework
+ * whose markers live ONLY in `devDependencies` contributes its devDependencies
+ * instead of nothing: `appFrameworks.svelte` declares `dependencies: {}` with
+ * `svelte`, `@sveltejs/kit`, `@sveltejs/adapter-auto` and
+ * `@sveltejs/vite-plugin-svelte` under `devDependencies`, so a Svelte project
+ * was invisible to the "is this an app project?" check both callers run
+ * (`inject.ts`'s `detectAppProject`, `validator.ts`'s
+ * `detectAppProjectForValidation`) — which decides whether secrets land in
+ * `app/.env` or `api/.env`, whether the API-only `ensureMigrateRunnerImports`
+ * step runs, and which validation mode applies. The fallback is per-framework,
+ * never a union of both keys: `@types/react` and `@vitejs/plugin-*` are shared
+ * by projects of several kinds, and adding them for a framework that already
+ * names runtime dependencies would widen the heuristic for every project.
+ *
+ * @returns Every framework's identifying package names, deduplicated.
  */
 export function getAppFrameworkDeps(): string[] {
   const frameworks = loadAppFrameworks()
   const deps = new Set<string>()
   for (const fw of Object.values(frameworks)) {
-    for (const dep of Object.keys(fw.dependencies ?? {})) {
-      deps.add(dep)
-    }
+    const runtime = Object.keys(fw.dependencies ?? {})
+    const identifying = runtime.length > 0 ? runtime : Object.keys(fw.devDependencies ?? {})
+    for (const dep of identifying) deps.add(dep)
   }
   return [...deps]
 }
