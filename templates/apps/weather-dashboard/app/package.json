@@ -18,7 +18,7 @@
     "format:check": "prettier --check 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
-    "@molecule/app-ai-chat": "1.5.1",
+    "@molecule/app-ai-chat": "1.5.2",
     "@molecule/app-ai-models": "1.4.0",
     "@molecule/app-analytics": "1.0.2",
     "@molecule/app-analytics-posthog": "1.0.2",
@@ -60,7 +60,7 @@
     "@molecule/app-locales-http": "1.0.2",
     "@molecule/app-locales-i18n": "1.0.2",
     "@molecule/app-locales-icons": "1.0.2",
-    "@molecule/app-locales-ide": "1.10.6",
+    "@molecule/app-locales-ide": "1.10.7",
     "@molecule/app-locales-legal-default": "1.0.2",
     "@molecule/app-locales-live-preview": "1.0.2",
     "@molecule/app-locales-maps": "1.0.2",
