@@ -458,3 +458,39 @@ describe('submit_agent_run refuses a repo_url that is not an https GitHub URL', 
     }
   })
 })
+
+describe('push_send refuses an endpoint that is not an https push-service URL', () => {
+  it('refuses a file:// URL and a link-local metadata address before the metered call', async (ctx) => {
+    if (skipped(ctx)) return
+    // The endpoint is the field the platform ACTS on: the hosted push sender
+    // POSTs to it and reports the status code back, so `z.string().url()`
+    // alone made it an SSRF primitive against the platform's egress — the same
+    // shape submit_agent_run closes on its repo_url. A browser only ever
+    // hands out an https endpoint, so the scheme bound refuses nothing real.
+    for (const url of [
+      'file:///etc/passwd',
+      'http://169.254.169.254/latest/meta-data',
+      'gopher://internal.example/1',
+    ]) {
+      const text = await callText(callTool, 'push_send', {
+        endpoint: url,
+        p256dh: 'BPr3fine'.repeat(8),
+        auth: 'a'.repeat(24),
+        title: 'hello',
+      })
+      expect(text, `${url} must be refused`).toContain('https')
+      expect(text, 'the refusal precedes the metered call').not.toContain(METERED_MARKER)
+    }
+  })
+
+  it('admits an https endpoint — the bound is not tighter than the real shape', async (ctx) => {
+    if (skipped(ctx)) return
+    const text = await callText(callTool, 'push_send', {
+      endpoint: 'https://fcm.googleapis.com/fcm/send/EXAMPLE',
+      p256dh: 'BPr3fine'.repeat(8),
+      auth: 'a'.repeat(24),
+      title: 'hello',
+    })
+    expect(text, 'a real push endpoint reaches the service').toContain(METERED_MARKER)
+  })
+})

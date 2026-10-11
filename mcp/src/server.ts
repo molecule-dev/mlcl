@@ -1566,7 +1566,25 @@ server.registerTool(
       // under 2048 characters (the practical URL cap), and the two Web Push
       // keys are base64url of a 65-byte EC point and a 16-byte secret — under
       // 200 characters with the padding variants.
-      endpoint: z.string().url().max(2048).describe('The push subscription endpoint URL'),
+      //
+      // The endpoint is also the ONE field of this call the platform acts on
+      // rather than stores: the hosted push sender POSTs the (encrypted)
+      // payload TO it and reports the answer's status code back to the caller.
+      // `z.string().url()` alone accepts `file:`, `gopher:` and
+      // `http://169.254.169.254/…`, so unrestricted that is an SSRF primitive
+      // against the platform's egress — the same shape `submit_agent_run`
+      // closes on its repo_url. A browser's pushManager.subscribe() only ever
+      // hands out an https endpoint (the push protocol has no other kind), so
+      // requiring the scheme refuses nothing legitimate.
+      endpoint: z
+        .string()
+        .url()
+        .max(2048)
+        .refine(
+          (value) => URL.canParse(value) && new URL(value).protocol === 'https:',
+          'endpoint must be an https push-service URL',
+        )
+        .describe('The push subscription endpoint URL'),
       p256dh: z.string().min(1).max(200).describe("The subscription's p256dh key (base64url)"),
       auth: z.string().min(1).max(200).describe("The subscription's auth secret (base64url)"),
       title: z.string().min(1).max(500).describe('Notification title'),
