@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { existsSync, readdirSync, readFileSync } from 'node:fs'
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
+import { chmod, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -565,6 +565,34 @@ describe('scaffold', () => {
       expect(content).toContain('# PostHog host (optional) — Origin of your PostHog instance.')
       expect(content).toContain('POSTHOG_HOST=https://us.i.posthog.com')
       expect(content).not.toContain('# Example:')
+    })
+
+    it('tightens an existing .env to owner-only instead of leaving its old mode', async () => {
+      // `writeFile(path, data, { mode })` applies `mode` only when the file is
+      // CREATED — an `.env` that already exists keeps whatever permissions it
+      // had. Reachable on `mlcl create --force` over a directory whose `.env`
+      // came from a checkout or a manual edit; the write then puts FRESH
+      // generated credentials (the JWT private key PEM, the VAPID keypair) into
+      // a group/other-readable file. The scaffold must end with the same
+      // owner-only guarantee the append path gives (env-file.ts writes AND
+      // chmods).
+      const dir = await mkdtemp(join(tmpdir(), 'mlcl-test-env-mode-'))
+      try {
+        const envPath = join(dir, '.env')
+        await writeFile(envPath, 'PRE_EXISTING=1\n')
+        await chmod(envPath, 0o644)
+        expect(statSync(envPath).mode & 0o777).toBe(0o644)
+
+        const secrets: MoleculeSecret[] = [
+          { name: 'ENCRYPTION_KEY', required: true, generate: 'random-hex-32' },
+        ]
+        await generateEnvFile(dir, secrets, 'api')
+
+        expect(await readFile(envPath, 'utf-8')).toMatch(/^ENCRYPTION_KEY=[0-9a-f]{64}$/m)
+        expect(statSync(envPath).mode & 0o777).toBe(0o600)
+      } finally {
+        await rm(dir, { recursive: true, force: true })
+      }
     })
 
     it('should auto-generate generatable secrets with real values', async () => {

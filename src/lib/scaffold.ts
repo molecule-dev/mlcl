@@ -14,6 +14,7 @@ function mlclDebug(msg: string): void {
   if (process.env.MLCL_DEBUG === '1') console.error(msg)
 }
 import {
+  chmod,
   copyFile,
   mkdir,
   readdir,
@@ -5825,7 +5826,19 @@ export async function generateEnvFile(
   // The .env can carry generated secrets (JWT private key PEM, VAPID keypair,
   // hex API keys) — create it owner-only so a fresh scaffold never leaves
   // credentials world-readable under a default umask.
-  await writeFile(join(projectPath, '.env'), lines.join('\n'), { mode: 0o600 })
+  //
+  // `mode` only applies when the file is CREATED; an `.env` that already exists
+  // keeps whatever permissions it had. That is reachable on a re-scaffold
+  // (`mlcl create --force` over a directory that already holds a project, whose
+  // `.env` an earlier checkout or a manual edit left group/other-readable), and
+  // the write then puts FRESH generated credentials — the JWT private key, the
+  // VAPID keypair — into a readable file. `chmod` covers the existing-file case;
+  // the same pair the `.env` APPEND path applies (env-file.ts writes with mode
+  // 0o600 AND chmods) so every path that can add a secret to an .env ends with
+  // the same owner-only guarantee.
+  const envPath = join(projectPath, '.env')
+  await writeFile(envPath, lines.join('\n'), { mode: 0o600 })
+  await chmod(envPath, 0o600)
 }
 
 // ============================================================================
