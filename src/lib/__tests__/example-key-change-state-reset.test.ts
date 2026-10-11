@@ -208,9 +208,40 @@ async function typeIntoTextarea(textarea: HTMLTextAreaElement, value: string): P
   await flush()
 }
 
+/**
+ * Click a reaction chip, found by ATTRIBUTE VALUE rather than by a CSS
+ * attribute selector.
+ *
+ * `querySelector('[data-mol-id="toggle-👍"]')` matches NOTHING in this jsdom —
+ * the selector engine misses the astral emoji (the element is present,
+ * `button[data-mol-id]` finds it, and its attribute reads exactly
+ * `toggle-👍`), so the toggle test below dispatched its click at an absent
+ * element and passed without ever exercising the toggle. Looking the node up in
+ * JS keeps the emoji out of the selector, and throwing (rather than
+ * optional-chaining past a miss) keeps the assertion honest: a missing chip is
+ * a failure, not a silent pass.
+ */
+async function clickReactionChip(emoji: string): Promise<void> {
+  const id = `toggle-${emoji}`
+  const chip = [...container.querySelectorAll('button[data-mol-id]')].find(
+    (button) => button.getAttribute('data-mol-id') === id,
+  )
+  if (!chip) throw new Error(`no reaction chip rendered for ${emoji}`)
+  await act(async () => {
+    chip.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+  })
+  await flush()
+}
+
 beforeEach(() => {
   pending.requests.length = 0
   httpCalls.length = 0
+  // `postCalls` too: the toggle/post tests below answer `postCalls[0]`, and a
+  // list that carried an earlier test's already-settled entry made that index
+  // point at a DEAD promise — resolving it did nothing, the parked write was
+  // never released, and the assertions after it passed without the code under
+  // test ever running (the toggle test did exactly this).
+  postCalls.length = 0
   i18n.t = defaultT
   globalThis.fetch = ((input: unknown) =>
     new Promise((resolve) => {
@@ -426,11 +457,7 @@ describe('a failed load for a new resource must not leave the previous resource 
     await flush()
 
     // Toggle on p1 (POST parks), then navigate to p2 while it is in flight.
-    await act(async () => {
-      container
-        .querySelector('[data-mol-id="toggle-👍"]')
-        ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
-    })
+    await clickReactionChip('👍')
     await rerender(createElement(ReactionBar, { resourceType: 'post', resourceId: 'p2' }))
     const p2Load = httpCalls.find((c) => c.path === '/api/post/p2/reactions')
     await act(async () => {
