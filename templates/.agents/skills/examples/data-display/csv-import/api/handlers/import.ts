@@ -33,6 +33,21 @@ type Row = Record<string, string>
 type ValidatedRow = { row: number; data: z.infer<typeof customerSchema> }
 type ErrorRow = { row: number; errors: string[] }
 
+/**
+ * How many per-row validation errors `POST /commit` reports back.
+ *
+ * The detail list is a WINDOW, not the whole set: each entry carries a row
+ * number plus every validation message for that row, so returning one per
+ * rejected row made the RESPONSE grow with the upload — and the upload cap is
+ * `limit: '10mb'`, i.e. a file of short malformed rows (millions of them) turned
+ * a 10 mb request into hundreds of megabytes of JSON, buffered in the process
+ * before a byte is written, for a list the client never renders. `skipped` stays
+ * the TRUE count of rejected rows, and `/preview` already returns the per-row
+ * errors for the rows it checks, so keeping the first page of them here is the
+ * whole detail a caller can use.
+ */
+export const MAX_REPORTED_ERRORS = 50
+
 function validateRows(rows: Row[]): { valid: ValidatedRow[]; invalid: ErrorRow[] } {
   const valid: ValidatedRow[] = []
   const invalid: ErrorRow[] = []
@@ -139,7 +154,16 @@ router.post('/commit', requireAuth, csvUpload, async (req, res) => {
       }
     }
   }
-  res.json({ imported, updated, skipped: invalid.length, invalid })
+  res.json({
+    imported,
+    updated,
+    // The TRUE number of rejected rows — every invalid row in the file, whether
+    // or not its detail is in the window below.
+    skipped: invalid.length,
+    // A WINDOW, in file order — see MAX_REPORTED_ERRORS: the full list made the
+    // response scale with the upload, and the client shows counts only.
+    invalid: invalid.slice(0, MAX_REPORTED_ERRORS),
+  })
 })
 
 export default router

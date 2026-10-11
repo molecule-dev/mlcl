@@ -1,4 +1,4 @@
-import { type ChangeEvent, useRef, useState } from 'react'
+import { type ChangeEvent, type ReactNode, useRef, useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -15,7 +15,13 @@ type PreviewResult = {
   invalid: ImportError[]
 }
 
-/** Response shape of `POST /api/import/commit`. */
+/**
+ * Response shape of `POST /api/import/commit`.
+ *
+ * `invalid` is a WINDOW of the rejected rows (the endpoint caps it — see
+ * MAX_REPORTED_ERRORS in api/handlers/import.ts), not every one of them;
+ * `skipped` is the true count. This page reads the counts only.
+ */
 type CommitResult = {
   imported: number
   updated: number
@@ -52,7 +58,7 @@ function isImportError(value: unknown): value is ImportError {
  * how many records were imported / updated / skipped. Posts the raw CSV bytes
  * to the slice's `/api/import/preview` and `/api/import/commit` endpoints.
  */
-export function ImportPage() {
+export function ImportPage(): ReactNode {
   const { t } = useTranslation()
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [file, setFile] = useState<File | null>(null)
