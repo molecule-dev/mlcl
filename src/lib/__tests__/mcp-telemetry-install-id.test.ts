@@ -12,6 +12,7 @@
  *
  * @module
  */
+import type * as NodeFs from 'node:fs'
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import type * as NodeOs from 'node:os'
 import { tmpdir } from 'node:os'
@@ -19,12 +20,36 @@ import { join } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+/**
+ * Lets one test hide the id file from `existsSync` while it exists on disk —
+ * the interleaving a second process's first call produces, made deterministic.
+ */
+const race = vi.hoisted(() => ({ hideIdFile: false }))
+
 // `mcp/src/telemetry.ts` resolves its id file from `homedir()` at module load,
 // so the whole test runs against a throwaway home. Everything else on node:os
 // is the real module.
 vi.mock('node:os', async () => {
   const actual = await vi.importActual<typeof NodeOs>('node:os')
   return { ...actual, homedir: () => join(actual.tmpdir(), 'mlcl-mcp-telemetry-id-home') }
+})
+
+// The same home, seen through node:fs: `existsSync` reports the file as absent
+// on demand (the stat that happened BEFORE another writer published), while
+// every real read/write still touches it.
+vi.mock('node:fs', async () => {
+  const actual = await vi.importActual<typeof NodeFs>('node:fs')
+  return {
+    ...actual,
+    // Matched by suffix: the factory is hoisted above the imports, so the
+    // throwaway home's absolute path (which needs `os.tmpdir()`) is not
+    // available here. The id file is the only path this suite names that ends
+    // this way.
+    existsSync: (path: unknown) =>
+      race.hideIdFile && String(path).endsWith('.mlcl/telemetry-id')
+        ? false
+        : actual.existsSync(path as never),
+  }
 })
 
 import { trackToolCall } from '../../../mcp/src/telemetry.js'
@@ -79,6 +104,27 @@ describe('molecule-mcp install id', () => {
     expect(payloadOf(fetchMock).event.anonymousId).toBe('11111111-2222-4333-8444-555555555555')
     // …and the file is left exactly as it was.
     expect(readFileSync(ID_FILE, 'utf8')).toBe('11111111-2222-4333-8444-555555555555\n')
+  })
+
+  it('adopts the id another writer published instead of overwriting it', () => {
+    // Two processes sharing one ~/.mlcl can both pass the "does the id file
+    // exist?" read (the stat happened before the other's write) and then both
+    // write. A plain create published whichever id landed LAST, while the loser
+    // had already put its OWN id on the event it was sending — one install
+    // split across two anonymousIds. Exclusive creation makes the loser fail and
+    // read the winner's id instead.
+    const winner = '99999999-8888-4777-8666-555555555555'
+    writeFileSync(ID_FILE, winner)
+    race.hideIdFile = true
+    try {
+      trackToolCall('search_packages', true, Date.now())
+    } finally {
+      race.hideIdFile = false
+    }
+
+    expect(payloadOf(fetchMock).event.anonymousId).toBe(winner)
+    // The winner's id survives: the loser must not clobber the shared file.
+    expect(readFileSync(ID_FILE, 'utf8')).toBe(winner)
   })
 
   it('replaces a ZERO-LENGTH id file instead of reporting a blank id forever', () => {

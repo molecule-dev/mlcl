@@ -70,8 +70,26 @@ function installId(): string {
     }
     const id = randomUUID()
     mkdirSync(join(ID_FILE, '..'), { recursive: true, mode: 0o700 })
-    writeFileSync(ID_FILE, id, { mode: 0o600 })
-    return id
+    try {
+      // Exclusive create. The read above and this write are not atomic, and two
+      // processes sharing one `~/.mlcl` (the stdio server plus a hosted
+      // instance, two tool calls on their first use) can both reach here: a
+      // plain write published whichever id landed LAST while the loser's event
+      // already carried its own, splitting one install across two anonymousIds.
+      // `wx` makes the second writer fail instead, and it then adopts the id the
+      // winner published.
+      writeFileSync(ID_FILE, id, { mode: 0o600, flag: 'wx' })
+      return id
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException)?.code !== 'EEXIST') throw error
+      // Lost the race. An EMPTY file is not an id (the winner died between its
+      // truncating open and its write — see the zero-length note above), so
+      // publish ours over it; otherwise adopt the winner's.
+      const won = readFileSync(ID_FILE, 'utf8').trim()
+      if (won) return won
+      writeFileSync(ID_FILE, id, { mode: 0o600 })
+      return id
+    }
   } catch (_error) {
     // Telemetry must never break a tool call over an unreadable id file —
     // report the anonymous 'unknown' id and move on.
