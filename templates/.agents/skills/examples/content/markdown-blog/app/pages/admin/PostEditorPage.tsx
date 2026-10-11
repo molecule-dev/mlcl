@@ -8,6 +8,19 @@ const cm = getClassMap()
 
 type Status = 'idle' | 'loading' | 'saving' | 'saved' | 'error'
 
+/**
+ * How long the live preview waits after the last keystroke before it re-renders.
+ *
+ * The preview renders the WHOLE document (parse + sanitize) through the bonded
+ * provider, so deriving it straight from `bodyMarkdown` re-rendered everything
+ * typed so far on EVERY keystroke: the total typing cost grew as
+ * keystrokes × document size, and a long post turned each key into a visible
+ * lag. The trailing debounce keeps the preview live while bounding the renders
+ * to one per pause — the value it shows is at most this far behind the
+ * textarea. Exported so the regression suite can pin the behavior against it.
+ */
+export const PREVIEW_DEBOUNCE_MS = 300
+
 type LoadedPost = {
   id: string
   title: string
@@ -178,11 +191,23 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
   }
 
   // Live markdown preview through the bonded provider — sanitised (XSS-safe),
-  // exactly as PostPage renders the published post.
-  const previewHtml = useMemo(() => {
-    if (!bodyMarkdown) return ''
-    return requireProvider().render(bodyMarkdown, { gfm: true, sanitize: true }).html
+  // exactly as PostPage renders the published post — rendered from a DEBOUNCED
+  // copy of the body, never the body itself (see PREVIEW_DEBOUNCE_MS): keyed on
+  // the body, the memo re-parsed and re-sanitised the whole document on every
+  // keystroke, a cost that grows with the post exactly while the reader is
+  // typing it. The timer resets on every change, so only a PAUSE commits; the
+  // cleanup clears a pending one on unmount so it never fires into a gone
+  // component.
+  const [previewSource, setPreviewSource] = useState('')
+  useEffect(() => {
+    const timer = setTimeout(() => setPreviewSource(bodyMarkdown), PREVIEW_DEBOUNCE_MS)
+    return () => clearTimeout(timer)
   }, [bodyMarkdown])
+
+  const previewHtml = useMemo(() => {
+    if (!previewSource) return ''
+    return requireProvider().render(previewSource, { gfm: true, sanitize: true }).html
+  }, [previewSource])
 
   async function save(e: FormEvent): Promise<void> {
     e.preventDefault()
