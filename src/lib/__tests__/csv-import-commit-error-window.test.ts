@@ -33,11 +33,16 @@ vi.mock('@molecule/api-i18n', () => ({
 type Handle = (req: unknown, res: unknown, next: () => void) => Promise<void> | void
 
 /** The terminal POST /commit handler and the auth guard, off the real router's stack. */
-const { commitHandler, requireAuth, MAX_REPORTED_ERRORS } = await (async () => {
+const { commitHandler, requireAuth, MAX_REPORTED_ERRORS, validateRows } = await (async () => {
   const mod =
     (await import('../../../templates/.agents/skills/examples/data-display/csv-import/api/handlers/import.js')) as {
       default: { stack: Array<{ route?: { path?: string; stack: Array<{ handle: Handle }> } }> }
       MAX_REPORTED_ERRORS: number
+      validateRows: (rows: Array<Record<string, string>>) => {
+        valid: unknown[]
+        invalid: Array<{ row: number; errors: string[] }>
+        invalidCount: number
+      }
     }
   const layers = mod.default.stack.filter((l) => l.route?.path === '/commit')
   if (layers.length === 0) throw new Error('csv-import router exported no /commit route')
@@ -48,6 +53,7 @@ const { commitHandler, requireAuth, MAX_REPORTED_ERRORS } = await (async () => {
     requireAuth: chain[0]!,
     commitHandler: chain[chain.length - 1]!,
     MAX_REPORTED_ERRORS: mod.MAX_REPORTED_ERRORS,
+    validateRows: mod.validateRows,
   }
 })()
 
@@ -161,5 +167,31 @@ describe('csv-import POST /commit — the error detail is a bounded window', () 
 
     expect(body.skipped).toBe(3)
     expect(body.invalid.map((e) => e.row)).toEqual([2, 3, 4])
+  })
+
+  it('holds only the window in memory — the rejected rows are not all collected first', () => {
+    // The response assertion above passes against BOTH shapes: a handler that
+    // collected one `ErrorRow` per rejected row and sliced at the end returns the
+    // same JSON as one that caps as it walks. The upload cap is 10 mb, i.e.
+    // millions of short malformed rows, so the collecting shape held the whole
+    // file's worth of detail objects — plus a message array each — in the
+    // process, which is exactly the allocation the window exists to avoid. The
+    // list the validator RETURNS is the observable: it must already be the
+    // window, with the true total carried separately.
+    const rows = Array.from({ length: MAX_REPORTED_ERRORS * 40 }, (_unused, i) => ({
+      email: `not-an-email-${i}`,
+      name: `name ${i}`,
+      company: '',
+    }))
+
+    const { invalid, invalidCount, valid } = validateRows(rows)
+
+    expect(valid).toHaveLength(0)
+    // The count is the whole file…
+    expect(invalidCount).toBe(rows.length)
+    // …while the retained detail is the window, in file order.
+    expect(invalid.length).toBe(MAX_REPORTED_ERRORS)
+    expect(invalid[0]?.row).toBe(2)
+    expect(invalid[MAX_REPORTED_ERRORS - 1]?.row).toBe(MAX_REPORTED_ERRORS + 1)
   })
 })

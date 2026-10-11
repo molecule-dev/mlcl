@@ -45,24 +45,58 @@ type ErrorRow = { row: number; errors: string[] }
  * the TRUE count of rejected rows, and `/preview` already returns the per-row
  * errors for the rows it checks, so keeping the first page of them here is the
  * whole detail a caller can use.
+ *
+ * The window is applied WHILE the rows are validated (see {@link validateRows}),
+ * never by slicing the finished list: the detail is the same either way, but a
+ * list built whole and sliced at the response had already allocated one
+ * `ErrorRow` per rejected row — the same upload-sized set the cap exists to keep
+ * out of this process.
  */
 export const MAX_REPORTED_ERRORS = 50
 
-function validateRows(rows: Row[]): { valid: ValidatedRow[]; invalid: ErrorRow[] } {
+/**
+ * Validate every parsed row, keeping at most {@link MAX_REPORTED_ERRORS} rejected
+ * rows' detail.
+ *
+ * `valid` carries every accepted row (the commit loop writes them all), but the
+ * rejected rows' detail is only ever READ as the window above — so it is capped
+ * as the rows are walked rather than after the fact. A file of short malformed
+ * rows (millions of them, under the 10 mb body cap) otherwise held one object
+ * per row, with its own message array, in this process for a list the client
+ * never renders. `invalidCount` is the TRUE total, which the response reports as
+ * `skipped`.
+ *
+ * Exported (like {@link MAX_REPORTED_ERRORS}) so the regression suite can pin
+ * the window against a file larger than it.
+ *
+ * @param rows - The parsed CSV rows.
+ * @returns The accepted rows, the first page of rejected-row detail, and the
+ *   total number of rejected rows.
+ */
+export function validateRows(rows: Row[]): {
+  valid: ValidatedRow[]
+  invalid: ErrorRow[]
+  invalidCount: number
+} {
   const valid: ValidatedRow[] = []
   const invalid: ErrorRow[] = []
+  let invalidCount = 0
   for (let i = 0; i < rows.length; i++) {
     const parsed = customerSchema.safeParse(rows[i])
     if (parsed.success) {
       valid.push({ row: i + 2, data: parsed.data }) // +2 for header + 1-indexed
     } else {
-      invalid.push({
-        row: i + 2,
-        errors: parsed.error.issues.map((x) => `${x.path.join('.')}: ${x.message}`),
-      })
+      // Counted always; the detail only until the window is full.
+      invalidCount++
+      if (invalid.length < MAX_REPORTED_ERRORS) {
+        invalid.push({
+          row: i + 2,
+          errors: parsed.error.issues.map((x) => `${x.path.join('.')}: ${x.message}`),
+        })
+      }
     }
   }
-  return { valid, invalid }
+  return { valid, invalid, invalidCount }
 }
 
 const router = Router()
@@ -107,7 +141,7 @@ router.post('/commit', requireAuth, csvUpload, async (req, res) => {
       .status(400)
       .json({ error: t('import.parseFailed', undefined, { defaultValue: 'Could not parse CSV' }) })
   }
-  const { valid, invalid } = validateRows(rows)
+  const { valid, invalid, invalidCount } = validateRows(rows)
 
   // Scope every customer to the importing user — email is only a natural key WITHIN one
   // user's list. Without the user_id filter the upsert matches ANY user's customer with
@@ -171,7 +205,7 @@ router.post('/commit', requireAuth, csvUpload, async (req, res) => {
       // The counts ARE the message: what the server holds now.
       imported,
       updated,
-      skipped: invalid.length,
+      skipped: invalidCount,
     })
   }
   res.json({
@@ -179,10 +213,12 @@ router.post('/commit', requireAuth, csvUpload, async (req, res) => {
     updated,
     // The TRUE number of rejected rows — every invalid row in the file, whether
     // or not its detail is in the window below.
-    skipped: invalid.length,
-    // A WINDOW, in file order — see MAX_REPORTED_ERRORS: the full list made the
-    // response scale with the upload, and the client shows counts only.
-    invalid: invalid.slice(0, MAX_REPORTED_ERRORS),
+    skipped: invalidCount,
+    // A WINDOW, in file order — see MAX_REPORTED_ERRORS: the window is applied
+    // while the rows are validated, so neither the response NOR this request's
+    // memory grows with the upload, and the client (which shows counts only)
+    // still gets the true total above.
+    invalid,
   })
 })
 
