@@ -572,4 +572,83 @@ describe('a superseded fetch response must not win', () => {
       confirmSpy.mockRestore()
     }
   })
+
+  it('a delete that commits after the record changed does not drop the new record’s list', async () => {
+    // The panel stays mounted while the selected record changes, so a delete
+    // issued on record A can still be in flight when B's list load is. The
+    // delete's invalidation (loadSeq) belongs to A — applied unconditionally it
+    // takes the ticket B's OWN load is holding, so B's rows are discarded and
+    // the panel sits on "No files attached yet" over a record that has files.
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
+    try {
+      await mount(createElement(AttachmentsPanel, { parentId: 'a' }))
+      await respond('parent_id=a', 200, [attachment('a1', 'a.txt')])
+      expect(text()).toContain('a.txt')
+
+      // Delete A's row — the DELETE parks in flight…
+      await act(async () => {
+        container
+          .querySelector('[data-mol-id="attachment-delete"]')
+          ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+      })
+      await flush()
+
+      // …and the user switches to record B before it commits. B's load is now
+      // the read in flight.
+      await rerender(createElement(AttachmentsPanel, { parentId: 'b' }))
+
+      // The delete for A commits, then B's own load lands with B's rows.
+      await respond('/api/attachments/a1', 200, { ok: true })
+      await respond('parent_id=b', 200, [attachment('b1', 'b.txt')])
+
+      expect(
+        text(),
+        'the new record’s list must survive a delete left on the previous record',
+      ).toContain('b.txt')
+      expect(text()).not.toContain('No files attached yet')
+    } finally {
+      confirmSpy.mockRestore()
+    }
+  })
+
+  it('a delete that commits after the reader left and came back refetches the record’s list', async () => {
+    // The same ownership rule, one navigation further: A → B → A while A's
+    // DELETE is in flight. The panel is on A again, so the delete owns the
+    // record — but the only read A has in flight was started BEFORE the delete
+    // and carries the pre-delete snapshot, so it must be invalidated (it would
+    // otherwise put the deleted row back) AND replaced by a fresh read, or the
+    // panel keeps the empty list the switch left behind.
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
+    try {
+      await mount(createElement(AttachmentsPanel, { parentId: 'a' }))
+      await respond('parent_id=a', 200, [attachment('a1', 'a.txt')])
+
+      await act(async () => {
+        container
+          .querySelector('[data-mol-id="attachment-delete"]')
+          ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+      })
+      await flush()
+
+      await rerender(createElement(AttachmentsPanel, { parentId: 'b' }))
+      await rerender(createElement(AttachmentsPanel, { parentId: 'a' }))
+
+      // The delete commits: the stale read A has in flight is dropped and a
+      // fresh one is issued.
+      await respond('/api/attachments/a1', 200, { ok: true })
+
+      // The pre-delete read lands first — with the row the user deleted.
+      await respond('parent_id=a', 200, [attachment('a1', 'a.txt')])
+      // …then the fresh read, with the server's post-delete list.
+      await respond('parent_id=a', 200, [attachment('a2', 'a2.txt')])
+
+      expect(text()).toContain('a2.txt')
+      expect(text()).not.toContain('a.txt')
+      expect(text(), 'the record’s list must be refetched after the delete').not.toContain(
+        'No files attached yet',
+      )
+    } finally {
+      confirmSpy.mockRestore()
+    }
+  })
 })

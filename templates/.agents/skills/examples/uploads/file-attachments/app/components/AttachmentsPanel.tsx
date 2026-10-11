@@ -138,14 +138,26 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
         credentials: 'include',
       })
       if (res.ok) {
+        // A delete only speaks for the record THIS render was mounted for. The
+        // panel outlives a `parentId` change, so the user can switch records
+        // while the DELETE is in flight — and then this invalidation would take
+        // the ticket the NEW record's own load is holding, discarding the rows
+        // that were about to fill its list (the panel sits on "No files
+        // attached yet" over a record that has files). The effect's cleanup
+        // already invalidated everything this record had in flight, which is
+        // the same ownership rule upload() applies through mountedForRef.
+        if (mountedForRef.current !== parentId) return
         // The delete is the newest truth this panel holds. A list read issued
         // BEFORE it committed — an upload's trailing refresh is the reachable
         // one — carries the pre-delete snapshot, and landing after this line
         // it put the row the user just deleted back on screen until the next
-        // load. Invalidate those reads (see loadSeq): a read started after the
-        // delete still takes a newer ticket and is honored.
+        // load. Invalidate those reads (see loadSeq) and refetch: a read
+        // started after the delete takes a newer ticket and is honored, and
+        // the refetch refills the list whenever the invalidated read was the
+        // only one in flight.
         loadSeq.current++
         setItems((prev) => prev.filter((a) => a.id !== id))
+        void load()
       }
     } catch (_error) {
       // Network failure — the attachment stays; the user can retry the delete.
