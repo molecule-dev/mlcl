@@ -272,11 +272,19 @@ describe('the bell counted-read set', () => {
     // The prune: an effect keyed on the page deletes every counted id the
     // page no longer carries. Removing the prune (or keying it on something
     // that does not track the page) fails here.
+    //
+    // The body may not spill into a NEIGHBOURING effect: a bare `[\s\S]*?`
+    // between the `useEffect(() => {` and the `}, [items])` is satisfied by a
+    // delete that lives in an earlier, differently-keyed effect with any
+    // `[items]` effect after it (`}, [userId])` and the effect header are both
+    // just characters), so the gate could pass over exactly the mis-keying it
+    // names. Each `[\s\S]` step is tempered with a lookahead that refuses to
+    // cross `}, [` — no other effect boundary can be traversed.
     expect(
       source,
       'NotificationBell must prune countedReadRef to the live page — see the effect on [items]',
     ).toMatch(
-      /useEffect\(\(\) => \{[\s\S]*?countedReadRef\.current\.delete\(id\)[\s\S]*?\}, \[items\]\)/,
+      /useEffect\(\(\) => \{(?:(?!\}, \[)[\s\S])*?countedReadRef\.current\.delete\(id\)(?:(?!\}, \[)[\s\S])*?\}, \[items\]\)/,
     )
   })
 

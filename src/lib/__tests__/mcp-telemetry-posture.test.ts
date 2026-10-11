@@ -98,6 +98,15 @@ describe('molecule-mcp telemetry posture mirrors the CLI', () => {
     try {
       trackToolCall('search_packages', true, Date.now() - 5)
       await new Promise((resolve) => setTimeout(resolve, 25))
+      // The emit must have happened for its silence to mean anything: "no log
+      // line" is also what an early return produces (telemetry off, the in-flight
+      // bound saturated, a throw before the fetch), so without this the test
+      // passed over an emit that never ran — the sibling MLCL_DEBUG case proves
+      // only THAT env var's branch.
+      expect(
+        rejectingFetch,
+        'the emit must be reached for its silence to be the subject',
+      ).toHaveBeenCalledTimes(1)
       expect(errorSpy).not.toHaveBeenCalled()
     } finally {
       globalThis.fetch = originalFetch

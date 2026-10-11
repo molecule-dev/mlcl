@@ -20,9 +20,6 @@ import { act, createElement, type ReactNode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-/** The number of reply requests one load may issue — mirrors MAX_REPLY_REQUESTS. */
-const MAX_REPLY_REQUESTS = 200
-
 interface HttpCall {
   path: string
   resolve: (value: unknown) => void
@@ -68,9 +65,11 @@ vi.mock('@molecule/app-feature-thread-tree-react', () => ({
   },
 }))
 
-const { CommentThread } =
+const { CommentThread, MAX_REPLY_REQUESTS } =
   (await import('../../../templates/.agents/skills/examples/messaging/comment-threads/app/components/CommentThread.js')) as {
     CommentThread: (props: { resourceType: string; resourceId: string }) => ReactNode
+    /** The number of reply requests one load may issue — the component's own budget. */
+    MAX_REPLY_REQUESTS: number
   }
 
 ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
@@ -128,7 +127,29 @@ afterEach(async () => {
   }
 })
 
+/**
+ * A ceiling this SUITE owns, independent of the component's own budget.
+ *
+ * Reading `MAX_REPLY_REQUESTS` (below) makes the assertion drift-proof — the
+ * test can no longer disagree with the walk it drives — but a test whose only
+ * bound is the implementation's own number accepts ANY number: raise the
+ * constant to 10 000 and the input grows with it, the comparison still holds,
+ * and the fan-out the budget exists to prevent is back with a green suite. The
+ * budget is a cost bound, so the suite states the order of magnitude it was
+ * chosen for (the module doc: "the same order of magnitude the sibling slices
+ * put on their live lists — the chat room's MAX_RENDERED_MESSAGES is 200") and
+ * fails if the walk's page count stops being one.
+ */
+const REPLY_REQUEST_CEILING = 500
+
 describe('the comment thread’s reply walk', () => {
+  it('bounds the walk to a burst-sized page count, not to whatever the constant says', () => {
+    expect(
+      MAX_REPLY_REQUESTS,
+      'a per-load request budget in the thousands is a fan-out with a number on it',
+    ).toBeLessThanOrEqual(REPLY_REQUEST_CEILING)
+  })
+
   it('bounded: a large root list does not fan out one request per root', async () => {
     const ROOTS = MAX_REPLY_REQUESTS + 60
     await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))

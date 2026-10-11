@@ -296,7 +296,18 @@ describe('mcp remote package-doc fetch', () => {
       await fetchPackageReadme(name)
       expect(fetchSpy).toHaveBeenCalledTimes(1)
 
-      vi.setSystemTime(Date.now() + 10 * 60_000 + 1)
+      // Just INSIDE the documented window the entry still serves. Without this
+      // probe the suite only pinned "a lookup ten minutes later re-fetches" —
+      // true for ANY TTL at or under ten minutes, so a cache shortened to one
+      // minute kept every assertion green while doing none of what the module
+      // and the README promise ("cached 10 minutes"). The clock moves in steps,
+      // so the entry's age is measured from the fetch above throughout.
+      vi.setSystemTime(Date.now() + 9 * 60_000)
+      await fetchPackageReadme(name)
+      expect(fetchSpy, 'an entry inside its TTL must not re-fetch').toHaveBeenCalledTimes(1)
+
+      // …and just past it, it does.
+      vi.setSystemTime(Date.now() + 60_000 + 1)
       await fetchPackageReadme(name)
       expect(fetchSpy, 'a stale entry must re-fetch').toHaveBeenCalledTimes(2)
     } finally {

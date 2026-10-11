@@ -23,7 +23,7 @@
  */
 
 import { type ChildProcess, spawn } from 'node:child_process'
-import { existsSync, readdirSync, statSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { describe, expect, it } from 'vitest'
@@ -141,6 +141,21 @@ describe('molecule-mcp remote rate limit', () => {
       )
       expect(result.output).toContain('a body sent to a path with no handler is never parsed')
       expect(result.output).not.toMatch(/fail\s+[1-9]/)
+      // …and they must have RUN. The names above are printed for a test that is
+      // SKIPPED just as loudly as for one that passes (`﹣ name … # SKIP` in the
+      // spec reporter, `ok 1 - name # SKIP` in TAP), and a fully-skipped file
+      // exits 0 with `fail 0` — so every assertion above held while the whole
+      // regression suite was disarmed, the one outcome this wrapper documents
+      // ("a guard that never ran must not report a PASS"). Two assertions close
+      // it: nothing carried the skip marker, and the number of tests node
+      // reported passing is the number of `test(` calls the file declares.
+      expect(result.output).not.toContain('# SKIP')
+      const declared = (readFileSync(TEST_FILE, 'utf8').match(/^test\(/gm) ?? []).length
+      expect(declared, 'the rate-limit suite should declare its tests').toBeGreaterThan(5)
+      expect(
+        result.output,
+        `only some of the ${declared} rate-limit tests ran:\n${result.output.slice(-4000)}`,
+      ).toMatch(new RegExp(`\\bpass ${declared}\\b`))
     },
   )
 })

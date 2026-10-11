@@ -26,8 +26,12 @@ const cm = getClassMap()
  * page, so a node with more direct replies than that page holds has its tail
  * unrendered — the budget bounds the burst, and the page size is what keeps
  * that truncation off any thread a reader would notice.
+ *
+ * Exported so the regression suite pins the SAME number this walk spends
+ * instead of a hand-copied mirror — a mirror cannot tell a deliberate budget
+ * from one raised past the burst it exists to cap.
  */
-const MAX_REPLY_REQUESTS = 200
+export const MAX_REPLY_REQUESTS = 200
 
 /**
  * How many direct replies ONE `GET /comments/:id/replies` request asks for.
