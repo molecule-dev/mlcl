@@ -30,7 +30,7 @@ const APP_TABLES = ['api_keys', 'notifications', 'attachments'] as const
  * a purge failure. `purgeFailed` below defers the hard delete so the purge can
  * retry, and a table that will never exist never stops deferring: the account is
  * then never deleted and the page's "permanently deleted in 30 days" copy is
- * never kept. APP_TABLES above names four tables this example does not migrate,
+ * never kept. APP_TABLES above names three tables this example does not migrate,
  * so a verbatim copy hit exactly that. Every OTHER failure — a permission, a
  * connection, an FK from a table not listed — is a real failure and still defers.
  *
