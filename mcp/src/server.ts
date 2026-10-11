@@ -17,7 +17,6 @@ import { existsSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:
 import { basename, dirname, extname, join, resolve } from 'node:path'
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { execa } from 'execa'
 import { z } from 'zod'
 
