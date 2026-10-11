@@ -143,6 +143,75 @@ describe('semantic-search POST /documents — a re-index replaces the document',
     }
   })
 
+  it('serializes two overlapping re-indexes of the SAME document', async () => {
+    // The clear and the (re)index are two calls, and the bond offers no atomic
+    // replace: two concurrent re-indexes of one document interleave
+    // (A.delete, B.delete, A.index(len 50), B.index(len 10)) and A's chunks past
+    // B's end survive with the text the user removed — exactly what the clear
+    // above exists to prevent. The pair is chained per document instead.
+    const events: string[] = []
+    const releaseIndex: Array<() => void> = []
+    rag.deleteDocument.mockImplementation(async () => {
+      events.push('delete')
+    })
+    rag.indexDocument.mockImplementation(async () => {
+      events.push('index:start')
+      await new Promise<void>((resolve) => releaseIndex.push(resolve))
+      events.push('index:end')
+      return ['chunk']
+    })
+
+    const flush = (): Promise<void> => new Promise((resolve) => setTimeout(resolve))
+    const first = postDocument({ documentId: 'd1', text: 'a long first version' })
+    const second = postDocument({ documentId: 'd1', text: 'short' })
+    await flush()
+
+    // Only ONE pair has started: the second waits for the first to finish.
+    expect(events, 'the second replace must not start while the first is in flight').toEqual([
+      'delete',
+      'index:start',
+    ])
+
+    releaseIndex.shift()?.()
+    await flush()
+    expect(events).toEqual(['delete', 'index:start', 'index:end', 'delete', 'index:start'])
+
+    releaseIndex.shift()?.()
+    await Promise.all([first, second])
+    expect(events).toEqual([
+      'delete',
+      'index:start',
+      'index:end',
+      'delete',
+      'index:start',
+      'index:end',
+    ])
+  })
+
+  it('does not let a DIFFERENT document be held up by a parked one', async () => {
+    // The chain is per document id, not a global lock: a slow replace of d1 must
+    // not serialize d2 (the whole collection is shared).
+    const releaseIndex: Array<() => void> = []
+    rag.indexDocument.mockImplementation(async () => {
+      await new Promise<void>((resolve) => releaseIndex.push(resolve))
+      return ['chunk']
+    })
+
+    const flush = (): Promise<void> => new Promise((resolve) => setTimeout(resolve))
+    const slow = postDocument({ documentId: 'd1', text: 'first' })
+    await flush()
+    const other = postDocument({ documentId: 'd2', text: 'second' })
+    await flush()
+
+    // d2's pair ran while d1's index is still parked.
+    expect(rag.indexDocument).toHaveBeenCalledTimes(2)
+    // Release d2's index (the second parked one) and d1's, then both settle.
+    releaseIndex[1]?.()
+    await flush()
+    releaseIndex[0]?.()
+    await Promise.all([slow, other])
+  })
+
   it('reports a failed index instead of pretending the document is searchable', async () => {
     rag.indexDocument.mockRejectedValue(new Error('embedding provider down'))
 

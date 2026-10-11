@@ -46,6 +46,49 @@ const searchSchema = z.object({ query: z.string().min(1).max(2000) })
 
 const router = Router()
 
+/**
+ * One in-flight replace per document id.
+ *
+ * Replacing a document is TWO calls: `deleteDocument` (which clears
+ * `<documentId>::0..maxChunks-1`) then `indexDocument` (which writes
+ * `<documentId>::0..N-1`) — the bond's API has no atomic replace. Two
+ * overlapping re-indexes of the SAME document therefore interleave:
+ * `A.delete, B.delete, A.index(len 50), B.index(len 10)` leaves A's chunks
+ * `::10..49` behind carrying the text the user removed, and `/ask` and `/search`
+ * keep serving it — the exact stale-chunk failure the clear exists to prevent,
+ * now reachable by a double submit or two tabs. Chaining each pair onto the
+ * previous one for the same document makes the replace atomic per document in
+ * this process (a project's API runs as one Node process; the vector-store bond
+ * offers no lock to use instead).
+ */
+const indexing = new Map<string, Promise<unknown>>()
+
+/**
+ * Run `work` after every write already chained for `documentId`.
+ *
+ * @param documentId - The owner-namespaced document id being replaced.
+ * @param work - The delete + index pair.
+ * @returns Whatever `work` resolves to.
+ */
+function serializePerDocument<T>(documentId: string, work: () => Promise<T>): Promise<T> {
+  const previous = indexing.get(documentId) ?? Promise.resolve()
+  // `then(work, work)`: a failed predecessor must not wedge the chain — its own
+  // caller already reported that failure.
+  const run = previous.then(work, work)
+  // The chain's tail never rejects, so the next writer always runs…
+  const tail = run.then(
+    () => undefined,
+    () => undefined,
+  )
+  indexing.set(documentId, tail)
+  // …and it is dropped once nothing has chained behind it, so the map holds only
+  // the documents being written right now (never one entry per document indexed).
+  void tail.then(() => {
+    if (indexing.get(documentId) === tail) indexing.delete(documentId)
+  })
+  return run
+}
+
 // Embedding and generation are METERED, slow calls — throttle per user before
 // dispatching so a runaway loop can't run up the bill or starve everyone.
 async function throttle(userId: string, action: string): Promise<{ retryAfter?: number } | null> {
@@ -89,14 +132,21 @@ router.post('/documents', async (req, res) => {
     // hold exactly what was just submitted. It also means an index that fails
     // AFTER the clear leaves the document unindexed rather than half-replaced —
     // the 502 below is the retry, and a retry re-submits the whole text.
-    await deleteDocument({ collection: COLLECTION, documentId })
-    const chunkIds = await indexDocument({
-      collection: COLLECTION,
-      // Namespace the id by owner so one tenant's document ids can never collide
-      // with — or address — another tenant's chunks.
-      documentId,
-      text: parsed.data.text,
-      metadata: { user_id: userId, title: parsed.data.title ?? '' },
+    //
+    // The CLEAR AND THE INDEX are one unit, serialized per document (see
+    // serializePerDocument): the bond has no atomic replace, and without the
+    // chain two overlapping re-indexes of one document interleave into exactly
+    // the stale chunks this clear removes.
+    const chunkIds = await serializePerDocument(documentId, async () => {
+      await deleteDocument({ collection: COLLECTION, documentId })
+      return indexDocument({
+        collection: COLLECTION,
+        // Namespace the id by owner so one tenant's document ids can never collide
+        // with — or address — another tenant's chunks.
+        documentId,
+        text: parsed.data.text,
+        metadata: { user_id: userId, title: parsed.data.title ?? '' },
+      })
     })
     return res.json({ chunks: chunkIds.length })
   } catch (error) {
