@@ -23,6 +23,13 @@
  *    loads once per mount and translates the failure at RENDER time, so the
  *    message follows the locale with no extra request.
  *
+ * 3. **A save response must not overwrite editing done while it was in
+ *    flight.** The settings form stays editable during the PATCH (only the
+ *    submit button is disabled), and `save` closed over the draft it sent, so
+ *    the response's echo replaced whatever the user had typed since — silently,
+ *    under a "Saved" line. The echo is installed only when the form still holds
+ *    the object the save sent.
+ *
  * @module
  */
 
@@ -503,6 +510,34 @@ describe('a mount-time profile load must not re-run (nor refill the form) on a l
     // the server's "Ada" back).
     expect(fetchedUrls().length).toBe(1)
     expect((container.querySelector('form input') as HTMLInputElement).value).toBe('Grace')
+  })
+
+  it('settings: a save response keeps editing the user did while the PATCH was in flight', async () => {
+    await mount(createElement(SettingsPage))
+    await respond('/api/me', 200, PROFILE)
+
+    const inputs = (): HTMLInputElement[] =>
+      [...container.querySelectorAll('form input')] as HTMLInputElement[]
+    const [nameInput, , timezoneInput] = inputs()
+    await type(nameInput!, 'Grace')
+    // Save. The inputs stay editable while the PATCH is parked (only the submit
+    // button is disabled), and `save` closes over the draft it sent, so a late
+    // response that installs the server echo OVERWRITES whatever was typed
+    // since — silently, under a "Saved" line.
+    const form = container.querySelector('form') as HTMLFormElement
+    await act(async () => {
+      form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }))
+    })
+    await flush()
+    await type(timezoneInput!, 'Europe/Berlin')
+
+    await respond('/api/me', 200, { ...PROFILE, name: 'Grace' })
+
+    expect(
+      (inputs()[2] as HTMLInputElement).value,
+      'the timezone typed during the save must survive the server echo',
+    ).toBe('Europe/Berlin')
+    expect((inputs()[0] as HTMLInputElement).value).toBe('Grace')
   })
 
   it('delete-account: re-translates the load failure at render without refetching', async () => {

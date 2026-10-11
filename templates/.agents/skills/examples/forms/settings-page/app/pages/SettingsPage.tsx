@@ -117,7 +117,15 @@ export function SettingsPage() {
         typeof body.timezone === 'string'
       const updated: Profile = usable ? (body as Profile) : { ...draft }
       setOriginal(updated)
-      setDraft(updated)
+      // Install the server's echo into the FIELDS only when the reader has not
+      // edited the form since this save started. `draft` here is the object the
+      // save sent, and every keystroke replaces it with a new object — so an
+      // identity mismatch IS "they typed while the PATCH was in flight", and
+      // overwriting then discarded their edit while the page said "Saved" (the
+      // same clobber the load-once rule above prevents for a locale switch).
+      // `original` still takes the echo, so the Save button stays enabled while
+      // their newer text differs from what the server holds.
+      setDraft((current) => (current === draft ? updated : current))
       setStatus('saved')
     } catch (_error) {
       setError(t('settings.saveFailed', undefined, { defaultValue: 'Save failed' }))
