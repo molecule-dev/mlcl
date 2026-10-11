@@ -31,7 +31,16 @@ const DEPS_MARKER = join(MCP_DIR, 'node_modules', 'execa', 'package.json')
  * `onCall` is the hook a test uses to simulate ANOTHER writer landing during the
  * round-trip — the window between the tool's `existsSync` checks and its writes.
  */
-const hosted = vi.hoisted(() => ({ calls: 0, onCall: null as null | (() => void) }))
+const hosted = vi.hoisted(() => ({
+  calls: 0,
+  onCall: null as null | (() => void),
+  /**
+   * Which payload the double answers with EMPTY: `'pdf'` for the pdf service,
+   * `'image'` for every other one. A 2xx that carries the field with no bytes is
+   * the shape a shrunken rewrite, a proxy's 200 or a service bug leaves.
+   */
+  emptyPayload: null as null | 'pdf' | 'image',
+}))
 
 /**
  * A path whose exclusive create SUCCEEDS and whose data write then fails — the
@@ -67,12 +76,16 @@ vi.mock('../../../mcp/src/services.js', () => ({
     hosted.calls += 1
     hosted.onCall?.()
     if (service === 'pdf') {
-      return { data: Buffer.from('%PDF-fake').toString('base64'), pageCount: 1 }
+      return {
+        data: hosted.emptyPayload === 'pdf' ? '' : Buffer.from('%PDF-fake').toString('base64'),
+        pageCount: 1,
+      }
     }
+    const empty = hosted.emptyPayload === 'image'
     return {
       images: [
-        { base64: Buffer.from('one').toString('base64') },
-        { base64: Buffer.from('two').toString('base64') },
+        { base64: empty ? '' : Buffer.from('one').toString('base64') },
+        { base64: empty ? '' : Buffer.from('two').toString('base64') },
       ],
     }
   },
@@ -82,6 +95,7 @@ vi.mock('../../../mcp/src/services.js', () => ({
 
 beforeEach(() => {
   hosted.onCall = null
+  hosted.emptyPayload = null
   // Every test's assertions about how many times the service was asked are
   // meaningless against a counter that keeps running across tests: the
   // collision case below asserts an ABSOLUTE `toBe(1)`, and a suite that ran it
@@ -266,6 +280,38 @@ describe('text_to_speech — a 2xx body must carry audio before anything is writ
     expect(result.isError, 'an answer carrying no audio is a failure').toBe(true)
     expect(textOf(result)).toContain('no audio data')
     expect(existsSync(target), 'a failed call writes nothing').toBe(false)
+  })
+})
+
+describe('a 2xx body carrying an EMPTY payload is the failure it is', () => {
+  // Gating on the TYPE alone (`typeof data === 'string'`) accepted `{"data": ""}`:
+  // `Buffer.from('', 'base64')` decoded it to zero bytes, so the tool wrote a
+  // 0-byte document under the caller's chosen name and reported success — and
+  // because these tools never replace their output, the retry was refused as
+  // "already exists" too. The failure has to be reported before the write.
+  it('render_pdf reports the empty body and leaves no 0-byte file behind', async (ctx) => {
+    if (skipped(ctx)) return
+    hosted.emptyPayload = 'pdf'
+    const target = join(dir, 'empty-render.pdf')
+
+    const result = await callTool('render_pdf', { html: '<h1>hi</h1>', output_file: target })
+
+    expect(result.isError, 'an answer carrying no bytes is a failure').toBe(true)
+    expect(textOf(result)).toContain('no PDF data')
+    expect(existsSync(target), 'nothing may be written under the caller’s name').toBe(false)
+  })
+
+  it('generate_image treats an empty base64 as no image at all', async (ctx) => {
+    if (skipped(ctx)) return
+    hosted.emptyPayload = 'image'
+    const target = join(dir, 'empty-image.png')
+
+    const result = await callTool('generate_image', { prompt: 'a logo', output_file: target })
+
+    expect(result.isError, 'empty bytes are not an image').toBe(true)
+    expect(textOf(result)).toContain('no image data')
+    expect(existsSync(target)).toBe(false)
+    expect(existsSync(join(dir, 'empty-image-2.png'))).toBe(false)
   })
 })
 

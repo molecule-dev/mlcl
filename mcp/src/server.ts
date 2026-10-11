@@ -181,6 +181,33 @@ function requireWritableParent(path: string): void {
 }
 
 /**
+ * The bytes of a hosted service's base64 payload, refusing an answer that
+ * carries none.
+ *
+ * A 2xx proves the route ANSWERED, not that the body carries data: a shrunken
+ * rewrite, a proxy's 200 or a service bug can leave the field absent — or
+ * present and EMPTY, which is the same failure one step later. Gating on the
+ * type alone (`typeof data === 'string'`) accepted `{"data": ""}`,
+ * `Buffer.from('', 'base64')` decoded it to zero bytes, and the tool then wrote a
+ * 0-byte file under the caller's chosen name and reported success — the name is
+ * taken afterwards (the file tools never replace their output), so the retry the
+ * caller would reach for is refused too. `text_to_speech` refuses an empty
+ * payload for exactly this reason; every tool that writes a service payload now
+ * goes through here.
+ *
+ * @param data - The base64 field from the response (`undefined` when absent).
+ * @param what - What the payload was meant to be, for the failure message.
+ * @returns The decoded bytes.
+ * @throws ServiceCallError when the field is missing or empty.
+ */
+function decodeServicePayload(data: string | undefined, what: string): Buffer {
+  if (typeof data !== 'string' || data.length === 0) {
+    throw new ServiceCallError(`The service returned no ${what} data.`)
+  }
+  return Buffer.from(data, 'base64')
+}
+
+/**
  * Read a local input file that must be under `maxBytes`, from a `statSync`
  * BEFORE the bytes are allocated.
  *
@@ -674,6 +701,27 @@ server.registerTool(
 // is missing. Values stay in local .env files; get_env_var masks unless the
 // caller explicitly reveals, so a secret never lands in chat by accident.
 
+/** The shortest value that still gets a visible prefix — see {@link maskEnvValue}. */
+const MASK_PREFIX_MIN_LENGTH = 8
+
+/**
+ * Mask an environment value for a reader that did not ask to reveal it.
+ *
+ * The prefix is a HINT ("which key is set", `sk-…`), never the value: taking
+ * `slice(0, 3)` unconditionally emitted the WHOLE secret for any value of three
+ * characters or fewer through a call whose contract is "masked unless reveal"
+ * (`OTP=123` came back as `123•••`), and three of four characters for a
+ * four-character one. A value too short to have a prefix worth showing is
+ * masked entirely instead.
+ *
+ * @param value - The value read from the project's `.env`.
+ * @returns The masked form: `abc•••`, or `•••` when the value is too short for
+ *   its prefix to be anything but the value.
+ */
+export function maskEnvValue(value: string): string {
+  return value.length >= MASK_PREFIX_MIN_LENGTH ? `${value.slice(0, 3)}•••` : '•••'
+}
+
 server.registerTool(
   'check_env_vars',
   {
@@ -712,7 +760,7 @@ server.registerTool(
       JSON.stringify(
         raw.map((e) => ({
           key: e.key,
-          value: reveal ? e.value : `${e.value.slice(0, 3)}•••`,
+          value: reveal ? e.value : maskEnvValue(e.value),
         })),
         null,
         2,
@@ -743,9 +791,7 @@ server.registerTool(
       return text(
         `"${key}" is not set in that .env — run check_env_vars to see what the app needs.`,
       )
-    return text(
-      JSON.stringify({ key, value: reveal ? entry.value : `${entry.value.slice(0, 3)}•••` }),
-    )
+    return text(JSON.stringify({ key, value: reveal ? entry.value : maskEnvValue(entry.value) }))
   }),
 )
 
@@ -1009,19 +1055,12 @@ server.registerTool(
           },
           directory,
         )) as { audio: string; contentType: string }
-        // A 2xx proves the route ANSWERED, not that the body carries audio: a
-        // shrunken rewrite, a proxy's 200, or a service bug leaves `audio`
-        // undefined — and `Buffer.from(undefined, 'base64')` then threw a raw
-        // Node TypeError ("The first argument must be of type string …") out of
-        // the tool, naming neither the tool nor the input, instead of the
-        // readable failure every sibling reports (render_pdf / merge_pdfs /
-        // watermark_pdf / transform_image all gate the body before they write).
-        // An EMPTY audio string is refused too: it would write a 0-byte file and
-        // report success over one.
-        if (typeof result.audio !== 'string' || result.audio.length === 0) {
-          throw new ServiceCallError('The service returned no audio data.')
-        }
-        const audio = Buffer.from(result.audio, 'base64')
+        // A body with no audio is refused before anything is written — see
+        // decodeServicePayload: without the gate, `Buffer.from(undefined, …)`
+        // threw a raw Node TypeError out of the tool (naming neither the tool nor
+        // the input), and an EMPTY audio string wrote a 0-byte file and reported
+        // success over one.
+        const audio = decodeServicePayload(result.audio, 'audio')
         writeFileSync(target, audio)
         return JSON.stringify({
           wroteTo: target,
@@ -1391,14 +1430,12 @@ server.registerTool(
         { html, ...(Object.keys(options).length > 0 ? { options } : {}) },
         directory,
       )) as { data?: string; pageCount?: number }
-      if (typeof result.data !== 'string') {
-        throw new ServiceCallError('The service returned no PDF data.')
-      }
-      writeNewFileSync(target, Buffer.from(result.data, 'base64'), 0o600)
+      const pdfBytes = decodeServicePayload(result.data, 'PDF')
+      writeNewFileSync(target, pdfBytes, 0o600)
       return JSON.stringify({
         file: target,
         pageCount: result.pageCount,
-        bytes: Buffer.from(result.data, 'base64').length,
+        bytes: pdfBytes.length,
       })
     }),
   ),
@@ -1481,10 +1518,7 @@ server.registerTool(
         data?: string
         pageCount?: number
       }
-      if (typeof result.data !== 'string') {
-        throw new ServiceCallError('The service returned no PDF data.')
-      }
-      writeNewFileSync(target, Buffer.from(result.data, 'base64'), 0o600)
+      writeNewFileSync(target, decodeServicePayload(result.data, 'PDF'), 0o600)
       return JSON.stringify({
         file: target,
         pageCount: result.pageCount,
@@ -1555,10 +1589,7 @@ server.registerTool(
         },
         directory,
       )) as { data?: string; pageCount?: number }
-      if (typeof result.data !== 'string') {
-        throw new ServiceCallError('The service returned no PDF data.')
-      }
-      writeNewFileSync(target, Buffer.from(result.data, 'base64'), 0o600)
+      writeNewFileSync(target, decodeServicePayload(result.data, 'PDF'), 0o600)
       return JSON.stringify({ file: target, pageCount: result.pageCount })
     }),
   ),
@@ -1722,9 +1753,7 @@ server.registerTool(
         format?: string
         bytes?: number
       }
-      if (typeof result.data !== 'string') {
-        throw new ServiceCallError('The service returned no image data.')
-      }
+      const imageBytes = decodeServicePayload(result.data, 'image')
       const extByMime: Record<string, string> = {
         'image/jpeg': '.jpg',
         'image/png': '.png',
@@ -1739,7 +1768,7 @@ server.registerTool(
       if (existsSync(outPath)) {
         throw new ServiceCallError(`${outPath} already exists. Pick a fresh name.`)
       }
-      writeNewFileSync(outPath, Buffer.from(result.data, 'base64'), 0o644)
+      writeNewFileSync(outPath, imageBytes, 0o644)
       return JSON.stringify({
         file: outPath,
         mimeType: result.mimeType,
@@ -1809,7 +1838,13 @@ server.registerTool(
         images?: Array<{ base64?: string; revisedPrompt?: string }>
         model?: string
       }
-      const images = (result.images ?? []).filter((i) => typeof i.base64 === 'string')
+      // An EMPTY `base64` is not an image: it decoded to zero bytes, so the tool
+      // wrote a 0-byte png under the caller's name and reported success — and the
+      // name is then taken, so the retry is refused as "already exists". Same
+      // rule as decodeServicePayload, which every single-payload sibling uses.
+      const images = (result.images ?? []).filter(
+        (i) => typeof i.base64 === 'string' && i.base64.length > 0,
+      )
       if (images.length === 0) {
         throw new ServiceCallError('The service returned no image data.')
       }
