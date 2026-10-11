@@ -156,6 +156,34 @@ describe('a masked env value is never the value itself', () => {
     }
   })
 
+  it('never repeats the listing when the CLI itself FAILS — its stdout is withheld too', async (ctx) => {
+    if (skipped(ctx)) return
+    // The refusal above guards the PARSE, but the CLI's stdout reaches the
+    // client a second way: `runCli` builds its failure message from the child's
+    // output (`stderr || stdout`), and `mlcl env list --json` prints every
+    // variable's UNMASKED value to stdout. A non-zero exit (nothing on stderr)
+    // therefore put the whole .env into the tool's error — past a guard whose
+    // own message promises the output is never repeated. The listing is the
+    // child's stdout here, exactly as `fakeCli` can produce it.
+    const listing = JSON.stringify([
+      { key: 'MOLECULE_API_KEY', value: LONG_SECRET },
+      { key: 'OTP', value: SHORT_SECRET },
+    ])
+    const { call, close } = await connect(fakeCli(`${listing}\n`, 1))
+    try {
+      for (const tool of ['list_env_vars', 'get_env_var']) {
+        const result = await call(tool, tool === 'get_env_var' ? { key: 'OTP' } : {})
+        expect(result.isError, `${tool} must fail when the CLI exits non-zero`).toBe(true)
+        const message = textOf(result)
+        expect(message, `${tool} must not repeat the long secret`).not.toContain(LONG_SECRET)
+        expect(message, `${tool} must not repeat the short secret`).not.toContain(SHORT_SECRET)
+        expect(message, `${tool} still names the command to re-run`).toContain('mlcl env list')
+      }
+    } finally {
+      await close()
+    }
+  })
+
   it('reports a stdout that is not the list without repeating the CLI’s own output', async (ctx) => {
     if (skipped(ctx)) return
     // An exit-0 `env list` whose stdout carries NO JSON document (a wrapper's

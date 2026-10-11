@@ -44,14 +44,35 @@ const CLI = process.env.MOLECULE_MCP_CLI ?? 'mlcl'
 const CLI_NOT_FOUND =
   'The mlcl CLI was not found on PATH. Install it with `npm install -g mlcl` (then run `mlcl login` for cloud tools), or point MOLECULE_MCP_CLI at its entry script.'
 
-async function runCli(args: string[], cwd?: string): Promise<string> {
+/**
+ * Run the `mlcl` CLI and return its stdout.
+ *
+ * `redactOutput` withholds the CHILD'S OUTPUT from the failure message. A
+ * failing command's stdout/stderr is the most useful diagnostic for most tools
+ * (so it is the default), but for a command whose own output carries secrets —
+ * `mlcl env list --json` prints every variable's UNMASKED value (see
+ * src/commands/env/list.ts) — echoing it puts the project's `.env` into the
+ * error the MCP client reads, through tools that advertise masked values.
+ * {@link readEnvList} sets it; the failure still names the command and its exit
+ * code so the caller can re-run it directly.
+ *
+ * @param args - The CLI argv.
+ * @param cwd - Working directory for the child.
+ * @param options - `redactOutput` suppresses the child's output in a failure message.
+ * @returns The child's stdout.
+ */
+async function runCli(
+  args: string[],
+  cwd?: string,
+  options: { redactOutput?: boolean } = {},
+): Promise<string> {
   if (cwd && !existsSync(cwd)) throw new Error(`mlcl ${args[0]}: directory does not exist: ${cwd}`)
   // `reject: false` makes execa RESOLVE a cannot-spawn failure rather than
   // reject it (verified against execa 10: `failed: true`, NO exit code, and its
   // own `spawn <bin> ENOENT` in `originalMessage`), so a missing CLI arrives at
   // the `failed` branch below like any other failure — there is nothing to
   // catch, and a catch here would only hold dead code.
-  const { stdout, failed, stderr, originalMessage } = await execa(CLI, args, {
+  const { stdout, failed, stderr, originalMessage, exitCode } = await execa(CLI, args, {
     cwd,
     reject: false,
     // The CLI's interactive confirms read stdin; spawned from the server, an
@@ -70,6 +91,13 @@ async function runCli(args: string[], cwd?: string): Promise<string> {
     // hint for a CLI that was running fine.
     if (/^spawn\b[^\n]*\bENOENT\b/.test(originalMessage ?? '')) {
       throw new Error(CLI_NOT_FOUND)
+    }
+    if (options.redactOutput === true) {
+      throw new Error(
+        `mlcl ${args.join(' ')} failed${exitCode === undefined ? '' : ` (exit ${exitCode})`} — ` +
+          'its output is not repeated here because it carries values this tool keeps masked; ' +
+          'run that command directly to see why.',
+      )
     }
     const detail =
       stderr.trim() || stdout.trim() || originalMessage || `mlcl ${args.join(' ')} failed`
@@ -118,7 +146,15 @@ async function readEnvList(
   app: boolean | undefined,
   directory: string | undefined,
 ): Promise<Array<{ key: string; value: string }>> {
-  const out = await runCli(['env', 'list', '--json', ...(app ? ['--app'] : [])], directory)
+  // `redactOutput` covers the OTHER way this CLI's stdout reaches the client:
+  // `runCli` builds a failure message from the child's output, so a non-zero
+  // `env list` (which prints the listing to stdout) put every unmasked value
+  // into the tool's error — through tools whose contract is "masked unless
+  // reveal", and past the refusal below, which only guards the PARSE. The
+  // failure now names the command and its exit code instead.
+  const out = await runCli(['env', 'list', '--json', ...(app ? ['--app'] : [])], directory, {
+    redactOutput: true,
+  })
   try {
     const parsed: unknown = parseJsonOut<unknown>(out)
     if (!Array.isArray(parsed)) {
@@ -1751,6 +1787,25 @@ server.registerTool(
  */
 const AI_DECISION_MAX_QUESTIONS = 50
 
+/**
+ * The longest serialized `criteria` one `ai_decision` question may carry, and
+ * the longest question id its record may key on.
+ *
+ * `criteria` is the one field of this call whose SHAPE varies by question type
+ * (a choice map, a score ladder, a yes/no hint — see the schema's description),
+ * so it cannot carry a single client-visible `.max()` the way `state` and
+ * `instructions` do; it is bounded in the handler instead, the same split
+ * `translate` uses for its total. Unbounded, it rode the SAME metered outbound
+ * body as those capped fields (`z.unknown()` accepted any JSON), so a caller
+ * sized the request and the billed decision with a field the tool's advertised
+ * bounds said nothing about. 2 000 characters matches `instructions`, the other
+ * free-text field a question carries; the id cap matches `create_api_key`'s
+ * scope strings (200) — a question id is a label, not a document.
+ */
+const AI_DECISION_MAX_CRITERIA_CHARS = 2_000
+/** Longest question id `ai_decision` accepts — see {@link AI_DECISION_MAX_CRITERIA_CHARS}. */
+const AI_DECISION_MAX_ID_CHARS = 200
+
 server.registerTool(
   'ai_decision',
   {
@@ -1761,7 +1816,7 @@ server.registerTool(
       state: z.string().min(1).max(100000).describe('The text the questions are about'),
       questions: z
         .record(
-          z.string(),
+          z.string().max(AI_DECISION_MAX_ID_CHARS),
           z.object({
             type: z.enum(['choice', 'score', 'yesNo']),
             instructions: z.string().min(1).max(2000),
@@ -1794,6 +1849,19 @@ server.registerTool(
           `${questionCount} questions; ai_decision accepts up to ` +
             `${AI_DECISION_MAX_QUESTIONS} per call.`,
         )
+      }
+      // `criteria` cannot carry a client-visible `.max()` (its shape varies by
+      // question type), so it is bounded here — before the metered call — on
+      // its serialized size, covering every shape at once. JSON.stringify is
+      // safe on a value that arrived as parsed JSON.
+      for (const [id, question] of Object.entries(questions)) {
+        const serialized = question.criteria === undefined ? '' : JSON.stringify(question.criteria)
+        if (serialized.length > AI_DECISION_MAX_CRITERIA_CHARS) {
+          throw new ServiceCallError(
+            `question "${id}" carries ${serialized.length} characters of criteria; ` +
+              `ai_decision accepts up to ${AI_DECISION_MAX_CRITERIA_CHARS} per question.`,
+          )
+        }
       }
       const result = await callHostedService(
         'ai-decisions',
@@ -2092,9 +2160,21 @@ server.registerTool(
     description:
       'Run a coding agent UNATTENDED against a GitHub repo on molecule.dev: the agent works in an ephemeral cloud sandbox that holds nothing sensitive, with per-run scoped credentials and deny-by-default egress. Returns a runId immediately (runs take minutes) — poll with get_agent_run. When finished, the artifact carries a unified diff (patch) the HOST applies — scan it for secrets first. Requires a GitHub fine-grained token scoped to THE ONE repo (contents:read/write, expiry ≈ timeout) via github_token; metered to the project whose MOLECULE_API_KEY is used. A 503 broker.error.capacityPaused means new runs are paused for capacity: retry later (the error says when). You may supply your own model provider key instead of using the platform broker.',
     inputSchema: {
+      // Bounded on both axes, like every other field of this call that rides
+      // the metered outbound body: a length cap (an owner/repo URL is short),
+      // and a scheme/host restriction enforcing the contract the description
+      // advertises. `z.string().url()` alone accepts `file:`, `gopher:` and
+      // `http://169.254.169.254/…`; the value is forwarded to the platform's
+      // agent-run clone step, so a non-https URL is a local-file/SSRF primitive
+      // against that runner, not a repo to clone.
       repo_url: z
         .string()
+        .max(500)
         .url()
+        .refine(
+          (u) => u.startsWith('https://github.com/'),
+          'repo_url must be an https GitHub repo URL, e.g. https://github.com/org/repo',
+        )
         .describe('https GitHub repo URL, e.g. https://github.com/org/repo'),
       instructions: z
         .string()
@@ -2103,6 +2183,7 @@ server.registerTool(
         .describe('What the agent should do, in plain language'),
       github_token: z
         .string()
+        .max(500)
         .describe(
           'GitHub FINE-GRAINED token scoped to THIS ONE repo (contents:read/write), expiry ≈ timeout. Never an account-wide token.',
         ),
@@ -2152,7 +2233,7 @@ server.registerTool(
     description:
       'Poll a molecule.dev agent run submitted with submit_agent_run. Statuses: queued, running, succeeded, failed, cancelled. While queued/running it returns status only. For succeeded AND failed runs it returns the artifact: exitStatus, patch (unified diff — apply host-side after scanning for secrets), logs and token usage; a failed run also carries its reason in a top-level error field. A cancelled run returns status only. Polling never cancels a run: use cancel_agent_run.',
     inputSchema: {
-      run_id: z.string().describe('runId from submit_agent_run'),
+      run_id: z.string().max(200).describe('runId from submit_agent_run'),
       directory: z
         .string()
         .optional()
@@ -2177,7 +2258,7 @@ server.registerTool(
     description:
       'Cancel a queued or running molecule.dev agent run submitted with submit_agent_run: its sandbox is destroyed and its credentials revoked. A run that already finished or was cancelled cannot be cancelled (409).',
     inputSchema: {
-      run_id: z.string().describe('runId from submit_agent_run'),
+      run_id: z.string().max(200).describe('runId from submit_agent_run'),
       directory: z
         .string()
         .optional()

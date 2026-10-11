@@ -413,3 +413,48 @@ describe('ai_decision refuses more questions than it meters', () => {
     expect(text, 'the cap admits the batch it advertises').toContain(METERED_MARKER)
   })
 })
+
+describe('ai_decision bounds the criteria that rides the metered body', () => {
+  it('refuses a question whose criteria is over the cap, before the metered call', async (ctx) => {
+    if (skipped(ctx)) return
+    // `state` and `instructions` are capped; `criteria` is `z.unknown()` (its
+    // shape varies by question type), so it is bounded on its serialized size
+    // in the handler — the one field of this call that rode the same metered
+    // outbound body unbounded.
+    const questions = {
+      q0: { type: 'choice', instructions: 'Pick one', criteria: { a: 'x'.repeat(5000) } },
+    }
+    const text = await callText(callTool, 'ai_decision', { state: 'some state', questions })
+    expect(text).toContain('2000')
+    expect(text, 'the cap refusal precedes the metered call').not.toContain(METERED_MARKER)
+  })
+
+  it('admits criteria inside the cap', async (ctx) => {
+    if (skipped(ctx)) return
+    // The other half: a normal criteria map must still reach the service —
+    // otherwise the bound silently broke every real call.
+    const questions = {
+      q0: { type: 'choice', instructions: 'Pick one', criteria: { yes: 'when it applies' } },
+    }
+    const text = await callText(callTool, 'ai_decision', { state: 'some state', questions })
+    expect(text, 'criteria within the cap reaches the service').toContain(METERED_MARKER)
+  })
+})
+
+describe('submit_agent_run refuses a repo_url that is not an https GitHub URL', () => {
+  it('refuses a file:// URL and a link-local metadata address before the metered call', async (ctx) => {
+    if (skipped(ctx)) return
+    // `z.string().url()` alone accepts any scheme; this value is forwarded to
+    // the platform's clone step, so a non-https URL is a local-file/SSRF
+    // primitive against the runner rather than a repo to clone.
+    for (const url of ['file:///etc/passwd', 'http://169.254.169.254/latest/meta-data']) {
+      const text = await callText(callTool, 'submit_agent_run', {
+        repo_url: url,
+        instructions: 'do something',
+        github_token: 'github_pat_example',
+      })
+      expect(text, `${url} must be refused`).toContain('github.com')
+      expect(text, 'the refusal precedes the metered call').not.toContain(METERED_MARKER)
+    }
+  })
+})
