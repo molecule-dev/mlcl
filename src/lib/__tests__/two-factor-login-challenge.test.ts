@@ -4,13 +4,15 @@
  * components (only the ClassMap, i18n and the network are stubbed).
  *
  * Note on what is observable: both pages signal success by assigning
- * `window.location.href`, and jsdom's `location` is an unforgeable own property
- * (`Object.getOwnPropertyDescriptor(window.location, 'href').configurable` is
- * false; the prototype carries no `href`), so a test can neither stub it nor
- * observe the assignment. The completion signals pinned below are therefore
- * the ones jsdom CAN show: the exact request the second half sends, and that an
- * answer which issued no session leaves a failed-attempt counter instead of a
- * "no error rendered" state.
+ * `window.location.href`. In this vitest jsdom environment `window.location`
+ * is a CONFIGURABLE accessor (verified: `Object.getOwnPropertyDescriptor(window,
+ * 'location')` reports `configurable: true`), so the tests replace it with a
+ * plain object and assert the assignment directly — the completion branch is
+ * pinned by its effect, not only by the request that precedes it. (An earlier
+ * revision of this suite documented `location` as unforgeable and the jsdom
+ * "Not implemented: navigation" report as suppressed; neither holds under
+ * vitest 4.1.11 — the stub below is the proof, and the navigation report does
+ * reach `console.error`.)
  *
  * The framework's contract is narrow and easy to get wrong (see
  * `@molecule/api-resource-user`'s `logIn` handler):
@@ -132,8 +134,24 @@ async function respond(fragment: string, status: number, body: unknown): Promise
 const bodyOf = (index: number): unknown => JSON.parse(String(fetches.requests[index]?.body))
 const text = (): string => container.textContent ?? ''
 
+/**
+ * The stub `window.location` the success branches write into, plus the original
+ * property descriptor to restore. Both pages signal "the session was issued" by
+ * assigning `window.location.href = '/'`; the stub turns that assignment into
+ * something a test can read — and deleting a success branch (the request goes
+ * out, the answer is dropped on the floor) fails the assertions below.
+ */
+let locationStub: { href: string }
+const originalLocation = Object.getOwnPropertyDescriptor(window, 'location')
+
 beforeEach(() => {
   fetches.requests.length = 0
+  locationStub = { href: 'http://localhost/login' }
+  Object.defineProperty(window, 'location', {
+    configurable: true,
+    writable: true,
+    value: locationStub,
+  })
   globalThis.fetch = ((input: unknown, init?: { body?: unknown }) =>
     new Promise((resolve, reject) => {
       fetches.requests.push({
@@ -152,6 +170,9 @@ beforeEach(() => {
 })
 
 afterEach(async () => {
+  if (originalLocation !== undefined) {
+    Object.defineProperty(window, 'location', originalLocation)
+  }
   if (root && document.body.contains(container)) {
     await act(async () => {
       root.unmount()
@@ -206,15 +227,14 @@ describe('email-password-login — a 2FA challenge is NOT a successful login', (
 
     await respond('/api/users/log-in', 200, { props: { id: 'u1' } })
     // A 200 DID issue the session, so it must not be reported as a wrong code
-    // or counted as a failed attempt. The success branch itself is a
-    // `window.location.href` navigation, which jsdom refuses — and the
-    // "Not implemented: navigation" report it makes is suppressed by vitest's
-    // virtual console (never reaches console.error — verified — so it cannot
-    // be spied either). The completing half is therefore pinned by the REQUEST
-    // assertions above: only the credentials+token POST can ever log this user
-    // in, so a dropped success branch would leave a session that never
-    // happens, which is the flow's failure, visible at the network boundary
-    // this suite controls.
+    // or counted as a failed attempt — and the success branch must actually
+    // RUN: the request above is only the client's half of the flow. The
+    // navigation is the completion signal, read off the stubbed location (see
+    // the note at the top): a deleted or reordered success branch (the answer
+    // dropped on the floor, the page re-rendering the form) leaves the stub
+    // untouched and fails here, where an earlier revision of this suite —
+    // before `window.location` proved stubbable — could only pin the request.
+    expect(locationStub.href, 'the 200 must complete the login by navigating').toBe('/')
     expect(text()).not.toContain('Wrong code')
     expect(text()).not.toContain('failed attempts')
   })
@@ -254,6 +274,25 @@ describe('two-factor-auth — the code step posts to the real log-in route', () 
       password: 'hunter2-secret',
       twoFactorToken: '123456',
     })
+  })
+
+  it('a session-issuing 200 completes the login — the answer is handled, not dropped', async () => {
+    // The success branch was never asserted: every other test here stops at a
+    // rejected/throttled/challenge answer, so deleting the `res.ok` branch (the
+    // POST goes out, the 200 lands, nothing happens, no session) kept the whole
+    // suite green. The navigation is the only observable the page offers, and
+    // the stubbed location makes it readable — see the note at the top.
+    await mount(
+      createElement(LoginVerifyPage, { email: 'ada@calc.dev', password: 'hunter2-secret' }),
+    )
+
+    await typeInto('[data-mol-id="totp-login-code"]', '123456')
+    await submit()
+    await respond('/api/users/log-in', 200, { props: { id: 'u1' } })
+
+    expect(locationStub.href, 'the 200 must complete the login by navigating').toBe('/')
+    expect(text()).not.toContain('failed attempts')
+    expect(text()).not.toContain('Wrong code')
   })
 
   it('counts a rejected code as an attempt and shows the retry counter', async () => {
