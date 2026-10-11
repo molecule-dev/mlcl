@@ -23,10 +23,17 @@ export function Leaderboard({ currentUserId }: { currentUserId?: string }) {
   const http = useHttpClient()
   const [entries, setEntries] = useState<Entry[]>([])
   const [loadFailed, setLoadFailed] = useState(false)
+  // Whether the load is still in flight. Without it the shared list's empty
+  // state ("No scores yet.") was the FIRST paint of every mount — a wrong
+  // answer, shown while the rows were simply on their way, and the exact state
+  // the failure comments below refuse to leave behind. The pending window gets
+  // its own answer, like the sibling slices' loaders.
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     let cancelled = false
     setLoadFailed(false)
+    setLoading(true)
     void http
       .get<Entry[]>('/api/leaderboard')
       .then((res) => {
@@ -39,9 +46,11 @@ export function Leaderboard({ currentUserId }: { currentUserId?: string }) {
         // EMPTY list stays a legitimately empty board.
         if (!Array.isArray(res.data)) {
           setLoadFailed(true)
+          setLoading(false)
           return
         }
         setEntries(res.data)
+        setLoading(false)
       })
       .catch(() => {
         // A failed load (offline, 500) must be VISIBLE, not empty: leaving the
@@ -51,12 +60,20 @@ export function Leaderboard({ currentUserId }: { currentUserId?: string }) {
         // rule the sibling slices state at their own catches (BlogIndexPage,
         // SettingsPage, DeleteAccountPage). The rejection itself must not escape
         // the effect as an unhandled promise rejection.
-        if (!cancelled) setLoadFailed(true)
+        if (cancelled) return
+        setLoadFailed(true)
+        setLoading(false)
       })
     return () => {
       cancelled = true
     }
   }, [http])
+
+  if (loading) {
+    return (
+      <p className={cm.textMuted}>{t('common.loading', undefined, { defaultValue: 'Loading…' })}</p>
+    )
+  }
 
   if (loadFailed) {
     return (

@@ -142,6 +142,27 @@ describe('the leaderboard example — a failed load is reported, not shown as em
     expect(text()).not.toContain('No scores yet.')
   })
 
+  it('does not present the PENDING load as an empty board', async () => {
+    // The request is still parked after mount: `entries` is [] and, without a
+    // loading state, nothing distinguished "not loaded yet" from "no scores" —
+    // so the shared list rendered its empty state as an authoritative answer on
+    // the first paint of every mount.
+    await mount(createElement(Leaderboard, { currentUserId: 'u-1' }))
+    expect(text()).not.toContain('No scores yet.')
+    expect(text()).toContain('Loading')
+
+    await act(async () => {
+      calls[0]?.resolve({
+        data: [{ userId: 'u-1', rank: 1, score: 42, name: 'Ada' }],
+      })
+    })
+    await flush()
+
+    expect(text()).toContain('1 Ada 42')
+    expect(text()).not.toContain('Loading')
+    expect(text()).not.toContain('No scores yet.')
+  })
+
   it('renders the rows a successful load returns (the positive twin)', async () => {
     await mount(createElement(Leaderboard, { currentUserId: 'u-1' }))
     await act(async () => {
