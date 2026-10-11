@@ -72,7 +72,7 @@ const cache = new Map<string, { at: number; data: unknown }>()
  * accumulate one cached doc per package name in the fleet.
  */
 const README_CACHE_TTL_MS = 10 * 60_000
-/** Cached packages kept before the oldest entry is evicted (see the cap logic below). */
+/** Cached packages kept before the least-recently-used entry is evicted (see the cap logic below). */
 export const README_CACHE_LIMIT = 50
 const readmeCache = new Map<string, { at: number; readme: string }>()
 
@@ -95,7 +95,24 @@ export async function fetchPackageReadme(
   timeoutMs: number = FETCH_TIMEOUT_MS,
 ): Promise<string | undefined> {
   const hit = readmeCache.get(short)
-  if (hit && Date.now() - hit.at < README_CACHE_TTL_MS) return hit.readme
+  if (hit) {
+    if (Date.now() - hit.at < README_CACHE_TTL_MS) {
+      // Move the entry to the END of the map's order ("used most recently"),
+      // the same access order the rate limiter's buckets keep: the cap below
+      // evicts its FIRST key, and a Map does not move a key when it is
+      // re-set. Without this the cap evicted by INSERTION order — a session
+      // walking more than {@link README_CACHE_LIMIT} packages evicted the
+      // package it had just read, so the very working set the cache exists for
+      // (a client asking about the same packages repeatedly) still re-fetched
+      // the whole ~270 kB packument per call.
+      readmeCache.delete(short)
+      readmeCache.set(short, hit)
+      return hit.readme
+    }
+    // Stale: drop it now so the fresh entry below lands at the end rather than
+    // inheriting the old position.
+    readmeCache.delete(short)
+  }
   const meta = (await (
     await fetch(`https://registry.npmjs.org/@molecule%2F${short}`, {
       signal: AbortSignal.timeout(timeoutMs),
@@ -220,7 +237,14 @@ export function buildRemoteServer(): McpServer {
       description:
         'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login"). Returns matching packages with stack, category, and install command. Prefer an existing package over hand-rolling any capability.',
       inputSchema: {
-        query: z.string().describe('Capability or package-name query'),
+        // Bounded: `scoreEntry` splits the query on whitespace and runs one
+        // pass over EVERY fleet package (~900) for each token, so the work one
+        // request costs is (tokens × packages). With no cap, an 800 KB body of
+        // whitespace-separated words (a few hundred thousand tokens, well under
+        // the 1 MB body limit) pinned a core of this public, single-threaded
+        // server for minutes — a per-address rate budget does not bound the
+        // work a single allowed request may do. A capability query is a phrase.
+        query: z.string().max(200).describe('Capability or package-name query'),
         limit: z.number().int().min(1).max(100).optional(),
       },
     },
