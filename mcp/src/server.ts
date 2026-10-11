@@ -115,6 +115,16 @@ const text = (t: string) => ({ content: [{ type: 'text' as const, text: t }] })
  * {@link requireWritableParent} on its output path BEFORE it calls the hosted
  * service — see below for why that check cannot wait until here.
  *
+ * A write that FAILS leaves nothing behind at `path`. `O_CREAT|O_EXCL` creates
+ * the empty file before the bytes are written, so a failure after that point (a
+ * full disk, EIO, EDQUOT — a merged PDF is up to 24 MB) used to leave a partial
+ * file under the caller's own output name: the next attempt is refused with this
+ * tool's "already exists" message, and `generate_image`'s whole-set rollback
+ * cannot see it, because it only removes the paths it finished writing. The name
+ * is provably this call's own — a file anyone else held would have failed the
+ * create with EEXIST, which never reaches the cleanup below — so a failed write
+ * removes it and "created, never replaced" holds on the failure path too.
+ *
  * @param path - Destination path.
  * @param data - The bytes to write.
  * @param mode - File mode (0o644 for media, 0o600 for documents).
@@ -128,6 +138,16 @@ function writeNewFileSync(path: string, data: Buffer, mode: number): void {
       throw new ServiceCallError(
         `${path} already exists. Pick a fresh name — the tool never overwrites.`,
       )
+    }
+    // The create may have succeeded before the data write failed (see the doc
+    // above): drop whatever landed at this path so no partial file survives a
+    // failed call. Best-effort — a cleanup failure must not replace the real
+    // write error, and an untouched path (ENOENT/EACCES on the create) makes
+    // this a no-op.
+    try {
+      rmSync(path, { force: true })
+    } catch (_cleanupError) {
+      // Nothing further to do: the write failure is rethrown below.
     }
     throw error
   }

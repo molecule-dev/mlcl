@@ -33,6 +33,33 @@ const DEPS_MARKER = join(MCP_DIR, 'node_modules', 'execa', 'package.json')
  */
 const hosted = vi.hoisted(() => ({ calls: 0, onCall: null as null | (() => void) }))
 
+/**
+ * A path whose exclusive create SUCCEEDS and whose data write then fails — the
+ * shape a full disk leaves (see the `writeNewFileSync` doc): the kernel creates
+ * the empty file first, so the failure must not leave it behind.
+ */
+const failingWrite = vi.hoisted(() => ({ path: null as string | null }))
+
+vi.mock('node:fs', async (importOriginal) => {
+  const actual = (await importOriginal()) as Record<string, unknown>
+  const realWriteFileSync = actual.writeFileSync as (p: unknown, ...rest: unknown[]) => void
+  return {
+    ...actual,
+    writeFileSync(p: unknown, data: unknown, opts?: unknown): void {
+      if (typeof p === 'string' && failingWrite.path !== null && p === failingWrite.path) {
+        // Create the file exactly as `O_CREAT|O_EXCL` would, then fail the data
+        // write — verified against Node: the created file STAYS on disk when
+        // the write throws (nothing unlinks it).
+        realWriteFileSync(p, Buffer.alloc(0), opts)
+        const error = new Error('ENOSPC: no space left on device, write') as NodeJS.ErrnoException
+        error.code = 'ENOSPC'
+        throw error
+      }
+      realWriteFileSync(p, data, opts)
+    },
+  }
+})
+
 vi.mock('../../../mcp/src/services.js', () => ({
   /** A real class: `serviceResult` matches it with `instanceof`. */
   ServiceCallError: class ServiceCallError extends Error {},
@@ -135,6 +162,31 @@ describe('generate_image — an n > 1 set lands whole or not at all', () => {
     expect(existsSync(target), 'no partial set behind a failed call').toBe(false)
     expect(existsSync(join(dir, 'collide-1.png'))).toBe(false)
     expect(hosted.calls, 'the service was still asked for the images').toBe(1)
+  })
+
+  it('leaves no partial file behind when a write fails mid-set', async (ctx) => {
+    if (skipped(ctx)) return
+
+    // `O_CREAT|O_EXCL` creates the empty file BEFORE the bytes are written, so a
+    // data write that then fails (a full disk) leaves a partial file at the
+    // caller's own output name — one this tool refuses on the next attempt
+    // ("already exists. Pick a fresh name") and that the whole-set rollback
+    // cannot see, because it only removes the paths it finished writing.
+    const target = join(dir, 'poisoned.png')
+    failingWrite.path = target
+    try {
+      const result = await callTool('generate_image', {
+        prompt: 'a logo',
+        output_file: target,
+        n: 2,
+      })
+
+      expect(result.isError, 'a failed write fails the call').toBe(true)
+      expect(existsSync(target), 'no partial file under the refused name').toBe(false)
+      expect(existsSync(join(dir, 'poisoned-2.png'))).toBe(false)
+    } finally {
+      failingWrite.path = null
+    }
   })
 
   it('writes the whole set when every path is free (no over-tightening)', async (ctx) => {
