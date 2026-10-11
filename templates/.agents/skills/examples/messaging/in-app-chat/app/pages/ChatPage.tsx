@@ -105,21 +105,24 @@ export function ChatPage({ channelId }: { channelId: string }) {
   // the indicator off while the peer is still typing), and so cleanup can
   // clear a pending one on unmount / channel switch.
   const typingTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  // The channel the CURRENT render belongs to. `send` captures the channel it
-  // was invoked for; comparing the two after the POST's await keeps a late
-  // response (error or success) from writing the room the user already left —
-  // the same room-scoping the effect below enforces for history and typing.
-  const activeChannelRef = useRef(channelId)
-  activeChannelRef.current = channelId
-  // The in-flight send's ticket. `sending` is ONE flag shared by every send, so
-  // only the send that still OWNS it may clear it: a channel switch releases the
-  // flag for the room being entered (the effect below), and the send left behind
-  // in the old room must not release it a second time while the new room's POST
-  // is still parked — that unfroze the composer mid-send and let a double Enter
-  // post the same message twice (the endpoint has no idempotency key). A
-  // monotonic ticket rather than a channel compare: switching A → B → A leaves an
-  // older A send in flight under the same channel name, and its late release
-  // would unfreeze the newer A send just the same.
+  // The in-flight send's ticket — the OWNERSHIP test for everything a send
+  // writes after its await, not just for the flag. `sending` is ONE flag shared
+  // by every send, so only the send that still OWNS it may clear it: a channel
+  // switch releases the flag for the room being entered (the effect below), and
+  // the send left behind in the old room must not release it a second time while
+  // the new room's POST is still parked — that unfroze the composer mid-send and
+  // let a double Enter post the same message twice (the endpoint has no
+  // idempotency key).
+  //
+  // A monotonic ticket rather than a channel-name compare, and for the same
+  // reason on every post-await write: switching A → B → A leaves an older A send
+  // in flight under the SAME channel name, so `channelId === sentToChannel`
+  // cannot tell it from a send the re-entered room started. Its late failure
+  // then painted "Message not sent" into a room that never sent anything this
+  // session, and its late success cleared a draft typed there (the text matched
+  // the abandoned send's, so the guard that keeps newer typing could not help).
+  // The ticket is bumped by exactly those two events — a room switch and a newer
+  // send — so it is the room-and-session scope the writes actually need.
   const sendTicket = useRef(0)
 
   useEffect(() => {
@@ -267,11 +270,12 @@ export function ChatPage({ channelId }: { channelId: string }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ channel_id: sentToChannel, content: text }),
       })
-      // The user may have switched rooms while the POST was in flight. The
-      // error belongs to the room it was sent FROM (and a late SUCCESS must not
-      // clear the draft they have since typed into the new room's composer) —
-      // the effect on a channel change already reset both.
-      if (activeChannelRef.current !== sentToChannel) return
+      // The user may have switched rooms while the POST was in flight — or left
+      // and come BACK to this one, which a name compare cannot detect. The error
+      // belongs to the session that sent it (and a late SUCCESS must not clear a
+      // draft typed since), so the test is the send's own ticket: any room
+      // switch and any newer send has taken it (see sendTicket).
+      if (sendTicket.current !== ticket) return
       if (!res.ok) {
         setSendError(true)
         return
@@ -280,7 +284,8 @@ export function ChatPage({ channelId }: { channelId: string }) {
       // (same room, so the channel guard above cannot help) must survive.
       setDraft((current) => (current.trim() === text ? '' : current))
     } catch (_error) {
-      if (activeChannelRef.current !== sentToChannel) return
+      // Same ownership rule as the success path above (see sendTicket).
+      if (sendTicket.current !== ticket) return
       setSendError(true)
     } finally {
       // Only the send that still owns the flag may release it: an abandoned

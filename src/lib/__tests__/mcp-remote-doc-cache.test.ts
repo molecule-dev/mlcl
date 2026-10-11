@@ -97,6 +97,82 @@ describe('mcp remote package-doc fetch', () => {
     expect(fetchSpy).toHaveBeenCalledTimes(1)
   })
 
+  it('shares one outbound fetch between callers that ask for the SAME package at once', async (ctx) => {
+    if (skipped(ctx)) return
+    const { fetchPackageReadme } = await import('../../../mcp/src/remote.js')
+    const name = uniqueName()
+    // A fetch that stays parked: the cache read and the cache write straddle
+    // this await, so a caller arriving during it found neither the entry nor
+    // anything in flight — it missed the cache too and started its OWN request.
+    // Two (or ten) callers asking for one uncached package therefore pulled the
+    // whole ~270 kB packument each, which is exactly the "load scales with the
+    // call rate rather than the package count" defect the cache exists to
+    // remove, still reachable at the moment load is highest.
+    let release: (() => void) | null = null
+    const spy = vi.fn(async () => {
+      await new Promise<void>((resolve) => {
+        release = resolve
+      })
+      return new Response(JSON.stringify({ readme: '# Shared' }), {
+        status: 200,
+        headers: { 'content-type': 'application/json' },
+      })
+    })
+    vi.stubGlobal('fetch', spy)
+
+    const first = fetchPackageReadme(name)
+    const second = fetchPackageReadme(name)
+
+    // The assertion that fails without the shared in-flight entry: two callers,
+    // ONE request — and it is made before either has settled.
+    expect(spy).toHaveBeenCalledTimes(1)
+
+    release!()
+    expect(await first).toBe('# Shared')
+    expect(await second).toBe('# Shared')
+    // …and the settled value is cached, so a later caller does not ask again.
+    expect(await fetchPackageReadme(name)).toBe('# Shared')
+    expect(spy).toHaveBeenCalledTimes(1)
+  })
+
+  it('shares one outbound fetch for a registry/templates document too', async (ctx) => {
+    if (skipped(ctx)) return
+    const { fetchJson, isRegistryPayload } = await import('../../../mcp/src/remote.js')
+    // The same straddle as above, on the sibling loader: the registry document
+    // is ~1.5 MB and is fetched by search_packages on every uncached call.
+    const url = `https://example.test/registry-${uniqueName()}.json`
+    let release: (() => void) | null = null
+    const spy = vi.fn(async () => {
+      await new Promise<void>((resolve) => {
+        release = resolve
+      })
+      return new Response(JSON.stringify({ packages: { '@molecule/api-fixture': {} } }), {
+        status: 200,
+        headers: { 'content-type': 'application/json' },
+      })
+    })
+    vi.stubGlobal('fetch', spy)
+
+    const first = fetchJson<{ packages: Record<string, unknown> }>(
+      url,
+      undefined,
+      1_000,
+      isRegistryPayload,
+    )
+    const second = fetchJson<{ packages: Record<string, unknown> }>(
+      url,
+      undefined,
+      1_000,
+      isRegistryPayload,
+    )
+
+    expect(spy).toHaveBeenCalledTimes(1)
+
+    release!()
+    expect((await first).packages['@molecule/api-fixture']).toEqual({})
+    expect((await second).packages['@molecule/api-fixture']).toEqual({})
+  })
+
   it('keeps one cache entry per package — a different name is fetched separately', async (ctx) => {
     if (skipped(ctx)) return
     const { fetchPackageReadme } = await import('../../../mcp/src/remote.js')

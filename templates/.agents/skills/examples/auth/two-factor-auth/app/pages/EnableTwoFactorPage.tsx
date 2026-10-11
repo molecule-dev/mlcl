@@ -81,7 +81,7 @@ export function EnableTwoFactorPage() {
       // "Wrong code — try again" told a user whose CORRECT code was refused by
       // the rate limiter to retype it, the exact mislabel LoginVerifyPage
       // documents below.
-      const body = (await res.json().catch(() => ({}))) as { error?: string }
+      const body = (await res.json().catch(() => ({}))) as { error?: string; ok?: boolean }
       if (res.status === 401 || res.status === 403) {
         setError(
           body.error ?? t('totp.wrongCode', undefined, { defaultValue: 'Wrong code — try again' }),
@@ -89,6 +89,23 @@ export function EnableTwoFactorPage() {
         return
       }
       if (!res.ok) {
+        setError(
+          body.error ??
+            t('totp.verifyFailed', undefined, {
+              defaultValue: 'Could not verify the code — try again shortly.',
+            }),
+        )
+        return
+      }
+      // A 2xx proves the route ANSWERED, not that the code was ACCEPTED: the
+      // handler's success body is `{ ok: true }` (api/handlers/totp.ts — the
+      // promotion of `totp_secret_pending` to `totp_secret` happens on that
+      // path), and an endpoint with no fixture answers `{}` while a proxy can
+      // rewrite a failure into a 200. Taking any 2xx as success announced
+      // "Two-factor authentication enabled" over an account where the second
+      // factor is still OFF, with the page offering no way back. The same shape
+      // gate `startEnroll` applies to its own 2xx body.
+      if (body.ok !== true) {
         setError(
           body.error ??
             t('totp.verifyFailed', undefined, {

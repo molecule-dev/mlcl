@@ -290,16 +290,27 @@ function requireWritableParent(path: string): void {
  * payload for exactly this reason; every tool that writes a service payload now
  * goes through here.
  *
+ * The gate is on the DECODED LENGTH, never on the string's: a non-empty base64
+ * string is not bytes. Node's decoder ignores characters outside the alphabet
+ * and a trailing partial group, so `"x"`, `"!!!"` and any value whose length is
+ * ≡ 1 (mod 4) decode to ZERO bytes while passing a `data.length === 0` check —
+ * and every caller then wrote that empty buffer under the caller's own name and
+ * reported success, the exact outcome the length check above exists to prevent.
+ *
  * @param data - The base64 field from the response (`undefined` when absent).
  * @param what - What the payload was meant to be, for the failure message.
  * @returns The decoded bytes.
- * @throws ServiceCallError when the field is missing or empty.
+ * @throws ServiceCallError when the field is missing, empty, or decodes to no bytes.
  */
 function decodeServicePayload(data: string | undefined, what: string): Buffer {
   if (typeof data !== 'string' || data.length === 0) {
     throw new ServiceCallError(`The service returned no ${what} data.`)
   }
-  return Buffer.from(data, 'base64')
+  const bytes = Buffer.from(data, 'base64')
+  if (bytes.length === 0) {
+    throw new ServiceCallError(`The service returned no ${what} data.`)
+  }
+  return bytes
 }
 
 /**
@@ -2093,13 +2104,21 @@ server.registerTool(
         images?: Array<{ base64?: string; revisedPrompt?: string }>
         model?: string
       }
-      // An EMPTY `base64` is not an image: it decoded to zero bytes, so the tool
-      // wrote a 0-byte png under the caller's name and reported success — and the
+      // An entry that DECODES to zero bytes is not an image: it was written as a
+      // 0-byte png under the caller's name and reported as success — and the
       // name is then taken, so the retry is refused as "already exists". Same
-      // rule as decodeServicePayload, which every single-payload sibling uses.
-      const images = (result.images ?? []).filter(
-        (i) => typeof i.base64 === 'string' && i.base64.length > 0,
-      )
+      // rule as decodeServicePayload, which every single-payload sibling uses —
+      // including its second half: an EMPTY string was the case the length check
+      // caught, but the decoder ignores a trailing partial group and characters
+      // outside the alphabet, so `base64: 'x'` (or any length ≡ 1 mod 4) passed
+      // `length > 0` and still decoded to nothing. The gate is on the decoded
+      // bytes, and those bytes are what gets written.
+      const images = (result.images ?? [])
+        .filter(
+          (i): i is { base64: string; revisedPrompt?: string } => typeof i.base64 === 'string',
+        )
+        .map((i) => ({ bytes: Buffer.from(i.base64, 'base64'), revisedPrompt: i.revisedPrompt }))
+        .filter((image) => image.bytes.length > 0)
       if (images.length === 0) {
         throw new ServiceCallError('The service returned no image data.')
       }
@@ -2121,7 +2140,7 @@ server.registerTool(
       const stem = basename(target, extname(target))
       const planned = images.map((image, i) => ({
         path: i === 0 ? target : join(dirname(target), stem + suffix(i) + '.png'),
-        base64: image.base64 as string,
+        bytes: image.bytes,
       }))
       for (const { path } of planned) {
         if (existsSync(path)) {
@@ -2136,8 +2155,8 @@ server.registerTool(
       // the whole-set-or-nothing contract under concurrency too.
       const written: string[] = []
       try {
-        for (const { path, base64 } of planned) {
-          writeNewFileSync(path, Buffer.from(base64, 'base64'), 0o644)
+        for (const { path, bytes } of planned) {
+          writeNewFileSync(path, bytes, 0o644)
           written.push(path)
         }
       } catch (error) {

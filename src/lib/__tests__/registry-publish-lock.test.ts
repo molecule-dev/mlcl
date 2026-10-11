@@ -327,6 +327,39 @@ describe('updateRegistryEntry — the publish lock', () => {
     expect(existsSync(`${registryPath}.${process.pid}.tmp`), 'no temp litter').toBe(false)
   })
 
+  it('drops the lock it just created when that file cannot be inspected, instead of leaking it', () => {
+    // The identity recorded at create time is the only thing the release can
+    // find its own lock by. When that ONE stat fails (EMFILE under fd pressure,
+    // EIO, EACCES) the create has already SUCCEEDED — so carrying on ran the
+    // publish under a lock with no identity to release against: the file stayed
+    // on disk after the mutation returned, and this process's next mutation —
+    // like every other publisher — then waited out the whole steal age behind a
+    // lock nobody held, and failed. The exclusive create is what proves the file
+    // is this call's own (a rival may only take over a lock past the steal age),
+    // so it is dropped and the mutation reports the failure.
+    observed.uninspectableLock.remaining = 1
+
+    let thrown: unknown
+    try {
+      updateRegistryEntry('@molecule/lock-unrecordable-probe', probeEntry)
+    } catch (error) {
+      thrown = error
+    }
+
+    const message = thrown instanceof Error ? thrown.message : String(thrown)
+    expect(message, 'a lock this process cannot release must fail the mutation').toMatch(
+      /cannot be inspected/,
+    )
+    expect(existsSync(lockPath), 'the lock this call created must not be leaked').toBe(false)
+    const parsed = JSON.parse(readFileSync(registryPath, 'utf-8')) as {
+      packages: Record<string, unknown>
+    }
+    expect(
+      parsed.packages['@molecule/lock-unrecordable-probe'],
+      'the registry must be left untouched when the publish runs with no lock to release',
+    ).toBeUndefined()
+  })
+
   it('reports a lock it cannot inspect instead of retrying it past the wait budget', () => {
     // The holder-release case is `ENOENT` (retry immediately, correct). Any
     // OTHER stat failure — EACCES on the directory, ELOOP, EIO — is not the

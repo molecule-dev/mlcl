@@ -77,6 +77,23 @@ export const README_CACHE_LIMIT = 50
 const readmeCache = new Map<string, { at: number; readme: string }>()
 
 /**
+ * What is being FETCHED right now, keyed like the caches above (`json:<key>` /
+ * `readme:<short>`).
+ *
+ * Both loaders read their cache and then write it across an `await`, and the
+ * hosted server answers requests concurrently, so two callers asking for the
+ * same uncached document both miss and both go to the network — each paying the
+ * whole packument/registry egress and parse, which is exactly the load the cache
+ * exists to remove ("the load on registry.npmjs.org scaled with the call rate
+ * rather than the package count" is the defect the cache was added for, and
+ * under concurrency it was still true). A caller that finds work in flight
+ * awaits THAT promise instead of starting a second one; the entry is dropped
+ * when the work settles, so a failed fetch is retried by the next caller rather
+ * than answered from a cached failure.
+ */
+const inFlight = new Map<string, Promise<unknown>>()
+
+/**
  * Drop every cached registry/templates payload and package README.
  *
  * Both maps are process-global ON PURPOSE — a long-lived hosted server pays one
@@ -101,7 +118,9 @@ export function clearRemoteCaches(): void {
  * `readme` resolves to `undefined`; a rejected, aborted, or non-2xx fetch
  * REJECTS, the same as {@link fetchJson} — the caller's own try/catch is the
  * fallback (see the `read_package_doc` handler). Neither case caches anything,
- * so the next call retries the network.
+ * so the next call retries the network. Callers that arrive while this
+ * package's fetch is already in flight share that one request instead of
+ * starting another (see {@link inFlight}).
  *
  * @param short - Package name WITHOUT the `@molecule/` scope.
  * @param timeoutMs - Abort bound for the outbound fetch.
@@ -130,6 +149,32 @@ export async function fetchPackageReadme(
     // inheriting the old position.
     readmeCache.delete(short)
   }
+  // One outbound fetch per uncached package, however many callers ask at once
+  // (see {@link inFlight}).
+  const key = `readme:${short}`
+  const pending = inFlight.get(key)
+  if (pending) return pending as Promise<string | undefined>
+  const work = fetchPackageReadmeUncached(short, timeoutMs)
+  inFlight.set(key, work)
+  try {
+    return await work
+  } finally {
+    inFlight.delete(key)
+  }
+}
+
+/**
+ * The network half of {@link fetchPackageReadme} — see {@link inFlight} for why
+ * it is split out.
+ *
+ * @param short - Package name WITHOUT the `@molecule/` scope.
+ * @param timeoutMs - Abort bound for the outbound fetch.
+ * @returns The published README, or undefined when the registry has none.
+ */
+async function fetchPackageReadmeUncached(
+  short: string,
+  timeoutMs: number,
+): Promise<string | undefined> {
   const response = await fetch(`https://registry.npmjs.org/@molecule%2F${short}`, {
     signal: AbortSignal.timeout(timeoutMs),
   })
@@ -193,7 +238,9 @@ export function isTemplatesPayload(data: unknown): boolean {
  * `Object.entries(undefined)`, reporting "Cannot convert undefined or null to
  * object" to the client), and every call for the next 10 minutes was served
  * the same non-payload. A payload that fails `check` is reported as the
- * failure it is and caches nothing, exactly like a non-2xx answer.
+ * failure it is and caches nothing, exactly like a non-2xx answer. Callers that
+ * arrive while the same document is already being fetched share that one
+ * request instead of starting another (see {@link inFlight}).
  */
 export async function fetchJson<T>(
   url: string,
@@ -204,6 +251,37 @@ export async function fetchJson<T>(
   const key = file ?? url
   const hit = cache.get(key)
   if (hit && Date.now() - hit.at < CACHE_TTL_MS) return hit.data as T
+  // One outbound fetch per uncached document, however many callers ask at once
+  // (see {@link inFlight}).
+  const pendingKey = `json:${key}`
+  const pending = inFlight.get(pendingKey)
+  if (pending) return pending as Promise<T>
+  const work = fetchJsonUncached<T>(url, file, timeoutMs, check)
+  inFlight.set(pendingKey, work)
+  try {
+    return await work
+  } finally {
+    inFlight.delete(pendingKey)
+  }
+}
+
+/**
+ * The read/parse half of {@link fetchJson} — see {@link inFlight} for why it is
+ * split out.
+ *
+ * @param url - The document's URL (used when `file` is absent).
+ * @param file - A local file to read INSTEAD of the URL.
+ * @param timeoutMs - Abort bound for the outbound fetch.
+ * @param check - The shape the payload must satisfy before it is cached.
+ * @returns The parsed payload.
+ */
+async function fetchJsonUncached<T>(
+  url: string,
+  file: string | undefined,
+  timeoutMs: number,
+  check?: PayloadCheck,
+): Promise<T> {
+  const key = file ?? url
   let data: T
   if (file) {
     data = JSON.parse(readFileSync(file, 'utf8')) as T

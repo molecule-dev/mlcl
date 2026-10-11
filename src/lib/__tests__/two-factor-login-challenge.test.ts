@@ -75,6 +75,11 @@ const { LoginVerifyPage } =
     LoginVerifyPage: (props: { email: string; password: string }) => ReactNode
   }
 
+const { EnableTwoFactorPage } =
+  (await import('../../../templates/.agents/skills/examples/auth/two-factor-auth/app/pages/EnableTwoFactorPage.js')) as {
+    EnableTwoFactorPage: (props: object) => ReactNode
+  }
+
 ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
 
 let container: HTMLElement
@@ -366,6 +371,45 @@ describe('two-factor-auth — the code step posts to the real log-in route', () 
     // A retry goes back out.
     await submit()
     expect(fetches.requests.filter((r) => r.url.includes('/api/users/log-in'))).toHaveLength(2)
+  })
+
+  it('the ENABLE page declares success only on the handler’s own confirmation', async () => {
+    // The enroll half of this page already validates its 2xx body (a body with
+    // no `secret`/`recoveryCodes` is the failed enroll, not a white screen); the
+    // verify half took ANY 2xx as "the code was accepted" and announced
+    // "Two-factor authentication enabled" over an account where the second
+    // factor was still OFF — the shape the mock API server's no-fixture answer
+    // (`200 {}`) and a proxy-rewritten failure both produce, and the page offers
+    // no way back from it. The handler's success body is `{ ok: true }`
+    // (api/handlers/totp.ts, the branch that promotes the pending secret).
+    await mount(createElement(EnableTwoFactorPage, {}))
+    const start = container.querySelector('button') as HTMLButtonElement
+    await act(async () => {
+      start.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+    await respond('/api/2fa/enroll', 200, {
+      secret: 'JBSWY3DPEHPK3PXP',
+      QRImageUrl: '',
+      recoveryCodes: ['aaaa-bbbb', 'cccc-dddd'],
+    })
+    expect(text()).toContain('JBSWY3DPEHPK3PXP')
+
+    await typeInto('input', '123456')
+    await submit()
+    await respond('/api/2fa/verify', 200, {})
+
+    expect(text(), 'a 2xx carrying no confirmation must not claim 2FA is enabled').not.toContain(
+      'Two-factor authentication enabled',
+    )
+    // Still on the code step, so the user can retry.
+    expect(container.querySelector('input')).not.toBeNull()
+
+    // …and the handler’s real answer completes the enrollment.
+    await typeInto('input', '123456')
+    await submit()
+    await respond('/api/2fa/verify', 200, { ok: true })
+    expect(text()).toContain('Two-factor authentication enabled')
   })
 
   it('counts the challenge status itself (206) as a failed attempt, not a login', async () => {

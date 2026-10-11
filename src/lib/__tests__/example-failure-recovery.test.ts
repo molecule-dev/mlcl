@@ -675,6 +675,40 @@ describe('in-app-chat — a send is one message, and it clears only what it sent
     )
   })
 
+  it('a send abandoned by a switch AWAY AND BACK does not write into the re-entered room', async () => {
+    await mount(createElement(ChatPage, { channelId: 'general' }))
+    await respond('/api/messages?channel_id=general', 200, [])
+
+    // A send parked in `general`… (the EXACT POST url: the history request's
+    // `?channel_id=` form contains the same fragment)
+    await typeIntoInput('still parked')
+    await submitForm()
+    expect(fetches.calls.filter((c) => c.url === '/api/messages')).toHaveLength(1)
+
+    // …the user leaves for `random` and comes BACK to `general`. The channel
+    // NAME is `general` again, so a post-await guard that compares names cannot
+    // tell this parked send from one the re-entered room started — while the
+    // send's monotonic ticket (bumped by the switch, exactly like the flag
+    // release) can. The abandoned send then painted its failure into a room that
+    // had not sent anything in this session.
+    await rerender(createElement(ChatPage, { channelId: 'random' }))
+    await respond('/api/messages?channel_id=random', 200, [])
+    await rerender(createElement(ChatPage, { channelId: 'general' }))
+    await respond('/api/messages?channel_id=general', 200, [])
+
+    await typeIntoInput('typed in the re-entered room')
+    await respond('/api/messages', 500, { error: 'nope' })
+
+    expect(
+      text(),
+      'the abandoned send’s failure belongs to the room it was sent from',
+    ).not.toContain('Message not sent')
+    expect(
+      (container.querySelector('input') as HTMLInputElement).value,
+      'the re-entered room’s own draft is untouched',
+    ).toBe('typed in the re-entered room')
+  })
+
   it('a failed history load keeps what the live feed already delivered', async () => {
     await mount(createElement(ChatPage, { channelId: 'general' }))
 

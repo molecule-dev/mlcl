@@ -40,6 +40,14 @@ const hosted = vi.hoisted(() => ({
    * the shape a shrunken rewrite, a proxy's 200 or a service bug leaves.
    */
   emptyPayload: null as null | 'pdf' | 'image',
+  /**
+   * Answer every payload field with a NON-EMPTY string that decodes to ZERO
+   * bytes (`'x'` — one base64 character is an incomplete group, so the decoder
+   * ignores it). The length-based gates all pass this, and the tools then write
+   * a 0-byte artifact and report success — the failure the "empty payload" gate
+   * above exists to prevent, reached by a different shape.
+   */
+  undecodablePayload: false,
 }))
 
 /**
@@ -91,17 +99,22 @@ vi.mock('../../../mcp/src/services.js', () => ({
   callHostedService: async (service: string) => {
     hosted.calls += 1
     hosted.onCall?.()
+    const payload = (encoded: string): string => {
+      if (hosted.undecodablePayload) return 'x'
+      return encoded
+    }
     if (service === 'pdf') {
       return {
-        data: hosted.emptyPayload === 'pdf' ? '' : Buffer.from('%PDF-fake').toString('base64'),
+        data:
+          hosted.emptyPayload === 'pdf' ? '' : payload(Buffer.from('%PDF-fake').toString('base64')),
         pageCount: 1,
       }
     }
     const empty = hosted.emptyPayload === 'image'
     return {
       images: [
-        { base64: empty ? '' : Buffer.from('one').toString('base64') },
-        { base64: empty ? '' : Buffer.from('two').toString('base64') },
+        { base64: empty ? '' : payload(Buffer.from('one').toString('base64')) },
+        { base64: empty ? '' : payload(Buffer.from('two').toString('base64')) },
       ],
     }
   },
@@ -112,6 +125,7 @@ vi.mock('../../../mcp/src/services.js', () => ({
 beforeEach(() => {
   hosted.onCall = null
   hosted.emptyPayload = null
+  hosted.undecodablePayload = false
   failingRemove.path = null
   // Every test's assertions about how many times the service was asked are
   // meaningless against a counter that keeps running across tests: the
@@ -371,6 +385,41 @@ describe('a 2xx body carrying an EMPTY payload is the failure it is', () => {
     expect(textOf(result)).toContain('no image data')
     expect(existsSync(target)).toBe(false)
     expect(existsSync(join(dir, 'empty-image-2.png'))).toBe(false)
+  })
+
+  it('a NON-EMPTY payload that decodes to nothing is the same failure', async (ctx) => {
+    if (skipped(ctx)) return
+    // The gate's own shape: `data.length === 0` / `base64.length > 0` test the
+    // STRING, and a string is not bytes. Node's base64 decoder ignores a
+    // trailing incomplete group, so `"x"` is non-empty and decodes to ZERO
+    // bytes — the length gate passed it, the tool wrote a 0-byte artifact under
+    // the caller's chosen name and reported success, and the name was then
+    // taken (the retry is refused as "already exists"). Every tool that writes
+    // a service payload is reached this way.
+    hosted.undecodablePayload = true
+
+    const pdfTarget = join(dir, 'undecodable.pdf')
+    const pdf = await callTool('render_pdf', { html: '<h1>hi</h1>', output_file: pdfTarget })
+    expect(pdf.isError, 'a payload that decodes to nothing is a failure').toBe(true)
+    expect(textOf(pdf)).toContain('no PDF data')
+    expect(existsSync(pdfTarget), 'no 0-byte PDF under the caller’s name').toBe(false)
+
+    const speechTarget = join(dir, 'undecodable.mp3')
+    const speech = await callTool('text_to_speech', { text: 'hello', output_file: speechTarget })
+    expect(speech.isError, 'a payload that decodes to nothing is a failure').toBe(true)
+    expect(textOf(speech)).toContain('no audio data')
+    expect(existsSync(speechTarget), 'no 0-byte audio under the caller’s name').toBe(false)
+
+    const imageTarget = join(dir, 'undecodable.png')
+    const image = await callTool('generate_image', {
+      prompt: 'a logo',
+      output_file: imageTarget,
+      n: 2,
+    })
+    expect(image.isError, 'a payload that decodes to nothing is a failure').toBe(true)
+    expect(textOf(image)).toContain('no image data')
+    expect(existsSync(imageTarget), 'no 0-byte png under the caller’s name').toBe(false)
+    expect(existsSync(join(dir, 'undecodable-2.png')), 'no second 0-byte png').toBe(false)
   })
 })
 

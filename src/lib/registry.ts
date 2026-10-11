@@ -535,7 +535,32 @@ function acquireRegistryPublishLock(): void {
     try {
       writeFileSync(lockPath, `${process.pid}\n`, { flag: 'wx' })
       // Record which file we just made, so the release drops exactly this one.
-      heldLockIdentity = lockIdentityOf(lockPath)
+      try {
+        const made = statSync(lockPath, { bigint: true })
+        heldLockIdentity = { ino: made.ino, mtimeNs: made.mtimeNs }
+      } catch (identityError) {
+        // The create SUCCEEDED but the file it made cannot be described — a
+        // transient stat failure (EMFILE under fd pressure, EIO, EACCES).
+        // Carrying on would run the publish under a lock with no identity to
+        // release against: the lock stays on disk after this process finishes,
+        // and this process's next mutation — like every other publisher — then
+        // waits out the whole steal age behind a lock nobody holds and fails.
+        // The file is provably this call's own (O_CREAT|O_EXCL named it for
+        // this process microseconds ago, and a rival may only take over a lock
+        // past {@link REGISTRY_LOCK_STEAL_MS}), so drop it and report the
+        // failure rather than write the registry unserialized.
+        try {
+          rmSync(lockPath, { force: true })
+        } catch (_cleanupError) {
+          // Best-effort: the identity failure is reported below.
+        }
+        throw new Error(
+          `${lockPath} was created but cannot be inspected (${String(identityError)}) — this ` +
+            'process cannot promise to release the publish lock, so the registry was left ' +
+            'untouched. Check that file and its directory, then re-run the command.',
+          { cause: identityError },
+        )
+      }
       return
     } catch (error) {
       if ((error as NodeJS.ErrnoException)?.code !== 'EEXIST') throw error
