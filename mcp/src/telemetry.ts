@@ -17,7 +17,15 @@
  * so incoming traffic cannot turn into unbounded outbound load.
  */
 import { randomUUID } from 'node:crypto'
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import {
+  existsSync,
+  linkSync,
+  mkdirSync,
+  readFileSync,
+  renameSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 
@@ -73,6 +81,22 @@ function sleepSync(ms: number): void {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms)
 }
 
+/**
+ * Read the id file, waiting out a live writer's bytes — the adopt loop, shared by
+ * the EEXIST branch of {@link installId} and its empty-leftover takeover.
+ *
+ * @returns The published id, or null when the file still reads empty after
+ *   {@link ID_ADOPT_ATTEMPTS} tries.
+ */
+function readPublishedId(): string | null {
+  for (let attempt = 0; attempt < ID_ADOPT_ATTEMPTS; attempt++) {
+    const won = readFileSync(ID_FILE, 'utf8').trim()
+    if (won) return won
+    sleepSync(ID_ADOPT_WAIT_MS)
+  }
+  return null
+}
+
 function installId(): string {
   try {
     if (existsSync(ID_FILE)) {
@@ -108,15 +132,76 @@ function installId(): string {
       // over a live holder's, splitting one install across two anonymousIds —
       // the exact failure the exclusive create exists to prevent, reached
       // through the empty-file branch instead of the create.
-      for (let attempt = 0; attempt < ID_ADOPT_ATTEMPTS; attempt++) {
-        const won = readFileSync(ID_FILE, 'utf8').trim()
-        if (won) return won
-        sleepSync(ID_ADOPT_WAIT_MS)
+      const adopted = readPublishedId()
+      if (adopted) return adopted
+      // Still empty after that budget: a genuinely empty leftover file (no
+      // live writer writes for that long), so this process takes the name
+      // over — through the SAME exclusive create the winner used, never a
+      // truncating in-place write. Two processes that exhausted the wait
+      // together each published over the other with `writeFileSync` (default
+      // 'w': truncate, then write) — the last truncate won while BOTH events
+      // already carried their own id, so one install was split across two
+      // anonymousIds, the exact failure the exclusive create exists to
+      // prevent, reached once more through this fallback — and each truncate
+      // read as a fresh empty file to the next reader's adopt loop. Renaming
+      // the empty file aside (a per-pid name, so a rival's own takeover can
+      // never replace it) frees the name for a `wx` create: exactly one
+      // process publishes, and every loser lands back in this EEXIST branch
+      // and adopts the winner's bytes.
+      const leftover = `${ID_FILE}.empty.${process.pid}`
+      try {
+        renameSync(ID_FILE, leftover)
+      } catch (_error) {
+        // The name is already gone — a rival took it over first. The exclusive
+        // create below settles which of us publishes.
       }
-      // Still empty after that budget: a genuinely empty leftover file (no live
-      // writer writes for that long), so publish ours over it.
-      writeFileSync(ID_FILE, id, { mode: 0o600 })
-      return id
+      let moved: string | null = null
+      try {
+        moved = readFileSync(leftover, 'utf8').trim() || null
+      } catch (_error) {
+        // The moved file could not be read — treat it as the empty leftover
+        // this takeover took it for.
+      }
+      if (moved !== null) {
+        // A live writer's bytes landed between the adopt loop's last read and
+        // the rename: the file we just moved holds the id this install must
+        // keep. Put it back (a rival that re-took the name in the gap keeps
+        // its own file — the link fails with EEXIST rather than replacing it),
+        // drop our extra name, and adopt the bytes.
+        try {
+          renameSync(leftover, ID_FILE)
+        } catch (_error) {
+          try {
+            linkSync(leftover, ID_FILE)
+          } catch (_linkError) {
+            // The name holds a valid id again either way; ours is a copy.
+          }
+        }
+        try {
+          rmSync(leftover, { force: true })
+        } catch (_error) {
+          // Inert litter beside the id file; the id itself is published.
+        }
+        return moved
+      }
+      try {
+        rmSync(leftover, { force: true })
+      } catch (_error) {
+        // Inert litter; the publish below needs only the freed name.
+      }
+      try {
+        writeFileSync(ID_FILE, id, { mode: 0o600, flag: 'wx' })
+        return id
+      } catch (takeoverError) {
+        if ((takeoverError as NodeJS.ErrnoException)?.code !== 'EEXIST') throw takeoverError
+        // A rival published while this one renamed — adopt its bytes with the
+        // same short wait as the loop above. Exhausted here too, the failure
+        // reaches the outer catch, which reports the anonymous 'unknown' id
+        // rather than publishing a second id over a rival's.
+        const won = readPublishedId()
+        if (won) return won
+        throw takeoverError
+      }
     }
   } catch (_error) {
     // Telemetry must never break a tool call over an unreadable id file —

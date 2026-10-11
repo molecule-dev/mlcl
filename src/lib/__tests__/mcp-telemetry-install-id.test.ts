@@ -24,9 +24,20 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
  * Lets one test hide the id file from `existsSync` while it exists on disk —
  * the interleaving a second process's first call produces, made deterministic —
  * and another report it as EMPTY for the first reads while the real bytes are
- * already there (a winner observed mid-write).
+ * already there (a winner observed mid-write). Two more hooks drive the
+ * empty-leftover takeover's races: `takeoverLosesTo` makes the takeover's
+ * exclusive create fail with EEXIST while a rival's bytes land instead (a rival
+ * that wins the freed name in the rename→create gap), and `leftoverHolds` makes
+ * the renamed-aside file read back non-empty (a live writer whose bytes landed
+ * between the adopt loop's last read and the rename).
  */
-const race = vi.hoisted(() => ({ hideIdFile: false, blankIdReads: 0 }))
+const race = vi.hoisted(() => ({
+  hideIdFile: false,
+  blankIdReads: 0,
+  takeoverLosesTo: null as string | null,
+  leftoverHolds: null as string | null,
+  wxCreates: 0,
+}))
 
 // `mcp/src/telemetry.ts` resolves its id file from `homedir()` at module load,
 // so the whole test runs against a throwaway home. Everything else on node:os
@@ -43,6 +54,7 @@ vi.mock('node:os', async () => {
 vi.mock('node:fs', async () => {
   const actual = await vi.importActual<typeof NodeFs>('node:fs')
   const realReadFileSync = actual.readFileSync as (path: unknown, ...rest: unknown[]) => unknown
+  const realWriteFileSync = actual.writeFileSync as (path: unknown, ...rest: unknown[]) => unknown
   return {
     ...actual,
     // Matched by suffix: the factory is hoisted above the imports, so the
@@ -58,7 +70,30 @@ vi.mock('node:fs', async () => {
         race.blankIdReads -= 1
         return ''
       }
+      if (
+        race.leftoverHolds !== null &&
+        String(path).endsWith(`telemetry-id.empty.${process.pid}`)
+      ) {
+        return race.leftoverHolds
+      }
       return realReadFileSync(path, ...rest)
+    },
+    writeFileSync: (path: unknown, data: unknown, options?: { flag?: string }) => {
+      // The takeover is the SECOND exclusive create of the call (the first
+      // fails naturally on the seeded file), so the counter is what tells the
+      // simulated rival's win apart from the loser's own first attempt.
+      if (options?.flag === 'wx' && String(path).endsWith('.mlcl/telemetry-id')) {
+        race.wxCreates += 1
+        if (race.takeoverLosesTo !== null && race.wxCreates >= 2) {
+          const rivalId = race.takeoverLosesTo
+          race.takeoverLosesTo = null
+          realWriteFileSync(path as never, rivalId)
+          const eexist = new Error('EEXIST: file already exists') as NodeJS.ErrnoException
+          eexist.code = 'EEXIST'
+          throw eexist
+        }
+      }
+      return realWriteFileSync(path as never, data as never, options as never)
     },
   }
 })
@@ -86,12 +121,22 @@ beforeEach(() => {
   delete process.env.DO_NOT_TRACK
   delete process.env.MOLECULE_ENV
   delete process.env.MOLECULE_TELEMETRY
+  race.hideIdFile = false
+  race.blankIdReads = 0
+  race.takeoverLosesTo = null
+  race.leftoverHolds = null
+  race.wxCreates = 0
   fetchMock = vi.fn().mockResolvedValue({ ok: true })
   globalThis.fetch = fetchMock as unknown as typeof globalThis.fetch
 })
 
 afterEach(() => {
   globalThis.fetch = ORIGINAL_FETCH
+  race.hideIdFile = false
+  race.blankIdReads = 0
+  race.takeoverLosesTo = null
+  race.leftoverHolds = null
+  race.wxCreates = 0
   rmSync(HOME, { recursive: true, force: true })
 })
 
@@ -174,5 +219,47 @@ describe('molecule-mcp install id', () => {
     expect(id).toMatch(/^[0-9a-f-]{36}$/)
     // The repair is persisted, not re-minted on every call.
     expect(readFileSync(ID_FILE, 'utf8')).toBe(id)
+  })
+
+  it('takes an empty leftover over with an exclusive create, and adopts a rival that wins the freed name', () => {
+    // A dead winner left the file empty and the adopt loop ran dry: the
+    // takeover renames the empty file aside and re-creates exclusively. A
+    // rival that wins the freed name in that gap must be ADOPTED — a
+    // truncating in-place write (the old fallback) published our id over the
+    // rival's instead, while both events already carried their own id: one
+    // install split across two anonymousIds, the failure the exclusive create
+    // exists to prevent, reached through this fallback.
+    const rival = 'aaaa1111-2222-4333-8444-555555555555'
+    writeFileSync(ID_FILE, '')
+    // The `existing` read plus the whole adopt loop see the empty leftover.
+    race.blankIdReads = 1 + 20
+    race.takeoverLosesTo = rival
+    try {
+      trackToolCall('search_packages', true, Date.now())
+    } finally {
+      race.takeoverLosesTo = null
+    }
+
+    expect(payloadOf(fetchMock).event.anonymousId).toBe(rival)
+    // …and the rival's id survives as the install's id.
+    expect(readFileSync(ID_FILE, 'utf8')).toBe(rival)
+  })
+
+  it('puts a live writer’s bytes back when the takeover renamed them aside', () => {
+    // The window between the adopt loop's last read and the rename: a live
+    // writer's id landed on the file the takeover then moved aside. The moved
+    // bytes are the id this install must keep — renamed back and adopted, not
+    // dropped as the empty leftover the loop had (momentarily) observed.
+    const liveWriter = 'bbbb2222-3333-4444-8555-666666666666'
+    writeFileSync(ID_FILE, '')
+    race.blankIdReads = 1 + 20
+    race.leftoverHolds = liveWriter
+    try {
+      trackToolCall('search_packages', true, Date.now())
+    } finally {
+      race.leftoverHolds = null
+    }
+
+    expect(payloadOf(fetchMock).event.anonymousId).toBe(liveWriter)
   })
 })
