@@ -1017,13 +1017,29 @@ server.registerTool(
 const TRANSLATE_MAX_TEXTS = 200
 /** Total characters one `translate` call may carry — see {@link TRANSLATE_MAX_TEXTS}. */
 const TRANSLATE_MAX_CHARS = 50_000
+/**
+ * Bounds on the `translate` fields the tool does NOT bill for but that ride the
+ * SAME metered outbound body as the text: the two language codes and `context`.
+ *
+ * Each was unbounded while every sibling field of this class carries a bound —
+ * `moderate_content`'s `categories`, `transform_image`'s `background`,
+ * `render_pdf`'s `header_template`, `geocode`'s `address`, and this tool's own
+ * `protect` (see the note on it below): an unbounded field is a request body
+ * sized by the caller, buffered in this process and shipped to the hosted
+ * service, on a public endpoint whose budget is per client address. A BCP-47
+ * language tag is under 35 characters, and `context` is the one-line hint its
+ * description advertises, not a document.
+ */
+const TRANSLATE_MAX_LANG_CHARS = 35
+/** Longest `translate.context` hint — see {@link TRANSLATE_MAX_LANG_CHARS}. */
+const TRANSLATE_MAX_CONTEXT_CHARS = 500
 
 server.registerTool(
   'translate',
   {
     title: 'Translate text with molecule.dev',
     description:
-      'Translate UI strings or other text into another language on molecule.dev (no translation-vendor account needed; metered per character to the project whose MOLECULE_API_KEY is used). Pass placeholders such as {{count}} in "protect" so they come back unchanged — then still check each result contains them. Up to 200 texts / 50,000 characters per call, and up to 50 protect entries of 200 characters each. The same service backs @molecule/api-ai-translation-molecule in app code.',
+      'Translate UI strings or other text into another language on molecule.dev (no translation-vendor account needed; metered per character to the project whose MOLECULE_API_KEY is used). Pass placeholders such as {{count}} in "protect" so they come back unchanged — then still check each result contains them. Up to 200 texts / 50,000 characters per call, up to 50 protect entries of 200 characters each, and a 500-character context. The same service backs @molecule/api-ai-translation-molecule in app code.',
     inputSchema: {
       // Both halves of the advertised budget are enforced, because the input IS
       // the metered work (per character) and the body of the outbound request:
@@ -1035,8 +1051,19 @@ server.registerTool(
       text: z
         .union([z.string(), z.array(z.string()).max(TRANSLATE_MAX_TEXTS)])
         .describe('Text or list of texts'),
-      target_lang: z.string().describe('Target language code, e.g. "de", "pt-BR", "zh-TW"'),
-      source_lang: z.string().optional().describe('Source language code; omit to auto-detect'),
+      // Bounded like every other field of this call that rides the outbound
+      // body — see TRANSLATE_MAX_LANG_CHARS. These are the two remaining
+      // unbounded strings on this tool (the text budget above covers `text`,
+      // and `protect` carries its own caps below).
+      target_lang: z
+        .string()
+        .max(TRANSLATE_MAX_LANG_CHARS)
+        .describe('Target language code, e.g. "de", "pt-BR", "zh-TW"'),
+      source_lang: z
+        .string()
+        .max(TRANSLATE_MAX_LANG_CHARS)
+        .optional()
+        .describe('Source language code; omit to auto-detect'),
       // Bounded, like the text budget below: `protect` rides the SAME metered
       // outbound body, and the budget the tool advertises said nothing while the
       // array stayed unbounded — one call could carry a protect list sized by
@@ -1047,8 +1074,12 @@ server.registerTool(
         .max(50)
         .optional()
         .describe('Exact substrings to keep unchanged, e.g. ["{{count}}", "Acme"]'),
+      // Bounded for the same reason as the language codes above: it is a free
+      // text field on the metered outbound body, so without a cap the caller
+      // sizes the request — see TRANSLATE_MAX_CONTEXT_CHARS.
       context: z
         .string()
+        .max(TRANSLATE_MAX_CONTEXT_CHARS)
         .optional()
         .describe(
           'What the texts are, e.g. "button labels in a banking app" — improves short strings',

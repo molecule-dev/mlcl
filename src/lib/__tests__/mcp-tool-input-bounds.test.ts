@@ -11,7 +11,8 @@
  *   URL (remote — a public, unauthenticated server whose budget is per address)
  *   and echoed verbatim into the tool result (stdio), on both servers.
  * - `translate`'s protect list rides the SAME metered outbound body the text
- *   budget caps — the budget said nothing while the array stayed unbounded.
+ *   budget caps — the budget said nothing while the array stayed unbounded, and
+ *   its `context` plus the two language codes rode it with no bound at all.
  * - `ai_decision`'s questions are one METERED AI decision per entry, and the
  *   record's entry COUNT was the one input of that tool with no bound.
  * - `moderate_content`'s categories and `create_api_key`'s scopes ride their
@@ -194,6 +195,42 @@ describe('tool arguments that become outbound work carry a client-visible bound'
     } finally {
       vi.unstubAllGlobals()
     }
+  })
+
+  it('bounds the translate fields that ride the body without being billed', async (ctx) => {
+    if (skipped(ctx)) return
+    // `text` is covered by the character budget and `protect` by its own caps
+    // (below) — these three were the only strings on this call with NO bound:
+    // a free-text `context` (and either language code) sized the metered
+    // outbound body by whatever the caller sent, up to the 1 MB JSON body cap,
+    // while every sibling field of that shape carries one.
+    const tools = (await listTools()).tools
+    expect(
+      await schemaBound(tools, 'translate', 'target_lang', 'maxLength'),
+      'translate.target_lang must carry a length cap',
+    ).toBe(35)
+    expect(
+      await schemaBound(tools, 'translate', 'source_lang', 'maxLength'),
+      'translate.source_lang must carry a length cap',
+    ).toBe(35)
+    expect(
+      await schemaBound(tools, 'translate', 'context', 'maxLength'),
+      'translate.context must carry a length cap',
+    ).toBe(500)
+  })
+
+  it('refuses an over-cap translate context before the metered call', async (ctx) => {
+    if (skipped(ctx)) return
+    // The schema bound is the contract; this is the behavior, through the same
+    // path a client takes. `text` is well inside its budget, so only the
+    // context cap can refuse — and the refusal must precede the hosted call.
+    const text = await callText(callTool, 'translate', {
+      text: 'hello',
+      target_lang: 'de',
+      context: 'c'.repeat(501),
+    })
+    expect(text, 'an over-cap context must be refused').toMatch(/500|too_big|max/i)
+    expect(text, 'the refusal precedes the metered call').not.toContain(METERED_MARKER)
   })
 
   it('bounds translate.protect — the other half of the metered translate body', async (ctx) => {
