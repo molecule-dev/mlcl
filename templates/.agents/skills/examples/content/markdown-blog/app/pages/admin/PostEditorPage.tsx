@@ -91,6 +91,22 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}): R
    */
   const editingSlugRef = useRef(editingSlug)
   editingSlugRef.current = editingSlug
+  /**
+   * Bumped on every SLUG TRANSITION, and the second half of a save's ownership
+   * test ({@link stillOnThisPost} in `save`).
+   *
+   * The slug NAME alone cannot carry that test: a save parked on post A that
+   * resolves after the author went A → B → A matches the name it was sent under
+   * — and so does a create-mode save (slug `undefined`) that resolves after the
+   * author went create → B → create. Adopting the create's answer into the
+   * fresh, reset form put the created post's id in a `postId` the form's blank
+   * fields do not describe: the next Save PUT that id with the new text and
+   * silently overwrote a post the author never opened. The ticket is bumped by
+   * exactly the events that end a save's scope — every slug change, including
+   * the transition into create mode — so a save that outlives ANY of them is
+   * dropped (the same monotonic ticket the in-app-chat slice's send uses).
+   */
+  const editorGeneration = useRef(0)
   // The slug the PREVIOUS effect run saw. It separates the transition INTO create
   // mode (a slug, then no slug) from every other re-run of this effect (a locale
   // switch, the "Try again" button) — only the transition may reset the form.
@@ -98,6 +114,7 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}): R
   useEffect(() => {
     const slugChanged = previousSlug.current !== editingSlug
     previousSlug.current = editingSlug
+    if (slugChanged) editorGeneration.current += 1
     if (!editingSlug) {
       // CREATE mode — and the SAME instance can be reused for it. The documented
       // contract is "pass a `slug` to edit that post; omit it to create a new
@@ -225,12 +242,16 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}): R
     e.preventDefault()
     setStatus('saving')
     setError(null)
-    // The editor this save belongs to (see editingSlugRef): every state write
-    // after the await below is skipped once the author has moved on, so a late
-    // save cannot adopt another post's id into this form — or paint its failure
-    // under a post nobody tried to save.
+    // The editor this save belongs to (see editingSlugRef and editorGeneration):
+    // every state write after the await below is skipped once the author has
+    // moved on, so a late save cannot adopt another post's id into this form —
+    // or paint its failure under a post nobody tried to save. The name compare
+    // alone cannot see a navigation that CAME BACK (A → B → A, or create → B →
+    // create, where the names match again), so the generation ticket settles it.
     const slugAtSave = editingSlug
-    const stillOnThisPost = (): boolean => editingSlugRef.current === slugAtSave
+    const generationAtSave = editorGeneration.current
+    const stillOnThisPost = (): boolean =>
+      editingSlugRef.current === slugAtSave && editorGeneration.current === generationAtSave
     // A create the PREVIOUS save could not confirm must not be POSTed again:
     // `editing` is false for as long as `postId` is null, so a retry takes the
     // create branch again and INSERTs a duplicate of the post the first POST may

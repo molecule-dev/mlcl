@@ -390,4 +390,44 @@ describe('PostEditorPage — the slug prop DROPPED on the same instance (the cre
 
     expect(titleInput()?.value).toBe('Half-written')
   })
+
+  it('does not adopt a parked create’s answer after create → B → create', async () => {
+    // The ownership guard compares the slug the save was sent under with the one
+    // on screen — and create mode's slug is `undefined`, which matches again
+    // after the author goes create → B → create. A create POST parked across
+    // that round trip then adopted the created post's id into the fresh, reset
+    // form: the page claimed "Draft saved." over blank fields, and the next Save
+    // PUT that id with the new text — overwriting a post the author never
+    // opened, the same clobber the A → B case above pins for edit mode.
+    await render(createElement(PostEditorPage, {}), true)
+    await typeInto('[data-mol-id="post-title"]', 'Round trip')
+    await typeInto('[data-mol-id="post-body"]', '# Body')
+    await submitEditor()
+    expect(pending.requests.at(-1)?.url).toBe('/api/posts')
+    expect(pending.requests.at(-1)?.method).toBe('POST')
+
+    // The author navigates to another post (which loads)…
+    await render(createElement(PostEditorPage, { slug: 'b' }), false)
+    await respond('/api/posts/b', 200, post('p-b', 'Post B', 'b'))
+    expect(titleInput()?.value).toBe('Post B')
+
+    // …and back to create mode before the POST answers.
+    await render(createElement(PostEditorPage, {}), false)
+    expect(titleInput()?.value, 'the form was reset').toBe('')
+
+    // The parked create answers now. The id must NOT be adopted into this form.
+    await respond('/api/posts', 200, { id: 'p-new' })
+    expect(
+      text(),
+      'an abandoned create must not be reported over a form it was not sent from',
+    ).not.toContain('Draft saved.')
+
+    // …and the next save must create a NEW post — never PUT the adopted id.
+    await typeInto('[data-mol-id="post-title"]', 'Second post')
+    await typeInto('[data-mol-id="post-body"]', '# Second body')
+    await submitEditor()
+    expect(pending.requests.some((request) => request.method === 'PUT')).toBe(false)
+    expect(pending.requests.at(-1)?.url).toBe('/api/posts')
+    expect(pending.requests.at(-1)?.method).toBe('POST')
+  })
 })
