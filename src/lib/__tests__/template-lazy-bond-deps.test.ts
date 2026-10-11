@@ -80,8 +80,15 @@ export function lazySetupHelpers(
   packageType: (name: string) => string | undefined,
 ): LazySetupHelper[] {
   const helpers: LazySetupHelper[] = []
-  // Top-level functions close at column 0; everything nested is indented.
-  const re = /export (?:async )?function (setup[A-Za-z0-9]+)\(\)[^{]*\{([\s\S]*?)\n\}/g
+  // Top-level functions close at column 0; everything nested is indented. The
+  // parameter list is matched as ANY parenthesized run, not `\(\)`: a helper
+  // that grows a parameter is still a helper the templates call, and a
+  // derivation anchored on empty parens silently SKIPS it — the gate then
+  // reports "no hole" for a caller it never looked at, the same silent-degrade
+  // shape as a count that drops the row it cannot resolve. Every helper in the
+  // real setup.ts is parameterless today, so this pins the shape against the
+  // next one, not against a live defect.
+  const re = /export (?:async )?function (setup[A-Za-z0-9]+)\([^)]*\)[^{]*\{([\s\S]*?)\n\}/g
   let match: RegExpExecArray | null
   while ((match = re.exec(setupSource)) !== null) {
     const imports = [...match[2].matchAll(/import\(\s*['"](@molecule\/[a-z0-9-]+)['"]\s*\)/g)].map(
@@ -262,6 +269,21 @@ describe('lazySetupHelpers — the derivation', () => {
     ].join('\n')
     expect(lazySetupHelpers(source, typeOf)).toEqual([
       { name: 'setupUnknown', providers: ['@molecule/api-not-in-registry'] },
+    ])
+  })
+
+  it('derives a helper that takes a parameter — the gate may not skip it silently', () => {
+    // The parameter list used to be matched as `\(\)` exactly, so a helper with
+    // any parameter was invisible: the fleet scan would report "no hole" for a
+    // caller it never derived, and a dev-only pin on that helper's provider
+    // would ship the production ERR_MODULE_NOT_FOUND this file exists to catch.
+    const source = [
+      'export async function setupWithOptions(options: { trace?: boolean }): Promise<void> {',
+      "  await import('@molecule/api-example-provider')",
+      '}',
+    ].join('\n')
+    expect(lazySetupHelpers(source, typeOf)).toEqual([
+      { name: 'setupWithOptions', providers: ['@molecule/api-example-provider'] },
     ])
   })
 })
