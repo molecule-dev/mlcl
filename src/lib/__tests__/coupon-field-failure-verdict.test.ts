@@ -193,4 +193,40 @@ describe('CouponField — only the endpoint’s verdict is a verdict on the code
     expect(text()).toContain('Could not check that code')
     expect(applied).toEqual([])
   })
+
+  it('releases the Apply button after every non-verdict failure — a retry must be possible', async () => {
+    // `finally { setBusy(false) }` is what makes the retry the failure messages
+    // ask for possible at all, and nothing re-read the button after a failure:
+    // a `setBusy(false)` moved onto the success/verdict branches (or the
+    // `finally` dropped) left the reader with an Apply button disabled forever
+    // over the code the message tells them to try again — with the input text
+    // kept on purpose, so a reload was the only way out. All three non-verdict
+    // shapes go through it.
+    const applyButton = (): HTMLButtonElement =>
+      container.querySelector('button') as HTMLButtonElement
+    const expectRetryable = (after: string): void => {
+      expect(applyButton().disabled, `after ${after} the Apply button must be usable again`).toBe(
+        false,
+      )
+      expect(text(), `after ${after} the label must not stay on “Applying…”`).not.toContain(
+        'Applying…',
+      )
+    }
+    await mount()
+
+    const rejected = await applyCode('SAVE10')
+    await act(async () => {
+      rejected.fail(new Error('offline'))
+    })
+    await flush()
+    expectRetryable('a rejected fetch')
+
+    const serverError = await applyCode('SAVE10')
+    await answer(serverError, 500, { error: 'boom' })
+    expectRetryable('a 5xx')
+
+    const nonAnswer = await applyCode('SAVE10')
+    await answer(nonAnswer, 200, {})
+    expectRetryable('a 2xx that is not the endpoint’s answer')
+  })
 })

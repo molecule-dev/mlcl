@@ -766,6 +766,62 @@ describe('a superseded fetch response must not win', () => {
     }
   })
 
+  it('a DELETE the server REFUSES leaves the row listed', async () => {
+    // The other half of "the row is dropped only after the server deleted it":
+    // every delete in this suite answers 200, so a handler that removed the row
+    // optimistically — or ignored `res.ok` — dropped a still-present attachment
+    // from the list, and the reader only saw it return on the next load.
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
+    try {
+      await mount(createElement(AttachmentsPanel, { parentId: 'a' }))
+      await respond('parent_id=a', 200, [attachment('a1', 'a.txt')])
+      expect(text()).toContain('a.txt')
+
+      await act(async () => {
+        container
+          .querySelector('[data-mol-id="attachment-delete"]')
+          ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+      })
+      await flush()
+      await respondTo('/api/attachments/a1', 500, { error: 'boom' })
+
+      expect(text(), 'a refused DELETE must not remove the row').toContain('a.txt')
+    } finally {
+      confirmSpy.mockRestore()
+    }
+  })
+
+  it('a DELETE whose network fails leaves the row listed too', async () => {
+    // The rejection half: `remove()`'s catch keeps the row (it is still on the
+    // server), so a dropped catch would hide an attachment the API still holds.
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
+    try {
+      await mount(createElement(AttachmentsPanel, { parentId: 'a' }))
+      await respond('parent_id=a', 200, [attachment('a1', 'a.txt')])
+      expect(text()).toContain('a.txt')
+
+      await act(async () => {
+        container
+          .querySelector('[data-mol-id="attachment-delete"]')
+          ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+      })
+      await flush()
+      const request = pending.requests.find(
+        (r) => r.method === 'DELETE' && !r.answered && r.url.includes('/api/attachments/a1'),
+      )
+      if (!request) throw new Error('no pending DELETE')
+      request.answered = true
+      await act(async () => {
+        request.fail(new Error('offline'))
+      })
+      await flush()
+
+      expect(text(), 'an offline DELETE must not remove the row').toContain('a.txt')
+    } finally {
+      confirmSpy.mockRestore()
+    }
+  })
+
   it('an upload parked on the previous record neither freezes nor releases the new dropzone', async () => {
     // `uploading` is one flag for the dropzone, and the panel outlives a
     // `parentId` change. The record reset cleared the list but not that flag: an

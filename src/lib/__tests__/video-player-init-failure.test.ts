@@ -110,4 +110,50 @@ describe('video-player VideoPlayerView — a failing createPlayer is reported, n
 
     expect(errors).toHaveBeenCalledWith('video player failed to initialize', boom)
   })
+
+  it('destroys a player that arrives AFTER the effect was torn down (no leaked media)', async () => {
+    // `createPlayer` may answer asynchronously, and the component outlives a
+    // sources/poster change (the effect re-runs, its cleanup sets `cancelled`).
+    // The instance that lands afterwards would otherwise keep its media element
+    // and buffering alive for the life of the page, and nothing pinned the
+    // branch that destroys it — the sibling test only asserts `destroy` was NOT
+    // called before an unmount.
+    const destroy = vi.fn()
+    let release: ((instance: { destroy: () => void }) => void) | null = null
+    video.createPlayer.mockImplementation(
+      () =>
+        new Promise<{ destroy: () => void }>((resolve) => {
+          release = resolve
+        }),
+    )
+
+    await mount([{ src: '/media/a.mp4' }])
+    // The player is still being created; the reader leaves.
+    await act(async () => {
+      root.unmount()
+    })
+
+    // It answers now — after the teardown.
+    release!({ destroy })
+    await flush()
+
+    expect(
+      destroy,
+      'an instance created after the teardown must be destroyed',
+    ).toHaveBeenCalledTimes(1)
+  })
+
+  it('destroys the live player when the component unmounts (the positive twin)', async () => {
+    const destroy = vi.fn()
+    video.createPlayer.mockReturnValue({ destroy })
+
+    await mount([{ src: '/media/a.mp4' }])
+    expect(destroy, 'nothing to destroy while the player is live').not.toHaveBeenCalled()
+
+    await act(async () => {
+      root.unmount()
+    })
+
+    expect(destroy, 'the teardown must release the player it mounted').toHaveBeenCalledTimes(1)
+  })
 })

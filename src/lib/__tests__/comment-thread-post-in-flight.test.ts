@@ -164,6 +164,38 @@ afterEach(async () => {
 })
 
 describe('the comment composer', () => {
+  it('a post whose refetch fails says the comment WAS posted — never that it failed', async () => {
+    // The component keeps two distinct failures: the write failed (`postError`)
+    // and the write LANDED but the thread could not be re-read
+    // (`refreshFailed`, its own banner). Nothing asserted the second one — a
+    // regression that routed the refetch failure into `postError` sent the
+    // reader back to retype a comment that is already stored, and the resource
+    // has no idempotency key to collapse the duplicate.
+    await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await answerGet(0, { data: [] })
+
+    await typeIntoTextarea('shipping friday?')
+    await clickPost()
+    // The server accepted it — the comment IS stored.
+    await act(async () => {
+      postCalls[0]?.resolve({ id: 'c9' })
+    })
+    await flush()
+
+    // …and the refetch that would have shown it fails (offline).
+    const refetch = httpCalls.at(-1)
+    expect(refetch?.path, 'the accepted post refetches the thread').toBe('/api/post/p1/comments')
+    await act(async () => {
+      refetch?.reject(new Error('offline'))
+    })
+    await flush()
+
+    expect(text(), 'the post landed — say so').toContain('Your comment was posted')
+    expect(text(), 'never report a stored comment as a failed one').not.toContain(
+      'Could not post the comment',
+    )
+  })
+
   it('a second click while the POST is in flight posts once', async () => {
     await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
     // The roots list, then the empty replies page for the one root.

@@ -52,6 +52,18 @@ const { ManageSubscriptionButton } =
 ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
 
 const originalFetch = globalThis.fetch
+/**
+ * The stub `window.location` the success branch writes into, plus the original
+ * descriptor to restore. In this vitest/jsdom the `location` own property is
+ * CONFIGURABLE (`Object.getOwnPropertyDescriptor(window, 'location')` reports
+ * `configurable: true`), so the navigation the component completes by assigning
+ * `window.location.href` is readable — the sibling two-factor suite relies on
+ * the same fact. Without it the success path's one load-bearing output (the
+ * reader arrives at the portal) was unpinned: deleting the assignment left
+ * every assertion here green.
+ */
+let locationStub: { href: string; origin: string }
+const originalLocation = Object.getOwnPropertyDescriptor(window, 'location')
 
 let container: HTMLElement
 let root: Root
@@ -94,6 +106,12 @@ async function rejectPending(): Promise<void> {
 
 beforeEach(async () => {
   pending.requests.length = 0
+  locationStub = { href: 'http://localhost/billing', origin: 'http://localhost' }
+  Object.defineProperty(window, 'location', {
+    configurable: true,
+    writable: true,
+    value: locationStub,
+  })
   globalThis.fetch = ((input: unknown, init?: { method?: string }) =>
     new Promise((resolve, reject) => {
       pending.requests.push({
@@ -120,6 +138,7 @@ beforeEach(async () => {
 
 afterEach(async () => {
   globalThis.fetch = originalFetch
+  if (originalLocation) Object.defineProperty(window, 'location', originalLocation)
   if (root && document.body.contains(container)) {
     await act(async () => {
       root.unmount()
@@ -215,20 +234,7 @@ describe('ManageSubscriptionButton — the portal URL is validated before it is 
   })
 
   it('accepts a real portal url and answers it with the exact POST the route takes', async () => {
-    // What is observable here, and what is not: the success path completes by
-    // assigning `window.location.href`, and jsdom's `location` is an
-    // unforgeable own property — `Object.defineProperty(window, 'location', …)`
-    // throws "Cannot redefine property: location", the assignment is never
-    // reflected back, and the navigation the assignment triggers does not reach
-    // console.error (vitest's jsdom keeps its virtual console to itself). A
-    // test therefore cannot see the navigation, and the two failure cases above
-    // are what pin the validation. The sibling two-factor test documents the
-    // same limit.
-    //
-    // What the success path DOES have to get right, and can be pinned: the
-    // request itself. Asserting only "exactly one request to /api/billing/portal"
-    // left the METHOD unpinned — a portal open turned into a GET, or a HEAD
-    // probe, would still satisfy the count.
+    // The request is what this half can pin regardless of the environment…
     await clickManage()
     expect(pending.requests[0]?.url).toBe('/api/billing/portal')
     expect(pending.requests[0]?.method).toBe('POST')
@@ -237,10 +243,24 @@ describe('ManageSubscriptionButton — the portal URL is validated before it is 
 
     expect(pending.requests).toHaveLength(1)
     expect(text()).not.toContain('Could not open the billing portal')
+    // …and the navigation IS observable through the stubbed location (see the
+    // descriptor note above), which is the component's whole purpose: a
+    // validated url that never reaches `window.location.href` leaves the reader
+    // on the same page with no portal and no error.
+    expect(locationStub.href, 'a validated url must be navigated to').toBe(
+      'https://billing.stripe.com/p/session/test',
+    )
     // A validated url leaves the button idle again — the busy state it entered
     // while the request was in flight is cleared on every path.
     const button = container.querySelector('button')
     expect(button?.disabled).toBe(false)
     expect(button?.textContent).not.toContain('Opening')
+  })
+
+  it('navigates to a same-origin portal path too — the guard keeps the destination, not a copy', async () => {
+    await clickManage()
+    await respond(200, { url: '/billing/portal/session' })
+
+    expect(locationStub.href).toBe('/billing/portal/session')
   })
 })

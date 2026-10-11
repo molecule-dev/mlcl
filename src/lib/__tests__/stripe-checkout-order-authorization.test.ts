@@ -175,6 +175,13 @@ describe('stripe-checkout POST /session — orderId is ownership-checked at sess
     expect(stripe.createCheckoutSession.mock.calls[0][0]).toMatchObject({
       priceId: 'price_1',
       metadata: { orderId: 'order-1', customerEmail: 'buyer@test.dev' },
+      // The two REQUIRED redirect URLs. A `vi.fn()` resolves whatever it is
+      // handed, so they were the one part of this call no assertion covered:
+      // dropping (or typo'ing) either one kept every test green while every real
+      // Stripe call failed — the provider's `createCheckoutSession` needs them
+      // to build the redirect, so the reader would never reach a pay page.
+      successUrl: 'https://a.test/ok',
+      cancelUrl: 'https://a.test/no',
     })
   })
 
