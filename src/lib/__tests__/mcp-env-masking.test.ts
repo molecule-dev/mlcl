@@ -41,11 +41,13 @@ const textOf = (result: ToolResult): string =>
     .trim()
 
 let dir: string | null = null
+/** Every stand-in CLI root this suite created — one per `fakeCli` call. */
+const dirs: string[] = []
 
 afterAll(() => {
   delete process.env.MOLECULE_MCP_CLI
   delete process.env.DO_NOT_TRACK
-  if (dir) rmSync(dir, { recursive: true, force: true })
+  for (const created of dirs.splice(0)) rmSync(created, { recursive: true, force: true })
 })
 
 /** Skip out loud in the one environment this suite cannot run in. */
@@ -59,21 +61,33 @@ function skipped(ctx: { skip: () => void }): boolean {
   return true
 }
 
-/** A stand-in CLI whose `env list --json` answers the two probe values. */
-function fakeCli(): string {
+/**
+ * A stand-in CLI whose stdout is `stdout` (exit 0 by default). Each call gets
+ * its own throwaway root, and every root is removed in afterAll — a single
+ * `dir` variable reassigned per call leaked every root but the last.
+ */
+function fakeCli(stdout: string, exitCode = 0): string {
   dir = mkdtempSync(join(tmpdir(), 'mlcl-mcp-env-mask-'))
+  dirs.push(dir)
   const script = join(dir, 'fake-mlcl.mjs')
   writeFileSync(
     script,
     '#!/usr/bin/env node\n' +
-      `const list = ${JSON.stringify([
-        { key: 'OTP', value: SHORT_SECRET },
-        { key: 'MOLECULE_API_KEY', value: LONG_SECRET },
-      ])}\n` +
-      'process.stdout.write(JSON.stringify(list))\n',
+      `process.stdout.write(${JSON.stringify(stdout)})\n` +
+      `process.exit(${exitCode})\n`,
   )
   chmodSync(script, 0o755)
   return script
+}
+
+/** The `env list --json` answer carrying the two probe values. */
+function listCli(): string {
+  return fakeCli(
+    JSON.stringify([
+      { key: 'OTP', value: SHORT_SECRET },
+      { key: 'MOLECULE_API_KEY', value: LONG_SECRET },
+    ]),
+  )
 }
 
 async function connect(cli: string): Promise<{
@@ -100,7 +114,7 @@ async function connect(cli: string): Promise<{
 describe('a masked env value is never the value itself', () => {
   it('list_env_vars hides a three-character secret while still hinting at a long one', async (ctx) => {
     if (skipped(ctx)) return
-    const { call, close } = await connect(fakeCli())
+    const { call, close } = await connect(listCli())
     try {
       const result = await call('list_env_vars')
       const output = textOf(result)
@@ -123,7 +137,7 @@ describe('a masked env value is never the value itself', () => {
 
   it('get_env_var masks by default and reveals only when asked', async (ctx) => {
     if (skipped(ctx)) return
-    const { call, close } = await connect(fakeCli())
+    const { call, close } = await connect(listCli())
     try {
       const masked = textOf(await call('get_env_var', { key: 'OTP' }))
       expect(masked, 'the short secret is not echoed').not.toContain(SHORT_SECRET)
@@ -137,6 +151,36 @@ describe('a masked env value is never the value itself', () => {
       // length of the value.
       const revealed = textOf(await call('get_env_var', { key: 'OTP', reveal: true }))
       expect(revealed).toContain(SHORT_SECRET)
+    } finally {
+      await close()
+    }
+  })
+
+  it('reports a stdout that is not the list as the CLI’s own words, never as a parse crash', async (ctx) => {
+    if (skipped(ctx)) return
+    // An exit-0 `env list` whose stdout carries NO JSON document (a wrapper's
+    // progress line, a shim's banner) used to reach `parseJsonOut` bare: with
+    // no `{`/`[` in the text it sliced the LAST CHARACTER and `JSON.parse`d it,
+    // so the client got "Unexpected end of JSON input" — naming neither the
+    // tool nor the CLI output that caused it. The same failure shape
+    // `check_project` already guards and is tested for; the env tools are the
+    // calls that were missed.
+    const { call, close } = await connect(
+      fakeCli('mlcl: refreshing the registry index before listing…\n'),
+    )
+    try {
+      for (const tool of ['list_env_vars', 'get_env_var']) {
+        const result = await call(tool, tool === 'get_env_var' ? { key: 'OTP' } : {})
+        expect(result.isError, `${tool} must fail loudly on a non-JSON answer`).toBe(true)
+        const message = textOf(result)
+        expect(message, `${tool} surfaces the CLI’s own output`).toContain(
+          'refreshing the registry index',
+        )
+        expect(
+          message,
+          `${tool} never reports the bare parse error the old path threw`,
+        ).not.toMatch(/Unexpected end|Unexpected token|SyntaxError/)
+      }
     } finally {
       await close()
     }

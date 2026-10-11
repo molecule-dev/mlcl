@@ -57,11 +57,14 @@ const uniqueName = (): string => `doc-cache-test-${seq++}`
  * stubbed 200 answers `registry.npmjs.org/<name>` exactly as cheerfully as
  * the real endpoint 404s it.
  */
-function stubRegistry(body: unknown, opts: { reject?: Error } = {}): ReturnType<typeof vi.fn> {
+function stubRegistry(
+  body: unknown,
+  opts: { reject?: Error; status?: number } = {},
+): ReturnType<typeof vi.fn> {
   const spy = vi.fn(async () => {
     if (opts.reject) throw opts.reject
     return new Response(JSON.stringify(body), {
-      status: 200,
+      status: opts.status ?? 200,
       headers: { 'content-type': 'application/json' },
     })
   })
@@ -133,6 +136,30 @@ describe('mcp remote package-doc fetch', () => {
 
     const healthy = stubRegistry({ readme: '# Back' })
     expect(await fetchPackageReadme(name)).toBe('# Back')
+    expect(healthy).toHaveBeenCalledTimes(1)
+  })
+
+  it('treats a non-2xx registry answer as a failure and caches nothing — the next call retries', async (ctx) => {
+    if (skipped(ctx)) return
+    const { fetchPackageReadme } = await import('../../../mcp/src/remote.js')
+    const name = uniqueName()
+    // The shape no thrown fetch produces: the registry ANSWERS — a 429 rate
+    // limit or a 503 outage, both routine for unauthenticated packument
+    // traffic — and its JSON error body deserializes as happily as a packument
+    // does. Without the ok-gate the body had no `readme`, so the call resolved
+    // `undefined` and the client read "doc not fetched" — the SAME sentence a
+    // package that genuinely has no README gets — instead of the upstream
+    // failure, and nothing distinguished an outage from a doc-less package.
+    const failing = stubRegistry({ error: 'too many requests' }, { status: 429 })
+
+    await expect(fetchPackageReadme(name)).rejects.toThrow(/HTTP 429/)
+    await expect(fetchPackageReadme(name)).rejects.toThrow(/HTTP 429/)
+    // Two attempts, two requests: a FAILED answer must never be cached.
+    expect(failing).toHaveBeenCalledTimes(2)
+
+    // …and recovery needs no restart: a healthy answer after the outage lands.
+    const healthy = stubRegistry({ readme: '# After the outage' })
+    expect(await fetchPackageReadme(name)).toBe('# After the outage')
     expect(healthy).toHaveBeenCalledTimes(1)
   })
 

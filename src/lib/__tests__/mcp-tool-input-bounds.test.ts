@@ -310,6 +310,19 @@ describe('tool arguments that become outbound work carry a client-visible bound'
     expect(text).toContain('256')
     expect(text, 'the refusal is the cap, not the service').not.toContain(METERED_MARKER)
   })
+
+  it('refuses an EMPTY embed_text list before the metered call', async (ctx) => {
+    if (skipped(ctx)) return
+    // The array branch carried `.max` but no `.min`, so `[]` passed the schema
+    // AND the handler's total-character check (it carries none) and reached the
+    // hosted service — the same doomed round trip the string branch's `.min(1)`
+    // already refuses at the schema. The refusal is the schema's own, so the
+    // assertion is that the metered service is never reached and the caller is
+    // told the list must carry at least one text.
+    const text = await callText(callTool, 'embed_text', { input: [] })
+    expect(text, 'an empty list must be refused').toMatch(/at least 1|>=\s*1|empty/i)
+    expect(text, 'the refusal precedes the metered call').not.toContain(METERED_MARKER)
+  })
 })
 
 describe('embed_text refuses more characters than the service accepts', () => {

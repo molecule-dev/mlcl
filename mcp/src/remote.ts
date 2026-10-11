@@ -98,10 +98,10 @@ export function clearRemoteCaches(): void {
  *
  * The network branch is bounded by {@link FETCH_TIMEOUT_MS} (`timeoutMs`
  * shortens it for tests, like {@link fetchJson}). A fetched body with no
- * `readme` resolves to `undefined`; a rejected or aborted fetch REJECTS, the
- * same as {@link fetchJson} — the caller's own try/catch is the fallback (see
- * the `read_package_doc` handler). Neither case caches anything, so the next
- * call retries the network.
+ * `readme` resolves to `undefined`; a rejected, aborted, or non-2xx fetch
+ * REJECTS, the same as {@link fetchJson} — the caller's own try/catch is the
+ * fallback (see the `read_package_doc` handler). Neither case caches anything,
+ * so the next call retries the network.
  *
  * @param short - Package name WITHOUT the `@molecule/` scope.
  * @param timeoutMs - Abort bound for the outbound fetch.
@@ -130,11 +130,19 @@ export async function fetchPackageReadme(
     // inheriting the old position.
     readmeCache.delete(short)
   }
-  const meta = (await (
-    await fetch(`https://registry.npmjs.org/@molecule%2F${short}`, {
-      signal: AbortSignal.timeout(timeoutMs),
-    })
-  ).json()) as { readme?: string }
+  const response = await fetch(`https://registry.npmjs.org/@molecule%2F${short}`, {
+    signal: AbortSignal.timeout(timeoutMs),
+  })
+  // A non-2xx is a FAILURE, not a body without a readme — the same gate
+  // {@link fetchJson} applies. An error body deserializes as happily as a
+  // packument does (a 404's `{"error":"Not found"}`, a 429/503's JSON error
+  // from the registry itself — routine for unauthenticated packument traffic),
+  // so without the gate an outage answered every call with "doc not fetched",
+  // the same sentence a package that genuinely has no README gets.
+  if (!response.ok) {
+    throw new Error(`GET registry.npmjs.org/@molecule/${short} failed: HTTP ${response.status}`)
+  }
+  const meta = (await response.json()) as { readme?: string }
   if (typeof meta.readme !== 'string' || meta.readme.length === 0) return undefined
   if (readmeCache.size >= README_CACHE_LIMIT && !readmeCache.has(short)) {
     const oldest = readmeCache.keys().next().value

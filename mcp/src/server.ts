@@ -87,6 +87,37 @@ function parseJsonOut<T>(out: string): T {
   return JSON.parse(out.slice(start)) as T
 }
 
+/**
+ * Run `mlcl env list --json` and parse its variable list — refusing an answer
+ * that is not the list instead of crashing on it.
+ *
+ * Both env tools hand `runCli`'s stdout straight to {@link parseJsonOut}, whose
+ * slice-from-the-first-brace made a stdout carrying NO JSON document (an exit-0
+ * run whose output is a plain-text line — today a warning printed by a wrapper,
+ * tomorrow any progress line before the document) `JSON.parse` the LAST
+ * CHARACTER and throw a bare `SyntaxError` at the client — the exact failure
+ * `check_project` documents, guards, and is tested for. The CLI's own words are
+ * the failure the client gets instead.
+ *
+ * @param app - Target app/.env instead of api/.env.
+ * @param directory - Project directory the CLI runs in.
+ * @returns The variable list the CLI answered with.
+ */
+async function readEnvList(
+  app: boolean | undefined,
+  directory: string | undefined,
+): Promise<Array<{ key: string; value: string }>> {
+  const out = await runCli(['env', 'list', '--json', ...(app ? ['--app'] : [])], directory)
+  try {
+    return parseJsonOut<Array<{ key: string; value: string }>>(out)
+  } catch (error) {
+    throw new Error(
+      `mlcl env list did not answer with the variable list: ${out.trim() || '(no output)'}`,
+      { cause: error },
+    )
+  }
+}
+
 const text = (t: string) => ({ content: [{ type: 'text' as const, text: t }] })
 
 /**
@@ -760,9 +791,7 @@ server.registerTool(
     },
   },
   tracked('list_env_vars', async ({ app, reveal, directory }) => {
-    const raw = parseJsonOut<{ key: string; value: string }[]>(
-      await runCli(['env', 'list', '--json', ...(app ? ['--app'] : [])], directory),
-    )
+    const raw = await readEnvList(app, directory)
     return text(
       JSON.stringify(
         raw.map((e) => ({
@@ -790,9 +819,7 @@ server.registerTool(
     },
   },
   tracked('get_env_var', async ({ key, app, reveal, directory }) => {
-    const raw = parseJsonOut<{ key: string; value: string }[]>(
-      await runCli(['env', 'list', '--json', ...(app ? ['--app'] : [])], directory),
-    )
+    const raw = await readEnvList(app, directory)
     const entry = raw.find((e) => e.key === key)
     if (!entry)
       return text(
@@ -920,12 +947,17 @@ server.registerTool(
       // The per-text cap and the text COUNT are bound here (a client sees them
       // in the JSON Schema); the TOTAL is checked in the handler, the same
       // split `translate` uses for its own budget. `.min(1)` moves the
-      // service's empty-string refusal in front of the metered call too.
+      // service's empty-string refusal in front of the metered call too — on
+      // BOTH shapes: an empty LIST carries no characters, so the handler's
+      // total-character check passes it and the service was asked to embed
+      // nothing (the same doomed round trip the string branch's `.min(1)`
+      // already refuses).
       input: z
         .union([
           z.string().min(1).max(EMBED_MAX_CHARS_PER_TEXT),
           z
             .array(z.string().min(1).max(EMBED_MAX_CHARS_PER_TEXT))
+            .min(1)
             .max(EMBED_MAX_TEXTS)
             .describe('Up to 256 texts'),
         ])

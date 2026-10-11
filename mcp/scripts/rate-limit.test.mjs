@@ -294,6 +294,41 @@ test('a budget too large for an integer falls back to the default instead of rai
   }
 })
 
+test('a malformed MCP_RATE_MAX_BUCKETS falls back to the default cap and says so', async () => {
+  // The bucket map's own cap is validated by the same rule as the budget above,
+  // and it fails differently when the validation is lost: a NaN cap makes every
+  // `buckets.size >= NaN` comparison false, so the map grows without bound —
+  // the memory-growth failure the cap exists to prevent — while /health stays
+  // green. A garbage value is the same typo class the budget tests pin ("2x",
+  // "unlimited"), and the startup line is again the observable: with the
+  // fallback gone, `MAX_BUCKETS === parsedMaxBuckets` (both NaN) and the line
+  // is never printed.
+  const { child, getOutput } = await startServer({
+    ...process.env,
+    MCP_RATE_MAX_BUCKETS: 'unlimited',
+  })
+  try {
+    const deadline = Date.now() + 2000
+    while (!getOutput().includes('MCP_RATE_MAX_BUCKETS') && Date.now() < deadline) {
+      await new Promise((r) => setTimeout(r, 50))
+    }
+    assert.match(
+      getOutput(),
+      /MCP_RATE_MAX_BUCKETS/,
+      'an unusable bucket cap must be reported at startup, not silently accepted as NaN',
+    )
+    // The line names the cap actually in force — the 10 000 default, so the
+    // fallback itself (not merely the warning) is what is pinned.
+    assert.match(
+      getOutput(),
+      /using 10000\b/,
+      'the startup line must name the default cap the limiter fell back to',
+    )
+  } finally {
+    await stopServer(child)
+  }
+})
+
 test('an over-budget request is rejected before the body parser parses it', async () => {
   // The budget exists to protect the work a request costs, and the 1 MB JSON
   // parse is that work. Mounted after the parser, the budget never guarded it:

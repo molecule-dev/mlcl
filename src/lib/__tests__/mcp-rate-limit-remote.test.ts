@@ -129,6 +129,9 @@ describe('molecule-mcp remote rate limit', () => {
       )
       expect(result.output).toContain('falls back to the default instead of being mis-read')
       expect(result.output).toContain('a budget too large for an integer falls back to the default')
+      expect(result.output).toContain(
+        'a malformed MCP_RATE_MAX_BUCKETS falls back to the default cap and says so',
+      )
       expect(result.output).toContain('the proxy-owned fly-client-ip is the rate key')
       expect(result.output).toContain(
         'a bucket map at its cap evicts the least-recently-seen address',
