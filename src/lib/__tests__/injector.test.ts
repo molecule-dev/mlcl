@@ -4,6 +4,7 @@ import { dirname, join, resolve, sep } from 'node:path'
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
+import { disableAI } from '../ai.js'
 import type { BondSetup, InjectionPlan } from '../injector.js'
 import {
   executeInjection,
@@ -28,6 +29,12 @@ let tempDir: string
 let testProject: string
 
 beforeAll(async () => {
+  // These suites assert the HEURISTIC generators' output byte-for-byte
+  // (`toContain('createRequestHandlerMap')` and friends) — a configured
+  // ANTHROPIC_API_KEY would route every synthesis through the real model
+  // (metered, seconds each, nondeterministic), the same hazard
+  // injector-smoke-mocks.test.ts scrubs with this call.
+  disableAI()
   tempDir = await mkdtemp(join(tmpdir(), 'mlcl-injector-test-'))
   testProject = await createTestProject()
 })
@@ -1496,6 +1503,94 @@ describe('peerDependency pinning', () => {
     expect(result.errors.join('\n')).toContain('no concrete version floor')
     // The refusal rolls back: the manifest is the pre-injection bytes — an
     // unpinnable peer never lands as a range.
+    expect(await readFile(join(projectDir, 'package.json'), 'utf-8')).toBe(original)
+  })
+})
+
+// ============================================================================
+// regular dependency version pinning
+// ============================================================================
+
+describe('regular dependency pinning', () => {
+  /**
+   * The same minimal plan the peer suite builds — the assertions are about pin
+   * resolution alone. Regular dependencies reach this list from an injected
+   * package's own installed package.json, where nothing forces them exact.
+   */
+  function makeDepsPlan(dependencies: InjectionPlan['dependencies']): InjectionPlan {
+    return {
+      molecule: '@molecule/test',
+      moleculePackage: {
+        name: '@molecule/test',
+        version: '1.0.0',
+        dependencies: {},
+        peerDependencies: {},
+        type: 'utility',
+        routes: [],
+        tables: [],
+        exports: [],
+        path: '/fake',
+      },
+      files: [],
+      dependencies,
+      migrations: [],
+      bondSetup: null,
+      conflicts: [],
+    }
+  }
+
+  it('pins a ranged dependency from an injected package’s manifest to its floor', async () => {
+    // A third-party / `file:` package is free to declare `"^1.3.0"` in its own
+    // dependencies — planInjection reads it verbatim, and the write used to
+    // carry the range straight into the generated manifest, where npm resolved
+    // it at install time in a manifest that must pin exact.
+    const projectDir = join(tempDir, 'exec-test-dep-pin-range')
+    await mkdir(projectDir, { recursive: true })
+    await writeFile(join(projectDir, 'package.json'), JSON.stringify({ name: 'test' }))
+
+    const plan = makeDepsPlan([{ name: 'left-pad', version: '^1.3.0', type: 'dependency' }])
+
+    const result = await executeInjection(plan, projectDir, { autoInstall: false })
+    expect(result.success).toBe(true)
+
+    const pkg = JSON.parse(await readFile(join(projectDir, 'package.json'), 'utf-8'))
+    expect(pkg.dependencies['left-pad']).toBe('1.3.0')
+  })
+
+  it('keeps a @molecule dependency at the scanned version, and an exact version verbatim', async () => {
+    const projectDir = join(tempDir, 'exec-test-dep-pin-verbatim')
+    await mkdir(projectDir, { recursive: true })
+    await writeFile(join(projectDir, 'package.json'), JSON.stringify({ name: 'test' }))
+
+    const plan = makeDepsPlan([
+      { name: '@molecule/api-logger', version: '1.2.3', type: 'dependency' },
+      { name: 'ms', version: '2.1.3', type: 'dependency' },
+    ])
+
+    const result = await executeInjection(plan, projectDir, { autoInstall: false })
+    expect(result.success).toBe(true)
+
+    const pkg = JSON.parse(await readFile(join(projectDir, 'package.json'), 'utf-8'))
+    // The injected package's own scanned pin is the truth for a @molecule
+    // entry; an already-exact version passes through unchanged (no
+    // over-tightening — the pin only rewrites RANGES).
+    expect(pkg.dependencies['@molecule/api-logger']).toBe('1.2.3')
+    expect(pkg.dependencies.ms).toBe('2.1.3')
+  })
+
+  it('refuses an unpinnable dependency and rolls the manifest back — no range is shipped', async () => {
+    const projectDir = join(tempDir, 'exec-test-dep-pin-unpinnable')
+    await mkdir(projectDir, { recursive: true })
+    const original = JSON.stringify({ name: 'test', dependencies: {} }, null, 2) + '\n'
+    await writeFile(join(projectDir, 'package.json'), original)
+
+    const plan = makeDepsPlan([{ name: 'left-pad', version: '*', type: 'dependency' }])
+
+    const result = await executeInjection(plan, projectDir, { autoInstall: false })
+    expect(result.success).toBe(false)
+    expect(result.errors.join('\n')).toContain('no concrete version floor')
+    // The refusal rolls back: the manifest is the pre-injection bytes — an
+    // unpinnable dependency never lands as a range.
     expect(await readFile(join(projectDir, 'package.json'), 'utf-8')).toBe(original)
   })
 })

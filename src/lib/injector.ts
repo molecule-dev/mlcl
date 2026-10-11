@@ -1049,6 +1049,25 @@ function pinPeerVersion(name: string, range: string): string {
 }
 
 /**
+ * Resolve the exact version a REGULAR dependency is pinned to in the target
+ * project.
+ *
+ * The peer branch above is not the only place a manifest's versions flow into
+ * the target: an injected package's own `dependencies` are read from its
+ * installed package.json verbatim ({@link planInjection}), and nothing in an
+ * installed manifest forces them exact — a third-party or `file:` package
+ * declaring `"left-pad": "^1.3.0"` carried that range the whole way to the
+ * write. The target manifest must pin exact no matter which branch wrote the
+ * entry, so a non-`@molecule` range is pinned to its floor and a range with no
+ * concrete floor is REFUSED — the same rule {@link pinVersion} applies for
+ * peers, and `@molecule/*` entries keep the scanned version (the pin of the
+ * package this checkout actually injected).
+ */
+function pinDependencyVersion(name: string, version: string): string {
+  return name.startsWith('@molecule/') ? version : pinVersion(version)
+}
+
+/**
  * Update package.json with new dependencies
  */
 async function updatePackageJson(
@@ -1063,12 +1082,16 @@ async function updatePackageJson(
       packageJson.dependencies = packageJson.dependencies ?? {}
       // Don't overwrite existing versions
       if (!packageJson.dependencies[dep.name]) {
-        packageJson.dependencies[dep.name] = dep.version
+        // Exact pin only — see pinDependencyVersion: a range arriving in an
+        // injected package's own dependencies used to be written verbatim, so
+        // npm resolved it at install time in a manifest that must pin exact.
+        packageJson.dependencies[dep.name] = pinDependencyVersion(dep.name, dep.version)
       }
     } else if (dep.type === 'devDependency') {
       packageJson.devDependencies = packageJson.devDependencies ?? {}
       if (!packageJson.devDependencies[dep.name]) {
-        packageJson.devDependencies[dep.name] = dep.version
+        // Same exact-pin rule as the dependency branch above.
+        packageJson.devDependencies[dep.name] = pinDependencyVersion(dep.name, dep.version)
       }
     } else if (dep.type === 'peerDependency') {
       // Peer dependencies are added as regular dependencies in the target project,
