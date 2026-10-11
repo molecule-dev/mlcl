@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { OAuthProviderLogo } from '@molecule/app-oauth-logos-react'
 import { useOAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -5,6 +7,7 @@ import { getClassMap } from '@molecule/app-ui'
 function SocialLoginButtons() {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const [error, setError] = useState<string | null>(null)
   // The OAuth dance is entirely server-side: redirect() navigates the browser to the
   // backend initiation route (GET /users/oauth/:provider via the /api proxy), which
   // 302s to the provider's consent screen and returns to the callback. No client-id
@@ -17,10 +20,26 @@ function SocialLoginButtons() {
   // to `user.error.oauthServerNotConfigured`. This slice therefore ships exactly the
   // one button it wires; adding a provider means adding its bond (README → How to
   // adapt) AND its entry here, together.
+  //
+  // `onError` is how the hook reports a failed callback exchange (the code/state
+  // swap 4xxs, the account is refused): it is OPTIONAL, and left out the failure
+  // was dropped entirely — the hook cleans `?code=…&state=…` out of the URL and the
+  // user lands back on the login page with nothing on screen, indistinguishable
+  // from having cancelled. So the example wires it and shows what happened.
   const { redirect } = useOAuth({
     baseURL: '/api',
     oauthProviders: ['google'],
     oauthEndpoint: '/users/oauth',
+    onError: () =>
+      setError(
+        t(
+          'socialLoginButtons.failed',
+          {},
+          {
+            defaultValue: 'Could not sign in with Google — try again.',
+          },
+        ),
+      ),
   })
   const buttonClass = cm.cn(
     cm.roundedFull,
@@ -42,6 +61,11 @@ function SocialLoginButtons() {
           {t('socialLoginButtons.google', {}, { defaultValue: 'Google' })}
         </span>
       </button>
+      {error ? (
+        <p role="alert" data-mol-id="social-login-error" className={cm.textError}>
+          {error}
+        </p>
+      ) : null}
     </div>
   )
 }
