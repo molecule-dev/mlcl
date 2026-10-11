@@ -146,8 +146,26 @@ export function NotificationBellWidget({ userId }: { userId: string }) {
       // set items to undefined and crash the render's items.map.
       .then((p) => {
         if (cancelled) return
-        setItems(Array.isArray(p.items) ? p.items : [])
-        setUnread(typeof p.unread === 'number' ? p.unread : 0)
+        const page: RawNotification[] = Array.isArray(p.items) ? p.items : []
+        const pageIds = new Set(page.map((n) => n.id))
+        // Capping a snapshot taken BEFORE this request answered over the panel
+        // dropped every row the live feed delivered while it was in flight: the
+        // frame above prepended it and raised the badge, then the page landed
+        // without it and the notification vanished until a reload — the same
+        // defect the in-app-chat slice's history load fixed by MERGING (see
+        // templates/.agents/skills/examples/messaging/in-app-chat/app/pages/ChatPage.tsx).
+        // So the page is MERGED: the live rows it cannot carry stay, newest
+        // first, ahead of its own rows, and a row both know about is kept once.
+        setItems((prev) =>
+          [...prev.filter((n) => !pageIds.has(n.id)), ...page].slice(0, NOTIFICATION_PAGE_SIZE),
+        )
+        // The page's count already covers every row it carries — a live row it
+        // also carries must NOT be added again — so only the unread among the
+        // rows the page cannot know is added on top. `itemsRef` is the committed
+        // panel at this instant (the reset above and every frame since).
+        const liveOnly = itemsRef.current.filter((n) => !pageIds.has(n.id))
+        const liveUnread = liveOnly.filter((n) => n.read_at === null).length
+        setUnread(typeof p.unread === 'number' ? p.unread + liveUnread : liveUnread)
       })
       .catch(() => {
         // A failed load leaves the bell at its initial empty state; the SSE
