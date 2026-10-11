@@ -63,7 +63,19 @@ const { SearchPage } =
 let container: HTMLElement
 let root: Root
 
-/** Let real timers run — the autocomplete's debounce is 150 ms. */
+/**
+ * Let real timers run.
+ *
+ * `SearchAutocomplete`'s debounce default is 200 ms (`debounceMs = 200` in
+ * `@molecule/app-features-search-autocomplete-react`, and `SearchPage` passes no
+ * override). A fixed sleep just past that (this file used 250 ms, and its
+ * comment said 150) left a 50 ms margin on a real timer — under load the timer
+ * fires late, no request has gone out, and `searchCalls()[0]` is `undefined`
+ * (a TypeError) or the length assert sees zero. Anything that waits for the
+ * DEBOUNCE to fire therefore polls for the request itself (see
+ * {@link waitForSearches}); a fixed sleep is only used for a NEGATIVE window,
+ * where the delay itself is the assertion.
+ */
 async function wait(ms: number): Promise<void> {
   await act(async () => {
     await new Promise((resolve) => setTimeout(resolve, ms))
@@ -81,6 +93,27 @@ async function mount(element: ReactNode): Promise<void> {
 }
 
 const searchCalls = (): FetchCall[] => fetches.calls.filter((c) => c.url.includes('/api/search'))
+
+/**
+ * Wait until at least `count` searches have gone out.
+ *
+ * The debounce runs on REAL timers, so a fixed sleep past it is a race: poll
+ * for the request the debounce fires instead of guessing how long it takes.
+ * (Measured against the default the component applies, 200 ms.)
+ *
+ * @param count - How many `/api/search` requests must have been issued.
+ */
+async function waitForSearches(count: number): Promise<void> {
+  await vi.waitFor(
+    () => {
+      expect(
+        searchCalls().length,
+        `fewer than ${count} search request(s) went out`,
+      ).toBeGreaterThanOrEqual(count)
+    },
+    { timeout: 3_000 },
+  )
+}
 
 /** Type into the real autocomplete's input the way a user's keystroke does. */
 async function typeQuery(value: string): Promise<void> {
@@ -126,7 +159,7 @@ describe('search page — one query is one search, however often the page re-ren
     })
 
     // Past the debounce: exactly one search went out.
-    await wait(250)
+    await waitForSearches(1)
     expect(searchCalls()).toHaveLength(1)
 
     // Answer it. The response re-renders the page with new hits — and, with an
@@ -137,9 +170,12 @@ describe('search page — one query is one search, however often the page re-ren
     await act(async () => {
       call.respond(200, { hits: [{ id: 'c', title: 'cat hit' }] })
     })
-    await wait(400)
+    // Three debounce intervals (200 ms each): a re-armed search lands ~200 ms
+    // after the response, so this window is the assertion, not a wait for one.
+    await wait(600)
 
-    // Still one. A second here is the unbounded loop: another every 150 ms.
+    // Still one. A second here is the unbounded loop: another every debounce
+    // interval (200 ms) for as long as the query stays in the box.
     expect(searchCalls()).toHaveLength(1)
     expect(container.textContent).toContain('cat hit')
   })
@@ -154,7 +190,7 @@ describe('search page — one query is one search, however often the page re-ren
       setter?.call(input, 'cat')
       input.dispatchEvent(new Event('input', { bubbles: true }))
     })
-    await wait(250)
+    await waitForSearches(1)
     const first = searchCalls()[0]
     first.answered = true
     await act(async () => {
@@ -165,7 +201,7 @@ describe('search page — one query is one search, however often the page re-ren
       setter?.call(input, 'cats')
       input.dispatchEvent(new Event('input', { bubbles: true }))
     })
-    await wait(250)
+    await waitForSearches(2)
 
     expect(searchCalls()).toHaveLength(2)
     expect(searchCalls()[1].url).toContain('q=cats')
@@ -184,7 +220,7 @@ describe('search page — an answer is never asserted before it exists', () => {
     expect(container.textContent).not.toContain('No matches for')
 
     // …nor while the request it does fire is parked.
-    await wait(250)
+    await waitForSearches(1)
     expect(searchCalls()).toHaveLength(1)
     expect(container.textContent).not.toContain('No matches for')
 
@@ -200,7 +236,7 @@ describe('search page — an answer is never asserted before it exists', () => {
   it('reports a FAILED search as a failure, not as "No matches"', async () => {
     await mount(createElement(SearchPage, { index: 'products' }))
     await typeQuery('cat')
-    await wait(250)
+    await waitForSearches(1)
 
     // A 500 body carries no `hits`, so the coerced empty list said the query
     // matched nothing — the wrong answer for a search that never ran.
@@ -217,7 +253,7 @@ describe('search page — an answer is never asserted before it exists', () => {
   it('never renders a previous query’s hits under the new query', async () => {
     await mount(createElement(SearchPage, { index: 'products' }))
     await typeQuery('cat')
-    await wait(250)
+    await waitForSearches(1)
     const catCall = searchCalls()[0]
     catCall.answered = true
     await act(async () => {
@@ -237,7 +273,7 @@ describe('search page — an answer is never asserted before it exists', () => {
     expect(container.textContent).not.toContain('No matches for')
 
     // …and "dog"'s own answer then replaces it.
-    await wait(250)
+    await waitForSearches(2)
     const dogCall = searchCalls().find((c) => c.url.includes('q=dog'))
     expect(dogCall).toBeDefined()
     dogCall!.answered = true

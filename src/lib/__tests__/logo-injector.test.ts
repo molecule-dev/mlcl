@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto'
+import { readFileSync } from 'node:fs'
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -14,6 +15,22 @@ import {
   pickGlyph,
   readGlyph,
 } from '../logo-injector.js'
+
+/**
+ * The default glyph a scaffold copies into `public/logo.svg` before
+ * `injectLogo` runs (`scaffold.ts` → `loadTemplate('app/shared/logo.svg.tpl')`).
+ * `DEFAULT_LOGO_MD5` is documented as the md5 of THIS file.
+ */
+const DEFAULT_LOGO_TEMPLATE = join(
+  import.meta.dirname,
+  '..',
+  '..',
+  '..',
+  'templates',
+  'app',
+  'shared',
+  'logo.svg.tpl',
+)
 
 describe('listGlyphs', () => {
   it('returns at least one glyph from the shipped library', () => {
@@ -147,13 +164,35 @@ describe('injectLogo', () => {
 
   it('overwrites the default-md5 logo (treats it as unbranded)', async () => {
     await mkdir(join(appPath, 'public'), { recursive: true })
-    // Build a fake file that hashes to the SENTINEL md5 — easiest way is to
-    // write content matching DEFAULT_LOGO_MD5 by reading whatever the
-    // template actually ships. We can't easily produce that md5, so instead
-    // monkey-patch via skipping the check by writing some content with the
-    // same md5: just use a random sentinel and rely on force=false → custom
-    // protection test below.
-    // Instead, demonstrate the OPPOSITE: a non-default logo is preserved.
+    // The file a scaffold writes moments before injectLogo runs: the shipped
+    // default glyph, byte for byte (`scaffold.ts` writes
+    // `loadTemplate('app/shared/logo.svg.tpl')`, which is an identity render —
+    // the file carries no `{{…}}` placeholder). Its md5 IS DEFAULT_LOGO_MD5,
+    // which is the sentinel's whole definition — so this test also pins the
+    // constant to the template it hashes. A stale constant (the template glyph
+    // tweaked without the hash) or an inverted comparison makes every custom
+    // `mlcl create` keep the unbranded Molecule glyph, silently, and before this
+    // test nothing could see either: the sibling case below asserts the CUSTOM
+    // path, whose name ("overwrites the default-md5 logo") promised this one.
+    const defaultLogoSvg = readFileSync(DEFAULT_LOGO_TEMPLATE, 'utf-8')
+    expect(
+      createHash('md5').update(defaultLogoSvg).digest('hex'),
+      'DEFAULT_LOGO_MD5 must be the md5 of the shipped default logo it describes',
+    ).toBe(DEFAULT_LOGO_MD5)
+    await writeFile(join(appPath, 'public', 'logo.svg'), defaultLogoSvg)
+
+    const result = await injectLogo({ appPath, appName: 'demo', brandColor: '#abcdef' })
+
+    // Unbranded ⇒ replaced…
+    expect(result.written).toBe(true)
+    expect(result.reason).toBeUndefined()
+    const after = await readFile(result.logoPath, 'utf-8')
+    expect(after).not.toBe(defaultLogoSvg)
+    expect(after).toContain('#abcdef')
+  })
+
+  it('preserves a custom logo whose md5 is not the default (no over-writing)', async () => {
+    await mkdir(join(appPath, 'public'), { recursive: true })
     const customSvg = '<svg>custom user content</svg>'
     await writeFile(join(appPath, 'public', 'logo.svg'), customSvg)
     const md5 = createHash('md5').update(customSvg).digest('hex')
