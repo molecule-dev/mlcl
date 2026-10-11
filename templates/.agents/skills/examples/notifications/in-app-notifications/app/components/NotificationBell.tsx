@@ -85,6 +85,13 @@ export function NotificationBellWidget({ userId }: { userId: string }): ReactEle
   const [items, setItems] = useState<RawNotification[]>([])
   const [unread, setUnread] = useState(0)
   const [open, setOpen] = useState(false)
+  // Whether the last list READ failed (offline, a non-2xx, a body that is not
+  // the page). The mount effect clears the panel up front, so without this the
+  // shared center's empty state — "You're all caught up." — was the answer to a
+  // load that never arrived: a wrong claim, indistinguishable from a genuinely
+  // empty inbox. The same rule the sibling slices state at their own catches
+  // (Leaderboard, BlogIndexPage, OrdersPage, AttachmentsPanel).
+  const [loadFailed, setLoadFailed] = useState(false)
   const panelRef = useRef<HTMLDivElement>(null)
   // The rows the badge has already counted a read for (this tab's own clicks,
   // or an SSE echo that landed first). The read endpoint is IDEMPOTENT —
@@ -170,17 +177,32 @@ export function NotificationBellWidget({ userId }: { userId: string }): ReactEle
     // subscription's items and unread count on screen.
     setItems([])
     setUnread(0)
+    // The previous user's verdict goes with their rows — see `loadFailed`.
+    setLoadFailed(false)
     // A `userId` change starts a NEW load while the previous one may still be in
     // flight; without this guard the LATE response wins and the bell shows the
     // other user's notifications.
     let cancelled = false
     fetch(`/api/notifications?limit=${NOTIFICATION_PAGE_SIZE}`)
-      .then((r) => r.json())
-      // Coerce the body to the state's shape: a 500's `{ error }` JSON would
-      // set items to undefined and crash the render's items.map.
-      .then((p) => {
+      // A non-2xx is a FAILED load, not an empty bell: without the gate a 500's
+      // `{ error }` body (and a 401's) parsed as happily as the page did and was
+      // then read as "no notifications" (see the shape gate below).
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
+      .then((p: { items?: RawNotification[]; unread?: number }) => {
         if (cancelled) return
-        const page: RawNotification[] = Array.isArray(p.items) ? p.items : []
+        // A 2xx proves the route ANSWERED, not that the body is the page. A body
+        // that is not the list (a shrunken rewrite, a proxy's 200, an `{ error }`
+        // envelope) used to be coerced to an EMPTY page — which zeroed the badge
+        // and told the reader "You're all caught up." for notifications that
+        // simply never arrived. Same gate the sibling slices apply (Leaderboard,
+        // BlogIndexPage): a body that is not the list is a FAILED load, while an
+        // empty list stays a legitimately empty bell. Nothing is written on this
+        // path, so a live frame that already landed keeps its row and its count.
+        if (!Array.isArray(p.items)) {
+          setLoadFailed(true)
+          return
+        }
+        const page: RawNotification[] = p.items
         const pageIds = new Set(page.map((n) => n.id))
         // Capping a snapshot taken BEFORE this request answered over the panel
         // dropped every row the live feed delivered while it was in flight: the
@@ -200,10 +222,16 @@ export function NotificationBellWidget({ userId }: { userId: string }): ReactEle
         const liveOnly = itemsRef.current.filter((n) => !pageIds.has(n.id))
         const liveUnread = liveOnly.filter((n) => n.read_at === null).length
         setUnread(typeof p.unread === 'number' ? p.unread + liveUnread : liveUnread)
+        // The page landed: whatever a previous failed load said is no longer true.
+        setLoadFailed(false)
       })
       .catch(() => {
-        // A failed load leaves the bell at its initial empty state; the SSE
-        // subscription below still delivers live notifications.
+        // A failed load is REPORTED, not left as an empty bell: "You're all
+        // caught up." over a list that never arrived is a claim this tab cannot
+        // make (see `loadFailed`). The rejection must not escape the effect
+        // either. Live frames still deliver their own rows and counts — they are
+        // merged on top of whatever this tab already holds.
+        if (!cancelled) setLoadFailed(true)
       })
 
     // Subscribe to THIS user's room, whose name must match the handlers'
@@ -361,9 +389,18 @@ export function NotificationBellWidget({ userId }: { userId: string }): ReactEle
           <NotificationCenter
             items={centerItems}
             onMarkAllRead={markAllRead}
-            emptyState={t('notifications.empty', undefined, {
-              defaultValue: "You're all caught up.",
-            })}
+            emptyState={
+              // Only a load that ANSWERED may claim the reader is caught up (see
+              // `loadFailed`): with nothing on screen and a failed read, the
+              // panel's empty state is the one sentence it must not say.
+              loadFailed
+                ? t('notifications.loadFailed', undefined, {
+                    defaultValue: 'Could not load your notifications — refresh to try again.',
+                  })
+                : t('notifications.empty', undefined, {
+                    defaultValue: "You're all caught up.",
+                  })
+            }
           />
         </div>
       )}

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { type ReactElement, useCallback, useEffect, useRef, useState } from 'react'
 
 import { FileDropzone } from '@molecule/app-file-dropzone-react'
 import { useTranslation } from '@molecule/app-react'
@@ -32,11 +32,19 @@ function formatBytes(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
 }
 
-export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
+export function AttachmentsPanel({ parentId }: AttachmentsPanelProps): ReactElement {
   const { t } = useTranslation()
   const [items, setItems] = useState<Attachment[]>([])
   const [uploading, setUploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  // Whether the last list READ failed. The effect below clears the list up
+  // front, so without this flag a 500 or an offline fetch left `items` at `[]`
+  // and the panel rendered "No files attached yet." for a record whose files
+  // simply never arrived — a wrong answer indistinguishable from a genuinely
+  // empty record, with nothing to retry. The siblings state the same rule at
+  // their own catches (Leaderboard, BlogIndexPage, OrdersPage, SettingsPage,
+  // DeleteAccountPage): a failed load is never presented as an empty one.
+  const [loadFailed, setLoadFailed] = useState(false)
 
   // Every in-flight list request takes a ticket; only the newest may write
   // state. The panel outlives a `parentId` change (switch the selected order /
@@ -60,21 +68,39 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
 
   const load = useCallback(async () => {
     const ticket = ++loadSeq.current
-    // A failed load (offline, 500) keeps the current list for THIS record; the
-    // rejection must not escape — the effect and the post-upload refresh both
-    // fire-and-forget.
+    // A failed load (offline, 500) keeps whatever rows are already on screen —
+    // the rejection must not escape (the effect and the post-upload refresh both
+    // fire-and-forget), but it must also not be SILENT: with nothing on screen it
+    // is reported below instead of being left to read as an empty record.
     try {
       const res = await fetch(`/api/attachments?parent_id=${encodeURIComponent(parentId)}`, {
         credentials: 'include',
       })
-      if (!res.ok) return
+      // The ticket is checked BEFORE the failure is recorded: a superseded read
+      // (the record changed, or a newer load started) must not paint its failure
+      // over the record the reader is on now — the same ownership rule the
+      // post-await state writes below follow.
+      if (ticket !== loadSeq.current) return
+      if (!res.ok) {
+        setLoadFailed(true)
+        return
+      }
       // Coerce the body to the list's shape: a non-array payload would reach the
-      // render and crash `items.map`.
+      // render and crash `items.map` — and coerced to `[]` it would claim the
+      // record has no files. So a body that is not the list is a FAILED load.
       const body = (await res.json()) as unknown
       if (ticket !== loadSeq.current) return // superseded by a newer request
-      setItems(Array.isArray(body) ? (body as Attachment[]) : [])
+      if (!Array.isArray(body)) {
+        setLoadFailed(true)
+        return
+      }
+      setItems(body as Attachment[])
+      setLoadFailed(false)
     } catch (_error) {
-      // Keep the last synced list.
+      // Offline or a rejected fetch: the rows already on screen stay, and when
+      // there are none the panel says the load failed rather than that the
+      // record is empty.
+      if (ticket === loadSeq.current) setLoadFailed(true)
     }
   }, [parentId])
 
@@ -82,6 +108,9 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
     // A different record's attachments must never stand in for this one's while
     // its own load is in flight — clear them (the load below refills them).
     setItems([])
+    // The previous record's verdict goes with them: leaving it set painted the
+    // old record's load failure over this one before its own read answered.
+    setLoadFailed(false)
     // …and the dropzone's in-flight flag, which is the one piece of state an
     // upload left on the previous record still owns: left set, it kept the NEW
     // record's dropzone `disabled` for as long as A's upload ran, so files
@@ -151,37 +180,57 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
   async function remove(id: string): Promise<void> {
     if (!confirm(t('attachments.confirmDelete', {}, { defaultValue: 'Delete this attachment?' })))
       return
+    // This attempt's own verdict supersedes the last one's — a stale "Delete
+    // failed" must not sit under a delete that then worked.
+    setError(null)
+    // The failure belongs to the record it was issued on: a switch since must
+    // not paste this error under the new record's panel (the ownership rule
+    // upload() applies through mountedForRef).
+    const ownsRecord = (): boolean => mountedForRef.current === parentId
     // The row is dropped only after the server deleted it: a failed or !ok
-    // DELETE keeps the attachment listed instead of silently pretending.
+    // DELETE keeps the attachment listed. Keeping it is only half the answer —
+    // the reader clicked Delete and saw nothing change, with no explanation, so
+    // every failure below is reported into the panel's own error slot.
     try {
       const res = await fetch(`/api/attachments/${id}`, {
         method: 'DELETE',
         credentials: 'include',
       })
-      if (res.ok) {
-        // A delete only speaks for the record THIS render was mounted for. The
-        // panel outlives a `parentId` change, so the user can switch records
-        // while the DELETE is in flight — and then this invalidation would take
-        // the ticket the NEW record's own load is holding, discarding the rows
-        // that were about to fill its list (the panel sits on "No files
-        // attached yet" over a record that has files). The effect's cleanup
-        // already invalidated everything this record had in flight, which is
-        // the same ownership rule upload() applies through mountedForRef.
-        if (mountedForRef.current !== parentId) return
-        // The delete is the newest truth this panel holds. A list read issued
-        // BEFORE it committed — an upload's trailing refresh is the reachable
-        // one — carries the pre-delete snapshot, and landing after this line
-        // it put the row the user just deleted back on screen until the next
-        // load. Invalidate those reads (see loadSeq) and refetch: a read
-        // started after the delete takes a newer ticket and is honored, and
-        // the refetch refills the list whenever the invalidated read was the
-        // only one in flight.
-        loadSeq.current++
-        setItems((prev) => prev.filter((a) => a.id !== id))
-        void load()
+      if (!res.ok) {
+        const body = (await res.json().catch(() => ({}))) as { error?: string }
+        if (ownsRecord()) {
+          setError(
+            body.error ?? t('attachments.error.delete', {}, { defaultValue: 'Delete failed' }),
+          )
+        }
+        return
       }
+      // A delete only speaks for the record THIS render was mounted for. The
+      // panel outlives a `parentId` change, so the user can switch records
+      // while the DELETE is in flight — and then this invalidation would take
+      // the ticket the NEW record's own load is holding, discarding the rows
+      // that were about to fill its list (the panel sits on "No files
+      // attached yet" over a record that has files). The effect's cleanup
+      // already invalidated everything this record had in flight, which is
+      // the same ownership rule upload() applies through mountedForRef.
+      if (mountedForRef.current !== parentId) return
+      // The delete is the newest truth this panel holds. A list read issued
+      // BEFORE it committed — an upload's trailing refresh is the reachable
+      // one — carries the pre-delete snapshot, and landing after this line
+      // it put the row the user just deleted back on screen until the next
+      // load. Invalidate those reads (see loadSeq) and refetch: a read
+      // started after the delete takes a newer ticket and is honored, and
+      // the refetch refills the list whenever the invalidated read was the
+      // only one in flight.
+      loadSeq.current++
+      setItems((prev) => prev.filter((a) => a.id !== id))
+      void load()
     } catch (_error) {
-      // Network failure — the attachment stays; the user can retry the delete.
+      // Network failure — the attachment stays, and the reader is told the
+      // delete did not happen instead of watching the row sit there.
+      if (ownsRecord()) {
+        setError(t('attachments.error.delete', {}, { defaultValue: 'Delete failed' }))
+      }
     }
   }
 
@@ -206,7 +255,32 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
         </p>
       ) : null}
 
-      {items.length === 0 ? (
+      {items.length === 0 && loadFailed ? (
+        // Nothing on screen AND the read failed: say so, and offer the retry —
+        // the empty record's sentence would be a claim this render cannot make
+        // (see `loadFailed`). Rows already on screen keep priority below: a
+        // failed REFRESH (an upload's trailing one) must not hide attachments
+        // the panel already knows about.
+        <div className={cm.flex({ align: 'center', gap: 'md' })}>
+          <p
+            className={cm.cn(cm.textSize('sm'), cm.textError)}
+            role="alert"
+            data-mol-id="attachments-load-failed"
+          >
+            {t('attachments.loadFailed', undefined, {
+              defaultValue: 'Could not load the attachments — try again.',
+            })}
+          </p>
+          <button
+            type="button"
+            data-mol-id="attachments-retry"
+            onClick={() => void load()}
+            className={cm.button({ variant: 'ghost', size: 'sm' })}
+          >
+            {t('attachments.retry', undefined, { defaultValue: 'Try again' })}
+          </button>
+        </div>
+      ) : items.length === 0 ? (
         <p className={cm.textSize('sm')}>
           {t('attachments.empty', {}, { defaultValue: 'No files attached yet.' })}
         </p>

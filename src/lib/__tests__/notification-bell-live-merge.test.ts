@@ -42,20 +42,26 @@ vi.mock('@molecule/app-notification-badge-react', () => ({
     createElement('div', null, `unread:${props.count}`, props.children),
 }))
 vi.mock('@molecule/app-notification-center-react', () => ({
+  // With no rows the shared center renders ITS `emptyState` — the sentence the
+  // bell hands it, which is what a failed load must not turn into a claim (see
+  // the last describe block).
   NotificationCenter: (props: {
     items: Array<{ id: string; title: string; read: boolean; onClick: () => void }>
+    emptyState?: string
   }) =>
-    createElement(
-      'ul',
-      null,
-      props.items.map((item) =>
-        createElement(
-          'li',
-          { key: item.id, ...({ 'data-read': String(item.read) } as Record<string, string>) },
-          `${item.id}:${item.title}`,
+    props.items.length === 0
+      ? createElement('p', { 'data-mol-id': 'notification-empty' }, String(props.emptyState ?? ''))
+      : createElement(
+          'ul',
+          null,
+          props.items.map((item) =>
+            createElement(
+              'li',
+              { key: item.id, ...({ 'data-read': String(item.read) } as Record<string, string>) },
+              `${item.id}:${item.title}`,
+            ),
+          ),
         ),
-      ),
-    ),
 }))
 
 const { NotificationBellWidget } =
@@ -104,6 +110,8 @@ interface CapturedRequest {
   url: string
   answered: boolean
   respond: (body?: unknown, status?: number) => void
+  /** Reject the request the way a failed network does. */
+  fail: (error: Error) => void
 }
 const httpRequests: CapturedRequest[] = []
 
@@ -153,11 +161,16 @@ function pendingList(): CapturedRequest | undefined {
 
 /** Answer the pending list GET with a page body. */
 async function answerList(body: unknown): Promise<void> {
+  await answerListWith(body, 200)
+}
+
+/** Answer the pending list GET with an explicit status (`ok` follows the status). */
+async function answerListWith(body: unknown, status: number): Promise<void> {
   const request = pendingList()
   if (!request) throw new Error('no pending list request')
   request.answered = true
   await act(async () => {
-    request.respond(body, 200)
+    request.respond(body, status)
   })
   await flush()
 }
@@ -167,7 +180,7 @@ beforeEach(() => {
   httpRequests.length = 0
   ;(globalThis as { EventSource?: unknown }).EventSource = FakeEventSource
   globalThis.fetch = ((input: unknown) =>
-    new Promise((resolve) => {
+    new Promise((resolve, reject) => {
       const entry: CapturedRequest = {
         url: String(input),
         answered: false,
@@ -177,6 +190,7 @@ beforeEach(() => {
             status,
             json: async () => body,
           }),
+        fail: (error: Error) => reject(error),
       }
       httpRequests.push(entry)
     })) as typeof globalThis.fetch
@@ -271,5 +285,51 @@ describe('the bell keeps live arrivals the page snapshot cannot know', () => {
     expect(text(), 'the row must not be duplicated').toEqual(expect.stringContaining('both1'))
     expect(text().match(/both1/g)?.length ?? 0, 'the row must appear once').toBe(1)
     expect(text(), 'the page already counted it — no double count').toContain('unread:1')
+  })
+})
+
+/**
+ * The mount effect clears the panel up front, so a load that never arrived left
+ * the shared center on its empty state — "You're all caught up." — for an inbox
+ * whose rows simply did not load. The bell's own catch even said so ("a failed
+ * load leaves the bell at its initial empty state"), which is a wrong answer to
+ * the reader, not a missing nicety: it is the exact claim the sibling slices
+ * (Leaderboard, BlogIndexPage, OrdersPage, SettingsPage) refuse to make at their
+ * own catches.
+ */
+describe('a failed list load is reported, never as "You’re all caught up"', () => {
+  it('reports a 500 instead of an empty inbox', async () => {
+    await mount(createElement(NotificationBellWidget, { userId: 'u1' }))
+    await openBell()
+    await answerListWith({ error: 'boom' }, 500)
+
+    expect(text(), 'a failed load is not an empty inbox').not.toContain("You're all caught up")
+    expect(text(), 'the failure must be visible').toContain('Could not load your notifications')
+  })
+
+  it('reports a 2xx body that is not the page', async () => {
+    await mount(createElement(NotificationBellWidget, { userId: 'u1' }))
+    await openBell()
+    // A route that answered 200 with an envelope (a shrunken rewrite, a proxy's
+    // 200) is not proof the inbox is empty.
+    await answerListWith({ error: 'nope' }, 200)
+
+    expect(text()).not.toContain("You're all caught up")
+    expect(text()).toContain('Could not load your notifications')
+  })
+
+  it('reports a rejected fetch (offline)', async () => {
+    await mount(createElement(NotificationBellWidget, { userId: 'u1' }))
+    await openBell()
+    const request = pendingList()
+    if (!request) throw new Error('no pending list request')
+    request.answered = true
+    await act(async () => {
+      request.fail(new Error('offline'))
+    })
+    await flush()
+
+    expect(text()).not.toContain("You're all caught up")
+    expect(text()).toContain('Could not load your notifications')
   })
 })
