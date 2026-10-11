@@ -160,6 +160,48 @@ function requireWritableParent(path: string): void {
   }
 }
 
+/**
+ * Read a local input file that must be under `maxBytes`, from a `statSync`
+ * BEFORE the bytes are allocated.
+ *
+ * A cap checked on `buf.length` bounds only what reaches the hosted SERVICE,
+ * not what this process allocates: `readFileSync` of a multi-GB path buffers
+ * the whole file and the server dies with an allocation failure long before it
+ * can report "the limit is 8 MB". Every sibling that caps an input
+ * (`transcribe_audio`, `extract_text`, `moderate_content`) already stats first;
+ * the pdf and image readers did not. `statSync` on a path that cannot be
+ * stat'ed (missing, a directory we have no permission to list) and a read that
+ * fails for any other reason both report `cannotRead` — the caller's own
+ * message, so each tool keeps naming its input the way it always has.
+ *
+ * @param resolved - The resolved path to read.
+ * @param display - The path as the caller names it in messages.
+ * @param maxBytes - The advertised per-file cap.
+ * @param overCap - Message for a file over the cap, given its size in bytes.
+ * @returns The file's bytes.
+ */
+function readCappedFileSync(
+  resolved: string,
+  display: string,
+  maxBytes: number,
+  overCap: (bytes: number) => string,
+): Buffer {
+  const cannotRead = (error: unknown): string =>
+    `Cannot read ${display}${error instanceof Error ? `: ${error.message}` : '.'}`
+  let size: number
+  try {
+    size = statSync(resolved).size
+  } catch (error) {
+    throw new ServiceCallError(cannotRead(error))
+  }
+  if (size > maxBytes) throw new ServiceCallError(overCap(size))
+  try {
+    return readFileSync(resolved)
+  } catch (error) {
+    throw new ServiceCallError(cannotRead(error))
+  }
+}
+
 // The package.json version, not a hardcoded copy: the literal here went stale
 // on the first package bump (moved 0.1.0 → 0.2.0) and every stdio client's
 // `initialize` response then reported a server that was not the one installed —
@@ -175,7 +217,10 @@ server.registerTool(
     description:
       'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login", "file uploads"). Returns matching packages with stack, category, and the install command. ALWAYS prefer an existing package over hand-rolling a capability.',
     inputSchema: {
-      query: z.string().describe('Capability or package-name query'),
+      // Bounded, and passed to the CLI as an argv word: an unbounded query is a
+      // scoring pass over the whole fleet per whitespace-separated token, and a
+      // long enough one is an argv too large for the child process to spawn.
+      query: z.string().max(200).describe('Capability or package-name query'),
       stack: z.enum(['api', 'app']).optional(),
       limit: z.number().int().min(1).max(100).optional(),
     },
@@ -1295,8 +1340,14 @@ server.registerTool(
   ),
 )
 
-/** The input caps `merge_pdfs` advertises: 8 MB per file, 24 MB per call. */
-const MERGE_MAX_FILE_BYTES = 8 * 1024 * 1024
+/**
+ * How much of a PDF this server will hold in memory for the hosted pdf
+ * service — the per-file cap `merge_pdfs` ("8 MB each") and `watermark_pdf`
+ * ("8 MB input") both advertise, and the total one `merge_pdfs` advertises
+ * ("24 MB total").
+ */
+const PDF_MAX_INPUT_BYTES = 8 * 1024 * 1024
+const MERGE_MAX_FILE_BYTES = PDF_MAX_INPUT_BYTES
 const MERGE_MAX_TOTAL_BYTES = 24 * 1024 * 1024
 
 server.registerTool(
@@ -1326,31 +1377,39 @@ server.registerTool(
       const pdfs: string[] = []
       let totalBytes = 0
       for (const path of input_files) {
-        let buf: Buffer
-        try {
-          buf = readFileSync(resolve(path))
-        } catch (_error) {
-          // Missing, a directory, unreadable — the caller gets the path, never a
-          // raw fs error.
-          throw new ServiceCallError(`Cannot read ${path}.`)
-        }
-        if (buf.subarray(0, 5).toString('latin1') !== '%PDF-') {
-          throw new ServiceCallError(`${path} does not look like a PDF (no %PDF- header).`)
-        }
+        const resolved = resolve(path)
         // The caps this tool advertises ("Up to 20 files, 8 MB each, 24 MB
         // total") are enforced HERE, like every sibling that advertises a size
         // (transcribe_audio, extract_text, moderate_content check theirs
         // locally): without this the limit was a sentence in the description
         // and nothing else — an arbitrarily large input was read into memory
         // and shipped to the service, which answered with an opaque failure.
-        if (buf.length > MERGE_MAX_FILE_BYTES) {
-          throw new ServiceCallError(`${path} is ${buf.length} bytes; the limit is 8 MB per file.`)
+        //
+        // The size check reads the file's SIZE (`statSync`) BEFORE
+        // `readFileSync`: reading first allocated the whole file, so a path far
+        // past the cap crashed the server with an allocation failure instead of
+        // reporting the limit.
+        let buf: Buffer
+        try {
+          const size = statSync(resolved).size
+          if (size > MERGE_MAX_FILE_BYTES) {
+            throw new ServiceCallError(`${path} is ${size} bytes; the limit is 8 MB per file.`)
+          }
+          totalBytes += size
+          if (totalBytes > MERGE_MAX_TOTAL_BYTES) {
+            throw new ServiceCallError(
+              `The files total ${totalBytes} bytes; the limit is 24 MB. Merge fewer or smaller PDFs.`,
+            )
+          }
+          buf = readFileSync(resolved)
+        } catch (error) {
+          // Missing, a directory, unreadable — the caller gets the path, never a
+          // raw fs error. A size refusal above is already a ServiceCallError.
+          if (error instanceof ServiceCallError) throw error
+          throw new ServiceCallError(`Cannot read ${path}.`)
         }
-        totalBytes += buf.length
-        if (totalBytes > MERGE_MAX_TOTAL_BYTES) {
-          throw new ServiceCallError(
-            `The files total ${totalBytes} bytes; the limit is 24 MB. Merge fewer or smaller PDFs.`,
-          )
+        if (buf.subarray(0, 5).toString('latin1') !== '%PDF-') {
+          throw new ServiceCallError(`${path} does not look like a PDF (no %PDF- header).`)
         }
         pdfs.push(buf.toString('base64'))
       }
@@ -1376,7 +1435,7 @@ server.registerTool(
   {
     title: 'Watermark a PDF with molecule.dev',
     description:
-      'Add a text watermark to every page of a PDF on molecule.dev (self-hosted, no vendor account; metered per document to the project whose MOLECULE_API_KEY is used). Font size, color, rotation and opacity are yours; writes output_file (never overwritten). The same service backs @molecule/api-pdf-molecule in app code.',
+      'Add a text watermark to every page of a PDF on molecule.dev (self-hosted, no vendor account; metered per document to the project whose MOLECULE_API_KEY is used). Font size, color, rotation and opacity are yours; writes output_file (never overwritten). 8 MB input. The same service backs @molecule/api-pdf-molecule in app code.',
     inputSchema: {
       input_file: z.string().describe('Path of the PDF to read'),
       text: z.string().min(1).max(200).describe('The watermark text'),
@@ -1404,14 +1463,16 @@ server.registerTool(
         )
       }
       requireWritableParent(target)
-      let pdf: Buffer
-      try {
-        pdf = readFileSync(resolve(input_file))
-      } catch (error) {
-        throw new ServiceCallError(
-          `Cannot read ${input_file}${error instanceof Error ? `: ${error.message}` : '.'}`,
-        )
-      }
+      // The input cap this description now advertises ("8 MB input"), checked
+      // by SIZE before the bytes are allocated: the read itself was unbounded,
+      // so a multi-GB path died with an allocation failure instead of the
+      // readable refusal below.
+      const pdf = readCappedFileSync(
+        resolve(input_file),
+        input_file,
+        PDF_MAX_INPUT_BYTES,
+        (bytes) => `${input_file} is ${bytes} bytes; the limit is 8 MB.`,
+      )
       if (pdf.subarray(0, 5).toString('latin1') !== '%PDF-') {
         throw new ServiceCallError(`${input_file} does not look like a PDF (no %PDF- header).`)
       }
@@ -1537,20 +1598,16 @@ server.registerTool(
   },
   tracked('transform_image', async ({ input_file, output_file, ops, directory }) =>
     serviceResult(async () => {
-      let input: Buffer
-      try {
-        input = readFileSync(resolve(input_file))
-      } catch (error) {
-        throw new ServiceCallError(
-          `Cannot read ${input_file}${error instanceof Error ? `: ${error.message}` : '.'}`,
-        )
-      }
-      // The input cap this tool advertises ("8 MB input"), enforced here like
-      // every sibling that advertises one — without it the sentence was the
-      // only limit, and an arbitrarily large image was read and shipped.
-      if (input.length > TRANSFORM_MAX_INPUT_BYTES) {
-        throw new ServiceCallError(`${input_file} is ${input.length} bytes; the limit is 8 MB.`)
-      }
+      // The input cap this tool advertises ("8 MB input"), checked by SIZE
+      // before the bytes are allocated — reading first allocated the whole
+      // file, so a path far past the cap crashed the server with an allocation
+      // failure instead of the readable refusal below.
+      const input = readCappedFileSync(
+        resolve(input_file),
+        input_file,
+        TRANSFORM_MAX_INPUT_BYTES,
+        (bytes) => `${input_file} is ${bytes} bytes; the limit is 8 MB.`,
+      )
       const mimeByExt: Record<string, string> = {
         '.png': 'image/png',
         '.jpg': 'image/jpeg',
@@ -1859,7 +1916,10 @@ server.registerTool(
       "Import coding-agent session transcripts into a molecule.dev project, so the sessions that built the app can be shown alongside it. Either pass file paths (Claude Code .jsonl or /export text, Codex rollout .jsonl or Markdown export, and other harnesses the platform recognizes) or set `from` to import this machine's recorded Claude Code or Codex sessions for `cwd`. Returns one result per file: imported (with harness and turn count), unrecognized, too large (over 20 MB) or failed. Use dry_run to list what would be sent. Requires login.",
     inputSchema: {
       project_id: z.string().describe('molecule.dev project id'),
-      files: z.array(z.string()).optional().describe('Transcript file paths'),
+      // Bounded: every path is spread into the child's argv, so an unbounded
+      // array is a `RangeError` from the spread itself (or a spawn that fails
+      // with E2BIG) rather than the per-file result the description promises.
+      files: z.array(z.string()).max(200).optional().describe('Transcript file paths (up to 200)'),
       from: z
         .enum(['claude-code', 'codex'])
         .optional()

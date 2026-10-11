@@ -181,4 +181,27 @@ describe('remote registry-backed tools — an unrecognized payload is reported, 
     expect(templates.isError).toBeFalsy()
     expect(textOf(templates)).toContain('"slug": "blog"')
   })
+
+  it('refuses a query long enough to make the scoring pass scale with its tokens', async (ctx) => {
+    if (skipped(ctx)) return
+    writeFileSync(registryFile, registryWith('Payments'))
+
+    // The scoring pass runs once over EVERY fleet package per whitespace token
+    // in the query, so an unbounded query is unbounded work on this public,
+    // single-threaded server — a per-address rate budget bounds requests, not
+    // the work one allowed request may do. ~10 000 words is the shape of the
+    // abuse; a capability query is a phrase.
+    const longQuery = 'payments '.repeat(10_000)
+    const refused = await callTool('search_packages', { query: longQuery })
+      .then((result) => result.isError === true)
+      // Some SDK versions answer an input-schema violation by rejecting the
+      // call instead of returning `isError` — either is a refusal.
+      .catch(() => true)
+    expect(refused, 'an over-long query must be refused, not scored').toBe(true)
+
+    // …and an ordinary query still works (the bound is not over-tight).
+    const ok = await callTool('search_packages', { query: 'payments' })
+    expect(ok.isError).toBeFalsy()
+    expect(textOf(ok)).toContain('@molecule/api-probe-payments')
+  })
 })
