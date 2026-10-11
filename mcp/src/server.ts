@@ -863,6 +863,15 @@ server.registerTool(
   ),
 )
 
+/**
+ * The input budget `translate` advertises ("Up to 200 texts / 50,000 characters
+ * per call") — the count bound on the wire, the character bound checked in the
+ * handler (see the tool).
+ */
+const TRANSLATE_MAX_TEXTS = 200
+/** Total characters one `translate` call may carry — see {@link TRANSLATE_MAX_TEXTS}. */
+const TRANSLATE_MAX_CHARS = 50_000
+
 server.registerTool(
   'translate',
   {
@@ -870,7 +879,16 @@ server.registerTool(
     description:
       'Translate UI strings or other text into another language on molecule.dev (no translation-vendor account needed; metered per character to the project whose MOLECULE_API_KEY is used). Pass placeholders such as {{count}} in "protect" so they come back unchanged — then still check each result contains them. Up to 200 texts / 50,000 characters per call. The same service backs @molecule/api-ai-translation-molecule in app code.',
     inputSchema: {
-      text: z.union([z.string(), z.array(z.string())]).describe('Text or list of texts'),
+      // Both halves of the advertised budget are enforced, because the input IS
+      // the metered work (per character) and the body of the outbound request:
+      // unbounded, one call could carry millions of characters — billed, and
+      // buffered in this process — with the description still promising a cap
+      // it never applied. The COUNT is bound here (a client sees it in the
+      // JSON Schema); the TOTAL is checked in the handler, the same split
+      // `merge_pdfs` uses for its per-file cap versus its per-set total.
+      text: z
+        .union([z.string(), z.array(z.string()).max(TRANSLATE_MAX_TEXTS)])
+        .describe('Text or list of texts'),
       target_lang: z.string().describe('Target language code, e.g. "de", "pt-BR", "zh-TW"'),
       source_lang: z.string().optional().describe('Source language code; omit to auto-detect'),
       protect: z
@@ -891,6 +909,20 @@ server.registerTool(
   },
   tracked('translate', async ({ text, target_lang, source_lang, protect, context, directory }) =>
     serviceResult(async () => {
+      // The advertised character budget, refused BEFORE the metered call — the
+      // same rule every other capped tool here follows (see `readCappedFileSync`
+      // and `merge_pdfs`' total). A single long string and a list of many are
+      // both covered by the total, so the schema only has to bound the count.
+      const characters = (Array.isArray(text) ? text : [text]).reduce(
+        (sum, entry) => sum + entry.length,
+        0,
+      )
+      if (characters > TRANSLATE_MAX_CHARS) {
+        throw new ServiceCallError(
+          `${characters} characters across ${Array.isArray(text) ? text.length : 1} text(s); ` +
+            `translate accepts up to ${TRANSLATE_MAX_CHARS} characters (and ${TRANSLATE_MAX_TEXTS} texts) per call.`,
+        )
+      }
       const result = await callHostedService(
         'translation',
         'translate',

@@ -195,6 +195,37 @@ describe('an input over the advertised cap is refused from its size', () => {
     expect(probe.reads, 'the refusal must not need the file’s bytes').not.toContain(huge)
   })
 
+  it('translate refuses an over-budget input without reaching the metered call', async (ctx) => {
+    if (skipped(ctx)) return
+    // `translate` advertises "Up to 200 texts / 50,000 characters per call" —
+    // and the input IS the metered work (billed per character) and the body of
+    // the outbound request, so an unenforced cap is unbounded billing and an
+    // unbounded buffer. 60 × 1,000 characters is under the count cap, so only
+    // the TOTAL can refuse it; the mock's `callHostedService` throws, so a
+    // handler that reached it reports that instead of the cap.
+    const result = await callTool('translate', {
+      text: Array.from({ length: 60 }, () => 'x'.repeat(1000)),
+      target_lang: 'de',
+    })
+
+    expect(result.isError, 'an over-budget input is refused').toBe(true)
+    expect(textOf(result)).toContain('translate accepts up to 50000 characters')
+    // …and the same bound holds for the one-string shape of the same input.
+    const single = await callTool('translate', { text: 'x'.repeat(60_000), target_lang: 'de' })
+    expect(single.isError).toBe(true)
+    expect(textOf(single)).toContain('translate accepts up to 50000 characters')
+  })
+
+  it('translate does NOT refuse an input exactly at the advertised budget', async (ctx) => {
+    if (skipped(ctx)) return
+    // The bound must not be one character tighter than the description: at
+    // exactly 50,000 characters the call belongs to the service, so what comes
+    // back is the mocked service's own error, never the budget refusal.
+    const result = await callTool('translate', { text: 'x'.repeat(50_000), target_lang: 'de' })
+
+    expect(textOf(result)).not.toContain('translate accepts up to 50000 characters')
+  })
+
   it('a missing file is still reported as unreadable, not as over-size', async (ctx) => {
     if (skipped(ctx)) return
     // No injected size: the stat itself fails, and the caller must get the
@@ -234,4 +265,54 @@ describe('the argument bounds are declared on the wire', () => {
     )?.properties?.files?.maxItems
     expect(files, 'import_transcripts.files must carry a count cap').toBe(200)
   })
+
+  it('bounds translate.text at the advertised 200 texts', async (ctx) => {
+    if (skipped(ctx)) return
+    // The other half of the same class: `translate` advertises "Up to 200 texts
+    // / 50,000 characters per call" while its schema accepted an unbounded list
+    // — the one advertised cap in this file that nothing applied. The count
+    // bound is asserted where a client sees it (the advertised JSON Schema);
+    // the character total is refused in the handler (see the test above).
+    const tools = (await listTools()).tools
+    const schema = (
+      tools.find((tool) => tool.name === 'translate')?.inputSchema as {
+        properties?: { text?: unknown }
+      }
+    )?.properties?.text
+    expect(schema, 'translate.text must carry a schema').toBeDefined()
+    expect(
+      numericBounds(schema, 'maxItems'),
+      'translate.text must declare the advertised 200-text cap',
+    ).toContain(200)
+  })
 })
+
+/**
+ * Every numeric value of a JSON-Schema keyword anywhere inside `schema`.
+ *
+ * The `text` schema is a UNION (a single string, or a list of them), so which
+ * node carries the bound is the schema library's business — the assertion is
+ * about the bound existing, not about where in the tree it lands. The same
+ * reason the sibling test reads `maxLength`/`maxItems` directly: the client's
+ * advertised contract is the thing that must not silently lose the cap.
+ *
+ * @param schema - A JSON-Schema fragment.
+ * @param keyword - The schema keyword to collect (e.g. `maxItems`).
+ * @returns The numeric values found for that keyword, in walk order.
+ */
+function numericBounds(schema: unknown, keyword: string): number[] {
+  const found: number[] = []
+  const walk = (node: unknown): void => {
+    if (Array.isArray(node)) {
+      for (const entry of node) walk(entry)
+      return
+    }
+    if (typeof node !== 'object' || node === null) return
+    for (const [key, value] of Object.entries(node)) {
+      if (key === keyword && typeof value === 'number') found.push(value)
+      else walk(value)
+    }
+  }
+  walk(schema)
+  return found
+}
