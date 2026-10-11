@@ -128,6 +128,30 @@ function parseJsonOut<T>(out: string): T {
 }
 
 /**
+ * Whether a parsed CLI answer is the `mlcl check --json` report.
+ *
+ * {@link parseJsonOut} is an `as T` CAST: any valid JSON it finds is handed back
+ * as the declared type, so a JSON answer that is NOT the report — a wrapper's
+ * notice line (`{"notice":"index refreshed"}`, the shape the env tools' own
+ * suite pins as realistic), a shim's error envelope — reached the caller's
+ * `parsed.ok` / `parsed.results` as `undefined` and the client received
+ * literally `FAILED\nundefined`: no step, no error, and no trace of what the CLI
+ * actually said. The boolean `ok` beside a `results` ARRAY is what the report
+ * is; anything else is the CLI's own text.
+ *
+ * @param value - The parsed CLI output.
+ * @returns True when `value` carries the report's `ok`/`results` pair.
+ */
+function isCheckReport(value: unknown): value is { ok: boolean; results: unknown[] } {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    typeof (value as { ok?: unknown }).ok === 'boolean' &&
+    Array.isArray((value as { results?: unknown }).results)
+  )
+}
+
+/**
  * Run `mlcl env list --json` and parse its variable list — refusing an answer
  * that is not the list instead of crashing on it.
  *
@@ -586,27 +610,33 @@ server.registerTool(
     const args = ['check']
     if (steps) args.push('--steps', steps)
     if (e2e) args.push('--e2e', e2e)
-    // A FAILED check exits non-zero, which runCli surfaces as a throw whose
-    // message is the JSON stdout — the report is the result either way.
+    // The report is read from the CLI's OUTPUT, never from a throw:
+    // `mlcl check --json` prints it on stdout and exits 0 even when a step
+    // failed, so a non-zero exit only ever carries the text of a CLI that could
+    // not get that far (a usage error, a crash). Both are the answer here.
     let out: string
     try {
       out = await runCli([...args, '--json'], directory ?? process.cwd())
     } catch (error) {
       out = error instanceof Error ? error.message : String(error)
     }
-    // …but "either way" only holds if an answer that is NOT JSON is returned as
-    // text. `runCli` builds its message from stderr/stdout, so a CLI that failed
-    // with a plain-text line (a crash, a usage error, a missing script) hands
-    // this call a string with no JSON in it — and `parseJsonOut` slices from the
-    // first `{`/`[`, so that string made it `JSON.parse` the last character and
-    // throw a bare `SyntaxError`. The client then got a JSON parse error naming
-    // neither the project nor the failing step, instead of the report promised
-    // above (and the `parsed ? … : out` fallback below could never run).
-    let parsed: { ok: boolean; results: unknown[] } | null
+    // …but "either way" only holds if an answer that is NOT the report is left
+    // as text. `parseJsonOut` slices from the first `{`/`[`, so a CLI that
+    // failed with a plain-text line (a crash, a usage error, a missing script)
+    // made it `JSON.parse` the last character and throw a bare `SyntaxError`,
+    // and a CLI that answered valid JSON which is not the report — a wrapper's
+    // notice line, a shim's error envelope — came back through the `as T` cast
+    // as the report itself, so the client read `FAILED\nundefined`: the failing
+    // step, the errors and the CLI's own explanation all dropped, in favour of
+    // the word "undefined". The `ok`/`results` pair is what the report IS; the
+    // `parsed ? … : out` fallback below returns anything else verbatim, the
+    // same refusal `readEnvList` applies to an answer that is not its list.
+    let parsed: { ok: boolean; results: unknown[] } | null = null
     try {
-      parsed = parseJsonOut<{ ok: boolean; results: unknown[] }>(out)
+      const candidate: unknown = parseJsonOut<unknown>(out)
+      if (isCheckReport(candidate)) parsed = candidate
     } catch (_error) {
-      // Not a report — see above. The text IS the answer.
+      // Not JSON at all — see above. The text IS the answer.
       parsed = null
     }
     return text(
