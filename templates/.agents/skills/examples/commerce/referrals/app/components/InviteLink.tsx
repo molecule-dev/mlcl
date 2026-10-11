@@ -37,11 +37,16 @@ export function InviteLink() {
     // The same is true of a 2xx whose body is not an answer — an endpoint with
     // no fixture answers 200 with an empty object (the mock API server's
     // unmatchedFixtureResponse) — so a body without a string `code` is treated
-    // like the failure it is, not parked on the loading line.
+    // like the failure it is, not parked on the loading line. The test is for a
+    // code that can BE a link: `''` (and a blank string) is a string, but it is
+    // falsy at the render gate below, so `setCode('')` left the same stuck
+    // loading line the `typeof` check was added to prevent — with no error and
+    // no retry.
     fetch('/api/referrals/code')
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
       .then((body) => {
-        if (typeof body.code !== 'string') throw new Error('no code in body')
+        if (typeof body.code !== 'string' || body.code.trim().length === 0)
+          throw new Error('no code in body')
         setCode(body.code)
       })
       .catch(() => {

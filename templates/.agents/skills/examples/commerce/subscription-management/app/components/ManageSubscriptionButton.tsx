@@ -15,7 +15,14 @@ const cm = getClassMap()
  * route can legitimately answer with:
  *
  * - an ABSOLUTE `http:`/`https:` URL (Stripe's portal link is one), or
- * - a same-origin path — a single leading `/` (a leading `//` is not a path).
+ * - a URL that resolves against THIS page's origin — the relative path shape.
+ *
+ * A relative value is RESOLVED rather than prefix-matched, because the URL
+ * parser treats `\` exactly like `/` for a special scheme: `/\evil.example`
+ * starts with a single `/` and not with `//`, so a `startsWith` check calls it
+ * "a path" while the browser navigates to `https://evil.example/` — off-site,
+ * from a value the check was supposed to refuse. Resolution is the same rule
+ * the browser will apply, so nothing that escapes this origin can pass.
  *
  * Everything else is refused and reported like any other failed portal open.
  *
@@ -23,13 +30,22 @@ const cm = getClassMap()
  * @returns True when the URL is a navigable http(s) destination.
  */
 function isNavigableHttpUrl(value: string): boolean {
-  if (value.startsWith('/')) return !value.startsWith('//')
+  // A scheme prefix makes the value absolute — and only http(s) is navigable.
+  if (/^[a-zA-Z][\w+.-]*:/.test(value)) {
+    try {
+      const parsed = new URL(value)
+      return parsed.protocol === 'http:' || parsed.protocol === 'https:'
+    } catch (_error) {
+      // A malformed absolute URL — refuse it rather than navigate.
+      return false
+    }
+  }
   try {
-    const parsed = new URL(value)
-    return parsed.protocol === 'http:' || parsed.protocol === 'https:'
+    const parsed = new URL(value, window.location.origin)
+    return parsed.origin === window.location.origin
   } catch (_error) {
-    // Not an absolute URL at all (a stray string, a bare scheme) — refuse it
-    // rather than navigate.
+    // Not resolvable as a URL at all (a stray string) — refuse it rather than
+    // navigate.
     return false
   }
 }

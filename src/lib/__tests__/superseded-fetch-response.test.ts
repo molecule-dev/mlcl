@@ -391,6 +391,22 @@ describe('a superseded fetch response must not win', () => {
     expect(text()).not.toContain('Could not load this post')
   })
 
+  it('reports a PARTIAL post body instead of rendering "Invalid Date"', async () => {
+    // The `{}` case above is caught by the first field the gate checks; the
+    // comment's own symptom — `new Date(undefined)` → "Invalid Date" — needs a
+    // body that carries id/title/body_markdown and omits `published_at`, which
+    // the date line below dereferences. A shrunken rewrite answers exactly that.
+    await mount(createElement(PostPage, { slug: 'partial' }))
+
+    await respond('/api/posts/partial', 200, {
+      id: '1',
+      title: 'Half a post',
+      body_markdown: 'body',
+    })
+    expect(text()).toContain('Could not load this post')
+    expect(text()).not.toContain('Invalid Date')
+  })
+
   it('drops the previous subject summary when the newer subject answers first', async () => {
     await mount(createElement(RatingWidget, { subjectId: 'first', canRate: true }))
     await rerender(createElement(RatingWidget, { subjectId: 'second', canRate: true }))

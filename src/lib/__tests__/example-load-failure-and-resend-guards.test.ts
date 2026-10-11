@@ -60,14 +60,27 @@ vi.mock('@molecule/app-ui', () => ({
 vi.mock('@molecule/app-react', () => ({ useTranslation: () => ({ t: translate }) }))
 
 // The table renders its rows as list items so an assertion can tell WHICH
-// page's rows are on screen; the paginator exposes the page it is showing.
+// page's rows are on screen; the paginator exposes the page it is showing. The
+// shared component also answers an EMPTY, not-loading list with its
+// `emptyMessage`, so the mock renders that too (outside the <ul>, leaving the
+// row assertions untouched) — an assertion can then tell an authoritative
+// "empty" from a load that never happened.
 vi.mock('@molecule/app-data-table-ui-react', () => ({
-  DataTableCard: (props: { rows: Array<{ id: string }>; loading?: boolean }) =>
-    createElement(
-      'ul',
-      { 'data-loading': String(Boolean(props.loading)) },
-      props.rows.map((r) => createElement('li', { key: r.id }, r.id)),
-    ),
+  DataTableCard: (props: {
+    rows: Array<{ id: string }>
+    loading?: boolean
+    emptyMessage?: string
+  }) =>
+    createElement('div', {}, [
+      createElement(
+        'ul',
+        { key: 'rows', 'data-loading': String(Boolean(props.loading)) },
+        props.rows.map((r) => createElement('li', { key: r.id }, r.id)),
+      ),
+      props.rows.length === 0 && !props.loading && props.emptyMessage
+        ? createElement('p', { key: 'empty', 'data-empty': '' }, props.emptyMessage)
+        : null,
+    ]),
 }))
 
 vi.mock('@molecule/app-pagination-bar-react', () => ({
@@ -230,6 +243,20 @@ describe('orders page — a failed page load is disclosed, not silent', () => {
     expect(text()).toContain('Could not load these orders')
     expect(rows()).toEqual(['o-page-1'])
     expect(container.querySelector('[data-page]')?.getAttribute('data-page')).toBe('2')
+  })
+
+  it('a FIRST-load failure does not let the table answer "No orders found."', async () => {
+    await mount(createElement(OrdersPage, {}))
+    // Nothing has loaded yet — the very first request fails outright.
+    await rejectPending('/api/orders')
+
+    // An empty state is an ANSWER ("there are no orders"), and no request
+    // answered: the first-load failure used to render "No orders found." under
+    // an alert whose copy — "the rows below are the last page that loaded" —
+    // described rows that do not exist.
+    expect(text()).not.toContain('No orders found.')
+    expect(text()).toContain('nothing has been read yet')
+    expect(rows()).toEqual([])
   })
 
   it('the positive twin: a page load that succeeds replaces the rows and clears the notice', async () => {

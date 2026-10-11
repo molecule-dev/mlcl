@@ -169,6 +169,23 @@ describe('ManageSubscriptionButton — the portal URL is validated before it is 
     }
   })
 
+  it('refuses a path the URL parser resolves off-origin (a backslash is a slash)', async () => {
+    // `startsWith('/') && !startsWith('//')` called `/\evil.example` "a
+    // same-origin path" — but the URL parser treats `\` exactly like `/` for a
+    // special scheme, so `window.location.href = '/\evil.example'` leaves the
+    // site for `https://evil.example/`. A value the docblock promises is
+    // refused (a `//` destination "while looking like a path") must not pass
+    // just because the second slash is written as a backslash. The guard now
+    // RESOLVES the value the way the browser will and keeps only what stays on
+    // this origin.
+    for (const url of ['/\\evil.example', '/\\/evil.example', '\\\\evil.example']) {
+      await clickManage()
+      await respond(200, { url })
+
+      expect(text(), `url ${url} must be refused`).toContain('Could not open the billing portal')
+    }
+  })
+
   it('accepts a same-origin portal path on the success path', async () => {
     // The other half of the guard: the check must not over-tighten into
     // refusing the relative shape a mounted route can answer with.

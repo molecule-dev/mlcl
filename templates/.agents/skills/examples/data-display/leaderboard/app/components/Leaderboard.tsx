@@ -40,10 +40,11 @@ export function Leaderboard({ currentUserId }: { currentUserId?: string }) {
         if (cancelled) return
         // A 2xx proves the route ANSWERED, not that the body is the list — the
         // same gate BlogIndexPage puts on `GET /api/posts`. Coerced to `[]`, a
-        // non-list body (a proxy rewrite, an endpoint with no fixture) rendered
-        // the empty state: "No scores yet." over a board whose rows simply did
-        // not arrive. So a body that is not the list is a FAILED load, and an
-        // EMPTY list stays a legitimately empty board.
+        // non-list body (a proxy rewrite, an object body) rendered the empty
+        // state: "No scores yet." over a board whose rows simply did not
+        // arrive. So a body that is not the list is a FAILED load, and an
+        // EMPTY list stays a legitimately empty board — which is also where the
+        // mock API server's no-fixture answer lands: for a GET it is `[]`.
         if (!Array.isArray(res.data)) {
           setLoadFailed(true)
           setLoading(false)

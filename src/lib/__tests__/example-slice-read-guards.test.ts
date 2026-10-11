@@ -754,6 +754,19 @@ describe('example slices — a request’s answer is validated before it is trus
     expect(text()).toContain('Could not load your invite link')
     expect(text()).not.toContain('Loading your invite link')
   })
+
+  it('treats an EMPTY code as the same failure, not as a pending load', async () => {
+    await mount(createElement(InviteLink, {}))
+
+    // `typeof '' === 'string'` passed the guard above, and the render gate is
+    // `if (!code)` — so an empty code was falsy, no failure flag was set, and
+    // the component parked on "Loading your invite link…" forever: exactly the
+    // outcome that guard's own comment promises it prevents. (The guard now
+    // refuses a blank code too — `'   '` is just as unusable a link.)
+    await respond('/api/referrals/code', 200, { code: '' })
+    expect(text()).toContain('Could not load your invite link')
+    expect(text()).not.toContain('Loading your invite link')
+  })
 })
 
 describe('example slices — a 2xx body is validated before it becomes state', () => {

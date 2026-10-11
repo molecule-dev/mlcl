@@ -2281,10 +2281,10 @@ export async function copyTemplateInstance(
     await copyTreeSkipping(src, dst, shouldSkipDuringCopy)
   }
 
-  // Fonts ship deduped in templates/shared/fonts (25 unique files instead of
-  // ~1,400 per-app copies — roughly a 1 GB tarball saving). Each template's
-  // fonts.json lists its files; materialize them into the scaffolded project
-  // so it is byte-identical to what the pre-dedupe template shipped.
+  // Fonts ship deduped in templates/shared/fonts (one shared copy per face
+  // instead of ~1,400 per-app copies — roughly a 1 GB tarball saving). Each
+  // template's fonts.json lists its files; materialize them into the scaffolded
+  // project so it is byte-identical to what the pre-dedupe template shipped.
   {
     const manifestPath = join(templateDir, 'fonts.json')
     if (existsSync(manifestPath)) {
@@ -6021,13 +6021,14 @@ export async function scaffoldPackage(
       },
     },
     // README.md is the AI-first package doc that Synthase reads via
-    // read_molecule_doc, so it MUST ship in the tarball — all 910 existing
-    // packages list it and a new one omitting it would publish undocumented.
+    // read_molecule_doc, so it MUST ship in the tarball — a package whose
+    // `files` omits it publishes undocumented.
     files: ['dist', 'README.md'],
     keywords: ['molecule', ...cleanName.split('-')],
-    // Apache-2.0, matching the root LICENSE and all 910 packages. This template
-    // said MIT, so every package scaffolded from it contradicted the repo's own
-    // licence — see the workspace AGENTS.md "Legal entity vs. brand".
+    // Apache-2.0, matching the root LICENSE and the rest of the fleet — every
+    // published molecule package is Apache-2.0. This template said MIT, so
+    // every package scaffolded from it contradicted the repo's own licence —
+    // see the workspace AGENTS.md "Legal entity vs. brand".
     license: 'Apache-2.0',
     // Required for publishing. With NPM_CONFIG_PROVENANCE on, npm signs a
     // Sigstore bundle naming the source repo and the registry rejects the

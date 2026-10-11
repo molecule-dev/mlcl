@@ -16,8 +16,13 @@ type LoadedPost = {
   draft: boolean
 }
 
-// Turns "Why we chose Postgres" into "why-we-chose-postgres" so the slug
-// input matches the posts handler's schema (lowercase, digits, single dashes).
+// Turns "Why we chose Postgres" into "why-we-chose-postgres": lowercase, digits
+// and single dashes — the shape the posts handler's slug schema accepts. Two
+// titles it cannot turn into a valid slug, where the author must type one: a
+// ONE-character title ("A" → "a", and that schema requires at least two
+// characters, so Save answers 400), and a title with no ASCII letters or digits
+// at all ("Привет" → "", which the input's `required` blocks). Both are
+// surfaced — as a save error or a disabled save — never submitted silently.
 function slugify(value: string): string {
   return value
     .toLowerCase()

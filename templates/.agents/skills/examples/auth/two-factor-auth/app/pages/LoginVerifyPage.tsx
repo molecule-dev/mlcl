@@ -80,8 +80,9 @@ export function LoginVerifyPage({ email, password }: LoginVerifyPageProps) {
       }
       if (res.status === 401 || res.status === 403) {
         // Wrong/expired/replayed code. Surface a retry counter so the user knows
-        // attempts are limited (the log-in route is rate-limited to ≤5/min to
-        // prevent brute force).
+        // attempts are limited (the log-in route's auth rate limit is 10 attempts
+        // per 15 minutes per account — `rateLimitAuth`'s defaults; the 5-per-window
+        // limit belongs to the two-factor enrolment route, not this one).
         setAttempts((n) => n + 1)
         setError(
           body.error ?? t('totp.wrongCode', undefined, { defaultValue: 'Wrong code — try again' }),

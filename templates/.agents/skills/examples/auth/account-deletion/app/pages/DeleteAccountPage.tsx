@@ -34,8 +34,10 @@ export function DeleteAccountPage() {
         if (cancelled) return
         // `res.ok` alone is not enough: a 2xx proves the route ANSWERED, not
         // that the body carries this user's email. An answer without one (an
-        // endpoint with no fixture returns 200 `{}`, a proxy rewrite, a
-        // mismatched route) left `email = null` with `loadFailed` still false —
+        // endpoint with no fixture returns 200 `[]` for a GET — the mock API
+        // server's unmatchedFixtureResponse is method-dependent, and `{}` only
+        // for a POST — a proxy rewrite, a mismatched route) left `email = null`
+        // with `loadFailed` still false —
         // the form sat there disabled with no email and no reason given, the
         // exact state the `res.ok` gate above exists to prevent.
         const p = (body ?? {}) as { email?: unknown }

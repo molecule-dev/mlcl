@@ -62,9 +62,10 @@ export function BlogIndexPage() {
         </p>
       ) : null}
       {/* Each post is a padded card, not a bare link: breathing room between
-          title/excerpt/date, a surface + border + rounding so the list reads
-          as discrete items, and hover feedback. Copy this shape whenever you
-          list articles, changelog entries or docs pages. */}
+          title/excerpt/date, a surface + rounding so the list reads as
+          discrete items, and hover feedback. Copy this shape whenever you
+          list articles, changelog entries or docs pages — and add a border
+          class if the surface alone does not read as a card in your theme. */}
       {posts.map((p) => (
         <a
           key={p.id}

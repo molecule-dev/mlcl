@@ -4,8 +4,9 @@ import { deleteById, deleteMany, findMany, findOne, updateById } from '@molecule
 const GRACE_PERIOD_DAYS = 30
 
 // APP tables with a snake_case `user_id` FK to purge on hard-delete. ADAPT to your app.
-// NOTE these are your OWN tables — the framework tables (usersSecrets, devices) use
-// `userId` (camelCase) and are handled explicitly below, so do NOT list them here. Do NOT
+// NOTE these are your OWN tables — the framework tables handled explicitly below are keyed
+// differently (`usersSecrets` by `id`, which IS the user id; `devices` by `userId`), so do
+// NOT list them here. Do NOT
 // list a table this app doesn't have: none of the framework tables CASCADE on users delete,
 // and each purge is best-effort (a missing table is skipped, never aborting the run — see
 // the try/catch), but keeping the list accurate avoids noisy logs.
@@ -43,11 +44,16 @@ const APP_TABLES = ['api_keys', 'notifications', 'attachments'] as const
  * @returns Whether the table's absence is why it failed.
  */
 function isMissingTableError(err: unknown): boolean {
-  const code =
-    typeof err === 'object' && err !== null && 'code' in err
-      ? (err as { code?: unknown }).code
-      : undefined
-  if (code === '42P01' || code === 'ER_NO_SUCH_TABLE' || code === 1146) return true
+  const record =
+    typeof err === 'object' && err !== null ? (err as { code?: unknown; errno?: unknown }) : null
+  if (record?.code === '42P01' || record?.code === 'ER_NO_SUCH_TABLE') return true
+  // MySQL reports the NUMERIC code on `errno`, not `code` — mysql2 pairs
+  // `code: 'ER_NO_SUCH_TABLE'` with `errno: 1146`. Testing the number against
+  // `code` (what this used to do) could never match, so the `errno 1146` the
+  // doc above promises was dead; a driver that reports only the number was
+  // classified as a REAL purge failure and wedged the account. Read both keys,
+  // the same split the payments resource's duplicate-key check uses.
+  if (record?.errno === 1146) return true
   const msg = err instanceof Error ? err.message : String(err)
   return /no such table|unknown table|relation ".*" does not exist|table ".*" does not exist/i.test(
     msg,

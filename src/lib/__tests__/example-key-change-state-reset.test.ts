@@ -288,7 +288,7 @@ describe('a failed load for a new resource must not leave the previous resource 
     })
     // The list endpoint returns TOP-LEVEL rows only — the tree's reply pages
     // load per root before anything renders.
-    expect(httpCalls[1]?.path).toBe('/api/comments/c1/replies')
+    expect(httpCalls[1]?.path).toBe('/api/comments/c1/replies?limit=500')
     await act(async () => {
       httpCalls[1]?.resolve({
         data: [{ id: 'r1', userId: 'u2', parentId: 'c1', body: 'nested reply', createdAt: 'y' }],
@@ -297,7 +297,7 @@ describe('a failed load for a new resource must not leave the previous resource 
     // The walk continues into what it found: `r1` is itself a parent (the UI
     // lets the reader reply to any row), so its own page is read before the
     // tree renders. Answering it empty is what a childless reply returns.
-    expect(httpCalls[2]?.path).toBe('/api/comments/r1/replies')
+    expect(httpCalls[2]?.path).toBe('/api/comments/r1/replies?limit=500')
     await act(async () => {
       httpCalls[2]?.resolve({ data: [] })
     })
@@ -329,7 +329,7 @@ describe('a failed load for a new resource must not leave the previous resource 
     })
     await flush()
     // The roots list drives one reply-page read per root, before anything renders.
-    expect(httpCalls[1]?.path).toBe('/api/comments/c1/replies')
+    expect(httpCalls[1]?.path).toBe('/api/comments/c1/replies?limit=500')
     await act(async () => {
       httpCalls[1]?.resolve({ data: [] })
     })
@@ -359,7 +359,7 @@ describe('a failed load for a new resource must not leave the previous resource 
     // …and the REPLIES page — where replies live. Without that second read,
     // any reply (this user's or anyone else's) vanished from the tree the
     // moment a refetch ran.
-    expect(httpCalls[3]?.path).toBe('/api/comments/c1/replies')
+    expect(httpCalls[3]?.path).toBe('/api/comments/c1/replies?limit=500')
     await act(async () => {
       httpCalls[3]?.resolve({
         data: [{ id: 'r9', userId: 'u1', parentId: 'c1', body: 'the reply', createdAt: 'y' }],
@@ -367,7 +367,7 @@ describe('a failed load for a new resource must not leave the previous resource 
     })
     // …and the reply's own page, since the walk continues into it (empty = no
     // reply to the reply).
-    expect(httpCalls[4]?.path).toBe('/api/comments/r9/replies')
+    expect(httpCalls[4]?.path).toBe('/api/comments/r9/replies?limit=500')
     await act(async () => {
       httpCalls[4]?.resolve({ data: [] })
     })
@@ -386,7 +386,7 @@ describe('a failed load for a new resource must not leave the previous resource 
       })
     })
     await flush()
-    expect(httpCalls[1]?.path).toBe('/api/comments/c1/replies')
+    expect(httpCalls[1]?.path).toBe('/api/comments/c1/replies?limit=500')
     await act(async () => {
       httpCalls[1]?.resolve({ data: [] })
     })
@@ -411,7 +411,7 @@ describe('a failed load for a new resource must not leave the previous resource 
     })
     await flush()
     // Post 2's root's reply page is part of its load too.
-    const p2Replies = httpCalls.find((c) => c.path === '/api/comments/c2/replies')
+    const p2Replies = httpCalls.find((c) => c.path === '/api/comments/c2/replies?limit=500')
     await act(async () => {
       p2Replies?.resolve({ data: [] })
       postCalls[0]?.resolve({ id: 'r1' })
@@ -568,7 +568,7 @@ describe('the comment thread nests replies at any depth, not just one level', ()
         data: [{ id: 'c1', userId: 'u1', parentId: null, body: 'root comment', createdAt: 'x' }],
       })
     })
-    expect(httpCalls[1]?.path).toBe('/api/comments/c1/replies')
+    expect(httpCalls[1]?.path).toBe('/api/comments/c1/replies?limit=500')
     await act(async () => {
       httpCalls[1]?.resolve({
         data: [{ id: 'r1', userId: 'u2', parentId: 'c1', body: 'first reply', createdAt: 'y' }],
@@ -576,7 +576,7 @@ describe('the comment thread nests replies at any depth, not just one level', ()
     })
 
     // The walk continues into the row it just found…
-    expect(httpCalls[2]?.path).toBe('/api/comments/r1/replies')
+    expect(httpCalls[2]?.path).toBe('/api/comments/r1/replies?limit=500')
     await act(async () => {
       httpCalls[2]?.resolve({
         data: [
@@ -585,7 +585,7 @@ describe('the comment thread nests replies at any depth, not just one level', ()
       })
     })
     // …and into that row's children too, until a page comes back empty.
-    expect(httpCalls[3]?.path).toBe('/api/comments/r2/replies')
+    expect(httpCalls[3]?.path).toBe('/api/comments/r2/replies?limit=500')
     await act(async () => {
       httpCalls[3]?.resolve({ data: [] })
     })

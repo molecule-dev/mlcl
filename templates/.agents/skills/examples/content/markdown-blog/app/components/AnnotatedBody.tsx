@@ -100,9 +100,33 @@ function promptsOf(row: ProvenanceRow): Array<{ prompt: string; model?: string }
   return [...byPrompt.values()]
 }
 
+/**
+ * The prompts the commentary block renders for a row, in the order it renders
+ * them: the SUMMARY's own prompt first (an ai summary carries the prompt that
+ * asked for it — see {@link SectionSummary}), then the ai spans' — with the
+ * same text never listed twice, so the block still shows each prompt exactly
+ * once.
+ *
+ * The summary's prompt is part of the row's prompt material; reading it only
+ * off the spans dropped it, so a summary-only row (the ai summary case the type
+ * documents) rendered no prompt at all.
+ */
+function shownPrompts(row: ProvenanceRow): Array<{ prompt: string; model?: string }> {
+  const out: Array<{ prompt: string; model?: string }> = []
+  const summaryPrompt = row.summary?.ai ? row.summary.prompt : undefined
+  if (summaryPrompt) out.push({ prompt: summaryPrompt, model: row.summary?.model })
+  const seen = new Set(out.map((p) => p.prompt))
+  for (const p of promptsOf(row)) {
+    if (seen.has(p.prompt)) continue
+    seen.add(p.prompt)
+    out.push(p)
+  }
+  return out
+}
+
 /** True when a row has anything to say beside its prose. */
 function hasCommentary(row: ProvenanceRow): boolean {
-  return Boolean(row.summary) || promptsOf(row).length > 0
+  return Boolean(row.summary) || shownPrompts(row).length > 0
 }
 
 /** The summary block: a quiet tinted panel with a small label. */
@@ -180,7 +204,7 @@ function MobileCommentary({
 }) {
   const { t } = useTranslation()
   const summary = showSummaries && row?.summary ? row.summary : null
-  const prompts = showAnnotations && row ? promptsOf(row).slice(0, 3) : []
+  const prompts = showAnnotations && row ? shownPrompts(row).slice(0, 3) : []
   const open = (showSummaries || showAnnotations) && (summary !== null || prompts.length > 0)
 
   return (
@@ -352,7 +376,7 @@ export function AnnotatedBody({
                 <SummaryBlock summary={row.summary} id={`prov-summary-${i}`} />
               ) : null}
               {annotationsOn
-                ? promptsOf(row)
+                ? shownPrompts(row)
                     .slice(0, 3)
                     .map((s, k) => (
                       <PromptBlock

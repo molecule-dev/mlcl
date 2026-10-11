@@ -245,10 +245,17 @@ export function OrdersPage() {
       </div>
       {loadFailed ? (
         <p role="alert" data-mol-id="orders-load-failed" className={cm.textError}>
-          {t('orders.loadFailed', undefined, {
-            defaultValue:
-              'Could not load these orders — the rows below are the last page that loaded.',
-          })}
+          {page.rows.length > 0
+            ? t('orders.loadFailed', undefined, {
+                defaultValue:
+                  'Could not load these orders — the rows below are the last page that loaded.',
+              })
+            : // No rows at all: the "last page that loaded" line above describes
+              // rows that do not exist, and a first-load failure is exactly when
+              // the reader needs to be told nothing has been read yet.
+              t('orders.loadFailedFirst', undefined, {
+                defaultValue: 'Could not load the orders — nothing has been read yet.',
+              })}
         </p>
       ) : null}
       <DataTableCard
@@ -256,7 +263,17 @@ export function OrdersPage() {
         rows={page.rows}
         rowKey={(o: Order) => o.id}
         loading={loading}
-        emptyMessage={t('orders.empty', undefined, { defaultValue: 'No orders found.' })}
+        // A failed load must not let the table answer for the list: with no rows
+        // and no spinner left, `DataTableCard` renders `emptyMessage` — which
+        // said "No orders found." for a list nobody ever read, under the failure
+        // alert above. Only an answer may say the list is empty.
+        emptyMessage={
+          loadFailed
+            ? t('orders.emptyAfterFailure', undefined, {
+                defaultValue: 'The orders could not be loaded — see the message above.',
+              })
+            : t('orders.empty', undefined, { defaultValue: 'No orders found.' })
+        }
         dataMolId="orders-table"
       />
       <PaginationBar

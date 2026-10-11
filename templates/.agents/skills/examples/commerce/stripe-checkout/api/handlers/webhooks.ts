@@ -2,7 +2,7 @@
  * Stripe webhooks — verify signature + dispatch on event type.
  *
  * Stripe sends events when payments succeed, subscriptions update, etc.
- * The provider's `verifyWebhook` function HMAC-validates the signature
+ * The provider's `verifyWebhookSignature` function HMAC-validates the signature
  * using STRIPE_WEBHOOK_SECRET. NEVER skip verification — without it,
  * an attacker can fake "payment succeeded" by POSTing JSON.
  *

@@ -279,4 +279,30 @@ describe('annotated prose — the prompt appears once, in the block', () => {
     )
     expect(text()).toContain('the human prompt')
   })
+
+  it("renders a summary's OWN prompt when no span carries one", async () => {
+    // `SectionSummary.prompt` is documented as "the prompt that asked for it
+    // (ai summaries only)", and the side block as rendering "the SUMMARY FIRST,
+    // then the prompt" — but the prompt was read only off the ai SPANS, so a
+    // summary-only row (the ai-summary case that field exists for) rendered no
+    // prompt at all and the field was silently dropped.
+    await mount(
+      createElement(AnnotatedBody, {
+        rows: [
+          {
+            paragraphs: [[{ text: 'plain prose' }]],
+            summary: {
+              tldr: 'The gist.',
+              ai: true,
+              model: 'fable-5',
+              prompt: 'summarise this section',
+            },
+          },
+        ],
+      }),
+    )
+
+    expect(text()).toContain('The gist.')
+    expect(text()).toContain('summarise this section')
+  })
 })

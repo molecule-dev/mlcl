@@ -23,9 +23,13 @@ export interface AttachmentsPanelProps {
 
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`
-  const kb = bytes / 1024
-  if (kb < 1024) return `${Math.round(kb)} KB`
-  return `${(kb / 1024).toFixed(1)} MB`
+  // Round BEFORE choosing the unit. Branching on the unrounded `kb` printed
+  // "1024 KB" for any size in [1 048 064, 1 048 575] bytes: 1023.99 KB is
+  // < 1024, but `Math.round` then rendered the KB figure as 1024 — a megabyte
+  // labelled in KB, and a number the unit can never legitimately reach.
+  const kb = Math.round(bytes / 1024)
+  if (kb < 1024) return `${kb} KB`
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
 }
 
 export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {

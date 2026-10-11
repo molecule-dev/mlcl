@@ -96,6 +96,14 @@ async function mount(element: ReactNode): Promise<void> {
 
 const text = (): string => container.textContent ?? ''
 
+/**
+ * Every reply page the walk requested.
+ *
+ * Matched on the PATH, not on `endsWith('/replies')`: the walk asks for the
+ * resource's largest page (`?limit=500`), so a request never ends there.
+ */
+const repliesCalls = (): HttpCall[] => httpCalls.filter((c) => c.path.includes('/replies'))
+
 /** The rows the list endpoint answered one load with. */
 function rows(count: number): Array<Record<string, unknown>> {
   return Array.from({ length: count }, (_, i) => ({
@@ -131,7 +139,7 @@ describe('the comment thread’s reply walk', () => {
     })
     await flush()
 
-    const replies = httpCalls.filter((c) => c.path.endsWith('/replies'))
+    const replies = repliesCalls()
     // The walk asks at most the budget's worth of nodes. Without the bound this
     // is one request PER ROOT (ROOTS), all of them fired in one Promise.all.
     expect(replies.length, `${ROOTS} roots must not become ${ROOTS} replies requests`).toBe(
@@ -145,7 +153,7 @@ describe('the comment thread’s reply walk', () => {
       for (const call of replies) call.resolve({ data: [] })
     })
     await flush()
-    expect(httpCalls.filter((c) => c.path.endsWith('/replies')).length).toBe(MAX_REPLY_REQUESTS)
+    expect(repliesCalls().length).toBe(MAX_REPLY_REQUESTS)
     expect(text()).toContain('root 0')
     expect(text()).toContain(`root ${ROOTS - 1}`)
   })
@@ -162,10 +170,10 @@ describe('the comment thread’s reply walk', () => {
     })
     await flush()
 
-    const replyCalls = httpCalls.filter((c) => c.path.endsWith('/replies'))
+    const replyCalls = repliesCalls()
     expect(replyCalls.map((c) => c.path)).toEqual([
-      '/api/comments/c1/replies',
-      '/api/comments/c2/replies',
+      '/api/comments/c1/replies?limit=500',
+      '/api/comments/c2/replies?limit=500',
     ])
     await act(async () => {
       replyCalls[0]?.resolve({
@@ -176,7 +184,7 @@ describe('the comment thread’s reply walk', () => {
     await flush()
 
     // The walk continues into what it found — the reply's own page is read.
-    const r1Call = httpCalls.find((c) => c.path === '/api/comments/r1/replies')
+    const r1Call = httpCalls.find((c) => c.path === '/api/comments/r1/replies?limit=500')
     expect(r1Call, 'the walk must still continue into a reply it found').toBeTruthy()
     await act(async () => {
       r1Call?.resolve({ data: [] })
@@ -185,5 +193,22 @@ describe('the comment thread’s reply walk', () => {
 
     expect(text()).toContain('root one')
     expect(text()).toContain('nested reply')
+  })
+
+  it("asks for the resource's largest replies page, not the endpoint's default of 20", async () => {
+    // `GET /comments/:id/replies` pages at 20 by default and caps at 500 (the
+    // comment resource's MAX_LIST_LIMIT). Asking for the default made the walk
+    // treat a node's first twenty replies as its COMPLETE children — replies
+    // 21+ were never requested, so they never rendered at ANY budget, which is
+    // not what "a request per node reaches the whole thread" promises.
+    await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await act(async () => {
+      httpCalls[0]?.resolve({
+        data: [{ id: 'c1', userId: 'u1', parentId: null, body: 'root', createdAt: 'x' }],
+      })
+    })
+    await flush()
+
+    expect(repliesCalls().map((c) => c.path)).toEqual(['/api/comments/c1/replies?limit=500'])
   })
 })

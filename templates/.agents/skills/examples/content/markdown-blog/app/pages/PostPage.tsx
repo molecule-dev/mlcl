@@ -53,11 +53,20 @@ export function PostPage({ slug }: { slug: string }) {
         // `undefined` handed to the markdown bond's render — instead of the
         // failure it is. `GET /api/posts/:slug` answers with the post itself
         // (api/handlers/posts.ts), so anything else is a failed load.
+        //
+        // Every field the render dereferences is checked, `published_at`
+        // included: the date line below formats it, so a body that carries the
+        // other three and omits THIS one — the partial answer a proxy or a
+        // shrunken rewrite produces — used to pass the gate and render "Invalid
+        // Date" under the title, the very symptom the gate exists to remove.
+        // (The handler 404s a draft, so a post it answers with is published and
+        // always has a date.)
         const loaded = (body ?? {}) as Partial<Post>
         if (
           typeof loaded.id !== 'string' ||
           typeof loaded.title !== 'string' ||
-          typeof loaded.body_markdown !== 'string'
+          typeof loaded.body_markdown !== 'string' ||
+          typeof loaded.published_at !== 'string'
         ) {
           if (!cancelled) setLoadFailed(true)
           return

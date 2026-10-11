@@ -10,18 +10,35 @@ const cm = getClassMap()
 /**
  * The most `GET /comments/:id/replies` requests ONE thread load may issue.
  *
- * The replies endpoint answers a node's DIRECT children — one page, for one
+ * The replies endpoint answers a node's DIRECT children — ONE page, for one
  * parent — so reaching the whole thread costs a request per NODE, not one per
  * page: the walk below has to ask every row it found for its own children. That
  * walk was unbounded, and so was the burst: a thread with N comments issued N
  * requests on mount, with a whole level fired at once, so a busy thread hammered
  * the API from every open tab (and re-did it on every refetch). The walk now
- * spends a fixed budget and stops when it runs out, the same window the sibling
- * slices put on their live lists (the chat room's `MAX_RENDERED_MESSAGES`, the
- * notification bell's `NOTIFICATION_PAGE_SIZE`). A thread larger than the budget
- * renders the rows it could reach instead of hanging on the tail.
+ * spends a fixed budget — the same order of magnitude the sibling slices put on
+ * their live lists (the chat room's `MAX_RENDERED_MESSAGES` is 200) — and stops
+ * when it runs out. A thread larger than the budget renders the rows it could
+ * reach instead of hanging on the tail.
+ *
+ * The page the walk asks for is the resource's MAXIMUM (see REPLIES_PAGE_SIZE),
+ * not the endpoint's default of 20: one request per node still returns ONE
+ * page, so a node with more direct replies than that page holds has its tail
+ * unrendered — the budget bounds the burst, and the page size is what keeps
+ * that truncation off any thread a reader would notice.
  */
 const MAX_REPLY_REQUESTS = 200
+
+/**
+ * How many direct replies ONE `GET /comments/:id/replies` request asks for.
+ *
+ * The endpoint's own default page is 20 and its cap is 500
+ * (`MAX_LIST_LIMIT` in the comment resource's `handlers/replies.ts`). Asking
+ * for the default is what made the walk treat a node's first twenty replies as
+ * its COMPLETE children — the rest were never requested, so they never rendered
+ * at ANY budget. The cap is the resource's, so the example asks for exactly it.
+ */
+const REPLIES_PAGE_SIZE = 500
 
 /**
  * The FLAT comment row `@molecule/api-resource-comment` returns. Replies are
@@ -185,7 +202,7 @@ export function CommentThread({
           batch.map(
             (parentId) =>
               http
-                .get(`/api/comments/${parentId}/replies`)
+                .get(`/api/comments/${parentId}/replies?limit=${REPLIES_PAGE_SIZE}`)
                 .then((r) => unwrapList<CommentRow>(r))
                 .catch(() => [] as CommentRow[]), // one dead replies page → a flat thread, not a failed load
           ),

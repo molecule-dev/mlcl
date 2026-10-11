@@ -246,6 +246,29 @@ describe('finalize-deletions — the expired-user filter must actually match', (
     expect(database.deleteById).toHaveBeenCalledWith('users', 'u-no-app-tables')
   })
 
+  it('skips a missing MySQL table reported only by its NUMERIC code (errno 1146)', async () => {
+    // MySQL reports the numeric code on `errno`, NOT on `code` (mysql2 pairs
+    // `code: 'ER_NO_SUCH_TABLE'` with `errno: 1146`). The guard compared the
+    // NUMBER against `code`, so the `errno 1146` its own doc promises to cover
+    // was a dead clause: a driver surfacing only the number was read as a REAL
+    // purge failure, deferring the hard delete every night for good. The message
+    // here deliberately matches none of the phrasing fallback, so only the
+    // numeric branch can classify it.
+    users = [{ id: 'u-mysql', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
+    devices = []
+    database.deleteMany.mockImplementation(async (table: string) => {
+      if (table === 'devices') return { data: [], affected: 1 }
+      const err = new Error('Table does not exist') as Error & { errno?: number }
+      err.errno = 1146
+      throw err
+    })
+
+    await runJob()
+
+    expect(database.deleteById).toHaveBeenCalledWith('usersSecrets', 'u-mysql')
+    expect(database.deleteById).toHaveBeenCalledWith('users', 'u-mysql')
+  })
+
   it('cancels the deletion when the user signs back in DURING the purge', async () => {
     // The first sign-back-in check runs BEFORE the purges (the devices purge
     // among them), so a sign-in that lands after it — exactly the case where the

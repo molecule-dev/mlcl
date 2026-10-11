@@ -146,10 +146,36 @@ export function ImportPage(): ReactNode {
         credentials: 'include',
       })
       if (!res.ok) {
-        const body = (await res.json().catch(() => ({}))) as { error?: string }
-        throw new Error(
-          body.error ?? t('import.error.commit', undefined, { defaultValue: 'Import failed' }),
-        )
+        const body = (await res.json().catch(() => ({}))) as {
+          error?: string
+          imported?: unknown
+          updated?: unknown
+          skipped?: unknown
+        }
+        // A partial failure answers with the counts of what is ALREADY stored —
+        // the handler returns them for exactly this reason ("the counts ARE the
+        // message", see api/handlers/import.ts). Reading only `error` discarded
+        // them, so a commit that died after 300 rows told the reader the rows
+        // were kept without saying how many, and the page could not be
+        // reconciled with the database.
+        const counts =
+          typeof body.imported === 'number'
+            ? t(
+                'import.error.commitCounts',
+                {
+                  imported: body.imported,
+                  updated: typeof body.updated === 'number' ? body.updated : 0,
+                  skipped: typeof body.skipped === 'number' ? body.skipped : 0,
+                },
+                {
+                  defaultValue:
+                    'Written so far: {{imported}} imported, {{updated}} updated, {{skipped}} skipped.',
+                },
+              )
+            : null
+        const message =
+          body.error ?? t('import.error.commit', undefined, { defaultValue: 'Import failed' })
+        throw new Error(counts ? `${message} ${counts}` : message)
       }
       // Same rule as the preview above: an empty 200 (`{}`) is not a commit
       // result, and the summary line would render "Imported undefined, …

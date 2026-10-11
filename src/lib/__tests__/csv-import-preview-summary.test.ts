@@ -128,3 +128,60 @@ describe('csv-import preview summary — the counts are scoped to the preview', 
     expect(text()).toContain('first 50 checked')
   })
 })
+
+describe('csv-import commit — a partial failure says what the server kept', () => {
+  /** Preview a file, then press the confirm button. */
+  async function previewThenConfirm(): Promise<void> {
+    const input = container.querySelector('input[type="file"]') as HTMLInputElement
+    const file = new File(['email,name\ne@x.test,row\n'], 'ok.csv', { type: 'text/csv' })
+    Object.defineProperty(input, 'files', { value: [file], configurable: true })
+    await act(async () => {
+      input.dispatchEvent(new Event('change', { bubbles: true }))
+    })
+    await flush()
+
+    const preview = pending.requests.find((r) => !r.answered)!
+    preview.answered = true
+    await act(async () => {
+      preview.respond(200, {
+        totalRows: 1,
+        previewRows: [{ email: 'e@x.test', name: 'row' }],
+        valid: 1,
+        invalid: [],
+      })
+    })
+    await flush()
+
+    const confirm = container.querySelector('[data-mol-id="import-confirm"]')
+    if (!confirm) throw new Error('the preview rendered no confirm button')
+    await act(async () => {
+      confirm.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+  }
+
+  it('surfaces the counts a mid-file failure answers with', async () => {
+    await previewThenConfirm()
+
+    const commit = pending.requests.find((r) => !r.answered)!
+    commit.answered = true
+    // The handler's partial-failure answer: the rows already stored, returned
+    // with the comment "the counts ARE the message" (api/handlers/import.ts).
+    await act(async () => {
+      commit.respond(500, {
+        error: 'The import stopped partway through — the rows already written were kept.',
+        imported: 300,
+        updated: 12,
+        skipped: 4,
+      })
+    })
+    await flush()
+
+    expect(text()).toContain('stopped partway through')
+    // Read only `error` before this: the reader was told rows were kept without
+    // being told how many, and the answer the server computed was discarded.
+    expect(text()).toContain('300 imported')
+    expect(text()).toContain('12 updated')
+    expect(text()).toContain('4 skipped')
+  })
+})

@@ -21,10 +21,15 @@ type ApiMessage = {
  * open room that stays on screen accumulated every message it ever received —
  * the array, the React tree and the DOM all grew with the session (a busy
  * channel reaches thousands), while the initial history load stayed at one
- * page. Keeping the NEWEST window bounds all three; that is the end of the
- * conversation the reader is looking at, and a room's earlier history is the
- * load above (`GET /api/messages?channel_id=`, see api/handlers/messages.ts),
- * not the live feed's to accumulate.
+ * page. Keeping the NEWEST window bounds all three.
+ *
+ * What "the history" is here, plainly: `GET /api/messages?channel_id=` answers
+ * the room's FIRST page — ascending by `created_at`, no `offset` (see
+ * api/handlers/messages.ts) — so this page renders that opening page plus every
+ * live frame that arrives, and anything between the two is NOT loaded. A room
+ * longer than one page therefore has a gap the reader can scroll into. Wiring
+ * "load older" over that endpoint's `offset` (and a `before=<created_at>` query
+ * for the gap) is the app's job; the live feed must not accumulate it.
  */
 const MAX_RENDERED_MESSAGES = 200
 
