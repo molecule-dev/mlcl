@@ -50,6 +50,14 @@ export function AddressInput({ onSelect }: { onSelect: (place: Place) => void })
       return
     }
 
+    // Drop the PREVIOUS query's suggestion before this lookup starts. It answers
+    // a text the field no longer holds, and it stayed rendered — and clickable —
+    // for the whole debounce + request: typing over "Paris" to reach "Berlin"
+    // left the "Paris, France" button on screen, and clicking it emitted Paris's
+    // coordinates upward and rewrote the field to it, discarding what the reader
+    // had typed. A suggestion belongs to the query it answered (the failure and
+    // invalid-body branches below drop it for the same reason).
+    setSuggestion(null)
     setStatus('loading')
     const controller = new AbortController()
     const timer = setTimeout(async () => {

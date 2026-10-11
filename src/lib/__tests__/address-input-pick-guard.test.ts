@@ -194,6 +194,36 @@ describe('AddressInput — picking a suggestion whose text is already the query'
   })
 })
 
+describe('AddressInput — a suggestion belongs to the query it answered', () => {
+  it('drops the previous query’s suggestion while the next lookup is in flight', async () => {
+    // The suggestion was left in place when the text changed: `setStatus
+    // ('loading')` ran for the new query but the OLD button stayed rendered (and
+    // enabled) for the whole debounce + request. Clicking it emitted the previous
+    // place upward and rewrote the field to it — the reader's typed address was
+    // discarded by a button that answered a different question.
+    await mount()
+
+    await type('Paris')
+    await waitForRequest(0)
+    await respond(0, { lat: 48.85, lng: 2.35, formatted: 'Paris, France' })
+    expect(suggestionButton()?.textContent).toBe('Paris, France')
+
+    // The reader keeps typing: a new lookup starts for the new text, and the
+    // Paris suggestion must not still be on offer while it runs.
+    await type('Berlin')
+    expect(
+      suggestionButton(),
+      'the superseded query’s suggestion must not stay clickable',
+    ).toBeNull()
+
+    await waitForRequest(1)
+    expect(pending.requests[1]?.body).toEqual({ address: 'Berlin' })
+    // …and the fresher answer is the one offered.
+    await respond(1, { lat: 52.52, lng: 13.4, formatted: 'Berlin, Germany' })
+    expect(suggestionButton()?.textContent).toBe('Berlin, Germany')
+  })
+})
+
 describe('AddressInput — a 2xx body that is not a place', () => {
   it.each([
     ["an empty object (the mock API server's unmatchedFixtureResponse)", {}],
