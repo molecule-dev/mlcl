@@ -105,6 +105,29 @@ async function runCli(
     if (/^spawn\b[^\n]*\bENOENT\b/.test(originalMessage ?? '')) {
       throw new Error(CLI_NOT_FOUND)
     }
+    // The OTHER spawn failure that never lets the CLI run: an argument list the
+    // operating system refuses as too long (E2BIG — Linux caps ONE argument at 32
+    // pages, 131072 bytes, and the whole argv plus env at a fraction of the stack
+    // limit). execa reports it as `spawn E2BIG` in the same field the ENOENT
+    // branch above reads — verified against execa 10 with a 200 000-byte argument
+    // — and it is NOT the CLI's own output: the process never started. Unhandled,
+    // it fell through to `originalMessage` below, so the caller was handed the
+    // bare string `spawn E2BIG`: no command, no cause, no fix, for tools whose
+    // arguments are unbounded because their real shape has no small bound (`db
+    // query`'s SQL statement, `set_env_var`'s value, `scaffold_project`'s
+    // comma-separated package list, `import_transcripts`' paths — the last of
+    // which is why that tool caps its LIST). Answer actionably instead.
+    //
+    // Only `args[0]` names the command: the offending element is not always
+    // printable (`mlcl env set KEY VALUE` carries a secret, and the E2BIG one is
+    // by definition enormous), so the message must never quote it.
+    if (/^spawn\b[^\n]*\bE2BIG\b/.test(originalMessage ?? '')) {
+      throw new Error(
+        `mlcl ${args[0] ?? ''} could not start: the operating system refused its argument ` +
+          'list as too long (E2BIG). Shorten the values this tool passes on the command ' +
+          'line — a statement, a path or a comma-separated list is over the limit.',
+      )
+    }
     if (options.redactOutput === true) {
       throw new Error(
         `${labelled} failed${exitCode === undefined ? '' : ` (exit ${exitCode})`} — ` +
