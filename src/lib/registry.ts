@@ -230,25 +230,56 @@ export function requirePackageByRole(
 
 /**
  * The file state a read-modify-write cycle saw when it READ the registry, and
- * the state the publish step therefore expects the file to still have. Keyed on
- * `mtimeNs` (nanosecond — `mtimeMs` rounds to a millisecond, which two writes
- * inside the same millisecond share) plus size, both read through the bigint
- * stat variant so the nanosecond field is typed.
+ * the state the publish step therefore expects the file to still have.
+ *
+ * Keyed on `mtimeNs` (nanosecond — `mtimeMs` rounds to a millisecond, which two
+ * writes inside the same millisecond share), size, AND the inode, all read
+ * through the bigint stat variant so the nanosecond/inode fields are typed.
+ *
+ * The inode is what makes this an IDENTITY rather than a coincidence: a publish
+ * replaces the file by RENAME (see {@link writeRegistry}), which brings a NEW
+ * inode into place, and Linux file timestamps come from the coarse clock — so
+ * two same-length documents written within one clock tick share both `mtimeNs`
+ * and `size`. Without the inode the publish check saw "unchanged" and renamed
+ * over the rival's entry, exactly the silent drop this stamp exists to catch.
+ * {@link registryCacheKey} carries the same three fields, for the same reason.
  */
 interface RegistryStamp {
   mtimeNs: bigint
   size: bigint
+  ino: bigint
 }
 
-/** The registry file's current {@link RegistryStamp}, or null when it does not exist. */
+/**
+ * The registry file's current {@link RegistryStamp}, or null when it does not
+ * exist.
+ *
+ * ONLY `ENOENT` means "no registry file here". Any other stat failure — a
+ * symlinked `registry.json` whose target cannot be resolved (`ELOOP`), a
+ * transient `EIO`, `EMFILE` under fd pressure — must NOT be read as absence:
+ * {@link readRegistryWithStamp} answers a null stamp with an EMPTY registry
+ * WITHOUT reading the file, and the publish step then sees `null → null` as
+ * "unchanged" and renames that one-entry document over the fleet. Rethrow, the
+ * same ENOENT-only rule the migrate runner's guarded writes apply.
+ *
+ * @param path - Registry file path.
+ * @returns The file's stamp, or null when the file is not there.
+ */
 function registryStamp(path: string): RegistryStamp | null {
   try {
     const stat = statSync(path, { bigint: true })
-    return { mtimeNs: stat.mtimeNs, size: stat.size }
-  } catch (_error) {
-    // No registry file at this path.
+    return { mtimeNs: stat.mtimeNs, size: stat.size, ino: stat.ino }
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error
     return null
   }
+}
+
+/** A stamp (or its absence) as the publish failure message names it. */
+function stampToString(stamp: RegistryStamp | null): string {
+  return stamp === null
+    ? '(absent)'
+    : `mtimeNs=${stamp.mtimeNs} size=${stamp.size} ino=${stamp.ino}`
 }
 
 /**
@@ -346,10 +377,13 @@ function writeRegistry(stamp: RegistryStamp | null, registry: Registry): void {
     const changed =
       current === null
         ? stamp !== null
-        : stamp === null || current.mtimeNs !== stamp.mtimeNs || current.size !== stamp.size
+        : stamp === null ||
+          current.mtimeNs !== stamp.mtimeNs ||
+          current.size !== stamp.size ||
+          current.ino !== stamp.ino
     if (changed) {
       throw new RegistryConcurrentUpdateError(
-        `${target} changed after it was read (${String(stamp)} → ${String(current)})`,
+        `${target} changed after it was read (${stampToString(stamp)} → ${stampToString(current)})`,
       )
     }
     renameSync(temp, target)
