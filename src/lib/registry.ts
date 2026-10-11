@@ -307,39 +307,148 @@ class RegistryConcurrentUpdateError extends Error {}
 const REGISTRY_WRITE_ATTEMPTS = 5
 
 /**
- * Apply a mutation to the registry with optimistic concurrency control.
+ * How long a mutation waits for a rival publisher's lock before failing loudly.
+ * Resolved per call from `MLCL_REGISTRY_LOCK_WAIT_MS` (a positive integer, else
+ * the default) — the same per-call contract `registryFilePath` applies to its
+ * override, so a test (or an operator on a slow filesystem) can set it after
+ * module load.
+ */
+function registryLockWaitMs(): number {
+  const parsed = Number(process.env.MLCL_REGISTRY_LOCK_WAIT_MS)
+  return Number.isSafeInteger(parsed) && parsed > 0 ? parsed : 10_000
+}
+/**
+ * Age past which a publish lock's holder is presumed dead and the lock is
+ * stolen. A publish holds the lock for milliseconds, so a lock this old is a
+ * crashed process's leftover, not a live writer.
+ */
+const REGISTRY_LOCK_STEAL_MS = 60_000
+
+/**
+ * The publish-serialization lock, next to the registry file it guards.
+ *
+ * The stamp check inside {@link writeRegistry} is a check-then-act: between the
+ * check and the rename two publishers can BOTH see "unchanged" and both rename,
+ * and the second replaces the first's document with one that never saw it — the
+ * silent entry drop the stamp exists to prevent, unreachable by any retry
+ * because neither writer observed a conflict. The lock removes that window: the
+ * whole read-modify-write runs under it, so publishers serialize before they
+ * read. The stamp check stays as the backstop for a writer that does not take
+ * the lock (an older mlcl, a hand editor's tooling).
+ */
+function registryLockPath(): string {
+  return `${registryFilePath()}.publish.lock`
+}
+
+/** A bounded synchronous sleep — the mutation API is synchronous, so the wait must be. */
+function sleepSync(ms: number): void {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms)
+}
+
+/**
+ * Take {@link registryLockPath} exclusively, waiting out a rival's live publish
+ * and stealing a dead one.
+ *
+ * `wx` (O_CREAT|O_EXCL) is the atomic test-and-set: the loser of a race fails
+ * with EEXIST instead of both believing they hold the lock. A held lock is
+ * waited out up to {@link REGISTRY_LOCK_WAIT_MS}; one older than
+ * {@link REGISTRY_LOCK_STEAL_MS} is a crashed holder's leftover and is removed
+ * so it cannot wedge every future mutation behind it.
+ *
+ * @throws When the lock stays held past the wait budget — the caller is told
+ *   which file to inspect, never left spinning.
+ */
+function acquireRegistryPublishLock(): void {
+  const lockPath = registryLockPath()
+  const deadline = Date.now() + registryLockWaitMs()
+  for (;;) {
+    try {
+      writeFileSync(lockPath, `${process.pid}\n`, { flag: 'wx' })
+      return
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException)?.code !== 'EEXIST') throw error
+      let heldMs: number
+      try {
+        heldMs = Date.now() - statSync(lockPath).mtimeMs
+      } catch (_statError) {
+        // The holder released it between our create and this stat — try again.
+        continue
+      }
+      if (heldMs > REGISTRY_LOCK_STEAL_MS) {
+        rmSync(lockPath, { force: true })
+        continue
+      }
+      if (Date.now() >= deadline) {
+        let holder = 'an unknown process'
+        try {
+          holder = `pid ${readFileSync(lockPath, 'utf-8').trim()}`
+        } catch (_readError) {
+          // The lock may have been released while this message was built.
+        }
+        throw new Error(
+          `${lockPath} has been held for ${Math.round(heldMs)}ms by ${holder} — ` +
+            'another mlcl publish is stuck or a crashed one left the lock behind. ' +
+            'If no mlcl command is running, remove that file and re-run the command.',
+          { cause: error },
+        )
+      }
+      sleepSync(25)
+    }
+  }
+}
+
+/** Release the publish lock. Best-effort: a lock left behind is stolen after {@link REGISTRY_LOCK_STEAL_MS}. */
+function releaseRegistryPublishLock(): void {
+  try {
+    rmSync(registryLockPath(), { force: true })
+  } catch (_error) {
+    // The mutation itself has already completed (or failed) by here; a lock
+    // this call cannot remove is inert until the steal window opens.
+  }
+}
+
+/**
+ * Apply a mutation to the registry with optimistic concurrency control, under
+ * the publish lock.
  *
  * The naive cycle — read, mutate in memory, write — silently DROPS a concurrent
  * writer's entry: two parallel `mlcl init` runs both read the same file, both
  * add their package and publish, and the second rename replaces the first
  * writer's entry with a file that never saw it. Every later
  * `requirePackageByRole` for the dropped package then fails with "missing
- * role". The publish step therefore re-checks the file's stamp immediately
- * before the rename and refuses when another writer landed first; this loop
- * answers that refusal by re-reading (picking up the other writer's entry) and
- * re-applying, up to {@link REGISTRY_WRITE_ATTEMPTS} times — a persistently
- * contested registry (a runaway writer) fails loudly instead of clobbering.
+ * role". Two guards close that: the publish lock serializes publishers (the
+ * check-then-rename gap inside {@link writeRegistry} is not observable across
+ * lock holders), and the publish step's stamp check — which answers a writer
+ * that never took the lock — is retried by re-reading (picking up the other
+ * writer's entry) and re-applying, up to {@link REGISTRY_WRITE_ATTEMPTS} times.
+ * A persistently contested registry (a runaway writer) fails loudly instead of
+ * clobbering.
  *
  * @param apply - The mutation, applied to a freshly-read registry per attempt.
  */
 function mutateRegistry(apply: (registry: Registry) => void): void {
-  let lastConflict: RegistryConcurrentUpdateError | null = null
-  for (let attempt = 0; attempt < REGISTRY_WRITE_ATTEMPTS; attempt++) {
-    const { registry, stamp } = readRegistryWithStamp()
-    apply(registry)
-    try {
-      writeRegistry(stamp, registry)
-      return
-    } catch (error) {
-      if (!(error instanceof RegistryConcurrentUpdateError)) throw error
-      lastConflict = error
+  acquireRegistryPublishLock()
+  try {
+    let lastConflict: RegistryConcurrentUpdateError | null = null
+    for (let attempt = 0; attempt < REGISTRY_WRITE_ATTEMPTS; attempt++) {
+      const { registry, stamp } = readRegistryWithStamp()
+      apply(registry)
+      try {
+        writeRegistry(stamp, registry)
+        return
+      } catch (error) {
+        if (!(error instanceof RegistryConcurrentUpdateError)) throw error
+        lastConflict = error
+      }
     }
+    throw new Error(
+      `${registryFilePath()} kept changing while the update was being applied ` +
+        `(${REGISTRY_WRITE_ATTEMPTS} attempts, last conflict: ${String(lastConflict)}) — ` +
+        `another mlcl process is writing it; re-run the command`,
+    )
+  } finally {
+    releaseRegistryPublishLock()
   }
-  throw new Error(
-    `${registryFilePath()} kept changing while the update was being applied ` +
-      `(${REGISTRY_WRITE_ATTEMPTS} attempts, last conflict: ${String(lastConflict)}) — ` +
-      `another mlcl process is writing it; re-run the command`,
-  )
 }
 
 function writeRegistry(stamp: RegistryStamp | null, registry: Registry): void {
@@ -478,8 +587,15 @@ function rawRegistryAt(path: string): { registry: Registry; present: boolean } {
   let stat: { mtimeNs: bigint; size: bigint; ino: bigint }
   try {
     stat = statSync(path, { bigint: true })
-  } catch (_error) {
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error
     // No registry file at this path — the empty registry, flagged as absent.
+    // ONLY ENOENT may be read as absence, the same rule registryStamp applies:
+    // a symlinked registry whose target cannot be resolved (ELOOP), a transient
+    // EIO or an EMFILE under fd pressure would otherwise answer every accessor
+    // here an EMPTY registry — loadToolchain scaffolds without its pins and
+    // getMoleculeVersion reports the 1.0.0 fallback — silently, where the
+    // failure is the real answer.
     return { registry: { version: 1, packages: {} }, present: false }
   }
   const key = registryCacheKey(stat)
