@@ -6437,6 +6437,17 @@ export async function createStatusPageEdgeProject(
     // Generate inline if template directory doesn't exist yet
     await mkdir(join(projectPath, 'src'), { recursive: true })
 
+    // `typescript` and `vitest` come from the registry toolchain — the single
+    // source of truth every other create path spreads (`...toolchain.shared`,
+    // `...toolchain.api`). The literals that used to sit here drifted from the
+    // fleet on the first bump: this manifest pinned vitest 4.1.10 while the
+    // registry, mlcl's own package.json and every flagship template moved to
+    // 4.1.11, so an edge status page installed a toolchain no other generated
+    // project shares — and every later bump would skip this path the same way.
+    // The `||` fallbacks cover a checkout whose registry carries no toolchain
+    // section, the same policy createReactNativeAppProject follows. The
+    // wrangler / workers-types pins have no registry entry to read.
+    const toolchain = loadToolchain()
     const packageJson = {
       name: projectName,
       version: '0.0.1',
@@ -6451,8 +6462,8 @@ export async function createStatusPageEdgeProject(
       devDependencies: {
         '@cloudflare/workers-types': '5.20260730.1',
         '@molecule/api-monitoring': getMoleculeVersion('@molecule/api-monitoring'),
-        typescript: '6.0.3',
-        vitest: '4.1.10',
+        typescript: toolchain.shared.typescript || '6.0.3',
+        vitest: toolchain.api.vitest || '4.1.11',
         wrangler: '4.115.0',
       },
     }
