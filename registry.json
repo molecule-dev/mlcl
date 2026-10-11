@@ -59341,7 +59341,7 @@
       "@molecule/app-icons-molecule": "1.0.2",
       "@molecule/app-ide": "1.0.2",
       "@molecule/app-ide-default": "1.0.2",
-      "@molecule/app-ide-react": "1.20.2",
+      "@molecule/app-ide-react": "1.20.3",
       "@molecule/app-image-crop": "1.0.2",
       "@molecule/app-image-crop-cropperjs": "1.0.2",
       "@molecule/app-image-gallery-editor-react": "1.0.3",
