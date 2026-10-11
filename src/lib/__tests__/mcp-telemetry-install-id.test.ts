@@ -30,6 +30,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
  * that wins the freed name in the rename→create gap), and `leftoverHolds` makes
  * the renamed-aside file read back non-empty (a live writer whose bytes landed
  * between the adopt loop's last read and the rename).
+ *
+ * `idReadPlan` drives the OTHER transient state a rival's takeover produces:
+ * the id file is momentarily GONE (renamed aside), so a read throws ENOENT for
+ * a step or two while the winner's bytes are still on their way back. That is
+ * "no id yet", never "an unreadable id file".
  */
 const race = vi.hoisted(() => ({
   hideIdFile: false,
@@ -37,6 +42,8 @@ const race = vi.hoisted(() => ({
   takeoverLosesTo: null as string | null,
   leftoverHolds: null as string | null,
   wxCreates: 0,
+  /** Per-read outcomes for the id file, consumed in order — see the module note. */
+  idReadPlan: [] as Array<'blank' | 'missing'>,
 }))
 
 // `mcp/src/telemetry.ts` resolves its id file from `homedir()` at module load,
@@ -66,6 +73,17 @@ vi.mock('node:fs', async () => {
         ? false
         : actual.existsSync(path as never),
     readFileSync: (path: unknown, ...rest: unknown[]) => {
+      if (String(path).endsWith('.mlcl/telemetry-id') && race.idReadPlan.length > 0) {
+        const step = race.idReadPlan.shift()
+        if (step === 'missing') {
+          const missing = new Error(
+            `ENOENT: no such file or directory, open '${String(path)}'`,
+          ) as NodeJS.ErrnoException
+          missing.code = 'ENOENT'
+          throw missing
+        }
+        return ''
+      }
       if (race.blankIdReads > 0 && String(path).endsWith('.mlcl/telemetry-id')) {
         race.blankIdReads -= 1
         return ''
@@ -126,6 +144,7 @@ beforeEach(() => {
   race.takeoverLosesTo = null
   race.leftoverHolds = null
   race.wxCreates = 0
+  race.idReadPlan = []
   fetchMock = vi.fn().mockResolvedValue({ ok: true })
   globalThis.fetch = fetchMock as unknown as typeof globalThis.fetch
 })
@@ -137,6 +156,7 @@ afterEach(() => {
   race.takeoverLosesTo = null
   race.leftoverHolds = null
   race.wxCreates = 0
+  race.idReadPlan = []
   rmSync(HOME, { recursive: true, force: true })
 })
 
@@ -261,5 +281,74 @@ describe('molecule-mcp install id', () => {
     }
 
     expect(payloadOf(fetchMock).event.anonymousId).toBe(liveWriter)
+    // …and the bytes really are the file's id again, not just this event's: a
+    // restore that reported the id while leaving an empty file behind would
+    // split the very next call onto a freshly minted one.
+    expect(readFileSync(ID_FILE, 'utf8')).toBe(liveWriter)
+  })
+
+  it('adopts a rival that took the freed name while the live writer’s bytes were being restored', () => {
+    // The restore above must not REPLACE a file that appeared in the gap: a
+    // rival's exclusive create publishes only because the takeover freed the
+    // name, and rename(2) — the shape this restore used to be — atomically
+    // overwrites its destination, so the id that rival had already put on its
+    // own event was destroyed while its file silently became this call's
+    // captured bytes. One install, two anonymousIds.
+    //
+    // The rival's write is the second exclusive create of the call (the first
+    // fails naturally on the seeded empty file), which is exactly the step
+    // `takeoverLosesTo` intercepts.
+    const liveWriter = 'bbbb2222-3333-4444-8555-666666666666'
+    const rival = 'cccc3333-4444-4555-8666-777777777777'
+    writeFileSync(ID_FILE, '')
+    race.blankIdReads = 1 + 20
+    race.leftoverHolds = liveWriter
+    race.takeoverLosesTo = rival
+    try {
+      trackToolCall('search_packages', true, Date.now())
+    } finally {
+      race.leftoverHolds = null
+      race.takeoverLosesTo = null
+    }
+
+    expect(payloadOf(fetchMock).event.anonymousId).toBe(rival)
+    expect(readFileSync(ID_FILE, 'utf8')).toBe(rival)
+  })
+
+  it('reads a momentarily missing id file as “no id yet”, not as an unreadable one', () => {
+    // A rival's takeover renames the id file aside, so a read lands in the gap
+    // and fails ENOENT. That is the state the adopt loop exists to wait out —
+    // not the unreadable-file case whose net is the `'unknown'` anonymousId,
+    // which would put a blank id on this event.
+    const winner = 'dddd4444-5555-4666-8777-888888888888'
+    writeFileSync(ID_FILE, winner)
+    race.idReadPlan = ['missing']
+    try {
+      trackToolCall('search_packages', true, Date.now())
+    } finally {
+      race.idReadPlan = []
+    }
+
+    expect(payloadOf(fetchMock).event.anonymousId).toBe(winner)
+    expect(readFileSync(ID_FILE, 'utf8')).toBe(winner)
+  })
+
+  it('keeps waiting when the id file is renamed aside mid-adopt', () => {
+    // Same gap, one step later: the winner was observed mid-write (an empty
+    // read), our exclusive create lost, and the FIRST read of the adopt loop
+    // finds the name gone (a rival renamed it aside). The winner's bytes land
+    // a moment later — the loop's own wait is what catches them. Treating the
+    // ENOENT as "unreadable" reported a blank anonymousId instead.
+    const winner = 'eeee5555-6666-4777-8888-999999999999'
+    writeFileSync(ID_FILE, winner)
+    race.idReadPlan = ['blank', 'missing']
+    try {
+      trackToolCall('search_packages', true, Date.now())
+    } finally {
+      race.idReadPlan = []
+    }
+
+    expect(payloadOf(fetchMock).event.anonymousId).toBe(winner)
+    expect(readFileSync(ID_FILE, 'utf8')).toBe(winner)
   })
 })

@@ -17,15 +17,7 @@
  * so incoming traffic cannot turn into unbounded outbound load.
  */
 import { randomUUID } from 'node:crypto'
-import {
-  existsSync,
-  linkSync,
-  mkdirSync,
-  readFileSync,
-  renameSync,
-  rmSync,
-  writeFileSync,
-} from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 
@@ -85,12 +77,29 @@ function sleepSync(ms: number): void {
  * Read the id file, waiting out a live writer's bytes — the adopt loop, shared by
  * the EEXIST branch of {@link installId} and its empty-leftover takeover.
  *
- * @returns The published id, or null when the file still reads empty after
- *   {@link ID_ADOPT_ATTEMPTS} tries.
+ * A read that fails ENOENT is "no id there RIGHT NOW", never "unreadable id
+ * file": the name is momentarily gone because a rival's exclusive-create
+ * takeover renamed the file aside (see {@link installId}), which is exactly the
+ * state this loop exists to wait out. Letting the ENOENT escape put it on
+ * {@link installId}'s outer catch, whose `'unknown'` id is the net for a file
+ * that cannot be read AT ALL — so a process racing a takeover reported a blank
+ * anonymousId for that event, the split-across-two-ids failure this whole
+ * module is built to avoid, reached through the wait instead of the create.
+ *
+ * @returns The published id, or null when the file still reads empty (or is
+ *   still gone) after {@link ID_ADOPT_ATTEMPTS} tries.
  */
 function readPublishedId(): string | null {
   for (let attempt = 0; attempt < ID_ADOPT_ATTEMPTS; attempt++) {
-    const won = readFileSync(ID_FILE, 'utf8').trim()
+    let won: string
+    try {
+      won = readFileSync(ID_FILE, 'utf8').trim()
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error
+      // Gone for now — keep waiting for the winner's bytes.
+      sleepSync(ID_ADOPT_WAIT_MS)
+      continue
+    }
     if (won) return won
     sleepSync(ID_ADOPT_WAIT_MS)
   }
@@ -100,10 +109,21 @@ function readPublishedId(): string | null {
 function installId(): string {
   try {
     if (existsSync(ID_FILE)) {
-      const existing = readFileSync(ID_FILE, 'utf8').trim()
+      // A read that fails ENOENT is the file that was there a moment ago and is
+      // gone NOW — a rival's takeover renamed it aside. That is "no id to adopt
+      // yet", not an unreadable id file, so it falls through to the exclusive
+      // create below (which either publishes this process's id or adopts the
+      // winner's) instead of reaching the outer catch's `'unknown'` id, which is
+      // the net for a file that cannot be read at all.
+      let existing = ''
+      try {
+        existing = readFileSync(ID_FILE, 'utf8').trim()
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error
+      }
       // A ZERO-LENGTH id file must not become the permanent anonymous id:
       // writeFileSync opens with O_TRUNC before it writes, so a crash or a full
-      // disk between the two leaves an empty file — and the early return below
+      // disk between the two leaves an empty file — and an early return here
       // would then read that '' back on every later run, reporting a blank
       // anonymousId for the life of the install. Fall through and mint one
       // (the write below fills the empty file in).
@@ -165,16 +185,29 @@ function installId(): string {
       if (moved !== null) {
         // A live writer's bytes landed between the adopt loop's last read and
         // the rename: the file we just moved holds the id this install must
-        // keep. Put it back (a rival that re-took the name in the gap keeps
-        // its own file — the link fails with EEXIST rather than replacing it),
-        // drop our extra name, and adopt the bytes.
+        // keep. Put it back — through the SAME exclusive create the winner
+        // used, which is the only operation here that cannot replace a file
+        // that appeared in the meantime. `rename` (what this used to be) is
+        // NOT that operation: rename(2) atomically REPLACES its destination, so
+        // a rival that took the freed name in the gap had the id it had just
+        // published silently overwritten by the bytes captured here — while its
+        // own event already carried that id, splitting one install across two
+        // anonymousIds, the failure this whole function exists to prevent.
+        // `wx` fails with EEXIST instead, and the rival's bytes are adopted so
+        // the file and the reported id agree.
+        let published = moved
         try {
-          renameSync(leftover, ID_FILE)
-        } catch (_error) {
+          writeFileSync(ID_FILE, moved, { mode: 0o600, flag: 'wx' })
+        } catch (putBackError) {
+          if ((putBackError as NodeJS.ErrnoException)?.code !== 'EEXIST') throw putBackError
+          // A rival re-took the name in the gap: its bytes are the install's id
+          // now (its own event already carries them). Adopt them so the file
+          // and the reported id name the same install; an empty file there is a
+          // rival mid-write, which the captured bytes answer for instead.
           try {
-            linkSync(leftover, ID_FILE)
-          } catch (_linkError) {
-            // The name holds a valid id again either way; ours is a copy.
+            published = readFileSync(ID_FILE, 'utf8').trim() || moved
+          } catch (_readError) {
+            published = moved
           }
         }
         try {
@@ -182,7 +215,7 @@ function installId(): string {
         } catch (_error) {
           // Inert litter beside the id file; the id itself is published.
         }
-        return moved
+        return published
       }
       try {
         rmSync(leftover, { force: true })
