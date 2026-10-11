@@ -6100,7 +6100,7 @@ export async function scaffoldPackage(
         files.push(...(await scaffoldCore(targetDir, pascalName, cleanName)))
         break
       case 'provider':
-        files.push(...(await scaffoldProvider(targetDir, pascalName, cleanName, meta)))
+        files.push(...(await scaffoldProvider(targetDir, cleanName, meta)))
         break
       case 'resource':
         files.push(...(await scaffoldResource(targetDir, pascalName, cleanName, meta)))
@@ -6172,9 +6172,22 @@ async function scaffoldCore(dir: string, pascalName: string, cleanName: string):
   return ['src/types.ts', 'src/provider.ts', 'src/index.ts']
 }
 
+/**
+ * Write a provider/bond package's three source files.
+ *
+ * The provider's own Pascal names are DERIVED here from `cleanName` (the label
+ * segment and the category segment), never taken from the caller's package-wide
+ * `pascalName`: a provider is `<category>-<provider>`, so `PASCAL_NAME` of the
+ * whole package is neither of the two identifiers its templates need. The
+ * parameter used to be threaded in and left unread.
+ *
+ * @param dir - The package directory to write into.
+ * @param cleanName - The package name without its `@molecule/`/stack prefix.
+ * @param meta - Inferred package metadata (implements, secrets).
+ * @returns The files written, relative to `dir`.
+ */
 async function scaffoldProvider(
   dir: string,
-  pascalName: string,
   cleanName: string,
   meta: InferredMetadata,
 ): Promise<string[]> {
