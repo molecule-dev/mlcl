@@ -10,9 +10,11 @@
  * Posture mirrors mlcl (see the mlcl README's "Telemetry & privacy"): opt-out
  * (MOLECULE_TELEMETRY=0 or DO_NOT_TRACK=1; a local MOLECULE_ENV=local run stays
  * silent unless MOLECULE_TELEMETRY=1 re-enables it), anonymous (a random
- * per-install id in ~/.mlcl/telemetry-id, shared with the CLI), fire-and-
- * forget with a 5s timeout, no-op without a reachable endpoint. Emit failures
- * are swallowed — logged only under MLCL_DEBUG=1, like the CLI.
+ * per-install id in ~/.mlcl/telemetry-id, shared with the CLI), fire-and-forget
+ * with a 5s timeout, no-op without a reachable endpoint. Emit failures are
+ * swallowed — logged only under MLCL_DEBUG=1, like the CLI. Emits are also
+ * BOUNDED in flight ({@link MAX_IN_FLIGHT_EMITS}) and dropped past that bound,
+ * so incoming traffic cannot turn into unbounded outbound load.
  */
 import { randomUUID } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
@@ -97,9 +99,35 @@ function installId(): string {
   }
 }
 
-/** Fire-and-forget `mcp.tool_call` event — never throws, never blocks. */
+/**
+ * How many telemetry emits may be in flight at once.
+ *
+ * The hosted server is public and unauthenticated, and its request budget is
+ * per client ADDRESS — so a flood from many addresses (a botnet, or a
+ * header-rotating client on an unguarded proxy) stays inside each address's own
+ * budget. Every accepted tool call started one outbound POST here and nothing
+ * bounded them: a burst of B calls held B pending requests, B abort timers and B
+ * socket slots for the 5 s the timeout allows, growing with the incoming rate
+ * instead of with the work the server owes anyone. An emit is best-effort (see
+ * the module note, and the CLI's telemetry posture), so the overflow is DROPPED
+ * rather than queued — a queue is exactly the unbounded thing this bound exists
+ * to prevent, and a dropped event costs nothing but the comparison below.
+ */
+export const MAX_IN_FLIGHT_EMITS = 8
+
+/** Emits started and not yet settled — see {@link MAX_IN_FLIGHT_EMITS}. */
+let inFlightEmits = 0
+
+/**
+ * Fire-and-forget `mcp.tool_call` event — never throws, never blocks, and never
+ * queues: once {@link MAX_IN_FLIGHT_EMITS} emits are in flight this call is
+ * dropped.
+ */
 export function trackToolCall(tool: string, ok: boolean, startedAt: number): void {
   if (!telemetryEnabled()) return
+  // Saturated — drop this event. Deliberately above the payload below: nothing
+  // on the dropped path reads the id file from disk or builds a body.
+  if (inFlightEmits >= MAX_IN_FLIGHT_EMITS) return
   const url = process.env.MOLECULE_TELEMETRY_URL ?? DEFAULT_URL
   const payload = {
     kind: 'track',
@@ -119,17 +147,25 @@ export function trackToolCall(tool: string, ok: boolean, startedAt: number): voi
       },
     },
   }
+  inFlightEmits++
   void fetch(url, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(payload),
     signal: AbortSignal.timeout(5_000),
-  }).catch((error: unknown) => {
-    // Telemetry must never break a tool call — but MLCL_DEBUG=1 promises
-    // inspectable traffic (mlcl README, "Telemetry & privacy"), so an emit
-    // failure is logged there, the same as the CLI's.
-    if (process.env.MLCL_DEBUG === '1') console.error('[telemetry] emit failed:', error)
   })
+    .catch((error: unknown) => {
+      // Telemetry must never break a tool call — but MLCL_DEBUG=1 promises
+      // inspectable traffic (mlcl README, "Telemetry & privacy"), so an emit
+      // failure is logged there, the same as the CLI's.
+      if (process.env.MLCL_DEBUG === '1') console.error('[telemetry] emit failed:', error)
+    })
+    .finally(() => {
+      // The slot is released on EVERY outcome (resolved, rejected, aborted by
+      // the timeout above), so a saturated server unblocks itself as its own
+      // emits settle instead of going silent for the life of the process.
+      inFlightEmits--
+    })
 }
 
 /** Wrap a tool handler with emission — used by every registerTool call. */
