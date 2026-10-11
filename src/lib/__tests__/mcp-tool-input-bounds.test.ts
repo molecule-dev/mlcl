@@ -19,6 +19,11 @@
  * - `transform_image`'s background color and `push_send`'s three subscription
  *   fields (endpoint URL, p256dh key, auth secret) ride their metered outbound
  *   bodies verbatim, where the sibling tools bound the same shapes.
+ * - `embed_text`'s input IS the metered embeddings work (billed per token) and
+ *   the outbound body; the hosted service refuses past its own limits
+ *   (256 texts / 32,000 characters each / 400,000 in total), so the tool
+ *   enforces exactly those before the call instead of shipping a doomed
+ *   round trip.
  *
  * Schema-level bounds are asserted on the advertised JSON Schema (what a client
  * sees — removing one is a visible regression); the question cap is enforced in
@@ -273,6 +278,59 @@ describe('tool arguments that become outbound work carry a client-visible bound'
       await schemaBound(tools, 'push_send', 'auth', 'maxLength'),
       'push_send.auth must carry a length cap',
     ).toBe(200)
+  })
+
+  it('bounds embed_text.input — the metered embeddings body its siblings all cap', async (ctx) => {
+    if (skipped(ctx)) return
+    // `input` is a union (string | array), so the caps sit in the anyOf
+    // branches one level below the top-level lookup the other assertions use.
+    const schema = (await listTools()).tools.find((tool) => tool.name === 'embed_text')
+      ?.inputSchema as
+      { properties?: { input?: { anyOf?: Array<Record<string, unknown>> } } } | undefined
+    const branches = schema?.properties?.input?.anyOf ?? []
+    const stringBranch = branches.find((b) => b.type === 'string')
+    const arrayBranch = branches.find((b) => b.type === 'array')
+    expect(
+      stringBranch?.maxLength,
+      'embed_text must cap the single-string form at the service per-text limit',
+    ).toBe(32_000)
+    expect(
+      arrayBranch?.maxItems,
+      'embed_text must cap the list form at the service count limit',
+    ).toBe(256)
+    const items = (arrayBranch?.items ?? {}) as Record<string, unknown>
+    expect(items.maxLength, 'each embedded text must carry the per-text cap').toBe(32_000)
+  })
+
+  it('refuses an embed_text list past the count cap before the metered call', async (ctx) => {
+    if (skipped(ctx)) return
+    const text = await callText(callTool, 'embed_text', {
+      input: Array.from({ length: 257 }, (_unused, i) => `t${i}`),
+    })
+    expect(text).toContain('256')
+    expect(text, 'the refusal is the cap, not the service').not.toContain(METERED_MARKER)
+  })
+})
+
+describe('embed_text refuses more characters than the service accepts', () => {
+  it('refuses a total past the budget before the metered call', async (ctx) => {
+    if (skipped(ctx)) return
+    // Inside the per-text (32,000) and count (256) caps the schema enforces,
+    // over the 400,000 total only the handler checks: 13 × 32,000 = 416,000.
+    const input = Array.from({ length: 13 }, () => 'a'.repeat(32_000))
+    const text = await callText(callTool, 'embed_text', { input })
+    // Raw digits, the same unseparated form translate's budget refusal names.
+    expect(text).toContain('400000')
+    expect(text, 'the budget refusal precedes the metered call').not.toContain(METERED_MARKER)
+  })
+
+  it('admits a call at both caps the schema enforces', async (ctx) => {
+    if (skipped(ctx)) return
+    // The bound must not be tighter than the service's: 256 texts inside the
+    // per-text cap whose total stays within 400,000 reaches the service.
+    const input = Array.from({ length: 256 }, () => 'a'.repeat(1_500))
+    const text = await callText(callTool, 'embed_text', { input })
+    expect(text, 'the caps admit the batch the service accepts').toContain(METERED_MARKER)
   })
 })
 

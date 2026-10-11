@@ -894,14 +894,42 @@ server.registerTool(
   }),
 )
 
+/**
+ * The input budget `embed_text` enforces — the hosted embeddings service's own
+ * limits (the API's `HostedServices/embeddings.ts` `EMBED_LIMITS`), which are
+ * the real contract: an input past them was buffered WHOLE in this process,
+ * shipped to the service, and answered with an opaque 413 only after the round
+ * trip. Enforced here instead, before the metered call — the same rule
+ * `translate`'s character budget and `merge_pdfs`' file caps follow: the input
+ * is both the metered work (billed per token) and the body of the outbound
+ * request, so the bound the caller sees must be the bound that applies.
+ */
+const EMBED_MAX_TEXTS = 256
+/** Longest single text one `embed_text` call may carry. */
+const EMBED_MAX_CHARS_PER_TEXT = 32_000
+/** Total characters one `embed_text` call may carry across all its texts. */
+const EMBED_MAX_TOTAL_CHARS = 400_000
+
 server.registerTool(
   'embed_text',
   {
     title: 'Embed text with molecule.dev',
     description:
-      'Turn text into embedding vectors on molecule.dev (no OpenAI account needed; metered to the project whose MOLECULE_API_KEY is used). Returns model, token usage and the vectors (or only their length with summary_only). The same service backs @molecule/api-ai-embeddings-molecule in app code.',
+      'Turn text into embedding vectors on molecule.dev (no OpenAI account needed; metered to the project whose MOLECULE_API_KEY is used). Up to 256 texts / 32,000 characters each / 400,000 characters in total per call. Returns model, token usage and the vectors (or only their length with summary_only). The same service backs @molecule/api-ai-embeddings-molecule in app code.',
     inputSchema: {
-      input: z.union([z.string(), z.array(z.string())]).describe('Text or list of texts'),
+      // The per-text cap and the text COUNT are bound here (a client sees them
+      // in the JSON Schema); the TOTAL is checked in the handler, the same
+      // split `translate` uses for its own budget. `.min(1)` moves the
+      // service's empty-string refusal in front of the metered call too.
+      input: z
+        .union([
+          z.string().min(1).max(EMBED_MAX_CHARS_PER_TEXT),
+          z
+            .array(z.string().min(1).max(EMBED_MAX_CHARS_PER_TEXT))
+            .max(EMBED_MAX_TEXTS)
+            .describe('Up to 256 texts'),
+        ])
+        .describe('Text or list of texts'),
       model: z.enum(['text-embedding-3-small', 'text-embedding-3-large']).optional(),
       dimensions: z.number().int().min(1).max(3072).optional(),
       summary_only: z
@@ -916,6 +944,19 @@ server.registerTool(
   },
   tracked('embed_text', async ({ input, model, dimensions, summary_only, directory }) =>
     serviceResult(async () => {
+      // The advertised total-character budget, refused BEFORE the metered call
+      // — the same rule `translate` applies to its own (the schema bounds the
+      // per-text size and the count; the total spans both shapes, so it is the
+      // handler's check).
+      const texts = Array.isArray(input) ? input : [input]
+      const characters = texts.reduce((sum, entry) => sum + entry.length, 0)
+      if (characters > EMBED_MAX_TOTAL_CHARS) {
+        throw new ServiceCallError(
+          `${characters} characters across ${texts.length} text(s); embed_text accepts up to ` +
+            `${EMBED_MAX_TOTAL_CHARS} characters (${EMBED_MAX_CHARS_PER_TEXT} per text, ` +
+            `${EMBED_MAX_TEXTS} texts) per call. Split it into several requests.`,
+        )
+      }
       const result = (await callHostedService(
         'embeddings',
         'embed',
