@@ -18,14 +18,22 @@ import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest'
 
+import { disableAI } from '../ai.js'
 import {
   type InjectionPlan,
   planInjection,
   synthesizeProjectFiles,
   writeSynthesizedFiles,
 } from '../injector.js'
+
+beforeAll(() => {
+  // The synthesis below asserts the HEURISTIC wrapper generator's shape; a
+  // configured ANTHROPIC_API_KEY would route it through the real model
+  // (metered, nondeterministic) — see injector-smoke-mocks.test.ts.
+  disableAI()
+})
 
 /** `api-/../../../../../evil` — five `..` segments, which reach above the project. */
 const EVIL_NAME = '@molecule/api-/../../../../../evil'

@@ -26,6 +26,7 @@ import { join } from 'node:path'
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
+import { disableAI } from '../ai.js'
 import type { InjectionPlan } from '../injector.js'
 import { synthesizeProjectFiles } from '../injector.js'
 import type { InferredRoute } from '../schema.js'
@@ -35,6 +36,10 @@ const RESOURCE = '@molecule/api-resource-fixture'
 let projectPath: string
 
 beforeAll(async () => {
+  // The suite asserts the HEURISTIC wrapper's text; a configured
+  // ANTHROPIC_API_KEY would route the synthesis through the real model
+  // (metered, nondeterministic) — see injector-smoke-mocks.test.ts.
+  disableAI()
   projectPath = await mkdtemp(join(tmpdir(), 'mlcl-router-authz-'))
 })
 
