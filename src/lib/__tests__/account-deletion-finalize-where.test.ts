@@ -129,7 +129,18 @@ beforeEach(() => {
     return devices.find((row) => where.every((cond) => matches(row, cond))) ?? null
   })
   database.deleteById.mockResolvedValue({ data: null, affected: 1 })
-  database.deleteMany.mockResolvedValue({ data: [], affected: 1 })
+  // The session purge DELETES state: a real store removes the device rows the
+  // sign-back-in re-check reads, so this double applies the deletion to the
+  // array. A stub that answered `affected: 1` while leaving every row in place
+  // let the suite pass with the re-check reading evidence a real store had
+  // already purged — the exact blind spot the "signs back in DURING the purge"
+  // test below exists to close.
+  database.deleteMany.mockImplementation(async (table: string, where?: Cond[]) => {
+    if (table !== 'devices') return { data: [], affected: 1 }
+    const before = devices.length
+    devices = devices.filter((row) => !where?.every((cond) => matches(row, cond)))
+    return { data: [], affected: before - devices.length }
+  })
 })
 
 /** Run the registered job once, as the cron provider would on its tick. */
@@ -269,27 +280,63 @@ describe('finalize-deletions — the expired-user filter must actually match', (
     expect(database.deleteById).toHaveBeenCalledWith('users', 'u-mysql')
   })
 
-  it('cancels the deletion when the user signs back in DURING the purge', async () => {
-    // The first sign-back-in check runs BEFORE the purges (the devices purge
-    // among them), so a sign-in that lands after it — exactly the case where the
-    // new session row is then purged — used to end with the account hard-deleted
-    // anyway, against the page's promise. The check immediately before the
-    // irreversible delete is what catches it.
+  it('cancels the deletion when the user signs back in DURING the purge — before the session purge can erase the evidence', async () => {
+    // The first sign-back-in check runs BEFORE the purges, so a sign-in that
+    // lands after it must still be honored. The store double above APPLIES the
+    // job's own `devices` deletion (a real store deletes exactly the rows that
+    // prove a sign-back-in), and the sign-in here is a row landing during the
+    // usersSecrets purge. A job that purged sessions BEFORE re-checking read an
+    // emptied table at the re-check, found nobody, and hard-deleted the account
+    // anyway — against the page's "sign back in to cancel" promise. (The
+    // scripted findOne double this test used to mock could not see that
+    // ordering: it answered from its script, not from the store the purge had
+    // emptied, so the assertion passed with the re-check placed after the purge
+    // that destroys what it reads.)
     users = [{ id: 'u-race', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
-    database.findOne
-      .mockResolvedValueOnce(null) // the pre-purge check: no device yet
-      .mockResolvedValueOnce({ id: 'd-new', userId: 'u-race' }) // …and it appears during the purge
+    database.deleteById.mockImplementation(async (table: string, id: string) => {
+      if (table === 'usersSecrets') {
+        // The sign-back-in lands while the purge is running.
+        devices.push({ id: 'd-new', userId: id })
+      }
+      return { data: null, affected: 1 }
+    })
 
     await runJob()
 
-    // The purge had already begun…
+    // The purge had begun (usersSecrets ran)…
     expect(database.deleteById).toHaveBeenCalledWith('usersSecrets', 'u-race')
-    expect(database.deleteMany).toHaveBeenCalledWith('devices', [
+    // …but the re-check read the table BEFORE the session purge could delete
+    // the row it reads: the account survives, the marker is cleared, and the
+    // session row — the sign-back-in evidence itself — is not purged.
+    expect(database.deleteMany).not.toHaveBeenCalledWith('devices', [
       { field: 'userId', operator: '=', value: 'u-race' },
     ])
-    // …but the account survives, and the soft-delete marker is cleared.
     expect(database.deleteById).not.toHaveBeenCalledWith('users', 'u-race')
     expect(database.updateById).toHaveBeenCalledWith('users', 'u-race', { deleted_at: null })
+  })
+
+  it('re-checks the sign-back-in state BEFORE purging the sessions that read inspects', async () => {
+    // The order itself, on the plain-delete path: the re-check's devices read
+    // must precede the session purge, because the purge destroys the very rows
+    // that read inspects (see the race test above). Invocation order is the
+    // observable — a job that purged first and re-checked second reads what it
+    // just emptied, and this fails on it.
+    users = [{ id: 'u-gone', deleted_at: new Date(Date.now() - 40 * DAY_MS).toISOString() }]
+    devices = []
+
+    await runJob()
+
+    expect(database.deleteById).toHaveBeenCalledWith('users', 'u-gone')
+    expect(database.deleteMany).toHaveBeenCalledWith('devices', [
+      { field: 'userId', operator: '=', value: 'u-gone' },
+    ])
+    const recheckRead = database.findOne.mock.invocationCallOrder.at(-1) ?? 0
+    const sessionPurge =
+      database.deleteMany.mock.invocationCallOrder.at(-1) ?? Number.MAX_SAFE_INTEGER
+    expect(
+      recheckRead,
+      'the last sign-back-in read must happen before the session purge runs',
+    ).toBeLessThan(sessionPurge)
   })
 
   it('treats a wrong-COLUMN error (42703) as a real purge failure, never as a missing table', async () => {

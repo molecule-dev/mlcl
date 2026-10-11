@@ -162,29 +162,23 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
         continue
       }
 
-      // FRAMEWORK credential + session cleanup FIRST. These have NO `ON DELETE CASCADE`,
+      // FRAMEWORK credential cleanup FIRST. These have NO `ON DELETE CASCADE`,
       // so deleting the users row alone orphans them. `usersSecrets.id` IS the user id
       // (1:1), and it holds `passwordHash` + `twoFactorSecret` — leaving it behind is a
-      // data-retention / GDPR leak, the whole point of "delete my account". `devices`
-      // (active sessions/push tokens) is keyed by `userId` (camelCase, NOT user_id).
-      // Wrap each so one failure doesn't abort the batch and leave everyone undeleted.
+      // data-retention / GDPR leak, the whole point of "delete my account". Wrap each
+      // purge so one failure doesn't abort the batch and leave everyone undeleted.
       // A FAILED purge is remembered: the final users delete below is skipped, because
       // once the users row is gone the expired query can never select this user again
       // — a purge that failed this run would be orphaned FOREVER (its retry rides on
       // the user row still existing), and a skipped usersSecrets is exactly the leak
-      // above.
+      // above. The `devices` purge is deliberately NOT here: it deletes the rows the
+      // sign-back-in re-check below reads, so it runs only after that check.
       let purgeFailed = false
       try {
         await deleteById('usersSecrets', user.id)
       } catch (err) {
         purgeFailed = true
         console.error('finalize-deletions: usersSecrets purge failed', { userId: user.id, err })
-      }
-      try {
-        await deleteMany('devices', [{ field: 'userId', operator: '=', value: user.id }])
-      } catch (err) {
-        purgeFailed = true
-        console.error('finalize-deletions: devices purge failed', { userId: user.id, err })
       }
 
       // APP tables — best-effort per table: a table this app doesn't have (relation does
@@ -208,6 +202,52 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
         }
       }
 
+      // …and ONE more sign-back-in check BEFORE the session purge — the last read
+      // that can still see one. The `devices` purge deletes exactly the rows that
+      // prove a sign-back-in, so a check placed after it can never confirm a
+      // sign-in that landed during the purges above: the purge erased the
+      // evidence and the account was then hard-deleted, against the page's
+      // "sign back in to cancel" promise. Reading the still-intact table here
+      // honors every sign-in up to this instant, including one that landed
+      // between the first check and now. The two steps still cannot be made
+      // atomic: the only remaining race is the gap between this read and the
+      // session purge + delete below.
+      const signedInNow = await hasSignedBackIn(user.id, signedBackIn)
+      if (signedInNow === null) {
+        // The store could not answer — never purge on a guess (the same rule the
+        // first check applies); the account survives to the next run, and the
+        // session purge waits with it (see below).
+        console.error(
+          `finalize-deletions: user ${user.id} kept — could not re-confirm the sign-back-in state`,
+        )
+        continue
+      }
+      if (signedInNow) {
+        try {
+          await updateById('users', user.id, { deleted_at: null })
+          console.log(
+            `finalize-deletions: user ${user.id} signed back in during the purge — deletion cancelled`,
+          )
+        } catch (err) {
+          console.error('finalize-deletions: deletion cancel failed', { userId: user.id, err })
+        }
+        // The devices purge below is skipped too: the session row IS the
+        // sign-back-in evidence, and the account just stayed.
+        continue
+      }
+
+      // The session purge (`devices` — active sessions/push tokens, keyed by
+      // `userId`, camelCase NOT user_id) runs only once the re-check above has
+      // read the table, and still runs when a purge above already failed: each
+      // purge is independent and idempotent, and an account that is leaving this
+      // run or the next should not keep its sessions while it waits.
+      try {
+        await deleteMany('devices', [{ field: 'userId', operator: '=', value: user.id }])
+      } catch (err) {
+        purgeFailed = true
+        console.error('finalize-deletions: devices purge failed', { userId: user.id, err })
+      }
+
       // The final hard delete only runs when EVERY purge above succeeded: the
       // purges are idempotent and the soft-delete marker is still set, so a user
       // with a failed purge is re-selected next run and the failed purge retries.
@@ -225,34 +265,6 @@ export async function registerFinalizeDeletionsJob(): Promise<void> {
         console.error(
           `finalize-deletions: user ${user.id} kept — a purge failed; the users row stays so it retries next run`,
         )
-        continue
-      }
-      // …and ONE more sign-back-in check IMMEDIATELY before the irreversible
-      // step. The first check ran before the purges above (the devices purge
-      // among them), so a user who signed in DURING them had their new session
-      // row deleted and then their account — even though the deletion page
-      // promises that signing in cancels it, and losing an account (and
-      // everything in it) is not like losing a session. The two steps cannot be
-      // made atomic here, but this shrinks the window to the gap between this
-      // read and the single delete below.
-      const signedInNow = await hasSignedBackIn(user.id, signedBackIn)
-      if (signedInNow === null) {
-        // The store could not answer — never purge on a guess (the same rule the
-        // first check applies); the account survives to the next run.
-        console.error(
-          `finalize-deletions: user ${user.id} kept — could not re-confirm the sign-back-in state`,
-        )
-        continue
-      }
-      if (signedInNow) {
-        try {
-          await updateById('users', user.id, { deleted_at: null })
-          console.log(
-            `finalize-deletions: user ${user.id} signed back in during the purge — deletion cancelled`,
-          )
-        } catch (err) {
-          console.error('finalize-deletions: deletion cancel failed', { userId: user.id, err })
-        }
         continue
       }
       try {
