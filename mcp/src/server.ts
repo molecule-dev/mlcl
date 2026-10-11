@@ -2611,7 +2611,7 @@ server.registerTool(
   {
     title: "Inspect a project's cloud database",
     description:
-      "The project database's connection info and settings. See also db_tables / db_query / db_backup. Requires login.",
+      "The project database's connection info and settings. See also db_tables and db_query. Requires login.",
     inputSchema: {
       project_id: z.string().describe('molecule.dev project id'),
     },

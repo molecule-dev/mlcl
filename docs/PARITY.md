@@ -51,17 +51,17 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 
 ## Sandbox & files
 
-| Capability                   | Route(s)                             | Decision                                                                                    | CLI                                        | MCP | Status |
-| ---------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------- | ------------------------------------------ | --- | ------ |
-| Sandbox status               | GET /projects/:id/sandbox/status     | parity                                                                                      | `sandbox status`                           | —   | ✅     |
-| Start / stop / restart       | POST .../sandbox/start               | parity                                                                                      | `sandbox start \| stop \| restart`         | —   | ✅     |
-| Exec in sandbox              | POST /projects/:id/sandbox/exec      | parity                                                                                      | `sandbox exec -- <cmd>`                    | —   | ✅     |
-| Snapshots                    | POST/GET /snapshots, restore, DELETE | parity                                                                                      | `snapshot create \| list \| restore \| rm` | —   | ✅     |
-| File CRUD/search             | GET/PUT/DELETE /files/*, search      | parity (`sync` pushes a local tree into the sandbox through PUT /files/*; reads stay local) | `sync [dir] --dest <appDir>`               | —   | ✅     |
-| Terminal / LSP / presence WS | /ws/projects/:id/*                   | ide-only (interactive sockets)                                                              | —                                          | —   | ➖     |
-| Egress policy                | GET /egress, allowlist POST/DELETE   | parity                                                                                      | `egress get/approve/revoke`                | —   | ✅     |
-| Logs / log stream            | GET /logs, /logs/stream              | parity                                                                                      | `logs [--stream]`                          | —   | ✅     |
-| Preview health               | GET /preview/health/stream           | ide-only (SSE UI)                                                                           | —                                          | —   | ➖     |
+| Capability                   | Route(s)                             | Decision                                                                                    | CLI                                        | MCP                                          | Status |
+| ---------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------- | ------------------------------------------ | -------------------------------------------- | ------ |
+| Sandbox status               | GET /projects/:id/sandbox/status     | parity                                                                                      | `sandbox status`                           | `sandbox_status`                             | ✅     |
+| Start / stop / restart       | POST .../sandbox/start               | parity                                                                                      | `sandbox start \| stop \| restart`         | `sandbox_start/sandbox_stop/sandbox_restart` | ✅     |
+| Exec in sandbox              | POST /projects/:id/sandbox/exec      | parity                                                                                      | `sandbox exec -- <cmd>`                    | `sandbox_exec`                               | ✅     |
+| Snapshots                    | POST/GET /snapshots, restore, DELETE | parity                                                                                      | `snapshot create \| list \| restore \| rm` | —                                            | ✅     |
+| File CRUD/search             | GET/PUT/DELETE /files/*, search      | parity (`sync` pushes a local tree into the sandbox through PUT /files/*; reads stay local) | `sync [dir] --dest <appDir>`               | —                                            | ✅     |
+| Terminal / LSP / presence WS | /ws/projects/:id/*                   | ide-only (interactive sockets)                                                              | —                                          | —                                            | ➖     |
+| Egress policy                | GET /egress, allowlist POST/DELETE   | parity                                                                                      | `egress get/approve/revoke`                | —                                            | ✅     |
+| Logs / log stream            | GET /logs, /logs/stream              | parity                                                                                      | `logs [--stream]`                          | `project_logs`                               | ✅     |
+| Preview health               | GET /preview/health/stream           | ide-only (SSE UI)                                                                           | —                                          | —                                            | ➖     |
 
 ## Git
 
@@ -76,13 +76,13 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 
 ## Deploy & CI
 
-| Capability                 | Route(s)                          | Decision | CLI                                          | MCP | Status |
-| -------------------------- | --------------------------------- | -------- | -------------------------------------------- | --- | ------ |
-| Deploy to production       | POST /deployments                 | parity   | `deploy --follow`                            | —   | ✅     |
-| Deployment list/detail     | GET /deployments(/:id)            | parity   | `deploy list/status`                         | —   | ✅     |
-| Cancel deployment          | DELETE /deployments/:id           | parity   | `deploy cancel`                              | —   | ✅     |
-| CI workflow generate/apply | GET/POST /workflows/:platform     | parity   | `deploy workflow github \| gitlab [--apply]` | —   | ✅     |
-| Custom domains             | GET/POST /domains, verify, DELETE | parity   | `domain list/add/verify/rm`                  | —   | ✅     |
+| Capability                 | Route(s)                          | Decision | CLI                                                   | MCP                                                        | Status |
+| -------------------------- | --------------------------------- | -------- | ----------------------------------------------------- | ---------------------------------------------------------- | ------ |
+| Deploy to production       | POST /deployments                 | parity   | `deploy --follow`                                     | `deploy_project`                                           | ✅     |
+| Deployment list/detail     | GET /deployments(/:id)            | parity   | `deploy list/status`                                  | `deploy_status`/`list_deploys`                             | ✅     |
+| Cancel deployment          | DELETE /deployments/:id           | parity   | `deploy cancel`                                       | `cancel_deploy`                                            | ✅     |
+| CI workflow generate/apply | GET/POST /workflows/:platform     | parity   | `deploy workflow-github \| workflow-gitlab [--apply]` | —                                                          | ✅     |
+| Custom domains             | GET/POST /domains, verify, DELETE | parity   | `domain list/add/verify/rm`                           | `domain_list`/`domain_add`/`domain_verify`/`domain_remove` | ✅     |
 
 ## Environment & secrets
 
@@ -98,27 +98,27 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 
 ## Database
 
-| Capability                      | Route(s)             | Decision         | CLI                                          | MCP              | Status |
-| ------------------------------- | -------------------- | ---------------- | -------------------------------------------- | ---------------- | ------ |
-| Local migrate/reset/console/url | —                    | local-equivalent | `db migrate/reset/console/url`               | —                | ✅     |
-| Cloud connection info           | GET /database        | parity           | `db info`                                    | —                | ✅     |
-| SQL console (cloud)             | POST /database/query | parity           | `db query`                                   | —                | ✅     |
-| Schema tables                   | GET /database/tables | parity           | `db info`                                    | —                | ✅     |
-| Backups create/list/restore     | /database/backups    | parity           | `db backup list/create/restore`              | —                | ✅     |
-| Project eject/export            | GET /export          | parity           | `project export` (streams the eject .tar.gz) | `export_project` | ✅     |
+| Capability                      | Route(s)             | Decision         | CLI                                                    | MCP              | Status |
+| ------------------------------- | -------------------- | ---------------- | ------------------------------------------------------ | ---------------- | ------ |
+| Local migrate/reset/console/url | —                    | local-equivalent | `db migrate/reset/console/url`                         | —                | ✅     |
+| Cloud connection info           | GET /database        | parity           | `db info`                                              | `db_info`        | ✅     |
+| SQL console (cloud)             | POST /database/query | parity           | `db query`                                             | `db_query`       | ✅     |
+| Schema tables                   | GET /database/tables | parity           | `db tables`                                            | `db_tables`      | ✅     |
+| Backups create/list/restore     | /database/backups    | parity           | `db backup-list \| db backup \| db restore <backupId>` | —                | ✅     |
+| Project eject/export            | GET /export          | parity           | `project export` (streams the eject .tar.gz)           | `export_project` | ✅     |
 
 ## Team & sharing
 
-| Capability                             | Route(s)                                                      | Decision                                      | CLI                               | MCP                                                           | Status |
-| -------------------------------------- | ------------------------------------------------------------- | --------------------------------------------- | --------------------------------- | ------------------------------------------------------------- | ------ |
-| Project team list                      | GET /team                                                     | parity                                        | `team list`                       | —                                                             | ✅     |
-| Invite member                          | POST /team/invite                                             | parity                                        | `team invite <email> --role`      | —                                                             | ✅     |
-| Revoke invite / remove / role          | DELETE/PATCH /team/*                                          | parity                                        | `team revoke/set-role/rm`         | —                                                             | ✅     |
-| My invitations                         | GET /invitations, accept/decline                              | parity                                        | `invitations list/accept/decline` | —                                                             | ✅     |
-| Share links mint/revoke                | POST/GET/DELETE /shares                                       | parity                                        | `share list/create/rm`            | —                                                             | ✅     |
-| Public transcripts / workspace         | PUT /public-transcript, PUT /public-workspace                 | parity                                        | `share visibility`                | `share_visibility`                                            | ✅     |
-| Session transcripts import/list/remove | POST/GET/DELETE /transcripts                                  | parity                                        | `transcripts import/list/rm`      | `import_transcripts`, `list_transcripts`, `remove_transcript` | ✅     |
-| Public session + file views            | GET /share/:slug/sessions(/:id), GET /share/:slug/files(/raw) | ide-only (the public share page for visitors) | —                                 | —                                                             | ➖     |
+| Capability                             | Route(s)                                                      | Decision                                      | CLI                                    | MCP                                                           | Status |
+| -------------------------------------- | ------------------------------------------------------------- | --------------------------------------------- | -------------------------------------- | ------------------------------------------------------------- | ------ |
+| Project team list                      | GET /team                                                     | parity                                        | `team list`                            | —                                                             | ✅     |
+| Invite member                          | POST /team/invite                                             | parity                                        | `team invite --email <email> [--role]` | —                                                             | ✅     |
+| Revoke invite / remove / role          | DELETE/PATCH /team/*                                          | parity                                        | `team revoke/set-role/rm`              | —                                                             | ✅     |
+| My invitations                         | GET /invitations, accept/decline                              | parity                                        | `invitations list/accept/decline`      | —                                                             | ✅     |
+| Share links mint/revoke                | POST/GET/DELETE /shares                                       | parity                                        | `share list/create/rm`                 | —                                                             | ✅     |
+| Public transcripts / workspace         | PUT /public-transcript, PUT /public-workspace                 | parity                                        | `share visibility`                     | `share_visibility`                                            | ✅     |
+| Session transcripts import/list/remove | POST/GET/DELETE /transcripts                                  | parity                                        | `transcripts import/list/rm`           | `import_transcripts`, `list_transcripts`, `remove_transcript` | ✅     |
+| Public session + file views            | GET /share/:slug/sessions(/:id), GET /share/:slug/files(/raw) | ide-only (the public share page for visitors) | —                                      | —                                                             | ➖     |
 
 ## Builds & tests
 
