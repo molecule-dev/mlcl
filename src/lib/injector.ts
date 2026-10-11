@@ -1358,7 +1358,13 @@ function applyTransformation(content: string, transform: FileTransformation): st
     case 'replace-import':
     case 'replace-path':
     case 'replace-string':
-      return content.replace(new RegExp(escapeRegExp(transform.from), 'g'), transform.to)
+      // `transform.to` is DATA (an import specifier, a path, a snippet a plan
+      // computed), and a replacement STRING is not a literal: `$&` splices the
+      // matched text back in, `$$` collapses to `$`, and `` $` ``/`$'` pull in
+      // the surrounding content — silently corrupting the generated file. A
+      // function replacement inserts the declared value verbatim. (`from` is
+      // already escaped for its own reason — see escapeRegExp.)
+      return content.replace(new RegExp(escapeRegExp(transform.from), 'g'), () => transform.to)
     default:
       return content
   }

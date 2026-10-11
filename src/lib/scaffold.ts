@@ -3021,11 +3021,23 @@ function readBrandColorFromBranding(
 
 /**
  * Replace `{{KEY}}` placeholders in template content.
+ *
+ * Every value is inserted through a FUNCTION, because a replacement STRING is
+ * not a literal: `$&` (the whole match), `` $` `` and `$'` (the text around it),
+ * and `$$` (a literal `$`) are special, so a value carrying one of them spliced
+ * the `{{KEY}}` placeholder — or the template text beside it — back into the
+ * generated file instead of the value. The vars here are DATA (a project name,
+ * a brand description, an SVG's inner markup, a font-link list), and this is the
+ * same policy syncIdentityFromBranding and the font-block merge already state.
+ *
+ * @param content - Template source, `{{KEY}}` placeholders intact.
+ * @param vars - The value for each placeholder key.
+ * @returns The content with every `{{KEY}}` replaced by its value, verbatim.
  */
 export function processTemplate(content: string, vars: Record<string, string>): string {
   let result = content
   for (const [key, value] of Object.entries(vars)) {
-    result = result.replaceAll(`{{${key}}}`, value)
+    result = result.replaceAll(`{{${key}}}`, () => value)
   }
   return result
 }
@@ -3845,9 +3857,14 @@ export async function copyTemplateDomainFiles(
       const block = (await readFile(designResourcesHtml, 'utf-8')).trim()
       const re = /<!--\s*mol:design-resources\s*-->[\s\S]*?<!--\s*\/mol:design-resources\s*-->/
       if (re.test(indexHtml)) {
+        // `block` is the template's own index-design-resources.html, i.e. DATA
+        // (hand-edited CSS/markup): a replacement STRING reads `$&` as the whole
+        // match, so a `$` sequence in the block spliced the placeholder comment
+        // into the injected CSS. The replacement goes through a FUNCTION, like
+        // the branding-driven rewrites above.
         const replaced = indexHtml.replace(
           re,
-          `<!-- mol:design-resources -->\n    ${block}\n    <!-- /mol:design-resources -->`,
+          () => `<!-- mol:design-resources -->\n    ${block}\n    <!-- /mol:design-resources -->`,
         )
         await writeGuarded(indexHtmlPath, replaced)
         mlclDebug(
