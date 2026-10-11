@@ -133,7 +133,21 @@ router.get('/', async (req, res) => {
       .json({ error: t('verifyEmail.notFound', undefined, { defaultValue: 'Link not found' }) })
   }
   if (new Date(tokenRow.expires_at) < new Date()) {
-    await deleteById('email_verification_tokens', tokenRow.id)
+    // Clearing an expired token is housekeeping, the same rule the used-token
+    // delete below follows — and the visitor must be told the link EXPIRED
+    // whether or not the clear lands. Unguarded, a transient store failure
+    // rejected the handler: the page read it as a 5xx and rendered "Could not
+    // check this link" for a link that is simply past its TTL. The row is inert
+    // either way (it is already expired), and the next visit retries the clear.
+    try {
+      await deleteById('email_verification_tokens', tokenRow.id)
+    } catch (cleanupError) {
+      console.error('verify-email: could not drop the expired verification token', {
+        userId: tokenRow.user_id,
+        tokenId: tokenRow.id,
+        cleanupError,
+      })
+    }
     return res
       .status(410)
       .json({ error: t('verifyEmail.expired', undefined, { defaultValue: 'Link expired' }) })

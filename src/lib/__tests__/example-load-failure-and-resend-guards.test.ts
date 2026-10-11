@@ -537,4 +537,36 @@ describe('verify-email GET / — a verified account is reported as verified', ()
     expect(database.deleteById).toHaveBeenCalledWith('email_verification_tokens', 'tok-1')
     expect(res.body).toEqual({ ok: true })
   })
+
+  it('answers 410 (expired) even when the expired token cannot be deleted', async () => {
+    // The expiry branch drops the stale row as housekeeping too, and it was the
+    // one delete left unguarded: a transient store failure REJECTED the handler,
+    // so the page's 5xx arm rendered "Could not check this link" for a link that
+    // is simply past its TTL, and the row stayed behind regardless. The answer
+    // must be the expired-link one either way — and the account must not be
+    // marked verified by an expired link.
+    database.findMany.mockResolvedValue([
+      {
+        id: 'tok-expired',
+        user_id: 'user-1',
+        expires_at: new Date(Date.now() - 1000).toISOString(),
+      },
+    ])
+    database.deleteById.mockRejectedValue(new Error('transient db error'))
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => undefined)
+    try {
+      const res = await getVerify('a'.repeat(32))
+
+      expect(res.statusCode, 'an expired link must answer 410, not reject the handler').toBe(410)
+      expect(res.body).toMatchObject({ error: expect.stringContaining('xpired') })
+      expect(database.updateById).not.toHaveBeenCalled()
+      // …and the failure it swallowed is not silent: it names the row it was for.
+      expect(errorSpy).toHaveBeenCalledWith(
+        'verify-email: could not drop the expired verification token',
+        expect.objectContaining({ userId: 'user-1', tokenId: 'tok-expired' }),
+      )
+    } finally {
+      errorSpy.mockRestore()
+    }
+  })
 })
