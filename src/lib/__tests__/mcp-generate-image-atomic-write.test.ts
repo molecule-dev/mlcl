@@ -242,3 +242,70 @@ describe('the size caps the descriptions advertise are enforced', () => {
     expect(hosted.calls).toBe(before)
   })
 })
+
+describe('a missing output directory is refused BEFORE the metered call', () => {
+  // `writeNewFileSync` creates the file with O_EXCL and cannot create a
+  // directory, so an output path under a directory that does not exist failed
+  // the WRITE — after the render/transcode/merge had been paid for (each is
+  // metered and seconds long) — with a raw `ENOENT: no such file or directory`
+  // that names neither the tool's contract nor the fix. generate_image and
+  // text_to_speech refuse the same path up front; every tool that writes
+  // through that helper must.
+  const outputIn = (name: string): string => join(dir, 'nope', name)
+
+  it('render_pdf', async (ctx) => {
+    if (skipped(ctx)) return
+    const before = hosted.calls
+    const result = await callTool('render_pdf', {
+      html: '<h1>hi</h1>',
+      output_file: outputIn('missing.pdf'),
+    })
+    expect(result.isError, 'a path that cannot be written is refused').toBe(true)
+    expect(textOf(result)).toContain('does not exist')
+    expect(hosted.calls, 'the service is never asked to render into it').toBe(before)
+  })
+
+  it('merge_pdfs', async (ctx) => {
+    if (skipped(ctx)) return
+    const input = join(dir, 'input-for-merge.pdf')
+    writeFileSync(input, '%PDF-1.4\n')
+    const before = hosted.calls
+    const result = await callTool('merge_pdfs', {
+      input_files: [input],
+      output_file: outputIn('missing-merge.pdf'),
+    })
+    expect(result.isError).toBe(true)
+    expect(textOf(result)).toContain('does not exist')
+    expect(hosted.calls, 'the service is never asked to merge into it').toBe(before)
+  })
+
+  it('watermark_pdf', async (ctx) => {
+    if (skipped(ctx)) return
+    const input = join(dir, 'input-for-watermark.pdf')
+    writeFileSync(input, '%PDF-1.4\n')
+    const before = hosted.calls
+    const result = await callTool('watermark_pdf', {
+      input_file: input,
+      text: 'draft',
+      output_file: outputIn('missing-watermark.pdf'),
+    })
+    expect(result.isError).toBe(true)
+    expect(textOf(result)).toContain('does not exist')
+    expect(hosted.calls, 'the service is never asked to watermark into it').toBe(before)
+  })
+
+  it('transform_image', async (ctx) => {
+    if (skipped(ctx)) return
+    const input = join(dir, 'input-for-transform.png')
+    writeFileSync(input, 'not really a png')
+    const before = hosted.calls
+    const result = await callTool('transform_image', {
+      input_file: input,
+      output_file: outputIn('missing-transform.png'),
+      ops: [{ op: 'resize', width: 10 }],
+    })
+    expect(result.isError).toBe(true)
+    expect(textOf(result)).toContain('does not exist')
+    expect(hosted.calls, 'the service is never asked to transform into it').toBe(before)
+  })
+})

@@ -111,6 +111,10 @@ const text = (t: string) => ({ content: [{ type: 'text' as const, text: t }] })
  * loser of the race fails with the same already-exists message the pre-check
  * gives — and, unlike a truncating write, never damages the winner's file.
  *
+ * The write cannot create a DIRECTORY either, so every caller runs
+ * {@link requireWritableParent} on its output path BEFORE it calls the hosted
+ * service — see below for why that check cannot wait until here.
+ *
  * @param path - Destination path.
  * @param data - The bytes to write.
  * @param mode - File mode (0o644 for media, 0o600 for documents).
@@ -126,6 +130,33 @@ function writeNewFileSync(path: string, data: Buffer, mode: number): void {
       )
     }
     throw error
+  }
+}
+
+/**
+ * Refuse an output path whose directory does not exist, BEFORE the hosted
+ * service is called.
+ *
+ * `writeNewFileSync` cannot create a parent directory: its ENOENT is not the
+ * EEXIST it maps to the tool's readable "pick a fresh name" message, so it was
+ * rethrown raw — the caller paid for the render/generation (each is metered,
+ * and seconds long) and got back an unexplained `ENOENT: no such file or
+ * directory`. `generate_image` and `text_to_speech` have always refused a
+ * missing directory up front; the four tools that write through
+ * {@link writeNewFileSync} without this check did not, so the same mistake cost
+ * a billed round-trip depending on which tool made it.
+ *
+ * The check is on the DIRECTORY, never on the file: the file must NOT exist
+ * (that is the "never overwritten" contract), the directory must.
+ *
+ * @param path - The output path the tool is about to write.
+ * @throws ServiceCallError when the path's directory is missing.
+ */
+function requireWritableParent(path: string): void {
+  if (!existsSync(dirname(path))) {
+    throw new ServiceCallError(
+      `Directory ${dirname(path)} does not exist — create it, or choose a path inside an existing directory.`,
+    )
   }
 }
 
@@ -868,9 +899,7 @@ server.registerTool(
             `output_file must end in .${responseFormat} for format ${responseFormat}.`,
           )
         }
-        if (!existsSync(dirname(target))) {
-          throw new ServiceCallError(`Directory ${dirname(target)} does not exist.`)
-        }
+        requireWritableParent(target)
         const result = (await callHostedService(
           'speech',
           'synthesize',
@@ -1237,6 +1266,7 @@ server.registerTool(
           `${target} already exists. Pick a fresh name — the tool never overwrites.`,
         )
       }
+      requireWritableParent(target)
       const options: Record<string, unknown> = {}
       if (opts.format !== undefined) options.format = opts.format
       if (opts.landscape !== undefined) options.landscape = opts.landscape
@@ -1292,6 +1322,7 @@ server.registerTool(
           `${target} already exists. Pick a fresh name — the tool never overwrites.`,
         )
       }
+      requireWritableParent(target)
       const pdfs: string[] = []
       let totalBytes = 0
       for (const path of input_files) {
@@ -1372,6 +1403,7 @@ server.registerTool(
           `${target} already exists. Pick a fresh name — the tool never overwrites.`,
         )
       }
+      requireWritableParent(target)
       let pdf: Buffer
       try {
         pdf = readFileSync(resolve(input_file))
@@ -1541,6 +1573,7 @@ server.registerTool(
           `${target} already exists. Pick a fresh name — the tool never overwrites.`,
         )
       }
+      requireWritableParent(target)
       const pipeline = ops.map((o) => ({
         op: o.op,
         ...(o.width !== undefined ? { width: o.width } : {}),
@@ -1634,9 +1667,7 @@ server.registerTool(
       if (extname(target).toLowerCase() !== '.png') {
         throw new ServiceCallError('output_file must end in .png — the service returns png bytes.')
       }
-      if (!existsSync(dirname(target))) {
-        throw new ServiceCallError(`Directory ${dirname(target)} does not exist.`)
-      }
+      requireWritableParent(target)
       if (existsSync(target)) {
         throw new ServiceCallError(
           `${target} already exists. Pick a fresh name — the tool never overwrites.`,
