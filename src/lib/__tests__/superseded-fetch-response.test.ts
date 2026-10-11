@@ -32,6 +32,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 interface Pending {
   url: string
+  /** The request's HTTP method — a list GET and an upload POST share one URL. */
+  method: string
   answered: boolean
   respond: (status: number, body: unknown) => void
 }
@@ -233,12 +235,21 @@ async function clickRate(stars: number): Promise<void> {
 const requestedOffsets = (): string[] =>
   pending.requests.map((r) => new URL(r.url, 'http://localhost').searchParams.get('offset') ?? '')
 
+/** The attachments panel's dropzone (its `disabled` prop is the upload guard). */
+const dropzone = (): HTMLButtonElement =>
+  container.querySelector('button[aria-label="drop-files"]') as HTMLButtonElement
+
+/** The upload POSTs parked for `fragment` — a GET for the same URL is excluded. */
+const uploads = (fragment: string): Pending[] =>
+  pending.requests.filter((r) => r.method === 'POST' && r.url.includes(fragment))
+
 beforeEach(() => {
   pending.requests.length = 0
-  globalThis.fetch = ((input: unknown) =>
+  globalThis.fetch = ((input: unknown, init?: { method?: string }) =>
     new Promise((resolve) => {
       pending.requests.push({
         url: String(input),
+        method: init?.method ?? 'GET',
         answered: false,
         respond: (status, body) =>
           resolve({
@@ -597,6 +608,58 @@ describe('a superseded fetch response must not win', () => {
     } finally {
       confirmSpy.mockRestore()
     }
+  })
+
+  it('an upload parked on the previous record neither freezes nor releases the new dropzone', async () => {
+    // `uploading` is one flag for the dropzone, and the panel outlives a
+    // `parentId` change. The record reset cleared the list but not that flag: an
+    // upload parked on record A kept B's dropzone `disabled` (files dropped
+    // there were refused with no explanation) until A's request settled — and
+    // when it settled its `finally` cleared the flag unconditionally, releasing
+    // the guard around an upload B had started meanwhile (a second drop would
+    // then upload concurrently). Both halves are asserted here.
+    await mount(createElement(AttachmentsPanel, { parentId: 'a' }))
+    await respond('parent_id=a', 200, [attachment('a1', 'a.txt')])
+    expect(text()).toContain('a.txt')
+
+    // An upload starts on record A and parks mid-POST.
+    await act(async () => {
+      dropzone().dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+    expect(uploads('parent_id=a'), 'A’s upload POST is parked').toHaveLength(1)
+    expect(dropzone().disabled, 'A’s upload is in flight').toBe(true)
+
+    // The user switches records while it is parked.
+    await rerender(createElement(AttachmentsPanel, { parentId: 'b' }))
+    await respond('parent_id=b', 200, [])
+
+    // B's dropzone must accept files: the parked upload belongs to A.
+    expect(
+      dropzone().disabled,
+      'the previous record’s upload must not hold the new dropzone disabled',
+    ).toBe(false)
+    await act(async () => {
+      dropzone().dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+    expect(uploads('parent_id=b'), 'the new record uploads its own file').toHaveLength(1)
+
+    // A's upload settles now. It must NOT release B's in-flight guard.
+    await respondTo('/api/attachments?parent_id=a', 200, { id: 'a2' })
+    expect(
+      dropzone().disabled,
+      'the abandoned upload must not release the new record’s in-flight guard',
+    ).toBe(true)
+
+    // …and B's own upload releases it when IT settles. The release comes after
+    // the upload flow's trailing refresh (the guard covers the whole flow), so
+    // that read is answered here.
+    await respondTo('/api/attachments?parent_id=b', 200, { id: 'b2' })
+    await respond('parent_id=b', 200, [attachment('b1', 'b.txt')])
+    expect(dropzone().disabled, 'the guard is released by the upload that actually owns it').toBe(
+      false,
+    )
   })
 
   it('a delete that commits after the record changed does not drop the new record’s list', async () => {

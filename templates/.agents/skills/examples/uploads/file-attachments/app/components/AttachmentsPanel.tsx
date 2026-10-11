@@ -46,6 +46,13 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
   // NEWEST ticket and overwrite B's list with A's.
   const mountedForRef = useRef(parentId)
   mountedForRef.current = parentId
+  // The upload's write ticket. `uploading` is ONE flag for the dropzone, but the
+  // panel outlives a `parentId` change: an upload parked on record A must not
+  // hold B's dropzone disabled, and when it finally settles it must not release
+  // an upload B started meanwhile. The reset below bumps the ticket and clears
+  // the flag; an upload only clears the flag while its own ticket is still the
+  // newest (the same monotonic release CommentThread's `postTicket` uses).
+  const uploadTicket = useRef(0)
 
   const load = useCallback(async () => {
     const ticket = ++loadSeq.current
@@ -71,6 +78,13 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
     // A different record's attachments must never stand in for this one's while
     // its own load is in flight — clear them (the load below refills them).
     setItems([])
+    // …and the dropzone's in-flight flag, which is the one piece of state an
+    // upload left on the previous record still owns: left set, it kept the NEW
+    // record's dropzone `disabled` for as long as A's upload ran, so files
+    // dropped on B were silently refused. The ticket bump makes that upload's
+    // `finally` a no-op, so it cannot release an upload started here.
+    uploadTicket.current += 1
+    setUploading(false)
     void load()
     return () => {
       // Invalidate whatever this record still has in flight.
@@ -81,6 +95,9 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
   async function upload(files: File[]): Promise<void> {
     setError(null)
     setUploading(true)
+    // This upload's ticket — the reset above invalidates it on a record change,
+    // so its `finally` cannot clear a newer record's flag.
+    const ticket = ++uploadTicket.current
     try {
       // Upload sequentially so one bad file surfaces a clear error.
       for (const file of files) {
@@ -118,7 +135,7 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps) {
       // longer owns: refreshing here would take the newest ticket and render
       // the old record's attachments under the new one (see mountedForRef).
       if (mountedForRef.current === parentId) await load()
-      setUploading(false)
+      if (uploadTicket.current === ticket) setUploading(false)
     }
   }
 

@@ -102,6 +102,14 @@ async function mount(element: ReactNode): Promise<void> {
   await flush()
 }
 
+/** Render a new element into the SAME root — the bar outlives a resource change. */
+async function rerender(element: ReactNode): Promise<void> {
+  await act(async () => {
+    root.render(element)
+  })
+  await flush()
+}
+
 const text = (): string => container.textContent ?? ''
 
 /**
@@ -186,6 +194,43 @@ describe('the reaction bar', () => {
     expect(
       deleteCalls.filter((c) => c.path.includes('type=')),
       'the next click removes',
+    ).toHaveLength(1)
+  })
+
+  it('a toggle parked on the previous resource does not swallow the same emoji on the new one', async () => {
+    // The in-flight guard was keyed by the EMOJI alone, but the bar outlives a
+    // `resourceId` change: a toggle parked on p1 held the slot for the same
+    // emoji on p2, so the click there was swallowed — no write, no state change,
+    // no feedback — until p1's request settled, at which point its `finally`
+    // released whatever slot that emoji held. Scoping the slot to the resource
+    // it belongs to is the fix; both halves are asserted below.
+    await mount(createElement(ReactionBar, { resourceType: 'post', resourceId: 'p1' }))
+    await answerGet(0, { data: { total: 1, counts: { '👍': 1 }, userReactions: [] } })
+
+    // A toggle on p1 parks in flight…
+    await clickToggle('👍')
+    expect(postCalls.filter((c) => c.path === '/api/post/p1/reactions')).toHaveLength(1)
+
+    // …and the reader navigates to another resource showing the same emoji.
+    await rerender(createElement(ReactionBar, { resourceType: 'post', resourceId: 'p2' }))
+    await answerGet(1, { data: { total: 1, counts: { '👍': 1 }, userReactions: [] } })
+
+    await clickToggle('👍')
+    expect(
+      postCalls.filter((c) => c.path === '/api/post/p2/reactions'),
+      'the new resource must post its own toggle instead of losing the click',
+    ).toHaveLength(1)
+
+    // p1's write settles now. Its release must not free p2's slot, or the next
+    // click would double-post while p2's own write is still in flight.
+    await act(async () => {
+      postCalls[0]?.resolve({ ok: true })
+    })
+    await flush()
+    await clickToggle('👍')
+    expect(
+      postCalls.filter((c) => c.path === '/api/post/p2/reactions'),
+      'no duplicate while the new resource’s own toggle is in flight',
     ).toHaveLength(1)
   })
 

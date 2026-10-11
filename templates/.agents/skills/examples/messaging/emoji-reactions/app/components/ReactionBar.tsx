@@ -53,6 +53,16 @@ export function ReactionBar({
   // only place the guard can live. A Set (not one flag) so a different emoji
   // stays independently clickable.
   const togglingRef = useRef<Set<string>>(new Set())
+  // The slot key for a write THIS render would start: the resource it belongs to
+  // plus the emoji. A bare emoji key was resource-blind — this component
+  // outlives a `resourceId` change (navigate post A → post B), so A's parked
+  // toggle kept the slot for the same emoji on B, swallowing the click there
+  // with no POST and no feedback until A's request settled; and when it settled
+  // its `finally` released whatever slot that emoji held at the time, including
+  // one B had taken meanwhile. Scoping the key to the resource makes the guard
+  // exactly as wide as the write it guards: B's chips are live immediately, and
+  // A's `finally` can only ever delete A's own slot.
+  const writeKey = (emoji: string): string => `${resourceType}/${resourceId}::${emoji}`
 
   const load = useCallback(async () => {
     const ticket = ++loadSeq.current
@@ -89,8 +99,8 @@ export function ReactionBar({
     // One toggle per emoji at a time — see togglingRef. The `finally` releases
     // the slot on EVERY path (a failed write, an abandoned toggle), so a chip
     // can never be left permanently unclickable.
-    if (togglingRef.current.has(emoji)) return
-    togglingRef.current.add(emoji)
+    if (togglingRef.current.has(writeKey(emoji))) return
+    togglingRef.current.add(writeKey(emoji))
     try {
       const mine = reactions.find((r) => r.emoji === emoji)?.reactedByMe
       const base = `/api/${resourceType}/${resourceId}/reactions`
@@ -119,7 +129,7 @@ export function ReactionBar({
         // The summary is unreachable too — chips keep their last synced state.
       })
     } finally {
-      togglingRef.current.delete(emoji)
+      togglingRef.current.delete(writeKey(emoji))
     }
   }
 

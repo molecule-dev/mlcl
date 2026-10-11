@@ -99,6 +99,14 @@ export function CommentThread({
   // ticket and overwrite B's thread with A's.
   const mountedForRef = useRef({ resourceType, resourceId })
   mountedForRef.current = { resourceType, resourceId }
+  // The composer's write ticket. `posting` is ONE flag for the whole composer,
+  // but this component outlives a resource change: a POST parked on resource A
+  // must not hold B's composer disabled, and when it finally settles it must not
+  // release a write B started meanwhile. The reset below bumps the ticket and
+  // clears the flag; a settling write only clears the flag while its own ticket
+  // is still the newest (the same monotonic-release `ChatPage`'s `sendTicket`
+  // uses for its composer).
+  const postTicket = useRef(0)
 
   /**
    * Whether the CURRENT render still belongs to the resource a write started
@@ -168,11 +176,12 @@ export function CommentThread({
 
   useEffect(() => {
     // A different resource's thread must never stand in for this one's: the
-    // thread, the reply target and any post failure are cleared UP FRONT (the
-    // load below refills the thread), exactly like the sibling slices (ChatPage
-    // clears its room-scoped sendError on a room change, NotificationBell,
-    // AttachmentsPanel). Without the reset, a load for the new resource that
-    // fails left the PREVIOUS resource's comments rendered as this one's —
+    // thread, the reply target, any post failure AND the composer's in-flight
+    // flag are cleared UP FRONT (the load below refills the thread), exactly
+    // like the sibling slices (ChatPage clears its room-scoped sendError and its
+    // send flag on a room change, NotificationBell, AttachmentsPanel). Without
+    // the reset, a load for the new resource that fails left the PREVIOUS
+    // resource's comments rendered as this one's —
     // `replyTo` still held a comment id belonging to that other resource, so the
     // next reply nested under a foreign id, and a failed post on the old
     // resource kept its "could not post" banner under the new one, describing a
@@ -181,6 +190,14 @@ export function CommentThread({
     setComments([])
     setReplyTo(null)
     setPostError(false)
+    // …and the composer's in-flight flag, which is the one piece of state a
+    // parked POST from the resource we left still owns: left set, it froze the
+    // NEW resource's composer (the button is `disabled={… || posting}` and
+    // `post` returns early) for as long as A's request stayed outstanding, with
+    // nothing on screen explaining why. Bumping the ticket makes that write's
+    // `finally` a no-op, so it cannot release a post started here.
+    postTicket.current += 1
+    setPosting(false)
     void load().catch(() => {
       // A failed load (offline, 401, 500) keeps the empty thread; the composer
       // still works. The rejection must not escape the effect unhandled.
@@ -206,6 +223,9 @@ export function CommentThread({
     }
     setPostError(false)
     setPosting(true)
+    // This write's ticket — the reset above invalidates it on a resource
+    // change, so its `finally` cannot clear a newer resource's flag.
+    const ticket = ++postTicket.current
     try {
       // parentId nests the reply; null posts a top-level comment.
       await http.post(`/api/${resourceType}/${resourceId}/comments`, {
@@ -221,7 +241,7 @@ export function CommentThread({
       if (stillOnResource()) setPostError(true)
       return
     } finally {
-      setPosting(false)
+      if (postTicket.current === ticket) setPosting(false)
     }
     // The user navigated to another resource while the POST was in flight: the
     // comment landed on the resource we LEFT, whose state this render no longer

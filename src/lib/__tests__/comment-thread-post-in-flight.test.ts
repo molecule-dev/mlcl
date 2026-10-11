@@ -276,6 +276,65 @@ describe('the comment composer', () => {
     ).not.toContain('Could not post the comment')
   })
 
+  it('a POST parked on the previous resource neither freezes nor releases the new composer', async () => {
+    // The component outlives a resource change, and `posting` is one flag for
+    // the whole composer. The resource reset cleared the thread, the reply
+    // target and the error banner — but not that flag: a POST parked on p1 left
+    // p2's composer disabled (and `post` returning early) until p1's request
+    // settled, and then its `finally` released the flag UNCONDITIONALLY, clearing
+    // the guard around p2's own write — the double-post this whole guard exists
+    // to stop. The same monotonic release ChatPage's `sendTicket` uses fixes both
+    // halves.
+    await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await answerGet(0, { data: [] })
+
+    await typeIntoTextarea('a comment')
+    await clickPost()
+    expect(postCalls).toHaveLength(1)
+    expect(postButton().disabled, 'p1’s write is in flight').toBe(true)
+
+    // The reader navigates to another resource while that POST is parked.
+    await rerender(createElement(CommentThread, { resourceType: 'post', resourceId: 'p2' }))
+    await answerGet(1, { data: [] })
+
+    // p2's composer must be usable: the parked write belongs to p1.
+    await typeIntoTextarea('on p2')
+    expect(
+      postButton().disabled,
+      'the previous resource’s parked POST must not hold the new composer disabled',
+    ).toBe(false)
+    await clickPost()
+    expect(
+      postCalls.filter((c) => c.path === '/api/post/p2/comments'),
+      'the new resource posts its own comment',
+    ).toHaveLength(1)
+
+    // p1's write settles now. It must NOT release p2's in-flight guard…
+    await act(async () => {
+      postCalls[0]?.resolve({ id: 'c1' })
+    })
+    await flush()
+    expect(
+      postButton().disabled,
+      'the abandoned write must not release the new resource’s in-flight guard',
+    ).toBe(true)
+    await clickPost()
+    expect(
+      postCalls.filter((c) => c.path === '/api/post/p2/comments'),
+      'no duplicate post while p2’s own write is still in flight',
+    ).toHaveLength(1)
+
+    // …and p2's own write releases it when IT settles.
+    await act(async () => {
+      postCalls[1]?.resolve({ id: 'c2' })
+    })
+    await flush()
+    await typeIntoTextarea('a third comment')
+    expect(postButton().disabled, 'the guard is released by the write that actually owns it').toBe(
+      false,
+    )
+  })
+
   it('a failed post does not leave its error banner on the next resource', async () => {
     // No race needed: the failure is recorded while the reader is still on the
     // old resource, and the resource change itself must retire it (the sibling
