@@ -120,11 +120,34 @@ describe('injectActivityCaptureBoot (IDE8 producer wiring)', () => {
 
     expect(await injectActivityCaptureBoot(apiDir)).toBe(false)
 
-    // The module statically imports @molecule/api-activity* — a stray copy
-    // left behind here (written before the anchor checks, with no wiring and
-    // no declared dependencies) failed the project's tsc with TS2307.
+    // The module's `@molecule/api-activity*` imports are undeclared here — a
+    // stray copy left behind (written before the anchor checks, with no wiring
+    // and no declared dependencies) failed the project's tsc with TS2307.
     expect(existsSync(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))).toBe(false)
     expect(readFileSync(join(apiDir, 'src', 'bonds', 'index.ts'), 'utf-8')).toBe(unwireable)
+  })
+
+  it('imports the activity sink DYNAMICALLY, and the docs say so', async () => {
+    await injectActivityCaptureBoot(apiDir)
+    const module = readFileSync(join(apiDir, 'src', 'bonds', '_activity-capture.ts'), 'utf-8')
+    // The module reaches both packages through `import()` calls with LITERAL
+    // specifiers — dynamic at runtime, but still resolved by `tsc`, which is why
+    // the manifest has to declare them (and why a missing one is a build error).
+    expect(module).toContain("import('@molecule/api-activity')")
+    expect(module).toContain("import('@molecule/api-activity-http')")
+    expect(
+      module,
+      'a static import of the sink would contradict the manifest integration',
+    ).not.toMatch(/^import\b[^\n]*@molecule\/api-activity/m)
+
+    // …and the scaffolder's prose must describe the module it writes: it called
+    // these two "static imports", which reads as a boot-time import and is not
+    // what the generated file has.
+    const scaffold = readFileSync(join(import.meta.dirname, '..', 'scaffold.ts'), 'utf-8')
+    expect(
+      scaffold,
+      'the activity-capture docs call the sink’s imports "static" — the generated module imports them dynamically',
+    ).not.toMatch(/static imports|`@molecule\/api-activity` statically/)
   })
 
   it('leaves no producer module behind when there is no setupBonds to anchor the call', async () => {

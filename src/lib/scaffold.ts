@@ -1726,7 +1726,9 @@ export async function injectActivityCaptureBoot(apiPath: string): Promise<boolea
   if (!existsSync(indexPath)) return false
   // The manifest is where this producer's imports are DECLARED, and a workspace
   // without one cannot back them: `_activity-capture.ts` imports
-  // `@molecule/api-activity` statically (and the capture providers dynamically),
+  // `@molecule/api-activity` and `@molecule/api-activity-http` (dynamically, with
+  // literal specifiers — `tsc` resolves their types from those, so a missing
+  // package is a build failure even though nothing runs at boot),
   // while `addActivityCaptureDependencies` below reports "no manifest" by
   // returning false rather than throwing — so the wiring would land with no
   // rollback and no error, in exactly the TS2307 / ERR_MODULE_NOT_FOUND state the
@@ -1888,11 +1890,13 @@ export async function injectActivityCaptureBoot(apiPath: string): Promise<boolea
 
 /**
  * Packages the injected `_activity-capture.ts` module imports and therefore must
- * be declared in the scaffolded API's `package.json`. The first two are static
- * imports; the rest are the capture providers it imports DYNAMICALLY per bonded
- * category (must match the module's own `CAPTURE_PROVIDERS` list). Omitting any
- * one crashed the API at boot with ERR_MODULE_NOT_FOUND once a bonded category
- * triggered its import.
+ * be declared in the scaffolded API's `package.json`. The first two are the
+ * module's own DYNAMIC imports of the activity sink (`import('@molecule/api-activity')`
+ * / `-http`, literal specifiers, so `tsc` still resolves their types and a
+ * missing package fails the build); the rest are the capture providers it imports
+ * DYNAMICALLY per bonded category (must match the module's own
+ * `CAPTURE_PROVIDERS` list). Omitting any one crashed the API at boot with
+ * ERR_MODULE_NOT_FOUND once a bonded category triggered its import.
  */
 const ACTIVITY_CAPTURE_DEPENDENCIES = [
   '@molecule/api-activity',
@@ -1924,10 +1928,12 @@ async function addActivityCaptureDependencies(apiPath: string): Promise<boolean>
   pkg.dependencies ??= {}
 
   let changed = false
-  // `@molecule/api-activity[-http]` are imported statically by the module; the
-  // CAPTURE_PROVIDERS are imported DYNAMICALLY at runtime when their category is
-  // bonded (see setupActivityCapture). Declaring only the former shipped a module
-  // that crashed the API with ERR_MODULE_NOT_FOUND the moment a bonded category
+  // `@molecule/api-activity[-http]` are imported by the module with literal
+  // `import()` specifiers — dynamic at runtime, but still resolved by `tsc`, so a
+  // missing package is a build error; the CAPTURE_PROVIDERS are imported
+  // DYNAMICALLY at runtime when their category is bonded (see
+  // setupActivityCapture). Declaring only the former shipped a module that
+  // crashed the API with ERR_MODULE_NOT_FOUND the moment a bonded category
   // (e.g. email) triggered `import('@molecule/api-emails-capture')` — the package
   // was never installed. Declare the capture providers too so they resolve.
   for (const name of ACTIVITY_CAPTURE_DEPENDENCIES) {
@@ -3060,16 +3066,31 @@ function readBrandColorFromBranding(
  * a brand description, an SVG's inner markup, a font-link list), and this is the
  * same policy syncIdentityFromBranding and the font-block merge already state.
  *
+ * The substitution is ONE pass over the template, keyed on the placeholder
+ * itself. Replacing key by key — the shape this used to have — ran every later
+ * key's search over the text the earlier keys had just INSERTED, so a value that
+ * carries another key's `{{KEY}}` text was itself substituted: the value was not
+ * inserted verbatim, which is what this function's contract (and every caller:
+ * a brand description, an SVG's markup) says happens. A single pass inserts each
+ * value and never looks at it again.
+ *
  * @param content - Template source, `{{KEY}}` placeholders intact.
  * @param vars - The value for each placeholder key.
  * @returns The content with every `{{KEY}}` replaced by its value, verbatim.
  */
 export function processTemplate(content: string, vars: Record<string, string>): string {
-  let result = content
-  for (const [key, value] of Object.entries(vars)) {
-    result = result.replaceAll(`{{${key}}}`, () => value)
-  }
-  return result
+  const keys = Object.keys(vars)
+  if (keys.length === 0) return content
+  // Longest key first, so a key that is a prefix of a sibling never wins a
+  // position the longer key owns. Each key is escaped: a key is a literal, not a
+  // pattern.
+  const alternatives = keys
+    .map((key) => key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .sort((a, b) => b.length - a.length)
+  return content.replace(
+    new RegExp(`\\{\\{(${alternatives.join('|')})\\}\\}`, 'g'),
+    (_match, key: string) => vars[key] as string,
+  )
 }
 
 /**

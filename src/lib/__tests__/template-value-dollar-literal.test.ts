@@ -62,6 +62,27 @@ describe('processTemplate — a value is inserted verbatim, never as a replaceme
   it('still substitutes an ordinary value', () => {
     expect(processTemplate('Hello {{NAME}}!', { NAME: 'demo-app' })).toBe('Hello demo-app!')
   })
+
+  it('keeps a value that carries another key’s placeholder — a value is data, not template source', () => {
+    // Pre-fix the substitution went key by key: the earlier key's value was
+    // written into the content and the LATER key's search then ran over it, so
+    // this description came out as 'Demo dark' — the value was substituted
+    // instead of inserted, contradicting the function's own "verbatim"
+    // contract. One pass over the template is what makes the contract true.
+    expect(
+      processTemplate('{{APP_DESCRIPTION}}', {
+        APP_DESCRIPTION: 'Demo {{THEME}} build',
+        THEME: 'dark',
+      }),
+    ).toBe('Demo {{THEME}} build')
+  })
+
+  it('leaves a placeholder with no variable untouched, however it is written', () => {
+    // The single pass must not invent substitutions for keys it was not given:
+    // `{{UNKNOWN}}` is template text, and so is a braced pair nested in a value.
+    expect(processTemplate('a {{UNKNOWN}} b', { NAME: 'demo-app' })).toBe('a {{UNKNOWN}} b')
+    expect(processTemplate('{{NAME}}', { NAME: '{{UNKNOWN}}' })).toBe('{{UNKNOWN}}')
+  })
 })
 
 /** The smallest plan `executeInjection` accepts, carrying one file op. */
