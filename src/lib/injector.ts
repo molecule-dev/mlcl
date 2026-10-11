@@ -2483,12 +2483,6 @@ export function setupEntitlements(): void {
  * - bonds/index.ts (setupProviders function calling all bond setups)
  * - src/service-worker.ts (if @molecule/app-version is included)
  */
-/**
- * Generates a default bond setup file from registry `defaultBondSetup` metadata.
- * When a core package declares `defaultBond` and `defaultBondSetup` in the registry
- * and no explicit provider bond exists for that category, this generates the setup file.
- */
-
 export function synthesizeAppProjectFiles(
   plans: InjectionPlan[],
   allMolecules: string[],
@@ -2785,6 +2779,9 @@ ${setupCalls.join('\n') || '  // No providers configured'}
 
 /**
  * Generate a default bond setup file from registry `defaultBondSetup` metadata.
+ *
+ * Emitted when a core package declares `defaultBond` and `defaultBondSetup` in
+ * the registry and no explicit provider bond exists for that category.
  *
  * Handles the generic pattern (factory + setter + optional config) and
  * category-specific templates (i18n with locale support).

@@ -2009,39 +2009,6 @@ function shouldSkipDuringCopy(name: string): boolean {
 export const ENV_SECRETS_GITIGNORE = '.env*\n!.env.example'
 
 /**
- * Scaffold the security CI + Dependabot config into a generated project so it is
- * secure-by-default from the first commit (SEC3 — "vulnerability scans").
- *
- * Writes, at the TRUE project root (the full-stack monorepo root, or a standalone
- * api/app/status-page/RN root):
- *   - `.github/workflows/security.yml` — npm-audit + gitleaks secret-scan gates
- *   - `.github/dependabot.yml`         — weekly dependency + actions update PRs
- *   - `.gitleaks.toml`                 — secret-scan allowlist (extends defaults)
- *   - `SECURITY.md`                    — policy, run-locally guide, and the
- *                                        documented eslint-plugin-security decision
- *   - `scripts/precommit-secret-scan.mjs` — dependency-free local secret scanner
- *   - `.husky/pre-commit`              — hook that runs the scanner pre-commit
- *   - root `package.json`              — `husky` devDep (exact) + `prepare: husky`
- *
- * The pre-commit pieces are defense-in-depth ALONGSIDE the CI gate: a likely
- * secret is blocked locally BEFORE it ever lands in history, not just caught in
- * CI after the push. scaffold.ts does NOT git-init the project, so the hook
- * activates on the user's first `git init` + `npm install` (husky's `prepare`
- * wires `core.hooksPath` to `.husky/`). husky is already a workspace dep
- * (molecule/mlcl), so it resolves offline; its `prepare` is a no-op when there is
- * no `.git` yet, so it never breaks `npm install`.
- *
- * This is the SINGLE source of the scaffolded security workflow. Call it from
- * BOTH scaffold paths so EVERY generated project gets it — never sweep template
- * dirs by hand: `copyTemplateInstance` (the flagship `--template` fast path) and
- * the custom package-driven path in `create.ts` (once, after the create*Project
- * branch, where `projectPath` is unambiguously the root — so the api/app
- * sub-projects of a full-stack build never get a duplicate nested copy).
- *
- * @param projectRoot - Absolute path to the project root.
- * @param projectName - Used to title SECURITY.md / .gitleaks.toml.
- */
-/**
  * Write the project's AGENTS.md — the conventions file every major coding
  * agent (Claude Code, Codex, Cursor, Pi, …) reads on open. Ships the molecule
  * way for LOCAL development: packages before hand-rolling, bonds for provider
@@ -2163,6 +2130,39 @@ function mlclVersion(): string {
   return cachedCliVersion
 }
 
+/**
+ * Scaffold the security CI + Dependabot config into a generated project so it is
+ * secure-by-default from the first commit (SEC3 — "vulnerability scans").
+ *
+ * Writes, at the TRUE project root (the full-stack monorepo root, or a standalone
+ * api/app/status-page/RN root):
+ *   - `.github/workflows/security.yml` — npm-audit + gitleaks secret-scan gates
+ *   - `.github/dependabot.yml`         — weekly dependency + actions update PRs
+ *   - `.gitleaks.toml`                 — secret-scan allowlist (extends defaults)
+ *   - `SECURITY.md`                    — policy, run-locally guide, and the
+ *                                        documented eslint-plugin-security decision
+ *   - `scripts/precommit-secret-scan.mjs` — dependency-free local secret scanner
+ *   - `.husky/pre-commit`              — hook that runs the scanner pre-commit
+ *   - root `package.json`              — `husky` devDep (exact) + `prepare: husky`
+ *
+ * The pre-commit pieces are defense-in-depth ALONGSIDE the CI gate: a likely
+ * secret is blocked locally BEFORE it ever lands in history, not just caught in
+ * CI after the push. scaffold.ts does NOT git-init the project, so the hook
+ * activates on the user's first `git init` + `npm install` (husky's `prepare`
+ * wires `core.hooksPath` to `.husky/`). husky is already a workspace dep
+ * (molecule/mlcl), so it resolves offline; its `prepare` is a no-op when there is
+ * no `.git` yet, so it never breaks `npm install`.
+ *
+ * This is the SINGLE source of the scaffolded security workflow. Call it from
+ * BOTH scaffold paths so EVERY generated project gets it — never sweep template
+ * dirs by hand: `copyTemplateInstance` (the flagship `--template` fast path) and
+ * the custom package-driven path in `create.ts` (once, after the create*Project
+ * branch, where `projectPath` is unambiguously the root — so the api/app
+ * sub-projects of a full-stack build never get a duplicate nested copy).
+ *
+ * @param projectRoot - Absolute path to the project root.
+ * @param projectName - Used to title SECURITY.md / .gitleaks.toml.
+ */
 export async function scaffoldSecurityWorkflow(
   projectRoot: string,
   projectName: string,
@@ -5912,19 +5912,6 @@ interface ScaffoldResult {
 }
 
 /**
- * Scaffold a new molecule package from inferred metadata.
- *
- * Generates the full package structure appropriate for the type:
- * - Core: types.ts, provider.ts, index.ts
- * - Provider/Bond: types.ts, provider.ts, index.ts (with implements)
- * - Resource: types.ts, routes.ts, requestHandlerMap.ts, handlers/, authorizers/index.ts,
- *   __setup__/<table>.sql, index.ts
- * - Middleware/Utility: index.ts
- *
- * @param targetDir - Directory to create the package in (created if missing)
- * @param meta - Inferred package metadata
- */
-/**
  * The `repository` field for a package inside the molecule monorepo.
  *
  * `directory` is derived from the real path rather than passed in, so it cannot
@@ -5950,6 +5937,19 @@ function moleculeRepository(targetDir: string): {
   }
 }
 
+/**
+ * Scaffold a new molecule package from inferred metadata.
+ *
+ * Generates the full package structure appropriate for the type:
+ * - Core: types.ts, provider.ts, index.ts
+ * - Provider/Bond: types.ts, provider.ts, index.ts (with implements)
+ * - Resource: types.ts, routes.ts, requestHandlerMap.ts, handlers/, authorizers/index.ts,
+ *   __setup__/<table>.sql, index.ts
+ * - Middleware/Utility: index.ts
+ *
+ * @param targetDir - Directory to create the package in (created if missing)
+ * @param meta - Inferred package metadata
+ */
 export async function scaffoldPackage(
   targetDir: string,
   meta: InferredMetadata,

@@ -513,7 +513,8 @@ let heldLockIdentity: LockIdentity | null = null
  *
  * `wx` (O_CREAT|O_EXCL) is the atomic test-and-set: the loser of a race fails
  * with EEXIST instead of both believing they hold the lock. A held lock is
- * waited out up to {@link REGISTRY_LOCK_WAIT_MS}; one older than
+ * waited out up to {@link registryLockWaitMs} (`MLCL_REGISTRY_LOCK_WAIT_MS`,
+ * 10 s by default); one older than
  * {@link REGISTRY_LOCK_STEAL_MS} is a crashed holder's leftover and is taken
  * over through {@link stealStaleLock}, so it cannot wedge every future mutation
  * behind it — and a rival's own just-created lock is never the file that gets
@@ -714,6 +715,9 @@ export function updateRegistryEntry(packageName: string, entry: RegistryEntry): 
   })
 }
 
+/** Cached registry paths kept before the oldest is evicted (see the cap below). */
+export const RAW_REGISTRY_CACHE_LIMIT = 4
+
 /**
  * Parsed-registry cache for {@link getRawRegistry}.
  *
@@ -734,9 +738,6 @@ export function updateRegistryEntry(packageName: string, entry: RegistryEntry): 
  * write: the sync-registry subcommands mutate it and then writeFileSync the
  * file (mtime changes → fresh parse next call). Every other caller only reads.
  */
-/** Cached registry paths kept before the oldest is evicted (see the cap below). */
-export const RAW_REGISTRY_CACHE_LIMIT = 4
-
 const rawRegistryCache = new Map<string, { key: string; registry: Registry }>()
 
 /**
