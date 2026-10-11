@@ -367,6 +367,14 @@ export function Tags() {
     setTagName('')
     setSelectedColor(TAG_COLORS[0])
     setModalError(null)
+    // A deliberate re-open starts a fresh create. The modal closes on FOUR
+    // paths — Cancel/backdrop (closeModal), Escape, a route change (the
+    // location-key effect) and browser back (popstate) — and only the first
+    // resets the latch itself, so an unconfirmed create whose reader did what
+    // the error says (went to check the tag list — a route change) left the
+    // latch set and refused every later create for the life of the mount.
+    // Resetting where the create SESSION starts covers every close path.
+    createUnconfirmed.current = false
     setShowModal(true)
   }
 

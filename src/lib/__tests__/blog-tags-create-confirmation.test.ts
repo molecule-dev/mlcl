@@ -73,6 +73,14 @@ const classMap = vi.hoisted(() => {
 
 const track = vi.hoisted(() => vi.fn())
 
+/**
+ * The key `useLocation` reports. The page closes its modal whenever it changes
+ * (the location-key effect), so a test that simulates the reader navigating
+ * away bumps this and re-renders — a close that does NOT pass through the
+ * Cancel button's `closeModal`.
+ */
+const routeKey = vi.hoisted(() => ({ current: 'route-a' }))
+
 vi.mock('@molecule/app-ui', () => ({ getClassMap: () => classMap }))
 vi.mock('@molecule/app-react', () => ({
   useTranslation: () => ({
@@ -90,7 +98,7 @@ vi.mock('@molecule/app-ui-react', () => ({
 }))
 vi.mock('react-router', () => ({
   useNavigate: () => () => undefined,
-  useLocation: () => ({ key: 'test' }),
+  useLocation: () => ({ key: routeKey.current }),
 }))
 // The authenticated shell is not what is under test — render the page alone.
 vi.mock('../../../templates/apps/blog/app/src/components/AppShell.js', () => ({
@@ -152,6 +160,24 @@ async function openCreateAndType(name: string): Promise<void> {
   await flush()
 }
 
+/** The next key {@link routeKey} reports — one per simulated route change. */
+let routeSeq = 0
+
+/**
+ * Simulate the reader navigating (away and back): a new location key and a
+ * re-render. The page closes its modal on a location-key change WITHOUT
+ * passing through `closeModal` — the close path the unconfirmed-create latch
+ * has to survive.
+ */
+async function navigateAwayAndBack(): Promise<void> {
+  await act(async () => {
+    routeSeq += 1
+    routeKey.current = `route-${routeSeq}`
+    root.render(createElement(Tags))
+  })
+  await flush()
+}
+
 async function clickSave(): Promise<void> {
   const save = container.querySelector('[data-mol-id="btn-modal-save"]')
   if (!save) throw new Error('the modal rendered no save button')
@@ -165,6 +191,7 @@ beforeEach(() => {
   gets.length = 0
   posts.length = 0
   track.mockClear()
+  routeKey.current = 'route-a'
 })
 
 afterEach(async () => {
@@ -246,6 +273,31 @@ describe('blog Tags — a create is claimed only when the answer carries the tag
         properties: expect.objectContaining({ tagId: 'tag-9' }),
       }),
     )
+  })
+
+  it('a route change that closes the modal also ends the unconfirmed create', async () => {
+    await mountWithTaxonomy()
+    await openCreateAndType('javascript')
+    await clickSave()
+    await act(async () => {
+      posts.at(-1)?.resolve({ data: {} })
+    })
+    await flush()
+    expect(text()).toContain('Could not confirm the tag was created')
+
+    // The error sends the reader to check the tag list — in the SPA that is a
+    // ROUTE CHANGE, and the page closes the modal on one through its
+    // location-key effect, never through closeModal. That close path used to
+    // leave the latch set, so the fresh create the reader started on their
+    // return was refused with the same "could not confirm" sentence for the
+    // life of the mount.
+    await navigateAwayAndBack()
+    expect(modal(), 'a route change closes the modal').toBeNull()
+
+    // A deliberate re-open starts a fresh create — it must POST.
+    await openCreateAndType('javascript')
+    await clickSave()
+    expect(posts.length, 'a fresh create after a navigation close must POST').toBe(2)
   })
 
   it('a confirmed create appends the row, closes the modal and reports it (the positive twin)', async () => {
