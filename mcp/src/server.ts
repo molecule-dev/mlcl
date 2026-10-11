@@ -36,7 +36,7 @@ import {
   listProjects,
   ServiceCallError,
 } from './services.js'
-import { tracked } from './telemetry.js'
+import { serverVersion, tracked } from './telemetry.js'
 
 const CLI = process.env.MOLECULE_MCP_CLI ?? 'mlcl'
 
@@ -95,7 +95,13 @@ function parseJsonOut<T>(out: string): T {
 
 const text = (t: string) => ({ content: [{ type: 'text' as const, text: t }] })
 
-const server = new McpServer({ name: 'molecule', version: '0.1.0' })
+// The package.json version, not a hardcoded copy: the literal here went stale
+// on the first package bump (moved 0.1.0 → 0.2.0) and every stdio client's
+// `initialize` response then reported a server that was not the one installed —
+// the same drift remote.ts's constructor and the telemetry payload were fixed
+// for. `serverVersion()` reads the same field `bin/*` and the SDK's serverInfo
+// report.
+const server = new McpServer({ name: 'molecule', version: serverVersion() })
 
 server.registerTool(
   'search_packages',
@@ -319,7 +325,21 @@ server.registerTool(
     } catch (error) {
       out = error instanceof Error ? error.message : String(error)
     }
-    const parsed = parseJsonOut<{ ok: boolean; results: unknown[] }>(out)
+    // …but "either way" only holds if an answer that is NOT JSON is returned as
+    // text. `runCli` builds its message from stderr/stdout, so a CLI that failed
+    // with a plain-text line (a crash, a usage error, a missing script) hands
+    // this call a string with no JSON in it — and `parseJsonOut` slices from the
+    // first `{`/`[`, so that string made it `JSON.parse` the last character and
+    // throw a bare `SyntaxError`. The client then got a JSON parse error naming
+    // neither the project nor the failing step, instead of the report promised
+    // above (and the `parsed ? … : out` fallback below could never run).
+    let parsed: { ok: boolean; results: unknown[] } | null
+    try {
+      parsed = parseJsonOut<{ ok: boolean; results: unknown[] }>(out)
+    } catch (_error) {
+      // Not a report — see above. The text IS the answer.
+      parsed = null
+    }
     return text(
       parsed
         ? `${parsed.ok ? 'PASSED' : 'FAILED'}\n${JSON.stringify(parsed.results, null, 2)}`
@@ -1577,12 +1597,23 @@ server.registerTool(
         throw new ServiceCallError('The service returned no image data.')
       }
       const suffix = (i: number) => (i === 0 ? '' : `-${i + 1}`)
-      const files = images.map((image, i) => {
-        const path = join(dirname(target), basename(target, '.png') + suffix(i) + '.png')
+      // Every output path is resolved and checked BEFORE the first byte is
+      // written: checking inside the write loop left a PARTIAL set on disk — a
+      // fresh `logo.png` written, then the loop threw on the already-existing
+      // `logo-2.png`, so the call reported a failure (and never overwrote
+      // anything) while having written image 1. The tool's own contract is that
+      // a name it refuses is a name nothing was written to.
+      const planned = images.map((image, i) => ({
+        path: join(dirname(target), basename(target, '.png') + suffix(i) + '.png'),
+        base64: image.base64 as string,
+      }))
+      for (const { path } of planned) {
         if (existsSync(path)) {
           throw new ServiceCallError(`${path} already exists. Pick a fresh name.`)
         }
-        writeFileSync(path, Buffer.from(image.base64 as string, 'base64'), { mode: 0o644 })
+      }
+      const files = planned.map(({ path, base64 }) => {
+        writeFileSync(path, Buffer.from(base64, 'base64'), { mode: 0o644 })
         return path
       })
       return JSON.stringify({

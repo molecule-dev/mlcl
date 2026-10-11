@@ -33,8 +33,16 @@ describe('molecule-mcp version reporting', () => {
     // `const V = '0.1.0'` … `new McpServer({ version: V })` matched neither
     // alternative, so a client was again told about a server that was not
     // deployed and every guard here stayed green.
+    //
+    // `src/server.ts` is the STDIO server — the one every local client
+    // (`claude mcp add molecule`, Codex) connects to, and the file whose
+    // McpServer constructor this scan originally omitted: its `version: '0.1.0'`
+    // stayed pinned through the 0.2.0 bump and kept reporting a server that was
+    // not the one installed, while this gate passed because it only ever read
+    // remote.ts and telemetry.ts. Every file that builds an McpServer belongs
+    // in the list.
     const semverLiteral = /['"`]\d+\.\d+\.\d+/
-    for (const file of ['src/remote.ts', 'src/telemetry.ts']) {
+    for (const file of ['src/remote.ts', 'src/telemetry.ts', 'src/server.ts']) {
       const source = readFileSync(join(MCP_DIR, file), 'utf-8')
       expect(source, `${file} hardcodes a version literal again`).not.toMatch(semverLiteral)
       // …and the one legitimate source of the version stays wired.
