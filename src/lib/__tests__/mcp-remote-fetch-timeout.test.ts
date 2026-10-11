@@ -17,15 +17,31 @@
  */
 
 import { readFileSync } from 'node:fs'
+import { existsSync } from 'node:fs'
 import { type AddressInfo, createServer, type Server, type ServerResponse } from 'node:http'
 import { join } from 'node:path'
 
 import { afterEach, describe, expect, it } from 'vitest'
 
-import { FETCH_TIMEOUT_MS, fetchJson } from '../../../mcp/src/remote.js'
-
+/**
+ * mcp is not an npm workspace member, so `npm ci` in mlcl (which is how CI
+ * builds this repo) never installs its deps, and the module under test imports
+ * the SDK at its top — the same loud-skip contract as the sibling mcp suites.
+ */
 const MCP_DIR = join(import.meta.dirname, '..', '..', '..', 'mcp')
 const MCP_TELEMETRY = join(MCP_DIR, 'src', 'telemetry.ts')
+const DEPS_MARKER = join(MCP_DIR, 'node_modules', '@modelcontextprotocol', 'sdk', 'package.json')
+
+/** Skip this suite, out loud, in the one environment it cannot run in. */
+function skipped(ctx: { skip: () => void }): boolean {
+  if (existsSync(DEPS_MARKER)) return false
+  console.warn(
+    '[mcp-remote-fetch-timeout] mcp/node_modules is not installed — SKIPPING. ' +
+      'Install mcp\u2019s deps (cd mcp && npm install) so the suite runs.',
+  )
+  ctx.skip()
+  return true
+}
 
 /**
  * The full text of every `fetch(...)` call in `source`, scanned with balanced
@@ -70,7 +86,9 @@ async function listen(handler: (req: unknown, res: ServerResponse) => void): Pro
 }
 
 describe('mcp remote outbound fetch timeout', () => {
-  it('fails fast when the upstream accepts and never responds — then recovers', async () => {
+  it('fails fast when the upstream accepts and never responds — then recovers', async (ctx) => {
+    if (skipped(ctx)) return
+    const { fetchJson } = await import('../../../mcp/src/remote.js')
     // The same origin plays both roles: it hangs until `respond` flips, then
     // answers — so the second call proves a timed-out fetch cached nothing
     // and the tool recovers on its next attempt without a restart.
@@ -93,7 +111,9 @@ describe('mcp remote outbound fetch timeout', () => {
     await expect(fetchJson(url, undefined, 2_000)).resolves.toEqual({ packages: {} })
   })
 
-  it('treats a non-2xx JSON body as a failure and caches nothing — the next call retries', async () => {
+  it('treats a non-2xx JSON body as a failure and caches nothing — the next call retries', async (ctx) => {
+    if (skipped(ctx)) return
+    const { fetchJson } = await import('../../../mcp/src/remote.js')
     // The shape no thrown fetch produces: the upstream ANSWERS, with an HTTP
     // error and a JSON error body. `res.json()` resolves on it exactly as it
     // would on the registry, so without the ok-gate the body was returned AS
@@ -115,7 +135,9 @@ describe('mcp remote outbound fetch timeout', () => {
     expect(hits).toBe(2)
   })
 
-  it('serves a healthy upstream and caches it (the bound adds no overhead path)', async () => {
+  it('serves a healthy upstream and caches it (the bound adds no overhead path)', async (ctx) => {
+    if (skipped(ctx)) return
+    const { fetchJson } = await import('../../../mcp/src/remote.js')
     let hits = 0
     const base = await listen((_req, res) => {
       hits++
@@ -130,14 +152,17 @@ describe('mcp remote outbound fetch timeout', () => {
     expect(hits).toBe(1)
   })
 
-  it('ships a default bound in the same class as telemetry’s 5 s', () => {
+  it('ships a default bound in the same class as telemetry’s 5 s', (ctx) => {
+    if (skipped(ctx)) return
+    const { FETCH_TIMEOUT_MS } = await import('../../../mcp/src/remote.js')
     // Guards the export the two wiring sites name: a bound removed or raised
     // to an undici-default-scale value fails here before any client waits on it.
     expect(FETCH_TIMEOUT_MS).toBeGreaterThanOrEqual(1_000)
     expect(FETCH_TIMEOUT_MS).toBeLessThanOrEqual(60_000)
   })
 
-  it('wires the bound into every outbound fetch in remote.ts and telemetry.ts', () => {
+  it('wires the bound into every outbound fetch in remote.ts and telemetry.ts', (ctx) => {
+    if (skipped(ctx)) return
     // fetchJson's signal is driven by the two tests above; read_package_doc's
     // inline npm fetch and telemetry's emit POST have no test seam, so their
     // wiring is pinned at the source — the same shape the version test pins
@@ -164,7 +189,8 @@ describe('mcp remote outbound fetch timeout', () => {
     }
   })
 
-  it('bounds telemetry’s emit in the class the docs promise — seconds, not minutes', () => {
+  it('bounds telemetry’s emit in the class the docs promise — seconds, not minutes', (ctx) => {
+    if (skipped(ctx)) return
     // Presence of a signal alone would allow `AbortSignal.timeout(600_000)` —
     // a bound in name only. The posture is "fire-and-forget with a 5s timeout"
     // (telemetry.ts header, the mlcl README it mirrors), so the millisecond
