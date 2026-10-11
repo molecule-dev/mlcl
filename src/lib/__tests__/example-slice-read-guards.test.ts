@@ -552,6 +552,26 @@ describe('example slices — a request’s answer is validated before it is trus
     expect(text()).not.toContain('Could not load posts')
   })
 
+  it('shows nothing for a post whose answer carries no publish date, never "Invalid Date"', async () => {
+    await mount(createElement(BlogIndexPage, {}))
+    // `published_at` is one of the two fields the row gate does NOT require —
+    // its comment says an absent one renders as NOTHING rather than as a wrong
+    // value. It did not: `new Date(undefined).toLocaleDateString()` is the
+    // literal string "Invalid Date", printed under the headline as if it were
+    // the publication day. The row is still a post (key, link and headline are
+    // all there), so the card must render — without a date.
+    await respond('/api/posts', 200, [
+      { id: '1', slug: 'hello', title: 'Hello', excerpt: 'x' },
+      { id: '2', slug: 'garbage', title: 'Garbage', excerpt: 'y', published_at: 'not a date' },
+    ])
+    expect(text()).toContain('Hello')
+    expect(text(), 'a post without a publish date still renders').not.toContain(
+      'Could not load posts',
+    )
+    expect(text(), 'no date is shown as no date').not.toContain('Invalid Date')
+    expect(container.querySelectorAll('a')).toHaveLength(2)
+  })
+
   it('subscribes the notification bell to its room through ?room=, not a path segment', async () => {
     await mount(createElement(NotificationBellWidget, { userId: 'u-7' }))
 

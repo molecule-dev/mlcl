@@ -13,6 +13,27 @@ type Post = {
   published_at: string
 }
 
+/**
+ * The card's publish date, or null when the answer carried none this render may
+ * show.
+ *
+ * `published_at` is one of the two fields the row gate above deliberately does
+ * NOT require (see its comment): a post whose answer omits it is still a post
+ * and still renders, with the date shown as NOTHING. `new Date(undefined)` is
+ * not a date — `toLocaleDateString()` returns the literal string
+ * "Invalid Date", which the card then printed under the headline as though it
+ * were the publication day. The same holds for a string that is not a date, so
+ * both are treated as "no date to show" rather than as a value to render.
+ *
+ * @param value - The row's `published_at`, as received (untrusted).
+ * @returns The localized date, or null when there is none to show.
+ */
+function publishedLabel(value: string | undefined): string | null {
+  if (typeof value !== 'string' || value.length === 0) return null
+  const date = new Date(value)
+  return Number.isNaN(date.getTime()) ? null : date.toLocaleDateString()
+}
+
 export function BlogIndexPage(): ReactElement {
   const { t } = useTranslation()
   const [posts, setPosts] = useState<Post[]>([])
@@ -83,24 +104,27 @@ export function BlogIndexPage(): ReactElement {
           discrete items, and hover feedback. Copy this shape whenever you
           list articles, changelog entries or docs pages — and add a border
           class if the surface alone does not read as a card in your theme. */}
-      {posts.map((p) => (
-        <a
-          key={p.id}
-          href={`/blog/${p.slug}`}
-          data-mol-id={`blog-post-${p.slug}`}
-          className={cm.cn(
-            cm.flex({ direction: 'col', gap: 'sm' }),
-            cm.sp('p', 5),
-            'rounded-lg bg-surface-container-low text-on-surface no-underline transition-colors hover:bg-surface-container',
-          )}
-        >
-          <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>{p.title}</h2>
-          <p className={cm.cn(cm.textMuted)}>{p.excerpt}</p>
-          <time className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
-            {new Date(p.published_at).toLocaleDateString()}
-          </time>
-        </a>
-      ))}
+      {posts.map((p) => {
+        const published = publishedLabel(p.published_at)
+        return (
+          <a
+            key={p.id}
+            href={`/blog/${p.slug}`}
+            data-mol-id={`blog-post-${p.slug}`}
+            className={cm.cn(
+              cm.flex({ direction: 'col', gap: 'sm' }),
+              cm.sp('p', 5),
+              'rounded-lg bg-surface-container-low text-on-surface no-underline transition-colors hover:bg-surface-container',
+            )}
+          >
+            <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>{p.title}</h2>
+            <p className={cm.cn(cm.textMuted)}>{p.excerpt}</p>
+            {published ? (
+              <time className={cm.cn(cm.textSize('sm'), cm.textMuted)}>{published}</time>
+            ) : null}
+          </a>
+        )
+      })}
     </div>
   )
 }
