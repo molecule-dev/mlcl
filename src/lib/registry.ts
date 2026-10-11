@@ -114,8 +114,8 @@ function derivePackages(registry: Registry, moleculeDir: string): InferredPackag
  * Load all packages for a given project type.
  *
  * The returned packages are derived from {@link rawRegistryAt} — the single
- * (path, mtime, size)-keyed parse of the registry file — so a process that
- * reads both this and any {@link getRawRegistry} accessor (`loadAppFrameworks`,
+ * file-identity-keyed parse of the registry file — so a process that reads both
+ * this and any {@link getRawRegistry} accessor (`loadAppFrameworks`,
  * `getMoleculeVersion`, …) parses the file once, not once per reader.
  *
  * A MISSING registry file throws here (as it always has): an empty package list
@@ -388,7 +388,8 @@ export function updateRegistryEntry(packageName: string, entry: RegistryEntry): 
  * per DEPENDENCY — and each call used to re-read and re-parse the whole
  * registry file. At ~900 packages (1.5 MB) that is ~27 ms per call, so one
  * scaffold paid seconds of pure re-parsing that grows with the fleet, not with
- * the work. The key is (path, mtimeMs, size), so an edit from ANOTHER process
+ * the work. The key is the file's IDENTITY — nanosecond mtime, size and inode
+ * ({@link registryCacheKey}) — so an edit from ANOTHER process
  * (molecule's pre-commit doc regen writes this file) or an `MLCL_REGISTRY_PATH`
  * flip is honored on the next call; in-process writes go through
  * {@link writeRegistry}, which calls {@link clearRegistryCache}. The map holds
@@ -405,14 +406,34 @@ export const RAW_REGISTRY_CACHE_LIMIT = 4
 const rawRegistryCache = new Map<string, { key: string; registry: Registry }>()
 
 /**
+ * The cache key that identifies one STATE of a registry file.
+ *
+ * Millisecond mtime + size is NOT an identity: two writers inside the same
+ * millisecond whose documents happen to be the same length share it, and the
+ * reader then serves the FIRST parse for the rest of the process's life. That
+ * bound is reachable — a publish replaces the file by rename (so the inode
+ * changes every time even when the bytes are the same length), and
+ * `writeRegistry`'s own {@link RegistryStamp} already uses nanosecond mtime for
+ * exactly this reason. Nanoseconds plus the inode catch both write shapes: a
+ * rename (new inode, any mtime) and an in-place `writeFileSync` (same inode,
+ * new mtime).
+ *
+ * @param stat - The file's `statSync(path, { bigint: true })` result.
+ * @returns The identity string the raw-registry cache is keyed on.
+ */
+function registryCacheKey(stat: { mtimeNs: bigint; size: bigint; ino: bigint }): string {
+  return `${stat.mtimeNs}:${stat.size}:${stat.ino}`
+}
+
+/**
  * The parsed registry and whether the FILE was there.
  *
  * THE single read + `JSON.parse` + zod validation of the registry file: every
  * reader in this module goes through here, so a process pays for the
- * fleet-sized file once per (path, mtime, size) no matter how many accessors
- * it touches. `present` separates "the file is missing" from "the registry is
- * empty": {@link getRawRegistry} answers an empty registry for a missing file
- * (its callers only ever read an optional section), while
+ * fleet-sized file once per (path, {@link registryCacheKey}) no matter how many
+ * accessors it touches. `present` separates "the file is missing" from "the
+ * registry is empty": {@link getRawRegistry} answers an empty registry for a
+ * missing file (its callers only ever read an optional section), while
  * {@link loadRegistry} must fail loudly — an empty package list is a valid
  * registry, so it cannot stand in for a broken install.
  *
@@ -420,14 +441,14 @@ const rawRegistryCache = new Map<string, { key: string; registry: Registry }>()
  * @returns The parsed registry, and whether the file existed.
  */
 function rawRegistryAt(path: string): { registry: Registry; present: boolean } {
-  let stat: { mtimeMs: number; size: number }
+  let stat: { mtimeNs: bigint; size: bigint; ino: bigint }
   try {
-    stat = statSync(path)
+    stat = statSync(path, { bigint: true })
   } catch (_error) {
     // No registry file at this path — the empty registry, flagged as absent.
     return { registry: { version: 1, packages: {} }, present: false }
   }
-  const key = `${stat.mtimeMs}:${stat.size}`
+  const key = registryCacheKey(stat)
   const hit = rawRegistryCache.get(path)
   if (hit && hit.key === key) return { registry: hit.registry, present: true }
   const registry = RegistrySchema.parse(JSON.parse(readFileSync(path, 'utf-8')))

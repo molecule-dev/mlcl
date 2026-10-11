@@ -15,7 +15,7 @@
  *
  * @module
  */
-import { mkdtempSync, writeFileSync } from 'node:fs'
+import { mkdtempSync, renameSync, utimesSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -123,6 +123,37 @@ describe('getRawRegistry — parsed-registry cache', () => {
     // doc regen case): the mtime/size key must miss and re-read.
     writeFileSync(registryPath, marker(SECOND))
     expect(getRawRegistry().packages['@molecule/test-raw-cache-probe']?.label).toBe(SECOND)
+  })
+
+  it('sees a same-size publish that landed in the same millisecond', () => {
+    // A publish replaces the file by RENAME (`writeRegistry`'s own shape), and
+    // these two states are the same LENGTH. With an (mtimeMs, size) key they are
+    // indistinguishable inside one millisecond, so the process kept serving the
+    // first parse — stale for every accessor that funnels through
+    // getRawRegistry (`getMoleculeVersion`, frameworks, toolchain) — until the
+    // file happened to change size. `utimesSync` pins the timestamp, so the
+    // collision is the point of the test rather than a race it would only
+    // sometimes exercise. The identity now carries the inode (and nanoseconds),
+    // and a rename brings a new inode into place.
+    const first = marker('one')
+    const second = marker('two')
+    expect(first.length, 'the two states must be the same size to collide').toBe(second.length)
+    const instant = new Date(1_700_000_000_000) // whole milliseconds — ns part 0
+
+    writeFileSync(registryPath, first)
+    utimesSync(registryPath, instant, instant)
+    clearRegistryCache()
+    expect(getRawRegistry().packages['@molecule/test-raw-cache-probe']?.label).toBe('one')
+
+    const temp = `${registryPath}.rival.tmp`
+    writeFileSync(temp, second)
+    utimesSync(temp, instant, instant)
+    renameSync(temp, registryPath)
+
+    expect(
+      getRawRegistry().packages['@molecule/test-raw-cache-probe']?.label,
+      'a same-size publish at the same millisecond is still a change',
+    ).toBe('two')
   })
 
   it('honors clearRegistryCache as a forced invalidation', () => {
