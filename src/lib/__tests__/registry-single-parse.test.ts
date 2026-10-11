@@ -13,9 +13,10 @@
  *
  * The derived `InferredPackage[]` is still cached (same array object between
  * calls), but it is now derived FROM the shared raw cache, so a second reader
- * adds no second read — and, because the raw cache is keyed by (path, mtime,
- * size), `loadRegistry` also sees an edit another process made instead of
- * serving a stale parse forever.
+ * adds no second read — and, because the raw cache is keyed by the file's
+ * IDENTITY (nanosecond mtime, size and inode, see `registryCacheKey`),
+ * `loadRegistry` also sees an edit another process made instead of serving a
+ * stale parse forever.
  *
  * @module
  */
@@ -119,12 +120,11 @@ describe('the registry file is read+parsed once, not once per reader', () => {
     // mlcl sync-registry in a sibling invocation). Both readers must see it —
     // neither may serve the parse it took before the edit.
     //
-    // The rewritten document must differ in SIZE, not only in mtime: the cache
-    // key is (mtimeMs, size), and a filesystem with coarse timestamp
-    // granularity reports the same mtime for two writes inside one tick — so a
-    // same-length rewrite would be invisible, and this test would fail on a
-    // machine whose filesystem is coarser than this one's (the sibling
-    // raw-cache suite states and follows the same rule).
+    // The rewritten document also differs in SIZE, which is belt-and-braces
+    // rather than the mechanism: the cache key is the file's identity —
+    // nanosecond mtime, size and inode (`registryCacheKey`) — so even a
+    // same-length rewrite in the same millisecond is a miss (the sibling
+    // raw-cache suite pins exactly that with a rename).
     writeFileSync(registryPath, registryWith('After-the-edit'))
     expect(getRawRegistry().packages['@molecule/test-single-parse-probe']?.label).toBe(
       'After-the-edit',
