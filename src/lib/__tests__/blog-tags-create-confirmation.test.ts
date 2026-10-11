@@ -323,3 +323,78 @@ describe('blog Tags — a create is claimed only when the answer carries the tag
     )
   })
 })
+
+describe('blog Tags — a create the server never answered is unconfirmed too', () => {
+  /**
+   * The shape the http bond rejects with when NO answer arrived: `HttpError`
+   * with `status: 0` and no response (a timeout, a dropped connection, a proxy
+   * that answered nothing). A row may still have been inserted server-side.
+   */
+  const noAnswer = (message = 'Network Error'): Error =>
+    Object.assign(new Error(message), { name: 'HttpError', status: 0 })
+
+  it('latches an unanswered create instead of inviting the retry that duplicates it', async () => {
+    await mountWithTaxonomy()
+    await openCreateAndType('javascript')
+    await clickSave()
+    expect(posts.length).toBe(1)
+
+    // The POST was SENT; only the answer was lost. `create` INSERTS and has no
+    // idempotency key, so the row may exist and a second Save must not POST.
+    await act(async () => {
+      posts.at(-1)?.reject(noAnswer())
+    })
+    await flush()
+
+    expect(modal(), 'an unconfirmed create must not close the modal').not.toBeNull()
+    expect(text(), 'the reader must be told the create could not be confirmed').toContain(
+      'Could not confirm the tag was created',
+    )
+    expect(tagRows(), 'no row may be adopted from an answer that never arrived').toBe(TAGS.length)
+    expect(track, 'no analytics event may report an unconfirmed create').not.toHaveBeenCalled()
+
+    await clickSave()
+    expect(posts.length, 'the retry must not insert a second row').toBe(1)
+
+    // Closing the modal is the "go check the tag list" step the message names.
+    const cancel = container.querySelector('[data-mol-id="btn-modal-cancel"]')
+    await act(async () => {
+      cancel?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+    await openCreateAndType('javascript')
+    await clickSave()
+    expect(posts.length, 'a deliberate re-open may create afresh').toBe(2)
+    await act(async () => {
+      posts.at(-1)?.resolve({ data: { id: 'tag-8', name: 'javascript', post_count: 0 } })
+    })
+    await flush()
+    expect(modal(), 'the confirmed create closes the modal').toBeNull()
+  })
+
+  it('still lets the author retry a create the SERVER refused', async () => {
+    // The other half of the discriminator: a 4xx is an ANSWER — the server
+    // refused the create and inserted nothing — so the author fixes the name
+    // and Save may POST again. Latching here would wedge the modal over an
+    // error the reader can act on (and hide the server's own message).
+    await mountWithTaxonomy()
+    await openCreateAndType('javascript')
+    await clickSave()
+    await act(async () => {
+      posts.at(-1)?.reject(Object.assign(new Error('tag already exists'), { status: 409 }))
+    })
+    await flush()
+
+    expect(text(), "the server's own reason must reach the reader").toContain('tag already exists')
+    expect(text()).not.toContain('Could not confirm the tag was created')
+    expect(modal()).not.toBeNull()
+
+    await clickSave()
+    expect(posts.length, 'an answered refusal is safe to retry').toBe(2)
+    await act(async () => {
+      posts.at(-1)?.resolve({ data: { id: 'tag-7', name: 'javascript', post_count: 0 } })
+    })
+    await flush()
+    expect(modal()).toBeNull()
+  })
+})

@@ -327,20 +327,35 @@ describe('PostEditorPage — save()', () => {
     expect(text()).not.toContain('Saving…')
   })
 
-  it('a REJECTED save frees the form — never stuck on "Saving…" forever', async () => {
+  it('a REJECTED create frees the form — never stuck on "Saving…" forever', async () => {
     // save()'s own comment promises the catch: "a rejected fetch must not
     // leave the form stuck on 'Saving…'". No fetch double could reject, so
     // deleting the catch kept every test green over a wedged editor.
+    //
+    // A rejected request on the CREATE screen (no `slug`) is also an
+    // UNCONFIRMED create — the POST was sent and the answer was lost, so the
+    // row may exist and a re-submit must not insert a second copy — which is
+    // why this screen names that outcome rather than the generic save failure
+    // (see the unconfirmed-create suite). The freed form is what this test
+    // pins: the fields are still there and the button is usable.
     await render(createElement(PostEditorPage, {}), true)
     await typeInto('[data-mol-id="post-title"]', 'Offline post')
     await typeInto('[data-mol-id="post-body"]', '# Body')
     await submitEditor()
     await rejectPending()
 
-    expect(text()).toContain('Could not save the post')
+    expect(text()).toContain('Could not confirm the save')
     const button = container.querySelector('[data-mol-id="post-save"]') as HTMLButtonElement | null
     expect(button?.disabled).toBe(false)
     expect(text()).not.toContain('Saving…')
+    expect(titleInput()?.value, 'the form keeps what the author typed').toBe('Offline post')
+
+    // The freed form does not invite the retry that duplicates the create.
+    await submitEditor()
+    expect(
+      pending.requests.filter((request) => request.method === 'POST').length,
+      'the retry must not POST a second copy',
+    ).toBe(1)
   })
 })
 

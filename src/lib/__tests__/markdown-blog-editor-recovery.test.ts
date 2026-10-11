@@ -33,6 +33,8 @@ interface FetchCall {
   method: string
   answered: boolean
   respond: (status: number, body: unknown) => void
+  /** Reject the request the way a failed network does (no answer arrived). */
+  fail: (error: unknown) => void
 }
 
 const fetches = vi.hoisted(() => ({ calls: [] as FetchCall[] }))
@@ -113,6 +115,17 @@ async function respond(fragment: string, status: number, body: unknown): Promise
   await flush()
 }
 
+/** Reject the oldest pending request for `fragment` — the request was SENT, no answer came. */
+async function failPending(fragment: string, error: unknown): Promise<void> {
+  const call = fetches.calls.find((c) => !c.answered && c.url.includes(fragment))
+  if (!call) throw new Error(`no pending fetch for ${fragment}`)
+  call.answered = true
+  await act(async () => {
+    call.fail(error)
+  })
+  await flush()
+}
+
 const fetchCount = (fragment: string): number =>
   fetches.calls.filter((c) => c.url.includes(fragment)).length
 
@@ -137,13 +150,14 @@ async function submitForm(): Promise<void> {
 beforeEach(() => {
   fetches.calls.length = 0
   globalThis.fetch = ((input: unknown, init?: { method?: string }) =>
-    new Promise((resolve) => {
+    new Promise((resolve, reject) => {
       fetches.calls.push({
         url: String(input),
         method: init?.method ?? 'GET',
         answered: false,
         respond: (status, body) =>
           resolve({ ok: status >= 200 && status < 300, status, json: async () => body }),
+        fail: reject,
       })
     })) as typeof globalThis.fetch
 })
@@ -250,6 +264,66 @@ describe('post editor — an edit that could not load is not an edit that create
     await submitForm()
     expect(fetches.calls.filter((c) => c.method === 'POST').length).toBe(postsAfterFirst)
     expect(text()).not.toContain('Draft saved.')
+  })
+
+  it('treats a create the server never ANSWERED as unconfirmed, not as retryable', async () => {
+    // The other way a create's outcome becomes unknowable: the POST was sent and
+    // the answer never came back (offline, a timeout, the connection dropped, a
+    // proxy that answered nothing). `fetch` rejects there, and the editor called
+    // that "Could not save the post" with Save enabled — so the retry the
+    // message invites POSTed /api/posts again and inserted a SECOND copy of a
+    // post the first request may well have created (the endpoint has no
+    // idempotency key). Same latch as the 2xx-without-an-id case: the answer is
+    // unknown, so the author is sent to check the post list first.
+    await mount(createElement(PostEditorPage, {}))
+    await submitForm()
+    await failPending('/api/posts', new Error('network down'))
+
+    expect(text()).not.toContain('Draft saved.')
+    expect(text()).toContain('Could not confirm the save')
+    const posts = (): number => fetches.calls.filter((c) => c.method === 'POST').length
+    expect(posts()).toBe(1)
+
+    await submitForm()
+    expect(posts(), 'the retry must not insert a second copy').toBe(1)
+    expect(text()).not.toContain('Draft saved.')
+
+    // Reloading the editor is the "check the post list" step the message names —
+    // a fresh mount starts a fresh create, so the refusal is not a wedge.
+    await act(async () => {
+      root.unmount()
+    })
+    container.remove()
+    await mount(createElement(PostEditorPage, {}))
+    await submitForm()
+    expect(posts(), 'a fresh editor may create afresh').toBe(2)
+    await respond('/api/posts', 201, { id: 'p-second' })
+    expect(text()).toContain('Draft saved.')
+  })
+
+  it('still lets the author retry a create that an ANSWERED failure refused', async () => {
+    // An edit-mode save is a PUT of the same values (idempotent) and a create
+    // the SERVER refused inserted nothing, so both stay retryable — latching
+    // them would wedge the form over an error the author can act on.
+    await mount(createElement(PostEditorPage, { slug: 'a-post' }))
+    await respond('/api/posts/a-post', 200, {
+      id: 'p-a',
+      title: 'Post A',
+      slug: 'a-post',
+      body_markdown: 'A body',
+      draft: true,
+    })
+    await submitForm()
+    await respond('/api/posts/p-a', 409, { error: 'slug already taken' })
+
+    expect(text()).toContain('slug already taken')
+    expect(text()).not.toContain('Could not confirm the save')
+
+    await submitForm()
+    expect(
+      fetches.calls.filter((c) => c.method === 'PUT').length,
+      'an answered refusal is safe to retry',
+    ).toBe(2)
   })
 })
 

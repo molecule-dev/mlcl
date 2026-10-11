@@ -75,6 +75,17 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}): R
    */
   const createUnconfirmed = useRef(false)
 
+  /**
+   * What an UNCONFIRMED create tells the author — one wording, used by both ways
+   * a create can end up unconfirmed: a 2xx answer carrying no id, and a request
+   * that never reached an answer at all.
+   */
+  const unconfirmedCreateMessage = (): string =>
+    t('postEditor.createUnconfirmed', undefined, {
+      defaultValue:
+        'Could not confirm the save — the post may or may not have been created. Check the post list before saving again.',
+    })
+
   // Edit mode: load the post's current values so the author edits, not clobbers.
   const loadedSlug = useRef<string | null>(null)
   /**
@@ -258,12 +269,7 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}): R
     // already have created (see createUnconfirmed). Refuse until the author has
     // checked whether the post exists (reloading the editor clears it).
     if (postId === null && createUnconfirmed.current) {
-      setError(
-        t('postEditor.createUnconfirmed', undefined, {
-          defaultValue:
-            'Could not confirm the save — the post may or may not have been created. Check the post list before saving again.',
-        }),
-      )
+      setError(unconfirmedCreateMessage())
       setStatus('error')
       return
     }
@@ -309,12 +315,7 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}): R
         const createdId = typeof saved?.id === 'string' && saved.id.length > 0 ? saved.id : null
         if (createdId === null) {
           createUnconfirmed.current = true
-          setError(
-            t('postEditor.createUnconfirmed', undefined, {
-              defaultValue:
-                'Could not confirm the save — the post may or may not have been created. Check the post list before saving again.',
-            }),
-          )
+          setError(unconfirmedCreateMessage())
           setStatus('error')
           return
         }
@@ -323,6 +324,21 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}): R
       setStatus('saved')
     } catch (_error) {
       if (!stillOnThisPost()) return
+      // A CREATE whose request never reached an ANSWER is an unconfirmed create,
+      // not a failed one. `fetch` rejects only when the request could not be
+      // completed (offline, a timeout, the connection dropped, a proxy that
+      // answered nothing) — which says nothing about the server side: the POST
+      // may have inserted the row before the answer was lost, and `postId` is
+      // still null, so the next Save takes the create branch again and inserts a
+      // SECOND copy (the endpoint has no idempotency key). Same latch and same
+      // wording as the 2xx-without-an-id case above. An EDIT's retry is a PUT of
+      // the same values, which is idempotent, so only the create branch latches.
+      if (postId === null) {
+        createUnconfirmed.current = true
+        setError(unconfirmedCreateMessage())
+        setStatus('error')
+        return
+      }
       setError(t('postEditor.saveFailed', undefined, { defaultValue: 'Could not save the post' }))
       setStatus('error')
     }

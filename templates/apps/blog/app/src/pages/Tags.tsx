@@ -149,6 +149,21 @@ export function Tags() {
   // error names), and a deliberate re-open starts a fresh create.
   const createUnconfirmed = useRef(false)
 
+  /**
+   * What an UNCONFIRMED create tells the reader — one wording, used by both ways
+   * a create can end up unconfirmed (a 2xx answer carrying no tag row, and a
+   * request that never reached an answer at all).
+   */
+  const unconfirmedCreateMessage = (): string =>
+    t(
+      'tags.createUnconfirmed',
+      {},
+      {
+        defaultValue:
+          'Could not confirm the tag was created — check the tag list before saving again.',
+      },
+    )
+
   // Close the create/edit modal on browser navigation (popstate / back-forward
   // / programmatic SPA pushes). Without this the modal becomes a sticky
   // overlay that blocks subsequent clicks when the page is re-entered.
@@ -294,16 +309,7 @@ export function Tags() {
       // address — nothing without one may enter state.
       if (typeof created?.id !== 'string' || created.id.length === 0) {
         createUnconfirmed.current = true
-        setModalError(
-          t(
-            'tags.createUnconfirmed',
-            {},
-            {
-              defaultValue:
-                'Could not confirm the tag was created — check the tag list before saving again.',
-            },
-          ),
-        )
+        setModalError(unconfirmedCreateMessage())
         return
       }
       setTags((prev) => [...prev, created])
@@ -313,6 +319,24 @@ export function Tags() {
       })
       closeModal()
     } catch (error) {
+      // An error carrying no HTTP STATUS never reached an ANSWER: the http bond
+      // reports a request it could not complete (unreachable, timed out, the
+      // connection dropped, a proxy that answered nothing) as an `HttpError`
+      // with `status: 0` and no response, and a fetch-based bond rejects with a
+      // plain TypeError. That is the opposite of what an answered refusal means
+      // for a CREATE — a 4xx (duplicate name) or 5xx inserted nothing, so the
+      // author fixes the name and retries; an UNANSWERED create may well have
+      // inserted the row before the answer was lost, and `create` has no
+      // idempotency key, so the retry inserts a SECOND one. The 2xx-with-no-row
+      // branch above latches exactly this hazard, so an unanswered create
+      // latches it too: the modal stays open with the "check the tag list"
+      // message, and Save refuses until the modal is closed.
+      const status = (error as { status?: unknown } | null)?.status
+      if (typeof status !== 'number' || status <= 0) {
+        createUnconfirmed.current = true
+        setModalError(unconfirmedCreateMessage())
+        return
+      }
       // Keep the modal open so the user can retry (e.g. duplicate name) and
       // show WHY nothing happened.
       setModalError(
