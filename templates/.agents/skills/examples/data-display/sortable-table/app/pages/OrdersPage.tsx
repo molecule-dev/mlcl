@@ -53,7 +53,17 @@ export function OrdersPage() {
   const { t } = useTranslation()
   const [page, setPage] = useState<Page>({ rows: [], total: 0 })
   const [pageIndex, setPageIndex] = useState(1)
-  const [loading, setLoading] = useState(false)
+  /**
+   * Whether a request is in flight — TRUE from the first render.
+   *
+   * The rows are empty until the effect's request resolves, so `loading: false`
+   * made the skeleton/empty choice below take the EMPTY branch on the first
+   * paint: `DataTableCard` rendered its `emptyMessage` — "No orders found." — for
+   * a list nobody had read yet, and that authoritative-looking wrong answer is
+   * what the reader (or a screenshot) sees on a slow first paint. Only a request
+   * that actually answered may say the list is empty.
+   */
+  const [loading, setLoading] = useState(true)
   /**
    * Whether the last request failed.
    *

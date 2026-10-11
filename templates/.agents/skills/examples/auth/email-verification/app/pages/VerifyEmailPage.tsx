@@ -5,7 +5,15 @@ import { getClassMap } from '@molecule/app-ui'
 
 const cm = getClassMap()
 
-type Status = 'verifying' | 'success' | 'expired' | 'invalid' | 'resent' | 'alreadyVerified'
+type Status =
+  | 'verifying'
+  | 'success'
+  | 'expired'
+  | 'invalid'
+  | 'resent'
+  | 'alreadyVerified'
+  /** The check itself could not be completed (offline, a 5xx) — see the effect. */
+  | 'verifyFailed'
 /** Why the last resend failed, if it did. */
 type ResendFailure = 'failed' | 'signedOut' | 'rateLimited'
 
@@ -13,6 +21,10 @@ export function VerifyEmailPage() {
   const { t } = useTranslation()
   const [status, setStatus] = useState<Status>('verifying')
   const [resendFailure, setResendFailure] = useState<ResendFailure | null>(null)
+  // Bumped by the retry control under `verifyFailed`: the check effect keys on
+  // it, which is what makes an uncompleted verification retryable (nothing else
+  // changes when the user retries the same link).
+  const [verifyAttempt, setVerifyAttempt] = useState(0)
   // A resend in flight. The endpoint rate-limits per user, so without this a
   // double click sent two requests: the first created and mailed a link, the
   // second came back 429 and the page reported "Could not send a new link" —
@@ -26,14 +38,32 @@ export function VerifyEmailPage() {
       setStatus('invalid')
       return
     }
+    // A superseded attempt must not write state over a newer one's answer.
+    let cancelled = false
+    setStatus('verifying')
     fetch(`/api/verify?token=${encodeURIComponent(token)}`)
       .then((r) => {
+        if (cancelled) return
         if (r.ok) setStatus('success')
         else if (r.status === 410) setStatus('expired')
+        // A 5xx is the SERVER failing, not the link being bad: reporting it as
+        // "Invalid link" told a reader whose link (and whose verification) was
+        // fine that the link was worthless, and the invalid branch carried no
+        // retry control, so there was nothing to do but guess. Only a definite
+        // 4xx is a verdict on the token.
+        else if (r.status >= 500) setStatus('verifyFailed')
         else setStatus('invalid')
       })
-      .catch(() => setStatus('invalid'))
-  }, [])
+      .catch(() => {
+        // A rejected fetch (offline, server restart) is the same class as a 5xx:
+        // an UNCOMPLETED check, never a verdict on the link — the token is still
+        // valid server-side and a retry can still verify the account.
+        if (!cancelled) setStatus('verifyFailed')
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [verifyAttempt])
 
   async function resend(): Promise<void> {
     // One resend at a time — see the state's comment.
@@ -126,6 +156,27 @@ export function VerifyEmailPage() {
         <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
           {t('verifyEmail.invalidTitle', undefined, { defaultValue: 'Invalid link' })}
         </h2>
+      ) : null}
+      {status === 'verifyFailed' ? (
+        <>
+          <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
+            {t('verifyEmail.verifyFailedTitle', undefined, {
+              defaultValue: 'Could not check this link',
+            })}
+          </h2>
+          <p className={cm.textMuted}>
+            {t('verifyEmail.verifyFailedBody', undefined, {
+              defaultValue: 'The check did not complete — your link may still work.',
+            })}
+          </p>
+          <button
+            data-mol-id="verify-email-retry"
+            onClick={() => setVerifyAttempt((n) => n + 1)}
+            className={cm.button({ variant: 'solid' })}
+          >
+            {t('verifyEmail.retry', undefined, { defaultValue: 'Try again' })}
+          </button>
+        </>
       ) : null}
       {status === 'resent' ? (
         <p className={cm.textSuccess}>
