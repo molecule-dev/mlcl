@@ -36,6 +36,24 @@ export default function UsersPage() {
   const [data, setData] = useState<UsersResponse | null>(null)
   const [loading, setLoading] = useState(true)
   const [loadFailed, setLoadFailed] = useState(false)
+  /**
+   * The last page envelope that LOADED (its `total` and `limit`) — what the
+   * paginator needs to stay usable after a page request fails.
+   *
+   * The failed page's rows are dropped (see the catch below: they belong to the
+   * page the user LEFT), and the paginator used to be gated on `data`, so it was
+   * unmounted with them: the error text said "try again" over a page that had no
+   * control left to retry with and no way back to the page that had just loaded,
+   * while `page` stayed at the page that failed. Only a browser reload recovered.
+   * The envelope survives the failure — it describes the LIST, not the page that
+   * failed to arrive — so the paginator keeps rendering and `page` stays
+   * navigable, and the retry control below re-requests the failed page.
+   */
+  const [pageInfo, setPageInfo] = useState<{ total: number; limit: number } | null>(null)
+  // Bumped by the retry control: the load effect keys on it, which is what makes
+  // a failed page request retryable at all (every other dep is unchanged when the
+  // user retries the same page).
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     // A page change starts a NEW request while the previous one may still be in
@@ -56,7 +74,29 @@ export default function UsersPage() {
     http
       .get<UsersResponse>(`/api/users?page=${page}&limit=${PAGE_SIZE}`)
       .then((res) => {
-        if (!cancelled) setData(res.data)
+        if (cancelled) return
+        // A 2xx proves the route ANSWERED, not that the body is a page: an
+        // endpoint with no fixture answers 200 with an empty object, and a proxy
+        // can rewrite a failure into a 200. Installed unvalidated, `data.data`
+        // was undefined and `data.data.map` threw during render — a blank page
+        // instead of the retryable failure this state exists for. `total`/`limit`
+        // are coerced the same way: the paginator divides by `limit` and compares
+        // against `total`, and `undefined` there is a NaN page count.
+        const body = (res?.data ?? {}) as Partial<UsersResponse>
+        if (!Array.isArray(body.data)) {
+          setLoadFailed(true)
+          setData(null)
+          return
+        }
+        const limit = typeof body.limit === 'number' && body.limit > 0 ? body.limit : PAGE_SIZE
+        const total = typeof body.total === 'number' ? body.total : body.data.length
+        setData({
+          data: body.data,
+          total,
+          limit,
+          page: typeof body.page === 'number' ? body.page : page,
+        })
+        setPageInfo({ total, limit })
       })
       .catch(() => {
         // Without this catch the rejection escapes the effect AND `data`
@@ -70,6 +110,9 @@ export default function UsersPage() {
         // paginator, with the error text above it. A failed page has no rows to
         // show, so none are shown.
         setData(null)
+        // `pageInfo` is deliberately NOT cleared — see its comment: the
+        // paginator and the page number must survive the failure, or the reader
+        // is stranded on a page with no control left to move off it.
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -77,9 +120,9 @@ export default function UsersPage() {
     return () => {
       cancelled = true
     }
-  }, [http, page])
+  }, [http, page, reloadKey])
 
-  const totalPages = data ? Math.max(1, Math.ceil(data.total / data.limit)) : 1
+  const totalPages = pageInfo ? Math.max(1, Math.ceil(pageInfo.total / pageInfo.limit)) : 1
 
   return (
     <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }), cm.sp('p', 6))}>
@@ -90,9 +133,25 @@ export default function UsersPage() {
       {loading && <p>{t('users.loading', {}, { defaultValue: 'Loading…' })}</p>}
 
       {loadFailed && !loading ? (
-        <p className={cm.textError}>
-          {t('users.loadFailed', {}, { defaultValue: 'Could not load users — try again.' })}
-        </p>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+          <p className={cm.textError}>
+            {t('users.loadFailed', {}, { defaultValue: 'Could not load users — try again.' })}
+          </p>
+          {/* The control the message promises: without it a failed page left the
+              reader with nothing to click (see `pageInfo`). */}
+          <button
+            type="button"
+            data-mol-id="users-retry"
+            onClick={() => {
+              setLoading(true)
+              setLoadFailed(false)
+              setReloadKey((k) => k + 1)
+            }}
+            className={cm.button({ variant: 'outline', size: 'sm' })}
+          >
+            {t('users.retry', {}, { defaultValue: 'Try again' })}
+          </button>
+        </div>
       ) : null}
 
       {data && (
@@ -109,12 +168,12 @@ export default function UsersPage() {
         </ul>
       )}
 
-      {data && data.total > data.limit && (
+      {pageInfo && pageInfo.total > pageInfo.limit && (
         <PaginationBar
           page={page}
           totalPages={totalPages}
-          pageSize={data.limit}
-          total={data.total}
+          pageSize={pageInfo.limit}
+          total={pageInfo.total}
           onPageChange={setPage}
         />
       )}

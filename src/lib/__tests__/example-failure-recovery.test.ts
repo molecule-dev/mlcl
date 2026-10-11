@@ -487,10 +487,76 @@ describe('paginated-user-list — a failed page change leaves no stale page behi
     await flush()
 
     expect(text()).toContain('Could not load users')
-    // Page 1's row must not stand in for page 2, and the paginator must not
-    // claim a page whose rows are not there.
+    // Page 1's row must not stand in for page 2.
     expect(container.querySelectorAll('li')).toHaveLength(0)
-    expect(container.querySelector('[data-page]')).toBeNull()
+    // …and the reader is NOT stranded: the paginator still renders the page the
+    // request was for (its total/limit come from the last envelope that LOADED,
+    // not from the rows that failed to arrive), so the page number stays
+    // navigable. Gating it on `data` unmounted it with the dropped rows and left
+    // a page with no control that could move off it — the state this pass fixes.
+    expect(container.querySelector('[data-page]')?.getAttribute('data-page')).toBe('2')
+  })
+
+  it('the retry control re-requests the failed page and renders its rows', async () => {
+    await mount(createElement(UsersPage, {}))
+    await act(async () => {
+      httpCalls.calls[0]?.resolve({
+        data: {
+          data: [{ id: 'a', name: 'page-1 user a', email: 'a@test.dev', created_at: 't' }],
+          total: 60,
+          page: 1,
+          limit: 20,
+        },
+      })
+    })
+    await flush()
+
+    await clickByLabel('Next page')
+    await act(async () => {
+      httpCalls.calls[1]?.reject(new Error('HTTP 500'))
+    })
+    await flush()
+
+    // The message tells the reader to try again — so there has to be a control
+    // that does. Without one the only recovery was a browser reload.
+    const retry = container.querySelector('[data-mol-id="users-retry"]')
+    expect(retry).not.toBeNull()
+    await act(async () => {
+      retry?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+
+    // The same page, re-requested.
+    expect(httpCalls.calls).toHaveLength(3)
+    expect(httpCalls.calls[2]?.url).toContain('page=2')
+    await act(async () => {
+      httpCalls.calls[2]?.resolve({
+        data: {
+          data: [{ id: 'b', name: 'page-2 user b', email: 'b@test.dev', created_at: 't' }],
+          total: 60,
+          page: 2,
+          limit: 20,
+        },
+      })
+    })
+    await flush()
+
+    expect(text()).toContain('page-2 user b')
+    expect(text()).not.toContain('Could not load users')
+  })
+
+  it('a 2xx that is not a page is a failed load, not a blank page', async () => {
+    await mount(createElement(UsersPage, {}))
+    await act(async () => {
+      // The mock API server answers 200 `{}` for an endpoint with no fixture. Read
+      // as a page, `data.data.map` threw during render — a white screen instead of
+      // the retryable failure the page already knows how to show.
+      httpCalls.calls[0]?.resolve({ data: {} })
+    })
+    await flush()
+
+    expect(text()).toContain('Could not load users')
+    expect(container.querySelectorAll('li')).toHaveLength(0)
   })
 })
 
