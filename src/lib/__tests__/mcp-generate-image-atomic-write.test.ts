@@ -49,9 +49,17 @@ const hosted = vi.hoisted(() => ({
  */
 const failingWrite = vi.hoisted(() => ({ path: null as string | null }))
 
+/**
+ * A path whose REMOVAL fails — the shape an EPERM/EBUSY/EIO cleanup leaves, and
+ * the reason the whole-set rollback must not let its own failure replace the
+ * write failure the client is owed.
+ */
+const failingRemove = vi.hoisted(() => ({ path: null as string | null }))
+
 vi.mock('node:fs', async (importOriginal) => {
   const actual = (await importOriginal()) as Record<string, unknown>
   const realWriteFileSync = actual.writeFileSync as (p: unknown, ...rest: unknown[]) => void
+  const realRmSync = actual.rmSync as (p: unknown, ...rest: unknown[]) => void
   return {
     ...actual,
     writeFileSync(p: unknown, data: unknown, opts?: unknown): void {
@@ -65,6 +73,14 @@ vi.mock('node:fs', async (importOriginal) => {
         throw error
       }
       realWriteFileSync(p, data, opts)
+    },
+    rmSync(p: unknown, ...rest: unknown[]): void {
+      if (typeof p === 'string' && failingRemove.path !== null && p === failingRemove.path) {
+        const error = new Error('EPERM: operation not permitted, unlink') as NodeJS.ErrnoException
+        error.code = 'EPERM'
+        throw error
+      }
+      return realRmSync(p, ...rest)
     },
   }
 })
@@ -96,6 +112,7 @@ vi.mock('../../../mcp/src/services.js', () => ({
 beforeEach(() => {
   hosted.onCall = null
   hosted.emptyPayload = null
+  failingRemove.path = null
   // Every test's assertions about how many times the service was asked are
   // meaningless against a counter that keeps running across tests: the
   // collision case below asserts an ABSOLUTE `toBe(1)`, and a suite that ran it
@@ -210,6 +227,38 @@ describe('generate_image — an n > 1 set lands whole or not at all', () => {
       expect(existsSync(target), 'image 1 must be rolled back with the failed set').toBe(false)
     } finally {
       failingWrite.path = null
+    }
+  })
+
+  it('reports the WRITE failure, not its own cleanup failure, when a rollback cannot remove a file', async (ctx) => {
+    if (skipped(ctx)) return
+
+    // The rollback mirrors writeNewFileSync's own cleanup: a failed removal
+    // (EPERM/EBUSY/EIO — the same conditions that made the write fail) must not
+    // abort the loop, leave the files after it behind, or REPLACE the error the
+    // client is owed. Unguarded, the client was told 'EPERM … unlink' for a call
+    // whose real failure was a full disk, and a partial set survived under names
+    // its retry is then refused as "already exists".
+    const target = join(dir, 'cleanup-blocked.png')
+    const second = join(dir, 'cleanup-blocked-2.png')
+    failingWrite.path = second // image 2's data write fails (ENOSPC)
+    failingRemove.path = target // …and the rollback of image 1 cannot unlink it
+    try {
+      const result = await callTool('generate_image', {
+        prompt: 'a logo',
+        output_file: target,
+        n: 2,
+      })
+
+      expect(result.isError, 'the write failure still fails the call').toBe(true)
+      const message = textOf(result)
+      expect(message, 'the client is told the WRITE failed').toContain('ENOSPC')
+      expect(message, 'a cleanup failure must never replace the real error').not.toContain('EPERM')
+    } finally {
+      failingWrite.path = null
+      failingRemove.path = null
+      rmSync(target, { force: true })
+      rmSync(second, { force: true })
     }
   })
 

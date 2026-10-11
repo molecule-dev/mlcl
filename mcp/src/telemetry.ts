@@ -58,6 +58,21 @@ export function telemetryEnabled(): boolean {
   return process.env.MOLECULE_TELEMETRY !== '0'
 }
 
+/**
+ * How many times {@link installId} re-reads an id file a live writer is
+ * momentarily leaving empty, and the pause between those reads: 20 × 5 ms is
+ * far longer than the window between a winner's exclusive create and its write,
+ * and short enough that only the genuinely-empty-file case pays it.
+ */
+const ID_ADOPT_ATTEMPTS = 20
+/** The pause between {@link installId}'s re-reads — see {@link ID_ADOPT_ATTEMPTS}. */
+const ID_ADOPT_WAIT_MS = 5
+
+/** A bounded synchronous sleep, so the adopt loop above cannot yield to the caller. */
+function sleepSync(ms: number): void {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms)
+}
+
 function installId(): string {
   try {
     if (existsSync(ID_FILE)) {
@@ -84,11 +99,22 @@ function installId(): string {
       return id
     } catch (error) {
       if ((error as NodeJS.ErrnoException)?.code !== 'EEXIST') throw error
-      // Lost the race. An EMPTY file is not an id (the winner died between its
-      // truncating open and its write — see the zero-length note above), so
-      // publish ours over it; otherwise adopt the winner's.
-      const won = readFileSync(ID_FILE, 'utf8').trim()
-      if (won) return won
+      // Lost the race. An EMPTY file is either the winner mid-write — `wx`
+      // opens the name before it writes the bytes, so a live writer is
+      // momentarily observable as an empty file — or a writer that died
+      // between its open and its write (see the zero-length note above). The
+      // two are indistinguishable by content, so WAIT briefly for the winner's
+      // bytes before deciding: reading that window as "no id" published ours
+      // over a live holder's, splitting one install across two anonymousIds —
+      // the exact failure the exclusive create exists to prevent, reached
+      // through the empty-file branch instead of the create.
+      for (let attempt = 0; attempt < ID_ADOPT_ATTEMPTS; attempt++) {
+        const won = readFileSync(ID_FILE, 'utf8').trim()
+        if (won) return won
+        sleepSync(ID_ADOPT_WAIT_MS)
+      }
+      // Still empty after that budget: a genuinely empty leftover file (no live
+      // writer writes for that long), so publish ours over it.
       writeFileSync(ID_FILE, id, { mode: 0o600 })
       return id
     }

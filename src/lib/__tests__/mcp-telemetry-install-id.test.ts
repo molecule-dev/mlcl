@@ -22,9 +22,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 /**
  * Lets one test hide the id file from `existsSync` while it exists on disk —
- * the interleaving a second process's first call produces, made deterministic.
+ * the interleaving a second process's first call produces, made deterministic —
+ * and another report it as EMPTY for the first reads while the real bytes are
+ * already there (a winner observed mid-write).
  */
-const race = vi.hoisted(() => ({ hideIdFile: false }))
+const race = vi.hoisted(() => ({ hideIdFile: false, blankIdReads: 0 }))
 
 // `mcp/src/telemetry.ts` resolves its id file from `homedir()` at module load,
 // so the whole test runs against a throwaway home. Everything else on node:os
@@ -35,10 +37,12 @@ vi.mock('node:os', async () => {
 })
 
 // The same home, seen through node:fs: `existsSync` reports the file as absent
-// on demand (the stat that happened BEFORE another writer published), while
-// every real read/write still touches it.
+// on demand (the stat that happened BEFORE another writer published), and
+// `readFileSync` reports it as EMPTY on demand (a winner observed between its
+// exclusive create and its write), while every real read/write still touches it.
 vi.mock('node:fs', async () => {
   const actual = await vi.importActual<typeof NodeFs>('node:fs')
+  const realReadFileSync = actual.readFileSync as (path: unknown, ...rest: unknown[]) => unknown
   return {
     ...actual,
     // Matched by suffix: the factory is hoisted above the imports, so the
@@ -49,6 +53,13 @@ vi.mock('node:fs', async () => {
       race.hideIdFile && String(path).endsWith('.mlcl/telemetry-id')
         ? false
         : actual.existsSync(path as never),
+    readFileSync: (path: unknown, ...rest: unknown[]) => {
+      if (race.blankIdReads > 0 && String(path).endsWith('.mlcl/telemetry-id')) {
+        race.blankIdReads -= 1
+        return ''
+      }
+      return realReadFileSync(path, ...rest)
+    },
   }
 })
 
@@ -124,6 +135,29 @@ describe('molecule-mcp install id', () => {
 
     expect(payloadOf(fetchMock).event.anonymousId).toBe(winner)
     // The winner's id survives: the loser must not clobber the shared file.
+    expect(readFileSync(ID_FILE, 'utf8')).toBe(winner)
+  })
+
+  it('adopts an id a live writer published while our exclusive create was failing', () => {
+    // The window `wx` cannot close on its own: it CREATES the name before it
+    // writes the bytes, so a process that lost the create can read the file
+    // while the winner is mid-write and see ''. Reading that as "no id" and
+    // publishing ours over it split one install across two anonymousIds — the
+    // same split the exclusive create exists to prevent, reached through the
+    // empty-file branch instead of the create. The read is reported as empty
+    // twice, then the winner's bytes appear.
+    const winner = '77777777-6666-4555-8444-333333333333'
+    writeFileSync(ID_FILE, winner)
+    race.blankIdReads = 2
+    try {
+      trackToolCall('search_packages', true, Date.now())
+    } finally {
+      race.blankIdReads = 0
+    }
+
+    expect(payloadOf(fetchMock).event.anonymousId).toBe(winner)
+    // …and the winner's id survives: the loser must not publish its own id over
+    // one that was already there.
     expect(readFileSync(ID_FILE, 'utf8')).toBe(winner)
   })
 

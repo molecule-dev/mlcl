@@ -156,7 +156,7 @@ describe('a masked env value is never the value itself', () => {
     }
   })
 
-  it('reports a stdout that is not the list as the CLI’s own words, never as a parse crash', async (ctx) => {
+  it('reports a stdout that is not the list without repeating the CLI’s own output', async (ctx) => {
     if (skipped(ctx)) return
     // An exit-0 `env list` whose stdout carries NO JSON document (a wrapper's
     // progress line, a shim's banner) used to reach `parseJsonOut` bare: with
@@ -173,13 +173,66 @@ describe('a masked env value is never the value itself', () => {
         const result = await call(tool, tool === 'get_env_var' ? { key: 'OTP' } : {})
         expect(result.isError, `${tool} must fail loudly on a non-JSON answer`).toBe(true)
         const message = textOf(result)
-        expect(message, `${tool} surfaces the CLI’s own output`).toContain(
-          'refreshing the registry index',
+        expect(message, `${tool} names the answer it refused`).toContain(
+          'did not answer with the variable list',
         )
         expect(
           message,
           `${tool} never reports the bare parse error the old path threw`,
         ).not.toMatch(/Unexpected end|Unexpected token|SyntaxError/)
+      }
+    } finally {
+      await close()
+    }
+  })
+
+  it('never quotes the unmasked values the listing printed into the failure it reports', async (ctx) => {
+    if (skipped(ctx)) return
+    // `mlcl env list --json` answers with every variable's UNMASKED value (see
+    // src/commands/env/list.ts), and the refusal used to quote that stdout
+    // verbatim: a listing whose output carried a stray `{` before the array made
+    // `parseJsonOut` parse from the wrong brace, `JSON.parse` throw, and the
+    // client receive the whole .env — through two tools whose whole contract is
+    // that values stay masked unless `reveal` is passed.
+    const listing = JSON.stringify([
+      { key: 'MOLECULE_API_KEY', value: LONG_SECRET },
+      { key: 'OTP', value: SHORT_SECRET },
+    ])
+    const { call, close } = await connect(fakeCli(`{"notice":"index refreshed"} ${listing}\n`))
+    try {
+      for (const tool of ['list_env_vars', 'get_env_var']) {
+        const result = await call(tool, tool === 'get_env_var' ? { key: 'OTP' } : {})
+        expect(result.isError, `${tool} must refuse an unparseable listing`).toBe(true)
+        const message = textOf(result)
+        expect(message, `${tool} must not quote the long secret`).not.toContain(LONG_SECRET)
+        expect(message, `${tool} must not quote the short secret`).not.toContain(SHORT_SECRET)
+        expect(message, `${tool} still says what went wrong`).toContain(
+          'did not answer with the variable list',
+        )
+      }
+    } finally {
+      await close()
+    }
+  })
+
+  it('refuses a JSON object that is not the variable list instead of crashing on it', async (ctx) => {
+    if (skipped(ctx)) return
+    // `parseJsonOut` is an `as T` cast, so a valid JSON object passes through as
+    // the declared array and the callers dereference it: `raw.map` /
+    // `raw.find` died as "raw.map is not a function" — a raw TypeError at the
+    // client, naming neither the command nor its output.
+    const { call, close } = await connect(
+      fakeCli(JSON.stringify({ key: 'OTP', value: SHORT_SECRET })),
+    )
+    try {
+      for (const tool of ['list_env_vars', 'get_env_var']) {
+        const result = await call(tool, tool === 'get_env_var' ? { key: 'OTP' } : {})
+        expect(result.isError, `${tool} must refuse an answer that is not the list`).toBe(true)
+        const message = textOf(result)
+        expect(message, `${tool} reports the refusal, not a TypeError`).not.toMatch(
+          /is not a function/,
+        )
+        expect(message).toContain('did not answer with the variable list')
       }
     } finally {
       await close()

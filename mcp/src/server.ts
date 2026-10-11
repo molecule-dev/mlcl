@@ -99,6 +99,17 @@ function parseJsonOut<T>(out: string): T {
  * `check_project` documents, guards, and is tested for. The CLI's own words are
  * the failure the client gets instead.
  *
+ * The refusal covers two more shapes the first guard missed. {@link parseJsonOut}
+ * is an `as T` CAST, so any valid JSON passed through as the declared array: a
+ * `{"error": …}` object reached the callers' `raw.map` / `raw.find` and died
+ * there as `raw.map is not a function`, a raw TypeError naming neither the
+ * command nor its output. And the CLI's stdout is NEVER repeated in the failure:
+ * `env list --json` prints every variable with its UNMASKED value (see
+ * src/commands/env/list.ts), so echoing it put the project's secrets into the
+ * error the client reads — into the chat — while both env tools advertise
+ * masked values ({@link maskEnvValue}). The failure names the command to re-run
+ * instead; the original error rides along as `cause` for the debug log.
+ *
  * @param app - Target app/.env instead of api/.env.
  * @param directory - Project directory the CLI runs in.
  * @returns The variable list the CLI answered with.
@@ -109,10 +120,15 @@ async function readEnvList(
 ): Promise<Array<{ key: string; value: string }>> {
   const out = await runCli(['env', 'list', '--json', ...(app ? ['--app'] : [])], directory)
   try {
-    return parseJsonOut<Array<{ key: string; value: string }>>(out)
+    const parsed: unknown = parseJsonOut<unknown>(out)
+    if (!Array.isArray(parsed)) {
+      throw new Error('the answer is not a variable list')
+    }
+    return parsed as Array<{ key: string; value: string }>
   } catch (error) {
     throw new Error(
-      `mlcl env list did not answer with the variable list: ${out.trim() || '(no output)'}`,
+      'mlcl env list did not answer with the variable list — its output is not repeated here ' +
+        'because it carries unmasked .env values. Run `mlcl env list --json` to inspect it.',
       { cause: error },
     )
   }
@@ -2039,7 +2055,23 @@ server.registerTool(
           written.push(path)
         }
       } catch (error) {
-        for (const path of written) rmSync(path, { force: true })
+        // Best-effort per file, and never at the cost of the real failure: a
+        // cleanup that throws (EPERM/EBUSY/EIO — the same conditions that made
+        // the write fail) used to abort this loop mid-set, so the files after it
+        // stayed on disk under names the caller's retry is then refused, and the
+        // error the client read was the CLEANUP's, not the write's. Every path
+        // in `written` was created by this call (see writeNewFileSync), so each
+        // removal is attempted and a survivor is named for the log.
+        for (const path of written) {
+          try {
+            rmSync(path, { force: true })
+          } catch (cleanupError) {
+            console.error(
+              `[generate_image] ${path} could not be removed after a failed write — remove it by hand before retrying`,
+              cleanupError,
+            )
+          }
+        }
         throw error
       }
       const files = written
