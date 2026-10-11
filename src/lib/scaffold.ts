@@ -5514,7 +5514,14 @@ async function updateHtmlFontBlock(
   const newBlock = inner ? `    <!-- mol:fonts -->\n${inner}\n    <!-- /mol:fonts -->` : ''
 
   if (markerBlock) {
-    htmlContent = htmlContent.replace(MOL_FONTS_BLOCK, newBlock ? '\n' + newBlock : '')
+    // The replacement goes through a FUNCTION: `inner` is built from font
+    // metadata (a `family`, `url`, `faces[].file` or `utilityCss` declared by an
+    // installed package), and a `$` sequence in a replacement STRING is special
+    // (`$&` splices the whole MATCHED block back in, `$'` everything after it) —
+    // a family named `A$&B` put a second copy of the old `<!-- mol:fonts -->`
+    // block into the document. Same rule the brand sync applies to its values
+    // (see syncIdentityFromBranding).
+    htmlContent = htmlContent.replace(MOL_FONTS_BLOCK, () => (newBlock ? '\n' + newBlock : ''))
   } else if (newBlock) {
     // No markers — insert before the first <link> after the meta tags
     const insertPoint = htmlContent.indexOf('    <link rel="apple-touch-icon"')
