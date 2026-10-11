@@ -16,6 +16,9 @@
  *   record's entry COUNT was the one input of that tool with no bound.
  * - `moderate_content`'s categories and `create_api_key`'s scopes ride their
  *   outbound bodies verbatim.
+ * - `transform_image`'s background color and `push_send`'s three subscription
+ *   fields (endpoint URL, p256dh key, auth secret) ride their metered outbound
+ *   bodies verbatim, where the sibling tools bound the same shapes.
  *
  * Schema-level bounds are asserted on the advertised JSON Schema (what a client
  * sees — removing one is a visible regression); the question cap is enforced in
@@ -235,6 +238,41 @@ describe('tool arguments that become outbound work carry a client-visible bound'
       'maxItems',
     )
     expect(bound, 'create_api_key.scopes must carry a count cap').toBe(50)
+  })
+
+  it('bounds transform_image.background — the metered transform body’s color field', async (ctx) => {
+    if (skipped(ctx)) return
+    const schema = (await listTools()).tools.find((tool) => tool.name === 'transform_image')
+      ?.inputSchema as
+      | {
+          properties?: {
+            ops?: { items?: { properties?: { background?: Record<string, unknown> } } }
+          }
+        }
+      | undefined
+    // `background` is per-operation, so its cap sits in the `ops` item schema —
+    // one level deeper than schemaBound's top-level lookup reaches.
+    const bound = schema?.properties?.ops?.items?.properties?.background?.maxLength
+    // The sibling cap watermark_pdf declares for its own CSS color — a color is
+    // a few dozen characters, so the two tools must not disagree.
+    expect(bound, 'transform_image ops[].background must carry a length cap').toBe(40)
+  })
+
+  it('bounds the three push_send subscription fields that ride the outbound body', async (ctx) => {
+    if (skipped(ctx)) return
+    const tools = (await listTools()).tools
+    expect(
+      await schemaBound(tools, 'push_send', 'endpoint', 'maxLength'),
+      'push_send.endpoint must carry a length cap',
+    ).toBe(2048)
+    expect(
+      await schemaBound(tools, 'push_send', 'p256dh', 'maxLength'),
+      'push_send.p256dh must carry a length cap',
+    ).toBe(200)
+    expect(
+      await schemaBound(tools, 'push_send', 'auth', 'maxLength'),
+      'push_send.auth must carry a length cap',
+    ).toBe(200)
   })
 })
 

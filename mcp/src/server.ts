@@ -1363,9 +1363,14 @@ server.registerTool(
     description:
       "Send a web push notification to one subscription on molecule.dev (VAPID handled for you, no vendor account; one send metered to the project whose MOLECULE_API_KEY is used). The subscription must come from pushManager.subscribe() called with molecule.dev's public VAPID key (push_public_key). Returns the push service's answer: statusCode 201 delivered; 404/410 the subscription is dead — tell the user to prune it. Payload stays under the Web Push protocol's encrypted-size cap (keep it small). The same service backs @molecule/api-push-notifications-molecule in app code.",
     inputSchema: {
-      endpoint: z.string().url().describe('The push subscription endpoint URL'),
-      p256dh: z.string().min(1).describe("The subscription's p256dh key (base64url)"),
-      auth: z.string().min(1).describe("The subscription's auth secret (base64url)"),
+      // All three subscription fields ride the metered outbound body verbatim,
+      // so each carries the bound its real shape implies: an endpoint URL is
+      // under 2048 characters (the practical URL cap), and the two Web Push
+      // keys are base64url of a 65-byte EC point and a 16-byte secret — under
+      // 200 characters with the padding variants.
+      endpoint: z.string().url().max(2048).describe('The push subscription endpoint URL'),
+      p256dh: z.string().min(1).max(200).describe("The subscription's p256dh key (base64url)"),
+      auth: z.string().min(1).max(200).describe("The subscription's auth secret (base64url)"),
       title: z.string().min(1).max(500).describe('Notification title'),
       body: z.string().max(2000).optional().describe('Notification body text'),
       tag: z
@@ -1719,7 +1724,10 @@ server.registerTool(
             size: z.number().int().optional(),
             format: z.enum(['jpeg', 'png', 'webp', 'avif', 'gif', 'tiff']).optional(),
             quality: z.number().int().min(1).max(100).optional(),
-            background: z.string().optional(),
+            // Bounded, like watermark_pdf's `color`: this string rides the
+            // metered outbound body verbatim, and a CSS color is a few dozen
+            // characters — an unbounded field is a body sized by the caller.
+            background: z.string().max(40).optional(),
             without_enlargement: z.boolean().optional(),
           }),
         )
