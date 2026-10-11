@@ -413,6 +413,21 @@ export async function planInjection(
     conflicts: [],
   }
 
+  // The name is data (see isPackageNameShaped) and every path, identifier and
+  // dependency key below is derived from it, so it is checked before any of them
+  // exists. The refusal rides the resolution-failure channel the inject command
+  // already warns on and exits non-zero for — and a plan with no package
+  // contributes no files to execute, so `--force` cannot carry it past this.
+  if (!isPackageNameShaped(moleculeName)) {
+    plan.conflicts.push({
+      path: moleculeName,
+      message:
+        `"${moleculeName}" is not a package name — its segments become paths and identifiers ` +
+        'inside the project, so a name carrying a path separator or a ".." segment is refused.',
+    })
+    return plan
+  }
+
   // Find the molecule package
   const packagePath = await findMoleculePackage(moleculeName, projectPath)
   if (!packagePath) {
@@ -435,6 +450,22 @@ export async function planInjection(
   }
 
   const pkg = plan.moleculePackage
+
+  // The name a package declares about ITSELF is data too — `scanPackage` reads
+  // it from the package.json — and it becomes the dependency key this plan
+  // writes into the manifest and the import specifier in generated code. Same
+  // rule, same refusal; recorded as a resolution failure so the plan
+  // contributes nothing.
+  if (!isPackageNameShaped(pkg.name)) {
+    plan.conflicts.push({
+      path: packagePath,
+      message:
+        `the package at ${packagePath} declares the name "${String(pkg.name)}", which is not a ` +
+        'package name — refusing to inject it.',
+    })
+    plan.moleculePackage = null as unknown as InferredPackage
+    return plan
+  }
 
   // Plan file operations based on package type
   if (pkg.type === 'resource' && pkg.molecule?.middlewareMountPath) {
@@ -1082,6 +1113,38 @@ export function filterExcludedPeerDependencies(
 }
 
 // Helper functions
+
+/**
+ * Whether `name` is shaped like an npm package name: an optional single
+ * `@scope/` prefix and body segments of `[A-Za-z0-9-._]`, with at least one
+ * alphanumeric character per segment (so no segment is `.` or `..`, and none is
+ * a bare separator run).
+ *
+ * Every molecule name the injector works with is DATA — `mlcl inject` reads the
+ * pending molecules from the target manifest's `@molecule/*` dependency keys,
+ * and a package's own `package.json` declares the name {@link scanPackage}
+ * reports — and the injector uses that string VERBATIM as a path segment
+ * (`src/App/Resource/<name>/index.ts`), as a generated identifier, and as a
+ * dependency key it writes back into the manifest. `join()` resolves `../`
+ * happily, so an unvalidated name walks the generated file out of the project
+ * being injected into (an arbitrary write), which is the same class of escape
+ * {@link isInside} closes for metadata-declared file paths. A real package name
+ * can never fail this check; a path can never pass it.
+ *
+ * @param name - The candidate package name.
+ * @returns True when the name is safe to use as a name.
+ */
+export function isPackageNameShaped(name: unknown): boolean {
+  if (typeof name !== 'string') return false
+  const segments = name.split('/')
+  if (segments.length === 0 || segments.length > 2) return false
+  if (segments.length === 2 && !segments[0]!.startsWith('@')) return false
+  return segments.every((segment, index) => {
+    // The scope's leading `@` is part of the name, not of the segment's body.
+    const body = index === 0 ? segment.replace(/^@/, '') : segment
+    return /^[A-Za-z0-9-._]+$/.test(body) && /[A-Za-z0-9]/.test(body)
+  })
+}
 
 /**
  * Extract a short name from a package name by stripping the @molecule/ prefix
