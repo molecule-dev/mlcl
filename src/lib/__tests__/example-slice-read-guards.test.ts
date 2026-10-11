@@ -1062,7 +1062,16 @@ describe('example slices — a live feed does not grow a list without bound', ()
     // off (it outlived the room that reported it, until another `typing` event
     // or an unmount).
     await rerender(createElement(ChatPage, { channelId: 'random' }))
-    expect(eventSources.urls).toContain('/api/realtime?room=channel:random')
+    // The room the new subscription JOINED, compared after decoding. The channel
+    // id rides a query string, so the component sends it ENCODED (the bell's
+    // `?room=user%3Au-7` above is the same shape) — asserting the raw wire form
+    // here pinned the unencoded interpolation instead of the room, and would call
+    // a channel id carrying `#`/`&`/`+` a correct join while the provider decoded
+    // it into a different room (see chat-page-channel-param-encoding.test.ts).
+    const roomsJoined = eventSources.urls.map((url) =>
+      new URL(url, 'http://localhost').searchParams.get('room'),
+    )
+    expect(roomsJoined).toContain('channel:random')
     expect(text()).not.toContain('typing')
   })
 

@@ -1,4 +1,4 @@
-import { type FormEvent, useEffect, useRef, useState } from 'react'
+import { type FormEvent, type ReactElement, useEffect, useRef, useState } from 'react'
 
 import type { MessageData } from '@molecule/app-message-bubble-react'
 import { MessageBubble } from '@molecule/app-message-bubble-react'
@@ -84,7 +84,7 @@ function toMessageData(m: ApiMessage): MessageData {
 
 const cm = getClassMap()
 
-export function ChatPage({ channelId }: { channelId: string }) {
+export function ChatPage({ channelId }: { channelId: string }): ReactElement {
   const { t } = useTranslation()
   const [messages, setMessages] = useState<ApiMessage[]>([])
   const [draft, setDraft] = useState('')
@@ -178,7 +178,18 @@ export function ChatPage({ channelId }: { channelId: string }) {
     let cancelled = false
     // Coerce the body to an array: a 500's `{ error }` JSON (or any non-list
     // payload) would otherwise reach the render and crash `messages.map`.
-    fetch(`/api/messages?channel_id=${channelId}`)
+    //
+    // The channel id is DATA (a route/prop value, not a literal) and it is
+    // interpolated into a QUERY STRING, so it must be ENCODED. Interpolated raw,
+    // the browser parses the value as URL syntax instead of as one parameter:
+    // `#` starts a fragment, so a channel named `C#` requested
+    // `/api/messages?channel_id=C` — the history of a DIFFERENT room, under the
+    // room the reader opened — while `&` split the value into a second parameter
+    // (`channel_id=a&limit=1`) and `+` decoded back to a SPACE server-side
+    // (`qs`/`URLSearchParams` both read `+` as a space), so `c++` queried the
+    // room `c  `. The POST body below is JSON and carries the id unchanged, so
+    // an unencoded read and write can even land in different rooms.
+    fetch(`/api/messages?channel_id=${encodeURIComponent(channelId)}`)
       .then((r) => r.json())
       .then((body) => {
         if (cancelled) return
@@ -212,9 +223,21 @@ export function ChatPage({ channelId }: { channelId: string }) {
     // Join the room via the `?room=` query — the SSE bond's subscribe protocol.
     // (A `/channel:${id}` path SEGMENT does NOT join the room and never matches the
     // endpoint path, so no broadcasts arrive.) `withCredentials` sends the session cookie.
-    const events = new EventSource(`/api/realtime?room=channel:${channelId}`, {
-      withCredentials: true,
-    })
+    //
+    // The room NAME is encoded for the same reason the history request's channel
+    // id is (see above): the provider reads it with `url.searchParams`, which
+    // DECODES the value, so the wire form must be the encoded one. Raw, a room
+    // named `C#` subscribed to `channel:C` (the fragment truncated the value) and
+    // `c++` to `channel:c  ` (`+` decodes to a space) — the tab then received
+    // another room's live messages while the reader believed they were in this
+    // one, and `&` split the query into a second parameter. The notification
+    // bell's `?room=${encodeURIComponent('user:' + userId)}` is the same shape.
+    const events = new EventSource(
+      `/api/realtime?room=${encodeURIComponent(`channel:${channelId}`)}`,
+      {
+        withCredentials: true,
+      },
+    )
     events.addEventListener('message:created', (e) => {
       // Untrusted frame — see parseMessageFrame: an unvalidated payload crashed
       // the render (null) or threw out of this listener (non-JSON).
