@@ -171,10 +171,14 @@ describe('search page — one query is one search, however often the page re-ren
     await act(async () => {
       call.respond(200, { hits: [{ id: 'c', title: 'cat hit' }] })
     })
-    // Four debounce intervals (150 ms each — the value SearchPage passes): a
+    // Ten debounce intervals (150 ms each — the value SearchPage passes): a
     // re-armed search lands ~150 ms after the response, so this window is the
-    // assertion, not a wait for one.
-    await wait(600)
+    // assertion, not a wait for one. It is deliberately WIDE: a negative
+    // assertion on a wall clock can only be wrong in one direction — a stall
+    // longer than the window lets a re-armed search land after the check and
+    // the test passes over the bug — so the margin is ~10× the interval that
+    // would expose it rather than the 1× a tight sleep would allow.
+    await wait(1_500)
 
     // Still one. A second here is the unbounded loop: another every debounce
     // interval (150 ms) for as long as the query stays in the box.

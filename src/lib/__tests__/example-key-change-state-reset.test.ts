@@ -73,6 +73,8 @@ interface ThreadNode {
 const httpCalls = vi.hoisted(() => [] as HttpCall[])
 /** Same double for POST — a toggle's/post's write parks until the test answers it. */
 const postCalls = vi.hoisted(() => [] as HttpCall[])
+/** Every DELETE the components issued, with its path (`?type=` included). */
+const deleteCalls = vi.hoisted(() => [] as HttpCall[])
 const http = vi.hoisted(() => ({
   get: (path: string) =>
     new Promise<unknown>((resolve, reject) => {
@@ -82,7 +84,10 @@ const http = vi.hoisted(() => ({
     new Promise<unknown>((resolve, reject) => {
       postCalls.push({ path, resolve, reject })
     }),
-  delete: () => Promise.resolve(undefined),
+  delete: (path: string) =>
+    new Promise<unknown>((resolve, reject) => {
+      deleteCalls.push({ path, resolve, reject })
+    }),
 }))
 
 // Styling only: every ClassMap helper collapses to one inert token.
@@ -249,6 +254,7 @@ beforeEach(() => {
   // never released, and the assertions after it passed without the code under
   // test ever running (the toggle test did exactly this).
   postCalls.length = 0
+  deleteCalls.length = 0
   i18n.t = defaultT
   globalThis.fetch = ((input: unknown) =>
     new Promise((resolve) => {
@@ -487,6 +493,28 @@ describe('a failed load for a new resource must not leave the previous resource 
     // p2's (empty) summary stands; p1's 👍 chip did not ride in on the
     // stale toggle.
     expect(text()).not.toContain('👍1')
+  })
+
+  it('a chip the viewer ALREADY reacted with is removed through a DELETE, not re-added', async () => {
+    // `toggle` reads `reactedByMe` from the summary and then either POSTs or
+    // DELETEs (`?type=`). Every chip click in this file answered a summary whose
+    // `userReactions` was empty, so only the POST half ever ran — the remove
+    // path could have posted a second reaction (the server's POST is what the
+    // toggle is FOR, so a wrong branch here grows the count instead of clearing
+    // the viewer's own reaction) with nothing noticing.
+    await mount(createElement(ReactionBar, { resourceType: 'post', resourceId: 'p1' }))
+    await act(async () => {
+      httpCalls[0]?.resolve({ data: { total: 2, counts: { '👍': 2 }, userReactions: ['👍'] } })
+    })
+    await flush()
+
+    await clickReactionChip('👍')
+
+    expect(
+      deleteCalls.map((c) => c.path),
+      'an own reaction is removed',
+    ).toEqual([`/api/${'post'}/p1/reactions?type=${encodeURIComponent('👍')}`])
+    expect(postCalls, 'no POST for a reaction the viewer already has').toHaveLength(0)
   })
 })
 

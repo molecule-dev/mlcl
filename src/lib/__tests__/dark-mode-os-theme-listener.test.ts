@@ -29,10 +29,25 @@ vi.mock('@molecule/app-react', () => ({
   }),
 }))
 
-const { ThemeToggle } =
-  (await import('../../../templates/.agents/skills/examples/forms/dark-mode/app/components/ThemeToggle.js')) as {
-    ThemeToggle: () => ReactNode
-  }
+/**
+ * A `ThemeToggle` bound to a FRESH copy of the slice's modules.
+ *
+ * `app/lib/theme.ts` holds a module-level `let initialized = false` — the
+ * one-shot guard inside `initThemeListener()`. That guard is correct in an app
+ * (the listener is registered once and never removed), but across the tests in
+ * one file it is shared state: the first mount consumes it and every LATER
+ * mount's `initThemeListener()` is a silent no-op, so a test asserting the
+ * subscription exists fails for a reason that has nothing to do with the
+ * component. `vi.resetModules()` plus a re-import gives each test its own copy.
+ */
+async function freshToggle(): Promise<() => ReactNode> {
+  vi.resetModules()
+  const mod =
+    (await import('../../../templates/.agents/skills/examples/forms/dark-mode/app/components/ThemeToggle.js')) as {
+      ThemeToggle: () => ReactNode
+    }
+  return mod.ThemeToggle
+}
 
 ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
 
@@ -109,11 +124,12 @@ afterEach(async () => {
 
 describe('dark-mode toggle — the OS theme change is followed without a reload', () => {
   it('re-applies the theme when the OS flips to dark while the mode is System', async () => {
+    const Toggle = await freshToggle()
     container = document.createElement('div')
     document.body.appendChild(container)
     root = createRoot(container)
     await act(async () => {
-      root.render(createElement(ThemeToggle))
+      root.render(createElement(Toggle))
     })
 
     // Choose System — what the README's Verify step tells the reader to do.
@@ -136,5 +152,24 @@ describe('dark-mode toggle — the OS theme change is followed without a reload'
       0,
     )
     expect(document.documentElement.classList.contains('dark')).toBe(true)
+  })
+
+  it('a later mount still subscribes — the module’s one-shot guard must not leak between tests', async () => {
+    // The order-dependence this file would otherwise carry: `initThemeListener`
+    // initializes once PER MODULE COPY, so a second test in the same file sees a
+    // no-op unless the graph is reset (see freshToggle). Without the reset this
+    // assertion fails — the failure mode a future test added below would hit.
+    const Toggle = await freshToggle()
+    container = document.createElement('div')
+    document.body.appendChild(container)
+    root = createRoot(container)
+    await act(async () => {
+      root.render(createElement(Toggle))
+    })
+
+    expect(
+      osTheme.listeners.length,
+      'the subscription must be registered for every mount the test file makes',
+    ).toBeGreaterThan(0)
   })
 })

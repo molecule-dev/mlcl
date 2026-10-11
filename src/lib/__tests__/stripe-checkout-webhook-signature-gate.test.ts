@@ -26,12 +26,14 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 const stripe = vi.hoisted(() => ({ verifyWebhookSignature: vi.fn() }))
 const database = vi.hoisted(() => ({ updateById: vi.fn() }))
+// ONE stable logger object:  handed out a fresh one per call, so the
+// 'stripe webhook ignored' trace the handler documents could not be inspected at
+// all — the log IS the trace the module comment promises.
+const logger = vi.hoisted(() => ({ info: vi.fn(), warn: vi.fn(), error: vi.fn() }))
 
 vi.mock('@molecule/api-payments-stripe', () => stripe)
 vi.mock('@molecule/api-database', () => database)
-vi.mock('@molecule/api-bond', () => ({
-  getLogger: () => ({ info: vi.fn(), warn: vi.fn(), error: vi.fn() }),
-}))
+vi.mock('@molecule/api-bond', () => ({ getLogger: () => logger }))
 
 type Handle = (req: unknown, res: unknown, next?: () => void) => Promise<void>
 
@@ -177,5 +179,32 @@ describe('stripe-checkout webhook — the paid-flip is signature-gated end to en
     })
     expect(res.body).toEqual({ received: true })
     expect(database.updateById).not.toHaveBeenCalled()
+    // The ignored event is LOGGED: the module's own comment calls that line "the
+    // only trace a misconfigured webhook endpoint leaves", and nothing asserted
+    // it — the logger double handed out a fresh object per call, so the trace
+    // was unobservable by construction.
+    expect(logger.info).toHaveBeenCalledWith('stripe webhook ignored', { type: 'invoice.paid' })
+  })
+
+  it('a subscription event takes its own branch — acknowledged, no order write, NOT logged as ignored', async () => {
+    // `customer.subscription.updated` / `.deleted` have their own (no-op) case:
+    // falling through to the default would be behaviourally identical but would
+    // log a deliberately handled event as unhandled, which is the signal an
+    // operator reads to find a genuinely unknown type.
+    for (const type of ['customer.subscription.updated', 'customer.subscription.deleted']) {
+      logger.info.mockClear()
+      stripe.verifyWebhookSignature.mockReturnValue({
+        type,
+        data: { object: { id: 'sub_1' } },
+      })
+      const res = await post({
+        headers: { 'stripe-signature': 'sig_1' },
+        rawBody: JSON.stringify({ id: 'evt_4', type, data: { object: { id: 'sub_1' } } }),
+      })
+
+      expect(res.body, `${type} must still be acknowledged`).toEqual({ received: true })
+      expect(database.updateById, `${type} must not touch orders`).not.toHaveBeenCalled()
+      expect(logger.info, `${type} is handled, not ignored`).not.toHaveBeenCalled()
+    }
   })
 })

@@ -43,33 +43,41 @@ vi.mock('@molecule/api-rate-limit', () => rateLimit)
 
 type Handle = (req: unknown, res: unknown, next?: () => void) => Promise<void> | void
 
-const { indexMiddlewares, deleteMiddlewares } = await (async () => {
-  const mod =
-    (await import('../../../templates/.agents/skills/examples/search/semantic-search/api/handlers/knowledge.js')) as {
-      default: {
-        stack: Array<{
-          route?: {
-            path?: string
-            methods?: Record<string, boolean>
-            stack: Array<{ handle: Handle }>
-          }
-        }>
+const { indexMiddlewares, deleteMiddlewares, searchMiddlewares, askMiddlewares } =
+  await (async () => {
+    const mod =
+      (await import('../../../templates/.agents/skills/examples/search/semantic-search/api/handlers/knowledge.js')) as {
+        default: {
+          stack: Array<{
+            route?: {
+              path?: string
+              methods?: Record<string, boolean>
+              stack: Array<{ handle: Handle }>
+            }
+          }>
+        }
       }
+    const routeOf = (path: string): Handle[] => {
+      const layer = mod.default.stack.find((l) => l.route?.path === path && l.route.methods?.post)
+      if (!layer?.route) throw new Error(`knowledge router exported no POST ${path} route`)
+      return layer.route.stack.map((l) => l.handle)
     }
-  const layer = mod.default.stack.find(
-    (l) => l.route?.path === '/documents' && l.route.methods?.post,
-  )
-  if (!layer?.route) throw new Error('knowledge router exported no POST /documents route')
-  const deleteLayer = mod.default.stack.find(
-    (l) => l.route?.path === '/documents/:id' && l.route.methods?.delete,
-  )
-  if (!deleteLayer?.route)
-    throw new Error('knowledge router exported no DELETE /documents/:id route')
-  return {
-    indexMiddlewares: layer.route.stack.map((l) => l.handle),
-    deleteMiddlewares: deleteLayer.route.stack.map((l) => l.handle),
-  }
-})()
+    const layer = mod.default.stack.find(
+      (l) => l.route?.path === '/documents' && l.route.methods?.post,
+    )
+    if (!layer?.route) throw new Error('knowledge router exported no POST /documents route')
+    const deleteLayer = mod.default.stack.find(
+      (l) => l.route?.path === '/documents/:id' && l.route.methods?.delete,
+    )
+    if (!deleteLayer?.route)
+      throw new Error('knowledge router exported no DELETE /documents/:id route')
+    return {
+      indexMiddlewares: layer.route.stack.map((l) => l.handle),
+      deleteMiddlewares: deleteLayer.route.stack.map((l) => l.handle),
+      searchMiddlewares: routeOf('/search'),
+      askMiddlewares: routeOf('/ask'),
+    }
+  })()
 
 const makeRes = (): {
   locals: { session?: { userId: string } }
@@ -140,6 +148,89 @@ beforeEach(() => {
   rateLimit.consume.mockResolvedValue({ allowed: true })
 })
 
+/**
+ * Drive one POST route end to end through its real middleware chain.
+ *
+ * @param middlewares - The route's own chain.
+ * @param body - The request body.
+ * @param userId - The session's user, or undefined for an unauthenticated request.
+ * @returns The response object the chain wrote into.
+ */
+async function post(
+  middlewares: Handle[],
+  body: Record<string, unknown>,
+  userId: string | null = 'user-1',
+): Promise<ReturnType<typeof makeRes>> {
+  const res = makeRes()
+  if (userId !== null) res.locals.session = { userId }
+  const req = { body }
+  for (let i = 0; i < middlewares.length; i++) {
+    let passedOn = false
+    const result = middlewares[i](req, res, () => {
+      passedOn = true
+    })
+    await Promise.resolve(result)
+    if (!passedOn) break
+  }
+  return res
+}
+
+describe('semantic-search reads are scoped to the caller’s OWN chunks', () => {
+  it('POST /search passes the session user’s filter to the retriever', async () => {
+    // The module docblock's whole security model: "each chunk with `user_id`
+    // (server-set from the session, never the client) … EVERY read is filtered
+    // by it". Nothing drove /search or /ask, so the filter — the only thing
+    // standing between one user's query and another user's documents in the
+    // shared collection — could be dropped with the suite green.
+    rag.retrieve.mockResolvedValue([{ text: 'mine', score: 0.9, metadata: { title: 't' } }])
+
+    const res = await post(searchMiddlewares, { query: 'anything' })
+
+    expect(rag.retrieve).toHaveBeenCalledWith({
+      collection: 'knowledge',
+      query: 'anything',
+      filter: [{ field: 'user_id', operator: 'eq', value: 'user-1' }],
+      topK: 5,
+    })
+    expect(res.body).toEqual({ hits: [{ text: 'mine', score: 0.9, title: 't' }] })
+  })
+
+  it('POST /ask passes the same filter to the answering bond', async () => {
+    rag.answerQuestion.mockResolvedValue({
+      answer: 'a',
+      sources: [{ text: 'mine', score: 0.8, metadata: { title: 't' } }],
+    })
+
+    const res = await post(askMiddlewares, { question: 'why?' })
+
+    expect(rag.answerQuestion).toHaveBeenCalledWith({
+      collection: 'knowledge',
+      question: 'why?',
+      filter: [{ field: 'user_id', operator: 'eq', value: 'user-1' }],
+    })
+    expect(res.body).toEqual({ answer: 'a', sources: [{ text: 'mine', score: 0.8, title: 't' }] })
+  })
+
+  it('an unauthenticated read is 401 and never reaches the metered bond', async () => {
+    const search = await post(searchMiddlewares, { query: 'anything' }, null)
+    const ask = await post(askMiddlewares, { question: 'why?' }, null)
+
+    expect(search.statusCode).toBe(401)
+    expect(ask.statusCode).toBe(401)
+    expect(rag.retrieve).not.toHaveBeenCalled()
+    expect(rag.answerQuestion).not.toHaveBeenCalled()
+  })
+
+  it('a read over the budget is 429 before either bond is called', async () => {
+    rateLimit.consume.mockResolvedValue({ allowed: false, retryAfter: 30 })
+
+    const res = await post(searchMiddlewares, { query: 'anything' })
+
+    expect(res.statusCode).toBe(429)
+    expect(rag.retrieve).not.toHaveBeenCalled()
+  })
+})
+
 describe('semantic-search POST /documents — a re-index replaces the document', () => {
   it('clears the document’s chunks BEFORE indexing, so no stale chunk survives', async () => {
     const res = await postDocument({ documentId: 'd1', text: 'the current text' })
@@ -198,17 +289,26 @@ describe('semantic-search POST /documents — a re-index replaces the document',
     await flush()
 
     // Only ONE pair has started: the second waits for the first to finish.
-    expect(events, 'the second replace must not start while the first is in flight').toEqual([
-      'delete',
-      'index:start',
-    ])
+    try {
+      expect(events, 'the second replace must not start while the first is in flight').toEqual([
+        'delete',
+        'index:start',
+      ])
 
-    releaseIndex.shift()?.()
-    await flush()
-    expect(events).toEqual(['delete', 'index:start', 'index:end', 'delete', 'index:start'])
+      releaseIndex.shift()?.()
+      await flush()
+      expect(events).toEqual(['delete', 'index:start', 'index:end', 'delete', 'index:start'])
 
-    releaseIndex.shift()?.()
-    await Promise.all([first, second])
+      releaseIndex.shift()?.()
+    } finally {
+      // Drain anything still parked — including on a FAILING assertion above.
+      // The chain this test drives lives in the module (one promise per
+      // document id), so a parked `user-1:d1` left behind by an early failure
+      // makes every LATER test that posts d1 wait on a promise nobody will ever
+      // resolve (a timeout in a suite that has nothing to do with this one).
+      while (releaseIndex.length > 0) releaseIndex.shift()?.()
+      await Promise.all([first, second])
+    }
     expect(events).toEqual([
       'delete',
       'index:start',
@@ -285,12 +385,19 @@ describe('semantic-search POST /documents — a re-index replaces the document',
     await flush()
 
     // d2's pair ran while d1's index is still parked.
-    expect(rag.indexDocument).toHaveBeenCalledTimes(2)
-    // Release d2's index (the second parked one) and d1's, then both settle.
-    releaseIndex[1]?.()
-    await flush()
-    releaseIndex[0]?.()
-    await Promise.all([slow, other])
+    try {
+      expect(rag.indexDocument).toHaveBeenCalledTimes(2)
+      // Release d2's index (the second parked one) and d1's.
+      releaseIndex[1]?.()
+      await flush()
+      releaseIndex[0]?.()
+    } finally {
+      // Same drain as the serialization test above: both documents must be
+      // released even when an assertion fails, or their chains stay pending for
+      // every later test in the file.
+      while (releaseIndex.length > 0) releaseIndex.shift()?.()
+      await Promise.all([slow, other])
+    }
   })
 
   it('reports a failed index instead of pretending the document is searchable', async () => {

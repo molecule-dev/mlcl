@@ -125,6 +125,23 @@ describe('injectActivityCaptureBoot — a failed write rolls the wiring back', (
     expect(readFileSync(manifestPath, 'utf-8')).toBe(manifestBefore)
   })
 
+  it('leaves no truncated producer when the WIRING branch fails writing the module', async () => {
+    // The fresh-wiring write of `src/bonds/_activity-capture.ts` (the module
+    // this call CREATES, before the index is touched). The sibling test above
+    // arms the same path but only on the idempotent REFRESH branch, so replacing
+    // this `writeGuarded` with a bare `writeFile` was invisible: a short write
+    // would leave a TRUNCATED producer behind — a file the index imports, i.e. a
+    // project that stops compiling — while the index was never rewritten.
+    shortWrite.path = modulePath()
+
+    await expect(injectActivityCaptureBoot(apiDir)).rejects.toThrow(/ENOSPC/)
+
+    // The half-written module is gone (this call created it) …
+    expect(existsSync(modulePath())).toBe(false)
+    // … and the index is untouched, since the failed write precedes it.
+    expect(readFileSync(indexPath(), 'utf-8')).toBe(BONDS_INDEX)
+  })
+
   it('restores the existing producer module when its own write fails mid-flight', async () => {
     // The idempotent path: bonds/index.ts ALREADY imports the producer, so this
     // call only refreshes the module. A write that failed mid-flight there used

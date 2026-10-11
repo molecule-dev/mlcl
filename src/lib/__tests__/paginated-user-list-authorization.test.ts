@@ -131,4 +131,30 @@ describe('paginated-user-list — the full user table is never served unauthenti
       expect(database.findMany).not.toHaveBeenCalled()
     }
   })
+
+  it('reports a failing store as 500 instead of letting the rejection escape the route', async () => {
+    // The handler's own catch is the only thing between a database failure and
+    // an unhandled rejection inside an async Express handler (the request would
+    // hang, or the process log it as an uncaught exception). Nothing rejected
+    // the store mocks in this suite, so the catch — and the 500 it answers —
+    // could be deleted without a single assertion noticing.
+    database.findMany.mockRejectedValue(new Error('connection reset'))
+
+    const res = await get({ userId: 'user-1' })
+
+    expect(res.statusCode, 'a store failure must be a 500').toBe(500)
+    expect(res.body).toEqual({ error: 'Internal server error' })
+    // …and the count is never attempted after the read failed.
+    expect(database.count).not.toHaveBeenCalled()
+  })
+
+  it('a count that fails after the rows came back is a 500 too, never a partial list', async () => {
+    database.findMany.mockResolvedValue([{ id: 'u1' }])
+    database.count.mockRejectedValue(new Error('connection reset'))
+
+    const res = await get({ userId: 'user-1' })
+
+    expect(res.statusCode).toBe(500)
+    expect(res.body).toEqual({ error: 'Internal server error' })
+  })
 })
