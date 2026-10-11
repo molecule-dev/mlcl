@@ -5001,17 +5001,6 @@ export async function copyFontFiles(
 }
 
 /**
- * Generate HTML for font loading from font package metadata.
- * @deprecated Use generateFontHtml instead.
- */
-export function generateFontLinks(
-  selectedPackageNames: string[],
-  allPackages: InferredPackage[],
-): string {
-  return generateFontHtml(selectedPackageNames, allPackages).html
-}
-
-/**
  * Sync static assets from installed molecule packages to the project.
  *
  * Reads package.json to discover installed `@molecule/*` packages,
@@ -5682,48 +5671,6 @@ export function detectMonorepoRoot(startDir?: string): string | null {
   }
 
   return null
-}
-
-/**
- * Walk the monorepo to build a map of package name → file: protocol path.
- * Used by `create` to resolve local packages instead of npm registry versions.
- */
-export async function resolveLocalPackagePaths(
-  monorepoRoot: string,
-  packageNames: string[],
-): Promise<Record<string, string>> {
-  const resolveAll = packageNames.length === 0
-  const requested = resolveAll ? null : new Set(packageNames)
-  const overrides: Record<string, string> = {}
-
-  for (const stack of ['api', 'app']) {
-    const stackDir = join(monorepoRoot, 'packages', stack)
-    try {
-      const entries = await readdir(stackDir, { recursive: true })
-      for (const entry of entries) {
-        if (
-          !entry.endsWith('package.json') ||
-          entry.includes('node_modules') ||
-          entry.includes('dist')
-        ) {
-          continue
-        }
-        const fullPath = join(stackDir, entry)
-        try {
-          const pj = JSON.parse(await readFile(fullPath, 'utf-8'))
-          if (pj.name && (resolveAll || requested!.has(pj.name))) {
-            overrides[pj.name] = `file:${dirname(fullPath)}`
-          }
-        } catch (_error) {
-          // Safe to skip: unreadable or malformed package.json; move to next entry
-        }
-      }
-    } catch (_error) {
-      // Safe to skip: stack directory (api/app) does not exist in this monorepo layout
-    }
-  }
-
-  return overrides
 }
 
 /**
