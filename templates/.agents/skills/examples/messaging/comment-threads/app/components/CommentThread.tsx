@@ -84,6 +84,14 @@ export function CommentThread({
   const mountedForRef = useRef({ resourceType, resourceId })
   mountedForRef.current = { resourceType, resourceId }
 
+  /**
+   * Whether the CURRENT render still belongs to the resource a write started
+   * on — the guard every state update a post-write flow makes goes through.
+   */
+  const stillOnResource = (): boolean =>
+    mountedForRef.current.resourceType === resourceType &&
+    mountedForRef.current.resourceId === resourceId
+
   const load = useCallback(async () => {
     const ticket = ++loadSeq.current
     // The list endpoint returns a RICH pagination envelope { data, total, limit, offset }.
@@ -137,15 +145,19 @@ export function CommentThread({
 
   useEffect(() => {
     // A different resource's thread must never stand in for this one's: the
-    // thread and the reply target are cleared UP FRONT (the load below refills
-    // them), exactly like the sibling slices (ChatPage, NotificationBell,
+    // thread, the reply target and any post failure are cleared UP FRONT (the
+    // load below refills the thread), exactly like the sibling slices (ChatPage
+    // clears its room-scoped sendError on a room change, NotificationBell,
     // AttachmentsPanel). Without the reset, a load for the new resource that
-    // fails left the PREVIOUS resource's comments rendered as this one's — and
+    // fails left the PREVIOUS resource's comments rendered as this one's —
     // `replyTo` still held a comment id belonging to that other resource, so the
-    // next reply nested under a foreign id. The draft is the user's own text and
-    // is kept, like the chat composer's.
+    // next reply nested under a foreign id, and a failed post on the old
+    // resource kept its "could not post" banner under the new one, describing a
+    // post nobody attempted there. The draft is the user's own text and is kept,
+    // like the chat composer's.
     setComments([])
     setReplyTo(null)
+    setPostError(false)
     void load().catch(() => {
       // A failed load (offline, 401, 500) keeps the empty thread; the composer
       // still works. The rejection must not escape the effect unhandled.
@@ -178,7 +190,12 @@ export function CommentThread({
         parentId: replyTo,
       })
     } catch (_error) {
-      setPostError(true)
+      // The failure belongs to the resource the post was sent to. The user can
+      // navigate while the POST is in flight, and this render then owns a thread
+      // whose state was just reset: recording the old resource's failure here
+      // painted "could not post" under a resource where nothing was posted (the
+      // same ownership rule the success path below applies).
+      if (stillOnResource()) setPostError(true)
       return
     } finally {
       setPosting(false)
@@ -187,8 +204,7 @@ export function CommentThread({
     // comment landed on the resource we LEFT, whose state this render no longer
     // owns — refetching here would take the newest ticket and overwrite the
     // new resource's thread with the old one's (see mountedForRef).
-    if (mountedForRef.current.resourceType !== resourceType) return
-    if (mountedForRef.current.resourceId !== resourceId) return
+    if (!stillOnResource()) return
     setDraft('')
     setReplyTo(null)
     // Refetch so the new comment lands in the right place in the tree (the

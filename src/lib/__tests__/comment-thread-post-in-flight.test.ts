@@ -89,6 +89,14 @@ async function mount(element: ReactNode): Promise<void> {
   await flush()
 }
 
+/** Render a new element into the SAME root — the panel outlives a resource change. */
+async function rerender(element: ReactNode): Promise<void> {
+  await act(async () => {
+    root.render(element)
+  })
+  await flush()
+}
+
 const text = (): string => container.textContent ?? ''
 
 const postButton = (): HTMLButtonElement =>
@@ -186,5 +194,72 @@ describe('the comment composer', () => {
     // A fresh draft re-enables the composer — the guard is released, not stuck.
     await typeIntoTextarea('a second comment')
     expect(postButton().disabled, 'a new draft re-enables the composer').toBe(false)
+  })
+
+  it('a post that fails after the resource changed does not report its error on the new thread', async () => {
+    // The slice's own rule (see mountedForRef): a write that started on one
+    // resource must not write the state of another. The success path honours it;
+    // the FAILURE path did not, so an abandoned post's error was painted under
+    // the thread the reader had just navigated to — a comment they never tried
+    // to post.
+    await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await answerGet(0, {
+      data: [{ id: 'c1', userId: 'u1', parentId: null, body: 'root comment', createdAt: 'x' }],
+    })
+    await answerGet(1, { data: [] })
+
+    await typeIntoTextarea('a comment')
+    await clickPost()
+    expect(postCalls).toHaveLength(1)
+
+    // The reader navigates to another post while the POST is parked…
+    await rerender(createElement(CommentThread, { resourceType: 'post', resourceId: 'p2' }))
+    // …and it fails. The failure belongs to p1, whose state this render no
+    // longer owns.
+    await act(async () => {
+      postCalls[0]?.reject(new Error('HTTP 500'))
+    })
+    await flush()
+
+    await answerGet(2, {
+      data: [{ id: 'c9', userId: 'u2', parentId: null, body: 'other thread', createdAt: 'x' }],
+    })
+    await answerGet(3, { data: [] })
+    expect(text()).toContain('other thread')
+    expect(
+      text(),
+      'an abandoned post’s failure must not surface on the thread the reader is on',
+    ).not.toContain('Could not post the comment')
+  })
+
+  it('a failed post does not leave its error banner on the next resource', async () => {
+    // No race needed: the failure is recorded while the reader is still on the
+    // old resource, and the resource change itself must retire it (the sibling
+    // ChatPage clears its room-scoped sendError on exactly that switch).
+    await mount(createElement(CommentThread, { resourceType: 'post', resourceId: 'p1' }))
+    await answerGet(0, {
+      data: [{ id: 'c1', userId: 'u1', parentId: null, body: 'root comment', createdAt: 'x' }],
+    })
+    await answerGet(1, { data: [] })
+
+    await typeIntoTextarea('a comment')
+    await clickPost()
+    await act(async () => {
+      postCalls[0]?.reject(new Error('HTTP 500'))
+    })
+    await flush()
+    expect(text()).toContain('Could not post the comment')
+
+    await rerender(createElement(CommentThread, { resourceType: 'post', resourceId: 'p2' }))
+    await answerGet(2, {
+      data: [{ id: 'c9', userId: 'u2', parentId: null, body: 'other thread', createdAt: 'x' }],
+    })
+    await answerGet(3, { data: [] })
+
+    expect(text()).toContain('other thread')
+    expect(
+      text(),
+      'a previous resource’s failed post must not leave its banner on the new one',
+    ).not.toContain('Could not post the comment')
   })
 })
