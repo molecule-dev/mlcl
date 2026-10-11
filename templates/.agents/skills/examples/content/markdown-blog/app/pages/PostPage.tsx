@@ -17,6 +17,7 @@ export function PostPage({ slug }: { slug: string }) {
   const { t } = useTranslation()
   const [post, setPost] = useState<Post | null>(null)
   const [notFound, setNotFound] = useState(false)
+  const [loadFailed, setLoadFailed] = useState(false)
 
   useEffect(() => {
     // The slug can change while this component stays mounted (navigating from
@@ -31,10 +32,29 @@ export function PostPage({ slug }: { slug: string }) {
     let cancelled = false
     setPost(null)
     setNotFound(false)
+    setLoadFailed(false)
     fetch(`/api/posts/${slug}`)
       .then((r) => (r.ok ? r.json() : Promise.reject(r)))
-      .then((loaded: Post) => {
-        if (!cancelled) setPost(loaded)
+      .then((body: unknown) => {
+        // A 2xx proves the route ANSWERED, not that the body is a post — the
+        // same rule the sibling pages apply (BlogIndexPage checks the array,
+        // PostEditorPage the fields). An endpoint with no fixture answers 200
+        // `{}` (the mock API server's unmatchedFixtureResponse), and a proxy can
+        // rewrite a failure into a 200; installed as `post` that body rendered an
+        // article with a blank title, `new Date(undefined)` → "Invalid Date", and
+        // `undefined` handed to the markdown bond's render — instead of the
+        // failure it is. `GET /api/posts/:slug` answers with the post itself
+        // (api/handlers/posts.ts), so anything else is a failed load.
+        const loaded = (body ?? {}) as Partial<Post>
+        if (
+          typeof loaded.id !== 'string' ||
+          typeof loaded.title !== 'string' ||
+          typeof loaded.body_markdown !== 'string'
+        ) {
+          if (!cancelled) setLoadFailed(true)
+          return
+        }
+        if (!cancelled) setPost(loaded as Post)
       })
       .catch(() => {
         if (!cancelled) setNotFound(true)
@@ -54,6 +74,17 @@ export function PostPage({ slug }: { slug: string }) {
 
   if (notFound) {
     return <p>{t('posts.notFound', undefined, { defaultValue: 'Post not found' })}</p>
+  }
+  // An answer that is not a post is a FAILED load, not "this post exists": say
+  // so, and keep it distinct from the 404 above (the post may well exist).
+  if (loadFailed) {
+    return (
+      <p className={cm.textError}>
+        {t('posts.loadFailed', undefined, {
+          defaultValue: 'Could not load this post — refresh to try again.',
+        })}
+      </p>
+    )
   }
   if (!post) return <p>{t('common.loading', undefined, { defaultValue: 'Loading…' })}</p>
 

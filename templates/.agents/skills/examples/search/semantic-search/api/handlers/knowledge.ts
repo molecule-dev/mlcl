@@ -78,11 +78,23 @@ router.post('/documents', async (req, res) => {
     })
   }
   try {
+    const documentId = `${userId}:${parsed.data.documentId}`
+    // A re-index of the SAME documentId must REPLACE the document, not merge
+    // with it. `indexDocument` upserts chunks under deterministic ids
+    // (`${documentId}::<i>`, see @molecule/api-ai-rag-qa), so indexing a SHORTER
+    // text left every chunk past the new end behind with the OLD content: /ask
+    // and /search (both scoped by the owner filter, both reading the shared
+    // collection) kept returning text the user had removed, and each shrinking
+    // re-index added more of it. Clearing the document first makes the index
+    // hold exactly what was just submitted. It also means an index that fails
+    // AFTER the clear leaves the document unindexed rather than half-replaced —
+    // the 502 below is the retry, and a retry re-submits the whole text.
+    await deleteDocument({ collection: COLLECTION, documentId })
     const chunkIds = await indexDocument({
       collection: COLLECTION,
       // Namespace the id by owner so one tenant's document ids can never collide
       // with — or address — another tenant's chunks.
-      documentId: `${userId}:${parsed.data.documentId}`,
+      documentId,
       text: parsed.data.text,
       metadata: { user_id: userId, title: parsed.data.title ?? '' },
     })

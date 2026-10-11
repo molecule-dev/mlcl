@@ -44,17 +44,44 @@ vi.mock('@molecule/app-ui', () => ({
 
 // A STABLE `t`: the real `useTranslation()` memoizes it on [provider, locale],
 // so its identity changes ONLY on a locale switch. A fresh function per render
-// would re-run the editor's effect (its deps are `[editingSlug, t]`) on every
-// render and refetch the same slug.
-const translate = vi.hoisted(
-  () => (key: string, values?: Record<string, unknown>, options?: { defaultValue?: string }) =>
-    (options?.defaultValue ?? key).replace(/\{\{(\w+)\}\}/g, (_m, name: string) =>
-      String(values?.[name] ?? ''),
-    ),
-)
+// would re-run the editor's effect (its deps are `[editingSlug, t, reloadKey]`)
+// on every render and refetch the same slug. `version` is the test's
+// locale-switch lever: bumping it hands out a NEW function identity (the effect
+// re-runs with the slug unchanged — exactly what a locale switch does), while
+// every other render gets the SAME object back.
+const translate = vi.hoisted(() => {
+  const byVersion = new Map<
+    number,
+    (key: string, values?: Record<string, unknown>, options?: { defaultValue?: string }) => string
+  >()
+  const version = { current: 0 }
+  return {
+    version,
+    for: (
+      v: number,
+    ): ((
+      key: string,
+      values?: Record<string, unknown>,
+      opts?: { defaultValue?: string },
+    ) => string) => {
+      const existing = byVersion.get(v)
+      if (existing) return existing
+      const fn = (
+        key: string,
+        values?: Record<string, unknown>,
+        options?: { defaultValue?: string },
+      ): string =>
+        (options?.defaultValue ?? key).replace(/\{\{(\w+)\}\}/g, (_m, name: string) =>
+          String(values?.[name] ?? ''),
+        )
+      byVersion.set(v, fn)
+      return fn
+    },
+  }
+})
 
 vi.mock('@molecule/app-react', () => ({
-  useTranslation: () => ({ t: translate }),
+  useTranslation: () => ({ t: translate.for(translate.version.current) }),
 }))
 
 // The markdown bond is not what is under test; rendering nothing is enough.
@@ -154,6 +181,7 @@ const post = (id: string, title: string, slug: string): Record<string, unknown> 
 
 beforeEach(() => {
   pending.requests.length = 0
+  translate.version.current = 0
   globalThis.fetch = ((input: unknown, init?: { body?: unknown; method?: string }) =>
     new Promise((resolve, reject) => {
       pending.requests.push({
@@ -285,5 +313,53 @@ describe('PostEditorPage — save()', () => {
     const button = container.querySelector('[data-mol-id="post-save"]') as HTMLButtonElement | null
     expect(button?.disabled).toBe(false)
     expect(text()).not.toContain('Saving…')
+  })
+})
+
+describe('PostEditorPage — the slug prop DROPPED on the same instance (the create screen)', () => {
+  it('forgets the edited post, so Save creates instead of overwriting it', async () => {
+    // The component's own contract is "pass a `slug` to edit that post; omit it
+    // to create a new one" — and a caller that mounts ONE editor and toggles
+    // that prop (an optional route param, or `{editing ? <A slug={id}/> :
+    // <A/>}`) reuses this instance with the slug dropped. The load effect
+    // returned on `!editingSlug` BEFORE any of its resets, so the form kept the
+    // post it was editing while the heading said "New post": save() read the
+    // stale `postId` and PUT that post's id with its own loaded values — the
+    // author was shown a new-post screen and silently overwrote an existing
+    // post. This drives the real reused instance, as the A → B → A suite above
+    // does.
+    await render(createElement(PostEditorPage, { slug: 'a' }), true)
+    await respond('/api/posts/a', 200, post('p-a', 'Post A', 'a'))
+    expect(titleInput()?.value).toBe('Post A')
+
+    await render(createElement(PostEditorPage, {}), false)
+    expect(text()).toContain('New post')
+    // The form no longer holds the post that was being edited.
+    expect(titleInput()?.value).toBe('')
+
+    await typeInto('[data-mol-id="post-title"]', 'Brand new')
+    await typeInto('[data-mol-id="post-body"]', '# Body')
+    await submitEditor()
+
+    const save = pending.requests.find((request) => request.method !== undefined)
+    expect(save?.url, 'a create screen must POST a new post').toBe('/api/posts')
+    expect(save?.method).toBe('POST')
+    // The load's own GET is the only other request; nothing may have PUT.
+    expect(pending.requests.some((request) => request.method === 'PUT')).toBe(false)
+  })
+
+  it('keeps the author’s typing when an unrelated dep re-runs the effect (a locale switch)', async () => {
+    // The reset keys on the slug TRANSITION, not on "no slug": a re-run that did
+    // not change the mode — the real `useTranslation` hands out a NEW `t` on a
+    // locale switch, which is a dep of this effect — must not wipe a draft the
+    // author is writing. Without this, "reset whenever there is no slug" would
+    // look correct and lose typed text on every locale switch.
+    await render(createElement(PostEditorPage, {}), true)
+    await typeInto('[data-mol-id="post-title"]', 'Half-written')
+
+    translate.version.current += 1 // the locale switch: a new `t` identity
+    await render(createElement(PostEditorPage, {}), false)
+
+    expect(titleInput()?.value).toBe('Half-written')
   })
 })

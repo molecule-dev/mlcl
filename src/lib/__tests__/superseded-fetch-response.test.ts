@@ -336,6 +336,32 @@ describe('a superseded fetch response must not win', () => {
     expect(text()).not.toContain('First post')
   })
 
+  it('reports a 2xx body that is not a post instead of rendering a blank article', async () => {
+    // The markdown-blog read path the sibling fix left behind: BlogIndexPage
+    // checks the array and PostEditorPage the fields, but this one installed
+    // whatever a 2xx carried. An endpoint with no fixture answers 200 `{}` (the
+    // mock API server's unmatchedFixtureResponse) — as `post` that rendered a
+    // blank title, `new Date(undefined)` → "Invalid Date" and `undefined` into
+    // the markdown bond, instead of the failure it is.
+    await mount(createElement(PostPage, { slug: 'hollow' }))
+
+    await respond('/api/posts/hollow', 200, {})
+    expect(text()).toContain('Could not load this post')
+    expect(text()).not.toContain('Invalid Date')
+    expect(text()).not.toContain('Loading…')
+
+    // The page still works afterwards — a real post on the next slug renders.
+    await rerender(createElement(PostPage, { slug: 'live' }))
+    await respond('/api/posts/live', 200, {
+      id: '1',
+      title: 'Live post',
+      body_markdown: 'body',
+      published_at: '2026-01-01T00:00:00.000Z',
+    })
+    expect(text()).toContain('Live post')
+    expect(text()).not.toContain('Could not load this post')
+  })
+
   it('drops the previous subject summary when the newer subject answers first', async () => {
     await mount(createElement(RatingWidget, { subjectId: 'first', canRate: true }))
     await rerender(createElement(RatingWidget, { subjectId: 'second', canRate: true }))

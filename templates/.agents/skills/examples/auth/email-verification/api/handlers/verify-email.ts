@@ -143,7 +143,24 @@ router.get('/', async (req, res) => {
   // effect. Do NOT invent an `email_verified_at` column: it isn't on the users table (the
   // write would 500), and the framework would still see the user as unverified.
   await updateById('users', tokenRow.user_id, { emailVerified: true })
-  await deleteById('email_verification_tokens', tokenRow.id)
+  // The verification above is THIS route's outcome; clearing the single-use
+  // token is housekeeping. Letting the clear's failure reject the handler turned
+  // a verified account into a 500 — the visitor was told the link did not work
+  // while the account had just been verified — and the two writes cannot be one
+  // transaction here (handlers go through the abstract DataStore, which offers
+  // none). A row this delete cannot remove is inert: the user is verified
+  // either way, a later visit to the same link re-runs the delete (the row is
+  // still found by hash and is idempotent), and it expires on its TTL. So log
+  // the cleanup failure and still report the verification that happened.
+  try {
+    await deleteById('email_verification_tokens', tokenRow.id)
+  } catch (cleanupError) {
+    console.error('verify-email: could not drop the used verification token', {
+      userId: tokenRow.user_id,
+      tokenId: tokenRow.id,
+      cleanupError,
+    })
+  }
   res.json({ ok: true })
 })
 

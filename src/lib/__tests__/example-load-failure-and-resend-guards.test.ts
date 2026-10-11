@@ -424,3 +424,90 @@ describe('verify-email POST /request — a failed send leaves no token behind', 
     expect(emails.sendMail).toHaveBeenCalledTimes(1)
   })
 })
+
+// ---------------------------------------------------------------------------
+// GET / — the verification itself, and the housekeeping after it
+// ---------------------------------------------------------------------------
+
+const { verifyMiddlewares } = await (async () => {
+  const mod =
+    (await import('../../../templates/.agents/skills/examples/auth/email-verification/api/handlers/verify-email.js')) as {
+      default: {
+        stack: Array<{
+          route?: {
+            path?: string
+            methods?: Record<string, boolean>
+            stack: Array<{ handle: Handle }>
+          }
+        }>
+      }
+    }
+  const layer = mod.default.stack.find((l) => l.route?.path === '/' && l.route.methods?.get)
+  if (!layer?.route) throw new Error('verify-email router exported no GET / route')
+  return { verifyMiddlewares: layer.route.stack.map((l) => l.handle) }
+})()
+
+/** Drive the real GET / chain with a token query, awaiting the terminal handler. */
+async function getVerify(token: string): Promise<ReturnType<typeof makeRes>> {
+  const res = makeRes()
+  const req = { query: { token } }
+  for (let i = 0; i < verifyMiddlewares.length; i++) {
+    let passedOn = false
+    const result = verifyMiddlewares[i](req, res, () => {
+      passedOn = true
+    })
+    await Promise.resolve(result)
+    if (!passedOn) break
+  }
+  return res
+}
+
+const liveTokenRow = (): void => {
+  database.findMany.mockResolvedValue([
+    {
+      id: 'tok-1',
+      user_id: 'user-1',
+      expires_at: new Date(Date.now() + 60 * 60 * 1000).toISOString(),
+    },
+  ])
+  database.updateById.mockResolvedValue({ data: {}, affected: 1 })
+  database.deleteById.mockResolvedValue({ data: {}, affected: 1 })
+}
+
+describe('verify-email GET / — a verified account is reported as verified', () => {
+  it('answers ok when the used token cannot be deleted', async () => {
+    // Two writes make up this route: mark the user verified, then drop the
+    // single-use token. Letting the SECOND one's failure reject the handler
+    // reported a 500 for a verification that had already happened — the visitor
+    // was told the link failed while the account was verified — and left the
+    // token row behind to be found again. The verification is the outcome; the
+    // clear is housekeeping.
+    liveTokenRow()
+    database.deleteById.mockRejectedValue(new Error('transient db error'))
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => undefined)
+    try {
+      const res = await getVerify('a'.repeat(32))
+
+      expect(database.updateById).toHaveBeenCalledWith('users', 'user-1', { emailVerified: true })
+      expect(res.statusCode, 'a verified account must not be reported as an error').toBe(0)
+      expect(res.body).toEqual({ ok: true })
+      // The cleanup failure is not silent: it is logged with the row it was for.
+      expect(errorSpy).toHaveBeenCalledWith(
+        'verify-email: could not drop the used verification token',
+        expect.objectContaining({ userId: 'user-1', tokenId: 'tok-1' }),
+      )
+    } finally {
+      errorSpy.mockRestore()
+    }
+  })
+
+  it('the positive twin: a clean verify marks the user verified and drops the token once', async () => {
+    liveTokenRow()
+
+    const res = await getVerify('a'.repeat(32))
+
+    expect(database.updateById).toHaveBeenCalledWith('users', 'user-1', { emailVerified: true })
+    expect(database.deleteById).toHaveBeenCalledWith('email_verification_tokens', 'tok-1')
+    expect(res.body).toEqual({ ok: true })
+  })
+})

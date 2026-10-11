@@ -48,8 +48,38 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}) {
 
   // Edit mode: load the post's current values so the author edits, not clobbers.
   const loadedSlug = useRef<string | null>(null)
+  // The slug the PREVIOUS effect run saw. It separates the transition INTO create
+  // mode (a slug, then no slug) from every other re-run of this effect (a locale
+  // switch, the "Try again" button) — only the transition may reset the form.
+  const previousSlug = useRef<string | undefined>(editingSlug)
   useEffect(() => {
-    if (!editingSlug) return
+    const slugChanged = previousSlug.current !== editingSlug
+    previousSlug.current = editingSlug
+    if (!editingSlug) {
+      // CREATE mode — and the SAME instance can be reused for it. The documented
+      // contract is "pass a `slug` to edit that post; omit it to create a new
+      // one", and a caller that mounts ONE editor and toggles the prop (a route
+      // with an optional param, or `{editing ? <PostEditorPage slug={id}/> :
+      // <PostEditorPage/>}`) reuses this instance with the slug dropped. Without
+      // the reset below the form kept the post it was editing: `postId` was
+      // still that post's id, so `save()` took the EDIT branch and PUT the old
+      // post's id with the old post's values — the author was shown a "New post"
+      // heading and silently overwrote an existing post. Reset to the blank
+      // create state, and forget the loaded slug, on THAT transition only, so a
+      // re-run that did not change the mode still cannot discard typed text.
+      if (slugChanged) {
+        loadedSlug.current = null
+        setPostId(null)
+        setTitle('')
+        setSlug('')
+        setSlugEdited(false)
+        setBodyMarkdown('')
+        setDraft(true)
+        setError(null)
+        setStatus('idle')
+      }
+      return
+    }
     // Load each slug ONCE. This effect also re-runs when `t` changes identity (a
     // locale switch — see useTranslation), and an unguarded reload there would
     // discard the author's unsaved typing by refilling the form from the server.

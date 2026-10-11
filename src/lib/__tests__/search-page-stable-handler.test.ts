@@ -82,6 +82,16 @@ async function mount(element: ReactNode): Promise<void> {
 
 const searchCalls = (): FetchCall[] => fetches.calls.filter((c) => c.url.includes('/api/search'))
 
+/** Type into the real autocomplete's input the way a user's keystroke does. */
+async function typeQuery(value: string): Promise<void> {
+  const input = container.querySelector('input') as HTMLInputElement
+  const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set
+  await act(async () => {
+    setter?.call(input, value)
+    input.dispatchEvent(new Event('input', { bubbles: true }))
+  })
+}
+
 beforeEach(() => {
   fetches.calls.length = 0
   globalThis.fetch = ((input: unknown) =>
@@ -159,5 +169,82 @@ describe('search page — one query is one search, however often the page re-ren
 
     expect(searchCalls()).toHaveLength(2)
     expect(searchCalls()[1].url).toContain('q=cats')
+  })
+})
+
+describe('search page — an answer is never asserted before it exists', () => {
+  it('does not claim "No matches" for a query that has not been answered', async () => {
+    await mount(createElement(SearchPage, { index: 'products' }))
+
+    await typeQuery('cat')
+    // Nothing is in flight yet (the debounce has not fired) and nothing has
+    // answered — the page must not report a result. The results list starts
+    // empty, so the empty state used to render here (and for the whole request
+    // below) as a definitive "No matches for "cat"".
+    expect(container.textContent).not.toContain('No matches for')
+
+    // …nor while the request it does fire is parked.
+    await wait(250)
+    expect(searchCalls()).toHaveLength(1)
+    expect(container.textContent).not.toContain('No matches for')
+
+    // The answer is what makes the empty result set true.
+    const call = searchCalls()[0]
+    call.answered = true
+    await act(async () => {
+      call.respond(200, { hits: [] })
+    })
+    expect(container.textContent).toContain('No matches for "cat"')
+  })
+
+  it('reports a FAILED search as a failure, not as "No matches"', async () => {
+    await mount(createElement(SearchPage, { index: 'products' }))
+    await typeQuery('cat')
+    await wait(250)
+
+    // A 500 body carries no `hits`, so the coerced empty list said the query
+    // matched nothing — the wrong answer for a search that never ran.
+    const call = searchCalls()[0]
+    call.answered = true
+    await act(async () => {
+      call.respond(500, { error: 'boom' })
+    })
+
+    expect(container.textContent).toContain('Search failed')
+    expect(container.textContent).not.toContain('No matches for')
+  })
+
+  it('never renders a previous query’s hits under the new query', async () => {
+    await mount(createElement(SearchPage, { index: 'products' }))
+    await typeQuery('cat')
+    await wait(250)
+    const catCall = searchCalls()[0]
+    catCall.answered = true
+    await act(async () => {
+      catCall.respond(200, { hits: [{ id: 'c', title: 'cat hit' }] })
+    })
+    // The page's own list holds "cat hit" (the page renders one <h3> per hit;
+    // the shared popover renders <li role="option">, which carries no heading).
+    expect(container.querySelectorAll('h3')).toHaveLength(1)
+
+    // The reader edits the query: the answer on screen belongs to "cat", so
+    // "No matches for dog" — or "cat"'s hits — must not be asserted for "dog".
+    // The results list was keyed on nothing, so the previous query's hits stayed
+    // rendered under the new one until "dog"'s own response landed.
+    await typeQuery('dog')
+    expect(container.textContent).toContain('Searching…')
+    expect(container.querySelectorAll('h3')).toHaveLength(0)
+    expect(container.textContent).not.toContain('No matches for')
+
+    // …and "dog"'s own answer then replaces it.
+    await wait(250)
+    const dogCall = searchCalls().find((c) => c.url.includes('q=dog'))
+    expect(dogCall).toBeDefined()
+    dogCall!.answered = true
+    await act(async () => {
+      dogCall!.respond(200, { hits: [{ id: 'd', title: 'dog hit' }] })
+    })
+    expect(container.textContent).toContain('dog hit')
+    expect(container.querySelectorAll('h3')).toHaveLength(1)
   })
 })
