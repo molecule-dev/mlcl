@@ -8,6 +8,22 @@ import { getClassMap } from '@molecule/app-ui'
 const cm = getClassMap()
 
 /**
+ * The most `GET /comments/:id/replies` requests ONE thread load may issue.
+ *
+ * The replies endpoint answers a node's DIRECT children — one page, for one
+ * parent — so reaching the whole thread costs a request per NODE, not one per
+ * page: the walk below has to ask every row it found for its own children. That
+ * walk was unbounded, and so was the burst: a thread with N comments issued N
+ * requests on mount, with a whole level fired at once, so a busy thread hammered
+ * the API from every open tab (and re-did it on every refetch). The walk now
+ * spends a fixed budget and stops when it runs out, the same window the sibling
+ * slices put on their live lists (the chat room's `MAX_RENDERED_MESSAGES`, the
+ * notification bell's `NOTIFICATION_PAGE_SIZE`). A thread larger than the budget
+ * renders the rows it could reach instead of hanging on the tail.
+ */
+const MAX_REPLY_REQUESTS = 200
+
+/**
  * The FLAT comment row `@molecule/api-resource-comment` returns. Replies are
  * linked by `parentId` (null = top-level) — the API does NOT nest them.
  */
@@ -117,13 +133,20 @@ export function CommentThread({
     // Breadth-first, one parallel round per LEVEL: the roots' children first
     // (in root order, the request order this loader has always issued), then
     // their children, until a level brings back nothing new. `seen` bounds the
-    // walk against a row whose parentId points back up the tree.
+    // walk against a row whose parentId points back up the tree; `budget` bounds
+    // it against the thread itself — every node in a level is one request, so
+    // without a budget the mount-time load fanned out to the whole thread (see
+    // MAX_REPLY_REQUESTS). A level larger than what is left is asked for only in
+    // part; the walk then stops and the tree renders the rows it reached.
     const seen = new Set(rows.map((row) => row.id))
     let frontier = rows.map((row) => row.id)
-    while (frontier.length > 0) {
+    let budget = MAX_REPLY_REQUESTS
+    while (frontier.length > 0 && budget > 0) {
+      const batch = frontier.slice(0, budget)
+      budget -= batch.length
       const children = (
         await Promise.all(
-          frontier.map(
+          batch.map(
             (parentId) =>
               http
                 .get(`/api/comments/${parentId}/replies`)
