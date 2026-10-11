@@ -13,11 +13,17 @@
  * the assertion below is the OFF-Fly half).
  */
 import { spawn } from 'node:child_process'
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 
-const SERVER_JS = join(import.meta.dirname, '..', 'dist', 'http.js')
+/** The server under test. Overridable per call so the harness's own failure paths can be driven. */
+const DEFAULT_SERVER_JS = join(import.meta.dirname, '..', 'dist', 'http.js')
+
+/** How long {@link startServer} waits for the port line before giving up. */
+const PORT_REPORT_DEADLINE_MS = 10_000
 
 async function waitHealthy(url, child) {
   const deadline = Date.now() + 10_000
@@ -42,9 +48,18 @@ async function waitHealthy(url, child) {
  * to the child leaves that port UNHELD between our close() and the child's
  * listen() — any other process on the machine can take it in that window, and
  * the child then dies with EADDRINUSE (a spurious "server exited early").
+ *
+ * `serverJs` and `portDeadlineMs` are per-call so the decoy test at the bottom
+ * can drive the deadline path in 400 ms instead of 10 s.
+ *
+ * @param env - The child's environment.
+ * @param options - Per-call overrides for the script to run and the port deadline.
  */
-async function startServer(env) {
-  const child = spawn(process.execPath, [SERVER_JS], {
+async function startServer(
+  env,
+  { serverJs = DEFAULT_SERVER_JS, portDeadlineMs = PORT_REPORT_DEADLINE_MS } = {},
+) {
+  const child = spawn(process.execPath, [serverJs], {
     env: { ...env, PORT: '0' },
     stdio: ['ignore', 'pipe', 'pipe'],
   })
@@ -54,8 +69,20 @@ async function startServer(env) {
   }
   child.stdout.on('data', onData)
   child.stderr.on('data', onData)
+  // EVERY failure path below has to end this process before it throws. The
+  // caller destructures `{ child }` from the await, so a rejection here means
+  // the child is never handed to anyone and no `finally { stopServer(child) }`
+  // can reach it — while this parent still holds both `pipe` stdio handles, so
+  // the node:test runner keeps its event loop alive and the suite HANGS on a
+  // server that started but never printed its port (the 10 s deadline path) or
+  // one that wedged before it exited. A leaked child is invisible in the test
+  // output and only shows up as a CI job that never finishes.
+  const kill = async (error) => {
+    await stopServer(child)
+    throw error
+  }
   const port = await new Promise((resolve, reject) => {
-    const deadline = Date.now() + 10_000
+    const deadline = Date.now() + portDeadlineMs
     const poll = setInterval(() => {
       const match = output.match(/listening on :(\d+)\/mcp/)
       if (match) {
@@ -74,22 +101,51 @@ async function startServer(env) {
       }
     }, 25)
     poll.unref()
-  })
+  }).catch(kill)
   const base = `http://127.0.0.1:${port}`
   try {
     await waitHealthy(base, child)
   } catch (error) {
-    if (child.exitCode === null) child.kill('SIGTERM')
-    throw error
+    await kill(error)
   }
   return { child, base, getOutput: () => output }
 }
 
+/**
+ * End one spawned server and WAIT for it to be gone.
+ *
+ * SIGTERM first, then SIGKILL if it has not exited within the grace period:
+ * the earlier shape resolved the wait on a 2 s `setTimeout` regardless of
+ * whether the process actually died, so a server that ignored or outlived
+ * SIGTERM (a wedged listen, a stuck handle) survived the suite with its stdio
+ * pipes still attached to this parent — one leaked node process per test, and
+ * a runner that cannot exit while they hold the loop open. The kill is only
+ * escalated for a process still alive, so a clean SIGTERM exit never pays for
+ * it, and a process already gone makes both branches no-ops.
+ *
+ * @param child - The spawned server.
+ */
 async function stopServer(child) {
-  if (child.exitCode === null) child.kill('SIGTERM')
+  if (child.exitCode === null && child.signalCode === null) child.kill('SIGTERM')
+  const exited = await new Promise((resolve) => {
+    if (child.exitCode !== null || child.signalCode !== null) {
+      resolve(true)
+      return
+    }
+    const timer = setTimeout(() => resolve(false), 2000)
+    child.once('exit', () => {
+      clearTimeout(timer)
+      resolve(true)
+    })
+  })
+  if (exited) return
+  child.kill('SIGKILL')
   await new Promise((resolve) => {
+    if (child.exitCode !== null || child.signalCode !== null) {
+      resolve()
+      return
+    }
     child.once('exit', resolve)
-    setTimeout(resolve, 2000).unref()
   })
 }
 
@@ -444,5 +500,42 @@ test('the cap evicts by when an address was last SEEN, not by insertion order', 
     )
   } finally {
     await stopServer(child)
+  }
+})
+
+test('a server that never reports its port is killed before startServer rejects', async () => {
+  // This pins the HARNESS, not the server: `startServer` hands the child to its
+  // caller only by RETURNING it, so a rejection from inside the helper leaves
+  // the process owned by nobody — no `finally { stopServer(child) }` can reach
+  // it. A `pipe` stdio child keeps this parent's event loop alive, so a leaked
+  // one makes the whole `node --test` run hang instead of failing. The decoy
+  // below never prints the `listening on :<port>` line (the deadline path) and
+  // records its pid, so the test can ask the OS whether it is really gone.
+  const dir = mkdtempSync(join(tmpdir(), 'mlcl-rate-limit-decoy-'))
+  try {
+    const pidFile = join(dir, 'pid')
+    const decoy = join(dir, 'decoy.mjs')
+    writeFileSync(
+      decoy,
+      `import { writeFileSync } from 'node:fs'\n` +
+        `writeFileSync(${JSON.stringify(pidFile)}, String(process.pid))\n` +
+        `setInterval(() => {}, 1000)\n`,
+    )
+    await assert.rejects(
+      startServer({ ...process.env }, { serverJs: decoy, portDeadlineMs: 400 }),
+      /never reported its port/,
+      'a server that never reports its port must fail the startup helper',
+    )
+    const pid = Number(readFileSync(pidFile, 'utf8'))
+    assert.ok(Number.isInteger(pid) && pid > 0, 'the decoy must have recorded its pid')
+    // ESRCH means the decoy is gone. Without the kill-before-rethrow the decoy
+    // is still running here (and holding this parent's pipes).
+    assert.throws(
+      () => process.kill(pid, 0),
+      (error) => error.code === 'ESRCH',
+      `the abandoned server (pid ${pid}) must not outlive the helper's rejection`,
+    )
+  } finally {
+    rmSync(dir, { recursive: true, force: true })
   }
 })
