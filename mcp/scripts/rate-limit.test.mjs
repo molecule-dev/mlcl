@@ -327,3 +327,65 @@ test('a bucket map at its cap evicts the least-recently-seen address', async () 
     await stopServer(child)
   }
 })
+
+test('the cap evicts by when an address was last SEEN, not by insertion order', async () => {
+  // The eviction victim is "least recently seen" — the same victim whether the
+  // implementation scans the buckets for the smallest `at` or keeps the map in
+  // access order and takes its first key (mcp/src/http.ts does the latter, so a
+  // request from each address costs one step instead of a pass over the map).
+  // This pins the ORDER, which the map-order implementation relies on: reusing
+  // an address must refresh it. Budget 2, cap 3 — exhaust a1/a2/a3, touch a1
+  // again (which moves it to the end of the access order), then let a4 evict:
+  // a2 is now the least recently seen, so a2 draws a FRESH budget while a3 —
+  // seen after a2 — is still drained. An insertion-order (FIFO) eviction picks
+  // a1 instead, and then a2 is still present and still drained.
+  const env = {
+    ...process.env,
+    MCP_RATE_PER_MIN: '2',
+    MCP_RATE_MAX_BUCKETS: '3',
+    FLY_MACHINE_ID: 'rate-limit-test-machine',
+  }
+  delete env.FLY_APP_NAME
+  const { child, base } = await startServer(env)
+  try {
+    const ask = async (ip) => {
+      const res = await fetch(`${base}/mcp`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          accept: 'application/json, text/event-stream',
+          'fly-client-ip': ip,
+        },
+        body: INITIALIZE_BODY,
+      })
+      await res.arrayBuffer() // drain so the socket is reusable
+      return res.status
+    }
+    for (const ip of ['10.96.0.1', '10.96.0.2', '10.96.0.3']) {
+      assert.equal(await ask(ip), 200, `${ip} must draw its first token`)
+      assert.equal(await ask(ip), 200, `${ip} must draw its second token`)
+      assert.equal(await ask(ip), 429, `${ip} must be drained after its budget`)
+    }
+    // a1 is seen last of the three, so it is no longer the eviction candidate.
+    assert.equal(await ask('10.96.0.1'), 429, 'a1 is still drained')
+    // a4 arrives at the cap: a2 was seen least recently, so a2 makes room.
+    assert.equal(await ask('10.96.0.4'), 200)
+    // …which both halves of the order prove: a1 SURVIVED a2 (a FIFO eviction
+    // would have taken a1, the first-INSERTED bucket, and a1 would be fresh
+    // here)…
+    assert.equal(
+      await ask('10.96.0.1'),
+      429,
+      'a1 was seen after a2, so the newest eviction must not have taken it',
+    )
+    // …and a2 was the address EVICTED (a FIFO/LRU-by-insertion eviction left it
+    // in the map, still drained).
+    assert.equal(
+      await ask('10.96.0.2'),
+      200,
+      'a2 was seen least recently, so a4 evicted IT — a2 must draw a fresh budget',
+    )
+  } finally {
+    await stopServer(child)
+  }
+})

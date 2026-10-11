@@ -65,6 +65,10 @@ if (process.env.MCP_RATE_MAX_BUCKETS !== undefined && MAX_BUCKETS !== parsedMaxB
   )
 }
 const ON_FLY = process.env.FLY_MACHINE_ID !== undefined || process.env.FLY_APP_NAME !== undefined
+// The map is held in ACCESS order — first key = least recently seen — which is
+// what makes the cap-eviction below a single step. A Map keeps insertion order,
+// and re-setting an existing key does NOT move it, so a hit re-inserts its
+// bucket (delete + set) to keep that order honest; see `allow`.
 const buckets = new Map<string, { tokens: number; at: number }>()
 const sweep = (): void => {
   const stale = Date.now() - 10 * 60_000
@@ -82,23 +86,28 @@ const clientAddress = (req: express.Request): string => {
 const allow = (ip: string): boolean => {
   const now = Date.now()
   let b = buckets.get(ip)
-  if (!b && buckets.size >= MAX_BUCKETS) {
-    sweep()
+  if (b) {
+    // Move this address to the END of the map's order ("seen last"), so the
+    // eviction below picks the least-recently-seen bucket. Evicting by a SCAN
+    // for the minimum `at` instead made every request expensive in proportion
+    // to the map: at the default cap of 10 000, one request from each of a
+    // flood's distinct addresses — exactly the traffic the cap exists to
+    // survive — paid two passes over every bucket (the sweep plus the scan),
+    // so the flood's own defence became its amplifier. Deleting and re-adding
+    // on each hit is O(1) and keeps the order the eviction reads.
+    buckets.delete(ip)
+    buckets.set(ip, b)
+  } else {
     if (buckets.size >= MAX_BUCKETS) {
-      // Every live bucket is younger than the sweep horizon here, so evict the
-      // least-recently-seen one — the only fair order once the cap is hit.
-      let oldestKey: string | null = null
-      let oldestAt = Infinity
-      for (const [key, bucket] of buckets) {
-        if (bucket.at < oldestAt) {
-          oldestAt = bucket.at
-          oldestKey = key
-        }
-      }
-      if (oldestKey !== null) buckets.delete(oldestKey)
+      // The cap is reached. The first key is the least-recently-seen bucket —
+      // the scan's victim, taken in one step. The interval sweeper still prunes
+      // idle buckets for memory, and a bucket idle long enough to count as
+      // stale has refilled to a FULL budget (a minute's worth of tokens at any
+      // rate this server allows) well before the sweeper's horizon, so dropping
+      // one here would change no request's outcome.
+      const oldestKey = buckets.keys().next().value
+      if (oldestKey !== undefined) buckets.delete(oldestKey)
     }
-  }
-  if (!b) {
     b = { tokens: RATE_PER_MIN, at: now }
     buckets.set(ip, b)
   }

@@ -132,6 +132,9 @@ describe('molecule-mcp remote rate limit', () => {
       expect(result.output).toContain(
         'a bucket map at its cap evicts the least-recently-seen address',
       )
+      expect(result.output).toContain(
+        'the cap evicts by when an address was last SEEN, not by insertion order',
+      )
       expect(result.output).not.toMatch(/fail\s+[1-9]/)
     },
   )
