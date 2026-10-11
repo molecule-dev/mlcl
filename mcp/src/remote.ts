@@ -94,6 +94,23 @@ const readmeCache = new Map<string, { at: number; readme: string }>()
 const inFlight = new Map<string, Promise<unknown>>()
 
 /**
+ * Bumped by every {@link clearRemoteCaches}, and stamped into the keys and the
+ * cache writes below.
+ *
+ * The reset's whole purpose is that a caller AFTER it reads the world as it is
+ * now, not as the previous caller saw it — and a fetch that was in flight when
+ * the reset ran is exactly that previous caller's view. Without this stamp the
+ * reset cleared the two maps but not the work: a post-reset caller with the same
+ * key was handed the PRE-reset promise (a payload fetched before the reset,
+ * shared with nobody it belongs to), and the orphan settling a moment later
+ * wrote its pre-reset bytes into the freshly cleared cache — undoing the reset
+ * it was supposed to be outside of. A shared promise is keyed with the
+ * generation it was started under, and a fetch only publishes into the cache
+ * while that generation is still current.
+ */
+let cacheGeneration = 0
+
+/**
  * Drop every cached registry/templates payload and package README.
  *
  * Both maps are process-global ON PURPOSE — a long-lived hosted server pays one
@@ -106,8 +123,13 @@ const inFlight = new Map<string, Promise<unknown>>()
  * mlcl's own registry.ts, for the same reason).
  */
 export function clearRemoteCaches(): void {
+  cacheGeneration += 1
   cache.clear()
   readmeCache.clear()
+  // Work already in flight is part of the state being reset: a post-reset
+  // caller must not be handed it, and (see cacheGeneration) its result must not
+  // land in the maps cleared here.
+  inFlight.clear()
 }
 
 /**
@@ -130,6 +152,7 @@ export async function fetchPackageReadme(
   short: string,
   timeoutMs: number = FETCH_TIMEOUT_MS,
 ): Promise<string | undefined> {
+  const generation = cacheGeneration
   const hit = readmeCache.get(short)
   if (hit) {
     if (Date.now() - hit.at < README_CACHE_TTL_MS) {
@@ -150,11 +173,13 @@ export async function fetchPackageReadme(
     readmeCache.delete(short)
   }
   // One outbound fetch per uncached package, however many callers ask at once
-  // (see {@link inFlight}).
-  const key = `readme:${short}`
+  // (see {@link inFlight}) — and only among the callers of THIS generation: work
+  // started before a {@link clearRemoteCaches} belongs to the callers of that
+  // era, not to this one.
+  const key = `readme:${generation}:${short}`
   const pending = inFlight.get(key)
   if (pending) return pending as Promise<string | undefined>
-  const work = fetchPackageReadmeUncached(short, timeoutMs)
+  const work = fetchPackageReadmeUncached(short, timeoutMs, generation)
   inFlight.set(key, work)
   try {
     return await work
@@ -167,13 +192,20 @@ export async function fetchPackageReadme(
  * The network half of {@link fetchPackageReadme} — see {@link inFlight} for why
  * it is split out.
  *
+ * `generation` is the {@link cacheGeneration} this fetch was started under: the
+ * README it returns is published only while that generation is still current,
+ * so a fetch that was in flight when {@link clearRemoteCaches} ran cannot write
+ * the bytes it read BEFORE the reset into the map the reset just emptied.
+ *
  * @param short - Package name WITHOUT the `@molecule/` scope.
  * @param timeoutMs - Abort bound for the outbound fetch.
+ * @param generation - The cache generation this fetch belongs to.
  * @returns The published README, or undefined when the registry has none.
  */
 async function fetchPackageReadmeUncached(
   short: string,
   timeoutMs: number,
+  generation: number,
 ): Promise<string | undefined> {
   const response = await fetch(`https://registry.npmjs.org/@molecule%2F${short}`, {
     signal: AbortSignal.timeout(timeoutMs),
@@ -189,6 +221,7 @@ async function fetchPackageReadmeUncached(
   }
   const meta = (await response.json()) as { readme?: string }
   if (typeof meta.readme !== 'string' || meta.readme.length === 0) return undefined
+  if (generation !== cacheGeneration) return meta.readme
   if (readmeCache.size >= README_CACHE_LIMIT && !readmeCache.has(short)) {
     const oldest = readmeCache.keys().next().value
     if (oldest !== undefined) readmeCache.delete(oldest)
@@ -249,14 +282,17 @@ export async function fetchJson<T>(
   check?: PayloadCheck,
 ): Promise<T> {
   const key = file ?? url
+  const generation = cacheGeneration
   const hit = cache.get(key)
   if (hit && Date.now() - hit.at < CACHE_TTL_MS) return hit.data as T
   // One outbound fetch per uncached document, however many callers ask at once
-  // (see {@link inFlight}).
-  const pendingKey = `json:${key}`
+  // (see {@link inFlight}) — and only among the callers of THIS generation: a
+  // fetch started before a {@link clearRemoteCaches} belongs to the callers of
+  // that era, not to this one.
+  const pendingKey = `json:${generation}:${key}`
   const pending = inFlight.get(pendingKey)
   if (pending) return pending as Promise<T>
-  const work = fetchJsonUncached<T>(url, file, timeoutMs, check)
+  const work = fetchJsonUncached<T>(url, file, timeoutMs, check, generation)
   inFlight.set(pendingKey, work)
   try {
     return await work
@@ -269,17 +305,24 @@ export async function fetchJson<T>(
  * The read/parse half of {@link fetchJson} — see {@link inFlight} for why it is
  * split out.
  *
+ * `generation` is the {@link cacheGeneration} this fetch was started under: the
+ * payload is published only while that generation is still current, so a fetch
+ * in flight when {@link clearRemoteCaches} ran cannot write the bytes it read
+ * BEFORE the reset into the map the reset just emptied.
+ *
  * @param url - The document's URL (used when `file` is absent).
  * @param file - A local file to read INSTEAD of the URL.
  * @param timeoutMs - Abort bound for the outbound fetch.
  * @param check - The shape the payload must satisfy before it is cached.
+ * @param generation - The cache generation this fetch belongs to.
  * @returns The parsed payload.
  */
 async function fetchJsonUncached<T>(
   url: string,
   file: string | undefined,
   timeoutMs: number,
-  check?: PayloadCheck,
+  check: PayloadCheck | undefined,
+  generation: number,
 ): Promise<T> {
   const key = file ?? url
   let data: T
@@ -304,6 +347,10 @@ async function fetchJsonUncached<T>(
   if (check && !check(data)) {
     throw new Error(`${key} did not return the expected payload`)
   }
+  // Only a fetch of the CURRENT generation may publish: a reset that ran while
+  // this one was in flight means the bytes read here describe a world the
+  // caller after the reset must not be served (see cacheGeneration).
+  if (generation !== cacheGeneration) return data
   cache.set(key, { at: Date.now(), data })
   return data
 }
