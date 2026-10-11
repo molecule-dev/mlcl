@@ -23,10 +23,68 @@ import {
   rm,
   writeFile,
 } from 'node:fs/promises'
-import { dirname, join, sep } from 'node:path'
+import { dirname, isAbsolute, join, relative, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
+
+/**
+ * Whether `candidate` resolves to a path INSIDE `baseDir` (the directory itself
+ * counts as outside — it is not a file).
+ *
+ * The paths this file derives from package/registry METADATA (`molecule.
+ * middlewareSetup.configFile`, a table's `sqlFile`) are data, and not
+ * necessarily this repo's data: {@link scanPackage} falls back to the INSTALLED
+ * package's own `package.json` `molecule` block for any package the registry
+ * does not list, so a third-party package declares them. `join()` resolves a
+ * `../…` happily, so an uncontained `join(projectPath, configFile)` writes the
+ * declared content anywhere on the filesystem, and an uncontained read copies
+ * any readable file into the project. Both sides are compared as RESOLVED
+ * paths (`relative`), which is also what catches an ABSOLUTE declaration —
+ * `join(base, '/etc/passwd')` silently folds it into `base`, so a prefix check
+ * on the joined string would call an escape "inside".
+ *
+ * @param baseDir - The directory the path must stay within.
+ * @param candidate - The declared path (absolute or relative).
+ * @returns True when `candidate` is a path strictly inside `baseDir`.
+ */
+function isInside(baseDir: string, candidate: string): boolean {
+  const inside = relative(baseDir, candidate)
+  return inside !== '' && inside !== '..' && !inside.startsWith(`..${sep}`) && !isAbsolute(inside)
+}
+
+/**
+ * Resolve a project-relative path declared by package metadata against the
+ * project, or null when it escapes it — see {@link isInside} for why the
+ * declared value cannot be trusted or prefix-checked.
+ *
+ * @param projectPath - The project the path must stay within.
+ * @param relPath - The declared, project-relative path.
+ * @returns The absolute target, or null when it is not inside the project.
+ */
+function containedProjectPath(projectPath: string, relPath: string): string | null {
+  const target = join(projectPath, relPath)
+  return isInside(projectPath, target) ? target : null
+}
+
+/**
+ * The table-name segment of a migration FILENAME.
+ *
+ * A migration is written to `join(<project>/migrations, ◀name▶)`, and the name
+ * carries a table name taken from package metadata — an unconstrained string
+ * (`z.string()`), so `a/../../../../x` turned the write into an arbitrary file
+ * write outside the project. A real table name never contains a path
+ * separator, so the separators are flattened into `_` and the filename stays
+ * one segment inside `migrations/`. The SAME transformation is applied by
+ * {@link checkMigrationExists}, or a re-run would not recognize the migration
+ * it wrote and would plan a duplicate.
+ *
+ * @param tableName - The table name as declared by the package/registry.
+ * @returns A single-path-segment name safe to concatenate into the filename.
+ */
+function migrationFileTableSegment(tableName: string): string {
+  return tableName.replace(/[\\/]+/g, '_')
+}
 
 import { execa } from 'execa'
 
@@ -433,10 +491,25 @@ async function planResourceInjection(
   // Plan SQL migrations
   for (const table of pkg.tables) {
     if (table.sqlFile) {
+      // The SQL path is metadata too (see {@link isInside}), and it is read and
+      // then written into the project as a migration: a `../…` escape copies a
+      // file from OUTSIDE the package — `/etc/passwd`, another project's
+      // `.env` — into the user's repo, where it is committed. Refuse it as the
+      // unreadable-SQL failure it is (the migration cannot be produced).
+      if (!isInside(pkg.path, table.sqlFile)) {
+        plan.migrationFailures = [
+          ...(plan.migrationFailures ?? []),
+          `${table.name}: ${table.sqlFile} is outside ${pkg.path} — refusing to read it`,
+        ]
+        continue
+      }
       try {
         const sqlContent = await readFile(table.sqlFile, 'utf-8')
         const timestamp = Date.now()
-        const migrationName = `${timestamp}_create_${table.name}_table.sql`
+        // The table name is interpolated into a FILE NAME below; flatten any
+        // path separator in it so the migration stays inside `migrations/`
+        // (see {@link migrationFileTableSegment}).
+        const migrationName = `${timestamp}_create_${migrationFileTableSegment(table.name)}_table.sql`
 
         // Check for existing migration
         const migrationsDir = join(projectPath, 'migrations')
@@ -590,12 +663,30 @@ async function planMiddlewareInjection(
   const middlewareSetup = pkg.molecule?.middlewareSetup as
     { configFile?: string; configTemplate?: string } | undefined
   if (middlewareSetup?.configFile && middlewareSetup.configTemplate) {
-    plan.files.push({
-      action: 'create',
-      targetPath: join(projectPath, middlewareSetup.configFile),
-      content: middlewareSetup.configTemplate,
-      description: t('lib.injector.descriptions.createMiddleware', { name: middlewareName }),
-    })
+    // `configFile` is metadata (see {@link isInside}) and its CONTENT is the
+    // package's `configTemplate`: written uncontained, a `../…` declaration
+    // put attacker-chosen bytes at any path the injecting user can write —
+    // outside the project this command was asked to edit. A declaration that
+    // escapes is surfaced as a conflict and NOT planned, so nothing is written
+    // there (the sibling fonts.json containment in scaffold.ts warns and skips
+    // for the same reason).
+    const configTarget = containedProjectPath(projectPath, middlewareSetup.configFile)
+    if (configTarget === null) {
+      plan.conflicts.push({
+        path: middlewareSetup.configFile,
+        message:
+          `${pkg.name} declares its config file at ${middlewareSetup.configFile}, ` +
+          `which is outside ${projectPath} — skipped`,
+        resolution: 'skip',
+      })
+    } else {
+      plan.files.push({
+        action: 'create',
+        targetPath: configTarget,
+        content: middlewareSetup.configTemplate,
+        description: t('lib.injector.descriptions.createMiddleware', { name: middlewareName }),
+      })
+    }
   }
 }
 
@@ -1097,7 +1188,13 @@ export async function checkMigrationExists(
   migrationsDir: string,
   tableName: string,
 ): Promise<string | null> {
-  const canonical = new RegExp(`_create_${escapeRegExp(tableName)}_table\\.sql$`)
+  // The segment is transformed exactly like the filename the planner writes
+  // (`migrationFileTableSegment`), or a table name carrying a separator would
+  // never match the migration derived from it and every re-run would plan a
+  // duplicate.
+  const canonical = new RegExp(
+    `_create_${escapeRegExp(migrationFileTableSegment(tableName))}_table\\.sql$`,
+  )
   try {
     const files = await readdir(migrationsDir)
     const existing = files.find((f) => canonical.test(f))
