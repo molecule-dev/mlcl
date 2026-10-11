@@ -23,6 +23,12 @@
  * the module instead of leaving the partial file behind. So a failed run leaves
  * the project exactly as it was.
  *
+ * The IDEMPOTENT branch is the same transaction and is covered here too: an
+ * already-wired index is refreshed with this mlcl's canonical module, whose
+ * imports the declaration step must add — a failed declaration there used to
+ * leave the refreshed module behind over a manifest that does not back it, in a
+ * project that compiled before the refresh.
+ *
  * @module
  */
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
@@ -151,6 +157,34 @@ describe('injectActivityCaptureBoot — a failed write rolls the wiring back', (
 
     expect(readFileSync(indexPath(), 'utf-8')).toBe(BONDS_INDEX)
     expect(readFileSync(modulePath(), 'utf-8')).toBe('// the producer this project shipped with\n')
+    expect(readFileSync(manifestPath, 'utf-8')).toBe(manifestBefore)
+  })
+
+  it('restores the existing producer module when the dependency declaration fails on the refresh path', async () => {
+    // The OTHER branch of the same transaction: the index is already wired, so
+    // this call only refreshes the module — and the refreshed module may import
+    // capture packages this project's manifest never declared (that is what the
+    // declaration step is for). A failed declaration used to leave the NEW module
+    // behind over a manifest that does not back it: TS2307 at build,
+    // ERR_MODULE_NOT_FOUND at boot, in a project that compiled before the refresh
+    // ran. Same rule as the wiring branch — a failed run leaves the project as it
+    // was.
+    const wired = BONDS_INDEX.replace(
+      "import { setupEmailsMailgun } from './emails-mailgun.js'",
+      "import { setupEmailsMailgun } from './emails-mailgun.js'\nimport { setupActivityCapture } from './_activity-capture.js'",
+    )
+    writeFileSync(indexPath(), wired)
+    const priorModule = '// the producer this project shipped with\n'
+    writeFileSync(modulePath(), priorModule)
+    const manifestPath = join(apiDir, 'package.json')
+    const manifestBefore = readFileSync(manifestPath, 'utf-8')
+    shortWrite.path = manifestPath
+
+    await expect(injectActivityCaptureBoot(apiDir)).rejects.toThrow(/ENOSPC/)
+
+    expect(readFileSync(modulePath(), 'utf-8')).toBe(priorModule)
+    // …and the index it was already wired into is untouched.
+    expect(readFileSync(indexPath(), 'utf-8')).toBe(wired)
     expect(readFileSync(manifestPath, 'utf-8')).toBe(manifestBefore)
   })
 

@@ -1733,17 +1733,44 @@ export async function injectActivityCaptureBoot(apiPath: string): Promise<boolea
   // refreshMigrateRunnerForManifest applies to the manifest its render needs.
   if (!existsSync(join(apiPath, 'package.json'))) return false
 
+  const modulePath = join(bondsDir, '_activity-capture.ts')
   let src = await readFile(indexPath, 'utf-8')
   // Idempotent: already wired (a re-run, or a future template that bakes it in).
   // Refresh the module to this mlcl's canonical content and re-declare its
   // imports — both idempotent — then leave the wiring untouched.
   if (src.includes("from './_activity-capture.js'")) {
+    // The refresh is the SAME transaction as the wiring branch below: the module
+    // this mlcl writes may import capture packages an older scaffold's manifest
+    // never declared (that is what the declaration step is for), so a failed
+    // declaration must put the module back too. Without the rollback a failed
+    // refresh left the NEW module behind over a manifest that does not back it —
+    // the TS2307 / ERR_MODULE_NOT_FOUND state this step exists to prevent, in a
+    // project that compiled before the refresh ran.
+    let priorModule: Buffer | null
+    try {
+      priorModule = await readFile(modulePath)
+    } catch (error) {
+      // Any read failure other than "not there yet" must not be recorded as
+      // absent — see the wiring branch: that entry is what a rollback deletes.
+      if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error
+      priorModule = null
+    }
     // Guarded like the write further down: this refresh overwrites a module the
     // index ALREADY imports, so a write that fails mid-flight (a full disk) would
     // leave a TRUNCATED `_activity-capture.ts` behind — a file server.ts reaches
     // through `bonds/index.ts` at boot, i.e. a project that no longer starts.
-    await writeGuarded(join(bondsDir, '_activity-capture.ts'), ACTIVITY_CAPTURE_BOOT_MODULE)
-    await addActivityCaptureDependencies(apiPath)
+    await writeGuarded(modulePath, ACTIVITY_CAPTURE_BOOT_MODULE)
+    try {
+      await addActivityCaptureDependencies(apiPath)
+    } catch (error) {
+      try {
+        if (priorModule === null) await rm(modulePath, { force: true })
+        else await writeFile(modulePath, priorModule)
+      } catch (_restoreError) {
+        // Best-effort restore; the primary failure is rethrown below.
+      }
+      throw error
+    }
     return false
   }
 
@@ -1802,7 +1829,6 @@ export async function injectActivityCaptureBoot(apiPath: string): Promise<boolea
   //      bytes and the module is put back too (removed when this call created
   //      it, restored to its own bytes when it predated the call), so a failed
   //      run leaves the project as it was instead of half-wired.
-  const modulePath = join(bondsDir, '_activity-capture.ts')
   const priorIndex = await readFile(indexPath)
   // The module is written through the SAME guard as the index below: a bare
   // `writeFile` truncates before it writes, so a write that fails mid-flight
