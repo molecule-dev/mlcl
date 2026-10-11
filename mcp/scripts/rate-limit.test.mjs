@@ -176,6 +176,29 @@ test('a malformed MCP_RATE_PER_MIN falls back to the default instead of being mi
       await new Promise((r) => setTimeout(r, 50))
     }
     assert.match(getOutput(), /MCP_RATE_PER_MIN/, 'the invalid value must be reported at startup')
+
+    // …and the line must name a budget the bucket can actually count. Both
+    // assertions above hold for a NaN budget too: `NaN < 1` is false, so every
+    // request is allowed (no 429), and the warning still prints because
+    // `NaN !== NaN` — the silent "no limit at all" http.ts's note says cannot
+    // happen. So read the value the fallback used, and prove it bounds a burst
+    // larger than the default.
+    const used = getOutput().match(/using (\d+)\/min/)
+    assert.ok(used, `the fallback must be a countable number, got: ${getOutput().trim()}`)
+
+    for (let i = 0; i < 300; i++) {
+      const res = await fetch(`${base}/mcp`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: INITIALIZE_BODY,
+      })
+      statuses.push(res.status)
+      await res.arrayBuffer() // drain so the socket is reusable
+    }
+    assert.ok(
+      statuses.includes(429),
+      `the fallback budget (${used[1]}/min) must bound a burst, got no 429 in ${statuses.length} requests`,
+    )
   } finally {
     await stopServer(child)
   }
@@ -201,6 +224,14 @@ test('a budget too large for an integer falls back to the default instead of rai
       getOutput(),
       /MCP_RATE_PER_MIN/,
       'an unusable budget must be reported at startup, not silently accepted as Infinity',
+    )
+    // The warning alone does not say what was used: `NaN !== NaN` makes it print
+    // for a NaN fallback as well, and a NaN budget allows every request. The
+    // line names the value, so the fallback itself is what is pinned here.
+    assert.match(
+      getOutput(),
+      /using \d+\/min/,
+      'the startup line must name the budget actually in force, not NaN',
     )
   } finally {
     await stopServer(child)
