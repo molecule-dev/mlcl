@@ -2822,7 +2822,7 @@ server.registerTool(
   {
     title: "List a project's custom domains",
     description:
-      'Custom domains with their DNS state and certificates. See also domain_add / domain_verify / domain_remove. Requires login.',
+      'The project\u2019s custom domains, each marked verified or unverified \u2014 what `mlcl domain list` prints. See also domain_add / domain_verify / domain_remove. Requires login.',
     inputSchema: {
       project_id: z.string().describe('molecule.dev project id'),
     },
@@ -2837,7 +2837,7 @@ server.registerTool(
   {
     title: 'Add a custom domain to a project',
     description:
-      'Register a custom domain and learn the DNS records to set. Follow with domain_verify. Requires login.',
+      'Register a custom domain on the project (prints the domain it attached). Follow with domain_verify. Requires login.',
     inputSchema: {
       project_id: z.string().describe('molecule.dev project id'),
       domain: z.string().describe('The domain, e.g. app.example.com'),
@@ -2852,10 +2852,20 @@ server.registerTool(
   'domain_verify',
   {
     title: "Verify a project's custom domain",
-    description: 'Check the domain\u2019s DNS records and issue its certificate. Requires login.',
+    description:
+      'Resolve a custom domain\u2019s DNS ownership record and request its certificate. Requires login.',
     inputSchema: {
       project_id: z.string().describe('molecule.dev project id'),
-      domain: z.string().describe('The domain to verify'),
+      // The CLI resolves the domain by its ROW id (`mlcl domain verify
+      // <domainId>` \u2192 `/projects/:id/domains/:domainId/verify`), so a hostname
+      // here is a 404 "Domain not found". The description must therefore name
+      // the id, not "the domain" \u2014 and say where it comes from, because the
+      // CLI's own `domain list` prints hostnames only.
+      domain: z
+        .string()
+        .describe(
+          "The custom domain's row id \u2014 not the hostname. The platform's domains list carries it; `mlcl domain list` prints hostnames only.",
+        ),
     },
   },
   tracked('domain_verify', async ({ project_id, domain }) =>
@@ -2870,7 +2880,12 @@ server.registerTool(
     description: 'Detach a custom domain from the project. Requires login.',
     inputSchema: {
       project_id: z.string().describe('molecule.dev project id'),
-      domain: z.string().describe('The domain to remove'),
+      // Same contract as domain_verify: a row id, never the hostname.
+      domain: z
+        .string()
+        .describe(
+          "The custom domain's row id \u2014 not the hostname. The platform's domains list carries it; `mlcl domain list` prints hostnames only.",
+        ),
     },
   },
   tracked('domain_remove', async ({ project_id, domain }) =>
