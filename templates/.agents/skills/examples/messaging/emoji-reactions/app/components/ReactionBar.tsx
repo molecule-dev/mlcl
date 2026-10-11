@@ -43,6 +43,16 @@ export function ReactionBar({
   // overwrite B's summary with A's.
   const mountedForRef = useRef({ resourceType, resourceId })
   mountedForRef.current = { resourceType, resourceId }
+  // The emoji whose toggle is in flight. The add-vs-remove decision is read
+  // from the last SYNCED summary, which only updates after this toggle's own
+  // resync (below) — so a second click on the same chip before then reads the
+  // same `reactedByMe` and fires the SAME write again: two adds for one click
+  // (a chip reading "👍2" from a single user gesture), or two removes. The
+  // shared `<EmojiReactions>` types `onToggle` as returning void and calls it
+  // from a bare onClick, so it cannot know a write is pending — this is the
+  // only place the guard can live. A Set (not one flag) so a different emoji
+  // stays independently clickable.
+  const togglingRef = useRef<Set<string>>(new Set())
 
   const load = useCallback(async () => {
     const ticket = ++loadSeq.current
@@ -76,32 +86,41 @@ export function ReactionBar({
   }, [load])
 
   const toggle = async (emoji: string): Promise<void> => {
-    const mine = reactions.find((r) => r.emoji === emoji)?.reactedByMe
-    const base = `/api/${resourceType}/${resourceId}/reactions`
+    // One toggle per emoji at a time — see togglingRef. The `finally` releases
+    // the slot on EVERY path (a failed write, an abandoned toggle), so a chip
+    // can never be left permanently unclickable.
+    if (togglingRef.current.has(emoji)) return
+    togglingRef.current.add(emoji)
     try {
-      // The server derives the reacting user from the SESSION. POST adds; DELETE with
-      // `?type=` removes only that emoji (a body-less DELETE, so the type goes in the query).
-      if (mine) {
-        await http.delete(`${base}?type=${encodeURIComponent(emoji)}`)
-      } else {
-        await http.post(base, { type: emoji })
+      const mine = reactions.find((r) => r.emoji === emoji)?.reactedByMe
+      const base = `/api/${resourceType}/${resourceId}/reactions`
+      try {
+        // The server derives the reacting user from the SESSION. POST adds; DELETE with
+        // `?type=` removes only that emoji (a body-less DELETE, so the type goes in the query).
+        if (mine) {
+          await http.delete(`${base}?type=${encodeURIComponent(emoji)}`)
+        } else {
+          await http.post(base, { type: emoji })
+        }
+      } catch (_error) {
+        // A failed toggle (offline, 401) must not reject into the shared
+        // component — its `onToggle` prop discards the returned promise, so an
+        // escaping rejection is unhandled. Fall through to the reload below.
       }
-    } catch (_error) {
-      // A failed toggle (offline, 401) must not reject into the shared
-      // component — its `onToggle` prop discards the returned promise, so an
-      // escaping rejection is unhandled. Fall through to the reload below.
+      // The user navigated to another resource while the toggle was in flight:
+      // the write landed on the resource we LEFT, and resyncing here would take
+      // the newest ticket and overwrite the new resource's chips with the old
+      // one's summary (see mountedForRef).
+      if (mountedForRef.current.resourceType !== resourceType) return
+      if (mountedForRef.current.resourceId !== resourceId) return
+      // Resync from the server either way: chips reflect what actually landed
+      // (a toggle that did land is not double-counted by a retry).
+      await load().catch(() => {
+        // The summary is unreachable too — chips keep their last synced state.
+      })
+    } finally {
+      togglingRef.current.delete(emoji)
     }
-    // The user navigated to another resource while the toggle was in flight:
-    // the write landed on the resource we LEFT, and resyncing here would take
-    // the newest ticket and overwrite the new resource's chips with the old
-    // one's summary (see mountedForRef).
-    if (mountedForRef.current.resourceType !== resourceType) return
-    if (mountedForRef.current.resourceId !== resourceId) return
-    // Resync from the server either way: chips reflect what actually landed
-    // (a toggle that did land is not double-counted by a retry).
-    await load().catch(() => {
-      // The summary is unreachable too — chips keep their last synced state.
-    })
   }
 
   return (
