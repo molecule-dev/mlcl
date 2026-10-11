@@ -23,7 +23,7 @@
  * @module
  */
 
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -32,6 +32,25 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 /** The `molecule-mcp` package — its own node_modules holds the MCP SDK. */
 const MCP_DIR = join(import.meta.dirname, '..', '..', '..', 'mcp')
 const SDK_ESM = join(MCP_DIR, 'node_modules', '@modelcontextprotocol', 'sdk', 'dist', 'esm')
+/**
+ * mcp is not an npm workspace member, so `npm ci` in mlcl (which is how CI
+ * builds this repo) never installs its deps. Without this marker the suite's
+ * in-memory client cannot be imported and every test below ERRORS — a red suite
+ * in a checkout where the sibling mcp suites correctly SKIP. Absent marker =
+ * skip out loud.
+ */
+const DEPS_MARKER = join(MCP_DIR, 'node_modules', '@modelcontextprotocol', 'sdk', 'package.json')
+
+/** Skip this suite, out loud, in the one environment it cannot run in. */
+function skipped(ctx: { skip: () => void }): boolean {
+  if (existsSync(DEPS_MARKER)) return false
+  console.warn(
+    `[mcp-remote-registry-shape] ${MCP_DIR}/node_modules is not installed — SKIPPING. ` +
+      'Install mcp’s deps (cd mcp && npm install) so the suite runs.',
+  )
+  ctx.skip()
+  return true
+}
 
 interface ToolResult {
   isError?: boolean
@@ -67,6 +86,7 @@ const registryWith = (label: string): string =>
   })
 
 beforeAll(async () => {
+  if (!existsSync(DEPS_MARKER)) return
   dir = mkdtempSync(join(tmpdir(), 'mlcl-mcp-registry-shape-'))
   registryFile = join(dir, 'registry.json')
   templatesFile = join(dir, 'templates.json')
@@ -87,14 +107,15 @@ beforeAll(async () => {
 })
 
 afterAll(async () => {
-  await closeClient()
+  if (closeClient) await closeClient()
   delete process.env.MOLECULE_REGISTRY_FILE
   delete process.env.MOLECULE_TEMPLATES_FILE
-  rmSync(dir, { recursive: true, force: true })
+  if (dir) rmSync(dir, { recursive: true, force: true })
 })
 
 describe('remote registry-backed tools — an unrecognized payload is reported, not crashed on', () => {
-  it('search_packages names the unreadable registry instead of throwing a raw TypeError', async () => {
+  it('search_packages names the unreadable registry instead of throwing a raw TypeError', async (ctx) => {
+    if (skipped(ctx)) return
     writeFileSync(registryFile, JSON.stringify({ version: 1 }))
 
     const result = await callTool('search_packages', { query: 'payments' })
@@ -109,7 +130,8 @@ describe('remote registry-backed tools — an unrecognized payload is reported, 
     expect(message).not.toContain('Cannot convert undefined or null to object')
   })
 
-  it('caches nothing for that payload, so the next call retries and recovers', async () => {
+  it('caches nothing for that payload, so the next call retries and recovers', async (ctx) => {
+    if (skipped(ctx)) return
     // The first call sees the non-registry document (the state a poisoned cache
     // used to make permanent for 10 minutes)…
     writeFileSync(registryFile, JSON.stringify({ version: 1 }))
@@ -124,7 +146,8 @@ describe('remote registry-backed tools — an unrecognized payload is reported, 
     expect(textOf(recovered)).toContain('@molecule/api-probe-payments')
   })
 
-  it('list_templates reports an index with no templates instead of an empty gallery', async () => {
+  it('list_templates reports an index with no templates instead of an empty gallery', async (ctx) => {
+    if (skipped(ctx)) return
     // `t.templates ?? {}` answered this payload with `[]` — "there are no
     // templates", a wrong answer that also outlived the response by 10 minutes.
     writeFileSync(templatesFile, JSON.stringify({ version: 1 }))
@@ -136,7 +159,8 @@ describe('remote registry-backed tools — an unrecognized payload is reported, 
     expect(textOf(result)).not.toBe('[]')
   })
 
-  it('serves the real documents when the payloads are the documents they claim (positive twin)', async () => {
+  it('serves the real documents when the payloads are the documents they claim (positive twin)', async (ctx) => {
+    if (skipped(ctx)) return
     writeFileSync(registryFile, registryWith('Payments'))
     writeFileSync(
       templatesFile,
