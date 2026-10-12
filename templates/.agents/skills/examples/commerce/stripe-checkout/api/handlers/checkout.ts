@@ -4,13 +4,23 @@
  * The frontend POSTs `{ priceId }` to /checkout/session, gets back a
  * Stripe-hosted checkout URL, and redirects the browser to it. Stripe
  * handles the card form, 3DS, etc. We never see the card.
+ *
+ * SCHEMA: a checkout for an `orders` row needs ONE new column on that table
+ * (it already exists, so the missing-migration verifier will not remind you):
+ *
+ *   ALTER TABLE orders ADD COLUMN checkout_attempt text;
+ *
+ * NULL means "no checkout in progress". It is the claim token that keeps two
+ * concurrent `POST /session` calls for the same order from minting two live
+ * Stripe sessions (see the claim below the ownership checks).
  */
+import { randomUUID } from 'node:crypto'
 import type { NextFunction, Request, Response } from 'express'
 import { Router } from 'express'
 import { z } from 'zod'
 
 import { getLogger } from '@molecule/api-bond'
-import { findById } from '@molecule/api-database'
+import { findById, updateMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
 import { createCheckoutSession } from '@molecule/api-payments-stripe'
@@ -86,7 +96,39 @@ router.post(
             error: t('orders.alreadyPaid', undefined, { defaultValue: 'Order is already paid' }),
           })
         }
+        // THE CLAIM. The `paid` check above is a read-then-act: between it and
+        // `createCheckoutSession` below sits a network call (seconds), and two
+        // concurrent POSTs for the same unpaid order both sailed past it —
+        // minting two live Stripe sessions for one order, and a customer who
+        // completes both is charged twice for one order (the webhook sets
+        // `paid` either way). So the session is minted only by the caller that
+        // wins ONE atomic compare-and-set, judged by the database, not by this
+        // read: the WHERE carries "claim column still NULL and not paid", and
+        // `affected: 0` means a concurrent request claimed (or paid) the order
+        // in between — refuse instead of minting a second session. The winner
+        // stamps its nonce into the session metadata so webhooks.ts can release
+        // the claim when the session expires (see that file), which is what
+        // keeps an abandoned checkout from blocking the retry for ever.
+        const attempt = randomUUID()
+        const claimed = await updateMany(
+          'orders',
+          [
+            { field: 'id', operator: '=', value: body.orderId },
+            { field: 'checkout_attempt', operator: 'is_null' },
+            { field: 'status', operator: '!=', value: 'paid' },
+          ],
+          { checkout_attempt: attempt },
+        )
+        if (claimed.affected === 0) {
+          return res.status(409).json({
+            error: t('orders.checkoutInProgress', undefined, {
+              defaultValue:
+                'This order already has a checkout in progress — complete it or wait for it to expire.',
+            }),
+          })
+        }
         metadata.orderId = body.orderId
+        metadata.checkoutAttempt = attempt
       }
       if (body.customerEmail) metadata.customerEmail = body.customerEmail
 

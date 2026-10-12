@@ -25,7 +25,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 const stripe = vi.hoisted(() => ({ verifyWebhookSignature: vi.fn() }))
-const database = vi.hoisted(() => ({ updateById: vi.fn() }))
+const database = vi.hoisted(() => ({ updateById: vi.fn(), updateMany: vi.fn() }))
 // ONE stable logger object:  handed out a fresh one per call, so the
 // 'stripe webhook ignored' trace the handler documents could not be inspected at
 // all — the log IS the trace the module comment promises.
@@ -101,6 +101,10 @@ beforeEach(() => {
   stripe.verifyWebhookSignature.mockReturnValue(
     JSON.parse(rawBody) as { type: string; data: { object: unknown } },
   )
+  // The MutationResult shape: `affected: 1` is a row reached. A default here
+  // (instead of per-test stubs) keeps every existing test on the reached path.
+  database.updateById.mockResolvedValue({ data: null, affected: 1 })
+  database.updateMany.mockResolvedValue({ data: null, affected: 1 })
 })
 
 describe('stripe-checkout webhook — the paid-flip is signature-gated end to end', () => {
@@ -145,6 +149,75 @@ describe('stripe-checkout webhook — the paid-flip is signature-gated end to en
     expect(res.body).toEqual({ received: true })
     expect(database.updateById).toHaveBeenCalledTimes(1)
     expect(database.updateById).toHaveBeenCalledWith('orders', 'order-1', { status: 'paid' })
+  })
+
+  it('refuses a completed event whose order row is gone — never an acknowledged no-op', async () => {
+    // `updateById` answers `affected: 0` for a missing row WITHOUT throwing.
+    // Acknowledging that event (200 `received`) told Stripe the delivery
+    // succeeded, so its at-least-once retry — the recovery this handler's
+    // idempotency note stands on — never fired, and a paid charge stayed
+    // unpaid for good with nothing anywhere saying why. It must be a FAILURE:
+    // non-2xx (Stripe keeps retrying) plus the log line that names the order.
+    database.updateById.mockResolvedValue({ data: null, affected: 0 })
+    const res = await post({ headers: { 'stripe-signature': 'sig_1' }, rawBody })
+    expect(res.statusCode, 'an unknown order must not be acknowledged 200').toBe(400)
+    expect(res.body, 'no received:true over an event that changed nothing').toBeUndefined()
+    expect(logger.error).toHaveBeenCalledWith(
+      'stripe webhook: checkout.session.completed names an unknown order',
+      expect.objectContaining({ orderId: 'order-1', session: 'cs_1' }),
+    )
+  })
+
+  it('a checkout.session.expired releases ITS OWN claim, and only its own', async () => {
+    stripe.verifyWebhookSignature.mockReturnValue({
+      type: 'checkout.session.expired',
+      data: {
+        object: {
+          id: 'cs_1',
+          metadata: { orderId: 'order-1', checkoutAttempt: 'attempt-1' },
+        },
+      },
+    })
+    const res = await post({
+      headers: { 'stripe-signature': 'sig_1' },
+      rawBody: JSON.stringify({
+        id: 'evt_5',
+        type: 'checkout.session.expired',
+        data: {
+          object: { id: 'cs_1', metadata: { orderId: 'order-1', checkoutAttempt: 'attempt-1' } },
+        },
+      }),
+    })
+    expect(res.body, 'the release is acknowledged').toEqual({ received: true })
+    // The claim is cleared ONLY while it still holds this session's nonce —
+    // a claim another session took in the meantime is left alone. The write
+    // itself is NULL (claim released), not a status change.
+    expect(database.updateMany).toHaveBeenCalledWith(
+      'orders',
+      [
+        { field: 'id', operator: '=', value: 'order-1' },
+        { field: 'checkout_attempt', operator: '=', value: 'attempt-1' },
+      ],
+      { checkout_attempt: null },
+    )
+    expect(database.updateById, 'an expiry never flips an order to paid').not.toHaveBeenCalled()
+  })
+
+  it('an expired session without claim metadata writes nothing', async () => {
+    stripe.verifyWebhookSignature.mockReturnValue({
+      type: 'checkout.session.expired',
+      data: { object: { id: 'cs_2' } },
+    })
+    const res = await post({
+      headers: { 'stripe-signature': 'sig_1' },
+      rawBody: JSON.stringify({
+        id: 'evt_6',
+        type: 'checkout.session.expired',
+        data: { object: { id: 'cs_2' } },
+      }),
+    })
+    expect(res.body).toEqual({ received: true })
+    expect(database.updateMany).not.toHaveBeenCalled()
   })
 
   it('writes nothing for a completed session without an orderId (bare price checkout)', async () => {

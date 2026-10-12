@@ -18,7 +18,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 const stripe = vi.hoisted(() => ({ createCheckoutSession: vi.fn() }))
-const database = vi.hoisted(() => ({ findById: vi.fn() }))
+const database = vi.hoisted(() => ({ findById: vi.fn(), updateMany: vi.fn() }))
 
 vi.mock('@molecule/api-payments-stripe', () => stripe)
 vi.mock('@molecule/api-database', () => database)
@@ -101,6 +101,8 @@ const order = (
 beforeEach(() => {
   vi.clearAllMocks()
   stripe.createCheckoutSession.mockResolvedValue({ url: 'https://checkout.test/x', id: 'cs_1' })
+  // The MutationResult shape for the claim: `affected: 1` = this caller won it.
+  database.updateMany.mockResolvedValue({ data: null, affected: 1 })
 })
 
 describe('stripe-checkout POST /session — orderId is ownership-checked at session creation', () => {
@@ -144,6 +146,65 @@ describe('stripe-checkout POST /session — orderId is ownership-checked at sess
 
   it('refuses a second checkout for an already-paid order', async () => {
     database.findById.mockResolvedValue(order({ status: 'paid' }))
+    const res = await post({
+      userId: 'user-1',
+      body: {
+        priceId: 'price_1',
+        orderId: 'order-1',
+        successUrl: 'https://a.test/ok',
+        cancelUrl: 'https://a.test/no',
+      },
+    })
+    expect(res.statusCode).toBe(409)
+    expect(stripe.createCheckoutSession).not.toHaveBeenCalled()
+    // The friendly pre-check fires before the claim: a paid order is refused
+    // with "already paid", not with the claim's "in progress" sentence.
+    expect(database.updateMany).not.toHaveBeenCalled()
+  })
+
+  it('claims the order with an atomic compare-and-set before minting the session', async () => {
+    // Two concurrent POSTs for the same unpaid order used to both pass the
+    // `paid` read and both mint live Stripe sessions — a customer completing
+    // both was charged twice for one order. The session is now minted only by
+    // the caller that wins ONE database-judged claim: the WHERE carries the
+    // claim column still NULL and not paid, so the winner is decided by the
+    // store, never by two reads that raced.
+    database.findById.mockResolvedValue(order())
+    const res = await post({
+      userId: 'user-1',
+      body: {
+        priceId: 'price_1',
+        orderId: 'order-1',
+        successUrl: 'https://a.test/ok',
+        cancelUrl: 'https://a.test/no',
+      },
+    })
+    expect(res.statusCode).toBe(0)
+    expect(database.updateMany).toHaveBeenCalledTimes(1)
+    expect(database.updateMany).toHaveBeenCalledWith(
+      'orders',
+      [
+        { field: 'id', operator: '=', value: 'order-1' },
+        { field: 'checkout_attempt', operator: 'is_null' },
+        { field: 'status', operator: '!=', value: 'paid' },
+      ],
+      { checkout_attempt: expect.any(String) },
+    )
+    // The winner's nonce rides the session metadata — webhooks.ts needs it to
+    // release the claim when the session expires.
+    const arg = stripe.createCheckoutSession.mock.calls[0][0] as {
+      metadata: Record<string, string>
+    }
+    expect(arg.metadata.orderId).toBe('order-1')
+    expect(typeof arg.metadata.checkoutAttempt).toBe('string')
+  })
+
+  it('refuses to mint a second session when a concurrent request holds the claim', async () => {
+    // `affected: 0` = another caller claimed (or paid) the order between the
+    // read and the claim. Minting the session anyway is the double-charge the
+    // claim exists to prevent.
+    database.findById.mockResolvedValue(order())
+    database.updateMany.mockResolvedValue({ data: null, affected: 0 })
     const res = await post({
       userId: 'user-1',
       body: {
