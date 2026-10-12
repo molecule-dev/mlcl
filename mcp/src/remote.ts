@@ -274,6 +274,12 @@ export function isTemplatesPayload(data: unknown): boolean {
  * failure it is and caches nothing, exactly like a non-2xx answer. Callers that
  * arrive while the same document is already being fetched share that one
  * request instead of starting another (see {@link inFlight}).
+ *
+ * The check is the CALLER's, and it is re-applied to whatever the shortcuts
+ * hand over: a cache hit or a shared in-flight answer was validated by the
+ * FIRST reader's check, and the key is the document's SOURCE (url or file), not
+ * its shape — a second reader declaring a different shape for one source must
+ * not be handed a payload its own check refuses.
  */
 export async function fetchJson<T>(
   url: string,
@@ -284,14 +290,30 @@ export async function fetchJson<T>(
   const key = file ?? url
   const generation = cacheGeneration
   const hit = cache.get(key)
-  if (hit && Date.now() - hit.at < CACHE_TTL_MS) return hit.data as T
+  if (hit && Date.now() - hit.at < CACHE_TTL_MS) {
+    // THIS caller's check governs what it is handed (see the note above): the
+    // entry holds whatever the FIRST reader's check admitted, so handing it over
+    // unvalidated answers a caller with a payload its own check refuses — and
+    // its handler then dereferences the missing section, the exact crash the
+    // check exists to prevent, reached through the cache instead of the fetch.
+    const cached = hit.data as T
+    if (check && !check(cached)) throw new Error(`${key} did not return the expected payload`)
+    return cached
+  }
   // One outbound fetch per uncached document, however many callers ask at once
   // (see {@link inFlight}) — and only among the callers of THIS generation: a
   // fetch started before a {@link clearRemoteCaches} belongs to the callers of
   // that era, not to this one.
   const pendingKey = `json:${generation}:${key}`
   const pending = inFlight.get(pendingKey)
-  if (pending) return pending as Promise<T>
+  if (pending) {
+    // The shared work ran the FIRST caller's check; this caller re-runs its own
+    // before treating the answer as its declared shape — the same rule the cache
+    // hit above applies.
+    const shared = (await pending) as T
+    if (check && !check(shared)) throw new Error(`${key} did not return the expected payload`)
+    return shared
+  }
   const work = fetchJsonUncached<T>(url, file, timeoutMs, check, generation)
   inFlight.set(pendingKey, work)
   try {

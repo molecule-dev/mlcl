@@ -17,7 +17,8 @@
  * @module
  */
 
-import { existsSync } from 'node:fs'
+import { existsSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -171,6 +172,89 @@ describe('mcp remote package-doc fetch', () => {
     release!()
     expect((await first).packages['@molecule/api-fixture']).toEqual({})
     expect((await second).packages['@molecule/api-fixture']).toEqual({})
+  })
+
+  it('a cache entry another reader’s check admitted is re-checked by THIS caller’s', async (ctx) => {
+    if (skipped(ctx)) return
+    // The cache key is the document's SOURCE (url or file), not its shape, and
+    // the entry holds whatever the FIRST reader's check admitted. Handing it to
+    // a reader that declares a DIFFERENT shape for the same source — without
+    // running that reader's own check — answered list_templates with a registry
+    // document, whose missing `templates` section then died on
+    // `Object.entries(undefined)` inside the handler: the exact crash the shape
+    // check exists to prevent, reached through the cache instead of the fetch.
+    const { fetchJson, isRegistryPayload, isTemplatesPayload, clearRemoteCaches } =
+      await import('../../../mcp/src/remote.js')
+    const dir = mkdtempSync(join(tmpdir(), 'mlcl-remote-json-check-'))
+    const file = join(dir, 'document.json')
+    writeFileSync(file, JSON.stringify({ packages: { '@molecule/api-fixture': {} } }))
+    try {
+      // The registry reader goes first: its check admits the payload, which is
+      // what puts it in the cache the second reader reads.
+      const registry = await fetchJson<{ packages: Record<string, unknown> }>(
+        file,
+        file,
+        1_000,
+        isRegistryPayload,
+      )
+      expect(registry.packages['@molecule/api-fixture']).toEqual({})
+
+      // …and the templates reader must get its OWN refusal, not the foreign
+      // payload resolved as its declared type.
+      await expect(
+        fetchJson<{ templates: Record<string, unknown> }>(file, file, 1_000, isTemplatesPayload),
+      ).rejects.toThrow(/did not return the expected payload/)
+    } finally {
+      rmSync(dir, { recursive: true, force: true })
+      clearRemoteCaches()
+    }
+  })
+
+  it('a fetch shared while in flight is re-checked by the sharer’s own check too', async (ctx) => {
+    if (skipped(ctx)) return
+    // The sharing path is the cache path one step earlier: the parked work
+    // carries the FIRST caller's check, so a caller that declares a different
+    // shape and shares it must apply its own before treating the answer as its
+    // declared type. One request is still all either caller pays for.
+    const { fetchJson, isRegistryPayload, isTemplatesPayload, clearRemoteCaches } =
+      await import('../../../mcp/src/remote.js')
+    const url = `https://example.test/registry-${uniqueName()}.json`
+    let release: (() => void) | null = null
+    const spy = vi.fn(async () => {
+      await new Promise<void>((resolve) => {
+        release = resolve
+      })
+      return new Response(JSON.stringify({ packages: { '@molecule/api-fixture': {} } }), {
+        status: 200,
+        headers: { 'content-type': 'application/json' },
+      })
+    })
+    vi.stubGlobal('fetch', spy)
+
+    try {
+      const registry = fetchJson<{ packages: Record<string, unknown> }>(
+        url,
+        undefined,
+        1_000,
+        isRegistryPayload,
+      )
+      const templates = fetchJson<{ templates: Record<string, unknown> }>(
+        url,
+        undefined,
+        1_000,
+        isTemplatesPayload,
+      )
+
+      // Still ONE outbound request — the refusal must not come from a second
+      // fetch, or the sharing the cache exists for is gone.
+      expect(spy).toHaveBeenCalledTimes(1)
+
+      release!()
+      expect((await registry).packages['@molecule/api-fixture']).toEqual({})
+      await expect(templates).rejects.toThrow(/did not return the expected payload/)
+    } finally {
+      clearRemoteCaches()
+    }
   })
 
   it('keeps one cache entry per package — a different name is fetched separately', async (ctx) => {
