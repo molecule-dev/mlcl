@@ -132,6 +132,8 @@ async function resolvePage(page: number, ids: string[]): Promise<void> {
 const rows = (): string[] =>
   [...container.querySelectorAll('li span:first-child')].map((el) => el.textContent ?? '')
 
+const text = (): string => container.textContent ?? ''
+
 const nextButton = (): HTMLButtonElement =>
   container.querySelector('button[aria-label="Next page"]') as HTMLButtonElement
 
@@ -191,5 +193,30 @@ describe('paginated-user-list — a superseded page response must not win', () =
     // the paginator says page 3, so the table has to show page 3's rows.
     await resolvePage(2, ['c', 'd'])
     expect(rows()).toEqual(['page-3 user e', 'page-3 user f'])
+  })
+
+  it('reports a 2xx page whose rows are not users instead of rendering undefined rows', async () => {
+    // `[{}]` passes the envelope's array gate and the list renders each row's
+    // name and email verbatim — two `undefined`s per row, presented as real
+    // users. A page carrying rows that are not users is the failed load it is,
+    // with the retry control the failure state ships.
+    await mount()
+    const request = pending.requests.find((r) => !r.resolved && r.url.includes('page=1'))
+    if (!request) throw new Error('no pending request for page 1')
+    request.resolved = true
+    await act(async () => {
+      request.resolve({
+        data: [{}, {}] as unknown as UsersResponse['data'],
+        total: 2,
+        page: 1,
+        limit: 20,
+      })
+    })
+    await flush()
+
+    expect(text(), 'a wrong-shaped page is a failure, not a list of undefineds').toContain(
+      'Could not load users',
+    )
+    expect(rows(), 'no row may be adopted from a body that carries none').toEqual([])
   })
 })

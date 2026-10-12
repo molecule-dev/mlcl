@@ -11,6 +11,21 @@ const cm = getClassMap()
 type Entry = { userId: string; rank: number; score: number; name: string }
 
 /**
+ * Whether a row is an entry the render can show without lying: the row key
+ * (`userId`), the rank and the score are dereferenced directly, and `name`
+ * renders verbatim — the fields a shrunken rewrite turns into `undefined`s in
+ * a list that still looks authoritative. Same per-row gate the markdown-blog
+ * index applies to its posts.
+ */
+const isEntry = (row: unknown): row is Entry =>
+  typeof row === 'object' &&
+  row !== null &&
+  typeof (row as Entry).userId === 'string' &&
+  typeof (row as Entry).rank === 'number' &&
+  typeof (row as Entry).score === 'number' &&
+  typeof (row as Entry).name === 'string'
+
+/**
  * A ranked leaderboard built on the shared `<LeaderboardList>` + `<LeaderboardRow>`
  * from `@molecule/app-leaderboard-*-react` — do NOT rebuild the ranking UI.
  *
@@ -46,6 +61,14 @@ export function Leaderboard({ currentUserId }: { currentUserId?: string }) {
         // EMPTY list stays a legitimately empty board — which is also where the
         // mock API server's no-fixture answer lands: for a GET it is `[]`.
         if (!Array.isArray(res.data)) {
+          setLoadFailed(true)
+          setLoading(false)
+          return
+        }
+        // …and every ROW must be an entry — `[{}]` passes the array check and
+        // the rows below render `undefined` names over `NaN` scores as if they
+        // were real rankings.
+        if (!res.data.every(isEntry)) {
           setLoadFailed(true)
           setLoading(false)
           return

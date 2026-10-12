@@ -29,6 +29,17 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
   // may roll its optimistic star back or report a failure (see `rate`).
   const rateSeq = useRef(0)
 
+  // The star value the SERVER last recorded (null = no rating), or null while
+  // nothing has been confirmed for this subject. The failure rollback below
+  // restores THIS, never the click-time value: `previous` (what the rollback
+  // used to restore) was read from `myStars`, which by then may itself be an
+  // OPTIMISTIC value from an earlier POST that also failed — clicking 3★ then
+  // 5★ with both POSTs failing rolled back to 3★, a rating nothing ever
+  // recorded. The recorded value is set only by a successful POST (and reset
+  // with the rest of the subject's state below), so a rollback restores what
+  // the server actually has.
+  const recordedStars = useRef<number | null>(null)
+
   // The subject the CURRENT render belongs to. A rating cast on subject A must
   // not resync into subject B's state when the user switches subjects while
   // the POST is in flight: the ticket only serializes against EARLIER
@@ -93,6 +104,9 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
     setMyStars(null)
     setRateFailed(false)
     setSummaryFailed(false)
+    // Nothing is recorded for the new subject yet — a rollback here must land
+    // on "no rating", never on the previous subject's value.
+    recordedStars.current = null
     void loadSummary()
     return () => {
       // Invalidate whatever this subject still has in flight — including a
@@ -105,17 +119,19 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
   async function rate(stars: number): Promise<void> {
     // Every rating takes a ticket so a SUPERSEDED request cannot write state:
     // clicking 3★ then 5★ starts two POSTs, and if the 3★ one fails last, its
-    // rollback would restore the value from before the 3★ click (often "no
-    // rating") even though the server recorded 5★. Only the newest may roll
-    // back or report the failure.
+    // rollback would restore a value from before the 3★ click even though the
+    // server recorded 5★. Only the newest may roll back or report the failure.
     const ticket = ++rateSeq.current
-    const previous = myStars
     setRateFailed(false)
     setMyStars(stars)
     // The optimistic star is rolled back when the POST fails — a rejected
     // fetch or a !ok response must not leave the rating lit as if it were
-    // recorded. (The shared display's onChange discards the returned promise,
-    // so an escaping rejection would be unhandled.)
+    // recorded. The rollback lands on the last SERVER-RECORDED value (see
+    // recordedStars), never on the click-time `myStars`: between this click
+    // and its failure that value may itself have been optimistic — and if the
+    // earlier POST that set it also failed, restoring it shows a rating the
+    // server never kept. (The shared display's onChange discards the returned
+    // promise, so an escaping rejection would be unhandled.)
     try {
       const res = await fetch('/api/ratings', {
         method: 'POST',
@@ -124,21 +140,23 @@ export function RatingWidget({ subjectId, canRate }: { subjectId: string; canRat
       })
       if (!res.ok) {
         if (ticket !== rateSeq.current) return
-        setMyStars(previous)
+        setMyStars(recordedStars.current)
         setRateFailed(true)
         return
       }
       // The user switched subjects while the POST ran: the rating landed on
       // the subject we LEFT, whose state this render no longer owns —
       // refreshing here would take the newest ticket and overwrite the new
-      // subject's summary with the old one's (see mountedForRef).
+      // subject's summary with the old one's (see mountedForRef). The recorded
+      // value stays the new subject's too: this success belongs to the old one.
       if (mountedForRef.current !== subjectId) return
+      recordedStars.current = stars
       // Resync through the same ticketed loader the initial load uses, so this
       // refresh cannot be overtaken by — or overtake — another summary request.
       await loadSummary()
     } catch (_error) {
       if (ticket !== rateSeq.current) return
-      setMyStars(previous)
+      setMyStars(recordedStars.current)
       setRateFailed(true)
     }
   }

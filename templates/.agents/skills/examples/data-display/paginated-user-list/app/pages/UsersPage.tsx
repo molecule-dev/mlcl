@@ -26,6 +26,19 @@ interface UsersResponse {
   limit: number
 }
 
+/**
+ * Whether a row is a user the list can render without lying: `id` is the row
+ * key and `name`/`email` render verbatim — a shrunken rewrite's row objects
+ * otherwise render `undefined`s in a list that still looks authoritative. The
+ * same per-row gate the markdown-blog index applies to its posts.
+ */
+const isUser = (row: unknown): row is User =>
+  typeof row === 'object' &&
+  row !== null &&
+  typeof (row as User).id === 'string' &&
+  typeof (row as User).name === 'string' &&
+  typeof (row as User).email === 'string'
+
 const PAGE_SIZE = 20
 
 export default function UsersPage() {
@@ -84,6 +97,14 @@ export default function UsersPage() {
         // against `total`, and `undefined` there is a NaN page count.
         const body = (res?.data ?? {}) as Partial<UsersResponse>
         if (!Array.isArray(body.data)) {
+          setLoadFailed(true)
+          setData(null)
+          return
+        }
+        // …and every ROW must be a user — `[{ … }]` passes the array check and
+        // the list below renders `undefined` names and emails as if they were
+        // real rows.
+        if (!body.data.every(isUser)) {
           setLoadFailed(true)
           setData(null)
           return

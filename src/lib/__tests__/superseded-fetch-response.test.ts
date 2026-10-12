@@ -279,7 +279,10 @@ describe('a superseded fetch response must not win', () => {
     await mount(createElement(OrdersPage, {}))
 
     // First page's response.
-    await respond('offset=0', 200, { rows: [{ id: 'a', total: 1, status: 'page-1' }], total: 60 })
+    await respond('offset=0', 200, {
+      rows: [{ id: 'a', total: 1, status: 'page-1', created_at: '2026-01-01T00:00:00.000Z' }],
+      total: 60,
+    })
     expect(text()).toContain('page-1')
     expect(text()).toContain('$0.01')
 
@@ -299,12 +302,18 @@ describe('a superseded fetch response must not win', () => {
     expect(requestedOffsets()).toEqual(['0', '25', '50'])
 
     // Page 3 answers first…
-    await respond('offset=50', 200, { rows: [{ id: 'e', total: 1, status: 'page-3' }], total: 60 })
+    await respond('offset=50', 200, {
+      rows: [{ id: 'e', total: 1, status: 'page-3', created_at: '2026-01-01T00:00:00.000Z' }],
+      total: 60,
+    })
     expect(text()).toContain('page-3')
 
     // …and page 2's superseded response lands after it. It must be dropped: the
     // paginator says page 3, so the table has to show page 3's rows.
-    await respond('offset=25', 200, { rows: [{ id: 'c', total: 1, status: 'page-2' }], total: 60 })
+    await respond('offset=25', 200, {
+      rows: [{ id: 'c', total: 1, status: 'page-2', created_at: '2026-01-01T00:00:00.000Z' }],
+      total: 60,
+    })
     expect(text()).toContain('page-3')
     expect(text()).not.toContain('page-2')
   })
@@ -446,11 +455,26 @@ describe('a superseded fetch response must not win', () => {
     })
     await flush()
     await respond('offset=25', 200, {
-      rows: [{ id: 'b', total: 100, status: 'page-2' }],
+      rows: [{ id: 'b', total: 100, status: 'page-2', created_at: '2026-01-01T00:00:00.000Z' }],
       total: 60,
     })
     expect(container.querySelector('[data-mol-id="orders-load-failed"]')).toBeNull()
     expect(text()).toContain('page-2')
+  })
+
+  it('reports a 2xx page whose rows are not orders instead of rendering $NaN rows', async () => {
+    // `[{ … }]` passes the rows-array gate and the cells dereference each row:
+    // "Invalid Date" under `$NaN` was presented as a real page of orders — a
+    // wrong answer that reads as data, not as the failure it is.
+    await mount(createElement(OrdersPage, {}))
+    await respond('offset=0', 200, { rows: [{}, {}], total: 2 })
+
+    expect(
+      container.querySelector('[data-mol-id="orders-load-failed"]'),
+      'rows that are not orders are a failed load',
+    ).not.toBeNull()
+    expect(container.querySelectorAll('li')).toHaveLength(0)
+    expect(text()).not.toContain('NaN')
   })
 
   it('never lets an error body stand in for the orders page', async () => {
@@ -470,7 +494,10 @@ describe('a superseded fetch response must not win', () => {
         ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
     })
     await flush()
-    await respond('offset=25', 200, { rows: [{ id: 'b', total: 1, status: 'page-2' }], total: 60 })
+    await respond('offset=25', 200, {
+      rows: [{ id: 'b', total: 1, status: 'page-2', created_at: '2026-01-01T00:00:00.000Z' }],
+      total: 60,
+    })
     expect(text()).toContain('page-2')
   })
 
@@ -594,6 +621,28 @@ describe('a superseded fetch response must not win', () => {
 
     expect(ratingValue(), 'a refused rating must not stay lit').toBe('0')
     expect(text(), 'and the reader must be told it was not saved').toContain('Not saved')
+  })
+
+  it('rolls a failed rating back to the last RECORDED value when an earlier optimistic one also failed', async () => {
+    // The rollback used to restore the click-time `myStars` — which, while two
+    // POSTs are in flight, is the FIRST click's OPTIMISTIC value. Failing both
+    // requests then left the widget showing 3★: a rating no request ever
+    // recorded, with only the small "Not saved" hint to say otherwise. The
+    // rollback must land on what the server actually has — "no rating".
+    await mount(createElement(RatingWidget, { subjectId: 's', canRate: true }))
+    await respond('/api/ratings/avg/s', 200, { average: 0, count: 0 })
+
+    await clickRate(3)
+    await clickRate(5)
+    expect(pending.requests.filter((r) => r.url === '/api/ratings')).toHaveLength(2)
+
+    // Both POSTs fail: the 3★ failure is superseded (no state write), the 5★
+    // one is the newest and does the rollback.
+    await respondTo('/api/ratings', 500, { error: 'boom' })
+    await respondTo('/api/ratings', 500, { error: 'boom' })
+
+    expect(ratingValue(), 'neither POST landed — no star may stay lit').toBe('0')
+    expect(text()).toContain('Not saved')
   })
 
   it('rolls the star back when the rating POST rejects outright', async () => {

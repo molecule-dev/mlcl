@@ -20,6 +20,22 @@ type Order = {
 
 type Page = { rows: Order[]; total: number }
 
+/**
+ * Whether a row from `GET /api/orders` is an order the render can show without
+ * lying. The three fields gated here are the ones the cells cannot degrade
+ * gracefully: `id` (the row key), `total` (a non-number renders `$NaN`), and
+ * `created_at` (a non-string renders "Invalid Date") — `status` falls back to
+ * its raw value, but a row missing the others is not an order at all. The same
+ * per-row gate the markdown-blog index applies to its posts (`body.every`).
+ */
+const isOrder = (row: unknown): row is Order =>
+  typeof row === 'object' &&
+  row !== null &&
+  typeof (row as Order).id === 'string' &&
+  typeof (row as Order).total === 'number' &&
+  typeof (row as Order).created_at === 'string' &&
+  typeof (row as Order).status === 'string'
+
 /** Clickable column header that shows an up/down arrow for the active sort. */
 function SortableHeader({
   label,
@@ -116,6 +132,15 @@ export function OrdersPage() {
         // list nobody actually read — so it is reported as the failed load it is
         // (the rule the sibling list slices apply).
         if (!Array.isArray(body.rows)) {
+          setLoadFailed(true)
+          setLoading(false)
+          return
+        }
+        // …and every ROW must be an order. `[{ … }]` passes the array check and
+        // the cells below dereference each row: "Invalid Date" under `$NaN` was
+        // presented as a real list (a shrunken rewrite, a partial answer). A
+        // body carrying rows that are not orders is the failed load it is.
+        if (!body.rows.every(isOrder)) {
           setLoadFailed(true)
           setLoading(false)
           return

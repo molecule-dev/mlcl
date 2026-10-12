@@ -176,4 +176,19 @@ describe('the leaderboard example — a failed load is reported, not shown as em
     expect(text()).not.toContain('Could not load the leaderboard')
     expect(text()).not.toContain('No scores yet.')
   })
+
+  it('reports a list of rows that are not entries instead of rendering undefined rankings', async () => {
+    // `[{}]` passes the list gate and each row's rank/score/name render
+    // verbatim — `undefined` twice and a blank name, presented as real
+    // rankings. A board whose rows are not entries is the failed load it is.
+    await mount(createElement(Leaderboard, { currentUserId: 'u-1' }))
+    await act(async () => {
+      calls[0]?.resolve({ data: [{}, {}] })
+    })
+    await flush()
+
+    expect(text()).toContain('Could not load the leaderboard')
+    expect(text()).not.toContain('No scores yet.')
+    expect(text()).not.toContain('undefined')
+  })
 })
