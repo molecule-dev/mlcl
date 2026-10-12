@@ -400,6 +400,13 @@ export function Tags() {
       setActionError(t('tags.deleteError', {}, { defaultValue: 'Could not delete tag.' }))
     }
   }
+  // handleDelete's promise is handed to ConfirmButton UNVOIDED, on purpose:
+  // the shared button stays in its pending state while that promise is in
+  // flight and ignores further clicks there. Discarding the promise (what this
+  // used to do) ended the pending phase at the first microtask, so the button
+  // re-armed while the DELETE was still in flight — a second confirm issued a
+  // second DELETE of the now-absent row, whose 404 painted "Could not delete
+  // tag." over a deletion that had succeeded, and fired `tag.deleted` twice.
 
   const openCreateModal = () => {
     setModalMode('create')
@@ -1207,7 +1214,7 @@ export function Tags() {
                                     {},
                                     { defaultValue: 'Deleting…' },
                                   )}
-                                  onConfirm={() => void handleDelete(tag.id)}
+                                  onConfirm={() => handleDelete(tag.id)}
                                   size="sm"
                                 />
                               </div>
