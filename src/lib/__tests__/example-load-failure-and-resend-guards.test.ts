@@ -234,8 +234,14 @@ describe('orders page — a failed page load is disclosed, not silent', () => {
   it('keeps the rows it has and says the load failed', async () => {
     await mount(createElement(OrdersPage, {}))
 
+    // A full order row: the page gates each ROW by shape (id/total/status/
+    // created_at — the cells would render $NaN and Invalid Date otherwise), so a
+    // shapeless `{ id }` fixture is answered by the failure path this test does
+    // not start exercising until "Next page".
     await respond('/api/orders', 200, {
-      rows: [{ id: 'o-page-1' }],
+      rows: [
+        { id: 'o-page-1', total: 100, status: 'open', created_at: '2026-01-01T00:00:00.000Z' },
+      ],
       total: 60,
     })
     expect(rows()).toEqual(['o-page-1'])
@@ -272,14 +278,27 @@ describe('orders page — a failed page load is disclosed, not silent', () => {
 
   it('the positive twin: a page load that succeeds replaces the rows and clears the notice', async () => {
     await mount(createElement(OrdersPage, {}))
-    await respond('/api/orders', 200, { rows: [{ id: 'o-page-1' }], total: 60 })
+    // Full order rows on BOTH answered pages: the page gates each row by shape,
+    // so a shapeless fixture takes the failure path and the "replaces the rows
+    // and clears the notice" half below asserts nothing.
+    await respond('/api/orders', 200, {
+      rows: [
+        { id: 'o-page-1', total: 100, status: 'open', created_at: '2026-01-01T00:00:00.000Z' },
+      ],
+      total: 60,
+    })
 
     await clickByLabel('Next page')
     await rejectPending('/api/orders')
     expect(text()).toContain('Could not load these orders')
 
     await clickByLabel('Next page')
-    await respond('/api/orders', 200, { rows: [{ id: 'o-page-2' }], total: 60 })
+    await respond('/api/orders', 200, {
+      rows: [
+        { id: 'o-page-2', total: 200, status: 'paid', created_at: '2026-01-02T00:00:00.000Z' },
+      ],
+      total: 60,
+    })
 
     expect(rows()).toEqual(['o-page-2'])
     expect(container.querySelector('[data-page]')?.getAttribute('data-page')).toBe('3')

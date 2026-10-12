@@ -158,7 +158,14 @@ describe('orders page — the first paint is the pending state, not an empty lis
     // nobody had read.
     expect(container.querySelector('ul')?.getAttribute('data-loading')).toBe('true')
 
-    await respond('/api/orders', 200, { rows: [{ id: 'o-1' }], total: 1 })
+    // The answer is a WELL-FORMED page: the row gate (`isOrder`) reports a row
+    // missing total/status/created_at as a failed load, whose path also clears
+    // the spinner — an assertion riding that branch proved nothing about the
+    // success answer this test is named for.
+    await respond('/api/orders', 200, {
+      rows: [{ id: 'o-1', total: 100, status: 'open', created_at: '2026-01-01T00:00:00.000Z' }],
+      total: 1,
+    })
     expect(container.querySelector('ul')?.getAttribute('data-loading')).toBe('false')
   })
 })
