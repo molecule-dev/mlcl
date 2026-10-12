@@ -6,6 +6,7 @@
  * @module
  */
 
+import { randomUUID } from 'node:crypto'
 import { linkSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -347,28 +348,43 @@ function sleepSync(ms: number): void {
 
 /**
  * The identity of ONE lock file: the inode plus the nanosecond mtime that tell
- * it apart from a different file created in its place. ext4 hands a freed inode
- * straight back to the next file created in the same directory, so the inode
- * alone is not enough — see {@link stealStaleLock}.
+ * it apart from a different file created in its place — and the file's exact
+ * BYTES, which is what tells them apart when that pair cannot.
+ *
+ * ext4 hands a freed inode straight back to the next file created in the same
+ * directory (verified on this machine), so the inode alone is not enough — see
+ * {@link stealStaleLock}. The mtime is not enough either, and the RELEASE path
+ * is where it fails: Linux file timestamps come from the coarse clock, and a
+ * rival that replaces a YOUNG lock — one this process created microseconds
+ * ago, then stalled past the steal age — does so inside the same clock tick,
+ * so the replacement can carry BOTH the reused inode and the same mtime. An
+ * inode + mtime identity then reads "the file we put there", and the release
+ * deletes a live holder's lock — the path looks free to a third publisher
+ * while the rival still believes it holds it. (Observed 2026-10-12: the
+ * release-side race suite failed roughly one run in ten exactly this way, on
+ * the ext4 /tmp.) The content cannot collide: every lock this code creates
+ * carries a fresh random token beside the pid, so two different files never
+ * read the same.
  */
 interface LockIdentity {
   ino: bigint
   mtimeNs: bigint
+  content: string
 }
 
 /**
  * The {@link LockIdentity} of the file at `path`, or null when it cannot be
- * stat'ed (already gone, or uninspectable).
+ * described (already gone, or unstattable/unreadable).
  *
  * @param path - The file to identify.
- * @returns Its inode and nanosecond mtime, or null.
+ * @returns Its inode, nanosecond mtime and bytes, or null.
  */
 function lockIdentityOf(path: string): LockIdentity | null {
   try {
     const stat = statSync(path, { bigint: true })
-    return { ino: stat.ino, mtimeNs: stat.mtimeNs }
+    return { ino: stat.ino, mtimeNs: stat.mtimeNs, content: readFileSync(path, 'utf-8') }
   } catch (_error) {
-    // Missing (already released, or renamed away by a rival) or unstattable —
+    // Missing (already released, or renamed away by a rival) or uninspectable —
     // there is no file here to identify.
     return null
   }
@@ -398,12 +414,17 @@ function lockIdentityOf(path: string): LockIdentity | null {
  * party that grabbed the path in the meantime keeps its own file rather than
  * having it replaced).
  *
- * The identity is the inode AND the nanosecond mtime, never the inode alone: a
- * freed inode can be handed straight back to the next file created in the same
- * directory, so a rival's freshly-created lock can carry the very inode number
- * the removed one had — an inode-only check then reads "same file" and deletes
- * the live lock. The mtime separates them because whatever a rival creates in
- * the gap is fresh.
+ * The identity is the inode AND the nanosecond mtime AND the file's bytes,
+ * never the inode alone: a freed inode can be handed straight back to the next
+ * file created in the same directory, so a rival's freshly-created lock can
+ * carry the very inode number the removed one had — an inode-only check then
+ * reads "same file" and deletes the live lock. The mtime separates them when
+ * whatever a rival creates in the gap is measurably later (a STALE lock, judged
+ * so at sixty seconds); for a YOUNG lock — a rival replacing one this process
+ * released microseconds late — the replacement can land in the same coarse
+ * clock tick and reuse the inode, so the bytes are the decisive check: every
+ * lock this code writes carries a fresh random token, and only the file whose
+ * bytes match what this caller put there is removed.
  *
  * @param lockPath - The lock path to act on.
  * @param expected - The identity of the file this caller owns or judged stale.
@@ -419,7 +440,12 @@ function removeLockIfIdentity(lockPath: string, expected: LockIdentity): boolean
     return false
   }
   const moved = lockIdentityOf(graveyard)
-  if (moved !== null && moved.ino === expected.ino && moved.mtimeNs === expected.mtimeNs) {
+  if (
+    moved !== null &&
+    moved.ino === expected.ino &&
+    moved.mtimeNs === expected.mtimeNs &&
+    moved.content === expected.content
+  ) {
     // The file we moved is the one we meant to remove: it holds nothing anyone needs.
     try {
       rmSync(graveyard, { force: true })
@@ -475,14 +501,16 @@ function removeLockIfIdentity(lockPath: string, expected: LockIdentity): boolean
  * retrying the steal, so an unverifiable lock can never turn this into a loop
  * that spin-steals the same file for ever.
  *
- * The identity is the inode AND the nanosecond mtime, never the inode alone:
- * ext4 (verified on this machine) hands a freed inode straight back to the next
- * file created in the same directory, so a rival's freshly-created lock can
- * carry the very inode number the removed stale one had — an inode-only check
- * then reads "same file", deletes the live lock, and reopens the race. The
- * mtime separates them because the age is what made the original look stale:
- * the file we judged dead is at least {@link REGISTRY_LOCK_STEAL_MS} old by the
- * clock, while anything a rival creates inside the gap is fresh.
+ * The identity is the inode AND the nanosecond mtime AND the bytes, never the
+ * inode alone: ext4 (verified on this machine) hands a freed inode straight
+ * back to the next file created in the same directory, so a rival's
+ * freshly-created lock can carry the very inode number the removed stale one
+ * had — an inode-only check then reads "same file", deletes the live lock, and
+ * reopens the race. The mtime separates them here because the age is what made
+ * the original look stale: the file we judged dead is at least
+ * {@link REGISTRY_LOCK_STEAL_MS} old by the clock, while anything a rival
+ * creates inside the gap is fresh — and the bytes are the backstop that holds
+ * even where the clock does not (see {@link LockIdentity}).
  *
  * @param lockPath - The publish lock the caller judged stale.
  * @returns True when the stale lock was removed (the caller may create its own);
@@ -533,11 +561,17 @@ function acquireRegistryPublishLock(): void {
   const deadline = Date.now() + registryLockWaitMs()
   for (;;) {
     try {
-      writeFileSync(lockPath, `${process.pid}\n`, { flag: 'wx' })
+      // The pid names the holder for the operator; the random token is what the
+      // release identifies THIS file by — see {@link LockIdentity}: an inode
+      // reused within the same coarse clock tick makes inode + mtime alone
+      // ambiguous for a young lock, and the bytes never are.
+      const token = randomUUID()
+      const content = `${process.pid} ${token}\n`
+      writeFileSync(lockPath, content, { flag: 'wx' })
       // Record which file we just made, so the release drops exactly this one.
       try {
         const made = statSync(lockPath, { bigint: true })
-        heldLockIdentity = { ino: made.ino, mtimeNs: made.mtimeNs }
+        heldLockIdentity = { ino: made.ino, mtimeNs: made.mtimeNs, content }
       } catch (identityError) {
         // The create SUCCEEDED but the file it made cannot be described — a
         // transient stat failure (EMFILE under fd pressure, EIO, EACCES).
@@ -588,7 +622,9 @@ function acquireRegistryPublishLock(): void {
       if (Date.now() >= deadline) {
         let holder = 'an unknown process'
         try {
-          holder = `pid ${readFileSync(lockPath, 'utf-8').trim()}`
+          // First field only: the bytes also carry the random release token
+          // (see the create above), which is noise in an operator-facing line.
+          holder = `pid ${readFileSync(lockPath, 'utf-8').trim().split(/\s+/)[0]}`
         } catch (_readError) {
           // The lock may have been released while this message was built.
         }

@@ -54,6 +54,22 @@ const observed = vi.hoisted(() => ({
    * never return).
    */
   uninspectableLock: { remaining: 0 },
+  /**
+   * The identity-collision simulation. `capture` records the inode + mtime the
+   * acquire stat'ed for THIS process's own lock; `armed` makes the NEXT bigint
+   * stat of the released lock's graveyard report THAT identity instead of the
+   * moved file's own — the inode-reuse + same-coarse-clock-tick collision a
+   * replacement of a YOUNG lock produces on ext4 (200/200 inodes reused and
+   * 111/200 mtimes shared over 200 rounds on this machine's /tmp), which makes
+   * an inode + mtime identity read "our own lock" about the moved rival file.
+   * The removal must fall back to the file's BYTES to tell the two apart.
+   */
+  identityCollision: {
+    capture: false,
+    armed: false,
+    ino: null as bigint | null,
+    mtimeNs: null as bigint | null,
+  },
 }))
 
 vi.mock('node:fs', async (importOriginal) => {
@@ -114,6 +130,37 @@ vi.mock('node:fs', async (importOriginal) => {
         denied.code = 'EACCES'
         throw denied
       }
+      const isBigint =
+        typeof rest[0] === 'object' && rest[0] !== null && (rest[0] as { bigint? }).bigint === true
+      if (observed.registryPath !== null && isBigint) {
+        const { identityCollision } = observed
+        // Capture the identity the acquire records for our own lock — the first
+        // bigint stat of the lock path in a mutation.
+        if (identityCollision.capture && p === `${observed.registryPath}.publish.lock`) {
+          identityCollision.capture = false
+          const made = realStatSync(path, ...rest) as { ino: bigint; mtimeNs: bigint }
+          identityCollision.ino = made.ino
+          identityCollision.mtimeNs = made.mtimeNs
+          return made
+        }
+        // Report the CAPTURED identity for the file the removal moved aside:
+        // the replacement shares the reused inode and the clock tick.
+        if (
+          identityCollision.armed &&
+          p === `${observed.registryPath}.publish.lock.graveyard.${process.pid}`
+        ) {
+          identityCollision.armed = false
+          const moved = realStatSync(path, ...rest) as {
+            ino: bigint
+            mtimeNs: bigint
+            [key: string]: unknown
+          }
+          if (identityCollision.ino !== null && identityCollision.mtimeNs !== null) {
+            return { ...moved, ino: identityCollision.ino, mtimeNs: identityCollision.mtimeNs }
+          }
+          return moved
+        }
+      }
       return realStatSync(path, ...rest)
     },
   }
@@ -149,6 +196,10 @@ beforeEach(() => {
   observed.stealRace.rivalPid = null
   observed.removedFreshLock = false
   observed.uninspectableLock.remaining = 0
+  observed.identityCollision.capture = false
+  observed.identityCollision.armed = false
+  observed.identityCollision.ino = null
+  observed.identityCollision.mtimeNs = null
   if (originalWaitEnv === undefined) delete process.env.MLCL_REGISTRY_LOCK_WAIT_MS
   else process.env.MLCL_REGISTRY_LOCK_WAIT_MS = originalWaitEnv
   process.env.MLCL_REGISTRY_PATH = registryPath
@@ -322,6 +373,44 @@ describe('updateRegistryEntry — the publish lock', () => {
     }
     expect(
       parsed.packages['@molecule/lock-release-race-probe'],
+      'our own publish still landed',
+    ).toBeDefined()
+    expect(existsSync(`${registryPath}.${process.pid}.tmp`), 'no temp litter').toBe(false)
+  })
+
+  it('the release verifies the moved bytes when a replacement reuses the inode and the clock tick', () => {
+    // The release-side race above only fails when the kernel happens to collide:
+    // ext4 hands the freed inode straight back (200/200 on this machine's /tmp)
+    // and the replacement of a YOUNG lock lands in the same coarse clock tick
+    // (111/200) — so inode + mtime read "the file we put here" about a file the
+    // rival wrote. That collision is the common case, not the edge, but a suite
+    // must not depend on the scheduler to reach it. This test SIMULATES it: the
+    // stat of the moved file reports the identity the acquire captured for OUR
+    // lock, while the file itself is the rival's. Inode + mtime alone then match
+    // and a byte-blind release deletes the live lock; the bytes — every lock
+    // carries a fresh random token beside the pid — are the check that cannot.
+    const rivalPid = process.pid + 1
+    observed.stealRace.rivalPid = rivalPid
+    observed.stealRace.armed = true
+    observed.identityCollision.capture = true
+    observed.identityCollision.armed = true
+
+    updateRegistryEntry('@molecule/lock-content-race-probe', probeEntry)
+
+    expect(
+      observed.identityCollision.ino,
+      'the collision was simulated against the identity the acquire captured',
+    ).not.toBeNull()
+    expect(observed.removedFreshLock, 'the race simulation must have fired').toBe(true)
+    expect(
+      readFileSync(lockPath, 'utf-8').trim(),
+      'a rival’s lock that matches our inode and mtime must still survive OUR release',
+    ).toBe(String(rivalPid))
+    const parsed = JSON.parse(readFileSync(registryPath, 'utf-8')) as {
+      packages: Record<string, unknown>
+    }
+    expect(
+      parsed.packages['@molecule/lock-content-race-probe'],
       'our own publish still landed',
     ).toBeDefined()
     expect(existsSync(`${registryPath}.${process.pid}.tmp`), 'no temp litter').toBe(false)

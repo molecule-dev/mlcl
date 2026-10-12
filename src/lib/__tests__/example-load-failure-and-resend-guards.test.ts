@@ -218,6 +218,9 @@ beforeEach(() => {
 })
 
 afterEach(async () => {
+  // Restore real time for the suites that follow — the overlapping-resend test
+  // pins the clock (Date only) and must not leak the fake into them.
+  vi.useRealTimers()
   window.history.replaceState({}, '', '/')
   if (root && document.body.contains(container)) {
     await act(async () => {
@@ -522,29 +525,48 @@ describe('verify-email POST /request — a failed send leaves no token behind', 
     )
     // The FIRST send parks (request A is mid-flight), so request B creates its
     // row while A is still inside its send — the overlap.
-    let releaseFirst!: () => void
-    const firstSend = new Promise<void>((resolve) => {
-      releaseFirst = resolve
-    })
-    let sendCall = 0
-    emails.sendMail.mockImplementation(() => {
-      sendCall += 1
-      return sendCall === 1 ? firstSend : Promise.resolve(undefined)
-    })
+    //
+    // The two rows must also be minted in DISTINCT milliseconds. The supersede
+    // spares any row its own token does not predate — a strict `<`, deliberately
+    // (verify-email.ts: two rows sharing one timestamp survive each other's
+    // delete, which leaves two live links beside the two-dead alternative and is
+    // the accepted same-millisecond outcome). This suite runs fast enough that
+    // both `new Date()` calls landed inside one real millisecond every few runs
+    // under parallel workers, and the overlap then read as the mutual-spare
+    // outcome instead of "the newer link survives". So the clock is pinned:
+    // faked Date ONLY (timers stay real — flush() uses setTimeout), advanced
+    // once the first send parks, which is after A minted its row and before B
+    // computes its own — making B strictly the later-minted token.
+    vi.useFakeTimers({ toFake: ['Date'] })
+    vi.setSystemTime(new Date('2026-01-01T00:00:00.000Z'))
+    try {
+      let releaseFirst!: () => void
+      const firstSend = new Promise<void>((resolve) => {
+        releaseFirst = resolve
+      })
+      let sendCall = 0
+      emails.sendMail.mockImplementation(() => {
+        sendCall += 1
+        if (sendCall === 1) vi.setSystemTime(new Date('2026-01-01T00:00:00.005Z'))
+        return sendCall === 1 ? firstSend : Promise.resolve(undefined)
+      })
 
-    const resAPromise = postRequest()
-    await flush()
-    const resB = await postRequest()
-    releaseFirst()
-    const resA = await resAPromise
+      const resAPromise = postRequest()
+      await flush()
+      const resB = await postRequest()
+      releaseFirst()
+      const resA = await resAPromise
 
-    expect(resB.body).toEqual({ ok: true })
-    expect(resA.body).toEqual({ ok: true })
-    // Exactly one link survives, and it is the LATER-minted one (B's) — not
-    // zero, which is what the mutual delete produced.
-    expect(mintedHashes).toHaveLength(2)
-    expect(rows).toHaveLength(1)
-    expect(rows[0]!.token_hash).toBe(mintedHashes[1])
+      expect(resB.body).toEqual({ ok: true })
+      expect(resA.body).toEqual({ ok: true })
+      // Exactly one link survives, and it is the LATER-minted one (B's) — not
+      // zero, which is what the mutual delete produced.
+      expect(mintedHashes).toHaveLength(2)
+      expect(rows).toHaveLength(1)
+      expect(rows[0]!.token_hash).toBe(mintedHashes[1])
+    } finally {
+      vi.useRealTimers()
+    }
   })
 
   it('a supersede that fails does not fail the send it followed', async () => {
