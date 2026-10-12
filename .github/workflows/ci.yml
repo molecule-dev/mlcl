@@ -84,7 +84,9 @@ jobs:
       # The molecule-mcp suites drive the real server through the MCP SDK, which
       # lives in mcp/'s own node_modules (mcp/ is a separate package, not a
       # workspace member). Without it those suites skip, and a skip passes.
-      - run: npm ci
+      # `npm install`, as mcp/Dockerfile does: mcp/ keeps no lockfile (its .gitignore)
+      # and pins every dependency exactly instead.
+      - run: npm install --no-audit --no-fund
         working-directory: mlcl/mcp
       - run: npm test
         working-directory: mlcl
