@@ -353,7 +353,7 @@ function sleepSync(ms: number): void {
  *
  * ext4 hands a freed inode straight back to the next file created in the same
  * directory (verified on this machine), so the inode alone is not enough — see
- * {@link stealStaleLock}. The mtime is not enough either, and the RELEASE path
+ * {@link acquireRegistryPublishLock}. The mtime is not enough either, and the RELEASE path
  * is where it fails: Linux file timestamps come from the coarse clock, and a
  * rival that replaces a YOUNG lock — one this process created microseconds
  * ago, then stalled past the steal age — does so inside the same clock tick,
@@ -391,12 +391,38 @@ function lockIdentityOf(path: string): LockIdentity | null {
 }
 
 /**
+ * The {@link LockIdentity} of the file at `path`, or null ONLY when it is gone.
+ *
+ * The steal path's judgment read: the identity it returns is what licenses the
+ * removal, so it must be the identity of the file the age was judged on — never
+ * a stand-in for "unreadable". `lockIdentityOf` collapses every failure to null,
+ * which is right for VERIFYING a file this caller already chose, and wrong for
+ * CHOOSING one: an EACCES/ELOOP/EIO here would read as "nothing to steal" and
+ * send the caller to its wait path (bounded, but reporting nothing), while the
+ * uninspectable-lock rule this module follows says report the file instead of
+ * retrying it. So: ENOENT → null (the holder released it between our failed
+ * create and this read — retry), anything else → throw (the caller reports it).
+ *
+ * @param path - The lock file to identify.
+ * @returns Its inode, nanosecond mtime and bytes, or null when it is not there.
+ */
+function lockIdentityIfPresent(path: string): LockIdentity | null {
+  try {
+    const stat = statSync(path, { bigint: true })
+    return { ino: stat.ino, mtimeNs: stat.mtimeNs, content: readFileSync(path, 'utf-8') }
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException)?.code === 'ENOENT') return null
+    throw error
+  }
+}
+
+/**
  * Remove the lock at `lockPath` ONLY when the file there is the one `expected`
  * identifies — never a different file a rival has since put in its place.
  *
- * Two callers need exactly this: {@link stealStaleLock}, taking over a
- * presumed-dead holder's leftover, and {@link releaseRegistryPublishLock},
- * dropping THIS process's own lock when its mutation finishes. Both stat the
+ * Two callers need exactly this: {@link acquireRegistryPublishLock}, taking
+ * over a presumed-dead holder's leftover, and {@link releaseRegistryPublishLock},
+ * dropping THIS process's own lock when its mutation finishes. Both read the
  * file they mean to remove some microseconds before they remove it, and that
  * gap is a race: by the time the removal runs, a rival may have removed the
  * file and created its OWN fresh one — a different inode. A plain `rmSync`
@@ -405,6 +431,13 @@ function lockIdentityOf(path: string): LockIdentity | null {
  * That reopens the check-then-rename window the lock exists to close (each
  * publisher's stamp check can pass before the other's rename and after it, and
  * the second rename silently drops the first writer's entry).
+ *
+ * The steal side hands in the identity the STALENESS JUDGMENT was made on, not
+ * a fresh read of the path: a judgment that re-read the lock for its identity
+ * after the age stat could pick up a rival's just-created file, verify the
+ * removal against that file ITSELF, and delete a live holder's lock — the
+ * verification cannot catch a replacement it never knew about. See the acquire
+ * loop for the whole shape.
  *
  * So the removal goes through the one operation that can carry identity across
  * the gap: `rename` the lock aside (atomic), then compare the moved file's
@@ -473,57 +506,6 @@ function removeLockIfIdentity(lockPath: string, expected: LockIdentity): boolean
 }
 
 /**
- * Remove a presumed-dead holder's publish lock — but only the file that was
- * judged stale, never one a live writer created in the meantime.
- *
- * The mtime that decides "this holder is a crashed leftover" is read from a
- * `statSync` some microseconds before the removal, and that gap is a race: two
- * processes that both see the SAME stale lock both decide to steal it, the
- * first of them removes it and creates its own fresh lock, and the second — its
- * stat already taken against the old file — then removed the FIRST'S fresh
- * lock. Both then believed they held the lock, which reopens exactly the
- * check-then-rename window the lock exists to close: each publisher's
- * {@link writeRegistry} stamp check can pass before the other's rename and
- * after it, and the second rename silently drops the first writer's entry —
- * the outcome no retry can answer, because neither writer observed a conflict.
- * A plain `rmSync(lockPath)` cannot tell the two files apart: it deletes
- * whatever is there NOW.
- *
- * So the removal goes through the one operation that can carry identity across
- * the gap: `rename` the lock aside (atomic), then compare the moved file's
- * identity against the one stat'ed before the move. The same identity is the
- * file we judged stale — remove it, and report `true` so the caller retries its
- * create immediately. Anything else — a different identity (a live writer
- * created its own lock in the gap) or a moved file that cannot be stat'ed at
- * all — is put back untouched (hard-linked, so a third party that grabbed the
- * path in the meantime keeps its own file rather than having it replaced) and
- * reported `false`: the caller then takes its ordinary wait path instead of
- * retrying the steal, so an unverifiable lock can never turn this into a loop
- * that spin-steals the same file for ever.
- *
- * The identity is the inode AND the nanosecond mtime AND the bytes, never the
- * inode alone: ext4 (verified on this machine) hands a freed inode straight
- * back to the next file created in the same directory, so a rival's
- * freshly-created lock can carry the very inode number the removed stale one
- * had — an inode-only check then reads "same file", deletes the live lock, and
- * reopens the race. The mtime separates them here because the age is what made
- * the original look stale: the file we judged dead is at least
- * {@link REGISTRY_LOCK_STEAL_MS} old by the clock, while anything a rival
- * creates inside the gap is fresh — and the bytes are the backstop that holds
- * even where the clock does not (see {@link LockIdentity}).
- *
- * @param lockPath - The publish lock the caller judged stale.
- * @returns True when the stale lock was removed (the caller may create its own);
- *   false when nothing was taken over and the caller must wait instead.
- */
-function stealStaleLock(lockPath: string): boolean {
-  const stale = lockIdentityOf(lockPath)
-  // Released between the caller's stat and this one — nothing to steal.
-  if (stale === null) return false
-  return removeLockIfIdentity(lockPath, stale)
-}
-
-/**
  * The identity of the lock file THIS process created and currently holds, or
  * null when it holds none. Recorded the instant the create succeeds so
  * {@link releaseRegistryPublishLock} can drop THAT file and nothing else: a
@@ -544,9 +526,11 @@ let heldLockIdentity: LockIdentity | null = null
  * waited out up to {@link registryLockWaitMs} (`MLCL_REGISTRY_LOCK_WAIT_MS`,
  * 10 s by default); one older than
  * {@link REGISTRY_LOCK_STEAL_MS} is a crashed holder's leftover and is taken
- * over through {@link stealStaleLock}, so it cannot wedge every future mutation
- * behind it — and a rival's own just-created lock is never the file that gets
- * removed.
+ * over through {@link removeLockIfIdentity} — handed the identity the age
+ * judgment was made on, so only the file JUDGED stale can be the one removed,
+ * never a rival's lock created after that judgment. The steal therefore cannot
+ * wedge every future mutation behind a leftover, and a rival's own just-created
+ * lock is never the file that gets removed.
  *
  * Every path here is bounded: a lock that cannot be INSPECTED at all (a stat
  * failure that is not the holder's ENOENT release — EACCES, ELOOP, EIO) is
@@ -598,16 +582,23 @@ function acquireRegistryPublishLock(): void {
       return
     } catch (error) {
       if ((error as NodeJS.ErrnoException)?.code !== 'EEXIST') throw error
-      let heldMs: number
+      // The staleness judgment and the steal's removal must be made on the SAME
+      // file, so the identity is captured HERE — at the judgment — and handed to
+      // the removal below. Re-reading the path inside the steal (what this used
+      // to do) let a rival that created a fresh lock in the gap between this
+      // age stat and that re-read have ITS file identified, verified against
+      // itself, and deleted: the verdict traveled with the PATH, not with the
+      // file it was made on, and the removal then removed a live holder's lock
+      // while both publishers believed they held it — reopening the
+      // check-then-rename window this lock closes.
+      let judged: LockIdentity | null
       try {
-        heldMs = Date.now() - statSync(lockPath).mtimeMs
+        judged = lockIdentityIfPresent(lockPath)
       } catch (statError) {
-        // ENOENT — the holder released it between our create and this stat, so
-        // retry immediately. Anything else means this path cannot be inspected:
-        // this process cannot tell a dead holder from a live one, and treating
-        // it as "released" retries at full speed forever (the write below keeps
+        // Anything but "gone" means this path cannot be inspected: this process
+        // cannot tell a dead holder from a live one, and treating it as
+        // "released" retries at full speed forever (the write above keeps
         // failing EEXIST on a file the stat keeps refusing to describe). Say so.
-        if ((statError as NodeJS.ErrnoException)?.code === 'ENOENT') continue
         throw new Error(
           `${lockPath} exists but cannot be inspected (${String(statError)}) — this process ` +
             'cannot tell whether another mlcl publish is running. Check that file and its ' +
@@ -615,8 +606,15 @@ function acquireRegistryPublishLock(): void {
           { cause: statError },
         )
       }
-      if (heldMs > REGISTRY_LOCK_STEAL_MS && stealStaleLock(lockPath)) {
-        // The stale leftover is gone — this process's own create is next.
+      // Gone between our failed create and this read — the holder released it.
+      // Retry immediately.
+      if (judged === null) continue
+      const heldMs = Date.now() - Number(judged.mtimeNs / 1_000_000n)
+      if (heldMs > REGISTRY_LOCK_STEAL_MS && removeLockIfIdentity(lockPath, judged)) {
+        // The judged-stale leftover is gone — this process's own create is next.
+        // Any file that replaced it inside the removal's own gap is detected by
+        // the identity comparison and put back (removeLockIfIdentity answers
+        // false), so a lock younger than this judgment is never the one removed.
         continue
       }
       if (Date.now() >= deadline) {

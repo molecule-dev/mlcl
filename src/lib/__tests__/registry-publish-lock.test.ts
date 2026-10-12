@@ -47,6 +47,18 @@ const observed = vi.hoisted(() => ({
   /** Whether a FRESH (rival-owned) lock was present at the removal. */
   removedFreshLock: false,
   /**
+   * The judgment-race simulation: while armed, the FIRST stat of the publish
+   * lock inside a mutation returns the stale file's stat and THEN replaces the
+   * file at the path with a fresh, rival-owned lock — a holder that released
+   * its leftover (or a rival that stole it) and a new publisher that created
+   * its lock in the gap between this process's staleness judgment and its
+   * steal. The steal must act on the file the judgment was made on; a fresh
+   * rival lock must survive it.
+   */
+  judgmentRace: { armed: false, rivalPid: null as number | null },
+  /** Whether the judgment-race simulation fired. */
+  replacedAfterJudgment: false,
+  /**
    * How many times the NEXT `statSync` of the publish lock throws instead of
    * describing it. Bounded on purpose: the unbounded version of this state is
    * the defect the test below pins (a caller that retries an uninspectable lock
@@ -130,6 +142,22 @@ vi.mock('node:fs', async (importOriginal) => {
         denied.code = 'EACCES'
         throw denied
       }
+      if (
+        observed.judgmentRace.armed &&
+        observed.judgmentRace.rivalPid !== null &&
+        observed.registryPath !== null &&
+        p === `${observed.registryPath}.publish.lock`
+      ) {
+        // The judgment read: hand back the stale file's stat, then put the
+        // rival's fresh lock at the path an instant later — the gap between
+        // this process's staleness judgment and the steal its verdict licenses.
+        observed.judgmentRace.armed = false
+        const stat = realStatSync(path, ...rest)
+        realRmSync(p, { force: true })
+        realWriteFileSync(p, `${observed.judgmentRace.rivalPid}\n`)
+        observed.replacedAfterJudgment = true
+        return stat
+      }
       const isBigint =
         typeof rest[0] === 'object' && rest[0] !== null && (rest[0] as { bigint? }).bigint === true
       if (observed.registryPath !== null && isBigint) {
@@ -195,6 +223,9 @@ beforeEach(() => {
   observed.stealRace.armed = false
   observed.stealRace.rivalPid = null
   observed.removedFreshLock = false
+  observed.judgmentRace.armed = false
+  observed.judgmentRace.rivalPid = null
+  observed.replacedAfterJudgment = false
   observed.uninspectableLock.remaining = 0
   observed.identityCollision.capture = false
   observed.identityCollision.armed = false
@@ -336,6 +367,62 @@ describe('updateRegistryEntry — the publish lock', () => {
     }
     expect(
       parsed.packages['@molecule/lock-steal-race-probe'],
+      'the mutation must not have published over the live holder',
+    ).toBeUndefined()
+    expect(existsSync(`${registryPath}.${process.pid}.tmp`), 'no temp litter').toBe(false)
+  })
+
+  it('steals only the lock its staleness judgment was made on, never one created after it', () => {
+    // The backward half of the steal race. The staleness verdict is read from a
+    // stat some microseconds before the steal's removal, and the file at the
+    // path can CHANGE inside that gap the other way round: the leftover's
+    // holder releases it (or another waiter steals it) and a fresh publisher
+    // creates its OWN lock there before this process's steal reads anything. A
+    // steal that re-read the path for its identity at that instant would
+    // identify the rival's file, verify the removal against THAT FILE ITSELF,
+    // and delete a live holder's lock — the verification cannot catch a
+    // replacement it never knew about. Both publishers then believe they hold
+    // the lock, reopening the check-then-rename window (two stamp checks pass,
+    // the second rename silently drops the first writer's entry).
+    //
+    // The mock reproduces the window deterministically: the judgment stat hands
+    // back the stale file's age, and the file at the path is replaced by a
+    // fresh, rival-owned lock an instant later. The steal must therefore act on
+    // the file the judgment was made ON (identity carried from the judgment to
+    // the removal): the rival's lock must survive, and this mutation must wait
+    // and then fail loudly rather than publish on top of a live holder.
+    process.env.MLCL_REGISTRY_LOCK_WAIT_MS = '50'
+    const rivalPid = process.pid + 1
+    writeFileSync(lockPath, '999999\n', 'utf-8')
+    const longGone = new Date(Date.now() - 65_000)
+    utimesSync(lockPath, longGone, longGone)
+    observed.judgmentRace.rivalPid = rivalPid
+    observed.judgmentRace.armed = true
+
+    let thrown: unknown
+    try {
+      updateRegistryEntry('@molecule/lock-judgment-race-probe', probeEntry)
+    } catch (error) {
+      thrown = error
+    }
+
+    expect(observed.replacedAfterJudgment, 'the race simulation must have fired').toBe(true)
+    const message = thrown instanceof Error ? thrown.message : String(thrown)
+    expect(message, 'a live holder must be waited for and reported, not published over').toMatch(
+      /publish\.lock has been held/,
+    )
+    expect(message, 'the failure names the rival whose lock was left in place').toContain(
+      String(rivalPid),
+    )
+    expect(
+      readFileSync(lockPath, 'utf-8').trim(),
+      'a rival’s lock created after the judgment must still be on disk, untouched',
+    ).toBe(String(rivalPid))
+    const parsed = JSON.parse(readFileSync(registryPath, 'utf-8')) as {
+      packages: Record<string, unknown>
+    }
+    expect(
+      parsed.packages['@molecule/lock-judgment-race-probe'],
       'the mutation must not have published over the live holder',
     ).toBeUndefined()
     expect(existsSync(`${registryPath}.${process.pid}.tmp`), 'no temp litter').toBe(false)
