@@ -57,7 +57,11 @@ vi.mock('@molecule/app-notification-center-react', () => ({
           props.items.map((item) =>
             createElement(
               'li',
-              { key: item.id, ...({ 'data-read': String(item.read) } as Record<string, string>) },
+              {
+                key: item.id,
+                onClick: item.onClick,
+                ...({ 'data-read': String(item.read) } as Record<string, string>),
+              },
               `${item.id}:${item.title}`,
             ),
           ),
@@ -285,6 +289,69 @@ describe('the bell keeps live arrivals the page snapshot cannot know', () => {
     expect(text(), 'the row must not be duplicated').toEqual(expect.stringContaining('both1'))
     expect(text().match(/both1/g)?.length ?? 0, 'the row must appear once').toBe(1)
     expect(text(), 'the page already counted it — no double count').toContain('unread:1')
+  })
+
+  it('a read made while the page was in flight survives the page landing as read', async () => {
+    await mount(createElement(NotificationBellWidget, { userId: 'u1' }))
+    await openBell()
+
+    // The live notification arrives (unread, badge 1) while the page GET is parked…
+    await frame(
+      'notification:created',
+      JSON.stringify({
+        id: 'live1',
+        type: 'mention',
+        actor_name: 'A',
+        subject_title: 'T',
+        created_at: '2026-01-01T00:00:00.000Z',
+        read_at: null,
+      }),
+    )
+    expect(text()).toContain('unread:1')
+
+    // …and the reader clicks it: the panel row's onClick (the shared center
+    // hands each item's onClick to its row).
+    await act(async () => {
+      container
+        .querySelector('li[data-read="false"]')
+        ?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+
+    // The read POST answers ok: the badge clears and the row renders read.
+    const readRequest = httpRequests.find(
+      (r) => r.url.includes('/api/notifications/live1/read') && !r.answered,
+    )
+    if (!readRequest) throw new Error('the click issued no read request')
+    readRequest.answered = true
+    await act(async () => {
+      readRequest.respond({ id: 'live1', read_at: '2026-01-02T00:00:00.000Z' })
+    })
+    await flush()
+    expect(text(), 'the accepted read cleared the badge').toContain('unread:0')
+
+    // The page snapshot was taken BEFORE the read write landed: it still carries
+    // the row as unread. The merge must not un-read it — the page row rendered
+    // unread again, and countedReadRef (already holding the id) kept every
+    // further click a no-op, so the row was stuck unread until a reload.
+    await answerList({
+      items: [
+        {
+          id: 'live1',
+          type: 'mention',
+          actor_name: 'A',
+          subject_title: 'T',
+          created_at: '2026-01-01T00:00:00.000Z',
+          read_at: null,
+        },
+      ],
+      unread: 0,
+    })
+
+    expect(text(), 'the row must survive the page landing').toContain('live1')
+    const row = container.querySelector('li[data-read="false"]')
+    expect(row, 'the read the reader made must not be un-made by the older snapshot').toBeNull()
+    expect(text(), 'the badge stays clear').toContain('unread:0')
   })
 })
 

@@ -204,6 +204,24 @@ export function NotificationBellWidget({ userId }: { userId: string }): ReactEle
         }
         const page: RawNotification[] = p.items
         const pageIds = new Set(page.map((n) => n.id))
+        // A row THIS tab marked read while the request was in flight is NEWER
+        // than the page's copy of it: reads never un-read, so a page row that
+        // still says unread about a row this tab holds as read is a snapshot
+        // taken before the write landed. Adopting it un-read un-made the read
+        // the reader just made — the row rendered unread again, and
+        // countedReadRef (already holding the id, so the guards return early)
+        // kept every further click a no-op: stuck unread until a reload. Only
+        // the locally-read row is preserved; the page's read state still wins
+        // when it carries a read this tab does not have (one made in another
+        // tab), and a row read in both places is the same state either way.
+        const readHere = new Map<string, string>()
+        for (const n of itemsRef.current) {
+          if (pageIds.has(n.id) && n.read_at !== null) readHere.set(n.id, n.read_at)
+        }
+        const mergedPage = page.map((n) => {
+          const readAt = readHere.get(n.id)
+          return readAt !== undefined && n.read_at === null ? { ...n, read_at: readAt } : n
+        })
         // Capping a snapshot taken BEFORE this request answered over the panel
         // dropped every row the live feed delivered while it was in flight: the
         // frame above prepended it and raised the badge, then the page landed
@@ -213,7 +231,10 @@ export function NotificationBellWidget({ userId }: { userId: string }): ReactEle
         // So the page is MERGED: the live rows it cannot carry stay, newest
         // first, ahead of its own rows, and a row both know about is kept once.
         setItems((prev) =>
-          [...prev.filter((n) => !pageIds.has(n.id)), ...page].slice(0, NOTIFICATION_PAGE_SIZE),
+          [...prev.filter((n) => !pageIds.has(n.id)), ...mergedPage].slice(
+            0,
+            NOTIFICATION_PAGE_SIZE,
+          ),
         )
         // The page's count already covers every row it carries — a live row it
         // also carries must NOT be added again — so only the unread among the
