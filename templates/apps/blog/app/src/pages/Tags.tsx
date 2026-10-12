@@ -217,9 +217,25 @@ export function Tags() {
           const res = await http.get<TagsListResponse>(
             `/api/tags?page=${requestPage}&limit=${TAGS_PAGE_LIMIT}`,
           )
-          const batch = Array.isArray(res?.data?.data) ? res.data.data : []
+          // A 2xx proves the route ANSWERED, not that the body is the taxonomy
+          // page. Coercing a body that carries no rows to `[]` answered a
+          // shrunken rewrite or an unmocked route's `200 {}` with the table's
+          // "No tags yet" empty state and its create CTA — the authoritative
+          // empty taxonomy the `loadFailed` state exists to prevent, reached
+          // without the catch below ever running. The rows are read through the
+          // same shapes the create path defends (`{ data: { data } }` here, the
+          // bare list for a bond that unwraps); anything else is the failed
+          // load the catch below reports.
+          const body: unknown = (res as { data?: unknown } | undefined)?.data ?? res
+          const batch = Array.isArray(body)
+            ? (body as Tag[])
+            : Array.isArray((body as TagsListResponse | undefined)?.data)
+              ? ((body as TagsListResponse).data as Tag[])
+              : null
+          if (batch === null) throw new Error('the answer is not the tag list')
           collected.push(...batch)
-          if (typeof res?.data?.total === 'number') total = res.data.total
+          if (typeof (body as TagsListResponse | undefined)?.total === 'number')
+            total = (body as TagsListResponse).total as number
           if (batch.length === 0 || collected.length >= total) break
         }
         if (cancelled) return

@@ -159,6 +159,26 @@ describe('blog Tags — a failed taxonomy load is reported, not shown as an empt
     ).not.toContain('Growth +12% this month')
   })
 
+  it('reports a 2xx body that is not the taxonomy as the same failure, not as zero tags', async () => {
+    await mount()
+    expect(calls.length, 'the page must request the taxonomy').toBeGreaterThan(0)
+
+    // The unmatched-fixture / rewritten-answer case: the route ANSWERED 2xx, but
+    // the body carries no tag list. Read as `[]` it rendered the "No tags yet"
+    // empty state and its create CTA — the authoritative empty taxonomy the
+    // failure state exists to prevent, without the catch below ever running.
+    await answer(0, (call) => call.resolve({ data: {} }))
+
+    expect(text(), 'the reader must be told the load failed').toContain('Could not load tags')
+    expect(text(), 'a non-list body must not read as "this blog has no tags"').not.toContain(
+      'No tags yet',
+    )
+    expect(
+      text(),
+      'a non-list body must not invite creating a first tag over tags that exist',
+    ).not.toContain('Create your first tag')
+  })
+
   it('keeps a way to retry, and the retry renders the taxonomy', async () => {
     await mount()
     await answer(0, (call) => call.reject(new Error('offline')))
