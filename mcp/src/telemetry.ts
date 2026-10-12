@@ -21,7 +21,8 @@ import { existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync 
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 
-const DEFAULT_URL = 'https://api.molecule.dev/v1/telemetry/cli'
+import { apiBase } from './auth.js'
+
 const ID_FILE = join(homedir(), '.mlcl', 'telemetry-id')
 
 let cachedVersion: string | null = null
@@ -46,6 +47,17 @@ export function serverVersion(): string {
     cachedVersion = resolved
   }
   return cachedVersion
+}
+
+/**
+ * The ingestion route under the same API root as every other call this server
+ * makes ({@link apiBase}). A separate literal without the `/api` prefix the API
+ * mounts its routes under 404'd every event, so no tool call was ever recorded.
+ *
+ * @returns The telemetry endpoint URL.
+ */
+export function telemetryUrl(): string {
+  return process.env.MOLECULE_TELEMETRY_URL ?? `${apiBase()}/v1/telemetry/cli`
 }
 
 export function telemetryEnabled(): boolean {
@@ -296,7 +308,7 @@ export function trackToolCall(tool: string, ok: boolean, startedAt: number): voi
   // Saturated — drop this event. Deliberately above the payload below: nothing
   // on the dropped path reads the id file from disk or builds a body.
   if (inFlightEmits >= MAX_IN_FLIGHT_EMITS) return
-  const url = process.env.MOLECULE_TELEMETRY_URL ?? DEFAULT_URL
+  const url = telemetryUrl()
   const payload = {
     kind: 'track',
     source: 'molecule-mcp',

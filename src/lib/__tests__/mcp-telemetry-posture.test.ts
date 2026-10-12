@@ -29,7 +29,7 @@ vi.mock('node:os', async () => {
   return { ...actual, homedir: () => join(actual.tmpdir(), 'mlcl-mcp-telemetry-posture-home') }
 })
 
-import { telemetryEnabled, trackToolCall } from '../../../mcp/src/telemetry.js'
+import { telemetryEnabled, telemetryUrl, trackToolCall } from '../../../mcp/src/telemetry.js'
 
 const HOME = join(tmpdir(), 'mlcl-mcp-telemetry-posture-home')
 const OPT_OUT_KEYS = ['MOLECULE_TELEMETRY', 'DO_NOT_TRACK', 'MOLECULE_ENV', 'MLCL_DEBUG'] as const
@@ -46,6 +46,16 @@ afterEach(() => {
 })
 
 describe('molecule-mcp telemetry posture mirrors the CLI', () => {
+  it('posts to the ingestion route under the same API root as the CLI', () => {
+    delete process.env.MOLECULE_ENV
+    delete process.env.MOLECULE_API_URL
+    delete process.env.MOLECULE_TELEMETRY_URL
+    expect(telemetryUrl()).toBe('https://api.molecule.dev/api/v1/telemetry/cli')
+    process.env.MOLECULE_TELEMETRY_URL = 'https://collector.example/x'
+    expect(telemetryUrl()).toBe('https://collector.example/x')
+    delete process.env.MOLECULE_TELEMETRY_URL
+  })
+
   it('honors the cross-tool DO_NOT_TRACK=1 opt-out', () => {
     process.env.DO_NOT_TRACK = '1'
     expect(telemetryEnabled()).toBe(false)

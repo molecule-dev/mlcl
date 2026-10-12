@@ -21,7 +21,8 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 
-const DEFAULT_URL = 'https://api.molecule.dev/v1/telemetry/cli'
+import { apiBaseUrl } from './platform.js'
+
 const ID_FILE = join(homedir(), '.mlcl', 'telemetry-id')
 
 export function telemetryEnabled(): boolean {
@@ -33,8 +34,16 @@ export function telemetryEnabled(): boolean {
   return process.env.MOLECULE_TELEMETRY !== '0'
 }
 
+/**
+ * The ingestion route under the same API root every other CLI call uses
+ * ({@link apiBaseUrl}). It used to be a separate literal without the `/api`
+ * prefix the API mounts its routes under, so every event 404'd and no CLI
+ * usage was ever recorded.
+ *
+ * @returns The telemetry endpoint URL.
+ */
 export function telemetryUrl(): string | undefined {
-  return process.env.MOLECULE_TELEMETRY_URL ?? DEFAULT_URL
+  return process.env.MOLECULE_TELEMETRY_URL ?? `${apiBaseUrl()}/v1/telemetry/cli`
 }
 
 /** Random per-install id — the ONLY cross-event identifier. Rotate by deleting the file. */
