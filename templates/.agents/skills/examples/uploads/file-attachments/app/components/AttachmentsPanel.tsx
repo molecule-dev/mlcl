@@ -65,6 +65,14 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps): ReactElem
   // the flag; an upload only clears the flag while its own ticket is still the
   // newest (the same monotonic release CommentThread's `postTicket` uses).
   const uploadTicket = useRef(0)
+  // The rows with a DELETE in flight. Nothing disables the row's Delete button
+  // while its request runs, so a second click on a row whose server is slow
+  // issued a SECOND DELETE: the first had already committed, so the second
+  // answered 404 and its handler painted "Delete failed" over a deletion that
+  // SUCCEEDED — the row vanished and the reader was told it did not. The guard
+  // is per ROW (not one flag), so deleting two different rows stays parallel;
+  // the id leaves the set on EVERY outcome, so a refused delete can be retried.
+  const deletesInFlight = useRef<Set<string>>(new Set())
 
   const load = useCallback(async () => {
     const ticket = ++loadSeq.current
@@ -178,8 +186,13 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps): ReactElem
   }
 
   async function remove(id: string): Promise<void> {
+    // One DELETE per row while it is in flight — see deletesInFlight. Dropped
+    // BEFORE the confirm, so the second click does not even open a dialog over
+    // work that is already running.
+    if (deletesInFlight.current.has(id)) return
     if (!confirm(t('attachments.confirmDelete', {}, { defaultValue: 'Delete this attachment?' })))
       return
+    deletesInFlight.current.add(id)
     // This attempt's own verdict supersedes the last one's — a stale "Delete
     // failed" must not sit under a delete that then worked.
     setError(null)
@@ -231,6 +244,10 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps): ReactElem
       if (ownsRecord()) {
         setError(t('attachments.error.delete', {}, { defaultValue: 'Delete failed' }))
       }
+    } finally {
+      // The row is deletable again on EVERY outcome — a refused delete is
+      // retried, an offline one too — so the guard cannot wedge a row shut.
+      deletesInFlight.current.delete(id)
     }
   }
 

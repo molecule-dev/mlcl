@@ -263,4 +263,31 @@ describe('a DELETE that did not happen is reported', () => {
       confirmSpy.mockRestore()
     }
   })
+
+  it('a second Delete click while the first is in flight issues ONE DELETE and no false failure', async () => {
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
+    try {
+      await mount(createElement(AttachmentsPanel, { parentId: 'o6' }))
+      await respond('/api/attachments?parent_id=o6', 200, [attachment('a1', 'a.txt')])
+
+      // The first click's DELETE parks on a slow server; the row is still on
+      // screen, so the reader clicks Delete again. Unguarded, that second click
+      // issued a SECOND DELETE, which answered 404 over the first's committed
+      // deletion and painted "Delete failed" on a row that was gone.
+      await click('[data-mol-id="attachment-delete"]')
+      await click('[data-mol-id="attachment-delete"]')
+      const deletes = pending.requests.filter(
+        (r) => r.method === 'DELETE' && r.url.includes('/api/attachments/a1'),
+      )
+      expect(deletes, 'one DELETE per row while the first is in flight').toHaveLength(1)
+
+      // The parked DELETE then commits: the row leaves the list with no failure
+      // line, and the guard releases so the (now absent) row could be re-tried.
+      await respond('/api/attachments/a1', 200, {})
+      expect(text(), 'the deleted row is gone').not.toContain('a.txt')
+      expect(text(), 'a deletion that succeeded reports no failure').not.toContain('Delete failed')
+    } finally {
+      confirmSpy.mockRestore()
+    }
+  })
 })
