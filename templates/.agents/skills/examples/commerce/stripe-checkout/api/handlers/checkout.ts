@@ -15,6 +15,7 @@
  * Stripe sessions (see the claim below the ownership checks).
  */
 import { randomUUID } from 'node:crypto'
+
 import type { NextFunction, Request, Response } from 'express'
 import { Router } from 'express'
 import { z } from 'zod'
@@ -60,6 +61,11 @@ router.post(
   requireAuth,
   validateBody(sessionSchema),
   async (req: Request, res: Response) => {
+    // The claim this request holds, if it won one: the order id and the nonce,
+    // read by the failure path below. NULL means "no claim held" — a bare
+    // price checkout never takes one, and a refused claim (409) holds none.
+    let heldOrderId: string | null = null
+    let heldAttempt: string | null = null
     try {
       const body = req.body as z.infer<typeof sessionSchema>
       const userId = res.locals.session.userId as string
@@ -129,6 +135,12 @@ router.post(
         }
         metadata.orderId = body.orderId
         metadata.checkoutAttempt = attempt
+        // Remembered for the catch below: a session mint that FAILS leaves no
+        // Stripe session, so no `checkout.session.expired` event can ever
+        // release this claim — without a release here the order answered 409
+        // "checkout in progress" for ever (every retry refused, no event coming).
+        heldOrderId = body.orderId
+        heldAttempt = attempt
       }
       if (body.customerEmail) metadata.customerEmail = body.customerEmail
 
@@ -141,6 +153,33 @@ router.post(
 
       res.json({ url: session.url, id: session.id })
     } catch (err) {
+      // Release the claim this request held — the mint failed, so no Stripe
+      // session exists and `checkout.session.expired` can never arrive to
+      // release it. Without this, one failed createCheckoutSession (a bad price
+      // id, a Stripe outage, any 5xx) left `checkout_attempt` set for ever and
+      // every later POST /session for the order was refused 409. The WHERE
+      // carries THIS request's nonce (the same conditional shape webhooks.ts'
+      // expired-release uses), so a claim already replaced by someone else is
+      // left alone; the release is best-effort — its own failure must not
+      // replace the mint failure the caller is owed, and the claim it leaves is
+      // exactly the state the release exists to clear, logged for the operator.
+      if (heldOrderId !== null && heldAttempt !== null) {
+        try {
+          await updateMany(
+            'orders',
+            [
+              { field: 'id', operator: '=', value: heldOrderId },
+              { field: 'checkout_attempt', operator: '=', value: heldAttempt },
+            ],
+            { checkout_attempt: null },
+          )
+        } catch (releaseError) {
+          logger.warn('checkout claim release after a failed session create failed', {
+            orderId: heldOrderId,
+            error: releaseError,
+          })
+        }
+      }
       // Log the real failure — a swallowed 500 here (bad key, wrong price id)
       // is undebuggable from the frontend's generic message alone.
       logger.error('checkout session create failed', { error: err })

@@ -73,7 +73,19 @@ const makeRes = (): {
   return res
 }
 
-/** Run the full middleware chain and await the terminal handler. */
+/**
+ * Run the full middleware chain and await the terminal handler.
+ *
+ * Express middleware call `next()` WITHOUT awaiting the rest of the chain, so a
+ * bare `await runNext()` resolved when the FIRST middleware returned — the
+ * terminal handler was still running, and a test asserting on `res.statusCode`
+ * read it mid-flight (exactly what the failure-path test below, whose handler
+ * answer carries two extra awaits, raced into). The pending counter makes the
+ * await cover the WHOLE chain: every `next()` increments it, every settled
+ * handler decrements it, and the response is returned only when nothing is
+ * running — the same settle condition whether the chain ended in `next()` or in
+ * a middleware that answered and stopped.
+ */
 async function post(args: {
   userId?: string
   body: Record<string, unknown>
@@ -82,11 +94,25 @@ async function post(args: {
   if (args.userId !== undefined) res.locals.session = { userId: args.userId }
   const req = { body: args.body }
   let index = 0
+  let pending = 1
+  let resolveDone: () => void = () => {}
+  const done = new Promise<void>((resolve) => {
+    resolveDone = resolve
+  })
   const runNext = async (): Promise<void> => {
     const handle = sessionMiddlewares[index++]
-    await handle(req, res, () => void runNext())
+    try {
+      await handle(req, res, () => {
+        pending++
+        void runNext()
+      })
+    } finally {
+      pending--
+      if (pending === 0) resolveDone()
+    }
   }
-  await runNext()
+  void runNext()
+  await done
   return res
 }
 
@@ -216,6 +242,67 @@ describe('stripe-checkout POST /session — orderId is ownership-checked at sess
     })
     expect(res.statusCode).toBe(409)
     expect(stripe.createCheckoutSession).not.toHaveBeenCalled()
+  })
+
+  it('releases the claim when the session mint fails — no session means no expired event ever comes', async () => {
+    // A mint that throws (a bad price id, a Stripe outage) leaves no Stripe
+    // session, so `checkout.session.expired` — the release path webhooks.ts
+    // owns — can never fire. Without a release here the order's
+    // `checkout_attempt` stayed set for ever and every later POST /session was
+    // refused 409 "checkout in progress": one failed call wedged the order's
+    // checkout permanently.
+    database.findById.mockResolvedValue(order())
+    stripe.createCheckoutSession.mockRejectedValue(new Error('Stripe: Invalid price id'))
+    const res = await post({
+      userId: 'user-1',
+      body: {
+        priceId: 'price_bad',
+        orderId: 'order-1',
+        successUrl: 'https://a.test/ok',
+        cancelUrl: 'https://a.test/no',
+      },
+    })
+    expect(res.statusCode).toBe(500)
+    // The claim (call 1) plus the release (call 2).
+    expect(database.updateMany).toHaveBeenCalledTimes(2)
+    const claimedNonce = (database.updateMany.mock.calls[0][2] as { checkout_attempt: string })
+      .checkout_attempt
+    expect(database.updateMany).toHaveBeenLastCalledWith(
+      'orders',
+      [
+        { field: 'id', operator: '=', value: 'order-1' },
+        // Conditional on THIS request's nonce — a claim already replaced by
+        // someone else is left alone (the same shape webhooks.ts releases with).
+        { field: 'checkout_attempt', operator: '=', value: claimedNonce },
+      ],
+      { checkout_attempt: null },
+    )
+  })
+
+  it('a refused claim (409) holds nothing and performs no release', async () => {
+    database.findById.mockResolvedValue(order())
+    database.updateMany.mockResolvedValue({ data: null, affected: 0 })
+    const res = await post({
+      userId: 'user-1',
+      body: {
+        priceId: 'price_1',
+        orderId: 'order-1',
+        successUrl: 'https://a.test/ok',
+        cancelUrl: 'https://a.test/no',
+      },
+    })
+    expect(res.statusCode).toBe(409)
+    expect(database.updateMany).toHaveBeenCalledTimes(1)
+  })
+
+  it('a failed bare-price mint (no orderId) performs no release — no claim was taken', async () => {
+    stripe.createCheckoutSession.mockRejectedValue(new Error('Stripe: down'))
+    const res = await post({
+      userId: 'user-1',
+      body: { priceId: 'price_1', successUrl: 'https://a.test/ok', cancelUrl: 'https://a.test/no' },
+    })
+    expect(res.statusCode).toBe(500)
+    expect(database.updateMany).not.toHaveBeenCalled()
   })
 
   it('creates the session with the caller’s OWN unpaid order in the metadata', async () => {
