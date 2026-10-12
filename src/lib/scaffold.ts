@@ -4846,6 +4846,10 @@ export function generateFontHtml(
 
   for (const pkg of selectedFontProviders) {
     const font = pkg.molecule!.font!
+    // The values below are interpolated into index.html verbatim — the same
+    // untrusted metadata the copy paths are containment-checked against (see
+    // assertSafeFontMeta). Refused here, the scaffold fails naming the package.
+    assertSafeFontMeta(font, pkg.name)
     if (font.source === 'system') continue
 
     if (font.source === 'local' && font.faces) {
@@ -5000,6 +5004,93 @@ function deriveLocalNames(family: string, weight: number | string, variable?: bo
 }
 
 /**
+ * The shapes a font metadata value may take and still sit in the markup it is
+ * rendered into.
+ *
+ * A font package's `molecule.font` (the registry entry, or a non-registry
+ * package's own package.json — input the module treats as untrusted for its
+ * PATHS, see {@link isInsideDir}) is interpolated verbatim into the app's
+ * `index.html`: `family` and `faces[].file` become CSS strings inside the
+ * `<!-- mol:fonts -->` block's `<style>`, `faces[].weight` and `faces[].style`
+ * become bare declarations, `url`/`preconnect` become `href` attributes, and
+ * `utilityCss` is CSS emitted whole. A value carrying the context's own
+ * syntax — a `'` that ends a CSS string, a `"` that ends an attribute, a
+ * `</style>` that closes the element, a newline that ends a declaration — is
+ * markup injection into every page of the scaffolded app, persistent and
+ * served, from metadata nothing validated past "is a string".
+ *
+ * These rules REFUSE rather than escape, on the module's standard for declared
+ * metadata (`fc7dbfb89`: refuse a molecule name that is not a package name):
+ * the fleet's real values are family names, file names and https URLs, and a
+ * declaration that needs escaping is lying about what it declares. Verified
+ * against every registry font entry and the flagship templates' fixtures.
+ */
+const FONT_META_SHAPES = {
+  /** CSS family name — also what `stripManagedFontFaces` matches back out of the block. */
+  family: /^[A-Za-z0-9][A-Za-z0-9 _-]*$/,
+  /** A font file name within `fontsDir` — no separators, no quotes, no markup. */
+  faceFile: /^[A-Za-z0-9][A-Za-z0-9._,-]*$/,
+  /** A CSS font-weight: a number, a variable range like `100 1000`, or a keyword `deriveLocalNames` maps. */
+  weight: /^(\d{1,4}( \d{1,4})?|normal|bold)$/,
+  /** A CSS font-style. */
+  style: /^(normal|italic|oblique)$/,
+  /** An absolute https stylesheet URL / preconnect origin — the attribute contexts. */
+  httpsUrl: /^https:\/\/[^\s"'<>]*$/,
+}
+
+/**
+ * Refuse a font metadata value that cannot sit in its markup context.
+ *
+ * Called where the metadata becomes markup — {@link generateFontHtml} at
+ * create time and {@link updateHtmlFontBlock} on every later sync — so both
+ * sinks render only values this guard admitted, and the failure names the
+ * package and the field to fix. At create time the scaffold fails loudly
+ * rather than write a poisoned `<head>`; at sync time the caller reports
+ * "Asset sync skipped" with this message.
+ *
+ * @param font - The `molecule.font` metadata being rendered.
+ * @param packageName - The package the metadata came from, for the error.
+ * @throws When any value could break out of the markup it renders into.
+ */
+export function assertSafeFontMeta(
+  font: {
+    family?: string
+    source: string
+    faces?: Array<{ file: string; weight: number | string; style?: string; variable?: boolean }>
+    url?: string
+    preconnect?: string[]
+    utilityCss?: string
+  },
+  packageName: string,
+): void {
+  const refuse = (field: string, value: unknown): never => {
+    throw new Error(
+      `Font metadata for ${packageName} is refused: ${field} cannot be rendered safely into ` +
+        `index.html (${JSON.stringify(value)}). Declare a plain family name, a file name, a ` +
+        'https URL, or CSS without a closing </style> — see the molecule.font registry schema.',
+    )
+  }
+  if (font.source === 'system') return
+  if (font.family !== undefined && !FONT_META_SHAPES.family.test(font.family))
+    refuse('family', font.family)
+  for (const face of font.faces ?? []) {
+    if (!FONT_META_SHAPES.faceFile.test(face.file)) refuse('faces[].file', face.file)
+    if (
+      typeof face.weight === 'number' ? face.weight < 0 : !FONT_META_SHAPES.weight.test(face.weight)
+    )
+      refuse('faces[].weight', face.weight)
+    if (face.style !== undefined && !FONT_META_SHAPES.style.test(face.style))
+      refuse('faces[].style', face.style)
+  }
+  if (font.url !== undefined && !FONT_META_SHAPES.httpsUrl.test(font.url)) refuse('url', font.url)
+  for (const origin of font.preconnect ?? []) {
+    if (!FONT_META_SHAPES.httpsUrl.test(origin)) refuse('preconnect[]', origin)
+  }
+  if (font.utilityCss !== undefined && /<\/style/i.test(font.utilityCss))
+    refuse('utilityCss', '(contains </style>)')
+}
+
+/**
  * Copy font files from installed packages to a project's static assets fonts/ directory.
  */
 export async function copyFontFiles(
@@ -5117,6 +5208,8 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
   // Discover font metadata from installed packages
   const fontFiles: FontFileToCopy[] = []
   const fontMetas: Array<{
+    /** The package the metadata came from — a refusal names it (see assertSafeFontMeta). */
+    packageName: string
     family: string
     source: string
     fontsDir?: string
@@ -5135,7 +5228,7 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
     const font = registryEntry?.font ?? null
 
     if (font) {
-      fontMetas.push(font)
+      fontMetas.push({ ...font, packageName: depName })
 
       if (font.source === 'local' && font.faces) {
         for (const face of font.faces) {
@@ -5166,7 +5259,7 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
         const pkgFont = depPkg.molecule?.font
         if (!pkgFont) break // Package found but has no font metadata
 
-        fontMetas.push(pkgFont)
+        fontMetas.push({ ...pkgFont, packageName: depName })
 
         if (pkgFont.source === 'local' && pkgFont.faces) {
           for (const face of pkgFont.faces) {
@@ -5397,6 +5490,7 @@ function cssRulePresent(document: string, css: string): boolean {
 async function updateHtmlFontBlock(
   projectPath: string,
   fontMetas: Array<{
+    packageName: string
     family: string
     source: string
     faces?: Array<{ file: string; weight: number | string; style?: string; variable?: boolean }>
@@ -5432,6 +5526,11 @@ async function updateHtmlFontBlock(
   const preloadFaces: string[] = []
 
   for (const font of fontMetas) {
+    // The values below are interpolated into the document verbatim — the same
+    // untrusted metadata the copy paths are containment-checked against (see
+    // assertSafeFontMeta). The throw surfaces as the caller's "Asset sync
+    // skipped" warning, naming the package whose declaration cannot render.
+    assertSafeFontMeta(font, font.packageName)
     if (font.source === 'system') continue
 
     if (font.source === 'local' && font.faces) {
@@ -5889,26 +5988,118 @@ export function resolvePackageDirectory(
 
   switch (meta.type) {
     case 'core':
-      return join(base, meta.stack, 'core', meta.category)
+      return containedPackageDir(base, join(base, meta.stack, 'core', meta.category))
     case 'provider':
-      return join(base, meta.stack, 'bonds', meta.category, providerName)
+      return containedPackageDir(base, join(base, meta.stack, 'bonds', meta.category, providerName))
     case 'resource':
-      return join(base, 'api', 'resources', shortName)
+      return containedPackageDir(base, join(base, 'api', 'resources', shortName))
     case 'middleware':
-      return join(base, 'api', 'middleware', shortName)
+      return containedPackageDir(base, join(base, 'api', 'middleware', shortName))
     case 'utility':
-      return join(base, 'api', 'utilities', shortName)
+      return containedPackageDir(base, join(base, 'api', 'utilities', shortName))
     case 'infrastructure':
-      return join(base, 'api', 'infrastructure', shortName)
+      return containedPackageDir(base, join(base, 'api', 'infrastructure', shortName))
     case 'framework':
-      return join(base, 'app', 'frameworks', shortName)
+      return containedPackageDir(base, join(base, 'app', 'frameworks', shortName))
     case 'feature':
-      return join(base, 'app', 'features', shortName)
+      return containedPackageDir(base, join(base, 'app', 'features', shortName))
     case 'native':
-      return join(base, 'app', 'native', shortName)
+      return containedPackageDir(base, join(base, 'app', 'native', shortName))
     default:
       throw new Error(`Unknown package type: ${String(meta.type)}`)
   }
+}
+
+/**
+ * A resolved package directory must stay INSIDE the monorepo's `packages/` —
+ * refuse, never return, one that does not.
+ *
+ * The path is assembled from `mlcl init` metadata (`--category`, `--name`), and
+ * `join()` resolves a `../` happily: `--category '../../somewhere'` on a
+ * provider made this return `packages/api/bonds/../../somewhere/<provider>`,
+ * and `mlcl init` then creates a package — and scaffolds into it — OUTSIDE the
+ * monorepo, the same traversal `mlcl create` refuses at its own boundary (see
+ * the slug rule in `src/commands/create.ts`). Every legitimate category and
+ * name is a plain name, so the containment refuses nothing real.
+ *
+ * @param baseDir - The monorepo's `packages/` directory.
+ * @param resolved - The directory the type switch assembled.
+ * @returns The resolved directory, when it is inside `baseDir`.
+ * @throws When the resolved directory escapes `baseDir`.
+ */
+function containedPackageDir(baseDir: string, resolved: string): string {
+  if (!isInsideDir(baseDir, resolved)) {
+    throw new Error(
+      `Package directory ${resolved} is outside ${baseDir} — refuse to scaffold outside the ` +
+        'monorepo. Check the package name and category metadata.',
+    )
+  }
+  return resolved
+}
+
+/**
+ * Refuse an `implements` value that is not an npm package name.
+ *
+ * The value is emitted inside a generated `provider.ts` import —
+ * `import type { XProvider } from '${meta.implements}'` — so a `'` in it ends
+ * the module specifier and everything after it is generated TypeScript, code
+ * in the scaffolded package from `mlcl init --implements` metadata nothing
+ * validated past "is a string". Real values are package names
+ * (`@molecule/api-cache`); the npm name shape is what the field declares.
+ *
+ * @param name - The `implements` metadata value.
+ * @returns The value, once it is a package name.
+ * @throws When the value is not an npm package name.
+ */
+export function assertNpmPackageName(name: string): string {
+  if (!/^(@[A-Za-z0-9][A-Za-z0-9._-]*\/)?[A-Za-z0-9][A-Za-z0-9._-]*$/.test(name)) {
+    throw new Error(
+      `Refusing implements value ${JSON.stringify(name)} — it is not an npm package name ` +
+        '(scope optional, then a name of letters, digits, dots, underscores and dashes), ' +
+        'and it is written into generated source as a module specifier.',
+    )
+  }
+  return name
+}
+
+/**
+ * Refuse a table name that cannot sit in the places it is written.
+ *
+ * The name becomes BOTH a file (`src/__setup__/<table>.sql`, so a `/`, `\` or
+ * `..` writes outside the package) and a quoted SQL identifier in the
+ * migration the project's runner replays (`CREATE TABLE IF NOT EXISTS
+ * "<table>"`, so a `"` ends the identifier and everything after it is SQL).
+ * It also rides the generated handlers' templates as data. `mlcl init`
+ * derives it from `--category` unvalidated, and categories legitimately carry
+ * hyphens (`code-editor` → `code-editors`), so the rule is the sinks' own:
+ * no path syntax, no quote, no control character. Every real name in the
+ * registry is a plain identifier and passes.
+ *
+ * @param tableName - The table name from package metadata.
+ * @returns The name, once it is safe for the file and the identifier.
+ * @throws When the name carries path, quote or control syntax.
+ */
+export function assertSafeTableName(tableName: string): string {
+  // Character-code walk rather than a control-range regex: the gate IS "no
+  // control characters here", and `no-control-regex` exists because matching
+  // them in a regex literal is usually a mistake — here the check is the point.
+  const hasControlChar = [...tableName].some((ch) => {
+    const code = ch.charCodeAt(0)
+    return code < 0x20 || code === 0x7f
+  })
+  const bad =
+    tableName.length === 0 ||
+    /[/\\"]/.test(tableName) ||
+    tableName.split(/[\\/]/).some((segment) => segment === '..') ||
+    hasControlChar
+  if (bad) {
+    throw new Error(
+      `Refusing table name ${JSON.stringify(tableName)} — a table name may not carry path ` +
+        'separators, "..", quotes or control characters, because it becomes ' +
+        'src/__setup__/<table>.sql and the quoted identifier in the generated DDL.',
+    )
+  }
+  return tableName
 }
 
 /**
@@ -6202,7 +6393,7 @@ async function scaffoldProvider(
     PROVIDER_LABEL: providerLabel,
     CLEAN_NAME: cleanName,
     IMPLEMENTS_IMPORT: meta.implements
-      ? `import type { ${categoryPascal}Provider } from '${meta.implements}'\n\n`
+      ? `import type { ${categoryPascal}Provider } from '${assertNpmPackageName(meta.implements)}'\n\n`
       : '',
     IMPLEMENTS_CLAUSE: meta.implements ? ` implements ${categoryPascal}Provider` : '',
     PROCESS_ENV_INTERFACE:
@@ -6232,7 +6423,7 @@ async function scaffoldResource(
   cleanName: string,
   meta: InferredMetadata,
 ): Promise<string[]> {
-  const tableName = meta.tables[0] ?? cleanName + 's'
+  const tableName = assertSafeTableName(meta.tables[0] ?? cleanName + 's')
   const vars = { PASCAL_NAME: pascalName, CLEAN_NAME: cleanName, TABLE_NAME: tableName }
 
   await mkdir(join(dir, 'src', 'handlers'), { recursive: true })
@@ -6424,12 +6615,28 @@ export async function copySqlSetupScripts(
       if (copiedFiles.has(table.sqlFile)) continue
 
       const fileName = basename(table.sqlFile)
-      const candidates = [
-        join(projectPath, 'node_modules', pkgName, table.sqlFile),
+      // Each candidate source must stay INSIDE the package it is declared for.
+      // `table.sqlFile` and `pkgName` are metadata (`join()` resolves `../`
+      // happily), and whatever lands here is replayed as SQL by the generated
+      // migration runner's `__setup__/` step — the same untrusted-metadata rule
+      // the font copies apply through isInsideDir. A refusing path is skipped
+      // with a warning, the same non-fatal treatment a merely-absent file gets.
+      const packageRoots = [
+        join(projectPath, 'node_modules', pkgName),
         // Source-tree fallback for --skip-install / monorepo layouts
         // where node_modules isn't populated when scaffolding runs.
-        join(pkg.path, table.sqlFile),
+        pkg.path,
       ]
+      const candidates = packageRoots.flatMap((root) => {
+        const source = join(root, table.sqlFile)
+        if (!isInsideDir(root, source)) {
+          console.warn(
+            `[scaffold] skipping sqlFile outside its package: ${pkgName} declares ${JSON.stringify(table.sqlFile)}`,
+          )
+          return []
+        }
+        return [source]
+      })
       for (const source of candidates) {
         try {
           await copyFile(source, join(projectPath, '__setup__', fileName))

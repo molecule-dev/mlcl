@@ -10,8 +10,17 @@
  * reason (`syncIdentityFromBranding`); the font block is the sibling that did
  * not.
  *
- * Driven through the real `syncProjectAssets` against a project on disk; only
- * the project's own files and the installed package are ours.
+ * Two layers pin that now, at the two places the class can re-open:
+ *
+ * - `assertSafeFontMeta` refuses a `$` (like every character outside a plain
+ *   family name) in the fields it renders as CSS/attributes — see
+ *   scaffold-metadata-injection-guards.test.ts. A family can no longer carry
+ *   the payload at all.
+ * - the replacement itself stays literal for the values the guard DOES admit,
+ *   and a declared URL legitimately can carry `$` — that is the case this file
+ *   drives through the real `syncProjectAssets`: the generated `<link>` line
+ *   rides the same block replacement, and a string replacement would corrupt
+ *   the document with it.
  *
  * @module
  */
@@ -19,7 +28,7 @@ import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it } from 'vitest'
 
 import { syncProjectAssets } from '../scaffold.js'
 
@@ -60,8 +69,8 @@ let project: string
  */
 const createdRoots: string[] = []
 
-/** A project depending on a non-registry font package whose family carries `$&`. */
-function makeProject(family: string): void {
+/** A project depending on a non-registry font package declaring `font`. */
+function makeProject(font: Record<string, unknown>): void {
   root = mkdtempSync(join(tmpdir(), 'mlcl-font-block-'))
   createdRoots.push(root)
   project = join(root, 'app')
@@ -87,12 +96,7 @@ function makeProject(family: string): void {
         type: 'provider',
         category: 'fonts',
         label: 'Fixture Font',
-        font: {
-          family,
-          source: 'local',
-          fontsDir: 'fonts',
-          faces: [{ file: 'fixture.woff2', weight: 400 }],
-        },
+        font,
       },
     }),
   )
@@ -107,11 +111,17 @@ afterEach(() => {
 })
 
 describe('the font block replacement is not corrupted by $ sequences in metadata', () => {
-  beforeEach(() => {
-    makeProject('Fixture$&Font')
-  })
+  it('replaces the marker block exactly once when a declared URL carries $&', async () => {
+    // The URL is inside the generated block, so it rides the same replacement
+    // the family once corrupted — and `httpsUrl` admits `$`, so this reaches
+    // the replacement instead of the guard.
+    makeProject({
+      family: 'Fixture Font',
+      source: 'cdn',
+      url: 'https://fonts.example/f$&x.css',
+      preconnect: ['https://fonts.example'],
+    })
 
-  it('replaces the marker block exactly once', async () => {
     await syncProjectAssets(project)
 
     const html = readFileSync(join(project, 'index.html'), 'utf-8')
@@ -119,13 +129,18 @@ describe('the font block replacement is not corrupted by $ sequences in metadata
     // document carried two `<!-- mol:fonts -->` markers and the previous font.
     expect(occurrences(html, '<!-- mol:fonts -->')).toBe(1)
     expect(occurrences(html, '<!-- /mol:fonts -->')).toBe(1)
-    expect(html).toContain("font-family: 'Fixture$&Font';")
+    expect(html).toContain('https://fonts.example/f$&x.css')
     // The curated family outside the managed block is untouched.
     expect(html).toContain("font-family: 'Curated';")
   })
 
   it('still merges an ordinary family (no over-tightening)', async () => {
-    makeProject('Fixture Font')
+    makeProject({
+      family: 'Fixture Font',
+      source: 'local',
+      fontsDir: 'fonts',
+      faces: [{ file: 'fixture.woff2', weight: 400 }],
+    })
 
     await syncProjectAssets(project)
 

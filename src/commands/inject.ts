@@ -33,6 +33,29 @@ import {
 import { syncProjectAssets } from '../lib/scaffold.js'
 import { validateInjectionOutput } from '../lib/validator.js'
 
+/**
+ * The project name as the `.env` append path may receive it.
+ *
+ * The name comes from the TARGET project's own `package.json` (`name` field,
+ * scope stripped), and it lands in two places that give its characters meaning:
+ * the db-name slot of the appended `DATABASE_URL` (a connection string, written
+ * raw as `DATABASE_URL=<value>`) and the guidance comments around it. A
+ * manifest name carrying a newline therefore writes whatever follows the
+ * newline as NEW `.env` assignments — `{"name": "app\nEVIL=1"}` on a cloned
+ * repo adds `EVIL=1` to the developer's environment for every process that
+ * sources the file — and `$`/regex metacharacters reach the value's
+ * `myapp`-slot replacement as replacement patterns and a dynamic RegExp. The
+ * CLI's own env writer refuses such values; this path gets a name that cannot
+ * carry them instead. Every real npm name (letters, digits, `.`, `_`, `-`
+ * after the scope is stripped) passes byte-for-byte unchanged.
+ *
+ * @param raw - The manifest's `name` value.
+ * @returns The name, reduced to the characters an env value slot accepts.
+ */
+export function envProjectName(raw: string): string {
+  return raw.replace(/[^A-Za-z0-9._-]/g, '_')
+}
+
 export default class Inject extends Command {
   static override description = t('commands.inject.description')
 
@@ -572,7 +595,7 @@ export default class Inject extends Command {
       const rawName: unknown = projectPkg.name
       const projectName =
         typeof rawName === 'string' && rawName.length > 0
-          ? (rawName.split('/').pop() ?? rawName)
+          ? envProjectName(rawName.split('/').pop() ?? rawName)
           : 'my-app'
       envResult = await appendSecretsToEnvFile(
         projectPath,
