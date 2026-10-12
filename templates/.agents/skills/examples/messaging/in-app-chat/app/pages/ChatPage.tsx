@@ -1,4 +1,4 @@
-import { type FormEvent, type ReactElement, useEffect, useRef, useState } from 'react'
+import { type FormEvent, type ReactElement, useCallback, useEffect, useRef, useState } from 'react'
 
 import type { MessageData } from '@molecule/app-message-bubble-react'
 import { MessageBubble } from '@molecule/app-message-bubble-react'
@@ -88,6 +88,14 @@ export function ChatPage({ channelId }: { channelId: string }): ReactElement {
   const { t } = useTranslation()
   const [messages, setMessages] = useState<ApiMessage[]>([])
   const [draft, setDraft] = useState('')
+  // Whether this room's history READ failed (offline, a non-2xx, a 2xx body
+  // that is not the list). The room effect clears the list up front, so without
+  // this a failed load rendered an empty transcript — a wrong answer
+  // indistinguishable from a genuinely empty room, with nothing to retry. The
+  // sibling slices state the same rule at their own catches
+  // (NotificationBell, AttachmentsPanel, Leaderboard, BlogIndexPage,
+  // OrdersPage): a failed load is never presented as an empty one.
+  const [loadFailed, setLoadFailed] = useState(false)
   const [sendError, setSendError] = useState(false)
   // A send in flight. Without it the composer stays live and a double Enter /
   // double click fires two identical POSTs — two duplicate messages, since the
@@ -124,6 +132,59 @@ export function ChatPage({ channelId }: { channelId: string }): ReactElement {
   // The ticket is bumped by exactly those two events — a room switch and a newer
   // send — so it is the room-and-session scope the writes actually need.
   const sendTicket = useRef(0)
+  // The in-flight history read's ticket — the ownership test for everything the
+  // read writes after its awaits, the same shape sendTicket applies to a send.
+  // A room switch and a retry both start a NEW read while the previous one may
+  // still be parked, and the LATE response must not win (a name compare cannot
+  // tell A → B → A apart). Unmount bumps it too, so a late answer never writes
+  // an unmounted component's state.
+  const historySeq = useRef(0)
+
+  /**
+   * Load this room's first history page, merging in whatever the live feed
+   * delivered while the request was in flight.
+   *
+   * A non-2xx — and a 2xx body that is not the list — is a FAILED load, never
+   * an empty room: the failure body parsed as happily as the page did and was
+   * then coerced to `[]`, so an outage rendered every room as if it had no
+   * messages (`loadFailed` is what says otherwise, and the retry is how the
+   * reader gets the room's real history back).
+   */
+  const loadHistory = useCallback(async (): Promise<void> => {
+    const ticket = ++historySeq.current
+    try {
+      const res = await fetch(`/api/messages?channel_id=${encodeURIComponent(channelId)}`)
+      // Superseded (room switch, retry, unmount)? The late answer writes nothing.
+      if (ticket !== historySeq.current) return
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const body = (await res.json()) as unknown
+      if (ticket !== historySeq.current) return
+      if (!Array.isArray(body)) throw new Error('the answer is not a message list')
+      const history: ApiMessage[] = body
+      setLoadFailed(false)
+      // MERGE rather than replace: a `message:created` frame can land while this
+      // request is still in flight (the subscription is opened right after it,
+      // and the response is a snapshot of the room taken BEFORE that message
+      // existed), and `setMessages(history)` dropped it — the reader watched
+      // their message appear and then vanish until a reload. The live arrivals
+      // sitting in `prev` are the ones the history page does not have; a message
+      // both know about is kept once. The window bound applies to the history
+      // load too: the endpoint's page size is the server's, and a room must not
+      // render an unbounded first page either (see MAX_RENDERED_MESSAGES).
+      setMessages((prev) => {
+        const inHistory = new Set(history.map((m) => m.id))
+        return newestWindow([...history, ...prev.filter((m) => !inHistory.has(m.id))])
+      })
+    } catch (_error) {
+      // A failed history load keeps whatever the live feed already delivered —
+      // blanking them made a message the reader watched appear vanish until a
+      // reload, the same "it vanished" symptom the success path's merge exists
+      // for — and it is REPORTED, never rendered as an empty room (see
+      // `loadFailed`). The rejection must not escape: nothing here awaits it.
+      if (ticket !== historySeq.current) return
+      setLoadFailed(true)
+    }
+  }, [channelId])
 
   useEffect(() => {
     // Own messages align right only once the viewer's id is known. The body is
@@ -171,54 +232,19 @@ export function ChatPage({ channelId }: { channelId: string }): ReactElement {
     // otherwise clear the flag again (see sendTicket).
     sendTicket.current += 1
     setSending(false)
-    // A channel switch starts a NEW history request while the previous one may
-    // still be in flight. Without this guard the LATE response wins and room A's
-    // history is rendered under room B. Same guard as the paginated-user-list
-    // example's page.
-    let cancelled = false
-    // Coerce the body to an array: a 500's `{ error }` JSON (or any non-list
-    // payload) would otherwise reach the render and crash `messages.map`.
-    //
-    // The channel id is DATA (a route/prop value, not a literal) and it is
-    // interpolated into a QUERY STRING, so it must be ENCODED. Interpolated raw,
-    // the browser parses the value as URL syntax instead of as one parameter:
-    // `#` starts a fragment, so a channel named `C#` requested
-    // `/api/messages?channel_id=C` — the history of a DIFFERENT room, under the
-    // room the reader opened — while `&` split the value into a second parameter
-    // (`channel_id=a&limit=1`) and `+` decoded back to a SPACE server-side
-    // (`qs`/`URLSearchParams` both read `+` as a space), so `c++` queried the
-    // room `c  `. The POST body below is JSON and carries the id unchanged, so
-    // an unencoded read and write can even land in different rooms.
-    fetch(`/api/messages?channel_id=${encodeURIComponent(channelId)}`)
-      .then((r) => r.json())
-      .then((body) => {
-        if (cancelled) return
-        const history: ApiMessage[] = Array.isArray(body) ? body : []
-        // The window bound applies to the history load too: the endpoint's page
-        // size is the server's, and a room must not render an unbounded first
-        // page either (see MAX_RENDERED_MESSAGES).
-        //
-        // MERGE rather than replace: a `message:created` frame can land while
-        // this request is still in flight (the subscription is opened right
-        // after it, and the response is a snapshot of the room taken BEFORE
-        // that message existed), and `setMessages(history)` dropped it — the
-        // reader watched their message appear and then vanish until a reload.
-        // The live arrivals sitting in `prev` are the ones the history page
-        // does not have; a message both know about is kept once.
-        setMessages((prev) => {
-          const inHistory = new Set(history.map((m) => m.id))
-          return newestWindow([...history, ...prev.filter((m) => !inHistory.has(m.id))])
-        })
-      })
-      .catch(() => {
-        // A failed history load keeps whatever the live feed already delivered.
-        // The effect cleared the list UP FRONT, so the only rows in state are
-        // `message:created` frames that arrived for THIS room while the request
-        // was in flight — blanking them made a message the reader watched appear
-        // vanish until a reload, the same "it vanished" symptom the success
-        // path's merge above exists for. Nothing to restore when none arrived
-        // (the room renders empty, which is what the reset already said).
-      })
+    // The previous room's history verdict goes with its rows — leaving it set
+    // painted the old room's load failure over this one before its own read
+    // answered.
+    setLoadFailed(false)
+    // The history read (see loadHistory): its ticket is what keeps a LATE
+    // response from rendering room A's history under room B, and the channel id
+    // rides the query string ENCODED — the id is DATA, and interpolated raw the
+    // browser parses it as URL syntax: `#` starts a fragment (a channel `C#`
+    // queried another room's history), `&` split it into a second parameter, and
+    // `+` decoded back to a SPACE server-side. The POST body is JSON and carries
+    // the id unchanged, so an unencoded read and write can even land in
+    // different rooms.
+    void loadHistory()
 
     // Join the room via the `?room=` query — the SSE bond's subscribe protocol.
     // (A `/channel:${id}` path SEGMENT does NOT join the room and never matches the
@@ -258,14 +284,16 @@ export function ChatPage({ channelId }: { channelId: string }): ReactElement {
       typingTimer.current = setTimeout(() => setTyping(false), 2000)
     })
     return () => {
-      cancelled = true
       events.close()
       // No timer outlives the room: without this, a `typing` event that
       // arrived just before unmount (or a channel switch) fires its timeout
       // into a stale component.
       if (typingTimer.current) clearTimeout(typingTimer.current)
+      // No in-flight history read outlives the room either: its ticket is dead,
+      // so a late answer writes nothing.
+      historySeq.current += 1
     }
-  }, [channelId])
+  }, [channelId, loadHistory])
 
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight })
@@ -336,6 +364,32 @@ export function ChatPage({ channelId }: { channelId: string }): ReactElement {
             isSelf={meId !== null && m.user_id === meId}
           />
         ))}
+        {messages.length === 0 && loadFailed ? (
+          // Nothing on screen AND the read failed: say so, and offer the retry —
+          // an empty transcript over a failed load claims the room has no
+          // messages. Rows already on screen keep priority below (the same rule
+          // AttachmentsPanel applies): live frames that arrived are real rows,
+          // not a failure to hide.
+          <div
+            className={cm.flex({ direction: 'col', align: 'center', gap: 'sm' })}
+            role="alert"
+            data-mol-id="chat-history-load-failed"
+          >
+            <p className={cm.textSize('sm')}>
+              {t('chat.historyLoadFailed', undefined, {
+                defaultValue: "Could not load this room's history — try again.",
+              })}
+            </p>
+            <button
+              type="button"
+              onClick={() => void loadHistory()}
+              data-mol-id="chat-history-retry"
+              className={cm.button({ variant: 'ghost', size: 'sm' })}
+            >
+              {t('chat.retryHistory', undefined, { defaultValue: 'Try again' })}
+            </button>
+          </div>
+        ) : null}
         {typing && <TypingIndicator />}
       </div>
       <form

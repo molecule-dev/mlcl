@@ -737,4 +737,43 @@ describe('in-app-chat — a send is one message, and it clears only what it sent
 
     expect(text()).toContain('live hello')
   })
+
+  it('a NON-2xx history answer is a failed load, not an empty room — and the retry loads it', async () => {
+    await mount(createElement(ChatPage, { channelId: 'general' }))
+
+    // The failure body parses as happily as the page did, so the old
+    // `.then((r) => r.json())` never reached the catch: a 500 rendered an empty
+    // transcript — a room with no messages — over a load that never arrived.
+    await respond('/api/messages?channel_id=general', 500, { error: 'down' })
+    expect(text()).toContain("Could not load this room's history")
+
+    // The retry is on screen and re-requests the SAME room's history.
+    const retry = [...container.querySelectorAll('button')].find(
+      (b) => b.textContent === 'Try again',
+    )
+    if (!retry) throw new Error('no retry control rendered')
+    await act(async () => {
+      retry.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+    await flush()
+    expect(fetchCount('/api/messages?channel_id=general')).toBe(2)
+
+    // The retried read answers: the room's real history renders and the failure
+    // notice goes away.
+    await respond('/api/messages?channel_id=general', 200, [
+      { id: 'm-1', user_id: 'u-2', content: 'history hello', created_at: 't' },
+    ])
+    expect(text()).toContain('history hello')
+    expect(text()).not.toContain("Could not load this room's history")
+  })
+
+  it('a 2xx body that is not the message list is the same failed load', async () => {
+    await mount(createElement(ChatPage, { channelId: 'general' }))
+
+    // Coerced to `[]`, a shrunken rewrite's `{ error }` envelope claimed the
+    // room is empty. A body that is not the list is a FAILED load — an empty
+    // LIST stays the legitimately empty room it is.
+    await respond('/api/messages?channel_id=general', 200, { error: 'not a list' })
+    expect(text()).toContain("Could not load this room's history")
+  })
 })
