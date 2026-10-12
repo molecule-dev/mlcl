@@ -47,6 +47,10 @@ vi.mock('@molecule/app-ui', () => ({
 }))
 vi.mock('@molecule/app-react', () => ({
   useHttpClient: () => http,
+  useTranslation: () => ({
+    t: (_key: string, _values?: unknown, options?: { defaultValue?: string }) =>
+      options?.defaultValue ?? _key,
+  }),
 }))
 // The chip row is not what is under test: render a button per chip so a test can
 // drive `onToggle` (the shared component's REAL contract — a bare onClick).
@@ -248,5 +252,60 @@ describe('the reaction bar', () => {
     // The failed toggle released its slot: a retry issues a new write.
     await clickToggle('👍')
     expect(postCalls, 'the guard must not stick after a failure').toHaveLength(2)
+  })
+
+  it('discloses a 2xx body that is not the summary instead of rendering "nobody reacted"', async () => {
+    // A body without `counts` used to be destructured straight into state: the
+    // `Object.entries(undefined)` TypeError landed in the catches below, which
+    // swallow it — so the mock server's unmatched-fixture `{}` (a 2xx) rendered
+    // ZERO chips plus the picker, indistinguishable from "nobody reacted", and
+    // nothing anywhere said the summary never arrived.
+    await mount(createElement(ReactionBar, { resourceType: 'post', resourceId: 'p1' }))
+    await answerGet(0, { data: {} })
+
+    expect(
+      container.querySelector('[data-mol-id="reactions-load-failed"]'),
+      'a non-summary 2xx is a failed load, not an empty reaction list',
+    ).not.toBeNull()
+
+    // A real summary after the failure clears it (the positive twin).
+    await rerender(createElement(ReactionBar, { resourceType: 'post', resourceId: 'p2' }))
+    await answerGet(1, { data: { total: 1, counts: { '👍': 1 }, userReactions: [] } })
+    expect(container.querySelector('[data-mol-id="reactions-load-failed"]')).toBeNull()
+    expect(text()).toContain('👍1')
+  })
+
+  it('a failed summary load is disclosed too, and a failed resync keeps the chips', async () => {
+    await mount(createElement(ReactionBar, { resourceType: 'post', resourceId: 'p1' }))
+    await act(async () => {
+      getCalls[0]?.reject(new Error('offline'))
+    })
+    await flush()
+
+    expect(
+      container.querySelector('[data-mol-id="reactions-load-failed"]'),
+      'the rejection is a failure the reader must see',
+    ).not.toBeNull()
+
+    // The failure flag never erases chips that are on screen: a synced summary
+    // followed by a failed resync keeps the chips and does not flash the flag.
+    await rerender(createElement(ReactionBar, { resourceType: 'post', resourceId: 'p2' }))
+    await answerGet(1, { data: { total: 1, counts: { '🎉': 1 }, userReactions: [] } })
+    expect(text()).toContain('🎉1')
+    await clickToggle('🎉')
+    await act(async () => {
+      postCalls[0]?.resolve({ ok: true })
+    })
+    await flush()
+    await act(async () => {
+      getCalls.at(-1)?.reject(new Error('resync failed'))
+    })
+    await flush()
+
+    expect(text(), 'the last synced chips survive a failed resync').toContain('🎉1')
+    expect(
+      container.querySelector('[data-mol-id="reactions-load-failed"]'),
+      'a failed refresh with chips on screen keeps them (no flag over live data)',
+    ).toBeNull()
   })
 })

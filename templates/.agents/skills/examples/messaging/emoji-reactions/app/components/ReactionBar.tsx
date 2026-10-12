@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { type EmojiReaction, EmojiReactions } from '@molecule/app-emoji-reactions-react'
-import { useHttpClient } from '@molecule/app-react'
+import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { getClassMap } from '@molecule/app-ui'
+
+const cm = getClassMap()
 
 /**
  * The SUMMARY `@molecule/api-resource-reaction` returns — NOT the chip list the
@@ -9,6 +12,21 @@ import { useHttpClient } from '@molecule/app-react'
  * current viewer reacted with.
  */
 type ReactionSummary = { total: number; counts: Record<string, number>; userReactions: string[] }
+
+/**
+ * Whether a 2xx body is the summary the component reads. Destructuring an
+ * unvalidated body threw `Object.entries(undefined)` inside the load — and both
+ * call sites swallow that rejection, so a proxy rewrite (or the mock server's
+ * unmatched-fixture `{}`) rendered ZERO chips plus the picker: "nobody reacted"
+ * over a summary that never arrived. The two fields the chip mapping reads are
+ * what the gate covers.
+ */
+const isReactionSummary = (body: unknown): body is ReactionSummary =>
+  typeof body === 'object' &&
+  body !== null &&
+  typeof (body as ReactionSummary).counts === 'object' &&
+  (body as ReactionSummary).counts !== null &&
+  Array.isArray((body as ReactionSummary).userReactions)
 
 const QUICK_PICKS = ['👍', '❤️', '😂', '🎉', '😮', '😢']
 
@@ -28,8 +46,18 @@ export function ReactionBar({
   resourceType: string
   resourceId: string
 }) {
+  const { t } = useTranslation()
   const http = useHttpClient()
   const [reactions, setReactions] = useState<EmojiReaction[]>([])
+  /**
+   * Whether the newest load FAILED or answered a body that is not the summary.
+   * Without it the failure kept the empty chip list — indistinguishable from
+   * "nobody reacted" — and the catch below never said so. Only shown when
+   * there is no synced summary to keep: a failed REFRESH must not erase the
+   * chips that are on screen (the rule the sibling slices' failure flags
+   * follow).
+   */
+  const [loadFailed, setLoadFailed] = useState(false)
 
   // Only the newest summary request may write state: a `resourceId` change (or
   // a toggle's own resync) starts a new request while the previous one may
@@ -66,16 +94,32 @@ export function ReactionBar({
 
   const load = useCallback(async () => {
     const ticket = ++loadSeq.current
-    const res = await http.get<ReactionSummary>(`/api/${resourceType}/${resourceId}/reactions`)
-    if (ticket !== loadSeq.current) return // superseded by a newer request
-    const { counts, userReactions } = res.data
-    setReactions(
-      Object.entries(counts).map(([emoji, count]) => ({
-        emoji,
-        count,
-        reactedByMe: userReactions.includes(emoji),
-      })),
-    )
+    try {
+      const res = await http.get<ReactionSummary>(`/api/${resourceType}/${resourceId}/reactions`)
+      if (ticket !== loadSeq.current) return // superseded by a newer request
+      // A 2xx proves the route ANSWERED, not that the body is the summary. The
+      // gate above is what makes "not the summary" a FAILED load rather than a
+      // TypeError the old catch swallowed.
+      if (!isReactionSummary(res.data)) {
+        setLoadFailed(true)
+        return
+      }
+      setLoadFailed(false)
+      setReactions(
+        Object.entries(res.data.counts).map(([emoji, count]) => ({
+          emoji,
+          count,
+          reactedByMe: res.data.userReactions.includes(emoji),
+        })),
+      )
+    } catch (_error) {
+      // A failed load is DISCLOSED, not an empty chip list: the flag is what
+      // the reader sees instead of "nobody reacted". Only a request that is
+      // still the newest may report it — a superseded failure must not clobber
+      // the newer request's answer — and it never erases chips that are on
+      // screen (a failed refresh keeps the last synced summary).
+      if (ticket === loadSeq.current) setLoadFailed(true)
+    }
   }, [http, resourceType, resourceId])
 
   useEffect(() => {
@@ -85,10 +129,10 @@ export function ReactionBar({
     // for the new resource that fails left the PREVIOUS resource's counts — and
     // its "you reacted" chips — on screen as if they belonged to this one.
     setReactions([])
-    void load().catch(() => {
-      // A failed initial load keeps the empty chip list. The rejection must
-      // not escape the effect as an unhandled promise rejection.
-    })
+    setLoadFailed(false)
+    // `load` never rejects (its own catch reports the failure), so the
+    // fire-and-forget call has no rejection to escape the effect.
+    void load()
     return () => {
       // Invalidate whatever this resource still has in flight.
       loadSeq.current++
@@ -124,21 +168,29 @@ export function ReactionBar({
       if (mountedForRef.current.resourceType !== resourceType) return
       if (mountedForRef.current.resourceId !== resourceId) return
       // Resync from the server either way: chips reflect what actually landed
-      // (a toggle that did land is not double-counted by a retry).
-      await load().catch(() => {
-        // The summary is unreachable too — chips keep their last synced state.
-      })
+      // (a toggle that did land is not double-counted by a retry). `load`
+      // handles its own failure disclosure; a failed resync keeps the chips.
+      await load()
     } finally {
       togglingRef.current.delete(writeKey(emoji))
     }
   }
 
   return (
-    <EmojiReactions
-      reactions={reactions}
-      quickPicks={QUICK_PICKS}
-      onToggle={toggle}
-      onAdd={toggle}
-    />
+    <div className={cm.flex({ direction: 'col', gap: 'xs' })}>
+      <EmojiReactions
+        reactions={reactions}
+        quickPicks={QUICK_PICKS}
+        onToggle={toggle}
+        onAdd={toggle}
+      />
+      {loadFailed && reactions.length === 0 ? (
+        <span className={cm.textError} data-mol-id="reactions-load-failed">
+          {t('reactions.loadFailed', undefined, {
+            defaultValue: 'Could not load the reactions — refresh to try again.',
+          })}
+        </span>
+      ) : null}
+    </div>
   )
 }
