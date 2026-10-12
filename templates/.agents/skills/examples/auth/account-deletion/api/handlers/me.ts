@@ -58,18 +58,25 @@ router.delete('/', requireAuth, async (req, res) => {
     })
   }
 
-  await updateById('users', userId, {
-    deleted_at: new Date().toISOString(),
-    deletion_requested_by: userId,
-  })
-
-  // Audit-log this; users have a right to evidence of their own deletion.
-  // (Audit log table is shipped from compound/audit-log/.)
-  // await logAudit({ actorUserId: userId, actionType: 'account_deletion_requested', subjectTable: 'users', subjectId: userId })
-
-  // Sign the user out everywhere by deleting their device sessions. Molecule is
-  // JWT/device-token based — there is no req.session; each active session is a row
-  // in `devices`.
+  // Sign the user out everywhere by deleting their device sessions — BEFORE the
+  // soft-delete marker, deliberately. These two writes have no transaction
+  // across them, so a failure between them decides which PARTIAL state the
+  // caller is left in, and the order decides which partial state is reachable:
+  //
+  // - marker first (the old order): a failed purge left `deleted_at` SET — the
+  //   30-day hard-delete clock running — while every session stayed live and
+  //   the 500 told the user "it failed". The worst combination: the one write
+  //   that is hard to see from the outside had happened, and the security
+  //   purpose of the request (a stolen device signed out) was defeated while
+  //   the UI said nothing happened.
+  // - purge first: a failed marker leaves the sessions signed out and the
+  //   account still active. The 500 is then TRUE ("it failed"), the state is
+  //   the safe direction (a retry re-runs both writes; deleteMany is
+  //   WHERE-based, so devices created since are caught too), and the user who
+  //   was signing in again finds the deletion refused rather than running.
+  //
+  // Molecule is JWT/device-token based — there is no req.session; each active
+  // session is a row in `devices`.
   //
   // ONE round-trip, not findMany + a per-row deleteById: the loop paid one query
   // per device (a user with many sessions made the delete request wait on one
@@ -79,6 +86,16 @@ router.delete('/', requireAuth, async (req, res) => {
   // The same shape the nightly finalize-deletions job purges sessions with (see
   // jobs/finalize-deletions.ts).
   await deleteMany('devices', [{ field: 'userId', operator: '=', value: userId }])
+
+  await updateById('users', userId, {
+    deleted_at: new Date().toISOString(),
+    deletion_requested_by: userId,
+  })
+
+  // Audit-log this; users have a right to evidence of their own deletion.
+  // (Audit log table is shipped from compound/audit-log/.)
+  // await logAudit({ actorUserId: userId, actionType: 'account_deletion_requested', subjectTable: 'users', subjectId: userId })
+
   res.json({ ok: true, scheduled: 'hard delete in 30 days' })
 })
 

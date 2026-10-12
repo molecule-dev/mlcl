@@ -75,12 +75,13 @@ async function deleteAccount(userId: string): Promise<{
     },
   }
   const req = { body: { confirm_email: 'user@example.com' } }
-  let index = 0
-  const runNext = async (): Promise<void> => {
-    const handle = deleteMiddlewares[index++]
-    await handle(req, res, () => void runNext())
+  // Run the chain SEQUENTIALLY, awaiting each entry's promise. The recursive
+  // `next => void runNext()` shape this used discarded the terminal handler's
+  // promise — its REJECTION (the failure case below) never reached the caller,
+  // so the test could not observe the 500 the failure must produce.
+  for (const handle of deleteMiddlewares) {
+    await handle(req, res, () => undefined)
   }
-  await runNext()
   return res
 }
 
@@ -105,7 +106,7 @@ describe('account-deletion DELETE / — the session purge is one set delete', ()
     expect(database.deleteById).not.toHaveBeenCalled()
   })
 
-  it('several live devices are still one query, and the soft-delete marker is stamped first', async () => {
+  it('several live devices are still one query, and the purge lands BEFORE the marker', async () => {
     // findMany answering rows here proves nothing about the purge — a handler
     // that still read them would loop; the assertions above fail it either way.
     // They stay stubbed so the OLD shape (findMany → loop deleteById) would at
@@ -124,5 +125,36 @@ describe('account-deletion DELETE / — the session purge is one set delete', ()
       deleted_at: expect.any(String),
       deletion_requested_by: 'user-2',
     })
+    // …and AFTER the purge. The two writes share no transaction, so the order
+    // decides which partial state a failure between them leaves: a marker
+    // written before a failed purge scheduled the hard delete while every
+    // session stayed live, under a 500 that said the deletion failed — the
+    // security purpose defeated while the UI claimed nothing happened. Purge
+    // first, the reachable partial state is the safe one (sessions signed out,
+    // nothing scheduled, the 500 true).
+    const purgeAt = database.deleteMany.mock.invocationCallOrder[0]
+    const markerAt = database.updateById.mock.invocationCallOrder[0]
+    expect(purgeAt, 'the session purge must run before the soft-delete marker').toBeLessThan(
+      markerAt,
+    )
+  })
+
+  it('a failed session purge schedules nothing — the marker is never written past it', async () => {
+    // A ONCE rejection: the helper below re-stubs the permanent implementation
+    // as resolved on every call, and the once-impl is what the FIRST purge
+    // call consumes.
+    database.deleteMany.mockRejectedValueOnce(new Error('store unavailable'))
+
+    let thrown: unknown
+    try {
+      await deleteAccount('user-3')
+    } catch (error) {
+      thrown = error
+    }
+    expect(thrown, 'the purge failure must reject the handler (the 500 is honest)').toBeDefined()
+    expect(
+      database.updateById,
+      'no soft-delete marker may be stamped when the sign-out failed',
+    ).not.toHaveBeenCalled()
   })
 })
