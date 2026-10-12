@@ -59047,7 +59047,7 @@
       "@molecule/api-resource-activity-feed": "1.0.3",
       "@molecule/api-resource-address": "1.0.2",
       "@molecule/api-resource-ai-conversation": "1.0.3",
-      "@molecule/api-resource-ai-models": "1.15.1",
+      "@molecule/api-resource-ai-models": "1.15.2",
       "@molecule/api-resource-api-key": "1.0.2",
       "@molecule/api-resource-booking": "1.0.2",
       "@molecule/api-resource-bookmark": "1.0.3",
