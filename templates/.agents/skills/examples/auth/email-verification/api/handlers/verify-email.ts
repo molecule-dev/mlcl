@@ -63,11 +63,12 @@ router.post('/request', requireAuth, async (_req, res) => {
   }
   const plain = randomBytes(32).toString('hex')
   const tokenHash = hashToken(plain)
+  const createdAt = new Date().toISOString()
   await create('email_verification_tokens', {
     user_id: userId,
     token_hash: tokenHash,
     expires_at: new Date(Date.now() + TOKEN_TTL_MS).toISOString(),
-    created_at: new Date().toISOString(),
+    created_at: createdAt,
   })
   // SITE_ORIGIN is the app's public origin (the framework's password-reset emails +
   // the api-patterns env table use it). An email link MUST be absolute — a bare
@@ -114,8 +115,20 @@ router.post('/request', requireAuth, async (_req, res) => {
   // expired row goes away only when someone visits that exact link), so the
   // table held one permanent row per resend request ever made — the rate limit
   // above bounds the RATE of resends, never the total. Deleting the user's
-  // other tokens here leaves at most ONE outstanding link per user, and the
+  // other tokens here leaves at most ONE outstanding link per user: the
   // just-minted one is spared by the `token_hash != …` condition.
+  //
+  // The `created_at < …` condition is what keeps two OVERLAPPING requests from
+  // deleting each other's token. Two resends for the same user (two tabs, a
+  // retry while the first mail is slow) can both be parked inside their send
+  // with both rows already created; a supersede of "everything that is not
+  // mine" then removed the OTHER request's row too, and the second delete left
+  // ZERO rows — two delivered mails, neither link working. Scoping the delete
+  // to rows this request's own token PREDATES means the request that minted
+  // its row later always survives as the one outstanding link, whichever
+  // delete runs first. (Tokens minted in the same millisecond are spared by
+  // the strict `<` — two live links for one click of a second is harmless
+  // beside two dead ones.)
   //
   // Housekeeping only, and AFTER the mail went out: the link is already
   // delivered, so a store failure here must not turn a successful send into an
@@ -125,6 +138,7 @@ router.post('/request', requireAuth, async (_req, res) => {
     await deleteMany('email_verification_tokens', [
       { field: 'user_id', operator: '=', value: userId },
       { field: 'token_hash', operator: '!=', value: tokenHash },
+      { field: 'created_at', operator: '<', value: createdAt },
     ])
   } catch (cleanupError) {
     console.error('verify-email: could not drop the superseded verification tokens', {

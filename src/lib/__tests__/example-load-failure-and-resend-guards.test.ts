@@ -478,11 +478,73 @@ describe('verify-email POST /request — a failed send leaves no token behind', 
     const res = await postRequest()
 
     expect(res.body).toEqual({ ok: true })
-    const created = database.create.mock.calls[0][1] as { token_hash: string }
+    const created = database.create.mock.calls[0][1] as { token_hash: string; created_at: string }
     expect(database.deleteMany).toHaveBeenCalledWith('email_verification_tokens', [
       { field: 'user_id', operator: '=', value: 'user-1' },
       { field: 'token_hash', operator: '!=', value: created.token_hash },
+      { field: 'created_at', operator: '<', value: created.created_at },
     ])
+  })
+
+  it('two OVERLAPPING resends leave the newer link alive, never both dead', async () => {
+    // Two resends for the same user that overlap (each parked inside its send
+    // while the other's token row already exists) used to delete each other's
+    // token: every supersede removed "everything that is not mine", so with
+    // both creates ahead of both deletes the last delete also removed the only
+    // row with a delivered mail behind it — two mails, zero working links. A
+    // supersede may only remove rows the request's own token PREDATES, so the
+    // request that minted its row later survives whichever delete runs first.
+    database.findById.mockResolvedValue({ id: 'user-1', email: 'a@test.dev', emailVerified: false })
+
+    // A tiny in-memory table so the deletes actually remove rows.
+    const rows: Array<{ user_id: string; token_hash: string; created_at: string }> = []
+    const mintedHashes: string[] = []
+    database.create.mockImplementation(
+      async (_table: string, row: { user_id: string; token_hash: string; created_at: string }) => {
+        rows.push({ ...row })
+        mintedHashes.push(row.token_hash)
+        return { data: { id: row.token_hash }, affected: 1 }
+      },
+    )
+    database.deleteMany.mockImplementation(
+      async (_table: string, where: Array<{ field: string; operator: string; value: unknown }>) => {
+        const userId = where.find((c) => c.field === 'user_id')?.value as string
+        const notHash = where.find((c) => c.field === 'token_hash')?.value as string
+        const before = where.find((c) => c.field === 'created_at')?.value as string | undefined
+        for (let i = rows.length - 1; i >= 0; i--) {
+          const row = rows[i]!
+          if (row.user_id !== userId || row.token_hash === notHash) continue
+          if (before !== undefined && !(row.created_at < before)) continue
+          rows.splice(i, 1)
+        }
+        return { data: [], affected: 1 }
+      },
+    )
+    // The FIRST send parks (request A is mid-flight), so request B creates its
+    // row while A is still inside its send — the overlap.
+    let releaseFirst!: () => void
+    const firstSend = new Promise<void>((resolve) => {
+      releaseFirst = resolve
+    })
+    let sendCall = 0
+    emails.sendMail.mockImplementation(() => {
+      sendCall += 1
+      return sendCall === 1 ? firstSend : Promise.resolve(undefined)
+    })
+
+    const resAPromise = postRequest()
+    await flush()
+    const resB = await postRequest()
+    releaseFirst()
+    const resA = await resAPromise
+
+    expect(resB.body).toEqual({ ok: true })
+    expect(resA.body).toEqual({ ok: true })
+    // Exactly one link survives, and it is the LATER-minted one (B's) — not
+    // zero, which is what the mutual delete produced.
+    expect(mintedHashes).toHaveLength(2)
+    expect(rows).toHaveLength(1)
+    expect(rows[0]!.token_hash).toBe(mintedHashes[1])
   })
 
   it('a supersede that fails does not fail the send it followed', async () => {
