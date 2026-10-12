@@ -187,8 +187,13 @@ describe('AddressInput — picking a suggestion whose text is already the query'
     })
     await flush()
 
-    // The write-back itself is not an edit: no second lookup for it.
-    await new Promise((resolve) => setTimeout(resolve, 400))
+    // The write-back itself is not an edit: no second lookup for it. The wait
+    // must clear the component's own debounce (300 ms) by a real margin — on a
+    // loaded machine a REGRESSION's lookup fires when the debounce timer finally
+    // runs, and a wait that barely outlasts the debounce can be overtaken by
+    // exactly the scheduling delay that made it slow, so the assertion below
+    // passes over the missing guard it exists to catch.
+    await new Promise((resolve) => setTimeout(resolve, 1_200))
     await flush()
     expect(pending.requests).toHaveLength(1)
   })
