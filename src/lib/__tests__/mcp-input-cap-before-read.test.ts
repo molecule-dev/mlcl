@@ -1,7 +1,8 @@
 // @vitest-environment node
 /**
  * The pdf/image input caps are checked from the file's SIZE, never from the
- * bytes the server already allocated.
+ * bytes the server already allocated — and the stat must also refuse the
+ * files whose size cannot bound the read at all.
  *
  * `merge_pdfs` ("Up to 20 files, 8 MB each, 24 MB total"), `transform_image`
  * ("8 MB input") and `watermark_pdf` all read the whole local file with
@@ -16,6 +17,13 @@
  * called on it. The size is injected through the `statSync` double below (a
  * real 500 MB fixture would make this suite allocate 500 MB to prove the point,
  * and a sparse file of that size is read in full by the buggy version).
+ *
+ * The stat is also where the SHAPE is refused: `statSync().size` is 0 for a
+ * character device and a FIFO, so `/dev/zero` (readFileSync allocates forever)
+ * and a named pipe nobody writes (readFileSync blocks at open) passed every
+ * cap and then read synchronously on this single-threaded server — one tool
+ * argument froze every tool. A non-regular file must be refused from the same
+ * stat, before any read.
  *
  * @module
  */
@@ -34,11 +42,12 @@ const DEPS_MARKER = join(MCP_DIR, 'node_modules', 'execa', 'package.json')
 
 /**
  * What the doubles saw: every path `readFileSync` was called with, and the
- * stat size to report for a path that does not exist on disk.
+ * stat to report for a path whose stat this suite injects — a size, and
+ * whether the file is regular (a character device/FIFO is not).
  */
 const probe = vi.hoisted(() => ({
   reads: [] as string[],
-  statSizes: new Map<string, number>(),
+  stats: new Map<string, { size: number; isFile: () => boolean }>(),
 }))
 
 // A pass-through wrapper, so the numbers the caps are compared against can be
@@ -49,8 +58,8 @@ vi.mock('node:fs', async (importOriginal) => {
   return {
     ...actual,
     statSync: ((path: unknown, options?: unknown) => {
-      const injected = probe.statSizes.get(String(path))
-      if (injected !== undefined) return { size: injected }
+      const injected = probe.stats.get(String(path))
+      if (injected !== undefined) return injected
       return (actual.statSync as (p: unknown, o?: unknown) => unknown)(path, options)
     }) as typeof actual.statSync,
     readFileSync: ((path: unknown, ...rest: unknown[]) => {
@@ -120,7 +129,20 @@ function skipped(ctx: { skip: () => void }): boolean {
 /** A path that is over every cap, existing nowhere on disk. */
 const oversized = (name: string, bytes: number): string => {
   const path = join(tmpdir(), `mlcl-mcp-input-cap-${name}`)
-  probe.statSizes.set(path, bytes)
+  probe.stats.set(path, { size: bytes, isFile: () => true })
+  return path
+}
+
+/**
+ * A REAL file on disk whose injected stat says it is not regular — the shape a
+ * character device or FIFO reports (size 0, `isFile() === false`). The file
+ * exists because three of the tools check `existsSync` before the stat; the
+ * injected stat is what the stat itself answers.
+ */
+const nonRegular = (name: string): string => {
+  const path = join(tmpdir(), `mlcl-mcp-input-cap-${name}`)
+  if (!existsSync(path)) writeFileSync(path, 'not a regular file according to its stat')
+  probe.stats.set(path, { size: 0, isFile: () => false })
   return path
 }
 
@@ -243,6 +265,80 @@ describe('an input over the advertised cap is refused from its size', () => {
 
     expect(result.isError).toBe(true)
     expect(textOf(result)).toContain(`Cannot read ${missing}`)
+  })
+})
+
+describe('an input whose size cannot bound the read is refused from its stat', () => {
+  it.each(['merge_pdfs', 'watermark_pdf', 'transform_image'])(
+    '%s refuses a non-regular file without reading it',
+    async (tool, ctx) => {
+      if (skipped(ctx)) return
+      // statSync().size is 0 for a character device / FIFO — under every cap —
+      // and readFileSync on one never ends (a FIFO with no writer blocks at
+      // open; /dev/zero allocates forever) ON the single-threaded server. The
+      // refusal must come from the stat, and no read may start.
+      const device = nonRegular('zero.pdf')
+
+      const args: Record<string, unknown> =
+        tool === 'merge_pdfs'
+          ? {
+              input_files: [device],
+              output_file: join(tmpdir(), 'mlcl-mcp-input-cap-nr-merge.pdf'),
+            }
+          : tool === 'watermark_pdf'
+            ? {
+                input_file: device,
+                text: 'CONFIDENTIAL',
+                output_file: join(tmpdir(), 'mlcl-mcp-input-cap-nr-wm.pdf'),
+              }
+            : {
+                input_file: device,
+                output_file: join(tmpdir(), 'mlcl-mcp-input-cap-nr-tr.png'),
+                ops: [{ op: 'resize', width: 10 }],
+              }
+      const result = await callTool(tool, args)
+
+      expect(result.isError, 'a non-regular input is refused').toBe(true)
+      expect(textOf(result)).toContain('not a regular file')
+      expect(probe.reads, 'the refusal must not need the file’s bytes').not.toContain(device)
+    },
+  )
+
+  it.each(['transcribe_audio', 'extract_text', 'moderate_content'])(
+    '%s refuses a non-regular file without reading it',
+    async (tool, ctx) => {
+      if (skipped(ctx)) return
+      const device = nonRegular(tool === 'transcribe_audio' ? 'zero.mp3' : 'zero.png')
+
+      const args: Record<string, unknown> =
+        tool === 'transcribe_audio'
+          ? { file: device }
+          : tool === 'extract_text'
+            ? { image_file: device }
+            : { image_file: device }
+
+      const result = await callTool(tool, args)
+
+      expect(result.isError, 'a non-regular input is refused').toBe(true)
+      expect(textOf(result)).toContain('not a regular file')
+      expect(probe.reads, 'the refusal must not need the file’s bytes').not.toContain(device)
+    },
+  )
+
+  it('the real /dev/null is refused as a non-regular file when it exists', async (ctx) => {
+    if (skipped(ctx)) return
+    // The injected stats above prove the order; this proves the gate on a REAL
+    // character device, whose stat is Node's own. /dev/null reads empty (it
+    // would not hang), so a server without the gate answers something else.
+    // transcribe_audio is the one input tool with no extension gate in front
+    // of the stat.
+    if (!existsSync('/dev/null')) return ctx.skip()
+
+    const result = await callTool('transcribe_audio', { file: '/dev/null' })
+
+    expect(result.isError).toBe(true)
+    expect(textOf(result)).toContain('not a regular file')
+    expect(probe.reads).not.toContain('/dev/null')
   })
 })
 

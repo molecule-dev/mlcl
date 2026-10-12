@@ -13,7 +13,7 @@
  * Read-heavy tools are safe by construction; the scaffold tool only ever runs
  * `mlcl create --no-interactive` with explicit arguments.
  */
-import { existsSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, rmSync, type Stats, statSync, writeFileSync } from 'node:fs'
 import { basename, dirname, extname, join, resolve } from 'node:path'
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
@@ -58,6 +58,26 @@ const CLI_TIMEOUT_MS = ((): number => {
 })()
 
 /**
+ * A caller-controlled string bounded for an error message or a tool result.
+ *
+ * Several tool arguments have no natural length bound because their real shape
+ * has none (`directory` is any path, `import_transcripts` carries up to 200 of
+ * them, `db query` a whole statement) — and every one of them lands in a
+ * message the MCP client reads: a thrown error's text, or the fallback label a
+ * failed run quotes. Echoed unbounded, the caller dictates this server's own
+ * output size — a five-megabyte `directory` came back as a five-megabyte tool
+ * error per call, the same caller-sized copy the `read_package_doc` name cap
+ * exists to prevent. 300 characters is far past any path or argv worth
+ * diagnosing with; the tail names the shape so the reader knows it was cut.
+ *
+ * @param value - The caller-controlled text to echo.
+ * @returns The text, cut to the echo budget when it exceeds it.
+ */
+function echoOf(value: string): string {
+  return value.length <= 300 ? value : `${value.slice(0, 300)}…(echo truncated)`
+}
+
+/**
  * Run the `mlcl` CLI and return its stdout.
  *
  * `redactOutput` withholds the CHILD'S OUTPUT from the failure message. A
@@ -78,7 +98,8 @@ const CLI_TIMEOUT_MS = ((): number => {
  * leak {@link readEnvList}'s `redactOutput` closes one tool over, reached
  * through argv instead of output. The few call sites whose argv carries a secret
  * pass a label naming the command without it; every other tool keeps the full
- * argv, which is the more useful diagnostic.
+ * argv, which is the more useful diagnostic — bounded to an echo, see
+ * {@link echoOf}.
  *
  * @param args - The CLI argv.
  * @param cwd - Working directory for the child.
@@ -91,8 +112,12 @@ async function runCli(
   cwd?: string,
   options: { redactOutput?: boolean; label?: string } = {},
 ): Promise<string> {
-  const labelled = options.label ?? `mlcl ${args.join(' ')}`
-  if (cwd && !existsSync(cwd)) throw new Error(`mlcl ${args[0]}: directory does not exist: ${cwd}`)
+  // The label built from argv is caller-sized (transcript paths, SQL
+  // statements), so the echo is bounded here where every message below is
+  // built — the tools whose argv carries a secret pass their own `label`.
+  const labelled = options.label ?? echoOf(`mlcl ${args.join(' ')}`)
+  if (cwd && !existsSync(cwd))
+    throw new Error(`mlcl ${args[0]}: directory does not exist: ${echoOf(cwd)}`)
   // `reject: false` makes execa RESOLVE a cannot-spawn failure rather than
   // reject it (verified against execa 10: `failed: true`, NO exit code, and its
   // own `spawn <bin> ENOENT` in `originalMessage`), so a missing CLI arrives at
@@ -433,6 +458,41 @@ function decodeServicePayload(data: string | undefined, what: string): Buffer {
 }
 
 /**
+ * Stat a local input file this server is about to read whole, refusing
+ * whatever `readFileSync` cannot bound.
+ *
+ * The size caps every input tool advertises ("up to 12 MB", "8 MB input") are
+ * read from `statSync().size` — and that field is 0 for a character device and
+ * a FIFO, so `/dev/zero` (readFileSync allocates forever) and a named pipe
+ * nobody writes (readFileSync blocks at open until a writer appears) passed
+ * every cap and then read synchronously ON this single-threaded server: one
+ * tool argument froze every tool for every client, or OOM-killed the process.
+ * `stat` sees the shape even when it cannot see a size, so a non-regular file
+ * is refused here, at the same stat the size cap reads.
+ *
+ * @param resolved - The resolved input path.
+ * @param display - The path as the caller names it in messages.
+ * @returns The stat, size included, once the file is one `readFileSync` can bound.
+ * @throws ServiceCallError when the path cannot be stat'ed or is not a regular file.
+ */
+function statInputFileSync(resolved: string, display: string): Stats {
+  let stat: Stats
+  try {
+    stat = statSync(resolved)
+  } catch (error) {
+    throw new ServiceCallError(
+      `Cannot read ${display}${error instanceof Error ? `: ${error.message}` : '.'}`,
+    )
+  }
+  if (!stat.isFile()) {
+    throw new ServiceCallError(
+      `${display} is not a regular file — this tool reads regular files only.`,
+    )
+  }
+  return stat
+}
+
+/**
  * Read a local input file that must be under `maxBytes`, from a `statSync`
  * BEFORE the bytes are allocated.
  *
@@ -444,7 +504,9 @@ function decodeServicePayload(data: string | undefined, what: string): Buffer {
  * the pdf and image readers did not. `statSync` on a path that cannot be
  * stat'ed (missing, a directory we have no permission to list) and a read that
  * fails for any other reason both report `cannotRead` — the caller's own
- * message, so each tool keeps naming its input the way it always has.
+ * message, so each tool keeps naming its input the way it always has. A path
+ * whose size cannot bound the read at all (a character device, a FIFO — see
+ * {@link statInputFileSync}) is refused from the same stat.
  *
  * @param resolved - The resolved path to read.
  * @param display - The path as the caller names it in messages.
@@ -458,19 +520,14 @@ function readCappedFileSync(
   maxBytes: number,
   overCap: (bytes: number) => string,
 ): Buffer {
-  const cannotRead = (error: unknown): string =>
-    `Cannot read ${display}${error instanceof Error ? `: ${error.message}` : '.'}`
-  let size: number
-  try {
-    size = statSync(resolved).size
-  } catch (error) {
-    throw new ServiceCallError(cannotRead(error))
-  }
+  const size = statInputFileSync(resolved, display).size
   if (size > maxBytes) throw new ServiceCallError(overCap(size))
   try {
     return readFileSync(resolved)
   } catch (error) {
-    throw new ServiceCallError(cannotRead(error))
+    throw new ServiceCallError(
+      `Cannot read ${display}${error instanceof Error ? `: ${error.message}` : '.'}`,
+    )
   }
 }
 
@@ -1019,7 +1076,10 @@ server.registerTool(
     description:
       'Return one variable from the project .env (api/.env in a full-stack scaffold; app=true targets app/.env). MASKED by default — pass reveal=true only when the caller truly needs the value (e.g. to hand to a spawned process), so secrets stay out of the chat.',
     inputSchema: {
-      key: z.string().describe('Variable name'),
+      // Bounded like the sibling `read_package_doc` name: the key is echoed
+      // verbatim into the "not set" answer, so an unbounded one let the caller
+      // size this tool's own output.
+      key: z.string().max(200).describe('Variable name'),
       app: z.boolean().optional().describe('Target app/.env instead of api/.env'),
       reveal: z.boolean().optional().describe('Return the unmasked value (default false)'),
       directory: z.string().optional().describe('Project directory (default cwd)'),
@@ -1043,7 +1103,9 @@ server.registerTool(
     description:
       'Create or update one KEY=VALUE in the project .env (api/.env in a full-stack scaffold, .env otherwise; app=true targets app/.env). Use check_env_vars first to see which keys the app actually needs.',
     inputSchema: {
-      key: z.string().describe('Variable name, e.g. STRIPE_SECRET_KEY'),
+      // Bounded like get_env_var's: the key rides the failure `label`
+      // (`mlcl env set KEY …`) that a no-output failure quotes.
+      key: z.string().max(200).describe('Variable name, e.g. STRIPE_SECRET_KEY'),
       value: z.string().describe('Value (single line)'),
       app: z.boolean().optional().describe('Target app/.env instead of api/.env'),
       directory: z.string().optional().describe('Project directory (default cwd)'),
@@ -1067,7 +1129,9 @@ server.registerTool(
     description:
       'Comment out one variable in the project .env (the value stays in the file as a comment, so it is recoverable by hand).',
     inputSchema: {
-      key: z.string().describe('Variable name to remove'),
+      // Bounded like get_env_var's — the key is echoed into the command's
+      // output this tool hands back verbatim.
+      key: z.string().max(200).describe('Variable name to remove'),
       app: z.boolean().optional().describe('Target app/.env instead of api/.env'),
       directory: z.string().optional().describe('Project directory (default cwd)'),
     },
@@ -1443,7 +1507,7 @@ server.registerTool(
     serviceResult(async () => {
       const path = resolve(file)
       if (!existsSync(path)) throw new ServiceCallError(`No file at ${path}.`)
-      const size = statSync(path).size
+      const size = statInputFileSync(path, path).size
       if (size > 12 * 1024 * 1024) {
         throw new ServiceCallError(
           `The file is ${size} bytes; the limit is 12 MB. Split it into shorter clips.`,
@@ -1526,7 +1590,7 @@ server.registerTool(
         if (!mimeType)
           throw new ServiceCallError('image_file must be .png, .jpg, .jpeg, .webp or .gif.')
         if (!existsSync(path)) throw new ServiceCallError(`No file at ${path}.`)
-        if (statSync(path).size > 4 * 1024 * 1024) {
+        if (statInputFileSync(path, path).size > 4 * 1024 * 1024) {
           throw new ServiceCallError('The image is larger than 4 MB.')
         }
         return JSON.stringify(
@@ -1567,7 +1631,7 @@ server.registerTool(
       if (!mimeType)
         throw new ServiceCallError('image_file must be .png, .jpg, .jpeg, .webp or .gif.')
       if (!existsSync(path)) throw new ServiceCallError(`No file at ${path}.`)
-      const size = statSync(path).size
+      const size = statInputFileSync(path, path).size
       if (size > 8 * 1024 * 1024) {
         throw new ServiceCallError('The image is larger than 8 MB. Downscale or split it first.')
       }
@@ -1870,7 +1934,9 @@ server.registerTool(
         // reporting the limit.
         let buf: Buffer
         try {
-          const size = statSync(resolved).size
+          // The same stat refuses what a size alone cannot bound (a character
+          // device reports size 0 and reads forever — see statInputFileSync).
+          const size = statInputFileSync(resolved, path).size
           if (size > MERGE_MAX_FILE_BYTES) {
             throw new ServiceCallError(`${path} is ${size} bytes; the limit is 8 MB per file.`)
           }
