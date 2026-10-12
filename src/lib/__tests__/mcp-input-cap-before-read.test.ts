@@ -269,7 +269,7 @@ describe('an input over the advertised cap is refused from its size', () => {
 })
 
 describe('an input whose size cannot bound the read is refused from its stat', () => {
-  it.each(['merge_pdfs', 'watermark_pdf', 'transform_image'])(
+  it.for(['merge_pdfs', 'watermark_pdf', 'transform_image'])(
     '%s refuses a non-regular file without reading it',
     async (tool, ctx) => {
       if (skipped(ctx)) return
@@ -304,7 +304,7 @@ describe('an input whose size cannot bound the read is refused from its stat', (
     },
   )
 
-  it.each(['transcribe_audio', 'extract_text', 'moderate_content'])(
+  it.for(['transcribe_audio', 'extract_text', 'moderate_content'])(
     '%s refuses a non-regular file without reading it',
     async (tool, ctx) => {
       if (skipped(ctx)) return

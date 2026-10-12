@@ -81,6 +81,11 @@ jobs:
       # toolchain versions diverge from the pinned deps — a dep-consistency gate.
       # With the molecule sibling present it now enforces the fleet↔molecule half
       # too, instead of skipping it for want of a checkout.
+      # The molecule-mcp suites drive the real server through the MCP SDK, which
+      # lives in mcp/'s own node_modules (mcp/ is a separate package, not a
+      # workspace member). Without it those suites skip, and a skip passes.
+      - run: npm ci
+        working-directory: mlcl/mcp
       - run: npm test
         working-directory: mlcl
 
