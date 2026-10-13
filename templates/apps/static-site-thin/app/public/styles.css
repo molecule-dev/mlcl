@@ -70,10 +70,14 @@ a:hover {
 
 /* One shell for every page that is not a post: the front page, the tag pages
    and the about page share one width, so their content starts at the same left
-   edge. To widen the front page, change --measure (or this rule) — never a
-   `.site:has(.post-list)`-style rule that widens one page, which leaves the tag
-   and about pages starting further right. Only post pages widen, for the notes
-   (`.site:has([data-mn-has-notes])` below). */
+   edge. That width is --measure, the READING width: the front page's post list
+   is no wider than a post's prose, and the about page's text starts where the
+   list does. So keep --measure a reading measure (about 36–46rem); do not
+   widen it for a bolder front page and then narrow `.prose` or the about text
+   back with its own max-width + `margin: auto` — the list grows wider than the
+   posts and the centred column starts further right than the list. Never add a
+   `.site:has(.post-list)`-style rule that widens one page either. Only post
+   pages widen, for the notes (`.site:has([data-mn-has-notes])` below). */
 .site {
   max-width: calc(var(--measure) + 2 * var(--gutter));
   margin: 0 auto;

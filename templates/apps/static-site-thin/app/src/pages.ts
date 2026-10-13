@@ -174,6 +174,8 @@ function postCard(site: Site, post: Post): string {
  *
  * @param provenance - The post's provenance.
  * @returns The line, e.g. "41% of the words were written by an AI, from 12 prompts".
+ *   A post without transcripts gets "Every word of this post was written by a
+ *   person." — the site's rule (see src/provenance.ts), never a hedge.
  */
 export function aiShareLine(provenance: Provenance): string {
   const count = provenance.prompts.length

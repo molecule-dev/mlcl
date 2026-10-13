@@ -135,10 +135,11 @@ describe('content rules', () => {
 
 describe('provenance', () => {
   it('a post without transcripts says, on its page, that a person wrote it', async () => {
-    // With no transcript the post is 100% human and the page says so — not
-    // "authorship unknown" or "could not be checked": no transcript means no
-    // AI words to attribute (X0 retest, 2026-10-13: two builds rewrote this
-    // line into a hedge and failed the post's acceptance check).
+    // The site's rule: transcripts are how AI writing enters a post, so a post
+    // with none was written by its author — 100% human, and the page says so.
+    // Not "unverified", "authorship unknown" or "could not be checked": that
+    // hedge doubts every hand-written post. Keep this test as it is; change the
+    // rule only if the site's owner asks for a different one.
     const root = appWith({ 'plain.md': post('Plain', '2026-01-02') })
     const outDir = mkdtempSync(join(tmpdir(), 'thin-dist-'))
     await buildSite({ root, outDir })

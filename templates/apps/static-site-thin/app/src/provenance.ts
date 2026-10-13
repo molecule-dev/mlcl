@@ -19,6 +19,12 @@
  * that has no real transcript simply has no folder, and the build marks every
  * block `human`, which the page states as "written by a person".
  *
+ * That statement is the site's rule, not a guess: transcripts are how AI
+ * writing enters a post on this site, so a post with none was written by its
+ * author, and the page says so plainly. Do not reword it into "unverified",
+ * "unknown" or "authorship could not be checked" — that casts doubt on every
+ * post its author wrote by hand. `build.test.ts` holds the wording.
+ *
  * The attribution is `@molecule/api-text-provenance` with its word-overlap bond;
  * the transcripts are read by `@molecule/api-agent-transcript-autodetect`. To
  * show provenance on a page, call `postProvenance()` from src/pages.ts —
