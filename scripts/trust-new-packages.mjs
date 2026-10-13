@@ -144,7 +144,10 @@ async function trust(pkg) {
       },
     )
     const text = (await res.text()).slice(0, 300)
-    if (res.ok || /already|duplicate/i.test(text)) return true
+    if (res.ok || /already|duplicate/i.test(text)) {
+      console.log(`  trust ${pkg.name}: ${res.status} ${text}`)
+      return true
+    }
     if (attempt === 0 && (res.status === 401 || otpRefused(text))) {
       otp = await ask(`trusting ${pkg.name} (the last code was refused)`)
       continue
@@ -155,10 +158,42 @@ async function trust(pkg) {
   return false
 }
 
+/**
+ * Remove a package's existing trust links for this repo, printing what was
+ * there. A POST beside an older link for the same repo + workflow answers
+ * "already" and leaves the old link — and its narrower permissions — in place:
+ * mlcl's re-trust reported success and CI's publish still got 403.
+ */
+async function clearTrust(pkg) {
+  const otp = await ask(`reading ${pkg.name}'s trust links`)
+  const url = `https://registry.npmjs.org/-/package/${pkg.name.replace('/', '%2f')}/trust`
+  const headers = { authorization: `Bearer ${token}`, accept: 'application/json', 'npm-otp': otp }
+  const res = await fetch(url, { headers, signal: AbortSignal.timeout(20_000) })
+  const text = await res.text()
+  if (!res.ok) {
+    console.error(`✗ list ${pkg.name}'s trust links: ${res.status} ${text.slice(0, 300)}`)
+    return false
+  }
+  const links = JSON.parse(text)
+  console.log(`${pkg.name} trust links now: ${JSON.stringify(links)}`)
+  for (const link of Array.isArray(links) ? links : []) {
+    if (link.type !== 'github' || link.claims?.repository !== REPO) continue
+    const del = await fetch(`${url}/${encodeURIComponent(link.id)}`, {
+      method: 'DELETE',
+      headers,
+      signal: AbortSignal.timeout(20_000),
+    })
+    console.log(`  removed link ${link.id}: ${del.status} ${(await del.text()).slice(0, 200)}`)
+    if (!del.ok) return false
+  }
+  return true
+}
+
 let failed = false
 for (const pkg of retrust) {
-  if (await trust(pkg)) console.log(`✓ ${pkg.name} trusts ${REPO} ${WORKFLOW}`)
-  else failed = true
+  if ((await clearTrust(pkg)) && (await trust(pkg))) {
+    console.log(`✓ ${pkg.name} trusts ${REPO} ${WORKFLOW}`)
+  } else failed = true
 }
 for (const pkg of missing) {
   if (!(await publishFirst(pkg))) {
