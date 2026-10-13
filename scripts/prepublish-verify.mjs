@@ -242,18 +242,27 @@ for (const p of files) {
 }
 if (contentClean) ok(`${scanned} text files clean`)
 
-// ── 4. history depth ─────────────────────────────────────────────────────────
+// ── 4. history root ──────────────────────────────────────────────────────────
+// The public history starts at one fresh commit (2026-09-18); the pre-wipe
+// history lives only in the private archive. What must hold is that the
+// history has exactly that ROOT — nothing dated before it. A commit COUNT
+// cannot tell the two apart: the fresh history itself passed 200 commits in
+// a fortnight, and the old >200 check then blocked every publish.
 console.log('git history:')
-const depth = parseInt(
-  execFileSync('git', ['rev-list', '--count', 'HEAD'], { encoding: 'utf8' }),
-  10,
-)
-if (depth > 200 && !process.env.MLCL_ALLOW_DEEP_HISTORY) {
+const FRESH_ROOT_DATE = '2026-09-18'
+const roots = execFileSync('git', ['rev-list', '--max-parents=0', 'HEAD'], { encoding: 'utf8' })
+  .trim()
+  .split('\n')
+  .filter(Boolean)
+const oldest = execFileSync('git', ['log', '--reverse', '--format=%cs', 'HEAD'], {
+  encoding: 'utf8',
+}).split('\n')[0]
+if ((roots.length !== 1 || oldest < FRESH_ROOT_DATE) && !process.env.MLCL_ALLOW_DEEP_HISTORY) {
   fail(
-    `history depth ${depth} > 200 — public history started fresh on 2026-09-18; a count this large means the pre-wipe history came back or the wrong repo is being published (set MLCL_ALLOW_DEEP_HISTORY=1 only if intentionally shipping deep history)`,
+    `history has ${roots.length} root(s) and a commit dated ${oldest} — the public history must start at the single fresh commit of ${FRESH_ROOT_DATE}; the pre-wipe history came back or the wrong repo is being published (set MLCL_ALLOW_DEEP_HISTORY=1 only if intentionally shipping deep history)`,
   )
 } else {
-  ok(`depth ${depth}`)
+  ok(`one root, oldest commit ${oldest}`)
 }
 
 console.log(failed ? '\nPREPUBLISH BLOCKED — fix the findings above' : '\nprepublish checks passed')
