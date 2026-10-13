@@ -6,10 +6,10 @@ staged with exact copy so submission is paste-and-click.
 ## Canonical listing copy
 
 - **Name:** `molecule` (server `molecule-mcp`) · **Display:** Molecule.dev
-- **Tagline:** Build production full-stack apps from 1000+ composable, swappable packages — scaffold, extend, and swap providers with one command.
+- **Tagline:** Build production full-stack apps from 1025+ composable, swappable packages — scaffold, extend, and swap providers with one command.
 - **Short description (≤100 chars):** Scaffold, extend, and provider-swap production full-stack apps with Molecule.
 - **Long description:**
-  > Molecule.dev scaffolds real, production-grade TypeScript apps from 1000+ composable `@molecule/*` packages behind swappable bonds. This server gives your agent structured tools to search the package fleet, list 152+ flagship app templates, scaffold projects unattended, add/wire packages, swap providers without rewrites, and read each package's generated docs — plus the molecule conventions as a resource (`molecule://conventions`) and a self-install tool for your project's agent files.
+  > Molecule.dev scaffolds real, production-grade TypeScript apps from 1025+ composable `@molecule/*` packages behind swappable bonds. This server gives your agent structured tools to search the package fleet, list 152+ flagship app templates, scaffold projects unattended, add/wire packages, swap providers without rewrites, and read each package's generated docs — plus the molecule conventions as a resource (`molecule://conventions`) and a self-install tool for your project's agent files.
 - **Tags/categories:** scaffolding, boilerplate, fullstack, code-generation, typescript, developer-tools
 - **Links:** repo `github.com/molecule-dev/mlcl` · npm `npmjs.com/package/molecule-mcp` · site `molecule.dev` · docs `…/blob/main/docs/AGENTS-AND-HARNESSES.md`
 - **Install line:** `npx mlcl mcp install` (or the standard entry `npx -y molecule-mcp`)

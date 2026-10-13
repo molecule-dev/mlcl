@@ -1,6 +1,6 @@
 # mlcl — the Molecule.dev CLI
 
-Scaffold and manage production full-stack apps from 1000+ composable,
+Scaffold and manage production full-stack apps from 1025+ composable,
 swappable `@molecule/*` packages.
 
 `mlcl create` gives you a real, conventional TypeScript project — Express API,
