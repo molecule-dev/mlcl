@@ -48,3 +48,7 @@ to delete it) — do not "clean it up".
   build, unit, e2e — discovered from this project's own scripts) and prints
   one compact report with the first actionable errors. Use it before handing
   work back.
+- **The tests that came with the template are the app's rules.** When one
+  fails after your change, fix the code — do not edit, invert or delete the
+  test to match what you built. Change a shipped test only when the user asks
+  for different behavior, and say which test you changed and why.
