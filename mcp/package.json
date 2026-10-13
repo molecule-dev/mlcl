@@ -10,8 +10,8 @@
     "node": ">=22"
   },
   "bin": {
-    "molecule-mcp": "./bin/run.js",
-    "molecule-mcp-serve": "./bin/serve.js"
+    "molecule-mcp": "bin/run.js",
+    "molecule-mcp-serve": "bin/serve.js"
   },
   "files": [
     "/bin",

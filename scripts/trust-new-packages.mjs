@@ -3,24 +3,25 @@
  * Make this repo's never-published packages publishable by CI — once, before
  * their first release. The same step as molecule's `npm run trust:new`.
  *
- * npm's trusted publishing (OIDC) needs a trust link on the package, and the
- * link can exist BEFORE the package does: the trust endpoint accepts the
- * permission pair `createPackage` + `createStagedPackage`, which is what lets a
- * brand-new name's FIRST version publish from CI. (`npm trust github
- * --allow-publish` sends `createPackage` alone, which 404s for a missing name —
- * the reason this repo's release notes once said a first publish needed a
- * local `npm publish`.) The endpoint wants the owner's `npm login` session and
- * a current 2FA code; one code covers every call inside its window.
+ * npm's trust endpoint requires the package to EXIST ("Package MUST exist" in
+ * its API docs; a brand-new name answers `404 Package not found`, whatever
+ * permissions are sent), and the OIDC exchange answers 404 for a name with
+ * neither — so a first version has no OIDC path (npm/cli#8544). This does the
+ * one-time part from the owner's `npm login` session and 2FA code: publish the
+ * first version, then trust GitHub Actions for this repo's release.yml. Every
+ * later version publishes from CI over OIDC with no code.
  *
- *   npm run trust:new           # trust every package npm has never seen
+ *   npm run trust:new           # publish + trust every package npm has never seen
  *   npm run trust:new -- --list # report only, never prompt
  *
- * After it succeeds, dispatch the Release workflow; it publishes the package
- * over OIDC like every later version.
+ * A package marked `"private": true` (molecule-mcp keeps that guard so nothing
+ * publishes it by accident) is published from a staged copy with the flag
+ * removed; the working tree is never edited.
  */
-import { existsSync, readFileSync } from 'node:fs'
-import { homedir } from 'node:os'
-import { join } from 'node:path'
+import { execFileSync, spawnSync } from 'node:child_process'
+import { cpSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { homedir, tmpdir } from 'node:os'
+import { dirname, join } from 'node:path'
 import { createInterface } from 'node:readline/promises'
 
 const ROOT = new URL('..', import.meta.url).pathname
@@ -29,20 +30,23 @@ const WORKFLOW = 'release.yml'
 // Every package this repo publishes (release.yml publishes these two).
 const MANIFESTS = ['package.json', 'mcp/package.json']
 
-const names = MANIFESTS.map((m) => JSON.parse(readFileSync(join(ROOT, m), 'utf8')).name)
+const pkgs = MANIFESTS.map((m) => ({
+  dir: dirname(join(ROOT, m)),
+  ...JSON.parse(readFileSync(join(ROOT, m), 'utf8')),
+}))
 const missing = []
-for (const name of names) {
-  const res = await fetch(`https://registry.npmjs.org/${name.replace('/', '%2f')}`, {
+for (const pkg of pkgs) {
+  const res = await fetch(`https://registry.npmjs.org/${pkg.name.replace('/', '%2f')}`, {
     signal: AbortSignal.timeout(20_000),
   })
-  if (res.status === 404) missing.push(name)
-  else if (!res.ok) throw new Error(`npm registry answered ${res.status} for ${name}`)
+  if (res.status === 404) missing.push(pkg)
+  else if (!res.ok) throw new Error(`npm registry answered ${res.status} for ${pkg.name}`)
 }
 if (!missing.length) {
-  console.log(`Nothing to do: npm already has ${names.join(', ')}.`)
+  console.log(`Nothing to do: npm already has ${pkgs.map((p) => p.name).join(', ')}.`)
   process.exit(0)
 }
-console.log(`Never published: ${missing.join(', ')}`)
+console.log(`Never published: ${missing.map((p) => `${p.name}@${p.version}`).join(', ')}`)
 if (process.argv.includes('--list')) process.exit(0)
 if (!process.stdin.isTTY) {
   console.error('No terminal for the 2FA prompt — run `npm run trust:new` from a shell.')
@@ -61,12 +65,52 @@ if (!token) {
 }
 
 const rl = createInterface({ input: process.stdin, output: process.stdout })
-let otp = (await rl.question('npm 2FA code (6 digits): ')).trim()
-let failed = false
-for (const name of missing) {
+const ask = async (label) => (await rl.question(`npm 2FA code for ${label} (6 digits): `)).trim()
+const otpRefused = (text) => /one-time password|\be?otp\b|two-factor|2fa/i.test(text)
+
+/** Build, stage without the private guard, and publish one package's first version. */
+async function publishFirst(pkg) {
+  console.log(`\n${pkg.name}: building and publishing ${pkg.version}`)
+  if (pkg.scripts?.build) execFileSync('npm', ['run', 'build'], { cwd: pkg.dir, stdio: 'inherit' })
+  const stage = mkdtempSync(join(tmpdir(), 'trust-new-'))
+  try {
+    cpSync(pkg.dir, stage, {
+      recursive: true,
+      filter: (src) => !/[/\\](node_modules|\.git)([/\\]|$)/.test(src),
+    })
+    const manifest = JSON.parse(readFileSync(join(stage, 'package.json'), 'utf8'))
+    delete manifest.private
+    writeFileSync(join(stage, 'package.json'), `${JSON.stringify(manifest, null, 2)}\n`)
+    let otp = await ask(`publishing ${pkg.name}`)
+    for (let attempt = 0; attempt < 2; attempt++) {
+      // --ignore-scripts: the build already ran above in the real tree, and the
+      // staged copy has no node_modules for a prepare/prepublish hook to use.
+      const r = spawnSync(
+        'npm',
+        ['publish', '--access', 'public', '--ignore-scripts', '--otp', otp],
+        { cwd: stage, encoding: 'utf8' },
+      )
+      const out = `${r.stdout ?? ''}${r.stderr ?? ''}`
+      if (r.status === 0) return true
+      if (attempt === 0 && otpRefused(out)) {
+        otp = await ask(`publishing ${pkg.name} (the last code was refused)`)
+        continue
+      }
+      console.error(out.trim())
+      return false
+    }
+    return false
+  } finally {
+    rmSync(stage, { recursive: true, force: true })
+  }
+}
+
+/** Trust this repo's release workflow to publish the package over OIDC. */
+async function trust(pkg) {
+  let otp = await ask(`trusting ${pkg.name}`)
   for (let attempt = 0; attempt < 2; attempt++) {
     const res = await fetch(
-      `https://registry.npmjs.org/-/package/${name.replace('/', '%2f')}/trust`,
+      `https://registry.npmjs.org/-/package/${pkg.name.replace('/', '%2f')}/trust`,
       {
         method: 'POST',
         headers: {
@@ -86,24 +130,28 @@ for (const name of missing) {
       },
     )
     const text = (await res.text()).slice(0, 300)
-    if (res.ok || /already|duplicate/i.test(text)) {
-      console.log(`✓ ${name} trusts ${REPO} ${WORKFLOW}`)
-      break
-    }
-    // A code that expired between calls: ask once more.
-    if (attempt === 0 && (res.status === 401 || /otp|one-time/i.test(text))) {
-      otp = (await rl.question(`That code was refused for ${name} — a fresh 2FA code: `)).trim()
+    if (res.ok || /already|duplicate/i.test(text)) return true
+    if (attempt === 0 && (res.status === 401 || otpRefused(text))) {
+      otp = await ask(`trusting ${pkg.name} (the last code was refused)`)
       continue
     }
-    console.error(`✗ ${name}: ${res.status} ${text}`)
-    failed = true
-    break
+    console.error(`✗ trust ${pkg.name}: ${res.status} ${text}`)
+    return false
   }
+  return false
+}
+
+let failed = false
+for (const pkg of missing) {
+  if (!(await publishFirst(pkg))) {
+    console.error(`✗ ${pkg.name}: the first publish failed — nothing was trusted`)
+    failed = true
+    continue
+  }
+  console.log(`✓ ${pkg.name}@${pkg.version} published`)
+  if (await trust(pkg)) console.log(`✓ ${pkg.name} trusts ${REPO} ${WORKFLOW}`)
+  else failed = true
 }
 rl.close()
-if (!failed) {
-  console.log(
-    '\nDone. Dispatch the Release workflow (mcp_publish=true for molecule-mcp) to publish.',
-  )
-}
+if (!failed) console.log('\nDone. Later versions publish from the Release workflow over OIDC.')
 process.exit(failed ? 1 : 0)

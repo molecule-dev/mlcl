@@ -4,18 +4,17 @@ name: Release
 # release of a package npm has never seen (molecule-mcp ships with mlcl v2,
 # so `npx mlcl mcp install` resolves the moment v2 is out):
 #
-#   1. Trust molecule-mcp BEFORE its first publish — from the owner's shell,
-#      one 2FA code: `npm run trust:new` (scripts/trust-new-packages.mjs). It
-#      sends the trust link with `createStagedPackage`, which npm accepts for a
-#      name it has never seen, so even the first version publishes over OIDC.
-#      (No local `npm publish`; same mechanism as molecule's `trust:new`.)
-#   2. Dispatch this workflow with mcp_publish=true — it publishes mlcl v2
-#      (its trust link exists: github / release.yml / molecule-dev/mlcl) and
-#      molecule-mcp in the same run:
-#        gh workflow run release.yml -R molecule-dev/mlcl -f mcp_publish=true
+#   1. molecule-mcp's FIRST version, from the owner's shell: `npm run trust:new`
+#      (scripts/trust-new-packages.mjs). npm's trust endpoint needs the package
+#      to exist (a new name answers 404), so it publishes the first version with
+#      the owner's npm login + 2FA code, then trusts this workflow — the same as
+#      molecule's trust:new. Every later molecule-mcp version publishes from CI.
+#   2. mlcl v2 (its trust link exists: github / release.yml / molecule-dev/mlcl):
+#        gh workflow run release.yml -R molecule-dev/mlcl -f mcp_publish=false
+#      mcp_publish=false while molecule-mcp's version is the one step 1 published.
 #
-# Pre-flight status at hold-lift: mlcl@2.1.0 gates all green (0bef0c866+);
-# molecule-mcp packs clean at 0.2.0 (19 files, 28.1 kB, smoke green).
+# Pre-flight at hold-lift (2026-10-13): mlcl@2.1.0 and molecule-mcp@0.2.0 packed,
+# installed clean outside the workspace, scaffold/build/test/deploy all green.
 #
 # PUBLISH-ONLY — publishes mlcl (and molecule-mcp if staged) via CI, never from
 # a laptop. Versioning is a LOCAL step (bump package.json + commit + push).
