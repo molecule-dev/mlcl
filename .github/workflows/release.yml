@@ -96,6 +96,12 @@ jobs:
         working-directory: mlcl
 
       # ---- GATE 2: Test suite ------------------------------------------------
+      # The molecule-mcp suites need mcp/'s own node_modules (not a workspace
+      # member); without them they skip and the gate passes untested — same
+      # install as ci.yml.
+      - name: Install molecule-mcp deps
+        run: npm install --no-audit --no-fund
+        working-directory: mlcl/mcp
       - name: Run full test suite
         run: npm test
         working-directory: mlcl
