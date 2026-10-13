@@ -20,7 +20,7 @@ import { dirname, join, relative } from 'node:path'
 
 import { marginNotesCss } from '@molecule/app-margin-notes-html'
 
-import { sectionSummaries } from './ai-summaries.js'
+import { sectionSummaries, worthSummary } from './ai-summaries.js'
 import {
   ABOUT_PATH,
   loadPosts,
@@ -132,19 +132,53 @@ async function buildSummaries(
   const summaries = new Map<string, Record<number, string>>()
   await Promise.all(
     [...sources].map(async ([slug, markdown]) => {
-      const blocks = markdownBlocks(markdown)
-      const starts = sectionStarts(blocks)
-      // A section runs from its own block up to the next one, so the model is
-      // given that section and nothing else.
-      const sections = starts.map((index, i) => ({
-        index,
-        text: blocks.slice(index, starts[i + 1] ?? blocks.length).join('\n\n'),
-      }))
-      const filled = await sectionSummaries(root, slug, sections)
+      const filled = await sectionSummaries(root, slug, postSections(markdown))
       if (Object.keys(filled).length > 0) summaries.set(slug, filled)
     }),
   )
   return summaries
+}
+
+/**
+ * A post's sections: each one runs from its own first block up to the next
+ * section, so a summary is written from that section and nothing else.
+ *
+ * @param markdown - The post's markdown.
+ * @returns Each section's first block index and its text.
+ */
+function postSections(markdown: string): Array<{ index: number; text: string }> {
+  const blocks = markdownBlocks(markdown)
+  const starts = sectionStarts(blocks)
+  return starts.map((index, i) => ({
+    index,
+    text: blocks.slice(index, starts[i + 1] ?? blocks.length).join('\n\n'),
+  }))
+}
+
+/**
+ * Only sections long enough for a TL;DR keep one (`worthSummary`), wherever the
+ * summaries came from — generated here or passed to `buildSite` by hand. A
+ * one-paragraph section or a cheatsheet entry is its own summary.
+ *
+ * @param summaries - TL;DR per section per slug.
+ * @param sources - Each post's markdown, by slug.
+ * @returns The same summaries without the short sections'.
+ */
+function dropShortSections(
+  summaries: Map<string, Record<number, string>>,
+  sources: Map<string, string>,
+): Map<string, Record<number, string>> {
+  const kept = new Map<string, Record<number, string>>()
+  for (const [slug, bySection] of summaries) {
+    const long = new Set(
+      postSections(sources.get(slug) ?? '')
+        .filter((section) => worthSummary(section.text))
+        .map((section) => section.index),
+    )
+    const entries = Object.entries(bySection).filter(([index]) => long.has(Number(index)))
+    if (entries.length > 0) kept.set(slug, Object.fromEntries(entries))
+  }
+  return kept
 }
 
 /** What a build produced. */
@@ -165,7 +199,8 @@ export interface BuildResult {
  * @param options.siteUrl - Defaults to SITE_URL from the environment.
  * @param options.summaries - TL;DR per section per post slug (see `sitePages`).
  *   Left out, the build generates them (see src/ai-summaries.ts); pass `new Map()`
- *   to build without summaries, e.g. in a test.
+ *   to build without summaries, e.g. in a test. Either way a section under
+ *   `MIN_WORDS` prose words shows none.
  * @returns Every file written, the posts and the URL helpers used.
  */
 export async function buildSite(options: {
@@ -191,7 +226,10 @@ export async function buildSite(options: {
     )
   }
   const sources = new Map(posts.map((post) => [post.slug, post.markdown]))
-  const summaries = options.summaries ?? (await buildSummaries(root, sources))
+  const summaries = dropShortSections(
+    options.summaries ?? (await buildSummaries(root, sources)),
+    sources,
+  )
   const pages = sitePages(site, posts, { provenance, summaries })
 
   // Write into a sibling directory and swap it in only when everything was
@@ -227,8 +265,8 @@ export async function buildSite(options: {
     }
     // The margin-notes layout's stylesheet goes FIRST and the site's own after it,
     // so a rule in public/styles.css wins a tie with the layout's defaults. The
-    // other order made every site override lose (X0 x297, 2026-09-28: six minutes
-    // of a fix round went to finding that the layout's --mn-measure beat its own).
+    // other order made every site override lose (the layout's --mn-measure beat
+    // the site's own).
     const styles = join(staging, 'styles.css')
     writeFileSync(styles, marginNotesCss + (existsSync(styles) ? readFileSync(styles, 'utf8') : ''))
   } catch (error) {

@@ -35,10 +35,13 @@ import { bond } from '@molecule/api-bond'
 /**
  * Sections with fewer PROSE words than this are not worth a summary — the
  * paragraph is one already. Prose only: fenced code is not counted, so a
- * cheatsheet section of one sentence and five commands is short (X0 x391,
- * 2026-09-29, summarised sections the brief says are too short).
+ * cheatsheet section of one sentence and five commands is short.
+ *
+ * The build applies this to EVERY summary, generated or passed in by hand
+ * (`worthSummary`, used by src/build.ts): a short section shows no TL;DR,
+ * however its summary was written.
  */
-const MIN_WORDS = 80
+export const MIN_WORDS = 80
 
 /**
  * A section's prose words: fenced code blocks removed, inline code kept as
@@ -54,6 +57,16 @@ export function proseWords(text: string): number {
       .replace(/`([^`\n]*)`/g, '$1')
       .replace(/[#>*_|-]/g, ' '),
   )
+}
+
+/**
+ * Whether a section is long enough to carry a TL;DR (`MIN_WORDS` prose words).
+ *
+ * @param text - The section's markdown.
+ * @returns True when the section gets a summary.
+ */
+export function worthSummary(text: string): boolean {
+  return proseWords(text) >= MIN_WORDS
 }
 
 /**
@@ -100,7 +113,7 @@ export async function sectionSummaries(
   slug: string,
   sections: Array<{ index: number; text: string }>,
 ): Promise<Record<number, string>> {
-  const wanted = sections.filter((section) => proseWords(section.text) >= MIN_WORDS)
+  const wanted = sections.filter((section) => worthSummary(section.text))
   if (wanted.length === 0) return {}
   // No key, no model: the site builds without summaries (the posts and every
   // page still work). Checked here so a keyless build or test never dials out.
@@ -117,8 +130,7 @@ export async function sectionSummaries(
   }
   // Each section on its own, with one retry: one failed call (a rate limit, a
   // timeout) used to throw away the WHOLE post's summaries, cached ones
-  // included, and the next deploy published a post with none (X0 x386,
-  // 2026-09-29). Now a failure costs only that section, the cache keeps every
+  // included, and the next deploy published a post with none. Now a failure costs only that section, the cache keeps every
   // answer that came back, and the build says how many are missing.
   const missed: number[] = []
   for (const section of wanted) {
@@ -131,7 +143,7 @@ export async function sectionSummaries(
         // Over the cap or unfinished (no full stop, ends on "and"/"the"…): the
         // summarizer's fallback, not a TL;DR. Leave the section without one; the
         // next build asks again. Publishing it showed readers a sentence that
-        // stops mid-phrase (X0 x282, x302).
+        // stops mid-phrase.
         if (result.withinCap !== false) summaries[section.index] = result.summary
         break
       } catch (error) {

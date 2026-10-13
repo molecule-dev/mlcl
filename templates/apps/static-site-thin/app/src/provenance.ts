@@ -135,8 +135,8 @@ export function postProvenance(markdown: string, transcriptDir: string): Provena
     )
   }
   // A model name is the MODEL's, not the agent's: "Prompt · Synthase" tells a
-  // reader nothing true (X0 x408, 2026-09-29, and x324's "synthase-1": a
-  // transcript written by hand with the agent's name, through five fix rounds).
+  // reader nothing true (a transcript written by hand with the agent's name
+  // reads that way).
   const notModels = [
     ...new Set(
       result.paragraphs

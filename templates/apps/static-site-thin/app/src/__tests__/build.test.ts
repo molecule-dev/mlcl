@@ -133,6 +133,25 @@ describe('content rules', () => {
   })
 })
 
+describe('section summaries', () => {
+  it('a short section shows no TL;DR, even when one is passed in by hand', async () => {
+    const long = Array.from({ length: 90 }, (_, i) => `word${i}`).join(' ') + '.'
+    const body = `## Short\n\nJust a line.\n\n## Long\n\n${long}`
+    const root = appWith({ 'mixed.md': post('Mixed', '2026-01-03', '', body) })
+    const blocks = markdownBlocks(body)
+    const shortAt = blocks.indexOf('## Short')
+    const longAt = blocks.indexOf('## Long')
+    const outDir = mkdtempSync(join(tmpdir(), 'thin-dist-'))
+    await buildSite({
+      root,
+      outDir,
+      summaries: new Map([['mixed', { [shortAt]: 'A line.', [longAt]: 'Ninety words.' }]]),
+    })
+    const written = JSON.parse(readFileSync(join(outDir, 'mixed', 'summaries.json'), 'utf8'))
+    expect(written).toEqual({ [longAt]: 'Ninety words.' })
+  })
+})
+
 describe('provenance', () => {
   it('a post without transcripts says, on its page, that a person wrote it', async () => {
     // The site's rule: transcripts are how AI writing enters a post, so a post
