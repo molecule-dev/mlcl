@@ -13,6 +13,12 @@
  * whose transcript names no model fails the build, naming the file: a Codex
  * Markdown export never records one, so use that session's rollout `.jsonl`.
  *
+ * Only REAL session exports go in that folder — never a transcript written for
+ * illustration, a sample, or a demo post. The provenance is the claim "an AI
+ * wrote this, from this prompt"; an invented transcript makes it false. A post
+ * that has no real transcript simply has no folder, and the build marks every
+ * block `human`, which the page states as "written by a person".
+ *
  * The attribution is `@molecule/api-text-provenance` with its word-overlap bond;
  * the transcripts are read by `@molecule/api-agent-transcript-autodetect`. To
  * show provenance on a page, call `postProvenance()` from src/pages.ts —
